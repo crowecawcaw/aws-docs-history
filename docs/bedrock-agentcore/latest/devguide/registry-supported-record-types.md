@@ -104,7 +104,7 @@ If your agent does not follow the A2A protocol, you can still publish the record
 <a name="registry-agentskills-descriptors"></a>
 
 Skills are reusable capabilities shared across agents. A skill record uses the `agentSkillsDefinition` primary descriptor. The optional skill markdown nests under `descriptors.agentSkillsDefinition.additionalData.skillMd`.
-+  **Skill markdown (optional)** — Content of SKILL.md, validated against the [official AgentSkills specification](https://agentskills.io/home) on the AgentSkills website. Store in `descriptors.agentSkillsDefinition.additionalData.skillMd.data`. Note that the markdown is only used as metadata for discovery purpose. Registry does not support storing other agent skill files.
++  **Skill markdown (optional)** — Content of SKILL.md, validated against the [official AgentSkills specification](https://agentskills.io/home) on the AgentSkills website. Store in `descriptors.agentSkillsDefinition.additionalData.skillMd.data`. The registry stores only the SKILL.md content and uses it as metadata for discovery.
 +  **Skill definition (optional)** — Structured definition validated against an Amazon pre-defined schema. Store in `descriptors.agentSkillsDefinition.data`. Supported `dataSchemaVersion`: 0.1.0.
 
 **Important**  

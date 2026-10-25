@@ -485,7 +485,7 @@ Route partner-specific traffic through dedicated proxy infrastructure while usin
 
 ### Configuration lifecycle
 <a name="browser-proxies-config-lifecycle"></a>
-+  **Set at creation** – Proxy configuration is set once at session creation. Configuration changes at runtime are not supported. Create a new session to use different settings.
++  **Set at creation** – Proxy configuration is set once at session creation. To use different settings, create a new session.
 +  **Session-scoped** – Each browser session has independent proxy configuration.
 +  **Timeout** – Standard session timeouts apply. Proxy configuration is discarded when the session ends.
 
@@ -571,6 +571,6 @@ Before configuring browser proxies, review these limitations to ensure the featu
 | Traffic routing | Proxy configuration is a browser-level setting applied at session startup. It is not a network-level control and does not guarantee that all traffic will transit the proxy. For network-layer enforcement, use [Configure Amazon Bedrock AgentCore Runtime and tools for VPC](agentcore-vpc.md). | 
 | Supported protocols | HTTP and HTTPS proxies only. SOCKS4 and SOCKS5 proxies are not supported. | 
 | Authentication | HTTP Basic authentication or no authentication (IP allowlisting). NTLM, Kerberos, and certificate-based authentication are not supported. | 
-| Proxy changes | Proxy configuration is set once at session creation. Configuration changes at runtime are not supported. Create a new session to change proxy settings. | 
-| Proxy rotation | Automatic proxy rotation for IP cycling or load distribution is not supported. Create new sessions to rotate proxies. | 
+| Proxy changes | Proxy configuration is set once at session creation. To change proxy settings, create a new session. | 
+| Proxy rotation | To rotate proxies for IP cycling or load distribution, create new sessions. | 
 | Connection validation | Proxy connectivity is not validated at session creation. Connection errors appear at runtime. | 

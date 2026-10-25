@@ -22,31 +22,20 @@ Create an online evaluation configuration with insights and a clustering schedul
 **Example**  
 
 ```
-agentcore add online-insights --name my_agent_insights --runtime MyAgent --insights Builtin.Insight.FailureAnalysis --sampling-rate 100 --clustering-frequency DAILY --enable-on-create --json
+agentcore add online-insight \
+  --name my_agent_insights \
+  --agent MyAgent \
+  --insight Builtin.Insight.FailureAnalysis \
+  --sampling-rate 100 \
+  --clustering-frequency DAILY \
+  --enable-on-create true \
+  --json
 ```
-Then deploy via CloudFormation:  
+Run this from inside an AgentCore project, and replace `MyAgent` with the name of a Runtime in that project. Then deploy the project:  
 
 ```
-agentcore deploy -y --json
+agentcore deploy --json
 ```
-
-1. Run `agentcore` to open the TUI, then select **add** and choose **Online Insights**:  
-![Insights wizard: select agent to monitor](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-add-agent.png)
-
-1. Select the insights to enable:  
-![Insights wizard: select insights](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-add-insights.png)
-
-1. Set the sampling rate:  
-![Insights wizard: set sampling rate](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-add-sampling-rate.png)
-
-1. Choose clustering frequencies:  
-![Insights wizard: select clustering frequency](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-add-clustering.png)
-
-1. Enter a config name:  
-![Insights wizard: enter config name](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-add-name.png)
-
-1. Review the configuration and press Enter to confirm:  
-![Insights wizard: review configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-add-confirm.png)
 
 ```
 import boto3
@@ -81,7 +70,7 @@ print(f"Created config: {config_id}")
 ```
 
 This tells the service to:
-+ Sample sessions at the configured rate (100% in this example — adjust `--sampling-rate` or `samplingPercentage` to analyze a subset of traffic).
++ Sample sessions at the configured rate. This example uses 100%. To analyze a subset of traffic, lower `--sampling-rate` or `samplingPercentage`.
 + Run failure analysis and user intent extraction on each sampled session.
 + Trigger a clustering report daily.
 
@@ -92,17 +81,28 @@ This tells the service to:
 | Parameter | Type | Required | Description | 
 | --- | --- | --- | --- | 
 |  `insights`  | List | Required (mutually exclusive with `evaluators`) | List of insight types to run. Each entry has an `insightId`. Maximum 10. | 
-|  `rule.samplingConfig.samplingPercentage`  | Number | No (default: 100) | Percentage of sessions to analyze (1—​100). Use a lower sampling rate for high-traffic agents to control costs while still surfacing failure patterns. | 
+|  `rule.samplingConfig.samplingPercentage`  | Number | Yes | Percentage of sessions to analyze (0.01-100). Use a lower sampling rate for high-traffic agents to control costs while still surfacing failure patterns. | 
 |  `clusteringConfig`  | Object | No | Configures periodic batch evaluation jobs for clustering. Contains a `frequencies` list. Can only be used when `insights` is provided. | 
 |  `clusteringConfig.frequencies`  | List of strings | Yes (within `clusteringConfig`) | One or more of: `DAILY`, `WEEKLY`, `MONTHLY`. Maximum 3 values. | 
 
 **Note**  
-Insights and evaluators are mutually exclusive — you must provide one or the other, not both. If you want both quality scoring and failure triage for the same agent, create two separate configurations pointing at the same data source.
+Insights and evaluators are mutually exclusive. Provide one or the other, not both. If you want both quality scoring and failure triage for the same agent, create two separate configurations pointing at the same data source.
 
 ## Update a configuration
 <a name="insights-recurring-update"></a>
 
 Modify the insights or clustering frequency:
+
+**Example**  
+For a config that you added with `agentcore add online-insight`, change `insights` or `clusteringConfig` in the `onlineEvalConfigs` array in `agentcore/agentcore.json`, then run `agentcore deploy`.  
+For a config that is not part of a project, update it by ID. Run `agentcore eval online-insight list` to find the ID. `--insight` replaces the list of insights, and `--clustering-frequency` replaces the set of frequencies:  
+
+```
+agentcore eval online-insight update \
+  --id <ONLINE_INSIGHT_ID> \
+  --insight Builtin.Insight.FailureAnalysis Builtin.Insight.UserIntent \
+  --clustering-frequency DAILY WEEKLY
+```
 
 ```
 client_cp.update_online_evaluation_config(
@@ -118,7 +118,16 @@ client_cp.update_online_evaluation_config(
 ## View recurring report results
 <a name="insights-recurring-view"></a>
 
-Recurring reports produce batch evaluation jobs automatically. Use `ListBatchEvaluations` to find completed reports, then `GetBatchEvaluation` to retrieve results:
+Recurring reports produce batch evaluation jobs automatically.
+
+**Example**  
+List the batch insights runs, then get the results of one run by its ID:  
+
+```
+agentcore eval batch-insights list --json
+agentcore eval batch-insights get --id <BATCH_INSIGHTS_ID> --json
+```
+Use `ListBatchEvaluations` to find completed reports, then `GetBatchEvaluation` to retrieve results:  
 
 ```
 client = boto3.client("bedrock-agentcore", region_name="us-west-2")
@@ -141,20 +150,27 @@ for eval_summary in evaluations.get("batchEvaluations", []):
 <a name="insights-recurring-manage"></a>
 
 **Example**  
+For a config that you added with `agentcore add online-insight`, set its `enableOnCreate` to `false` in `agentcore/agentcore.json` and run `agentcore deploy` to pause it. Set `enableOnCreate` to `true` and deploy to resume it. To delete it, remove it from the project, then deploy:  
+
+```
+agentcore remove online-insight --name my_agent_insights
+agentcore deploy
+```
+For a config that is not part of a project, use its ID. Run `agentcore eval online-insight list` to find it.  
 Pause:  
 
 ```
-agentcore pause online-insights my_agent_insights --json
+agentcore eval online-insight pause --id <ONLINE_INSIGHT_ID> --json
 ```
 Resume:  
 
 ```
-agentcore resume online-insights my_agent_insights --json
+agentcore eval online-insight resume --id <ONLINE_INSIGHT_ID> --json
 ```
-Remove:  
+Delete:  
 
 ```
-agentcore remove online-insights --name my_agent_insights --yes --json
+agentcore eval online-insight delete --id <ONLINE_INSIGHT_ID> --json
 ```
 Pause or resume:  
 

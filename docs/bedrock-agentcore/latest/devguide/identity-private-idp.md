@@ -231,6 +231,6 @@ For the full policy document and instructions for creating, editing, and deletin
 <a name="private-idp-limitations"></a>
 +  **Discovery URL must be HTTPS** : The IdP’s OIDC discovery URL must use HTTPS. HTTP endpoints are not supported.
 +  **Private certificates** : Your IdP must use a publicly trusted TLS certificate, or you must place an ALB with a public ACM certificate in front of it. For more information, see [Workaround for private certificates: ALB](vpc-egress-private-endpoints.md#lattice-vpc-egress-private-certs).
-+  **Cross-account** : Cross-account private IdP connectivity requires the self-managed Lattice option. Managed Lattice does not support cross-account scenarios.
++  **Cross-account** : Cross-account private IdP connectivity requires the self-managed Lattice option.
 
 For additional limitations related to VPC Lattice connectivity, see [Limitations and considerations](vpc-egress-private-endpoints.md#lattice-vpc-egress-limitations) in [Connect to private resources in your VPC using VPC Lattice](vpc-egress-private-endpoints.md).

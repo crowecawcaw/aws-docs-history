@@ -21,130 +21,24 @@ To use Amazon Bedrock AgentCore, you can attach the [BedrockAgentCoreFullAccess]
 ## Use the AgentCore CLI
 <a name="runtime-permissions-cli"></a>
 
-To use the AgentCore CLI, attach the following IAM policy to your IAM user or role. To change IAM permissions, see [Change permissions for an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html).
+The AgentCore CLI uses AWS CDK and AWS CloudFormation to deploy projects. The permissions required by a deployment depend on the Runtime, Harness, Memory, Gateway, and other resources in the project, so there isn’t one least-privilege policy that applies to every project.
+
+The IAM identity that runs `agentcore deploy` needs permission to:
++ Call `sts:GetCallerIdentity` and read the `CDKToolkit` and `AgentCore-<project-name>-<target-name>` CloudFormation stacks.
++ Bootstrap the target account and Region if the `CDKToolkit` stack is missing or outdated. If the environment is already bootstrapped, the identity must be able to assume the CDK deployment and file-publishing roles.
++ Create, update, and delete the CloudFormation stack and provision the AWS resources declared by the project. This can include passing or creating IAM roles and using Amazon S3, Amazon ECR, AWS CodeBuild, CloudWatch Logs, and Amazon Bedrock AgentCore.
++ Enable CloudWatch Transaction Search. `agentcore deploy` turns on Transaction Search in the target account and Region if it is not already active. If the identity lacks the following permissions, the deploy skips this step and continues. To turn off this step, run `agentcore config transactionSearch false`.
+  +  `xray:GetTraceSegmentDestination` 
+  +  `xray:UpdateTraceSegmentDestination` 
+  +  `xray:UpdateIndexingRule` 
+  +  `logs:DescribeResourcePolicies` 
+  +  `logs:PutResourcePolicy` 
+  +  `application-signals:StartDiscovery` 
+
+For information about the roles and resources created during bootstrap, see [Bootstrapping your environment for use with the AWS CDK](https://docs.aws.amazon.com/cdk/v2/guide/bootstrapping-env.html).
 
 **Important**  
-The IAM policies created by the AgentCore CLI are designed for development and testing purposes. These permissions grant broad access to facilitate rapid prototyping and are not suitable for production environments. For production deployments, create custom IAM policies that follow the principle of least privilege and restrict permissions to only the specific resources and actions required by your Amazon Bedrock AgentCore application. For complete IAM security guidance, see [Security best practices for AgentCore Runtime](runtime-security-best-practices.md).
-
-```
-{
-"Version":"2012-10-17",		 	 	 
-    "Statement": [
-        {
-            "Sid": "IAMRoleManagement",
-            "Effect": "Allow",
-            "Action": [
-                "iam:CreateRole",
-                "iam:DeleteRole",
-                "iam:GetRole",
-                "iam:PutRolePolicy",
-                "iam:DeleteRolePolicy",
-                "iam:AttachRolePolicy",
-                "iam:DetachRolePolicy",
-                "iam:TagRole",
-                "iam:ListRolePolicies",
-                "iam:ListAttachedRolePolicies"
-            ],
-            "Resource": [
-                "arn:aws:iam::*:role/*BedrockAgentCore*",
-                "arn:aws:iam::*:role/service-role/*BedrockAgentCore*"
-            ]
-        },
-        {
-            "Sid": "CodeBuildProjectAccess",
-            "Effect": "Allow",
-            "Action": [
-                "codebuild:StartBuild",
-                "codebuild:BatchGetBuilds",
-                "codebuild:ListBuildsForProject",
-                "codebuild:CreateProject",
-                "codebuild:UpdateProject",
-                "codebuild:BatchGetProjects"
-            ],
-            "Resource": [
-                "arn:aws:codebuild:*:*:project/bedrock-agentcore-*",
-                "arn:aws:codebuild:*:*:build/bedrock-agentcore-*"
-            ]
-        },
-        {
-            "Sid": "CodeBuildListAccess",
-            "Effect": "Allow",
-            "Action": [
-                "codebuild:ListProjects"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "IAMPassRoleAccess",
-            "Effect": "Allow",
-            "Action": [
-                "iam:PassRole"
-            ],
-            "Resource": [
-                "arn:aws:iam::*:role/AmazonBedrockAgentCore*",
-                "arn:aws:iam::*:role/service-role/AmazonBedrockAgentCore*"
-            ]
-        },
-        {
-            "Sid": "CloudWatchLogsAccess",
-            "Effect": "Allow",
-            "Action": [
-                "logs:GetLogEvents",
-                "logs:DescribeLogGroups",
-                "logs:DescribeLogStreams"
-            ],
-            "Resource": [
-                "arn:aws:logs:*:*:log-group:/aws/bedrock-agentcore/*",
-                "arn:aws:logs:*:*:log-group:/aws/codebuild/*"
-            ]
-        },
-        {
-            "Sid": "S3Access",
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetObject",
-                "s3:PutObject",
-                "s3:ListBucket",
-                "s3:CreateBucket",
-                "s3:PutLifecycleConfiguration"
-            ],
-            "Resource": [
-                "arn:aws:s3:::bedrock-agentcore-*",
-                "arn:aws:s3:::bedrock-agentcore-*/*"
-            ]
-        },
-        {
-            "Sid": "ECRRepositoryAccess",
-            "Effect": "Allow",
-            "Action": [
-                "ecr:CreateRepository",
-                "ecr:DescribeRepositories",
-                "ecr:GetRepositoryPolicy",
-                "ecr:InitiateLayerUpload",
-                "ecr:CompleteLayerUpload",
-                "ecr:PutImage",
-                "ecr:UploadLayerPart",
-                "ecr:BatchCheckLayerAvailability",
-                "ecr:GetDownloadUrlForLayer",
-                "ecr:BatchGetImage",
-                "ecr:ListImages",
-                "ecr:TagResource"
-            ],
-            "Resource": [
-                "arn:aws:ecr:*:*:repository/bedrock-agentcore-*"
-            ]
-        },
-        {
-            "Sid": "ECRAuthorizationAccess",
-            "Effect": "Allow",
-            "Action": [
-                "ecr:GetAuthorizationToken"
-            ],
-            "Resource": "*"
-        }
-    ]
-}
-```
+Use broad deployment permissions only for development and testing. For production deployments, pre-bootstrap the environment and create custom policies for the CDK roles and project resources that follow the principle of least privilege. For complete IAM security guidance, see [Security best practices for AgentCore Runtime](runtime-security-best-practices.md).
 
 ## User permissions for Amazon Bedrock AgentCore Console
 <a name="runtime-permissions-console"></a>

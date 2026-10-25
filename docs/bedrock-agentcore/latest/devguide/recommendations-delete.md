@@ -13,21 +13,21 @@ Deleting a recommendation removes the record from `ListRecommendations`. It does
 **Example**  
 
 ```
+agentcore eval recommendation delete --id MyPromptRec-AB1CD2EF3G
+```
+The recommendation must be in a terminal state (`COMPLETED` or `FAILED`).
+
+```
 import boto3
 
 client = boto3.client("bedrock-agentcore", region_name="us-west-2")
 
 response = client.delete_recommendation(
-    recommendationId="MyPromptRec-Ab1Cd2Ef3G"
+    recommendationId="MyPromptRec-AB1CD2EF3G"
 )
 print(f"Deleted: {response['recommendationId']}")
 print(f"Status: {response['status']}")
 ```
-
-```
-agentcore archive recommendation -i MyPromptRec-Ab1Cd2Ef3G
-```
-The recommendation must be in a terminal state (`COMPLETED` or `FAILED`). This command archives the recommendation job record on the service and clears local history.
 
 ## Request parameters
 <a name="delete-rec-params"></a>

@@ -63,3 +63,5 @@ View detailed information about a specific custom evaluator, including its confi
 1. In the **Custom evaluators** card, view the table that lists the custom evaluators you have created.
 
 1. To view information for a specific custom evaluator, choose the custom evaluator name to view its details.
+
+   For a [multi-dimension evaluator](multi-dimension-evaluators.md), the details page shows the number of **Dimensions** and a **Dimension: *name* ** section for each dimension with its instruction, scale type, and scale definitions. If the dimensions use different scale types, **Scale type** shows **Varies by dimension**.

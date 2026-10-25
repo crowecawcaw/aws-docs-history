@@ -9,15 +9,12 @@ Use an interactive shell for debugging, iterative development, or long-running p
 
 For SigV4 and SigV4 pre-signed requests, the caller needs `bedrock-agentcore:InvokeAgentRuntimeCommandShell` permission on the harness. Bearer-token requests must satisfy the harness inbound authorizer instead.
 
-**Important**  
-At launch, AgentCore CLI commands and the high-level AgentCore SDK shell helpers don’t support harness targets. Connect to a harness shell through the `InvokeAgentRuntimeCommandShell` WebSocket API directly, as shown on this page.
-
 ## How it works
 <a name="harness-command-shell-how-it-works"></a>
 
  `InvokeAgentRuntimeCommandShell` establishes a WebSocket connection to an interactive shell process in the microVM that runs your harness session. The connection uses binary frames to stream terminal input and output in both directions.
 
-If the harness uses the default environment, the shell runs in the managed harness environment. If the harness uses a custom container, the shell runs in that container. Harness interactive terminals currently support Bash only.
+If the harness uses the default environment, the shell runs in the managed harness environment. If the harness uses a custom container, the shell runs in that container. Harness interactive terminals run Bash.
 
 The connection supports:
 
@@ -30,12 +27,67 @@ The connection supports:
 
 ## Prerequisites
 <a name="harness-command-shell-prerequisites"></a>
+
+Before you connect to an interactive shell, make sure that you have the following:
 + A harness in `READY` state
 + Authorization for the selected authentication method: `bedrock-agentcore:InvokeAgentRuntimeCommandShell` IAM permission for SigV4, or a bearer token accepted by the harness inbound authorizer
 + A WebSocket client that supports binary frames and either request headers or pre-signed URLs
-+ For a custom container, Bash installed at `/bin/bash`. Other shells, including `sh` and `dash`, aren’t currently supported.
++ For a custom container, Bash installed at `/bin/bash` 
 
 For more information about the complete harness permissions model, see [Required IAM permissions for callers](harness-security.md#harness-iam-permissions).
+
+## Open a Harness shell with the AgentCore CLI
+<a name="harness-command-shell-cli"></a>
+
+Use the Harness ID, not its managed Runtime ID. This resource command does not require an AgentCore project:
+
+```
+agentcore harness shell --id <harness-id>
+```
+
+Without `--qualifier`, the CLI prompts you to choose an endpoint. To select an endpoint and an existing Harness session directly:
+
+```
+agentcore harness shell \
+  --id <harness-id> \
+  --qualifier DEFAULT \
+  --session-id <runtime-session-id> \
+  --region us-west-2
+```
+
+The CLI signs IAM-authorized requests with your AWS credentials. For a Harness configured with `CUSTOM_JWT`, supply a token accepted by its inbound authorizer:
+
+```
+agentcore harness shell \
+  --id <harness-id> \
+  --qualifier DEFAULT \
+  --bearer-token file://token.txt
+```
+
+After connecting, the CLI prints the runtime session ID, shell ID, and a complete reconnect command. Press `Ctrl+]` to detach the local terminal while keeping the remote shell running:
+
+```
+Connected
+Session ID: <runtime-session-id>
+Shell ID: <shell-id>
+Ctrl+D or 'exit' to close · Ctrl+] to detach
+To reconnect: agentcore harness shell --id <harness-id> --qualifier DEFAULT --session-id <runtime-session-id> --shell-id <shell-id> --region us-west-2
+```
+
+Run the printed command to reconnect to the same Harness shell:
+
+```
+agentcore harness shell \
+  --id <harness-id> \
+  --qualifier DEFAULT \
+  --session-id <runtime-session-id> \
+  --shell-id <shell-id> \
+  --region us-west-2
+```
+
+The `--shell-id` option requires `--session-id`. For a CUSTOM\_JWT harness, pass `--bearer-token` again when reconnecting. The CLI does not include secrets in the printed command.
+
+The command requires an interactive terminal on stdin and stdout and does not support `--json`, stdin bearer tokens, or custom endpoint URLs. Enter `exit` or press Ctrl\+D to close the remote shell permanently. Press `Ctrl+]` to detach and reconnect later. The CLI waits for initialization before handing control to your terminal.
 
 ## Connect through the WebSocket API
 <a name="harness-command-shell-connect"></a>
@@ -84,6 +136,7 @@ import botocore.session
 import websockets
 from botocore.auth import SigV4Auth
 from botocore.awsrequest import AWSRequest
+from websockets.exceptions import ConnectionClosed
 
 
 REGION = "us-west-2"
@@ -92,7 +145,6 @@ HARNESS_ARN = (
     "harness/MyHarness-a1b2c3d4e5"
 )
 SESSION_ID = str(uuid.uuid4())  # 36 characters
-SUBPROTOCOL = "v1.command.agentcore.aws.dev"
 
 
 def signed_headers(url):
@@ -108,6 +160,22 @@ def signed_headers(url):
     return dict(request.headers)
 
 
+async def wait_for_initial_status(websocket):
+    while True:
+        frame = await websocket.recv()
+        if isinstance(frame, str) or not frame:
+            continue
+        channel, payload = frame[0], frame[1:]
+        if channel in (0x01, 0x02):
+            print(payload.decode("utf-8", errors="replace"), end="")
+        elif channel == 0x03:
+            status = json.loads(payload)
+            shell_id = status.get("metadata", {}).get("shellId")
+            if status.get("status") != "Success" or not shell_id:
+                raise RuntimeError(f"Shell initialization failed: {status}")
+            return shell_id
+
+
 async def main():
     encoded_arn = urllib.parse.quote(HARNESS_ARN, safe="")
     host = f"bedrock-agentcore.{REGION}.amazonaws.com"
@@ -118,12 +186,16 @@ async def main():
     async with websockets.connect(
         websocket_url,
         additional_headers=signed_headers(https_url),
-        subprotocols=[SUBPROTOCOL],
         open_timeout=330,
     ) as websocket:
-        shell_id = websocket.response.headers.get(
-            "X-Amzn-Bedrock-AgentCore-Shell-Id"
-        )
+        try:
+            shell_id = await asyncio.wait_for(
+                wait_for_initial_status(websocket), timeout=330
+            )
+        except asyncio.TimeoutError as exc:
+            raise RuntimeError("Timed out waiting for shell initialization") from exc
+        except ConnectionClosed as exc:
+            raise RuntimeError("Shell closed before initialization completed") from exc
         print(f"Connected to shell {shell_id}")
 
         # Channel 0x00 carries terminal input.
@@ -147,6 +219,8 @@ async def main():
 
 asyncio.run(main())
 ```
+
+This IAM example, like the AgentCore CLI client, uses signed headers without offering a WebSocket subprotocol. It waits for a successful initialization `STATUS` with a shell ID before sending terminal input.
 
 ## Binary frame protocol
 <a name="harness-command-shell-protocol"></a>
@@ -197,6 +271,8 @@ Opening another connection with the same shell ID replaces the existing connecti
 
 ## Common use cases
 <a name="harness-command-shell-use-cases"></a>
+
+Interactive shells support the following use cases:
 
 Interactive debugging  
 Inspect installed packages, files, processes, and environment configuration in the same environment as the harness agent.
@@ -265,6 +341,8 @@ Once connected, the following close codes indicate why the connection ended:
 
 ## Best practices
 <a name="harness-command-shell-best-practices"></a>
+
+Follow these best practices when you use interactive shells:
 + Generate and retain a unique shell ID for each logical terminal.
 + Retain the runtime session ID with the shell ID. Both values are required for reconnection.
 + Read output promptly so that the connection write buffer doesn’t fill.

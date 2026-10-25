@@ -25,22 +25,25 @@ When a batch evaluation completes, the `GetBatchEvaluation` response includes an
 ### Per-evaluator summaries
 <a name="batch-eval-evaluator-summaries"></a>
 
-Each entry in `evaluatorSummaries` provides aggregate metrics for one evaluator:
+Each entry in `evaluatorSummaries` provides aggregate metrics for one evaluator, or for one dimension of a multi-dimension evaluator:
 
 
 | Field | Description | 
 | --- | --- | 
 |  `evaluatorId`  | Short ID (for example, `Builtin.GoalSuccessRate`). | 
-|  `statistics.averageScore`  | Mean score across all evaluated sessions. Range depends on the evaluator (typically 0–1). | 
+|  `evaluationDimensionName`  | For a [multi-dimension evaluator](multi-dimension-evaluators.md), the dimension this entry covers. Absent for single-scale evaluators. | 
+|  `statistics.averageScore`  | Mean score across all evaluated sessions. Range depends on the evaluator (typically 0–1). Absent for categorical evaluators and categorical dimensions. | 
 |  `totalEvaluated`  | Number of sessions this evaluator successfully scored. | 
 |  `totalFailed`  | Number of sessions where this evaluator returned an error. | 
+
+A multi-dimension evaluator has one entry per dimension. A separate entry for the evaluator, without `evaluationDimensionName`, counts the sessions that fail before the judge model runs.
 
 ### Example response
 <a name="batch-eval-example-response"></a>
 
 ```
 {
-    "batchEvaluationId": "12345678-1234-1234-1234-123456789012",
+    "batchEvaluationId": "acme_baseline-a1b2c3d4e5",
     "status": "COMPLETED",
     "evaluationResults": {
         "numberOfSessionsCompleted": 47,
@@ -79,7 +82,7 @@ The `outputConfig` field in the `GetBatchEvaluation` response specifies a CloudW
     "outputConfig": {
         "cloudWatchConfig": {
             "logGroupName": "/aws/bedrock-agentcore/evaluations/batch",
-            "logStreamName": "12345678-1234-1234-1234-123456789012"
+            "logStreamName": "acme_baseline-a1b2c3d4e5"
         }
     }
 }
@@ -97,7 +100,7 @@ Each event in the log stream contains per-turn, per-evaluator detail:
 |  `gen_ai.evaluation.score.label`  | Categorical label (for example, `PASS`, `Very Helpful`). | 
 |  `gen_ai.evaluation.explanation`  | LLM-generated reasoning for the score. | 
 
-To read these events, use the CloudWatch Logs API:
+To read these events with the AWS SDK, use the CloudWatch Logs API. `agentcore eval batch-evaluation get` reads them for you, as described in [Viewing results from the CLI](#batch-eval-viewing-from-cli).
 
 ```
 import boto3
@@ -106,7 +109,7 @@ logs_client = boto3.client("logs", region_name="us-west-2")
 
 response = logs_client.get_log_events(
     logGroupName="/aws/bedrock-agentcore/evaluations/batch",
-    logStreamName="12345678-1234-1234-1234-123456789012",
+    logStreamName="acme_baseline-a1b2c3d4e5",
 )
 
 for event in response["events"]:
@@ -150,39 +153,39 @@ A common workflow is to run batch evaluation before and after a change (prompt u
 baseline = client.get_batch_evaluation(batchEvaluationId=baseline_id)
 treatment = client.get_batch_evaluation(batchEvaluationId=treatment_id)
 
-baseline_summaries = {
-    s["evaluatorId"]: s["statistics"]["averageScore"]
-    for s in baseline["evaluationResults"]["evaluatorSummaries"]
-}
-treatment_summaries = {
-    s["evaluatorId"]: s["statistics"]["averageScore"]
-    for s in treatment["evaluationResults"]["evaluatorSummaries"]
-}
+def average_scores(job):
+    # Key on the dimension too: a multi-dimension evaluator has one summary per dimension.
+    return {
+        (s["evaluatorId"], s.get("evaluationDimensionName")): s["statistics"]["averageScore"]
+        for s in job["evaluationResults"]["evaluatorSummaries"]
+        if "averageScore" in s.get("statistics", {})
+    }
 
-print(f"{'Evaluator':<35} {'Baseline':>10} {'Treatment':>10} {'Delta':>10}")
-print("=" * 67)
-for eid in baseline_summaries:
-    b = baseline_summaries[eid]
-    t = treatment_summaries.get(eid, 0)
-    delta = t - b
-    print(f"{eid:<35} {b:>10.4f} {t:>10.4f} {delta:>+10.4f}")
+baseline_summaries = average_scores(baseline)
+treatment_summaries = average_scores(treatment)
+
+print(f"{'Evaluator':<45} {'Baseline':>10} {'Treatment':>10} {'Delta':>10}")
+print("=" * 77)
+for (eid, dim), b in baseline_summaries.items():
+    t = treatment_summaries.get((eid, dim), 0)
+    name = f"{eid}/{dim}" if dim else eid
+    print(f"{name:<45} {b:>10.4f} {t:>10.4f} {t - b:>+10.4f}")
 ```
 
 ## Viewing results from the CLI
 <a name="batch-eval-viewing-from-cli"></a>
 
-In addition to the `GetBatchEvaluation` API, the AgentCore CLI surfaces the same results:
-+  `agentcore view batch-evaluation <batch-evaluation-id>` — view a single job and its results (add `--json` for the raw output).
-+  `agentcore batch-evaluations history` — list batch evaluation jobs (running jobs are refreshed from the service; add `--json`).
-+  `agentcore run batch-evaluation …​ --json` — returns the same `batchEvaluationId` / `evaluationResults` / `evaluatorSummaries` object shown in the JSON example above.
+The AgentCore CLI provides the following commands:
++  `agentcore eval batch-evaluation get --id <batch-evaluation-id>`: Returns the `GetBatchEvaluation` response. For a finished job, the command also reads the result log stream and adds a `results` array with one entry per score. Each entry has fields such as `evaluatorId`, `level`, `sessionId`, `traceId`, `score`, `label`, `explanation`, and `error`. Pass `--disable-cw-results` to skip the CloudWatch read and return only the job metadata.
++  `agentcore eval batch-evaluation list`: Lists batch evaluation jobs.
++  `agentcore eval batch-evaluation evaluate`: Starts a job and prints its metadata as JSON.
 
 ```
 # View a single batch evaluation job and its results
-agentcore view batch-evaluation 12345678-1234-1234-1234-123456789012 --json
+agentcore eval batch-evaluation get \
+  --id acme_baseline-a1b2c3d4e5 \
+  --json
 
-# List batch evaluation jobs (running jobs are refreshed from the service)
-agentcore batch-evaluations history --json
+# List batch evaluation jobs
+agentcore eval batch-evaluation list --json
 ```
-
-**Note**  
-The run command flag for selecting evaluators is `-e, --evaluator <ids…​>` (or `--evaluator-arn <arns…​>`).

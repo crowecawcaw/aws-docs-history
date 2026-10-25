@@ -19,8 +19,8 @@ Set up the following before you run batch evaluations:
 Batch evaluation runs under the caller’s credentials. Unlike online evaluation, batch evaluation does not require a separate service execution role. The service uses your IAM identity to access CloudWatch Logs for session discovery and to write evaluation results.
 
  AWS credentials configured with permissions for the following services:
-+  `bedrock-agentcore` — to start, get, list, stop, and delete batch evaluations
-+  `logs` (CloudWatch Logs) — to read session spans and write evaluation results
++  `bedrock-agentcore`: To start, get, list, stop, and delete batch evaluations
++  `logs` (CloudWatch Logs): To read session spans and write evaluation results
 
 ### Required IAM permissions
 <a name="batch-eval-iam-permissions"></a>
@@ -41,6 +41,36 @@ The following IAM policy grants the minimum permissions needed to run batch eval
                 "bedrock-agentcore:DeleteBatchEvaluation"
             ],
             "Resource": "arn:aws:bedrock-agentcore:*:*:batch-evaluate/*"
+        },
+        {
+            "Sid": "ResolveAgentForCli",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock-agentcore:GetAgentRuntime",
+                "bedrock-agentcore:GetHarness"
+            ],
+            "Resource": [
+                "arn:aws:bedrock-agentcore:*:*:runtime/*",
+                "arn:aws:bedrock-agentcore:*:*:harness/*"
+            ]
+        },
+        {
+            "Sid": "ResolveOnlineEvalForCli",
+            "Effect": "Allow",
+            "Action": "bedrock-agentcore:GetOnlineEvaluationConfig",
+            "Resource": "arn:aws:bedrock-agentcore:*:*:online-evaluation-config/*"
+        },
+        {
+            "Sid": "SimulateForCli",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock-agentcore:InvokeAgentRuntime",
+                "bedrock-agentcore:GetDataset"
+            ],
+            "Resource": [
+                "arn:aws:bedrock-agentcore:*:*:runtime/*",
+                "arn:aws:bedrock-agentcore:*:*:dataset/*"
+            ]
         },
         {
             "Sid": "ReadAgentLogs",
@@ -96,6 +126,15 @@ The following IAM policy grants the minimum permissions needed to run batch eval
 The `BedrockInvokeForCustomEvaluators` statement is required only if you use a custom evaluator that invokes Amazon Bedrock models. You can omit it when using only built-in evaluators.
 
 **Note**  
+The `ResolveAgentForCli` statement is required only when you pass `--agent` to `agentcore eval batch-evaluation evaluate`, or when you run `agentcore eval batch-evaluation simulate`. The CLI calls `GetAgentRuntime` to find the log group and service name. For a harness ID, that call returns not found and the CLI then calls `GetHarness`.
+
+**Note**  
+The `ResolveOnlineEvalForCli` statement is required only when you pass an online evaluation configuration ID to `--online-eval`. The CLI calls `GetOnlineEvaluationConfig` to look up the configuration ARN. If you pass the ARN, the CLI makes no call.
+
+**Note**  
+The `SimulateForCli` statement is required only for `agentcore eval batch-evaluation simulate`. The command invokes the Runtime, which needs `bedrock-agentcore:InvokeAgentRuntime`. If you pass `--bearer-token` for a Runtime that uses JWT authorization, the CLI authenticates with the token and doesn’t need `bedrock-agentcore:InvokeAgentRuntime`. When `--dataset` is a dataset ID, the command also needs `bedrock-agentcore:GetDataset`.
+
+**Note**  
 The `WriteEvaluationLogs` statement lets the service create the evaluation-results log group and log streams and write results under your credentials. You must grant `logs:DescribeLogGroups` on `Resource` `*` because this action doesn’t support resource-level permissions.
 
 ## SDK and CLI requirements
@@ -105,8 +144,9 @@ The `WriteEvaluationLogs` statement lets the service create the evaluation-resul
 
 **Note**  
 The batch-evaluation CLI surface consists of the following commands:  
- `agentcore run batch-evaluation` — start a batch evaluation
- `agentcore stop batch-evaluation -i <id>` — stop a running batch evaluation
- `agentcore view batch-evaluation [id]` and `agentcore batch-evaluations history` — view a job or list jobs
- `agentcore archive batch-evaluation -i <id>` — archive a batch evaluation job record on the service and clear local history
-The `bedrock-agentcore:DeleteBatchEvaluation` IAM action is backed by the CLI’s `archive batch-evaluation` command; there is no literal `delete` CLI verb.
+ `agentcore eval batch-evaluation evaluate`: Evaluates existing sessions.
+ `agentcore eval batch-evaluation simulate`: Replays a dataset and evaluates the generated sessions.
+ `agentcore eval batch-evaluation get --id <id>`: Gets a job.
+ `agentcore eval batch-evaluation list`: Lists jobs.
+ `agentcore eval batch-evaluation stop --id <id>`: Stops a running job.
+To delete a batch evaluation, use the AWS SDK.

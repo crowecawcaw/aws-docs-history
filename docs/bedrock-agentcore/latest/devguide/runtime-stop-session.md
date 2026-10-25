@@ -15,7 +15,7 @@ Use `StopRuntimeSession` in these scenarios:
 +  **Timeout handling** : Clean up sessions that exceed expected duration
 
 ## Prerequisites
-<a name="prerequisites"></a>
+<a name="runtime-stop-session-prerequisites"></a>
 
 To use [StopRuntimeSession](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StopRuntimeSession.html) , you need:
 +  `bedrock-agentcore:StopRuntimeSession` IAM permission

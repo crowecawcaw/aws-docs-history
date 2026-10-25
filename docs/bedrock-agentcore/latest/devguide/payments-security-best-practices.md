@@ -45,7 +45,7 @@ When you create a Coinbase connector with **Quick create**, AgentCore payments i
 A connector has two service-managed secrets, and you rotate each one for different reasons. Rotate the API key as routine maintenance. Rotate the Wallet secret only when it is compromised or lost. For more information, see [Choose which credentials to rotate](#payments-rotate-secrets).
 
 **Note**  
-You can rotate credentials from the console, the AWS CLI, and the AWS SDKs. The AgentCore CLI and the AgentCore SDK do not provide a rotation command, so use one of the other three.
+Rotate credentials from the console, the AgentCore CLI (`agentcore payment connector rotate-credentials`), the AWS CLI, or the AWS SDKs.
 
 #### Check whether a connector is eligible
 <a name="payments-rotate-eligibility"></a>
@@ -135,6 +135,16 @@ aws bedrock-agentcore-control rotate-payment-connector-credentials \
   --credentials-to-rotate '{"coinbaseCDP": {"secrets": ["API_KEY"]}}' \
   --region us-east-1
 ```
+After checking [connector eligibility](#payments-rotate-eligibility), rotate its service-managed API key:  
+
+```
+agentcore payment connector rotate-credentials \
+  --manager-id <paymentManagerId> \
+  --connector-id <paymentConnectorId> \
+  --secrets API_KEY \
+  --region us-east-1
+```
+ `--secrets` selects credential kinds, not new secret values. The service creates the replacement.
 
 ```
 import boto3
@@ -195,6 +205,15 @@ aws bedrock-agentcore-control rotate-payment-connector-credentials \
 Confirm that payments succeed after the rotation, because the Wallet secret signs every wallet write operation.
 
 ```
+agentcore payment connector rotate-credentials \
+  --manager-id <paymentManagerId> \
+  --connector-id <paymentConnectorId> \
+  --secrets WALLET_SECRET \
+  --region us-east-1
+```
+The same eligibility and downtime requirements apply. Confirm that payments succeed after the rotation.
+
+```
 response = client.rotate_payment_connector_credentials(
     paymentManagerId="<paymentManagerId>",
     paymentConnectorId="<paymentConnectorId>",
@@ -223,6 +242,15 @@ aws bedrock-agentcore-control rotate-payment-connector-credentials \
   --credentials-to-rotate '{"coinbaseCDP": {"secrets": ["API_KEY", "WALLET_SECRET"]}}' \
   --region us-east-1
 ```
+
+```
+agentcore payment connector rotate-credentials \
+  --manager-id <paymentManagerId> \
+  --connector-id <paymentConnectorId> \
+  --secrets API_KEY WALLET_SECRET \
+  --region us-east-1
+```
+Pass the credential kinds as space-separated values. You can add `--client-token <token>` for idempotent retries; reuse that token only when retrying the same request.
 
 ```
 response = client.rotate_payment_connector_credentials(

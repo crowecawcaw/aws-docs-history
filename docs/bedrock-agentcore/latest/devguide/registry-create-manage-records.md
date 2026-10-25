@@ -27,7 +27,7 @@
 
 1. Under **Record details**, select the record type: **MCP** or **Agent**.
 **Note**  
-Synchronization is only supported for MCP and Agent record types. Agent Skills and Custom record types do not support synchronization — use the Manual source type instead.
+Synchronization is available for MCP and Agent record types. For Agent Skills and Custom record types, use the Manual source type.
 
 1. Enter the **Endpoint** URL. Must be a valid HTTPS URL.
 
@@ -90,7 +90,7 @@ For AWS CLI and SDK examples of creating records with synchronization, see [Sync
 
 1. Under **Record details**, select the record type: **MCP** or **Agent**.
 **Note**  
-Synchronization is only supported for MCP and Agent record types. Agent Skills and Custom record types do not support synchronization — use the Manual source type instead.
+Synchronization is available for MCP and Agent record types. For Agent Skills and Custom record types, use the Manual source type.
 
 1. Enter the **Endpoint** URL. Must be a valid HTTPS URL.
 

@@ -17,7 +17,7 @@ With self-managed strategies, you can:
 
 **Topics**
 + [Create and use a self-managed strategy](#use-self-managed-strategy)
-+ [Prerequisites](#prerequisites)
++ [Prerequisites](#memory-self-managed-strategies-prerequisites)
 + [Set up the infrastructure](#setting-up-infrastructure)
 + [Create a self-managed strategy](#creating-self-managed-strategy)
 + [Understanding payload delivery](#understanding-payload-delivery)
@@ -42,7 +42,7 @@ Self-managed strategies follow a five-step process from trigger configuration to
 1.  **Store memory records** : Use batch APIs to store processed memory records back into Amazon Bedrock AgentCore long-term memory
 
 ## Prerequisites
-<a name="prerequisites"></a>
+<a name="memory-self-managed-strategies-prerequisites"></a>
 
 Before setting up self-managed strategies, verify you have:
 + An AWS account with appropriate permissions

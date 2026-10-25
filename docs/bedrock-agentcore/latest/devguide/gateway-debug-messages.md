@@ -6,13 +6,14 @@
 While your gateway is in development, you can turn on debugging messages to return details on target configuration issues, including lambda function errors, egress authorizer errors, target specification parameter validation errors. After turning on debugging messages, if an issue occurs when you invoke your gateway, the response will return messages to help you debug.
 
  **To turn on debugging messages, do one of the following:** 
-+ If you use the AgentCore CLI to create a gateway, debugging is automatically turned on.
++ If you use the AgentCore CLI to create a gateway, debugging is off by default. Pass `--exception-level debug` to `agentcore add gateway`, or set the gateway’s `exceptionLevel` to `DEBUG` in `agentcore/agentcore.json`, and then run `agentcore deploy`.
 + If you use the AWS Management Console to create a gateway, debugging is turned on by default. The option is under **Additional configurations** in the **Gateway details** section.
 + If you use the AWS CLI or an AWS SDK, set the `exceptionLevel` value as `DEBUG` when you make a [CreateGateway](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateGateway.html) or [UpdateGateway](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateGateway.html) request.
 
 When you’re done debugging your gateway, you can update the gateway to turn off debugging messages, such that the message to the end user only shows an unspecified internal error.
 
  **To turn off debugging messages, do one of the following:** 
++ In an AgentCore CLI project, set the gateway’s `exceptionLevel` to `NONE` in `agentcore/agentcore.json`, and then run `agentcore deploy`.
 + In the AWS Management Console, expand **Additional configurations** in the **Gateway details** section when you create or edit a gateway and uncheck the checkbox next to **Exception level debug**.
 + In the AWS CLI or an AWS SDK, omit the `exceptionLevel` field when you make a `CreateGateway` or `UpdateGateway` request to turn off debugging.
 

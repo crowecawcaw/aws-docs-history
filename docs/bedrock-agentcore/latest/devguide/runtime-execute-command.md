@@ -43,6 +43,17 @@ Agents created after March 17, 2026 support command execution automatically. If 
 
 **Example**  
 
+1. Run `agentcore runtime exec` with the Runtime ID. The Runtime ID is the last segment of the Runtime ARN. The session ID must be 33 to 100 characters long:
+
+   ```
+   agentcore runtime exec \
+     --id <runtime-id> \
+     --session-id <session-id> \
+     --command "ls -la /workspace"
+   ```
+
+   The command prints JSON with the `sessionId`, `command`, `exitCode`, `status`, and `output` fields. Add `--timeout <seconds>` (1 to 3600) to limit how long the command runs, and `--qualifier <endpoint>` to target an endpoint other than `DEFAULT`.
+
 1. The following example shows how to use boto3 to execute a command in a AgentCore Runtime session.
 
    ```

@@ -153,12 +153,12 @@ The `privateEndpoint` configuration applies to a single domain in your OpenAPI s
 ## Smithy target
 <a name="smithy-target"></a>
 
-Private endpoint ( `privateEndpoint` ) configuration is not currently supported for Smithy targets. If your Smithy target requires private connectivity, open an [AWS Support case](https://console.aws.amazon.com/support/home) to request support.
+To set up private connectivity for a Smithy target, open an [AWS Support case](https://console.aws.amazon.com/support/home).
 
 ## API Gateway
 <a name="api-gateway-target"></a>
 
-AgentCore Gateway supports API Gateway as a target type, which can serve as an intermediary layer for accessing VPC resources. AgentCore Gateway specifically supports REST API Gateways configured with regional endpoints only. While direct VPC communication from the Gateway is not currently available (this feature is planned for future release), the gateway communicates with API Gateway over the AWS backbone, ensuring that traffic never traverses the public internet (except for cross-region calls to China datacenters). The API Gateway can then communicate with resources using VPC Link, creating a secure pathway for the AgentCore Gateway to reach internal services while maintaining network isolation.
+AgentCore Gateway supports API Gateway as a target type, which can serve as an intermediary layer for accessing VPC resources. AgentCore Gateway specifically supports REST API Gateways configured with regional endpoints only. The gateway communicates with API Gateway over the AWS backbone, ensuring that traffic never traverses the public internet (except for cross-region calls to China datacenters). The API Gateway can then communicate with resources using VPC Link, creating a secure pathway for the AgentCore Gateway to reach internal services while maintaining network isolation.
 
 To implement security best practices, configure your API Gateway to restrict inbound traffic exclusively to the AgentCore Gateway service principal or the configured API key, preventing unauthorized access from other sources. For outbound authorization from AgentCore Gateway to API Gateway, only two authentication methods are supported: IAM-based authentication (using the gateway service role to authenticate with AWS Signature Version 4) and API key authentication (managed by AgentCore Gateway); OAuth-based authorization and Cross Account API Gateways are not supported for API Gateway targets, please use API Gateway endpoint via Open API Target for those. Limit the AgentCore Gateway execution role permissions to invoke only the specific API Gateway endpoint required, rather than granting broad API Gateway access, ensuring that the gateway cannot interact with unintended API resources and maintaining the principle of least privilege throughout your architecture.
 

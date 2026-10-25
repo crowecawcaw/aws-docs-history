@@ -21,20 +21,14 @@ The following examples show how to create a dataset:
 1. 
 
    ```
-   # Add a dataset to your project
-   agentcore add dataset --name my_eval_dataset \
-       --schema-type AGENTCORE_EVALUATION_PREDEFINED_V1
-   
-   # Edit the generated JSONL file with your scenarios
-   # File location: agentcore/datasets/my_eval_dataset.jsonl
-   
-   # Deploy to create the dataset in your AWS account
-   agentcore deploy
+   # Create a dataset from a JSONL file
+   agentcore eval dataset create \
+     --name my_eval_dataset \
+     --schema-type predefined \
+     --source file://my_eval_dataset.jsonl
    ```
 
-   This creates a local JSONL file and registers the dataset in your project configuration. Run `agentcore deploy` to create the dataset resource and sync examples to the service.
-**Note**  
-Run this from inside an AgentCore project directory (created with `agentcore create`).
+   The command returns the dataset ID while the dataset is still `CREATING`. Run `agentcore eval dataset get --id <DATASET_ID>` until the status is `ACTIVE` before you change the dataset.
 
 1. 
 
@@ -147,14 +141,19 @@ The following examples show how to get a dataset:
 1. 
 
    ```
-   # Show dataset deployment status and metadata
-   agentcore status --type dataset
+   # Show dataset metadata
+   agentcore eval dataset get --id <DATASET_ID>
    
-   # Download dataset content to your local JSONL file (default: Draft)
-   agentcore dataset download --name my_eval_dataset
+   # Download the DRAFT
+   agentcore eval dataset get \
+     --id <DATASET_ID> \
+     --file-path my_eval_dataset.jsonl
    
    # Download a specific published version
-   agentcore dataset download --name my_eval_dataset --version 1
+   agentcore eval dataset get \
+     --id <DATASET_ID> \
+     --version 1 \
+     --file-path my_eval_dataset-v1.jsonl
    ```
 
 1. 
@@ -218,7 +217,7 @@ The following examples show how to list datasets:
 1. 
 
    ```
-   agentcore status --type dataset
+   agentcore eval dataset list
    ```
 
 1. 
@@ -254,7 +253,7 @@ The following examples show how to list datasets:
 ## Update dataset
 <a name="datasets-update"></a>
 
-The `UpdateDataset` API updates dataset metadata. This is a synchronous operation (HTTP 200). Only `description` and `tags` can be updated. `datasetName`, `schemaType`, and `kmsKeyArn` are immutable after creation.
+The `UpdateDataset` API updates dataset metadata. This is a synchronous operation (HTTP 200). Only `description` can be updated. To change tags, use the `TagResource` and `UntagResource` APIs. `datasetName`, `schemaType`, and `kmsKeyArn` are immutable after creation.
 
 The dataset must be in `ACTIVE`, `UPDATE_FAILED`, or `CREATE_FAILED` status.
 
@@ -262,15 +261,7 @@ The following examples show how to update dataset metadata:
 
 **Example**  
 
-1. To update a dataset with the AgentCore CLI, edit the dataset configuration in your `agentcore.json` file directly, then redeploy:
-
-   ```
-   agentcore deploy
-   ```
-
-   Open `agentcore.json`, find the dataset in the `datasets` array, modify its `description`, then run `agentcore deploy`. Changes take effect after deployment.
-**Note**  
-Run this from inside an AgentCore project directory (created with `agentcore create`).
+1.  `agentcore eval dataset update` changes DRAFT examples, not dataset metadata. To change the description, use the AgentCore SDK or AWS SDK.
 
 1. 
 
@@ -320,11 +311,10 @@ The following examples show how to delete a dataset:
 
    ```
    # Delete a specific published version
-   agentcore dataset remove-version 1 --name my_eval_dataset
+   agentcore eval dataset delete --id <DATASET_ID> --version 1
    
    # Delete entire dataset
-   agentcore remove dataset --name my_eval_dataset
-   agentcore deploy
+   agentcore eval dataset delete --id <DATASET_ID>
    ```
 
 1. 

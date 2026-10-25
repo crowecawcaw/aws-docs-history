@@ -15,19 +15,21 @@ The most direct method is to include strategies when you create a new AgentCore 
 1. 
 
    ```
-   agentcore add memory --name PersonalizedShoppingAgentMemory --strategies USER_PREFERENCE
+   agentcore add memory --name ShoppingMemory --strategies USER_PREFERENCE
    agentcore deploy
    ```
 
-1. Run `agentcore` to open the TUI, then select **add** and choose **Memory** :
+1. Run `agentcore add memory` to open the Memory wizard.
 
-1. Select the **User preference** strategy:  
-![Memory wizard: select USER_PREFERENCE strategy](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-strategies.png)
+1. Enter a name for the memory, such as `ShoppingMemory`.
 
-1. Review the configuration and press Enter to confirm:  
-![Memory wizard: confirm memory configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-confirm.png)
+1. Use the arrow keys and Space to select `USER_PREFERENCE`, then press Enter.
 
-   Then run `agentcore deploy` to provision the memory in AWS.
+1. Keep the default event retention or enter a value from 3 to 365 days.
+
+1. Review the configuration and press Enter to add the memory.
+
+1. Press Ctrl\+C to exit the TUI, then run `agentcore deploy` to provision the memory in AWS.
 
 ## Adding long-term strategies to an existing AgentCore Memory
 <a name="long-term-adding-strategies-to-existing-memory"></a>
@@ -51,15 +53,17 @@ memory_id = "your-existing-memory-id"
 # Update the memory to add a summary strategy
 response = control_client.update_memory(
     memoryId=memory_id,
-    memoryStrategies=[
-        {
-            'summaryMemoryStrategy': {
-                'name': 'SessionSummarizer',
-                'description': 'Summarizes conversation sessions for context',
-                'namespaceTemplates': ['/summaries/{actorId}/{sessionId}/']
+    memoryStrategies={
+        'addMemoryStrategies': [
+            {
+                'summaryMemoryStrategy': {
+                    'name': 'SessionSummarizer',
+                    'description': 'Summarizes conversation sessions for context',
+                    'namespaceTemplates': ['/summaries/{actorId}/{sessionId}/']
+                }
             }
-        }
-    ]
+        ]
+    }
 )
 
 print(f"Successfully submitted update for memory ID: {memory_id}")

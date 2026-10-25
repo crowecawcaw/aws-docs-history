@@ -318,7 +318,7 @@ Then you can configure your MCP client simply using an url:
 Common errors when you setup dynamic client registration:
 + You must ensure the authorization server supports dynamic client registration.
 + The authorization server must issue JWT with `aud` field, which is allowed in your registry’s CustomJWTAuthorizerConfiguration.
-+ Currently registry does not return scope challenge in www-authenticate header. Some MCP clients support explicitly defining `oauthScopes` in configuration, such as [Kiro](https://kiro.dev/docs/cli/custom-agents/configuration-reference/#oauth-configuration).
++ Define the OAuth scopes in your MCP client configuration, because the registry doesn’t return a scope challenge in the `www-authenticate` header. Some MCP clients support explicitly defining `oauthScopes` in configuration, such as [Kiro](https://kiro.dev/docs/cli/custom-agents/configuration-reference/#oauth-configuration).
 
 ## Connect to IAM-based registry MCP endpoint from an existing MCP client
 <a name="registry-mcp-connect-iam"></a>

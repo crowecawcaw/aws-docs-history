@@ -12,7 +12,7 @@ Within LangGraph there are two main memory concepts when it comes to memory [per
 These integrations are easy to set up, requiring only specifying the Memory ID of a AgentCore Memory. Because they are saved to persistent storage within the service, there is no need to worry about losing these interactions through container exits, unreliable in-memory solutions, or agent application crashes.
 
 **Topics**
-+ [Prerequisites](#prerequisites)
++ [Prerequisites](#memory-integrate-lang-prerequisites)
 + [Configuration for short term memory persistence](#memory-short-term-memory)
 + [Configuration for intelligent long term memory search](#long-term-memory)
 + [Create the agent with configurations](#create-agent)
@@ -20,7 +20,7 @@ These integrations are easy to set up, requiring only specifying the Memory ID o
 + [Resources](#resources)
 
 ## Prerequisites
-<a name="prerequisites"></a>
+<a name="memory-integrate-lang-prerequisites"></a>
 
 Requirements you need before integrating AgentCore Memory with LangChain and LangGraph.
 

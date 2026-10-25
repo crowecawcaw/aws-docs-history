@@ -9,16 +9,15 @@ Retrieve the status and results of a recommendation. Poll this operation until t
 <a name="get-rec-examples"></a>
 
 **Example**  
- `agentcore run recommendation` submits a fire-and-forget job. Pass `--wait` to block until it reaches a terminal state, or check on it later by ID:  
+Starting a recommendation is asynchronous. Check its status and retrieve its result by ID:  
 
 ```
-agentcore view recommendation <recommendation-id>
+agentcore eval recommendation get --id <recommendation-id>
 ```
-List all recommendation jobs, or view as JSON:  
+List all recommendations as JSON:  
 
 ```
-agentcore view recommendation
-agentcore view recommendation <recommendation-id> --json
+agentcore eval recommendation list --json
 ```
 Poll until completion and extract the result:  
 
@@ -138,8 +137,8 @@ Completed system prompt recommendation (inline input):
 
 ```
 {
-    "recommendationId": "MyPromptRec-Ab1Cd2Ef3G",
-    "recommendationArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:recommendation/MyPromptRec-Ab1Cd2Ef3G",
+    "recommendationId": "MyPromptRec-AB1CD2EF3G",
+    "recommendationArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:recommendation/MyPromptRec-AB1CD2EF3G",
     "name": "my-prompt-rec",
     "type": "SYSTEM_PROMPT_RECOMMENDATION",
     "status": "COMPLETED",
@@ -159,8 +158,8 @@ Completed system prompt recommendation (configuration bundle input):
 
 ```
 {
-    "recommendationId": "MyBundleRec-Xy9Zw8Vq1R",
-    "recommendationArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:recommendation/MyBundleRec-Xy9Zw8Vq1R",
+    "recommendationId": "MyBundleRec-XY9ZW8VQ1R",
+    "recommendationArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:recommendation/MyBundleRec-XY9ZW8VQ1R",
     "name": "my-bundle-prompt-rec",
     "type": "SYSTEM_PROMPT_RECOMMENDATION",
     "status": "COMPLETED",
@@ -184,8 +183,8 @@ Completed tool description recommendation:
 
 ```
 {
-    "recommendationId": "MyToolRec-Qr5St6Uv7W",
-    "recommendationArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:recommendation/MyToolRec-Qr5St6Uv7W",
+    "recommendationId": "MyToolRec-QR5ST6UV7W",
+    "recommendationArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:recommendation/MyToolRec-QR5ST6UV7W",
     "name": "my-tool-rec",
     "type": "TOOL_DESCRIPTION_RECOMMENDATION",
     "status": "COMPLETED",
@@ -215,8 +214,8 @@ Failed recommendation:
 
 ```
 {
-    "recommendationId": "MyFailedRec-Mn3Op4Qr5S",
-    "recommendationArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:recommendation/MyFailedRec-Mn3Op4Qr5S",
+    "recommendationId": "MyFailedRec-MN3OP4QR5S",
+    "recommendationArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:recommendation/MyFailedRec-MN3OP4QR5S",
     "name": "my-failed-rec",
     "type": "SYSTEM_PROMPT_RECOMMENDATION",
     "status": "FAILED",

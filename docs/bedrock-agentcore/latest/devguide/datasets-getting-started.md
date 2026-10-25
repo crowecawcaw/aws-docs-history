@@ -17,36 +17,71 @@ For full schema field definitions, examples, and ground truth mapping, see [Data
 ## End-to-end workflow
 <a name="datasets-gs-workflow"></a>
 
-The following example demonstrates the complete dataset lifecycle: create, add examples, list examples, publish a version, and clean up.
+The following example demonstrates the complete dataset lifecycle: create a dataset, change its examples, publish a version, and clean up.
 
 **Example**  
 
 1. 
 
+   Save the following examples as `my_eval_dataset.jsonl`, one JSON object per line:
+
    ```
-   # 1. Create dataset
-   agentcore add dataset --name my_eval_dataset \
-       --schema-type AGENTCORE_EVALUATION_PREDEFINED_V1
-   
-   # 2. Add your scenarios to the JSONL file
-   #    File: agentcore/datasets/my_eval_dataset.jsonl
-   
-   # 3. Deploy to create the dataset and sync examples
-   agentcore deploy
-   
-   # 4. Publish version 1
-   agentcore dataset publish-version --name my_eval_dataset
-   
-   # 5. Check status (shows versions and example count)
-   agentcore status --type dataset
-   
-   # 6. Download a published version to local file
-   agentcore dataset download --name my_eval_dataset --version 1
-   
-   # 7. Cleanup
-   agentcore remove dataset --name my_eval_dataset
-   agentcore deploy
+   {"scenario_id": "TC-01", "turns": [{"input": "What is my balance?", "expected_response": "Your balance is $50."}], "assertions": ["Response includes a dollar amount"]}
+   {"scenario_id": "TC-02", "turns": [{"input": "Transfer $100", "expected_response": "Transfer complete."}]}
    ```
+
+   Then run the following commands. They use `jq` to read the dataset ID and version from the JSON output.
+
+   ```
+   # Wait until a dataset version is ACTIVE and has a download URL.
+   # Usage: wait_for_dataset DRAFT, or wait_for_dataset <version-number>
+   wait_for_dataset() {
+     for attempt in $(seq 1 60); do
+       METADATA=$(agentcore eval dataset get --id "$DATASET_ID" --version "$1")
+       STATUS=$(echo "$METADATA" | jq -r '.status')
+       case "$STATUS" in
+         ACTIVE) echo "$METADATA" | jq -e '.downloadUrl' > /dev/null && return 0 ;;
+         *_FAILED) echo "Dataset status is $STATUS" >&2; return 1 ;;
+       esac
+       sleep 5
+     done
+     echo "Timed out waiting for dataset $DATASET_ID" >&2
+     return 1
+   }
+   
+   # 1. Create dataset from a JSONL file and wait for ingestion to finish
+   DATASET_ID=$(agentcore eval dataset create \
+     --name my_eval_dataset \
+     --schema-type predefined \
+     --source file://my_eval_dataset.jsonl | jq -r '.datasetId')
+   wait_for_dataset DRAFT
+   
+   # 2. Download the DRAFT. Each line now includes the exampleId that the service assigned.
+   agentcore eval dataset get \
+     --id "$DATASET_ID" \
+     --file-path my_eval_dataset.jsonl
+   
+   # 3. Edit my_eval_dataset.jsonl. Keep the exampleId on each existing line.
+   #    Then reconcile your changes into the DRAFT.
+   agentcore eval dataset update \
+     --id "$DATASET_ID" \
+     --file-path my_eval_dataset.jsonl
+   
+   # 4. Publish a version and wait for it to be ready
+   DATASET_VERSION=$(agentcore eval dataset publish --id "$DATASET_ID" | jq -r '.datasetVersion')
+   wait_for_dataset "$DATASET_VERSION"
+   
+   # 5. Download the published version
+   agentcore eval dataset get \
+     --id "$DATASET_ID" \
+     --version "$DATASET_VERSION" \
+     --file-path "my_eval_dataset-v$DATASET_VERSION.jsonl"
+   
+   # 6. Cleanup
+   agentcore eval dataset delete --id "$DATASET_ID"
+   ```
+
+   The `create` and `publish` commands return while the dataset is still `CREATING` or `UPDATING`. The `update` command waits for each batch of changes to finish before it returns.
 
 1. 
 

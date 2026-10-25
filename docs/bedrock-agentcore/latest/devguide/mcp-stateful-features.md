@@ -3,7 +3,7 @@
 # Stateful MCP server features
 <a name="mcp-stateful-features"></a>
 
-The Model Context Protocol (MCP) provides a standardized way for AI applications to interact with external data and capabilities. This guide demonstrates how to build a comprehensive MCP server that showcases all major protocol features, and how to test it both locally and when deployed to Amazon Bedrock AgentCore.
+The Model Context Protocol (MCP) provides a standardized way for AI applications to interact with external data and capabilities. This guide shows how to build an MCP server that uses resources, prompts, tools, elicitation, sampling, and progress notifications, and how to test it locally and on Amazon Bedrock AgentCore.
 
 For complete protocol details, see the [MCP Specification](https://modelcontextprotocol.io/specification/2025-11-25).
 
@@ -484,45 +484,46 @@ if __name__ == "__main__":
 
  **To configure and deploy** 
 
-1. Install the AgentCore CLI if you haven’t already:
-
-   ```
-   npm install -g @aws/agentcore
-   ```
+1. Install and configure the AgentCore CLI as described in [Get started with the AgentCore CLI](runtime-get-started-cli.md).
 
 1. Set up an Amazon Cognito user pool as described in [Set up Cognito user pool for authentication](runtime-mcp.md#runtime-mcp-appendix-a). Source the setup script so that `REGION`, `POOL_ID`, `CLIENT_ID`, and `BEARER_TOKEN` are available in your shell.
 
 1. Create a project for deployment:
 
    ```
-   agentcore create --project-name TravelAgentDemo --no-agent
+   agentcore create --name TravelAgentDemo --template empty
    cd TravelAgentDemo
-   agentcore add agent \
+   agentcore add runtime \
      --name TravelAgent \
-     --language Python \
+     --language python \
      --protocol MCP \
      --authorizer-type CUSTOM_JWT \
-     --discovery-url "https://cognito-idp.$REGION.amazonaws.com/$POOL_ID/.well-known/openid-configuration" \
-     --allowed-clients "$CLIENT_ID" \
+     --authorizer-configuration \
+     "{\"customJwtAuthorizer\":{\"discoveryUrl\":\"https://cognito-idp.$REGION.amazonaws.com/$POOL_ID/.well-known/openid-configuration\",\"allowedClients\":[\"$CLIENT_ID\"]}}" \
      --request-header-allowlist Authorization
    ```
 
-1. Replace the generated server with the server from this tutorial, and add its dependencies:
+1. Copy the server from this tutorial into the Runtime directory, initialize the Python project, and add its dependencies:
 
    ```
    cp ../travel_server.py app/TravelAgent/main.py
    cd app/TravelAgent
-   uv add "fastmcp>=2.10.0" mcp
+   uv init --bare
+   uv add \
+     "aws-opentelemetry-distro~=0.21.0" \
+     "fastmcp>=2.10.0" \
+     "mcp>=1.28.1,<2"
    cd ../..
    ```
 
-1. Deploy the agent:
+1. Build and deploy the agent:
 
    ```
+   agentcore build
    agentcore deploy
    ```
 
-   After deployment completes, note the agent ARN provided in the output.
+   After deployment completes, run `agentcore status --json`. The Runtime resource’s `arn` field contains its ARN.
 
 ## Test your deployed agent
 <a name="mcp-test-stateful-deployed"></a>
@@ -550,7 +551,7 @@ if __name__ == "__main__":
 <a name="mcp-expected-output"></a>
 
 ```
-  Agent ARN: arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/TravelAgentDemo
+  Agent ARN: arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/TravelAgentDemo_default_TravelAgent-xyz123
   Endpoint: https://bedrock-agentcore.us-west-2.amazonaws.com
 ============================================================
   Travel Agent - MCP Feature Test Client

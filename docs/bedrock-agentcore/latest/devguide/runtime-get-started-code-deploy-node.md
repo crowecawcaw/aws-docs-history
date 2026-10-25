@@ -3,7 +3,7 @@
 # Direct code deployment for Node.js
 <a name="runtime-get-started-code-deploy-node"></a>
 
-Direct code deployment enables you to bring your Node.js-based agent to Amazon Bedrock AgentCore Runtime simply by packaging agent code and its dependencies in a .zip file archive. Your agent still needs to follow [AgentCore Runtime requirements](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-service-contract.html) : have an entrypoint `.js` file that implements `/invocations` POST and `/ping` GET server endpoints.
+With direct code deployment, you package your Node.js agent code and its dependencies in a .zip file archive and deploy it to AgentCore Runtime. Your agent still needs to follow [AgentCore Runtime requirements](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-service-contract.html) : have an entrypoint `.js` file that implements `/invocations` POST and `/ping` GET server endpoints.
 
 You can include dependencies either as vendored `node_modules/` in your ZIP or as an esbuild-bundled single `.js` file.
 
@@ -144,7 +144,7 @@ server.listen(PORT, "0.0.0.0", () => {
 ## Step 3: Test locally
 <a name="step-3-test-locally-node"></a>
 
-Make sure port 8080 is free before starting. See [Troubleshoot](runtime-get-started-cli.md#common-issues) if the port is already in use.
+Make sure port 8080 is free before starting.
 
 Open a terminal window and start your agent:
 
@@ -214,9 +214,12 @@ zip deployment_package.zip app.js
 When creating the agent, use `"entryPoint": ["app.js"]` .
 
 **Note**  
-. The maximum size for a .zip deployment package for AgentCore Runtime is 250 MB (zipped) and 750 MB (unzipped). Note that this limit applies to the combined size of all the files you upload. . The AgentCore Runtime needs permission to read the files in your deployment package. In Linux permissions octal notation, AgentCore Runtime needs 644 permissions for non-executable files (rw-r—r--) and 755 permissions (rwxr-xr-x) for directories and executable files. . In Linux and MacOS, use the `chmod` command to change file permissions on files and directories in your deployment package. For example, to give a non-executable file the correct permissions, run the following command, `chmod 644 <filepath>` . To change file permissions in Windows, see [Set, View, Change, or Remove Permissions on an Object](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731667(v=ws.10)) in the Microsoft Windows documentation. \+ .. If you don’t grant AgentCore Runtime the permissions it needs to access directories in your deployment package, AgentCore Runtime sets the permissions for those directories to 755 (rwxr-xr-x).
+The maximum size for a .zip deployment package for AgentCore Runtime is 250 MB (zipped) and 750 MB (unzipped). This limit applies to the combined size of all the files you upload.
+The AgentCore Runtime needs permission to read the files in your deployment package. In Linux permissions octal notation, AgentCore Runtime needs 644 permissions for non-executable files (rw-r—​r--) and 755 permissions (rwxr-xr-x) for directories and executable files.
+In Linux and MacOS, use the `chmod` command to change file permissions on files and directories in your deployment package. For example, to give a non-executable file the correct permissions, run the following command, `chmod 644 <filepath>` . To change file permissions in Windows, see [Set, View, Change, or Remove Permissions on an Object](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731667(v=ws.10)) in the Microsoft Windows documentation.  
+If you don’t grant AgentCore Runtime the permissions it needs to access directories in your deployment package, AgentCore Runtime sets the permissions for those directories to 755 (rwxr-xr-x).
 
-A ZIP archive containing Linux **arm64** dependencies needs to be uploaded to S3 as a pre-requisite to Create Agent Runtime. The below code requires the specified S3 bucket to already exist. Please follow the AWS documentation [here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket-s3.html) to create a bucket. The following TypeScript code will upload the .zip file archive to S3 and create an Amazon Bedrock AgentCore runtime.
+A ZIP archive containing Linux **arm64** dependencies needs to be uploaded to S3 as a pre-requisite to Create Agent Runtime. The below code requires the specified S3 bucket to already exist. To create a bucket, see [Creating a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket-s3.html) in the Amazon S3 User Guide. The following TypeScript code will upload the .zip file archive to S3 and create an Amazon Bedrock AgentCore runtime.
 
 ```
 import { readFileSync } from "node:fs";
@@ -274,7 +277,7 @@ To enable OTEL auto-instrumentation, include `node_modules/@aws/aws-distro-opent
 entryPoint: ["opentelemetry-instrument", "dist/app.js"],
 ```
 
-To invoke an agent on Amazon Bedrock AgentCore Runtime programmatically, see [Invoke an agent programmatically](runtime-get-started-cli.md#invoke-programmatically).
+To invoke an agent on Amazon Bedrock AgentCore Runtime programmatically, see [Invoke an AgentCore Runtime agent with the AWS SDK](runtime-invoke-agent.md#runtime-invoke-streaming-example).
 
 ## Step 6: Stop session, update, or cleanup
 <a name="step-6-update-cleanup-node"></a>

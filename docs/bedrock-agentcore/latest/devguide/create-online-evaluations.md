@@ -21,14 +21,16 @@ The `executionStatus` parameter determines whether the evaluation job actively p
 +  **ENABLED** – The evaluation job runs continuously, processing incoming traces and generating evaluation results.
 +  **DISABLED** – The evaluation configuration exists but the job is paused. No traces are processed or evaluated.
 
-You can control execution status using the CLI:
+For a configuration you added with `agentcore add online-eval`, set `enableOnCreate` in `agentcore/agentcore.json` and run `agentcore deploy`. `false` sets the status to `DISABLED`, and `true` sets it to `ENABLED`.
+
+For a configuration created outside a project, control execution status with the following commands. They take the configuration ID. Run `agentcore eval online-eval list` to find it.
 
 ```
 # Pause a running online evaluation
-agentcore pause online-eval "your_config_name"
+agentcore eval online-eval pause --id <ONLINE_EVAL_ID>
 
 # Resume a paused online evaluation
-agentcore resume online-eval "your_config_name"
+agentcore eval online-eval resume --id <ONLINE_EVAL_ID>
 ```
 
 ## Select input log groups
@@ -74,30 +76,15 @@ The following code samples demonstrate how to create online evaluation configura
    # Create online evaluation configuration
    agentcore add online-eval \
      --name "your_config_name" \
-     --runtime "your_runtime_name" \
-     --evaluator "Builtin.GoalSuccessRate" "Builtin.Helpfulness" \
+     --agent "your_runtime_name" \
+     --evaluators "Builtin.GoalSuccessRate" "Builtin.Helpfulness" \
      --sampling-rate 1.0 \
-     --enable-on-create
+     --enable-on-create true
    ```
 
-   This command adds the online evaluation configuration to your local `agentcore.json` . Run `agentcore deploy` to create it in your AWS account.
+   This command adds the online evaluation configuration to your local `agentcore.json`. Run `agentcore deploy` to create it in your AWS account. `agentcore add online-eval` accepts up to 10 evaluators per configuration.
 **Note**  
-Run this from inside an AgentCore project directory (created with `agentcore create` ).
-
-1. Enter a name for your online evaluation configuration.  
-![Online eval config name input](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/online-eval-add-name.png)
-
-1. Select the evaluators to include. You can choose from built-in evaluators and any custom evaluators you have created.  
-![Evaluator multi-select list](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/online-eval-add-evaluators.png)
-
-1. Set the sampling rate — the percentage of agent requests that will be evaluated.  
-![Sampling rate input](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/online-eval-add-sampling-rate.png)
-
-1. Choose whether to enable evaluation automatically after deployment.  
-![Enable on deploy selection](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/online-eval-add-enable.png)
-
-1. Review the configuration and press Enter to confirm.  
-![Review online eval configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/online-eval-add-confirm.png)
+Run this from inside an AgentCore project directory created with `agentcore create`.
 
 1. 
 
@@ -205,7 +192,7 @@ You can create online evaluation configurations using the Amazon Bedrock AgentCo
 
    1.  **Select a CloudWatch log group** – Select up to 10 log groups. Enter the service name used by your agent for observability. For agents hosted on AgentCore Runtime, service name follows the format <agent-runtime-name>.<agent-runtime-endpoint-name>. For agents running outside AgentCore Runtime, service name is configured in OTEL\_RESOURCE\_ATTRIBUTES environment variable.
 
-1. For **Evaluators** , select up to 25 evaluators per evaluation configuration, including built-in and custom evaluators.
+1. For **Evaluators** , select up to 25 evaluators per evaluation configuration, including built-in and custom evaluators. The **Dimensions** column shows how many dimensions each custom evaluator has. A [multi-dimension evaluator](multi-dimension-evaluators.md) produces one result for each dimension.
 
 1. (Optional) For **Filters** , add up to 5 filters to identify which sessions to evaluate.
 

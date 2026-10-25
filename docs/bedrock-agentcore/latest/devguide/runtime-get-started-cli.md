@@ -1,317 +1,67 @@
 
 
-# Get started with the AgentCore CLI
+# Get started with AgentCore Runtime using the AgentCore CLI
 <a name="runtime-get-started-cli"></a>
 
-This quickstart gets you from zero to a running agent in a few minutes using the AgentCore CLI. You will install the CLI, scaffold a project, test locally, deploy to AWS, and invoke your agent.
+This page provides a concise workflow for creating and deploying a code-based Strands agent to AgentCore Runtime. For CLI installation, complete prerequisites, project structure, capabilities, observability, and cleanup, see [Get started with Amazon Bedrock AgentCore](agentcore-get-started-cli.md).
 
-Two ways to build an agent on AgentCore, same CLI:
-+  **Managed harness**. You declare the agent in a config file (model, prompt, tools, memory) and AgentCore runs the loop for you. No framework, no orchestration code. Good path when you want the fastest route from idea to a running agent. [Learn more](harness.md).
-+  **Code-based agent**. You write the agent loop in Python using a framework you already know (Strands, LangGraph, Google ADK, or OpenAI Agents), and deploy it to AgentCore Runtime. Full control over orchestration logic.
+## Create and test your agent
+<a name="runtime-get-started-cli-create"></a>
 
-This page walks through the code-based flow. For harness, see [What is the AgentCore harness](harness.md).
-
-## Sign up for an AWS account
-<a name="sign_up_for_an_shared_id_aws_account"></a>
-
-### Sign up for an AWS account
-<a name="sign-up-for-aws"></a>
-
-To get started with AWS, you need an AWS account. For information about creating an AWS account, see [Getting started with an AWS account](https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html) in the * AWS Account Management Reference Guide*.
-
-## Prerequisites
-<a name="agentcore-cli-prerequisites"></a>
-+  **Node.js 20 or later.** The AgentCore CLI is distributed as an npm package. Check with `node --version`. Install from [nodejs.org](https://nodejs.org) if needed.
-+  **npm.** Included with Node.js.
-+  **An AWS account with credentials configured.** Configure via AWS CLI, environment variables, or an AWS profile. See [Configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html).
-+  **Python 3.10 or later** (for agent code). Check with `python3 --version`.
-+  **IAM permissions.** Your identity needs permissions to make AgentCore API calls and to assume the CDK bootstrap roles used during deployment. See [Use the AgentCore CLI](runtime-permissions.md#runtime-permissions-cli).
-+  **Model access.** Amazon Bedrock enables access to foundation models by default. Available models include Amazon Nova, Anthropic Claude, Meta Llama, and Mistral AI models. To use non-foundation models, follow the [model access steps](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html#model-access-sdk-step4).
-+  **Docker.** Required only if you choose the `Container` build type. The default `CodeZip` build type does not require Docker.
-
-## Step 1: Install the AgentCore CLI
-<a name="agentcore-cli-install"></a>
-
-```
-npm install -g @aws/agentcore
-```
-
-Verify:
-
-```
-agentcore --version
-```
-
-**Note**  
-If this reports an error instead of a version number, an older Python `agentcore` command is shadowing the npm one on your `PATH`. This happens if you previously installed the `bedrock-agentcore-starter-toolkit` pip package, and is most common on Windows. Run `pip uninstall bedrock-agentcore-starter-toolkit`, then open a new terminal and try again.
-
-To update later, rerun the install command or `agentcore update`. Source and issues: [agentcore-cli on GitHub](https://github.com/aws/agentcore-cli).
-
-## Step 2: Create your project
-<a name="agentcore-cli-create"></a>
-
-```
-agentcore create
-```
-
-The interactive wizard first asks what you want to build:
-+  **Harness** - A managed config-based agent loop. No framework or orchestration code required. See [What is the AgentCore harness](harness.md).
-+  **Agent** - A code-based agent using a framework you choose, deployed to AgentCore Runtime.
-+  **Skip** - Create the project structure without an agent. Add one later with `agentcore add`.
-
-If you choose **Agent**, the wizard continues with:
-+  **Framework** - Strands Agents (recommended), LangChain/LangGraph, Google Agent Development Kit, or OpenAI Agents SDK
-+  **Model provider** - Amazon Bedrock, Anthropic, OpenAI, or Gemini
-+  **Memory** - None, short-term only, or long-term and short-term
-+  **Build type** - CodeZip (default) or Container
-
-You can also pass flags directly to create a code-based agent:
+Create a Python project that uses the Strands Agents SDK and Amazon Bedrock:
 
 ```
 agentcore create \
-  --project-name MyProject \
-  --name MyAgent \
-  --language Python \
-  --framework Strands \
-  --model-provider Bedrock \
-  --memory none \
-  --build CodeZip
+  --name MyProject \
+  --template agent-python-strands
 ```
 
-For all available commands and options, see [AgentCore CLI reference](agentcore-cli-reference.md).
+The template creates a Python `CodeZip` Runtime named `agent`, adds an AgentCore Memory resource, and installs the project dependencies.
 
-### Build types
-<a name="deployment-modes"></a>
-+  `CodeZip` (default) packages your code in a zip file and uploads it to Amazon S3. This build type does not require Docker.
-+  `Container` builds and deploys a container image. This build type requires a running Docker daemon.
+You can also run `agentcore` with no arguments to open the interactive menu. Outside a project, the menu offers create. Inside a project, it offers deploy, invoke, and status. Choosing dev from the menu starts the local server in headless mode. To open the Agent Inspector, run `agentcore dev --mode browser`.
 
-### Project structure
-<a name="agentcore-cli-project-structure"></a>
+To choose the template interactively, run `agentcore create` without options:
 
- `agentcore create` generates shared project configuration and a different application structure for code-based agents and harnesses:
+![Creating a Python Strands project with the interactive wizard.](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/project-create-code.gif)
 
-**Example**  
 
-```
-MyProject/
-├── AGENTS.md
-├── README.md
-├── agentcore/
-│   ├── agentcore.json
-│   ├── aws-targets.json
-│   └── cdk/
-└── app/
-    └── MyAgent/
-        ├── main.py
-        ├── pyproject.toml
-        ├── README.md
-        ├── model/
-        ├── mcp_client/
-        └── skills/
-```
-
-```
-MyHarnessProject/
-├── AGENTS.md
-├── README.md
-├── agentcore/
-│   ├── agentcore.json
-│   ├── aws-targets.json
-│   └── cdk/
-└── app/
-    └── MyHarness/
-        ├── harness.json
-        └── system-prompt.md
-```
-
-Key files:
-+  `agentcore/agentcore.json` - The main configuration file. It defines your agents, harnesses, memory stores, gateways, credentials, and other resources. The `agentcore add` and `agentcore remove` commands manage this file.
-+  `agentcore/aws-targets.json` - The AWS accounts and Regions for deployment.
-+  `agentcore/.env.local` - Local secrets, such as API keys for model providers.
-+  `app/` - The application directory. A code-based agent contains an entrypoint and dependencies. A harness contains `harness.json` and `system-prompt.md`.
-
-## Step 3: Test locally
-<a name="agentcore-cli-test"></a>
+Start the Runtime locally and open the Agent Inspector:
 
 ```
 cd MyProject
-agentcore dev
+agentcore dev --mode browser
 ```
 
- `agentcore dev` creates a Python virtual environment, installs dependencies, starts a local server with hot reload, and opens the **agent inspector** in your browser so you can chat with the agent, inspect traces, and browse project resources. Code changes are picked up automatically.
+Without `--mode browser`, `agentcore dev` defaults to headless mode and streams the Runtime output to your terminal.
 
-## Step 4: Deploy your agent
-<a name="agentcore-cli-deploy"></a>
+## Build and deploy your agent
+<a name="runtime-get-started-cli-deploy"></a>
 
 ```
+agentcore build
 agentcore deploy
 ```
 
-Deploy:
-
-1. Packages your code into a zip artifact (or builds a container if `--build Container`)
-
-1. Uses AWS CDK under the hood to synthesize and provision resources
-
-1. Creates an AgentCore Runtime endpoint for your agent
-
-1. Configures CloudWatch logging and observability
-
-First deploy takes a few minutes while CDK bootstraps your account. Subsequent deploys are faster.
-
-Preview what will change without deploying:
-
-```
-agentcore deploy --dry-run
-```
-
-Check status:
+Check the deployed resources:
 
 ```
 agentcore status
 ```
 
-## Step 5: Invoke your deployed agent
-<a name="agentcore-cli-invoke"></a>
+Invoke the deployed Runtime:
 
 ```
-agentcore invoke --prompt "Hello, what can you do?"
+agentcore invoke --runtime agent \
+  --payload '{"prompt":"Hello, what can you do?"}'
 ```
 
-If your agent has payments configured, provide payment context at invoke time:
-
-```
-agentcore invoke \
-  --prompt "Access https://example-x402-merchant.com/paid-api" \
-  --payment-instrument-id <INSTRUMENT_ID> \
-  --auto-session \
-  --payment-user-id user@example.com
-```
-
-That’s the loop. Iterate on `app/MyAgent/main.py`, test with `agentcore dev`, deploy with `agentcore deploy`, invoke with `agentcore invoke`.
-
-### Invoke an agent programmatically
-<a name="invoke-programmatically"></a>
-
-You can invoke the deployed agent with the AWS SDK [InvokeAgentRuntime](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_InvokeAgentRuntime.html) operation. Get the agent runtime ARN:
-
-```
-agentcore status
-```
-
-Create a file named `invoke_agent.py`. Replace {{Agent ARN}} with the ARN of your agent:
-
-```
-import json
-import uuid
-
-import boto3
-
-agent_arn = "Agent ARN"
-prompt = "Tell me a joke"
-
-client = boto3.client("bedrock-agentcore")
-response = client.invoke_agent_runtime(
-    agentRuntimeArn=agent_arn,
-    runtimeSessionId=str(uuid.uuid4()),
-    payload=json.dumps({"prompt": prompt}).encode(),
-    qualifier="DEFAULT",
-)
-
-content = []
-for chunk in response.get("response", []):
-    content.append(chunk.decode("utf-8"))
-
-print(json.loads("".join(content)))
-```
-
-Run the code:
-
-```
-python invoke_agent.py
-```
-
-Your identity must have the `bedrock-agentcore:InvokeAgentRuntime` permission.
-
-**Note**  
-For an agent that uses OAuth, make an HTTPS request to `InvokeAgentRuntime` instead of using the AWS SDK. For more information, see [Authenticate and authorize with inbound and outbound authorization](runtime-oauth.md).
-
-## Add capabilities to your project
-<a name="agentcore-cli-add-capabilities"></a>
-
- `agentcore add` manages resources in `agentcore.json`. Run it without arguments for the interactive menu, or target a resource directly.
-
-```
-agentcore add memory        # Store conversation context
-agentcore add agent         # Add a second agent to the same project
-agentcore add gateway       # Connect external APIs/tools through Gateway
-agentcore add credential    # Add an API key for a non-Bedrock provider
-agentcore add evaluator     # Quality evaluation
-agentcore add payment-manager   # Payments: create a payment manager
-agentcore add payment-connector # Payments: link a payment provider
-```
-
-Each add command scaffolds the config and prompts for required values. After adding, run `agentcore deploy` to provision.
-
-Deep dives for the capabilities you can attach:
-+  [AgentCore Memory](memory.md) - short-term and long-term memory, retrieval strategies
-+  [AgentCore Gateway](gateway.md) - governed connectivity to APIs and MCP servers
-+  [AgentCore Browser](browser-tool.md) - managed web browsing for agents
-+  [AgentCore Code Interpreter](code-interpreter-tool.md) - sandboxed code execution
-+  [AgentCore Identity](identity.md) - OAuth, API key credential providers, workload identity
-+  [AgentCore Observability](observability.md) - traces, logs, and metrics in CloudWatch
-+  [AgentCore VPC](agentcore-vpc.md) - run agents inside your VPC
-+  [AgentCore Payments](payments.md) - microtransaction payments for agents via x402
-
-## View logs and traces
-<a name="agentcore-cli-logs"></a>
-
-```
-# Stream recent logs
-agentcore logs
-
-# Filter
-agentcore logs --since 30m --level error
-agentcore logs --query "timeout"
-
-# List recent traces
-agentcore traces list
-
-# Get a specific trace
-agentcore traces get <trace-id>
-```
+Iterate on `app/agent/main.py`, test locally, and deploy again when you are ready.
 
 ## Troubleshoot
 <a name="common-issues"></a>
 
- **Permission denied errors**   
-Verify your credentials with `aws sts get-caller-identity`. Make sure that your identity has the permissions in [Use the AgentCore CLI](runtime-permissions.md#runtime-permissions-cli).
-
- **Model access denied**   
-Amazon Bedrock enables access to foundation models by default. To use a non-foundation model, follow the [model access steps](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html#model-access-sdk-step4).
-
- **Deployment errors**   
-Run `agentcore deploy --verbose` to show resource-level deployment events. The CLI checks the AWS CDK bootstrap status. If bootstrap is required, interactive deployment asks for confirmation. `agentcore deploy --yes` approves the bootstrap operation without a prompt.
-
- **Port already in use**   
-Run `agentcore dev --port 3000` to use a different local port.
-
- **Configuration validation errors**   
-Run `agentcore validate` to check the project configuration.
-
-For more information, see [Troubleshoot Amazon Bedrock AgentCore Runtime](runtime-troubleshooting.md).
-
-## Clean up
-<a name="agentcore-cli-cleanup"></a>
-
-```
-agentcore remove all
-agentcore deploy
-```
-
- `remove all` resets the configuration. The follow-up `deploy` detects the empty state and tears down the resources in your account.
+For common CLI installation, deployment, configuration, and observability issues, see [Troubleshoot](agentcore-get-started-cli.md#agentcore-get-started-cli-troubleshoot).
 
 ## Next steps
-<a name="agentcore-cli-next-steps"></a>
-+  [What is the AgentCore harness](harness.md) - the config-based path to a running agent. Use any model, connect to tools, persist state, deploy in your VPC, and graduate to code when you need it.
-+  [AgentCore code samples](https://github.com/awslabs/amazon-bedrock-agentcore-samples) - end-to-end examples across frameworks and capabilities.
+<a name="runtime-get-started-cli-next-steps"></a>
++  [Get started with Amazon Bedrock AgentCore](agentcore-get-started-cli.md) - use the complete AgentCore CLI workflow.

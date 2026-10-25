@@ -37,22 +37,49 @@ The following examples show how to create a gateway with interceptors that have 
 
 **Example**  
 
-1. With the AgentCore CLI, first create and deploy the gateway, then configure interceptors using the AWS CLI or AWS Python SDK (Boto3).
-
-   Create the gateway:
+1. Add the gateway to your project:
 
    ```
    agentcore add gateway \
      --name my-gateway-with-headers \
      --authorizer-type CUSTOM_JWT \
-     --discovery-url "https://cognito-idp.us-west-2.amazonaws.com/some-user-pool/.well-known/openid-configuration" \
-     --allowed-audience "api.example.com"
+     --authorizer-configuration '{
+       "customJwtAuthorizer": {
+         "discoveryUrl": "https://cognito-idp.us-west-2.amazonaws.com/some-user-pool/.well-known/openid-configuration",
+         "allowedAudience": ["api.example.com"]
+       }
+     }'
+   ```
+
+   The project configuration has no interceptor field, so declare the interceptors in `agentcore/cdk/lib/cdk-stack.ts`. Add `aws_bedrockagentcore` and `aws_lambda` to the `aws-cdk-lib` import:
+
+   ```
+   import { Stack, type StackProps, aws_bedrockagentcore as bedrockagentcore, aws_lambda as lambda } from 'aws-cdk-lib';
+   ```
+
+   Then add the interceptors after the line that creates the `AgentCoreApplication`:
+
+   ```
+   const interceptor = lambda.Function.fromFunctionArn(
+     this, 'Interceptor',
+     'arn:aws:lambda:us-west-2:123456789012:function:my-interceptor-lambda',
+   );
+   const gateway = this.application.gateway('my-gateway-with-headers').resource;
+   gateway.addInterceptor(
+     bedrockagentcore.LambdaInterceptor.forRequest(interceptor, { passRequestHeaders: true }),
+   );
+   gateway.addInterceptor(
+     bedrockagentcore.LambdaInterceptor.forResponse(interceptor, { passRequestHeaders: true }),
+   );
+   ```
+
+   Each interceptor grants the gateway service role `lambda:InvokeFunction` on the function. Deploy the project:
+
+   ```
    agentcore deploy
    ```
 
-   After deployment, configure interceptors on the gateway using the AWS CLI `update-gateway` command or the AWS Python SDK (Boto3) as shown in the other tabs.
-
-1. Use the following AWS CLI command to create a gateway with interceptors configured to pass request headers:
+1. Use the following AWS CLI command to create a gateway with interceptors configured to pass request headers. The gateway service role must allow `lambda:InvokeFunction` on the interceptor function:
 
    ```
    aws bedrock-agentcore-control create-gateway \
@@ -79,7 +106,7 @@ The following examples show how to create a gateway with interceptors that have 
      }]'
    ```
 
-1. Use the following Python code with the AWS Python SDK (Boto3) to create a gateway with interceptors configured to pass request headers:
+1. Use the following Python code with the AWS Python SDK (Boto3) to create a gateway with interceptors configured to pass request headers. The gateway service role must allow `lambda:InvokeFunction` on the interceptor function:
 
    ```
    import boto3

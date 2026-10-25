@@ -104,14 +104,14 @@ You can use this encryption context in key policy conditions to restrict KMS ope
 Specify the `kmsKeyArn` parameter when calling `StartRecommendation`:
 
 **Example**  
+Create `recommendation-config.json` as shown in [Start a system prompt recommendation](recommendations-system-prompt.md).  
 
 ```
-agentcore run recommendation \
-  -t system-prompt \
-  -r MyAgent \
-  -e Builtin.Correctness \
-  --inline "You are a helpful assistant" \
-  --kms-key arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
+agentcore eval recommendation start \
+  --name MyEncryptedRecommendation \
+  --type SYSTEM_PROMPT_RECOMMENDATION \
+  --recommendation-config file://recommendation-config.json \
+  --kms-key-arn arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
 ```
 
 ```
@@ -175,15 +175,15 @@ print(f"Recommendation ID: {response['recommendationId']}")
 <a name="recommendations-encryption-monitoring"></a>
 
 The following CloudTrail event names appear for recommendation KMS operations:
-+  `GenerateDataKey` — When starting a recommendation (encrypting configuration) and when the recommendation workflow completes (encrypting the result). The `encryptionContext` field contains `aws:bedrock-agentcore:recommendationArn`.
-+  `Decrypt` — When the recommendation workflow processes the configuration, or when retrieving recommendation results.
-+  `DescribeKey` — When validating the key at recommendation creation time.
++  `GenerateDataKey`: When starting a recommendation (encrypting configuration) and when the recommendation workflow completes (encrypting the result). The `encryptionContext` field contains `aws:bedrock-agentcore:recommendationArn`.
++  `Decrypt`: When the recommendation workflow processes the configuration, or when retrieving recommendation results.
++  `DescribeKey`: When validating the key at recommendation creation time.
 
 ## Behavior when a key becomes unavailable
 <a name="recommendations-encryption-unavailable"></a>
 
 If you disable or delete the customer managed KMS key used by a recommendation:
-+  **StartRecommendation** — Fails at validation with `ValidationException`.
-+  **GetRecommendation** — Fails with `ValidationException` indicating the KMS key is disabled or deleted.
-+  **ListRecommendations** — Succeeds because listing returns metadata only and does not require KMS operations.
-+  **DeleteRecommendation** — Succeeds because deletion does not require decrypting recommendation data.
++  **StartRecommendation**: Fails at validation with `ValidationException`.
++  **GetRecommendation**: Fails with `ValidationException` indicating the KMS key is disabled or deleted.
++  **ListRecommendations**: Succeeds because listing returns metadata only and does not require KMS operations.
++  **DeleteRecommendation**: Succeeds because deletion does not require decrypting recommendation data.

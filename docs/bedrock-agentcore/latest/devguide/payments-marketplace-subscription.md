@@ -6,7 +6,7 @@
 To use Coinbase as a payment provider with AgentCore payments, you must subscribe to the **Coinbase Wallets for AgentCore Payments** listing in AWS Marketplace. With this subscription, your Coinbase wallet usage charges are consolidated into your monthly AWS bill based on Coinbase’s [pricing](https://docs.cdp.coinbase.com/wallets/pricing) on the Coinbase website. There are no additional charges or obligations for the subscription. The subscription is mandatory. Until an active subscription exists in your AWS account, AgentCore payments rejects Coinbase connector creation and Coinbase wallet operations with a `SubscriptionRequiredException` error. For more information about this error, see [AWS Marketplace subscription errors](payments-troubleshooting.md#payments-troubleshooting-subscription).
 
 **Note**  
-The AWS Marketplace subscription applies only to the Coinbase payment provider. Connectors that use other providers, such as Stripe (Privy), do not currently require a Marketplace subscription.
+The AWS Marketplace subscription applies only to the Coinbase payment provider. Connectors that use other providers, such as Stripe (Privy), don’t require a Marketplace subscription.
 
 You can subscribe from all AWS Regions where AgentCore payments is available. See [Supported AWS Regions](agentcore-regions.md).
 

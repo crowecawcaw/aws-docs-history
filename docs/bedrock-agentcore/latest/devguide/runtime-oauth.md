@@ -132,16 +132,17 @@ Before you begin, make sure you have:
 + Basic understanding of Python programming
 + Familiarity with Docker containers (for advanced deployment)
 + Set up a basic agent with runtime successfully
++ The AgentCore CLI installed and configured. For instructions, see [Get started with the AgentCore CLI](runtime-get-started-cli.md).
 + The latest AWS CLI and `jq` installed
 + Basic understanding of OAuth authorization, mainly JWT bearer tokens, claims, and the various grant flows
 
 ## Step 1: Create your agent project
 <a name="prepare-agent"></a>
 
-Use the `agentcore create` command to set up an empty project. You add the JWT-authorized agent after you create the Cognito resources in Step 2.
+Use the AgentCore CLI to set up an empty project. You add the JWT-authorized Runtime after you create the Cognito resources in Step 2.
 
 ```
-agentcore create --project-name OAuthAgentProject --no-agent
+agentcore create --name OAuthAgentProject --template empty
 cd OAuthAgentProject
 ```
 
@@ -237,7 +238,7 @@ You can front your AgentCore Runtime with an AgentCore Gateway so that the gatew
 
 If you want to front this runtime, [create the gateway](gateway-create.md) now, before you deploy the runtime in the next step. After you deploy, you’ll [add the runtime as a gateway target](gateway-target-http-runtime.md).
 
-To make sure callers can’t bypass the gateway, restrict the runtime to accept invocations only from that gateway. Use `allowedWorkloadConfiguration` as described in [allowedWorkloadConfiguration: restrict invocation to your gateway](#deploy-agent-allowed-workload). The AgentCore CLI does not configure this field. Use the AgentCore control-plane API.
+To make sure callers can’t bypass the gateway, restrict the runtime to accept invocations only from that gateway. Use `allowedWorkloadConfiguration` as described in [allowedWorkloadConfiguration: restrict invocation to your gateway](#deploy-agent-allowed-workload). If you use the AgentCore CLI, set the field with an override in `agentcore/cdk/lib/cdk-stack.ts`, as described in that section.
 
 ## Step 4: Deploy your agent
 <a name="deploy-agent"></a>
@@ -274,7 +275,7 @@ Now you’ll deploy your agent with JWT authorization using the Cognito user poo
 | discovery url → issuer | iss | The discovery url should point to an issuer url. This should match the iss claim in the decoded token. | 
 | allowedClients | client\_id | client\_id in the token should match one of the allowed clients specified in the authorizer | 
 | allowedAudience | aud | One of the values in aud claim from the token should match one of the allowed audience specified in the authorizer | 
-| allowedWorkloadConfiguration |  `internal`  | Optional. At launch, used to allow only your AgentCore Gateway to invoke the runtime. See [Restrict invocation to your gateway](#deploy-agent-allowed-workload). | 
+| allowedWorkloadConfiguration |  `internal`  | Optional. Used to allow only your AgentCore Gateway to invoke the runtime. See [Restrict invocation to your gateway](#deploy-agent-allowed-workload). | 
 
 If both client\_id and aud is provided, the agent runtime authorizer will verify both.
 
@@ -284,7 +285,7 @@ If both client\_id and aud is provided, the agent runtime authorizer will verify
 The `allowedWorkloadConfiguration` field on the `customJWTAuthorizer` restricts which workloads in the request’s identity chain are allowed to invoke the runtime. Set the allowed workload to your gateway so that the runtime accepts a request only when its identity chain includes that gateway — this is how an OAuth (JWT) runtime enforces that traffic arrives only through the gateway you set up in Step 3.
 
 You provide the allowed workloads using either of the following fields. You can specify one or both — a request is accepted if its identity chain matches an entry in **either** field, so you don’t need to provide both.
-+  **hostingEnvironments** – A list of hosting environments whose workloads are allowed to invoke the target. Each entry is an object with an `arn`. At launch, the only supported hosting environment is AgentCore Gateway, so each `arn` must be an AgentCore Gateway ARN.
++  **hostingEnvironments** – A list of hosting environments whose workloads are allowed to invoke the target. Each entry is an object with an `arn`. The only supported hosting environment is AgentCore Gateway, so each `arn` must be an AgentCore Gateway ARN.
 +  **workloadIdentities** – A list of workload identity names that are allowed to invoke the target. A workload identity name is **not** an ARN. It is the final segment of the gateway’s workload identity ARN, which you can find in the `workloadIdentityDetails` field of the `GetGateway` response. For example, if `workloadIdentityDetails.workloadIdentityArn` is `arn:aws:bedrock-agentcore:us-east-1:111122223333:workload-identity-directory/default/workload-identity/my-gateway-workload-identity`, then the workload identity name is `my-gateway-workload-identity`.
 
 The following authorizer configuration restricts invocation to a specific AgentCore Gateway by its ARN. Specifying `hostingEnvironments` alone is the simplest way to allow a gateway:
@@ -322,8 +323,25 @@ Alternatively, you can identify the gateway by its workload identity name, or sp
 }
 ```
 
+If you use the AgentCore CLI, add the field in `agentcore/cdk/lib/cdk-stack.ts` after you add the Runtime in Step 4 and before you run `agentcore deploy`. Add `CfnResource` to the `aws-cdk-lib` import, and add the override after the line that creates `this.application`. Replace the example ARN with your gateway ARN:
+
+```
+import { CfnResource, Stack, type StackProps } from 'aws-cdk-lib';
+
+// ...
+
+    this.application = new AgentCoreApplication(this, 'Application', props.application);
+
+    const runtime = this.application.runtime('OAuthAgent').resource.node.defaultChild as CfnResource;
+    runtime.addPropertyOverride('AuthorizerConfiguration.CustomJWTAuthorizer.AllowedWorkloadConfiguration', {
+      HostingEnvironments: [{ Arn: 'arn:aws:bedrock-agentcore:us-east-1:111122223333:gateway/my-gateway-id' }],
+    });
+```
+
+The override uses CloudFormation property names. To allow a gateway by its workload identity name, use `WorkloadIdentities: ['my-gateway-2-workload-identity']`. If you create the Runtime with the AWS SDK (the Python tab in Step 4), include `allowedWorkloadConfiguration` in the `customJWTAuthorizer` block of `create_agent_runtime`.
+
 **Note**  
-At launch, `allowedWorkloadConfiguration` is supported only for AgentCore Runtime targets, and the allowed workloads are AgentCore Gateways.
+ `allowedWorkloadConfiguration` is supported only for AgentCore Runtime targets, and the allowed workloads are AgentCore Gateways.
 
 ### Create and deploy the agent runtime
 <a name="deploy-agent-create-deploy"></a>
@@ -333,28 +351,64 @@ With your authorizer configuration ready, create and deploy the agent runtime. T
 **Example**  
  **To configure and deploy your agent**   
 
-1. Add the agent to the project that you created in Step 1. The command configures the Cognito discovery URL, client ID, and the `Authorization` request header allowlist:
+1. Add a Python HTTP Runtime to the project that you created in Step 1. The command configures the Cognito discovery URL, client ID, and the `Authorization` request header allowlist:
 
    ```
-   agentcore add agent \
+   agentcore add runtime \
      --name OAuthAgent \
-     --language Python \
-     --framework Strands \
-     --model-provider Bedrock \
-     --memory none \
+     --language python \
+     --protocol HTTP \
      --authorizer-type CUSTOM_JWT \
-     --discovery-url "https://cognito-idp.$REGION.amazonaws.com/$POOL_ID/.well-known/openid-configuration" \
-     --allowed-clients "$CLIENT_ID" \
+     --authorizer-configuration \
+     "{\"customJwtAuthorizer\":{\"discoveryUrl\":\"https://cognito-idp.$REGION.amazonaws.com/$POOL_ID/.well-known/openid-configuration\",\"allowedClients\":[\"$CLIENT_ID\"]}}" \
      --request-header-allowlist Authorization
+   cd app/OAuthAgent
+   uv init --bare
+   uv add \
+     "aws-opentelemetry-distro~=0.21.0" \
+     "bedrock-agentcore[strands-agents]>=1.18.1,<2" \
+     "botocore[crt]~=1.43.0" \
+     "strands-agents>=1.15,<2"
+   cd ../..
    ```
 
-1. Deploy your agent:
+1. Create `app/OAuthAgent/main.py` with a Runtime entrypoint:
 
    ```
+   from bedrock_agentcore.runtime import BedrockAgentCoreApp
+   from strands import Agent
+   
+   agent = Agent()
+   
+   
+   def create_app():
+       app = BedrockAgentCoreApp()
+       log = app.logger
+   
+       @app.entrypoint
+       async def invoke(payload, context):
+           log.info("Invoking agent")
+           prompt = str(payload.get("prompt", "Hello"))
+           async for event in agent.stream_async(prompt):
+               yield event
+   
+       return app
+   
+   
+   app = create_app()
+   
+   if __name__ == "__main__":
+       app.run()
+   ```
+
+1. Build and deploy your agent:
+
+   ```
+   agentcore build
    agentcore deploy
    ```
 
-1. Note the agent runtime ARN from the output. You’ll need this in the next step.
+1. Run `agentcore status --json`. The Runtime resource’s `arn` field contains its ARN. You need the ARN in the next step.
 
 1. 
 
@@ -388,7 +442,7 @@ With your authorizer configuration ready, create and deploy the agent runtime. T
    ```
 
 **Note**  
-The AgentCore CLI example configures JWT authorization, but it does not configure `allowedWorkloadConfiguration`. If you front the runtime with a gateway, use the AgentCore control-plane API to add that field.
+If you front the runtime with a gateway, set `allowedWorkloadConfiguration` with the `cdk-stack.ts` override described in [allowedWorkloadConfiguration: restrict invocation to your gateway](#deploy-agent-allowed-workload) before you run `agentcore deploy`.
 
 ## Step 5: Use bearer token to invoke your agent
 <a name="oauth-invoke-agent"></a>
@@ -443,7 +497,10 @@ Invoke the agent with OAuth.
 1. 
 
    ```
-   // Invoke with OAuth token
+   # Invoke with OAuth token
+   export AGENT_ARN="<your-agent-runtime-arn>"
+   export ESCAPED_AGENT_ARN=$(echo -n "$AGENT_ARN" | jq -sRr '@uri')
+   export SESSION_ID=$(python3 -c "import uuid; print(uuid.uuid4())")
    export PAYLOAD='{"prompt": "hello what is 1+1?"}'
    
    export BEDROCK_AGENT_CORE_ENDPOINT_URL="https://bedrock-agentcore.us-east-1.amazonaws.com"
@@ -458,11 +515,11 @@ Invoke the agent with OAuth.
    -H "Authorization: Bearer ${TOKEN}" \
    -H "X-Amzn-Trace-Id: your-trace-id" \
    -H "Content-Type: application/json" \
-   -H "X-Amzn-Bedrock-AgentCore-Runtime-Session-Id: your-session-id" \
-   -d ${PAYLOAD}
+   -H "X-Amzn-Bedrock-AgentCore-Runtime-Session-Id: ${SESSION_ID}" \
+   -d "${PAYLOAD}"
    ```
 
-1. Since boto3 doesn’t support invocation with bearer tokens, you’ll need to use an HTTP client like the requests library in Python.
+1. To invoke with a bearer token, use an HTTP client such as the requests library in Python.
 
    <a name="invoke-agent"></a> **To invoke your agent with a bearer token** 
 
@@ -473,6 +530,7 @@ Invoke the agent with OAuth.
    import urllib.parse
    import json
    import os
+   import uuid
    
    # Configuration Constants
    REGION_NAME = "AWS_REGION"
@@ -497,7 +555,7 @@ Invoke the agent with OAuth.
        "Authorization": f"Bearer {auth_token}",
        "X-Amzn-Trace-Id": "your-trace-id",
        "Content-Type": "application/json",
-       "X-Amzn-Bedrock-AgentCore-Runtime-Session-Id": "testsession123"
+       "X-Amzn-Bedrock-AgentCore-Runtime-Session-Id": str(uuid.uuid4())
    }
    
    # Enable verbose logging for requests
@@ -508,7 +566,8 @@ Invoke the agent with OAuth.
    invoke_response = requests.post(
        url,
        headers=headers,
-       data=json.dumps({"prompt": "Hello what is 1+1?"})
+       data=json.dumps({"prompt": "Hello what is 1+1?"}),
+       stream=True
    )
    
    # Print response in a safe manner
@@ -517,9 +576,13 @@ Invoke the agent with OAuth.
    
    # Handle response based on status code
    if invoke_response.status_code == 200:
-       response_data = invoke_response.json()
-       print("Response JSON:")
-       print(json.dumps(response_data, indent=2))
+       # The agent streams its response as server-sent events
+       for line in invoke_response.iter_lines(decode_unicode=True):
+           if line.startswith("data: "):
+               event = json.loads(line[len("data: "):])
+               delta = event.get("event", {}).get("contentBlockDelta", {}).get("delta", {})
+               print(delta.get("text", ""), end="", flush=True)
+       print()
    elif invoke_response.status_code >= 400:
        print(f"Error Response ({invoke_response.status_code}):")
        error_data = invoke_response.json()
@@ -531,9 +594,9 @@ Invoke the agent with OAuth.
        print(invoke_response.text[:500])
    ```
 
-1. Replace {{AWS\_REGION}} with the AWS Region that you are using. from Step 3.
+1. Replace {{AWS\_REGION}} with the AWS Region that you are using.
 
-1. Replace {{YOUR\_AGENT\_ARN\_HERE}} with your actual agent runtime ARN from Step 3.
+1. Replace {{YOUR\_AGENT\_ARN\_HERE}} with your actual agent runtime ARN from Step 4.
 
 1. Run the script:
 
@@ -559,7 +622,7 @@ WWW-Authenticate: Bearer resource_metadata="https://bedrock-agentcore.{region}.a
 The `resource_metadata` URL in the WWW-Authenticate header points to the Protected Resource Metadata (PRM) API. The PRM API enables clients to discover which authorization servers protect this agent and their OAuth endpoint URLs.
 
 **Note**  
-You must pre-register your OAuth client in Cognito (via AWS Console or CLI) to obtain a `client_id` before using the discovered endpoints. Amazon Cognito does not support Dynamic Client Registration (RFC 7591).
+You must pre-register your OAuth client in Cognito (via AWS Console or CLI) to obtain a `client_id` before using the discovered endpoints.
 
 ## Step 6: Set up your agent to access tools using OAuth
 <a name="oauth-outbound-access"></a>
@@ -573,11 +636,39 @@ For more information about setting up identity, see [Get started with AgentCore 
 ### Step 6.1: Set up Credential Providers
 <a name="setup-credential-providers"></a>
 
-To set up a Google Credential Provider, you need to:
+To set up a Google Credential Provider, register your application with Google to obtain a client ID and client secret. Then create an OAuth2 credential provider with the AgentCore CLI or the AWS CLI.
 
-1. Register your application with Google to obtain client ID and client secret
+**Example**  
 
-1. Create an OAuth credential provider using the AWS CLI. Replace {{your-client-id}} and {{your-client-secret}} with your actual Google OAuth2 client ID and client secret:
+1. Save your Google OAuth2 client secret in a file named `google-client-secret.txt`.
+
+1. Add the credential provider to the project. Replace {{your-client-id}} with your Google OAuth2 client ID:
+
+   ```
+   agentcore add credentials oauth \
+     --name google-provider \
+     --vendor GoogleOauth2 \
+     --provider-configuration '{"googleOauth2ProviderConfig":{"clientId":"your-client-id"}}' \
+     --client-secret file://google-client-secret.txt
+   ```
+
+1. Deploy the project:
+
+   ```
+   agentcore deploy
+   ```
+
+   The AgentCore CLI creates the provider with the name `OAuthAgentProject_default_google-provider`, which combines the project name, the deployment target name, and the credential name. Use this name as `provider_name` in Step 6.2.
+
+1. Get the provider’s callback URL:
+
+   ```
+   agentcore identity oauth2-credential-provider get --name OAuthAgentProject_default_google-provider
+   ```
+
+   Add the `callbackUrl` value from the output to your Google application’s redirect URI list.
+
+1. Create an OAuth2 credential provider. Replace {{your-client-id}} and {{your-client-secret}} with your actual Google OAuth2 client ID and client secret:
 
    ```
    OAUTH2_CREDENTIAL_PROVIDER_RESPONSE=$(aws bedrock-agentcore-control create-oauth2-credential-provider \
@@ -604,6 +695,8 @@ Make sure your invocation role has the necessary permissions for accessing the c
 <a name="enable-google-drive-access"></a>
 
 Create a tool with agent core SDK annotations as shown in the following example to automatically initiate the three-legged OAuth process. When your agent invokes this tool, users will be prompted to open the authorization URL in their browser and grant consent for the agent to access their Google Drive.
+
+The example uses the provider name `google-provider` from the AWS CLI tab. If you created the provider with the AgentCore CLI, set `provider_name` to `OAuthAgentProject_default_google-provider`.
 
 ```
 import asyncio
@@ -660,7 +753,7 @@ In this step you make changes to your agent code so that you can decode and extr
 
  **Python dependencies** 
 
-Add PyJWT to the generated agent’s `pyproject.toml`:
+Add PyJWT to the Runtime project’s `pyproject.toml`:
 
 ```
 cd app/OAuthAgent
@@ -670,37 +763,40 @@ cd ../..
 
  **Update your agent code** 
 
-Modify `app/OAuthAgent/main.py` as shown in the following code. You can skip validating the token signature here because AgentCore Runtime has already validated the token during inbound authorization.
+In `app/OAuthAgent/main.py`, add `import json` and `import jwt` at the top of the file. Then add the header handling at the start of the existing `invoke` function inside `create_app()`, and keep the rest of the handler unchanged. You can skip validating the token signature here because AgentCore Runtime has already validated the token during inbound authorization.
 
 ```
-import jwt
 import json
-....
 
-@app.entrypoint
-def invoke(payload, context):
-    auth_header = context.request_headers.get('Authorization')
-    if not auth_header:
-        return None
+import jwt
+# Keep the remaining existing imports.
 
-    # Remove "Bearer " prefix if present
-    token = auth_header.replace('Bearer ', '') if auth_header.startswith('Bearer ') else auth_header
-    try:
-        # Skip signature validation as agent runtime has validated the token already.
-        claims = jwt.decode(token, options={"verify_signature": False})
-        app.logger.info("Claims: %s", json.dumps(claims))
-    except jwt.InvalidTokenError as e:
-        app.logger.exception("Invalid JWT token: %s", e)
+def create_app():
+    app = BedrockAgentCoreApp()
+    log = app.logger
 
-    .....
+    @app.entrypoint
+    async def invoke(payload, context):
+        auth_header = (context.request_headers or {}).get('Authorization')
+        if auth_header:
+            token = auth_header.removeprefix('Bearer ')
+            try:
+                claims = jwt.decode(token, options={"verify_signature": False})
+                log.info("Claims: %s", json.dumps(claims))
+            except jwt.InvalidTokenError as e:
+                log.exception("Invalid JWT token: %s", e)
+
+        log.info("Invoking agent.")
+        # Keep the existing handler logic below this point.
 ```
 
 ### Step 7.2: Deploy the updated agent
 <a name="oauth-propagate-jwt-token-create-agent"></a>
 
-The `agentcore add agent` command in Step 4 already configured the `Authorization` request header allowlist. Deploy the code update:
+The `agentcore add runtime` command in Step 4 already configured the `Authorization` request header allowlist. Build and deploy the code update:
 
 ```
+agentcore build
 agentcore deploy
 ```
 

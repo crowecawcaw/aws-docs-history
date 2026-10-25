@@ -14,6 +14,7 @@ Understanding key concepts and terminology is essential for effectively using Ag
 + [Tool Call](#tool-call)
 + [Skill](#skill)
 + [Reference Free Large Language Models (LLMs) as judges](#llms-as-judges)
++ [Multi-dimension evaluator](#multi-dimension-evaluator-term)
 
 ## Agent Framework
 <a name="agent-framework"></a>
@@ -34,7 +35,7 @@ For more information about supported instrumentation libraries, see [Supported a
 
 An instrumentation agent automatically captures telemetry from application code, processes it, and exports it to a backend service for storage or evaluation. Tools such as **ADOT (AWS Distro for OpenTelemetry)** provide a vendor-neutral, production-ready auto-instrumentation agent that dynamically injects bytecode to capture traces without code changes. The agent is a key component in enabling automated evaluation.
 
-AgentCore Evaluations currently supports **ADOT (AWS Distro for OpenTelemetry)** as the instrumentation agent.
+AgentCore Evaluations uses **ADOT (AWS Distro for OpenTelemetry)** as the instrumentation agent.
 
 ## Session
 <a name="session"></a>
@@ -60,3 +61,8 @@ A skill is a reusable instruction file that an agent loads at runtime to help wi
 <a name="llms-as-judges"></a>
 
 Large Language Models (LLMs) as judges refers to an evaluation method that uses a large language model (LLM) to automatically assess the quality, correctness, or effectiveness of an agent or another model’s output. Instead of relying on manual review or rule-based checks, the LLM is prompted with evaluation criteria and produces a score, label, or explanation based on the input and output being evaluated. Unlike traditional evaluations that rely on ground-truth data, LLM-as-a-judge methods rely on the model’s internal knowledge to make judgments. This approach enables scalable, consistent, and customizable qualitative assessments, such as correctness, reasoning quality, or instruction adherence, across large numbers of agent interactions or model responses.
+
+## Multi-dimension evaluator
+<a name="multi-dimension-evaluator-term"></a>
+
+A multi-dimension evaluator is a custom LLM-as-a-judge evaluator that rates one target on several named dimensions in a single judge call. Each dimension has its own instruction and rating scale and produces its own result. For more information, see [Custom multi-dimension evaluators](multi-dimension-evaluators.md).

@@ -3,7 +3,7 @@
 # Use configuration bundles at runtime
 <a name="configuration-bundles-runtime"></a>
 
-Your agent reads configuration from a bundle at runtime to apply dynamic settings without redeploying code. The gateway and runtime propagate the bundle reference through W3C baggage headers, so your agent code never needs to know which version is active; it reads whatever configuration is in the current request context.
+Your agent reads configuration from a bundle at runtime to apply dynamic settings without redeploying code. The gateway and runtime pass the bundle reference through W3C baggage headers, a standard mechanism for passing context between services. Your agent reads the configuration from the current request context without needing to know which bundle version is active.
 
 **Note**  
 Configuration bundle integration requires `bedrock-agentcore-sdk-python` version 1.8 or later. The `get_config_bundle()` method on `BedrockAgentCoreContext` is available from this version onward.
@@ -211,14 +211,20 @@ if __name__ == "__main__":
 ## Google ADK agent
 <a name="runtime-adk"></a>
 
-For agents built with Google’s Agent Development Kit (ADK), read the configuration bundle when constructing the agent:
+For agents built with Google’s Agent Development Kit (ADK), read the configuration bundle when constructing the agent, then run the agent with an ADK `Runner`:
 
 ```
+import uuid
+
 from google.adk.agents import LlmAgent
 from google.adk.models.lite_llm import LiteLlm
+from google.adk.runners import Runner
+from google.adk.sessions import InMemorySessionService
+from google.genai import types
 from bedrock_agentcore.runtime import BedrockAgentCoreApp, BedrockAgentCoreContext
 
 app = BedrockAgentCoreApp()
+session_service = InMemorySessionService()
 
 DEFAULT_MODEL_ID = "global.anthropic.claude-sonnet-4-5-20250929-v1:0"
 DEFAULT_SYSTEM_PROMPT = "You are a helpful assistant."
@@ -238,11 +244,25 @@ def build_agent() -> LlmAgent:
 
 
 @app.entrypoint
-def invoke(payload, context):
-    agent = build_agent()
-    # ADK agent invocation logic
-    result = agent.invoke(str(payload.get("prompt", "Hello")))
-    return {"response": str(result)}
+async def invoke(payload, context):
+    runner = Runner(
+        agent=build_agent(),
+        app_name="my_agent",
+        session_service=session_service,
+        auto_create_session=True,
+    )
+    message = types.Content(
+        role="user", parts=[types.Part(text=str(payload.get("prompt", "Hello")))]
+    )
+    response = ""
+    async for event in runner.run_async(
+        user_id="default",
+        session_id=context.session_id or str(uuid.uuid4()),
+        new_message=message,
+    ):
+        if event.is_final_response() and event.content and event.content.parts:
+            response = event.content.parts[0].text or ""
+    return {"response": response}
 
 
 if __name__ == "__main__":
@@ -252,18 +272,20 @@ if __name__ == "__main__":
 ## OpenAI SDK agent
 <a name="runtime-openai-sdk"></a>
 
-For agents using the OpenAI SDK with Amazon Bedrock, read the configuration bundle to set the model and system prompt:
+For agents using the OpenAI SDK with the OpenAI-compatible Amazon Bedrock endpoint, read the configuration bundle to set the model and system prompt. The client authenticates with a short-lived Amazon Bedrock bearer token from the `aws-bedrock-token-generator` package, and the Runtime execution role needs the `bedrock-mantle:CreateInference` permission. This endpoint serves OpenAI-compatible models such as `openai.gpt-oss-120b`:
 
 ```
+import os
+
+from aws_bedrock_token_generator import provide_token
 from openai import OpenAI
 from bedrock_agentcore.runtime import BedrockAgentCoreApp, BedrockAgentCoreContext
 
 app = BedrockAgentCoreApp()
 
-DEFAULT_MODEL_ID = "global.anthropic.claude-sonnet-4-5-20250929-v1:0"
+REGION = os.environ.get("AWS_REGION", "us-west-2")
+DEFAULT_MODEL_ID = "openai.gpt-oss-120b"
 DEFAULT_SYSTEM_PROMPT = "You are a helpful assistant."
-
-client = OpenAI()
 
 
 @app.entrypoint
@@ -272,6 +294,10 @@ def invoke(payload, context):
     model_id = config.get("model_id", DEFAULT_MODEL_ID)
     system_prompt = config.get("system_prompt", DEFAULT_SYSTEM_PROMPT)
 
+    client = OpenAI(
+        api_key=provide_token(region=REGION),
+        base_url=f"https://bedrock-mantle.{REGION}.api.aws/v1",
+    )
     response = client.chat.completions.create(
         model=model_id,
         messages=[

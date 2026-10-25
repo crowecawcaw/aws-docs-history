@@ -3,29 +3,40 @@
 # Configure credential provider
 <a name="resource-providers"></a>
 
-Resource credential providers in AgentCore Identity act as intelligent intermediaries that manage the complex relationships between agents, identity providers, and resource servers. Each provider encapsulates the specific endpoint configuration required for a particular service or identity system. The service provides built-in providers for popular services including Google, GitHub, Slack, and Salesforce, with authorization server endpoints and provider-specific parameters pre-configured to reduce development effort. AgentCore Identity supports custom configurations through configurable OAuth2 credential providers that can be tailored to work with any OAuth2-compatible resource server. For information about OAuth2 credential provider limits, see [AgentCore Identity Service Quotas](bedrock-agentcore-limits.md#identity-service-limits).
+A resource credential provider stores the endpoint configuration and credentials that AgentCore Identity uses to get tokens or API keys for a resource server. Each provider encapsulates the specific endpoint configuration required for a particular service or identity system. The service provides built-in providers for popular services including Google, GitHub, Slack, and Salesforce, with authorization server endpoints and provider-specific parameters pre-configured to reduce development effort. AgentCore Identity supports custom configurations through configurable OAuth2 credential providers that can be tailored to work with any OAuth2-compatible resource server. For information about OAuth2 credential provider limits, see [AgentCore Identity Service Quotas](bedrock-agentcore-limits.md#identity-service-limits).
 
-Resource credential providers integrate deeply with the token vault to provide seamless credential lifecycle management. When an agent requests access to a resource, the provider handles the authentication flow, stores the resulting credentials in the token vault, and provides the agent with the necessary access tokens.
+Credential providers store the credentials they obtain in the token vault and return access tokens to the agent. When an agent requests access to a resource, the provider handles the authentication flow.
 
 ## Creating an OAuth 2.0 credential provider
 <a name="provider-configuration"></a>
 
 Provider configurations in AgentCore Identity define the basic parameters needed for credential management with different resources and authentication systems.
 
-If you are using the AgentCore CLI, you can create an OAuth 2.0 credential provider with the `agentcore add credential` command:
+If you are using the AgentCore CLI, you can create an OAuth 2.0 credential provider directly. The AgentCore CLI accepts the client secret from a file or standard input:
 
 ```
-agentcore add credential --type oauth \
-  --name github-provider \
+printf '%s' "$CLIENT_SECRET" | agentcore identity oauth2-credential-provider create \
+  --name my-oauth-provider \
+  --vendor CustomOauth2 \
   --discovery-url https://your-idp/.well-known/openid-configuration \
-  --client-id your-github-client-id \
-  --client-secret your-github-client-secret \
-  --scopes repo,user
+  --client-id your-client-id \
+  --client-secret -
 ```
 
-The CLI stores the credential configuration in `agentcore/agentcore.json` and saves sensitive values (client ID and client secret) to `agentcore/.env.local`.
+To manage a credential as part of an AgentCore project instead, use `agentcore add credentials oauth`. The project command stores the secret in `agentcore/.env.local` and provisions the provider during deployment. The provider is created as `<project>_<target>_<name>`, for example `MyProject_default_my-oauth-provider`. In a project Runtime, read the deployed name from the `AGENTCORE_CREDENTIAL_MY_OAUTH_PROVIDER_NAME` environment variable instead of hardcoding it.
 
-Alternatively, you can bring your own secret by providing a reference to a client secret already stored in AWS Secrets Manager:
+Alternatively, you can bring your own secret by providing a reference to a client secret already stored in AWS Secrets Manager. With the AgentCore CLI:
+
+```
+agentcore identity oauth2-credential-provider create \
+  --name github-provider \
+  --vendor GithubOauth2 \
+  --provider-configuration '{"githubOauth2ProviderConfig": {"clientId": "your-github-client-id"}}' \
+  --client-secret-reference '{"secretId": "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-secret", "jsonKey": "clientSecret"}' \
+  --region us-east-1
+```
+
+With the AWS CLI:
 
 ```
 aws bedrock-agentcore-control create-oauth2-credential-provider \
@@ -73,10 +84,21 @@ For services that use API keys for authentication rather than OAuth, AgentCore I
 If you are using the AgentCore CLI, you can store an API key with a single command:
 
 ```
-agentcore add credential --name your-service-name --api-key your-api-key
+printf '%s' "$API_KEY" | agentcore identity api-key-credential-provider create \
+  --name your-service-name \
+  --api-key -
 ```
 
-Alternatively, you can bring your own secret by providing a reference to an API key already stored in AWS Secrets Manager:
+Alternatively, you can bring your own secret by providing a reference to an API key already stored in AWS Secrets Manager. With the AgentCore CLI:
+
+```
+agentcore identity api-key-credential-provider create \
+  --name your-service-name \
+  --api-key-secret-reference '{"secretId": "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-secret", "jsonKey": "api_key"}' \
+  --region us-east-1
+```
+
+With the AWS CLI:
 
 ```
 aws bedrock-agentcore-control create-api-key-credential-provider \
@@ -102,9 +124,21 @@ apikey_provider= identity_client.create_api_key_credential_provider({
 
 For services that use payment-processor credentials such as Coinbase CDP or Stripe Privy, AgentCore Identity securely stores the associated API keys, app secrets, and wallet/authorization secrets in Secrets Manager and surfaces only their ARNs to your agents. For information about payment credential provider limits, see [AgentCore Identity Service Quotas](bedrock-agentcore-limits.md#identity-service-limits).
 
-Payment credential providers currently support two vendors: `CoinbaseCDP` and `StripePrivy`. Supply exactly one configuration block under `providerConfigurationInput` that matches the `credentialProviderVendor` you choose. Alternatively, you can bring your own secret by providing a reference to a secret already stored in AWS Secrets Manager.
+Payment credential providers support two vendors: `CoinbaseCDP` and `StripePrivy`. Supply exactly one configuration block under `providerConfigurationInput` that matches the `credentialProviderVendor` you choose. Alternatively, you can bring your own secret by providing a reference to a secret already stored in AWS Secrets Manager.
 
 **Example**  
+In an AgentCore project, add a Coinbase CDP payment credential and deploy the project. The secrets must be your base64-encoded Coinbase CDP keys, from a file or standard input:  
+
+```
+printf '%s' "$API_KEY_SECRET" | agentcore add credentials payment \
+  --name coinbase-provider \
+  --provider CoinbaseCDP \
+  --api-key-id your-coinbase-api-key-id \
+  --api-key-secret - \
+  --wallet-secret file://wallet-secret.txt
+agentcore deploy
+```
+To use the interactive wizard instead, run `agentcore add credentials payment` with no options.
 The following example creates a payment credential provider for Coinbase CDP:  
 
 ```

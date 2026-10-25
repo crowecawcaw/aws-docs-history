@@ -24,19 +24,22 @@ The following code samples demonstrate how to delete evaluators using different 
 
 1. 
 
+   If you added the evaluator with `agentcore add evaluator`, remove it from the project and deploy:
+
    ```
-   agentcore remove evaluator --name "your_custom_evaluator_name"
+   agentcore remove evaluator --name <EVALUATOR_NAME>
    agentcore deploy
    ```
 
-   The `remove` command removes the evaluator from your local project configuration. Run `agentcore deploy` to apply the deletion to your AWS account.
+   You can also run `agentcore remove` and choose the evaluator.
+
+   To delete an evaluator that is not part of a project, delete it by ID:
+
+   ```
+   agentcore eval evaluator delete --id <EVALUATOR_ID>
+   ```
 **Note**  
 If the evaluator is referenced by an online evaluation configuration, you must first remove it from that configuration or delete the online evaluation configuration entirely before deleting the evaluator.
-**Note**  
-Run this from inside an AgentCore project directory (created with `agentcore create` ).
-
-1. \* Run `agentcore remove` and select **Evaluator** from the resource type menu.  
-![Remove resource type selection](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-remove-select.png)
 
 1. 
 

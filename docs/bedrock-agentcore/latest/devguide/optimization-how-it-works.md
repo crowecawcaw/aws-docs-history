@@ -13,4 +13,4 @@ AgentCore optimization connects evaluation findings to validated improvements th
    +  **Configuration bundle variants:** Same runtime, different bundle versions. Use when the change is purely configuration (prompt, model ID, tool descriptions).
    +  **Target-based variants:** Different gateway targets pointing to different runtime endpoints. Use when the change includes code changes, a framework upgrade, or when you want to compare entirely different agent implementations. Each variant can have its own online evaluation configuration.
 
-1.  **Deploy the winning variant and repeat:** Route 100% of traffic to the winning variant. New traces from the new baseline provide the foundation for the next iteration.
+1.  **Route traffic to the winning variant and repeat:** Route 100% of traffic to the winning variant. New traces from the new baseline provide the foundation for the next iteration.

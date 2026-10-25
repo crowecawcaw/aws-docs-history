@@ -4,7 +4,7 @@
 <a name="kms-key-policy-configuration"></a>
 
 **Note**  
-Currently we don’t support configuring CMK on token vault through console.
+To configure a customer managed key on the token vault, use the `SetTokenVaultCMK` API operation or an AWS SDK, as described in [Configure with API operations or an AWS SDK](api-configuration-encryption.md).
 
 To use a customer managed key, your key must trust an Amazon Bedrock AgentCore Identity service principal to perform encryption and decryption operations on the key. Configure the [key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) of your KMS key as shown in the following example. The IAM principal that writes this policy must have write access to your KMS key, with `kms:PutKeyPolicy` permission.
 

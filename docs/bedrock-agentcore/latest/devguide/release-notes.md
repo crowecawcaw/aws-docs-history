@@ -8,6 +8,51 @@ We recommend subscribing to the RSS feed so updates to these notes are delivered
 ## October 2026
 <a name="_october_2026"></a>
 
+### Gateway: Amazon Bedrock InvokeModel support on inference targets
+<a name="_gateway_amazon_bedrock_invokemodel_support_on_inference_targets_2"></a>
+
+Amazon Bedrock AgentCore Gateway inference targets now support the Amazon Bedrock `InvokeModel` and `InvokeModelWithResponseStream` API wire format on the aggregated `/inference` endpoint, in both directions. A client that uses the Amazon Bedrock SDK can route `InvokeModel` requests to any inference target, including non-Bedrock providers, and a client that uses the OpenAI or Anthropic SDK can route to an Amazon Bedrock target that serves models through `InvokeModel`. When the client and target speak different API dialects, the gateway translates the request and re-frames the streamed response so the client’s SDK works unchanged. A new `bedrock-runtime` connector configures a target for the native `InvokeModel` API.
+
+For more information about using the Amazon Bedrock InvokeModel API with inference targets, see [Use the Amazon Bedrock InvokeModel API with inference targets](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-inference-invokemodel.html).
+
+### Gateway: model fallback for inference routing
+<a name="_gateway_model_fallback_for_inference_routing_2"></a>
+
+Amazon Bedrock AgentCore Gateway now supports model fallback for inference traffic. A gateway rule can select requests with a `matchModels` condition and define an ordered fallback chain on its `routeToTarget` action, so that when the primary destination is throttled, out of capacity, or unreachable, the gateway automatically tries the next target or model that you specified. You configure which failure types trigger fallback and set a per-destination first-byte timeout. The service-owned circuit breaker, which is toggled on by default, skips destinations where requests are failing.
+
+For more information about adding model fallback to a gateway, see [Add model fallback to a gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-rules-fallback.html).
+
+### Gateway: AWS Step Functions connector
+<a name="gateway_shared_aws_step_functions_connector"></a>
+
+Amazon Bedrock AgentCore Gateway now includes a built-in AWS Step Functions connector that exposes your state machines to agents as Model Context Protocol (MCP) tools. Your agents decide when to run a workflow and what input to pass, and the state machine decides which steps run and in what order.
+
+The connector works with Standard and Express workflows. Long-running Standard workflows record each step in the execution history, and the task-token operations support human-in-the-loop callbacks.
+
+For more information, see [AWS Step Functions as Connector Target](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-connector-step-functions.html) and [Add a Connector target with AWS Step Functions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-add-target-api-target-config.html#gateway-add-target-api-connector-step-functions).
+
+### AgentCore CLI: Version 1.0 is now available
+<a name="_agentcore_cli_version_1_0_is_now_available_2"></a>
+
+AgentCore CLI v1 (`@aws/agentcore` 1.0.0) is a rebuild of the CLI with faster startup, consistent command structure, and support for more AgentCore resources. Highlights include:
++  **Direct resource commands** — Alongside the project workflow, you can now use the `harness`, `runtime`, `memory`, `identity`, `gateway`, and `payment` command groups to work with AgentCore resources directly, without first adding them to a project. For example, you can invoke an existing Runtime, harness, or Gateway by ID or ARN, open an interactive shell, or export a harness from outside a project.
++  **Project commands** — The project workflow still uses `create`, `add`, `remove`, `build`, `deploy`, `dev`, `invoke`, `status`, `logs`, `traces`, and `export`, alongside the `eval` commands. The `--region`, `--json`, `--debug`, and `--version` flags work the same way across all commands, and every command can return JSON output.
++  **Redesigned interactive terminal interface** — Searchable command menus, resource pickers, detail views, and guided workflows to create Harnesses, Runtimes, Runtime endpoints, Memory, Gateways and Gateway targets, credentials, evaluators, online evaluations, policy engines and Cedar policies, configuration bundles, and payment resources. The interface also tells you when an update is available and can install it for you.
++  **Thin CDK app** — Projects now include a small CDK app built on the `@aws/agentcore-cdk` constructs instead of generated CDK code. Deployments turn on CloudWatch Transaction Search by default, and you can opt out.
+
+AgentCore CLI v1.0.0 recognizes v0 projects and hands their deployments to the v0 CLI, so you can keep using your v0 projects with AgentCore CLI v1.0.0. Commands that change a project, such as `add` and `remove`, require the v1 project format.
+
+Run `agentcore migrate` to see a read-only migration plan, confirm it, and then migrate. The command checks git and CDK first, refactors the CloudFormation stack for each deployment target, keeps v0 physical resource names, and can recover a migration that was interrupted. Resources that v1 doesn’t support are kept outside the v1 stack. For more information, see [Migrating to v1](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agentcore-cli-migration.html) and [Breaking changes](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agentcore-cli-migration-breaking-changes.html).
+
+For more information, see [AgentCore CLI reference](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agentcore-cli-reference.html) and [Get started with Amazon Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agentcore-get-started-cli.html).
+
+### Evaluations: Failure analysis insights for batch evaluations
+<a name="_evaluations_failure_analysis_insights_for_batch_evaluations_2"></a>
+
+Amazon Bedrock AgentCore Evaluations now includes the failure analysis evaluator (`Builtin.FailureAnalysis`), which finds failures in your agent sessions, determines the root cause of each failure, and groups the findings across sessions into insights. Each insight includes the root causes behind the pattern and suggested fixes, such as changes to your system prompt or tool definitions. You can run the evaluator alone or together with other evaluators in a batch evaluation, and read the insights in the `insightResults` field of the `GetBatchEvaluation` response.
+
+For more information, see [Insights in batch evaluation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/batch-evaluations-insights.html) and [Insight evaluators](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/insight-evaluators.html).
+
 ### Memory: Time-to-live for long-term memory records
 <a name="_memory_time_to_live_for_long_term_memory_records_2"></a>
 
@@ -41,7 +86,7 @@ AgentCore harness now supports persistent, interactive shell sessions over WebSo
 
 You can reconnect to a detached shell and replay up to 256 KB of buffered output, or open as many as 10 independent shells in one harness session. Interactive shells work in the managed default environment and inside a configured custom container.
 
-At launch, connect through the `InvokeAgentRuntimeCommandShell` WebSocket API directly. AgentCore CLI commands and the high-level AgentCore SDK shell helpers don’t support harness targets. For connection details, framing, authentication, errors, and quotas, see [Interactive shells for AgentCore harness](harness-command-shell.md).
+Connect through the `InvokeAgentRuntimeCommandShell` WebSocket API. For connection details, framing, authentication, errors, and quotas, see [Interactive shells for AgentCore harness](harness-command-shell.md).
 
 ### Harness: Custom OpenAI-compatible endpoints
 <a name="_harness_custom_openai_compatible_endpoints_2"></a>
@@ -179,7 +224,7 @@ For more information about Region support, see [Supported AWS Regions](https://d
 ### Runtime: Instances compute type with capacity providers
 <a name="_runtime_instances_compute_type_with_capacity_providers_2"></a>
 
-AgentCore Runtime now offers the **Instances** compute type. Instances runs your agents on AWS managed Amazon EC2 infrastructure in your own AWS account. You define the compute with a capacity provider, which specifies the operating system, allowed instance types, networking, and storage. AgentCore handles provisioning, scaling, and teardown. Instances support persistent sessions of up to 14 days and GPU-accelerated instance types. Multiple agents can collaborate on a shared instance. Your data stays in your account, and you can apply existing Savings Plans and On-Demand Capacity Reservations (ODCRs). At launch, Instances support Linux on `x86_64` and `arm64`. See [Run agents on Instances with capacity providers](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-instances-how-it-works.html).
+AgentCore Runtime now offers the **Instances** compute type. Instances runs your agents on AWS managed Amazon EC2 infrastructure in your own AWS account. You define the compute with a capacity provider, which specifies the operating system, allowed instance types, networking, and storage. AgentCore handles provisioning, scaling, and teardown. Instances support persistent sessions of up to 14 days and GPU-accelerated instance types. Multiple agents can collaborate on a shared instance. Your data stays in your account, and you can apply existing Savings Plans and On-Demand Capacity Reservations (ODCRs). Instances support Linux on `x86_64` and `arm64`. See [Run agents on Instances with capacity providers](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-instances-how-it-works.html).
 
 ### AWS Agent Registry launches under the new `agent-registry` namespace
 <a name="shared_aws_agent_registry_launches_under_the_new_agent_registry_namespace"></a>

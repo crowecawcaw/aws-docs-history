@@ -15,8 +15,10 @@ The following examples show how to publish a version:
 1. 
 
    ```
-   agentcore dataset publish-version --name my_eval_dataset
+   agentcore eval dataset publish --id <DATASET_ID>
    ```
+
+   The command returns the new `datasetVersion` while the dataset is still `UPDATING`. Run `agentcore eval dataset get --id <DATASET_ID> --version <VERSION>` until the status is `ACTIVE` before you download the version.
 
 1. 
 
@@ -54,12 +56,6 @@ Returns published versions sorted newest first. Each version summary includes `d
 The following examples show how to list versions:
 
 **Example**  
-
-1. 
-
-   ```
-   agentcore status --type dataset
-   ```
 
 1. 
 

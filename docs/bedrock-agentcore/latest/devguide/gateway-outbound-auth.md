@@ -13,7 +13,7 @@ AgentCore Gateway supports the following types of outbound authorization:
   +  **Client credentials grant** – Machine-to-machine authentication (also known as 2-legged OAuth). The client application accesses resources on the application’s behalf, rather than on behalf of the user.
   +  **Authorization code grant** – User-delegated access (also known as 3-legged OAuth). The user provides consent for the client application to access resources on behalf of the user.
   +  **Token exchange grant (On-behalf-of)** – The gateway exchanges the inbound user’s access token for a new, scoped access token that targets a downstream resource. The exchanged token carries both the user’s identity and the agent’s identity, enabling downstream services to enforce fine-grained authorization at every hop without triggering additional consent flows. For more information, see [On-behalf-of token exchange](on-behalf-of-token-exchange.md).
-+  **Token passthrough** – The gateway passes the inbound authorization token directly to the target without modification. The target service is responsible for validating the token. This requires the gateway to use `AUTHENTICATE_ONLY` inbound authorization so that the token is validated but preserved for forwarding.
++  **Token passthrough** – The gateway passes the inbound authorization token directly to the target without modification. The target service is responsible for validating the token. Token passthrough requires an inbound type that carries a bearer token, either JWT inbound authorization or `NONE`. It isn’t available with `AUTHENTICATE_ONLY`, which uses SigV4 and carries no bearer token.
 +  **API key** – Use the AgentCore service to generate an API key to authenticate access to the gateway target.
 
 The type of outbound authorization that you can set up is dependent on the gateway target type to which you authorize access:
@@ -34,7 +34,7 @@ If you use an integration provider template as a target, review the supported au
 Before adding a target to your gateway, you must set up authorization for it through one of the supported methods.
 
 **Note**  
-You can skip this prerequisite if you plan to use the AWS Management Console or AgentCore CLI to create your gateway. If you use either of these tools, you can let AgentCore automatically create a service role for you with the necessary permissions to access the target. Each time you add a target, the necessary permissions will be automatically attached to your service role.
+You can skip this prerequisite if you plan to use the AWS Management Console or AgentCore CLI to create your gateway. If you use either of these tools, you can let AgentCore automatically create a service role for you with the necessary permissions to access the target. Each time you add a target, the necessary permissions will be automatically attached to your service role. For a target that signs requests with the gateway service role to a service outside AgentCore, such as an HTTP passthrough or MCP server target with IAM authorization, add the permissions that the target service requires to the gateway service role.
 
 Select a topic to learn how to set up that type of authorization:
 
@@ -139,26 +139,28 @@ The following examples show you how to set authorization through an OAuth client
 
 **Example**  
 
-1. The AgentCore CLI credential commands must be run inside an existing agentcore project. If you don’t have one yet, create a project first with `agentcore create`.
+1. Run the credential command inside an existing AgentCore project. If you don’t have one yet, create a project with `agentcore create --name <ProjectName>`.
 
    ```
-   agentcore add credential \
+   printf '%s' "$CLIENT_SECRET" | agentcore add credentials oauth \
      --name oauth-credential-provider \
-     --type oauth \
+     --vendor CustomOauth2 \
      --discovery-url <DiscoveryUrl> \
      --client-id <ClientId> \
-     --client-secret <ClientSecret>
+     --client-secret -
    agentcore deploy
    ```
+
+   To use the interactive wizard instead, run `agentcore add credentials oauth` with no options.
 
 1. 
 
    ```
    aws bedrock-agentcore-control create-oauth2-credential-provider \
      --name oauth-credential-provider \
-     --credential-provider-vendor CustomOAuth2 \
+     --credential-provider-vendor CustomOauth2 \
      --oauth2-provider-config-input '{
-       "customOAuth2ProviderConfig": {
+       "customOauth2ProviderConfig": {
          "oauthDiscovery": {
            "discoveryUrl": "<DiscoveryUrl>"
          },
@@ -177,13 +179,15 @@ The following examples show you how to set authorization through an OAuth client
    
    client.create_oauth2_credential_provider(
      name="oauth-credential-provider",
-     credentialProviderVendor="CustomOAuth2",
+     credentialProviderVendor="CustomOauth2",
      oauth2ProviderConfigInput={
-       "oauthDiscovery": {
-         "discoveryUrl": "<DiscoveryUrl>"
-       },
-       "clientId": "<ClientId>",
-       "clientSecret": "<ClientSecret>"
+       "customOauth2ProviderConfig": {
+         "oauthDiscovery": {
+           "discoveryUrl": "<DiscoveryUrl>"
+         },
+         "clientId": "<ClientId>",
+         "clientSecret": "<ClientSecret>"
+       }
      }
    )
    ```
@@ -193,7 +197,7 @@ The following examples show you how to set authorization through an OAuth client
 
 To set up outbound authorization with an API key, you use the AgentCore Identity service and specify an API key that you receive from a supported identity provider.
 
- **To set up outbound authorization with an OAuth client** 
+ **To set up outbound authorization with an API key** 
 
 1. Register your client application with a supported third-party provider.
 
@@ -263,15 +267,16 @@ The following examples show you how to set an API key for your gateway target:
 
 **Example**  
 
-1. The AgentCore CLI credential commands must be run inside an existing agentcore project. If you don’t have one yet, create a project first with `agentcore create`.
+1. Run the credential command inside an existing AgentCore project. If you don’t have one yet, create a project with `agentcore create --name <ProjectName>`.
 
    ```
-   agentcore add credential \
+   printf '%s' "$API_KEY" | agentcore add credentials api-key \
      --name api-key-credential-provider \
-     --type api-key \
-     --api-key <API_KEY_VALUE>
+     --api-key -
    agentcore deploy
    ```
+
+   To use the interactive wizard instead, run `agentcore add credentials api-key` with no options.
 
 1. 
 

@@ -3,16 +3,16 @@
 # Strands Agents SDK
 <a name="strands-sdk-memory"></a>
 
-Use the [Strands Agents](https://strandsagents.com/latest/) SDK for seamless integration with agent frameworks, providing automatic memory management and retrieval within conversational agents.
+Use the [Strands Agents](https://strandsagents.com/latest/) SDK integration to manage and retrieve AgentCore Memory automatically in conversational agents.
 
-First, create a memory with all three long-term strategies. You can do this with the AgentCore CLI or through the SDK code in the examples below.
+First, create a memory with the semantic, summary, and user preference long-term strategies. You can do this with the AgentCore CLI or through the SDK code in the examples below.
 
 **Example**  
 
-1. The AgentCore CLI memory commands must be run inside an existing agentcore project. If you don’t have one yet, create a project first:
+1. The AgentCore CLI memory commands must be run inside an existing AgentCore project. If you don’t have one yet, create a project first:
 
    ```
-   agentcore create --project-name MemoryProject --no-agent
+   agentcore create --name MemoryProject --template empty
    cd MemoryProject
    ```
 
@@ -24,18 +24,17 @@ First, create a memory with all three long-term strategies. You can do this with
    agentcore deploy
    ```
 
-1. Run `agentcore` to open the TUI, then select **add** and choose **Memory** :
+1. Run `agentcore add memory` to open the Memory wizard.
 
-1. Enter the memory name:  
-![Memory wizard: enter ComprehensiveAgentMemory name](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/strands-memory-add-name.png)
+1. Enter the memory name, such as `ComprehensiveAgentMemory`.
 
-1. Select all three strategies (Semantic, Summarization, User preference):  
-![Memory wizard: select all three memory strategies](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/strands-memory-add-strategies.png)
+1. Use the arrow keys and Space to select `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`, then press Enter.
 
-1. Review the configuration and press Enter to confirm:  
-![Memory wizard: confirm ComprehensiveAgentMemory with all strategies](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/strands-memory-add-confirm.png)
+1. Keep the default event retention or enter a value from 3 to 365 days.
 
-   Then run `agentcore deploy` to provision the memory in AWS.
+1. Review the configuration and press Enter to add the memory.
+
+1. Press Ctrl\+C to exit the TUI, then run `agentcore deploy` to provision the memory in AWS.
 
  **Install dependencies** 
 

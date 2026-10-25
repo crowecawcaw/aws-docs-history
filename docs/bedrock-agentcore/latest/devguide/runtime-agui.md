@@ -22,7 +22,7 @@ For more information about AG-UI, see [AG-UI protocol contract](runtime-agui-pro
 ## How Amazon Bedrock AgentCore supports AG-UI
 <a name="runtime-agui-how-agentcore-supports"></a>
 
-Amazon Bedrock AgentCore’s AG-UI protocol support enables integration with agent user interface servers by acting as a proxy layer. When configured for AG-UI, Amazon Bedrock AgentCore expects containers to run servers on port `8080` at the `/invocations` path for HTTP/SSE or `/ws` for WebSocket connections. Although AG-UI uses the same port and paths as the HTTP protocol, the runtime distinguishes between them based on the `--protocol` flag specified during deployment configuration.
+Amazon Bedrock AgentCore’s AG-UI protocol support enables integration with agent user interface servers by acting as a proxy layer. When configured for AG-UI, Amazon Bedrock AgentCore expects containers to run servers on port `8080` at the `/invocations` path for HTTP/SSE or `/ws` for WebSocket connections. Although AG-UI uses the same port and paths as the HTTP protocol, the runtime distinguishes between them by the server protocol configured on the Runtime. With the AgentCore CLI, `agentcore add runtime --protocol AGUI` sets the Runtime’s `protocol` to `AGUI` in `agentcore/agentcore.json`.
 
 Amazon Bedrock AgentCore acts as a proxy between clients and your AG-UI container. Requests from the [InvokeAgentRuntime](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_InvokeAgentRuntime.html) API are passed through to your container without modification. Amazon Bedrock AgentCore handles authentication (SigV4/OAuth 2.0), session isolation, and scaling.
 
@@ -62,35 +62,57 @@ For complete examples and framework-specific implementations, see [AG-UI Quickst
 ### Prerequisites
 <a name="runtime-agui-prerequisites"></a>
 + Python 3.12 or higher installed
-+ Node.js 20 or higher installed for the AgentCore CLI
++ The AgentCore CLI installed and configured. For instructions, see [Get started with the AgentCore CLI](runtime-get-started-cli.md).
 + An AWS account with appropriate permissions and local credentials configured
 + Understanding of the AG-UI protocol and event-based agent-to-user communication concepts
++ A Cognito user pool configured as described in [Set up Cognito user pool for authentication](#runtime-agui-appendix-a). Export `REGION`, `POOL_ID`, and `CLIENT_ID` from that setup before creating the project.
 
 ### Step 1: Create your AG-UI server
 <a name="runtime-agui-create-server"></a>
 
 AG-UI is supported by multiple agent frameworks. This tutorial uses AWS Strands for Python.
 
-#### Install required packages
+#### Scaffold the project
 <a name="runtime-agui-install-packages"></a>
 
-Install packages for AWS Strands with AG-UI support:
+Create an empty project, register a Python AG-UI Runtime with Cognito authorization, and add the dependencies for this example:
 
 ```
-pip install fastapi
-pip install uvicorn
-pip install ag-ui-strands
+agentcore create --name AguiProject --template empty
+cd AguiProject
+agentcore add runtime \
+  --name AguiAgent \
+  --language python \
+  --protocol AGUI \
+  --authorizer-type CUSTOM_JWT \
+  --authorizer-configuration \
+  "{\"customJwtAuthorizer\":{\"discoveryUrl\":\"https://cognito-idp.$REGION.amazonaws.com/$POOL_ID/.well-known/openid-configuration\",\"allowedClients\":[\"$CLIENT_ID\"]}}" \
+  --request-header-allowlist Authorization
+cd app/AguiAgent
+uv init --bare
+uv add \
+  "ag-ui-protocol>=0.1.19,<0.2" \
+  "ag-ui-strands>=0.3,<0.4" \
+  "aws-opentelemetry-distro~=0.21.0" \
+  "bedrock-agentcore[strands-agents]>=1.18.1,<2" \
+  "botocore[crt]~=1.43.0" \
+  "fastapi>=0.142,<1" \
+  "strands-agents>=1.15,<2" \
+  "uvicorn>=0.34.3,<1"
+cd ../..
 ```
 
-For other frameworks, see the [AG-UI framework integrations](https://docs.ag-ui.com/introduction#supported-integrations).
+The CLI creates `README.md` and `AGENTS.md` with the AG-UI Runtime contract, but it does not generate application code. To use another model provider, configure the Strands `Agent` in your application code. For other frameworks, see the [AG-UI framework integrations](https://docs.ag-ui.com/introduction#supported-integrations).
 
 #### Create your first AG-UI server
 <a name="runtime-agui-create-first-server"></a>
 
-Create a file named `my_agui_server.py`. This example uses AWS Strands with AG-UI. The server listens on port `8080`, exposes `/invocations` for AG-UI traffic, and exposes `/ping` for health checks. AgentCore Runtime requires this contract for AG-UI containers.
+Create `app/AguiAgent/main.py` with the following implementation. This example uses AWS Strands with AG-UI. The server listens on port `8080`, exposes `/invocations` for AG-UI traffic, and exposes `/ping` for health checks. AgentCore Runtime requires this contract for AG-UI containers.
 
 ```
-# my_agui_server.py
+# app/AguiAgent/main.py
+import os
+
 import uvicorn
 from fastapi import FastAPI, Request
 from fastapi.responses import StreamingResponse, JSONResponse
@@ -112,7 +134,7 @@ agui_agent = StrandsAgent(
 )
 
 # FastAPI server
-app = FastAPI()
+app = FastAPI(telemetry={"auto_configure": False})
 
 @app.post("/invocations")
 async def invocations(input_data: dict, request: Request):
@@ -135,13 +157,15 @@ async def ping():
     return JSONResponse({"status": "Healthy"})
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8080)
+    uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("PORT", "8080")))
 ```
 
 For complete, framework-specific examples, see:
 +  [LangGraph \+ AG-UI](https://docs.copilotkit.ai/langgraph/) 
 +  [CrewAI \+ AG-UI](https://docs.copilotkit.ai/crewai-flows) 
 +  [AWS Strands \+ AG-UI](https://docs.copilotkit.ai/aws-strands) 
+
+Keep `telemetry={"auto_configure": False}` with the FastAPI version installed above. The OpenTelemetry distribution owns exporter configuration; this setting prevents FastAPI from also configuring an environment-driven exporter.
 
 #### Understanding the code
 <a name="runtime-agui-understanding-code"></a>
@@ -163,10 +187,10 @@ Run and test your AG-UI server in a local development environment.
 #### Start your AG-UI server
 <a name="runtime-agui-start-server"></a>
 
-Run your AG-UI server locally:
+Run your AG-UI server locally from the project directory:
 
 ```
-python my_agui_server.py
+agentcore dev
 ```
 
 You should see output indicating the server is running on port `8080`.
@@ -195,87 +219,25 @@ You should see AG-UI event streams returned in SSE format, including `RUN_STARTE
 ### Step 3: Deploy your AG-UI server to Bedrock AgentCore Runtime
 <a name="runtime-agui-deploy"></a>
 
-Deploy your AG-UI server to AWS using the AgentCore CLI.
-
-#### Install deployment tools
-<a name="runtime-agui-install-deployment-tools"></a>
-
-Install the AgentCore CLI:
-
-```
-npm install -g @aws/agentcore
-```
-
-Start by creating a project folder with the following structure:
-
-```
-## Project Folder Structure
-your_project_directory/
-├── my_agui_server.py          # Your main agent code
-├── requirements.txt           # Dependencies for your agent
-```
-
-Create a new file called `requirements.txt` with your dependencies:
-
-```
-fastapi
-uvicorn
-ag-ui-strands
-```
-
-#### Set up Cognito user pool for authentication
-<a name="runtime-agui-setup-cognito"></a>
-
-Configure authentication for secure access to your deployed server. For detailed Cognito setup instructions, see [Set up Cognito user pool for authentication](#runtime-agui-appendix-a) . This provides the OAuth tokens required for secure access to your deployed server.
-
-After you complete the Cognito setup, export the values that the deployment command uses:
-
-```
-export REGION="<your-region>"
-export POOL_ID="<your-user-pool-id>"
-export CLIENT_ID="<your-app-client-id>"
-```
-
-#### Configure your AG-UI server for deployment
-<a name="runtime-agui-configure-deployment"></a>
-
-Create an empty AgentCore project. Then register the server that you created in [Create your first AG-UI server](#runtime-agui-create-first-server) as a BYO agent with the Cognito configuration from the previous step:
-
-```
-agentcore create --project-name AguiProject --no-agent
-cd AguiProject
-agentcore add agent \
-  --name AguiAgent \
-  --type byo \
-  --language Python \
-  --framework Strands \
-  --model-provider Bedrock \
-  --memory none \
-  --code-location .. \
-  --entrypoint my_agui_server.py \
-  --protocol AGUI \
-  --authorizer-type CUSTOM_JWT \
-  --discovery-url "https://cognito-idp.$REGION.amazonaws.com/$POOL_ID/.well-known/openid-configuration" \
-  --allowed-clients "$CLIENT_ID" \
-  --request-header-allowlist Authorization
-```
-
-The commands register the existing implementation with the AG-UI protocol and the Cognito OAuth configuration from the previous step.
+Deploy your AG-UI server to AWS using the AgentCore CLI. You configured Cognito authorization when you added the Runtime in Step 1, so no further setup is needed before deployment.
 
 #### Deploy to AWS
 <a name="runtime-agui-deploy-aws"></a>
 
-Deploy your agent:
+Build and deploy your agent:
 
 ```
+agentcore build
 agentcore deploy
 ```
 
-After deployment, you’ll receive an agent runtime ARN that looks like:
+After deployment, get the Runtime ARN:
 
 ```
-arn:aws:bedrock-agentcore:us-west-2:accountId:runtime/my_agui_server-xyz123
+agentcore status --json
 ```
+
+The Runtime resource’s `arn` field contains its ARN.
 
 ### Step 4: Invoke your deployed AG-UI server
 <a name="runtime-agui-step-4"></a>
@@ -285,7 +247,7 @@ Invoke your deployed Amazon Bedrock AgentCore AG-UI server and interact with the
 #### Set up environment variables
 <a name="runtime-agui-setup-environment-variables"></a>
 
-Set up environment variables
+Set the following environment variables:
 
 1. Export bearer token as an environment variable. For bearer token setup, see [Set up Cognito user pool for authentication](#runtime-agui-appendix-a).
 
@@ -296,7 +258,7 @@ Set up environment variables
 1. Export the agent ARN.
 
    ```
-   export AGENT_ARN="arn:aws:bedrock-agentcore:us-west-2:accountId:runtime/my_agui_server-xyz123"
+   export AGENT_ARN="arn:aws:bedrock-agentcore:us-west-2:accountId:runtime/AguiProject_default_AguiAgent-xyz123"
    ```
 
 #### Invoke the AG-UI server
@@ -411,7 +373,7 @@ For building full UI applications, see [CopilotKit](https://docs.copilotkit.ai/)
 ### Set up Cognito user pool for authentication
 <a name="runtime-agui-appendix-a"></a>
 
-For detailed Cognito setup instructions, see Set up [Cognito user pool for authentication](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-mcp.html#set-up-cognito-user-pool-for-authentication) in the MCP documentation. The setup process is identical for AG-UI servers.
+For detailed Cognito setup instructions, see [Set up Cognito user pool for authentication](runtime-mcp.md#runtime-mcp-appendix-a). The setup process is identical for AG-UI servers.
 
 ### Troubleshooting
 <a name="runtime-agui-troubleshooting"></a>

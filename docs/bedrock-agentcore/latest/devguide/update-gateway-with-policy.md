@@ -12,16 +12,16 @@ Associate a policy engine with an existing gateway:
    ```
    agentcore add policy-engine --name my_policy_engine \
      --attach-to-gateways my-gateway \
-     --attach-mode ENFORCE
+     --attach-mode enforce
    ```
 
 1. Deploy to apply the change:
 
    ```
-   agentcore deploy --yes
+   agentcore deploy
    ```
 
-   The CLI issues the `UpdateGateway` call for you and preserves the gateway’s other settings. To change only the mode on an already-attached engine, edit `attachMode` in `agentcore/agentcore.json` and deploy again.
+   The CLI issues the `UpdateGateway` call for you and preserves the gateway’s other settings. To change only the mode on an already-attached engine, set `mode` to `LOG_ONLY` or `ENFORCE` in the gateway’s `policyEngineConfiguration` in `agentcore/agentcore.json`, and deploy again.
 
 1. Run the following code in a terminal to update a gateway with a Policy Engine using the AWS CLI:
 

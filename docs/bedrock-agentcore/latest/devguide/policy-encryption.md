@@ -260,7 +260,7 @@ To encrypt your policy engine, supply the key ARN when you create it:
      --description "Policy engine with customer-managed encryption" \
      --encryption-key-arn arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab
    
-   agentcore deploy --yes
+   agentcore deploy
    ```
 
 1. Run the following code in a terminal to create the encrypted policy engine using the AWS CLI:
@@ -370,8 +370,6 @@ Grant them before you need them. A principal that lacks them when the key become
 First, list the policy engines in the account, including the key each one uses. Then list the policies inside an affected engine.
 
 **Example**  
-
-1. Not available. The AgentCore CLI does not expose the summary operations, and `agentcore status` reports only resources the current project manages. Use the AWS CLI or an SDK to recover an inventory.
 
 1. List the engines, then the policies in an affected engine:
 

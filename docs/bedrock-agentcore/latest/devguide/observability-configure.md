@@ -190,8 +190,8 @@ To enable observability for agents hosted outside of the AgentCore runtime, firs
 
 If you host your agent on AWS Lambda, use the [AWS Lambda Layer for OpenTelemetry](https://aws-otel.github.io/docs/getting-started/lambda) on the AWS Distro for OpenTelemetry website. Add the layer to your function, and then set the `AWS_LAMBDA_EXEC_WRAPPER` environment variable to `/opt/otel-instrument`. The layer then auto-instruments your function. With this approach, you don’t need to add the `aws-opentelemetry-distro` package or run the `opentelemetry-instrument` command described earlier.
 
-**ADOT Collector not supported for agent observability**  
-The ADOT Collector is not supported for agent observability. To send telemetry from an agent hosted outside of AgentCore runtime, you must use either the ADOT SDK or the AWS Lambda Layer for OpenTelemetry.
+**Note**  
+To send telemetry from an agent hosted outside of AgentCore runtime, use either the ADOT SDK or the AWS Lambda Layer for OpenTelemetry.
 
 For agents running outside of the AgentCore runtime, you also need to create an agent log-group which you include in your environment variables.
 
@@ -255,7 +255,7 @@ For memory and gateway logs, you can also configure log destinations in Amazon S
 
 To learn more about the log data output by AgentCore for memory and gateway resources see [Provided log data (memory)](observability-memory-metrics.md#memory_logs_summary) or [Provided log data (gateway)](observability-gateway-metrics.md#observability-gateway-logs-provided).
 
-For built-in tool resources, the AgentCore service doesn’t provide logs by default, but you can output your own logs from your code. If you supply your own log outputs, you need to manually configure log destinations to store this data.
+For built-in tool resources, output your own logs from your code. If you supply your own log outputs, you need to manually configure log destinations to store this data.
 
 To see what observability data AgentCore provides by default for each resource type, see [Amazon Bedrock AgentCore generated observability data](observability-service-provided.md).
 

@@ -11,20 +11,16 @@ You cannot delete a bundle that is referenced by an active A/B test. Stop the A/
 <a name="delete-bundle-examples"></a>
 
 **Example**  
-Remove the bundle from your project configuration, then deploy to propagate the deletion:  
+If you added the bundle with `agentcore add config-bundle`, remove it from the project and deploy. The deployment deletes the bundle and all of its versions:  
 
 ```
-agentcore remove config-bundle
-
+agentcore remove config-bundle --name myAgentConfig
 agentcore deploy
 ```
-The CLI prompts you to select which bundle to remove.  
-To remove a specific bundle non-interactively (for example, in a script), pass the bundle name with `--name` and skip the confirmation prompt with `-y`:  
+To delete a configuration bundle that your project does not manage, such as one that you created with `agentcore eval config-bundle create`, use its ID:  
 
 ```
-agentcore remove config-bundle --name MyBundle -y
-
-agentcore deploy
+agentcore eval config-bundle delete --id <configuration-bundle-id>
 ```
 
 ```

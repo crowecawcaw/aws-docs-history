@@ -7,30 +7,35 @@ The `UpdateEvaluator` API modifies an existing custom evaluator’s configuratio
 
  **Modification lock protection:** Updates are not allowed if the evaluator has been used by any enabled evaluation configuration.
 
+ **Rating scale changes:** You can change `ratingScale` between `numerical`, `categorical`, and `multiDimensional`, and add, remove, or edit dimensions of a [multi-dimension evaluator](multi-dimension-evaluators.md). A new multi-dimension scale is validated the same way as on create. If you change the evaluation `level` without resending `ratingScale`, the stored dimension instructions are checked against the new level’s placeholders.
+
 The API returns immediately with updated metadata. Monitor the evaluator status to confirm changes are applied successfully using the `GetEvaluator` API.
 
 **Topics**
-+ [Code samples for AgentCore SDK and AWS SDK](#update-evaluators-code-samples)
++ [Code samples for AgentCore CLI, AgentCore SDK, and AWS SDK](#update-evaluators-code-samples)
 + [Console](#update-evaluator-console)
 
-## Code samples for AgentCore SDK and AWS SDK
+## Code samples for AgentCore CLI, AgentCore SDK, and AWS SDK
 <a name="update-evaluators-code-samples"></a>
 
 The following code samples demonstrate how to update evaluators using different development approaches. Choose the method that best fits your development environment and preferences.
 
 **Example**  
 
-1. To update an evaluator with the AgentCore CLI, edit the evaluator configuration in your `agentcore.json` file directly, then redeploy:
+1. 
+
+   If you created the evaluator with `agentcore add evaluator`, change it in the `evaluators` array in `agentcore/agentcore.json` and run `agentcore deploy`.
+
+   For an evaluator you created outside a project, update it by ID. Run `agentcore eval evaluator list` to find the evaluator ID.
 
    ```
-   agentcore deploy
+   agentcore eval evaluator llm-as-a-judge update \
+     --id <EVALUATOR_ID> \
+     --instructions file://updated-instructions.txt \
+     --rating-scale 1-5-quality
    ```
-
-   Open `agentcore.json` , find the evaluator in the `evaluators` array, modify its configuration, then run `agentcore deploy` . Changes won’t take effect until you deploy.
 **Note**  
-If the evaluator is locked by a running online evaluation, you must first pause the online evaluation with `agentcore pause online-eval` before making changes, or clone the evaluator instead. After deploying your changes, resume the online evaluation with `agentcore resume online-eval`.
-**Note**  
-Run this from inside an AgentCore project directory (created with `agentcore create` ).
+If the evaluator is locked by a running online evaluation, pause that configuration first, or clone the evaluator instead. For a configuration you added with `agentcore add online-eval`, set `enableOnCreate` to `false` in `agentcore/agentcore.json` and run `agentcore deploy`. For a configuration created outside a project, run `agentcore eval online-eval pause --id <ONLINE_EVAL_ID>`, and resume it later with `agentcore eval online-eval resume --id <ONLINE_EVAL_ID>`.
 
 1. 
 

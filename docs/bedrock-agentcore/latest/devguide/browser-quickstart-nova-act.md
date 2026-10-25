@@ -33,7 +33,7 @@ These packages provide:
 
  **Step 2: Get Nova Act API Key** 
 
-Navigate to [Nova Act](https://nova.amazon.com/act) page and generate an API key using your amazon.com credentials. (Note this currently works only for US based amazon.com accounts)
+Navigate to [Nova Act](https://nova.amazon.com/act) page and generate an API key using your amazon.com credentials. (This works only for US based amazon.com accounts)
 
 Create a file named `nova_act_browser_agent.py` and add the following code:
 

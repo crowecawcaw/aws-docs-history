@@ -72,24 +72,52 @@ The following example shows a passthrough target with a custom protocol and an e
   +  **s3** – An S3 URI pointing to the schema file (for example, `s3://DOC-EXAMPLE-BUCKET/service-schema.yaml`).
   +  **inlinePayload** – The schema content provided directly as a string.
 
+To create a passthrough target with a schema, use the AWS CLI command `aws bedrock-agentcore-control create-gateway-target`, as shown in the AWS CLI tab of the following examples. The target is not part of the project, and `agentcore deploy` does not manage it. Before you remove the gateway from the project, delete this target with `aws bedrock-agentcore-control delete-gateway-target --gateway-identifier <GATEWAY_ID> --target-id <TARGET_ID>`. If the gateway is replaced, create the target again.
+
 ## Creating an HTTP passthrough target
 <a name="gateway-target-http-passthrough-create"></a>
 
-The following examples create a passthrough target that routes to different types of endpoints: an A2A agent, an external MCP server, an IAM-authenticated internal service, and an external API authenticated with an API key.
+The following examples create a passthrough target that routes to different types of endpoints: an A2A agent, an external MCP server, an IAM-authenticated internal service, and an external API. The AgentCore CLI example passes the caller’s JWT to the external API, and the AWS CLI example uses an API key.
 
 **Example**  
 
-1. Route to an A2A agent using an OAuth credential:
+1. Passthrough targets need a gateway created without `--protocol-type MCP`. Create the gateway, and declare each OAuth credential that a target uses:
+
+   ```
+   agentcore add gateway \
+     --name MyGateway \
+     --authorizer-type CUSTOM_JWT \
+     --authorizer-configuration '{
+       "customJwtAuthorizer": {
+         "discoveryUrl": "https://your-idp.example.com/.well-known/openid-configuration",
+         "allowedClients": ["your-client-id"]
+       }
+     }'
+   
+   printf '%s' "$CLIENT_SECRET" | agentcore add credentials oauth \
+     --name partner-oauth \
+     --client-id <CLIENT_ID> \
+     --discovery-url <DISCOVERY_URL> \
+     --client-secret -
+   ```
+
+   Declare `slack-oauth` the same way. Route to an A2A agent using an OAuth credential:
 
    ```
    agentcore add gateway-target \
-     --name partner-agent \
-     --type passthrough \
-     --passthrough-endpoint https://partner-agent.example.com \
-     --passthrough-protocol A2A \
-     --outbound-auth oauth \
-     --credential-name partner-oauth \
-     --gateway MyGateway
+     --gateway MyGateway \
+     --target-configuration '{
+       "name": "partner-agent",
+       "targetType": "passthrough",
+       "passthrough": {
+         "endpoint": "https://partner-agent.example.com",
+         "protocolType": "A2A"
+       },
+       "outboundAuth": {
+         "type": "OAUTH",
+         "credentialName": "partner-oauth"
+       }
+     }'
    agentcore deploy
    ```
 
@@ -97,41 +125,61 @@ The following examples create a passthrough target that routes to different type
 
    ```
    agentcore add gateway-target \
-     --name slack-mcp \
-     --type passthrough \
-     --passthrough-endpoint https://mcp-slack.example.com \
-     --passthrough-protocol MCP \
-     --outbound-auth oauth \
-     --credential-name slack-oauth \
-     --gateway MyGateway
+     --gateway MyGateway \
+     --target-configuration '{
+       "name": "slack-mcp",
+       "targetType": "passthrough",
+       "passthrough": {
+         "endpoint": "https://mcp-slack.example.com",
+         "protocolType": "MCP"
+       },
+       "outboundAuth": {
+         "type": "OAUTH",
+         "credentialName": "slack-oauth"
+       }
+     }'
    agentcore deploy
    ```
 
-   Route to an internal service using IAM (SigV4) role-based authentication, with a `CUSTOM` protocol and an S3 schema:
+   Route to an internal service using IAM (SigV4) role-based authentication with a `CUSTOM` protocol:
 
    ```
    agentcore add gateway-target \
-     --name internal-service \
-     --type passthrough \
-     --passthrough-endpoint https://internal-service.example.com \
-     --passthrough-protocol CUSTOM \
-     --schema s3://amzn-s3-demo-bucket/internal-service-schema.yaml \
-     --signing-service execute-api \
-     --signing-region us-west-2 \
-     --gateway MyGateway
+     --gateway MyGateway \
+     --target-configuration '{
+       "name": "internal-service",
+       "targetType": "passthrough",
+       "passthrough": {
+         "endpoint": "https://internal-service.example.com",
+         "protocolType": "CUSTOM"
+       },
+       "outboundAuth": {
+         "type": "GATEWAY_IAM_ROLE",
+         "service": "execute-api",
+         "region": "us-west-2"
+       }
+     }'
    agentcore deploy
    ```
+
+   The AgentCore CLI configures SigV4 signing for this target. To let the gateway role call the service, create the gateway with `agentcore add gateway --role-arn` and a role that allows `execute-api:Invoke` on the internal API. For the role’s trust policy, see [AgentCore Gateway service role permissions](gateway-prerequisites-permissions.md#gateway-service-role-permissions).
 
    Route to an external API and pass the caller’s JWT:
 
    ```
    agentcore add gateway-target \
-     --name external-api \
-     --type passthrough \
-     --passthrough-endpoint https://api.example.com \
-     --passthrough-protocol CUSTOM \
-     --outbound-auth jwt-passthrough \
-     --gateway MyGateway
+     --gateway MyGateway \
+     --target-configuration '{
+       "name": "external-api",
+       "targetType": "passthrough",
+       "passthrough": {
+         "endpoint": "https://api.example.com",
+         "protocolType": "CUSTOM"
+       },
+       "outboundAuth": {
+         "type": "JWT_PASSTHROUGH"
+       }
+     }'
    agentcore deploy
    ```
 
@@ -154,7 +202,8 @@ The following examples create a passthrough target that routes to different type
                "credentialProviderType": "OAUTH",
                "credentialProvider": {
                    "oauthCredentialProvider": {
-                       "providerArn": "arn:aws:bedrock-agentcore:us-west-2:111122223333:token-vault/default/oauthcredentialprovider/partner-oauth"
+                       "providerArn": "arn:aws:bedrock-agentcore:us-west-2:111122223333:token-vault/default/oauthcredentialprovider/partner-oauth",
+                       "scopes": []
                    }
                }
            }
@@ -181,7 +230,8 @@ The following examples create a passthrough target that routes to different type
                "credentialProviderType": "OAUTH",
                "credentialProvider": {
                    "oauthCredentialProvider": {
-                       "providerArn": "arn:aws:bedrock-agentcore:us-west-2:111122223333:token-vault/default/oauthcredentialprovider/slack-oauth"
+                       "providerArn": "arn:aws:bedrock-agentcore:us-west-2:111122223333:token-vault/default/oauthcredentialprovider/slack-oauth",
+                       "scopes": []
                    }
                }
            }
@@ -189,7 +239,7 @@ The following examples create a passthrough target that routes to different type
    }'
    ```
 
-   Route to an internal service using IAM role-based authentication, with a `CUSTOM` protocol and an S3 schema:
+   Route to an internal service using IAM role-based authentication, with a `CUSTOM` protocol and an S3 schema. The gateway role must allow `execute-api:Invoke` on the internal API and `s3:GetObject` on the schema object:
 
    ```
    aws bedrock-agentcore-control create-gateway-target --cli-input-json '{
@@ -211,7 +261,15 @@ The following examples create a passthrough target that routes to different type
            }
        },
        "credentialProviderConfigurations": [
-           {"credentialProviderType": "GATEWAY_IAM_ROLE"}
+           {
+               "credentialProviderType": "GATEWAY_IAM_ROLE",
+               "credentialProvider": {
+                   "iamCredentialProvider": {
+                       "service": "execute-api",
+                       "region": "us-west-2"
+                   }
+               }
+           }
        ]
    }'
    ```
@@ -275,6 +333,15 @@ curl -X POST https://gateway-id.gateway.bedrock-agentcore.us-west-2.amazonaws.co
     }'
 ```
 
+For a gateway in your AgentCore project, `agentcore invoke --gateway` sends the request to a path on the gateway and adds the authorization for you:
+
+```
+agentcore invoke --gateway MyGateway \
+  --path /partner-agent/invocations \
+  --bearer-token "$TOKEN" \
+  --payload '{"jsonrpc":"2.0","id":"req-001","method":"message/send","params":{"message":{"role":"user","parts":[{"kind":"text","text":"What is the stock price of AMZN?"}],"messageId":"msg-001"}}}'
+```
+
 The following example calls an MCP server through the gateway:
 
 ```
@@ -307,3 +374,5 @@ HTTP passthrough targets support the following outbound authorization types:
 +  **Caller IAM credentials** (`CALLER_IAM_CREDENTIALS`) – The gateway uses the IAM identity and permissions of the caller to sign requests to the target using SigV4. Only available for gateways with `AWS_IAM` or `AUTHENTICATE_ONLY` authorizer type.
 +  **Token passthrough** (`JWT_PASSTHROUGH`) – The gateway validates the inbound token and passes it through to the target without modification.
 +  **API key** (`API_KEY`) – The gateway retrieves an API key from a credential provider configured in the token vault and injects it into outbound requests as a specified request header.
+
+The AgentCore CLI supports `GATEWAY_IAM_ROLE`, `OAUTH`, and `JWT_PASSTHROUGH` for passthrough targets. Use the AWS CLI for `API_KEY` or `CALLER_IAM_CREDENTIALS`.

@@ -16,11 +16,12 @@ Select a topic to see examples of adding a target type:
 + [Add an MCP server target](#gateway-add-target-api-MCPserver)
 + [Add a Connector target with Amazon Bedrock Managed Knowledge Bases](#gateway-add-target-api-connector-managed-kb)
 + [Add a Connector target with Web Search Tool](#gateway-add-target-api-connector-web-search)
++ [Add a Connector target with AWS Step Functions](#gateway-add-target-api-connector-step-functions)
 
 ## Add a Lambda target
 <a name="gateway-add-target-api-lambda"></a>
 
-You can add a Lambda target to your gateway using the AgentCore CLI by specifying the `--type` as `lambda-function-arn` and providing the Lambda ARN and a tool schema file.
+You can add a Lambda target to your gateway using the AgentCore CLI by passing a `--target-configuration` with `"targetType": "lambdaFunctionArn"`, the Lambda ARN, and a tool schema file.
 
  **Target configuration** 
 
@@ -34,19 +35,23 @@ Select one of the following methods:
 
 **Example**  
 
-1. To add a Lambda function as a target, run `agentcore add gateway-target` with the `--type lambda-function-arn` option. Provide the Lambda ARN and a JSON file containing the tool schema:
+1. Add a Lambda function target with a complete target configuration. The tool schema file path is relative to the project:
 
    ```
    agentcore add gateway-target \
-     --name MyLambdaTarget \
-     --type lambda-function-arn \
-     --lambda-arn arn:aws:lambda:us-east-1:123456789012:function:MyFunction \
-     --tool-schema-file tools.json \
-     --gateway MyGateway
+     --gateway MyGateway \
+     --target-configuration '{
+       "name": "MyLambdaTarget",
+       "targetType": "lambdaFunctionArn",
+       "lambdaFunctionArn": {
+         "lambdaArn": "arn:aws:lambda:us-east-1:123456789012:function:MyFunction",
+         "toolSchemaFile": "tools.json"
+       }
+     }'
    agentcore deploy
    ```
 
-   For `lambda-function-arn` targets, provide the tool schema to the AgentCore CLI with `--tool-schema-file`. For the AgentCore Python SDK and Boto3, provide the tool schema with `inlinePayload`.
+   For the AgentCore Python SDK and Boto3, provide the tool schema with `inlinePayload`.
 
 1. With the AgentCore Python SDK, you can create an AWS Lambda target with default configurations.
 
@@ -159,15 +164,10 @@ Select one of the following methods:
    )
    ```
 
-1. In the AgentCore CLI interactive terminal UI, run `agentcore` , select **add** , choose **Gateway Target** , and then select **Lambda function** :  
-![TUI target type selection with Lambda function highlighted](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-target-type-lambda.png)
-
-   The wizard then prompts you for the target name, Lambda function ARN, tool schema file, and outbound authorization configuration.
-
 ## Add an API Gateway stage target
 <a name="gateway-add-target-api-gateway"></a>
 
-To add a stage of an API Gateway REST API as a target, specify the ARN of the API and stage and define settings to filter tools in the API gateway or to override names and descriptions of tools in the gateway:
+To add a stage of an API Gateway REST API as a target, specify the REST API ID and stage name, and define settings to filter tools in the API gateway or to override names and descriptions of tools in the gateway:
 
 The following examples show how to add an API Gateway target. The following configurations are also applied:
 + The tools filtered for are the GET and POST methods for the `/products` path.
@@ -177,15 +177,34 @@ Select one of the following methods:
 
 **Example**  
 
-1. To add an API Gateway REST API stage as a target, run `agentcore add gateway-target` with the `--type api-gateway` option:
+1. Add an API Gateway REST API stage as a target with a complete target configuration:
 
    ```
    agentcore add gateway-target \
-     --name MyAPIGatewayTarget \
-     --type api-gateway \
-     --rest-api-id your-rest-api-id \
-     --stage your-stage \
-     --gateway MyGateway
+     --gateway MyGateway \
+     --target-configuration '{
+       "name": "MyAPIGatewayTarget",
+       "targetType": "apiGateway",
+       "apiGateway": {
+         "restApiId": "your-rest-api-id",
+         "stage": "your-stage",
+         "apiGatewayToolConfiguration": {
+           "toolFilters": [
+             {
+               "filterPath": "/products",
+               "methods": ["GET", "POST"]
+             }
+           ],
+           "toolOverrides": [
+             {
+               "name": "get_items",
+               "path": "/products",
+               "method": "GET"
+             }
+           ]
+         }
+       }
+     }'
    agentcore deploy
    ```
 
@@ -221,7 +240,7 @@ Select one of the following methods:
                    }
                }
            }
-       }'
+       }' \
        --credential-provider-configurations '[
            {
                "credentialProviderType": "GATEWAY_IAM_ROLE"
@@ -229,7 +248,7 @@ Select one of the following methods:
        ]'
    ```
 
-1. The following code shows uses the AWS Python SDK (Boto3):
+1. The following code uses the AWS Python SDK (Boto3):
 
    ```
    import boto3
@@ -276,11 +295,6 @@ Select one of the following methods:
    )
    ```
 
-1. In the AgentCore CLI interactive terminal UI, run `agentcore` , select **add** , choose **Gateway Target** , and then select **API Gateway REST API** :  
-![TUI target type selection showing API Gateway REST API option](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-target-type-apigw.png)
-
-   The wizard then prompts you for the target name, REST API ID, stage, and outbound authorization configuration.
-
 ## Add an OpenAPI target
 <a name="gateway-add-target-api-openapi"></a>
 
@@ -288,15 +302,28 @@ Select one of the following methods:
 
 **Example**  
 
-1. To add an OpenAPI schema target, run `agentcore add gateway-target` with the `--type open-api-schema` option and provide the path to your OpenAPI specification file:
+1. Add an API key credential to the project, then add an OpenAPI schema target that references it:
 
    ```
+   printf '%s' "$API_KEY" | agentcore add credentials api-key \
+     --name MyApiKey \
+     --api-key -
+   
    agentcore add gateway-target \
-     --name MyOpenAPITarget \
-     --type open-api-schema \
-     --schema path/to/openapi-spec.json \
-     --outbound-auth none|api-key|oauth \
-     --gateway MyGateway
+     --gateway MyGateway \
+     --target-configuration '{
+       "name": "MyOpenAPITarget",
+       "targetType": "openApiSchema",
+       "schemaSource": {
+         "inline": {
+           "path": "path/to/openapi-spec.json"
+         }
+       },
+       "outboundAuth": {
+         "type": "API_KEY",
+         "credentialName": "MyApiKey"
+       }
+     }'
    agentcore deploy
    ```
 
@@ -337,11 +364,6 @@ Select one of the following methods:
    )
    ```
 
-1. In the AgentCore CLI interactive terminal UI, run `agentcore` , select **add** , choose **Gateway Target** , and then select **OpenAPI Schema** :  
-![TUI target type selection showing OpenAPI Schema option](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-target-type-openapi.png)
-
-   The wizard then prompts you for the target name, path to the OpenAPI specification file, and outbound authorization configuration.
-
 ## Add a Smithy target
 <a name="gateway-add-target-api-smithy"></a>
 
@@ -349,14 +371,20 @@ Select one of the following methods:
 
 **Example**  
 
-1. To add a Smithy model target, run `agentcore add gateway-target` with the `--type smithy-model` option and provide the path to your Smithy model file:
+1. Add a Smithy model target and provide the path to the model file:
 
    ```
    agentcore add gateway-target \
-     --name MySmithyTarget \
-     --type smithy-model \
-     --schema path/to/smithy-model.json \
-     --gateway MyGateway
+     --gateway MyGateway \
+     --target-configuration '{
+       "name": "MySmithyTarget",
+       "targetType": "smithyModel",
+       "schemaSource": {
+         "inline": {
+           "path": "path/to/smithy-model.json"
+         }
+       }
+     }'
    agentcore deploy
    ```
 
@@ -390,11 +418,6 @@ Select one of the following methods:
    )
    ```
 
-1. In the AgentCore CLI interactive terminal UI, run `agentcore` , select **add** , choose **Gateway Target** , and then select **Smithy Model** :  
-![TUI target type selection showing Smithy Model option](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-target-type-smithy.png)
-
-   The wizard then prompts you for the target name, path to the Smithy model file, and outbound authorization configuration.
-
 ## Add an HTTP runtime target
 <a name="gateway-add-target-api-http-runtime"></a>
 
@@ -405,6 +428,16 @@ For more information about HTTP targets, see [Amazon Bedrock AgentCore Runtime t
 Select one of the following methods:
 
 **Example**  
+
+1. Add a runtime from your project as a target. Create the gateway without `--protocol-type MCP`. Declare the runtime first, for example with `agentcore add runtime --name MyAgent --language python --protocol HTTP`:
+
+   ```
+   agentcore add gateway-target \
+     --gateway MyGateway \
+     --name MyRuntimeTarget \
+     --runtime MyAgent
+   agentcore deploy
+   ```
 
 1. The following command creates an HTTP runtime target with IAM authorization:
 
@@ -493,11 +526,6 @@ Select one of the following methods:
        }]'
    ```
 
-1. In the AgentCore CLI interactive terminal UI, run `agentcore` , select **add** , choose **Gateway Target** , and then select **MCP Server endpoint** :  
-![TUI target type selection with MCP Server endpoint highlighted](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-target-type-mcp.png)
-
-   The wizard then prompts you for the target name, MCP server endpoint URL, and outbound authorization configuration.
-
 1. 
 
    ```
@@ -533,6 +561,19 @@ Select one of the following methods:
 
 The following example creates an MCP server target with OAuth (client credentials) authorization.
 
+The OAuth application must support the `client_credentials` grant. An application configured only for the authorization code (`code`) grant cannot be used for gateway outbound authorization. For Amazon Cognito, create a resource server scope and configure the app client with `--allowed-o-auth-flows client_credentials` and that custom scope:
+
+```
+aws cognito-idp create-user-pool-client \
+  --user-pool-id <USER_POOL_ID> \
+  --client-name gateway-client \
+  --generate-secret \
+  --allowed-o-auth-flows client_credentials \
+  --allowed-o-auth-scopes "<RESOURCE_SERVER_IDENTIFIER>/<SCOPE_NAME>" \
+  --allowed-o-auth-flows-user-pool-client \
+  --supported-identity-providers COGNITO
+```
+
 Select one of the following methods:
 
 **Example**  
@@ -561,18 +602,22 @@ Select one of the following methods:
        }]'
    ```
 
-1. To add an MCP server target with OAuth authorization, run `agentcore add gateway-target` with the `--type mcp-server` option and specify the OAuth credentials:
+1. Declare the OAuth credential in the project, then reference it when you add the MCP server target:
 
    ```
+   printf '%s' "$CLIENT_SECRET" | agentcore add credentials oauth \
+     --name MyOauthCredential \
+     --vendor CustomOauth2 \
+     --client-id my-client \
+     --discovery-url https://auth.example.com/.well-known/openid-configuration \
+     --client-secret -
+   
    agentcore add gateway-target \
-     --type mcp-server \
+     --gateway MyGateway \
      --name MyMCPTarget \
      --endpoint https://my-mcp-server.example.com \
-     --gateway MyGateway \
      --outbound-auth oauth \
-     --oauth-client-id my-client \
-     --oauth-client-secret my-secret \
-     --oauth-discovery-url https://auth.example.com/.well-known/openid-configuration
+     --credential-name MyOauthCredential
    agentcore deploy
    ```
 
@@ -786,22 +831,18 @@ The connector supports only managed knowledge bases. Connector targets support o
      --region "<REGION>"
    ```
 
-1. To add a managed knowledge base connector target, run `agentcore add gateway-target` with `--type connector --connector bedrock-knowledge-bases`:
+1. Add a managed knowledge base connector target:
 
    ```
-   agentcore add gateway-target \
-     --name MyKnowledgeBaseTarget \
-     --type connector \
+   agentcore add gateway-connector \
+     --gateway MyGateway \
      --connector bedrock-knowledge-bases \
-     --knowledge-base-id <KB_ID> \
-     --gateway MyGateway
+     --name MyKnowledgeBaseTarget \
+     --knowledge-base <KB_ID>
    agentcore deploy
    ```
 
-1. In the AgentCore CLI interactive terminal UI, run `agentcore add gateway-target`, then select **Amazon Bedrock Knowledge Bases** from the target type picker:  
-![Add Gateway Target menu with Amazon Bedrock Knowledge Bases highlighted in interactive terminal.](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/knowledge-base-add.png)
-
-   The wizard prompts you for a name, description, and allow you to select one or more source types & sources.
+   This shortcut configures only the `Retrieve` tool. To also configure `AgenticRetrieveStream`, pass a complete target with `agentcore add gateway-connector --gateway MyGateway --connector-configuration file://kb-target.json`. In the file, set `name`, set `targetType` to `connector` and `connectorId` to `bedrock-knowledge-bases`, and use the same two `configurations` entries shown in the other tabs: `AgenticRetrieveStream` with `retrievers` and `agenticRetrieveConfiguration`, and `Retrieve` with `knowledgeBaseId`.
 
 After you call `CreateGatewayTarget`, the Gateway validates the configuration asynchronously (typically within about 30 seconds), which includes a `GetKnowledgeBase` check on each bound knowledge base. Poll `GetGatewayTarget` until `status` is `READY`; a `FAILED` status includes a reason describing the problem.
 
@@ -999,21 +1040,15 @@ You can optionally pin the target to a specific connector version by including `
      --region "<REGION>"
    ```
 
-1. To add a Web Search Tool target, run `agentcore add gateway-target` with `--type connector --connector web-search`:
+1. Add a Web Search Tool target:
 
    ```
-   agentcore add gateway-target \
-     --name MyWebSearchTarget \
-     --type connector \
+   agentcore add gateway-connector \
+     --gateway MyGateway \
      --connector web-search \
-     --gateway MyGateway
+     --name MyWebSearchTarget
    agentcore deploy
    ```
-
-1. In the AgentCore CLI interactive terminal UI, run `agentcore add gateway-target`, then select **Amazon Web Search** from the target type picker:  
-![Add Gateway Target menu with Amazon Web Search highlighted in interactive terminal.](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/web-search-add.png)
-
-   The wizard prompts you for a target name, the gateway to attach to, and an optional list of domains to exclude from search results.
 
 ### Configure domain filtering
 <a name="gateway-add-target-api-connector-web-search-domain-filtering"></a>
@@ -1093,20 +1128,31 @@ The following examples create a Web Search Tool target pinned to version `1.2.0`
      --region "<REGION>"
    ```
 
-1. Pass a comma-separated list of domains via `--exclude-domains`:
+1. Pass a complete connector configuration to exclude domains:
 
    ```
-   agentcore add gateway-target \
-     --name MyWebSearchTarget \
-     --type connector \
-     --connector web-search \
-     --exclude-domains blocked-website-1.com,blocked-website-2.com \
-     --gateway MyGateway
+   agentcore add gateway-connector \
+     --gateway MyGateway \
+     --connector-configuration '{
+       "name": "MyWebSearchTarget",
+       "targetType": "connector",
+       "connectorId": "web-search",
+       "configurations": [
+         {
+           "name": "WebSearch",
+           "parameterValues": {
+             "domainFilter": {
+               "exclude": [
+                 "blocked-website-1.com",
+                 "blocked-website-2.com"
+               ]
+             }
+           }
+         }
+       ]
+     }'
    agentcore deploy
    ```
-
-1. In the AgentCore CLI interactive terminal UI, the Add Gateway Target wizard prompts for an optional comma-separated list of domains to exclude from search results after you select **Amazon Web Search** and choose a gateway. Leaving the prompt empty creates the target with no domain filtering.  
-![Domain filtering prompt for Web Search Tool in interactive terminal.](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/web-search-domain-filter.png)
 
 You can also update an existing target to add or modify domain filtering using `UpdateGatewayTarget`.
 
@@ -1138,3 +1184,201 @@ Add a policy with the following content to the service role attached to the Gate
   ]
 }
 ```
+
+## Add a Connector target with AWS Step Functions
+<a name="gateway-add-target-api-connector-step-functions"></a>
+
+You can add a built-in connector as a target to your gateway. With the Step Functions connector, agents can start, monitor, and stop state machine executions and complete task-token callbacks without any integration code.
+
+For more information about the Step Functions connector, see [AWS Step Functions as Connector Target](gateway-target-connector-step-functions.md).
+
+### Set up a Step Functions target
+<a name="gateway-add-target-api-connector-step-functions-setup"></a>
+
+In `configurations`, list each operation you want to expose as a tool. For the four operations that act on a state machine — `StartExecution`, `StartSyncExecution`, `ListExecutions`, and `DescribeStateMachine` — set `parameterValues.stateMachineArn` to pin the state machine. Always set this pin. An entry without `parameterValues` can pass target creation, but its tool fails on every call. The remaining operations take an execution Amazon Resource Name (ARN) or a task token from the agent and have no `parameterValues`.
+
+You can optionally pin the target to a specific connector version by including `version` in the `source` field. If you omit `version`, the target uses the connector’s current default version. For more information about connector versions, see [Connector versions](gateway-target-connector-versions.md).
+
+The following examples expose a Standard state machine for starting and inspecting executions, and the execution-level operations the agent needs to follow up. In the examples, replace the following values:
+
+ `<ACCOUNT_ID>`   
+The AWS account ID that owns the state machine.
+
+ `<GATEWAY_ID>`   
+The identifier of your gateway.
+
+ `<REGION>`   
+The AWS Region of your gateway.
+
+**Example**  
+
+1. The following Python code shows how to create a Gateway Target with the Step Functions connector configuration using the AWS Python SDK (Boto3):
+
+   ```
+   import boto3
+   
+   gateway_client = boto3.client("bedrock-agentcore-control", region_name="<REGION>")
+   
+   state_machine_arn = "arn:aws:states:<REGION>:<ACCOUNT_ID>:stateMachine:OrderWorkflow"
+   
+   gateway_client.create_gateway_target(
+       name="orders",
+       gatewayIdentifier="<GATEWAY_ID>",
+       targetConfiguration={
+           "mcp": {
+               "connector": {
+                   "source": {"connectorId": "states", "version": "1.0.0"},
+                   "configurations": [
+                       {"name": "StartExecution", "parameterValues": {"stateMachineArn": state_machine_arn}},
+                       {"name": "ListExecutions", "parameterValues": {"stateMachineArn": state_machine_arn}},
+                       {"name": "DescribeStateMachine", "parameterValues": {"stateMachineArn": state_machine_arn}},
+                       {"name": "DescribeExecution"},
+                       {"name": "GetExecutionHistory"},
+                       {"name": "StopExecution"},
+                   ],
+               }
+           }
+       },
+       credentialProviderConfigurations=[
+           {"credentialProviderType": "GATEWAY_IAM_ROLE"}
+       ],
+   )
+   ```
+
+1. The following command creates a Gateway Target with the Step Functions connector configuration using the AWS CLI:
+
+   ```
+   aws bedrock-agentcore-control create-gateway-target \
+     --gateway-identifier "<GATEWAY_ID>" \
+     --name "orders" \
+     --target-configuration '{
+       "mcp": {
+         "connector": {
+           "source": {
+             "connectorId": "states",
+             "version": "1.0.0"
+           },
+           "configurations": [
+             {
+               "name": "StartExecution",
+               "parameterValues": {
+                 "stateMachineArn": "arn:aws:states:<REGION>:<ACCOUNT_ID>:stateMachine:OrderWorkflow"
+               }
+             },
+             {
+               "name": "ListExecutions",
+               "parameterValues": {
+                 "stateMachineArn": "arn:aws:states:<REGION>:<ACCOUNT_ID>:stateMachine:OrderWorkflow"
+               }
+             },
+             {
+               "name": "DescribeStateMachine",
+               "parameterValues": {
+                 "stateMachineArn": "arn:aws:states:<REGION>:<ACCOUNT_ID>:stateMachine:OrderWorkflow"
+               }
+             },
+             { "name": "DescribeExecution" },
+             { "name": "GetExecutionHistory" },
+             { "name": "StopExecution" }
+           ]
+         }
+       }
+     }' \
+     --credential-provider-configurations '[{"credentialProviderType": "GATEWAY_IAM_ROLE"}]' \
+     --region "<REGION>"
+   ```
+
+1. To add a Step Functions target, run `agentcore add gateway-target` with `--type connector --connector states`:
+
+   ```
+   agentcore add gateway-target \
+     --name orders \
+     --type connector \
+     --connector states \
+     --gateway MyGateway
+   agentcore deploy
+   ```
+
+After the target reaches `READY`, call `tools/list` on the Gateway. The pinned `stateMachineArn` doesn’t appear in any tool schema. For example, `orders___StartExecution` advertises only `input`.
+
+You can add an Express state machine to the same target for synchronous calls. Add a `StartSyncExecution` entry pinned to the Express state machine’s ARN. You set pins for each operation, so one target can mix Standard and Express state machines. For which operations work with each workflow type, see [Standard and Express workflows](gateway-target-connector-step-functions.md#gateway-target-connector-step-functions-standard-express).
+
+To expose the task-token operations, add `SendTaskSuccess`, `SendTaskFailure`, and `SendTaskHeartbeat` entries without `parameterValues`. These operations aren’t scoped to a state machine. Add them once for each gateway, on a separate target, instead of on every target.
+
+To change the pinned state machines or the exposed operations later, call `UpdateGatewayTarget` with the new `configurations` list. Existing targets also pick up updated tool descriptions and schemas when you update them.
+
+### Configure the Gateway Service Role
+<a name="gateway-add-target-api-connector-step-functions-service-role"></a>
+
+The Gateway needs a service role that allows the AgentCore service to call Step Functions on your behalf. Scope the role to the state machines you expose. The policy needs three statements because the Step Functions resource types differ:
++ State-machine operations (`StartExecution`, `StartSyncExecution`, `ListExecutions`, `DescribeStateMachine`) are authorized on the state machine ARN.
++ Execution operations (`DescribeExecution`, `StopExecution`, `GetExecutionHistory`) are authorized on the execution ARN, which is a separate resource type. These operations work only with Standard executions.
++ Task-token operations (`SendTaskSuccess`, `SendTaskFailure`, `SendTaskHeartbeat`) have no resource-level permissions in IAM and must be granted on `"*"`.
+
+Each statement in the following policy uses the minimal scope that IAM supports for its operations, following least-privilege guidance:
++ The execution ARN ends in a `*` wildcard because Step Functions generates execution names when each execution starts, so you can’t list them in advance. The wildcard covers only executions of `OrderWorkflow`, not executions of other state machines.
++ The task-token operations are granted on `"*"` because IAM doesn’t support resource-level permissions for these actions. A caller also needs a valid task token from one of your executions.
+
+The following JSON policy grants the permissions for all ten connector operations. Attach it to the Gateway’s service role:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "StateMachineOperations",
+      "Effect": "Allow",
+      "Action": [
+        "states:StartExecution",
+        "states:StartSyncExecution",
+        "states:ListExecutions",
+        "states:DescribeStateMachine"
+      ],
+      "Resource": [
+        "arn:aws:states:<REGION>:<ACCOUNT_ID>:stateMachine:OrderWorkflow",
+        "arn:aws:states:<REGION>:<ACCOUNT_ID>:stateMachine:OrderLookupExpress"
+      ]
+    },
+    {
+      "Sid": "ExecutionOperations",
+      "Effect": "Allow",
+      "Action": [
+        "states:DescribeExecution",
+        "states:StopExecution",
+        "states:GetExecutionHistory"
+      ],
+      "Resource": [
+        "arn:aws:states:<REGION>:<ACCOUNT_ID>:execution:OrderWorkflow:*"
+      ]
+    },
+    {
+      "Sid": "TaskTokenOperations",
+      "Effect": "Allow",
+      "Action": [
+        "states:SendTaskSuccess",
+        "states:SendTaskFailure",
+        "states:SendTaskHeartbeat"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+In the policy, replace the following values:
+
+ `<ACCOUNT_ID>`   
+The AWS account ID that owns the state machines.
+
+ `OrderLookupExpress`   
+The name of your Express state machine. If you don’t expose an Express state machine, remove its ARN from the policy.
+
+ `OrderWorkflow`   
+The name of your Standard state machine.
+
+ `<REGION>`   
+The AWS Region of your gateway and state machines.
+
+Only the four state-machine operations can be pinned on the target. For the other six, this policy is the only boundary on which executions the agent can inspect, stop, or complete. Don’t grant `states:*` on `Resource: "*"`. If different workflows need different IAM boundaries, use separate Gateways, because all targets on a Gateway share its service role.
+
+The service role’s trust policy must allow the `bedrock-agentcore.amazonaws.com` service principal to assume it, as for any Gateway service role. For more information, see [Trust permissions](gateway-prerequisites-permissions.md#gateway-service-role-permissions-trust).

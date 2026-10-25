@@ -75,7 +75,7 @@ After you update, new invocations will succeed. Existing sessions are not affect
 
 Several factors can cause this:
 +  **Container Issues:** Make sure your Docker image exposes port 8080 and has the `/invocations` path
-+  **ARM64 Compatibility:** Currently your container must be ARM64 compatible
++  **ARM64 Compatibility:** Your container must be ARM64 compatible
 +  **Retry Logic:** Review retry mechanisms for handling transient issues
 
 ## My Docker build fails with "403 Forbidden" when pulling Python base images
@@ -140,7 +140,7 @@ pip install --upgrade boto3 botocore
 Review [Amazon Bedrock AgentCore Runtime requirements](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-service-contract.html) for full details.
 
 In summary, your Docker container must meet these requirements:
-+  **Port:** Expose port 8080 (additional ports will be supported soon)
++  **Port:** Expose port 8080
 +  **Endpoint:** Must have `/invocations` path available
 +  **Architecture:** Must be ARM64 compatible
 +  **Response:** Should handle the expected payload format

@@ -584,7 +584,7 @@ Two new data plane APIs support building browsing and catalog experiences over a
 
 The response includes a `registryRecords` array with the full record details and an `errors` array for any records that could not be retrieved.
 
-At launch, exactly one entry (one registry, 1-100 record IDs) is accepted. The grouped shape is forward-compatible with cross-registry batching in future releases.
+Provide exactly one entry (one registry, 1-100 record IDs) per request.
 
 ### Change 6: List APIs adopt structured filters parameter
 <a name="registry-faq-change-6"></a>
@@ -723,7 +723,7 @@ If a record has already failed for this reason, the migrated record exists in `C
 ### Can I continue using Registry on the `bedrock-agentcore` namespace?
 <a name="registry-faq-continue-using"></a>
 
-Your existing Registry usage on the `bedrock-agentcore` namespace continues to work without interruption during the migration window. However, we recommend that you begin your migration as soon as tooling becomes available to ensure you have sufficient time to complete both data migration and code updates.
+Your existing Registry usage on the `bedrock-agentcore` namespace continues to work without interruption during the migration window. However, we recommend that you begin your migration now to ensure you have sufficient time to complete both data migration and code updates.
 
 However, if you do not have existing registries or records as of August 6, 2026, you cannot access the `bedrock-agentcore` namespace for AWS Agent Registry from August 6, 2026. If you have existing registries or records as of August 6, 2026, you have access to the `bedrock-agentcore` namespace for AWS Agent Registry during the migration window (August 6, 2026 – October 30, 2026).
 

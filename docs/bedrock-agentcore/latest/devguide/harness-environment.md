@@ -5,6 +5,8 @@
 
 Every harness session runs in an isolated microVM with its own filesystem and shell. This page covers configuring the execution environment (default or custom container), running commands directly on the VM, setting environment variables, and mounting persistent filesystems.
 
+For development, [use the Agent Inspector](harness-get-started.md#harness-development) to invoke a deployed Harness from a local UI, or [open an interactive Harness shell](harness-command-shell.md#harness-command-shell-cli). Neither path runs the Harness environment locally.
+
 ## Run commands on the environment
 <a name="harness-execute-command"></a>
 
@@ -38,16 +40,24 @@ for event in response["stream"]:
 ```
 
 ```
+# The harness ID is the part of the harness ARN after "harness/"
+HARNESS_ID="<harness-id>"
+SESSION_ID="$(uuidgen)"
+
 # Install dependencies before the agent starts
-agentcore invoke --exec --harness my-agent --session-id "$(uuidgen)" \
-  "pip install pandas matplotlib"
+agentcore harness exec \
+  --id "$HARNESS_ID" \
+  --session-id "$SESSION_ID" \
+  --command "pip install pandas matplotlib"
 
 # After the agent finishes, inspect what it created
-agentcore invoke --exec --harness my-agent --session-id "$(uuidgen)" \
-  "ls -la /tmp && cat /tmp/results.csv"
+agentcore harness exec \
+  --id "$HARNESS_ID" \
+  --session-id "$SESSION_ID" \
+  --command "ls -la /tmp && cat /tmp/results.csv"
 ```
 The base environment includes Python and bash. For tools like `git`, `node`, or other runtimes, install them at session start (e.g. `apt-get install -y git`) or use a [custom environment](#harness-custom-container).
-In the TUI, press `!` to enter exec mode and run commands inline.
+Run `agentcore status --json` to find the deployed harness ARN. The harness ID is the part of the ARN after `harness/`. The session ID must be 33 to 100 characters. Run `agentcore harness exec --id <harness-id>` without `--command` to open the interactive exec experience. In the chat that `agentcore invoke --harness <name>` opens, press Ctrl\+E to switch between chat mode and exec mode.
 See [InvokeAgentRuntimeCommand API](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_InvokeAgentRuntimeCommand.html) for details.
 
 **Note**  
@@ -59,6 +69,20 @@ Commands run as root (uid 0) within the microVM. This is analogous to root on yo
 The base environment includes Python and bash, enough for most tasks. When you need more, package your source code, dependencies, runtimes, and tools into a container image, push it to ECR, and reference it on the harness. Your agent runs in that exact environment. Pair custom images with `InvokeAgentRuntimeCommand` for session-specific setup that varies per invocation.
 
 Container images must be built for the `linux/arm64` platform.
+
+Include the following programs in your image:
++ Include `/bin/bash`. The harness uses it for the shell tool, commands, and interactive terminals.
++ Include `/bin/sh` and `sleep`. The harness uses them to keep the container running.
++ Include `base64`, `cat`, `dirname`, `env`, `ls`, `mkdir`, and `rm`. The file tools use them to read and write files.
++ Include `tar` when you configure Git, Amazon S3, or AWS skills. The harness uses it to copy these skills into the container.
+
+When you configure Git, Amazon S3, or AWS skills, give the container user write access to `/tmp`. The harness copies these skills into `/tmp` before the agent starts.
+
+Most general-purpose base images include these programs, but some minimal images don’t. For example, `amazonlinux:2023` and `amazonlinux:2` don’t include `tar`. Alpine and BusyBox images don’t include `/bin/bash`. To install `tar` on Amazon Linux, add `RUN dnf install -y tar` to your Dockerfile.
+
+If you omit `tar` or write access to `/tmp`, invocations that use fetched skills fail. This applies to Git, Amazon S3, and AWS skills. The error is `Unable to copy configured skills to the customer container`. Add the missing program or permission to resolve the error. You don’t need `tar` for path skills because the harness reads them in place.
+
+For more information about skill sources, see [Skills](harness-skills.md).
 
 The harness overrides your container’s `ENTRYPOINT` and `CMD` to keep it running as an environment. Your installed software, filesystem, and environment variables are available to the agent; your container’s startup command is not executed. If you need a background process (such as a dev server), start it via `InvokeAgentRuntimeCommand` after the session begins.
 
@@ -72,18 +96,24 @@ aws bedrock-agentcore-control create-harness \
   --system-prompt '[{"text": "You are an expert TypeScript developer."}]'
 ```
 The execution role needs ECR pull permissions. See the [execution role policy](harness-security.md#harness-execution-role-policy) for details.
-Scaffold a harness with a Dockerfile:  
+Scaffold a harness with a Dockerfile. The Dockerfile must exist before you run `agentcore add harness`. The CLI copies it to `app/<name>/Dockerfile`.  
 
 ```
-agentcore create --name coding-agent --container ./Dockerfile
+agentcore create --name CodingAgentProject --template empty
+cd CodingAgentProject
+# Create ./Dockerfile before you add the harness
+agentcore add harness \
+  --name coding_agent \
+  --dockerfile ./Dockerfile
 agentcore deploy
 ```
-At deploy, the CLI builds the image, pushes to ECR, and attaches it to the harness.  
+At deploy, AWS CodeBuild builds the image in your account, pushes it to ECR, and attaches it to the harness. This cloud build does not require a local Docker daemon.  
 Or reference a pre-built image:  
 
 ```
-agentcore create --name node-agent \
-  --container public.ecr.aws/docker/library/node:slim
+agentcore add harness \
+  --name node_agent \
+  --container-uri public.ecr.aws/docker/library/node:slim
 agentcore deploy
 ```
 
@@ -100,17 +130,14 @@ aws bedrock-agentcore-control create-harness \
   --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole" \
   --environment-variables '{"MY_API_URL": "https://api.example.com", "LOG_LEVEL": "debug"}'
 ```
-Set environment variables in `harness.json`:  
+Set environment variables when you add the harness:  
 
 ```
-{
-  "environmentVariables": {
-    "MY_API_URL": "https://api.example.com",
-    "LOG_LEVEL": "debug"
-  }
-}
+agentcore add harness \
+  --name MyHarness \
+  --environment-variables '{"MY_API_URL":"https://api.example.com","LOG_LEVEL":"debug"}'
+agentcore deploy
 ```
-Run `agentcore deploy` to apply.
 
 ## Filesystem
 <a name="harness-filesystem"></a>
@@ -123,31 +150,6 @@ A harness supports three filesystem types:
 +  **Amazon S3 Files access point** - bring-your-own S3 Files file system that syncs bidirectionally with an S3 bucket. VPC required.
 
 For prerequisites (VPC networking, IAM permissions, security groups), type comparison, limits, and lifecycle behavior, see [File system configurations for AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-filesystem-configurations.html). The same requirements apply to harnesses.
-
-### Configure the environment and filesystem in the AgentCore CLI
-<a name="harness-filesystem-interactive"></a>
-
-**Example**  
-Run `agentcore` in a project directory to open the TUI, select **add** , then choose **Harness** . The wizard walks you through the execution environment and, in **Advanced settings** , the persistent filesystem.  
-
-1. On the **Custom environment** step, keep the default environment or choose a pre-built container image (ECR URI) or a Dockerfile.  
-![Add Harness wizard: custom environment](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-env-01-custom-environment.png)
-
-1. Filesystem mounts require VPC mode, so on **Advanced settings** enable both **Network** and **Filesystem Storage** with **Space** , then press **Enter** .  
-![Advanced settings with Network and Filesystem Storage enabled](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-env-02-advanced.png)
-
-1. Choose **VPC** network mode, then provide the subnets and security groups for the harness.  
-![Select VPC network mode](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-env-03-network.png)
-
-1. Set the session storage mount path (under `/mnt`).  
-![Enter the session storage mount path](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-env-04-fs-type.png)
-
-1. To attach an Amazon EFS file system, enter the EFS access point ARN (and its mount path on the next step).  
-![Enter the EFS access point ARN](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-env-05-efs.png)
-
-1. To attach Amazon S3 Files, enter the S3 Files access point ARN (and its mount path).  
-![Enter the S3 Files access point ARN](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-env-06-s3.png)
-Confirm the wizard, then run `agentcore deploy` to apply.
 
 ### Session storage
 <a name="_session_storage"></a>
@@ -163,11 +165,9 @@ aws bedrock-agentcore-control update-harness \
 ```
 
 ```
-# At create time
-agentcore create --name myagent --session-storage-mount-path /mnt/data/
-
-# Or add to an existing harness
-agentcore add harness --name my-agent --session-storage /mnt/data/
+agentcore add harness \
+  --name my_agent \
+  --session-storage-path /mnt/data/
 agentcore deploy
 ```
 
@@ -202,17 +202,17 @@ aws bedrock-agentcore-control create-harness \
     }
   }'
 ```
-Attach an EFS access point with `--efs-access-point` as `<accessPointArn>:<mountPath>`. EFS requires VPC network mode:  
+Attach an EFS access point with `--efs-access-points`. EFS requires VPC network mode:  
 
 ```
-agentcore add harness --name shared-tools-agent \
+agentcore add harness \
+  --name shared_tools \
   --network-mode VPC \
-  --subnets subnet-abc123,subnet-def456 \
-  --security-groups sg-abc123 \
-  --efs-access-point arn:aws:elasticfilesystem:us-west-2:123456789012:access-point/fsap-0123456789abcdef0:/mnt/efs
+  --network-config '{"subnets":["subnet-0123456789abcdef0","subnet-0123456789abcdef1"],"securityGroups":["sg-0123456789abcdef0"]}' \
+  --efs-access-points '[{"accessPointArn":"arn:aws:elasticfilesystem:us-west-2:123456789012:access-point/fsap-0123456789abcdef0","mountPath":"/mnt/efs"}]'
 agentcore deploy
 ```
-The mount path must be under `/mnt`. The flag is repeatable (up to 2 EFS mounts); `--network-mode VPC` with `--subnets` and `--security-groups` is required for EFS and S3 Files mounts.
+The mount path must be under `/mnt`. You can configure up to two EFS mounts. EFS and S3 Files mounts require `--network-mode VPC` and `--network-config`.
 
 ### Amazon S3 Files access point
 <a name="_amazon_s3_files_access_point"></a>
@@ -245,17 +245,17 @@ aws bedrock-agentcore-control create-harness \
     }
   }'
 ```
-Attach an S3 Files access point with `--s3-access-point` as `<accessPointArn>:<mountPath>`. S3 Files requires VPC network mode:  
+Attach an S3 Files access point with `--s3-access-points`. S3 Files requires VPC network mode:  
 
 ```
-agentcore add harness --name data-agent \
+agentcore add harness \
+  --name data_agent \
   --network-mode VPC \
-  --subnets subnet-abc123,subnet-def456 \
-  --security-groups sg-abc123 \
-  --s3-access-point arn:aws:s3files:us-west-2:123456789012:file-system/fs-0123456789abcdef0/access-point/fsap-0123456789abcdef0:/mnt/s3data
+  --network-config '{"subnets":["subnet-0123456789abcdef0","subnet-0123456789abcdef1"],"securityGroups":["sg-0123456789abcdef0"]}' \
+  --s3-access-points '[{"accessPointArn":"arn:aws:s3files:us-west-2:123456789012:file-system/fs-0123456789abcdef0/access-point/fsap-0123456789abcdef0","mountPath":"/mnt/s3data"}]'
 agentcore deploy
 ```
-The access point ARN itself contains colons; the mount path is taken from the segment after the final colon. The flag is repeatable (up to 2 S3 Files mounts).
+You can configure up to two S3 Files mounts.
 
 **Important**  
  `UpdateHarness` replaces the entire `filesystemConfigurations` list. To add a new mount to a harness that already has filesystems configured, call `GetHarness` first, then send the full desired list (existing entries plus the new one) in `UpdateHarness`.

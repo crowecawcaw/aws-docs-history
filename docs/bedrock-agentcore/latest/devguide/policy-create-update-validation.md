@@ -22,7 +22,7 @@ Create a policy with strict validation that rejects policies with any findings:
 
 **Example**  
 
-1. Save the statement to a file — for example `restrict_refunds.cedar`:
+1. This example assumes an AgentCore project with a policy engine named `MyEngine` attached to a deployed gateway named `my-gateway`, for example from `agentcore add policy-engine --name MyEngine --attach-to-gateways my-gateway` followed by `agentcore deploy`. Save the statement to a file, for example `restrict_refunds.cedar`, and use that gateway’s ARN from `agentcore status --json` in it:
 
    ```
    forbid (
@@ -43,7 +43,7 @@ Create a policy with strict validation that rejects policies with any findings:
      --source restrict_refunds.cedar \
      --validation-mode FAIL_ON_ANY_FINDINGS
    
-   agentcore deploy --yes
+   agentcore deploy
    ```
 
 1. Run the following code in a terminal to create the policy using the AWS CLI:
@@ -106,7 +106,7 @@ Check the policy status to confirm validation passed:
    agentcore status
    ```
 
-   The AgentCore CLI has no per-policy read operation. Use the AWS CLI or an SDK to inspect a single policy’s status and findings.
+   To inspect a single policy’s status and findings, use the AWS CLI or an SDK.
 
 1. Run the following code in a terminal to get the policy using the AWS CLI:
 
@@ -159,7 +159,7 @@ If a policy references an action that doesn’t exist in any associated gateway�
      --engine MyEngine \
      --statement 'permit (principal, action == AgentCore::Action::"RefundTool___nonExistentTool", resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/my-gateway-a1b2c3d4e5");'
    
-   agentcore deploy --yes
+   agentcore deploy
    ```
 
    The deploy reports the underlying `CREATE_FAILED` reason. Remove the bad policy with `agentcore remove policy --engine MyEngine --name InvalidPolicy` and deploy again.

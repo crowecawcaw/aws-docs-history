@@ -49,7 +49,7 @@ AgentCore payments doesn’t use KMS grants. All cryptographic operations use th
 ### Configuring a customer managed KMS key
 <a name="payments-encryption-cmk-configure"></a>
 
-AgentCore payments supports only **symmetric encryption KMS keys** (`SYMMETRIC_DEFAULT` key spec with `ENCRYPT_DECRYPT` key usage). AgentCore payments doesn’t support asymmetric keys.
+Use a **symmetric encryption KMS key** (`SYMMETRIC_DEFAULT` key spec with `ENCRYPT_DECRYPT` key usage) with AgentCore payments.
 
 To create a customer managed key, see [Creating keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the * AWS Key Management Service Developer Guide*.
 
@@ -60,6 +60,7 @@ Before you configure a customer managed key for AgentCore payments, make sure th
 + The key spec is `SYMMETRIC_DEFAULT` (symmetric encryption).
 + The key usage is `ENCRYPT_DECRYPT`.
 + The key state is `Enabled`.
++ The key is a single-Region key.
 
 #### Configuring permissions to use a customer managed KMS key
 <a name="payments-encryption-cmk-permissions"></a>
@@ -179,16 +180,9 @@ You can also add a customer managed key to an existing payment manager that you 
 #### Changing encryption configuration on an existing payment manager
 <a name="payments-encryption-cmk-change"></a>
 
-After you configure a customer managed key on a payment manager, you **can’t currently change or remove it**. The following transitions aren’t currently supported:
-+ Customer managed key 1 to customer managed key 2
-+ Customer managed key to AWS owned key (key removal)
-
-To use a different key, delete the existing payment manager and create a new one with the desired key.
+The customer managed key that you configure on a payment manager stays with that payment manager. To use a different customer managed key or an AWS owned key, delete the existing payment manager and create a new one with the desired key.
 
 AgentCore payments supports AWS KMS [automatic key rotation](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html), and we recommend enabling it. Because automatic rotation preserves the key ID and retains prior key material, existing ciphertext remains decryptable without any service-side changes.
-
-**Note**  
-Support for key transitions, key removal, and Multi-Region keys is planned for a future release.
 
 #### Scoping down access to the customer managed KMS key
 <a name="payments-encryption-cmk-scope"></a>

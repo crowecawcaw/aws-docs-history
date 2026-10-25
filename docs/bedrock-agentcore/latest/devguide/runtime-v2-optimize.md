@@ -87,7 +87,7 @@ When AgentCore Runtime restores instances from a snapshot, every instance create
 
  **Current limitation** 
 
-On AgentCore Runtime, snapshot-safe builds of cryptographic libraries don’t currently reseed after a restore. This applies to both direct code deployments and container deployments.
+On AgentCore Runtime, snapshot-safe builds of cryptographic libraries don’t reseed after a restore. This applies to both direct code deployments and container deployments.
 
  **Workarounds** 
 + Generate secrets, keys, tokens, and session identifiers while handling a request, not when your agent starts. This avoids using any values created before AgentCore Runtime takes the snapshot in each instance restored from that snapshot.

@@ -3,11 +3,11 @@
 # Run an A/B test for agents hosted outside of AgentCore
 <a name="ab-testing-3p-agents"></a>
 
-You can A/B test an agent that runs outside an AgentCore Runtime with an agent hosted anywhere, for example on AWS Lambda, Amazon EKS, or Amazon ECS. For A/B testing agents, AgentCore gateway routes traffic between variants, online evaluation scores each session, and the service computes per-variant statistical significance. When your agent is not on an AgentCore Runtime, you need to instrument it for observability and register it as an AgentCore gateway target yourself, and enable gateway tracing so sessions can be attributed to a variant.
+You can A/B test an agent hosted outside AgentCore Runtime, for example on AWS Lambda, Amazon EKS, or Amazon ECS. AgentCore Gateway routes traffic between variants, online evaluation scores each session, and the service computes per-variant statistical significance. Instrument the agent for observability, register it as an AgentCore Gateway target, and enable Gateway tracing so sessions can be attributed to a variant.
 
-A/B tests supports [configuration bundles with a single agent runtime](ab-testing-config-bundle.md) as well as [target based routing with two agent endpoints](ab-testing-target-based.md). This page shows how to set up a HTTP reachable agent endpoint as a target on AgentCore gateway with tracing enabled. Then, AgentCore gateway tracing supplies variant attribution, and observability on the agent endpoint supplies the message content for scoring.
+A/B testing supports [configuration bundles with a single agent runtime](ab-testing-config-bundle.md) and [target-based routing with two agent endpoints](ab-testing-target-based.md). This page shows how to set up an HTTP-reachable agent endpoint as an AgentCore Gateway target with tracing enabled. Gateway tracing supplies variant attribution, and observability on the agent endpoint supplies the message content for scoring.
 
-This page is an addendum to [Run an A/B test with target-based routing](ab-testing-target-based.md). It covers only the extra setup a non-runtime agent needs — using a Lambda-hosted agent (behind a function URL) as the example; the same approach applies to any HTTP-reachable agent endpoint you register as an AgentCore gateway target — then sends you back to that page to create and run the test.
+This page is an addendum to [Run an A/B test with target-based routing](ab-testing-target-based.md). It covers only the extra setup that an agent outside AgentCore Runtime needs, and then returns you to that page to create and run the test. The example uses a Lambda-hosted agent behind a function URL. The same approach works for any HTTP-reachable agent endpoint that you register as an AgentCore Gateway target.
 
 ## Prerequisites
 <a name="ab-testing-3p-prereqs"></a>
@@ -98,7 +98,7 @@ Repeat for the treatment function. (For a container or self-hosted agent, expose
 ## Step 3: Register your agent as an AgentCore gateway target
 <a name="ab-testing-3p-step3-target"></a>
 
-Register each endpoint as an HTTP **passthrough** target on an AgentCore gateway. For the details of passthrough targets — including the `protocolType`, stickiness, and credential options — see [HTTP passthrough targets](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-http-passthrough.html).
+Register each endpoint as an HTTP **passthrough** target on an AgentCore gateway. For the details of passthrough targets, including the `protocolType`, stickiness, and credential options, see [HTTP passthrough targets](gateway-target-http-passthrough.md).
 
 To register a Lambda function URL as a target, set `protocolType` to `CUSTOM` and provide an `iamCredentialProvider`. The credential provider authorizes the gateway to sign each outbound request to the function URL as the `lambda` service:
 
@@ -107,23 +107,52 @@ The `stickinessConfiguration` tells the gateway to use the `x-session-id` header
 For observability, your agent must also set this same session ID in its trace context (for example, as `session.id` baggage). This lets online evaluation score agent sessions and traces, and attribute them to the correct A/B test treatment.
 
 **Example**  
+If you don’t have an AgentCore CLI project, create one:  
 
 ```
+agentcore create --name ABTest3p --template empty
+cd ABTest3p
+```
+In the project directory, save the following as `control-target.json`:  
+
+```
+{
+  "name": "customer-support-control",
+  "targetType": "passthrough",
+  "passthrough": {
+    "endpoint": "https://<control-id>.lambda-url.us-west-2.on.aws/",
+    "protocolType": "CUSTOM",
+    "stickinessConfiguration": {
+      "identifier": "$.AMZN_AC_GW_CONTEXT.headers.x-session-id",
+      "timeout": 28800
+    }
+  },
+  "outboundAuth": {
+    "type": "GATEWAY_IAM_ROLE",
+    "service": "lambda",
+    "region": "us-west-2"
+  }
+}
+```
+Add the target:  
+
+```
+agentcore add gateway --name cs-3p-abtest-gw --authorizer-type AWS_IAM
+
 agentcore add gateway-target \
-  --name customer-support-control \
   --gateway cs-3p-abtest-gw \
-  --type passthrough \
-  --passthrough-endpoint https://<control-id>.lambda-url.us-west-2.on.aws/ \
-  --passthrough-protocol CUSTOM \
-  --stickiness-identifier '$context.header.x-session-id' \
-  --stickiness-timeout 28800 \
-  --signing-service lambda \
-  --signing-region us-west-2
+  --target-configuration file://control-target.json
 ```
 
 ```
+aws bedrock-agentcore-control create-gateway \
+  --name cs-3p-abtest-gw \
+  --role-arn <gateway-role-arn> \
+  --authorizer-type AWS_IAM \
+  --region us-west-2
+
 aws bedrock-agentcore-control create-gateway-target \
-  --gateway-identifier cs-3p-abtest-gw-abc123 \
+  --gateway-identifier <gateway-id> \
   --name customer-support-control \
   --region us-west-2 \
   --target-configuration '{
@@ -132,7 +161,7 @@ aws bedrock-agentcore-control create-gateway-target \
         "endpoint": "https://<control-id>.lambda-url.us-west-2.on.aws/",
         "protocolType": "CUSTOM",
         "stickinessConfiguration": {
-          "identifier": "$context.header.x-session-id",
+          "identifier": "$.AMZN_AC_GW_CONTEXT.headers.x-session-id",
           "timeout": 28800
         }
       }
@@ -148,10 +177,85 @@ aws bedrock-agentcore-control create-gateway-target \
   ]'
 ```
 
-For target-based routing, repeat for the treatment endpoint (name it `customer-support-treatment`). Poll each target with `get-gateway-target` until `status` is `READY`.
+For the AgentCore CLI workflow, create `treatment-target.json` with the treatment name and function URL, then add it with the same command:
+
+```
+agentcore add gateway-target \
+  --gateway cs-3p-abtest-gw \
+  --target-configuration file://treatment-target.json
+```
+
+The AgentCore CLI creates the Gateway’s execution role. To let the Gateway call both function URLs, grant the role access in `agentcore/cdk/lib/cdk-stack.ts`. Add `aws_lambda` to the `aws-cdk-lib` import:
+
+```
+import { Stack, type StackProps, aws_lambda as lambda } from 'aws-cdk-lib';
+```
+
+Then add the grants after the line that creates the `AgentCoreApplication`:
+
+```
+const gateway = this.application.gateway('cs-3p-abtest-gw');
+for (const functionName of ['cs-agent-control', 'cs-agent-treatment']) {
+  lambda.Function.fromFunctionName(this, functionName, functionName).grantInvokeUrl(gateway);
+}
+```
+
+ `grantInvokeUrl` adds `lambda:InvokeFunctionUrl` and `lambda:InvokeFunction` on each function to the Gateway role, and allows `lambda:InvokeFunction` only for calls made through the function URL. The functions must be in the account and Region that the project deploys to. The deployment creates the targets after the grants are in place.
+
+Deploy the project and run `agentcore status --json`. Read the `arn` field for `cs-3p-abtest-gw`. The Gateway ID is the last segment of that ARN.
+
+```
+agentcore deploy
+
+agentcore status --json
+```
+
+The `status` output does not report target state. To wait until both targets report `READY`, list the targets with `agentcore gateway target list`.
+
+```
+agentcore gateway target list --gateway-id <gateway-id> --json
+```
+
+For the AWS CLI workflow, repeat `aws bedrock-agentcore-control create-gateway-target` for the treatment endpoint and name it `customer-support-treatment`. No project deployment is required. Use the Gateway ID returned by `create-gateway`, and poll each target with `get-gateway-target` until `status` is `READY`.
+
+In the AWS CLI workflow, the role that you pass to `create-gateway` must trust the Gateway service, as described in [Trust permissions](gateway-prerequisites-permissions.md#gateway-service-role-permissions-trust). The role must also allow the Gateway to call both function URLs. The following policy grants the same permissions that `grantInvokeUrl` adds in the AgentCore CLI workflow. Replace `123456789012` with your account ID:
+
+```
+{
+"Version": "2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "lambda:InvokeFunctionUrl",
+      "Resource": [
+        "arn:aws:lambda:us-west-2:123456789012:function:cs-agent-control",
+        "arn:aws:lambda:us-west-2:123456789012:function:cs-agent-treatment"
+      ],
+      "Condition": {
+        "StringEquals": {
+          "lambda:FunctionUrlAuthType": "AWS_IAM"
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Action": "lambda:InvokeFunction",
+      "Resource": [
+        "arn:aws:lambda:us-west-2:123456789012:function:cs-agent-control",
+        "arn:aws:lambda:us-west-2:123456789012:function:cs-agent-treatment"
+      ],
+      "Condition": {
+        "Bool": {
+          "lambda:InvokedViaFunctionUrl": true
+        }
+      }
+    }
+  ]
+}
+```
 
 **Note**  
- `iamCredentialProvider` is required for an IAM-authenticated passthrough target. For a Lambda function URL set `service` to `lambda`. The gateway IAM role must have both `lambda:InvokeFunctionUrl` and `lambda:InvokeFunction` on each function’s ARN.
+ `iamCredentialProvider` is required for an IAM-authenticated passthrough target. For a Lambda function URL, set `service` to `lambda`.
 
 ## Step 4: Enable AgentCore gateway tracing
 <a name="ab-testing-3p-step4-gateway-tracing"></a>
@@ -167,7 +271,7 @@ Your agent is now a gateway target emitting telemetry. Two steps remain:
 
 1.  **Create one online evaluation configuration per variant endpoint.** See [Create online evaluation](create-online-evaluations.md). For each config, use the `service.name` and event log group you configured in [Step 1: Instrument your agent for AgentCore observability](#ab-testing-3p-step1-observability).
 
-1.  **Create and run the A/B test.** Follow [Run an A/B test with target-based routing](ab-testing-target-based.md), starting from the **Create the A/B test** step — create the test with `perVariantOnlineEvaluationConfig`, send traffic, poll results, stop, and deploy the winner.
+1.  **Create and run the A/B test.** Follow [Run an A/B test with target-based routing](ab-testing-target-based.md), starting from the **Create the A/B test** step. Create the test with `perVariantOnlineEvaluationConfig`, send traffic with the script in [Send traffic](#ab-testing-3p-send-traffic), poll results, stop the test, and route traffic to the winner.
 
 When you send traffic through the gateway, direct it to the control variant’s target. The gateway splits all traffic arriving at the control target across the control (`C`) and treatment (`T1`) targets according to your A/B test configuration.
 
@@ -175,36 +279,59 @@ When you send traffic through the gateway, direct it to the control variant’s 
 Add one online evaluation config per variant — using the `service.name` and event log group from [Step 1: Instrument your agent for AgentCore observability](#ab-testing-3p-step1-observability) as the data source — then start the test in `target-based` mode:  
 
 ```
-agentcore add online-eval \
-  --name cs-control-eval \
-  --evaluator Builtin.Correctness \
-  --service-name customer-support-control \
-  --log-group-name /aws/bedrock-agentcore/agents/cs-agent-control/runtime-logs \
-  --enable-on-create
+agentcore eval online-eval create \
+  --name cs_control_eval \
+  --data-source-config '{"cloudWatchLogs":{"serviceNames":["cs-agent-control"],"logGroupNames":["/aws/bedrock-agentcore/agents/cs-agent-control/runtime-logs"]}}' \
+  --evaluators Builtin.Correctness \
+  --sampling-rate 100 \
+  --enable-on-create true \
+  --json
 
-agentcore add online-eval \
-  --name cs-treatment-eval \
-  --evaluator Builtin.Correctness \
-  --service-name customer-support-treatment \
-  --log-group-name /aws/bedrock-agentcore/agents/cs-agent-treatment/runtime-logs \
-  --enable-on-create
+agentcore eval online-eval create \
+  --name cs_treatment_eval \
+  --data-source-config '{"cloudWatchLogs":{"serviceNames":["cs-agent-treatment"],"logGroupNames":["/aws/bedrock-agentcore/agents/cs-agent-treatment/runtime-logs"]}}' \
+  --evaluators Builtin.Correctness \
+  --sampling-rate 100 \
+  --enable-on-create true \
+  --json
 
-agentcore deploy
-
-agentcore run ab-test \
-  --name cs-3p-abtest \
-  --gateway cs-3p-abtest-gw \
-  --mode target-based \
-  --control-target customer-support-control \
-  --treatment-target customer-support-treatment \
-  --control-online-eval cs-control-eval \
-  --treatment-online-eval cs-treatment-eval \
-  --control-weight 50 \
+agentcore eval ab-test target-based run \
+  --name cs_3p_abtest \
+  --gateway <gateway-id> \
+  --control '{"gateway-target":"customer-support-control","online-eval":"<control-online-evaluation-config-id>"}' \
+  --treatment '{"gateway-target":"customer-support-treatment","online-eval":"<treatment-online-evaluation-config-id>"}' \
   --treatment-weight 50 \
-  --wait
+  --gateway-filter '{"targetPaths":["/customer-support-control/*"]}'
 ```
-Use `agentcore status` to view per-variant results while the test runs and `agentcore stop` to end it.
-Create one online evaluation config per variant with `create_online_evaluation_config`. Set `serviceNames` to the endpoint’s `service.name` and `logGroupNames` to its event log group. Then create the test with `create_ab_test`, using `perVariantOnlineEvaluationConfig`. For the full boto3 example — including sending traffic, polling results, and stopping the test — see [Run an A/B test with target-based routing](ab-testing-target-based.md), starting from the **Create the A/B test** step.
+Each online evaluation create command returns an `onlineEvaluationConfigId`, and the A/B test command returns an `abTestId`. Use `agentcore eval ab-test get --id <ab-test-id>` to view per-variant results and `agentcore eval ab-test stop --id <ab-test-id>` to end the test.
+Create one online evaluation config per variant with `create_online_evaluation_config`. Set `serviceNames` to the endpoint’s `service.name` and `logGroupNames` to its event log group. Then create the test with `create_ab_test`, using `perVariantOnlineEvaluationConfig`. For the full boto3 example — including polling results and stopping the test — see [Run an A/B test with target-based routing](ab-testing-target-based.md), starting from the **Create the A/B test** step.
+
+### Send traffic
+<a name="ab-testing-3p-send-traffic"></a>
+
+The load generator on the target-based page sets `X-Amzn-Bedrock-AgentCore-Runtime-Session-Id`. The Lambda handler and the stickiness configuration on these targets read `x-session-id` instead. Use the following script, which sends a new `x-session-id` for each session and reuses it for every request in that session. Replace `<gateway-id>` with your Gateway ID:
+
+```
+#!/bin/bash
+PROMPTS=(
+  "What is the status of order ORD-1003?"
+  "It is late. Can I get a discount?"
+)
+
+for i in $(seq 1 30); do
+  SESSION_ID=$(uuidgen)
+  echo "=== Session $i: $SESSION_ID ==="
+  for PROMPT in "${PROMPTS[@]}"; do
+    agentcore invoke --gateway <gateway-id> \
+      --region us-west-2 \
+      --path /customer-support-control/invocations \
+      --header "x-session-id: $SESSION_ID" \
+      --payload "{\"prompt\": \"$PROMPT\"}"
+    echo ""
+  done
+  sleep 2
+done
+```
 
 ## Troubleshooting
 <a name="ab-testing-3p-troubleshooting"></a>

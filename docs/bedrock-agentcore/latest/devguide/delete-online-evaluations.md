@@ -16,18 +16,20 @@ The following code samples demonstrate how to delete online evaluation configura
 
 1. 
 
+   If you added the configuration with `agentcore add online-eval`, remove it from the project and deploy:
+
    ```
-   # Delete (with confirmation prompt)
-   agentcore remove online-eval --name "your_config_name"
+   agentcore remove online-eval --name <ONLINE_EVAL_NAME>
    agentcore deploy
    ```
 
-   The `remove` command removes the online evaluation configuration from your local project. Run `agentcore deploy` to apply the deletion to your AWS account.
-**Note**  
-Run this from inside an AgentCore project directory (created with `agentcore create` ).
+   You can also run `agentcore remove` and choose the configuration.
 
-1. \* Run `agentcore remove` and select **Online Eval Config** from the resource type menu.  
-![Remove resource type selection](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-remove-select.png)
+   To delete a configuration that is not part of a project, delete it by ID:
+
+   ```
+   agentcore eval online-eval delete --id <ONLINE_EVAL_ID>
+   ```
 
 1. 
 

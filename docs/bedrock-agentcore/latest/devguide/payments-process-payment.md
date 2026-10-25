@@ -16,30 +16,12 @@ AgentCore payments supports two payment protocols, which you select with the `pa
 Choose the `paymentType` that matches the protocol the merchant used in its `402 Payment Required` response. For x402 request and response details, see [Pay an x402 payment request](#payments-process-payment-x402). For MPP request and response details, see [Pay an MPP challenge](#payments-process-payment-mpp).
 
 **Tip**  
-You can automate the steps on this page with the AgentCore Payments skill in the AWS agent toolkit. The skill is part of the **aws-agents** plugin and lets an AI coding agent create your Payment Manager, connector, credential provider, payment instrument, and session using the `agentcore` CLI, and add a process payment tool to your agent. For details, see the [quickstart](payments-getting-started.md) and the [AWS agent toolkit on GitHub](https://github.com/aws/agent-toolkit-for-aws/tree/main).
+You can automate the steps on this page with the AgentCore Payments skill in the AWS agent toolkit. The skill is part of the **aws-agents** plugin and lets an AI coding agent create your Payment Manager, connector, and credential provider with the AgentCore CLI, create a payment instrument and session using the AgentCore SDK, and add a process payment tool to your agent. For details, see the [quickstart](payments-getting-started.md) and the [AWS agent toolkit on GitHub](https://github.com/aws/agent-toolkit-for-aws/tree/main).
 
-There are five ways to invoke the ProcessPayment API:
+Choose how to process a payment:
 
 **Example**  
-If your agent is deployed with payment capabilities configured, invoke it with payment context and the x402 interceptor handles payment processing automatically:  
-
-```
-agentcore invoke \
-  --prompt "Access the premium endpoint at https://example-x402-merchant.com/paid-api" \
-  --payment-instrument-id <INSTRUMENT_ID> \
-  --auto-session \
-  --payment-user-id user@example.com
-```
-To use an explicit session instead of auto-creating one:  
-
-```
-agentcore invoke \
-  --prompt "Access the premium endpoint at https://example-x402-merchant.com/paid-api" \
-  --payment-instrument-id <INSTRUMENT_ID> \
-  --payment-session-id <SESSION_ID> \
-  --payment-user-id user@example.com
-```
-The deployed agent’s x402 plugin intercepts HTTP 402 responses, calls `ProcessPayment`, and retries the request with proof. Requires AgentCore CLI v0.19.0 or later.
+Invoke a payment-enabled Runtime with `agentcore invoke --runtime <name>`, passing the existing payment session and instrument IDs through `--header`. Your agent reads these application-defined headers and passes their values to `AgentCorePaymentsPluginConfig`. For the Python entrypoint and CLI commands, see [Process a payment with a Strands agent](payments-getting-started.md#payments-getting-started-step6).
 Use the `PaymentManager` class to generate payment headers manually within any agent framework:  
 
 ```
@@ -426,7 +408,7 @@ Blockchain network (gas) fees are separate from the challenge amount. A challeng
 +  `methodDetails.feePayer=true` — The seller sponsors the network fees. `buyerPaysGasFees` has no effect.
 +  `methodDetails.feePayer=false` or absent — The buyer pays the network fees from the paying wallet, in addition to the payment amount. Because that cost is not visible in the challenge amount, AgentCore payments signs only if you set `buyerPaysGasFees=true`; otherwise it returns a `ValidationException`. For the `tempo` method, this consent is required whenever the seller does not sponsor fees.
 
-The `evm` method needs no fee consent, because the facilitator broadcasts the transaction and pays the gas. The `solana` method supports only server-sponsored fees today.
+The `evm` method needs no fee consent, because the facilitator broadcasts the transaction and pays the gas. The `solana` method supports only server-sponsored fees.
 
 ### Limitations
 <a name="_limitations_2"></a>

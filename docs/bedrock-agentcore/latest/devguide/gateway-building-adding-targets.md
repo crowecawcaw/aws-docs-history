@@ -13,7 +13,7 @@ When you add a target, you provide the following required fields:
 
 You can optionally provide the following fields:
 + A description of the gateway target.
-+ A client token value to ensure that a request completes no more than once. If you don’t include this token, one is randomly generated for you. If you don’t include a value, one is randomly generated for you. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html).
++ A client token value to ensure that a request completes no more than once. If you don’t include this token, one is randomly generated for you. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html).
 
 Select a topic to learn how to add a target to an existing gateway using that method:
 

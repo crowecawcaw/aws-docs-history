@@ -19,10 +19,12 @@ The harness supports four skill sources:
 
 Skills are fetched once per session on the first invocation. Within a session, skills persist on disk across multiple invocations. When the VM expires and a new session starts, skills are re-fetched to guarantee freshness.
 
+When you use a custom container image with Git, Amazon S3, or AWS skills, include `tar` in the image. Give the container user write access to `/tmp`. For details, see [Custom environment (container images)](harness-environment.md#harness-custom-container).
+
 You can set `skills` as a default on the harness (via `CreateHarness` or `UpdateHarness`), or override per invocation. Invoke-time skills are appended after create-time skills; if both define a skill with the same name, the invoke-time version wins.
 
 **Note**  
-To add a skill to a harness interactively, run `agentcore` to open the TUI, select **add** , choose **Harness** , advance to **Advanced settings** , and enable **Skills** . The wizard then prompts for the skill source. See the **Interactive** tab under [Git](#harness-skills-git) and [Amazon S3](#harness-skills-s3) below for the per-source steps.
+The `agentcore add harness` wizard does not configure skills. With the AgentCore CLI, pass skills in the `--skills` JSON, as shown in the **AgentCore CLI** tabs in the following sections, or edit the `skills` list in `app/<harness-name>/harness.yaml`.
 
 ## AWS Skills
 <a name="harness-aws-skills"></a>
@@ -59,6 +61,14 @@ response = client.invoke_harness(
 )
 ```
 
+```
+agentcore add harness \
+  --name my_harness \
+  --skills '[{"awsSkills":{}}]'
+
+agentcore deploy
+```
+
 ### Enable skills by category
 <a name="_enable_skills_by_category"></a>
 
@@ -71,6 +81,14 @@ aws bedrock-agentcore-control create-harness \
   --harness-name "MyHarness" \
   --execution-role-arn "${ROLE_ARN}" \
   --skills '[{"awsSkills": {"paths": ["core-skills/*", "specialized-skills/operations-skills/*"]}}]'
+```
+
+```
+agentcore add harness \
+  --name my_harness \
+  --skills '[{"awsSkills":{"paths":["core-skills/*","specialized-skills/operations-skills/*"]}}]'
+
+agentcore deploy
 ```
 
 ### Enable a single specific skill
@@ -130,35 +148,26 @@ skills=[
     }
 ]
 ```
-Attach a skill from a public Git repository with `agentcore add skill`. Use `--git-path` to pull a single skill from a subdirectory:  
+Set Git skills in the `--skills` JSON when you add the harness. Use `path` to select a subdirectory:  
 
 ```
-agentcore add skill --harness my-harness \
-  --git https://github.com/anthropics/skills \
-  --git-path skills/docx
+agentcore add harness \
+  --name my_harness \
+  --skills '[{"gitUrl":"https://github.com/anthropics/skills","path":"skills/docx"}]'
 agentcore deploy
 ```
-For a private repository, pass `--credential` with the name of an API key credential in your project that holds a personal access token (`--username` is optional, default `oauth2`):  
+For a private repository, add an API key credential containing the personal access token, then reference its project name in `auth.credentialName`:  
 
 ```
-agentcore add skill --harness my-harness \
-  --git https://github.com/my-org/internal-skills \
-  --git-path excel \
-  --credential my-github-pat
+agentcore add credentials api-key \
+  --name my-github-pat \
+  --api-key file://github-pat.txt
+agentcore add harness \
+  --name private_skills \
+  --skills '[{"gitUrl":"https://github.com/my-org/internal-skills","path":"excel","auth":{"credentialName":"my-github-pat","username":"oauth2"}}]'
 agentcore deploy
 ```
-Remove a skill with `agentcore remove skill` using the same source flags. To override skills for a single call without changing the harness, use `agentcore invoke --skills <sources>` (comma-separated paths, `s3://` URIs, or `https://` Git URLs); Git authentication is not supported on the invoke override.
-In the TUI, add a Git skill to a harness through the **add** → **Harness** wizard.  
-
-1. Advance to **Advanced settings** , move to **Skills** , and press **Space** to enable it, then press **Enter** .  
-![Advanced settings with Skills enabled](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-skills-01-advanced.png)
-
-1. Select **Git** as the skill source.  
-![Skill source type: Path, S3, or Git](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-skills-02-source-type.png)
-
-1. Enter the HTTPS repository URL. The wizard then prompts for an optional subdirectory path, an optional credential for private repositories, and an optional username.  
-![Enter the Git repository URL](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-skills-05-git-url.png)
-Confirm the wizard, then run `agentcore deploy` to apply.
+To change the configured skills, edit the `skills` list in `app/<harness-name>/harness.yaml`, then run `agentcore deploy`. The YAML file uses the API field names (`git.url`, `git.path`, `git.auth`, `s3.uri`), not the `--skills` flag names `gitUrl` and `s3Uri`. Use the SDK when you need invocation-time skill overrides.
 +  `url` (required) - HTTPS URL of the Git repository.
 +  `path` (optional) - subdirectory within the repo containing the skill. If omitted, the repository root is used.
 +  `auth.credentialArn` (optional) - ARN of an API key credential provider holding a personal access token for private repos.
@@ -183,19 +192,15 @@ response = client.invoke_harness(
     messages=[{"role": "user", "content": [{"text": "Draft a summary following our style guide."}]}],
 )
 ```
-Attach a skill from S3 with `agentcore add skill --s3`:  
+Set the S3 skill in the `--skills` JSON:  
 
 ```
-agentcore add skill --harness my-harness \
-  --s3 s3://my-skills-bucket/skills/company-style/
+agentcore add harness \
+  --name my_harness \
+  --skills '[{"s3Uri":"s3://my-skills-bucket/skills/company-style/"}]'
 agentcore deploy
 ```
 The execution role needs `s3:GetObject` and `s3:ListBucket` on the bucket. See [Security and access controls](harness-security.md).
-In the TUI, add an S3 skill to a harness through the **add** → **Harness** wizard. Advance to **Advanced settings** , enable **Skills** with **Space** , and choose **S3** as the source (see the [Git](#harness-skills-git) Interactive tab for those shared steps).  
-
-1. Enter the S3 URI of the skill directory.  
-![Enter the S3 URI for the skill](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-skills-04-s3-uri.png)
-Confirm the wizard, then run `agentcore deploy` to apply.
 +  `uri` (required) - S3 URI pointing to the skill directory (e.g., `s3://bucket/prefix/`).
 + The execution role must have `s3:GetObject` and `s3:ListBucket` permissions on the bucket. See [Security and access controls](harness-security.md).
 + Each S3 skill must be 1 GB or smaller.
@@ -217,6 +222,13 @@ response = client.invoke_harness(
 )
 ```
 
+```
+agentcore add harness \
+  --name my_harness \
+  --skills '[{"path":".agents/skills/xlsx"}]'
+agentcore deploy
+```
+
 ### Bake into the container image
 <a name="_bake_into_the_container_image"></a>
 
@@ -229,11 +241,20 @@ COPY skills/xlsx .agents/skills/xlsx
 ### Install at session start
 <a name="_install_at_session_start"></a>
 
-Use `InvokeAgentRuntimeCommand` before the first agent invocation:
+Use `InvokeAgentRuntimeCommand` before the first agent invocation. The AgentCore CLI wraps it in `agentcore harness exec`. Pass the harness ID, which is the part of the harness ARN after `harness/`. `agentcore status` shows the harness ARN. The session ID must be 33 to 100 characters. Use the same session ID when you invoke the harness. The harness must already list the path skill, as shown in [Filesystem path skills](#harness-skills-path).
 
 ```
-agentcore invoke --exec --harness my-agent --session-id "$SESSION" \
-  "git clone --depth 1 https://github.com/anthropics/skills /tmp/skills && cp -r /tmp/skills/skills/xlsx .agents/skills/xlsx"
+SESSION_ID="$(uuidgen)"
+
+agentcore harness exec \
+  --id "<harness-id>" \
+  --session-id "$SESSION_ID" \
+  --command "git clone --depth 1 https://github.com/anthropics/skills /tmp/skills && cp -r /tmp/skills/skills/xlsx .agents/skills/xlsx"
+
+agentcore invoke \
+  --harness my_harness \
+  --session-id "$SESSION_ID" \
+  --prompt "Find errors in the Excel files."
 ```
 
 ## Combine multiple skill sources
@@ -274,7 +295,7 @@ All fetch failures fail the invocation with a descriptive error. Skills are neve
 | Path traversal (`..`) |  `Invalid AWS skill path: must be a relative path without '..'`  | 
 |  AWS skills bundle missing |  `AWS Skills are not available in this runtime (missing directory: /opt/amazon/skills)`  | 
 
-### Related topics
+## Related topics
 <a name="_related_topics"></a>
 +  [Tools](harness-tools.md) - connect MCP servers, Gateway, Browser, and Code Interpreter
 +  [Environment and filesystem](harness-environment.md) - custom container images and environment configuration

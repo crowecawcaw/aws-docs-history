@@ -86,7 +86,7 @@ A payment instrument, once created, starts with 0 USDC. The agent does not have 
 ### Coinbase
 <a name="payments-how-it-works-funding-coinbase"></a>
 
-1.  **Launch Coinbase-powered frontend** — Deploy Coinbase’s wallet hub in your service. The [Coinbase AgentCore template on GitHub](https://github.com/coinbase/cdp-agentcore-template) provides a template frontend for Agent Developers integrating AWS AgentCore SDK with Coinbase to allow users to login, connect agents, and onramp funds. Alternatively, in the response body of the `CreatePaymentInstrument` API, fetch the redirect URL from `paymentInstrumentDetails.redirectUrl` to access Coinbase WalletHub directly.
+1.  **Launch Coinbase-powered frontend** — Deploy Coinbase’s wallet hub in your service. The [Coinbase AgentCore template on GitHub](https://github.com/coinbase/cdp-agentcore-template) provides a template frontend for Agent Developers integrating AWS AgentCore SDK with Coinbase to allow users to login, connect agents, and onramp funds. Alternatively, in the response body of the `CreatePaymentInstrument` API, fetch the redirect URL from `paymentInstrument.paymentInstrumentDetails.embeddedCryptoWallet.redirectUrl` to access Coinbase WalletHub directly.
 
 1.  **Wallet top-up** — Once the user is logged in to the wallet hub, they can top up their wallet using crypto-to-crypto transfer or through traditional payment methods like Credit cards (limited availability due to geographical restrictions), Debit cards, Apple Pay, Google Pay, or ACH
 

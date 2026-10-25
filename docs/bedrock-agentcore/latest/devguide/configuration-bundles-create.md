@@ -5,44 +5,31 @@
 
 Create a configuration bundle to store a versioned snapshot of your agent’s dynamic configuration. The bundle is created with an initial version on the `mainline` branch.
 
-**Note**  
-The CLI `add config-bundle` command saves the bundle definition to `agentcore.json` locally. To actually create it on the service, you must run `agentcore deploy` afterwards.
-
 ## Code samples
 <a name="create-bundle-examples"></a>
 
 **Example**  
-Create with inline components JSON, then deploy:  
+Create a bundle directly:  
 
 ```
-agentcore add config-bundle \
+agentcore eval config-bundle create \
   --name myAgentConfig \
-  --description "Initial config" \
-  --branch mainline \
+  --branch-name mainline \
   --commit-message "Initial bundle creation" \
-  --components '{"arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/MyAgent-abc123": {"configuration": {"system_prompt": "You are a helpful assistant.", "model_id": "global.anthropic.claude-sonnet-4-5-20250929-v1:0"}}}'
-
-agentcore deploy
+  --components file://components.json
 ```
-The `--components` keys can be ARNs or placeholders in the form `{{runtime:<name>}}` or `{{gateway:<name>}}`. Placeholders resolve to real ARNs at deploy time, so use the placeholder form for resources managed in your project. Raw ARN keys require the resource to already exist:  
+To manage the bundle as part of the current project, add it to the project and deploy:  
 
 ```
 agentcore add config-bundle \
   --name myAgentConfig \
-  --components '{"{{runtime:MyAgent}}": {"configuration": {"system_prompt": "You are a helpful assistant."}}}'
+  --commit-message "Initial bundle creation" \
+  --components file://components.json
 
 agentcore deploy
 ```
-Add `--description`, `--branch`, and `--commit-message` to set version metadata, or `--json` to output the result as JSON.  
-Create from a components file, then deploy:  
-
-```
-agentcore add config-bundle \
-  --name myAgentConfig \
-  --components-file ./components.json
-
-agentcore deploy
-```
+To be prompted for each value, run `agentcore add config-bundle` without flags.  
+For a runtime in the same project, use the key `{{runtime:<runtime-name>}}` instead of an ARN, for example `{"{{runtime:MyAgent}}": {"configuration": {"system_prompt": "You are a helpful assistant."}}}`. The placeholder resolves to the runtime ARN during `agentcore deploy`, so you can add the runtime and the bundle in one deployment. Gateway components must use the full gateway ARN.  
 Sample `components.json`:  
 
 ```

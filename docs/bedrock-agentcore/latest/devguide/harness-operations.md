@@ -12,7 +12,7 @@ Every harness invocation automatically generates traces, logs, and metrics throu
 
 Traces, logs, and metrics flow to CloudWatch through the harness execution role. View them in the [AgentCore Observability dashboard](https://us-west-2.console.aws.amazon.com/cloudwatch/home?region=us-west-2#/gen-ai-observability/agent-core/agents), or query programmatically through the CloudWatch Logs and X-Ray APIs.
 
-Before you see traces, [enable Transaction Search in CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Enable-Lambda-TransactionSearch.html) (one-time per account). See [AgentCore Observability getting started](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-get-started.html) for setup details.
+Before you see traces, [enable Transaction Search in CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Enable-Lambda-TransactionSearch.html) (one-time per account). See [AgentCore Observability getting started](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-get-started.html) for setup details. When you deploy with the AgentCore CLI, `agentcore deploy` enables Transaction Search for you. To opt out, run `agentcore config transactionSearch false`.
 
 Learn more: [Observability overview](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html) · [metrics](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-runtime-metrics.html) · [telemetry](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-telemetry.html) 
 
@@ -91,19 +91,16 @@ Or override on a single invocation by passing `maxIterations`, `timeoutSeconds`,
 Set defaults:  
 
 ```
-agentcore add harness --name bounded-agent \
-  --max-iterations 50 --timeout 1800 --max-tokens 8192 \
-  --truncation-strategy sliding_window \
-  --idle-timeout 600 --max-lifetime 14400
+agentcore add harness \
+  --name bounded_agent \
+  --max-iterations 50 \
+  --timeout-seconds 1800 \
+  --max-tokens 8192 \
+  --truncation '{"strategy":"sliding_window"}' \
+  --lifecycle-config '{"idleRuntimeSessionTimeout":600,"maxLifetime":14400}'
 agentcore deploy
 ```
-The `--truncation-strategy` flag accepts `sliding_window` or `summarization`. The `--idle-timeout` and `--max-lifetime` flags set lifecycle limits in seconds.  
-Override on a single call:  
-
-```
-agentcore invoke --harness bounded-agent --max-iterations 20 --harness-timeout 600 \
-  "Quick lookup: what's the weather in Seattle?"
-```
+The `strategy` field in the `--truncation` JSON accepts `sliding_window`, `summarization`, or `none`. The lifecycle values are in seconds. Use the SDK when you need to override limits for a single invocation.
 
 ## Tags
 <a name="harness-tags"></a>
@@ -118,21 +115,18 @@ aws bedrock-agentcore-control create-harness \
   --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole" \
   --tags '{"team": "platform", "environment": "staging"}'
 ```
-Set tags in `harness.json`:  
+Set tags when you add the harness:  
 
 ```
-{
-  "tags": {
-    "team": "platform",
-    "environment": "staging"
-  }
-}
+agentcore add harness \
+  --name MyHarness \
+  --tags '{"team":"platform","environment":"staging"}'
+agentcore deploy
 ```
-Run `agentcore deploy` to apply.
 
 Harness tags propagate to the managed Runtime, Runtime endpoint, and managed Memory created for the harness. Separately created resources retain their own tags.
 
-### Related topics
+## Related topics
 <a name="_related_topics"></a>
 +  [Memory](harness-memory.md) - memory persists conversation context across sessions
 +  [Environment and filesystem](harness-environment.md) - environment variables and custom containers

@@ -39,9 +39,12 @@ The following table describes the ground truth fields.
 
 | Field | Type | Scope | Description | 
 | --- | --- | --- | --- | 
-|  `expectedResponse`  | String | Trace | The expected agent response for a specific turn. Scoped to a trace using `traceId` in the reference input context. | 
-|  `assertions`  | List of strings | Session | Natural language statements that should be true about the agent’s behavior across the session. | 
-|  `expectedTrajectory`  | List of tool names | Session | The expected sequence of tool calls for the session. | 
+|  `expectedResponse`  | Object with a `text` field | Trace | The expected agent response for a specific turn. Scoped to a trace using `traceId` in the reference input context. | 
+|  `assertions`  | List of objects with a `text` field | Session | Natural language statements that should be true about the agent’s behavior across the session. | 
+|  `expectedTrajectory`  | Object with a `toolNames` list | Session | The expected sequence of tool calls for the session. | 
+
+**Note**  
+The AgentCore CLI and service API use the object shapes shown in this table. The AgentCore SDK helper classes also accept strings and lists of strings and convert them to these shapes.
 + Ground truth fields are optional. If you omit them, evaluators fall back to their ground truth-free mode (for example, `Builtin.Correctness` still works without `expectedResponse` , it just evaluates based on context alone).
 + You can provide all ground truth fields in a single request. The service picks the relevant fields for each evaluator and reports `ignoredReferenceInputFields` in the response for any fields that were not used.
 + You don’t need to provide `expectedResponse` for every trace. Traces without ground truth are evaluated using the ground truth-free variant of the evaluator.
@@ -126,29 +129,23 @@ TRACE_ID_2   = "<trace-id-2>"   # Turn 2: "What's the weather?"
 1. 
 
    ```
-   # Expected response matched against the last trace
-   agentcore run eval \
-     --runtime AGENT_NAME \
-     --session-id SESSION_ID \
-     --evaluator Builtin.Correctness \
-     --expected-response "The weather is sunny"
-   
-   # Target a specific trace
-   agentcore run eval \
-     --runtime AGENT_NAME \
-     --session-id SESSION_ID \
-     --evaluator Builtin.Correctness \
-     --trace-id TRACE_ID_1 \
-     --expected-response "15 + 27 = 42"
-   
-   # ARN mode — evaluate an agent outside the CLI project
-   agentcore run eval \
-     --runtime-arn arn:aws:bedrock-agentcore:<region-code>:<account-id>:runtime/<agent-id> \
-     --region <region-code> \
-     --session-id SESSION_ID \
-     --evaluator-arn arn:aws:bedrock-agentcore:::evaluator/Builtin.Correctness \
-     --expected-response "The weather is sunny"
+   agentcore eval ondemand evaluate \
+     --agent AGENT_ID \
+     --session-ids SESSION_ID \
+     --evaluators Builtin.Correctness \
+     --ground-truth '[
+       {
+         "context":{"spanContext":{"sessionId":"SESSION_ID","traceId":"TRACE_ID_1"}},
+         "expectedResponse":{"text":"15 + 27 = 42"}
+       },
+       {
+         "context":{"spanContext":{"sessionId":"SESSION_ID","traceId":"TRACE_ID_2"}},
+         "expectedResponse":{"text":"The weather is sunny"}
+       }
+     ]'
    ```
+
+   The command prints JSON, so you can redirect it to a file, for example `> results.json`.
 
 1. 
 
@@ -182,36 +179,6 @@ TRACE_ID_2   = "<trace-id-2>"   # Turn 2: "What's the weather?"
            expected_response=(TRACE_ID_1, "15 + 27 = 42"),
        ),
    )
-   ```
-
-1. 
-
-   ```
-   # Expected response matched against the last trace
-   agentcore run eval \
-     --runtime-arn AGENT_RUNTIME_ARN \
-     --region REGION \
-     --session-id SESSION_ID \
-     --evaluator-arn arn:aws:bedrock-agentcore:::evaluator/Builtin.Correctness \
-     --expected-response "The weather is sunny"
-   
-   # Target a specific trace
-   agentcore run eval \
-     --runtime-arn AGENT_RUNTIME_ARN \
-     --region REGION \
-     --session-id SESSION_ID \
-     --trace-id TRACE_ID_1 \
-     --evaluator-arn arn:aws:bedrock-agentcore:::evaluator/Builtin.Correctness \
-     --expected-response "15 + 27 = 42"
-   
-   # Save results to a file
-   agentcore run eval \
-     --runtime-arn AGENT_RUNTIME_ARN \
-     --region REGION \
-     --session-id SESSION_ID \
-     --evaluator-arn arn:aws:bedrock-agentcore:::evaluator/Builtin.Correctness \
-     --expected-response "The weather is sunny" \
-     --output results.json
    ```
 
 1. 
@@ -288,22 +255,20 @@ The examples below use assertions that validate tool usage, but assertions are f
 1. 
 
    ```
-   agentcore run eval \
-     --runtime AGENT_NAME \
-     --session-id SESSION_ID \
-     --evaluator Builtin.GoalSuccessRate \
-     --assertion "Agent used the calculator tool to compute the result" \
-     --assertion "Agent returned the correct numerical answer of 42" \
-     --assertion "Agent used the weather tool when asked about weather"
-   
-   # ARN mode — evaluate an agent outside the CLI project
-   agentcore run eval \
-     --runtime-arn arn:aws:bedrock-agentcore:<region-code>:<account-id>:runtime/<agent-id> \
-     --region <region-code> \
-     --session-id SESSION_ID \
-     --evaluator-arn arn:aws:bedrock-agentcore:::evaluator/Builtin.GoalSuccessRate \
-     --assertion "Agent used the calculator tool to compute the result" \
-     --assertion "Agent returned the correct numerical answer of 42"
+   agentcore eval ondemand evaluate \
+     --agent AGENT_ID \
+     --session-ids SESSION_ID \
+     --evaluators Builtin.GoalSuccessRate \
+     --ground-truth '[
+       {
+         "context":{"spanContext":{"sessionId":"SESSION_ID"}},
+         "assertions":[
+           {"text":"Agent used the calculator tool to compute the result"},
+           {"text":"Agent returned the correct numerical answer of 42"},
+           {"text":"Agent used the weather tool when asked about weather"}
+         ]
+       }
+     ]'
    ```
 
 1. 
@@ -328,19 +293,6 @@ The examples below use assertions that validate tool usage, but assertions are f
    
    for r in results.get_successful_results():
        print(f"Score: {r.value:.2f}, Label: {r.label}")
-   ```
-
-1. 
-
-   ```
-   agentcore run eval \
-     --runtime-arn AGENT_RUNTIME_ARN \
-     --region REGION \
-     --session-id SESSION_ID \
-     --evaluator-arn arn:aws:bedrock-agentcore:::evaluator/Builtin.GoalSuccessRate \
-     --assertion "Agent used the calculator tool to compute the result" \
-     --assertion "Agent returned the correct numerical answer of 42" \
-     --assertion "Agent used the weather tool when asked about weather"
    ```
 
 1. 
@@ -412,22 +364,19 @@ The trajectory evaluators compare the agent’s actual tool call sequence agains
        print(f"  {r['explanation'][:150]}")
    ```
 
-1. Tool names are passed as a comma-separated list:
+1. Pass the expected tool names in `expectedTrajectory.toolNames`:
 
    ```
-   agentcore run eval \
-     --runtime AGENT_NAME \
-     --session-id SESSION_ID \
-     --evaluator Builtin.TrajectoryExactOrderMatch Builtin.TrajectoryInOrderMatch Builtin.TrajectoryAnyOrderMatch \
-     --expected-trajectory "calculator,weather"
-   
-   # ARN mode — evaluate an agent outside the CLI project
-   agentcore run eval \
-     --runtime-arn arn:aws:bedrock-agentcore:<region-code>:<account-id>:runtime/<agent-id> \
-     --region <region-code> \
-     --session-id SESSION_ID \
-     --evaluator-arn arn:aws:bedrock-agentcore:::evaluator/Builtin.TrajectoryExactOrderMatch \
-     --expected-trajectory "calculator,weather"
+   agentcore eval ondemand evaluate \
+     --agent AGENT_ID \
+     --session-ids SESSION_ID \
+     --evaluators Builtin.TrajectoryExactOrderMatch Builtin.TrajectoryInOrderMatch Builtin.TrajectoryAnyOrderMatch \
+     --ground-truth '[
+       {
+         "context":{"spanContext":{"sessionId":"SESSION_ID"}},
+         "expectedTrajectory":{"toolNames":["calculator","weather"]}
+       }
+     ]'
    ```
 
 1. 
@@ -452,17 +401,6 @@ The trajectory evaluators compare the agent’s actual tool call sequence agains
    
    for r in results.get_successful_results():
        print(f"{r.evaluator_name}: {r.value:.2f} ({r.label})")
-   ```
-
-1. Tool names are passed as a comma-separated list:
-
-   ```
-   agentcore run eval \
-     --runtime-arn AGENT_RUNTIME_ARN \
-     --region REGION \
-     --session-id SESSION_ID \
-     --evaluator-arn arn:aws:bedrock-agentcore:::evaluator/Builtin.TrajectoryExactOrderMatch arn:aws:bedrock-agentcore:::evaluator/Builtin.TrajectoryInOrderMatch arn:aws:bedrock-agentcore:::evaluator/Builtin.TrajectoryAnyOrderMatch \
-     --expected-trajectory "calculator,weather"
    ```
 
 1. 
@@ -542,15 +480,24 @@ You can pass all ground truth fields together in a single evaluation call. The s
 1. 
 
    ```
-   agentcore run eval \
-     --runtime AGENT_NAME \
-     --session-id SESSION_ID \
-     --evaluator Builtin.Correctness Builtin.GoalSuccessRate Builtin.TrajectoryExactOrderMatch \
-     --assertion "Agent used the calculator tool for math" \
-     --assertion "Agent used the weather tool when asked about weather" \
-     --expected-trajectory "calculator,weather" \
-     --expected-response "The weather is sunny" \
-     --output results.json
+   agentcore eval ondemand evaluate \
+     --agent AGENT_ID \
+     --session-ids SESSION_ID \
+     --evaluators Builtin.Correctness Builtin.GoalSuccessRate Builtin.TrajectoryExactOrderMatch \
+     --ground-truth '[
+       {
+         "context":{"spanContext":{"sessionId":"SESSION_ID"}},
+         "assertions":[
+           {"text":"Agent used the calculator tool for math"},
+           {"text":"Agent used the weather tool when asked about weather"}
+         ],
+         "expectedTrajectory":{"toolNames":["calculator","weather"]}
+       },
+       {
+         "context":{"spanContext":{"sessionId":"SESSION_ID","traceId":"TRACE_ID_2"}},
+         "expectedResponse":{"text":"The weather is sunny"}
+       }
+     ]' > results.json
    ```
 
 1. 

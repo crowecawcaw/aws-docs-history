@@ -287,7 +287,7 @@ What the interceptor can override depends on whether it is the first or a subseq
 
 HTTP targets use a different interceptor payload structure than MCP targets. HTTP targets (AgentCore Runtime and passthrough) and inference targets all use this `http` payload structure. Inference is a separate target type that happens to share the HTTP interceptor payload shape. The payload uses an `http` key instead of an `mcp` key. Request and response bodies are base64-encoded strings rather than parsed JSON objects.
 
-HTTP targets support both REQUEST and RESPONSE interceptors in buffered mode, in which the gateway buffers the full response before invoking the response interceptor. Interceptors are not yet supported in streaming mode.
+HTTP targets support both REQUEST and RESPONSE interceptors in buffered mode only, in which the gateway buffers the full response before invoking the response interceptor.
 
 The following list summarizes the key behaviors for HTTP target interceptors:
 + The `httpMethod` field is read-only.
@@ -435,4 +435,4 @@ The following table summarizes the differences between MCP and HTTP target inter
 | Path | Always "/mcp" | Actual HTTP path (for example, "/my-target-name/invocations") | 
 | httpMethod | Immutable | Immutable | 
 | rawGatewayRequest | Included | Not included | 
-| Response interceptor | Supported | Supported in buffered mode (not yet supported in streaming mode) | 
+| Response interceptor | Supported | Supported in buffered mode only | 

@@ -10,7 +10,7 @@ Key configuration for target-based A/B tests:
 + Evaluation configuration: `perVariantOnlineEvaluationConfig` (one online evaluation config per variant, since each endpoint has its own log group)
 + Gateway filter: `gatewayFilter.targetPaths` scopes which AgentCore Gateway paths the A/B test intercepts
 
-This walkthrough deploys two versions of the customer support agent — one using Claude Sonnet (control) and one using Claude Opus (treatment) — creates named endpoints for each version, creates an A/B test, sends traffic, reviews results, and deploys the winner.
+This walkthrough deploys two versions of the customer support agent. The control uses Claude Sonnet and the treatment uses Claude Opus. You create an endpoint for each version, run an A/B test, send traffic, review the results, and route traffic to the winner.
 
 **Note**  
 This walkthrough is for agents hosted on an AgentCore Runtime. If your agent runs **outside** an AgentCore Runtime (a third-party or self-hosted agent — for example on AWS Lambda), see [Run an A/B test for agents hosted outside of AgentCore](ab-testing-3p-agents.md) instead.
@@ -23,7 +23,7 @@ For a detailed comparison of A/B test patterns, see [Choosing a pattern](ab-test
 Create the project with the AgentCore CLI:
 
 ```
-agentcore create --project-name ABTestTargetBased --no-agent
+agentcore create --name ABTestTargetBased --template empty
 cd ABTestTargetBased
 ```
 
@@ -33,13 +33,13 @@ cd ABTestTargetBased
 Add the agent runtime. You will deploy two versions of this runtime — one for control and one for treatment — then create named endpoints to alias each version.
 
 ```
-agentcore add agent \
+agentcore add runtime \
   --name csAgent \
-  --language Python \
-  --framework Strands \
-  --model-provider Bedrock \
-  --memory none \
-  --build CodeZip
+  --language python \
+  --protocol HTTP
+cd app/csAgent
+uv init --bare
+cd ../..
 ```
 
 Abbreviated project structure:
@@ -52,14 +52,14 @@ ABTestTargetBased/
 │   └── cdk/
 └── app/
     └── csAgent/
-        ├── main.py
+        ├── main.py         # Created in Step 3
         └── pyproject.toml
 ```
 
 ## Step 3: Deploy control and treatment versions
 <a name="target-based-agent-code"></a>
 
-Replace `app/csAgent/main.py` with the control version (using Claude Sonnet):
+Create `app/csAgent/main.py` with the control version (using Claude Sonnet):
 
 ```
 """Customer support agent — control variant."""
@@ -147,13 +147,13 @@ Create named endpoints for each version and deploy:
 ```
 agentcore add runtime-endpoint \
   --runtime csAgent \
-  --endpoint control \
+  --name control \
   --version 1 \
   --description "Control variant — Claude Sonnet"
 
 agentcore add runtime-endpoint \
   --runtime csAgent \
-  --endpoint treatment \
+  --name treatment \
   --version 2 \
   --description "Treatment variant — Claude Opus"
 
@@ -164,15 +164,15 @@ You now have:
 + Runtime endpoint `control` — serving version 1 with Claude Sonnet.
 + Runtime endpoint `treatment` — serving version 2 with Claude Opus.
 
-Verify the runtime is working:
+Verify the runtime is working. The `arn` field for `csAgent` in the `status` output is the Runtime ARN, and the Runtime ID is the last segment of that ARN.
 
 ```
-agentcore invoke --runtime csAgent --prompt "What is the status of order ORD-1003?"
-```
+agentcore status --json
 
-You now have:
-+ Runtime endpoint `control` — serving version 1 with Claude Sonnet.
-+ Runtime endpoint `treatment` — serving version 2 with Claude Opus.
+agentcore invoke --runtime csAgent \
+  --qualifier control \
+  --payload '{"prompt":"What is the status of order ORD-1003?"}'
+```
 
 ## Step 4: Create online evaluation configurations
 <a name="target-based-online-eval"></a>
@@ -180,75 +180,73 @@ You now have:
 Each endpoint has its own log group (the log group name ends with the endpoint name), so you need one online evaluation config per variant:
 
 ```
-agentcore add online-eval \
+agentcore eval online-eval create \
   --name controlEvalTb \
-  --runtime csAgent \
+  --agent <runtime-id> \
   --endpoint control \
-  --evaluator "Builtin.Helpfulness" \
-  --sampling-rate 100.0 \
-  --enable-on-create
+  --evaluators Builtin.Helpfulness \
+  --sampling-rate 100 \
+  --enable-on-create true \
+  --json
 
-agentcore add online-eval \
+agentcore eval online-eval create \
   --name treatmentEvalTb \
-  --runtime csAgent \
+  --agent <runtime-id> \
   --endpoint treatment \
-  --evaluator "Builtin.Helpfulness" \
-  --sampling-rate 100.0 \
-  --enable-on-create
-
-agentcore deploy
+  --evaluators Builtin.Helpfulness \
+  --sampling-rate 100 \
+  --enable-on-create true \
+  --json
 ```
 
-After each deployment, note the online evaluation config ARN — you will need both when creating the A/B test.
+Save the `onlineEvaluationConfigId` that each command returns. You need both IDs to create the A/B test.
 
 For more details on evaluator options and configuration, see [Create online evaluation](create-online-evaluations.md).
 
 ## Step 5: Create the gateway and targets
 <a name="target-based-create-gateway"></a>
 
-A target-based A/B test routes traffic through an AgentCore Gateway, so the gateway and its two targets must already be deployed before you start the test. Add a gateway and register each runtime endpoint as an `http-runtime` target, then deploy:
+A target-based A/B test routes traffic through an AgentCore Gateway, so the gateway and its two targets must already be deployed before you start the test. Add a gateway and register each runtime endpoint as a Runtime target (target type `httpRuntime`), then deploy:
 
 ```
-agentcore add gateway --name csGateway
+agentcore add gateway --name csGateway --authorizer-type AWS_IAM
 
 agentcore add gateway-target \
   --name customer-support-control \
   --gateway csGateway \
-  --type http-runtime \
   --runtime csAgent \
   --runtime-endpoint control
 
 agentcore add gateway-target \
   --name customer-support-treatment \
   --gateway csGateway \
-  --type http-runtime \
   --runtime csAgent \
   --runtime-endpoint treatment
 
 agentcore deploy
+
+agentcore status --json
 ```
+
+Read the `arn` field for `csGateway` in the `status` output. The Gateway ID is the last segment of that ARN. Save the Gateway ID. The A/B test command and final routing rule use the deployed ID rather than the project resource name.
 
 ## Step 6: Create the A/B test
 <a name="target-based-create-test"></a>
 
-Start the A/B test with `agentcore run ab-test`. Each variant references one of the gateway targets you created and has its own online evaluation config. The command initiates the test directly on the service against the already-deployed gateway.
+Start the A/B test with `agentcore eval ab-test target-based run`. Each variant references one of the Gateway targets you created and has its own online evaluation config. The command initiates the test directly on the service against the already-deployed Gateway.
 
 **Example**  
 
 ```
-agentcore run ab-test \
-  --mode target-based \
+agentcore eval ab-test target-based run \
   --name customerSupportTargetTest \
-  --gateway csGateway \
-  --runtime csAgent \
-  --control-target customer-support-control \
-  --treatment-target customer-support-treatment \
-  --control-online-eval controlEvalTb \
-  --treatment-online-eval treatmentEvalTb \
-  --control-weight 80 \
-  --treatment-weight 20
+  --gateway <gateway-id> \
+  --control '{"gateway-target":"customer-support-control","online-eval":"<control-online-evaluation-config-id>"}' \
+  --treatment '{"gateway-target":"customer-support-treatment","online-eval":"<treatment-online-evaluation-config-id>"}' \
+  --treatment-weight 20 \
+  --gateway-filter '{"targetPaths":["/customer-support-control/*"]}'
 ```
-The test is RUNNING as soon as the command returns. Pass `--disable-on-create` to create it stopped. The `--gateway` flag is required and must reference the gateway you deployed in Step 5. Only one test can be RUNNING per gateway at a time. The command prints the test’s job ID, which is also available from `--json` as the `id` field. You need this ID for the lifecycle commands below.
+The test starts running by default. Pass `--enable-on-create false` to create it paused. The `--gateway` value is the deployed Gateway ID from Step 5, and each `online-eval` value is an ID returned in Step 4. The command returns the `abTestId` that the lifecycle commands below require. Only one test can be running per Gateway at a time.
 
 ```
 import boto3
@@ -257,11 +255,10 @@ import uuid
 REGION = "us-west-2"
 ACCOUNT_ID = "123456789012"
 
-# Runtime ARNs from Step 2 deployment output
-CONTROL_RUNTIME_ARN = f"arn:aws:bedrock-agentcore:{REGION}:{ACCOUNT_ID}:runtime/ABTestTargetBased_CustomerSupportControl-abc123"
-TREATMENT_RUNTIME_ARN = f"arn:aws:bedrock-agentcore:{REGION}:{ACCOUNT_ID}:runtime/ABTestTargetBased_CustomerSupportTreatment-def456"
+# Runtime ARN from the Step 3 deployment output
+RUNTIME_ARN = f"arn:aws:bedrock-agentcore:{REGION}:{ACCOUNT_ID}:runtime/ABTestTargetBased_csAgent-abc123"
 
-# Online evaluation config ARNs from Step 3
+# Online evaluation config ARNs from Step 4
 CONTROL_EVAL_ARN = f"arn:aws:bedrock-agentcore:{REGION}:{ACCOUNT_ID}:online-evaluation-config/controlEvalTb-abc123"
 TREATMENT_EVAL_ARN = f"arn:aws:bedrock-agentcore:{REGION}:{ACCOUNT_ID}:online-evaluation-config/treatmentEvalTb-def456"
 
@@ -283,15 +280,15 @@ gateway_id = gateway_response["gatewayId"]
 gateway_arn = gateway_response["gatewayArn"]
 print(f"Created AgentCore Gateway: {gateway_id}")
 
-# 2. Add control runtime as an AgentCore Gateway target
+# 2. Add the control endpoint as an AgentCore Gateway target
 cp_client.create_gateway_target(
     gatewayIdentifier=gateway_id,
     name="customer-support-control",
     targetConfiguration={
         "http": {
             "agentcoreRuntime": {
-                "arn": CONTROL_RUNTIME_ARN,
-                "qualifier": "DEFAULT"
+                "arn": RUNTIME_ARN,
+                "qualifier": "control"
             }
         }
     },
@@ -299,15 +296,15 @@ cp_client.create_gateway_target(
 )
 print("Added target: customer-support-control")
 
-# 3. Add treatment runtime as an AgentCore Gateway target
+# 3. Add the treatment endpoint as an AgentCore Gateway target
 cp_client.create_gateway_target(
     gatewayIdentifier=gateway_id,
     name="customer-support-treatment",
     targetConfiguration={
         "http": {
             "agentcoreRuntime": {
-                "arn": TREATMENT_RUNTIME_ARN,
-                "qualifier": "DEFAULT"
+                "arn": RUNTIME_ARN,
+                "qualifier": "treatment"
             }
         }
     },
@@ -370,16 +367,10 @@ Session assignment is **sticky**: once a session ID is assigned to a variant, al
 ### Generate traffic for testing
 <a name="_generate_traffic_for_testing"></a>
 
-Save the following script as `loadgen.sh`, replacing `<gateway-id>` and `<target-name>` with the values from your deployment output. You can also copy the full invocation URL from `agentcore view ab-test <ab-test-id>`:
+Save the following script as `loadgen.sh` in the project directory. The script sends every request to the `customer-support-control` target path. The A/B test filter intercepts only the control target path, and the Gateway splits that traffic between both variants. Each request uses a new session ID:
 
 ```
 #!/bin/bash
-export AWS_ACCESS_KEY_ID=$(aws configure get aws_access_key_id)
-export AWS_SECRET_ACCESS_KEY=$(aws configure get aws_secret_access_key)
-export AWS_SESSION_TOKEN=$(aws configure get aws_session_token)
-
-GATEWAY_URL="https://<gateway-id>.gateway.bedrock-agentcore.us-west-2.amazonaws.com/<target-name>/invocations"
-
 PROMPTS=(
   "What is the status of order ORD-1003?"
   "I want to return order ORD-1001, it doesn't fit."
@@ -396,14 +387,10 @@ PROMPTS=(
 for i in $(seq 1 30); do
   PROMPT="${PROMPTS[$(( (i - 1) % ${#PROMPTS[@]} ))]}"
   echo "=== Request $i: $PROMPT ==="
-  curl -s --aws-sigv4 "aws:amz:us-west-2:bedrock-agentcore" \
-    --user "$AWS_ACCESS_KEY_ID:$AWS_SECRET_ACCESS_KEY" \
-    -H "x-amz-security-token: $AWS_SESSION_TOKEN" \
-    -H "Content-Type: application/json" \
-    -H "X-Amzn-Bedrock-AgentCore-Runtime-Session-Id: $(uuidgen)" \
-    -d "{\"prompt\": \"$PROMPT\"}" \
-    -X POST \
-    "$GATEWAY_URL"
+  agentcore invoke --gateway csGateway \
+    --path /customer-support-control/invocations \
+    --session-id "$(uuidgen)" \
+    --payload "{\"prompt\": \"$PROMPT\"}"
   echo ""
   sleep 2
 done
@@ -421,15 +408,15 @@ bash loadgen.sh
 Poll the A/B test to monitor results as sample sizes grow. Polling does not affect statistical validity.
 
 **Example**  
-Get current results (replace `<ab-test-id>` with the job ID from Step 6):  
+Get current results (replace `<ab-test-id>` with the ID returned in Step 6):  
 
 ```
-agentcore view ab-test <ab-test-id>
+agentcore eval ab-test get --id <ab-test-id>
 ```
 Get results as JSON:  
 
 ```
-agentcore view ab-test <ab-test-id> --json
+agentcore eval ab-test get --id <ab-test-id> --json
 ```
 Poll until results reach statistical significance:  
 
@@ -494,27 +481,28 @@ Once the A/B test reaches statistical significance, review the results and stop 
 
 1.  **Confirm significance.** Verify that the target evaluator has `isSignificant: true` and a positive `percentChange` on the treatment variant (or confirm the control is the winner if the treatment regressed).
 
-1.  **Stop the A/B test.** Run `agentcore stop ab-test -i <ab-test-id>`. Traffic routing ends immediately and all requests revert to the default target. See [View, pause, resume, and stop](ab-testing-manage.md#manage-ab-test-start-stop).
+1.  **Stop the A/B test.** Run `agentcore eval ab-test stop --id <ab-test-id>`. Traffic routing ends immediately and all requests revert to the default target. See [View, pause, resume, and stop](ab-testing-manage.md#manage-ab-test-start-stop).
 
-## Step 10: Deploy the winner
+## Step 10: Route traffic to the winner
 <a name="target-based-deploy-winner"></a>
 
 After stopping the A/B test, route all traffic to the winning variant.
 
+If the control won, no routing change is required. If the treatment won, use the AWS CLI to create a Gateway rule that routes requests for the control path to the treatment target:
+
 ```
-agentcore promote ab-test -i <ab-test-id>
-agentcore deploy
+aws bedrock-agentcore-control create-gateway-rule \
+  --gateway-identifier <gateway-id> \
+  --priority 100 \
+  --conditions '[{"matchPaths":{"anyOf":["/customer-support-control/*"]}}]' \
+  --actions '[{"routeToTarget":{"staticRoute":{"targetName":"customer-support-treatment"}}}]'
 ```
 
- `promote` stops the A/B test (if still running), updates the control endpoint to point to the treatment version (for example, updating `control` from version 1 to version 2), and removes the treatment endpoint. Run `agentcore deploy` to apply the changes.
+The rule updates the live Gateway immediately. Save the returned rule ID so that you can update or delete the rule later. The rule is not part of the project, and `agentcore deploy` does not manage it. To change an existing production rule instead, use `aws bedrock-agentcore-control update-gateway-rule --gateway-identifier <gateway-id> --rule-id <rule-id>`. For more rule examples, see [Gateway rules API examples](gateway-rules-examples.md).
 
-Alternatively, you can manually deploy the winner by doing one of the following:
-+  **Option A:** Use [AgentCore Gateway routing rules](gateway-rules.md) to direct traffic from both targets to the winning target.
-+  **Option B:** Remove the losing target from the AgentCore Gateway and route all traffic to the winner.
-+  **Option C:** Update the losing target to point to the winning endpoint.
-
-After deploying the winner:
+After routing traffic to the winner:
 +  **Delete the A/B test** to clean up resources. See [Delete an A/B test](ab-testing-manage.md#manage-ab-test-remove).
++  **Delete the Gateway rule before you remove its target or Gateway.** If you created a rule in Step 10, delete it before you run `agentcore remove` on the target or the Gateway. To find the rule ID, run `agentcore gateway rule list --gateway-id <gateway-id>`. Then run `aws bedrock-agentcore-control delete-gateway-rule --gateway-identifier <gateway-id> --rule-id <rule-id>`. See [Route traffic to the winning variant](ab-testing-manage.md#manage-ab-test-promote).
 +  **Monitor the new baseline.** Online evaluation continues scoring sessions on the winning configuration. Watch for regressions.
 +  **Start the next iteration.** New traces from the winning configuration provide the foundation for the next recommendation cycle. See [How it works](optimization-how-it-works.md).
 
@@ -532,7 +520,7 @@ When you call `GetABTest`, the response includes a `results` object once the agg
     "analysisTimestamp": "2026-04-30T18:45:00Z",
     "evaluatorMetrics": [
       {
-        "evaluatorArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:evaluator/Builtin.Helpfulness",
+        "evaluatorArn": "arn:aws:bedrock-agentcore:::evaluator/Builtin.Helpfulness",
         "controlStats": {
           "variantName": "C",
           "sampleSize": 24,
@@ -592,4 +580,4 @@ If results still do not appear after this window:
   +  `aws.agentcore.gateway.routing_experiment_arn` 
   +  `aws.agentcore.gateway.routing_experiment_variant_name` (values: `C` or `T1`)
   +  `session.id` 
-+  **Verify CLI-created vs manual configs.** If you used `agentcore add online-eval --runtime <name>`, the CLI automatically configures the correct log group. If you created the online eval config manually via the API, ensure the AgentCore Online Eval Config `dataSourceConfig.cloudWatchLogs.logGroupNames` matches your runtime’s span log group.
++  **Check configurations that you created with the API.** If you used `agentcore eval online-eval create --agent <runtime-id> --endpoint <qualifier>`, the CLI configures the correct log group. If you created the online evaluation configuration with the API, make sure `dataSourceConfig.cloudWatchLogs.logGroupNames` matches the span log group of your Runtime.

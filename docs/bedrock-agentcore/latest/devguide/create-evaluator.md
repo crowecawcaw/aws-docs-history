@@ -51,6 +51,8 @@ When a custom TOOL\_CALL evaluator’s prompt references `skill_content`, `{cont
 **Important**  
 Custom evaluators that use ground truth placeholders ( `assertions` , `expected_response` , `expected_tool_trajectory` ) cannot be used in online evaluation configurations. Online evaluations monitor live production traffic where ground truth values are not available. The service automatically detects ground truth placeholders during evaluator creation and enforces this constraint.
 
+ **LLM-as-a-judge rating scale:** `ratingScale` takes exactly one of `numerical`, `categorical`, or `multiDimensional`. Use `multiDimensional` to rate one target on several named dimensions, each with its own instruction and scale, in a single judge call. For more information, see [Custom multi-dimension evaluators](multi-dimension-evaluators.md).
+
  **Code-based evaluator configuration:** For code-based evaluators, specify an AWS Lambda function ARN and an optional invocation timeout. The Lambda function receives the session spans and evaluation target as input, and must return a result conforming to the [Response schema](code-based-evaluators.md#code-based-response-schema) . For the full Lambda function contract, configuration options, and code samples, see [Custom code-based evaluator](code-based-evaluators.md).
 
 The API returns the evaluator ARN, ID, creation timestamp, and initial status. Once created, the evaluator can be referenced in online evaluation configurations.
@@ -135,33 +137,17 @@ Using either configuration, you can create the custom evaluator through the API 
 1. 
 
    ```
-   agentcore add evaluator \
+   agentcore add evaluator llm-as-a-judge \
      --name "your_custom_evaluator_name" \
-     --config custom_evaluator_config.json \
-     --level "TRACE"
+     --level TRACE \
+     --model "global.anthropic.claude-sonnet-4-5-20250929-v1:0" \
+     --instructions file://evaluator-instructions.txt \
+     --rating-scale '{"categorical":[{"label":"Pass","definition":"Meets the evaluation criteria"},{"label":"Fail","definition":"Does not meet the evaluation criteria"}]}'
    ```
 
-   This command adds the evaluator to your local `agentcore.json` configuration. Run `agentcore deploy` to create it in your AWS account.
+   Store the `instructions` text from the preceding configuration in `evaluator-instructions.txt` as plain text. Replace each `\n` escape with a real line break. Pass the rating scale as a preset name or inline JSON. An evaluator that the AgentCore CLI deploys uses `maxTokens` 4096 and `temperature` 0. To set other inference parameters, use the AgentCore SDK, AWS SDK, or AWS CLI tab. Numerical rating values must be integers. The example uses a categorical scale. To reuse the numerical scale from the preceding configuration, use the AgentCore SDK, AWS SDK, or AWS CLI tab. This command adds the evaluator to your local `agentcore.json` configuration. Run `agentcore deploy` to create it in your AWS account. In the AgentCore CLI, the `--rating-scale` option takes a single numerical or categorical scale. To define dimensions, use the AWS SDK or AWS CLI tab with a configuration like the one in [Custom multi-dimension evaluators](multi-dimension-evaluators.md).
 **Note**  
-Run this from inside an AgentCore project directory (created with `agentcore create` ).
-
-1. Enter a name for your custom evaluator.  
-![Evaluator name input](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-add-name.png)
-
-1. Select the evaluation level: Session, Trace, or Tool Call.  
-![Evaluation level selection](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-add-level.png)
-
-1. Choose the LLM judge model for evaluation.  
-![Model selection](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-add-model.png)
-
-1. Enter your evaluation instructions. The prompt must include at least one placeholder: `{context}` for conversation history or `{available_tools}` for the tool list.  
-![Evaluation instructions input](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-add-instructions.png)
-
-1. Select a rating scale preset or define a custom scale.  
-![Rating scale selection](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-add-rating-scale.png)
-
-1. Review the evaluator configuration and press Enter to confirm.  
-![Review evaluator configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-add-confirm.png)
+Run this from inside an AgentCore project directory created with `agentcore create`.
 
 1. 
 
@@ -349,21 +335,21 @@ You can create custom evaluators using the Amazon Bedrock AgentCore console’s 
 
 1. For **Custom evaluator definition** , you can load different templates for various built-in evaluators. By default, the Faithfulness template is loaded. Modify the template according to your requirements.
 **Note**  
-If you load another template, any changes to your existing custom evaluator definition will be overwritten.
+If you load another template, any changes to your existing custom evaluator definition will be overwritten. Loading a template also sets **Dimensions** to **Single dimension**.
 
 1. For Custom evaluator model, choose a supported model by choosing the Model search bar on the right of the custom evaluator definition. You can choose an Amazon Bedrock foundation model on either the Amazon Bedrock Runtime endpoint or the Amazon Bedrock Mantle endpoint. For more information about supported models, see:
    + Supported models
 
      1. (Optional) To set the inference parameters for the model, enable Set temperature, Set top P, Set max. output tokens, and Set stop sequences. The available inference parameters depend on the selected model. For a reasoning model, the console provides Set reasoning effort instead of Set temperature and Set top P.
 
-1. For **Evaluator scale type** , choose either **Define scale as numeric values** or **Define scale as string values**.
-
-1. For **Evaluator scale definitions** , you can have a total of 20 definitions.
-
-1. For **Evaluator evaluation level** , choose one of the following:
+1. For **Evaluation level** , choose one of the following:
    +  **Session** – Evaluate the entire conversation sessions.
    +  **Trace** – Evaluate each individual trace.
    +  **Tool call** – Evaluate every tool call.
+
+1. (LLM-as-a-judge only) For **Dimensions** , choose one of the following:
+   +  **Single dimension** – The evaluator rates on one scale. For **Scale type** , choose either **Define scale as numeric values** or **Define scale as string values**. For **Scale definitions** , you can have a total of 20 definitions.
+   +  **Multiple dimensions** – The evaluator rates several dimensions and returns a separate result for each one. For each dimension, enter a **Dimension name** and a **Dimension instruction** , choose a **Scale type** , and add up to 20 **Scale definitions**. To add a dimension, choose **Add another dimension**. For more information, see [Custom multi-dimension evaluators](multi-dimension-evaluators.md).
 
 1. Choose **Create custom evaluator** to create the custom evaluator.
 
@@ -373,6 +359,7 @@ If you load another template, any changes to your existing custom evaluator defi
 Writing well-structured evaluator instructions is critical for accurate assessments. Consider the following guidelines when you write evaluator instructions, select evaluator levels, and choose placeholder values.
 + Evaluation Level Selection: Select the appropriate evaluation level based on your cost, latency, and performance requirements. Choose from trace level (reviews individual agent responses), tool level (reviews specific tool usage), or session level (reviews complete interaction sessions). Your choice should align with project goals and resource constraints.
 + Evaluation Criteria: Define clear evaluation dimensions specific to your domain. Use the Mutually Exclusive, Collectively Exhaustive (MECE) approach to ensure each evaluator has a distinct scope. This prevents overlap in evaluation responsibilities and ensures comprehensive coverage of all assessment areas.
++ Multiple Dimensions: If several evaluators read the same target to rate different dimensions, consider one multi-dimension evaluator instead. It rates every dimension in one judge call. For more information about multi-dimension evaluators, see [Custom multi-dimension evaluators](multi-dimension-evaluators.md).
 + Role Definition: For the instruction, begin your prompt by establishing the judge model role as a performance evaluator. Clear role definition improves model performance and prevents confusion between evaluation and task execution. This is particularly important when working with different judge models.
 + Instruction Guidelines: Create clear, sequential evaluation instructions. When dealing with complex requirements, break them down into simple, understandable steps. Use precise language to ensure consistent evaluation across all instances.
 + Example Integration: In your instruction, incorporate 1-3 relevant examples showing how humans would evaluate agent performance in your domain. Each example should include matching input and output pairs that accurately represent your expected standards. While optional, these examples serve as valuable baseline references.

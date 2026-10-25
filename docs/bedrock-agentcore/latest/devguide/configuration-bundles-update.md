@@ -9,18 +9,23 @@ Update a configuration bundle to create a new immutable version with changed con
 <a name="update-bundle-examples"></a>
 
 **Example**  
-Edit the configuration in `agentcore.json` and redeploy. The CLI detects the existing bundle and creates a new version with the correct `parentVersionIds` automatically:  
+If you added the bundle with `agentcore add config-bundle`, change its `components` in `agentcore/agentcore.json` and deploy. The deployment creates a new immutable version:  
 
 ```
-# Edit the bundle configuration in agentcore.json (change model_id, system prompt, etc.)
-# Then redeploy to create a new version:
 agentcore deploy
+```
+To update a configuration bundle that your project does not manage, such as one that you created with `agentcore eval config-bundle create`, provide the complete replacement component map. The command creates a new immutable version on `mainline` by default:  
 
-# After deploying, confirm a new immutable version was created:
-agentcore cb versions --name MyBundle
+```
+agentcore eval config-bundle update \
+  --id <configuration-bundle-id> \
+  --components file://components.json \
+  --commit-message "Switch to Claude Sonnet 4"
+```
+To list the versions of either kind of bundle, run the following command. For a bundle in your project, the bundle ID is the last segment of its `arn` in `agentcore status --json`:  
 
-# Inspect what changed between two versions (get IDs from `cb versions`):
-agentcore cb diff --name MyBundle --from <v1> --to <v2>
+```
+agentcore eval config-bundle version list --id <configuration-bundle-id>
 ```
 Update changing the model ID:  
 
@@ -31,6 +36,9 @@ import uuid
 client = boto3.client("bedrock-agentcore-control", region_name="us-west-2")
 
 RUNTIME_ARN = "arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/MyAgent-abc123"
+
+# The parent must be the latest version on the branch you update
+latest = client.get_configuration_bundle(bundleId="myAgentConfig-a1b2c3d4e5", branchName="mainline")
 
 response = client.update_configuration_bundle(
     bundleId="myAgentConfig-a1b2c3d4e5",
@@ -43,7 +51,7 @@ response = client.update_configuration_bundle(
             }
         }
     },
-    parentVersionIds=["12345678-1234-1234-1234-123456789012"],
+    parentVersionIds=[latest["versionId"]],
     commitMessage="Switch to Claude Sonnet 4",
     clientToken=str(uuid.uuid4()),
 )
@@ -53,6 +61,7 @@ print(f"New version ID: {response['versionId']}")
 Update with a recommended system prompt from a recommendation result:  
 
 ```
+import time
 import boto3
 import uuid
 
@@ -61,9 +70,20 @@ dp_client = boto3.client("bedrock-agentcore", region_name="us-west-2")
 
 RUNTIME_ARN = "arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/MyAgent-abc123"
 
-# Get the recommendation result
-recommendation = dp_client.get_recommendation(recommendationId="myRec-a1b2c3d4e5")
-recommended_prompt = recommendation["result"]["systemPromptRecommendationResult"]["recommendedSystemPrompt"]
+# Wait for the recommendation to complete
+while True:
+    recommendation = dp_client.get_recommendation(recommendationId="myRec-A1B2C3D4E5")
+    if recommendation["status"] == "COMPLETED":
+        break
+    if recommendation["status"] == "FAILED":
+        raise RuntimeError("Recommendation failed")
+    time.sleep(30)
+
+result = recommendation["recommendationResult"]["systemPromptRecommendationResult"]
+recommended_prompt = result["recommendedSystemPrompt"]
+
+# The parent must be the latest version on the branch you update
+latest = cp_client.get_configuration_bundle(bundleId="myAgentConfig-a1b2c3d4e5", branchName="mainline")
 
 # Update the bundle with the recommended prompt
 response = cp_client.update_configuration_bundle(
@@ -77,7 +97,7 @@ response = cp_client.update_configuration_bundle(
             }
         }
     },
-    parentVersionIds=["12345678-1234-1234-1234-123456789012"],
+    parentVersionIds=[latest["versionId"]],
     commitMessage="Apply recommended system prompt",
     createdBy={"name": "optimization-job", "arn": recommendation["recommendationArn"]},
     clientToken=str(uuid.uuid4()),
@@ -96,7 +116,7 @@ print(f"New version ID: {response['versionId']}")
 |  `bundleName`  | String | No | Updated name for the bundle. | 
 |  `description`  | String | No | Updated description. Maximum 500 characters. | 
 |  `components`  | Map | No | Updated component configurations. Creates a new version with these components. | 
-|  `parentVersionIds`  | List of strings | No | Parent version IDs for lineage tracking. **Required when updating `components`.** Regular commits: single parent. Merge commits: two parents (target branch latest, source branch latest). If the branch already exists, the first parent must be the latest version on that branch. | 
+|  `parentVersionIds`  | List of strings | Yes | Parent version IDs for lineage tracking. Regular commits have one parent, the latest version on the branch. Merge commits have two parents: the latest version on the target branch, then the latest version on the source branch. If the branch already exists, the first parent must be the latest version on that branch. | 
 |  `branchName`  | String | No | Branch name for this version. If not specified, inherits the parent’s branch or defaults to `mainline`. | 
 |  `commitMessage`  | String | No | Commit message describing the changes. Maximum 500 characters. | 
 |  `createdBy`  | Object | No | Source that created this version. Contains `name` (required) and `arn` (optional). Use this to track whether a version was created by a user, recommendation job, or other automation. | 
@@ -117,7 +137,7 @@ print(f"New version ID: {response['versionId']}")
 <a name="update-bundle-branching"></a>
 
 Configuration bundles support git-like branching:
-+  **Linear commits.** Omit `parentVersionIds` or pass a single parent. The new version extends the branch lineage.
++  **Linear commits.** Pass the latest version on the branch as the single parent. The new version extends the branch lineage. The AgentCore CLI looks up the latest version on the branch and passes it as the parent for you.
 +  **New branch.** Specify a `branchName` that does not yet exist and a `parentVersionIds` pointing to the version you want to branch from.
 +  **Merge commits.** Pass two `parentVersionIds`: the first is the latest version on the target branch, the second is the latest on the source branch. This creates a merge commit on the target branch.
 

@@ -21,23 +21,28 @@ For other examples, see [Amazon Bedrock AgentCore Memory examples](memory-exampl
 Before starting, make sure you have:
 +  ** AWS Account** with credentials configured ( `aws configure` )
 +  **Python 3.10\+** installed
-+ Node.js 20\+ installed (for the AgentCore CLI)
++ Node.js 20.12 or later installed (for the AgentCore CLI)
 
 To get started with Amazon Bedrock AgentCore Memory, install the dependencies, create an AgentCore CLI project, and set up a virtual environment. The following commands can be run directly in the terminal.
 
 ```
 npm install -g @aws/agentcore
-agentcore create --project-name MemoryQuickstart --no-agent
+
+agentcore create --name MemoryQuickstart --template empty
+
 cd MemoryQuickstart
+
 python -m venv .venv
+
 source .venv/bin/activate
+
 pip install bedrock-agentcore
 ```
 
-The AgentCore CLI provides commands for creating and managing memory resources. Use `agentcore add memory` to create a memory, and `agentcore deploy` to provision it in AWS. For event operations and session management, use the AgentCore Python SDK (`bedrock-agentcore`).
+The AgentCore CLI provides commands for creating and inspecting memory resources. Use `agentcore add memory` to declare a memory, `agentcore deploy` to provision it, and `agentcore memory` to inspect deployed memories. Use the AgentCore Python SDK (`bedrock-agentcore`) to write events.
 
 **Note**  
-The AgentCore CLI helps you create and deploy memory resources. For direct service API operations, see the Boto3 documentation: [bedrock-agentcore-control](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore-control.html) and [bedrock-agentcore](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore.html).
+The AgentCore CLI helps you create, deploy, and inspect memory resources. For direct service API operations, see the Boto3 documentation: [bedrock-agentcore-control](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore-control.html) and [bedrock-agentcore](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore.html).
 
  **Full example:** See the [Amazon Bedrock AgentCore samples](https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/04-manage-context-of-your-agent/memory) that demonstrate steps 1-3.
 
@@ -56,23 +61,26 @@ Create memory with semantic strategy:
 
    ```
    agentcore add memory --name CustomerSupportSemantic --strategies SEMANTIC
+   
    agentcore deploy
    ```
 
-1. Run `agentcore` to open the TUI, then select **add** and choose **Memory** :
+1. Run `agentcore add memory` to open the Memory wizard.
 
-1. Enter the memory name:  
-![Memory wizard: enter name](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-name.png)
+1. Enter the memory name, such as `CustomerSupportSemantic`.
 
-1. Select the **Semantic** strategy, then confirm:  
-![Memory wizard: select SEMANTIC strategy](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-strategies.png)
+1. Use the arrow keys and Space to select `SEMANTIC`, then press Enter.
 
-   Then run `agentcore deploy` to provision the memory in AWS.
+1. Keep the default event retention of 30 days, review the configuration, and press Enter to add the memory.  
+![Choosing a Memory name, extraction strategies, and retention period, then reviewing the configuration.](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/add-memory.gif)
 
-After deployment, verify the memory was created:
+1. Press Ctrl\+C to exit the TUI, then run `agentcore deploy` to provision the memory in AWS.
+
+After deployment, run `agentcore status --json` and copy the memory `arn`. The memory ID is the part of the ARN after `memory/`. Then check that the memory status is `ACTIVE`:
 
 ```
-agentcore status
+agentcore status --json
+agentcore memory get --id <memory-id>
 ```
 
 ## Step 2: Write events to memory
@@ -82,19 +90,14 @@ You can write events to an AgentCore Memory as short-term memory and extracts in
 
 Writing events to memory has multiple purposes. First, event contents (most commonly conversation history) are stored as short-term memory. Second, relevant insights are pulled from events and written into memory records as a part of long-term memory.
 
-The memory resource id, actor id, and session id are required to create an event. In this step, you create three events, simulating messages between an end user and a chat bot.
+The memory resource id, actor id, and session id are required to create an event. In this step, you create three events, simulating messages between an end user and a chat bot. Replace `<your-memory-id>` with the memory ID from Step 1.
 
 ```
-import boto3
 from bedrock_agentcore.memory import MemorySessionManager
 from bedrock_agentcore.memory.constants import ConversationalMessage, MessageRole
 
-control_client = boto3.client('bedrock-agentcore-control', region_name='us-west-2')
-
-# Retrieve the memory created in Step 1
-response = control_client.list_memories()
-memory = response['memories'][0]
-memory_id = memory['id']
+# The memory ID from Step 1
+memory_id = "<your-memory-id>"
 
 # Create a session to store memory events
 session_manager = MemorySessionManager(
@@ -175,7 +178,14 @@ Important information about the user is likely stored is long term memory. Agent
 ## Adding memory to an existing agent
 <a name="memory-add-to-existing-agent"></a>
 
-If you created a Strands agent without memory and want to add it later, follow these steps:
+A Python Strands project that you scaffold with `agentcore create --name MyProject --template agent-python-strands` includes `app/agent/memory/session.py`, and its `main.py` already uses it. The module reads the `MEMORY_AGENTMEMORY_ID` environment variable, which belongs to the `agentMemory` memory that the template adds. If the project has no memory with that name, for example because you removed it, add it with the strategies that the template uses by default, and deploy:
+
+```
+agentcore add memory --name agentMemory --strategies SEMANTIC,USER_PREFERENCE,SUMMARIZATION,EPISODIC
+agentcore deploy
+```
+
+For a Strands agent that the AgentCore CLI did not scaffold with memory, follow these steps:
 
 1. Add a memory resource to your project:
 
@@ -248,7 +258,7 @@ If you created a Strands agent without memory and want to add it later, follow t
    ```
 
 **Note**  
-Each memory resource gets an environment variable `MEMORY_<NAME>_ID` (uppercase, with underscores) that is automatically available in your agent’s runtime environment after deployment.
+Each memory resource gets the environment variables `MEMORY_<NAME>_ID` and `MEMORY_<NAME>_ARN`, where `<NAME>` is the memory name in uppercase. They are available in your agent’s runtime environment after deployment.
 
 ## Cleanup
 <a name="memory-cleanup"></a>

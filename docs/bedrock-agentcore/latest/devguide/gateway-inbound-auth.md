@@ -9,9 +9,9 @@ Before you create your gateway, you must set up inbound authorization. Inbound a
 +  **Offloaded authorization types** – The gateway makes no authorization decision of its own and instead offloads authorization to another component, such as the downstream target, a policy engine attached to the gateway, or an interceptor Lambda function. This category includes **Authenticate only** and **No Authorization**. For details and guidance, see [Offloaded inbound authorization](#gateway-inbound-auth-offloaded).
 
 **Note**  
-If you use the AWS Management Console or AgentCore CLI to create your gateway, you can create a default inbound authorization configuration using Amazon Cognito during gateway creation. If you plan to use the default authorization configuration, you can skip this prerequisite.
+Create or select an identity provider before you use the AgentCore CLI to add a gateway with JWT authorization.
 
-If you don’t plan to use the default authorization configuration using Amazon Cognito, select the topic that corresponds to the type of authorization that you plan to use to learn how to set it up:
+Select the topic that corresponds to the type of authorization that you plan to use to learn how to set it up:
 
 **Topics**
 + [IAM-based inbound authorization](#gateway-inbound-auth-iam)
@@ -86,11 +86,15 @@ agentcore add gateway \
   --name MyGateway \
   --protocol-type MCP \
   --authorizer-type CUSTOM_JWT \
-  --discovery-url <OIDC_DISCOVERY_URL> \
-  --allowed-clients <CLIENT_ID>
+  --authorizer-configuration '{
+    "customJwtAuthorizer": {
+      "discoveryUrl": "<OIDC_DISCOVERY_URL>",
+      "allowedClients": ["<CLIENT_ID>"]
+    }
+  }'
 ```
 
-The AgentCore CLI consumes the existing OIDC configuration; it does not create the identity provider resources. To invoke the gateway, obtain an access token from your provider. For Amazon Cognito, see [The token issuer endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/token-endpoint.html) in the Amazon Cognito Developer Guide.
+The AgentCore CLI uses the OIDC configuration of your existing identity provider. To invoke the gateway, obtain an access token from your provider. For Amazon Cognito, see [The token issuer endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/token-endpoint.html) in the Amazon Cognito Developer Guide.
 
 ### Set up a JWT manually
 <a name="gateway-inbound-auth-jwt-manual"></a>
@@ -156,7 +160,7 @@ The following example creates a gateway with a private identity provider using m
 }
 ```
 
-If your token or JWKS endpoints use a different domain than the discovery URL, add a `privateEndpointOverrides` entry for each additional domain. Currently, `privateEndpointOverrides` is only supported with self-managed Lattice resources:
+If your token or JWKS endpoints use a different domain than the discovery URL, add a `privateEndpointOverrides` entry for each additional domain. `privateEndpointOverrides` is supported only with self-managed Lattice resources:
 
 ```
 {
@@ -236,7 +240,7 @@ Do not use No Authorization gateways for production workloads unless you have im
 
 When you pair an offloaded inbound type with a matching outbound authorization type that forwards the caller’s identity to the runtime, onboarding to a gateway can be as simple as setting an endpoint override on your existing client — no auth changes required:
 +  **IAM runtimes** – Combine `AUTHENTICATE_ONLY` inbound authorization with **Caller IAM credentials** (`CALLER_IAM_CREDENTIALS`) outbound authorization. The gateway authenticates the SigV4 caller and then signs the request to the runtime with that same caller identity, so the runtime’s existing IAM authorization continues to apply unchanged. For more information, see [Caller IAM credentials](gateway-building-adding-targets-authorization.md#gateway-building-adding-targets-authorization-caller-iam).
-+  **OAuth runtimes** – Combine **No Authorization** inbound authorization with **Token passthrough** (`JWT_PASSTHROUGH`) outbound authorization. The gateway forwards the inbound JWT to the runtime without modification, so the runtime validates the token exactly as it does today. (Token passthrough forwards a bearer token, so it requires a JWT-bearing inbound type — JWT inbound authorization or `NONE`. It is not available with `AUTHENTICATE_ONLY`, which is SigV4-based and carries no bearer token.) For more information, see [Token passthrough](gateway-building-adding-targets-authorization.md#gateway-building-adding-targets-authorization-jwt-passthrough).
++  **OAuth runtimes** – Combine **No Authorization** inbound authorization with **Token passthrough** (`JWT_PASSTHROUGH`) outbound authorization. The gateway forwards the inbound JWT to the runtime without modification, so the runtime validates the token exactly as it does without the gateway. (Token passthrough forwards a bearer token, so it requires a JWT-bearing inbound type — JWT inbound authorization or `NONE`. It is not available with `AUTHENTICATE_ONLY`, which is SigV4-based and carries no bearer token.) For more information, see [Token passthrough](gateway-building-adding-targets-authorization.md#gateway-building-adding-targets-authorization-jwt-passthrough).
 **Note**  
 Token passthrough (`JWT_PASSTHROUGH`) is **not** the recommended approach for production. When you forward the inbound token unchanged, the same token is accepted by both the gateway and the downstream target, so it should be tightly scoped — for example, each token’s audience (`aud`) should be restricted to the intended resource. The recommended pattern is [on-behalf-of (OBO) token exchange](on-behalf-of-token-exchange.md), where the gateway exchanges the caller’s token for a fresh, audience-scoped token for the target instead of replaying the caller’s token. Use token passthrough for easy experimentation, testing, and onboarding, and move to OBO for long-term production workloads.
 

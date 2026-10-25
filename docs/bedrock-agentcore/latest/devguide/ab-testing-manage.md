@@ -6,7 +6,7 @@
 Update an A/B test to start it, pause it, or stop it. You use the `UpdateABTest` operation to change execution status.
 
 **Note**  
-The AgentCore CLI lifecycle commands (`view`, `pause`, `resume`, `stop`, `promote`, `archive`) identify a test by its **job ID** passed with `-i, --id`, not by name. Get the ID from `agentcore run ab-test --json` (the `id` field) or by listing tests with `agentcore view ab-test`. The job ID uses the format `name-suffix`. For example: `customerSupportTargetTest-Ab1Cd2Ef3G`. Job records are stored locally as JSON under `.cli/jobs/ab-tests/` in your project.
+The AgentCore CLI lifecycle commands identify a test by its A/B test ID. Get the ID from the `run` command response or list tests with `agentcore eval ab-test list`.
 
 ## Code samples
 <a name="manage-ab-test-examples"></a>
@@ -15,26 +15,26 @@ The AgentCore CLI lifecycle commands (`view`, `pause`, `resume`, `stop`, `promot
 <a name="manage-ab-test-start-stop"></a>
 
 **Example**  
-List all A/B test jobs, or view one in detail (also surfaces the invocation URL and results):  
+List all A/B test jobs, or view one in detail, including its variants, execution status, and results:  
 
 ```
-agentcore view ab-test
-agentcore view ab-test <ab-test-id>
+agentcore eval ab-test list
+agentcore eval ab-test get --id <ab-test-id>
 ```
-Resume a paused test:  
+Start a test that you created with `--enable-on-create false`, or resume a paused test:  
 
 ```
-agentcore resume ab-test -i <ab-test-id>
+agentcore eval ab-test resume --id <ab-test-id>
 ```
 Pause a running test. Traffic stops splitting and all requests route to the control variant. Can be resumed.  
 
 ```
-agentcore pause ab-test -i <ab-test-id>
+agentcore eval ab-test pause --id <ab-test-id>
 ```
 Stop a test permanently. All traffic reverts to the control variant. This cannot be undone.  
 
 ```
-agentcore stop ab-test -i <ab-test-id>
+agentcore eval ab-test stop --id <ab-test-id>
 ```
 Start a test (set execution status to `RUNNING`):  
 
@@ -72,28 +72,54 @@ response = client.update_ab_test(
 print(f"Execution status: {response['executionStatus']}")
 ```
 
-### Promote the treatment variant
+### Route traffic to the winning variant
 <a name="manage-ab-test-promote"></a>
 
-When the results are statistically significant, promote the treatment variant. `promote` stops the test and writes the treatment variant into `agentcore.json`; run `agentcore deploy` afterward to roll it out.
+When the results are statistically significant, stop the test. For a target-based test, no routing change is required if the control won. If the treatment won, create or update a Gateway rule that routes traffic to the treatment target. For a configuration-bundle test, create or update a Gateway rule for the winning bundle version even if the control won, because the agent’s default configuration can differ from the control bundle.
 
 **Example**  
+The `ab-test stop` command uses the AgentCore CLI, and the rule commands use the AWS CLI.  
+For a target-based A/B test:  
 
 ```
-agentcore promote ab-test -i <ab-test-id>
-agentcore deploy
+agentcore eval ab-test stop --id <ab-test-id>
+
+aws bedrock-agentcore-control create-gateway-rule \
+  --gateway-identifier <gateway-id> \
+  --priority 100 \
+  --conditions '[{"matchPaths":{"anyOf":["/<control-target>/*"]}}]' \
+  --actions '[{"routeToTarget":{"staticRoute":{"targetName":"<treatment-target>"}}}]'
 ```
-The SDK has no single "promote" operation. Stop the test, then apply the winning variant to your resources yourself (for example, by updating the control configuration bundle or gateway target to match the treatment).
+For a configuration-bundle A/B test:  
+
+```
+agentcore eval ab-test stop --id <ab-test-id>
+
+aws bedrock-agentcore-control create-gateway-rule \
+  --gateway-identifier <gateway-id> \
+  --priority 100 \
+  --conditions '[{"matchPaths":{"anyOf":["/<target-name>/*"]}}]' \
+  --actions '[{"configurationBundle":{"staticOverride":{"bundleArn":"<winning-bundle-arn>","bundleVersion":"<winning-bundle-version-id>"}}}]'
+```
+The rule commands update the live Gateway immediately. The rule is not part of the project, and `agentcore deploy` does not manage it. To change an existing production rule instead, use `aws bedrock-agentcore-control update-gateway-rule --gateway-identifier <gateway-id> --rule-id <rule-id>`.  
+Save the rule ID returned by the create command. To find the rule ID later, run `agentcore gateway rule list --gateway-id <gateway-id>`. If the rule is later replaced or no longer needed, remove it:  
+
+```
+aws bedrock-agentcore-control delete-gateway-rule \
+  --gateway-identifier <gateway-id> \
+  --rule-id <rule-id>
+```
+To route traffic to the winning variant, stop the test, then call `create_gateway_rule` or `update_gateway_rule` on the `bedrock-agentcore-control` client. For examples, see [Gateway rules API examples](gateway-rules-examples.md).
 
 ### Delete an A/B test
 <a name="manage-ab-test-remove"></a>
 
-Delete an A/B test and its associated metadata. The test must be in `STOPPED` execution status before it can be deleted. Deleting a test does not affect the configuration bundles, AgentCore Gateway, or online evaluation configuration that the test referenced.
+Delete an A/B test and its associated metadata. The test must be in `STOPPED` execution status before it can be deleted. Deleting a test does not affect the configuration bundles, AgentCore Gateway, or online evaluation configuration that the test referenced. It also does not delete the `AgentCoreABTest-<test-name>-<hash>` execution role that the AgentCore CLI creates when you omit `--role-arn`. Delete that role in IAM when you no longer need it.
 
 **Example**  
 
 ```
-agentcore archive ab-test -i <ab-test-id>
+agentcore eval ab-test delete --id <ab-test-id>
 ```
 Stop and then delete:  
 

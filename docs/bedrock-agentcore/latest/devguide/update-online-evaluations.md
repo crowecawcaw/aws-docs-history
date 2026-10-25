@@ -3,7 +3,7 @@
 # Update online evaluation
 <a name="update-online-evaluations"></a>
 
-The `UpdateOnlineEvaluationConfig` API modifies an existing online evaluation configuration, allowing you to change evaluators, data sources, execution settings, and other parameters. This operation intelligently handles updates with no disruption to running evaluations.
+The `UpdateOnlineEvaluationConfig` API modifies an existing online evaluation configuration, allowing you to change evaluators, data sources, execution settings, and other parameters. Updates do not interrupt running evaluations.
 
 Updates can only be made when your evaluation configuration is in `ACTIVE`, `UPDATE_FAILED`, or `ERROR` status. If the configuration is currently being created, updated, or deleted, you’ll receive a conflict error and should retry after the operation completes.
 
@@ -21,27 +21,30 @@ The following code samples demonstrate how to update online evaluation configura
 
 **Example**  
 
-1. To update an online evaluation configuration with the AgentCore CLI, edit the configuration in your `agentcore.json` file directly, then redeploy:
+1. 
+
+   If you created the configuration with `agentcore add online-eval`, change it in the `onlineEvalConfigs` array in `agentcore/agentcore.json` and run `agentcore deploy`. To pause the configuration, set its `enableOnCreate` to `false` and deploy. To resume it, set `enableOnCreate` to `true` and deploy.
+
+   For a configuration created outside a project, update it by ID. Run `agentcore eval online-eval list` to find the configuration ID.
 
    ```
-   agentcore deploy
+   agentcore eval online-eval update \
+     --id <ONLINE_EVAL_ID> \
+     --sampling-rate 5 \
+     --evaluators Builtin.GoalSuccessRate Builtin.Helpfulness
    ```
 
-   Open `agentcore.json` , find the configuration in the `onlineEvalConfigs` array, modify its settings, then run `agentcore deploy` . Changes won’t take effect until you deploy.
+   To control whether the evaluation job of a configuration created outside a project is running (`ENABLED` or `DISABLED`), pause and resume it by ID:
 
    ```
    # Pause a running online evaluation
-   agentcore pause online-eval "your_config_name"
+   agentcore eval online-eval pause --id <ONLINE_EVAL_ID>
    
    # Resume a paused online evaluation
-   agentcore resume online-eval "your_config_name"
+   agentcore eval online-eval resume --id <ONLINE_EVAL_ID>
    ```
 **Note**  
 The configuration must be in `ACTIVE`, `UPDATE_FAILED`, or `ERROR` lifecycle status before you can update it.
-**Note**  
-To control whether the evaluation job is running ( `ENABLED` / `DISABLED` ), use `agentcore pause online-eval` and `agentcore resume online-eval`.
-**Note**  
-Run this from inside an AgentCore project directory (created with `agentcore create` ).
 
 1. 
 

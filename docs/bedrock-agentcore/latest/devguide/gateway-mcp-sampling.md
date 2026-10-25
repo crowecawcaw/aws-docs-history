@@ -117,7 +117,7 @@ You **must** include `related_request_id=ctx.request_context.request_id` in your
 <a name="gateway-mcp-sampling-examples"></a>
 
 **Note**  
-The LangGraph MCP Client (`langchain-mcp-adapters`) and Strands MCP Client do not currently support sampling. Use the MCP Client approach shown below to handle sampling requests from your gateway.
+To handle sampling requests from your gateway, use the Python requests package or the MCP Client approach shown below.
 
 **Example**  
 On these versions, the client declares the sampling capability during `initialize`, and the sampling request arrives as a `sampling/createMessage` request on the open SSE stream. Set the `MCP-Protocol-Version` header to a version that your gateway supports.  

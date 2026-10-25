@@ -62,7 +62,7 @@ Because the **Instances** compute type provisions Amazon EC2 resources in your o
  **Amazon EC2** – the running instance count for the instance families you select, and the request rates for the instance operations that AgentCore calls, such as `RunInstances`, `CreateFleet`, `DescribeInstances`, `TerminateInstances`, and `CreateTags`. For more information, see [Amazon EC2 service quotas](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html).
  **Amazon EBS** – the volume quotas for the volume types you use, and the request rates for the volume operations that AgentCore calls, such as `CreateVolume`, `AttachVolume`, `DetachVolume`, `DeleteVolume`, and `DescribeVolumes`. For more information, see [Quotas for Amazon EBS](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-resource-quotas.html).
  **Amazon VPC** – the number of network interfaces, and the request rates for the network interface operations that AgentCore calls, such as `AttachNetworkInterface` and `DescribeNetworkInterfaces`. For more information, see [Amazon VPC quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html).
- **Amazon EC2 Auto Scaling** – a single shared quota that applies to all Amazon EC2 Auto Scaling API calls, rather than to an individual operation. This quota isn’t available in the Service Quotas console. To request an increase, open an AWS Support case. For more information, see [Request throttling for the Amazon EC2 Auto Scaling API](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html#api-request-throttling).
+ **Amazon EC2 Auto Scaling** – a single shared quota that applies to all Amazon EC2 Auto Scaling API calls, rather than to an individual operation. To request an increase to this quota, open an AWS Support case. For more information, see [Request throttling for the Amazon EC2 Auto Scaling API](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html#api-request-throttling).
 To request an increase for a quota that is available in the Service Quotas console, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) in the *Service Quotas User Guide*.
 
 ### Invocation limits
@@ -443,6 +443,7 @@ The following table describes the service quotas for AgentCore Evaluations:
 | Online evaluation configurations per account | 1,000 | Yes |  | 
 | Evaluators per online evaluation configuration | 25 | No |  | 
 | Custom evaluators per account | 10,000 | Yes |  | 
+| Dimensions per multi-dimension evaluator | 50 | No |  | 
 
 ## AgentCore Batch Evaluation Service Quotas
 <a name="optimization-batch-evaluation-limits"></a>
@@ -629,7 +630,7 @@ The following table describes the quotas for resource-based policies:
 
 | Quota | Default value | Adjustable | Notes | 
 | --- | --- | --- | --- | 
-| Maximum registries per account per Region | 5 | Yes |  | 
+| Maximum registries per account per Region | 10 | Yes |  | 
 
 ### Throttling limits
 <a name="registry-throttling-limits"></a>

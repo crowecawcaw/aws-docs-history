@@ -51,22 +51,36 @@ In addition to the restricted headers listed above:
 Create an empty AgentCore project, then add an agent with the request header allowlist:
 
 ```
-agentcore create --project-name MyHeaderProject --no-agent
+agentcore create --name MyHeaderProject --template empty
 cd MyHeaderProject
-agentcore add agent \
+agentcore add runtime \
   --name MyHeaderAgent \
-  --language Python \
-  --framework Strands \
-  --model-provider Bedrock \
-  --memory none \
-  --request-header-allowlist X-Custom-Signature,X-Api-Key,X-Amzn-Bedrock-AgentCore-Runtime-Custom-UserId
+  --language python \
+  --protocol HTTP \
+  --request-header-allowlist \
+    X-Custom-Signature \
+    X-Api-Key \
+    X-Amzn-Bedrock-AgentCore-Runtime-Custom-UserId
 ```
 
-Update your agent’s entrypoint file to access the custom headers from the request context:
+Initialize the Python project and add its dependencies:
+
+```
+cd app/MyHeaderAgent
+uv init --bare
+uv add \
+  "aws-opentelemetry-distro~=0.21.0" \
+  "bedrock-agentcore[strands-agents]>=1.18.1,<2" \
+  "botocore[crt]~=1.43.0" \
+  "strands-agents>=1.15,<2"
+cd ../..
+```
+
+Create `app/MyHeaderAgent/main.py` to access the custom headers from the request context:
 
 ```
 import json
-from bedrock_agentcore import BedrockAgentCoreApp, RequestContext
+from bedrock_agentcore.runtime import BedrockAgentCoreApp, RequestContext
 from strands import Agent
 
 app = BedrockAgentCoreApp()
@@ -82,54 +96,34 @@ def agent_invocation(payload, context: RequestContext):
     response = agent(user_message)
 
     # access request headers here
-    request_headers = context.request_headers
+    header_names = ["X-Custom-Signature", "X-Api-Key", "X-Amzn-Bedrock-AgentCore-Runtime-Custom-UserId"]
+    request_headers = {name: context.request.headers.get(name) for name in header_names}
     app.logger.info("Headers: %s", json.dumps(request_headers))
     return response
 
 app.run()
 ```
 
+The `context.request_headers` property contains only the `Authorization` header and headers prefixed with `X-Amzn-Bedrock-AgentCore-Runtime-Custom-`. To read other allowlisted headers, such as `X-Custom-Signature`, use the headers of the underlying request, `context.request.headers`.
+
 ## Step 2: Configure and deploy your agent with custom headers
 <a name="deploy-agentcore-runtime"></a>
 
 Configure the request header allowlist on your agent runtime so that custom headers are forwarded to your agent code at invocation time.
 
-**Example**  
+The `agentcore add runtime` command in Step 1 stores the allowlist in the Runtime’s `requestHeaderAllowlist` field in `agentcore/agentcore.json`. To change the allowlist later, edit that field and deploy again.
 
-1. The `agentcore add agent` command in Step 1 stores the allowlist in the runtime configuration under `runtimes` in `agentcore/agentcore.json`.
+Deploy your agent:
 
-   Deploy your agent:
+```
+agentcore deploy
+```
 
-   ```
-   agentcore deploy
-   ```
+Optionally, run `agentcore build` first to synthesize and check the project without deploying.
 
-   Note the agent runtime ARN from the output. You need it if you plan to invoke using the AWS SDK.
+Run `agentcore status --json`. The Runtime resource’s `arn` field contains its ARN.
 
-1. After deploying your agent, update the runtime configuration using the AWS SDK:
-
-   ```
-   import boto3
-   
-   client = boto3.client('bedrock-agentcore-control', region_name='us-west-2')
-   
-   client.update_agent_runtime(
-       agentRuntimeId='your-runtime-id',
-       roleArn='arn:aws:iam::123456789012:role/YourAgentRole',
-       agentRuntimeArtifact={'containerConfiguration': {'containerUri': 'your-container-uri'}},
-       networkConfiguration={'networkMode': 'PUBLIC'},
-       requestHeaderConfiguration={
-           'requestHeaderAllowlist': [
-               'X-Custom-Signature',
-               'X-Api-Key'
-           ]
-       }
-   )
-   ```
-**Note**  
- `update_agent_runtime` is a full PUT operation. You must include all required fields (`roleArn` , `agentRuntimeArtifact` , `networkConfiguration`) even if they haven’t changed.
-
-   You can find your runtime ID by running `agentcore status`.
+If you manage the Runtime with the AWS SDK instead of the AgentCore CLI, set `requestHeaderConfiguration` when you call `CreateAgentRuntime` or `UpdateAgentRuntime`. For more information, see [RequestHeaderConfiguration](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_RequestHeaderConfiguration.html).
 
 ## Step 3: Invoke your agent with custom headers
 <a name="invoke-custom-headers"></a>
@@ -138,20 +132,22 @@ Pass custom headers when invoking your agent so that your agent code can access 
 
 **Example**  
 
-1. Use the `-H` flag to pass custom headers with `agentcore invoke` :
+1. Use `--header` to pass a custom header with `agentcore invoke`:
 
    ```
-   agentcore invoke "Tell me a joke" \
-     -H "X-Custom-Signature: sha256=abc123def456"
+   agentcore invoke --runtime MyHeaderAgent \
+     --payload '{"prompt":"Tell me a joke"}' \
+     --header "X-Custom-Signature: sha256=abc123def456"
    ```
 
-   You can pass multiple headers by repeating the `-H` flag:
+   You can pass multiple headers by repeating `--header`:
 
    ```
-   agentcore invoke "Tell me a joke" \
-     -H "X-Custom-Signature: sha256=abc123def456" \
-     -H "X-Api-Key: my-api-key" \
-     -H "X-Amzn-Bedrock-AgentCore-Runtime-Custom-UserId: user-123"
+   agentcore invoke --runtime MyHeaderAgent \
+     --payload '{"prompt":"Tell me a joke"}' \
+     --header "X-Custom-Signature: sha256=abc123def456" \
+     --header "X-Api-Key: my-api-key" \
+     --header "X-Amzn-Bedrock-AgentCore-Runtime-Custom-UserId: user-123"
    ```
 
 1. Use boto3 with event handlers to add custom headers to your agent invocation. For more details on botocore events, see [botocore events documentation](https://botocore.amazonaws.com/v1/documentation/api/latest/topics/events.html).
@@ -196,20 +192,21 @@ To pass the JWT token used for OAuth-based inbound access to your agent, configu
 
 **Example**  
 
-1. To use JWT authentication, run the following command instead of the `agentcore add agent` command in Step 1:
+1. To use JWT authentication, run the following command instead of the `agentcore add runtime` command in Step 1:
 
    ```
-   agentcore add agent \
+   agentcore add runtime \
      --name MyHeaderAgent \
-     --language Python \
-     --framework Strands \
-     --model-provider Bedrock \
-     --memory none \
+     --language python \
+     --protocol HTTP \
      --authorizer-type CUSTOM_JWT \
-     --discovery-url "https://cognito-idp.us-east-1.amazonaws.com/user-pool-id/.well-known/openid-configuration" \
-     --allowed-audience "your-client-id" \
-     --allowed-clients "your-client-id" \
-     --request-header-allowlist Authorization
+     --authorizer-configuration \
+     '{"customJwtAuthorizer":{"discoveryUrl":"https://cognito-idp.us-east-1.amazonaws.com/user-pool-id/.well-known/openid-configuration","allowedAudience":["your-client-id"],"allowedClients":["your-client-id"]}}' \
+     --request-header-allowlist \
+       Authorization \
+       X-Custom-Signature \
+       X-Api-Key \
+       X-Amzn-Bedrock-AgentCore-Runtime-Custom-UserId
    ```
 
    Deploy to apply the configuration:
@@ -218,6 +215,15 @@ To pass the JWT token used for OAuth-based inbound access to your agent, configu
    agentcore deploy
    ```
 
-   With this configuration, the `Authorization` header from incoming requests is validated against your OIDC provider and forwarded to your agent code.
+   With this configuration, the `Authorization` header from incoming requests is validated against your OIDC provider and forwarded to your agent code, along with the custom headers.
+
+   When you invoke the agent in Step 3, also pass a JWT from your OIDC provider with `--bearer-token`. Replace `<access-token>` with the token:
+
+   ```
+   agentcore invoke --runtime MyHeaderAgent \
+     --bearer-token "<access-token>" \
+     --payload '{"prompt":"Tell me a joke"}' \
+     --header "X-Custom-Signature: sha256=abc123def456"
+   ```
 
 1. For information about setting up an agent with OAuth inbound access using the AWS SDK, see [Authenticate and authorize with Inbound Auth and Outbound Auth](runtime-oauth.md).

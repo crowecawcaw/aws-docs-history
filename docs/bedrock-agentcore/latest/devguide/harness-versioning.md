@@ -48,6 +48,14 @@ aws bedrock-agentcore-control update-harness-endpoint \
   --description "Updated production endpoint"
 ```
 
+```
+agentcore harness endpoint update \
+  --id MyHarness-UuFdkQoXSL \
+  --qualifier production-endpoint \
+  --target-version 2
+```
+Use `--qualifier` for the existing endpoint’s name. To invoke that endpoint, pass `--qualifier production-endpoint` to `agentcore harness invoke --id MyHarness-UuFdkQoXSL`.
+
 ## Versioning scenarios
 <a name="harness-versioning-scenarios"></a>
 
@@ -114,6 +122,14 @@ aws bedrock-agentcore-control create-harness-endpoint \
   --description "Production endpoint pinned to V2"
 ```
 
+```
+agentcore harness endpoint create \
+  --id MyHarness-UuFdkQoXSL \
+  --name production-endpoint \
+  --target-version 2
+```
+Creation uses `--name`; the commands for an existing endpoint use `--qualifier`. If you omit `--target-version`, the new endpoint points to the latest version at creation time.
+
 ## Listing harness versions and endpoints
 <a name="harness-listing-versions"></a>
 
@@ -150,6 +166,27 @@ aws bedrock-agentcore-control list-harness-endpoints \
   --harness-id "MyHarness-UuFdkQoXSL"
 ```
 Both operations support pagination through `maxResults` and `nextToken`. To retrieve the configuration of a single endpoint, call `GetHarnessEndpoint`; to remove one, call `DeleteHarnessEndpoint`.
+These resource commands work without an AgentCore project:  
+
+```
+agentcore harness version list --id MyHarness-UuFdkQoXSL
+agentcore harness endpoint list --id MyHarness-UuFdkQoXSL
+
+# Retrieve a version's configuration
+agentcore harness version get --id MyHarness-UuFdkQoXSL --version 2
+
+# Retrieve an endpoint's configuration
+agentcore harness endpoint get \
+  --id MyHarness-UuFdkQoXSL \
+  --qualifier production-endpoint
+```
+The list commands accept `--max-results` and `--next-token` for pagination. To remove a named endpoint:  
+
+```
+agentcore harness endpoint delete \
+  --id MyHarness-UuFdkQoXSL \
+  --qualifier production-endpoint
+```
 
 ## Related topics
 <a name="_related_topics"></a>

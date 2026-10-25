@@ -13,26 +13,18 @@ Both operations support pagination.
 <a name="list-bundles-examples"></a>
 
 **Example**  
-List versions of a bundle:  
+List configuration bundles:  
 
 ```
-agentcore config-bundle versions --name myAgentConfig
+agentcore eval config-bundle list
 ```
-Filter by branch:  
+In a terminal, this opens an interactive list. For JSON output, for example in scripts, add `--json`.  
+List immutable versions of a bundle:  
 
 ```
-agentcore config-bundle versions --name myAgentConfig --branch mainline
+agentcore eval config-bundle version list --id <configuration-bundle-id>
 ```
-Show only the latest version per branch:  
-
-```
-agentcore config-bundle versions --name myAgentConfig --latest-per-branch
-```
-Filter by creator (for example, versions created by a recommendation job):  
-
-```
-agentcore config-bundle versions --name myAgentConfig --created-by recommendation
-```
+Use `--max-results` and `--next-token` with either list command for pagination.
 List all bundles with pagination:  
 
 ```

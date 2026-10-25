@@ -23,11 +23,9 @@ For more information about A2A, see [A2A protocol contract](runtime-a2a-protocol
 ## How Amazon Bedrock AgentCore supports A2A
 <a name="runtime-a2a-how-agentcore-supports"></a>
 
-Amazon Bedrock AgentCore’s A2A protocol support enables seamless integration with A2A servers by acting as a transparent proxy layer. When configured for A2A, Amazon Bedrock AgentCore expects containers to run stateless, streamable HTTP servers on port `9000` at the root path ( `0.0.0.0:9000/` ), which aligns with the default A2A server configuration.
+Amazon Bedrock AgentCore acts as a proxy between clients and your A2A server. When configured for A2A, Amazon Bedrock AgentCore expects containers to run stateless, streamable HTTP servers on port `9000` at the root path ( `0.0.0.0:9000/` ), which aligns with the default A2A server configuration.
 
-The service provides enterprise-grade session isolation while maintaining protocol transparency - JSON-RPC payloads from the [InvokeAgentRuntime](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_InvokeAgentRuntime.html) API are passed through directly to the A2A container without modification. This architecture preserves the standard A2A protocol features like built-in agent discovery through Agent Cards at `/.well-known/agent-card.json` and JSON-RPC communication, while adding enterprise authentication (SigV4/OAuth 2.0) and scalability.
-
-The key differentiators from other protocols are the port (9000 vs 8080 for HTTP), mount path ( `/` vs `/invocations` ), and the standardized agent discovery mechanism, making Amazon Bedrock AgentCore an ideal deployment platform for A2A agents in production environments.
+The service provides session isolation while maintaining protocol transparency - JSON-RPC payloads from the [InvokeAgentRuntime](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_InvokeAgentRuntime.html) API are passed through directly to the A2A container without modification. This architecture preserves the standard A2A protocol features like built-in agent discovery through Agent Cards at `/.well-known/agent-card.json` and JSON-RPC communication, while adding authentication (SigV4/OAuth 2.0) and scalability.
 
 Key differences from other protocols:
 
@@ -64,15 +62,15 @@ In this tutorial you create, test, and deploy an A2A server.
 ### Prerequisites
 <a name="runtime-a2a-prerequisites"></a>
 + Python 3.10 or higher installed and basic understanding of Python
-+ Node.js 20 or higher installed (required for the AgentCore CLI)
-+ The AgentCore CLI installed: `npm install -g @aws/agentcore` 
++ The AgentCore CLI installed and configured. For instructions, see [Get started with the AgentCore CLI](runtime-get-started-cli.md).
 + An AWS account with appropriate permissions and local credentials configured
 + Understanding of the A2A protocol and agent-to-agent communication concepts
++ A Cognito user pool configured as described in [Set up Cognito user pool for authentication](runtime-mcp.md#runtime-mcp-appendix-a). Source the setup script so that `REGION`, `POOL_ID`, and `CLIENT_ID` are available in your shell.
 
 ### Step 1: Create your A2A project
 <a name="runtime-a2a-create-server"></a>
 
-This example uses Strands Agents, but the AgentCore CLI also supports A2A projects with LangChain/LangGraph and Google ADK.
+This example uses Strands with the A2A protocol.
 
 #### Scaffold the project
 <a name="runtime-a2a-scaffold-project"></a>
@@ -80,24 +78,35 @@ This example uses Strands Agents, but the AgentCore CLI also supports A2A projec
 Run the following command:
 
 ```
-agentcore create \
-  --project-name A2AProject \
-  --name A2AAgent \
-  --language Python \
-  --framework Strands \
-  --model-provider Bedrock \
-  --memory none \
-  --protocol A2A
+agentcore create --name A2AProject --template empty
 cd A2AProject
+agentcore add runtime \
+  --name A2AAgent \
+  --language python \
+  --protocol A2A \
+  --authorizer-type CUSTOM_JWT \
+  --authorizer-configuration \
+  "{\"customJwtAuthorizer\":{\"discoveryUrl\":\"https://cognito-idp.$REGION.amazonaws.com/$POOL_ID/.well-known/openid-configuration\",\"allowedClients\":[\"$CLIENT_ID\"]}}" \
+  --request-header-allowlist Authorization
+cd app/A2AAgent
+uv init --bare
+uv add \
+  "a2a-sdk[all]~=0.3.26" \
+  "aws-opentelemetry-distro~=0.21.0" \
+  "bedrock-agentcore[a2a,strands-agents]~=1.24.0" \
+  "botocore[crt]~=1.43.107" \
+  "strands-agents~=1.57.2"
+cd ../..
 ```
 
-The CLI scaffolds a complete project with all required dependencies and configuration. The generated `main.py` contains your A2A server:
+The CLI registers a Python A2A Runtime with Cognito authorization and creates `README.md` and `AGENTS.md` in its code directory. The commands above initialize the dependencies used by this example. To use another model provider, configure the Strands `Agent` in your application code.
+
+Create `app/A2AAgent/main.py` with the following A2A server:
 
 ```
 from strands import Agent, tool
 from strands.multiagent.a2a.executor import StrandsA2AExecutor
 from bedrock_agentcore.runtime import serve_a2a
-from model.load import load_model
 
 @tool
 def add_numbers(a: int, b: int) -> int:
@@ -106,14 +115,15 @@ def add_numbers(a: int, b: int) -> int:
 
 tools = [add_numbers]
 
-agent = Agent(
-    model=load_model(),
-    system_prompt="You are a helpful assistant. Use tools when appropriate.",
-    tools=tools,
-)
+def create_agent(_context_id: str) -> Agent:
+    return Agent(
+        name="A2AAgent",
+        system_prompt="You are a helpful assistant. Use tools when appropriate.",
+        tools=tools,
+    )
 
 if __name__ == "__main__":
-    serve_a2a(StrandsA2AExecutor(agent))
+    serve_a2a(StrandsA2AExecutor(agent_factory=create_agent))
 ```
 
 #### Understanding the code
@@ -123,7 +133,7 @@ if __name__ == "__main__":
 Creates an agent with specific tools and capabilities
 
  **StrandsA2AExecutor**   
-Wraps the Strands agent to provide A2A protocol compatibility
+Uses `agent_factory=create_agent` to create a context-scoped Strands agent for the A2A interaction
 
  **serve\_a2a**   
 The Amazon Bedrock AgentCore SDK helper that starts a Bedrock-compatible A2A server. It handles the `/ping` health endpoint, Agent Card serving, `AGENTCORE_RUNTIME_URL` environment variable, Bedrock header propagation, and runs on port 9000 by default.
@@ -144,16 +154,10 @@ Run and test your A2A server in a local development environment.
 Start your A2A server locally using the AgentCore CLI:
 
 ```
-agentcore dev
+agentcore dev --mode browser
 ```
 
-This opens the AgentCore agent inspector in your web browser. To use the terminal-based TUI instead, use `agentcore dev --no-browser`.
-
-Alternatively, you can run the server directly:
-
-```
-python main.py
-```
+This opens the AgentCore agent inspector in your web browser. Run `agentcore dev` without `--mode browser` for headless local development.
 
 You should see output indicating the server is running on port `9000`.
 
@@ -188,7 +192,7 @@ curl -X POST http://localhost:9000/ \
 You can test the agent card endpoint locally:
 
 ```
-curl http://localhost:9000/.well-known/agent-card.json | jq.
+curl http://localhost:9000/.well-known/agent-card.json | jq .
 ```
 
 You can also test your deployed server using the A2A Inspector as described in [Remote testing with A2A inspector](https://github.com/a2aproject/a2a-inspector).
@@ -196,35 +200,23 @@ You can also test your deployed server using the A2A Inspector as described in [
 ### Step 3: Deploy your A2A server to Bedrock AgentCore Runtime
 <a name="runtime-a2a-deploy"></a>
 
-#### Set up Cognito user pool for authentication
-<a name="runtime-a2a-setup-cognito"></a>
-
-Before deploying, configure authentication for secure access to your deployed server. For detailed Cognito setup instructions, see [Set up Cognito user pool for authentication](runtime-mcp.md#runtime-mcp-appendix-a) . This provides the OAuth tokens required for secure access to your deployed server.
-
 #### Deploy to AWS
 <a name="runtime-a2a-deploy-aws"></a>
 
-Deploy your agent:
+Build and deploy your agent:
 
 ```
+agentcore build
 agentcore deploy
 ```
 
-This command will:
-
-1. Package your agent code and dependencies
-
-1. Upload the deployment artifact to Amazon S3
-
-1. Create a Amazon Bedrock AgentCore runtime
-
-1. Deploy your agent to AWS 
-
-After deployment, you’ll receive an agent runtime ARN that looks like:
+After deployment, get the Runtime ARN:
 
 ```
-arn:aws:bedrock-agentcore:us-west-2:accountId:runtime/my_a2a_server-xyz123
+agentcore status --json
 ```
+
+The Runtime resource’s `arn` field contains its ARN.
 
 ### Step 4: Get the agent card
 <a name="runtime-a2a-step-4"></a>
@@ -234,7 +226,7 @@ Agent Cards are JSON metadata documents that describe an A2A server’s identity
 #### Set up environment variables
 <a name="runtime-a2a-step-4-setup-environment-variables"></a>
 
-Set up environment variables
+Set the following environment variables:
 
 1. Export bearer token as an environment variable. For bearer token setup, see [Bearer token setup](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-mcp.html#runtime-mcp-appendix).
 
@@ -245,7 +237,7 @@ Set up environment variables
 1. Export the agent ARN.
 
    ```
-   export AGENT_ARN="arn:aws:bedrock-agentcore:us-west-2:accountId:runtime/my_a2a_server-xyz123"
+   export AGENT_ARN="arn:aws:bedrock-agentcore:us-west-2:accountId:runtime/A2AProject_default_A2AAgent-xyz123"
    ```
 
 #### Retrieve agent card
@@ -406,7 +398,7 @@ asyncio.run(send_sync_message("what is 101 * 11"))
 ### Set up Cognito user pool for authentication
 <a name="runtime-a2a-setup-cognito-appendix"></a>
 
-For detailed Cognito setup instructions, see Set up [Cognito user pool for authentication](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-mcp.html#set-up-cognito-user-pool-for-authentication) in the MCP documentation.
+For detailed Cognito setup instructions, see [Set up Cognito user pool for authentication](runtime-mcp.md#runtime-mcp-appendix-a).
 
 ### Remote testing with A2A inspector
 <a name="runtime-a2a-remote-testing"></a>

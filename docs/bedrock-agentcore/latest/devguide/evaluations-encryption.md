@@ -13,6 +13,8 @@ Amazon Bedrock AgentCore Evaluations encrypts all data at rest by default using 
 
 You can optionally encrypt sensitive evaluator data with a customer managed key. When you specify a customer managed AWS KMS key on a custom evaluator, the service encrypts the evaluator’s **instructions** and **rating scale** using envelope encryption with the AWS Encryption SDK. All other evaluator metadata (name, level, model configuration, status) remains encrypted with the AWS owned key.
 
+For a [multi-dimension evaluator](multi-dimension-evaluators.md), the rating scale includes every dimension’s name, instruction, and scale, so your customer managed key encrypts all of them.
+
 Using a customer managed key gives you more control over the encryption process, including the ability to:
 + Create and manage the key, including setting key policies
 + Rotate the key on your own schedule

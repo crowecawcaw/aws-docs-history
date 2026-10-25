@@ -70,8 +70,8 @@ The following tables show how auto-detection maps properties from the source res
 | Source (Gateway property) | Record field | Notes | 
 | --- | --- | --- | 
 | Account ID, Region, Resource ID |  `name`  | Auto-generated as `aws-autodetected-<accountId>-<region>-<resourceId> `. Not the gateway’s display name (`Name`). | 
-|  `ProtocolType`  |  `recordType`  |  `MCP` → `GATEWAY`. A gateway-detected record is always `GATEWAY` and can’t be changed to another type. Other protocol types are not currently supported. | 
-|  `ProtocolType`  | Descriptor type (within `descriptors`) |  `MCP` → `mcpServer`. Other protocol types are not currently supported. | 
+|  `ProtocolType`  |  `recordType`  |  `MCP` → `GATEWAY`. A gateway-detected record is always `GATEWAY` and can’t be changed to another type. | 
+|  `ProtocolType`  | Descriptor type (within `descriptors`) |  `MCP` → `mcpServer`. | 
 | (hardcoded) |  `recordVersion`  | Always `"1"`. Gateways have no version concept; updates are in-place. | 
 |  `GatewayUrl`  | Endpoint URL (within `descriptors`) | Taken verbatim from the gateway configuration (for example, `\https://<gateway-id>.gateway.bedrock-agentcore.<region>.amazonaws.com/mcp`). | 
 | Gateway ARN |  `provenance[].sourceId`  | The full ARN of the source gateway. | 

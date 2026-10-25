@@ -14,7 +14,7 @@ When memory is enabled, the harness persists conversation state in [AgentCore Me
 ## Managed memory
 <a name="_managed_memory"></a>
 
-When you create a harness directly with the service API and omit the memory configuration, the service provisions managed memory. The AgentCore CLI uses a different default: new CLI harnesses have memory disabled unless you select managed memory or an existing memory resource.
+When you create a harness directly with the service API and omit the memory configuration, the service provisions managed memory. The AgentCore CLI uses the same default: new CLI harnesses use managed memory unless you pass `--memory` with the `disabled` or `existing` mode.
 
 **Memory charges**  
 There is no additional charge for the harness itself. Managed Memory incurs standard AgentCore Memory charges for short-term events, stored long-term memory records, and retrieval requests. To avoid persistent Memory charges, disable Memory when you create the harness. For more information, see [Understand harness costs](harness-operations.md#harness-costs) and [Amazon Bedrock AgentCore pricing](https://aws.amazon.com/bedrock/agentcore/pricing/).
@@ -39,31 +39,20 @@ aws bedrock-agentcore-control update-harness \
 Create an empty project, then add a harness with managed memory:  
 
 ```
-agentcore create --project-name MyHarnessProject --no-agent
+agentcore create --name MyHarnessProject --template empty
 cd MyHarnessProject
 agentcore add harness \
   --name myagent \
-  --memory-mode managed \
-  --memory-strategies SEMANTIC,SUMMARIZATION \
-  --memory-event-expiry-days 30
+  --memory '{"mode":"managed","strategies":["SEMANTIC","SUMMARIZATION"],"eventExpiryDuration":30}'
 agentcore deploy
 ```
-Memory is disabled by default. To create the harness without memory, run the following command instead of the preceding `agentcore add harness` command:  
+To create a harness without memory, run the following command instead of the preceding `agentcore add harness` command:  
 
 ```
-agentcore add harness --name myagent --no-memory
+agentcore add harness \
+  --name no_memory \
+  --memory '{"mode":"disabled"}'
 ```
-Run `agentcore` in a project directory, select **add** , then choose **Harness** . The wizard includes a memory step.  
-
-1. On the **Memory** step, choose **No persistent memory** or **Enabled** to create persistent memory for the harness.  
-![Memory step: No persistent memory or Enabled](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-memory-01-memory.png)
-
-1. When memory is **Enabled** , an extra **Memory tuning** option appears in **Advanced settings** . Enable it with **Space** and press **Enter** to tune retrieval.  
-![Advanced settings: Memory tuning option](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-memory-02-advanced-memory-tuning.png)
-
-1. Optionally set the messages count, retrieval top K, and relevance score (each can be skipped).  
-![Memory tuning: messages count, top K, relevance score](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-memory-03-messages-count.png)
-Confirm the wizard, then run `agentcore deploy` to apply.
 
 Managed memory is fully managed by the harness:
 + Strategy configuration is controlled through `UpdateHarness`. You can still read/write events and query records directly through the Memory APIs.
@@ -85,7 +74,7 @@ Managed memory is fully managed by the harness:
 ## Add existing memory (BYO)
 <a name="_add_existing_memory_byo"></a>
 
-If you need advanced configuration beyond what managed memory provides - custom namespace templates, KMS encryption, or shared memory across multiple harnesses - attach an existing [AgentCore Memory](memory.md) instance instead.
+If you need configuration that managed memory does not provide, such as custom namespace templates or one memory shared by multiple harnesses, attach an existing [AgentCore Memory](memory.md) instance instead. Managed memory already accepts `encryptionKeyArn` for a customer-managed KMS key. You cannot change the key after creation.
 
 **Example**  
 Create a memory instance:  
@@ -101,16 +90,27 @@ Attach it to the harness:
 ```
 aws bedrock-agentcore-control update-harness \
   --harness-id "MyHarness-UuFdkQoXSL" \
-  --memory '{"optionalValue": {"agentCoreMemoryConfiguration": {"arn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:memory/MyMemory-abc123"}}}'
+  --memory '{"optionalValue": {"agentCoreMemoryConfiguration": {"arn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:memory/MyMemory-abc1234567"}}}'
 ```
 
 ```
-agentcore create --project-name MyHarnessProject --no-agent
+agentcore create --name MyHarnessProject --template empty
 cd MyHarnessProject
-agentcore add harness --name myagent \
-  --memory-arn "arn:aws:bedrock-agentcore:us-west-2:123456789012:memory/MyMemory-abc123"
+agentcore add harness \
+  --name myagent \
+  --memory '{"mode":"existing","arn":"arn:aws:bedrock-agentcore:us-west-2:123456789012:memory/MyMemory-abc1234567"}'
 agentcore deploy
 ```
+To use a memory that the same project declares, reference it by name instead of by ARN:  
+
+```
+agentcore add memory --name MyMemory
+agentcore add harness \
+  --name myagent \
+  --memory '{"mode":"existing","name":"MyMemory"}'
+agentcore deploy
+```
+A by-name reference also accepts `retrievalConfig`, and `agentcore export harness` can wire it into the exported agent. A reference by ARN supports neither.
 
 ## Disable memory
 <a name="_disable_memory"></a>
@@ -151,7 +151,7 @@ When a harness has active memory strategies (managed or BYO), retrieval works au
 ```
 aws bedrock-agentcore-control update-harness \
   --harness-id "MyHarness-UuFdkQoXSL" \
-  --memory '{"optionalValue": {"agentCoreMemoryConfiguration": {"arn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:memory/MyMemory-abc123", "retrievalConfig": {"/facts/{actorId}/": {"topK": 5, "relevanceScore": 0.5, "strategyId": "FactExtractor-abc123"}}}}}'
+  --memory '{"optionalValue": {"agentCoreMemoryConfiguration": {"arn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:memory/MyMemory-abc1234567", "retrievalConfig": {"/facts/{actorId}/": {"topK": 5, "relevanceScore": 0.5, "strategyId": "FactExtractor-abc123"}}}}}'
 ```
 
 **Important**  
@@ -168,12 +168,12 @@ When conversation history grows beyond the model’s context window, the harness
 ```
 aws bedrock-agentcore-control update-harness \
   --harness-id "MyHarness-UuFdkQoXSL" \
-  --truncation '{"strategy": "sliding_window", "slidingWindowConfig": {"numMessages": 30}}'
+  --truncation '{"strategy": "sliding_window", "config": {"slidingWindow": {"messagesCount": 30}}}'
 ```
 
 Learn more: [AgentCore Memory](memory.md), [create a memory store](memory-create-a-memory-store.md), [long-term memory strategies](long-term-configuring-built-in-strategies.md).
 
-### Related topics
+## Related topics
 <a name="_related_topics"></a>
 +  [Models and instructions](harness-models.md) - configure models and system prompts
 +  [Environment and filesystem](harness-environment.md) - environment, filesystem, and custom containers

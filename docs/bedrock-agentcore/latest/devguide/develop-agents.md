@@ -5,7 +5,7 @@
 
 Amazon Bedrock AgentCore supports various interfaces for developing and deploying your agent code. The simplest approach is to use the AgentCore Python SDK to create your agent code and use the AgentCore CLI to deploy your agent.
 
-The AgentCore CLI and AgentCore Python SDK don’t support all AgentCore operations that the AWS SDK supplies. If they don’t support a specific AgentCore operation, use the AWS SDK.
+To call the full set of AgentCore operations, use the AWS SDK.
 
 **Topics**
 + [AgentCore CLI](#agentcore-cli-configure-deploy)
@@ -18,7 +18,7 @@ The AgentCore CLI and AgentCore Python SDK don’t support all AgentCore operati
 ## AgentCore CLI
 <a name="agentcore-cli-configure-deploy"></a>
 
-The [AgentCore CLI](https://github.com/aws/agentcore-cli) is a Node.js command-line tool for creating, configuring, deploying, and managing agents on Amazon Bedrock AgentCore. It requires Node.js 20 or later.
+The [AgentCore CLI](https://github.com/aws/agentcore-cli) is a Node.js command-line tool for creating, configuring, deploying, and managing agents on Amazon Bedrock AgentCore. It requires Node.js 20.12 or later.
 
 Install the AgentCore CLI globally with npm:
 
@@ -27,23 +27,27 @@ npm install -g @aws/agentcore
 ```
 
 The AgentCore CLI provides the following key commands:
-+  *agentcore create* : Set up a new agent project with your preferred framework and model provider
-+  *agentcore deploy* : Deploy your agent to AWS infrastructure
-+  *agentcore dev* : Run your agent locally for development and testing
-+  *agentcore invoke* : Invoke a deployed agent for testing
-+  *agentcore status* : Check the status of a deployed agent
++  *agentcore create* : Set up a project from a code or managed harness template
++  *agentcore deploy* : Deploy the resources declared by the project
++  *agentcore dev* : Run a project Runtime locally, or deploy a project Harness and test it through the Agent Inspector
++  *agentcore invoke* : Invoke a deployed Runtime, harness, or Gateway in the project, or an existing one by ID or ARN
++  *agentcore status* : Check the deployment status of project resources
 
-Configuration is managed through JSON files in the `agentcore/` directory of your project. These files include `agentcore.json` for project settings and `aws-targets.json` for AWS deployment targets.
+Configuration is managed through JSON files in the `agentcore/` directory of your project. These files include `agentcore.json` for project settings and `aws-targets.json` for AWS deployment targets. Each harness is configured in a `harness.yaml` file in its application directory.
 
 Under the hood, the AgentCore CLI uses AWS CDK constructs from the `@aws/agentcore-cdk` package to provision and manage AWS resources.
 
 For step-by-step instructions, see [Get started with the AgentCore CLI](runtime-get-started-cli.md).
 
+To add AWS resources, permissions, or configuration beyond what `agentcore.json` declares, edit the generated CDK stack in `agentcore/cdk/lib/cdk-stack.ts`. For details, see [Customize the project’s CDK code](customize-project-cdk-code.md).
+
+For Runtime provider selection, see [Choose a Runtime model provider](agentcore-get-started-cli.md#agentcore-get-started-cli-model-providers). For cloud-backed Harness testing, see [Test a Harness with the Agent Inspector](harness-get-started.md#harness-development).
+
 ## AgentCore Python SDK
 <a name="develop-agents-bedroock-agentcore-sdk"></a>
 
 The [AgentCore Python SDK](https://github.com/aws/bedrock-agentcore-sdk-python) provides Python primitives for agent development with built-in support for:
-+  *Runtime* : Lightweight wrapper over the AgentCore operations in the AWS SDK that lets you easily write Python code for an agent.
++  *Runtime* : A lightweight wrapper over the AgentCore operations in the AWS SDK for writing agent code in Python.
 +  *Memory* : Persistent storage for conversation history and agent context
 +  *Tools* : Built-in clients for code interpretation and browser automation
 +  *Identity* : Secure authentication and access management
@@ -63,7 +67,7 @@ For more information, see [Amazon Bedrock AgentCore MCP Server: Vibe coding with
 ## AWS SDK
 <a name="develop-agents-bedrock-agentcore-aws-sdk"></a>
 
-You can use the AWS SDK to achieve the same results as the AgentCore Python SDK, as well as other tasks that the AgentCore Python SDK doesn’t support. You’ll need to use the AWS SDK to interact with other AWS services such as AWS Lambda and Amazon S3. You’ll also need to the AWS SDK if you aren’t using Python as your coding language.
+You can use the AWS SDK to achieve the same results as the AgentCore Python SDK, and to call any other AgentCore operation. You’ll need to use the AWS SDK to interact with other AWS services such as AWS Lambda and Amazon S3. You also need the AWS SDK if you don’t use Python.
 
 To configure and deploy an agent, you use the [AgentCore control plane API](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/Welcome.html) . For example, you can create an AgentCore Runtime or create an AgentCore Memory.
 
@@ -72,7 +76,7 @@ At runtime, you use the [AgentCore data plane API](https://docs.aws.amazon.com/b
 ## Amazon Bedrock AgentCore console
 <a name="develop-agents-console"></a>
 
-You can use the AgentCore console to create and manage the AgentCore services that your agent code uses. You can get code snippets that show to call an agent hosted in an AgentCore Runtime. You can also test your agent in the agent sandbox. Open the console at [https://console.aws.amazon.com/bedrock-agentcore/home\#](https://console.aws.amazon.com/bedrock-agentcore/home#).
+You can use the AgentCore console to create and manage the AgentCore services that your agent code uses. You can get code snippets that show how to call an agent hosted in AgentCore Runtime. You can also test your agent in the agent sandbox. Open the console at [https://console.aws.amazon.com/bedrock-agentcore/home\#](https://console.aws.amazon.com/bedrock-agentcore/home#).
 
 ## AWS Command Line Interface
 <a name="bedrock-agentcore-configure-deploy-cli"></a>

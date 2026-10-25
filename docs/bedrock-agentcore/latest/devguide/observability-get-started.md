@@ -6,7 +6,7 @@
 Amazon Bedrock AgentCore Observability helps you trace, debug, and monitor agent performance in production environments. This guide helps you implement observability features in your agent applications.
 
 **Topics**
-+ [Prerequisites](#prerequisites)
++ [Prerequisites](#observability-get-started-prerequisites)
 + [Step 1: Enable transaction search on CloudWatch](#enabling-transaction-search)
 + [Step 2: Enable observability for Amazon Bedrock AgentCore Runtime hosted agents](#enabling-observability-runtime-hosted)
 + [Step 3: Enable observability for non-Amazon Bedrock AgentCore-hosted agents](#enabling-observability-non-runtime-hosted)
@@ -14,12 +14,12 @@ Amazon Bedrock AgentCore Observability helps you trace, debug, and monitor agent
 + [Best practices](#best-practices)
 
 ## Prerequisites
-<a name="prerequisites"></a>
+<a name="observability-get-started-prerequisites"></a>
 
 Before starting, make sure you have:
 +  ** AWS Account** with credentials configured ( `aws configure` ) with model access enabled to the Foundation Model you would like to use.
 +  **Python 3.10\+** installed
-+  **Enable transaction search** on Amazon CloudWatch. Only once, first-time users must enable [CloudWatch Transaction Search](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Enable-TransactionSearch.html) to view Bedrock Amazon Bedrock AgentCore spans and traces
++  **Enable transaction search** on Amazon CloudWatch. Only once, first-time users must enable [CloudWatch Transaction Search](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Enable-TransactionSearch.html) to view Amazon Bedrock AgentCore spans and traces. If you deploy with the AgentCore CLI, `agentcore deploy` enables Transaction Search for you.
 +  **(Non-runtime agents only) Add the OpenTelemetry library** – Include `aws-opentelemetry-distro` (ADOT) in your requirements.txt file. If you host your agent on AWS Lambda, use the [AWS Lambda Layer for OpenTelemetry](https://aws-otel.github.io/docs/getting-started/lambda) on the AWS Distro for OpenTelemetry website instead.
 +  **(Non-runtime agents only)** Make sure that your framework is configured to emit traces (for example, `strands-agents[otel]` package). You may sometimes need to include your agent framework’s auto-instrumentor (for example, `opentelemetry-instrumentation-langchain` ).
 
@@ -29,7 +29,7 @@ Amazon Bedrock AgentCore Observability offers two ways to configure monitoring t
 
 1. Non-runtime hosted agents
 
-As a one time setup per AWS account, first time users need to enable Transaction Search on Amazon CloudWatch. There are two ways to do this, via the API and via the CloudWatch Console.
+As a one time setup per AWS account, first time users need to enable Transaction Search on Amazon CloudWatch. There are two ways to do this, via the API and via the CloudWatch Console. If you deploy your agent with the AgentCore CLI, `agentcore deploy` enables Transaction Search automatically and you can skip Step 1. To opt out, run `agentcore config transactionSearch false`.
 
 ## Step 1: Enable transaction search on CloudWatch
 <a name="enabling-transaction-search"></a>
@@ -98,26 +98,33 @@ For a complete example, refer to the [AgentCore Observability samples on GitHub]
 ### Create your agent project
 <a name="create-agent-strands"></a>
 
-Create a new project using the AgentCore CLI. This sets up your project folder, virtual environment, and dependencies:
+Create a new project, register a Python HTTP Runtime, and initialize its dependencies:
 
 ```
 npm install -g @aws/agentcore
 agentcore create \
-  --project-name StrandsObservability \
-  --name StrandsClaudeGettingStarted \
-  --language Python \
-  --framework Strands \
-  --model-provider Bedrock \
-  --memory none
-cd StrandsObservability/app/StrandsClaudeGettingStarted
-uv add strands-agents-tools
+  --name StrandsObservability \
+  --template empty
+cd StrandsObservability
+agentcore add runtime \
+  --name StrandsClaude \
+  --language python \
+  --protocol HTTP
+cd app/StrandsClaude
+uv init --bare
+uv add \
+  "aws-opentelemetry-distro~=0.21.0" \
+  "bedrock-agentcore[strands-agents]>=1.18.1,<2" \
+  "botocore[crt]~=1.43.0" \
+  "strands-agents>=1.15,<2" \
+  strands-agents-tools
 cd ../..
 ```
 
-In the project’s agent directory, replace the default agent code with your own agent logic. The following is an example using the Strands Agents SDK:
+In the Runtime directory, create your agent entrypoint. The following is an example using the Strands Agents SDK:
 
 ```
-## app/StrandsClaudeGettingStarted/main.py
+## app/StrandsClaude/main.py
 from strands import Agent, tool
 from strands_tools import calculator
 from bedrock_agentcore.runtime import BedrockAgentCoreApp
@@ -131,7 +138,7 @@ def weather():
     return "sunny"
 
 model = BedrockModel(
-    model_id="us.anthropic.claude-3-7-sonnet-20250219-v1:0",
+    model_id="global.anthropic.claude-sonnet-4-6",
 )
 agent = Agent(
     model=model,
@@ -164,19 +171,20 @@ agentcore deploy
 After deployment, your agent runs on AgentCore Runtime and is automatically instrumented using OpenTelemetry. Invoke your agent and view the traces, sessions, and metrics on the GenAI Observability dashboard in Amazon CloudWatch:
 
 ```
-agentcore invoke
+agentcore invoke --runtime StrandsClaude \
+  --payload '{"prompt":"What is 2 plus 2?"}'
 ```
 
 Alternatively, you can invoke your agent programmatically using the AWS SDK:
 
 ```
-import boto3, json
+import boto3, json, uuid
 
 client = boto3.client('bedrock-agentcore')
 
 response = client.invoke_agent_runtime(
     agentRuntimeArn="YOUR_AGENT_RUNTIME_ARN",
-    runtimeSessionId="my-observability-session-001",
+    runtimeSessionId=str(uuid.uuid4()),
     payload=json.dumps({"prompt": "What is 2 + 2?"}),
     qualifier="DEFAULT"
 )
@@ -285,8 +293,8 @@ opentelemetry-instrument python agent.py
 
 If you host your agent on AWS Lambda, use the [AWS Lambda Layer for OpenTelemetry](https://aws-otel.github.io/docs/getting-started/lambda) on the AWS Distro for OpenTelemetry website. Add the layer to your function, and then set the `AWS_LAMBDA_EXEC_WRAPPER` environment variable to `/opt/otel-instrument`. The layer then auto-instruments your function. With this approach, you don’t need to add the `aws-opentelemetry-distro` package or run the `opentelemetry-instrument` command described earlier.
 
-**ADOT Collector not supported for agent observability**  
-The ADOT Collector is not supported for agent observability. To send telemetry from an agent hosted outside of AgentCore runtime, you must use either the ADOT SDK or the AWS Lambda Layer for OpenTelemetry.
+**Note**  
+To send telemetry from an agent hosted outside of AgentCore runtime, use either the ADOT SDK or the AWS Lambda Layer for OpenTelemetry.
 
 You can now view your traces, sessions and metrics on GenAI Observability Dashboard on Amazon CloudWatch with the value of **YOUR-AGENT-NAME** that you configured in your [environment variables](#configure-opentelemetry-environment-variables).
 
@@ -307,7 +315,7 @@ After implementing observability, you can view the collected data in CloudWatch:
 
 1. Open the [GenAI Observability on CloudWatch console](https://console.aws.amazon.com/cloudwatch/home#gen-ai-observability) 
 
-1. You can view the data related to model invocations and agents on Bedrock Amazon Bedrock AgentCore on the dashboard.
+1. You can view the data related to model invocations and agents on Amazon Bedrock AgentCore on the dashboard.
 
 1. In the Bedrock Agentcore tab you can view Agents View, Sessions View and Traces View.
 

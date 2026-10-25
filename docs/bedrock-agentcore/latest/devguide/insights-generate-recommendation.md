@@ -6,7 +6,7 @@
 After reviewing your insights results, you can use the same agent traces to generate an improved system prompt. Point `StartRecommendation` at the completed batch evaluation that produced your insights findings.
 
 **Note**  
-Recommendation generation is currently supported only for `Builtin.Insight.FailureAnalysis` insights, and only system prompt recommendations are provided today.
+Recommendation generation from insights supports only `Builtin.Insight.FailureAnalysis` insights, and it produces only system prompt recommendations.
 
 **Topics**
 + [Start a system prompt recommendation](#insights-recommendation-start)
@@ -19,21 +19,33 @@ Recommendation generation is currently supported only for `Builtin.Insight.Failu
 Provide your current system prompt and reference the batch evaluation that contains the traces:
 
 **Example**  
-Generate a recommendation from a completed insights run:  
+Reference the batch evaluation ARN produced by the completed insights run:  
 
 ```
-agentcore run recommendation --from-insights <id> --type system-prompt --bundle-name my_bundle --json
+agentcore eval recommendation start \
+  --name improve-system-prompt \
+  --type SYSTEM_PROMPT_RECOMMENDATION \
+  --recommendation-config '{
+    "systemPromptRecommendationConfig": {
+      "systemPrompt": {
+        "text": "You are a helpful customer support assistant."
+      },
+      "agentTraces": {
+        "batchEvaluation": {
+          "batchEvaluationArn": "<BATCH_EVALUATION_ARN>"
+        }
+      },
+      "evaluationConfig": {
+        "evaluators": [
+          {
+            "evaluatorArn": "arn:aws:bedrock-agentcore:::evaluator/Builtin.GoalSuccessRate"
+          }
+        ]
+      }
+    }
+  }' \
+  --json
 ```
-Or reference a batch evaluation ARN directly:  
-
-```
-agentcore run recommendation --batch-evaluation-arn <arn> --type system-prompt --bundle-name my_bundle --json
-```
-
-1. Run `agentcore` to open the TUI, then select **run** and choose **Recommendation**:  
-![Run menu: select Recommendation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-run-select.png)
-
-   The wizard guides you through selecting a trace source (insights run or batch evaluation ARN), recommendation type, and config bundle.
 
 ```
 import boto3
@@ -54,6 +66,13 @@ response = client.start_recommendation(
                     "batchEvaluationArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:batch-evaluate/insights-run-ABC1234567"
                 }
             },
+            "evaluationConfig": {
+                "evaluators": [
+                    {
+                        "evaluatorArn": "arn:aws:bedrock-agentcore:::evaluator/Builtin.GoalSuccessRate"
+                    }
+                ]
+            },
         }
     },
     clientToken=str(uuid.uuid4()),
@@ -62,11 +81,20 @@ response = client.start_recommendation(
 recommendation_id = response["recommendationId"]
 print(f"Started recommendation: {recommendation_id}")
 ```
+An insights-only batch evaluation does not contain evaluator scores. Specify one numerical evaluator in `evaluationConfig` to provide the optimization signal for the system prompt recommendation.
 
 ## Retrieve the recommended prompt
 <a name="insights-recommendation-retrieve"></a>
 
 Poll until complete, then retrieve the result:
+
+**Example**  
+Run the following command until `status` is `COMPLETED` or `FAILED`:  
+
+```
+agentcore eval recommendation get --id <RECOMMENDATION_ID> --json
+```
+The recommended prompt is in `recommendationResult.systemPromptRecommendationResult.recommendedSystemPrompt`, and the reasoning is in `recommendationResult.systemPromptRecommendationResult.explanation`.
 
 ```
 import time

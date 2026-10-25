@@ -682,7 +682,7 @@ The Record directory is the console page for browsing and searching approved rec
 <a name="registry-get-started-step5-console"></a>
 
 **Note**  
-Console-based discovery is available only for registries that use **Use IAM** as the authorization type. If your registry uses JSON Web Tokens (JWT), call the discoverable data-plane APIs directly using an HTTP client such as curl or Postman with a valid JWT Bearer Token in the request header. The AWS CLI and AWS SDKs use IAM SigV4 signing and cannot be used with JWT-authorized registries. For more details, see [Search for registry records](registry-search-records.md).
+Console-based discovery is available only for registries that use **Use IAM** as the authorization type. If your registry uses JSON Web Tokens (JWT), call the discoverable data-plane APIs directly using an HTTP client such as curl or Postman with a valid JWT Bearer Token in the request header. For more details, see [Search for registry records](registry-search-records.md).
 
 **Example**  
  **To browse or search approved records**   
@@ -752,7 +752,7 @@ aws agent-registry batch-get-discoverable-registry-record \
 ```
 
 **Note**  
- `ListDiscoverableRegistryRecords` and `BatchGetDiscoverableRegistryRecord` are only available in the `agent-registry` namespace. They are not available in the `bedrock-agentcore` namespace.
+ `ListDiscoverableRegistryRecords` and `BatchGetDiscoverableRegistryRecord` are only available in the `agent-registry` namespace.
 
 ### AWS SDK
 <a name="registry-get-started-step5-sdk"></a>

@@ -15,7 +15,7 @@ Recommendations and A/B testing have the same agent requirements as AgentCore Ev
 
 ## SDK and CLI requirements
 <a name="optimization-prereqs-sdk-cli"></a>
-+  **AgentCore CLI:** Install the latest version by running `agentcore update`.
++  **AgentCore CLI:** Install it with `npm install -g @aws/agentcore`. If it is already installed, run `agentcore update`.
 +  ** AWS SDK (boto3):** Python 3.10 or later. Install or upgrade with `pip install --upgrade boto3`.
 +  **AgentCore SDK:** If using the `bedrock-agentcore-sdk-python`, version 1.8 or later is required.
 

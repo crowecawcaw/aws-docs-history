@@ -8,7 +8,7 @@ You can use the harness through the [AgentCore CLI](https://github.com/aws/agent
 ## Prerequisites
 <a name="harness-prerequisites"></a>
 +  AWS credentials configured in one of the [supported regions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agentcore-regions.html).
-+ For the CLI: Node.js 20\+
++ For the CLI: Install and configure the AgentCore CLI as described in [Get started with the AgentCore CLI](runtime-get-started-cli.md).
 + For the SDK/boto3: Python 3.10\+, [`boto3` installed](https://docs.aws.amazon.com/boto3/latest/guide/quickstart.html), and an IAM execution role the harness can assume. See the [execution role policy](harness-security.md#harness-execution-role-policy) for minimum permissions.
 
 ## Get started
@@ -26,7 +26,7 @@ Poll `get-harness` until `"status": "READY"`. Note the `arn` in the response.
 
 ```
 aws bedrock-agentcore-control get-harness \
-  --harness-id "MyHarness-XyZ123"
+  --harness-id "MyHarness-XyZ1234567"
 ```
 Invoke from Python. If you don’t specify a model, the harness defaults to Anthropic Claude Sonnet 4.6 on Amazon Bedrock:  
 
@@ -36,11 +36,11 @@ import boto3
 client = boto3.client("bedrock-agentcore", region_name="us-west-2")
 
 response = client.invoke_harness(
-    harnessArn="arn:aws:bedrock-agentcore:us-west-2:123456789012:harness/MyHarness-XyZ123",  # Replace with your harness ARN
+    harnessArn="arn:aws:bedrock-agentcore:us-west-2:123456789012:harness/MyHarness-XyZ1234567",  # Replace with your harness ARN
     runtimeSessionId="1234abcd-12ab-34cd-56ef-1234567890ab",
     messages=[{
         "role": "user",
-        "content": [{"text": "Research three tropical vacation options under $3k."}]
+        "content": [{"text": "Research three tropical vacation options under USD $3,000, within five hours of New York City."}]
     }],
 )
 
@@ -52,91 +52,109 @@ for event in response["stream"]:
     elif "runtimeClientError" in event:
         print(f"\nError: {event['runtimeClientError']['message']}")
 ```
-Install the AgentCore CLI:  
+Create a harness project. The CLI sets the harness model to Anthropic Claude Sonnet 5.5 on Amazon Bedrock (`global.anthropic.claude-sonnet-5-5`):  
 
 ```
-npm install -g @aws/agentcore
-```
-Create a harness project non-interactively with flags:  
-
-```
-agentcore create --name myresearchagent --model-provider bedrock
+agentcore create --name MyResearchAgent
+cd MyResearchAgent
 ```
 Deploy and invoke:  
 
 ```
 agentcore deploy
-agentcore invoke --harness myresearchagent \
+agentcore invoke --harness MyResearchAgent \
   --session-id "$(uuidgen)" \
-  "Research three tropical vacation options under $3k, within five hours of NYC."
+  --prompt 'Research three tropical vacation options under USD $3,000, within five hours of New York City.'
 ```
-The response streams to your terminal. Reuse the same `--session-id` across invocations to continue the conversation in the same environment.  
-To add more harnesses to an existing project, use `agentcore add harness`. To generate a standalone Python invoke script, add `--with-invoke-script`.  
-Useful flags:  
-+  `--no-browser` (`-b`) - use the terminal TUI instead of the browser inspector
-+  `--logs` (`-l`) - run in non-interactive mode with logs to stdout
-+  `--port <port>` (`-p`) - set the dev server port (default 8080)
-+  `--no-traces` - disable local OTEL trace collection
-Install the AgentCore CLI:  
+With `--prompt`, the CLI collects the response stream and prints the completed transcript and session information as JSON. Reuse the same `--session-id` across invocations to continue the conversation in the same environment.  
+Omit `--prompt` to open interactive chat, where the response appears incrementally:  
 
 ```
-npm install -g @aws/agentcore
+agentcore invoke --harness MyResearchAgent --session-id "$(uuidgen)"
 ```
+For project names of up to 15 characters, the harness has the same name as the project. For longer names, run `agentcore status` to see the harness name.  
+To add another harness to an existing project, use `agentcore add harness`.
 Run `agentcore create` without flags to launch the interactive wizard:  
 
 ```
 agentcore create
 ```
+Enter a project name, choose **config-based**, choose a model provider and model, and confirm the configuration. The wizard scaffolds the default harness project.  
 
-1. Enter your project name:  
-![Create wizard: enter project name](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-01-create-project-name.png)
+![Creating a config-based project by choosing its name, model provider, and model.](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/project-create-harness.gif)
 
-1. Select **Harness** as the project type:  
-![Create wizard: select project type](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-02-create-project-type.png)
-
-1. Choose your model provider:  
-![Create wizard: select model provider](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-04-model-provider.png)
-
-1. Choose your environment (default, container URI, or Dockerfile):  
-![Create wizard: select environment](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-05-custom-environment.png)
-
-1. Configure memory:  
-![Create wizard: configure memory](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-06-memory.png)
-
-1. Optionally configure advanced settings (tools, auth, network, lifecycle, limits, truncation, session storage):  
-![Create wizard: advanced settings](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-07-advanced-settings.png)
-
-1. Review your configuration and confirm:  
-![Create wizard: review and confirm](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-08-confirm.png)
-After confirmation, the wizard scaffolds your project. Deploy with `agentcore deploy`, then invoke with `agentcore invoke`.  
-Check project status at any time with `agentcore status`:  
-
-![AgentCore status dashboard](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-13-status.png)
-
-
-1. Local development
-If you want to test the harness in your local environment, you can run the dev server:  
+After creation, change to the generated project directory and run:  
 
 ```
-agentcore dev
+agentcore deploy
+agentcore invoke
 ```
-When you run `agentcore dev`, the CLI first deploys your harness resources to AWS, creating the IAM role, harness, and any memory or credentials configured in your project:  
+Select the harness from the list to open the interactive harness experience. The harness has the same name as the project when the project name is 15 characters or fewer. For a longer project name, the CLI shortens the harness name and adds a hash. The harness name is listed under `harnesses` in `agentcore/agentcore.json`. Check deployment details at any time with `agentcore status`.  
+The response streams into the chat. Reuse the session to continue the conversation:  
 
-![Deploy progress: CloudFormation resource creation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/common-deploy-progress.png)
+![Invoking a deployed harness and reading its streamed response.](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/project-invoke-chat.gif)
 
-Once deployment completes, it starts a local server and opens the agent inspector in your browser where you can chat with the harness, inspect traces, and browse project resources:  
+To create a standalone harness without a project, run `agentcore harness create`. Review the model, memory, tools, and system prompt before confirming. The following recording stops at the review screen:  
 
-![Agent inspector: chat with your harness](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-agent-inspector.png)
-
-Expand **Harness Settings** to view and override the harness configuration for the current session:  
-
-![Agent inspector: harness settings and configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-agent-inspector-settings.png)
+![Configuring a standalone harness and reviewing its model, memory, tools, and system prompt.](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-create.gif)
 
 
 That’s all you need to get a harness running. The following sections cover everything you can configure.
 
 **Note**  
 The `runtimeSessionId` must be at least 33 characters. Use a UUID or similar identifier. Reuse the same session ID across invocations to continue a conversation in the same environment.
+
+## Supply an end-user ID
+<a name="harness-invoke-user-id"></a>
+
+Use `--user-id` when your application needs to send an end-user identifier with a Harness invocation. It is separate from `--session-id` and the Memory configuration’s `actorId`. If you omit it, the CLI sends no Harness user ID. The value does not replace inbound authentication.
+
+For a project Harness:
+
+```
+agentcore invoke --harness MyResearchAgent \
+  --user-id user-123 \
+  --session-id "$(uuidgen)" \
+  --prompt "Summarize my research."
+```
+
+For a deployed Harness by ID, no project is required. The same option works in interactive chat when you omit `--prompt`:
+
+```
+agentcore harness invoke --id <harness-id> \
+  --user-id user-123 \
+  --session-id "$(uuidgen)"
+```
+
+## Test a Harness with the Agent Inspector
+<a name="harness-development"></a>
+
+For a Harness project, `agentcore dev --mode browser` deploys the project and opens a local Agent Inspector that invokes the deployed Harness in AWS. It does not run the Harness locally. Deployment can create or update project resources, and cloud invocations can incur charges.
+
+Run this command from the project root:
+
+```
+agentcore dev --mode browser
+```
+
+To use the deployed configuration without deploying again:
+
+```
+agentcore dev --mode browser --skip-deploy
+```
+
+Use `--target` to select an entry in `agentcore/aws-targets.json`, and `--ui-port` to choose the local Inspector port. In a project containing both Runtimes and Harnesses, use `--agent` to select one:
+
+```
+agentcore dev --agent MyResearchAgent \
+  --mode browser \
+  --target default \
+  --ui-port 8082
+```
+
+Harness requests use the selected deployment target’s Region and credentials. Without `--mode browser`, the default headless mode deploys unless you pass `--skip-deploy`, prints invocation guidance, and exits. It does not start a local server or chat session.
+
+Runtime-only `--port` and `--no-traces` options do not apply to Harness development. This path does not start a local Runtime or OpenTelemetry collector. Use [Harness operations](harness-operations.md) for cloud observability, or [open a Harness shell](harness-command-shell.md#harness-command-shell-cli) to inspect its execution environment.
 
 ## API Documentation
 <a name="api-documentation"></a>
@@ -154,7 +172,7 @@ For additional details, see the API Reference:
 +  [GetHarnessEndpoint API](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_GetHarnessEndpoint.html) 
 +  [UpdateHarnessEndpoint API](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateHarnessEndpoint.html) 
 +  [DeleteHarnessEndpoint API](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_DeleteHarnessEndpoint.html) 
-+  [ListHarnessesEndpoints API](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListHarnessesEndpoint.html) 
++  [ListHarnessEndpoints API](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListHarnessEndpoints.html) 
 
 ## Streaming response format
 <a name="harness-streaming-format"></a>

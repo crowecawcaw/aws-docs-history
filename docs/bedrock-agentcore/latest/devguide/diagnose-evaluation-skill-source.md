@@ -64,7 +64,7 @@ Extract and record:
 - `dataSourceConfig.cloudWatchLogs.serviceNames` — the expected service names
 - `evaluators` — list of evaluator IDs
 - `rule.samplingConfig.samplingPercentage` — sampling rate
-- `sessionIdleTimeout` — when sessions are considered complete
+- `rule.sessionConfig.sessionTimeoutMinutes` — when sessions are considered complete
 
 **Quick checks on the config:**
 - [ ] `executionStatus` is `ENABLED` (not `DISABLED`)
@@ -161,7 +161,7 @@ Record the deployment type — Phase 5 uses it.
 - Verify the session ID is correct (copy from agent traces, not invocation logs)
 - Check that the `aws/spans` log group exists in this region
 - Confirm Phase 2 (Transaction Search) passed
-- For AgentCore Runtime: verify observability is enabled on the runtime (`agentcore status` or the runtime's "Log deliveries and tracing" settings)
+- For AgentCore Runtime: verify observability is enabled in the runtime's "Log deliveries and tracing" settings
 - For 3P: verify OTEL instrumentation is set up (e.g., `CMD ["opentelemetry-instrument", "python", "main.py"]` in the Dockerfile, and `aws-opentelemetry-distro` installed). Also check that framework-level tracing dependencies are installed (e.g., `opentelemetry-instrumentation-langchain` for LangGraph, `strands-agents[otel]` for Strands).
 
 **Reference:** [Enabling observability for AgentCore-hosted agents](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-configure.html#observability-configure-builtin) | [Enabling observability for agents hosted outside of AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-configure.html#observability-configure-3p)
@@ -185,7 +185,7 @@ Spans with unsupported scopes will be ignored by the evaluation service. If ALL 
 
 Report any spans with unsupported scopes and note the framework the user is using. Common causes:
 - **Framework-level tracing not enabled** — for LangChain/LangGraph, the user may have OTEL auto-instrumentation set up (so they see `opentelemetry.instrumentation.starlette`, `opentelemetry.instrumentation.httpx`, etc.) but hasn't installed the framework-specific instrumentation package needed to emit evaluation-compatible spans
-- **Unsupported framework** — Claude Agent SDK, custom instrumentation, or other frameworks that emit spans under different scopes are not currently supported for evaluation
+- **Spans under other scopes**: Claude Agent SDK, custom instrumentation, and other frameworks can emit spans under scopes outside the supported list. To evaluate these agents, configure the instrumentation to emit a scope name described in [Generic framework support](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/supported-frameworks-generic.html)
 
 **Verify framework-level tracing dependencies** based on the agent's framework:
 

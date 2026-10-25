@@ -22,10 +22,10 @@ When creating an AgentCore Memory, consider the following factors to maintain it
 
 **Example**  
 
-1. The AgentCore CLI memory commands must be run inside an existing agentcore project. If you don’t have one yet, create a project first:
+1. The AgentCore CLI memory commands must be run inside an existing AgentCore project. If you don’t have one yet, create a project first:
 
    ```
-   agentcore create --project-name MemoryProject --no-agent
+   agentcore create --name MemoryProject --template empty
    cd MemoryProject
    ```
 
@@ -44,25 +44,35 @@ When creating an AgentCore Memory, consider the following factors to maintain it
    agentcore deploy
    ```
 
-    **Check** memory status:
+    **Check** memory status. Run `agentcore status --json` to find the deployed memory `arn`. The memory ID is the part of the ARN after `memory/`. Then check that the memory status is `ACTIVE`:
 
    ```
-   agentcore status
+   agentcore status --json
+   agentcore memory get --id <memory-id>
    ```
 
-1. Run `agentcore` to open the TUI, then select **add** and choose **Memory** :
+1. Run `agentcore add memory` from the project directory to open the Memory wizard.
 
-1. Enter the memory name:  
-![Memory wizard: enter name](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-name.png)
+1. Enter the memory name.
 
-1. Select the event expiry duration:  
-![Memory wizard: select event expiry duration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-expiry.png)
+1. Choose memory strategies for long-term memory extraction. Use the arrow keys and Space to select any of `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, and `EPISODIC`, then press Enter. Select none to keep only short-term memory.
 
-1. Choose memory strategies for long-term memory extraction:  
-![Memory wizard: select memory strategies](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-strategies.png)
+1. Enter how long to keep raw events, from 3 to 365 days. The default is 30 days.
 
-1. Review the configuration and press Enter to confirm:  
-![Memory wizard: review configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-confirm.png)
+1. Review the configuration and press Enter to add the memory to `agentcore/agentcore.json`.
+
+1. Press Ctrl\+C to exit the TUI, then deploy the project to create the memory:
+
+   ```
+   agentcore deploy
+   ```
+
+1. Run `agentcore status --json` to find the deployed memory `arn`. The memory ID is the part of the ARN after `memory/`. Then check that the memory status is `ACTIVE`:
+
+   ```
+   agentcore status --json
+   agentcore memory get --id <memory-id>
+   ```
 
 1. For more information, see [AWS SDK](aws-sdk-memory.md).
 
@@ -80,6 +90,7 @@ When creating an AgentCore Memory, consider the following factors to maintain it
    response = control_client.create_memory(
        name="ShoppingSupportAgentMemory",
        description="Memory for a customer support agent.",
+       eventExpiryDuration=30,
        memoryStrategies=[
            {
                'summaryMemoryStrategy': {

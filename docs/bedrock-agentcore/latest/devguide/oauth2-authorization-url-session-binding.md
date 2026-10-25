@@ -33,7 +33,7 @@ The following steps walk you through setting up the workload identity, the OAuth
 You can refer to sample code as an example of a working application: [OAuth 2.0 callback server implementation](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-features/05-authenticate-and-authorize/02-outbound-auth/02-outbound-auth-3lo/oauth2_callback_server.py).
 
 **Important**  
-When you are using the AgentCore CLI with `agentcore dev` in a local environment, to simplify your local development and testing, the CLI hosts the callback endpoint and calls the `CompleteResourceTokenAuth` API on your behalf to verify the user session to get OAuth 2.0 access tokens so you can skip steps 1, 2 and 4 in the following setup. However, when deploying your agent code to AgentCore Runtime, your web application that connects to the agent runtime must host a publicly accessible HTTPS callback endpoint itself, the callback endpoint must be registered against the workload identity as an `AllowedResourceOAuth2ReturnUrl` by calling `UpdateWorkloadIdentity` using the agent ID provided by AgentCore Runtime, and then call the `CompleteResourceTokenAuth` API after verifying the current user’s browser session to secure your OAuth 2.0 authorization flows.
+ `agentcore dev` doesn’t host an OAuth callback endpoint or call `CompleteResourceTokenAuth`. Your application must implement the callback and session-verification flow in the following steps for both local and deployed testing.
 
  **To implement OAuth 2.0 authorization URL session binding** 
 
@@ -41,7 +41,7 @@ When you are using the AgentCore CLI with `agentcore dev` in a local environment
 
    As an example, your application may have its users interact with an agent at a primary application page like `https://myagentapp.com/assistant` . You’ll want to expose a new URL like `https://myagentapp.com/callback` that for now will redirect to the primary application page. The actual code logic in your `/callback` endpoint will be updated later when following this guide.
 
-1.  **Update workload identity with application URL** – (Can be skipped if testing locally via AgentCore CLI) Once you have created and hosted an application URL for AgentCore Identity to redirect to, update your workload identity so that the application URL is registered as an `AllowedResourceOauth2ReturnUrl` . Make sure that the IAM credentials used have permissions to call `CreateWorkloadIdentity` or `UpdateWorkloadIdentity` depending on whether you’re creating a new workload identity or updating an existing one.
+1.  **Update workload identity with application URL.** After you host the application URL, add it to `allowedResourceOauth2ReturnUrls` on your workload identity. Your IAM credentials need permission to call `CreateWorkloadIdentity` or `UpdateWorkloadIdentity`.
 **Note**  
 For workload identities created on your behalf by AgentCore Runtime or Gateway, the workload identity name will correspond to the runtime ID or gateway ID that is issued by the services.
 

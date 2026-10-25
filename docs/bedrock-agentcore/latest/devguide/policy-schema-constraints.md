@@ -25,7 +25,7 @@ The principal type depends on the authentication method configured for your Agen
  `AgentCore::IamEntity`   
 + Used for IAM-authenticated gateways (AWS\_IAM authorizer)
 + Has an `id` attribute containing the caller’s IAM ARN
-+ Does not support tags; use pattern matching on `principal.id` for access control
++ Use pattern matching on `principal.id` for access control
 
 ## Resource Type
 <a name="policy-resource-type"></a>

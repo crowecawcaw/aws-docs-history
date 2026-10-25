@@ -4,7 +4,7 @@
 <a name="configuration-bundles-get"></a>
 
 Retrieve a configuration bundle to inspect its metadata or read the full configuration content of a specific version. Two operations are available:
-+  **GetConfigurationBundle** — Returns the latest version of a bundle. If `branchName` is specified, returns the latest version on that branch. If omitted, returns the newest version across all branches. Use this to read the current active configuration.
++  **GetConfigurationBundle** — Returns the latest version of a bundle. If `branchName` is specified, returns the latest version on that branch. If omitted, returns the latest version on the `mainline` branch. Use this to read the current active configuration.
 +  **GetConfigurationBundleVersion** — Returns a specific historical version by version ID. Use this to inspect past configurations or compare versions.
 
 ## Bundle metadata vs version content
@@ -18,19 +18,26 @@ Retrieve a configuration bundle to inspect its metadata or read the full configu
 <a name="get-bundle-examples"></a>
 
 **Example**  
-View version history for a bundle:  
+Get the latest version on the `mainline` branch:  
 
 ```
-agentcore config-bundle versions --name myAgentConfig
+agentcore eval config-bundle get --id <configuration-bundle-id>
 ```
-Compare two versions side by side:  
+Get the latest version on another branch:  
 
 ```
-agentcore config-bundle diff --name myAgentConfig \
-  --from <version-1> \
-  --to <version-2>
+agentcore eval config-bundle get \
+  --id <configuration-bundle-id> \
+  --branch-name <branch-name>
 ```
-There is no direct "get bundle content" CLI command — the `config-bundle` subcommands are `versions`, `diff`, and `create-branch`. To enumerate versions and capture their IDs, use `agentcore config-bundle versions --name myAgentConfig --json` (optionally with `--branch <name>`, `--latest-per-branch`, or `--created-by <name>`), then feed the version IDs into `config-bundle diff`. To fetch the full configuration content of a bundle version, use the SDK/REST `GetConfigurationBundleVersion` operation shown below.
+Get a specific immutable version:  
+
+```
+agentcore eval config-bundle get \
+  --id <configuration-bundle-id> \
+  --version <version-id>
+```
+Without `--version`, the command returns the latest version on the branch named by `--branch-name`, which defaults to `mainline`. With `--version`, it returns that exact version and ignores the branch.
 Get bundle metadata and latest version content:  
 
 ```
@@ -71,7 +78,7 @@ print(f"Components: {response['components']}")
 | Parameter | Type | Required | Description | 
 | --- | --- | --- | --- | 
 |  `bundleId`  | String | Yes | The ID of the configuration bundle. Passed as a path parameter. | 
-|  `branchName`  | String | No | Branch name to get the latest version from. If omitted, returns the newest version across all branches. | 
+|  `branchName`  | String | No | Branch name to get the latest version from. If omitted, returns the latest version on the `mainline` branch. | 
 
 ### GetConfigurationBundleVersion
 <a name="get-bundle-params-version"></a>

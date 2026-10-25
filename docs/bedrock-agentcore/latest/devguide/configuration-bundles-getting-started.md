@@ -18,10 +18,10 @@ This walkthrough takes you from zero to a versioned configuration bundle that yo
 <a name="cfg-gs-before-you-begin"></a>
 
 Make sure you have:
-+ An AgentCore CLI project with an agent deployed to AgentCore Runtime (or follow the Appendix below to create one with config bundle support)
++ An agent deployed to AgentCore Runtime, and its runtime ARN. To create one with configuration bundle support, create a Python Strands agent project with `agentcore create --name MyAgent --template agent-python-strands`, replace `app/agent/main.py` with the code in the [Appendix](#cfg-gs-appendix), and run `agentcore deploy`. The runtime ARN is the `arn` value for `agent` in `agentcore status --json`.
 +  AWS credentials with permissions for `bedrock-agentcore` and `bedrock-agentcore-control` (see [Prerequisites](optimization-prereqs.md))
 
-The following constants are used in the boto3 examples. Replace them with your own values:
+The following constants are used in the boto3 examples. Replace them with your own values. Use your runtime ARN as the component key in the boto3 examples and in the components files:
 
 ```
 REGION        = "us-west-2"
@@ -35,15 +35,28 @@ COMPONENT_ARN = "arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/MyAgen
 Create a bundle with your agent’s initial configuration. The bundle stores key-value pairs (system prompt, model ID, temperature, tool descriptions) keyed by the component ARN.
 
 **Example**  
+Save the initial component map as `components.json`. Replace `<component-arn>` with your agent’s Runtime ARN:  
 
 ```
-agentcore add config-bundle \
+{
+  "<component-arn>": {
+    "configuration": {
+      "system_prompt": "You are a helpful customer support assistant for Acme Store.",
+      "model_id": "global.anthropic.claude-sonnet-4-5-20250929-v1:0",
+      "temperature": 0.7
+    }
+  }
+}
+```
+Create the bundle from the file:  
+
+```
+agentcore eval config-bundle create \
   --name myAgentConfig \
-  --components '{"arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/MyAgent-abc123": {"configuration": {"system_prompt": "You are a helpful customer support assistant for Acme Store.", "model_id": "global.anthropic.claude-sonnet-4-5-20250929-v1:0"}}}'
-
-agentcore deploy
+  --commit-message "Initial configuration" \
+  --components file://components.json
 ```
-After deployment, the CLI prints the bundle ID and initial version ID.
+The CLI returns the bundle ID and initial version ID.
 
 ```
 import boto3
@@ -79,13 +92,27 @@ print(f"Initial version: {version_id}")
 After running a batch evaluation and identifying that your agent’s responses are too verbose, update the system prompt. Each update creates a new immutable version.
 
 **Example**  
-Edit the bundle configuration in `agentcore.json`, then redeploy:  
+Save the complete replacement component map as `components-v2.json`:  
 
 ```
-# Edit the system_prompt in agentcore.json, then:
-agentcore deploy
+{
+  "<component-arn>": {
+    "configuration": {
+      "system_prompt": "You are a helpful customer support assistant for Acme Store. Be concise. Confirm actions taken in one sentence.",
+      "model_id": "global.anthropic.claude-sonnet-4-5-20250929-v1:0",
+      "temperature": 0.5
+    }
+  }
+}
 ```
-The CLI detects the existing bundle and creates a new version automatically.
+Create a new immutable version from the file:  
+
+```
+agentcore eval config-bundle update \
+  --id <configuration-bundle-id> \
+  --components file://components-v2.json \
+  --commit-message "Reduce verbosity: shorter prompt, lower temperature"
+```
 
 ```
 response = client.update_configuration_bundle(
@@ -119,15 +146,8 @@ Retrieve the current configuration to verify the update took effect.
 **Example**  
 
 ```
-agentcore config-bundle versions --name myAgentConfig
-```
-Output shows the version history with commit messages:  
-
-```
-Version                               Branch     Created              Message
-────────────────────────────────────────────────────────────────────────────────
-a1b2c3d4-...                          mainline   2026-04-28 03:00     Reduce verbosity: shorter prompt, lower temperature
-e5f6a7b8-...                          mainline   2026-04-28 02:30     Initial configuration
+agentcore eval config-bundle get --id <configuration-bundle-id>
+agentcore eval config-bundle version list --id <configuration-bundle-id>
 ```
 
 ```
@@ -146,9 +166,16 @@ print(f"Temperature: {config.get('temperature')}")
 Diff two versions to see exactly what changed:
 
 **Example**  
+Retrieve each immutable version and compare the returned component maps:  
 
 ```
-agentcore config-bundle diff --name myAgentConfig --from <version-1> --to <version-2>
+agentcore eval config-bundle get \
+  --id <configuration-bundle-id> \
+  --version <version-1>
+
+agentcore eval config-bundle get \
+  --id <configuration-bundle-id> \
+  --version <version-2>
 ```
 
 ```

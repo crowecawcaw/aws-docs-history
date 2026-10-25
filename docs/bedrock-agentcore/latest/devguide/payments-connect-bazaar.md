@@ -23,13 +23,13 @@ AgentCore Gateway lets you connect to paid MCP servers and API endpoints. You ca
 1. Select **Coinbase x402 Bazaar**.
 
 1. Skip **Outbound Auth configurations**. "No Authorization" is the only supported option and is selected by default.
+The Gateway must already be in your project. To add one, run `agentcore add gateway --name MyGateway`. This command creates a Gateway with no inbound authorization. The agent examples on this page send an `Authorization: Bearer` header, which only a Gateway with `CUSTOM_JWT` inbound authorization needs. For a Gateway with no inbound authorization, remove that header. To set up `CUSTOM_JWT`, see [Set up inbound authorization for your gateway](gateway-inbound-auth.md).  
 
 ```
 agentcore add gateway-target \
+  --gateway MyGateway \
   --name CoinbaseTarget \
-  --type mcp-server \
-  --endpoint https://api.cdp.coinbase.com/platform/v2/x402/discovery/mcp \
-  --gateway MyGateway
+  --endpoint https://api.cdp.coinbase.com/platform/v2/x402/discovery/mcp
 
 agentcore deploy
 ```

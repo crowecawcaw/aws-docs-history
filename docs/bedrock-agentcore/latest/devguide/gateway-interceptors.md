@@ -27,7 +27,7 @@ There are two types of interceptors that can be configured on your gateway:
 
 A gateway can have at most one REQUEST interceptor and at most one RESPONSE interceptor configured. You can configure both types on the same gateway, but you cannot have multiple interceptors of the same type.
 
-Currently, interceptors can only be configured with Lambda functions.
+Configure interceptors with Lambda functions.
 
 ## Security best practices
 <a name="gateway-interceptors-security"></a>

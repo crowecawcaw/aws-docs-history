@@ -50,10 +50,10 @@ Before you deploy an MCP server, make sure you have the following:
 ### Install required packages
 <a name="runtime-mcp-install-packages"></a>
 
-First, install the MCP package:
+First, install the MCP package. The examples in this guide use version 1 of the MCP Python SDK:
 
 ```
-pip install mcp
+pip install "mcp>=1.28.1,<2"
 ```
 
 ### Create your first MCP server
@@ -152,32 +152,7 @@ You can also test your server using the MCP Inspector as described in [Local tes
 ### Install deployment tools
 <a name="runtime-mcp-install-deployment-tools"></a>
 
-Install the AgentCore CLI:
-
-```
-npm install -g @aws/agentcore
-```
-
-You use the AgentCore CLI to deploy your agent to AgentCore Runtime.
-
-Create a project folder with the following structure:
-
-```
-## Project Folder Structure
-
-your_project_directory/
-├── mcp_server.py # Your main agent code
-├── requirements.txt # Dependencies for your agent
-└── __init__.py # Makes the directory a Python package
-```
-
-Create a new file called `requirements.txt` , add the following to it:
-
-```
-mcp
-```
-
- `requirements.txt` specifies the requirements that the agent needs for deployment to AgentCore Runtime.
+Install and configure the AgentCore CLI as described in [Get started with the AgentCore CLI](runtime-get-started-cli.md).
 
 ### Create your project for deployment
 <a name="runtime-mcp-configure-deployment"></a>
@@ -190,48 +165,45 @@ Starting **October 7, 2025** , Amazon Bedrock AgentCore uses a Service-Linked Ro
 After setting up authentication, scaffold a new project with MCP protocol:
 
 ```
-agentcore create --project-name MCPServerProject --no-agent
+agentcore create --name MCPServerProject --template empty
+
 cd MCPServerProject
-agentcore add agent \
+
+agentcore add runtime \
   --name MCPServer \
-  --language Python \
+  --language python \
   --protocol MCP \
   --authorizer-type CUSTOM_JWT \
-  --discovery-url "https://cognito-idp.$REGION.amazonaws.com/$POOL_ID/.well-known/openid-configuration" \
-  --allowed-clients "$CLIENT_ID" \
+  --authorizer-configuration \
+  "{\"customJwtAuthorizer\":{\"discoveryUrl\":\"https://cognito-idp.$REGION.amazonaws.com/$POOL_ID/.well-known/openid-configuration\",\"allowedClients\":[\"$CLIENT_ID\"]}}" \
   --request-header-allowlist Authorization
+
 cp ../my_mcp_server.py app/MCPServer/main.py
 cd app/MCPServer
-uv add mcp
+uv init --bare
+uv add "aws-opentelemetry-distro~=0.21.0" "mcp>=1.28.1,<2"
 cd ../..
 ```
 
-The CLI creates a CUSTOM\_JWT runtime configuration and scaffolds the project structure. The commands copy your server over the generated `app/MCPServer/main.py` entrypoint and add its dependency to `pyproject.toml`.
+The commands create a CUSTOM\_JWT Runtime configuration, copy your server to the `app/MCPServer/main.py` entrypoint, and declare its dependencies.
 
 ### Deploy to AWS
 <a name="runtime-mcp-deploy"></a>
 
-Deploy your agent:
+Build and deploy your server:
 
 ```
+agentcore build
 agentcore deploy
 ```
 
-This command will:
-
-1. Package your agent code and dependencies
-
-1. Upload the deployment artifact to Amazon S3
-
-1. Create a Amazon Bedrock AgentCore runtime
-
-1. Deploy your agent to AWS 
-
-After deployment, you’ll receive an agent runtime ARN that looks like:
+After deployment, get the Runtime ARN:
 
 ```
-arn:aws:bedrock-agentcore:us-west-2:accountId:runtime/my_mcp_server-xyz123
+agentcore status --json
 ```
+
+The Runtime resource’s `arn` field contains its ARN.
 
 ## Step 4: Invoke your deployed MCP server
 <a name="runtime-mcp-invoke-server"></a>
@@ -328,44 +300,45 @@ For more information, see [Auth0 Dynamic Client Registration documentation](http
 After setting up authentication, scaffold a new project with MCP protocol:
 
 ```
-agentcore create --project-name MCPServerProject --no-agent
+agentcore create --name MCPServerProject --template empty
+
 cd MCPServerProject
-agentcore add agent \
+
+agentcore add runtime \
   --name MCPServer \
-  --language Python \
+  --language python \
   --protocol MCP \
   --authorizer-type CUSTOM_JWT \
-  --discovery-url "<AUTH0_DISCOVERY_URL>" \
-  --allowed-clients "<AUTH0_CLIENT_ID>" \
+  --authorizer-configuration \
+  '{"customJwtAuthorizer":{"discoveryUrl":"<AUTH0_DISCOVERY_URL>","allowedAudience":["<AUTH0_API_IDENTIFIER>"]}}' \
   --request-header-allowlist Authorization
+
 cp ../my_mcp_server.py app/MCPServer/main.py
 cd app/MCPServer
-uv add mcp
+uv init --bare
+uv add "aws-opentelemetry-distro~=0.21.0" "mcp>=1.28.1,<2"
 cd ../..
 ```
 
-Replace the Auth0 placeholders with values from your Auth0 application. The CLI creates a CUSTOM\_JWT runtime configuration and scaffolds the project structure. The commands copy your server over the generated `app/MCPServer/main.py` entrypoint and add its dependency to `pyproject.toml`.
+Replace `<AUTH0_DISCOVERY_URL>` with your Auth0 discovery URL and `<AUTH0_API_IDENTIFIER>` with the identifier of your Auth0 API. The client in Step 7 registers a new Auth0 application through Dynamic Client Registration, so its client ID is not known in advance. The Runtime validates the token audience instead of the client ID. The commands create a CUSTOM\_JWT Runtime configuration, copy your server to the `app/MCPServer/main.py` entrypoint, and declare its dependencies.
 
 ### Step 6: Deploy to AWS
 <a name="runtime-mcp-auth0-step-6"></a>
 
-Deploy your agent:
+Build and deploy your server:
 
 ```
+agentcore build
 agentcore deploy
 ```
 
-This command will:
-+ Package your agent code and dependencies
-+ Upload the deployment artifact to Amazon S3
-+ Create a Amazon Bedrock AgentCore runtime
-+ Deploy your agent to AWS 
-
-After deployment, you’ll receive an agent runtime ARN that looks like:
+After deployment, get the Runtime ARN:
 
 ```
-arn:aws:bedrock-agentcore:us-west-2:accountId:runtime/my_mcp_server-xyz123
+agentcore status --json
 ```
+
+The Runtime resource’s `arn` field contains its ARN.
 
 ### Step 7: Invoke your deployed Agent
 <a name="runtime-mcp-auth0-step-7"></a>
@@ -378,7 +351,7 @@ When using Auth0 with Dynamic Client Registration, you must include the `audienc
 Create a file named `mcp_auth0_client.py` with the following code. This client handles Auth0-specific requirements including the audience parameter:
 
 **Note**  
-The code includes httpx patching to inject User-Agent headers into all HTTP requests. This is necessary because the MCP Python SDK currently does not include User-Agent headers in its HTTP requests, which can cause issues with AWS WAF rules that require User-Agent headers. For more information, see [MCP Python SDK Issue \#1664](https://github.com/modelcontextprotocol/python-sdk/issues/1664) and [AWS WAF managed rule groups](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-baseline.html).
+The code adds a User-Agent header to every request that the MCP client sends, including OAuth discovery and token requests. It uses an httpx request event hook on the HTTP client that it passes to the MCP transport. This is necessary because the MCP Python SDK does not include User-Agent headers in its OAuth requests, which can cause issues with AWS WAF rules that require User-Agent headers. For more information, see [MCP Python SDK Issue \#1664](https://github.com/modelcontextprotocol/python-sdk/issues/1664) and [AWS WAF managed rule groups](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-baseline.html).
 
 #### MCP Python Auth0 Client Code
 <a name="runtime-mcp-auth0-client-code"></a>
@@ -393,13 +366,10 @@ Adds support for Auth0's 'audience' parameter requirement.
 
 Usage:
     # Required
-    export AGENT_ARN="arn:aws:bedrock:us-west-2:123456789012:agent/ABCD1234"
+    export AGENT_ARN="arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/MCPServerProject_default_MCPServer-xyz123"
 
     # Required for Auth0
     export AUTH0_API_IDENTIFIER="your-api-identifier"
-
-    # Optional - custom endpoint for beta/dev environments
-    export CUSTOM_ENDPOINT="https://beta.example.com"
 
     python mcp_auth0_client.py
 
@@ -416,44 +386,35 @@ import os
 import threading
 import time
 import webbrowser
-from datetime import timedelta
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from typing import Any
 from urllib.parse import parse_qs, urlencode, urlparse, urlunparse
 
-# Patch httpx at the request level to inject User-Agent header
-# This ensures ALL HTTP requests have the User-Agent header, including OAuth discovery calls
-_original_httpx_request = httpx.Request.__init__
-
-def _patched_httpx_request_init(self, method, url, *args, **kwargs):
-    """Patched Request.__init__ that injects User-Agent header into all HTTP requests."""
-    # Get or create headers
-    headers = kwargs.get('headers')
-    if headers is None:
-        headers = {}
-        kwargs['headers'] = headers
-
-    # Convert to mutable dict if needed
-    if not isinstance(headers, dict):
-        headers = dict(headers)
-        kwargs['headers'] = headers
-
-    # Inject User-Agent if not present (case-insensitive check)
-    if 'User-Agent' not in headers and 'user-agent' not in headers:
-        headers['User-Agent'] = 'python-mcp-sdk/1.0 (BedrockAgentCore-Runtime)'
-
-    # Call original __init__
-    _original_httpx_request(self, method, url, *args, **kwargs)
-
-# Apply the patch globally before importing MCP modules
-httpx.Request.__init__ = _patched_httpx_request_init
-
-# Now import MCP modules - they will use patched httpx
 from mcp.client.auth import OAuthClientProvider, TokenStorage
 from mcp.client.session import ClientSession
 from mcp.client.sse import sse_client
-from mcp.client.streamable_http import streamablehttp_client
+from mcp.client.streamable_http import streamable_http_client
 from mcp.shared.auth import OAuthClientInformationFull, OAuthClientMetadata, OAuthToken
+
+USER_AGENT = "python-mcp-sdk/1.0 (BedrockAgentCore-Runtime)"
+
+async def add_user_agent(request: httpx.Request) -> None:
+    """Add a User-Agent header to requests that do not have one, such as OAuth discovery requests."""
+    request.headers.setdefault("User-Agent", USER_AGENT)
+
+def create_http_client(
+    headers: dict[str, str] | None = None,
+    timeout: httpx.Timeout | None = None,
+    auth: httpx.Auth | None = None,
+) -> httpx.AsyncClient:
+    """Create the HTTP client for the MCP transport with the User-Agent request hook."""
+    return httpx.AsyncClient(
+        headers=headers,
+        timeout=timeout,
+        auth=auth,
+        follow_redirects=True,
+        event_hooks={"request": [add_user_agent]},
+    )
 
 class InMemoryTokenStorage(TokenStorage):
     """Simple in-memory token storage implementation."""
@@ -669,7 +630,6 @@ class SimpleAuthClient:
 
             print("\n🔧 Creating OAuth client provider...")
             # Create OAuth authentication handler
-            # Note: httpx.AsyncClient is globally patched to inject User-Agent header
             oauth_auth = OAuthClientProvider(
                 server_url=self.server_url,
                 client_metadata=OAuthClientMetadata.model_validate(client_metadata_dict),
@@ -686,14 +646,17 @@ class SimpleAuthClient:
                     url=self.server_url,
                     auth=oauth_auth,
                     timeout=60,
+                    httpx_client_factory=create_http_client,
                 ) as (read_stream, write_stream):
                     await self._run_session(read_stream, write_stream, None)
             else:
                 print("📡 Opening StreamableHTTP transport connection with auth...")
-                async with streamablehttp_client(
-                    url=self.server_url,
+                async with create_http_client(
                     auth=oauth_auth,
-                    timeout=timedelta(seconds=60),
+                    timeout=httpx.Timeout(60, read=300),
+                ) as http_client, streamable_http_client(
+                    self.server_url,
+                    http_client=http_client,
                 ) as (read_stream, write_stream, get_session_id):
                     await self._run_session(read_stream, write_stream, get_session_id)
 
@@ -818,14 +781,14 @@ async def main():
 
     if not agent_arn:
         print("❌ Please set AGENT_ARN environment variable")
-        print("Example: export AGENT_ARN='arn:aws:bedrock:us-west-2:123456789012:agent/ABCD1234'")
+        print("Example: export AGENT_ARN='arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/MCPServerProject_default_MCPServer-xyz123'")
         return
 
     # Encode the ARN for use in URL
     encoded_arn = agent_arn.replace(':', '%3A').replace('/', '%2F')
 
-    # Get base URL - use custom endpoint or default to production
-    base_endpoint = os.getenv("CUSTOM_ENDPOINT", "https://bedrock-agentcore.us-west-2.amazonaws.com")
+    region = agent_arn.split(":")[3]
+    base_endpoint = f"https://bedrock-agentcore.{region}.amazonaws.com"
 
     # Construct MCP URL from encoded ARN (no qualifier - SDK discovers it from PRM API)
     server_url = f"{base_endpoint}/runtimes/{encoded_arn}/invocations"
@@ -865,7 +828,7 @@ To use the client:
 1. Set required environment variables:
 
    ```
-   export AGENT_ARN="arn:aws:bedrock:us-west-2:123456789012:agent/ABCD1234"
+   export AGENT_ARN="arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/MCPServerProject_default_MCPServer-xyz123"
    ```
 
 1. Set Auth0-specific environment variable (required only for Auth0):
@@ -957,8 +920,8 @@ Run the script using the command `source setup_cognito.sh`.
 For detailed OAuth authentication setup and Service-Linked Role information, see [Authenticate and authorize with Inbound Auth and Outbound Auth](runtime-oauth.md).
 
 After running this script, note the following values for use in the deployment configuration:
-+ Discovery URL: Used during the `agentcore create` step
-+ Client ID: Used during the `agentcore create` step
++ Discovery URL: Used when adding the Runtime to the AgentCore project
++ Client ID: Used when adding the Runtime to the AgentCore project
 + Bearer Token: Used when invoking your deployed server
 
 ### Local testing with MCP inspector
@@ -985,11 +948,11 @@ To use the Inspector:
 
 1. You’ll see your tools listed in the sidebar
 
-1. Click on any tool to test it
+1. Choose a tool to test it.
 
 1. Fill in the parameters (e.g., for `add_numbers` , enter values for `a` and `b` )
 
-1. Click "Call Tool" to see the result
+1. Choose **Call Tool** to see the result.
 
 ### Remote testing with MCP inspector
 <a name="runtime-mcp-appendix-c"></a>
@@ -997,14 +960,14 @@ To use the Inspector:
 You can also test your deployed server using the MCP Inspector. First, URL-encode your agent ARN:
 
 ```
-export AGENT_ARN="arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/my_mcp_server-xyz123"
+export AGENT_ARN="arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/MCPServerProject_default_MCPServer-xyz123"
 echo -n $AGENT_ARN | jq -sRr '@uri'
 ```
 
 This outputs the URL-encoded ARN:
 
 ```
-arn%3Aaws%3Abedrock-agentcore%3Aus-west-2%3A123456789012%3Aruntime%2Fmy_mcp_server-xyz123
+arn%3Aaws%3Abedrock-agentcore%3Aus-west-2%3A123456789012%3Aruntime%2FMCPServerProject_default_MCPServer-xyz123
 ```
 
 Then connect with the MCP Inspector:
@@ -1026,9 +989,9 @@ Then connect with the MCP Inspector:
      Example for us-west-2:
 
      ```
-     https://bedrock-agentcore.us-west-2.amazonaws.com/runtimes/arn%3Aaws%3Abedrock-agentcore%3Aus-west-2%3A123456789012%3Aruntime%2Fmy_mcp_server-xyz123/invocations?qualifier=DEFAULT
+     https://bedrock-agentcore.us-west-2.amazonaws.com/runtimes/arn%3Aaws%3Abedrock-agentcore%3Aus-west-2%3A123456789012%3Aruntime%2FMCPServerProject_default_MCPServer-xyz123/invocations?qualifier=DEFAULT
      ```
    + Add your Bearer token in the Authentication section with header name `Authorization` and value `Bearer YOUR_TOKEN` 
-   + Click "Connect"
+   + Choose **Connect**.
 
 1. Test your tools just like you did locally

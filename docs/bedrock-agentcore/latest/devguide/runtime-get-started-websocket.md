@@ -46,11 +46,11 @@ This flexibility allows you to use your preferred WebSocket implementation acros
 ## Using WebSocket with AgentCore Runtime
 <a name="using-websocket-with-runtime"></a>
 
-In this getting started tutorial you will create, test, and deploy an agent application that supports bidirectional streaming using the **bedrock-agentcore Python SDK** and the **AgentCore CLI** for deployment.
+In this getting started tutorial you will create, test, and deploy an agent application that supports bidirectional streaming using the **bedrock-agentcore Python SDK** and the **AgentCore CLI**.
 
 **Topics**
 + [Prerequisites](#websocket-prerequisites)
-+ [Step 1: Set up project and install dependencies](#setup-websocket-project)
++ [Step 1: Create an AgentCore project](#setup-websocket-project)
 + [Step 2: Create your bidirectional streaming agent](#create-websocket-agent)
 + [Step 3: Test your bidirectional streaming agent locally](#step-2-test-websocket-locally)
 + [Step 4: Deploy your bidirectional streaming agent to AgentCore Runtime](#step-3-deploy-websocket-to-aws)
@@ -60,46 +60,33 @@ In this getting started tutorial you will create, test, and deploy an agent appl
 <a name="websocket-prerequisites"></a>
 
 Before you start, make sure you have:
-+  ** AWS Account** with credentials configured. To configure your AWS credentials, see [Configuration and credential file settings in the AWS CLI.](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) 
-+  **Python 3.10\+** installed
-+  **Node.js 20\+** installed
-+  ** AWS Permissions** : To create and deploy an agent with the AgentCore CLI, you must have appropriate permissions. For more information, see [Use the AgentCore CLI](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-permissions.html#runtime-permissions-cli).
++ Complete the [AgentCore CLI prerequisites](agentcore-get-started-cli.md#agentcore-get-started-cli-prerequisites).
++  [Install the AgentCore CLI](agentcore-get-started-cli.md#agentcore-get-started-cli-install).
 
-### Step 1: Set up project and install dependencies
+### Step 1: Create an AgentCore project
 <a name="setup-websocket-project"></a>
 
-Create a project folder and install the required packages:
+Create a code-based Python project from the minimal Runtime template:
 
 ```
-mkdir agentcore-runtime-quickstart-websocket
-cd agentcore-runtime-quickstart-websocket
-python3 -m venv .venv
-source .venv/bin/activate
+agentcore create \
+  --name WebSocketProject \
+  --template agent-python-minimal
+cd WebSocketProject
 ```
 
-Upgrade pip to the latest version:
-
-```
-pip install --upgrade pip
-```
-
-Install the following required packages:
-+  **bedrock-agentcore** - The Amazon Bedrock AgentCore SDK for building AI agents, the python `websockets` library dependency is included
-
-```
-pip install bedrock-agentcore
-```
+The template creates a `CodeZip` Runtime in `app/agent/` and installs its Python dependencies, including the Amazon Bedrock AgentCore SDK. The SDK includes the Python `websockets` dependency used in this tutorial.
 
 ### Step 2: Create your bidirectional streaming agent
 <a name="create-websocket-agent"></a>
 
-Create a source file for your bidirectional streaming agent code named `websocket_echo_agent.py` . Add the following code:
+Replace the contents of `app/agent/main.py` with the following code:
 
-#### Bidirectional streaming agent implementation (websocket\_echo\_agent.py)
+#### Bidirectional streaming agent implementation (main.py)
 <a name="websocket-agent-code"></a>
 
 ```
-from bedrock_agentcore import BedrockAgentCoreApp
+from bedrock_agentcore.runtime import BedrockAgentCoreApp
 
 app = BedrockAgentCoreApp()
 
@@ -121,14 +108,6 @@ if __name__ == "__main__":
     app.run(log_level="info")
 ```
 
-Create `requirements.txt` and add the following:
-
-```
-bedrock-agentcore
-```
-
-The python `websockets` library dependency is included
-
 #### Understanding the code
 <a name="understanding-websocket-code"></a>
 +  **BedrockAgentCoreApp** : Creates an agent application that extends Starlette for AI agent deployment, providing WebSocket support, HTTP routing, middleware, and exception handling capabilities
@@ -145,7 +124,7 @@ The python `websockets` library dependency is included
 Open a terminal window and start your bidirectional streaming agent with the following command:
 
 ```
-python websocket_echo_agent.py
+agentcore dev
 ```
 
 You should see output indicating the server is running on port 8080.
@@ -153,7 +132,7 @@ You should see output indicating the server is running on port 8080.
 #### Test WebSocket connection
 <a name="test-websocket-connection"></a>
 
-Create a local WebSocket client named `websocket_agent_client.py` :
+In `app/agent/`, create a local WebSocket client named `websocket_agent_client.py` :
 
 ##### Local WebSocket client (websocket\_agent\_client.py)
 <a name="websocket-test-client"></a>
@@ -181,10 +160,11 @@ if __name__ == "__main__":
     asyncio.run(local_websocket())
 ```
 
-Test your bidirectional streaming agent locally by opening another terminal window and running the client:
+Test your bidirectional streaming agent locally. Open another terminal window, and run the client from the `WebSocketProject` directory:
 
 ```
-python websocket_agent_client.py
+cd app/agent
+uv run python websocket_agent_client.py
 ```
 
  **Success:** You should see a response like `Received: {"echo":{"inputText":"Hello WebSocket!"}}` . In the terminal window that’s running the agent, enter `Ctrl+C` to stop the agent.
@@ -192,62 +172,37 @@ python websocket_agent_client.py
 ### Step 4: Deploy your bidirectional streaming agent to AgentCore Runtime
 <a name="step-3-deploy-websocket-to-aws"></a>
 
-#### Install deployment tools
-<a name="install-deployment-tools"></a>
-
-Install the AgentCore CLI:
-
-```
-npm install -g @aws/agentcore
-```
-
-Verify installation:
-
-```
-agentcore --version
-```
-
-For available commands and options, see [AgentCore CLI reference](agentcore-cli-reference.md).
-
-#### Create project and deploy to AWS
+#### Build and deploy to AWS
 <a name="configure-and-deploy"></a>
-
-Create a new project for your bidirectional streaming agent:
-
-```
-cd ..
-agentcore create --project-name WebSocketProject --no-agent
-cd WebSocketProject
-agentcore add agent \
-  --name WebSocketAgent \
-  --type byo \
-  --language Python \
-  --framework Strands \
-  --model-provider Bedrock \
-  --memory none \
-  --protocol HTTP \
-  --code-location ../agentcore-runtime-quickstart-websocket \
-  --entrypoint websocket_echo_agent.py
-```
-
-Deploy your agent:
 
 ```
 agentcore deploy
 ```
 
-The AgentCore project references the existing `agentcore-runtime-quickstart-websocket` source directory.
+Optionally, run `agentcore build` first to synthesize and check the project without deploying.
 
-After deployment, you’ll receive an agent runtime ARN that looks like:
+Get the deployed Runtime ARN:
 
 ```
-arn:aws:bedrock-agentcore:us-west-2:accountId:runtime/websocket_echo_agent-xyz123
+agentcore status --json
+```
+
+The Runtime resource’s `arn` field contains an ARN that looks like:
+
+```
+arn:aws:bedrock-agentcore:us-west-2:accountId:runtime/WebSocketProject_default_agent-xyz123
 ```
 
 Save this ARN as you’ll need it to invoke your deployed agent.
 
 ### Step 5: Invoke your deployed bidirectional streaming agent
 <a name="step-4-invoke-deployed-websocket"></a>
+
+Run the Python client examples in this section from the generated application directory. From the `WebSocketProject` directory, run:
+
+```
+cd app/agent
+```
 
 #### Set up environment variables
 <a name="setup-environment-variables"></a>
@@ -257,7 +212,7 @@ Set up the required environment variables:
 1. Export your agent ARN:
 
    ```
-   export AGENT_ARN="arn:aws:bedrock-agentcore:us-west-2:accountId:runtime/websocket_echo_agent-xyz123"
+   export AGENT_ARN="arn:aws:bedrock-agentcore:us-west-2:accountId:runtime/WebSocketProject_default_agent-xyz123"
    ```
 
 1. If using OAuth, export your bearer token:
@@ -328,7 +283,7 @@ if __name__ == "__main__":
 Run the client to test your deployed agent:
 
 ```
-python websocket_agent_client_sigv4_headers.py
+uv run python websocket_agent_client_sigv4_headers.py
 ```
 
  **Success:** You should see a response like:
@@ -387,7 +342,7 @@ if __name__ == "__main__":
 Run the client to test your deployed agent:
 
 ```
-python websocket_agent_client_sigv4_query_parameters.py
+uv run python websocket_agent_client_sigv4_presigned_url.py
 ```
 
  **Success:** You should see a response like:
@@ -460,7 +415,7 @@ if __name__ == "__main__":
 Run the client to test your deployed agent:
 
 ```
-python websocket_agent_client_oauth.py
+uv run python websocket_agent_client_oauth.py
 ```
 
  **Success:** You should see a response like:
@@ -516,7 +471,7 @@ The following example shows how to establish a WebSocket connection from browser
 This authentication method is for browser-based clients where setting custom headers is not possible. For non-browser clients (Python, Node.js servers, etc.), use OAuth header authentication shown in [Python client with OAuth](#websocket-oauth-python).
 
 **Note**  
-Subprotocols other than `base64UrlBearerAuthorization` are not yet supported.
+Use `base64UrlBearerAuthorization` as the WebSocket subprotocol.
 
 **Important**  
 This is a reference example. It is not recommended to hardcode tokens in production code.
@@ -531,7 +486,7 @@ For comprehensive session lifecycle management including tracking, cleanup, and 
 ### Using sessions with WebSocket connections
 <a name="websocket-with-sessions"></a>
 
-To use sessions with WebSocket connections, generate a unique session ID for each user or conversation and pass it when establishing the connection:
+To use sessions with WebSocket connections, generate a unique session ID for each user or conversation and pass it when establishing the connection. A session ID must be at least 33 characters long. The following examples generate a UUID:
 
 **Example**  
 
@@ -543,10 +498,11 @@ To use sessions with WebSocket connections, generate a unique session ID for eac
    import asyncio
    import json
    import os
+   import uuid
    
    async def websocket_with_session():
        client = AgentCoreRuntimeClient(region="us-west-2")
-       session_id = "user-123-conversation-456"
+       session_id = str(uuid.uuid4())
        runtime_arn = os.getenv('AGENT_ARN')
    
        ws_url, headers = client.generate_ws_connection(
@@ -577,10 +533,11 @@ To use sessions with WebSocket connections, generate a unique session ID for eac
    import asyncio
    import json
    import os
+   import uuid
    
    async def websocket_with_session():
        client = AgentCoreRuntimeClient(region="us-west-2")
-       session_id = "user-123-conversation-456"
+       session_id = str(uuid.uuid4())
        runtime_arn = os.getenv('AGENT_ARN')
    
        presigned_url = client.generate_presigned_url(
@@ -612,10 +569,11 @@ To use sessions with WebSocket connections, generate a unique session ID for eac
    import asyncio
    import json
    import os
+   import uuid
    
    async def websocket_with_session():
        client = AgentCoreRuntimeClient(region="us-west-2")
-       session_id = "user-123-conversation-456"
+       session_id = str(uuid.uuid4())
        runtime_arn = os.getenv('AGENT_ARN')
        bearer_token = os.getenv('BEARER_TOKEN')
    

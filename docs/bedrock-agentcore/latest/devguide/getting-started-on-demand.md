@@ -53,7 +53,7 @@ import json
 import uuid
 
 region = "region-code"
-ace_demo_agent_arn = "agent-arn from step-2"
+ace_demo_agent_arn = "agent-arn from step-1"
 
 agent_core_client = boto3.client('bedrock-agentcore', region_name=region)
 
@@ -86,11 +86,12 @@ Once you have made a few invocations to your agent, you are ready to evaluate it
 +  `EvaluatorId` : this can be the id for either a builtin evaluator or a custom created one
 +  `SessionSpans` : spans are the telemetry blocks emitted when you interact with an application. The application in our example is an agent hosted on AgentCore Runtime.
   + For on-demand evaluation, we need to download the spans from CloudWatch log groups and use them for evaluation.
-  +  **AgentCore CLI** does this for you automatically and is the easiest to get started with.
+  + The AgentCore CLI downloads the spans for you.
   + If you are not using the AgentCore CLI, we will show how to download logs using session-id and use them for evaluation using the AWS SDK.
 
 **Topics**
 + [Code samples for AgentCore CLI and AgentCore SDK](#agentcore-cli-evaluation)
++ [Replay a dataset and evaluate the sessions](#simulate-on-demand)
 + [AWS SDK](#aws-sdk-evaluation)
 
 ### Code samples for AgentCore CLI and AgentCore SDK
@@ -106,32 +107,17 @@ The following code samples demonstrate how to run on-demand evaluations using di
    # Runs evaluation for the specified runtime and session.
    # It auto queries cloudwatch logs and orchestrates evaluation over multiple evaluators.
    
-   RUNTIME_NAME="your_runtime_name"
+   RUNTIME_ID="your_runtime_id"
    SESSION_ID="YOUR_SESSION_ID"
-   agentcore run eval \
-     --runtime $RUNTIME_NAME \
-     --session-id $SESSION_ID \
-     --evaluator "Builtin.Helpfulness" \
-     --evaluator "Builtin.GoalSuccessRate"
-   
-   # Auto reads default runtime from current project config if available
-   # Verify using ```agentcore status```
-   agentcore run eval \
-     --evaluator "Builtin.Helpfulness" \
-     --evaluator "Builtin.GoalSuccessRate"
+   agentcore eval ondemand evaluate \
+     --agent "$RUNTIME_ID" \
+     --session-ids "$SESSION_ID" \
+     --evaluators "Builtin.Helpfulness" "Builtin.GoalSuccessRate"
    ```
 
-   Results are saved locally and can be reviewed later with `agentcore evals history` . In interactive mode, the CLI automatically discovers recent sessions from CloudWatch — you don’t need to know session IDs in advance.
-**Note**  
-Run this from inside an AgentCore project directory (created with `agentcore create` ). The `--agent-arn` flag can be used outside a project directory.
+   Use the Runtime ID, which is the part of the Runtime ARN after `runtime/`. For a project deployed with the AgentCore CLI, `agentcore status` shows the Runtime ARN.
 
-1. Run `agentcore` to open the TUI, then select **run** and choose **On-demand Evaluation** :
-
-1. Select evaluators to run against agent traces:  
-![On-demand evaluation: select evaluators](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-run-evaluators.png)
-
-1. Review the configuration and press Enter to confirm:  
-![On-demand evaluation: review configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-run-confirm.png)
+   The command queries the agent’s CloudWatch traces and prints the evaluation scores synchronously. Omit `--session-ids` and use `--lookback-days`, or use `--start-time` and `--end-time`, to evaluate a time window.
 
 1. 
 
@@ -165,6 +151,24 @@ Run this from inside an AgentCore project directory (created with `agentcore cre
            print(f"  Explanation: {result.explanation[:150]}...")
    ```
 
+### Replay a dataset and evaluate the sessions
+<a name="simulate-on-demand"></a>
+
+Use `agentcore eval ondemand simulate` to invoke each example in a local JSONL file or an AgentCore dataset, wait for the resulting traces, and evaluate those sessions synchronously.
+
+The command replays only predefined scenarios that have scripted `turns`. It fails before it invokes the agent if any example contains `actor_profile`. To run simulated scenarios, use the AgentCore SDK as described in [User simulation](user-simulation.md).
+
+```
+agentcore eval ondemand simulate \
+  --runtime-id <runtime-id> \
+  --payload-template '{"prompt":"{input}"}' \
+  --dataset <dataset-id-or-jsonl-path> \
+  --dataset-version <dataset-version> \
+  --evaluators Builtin.Helpfulness
+```
+
+Omit `--dataset-version` when `--dataset` is a local JSONL path. The default trace-ingestion wait is three minutes; use `--ingestion-wait-ms` to change it.
+
 ### AWS SDK
 <a name="aws-sdk-evaluation"></a>
 
@@ -179,7 +183,7 @@ Run this from inside an AgentCore project directory (created with `agentcore cre
 Before calling the `Evaluate` API, you need to download the span logs from CloudWatch. You can use the Python code below to do so and optionally save them in a JSON file. This makes it easier to make the request for the same session with different evaluators.
 
 **Note**  
-It takes a couple of minutes for logs to get populated in CloudWatch, so its possible that if you try running the below script "immediately" after agent invocation, the logs are empty or incomplete
+It takes a couple of minutes for logs to get populated in CloudWatch, so it’s possible that if you try running the below script "immediately" after agent invocation, the logs are empty or incomplete
 
 ```
 import boto3
@@ -255,7 +259,7 @@ with open(session_span_logs_file_name, "w") as f:
 #### Call Evaluate
 <a name="call-evaluate"></a>
 
-Once you have the input spans, you can invoke the `Evaluate` API. Please note that the responses may take a few moments as a large language model is scoring your traces.
+Once you have the input spans, you can invoke the `Evaluate` API. The response can take a few moments because a large language model scores your traces.
 
 ```
 # initialise client
@@ -338,6 +342,8 @@ Each `Evaluate` API call returns a response containing a list of evaluator resul
 }
 ```
 
+A [multi-dimension evaluator](multi-dimension-evaluators.md) returns one result per dimension for each entity it evaluates. Each result has `evaluationDimensionName` set to the dimension it rates.
+
 **Topics**
 + [Result limit](#result-limit)
 + [Partial failures](#partial-failures)
@@ -360,6 +366,8 @@ An API call may process n evaluations while m of them fail. Failures can occur d
 + Other processing issues
 
 In cases of partial failure, the response includes both successful and failed evaluations. Failed results include an error code and error message to help you diagnose the issue.
+
+For a multi-dimension evaluator, one dimension can fail while the others succeed. For details, see [Errors and token usage](multi-dimension-evaluators.md#multi-dimension-evaluators-errors).
 
 ### Span context
 <a name="span-context"></a>

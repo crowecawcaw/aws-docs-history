@@ -33,11 +33,11 @@ You provide the current configuration in one of two ways:
 
 <table>
 <thead>
-  <tr><th>Recommendation type</th><th>CLI flags</th><th>API field</th></tr>
+  <tr><th>Recommendation type</th><th>CLI configuration</th><th>API field</th></tr>
 </thead>
 <tbody>
-  <tr><td>System prompt</td><td> <code>--inline "prompt text"</code> or <code>--prompt-file ./path.txt</code> </td><td> <code>systemPrompt.text</code> </td></tr>
-  <tr><td>Tool description</td><td> <code>--tools "name:description, name:description"</code> </td><td> <code>toolDescription.toolDescriptionText.tools</code>: list of objects with <code>toolName</code> and <code>toolDescription</code> </td></tr>
+  <tr><td>System prompt</td><td> <code>--recommendation-config</code> containing <code>systemPromptRecommendationConfig.systemPrompt.text</code> </td><td> <code>systemPrompt.text</code> </td></tr>
+  <tr><td>Tool description</td><td> <code>--recommendation-config</code> containing <code>toolDescriptionRecommendationConfig.toolDescription.toolDescriptionText.tools</code> </td><td> <code>toolDescription.toolDescriptionText.tools</code>: list of objects with <code>toolName</code> and <code>toolDescription</code> </td></tr>
 </tbody>
 </table>
 
@@ -46,11 +46,11 @@ You provide the current configuration in one of two ways:
 
 <table>
 <thead>
-  <tr><th>Recommendation type</th><th>CLI flags</th><th>API field</th></tr>
+  <tr><th>Recommendation type</th><th>CLI configuration</th><th>API field</th></tr>
 </thead>
 <tbody>
-  <tr><td>System prompt</td><td> <code>--bundle-name &lt;bundle-name&gt;</code> + <code>--bundle-version &lt;bundle-version&gt;</code> + <code>--system-prompt-json-path &lt;path&gt;</code> </td><td> <code>systemPrompt.configurationBundle</code> with <code>bundleArn</code>, <code>versionId</code>, <code>systemPromptJsonPath</code> </td></tr>
-  <tr><td>Tool description</td><td> <code>--bundle-name &lt;bundle-name&gt;</code> + <code>--bundle-version &lt;bundle-version&gt;</code> + <code>--tool-desc-json-path "name:jsonpath"</code> (repeat for each tool)</td><td> <code>toolDescription.configurationBundle</code> with <code>bundleArn</code>, <code>versionId</code>, and <code>tools</code> list containing <code>toolName</code> and <code>toolDescriptionJsonPath</code> </td></tr>
+  <tr><td>System prompt</td><td> <code>--recommendation-config</code> containing <code>systemPromptRecommendationConfig.systemPrompt.configurationBundle</code> </td><td> <code>systemPrompt.configurationBundle</code> with <code>bundleArn</code>, <code>versionId</code>, <code>systemPromptJsonPath</code> </td></tr>
+  <tr><td>Tool description</td><td> <code>--recommendation-config</code> containing <code>toolDescriptionRecommendationConfig.toolDescription.configurationBundle</code> </td><td> <code>toolDescription.configurationBundle</code> with <code>bundleArn</code>, <code>versionId</code>, and <code>tools</code> list containing <code>toolName</code> and <code>toolDescriptionJsonPath</code> </td></tr>
 </tbody>
 </table>
 
@@ -75,7 +75,7 @@ The recommendations API uses log group **ARNs** (`logGroupArns`), not log group 
   <tr><td> <code>cloudwatchLogs.serviceNames</code> </td><td>List of strings</td><td>Yes</td><td>Service names that identify your agent’s traces in CloudWatch. Convention: <code>{RuntimeName}.DEFAULT</code>.</td></tr>
   <tr><td> <code>cloudwatchLogs.startTime</code> </td><td>ISO 8601 datetime</td><td>Yes</td><td>Start of the trace collection window. Only traces after this time are included.</td></tr>
   <tr><td> <code>cloudwatchLogs.endTime</code> </td><td>ISO 8601 datetime</td><td>Yes</td><td>End of the trace collection window. Only traces before this time are included.</td></tr>
-  <tr><td> <code>cloudwatchLogs.rule</code> </td><td>Object</td><td>No</td><td>Optional filter rule to narrow trace selection. Contains a <code>filters</code> list where each filter specifies a <code>key</code>, <code>operator</code> (such as <code>LESS_THAN</code>), and <code>value</code> (such as <code>{"doubleValue": 0.5}</code>).</td></tr>
+  <tr><td> <code>cloudwatchLogs.rule</code> </td><td>Object</td><td>No</td><td>Optional filter rule to narrow trace selection. Contains a <code>filters</code> list where each filter specifies a <code>key</code>, <code>operator</code> (such as <code>LessThan</code>), and <code>value</code> (such as <code>{"doubleValue": 0.5}</code>).</td></tr>
 </tbody>
 </table>
   
@@ -84,15 +84,44 @@ The recommendations API uses log group **ARNs** (`logGroupArns`), not log group 
 ------
 #### [ AgentCore CLI ]
 
+  The AgentCore CLI accepts the complete recommendation configuration through `--recommendation-config`. Pass JSON inline, with `file://<path>`, or from standard input with `-`.
+
+  Save the following configuration as `recommendation-config.json`. Replace the log group ARN, service name, and ISO 8601 timestamps with values for your Runtime:
+
   ```
-  agentcore run recommendation \
-    --type system-prompt \
-    --run my-prompt-rec \
-    --runtime MyAgent \
-    --evaluator Builtin.GoalSuccessRate \
-    --inline "You are a helpful assistant..." \
-    --lookback 7 \
-    --wait
+  {
+    "systemPromptRecommendationConfig": {
+      "systemPrompt": {
+        "text": "You are a helpful customer support assistant."
+      },
+      "agentTraces": {
+        "cloudwatchLogs": {
+          "logGroupArns": [
+            "<LOG_GROUP_ARN>"
+          ],
+          "serviceNames": [
+            "<RUNTIME_NAME>.DEFAULT"
+          ],
+          "startTime": "<START_TIME_ISO_8601>",
+          "endTime": "<END_TIME_ISO_8601>"
+        }
+      },
+      "evaluationConfig": {
+        "evaluators": [
+          {
+            "evaluatorArn": "arn:aws:bedrock-agentcore:::evaluator/Builtin.GoalSuccessRate"
+          }
+        ]
+      }
+    }
+  }
+  ```
+
+  ```
+  agentcore eval recommendation start \
+    --name my-prompt-rec \
+    --type SYSTEM_PROMPT_RECOMMENDATION \
+    --recommendation-config file://recommendation-config.json
   ```
 
 ------
@@ -130,7 +159,7 @@ The recommendations API uses log group **ARNs** (`logGroupArns`), not log group 
               "filters": [
                   {
                       "key": "goal_success_rate",
-                      "operator": "LESS_THAN",
+                      "operator": "LessThan",
                       "value": {"doubleValue": 0.5}
                   }
               ]
@@ -157,28 +186,33 @@ The recommendations API uses log group **ARNs** (`logGroupArns`), not log group 
 ------
 #### [ AgentCore CLI ]
 
-  Spans file (reads spans from a local JSON file and passes them as inline spans):
+  If `agent-traces.json` contains a JSON array of session spans, generate `recommendation-config.json` with `jq`:
 
   ```
-  agentcore run recommendation \
-    --type system-prompt \
-    --run my-prompt-rec \
-    --runtime MyAgent \
-    --evaluator Builtin.GoalSuccessRate \
-    --inline "You are a helpful assistant..." \
-    --spans-file agent-traces.json
+  jq -n --slurpfile spans agent-traces.json '{
+    systemPromptRecommendationConfig: {
+      systemPrompt: {
+        text: "You are a helpful customer support assistant."
+      },
+      agentTraces: {
+        sessionSpans: $spans[0]
+      },
+      evaluationConfig: {
+        evaluators: [
+          {
+            evaluatorArn: "arn:aws:bedrock-agentcore:::evaluator/Builtin.GoalSuccessRate"
+          }
+        ]
+      }
+    }
+  }' > recommendation-config.json
   ```
 
-  Specific session IDs (the CLI collects spans client-side and passes them as inline spans):
-
   ```
-  agentcore run recommendation \
-    --type system-prompt \
-    --run my-prompt-rec \
-    --runtime MyAgent \
-    --evaluator Builtin.GoalSuccessRate \
-    --inline "You are a helpful assistant..." \
-    --session-id <session-id-1> <session-id-2>
+  agentcore eval recommendation start \
+    --name my-prompt-rec \
+    --type SYSTEM_PROMPT_RECOMMENDATION \
+    --recommendation-config file://recommendation-config.json
   ```
 
 ------
@@ -209,7 +243,7 @@ The batch evaluation and online evaluation trace sources are available for syste
   <tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr>
 </thead>
 <tbody>
-  <tr><td> <code>batchEvaluation.batchEvaluationArn</code> </td><td>String</td><td>Yes</td><td>ARN of a completed batch evaluation job. The service reuses the sessions from this job as trace input. Format: <code>arn:aws:bedrock-agentcore:{region}:{account}:batch-evaluation/{id}</code>.</td></tr>
+  <tr><td> <code>batchEvaluation.batchEvaluationArn</code> </td><td>String</td><td>Yes</td><td>ARN of a completed batch evaluation job. The service reuses the sessions from this job as trace input. Format: <code>arn:aws:bedrock-agentcore:{region}:{account}:batch-evaluate/{id}</code>.</td></tr>
 </tbody>
 </table>
   
@@ -263,14 +297,4 @@ The batch evaluation and online evaluation trace sources are available for syste
 ------
 
 **Note**  
- `agentcore run recommendation` is asynchronous. Without `--wait`, the command submits the recommendation job and returns immediately; the job starts in a non-terminal state (such as `PENDING` or `IN_PROGRESS`), and you retrieve the result later. Pass `--wait` to block until the recommendation reaches a terminal state. To poll for or retrieve a submitted job’s result, run `agentcore view recommendation <id>`, where `id` is the recommendation job ID.
-
-The AgentCore CLI provides convenience flags that map to the underlying API trace source types:
-
-
-| CLI flag | API mapping | Description | 
-| --- | --- | --- | 
-|  `--lookback <days>`  |  `cloudwatchLogs` with computed `startTime` and `endTime`  | Collects traces from the last N days via CloudWatch Logs. The CLI resolves log group ARNs and service names from the runtime configuration. | 
-|  `--session-id <id>`  |  `sessionSpans` (inline) | Collects spans for the specified session client-side and passes them as inline session spans. The recommendation API itself does not support session ID filtering on CloudWatch sources. | 
-|  `--spans-file <path>`  |  `sessionSpans` (inline) | Reads spans from a local JSON file and passes them as inline session spans. | 
-|  `--wait`  | n/a (client-side polling) | Block until the recommendation reaches a terminal state. | 
+ `agentcore eval recommendation start` is asynchronous. Use `agentcore eval recommendation get --id <recommendation-id>` to poll for status and retrieve the result.

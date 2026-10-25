@@ -54,6 +54,13 @@ outputConfig={"cloudWatchConfig": {"metricsNamespace": "MyTeam/Evaluations"}}
 
 Evaluation results follow OpenTelemetry semantic conventions for GenAI evaluation result events. When possible, each event is parented to the original span ID and includes the original trace ID and session ID.
 
+A [multi-dimension evaluator](multi-dimension-evaluators.md) writes one event per dimension. The event’s `gen_ai.evaluation.name` attribute is `<evaluatorName>/<dimensionName>`, for example `SupportQuality/tone`. If the evaluation can’t run for a target, the error event uses the evaluator name alone. To query one dimension in CloudWatch Logs Insights:
+
+```
+fields @timestamp, attributes.gen_ai.evaluation.score.value, attributes.gen_ai.evaluation.score.label
+| filter attributes.gen_ai.evaluation.name = "SupportQuality/policy_compliance"
+```
+
 You can use CloudWatch Logs Insights to query and analyze your evaluation results, and CloudWatch Metrics to monitor evaluation trends over time.
 
 ## Viewing results in CloudWatch Observability Console
@@ -77,6 +84,8 @@ For more details, see [AWS CloudWatch session trace evaluations documentation](h
 <a name="viewing-scores-metrics"></a>
 
 Evaluation scores are published as CloudWatch metrics. By default, they appear in the `Bedrock-AgentCore/Evaluations` namespace. If you set `metricsNamespace`, look for that custom namespace instead when you browse metrics in CloudWatch.
+
+For a multi-dimension evaluator, each numerical dimension is published as its own metric named `<evaluatorName>/<dimensionName>`, with the same metric dimensions as other evaluators. Categorical dimensions aren’t published as metrics; their results are available in CloudWatch Logs.
 
  **To view evaluation scores** 
 

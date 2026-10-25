@@ -28,9 +28,9 @@ The following constants are used in the boto3 examples. Replace them with your o
 
 ```
 REGION       = "us-west-2"
-AGENT_ARN    = "arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/AcmeSupport-abc123"
-SERVICE_NAME = "AcmeSupport-abc123.DEFAULT"
-LOG_GROUP    = "/aws/bedrock-agentcore/runtimes/AcmeSupport-abc123-DEFAULT"
+AGENT_ARN    = "arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/AcmeSupport_default_agent-abc123"
+SERVICE_NAME = "AcmeSupport_default_agent.DEFAULT"
+LOG_GROUP    = "/aws/bedrock-agentcore/runtimes/AcmeSupport_default_agent-abc123-DEFAULT"
 ```
 
 ## Step 1: Create and deploy the sample agent
@@ -42,14 +42,15 @@ Create an AgentCore project and replace the default agent code with the Acme Sto
 <a name="batch-gs-step1a"></a>
 
 ```
-agentcore create --name AcmeSupport --framework Strands --model-provider Bedrock --memory none
+agentcore create --name AcmeSupport --template agent-python-strands
 cd AcmeSupport
+agentcore remove memory --name agentMemory
 ```
 
 ### Replace the agent code
 <a name="batch-gs-step1b"></a>
 
-Open `app/AcmeSupport/main.py` and replace its contents with the following:
+Open `app/agent/main.py` and replace its contents with the following:
 
 ```
 """Acme Store customer support agent."""
@@ -178,10 +179,11 @@ agentcore deploy
 After deployment, verify the agent is running:
 
 ```
-agentcore invoke --prompt "What's the status of order ORD-1001?"
+agentcore invoke --runtime agent \
+  --payload '{"prompt":"What is the status of order ORD-1001?"}'
 ```
 
-You should see a response with the order details. Note the runtime ARN, service name, and log group from `agentcore status --json` — you will need these for the boto3 examples.
+You should see a response with the order details. Run `agentcore status --json` and note the Runtime ARN. The Runtime ID is the last segment of the ARN.
 
 **Note**  
 If you already have an agent deployed on AgentCore Runtime with observability enabled, skip this step and use your own agent for the rest of the walkthrough.
@@ -194,16 +196,16 @@ Invoke the agent with varied prompts to create sessions for evaluation. These pr
 **Example**  
 
 ```
-agentcore invoke --runtime AcmeSupport --prompt "What's the status of my order ORD-1001?"
-agentcore invoke --runtime AcmeSupport --prompt "I need to return order ORD-1001, the shirt doesn't fit."
-agentcore invoke --runtime AcmeSupport --prompt "What's the shipping status on ORD-1002?"
-agentcore invoke --runtime AcmeSupport --prompt "My order ORD-1003 is delayed, can you help?"
-agentcore invoke --runtime AcmeSupport --prompt "I'd like to check on order ORD-1004 please."
-agentcore invoke --runtime AcmeSupport --prompt "Can you look up order ORD-1005 for me?"
-agentcore invoke --runtime AcmeSupport --prompt "I want to return the coffee maker from order ORD-1005, it's defective."
-agentcore invoke --runtime AcmeSupport --prompt "Where is my order ORD-1002? It should have arrived by now."
-agentcore invoke --runtime AcmeSupport --prompt "ORD-1003 is really late, I want a discount."
-agentcore invoke --runtime AcmeSupport --prompt "Can you check order ORD-1001 and tell me when it was delivered?"
+agentcore invoke --runtime agent --payload '{"prompt":"What is the status of my order ORD-1001?"}'
+agentcore invoke --runtime agent --payload '{"prompt":"I need to return order ORD-1001, the shirt does not fit."}'
+agentcore invoke --runtime agent --payload '{"prompt":"What is the shipping status on ORD-1002?"}'
+agentcore invoke --runtime agent --payload '{"prompt":"My order ORD-1003 is delayed, can you help?"}'
+agentcore invoke --runtime agent --payload '{"prompt":"I would like to check on order ORD-1004."}'
+agentcore invoke --runtime agent --payload '{"prompt":"Can you look up order ORD-1005 for me?"}'
+agentcore invoke --runtime agent --payload '{"prompt":"I want to return the coffee maker from order ORD-1005; it is defective."}'
+agentcore invoke --runtime agent --payload '{"prompt":"Where is my order ORD-1002? It should have arrived by now."}'
+agentcore invoke --runtime agent --payload '{"prompt":"ORD-1003 is really late; I want a discount."}'
+agentcore invoke --runtime agent --payload '{"prompt":"Can you check order ORD-1001 and tell me when it was delivered?"}'
 ```
 
 ```
@@ -227,7 +229,7 @@ prompts = [
 ]
 
 for i, prompt in enumerate(prompts):
-    session_id = f"acme-eval-{uuid.uuid4().hex[:12]}"
+    session_id = f"acme-eval-{uuid.uuid4()}"
     print(f"[{i+1}/10] {prompt[:60]}...")
 
     response = client.invoke_agent_runtime(
@@ -251,34 +253,15 @@ Start a batch evaluation to score all recent sessions. The service discovers ses
 **Example**  
 
 ```
-agentcore run batch-evaluation \
-  --runtime AcmeSupport \
-  --evaluator Builtin.GoalSuccessRate Builtin.Helpfulness Builtin.Faithfulness \
-  --wait
+agentcore eval batch-evaluation evaluate \
+  --agent <RUNTIME_ID> \
+  --evaluators Builtin.GoalSuccessRate Builtin.Helpfulness Builtin.Faithfulness \
+  --name acme_baseline
 ```
-By default, `agentcore run batch-evaluation` starts the job and returns immediately (without blocking). Pass `--wait` to block until the job reaches a terminal state. With `--wait`, the CLI resolves the CloudWatch log group and service name from your project configuration, starts the job, blocks until it reaches a terminal state, and then prints per-evaluator average scores:  
-
-```
-Batch evaluation completed: acme-eval-a1b2c3d4
-
-Sessions: 10 completed, 0 failed, 10 total
-
-Evaluator                           Avg Score
-─────────────────────────────────────────────
-Builtin.GoalSuccessRate             0.7200
-Builtin.Helpfulness                 0.8100
-Builtin.Faithfulness                0.8500
-
-Results saved to .cli/jobs/batch-eval-results/
-```
-Add `--json` to emit machine-readable results (including `batchEvaluationId` and the per-evaluator `averageScore`) for scripting, and `-n <name>` to label the run so you can compare results across runs. For example:  
+The command starts the asynchronous evaluation and returns its batch evaluation ID. Retrieve status and results with:  
 
 ```
-agentcore run batch-evaluation \
-  --runtime AcmeSupport \
-  --evaluator Builtin.GoalSuccessRate Builtin.Helpfulness Builtin.Faithfulness \
-  -n acme_baseline \
-  --wait
+agentcore eval batch-evaluation get --id <BATCH_EVALUATION_ID>
 ```
 
 ```
@@ -328,16 +311,16 @@ print(json.dumps(result, indent=4, default=str))
 The aggregate scores tell you the overall picture. To see per-turn, per-evaluator scores for individual sessions, use the built-in CLI viewing commands or read the evaluation events directly from CloudWatch Logs.
 
 **Example**  
-The CLI provides first-class commands to view completed batch evaluation jobs and their results. View a specific job by its batch evaluation job ID, or list past jobs:  
+View a job and its results by its batch evaluation ID, or list jobs:  
 
 ```
 # View a batch evaluation job and its results
-agentcore view batch-evaluation acme-eval-a1b2c3d4
+agentcore eval batch-evaluation get --id <BATCH_EVALUATION_ID>
 
 # List batch evaluation jobs
-agentcore batch-evaluations history
+agentcore eval batch-evaluation list
 ```
-These commands run interactively when no flags are given. Add `--json` for non-interactive, machine-readable output, for example `agentcore view batch-evaluation acme-eval-a1b2c3d4 --json`.
+Add `--json` for machine-readable output.
 
 ```
 # Get the output location from the batch evaluation result

@@ -3,9 +3,9 @@
 # Get started with Amazon Bedrock AgentCore Runtime direct code deployment
 <a name="runtime-get-started-code-deploy"></a>
 
-Direct code deployment enables you to bring your agent to Amazon Bedrock AgentCore Runtime simply by packaging agent code and its dependencies in a .zip file archive. Your agent still needs to follow [AgentCore Runtime requirements](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-service-contract.html).
+With direct code deployment, you package your agent code and its dependencies in a .zip file archive and deploy it to AgentCore Runtime. Your agent still needs to follow [AgentCore Runtime requirements](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-service-contract.html).
 
-To create your deployment package as .zip file archive, you can use [AgentCore CLI](https://github.com/aws/agentcore-cli) or follow the steps in the language-specific guides below, or any other .zip file utility such as [7zip](https://www.7-zip.org/download.html) . The examples shown in the following sections assume you’re using a command-line `zip` tool in a Linux or MacOS environment. To use the same commands in Windows, you can [install the Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) to get a Windows-integrated version of Ubuntu and Bash.
+To have the AgentCore CLI package and deploy a `CodeZip` Runtime, see [Get started with AgentCore Runtime using the AgentCore CLI](runtime-get-started-cli.md). To create the deployment package manually, follow the language-specific guides below or use another .zip file utility such as [7zip](https://www.7-zip.org/download.html). The examples shown in the following sections assume you’re using a command-line `zip` tool in a Linux or macOS environment. To use the same commands in Windows, you can [install the Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) to get a Windows-integrated version of Ubuntu and Bash.
 
 Note that AgentCore Runtime uses POSIX file permissions, so you may need to [set permissions for the deployment package folder](http://aws.amazon.com/premiumsupport/knowledge-center/lambda-deployment-package-errors/) before you create the .zip file archive.
 
@@ -44,7 +44,7 @@ AgentCore Runtime keeps each direct code deploy runtime up to date with security
 
 For direct deploy runtimes, AgentCore Runtime applies runtime updates automatically. With automatic runtime updates, AgentCore Runtime takes on the operational burden of patching the runtime versions. For most customers, this should be a safe choice as only language runtime patches will be automatically applied and customers are responsible to bring and managed their code dependencies. Currently AgentCore Runtime doesn’t support changing this automated patching behavior.
 
-AgentCore Runtime strives to provide runtime updates that are backward compatible with existing functions. However, as with software patching, there are rare cases in which a runtime update can negatively impact an existing function. For example, security patches can expose an underlying issue with an existing function that depends on the previous, insecure behavior. If in extremely rare cases this risk is not acceptable, please use [container images to deploy your agent](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/getting-started-custom.html).
+AgentCore Runtime strives to provide runtime updates that are backward compatible with existing functions. However, as with software patching, there are rare cases in which a runtime update can negatively impact an existing function. For example, security patches can expose an underlying issue with an existing function that depends on the previous, insecure behavior. If in extremely rare cases this risk is not acceptable, use [container images to deploy your agent](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/getting-started-custom.html).
 
 ### Container vs direct code deployment comparison
 <a name="concept-container-vs-direct"></a>

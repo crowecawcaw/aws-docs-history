@@ -3,7 +3,7 @@
 # Export harness to code
 <a name="harness-export"></a>
 
-Export harness to code takes a managed harness configuration and generates the equivalent agent as editable Python source code using the Strands framework. The generated agent is a normal AgentCore runtime agent: you own the code, can modify it freely, and deploy it like any other agent. The generated agent mirrors the harness’s model, tools, skills, memory, execution limits, and filesystem mounts.
+Export harness to code takes a managed harness configuration and generates a runtime agent from it as editable Python source code using the Strands framework. The generated agent is a normal AgentCore runtime agent: you own the code, can modify it freely, and deploy it like any other agent. The generated agent carries over the harness’s model, execution limits, filesystem mounts, and the tools, skills, and memory configuration that export supports. Export records configuration that it cannot map in `EXPORT_NOTES.md`.
 
 ## When to Use Export
 <a name="_when_to_use_export"></a>
@@ -15,20 +15,20 @@ Use export when you have a working harness and want to:
 
 If the harness configuration already does everything you need, you don’t have to export - keep running it as a harness.
 
-## What is supported today
-<a name="_what_is_supported_today"></a>
-+  **Framework** - Strands, with other frameworks like Claude Agents SDK coming soon
+## What export supports
+<a name="_what_export_supports"></a>
++  **Framework** - Strands
 +  **Language** - Python only
-+  **Build types** - CodeZip (default) and Container
++  **Build type** - CodeZip
 
 Harness features carried into the generated agent:
-+ Model provider and config (Bedrock, OpenAI, Gemini - including model ID and API key references)
-+ Tools - Remote MCP tools, Gateways, inline function tools, AgentCore Browser, AgentCore Code Interpreter, built-in `shell` and `file_operations` tools
-+ Memory
++ Model provider and configuration, including the model ID and API key references (Bedrock, OpenAI, Gemini, or LiteLLM)
++ Tools - Remote MCP tools, inline function tools, and the built-in `shell` and `file_operations` tools. Export omits Gateway, AgentCore Browser, and AgentCore Code Interpreter tools and lists them in `EXPORT_NOTES.md`. Wire them into the generated agent yourself.
++ Memory - a project memory that the harness references by name. Export does not wire managed memory, which the AgentCore CLI enables by default, or a memory that the harness references by ARN. `EXPORT_NOTES.md` lists the manual steps for these. To export memory, add a project memory with `agentcore add memory`, reference it from the harness by name, and export again.
 + Execution limits
 + Conversation truncation
-+ Skills (Path, S3, Git)
-+ Filesystem mounts (session storage, EFS, S3) for VPC harnesses
++ Skills (S3, Git). Export rejects a harness that uses path skills. Export omits AWS skills and lists them in `EXPORT_NOTES.md`.
++ Filesystem mounts (session storage, and EFS and S3 Files for VPC harnesses)
 + Authorizer configuration
 
 ## CLI Usage
@@ -36,8 +36,6 @@ Harness features carried into the generated agent:
 
 ### Command Syntax
 <a name="_command_syntax"></a>
-
-**Example**  
 
 ```
 agentcore export harness --arn <arn> [options]
@@ -49,61 +47,58 @@ agentcore export harness --arn <arn> [options]
 
 | Flag | Description | Default | 
 | --- | --- | --- | 
-|  `--arn <arn>`  | ARN of the harness to export (use when exporting a harness created outside the current CLI project) |  `arn` or `name` required | 
-|  `--name <name>`  | Name of the harness to export (use when exporting a harness created in the same CLI project) |  `arn` or `name` required | 
-|  `--target-agent-name <name>`  | Name for the generated runtime agent |  `<harnessName>Agent`  | 
-|  `--build <type>`  | Build type: `CodeZip` or `Container`  |  `CodeZip`  | 
+|  `--arn <arn>`  | ARN of a deployed harness to fetch and export. Inside a project, adds a Runtime to that project. Outside a project, creates a new project in the current directory. |  `arn` or `name` required | 
+|  `--name <name>`  | Name of a harness in the current CLI project. Requires an existing project. |  `arn` or `name` required | 
+|  `--project-name <name>`  | Name of the new destination project. Available only when exporting by ARN outside an existing project. |  `Export` followed by the harness name without underscores, truncated to 23 characters | 
+|  `--target-agent-name <name>`  | Name for the generated runtime agent | Derived from the harness name with an `Agent` suffix, shortened as needed to fit resource-name limits | 
 |  `--json`  | Output results as JSON | False | 
 
 ### Examples
 <a name="_examples"></a>
 
-Basic export with defaults:
-
-**Example**  
+Export into an existing project:
 
 ```
-# Export harness with ARN - generates MyHarnessAgent using CodeZip
-agentcore export harness --arn arn:aws:bedrock-agentcore:us-east-1:123456789012:harness/MyHarness
-# Export harness created within CLI project - generates MyHarnessAgent using CodeZip
+# Export a deployed harness into the current project
+agentcore export harness --arn arn:aws:bedrock-agentcore:us-east-1:123456789012:harness/MyHarness-AbCdEf1234
+
+# Export a harness declared in the current project
 agentcore export harness --name MyHarness
+
 # Export with a custom agent name
-agentcore export harness --name MyHarness --target-agent-name MyProductionAgent
-# Export as a Container build (generates Dockerfile)
-agentcore export harness --name MyHarness --build Container
+agentcore export harness \
+  --name MyHarness \
+  --target-agent-name MyProductionAgent
 ```
-Run `agentcore export harness` without `--name` to launch the interactive export wizard.  
 
-1. If the project has more than one harness, select the harness to export. (With a single harness, the wizard skips this step.)  
-![Select the harness to export](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-export-01-select.png)
+Export by ARN from a directory outside any AgentCore project:
 
-1. Enter a name for the generated runtime agent, or accept the default `<harness>Agent` .  
-![Name the generated runtime agent](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-export-02-name.png)
+```
+agentcore export harness \
+  --arn arn:aws:bedrock-agentcore:us-east-1:123456789012:harness/MyHarness-AbCdEf1234 \
+  --project-name ExportedHarness \
+  --target-agent-name MyProductionAgent
+cd ExportedHarness
+```
 
-1. Choose the build type: **CodeZip** (package Python source as a zip, the default) or **Container** (build a Docker image via ECR and CodeBuild).  
-![Select the build type](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-export-03-build.png)
-
-1. Review the export configuration and confirm.  
-![Review and confirm the export](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-export-04-confirm.png)
-After export, review `EXPORT_NOTES.md` , then run `agentcore deploy` to deploy the generated agent.
+The new project’s default deployment target uses the source ARN’s account and Region. Review `agentcore/aws-targets.json` before deploying to a different destination. The CLI refuses an existing destination directory instead of overwriting it; choose a different `--project-name` or working directory. Inside a project, it also refuses a colliding Runtime name or application directory.
 
 ### After export
 <a name="_after_export"></a>
 
-Deploy the generated runtime agent using the AgentCore CLI.
-
-**Example**  
+From the destination project root, review the generated code and `EXPORT_NOTES.md`, then build and deploy:
 
 ```
+agentcore build
 agentcore deploy
 ```
 
-The exported agent is added as a normal runtime, so it deploys alongside the rest of your AgentCore CLI project.
+ `agentcore build` checks that the project synthesizes without deploying. In an existing project, the exported agent is added as a normal Runtime and deploys alongside the project’s other resources. For a standalone export, change to the new project directory first, as shown above.
 
 ## EXPORT\_NOTES.md
 <a name="_export_notes_md"></a>
 
-After every export, `EXPORT_NOTES.md` is written listing items requiring manual follow-up. Export writes notes to EXPORT\_NOTES.md in the agent directory listing each item, why it needs attention, and exactly what to do. Always read EXPORT\_NOTES.md before deploying.
+Every export writes `EXPORT_NOTES.md` in the generated agent directory. The file records configuration that could not be mapped automatically. When no manual follow-up is needed, it states that no manual steps are required. Always review `EXPORT_NOTES.md` before deploying.
 
 ## Deployment Options
 <a name="_deployment_options"></a>

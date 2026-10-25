@@ -93,7 +93,7 @@ Telemetry data is provided for monitoring purposes. Actual billing is calculated
 
  **Vended Logs** 
 
-Amazon Bedrock AgentCore Built-in Tools provides the ability to enabled vended logs for session level usage telemetry at 1-second granularity. Each log record contains 1 second Resource Usage datum. Currently supported metrics include:
+Amazon Bedrock AgentCore Built-in Tools provides the ability to enabled vended logs for session level usage telemetry at 1-second granularity. Each log record contains 1 second Resource Usage datum. Supported metrics include:
 + Code Interprefer codeInterpreter.vcpu.hours.used and codeInterpreter.memory.gb\_hours.used
 + Browser browser.vcpu.hours.used and browser.memory.gb\_hours.used
 

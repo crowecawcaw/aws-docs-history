@@ -41,39 +41,72 @@ Agents created after June 5, 2026 support interactive shells (terminals) automat
 
 For installation and setup instructions, see [Get started with the AgentCore CLI](runtime-get-started-cli.md).
 
-The CLI provides a built-in terminal experience with `agentcore exec`.
+The CLI provides a built-in interactive terminal experience. Pass a Runtime ID, not a Runtime ARN. For a Runtime in an AgentCore project, the Runtime ID is the last segment of the Runtime `arn` in the output of `agentcore status --json`:
+
+For an environment managed by a Harness, use `agentcore harness shell --id <harness-id>` instead of the managed Runtime’s ID. See [Open a Harness shell with the AgentCore CLI](harness-command-shell.md#harness-command-shell-cli).
 
 ```
-agentcore exec --it
+agentcore runtime shell --id <runtime-id>
 ```
 
-To connect to a specific runtime:
+Without `--qualifier`, the CLI prompts you to choose an endpoint. To select an endpoint directly:
 
 ```
-agentcore exec --it --runtime <runtime-arn> --region us-west-2
+agentcore runtime shell \
+  --id <runtime-id> \
+  --qualifier DEFAULT \
+  --region us-west-2
 ```
 
-Press `Ctrl+]` to detach from a shell without closing it. The CLI prints a reconnect command:
+Use `--session-id` to open the shell in a specific Runtime session:
 
 ```
-agentcore exec --it \
-  --runtime <arn> \
-  --region <region> \
-  --session-id <uuid> \
-  --shell-id <id>
+agentcore runtime shell \
+  --id <runtime-id> \
+  --qualifier DEFAULT \
+  --session-id <runtime-session-id>
 ```
 
-For one-shot commands, omit `--it`:
+After connecting, the CLI prints the Runtime session ID, shell ID, and a complete reconnect command. Press `Ctrl+]` to detach the local terminal while keeping the remote shell running:
 
 ```
-agentcore exec "ls -la /tmp"
+Connected
+Session ID: <runtime-session-id>
+Shell ID: <shell-id>
+Ctrl+D or 'exit' to close · Ctrl+] to detach
+To reconnect: agentcore runtime shell --id <runtime-id> --qualifier DEFAULT --session-id <runtime-session-id> --shell-id <shell-id> --region us-west-2
 ```
 
-For machine-readable output, use JSON mode:
+Run the printed command to reconnect to the same shell. When constructing the command yourself, `--shell-id` requires `--session-id`:
 
 ```
-agentcore exec --json "echo hello"
-# Output: {"success":true,"exitCode":0,"stdout":"hello\n","stderr":""}
+agentcore runtime shell \
+  --id <runtime-id> \
+  --qualifier DEFAULT \
+  --session-id <runtime-session-id> \
+  --shell-id <shell-id> \
+  --region us-west-2
+```
+
+For a Runtime configured with CUSTOM\_JWT authorization, also pass its bearer token:
+
+```
+agentcore runtime shell \
+  --id <runtime-id> \
+  --qualifier DEFAULT \
+  --bearer-token file://token.txt
+```
+
+The reconnect command never includes a bearer token. Pass `--bearer-token` again when reconnecting to a CUSTOM\_JWT Runtime.
+
+Enter `exit` or press `Ctrl+D` to close the remote shell permanently. Press `Ctrl+]` when you want to detach and reconnect later.
+
+To run a single command without opening a shell, use `agentcore runtime exec`:
+
+```
+agentcore runtime exec \
+  --id <runtime-id> \
+  --command "ls -la /tmp"
 ```
 
 For additional CLI examples, see [AgentCore samples](https://github.com/awslabs/agentcore-samples) on GitHub.
@@ -204,8 +237,8 @@ The SDK can also automatically reconnect when the WebSocket connection drops. Us
 import asyncio
 from bedrock_agentcore.runtime import AgentCoreRuntimeClient, ReconnectConfig, ShellChannel
 
-async def on_reconnect(reconnected: bool):
-    print(f"Reconnected: {reconnected}")
+async def on_reconnect():
+    print("Reconnected")
 
 async def main():
     runtime_arn = "arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/my-agent"
@@ -305,6 +338,8 @@ For sensitive workloads, consider implementing additional controls such as:
 <a name="runtime-command-shell-error-handling"></a>
 
 When establishing a shell session connection, you might encounter the following errors during the WebSocket upgrade:
+
+If the CLI reports `Server rejected WebSocket connection: HTTP 400` and the Runtime is managed by a Harness, use the Harness shell command with the Harness ID. Other HTTP 400 responses can have different causes; verify the resource and request rather than assuming every rejection identifies a Harness.
 
  **ValidationException**   
 Occurs when the request parameters are invalid. This can happen if the session ID is less than 33 characters, the feature is not enabled in the target region, or the agent is not in READY state.

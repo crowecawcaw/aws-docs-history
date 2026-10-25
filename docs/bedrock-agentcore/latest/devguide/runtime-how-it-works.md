@@ -173,7 +173,7 @@ You set the platform version for each agent runtime. Set it when you create a ru
    )
    ```
 
-1. The `create_agent_runtime` response does not return `platformVersion`. Call `get_agent_runtime` to confirm it.
+1. To confirm the platform version, call `get_agent_runtime`.
 
 ### What to expect
 <a name="runtime-v2-what-to-expect"></a>
@@ -201,7 +201,7 @@ def wait_until_ready(client, agent_runtime_id):
 ```
 
 **Note**  
-V2 currently limits the total size of your agent’s environment variables to 1.5 KB for direct code deployments and 2.5 KB for container agents, compared to 4 KB on V1. If your configuration exceeds this limit, the request fails with a `ValidationException`. AgentCore Runtime will raise this limit to match V1.
+V2 limits the total size of your agent’s environment variables to 1.5 KB for direct code deployments and 2.5 KB for container agents, compared to 4 KB on V1. If your configuration exceeds this limit, the request fails with a `ValidationException`. AgentCore Runtime will raise this limit to match V1.
 
 ### Snapshot lifecycle
 <a name="runtime-v2-snapshot-lifecycle"></a>
@@ -216,11 +216,6 @@ When you update a runtime, AgentCore Runtime hosts the new version on the defaul
 
 Deleted  
 AgentCore Runtime deletes a snapshot when no endpoint points to it. This occurs when you update a runtime, remove an endpoint’s reference to a version, or delete the runtime or a runtime endpoint. Deletion can take up to 8 hours, which is the maximum session lifetime, because sessions that are already running on the snapshot continue until they end.
-
-### Infrastructure as code
-<a name="runtime-v2-iac"></a>
-
- AWS CloudFormation and the AWS CDK do not currently support setting `platformVersion`.
 
 ## Authentication and security
 <a name="runtime-auth-security"></a>

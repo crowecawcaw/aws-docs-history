@@ -9,7 +9,7 @@ Custom code-based evaluators let you use your own AWS Lambda function to program
 <a name="code-based-evaluators-prerequisites"></a>
 
 To use custom code-based evaluators, you need:
-+ An AWS Lambda function deployed in the same Region as your AgentCore Evaluations resources.
++ An AWS Lambda function deployed in the same Region as your AgentCore Evaluations resources. You don’t need an existing function if you let the AgentCore CLI create one for you, as described in the AgentCore CLI example later on this page.
 + An IAM execution role that grants the AgentCore Evaluations service permission to invoke your Lambda function.
 + The Lambda function must return a JSON response conforming to the response schema described in [Response schema](#code-based-response-schema).
 
@@ -61,7 +61,7 @@ Your Lambda function receives a JSON payload with the following structure:
 
 | Field | Type | Description | 
 | --- | --- | --- | 
-|  `schemaVersion`  | String | Schema version of the payload. Currently `"1.0"`. | 
+|  `schemaVersion`  | String | Schema version of the payload. The value is `"1.0"`. | 
 |  `evaluatorId`  | String | The ID of the code-based evaluator. | 
 |  `evaluatorName`  | String | The name of the code-based evaluator. | 
 |  `evaluationLevel`  | String | The evaluation level: `TRACE` , `TOOL_CALL` , or `SESSION`. | 
@@ -142,13 +142,24 @@ The following code samples demonstrate how to create code-based evaluators using
 1. 
 
    ```
-   agentcore add evaluator \
+   agentcore add evaluator code-based \
      --name "MyCodeEvaluator" \
      --level TRACE \
-     --type code-based \
-     --lambda-arn "arn:aws:lambda:us-east-1:123456789012:function:my-eval-function" \
-     --timeout 120
+     --lambda-arn "arn:aws:lambda:us-east-1:123456789012:function:my-eval-function"
    ```
+
+   This command adds the evaluator to your local `agentcore.json`. Run `agentcore deploy` to create it in your AWS account. To get the evaluator ID for `agentcore eval ondemand evaluate --evaluators`, run `agentcore eval evaluator list`, or take the last segment of the evaluator ARN that `agentcore status` shows.
+
+   To have the CLI create the Lambda function for you, omit `--lambda-arn`. The CLI scaffolds the function code in `app/<name>/lambda_function.py`, and `agentcore deploy` creates the function. Use `--timeout-seconds` (1-300, default 60) to set its timeout. `--timeout-seconds` cannot be combined with `--lambda-arn`.
+
+   ```
+   agentcore add evaluator code-based \
+     --name "MyManagedEvaluator" \
+     --level TRACE \
+     --timeout-seconds 120
+   ```
+**Note**  
+Run these commands from inside an AgentCore project directory created with `agentcore create`.
 
 1. 
 
@@ -235,10 +246,10 @@ Once created, use the custom code-based evaluator with the `Evaluate` API the sa
 1. 
 
    ```
-   agentcore run eval \
-     --runtime "your_runtime_name" \
-     --session-id "your_session_id" \
-     --evaluator "code-based-evaluator-id"
+   agentcore eval ondemand evaluate \
+     --agent "your-runtime-id" \
+     --session-ids "your_session_id" \
+     --evaluators "code-based-evaluator-id"
    ```
 
 1. 
@@ -334,15 +345,15 @@ You can use a custom code-based evaluator in an online evaluation configuration 
    ```
    agentcore add online-eval \
      --name "your_config_name" \
-     --runtime "your_runtime_name" \
-     --evaluator "code-based-evaluator-id" \
+     --agent "your_runtime_name" \
+     --evaluators "MyCodeEvaluator" \
      --sampling-rate 1.0 \
-     --enable-on-create
+     --enable-on-create true
    ```
 
    This command adds the online evaluation configuration to your local `agentcore.json` . Run `agentcore deploy` to create it in your AWS account.
 **Note**  
-Run this from inside an AgentCore project directory (created with `agentcore create` ).
+Run this from inside an AgentCore project directory created with `agentcore create`.
 
 1. 
 

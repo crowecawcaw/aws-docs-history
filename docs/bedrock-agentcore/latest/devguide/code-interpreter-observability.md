@@ -6,7 +6,7 @@
 The AgentCore Code Interpreter provides the following observability features:
 
 Execution logs  
-Code interpreter execution console logs are not available in CloudWatch, but stdout/stderr details are directly available in each invocation.
+To read code interpreter execution console output, use the stdout/stderr details that each invocation returns.
 
 Metrics  
 You can view the following metrics in Amazon CloudWatch:  

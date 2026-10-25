@@ -32,7 +32,7 @@ The target configuration for an inference connector target uses the following st
     }
 }
 ```
-+  **connectorId** (required) – Identifier for the built-in connector. Supported values are `bedrock-mantle`, `openai`, and `anthropic`.
++  **connectorId** (required) – Identifier for the built-in connector. Supported values are `bedrock-mantle`, `bedrock-runtime`, `openai`, and `anthropic`. The `bedrock-runtime` connector configures a target for the native Amazon Bedrock `InvokeModel` API; for details, see [Use the Amazon Bedrock InvokeModel API with inference targets](gateway-target-inference-invokemodel.md).
 
 Each connector provides built-in defaults equivalent to a fully-specified provider configuration. For example, the `bedrock-mantle` connector automatically configures:
 +  **Model ID prefix stripping** – Clients can omit the provider prefix from model IDs (for example, use `claude-opus-4-7` instead of `anthropic.claude-opus-4-7`).

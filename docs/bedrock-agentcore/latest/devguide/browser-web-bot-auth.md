@@ -111,14 +111,14 @@ Web Bot Auth requires an execution role with a trust policy, but does not requir
 ## Supported Bot Control Vendors
 <a name="browser-web-bot-auth-supported-vendors"></a>
 
-Amazon Bedrock AgentCore currently supports Web Bot Auth with the following bot control vendors:
+Amazon Bedrock AgentCore supports Web Bot Auth with the following bot control vendors:
 +  **Cloudflare** 
 +  **HUMAN Security** 
 +  **Akamai Technologies** 
 +  **DataDome** 
 +  **F5** 
 
-Additional bot control vendors will be supported as partnerships are established. The authentication works transparently - once enabled, your agents can browse websites protected by these services with reduced friction.
+The authentication works transparently - once enabled, your agents can browse websites protected by these services with reduced friction.
 
 ## Considerations
 <a name="browser-web-bot-auth-considerations"></a>

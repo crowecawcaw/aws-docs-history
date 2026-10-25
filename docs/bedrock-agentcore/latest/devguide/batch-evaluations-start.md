@@ -9,47 +9,76 @@ Start a batch evaluation to run evaluators against multiple agent sessions. The 
 <a name="start-batch-eval-examples"></a>
 
 **Example**  
-The CLI resolves `serviceNames` and `logGroupNames` automatically from the project configuration when you use `--runtime`:  
+Pass the ID of the deployed Runtime or harness with `--agent`. The CLI reads the Runtime or harness to find its log group and service name, so your credentials need the `ResolveAgentForCli` permissions in [Required IAM permissions](batch-evaluations-prereqs.md#batch-eval-iam-permissions). To skip this lookup, pass the log group and service name with `--data-source-config` instead of `--agent`.  
 
 ```
-agentcore run batch-evaluation \
-  --runtime MyAgent \
-  --evaluator Builtin.GoalSuccessRate Builtin.Helpfulness Builtin.Faithfulness
+agentcore eval batch-evaluation evaluate \
+  --agent <AGENT_ID> \
+  --evaluators Builtin.GoalSuccessRate Builtin.Helpfulness Builtin.Faithfulness \
+  --name my_baseline_eval
 ```
 With optional flags:  
 
 ```
-# Custom name and lookback window
-agentcore run batch-evaluation \
-  --runtime MyAgent \
-  --evaluator Builtin.GoalSuccessRate \
+# Time window
+agentcore eval batch-evaluation evaluate \
+  --agent <AGENT_ID> \
+  --evaluators Builtin.GoalSuccessRate \
   --name my_baseline_eval \
-  --lookback-days 1
+  --start-time 2026-09-15T00:00:00Z \
+  --end-time 2026-09-16T00:00:00Z
 
 # Specific sessions
-agentcore run batch-evaluation \
-  --runtime MyAgent \
-  --evaluator Builtin.GoalSuccessRate \
+agentcore eval batch-evaluation evaluate \
+  --agent <AGENT_ID> \
+  --evaluators Builtin.GoalSuccessRate \
+  --name my_session_eval \
   --session-ids session-abc123 session-def456
 
 # With ground truth
-agentcore run batch-evaluation \
-  --runtime MyAgent \
-  --evaluator Builtin.GoalSuccessRate Builtin.Correctness \
-  --ground-truth ground-truth.json
+agentcore eval batch-evaluation evaluate \
+  --agent <AGENT_ID> \
+  --evaluators Builtin.GoalSuccessRate Builtin.Correctness \
+  --name my_ground_truth_eval \
+  --ground-truth file://ground-truth.json
+
+# Sessions that an online evaluation configuration sampled
+agentcore eval batch-evaluation evaluate \
+  --online-eval <ONLINE_EVAL_ID> \
+  --evaluators Builtin.GoalSuccessRate \
+  --name my_online_eval_sessions
+
+# Log groups matched by prefix, with results in a custom log group
+agentcore eval batch-evaluation evaluate \
+  --data-source-config '{"cloudWatchLogs":{"logGroupNamePrefixes":["/aws/bedrock-agentcore/runtimes/MyAgent-"],"serviceNames":["MyAgent.DEFAULT"]}}' \
+  --evaluators Builtin.GoalSuccessRate \
+  --name my_prefix_eval \
+  --output-config '{"cloudWatchConfig":{"resultDestination":"DEDICATED_LOG_GROUP","logGroupName":"/my/team/batch-evaluation-results"}}'
 ```
-By default the command starts the job and returns immediately. Pass `--wait` to block until the job reaches a terminal state (`COMPLETED`, `FAILED`, or `STOPPED`), after which the CLI displays per-evaluator average scores and saves results to `.cli/jobs/batch-eval-results/`.  
- `agentcore run batch-evaluation` also supports the following flags:  
-+  `--wait` — block until the job reaches a terminal state.
-+  `--json` — emit machine-readable JSON output.
-+  `--kms-key <arn>` — encrypt batch evaluation results with a customer-managed KMS key.
-+  `--dataset <name>` / `--dataset-version <version>` — invoke the agent with dataset scenarios before batch evaluation (omit the version for a local file, or use `N`/`DRAFT`).
-+  `--endpoint <name>` — target a specific runtime endpoint (for example, `PROMPT_V1`); defaults to the `AGENTCORE_RUNTIME_ENDPOINT` environment variable, then `DEFAULT`.
-+  `--evaluator-arn <arns…​>` — reference evaluators by ARN instead of `-e`.
+Pass exactly one session source: `--agent`, `--online-eval`, or `--data-source-config`. The `--data-source-config` value is the `dataSourceConfig` object described in [Session source](#start-batch-eval-session-source), and it can’t be combined with `--start-time`, `--end-time`, `--session-ids`, or `--endpoint`. Put those filters in its `filterConfig` instead. The `--output-config` value is the `outputConfig` object described in [Result output](#start-batch-eval-output). Use `--endpoint` with `--agent` to read sessions from a Runtime endpoint other than `DEFAULT`. Use `--description` and `--kms-key-arn` to set the job description and the KMS key that encrypts evaluation data.  
+The `--ground-truth` file holds a JSON array with one entry per session:  
 
-  Most flags have short aliases: `-r` (`--runtime`), `-e` (`--evaluator`), `-n` (`--name`), `-d` (`--lookback-days`), `-s` (`--session-ids`), and `-g` (`--ground-truth`).
-
-  To manage a job after it starts, run `agentcore stop batch-evaluation -i <id>` to stop a running job and `agentcore archive batch-evaluation -i <id>` to archive a job record.
+```
+[
+  {
+    "sessionId": "session-abc123",
+    "groundTruth": {
+      "inline": {
+        "turns": [
+          {
+            "input": {"prompt": "Where is my order?"},
+            "expectedResponse": {"text": "It shipped on Tuesday."}
+          }
+        ],
+        "assertions": [
+          {"text": "The agent gives the ship date"}
+        ]
+      }
+    }
+  }
+]
+```
+The command starts the asynchronous job and returns its ID. Use `agentcore eval batch-evaluation get --id <id>` to retrieve status and results. To replay a dataset against a Runtime before evaluation, use `agentcore eval batch-evaluation simulate`. It replays only predefined scenarios that have scripted `turns`. For simulated scenarios that contain `actor_profile`, use the AgentCore SDK as described in [User simulation](user-simulation.md).
 
 ```
 import boto3
@@ -95,7 +124,7 @@ With session ID filtering:
 
 ```
 response = client.start_batch_evaluation(
-    batchEvaluationName=f"targeted-eval-{uuid.uuid4().hex[:8]}",
+    batchEvaluationName=f"targeted_eval_{uuid.uuid4().hex[:8]}",
     evaluators=[
         {"evaluatorId": "Builtin.GoalSuccessRate"},
     ],
@@ -118,7 +147,7 @@ from datetime import datetime, timedelta, timezone
 
 now = datetime.now(timezone.utc)
 response = client.start_batch_evaluation(
-    batchEvaluationName=f"weekly-eval-{uuid.uuid4().hex[:8]}",
+    batchEvaluationName=f"weekly_eval_{uuid.uuid4().hex[:8]}",
     evaluators=[
         {"evaluatorId": "Builtin.GoalSuccessRate"},
     ],
@@ -203,7 +232,7 @@ By default, batch evaluation results go to a dedicated, service-managed log grou
 ### Use a custom output log group
 <a name="start-batch-eval-custom-output-log-group"></a>
 
-For `DEDICATED_LOG_GROUP`, set `logGroupName` to write results to a log group you choose. An existing log group is used as-is; if it doesn’t exist, the service creates it, which requires the execution role to grant `logs:CreateLogGroup`. The name can’t be under the service-reserved `/aws/bedrock-agentcore/evaluations/` namespace, apart from the service-managed default group.
+For `DEDICATED_LOG_GROUP`, set `logGroupName` to write results to a log group you choose. If the log group exists, the service writes to it. If it doesn’t exist, the service creates it. The caller’s credentials must allow `logs:CreateLogGroup`, `logs:CreateLogStream`, and `logs:PutLogEvents` on that log group. The name can’t be under the service-reserved `/aws/bedrock-agentcore/evaluations/` namespace, apart from the service-managed default group.
 
 ```
 # Write results back to the trace source log group

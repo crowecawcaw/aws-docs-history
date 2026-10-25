@@ -137,15 +137,14 @@ Specify the `kmsKeyArn` parameter when calling `CreateDataset`:
 
 1. 
 
-   To create an encrypted dataset, pass `--kms-key-arn` when you add the dataset, then run `agentcore deploy`. Replace the KMS key ARN with your own key ARN.
+   To create an encrypted dataset, pass `--kms-key-arn` with the JSONL source. Replace the KMS key ARN with your own key ARN.
 
    ```
-   agentcore add dataset --name encrypted_dataset \
-       --schema-type AGENTCORE_EVALUATION_PREDEFINED_V1 \
-       --kms-key-arn "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
-   
-   # Add your scenarios to agentcore/datasets/encrypted_dataset.jsonl, then run agentcore deploy.
-   agentcore deploy
+   agentcore eval dataset create \
+     --name encrypted_dataset \
+     --schema-type predefined \
+     --source file://encrypted_dataset.jsonl \
+     --kms-key-arn "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
    ```
 
 1. 

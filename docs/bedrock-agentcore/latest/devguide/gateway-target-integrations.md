@@ -29,8 +29,8 @@ Amazon Bedrock AgentCore lets you add open source templates from the following i
 <a name="gateway-target-integrations-considerations"></a>
 
 When using templates from integration providers as targets, keep in mind the following requirements and limitations:
-+ You can only add an integration provider template as a target through the AWS Management Console and not through the API.
-+ Amazon Bedrock AgentCore doesn’t host any servers natively, so you must set up server hosting yourself. After you add the template, you can invoke the server URL that you set up using the authorization that you configure.
++ Add an integration provider template as a target through the AWS Management Console.
++ Set up hosting for the server yourself. After you add the template, you can invoke the server URL that you set up using the authorization that you configure.
 + Amazon Bedrock AgentCore supports a subset of APIs that the provider supports for interacting with these templates. For a list of APIs supported by AgentCore, see [Supported APIs by template](#gateway-target-integrations-supported-apis).
 
 ## Supported APIs by template

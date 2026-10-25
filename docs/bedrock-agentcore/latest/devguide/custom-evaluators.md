@@ -13,8 +13,11 @@ arn:aws:bedrock-agentcore:region:account:evaluator/evaluator-id
 
 You can also create a custom evaluator that runs an existing built-in or third-party evaluator’s logic on your own model. With this approach, you skip writing your own instructions and rating scale. For more information, see [Third-party evaluators](third-party-evaluators.md).
 
+An LLM-as-a-judge evaluator can rate on a single scale, or on several named dimensions in one judge call. For more information about rating several dimensions, see [Custom multi-dimension evaluators](multi-dimension-evaluators.md).
+
 **Topics**
 + [Create evaluator](create-evaluator.md)
++ [Custom multi-dimension evaluators](multi-dimension-evaluators.md)
 + [List evaluators](list-evaluators.md)
 + [Update evaluator](update-evaluator.md)
 + [Get evaluator](get-evaluator.md)

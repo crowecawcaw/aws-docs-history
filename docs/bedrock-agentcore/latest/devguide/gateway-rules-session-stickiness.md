@@ -28,11 +28,9 @@ How the gateway determines the session ID depends on the target type:
 For HTTP passthrough targets, you can set an optional `stickinessConfiguration` in the target configuration to control how the gateway identifies sessions and how long session affinity lasts. This is useful when your clients already send their own session header and you don’t want to require them to also send the standard runtime session header.
 
 The `stickinessConfiguration` object contains:
-+  **identifier** (required) – An expression that tells the gateway where to find the session ID in the request. Currently, the gateway can resolve the session ID only from a request header. You can specify the header in either of these forms:
++  **identifier** (required) – An expression that tells the gateway where to find the session ID in the request. The gateway resolves the session ID from a request header. You can specify the header in either of these forms:
   + A plain HTTP header name, such as `x-session-id`. The gateway reads the session ID from that request header.
   + A context path expression of the form `$.AMZN_AC_GW_CONTEXT.headers.{header-name}`, such as `$.AMZN_AC_GW_CONTEXT.headers.x-session-id`.
-
-    Only the `headers` source is supported today. Other sources (for example, a JWT claim) are not currently available.
 +  **timeout** (optional) – The session affinity timeout, in seconds, from 1 to 86400 (24 hours). After this duration of inactivity, the session affinity expires. The window resets on each request (sliding window).
 
 When a target has a `stickinessConfiguration`, the gateway resolves the session ID from the configured `identifier`.

@@ -18,7 +18,7 @@ MCP servers host tools, prompts, and resources that agents can discover and use.
  **Listing Mode** 
 
 ListingMode can be set as either DYNAMIC or DEFAULT for MCP server targets.
-+ In DYNAMIC mode, clients discover MCP server capabilities when a user invokes an MCP operation. Gateway retrieves server capabilities by forwarding requests to the MCP server. Currently DYNAMIC mode is not interoperable with semantic search or outbound three-legged OAuth (3LO).
++ In DYNAMIC mode, clients discover MCP server capabilities when a user invokes an MCP operation. Gateway retrieves server capabilities by forwarding requests to the MCP server. DYNAMIC mode is not interoperable with semantic search or outbound three-legged OAuth (3LO).
 + Unless changed, Listing Mode is set to DEFAULT. In DEFAULT mode, clients discover MCP server capabilities through a synchronization operation provided by the SynchronizeGatewayTargets API.
 
  **Implicit Synchronization** 

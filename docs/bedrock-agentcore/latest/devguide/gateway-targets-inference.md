@@ -16,8 +16,11 @@ Inference targets use the `inference` key in the target configuration. You can c
 +  **Connector** – Zero-configuration setup for supported model providers. Recommended for most use cases.
 +  **Provider** – Explicit control over the endpoint, model mappings, and operations. Use when you need to customize routing behavior.
 
+Inference targets also support the Amazon Bedrock `InvokeModel` API wire format, and translate requests and responses between the Amazon Bedrock, OpenAI, and Anthropic dialects so that a client can reach a provider that speaks a different dialect. For more information, see [Use the Amazon Bedrock InvokeModel API with inference targets](gateway-target-inference-invokemodel.md).
+
 The following topics describe each configuration type in detail.
 
 **Topics**
 + [Inference connector targets](gateway-target-inference-connector.md)
 + [Inference provider targets](gateway-target-inference-provider.md)
++ [Use the Amazon Bedrock InvokeModel API with inference targets](gateway-target-inference-invokemodel.md)

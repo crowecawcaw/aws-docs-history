@@ -18,7 +18,7 @@ AgentCore built-in evaluators are tested and benchmarked for performance. DeepEv
 + [Managed third-party evaluators](#third-party-evaluator-managed)
 + [Custom evaluators derived from a base evaluator](#third-party-evaluator-custom)
 + [Results](#third-party-evaluator-results)
-+ [Initial set of evaluators](#third-party-evaluator-initial-set)
++ [Available evaluators](#third-party-evaluator-initial-set)
 + [Console](#third-party-evaluator-console)
 
 ## Evaluator identity
@@ -151,10 +151,10 @@ After you create the evaluator, use it exactly like any other custom evaluator: 
 
 Third-party evaluators return the same result shape as built-in and custom evaluators, in the same locations. For more information, see [Results and output](results-and-output.md).
 
-## Initial set of evaluators
+## Available evaluators
 <a name="third-party-evaluator-initial-set"></a>
 
-The following evaluators are available at launch.
+The following evaluators are available.
 
  **DeepEval** 
 

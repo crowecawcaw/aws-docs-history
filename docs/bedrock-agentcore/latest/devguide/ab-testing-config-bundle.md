@@ -3,7 +3,7 @@
 # Run an A/B test with configuration bundles
 <a name="ab-testing-config-bundle"></a>
 
-Use the configuration bundle pattern when the change you are testing is purely configuration — a different system prompt, a different model ID, or different tool descriptions. Both variants run on the same AgentCore Runtime with different configuration bundle versions. The AgentCore Gateway injects the correct bundle reference into each request via W3C baggage headers, and your agent reads it at runtime. This means you deploy one AgentCore Runtime and one online evaluation config.
+Use a configuration bundle when you are testing only a configuration change, such as a system prompt, model ID, or tool descriptions. Both variants run on the same AgentCore Runtime with different configuration bundle versions. When you run the A/B test, your agent receives the assigned bundle reference through W3C baggage headers, a standard mechanism for passing context between services. You deploy one AgentCore Runtime and one online evaluation configuration.
 
 Key configuration for configuration bundle A/B tests:
 + Variant configuration: `variantConfiguration.configurationBundle` with bundle ARN and version
@@ -11,7 +11,7 @@ Key configuration for configuration bundle A/B tests:
 
 If the change you are testing involves code changes, a framework upgrade, or an entirely different agent implementation, use target-based routing instead. See [Run an A/B test with target-based routing](ab-testing-target-based.md).
 
-This walkthrough uses a customer support agent as an example. The agent handles order lookups, returns, and discount requests. You will deploy the agent, create two configuration bundles with different system prompts (control and treatment), create an A/B test, send traffic, review results, and deploy the winner.
+This walkthrough uses a customer support agent as an example. The agent handles order lookups, returns, and discount requests. You will deploy the agent, create two configuration bundles with different system prompts (control and treatment), create an A/B test, send traffic, review results, and route traffic to the winner.
 
 ## Step 1: Create the project
 <a name="config-bundle-create-project"></a>
@@ -19,7 +19,7 @@ This walkthrough uses a customer support agent as an example. The agent handles 
 Create the project with the AgentCore CLI:
 
 ```
-agentcore create --project-name ABTestConfigBased --no-agent
+agentcore create --name ABTestConfigBased --template empty
 cd ABTestConfigBased
 ```
 
@@ -29,13 +29,13 @@ cd ABTestConfigBased
 Add the agent runtime:
 
 ```
-agentcore add agent \
+agentcore add runtime \
   --name csAgent \
-  --language Python \
-  --framework Strands \
-  --model-provider Bedrock \
-  --memory none \
-  --build CodeZip
+  --language python \
+  --protocol HTTP
+cd app/csAgent
+uv init --bare
+cd ../..
 ```
 
 Abbreviated project structure:
@@ -45,17 +45,17 @@ ABTestConfigBased/
 ├── agentcore/
 │   ├── agentcore.json      # Project and resource configuration
 │   ├── aws-targets.json    # Populated with a deployment target during deploy
-│   └── cdk/                # CDK infrastructure (auto-managed)
+│   └── cdk/                # CDK infrastructure
 └── app/
     └── csAgent/
-        ├── main.py         # Agent entrypoint
+        ├── main.py         # Agent entrypoint, created in Step 3
         └── pyproject.toml  # Python dependencies
 ```
 
 ## Step 3: Update the agent code and deploy
 <a name="config-bundle-agent-code"></a>
 
-Replace `app/csAgent/main.py` with the following. The key addition is the `BeforeModelCallEvent` hook that reads the active configuration bundle at runtime:
+Create `app/csAgent/main.py` with the following. The `BeforeModelCallEvent` hook reads the active configuration bundle at runtime:
 
 ```
 """Customer support agent with configuration bundle integration."""
@@ -136,56 +136,59 @@ Deploy the customer support agent to AgentCore Runtime:
 agentcore deploy
 ```
 
-After deployment, note the runtime ARN from the output (for example, `arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/csAgent-abc123`). You will need it to create configuration bundles.
+After deployment, check the project status and note the `arn` field for `csAgent`. This is the Runtime ARN, and the Runtime ID is the last segment of that ARN. You will use the ID to create the online evaluation configuration and the ARN in the configuration bundle components:
+
+```
+agentcore status --json
+```
 
 Verify the agent is running:
 
 ```
-agentcore invoke --prompt "What is the status of order ORD-1003?"
+agentcore invoke --runtime csAgent \
+  --payload '{"prompt":"What is the status of order ORD-1003?"}'
 ```
 
-The `BeforeModelCallEvent` hook fires before each LLM call, reading the active configuration bundle from the request context. During an A/B test, the AgentCore Gateway assigns each session to a variant and propagates the corresponding bundle reference via W3C baggage headers. The runtime makes this available through `BedrockAgentCoreContext`, so control sessions receive bundle v1 and treatment sessions receive bundle v2 — the agent applies whichever system prompt is in the bundle it receives.
+The `BeforeModelCallEvent` hook fires before each LLM call, reading the active configuration bundle from the request context. During an A/B test, the AgentCore Gateway assigns each session to a variant and propagates the corresponding bundle reference via W3C baggage headers. The runtime makes this available through `BedrockAgentCoreContext`, so control sessions receive the control bundle and treatment sessions receive the treatment bundle. The agent applies the system prompt from the bundle it receives.
 
 For more details, see [Use configuration bundles at runtime](configuration-bundles-runtime.md).
 
 ## Step 4: Create configuration bundles
 <a name="config-bundle-create-bundles"></a>
 
-Create two configuration bundles — one for control (current prompt) and one for treatment (optimized prompt). The A/B test will split traffic between these to measure which prompt yields better evaluator scores.
+Create two configuration bundles, one for control (current prompt) and one for treatment (optimized prompt). The A/B test will split traffic between these to measure which prompt yields better evaluator scores. In each command, replace `<runtime-arn>` with the `arn` value for `csAgent` from `agentcore status --json`.
 
 Control bundle — the current system prompt:
 
 ```
-agentcore add config-bundle \
+agentcore eval config-bundle create \
   --name customerSupportControl \
   --components '{
-    "arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/csAgent-abc123": {
+    "<runtime-arn>": {
       "configuration": {
         "system_prompt": "You are a helpful customer support assistant for Acme Store."
       }
     }
-  }'
-
-agentcore deploy
+  }' \
+  --json
 ```
 
 Treatment bundle — an optimized system prompt that instructs the agent to be more proactive:
 
 ```
-agentcore add config-bundle \
+agentcore eval config-bundle create \
   --name customerSupportTreatment \
   --components '{
-    "arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/csAgent-abc123": {
+    "<runtime-arn>": {
       "configuration": {
         "system_prompt": "You are a customer support assistant for Acme Store. Be proactive: check order status before the customer asks, offer discounts for delayed orders, and summarize actions taken at the end of each response."
       }
     }
-  }'
-
-agentcore deploy
+  }' \
+  --json
 ```
 
-After each deploy, note the bundle ARN and version ID from the output — you will need these when creating the A/B test.
+Each command returns a `bundleId`, `bundleArn`, and `versionId`. Save these values for each bundle. The A/B test command uses the bundle and version IDs, and the final Gateway rule uses the bundle ARN and version ID.
 
 ## Step 5: Create an online evaluation configuration
 <a name="config-bundle-online-eval"></a>
@@ -195,39 +198,41 @@ An A/B test requires an online evaluation configuration to score sessions from b
 For configuration bundle variants, create a single online evaluation config that monitors the shared AgentCore Runtime:
 
 ```
-agentcore add online-eval \
+agentcore eval online-eval create \
   --name customerSupportEval \
-  --runtime csAgent \
-  --evaluator "Builtin.Helpfulness" \
-  --sampling-rate 100.0 \
-  --enable-on-create
-
-agentcore deploy
+  --agent <runtime-id> \
+  --evaluators Builtin.Helpfulness \
+  --sampling-rate 100 \
+  --enable-on-create true \
+  --json
 ```
 
-After deployment, note the online evaluation config ARN from the output — you will need it when creating the A/B test.
+Save the returned `onlineEvaluationConfigId`. You need it to create the A/B test.
 
 **Tip**  
-Set `--sampling-rate 100.0` during A/B testing so every session is evaluated and results reach statistical significance faster. You can lower the rate after the test concludes.
+Set `--sampling-rate 100` during A/B testing so that every session is evaluated and results reach statistical significance faster. You can lower the rate after the test concludes.
 
 For more details on evaluator options and configuration, see [Create online evaluation](create-online-evaluations.md).
 
 ## Step 6: Create the gateway and target
 <a name="config-bundle-create-gateway"></a>
 
-A config-bundle A/B test routes traffic through an AgentCore Gateway, so the gateway and its target must already be deployed before you start the test. Add a gateway with the runtime as an `http-runtime` target, then deploy:
+A config-bundle A/B test routes traffic through an AgentCore Gateway, so the gateway and its target must already be deployed before you start the test. Add a gateway with the runtime as a Runtime target (target type `httpRuntime`), then deploy:
 
 ```
-agentcore add gateway --name csGateway
+agentcore add gateway --name csGateway --authorizer-type AWS_IAM
 
 agentcore add gateway-target \
   --name customer-support \
   --gateway csGateway \
-  --type http-runtime \
   --runtime csAgent
 
 agentcore deploy
+
+agentcore status --json
 ```
+
+Read the `arn` field for `csGateway` in the `status` output. The Gateway ID is the last segment of that ARN. Save the Gateway ID. The A/B test command and final routing rule use the deployed ID rather than the project resource name.
 
 ## Step 7: Create the A/B test
 <a name="config-bundle-create-test"></a>
@@ -237,21 +242,17 @@ Create an A/B test that splits traffic 80/20 between the control and treatment p
 **Example**  
 
 ```
-agentcore run ab-test \
-  --mode config-bundle \
+agentcore eval ab-test config-based run \
   --name customerSupportPromptTest \
-  --gateway csGateway \
-  --runtime csAgent \
-  --control-bundle customerSupportControl \
-  --control-version <control-bundle-version-id> \
-  --treatment-bundle customerSupportTreatment \
-  --treatment-version <treatment-bundle-version-id> \
-  --online-eval customerSupportEval \
-  --control-weight 80 \
-  --treatment-weight 20
+  --gateway <gateway-id> \
+  --control '{"config-bundle":"<control-bundle-id>","bundle-version":"<control-bundle-version-id>"}' \
+  --treatment '{"config-bundle":"<treatment-bundle-id>","bundle-version":"<treatment-bundle-version-id>"}' \
+  --online-eval <online-evaluation-config-id> \
+  --treatment-weight 20 \
+  --gateway-filter '{"targetPaths":["/customer-support/*"]}'
 ```
- `agentcore run ab-test` initiates an A/B test job on the service. The test is RUNNING as soon as the command returns. Pass `--disable-on-create` to create it stopped. To review the job, run `agentcore view ab-test <id>`, or look in the job JSON under `.cli/jobs/ab-tests/`. The `--gateway` flag is required and must reference the gateway you deployed in Step 6. Only one test can be RUNNING per gateway at a time. The command prints the test’s job ID, which is also available from `--json` as the `id` field. You need this ID for the lifecycle commands below.  
-The `--control-version` and `--treatment-version` values are the version IDs returned when you deployed the configuration bundles in Step 3.
+The command creates the A/B test directly on the service and starts it by default. Pass `--enable-on-create false` to create it paused. The `--gateway` value is the deployed Gateway ID from Step 6. The command returns the `abTestId` that the lifecycle commands below require. Only one test can be running per Gateway at a time.  
+Use the bundle and version IDs returned in Step 4, not the bundle names or ARNs.
 
 ```
 import boto3
@@ -313,16 +314,10 @@ Session assignment is **sticky**: once a session ID is assigned to a variant, al
 ### Generate traffic for testing
 <a name="_generate_traffic_for_testing"></a>
 
-Save the following script as `loadgen.sh`, replacing `<gateway-id>` and `<target-name>` with the values from your deployment output:
+Save the following script as `loadgen.sh` in the project directory. The script sends every request to the `customer-support` target path, which the A/B test filter intercepts. Each request uses a new session ID:
 
 ```
 #!/bin/bash
-export AWS_ACCESS_KEY_ID=$(aws configure get aws_access_key_id)
-export AWS_SECRET_ACCESS_KEY=$(aws configure get aws_secret_access_key)
-export AWS_SESSION_TOKEN=$(aws configure get aws_session_token)
-
-GATEWAY_URL="https://<gateway-id>.gateway.bedrock-agentcore.us-west-2.amazonaws.com/<target-name>/invocations"
-
 PROMPTS=(
   "What is the status of order ORD-1003?"
   "I want to return order ORD-1001, it doesn't fit."
@@ -339,14 +334,10 @@ PROMPTS=(
 for i in $(seq 1 30); do
   PROMPT="${PROMPTS[$(( (i - 1) % ${#PROMPTS[@]} ))]}"
   echo "=== Request $i: $PROMPT ==="
-  curl -s --aws-sigv4 "aws:amz:us-west-2:bedrock-agentcore" \
-    --user "$AWS_ACCESS_KEY_ID:$AWS_SECRET_ACCESS_KEY" \
-    -H "x-amz-security-token: $AWS_SESSION_TOKEN" \
-    -H "Content-Type: application/json" \
-    -H "X-Amzn-Bedrock-AgentCore-Runtime-Session-Id: $(uuidgen)" \
-    -d "{\"prompt\": \"$PROMPT\"}" \
-    -X POST \
-    "$GATEWAY_URL"
+  agentcore invoke --gateway csGateway \
+    --path /customer-support/invocations \
+    --session-id "$(uuidgen)" \
+    --payload "{\"prompt\": \"$PROMPT\"}"
   echo ""
   sleep 2
 done
@@ -364,15 +355,15 @@ bash loadgen.sh
 Poll the A/B test to monitor results as sample sizes grow. Polling does not affect statistical validity.
 
 **Example**  
-Get current results (replace `<ab-test-id>` with the job ID from Step 6):  
+Get current results (replace `<ab-test-id>` with the ID returned in Step 7):  
 
 ```
-agentcore view ab-test <ab-test-id>
+agentcore eval ab-test get --id <ab-test-id>
 ```
 Get results as JSON:  
 
 ```
-agentcore view ab-test <ab-test-id> --json
+agentcore eval ab-test get --id <ab-test-id> --json
 ```
 Poll until results reach statistical significance:  
 
@@ -439,27 +430,28 @@ Once the A/B test reaches statistical significance, review the results and stop 
 
 1.  **Confirm significance.** Verify that the target evaluator has `isSignificant: true` and a positive `percentChange` on the treatment variant (or confirm the control is the winner if the treatment regressed).
 
-1.  **Stop the A/B test.** Run `agentcore stop ab-test -i <ab-test-id>`. Traffic routing ends immediately and all requests revert to the default configuration. See [View, pause, resume, and stop](ab-testing-manage.md#manage-ab-test-start-stop).
+1.  **Stop the A/B test.** Run `agentcore eval ab-test stop --id <ab-test-id>`. Traffic routing ends immediately and all requests revert to the default configuration. See [View, pause, resume, and stop](ab-testing-manage.md#manage-ab-test-start-stop).
 
-## Step 11: Deploy the winner
+## Step 11: Route traffic to the winner
 <a name="config-bundle-deploy-winner"></a>
 
 After stopping the A/B test, route all traffic to the winning configuration bundle version.
 
+Use the AWS CLI to create a Gateway rule that applies the winning bundle, whether the control or the treatment won. Without a rule, the agent falls back to `DEFAULT_SYSTEM_PROMPT`, which differs from the control bundle’s prompt. Replace `<winning-bundle-arn>` and `<winning-bundle-version-id>` with the values that Step 4 returned for the winning bundle:
+
 ```
-agentcore promote ab-test -i <ab-test-id>
-agentcore deploy
+aws bedrock-agentcore-control create-gateway-rule \
+  --gateway-identifier <gateway-id> \
+  --priority 100 \
+  --conditions '[{"matchPaths":{"anyOf":["/customer-support/*"]}}]' \
+  --actions '[{"configurationBundle":{"staticOverride":{"bundleArn":"<winning-bundle-arn>","bundleVersion":"<winning-bundle-version-id>"}}}]'
 ```
 
- `promote` stops the A/B test (if still running) and updates the control configuration bundle to use the treatment version. Run `agentcore deploy` to apply the changes.
+The rule updates the live Gateway immediately. Save the returned rule ID so that you can update or delete the rule later. The rule is not part of the project, and `agentcore deploy` does not manage it. To change an existing production rule instead, use `aws bedrock-agentcore-control update-gateway-rule --gateway-identifier <gateway-id> --rule-id <rule-id>`. For more rule examples, see [Gateway rules API examples](gateway-rules-examples.md).
 
-Alternatively, you can manually deploy the winner by doing one of the following:
-+  **Option A:** Use [AgentCore Gateway routing rules](gateway-rules.md) to route all traffic with the winning configuration bundle version.
-+  **Option B:** Update the control configuration bundle to use the winning system prompt and redeploy.
-+  **Option C:** Set the winning bundle version as the default in your agent code and remove the A/B test configuration.
-
-After deploying the winner:
+After routing traffic to the winner:
 +  **Delete the A/B test** to clean up resources. See [Delete an A/B test](ab-testing-manage.md#manage-ab-test-remove).
++  **Delete the Gateway rule before you delete its bundle or remove the Gateway.** If you created a rule in Step 11, delete it before you delete the bundle or run `agentcore remove` on the target or the Gateway. To find the rule ID, run `agentcore gateway rule list --gateway-id <gateway-id>`. Then run `aws bedrock-agentcore-control delete-gateway-rule --gateway-identifier <gateway-id> --rule-id <rule-id>`. See [Route traffic to the winning variant](ab-testing-manage.md#manage-ab-test-promote).
 +  **Monitor the new baseline.** Online evaluation continues scoring sessions on the winning configuration. Watch for regressions.
 +  **Start the next iteration.** New traces from the winning configuration provide the foundation for the next recommendation cycle. See [How it works](optimization-how-it-works.md).
 
@@ -473,13 +465,15 @@ For details on how the gateway applies tool description overrides, see [Behavior
 ### Configuration bundles
 <a name="_configuration_bundles"></a>
 
+As in Step 4, replace `<runtime-arn>` with the `arn` value for `csAgent` from `agentcore status --json`.
+
 Control bundle — current tool descriptions:
 
 ```
-agentcore add config-bundle \
+agentcore eval config-bundle create \
   --name toolDescControl \
   --components '{
-    "arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/csAgent-abc123": {
+    "<runtime-arn>": {
       "configuration": {
         "tools": {
           "lookup_order": {
@@ -494,18 +488,17 @@ agentcore add config-bundle \
         }
       }
     }
-  }'
-
-agentcore deploy
+  }' \
+  --json
 ```
 
 Treatment bundle — optimized tool descriptions from a recommendation:
 
 ```
-agentcore add config-bundle \
+agentcore eval config-bundle create \
   --name toolDescTreatment \
   --components '{
-    "arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/csAgent-abc123": {
+    "<runtime-arn>": {
       "configuration": {
         "tools": {
           "lookup_order": {
@@ -520,9 +513,8 @@ agentcore add config-bundle \
         }
       }
     }
-  }'
-
-agentcore deploy
+  }' \
+  --json
 ```
 
 ### How it works
@@ -538,21 +530,16 @@ agentcore deploy
 <a name="_create_the_ab_test"></a>
 
 ```
-agentcore run ab-test \
-  --mode config-bundle \
+agentcore eval ab-test config-based run \
   --name toolDescTest \
-  --gateway csGateway \
-  --runtime csAgent \
-  --control-bundle toolDescControl \
-  --control-version <control-bundle-version-id> \
-  --treatment-bundle toolDescTreatment \
-  --treatment-version <treatment-bundle-version-id> \
-  --online-eval customerSupportEval \
-  --control-weight 80 \
+  --gateway <gateway-id> \
+  --control '{"config-bundle":"<control-bundle-id>","bundle-version":"<control-bundle-version-id>"}' \
+  --treatment '{"config-bundle":"<treatment-bundle-id>","bundle-version":"<treatment-bundle-version-id>"}' \
+  --online-eval <online-evaluation-config-id> \
   --treatment-weight 20
 ```
 
-The remaining steps (send traffic, get results, deploy the winner) are identical to the preceding system prompt example.
+The remaining steps (send traffic, get results, and route traffic to the winner) are identical to the preceding system prompt example.
 
 ## Troubleshooting
 <a name="config-bundle-troubleshooting"></a>

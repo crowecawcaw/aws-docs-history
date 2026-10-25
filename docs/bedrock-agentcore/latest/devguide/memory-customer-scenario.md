@@ -25,22 +25,49 @@ First, you create a memory resource with both short-term and long-term memory ca
 
 **Example**  
 
-1. Create memory with a semantic strategy:
+1. Create an AgentCore project if you don’t have one yet:
 
    ```
-   agentcore add memory --name CustomerSupportSemantic --strategies SEMANTIC
+   agentcore create --name ShopSupport --template empty
+   cd ShopSupport
+   ```
+
+1. Create memory with summary and user preference strategies:
+
+   ```
+   agentcore add memory --name ShoppingSupportAgentMemory --strategies SUMMARIZATION,USER_PREFERENCE
    agentcore deploy
    ```
+
+1. Get the memory ID. Run the following command and copy the memory `arn`. The memory ID is the part of the ARN after `memory/`:
+
+   ```
+   agentcore status --json
+   ```
 **Note**  
-The AgentCore CLI provides memory resource management. For event operations (creating events, listing events, etc.), use the AWS Python SDK (Boto3) or AWS SDK.
+To write events, use the AWS SDK. To inspect events and records, you can also use `agentcore memory event list --id <memory-id> --actor-id <actor-id> --session-id <session-id>` and `agentcore memory record list --id <memory-id>`.
 
-1. Run `agentcore` to open the TUI, then select **add** and choose **Memory** :
+1. In your AgentCore project directory, run `agentcore add memory` to open the Memory wizard.
 
-1. Select the **Semantic** strategy:  
-![Memory wizard: select SEMANTIC strategy](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-strategies.png)
+1. Enter a name for the memory, such as `ShoppingSupportAgentMemory`.
 
-1. Review the configuration and press Enter to confirm:  
-![Memory wizard: review configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-confirm.png)
+1. Use the arrow keys and Space to select `SUMMARIZATION` and `USER_PREFERENCE`, then press Enter.
+
+1. Keep the default event retention or enter a value from 3 to 365 days.
+
+1. Review the configuration and press Enter to add the memory.
+
+1. Press Ctrl\+C to exit the TUI, then deploy the project to create the memory:
+
+   ```
+   agentcore deploy
+   ```
+
+1. Get the memory ID. Run the following command and copy the memory `arn`. The memory ID is the part of the ARN after `memory/`:
+
+   ```
+   agentcore status --json
+   ```
 
 1. 
 
@@ -59,6 +86,7 @@ The AgentCore CLI provides memory resource management. For event operations (cre
    response = control_client.create_memory(
        name="ShoppingSupportAgentMemory",
        description="Memory for a customer support agent.",
+       eventExpiryDuration=30,
        memoryStrategies=[
            {
                'summaryMemoryStrategy': {
@@ -90,6 +118,17 @@ The AgentCore CLI provides memory resource management. For event operations (cre
        print("Waiting for memory to become active...")
        time.sleep(10)
    ```
+
+If you created the memory with the AgentCore CLI, run the following code before the next steps. Replace `<memory-id>` with the memory ID from the `agentcore status --json` output.
+
+```
+import boto3
+import time
+from datetime import datetime
+
+data_client = boto3.client('bedrock-agentcore')
+memory_id = "<memory-id>"
+```
 
 ## Step 2: Start the session
 <a name="start-session"></a>
@@ -192,7 +231,7 @@ time.sleep(60)
 print("\nRetrieving user preferences from long-term memory...")
 preference_response = data_client.retrieve_memory_records(
     memoryId=memory_id,
-    namespace=f"/users/{sarah_actor_id}/preferences/",
+    namespace=f"/users/{sarah_actor_id}/preferences",
     searchCriteria={"searchQuery": "Does the user have a preferred shipping carrier?"}
 )
 for record in preference_response.get('memoryRecordSummaries', []):
@@ -209,4 +248,4 @@ for record in issue_response.get('memoryRecordSummaries', []):
     print(f"- Retrieved Record: {record}")
 ```
 
-This integrated approach lets the agent maintain rich context across sessions, recognize returning customers, recall important details, and deliver personalized experiences seamlessly, resulting in faster, more natural, and effective customer support.
+With this approach, the agent keeps context across sessions, recognizes returning customers, and recalls important details without asking the customer to repeat them.

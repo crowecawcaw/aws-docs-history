@@ -45,6 +45,8 @@ Your IAM user or role needs the following permissions to configure and run insig
 }
 ```
 
+If you pass `--agent` to `agentcore eval batch-insights run`, also allow `bedrock-agentcore:GetAgentRuntime` and `bedrock-agentcore:GetHarness`. The CLI reads the Runtime or Harness to find its log group and service name.
+
 ## Execution role
 <a name="insights-prereqs-execution-role"></a>
 

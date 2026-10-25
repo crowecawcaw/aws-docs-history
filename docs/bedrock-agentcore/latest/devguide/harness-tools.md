@@ -85,7 +85,7 @@ tools = [
         "config": {"agentCoreGateway": {
             "gatewayArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/my-oauth-gateway",
             "outboundAuth": {"oauth": {
-                "credentialProviderName": "my-oauth-provider",
+                "providerArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:token-vault/default/oauth2credentialprovider/my-oauth-provider",
                 "scopes": ["read", "write"]
             }}
         }},
@@ -122,65 +122,22 @@ response = client.invoke_harness(
     messages=[{"role": "user", "content": [{"text": "Find a mechanical keyboard under $200 and request approval."}]}],
 )
 ```
-When creating a new harness interactively, the `agentcore add harness` wizard lets you select tools. To add tools via the CLI, use `agentcore add tool` after creating the harness:  
-The `--type` flag uses underscore-separated names (for example, `agentcore_browser`), which match the tool type identifiers in `harness.json`.
+Set the harness tools with the `--tools` JSON when you add it to a project. Include only the tool entries that the harness needs:  
 
 ```
-# Add a remote MCP server
-agentcore add tool --harness my-agent --type remote_mcp \
-  --name exa --url https://mcp.exa.ai/mcp
-
-# Create a harness with a remote MCP server and request headers.
-# Use ${arn:...} syntax to reference a credential provider.
 agentcore add harness \
-  --name secure_agent \
-  --model-provider bedrock \
-  --model-id us.anthropic.claude-sonnet-4-5-20250514-v1:0 \
-  --tools remote_mcp \
-  --mcp-name exa-secure \
-  --mcp-url https://mcp.exa.ai/mcp \
-  --mcp-headers '{"x-api-key":"${arn:aws:bedrock-agentcore:us-west-2:123456789012:token-vault/default/apikeycredentialprovider/my-exa-key}"}'
-
-# Add Browser
-agentcore add tool --harness my-agent --type agentcore_browser --name browser
-
-# Add Code Interpreter
-agentcore add tool --harness my-agent --type agentcore_code_interpreter --name code-interpreter
-
-# Add Gateway by ARN
-agentcore add tool --harness my-agent --type agentcore_gateway \
-  --name my-gateway --gateway-arn arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/my-gateway
-
-# Add Gateway by project-local name
-agentcore add tool --harness my-agent --type agentcore_gateway \
-  --name my-gateway --gateway my-gateway
-
-# Add an inline function tool (executes client-side, not on the harness VM)
-agentcore add tool --harness my-agent --type inline_function \
-  --name approve_purchase \
-  --description "Request human approval for a purchase" \
-  --input-schema '{"type": "object", "properties": {"item": {"type": "string"}, "amount": {"type": "number"}}, "required": ["item", "amount"]}'
+  --name my_agent \
+  --tools '[
+    {"type":"remote_mcp","name":"exa","config":{"remoteMcp":{"url":"https://mcp.exa.ai/mcp"}}},
+    {"type":"remote_mcp","name":"exa-secure","config":{"remoteMcp":{"url":"https://mcp.exa.ai/mcp","headers":{"x-api-key":"${arn:aws:bedrock-agentcore:us-west-2:123456789012:token-vault/default/apikeycredentialprovider/my-exa-key}"}}}},
+    {"type":"agentcore_browser","name":"browser"},
+    {"type":"agentcore_code_interpreter","name":"code-interpreter"},
+    {"type":"agentcore_gateway","name":"my-gateway","config":{"agentCoreGateway":{"gatewayArn":"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/my-gateway","outboundAuth":{"awsIam":{}}}}},
+    {"type":"inline_function","name":"approve_purchase","config":{"inlineFunction":{"description":"Request human approval for a purchase","inputSchema":{"type":"object","properties":{"item":{"type":"string"},"amount":{"type":"number"}},"required":["item","amount"]}}}}
+  ]'
+agentcore deploy
 ```
-Deploy to apply.  
-Override tools on a single invocation:  
-
-```
-agentcore invoke --harness research-agent --tools agentcore_browser "Find the latest news on AI agents"
-```
-Run `agentcore` in a project directory, select **add** , choose **Harness** , and advance to **Advanced settings** . Enable **Tools** with **Space** , then press **Enter** .  
-
-1. Select the tools for your harness: **AgentCore Browser** , **AgentCore Code Interpreter** , **AgentCore Gateway** , or **Remote MCP Server** . Use **Space** to toggle each, then press **Enter** .  
-![Select tools: Browser, Code Interpreter, Gateway, Remote MCP Server](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-tools-02-picker.png)
-
-1. For a **Remote MCP Server** , the wizard prompts for the server name, URL, and optional request headers.  
-![Enter the MCP server URL](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-tools-04-mcp-url.png)
-
-1. For an **AgentCore Gateway** , enter the gateway ARN and choose its outbound authentication: ** AWS IAM** (default), **None** , or **OAuth** .  
-![Select gateway outbound authentication](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-tools-07-gateway-auth.png)
-
-1. Review the configuration summary and confirm.  
-![Review the harness tool configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-tools-08-confirm.png)
-Then run `agentcore deploy` to apply.
+Use the SDK when you need to override the tools for one invocation without changing the deployed harness.
 
 ## Web search
 <a name="_web_search"></a>
@@ -194,7 +151,7 @@ Complete the following steps to set up web search for your harness.
 
 1.  **Create the gateway and connector target.** Follow the steps in [Set up Web Search Tool](gateway-add-target-api-target-config.md#gateway-add-target-api-connector-web-search-setup) to create a Gateway (MCP protocol, `AWS_IAM` inbound auth) and add a target with `connectorId: "web-search"`. That target needs a Gateway service role with `bedrock-agentcore:InvokeWebSearch` on the connector. For more information, see [Configure the Gateway Service Role](gateway-add-target-api-target-config.md#gateway-add-target-api-connector-web-search-service-role). Note the gateway ARN once it reaches `READY`.
 
-1.  **Grant the harness execution role access.** The harness execution role (distinct from the Gateway service role in the previous step) needs `bedrock-agentcore:InvokeGateway` on the gateway ARN. For more information about the required permissions, see the [AgentCore Gateway](harness-security.md) optional-permissions policy in the security topic. If your harness uses managed memory (the default), the execution role also needs the [AgentCore Memory](harness-security.md) permissions. The agent reads and writes session memory on each invocation.
+1.  **Grant the harness execution role access.** The harness execution role (distinct from the Gateway service role in the previous step) needs `bedrock-agentcore:InvokeGateway` on the gateway ARN. For more information about the required permissions, see the [AgentCore Gateway](harness-security.md) optional-permissions policy in the security topic. If your harness uses managed memory, the execution role also needs the [AgentCore Memory](harness-security.md) permissions. The agent reads and writes session memory on each invocation.
 
 1.  **Attach the gateway to the harness.** Add it as an `agentcore_gateway` tool with the default `AWS_IAM` outbound auth. The following examples show how to attach the gateway at create time.
 
@@ -214,7 +171,7 @@ tools = [
 ]
 
 client.create_harness(
-    harnessName="research-agent",
+    harnessName="research_agent",
     executionRoleArn="arn:aws:iam::123456789012:role/MyHarnessRole",
     tools=tools,
 )
@@ -228,16 +185,25 @@ response = client.invoke_harness(
     messages=[{"role": "user", "content": [{"text": "Search the web for the latest AWS announcements and cite your sources."}]}],
 )
 ```
+With the AgentCore CLI, you can declare the gateway and its web-search connector target in the project instead of following the setup page. Deploy the project in `us-east-1`. On the first deploy, `--region us-east-1` sets the Region of the default deployment target.  
+
+```
+agentcore add gateway --name wsgw --protocol-type MCP --authorizer-type AWS_IAM
+agentcore add gateway-connector --gateway wsgw --connector web-search --name web-search
+agentcore deploy --region us-east-1
+```
+Run `agentcore status --json` and copy the `arn` of the `wsgw` gateway. Use it as the `gatewayArn` value in the `--tools` JSON:  
 
 ```
 # Attach the web-search gateway to your harness
-agentcore add tool --harness research-agent --type agentcore_gateway \
-  --name web-search \
-  --gateway-arn arn:aws:bedrock-agentcore:us-east-1:123456789012:gateway/my-web-search-gateway
+agentcore add harness \
+  --name research_agent \
+  --tools '[{"type":"agentcore_gateway","name":"web-search","config":{"agentCoreGateway":{"gatewayArn":"<wsgw-gateway-arn>","outboundAuth":{"awsIam":{}}}}}]'
 
 # Deploy, then invoke
 agentcore deploy
-agentcore invoke --harness research-agent "Search the web for the latest AWS announcements and cite your sources."
+agentcore invoke --harness research_agent \
+  --prompt "Search the web for the latest AWS announcements and cite your sources."
 ```
 
 ## Inline function calls
@@ -329,35 +295,19 @@ Consume `response["stream"]` to receive the streamed tool result and any subsequ
 Add an inline function tool to a harness:  
 
 ```
-agentcore add tool --harness my-agent --type inline_function \
-  --name get_weather
+agentcore add harness \
+  --name my_agent \
+  --tools '[{"type":"inline_function","name":"get_weather","config":{"inlineFunction":{"description":"Get the current weather for a city.","inputSchema":{"type":"object","properties":{"city":{"type":"string"}},"required":["city"]}}}}]'
+agentcore deploy
 ```
-Then define the description and input schema in `app/my-agent/harness.json`:  
-
-```
-{
-  "type": "inline_function",
-  "name": "get_weather",
-  "config": {
-    "inlineFunction": {
-      "description": "Get the current weather for a city.",
-      "inputSchema": {
-        "type": "object",
-        "properties": { "city": { "type": "string" } },
-        "required": ["city"]
-      }
-    }
-  }
-}
-```
-Run `agentcore deploy` to apply. When the agent calls the inline function during an invocation, the TUI pauses and prompts you to provide the tool result inline. In non-interactive (CLI) mode, the stream returns with `stopReason: "tool_use"` and you send the result back with a follow-up invoke call that uses the same runtime session.
+The CLI stores the tool in the `tools` collection of `app/my_agent/harness.yaml`. When the agent calls the inline function, `agentcore invoke --harness my_agent` shows the tool call and the turn ends with `stopReason` set to `tool_use`. To return the result and continue the session, use the SDK flow in the preceding tab.
 
 Learn more about each tool:
 +  [AgentCore Gateway](gateway.md) · [create a gateway](gateway-create.md) · [policies](policy.md) 
 +  [AgentCore Browser](browser-tool.md) · [browser profiles](browser-profiles.md) · [session recording](browser-session-recording.md) 
 +  [AgentCore Code Interpreter](code-interpreter-tool.md) · [preinstalled libraries](code-interpreter-preinstalled-libraries.md) 
 
-### Related topics
+## Related topics
 <a name="_related_topics"></a>
 +  [Models and instructions](harness-models.md) – Configure models and override per invocation
 +  [Lifecycle hooks](harness-lifecycle-hooks.md) – Configure hooks to validate invocations and tool calls

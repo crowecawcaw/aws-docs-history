@@ -6,14 +6,20 @@
 This section provides examples of creating a gateway with a policy engine associated for policy enforcement.
 
 **Note**  
-Use the values for the authorization configuration that you specified when you set up inbound authorization — for a JWT authorizer, the discovery URL of your identity provider and the client IDs you allow. For how these are chosen, see [Set up inbound authorization for your gateway](gateway-inbound-auth.md).
+Use the values for the authorization configuration that you specified when you set up inbound authorization. For a JWT authorizer, use the discovery URL of your identity provider and the client IDs you allow. For how these are chosen, see [Set up inbound authorization for your gateway](gateway-inbound-auth.md).
 Where you specify an explicit gateway service role ARN, it must be a role you have already created. For more information, see [Set up permissions for AgentCore Gateway](gateway-prerequisites-permissions.md).
 
 Select one of the following methods:
 
 **Example**  
 
-1. In an AgentCore project, add a gateway and name the policy engine it should enforce:
+1. In an AgentCore project, add the policy engine:
+
+   ```
+   agentcore add policy-engine --name my_policy_engine
+   ```
+
+1. Add a gateway and name the policy engine it should enforce:
 
    ```
    agentcore add gateway --name my-gateway \
@@ -28,10 +34,10 @@ Select one of the following methods:
 1. Deploy to create both resources in your account:
 
    ```
-   agentcore deploy --yes
+   agentcore deploy
    ```
 
-   The engine named by `--policy-engine` must already be in the project — add it first with `agentcore add policy-engine`. The CLI resolves the engine ARN for you, so you do not need to know it in advance. Run `agentcore status` after deploying to read the gateway URL.
+   Add the policy engine to the project with `agentcore add policy-engine` before you run `agentcore add gateway`. The CLI resolves the engine ARN. Run `agentcore status` after deploying to read the gateway ARN.
 
 1. Run the following code in a terminal to create a gateway with a Policy Engine using the AWS CLI:
 

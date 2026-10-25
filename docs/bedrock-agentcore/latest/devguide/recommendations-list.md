@@ -9,20 +9,26 @@ List all recommendations in your account. Results are paginated and can be filte
 <a name="list-rec-examples"></a>
 
 **Example**  
-List past recommendation jobs (running jobs are refreshed from the service):  
+List recommendations:  
 
 ```
-agentcore view recommendation
+agentcore eval recommendation list
+```
+In a terminal, this opens an interactive list. For JSON output, for example in scripts, add `--json`.  
+Filter by status:  
+
+```
+agentcore eval recommendation list --status-filter COMPLETED
 ```
 View a single recommendation by ID:  
 
 ```
-agentcore view recommendation <recommendation-id>
+agentcore eval recommendation get --id <recommendation-id>
 ```
 Add `--json` for machine-readable output:  
 
 ```
-agentcore view recommendation --json
+agentcore eval recommendation list --json
 ```
 
 ```

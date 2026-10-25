@@ -242,7 +242,7 @@ To learn how to attach a resource-based policy to the Lambda function that allow
      --function-name "MyFunction" \
      --statement-id "GatewayInvoke" \
      --action "lambda:InvokeFunction" \
-     --principal "arn:aws:iam::123456789012:role/MyGatewayServiceRole"
+     --principal "arn:aws:iam::123456789012:role/MyGatewayServiceRole" \
      --region us-east-1
    ```
 

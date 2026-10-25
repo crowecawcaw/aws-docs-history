@@ -7,6 +7,8 @@ After a dataset reaches `ACTIVE` status, you can add, update, delete, and list e
 
 Maximum 1,000 examples per request. Inline content limit: 5 MB.
 
+In the AgentCore CLI, `agentcore eval dataset update` adds, updates, and deletes examples in one step. It makes the DRAFT match a local JSONL file by `exampleId`. A line without an `exampleId` is added as a new example. A line whose `exampleId` matches a DRAFT example updates that example if its content changed. Any DRAFT example whose `exampleId` is not in the file is deleted. Start from a file downloaded with `agentcore eval dataset get --id <DATASET_ID> --file-path <FILE>`, which includes the `exampleId` of each example. Don’t reuse the file that you passed to `agentcore eval dataset create`. That file has no `exampleId` values, so `update` deletes every DRAFT example and adds them all again with new IDs.
+
 ## AddDatasetExamples
 <a name="datasets-add-examples"></a>
 
@@ -14,16 +16,21 @@ The following examples show how to add examples to a dataset:
 
 **Example**  
 
-1. To add examples with the AgentCore CLI, append new scenarios to your local JSONL file, then redeploy:
+1. Download the DRAFT, append scenarios to the downloaded JSONL file, then reconcile it with the DRAFT:
 
    ```
-   # Edit agentcore/datasets/my_eval_dataset.jsonl — add new lines
-   agentcore deploy
+   # Download the DRAFT. Each line includes its exampleId.
+   agentcore eval dataset get \
+     --id <DATASET_ID> \
+     --file-path my_eval_dataset.jsonl
+   
+   # Edit my_eval_dataset.jsonl — add new lines
+   agentcore eval dataset update \
+     --id <DATASET_ID> \
+     --file-path my_eval_dataset.jsonl
    ```
 
-   The deploy detects new scenarios in your JSONL file and adds them to the service. Only the diff is applied — existing examples are not re-uploaded.
-**Note**  
-Run this from inside an AgentCore project directory (created with `agentcore create`).
+   The command adds lines that have no `exampleId` and writes their assigned `exampleId` values back to the file. Unchanged lines that keep their `exampleId` are not uploaded again.
 
 1. 
 
@@ -89,16 +96,16 @@ The following examples show how to update dataset examples:
 
 **Example**  
 
-1. To update examples with the AgentCore CLI, modify existing scenarios in your local JSONL file, then redeploy:
+1. Modify existing scenarios in a JSONL file downloaded from the DRAFT, then reconcile it with the DRAFT:
 
    ```
-   # Edit agentcore/datasets/my_eval_dataset.jsonl — modify existing lines
-   agentcore deploy
+   # Edit my_eval_dataset.jsonl — modify existing lines
+   agentcore eval dataset update \
+     --id <DATASET_ID> \
+     --file-path my_eval_dataset.jsonl
    ```
 
-   The deploy diffs your local file against the service and updates changed examples. Each line must retain its `exampleId` for the service to recognize it as an update rather than a new example.
-**Note**  
-Run this from inside an AgentCore project directory (created with `agentcore create`).
+   The command diffs your local file against the service and updates changed examples. Each line must retain its `exampleId` for the service to recognize it as an update rather than a new example.
 
 1. 
 
@@ -163,16 +170,16 @@ The following examples show how to delete dataset examples:
 
 **Example**  
 
-1. To delete examples with the AgentCore CLI, remove the corresponding lines from your local JSONL file, then redeploy:
+1. Remove the corresponding lines from a JSONL file downloaded from the DRAFT, then reconcile it with the DRAFT:
 
    ```
-   # Edit agentcore/datasets/my_eval_dataset.jsonl — remove lines
-   agentcore deploy
+   # Edit my_eval_dataset.jsonl — remove lines
+   agentcore eval dataset update \
+     --id <DATASET_ID> \
+     --file-path my_eval_dataset.jsonl
    ```
 
-   The deploy detects removed scenarios and deletes them from the service.
-**Note**  
-Run this from inside an AgentCore project directory (created with `agentcore create`).
+   The command deletes each DRAFT example whose `exampleId` is not in the file.
 
 1. 
 
@@ -228,11 +235,16 @@ The following examples show how to list dataset examples:
 1. 
 
    ```
-   # Download examples to your local JSONL file (default: Draft)
-   agentcore dataset download --name my_eval_dataset
+   # Download examples from the DRAFT
+   agentcore eval dataset get \
+     --id <DATASET_ID> \
+     --file-path my_eval_dataset.jsonl
    
    # Download examples from a published version
-   agentcore dataset download --name my_eval_dataset --version 1
+   agentcore eval dataset get \
+     --id <DATASET_ID> \
+     --version 1 \
+     --file-path my_eval_dataset-v1.jsonl
    ```
 
 1. 

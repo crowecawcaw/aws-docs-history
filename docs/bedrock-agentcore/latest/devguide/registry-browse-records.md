@@ -113,7 +113,7 @@ Use `BatchGetDiscoverableRegistryRecord` to retrieve the full descriptor content
 
 ### Request parameters
 <a name="registry-browse-batch-get-parameters"></a>
-+  **entries** (required): A list of registry-scoped record groups. At launch, exactly one entry is accepted (single registry per request); this is forward-compatible for cross-registry batching in the future.
++  **entries** (required): A list of registry-scoped record groups. Provide exactly one entry, for a single registry per request.
 
   Each entry contains:
   +  **registryId** (required): ARN or ID of the registry.

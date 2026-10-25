@@ -3,7 +3,7 @@
 # Get started without the AgentCore CLI
 <a name="getting-started-custom"></a>
 
-You can create a AgentCore Runtime agent without the AgentCore CLI. Instead you can use a combination of command line tools to configure and deploy your agent to an AgentCore Runtime.
+You can create an AgentCore Runtime agent without the AgentCore CLI. Instead, you can use a combination of command line tools to configure and deploy your agent to an AgentCore Runtime. If you prefer a CLI-managed workflow, see [Get started with AgentCore Runtime using the AgentCore CLI](runtime-get-started-cli.md).
 
 This tutorial shows how to deploy a custom agent without using the AgentCore CLI. A custom agent is an agent built without using the AgentCore Python SDK. In this tutorial, the custom agent is built using FastAPI and Docker. The custom agent follows the [AgentCore Runtime requirements](runtime-service-contract.md) , meaning the agent must expose `/invocations` POST and `/ping` GET endpoints and be packaged in a Docker container. Amazon Bedrock AgentCore requires ARM64 architecture for all deployed agents.
 
@@ -221,7 +221,7 @@ docker buildx create --use
 1. Build the image locally for testing:
 
    ```
-   docker buildx build --platform linux/arm64 -t my-agent:arm64 --load.
+   docker buildx build --platform linux/arm64 -t my-agent:arm64 --load .
    ```
 
 1. Test locally with credentials (Strands agents need AWS credentials):
@@ -255,7 +255,7 @@ docker buildx create --use
 1. Build and push to ECR:
 
    ```
-   docker buildx build --platform linux/arm64 -t account-id.dkr.ecr.us-west-2.amazonaws.com/my-strands-agent:latest --push.
+   docker buildx build --platform linux/arm64 -t account-id.dkr.ecr.us-west-2.amazonaws.com/my-strands-agent:latest --push .
    ```
 
 1. Verify the image was pushed:
@@ -321,7 +321,7 @@ payload = json.dumps({
 })
 
 response = agent_core_client.invoke_agent_runtime(
-    agentRuntimeArn='arn:aws:bedrock-agentcore:us-west-2:account-id:runtime/myStrandsAgent-suffix',
+    agentRuntimeArn='arn:aws:bedrock-agentcore:us-west-2:account-id:runtime/strands_agent-suffix',
     runtimeSessionId='dfmeoagmreaklgmrkleafremoigrmtesogmtrskhmtkrlshmt',  # Must be 33+ chars
     payload=payload,
     qualifier="DEFAULT"
@@ -338,7 +338,7 @@ Run the script to invoke your agent:
 uv run invoke_agent.py
 ```
 
-This script uses the [InvokeAgentRuntime](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_InvokeAgentRuntime.html) AWS SDK operation to send a request to your deployed agent. Make sure to replace {{account-id}} and {{agentArn}} with your actual values.
+This script uses the [InvokeAgentRuntime](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_InvokeAgentRuntime.html) AWS SDK operation to send a request to your deployed agent. Replace the `agentRuntimeArn` value with the Agent Runtime ARN that `deploy_agent.py` printed.
 
 If you plan on integrating your agent with OAuth, you can’t use the AWS SDK to call `InvokeAgentRuntime` . Instead, make a HTTPS request to InvokeAgentRuntime. For more information, see [Authenticate and authorize with Inbound Auth and Outbound Auth](runtime-oauth.md).
 
@@ -379,7 +379,7 @@ import boto3
 
 agent_core_client = boto3.client('bedrock-agentcore', region_name='us-west-2')
 response = agent_core_client.stop_runtime_session(
-    agentRuntimeArn='arn:aws:bedrock-agentcore:us-west-2:account-id:runtime/myStrandsAgent-suffix',
+    agentRuntimeArn='arn:aws:bedrock-agentcore:us-west-2:account-id:runtime/strands_agent-suffix',
     runtimeSessionId='dfmeoagmreaklgmrkleafremoigrmtesogmtrskhmtkrlshmt',
     qualifier="DEFAULT"
 )
@@ -406,5 +406,3 @@ In this guide, you’ve learned how to:
 + Create an agent runtime in Amazon Bedrock AgentCore
 + Invoke your deployed agent
 + Stop agent runtime session
-
-By following these steps, you can create and deploy custom agents that leverage the power of Amazon Bedrock AgentCore while maintaining full control over your agent’s implementation.

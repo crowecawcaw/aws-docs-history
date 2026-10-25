@@ -91,6 +91,15 @@ For invoking the registry MCP endpoint, you need both the search action and the 
 **Note**  
  `BatchGetDiscoverableRegistryRecord` does not have its own IAM action. Each requested record is authorized against `agent-registry:GetDiscoverableRegistryRecord`. Grant `GetDiscoverableRegistryRecord` to use `BatchGetDiscoverableRegistryRecord`.
 
+### Record-level permissions and the discovery APIs
+<a name="registry-iam-record-level-discovery"></a>
+
+You can use an `Allow` or `Deny` statement to scope `agent-registry:GetDiscoverableRegistryRecord` to individual registry record ARNs. Only `BatchGetDiscoverableRegistryRecord` enforces that scope because it checks each requested record.
+
+ AWS Agent Registry authorizes `SearchDiscoverableRegistryRecords` and `ListDiscoverableRegistryRecords` at the registry level only. These APIs don’t evaluate `GetDiscoverableRegistryRecord`. They ignore record-level `Allow` and `Deny` statements. A caller who can search or list a registry can discover every approved record in it. This includes records that you deny the caller through a `GetDiscoverableRegistryRecord` policy.
+
+The same applies to the search and list tools on the registry’s MCP endpoint.
+
 ## Workload identity actions (required for registry lifecycle)
 <a name="registry-iam-workload-identity"></a>
 
