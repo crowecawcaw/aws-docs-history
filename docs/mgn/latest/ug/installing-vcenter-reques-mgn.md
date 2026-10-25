@@ -4,6 +4,9 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # VMware limitations
 <a name="installing-vcenter-reques-mgn"></a>
+
+**Important**  
+Agentless replication is no longer available for new deployments. We recommend agent-based replication for all migrations. To learn more, see [Why we recommend agent-based replication](installing-vcenter-overview-mgn.md#why-agent-based).
 + MGN supports using agentless and agent-based replication for migrations from VMC on AWS.
 + MGN partially supports vMotion, Storage vMotion, and other features based on virtual machine migration (such as DRS and Storage DRS) subject to these limitations: 
   + Migrating a virtual machine to a new ESXi host or datastore after one replication run ends, and before the next replication run begins, is supported as long as the vCenter account has sufficient permissions on the destination ESXi host, datastores, and datacenter, and on the virtual machine itself at the new location. 

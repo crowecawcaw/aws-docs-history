@@ -5,6 +5,9 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 # Installing the AWS Transform MGN vCenter Client for Agentless Replication on vCenter source environments
 <a name="agentless-mgn"></a>
 
+**Important**  
+Agentless replication is no longer available for new deployments. We recommend agent-based replication for all migrations. To learn more, see [Why we recommend agent-based replication](installing-vcenter-overview-mgn.md#why-agent-based).
+
 AWS Transform MGN allows you to perform agentless snapshot replication from your vCenter source environment into AWS. This is achieved by installing the MGN vCenter Client in your vCenter environment. MGN recommends using agent-based replication when possible, as it supports CDP (Continuous Data Protection) and provides the shortest cutover window. Agentless replication should be used when your company’s policies prevent you from installing the AWS Replication Agent on each individual server.
 
 **Topics**

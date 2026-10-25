@@ -5,10 +5,15 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 # Release notes
 <a name="mgn-release-notes"></a>
 
+## October 2026
+<a name="release-notes-oct-2026"></a>
++ Agentless replication is no longer available for new deployments. We recommend using agent-based replication for all migrations. For more information, see [Why we recommend agent-based replication](installing-vcenter-overview-mgn.md#why-agent-based).
+
 ## September 2026
 <a name="release-notes-sep-2026"></a>
 + Added support for the following operating systems:
   + Debian 12
+  + Oracle Linux 7.9
 + Added support for local snapshots in the following Local Zones:
   + Hanoi, Vietnam (ap-southeast-1-han-1a)
   + Athens, Greece (eu-central-1-ath-1a)

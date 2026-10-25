@@ -5,6 +5,9 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 # Installing the MGN vCenter Client
 <a name="installing-vcenter-appliance-mgn"></a>
 
+**Important**  
+Agentless replication is no longer available for new deployments. We recommend agent-based replication for all migrations. To learn more, see [Why we recommend agent-based replication](installing-vcenter-overview-mgn.md#why-agent-based).
+
 The first step to deploying the agentless solution is installing the MGN vCenter Client on your vCenter environment. 
 
 **Note**  
@@ -21,7 +24,7 @@ Ensure that you review the notes below prior to installing the MGN vCenter Clien
 <a name="client-reqs"></a>
 + You must install the MGN vCenter Client on a VM that has outbound network connectivity to the AWS Transform MGN API endpoints and outbound network connectivity to the vCenter endpoint. Customers who want to use PrivateLink can use VPN or AWS Direct Connect to connect to AWS.
 + The MGN vCenter Client currently only supports VirtualDiskFlatVer2BackingInfo VMDK on CBT. 
-+ You must log in to your Broadcom account and download VDDK 7.0.3.3 to the VM on which the MGN vCenter Client is installed. VDDK 7.0.3.3 must be used, regardless of the vCenter version used. 
++ Prerequisite: VDDK 7.0.3.3 must be installed on the VM on which the MGN vCenter Client is installed. VDDK 7.0.3.3 must be used, regardless of the vCenter version used. 
 + The MGN vCenter Client requires these vCenter user permissions for agentless deployment. It is a best practice to create a dedicated role with these permissions and a dedicated user group with which the role is associated. Every new user created for the MGN vCenter Client needs to be a member of that group in order to obtain the required permissions. The vCenter predefined role: “ Consolidated Backup user (sample) ” provides most of these permissions. If that role is used, the **Toggle disk change tracking** permission must be provided..
   + Change configuration
     + Acquire disk lease

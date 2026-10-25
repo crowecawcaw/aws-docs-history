@@ -5,6 +5,9 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 # Replicating servers from vCenter to AWS
 <a name="replicating-vcenter-aws-mgn"></a>
 
+**Important**  
+Agentless replication is no longer available for new deployments. We recommend agent-based replication for all migrations. To learn more, see [Why we recommend agent-based replication](installing-vcenter-overview-mgn.md#why-agent-based).
+
 Once you have successfully installed the MGN vCenter Client, all of your vCenter VMs are added to MGN in the DISCOVERED state. The DISCOVERED state means that the VM has not been replicated to AWS. 
 
 

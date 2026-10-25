@@ -17,6 +17,7 @@ This section contains answers to general questions about AWS Transform MGN.
 + [Can you perform an OS (Operating System) upgrade with AWS Transform MGN?](#Can-OS-Upgrade)
 + [Can I use AWS Transform MGN to migrate servers from VMware Cloud on AWS (VMC) to Amazon EC2?](#vmc)
 + [When should I use AWS Elastic Disaster Recovery (AWS DRS) for migration?](#using-drs)
++ [Does AWS Transform MGN support migration to AWS Local Zones?](#can-migrate-to-local-zone)
 + [What are the AWS Transform MGN quota limits?](#MGN-service-limits-faq)
 + [What are the Private APIs used by MGN to define actions in the IAM Policy?](#mgn-apis)
 + [How does AWS Transform MGN interact with Interface VPC Endpoints?](#mgn-and-vpc)
@@ -89,6 +90,11 @@ Yes. AWS Transform MGN allows you to [perform an OS upgrade](predefined-post-lau
  Note that you cannot install the DRS and MGN agents on the same server at the same time. If you already installed the MGN agent on a server, and want to use DRS for migration, you must uninstall the MGN agent before installing the DRS agent. 
 
  Note that there are costs associated with using the DRS service. For DRS pricing information see [AWS Elastic Disaster Recovery pricing](https://aws.amazon.com/disaster-recovery/pricing/). 
+
+## Does AWS Transform MGN support migration to AWS Local Zones?
+<a name="can-migrate-to-local-zone"></a>
+
+Yes. AWS Transform MGN supports migration to AWS Local Zones. Support for storing snapshots locally in a Local Zone depends on the specific Local Zone. For more information, see [Store snapshots in AWS Local Zone](replication-server-settings.md#local-zone-snapshots).
 
 ## What are the AWS Transform MGN quota limits?
 <a name="MGN-service-limits-faq"></a>

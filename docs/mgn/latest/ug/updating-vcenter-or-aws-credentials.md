@@ -5,6 +5,9 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 # Updating the vCenter or AWS Credentials
 <a name="updating-vcenter-or-aws-credentials"></a>
 
+**Important**  
+Agentless replication is no longer available for new deployments. We recommend agent-based replication for all migrations. To learn more, see [Why we recommend agent-based replication](installing-vcenter-overview-mgn.md#why-agent-based).
+
 Users who want to change the vCenter or AWS credentials used by the MGN appliance should follow these steps. This change requires root privileges on the appliance:
 
 1.  In the command prompt, navigate to the aws-vcenter-client directory:

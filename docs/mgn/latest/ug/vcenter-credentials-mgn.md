@@ -5,6 +5,9 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 # Generating vCenter Client IAM credentials
 <a name="vcenter-credentials-mgn"></a>
 
+**Important**  
+Agentless replication is no longer available for new deployments. We recommend agent-based replication for all migrations. To learn more, see [Why we recommend agent-based replication](installing-vcenter-overview-mgn.md#why-agent-based).
+
 In order to use the MGN vCenter Client, you must first generate the correct IAM credentials.
 
 You need to create at least one AWS Identity and Access Management (IAM) user, and assign the proper permission policies to this user. Obtain an Access key ID and Secret access key, which you need to enter into the Agent installation prompt in order to begin the installation. We recommend that you use **IAM access last used information** to rotate and remove access keys safely. For more information, see [Rotating access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_RotateAccessKey).
