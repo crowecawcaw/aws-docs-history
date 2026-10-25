@@ -434,6 +434,29 @@ Calling `connect()` is optional. If the connection is not open when you join a s
 
 Keep a strong reference to `IVSRealTimeConnection` while stages use it. Calling `disconnect()` leaves any stages using the connection.
 
+**Web**
+
+The following example demonstrates how to create a `RealTimeConnection` and pass it to a `Stage` instance.
+
+```
+const connection = new RealTimeConnection(CONNECTION_TOKEN);
+
+// Optional: Open the connection ahead of time. Otherwise, the first join() opens it.
+connection.connect();
+
+const stageA = new Stage(PARTICIPANT_TOKEN_A, strategy, {connection});
+const stageB = new Stage(PARTICIPANT_TOKEN_B, strategy, {connection});
+
+await stageA.join();
+await stageB.join();
+
+// Leaving one Stage keeps the websocket open for the others.
+stageA.leave();
+
+// Closes the connection and leaves every Stage still using it. The connection can be reused afterwards.
+connection.disconnect();
+```
+
 ## Suggested Optimizations
 <a name="real-time-streaming-optimization-suggested"></a>
 

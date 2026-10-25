@@ -5,6 +5,75 @@
 
 This document contains all Amazon IVS Real-Time Streaming release notes, latest first, organized by date of release.
 
+## October 22, 2026
+<a name="oct22-26-connection-reuse-rt"></a>
+
+### Connection Reuse Across Stages
+<a name="oct22-26-connection-reuse-rt-desc"></a>
+
+Added `RevokeConnectionToken` API to revoke the specified connection token so that it can no longer connect to a stage. This operation disconnects any participant currently connected with the revoked token. API changes are described in the [API Reference](doc-history.md#history-real-time-api-reference) table of the Document History.
+
+## October 22, 2026
+<a name="oct22-26-broadcast-web-rt"></a>
+
+### IVS Broadcast SDK: Web 1.41.0 (Real-Time Streaming)
+<a name="oct22-26-broadcast-web-rt-1410"></a>
+
+
+| Platform | Downloads and Changes | 
+| --- | --- | 
+| [Web Broadcast SDK 1.41.0](broadcast-web.md) | **Reference documentation:** [https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference](https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference)+  Added `RealTimeConnection` API that allows multiple stages to share the same underlying connection to IVS. This allows applications to improve time to media in cases where applications utilize multiple stage instances. <br />+  Fixed a bug where a mute state update is lost if changed during a transient network connection loss. <br />+  Fixed a bug where the connection retry loop was not stopped if `stage.leave()` was invoked during a `CONNECTING` state. <br />+  Improved network quality assessment calculation used by `requestQualityStats()`. <br />+  Improved accuracy of Simulcast `STAGE_STREAM_LAYERS_CHANGED`. <br />+  Improved layer state performance for larger stages with many concurrent publishers.  | 
+
+## October 22, 2026
+<a name="oct22-26-broadcast-mobile-rt"></a>
+
+### Amazon IVS Broadcast SDK: Android 1.48.0, iOS 1.48.0
+<a name="oct22-26-broadcast-mobile-rt-1480"></a>
+
+
+| Platform | Downloads and Changes | 
+| --- | --- | 
+| [Android Broadcast SDK 1.48.0](broadcast-android.md) | **Reference documentation:** [https://aws.github.io/amazon-ivs-broadcast-docs/1.48.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.48.0/android/)+  Fixed a bug in the `RealTimeConnection` API that prevents stage joins after a physical connection loss and reconnect. <br />+  Fixed dropped frames when subscribing to 1080p60 video on Samsung Exynos devices. <br />+  Added APIs for receiving subtitles from stage participants: `StageRenderer.onParticipantSubtitleCueReceived`, `RemoteSubtitleStream` and `StageSubtitleCue`. The new `Stage.StrategyV2` lets an app subscribe to subtitles. Subtitles are available by request.  | 
+| [iOS Broadcast SDK 1.48.0](broadcast-ios.md) | **Download for real-time streaming: ** [https://broadcast.live-video.net/1.48.0/AmazonIVSBroadcast-Stages.xcframework.zip](https://broadcast.live-video.net/1.48.0/AmazonIVSBroadcast-Stages.xcframework.zip)<br />**Reference documentation:** [https://aws.github.io/amazon-ivs-broadcast-docs/1.48.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.48.0/ios/)+  Fixed a bug in the `IVSRealTimeConnection` API that prevents stage joins after a physical connection loss and reconnect. <br />+  Fixed an issue on iOS 27 where video published to a stage contained excessive keyframes, which could reduce video quality. <br />+  Added APIs for receiving subtitles from stage participants: `IVSRemoteSubtitleStream`, `IVSStageSubtitleCue` and a renderer callback that delivers each cue. The new `IVSStageStrategyV2` lets an app subscribe to subtitles. Subtitles are available by request. <br />+  Support for iOS 14 is deprecated as of this release.  | 
+
+#### Broadcast SDK Size: Android
+<a name="broadcast-1480-rt-sdk-size-android"></a>
+
+
+| Architecture | Compressed Size | Uncompressed Size | 
+| --- | --- | --- | 
+| arm64-v8a | 6.289 MB | 15.230 MB | 
+| armeabi-v7a | 5.459 MB | 10.556 MB | 
+| x86\_64 | 6.412 MB | 15.832 MB | 
+| x86 | 6.707 MB | 16.531 MB | 
+
+#### Broadcast SDK Size: iOS
+<a name="broadcast-1480-rt-sdk-size-ios"></a>
+
+
+| Architecture | Compressed Size | Uncompressed Size | 
+| --- | --- | --- | 
+| arm64 | 4.172 MB | 8.499 MB | 
+
+## October 19, 2026
+<a name="oct19-26-broadcast-ios-rt"></a>
+
+### Amazon IVS Broadcast SDK: iOS 1.47.1
+<a name="oct19-26-broadcast-ios-rt-1471"></a>
+
+
+| Platform | Downloads and Changes | 
+| --- | --- | 
+| [iOS Broadcast SDK 1.47.1](broadcast-ios.md) | **Download for real-time streaming: ** [https://broadcast.live-video.net/1.47.1/AmazonIVSBroadcast-Stages.xcframework.zip](https://broadcast.live-video.net/1.47.1/AmazonIVSBroadcast-Stages.xcframework.zip)<br />**Reference documentation:** [https://aws.github.io/amazon-ivs-broadcast-docs/1.47.1/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.47.1/ios/)+  Fixed an issue on iOS 27 where video published to a stage contained excessive keyframes, which could reduce video quality.  | 
+
+#### Broadcast SDK Size: iOS
+<a name="broadcast-1471-rt-sdk-size-ios"></a>
+
+
+| Architecture | Compressed Size | Uncompressed Size | 
+| --- | --- | --- | 
+| arm64 | 4.105 MB | 8.347 MB | 
+
 ## September 24, 2026
 <a name="sep24-26-broadcast-mobile-rt"></a>
 
