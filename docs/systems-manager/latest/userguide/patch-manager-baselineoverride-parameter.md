@@ -1,14 +1,13 @@
 
 
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
-
 # Using the BaselineOverride parameter
 <a name="patch-manager-baselineoverride-parameter"></a>
 
 You can define patching preferences at runtime using the baseline override feature in Patch Manager. Do this by specifying an Amazon Simple Storage Service (Amazon S3) bucket containing a JSON object with a list of patch baselines. The patching operation uses the baselines provided in the JSON object that match the host operating system instead of applying the rules from the default patch baseline.
 
 **Important**  
-The `BaselineOverride` file name can't contain the following characters: backtick (`), single quote ('), double quote ("), and dollar sign ($).
+The `BaselineOverride` file name can't contain the following characters: backtick (`), single quote ('), double quote ("), and dollar sign ($).  
+A baseline override can also define the patch source for the patching operation. When you supply a baseline override with a `Sources` parameter, Patch Manager uses the repository configuration you supply. Specify only repositories that you trust to serve packages to your managed nodes. For more information about patch source configurations, see [How to specify an alternative patch source repository (Linux)](patch-manager-alternative-source-repository.md).
 
 Except when a patching operation uses a patch policy, using the `BaselineOverride` parameter doesn't overwrite the patch compliance of the baseline provided in the parameter. The output results are recorded in the Stdout logs from Run Command. The results only print out packages that are marked as `NON_COMPLIANT`. This means the package is marked as `Missing`, `Failed`, `InstalledRejected`, or `InstalledPendingReboot`.
 

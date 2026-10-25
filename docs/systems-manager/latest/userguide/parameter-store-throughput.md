@@ -1,14 +1,12 @@
 
 
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
-
 # Managing Parameter Store throughput
 <a name="parameter-store-throughput"></a>
 
 Parameter Store throughput defines the number of API transactions per second (TPS) that Systems Manager can process. The throughput setting applies to the Parameter Store as a whole rather than an individual API. By default, Parameter Store is configured with a standard throughput quota that is often suitable for low- to moderate-volume workloads. For higher-volume workloads, you can enable higher throughput, which increases the maximum number of supported transactions per second for your account and Region. You can enable and disable higher throughput as needed.
 
 ## Throughput quotas in Parameter Store
-<a name="w2aac19c22c12c21c15b5"></a>
+<a name="w2aac17c22c12c21c15b5"></a>
 
 The following table lists the transaction limits for different API categories using default and higher throughput. API actions include AWS console usage, AWS CLI commands, and application reads. For more information on quotas and rate limits, see [AWS Systems Manager endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#parameter-store).
 
@@ -40,7 +38,7 @@ The `DescribeParameters` calls have a separate throughput limit. An application 
  If your production requests exceed a throughput limit during standard operation or planned periods of high traffic, use the following optimization techniques. 
 
 **Topics**
-+ [Throughput quotas in Parameter Store](#w2aac19c22c12c21c15b5)
++ [Throughput quotas in Parameter Store](#w2aac17c22c12c21c15b5)
 + [Optimizing throughput in Parameter Store](#parameter-store-throughput-optimizing)
 + [Changing the throughput setting in Parameter Store](#parameter-store-throughput-increasing)
 

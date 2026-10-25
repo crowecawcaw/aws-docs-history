@@ -1,7 +1,5 @@
 
 
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
-
 # Using AWS Systems Manager tools
 <a name="systems-manager-tools"></a>
 
@@ -127,11 +125,6 @@ If you manage credentials that require automatic rotation, cross-account access,
 
 ## Operations tools
 <a name="capabilities-operations-management"></a>
-
-------
-#### [ CloudWatch Dashboards ]
-
-[Amazon CloudWatch Dashboards](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html) are customizable pages in the CloudWatch console that you can use to monitor your resources in a single view, even those resources that are spread across different regions. You can use CloudWatch dashboards to create customized views of the metrics and alarms for your AWS resources. 
 
 ------
 #### [ Explorer ]

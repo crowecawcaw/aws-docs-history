@@ -1,7 +1,5 @@
 
 
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see [Amazon CloudWatch Dashboard documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html). 
-
 # Session Manager plugin latest version and release history
 <a name="plugin-version-history"></a>
 
@@ -26,6 +24,8 @@ We recommend you always run the latest version. The latest version includes enha
 
 | Version | Release date | Details | 
 | --- | --- | --- | 
+| 1.2.896.0 | October 9, 2026 | **Bug fix**: Revert the connection failure reporting change in 1.2.889.0. | 
+| 1.2.889.0 | October 9, 2026 | **This version was deprecated on 10/9/2026.**<br />**Enhancement**: Add session URL validation before connection.<br />**Enhancement**: Support log configuration for non-admin users in Windows.<br />**Bug fix**: Report connection failures instead of hanging when session cannot be established. | 
 | 1.2.835.0 | June 17, 2026 | **Enhancement**: Add SSH-style escape sequences to shell sessions (\~. to terminate, \~? for help).<br />**Bug fix**: Fix port forwarding sessions silently dying after WebSocket reconnection. | 
 | 1.2.814.0 | April 23, 2026 | **Bug fix**: Move SSM endpoint configuration from global AWS config to SSM client level. | 
 | 1.2.804.0 | April 2, 2026 | **Enhancement**: Bump to aws-sdk-go-v2 package.<br />**Bug fix**: Update windows install script.<br />**Bug fix**: Update default plugin version for local build. | 
