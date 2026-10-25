@@ -67,6 +67,5 @@ Read replicas for RDS for SQL Server have the following features and behaviors:
 
   The VLF can only be marked as inactive when the log records have been hardened in the replicas. Regardless of how fast the disk subsystems are in the primary replica, the transaction log will keep the VLFs until the slowest replica has hardened it.
 + **Writable replicas** – A SQL Server read replica is a physical copy and also doesn't allow for writes. You can promote the read replica to make it writable. The promoted read replica has the replicated data up to the point when the request was made to promote it.
-+ **Backups** – Automatic backups and manual snapshots aren't supported on RDS for SQL Server read replicas.
 + **Parallel replication** – Redo log data is always transmitted in parallel from the primary database to all of its read replicas.
 + **Mounted state** – Not supported.

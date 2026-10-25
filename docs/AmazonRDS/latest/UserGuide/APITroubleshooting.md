@@ -31,7 +31,7 @@ use XML::XPath;
 <a name="TroubleshootingTipss"></a>
 
  We recommend the following processes to diagnose and resolve problems with the Amazon RDS API:
-+ Verify that Amazon RDS is operating normally in the AWS Region that you're targeting by checking [http://status.aws.amazon.com](http://status.aws.amazon.com/).
++ Verify that Amazon RDS is operating normally in the AWS Region that you're targeting by checking the [AWS Health Dashboard website](https://health.aws.amazon.com/health/status).
 + Check the structure of your request.
 
   Each Amazon RDS operation has a reference page in the *Amazon RDS API Reference*. Double-check that you are using parameters correctly. For ideas about what might be wrong, look at the sample requests or user scenarios to see if those examples do similar operations.

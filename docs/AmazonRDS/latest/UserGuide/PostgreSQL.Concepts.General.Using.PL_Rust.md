@@ -88,7 +88,7 @@ Complete the following steps using an account that is a member of the `rds_super
       --region {{aws-region}}
    ```
 
-1. Use the [reboot-db-instance](https://docs.aws.amazon.com/cli/latest/reference/rds/reboot-db-instance) AWS CLI command to reboot the DB instance and initialize the plrust library. The initial reboot may require additional time to complete.
+1. Use the [reboot-db-instance](https://docs.aws.amazon.com/cli/latest/reference/rds/reboot-db-instance.html) AWS CLI command to reboot the DB instance and initialize the plrust library. The initial reboot may require additional time to complete.
 
    ```
    aws rds reboot-db-instance \
@@ -159,7 +159,7 @@ Only the default features are supported for these crates. New RDS for PostgreSQL
 
 Follow the best practices for performing a major version upgrade to test whether your PL/Rust functions are compatible with the new major version. For more information, see the blog [Best practices for upgrading Amazon RDS to major and minor versions of PostgreSQL](https://aws.amazon.com/blogs/database/best-practices-for-upgrading-amazon-rds-to-major-and-minor-versions-of-postgresql/) and [Upgrading the PostgreSQL DB engine for Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.html) in the Amazon RDS User Guide. 
 
-Examples of using dependencies when creating a PL/Rust function are available at [Use dependencies](https://tcdi.github.io/plrust/use-plrust.html#use-dependencies).
+Examples of using dependencies when creating a PL/Rust function are available at [Use dependencies](https://plrust.io/use-plrust.html#use-dependencies).
 
 ## PL/Rust limitations
 <a name="PL_Rust-limitations"></a>

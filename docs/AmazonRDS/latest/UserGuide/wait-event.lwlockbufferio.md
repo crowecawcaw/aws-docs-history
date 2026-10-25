@@ -41,6 +41,7 @@ Common causes for the `LWLock:BufferIO` event to appear in top waits include the
 + Lack of indexes that forces the DB engine to read more pages from the tables than necessary
 + Checkpoints occurring too frequently or needing to flush too many modified pages
 + Sudden spikes for database connections trying to perform operations on the same page
++ OID exhaustion in a TOAST table, which can slow `INSERT` and `UPDATE` operations and surface as `LWLock:BufferIO` (together with `LWLock:OidGenLock`) in Performance Insights. This is an uncommon cause that affects tables making heavy use of TOAST storage.
 
 ## Actions
 <a name="wait-event.lwlockbufferio.actions"></a>
@@ -52,3 +53,4 @@ We recommend different actions depending on the causes of your wait event:
 + Avoid indexing columns unnecessarily.
 + Prevent sudden database connection spikes by using a connection pool.
 + Restrict the maximum number of connections to the database as a best practice.
++ If you observe `LWLock:BufferIO` on long-running `INSERT` or `UPDATE` statements against TOAST-heavy tables, investigate TOAST OID contention. For more information, see [Managing TOAST OID contention in Amazon Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Appendix.PostgreSQL.CommonDBATasks.TOAST_OID.html).

@@ -110,6 +110,7 @@ The following limitations apply to RDS zero-ETL integrations.
 + You can't perform a [major version upgrade](USER_UpgradeDBInstance.PostgreSQL.md) on the source RDS for PostgreSQL instance while it has an active zero-ETL integration. To upgrade the source instance, you must first delete all existing zero-ETL integrations. After the major version upgrade is complete, you can recreate the zero-ETL integrations.
 + If you perform [declarative partitioning](https://www.postgresql.org/docs/current/ddl-partitioning.html#DDL-PARTITIONING-DECLARATIVE) transactions on the source DB instance, all affected tables enter a failed state and are no longer accessible.
 + If `max_slot_wal_keep_size` is set to a finite value on the source RDS for PostgreSQL instance, the logical replication slot used by the integration can be invalidated when WAL retention exceeds that size. An invalidated slot stops replication and the integration cannot recover without recreation. We recommend leaving `max_slot_wal_keep_size` at its PostgreSQL default of `-1` (unlimited), or setting it large enough to accommodate WAL generated during integration bootstrap and transient lag.
++ Foreign key references with predefined table updates aren't supported. Specifically, `ON DELETE` and `ON UPDATE` rules aren't supported with `CASCADE`, `SET NULL`, and `SET DEFAULT` actions. A table with such a reference enters a failed state and isn't replicated to Amazon Redshift.
 
 ### RDS for Oracle limitations
 <a name="zero-etl.reqs-lims-oracle"></a>

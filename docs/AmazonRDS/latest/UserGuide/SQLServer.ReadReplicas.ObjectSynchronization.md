@@ -7,6 +7,8 @@ Any logins, custom server roles, SQL agent jobs, or other server-level objects t
 
 The database users are automatically replicated from the primary DB instance to the read replica. As the read replica database is in read-only mode, the security identifier (SID) of the database user cannot be updated in the database. Therefore, when creating SQL logins in the read replica, it's essential to ensure that the SID of that login matches the SID of the corresponding SQL login in the primary DB instance. If you don't synchronize the SIDs of the SQL logins, they won't be able to access the database in the read replica. Windows Active Directory (AD) Authenticated Logins do not experience this issue because the SQL Server obtains the SID from the Active Directory.
 
+The same guidance applies after a switchover. After a switchover, the original read replica is the new primary DB instance. Before you direct application traffic to the new primary DB instance, verify that the SQL logins that your applications use exist on it with matching SIDs, and create any missing logins by following the procedures in this section. For more information, see [Performing a SQL Server switchover](sqlserver-replication-switchover.md).
+
 **To synchronize a SQL login from the primary DB instance to the read replica**
 
 1. Connect to the primary DB instance.

@@ -5,6 +5,8 @@
 
 You can monitor replication lag in Amazon CloudWatch by viewing the Amazon RDS `ReplicaLag` metric. For information about replication lag time, see [Monitoring read replication](USER_ReadRepl.Monitoring.md).
 
+Replication lag also matters when you plan a switchover. Before you initiate a switchover, verify that the `ReplicaLag` metric is zero or near zero. For more information, see [Initiating the SQL Server switchover](sqlserver-switchover.initiating.md).
+
 If replication lag is too long, you can use the following query to get information about the lag.
 
 ```

@@ -32,7 +32,7 @@ You might want to promote a read replica to a standalone DB instance for any of 
 + **Performing DDL operations (MySQL and MariaDB only)** – DDL operations, such as creating or rebuilding indexes, can take time and impose a significant performance penalty on your DB instance. You can perform these operations on a MySQL or MariaDB read replica once the read replica is in sync with its primary DB instance. Then you can promote the read replica and direct your applications to use the promoted instance.
 
 **Note**  
-If your read replica is an RDS for Oracle DB instance, you can perform a *switchover* instead of a promotion. In a switchover, the source DB instance becomes the new replica, and the replica becomes the new source DB instance. For more information, see [Performing an Oracle Data Guard switchover](oracle-replication-switchover.md).
+If your read replica is an RDS for Oracle or RDS for SQL Server DB instance, you can perform a *switchover* instead of a promotion. In a switchover, the source DB instance becomes the new replica, and the replica becomes the new source DB instance. For more information, see [Performing an Oracle Data Guard switchover](oracle-replication-switchover.md) and [Performing a SQL Server switchover](sqlserver-replication-switchover.md).
 
 ## Characteristics of a promoted read replica
 <a name="USER_ReadRepl.Promote.characteristics"></a>

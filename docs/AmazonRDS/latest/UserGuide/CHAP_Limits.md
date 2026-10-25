@@ -64,15 +64,7 @@ Backups managed by AWS Backup are considered manual DB snapshots, but don't coun
 
 Note that the default quota for cross-Region automated backups is 20 for an AWS account, the default quota for the number of concurrent snapshot copy requests is 20 for each Region for an AWS account, and the default quota for the number of concurrent cross-Region read replica requests is 20 for each Region for an AWS account.
 
-If you use any RDS API operations and exceed the default quota for the number of calls per second, the Amazon RDS API issues an error like the following one.
-
-ClientError: An error occurred (ThrottlingException) when calling the {{API\_name}} operation: Rate exceeded. 
-
-Here, reduce the number of calls per second. The quota is meant to cover most use cases. If higher quotas are needed, you can request a quota increase by using one of the following options:
-+ From the console, open the [Service Quotas console](https://us-east-1.console.aws.amazon.com/servicequotas/home/).
-+ From the AWS CLI, use the [request-service-quota-increase](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/request-service-quota-increase.html) AWS CLI command.
-
-For more information, see the [*Service Quotas User Guide*](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html).
+Amazon RDS also limits the rate of API requests for each AWS account in each AWS Region. These limits are separate from the resource quotas in the table and don't appear in Service Quotas. If you exceed them, API requests fail with a `ThrottlingException` error and the message `Rate exceeded`. For the default limits and how to request an increase, see [Request throttling for the Amazon RDS API](rds-api-throttling.md).
 
 ## Naming constraints in Amazon RDS
 <a name="RDS_Limits.Constraints"></a>

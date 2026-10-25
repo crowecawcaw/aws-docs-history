@@ -101,7 +101,7 @@ You can avoid specifying the `--region` argument when you use CLI commands by co
       --region {{aws-region}}
    ```
 
-1. Use the [reboot-db-instance](https://docs.aws.amazon.com/cli/latest/reference/rds/reboot-db-instance) AWS CLI command to reboot the RDS for PostgreSQL DB instance and initialize the `pg_tle` library.
+1. Use the [reboot-db-instance](https://docs.aws.amazon.com/cli/latest/reference/rds/reboot-db-instance.html) AWS CLI command to reboot the RDS for PostgreSQL DB instance and initialize the `pg_tle` library.
 
    ```
    aws rds reboot-db-instance \

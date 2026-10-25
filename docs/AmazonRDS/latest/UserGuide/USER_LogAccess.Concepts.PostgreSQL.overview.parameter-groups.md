@@ -8,7 +8,7 @@ You can customize the logging behavior for your RDS for PostgreSQL DB instance b
 
 | Parameter | Default | Description | 
 | --- | --- | --- | 
-| log\_destination | stderr | Sets the output format for the log. The default is `stderr` but you can also specify comma-separated value (CSV) by adding `csvlog` to the setting. For more information, see [Setting the log destination (`stderr`, `csvlog`)](#USER_LogAccess.Concepts.PostgreSQL.Log_Format).  | 
+| log\_destination | stderr | Sets the output format for the log. The default is `stderr`, but you can also specify comma-separated values (CSV) by adding `csvlog` to the setting. To output the log in JSON format, add `jsonlog` to the setting. The `jsonlog` value is available for PostgreSQL version 15 and later. For more information, see [Setting the log destination (`stderr`, `csvlog`, `jsonlog`)](#USER_LogAccess.Concepts.PostgreSQL.Log_Format).  | 
 | log\_filename | postgresql.log.%Y-%m-%d-%H | Specifies the pattern for the log file name. In addition to the default, this parameter supports `postgresql.log.%Y-%m-%d` and `postgresql.log.%Y-%m-%d-%H%M` for the filename pattern.  | 
 | log\_line\_prefix | %t:%r:%u@%d:[%p]: | Defines the prefix for each log line that gets written to `stderr`, to note the time (%t), remote host (%r), user (%u), database (%d), and process ID (%p). | 
 | log\_rotation\_age | 60 | Minutes after which log file is automatically rotated. You can change this value within the range of 1 and 1440 minutes. For more information, see [Setting log file rotation](#USER_LogAccess.Concepts.PostgreSQL.log_rotation).  | 
@@ -22,7 +22,7 @@ In the following topics, you can find information about how to set various param
 **Topics**
 + [Setting the log retention period](#USER_LogAccess.Concepts.PostgreSQL.log_retention_period)
 + [Setting log file rotation](#USER_LogAccess.Concepts.PostgreSQL.log_rotation)
-+ [Setting the log destination (`stderr`, `csvlog`)](#USER_LogAccess.Concepts.PostgreSQL.Log_Format)
++ [Setting the log destination (`stderr`, `csvlog`, `jsonlog`)](#USER_LogAccess.Concepts.PostgreSQL.Log_Format)
 + [Understanding the log\_line\_prefix parameter](#USER_LogAccess.Concepts.PostgreSQL.Log_Format.log-line-prefix)
 
 ## Setting the log retention period
@@ -45,14 +45,16 @@ The log file names are based on the file name pattern specified in the `log_file
 
 For more information, see [`log_rotation_age`](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-ROTATION-AGE) and [`log_rotation_size`](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-ROTATION-SIZE) in the PostgreSQL documentation.
 
-## Setting the log destination (`stderr`, `csvlog`)
+## Setting the log destination (`stderr`, `csvlog`, `jsonlog`)
 <a name="USER_LogAccess.Concepts.PostgreSQL.Log_Format"></a>
 
 By default, Amazon RDS PostgreSQL generates logs in standard error (stderr) format. This format is the default setting for the `log_destination` parameter. Each message is prefixed using the pattern specified in the `log_line_prefix` parameter. For more information, see [Understanding the log\_line\_prefix parameter](#USER_LogAccess.Concepts.PostgreSQL.Log_Format.log-line-prefix). 
 
 RDS for PostgreSQL can also generate the logs in `csvlog` format. The `csvlog` is useful for analyzing the log data as comma-separated values (CSV) data. For example, suppose that you use the `log_fdw` extension to work with your logs as foreign tables. The foreign table created on `stderr` log files contains a single column with log event data. By adding `csvlog` to the `log_destination` parameter, you get the log file in the CSV format with demarcations for the multiple columns of the foreign table. You can now sort and analyze your logs more easily. To learn how to use the `log_fdw` with `csvlog`, see [Using the log\_fdw extension to access the DB log using SQL](CHAP_PostgreSQL.Extensions.log_fdw.md).
 
-If you specify `csvlog` for this parameter, be aware that both `stderr` and `csvlog` files are generated. Be sure to monitor the storage consumed by the logs, taking into account the `rds.log_retention_period` and other settings that affect log storage and turnover. Using `stderr` and `csvlog` more than doubles the storage consumed by the logs.
+RDS for PostgreSQL can also generate the logs in `jsonlog` format, which outputs the log in JSON format. The `jsonlog` value is available for PostgreSQL version 15 and later. Like `csvlog`, adding `jsonlog` to the `log_destination` parameter generates both the `stderr` log and a JSON log file. The JSON format makes it easier to parse and analyze your logs programmatically.
+
+If you specify `csvlog` or `jsonlog` for this parameter, PostgreSQL generates both `stderr` and the additional `csvlog` or `jsonlog` files. Make sure to monitor the storage consumed by the logs, taking into account the `rds.log_retention_period` and other settings that affect log storage and turnover. Using `stderr` together with `csvlog` or `jsonlog` more than doubles the storage consumed by the logs.
 
 If you add `csvlog` to `log_destination` and you want to revert to the `stderr` alone, you need to reset the parameter. To do so, open the Amazon RDS Console and then open the custom DB parameter group for your instance. Choose the `log_destination` parameter, choose **Edit parameter**, and then choose **Reset**. 
 
@@ -64,13 +66,13 @@ For more information about configuring logging, see [ Working with Amazon RDS an
 The `stderr` log format prefixes each log message with the details specified by the `log_line_prefix` parameter. The default value is:
 
 ```
-%t:%r:%u@%d:[%p]:t
+%t:%r:%u@%d:[%p]:
 ```
 
-Starting from Aurora PostgreSQL version 16, you can also choose:
+You can also choose the following value:
 
 ```
-%m:%r:%u@%d:[%p]:%l:%e:%s:%v:%x:%c:%q%a
+%m:%r:%u@%d:[%p]:%l:%e:%s:%v:%x:%c:%q%a:
 ```
 
 Each log entry sent to stderr includes the following information based on the selected value:

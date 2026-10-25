@@ -1,16 +1,16 @@
 
 
-# Use `GenerateRDSAuthToken` with an AWS SDK
-<a name="example_rds_GenerateRDSAuthToken_section"></a>
+# Use `Utilities` with an AWS SDK
+<a name="example_rds_Utilities_section"></a>
 
-The following code example shows how to use `GenerateRDSAuthToken`.
+The following code example shows how to use `Utilities`.
 
 ------
 #### [ Java ]
 
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples). 
-Use the [RdsUtilities](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/rds/RdsUtilities.html) class to generate an authentication token.  
+Returns a RdsUtilities object that generates the authentication token.  
 
 ```
 public class GenerateRDSAuthToken {
@@ -62,7 +62,7 @@ public class GenerateRDSAuthToken {
     }
 }
 ```
-+  For API details, see [GenerateRDSAuthToken](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/GenerateRDSAuthToken) in *AWS SDK for Java 2.x API Reference*. 
++  For API details, see [Utilities](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/Utilities) in *AWS SDK for Java 2.x API Reference*. 
 
 ------
 

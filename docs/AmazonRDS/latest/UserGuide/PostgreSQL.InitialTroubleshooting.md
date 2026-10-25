@@ -17,7 +17,7 @@ When you investigate performance regressions where "nothing changed," treat bloa
 For more information, see the following:  
 [Maintenance activities for PostgreSQL databases in Amazon RDS and Amazon Aurora](https://docs.aws.amazon.com/prescriptive-guidance/latest/postgresql-maintenance-rds-aurora/introduction.html) (AWS Prescriptive Guidance)
 [Optimizing PostgreSQL query performance](https://docs.aws.amazon.com/prescriptive-guidance/latest/postgresql-query-tuning/introduction.html) (AWS Prescriptive Guidance)
-[Tuning PostgreSQL parameters in Amazon RDS and Amazon Aurora](https://docs.aws.amazon.com/prescriptive-guidance/latest/tuning-postgresql-parameters/introduction.html)
+[Working with parameters on your RDS for PostgreSQL DB instance](Appendix.PostgreSQL.CommonDBATasks.Parameters.md)
 [Amazon RDS instance-level metrics](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-metrics.html#rds-cw-metrics-instance) (monitor `FreeStorageSpace` for storage growth trends)
 
 ## Quick diagnostic checklist
@@ -35,7 +35,7 @@ Use the following ordered triage steps when you first investigate a performance 
 
 1. **Check CloudWatch and Performance Insights metrics.** Review CPU utilization, connection count, IOPS, and freeable memory. For more information, see [Monitoring Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MonitoringOverview.html). For common wait events and corrective actions, see [RDS for PostgreSQL wait events](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Tuning.concepts.summary.html).
 
-1. **Review your DB parameter group.** Check `max_parallel_workers_per_gather` and autovacuum settings. For more information, see [Tuning PostgreSQL parameters in Amazon RDS and Amazon Aurora](https://docs.aws.amazon.com/prescriptive-guidance/latest/tuning-postgresql-parameters/introduction.html).
+1. **Review your DB parameter group.** Check `max_parallel_workers_per_gather` and autovacuum settings. For more information, see [Working with parameters on your RDS for PostgreSQL DB instance](Appendix.PostgreSQL.CommonDBATasks.Parameters.md).
 
 ## Table and index bloat
 <a name="PostgreSQL.InitialTroubleshooting.Bloat"></a>

@@ -30,6 +30,7 @@ The following are some notes about working with Multi-AZ deployments on RDS for 
 + You might observe elevated latencies compared to a standard DB instance deployment (in a single Availability Zone) because of the synchronous data replication.
 + Failover times are affected by the time it takes to complete the recovery process. Large transactions increase the failover time.
 + In SQL Server Multi-AZ deployments, reboot with failover reboots only the primary DB instance. After the failover, the primary DB instance becomes the new secondary DB instance. Parameters might not be updated for Multi-AZ instances. For reboot without failover, both the primary and secondary DB instances reboot, and parameters are updated after the reboot. If the DB instance is unresponsive, we recommend reboot without failover.
++ Traffic on port 3343 for TCP and UDP needs to be allowed both in Network ACLs of your VPC and in the Security Group that is attached to your RDS for SQL Server Multi AZ instance. This traffic is needed for both in-bound and out-bound directions. Please note that the traffic on this port is only required within the VPC in Network ACLs and within the Security Group that is attached to the RDS SQL Server instance.
 
 The following table compares how server-level objects are replicated in RDS for SQL Server Multi-AZ deployments using Database Mirroring (DBM) or Always On Availability Groups (AGs) versus block-level replication.
 

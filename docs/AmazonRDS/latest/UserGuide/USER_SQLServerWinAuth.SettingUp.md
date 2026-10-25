@@ -115,7 +115,7 @@ You might use both global condition context keys and have the `aws:SourceArn` va
 + Use `aws:SourceArn` if you want cross-service access for a single resource.
 + Use `aws:SourceAccount` if you want to allow any resource in that account to be associated with the cross-service use.
 
-In the trust relationship, make sure to use the `aws:SourceArn` global condition context key with the full Amazon Resource Name (ARN) of the resources accessing the role. For Windows Authentication, make sure to include the DB instances, as shown in the following example.
+In the trust relationship, make sure to use the `aws:SourceArn` global condition context key with the full Amazon Resource Name (ARN) of the resources accessing the role. For Windows Authentication, make sure to include the DB instances. In most AWS Regions, use the default service principal `rds.amazonaws.com` in the trust policy, as shown in the following example.
 
 **Example trust relationship with global condition context key for Windows Authentication**    
 ****  
@@ -141,6 +141,51 @@ In the trust relationship, make sure to use the `aws:SourceArn` global condition
     ]
 }
 ```
+
+For some AWS Regions, Directory Service requires a Region-specific, engine-specific service principal in the trust policy instead of the default `rds.amazonaws.com` principal. For these Regions, use `directoryservice-sqlserver.rds.{{region-code}}.amazonaws.com`. This requirement applies to the Regions in the following table, and to AWS Regions launched after these. For more information about opt-in Regions (Regions that are disabled by default), see [Managing AWS Regions](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html).
+
+The following table lists the Regions that require a Region-specific service principal.
+
+
+| Region name | Region code | 
+| --- | --- | 
+| Asia Pacific (Taipei) | ap-east-2 | 
+| Asia Pacific (Malaysia) | ap-southeast-5 | 
+| Asia Pacific (New Zealand) | ap-southeast-6 | 
+| Asia Pacific (Thailand) | ap-southeast-7 | 
+| Canada West (Calgary) | ca-west-1 | 
+| Mexico (Central) | mx-central-1 | 
+
+The following JSON example shows a trust policy that uses a Region-specific service principal. Replace the Region code, account ID, and DB instance identifier with your own values.
+
+**Example Region-specific service principal trust policy for Windows Authentication**  
+
+```
+{
+    "Version":"2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "directoryservice-sqlserver.rds.{{aa-example-1}}.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole",
+            "Condition": {
+                "StringEquals": {
+                    "aws:SourceArn": [
+                        "arn:aws:rds:{{aa-example-1}}:111122223333:db:{{db_instance_identifier}}"
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
+
+In the preceding example, replace the following values:
++ {{aa-example-1}} – The Region code of the Region where your DB instance is located, for example `ca-west-1`.
++ `111122223333` – Your AWS account ID.
++ {{db\_instance\_identifier}} – The identifier of your DB instance.
 
 Create an IAM role using this IAM policy and trust relationship. For more information about creating IAM roles, see [Creating customer managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-using.html#create-managed-policy-console) in the *IAM User Guide*.
 

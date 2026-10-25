@@ -6,6 +6,7 @@
 You usually use read replicas to configure replication between Amazon RDS DB instances. For general information about read replicas, see [Working with DB instance read replicas](USER_ReadRepl.md). 
 
 In this section, you can find specific information about working with read replicas on Amazon RDS for SQL Server.
++ [Performing a SQL Server switchover](sqlserver-replication-switchover.md)
 + [Synchronizing database users and objects with a SQL Server read replica](SQLServer.ReadReplicas.ObjectSynchronization.md)
 + [Troubleshooting a SQL Server read replica problem](SQLServer.ReadReplicas.Troubleshooting.md)
 
@@ -28,7 +29,7 @@ For more information about how to create a read replica, see [Creating a read re
 <a name="SQLServer.ReadReplicas.Backups"></a>
 
 With Amazon RDS for SQL Server, you can back up read replicas independently of their source DB instance in the following ways:
-+ **Automated backups** – To enable automated backups on a read replica, modify the read replica and set its backup retention period to a value other than 0. For more information, see [Backup retention period](USER_WorkingWithAutomatedBackups.BackupRetention.md).
++ **Automated backups** – To enable automated backups on a read replica, modify the read replica and set its backup retention period to a value other than 0. For more information, see [Backup retention period](USER_WorkingWithAutomatedBackups.BackupRetention.md). Automated backups on the read replica are also a prerequisite for switching it over to the primary role. For more information, see [Preparing for a SQL Server switchover](sqlserver-switchover.preparing.md).
 + **Manual snapshots** – You can take manual DB snapshots of a read replica, and restore a new DB instance from a read replica snapshot in the same way as from any other DB snapshot.
 + **Retained automated backups** – When you delete a read replica, you can retain its automated backups.
 

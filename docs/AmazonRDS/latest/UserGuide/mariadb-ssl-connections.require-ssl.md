@@ -18,4 +18,4 @@ ERROR 1045 (28000): Access denied for user '{{USER}}'@'localhost' (using passwor
 
 For information about setting parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md).
 
-For more information about the `require_secure_transport` parameter, see the [MariaDB documentation](https://mariadb.com/docs/ent/ref/mdb/system-variables/require_secure_transport/).
+For more information about the `require_secure_transport` parameter, see the [MariaDB documentation](https://mariadb.com/docs/server/server-management/variables-and-modes/server-system-variables#require_secure_transport).

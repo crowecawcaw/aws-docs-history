@@ -10,10 +10,10 @@ Amazon RDS supports several versions and editions of Microsoft SQL Server. The f
 
 | Major version | Service Pack / GDR | Cumulative Update | Minor version | Knowledge Base Article | Release Date | 
 | --- | --- | --- | --- | --- | --- | 
-| SQL Server 2025 | Not applicable | CU8 | 17.0.4075.5 | [KB5104822](https://support.microsoft.com/en-us/servicing/sql/sql-server-2025/cumulative-update/kb5104822-cu8) | August 13, 2026 | 
-| SQL Server 2022 | Not applicable | CU26 | 16.0.4265.3 | [KB5093420](https://support.microsoft.com/en-us/servicing/sql/sql-server-2022/cumulative-update/kb5093420-cu26) | July 16, 2026 | 
-| SQL Server 2019 | GDR | CU32 GDR | 15.0.4480.2 | [KB5102335](https://support.microsoft.com/en-us/servicing/sql/sql-server-2019/general-distribution-release/kb5102335-july) | July 14, 2026 | 
-| SQL Server 2017 | GDR | CU31 GDR | 14.0.3540.1 | [KB5102337](https://support.microsoft.com/en-us/servicing/sql/sql-server-2017/general-distribution-release/kb5102337-july) | July 14, 2026 | 
+| SQL Server 2025 | Not applicable | CU9 | 17.0.5005.3 | [KB5122048](https://support.microsoft.com/en-us/servicing/sql/sql-server-2025/cumulative-update/kb5122048-cu9) | September 15, 2026 | 
+| SQL Server 2022 | Not applicable | CU27 | 16.0.4295.3 | [KB5104824](https://support.microsoft.com/en-us/servicing/sql/sql-server-2022/cumulative-update/kb5104824-cu27) | September 15, 2026 | 
+| SQL Server 2019 | GDR | CU32 GDR | 15.0.4490.9 | [KB5122772](https://support.microsoft.com/en-us/servicing/sql/sql-server-2019/cumulative-update/kb5122772-cu32-gdr-september-2026) | September 8, 2026 | 
+| SQL Server 2017 | GDR | CU31 GDR | 14.0.3550.4 | [KB5122774](https://support.microsoft.com/en-us/servicing/sql/sql-server-2017/cumulative-update/kb5122774-cu31-gdr-september-2026) | September 8, 2026 | 
 | SQL Server 2016 | SP3 GDR | Not applicable | 13.0.6500.1 | [KB5102340](https://support.microsoft.com/en-us/servicing/sql/sql-server-2016/general-distribution-release/kb5102340-july) | July 14, 2026 | 
 
 For information about licensing for SQL Server, see [Licensing Microsoft SQL Server on Amazon RDS](SQLServer.Concepts.General.Licensing.md). For information about SQL Server builds, see this Microsoft support article about [Where to find information about the latest SQL Server builds](https://support.microsoft.com/en-us/topic/kb957826-where-to-find-information-about-the-latest-sql-server-builds-43994ba5-9aed-2323-ea7c-d29fe9c4fbe8).

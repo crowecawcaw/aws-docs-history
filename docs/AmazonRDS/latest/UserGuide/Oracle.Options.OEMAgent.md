@@ -270,7 +270,7 @@ To remove the OEM Agent from a DB instance, do one of the following:
 ## Performing database tasks with the Management Agent
 <a name="Oracle.Options.OEMAgent.DBTasks"></a>
 
-You can use Amazon RDS procedures to run certain EMCTL commands on the Management Agent. By running these procedures, you can do the tasks listed following.
+You can use Amazon RDS procedures to run certain EMCTL commands on the Management Agent and to diagnose its connectivity to the OMS. By running these procedures, you can do the tasks listed following.
 
 **Note**  
 Tasks are executed asynchronously.
@@ -284,6 +284,7 @@ Tasks are executed asynchronously.
 + [Clearing the Management Agent state](#Oracle.Options.OEMAgent.DBTasks.ClearState)
 + [Making the Management Agent upload its OMS](#Oracle.Options.OEMAgent.DBTasks.ForceUploadOMS)
 + [Pinging the OMS](#Oracle.Options.OEMAgent.DBTasks.PingOMS)
++ [Diagnosing the connection between the Management Agent and the OMS](#Oracle.Options.OEMAgent.DBTasks.RunDiagnostics)
 + [Viewing the status of an ongoing task](#Oracle.Options.OEMAgent.DBTasks.ViewTaskStatus)
 
 ### Securing the Management Agent
@@ -386,6 +387,19 @@ The following procedure creates a task that pings the Management Agent's OMS and
 
 ```
 SELECT rdsadmin.rdsadmin_oem_agent_tasks.ping_oms_oem_agent() as TASK_ID from DUAL;
+```
+
+To display the output file for the task and view the result, see [Viewing the status of an ongoing task](#Oracle.Options.OEMAgent.DBTasks.ViewTaskStatus).
+
+### Diagnosing the connection between the Management Agent and the OMS
+<a name="Oracle.Options.OEMAgent.DBTasks.RunDiagnostics"></a>
+
+To diagnose connectivity problems between the Management Agent and the Oracle Management Server (OMS), run the Amazon RDS procedure `rdsadmin.rdsadmin_oem_agent_tasks.run_diagnostics_oem_agent`. This procedure runs a set of connectivity checks and writes a JSON report to the output file.
+
+The following procedure creates a task to diagnose connectivity between the Management Agent and OMS and returns the ID of the task.
+
+```
+SELECT rdsadmin.rdsadmin_oem_agent_tasks.run_diagnostics_oem_agent() AS TASK_ID FROM DUAL;
 ```
 
 To display the output file for the task and view the result, see [Viewing the status of an ongoing task](#Oracle.Options.OEMAgent.DBTasks.ViewTaskStatus).
