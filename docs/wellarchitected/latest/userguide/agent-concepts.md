@@ -15,7 +15,7 @@ An agent profile is the primary entity in AWS WA Agent. It defines which AWS acc
 **Note**  
 AWS Well-Architected Tool also has a feature named profiles. AWS WA Tool profiles are questionnaires that you attach to workloads to prioritize review questions, and are unrelated to AWS WA Agent profiles. This section describes AWS WA Agent profiles only. For information about AWS WA Tool profiles, see [Tool profiles](tool-profiles.md).
 
-When you create a profile, you can create an execution role during the setup process or select an existing one. You create access roles in your workload accounts before or after profile creation, then link them by updating the access role trust policies.
+When you create a profile, you can create an execution role during the setup process or select an existing one. You create access roles in your workload accounts before or after profile creation, then link them by updating the access role trust policies. If you choose to monitor only the current account during profile creation, AWS WA Agent creates both the execution role and the access role automatically, so you don't need to create any roles manually.
 
 Each profile has the following attributes:
 + A unique name within an AWS account and AWS Region.
@@ -32,7 +32,7 @@ AWS WA Agent uses two types of IAM roles to discover and analyze resources acros
 
 Neither role grants AWS WA Agent permission to modify your resources. The execution role's only permission is to assume your access roles, and access roles grant read-only access to resource metadata and configuration.
 
-You can use the same role name across all workload accounts (common name pattern) or use different names per account (per-account ARN). During profile creation, you specify which approach you are using.
+You can use the same role name across all workload accounts (common name pattern) or use different names per account (per-account ARN). During profile creation, you specify which approach you are using. If you choose to monitor only the current account, AWS WA Agent creates both the execution role and the access role automatically, so you don't need to create any roles manually.
 
 ## Goals and optimization pillars
 <a name="agent-concept-goals"></a>

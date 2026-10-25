@@ -19,11 +19,10 @@ The profile details page displays:
 + **Profile summary:** Host account, goals, accounts in the profile, AWS Regions, optimization pillars, applications, termination protection status, and a copiable **Execution role ARN** for the profile.
 + **Next steps (optional):** Provides optional next steps for the profile when the particular actions haven't been taken. You can choose **Provide profile access to team members** to share a profile with team members, or choose **Create applications with context** to define application context in the profile.
 
-The profile details page has four tabs:
+The profile details page has multiple tabs:
 + **Accounts in profile:** Lists accounts configured for the profile. You can edit accounts and filter by Region.
 + **Profile Access:** Shows AWS accounts with access to this profile and their access level (read or read/write). You can provide access to additional accounts or remove access.
 +  **Applications:** Lists application contexts defined for the profile. You can add, edit, or delete application contexts, and search or filter by Region. 
-+ **Schedule** Displays your chosen refresh schedule for how often AWS WA Agent generates scheduled recommendations. You can also update your refresh schedule here by choosing a new schedule period, and then choosing **Save**.
 
 ## CLI
 <a name="agent-view-profiles-cli"></a>

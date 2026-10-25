@@ -7,30 +7,14 @@ AWS Well-Architected Agent is in preview release and is subject to change.
 
 Share specific recommendations with other AWS accounts or team members to collaborate on optimization initiatives.
 
-You can share recommendations in two ways:
-
-**From the dashboard:**
-
-In **All recommendations**, select the radio button next to a recommendation and choose **Share**. Enter the email addresses of your intended recipients and choose **Share** to send.
-
-**From the recommendation detail page:**
-
-You can also share recommendations from within the detail page that opens when you click a recommendation.
+You can share a recommendation by email from either the AWS WA Agent dashboard or the recommendation detail page. Both entry points open the same share dialog.
 
 **To share a recommendation**
 
-1.  Click the title of the specific recommendation you want to share. 
+1. Open the share dialog from one of the following locations:
+   + **From the dashboard:** Choose the radio button next to the recommendation you want to share, then choose **Share**.
+   + **From the recommendation detail page:** Choose **Actions** in the top right corner, then **Share recommendation**.
 
-1.  Choose **Actions** in the top right corner of the recommendation detail dialog, then **Share Recommendation** to share with other AWS accounts. 
+1. Enter the email address you want to share the recommendation with.
 
-1.  Choose whether to share the recommendation with **All affected accounts** or **Custom accounts**. 
-
-1.  If you selected **All affected accounts**, select the radio buttons next to each account you want to share the recommendation with. 
-
-1. If you selected **Custom accounts**, enter a comma-separated list of AWS account IDs to share with (up to 100 accounts).
-
-1. Choose an access level: **Read only** or **Read/write**.
-
-1. Choose **Share recommendation**.
-
-To view or manage shared access, choose **Accounts recommendation shared with** on the recommendation detail page. You can view shared accounts in a list or JSON format, and un-share the recommendation with specific accounts.
+1. Choose **Share**.

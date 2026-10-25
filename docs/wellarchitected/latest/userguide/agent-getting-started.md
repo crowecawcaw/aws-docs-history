@@ -41,7 +41,9 @@ AWS WA Agent requires an active AWS Support plan at Business\+ or higher in ever
 ## Step 1: Create an agent profile
 <a name="agent-create-profile"></a>
 
-Create an agent profile from the AWS WA Agent console. During profile creation, you can create an execution role or select an existing one.
+Create an agent profile from the AWS WA Agent console. During profile creation, you choose how to add the accounts that AWS WA Agent monitors. This choice determines how the required IAM roles are created:
++ If you choose **The current account**, AWS WA Agent monitors only the account you are signed in to, and the console automatically creates both the execution role and the access role in that account. You don't need to create any roles manually.
++ If you choose **Manually add accounts to monitor**, you enter the account IDs yourself. For more information about creating or selecting an execution role, see [Step 3: Configure permissions and integrations](#agent-permissions-integrations). For more information about manually creating an access role in each workload account, see [Step 6: Create access roles in your workload accounts](#agent-access-roles).
 
 **To create an agent profile**
 
@@ -59,11 +61,15 @@ Create an agent profile from the AWS WA Agent console. During profile creation, 
 
 1. Under **Select accounts & regions**, select AWS Regions to monitor and analyze.
 
-1. Under **Accounts to monitor**, enter account IDs separated by commas (up to 100 accounts).
+1. Under **How do you want to add accounts?**, select one of the following options:
+   + **The current account** – AWS WA Agent monitors only the account you are signed in to and creates the required roles automatically. You don't need to create any roles manually.
+   + **Manually add accounts to monitor** – Add the accounts yourself. Complete the following steps:
 
-1.  Then, under **Common access role name**, enter the access role name to use across all accounts in the profile. The recommended name is `AccessRoleForWellArchitectedAgent`. 
+     1. Under **Accounts to monitor**, enter account IDs separated by commas (up to 100 accounts).
+
+     1. Under **Common access role name**, enter the access role name to use across all accounts in the profile. The recommended name is `AccessRoleForWellArchitectedAgent`.
 **Note**  
- Whether you create your own access role name or use the recommended one, you must use that exact same access role name across all accounts in the profile. This only applies to the console onboarding experience. 
+Whether you create your own access role name or use the recommended one, you must use that exact same access role name across all accounts in the profile. This only applies to the console onboarding experience.
 
 ## Step 2: Add goals and optimization pillars
 <a name="agent-goals-pillars"></a>
@@ -75,9 +81,19 @@ During profile creation, configure the following in **Optimization pillars**:
 ## Step 3: Configure permissions and integrations
 <a name="agent-permissions-integrations"></a>
 
-After configuring pillars, under **Permissions and Integrations**, you can either select an existing execution role or create a new one.
+What you configure under **Permissions and Integrations** depends on the option you selected for **How do you want to add accounts?** in [Step 1: Create an agent profile](#agent-create-profile).
 
-The execution role is an IAM role in your profile account that AWS WA Agent assumes to orchestrate resource discovery. The execution role chains to the access roles in your workload accounts. When you choose **Create new role**, the console creates the IAM execution role for you automatically, applying the required trust policy and permissions policy. You do not need to navigate to the IAM console separately.
+If you chose **The current account**, this section shows **No action needed**. The console automatically creates the execution role and the access role in this account, so you don't need to create any roles manually. Both roles are read-only and can't modify your resources.
+
+The following table describes each role.
+
+
+| Role name | What it does | 
+| --- | --- | 
+| `ExecutionRoleForWellArchitectedAgent` | Orchestrates resource discovery. Assumes the access role to read resources. | 
+| `AccessRoleForWellArchitectedAgent` | Grants read-only access to the resources in this account. | 
+
+If you chose **Manually add accounts to monitor**, you select an existing execution role or create a new one. The execution role is an IAM role in your profile account that AWS WA Agent assumes to orchestrate resource discovery. The execution role chains to the access roles in your workload accounts. When you choose **Create new role**, the console creates the IAM execution role for you automatically, applying the required trust policy and permissions policy. You don't need to navigate to the IAM console separately.
 
 **To create a new execution role**
 
@@ -89,7 +105,7 @@ The execution role is an IAM role in your profile account that AWS WA Agent assu
 
 1. Choose **Create role**.
 
-1. Determine whether to enable or disable Termination protection. It is recommended to enable this feature to avoid accidental profile deletion.
+Choose whether to enable **Termination protection**. This setting applies regardless of how you added accounts. Enabling it is recommended to prevent accidental profile deletion from the console, API, or CLI. To delete a profile, you must first disable **Termination protection**.
 
 If you do not want to enable AWS Cost Explorer, choose **Get started** to finish creating your profile. After the profile is created, complete the remaining setup. To enable cross-account discovery, you must create access roles in your workload accounts, as described in [Step 6: Create access roles in your workload accounts](#agent-access-roles).
 
@@ -140,6 +156,9 @@ At least one application context is required per profile for AWS WA Agent to gen
 <a name="agent-access-roles"></a>
 
 After you create your profile, create an IAM access role in each AWS account that you selected to monitor. Access roles allow AWS WA Agent to discover and analyze resources in those accounts.
+
+**Important**  
+This procedure applies only if you chose **Manually add accounts to monitor** in [Step 1: Create an agent profile](#agent-create-profile). If you chose **The current account**, the console already created both the execution role and the access role automatically during profile creation, and you can skip this step.
 
 When profile creation finishes, the create-profile page shows an **Action required** prompt indicating that the selected accounts still need an access role. Creating these roles is a separate task that you perform manually in the IAM console. The console does not create the roles for you, and it does not open the IAM console automatically. AWS WA Agent does not monitor or analyze an account until that account's access role exists.
 
