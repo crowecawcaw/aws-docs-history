@@ -44,7 +44,7 @@ Ensure that your Linux source server meets the following installation requiremen
 + The active bootloader software is GRUB 1 or 2. 
 + Secure Boot is not supported in Linux.
 + Machines that boot off a disk configured with GPT partitioning must have the package 'grub2-pc-modules' installed
-+ When performing a failback for a Linux server, you must boot the Failback Client with BIOS boot mode. The Failback Client supports `x86_64` servers only. For `arm64` source servers, fail back within AWS. See [Performing a failback with Elastic Disaster Recovery](failback-performing-main.md).
++ When performing a failback for a Linux server, you must boot the Failback Client with the same boot mode (BIOS or UEFI) as the recovery instance that you are failing back from. The Failback Client supports `x86_64` servers only. For `arm64` source servers, fail back within AWS. See [Performing a failback with Elastic Disaster Recovery](failback-performing-main.md).
 + Ensure that /tmp is mounted as read\+write. 
 + Boot disks that span multiple physical disks are not supported.
 + Ensure that /tmp is mounted with the exec option. Verify that the /tmp directory is mounted in a way that allows you to run scripts and applications from it.

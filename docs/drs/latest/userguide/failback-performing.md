@@ -14,7 +14,7 @@ The Failback Client supports `x86_64` servers only. For `arm64` source servers, 
 **Before you begin**
 
 Before starting failback replication, ensure you have completed the following:
-+ Meet the [failback prerequisites](#failback-performing-prerequesites).
++ Meet the [failback prerequisites](#failback-performing-prerequisites).
 + [Generate failback AWS credentials](#failback-performing-credentials).
 
 **Monitoring failback progress**
@@ -22,7 +22,7 @@ Before starting failback replication, ensure you have completed the following:
 Once failback replication is underway, you can track its progress in the AWS Elastic Disaster Recovery Console on the **Recovery instances** page. [Learn more about the Recovery instances page](recovery-instances.md#managing-recovery-instances).
 
 ### Failback prerequisites
-<a name="failback-performing-prerequesites"></a>
+<a name="failback-performing-prerequisites"></a><a name="failback-performing-prerequesites"></a>
 
 Prior to performing a failback, ensure that you meet all [replication network requirements](preparing-environments.md) and these failback-specific requirements: 
 
@@ -96,8 +96,8 @@ Replication from the source instance to the source server (in the target AWS Reg
 **Important**  
 Ensure that the server you are failing back to has the same number of volumes or more than the Recovery Instance and that the volume sizes are equal to or larger than the ones on the recovery instance. 
 **Note**  
-When performing a recovery **for a Linux server**, you must boot the Failback Client with BIOS boot mode. 
-When performing a recovery **for a Windows server**, you must boot the Failback Client with the same boot mode (BIOS or UEFI) as the Windows source server. 
+When performing a failback **for a Linux server**, you must boot the Failback Client with the same boot mode (BIOS or UEFI) as the recovery instance that you are failing back from. For information about checking the boot mode of the recovery instance, see [Determine the boot mode of an EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-boot-mode.html) in the *Amazon EC2 User Guide*. 
+When performing a failback **for a Windows server**, you must boot the Failback Client with the same boot mode (BIOS or UEFI) as the Windows source server. 
 
 1. If you plan on using a static IP for the Failback Client, run the following once the Failback Client ISO boots: 
 
