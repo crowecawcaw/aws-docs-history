@@ -17,7 +17,7 @@ Allow list the following ports to ensure Wickr functions correctly:
 If you need to allowlist all possible calling domains and server IP addresses, see the following list of potential CIDRs by Region. Check this list periodically, as it is subject to change.
 
 **Note**  
-Registration and verification emails are sent from `no-reply@amazonaws.com` and `donotreply@wickr.email`.
+Registration and verification emails are sent from `no-reply@amazonaws.com`.
 
 ### US East (N. Virginia)
 <a name="us-east-north-virginia"></a>
