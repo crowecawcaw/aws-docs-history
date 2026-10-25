@@ -566,6 +566,73 @@ These rules block all unsolicited traffic from `$EXTERNAL_NET` to `$HOME_NET` wh
 reject tls any any -> any any (msg:"Vulnerable versions of TLS"; ssl_version:tls1.0,tls1.1; sid:2023070518;)
 ```
 
+**Example – Resolved-domain allow list**  
+The following JSON shows a domain list rule group that combines `TLS_SNI` with `AWS_ROUTE_53_RESOLVED_DOMAIN` in an allow list. Traffic passes only when the TLS SNI matches the domain *and* your VPC's Amazon Route 53 Resolver resolved the connection's destination IP address for that domain. For more information, see [Resolved IP validation in AWS Network Firewall](route53-resolved-ip-validation.md). The rule group definition follows:
+
+```
+{
+    "RulesSource": {
+        "RulesSourceList": {
+            "Targets": [
+                "example.com"
+            ],
+            "TargetTypes": [
+                "TLS_SNI",
+                "AWS_ROUTE_53_RESOLVED_DOMAIN"
+            ],
+            "GeneratedRulesType": "ALLOWLIST"
+        }
+    }
+}
+```
+
+Network Firewall adds the `aws_route_53_resolved_domain` keyword to the `TLS_SNI` rule, so both conditions must match. The following Suricata rules listing shows the rules that Network Firewall creates for the preceding allow list specification:
+
+```
+pass tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:"example.com"; startswith; nocase; endswith; aws_route_53_resolved_domain:"example.com"; msg:"matching TLS allowlisted FQDNs"; priority:1; ssl_state:client_hello; flow:to_server, established; sid:1; rev:1;)
+drop tls $HOME_NET any -> $EXTERNAL_NET any (msg:"not matching any TLS allowlisted FQDNs"; priority:1; ssl_state:client_hello; flow:to_server, established; sid:2; rev:1;)
+```
+
+The generated rules use the following elements:
++ The `aws_route_53_resolved_domain:"example.com"` keyword matches only when the Amazon Route 53 Resolver resolved the connection's destination IP address for `example.com`.
++ The `ssl_state:client_hello` keyword evaluates the rule during the TLS handshake, when the SNI is available.
++ The `priority:1` keyword gives the generated rules the highest evaluation priority under default action order.
++ The `flow:to_server, established` keyword matches client-to-server traffic on an established connection.
++ The `sid` and `rev` keywords identify the rule and its revision.
+
+**Example – Resolved-domain deny list**  
+The following JSON shows a domain list rule group that uses `AWS_ROUTE_53_RESOLVED_DOMAIN` as the only target type in a deny list. Network Firewall blocks traffic when the Amazon Route 53 Resolver resolved the connection's destination IP address for one of the listed domains, regardless of the domain that the client asserts. The rule group definition follows:
+
+```
+{
+    "RulesSource": {
+        "RulesSourceList": {
+            "Targets": [
+                "evil.com",
+                ".ads.example.com"
+            ],
+            "TargetTypes": [
+                "AWS_ROUTE_53_RESOLVED_DOMAIN"
+            ],
+            "GeneratedRulesType": "DENYLIST"
+        }
+    }
+}
+```
+
+The following Suricata rules listing shows the rules that Network Firewall creates for the preceding deny list specification:
+
+```
+drop ip $HOME_NET any -> $EXTERNAL_NET any (aws_route_53_resolved_domain:".ads.example.com"; msg:"matching resolved domain denylisted FQDNs"; priority:1; flow:to_server, established; sid:1; rev:1;)
+drop ip $HOME_NET any -> $EXTERNAL_NET any (aws_route_53_resolved_domain:"evil.com"; msg:"matching resolved domain denylisted FQDNs"; priority:1; flow:to_server, established; sid:2; rev:1;)
+```
+
+The generated rules use the following elements:
++ The `aws_route_53_resolved_domain` keyword matches when the Amazon Route 53 Resolver resolved the connection's destination IP address for the listed domain. A leading dot, as in `.ads.example.com`, also matches subdomains.
++ The `ip` protocol applies the rule to traffic of any protocol, because the match doesn't depend on an application-layer header.
++ The `flow:to_server, established` keyword matches client-to-server traffic on an established connection.
++ The `sid` and `rev` keywords identify the rule and its revision.
+
 ## Stateful rules examples: standard stateful rule groups
 <a name="suricata-example-basic"></a>
 

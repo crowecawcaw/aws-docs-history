@@ -5,6 +5,8 @@
 
 When you use this rule group type, you provide match and action settings in a string, in a Suricata compatible specification. Your specification fully defines what the stateful rules engine looks for in a traffic flow and the action to take on the packets in a flow that matches the inspection criteria. 
 
+To match on the domain that a connection's destination IP address was resolved for, use the `aws_route_53_resolved_domain` keyword in your rule. For examples, see [Matching specific domains with resolved-domain rules](route53-resolved-ip-validation-rules.md).
+
 All rule groups have the common settings that are defined at [Common rule group settings in AWS Network Firewall](rule-group-settings.md).
 
 You can provide your Suricata compatible specification to Network Firewall in rules strings or files, depending on how you're accessing Network Firewall. 

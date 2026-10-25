@@ -24,7 +24,7 @@ AWS Network Firewall doesn't support asymmetric routing. Request and response tr
 
 **To test whether routing is symmetric using Network Firewall flow and alert logs:**
 
-1. Create a firewall using the [](creating-firewall.md) procedure, and associate an empty **Strict order** rule evaluation order policy to it. The stateless default action should **Forward to stateful rule groups** for both full and fragmented packets. For this test, you don't need to enable any stateful default actions.
+1. Create a firewall using the [Creating a firewall](creating-firewall.md) procedure, and associate an empty **Strict order** rule evaluation order policy to it. The stateless default action should **Forward to stateful rule groups** for both full and fragmented packets. For this test, you don't need to enable any stateful default actions.
 
 1. From the console, select the firewall you created in the previous step. On the **Firewall details** tab, navigate to the **Logging** tab and select **Edit**. Choose **Alert** and **Flow**, and select a separate Amazon CloudWatch log group for each log type. For example, choose {{my-firewall-flow-logs}} and {{my-firewall-alert-logs}}. If the log groups don't exist, choose **Create log group** to be redirected to the CloudWatch log groups console. Once created, you can refresh the log group list in the firewall logging console. After you select the log groups, select **Save**.
 

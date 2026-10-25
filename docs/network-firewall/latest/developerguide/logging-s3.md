@@ -66,7 +66,7 @@ You must have the following permissions settings to configure your firewall to s
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17", 		 	 	 
   "Statement": [
     {
       "Sid": "AWSLogDeliveryWrite",
@@ -109,7 +109,7 @@ If the user creating the log owns the bucket, the service automatically attaches
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17", 		 	 	 
   "Statement": [
     {
       "Sid": "AWSLogDeliveryWrite",
@@ -152,7 +152,7 @@ For example, the following bucket policy allows AWS accounts `111122223333` and 
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17", 		 	 	 
   "Statement": [
     {
       "Sid": "AWSLogDeliveryWrite",

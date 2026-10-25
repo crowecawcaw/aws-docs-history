@@ -48,7 +48,7 @@ An endpoint policy specifies the following information:
 + The resources on which the actions can be performed.
 
 ## Example: VPC endpoint policy for AWS Network Firewall
-<a name="w2aac37c36c13"></a>
+<a name="w2aac39c36c13"></a>
 
 The following is an example of a custom endpoint policy. When you attach this policy to your interface VPC endpoint, it grants access to the AWS Network Firewall actions for all principals on all resources.
 
