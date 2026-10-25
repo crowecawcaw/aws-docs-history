@@ -49,6 +49,7 @@ The following examples show the user policies required to create and manage AWS 
 **Topics**
 + [Base AWS ParallelCluster `pcluster` user policy](#iam-roles-in-parallelcluster-v3-base-user-policy)
 + [Additional AWS ParallelCluster `pcluster` user policy when using AWS Batch scheduler](#iam-roles-in-parallelcluster-v3-user-policy-batch)
++ [Additional AWS ParallelCluster `pcluster` user policy when using login nodes](#iam-roles-in-parallelcluster-v3-user-policy-login-nodes)
 + [Additional AWS ParallelCluster `pcluster` user policy when using Amazon FSx for Lustre](#iam-roles-in-parallelcluster-v3-user-policy-fsxlustre)
 + [AWS ParallelCluster image build `pcluster` user policy](#iam-roles-in-parallelcluster-v3-user-policy-build-image)
 
@@ -57,7 +58,9 @@ The following examples show the user policies required to create and manage AWS 
 
 The following policy shows the permissions required to run AWS ParallelCluster `pcluster` commands.
 
-The last action listed in the policy is included to provide validation of any secrets specified in the cluster configuration. For example, an AWS Secrets Manager secret is used to configure the [`DirectoryService`](DirectoryService-v3.md) integration. In this case, a cluster is created only if a valid secret exists in the [`PasswordSecretArn`](DirectoryService-v3.md#yaml-DirectoryService-PasswordSecretArn). If this action is omitted, secret validation is skipped. To improve your security posture, we recommend that you scope down this policy statement by adding only the secrets specified in your cluster configuration.
+To have AWS ParallelCluster validate the secrets that you specify in your cluster configuration, such as [DirectoryService / PasswordSecretArn](DirectoryService-v3.md#yaml-DirectoryService-PasswordSecretArn) and [MungeKeySecretArn](Scheduling-v3.md#yaml-Scheduling-SlurmSettings-MungeKeySecretArn), before it creates the cluster, grant the `secretsmanager:DescribeSecret` and `secretsmanager:GetSecretValue` permissions. If you omit those permissions, the validation is skipped.
+
+To improve your security posture, scope down these permissions to only the secrets that you specify in your cluster configuration.
 
 **Note**  
 If existing Amazon EFS file systems are the only file systems used in your cluster, you can scope down the example Amazon EFS policy statements to the specific file systems referenced in the [`SharedStorage` section](SharedStorage-v3.md) of the cluster configuration file.
@@ -297,11 +300,20 @@ If existing Amazon EFS file systems are the only file systems used in your clust
         },
         {
             "Action": [
-                "resource-groups:ListGroupResources"
+                "resource-groups:ListGroupResources",
+                "resource-groups:GetGroupConfiguration"
             ],
             "Resource": "*",
             "Effect": "Allow",
             "Sid": "ResourceGroupRead"
+        },
+        {
+            "Action": [
+                "tag:GetResources"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "ResourceGroupsTaggingApiRead"
         },
         {
             "Sid": "AllowDescribingFileCache",
@@ -312,7 +324,10 @@ If existing Amazon EFS file systems are the only file systems used in your clust
             "Resource": "*"
         },
         {
-            "Action": "secretsmanager:DescribeSecret",
+            "Action": [
+                "secretsmanager:DescribeSecret",
+                "secretsmanager:GetSecretValue"
+            ],
             "Resource": "arn:aws:secretsmanager:{{us-east-1}}:{{111122223333}}:secret:{{<SECRET NAME>}}",
             "Effect": "Allow"
         }
@@ -324,6 +339,9 @@ If existing Amazon EFS file systems are the only file systems used in your clust
 
 ### Additional AWS ParallelCluster `pcluster` user policy when using AWS Batch scheduler
 <a name="iam-roles-in-parallelcluster-v3-user-policy-batch"></a>
+
+**Note**  
+AWS ParallelCluster version 3.15.1 and earlier supports AWS Batch as a scheduler.
 
 In case you need to create and manage a cluster with AWS Batch scheduler, the following additional policy is required.
 
@@ -417,6 +435,94 @@ In case you need to create and manage a cluster with AWS Batch scheduler, the fo
 ```
 
 ------
+
+### Additional AWS ParallelCluster `pcluster` user policy when using login nodes
+<a name="iam-roles-in-parallelcluster-v3-user-policy-login-nodes"></a>
+
+To create and manage a cluster with [LoginNodes](LoginNodes-v3.md), add the following policy to the `pcluster` user. This policy grants the permissions to create the required service-linked roles and to manage the Auto Scaling groups and load balancers that the login nodes use:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "iam:CreateServiceLinkedRole",
+                "iam:DeleteServiceLinkedRole"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Condition": {
+                "StringEquals": {
+                    "iam:AWSServiceName": [
+                        "elasticloadbalancing.amazonaws.com",
+                        "autoscaling.amazonaws.com"
+                    ]
+                }
+            },
+            "Sid": "LoginNodesServiceLinkedRoles"
+        },
+        {
+            "Action": [
+                "autoscaling:DeleteAutoScalingGroup",
+                "autoscaling:DeleteLifecycleHook",
+                "autoscaling:DescribeAutoScalingGroups",
+                "autoscaling:DescribeLifecycleHooks",
+                "autoscaling:DescribeScalingActivities",
+                "autoscaling:PutLifecycleHook",
+                "autoscaling:UpdateAutoScalingGroup",
+                "elasticloadbalancing:DescribeTags",
+                "elasticloadbalancing:DeleteListener",
+                "elasticloadbalancing:DeleteLoadBalancer",
+                "elasticloadbalancing:DeleteTargetGroup",
+                "elasticloadbalancing:DescribeListeners",
+                "elasticloadbalancing:DescribeLoadBalancers",
+                "elasticloadbalancing:DescribeTargetGroups",
+                "elasticloadbalancing:DescribeTargetHealth",
+                "elasticloadbalancing:ModifyLoadBalancerAttributes"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Condition": {
+                "ForAllValues:StringEquals": {
+                    "aws:TagKeys": [
+                        "parallelcluster:cluster-name"
+                    ]
+                }
+            },
+            "Sid": "LoginNodesFunctionalities"
+        },
+        {
+            "Action": [
+                "elasticloadbalancing:CreateListener",
+                "elasticloadbalancing:CreateTargetGroup"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Condition": {
+                "Null": {
+                    "aws:RequestTag/parallelcluster:cluster-name": "false"
+                }
+            },
+            "Sid": "LoginNodesFunctionalitiesCondition2"
+        },
+        {
+            "Action": [
+                "autoscaling:CreateAutoScalingGroup",
+                "autoscaling:DeleteTags",
+                "autoscaling:CreateOrUpdateTags",
+                "elasticloadbalancing:AddTags",
+                "elasticloadbalancing:RemoveTags",
+                "elasticloadbalancing:ModifyTargetGroup",
+                "elasticloadbalancing:CreateLoadBalancer"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "LoginNodesFunctionalitiesNoCondition"
+        }
+    ]
+}
+```
 
 ### Additional AWS ParallelCluster `pcluster` user policy when using Amazon FSx for Lustre
 <a name="iam-roles-in-parallelcluster-v3-user-policy-fsxlustre"></a>
@@ -552,6 +658,24 @@ Users that intend to create custom Amazon EC2 images with AWS ParallelCluster mu
             "Sid": "IAMPassRole"
         },
         {
+            "Condition": {
+                "ArnLike": {
+                    "iam:PolicyARN": [
+                        "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+                        "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
+                    ]
+                }
+            },
+            "Action": [
+                "iam:AttachRolePolicy"
+            ],
+            "Resource": [
+                "arn:aws:iam::{{111122223333}}:role/parallelcluster/*"
+            ],
+            "Effect": "Allow",
+            "Sid": "IAMCleanupRole"
+        },
+        {
             "Action": [
                 "logs:GetLogEvents",
                 "logs:CreateLogGroup",
@@ -577,6 +701,14 @@ Users that intend to create custom Amazon EC2 images with AWS ParallelCluster mu
             ],
             "Effect": "Allow",
             "Sid": "CloudFormation"
+        },
+        {
+            "Action": [
+                "cloudformation:DescribeStacks"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "CloudFormationListImages"
         },
         {
             "Action": [
@@ -612,6 +744,7 @@ Users that intend to create custom Amazon EC2 images with AWS ParallelCluster mu
                 "imagebuilder:CreateDistributionConfiguration",
                 "imagebuilder:CreateInfrastructureConfiguration",
                 "imagebuilder:DeleteImage",
+                "imagebuilder:CancelImageCreation",
                 "imagebuilder:DeleteComponent",
                 "imagebuilder:DeleteImageRecipe",
                 "imagebuilder:DeleteInfrastructureConfiguration",
@@ -794,6 +927,9 @@ When creating a cluster the following parameters are required:
 +  [`HeadNode`](HeadNode-v3.md) / [`Iam`](HeadNode-v3.md#HeadNode-v3-Iam) / [`InstanceRole`](HeadNode-v3.md#yaml-HeadNode-Iam-InstanceRole) \| [`InstanceProfile`](HeadNode-v3.md#yaml-HeadNode-Iam-InstanceProfile)
 +  [`Scheduling`](Scheduling-v3.md) / [`SlurmQueues`](Scheduling-v3.md#Scheduling-v3-SlurmQueues) / [`Iam`](Scheduling-v3.md#Scheduling-v3-SlurmQueues-Iam) / [`InstanceRole`](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Iam-InstanceRole) \| [`InstanceProfile`](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Iam-InstanceProfile)
 
+When creating a cluster with login nodes, the following parameter is also required:
++  [LoginNodes](LoginNodes-v3.md) / [Pools](LoginNodes-v3.md#LoginNodes-v3-Pools) / [Iam](LoginNodes-v3.md#yaml-LoginNodes-Pools-Iam) / [InstanceRole](LoginNodes-v3.md#yaml-LoginNodes-Pools-Iam-InstanceRole) \| [InstanceProfile](LoginNodes-v3.md#yaml-LoginNodes-Pools-Iam-InstanceProfile)
+
 When building a custom image the following parameters are required:
 + [`Build`](Build-v3.md) / [`Iam`](Build-v3.md#Build-v3-Iam) / [`InstanceRole`](Build-v3.md#yaml-build-image-Build-Iam-InstanceRole) \| [`InstanceProfile`](Build-v3.md#yaml-build-image-Build-Iam-InstanceProfile) 
 + [`Build`](Build-v3.md) / [`Iam`](Build-v3.md#Build-v3-Iam) / [`CleanupLambdaRole`](Build-v3.md#yaml-build-image-Build-Iam-CleanupLambdaRole)
@@ -853,7 +989,8 @@ If you configure the [`HeadNode`](HeadNode-v3.md) / [`Iam`](HeadNode-v3.md#HeadN
             "Action": [
                 "iam:CreateServiceLinkedRole",
                 "iam:DeleteRole",
-                "iam:TagRole"
+                "iam:TagRole",
+                "iam:UntagRole"
             ],
             "Resource": [
                 "arn:aws:iam::{{111122223333}}:role/parallelcluster/*"
@@ -952,6 +1089,7 @@ AWS ParallelCluster exposes a series of configuration options to customize and m
 + [Additional IAM policies](#iam-roles-in-parallelcluster-v3-cluster-config-additionaliampolicies)
 + [AWS Lambda functions role](#iam-roles-in-parallelcluster-v3-cluster-config-lambdafunctionsrole)
 + [Compute nodes IAM role](#iam-roles-in-parallelcluster-v3-cluster-config-slurmqueues-instanceprofile)
++ [Login nodes IAM role](#iam-roles-in-parallelcluster-v3-cluster-config-loginnodes-instanceprofile)
 + [Permissions boundary](#iam-roles-in-parallelcluster-v3-cluster-config-permissionsboundary)
 
 #### Head node IAM role
@@ -984,6 +1122,16 @@ Here is the minimal set of policies to be used as part of this role when the sch
                   "arn:aws:s3:::{{us-east-1}}-aws-parallelcluster/*",
                   "arn:aws:s3:::dcv-license.us-east-1/*",
                   "arn:aws:s3:::parallelcluster-*-v1-do-not-delete/*"
+              ],
+              "Effect": "Allow"
+          },
+          {
+              "Action": [
+                  "s3:GetBucketLocation",
+                  "s3:ListBucket"
+              ],
+              "Resource": [
+                  "arn:aws:s3:::parallelcluster-*-v1-do-not-delete"
               ],
               "Effect": "Allow"
           },
@@ -1035,6 +1183,7 @@ Here is the minimal set of policies to be used as part of this role when the sch
           },
           {
               "Action": [
+                  "ec2:DescribeLaunchTemplateVersions",
                   "ec2:DescribeInstances",
                   "ec2:DescribeInstanceStatus",
                   "ec2:DescribeVolumes",
@@ -1047,12 +1196,31 @@ Here is the minimal set of policies to be used as part of this role when the sch
           {
               "Action": [
                   "ec2:CreateTags",
-                  "ec2:AttachVolume"
+                  "ec2:AttachVolume",
+                  "ec2:DetachVolume"
               ],
               "Resource": [
                   "arn:aws:ec2:{{us-east-1}}:{{111122223333}}:instance/*",
                   "arn:aws:ec2:{{us-east-1}}:{{111122223333}}:volume/*"
               ],
+              "Effect": "Allow"
+          },
+          {
+              "Condition": {
+                  "StringEquals": {
+                      "aws:ResourceTag/parallelcluster:node-type": "Compute"
+                  }
+              },
+              "Action": "ec2:GetConsoleOutput",
+              "Resource": "arn:aws:ec2:{{us-east-1}}:{{111122223333}}:instance/*",
+              "Effect": "Allow"
+          },
+          {
+              "Action": [
+                  "elasticloadbalancing:DescribeTargetGroups",
+                  "elasticloadbalancing:DescribeTargetHealth"
+              ],
+              "Resource": "*",
               "Effect": "Allow"
           },
           {
@@ -1084,7 +1252,11 @@ Here is the minimal set of policies to be used as part of this role when the sch
 
 Note that in case [`Scheduling`](Scheduling-v3.md) / [`SlurmQueues`](Scheduling-v3.md#Scheduling-v3-SlurmQueues) / [`Iam`](Scheduling-v3.md#Scheduling-v3-SlurmQueues-Iam) / [`InstanceRole`](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Iam-InstanceRole) is used to override the compute IAM role, the head node policy reported above needs to include such role in the `Resource` section of the `iam:PassRole` permission.
 
-Here is the minimal set of policies to be used as part of this role when the scheduler is AWS Batch:
+Depending on your cluster configuration, add the following permissions to the head node role:
++ Grant `secretsmanager:GetSecretValue` on the secrets that you specify in [MungeKeySecretArn](Scheduling-v3.md#yaml-Scheduling-SlurmSettings-MungeKeySecretArn), [PasswordSecretArn](DirectoryService-v3.md#yaml-DirectoryService-PasswordSecretArn), and [Database / PasswordSecretArn](Scheduling-v3.md#yaml-Scheduling-SlurmSettings-Database-PasswordSecretArn). If `PasswordSecretArn` references an Systems Manager parameter, grant `ssm:GetParameter` on that parameter instead.
++ Grant `ec2:RunInstances`, `ec2:CreateFleet`, and `resource-groups:ListGroupResources` on the capacity reservations and capacity reservation resource groups that you specify in your cluster configuration.
+
+AWS ParallelCluster version 3.15.1 and earlier supports AWS Batch as a scheduler. If you use AWS Batch, attach the following minimal set of policies to this role:
 + `arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy` managed IAM policy. For more information, see [Create IAM roles and users for use with the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/create-iam-roles-for-cloudwatch-agent.html) in the *Amazon CloudWatch User Guide*.
 + `arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore` managed IAM policy. For more information, see [AWS managed policies for AWS Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/security_iam_service-with-iam.html#managed-policies) in the *AWS Systems Manager User Guide*.
 + Additional IAM policy:
@@ -1106,6 +1278,16 @@ Here is the minimal set of policies to be used as part of this role when the sch
               ],
               "Resource": [
                   "arn:aws:s3:::parallelcluster-*-v1-do-not-delete/*"
+              ],
+              "Effect": "Allow"
+          },
+          {
+              "Action": [
+                  "s3:GetBucketLocation",
+                  "s3:ListBucket"
+              ],
+              "Resource": [
+                  "arn:aws:s3:::parallelcluster-*-v1-do-not-delete"
               ],
               "Effect": "Allow"
           },
@@ -1164,6 +1346,7 @@ Here is the minimal set of policies to be used as part of this role when the sch
           },
           {
               "Action": [
+                  "ec2:DescribeLaunchTemplateVersions",
                   "ec2:DescribeInstances",
                   "ec2:DescribeInstanceStatus",
                   "ec2:DescribeVolumes",
@@ -1175,7 +1358,8 @@ Here is the minimal set of policies to be used as part of this role when the sch
           {
               "Action": [
                   "ec2:CreateTags",
-                  "ec2:AttachVolume"
+                  "ec2:AttachVolume",
+                  "ec2:DetachVolume"
               ],
               "Resource": [
                   "arn:aws:ec2:{{us-east-1}}:{{111122223333}}:instance/*",
@@ -1215,9 +1399,9 @@ This parameter can be only used when the user is configured with [Privileged IAM
 #### Additional IAM policies
 <a name="iam-roles-in-parallelcluster-v3-cluster-config-additionaliampolicies"></a>
 
-[`HeadNode`](HeadNode-v3.md) / [`Iam`](HeadNode-v3.md#HeadNode-v3-Iam) / [`AdditionalIamPolicies`](HeadNode-v3.md#yaml-HeadNode-Iam-AdditionalIamPolicies) or [`SlurmQueues`](Scheduling-v3.md#Scheduling-v3-SlurmQueues) / [`Iam`](Scheduling-v3.md#Scheduling-v3-SlurmQueues-Iam) / [`AdditionalIamPolicies`](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Iam-AdditionalIamPolicies)
+[`HeadNode`](HeadNode-v3.md) / [`Iam`](HeadNode-v3.md#HeadNode-v3-Iam) / [`AdditionalIamPolicies`](HeadNode-v3.md#yaml-HeadNode-Iam-AdditionalIamPolicies) or [`SlurmQueues`](Scheduling-v3.md#Scheduling-v3-SlurmQueues) / [`Iam`](Scheduling-v3.md#Scheduling-v3-SlurmQueues-Iam) / [AdditionalIamPolicies](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Iam-AdditionalIamPolicies) or [Pools](LoginNodes-v3.md#LoginNodes-v3-Pools) / [Iam](LoginNodes-v3.md#yaml-LoginNodes-Pools-Iam) / [AdditionalIamPolicies](LoginNodes-v3.md#yaml-LoginNodes-Pools-Iam-AdditionalIamPolicies)
 
-Use this option to attach additional managed IAM policies to the IAM roles associated with the head node or compute nodes of the cluster when such roles are created by AWS ParallelCluster.
+Use this option to attach additional managed IAM policies to the IAM roles associated with the head node, compute nodes, or login nodes of the cluster when such roles are created by AWS ParallelCluster.
 
 **Warning**  
 To use this option, make sure the [AWS ParallelCluster user](#iam-roles-in-parallelcluster-v3-user-policy-manage-iam) is granted `iam:AttachRolePolicy` and `iam:DetachRolePolicy` permissions for the IAM policies that need to be attached.
@@ -1348,6 +1532,61 @@ Here is the minimal set of policies to be used as part of this role:
   ```
 
 ------
+
+#### Login nodes IAM role
+<a name="iam-roles-in-parallelcluster-v3-cluster-config-loginnodes-instanceprofile"></a>
+
+[LoginNodes](LoginNodes-v3.md) / [Pools](LoginNodes-v3.md#LoginNodes-v3-Pools) / [Iam](LoginNodes-v3.md#yaml-LoginNodes-Pools-Iam) / [InstanceRole](LoginNodes-v3.md#yaml-LoginNodes-Pools-Iam-InstanceRole) \| [InstanceProfile](LoginNodes-v3.md#yaml-LoginNodes-Pools-Iam-InstanceProfile)
+
+Use this option to override the IAM role that AWS ParallelCluster assigns to the login nodes of your cluster. For more information, see [InstanceProfile](LoginNodes-v3.md#yaml-LoginNodes-Pools-Iam-InstanceProfile).
+
+Attach the following minimal set of policies to this role:
++ Attach the `arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy` managed IAM policy. For more information, see [Create IAM roles and users for use with the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/create-iam-roles-for-cloudwatch-agent.html) in the *Amazon CloudWatch User Guide*.
++ Attach the `arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore` managed IAM policy. For more information, see [AWS managed policies for AWS Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/security_iam_service-with-iam.html#managed-policies) in the *AWS Systems Manager User Guide*.
++ Attach an additional IAM policy with the permissions that login nodes require. The following policy grants login nodes the permissions to read objects from Amazon S3, describe the cluster CloudFormation stack, read and write items in the AWS ParallelCluster DynamoDB tables, and complete Auto Scaling lifecycle actions:
+
+  ```
+  {
+      "Version": "2012-10-17",
+      "Statement": [
+          {
+              "Action": "ec2:DescribeInstanceAttribute",
+              "Resource": "*",
+              "Effect": "Allow"
+          },
+          {
+              "Action": "s3:GetObject",
+              "Resource": [
+                  "arn:aws:s3:::{{us-east-1}}-aws-parallelcluster/*",
+                  "arn:aws:s3:::dcv-license.us-east-1/*"
+              ],
+              "Effect": "Allow"
+          },
+          {
+              "Action": "autoscaling:CompleteLifecycleAction",
+              "Resource": "arn:aws:autoscaling:{{us-east-1}}:{{<AWS ACCOUNT ID>}}:autoScalingGroup:*:autoScalingGroupName/*",
+              "Effect": "Allow"
+          },
+          {
+              "Action": [
+                  "cloudformation:DescribeStackResource",
+                  "cloudformation:DescribeStacks"
+              ],
+              "Resource": "arn:aws:cloudformation:{{us-east-1}}:{{<AWS ACCOUNT ID>}}:stack/*/*",
+              "Effect": "Allow"
+          },
+          {
+              "Action": [
+                  "dynamodb:UpdateItem",
+                  "dynamodb:PutItem",
+                  "dynamodb:GetItem"
+              ],
+              "Resource": "arn:aws:dynamodb:{{us-east-1}}:{{<AWS ACCOUNT ID>}}:table/parallelcluster-*",
+              "Effect": "Allow"
+          }
+      ]
+  }
+  ```
 
 #### Permissions boundary
 <a name="iam-roles-in-parallelcluster-v3-cluster-config-permissionsboundary"></a>
@@ -1493,7 +1732,9 @@ Here is the minimal set of policies to be used as part of this role:
           {
               "Action": [
                   "lambda:DeleteFunction",
-                  "lambda:RemovePermission"
+                  "lambda:RemovePermission",
+                  "lambda:GetFunction",
+                  "lambda:GetPolicy"
               ],
               "Resource": "arn:aws:lambda:{{us-east-1}}:{{111122223333}}:function:ParallelClusterImage-*",
               "Effect": "Allow"
