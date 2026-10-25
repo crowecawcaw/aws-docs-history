@@ -53,6 +53,7 @@ Splits the selected regions into two named groups, **Group A** and **Group B**, 
 For the key monetization metrics and trend graphs, how the dashboard combines values across the selected regions depends on the metric type:
 + For count metrics, the values from each selected region are summed.
 + For rate metrics, the numerator and denominator from each selected region are summed and divided once. This produces a weighted average, so a region with more traffic contributes proportionally more to the result.
++ For **Peak concurrent streams**, each region's peak is added together for each period, and the highest total is shown. If regions peak at different times within a period, the value can be higher than the actual combined peak.
 
 The metric tables display values by playback configuration or by ad tracking domain, and each table combines region values differently depending on the view. See the table sections later on this page for details.
 
@@ -67,6 +68,8 @@ The dashboard shows the following key monetization metrics. For definitions of t
 + **Ad impression rate** — `SUM(Avail.Impression) / SUM(AdsBilled) × 100`
 + **Video completion rate** — `SUM(Avail.Complete) / SUM(Avail.Impression) × 100`
 + **Ad insertions** — `SUM(AdsBilled)`
++ **Peak concurrent streams** — `MAX(Session.ConcurrentStreams)`
++ **Streams started** — `SUM(Session.StreamStarts)`
 
 ## Trend graphs
 <a name="analytics-dashboard-trends"></a>
@@ -78,7 +81,7 @@ In **Aggregate regions** view, each chart shows a single line representing all s
 ## Monetization performance by configuration table
 <a name="analytics-dashboard-configurations-table"></a>
 
-The **Monetization performance by configuration** table shows the key rate metrics for each of your playback configurations in the selected regions, over the selected time range. Use this table to find configurations that are underperforming compared to your other configurations.
+The **Monetization performance by configuration** table shows the key monetization metrics for each of your playback configurations in the selected regions, over the selected time range. Use this table to find configurations that are underperforming compared to your other configurations.
 
 Playback configurations are scoped to a specific AWS region. If the same configuration name exists in more than one selected region, the table shows a separate row for each region. The **Configuration name** column links to the details page for that configuration in its region.
 
@@ -87,6 +90,7 @@ The table has the following columns:
 + **Region** — The AWS region where the configuration exists.
 + **Group** — In **Compare regions** view only, the region group (**Group A** or **Group B**) that the row's region belongs to.
 + **Weighted fill rate**, **Ad insertion rate**, **Ad impression rate**, and **Video completion rate** — The rate metrics described in [Key monetization metrics](#analytics-dashboard-kpis), computed for that configuration in that region over the selected time range.
++ **Peak concurrent streams** and **Streams started** — The session metrics described in [Key monetization metrics](#analytics-dashboard-kpis), shown for that configuration in that region over the selected time range.
 
 Use the property filter above the table to narrow the rows shown. You can filter by **Configuration name** or **Region**. In **Compare regions** view, you can also filter by **Group** to show one comparison group at a time. Each property supports the operators **=** (equals), **\!=** (does not equal), **:** (contains), and **\!:** (does not contain).
 
