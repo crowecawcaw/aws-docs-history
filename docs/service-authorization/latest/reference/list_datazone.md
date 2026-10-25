@@ -132,6 +132,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [datazone:CreateDataSource](#list_datazone-action-CreateDataSource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** datazone.amazonaws.com / **Access level:** Write
 
+- **   CreateDesignation  **
+  - **IAM action:**  [datazone:CreateDesignation](#list_datazone-action-CreateDesignation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   CreateDomain  **
   - **IAM action:**  [datazone:CreateDomain](#list_datazone-action-CreateDomain)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [datazone:TagResource](#list_datazone-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
@@ -291,6 +297,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   DeleteDataSource  **
   - **IAM action:**  [datazone:DeleteDataSource](#list_datazone-action-DeleteDataSource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteDesignation  **
+  - **IAM action:**  [datazone:DeleteDesignation](#list_datazone-action-DeleteDesignation) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -483,6 +495,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   GetDataSourceRun  **
   - **IAM action:**  [datazone:GetDataSourceRun](#list_datazone-action-GetDataSourceRun) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDesignation  **
+  - **IAM action:**  [datazone:GetDesignation](#list_datazone-action-GetDesignation) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -717,6 +735,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   ListDataSources  **
   - **IAM action:**  [datazone:ListDataSources](#list_datazone-action-ListDataSources) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDesignations  **
+  - **IAM action:**  [datazone:ListDesignations](#list_datazone-action-ListDesignations) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
@@ -1030,14 +1054,18 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** Write
 
 - **   UpdateConnection  **
-  - **IAM action:**  [datazone:UpdateConnection](#list_datazone-action-UpdateConnection) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
+  - **IAM action:**  [datazone:UpdateConnection](#list_datazone-action-UpdateConnection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** datazone.amazonaws.com / **Access level:** Write
 
 - **   UpdateDataSource  **
   - **IAM action:**  [datazone:UpdateDataSource](#list_datazone-action-UpdateDataSource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** datazone.amazonaws.com / **Access level:** Write
+
+- **   UpdateDesignation  **
+  - **IAM action:**  [datazone:UpdateDesignation](#list_datazone-action-UpdateDesignation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   UpdateDomain  **
   - **IAM action:**  [datazone:UpdateDomain](#list_datazone-action-UpdateDomain)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write

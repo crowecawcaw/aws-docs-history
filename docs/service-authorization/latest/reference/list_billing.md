@@ -163,10 +163,22 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 
 
+- **   [AssociateContract](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  **
+  - **Description:** Grants permission to associate a Private Pricing Addendum with the caller's AWS account
+  - **Resource types (\*required):** [contract\*](#list_billing-resource-contract)
+  - **Condition keys:**  
+  - **Access level:** Write
+
 - **   [AssociateSourceViews](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_AssociateSourceViews.html)  **
   - **Description:** Grants permission to associate source views to a billing view
   - **Resource types (\*required):** [billingview\*](#list_billing-resource-billingview)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_billing-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CancelContractualInvestmentAttestation](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  **
+  - **Description:** Grants permission to cancel an attestation claiming an investment award for an outcome completion within a Private Pricing Addendum
+  - **Resource types (\*required):** [contract\*](#list_billing-resource-contract)
+  - **Condition keys:**  
   - **Access level:** Write
 
 - **   [CreateBillingView](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_CreateBillingView.html)  **
@@ -175,10 +187,22 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_billing-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_billing-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_billing-aws_TagKeys)
   - **Access level:** Write
 
+- **   [CreateContractualInvestmentAttestation](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  **
+  - **Description:** Grants permission to create an attestation claiming an investment award for an outcome completion within a Private Pricing Addendum
+  - **Resource types (\*required):** [contract\*](#list_billing-resource-contract)
+  - **Condition keys:**  
+  - **Access level:** Write
+
 - **   [DeleteBillingView](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_DeleteBillingView.html)  **
   - **Description:** Grants permission to delete a billing view
   - **Resource types (\*required):** [billingview\*](#list_billing-resource-billingview)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_billing-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisassociateContract](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  **
+  - **Description:** Grants permission to disassociate a Private Pricing Addendum from the caller's AWS account
+  - **Resource types (\*required):** [contract\*](#list_billing-resource-contract)
+  - **Condition keys:**  
   - **Access level:** Write
 
 - **   [DisassociateSourceViews](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_DisassociateSourceViews.html)  **
@@ -252,6 +276,30 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** List
+
+- **   [ListContracts](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  **
+  - **Description:** Grants permission to list the contracts visible to the caller's account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListContractualInvestmentAttestations](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  **
+  - **Description:** Grants permission to list the investment attestations submitted under a Private Pricing Addendum
+  - **Resource types (\*required):** [contract\*](#list_billing-resource-contract)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListContractualInvestmentSummaries](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  **
+  - **Description:** Grants permission to list the investment summaries within a Private Pricing Addendum
+  - **Resource types (\*required):** [contract\*](#list_billing-resource-contract)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListContractualInvestments](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  **
+  - **Description:** Grants permission to list the investments under an investment summary of a Private Pricing Addendum
+  - **Resource types (\*required):** [contract\*](#list_billing-resource-contract)
+  - **Condition keys:**  
+  - **Access level:** Read
 
 - **   [ListCreditEntitlementPeriods](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  **
   - **Description:** Grants permission to view the measurement periods of a credit entitlement
@@ -366,8 +414,8 @@ The following actions are defined by AWS Billing but are not directly invocable 
   - **Access level:** Read
 
 - **   [GetContractInformation](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  **
-  - **Description:** Grants permission to view the account's contract information including the contract number, end-user organization names, PO numbers and if the account is used to service public-sector customers
-  - **Resource types (\*required):** 
+  - **Description:** Grants permision to retrieve your contract information such as the contract's Legal Entity Name, term and accounts
+  - **Resource types (\*required):** [contract](#list_billing-resource-contract)
   - **Condition keys:**  
   - **Access level:** Read
 
@@ -419,6 +467,7 @@ The following resource types are defined by this service and can be used in the 
 | Resource types | ARN | Condition keys | 
 | --- | --- | --- | 
 |  [billingview](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/)  | arn:${Partition}:billing::${Account}:billingview/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_billing-aws_ResourceTag___TagKey_) | 
+|  [contract](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/)  | arn:${Partition}:billing::${Account}:contract/${ContractId} |   | 
 
 ## Condition keys for AWS Billing
 <a name="list_billing-policy-keys"></a>

@@ -14,6 +14,7 @@ References:
 **Topics**
 + [API operations defined by Amazon Route 53 Resolver](#list_route53resolver-operations)
 + [Actions defined by Amazon Route 53 Resolver](#list_route53resolver-actions-as-permissions)
++ [Permission-only actions for Amazon Route 53 Resolver](#list_route53resolver-permission-only-actions)
 + [Resource types defined by Amazon Route 53 Resolver](#list_route53resolver-resources-for-iam-policies)
 + [Condition keys for Amazon Route 53 Resolver](#list_route53resolver-policy-keys)
 
@@ -174,10 +175,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** Read
 
 - **   GetFirewallRuleGroup  **
-  - **IAM action:**  [route53resolver:GetFirewallRuleGroup](#list_route53resolver-action-GetFirewallRuleGroup) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Read
+  - **IAM action:**  [route53resolver:AssociateFirewallRuleGroupWithService](#list_route53resolver-action-AssociateFirewallRuleGroupWithService)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [route53resolver:GetFirewallRuleGroup](#list_route53resolver-action-GetFirewallRuleGroup)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
 
 - **   GetFirewallRuleGroupAssociation  **
   - **IAM action:**  [route53resolver:GetFirewallRuleGroupAssociation](#list_route53resolver-action-GetFirewallRuleGroupAssociation) 
@@ -883,6 +882,22 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [UpdateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_UpdateResolverRule.html)  **
   - **Description:** Grants permission to update settings for a specified Resolver rule
   - **Resource types (\*required):** [resolver-rule\*](#list_route53resolver-resource-resolver-rule)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53resolver-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
+
+## Permission-only actions for Amazon Route 53 Resolver
+<a name="list_route53resolver-permission-only-actions"></a>
+
+The following actions are defined by Amazon Route 53 Resolver but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
+
+
+
+
+- **   [AssociateFirewallRuleGroupWithService](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver-dns-firewall-resolved-ip-validation.html)  **
+  - **Description:** Grants permission to associate a Firewall rule group with other AWS services, such as Network Firewall
+  - **Resource types (\*required):** [firewall-rule-group\*](#list_route53resolver-resource-firewall-rule-group)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53resolver-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 

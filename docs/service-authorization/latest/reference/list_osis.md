@@ -149,8 +149,10 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** osis-pipelines.amazonaws.com / **Access level:** Write
 
 - **   ValidatePipeline  **
-  - **IAM action:**  [osis:ValidatePipeline](#list_osis-action-ValidatePipeline)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
-  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** osis-pipelines.amazonaws.com / **Access level:** Write
+  - **IAM action:**  [osis:ValidatePipeline](#list_osis-action-ValidatePipeline) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
 
 
 

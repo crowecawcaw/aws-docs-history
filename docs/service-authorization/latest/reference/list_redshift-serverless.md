@@ -367,6 +367,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** Write
 
 - **   UpdateLakehouseConfiguration  **
+  - **IAM action:**  [redshift-serverless:UpdateLakehouseConfiguration](#list_redshift-serverless-action-UpdateLakehouseConfiguration)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** redshift-serverless.amazonaws.com / **Access level:** Write
   - **IAM action:**  [redshift:AssociateDataShareConsumer](https://docs.aws.amazon.com/redshift/latest/APIReference/API_AssociateDataShareConsumer.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [redshift:DeregisterNamespace](https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeregisterNamespace.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
@@ -771,6 +772,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to update an Amazon Redshift Serverless managed VPC endpoint
   - **Resource types (\*required):** [endpointAccess\*](#list_redshift-serverless-resource-endpointAccess)
   - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateLakehouseConfiguration](https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_UpdateLakehouseConfiguration.html)  **
+  - **Description:** Grants permission to manage Amazon Redshift federated permissions
+  - **Resource types (\*required):** [namespace\*](#list_redshift-serverless-resource-namespace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_redshift-serverless-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [UpdateNamespace](https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_UpdateNamespace.html)  **

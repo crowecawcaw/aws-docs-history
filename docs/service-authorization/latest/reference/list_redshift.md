@@ -726,6 +726,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   ModifyLakehouseConfiguration  **
   - **IAM action:**  [redshift:AssociateDataShareConsumer](#list_redshift-action-AssociateDataShareConsumer)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [redshift:DeregisterNamespace](#list_redshift-action-DeregisterNamespace)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [redshift:ModifyLakehouseConfiguration](#list_redshift-action-ModifyLakehouseConfiguration)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [redshift:RegisterNamespace](#list_redshift-action-RegisterNamespace)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** redshift.amazonaws.com / **Access level:** Write
 
@@ -1631,6 +1632,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [ModifyIntegration](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyIntegration.html)  **
   - **Description:** Grants permission to modify an Amazon Redshift zero-ETL integration
   - **Resource types (\*required):** [integration\*](#list_redshift-resource-integration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_redshift-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ModifyLakehouseConfiguration](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyLakehouseConfiguration.html)  **
+  - **Description:** Grants permission to manage Amazon Redshift federated permissions
+  - **Resource types (\*required):** [cluster\*](#list_redshift-resource-cluster)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_redshift-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 

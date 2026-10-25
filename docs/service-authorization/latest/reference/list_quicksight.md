@@ -217,7 +217,6 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** Write
 
 - **   CreateTopic  **
-  - **IAM action:**  [quicksight:CreateFolderMembership](#list_quicksight-action-CreateFolderMembership)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [quicksight:CreateTopic](#list_quicksight-action-CreateTopic)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [quicksight:PassDataSet](#list_quicksight-action-PassDataSet)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
   - **IAM action:**  [quicksight:TagResource](#list_quicksight-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write

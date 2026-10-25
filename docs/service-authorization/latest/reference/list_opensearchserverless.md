@@ -55,6 +55,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   CancelIngestionJob  **
+  - **IAM action:**  [aoss:CancelIngestionJob](#list_opensearchserverless-action-CancelIngestionJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   CreateAccessPolicy  **
   - **IAM action:**  [aoss:CreateAccessPolicy](#list_opensearchserverless-action-CreateAccessPolicy) 
   - **Condition key:** 
@@ -64,17 +70,26 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   CreateCollection  **
   - **IAM action:**  [aoss:AddCollectionToCollectionGroup](#list_opensearchserverless-action-AddCollectionToCollectionGroup)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [aoss:CreateCollection](#list_opensearchserverless-action-CreateCollection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
-  - **IAM action:**  [aoss:TagResource](#list_opensearchserverless-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [aoss:TagResource](#list_opensearchserverless-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
 - **   CreateCollectionGroup  **
   - **IAM action:**  [aoss:CreateCollectionGroup](#list_opensearchserverless-action-CreateCollectionGroup)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
-  - **IAM action:**  [aoss:TagResource](#list_opensearchserverless-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [aoss:TagResource](#list_opensearchserverless-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
 - **   CreateIndex  **
   - **IAM action:**  [aoss:CreateIndex](#list_opensearchserverless-action-CreateIndex) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
+
+- **   CreateIngestionJob  **
+  - **IAM action:**  [aoss:CreateIngestionJob](#list_opensearchserverless-action-CreateIngestionJob)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [aoss:TagResource](#list_opensearchserverless-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateIngestionStream  **
+  - **IAM action:**  [aoss:CreateIngestionStream](#list_opensearchserverless-action-CreateIngestionStream)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [aoss:TagResource](#list_opensearchserverless-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
 - **   CreateLifecyclePolicy  **
   - **IAM action:**  [aoss:CreateLifecyclePolicy](#list_opensearchserverless-action-CreateLifecyclePolicy) 
@@ -124,6 +139,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   DeleteIngestionStream  **
+  - **IAM action:**  [aoss:DeleteIngestionStream](#list_opensearchserverless-action-DeleteIngestionStream) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   DeleteLifecyclePolicy  **
   - **IAM action:**  [aoss:DeleteLifecyclePolicy](#list_opensearchserverless-action-DeleteLifecyclePolicy) 
   - **Condition key:** 
@@ -166,6 +187,18 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetIngestionJob  **
+  - **IAM action:**  [aoss:GetIngestionJob](#list_opensearchserverless-action-GetIngestionJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetIngestionStream  **
+  - **IAM action:**  [aoss:GetIngestionStream](#list_opensearchserverless-action-GetIngestionStream) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetPoliciesStats  **
   - **IAM action:**  [aoss:GetPoliciesStats](#list_opensearchserverless-action-GetPoliciesStats) 
   - **Condition key:** 
@@ -198,6 +231,18 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   ListCollections  **
   - **IAM action:**  [aoss:ListCollections](#list_opensearchserverless-action-ListCollections) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListIngestionJobs  **
+  - **IAM action:**  [aoss:ListIngestionJobs](#list_opensearchserverless-action-ListIngestionJobs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListIngestionStreams  **
+  - **IAM action:**  [aoss:ListIngestionStreams](#list_opensearchserverless-action-ListIngestionStreams) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
@@ -236,13 +281,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [aoss:TagResource](#list_opensearchserverless-action-TagResource) 
   - **Condition key:** 
   - **Possible value(s):** 
-  - **Access level:** Write
+  - **Access level:** Tagging, Write
 
 - **   UntagResource  **
   - **IAM action:**  [aoss:UntagResource](#list_opensearchserverless-action-UntagResource) 
   - **Condition key:** 
   - **Possible value(s):** 
-  - **Access level:** Write
+  - **Access level:** Tagging, Write
 
 - **   UpdateAccessPolicy  **
   - **IAM action:**  [aoss:UpdateAccessPolicy](#list_opensearchserverless-action-UpdateAccessPolicy) 
@@ -327,7 +372,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Access level:** Read
 
 - **   [BatchGetCollectionGroup](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_BatchGetCollectionGroup.html)  **
-  - **Description:** Grants permission to get attributes for one or more collection groups
+  - **Description:** Grants permission to get attributes for one or more collection-groups
   - **Resource types (\*required):** 
   - **Condition keys:** [aoss:collection-group](#list_opensearchserverless-aoss_collection-group)
   - **Access level:** Read
@@ -349,6 +394,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Read
+
+- **   [CancelIngestionJob](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_CancelIngestionJob.html)  **
+  - **Description:** Grants permission to cancel an ingestion job
+  - **Resource types (\*required):** [IngestionJob\*](#list_opensearchserverless-resource-IngestionJob)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
 
 - **   [CreateAccessPolicy](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_CreateAccessPolicy.html)  **
   - **Description:** Grants permission to create a data access policy
@@ -372,6 +423,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to create an opensearch index
   - **Resource types (\*required):** 
   - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateIngestionJob](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_CreateIngestionJob.html)  **
+  - **Description:** Grants permission to create an ingestion job on a collection
+  - **Resource types (\*required):** [Collection\*](#list_opensearchserverless-resource-Collection)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_opensearchserverless-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_opensearchserverless-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateIngestionStream](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_CreateIngestionStream.html)  **
+  - **Description:** Grants permission to create an ingestion stream on a collection
+  - **Resource types (\*required):** [Collection\*](#list_opensearchserverless-resource-Collection)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_opensearchserverless-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_opensearchserverless-aws_TagKeys)
   - **Access level:** Write
 
 - **   [CreateLifecyclePolicy](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_CreateLifecyclePolicy.html)  **
@@ -428,6 +491,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Write
 
+- **   [DeleteIngestionStream](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_DeleteIngestionStream.html)  **
+  - **Description:** Grants permission to delete an ingestion stream
+  - **Resource types (\*required):** [IngestionStream\*](#list_opensearchserverless-resource-IngestionStream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [DeleteLifecyclePolicy](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_DeleteLifecyclePolicy.html)  **
   - **Description:** Grants permission to delete a lifecycle policy
   - **Resource types (\*required):** 
@@ -470,6 +539,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Read
 
+- **   [GetIngestionJob](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_GetIngestionJob.html)  **
+  - **Description:** Grants permission to get information about an ingestion job
+  - **Resource types (\*required):** [IngestionJob\*](#list_opensearchserverless-resource-IngestionJob)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetIngestionStream](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_GetIngestionStream.html)  **
+  - **Description:** Grants permission to get information about an ingestion stream
+  - **Resource types (\*required):** [IngestionStream\*](#list_opensearchserverless-resource-IngestionStream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [GetPoliciesStats](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_GetPoliciesStats.html)  **
   - **Description:** Grants permission to get statistis about the security policies in your account
   - **Resource types (\*required):** 
@@ -495,7 +576,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Access level:** List
 
 - **   [ListCollectionGroups](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_ListCollectionGroups.html)  **
-  - **Description:** Grants permission to list collection groups
+  - **Description:** Grants permission to list collection-groups
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** List
@@ -504,6 +585,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to list collections
   - **Resource types (\*required):** 
   - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListIngestionJobs](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_ListIngestionJobs.html)  **
+  - **Description:** Grants permission to list ingestion jobs for a collection
+  - **Resource types (\*required):** [Collection\*](#list_opensearchserverless-resource-Collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListIngestionStreams](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_ListIngestionStreams.html)  **
+  - **Description:** Grants permission to list ingestion streams for a collection
+  - **Resource types (\*required):** [Collection\*](#list_opensearchserverless-resource-Collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)
   - **Access level:** List
 
 - **   [ListLifecyclePolicies](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_ListLifecyclePolicies.html)  **
@@ -525,9 +618,11 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Access level:** List
 
 - **   [ListTagsForResource](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_ListTagsForResource.html)  **
-  - **Description:** Grants permission to list tags for a collection
-  - **Resource types (\*required):** 
-  - **Condition keys:**  
+  - **Description:** Grants permission to list tags for a collection, collection group, ingestion job, or ingestion stream
+  - **Resource types (\*required):** [Collection\*](#list_opensearchserverless-resource-Collection) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [CollectionGroup\*](#list_opensearchserverless-resource-CollectionGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [IngestionJob\*](#list_opensearchserverless-resource-IngestionJob) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [IngestionStream\*](#list_opensearchserverless-resource-IngestionStream) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)
   - **Access level:** List
 
 - **   [ListVpcEndpoints](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_ListVpcEndpoints.html)  **
@@ -537,16 +632,20 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Access level:** List
 
 - **   [TagResource](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_TagResource.html)  **
-  - **Description:** Grants permission to tag a serverless collection
-  - **Resource types (\*required):** 
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_opensearchserverless-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_opensearchserverless-aws_TagKeys)
-  - **Access level:** Write
+  - **Description:** Grants permission to add tags to a collection, collection group, ingestion job, or ingestion stream
+  - **Resource types (\*required):** [Collection\*](#list_opensearchserverless-resource-Collection) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_opensearchserverless-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_opensearchserverless-aws_TagKeys)
+  - **Resource types (\*required):** [CollectionGroup\*](#list_opensearchserverless-resource-CollectionGroup) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_opensearchserverless-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_opensearchserverless-aws_TagKeys)
+  - **Resource types (\*required):** [IngestionJob\*](#list_opensearchserverless-resource-IngestionJob) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_opensearchserverless-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_opensearchserverless-aws_TagKeys)
+  - **Resource types (\*required):** [IngestionStream\*](#list_opensearchserverless-resource-IngestionStream) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_opensearchserverless-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_opensearchserverless-aws_TagKeys)
+  - **Access level:** Tagging, Write
 
 - **   [UntagResource](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_UntagResource.html)  **
-  - **Description:** Grants permission to remove tags from a collection
-  - **Resource types (\*required):** 
-  - **Condition keys:** [aws:TagKeys](#list_opensearchserverless-aws_TagKeys)
-  - **Access level:** Write
+  - **Description:** Grants permission to remove tags from a collection, collection group, ingestion job, or ingestion stream
+  - **Resource types (\*required):** [Collection\*](#list_opensearchserverless-resource-Collection) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_opensearchserverless-aws_TagKeys)
+  - **Resource types (\*required):** [CollectionGroup\*](#list_opensearchserverless-resource-CollectionGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_opensearchserverless-aws_TagKeys)
+  - **Resource types (\*required):** [IngestionJob\*](#list_opensearchserverless-resource-IngestionJob) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_opensearchserverless-aws_TagKeys)
+  - **Resource types (\*required):** [IngestionStream\*](#list_opensearchserverless-resource-IngestionStream) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_opensearchserverless-aws_TagKeys)
+  - **Access level:** Tagging, Write
 
 - **   [UpdateAccessPolicy](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_UpdateAccessPolicy.html)  **
   - **Description:** Grants permission to update a data access policy
@@ -563,7 +662,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [UpdateCollection](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_UpdateCollection.html)  **
   - **Description:** Grants permission to update a collection
   - **Resource types (\*required):** [Collection\*](#list_opensearchserverless-resource-Collection)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)
+  - **Condition keys:** [aoss:DeletionProtection](#list_opensearchserverless-aoss_DeletionProtection)<br />[aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [UpdateCollectionGroup](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_UpdateCollectionGroup.html)  **
@@ -616,6 +715,8 @@ The following resource types are defined by this service and can be used in the 
 |  [Collection](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html)  | arn:${Partition}:aoss:${Region}:${Account}:collection/${CollectionId} | [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_) | 
 |  [CollectionGroup](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html)  | arn:${Partition}:aoss:${Region}:${Account}:collection-group/${CollectionGroupId} | [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_) | 
 |  [Dashboards](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html)  | arn:${Partition}:aoss:${Region}:${Account}:dashboards/default |   | 
+|  [IngestionJob](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html)  | arn:${Partition}:aoss:${Region}:${Account}:collection/${CollectionId}/ingestion-job/${IngestionJobId} | [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_) | 
+|  [IngestionStream](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html)  | arn:${Partition}:aoss:${Region}:${Account}:collection/${CollectionId}/ingestion-stream/${IngestionStreamId} | [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon OpenSearch Serverless
 <a name="list_opensearchserverless-policy-keys"></a>
@@ -627,6 +728,7 @@ Amazon OpenSearch Serverless defines the following condition keys that can be us
 | Condition keys | Description | Type | 
 | --- | --- | --- | 
 |   [aoss:CollectionId](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/security-iam-serverless.html#security_iam_serverless-conditionkeys)  | Filters access by the identifier of the collection | String | 
+|   [aoss:DeletionProtection](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/security-iam-serverless.html#security_iam_serverless-conditionkeys)  | Filters access by the deletion protection value set on a collection in the request. Valid values are enabled and disabled | String | 
 |   [aoss:collection](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/security-iam-serverless.html#security_iam_serverless-conditionkeys)  | Filters access by the collection name | String | 
 |   [aoss:collection-group](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/security-iam-serverless.html#security_iam_serverless-conditionkeys)  | Filters access by the collection group name | String | 
 |   [aoss:index](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/security-iam-serverless.html#security_iam_serverless-conditionkeys)  | Filters access by the index | String | 

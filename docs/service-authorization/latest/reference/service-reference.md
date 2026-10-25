@@ -6,6 +6,8 @@
 AWS provides service reference information in JSON format to streamline the automation of policy management workflows. With the service reference information, you can access available operations, actions, resources, and condition keys across AWS services from machine-readable files. Service reference information includes metadata beyond authorization details, including IAM action last accessed information and IAM Access Analyzer policy generation data.
 
 Security administrators can establish guardrails and developers can ensure appropriate access to applications by identifying the available actions, resources, and condition keys for each AWS service. AWS provides service reference information for AWS services to allow you to incorporate the metadata into your policy management workflows.
+
+AWS also provides a consolidated list of global condition keys that apply across AWS services. You can discover the `aws:`-prefixed keys available for use in any service's IAM policies from a single machine-readable file.
 + For an inventory of actions, resources, and condition keys for use in IAM policies, see the [Service Authorization Reference](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) page for the AWS service. Actions, resources, and condition keys for services that share a service prefix may be split across multiple pages in the Service Authorization Reference.
 + For a list of AWS services and actions for which IAM action last accessed information is displayed, see [IAM action last accessed information services and actions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_last-accessed-action-last-accessed.html) in the IAM User Guide.
 + For a list of AWS services and actions for which IAM Access Analyzer generates policies with action-level information, see [IAM Access Analyzer policy generation services](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-policy-generation-action-last-accessed-support.html) in the IAM User Guide.
@@ -25,7 +27,7 @@ Changes to the service reference information may take up to 24 hours to be refle
 
 1. Navigate to the service reference information to access the list of AWS services for which reference information is available.
 
-   There are two main entry points:
+   There are three main entry points:
 
    [http://servicereference.us-east-1.amazonaws.com/](http://servicereference.us-east-1.amazonaws.com/) displays a list of AWS services for which reference information is available.
 
@@ -43,6 +45,34 @@ Changes to the service reference information may take up to 24 hours to be refle
        }, 
        …
    ]
+   ```
+
+   [https://servicereference.us-east-1.amazonaws.com/v1/global-condition-keys.json](https://servicereference.us-east-1.amazonaws.com/v1/global-condition-keys.json) displays the global condition keys that you can use in IAM policies across AWS services.
+
+   The following example shows a partial list of global condition keys:
+
+   ```
+   [ {
+     "Name" : "aws:AssumedRoot",
+     "Description" : "Filters access based on whether the request was made using temporary security credentials for AssumeRoot",
+     "DocPage" : "/IAM/latest/UserGuide/reference_policies_condition-keys.html",
+     "Types" : [ "Bool" ]
+   }, {
+     "Name" : "aws:CalledVia",
+     "Description" : "Filters access by the services that make the request on behalf of the IAM principal",
+     "DocPage" : "/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-calledvia",
+     "Types" : [ "ArrayOfString" ]
+   }, {
+     "Name" : "aws:ChatbotSourceArn",
+     "Description" : "This key identifies the chatbot configuration ARN associated with the assume role session initiated by AWS Chatbot.",
+     "DocPage" : "/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-chatbotsourcearn",
+     "Types" : [ "ARN", "String" ]
+   }, {
+     "Name" : "aws:CurrentTime",
+     "Description" : "Filters access by the time and date when the request was made",
+     "DocPage" : "/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-currenttime",
+     "Types" : [ "Date" ]
+   } ]
    ```
 
    [https://servicereference.us-east-1.amazonaws.com/v1/mapping.json](https://servicereference.us-east-1.amazonaws.com/v1/mapping.json) displays a mapping from SDK services to the location in the service reference that information can be found under.
@@ -80,6 +110,7 @@ Changes to the service reference information may take up to 24 hours to be refle
    ```
    {
        "Name": "s3",
+       "ServiceName": "S3",
        "Actions": [
            {
                "Name": "GetObject",
@@ -100,6 +131,7 @@ Changes to the service reference information may take up to 24 hours to be refle
                ],
                "Annotations" : {
                "Properties" : {
+                       "IsDataPlane" : true,
                        "IsList" : false,
                        "IsPermissionManagement" : false,
                        "IsTaggingOnly" : false,
@@ -135,6 +167,7 @@ Changes to the service reference information may take up to 24 hours to be refle
                ],
                "Annotations" : {
                    "Properties" : {
+                       "IsDataPlane" : true,
                        "IsList" : true,
                        "IsPermissionManagement" : false,
                        "IsTaggingOnly" : false,
@@ -217,9 +250,11 @@ Changes to the service reference information may take up to 24 hours to be refle
            }
            ...
        ],
-       "Version": "v1.4"
+       "Version": "v1.5"
    }
    ```
+
+   The `ServiceName` field provides a human-readable name for the AWS service, such as `S3` for the `s3` service. It appears at the top level of the service reference file, immediately after the `Name` field.
 
 1. Download the JSON file from the service URL to use in your policy authoring workflows.
 
@@ -231,23 +266,28 @@ Changes to the service reference information may take up to 24 hours to be refle
 ## Additional field definitions
 <a name="service-reference-additional-field-definitions"></a>
 
-**Action properties** provide additional metadata about service actions to help categorize them based on their permission scope. These properties are found under the `Annotations` field for each action. The metadata consists of four boolean values:
-+ `IsList` – Provides permissions to discover and list resources, including basic metadata, without accessing resource contents.
+**Action properties** provide additional metadata about service actions to help categorize them based on their permission scope. These properties are found under the `Annotations` field for each action. The metadata consists of five boolean values:
++ `IsDataPlane` – Indicates that the action operates on the data or content held within a resource, rather than creating, configuring, or managing the resource itself. This property is derived from the AWS CloudTrail event categories of the operations that authorize the action.
 
-  **Example** – This property is `true` for the Amazon S3 `ListBucket` action, allowing users to view bucket listings without accessing the objects themselves.
-+ `IsPermissionManagement` – Provides permissions to modify IAM permissions or access credentials.
+  **Example** – This property is `true` for the Amazon S3 `GetObject` action, which reads object content, and `false` for `CreateBucket`, which creates and configures the resource (a control-plane operation).
 
-  **Example** – This property is `true` for most IAM and AWS Organizations actions, as well as Amazon S3 actions like `PutBucketPolicy` and `DeleteBucketPolicy`.
-+ `IsTaggingOnly` – Provides permissions only for modifying tags.
+  Some actions omit this property. An action carries `IsDataPlane` only when at least one operation that authorizes it has a CloudTrail event category. If the property doesn't exist, then the action isn't classified yet.
++ `IsList` – Indicates that the action discovers and lists resources, including basic metadata, without accessing resource contents.
 
-  **Example** – This property is `true` for IAM actions `TagRole` and `UntagRole`, while this property is `false` for `CreateRole` since it provides broader permissions beyond tagging.
-+ `IsWrite` – Provides permissions to modify resources, which may include tag modifications.
+  **Example** – This property is `true` for the Amazon S3 `ListBucket` action, which returns bucket listings without accessing the objects themselves.
++ `IsPermissionManagement` – Indicates that the action can modify IAM permissions or access credentials.
 
-  **Example** – This property is `true` for Amazon S3 actions `CreateBucket`, `DeleteBucket`, and `PutObject` since they allow resource modification.
+  **Example** – This property is `true` for most IAM and AWS Organizations actions, and for Amazon S3 actions like `PutBucketPolicy` and `DeleteBucketPolicy`.
++ `IsTaggingOnly` – Indicates that the action only modifies tags.
+
+  **Example** – This property is `true` for the IAM actions `TagRole` and `UntagRole`, and `false` for `CreateRole`, which grants broader permissions beyond tagging.
++ `IsWrite` – Indicates that the action can modify resources, which may include tag modifications.
+
+  **Example** – This property is `true` for the Amazon S3 actions `CreateBucket`, `DeleteBucket`, and `PutObject`, which modify resources.
 
 **Note**  
 These properties are not mutually exclusive. An action may have multiple properties set to `true`.  
-It's also possible for all properties to be `false`, as seen with Amazon S3's `GetObject` action. This indicates the action only grants read permissions on an object.
+It's also possible for all properties to be `false`, as seen with Amazon S3's `GetBucketPolicy` action. This indicates the action only grants read permissions on the bucket configuration.
 
 These properties can be used to generate insights for services. The following example shows which permissions with the `s3` prefix allow mutating resources:
 
@@ -260,6 +300,20 @@ These properties can be used to generate insights for services. The following ex
 "CreateAccessGrant"
 "CreateAccessGrantsInstance"
 "CreateAccessGrantsLocation"
+...
+```
+
+The following example shows which permissions with the `s3` prefix grant access to data rather than to service configuration:
+
+```
+> curl https://servicereference.us-east-1.amazonaws.com/v1/s3/s3.json | \
+    jq '.Actions[] | select(.Annotations.Properties.IsDataPlane == true) | .Name'
+
+"AbortMultipartUpload"
+"BypassGovernanceRetention"
+"DeleteObject"
+"DeleteObjectVersion"
+"GetObject"
 ...
 ```
 

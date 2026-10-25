@@ -424,14 +424,14 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [CreateCluster](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#CreateCluster)  **
   - **Description:** Grants permission to create an MSK cluster
-  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kafka-aws_TagKeys)
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kafka-aws_TagKeys)
+  - **Resource types (\*required):** [configuration](#list_kafka-resource-configuration) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_kafka-aws_TagKeys)
   - **Access level:** Write
 
 - **   [CreateClusterV2](https://docs.aws.amazon.com/MSK/2.0/APIReference/v2-clusters.html#CreateClusterV2)  **
   - **Description:** Grants permission to create an MSK cluster
-  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kafka-aws_TagKeys)
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kafka-aws_TagKeys)
+  - **Resource types (\*required):** [configuration](#list_kafka-resource-configuration) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_kafka-aws_TagKeys)
   - **Access level:** Write
 
 - **   [CreateConfiguration](https://docs.aws.amazon.com/msk/1.0/apireference/configurations.html#CreateConfiguration)  **

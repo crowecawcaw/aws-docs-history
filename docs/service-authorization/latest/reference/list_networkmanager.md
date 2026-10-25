@@ -59,6 +59,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [networkmanager:CreateConnectAttachment](#list_networkmanager-action-CreateConnectAttachment)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [networkmanager:PutAttachmentRoutingPolicyLabel](#list_networkmanager-action-PutAttachmentRoutingPolicyLabel)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [networkmanager:TagResource](#list_networkmanager-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [networkmanager:UpdateAttachmentNatConfiguration](#list_networkmanager-action-UpdateAttachmentNatConfiguration)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
 - **   CreateConnectPeer  **
   - **IAM action:**  [networkmanager:CreateConnectPeer](#list_networkmanager-action-CreateConnectPeer)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
@@ -86,6 +87,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [networkmanager:CreateDirectConnectGatewayAttachment](#list_networkmanager-action-CreateDirectConnectGatewayAttachment)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [networkmanager:PutAttachmentRoutingPolicyLabel](#list_networkmanager-action-PutAttachmentRoutingPolicyLabel)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [networkmanager:TagResource](#list_networkmanager-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [networkmanager:UpdateAttachmentNatConfiguration](#list_networkmanager-action-UpdateAttachmentNatConfiguration)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
 - **   CreateGlobalNetwork  **
   - **IAM action:**  [networkmanager:CreateGlobalNetwork](#list_networkmanager-action-CreateGlobalNetwork)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
@@ -103,6 +105,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [networkmanager:CreateSiteToSiteVpnAttachment](#list_networkmanager-action-CreateSiteToSiteVpnAttachment)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [networkmanager:PutAttachmentRoutingPolicyLabel](#list_networkmanager-action-PutAttachmentRoutingPolicyLabel)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [networkmanager:TagResource](#list_networkmanager-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [networkmanager:UpdateAttachmentNatConfiguration](#list_networkmanager-action-UpdateAttachmentNatConfiguration)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
 - **   CreateTransitGatewayPeering  **
   - **IAM action:**  [networkmanager:CreateTransitGatewayPeering](#list_networkmanager-action-CreateTransitGatewayPeering)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
@@ -117,6 +120,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [networkmanager:CreateVpcAttachment](#list_networkmanager-action-CreateVpcAttachment)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [networkmanager:PutAttachmentRoutingPolicyLabel](#list_networkmanager-action-PutAttachmentRoutingPolicyLabel)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [networkmanager:TagResource](#list_networkmanager-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [networkmanager:UpdateAttachmentNatConfiguration](#list_networkmanager-action-UpdateAttachmentNatConfiguration)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
 - **   DeleteAttachment  **
   - **IAM action:**  [networkmanager:DeleteAttachment](#list_networkmanager-action-DeleteAttachment) 
@@ -394,6 +398,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   ListAttachmentNatConfigurations  **
+  - **IAM action:**  [networkmanager:ListAttachmentNatConfigurations](#list_networkmanager-action-ListAttachmentNatConfigurations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListAttachmentRoutingPolicyAssociations  **
   - **IAM action:**  [networkmanager:ListAttachmentRoutingPolicyAssociations](#list_networkmanager-action-ListAttachmentRoutingPolicyAssociations) 
   - **Condition key:** 
@@ -519,6 +529,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Tagging, Write
+
+- **   UpdateAttachmentNatConfiguration  **
+  - **IAM action:**  [networkmanager:UpdateAttachmentNatConfiguration](#list_networkmanager-action-UpdateAttachmentNatConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   UpdateConnection  **
   - **IAM action:**  [networkmanager:UpdateConnection](#list_networkmanager-action-UpdateConnection) 
@@ -979,6 +995,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [ListAttachmentNatConfigurations](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachmentNatConfigurations.html)  **
+  - **Description:** Grants permission to list the NAT configurations of attachments
+  - **Resource types (\*required):** [attachment\*](#list_networkmanager-resource-attachment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
 - **   [ListAttachmentRoutingPolicyAssociations](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachmentRoutingPolicyAssociations.html)  **
   - **Description:** Grants permission to list all routing policies associated to core network attachments
   - **Resource types (\*required):** [core-network\*](#list_networkmanager-resource-core-network)
@@ -1125,6 +1147,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [peering](#list_networkmanager-resource-peering) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkmanager-aws_TagKeys)
   - **Resource types (\*required):** [site](#list_networkmanager-resource-site) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_networkmanager-aws_TagKeys)
   - **Access level:** Tagging, Write
+
+- **   [UpdateAttachmentNatConfiguration](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_UpdateAttachmentNatConfiguration.html)  **
+  - **Description:** Grants permission to update the NAT configuration of an attachment
+  - **Resource types (\*required):** [attachment\*](#list_networkmanager-resource-attachment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_networkmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
 
 - **   [UpdateConnection](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_UpdateConnection.html)  **
   - **Description:** Grants permission to update a connection

@@ -254,10 +254,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** Write
 
 - **   UpdateLanguageModel  **
-  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) 
-  - **Condition key:** iam:PassedToService
-  - **Possible value(s):** transcribe.amazonaws.com
-  - **Access level:** Write
+  - **IAM action:**  [transcribe:UpdateLanguageModel](#list_transcribe-action-UpdateLanguageModel)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** transcribe.amazonaws.com / **Access level:** Write
 
 - **   UpdateMedicalVocabulary  **
   - **IAM action:**  [transcribe:UpdateMedicalVocabulary](#list_transcribe-action-UpdateMedicalVocabulary) 
@@ -568,6 +566,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [UpdateCallAnalyticsCategory](https://docs.aws.amazon.com/transcribe/latest/dg/API_UpdateCallAnalyticsCategory.html)  **
   - **Description:** Grants permission to update the call analytics category with new values. The UpdateCallAnalyticsCategory operation overwrites all of the existing information with the values that you provide in the request
   - **Resource types (\*required):** [callanalyticscategory\*](#list_transcribe-resource-callanalyticscategory)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transcribe-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateLanguageModel](https://docs.aws.amazon.com/transcribe/latest/dg/API_UpdateLanguageModel.html)  **
+  - **Description:** Grants permission to update a custom language model
+  - **Resource types (\*required):** [languagemodel\*](#list_transcribe-resource-languagemodel)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transcribe-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 

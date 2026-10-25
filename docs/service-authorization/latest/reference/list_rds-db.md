@@ -25,9 +25,9 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 
 - **   [connect](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.IAMPolicy.html)  **
-  - **Description:** Allows IAM role or user to connect to RDS database
+  - **Description:** Grants permission to connect to an RDS database from an IAM role or user
   - **Resource types (\*required):** [db-user\*](#list_rds-db-resource-db-user)
-  - **Condition keys:**  
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rds-db-aws_ResourceTag___TagKey_)
   - **Access level:** Permissions management, Write
 
 
@@ -41,9 +41,15 @@ The following resource types are defined by this service and can be used in the 
 
 | Resource types | ARN | Condition keys | 
 | --- | --- | --- | 
-|  [db-user](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.DBAccounts.html)  | arn:${Partition}:rds-db:${Region}:${Account}:dbuser:${DbiResourceId}/${DbUserName} |   | 
+|  [db-user](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.DBAccounts.html)  | arn:${Partition}:rds-db:${Region}:${Account}:dbuser:${DbiResourceId}/${DbUserName} | [aws:ResourceTag/${TagKey}](#list_rds-db-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon RDS IAM Authentication
 <a name="list_rds-db-policy-keys"></a>
 
-Amazon RDS IAM Authentication has no service-specific condition keys that can be used in the `Condition` element of policy statements.
+Amazon RDS IAM Authentication defines the following condition keys that can be used in the `Condition` element of an IAM policy.
+
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.IAMPolicy.html)  | Filters access by the tags associated with the parent RDS DB instance or Aurora DB cluster of the db-user | String | 

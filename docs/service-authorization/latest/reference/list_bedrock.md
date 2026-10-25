@@ -723,6 +723,18 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [bedrock:CreatePromptVersion](#list_bedrock-action-CreatePromptVersion)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [bedrock:TagResource](#list_bedrock-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
+- **   CreateRetrievalInstruction  **
+  - **SDK client:** bedrock-agent
+  - **IAM action:**  [bedrock:CreateRetrievalInstruction](#list_bedrock-action-CreateRetrievalInstruction)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [bedrock:TagResource](#list_bedrock-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateRetrievalInstructionVersion  **
+  - **SDK client:** bedrock-agent
+  - **IAM action:**  [bedrock:CreateRetrievalInstructionVersion](#list_bedrock-action-CreateRetrievalInstructionVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   DeleteAgent  **
   - **SDK client:** bedrock-agent
   - **IAM action:**  [bedrock:DeleteAgent](#list_bedrock-action-DeleteAgent) 
@@ -803,6 +815,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **SDK client:** bedrock-agent
   - **IAM action:**  [bedrock:DeleteResourcePolicy](#list_bedrock-action-DeleteResourcePolicy)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [bedrock:PutResourcePolicy](#list_bedrock-action-PutResourcePolicy)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   DeleteRetrievalInstruction  **
+  - **SDK client:** bedrock-agent
+  - **IAM action:**  [bedrock:DeleteRetrievalInstruction](#list_bedrock-action-DeleteRetrievalInstruction) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   DisassociateAgentCollaborator  **
   - **SDK client:** bedrock-agent
@@ -923,6 +942,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetRetrievalInstruction  **
+  - **SDK client:** bedrock-agent
+  - **IAM action:**  [bedrock:GetRetrievalInstruction](#list_bedrock-action-GetRetrievalInstruction) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   IngestKnowledgeBaseDocuments  **
   - **SDK client:** bedrock-agent
   - **IAM action:**  [bedrock:AssociateThirdPartyKnowledgeBase](#list_bedrock-action-AssociateThirdPartyKnowledgeBase)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
@@ -1023,6 +1049,20 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   ListPrompts  **
   - **SDK client:** bedrock-agent
   - **IAM action:**  [bedrock:ListPrompts](#list_bedrock-action-ListPrompts) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRetrievalInstructionVersions  **
+  - **SDK client:** bedrock-agent
+  - **IAM action:**  [bedrock:ListRetrievalInstructionVersions](#list_bedrock-action-ListRetrievalInstructionVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRetrievalInstructions  **
+  - **SDK client:** bedrock-agent
+  - **IAM action:**  [bedrock:ListRetrievalInstructions](#list_bedrock-action-ListRetrievalInstructions) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
@@ -1136,6 +1176,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   UpdatePrompt  **
   - **SDK client:** bedrock-agent
   - **IAM action:**  [bedrock:UpdatePrompt](#list_bedrock-action-UpdatePrompt) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateRetrievalInstruction  **
+  - **SDK client:** bedrock-agent
+  - **IAM action:**  [bedrock:UpdateRetrievalInstruction](#list_bedrock-action-UpdateRetrievalInstruction) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -1950,6 +1997,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [foundation-model\*](#list_bedrock-resource-foundation-model) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_bedrock-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_bedrock-aws_TagKeys)
   - **Access level:** Write
 
+- **   [CreateRetrievalInstruction](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateRetrievalInstruction.html)  **
+  - **Description:** Grants permission to create a retrieval instruction
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_bedrock-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_bedrock-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateRetrievalInstructionVersion](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateRetrievalInstructionVersion.html)  **
+  - **Description:** Grants permission to create a version of a retrieval instruction
+  - **Resource types (\*required):** [retrieval-instruction\*](#list_bedrock-resource-retrieval-instruction)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [CreateSession](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_CreateSession.html)  **
   - **Description:** Grants permission to create a new session
   - **Resource types (\*required):** 
@@ -2139,6 +2198,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DeleteProvisionedModelThroughput](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteProvisionedModelThroughput.html)  **
   - **Description:** Grants permission to delete a provisioned model throughput that you created earlier
   - **Resource types (\*required):** [provisioned-model\*](#list_bedrock-resource-provisioned-model)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteRetrievalInstruction](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DeleteRetrievalInstruction.html)  **
+  - **Description:** Grants permission to delete a retrieval instruction
+  - **Resource types (\*required):** [retrieval-instruction\*](#list_bedrock-resource-retrieval-instruction)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -2528,6 +2593,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [GetRetrievalInstruction](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetRetrievalInstruction.html)  **
+  - **Description:** Grants permission to retrieve a retrieval instruction
+  - **Resource types (\*required):** [retrieval-instruction\*](#list_bedrock-resource-retrieval-instruction)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [GetSession](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_GetSession.html)  **
   - **Description:** Grants permission to retrieve an existing session
   - **Resource types (\*required):** [session\*](#list_bedrock-resource-session)
@@ -2909,6 +2980,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** List
 
+- **   [ListRetrievalInstructionVersions](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListRetrievalInstructionVersions.html)  **
+  - **Description:** Grants permission to list the versions of a retrieval instruction
+  - **Resource types (\*required):** [retrieval-instruction\*](#list_bedrock-resource-retrieval-instruction)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListRetrievalInstructions](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListRetrievalInstructions.html)  **
+  - **Description:** Grants permission to list retrieval instructions
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
 - **   [ListSessions](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ListSessions.html)  **
   - **Description:** Grants permission to list existing sessions
   - **Resource types (\*required):** 
@@ -2947,6 +3030,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [prompt-router\*](#list_bedrock-resource-prompt-router) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [prompt-version\*](#list_bedrock-resource-prompt-version) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [provisioned-model\*](#list_bedrock-resource-provisioned-model) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [retrieval-instruction\*](#list_bedrock-resource-retrieval-instruction) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [session\*](#list_bedrock-resource-session) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
@@ -3121,6 +3205,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [prompt-router](#list_bedrock-resource-prompt-router) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_bedrock-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_bedrock-aws_TagKeys)
   - **Resource types (\*required):** [prompt-version](#list_bedrock-resource-prompt-version) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_bedrock-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_bedrock-aws_TagKeys)
   - **Resource types (\*required):** [provisioned-model](#list_bedrock-resource-provisioned-model) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_bedrock-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_bedrock-aws_TagKeys)
+  - **Resource types (\*required):** [retrieval-instruction](#list_bedrock-resource-retrieval-instruction) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_bedrock-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_bedrock-aws_TagKeys)
   - **Resource types (\*required):** [session](#list_bedrock-resource-session) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_bedrock-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_bedrock-aws_TagKeys)
   - **Access level:** Tagging, Write
 
@@ -3156,6 +3241,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [prompt-router](#list_bedrock-resource-prompt-router) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_bedrock-aws_TagKeys)
   - **Resource types (\*required):** [prompt-version](#list_bedrock-resource-prompt-version) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_bedrock-aws_TagKeys)
   - **Resource types (\*required):** [provisioned-model](#list_bedrock-resource-provisioned-model) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_bedrock-aws_TagKeys)
+  - **Resource types (\*required):** [retrieval-instruction](#list_bedrock-resource-retrieval-instruction) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_bedrock-aws_TagKeys)
   - **Resource types (\*required):** [session](#list_bedrock-resource-session) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_bedrock-aws_TagKeys)
   - **Access level:** Tagging, Write
 
@@ -3281,6 +3367,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [custom-model\*](#list_bedrock-resource-custom-model) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [foundation-model\*](#list_bedrock-resource-foundation-model) / **Condition keys:**  
   - **Resource types (\*required):** [provisioned-model\*](#list_bedrock-resource-provisioned-model) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateRetrievalInstruction](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateRetrievalInstruction.html)  **
+  - **Description:** Grants permission to update a retrieval instruction
+  - **Resource types (\*required):** [retrieval-instruction\*](#list_bedrock-resource-retrieval-instruction)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [UpdateSession](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_UpdateSession.html)  **
@@ -3420,6 +3512,7 @@ The following resource types are defined by this service and can be used in the 
 |  [prompt-router](https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html)  | arn:${Partition}:bedrock:${Region}:${Account}:prompt-router/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_) | 
 |  [prompt-version](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptSummary.html)  | arn:${Partition}:bedrock:${Region}:${Account}:prompt/${PromptId}:${PromptVersion} | [aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_) | 
 |  [provisioned-model](https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html)  | arn:${Partition}:bedrock:${Region}:${Account}:provisioned-model/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_) | 
+|  [retrieval-instruction](https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html)  | arn:${Partition}:bedrock:${Region}:${Account}:retrieval-instruction/${RetrievalInstructionId} | [aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_) | 
 |  [session](https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html)  | arn:${Partition}:bedrock:${Region}:${Account}:session/${SessionId} | [aws:ResourceTag/${TagKey}](#list_bedrock-aws_ResourceTag___TagKey_) | 
 |  [system-tool](https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html)  | arn:${Partition}:bedrock::${Account}:system-tool/${ResourceId} |   | 
 

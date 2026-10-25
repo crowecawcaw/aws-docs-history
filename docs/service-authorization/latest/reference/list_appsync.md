@@ -64,6 +64,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   CreateDataSource  **
   - **IAM action:**  [appsync:CreateDataSource](#list_appsync-action-CreateDataSource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** appsync.amazonaws.com / **Access level:** Write
+  - **IAM action:**  [lambda:PassNetworkConnector](https://docs.aws.amazon.com/lambda/latest/dg/lambda-permissions.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
 - **   CreateDomainName  **
   - **IAM action:**  [appsync:CreateDomainName](#list_appsync-action-CreateDomainName)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
@@ -417,6 +418,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   UpdateDataSource  **
   - **IAM action:**  [appsync:UpdateDataSource](#list_appsync-action-UpdateDataSource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** appsync.amazonaws.com / **Access level:** Write
+  - **IAM action:**  [lambda:PassNetworkConnector](https://docs.aws.amazon.com/lambda/latest/dg/lambda-permissions.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
 - **   UpdateDomainName  **
   - **IAM action:**  [appsync:UpdateDomainName](#list_appsync-action-UpdateDomainName) 

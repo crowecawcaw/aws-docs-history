@@ -507,6 +507,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   RevokeConnectionToken  **
+  - **SDK client:** ivs-realtime
+  - **IAM action:**  [ivs:RevokeConnectionToken](#list_interactive-video-service-action-RevokeConnectionToken) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   StartComposition  **
   - **SDK client:** ivs-realtime
   - **IAM action:**  [ivs:StartComposition](#list_interactive-video-service-action-StartComposition)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
@@ -963,6 +970,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to insert metadata into an RTMP stream for a specified channel
   - **Resource types (\*required):** [Channel\*](#list_interactive-video-service-resource-Channel)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_interactive-video-service-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RevokeConnectionToken](https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_RevokeConnectionToken.html)  **
+  - **Description:** Grants permission to revoke connection token for a specified token ID
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
   - **Access level:** Write
 
 - **   [StartComposition](https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_StartComposition.html)  **

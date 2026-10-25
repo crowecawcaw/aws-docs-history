@@ -315,7 +315,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [UpdateIdentityStore](https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample)  **
   - **Description:** Grants permission to update the configuration of an IdentityStore
   - **Resource types (\*required):** [Identitystore\*](#list_identitystore-resource-Identitystore)
-  - **Condition keys:**  
+  - **Condition keys:** [identitystore:VpceAccessRequired](#list_identitystore-identitystore_VpceAccessRequired)
   - **Access level:** Write
 
 - **   [UpdateUser](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_UpdateUser.html)  **
@@ -358,3 +358,4 @@ AWS Identity Store defines the following condition keys that can be used in the 
 |   [identitystore:ReservedUserId](list_awsidentitystore.html#awsidentitystore-policy-keys)  | Filters access by a previously reserved User ID for CreateUser operation | String | 
 |   [identitystore:UserExternalIdIssuers](list_awsidentitystore.html#awsidentitystore-policy-keys)  | Filters access by Issuer present in ExternalIds for User resources | ArrayOfARN | 
 |   [identitystore:UserId](https://docs.aws.amazon.com/singlesignon/latest/userguide/condition-context-keys-sts-idc.html#condition-keys-identity-store-user-id)  | Filters access by Identity Store User ID | String | 
+|   [identitystore:VpceAccessRequired](list_awsidentitystore.html#awsidentitystore-policy-keys)  | Filters access by whether the Identity Store requires access through a VPC endpoint | Bool | 

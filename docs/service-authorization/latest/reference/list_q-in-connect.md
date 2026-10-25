@@ -1363,6 +1363,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [RegisterAssistantReplicaKey](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_RegisterAssistantReplicaKey.html)  **
+  - **Description:** Grants permission to register a replica KMS key for an assistant
+  - **Resource types (\*required):** [Assistant\*](#list_q-in-connect-resource-Assistant)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RegisterKnowledgeBaseReplicaKey](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_RegisterKnowledgeBaseReplicaKey.html)  **
+  - **Description:** Grants permission to register a replica KMS key for a knowledge base
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [RemoveAssistantAIAgent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_RemoveAssistantAIAgent.html)  **
   - **Description:** Grants permission to remove an ai agent from an assistant
   - **Resource types (\*required):** [Assistant\*](#list_q-in-connect-resource-Assistant)

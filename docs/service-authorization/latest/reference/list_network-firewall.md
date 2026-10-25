@@ -541,6 +541,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to create an association between a firewall policy and a firewall
   - **Resource types (\*required):** [Firewall\*](#list_network-firewall-resource-Firewall) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_network-firewall-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
   - **Resource types (\*required):** [FirewallPolicy\*](#list_network-firewall-resource-FirewallPolicy) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_network-firewall-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
+  - **Resource types (\*required):** [FirewallPolicyV2\*](#list_network-firewall-resource-FirewallPolicyV2) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_network-firewall-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
   - **Access level:** Write
 
 - **   [AssociateSubnets](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_AssociateSubnets.html)  **
@@ -564,7 +565,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [CreateFirewall](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_CreateFirewall.html)  **
   - **Description:** Grants permission to create an AWS Network Firewall firewall
   - **Resource types (\*required):** [Firewall\*](#list_network-firewall-resource-Firewall) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_network-firewall-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
-  - **Resource types (\*required):** [FirewallPolicy\*](#list_network-firewall-resource-FirewallPolicy) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_network-firewall-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
+  - **Resource types (\*required):** [FirewallPolicy](#list_network-firewall-resource-FirewallPolicy) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_network-firewall-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
+  - **Resource types (\*required):** [FirewallPolicyV2](#list_network-firewall-resource-FirewallPolicyV2) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_network-firewall-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
   - **Access level:** Write
 
 - **   [CreateFirewallPolicy](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_CreateFirewallPolicy.html)  **
@@ -572,6 +574,14 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [FirewallPolicy\*](#list_network-firewall-resource-FirewallPolicy) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_network-firewall-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
   - **Resource types (\*required):** [StatefulRuleGroup](#list_network-firewall-resource-StatefulRuleGroup) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_network-firewall-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
   - **Resource types (\*required):** [StatelessRuleGroup](#list_network-firewall-resource-StatelessRuleGroup) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_network-firewall-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
+  - **Resource types (\*required):** [TLSInspectionConfiguration](#list_network-firewall-resource-TLSInspectionConfiguration) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_network-firewall-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateFirewallPolicyV2](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_CreateFirewallPolicyV2.html)  **
+  - **Description:** Grants permission to create an AWS Network Firewall firewall policy v2
+  - **Resource types (\*required):** [FirewallPolicyV2\*](#list_network-firewall-resource-FirewallPolicyV2) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_network-firewall-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
+  - **Resource types (\*required):** [FirewallRuleGroup](#list_network-firewall-resource-FirewallRuleGroup) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_network-firewall-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
+  - **Resource types (\*required):** [IpsRuleGroup](#list_network-firewall-resource-IpsRuleGroup) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_network-firewall-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
   - **Resource types (\*required):** [TLSInspectionConfiguration](#list_network-firewall-resource-TLSInspectionConfiguration) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_network-firewall-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
   - **Access level:** Write
 
@@ -601,6 +611,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [CreateRuleGroup](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_CreateRuleGroup.html)  **
   - **Description:** Grants permission to create an AWS Network Firewall rule group
+  - **Resource types (\*required):** [FirewallRuleGroup](#list_network-firewall-resource-FirewallRuleGroup) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_network-firewall-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
+  - **Resource types (\*required):** [IpsRuleGroup](#list_network-firewall-resource-IpsRuleGroup) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_network-firewall-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
   - **Resource types (\*required):** [StatefulRuleGroup](#list_network-firewall-resource-StatefulRuleGroup) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_network-firewall-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
   - **Resource types (\*required):** [StatelessRuleGroup](#list_network-firewall-resource-StatelessRuleGroup) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_network-firewall-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
   - **Access level:** Write
@@ -632,6 +644,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DeleteFirewallPolicy](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DeleteFirewallPolicy.html)  **
   - **Description:** Grants permission to delete a firewall policy
   - **Resource types (\*required):** [FirewallPolicy\*](#list_network-firewall-resource-FirewallPolicy)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteFirewallPolicyV2](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DeleteFirewallPolicyV2.html)  **
+  - **Description:** Grants permission to delete a firewall policy v2
+  - **Resource types (\*required):** [FirewallPolicyV2\*](#list_network-firewall-resource-FirewallPolicyV2)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -669,12 +687,17 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to delete a resource policy for a firewall policy or rule group or firewall
   - **Resource types (\*required):** [Firewall](#list_network-firewall-resource-Firewall) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [FirewallPolicy](#list_network-firewall-resource-FirewallPolicy) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [FirewallPolicyV2](#list_network-firewall-resource-FirewallPolicyV2) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [FirewallRuleGroup](#list_network-firewall-resource-FirewallRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [IpsRuleGroup](#list_network-firewall-resource-IpsRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [StatefulRuleGroup](#list_network-firewall-resource-StatefulRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [StatelessRuleGroup](#list_network-firewall-resource-StatelessRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [DeleteRuleGroup](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DeleteRuleGroup.html)  **
   - **Description:** Grants permission to delete a rule group
+  - **Resource types (\*required):** [FirewallRuleGroup\*](#list_network-firewall-resource-FirewallRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [IpsRuleGroup\*](#list_network-firewall-resource-IpsRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [StatefulRuleGroup\*](#list_network-firewall-resource-StatefulRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [StatelessRuleGroup\*](#list_network-firewall-resource-StatelessRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Access level:** Write
@@ -714,6 +737,14 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [FirewallPolicy\*](#list_network-firewall-resource-FirewallPolicy) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [StatefulRuleGroup](#list_network-firewall-resource-StatefulRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [StatelessRuleGroup](#list_network-firewall-resource-StatelessRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [TLSInspectionConfiguration](#list_network-firewall-resource-TLSInspectionConfiguration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeFirewallPolicyV2](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeFirewallPolicyV2.html)  **
+  - **Description:** Grants permission to retrieve the data objects that define a firewall policy v2
+  - **Resource types (\*required):** [FirewallPolicyV2\*](#list_network-firewall-resource-FirewallPolicyV2) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [FirewallRuleGroup](#list_network-firewall-resource-FirewallRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [IpsRuleGroup](#list_network-firewall-resource-IpsRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [TLSInspectionConfiguration](#list_network-firewall-resource-TLSInspectionConfiguration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
@@ -757,24 +788,33 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to describe a resource policy for a firewall policy or rule group or firewall
   - **Resource types (\*required):** [Firewall](#list_network-firewall-resource-Firewall) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [FirewallPolicy](#list_network-firewall-resource-FirewallPolicy) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [FirewallPolicyV2](#list_network-firewall-resource-FirewallPolicyV2) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [FirewallRuleGroup](#list_network-firewall-resource-FirewallRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [IpsRuleGroup](#list_network-firewall-resource-IpsRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [StatefulRuleGroup](#list_network-firewall-resource-StatefulRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [StatelessRuleGroup](#list_network-firewall-resource-StatelessRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [DescribeRuleGroup](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeRuleGroup.html)  **
   - **Description:** Grants permission to retrieve the data objects that define a rule group
+  - **Resource types (\*required):** [FirewallRuleGroup](#list_network-firewall-resource-FirewallRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [IpsRuleGroup](#list_network-firewall-resource-IpsRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [StatefulRuleGroup](#list_network-firewall-resource-StatefulRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [StatelessRuleGroup](#list_network-firewall-resource-StatelessRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [DescribeRuleGroupMetadata](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeRuleGroupMetadata.html)  **
   - **Description:** Grants permission to retrieve the high-level information about a rule group
+  - **Resource types (\*required):** [FirewallRuleGroup](#list_network-firewall-resource-FirewallRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [IpsRuleGroup](#list_network-firewall-resource-IpsRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [StatefulRuleGroup](#list_network-firewall-resource-StatefulRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [StatelessRuleGroup](#list_network-firewall-resource-StatelessRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [DescribeRuleGroupSummary](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeRuleGroupSummary.html)  **
   - **Description:** Grants permission to retrieve the summary information about a rule group
+  - **Resource types (\*required):** [FirewallRuleGroup](#list_network-firewall-resource-FirewallRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [IpsRuleGroup](#list_network-firewall-resource-IpsRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [StatefulRuleGroup](#list_network-firewall-resource-StatefulRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [StatelessRuleGroup](#list_network-firewall-resource-StatelessRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Access level:** Read
@@ -833,6 +873,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Access level:** List
 
+- **   [ListFirewallPoliciesV2](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_ListFirewallPoliciesV2.html)  **
+  - **Description:** Grants permission to retrieve the metadata for firewall policies v2
+  - **Resource types (\*required):** [FirewallPolicyV2\*](#list_network-firewall-resource-FirewallPolicyV2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
 - **   [ListFirewalls](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_ListFirewalls.html)  **
   - **Description:** Grants permission to retrieve the metadata for firewalls
   - **Resource types (\*required):** [Firewall\*](#list_network-firewall-resource-Firewall)
@@ -886,6 +932,9 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [ContainerAssociation](#list_network-firewall-resource-ContainerAssociation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [Firewall\*](#list_network-firewall-resource-Firewall) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [FirewallPolicy\*](#list_network-firewall-resource-FirewallPolicy) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [FirewallPolicyV2\*](#list_network-firewall-resource-FirewallPolicyV2) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [FirewallRuleGroup](#list_network-firewall-resource-FirewallRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [IpsRuleGroup](#list_network-firewall-resource-IpsRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [StatefulRuleGroup](#list_network-firewall-resource-StatefulRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [StatelessRuleGroup](#list_network-firewall-resource-StatelessRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [TLSInspectionConfiguration](#list_network-firewall-resource-TLSInspectionConfiguration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
@@ -902,6 +951,9 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to put a resource policy for a firewall policy or rule group or firewall
   - **Resource types (\*required):** [Firewall](#list_network-firewall-resource-Firewall) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [FirewallPolicy](#list_network-firewall-resource-FirewallPolicy) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [FirewallPolicyV2](#list_network-firewall-resource-FirewallPolicyV2) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [FirewallRuleGroup](#list_network-firewall-resource-FirewallRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [IpsRuleGroup](#list_network-firewall-resource-IpsRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [StatefulRuleGroup](#list_network-firewall-resource-StatefulRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [StatelessRuleGroup](#list_network-firewall-resource-StatelessRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Access level:** Write
@@ -935,6 +987,9 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [ContainerAssociation](#list_network-firewall-resource-ContainerAssociation) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_network-firewall-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
   - **Resource types (\*required):** [Firewall](#list_network-firewall-resource-Firewall) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_network-firewall-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
   - **Resource types (\*required):** [FirewallPolicy](#list_network-firewall-resource-FirewallPolicy) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_network-firewall-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
+  - **Resource types (\*required):** [FirewallPolicyV2](#list_network-firewall-resource-FirewallPolicyV2) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_network-firewall-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
+  - **Resource types (\*required):** [FirewallRuleGroup](#list_network-firewall-resource-FirewallRuleGroup) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_network-firewall-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
+  - **Resource types (\*required):** [IpsRuleGroup](#list_network-firewall-resource-IpsRuleGroup) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_network-firewall-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
   - **Resource types (\*required):** [Proxy](#list_network-firewall-resource-Proxy) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_network-firewall-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
   - **Resource types (\*required):** [ProxyConfiguration](#list_network-firewall-resource-ProxyConfiguration) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_network-firewall-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
   - **Resource types (\*required):** [ProxyRuleGroup](#list_network-firewall-resource-ProxyRuleGroup) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_network-firewall-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
@@ -949,6 +1004,9 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [ContainerAssociation](#list_network-firewall-resource-ContainerAssociation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
   - **Resource types (\*required):** [Firewall](#list_network-firewall-resource-Firewall) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
   - **Resource types (\*required):** [FirewallPolicy](#list_network-firewall-resource-FirewallPolicy) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
+  - **Resource types (\*required):** [FirewallPolicyV2](#list_network-firewall-resource-FirewallPolicyV2) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
+  - **Resource types (\*required):** [FirewallRuleGroup](#list_network-firewall-resource-FirewallRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
+  - **Resource types (\*required):** [IpsRuleGroup](#list_network-firewall-resource-IpsRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
   - **Resource types (\*required):** [Proxy](#list_network-firewall-resource-Proxy) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
   - **Resource types (\*required):** [ProxyConfiguration](#list_network-firewall-resource-ProxyConfiguration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
   - **Resource types (\*required):** [ProxyRuleGroup](#list_network-firewall-resource-ProxyRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_network-firewall-aws_TagKeys)
@@ -1008,6 +1066,14 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [UpdateFirewallPolicyV2](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_UpdateFirewallPolicyV2.html)  **
+  - **Description:** Grants permission to modify a firewall policy v2
+  - **Resource types (\*required):** [FirewallPolicyV2\*](#list_network-firewall-resource-FirewallPolicyV2) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [FirewallRuleGroup](#list_network-firewall-resource-FirewallRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [IpsRuleGroup](#list_network-firewall-resource-IpsRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [TLSInspectionConfiguration](#list_network-firewall-resource-TLSInspectionConfiguration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [UpdateLoggingConfiguration](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_UpdateLoggingConfiguration.html)  **
   - **Description:** Grants permission to modify the logging configuration of a firewall
   - **Resource types (\*required):** [Firewall\*](#list_network-firewall-resource-Firewall)
@@ -1046,6 +1112,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [UpdateRuleGroup](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_UpdateRuleGroup.html)  **
   - **Description:** Grants permission to modify a rule group
+  - **Resource types (\*required):** [FirewallRuleGroup](#list_network-firewall-resource-FirewallRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [IpsRuleGroup](#list_network-firewall-resource-IpsRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [StatefulRuleGroup](#list_network-firewall-resource-StatefulRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [StatelessRuleGroup](#list_network-firewall-resource-StatelessRuleGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_)
   - **Access level:** Write
@@ -1076,6 +1144,9 @@ The following resource types are defined by this service and can be used in the 
 |  [ContainerAssociation](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_ContainerAssociation.html)  | arn:${Partition}:network-firewall:${Region}:${Account}:container-association/${Name} | [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_) | 
 |  [Firewall](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_Firewall.html)  | arn:${Partition}:network-firewall:${Region}:${Account}:firewall/${Name} | [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_) | 
 |  [FirewallPolicy](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_FirewallPolicyResponse.html)  | arn:${Partition}:network-firewall:${Region}:${Account}:firewall-policy/${Name} | [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_) | 
+|  [FirewallPolicyV2](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_FirewallPolicyV2Response.html)  | arn:${Partition}:network-firewall:${Region}:${Account}:firewall-policy-v2/${Name} | [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_) | 
+|  [FirewallRuleGroup](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_RuleGroupResponse.html)  | arn:${Partition}:network-firewall:${Region}:${Account}:firewall-rulegroup/${Name} | [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_) | 
+|  [IpsRuleGroup](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_RuleGroupResponse.html)  | arn:${Partition}:network-firewall:${Region}:${Account}:ips-rulegroup/${Name} | [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_) | 
 |  [Proxy](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_Proxy.html)  | arn:${Partition}:network-firewall:${Region}:${Account}:proxy/${Name} | [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_) | 
 |  [ProxyConfiguration](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_ProxyConfiguration.html)  | arn:${Partition}:network-firewall:${Region}:${Account}:proxy-configuration/${Name} | [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_) | 
 |  [ProxyRuleGroup](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_ProxyRuleGroup.html)  | arn:${Partition}:network-firewall:${Region}:${Account}:proxy-rule-group/${Name} | [aws:ResourceTag/${TagKey}](#list_network-firewall-aws_ResourceTag___TagKey_) | 

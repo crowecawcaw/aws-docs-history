@@ -28,10 +28,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   BatchCreateMemoryRecords  **
   - **SDK client:** bedrock-agentcore
-  - **IAM action:**  [bedrock-agentcore:BatchCreateMemoryRecords](#list_bedrock-agentcore-action-BatchCreateMemoryRecords) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
+  - **IAM action:**  [bedrock-agentcore:BatchCreateMemoryRecords](#list_bedrock-agentcore-action-BatchCreateMemoryRecords)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [bedrock-agentcore:UpdateMemoryRecordExpirySpecification](#list_bedrock-agentcore-action-UpdateMemoryRecordExpirySpecification)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
 - **   BatchDeleteMemoryRecords  **
   - **SDK client:** bedrock-agentcore
@@ -42,10 +40,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   BatchUpdateMemoryRecords  **
   - **SDK client:** bedrock-agentcore
-  - **IAM action:**  [bedrock-agentcore:BatchUpdateMemoryRecords](#list_bedrock-agentcore-action-BatchUpdateMemoryRecords) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
+  - **IAM action:**  [bedrock-agentcore:BatchUpdateMemoryRecords](#list_bedrock-agentcore-action-BatchUpdateMemoryRecords)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [bedrock-agentcore:UpdateMemoryRecordExpirySpecification](#list_bedrock-agentcore-action-UpdateMemoryRecordExpirySpecification)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
 - **   CompleteResourceTokenAuth  **
   - **SDK client:** bedrock-agentcore
@@ -258,6 +254,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   GetWorkloadAccessTokenForUserId  **
   - **SDK client:** bedrock-agentcore
   - **IAM action:**  [bedrock-agentcore:GetWorkloadAccessTokenForUserId](#list_bedrock-agentcore-action-GetWorkloadAccessTokenForUserId) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   IngestData  **
+  - **SDK client:** bedrock-agentcore
+  - **IAM action:**  [bedrock-agentcore:IngestData](#list_bedrock-agentcore-action-IngestData) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -598,6 +601,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **SDK client:** bedrock-agentcore-control
   - **IAM action:**  [bedrock-agentcore:CreateMemory](#list_bedrock-agentcore-action-CreateMemory)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [bedrock-agentcore:TagResource](#list_bedrock-agentcore-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [bedrock-agentcore:UpdateMemoryRecordExpirySpecification](#list_bedrock-agentcore-action-UpdateMemoryRecordExpirySpecification)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** bedrock-agentcore.amazonaws.com / **Access level:** Write
 
 - **   CreateOauth2CredentialProvider  **
@@ -1543,6 +1547,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   UpdateMemory  **
   - **SDK client:** bedrock-agentcore-control
   - **IAM action:**  [bedrock-agentcore:UpdateMemory](#list_bedrock-agentcore-action-UpdateMemory)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [bedrock-agentcore:UpdateMemoryRecordExpirySpecification](#list_bedrock-agentcore-action-UpdateMemoryRecordExpirySpecification)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** bedrock-agentcore.amazonaws.com / **Access level:** Write
 
 - **   UpdateOauth2CredentialProvider  **
@@ -1639,7 +1644,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [BatchDeleteMemoryRecords](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_BatchDeleteMemoryRecords.html)  **
   - **Description:** Grants permission to delete one or more memory records
   - **Resource types (\*required):** [memory\*](#list_bedrock-agentcore-resource-memory)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)<br />[bedrock-agentcore:namespace](#list_bedrock-agentcore-bedrock-agentcore_namespace)
   - **Access level:** Write
 
 - **   [BatchPutGatewayRateLimits](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_BatchPutGatewayRateLimits.html)  **
@@ -1651,7 +1656,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [BatchUpdateMemoryRecords](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_BatchUpdateMemoryRecords.html)  **
   - **Description:** Grants permission to update one or more memory records
   - **Resource types (\*required):** [memory\*](#list_bedrock-agentcore-resource-memory)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)<br />[bedrock-agentcore:namespace](#list_bedrock-agentcore-bedrock-agentcore_namespace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)<br />[bedrock-agentcore:namespace](#list_bedrock-agentcore-bedrock-agentcore_namespace)<br />[bedrock-agentcore:sourceNamespace](#list_bedrock-agentcore-bedrock-agentcore_sourceNamespace)
   - **Access level:** Write
 
 - **   [CompleteResourceTokenAuth](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_CompleteResourceTokenAuth.html)  **
@@ -1755,7 +1760,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [CreateEvent](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_CreateEvent.html)  **
   - **Description:** Grants permission to create an Event
   - **Resource types (\*required):** [memory\*](#list_bedrock-agentcore-resource-memory)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)<br />[bedrock-agentcore:actorId](#list_bedrock-agentcore-bedrock-agentcore_actorId)<br />[bedrock-agentcore:sessionId](#list_bedrock-agentcore-bedrock-agentcore_sessionId)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)<br />[bedrock-agentcore:actorId](#list_bedrock-agentcore-bedrock-agentcore_actorId)<br />[bedrock-agentcore:namespaceVariable/${VariableName}](#list_bedrock-agentcore-bedrock-agentcore_namespaceVariable___VariableName_)<br />[bedrock-agentcore:sessionId](#list_bedrock-agentcore-bedrock-agentcore_sessionId)
   - **Access level:** Write
 
 - **   [CreateGateway](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateGateway.html)  **
@@ -2013,7 +2018,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DeleteMemoryRecord](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_DeleteMemoryRecord.html)  **
   - **Description:** Grants permission to delete a Memory Record
   - **Resource types (\*required):** [memory\*](#list_bedrock-agentcore-resource-memory)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)<br />[bedrock-agentcore:namespace](#list_bedrock-agentcore-bedrock-agentcore_namespace)
   - **Access level:** Write
 
 - **   [DeleteOauth2CredentialProvider](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_DeleteOauth2CredentialProvider.html)  **
@@ -2260,7 +2265,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [GetMemoryRecord](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetMemoryRecord.html)  **
   - **Description:** Grants permission to fetch a Memory Record
   - **Resource types (\*required):** [memory\*](#list_bedrock-agentcore-resource-memory)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)<br />[bedrock-agentcore:namespace](#list_bedrock-agentcore-bedrock-agentcore_namespace)
   - **Access level:** Read
 
 - **   [GetOauth2CredentialProvider](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_GetOauth2CredentialProvider.html)  **
@@ -2425,6 +2430,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [workload-identity\*](#list_bedrock-agentcore-resource-workload-identity) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [workload-identity-directory\*](#list_bedrock-agentcore-resource-workload-identity-directory) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)
   - **Access level:** Read
+
+- **   [IngestData](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_IngestData.html)  **
+  - **Description:** Grants permission to ingest content to generate long-term memory records
+  - **Resource types (\*required):** [memory\*](#list_bedrock-agentcore-resource-memory)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)<br />[bedrock-agentcore:actorId](#list_bedrock-agentcore-bedrock-agentcore_actorId)<br />[bedrock-agentcore:namespaceVariable/${VariableName}](#list_bedrock-agentcore-bedrock-agentcore_namespaceVariable___VariableName_)<br />[bedrock-agentcore:sessionId](#list_bedrock-agentcore-bedrock-agentcore_sessionId)
+  - **Access level:** Write
 
 - **   [InvokeAgentRuntime](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_InvokeAgentRuntime.html)  **
   - **Description:** Grants permission to invoke an agent runtime endpoint
@@ -2669,7 +2680,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [ListMemoryRecords](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_ListMemoryRecords.html)  **
   - **Description:** Grants permission to list memory records
   - **Resource types (\*required):** [memory\*](#list_bedrock-agentcore-resource-memory)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)<br />[bedrock-agentcore:namespace](#list_bedrock-agentcore-bedrock-agentcore_namespace)<br />[bedrock-agentcore:strategyId](#list_bedrock-agentcore-bedrock-agentcore_strategyId)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)<br />[bedrock-agentcore:namespace](#list_bedrock-agentcore-bedrock-agentcore_namespace)<br />[bedrock-agentcore:namespacePath](#list_bedrock-agentcore-bedrock-agentcore_namespacePath)<br />[bedrock-agentcore:strategyId](#list_bedrock-agentcore-bedrock-agentcore_strategyId)
   - **Access level:** List
 
 - **   [ListOauth2CredentialProviders](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListOauth2CredentialProviders.html)  **
@@ -2822,10 +2833,16 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [runtime-endpoint](#list_bedrock-agentcore-resource-runtime-endpoint) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [ResetTokenVaultKeyMaterial](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ResetTokenVaultKeyMaterial.html)  **
+  - **Description:** Grants permission to reset a TokenVault's key material to a Service Managed Key after its Customer Managed Key (CMK) has been deleted
+  - **Resource types (\*required):** [token-vault\*](#list_bedrock-agentcore-resource-token-vault)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [RetrieveMemoryRecords](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_RetrieveMemoryRecords.html)  **
   - **Description:** Grants permission to retrieve memory records through sematic query
   - **Resource types (\*required):** [memory\*](#list_bedrock-agentcore-resource-memory)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)<br />[bedrock-agentcore:namespace](#list_bedrock-agentcore-bedrock-agentcore_namespace)<br />[bedrock-agentcore:strategyId](#list_bedrock-agentcore-bedrock-agentcore_strategyId)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)<br />[bedrock-agentcore:namespace](#list_bedrock-agentcore-bedrock-agentcore_namespace)<br />[bedrock-agentcore:namespacePath](#list_bedrock-agentcore-bedrock-agentcore_namespacePath)<br />[bedrock-agentcore:strategyId](#list_bedrock-agentcore-bedrock-agentcore_strategyId)
   - **Access level:** List
 
 - **   [SaveBrowserSessionProfile](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_SaveBrowserSessionProfile.html)  **
@@ -3228,6 +3245,12 @@ The following actions are defined by Amazon Bedrock Agentcore but are not direct
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)
   - **Access level:** Permissions management, Write
 
+- **   [UpdateMemoryRecordExpirySpecification](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/welcome.html)  **
+  - **Description:** Grants permission to set or remove the expiry specification of long-term memory records
+  - **Resource types (\*required):** [memory\*](#list_bedrock-agentcore-resource-memory)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 
 
 ## Resource types defined by Amazon Bedrock Agentcore
@@ -3309,9 +3332,12 @@ Amazon Bedrock Agentcore defines the following condition keys that can be used i
 |   [bedrock-agentcore:RuntimeAuthorizerType](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-authorizer-type-condition-key.html)  | Filters access by the authorizer type configured for the AgentCore runtime | String | 
 |   [bedrock-agentcore:actorId](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/#condition-keys-actorId)  | Filters access by Actor Id | String | 
 |   [bedrock-agentcore:namespace](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/#condition-keys-namespace)  | Filters access by namespace | String | 
+|   [bedrock-agentcore:namespacePath](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/#condition-keys-namespacePath)  | Filters access by the namespace path hierarchy of the memory records in the request | String | 
+|   [bedrock-agentcore:namespaceVariable/${VariableName}](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/#condition-keys-namespaceVariable)  | Filters access by the value of a custom namespace variable in the request | String | 
 |   [bedrock-agentcore:runtimeSessionId](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/#condition-keys-runtimeSessionId)  | Filters access by Runtime Session Id | String | 
 |   [bedrock-agentcore:securityGroups](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/security-vpc-condition.html)  | Filters access by the ID of security groups configured for an AgentCore resource | ArrayOfString | 
 |   [bedrock-agentcore:sessionId](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/#condition-keys-sessionId)  | Filters access by Memory Session Id | String | 
+|   [bedrock-agentcore:sourceNamespace](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/#condition-keys-sourceNamespace)  | Filters access by the source namespace of the memory records in the request | String | 
 |   [bedrock-agentcore:strategyId](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/#condition-keys-strategyId)  | Filters access by Memory Strategy Id | String | 
 |   [bedrock-agentcore:subnets](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/security-vpc-condition.html)  | Filters access by the ID of subnets configured for an AgentCore resource | ArrayOfString | 
 |   [bedrock-agentcore:userid](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/#condition-keys-userid)  | Filters access by the static user ID value passed in the request | String | 

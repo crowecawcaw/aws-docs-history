@@ -61,10 +61,10 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** Read
 
 - **   GetResourceDashboard  **
-  - **IAM action:**  [emr-serverless:GetResourceDashboard](#list_emr-serverless-action-GetResourceDashboard) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Read
+  - **IAM action:**  [emr-serverless:AccessSystemProfileLogs](#list_emr-serverless-action-AccessSystemProfileLogs)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [emr-serverless:GetResourceDashboard](#list_emr-serverless-action-GetResourceDashboard)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [glue:GetDatabases](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-databases.html#aws-glue-api-catalog-databases-GetDatabases)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [glue:SearchTables](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-SearchTables)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
 
 - **   GetSession  **
   - **IAM action:**  [emr-serverless:GetSession](#list_emr-serverless-action-GetSession) 
