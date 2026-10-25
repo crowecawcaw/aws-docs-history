@@ -5,7 +5,7 @@
 
 You can use an installation wizard to install the Amazon DCV server on a Windows host server. The wizard guides you through a series of steps that show how to customize your Amazon DCV server installation. Alternatively, you can use the command line to perform an unattended installation. This uses default settings to automate the installation procedure.
 
-**Contents**
+**Topics**
 + [Using the wizard](#setting-up-installing-windows-wizard)
 + [Using an unattended installation](#setting-up-installing-windows-unattended)
 

@@ -8,7 +8,7 @@ You can use an installation wizard to install the Amazon DCV server on an Amazon
 **Note**  
 Amazon DCV server for macOS is only supported on Amazon EC2 Apple silicon instances.
 
-**Contents**
+**Topics**
 + [Using an unattended installation](#setting-up-installing-windows-unattended)
 + [Using the wizard](#setting-up-installing-windows-wizard-mac)
 + [Configuring Privacy and Security settings](#setting-up-macos-privacy-settings)

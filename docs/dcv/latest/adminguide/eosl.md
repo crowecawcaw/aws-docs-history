@@ -33,6 +33,7 @@ The following table shows the EOSL timeline for the Amazon DCV major versions.
 | **Amazon DCV 2023.x** | May 3, 2023 | December 31, 2026 | 
 | **Amazon DCV 2024.x** | Oct 2, 2024 | December 31, 2027 | 
 | **Amazon DCV 2025.x** | Oct 7, 2025 | December 31, 2028 | 
+| **Amazon DCV 2026.x** | October 13, 2026 | December 31, 2029 | 
 
 **Note**  
 Starting March 31st 2025, the following Amazon DCV versions will no longer be supported:  
