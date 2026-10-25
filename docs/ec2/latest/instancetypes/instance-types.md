@@ -38,7 +38,7 @@ Amazon Web Services offers previous generation instance types for users who have
 + **Compute optimized**: C1 \| C3 \| C4
 + **Memory optimized**: R3 \| R4
 + **Storage optimized**: I2
-+ **Accelerated computing**: G3 \| P3 \| P3dn
++ **Accelerated computing**: G3 \| P3dn
 
 ## Instance performance
 <a name="instance-performance"></a>

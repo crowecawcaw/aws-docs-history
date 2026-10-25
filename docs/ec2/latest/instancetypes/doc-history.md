@@ -26,6 +26,7 @@ The following table describes the instance type releases for Amazon EC2.
 | [M4 Max Mac instances](#doc-history) | New general purpose Mac instances built on Apple M4 Max Mac Studio computers featuring a 16-core CPU, 40-core GPU, 16-core Neural Engine, and 128GB of unified memory. | January 23, 2026 | 
 | [G7e instances](#doc-history) | New accelerated computing instances that feature Intel Xeon (Emerald Rapids) processors, up to 2048 GiB memory, and up to 8 NVIDIA RTX PRO Server 6000 GPUs with up to 768 GiB GPU memory. | January 20, 2026 | 
 | [X8i instances](#doc-history) | New memory optimized virtualized and bare metal instances types that feature custom sixth generation Intel Xeon Scalable Processors (Granite Rapids). | January 15, 2026 | 
+| [Removed P3 instances](#doc-history) | Removed P3 instance family. | January 1, 2026 | 
 | [M8gn instances](#doc-history) | New general purpose instances types powered by AWS Graviton4 processors and the AWS Nitro v6 card. These instance types feature improved network performance, with up to 600 Gbps network throughput. | December 17, 2025 | 
 | [M8gb instances](#doc-history) | New general purpose instances types powered by AWS Graviton4 processors and the AWS Nitro v6 card. These instance types provide improved Amazon EBS performance, with up to 150 Gbps EBS throughput and 720,00 IOPS. | December 17, 2025 | 
 | [C8gb instances](#doc-history) | New compute optimized instance types powered by AWS Graviton4 processors, and that deliver up to 150 Gbps Amazon EBS throughput. | December 10, 2025 | 

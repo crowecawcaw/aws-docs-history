@@ -33,7 +33,6 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | M2 | m2.xlarge \| m2.2xlarge \| m2.4xlarge | 
 | M3 | m3.medium \| m3.large \| m3.xlarge \| m3.2xlarge | 
 | M4 | m4.large \| m4.xlarge \| m4.2xlarge \| m4.4xlarge \| m4.10xlarge \| m4.16xlarge | 
-| P3 | p3.2xlarge \| p3.8xlarge \| p3.16xlarge | 
 | P3dn | p3dn.24xlarge | 
 | R3 | r3.large \| r3.xlarge \| r3.2xlarge \| r3.4xlarge \| r3.8xlarge | 
 | R4 | r4.large \| r4.xlarge \| r4.2xlarge \| r4.4xlarge \| r4.8xlarge \| r4.16xlarge | 
@@ -55,7 +54,6 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | M2 | Xen | Intel (x86\_64) | ✗ No | ✗ No | ✓ Yes | ✗ No | Windows \| Linux | 
 | M3 | Xen | Intel (x86\_64) | ✗ No | ✓ Yes | ✓ Yes | ✓ Yes | Windows \| Linux | 
 | M4 | Xen | Intel (x86\_64) | ✗ No | ✓ Yes | ✓ Yes | ✓ Yes | Windows \| Linux | 
-| P3 | Xen | Intel (x86\_64) | ✗ No | ✓ Yes | ✓ Yes | ✗ No | Windows \| Linux | 
 | P3dn | [Nitro v3](ec2-nitro-instances.md) | Intel (x86\_64) | ✗ No | ✓ Yes | ✓ Yes | ✗ No | Windows \| Linux | 
 | R3 | Xen | Intel (x86\_64) | ✗ No | ✓ Yes | ✓ Yes | ✓ Yes | Windows \| Linux | 
 | R4 | Xen | Intel (x86\_64) | ✗ No | ✓ Yes | ✓ Yes | ✓ Yes | Windows \| Linux | 
@@ -122,10 +120,6 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
   <tr><td>m4.4xlarge</td><td>64.00</td><td>Intel Xeon E5-2676v3</td><td>16</td><td>8</td><td>2</td><td>✗ No</td><td>✗ No</td></tr>
   <tr><td>m4.10xlarge</td><td>160.00</td><td>Intel Xeon E5-2676v3</td><td>40</td><td>20</td><td>2</td><td>✗ No</td><td>✗ No</td></tr>
   <tr><td>m4.16xlarge</td><td>256.00</td><td>Intel Xeon E5-2686v4</td><td>64</td><td>32</td><td>2</td><td>✗ No</td><td>✗ No</td></tr>
-  <tr><td colspan="8"><b>P3</b></td></tr>
-  <tr><td>p3.2xlarge</td><td>61.00</td><td>Intel Xeon E5-2686 v4</td><td>8</td><td>4</td><td>2</td><td>1 x NVIDIA V100 GPU</td><td>16 GiB (1 x 16 GiB)</td></tr>
-  <tr><td>p3.8xlarge</td><td>244.00</td><td>Intel Xeon E5-2686 v4</td><td>32</td><td>16</td><td>2</td><td>4 x NVIDIA V100 GPU</td><td>64 GiB (4 x 16 GiB)</td></tr>
-  <tr><td>p3.16xlarge</td><td>488.00</td><td>Intel Xeon E5-2686 v4</td><td>64</td><td>32</td><td>2</td><td>8 x NVIDIA V100 GPU</td><td>128 GiB (8 x 16 GiB)</td></tr>
   <tr><td colspan="8"><b>P3dn</b></td></tr>
   <tr><td>p3dn.24xlarge</td><td>768.00</td><td>Intel Xeon Platinum 8175</td><td>96</td><td>48</td><td>2</td><td>8 x NVIDIA V100 GPU</td><td>256 GiB (8 x 32 GiB)</td></tr>
   <tr><td colspan="8"><b>R3</b></td></tr>
@@ -208,10 +202,6 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
   <tr><td>m4.4xlarge 3</td><td>High</td><td>✗ No</td><td>✗ No 2</td><td>✗ No</td><td>8</td><td>1</td><td>8</td><td>30</td><td>✓ Yes</td></tr>
   <tr><td>m4.10xlarge 3</td><td>10 Gigabit</td><td>✗ No</td><td>✗ No 2</td><td>✗ No</td><td>8</td><td>1</td><td>8</td><td>30</td><td>✓ Yes</td></tr>
   <tr><td>m4.16xlarge 3</td><td>25 Gigabit</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>8</td><td>30</td><td>✓ Yes</td></tr>
-  <tr><td colspan="10"><b>P3</b></td></tr>
-  <tr><td>p3.2xlarge 1</td><td>2.5 / 10.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>—</td><td>1</td><td>4</td><td>15</td><td>✓ Yes</td></tr>
-  <tr><td>p3.8xlarge</td><td>10 Gigabit</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>—</td><td>1</td><td>8</td><td>30</td><td>✓ Yes</td></tr>
-  <tr><td>p3.16xlarge</td><td>25 Gigabit</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>—</td><td>1</td><td>8</td><td>30</td><td>✓ Yes</td></tr>
   <tr><td colspan="10"><b>P3dn</b></td></tr>
   <tr><td>p3dn.24xlarge 3</td><td>100 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>32</td><td>1</td><td>15</td><td>50</td><td>✓ Yes</td></tr>
   <tr><td colspan="10"><b>R3</b></td></tr>
@@ -296,10 +286,6 @@ We recommend that you choose an EBS–optimized instance type that provides more
   <tr><td>m4.4xlarge</td><td>2000.00</td><td>250.00</td><td>16000.00</td><td>✗ No</td><td>✗ No</td><td>Up to 40 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#xen-limits">Xen-based limit</a>)</td></tr>
   <tr><td>m4.10xlarge</td><td>4000.00</td><td>500.00</td><td>32000.00</td><td>✗ No</td><td>✗ No</td><td>Up to 40 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#xen-limits">Xen-based limit</a>)</td></tr>
   <tr><td>m4.16xlarge</td><td>10000.00</td><td>1250.00</td><td>65000.00</td><td>✗ No</td><td>✗ No</td><td>Up to 40 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#xen-limits">Xen-based limit</a>)</td></tr>
-  <tr><td colspan="7"><b>P3</b></td></tr>
-  <tr><td>p3.2xlarge</td><td>1750.00</td><td>218.75</td><td>10000.00</td><td>✗ No</td><td>✗ No</td><td>Up to 26 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#xen-limits">Xen-based limit</a>)</td></tr>
-  <tr><td>p3.8xlarge</td><td>7000.00</td><td>875.00</td><td>40000.00</td><td>✗ No</td><td>✗ No</td><td>Up to 23 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#xen-limits">Xen-based limit</a>)</td></tr>
-  <tr><td>p3.16xlarge</td><td>14000.00</td><td>1750.00</td><td>80000.00</td><td>✗ No</td><td>✗ No</td><td>Up to 19 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#xen-limits">Xen-based limit</a>)</td></tr>
   <tr><td colspan="7"><b>P3dn</b></td></tr>
   <tr><td>p3dn.24xlarge</td><td>19000.00</td><td>2375.00</td><td>80000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 17 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
   <tr><td colspan="7"><b>R3</b></td></tr>
@@ -436,10 +422,6 @@ C1, C3, I2, M1, M2, M3, and R3 instances are not Amazon EBS optimized by default
   <tr><td>m4.4xlarge</td><td>✓ Yes</td><td>Instance store not supported</td><td>✗ No</td><td>✗ No</td><td>✗ No</td><td>✗ No</td></tr>
   <tr><td>m4.10xlarge</td><td>✓ Yes</td><td>Instance store not supported</td><td>✗ No</td><td>✗ No</td><td>✗ No</td><td>✗ No</td></tr>
   <tr><td>m4.16xlarge</td><td>✓ Yes</td><td>Instance store not supported</td><td>✗ No</td><td>✗ No</td><td>✗ No</td><td>✗ No</td></tr>
-  <tr><td colspan="7"><b>P3</b></td></tr>
-  <tr><td>p3.2xlarge</td><td>✓ Yes</td><td>Instance store not supported</td><td>✗ No</td><td>✗ No</td><td>✗ No</td><td>✗ No</td></tr>
-  <tr><td>p3.8xlarge</td><td>✓ Yes</td><td>Instance store not supported</td><td>✗ No</td><td>✗ No</td><td>✗ No</td><td>✗ No</td></tr>
-  <tr><td>p3.16xlarge</td><td>✓ Yes</td><td>Instance store not supported</td><td>✗ No</td><td>✗ No</td><td>✗ No</td><td>✗ No</td></tr>
   <tr><td colspan="7"><b>P3dn</b></td></tr>
   <tr><td>p3dn.24xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✗ No</td><td>✓ Yes</td></tr>
   <tr><td colspan="7"><b>R3</b></td></tr>
