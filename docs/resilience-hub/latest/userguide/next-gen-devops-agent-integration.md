@@ -7,7 +7,7 @@ The next generation of Resilience Hub integrates with AWS DevOps Agent to add ag
 + From any failure mode assessment finding, you can chat with AWS DevOps Agent to investigate and ask for remediation steps interactively.
 + For a resilience test, a DevOps Agent investigation starts automatically with the test run, and a summary of its analysis becomes available shortly after the test completes – shown on the test run and included in the test report.
 
-Resilience Hub calls AWS DevOps Agent on your behalf by assuming the same *invoker role* that you have already set up at service level.
+Resilience Hub calls AWS DevOps Agent on your behalf by assuming the same *invoker role* that you have already set up at service level. AWS DevOps Agent investigation charges apply.
 
 For more information about AWS DevOps Agent, see the [AWS DevOps Agent User Guide](https://docs.aws.amazon.com/devopsagent/latest/userguide/).
 

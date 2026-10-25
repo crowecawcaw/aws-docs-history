@@ -3,7 +3,7 @@
 # Connect a service to the Agent Space
 <a name="next-gen-devops-agent-connect"></a>
 
-After your invoker role has the required DevOps Agent permissions, you can connect a service to your Agent Space. Connect a service by providing the Agent Space ARN in the service's DevOps Agent configuration. You can do this when you create a service or when you update an existing one.
+After your invoker role has the required DevOps Agent permissions, you can connect a service to your Agent Space. Connect a service by providing the Agent Space ARN in the service's DevOps Agent configuration. You can do this when you create a service or when you update an existing one. If there are existing failure mode assessment findings, Resilience Hub runs investigations for each finding after a connection is first established.
 
 The following command connects an existing service to an Agent Space.
 
