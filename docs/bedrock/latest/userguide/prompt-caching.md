@@ -94,9 +94,10 @@ To see which prompt caching types a model supports, refer to [Models at a glance
 | Claude 3.5 Sonnet v2 | anthropic.claude-3-5-sonnet-20241022-v2:0 | Preview | 1,024 | 4 | 5 minutes | `system`, `messages`, and `tools` | 
 | Claude Haiku 4.5 | anthropic.claude-haiku-4-5-20251001-v1:0 | Generally Available | 4,096 | 4 | 5 minutes, 1 hour | `system`, `messages`, and `tools` | 
 | GPT-6.1 Sol | openai.gpt-6.1-sol | Generally Available | 1,024 | 4 cache writes | 30 minutes | `prompt_cache_breakpoint` on `input_text` blocks (Responses API) and `text` content parts (Chat Completions and InvokeModel). Converse doesn't support explicit caching for this model. | 
-| GPT-5.6 Sol | openai.gpt-5.6-sol | Generally Available | 1,024 | 4 cache writes | 30 minutes | `prompt_cache_breakpoint` on `input_text`, `input_image`, and `input_file` blocks (Responses API) and `text` content parts (Chat Completions and InvokeModel) | 
-| GPT-5.6 Terra | openai.gpt-5.6-terra | Generally Available | 1,024 | 4 cache writes | 30 minutes | `prompt_cache_breakpoint` on `input_text`, `input_image`, and `input_file` blocks (Responses API) and `text` content parts (Chat Completions and InvokeModel) | 
-| GPT-5.6 Luna | openai.gpt-5.6-luna | Generally Available | 1,024 | 4 cache writes | 30 minutes | `prompt_cache_breakpoint` on `input_text`, `input_image`, and `input_file` blocks (Responses API) and `text` content parts (Chat Completions and InvokeModel) | 
+| GPT-6 Astra | openai.gpt-6-astra | Generally Available | 1,024 | 4 cache writes | 30 minutes | `prompt_cache_breakpoint` on `input_text` blocks (Responses API) and `text` content parts (Chat Completions and InvokeModel). Converse doesn't support explicit caching for this model. | 
+| GPT-5.6 Sol | openai.gpt-5.6-sol | Generally Available | 1,024 | 4 cache writes | 30 minutes | `prompt_cache_breakpoint` on `input_text`, `input_image`, and `input_file` blocks (Responses API) and `text` content parts (Chat Completions and InvokeModel). Converse doesn't support explicit caching for this model. | 
+| GPT-5.6 Terra | openai.gpt-5.6-terra | Generally Available | 1,024 | 4 cache writes | 30 minutes | `prompt_cache_breakpoint` on `input_text`, `input_image`, and `input_file` blocks (Responses API) and `text` content parts (Chat Completions and InvokeModel). Converse doesn't support explicit caching for this model. | 
+| GPT-5.6 Luna | openai.gpt-5.6-luna | Generally Available | 1,024 | 4 cache writes | 30 minutes | `prompt_cache_breakpoint` on `input_text`, `input_image`, and `input_file` blocks (Responses API) and `text` content parts (Chat Completions and InvokeModel). Converse doesn't support explicit caching for this model. | 
 | Nova 2 Lite | amazon.nova-2-lite-v1:0 | Generally Available | 1K\* | 4 | 5 minutes | `system` and `messages` | 
 | Amazon Nova Pro | amazon.nova-pro-v1:0 | Generally Available | 1K\* | 4 | 5 minutes | `system` and `messages` | 
 | Amazon Nova Lite | amazon.nova-lite-v1:0 | Generally Available | 1K\* | 4 | 5 minutes | `system` and `messages` | 
@@ -142,7 +143,7 @@ OpenAI models on Amazon Bedrock support Implicit Prompt Caching through supporte
 ### GPT-5.6 and later models
 <a name="prompt-caching-openai-56"></a>
 
-GPT-5.6 Sol (`openai.gpt-5.6-sol`), Terra (`openai.gpt-5.6-terra`), Luna (`openai.gpt-5.6-luna`), and later models such as GPT-6.1 Sol (`openai.gpt-6.1-sol`) support both Implicit Prompt Caching and Explicit Prompt Caching. Explicit prompt cache breakpoints give you precise control over which portions of your prompt are eligible for caching. This is especially valuable for agentic workflows where system instructions, tool definitions, and reference files repeat across many calls while only the latest input changes.
+GPT-5.6 Sol (`openai.gpt-5.6-sol`), Terra (`openai.gpt-5.6-terra`), Luna (`openai.gpt-5.6-luna`), and later models such as GPT-6 Astra (`openai.gpt-6-astra`) and GPT-6.1 Sol (`openai.gpt-6.1-sol`) support both Implicit Prompt Caching and Explicit Prompt Caching. Explicit prompt cache breakpoints give you precise control over which portions of your prompt are eligible for caching. This is especially valuable for agentic workflows where system instructions, tool definitions, and reference files repeat across many calls while only the latest input changes.
 
 Key characteristics:
 + **Explicit cache breakpoints** — Mark the exact end of a reusable prompt prefix by adding `"prompt_cache_breakpoint": {"mode": "explicit"}` to a supported content block.

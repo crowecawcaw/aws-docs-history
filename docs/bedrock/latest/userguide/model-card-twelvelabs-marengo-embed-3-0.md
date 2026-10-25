@@ -14,9 +14,9 @@ Marengo Embed 3.0 is TwelveLabs' video embedding model that generates vector rep
 + **EOL no sooner than:** Oct 29, 2026
 + **Legacy period:** at least 6 months
 + **Model lifecycle policy:** [Model lifecycle (For Models Launched Prior to Sept 7 2026)](model-lifecycle-legacy.md)
-+ **Model EOL date:** N/A
++ **Model EOL date:** March 22, 2027 (ap-northeast-2 only)
 + **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/)
-+ **Model lifecycle:** Active
++ **Model lifecycle:** Legacy in ap-northeast-2; Active in other Regions
 + **Marketplace product ID:** `prod-ibqpnh3htjd4s`
 
 

@@ -49,5 +49,6 @@ If ACL-aware retrieval returns no results or unexpected results, the cause is us
 + [OneDrive](kb-managed-ds-onedrive-acl.md#kb-managed-ds-onedrive-acl-troubleshooting)
 + [Google Drive](kb-managed-ds-googledrive-acl.md#kb-managed-ds-googledrive-acl-troubleshooting)
 + [Confluence](kb-managed-ds-confluence-acl.md#kb-managed-ds-confluence-acl-troubleshooting)
++ [Salesforce](kb-managed-ds-salesforce-acl.md#kb-managed-ds-salesforce-acl-troubleshooting)
 + [Amazon S3](kb-managed-ds-s3-acl.md#kb-managed-ds-s3-acl-troubleshooting)
 + [Custom](kb-managed-ds-custom-acl.md#kb-managed-ds-custom-acl-troubleshooting)

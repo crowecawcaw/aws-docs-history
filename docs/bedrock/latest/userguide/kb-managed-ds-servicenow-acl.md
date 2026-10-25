@@ -33,10 +33,10 @@ At query time you pass the user's email address. Bedrock Managed Knowledge Base 
 ## Enable ACL awareness
 <a name="kb-managed-ds-servicenow-acl-enable"></a>
 
-To enable ACL awareness for a ServiceNow data source, set `aclEnabled` to `true` in the `connectorParameters`. ACLs use the same OAuth 2.0 Client Credentials (2LO, or two-legged OAuth) authentication as a content-only data source — no separate authentication type is required. Before you create the data source, complete the ServiceNow-side setup (the additional service-account read roles and knowledge base configuration) described in [Additional setup for document-level access control (ACLs)](kb-managed-servicenow-oauth2-setup.md#kb-managed-servicenow-oauth2-acl).
+ACL awareness is on by default for a ServiceNow data source. If you omit `aclEnabled` from the `connectorParameters`, it defaults to `true`; set it to `false` to create a content-only data source instead. ACLs use the same OAuth 2.0 Client Credentials (2LO, or two-legged OAuth) authentication as a content-only data source — no separate authentication type is required, which is why the default applies to every ServiceNow data source. Before you create the data source, complete the ServiceNow-side setup (the additional service-account read roles and knowledge base configuration) described in [Additional setup for document-level access control (ACLs)](kb-managed-servicenow-oauth2-setup.md#kb-managed-servicenow-oauth2-acl).
 
 **Important**  
-ACL configuration is permanent. You cannot enable ACLs on a data source created without ACL support, and you cannot disable ACLs after they are enabled.
+ACL configuration is permanent. You cannot enable ACLs on a data source created without ACL support, and you cannot disable ACLs after they are enabled. Because the default is `true`, a data source created without an explicit `aclEnabled` value is permanently ACL-enabled.
 
 When you create an ACL-enabled data source, use the following settings:
 + Enable **Service Catalogs** if you want catalog ACLs enforced (the four-table model of direct-user and criteria allow and deny lists).

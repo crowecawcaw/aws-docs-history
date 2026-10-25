@@ -30,7 +30,7 @@ Existing applications that use `bedrock-mantle` continue to be fully supported a
 | [Messages API (Anthropic-native)](inference-messages-api.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 
 **Note**  
-The Messages API is available on both endpoints, but the two surfaces do not have identical feature support. In particular, [structured outputs](structured-output.md) (the `output_config.format` parameter) are not supported on `bedrock-mantle` — requests that include `output_config.format` are rejected with a 400 error. To use structured outputs with Anthropic Claude models, call the Converse or InvokeModel APIs on `bedrock-runtime`.
+The Messages API is available on both endpoints. [Structured outputs](structured-output.md) (the `output_config.format` parameter) is supported for Anthropic Claude models on both the `bedrock-runtime` and `bedrock-mantle` endpoints. For Claude-specific guidance, see [Structured outputs for Anthropic Claude models](claude-messages-structured-outputs.md).
 
 **Note**  
 The Responses API is also available on both endpoints without identical feature support. On `bedrock-runtime`:  

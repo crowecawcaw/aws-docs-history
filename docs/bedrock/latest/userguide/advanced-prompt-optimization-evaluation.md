@@ -144,7 +144,7 @@ Provide a full rubric with a grading scale that you define. Your custom judge pr
 ### Configuration
 <a name="advanced-prompt-optimization-evaluation-llmj-config"></a>
 + **Format:** `"customLLMJConfig": {"customLLMJPrompt": "...", "customLLMJModelId": "..."}` plus `"customEvaluationMetricLabel": "My Metric"`
-+ **Available judge models:** anthropic.claude-opus-4-6-v1, anthropic.claude-sonnet-4-5-20250929-v1:0, anthropic.claude-sonnet-4-6
++ **Available judge models:** see the Supported judge models list in [Supported Regions, models, and quotas](advanced-prompt-optimization-quotas.md). You can specify a base model ID, a cross-region inference profile ID, or an application inference profile ARN.
 + **Placeholders in your judge prompt:**
   + `{{prompt}}`: the fully rendered prompt (prompt template plus evaluation samples combined)
   + `{{response}}`: the model output

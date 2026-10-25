@@ -41,7 +41,7 @@ Whenever possible, we recommend using the `bedrock-runtime` endpoint for new app
 
 | **Supported** | **Not Supported** | 
 | --- | --- | 
-|  + ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Response streaming](/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Implicit Prompt Caching](prompt-caching.html#prompt-caching-implicit)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Explicit Prompt Caching](prompt-caching.html#prompt-caching-explicit) (Responses and Chat Completions APIs only)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Client-side tool calling](tool-use.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Structured outputs](structured-output.md)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Invocation logs](model-invocation-logging.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Guardrails](guardrails.html)  |  + ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Intelligent prompt routing](prompt-routing.html)<br />+ ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Knowledge base](knowledge-base.html)  | 
+|  + ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Response streaming](/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Implicit Prompt Caching](prompt-caching.html#prompt-caching-implicit)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Explicit Prompt Caching](prompt-caching.html#prompt-caching-explicit) (Responses, Chat Completions, and InvokeModel APIs; not supported with Converse)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Client-side tool calling](tool-use.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Structured outputs](structured-output.md)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Invocation logs](model-invocation-logging.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Guardrails](guardrails.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Reasoning](reasoning.html) (effort configurable; see Reasoning effort below)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Application inference profiles](cost-mgmt-application-inference-profiles.html)  |  + ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Intelligent prompt routing](prompt-routing.html)<br />+ ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Knowledge base](knowledge-base.html)<br />+ ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Count tokens](count-tokens.html)  | 
 
 **Explicit prompt caching using `bedrock-runtime` endpoint**
 
@@ -50,10 +50,22 @@ For more information, see [Prompt caching for faster model inference](prompt-cac
 
 | **Explicit Prompt Caching supported** | **Min tokens per cache checkpoint** | **Cache retention (TTL)** | 
 | --- | --- | --- | 
-| Yes | 1,024 | At least 30 minutes | 
+| Yes | 256 | At least 30 minutes | 
 
 **Note**  
-By default, Kimi K3 supports implicit (automatic) prompt caching. Configuring explicit cache controls can improve your cache hit rate, and therefore reduce latency and cost, so we recommend using explicit prompt caching. Currently, only the Responses and Chat Completions APIs support explicit prompt caching. See the [prompt caching guide](prompt-caching.html) for more details.
+By default, Kimi K3 supports implicit (automatic) prompt caching. Configuring explicit cache controls can improve your cache hit rate, and therefore reduce latency and cost, so we recommend using explicit prompt caching. Explicit prompt caching is supported on the Responses, Chat Completions, and `InvokeModel` APIs. Converse doesn't support explicit caching for this model. See the [prompt caching guide](prompt-caching.html) for more details.
+
+**Reasoning effort**
+
+Kimi K3 reasons by default. You can trade latency and token consumption against task performance by setting the reasoning effort. The supported values are `none`, `low`, `medium`, `high`, `xhigh`, and `max`. If you don't set a value, the model uses `max`. Use `none` to turn reasoning off for a request. The value `minimal` is not supported for this model.
+
+Set the effort with the parameter for the API that you call:
++ Responses API — `reasoning.effort`
++ Chat Completions API — `reasoning_effort`
++ InvokeModel API — `reasoning_effort` in the request body
+
+**Note**  
+Converse accepts `reasoning_effort` in `additionalModelRequestFields` but doesn't validate it for this model, including values that the other APIs reject. Set the reasoning effort through one of the APIs listed above.
 
 ## Pricing
 <a name="model-card-moonshot-ai-kimi-k3-pricing"></a>
@@ -92,7 +104,7 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 
 **Note**  
-Currently, only the Responses and Chat Completions APIs support service tiers. The Converse and Invoke APIs do not support service tiers and support only Standard on-demand inference.
+Kimi K3 supports service tiers on the Responses, Chat Completions, Converse, and `InvokeModel` APIs. The parameter differs by API: Converse takes `serviceTier` as an object, `"serviceTier": {"type": "priority"}`, while the Responses, Chat Completions, and `InvokeModel` APIs take `"service_tier": "priority"`. Service tier support varies by model, so check the model card for the model that you are calling.
 
 ## Regional Availability
 <a name="model-card-moonshot-ai-kimi-k3-regional-availability"></a>
@@ -173,6 +185,8 @@ Geo inference ID: `in.moonshotai.kimi-k3`
 <a name="model-card-moonshot-ai-kimi-k3-quotas"></a>
 
 Your AWS account has default quotas to maintain the performance of the service and to ensure appropriate usage of Amazon Bedrock. The default quotas assigned to an account might be updated depending on regional factors, payment history, fraudulent usage, and/or approval of a quota [increase request](quotas-increase.html). See your default quotas in Service Quotas and request limit increases as necessary.
+
+The burndown rate for Moonshot AI Kimi K3 on the `bedrock-runtime` endpoint is 10x for output tokens (1 output token consumes 10 tokens from your quotas).
 
 ## Usage Considerations and Limitations
 <a name="model-card-moonshot-ai-kimi-k3-considerations"></a>

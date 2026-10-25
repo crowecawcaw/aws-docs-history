@@ -96,3 +96,5 @@ Record the secret ARN from the response. You use it as the data source `secretAr
 <a name="kb-managed-salesforce-oauth2-next"></a>
 
 After you store the secret, create the data source. See [Connect a Salesforce data source](kb-managed-ds-salesforce-connect.md).
+
+To use document-level access control, also complete [Set up OAuth 2.0 JWT Bearer authentication for Salesforce document-level access controls](kb-managed-salesforce-jwt-bearer-setup.md) before you create the data source.

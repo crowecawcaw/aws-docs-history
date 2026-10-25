@@ -108,15 +108,14 @@ Fine-grained tool streaming is an Anthropic Claude model capability. With fine-g
 **Note**  
 When using fine-grained tool streaming, you may potentially receive invalid or partial JSON inputs. Please make sure to account for these edge cases in your code.
 
-To use this feature, simply add the header `fine-grained-tool-streaming-2025-05-14` to a tool use request.
+To use this feature, set `eager_input_streaming` to `true` on each user-defined tool that you want to stream this way, and stream the response. The field is optional and applies per tool: a tool that omits it gets standard buffered streaming, in which each parameter value is buffered and validated before it is streamed back.
 
-Here’s an example of how to specify the fine-grained tool streaming header:
+The following example turns on fine-grained tool streaming for a `make_file` tool:
 
 ```
 {
   "anthropic_version": "bedrock-2023-05-31",
   "max_tokens": 1024,
-  "anthropic_beta": ["fine-grained-tool-streaming-2025-05-14"],
   "messages": [
     {
       "role": "user",
@@ -127,6 +126,7 @@ Here’s an example of how to specify the fine-grained tool streaming header:
     {
       "name": "make_file",
       "description": "Write text to a file",
+      "eager_input_streaming": true,
       "input_schema": {
         "type": "object",
         "properties": {
@@ -176,6 +176,16 @@ Chunk 2: ' new features comparison'
 
 **Note**  
 Because fine-grained streaming sends parameters without buffering or JSON validation, there is no guarantee that the resulting stream will complete in a valid JSON string. Particularly, if the stop reason `max_tokens` is reached, the stream may end midway through a parameter and may be incomplete. You will generally have to write specific support to handle when `max_tokens` is reached.
+
+### Legacy fine-grained tool streaming header
+<a name="model-parameters-anthropic-claude-messages-fine-grained-tool-streaming-legacy"></a>
+
+Before `eager_input_streaming` was available, you turned this feature on for a whole request by adding `fine-grained-tool-streaming-2025-05-14` to `anthropic_beta`. The per-tool field replaces that header. The header still works, and it enables fine-grained streaming for any tool that leaves `eager_input_streaming` unset, so setting the field to `false` keeps buffered streaming for that tool even when the request carries the header.
+
+**Important**  
+You can't combine the header with a bundled client toolset. A request that sends both is rejected, for example with `the fine-grained-tool-streaming-2025-05-14 beta header cannot be combined with a computer_toolset_20260801`. Use `eager_input_streaming` on your user-defined tools instead, which works alongside a toolset. For more information about toolsets, see [Client toolsets](#model-parameters-anthropic-claude-messages-computer-use-toolsets).
+
+Claude Sonnet 4.5 supports the header but not `eager_input_streaming`, which it rejects with `tools.0.custom.eager_input_streaming: Extra inputs are not permitted`. Use the header for that model.
 
 ## Computer use (Beta)
 <a name="model-parameters-anthropic-claude-messages-computer-use"></a>

@@ -311,6 +311,57 @@ event: response.output_text.annotation.added
 data: {"type":"response.output_text.annotation.added","annotation":{"type":"url_citation","title":"News and Updates from the July 2025 Pokémon Presents","url":"https://www.pokemon.com/us/pokemon-news/...","start_index":589,"end_index":698},"annotation_index":2,"content_index":0,"item_id":"msg_...","output_index":1}
 ```
 
+### Domain filtering
+<a name="web-search-domain-filtering"></a>
+
+Domain filtering restricts Web Search results to a set of domains you specify. On the `web_search` tool, use the `filters` parameter to set up to 100 `allowed_domains` and up to 100 `blocked_domains`.
+
+Omit the `http://` or `https://` prefix when you list a domain, and note that each entry also matches its subdomains — for example, `aws.amazon.com` also covers `docs.aws.amazon.com`.
+
+```
+tools=[{
+    "type": "web_search",
+    "external_web_access": False,
+    "filters": {
+        "allowed_domains": [
+            "aws.amazon.com",
+            "docs.aws.amazon.com"
+        ]
+    }
+}]
+```
+
+### User location
+<a name="web-search-user-location"></a>
+
+`user_location` is an optional parameter that is used to share location information with the Web Search tool. Depending on the model, location information will be used by a combination of the model and/or search services to localize the response. When this parameter is not configured or empty, location defaults to United States.
+
+Values for `country` are not case sensitive, so `de` is accepted as `DE`. The value is checked against assigned ISO 3166-1 alpha-2 codes. Unassigned and user-assigned codes such as `UK` and `XK` are rejected. Values for `region` and `city` are accepted as free-form strings. `timezone` is accepted as an IANA time zone identifier.
+
+#### Customizing user location
+<a name="web-search-user-location-customizing"></a>
+
+```
+from openai import OpenAI
+
+client = OpenAI()
+
+response = client.responses.create(
+    model="openai.gpt-5.6-terra",
+    input="What are the best restaurants near me?",
+    tools=[{
+        "type": "web_search",
+        "external_web_access": False,
+        "user_location": {
+            "type": "approximate",
+            "country": "US",
+        },
+    }],
+)
+
+print(response.output_text)
+```
+
 ## Security
 <a name="web-search-security-overview"></a>
 

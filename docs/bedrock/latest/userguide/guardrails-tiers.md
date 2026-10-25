@@ -10,6 +10,7 @@ Choosing a tier gives you control over when to adopt new capabilities or maintai
 The following guardrails policies support safeguard tiers:
 + Content filters ([text](guardrails-content-filters.md)) and [prompt attacks](guardrails-prompt-attack.md)
 + [Denied topics](guardrails-denied-topics.md)
++ [Contextual grounding checks](guardrails-contextual-grounding-check.md)
 
 ## Available safeguard tiers
 <a name="guardrails-available-tiers"></a>
@@ -17,7 +18,7 @@ The following guardrails policies support safeguard tiers:
 Amazon Bedrock Guardrails provides the following safeguard tiers:
 
 **Standard tier**  
-Provides more robust performance compared to Classic tier and has more comprehensive language and code-related prompt support. For example, protection against prompt attacks performs more consistently and reliably with Standard tier. Guardrails with Standard tier also use [cross-Region inference](guardrails-cross-region.md). Standard tier supported with content filters and denied topics provides protection against harmful content introduced within code elements including comments, variable and function names, and string literals.
+Provides more robust performance compared to Classic tier and has more comprehensive language and code-related prompt support. For example, protection against prompt attacks performs more consistently and reliably with Standard tier. Guardrails with Standard tier also use [cross-Region inference](guardrails-cross-region.md). Standard tier supported with content filters and denied topics provides protection against harmful content introduced within code elements including comments, variable and function names, and string literals. For contextual grounding checks, Standard tier supports responses that include reasoning or conversational content and returns more consistent scores for differently worded responses with the same meaning.
 
 **Classic tier**  
 Provides established guardrails functionality supporting English, French, and Spanish languages.
@@ -32,6 +33,7 @@ Understanding the differences between safeguard tiers helps you choose the right
 | --- | --- | --- | 
 | Content filter and prompt attacks | More robust than Classic tier | Established performance | 
 | Denied topics | Maximum of 1,000 characters per definition | Maximum of 200 characters per definition | 
+| Contextual grounding checks | More robust than Classic tier. Supports responses that include reasoning or conversational content. | Established performance. Strict grounding only. | 
 | Language support | [Extensive language support](guardrails-supported-languages.md) | English, French, Spanish | 
 | Cross-Region inference | Supported | Not supported | 
 | Prompt leakage detection | Supported | Not supported | 
@@ -44,11 +46,13 @@ Determining the safeguard tier to use for your guardrail policies depends on you
 
 For example, consider Standard tier when:
 + Your application handles multiple languages
-+ You need higher accuracy and performance for content filters, prompt attacks, and denied topics
++ You need higher accuracy and performance for content filters, prompt attacks, denied topics, and contextual grounding checks
++ Strict grounding blocks too many valid responses because your application's responses summarize, reason over, or converse about the grounding source rather than restate it
 
 Alternatively, you might still use Classic tier when:
 + Your application primarily uses English, French, or Spanish content
 + You need time before migrating from an existing guardrails implementation to Standard tier
++ Your contextual grounding thresholds are tuned for Classic tier and have not been re-tested against Standard tier
 
 ## Migrating your guardrail to Standard tier
 <a name="guardrails-tiers-migration"></a>
@@ -88,3 +92,18 @@ Safeguard tiers are supported in the following [AWS Regions](guardrails-supporte
 + Middle East (UAE)
 + Israel (Tel Aviv)
 + AWS GovCloud (US-West)
+
+Standard tier for contextual grounding checks is available in the following Regions:
++ US East (N. Virginia)
++ US East (Ohio)
++ US West (N. California)
++ US West (Oregon)
++ Europe (Frankfurt)
++ Europe (Ireland)
++ Europe (Milan)
++ Europe (Paris)
++ Europe (Spain)
++ Europe (Stockholm)
++ Asia Pacific (Tokyo)
+
+Requests that specify Standard tier for contextual grounding checks in any other Region fail with a validation error.

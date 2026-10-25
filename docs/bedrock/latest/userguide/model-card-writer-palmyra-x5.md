@@ -14,9 +14,9 @@ Palmyra X5 is Writer's enterprise model with improved reasoning, coding, and age
 + **EOL no sooner than:** Jan 21, 2027
 + **Legacy period:** at least 6 months
 + **Model lifecycle policy:** [Model lifecycle (For Models Launched Prior to Sept 7 2026)](model-lifecycle-legacy.md)
-+ **Model EOL date:** No sooner than 4/28/2026
++ **Model EOL date:** March 21, 2027
 + **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/)
-+ **Model lifecycle:** Active
++ **Model lifecycle:** Legacy
 + **Context window:** 128K tokens
 + **Max output tokens:** 8K
 + **Marketplace product ID:** `prod-23enyy63orhuk`

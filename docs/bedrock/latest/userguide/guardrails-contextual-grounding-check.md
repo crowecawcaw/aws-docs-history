@@ -3,7 +3,7 @@
 # Use contextual grounding check to filter hallucinations in responses
 <a name="guardrails-contextual-grounding-check"></a>
 
-Amazon Bedrock Guardrails supports contextual grounding checks to detect and filter hallucinations in model responses when a reference source and a user query is provided. The supported use cases include summarization, paraphrasing, and question answering as defined in computer science discipline. (Conversational QA / Chatbot use cases are not supported.)
+Amazon Bedrock Guardrails supports contextual grounding checks to detect and filter hallucinations in model responses when a reference source and a user query is provided. The supported use cases include summarization, paraphrasing, and question answering. Standard tier also supports responses that include reasoning or conversational content. Classic tier does not support conversational use cases. For more information, see [Safeguard tiers for contextual grounding checks](#guardrails-contextual-grounding-tiers) on this page.
 
 Contextual grounding checks check for relevance for each chunk processed. If any one chunk is deemed relevant, the whole response is considered relevant as it has the answer to user's query. For streaming API, this can result in scenario where an irrelevant response is returned to the user and is only marked as irrelevant after the whole response is streamed.
 
@@ -11,17 +11,30 @@ Contextual grounding checks the following paradigms:
 + **Grounding** – This checks if the model response is factually accurate based on the source and is grounded in the source. Any new information introduced in the response will be considered un-grounded.
 + **Relevance** – This checks if the model response is relevant to the user query. 
 
-Consider an example where the reference source contains "London is the capital of UK. Tokyo is the capital of Japan" and the user query is "What is the capital of Japan?". A response such as "The capital of Japan is London" will be considered ungrounded and factually incorrect, where as a response such as "The capital of UK is London" will be considered irrelevant, even if it's correct and grounded in the source.
+Consider an example where the reference source contains "London is the capital of UK. Tokyo is the capital of Japan" and the user query is "What is the capital of Japan?". A response such as "The capital of Japan is London" will be considered ungrounded and factually incorrect, where as a response such as "The capital of UK is London" will be considered irrelevant, even if it's correct and grounded in the source.<a name="guardrails-contextual-grounding-tiers"></a>
+
+**Safeguard tiers for contextual grounding checks**
+
+Contextual grounding checks support two [safeguard tiers](guardrails-tiers.md). The tier determines how the check evaluates responses and which languages it supports.
+
+**Classic tier** evaluates strict grounding. Any information in the response that is not stated in the grounding source lowers the grounding score, including reasonable inferences and conversational phrasing. Classic tier supports English, French, and Spanish.
+
+**Standard tier** provides a more robust solution than Classic tier, with support for responses that include reasoning or conversational content. Standard tier returns more consistent scores for differently worded responses that have the same meaning. It supports the same languages as Standard tier content filters. For more information, see [Languages supported by Amazon Bedrock Guardrails](guardrails-supported-languages.md). Standard tier requires that your guardrail use [cross-Region inference](guardrails-cross-region.md). Standard tier for contextual grounding checks is available in a subset of the AWS Regions that support safeguard tiers. For the list, see [Supported Regions for safeguard tiers](guardrails-tiers.md#guardrails-tiers-regions).
+
+If you don't specify a tier, your guardrail uses Classic tier. The maximum lengths for the grounding source, query, and response are the same in both tiers.
 
 **Note**  
 When a request includes multiple `grounding_source` tags, the guardrail combines and evaluates all the provided `grounding_source` values together, rather than considering each `grounding_source` separately. This behavior is identical for the `query` tag.
 
 **Note**  
-Contextual grounding policy currently supports a maximum of 100,000 characters for grounding source, 1,000 characters for query, and 5,000 characters for response.
+Contextual grounding policy currently supports a maximum of 100,000 characters for grounding source, 1,000 characters for query, and 5,000 characters for response.<a name="guardrails-contextual-grounding-scores"></a>
 
-**Confidence scores and thresholds**
+**Scores and thresholds**
 
-Contextual grounding checks generate confidence scores corresponding to grounding and relevance for each model response processed based on the source and user query provided. You can configure thresholds to filter model responses based on the generated scores. The filtering threshold determines the minimum allowable confidence score for the model response to be considered as grounded and relevant in your generative AI application. For example, if your grounding threshold and relevance threshold are each set at 0.7, all model responses with a grounding or relevance score of less than 0.7 will be detected as hallucinations and blocked in your application. As the filtering threshold is increased, the likelihood of blocking un-grounded and irrelevant content increases, and the probability of seeing hallucinated content in your application decreases. You can configure threshold values of grounding and relevance between 0 and 0.99. A threshold of 1 is invalid as that will block all content.
+Contextual grounding checks generate a grounding score and a relevance score for each model response, based on the grounding source and user query that you provide. You can configure thresholds to filter model responses based on the generated scores. The filtering threshold determines the minimum score for the model response to be considered as grounded and relevant in your generative AI application. For example, if your grounding threshold and relevance threshold are each set at 0.7, all model responses with a grounding or relevance score of less than 0.7 will be detected as hallucinations and blocked in your application. As the filtering threshold is increased, the likelihood of blocking un-grounded and irrelevant content increases, and the probability of seeing hallucinated content in your application decreases. You can configure threshold values of grounding and relevance between 0 and 0.99. A threshold of 1 is invalid as that will block all content.
+
+**Note**  
+Standard tier and Classic tier evaluate responses differently, so the same response can receive different scores in each tier. If you change the tier of an existing guardrail, test your grounding and relevance thresholds with your own data before you deploy the change. For conversational and reasoning use cases on Standard tier, a threshold of 0.7 for grounding and relevance is a reasonable starting point.
 
 Contextual grounding checks require 3 components to perform the check: the grounding source, the query, and the content to guard (or the model response). These are configured differently depending on whether you are using Invoke APIs, Converse APIs, or `ApplyGuardrail` directly.
 + Grounding source – contextual information needed to answer any user queries. For example, "London is the capital of UK. Tokyo is the capital of Japan".
@@ -80,6 +93,7 @@ Based on the above source, there can be four scenarios depending on the user's q
 
 **Topics**
 + [Add contextual grounding checks with the console](#guardrails-contextual-grounding-console)
++ [Configure contextual grounding checks with the API](#guardrails-contextual-grounding-api)
 + [Calling contextual grounding check with Invoke APIs](#guardrails-contextual-grounding-invoke-api)
 + [Calling contextual grounding check with Converse APIs](#guardrails-contextual-grounding-converse-api)
 + [Calling contextual grounding check with ApplyGuardrail API](#guardrails-contextual-grounding-applyguardrail-api)
@@ -117,7 +131,51 @@ For each type of check, you can move the slider or input a threshold value from 
 
    1. In the **Relevance** field, select **Enable relevance check** to check if model responses are relevant.
 
-   1. When you finish configuring sensitive information filters, select **Next** or **Skip to review and create**.
+   1. For **Contextual grounding tier**, choose the safeguard tier that you want your guardrail to use for contextual grounding checks. For more information, see [Safeguard tiers for guardrails policies](guardrails-tiers.md). Standard tier requires that you enable cross-Region inference for your guardrail on the **Provide guardrail details** page.
+
+   1. When you finish configuring contextual grounding checks, select **Next** or **Skip to review and create**.
+
+## Configure contextual grounding checks with the API
+<a name="guardrails-contextual-grounding-api"></a>
+
+Configure contextual grounding checks for your guardrail by sending a [CreateGuardrail](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateGuardrail.html) request. The request format is as follows:
+
+```
+POST /guardrails HTTP/1.1
+Content-type: application/json
+
+{
+   "blockedInputMessaging": "string",
+   "blockedOutputsMessaging": "string",
+   "contextualGroundingPolicyConfig": {
+      "filtersConfig": [
+         {
+            "type": "GROUNDING | RELEVANCE",
+            "threshold": number,
+            "action": "BLOCK | NONE",
+            "enabled": true
+         }
+      ],
+      "tierConfig": {
+         "tierName": "CLASSIC | STANDARD"
+      }
+   },
+   "crossRegionConfig": {
+      "guardrailProfileIdentifier": "string"
+   },
+   "description": "string",
+   "name": "string"
+}
+```
++ Specify a `name` and `description` for the guardrail.
++ Specify messages for when the guardrail successfully blocks a model response in the `blockedOutputsMessaging` field.
++ Specify a filter for each score in the `filtersConfig` list of the `contextualGroundingPolicyConfig` object. Set `type` to `GROUNDING` or `RELEVANCE`. Set `threshold` to the minimum score that a response must have to be allowed. For more information about scores and thresholds, see [Scores and thresholds](#guardrails-contextual-grounding-scores) on this page.
++ (Optional) For `action`, choose `BLOCK` to block the response and replace it with blocked messaging, or `NONE` to take no action but return detection information. For more information, see [Options for handling harmful content detected by Amazon Bedrock Guardrails](guardrails-harmful-content-handling-options.md).
++ (Optional) Specify a safeguard tier for your guardrail in the `tierConfig` object within the `contextualGroundingPolicyConfig` object. Options include `STANDARD` and `CLASSIC` tiers. If you omit `tierConfig`, the guardrail uses the `CLASSIC` tier. For more information, see [Safeguard tiers for guardrails policies](guardrails-tiers.md).
++ (Optional) To enable [cross-Region inference](guardrails-cross-region.md), specify a guardrail profile in the `crossRegionConfig` object. This is required when using the `STANDARD` tier. The `STANDARD` tier for contextual grounding checks is available only in the Regions listed in [Supported Regions for safeguard tiers](guardrails-tiers.md#guardrails-tiers-regions). In other Regions, the request fails with a `ValidationException`.
+
+**Note**  
+`UpdateGuardrail` replaces the entire policy configuration. If you update a guardrail that uses the `STANDARD` tier for contextual grounding checks, include `tierConfig` in the request. Omitting it resets the tier to `CLASSIC`.
 
 ## Calling contextual grounding check with Invoke APIs
 <a name="guardrails-contextual-grounding-invoke-api"></a>

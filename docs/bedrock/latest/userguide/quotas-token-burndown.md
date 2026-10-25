@@ -22,7 +22,7 @@ The burndown rate for Anthropic Claude models version 4.8 is **15x for output to
 
 The burndown rate for OpenAI GPT-5.6 Sol, GPT-5.6 Terra, and GPT-5.6 Luna on the `bedrock-runtime` endpoint is **10x for output tokens** (1 output token consumes 10 tokens from your quotas).
 
-For all other models, the burndown rate is **1:1** (1 output token consumes 1 token from your quota).
+Unless otherwise specified in the model card, the burndown rate for all other models is **1:1** (1 output token consumes 1 token from your quota).
 
 Token burndown rates apply only to models available on the `bedrock-runtime` endpoint. Models available exclusively on the `bedrock-mantle` endpoint have separate quotas for input and output tokens, so burndown does not apply.
 

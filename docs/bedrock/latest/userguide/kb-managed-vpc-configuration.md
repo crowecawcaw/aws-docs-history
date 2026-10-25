@@ -5,7 +5,9 @@
 
 Some data sources run on private resources that are not reachable over the public internet, such as an on-premises Confluence Data Center instance that you front with an internal load balancer in your VPC. To crawl these data sources, you create a VPC configuration. Amazon Bedrock uses the configuration to provision a private network path into your VPC and reach the resource.
 
-A VPC configuration is a reusable resource on your knowledge base. You create it once, then reference it by ID from one or more data sources. When you create a data source that needs private connectivity, you select an existing VPC configuration or create a new one.
+A VPC configuration is a reusable account-level resource. You create it once, then reference it by ID from one or more data sources. When you create a data source that needs private connectivity, you select an existing VPC configuration or create a new one.
+
+Although you create a configuration under a knowledge base, the configuration is scoped to your account and AWS Region, not to that knowledge base. Every knowledge base in the account can see the configuration and reference it from a data source, and all of them count toward the same account limit. See [VPC configuration limit](#kb-managed-vpc-configuration-limit).
 
 **Note**  
 When Amazon Bedrock provisions a VPC configuration, it assumes an AWS Identity and Access Management (IAM) role associated with your knowledge base to create a small set of networking resources in your account. Every resource that Amazon Bedrock creates is tagged `ManagedBy=VPCProxyService`, and the role can act only on resources that carry that tag. See [Knowledge base IAM role permissions](#kb-managed-vpc-configuration-role).
@@ -70,11 +72,15 @@ An internet-facing load balancer is not supported. An internet-facing load balan
 ------
 #### [ API ]
 
-To create a VPC configuration, send a `CreateVpcConfiguration` request. All operations are scoped to a knowledge base through the `knowledgeBaseId` path parameter; the request body does not include an account ID or role ARN, because Amazon Bedrock resolves those from the knowledge base.
+To create a VPC configuration, send a `CreateVpcConfiguration` request. Every operation takes a `knowledgeBaseId` path parameter, which must name a knowledge base in your account. Amazon Bedrock uses it to resolve the IAM role that provisions the networking resources, which is why the request body does not include an account ID or role ARN.
 
 ```
 POST /knowledgebases/{{knowledgeBaseId}}/vpcconfigurations/
 ```
+
+**Important**  
+The `knowledgeBaseId` path parameter does not scope the configuration to that knowledge base. `ListVpcConfigurations` returns every configuration in the account and Region, and `GetVpcConfiguration` returns any configuration in the account, whichever knowledge base ID you pass. Do not rely on the path parameter to isolate configurations between knowledge bases.  
+Pass the same knowledge base ID to `DeleteVpcConfiguration` that you used to create the configuration. Delete uses the IAM role of the knowledge base you name in the path, so deleting through a different knowledge base fails if that knowledge base's role lacks the teardown permissions in [Knowledge base IAM role permissions](#kb-managed-vpc-configuration-role).
 
 The request body uses the following fields.
 
@@ -289,6 +295,17 @@ The following example policy grants the required permissions. Replace {{region}}
     ]
 }
 ```
+
+## VPC configuration limit
+<a name="kb-managed-vpc-configuration-limit"></a>
+
+Your account can have at most five VPC configurations in an AWS Region. You create a configuration under a knowledge base, but the limit applies to the account, so configurations belonging to all of your knowledge bases count toward the same five. Reuse a configuration across data sources where you can, rather than creating a separate one for each.
+
+The limit counts every configuration that exists, in any status. A configuration left in `CREATE_FAILED` still occupies a slot, so a series of failed create attempts can exhaust the limit. Delete configurations that you no longer need, including failed ones, to free slots.
+
+`CreateVpcConfiguration` rejects a request for two different reasons that both read as a capacity problem. Use the message to tell them apart:
++ A message that the maximum number of VPC configurations has been reached means you already hold five. Delete one before you create another; retrying does not help.
++ A message that no capacity is available is a transient service-side condition. Retry the request later.
 
 ## Lifecycle
 <a name="kb-managed-vpc-configuration-lifecycle"></a>

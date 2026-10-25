@@ -12,7 +12,7 @@
 
 1. Select your target models (up to 5 per job). If you are migrating to a new model, select your current model as a baseline. Then select up to 4 other models you want to migrate to. If you are not changing models, just select your current model.
 
-1. Upload your JSONL input file from Amazon S3 or from your computer. Make sure you follow the [Prepare your input dataset](advanced-prompt-optimization-input.md).
+1. Upload your JSONL input file from Amazon S3 or from your computer. Make sure you follow the [Prepare your input dataset](advanced-prompt-optimization-input.md). Your input file can also include `optimizationConfig` to enable prompt shortening for a template. For more information, see [Shorten prompts](advanced-prompt-optimization-shorten.md).
 
 1. For each prompt template, select your evaluation method. You can choose between steering criteria, LLM-as-a-judge, Lambda function, or leave blank for the system default.
 
@@ -28,7 +28,7 @@ If you move the results files away from the output S3 location after the job is 
 ## Create a job (Python SDK)
 <a name="advanced-prompt-optimization-jobs-create-api"></a>
 
-Replace the Region, S3 bucket location, model ID, and other fields as necessary for your use case.
+Replace the Region, S3 bucket location, model ID, and other fields as necessary for your use case. For `modelId`, you can specify a foundation model ID, a cross-region inference profile ID, or an application inference profile ARN.
 
 ```
 import boto3
@@ -53,6 +53,9 @@ job_arn = response['jobArn']
 print(f'Job created: {job_arn}')
 ```
 
+**Note**  
+When you create the job through the API, no additional optimization configuration is needed in the `CreateAdvancedPromptOptimizationJob` request itself. Prompt shortening is determined per template from the input JSONL file. For more information, see [Shorten prompts](advanced-prompt-optimization-shorten.md).
+
 ## Create a job (AWS CLI)
 <a name="advanced-prompt-optimization-jobs-create-cli"></a>
 
@@ -67,6 +70,9 @@ JOB_ARN=$(aws bedrock create-advanced-prompt-optimization-job \
     --region us-west-2 \
     --query 'jobArn' --output text)
 ```
+
+**Note**  
+When you create the job through the API, no additional optimization configuration is needed in the `CreateAdvancedPromptOptimizationJob` request itself. Prompt shortening is determined per template from the input JSONL file. For more information, see [Shorten prompts](advanced-prompt-optimization-shorten.md).
 
 ## Check job status
 <a name="advanced-prompt-optimization-jobs-status"></a>

@@ -11,6 +11,31 @@ Resource-based policies are recommended for use with account-level enforced guar
 
 RBPs are attached from the guardrails detail page. If the guardrail has Cross-Region Inference (CRIS) enabled, the caller must also have `ApplyGuardrail` permission on all destination-region guardrail-owner-account profile objects associated with that profile, and RBPs must be attached to the profiles in turn. For more information, see [Permissions for using cross-Region inference with Amazon Bedrock Guardrails](guardrail-profiles-permissions.md). Profiles detail pages can be reached from the "System-defined guardrail profiles" section on the guardrails dashboard, and RBPs attached from there.
 
+**Attach profile policies in the guardrail's source Region**  
+A resource-based policy is stored in the AWS Region whose endpoint you call, under the resource ARN that you pass. Guardrail evaluation authorizes the caller in the guardrail's source Region, so every destination-Region profile ARN must be given its policy through the **source** Region's endpoint, even though the ARN names a different Region. For the list of destination Regions that apply to your source Region, see [Supported Regions for cross-Region guardrail inference](guardrails-cross-region-support.md).  
+Calling `PutResourcePolicy` against each destination Region's own endpoint succeeds, but the resulting policy has no effect on calls made from the source Region. Two symptoms identify that mistake:  
+`GetResourcePolicy` called in the source Region on a destination-Region profile ARN returns an empty policy (`{}`), while the same call in the destination Region returns the policy.
+A cross-account [ApplyGuardrail](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ApplyGuardrail.html) call fails with `AccessDeniedException: The provided resource ARN is from a different account.` even though `GetGuardrail` succeeds and the same guardrail works without a profile.
+Attach the guardrail's own policy and then every destination-Region profile policy, all through the source Region. The following example uses {{eu-central-1}} as the source Region.  
+
+```
+SOURCE_REGION=eu-central-1
+OWNER={{111122223333}}
+
+aws bedrock put-resource-policy \
+  --region "$SOURCE_REGION" \
+  --resource-arn "arn:aws:bedrock:$SOURCE_REGION:$OWNER:guardrail/{{guardrail-id}}" \
+  --policy file://guardrail-policy.json
+
+for DEST in eu-central-1 eu-west-1 eu-west-3 eu-north-1; do
+  aws bedrock put-resource-policy \
+    --region "$SOURCE_REGION" \
+    --resource-arn "arn:aws:bedrock:$DEST:$OWNER:guardrail-profile/eu.guardrail.v1:0" \
+    --policy file://profile-policy.json
+done
+```
+Passing a Region that is not a destination for your source Region is rejected with `ResourceNotFoundException: This is not a valid destination region for this guardrail profile.` Treat that error as a sign that the Region does not belong in the loop, not that the call should be retried from elsewhere.
+
 For enforced guardrails (either organization or account-level), all callers of Bedrock Invoke or Converse APIs who do not have permissions to call that guardrail will start seeing their calls fail with an `AccessDenied` exception. For this reason it is strongly recommended to check that you are able to call [ApplyGuardrail](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ApplyGuardrail.html) API on the guardrail from the identities it will be used by, in the accounts it will be enforced on, before creating an organizational or account enforced guardrail configuration.
 
 The allowed policy language for guardrail and guardrail-profile resource-based policies is currently restricted and only supports a limited set of policy statements.

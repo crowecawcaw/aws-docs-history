@@ -8,7 +8,7 @@
 + [Prerequisites for running model inference](inference-prereq.md)
 + [Generate responses in the console using playgrounds](playgrounds.md)
 + [Use computer use tools to automate GUI tasks with Amazon Bedrock models](computer-use.md)
-+ [Get validated JSON results from models](claude-messages-structured-outputs.md)
++ [Structured outputs for Anthropic Claude models](claude-messages-structured-outputs.md)
 + [API restrictions](inference-api-restrictions.md)
 + [Submit a single prompt with InvokeModel (moved)](inference-invoke.md)
 + [Using the Converse API (moved)](conversation-inference-call.md)

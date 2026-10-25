@@ -14,9 +14,9 @@ Pegasus v1.2 is TwelveLabs' video-to-text generation model that produces detaile
 + **EOL no sooner than:** Feb 11, 2026
 + **Legacy period:** at least 6 months
 + **Model lifecycle policy:** [Model lifecycle (For Models Launched Prior to Sept 7 2026)](model-lifecycle-legacy.md)
-+ **Model EOL date:** N/A
++ **Model EOL date:** March 22, 2027
 + **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/)
-+ **Model lifecycle:** Active
++ **Model lifecycle:** Legacy
 + **Marketplace product ID:** `prod-635pcy5x5pc2a`
 
 

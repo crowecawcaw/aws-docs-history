@@ -43,7 +43,7 @@ Complete authentication setup first. See [User-managed setup (3LO)](kb-managed-o
 ------
 #### [ API ]
 
-To create a OneDrive data source, send a [CreateDataSource](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateDataSource.html) request with an Agents for Amazon Bedrock build-time endpoint. The following AWS Command Line Interface example creates a data source that uses Microsoft Entra App ID authentication. To enable document-level access control, set `aclEnabled` to `true` and add a `certificateS3Path` to `connectionConfiguration`. For a description of each field, see the connector parameters reference that follows.
+To create a OneDrive data source, send a [CreateDataSource](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateDataSource.html) request with an Agents for Amazon Bedrock build-time endpoint. The following AWS Command Line Interface example creates a data source that uses Microsoft Entra App ID authentication. With `ENTRA_APP_ID` authentication, document-level access control is enabled unless you set `aclEnabled` to `false`, as the following example does; to use ACL, keep the default or set `aclEnabled` to `true` and add a `certificateS3Path` to `connectionConfiguration`. For a description of each field, see the connector parameters reference that follows.
 
 ```
 aws bedrock-agent create-data-source \
@@ -108,6 +108,9 @@ For managed knowledge bases, `CreateDataSource` is asynchronous: the data source
 
 The data source configuration uses the following connector parameters. To connect to OneDrive, specify `ONEDRIVE` as the connector type in `connectorParameters`. For the fields that wrap `connectorParameters` (such as `deletionProtectionConfiguration` and `mediaExtractionConfiguration`), see [Connect a data source](kb-managed-connect-ds.md).
 
+**Set `aclEnabled` explicitly**  
+If you omit `aclEnabled`, the default depends on `authType`: `ENTRA_APP_ID` defaults to `true`, and `OAUTH2` defaults to `false`. Because ACL configuration is permanent after the data source is created, set `aclEnabled` explicitly so the data source has the access-control behavior you intend. For details, see [Document-level access controls](kb-managed-ds-onedrive-acl.md).
+
 
 **connectionConfiguration**  
 
@@ -152,7 +155,7 @@ With `OAUTH2` authentication the connector crawls in the signed-in user's delega
 
 | Field | Required | Description | 
 | --- | --- | --- | 
-| aclEnabled | No | Set to true to enable document-level access control. Requires ENTRA\_APP\_ID authentication and a certificateS3Path in connectionConfiguration. You cannot change this setting after you create the data source. For details, see [Document-level access controls](kb-managed-ds-onedrive-acl.md). | 
+| aclEnabled | No | Whether to enable document-level access control. Defaults to true with ENTRA\_APP\_ID authentication and false with OAUTH2. ACL requires ENTRA\_APP\_ID authentication and a certificateS3Path in connectionConfiguration. You cannot change this setting after you create the data source. For details, see [Document-level access controls](kb-managed-ds-onedrive-acl.md). | 
 
 ## Exclude documents by sensitivity label
 <a name="kb-managed-onedrive-sensitivity-labels"></a>

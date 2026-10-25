@@ -21,6 +21,9 @@ In this prompt dataset, you will also choose the evaluation method to steer the 
     "version": "bedrock-2026-05-14",
     "templateId": "string",
     "promptTemplate": "string",
+    "optimizationConfig": {
+        "shortenPrompt": true
+    },
     "steeringCriteria": ["string"],
     "customEvaluationMetricLabel": "string",
     "customLLMJConfig": {
@@ -56,19 +59,21 @@ In this prompt dataset, you will also choose the evaluation method to steer the 
 | 1 | version | string | Yes | Fixed value: "bedrock-2026-05-14". | 
 | 2 | templateId | string | Yes | Unique identifier for this prompt template. Used to correlate input and output. | 
 | 3 | promptTemplate | string | Yes | The prompt template to optimize. Use {{variableName}} syntax for variable placeholders. You can optionally include <advpo:optimize> and <advpo:exclude> tags to control which sections the optimizer rewrites. For more information, see [Selective optimization](advanced-prompt-optimization-selective.md). | 
-| 4 | steeringCriteria | list of string | No | High-level optimization criteria (for example, ["PROFESSIONAL"]). | 
-| 5 | customEvaluationMetricLabel | string | Yes (if customLLMJConfig or evaluationMetricLambdaArn is used) | Name for your evaluation metric. | 
-| 6 | customLLMJConfig | object | No | Custom LLM-as-Judge configuration. | 
-| 7 | customLLMJConfig.customLLMJPrompt | string | Yes (if customLLMJConfig present) | The judge prompt used to evaluate responses. Use {{prompt}}, {{response}}, {{referenceResponse}} as placeholders. | 
-| 8 | customLLMJConfig.customLLMJModelId | string | Yes (if customLLMJConfig present) | Bedrock model ID for the judge model. | 
-| 9 | evaluationMetricLambdaArn | string | No | ARN of a Lambda function for custom evaluation. | 
-| 10 | evaluationSamples | list | Yes | Evaluation samples with input variables and reference responses. | 
-| 11 | evaluationSamples[].inputVariables | list of objects | Yes (if not using inputVariablesMultimodal) | Single-key objects matching {{variableName}} placeholders. At least one of inputVariables or inputVariablesMultimodal must be present per sample. | 
-| 12 | evaluationSamples[].referenceResponse | string | No | Optional ground-truth reference response. Recommended for best optimization results. | 
-| 13 | evaluationSamples[].inputVariablesMultimodal | list of objects | Yes (if not using inputVariables) | Multimodal file inputs. At least one of inputVariables or inputVariablesMultimodal must be present per sample. | 
-| 14 | evaluationSamples[].inputVariablesMultimodal[].Arbitrary\_Name | object | Yes (if multimodal present) | Name your multimodal variable. This is an arbitrary user-chosen name. | 
-| 15 | evaluationSamples[].inputVariablesMultimodal[].Arbitrary\_Name.type | string | Yes (if multimodal present) | "IMAGE" or "PDF". IMAGE accepts JPG, JPEG, PNG, GIF, and WebP. | 
-| 16 | evaluationSamples[].inputVariablesMultimodal[].Arbitrary\_Name.s3Uri | string | Yes (if multimodal present) | S3 URI path to the multimodal file. | 
+| 4 | optimizationConfig | object | No | Container for optimization settings. | 
+| 5 | optimizationConfig.shortenPrompt | boolean | No | Enables prompt shortening. The optimizer reduces the length of your prompt template while maintaining or improving evaluation scores. Omitting the field or setting it to false leaves shortening off. For more information, see [Shorten prompts](advanced-prompt-optimization-shorten.md). | 
+| 6 | steeringCriteria | list of string | No | High-level optimization criteria (for example, ["PROFESSIONAL"]). | 
+| 7 | customEvaluationMetricLabel | string | Yes (if customLLMJConfig or evaluationMetricLambdaArn is used) | Name for your evaluation metric. | 
+| 8 | customLLMJConfig | object | No | Custom LLM-as-Judge configuration. | 
+| 9 | customLLMJConfig.customLLMJPrompt | string | Yes (if customLLMJConfig present) | The judge prompt used to evaluate responses. Use {{prompt}}, {{response}}, {{referenceResponse}} as placeholders. | 
+| 10 | customLLMJConfig.customLLMJModelId | string | Yes (if customLLMJConfig present) | Judge model. A base model ID, cross-region inference profile ID, or application inference profile ARN for one of the supported judge models. For the list, see [Supported Regions, models, and quotas](advanced-prompt-optimization-quotas.md). | 
+| 11 | evaluationMetricLambdaArn | string | No | ARN of a Lambda function for custom evaluation. | 
+| 12 | evaluationSamples | list | Yes | Evaluation samples with input variables and reference responses. | 
+| 13 | evaluationSamples[].inputVariables | list of objects | Yes (if not using inputVariablesMultimodal) | Single-key objects matching {{variableName}} placeholders. At least one of inputVariables or inputVariablesMultimodal must be present per sample. | 
+| 14 | evaluationSamples[].referenceResponse | string | No | Optional ground-truth reference response. Recommended for best optimization results. | 
+| 15 | evaluationSamples[].inputVariablesMultimodal | list of objects | Yes (if not using inputVariables) | Multimodal file inputs. At least one of inputVariables or inputVariablesMultimodal must be present per sample. | 
+| 16 | evaluationSamples[].inputVariablesMultimodal[].Arbitrary\_Name | object | Yes (if multimodal present) | Name your multimodal variable. This is an arbitrary user-chosen name. | 
+| 17 | evaluationSamples[].inputVariablesMultimodal[].Arbitrary\_Name.type | string | Yes (if multimodal present) | "IMAGE" or "PDF". IMAGE accepts JPG, JPEG, PNG, GIF, and WebP. | 
+| 18 | evaluationSamples[].inputVariablesMultimodal[].Arbitrary\_Name.s3Uri | string | Yes (if multimodal present) | S3 URI path to the multimodal file. | 
 
 ## Required fields
 <a name="advanced-prompt-optimization-input-required"></a>
@@ -110,7 +115,8 @@ For the full list of quotas, see [Supported Regions, models, and quotas](advance
 + Multiple keys in one `inputVariables` object = silent failure
 + Using single curly brackets like `{variable}` instead of double curly brackets like `{{variable}}`
 + The `inputVariables` keys must match the `{{variableName}}` placeholders in the `promptTemplate`
-+ Allowed LLMJ models: anthropic.claude-opus-4-6-v1, anthropic.claude-sonnet-4-5-20250929-v1:0, anthropic.claude-sonnet-4-6
++ Looking for a console toggle or an API parameter to enable prompt shortening. `optimizationConfig` is set per template in this input file only.
++ Using a judge model that is not on the supported list = ValidationException. For the list, see [Supported Regions, models, and quotas](advanced-prompt-optimization-quotas.md).
 
 ## Use multimodal inputs
 <a name="advanced-prompt-optimization-input-multimodal"></a>

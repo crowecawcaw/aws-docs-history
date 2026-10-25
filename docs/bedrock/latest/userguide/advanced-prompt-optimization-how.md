@@ -6,7 +6,7 @@
 ## Overview
 <a name="advanced-prompt-optimization-how-overview"></a>
 
-Advanced Prompt Optimization (AdvPO) allows you to optimize your prompts for any model on Bedrock while comparing your original prompts to optimized prompts across up to 5 models simultaneously. You can use this if you are migrating to a new model or just want to get better performance on your current model. If you are changing models, select your current model as a baseline and up to 4 other models. If you are not changing models, just select your current model to see before and after optimization. The optimizer takes your prompt templates (up to 10 per job), example user inputs for variable values (evaluation samples, up to 100 per prompt template), ground truth answers, and an evaluation metric to guide the optimization. It's even compatible with multimodal inputs such as JPG, JPEG, PNG, GIF, WebP, or PDF. You can provide an LLM-as-a-judge rubric, a Lambda function, or short natural language steering criteria. The evaluation steers the prompt optimization. The optimizer works in an evaluation-based feedback loop to optimize the prompt and resulting model responses, and outputs the original and final prompt templates with evaluation scores, cost estimates, and latency.
+Advanced Prompt Optimization (AdvPO) allows you to optimize your prompts for any model on Bedrock while comparing your original prompts to optimized prompts across up to 5 models simultaneously. You can use this if you are migrating to a new model or just want to get better performance on your current model. If you are changing models, select your current model as a baseline and up to 4 other models. If you are not changing models, just select your current model to see before and after optimization. The optimizer takes your prompt templates (up to 10 per job), example user inputs for variable values (evaluation samples, up to 100 per prompt template), ground truth answers, and an evaluation metric to guide the optimization. It's even compatible with multimodal inputs such as JPG, JPEG, PNG, GIF, WebP, or PDF. You can provide an LLM-as-a-judge rubric, a Lambda function, or short natural language steering criteria. The evaluation steers the prompt optimization. The optimizer works in an evaluation-based feedback loop to optimize the prompt and resulting model responses. It outputs the original and final prompt templates with evaluation scores and latency metrics. Optionally, you can enable prompt shortening to reduce the length of your prompt while maintaining or improving evaluation scores, which lowers input token costs and can reduce latency. For more information, see [Shorten prompts](advanced-prompt-optimization-shorten.md).
 
 If you want to migrate prompts from a non-Bedrock model and still want to have side-by-side comparisons, one way you can do that is to run inference on your non-Bedrock model separately, then apply a [Custom Lambda evaluator](advanced-prompt-optimization-evaluation.md#advanced-prompt-optimization-evaluation-lambda) to score those results. Then, create an Advanced Prompt Optimization job with the same Lambda function evaluator for your Bedrock target models. That way, you can have a direct comparison of your old model to your new model before and after prompt optimization.
 
@@ -37,8 +37,8 @@ For more information, see [Selective optimization](advanced-prompt-optimization-
 At the end of the optimization job, you receive:
 + Your prompt templates before and after optimization
 + Evaluation scores for each evaluation sample
-+ Latency (time to first token, or TTFT) for each model
-+ Cost estimates for each model
++ Average and median latency and average and median time to first token (TTFT) for each model, in seconds
++ If prompt shortening is enabled: the compression ratio and the original and optimized token counts
 
 ## Cost
 <a name="advanced-prompt-optimization-how-cost"></a>

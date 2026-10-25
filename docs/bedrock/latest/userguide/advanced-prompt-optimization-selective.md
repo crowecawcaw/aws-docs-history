@@ -110,6 +110,18 @@ The following configurations cause a validation error.
 
 In the optimized prompt returned at the end of the job, the optimizer strips all `<advpo:optimize>` and `<advpo:exclude>` tags. You receive a clean prompt without any optimization markup. The content inside `<advpo:exclude>` blocks (and untagged content in explicit inclusion mode) appears unchanged. The content inside `<advpo:optimize>` blocks contains the optimizer's rewritten version.
 
+## Interaction with prompt shortening
+<a name="advanced-prompt-optimization-selective-shortening"></a>
+
+Prompt shortening, described in [Shorten prompts](advanced-prompt-optimization-shorten.md), reduces the length of the sections the optimizer is allowed to rewrite. It never changes content the optimizer is not allowed to rewrite. What that means depends on the mode:
++ **Legacy mode**, meaning no tags in the template: shortening applies to the whole prompt template.
++ **Explicit inclusion mode**, meaning at least one `<advpo:optimize>` block: shortening applies only to content inside `<advpo:optimize>` blocks. All untagged content is preserved as written.
++ **Exclusion-only mode**, meaning `<advpo:exclude>` blocks and no `<advpo:optimize>` blocks: shortening applies to everything outside the `<advpo:exclude>` blocks. Content inside `<advpo:exclude>` blocks is preserved as written.
+
+Shortening cannot be scoped to a subset of your optimized sections. If your template has more than one `<advpo:optimize>` block, every one of them is eligible for shortening. To keep a section at its original length, keep it out of your `<advpo:optimize>` blocks.
+
+The compression ratio reported in the results is calculated over the whole prompt template, after the `advpo:` tag markers are stripped. A template where only a small section is eligible for shortening shows a ratio closer to 1.0 even if that section was compressed substantially.
+
 ## Additional behaviors
 <a name="advanced-prompt-optimization-selective-edge-cases"></a>
 

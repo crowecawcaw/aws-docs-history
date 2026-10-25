@@ -21,7 +21,7 @@ The following tables show the requirements for files processed using the Invoke 
 | Maximum Number of pages per document while splitter is enabled | 3000 | 
 | (Console) Maximum file size (MB) | 200 | 
 | Maximum file size (MB) | 500 | 
-| Supported File Formats | PDF, TIFF, JPEG, PNG, DOCX | 
+| Supported File Formats | PDF, TIFF, JPEG, PNG, DOC, DOCX | 
 | PDF Specific Limits | The maximum height and width is 40 inches and 9000 points. PDFs cannot be password protected. PDFs can contain JPEG 2000 formatted images. | 
 | Document Rotation and Image Size | BDA supports all in-plane document rotations, for example 45-degree in-plane rotation.<br />BDA supports images with a resolution less than or equal to 10000 pixels on all sides. | 
 | Text Alignment |  Text can be text aligned horizontally within the document. Horizontally arrayed text can be read regardless of the degree of rotation of a document. BDA does not support vertical text (text written vertically, as is common in languages like Japanese and Chinese) alignment within the document. | 

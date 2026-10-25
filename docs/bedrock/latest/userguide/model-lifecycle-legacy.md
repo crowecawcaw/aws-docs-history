@@ -307,21 +307,37 @@ The following models are in the Legacy state with an announced EOL date. Migrate
   - **EOL date:** November 30, 2026
   - **Public extended access start date:** August 29, 2026
 
+- **TwelveLabs**
+  - **Model name:** Marengo Embed 3.0
+  - **Model ID:** twelvelabs.marengo-embed-3-0-v1:0
+  - **Regions:** ap-northeast-2
+  - **Legacy date:** September 22, 2026
+  - **EOL date:** March 22, 2027
+  - **Public extended access start date:** —
+
+- **TwelveLabs**
+  - **Model name:** Pegasus v1.2
+  - **Model ID:** twelvelabs.pegasus-1-2-v1:0
+  - **Regions:** af-south-1, ap-east-2, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-south-2, ap-southeast-1, ap-southeast-2, ap-southeast-3, ap-southeast-4, ap-southeast-5, ap-southeast-7, ca-central-1, ca-west-1, eu-central-1, eu-central-2, eu-north-1, eu-south-1, eu-south-2, eu-west-1, eu-west-2, eu-west-3, il-central-1, mx-central-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2
+  - **Legacy date:** September 22, 2026
+  - **EOL date:** March 22, 2027
+  - **Public extended access start date:** —
+
 - **Writer**
   - **Model name:** Palmyra X4
   - **Model ID:** writer.palmyra-x4-v1:0
-  - **Regions:** us-east-1, us-east-2, us-west-2
+  - **Regions:** us-east-1, us-east-2, us-west-1, us-west-2
   - **Legacy date:** September 9, 2026
   - **EOL date:** March 9, 2027
-  - **Public extended access start date:** To be announced
+  - **Public extended access start date:** —
 
 - **Writer**
   - **Model name:** Palmyra X5
   - **Model ID:** writer.palmyra-x5-v1:0
-  - **Regions:** us-east-1, us-east-2, us-west-2
+  - **Regions:** us-east-1, us-east-2, us-west-1, us-west-2
   - **Legacy date:** September 21, 2026
   - **EOL date:** March 21, 2027
-  - **Public extended access start date:** To be announced
+  - **Public extended access start date:** —
 
 - **Z.AI**
   - **Model name:** GLM 4.7

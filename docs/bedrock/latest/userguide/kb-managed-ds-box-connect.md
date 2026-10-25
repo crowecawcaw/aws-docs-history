@@ -29,7 +29,7 @@ Complete authentication setup first. See [Set up Client Credentials Grant authen
 ------
 #### [ API ]
 
-To create a Box data source, send a [CreateDataSource](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateDataSource.html) request with an Agents for Amazon Bedrock build-time endpoint. The following AWS Command Line Interface example creates a data source that uses Client Credentials Grant authentication. To use OAuth 2.0 instead, change `authType` to `OAUTH2`. To enable document-level access control, set `aclEnabled` to `true`. For a description of each field, see the connector parameters reference that follows.
+To create a Box data source, send a [CreateDataSource](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateDataSource.html) request with an Agents for Amazon Bedrock build-time endpoint. The following AWS Command Line Interface example creates a data source that uses Client Credentials Grant authentication. To use OAuth 2.0 instead, change `authType` to `OAUTH2`. With `CCG` authentication, document-level access control is enabled unless you set `aclEnabled` to `false`, as the following example does. For a description of each field, see the connector parameters reference that follows.
 
 ```
 aws bedrock-agent create-data-source \
@@ -86,6 +86,9 @@ For managed knowledge bases, `CreateDataSource` is asynchronous: the data source
 
 The data source configuration uses the following connector parameters. To connect to Box, specify `BOX` as the connector type in `connectorParameters`. For the fields that wrap `connectorParameters` (such as `deletionProtectionConfiguration` and `mediaExtractionConfiguration`), see [Connect a data source](kb-managed-connect-ds.md).
 
+**Set `aclEnabled` explicitly**  
+If you omit `aclEnabled`, the default depends on `authType`: `CCG` defaults to `true`, and `OAUTH2` defaults to `false`. Because ACL configuration is permanent after the data source is created, set `aclEnabled` explicitly so the data source has the access-control behavior you intend. For details, see [Document-level access controls](kb-managed-ds-box-acl.md).
+
 
 **connectionConfiguration**  
 
@@ -114,7 +117,7 @@ The data source configuration uses the following connector parameters. To connec
 
 | Field | Required | Description | 
 | --- | --- | --- | 
-| aclEnabled | No | Set to true to enable document-level access control. Requires CCG authentication. You cannot change this setting after you create the data source. For details, see [Document-level access controls](kb-managed-ds-box-acl.md). | 
+| aclEnabled | No | Whether to enable document-level access control. Defaults to true with CCG authentication and false with OAUTH2. ACL requires CCG authentication. You cannot change this setting after you create the data source. For details, see [Document-level access controls](kb-managed-ds-box-acl.md). | 
 
 ## Change the authentication method
 <a name="kb-managed-ds-box-change-auth"></a>

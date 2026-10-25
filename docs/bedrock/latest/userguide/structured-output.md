@@ -24,6 +24,9 @@ Structured outputs constrains model responses to follow a specific schema, ensur
 
 For InvokeModel API with Anthropic Claude models, use the `output_config.format` request field. With open weight models, use the `response_format` request field. For Converse APIs, use the `outputConfig.textFormat` request field. The model's response will conform to the specified JSON schema.
 
+**Note**  
+The `output_format` field is deprecated. Use `output_config.format` instead.
+
 ### Strict tool use
 <a name="structured-output-strict-tool-use"></a>
 
@@ -40,7 +43,7 @@ The following describes how Amazon Bedrock processes requests with structured ou
 
 1. **Schema validation** – Amazon Bedrock validates the JSON schema format against the supported JSON Schema Draft 2020-12 subset. If the schema contains unsupported features, Amazon Bedrock returns a 400 error immediately.
 
-1. **First-time compilation** – For new schemas, Amazon Bedrock compiles the grammar, which may take up to a few minutes.
+1. **First-time compilation** – For new schemas, Amazon Bedrock compiles the grammar, which can take up to approximately 90 seconds.
 
 1. **Caching** – Successfully compiled grammars are cached for 24 hours from first access. Cached grammars are encrypted with AWS-managed keys.
 
@@ -55,8 +58,9 @@ The following JSON Schema Draft 2020-12 features are supported:
 + All basic types: `object`, `array`, `string`, `integer`, `number`, `boolean`, `null`
 + `enum` (strings, numbers, booleans, or nulls only)
 + `const`, `anyOf`, `allOf` (with limitations)
-+ `$ref`, `$def`, and `definitions` (internal references only)
++ `$ref`, `$defs`, and `definitions` (internal references only)
 + String formats: `date-time`, `time`, `date`, `duration`, `email`, `hostname`, `uri`, `ipv4`, `ipv6`, `uuid`
++ `pattern` (regular expressions, excluding lookaround and backreferences)
 + Array `minItems` (only values 0 and 1)
 
 The following features are *not* supported:
@@ -65,6 +69,25 @@ The following features are *not* supported:
 + Numerical constraints (`minimum`, `maximum`, `multipleOf`)
 + String constraints (`minLength`, `maxLength`)
 + `additionalProperties` set to anything other than `false`
+
+When you use structured outputs, every `object` in your schema must explicitly set `additionalProperties` to `false`. If an object omits `additionalProperties`, or sets it to any value other than `false`, Amazon Bedrock returns a 400 `ValidationException`.
+
+Amazon Bedrock supports a subset of regular expressions for `pattern` that excludes lookaround and backreferences. An invalid or unsupported regular expression returns a 400 `ValidationException` with the message "Invalid regex in pattern field."
+
+The `default` keyword is accepted but is not enforced. Constrained decoding does not insert the default value. The model uses it only as a hint when it generates a value, so the value is not guaranteed. A property that specifies a `default` remains optional unless you list it in `required`, so it counts toward the limit of 12 optional properties described in [Limits](#structured-output-limits).
+
+## Limits
+<a name="structured-output-limits"></a>
+
+The following limits apply to the JSON schemas that you use with structured outputs.
++ **Optional properties.** A schema can contain a maximum of 12 optional properties in total, counted across all nested objects in the schema. An optional property is any property that is not listed in `required`, including an optional object-valued property. A schema that exceeds this limit returns a `ValidationException` with the message "Schema is too complex." Amazon Bedrock enforces this limit while it compiles the grammar, so the error can take up to approximately 90 seconds to return.
++ **Union-typed properties.** A schema can contain a maximum of 16 properties that use a type array (for example, `"type": ["string", "null"]`) or `anyOf`. A schema that exceeds this limit returns a `ValidationException` immediately.
++ **Compilation time.** The first request that uses a new schema compiles a grammar, which can take up to approximately 90 seconds. Subsequent requests that use the same schema reuse the cached grammar and return with standard inference latency. Set your client read timeout to at least 120 seconds so that the first request does not time out during compilation.
+
+To include more than 12 fields that might be absent, list the fields in `required` and make each one nullable by using a type array, such as `"type": ["string", "null"]`. The model returns `null` for any field that it cannot fill. Because nullable fields are union-typed, you can define a maximum of 16 of them.
+
+**Note**  
+Set the maximum number of response tokens high enough to contain the complete JSON object. For example, use `max_tokens` for the [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) API or `maxTokens` for the [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) API. If the response reaches the token limit first, the model stops with a `max_tokens` stop reason and returns incomplete JSON, even when structured outputs is enabled.
 
 ## Supported APIs or features
 <a name="structured-output-supported-apis"></a>
@@ -78,7 +101,7 @@ You can use structured outputs across the following Amazon Bedrock features:
 | [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) and [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) APIs | Yes | Single-turn inference. | 
 | Cross-Region inference | Yes | Works without any additional setup. | 
 | Batch inference | Yes | Works without any additional setup. | 
-| Anthropic Messages API on the bedrock-mantle endpoint (https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages) | No | The output\_config.format parameter is rejected with a 400 error. To use structured outputs with Anthropic Claude models, send the request through the Converse API or the InvokeModel API on the bedrock-runtime endpoint. | 
+| Anthropic Messages API on the bedrock-mantle endpoint (https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages) | Yes | Supported for Anthropic Claude models through the output\_config.format parameter. For Claude-specific guidance and examples, see [Structured outputs for Anthropic Claude models](claude-messages-structured-outputs.md). | 
 
 **Note**  
 Structured outputs is incompatible with citations for Anthropic models. If you enable citations while using structured outputs, the model will return a 400 error.
@@ -103,7 +126,7 @@ The following examples show how to use JSON Schema output format with structured
 <a name="json-schema-converse"></a>
 
 ##### View example
-<a name="w2aac15c15c39c15b3b5b3b1"></a>
+<a name="w2aac15c15c39c17b3b5b3b1"></a>
 
 ```
 {
@@ -139,7 +162,7 @@ The following examples show how to use JSON Schema output format with structured
 <a name="json-schema-invokemodel-claude"></a>
 
 ##### View example
-<a name="w2aac15c15c39c15b3b7b3b1"></a>
+<a name="w2aac15c15c39c17b3b7b3b1"></a>
 
 ```
 {
@@ -196,7 +219,7 @@ The following examples show how to use JSON Schema output format with structured
 <a name="json-schema-invokemodel-openweight"></a>
 
 ##### View example
-<a name="w2aac15c15c39c15b3b9b3b1"></a>
+<a name="w2aac15c15c39c17b3b9b3b1"></a>
 
 ```
 {
@@ -255,7 +278,7 @@ The following examples show how to use the strict field with tool use.
 <a name="strict-tool-converse"></a>
 
 ##### View example
-<a name="w2aac15c15c39c15b5b5b3b1"></a>
+<a name="w2aac15c15c39c17b5b5b3b1"></a>
 
 ```
 {
@@ -296,7 +319,8 @@ The following examples show how to use the strict field with tool use.
               "required": [
                 "location",
                 "unit"
-              ]
+              ],
+              "additionalProperties": false
             }
           }
         }
@@ -310,7 +334,7 @@ The following examples show how to use the strict field with tool use.
 <a name="strict-tool-invokemodel-claude"></a>
 
 ##### View example
-<a name="w2aac15c15c39c15b5b7b3b1"></a>
+<a name="w2aac15c15c39c17b5b7b3b1"></a>
 
 ```
 {
@@ -364,7 +388,7 @@ The following examples show how to use the strict field with tool use.
 <a name="strict-tool-invokemodel-openweight"></a>
 
 ##### View example
-<a name="w2aac15c15c39c15b5b9b3b1"></a>
+<a name="w2aac15c15c39c17b5b9b3b1"></a>
 
 ```
 {

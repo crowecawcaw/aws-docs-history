@@ -14,13 +14,13 @@ When you send a request to the `AgenticRetrieveStream` API, the following proces
 
 1. **Session history load** – When you supply a `memoryConfiguration` that includes a `sessionBinding`, Amazon Bedrock restores the prior history of that session from AgentCore Memory short-term memory before the agent begins work. The restored history becomes the conversation context for the request.
 
-1. **Planning** – The foundation model analyzes your query and creates a plan to decompose it into one or more sub-queries. Each sub-query targets a specific source that you configured, either a knowledge base retriever or AgentCore Memory long-term memory. After retrieval results are collected, the foundation model evaluates whether they are sufficient to answer the original query. If not, it plans and executes additional retrieval iterations, up to the configured maximum.
+1. **Planning** – The foundation model analyzes your query and creates a plan to decompose it into one or more sub-queries. Each sub-query targets a specific source that you configured, either a knowledge base retriever or AgentCore Memory long-term memory. After retrieval results are collected, the foundation model evaluates whether they are sufficient to answer the original query. If not, it plans and executes additional retrieval iterations, up to the configured maximum. When the request applies a retrieval instruction, the plan follows the instruction's `retrievalGuidance`.
 
 1. **Retrieval** – The sub-queries are executed against the configured sources. Results are collected from each retrieval.
 
 1. **Full document expansion** – When the foundation model determines that the full content of a document is needed (e.g., for summarization, to verify completeness, or to access specific sections), it calls the GetDocumentContent API to retrieve the complete document content.
 
-1. **Response generation** – When `generateResponse` is set to `true` (the default), the foundation model synthesizes a natural-language answer from the retrieved results. Amazon Bedrock streams the answer back to you through `responseEvent` events. When `sessionBinding` is set and `persistenceMode` is `DEFAULT`, Amazon Bedrock persists the question and the generated answer to the session.
+1. **Response generation** – When `generateResponse` is set to `true` (the default), the foundation model synthesizes a natural-language answer from the retrieved results. Amazon Bedrock streams the answer back to you through `responseEvent` events. When `sessionBinding` is set and `persistenceMode` is `DEFAULT`, Amazon Bedrock persists the question and the generated answer to the session. When the request applies a retrieval instruction, its `persona`, `answerFormat`, and `answerPolicy` fields shape the answer.
 
 1. **Result event** – The deduplicated retrieval results from all iterations, the full synthesized natural-language answer and citations are returned to you. Trace events are streamed throughout the process for observability.
 
@@ -53,10 +53,14 @@ The following table describes the key request fields:
 
 | Field | Description | 
 | --- | --- | 
-| policyConfiguration | Configures a Amazon Bedrock guardrail to apply during agentic retrieval. Specify a guardrailId and guardrailVersion. | 
+| policyConfiguration | Configures a Amazon Bedrock guardrail to apply during agentic retrieval. Specify a guardrailId and guardrailVersion. A guardrail is supported only when foundationModelType is CUSTOM. Passing a guardrail with the default MANAGED type, or without setting foundationModelType, fails validation. Because CUSTOM also requires foundationModelConfiguration, applying a guardrail means naming an explicit model by its modelArn. | 
 | userContext | Provides a user context for access control filtering. | 
 | memoryConfiguration | Configures an AgentCore Memory resource to use with the retrieval. Specify a memoryId, and then sessionBinding to restore and continue a session, retrievalConfigs to let the agent retrieve from long-term memory, or both. For more information, see [Use AgentCore Memory with agentic retrieval](#kb-agentic-retrieve-memory). | 
 | generateResponse | A boolean field that, when set to true (the default), instructs the foundation model to generate a natural-language answer from the retrieved results. The answer is streamed back as text chunks and included in the result event. | 
+| retrievalInstructionConfiguration | Applies a retrieval instruction that steers how the agent searches and answers. Specify a retrievalInstructionId and, optionally, a version. For more information, see [Use retrieval instructions with agentic retrieval](#kb-agentic-retrieve-instruction). | 
+
+**Note**  
+Agentic retrieval does not support guardrails whose sensitive information policy uses the `ANONYMIZE` action for PII entities or regular expressions. Such a request fails validation even when `foundationModelType` is `CUSTOM`.
 
 For the full request and response syntax, see [`AgenticRetrieveStream`](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_AgenticRetrieveStream.html) in the API reference.
 
@@ -74,7 +78,7 @@ The `AgenticRetrieveStream` response is a stream that contains the following eve
       + `references` – A list where each reference has a `resultIndex` field that indexes into the `results` array on the same result event, indicating which retrieval result supports the cited span.
 + **Response events** (`AgenticRetrieveResponseEvent`) – When `generateResponse` is set to `true` (the default), `responseEvent` events are streamed during response generation. Each event contains a `text` field with an incremental portion of the synthesized natural-language answer.
 + **Trace events** (`AgenticRetrieveTraceEvent`) – Events streamed during the agentic retrieval process that provide visibility into each step. These are the types of trace events:
-  + **Planning** – Indicates the foundation model is analyzing the query and creating sub-queries. Includes the planned actions and target sources. Each action is either a `retrieve` action targeting a knowledge base or a `memoryRetrieve` action targeting long-term memory, which includes the composed query and the `memoryId`.
+  + **Planning** – Indicates the foundation model is analyzing the query and creating sub-queries. Includes the planned actions and target sources. Each action is either a `retrieve` action targeting a knowledge base or a `memoryRetrieve` action targeting long-term memory, which includes the composed query and the `memoryId`. When the request applies a retrieval instruction, the first **Planning** event includes an `appliedInstruction` attribute with the ID of the instruction and the version that was applied.
   + **Retrieval** – Indicates a retrieval is being executed against a configured source. Includes the retrieval input, output, and any warnings or failures. The `retrievalMetadata` entry reports the source type, either `BedrockKnowledgeBase` or `BedrockAgentCoreMemory`.
   + **Speculative retrieval** – An initial retrieval that runs before the first planning step to reduce latency. For a single knowledge base, this retrieves results using the raw user query. For multiple knowledge bases, this performs a probe search to help route queries to the appropriate retrievers. When you configure `retrievalConfigs`, this step can also retrieve from long-term memory.
   + **Full document expansion** – Indicates the agent is retrieving the full content of a specific document. Includes the document ID, source retriever, and status (InProgress, Success, or Failure).
@@ -142,6 +146,61 @@ The following example restores an earlier session, gives the agent access to tha
 The response stream reports memory activity. The restore appears as a **Session history load** trace event. The records that long-term memory returns appear on the **Retrieval** trace event with a source type of `BedrockAgentCoreMemory`, whichever step retrieved them.
 
 How the retrieval itself appears depends on when it happens. When the foundation model chooses to search memory (typical on a continued session), the retrieval appears as a `memoryRetrieve` action on the **Planning** trace event. On a new session, the agent can instead retrieve long-term memory during **Speculative retrieval**, before the first planning step, in which case it emits no `memoryRetrieve` action. For more information, see [Agentic retrieval response](#kb-agentic-retrieve-response).
+
+## Use retrieval instructions with agentic retrieval
+<a name="kb-agentic-retrieve-instruction"></a>
+
+A retrieval instruction steers how agentic retrieval searches your knowledge bases and how it answers. You create the instruction once, Amazon Bedrock reviews it, and then you reference it from your requests. Retrieval instructions are optional. To create, review, version, and delete retrieval instructions, see [Create and manage retrieval instructions](kb-test-agentic-retrieve-instruction.md).
+
+To apply one, supply the `retrievalInstructionConfiguration` field with the `retrievalInstructionId` of an `ACTIVE` instruction in your account and Region. To pin the behavior, set `version` to a version number. When you omit `version`, Amazon Bedrock applies `DRAFT`, the current reviewed content. If the instruction doesn't exist in your account, isn't `ACTIVE`, or the version you specify doesn't exist, the request fails with a `ValidationException` before any events are streamed.
+
+In the following example, replace `abcde12345` with your retrieval instruction ID and `3` with the version to apply:
+
+```
+{
+    "messages": [
+        {
+            "content": {
+                "text": "How do I reset the Model X200 to factory settings?"
+            },
+            "role": "user"
+        }
+    ],
+    "retrievers": [
+        {
+            "configuration": {
+                "knowledgeBase": {
+                    "knowledgeBaseId": "{{KB12345678}}"
+                }
+            }
+        }
+    ],
+    "agenticRetrieveConfiguration": {
+        "foundationModelType": "MANAGED",
+        "rerankingModelType": "MANAGED"
+    },
+    "retrievalInstructionConfiguration": {
+        "retrievalInstructionId": "{{abcde12345}}",
+        "version": "{{3}}"
+    }
+}
+```
+
+To confirm which instruction and version a request used, read the `appliedInstruction` attribute on the first **Planning** trace event. The following example shows the attributes of that trace event:
+
+```
+{
+    "step": "Planning",
+    "status": "IN_PROGRESS",
+    "message": "Agent planning started",
+    "appliedInstruction": {
+        "id": "{{abcde12345}}",
+        "version": "3"
+    }
+}
+```
+
+For more information about trace events, see [Agentic retrieval response](#kb-agentic-retrieve-response).
 
 ## Required permissions for agentic retrieval
 <a name="kb-agentic-retrieve-permissions"></a>
@@ -214,6 +273,30 @@ If the memory resource is encrypted with a customer managed key, add the followi
 }
 ```
 
+If you apply a retrieval instruction with agentic retrieval, add the following permission:
+
+```
+{
+    "Effect": "Allow",
+    "Action": "bedrock:GetRetrievalInstruction",
+    "Resource": "arn:aws:bedrock:{{region}}:{{account-id}}:retrieval-instruction/{{retrieval-instruction-id}}"
+}
+```
+
+Versions don't have their own ARN, so this permission also covers the version that you specify in `version`.
+
+If the retrieval instruction is encrypted with a customer managed key, add the following permission on that key:
+
+```
+{
+    "Effect": "Allow",
+    "Action": "kms:Decrypt",
+    "Resource": "arn:aws:kms:{{region}}:{{account-id}}:key/{{key-id}}"
+}
+```
+
+The key policy must also allow the caller to use the key through Amazon Bedrock. For the key policy, see [Encryption of retrieval instructions](encryption-kb.md#encryption-kb-retrieval-instruction). For the permissions to create and manage retrieval instructions, see [Required permissions for retrieval instructions](kb-test-agentic-retrieve-instruction.md#kb-retrieval-instruction-permissions).
+
 ## Considerations
 <a name="kb-agentic-retrieve-considerations"></a>
 
@@ -228,3 +311,4 @@ Keep the following in mind when using agentic retrieval:
 + Restoring a session loads conversational events with a role of `USER` or `ASSISTANT`. AgentCore Memory also accepts the `TOOL` and `OTHER` roles, which a restore does not load. For more information, see [`Conversational`](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_Conversational.html) in the *Amazon Bedrock AgentCore API Reference*.
 + `retrievalConfigs` currently accepts at most one entry, and each entry accepts a maximum of 5 `metadataFilters` expressions.
 + A `persistenceMode` of `DEFAULT` requires `generateResponse` to be `true`, because the session persists the generated answer.
++ A retrieval instruction must be `ACTIVE` and in the same account and Region as the request. For more information, see [Use retrieval instructions with agentic retrieval](#kb-agentic-retrieve-instruction).

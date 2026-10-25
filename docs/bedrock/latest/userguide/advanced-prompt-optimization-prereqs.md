@@ -41,6 +41,10 @@ When you create a job, Advanced Prompt Optimization invokes the target model(s) 
 | ConverseStream (current) | bedrock:InvokeModelWithResponseStream | arn:aws:bedrock:{{region}}::foundation-model/{{model-id}} | 
 | Converse (non-streaming) | bedrock:InvokeModel | arn:aws:bedrock:{{region}}::foundation-model/{{model-id}} | 
 | Cross-region inference profile | bedrock:InvokeModelWithResponseStream | arn:aws:bedrock:\*:{{account-id}}:inference-profile/{{profile-id}} | 
+| Application inference profile | bedrock:InvokeModelWithResponseStream | arn:aws:bedrock:{{region}}:{{account-id}}:application-inference-profile/{{profile-id}} | 
+
+**Note**  
+You can specify an application inference profile ARN as a target model in `modelConfigurations.modelId` and as a judge model in `customLLMJConfig.customLLMJModelId`. A judge model application inference profile must route to one of the supported judge models. The permission requirement is the same as invoking the application inference profile directly: your IAM identity needs permission to invoke the application inference profile plus the underlying inference profile and foundation model.
 
 **Important**  
 If model access is not enabled for a model in your account, the job fails. The error message is: "No inference API is accessible for model. Verify that the role has permission to invoke the model."
@@ -176,7 +180,8 @@ Attach this policy to the IAM user or role that will create and manage AdvPO job
             ],
             "Resource": [
                 "arn:aws:bedrock:*::foundation-model/*",
-                "arn:aws:bedrock:*:123456789012:inference-profile/*"
+                "arn:aws:bedrock:*:123456789012:inference-profile/*",
+                "arn:aws:bedrock:*:123456789012:application-inference-profile/*"
             ]
         },
         {

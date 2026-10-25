@@ -296,7 +296,7 @@ response = client.converse(
         {"role": "user", "content": [{"text": "Can you explain the features of Amazon Bedrock?"}]}
     ]
 )
-print(response["output"]["message"]["content"][0]["text"])
+print(response)
 ```
 
 ------

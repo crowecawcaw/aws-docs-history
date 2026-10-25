@@ -90,13 +90,16 @@ The following table shows the source Regions from which you can call the guardra
 
 | Source Region | Destination Regions | 
 | --- | --- | 
-| eu-central-1 | eu-central-1<br />eu-west-1<br />eu-west-3<br />eu-north-1<br />eu-south-1<br />eu-south-2 | 
-| eu-west-1 | eu-central-1<br />eu-west-1<br />eu-west-3<br />eu-north-1<br />eu-south-1<br />eu-south-2 | 
-| eu-west-3 | eu-central-1<br />eu-west-1<br />eu-west-3<br />eu-north-1<br />eu-south-1<br />eu-south-2 | 
-| eu-north-1 | eu-central-1<br />eu-west-1<br />eu-west-3<br />eu-north-1<br />eu-south-1<br />eu-south-2 | 
-| eu-south-1 | eu-central-1<br />eu-west-1<br />eu-west-3<br />eu-north-1<br />eu-south-1<br />eu-south-2 | 
-| eu-south-2 | eu-central-1<br />eu-west-1<br />eu-west-3<br />eu-north-1<br />eu-south-1<br />eu-south-2 | 
-| il-central-1 | eu-central-1<br />eu-west-1<br />eu-west-3<br />eu-north-1<br />eu-south-1<br />eu-south-2<br />il-central-1 | 
+| eu-central-1 | eu-central-1<br />eu-west-1<br />eu-west-3<br />eu-north-1 | 
+| eu-west-1 | eu-central-1<br />eu-west-1<br />eu-west-3<br />eu-north-1 | 
+| eu-west-3 | eu-central-1<br />eu-west-1<br />eu-west-3<br />eu-north-1 | 
+| eu-north-1 | eu-central-1<br />eu-west-1<br />eu-west-3<br />eu-north-1 | 
+| eu-south-1 | eu-central-1<br />eu-west-1<br />eu-west-3<br />eu-north-1<br />eu-south-1 | 
+| eu-south-2 | eu-central-1<br />eu-west-1<br />eu-west-3<br />eu-north-1<br />eu-south-2 | 
+| il-central-1 | eu-central-1<br />eu-west-1<br />eu-west-3<br />eu-north-1<br />eu-south-1<br />il-central-1 | 
+
+**Note**  
+Destination lists differ by source Region. eu-south-1 and eu-south-2 can each route to themselves and to the four Regions listed for eu-central-1, but no other source Region routes into them, and neither one routes into the other. Use the row for your own source Region rather than assuming a single EU-wide list.
 
 ### UK Guardrail v1:0
 <a name="guardrail-profiles-uk-guardrail"></a>

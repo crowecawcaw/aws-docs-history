@@ -9,7 +9,7 @@
 ## Model Details
 <a name="model-card-zai-glm-5-3-details"></a>
 
-GLM 5.3 is Z.AI's flagship open weight text generation model for complex software engineering and agentic tasks. It uses a Mixture-of-Experts architecture with 744B total parameters and approximately 40B active per token, and is built on the same base model as GLM 5.2 with improvements driven by scaled post-training. The model provides a 1M-token context window with up to 128K output tokens, and supports selectable reasoning effort levels so you can trade latency and token consumption against task performance. Typical uses include agentic coding and autonomous software engineering, terminal and CLI task execution, repository-scale code generation and refactoring, long-horizon multi-step engineering tasks spanning many tool calls, infrastructure diagnosis, and long-context analysis of large codebases. It supports function calling, structured JSON output, and response streaming including streamed reasoning content. For more information about model development and performance, see the [model card](https://huggingface.co/zai-org/GLM-5.3).
+GLM 5.3 is Z.AI's flagship open weight text generation model for complex software engineering and agentic tasks. It uses a Mixture-of-Experts architecture with 753B total parameters (744B excluding the multi-token-prediction layer) and approximately 40B active per token, and is built on the same base model as GLM 5.2 with improvements driven by scaled post-training. The model provides a 1M-token context window with up to 128K output tokens, and supports selectable reasoning effort levels so you can trade latency and token consumption against task performance. Typical uses include agentic coding and autonomous software engineering, terminal and CLI task execution, repository-scale code generation and refactoring, long-horizon multi-step engineering tasks spanning many tool calls, infrastructure diagnosis, and long-context analysis of large codebases. It supports function calling, structured JSON output, and response streaming including streamed reasoning content. For more information about model development and performance, see the [model card](https://huggingface.co/zai-org/GLM-5.3).
 
 **Note**  
 Access to this model is limited to eligible customers. For more information, contact your AWS account team.
@@ -145,6 +145,8 @@ GLM 5.3 supports Geo Cross-Region inference from the US Regions and Global Cross
 <a name="model-card-zai-glm-5-3-quotas"></a>
 
 Your AWS account has default quotas to maintain the performance of the service and to ensure appropriate usage of Amazon Bedrock. The default quotas assigned to an account might be updated depending on regional factors, payment history, fraudulent usage, and/or approval of a quota [increase request](quotas-increase.html). For more information, see [Quotas for Amazon Bedrock](quotas.md) documentation and see the [limits](/general/latest/gr/bedrock.html#limits_bedrock) for the model.
+
+The burndown rate for Z.AI GLM 5.3 on the `bedrock-runtime` endpoint is 10x for output tokens (1 output token consumes 10 tokens from your quotas).
 
 ## Sample Code
 <a name="model-card-zai-glm-5-3-sample-code"></a>

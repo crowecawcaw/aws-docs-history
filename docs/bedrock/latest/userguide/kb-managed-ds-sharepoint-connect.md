@@ -45,7 +45,7 @@ Complete authentication setup first. See [User-managed setup (3LO)](kb-managed-s
 ------
 #### [ API ]
 
-To create a SharePoint data source, send a [CreateDataSource](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateDataSource.html) request with an Agents for Amazon Bedrock build-time endpoint. The following AWS Command Line Interface example creates a data source that uses Microsoft Entra ID App-Only authentication. To enable document-level access control, set `aclEnabled` to `true`. For a description of each field, see the connector parameters reference that follows.
+To create a SharePoint data source, send a [CreateDataSource](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateDataSource.html) request with an Agents for Amazon Bedrock build-time endpoint. The following AWS Command Line Interface example creates a data source that uses Microsoft Entra ID App-Only authentication. With `ENTRA_ID_APP_ONLY` authentication, document-level access control is enabled unless you set `aclEnabled` to `false`, as the following example does. For a description of each field, see the connector parameters reference that follows.
 
 ```
 aws bedrock-agent create-data-source \
@@ -102,6 +102,9 @@ For managed knowledge bases, `CreateDataSource` is asynchronous: the data source
 
 The data source configuration uses the following connector parameters. To connect to SharePoint, specify `SHAREPOINT` as the connector type in `connectorParameters`. For the fields that wrap `connectorParameters` (such as `deletionProtectionConfiguration` and `mediaExtractionConfiguration`), see [Connect a data source](kb-managed-connect-ds.md).
 
+**Set `aclEnabled` explicitly**  
+If you omit `aclEnabled`, the default depends on `authType`: `ENTRA_ID_APP_ONLY` defaults to `true`, and `OAUTH2_APP` defaults to `false`. Because ACL configuration is permanent after the data source is created, set `aclEnabled` explicitly so the data source has the access-control behavior you intend. For details, see [Document-level access controls](kb-managed-ds-sharepoint-acl.md).
+
 
 **connectionConfiguration**  
 
@@ -135,7 +138,7 @@ The data source configuration uses the following connector parameters. To connec
 
 | Field | Required | Description | 
 | --- | --- | --- | 
-| aclEnabled | No | Set to true to enable document-level access control. Requires ENTRA\_ID\_APP\_ONLY authentication. You cannot change this setting after you create the data source. For details, see [Document-level access controls](kb-managed-ds-sharepoint-acl.md). | 
+| aclEnabled | No | Whether to enable document-level access control. Defaults to true with ENTRA\_ID\_APP\_ONLY authentication and false with OAUTH2\_APP. ACL requires ENTRA\_ID\_APP\_ONLY authentication. You cannot change this setting after you create the data source. For details, see [Document-level access controls](kb-managed-ds-sharepoint-acl.md). | 
 
 
 **customMetadataFields (optional)**  

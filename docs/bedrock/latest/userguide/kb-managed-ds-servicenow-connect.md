@@ -35,7 +35,7 @@ Complete authentication setup first. See [Set up OAuth 2.0 Client Credentials au
 ------
 #### [ API ]
 
-To create a ServiceNow data source, send a [CreateDataSource](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateDataSource.html) request with an Agents for Amazon Bedrock build-time endpoint. The following AWS Command Line Interface example creates a ServiceNow data source. To enable document-level access control, set `aclEnabled` to `true`. For a description of each field, see the connector parameters reference that follows.
+To create a ServiceNow data source, send a [CreateDataSource](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateDataSource.html) request with an Agents for Amazon Bedrock build-time endpoint. The following AWS Command Line Interface example creates a ServiceNow data source. Document-level access control is enabled unless you set `aclEnabled` to `false`, as the following example does. For a description of each field, see the connector parameters reference that follows.
 
 ```
 aws bedrock-agent create-data-source \
@@ -94,6 +94,9 @@ For managed knowledge bases, `CreateDataSource` is asynchronous: the data source
 
 The data source configuration uses the following connector parameters. Within `connectorParameters`, set both `type` and `connectorType` to `SERVICENOW` and set `version` to `1`. For the fields that wrap `connectorParameters` (such as `deletionProtectionConfiguration` and `mediaExtractionConfiguration`), see [Connect a data source](kb-managed-connect-ds.md).
 
+**Set `aclEnabled` explicitly**  
+If you omit `aclEnabled`, it defaults to `true`. ServiceNow has a single authentication type, `OAUTH2`, and that type supports ACL crawling, so omitting the field creates an ACL-enabled data source. Because ACL configuration is permanent after the data source is created, set `aclEnabled` explicitly so the data source has the access-control behavior you intend. For details, see [Document-level access controls](kb-managed-ds-servicenow-acl.md).
+
 The following table describes the `connectionConfiguration` fields.
 
 
@@ -134,7 +137,7 @@ The following table describes the optional `filterConfiguration` fields, which s
 
 | Field | Required | Description | 
 | --- | --- | --- | 
-| aclEnabled | No | Set to true to enable document-level access control, which enforces each user's ServiceNow user criteria at query time. Requires additional read roles on the service account and knowledge base configuration in ServiceNow. You cannot change this setting after you create the data source. For details, see [Document-level access controls](kb-managed-ds-servicenow-acl.md). | 
+| aclEnabled | No | Whether to enable document-level access control, which enforces each user's ServiceNow user criteria at query time. Defaults to true; set it to false to create a content-only data source. ACL requires additional read roles on the service account and knowledge base configuration in ServiceNow. You cannot change this setting after you create the data source. For details, see [Document-level access controls](kb-managed-ds-servicenow-acl.md). | 
 
 ## Next steps
 <a name="kb-managed-ds-servicenow-connect-next"></a>
