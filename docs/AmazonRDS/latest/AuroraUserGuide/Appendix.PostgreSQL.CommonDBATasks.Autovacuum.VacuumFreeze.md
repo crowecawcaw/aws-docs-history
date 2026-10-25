@@ -63,7 +63,7 @@ The following steps are guidelines, with several variations to the process. For 
    SELECT pg_terminate_backend('the_pid'); 
    ```
 **Note**  
-Some lower versions of Amazon Aurora can't terminate an autovacuum process using the preceding command and fail with the following error: `ERROR: 42501: must be a superuser to terminate superuser process LOCATION: pg_terminate_backend, signalfuncs.c:227`. To find the PostgreSQL versions that have been patched, search for the following bullet in [Amazon Aurora PostgreSQL updates](https://docs.aws.amazon.com/'):  
+Some lower versions of Amazon Aurora can't terminate an autovacuum process using the preceding command and fail with the following error: `ERROR: 42501: must be a superuser to terminate superuser process LOCATION: pg_terminate_backend, signalfuncs.c:227`. To find the PostgreSQL versions that have been patched, search for the following bullet in [Amazon Aurora PostgreSQL updates](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.html):  
 
    ```
    Allow rds_superuser to terminate backends which are not explicitly associated with a role

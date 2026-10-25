@@ -16,6 +16,7 @@ GTID-based replication is supported for Aurora MySQL version 2 and 3.
 + [Overview of global transaction identifiers (GTIDs)](#mysql-replication-gtid.overview)
 + [Parameters for GTID-based replication](#mysql-replication-gtid.parameters)
 + [Enabling GTID-based replication for an Aurora MySQL cluster](mysql-replication-gtid.configuring-aurora.md)
++ [Using GTID tags with an Aurora MySQL DB cluster](mysql-replication-gtid.tags.md)
 + [Disabling GTID-based replication for an Aurora MySQL DB cluster](mysql-replication-gtid.disabling.md)
 
 ## Overview of global transaction identifiers (GTIDs)

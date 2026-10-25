@@ -13,38 +13,14 @@ Keep in mind the following important limitations:
 + You can't copy a snapshot of a DB instance to a production environment.
 
 The following options are supported by the Preview.
-+ You can create DB instances using r5, r6g, r6i, r7g, r7i, r8g, x2g, t3 and t4g instance types only. For more information about instance classes, see [Amazon AuroraDB instance classes](Concepts.DBInstanceClass.md). 
++ You can create DB instances using r5, r6g, r6i, r7g, r7i, r8g, x2g, t3, t4g, and db.serverless instance classes only. For more information about instance classes, see [Amazon AuroraDB instance classes](Concepts.DBInstanceClass.md). 
 + You can use both single-AZ and multi-AZ deployments.
 + You can use standard PostgreSQL dump and load functions to export databases from or import databases to the Database Preview Environment.
-
-## Supported DB instance class types
-<a name="apg-preview-environment-supported"></a>
-
-Amazon Aurora PostgreSQL supports the following DB instance classes in the preview region:
-
-**Memory Optimized Classes**
-+ db.r5 – memory-optimized instance classes
-+ db.r6g – memory-optimized instance classes powered by AWS Graviton2 processors
-+ db.r6i – memory-optimized instance classes
-+ db.r7g – memory-optimized instance classes powered by AWS Graviton3 processors
-+ db.r7i – memory-optimized instance classes
-+ db.r8g – memory-optimized instance classes powered by AWS Graviton4 processors
-+ db.x2g – memory-optimized instance classes powered by AWS Graviton2 processors
-
-**Note**  
-For more information on the list of instance classes, see [DB instance class types](Concepts.DBInstanceClass.Types.md).
-
-**Burstable classes**
-+ db.t3.medium
-+ db.t3.large
-+ db.t4g.medium
-+ db.t4g.large
 
 ## Unsupported features in the preview environment
 <a name="apg-preview-environment-exclusions"></a>
 
 The following features aren't available in the preview environment:
-+ Aurora Serverless v1 and v2
 + Major version upgrades (MVU)
 + No new minor versions will be released in preview region
 + RDS for PostgreSQL to Aurora PostgreSQL inbound replication

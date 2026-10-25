@@ -524,23 +524,46 @@ When Aurora serverless evaluates the formula, it uses the memory size based on t
 
 When you change the maximum capacity of an Aurora serverless DB cluster, you have to reboot the Aurora serverless DB instances to update the `max_connections` value. This is because `max_connections` is a static parameter for Aurora serverless.
 
-The following table shows the default values for `max_connections` for Aurora serverless based on the maximum ACU value.
+The default `max_connections` values for Aurora serverless correspond to the maximum ACU value and differ between Aurora MySQL and Aurora PostgreSQL.
+
+The following table shows the default `max_connections` values for Aurora MySQL.
 
 
-| Maximum ACUs | Default maximum connections on Aurora MySQL | Default maximum connections on Aurora PostgreSQL | 
-| --- | --- | --- | 
-| 1 | 90 | 189 | 
-| 4 | 135 | 823 | 
-| 8 | 1,000 | 1,669 | 
-| 16 | 2,000 | 3,360 | 
-| 32 | 3,000 | 5,000 | 
-| 64 | 4,000 | 5,000 | 
-| 128 | 5,000 | 5,000 | 
-| 192 | 6,000 | 5,000 | 
-| 256 | 6,000 | 5,000 | 
+| Maximum ACUs | Default maximum connections on Aurora MySQL | 
+| --- | --- | 
+| 1 | 90 | 
+| 4 | 135 | 
+| 8 | 1,000 | 
+| 16 | 2,000 | 
+| 32 | 3,000 | 
+| 64 | 4,000 | 
+| 128 | 5,000 | 
+| 192 | 6,000 | 
+| 256 | 6,000 | 
 
 **Note**  
-The `max_connections` value for Aurora serverlessDB instances is based on the memory size derived from the maximum ACUs. However, when you specify a minimum capacity of 0 or 0.5 ACUs on PostgreSQL-compatible DB instances, the maximum value of `max_connections` is capped at 2,000.
+These Aurora MySQL values are the same across all Aurora serverless platform versions.
+
+The following table shows the default `max_connections` values for Aurora PostgreSQL, which vary by Aurora serverless platform version.
+
+
+| Maximum ACUs | Platform version 1 and 2 | Platform version 3 | Platform version 4 | 
+| --- | --- | --- | --- | 
+| 1 | 189 | 193 | 194 | 
+| 4 | 823 | 840 | 844 | 
+| 8 | 1,669 | 1,703 | 1,710 | 
+| 16 | 3,360 | 3,429 | 3,443 | 
+| 32 | 5,000 | 5,000 | 5,000 | 
+| 64 | 5,000 | 5,000 | 5,000 | 
+| 128 | 5,000 | 5,000 | 5,000 | 
+| 192 | 5,000 | 5,000 | 5,000 | 
+| 256 | 5,000 | 5,000 | 5,000 | 
+| 384 |  |  | 5,000 | 
+
+For Aurora PostgreSQL, the default value depends on the Aurora serverless platform version of your DB cluster.
+
+**Note**  
+The `max_connections` value for Aurora serverless DB instances is based on the memory size derived from the maximum ACUs. However, when you specify a minimum capacity of 0 or 0.5 ACUs on PostgreSQL-compatible DB instances, the maximum value of `max_connections` is capped at 2,000.
 
 For specific examples showing how `max_connections` changes with the maximum ACU value, see [Example: Change the Aurora serverless capacity range of an Aurora MySQL cluster](#aurora-serverless-v2-examples-setting-capacity-range-walkthrough-ams) and [Example: Change the Aurora serverless capacity range of an Aurora PostgreSQL cluster](#aurora-serverless-v2-examples-setting-capacity-range-walkthrough-apg).
 

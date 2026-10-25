@@ -29,11 +29,11 @@ SETOF record with the following columns:
   + For reader instances, `session_id` is always the `UUID` (universally unique identifier) of the reader instance.
 + `durable_lsn` – The log sequence number (LSN) that's been saved in storage.
   + For the primary volume, the primary volume durable LSN (VDL) that's currently in effect.
-  + For any secondary volumes, the VDL of the primary up to which the secondary has successfully been applied.
+  + For any secondary volumes, the latest VDL observed from the primary.
 **Note**  
 A log sequence number (LSN) is a unique sequential number that identifies a record in the database transaction log. LSNs are ordered such that a larger LSN represents a transaction that's occurred later in the sequence.
 + `highest_lsn_rcvd` – The highest (most recent) LSN received by the DB instance from the writer DB instance.
-+ `current_read_lsn` – The LSN of the most recent snapshot that's been applied to all readers. 
++ `current_read_lsn` – For a reader, its most recently applied LSN. On the writer, this is NULL. 
 + `cur_replay_latency_in_usec` – The number of microseconds that it's expected to take to replay the log on the secondary. 
 + `active_txns` – The number of currently active transactions.
 + `is_current` – Not used.

@@ -55,15 +55,7 @@ If your application requires more DB instances, you can request additional DB in
 For RDS for Oracle, you can create up to 15 read replicas per source DB instance in each Region, but we recommend limiting replicas to 5 to minimize replication lag.  
 Backups managed by AWS Backup are considered manual DB clustersnapshots, but don't count toward the manual cluster snapshot quota. For information about AWS Backup, see the [*AWS Backup Developer Guide*](https://docs.aws.amazon.com/aws-backup/latest/devguide).
 
-If you use any RDS API operations and exceed the default quota for the number of calls per second, the Amazon RDS API issues an error like the following one.
-
-ClientError: An error occurred (ThrottlingException) when calling the {{API\_name}} operation: Rate exceeded. 
-
-Here, reduce the number of calls per second. The quota is meant to cover most use cases. If higher quotas are needed, you can request a quota increase by using one of the following options:
-+ From the console, open the [Service Quotas console](https://us-east-1.console.aws.amazon.com/servicequotas/home/).
-+ From the AWS CLI, use the [request-service-quota-increase](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/request-service-quota-increase.html) AWS CLI command.
-
-For more information, see the [*Service Quotas User Guide*](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html).
+Amazon RDS also limits the rate of API requests for each AWS account in each AWS Region. These limits are separate from the resource quotas in the table and don't appear in Service Quotas. If you exceed them, API requests fail with a `ThrottlingException` error and the message `Rate exceeded`. For the default limits and how to request an increase, see [Request throttling for the Amazon RDS API](rds-api-throttling.md).
 
 ## Naming constraints in Amazon Aurora
 <a name="RDS_Limits.Constraints"></a>

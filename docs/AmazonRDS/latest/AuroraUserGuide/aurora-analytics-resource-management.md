@@ -99,7 +99,7 @@ The `AuroraAnalyticsActiveThreads` Amazon CloudWatch metric reports the active w
 ## On-disk read cache
 <a name="aurora-analytics-on-disk-read-cache"></a>
 
-Aurora PostgreSQL caches data fetched from Amazon S3 on local storage to accelerate repeated access. The cache is sized automatically based on the instance's available memory and storage, and a larger instance provides a larger cache. On instances with local NVMe storage (such as `db.r8gd`) and using Aurora I/O-Optimized, the cache uses NVMe for higher performance. On Amazon EBS-only instances (such as `db.r8g` and `db.r8i`), the cache uses Amazon EBS storage.
+Aurora PostgreSQL caches data fetched from Amazon S3 on local storage to accelerate repeated access. The cache is sized automatically based on the instance's available memory and storage, and a larger instance provides a larger cache. On instances with local NVMe storage (such as `db.r8gd`), the cache uses NVMe for higher performance. On Amazon EBS-only instances (such as `db.r8g` and `db.r8i`), the cache uses Amazon EBS storage.
 
 On the first query, data is fetched from Amazon S3 in fixed-size blocks and stored in the read cache, and that first read's latency includes the Amazon S3 network round-trip. Subsequent queries read that data from local storage at NVMe or Amazon EBS speeds, which is significantly faster than reading from Amazon S3. A background worker monitors cache and disk usage and evicts the oldest (least-recently-accessed) blocks when thresholds are exceeded.
 

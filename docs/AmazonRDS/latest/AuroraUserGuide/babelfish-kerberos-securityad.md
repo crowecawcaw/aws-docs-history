@@ -54,7 +54,7 @@ corp\user1
 (1 rows affected)
 ```
 
-Currently, AD user identity isn't visible in the logs. You can turn on the `log_connections` parameter to log DB session establishment. For more information, see [log\_connections](https://docs.aws.amazon.com/prescriptive-guidance/latest/tuning-postgresql-parameters/log-connections.html). The output includes the AD user identity as principal as shown in the following example. The backend PID associated with this output can then help attribute actions back to the actual AD user.
+Currently, AD user identity isn't visible in the logs. You can turn on the `log_connections` parameter to log DB session establishment. For more information, see [Turning on query logging for your Aurora PostgreSQL DB cluster ](USER_LogAccess.Concepts.PostgreSQL.Query_Logging.md). The output includes the AD user identity as principal as shown in the following example. The backend PID associated with this output can then help attribute actions back to the actual AD user.
 
 ```
 bbf_group_ad_login@babelfish_db:[615]:LOG: connection authorized: user=bbf_group_ad_login database=babelfish_db application_name=sqlcmd GSS (authenticated=yes, encrypted=yes, principal=user1@CORP.EXAMPLE.COM)

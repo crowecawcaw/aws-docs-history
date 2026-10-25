@@ -31,11 +31,11 @@ You can set the following specific values:
 + **Minimum ACUs** – The Aurora serverless DB instance can reduce capacity down to this number of ACUs.
 + **Maximum ACUs** – The Aurora serverless DB instance can increase capacity up to this number of ACUs.
 
-The available capacity range for Aurora serverless is a function of both the DB engine version and the platform version. Newer DB engine versions allow a maximum capacity of 256 ACUs, a minimum capacity of 0 ACUs, or both. For the capacity ranges for various DB engine versions, see [Aurora serverless capacity](aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity). 
+The available capacity range for Aurora serverless is a function of both the DB engine version and the platform version. Newer DB engine versions allow a maximum capacity of 256 ACUs for Aurora MySQL and to 384 ACUs for Aurora PostgreSQL, a minimum capacity of 0 ACUs, or both. For the capacity ranges for various DB engine versions, see [Aurora serverless capacity](aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity). 
 
  For the auto-pause and resume capability that's enabled by setting the minimum capacity to 0 ACUs, see [Scaling to Zero ACUs with automatic pause and resume for Aurora serverless](aurora-serverless-v2-auto-pause.md). 
 
- For more information on making sure that your Aurora serverless DB clusters can scale up to 256 ACUs, see [Upgrading your Aurora serverless DB cluster to allow scaling to 256 ACUs](#setting-256-acus). 
+ For more information on making sure that your Aurora serverless DB clusters can scale up to 256 ACUs for Aurora MySQL and to 384 ACUs for Aurora PostgreSQL, see [Upgrading your Aurora serverless DB cluster to allow scaling to maximum ACUs](#setting-max-acus). 
 
 **Note**  
 When you modify the capacity range for an Aurora serverless DB cluster, the change takes place immediately, regardless of whether you choose to apply it immediately or during the next scheduled maintenance window.
@@ -77,7 +77,7 @@ Whatever capacity range that you set at the cluster level applies to all Aurora 
 
 1. In the **Capacity range** section, choose the following:
 
-   1. Enter a value for **Minimum ACUs**. The console shows the allowed range of values. You can choose a minimum capacity from 0 to 256 ACUs. You can choose a maximum capacity from 1 to 256 ACUs. You can adjust the capacity values in increments of 0.5 ACU. The available capacity range depends on both your DB engine version and the platform version.
+   1. Enter a value for **Minimum ACUs**. The console shows the allowed range of values. You can choose a minimum capacity from 0 to 384 ACUs. You can choose a maximum capacity from 1 to 384 ACUs. You can adjust the capacity values in increments of 0.5 ACU. The available capacity range depends on both your DB engine version and the platform version.
 
    1. Enter a value for **Maximum ACUs**. This value must be greater than or equal to **Minimum ACUs**. The console shows the allowed range of values. The following figure shows that choice.  
 ![Modifying the DB cluster capacity.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/sv2_capacity_settings_256_acus.png)
@@ -94,7 +94,7 @@ Whatever capacity range that you set at the cluster level applies to all Aurora 
 <a name="aurora-serverless-v2.setting-capacity.cli"></a>
 
 To set the capacity of a cluster where you intend to use Aurora serverless DB instances using the AWS CLI, run the [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html) AWS CLI command. Specify the `--serverless-v2-scaling-configuration` option. The cluster might already contain one or more Aurora serverless DB instances, or you can add the DB instances later. Valid values for the `MinCapacity` and `MaxCapacity` fields include the following:
-+ `0`, `0.5`, `1`, `1.5`, `2`, and so on, in steps of 0.5, up to a maximum of 256. The minimum ACU value of 0 is only available for the Aurora versions that support the auto-pause feature. 
++ `0`, `0.5`, `1`, `1.5`, `2`, and so on, in steps of 0.5, up to a maximum of 256 for Aurora MySQL and to 384 ACUs for Aurora PostgreSQL. The minimum ACU value of 0 is only available for the Aurora versions that support the auto-pause feature. 
 
 The maximum available capacity depends on both your DB engine version and the platform version.
 
@@ -113,7 +113,7 @@ For additional examples of setting the capacity range using the CLI, see [Choosi
 
 To modify the scaling configuration of an Aurora Serverless DB cluster using the AWS CLI, run the [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html) AWS CLI command. Specify the `--serverless-v2-scaling-configuration` option to configure the minimum capacity and maximum capacity. Valid capacity values include the following:
 + Aurora MySQL: `0`, `0.5`, `1`, `1.5`, `2`, and so on, in increments of 0.5 ACUs up to a maximum of `256`.
-+ Aurora PostgreSQL: `0`, `0.5`, `1`, `1.5`, `2`, and so on, in increments of 0.5 ACUs up to a maximum of `256`.
++ Aurora PostgreSQL: `0`, `0.5`, `1`, `1.5`, `2`, and so on, in increments of 0.5 ACUs up to a maximum of `384`.
 +  The minimum ACU value of 0 is only available for the Aurora versions that support the auto-pause feature. 
 
 In the following example, you modify the scaling configuration of an Aurora serverless DB instance named `sample-instance` that's part of a cluster named `sample-cluster`.
@@ -136,24 +136,24 @@ aws rds modify-db-cluster --db-cluster-identifier sample-cluster ^
 <a name="aurora-serverless-v2.setting-capacity.api"></a>
 
 You can set the capacity of an Aurora DB instance with the [ModifyDBCluster](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBCluster.html) API operation. Specify the `ServerlessV2ScalingConfiguration` parameter. Valid values for the `MinCapacity` and `MaxCapacity` fields include the following:
-+ `0`, `0.5`, `1`, `1.5`, `2`, and so on, in steps of 0.5, up to a maximum of 256. The minimum ACU value of 0 is only available for the Aurora versions that support the auto-pause feature. 
++ `0`, `0.5`, `1`, `1.5`, `2`, and so on, in steps of 0.5, up to a maximum of 256 for Aurora MySQL and to 384 ACUs for Aurora PostgreSQL. The minimum ACU value of 0 is only available for the Aurora versions that support the auto-pause feature. 
 
 You can modify the scaling configuration of a cluster containing Aurora serverless DB instances with the [ModifyDBCluster](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBCluster.html) API operation. Specify the `ServerlessV2ScalingConfiguration` parameter to configure the minimum capacity and the maximum capacity. Valid capacity values include the following:
 + Aurora MySQL: `0`, `0.5`, `1`, `1.5`, `2`, and so on, in increments of 0.5 ACUs up to a maximum of `256`.
-+ Aurora PostgreSQL: `0`, `0.5`, `1`, `1.5`, `2`, and so on, in increments of 0.5 ACUs up to a maximum of `256`.
++ Aurora PostgreSQL: `0`, `0.5`, `1`, `1.5`, `2`, and so on, in increments of 0.5 ACUs up to a maximum of `384`.
 +  The minimum ACU value of 0 is only available for the Aurora versions that support the auto-pause feature. 
 
 The maximum available capacity depends on both your DB engine version and the platform version.
 
 The capacity modification takes place immediately, regardless of whether you choose to apply it immediately or during the next scheduled maintenance window.
 
-### Upgrading your Aurora serverless DB cluster to allow scaling to 256 ACUs
-<a name="setting-256-acus"></a>
+### Upgrading your Aurora serverless DB cluster to allow scaling to maximum ACUs
+<a name="setting-max-acus"></a>
 
 In some cases, when you try to scale your Aurora serverless DB cluster to capacities greater than 128 ACUs, you receive an error message. The error message tells you which instances are incompatible with the new scaling range. This highlights the important relationship between your capacity range, DB engine version, and platform version.
 
 The inability to scale greater than 128 ACUs can happen for one of two reasons:
-+ Older DB engine version – Upgrade the DB engine version to one that supports 256 ACUs. For more information, see [Aurora serverless capacity](aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity).
++ Older DB engine version – Upgrade the DB engine version to one that supports 256 ACUs for Aurora MySQL and to 384 ACUs for Aurora PostgreSQL. For more information, see [Aurora serverless capacity](aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity).
 + Older platform version – Upgrade the platform for your Aurora serverless DB cluster. You can do this in one of the following ways:
   + Stop and restart the DB cluster. When the cluster restarts, it will be on the latest platform version capable which may be capable of a higher ACU maximum.
 
@@ -162,7 +162,7 @@ The inability to scale greater than 128 ACUs can happen for one of two reasons:
 
     1. Create a blue/green deployment. For more information, see [Creating a blue/green deployment in Amazon Aurora](blue-green-deployments-creating.md).
 
-    1. Confirm that you can set the maximum capacity for the staging (green) environment to 256 ACUs.
+    1. Confirm that you can set the maximum capacity for the staging (green) environment to 256 ACUs for Aurora MySQL and to 384 ACUs for Aurora PostgreSQL.
 
     1. Switch over to the green environment. For more information, see [Switching a blue/green deployment in Amazon Aurora](blue-green-deployments-switching.md).
 

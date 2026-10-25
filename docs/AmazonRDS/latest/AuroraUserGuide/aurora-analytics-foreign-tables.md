@@ -70,7 +70,7 @@ The `OPTIONS` clause accepts the following options.
 Required. The Amazon S3 URI, AWS Glue ARN, or Amazon S3 Tables ARN pointing to your data. For example:  
 + Amazon S3 URI (Parquet): `s3://bucket-name/path/`.
 + Amazon S3 URI (Iceberg): `s3://bucket-name/warehouse/table/`. The path must contain a `version-hint.text`, or point directly to a `metadata.json` file (for example, `s3://bucket/warehouse/table/metadata/00001-abc.metadata.json`).
-+ Amazon S3 Tables ARN: `arn:aws:s3tables:region:account:bucket/bucket-name/table/namespace/table`.
++ Amazon S3 Tables ARN: `arn:aws:s3tables:region:account:bucket/bucket-name/table/table-id`.
 + AWS Glue ARN (standard): `arn:aws:glue:region:account:table/database/table`.
 + AWS Glue ARN (Amazon S3 Tables): `arn:aws:glue:region:account:table/s3tablescatalog/bucket/namespace/table`.
 + AWS Glue ARN (federated catalog): `arn:aws:glue:region:account:table/catalog/database/table`.  

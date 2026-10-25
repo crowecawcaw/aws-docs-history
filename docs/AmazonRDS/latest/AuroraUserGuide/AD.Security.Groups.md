@@ -233,7 +233,7 @@ postgres=>select principal from pg_stat_gssapi where pid = pg_backend_pid();
 (1 row)
 ```
 
-Currently, AD user identity isn't visible in the audit logs. The `log_connections` parameter can be enabled to log DB session establishment. For more information, see [log\_connections](https://docs.aws.amazon.com/prescriptive-guidance/latest/tuning-postgresql-parameters/log-connections.html). The output for this includes the AD user identity, as shown below. The backend PID associated with this output can then help attribute actions back to the actual AD user. 
+Currently, AD user identity isn't visible in the audit logs. The `log_connections` parameter can be enabled to log DB session establishment. For more information, see [Turning on query logging for your Aurora PostgreSQL DB cluster ](USER_LogAccess.Concepts.PostgreSQL.Query_Logging.md). The output for this includes the AD user identity, as shown below. The backend PID associated with this output can then help attribute actions back to the actual AD user. 
 
 ```
 pgrole1@postgres:[615]:LOG: connection authorized: user=pgrole1 database=postgres application_name=psql GSS (authenticated=yes, encrypted=yes, principal=Admin@EXAMPLE.COM)

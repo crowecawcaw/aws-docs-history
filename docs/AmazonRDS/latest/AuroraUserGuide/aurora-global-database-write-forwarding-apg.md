@@ -167,6 +167,7 @@ aws rds describe-db-clusters --query 'DBClusters[].{DBClusterIdentifier:DBCluste
 +  `SAVEPOINT` statements 
 +  `SELECT INTO` 
 +  `SET CONSTRAINTS` 
++ Sequence updates: `nextval()`, `setval()`
 +  `TRUNCATE` 
 +  `VACUUM` 
 

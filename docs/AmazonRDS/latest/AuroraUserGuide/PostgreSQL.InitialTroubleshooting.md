@@ -35,7 +35,7 @@ Use the following ordered triage steps when you first investigate a performance 
 
 1. **Check CloudWatch and Performance Insights metrics.** Review CPU utilization, connection count, IOPS, and freeable memory. For more information, see [Monitoring Amazon Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/MonitoringAurora.html). For common wait events and corrective actions, see [Aurora PostgreSQL wait events](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Tuning.concepts.summary.html).
 
-1. **Review your DB parameter group.** Check `max_parallel_workers_per_gather` and autovacuum settings. For more information, see [Tuning PostgreSQL parameters in Amazon RDS and Amazon Aurora](https://docs.aws.amazon.com/prescriptive-guidance/latest/tuning-postgresql-parameters/introduction.html).
+1. **Review your DB parameter group.** Check `max_parallel_workers_per_gather` and autovacuum settings. For more information, see [Amazon Aurora PostgreSQL parameters](AuroraPostgreSQL.Reference.ParameterGroups.md).
 
 ## Table and index bloat
 <a name="PostgreSQL.InitialTroubleshooting.Bloat"></a>

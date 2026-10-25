@@ -57,7 +57,7 @@ You can use the AWS Management Console, AWS CLI, or RDS API to create an Aurora 
 
 1. For **DB instance class**, select **Serverless v2**.
 
-1. For **Capacity range**, you can accept the default range. Or you can choose other values for minimum and maximum capacity units. You can choose from 0 ACUs minimum through 256 ACUs maximum, in increments of 0.5 ACU.
+1. For **Capacity range**, you can accept the default range. Or you can choose other values for minimum and maximum capacity units. You can choose from 0 ACUs through 256 ACUs for Aurora MySQL and to 384 ACUs for Aurora PostgreSQL, in increments of 0.5 ACU.
 
    For more information about Aurora serverless capacity units, see [Aurora serverless capacity](aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity) and [Performance and scaling for Aurora serverless](aurora-serverless-v2.setting-capacity.md). 
 

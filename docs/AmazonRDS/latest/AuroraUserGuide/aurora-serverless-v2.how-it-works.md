@@ -50,7 +50,7 @@ If you don't use Aurora serverless at all in a DB cluster, all the writers and r
 
 The unit of measure for Aurora serverless is the *Aurora capacity unit (ACU)*. Aurora serverless capacity isn't tied to the DB instance classes that you use for provisioned clusters.
 
-Each ACU is a combination of approximately 2 gibibytes (GiB) of memory, corresponding CPU, and networking. You specify the database capacity range (minimum and maximum) using this unit of measure. Aurora serverless offers capacity from 0 ACUs to 256 ACUs. With the minimum capacity of 0 ACUs, the cluster will scale to 0 when there is no workload running.The `ServerlessDatabaseCapacity` and `ACUUtilization` metrics help you to determine how much capacity your database is actually using and where that capacity falls within the specified range.
+Each ACU is a combination of approximately 2 gibibytes (GiB) of memory, corresponding CPU, and networking. You specify the database capacity range (minimum and maximum) using this unit of measure. Aurora serverless offers capacity from 0 ACUs to 256 ACUs for Aurora MySQL and to 384 ACUs for Aurora PostgreSQL. With the minimum capacity of 0 ACUs, the cluster will scale to 0 when there is no workload running.The `ServerlessDatabaseCapacity` and `ACUUtilization` metrics help you to determine how much capacity your database is actually using and where that capacity falls within the specified range.
 
 At any moment in time, each Aurora serverless DB writer or reader has a *capacity*. The capacity is represented as a floating-point number representing ACUs. The capacity increases or decreases whenever the writer or reader scales. This value is measured every second. For each DB cluster where you intend to use Aurora serverless, you define a *capacity range*: the minimum and maximum capacity values that each Aurora serverless writer or reader can scale between. The capacity range is the same for each Aurora serverless writer or reader in a DB cluster. Each Aurora serverless writer or reader has its own capacity, falling somewhere in that range.
 
@@ -62,6 +62,7 @@ The following table shows the Aurora serverless capacity ranges and engine versi
 | 0.5–128 | 3.02.0 and higher | 13.6 and higher, 14.3 and higher, 15.2 and higher, 16.1 and higher | 
 | 0.5–256 | 3.06.0 and higher | 13.13 and higher, 14.10 and higher, 15.5 and higher, 16.1 and higher | 
 | 0–256 | 3.08.0 and higher | 13.15 and higher, 14.12 and higher, 15.7 and higher, 16.3 and higher | 
+| 0–384 |  | 14.23 and higher, 15.18 and higher, 16.14 and higher, 17.10 and higher, 18.4 and higher | 
 
 Platform versions in Aurora serverless represent improvements in performance, scaling capabilities or features. Amazon Aurora automatically manages platform version assignments at the cluster level. All new clusters, database restores, and new clones launch with the latest platform version available in your AWS Region. When a new platform version becomes available, existing clusters on previous platform versions can be upgraded directly to the latest platform version by applying the pending maintenance, stopping and restarting the cluster, or by using blue/green deployments. Amazon Aurora recommends upgrading to the latest platform version to benefit from all the latest improvements.
 
@@ -73,7 +74,7 @@ The following table shows the Aurora serverless platform versions with their ACU
 | 1 | 0–128 | Baseline performance | 
 | 2 | 0–256 | Baseline performance | 
 | 3 | 0–256 | Up to 30% improved performance compared to platform version 2 | 
-| 4 | 0-256 | Up to 30% improved performance compared to platform version 3 | 
+| 4 | 0-256 (Aurora MySQL),0-384 (Aurora PostgreSQL) | Up to 30% improved performance compared to platform version 3 | 
 
 **Note**  
 The available scaling range for a given cluster is determined by both engine version and platform version. It is possible to have a more capable engine version running on a less capable platform version and vice-versa. The scaling range is determined by the lowest capable engine or platform version. Platform versions should not be confused with Aurora Serverless v1, which is a deprecated product with a different architecture.
