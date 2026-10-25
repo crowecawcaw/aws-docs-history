@@ -14,11 +14,12 @@ In this chapter, you use the AWS Management Console to set up the required permi
 + [Setting up permissions for import jobs](#setting-up-import-permissions)
 + [Setting up permissions for export jobs](#setting-up-export-permissions)
 + [Install the AWS CLI](#setting-up-install-cli)
++ [Install the AWS SDK for Python](#setting-up-install-boto3)
 
 ## Sign up for an AWS account
 <a name="sign-up-for-aws"></a>
 
-To get started with AWS, you need an AWS account. For information about creating an AWS account, see [Getting started with an AWS account](https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html) in the *AWS Account Management Reference Guide*.
+To get started with AWS, you need an AWS account. There are two ways to sign up for AWS. If you want complete control over account configuration and where your content is stored, or if you have regulated workloads such as HIPAA or FedRAMP, use [Sign up for AWS (advanced)](https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html). If you are a new user and want to use a login you already own to sign in to AWS and create an AWS environment with preconfigured defaults in select [AWS Regions](https://docs.aws.amazon.com/accounts/latest/reference/project-regions.html), use [Sign up for AWS](https://docs.aws.amazon.com/accounts/latest/reference/sign-in-new.html).
 
 ## Configure an IAM user or role to use HealthLake (IAM Administrator)
 <a name="setting-up-configure-iam"></a>
@@ -413,3 +414,26 @@ The AWS CLI is required to describe and list HealthLake import and export job pr
    ```
 
    If the AWS CLI is configured correctly, you see a brief description of AWS HealthLake and a list of available commands.
+
+## Install the AWS SDK for Python
+<a name="setting-up-install-boto3"></a>
+
+You can work with AWS HealthLake programmatically in Python by using the AWS SDK for Python with the Boto3 library. Use Boto3 as an alternative to the AWS Command Line Interface (AWS CLI) when you want to call HealthLake operations from your own scripts and applications, or consume a streaming response from an operation.
+
+Boto3 requires Python 3.8 or later. To avoid conflicts with other packages on your system, install Boto3 into a virtual environment.
+
+**To set up the AWS Python SDK**
+
+1. Download and configure the boto3 library. For instructions, see the following topics in the *AWS Command Line Interface User Guide*.
+   + [Installing or updating the latest version of the boto3 library;](https://docs.aws.amazon.com/boto3/latest/guide/quickstart.html)
+   + [Getting started with boto3 HealthLake.Client;](https://docs.aws.amazon.com/boto3/latest/reference/services/healthlake.html)
+
+1. Boto3 credentials can be configured in multiple ways. Regardless of the source or sources that you choose, you must have both AWS credentials and an AWS Region set in order to make requests. Under the security principle of least privilege, we recommend you create a separate IAM role with privileges specific to the tasks being performed. For more information about setting up credentials for boto3, see [Configuration and credentials for boto3](https://docs.aws.amazon.com/boto3/latest/guide/credentials.html) in the *AWS Command Line Interface User Guide*.
+
+1. Verify the setup using the following command.
+
+   ```
+   python3 -c "import boto3; print(boto3.__version__)"
+   ```
+
+   If the library is configured correctly, it will print the version of boto3 which is installed.

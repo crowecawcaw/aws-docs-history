@@ -6,7 +6,19 @@
 ## Install and configure
 <a name="data-transformation-getting-started-cli-install"></a>
 
-For installation and configuration instructions, see [Install the AWS CLI](https://docs.aws.amazon.com/healthlake/latest/devguide/getting-started-setting-up.html#setting-up-install-cli).
+For installation and configuration instructions, see [Install the AWS CLI](https://docs.aws.amazon.com/healthlake/latest/devguide/getting-started-setting-up.html#setting-up-install-cli) and [Install the AWS SDK for Python](https://docs.aws.amazon.com/healthlake/latest/devguide/getting-started-setting-up.html#setting-up-install-boto3).
+
+The AWS CLI cannot process streaming responses. To use UpdateProfileWithAgent from the command line, create a Python script that handles the event stream and expose the script as a CLI command. The boto3 version must be greater than or equal to `1.43.117`.
+
+**To run Python code in a shell environment:**
+
+1. Save the Python code in a file, for example `my_healthlake_script.py`.
+
+1. Run the file with the following command.
+
+   ```
+   python my_healthlake_script.py
+   ```
 
 ## Step 1: Create a transformation profile
 <a name="data-transformation-getting-started-cli-step1"></a>
@@ -38,20 +50,28 @@ aws healthlake create-data-transformation-profile \
 **Note**  
 The profile that this call returns has an empty mapping. The agent analyzes your sample data and generates the mapping on its first conversational turn, so an empty mapping immediately after you create the profile is expected and does not indicate a failure.
 
-Run the AI agent to create initial YAML mapping.
+Run the AI agent using the AWS Python SDK to create initial YAML mapping.
 
-Initiate a new conversation with the agent to get a new conversation ID. Call the API again, this time passing the ConversationId from the previous response and your actual request. For a CSV profile, this is where the agent analyzes the sample files you provided at creation and generates the YAML mapping:
+For a CSV profile, this is where the agent analyzes the sample files you provided at creation and generates the YAML mapping:
 
 ```
-aws healthlake update-profile-with-agent \
-  --region us-west-2 \
-  --profile-id "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6" \
-  --source-format CSV \
-  --conversation-id "00154593-c867-4e4c-b870-25fb5237e54f" \
-  --input-message '{"Body": "Generate a profile to convert my CSVs into FHIR.", "Type": "normal"}'
+import boto3
+
+client = boto3.client(
+    "healthlake",
+    region_name="us-west-2"
+)
+
+response = client.update_profile_with_agent(
+    ProfileId="a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6",
+    InputMessage={
+        "Body": "Generate a profile to convert my CSVs into FHIR.",
+        "Type": "normal",
+    }
+)
 ```
 
-Continue the conversation with the same ConversationId to refine the mapping across multiple turns (for example, "Map the RACE\_CD column to a FHIR extension"). If the agent asks you to confirm a change, respond with "Type": "confirmation\_response".
+Continue the conversation with the same `ConversationId` to refine the mapping across multiple turns (for example, "Map the RACE\_CD column to a FHIR extension").
 
 ### Start from local Mapping
 <a name="data-transformation-getting-started-cli-step1-raw"></a>
@@ -93,39 +113,68 @@ The profile is created in draft state (version 0).
 ## Step 2: Customize Profile with the AI agent (optional)
 <a name="data-transformation-getting-started-cli-step2"></a>
 
-Initiate a new conversation with the agent to get a new conversation ID. Call the API again, this time passing the ConversationId
+The following example shows how to chat with the agent to customize the profile using the AWS Python SDK:
 
 ```
-aws healthlake update-profile-with-agent \
-  --region us-west-2 \
-  --profile-id "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6" \
-  --source-format CCDA \
-  --conversation-id "conv-a1b2c3d4-e5f6-7890" \
-  --input-message '{"Body": "Add a mapping for Medication resources", "Type": "normal"}'
+import boto3
+import json
+
+client = boto3.client(
+    "healthlake",
+    region_name="us-west-2"
+)
+
+response = client.update_profile_with_agent(
+    ProfileId="a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6",
+    InputMessage={
+        "Body": "Add a mapping for Medication resources",
+        "Type": "normal",
+    }
+)
+
+response_stream = response["AgentResponse"]
+
+for event in response_stream:
+    event_type = list(event.keys())[0]
+    payload = event[event_type]
+    print(json.dumps({'event_type': event_type, **payload}, default=str))
 ```
 
 Response:
 
 ```
+{"event_type": "ProgressEvent", "Message": "Reviewing CCDA Transformation Capabilities"}
+{"event_type": "ProgressEvent", "Message": "Let me load the CCDA samples and start analyzing."}
 {
-    "chatOutput": {
-        "body": "I can help you add a Medication resource mapping. Which CCDA section should I map from?",
-        "type": "options",
-        "optionsList": ["Medications Section", "Discharge Medications", "Immunizations"]
-    },
-    "conversationId": "conv-a1b2c3d4-e5f6-7890"
+    "event_type": "EndOfOutputEvent",
+    "ConversationId": "conv-a1b2c3d4-e5f6-7890",
+    "Options": [
+        "Medications Section", 
+        "Discharge Medications", 
+        "Immunizations"
+    ],
+    "FinalResponseMessage": "I can help you add a Medication resource mapping. Which CCDA section should I map from?"
 }
 ```
 
-Continue the conversation with the returned conversationId:
+Continue the conversation with the returned `ConversationId`:
 
 ```
-aws healthlake update-profile-with-agent \
-  --region us-west-2 \
-  --profile-id "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6" \
-  --source-format CCDA \
-  --input-message '{"body": "Medications Section", "type": "confirmation_response"}' \
-  --conversation-id "conv-a1b2c3d4-e5f6-7890"
+import boto3
+
+client = boto3.client(
+    "healthlake",
+    region_name="us-west-2"
+)
+
+response = client.update_profile_with_agent(
+    ProfileId="a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6",
+    ConversationId="conv-a1b2c3d4-e5f6-7890",
+    InputMessage={
+        "Body": "Medications Section",
+        "Type": "normal",
+    }
+)
 ```
 
 ## Step 3: Test with sync conversion (optional)

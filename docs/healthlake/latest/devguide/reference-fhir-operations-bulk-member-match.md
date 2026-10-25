@@ -594,14 +594,18 @@ The `$bulk-member-match` operation is designed for high-volume processing and ru
 ## Authorization
 <a name="bulk-member-match-authorization"></a>
 
-The API uses SMART on FHIR authorization protocol with the following required scopes:
-+ `system/Patient.read` — Required to search and match patient resources.
-+ `system/Coverage.read` — Required to validate coverage information.
-+ `system/Group.write` — Required to create result Group resources.
-+ `system/Organization.read` — Conditional, required if coverage references organizations.
-+ `system/Practitioner.read` — Conditional, required if coverage references practitioners.
-+ `system/PractitionerRole.read` — Conditional, required if coverage references practitioner roles.
-+ `system/Consent.write` — Conditional, required if consent resources are provided.
+HealthLake uses SMART scopes to authorize each resource that a bulk member match job reads or writes. For a SMART on FHIR enabled data store, your access token must include all of the following scopes:
++ `system/Patient.read` – Required to search and match patient resources.
++ `system/Coverage.read` – Required to validate coverage information.
++ `system/Group.write` – Required to create result Group resources.
++ `system/Organization.read` – Required to read Organization resources referenced from `Coverage.payor` or `Consent.performer`.
++ `system/Practitioner.read` – Required to read Practitioner resources referenced from `Coverage.payor` or `Consent.performer`.
++ `system/PractitionerRole.read` – Required to read PractitionerRole resources referenced from `Coverage.payor` or `Consent.performer`.
++ `system/Consent.write` – Required to process the Consent resource that the request provides.
+
+HealthLake validates these scopes when you submit the job. During the job, HealthLake might read the Organization, Practitioner, and PractitionerRole resources that `Coverage.payor` or `Consent.performer` references.
+
+HealthLake accepts only system-level scopes for this operation and rejects patient-level and user-level scopes. For more information about scopes, see [SMART on FHIR OAuth 2.0 scopes supported by HealthLake](reference-smart-on-fhir-oauth-scopes.md).
 
 The operation also supports AWS IAM Signature Version 4 (SigV4) authorization for programmatic access.
 

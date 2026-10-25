@@ -73,7 +73,7 @@ The `$davinci-data-export` operation supports the following export types. You sp
 | hl7.fhir.us.davinci-pdex.member | Member Access API | Member's own health data | 5 years | 
 
 **Temporal limits by export type**  
-The 5-year temporal limit applies only to the Payer-to-Payer (`hl7.fhir.us.davinci-pdex.p2p`) and Member Access (`hl7.fhir.us.davinci-pdex.member`) export types. The Provider Access export types (`hl7.fhir.us.davinci-pdex` and `hl7.fhir.us.davinci-pdex#provider-snapshot`) have no temporal restriction. For the export types that are temporally limited, the 5-year limit does not apply to ATR resource types (`Group`, `Patient`, `Coverage`, `RelatedPerson`, `Practitioner`, `PractitionerRole`, `Organization`, `Location`). These resources are always included regardless of age.
+The 5-year temporal limit applies only to the Payer-to-Payer (`hl7.fhir.us.davinci-pdex.p2p`) and Member Access (`hl7.fhir.us.davinci-pdex.member`) export types. The Provider Access export types (`hl7.fhir.us.davinci-pdex` and `hl7.fhir.us.davinci-pdex#provider-snapshot`) have no temporal restriction. For the export types that are temporally limited, the 5-year limit does not apply to ATR resource types (`Group`, `Patient`, `Coverage`, `RelatedPerson`, `Practitioner`, `PractitionerRole`, `Organization`, `Location`). These resources are not limited by age, but the `_since` and `_until` parameters still apply to them.
 
 **Temporal filtering basis**  
 Temporal limits and the `_since` and `_until` parameters are evaluated against each resource's `meta.lastUpdated` timestamp rather than clinical or service dates. This provides consistent temporal filtering across all resource types.
@@ -97,7 +97,15 @@ All PDex export types share the same supported profiles and filtering logic. For
 + PDex Prior Authorization (not supported for Member Access)
 + CARIN BB 2.x Basis profiles: Inpatient Institutional, Outpatient Institutional, Professional NonClinician, Oral, Pharmacy
 
-For PDex exports, clinical and claims resources are automatically discovered for each patient in the Group. You do not need to explicitly reference these resources in the Group resource. The operation searches for all patient-compartment resources (such as `Observation`, `Condition`, `Coverage`, `RelatedPerson`, `MedicationRequest`, and `ExplanationOfBenefit`) that belong to the attributed patients. Only `Patient`, `Group`, and non-patient-compartment ATR types (`Practitioner`, `PractitionerRole`, `Organization`, `Location`) require explicit references in the Group.
+For PDex exports, you do not need to reference clinical or claims resources in the Group resource. For Payer-to-Payer exports, you also do not need to reference the provider resources that the member data points to. A PDex export includes resources from the following sources:
++ *Member data*: For each patient in the Group, the operation searches for all patient-compartment resources (such as `Observation`, `Condition`, `Coverage`, `RelatedPerson`, `MedicationRequest`, and `ExplanationOfBenefit`).
++ *Medications*: For all PDex export types, a `Medication` that an exported `MedicationRequest` or `MedicationDispense` references is also exported.
++ *Referenced providers (Payer-to-Payer only)*: The operation also exports the `Practitioner`, `PractitionerRole`, `Organization`, and `Location` resources that the resources exported for the members reference, such as the practitioner on an `Encounter`, the agent on a `Provenance`, or the payer organization on a `Coverage`. It then follows the references in those provider resources, for example from a `PractitionerRole` to its `Practitioner` and from an `Organization` to its parent organization. The operation follows only relative references, such as `Practitioner/123`. It does not follow absolute URLs, references to contained resources, or references to a specific resource version.
++ *Attributed providers*: For all PDex export types, the attributed providers in the Group (`Group.member.extension:attributedProvider`) are also exported. For Provider Access (`hl7.fhir.us.davinci-pdex` and `hl7.fhir.us.davinci-pdex#provider-snapshot`) and Member Access exports, provider resources come only from the attributed providers in the Group and the locations of attributed practitioner roles.
+
+Referenced resources are subject to the same `_since`, `_until`, and temporal limits as other resources of their type. If the export finds no resources of a requested type, the output has no file for that type. For the resource types that you can export, see [Supported Resource Types](#davinci-data-export-supported-resources).
+
+When you specify `_type`, a referenced resource is exported only if its type is in `_type`. For example, to export practitioners that are referenced only through a `PractitionerRole` in a Payer-to-Payer export, include both `PractitionerRole` and `Practitioner` in `_type`. Similarly, a `Medication` is exported only if `Medication` and the referencing `MedicationRequest` or `MedicationDispense` type are in `_type`.
 
 Provider Access (`hl7.fhir.us.davinci-pdex`)  
 Enables in-network providers to retrieve patient data for attributed patients.
@@ -213,7 +221,7 @@ GET https://healthlake.{region}.amazonaws.com/datastore/{datastoreId}/r4/Group/e
 *Payer-to-Payer export*
 
 ```
-GET https://healthlake.{region}.amazonaws.com/datastore/{datastoreId}/r4/Group/example-group/$davinci-data-export?_type=Patient,Coverage,ExplanationOfBenefit,Condition,Procedure&exportType=hl7.fhir.us.davinci-pdex.p2p&_includeEOB2xWoFinancial=true
+GET https://healthlake.{region}.amazonaws.com/datastore/{datastoreId}/r4/Group/example-group/$davinci-data-export?_type=Patient,Coverage,ExplanationOfBenefit,Condition,Procedure,Practitioner,PractitionerRole,Organization,Location&exportType=hl7.fhir.us.davinci-pdex.p2p&_includeEOB2xWoFinancial=true
 ```
 
 *Member Access export for a specific patient*
@@ -248,7 +256,7 @@ Group (Attribution List)
 ```
 
 **Note**  
-The preceding resource relationship diagram applies to ATR exports. For PDex exports, clinical and claims resources are automatically discovered through patient search and do not require explicit references in the Group resource.
+This diagram applies to ATR exports. For PDex exports, clinical and claims resources are automatically discovered through patient search and do not require explicit references in the Group resource. For Payer-to-Payer exports, `Practitioner`, `PractitionerRole`, `Organization`, and `Location` resources are also exported when the resources exported for the members reference them. For more information about PDex exports, see [PDex Export Types](#davinci-data-export-type-pdex).
 
 ### Resource Sources
 <a name="davinci-data-export-resource-sources"></a>
@@ -264,6 +272,8 @@ The preceding resource relationship diagram applies to ATR exports. For PDex exp
 | RelatedPerson | Coverage.subscriber | Subscribers of the coverage | 
 | Location | PractitionerRole.location | Locations associated with practitioner roles | 
 | Group | Input endpoint | The attribution list itself | 
+
+For Payer-to-Payer exports, `Practitioner`, `PractitionerRole`, `Organization`, and `Location` resources are also exported from references in the exported resources, for example `Encounter.participant.individual`, `ExplanationOfBenefit.provider`, `Patient.generalPractitioner`, and `PractitionerRole.practitioner`.
 
 ## Job Management
 <a name="davinci-data-export-job-management"></a>
