@@ -96,7 +96,7 @@ Exactly one of the below filters is required for every MetricCondition. If the M
 #### MetricDataFilterByAgent
 <a name="MetricDataFilterByAgent"></a>
 
-Provide the list of Agent IDs in MetricCondition. Up to 25 values can be provided.
+Provide the list of Agent IDs in MetricCondition. Up to 100 values can be provided.
 
 ```
 {
@@ -135,7 +135,7 @@ Only one value is supported in the filter.
 #### MetricDataFilterByQueue
 <a name="MetricDataFilterByQueue"></a>
 
-Provide the list of Queue IDs in MetricCondition. Up to 25 values can be provided.
+Provide the list of Queue IDs in MetricCondition. Up to 100 values can be provided.
 
 ```
 {
@@ -147,7 +147,7 @@ Provide the list of Queue IDs in MetricCondition. Up to 25 values can be provide
 #### MetricDataFilterByRoutingProfile
 <a name="MetricDataFilterByRoutingProfile"></a>
 
-Provide the list of Routing Profile IDs in MetricCondition. Up to 25 values can be provided.
+Provide the list of Routing Profile IDs in MetricCondition. Up to 100 values can be provided.
 
 ```
 {
@@ -159,7 +159,7 @@ Provide the list of Routing Profile IDs in MetricCondition. Up to 25 values can 
 #### MetricDataFilterByFlow
 <a name="MetricDataFilterByFlow"></a>
 
-Provide the list of Flow IDs in MetricCondition. Up to 25 values can be provided.
+Provide the list of Flow IDs in MetricCondition. Up to 100 values can be provided.
 
 ```
 {
@@ -171,7 +171,7 @@ Provide the list of Flow IDs in MetricCondition. Up to 25 values can be provided
 #### MetricDataFilterByFlowModule
 <a name="MetricDataFilterByFlowModule"></a>
 
-Provide the list of flow module IDs in MetricCondition. Up to 25 values can be provided.
+Provide the list of flow module IDs in MetricCondition. Up to 100 values can be provided.
 
 ```
 {
