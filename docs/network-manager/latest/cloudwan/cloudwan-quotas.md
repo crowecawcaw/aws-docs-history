@@ -85,6 +85,17 @@ Your AWS account has the following routing policy quotas for AWS Cloud WAN.
 | Maximum number of rules in a core network routing policy | 10 | No | 
 | Maximum number of routing policies per core network routing policy association type (attachments, segment shares, edge to edge peers) | 5 | No | 
 
+## 1:1 NAT
+<a name="cloudwan-nat-quotas"></a>
+
+Your AWS account has the following 1:1 NAT quotas for AWS Cloud WAN. For more information about 1:1 NAT, see [1:1 NAT in AWS Cloud WAN](cloudwan-nat.md).
+
+
+| Quota | Default | Adjustable | 
+| --- | --- | --- | 
+| NAT rules per core network attachment | 50 | No | 
+| NAT rules per core network edge | 1,000 | [Yes](https://us-east-1.console.aws.amazon.com/servicequotas/home/services/networkmanager/quotas/L-F3A8CD4F) | 
+
 ## Maximum transmission unit (MTU)
 <a name="cloudwan-mtu.title"></a>
 

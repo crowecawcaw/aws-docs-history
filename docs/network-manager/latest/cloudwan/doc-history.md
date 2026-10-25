@@ -7,6 +7,7 @@ The following table describes the releases for AWS Cloud WAN:
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [1:1 NAT support](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-nat.html) | With AWS Cloud WAN, you can use 1:1 NAT to get static, stateless network address translation on core network attachments. | October 22, 2026 | 
 | [Removed the table of supported Regions for Direct Connect Gateway attachments](#doc-history) | Direct Connect Gateway attachments are now supported in all Cloud WAN Regions listed here [Region Availability](https://docs.aws.amazon.com/network-manager/latest/cloudwan/what-is-cloudwan.html#cloudwan-available-regions). | June 24, 2025 | 
 | [DNS and security group referencing support](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-vpc-attachment.html#cloudwan-dns-support) | Cloud WAN now supports DNS and security group referencing | June 11, 2025 | 
 | [Support for dual-stack IPv6 endpoints](#doc-history) | AWS Cloud WAN now supports dual-stack IPv6 endpoints | March 25, 2025 | 

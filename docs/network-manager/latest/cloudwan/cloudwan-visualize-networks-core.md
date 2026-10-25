@@ -300,7 +300,7 @@ On the **Routes** page, you can search for and view core network routes. On this
    The **Routes** table updates to display the routes for the chosen segment and edge location and includes the following:
    + **CIDR** — All CIDRs used by this route.
    + **Destinations** — All destination addresses.
-   + **Route types** — The type of route. This will be either **PROPAGATED** or **STATIC**.
+   + **Route types** — The type of route. This will be **PROPAGATED**, **STATIC**, or **SYSTEM**. Routes that Cloud WAN installs for NAT have the route type **SYSTEM**. For more information, see [Route type: system](cloudwan-nat-routing.md#cloudwan-nat-routing-system).
    + **Route state** — The current state of a route. This will be either **ACTIVE** or **BLACKHOLE**.
 
 ## Routing information base

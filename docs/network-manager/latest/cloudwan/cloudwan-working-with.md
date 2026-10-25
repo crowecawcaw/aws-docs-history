@@ -42,6 +42,7 @@ Modifying a global network or a core network requires that both be set up first.
 + [Devices](cloudwan-devices.md)
 + [Peerings](cloudwan-peerings.md)
 + [Prefix list associations](cloudwan-prefix-lists.md)
++ [1:1 NAT](cloudwan-nat.md)
 + [Shared attachments](cloudwan-shared-attachments.md)
 + [Shared core network](cloudwan-share-network.md)
 + [Shared peerings](cloudwan-shared-peerings.md)

@@ -174,3 +174,6 @@ AWS Cloud WAN is also available in the following AWS Regions in the GovCloud par
 <a name="cloudwan-available-pricing"></a>
 
 For information about Cloud WAN pricing, see [AWS Cloud WAN Pricing](https://aws.amazon.com/cloud-wan/pricing/).
+
+**Important**  
+1:1 NAT is a paid feature, billed at Regional NAT gateway rates. Your standard Cloud WAN charges (attachment hours and data processing) don't change. NAT adds an hourly charge and a data processing charge. For details and current rates, see [Amazon VPC pricing](https://aws.amazon.com/vpc/pricing/).

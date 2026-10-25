@@ -29,6 +29,32 @@ The `AWS/Network Manager` namespace includes the following metrics. All metrics 
 | PacketDropCountNoRoute | The number of packets dropped because they did not match a route.<br />**Statistics**: The only meaningful statistic is `Sum`. | 
 | PacketDropTTLExpired | The number of packets dropped because the TTL expired.<br />**Statistics**: The only meaningful statistic is `Sum`. | 
 
+### 1:1 NAT metrics
+<a name="cloudwan-metrics-nat"></a>
+
+Cloud WAN publishes four metrics in the `AWS/Network Manager` namespace for traffic translated by 1:1 network address translation (NAT). They count a subset of the traffic in the existing `PacketsIn`, `PacketsOut`, `BytesIn`, and `BytesOut` metrics, which continue to report all traffic. Metrics are published every minute in the US West (Oregon) AWS Region, like other Cloud WAN metrics.
+
+The following table describes the 1:1 NAT metrics.
+
+
+| Metric | Description | 
+| --- | --- | 
+| PacketsInNAT | Packets received from an attachment whose source address was translated (SNAT) by that attachment's NAT rules.<br />**Statistics**: The only meaningful statistic is `Sum`. | 
+| PacketsOutNAT | Packets sent to an attachment whose destination address was translated (DNAT) by that attachment's NAT rules.<br />**Statistics**: The only meaningful statistic is `Sum`. | 
+| BytesInNAT | Bytes received from an attachment whose source address was translated (SNAT) by that attachment's NAT rules.<br />**Statistics**: The only meaningful statistic is `Sum`. | 
+| BytesOutNAT | Bytes sent to an attachment whose destination address was translated (DNAT) by that attachment's NAT rules.<br />**Statistics**: The only meaningful statistic is `Sum`. | 
+
+Cloud WAN counts each metric against the attachment whose rule applied. With double NAT, a packet counts in both the source attachment's `PacketsInNAT` and the destination attachment's `PacketsOutNAT`.
+
+**Dimensions**
++ `CoreNetwork`, `EdgeLocation`
++ `CoreNetwork`, `Attachment`
++ `CoreNetwork`, `Attachment`, `EdgeLocation` (Direct Connect gateway attachments)
++ `CoreNetwork`, `EdgeLocation`, `AvailabilityZone` (VPC attachments only)
++ `CoreNetwork`, `Attachment`, `AvailabilityZone` (VPC attachments only)
+
+Cloud WAN publishes NAT metrics to the core network owner's account. For an attachment owned by another account, Cloud WAN also publishes them to the attachment owner's account.
+
 ### Cloud WAN metric dimensions
 <a name="cloudwan-metrics-dims"></a>
 

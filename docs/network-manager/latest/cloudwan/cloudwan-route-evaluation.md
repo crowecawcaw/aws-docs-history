@@ -11,6 +11,8 @@ Cloud WAN evaluates routes at each core network edge in the following order:
 
    1. Static routes
 
+   1. System routes. For more information, see [Routing behavior for 1:1 NAT in AWS Cloud WAN](cloudwan-nat-routing.md).
+
    1. VPC-propagated routes in the same Region.
 
    1. For dynamic routes received at the core network with an *unequal* AS path length and/or MED BGP attributes, Cloud WAN evaluates them in the following order:

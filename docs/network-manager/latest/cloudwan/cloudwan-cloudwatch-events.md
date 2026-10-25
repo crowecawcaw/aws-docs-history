@@ -33,6 +33,8 @@ Topology change events occur when there are changes to your core network resourc
 + A Direct Connect Gateway attachment has been deleted for a Core Network. 
 + A Direct Connect Gateway attachment has been updated for a Core Network.
 
+1:1 network address translation (NAT) lifecycle changes emit events through Amazon EventBridge. You can use these events to trigger automation or track configuration changes. A single event is emitted for each completed NAT configuration change, matching a single `UpdateAttachmentNatConfiguration` call. The change type is `ATTACHMENT_NAT_CONFIGURATION_UPDATED`. Events use source `aws.networkmanager` and detail-type is `TOPOLOGY_CHANGE = "Network Manager Topology Change"`. Each event carries the attachment ARN, edge location, core network ARN, and both the current and previous values of `natGatewaySupport`, `natSystemRouteSupport`, and `natGatewayRules`, so you can determine exactly what changed.
+
  The following example shows a topology update event where a core network VPC attachment has been deleted.
 
 ```
