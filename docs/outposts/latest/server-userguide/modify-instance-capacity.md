@@ -16,6 +16,7 @@ Consider the following before modifying instance capacity:
 + You can choose to run the capacity task instantly or to keep attempting periodically over the next 48 hours. Choosing to run instantly requires less asset isolation time, but the task might fail if instances need to be stopped to run the task. Choosing to run periodically allows more time to stop instances before the task would fail, but assets may be isolated for longer.
 + It is possible for valid capacity configurations to not utilize all of the available vCPU on an asset. When this is the case, a message at the end of the **Instance type** section will inform you that you are under capacity, but will allow the configuration to be applied as requested.
 + When you modify an Outpost in the console, not all supported instances are shown because mixing disk-backed instances with non-disk-backed instances is not fully supported in console. To access all possible instances, utilize the [StartCapacityTask](https://docs.aws.amazon.com/outposts/latest/APIReference/API_StartCapacityTask.html) API.
++ You can modify capacity either by using the steps in the console or by uploading a JSON capacity configuration plan. Use the console steps to configure a single Outpost or asset interactively. Use a JSON file to apply the same capacity configuration to multiple Outposts, to reuse a configuration without calling the [StartCapacityTask](https://docs.aws.amazon.com/outposts/latest/APIReference/API_StartCapacityTask.html) API directly or stepping through the console workflow each time, or to resubmit the input from a capacity task that failed.
 + You can only modify your existing Outposts capacity configuration to use valid Amazon EC2 instance sizes from instance families supported on your respective asset model.
 + If you have instances running on your Outpost that you do not want to stop to run a capacity task, select their respective Instance ID under the section **Instances to keep as-is – *optional*** and make sure to retain the necessary quantity of this instance size in your updated capacity configuration. This will retain instances being used to support production workloads while a capacity task runs.
 + When configuring an asset with multiple instance sizes within an instance family, use **Auto-balance** to make sure you aren’t attempting to over or under-provision your droplet. Over-provisioning is not supported, and will cause a capacity task failure.
@@ -31,7 +32,7 @@ Consider the following before modifying instance capacity:
 
 1. On the **Getting started** page, choose the order, Outpost, or asset to configure.
 
-1. To modify capacity, specify an option for **Method of modification**: e steps in the console or upload a JSON file.
+1. To modify capacity, specify an option for **Method of modification**:
    + **Modify capacity configuration plan** to use the steps in the console
    + **Upload a capacity configuration plan** to upload a JSON file
 
@@ -78,7 +79,7 @@ To prevent capacity management from recommending specific instances to stop, spe
 ------
 #### [ Upload a JSON file ]
 
-1. Choose **Upload a capacity configuration**.
+1. Choose **Upload a capacity configuration plan**.
 
 1. Choose **Next**.
 

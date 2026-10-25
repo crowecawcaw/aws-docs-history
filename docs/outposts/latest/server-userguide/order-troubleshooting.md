@@ -39,7 +39,7 @@ To resolve this issue, use the console or CLI.
 
 1. From the navigation pane, choose **Capacity task**.
 
-1. Use the **Upload a capacity configuration** option to upload a JSON with the same list of instance types.
+1. Use the **Upload a capacity configuration plan** option to upload a JSON with the same list of instance types.
 
 1. The console displays an error message with the list of supported instance types.
 
