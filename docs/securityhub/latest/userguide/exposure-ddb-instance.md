@@ -32,7 +32,7 @@ A single exposure finding contains issues identified in multiple remediation top
  DynamoDB point-in-time recovery provides continuous automated backups for your DynamoDB table data. For information about how to restore a DynamoDB table to a point in time, see [Restoring a DynamoDB table to a point in time](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/PointInTimeRecovery.Tutorial.html) in the *Amazon DynamoDB Developer Guide*. 
 
 ### The DynamoDB table is not covered by a backup plan
-<a name="backup-plan-disabled"></a>
+<a name="backup-plan-disabled"></a><a name="not-in-backup-plan"></a>
 
  AWS Backup provides a centralized service to configure, manage, and automate backups across AWS services, including DynamoDB. Without a backup plan, your table lacks scheduled, automated backups with customizable retention periods, creating significant security risks. An attacker could maliciously corrupt or delete your table data. Without proper backups, you may have no recovery option beyond the Point-in-Time Recovery window (if enabled), potentially resulting in permanent data loss. Following data protection best practices, cover your DynamoDB tables with a backup plan. 
 

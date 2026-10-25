@@ -27,7 +27,7 @@ A single exposure finding contains issues identified in multiple remediation top
 Here are misconfiguration traits for Azure SQL databases and suggested remediation steps.
 
 ### The Azure SQL database has public network access enabled
-<a name="sql-server-public-network-access"></a>
+<a name="sql-server-public-network-access"></a><a name="public-network-access-enabled"></a>
 
  When public network access is enabled on the logical server, the database is reachable through a public endpoint and can accept connections from the public internet (subject to firewall rules). A public endpoint increases the attack surface of your database and exposes it to unauthorized connection attempts. Following standard security principles, disable public network access and connect to the database privately, or tightly restrict the server firewall rules. 
 

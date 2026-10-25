@@ -525,6 +525,8 @@ To enable network isolation for a SageMaker AI model explainability job definiti
 ## [SageMaker.21] SageMaker notebook instances should be encrypted with customer managed AWS KMS keys
 <a name="sagemaker-21"></a>
 
+**Related requirements:** NIST.800-53.r5 AU-9, NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SC-12(2), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SI-7(6)
+
 **Category:** Protect > Data protection > Encryption of data at rest
 
 **Severity:** Medium
@@ -573,6 +575,8 @@ For an existing SageMaker AI monitoring schedule, inter-container traffic encryp
 ## [SageMaker.23] SageMaker inference experiments should have instance storage volume encrypted with customer managed AWS KMS keys
 <a name="sagemaker-23"></a>
 
+**Related requirements:** NIST.800-53.r5 AU-9, NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SC-12(2), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SI-7(6)
+
 **Category:** Protect > Data protection > Encryption of data at rest
 
 **Severity:** Medium
@@ -596,6 +600,8 @@ To configure a KMS key for a SageMaker AI inference experiment, specify the `Kms
 
 ## [SageMaker.24] SageMaker inference experiments should have data storage encrypted with customer managed AWS KMS keys
 <a name="sagemaker-24"></a>
+
+**Related requirements:** NIST.800-53.r5 AU-9, NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SC-12(2), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SI-7(6)
 
 **Category:** Protect > Data protection > Encryption of data at rest
 

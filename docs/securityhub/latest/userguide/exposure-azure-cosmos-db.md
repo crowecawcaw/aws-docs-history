@@ -25,7 +25,7 @@ A single exposure finding contains issues identified in multiple remediation top
 Here are misconfiguration traits for Azure Cosmos DB accounts and suggested remediation steps.
 
 ### The Azure Cosmos DB account has public network access enabled
-<a name="cosmos-public-network-access"></a>
+<a name="cosmos-public-network-access"></a><a name="public-network-access-enabled"></a>
 
  When public network access is enabled, the Azure Cosmos DB account is reachable through a public endpoint. It can accept connections from the public internet, subject to firewall and virtual network rules. A public endpoint increases the attack surface of your account and exposes it to unauthorized connection attempts and potential data exfiltration. Following standard security principles, disable public network access and connect to the account privately, or tightly restrict the account firewall rules. 
 

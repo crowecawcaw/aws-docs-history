@@ -52,7 +52,7 @@ A single exposure finding contains issues identified in multiple remediation top
 Here are misconfiguration traits for Lambda functions and suggested remediation steps.
 
 ### Lambda function is deployed outside of an Amazon VPC
-<a name="deployed-outside-vpc"></a>
+<a name="deployed-outside-vpc"></a><a name="deployed-outside-private-network"></a>
 
  Lambda functions by default are deployed with access to the public internet. This default configuration gives Lambda functions the ability to reach AWS service endpoints and external APIs, but it also exposes them to potential security risks. Functions with internet access could be used to exfiltrate data, communicate with unauthorized servers, or become entry points for external actors if compromised. Amazon VPC provides network isolation by restricting your Lambda functions to communicate only with resources within your defined private network. Following standard security principles, deploy Lambda functions within a VPC to improve security through network isolation. 
 

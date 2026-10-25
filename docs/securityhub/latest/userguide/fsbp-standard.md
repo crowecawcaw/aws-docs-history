@@ -64,6 +64,8 @@ The following list specifies which AWS Security Hub CSPM controls apply to the A
 
  [[BedrockAgentCore.6] Bedrock AgentCore custom browsers should have session recording enabled](bedrockagentcore-controls.md#bedrockagentcore-6) 
 
+ [[BedrockAgentCore.7] Bedrock AgentCore custom code interpreters should use a private network configuration](bedrockagentcore-controls.md#bedrockagentcore-7) 
+
  [[CloudFormation.3] CloudFormation stacks should have termination protection enabled](cloudformation-controls.md#cloudformation-3) 
 
  [[CloudFormation.4] CloudFormation stacks should have associated service roles](cloudformation-controls.md#cloudformation-4) 
@@ -681,6 +683,12 @@ The following list specifies which AWS Security Hub CSPM controls apply to the A
  [[SageMaker.17] SageMaker feature group offline stores should be encrypted with AWS KMS keys](sagemaker-controls.md#sagemaker-17) 
 
  [[SageMaker.19] SageMaker models should use private registry in VPC for multi-container inference pipelines](sagemaker-controls.md#sagemaker-19) 
+
+ [[SageMaker.20] SageMaker model explainability job definitions should have network isolation enabled](sagemaker-controls.md#sagemaker-20) 
+
+ [[SageMaker.22] SageMaker monitoring schedules should have inter-container traffic encryption enabled](sagemaker-controls.md#sagemaker-22) 
+
+ [[SageMaker.25] SageMaker model quality job definitions should have network isolation enabled](sagemaker-controls.md#sagemaker-25) 
 
  [[SecretsManager.1] Secrets Manager secrets should have automatic rotation enabled](secretsmanager-controls.md#secretsmanager-1) 
 

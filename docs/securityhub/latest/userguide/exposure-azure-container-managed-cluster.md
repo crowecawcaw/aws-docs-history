@@ -27,7 +27,7 @@ A single exposure finding contains issues identified in multiple remediation top
 Here are misconfiguration traits for Azure Kubernetes Service clusters and suggested remediation steps.
 
 ### The Azure Kubernetes Service cluster is running an unsupported Kubernetes version
-<a name="aks-unsupported-kubernetes-version"></a>
+<a name="aks-unsupported-kubernetes-version"></a><a name="unsupported-kubernetes-version"></a>
 
  The AKS cluster is running a Kubernetes version that is no longer supported by Microsoft. Unsupported Kubernetes versions stop receiving security patches and bug fixes, which leaves known vulnerabilities in the control plane and node components unaddressed and exposes the cluster to attack. Following security best practices, keep the cluster on a supported Kubernetes version. 
 

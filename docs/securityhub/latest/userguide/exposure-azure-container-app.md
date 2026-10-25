@@ -84,7 +84,7 @@ Take one or more of the following actions to address this exposure:
 Here are reachability traits for Azure Container apps and suggested remediation steps.
 
 ### The Azure Container app is reachable over the internet
-<a name="aca-internet-reachable"></a><a name="public-ip-assigned"></a>
+<a name="aca-internet-reachable"></a><a name="internet-reachable"></a><a name="public-ip-assigned"></a>
 
  The Container app is reachable from the public internet, either because external ingress is enabled (`ingress.external` is set to `true`) or because its environment has a public IP address. Public reachability increases the attack surface of the Container app and exposes it to unauthorized requests. Following standard security principles, disable external ingress where it is not required, use an internal environment, or place the app behind a controlled, authenticated ingress point. 
 

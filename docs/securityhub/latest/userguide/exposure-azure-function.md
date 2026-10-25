@@ -31,7 +31,7 @@ A single exposure finding contains issues identified in multiple remediation top
 Here are misconfiguration traits for Azure Function apps and suggested remediation steps.
 
 ### The Azure Function app is deployed outside a VNet
-<a name="deployed-outside-vnet"></a>
+<a name="deployed-outside-vnet"></a><a name="deployed-outside-private-network"></a>
 
  When a Function app is not integrated with a virtual network, its endpoints and outbound traffic traverse the public network rather than your private network boundary. When the Function app is not integrated with a virtual network, you cannot apply network-level controls such as private endpoints, network security groups, and restricted outbound access. This gap increases the app's exposure. Following standard security principles, integrate the Function app with a virtual network and use private endpoints where your hosting plan supports it. 
 

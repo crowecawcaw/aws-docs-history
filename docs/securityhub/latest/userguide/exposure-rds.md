@@ -40,7 +40,7 @@ A single exposure finding contains issues identified in multiple remediation top
  The following describes the misconfiguration traits and remediation steps for Amazon RDS instances and clusters. 
 
 ### The Amazon RDS DB instance is configured with public access
-<a name="public-access-configured"></a>
+<a name="public-access-configured"></a><a name="public-network-access-enabled"></a>
 
  Amazon RDS instances with public access are potentially accessible over the internet through their endpoints. While public access is sometimes necessary for instance functionality, this configuration can be used as a potential attack vector for unauthorized users to attempt to access your database. Publicly accessible databases can be exposed to port scanning, brute force attacks, and exploitation attempts. Following standard security principles, limit public exposure of your database resources. 
 
@@ -169,7 +169,7 @@ Take one or more of the following actions to address this exposure:
  After changing the port, update all applications and services that connect to your Amazon RDS instance to use the new port number. 
 
 ### The Amazon RDS DB instance is not covered by a backup plan
-<a name="rds-instance-not-in-backup-plan"></a>
+<a name="rds-instance-not-in-backup-plan"></a><a name="not-in-backup-plan"></a>
 
  AWS Backup is a fully managed backup service that centralizes and automates the backup of data across AWS services. If your DB instance is not covered by a backup plan, you risk losing data in case of malicious deletion, data corruption, or other data loss scenarios. In the event of malicious activity like ransomware attacks, database table deletion, or corruption, the ability to restore to a point in time before the incident reduces the time required to recover from an incident. Following security best practices, include your Amazon RDS instances in a backup plan to ensure data protection. 
 
