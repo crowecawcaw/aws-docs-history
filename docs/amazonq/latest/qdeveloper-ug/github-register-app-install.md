@@ -3,8 +3,10 @@
 # Increasing usage limits and configuring details in Amazon Q Developer console
 <a name="github-register-app-install"></a>
 
-**Note**  
-Amazon Q Developer for GitHub is in preview release and is subject to change.
+**Amazon Q Developer for GitHub: end of support**  
+On January 30, 2027, AWS will discontinue support for the Amazon Q Developer for GitHub App. New app installations will no longer be available starting November 18, 2026.  
+For capabilities similar to the Amazon Q Developer for GitHub App, explore Kiro and the Kiro GitHub App to access the latest models and features, including agentic coding, chat and MCP support. For more information, see [Kiro GitHub App on the Kiro website](https://kiro.dev/docs/web/github).  
+For more information about the end of support, see [Amazon Q Developer end-of-support announcement](https://aws.amazon.com/blogs/devops/amazon-q-developer-end-of-support-announcement/) on the AWS DevOps Blog.
 
 You can use Amazon Q Developer agents in GitHub for free without the need to set up an AWS account to get started. You're provided with limited invocations per month for the feature development and code review capabilities. You can increase your free usage at any time by registering your Amazon Q Developer app installation with your AWS account.
 

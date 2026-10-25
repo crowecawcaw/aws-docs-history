@@ -3,8 +3,10 @@
 # Reviewing code with Amazon Q Developer in GitHub
 <a name="github-code-reviews"></a>
 
-**Note**  
-Amazon Q Developer for GitHub is in preview release and is subject to change.
+**Amazon Q Developer for GitHub: end of support**  
+On January 30, 2027, AWS will discontinue support for the Amazon Q Developer for GitHub App. New app installations will no longer be available starting November 18, 2026.  
+For capabilities similar to the Amazon Q Developer for GitHub App, explore Kiro and the Kiro GitHub App to access the latest models and features, including agentic coding, chat and MCP support. For more information, see [Kiro GitHub App on the Kiro website](https://kiro.dev/docs/web/github).  
+For more information about the end of support, see [Amazon Q Developer end-of-support announcement](https://aws.amazon.com/blogs/devops/amazon-q-developer-end-of-support-announcement/) on the AWS DevOps Blog.
 
 Amazon Q Developer enables automated code reviews within GitHub. When you create a new pull request or reopen a closed pull request, Amazon Q Developer automatically performs a code review and provides feedback on code quality, potential issues, and high-severity findings. Each review includes a code review summary with threaded findings. Amazon Q Developer also generates fixes for the identified issues, which you can review and choose to commit to the pull request. You can use the `/q` command in pull request comments to ask questions and interact regarding the code review findings. Automatic code reviews are not triggered by subsequent commits made within an existing pull request.
 

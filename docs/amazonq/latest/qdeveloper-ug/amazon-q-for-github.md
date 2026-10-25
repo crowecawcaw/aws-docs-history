@@ -3,8 +3,10 @@
 # Amazon Q Developer for GitHub (Preview)
 <a name="amazon-q-for-github"></a>
 
-**Note**  
-Amazon Q Developer for GitHub is in preview release and is subject to change.
+**Amazon Q Developer for GitHub: end of support**  
+On January 30, 2027, AWS will discontinue support for the Amazon Q Developer for GitHub App. New app installations will no longer be available starting November 18, 2026.  
+For capabilities similar to the Amazon Q Developer for GitHub App, explore Kiro and the Kiro GitHub App to access the latest models and features, including agentic coding, chat and MCP support. For more information, see [Kiro GitHub App on the Kiro website](https://kiro.dev/docs/web/github).  
+For more information about the end of support, see [Amazon Q Developer end-of-support announcement](https://aws.amazon.com/blogs/devops/amazon-q-developer-end-of-support-announcement/) on the AWS DevOps Blog.
 
 [Amazon Q Developer for GitHub or GitHub Enterprise Cloud](https://github.com/marketplace/amazon-q-developer) allows you to leverage Amazon Q Developer capabilities for your software development workflows. With specialized development agents, you can implement new ideas, review code for quality issues, and address vulnerabilities with unit tests. Once the agent completes a task, you can provide feedback, and the agent iterates on the previous solution. For more information, see [Amazon Q Developer agents](#github-agents).
 
@@ -23,7 +25,6 @@ Amazon Q Developer for GitHub (Preview) does not currently use your content for 
 + [Installing Amazon Q Developer app and authorizing access](#github-concepts-set-up)
 + [Amazon Q Developer agents](#github-agents)
 + [Registering app installation](#github-concepts-register-app-install)
-+ [Using browser extensions in GitHub](#github-concepts-extensions)
 + [Using slash commands in GitHub issues and pull requests](#github-slash-commands)
 + [Quickstart: Installing, using features in GitHub, and increasing usage limits](github-quickstart.md)
 + [Developing features and iterating with Amazon Q Developer in GitHub](github-feature-development.md)
@@ -69,16 +70,6 @@ The Amazon Q Developer integration for GitHub is available for free without the 
 
 **Important**  
 To register the app installation in the Amazon Q Developer console, you must meet the requirements for the GitHub organization. For more information, see [Requirements to install a GitHub App](https://docs.github.com/en/enterprise-cloud@latest/apps/using-github-apps/installing-a-github-app-from-a-third-party#requirements-to-install-a-github-app) and [OAuth apps and organizations](https://docs.github.com/en/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps#oauth-apps-and-organizations) in the *GitHub documentation*.
-
-## Using browser extensions in GitHub
-<a name="github-concepts-extensions"></a>
-
-You can use the Amazon Q Developer extension in a supported browser to quickly add a label for feature development in GitHub issues without having to search through label menus.
-
-The Amazon Q Developer extension is available for the following browsers:
-+ [Google Chrome](https://chromewebstore.google.com/detail/amazon-q-github-issue-hel/oefafjbablenakmhacfllkmpaeabnnfi)
-+ [Mozilla Firefox](https://addons.mozilla.org/en-US/firefox/addon/amazon-q-github-issue-helper)
-+ [Microsoft Edge](https://microsoftedge.microsoft.com/addons/detail/amazon-q-github-issue-helper/poghackjbfhejeppjaegbnblangjbmmc)
 
 ## Using slash commands in GitHub issues and pull requests
 <a name="github-slash-commands"></a>

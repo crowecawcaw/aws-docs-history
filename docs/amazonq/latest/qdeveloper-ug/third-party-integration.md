@@ -28,7 +28,6 @@ Amazon Q Developer offers the following key capabilities in GitHub:
 + Automated code reviews of new or reopened pull requests for code quality, issues, and security concerns
 + Slash commands to provide alternative ways to initiate feature development from issues, and code reviews after initial automatic review
 + Iterative development by providing feedback on generated code and implementing
-+ Browser extensions to quickly assign feature development tasks to Amazon Q Developer
 
 To get started, see [Quickstart: Installing, using features in GitHub, and increasing usage limits](github-quickstart.md).
 

@@ -3,6 +3,11 @@
 # Troubleshooting issues for Amazon Q Developer for GitHub
 <a name="github-troubleshooting"></a>
 
+**Amazon Q Developer for GitHub: end of support**  
+On January 30, 2027, AWS will discontinue support for the Amazon Q Developer for GitHub App. New app installations will no longer be available starting November 18, 2026.  
+For capabilities similar to the Amazon Q Developer for GitHub App, explore Kiro and the Kiro GitHub App to access the latest models and features, including agentic coding, chat and MCP support. For more information, see [Kiro GitHub App on the Kiro website](https://kiro.dev/docs/web/github).  
+For more information about the end of support, see [Amazon Q Developer end-of-support announcement](https://aws.amazon.com/blogs/devops/amazon-q-developer-end-of-support-announcement/) on the AWS DevOps Blog.
+
 Consult the following section to troubleshoot common problems when using Amazon Q Developer for GitHub.
 
 ## Amazon Q Developer not generating pull requests in repositories with branch protection rules

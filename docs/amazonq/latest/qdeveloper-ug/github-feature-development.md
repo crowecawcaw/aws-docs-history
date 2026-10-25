@@ -3,8 +3,10 @@
 # Developing features and iterating with Amazon Q Developer in GitHub
 <a name="github-feature-development"></a>
 
-**Note**  
-Amazon Q Developer for GitHub is in preview release and is subject to change.
+**Amazon Q Developer for GitHub: end of support**  
+On January 30, 2027, AWS will discontinue support for the Amazon Q Developer for GitHub App. New app installations will no longer be available starting November 18, 2026.  
+For capabilities similar to the Amazon Q Developer for GitHub App, explore Kiro and the Kiro GitHub App to access the latest models and features, including agentic coding, chat and MCP support. For more information, see [Kiro GitHub App on the Kiro website](https://kiro.dev/docs/web/github).  
+For more information about the end of support, see [Amazon Q Developer end-of-support announcement](https://aws.amazon.com/blogs/devops/amazon-q-developer-end-of-support-announcement/) on the AWS DevOps Blog.
 
 You can use Amazon Q Developer in GitHub to streamline development by automatically implementing new features and bug fixes, taking tasks from idea to a completed pull request. When you add the feature development label to an issue or use the `/q dev` slash command, Amazon Q Developer uses the issue, including its title and description, as well as repository code as context to generate new code fixes and create a pull request. On the pull request, you can provide feedback and Amazon Q Developer iterates on the suggested code.
 
@@ -26,9 +28,7 @@ The Amazon Q Developer app attempts to automatically create the **Amazon Q devel
      For an existing issue, you can edit the issue title and description to provide context to Amazon Q Developer for the feature development. For more informaiton, see [Editing an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/editing-an-issue) in the *GitHub documentation*.
 
 1. When creating an issue or configuring an existing issue, you can apply the feature development Amazon Q Developer label or use the `/q dev` slash command. Do one of the following:
-   + To apply the label to the issue, do one of the following:
-     + Choose the **Assign to Amazon Q** dropdown menu provided as a browser extension, and then choose the **Amazon Q development agent** label.
-     + In the sidebar menu, choose **Labels**, and then choose the **Amazon Q development agent** label.
+   + To apply the label to the issue, in the sidebar menu, choose **Labels**, and then choose the **Amazon Q development agent** label.
    + To use the `/q dev` slash command in a comment:
 
      1. Within the issue, navigate to **Add a comment**, and in the comment text input field, enter `/q dev`.
