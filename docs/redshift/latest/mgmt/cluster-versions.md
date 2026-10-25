@@ -65,7 +65,6 @@ Cluster versions in this patch:
 
 ### New features and improvements in this patch
 <a name="cluster-version-2026-10-13-features"></a>
-+ Added the `probe_input_rows` and `build_input_rows` columns to `STL_HASHJOIN`, which record the number of input rows on the probe and build sides of a hash join.
 + Added the `PG_LAST_QUERY_UUID()` function, which returns the UUID of the last completed query.
 + Added a `session_id` column to `STL_UNLOAD_LOG` that records the leader node's session identifier that matches the `session_id` value in `SYS_QUERY_HISTORY`.
 + Added an `external_user_id` column to STL and STV system tables and SYS monitoring views for consistent identity tracking across provisioned clusters and serverless workgroups.
@@ -96,6 +95,7 @@ Cluster versions in this patch:
 <a name="cluster-version-205"></a>
 
 Cluster versions in this patch:
++ 1.0.501809 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released October 19, 2026
 + 1.0.477953 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released October 6, 2026
 + 1.0.434008 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released September 16, 2026
 
@@ -112,6 +112,7 @@ Cluster versions in this patch:
 + Amazon Redshift now supports a `DEBUG` permission on federated permissions catalog databases, letting a global identity, an IAM Identity Center (IdC) group, or a consumer account's administrators view unredacted secure logging records for fine-grained access control (FGAC)-protected data.
 + Amazon Redshift now supports scoped permissions with Metadata Security.
 + Iceberg tables can now be created with a NOT NULL column constraint.
++ Amazon Redshift now supports IANA Time Zone Database version 2026c.
 + Amazon CloudTrail audit events for Amazon Redshift-initiated API calls now include a `queryUuid` field for correlation with system tables.
 + Renamed the `user_query_uuid` column to `query_uuid` in system tables and views for consistency.
 + Improved query performance and availability on clusters with zero-ETL integrations under high query concurrency.

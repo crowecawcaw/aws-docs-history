@@ -45,6 +45,8 @@ For information about what to consider when using history mode, see [Considerati
    ```
    DELETE FROM myschema.mytable where not _record_is_active AND id <= 100;
    ```
+**Note**  
+This `DELETE` applies only to rows whose inactive state zero-ETL has already persisted in the table (usually within an hour, but can be longer for a table with infrequent changes). Rows that zero-ETL is still persisting in the background are left intact, so the `DELETE` can remove fewer rows than you expect. Run it again later to remove them. The `_record_is_active` filter is optional, because a `DELETE` on a table with history mode on removes only inactive rows.
 
    When history mode is turned `off`, Amazon Redshift makes a copy of your table in the target database with active records and without the added history columns. Amazon Redshift renames your table to `{{table-name}}_historical_{{timestamp}}` for your use. You can drop this copy of your table if you no longer need it. You can rename these tables using the ALTER TABLE command. For example:
 

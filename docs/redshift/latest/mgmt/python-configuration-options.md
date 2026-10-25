@@ -470,7 +470,7 @@ This parameter is optional.
 
 ## sslmode
 <a name="python-sslmode-option"></a>
-+ **Default value** – verify-ca
++ **Default value** – verify-full
 + **Data type** – String
 
 The security of the connection to Amazon Redshift. You can specify either of the following: 
@@ -479,6 +479,8 @@ The security of the connection to Amazon Redshift. You can specify either of the
 
 **Note**  
 We recommend using `verify-full` for SSL connections whenever possible.
+
+In driver versions 2.2.0 and later, the default is `verify-full`. In earlier versions, the default was `verify-ca`. If you don't set `sslmode` and the server certificate doesn't match the host name, the driver logs a warning and connects. If you set `sslmode`, the driver enforces the mode that you set.
 
 This parameter is required.
 

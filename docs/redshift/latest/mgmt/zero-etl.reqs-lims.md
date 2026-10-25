@@ -33,7 +33,7 @@ The following considerations apply when using history mode on the target databas
 + When you drop a table on a source, the table on the target is not dropped, but is changed to `DroppedSource` state. You can drop or rename the table from the Amazon Redshift database.
 + When you truncate a table on a source, deletes are run on the target table. For example, if all records are truncated on the source, corresponding records on the target column `_record_is_active` are changed to `false`.
 + When you run TRUNCATE table SQL on the target table, active history rows are marked inactive with a corresponding timestamp.
-+ When a row in a table is set to inactive, it can be deleted after a short (about 10 minute) delay. To delete inactive rows, connect to your zero-ETL database with query editor v2 or another SQL client.
++ When a row in a table is set to inactive, it can be deleted only after zero-ETL persists its inactive state in the table. Queries show the row as inactive immediately. However, zero-ETL takes longer to persist that state in the background, usually within an hour but can take longer for a table with infrequent changes. Additional changes to the source table can cause the inactive state to be persisted earlier. A DELETE that runs before the inactive state is persisted completes successfully, but leaves the inactive row in place. If you see the inactive rows after a successful DELETE command, run the DELETE command again later, for example on a schedule. To delete inactive rows, connect to your zero-ETL database with query editor v2 or another SQL client.
 + You can only delete inactive rows from a table with history mode on. For example, a SQL command similar to the following only deletes inactive rows.
 
   ```

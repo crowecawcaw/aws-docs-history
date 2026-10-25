@@ -570,9 +570,9 @@ Use this property to enable or disable logging in the driver and to specify the 
 **Important**  
 Log level 5 (DEBUG) or higher captures all driver activity, which may include sensitive information such as connection credentials and query data. Only enable these log levels temporarily to capture an issue, and ensure all sensitive information is redacted before sharing logs with support or any third party.
 
-When logging is enabled, the driver produces the following log files at the location you specify in the **LogPath** property: 
-+  A `redshift_odbc.log.1` file that logs driver activity that takes place during handshake of a connection. 
-+  A `redshift_odbc.log` file for all driver activities after a connection is made to the database. 
+When you enable logging, the driver writes all driver activity to a `redshift_odbc.log` file in the location that you specify in the **LogPath** property.
+
+Starting with driver version 2.3.0, the separate `redshift_odbc.log.1` connection handshake log is deprecated, and the driver no longer creates it.
 
 This parameter is optional.
 
@@ -830,7 +830,7 @@ This parameter is optional.
 
 ## SSLMode
 <a name="odbc20-sslmode-option"></a>
-+ **Default Value** – `verify-ca`
++ **Default Value** – `verify-full`
 + **Data Type** – String
 
 The SSL certificate verification mode to use when connecting to Amazon Redshift. The following values are possible: 
@@ -843,6 +843,8 @@ The SSL certificate verification mode to use when connecting to Amazon Redshift.
 
 **Note**  
 We recommend using `verify-full` for SSL connections whenever possible.
+
+In driver versions 2.3.0 and later, the default is `verify-full`. In earlier versions, the default was `verify-ca`. If you don't set `SSLMode` and the server certificate doesn't match the host name, the driver logs a warning and connects. If you set `SSLMode`, the driver enforces the mode that you set.
 
 This parameter is optional.
 

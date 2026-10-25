@@ -220,7 +220,7 @@ aws redshift enable-logging \
     --s3-table-kms-key-id arn:aws:kms:us-west-2:111122223333:key/{{key-id}}
 ```
 
-If you use a customer managed key, its key policy must allow the Redshift system table integration service principal to generate data keys when it writes your system tables, and the S3 Tables maintenance service principal to use the key during table maintenance (such as compaction). Add the following statements to the key policy, replacing {{REGION}}, {{ACCOUNT}}, and {{KEY\_ID}} with your own values.
+If you use a customer managed key, its key policy must allow the Redshift system table integration service principal to generate data keys when it writes your system tables, and the S3 Tables maintenance service principal to use the key during table maintenance (such as compaction). Add the following statements to the key policy, replacing {{PARTITION}}, {{REGION}}, {{ACCOUNT}}, and {{KEY\_ID}} with your own values.
 
 ```
 {
@@ -237,7 +237,7 @@ If you use a customer managed key, its key policy must allow the Redshift system
         "kms:GenerateDataKey",
         "kms:Decrypt"
       ],
-      "Resource": "arn:aws:kms:{{REGION}}:{{ACCOUNT}}:key/{{KEY_ID}}",
+      "Resource": "arn:{{PARTITION}}:kms:{{REGION}}:{{ACCOUNT}}:key/{{KEY_ID}}",
       "Condition": {
         "StringEquals": {
           "aws:SourceAccount": "{{ACCOUNT}}"
@@ -254,10 +254,10 @@ If you use a customer managed key, its key policy must allow the Redshift system
         "kms:GenerateDataKey",
         "kms:Decrypt"
       ],
-      "Resource": "arn:aws:kms:{{REGION}}:{{ACCOUNT}}:key/{{KEY_ID}}",
+      "Resource": "arn:{{PARTITION}}:kms:{{REGION}}:{{ACCOUNT}}:key/{{KEY_ID}}",
       "Condition": {
         "StringLike": {
-          "kms:EncryptionContext:aws:s3:arn": "arn:aws:s3tables:{{REGION}}:{{ACCOUNT}}:bucket/aws-redshift/*"
+          "kms:EncryptionContext:aws:s3:arn": "arn:{{PARTITION}}:s3tables:{{REGION}}:{{ACCOUNT}}:bucket/aws-redshift/*"
         }
       }
     }

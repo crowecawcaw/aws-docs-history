@@ -961,7 +961,7 @@ This parameter is required if SSLCert is specified.
 
 ## SSLMode
 <a name="jdbc20-sslmode-option"></a>
-+ **Default Value** – verify-ca
++ **Default Value** – verify-full
 + **Data Type** – String
 
 Use this property to specify how the driver validates certificates when TLS/SSL is enabled. 
@@ -978,6 +978,8 @@ The driver verifies that the certificate comes from a trusted CA and that the ho
 
 **Note**  
 We recommend using `verify-full` for SSL connections whenever possible.
+
+In driver versions 2.3.0 and later, the default is `verify-full`. In earlier versions, the default was `verify-ca`. If you don't set `SSLMode` and the server certificate doesn't match the host name, the driver logs a warning and connects. If you set `SSLMode`, the driver enforces the mode that you set.
 
 ## SSLPassword
 <a name="jdbc20-sslpassword-option"></a>
