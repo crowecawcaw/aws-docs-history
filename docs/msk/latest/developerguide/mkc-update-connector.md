@@ -36,4 +36,8 @@ This procedure describes how to update the configuration of an existing MSK Conn
 
 1. You can then monitor the current state of the operation in the **Operations** tab of the connector. 
 
+Use the `skipHealthValidation` parameter to control whether Amazon MSK Connect runs connector-level and task-level health checks after it applies your update. If you set it to `true`, Amazon MSK Connect skips those checks. If you set it to `false` or omit it, the checks run.
+
+Every update to a connector that is in the `PAUSED` state requires `skipHealthValidation` to be `true`, because Amazon MSK Connect cannot validate the health of a connector that is not processing records. For more information, see [Pause and resume a connector](mkc-pause-resume-connector.md).
+
 To use the MSK Connect API to update the configuration of a connector, see [UpdateConnector](https://docs.aws.amazon.com/MSKC/latest/mskc/API_UpdateConnector.html).

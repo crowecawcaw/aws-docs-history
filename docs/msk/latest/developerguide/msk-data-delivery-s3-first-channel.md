@@ -3,6 +3,8 @@
 # Create your first Channel
 <a name="msk-data-delivery-s3-first-channel"></a>
 
+To create your first Channel, complete the following steps:
+
 1. Create the general-purpose S3 bucket and the DLQ S3 bucket.
 
 1. Create the IAM service role with the required permissions and trust policy (see [IAM permissions](msk-data-delivery-s3-iam.md)).

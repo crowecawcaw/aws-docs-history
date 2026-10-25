@@ -36,7 +36,7 @@ This procedure describes how to set up a Prometheus host using a prometheus.yml 
 1. Create a file named `targets.json` with the following JSON. Replace {{broker\_dns\_1}}, {{broker\_dns\_2}}, and the rest of the broker DNS names with the DNS names you obtained for your brokers in the previous step. Include all of the brokers you obtained in the previous step. Amazon MSK uses port 11001 for the JMX Exporter and port 11002 for the Node Exporter.
 
 ------
-#### [ ZooKeeper mode targets.json ]
+#### [ Brokers only ]
 
    ```
    [
@@ -70,7 +70,7 @@ This procedure describes how to set up a Prometheus host using a prometheus.yml 
    ```
 
 ------
-#### [ KRaft mode targets.json ]
+#### [ Brokers and controllers ]
 
    ```
    [
@@ -108,7 +108,9 @@ This procedure describes how to set up a Prometheus host using a prometheus.yml 
 
 ------
 **Note**  
-To scrape JMX metrics from KRaft controllers, add controller DNS names as targets in the JSON file. For example: `controller_dns_1:11001`, replacing `controller_dns_1` with the actual controller DNS name.
+Use the **Brokers only** targets for clusters in ZooKeeper mode. Also use them for KRaft clusters created on Apache Kafka version 4.1 or later, and for clusters migrated from ZooKeeper mode to KRaft mode. These clusters don't have controller DNS endpoints, and `ListNodes` doesn't return endpoints for their controller nodes.  
+Only KRaft clusters created on Apache Kafka versions earlier than 4.1 have controller DNS endpoints, and they keep them after a version upgrade. For these clusters, you can optionally add the controller DNS names that `ListNodes` returns as targets. The **Brokers and controllers** tab shows an example.  
+You don't need controller metrics to monitor the health of your cluster. Amazon MSK monitors and manages the KRaft controllers for you. For cluster-level health, use Amazon MSK CloudWatch metrics such as `ActiveControllerCount`. For more information, see [Amazon MSK metrics for monitoring Standard brokers with CloudWatch](metrics-details.md) and [Amazon MSK metrics for monitoring Express brokers with CloudWatch](metrics-details-express.md).
 
 1. To start the Prometheus server on your Amazon EC2 instance, run the following command in the directory where you extracted the Prometheus files and saved `prometheus.yml` and `targets.json`.
 

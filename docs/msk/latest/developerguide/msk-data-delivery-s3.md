@@ -34,6 +34,8 @@ The following diagram shows how records flow from an Amazon MSK Express broker t
 
 ## Benefits
 <a name="msk-data-delivery-s3-benefits"></a>
+
+Amazon MSK data delivery to Amazon S3 provides the following benefits:
 + **No infrastructure to manage** — No connectors or compute clusters. You configure a Channel and the service handles delivery, scaling, and fault tolerance.
 + **No broker impact** — A channel reads from the topic without consuming broker throughput or affecting producer and consumer workloads.
 + **Scales with your data** — Supports data delivery throughput of up to 10 GBps with no manual scaling required.
@@ -53,6 +55,8 @@ Rates vary by destination type and are subject to change. For current pricing, s
 
 ## Common use cases
 <a name="msk-data-delivery-s3-use-cases"></a>
+
+Common use cases for data delivery to Amazon S3 include the following:
 + Archive Kafka topic data to S3 for storage, replay, or downstream batch processing.
 + Fan out a single topic to multiple destinations without adding broker load.
 
@@ -60,6 +64,8 @@ For the API specification, see `CreateChannel`, `DescribeChannel`, `UpdateChanne
 
 ## Integrations
 <a name="msk-data-delivery-s3-integrations"></a>
+
+Data delivery to Amazon S3 integrates with the following AWS services:
 + **Amazon MSK Express brokers** — the data source.
 + **Amazon S3** — general-purpose object destination.
 + **Amazon CloudWatch** — metrics and operational logs.
@@ -80,6 +86,8 @@ A Channel does **not** backfill previously produced data — only data produced 
 
 ## Requirements and supported configurations
 <a name="msk-data-delivery-s3-requirements"></a>
+
+Before you create a Channel, make sure that you meet the following requirements:
 + An Amazon MSK Provisioned cluster with **Express brokers**. Standard brokers and Amazon MSK Serverless are **not** supported.
 + At least one Kafka topic.
 + An Amazon S3 bucket for the dead-letter queue (DLQ). This is **required**.

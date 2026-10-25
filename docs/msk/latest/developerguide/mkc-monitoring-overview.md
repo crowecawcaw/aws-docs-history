@@ -17,6 +17,7 @@ The following table shows the metrics that MSK Connect sends to CloudWatch under
 | CpuUtilization | The percentage of CPU consumption by system and user. | 
 | ErroredTaskCount | The number of tasks that have errored out. | 
 | MemoryUtilization | The percentage of the total memory on a worker instance, not just the Java virtual machine (JVM) heap memory currently in use. JVM doesn't typically release memory back to the operational system. So, JVM heap size (MemoryUtilization) usually starts with a minimum heap size that incrementally increases to a stable maximum of about 80-90%. JVM heap usage might increase or decrease as the connector's actual memory usage changes. | 
+| PausedTaskCount | The number of tasks that are paused in the connector. | 
 | RebalanceCompletedTotal | The total number of rebalances completed by this connector. | 
 | RebalanceTimeAvg | The average time in milliseconds spent by the connector on rebalancing.  | 
 | RebalanceTimeMax | The maximum time in milliseconds spent by the connector on rebalancing. | 

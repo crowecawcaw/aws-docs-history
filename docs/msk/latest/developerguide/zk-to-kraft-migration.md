@@ -80,4 +80,6 @@ After the migration completes:
 + Your cluster operates in KRaft mode. All metadata is managed by KRaft controllers.
 + ZooKeeper nodes are removed. The ZooKeeper connection string is no longer available.
 + Client applications continue to work without any changes if they use the `--bootstrap-server` connection string.
-+ You can view KRaft controller endpoints using the `ListNodes` API if you need them for open monitoring.
++ Amazon MSK doesn't create DNS endpoints for the KRaft controllers of a migrated cluster, so controller JMX metrics aren't available through open monitoring.
+
+If you use open monitoring, scrape only your broker endpoints. You don't need controller metrics to monitor the health of your cluster. For more information, see [Monitor an MSK Provisioned cluster with Prometheus](open-monitoring.md).
