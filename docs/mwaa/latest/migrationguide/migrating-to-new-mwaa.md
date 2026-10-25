@@ -362,28 +362,14 @@ Does not apply to migration from a self-managed environment.
 
 ------
 
-1.  Clone the [amazon-mwaa-examples](https://github.com/aws-samples/amazon-mwaa-examples) repository, and navigate to the `metadata-migration` subdirectory for your migration scenario. 
+1.  Clone the [mwaa-disaster-recovery](https://github.com/aws-samples/mwaa-disaster-recovery) repository on GitHub, and navigate to the `mwaa-disaster-recovery/assets/dags/mwaa_dr` directory. 
 
    ```
-   git clone https://github.com/aws-samples/amazon-mwaa-examples.git
-   cd amazon-mwaa-examples/usecases/metadata-migration/{{existing-version}}-{{new-version}}/
+   git clone https://github.com/aws-samples/mwaa-disaster-recovery.git
+   cd mwaa-disaster-recovery/assets/dags/mwaa_dr/
    ```
 
-1.  In `export_data.py`, replace the string value for `S3_BUCKET` with the Amazon S3 bucket you created to store exported metadata. 
-
-   ```
-   S3_BUCKET = 'mwaa-migration-{{{UUID}}}'
-   ```
-
-1.  Locate the `requirements.txt` file in the `metadata-migration` directory. If you already have a requirements file for your existing environment, add the additional requirements specified in `requirements.txt` to your file. If you do not have an existing requirements file, you can simply use the one provided in the `metadata-migration` directory. 
-
-1.  Copy `export_data.py` to the DAG directory of the Amazon S3 bucket associated with your existing environment. If migrating from a self-managed environment, copy `export_data.py` to your `/dags` folder. 
-
-1. Copy your updated `requirements.txt` to the Amazon S3 bucket associated with your existing environment, then edit the environment to specify the new `requirements.txt` version.
-
-1.  After the environment is updated, access the Apache Airflow UI, unpause the `db_export` DAG, and trigger the workflow to run. 
-
-1.  Verify that the metadata is exported to `data/migration/{{existing-version}}_to_{{new-version}}/export/` in the `mwaa-migration-{{{UUID}}}` Amazon S3 bucket, with each table in it's own dedicated file. 
+1.  Follow the [Backup and restore tutorial](https://github.com/aws-samples/mwaa-disaster-recovery/tree/main#backup-and-restore-tutorial) in the `mwaa-disaster-recovery` repository on GitHub to export the metadata from your existing environment to the Amazon S3 bucket you created. 
 
 ### Migrating CloudWatch Logs
 <a name="migrating-to-new-mwaa-cloudwatch-logs"></a>
@@ -404,36 +390,12 @@ Rather than exporting logs, you can retain the original log groups and query the
 ## Step four: Importing the metadata to your new environment
 <a name="migrating-to-new-mwaa-importing-metadatadb"></a>
 
+**Risk of breaking your new environment**  
+Importing metadata can break your new environment if the imported data is corrupted or if you previously modified it.
+
 **To import the metadata to your new environment**
 
-1.  In `import_data.py`, replace the string values for the following with your information. 
-   + For migration from an existing Amazon MWAA environment:
-
-     ```
-     S3_BUCKET = 'mwaa-migration-{{{UUID}}}'
-     							OLD_ENV_NAME='{{{old_environment_name}}}'
-     							NEW_ENV_NAME='{{{new_environment_name}}}'
-     							TI_LOG_MAX_DAYS = {{{number_of_days}}}
-     ```
-
-      `MAX_DAYS` controls how many days worth of log files the workflow copies over to the new environment. 
-   + For migration from a self-managed environment:
-
-     ```
-     S3_BUCKET = 'mwaa-migration-{{{UUID}}}'
-     							NEW_ENV_NAME='{{{new_environment_name}}}'
-     ```
-
-1.  (Optional) `import_data.py` copies only failed task logs. If you want to copy all task logs, modify the `getDagTasks` function, and remove `ti.state = 'failed'` as shown in the following code snippet. 
-
-   ```
-   def getDagTasks():
-   					session = settings.Session()
-   					dagTasks = session.execute(f"select distinct ti.dag_id, ti.task_id, date(r.execution_date) as ed \
-   					from task_instance ti, dag_run r where r.execution_date > current_date - {TI_LOG_MAX_DAYS} and \
-   					ti.dag_id=r.dag_id and ti.run_id = r.run_id order by ti.dag_id, date(r.execution_date);").fetchall()
-   					return dagTasks
-   ```
+1.  Follow the [Backup and restore tutorial](https://github.com/aws-samples/mwaa-disaster-recovery/tree/main#backup-and-restore-tutorial) in the `mwaa-disaster-recovery` repository on GitHub to import the metadata to your new environment from the Amazon S3 bucket you created. 
 
 1.  Modify the execution role of your new environment and add the following policy. The permission policy allows Amazon MWAA to read from the Amazon S3 bucket where you exported the Apache Airflow metadata, and to copy task instance logs from existing log groups. Replace all placeholders with your information. 
 **Note**  
@@ -474,8 +436,6 @@ Rather than exporting logs, you can retain the original log groups and query the
    ```
 
 ------
-
-1.  Copy `import_data.py` to the DAG directory of the Amazon S3 bucket associated with your new environment, then access the Apache Airflow UI to unpause the `db_import` DAG and trigger the workflow. The new DAG will appear in the Apache Airflow UI in a few minutes. 
 
 1.  After the DAG run completes, verify that your DAG run history is copied over by accessing each individual DAG. 
 
