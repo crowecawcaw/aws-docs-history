@@ -59,12 +59,12 @@ You must configure permissions to allow an IAM entity (such as a user, group, or
 ## Creating a Service-Linked Role for VPC Resolver
 <a name="create-slr"></a>
 
-You don't need to manually create a service-linked role. When you create a resolver query log configuration association in the Amazon Route 53 console, the AWS CLI, or the AWS API, VPC Resolver creates the service-linked role for you. 
+You don't need to manually create a service-linked role. When you create a resolver query log configuration in the Amazon Route 53 console, the AWS CLI, or the AWS API, VPC Resolver creates the service-linked role for you. 
 
 **Important**  
 This service-linked role can appear in your account if you completed an action in another service that uses the features supported by this role. Also, if you were using the VPC Resolver service before August 12, 2020, when it began supporting service-linked roles, then VPC Resolver created the `AWSServiceRoleForRoute53Resolver` role in your account. To learn more, see [A New Role Appeared in My IAM Account](https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_roles.html#troubleshoot_roles_new-role-appeared).
 
-If you delete this service-linked role, and then need to create it again, you can use the same process to recreate the role in your account. When you create a new Resolver query log configuration association, the `AWSServiceRoleForRoute53Resolver` service-linked role is created for you again. 
+If you delete this service-linked role, and then need to create it again, you can use the same process to recreate the role in your account. When you create a new Resolver query log configuration, the `AWSServiceRoleForRoute53Resolver` service-linked role is created for you again. 
 
 ## Editing a Service-Linked Role for VPC Resolver
 <a name="edit-slr"></a>
@@ -93,7 +93,7 @@ If the VPC Resolver service is using the role when you try to delete the resourc
 
    This will disassociate the configuration from the VPC. You can also disassociate the query logging configuration programmatically. For more information, see [disassociate-resolver-query-log-config](https://docs.aws.amazon.com/cli/latest/reference/route53resolver/disassociate-resolver-query-log-config.html).
 
-1. After logging queries has stopped, you can optionally type **delete** in the field and choose **Delete** to delete the query logging configuration. However, this is not necessary for deleting the resources used by `AWSServiceRoleForRoute53Resolver`.
+1. After logging queries has stopped, type **delete** in the field and choose **Delete** to delete the query logging configuration.
 
 **To manually delete the service-linked role using IAM**
 

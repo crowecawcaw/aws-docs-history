@@ -5,7 +5,7 @@
 
 With Resolver DNS Firewall, you can filter and regulate outbound DNS traffic for your virtual private cloud (VPC). To do this, you create reusable collections of filtering rules in DNS Firewall rule groups, associate the rule groups to your VPC, and then monitor activity in DNS Firewall logs and metrics. Based on the activity, you can adjust the behavior of DNS Firewall accordingly. 
 
-DNS Firewall provides protection for outbound DNS requests from your VPCs. These requests route through VPC Resolver for domain name resolution. A primary use of DNS Firewall protections is to help prevent DNS exfiltration of your data. DNS exfiltration can happen when a bad actor compromises an application instance in your VPC and then uses DNS lookup to send data out of the VPC to a domain that they control. With DNS Firewall, you can monitor and control the domains that your applications can query. You can deny access to the domains that you know to be bad and allow all other queries to pass through. Alternately, you can deny access to all domains except for the ones that you explicitly trust. 
+DNS Firewall provides protection for outbound DNS requests from your VPCs. These requests route through VPC Resolver for domain name resolution. A primary use of DNS Firewall protections is to help prevent DNS exfiltration of your data. DNS exfiltration can happen when a bad actor compromises an application instance in your VPC and then uses DNS lookup to send data out of the VPC to a domain that they control. With DNS Firewall, you can monitor and control the domains that your applications can query. You can deny access to the domains that you know to be bad and allow all other queries to pass through. Alternatively, you can deny access to all domains except for the ones that you explicitly trust. 
 
 You can also use DNS Firewall to block resolution requests to resources in private hosted zones (shared or local) including VPC endpoint names. It can also block requests for public or private Amazon EC2 instance names.
 
@@ -15,8 +15,10 @@ DNS Firewall is a feature of Route 53 VPC Resolver and doesn't require any addit
 You can use Firewall Manager to centrally configure and manage your DNS Firewall rule group associations for your VPCs across your accounts in AWS Organizations. Firewall Manager automatically adds associations for VPCs that come into scope of your Firewall Manager DNS Firewall policy. For more information, see [AWS Firewall Manager](https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html) in the *AWS WAF, AWS Firewall Manager, and AWS Shield Advanced Developer Guide*.
 
 **How DNS Firewall works with AWS Network Firewall**  
-DNS Firewall and Network Firewall both offer domain name filtering, but for different types of traffic. With DNS Firewall and Network Firewall together, you can configure domain-based filtering for application layer traffic over two different network paths. 
+DNS Firewall and Network Firewall both offer domain-based filtering, but they act at different points in a connection.
 + DNS Firewall provides filtering for outbound DNS queries that pass through the Route 53 VPC Resolver from applications within your VPCs. You can also configure DNS Firewall to send custom responses for queries to blocked domain names. 
 + Network Firewall provides filtering for both network and application layer traffic, but does not have visibility into queries made by Route 53 VPC Resolver. 
+
+You can also use DNS Firewall and Network Firewall together for resolved IP validation. Network Firewall checks the DNS resolutions from VPCs that are associated with a DNS Firewall rule group to confirm that the VPC Resolver returned a connection's destination IP address. For more information, see [Resolved IP validation with Network Firewall](resolver-dns-firewall-resolved-ip-validation.md).
 
 For more information about Network Firewall, see the [Network Firewall Developer Guide](https://docs.aws.amazon.com/network-firewall/latest/developerguide/what-is-aws-network-firewall.html).
