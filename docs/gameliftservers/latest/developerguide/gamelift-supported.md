@@ -21,7 +21,7 @@ Integrate and build your 64-bit game servers with the server SDK for Amazon Game
   + [C\+\+ server SDK](https://github.com/amazon-gamelift/amazon-gamelift-servers-cpp-server-sdk)
     + [Server SDK reference](integration-server-sdk5-cpp-actions.md)
     + [How to integrate](gamelift-sdk-server-api.md)
-  + [C\# server SDK](https://github.com/amazon-gamelift/amazon-gamelift-servers-csharp-server-sdk) (Support for .NET 4, .NET 6, .NET 8 varies by version, see [SDK versions](release-notes.md#release-notes-history))
+  + [C\# server SDK](https://github.com/amazon-gamelift/amazon-gamelift-servers-csharp-server-sdk) (Support for .NET 4, .NET 6, .NET 8, and .NET 10 varies by version, see [SDK versions](release-notes.md#release-notes-history))
     + [Server SDK reference](integration-server-sdk5-csharp-actions.md)
     + [How to integrate](gamelift-sdk-server-api.md)
   + [Go server SDK](https://github.com/amazon-gamelift/amazon-gamelift-servers-go-server-sdk)

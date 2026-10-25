@@ -19,7 +19,7 @@ Amazon GameLift Servers SDKs and plugins are open source. See [Get Amazon GameLi
 
 | Service release | AWS SDK for C\+\+ | Server SDK for C\# | Server SDK for Unity (C\#) | Server SDK for C\+\+ | Server SDK for Unreal (C\+\+) | Server SDK for Go | Plugin for Unreal | Plugin for Unity | Client SDK for C\+\+ | Client SDK for Unreal (C\+\+) | Client SDK for C\# | Client SDK for Unity (C\#) | Realtime client SDK | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
-| [August 4, 2026 release notes](#release-notes-08042026) | [1.11.762](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762) or later on GitHub | 5.5.1 | 5.5.1 | 5.6.0 | 5.6.0 | 5.6.0 | 3.4.0 | 3.3.1 | 1.0.1 | 1.0.1 | 1.0.0 | 1.0.0 | 1.2.0 | 
+| [October 22, 2026 release notes](#release-notes-10222026) | [1.11.762](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762) or later on GitHub | 5.5.2 | 5.5.2 | 5.6.1 | 5.6.1 | 5.6.0 | 3.4.1 | 3.3.2 | 1.0.1 | 1.0.1 | 1.0.0 | 1.0.0 | 1.2.0 | 
 
 ### Previous versions
 <a name="release-notes-earlier"></a>
@@ -29,6 +29,7 @@ Amazon GameLift Servers SDKs and plugins are open source. See [Get Amazon GameLi
 
 | Service release | AWS SDK for C\+\+ | Server SDK for C\# | Server SDK for Unity (C\#) | Server SDK for C\+\+ | Server SDK for Unreal (C\+\+) | Server SDK for Go | Plugin for Unreal | Plugin for Unity | Client SDK for C\+\+ | Client SDK for Unreal (C\+\+) | Client SDK for C\# | Client SDK for Unity (C\#) | Realtime client SDK | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
+| [August 4, 2026 release notes](#release-notes-08042026) | [1.11.762](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762) or later on GitHub | 5.5.1 | 5.5.1 | 5.6.0 | 5.6.0 | 5.6.0 | 3.4.0 | 3.3.1 | 1.0.1 | 1.0.1 | 1.0.0 | 1.0.0 | 1.2.0 | 
 | [June 30, 2026 release notes](#release-notes-06302026) | [1.11.762](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762) or later on GitHub | 5.5.0 | 5.5.0 | 5.5.0 | 5.5.0 | 5.5.0 | 3.3.0 | 3.3.0 | 1.0.1 | 1.0.0 | 1.0.0 | 1.0.0 | 1.2.0 | 
 | [June 18, 2026 release notes](#release-notes-06182026) | [1.11.762](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762) or later on GitHub | 5.5.0 | 5.5.0 | 5.5.0 | 5.5.0 | 5.5.0 | 3.3.0 | 3.3.0 | 1.0.1 | 1.0.0 |  |  | 1.2.0 | 
 | [April 29, 2026 release notes](#release-notes-04292026) | [1.11.762](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762) or later on GitHub | 5.4.0 | 5.4.0 | 5.4.1 | 5.4.1 | 5.4.0 | 3.2.1 | 3.2.1 | 1.0.1 | 1.0.0 |  |  | 1.2.0 | 
@@ -103,6 +104,26 @@ Amazon GameLift Servers SDKs and plugins are open source. See [Get Amazon GameLi
 <a name="release-notes-summary"></a>
 
 The following release notes are in chronological order, with the latest updates listed first. Amazon GameLift Servers was first released in 2016. For release notes dated earlier than those listed here, see the release date links in [SDK versions](#release-notes-history).
+
+### October 22, 2026: C\# server SDK for Amazon GameLift Servers now supports .NET 10
+<a name="release-notes-10222026"></a>
++ [C\# server SDK](https://github.com/amazon-gamelift/amazon-gamelift-servers-csharp-server-sdk) on the GitHub website, version 5.5.2
++ [C\+\+ server SDK](https://github.com/amazon-gamelift/amazon-gamelift-servers-cpp-server-sdk) on the GitHub website, version 5.6.1
++ [Plugin for Unreal](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal) on the GitHub website, version 3.4.1 (includes the server SDK for Unreal, version 5.6.1)
++ [Plugin for Unity](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unity) on the GitHub website, version 3.3.2 (includes the server SDK for Unity, version 5.5.2)
+
+For game developers using C\#, you can now use .NET 10 as a target framework for your Amazon GameLift Servers projects. .NET 10 is a long-term support (LTS) release.
+
+Microsoft supports .NET 10 with security patches and technical updates through November 2028, and Microsoft support for .NET 8 ends on November 10, 2026. If you're currently using .NET 8, plan a migration to .NET 10, including updating your C\# server SDK to the latest version.
+
+These versions include the following updates:
++ The C\# server SDK now supports .NET 10 as a target framework.
++ The C\+\+ server SDK, the C\# server SDK, and the plugins for Unreal Engine and Unity include security improvements to the WebSocket connection to Amazon GameLift Servers.
++ The plugin for Unity now uses UDP ping beacons to measure latency to Amazon GameLift Servers hosting locations.
+
+****Learn more:****
++ [Get Amazon GameLift Servers development tools](gamelift-supported.md), *Amazon GameLift Servers Developer Guide*
++ [UDP ping beacons](reference-udp-ping-beacons.md), *Amazon GameLift Servers Developer Guide*
 
 ### October 8, 2026: Amazon GameLift Servers container fleets support CPU bursting
 <a name="release-notes-10082026"></a>
