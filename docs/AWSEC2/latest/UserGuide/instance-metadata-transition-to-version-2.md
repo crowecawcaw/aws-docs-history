@@ -22,10 +22,12 @@ All Amazon Linux 2 and Amazon Linux 2023 software packages support IMDSv2. Amazo
 IMDS Packet Analyzer is an open-source tool that identifies and logs IMDSv1 calls during your instance’s boot phase and runtime operations. By analyzing these logs, you can precisely identify the software making IMDSv1 calls on your instances and determine what needs to be updated to support IMDSv2 only on your instances. You can run IMDS Packet Analyzer from a command line or install it as a service. For more information, see [AWS ImdsPacketAnalyzer](https://github.com/aws/aws-imds-packet-analyzer) on *GitHub*.
 
 **CloudWatch**  
-CloudWatch provides the following two metrics for monitoring your instances:  
+CloudWatch provides the following three metrics for monitoring your instances:  
 `MetadataNoToken` – IMDSv2 uses token-backed sessions, while IMDSv1 does not. The `MetadataNoToken` metric tracks the number of calls to the Instance Metadata Service (IMDS) that are using IMDSv1. By tracking this metric to zero, you can determine if and when all of your software has been upgraded to use IMDSv2.  
 `MetadataNoTokenRejected` – After you've disabled IMDSv1, you can use the `MetadataNoTokenRejected` metric to track the number of times an IMDSv1 call was attempted and rejected. By tracking this metric, you can ascertain whether your software needs to be updated to use IMDSv2.  
-For each EC2 instance, these metrics are mutually exclusive. When IMDSv1 is enabled (`httpTokens = optional`), only `MetadataNoToken` emits. When IMDSv1 is disabled (`httpTokens = required`), only `MetadataNoTokenRejected` emits. For when to use these metrics, see [Recommended path to requiring IMDSv2](#recommended-path-for-requiring-imdsv2).  
+`ImdsV1Enabled` – This metric indicates whether an instance is configured to allow IMDSv1. A value of `1` indicates that IMDSv1 is enabled (`httpTokens = optional`). A value of `0` indicates that IMDSv1 is disabled (`httpTokens = required`).  
+The `MetadataNoToken` and `MetadataNoTokenRejected` metrics emit only when the IMDS is accessed. In contrast, Amazon EC2 publishes the `ImdsV1Enabled` metric based on the instance's configuration. As a result, you can identify instances that still allow IMDSv1 across your accounts and Regions, even when no IMDSv1 calls are being made.  
+For each EC2 instance, the `MetadataNoToken` and `MetadataNoTokenRejected` metrics are mutually exclusive. When IMDSv1 is enabled (`httpTokens = optional`), only `MetadataNoToken` emits. When IMDSv1 is disabled (`httpTokens = required`), only `MetadataNoTokenRejected` emits. For when to use these metrics, see [Recommended path to requiring IMDSv2](#recommended-path-for-requiring-imdsv2).  
 For more information, see [Instance metrics](viewing_metrics_with_cloudwatch.md#ec2-cloudwatch-metrics).
 
 **Launch APIs**  
@@ -79,6 +81,8 @@ Use Declarative Policies (a feature of AWS Organizations) to centrally set IMDS 
 To assess your IMDSv2 migration scope, identify instances that are configured to allow either IMDSv1 or IMDSv2, and audit IMDSv1 calls.
 
 1. **Identify instances that are configured to allow either IMDSv1 or IMDSv2:**
+
+   To see how many instances in an account and Region still allow IMDSv1, use the `ImdsV1Enabled` CloudWatch metric. This metric is published for each instance based on its configuration, so the Sum of the metric is the number of instances that still allow IMDSv1, even when no IMDSv1 calls are being made. Track it across your accounts and Regions to measure your migration progress. Then, to identify which specific instances still allow IMDSv1, use the Amazon EC2 console or the AWS CLI. For a description of the `ImdsV1Enabled` metric and its statistics, see [Instance metrics](viewing_metrics_with_cloudwatch.md#ec2-cloudwatch-metrics).
 
 ------
 #### [ Amazon EC2 console ]

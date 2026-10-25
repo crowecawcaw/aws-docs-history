@@ -1,22 +1,18 @@
 
 
-# Install NVIDIA GRID drivers (G7e, G6, Gr6, G6e, G6f, Gr6f, G5, G4dn, and G3 instances)
+# Install NVIDIA GRID drivers (G instance family)
 <a name="nvidia-GRID-driver"></a>
 
-These downloads are available to AWS customers only. By downloading, to adhere to requirements of the AWS solution referred to in the NVIDIA GRID Cloud End User License Agreement (EULA), you agree to use the downloaded software only to develop AMIs for use with the NVIDIA L4, NVIDIA L40S, NVIDIA A10G, NVIDIA Tesla T4, or NVIDIA Tesla M60 hardware. You can use the GRID drivers to both create and use AMIs within the AWS environment. Upon installation of the software, you are bound by the terms of the [NVIDIA GRID Cloud End User License Agreement](https://aws-nvidia-license-agreement.s3.amazonaws.com/NvidiaGridAWSUserLicenseAgreement.DOCX). For information about the version of the NVIDIA GRID driver for your operating system, see the [NVIDIA Virtual GPU (vGPU) Software](https://docs.nvidia.com/vgpu/) on the NVIDIA website.
+These downloads are available to AWS customers only. By downloading, to adhere to requirements of the AWS solution referred to in the NVIDIA GRID Cloud End User License Agreement (EULA), you agree to use the downloaded software only to develop AMIs for use with the NVIDIA RTX PRO 4500 Blackwell, NVIDIA RTX PRO 6000 Blackwell, NVIDIA L4, NVIDIA L40S, NVIDIA A10G, or NVIDIA Tesla T4 hardware. You can use the GRID drivers to both create and use AMIs within the AWS environment. Upon installation of the software, you are bound by the terms of the [NVIDIA GRID Cloud End User License Agreement](https://aws-nvidia-license-agreement.s3.amazonaws.com/NvidiaGridAWSUserLicenseAgreement.DOCX). For more information about the current driver releases from NVIDIA, see [NVIDIA Virtual GPU (vGPU) Software](https://docs.nvidia.com/vgpu/index.html) on the NVIDIA website.
 
 **Considerations**
++ G7 instances require GRID 20.1 or later.
 + G7e instances require GRID 19.1 or later for Linux and 19.4 (582.16) or later for Windows.
-+ G6f and Gr6f instances require GRID 18.4 to GRID 19.5.
-+ G6e instances require GRID 17.4 or later.
-+ G6 and Gr6 instances require GRID 17.1 or later.
-+ G5 instances require GRID 13.1 or later (or GRID 12.4 or later).
-+ G3 instances require AWS provided DNS resolution for GRID licensing to work.
++ For all other G instances, we recommend one of the active driver releases from NVIDIA. For more information, see [NVIDIA Virtual GPU (vGPU) Software](https://docs.nvidia.com/vgpu/index.html).
 + [IMDSv2](configuring-instance-metadata-service.md) is only supported with NVIDIA driver version 14.0 or greater.
 + For Windows instances, if you launch your instance from a custom Windows AMI, the AMI must be a standardized image created with Windows Sysprep to ensure that the GRID driver works. For more information, see [Create an Amazon EC2 AMI using Windows Sysprep](ami-create-win-sysprep.md).
 + GRID 17.0 and later do not support Windows Server 2019.
 + GRID 14.2 and later do not support Windows Server 2016.
-+ GRID 17.0 and later is not supported with G3 instances.
 + For Linux instances, you might need to install or update packages, such as gcc, if the NVIDIA installer fails with an error message. The specifics depend on the versions of the operating system and the kernel. For more information, see the NVIDIA Enterprise Support Portal.
 
 **Prerequisites**
@@ -647,9 +643,7 @@ These downloads are available to AWS customers only. By downloading, to adhere t
 
    Multiple versions of the NVIDIA GRID driver are stored in this bucket. You can download all of the available Windows versions in the bucket by removing the `-KeyPrefix $KeyPrefix` option. For information about the version of the NVIDIA GRID driver for your operating system, see the [NVIDIA Virtual GPU (vGPU) Software](https://docs.nvidia.com/vgpu/) on the NVIDIA website.
 
-   Starting with GRID version 11.0, you can use the drivers under `latest` for both G3 and G4dn instances. We will not add versions later than 11.0 to `g4/latest`, but will keep version 11.0 and the earlier versions specific to G4dn under `g4/latest`.
-
-   G5 instances require GRID 13.1 or later (or GRID 12.4 or later).
+   Starting with GRID version 11.0, you can use the drivers under `latest` for G4dn instances. We will not add versions later than 11.0 to `g4/latest`, but will keep version 11.0 and the earlier versions specific to G4dn under `g4/latest`.
 
 1. Navigate to the desktop and open the installation file to launch it (choose the driver version that corresponds to your instance OS version). Follow the instructions to install the driver and reboot your instance as required. To verify that the GPU is working properly, check Device Manager.
 

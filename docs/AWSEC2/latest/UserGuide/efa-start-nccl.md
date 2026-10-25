@@ -696,7 +696,7 @@ Install the EFA-enabled kernel, EFA drivers, Libfabric, aws-ofi-nccl plugin, and
 1. Download the EFA software installation files. The software installation files come as a compressed tarball (`.tar.gz`) file. To download the latest *stable* version, use the following command.
 
    ```
-   $ curl -O https://efa-installer.amazonaws.com/aws-efa-installer-1.50.0.tar.gz
+   $ curl -O https://efa-installer.amazonaws.com/aws-efa-installer-1.51.0.tar.gz
    ```
 
    You can also get the latest version by replacing the version number with `latest` in the preceding command.
@@ -726,7 +726,7 @@ Alternatively, if you prefer to verify the tarball file by using an MD5 or SHA25
    1. Download the signature file and verify the signature of the EFA tarball file.
 
       ```
-      $ wget https://efa-installer.amazonaws.com/aws-efa-installer-1.50.0.tar.gz.sig && gpg --verify ./aws-efa-installer-1.50.0.tar.gz.sig
+      $ wget https://efa-installer.amazonaws.com/aws-efa-installer-1.51.0.tar.gz.sig && gpg --verify ./aws-efa-installer-1.51.0.tar.gz.sig
       ```
 
       The following shows example output.
@@ -744,7 +744,7 @@ Alternatively, if you prefer to verify the tarball file by using an MD5 or SHA25
 1. Extract the files from the compressed `.tar.gz` file and navigate into the extracted directory.
 
    ```
-   $ tar -xf aws-efa-installer-1.50.0.tar.gz && cd aws-efa-installer
+   $ tar -xf aws-efa-installer-1.51.0.tar.gz && cd aws-efa-installer
    ```
 
 1. (*Optional*) Verify individual package signatures during installation.

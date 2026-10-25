@@ -412,13 +412,13 @@ Install the EFA-enabled kernel, EFA drivers, and Libfabric stack that is require
 1. Download the EFA software installation files. The software installation files are packaged into a compressed tarball (`.tar.gz`) file. To download the latest *stable* version, use the following command.
 
    ```
-   $ curl -O https://efa-installer.amazonaws.com/aws-efa-installer-1.50.0.tar.gz
+   $ curl -O https://efa-installer.amazonaws.com/aws-efa-installer-1.51.0.tar.gz
    ```
 
 1. Extract the files from the compressed `.tar.gz` file, delete the tarball, and navigate into the extracted directory.
 
    ```
-   $ tar -xf aws-efa-installer-1.50.0.tar.gz && rm -rf aws-efa-installer-1.50.0.tar.gz && cd aws-efa-installer
+   $ tar -xf aws-efa-installer-1.51.0.tar.gz && rm -rf aws-efa-installer-1.51.0.tar.gz && cd aws-efa-installer
    ```
 
 1. (*Optional*) Verify individual package signatures during installation.

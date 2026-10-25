@@ -66,7 +66,7 @@ For more information about the supported versions of Nitro hypervisor, see [Netw
 + **Compute optimized**: C1 \| C3 \| C4
 + **Memory optimized**: R3 \| R4 \| X1 \| X1e
 + **Storage optimized**: D2 \| H1 \| I2 \| I3
-+ **Accelerated computing**: G3 \| P3
++ **Accelerated computing**: G3
 
 ## AMI virtualization types
 <a name="instance-virtualization-type"></a>

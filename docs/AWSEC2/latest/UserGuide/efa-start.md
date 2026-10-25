@@ -157,7 +157,7 @@ Some operating systems might not be supported with Intel MPI. If you are using I
    You can also get the latest version by replacing the version number with `latest` in the preceding command.
 
    ```
-   $ curl -O https://efa-installer.amazonaws.com/aws-efa-installer-1.50.0.tar.gz
+   $ curl -O https://efa-installer.amazonaws.com/aws-efa-installer-1.51.0.tar.gz
    ```
 
 1. (*Optional*) Verify the authenticity and integrity of the EFA tarball (`.tar.gz`) file.
@@ -185,7 +185,7 @@ Alternatively, if you prefer to verify the tarball file by using an MD5 or SHA25
    1. Download the signature file and verify the signature of the EFA tarball file.
 
       ```
-      $ wget https://efa-installer.amazonaws.com/aws-efa-installer-1.50.0.tar.gz.sig && gpg --verify ./aws-efa-installer-1.50.0.tar.gz.sig
+      $ wget https://efa-installer.amazonaws.com/aws-efa-installer-1.51.0.tar.gz.sig && gpg --verify ./aws-efa-installer-1.51.0.tar.gz.sig
       ```
 
       The following shows example output.
@@ -203,7 +203,7 @@ Alternatively, if you prefer to verify the tarball file by using an MD5 or SHA25
 1. Extract the files from the compressed `.tar.gz` file and navigate into the extracted directory.
 
    ```
-   $ tar -xf aws-efa-installer-1.50.0.tar.gz && cd aws-efa-installer
+   $ tar -xf aws-efa-installer-1.51.0.tar.gz && cd aws-efa-installer
    ```
 
 1. (*Optional*) Verify individual package signatures during installation.

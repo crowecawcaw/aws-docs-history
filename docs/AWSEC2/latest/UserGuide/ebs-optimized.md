@@ -1468,9 +1468,6 @@ For maximum IOPS performance with U7i instances, we recommend that you use io2 B
   <tr><td>inf2.8xlarge 2</td><td colspan="2">10000</td><td colspan="2">1250.0</td><td colspan="2">40000</td></tr>
   <tr><td>inf2.24xlarge 2</td><td colspan="2">30000</td><td colspan="2">3750.0</td><td colspan="2">120000</td></tr>
   <tr><td>inf2.48xlarge 2</td><td colspan="2">60000</td><td colspan="2">7500.0</td><td colspan="2">240000</td></tr>
-  <tr><td>p3.2xlarge 2</td><td colspan="2">1750</td><td colspan="2">218.75</td><td colspan="2">10000</td></tr>
-  <tr><td>p3.8xlarge 2</td><td colspan="2">7000</td><td colspan="2">875.0</td><td colspan="2">40000</td></tr>
-  <tr><td>p3.16xlarge 2</td><td colspan="2">14000</td><td colspan="2">1750.0</td><td colspan="2">80000</td></tr>
   <tr><td>p3dn.24xlarge 2</td><td colspan="2">19000</td><td colspan="2">2375.0</td><td colspan="2">80000</td></tr>
   <tr><td>p4d.24xlarge 2</td><td colspan="2">19000</td><td colspan="2">2375.0</td><td colspan="2">80000</td></tr>
   <tr><td>p4de.24xlarge 2</td><td colspan="2">19000</td><td colspan="2">2375.0</td><td colspan="2">80000</td></tr>

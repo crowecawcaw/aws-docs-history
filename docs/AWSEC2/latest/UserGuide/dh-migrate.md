@@ -24,7 +24,7 @@ The following Dedicated Hosts are Xen-based and are eligible to be migrated to N
 + **Compute optimized: **C3 \| C4
 + **Memory optimized: **R3 \| R4 \| X1 \| X1e
 + **Storage optimized: **D2 \| H1 \| I2 \| I3
-+ **Accelerated computing: **G3 \| P3
++ **Accelerated computing: **G3
 
 **To check if you have Xen-based Dedicated Hosts in your account**
 

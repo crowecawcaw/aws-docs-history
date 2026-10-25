@@ -17,7 +17,7 @@ The following instance types provide the ability for an operating system to cont
 + **Compute optimized**: `c4.8xlarge`
 + **Memory optimized**: `r4.8xlarge` \| `r4.16xlarge` \| `x1.16xlarge` \| `x1.32xlarge` \| `x1e.8xlarge` \| `x1e.16xlarge` \| `x1e.32xlarge`
 + **Storage optimized**: `d2.8xlarge` \| `i3.8xlarge` \| `i3.16xlarge` \| `h1.8xlarge` \| `h1.16xlarge`
-+ **Accelerated computing**: `g3.16xlarge` \| `p3.16xlarge`
++ **Accelerated computing**: `g3.16xlarge`
 + **Bare metal**: All bare metal instances with Intel and AMD processors
 
 **C-states only**

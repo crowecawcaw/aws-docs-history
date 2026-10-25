@@ -3,9 +3,9 @@
 # Status checks for Amazon EC2 instances
 <a name="monitoring-system-instance-status-check"></a>
 
-With status checks, you can quickly determine whether there are problems that might prevent your instances from running your applications. Amazon EC2 provides four types of status checks: system, instance, attached EBS, and application. System, instance, and attached EBS status checks are managed by Amazon EC2 and run automatically on every instance. Application status checks are opt-in and monitor the HTTP or HTTPS responses of applications running on your instances. You can view the results of all status checks in the Amazon EC2 console, the AWS CLI, or the AWS SDKs.
+With status checks, you can quickly determine whether there are problems that might prevent your instances from running your applications. Amazon EC2 provides five types of status checks: system, instance, attached EBS, application, and performance. System, instance, attached EBS, and performance status checks are managed by Amazon EC2. System, instance, and attached EBS status checks run on every instance. Performance status checks run on supported accelerated instance types. Application status checks are opt-in and monitor the HTTP or HTTPS responses of applications running on your instances. You can view the results of all status checks in the Amazon EC2 console, the AWS CLI, or the AWS SDKs.
 
-Status checks are performed every minute, returning a pass or a fail status. If all checks pass, the overall status of the instance is **OK**. If one or more checks fail, the overall status is **impaired**. System, instance, and attached EBS status checks are managed by Amazon EC2 and cannot be disabled or deleted. Application status checks are opt-in; you create, associate, and manage them yourself.
+Status checks are performed every minute, returning a pass or a fail status. If all checks pass, the overall status of the instance is **OK**. If one or more checks fail, the overall status is **impaired**. System, instance, attached EBS, and performance status checks are managed by Amazon EC2 and cannot be disabled or deleted. Application status checks are opt-in; you create, associate, and manage them yourself.
 
 When a status check fails, the corresponding CloudWatch metric for status checks is incremented. For more information, see [Status check metrics](viewing_metrics_with_cloudwatch.md#status-check-metrics). You can use these metrics to create CloudWatch alarms that are triggered based on the result of the status checks. For example, you can create an alarm to warn you if status checks fail on a specific instance. For more information, see [Create CloudWatch alarms for Amazon EC2 instances that fail status checks](creating_status_check_alarms.md).
 
@@ -19,11 +19,12 @@ You can also create an Amazon CloudWatch alarm that monitors an Amazon EC2 insta
 ## Types of status checks
 <a name="types-of-instance-status-checks"></a>
 
-There are four types of status checks.
+There are five types of status checks.
 + [System status checks](#system-status-checks)
 + [Instance status checks](#instance-status-checks)
 + [Attached EBS status checks](#attached-ebs-status-checks)
 + [Application status checks](#application-status-checks-summary)
++ [Performance status checks](#performance-status-checks)
 
 ### System status checks
 <a name="system-status-checks"></a>
@@ -97,3 +98,14 @@ The following are examples of problems that can cause application status checks 
 If an application status check fails, we increment the `StatusCheckFailed_Application` metric.
 
 For information about configuring application status checks, see [Application status checks](application-status-checks.md).
+
+### Performance status checks
+<a name="performance-status-checks"></a>
+
+Performance status checks monitor for hardware issues that impact accelerated computing instance performance without making the instance unreachable. These issues do not require scheduled maintenance. Performance status checks run only on supported [accelerated instance types](https://docs.aws.amazon.com/ec2/latest/instancetypes/ac.html).
+
+For example, a graphics processing unit (GPU) memory error can require an instance reboot to reset the GPU and trigger row remapping, which resolves the issue without replacing the instance.
+
+The `PerformanceStatus` object returned by `DescribeInstanceStatus` includes the `Status`, `ImpairedSince`, and `Remediation` fields. If `Status` is `impaired`, check `Remediation` for the recommended action. For example, if `Remediation` is `reboot`, reboot the instance to clear the issue and return it to service without replacement.
+
+If a performance status check fails, Amazon EC2 increments the `StatusCheckFailed_Performance` metric. A failed performance status check also increments the `StatusCheckFailed` metric.

@@ -5,11 +5,11 @@
 
 An Elastic Fabric Adapter (EFA) is a network device that you can attach to your Amazon EC2 instance to accelerate Artificial Intelligence (AI), Machine Learning (ML), and High Performance Computing (HPC) applications. EFA enables you to achieve the application performance of an on-premises AI/ML or HPC cluster, with the scalability, flexibility, and elasticity provided by the AWS Cloud.
 
-EFA provides lower and more consistent latency and higher throughput than the TCP transport traditionally used in cloud-based HPC systems. It enhances the performance of inter-instance communication that is critical for scaling AI/ML and HPC applications. It is optimized to work on the existing AWS network infrastructure and it can scale depending on application requirements.
+EFA provides lower and more consistent latency and higher throughput for cloud-based AI, ML, and HPC workloads. It enhances the performance of inter-instance communication that is critical for scaling AI/ML and HPC applications. It is optimized to work on the existing AWS network infrastructure and it can scale depending on application requirements.
 
 EFA integrates with Libfabric, and it supports NVIDIA Collective Communications Library (NCCL), NVIDIA Inference Xfer Library (NIXL), and Expert Parallelism (EP) library for AI and ML applications, and Open MPI 4.1 and later and Intel MPI 2019 Update 5 and later for HPC applications. NCCL and MPI integrate with Libfabric 1.7.0 and later. NIXL integrates with Libfabric 1.21.0 and later.
 
-EFA supports RDMA (Remote Direct Memory Access) write on most supported instance types that have Nitro version 4 and later. RDMA read is supported on all instances with Nitro version 4 and later. GPUDirect RDMA (GDR) and GPUDirect Async (GDA) are available on select Nitro v4 and later instances. For more information, see [Supported instance types](#efa-instance-types).
+EFA supports RDMA (Remote Direct Memory Access) write on most supported instance types that have Nitro version 4 and later. RDMA read is supported on all instances with Nitro version 4 and later. Accelerator Data Transfer (ADT) and Accelerator Command Initiation (ACI) are available on select Nitro v4 and later instances. ADT enables direct memory access between the EFA device and an accelerator — referred to as GPUDirect RDMA on NVIDIA GPU instances and Neuron Direct RDMA on AWS Trainium instances (via the AWS Neuron SDK). ACI enables the accelerator to initiate transfers directly — referred to as GPUDirect Async (GDA) on NVIDIA GPU instances — and is currently supported on select NVIDIA GPU instances. For more information, see [Supported instance types](#efa-instance-types).
 
 **Topics**
 + [EFA basics](#efa-basics)
@@ -85,13 +85,13 @@ EFAs support the following interfaces and libraries:
 ## Supported instance types
 <a name="efa-instance-types"></a>
 
-All of the following instance types support EFA. Additionally, the tables indicate RDMA read, RDMA write, GPUDirect RDMA (GDR), and GPUDirect Async (GDA) support for the instance types.
+All of the following instance types support EFA. Additionally, the tables indicate RDMA read, RDMA write, Accelerator Data Transfer (ADT), and Accelerator Command Initiation (ACI) support for the instance types.
 
 ------
 #### [ Nitro v6 (EFA v4) ]
 
 
-| Instance type | RDMA read support | RDMA write support | GPUDirect RDMA (GDR) | GPUDirect Async (GDA) | 
+| Instance type | RDMA read support | RDMA write support | Accelerator Data Transfer (ADT) | Accelerator Command Initiation (ACI) | 
 | --- |--- |--- |--- |--- |
 | General Purpose | 
 | --- |
@@ -209,10 +209,10 @@ All of the following instance types support EFA. Additionally, the tables indica
 | r8idb.96xlarge | Yes | Yes | No | No | 
 | r8idb.metal-48xl | Yes | Yes | No | No | 
 | r8idb.metal-96xl | Yes | Yes | No | No | 
-| r9g.48xlarge | Yes | Yes | 
-| r9g.metal-48xl | Yes | Yes | 
-| r9gd.48xlarge | Yes | Yes | 
-| r9gd.metal-48xl | Yes | Yes | 
+| r9g.48xlarge | Yes | Yes | No | No | 
+| r9g.metal-48xl | Yes | Yes | No | No | 
+| r9gd.48xlarge | Yes | Yes | No | No | 
+| r9gd.metal-48xl | Yes | Yes | No | No | 
 | x8aedz.24xlarge | Yes | Yes | No | No | 
 | x8aedz.metal-24xl | Yes | Yes | No | No | 
 | x8i.48xlarge | Yes | Yes | No | No | 
@@ -245,7 +245,7 @@ All of the following instance types support EFA. Additionally, the tables indica
 #### [ Nitro v5 (EFA v3) ]
 
 
-| Instance type | RDMA read support | RDMA write support | GPUDirect RDMA (GDR) | GPUDirect Async (GDA) | 
+| Instance type | RDMA read support | RDMA write support | Accelerator Data Transfer (ADT) | Accelerator Command Initiation (ACI) | 
 | --- |--- |--- |--- |--- |
 | General Purpose | 
 | --- |
@@ -292,9 +292,9 @@ All of the following instance types support EFA. Additionally, the tables indica
 | Accelerated Computing | 
 | --- |
 | p5en.48xlarge | Yes | Yes | Yes | Yes | 
-| trn2.3xlarge | Yes | Yes | No | No | 
-| trn2.48xlarge | Yes | Yes | No | No | 
-| trn2u.48xlarge | Yes | Yes | No | No | 
+| trn2.3xlarge | Yes | Yes | Yes | No | 
+| trn2.48xlarge | Yes | Yes | Yes | No | 
+| trn2u.48xlarge | Yes | Yes | Yes | No | 
 | High Performance Computing | 
 | --- |
 | hpc7g.4xlarge | Yes | No | No | No | 
@@ -305,7 +305,7 @@ All of the following instance types support EFA. Additionally, the tables indica
 #### [ Nitro v4 (EFA v2) ]
 
 
-| Instance type | RDMA read support | RDMA write support | GPUDirect RDMA (GDR) | GPUDirect Async (GDA) | 
+| Instance type | RDMA read support | RDMA write support | Accelerator Data Transfer (ADT) | Accelerator Command Initiation (ACI) | 
 | --- |--- |--- |--- |--- |
 | General Purpose | 
 | --- |
@@ -405,8 +405,8 @@ All of the following instance types support EFA. Additionally, the tables indica
 | p5.4xlarge | Yes | Yes | No | No | 
 | p5.48xlarge | Yes | Yes | Yes | No | 
 | p5e.48xlarge | Yes | Yes | Yes | No | 
-| trn1.32xlarge | Yes | Yes | No | No | 
-| trn1n.32xlarge | Yes | Yes | No | No | 
+| trn1.32xlarge | Yes | Yes | Yes | No | 
+| trn1n.32xlarge | Yes | Yes | Yes | No | 
 | High Performance Computing | 
 | --- |
 | hpc6a.48xlarge | Yes | Yes | No | No | 
@@ -420,7 +420,7 @@ All of the following instance types support EFA. Additionally, the tables indica
 #### [ Nitro v3 (EFA v1) ]
 
 
-| Instance type | RDMA read support | RDMA write support | GPUDirect RDMA (GDR) | GPUDirect Async (GDA) | 
+| Instance type | RDMA read support | RDMA write support | Accelerator Data Transfer (ADT) | Accelerator Command Initiation (ACI) | 
 | --- |--- |--- |--- |--- |
 | General Purpose | 
 | --- |
@@ -492,7 +492,7 @@ Operating system support differs depending on the processor type. The following 
 | --- | --- | --- | 
 | Amazon Linux 2023 | ✓ | ✓ | 
 | RHEL 8, 9, and 10 | ✓ | ✓ | 
-| Debian 11, 12, and 13 | ✓ | ✓ | 
+| Debian 12 and 13 | ✓ | ✓ | 
 | Rocky Linux 8 and 9 | ✓ | ✓ | 
 | Ubuntu 22.04, 24.04, and 26.04 | ✓ | ✓ | 
 | SUSE Linux Enterprise 15 SP2 and later | ✓ | ✓ | 

@@ -13,8 +13,8 @@ To install AMD drivers on an instance with an attached AMD GPU, such as a G4ad i
 + [Installation options](#nvidia-installation-options)
 + [Use AMIs that include NVIDIA drivers](preinstalled-nvidia-driver.md)
 + [Install NVIDIA public drivers](public-nvidia-driver.md)
-+ [Install NVIDIA GRID drivers (G7e, G6, Gr6, G6e, G6f, Gr6f, G5, G4dn, and G3 instances)](nvidia-GRID-driver.md)
-+ [Install NVIDIA gaming drivers (G7e, G6, G6e, G5, and G4dn instances)](nvidia-gaming-driver.md)
++ [Install NVIDIA GRID drivers (G instance family)](nvidia-GRID-driver.md)
++ [Install NVIDIA gaming drivers (G7, G7e, G6, G6e, G5, and G4dn instances)](nvidia-gaming-driver.md)
 
 ## Types of NVIDIA drivers
 <a name="nvidia-driver-types"></a>
@@ -50,7 +50,6 @@ The following table summarizes the supported NVIDIA drivers for each GPU instanc
 
 | Instance type | Tesla driver | GRID driver | Gaming driver | 
 | --- | --- | --- | --- | 
-| G3 | Yes | Yes | No | 
 | G4dn | Yes | Yes | Yes | 
 | G5 | Yes | Yes | Yes | 
 | G5g | Yes ¹ | No | No | 
@@ -59,8 +58,8 @@ The following table summarizes the supported NVIDIA drivers for each GPU instanc
 | G6f | No | Yes | No | 
 | Gr6 | Yes | Yes | No | 
 | Gr6f | No | Yes | No | 
+| G7 | Yes | Yes | Yes | 
 | G7e | Yes | Yes | Yes | 
-| P3 | Yes | No | No | 
 | P4d | Yes | No | No | 
 | P4de | Yes | No | No | 
 | P5 | Yes | No | No | 
@@ -83,6 +82,6 @@ Use one of the following options to get the NVIDIA drivers required for your GPU
 
 1. [Install NVIDIA public drivers](public-nvidia-driver.md)
 
-1. [Install NVIDIA GRID drivers (G7e, G6, Gr6, G6e, G6f, Gr6f, G5, G4dn, and G3 instances)](nvidia-GRID-driver.md)
+1. [Install NVIDIA GRID drivers (G instance family)](nvidia-GRID-driver.md)
 
-1. [Install NVIDIA gaming drivers (G7e, G6, G6e, G5, and G4dn instances)](nvidia-gaming-driver.md)
+1. [Install NVIDIA gaming drivers (G7, G7e, G6, G6e, G5, and G4dn instances)](nvidia-gaming-driver.md)
