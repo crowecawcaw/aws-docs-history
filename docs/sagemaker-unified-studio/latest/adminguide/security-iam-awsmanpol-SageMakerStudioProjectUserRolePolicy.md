@@ -30,3 +30,14 @@ To view the permissions for this policy, see [SageMakerStudioProjectUserRolePoli
 
 **Note**  
 Amazon SageMaker Unified Studio creates IAM roles for project users to perform data analytics, AI, and ML actions. You can attach the SageMakerStudioProjectUserRolePolicy managed policy as your user role policy or you can create and attach your own user role policy. Using your own policy provides more granular control over permissions but requires knowledge of IAM policy configuration. The IAM policy must include all necessary permissions required for the service to function properly.
+
+## Role assumption permissions in this policy
+<a name="security-iam-awsmanpol-SageMakerStudioProjectUserRolePolicy-assume-role"></a>
+
+This policy lets the project user role assume other IAM roles. Amazon SageMaker Unified Studio projects can use compute resources that you provide, such as an Amazon EMR on EC2 cluster, through an access role. Because you define the access role name, the policy can't predict it in advance. For this reason, the AllowAssumeAccessRole statement grants `sts:AssumeRole` on `Resource: "*"`, so the project user role can assume the access role at runtime. The policy also includes a SetSourceIdentityForAssumeAccessRole statement that requires `sts:SetSourceIdentity` on every assume-role call the project user role makes. For more information about roles and trust policies, see [Roles terms and concepts](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) in the *IAM User Guide*.
+
+Because of these two statements, the project user role can assume another IAM role in the account *only if* that target role's trust policy explicitly allows both `sts:AssumeRole` and `sts:SetSourceIdentity`. A role whose trust policy allows only `sts:AssumeRole` can't be assumed by the project user role. For example, a role that trusts the account root but doesn't grant `sts:SetSourceIdentity` fails the assume-role call with an `AccessDenied` error.
+
+**Audit trust policies for broad role assumption**  
+If you administer an account that hosts Amazon SageMaker Unified Studio projects, audit the trust policies of privileged IAM roles in the account. This helps you avoid unintended role assumption from a project identity. Confirm that no privileged role grants `sts:SetSourceIdentity` to a broad principal, such as the account root, using an unrestricted or wildcard source-identity condition (for example, `"Condition": {"StringLike": {"sts:SourceIdentity": "*"}}`). An exception applies only if the role is intended to be assumable by Amazon SageMaker Unified Studio project roles.  
+When you register an access or compute role for a project, scope the role's trust policy to the specific project user role. Where possible, use an `sts:ExternalId` condition that matches the project ID, instead of trusting the account root broadly.
