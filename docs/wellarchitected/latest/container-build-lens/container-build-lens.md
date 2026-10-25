@@ -1,6 +1,6 @@
 
 
-# Container Build Lens
+# Container Build Lens - AWS Well-Architected Framework
 <a name="container-build-lens"></a>
 
 Publication date: **October 20, 2022** ([Document revisions](document-revisions.md))
