@@ -10,8 +10,8 @@ Memories are kept per agent. The default assistant and each custom agent you cre
 ## Reviewing and organizing memories
 <a name="memories-reviewing"></a>
 
-Search memories, filter and sort them, and switch between list and grid views. A single Filters panel covers the following.
-+ **Agent**: use the Agent dropdown at the top of the tab to view memories for All agents, Default (chat), or a specific custom agent.
+Search memories, filter and sort them, and switch between list and grid views. A single **Filters** panel covers the following.
++ **Agent**: use the **Agent** dropdown at the top of the tab to view memories for All agents, Default (chat), or a specific custom agent.
 + **Type**: filter by memory category. The available categories are supplied at runtime, so they vary. Examples include procedures, preferences, and profile facts.
 + **Provenance**: show only Told memories (you stated it explicitly to Quick), only Learned memories (Quick inferred it from your activity or conversations), or both.
 + **Sort**: Date created, Accuracy confidence, or Times referenced.
@@ -26,8 +26,8 @@ A memory's detail view shows its text, an information section (created, updated,
 ## Memory settings
 <a name="memories-settings"></a>
 
-The Memory section in Configuration includes a master switch and a Forget all memories action.
+The Memory section in **Configuration** includes a master switch and a **Forget all memories** action.
 + **Enable memory**: a master toggle that controls whether Quick learns from your conversations and personalizes future responses. When memory is off, existing memories are not used and no new memories are recorded.
 + **Forget all memories**: permanently deletes every memory Quick has saved. Type "forget" to confirm.
 
-Forgetting all memories cannot be undone. It does not affect your knowledge graph. To clear entities and relationships, use Reset knowledge graph (see [Knowledge graph](knowledge-graph-desktop.md)).
+Forgetting all memories cannot be undone. It does not affect your knowledge graph. To clear entities and relationships, use **Reset knowledge graph** (see [Knowledge graph](knowledge-graph-desktop.md)).

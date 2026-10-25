@@ -16,7 +16,7 @@
 To use Amazon Quick on desktop for enterprise deployments, administrators must configure enterprise single sign-on (SSO) so that users in the organization can sign in with their corporate credentials. This setup connects your organization's OpenID Connect (OIDC) compatible identity provider (IdP) to Amazon Quick.
 
 **Note**  
-If you are using a Free or Plus account, this section does not apply to you. Continue to [Getting started](getting-started-desktop.md).
+If you are using a Free or Plus account, this section does not apply to you. Continue to [Getting started with the Amazon Quick desktop application](getting-started-desktop.md).
 
 ## How enterprise sign-in works
 <a name="desktop-enterprise-how-it-works"></a>

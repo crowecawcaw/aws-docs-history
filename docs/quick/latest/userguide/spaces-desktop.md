@@ -13,7 +13,7 @@ Search spaces by name, filter them (Favorites, Owned by me, and Created by me), 
 ## Chatting with a space
 <a name="spaces-chatting"></a>
 
-Attach a space to a conversation to ground the responses from Quick in that shared context, for example project documentation, policies and procedures, or a team reference. You attach a space from the chat composer's data controls or from the All data and apps panel. To learn more about the chat boundary with spaces, see [Working with chat](working-with-chat-desktop.md).
+Attach a space to a conversation to ground the responses from Quick in that shared context, for example project documentation, policies and procedures, or a team reference. You attach a space from the chat composer's data controls or from the **All data and apps** panel. To learn more about the chat boundary with spaces, see [Working with chat](working-with-chat-desktop.md).
 
 ## Creating and organizing spaces
 <a name="spaces-creating"></a>

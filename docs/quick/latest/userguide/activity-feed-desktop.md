@@ -3,7 +3,7 @@
 # Activity feed
 <a name="activity-feed-desktop"></a>
 
-The activity feed is your single place to catch what happened across your connected services, such as Slack, Outlook, and your calendar, without opening each app. Amazon Quick reads that activity, enriches it with your knowledge graph (the people, projects, and topics in your work), and surfaces only what is relevant to you. A feed agent processes items from your connected messaging, email, and calendar sources, assigns importance, and suggests actions. The feed is organized into Feed, Calendar, and To-dos tabs.
+The activity feed is your single place to catch what happened across your connected services, such as Slack, Outlook, and your calendar, without opening each app. Amazon Quick reads that activity, enriches it with your knowledge graph (the people, projects, and topics in your work), and surfaces only what is relevant to you. A feed agent processes items from your connected messaging, email, and calendar sources, assigns importance, and suggests actions. The feed is organized into **Feed**, **Calendar**, and **To-dos** tabs.
 
 The feed has these characteristics.
 + **Personalized every time**: items are ranked by what matters to you, not by what arrived most recently.
@@ -18,7 +18,7 @@ Your activity feed surfaces directly on the desktop and mobile home page, so the
 ## Feed
 <a name="activity-feed-feed"></a>
 
-The Feed tab shows an aggregated activity stream. Each item shows its source service, an AI-generated summary, an importance level, and suggested actions, including a suggested draft when a reply is appropriate. Related items group into collapsible threads. A density control switches the cards between a comfortable and a compact layout.
+The **Feed** tab shows an aggregated activity stream. Each item shows its source service, an AI-generated summary, an importance level, and suggested actions, including a suggested draft when a reply is appropriate. Related items group into collapsible threads. A density control switches the cards between a comfortable and a compact layout.
 
 Quick assigns one of the following importance levels.
 
@@ -48,7 +48,7 @@ Filters are visible by default at the top of the feed. Narrow the feed by label,
 ## Auto resolve
 <a name="activity-feed-auto-resolve"></a>
 
-Quick automatically clears feed items that no longer need you, so your feed stays focused on what is still open. When an item has been handled, such as when you replied to the message elsewhere, the meeting passed, or a newer update supersedes it, Quick resolves it for you. Resolved items collapse behind a Resolved filter, so you can still review what was cleared. You can also give feedback on any item (Not relevant, Already handled, or Something else) to sharpen what surfaces over time.
+Quick automatically clears feed items that no longer need you, so your feed stays focused on what is still open. When an item has been handled, such as when you replied to the message elsewhere, the meeting passed, or a newer update supersedes it, Quick resolves it for you. Resolved items collapse behind a **Resolved** filter, so you can still review what was cleared. You can also give feedback on any item (**Not relevant**, **Already handled**, or **Something else**) to sharpen what surfaces over time.
 
 ## Catch-up
 <a name="activity-feed-catch-up"></a>
@@ -63,12 +63,12 @@ Because Quick runs in the cloud, your feed continues to update while the desktop
 ## Calendar
 <a name="activity-feed-calendar"></a>
 
-The Calendar tab shows your day on a time grid, today or tomorrow, alongside a Quick Suggests side panel of AI recommendations tied to your events and free time. Each suggestion is a card you act on, copy, or mark done, and you can start a chat about it. For a free slot, Quick can block focus time directly on your calendar. Other suggestions start a chat with a prefilled prompt, such as preparing for a meeting.
+The **Calendar** tab shows your day on a time grid, today or tomorrow, alongside a **Quick Suggests** side panel of AI recommendations tied to your events and free time. Each suggestion is a card you act on, copy, or mark done, and you can start a chat about it. For a free slot, Quick can block focus time directly on your calendar. Other suggestions start a chat with a prefilled prompt, such as preparing for a meeting.
 
 ## To-dos
 <a name="activity-feed-todos"></a>
 
-The To-dos tab tracks a personal task list alongside the feed. Tasks show due dates and importance, can originate from feed items, and you can create a new task directly.
+The **To-dos** tab tracks a personal task list alongside the feed. Tasks show due dates and importance, can originate from feed items, and you can create a new task directly.
 
 ## Configuring the feed
 <a name="activity-feed-configuring"></a>
@@ -82,4 +82,4 @@ Choose which connected sources surface items to your feed, grouped by function.
 | Mail | New email from people who matter to you. | 
 | Calendar | Meeting reminders with join links and the day ahead. | 
 
-You also set how often the feed agent checks for new activity. For feed settings, see Settings.
+You also set how often the feed agent checks for new activity. For feed settings, see **Settings**.

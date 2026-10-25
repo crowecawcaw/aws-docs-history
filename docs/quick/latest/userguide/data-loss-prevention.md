@@ -324,6 +324,15 @@ Beyond labels that you haven't explicitly mapped, Quick falls back to your defau
 **Note**  
 In the public API, the default action is the `unmappedAction` field.
 
+### Limitations for modified files
+<a name="dlp-modified-files"></a>
+
+Amazon Quick uses Microsoft Purview to read sensitivity labels from files. Certain changes to a file's extension, internal structure, or label metadata after labeling can affect label detection. In these cases, Quick might not detect a label, or might detect a different label from the one displayed in Microsoft Office.
+
+If Quick detects no label or treats the file as an unsupported type, it applies your configured default action. If Quick detects a different label, it applies the action configured for that label. As a result, a file you intend to block might be allowed.
+
+To reduce the risk for files with no detected label or an unsupported file type, set your default action to **Block**. Setting the default action to **Block** does not prevent a file from being allowed when Quick detects a different label configured with an **Allow** action.
+
 ## Security best practices
 <a name="dlp-security-best-practices"></a>
 + **Use a dedicated app registration for DLP.** Register a separate Microsoft Entra ID application for Quick DLP rather than reusing an app registration that serves other integrations. A dedicated registration lets you rotate or revoke its credentials independently and keeps its permission scope narrow.

@@ -23,4 +23,4 @@ Quick on desktop is extensible. You connect MCP servers to add custom tools and 
 ## Next steps
 <a name="desktop-next-steps"></a>
 
-To get started, see [Getting started](getting-started-desktop.md). If your organization uses an Enterprise account, see [Setting up Amazon Quick on desktop for enterprise deployments](desktop-enterprise-setup.md) first.
+To get started, see [Getting started with the Amazon Quick desktop application](getting-started-desktop.md). If your organization uses an Enterprise account, see [Setting up Amazon Quick on desktop for enterprise deployments](desktop-enterprise-setup.md) first.

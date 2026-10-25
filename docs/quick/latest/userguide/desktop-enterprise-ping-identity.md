@@ -216,7 +216,7 @@ First, download the application from the Amazon Quick console.
 
 1. Choose **Download for Windows** or **Download for Mac**, depending on your operating system.
 
-Then, install the application. For installation instructions, see [Getting started](getting-started-desktop.md).
+Then, install the application. For installation instructions, see [Getting started with the Amazon Quick desktop application](getting-started-desktop.md).
 
 After you install the application, verify that enterprise sign-in works.
 
@@ -233,4 +233,4 @@ After you install the application, verify that enterprise sign-in works.
 **Tip**  
 If sign-in fails, verify the values you entered in Step 2 against the OIDC endpoints and Client ID from Step 1. If any value is incorrect, delete the extension access under **Permissions → Extension access** in the Amazon Quick administration console, and repeat Step 2 with the correct values. For more help, see [Troubleshooting enterprise sign-in for Amazon Quick on desktop](desktop-enterprise-setup-troubleshooting.md).
 
-Finally, after you verify the setup, distribute the application to your users. Direct them to [Getting started](getting-started-desktop.md) for download, installation, and sign-in instructions. Users choose **Continue with SSO** and sign in with their corporate credentials — no additional per-user configuration is required.
+Finally, after you verify the setup, distribute the application to your users. Direct them to [Getting started with the Amazon Quick desktop application](getting-started-desktop.md) for download, installation, and sign-in instructions. Users choose **Continue with SSO** and sign in with their corporate credentials — no additional per-user configuration is required.

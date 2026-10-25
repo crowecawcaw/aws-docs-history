@@ -30,7 +30,7 @@ Amazon Quick is currently supported in the following AWS Regions. The following 
 | Asia Pacific (Malaysia) | ap-southeast-5 | No |  https://ap-southeast-5.quicksight.aws.amazon.com  |  quicksight.ap-southeast-5.amazonaws.com  | 56.68.33.0/27 | 
 | Asia Pacific (Mumbai) | ap-south-1 | No |  https://ap-south-1.quicksight.aws.amazon.com  |  quicksight.ap-south-1.amazonaws.com  | 52.66.193.64/27 | 
 | Asia Pacific (Seoul) | ap-northeast-2 | No |  https://ap-northeast-2.quicksight.aws.amazon.com  |  quicksight.ap-northeast-2.amazonaws.com  | 13.124.145.32/27 | 
-| Asia Pacific (Singapore) | ap-southeast-1 | No |  https://ap-southeast-1.quicksight.aws.amazon.com  |  quicksight.ap-southeast-1.amazonaws.com  | 13.229.254.0/27 | 
+| Asia Pacific (Singapore) | ap-southeast-1 | Yes |  https://ap-southeast-1.quicksight.aws.amazon.com  |  quicksight.ap-southeast-1.amazonaws.com  | 13.229.254.0/27 | 
 | Asia Pacific (Sydney) | ap-southeast-2 | Yes |  https://ap-southeast-2.quicksight.aws.amazon.com  |  quicksight.ap-southeast-2.amazonaws.com  | 54.153.249.96/27 | 
 | Asia Pacific (Tokyo) | ap-northeast-1 | Yes |  https://ap-northeast-1.quicksight.aws.amazon.com  |  quicksight.ap-northeast-1.amazonaws.com  | 13.113.244.32/27 | 
 | Canada (Central) | ca-central-1 | No |  https://ca-central-1.quicksight.aws.amazon.com  |  quicksight.ca-central-1.amazonaws.com  | 15.223.73.0/27 | 
@@ -69,6 +69,7 @@ Amazon Quick makes cross-Region calls for web search functionality in Chat, Agen
 | Europe (London) (eu-west-2) | Europe (Ireland) (eu-west-1) | 
 | Asia Pacific (Sydney) (ap-southeast-2) | Asia Pacific (Sydney) (ap-southeast-2) | 
 | Asia Pacific (Tokyo) (ap-northeast-1) | Asia Pacific (Tokyo) (ap-northeast-1) | 
+| Asia Pacific (Singapore) (ap-southeast-1) | Asia Pacific (Singapore) (ap-southeast-1) | 
 
 ## Cross-Region inference for Australia, Japan, Europe, and the United States
 <a name="cross-region-inference"></a>
@@ -98,6 +99,7 @@ The following table summarizes the supported geographies and their inference Reg
 | Europe | Europe (Frankfurt) (eu-central-1)<br />Europe (Ireland) (eu-west-1)<br />Europe (Paris) (eu-west-3)<br />Europe (Stockholm) (eu-north-1)<br />Europe (Milan) (eu-south-1)<br />Europe (Spain) (eu-south-2) | 
 | Australia | Asia Pacific (Sydney) (ap-southeast-2)<br />Asia Pacific (Melbourne) (ap-southeast-4) | 
 | Japan | Asia Pacific (Tokyo) (ap-northeast-1)<br />Asia Pacific (Osaka) (ap-northeast-3) | 
+| Singapore | Global CRIS | 
 
 **Note**  
 Amazon Quick follows the Amazon Bedrock Europe geographic cross-Region inference profile. For the Europe geography:  

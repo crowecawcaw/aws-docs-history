@@ -33,7 +33,7 @@ What you can do with a skill you created or installed depends on your role for i
 ## System skills
 <a name="desktop-builtin-skills"></a>
 
-Quick includes system skills, pre-installed skills for capabilities such as document creation, presentations, spreadsheets, web browsing, code execution, knowledge graph management, and transcription. They carry a System badge. You can try one and turn it on or off, but you cannot edit, duplicate, export, publish, share, or delete it.
+Quick includes system skills, pre-installed skills for capabilities such as document creation, presentations, spreadsheets, web browsing, code execution, knowledge graph management, and transcription. They carry a **System** badge. You can try one and turn it on or off, but you cannot edit, duplicate, export, publish, share, or delete it.
 
 ## Creating a skill
 <a name="desktop-creating-a-skill"></a>
@@ -73,7 +73,7 @@ When you finish a multi-step task in chat, Quick might offer to save those steps
 You can use a skill in one of the following ways.
 + By name: mention the skill in your message. For example, enter "use the Web Browser skill to check this page."
 + Automatic activation: Quick detects when a skill matches your request and loads it without you asking. For example, when you ask Quick to build a presentation, the Presentations skill loads.
-+ Try it: on a skill's detail panel, choose Try it to start a conversation with the skill loaded. Use Try it to test a skill you created, imported, or have in draft before you publish it.
++ Try it: on a skill's detail panel, choose **Try it** to start a conversation with the skill loaded. Use **Try it** to test a skill you created, imported, or have in draft before you publish it.
 
 ## The skill detail panel
 <a name="desktop-skill-detail-panel"></a>
@@ -97,26 +97,26 @@ Choose a skill to open its detail panel. The panel shows the skill's description
 <a name="desktop-skill-draft-published"></a>
 
 A skill you own has two versions.
-+ Draft: the version you edit. Changes you make are saved to the draft and do not affect how the skill runs until you publish. A skill with unpublished changes shows an Unpublished changes indicator.
++ Draft: the version you edit. Changes you make are saved to the draft and do not affect how the skill runs until you publish. A skill with unpublished changes shows an **Unpublished changes** indicator.
 + Published (live): the live published version, which Quick uses when the skill runs.
 
-To update a skill, edit the draft, choose Try it to test it, and then choose Publish. Publishing replaces what is live, and everyone you shared the skill with moves to the update. Because your draft stays separate from what is published, a skill already in use keeps running the same way while you work on its next version.
+To update a skill, edit the draft, choose **Try it** to test it, and then choose **Publish**. Publishing replaces what is live, and everyone you shared the skill with moves to the update. Because your draft stays separate from what is published, a skill already in use keeps running the same way while you work on its next version.
 
 ## Managing skills
 <a name="desktop-managing-skills"></a>
 
-The Skills tab lists every skill you can use.
+The **Skills** tab lists every skill you can use.
 + Search: find skills by name or description.
 + Filter: narrow to Favorites, Owned by me, or Shared with me.
 + Sort: order the list, for example by Last modified.
 + View: switch between a list view and a grid of cards.
 + Status: the Status column shows whether each skill is enabled.
-+ Version indicator: for a skill you own, the list shows a Draft or Unpublished changes label when the draft is ahead of the published version.
++ Version indicator: for a skill you own, the list shows a **Draft** or **Unpublished changes** label when the draft is ahead of the published version.
 
 ## Browsing for more skills
 <a name="desktop-browsing-more-skills"></a>
 
-To find skills beyond the ones in your list, choose **Browse all** on the Skills tab. This opens Add to Quick, scoped to skills, with two ways to find them: Official (curated, first-party skills provided by Amazon Quick) and Shared with me (skills that people or teams in your organization have shared with you). Search by name, filter by Owner and Category, and sort the results. Choose a skill to preview its description and details before you add it.
+To find skills beyond the ones in your list, choose **Browse all** on the **Skills** tab. This opens **Add to Quick**, scoped to skills, with two ways to find them: **Official** (curated, first-party skills provided by Amazon Quick) and **Shared with me** (skills that people or teams in your organization have shared with you). Search by name, filter by Owner and Category, and sort the results. Choose a skill to preview its description and details before you add it.
 
 When you add a skill from Official or Shared with me, it enters your list as a reference to the owner's published version, not a copy. It stays in sync and updates automatically as the owner republishes. To make a version you can change, duplicate it.
 
@@ -134,9 +134,9 @@ Publishing and sharing are separate steps. Publishing creates the live version o
 
 1. Choose **Share**.
 
-1. Choose who to share it with: specific people or groups, or your entire account with Share with all.
+1. Choose who to share it with: specific people or groups, or your entire account with **Share with all**.
 
-People you share the skill with find it in Add to Quick under Shared with me and add it to their own list. As viewers, their skill stays in sync with your published version and updates automatically as you republish.
+People you share the skill with find it in **Add to Quick** under **Shared with me** and add it to their own list. As viewers, their skill stays in sync with your published version and updates automatically as you republish.
 
 **Note**  
 Your administrator can require approval before a skill is shared, and can control whether skills can be shared with your entire account. See Administrator controls (the next section).

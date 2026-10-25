@@ -10,7 +10,7 @@ For the plans that include Amazon Quick on desktop and pricing details, see [Ama
 **Topics**
 + [What is Amazon Quick on desktop?](what-is-desktop.md)
 + [Setting up Amazon Quick on desktop for enterprise deployments](desktop-enterprise-setup.md)
-+ [Getting started](getting-started-desktop.md)
++ [Getting started with the Amazon Quick desktop application](getting-started-desktop.md)
 + [Understanding the desktop interface](desktop-interface.md)
 + [Working with chat](working-with-chat-desktop.md)
 + [Activity feed](activity-feed-desktop.md)
