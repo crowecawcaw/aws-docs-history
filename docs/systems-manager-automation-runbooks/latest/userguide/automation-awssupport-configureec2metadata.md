@@ -36,11 +36,11 @@ Linux, macOS, Windows
 
   Type: String
 
-  Valid values: required \| optional
+  Valid values: required \| optional \| unchanged
 
   Default: optional
 
-  Description: (Optional) Enforce IMDSv2. If you choose `required`, the Amazon EC2 instance will only use IMDSv2. If you choose `optional`, you can choose between IMDSv1 and IMDSv2 for metadata access.
+  Description: (Optional) Enforce IMDSv2. If you choose `required`, the Amazon EC2 instance will only use IMDSv2. If you choose `optional`, you can choose between IMDSv1 and IMDSv2 for metadata access. Specify `unchanged` to keep the current value instead of applying the default.
 **Important**  
 If you enforce IMDSv2, applications that use IMDSv1 might not function correctly. Before enforcing IMDSv2, make sure your applications that use IMDS are upgraded to a version that support IMDSv2. For information about Instance Metadata Service Version 2 (IMDSv2), see [Configuring the Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html) in the *Amazon EC2 User Guide*.
 + HttpPutResponseHopLimit
@@ -51,7 +51,7 @@ If you enforce IMDSv2, applications that use IMDSv1 might not function correctly
 
   Default: 0
 
-  Description: (Optional) The desired HTTP PUT response hop limit value (1-64) for instance metadata requests. This value controls the number of hops that the PUT response can traverse. To prevent the response from traveling outside of the instance, specify `1` for the parameter value.
+  Description: (Optional) The desired HTTP PUT response hop limit value (1-64) for instance metadata requests. This value controls the number of hops that the PUT response can traverse. To prevent the response from traveling outside of the instance, specify `1` for the parameter value. Specify `0` to keep the current value.
 + InstanceId
 
   Type: String
@@ -61,11 +61,11 @@ If you enforce IMDSv2, applications that use IMDSv1 might not function correctly
 
   Type: String
 
-  Valid values: enabled \| disabled
+  Valid values: enabled \| disabled \| unchanged
 
   Default: enabled
 
-  Description: (Optional) Allow or deny instance metadata access in the Amazon EC2 instance. If you specify `disabled`, all other parameters will be ignored and the metadata access will be denied for the instance. 
+  Description: (Optional) Allow or deny instance metadata access in the Amazon EC2 instance. If you specify `disabled`, all other parameters will be ignored and the metadata access will be denied for the instance. Specify `unchanged` to keep the current value instead of applying the default. If the current value is `disabled`, `unchanged` also ignores all other parameters.
 
 **Required IAM permissions**
 
@@ -76,6 +76,8 @@ The `AutomationAssumeRole` parameter requires the following actions to use the r
 + `ssm:StartAutomationExecution`
 
  **Document Steps** 
+
+1. getCurrentMetadataOptions - Gets the current metadata options of the instance and resolves `unchanged` to the current value.
 
 1. branchOnMetadataAccess - Branches automation based on the value of `MetadataAccess` parameter.
 
@@ -89,11 +91,13 @@ The `AutomationAssumeRole` parameter requires the following actions to use the r
 
 1. setHopLimitAndConfigureImdsVersion - If `HttpPutResponseHopLimit` is greater than 0, configures the metadata options using the given input parameters.
 
+1. castHttpPutResponseHopLimit - Casts the value of the `HttpPutResponseHopLimit` parameter to a string.
+
 1. waitBeforeAssertingHopLimit - Waits 30 seconds before asserting metadata options.
 
 1. assertHopLimit - Asserts the `HttpPutResponseHopLimit` property is set to the value you specified.
 
-1. branchVerificationOnIMDSv2Option - Branches verification based on the value of `EnforceIMDSv2` parameter.
+1. branchOnIMDSv2Option - Branches verification based on the value of `EnforceIMDSv2` parameter.
 
 1. assertIMDSv2IsOptional - Asserts `HttpTokens` value set to `optional`.
 
@@ -106,6 +110,14 @@ The `AutomationAssumeRole` parameter requires the following actions to use the r
 1. describeMetadataOptions - Gets the metadata options after the changes you've specified have been applied.
 
  **Outputs** 
+
+getCurrentMetadataOptions.InitialState
+
+getCurrentMetadataOptions.InitialMetadataAccess
+
+getCurrentMetadataOptions.InitialIMDSv2
+
+getCurrentMetadataOptions.InitialHttpPutResponseHopLimit
 
 describeMetadataOptions.State
 
