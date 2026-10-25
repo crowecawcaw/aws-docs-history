@@ -8,7 +8,9 @@ This tutorial shows you how to connect to a CodeBuild sandbox using an SSH clien
 To complete this tutorial, you must first:
 + Ensure you have an existing AWS CodeBuild project.
 + Set up appropriate IAM permissions configured for your CodeBuild project role. 
-+ Install and configure AWS CLI on your local machine.
++ Install and configure AWS CLI version 2.25.12 or later on your local machine. For more information, see [ Installing or updating to the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) in the *AWS Command Line Interface User Guide for Version 2*.
++ Install OpenSSH client version 8.1 or later on your local machine. Run `ssh -V` to show the installed version.
++ In Linux and macOS, install `jq`.
 
 ## Step 1: Start a sandbox
 <a name="sandbox-ssh-tutorial.start-sandbox"></a>

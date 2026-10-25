@@ -158,9 +158,18 @@ Required to retry builds.
 **Resource:** `arn:aws:codebuild:{{region-ID}}:{{account-ID}}:project/{{project-name}} `
 
 StartBuild  
- **Action:** `codebuild:StartBuild`   
-Required to start running builds.  
- **Resource:** `arn:aws:codebuild:{{region-ID}}:{{account-ID}}:project/{{project-name}} ` 
+ **Actions:** `codebuild:StartBuild`, `iam:PassRole`   
+Required to start running builds. `iam:PassRole` is required only when the request includes `serviceRoleOverride`.  
+ **Resources:**   
++  `arn:aws:codebuild:{{region-ID}}:{{account-ID}}:project/{{project-name}} ` 
++  `arn:aws:iam::{{account-ID}}:role/{{role-name}} ` 
+
+StartBuildBatch  
+ **Actions:** `codebuild:StartBuildBatch`, `iam:PassRole`   
+Required to start running batch builds. `iam:PassRole` is required only when the request includes `serviceRoleOverride` or `buildBatchConfigOverride.serviceRole`.  
+ **Resources:**   
++  `arn:aws:codebuild:{{region-ID}}:{{account-ID}}:project/{{project-name}} ` 
++  `arn:aws:iam::{{account-ID}}:role/{{role-name}} ` 
 
 StopBuild  
  **Action:** `codebuild:StopBuild`   

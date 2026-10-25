@@ -110,6 +110,9 @@ The name of the repository that triggers the self-hosted runner build.
 CODEBUILD\_RUNNER\_REPO\_DOMAIN  
 The domain of the repository that triggers the self-hosted runner build. Only specified GitHub Enterprise builds.
 
+CODEBUILD\_RUNNER\_TYPE  
+The type of self-hosted runner that triggers the build. The value is `GITHUB`, `GITLAB`, or `BUILDKITE`.
+
 CODEBUILD\_WEBHOOK\_LABEL  
 The label used to configure build overrides and the self-hosted runner during the build.
 
@@ -119,11 +122,26 @@ The run ID of the workflow associated with the build.
 CODEBUILD\_WEBHOOK\_JOB\_ID  
 The job ID of the job associated with the build.
 
+CODEBUILD\_WEBHOOK\_JOB\_URL  
+The URL of the GitHub Actions job associated with the build. This variable is set only when the webhook payload contains the job URL.
+
 CODEBUILD\_WEBHOOK\_WORKFLOW\_NAME  
 The name of the workflow associated with the build if it exists in the webhook request payload.
 
 CODEBUILD\_RUNNER\_WITH\_BUILDSPEC  
 If a buildspec override is configured in the self-hosted runner request labels, this is set to `true`.
+
+For self-hosted runner builds, CodeBuild also returns the following variables in the `environmentVariables` list of the build environment in the [BatchGetBuilds](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_BatchGetBuilds.html) response. The CodeBuild console also shows them.
++ `CODEBUILD_RUNNER_OWNER`
++ `CODEBUILD_RUNNER_REPO`
++ `CODEBUILD_RUNNER_REPO_DOMAIN`
++ `CODEBUILD_RUNNER_TYPE`
++ `CODEBUILD_WEBHOOK_RUN_ID`
++ `CODEBUILD_WEBHOOK_JOB_ID`
++ `CODEBUILD_WEBHOOK_WORKFLOW_NAME`
++ `CODEBUILD_WEBHOOK_JOB_URL`
+
+You can use these variables to find the workflow run and job that started a build. These variables are read-only. You cannot set them in a project or in a build override.
 
 You can also provide build environments with your own environment variables. For more information, see the following topics:
 + [Use CodeBuild with CodePipeline](how-to-create-pipeline.md)
