@@ -36,7 +36,7 @@ In the AWS Marketplace Catalog API, four entities represent an experience:
 + `Experience` entity – This entity is at the highest level of the experience and contains two child entities.
 + `ProcurementPolicy` entity – This entity represents the products that have been allowed and denied in your private marketplace.
 + `BrandingSettings` entity – You can also create a `BrandingSettings` entity to define how your private marketplace looks to your users. 
-+ `Audience` entity – You must also associate one or more `Audience` entities, which deﬁne the set of AWS accounts, OUs, or organization that the experience applies to.
++ `Audience` entity – You must also associate one or more `Audience` entities, which deﬁne the set of AWS accounts, OUs, or organization that the experience applies to. In the AWS Marketplace console, `Audience` entities are called AWS account groups.
 
 The steps to create a procurement experience are as follows:
 
@@ -588,7 +588,7 @@ A principal can only be directly associated with one experience. To move a princ
 ## Archiving and reactivating a private marketplace experience
 <a name="archiving-and-reactivating-a-private-marketplace-experience-capi"></a>
 
-You can remove a private marketplace experience by archiving it. Archived experiences can't be updated or used to govern accounts in your organization. If you have audiences associated with an archived experience, you can associate them with a different experience. If you decide to use the experience at a later time, you can always reactivate it. Administrators from the management account or a member account that is a delegated administrator for private marketplace have permissions to archive and reactivate experiences. If you're a current private marketplace customer without the AWS Organizations integration for private marketplace, administrators from the account that created the experience have permissions to archive and reactivate experiences.
+You can remove a private marketplace experience by archiving it. Archived experiences can't be updated or used to govern accounts in your organization. If you have AWS account groups associated with an archived experience, you can associate them with a different experience. If you decide to use the experience at a later time, you can always reactivate it. Administrators from the management account or a member account that is a delegated administrator for private marketplace have permissions to archive and reactivate experiences. If you're a current private marketplace customer without the AWS Organizations integration for private marketplace, administrators from the account that created the experience have permissions to archive and reactivate experiences.
 
 **Note**  
 Before archiving an experience, you must disable it. For information about disabling an experience, see [Configuring your private marketplace](https://docs.aws.amazon.com/marketplace/latest/buyerguide/private-catalog-administration.html#configure-your-private-marketplace) in the *AWS Marketplace Buyer Guide.*
