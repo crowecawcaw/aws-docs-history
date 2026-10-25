@@ -15,6 +15,7 @@ The following tables describe the service endpoints and service quotas for AWS P
 | US East (N. Virginia) | us-east-1 |  pcs.us-east-1.amazonaws.com <br /> pcs-fips.us-east-1.amazonaws.com <br /> pcs-fips.us-east-1.api.aws <br /> pcs.us-east-1.api.aws  | <br /><br /><br /> | 
 | US West (Oregon) | us-west-2 |  pcs.us-west-2.amazonaws.com <br /> pcs-fips.us-west-2.amazonaws.com <br /> pcs-fips.us-west-2.api.aws <br /> pcs.us-west-2.api.aws  | <br /><br /><br /> | 
 | Africa (Cape Town) | af-south-1 |  pcs.af-south-1.amazonaws.com <br /> pcs.af-south-1.api.aws  | <br /> | 
+| Asia Pacific (Hyderabad) | ap-south-2 |  pcs.ap-south-2.amazonaws.com <br /> pcs.ap-south-2.api.aws  | <br /> | 
 | Asia Pacific (Jakarta) | ap-southeast-3 |  pcs.ap-southeast-3.amazonaws.com <br /> pcs.ap-southeast-3.api.aws  | <br /> | 
 | Asia Pacific (Malaysia) | ap-southeast-5 |  pcs.ap-southeast-5.amazonaws.com <br /> pcs.ap-southeast-5.api.aws  | <br /> | 
 | Asia Pacific (Melbourne) | ap-southeast-4 |  pcs.ap-southeast-4.amazonaws.com <br /> pcs.ap-southeast-4.api.aws  | <br /> | 

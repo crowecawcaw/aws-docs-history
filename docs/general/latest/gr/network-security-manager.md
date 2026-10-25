@@ -15,4 +15,17 @@ The following are the service endpoints and service quotas for this service.
 
 | Region Name | Region | Endpoint | Protocol | 
 | --- | --- | --- | --- | 
+| US East (Ohio) | us-east-2 |  network-security-manager.us-east-2.api.aws <br /> network-security-manager-fips.us-east-2.api.aws  | HTTPS<br />HTTPS | 
 | US East (N. Virginia) | us-east-1 |  network-security-manager.us-east-1.api.aws <br /> network-security-manager-fips.us-east-1.api.aws  | HTTPS<br />HTTPS | 
+| US West (Oregon) | us-west-2 |  network-security-manager.us-west-2.api.aws <br /> network-security-manager-fips.us-west-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Hong Kong) | ap-east-1 |  network-security-manager.ap-east-1.api.aws  | HTTPS | 
+| Asia Pacific (Malaysia) | ap-southeast-5 |  network-security-manager.ap-southeast-5.api.aws  | HTTPS | 
+| Asia Pacific (Mumbai) | ap-south-1 |  network-security-manager.ap-south-1.api.aws  | HTTPS | 
+| Asia Pacific (Singapore) | ap-southeast-1 |  network-security-manager.ap-southeast-1.api.aws  | HTTPS | 
+| Asia Pacific (Sydney) | ap-southeast-2 |  network-security-manager.ap-southeast-2.api.aws  | HTTPS | 
+| Asia Pacific (Thailand) | ap-southeast-7 |  network-security-manager.ap-southeast-7.api.aws  | HTTPS | 
+| Asia Pacific (Tokyo) | ap-northeast-1 |  network-security-manager.ap-northeast-1.api.aws  | HTTPS | 
+| Europe (Frankfurt) | eu-central-1 |  network-security-manager.eu-central-1.api.aws  | HTTPS | 
+| Europe (Ireland) | eu-west-1 |  network-security-manager.eu-west-1.api.aws  | HTTPS | 
+| Europe (Spain) | eu-south-2 |  network-security-manager.eu-south-2.api.aws  | HTTPS | 
+| Europe (Stockholm) | eu-north-1 |  network-security-manager.eu-north-1.api.aws  | HTTPS | 

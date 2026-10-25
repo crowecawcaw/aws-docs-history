@@ -62,6 +62,7 @@ The following are the service endpoints and service quotas for this service.
 | Number of Alarm Mute Rules | Each supported Region: 2,000 | No | The maximum number of Alarm Mute Rules that you can have in this account in the current region. | 
 | Number of Contributor Insights rules | Each supported Region: 100 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/monitoring/quotas/L-DBD11BCC)  | The maximum number of Contributor Insights rules you can have in this account. | 
 | Number of Metrics Insights alarms | Each supported Region: 200 | No | The maximum number of Metrics Insights alarms that you can have in this account in the current region. | 
+| Number of PromQL alarms | Each supported Region: 15,000 | No | The maximum number of PromQL alarms that you can have in this account in the current region. | 
 | Rate of ANOMALY\_DETECTION\_BAND usage in GetMetricData | Each supported Region: 1,000 | No | The maximum number of times the ANOMALY\_DETECTION\_BAND function can be used in all GetMetricData requests, per second, in this account in the current region. | 
 | Rate of DB\_PERF\_INSIGHTS usage in GetMetricData | Each supported Region: 4 | No | The maximum number of times the DB\_PERF\_INSIGHTS function can be used in all GetMetricData requests, per second, in this account in the current region. | 
 | Rate of DeleteAlarmMuteRule requests | Each supported Region: 3 per second | No | The maximum number of DeleteAlarmMuteRule requests that you can make, per second, in this account in the current region. | 

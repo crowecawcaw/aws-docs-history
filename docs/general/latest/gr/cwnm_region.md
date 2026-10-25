@@ -44,7 +44,6 @@ The following are the service endpoints and service quotas for this service.
 | Europe (Zurich) | eu-central-2 |  networkmonitor.eu-central-2.amazonaws.com  | HTTPS | 
 | Israel (Tel Aviv) | il-central-1 |  networkmonitor.il-central-1.amazonaws.com  | HTTPS | 
 | Mexico (Central) | mx-central-1 |  |  | 
-| Middle East (Bahrain) | me-south-1 |  networkmonitor.me-south-1.amazonaws.com  | HTTPS | 
 | Middle East (UAE) | me-central-1 |  networkmonitor.me-central-1.amazonaws.com  | HTTPS | 
 | South America (São Paulo) | sa-east-1 |  networkmonitor.sa-east-1.amazonaws.com  | HTTPS | 
 

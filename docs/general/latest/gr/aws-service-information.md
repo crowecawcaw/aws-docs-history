@@ -66,6 +66,7 @@ Choose one of the following links to go to the page for that service. To view th
 + [CloudWatch Network Synthetic Monitor](cwnm_region.md)
 + [CloudWatch OAM](cloudwatchoam.md)
 + [CloudWatch Observability Admin](cwobsadmin.md)
++ [CloudWatch Omni](cwomni.md)
 + [CloudWatch RUM](cw_rum_region.md)
 + [CloudWatch Synthetics](cw-synthetics_region.md)
 + [CodeArtifact](codeartifact.md)

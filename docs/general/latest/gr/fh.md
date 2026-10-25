@@ -23,7 +23,7 @@ The following are the service endpoints and service quotas for this service.
 | Asia Pacific (Hong Kong) | ap-east-1 |  firehose.ap-east-1.amazonaws.com <br /> firehose.ap-east-1.api.aws  | HTTPS<br />HTTPS | 
 | Asia Pacific (Hyderabad) | ap-south-2 |  firehose.ap-south-2.amazonaws.com <br /> firehose.ap-south-2.api.aws  | HTTPS<br />HTTPS | 
 | Asia Pacific (Jakarta) | ap-southeast-3 |  firehose.ap-southeast-3.amazonaws.com <br /> firehose.ap-southeast-3.api.aws  | HTTPS<br />HTTPS | 
-| Asia Pacific (Malaysia) | ap-southeast-5 |  firehose.ap-southeast-5.amazonaws.com  | HTTPS | 
+| Asia Pacific (Malaysia) | ap-southeast-5 |  firehose.ap-southeast-5.amazonaws.com <br /> firehose.ap-southeast-5.api.aws  | HTTPS<br />HTTPS | 
 | Asia Pacific (Melbourne) | ap-southeast-4 |  firehose.ap-southeast-4.amazonaws.com <br /> firehose.ap-southeast-4.api.aws  | HTTPS<br />HTTPS | 
 | Asia Pacific (Mumbai) | ap-south-1 |  firehose.ap-south-1.amazonaws.com <br /> firehose.ap-south-1.api.aws  | HTTPS<br />HTTPS | 
 | Asia Pacific (New Zealand) | ap-southeast-6 |  firehose.ap-southeast-6.amazonaws.com <br /> firehose.ap-southeast-6.api.aws  | HTTPS<br />HTTPS | 
@@ -49,8 +49,8 @@ The following are the service endpoints and service quotas for this service.
 | Middle East (Bahrain) | me-south-1 |  firehose.me-south-1.amazonaws.com <br /> firehose.me-south-1.api.aws  | HTTPS<br />HTTPS | 
 | Middle East (UAE) | me-central-1 |  firehose.me-central-1.amazonaws.com <br /> firehose.me-central-1.api.aws  | HTTPS<br />HTTPS | 
 | South America (São Paulo) | sa-east-1 |  firehose.sa-east-1.amazonaws.com <br /> firehose.sa-east-1.api.aws  | HTTPS<br />HTTPS | 
-|  AWS GovCloud (US-East) | us-gov-east-1 |  firehose.us-gov-east-1.amazonaws.com <br /> firehose-fips.us-gov-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
-|  AWS GovCloud (US-West) | us-gov-west-1 |  firehose.us-gov-west-1.amazonaws.com <br /> firehose-fips.us-gov-west-1.amazonaws.com  | HTTPS<br />HTTPS | 
+|  AWS GovCloud (US-East) | us-gov-east-1 |  firehose.us-gov-east-1.amazonaws.com <br /> firehose.us-gov-east-1.api.aws <br /> firehose-fips.us-gov-east-1.api.aws <br /> firehose-fips.us-gov-east-1.amazonaws.com  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
+|  AWS GovCloud (US-West) | us-gov-west-1 |  firehose.us-gov-west-1.amazonaws.com <br /> firehose-fips.us-gov-west-1.api.aws <br /> firehose-fips.us-gov-west-1.amazonaws.com <br /> firehose.us-gov-west-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
 
 ## Service quotas
 <a name="limits-akf"></a>
@@ -65,13 +65,13 @@ The following are the service endpoints and service quotas for this service.
 | Rate of DescribeDeliveryStream requests | Each supported Region: 5 | No | The maximum number of DescribeDeliveryStream requests you can make per second in this account in the current Region. | 
 | Rate of ListDeliveryStream requests | Each supported Region: 5 per second | No | The maximum number of ListDeliveryStream requests you can make per second in this account in the current Region. | 
 | Rate of ListTagsForDeliveryStream requests | Each supported Region: 5 per second | No | The maximum number of ListTagsForDeliveryStream requests you can make per second in this account in the current Region. | 
-| Rate of Put requests | us-east-1: 2,000<br />us-west-2: 2,000<br />eu-west-1: 2,000<br />Each of the other supported Regions: 1,000 | No | The maximum number of combined PutRecord and PutRecordBatch requests per second for a delivery stream in the current Region. | 
+| Rate of Put requests | Each supported Region: 1,000 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/firehose/quotas/L-7681C790)  | The maximum number of combined PutRecord and PutRecordBatch requests per second for a delivery stream in the current Region. | 
 | Rate of StartDeliveryStreamEncryption requests | Each supported Region: 5 per second | No | The maximum number of StartDeliveryStreamEncryption requests you can make per second in this account in the current Region. | 
 | Rate of StopDeliveryStreamEncryption requests | Each supported Region: 5 per second | No | The maximum number of StopDeliveryStreamEncryption requests you can make per second in this account in the current Region. | 
 | Rate of TagDeliveryStream requests | Each supported Region: 5 per second | No | The maximum number of TagDeliveryStream requests you can make per second in this account in the current Region. | 
 | Rate of UntagDeliveryStream requests | Each supported Region: 5 per second | No | The maximum number of UntagDeliveryStream requests you can make per second in this account in the current Region. | 
 | Rate of UpdateDestination requests | Each supported Region: 5 per second | No | The maximum number of UpdateDestination requests you can make per second in this account in the current Region. | 
-| Rate of data | us-east-1: 5<br />us-west-2: 5<br />eu-west-1: 5<br />Each of the other supported Regions: 1 | No | The maximum capacity in mebibyte per second for a delivery stream in the current Region. | 
-| Rate of records | us-east-1: 500,000<br />us-west-2: 500,000<br />eu-west-1: 500,000<br />Each of the other supported Regions: 100,000 | No | The maximum capacity in records per second for a delivery stream in the current Region. | 
+| Rate of data | Each supported Region: 1 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/firehose/quotas/L-937C879B)  | The maximum capacity in mebibyte per second for a delivery stream in the current Region. | 
+| Rate of records | Each supported Region: 100,000 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/firehose/quotas/L-17D4EADE)  | The maximum capacity in records per second for a delivery stream in the current Region. | 
 
 For more information, see [Amazon Data Firehose Quotas](https://docs.aws.amazon.com/firehose/latest/dev/limits.html) in the *Amazon Data Firehose Developer Guide*.

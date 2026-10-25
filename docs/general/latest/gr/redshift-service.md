@@ -158,6 +158,7 @@ The following are the service endpoints and service quotas for this service.
 | Asia Pacific (Seoul) | ap-northeast-2 |  api.sqlworkbench.ap-northeast-2.amazonaws.com  | HTTPS | 
 | Asia Pacific (Singapore) | ap-southeast-1 |  api.sqlworkbench.ap-southeast-1.amazonaws.com  | HTTPS | 
 | Asia Pacific (Sydney) | ap-southeast-2 |  api.sqlworkbench.ap-southeast-2.amazonaws.com  | HTTPS | 
+| Asia Pacific (Taipei) | ap-east-2 |  api.sqlworkbench.ap-east-2.amazonaws.com  | HTTPS | 
 | Asia Pacific (Thailand) | ap-southeast-7 |  api.sqlworkbench.ap-southeast-7.amazonaws.com  | HTTPS | 
 | Asia Pacific (Tokyo) | ap-northeast-1 |  api.sqlworkbench.ap-northeast-1.amazonaws.com  | HTTPS | 
 | Canada (Central) | ca-central-1 |  api.sqlworkbench.ca-central-1.amazonaws.com  | HTTPS | 

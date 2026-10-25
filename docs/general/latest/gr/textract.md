@@ -23,12 +23,14 @@ The following are the service endpoints and service quotas for this service.
 | Asia Pacific (Seoul) | ap-northeast-2 |  textract.ap-northeast-2.amazonaws.com <br /> textract.ap-northeast-2.api.aws  | HTTPS<br />HTTPS | 
 | Asia Pacific (Singapore) | ap-southeast-1 |  textract.ap-southeast-1.amazonaws.com <br /> textract.ap-southeast-1.api.aws  | HTTPS<br />HTTPS | 
 | Asia Pacific (Sydney) | ap-southeast-2 |  textract.ap-southeast-2.amazonaws.com <br /> textract.ap-southeast-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Tokyo) | ap-northeast-1 |  textract.ap-northeast-1.amazonaws.com <br /> textract.ap-northeast-1.api.aws  | HTTPS<br />HTTPS | 
 | Canada (Central) | ca-central-1 |  textract.ca-central-1.amazonaws.com <br /> textract-fips.ca-central-1.api.aws <br /> textract-fips.ca-central-1.amazonaws.com <br /> textract.ca-central-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
 | Europe (Frankfurt) | eu-central-1 |  textract.eu-central-1.amazonaws.com <br /> textract.eu-central-1.api.aws  | HTTPS<br />HTTPS | 
 | Europe (Ireland) | eu-west-1 |  textract.eu-west-1.amazonaws.com <br /> textract.eu-west-1.api.aws  | HTTPS<br />HTTPS | 
 | Europe (London) | eu-west-2 |  textract.eu-west-2.amazonaws.com <br /> textract.eu-west-2.api.aws  | HTTPS<br />HTTPS | 
 | Europe (Paris) | eu-west-3 |  textract.eu-west-3.amazonaws.com <br /> textract.eu-west-3.api.aws  | HTTPS<br />HTTPS | 
 | Europe (Spain) | eu-south-2 |  textract.eu-south-2.amazonaws.com <br /> textract.eu-south-2.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Zurich) | eu-central-2 |  textract.eu-central-2.amazonaws.com <br /> textract.eu-central-2.api.aws  | HTTPS<br />HTTPS | 
 |  AWS GovCloud (US-East) | us-gov-east-1 |  textract.us-gov-east-1.amazonaws.com <br /> textract-fips.us-gov-east-1.api.aws <br /> textract-fips.us-gov-east-1.amazonaws.com <br /> textract.us-gov-east-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
 |  AWS GovCloud (US-West) | us-gov-west-1 |  textract.us-gov-west-1.amazonaws.com <br /> textract-fips.us-gov-west-1.api.aws <br /> textract-fips.us-gov-west-1.amazonaws.com <br /> textract.us-gov-west-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
 

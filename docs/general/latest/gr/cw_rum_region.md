@@ -56,7 +56,7 @@ The following are the service endpoints and service quotas for this service.
 
 | Name | Default | Adjustable | Description | 
 | --- | --- | --- | --- | 
-| RUM AppMonitors | Each supported Region: 20 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/rum/quotas/L-3FB7EA17)  | The maximum number of RUM AppMonitors that you can have in this AWS account. | 
+| RUM AppMonitors | Each supported Region: 50 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/rum/quotas/L-3FB7EA17)  | The maximum number of RUM AppMonitors that you can have in this AWS account. | 
 | RUM Events per second per AWS Account | Each supported Region: 50 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/rum/quotas/L-35851224)  | The maximum number of RUM Events per second that RUM will ingest for this AWS account. | 
 
 For more information, see [CloudWatch RUM quotas](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-quotas.html) in the *Amazon CloudWatch User Guide*.
