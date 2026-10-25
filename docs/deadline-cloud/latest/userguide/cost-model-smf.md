@@ -21,7 +21,7 @@ Because the file system must be provisioned to handle peak throughput, scaling t
 With service-managed fleets, costs are structured differently:
 
 Compute (worker time)  
-You incur service-managed fleet charges while workers are running, including time spent starting, processing jobs, waiting for work, and stopping. When the fleet scales to zero workers, worker compute costs drop to zero. For more information about pricing, see [AWS Deadline Cloud pricing](https://aws.amazon.com/deadline-cloud/pricing/).
+You incur service-managed fleet charges while workers are running, including time spent starting, processing jobs, waiting for work, and stopping. When the fleet scales to zero workers, worker compute costs drop to zero. For more information about pricing, see [AWS Deadline Cloud pricing](https://aws.amazon.com/deadline-cloud/pricing/). For the details of worker charges, see [Charges for workers](cost-management.md#worker-charges).
 
 Storage (Amazon EBS)  
 Each worker uses a local Amazon Elastic Block Store (Amazon EBS) volume. Deadline Cloud charges for Amazon EBS storage only while the worker instance exists. The storage cost is included in the Deadline Cloud service-managed fleet pricing.

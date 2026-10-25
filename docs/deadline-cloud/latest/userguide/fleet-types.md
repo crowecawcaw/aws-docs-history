@@ -17,7 +17,7 @@ The following table compares the fleet types. The sections after the table link 
 | Scaling | Automatic, based on your fleet's auto scaling configuration | You set up auto scaling for Amazon EC2 workers; on-premises capacity is fixed | 
 | Licensing | For supported software, usage-based licensing (UBL) activates automatically; you can also connect to your own license server | Bring your own licenses, or set up a license endpoint for UBL | 
 | Storage | Job attachments, persistent storage volumes, and VPC resource endpoints to reach shared storage in your VPC | Any storage you configure, such as your existing network file system | 
-| Cost model | Pay for workers only while they process jobs | You pay for your own compute (Amazon EC2 instances or on-premises hardware). Deadline Cloud also charges for each hour a worker is connected to the farm | 
+| Cost model | You pay for each worker while it runs, including time spent waiting for work. For more information, see [Charges for workers](cost-management.md#worker-charges) | You pay for your own compute (Amazon EC2 instances or on-premises hardware). Deadline Cloud also charges for each hour a worker is connected to the farm, including idle time. For more information, see [Charges for workers](cost-management.md#worker-charges) | 
 
 You don't have to choose only one fleet type. A farm can contain both, for example on-premises workers in a CMF plus cloud capacity in an SMF for peak demand. For more information, see [Extend your on-premises render farm to the cloud](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/hybrid-rendering.html) in the *Deadline Cloud Developer Guide*.
 

@@ -10,7 +10,7 @@ AWS Deadline Cloud budgets and the usage explorer estimate costs for your jobs. 
 
 The estimates in the usage explorer and budgets might differ from your actual costs for the following reasons:
 + Customer-owned resources – The tools don't calculate the actual cost of resources that you provide from AWS, on-premises infrastructure, or another cloud provider.
-+ Idle workers – The estimate doesn't include time when a worker has an `IDLE` status. Idle time can occur when a fleet has a minimum worker count greater than zero or while workers transition between jobs.
++ Idle workers – The estimate doesn't include time when a worker has an `IDLE` status. Idle time can occur when a fleet has a minimum worker count greater than zero or while workers transition between jobs. Idle workers still incur charges. For more information, see [Charges for workers](#worker-charges).
 + Worker start and stop time – The estimate doesn't include the time that workers spend starting or transitioning from `IDLE` to `STOPPING` and then to `STOPPED`.
 + Promotional credits, discounts, and custom pricing agreements – The tools don't automatically account for private pricing agreements or other discounts. Use the [Adjust usage explorer and budget estimates with the cost scale factor](using-usage-explorer.md#cost-scale-factor) to align displayed estimates with your organization's pricing.
 + Storage and connected services – The estimate doesn't include asset storage or charges from connected AWS services. The following table identifies common charges.
@@ -19,6 +19,36 @@ The estimates in the usage explorer and budgets might differ from your actual co
 + Rounding – The tools round pricing and usage data during calculations.
 + Currency conversion – Estimates use U.S. dollars. Exchange-rate changes affect values that you convert to another currency.
 + Pre-purchased licenses – The tools can't account for licenses that you provide. For more information, see [Software licensing for service-managed fleets](smf-licensing.md).
+
+## Charges for workers
+<a name="worker-charges"></a>
+
+Deadline Cloud charges for each worker for as long as the worker is running or connected to your farm, including when the worker is idle. The charge depends on your fleet type:
+
+**Service-managed fleets**  
+You pay for each worker while it's in a status that incurs a charge, including time that the worker waits for work. When a fleet scales to zero workers, worker compute charges stop. For rates, see [AWS Deadline Cloud pricing](https://aws.amazon.com/deadline-cloud/pricing/).
+
+**Customer-managed fleets**  
+You pay an hourly charge for each worker that is connected to your farm, prorated for partial hours. You pay the charge for workers on Amazon Elastic Compute Cloud (Amazon EC2) and workers on premises, whether the worker is idle or running tasks. The charge is separate from the cost of the instance or hardware that hosts the worker. For the rate, see [AWS Deadline Cloud pricing](https://aws.amazon.com/deadline-cloud/pricing/).
+
+### Charges by worker status
+<a name="worker-charges-status"></a>
+
+The charge depends on the status of the worker. You pay for a worker in every status except `CREATED`, `STOPPED`, `NOT_RESPONDING`, and `NOT_COMPATIBLE`. The charge applies even when the worker is `IDLE`.
+
+The charge starts when the worker enters `STARTED`. It ends when the worker enters `STOPPED`, `NOT_RESPONDING`, or `NOT_COMPATIBLE`, or when you delete the worker. Changes between `STARTED`, `IDLE`, `RUNNING`, and `STOPPING` don't start or stop the charge. If the worker enters `STARTED` again, the charge resumes. For descriptions of each worker status, see [Worker states and lifecycle](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/worker-states.html) in the *Deadline Cloud Developer Guide*.
+
+### Stop the charge for a worker
+<a name="worker-charges-stop"></a>
+
+The charge for a worker ends when the worker's status changes to `STOPPED`. You don't need to delete the worker.
+
+On a service-managed fleet, let the fleet scale in. Lower the fleet's minimum worker count, and workers scale in when they finish their tasks or when you cancel the jobs.
+
+On a customer-managed fleet, stop the worker agent or shut down the worker host. Consider the following:
++ If something restarts the worker agent, such as a service manager that restarts the agent when it exits, the worker connects again and the charge resumes.
++ If the host stops without a clean shutdown, such as after a power loss, the charge continues until Deadline Cloud marks the worker as `NOT_RESPONDING`.
++ If you want Amazon EC2 instances to stop automatically when their workers stop, enable auto shutdown on the worker agent. For more information, see [Configure the Deadline Cloud worker agent](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/worker-host.html#worker-agent-config) in the *Deadline Cloud Developer Guide*.
 
 ## Costs incurred alongside Deadline Cloud
 <a name="costs-alongside-deadline-cloud"></a><a name="cost-management-best-practices"></a>
@@ -56,7 +86,7 @@ To reduce storage costs, reduce the amount of data that you store:
 ### Compute costs
 <a name="costs-compute"></a><a name="best-practice-ec2"></a>
 
-If your customer-managed fleet uses Amazon EC2 instances, those instances appear on your bill as [Amazon Elastic Compute Cloud](https://aws.amazon.com/ec2/pricing/) for as long as they run. If your workers run on premises, in a co-location facility, or with another cloud provider, you are responsible for the costs of operating that infrastructure. Those costs aren't tracked by the Deadline Cloud cost management tools.
+If your customer-managed fleet uses Amazon EC2 instances, those instances appear on your bill as [Amazon Elastic Compute Cloud](https://aws.amazon.com/ec2/pricing/) for as long as they run. If your workers run on premises, in a co-location facility, or with another cloud provider, you are responsible for the costs of operating that infrastructure. Those costs aren't tracked by the Deadline Cloud cost management tools. Deadline Cloud also charges a separate worker charge for each customer-managed fleet worker. For more information, see [Charges for workers](#worker-charges).
 
 Compute for service-managed fleets is billed at [AWS Deadline Cloud pricing](https://aws.amazon.com/deadline-cloud/pricing/) rates and is tracked by the Deadline Cloud cost management tools.
 

@@ -32,4 +32,4 @@ Use multiple controls when your workload has more than one constraint:
 <a name="cost-management-other-goals"></a>
 + [Track usage and costs with the Deadline Cloud usage explorer](using-usage-explorer.md) – Filter farm usage and understand the estimates and cost scale factor used by the usage explorer and budgets.
 + [Understand the cost model for service-managed fleets](cost-model-smf.md) – Understand worker metering and compare the elastic service-managed fleet cost model with a traditional render farm.
-+ [Understand estimated and actual costs for Deadline Cloud](cost-management.md) – See why usage explorer and budget estimates differ from actual costs, including charges from connected AWS services.
++ [Understand estimated and actual costs for Deadline Cloud](cost-management.md) – See why usage explorer and budget estimates differ from actual costs, including worker charges and charges from connected AWS services.

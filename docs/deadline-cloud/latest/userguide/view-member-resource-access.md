@@ -3,16 +3,7 @@
 # View and change resource access for a user or group
 <a name="view-member-resource-access"></a>
 
-In **User management**, open the **Resource access** tab to see every farm, queue, and fleet that a user or group can access, in every AWS Region. You can change or revoke access on the same tab. For information about assigning access starting from a farm, queue, or fleet, see [Assign permissions to users and groups](assign-permissions-procedure.md).
-
-![The Resource access tab for a user, listing each farm or queue with its Region, access level, and how it was granted.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/user-resource-access.png)
-
-
-Access to a farm includes the queues and fleets inside it, and those aren't listed separately. A user with the owner level on a farm shows one row for the farm rather than a row for every resource in it.
-
-The **Granted through** column shows where each access level comes from:
-+ **Direct** means the user or group was added to the resource itself. You can change or revoke this access on the **Resource access** tab.
-+ The name of a group means the user inherits the access from that group. To change it, change the group's access level on the resource, or change which groups the user belongs to in your identity source.
+Use the **Resource access** tab to check what one user or group can reach, for example when someone changes teams or leaves your organization. You find the tab on the details page for each user and group. On the tab, you can see every farm, queue, and fleet that the user or group can access, in every AWS Region. You can also change or revoke that access. For information about assigning access starting from a farm, queue, or fleet, see [Assign permissions to users and groups](assign-permissions-procedure.md).
 
 **To view resource access for a user or group**
 
@@ -20,9 +11,22 @@ The **Granted through** column shows where each access level comes from:
 
 1. In the left navigation pane, choose **User management**.
 
-1. Choose the **Groups** or **Users** tab, and then choose the name of the group or user.
+1. On the **User management** page, choose the **Users** or **Groups** tab.
 
-1. Choose the **Resource access** tab.
+1. Choose the name of the user or group to open its details page.
+
+1. On the details page, choose the **Resource access** tab.
+
+   The following screenshot shows the **Resource access** tab for a user. The user has direct access to three farms in the Tokyo, Ireland, and Virginia Regions, and access to one queue through the Lighting group.  
+![Resource access table with the Revoke access and Change access level buttons above it.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/user-resource-access.png)
+
+1. In the table, review the **Resource type**, **Resource**, **Access level**, **Region**, and **Granted through** values for each farm, queue, or fleet.
+
+Access to a farm includes the queues and fleets inside it, and those aren't listed separately. A user with the owner level on a farm shows one row for the farm rather than a row for every resource in it.
+
+The **Granted through** column shows where each access level comes from:
++ **Direct** means the user or group was added to the resource itself. You can change or revoke this access on the **Resource access** tab.
++ The name of a group means the user inherits the access from that group. To change it, change the group's access level on the resource, or change which groups the user belongs to in your identity source.
 
 **To change an access level**
 

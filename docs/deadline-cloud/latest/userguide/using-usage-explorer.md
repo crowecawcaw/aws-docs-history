@@ -34,8 +34,10 @@ Cost per job =
     (License run time x license rate)
 ```
 + Run time is the sum of the time that all tasks in a job spend running.
-+ Compute rate comes from [AWS Deadline Cloud pricing](https://aws.amazon.com/deadline-cloud/pricing/) for service-managed fleets. For customer-managed fleets, assume an estimated compute rate of USD 1.00 per worker hour.
++ Compute rate comes from [AWS Deadline Cloud pricing](https://aws.amazon.com/deadline-cloud/pricing/) for service-managed fleets. For customer-managed fleets, the estimate uses a fixed flat rate for each worker hour. The rate doesn't include the Deadline Cloud worker charge or the cost of your instances or hardware. To align the estimates with your costs, use the [Adjust usage explorer and budget estimates with the cost scale factor](#cost-scale-factor).
 + License rate comes from the Deadline Cloud base license price and applies only to service-managed fleets. The estimate doesn't include additional pricing tiers. For more information, see [AWS Deadline Cloud pricing](https://aws.amazon.com/deadline-cloud/pricing/).
+
+Your estimate reflects only the time that your tasks run. Your bill reflects the time that each worker is connected, including idle time. For more information, see [Charges for workers](cost-management.md#worker-charges).
 
 For information about costs that aren't included in these estimates, see [Understand estimated and actual costs for Deadline Cloud](cost-management.md).
 
