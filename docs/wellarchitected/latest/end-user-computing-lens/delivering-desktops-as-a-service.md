@@ -7,7 +7,7 @@
 
  With DaaS, applications can be pre-installed in your golden image or pushed to the virtual desktop using a desktop management suite. Users may also have access to a software center to install pre-packed applications in a self-service fashion. Application layering and application containerization can alternatively be used to run applications without the need for installation (for example, from a simple network share). DaaS can be combined with application virtualization to decouple applications with special hardware requirements from a virtual desktop with more common hardware specifications. 
 
-![](https://docs.aws.amazon.com/wellarchitected/latest/end-user-computing-lens/images/image1.png)
+![Architecture diagram showing WorkSpaces VPC with streaming and auth gateways connecting to Amazon WorkSpaces Personal bundles across multiple availability zones.](https://docs.aws.amazon.com/wellarchitected/latest/end-user-computing-lens/images/image1.png)
 
 
 ## Common Amazon WorkSpaces Service deployment scenarios
