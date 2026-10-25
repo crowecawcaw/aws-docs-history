@@ -263,6 +263,10 @@ Perform these steps to import your image and create a WorkSpaces BYOL image:
    + If you choose to terminate the instance on failure, you will not be able to access the instance to debug errors during the image import workflow.
    + If you choose to not terminate the instance, the instance can be used to debug errors but you may incur additional costs for running the EC2 instance.
 
+1. In the **Image validation** section, choose one of the following options:
+   + **Run image validation in your account** (default) – Validation runs in your account. Your VPC must have internet access.
+   + **Run image validation in an AWS-managed account** – Validation runs in an AWS-managed account, so your VPC doesn't need internet access. Validation logs aren't available to you in this mode.
+
 1. Go to **Image details** to specify the properties of your image: including an image name.
    + **Image Name** – Unique identifier for your image.
    + **Compute type** – Specify if this image should use non-graphics/base hardware or Graphics hardware
