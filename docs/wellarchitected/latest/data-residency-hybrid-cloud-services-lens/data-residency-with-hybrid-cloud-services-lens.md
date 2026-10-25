@@ -1,6 +1,6 @@
 
 
-# Data Residency with Hybrid Cloud Services Lens - AWS Well-Architected
+# Data Residency with Hybrid Cloud Services Lens - AWS Well-Architected Framework
 <a name="data-residency-with-hybrid-cloud-services-lens"></a>
 
 Publication date: **April 3, 2025** ([Document revisions](document-revisions.md))
