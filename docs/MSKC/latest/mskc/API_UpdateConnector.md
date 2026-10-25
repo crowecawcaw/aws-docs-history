@@ -33,7 +33,8 @@ Content-type: application/json
    },
    "connectorConfiguration": { 
       "{{string}}" : "{{string}}" 
-   }
+   },
+   "skipHealthValidation": {{boolean}}
 }
 ```
 
@@ -63,6 +64,11 @@ Required: No
  ** [connectorConfiguration](#API_UpdateConnector_RequestSyntax) **   <a name="MSKC-UpdateConnector-request-connectorConfiguration"></a>
 A map of keys to values that represent the configuration for the connector.  
 Type: String to string map  
+Required: No
+
+ ** [skipHealthValidation](#API_UpdateConnector_RequestSyntax) **   <a name="MSKC-UpdateConnector-request-skipHealthValidation"></a>
+Specifies whether the update bypasses connector-level and task-level health checks. If `true`, the update skips the health checks. The update stays in effect even if the connector or its tasks are unhealthy, and Amazon MSK Connect doesn't roll it back. If `false` or not specified, the health checks run. If they fail, MSK Connect automatically rolls the connector back to its previous configuration, and the update doesn't take effect. To update a connector that is in the `PAUSED` state, you must set this parameter to `true`.  
+Type: Boolean  
 Required: No
 
 ## Response Syntax
@@ -97,7 +103,7 @@ Type: String
  ** [connectorState](#API_UpdateConnector_ResponseSyntax) **   <a name="MSKC-UpdateConnector-response-connectorState"></a>
 The state of the connector.  
 Type: String  
-Valid Values: `RUNNING | CREATING | UPDATING | DELETING | FAILED | RESTARTING` 
+Valid Values: `RUNNING | CREATING | UPDATING | DELETING | FAILED | PAUSED | RESTARTING | PAUSING | RESUMING` 
 
 ## Errors
 <a name="API_UpdateConnector_Errors"></a>

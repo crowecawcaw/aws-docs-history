@@ -208,7 +208,7 @@ Type: String
  ** [connectorState](#API_CreateConnector_ResponseSyntax) **   <a name="MSKC-CreateConnector-response-connectorState"></a>
 The state of the connector.  
 Type: String  
-Valid Values: `RUNNING | CREATING | UPDATING | DELETING | FAILED | RESTARTING` 
+Valid Values: `RUNNING | CREATING | UPDATING | DELETING | FAILED | PAUSED | RESTARTING | PAUSING | RESUMING` 
 
 ## Errors
 <a name="API_CreateConnector_Errors"></a>
