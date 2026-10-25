@@ -9,6 +9,9 @@ For Grafana workspaces that support Grafana version 12.x, see [Working in Grafan
 For Grafana workspaces that support Grafana version 10.x, see [Working in Grafana version 10](using-grafana-v10.md).  
 For Grafana workspaces that support Grafana version 9.x, see [Working in Grafana version 9](using-grafana-v9.md).
 
+**Note**  
+Amazon Managed Grafana limits the number of annotations to 3 million per workspace. If a workspace exceeds this limit, Amazon Managed Grafana deletes the oldest annotations until 3 million annotations remain.
+
 Annotations provide a way to mark points on a visualization with rich events. They are visualized as vertical lines and icons on all graph panels. When you hover over an annotation, you can get event description and event tags. The text field can include links to other systems with more detail.
 
 Annotations support Cron syntax for time regions, providing more precise control over time-based annotations.
