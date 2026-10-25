@@ -20,7 +20,7 @@ NextGen vector search scales on demand based on workload to optimize the balance
 + **Index build acceleration** – GPU acceleration is enabled by default to help build large scale vector indexes faster and more efficiently. It reduces the time needed to index data into vector indexes, providing a high throughput indexing experience and cost savings. GPU resources are provisioned only when needed during index build operations. You can control GPU usage on a per index basis using the setting `index.knn.remote_index_build.enabled`. For more information, see [GPU-acceleration for vector indexing](gpu-acceleration-vector-index.md).
 + **Simplified API** – NextGen vector search collections do not require the `engine` and `mode` parameters in index mappings. The system automatically determines the optimal configuration internally, reducing the complexity of index creation.
 + **Optimized search response** – By default, search responses in NextGen vector collections exclude the original vector from the results. This reduces end to end search latency and response payload size. To include vectors in the search response, see [Retrieve full document with vectors](#serverless-vector-index-full-source).
-+ NextGen vector collections have a read-after-write latency (`refresh_interval`) of 10 seconds.
++ NextGen vector collections have a read-after-write latency (`refresh_interval`) of 5 seconds.
 
 ## Getting started with vector search collections
 <a name="serverless-vector-tutorial"></a>
