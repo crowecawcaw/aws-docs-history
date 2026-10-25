@@ -333,6 +333,8 @@ Use the following command to change the client routing policy with the AWS Comma
 $ aws rtbfabric update-responder-gateway \
 --gateway-id {{"rtb-gw-kasoi29asfdhn"}} \
 --client-routing-policy {{ANY_AVAILABILITY_ZONE}} \
+--port {{443}} \
+--protocol {{HTTPS}} \
 --endpoint-url https://rtbfabric.{{us-east-1}}.amazonaws.com \
 --region {{us-east-1}}
 ```

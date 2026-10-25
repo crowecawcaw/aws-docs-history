@@ -94,6 +94,8 @@ Use `UpdateResponderGateway` to add health checks to an existing gateway or modi
 ```
 $ aws rtbfabric update-responder-gateway \
 --gateway-id {{"rtb-gw-abc123def456"}} \
+--port {{8080}} \
+--protocol {{HTTP}} \
 --managed-endpoint-configuration {{'{"autoScalingGroups":{"autoScalingGroupNames":["my-bidder-asg"],"roleArn":"arn:aws:iam::123456789012:role/MyASGRole","healthCheckConfig":{"port":8081,"path":"/health","protocol":"HTTPS","timeoutMs":1000,"intervalSeconds":10,"statusCodeMatcher":"200-299","healthyThresholdCount":3,"unhealthyThresholdCount":3}}}'}} \
 --endpoint-url https://rtbfabric.{{us-east-1}}.amazonaws.com \
 --region {{us-east-1}}
