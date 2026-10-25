@@ -43,4 +43,5 @@ VPC deployment, AWS Identity and Access Management access control, customer mana
 + [Processing engine](faq-processing-engine.md)
 + [Custom plugins](faq-custom-plugins.md)
 + [Storage and billing](faq-storage-billing.md)
++ [Storage engine](faq-storage-engine.md)
 + [Security and access](faq-security.md)
