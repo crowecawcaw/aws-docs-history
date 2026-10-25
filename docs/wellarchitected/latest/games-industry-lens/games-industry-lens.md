@@ -1,6 +1,6 @@
 
 
-# Games Industry Lens – AWS Well-Architected Framework
+# Games Industry Lens - AWS Well-Architected Framework
 <a name="games-industry-lens"></a>
 
 Publication date: **December 9, 2025** ([Document revisions](document-revisions.md))
