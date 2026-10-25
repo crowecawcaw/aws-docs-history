@@ -26,7 +26,7 @@ The AWS Transform agent guides you through the following steps, handling the ana
 1. Deploy your network.
 
 **Note**  
-For multi-account deployments, you must configure cross-account IAM roles and trusted access for AWS Organizations before you start the network migration. For more information about migration types, see [Step 1: Migration type selection](transform-vmware-connect-target-account.md#transform-vmware-cta-migration-type).
+For multi-account deployments, you must set up cross-account access before you start the network migration. For more information, see [Set up multi-account network migration](transform-vmware-network-multi-account-setup.md).
 
 ## Step 1: Source network mapping
 <a name="transform-vmware-source-network-mapping"></a>

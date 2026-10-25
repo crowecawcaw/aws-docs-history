@@ -14,4 +14,4 @@ Begin your modernization journey by accessing the AWS Transform console and init
 + Review and confirm project settings
 
 **Note**  
-**Best Practice:** Use descriptive project names that include the application name and target environment (e.g., 'CustomerPortal-Production-Modernization') to easily identify projects in multi-wave scenarios.
+**Best Practice:** Use descriptive project names that include the application name and target environment (e.g., 'CustomerPortal-Production-Modernization') to easily identify your projects.

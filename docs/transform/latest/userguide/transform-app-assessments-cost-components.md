@@ -8,7 +8,11 @@ Beyond the per-workload service recommendations, AWS Transform models several cr
 ## On-premises pricing
 <a name="transform-app-assessments-cost-components-onprem"></a>
 
-AWS Transform estimates your current on-premises costs to provide a baseline for comparison with AWS pricing. Most organizations have on-premises costs that a server inventory does not capture—colocation rent, networking, custom vendor deals, hardware refresh cycles, and maintenance contracts. You can add these directly through chat, and AWS Transform folds them into the baseline. On-premises cost adjustments are reflected in the PDF report and chat responses, but not in the PPTX export.
+AWS Transform estimates your current on-premises costs to provide a baseline for comparison with AWS pricing. The baseline is the sum of compute, network, and storage costs. Compute covers physical and virtual servers, hardware, software such as operating system, hypervisor, and database licenses, and facilities. Storage covers server volumes, shared storage, racks, and backup. The estimate is built from your server configurations, such as processors, cores, memory, storage, and installed software.
+
+The baseline assumes on-premises discounts of 40 percent for hardware, 25 percent for software, and 50 percent for storage by default. You can change each of these discount rates.
+
+Most organizations have on-premises costs that the estimate does not reflect—such as colocation contract terms, custom vendor deals, hardware refresh cycles, and maintenance contracts. You can add these directly through chat, and AWS Transform folds them into the baseline. On-premises cost adjustments are reflected in the PDF report and chat responses, but not in the PPTX export.
 
 Example prompts:
 + "Update the on-premises server cost to $500 per server per month"
@@ -18,7 +22,7 @@ Example prompts:
 ## Network costs
 <a name="transform-app-assessments-cost-components-network"></a>
 
-AWS Transform estimates network-related costs for your migration, including data transfer and connectivity requirements, and includes them in the AWS side of the comparison.
+AWS Transform estimates network costs on both sides of the comparison. On the AWS side, the network estimate represents expected data transfer overhead. It is 10 percent, by default, of the one-year No Upfront compute cost with operating system license costs removed, and the same amount applies to every pricing model. You can change the percentage, or set it to zero to remove the network estimate. On the on-premises side, network hardware, software, and maintenance costs are estimated as a percentage of server cost.
 
 ## Support costs
 <a name="transform-app-assessments-cost-components-support"></a>

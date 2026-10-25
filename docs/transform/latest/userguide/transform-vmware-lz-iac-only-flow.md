@@ -3,7 +3,7 @@
 # Generate landing zone IaC without deployment
 <a name="transform-vmware-lz-iac-only-flow"></a>
 
-The IaC-only flow enables you to use AWS Transform landing zone agent for analysis, recommendations, and Infrastructure as Code generation without direct deployment. This mode is available in two scenarios:
+The IaC-only flow enables you to use the AWS Transform landing zone capability for analysis, recommendations, and Infrastructure as Code generation without direct deployment. This mode is available in two scenarios:
 + **Delegated Administrator connector:** When you connect via a Delegated Administrator account, AWS Transform operates exclusively in IaC-only mode. This allows organizations with strict governance policies to use AWS Transform without granting access to the management account.
 + **Management Account with IaC-only preference:** Even with a Management Account connector, you can choose IaC-only mode at the start of your job if you prefer to deploy through your own pipeline (AWS Landing Zone Accelerator, Terraform, CloudFormation, CDK, or custom CI/CD).
 
@@ -22,7 +22,7 @@ In IaC-only mode, AWS Transform performs the same analysis and generates the sam
 IaC-only mode requires minimal permissions compared to full deployment mode:
 + **Read and describe permissions:** AWS Transform requires read-only access to your AWS Organization to discover existing structure, accounts, organizational units, and policies.
 + **No write permissions needed:** Since AWS Transform does not provision resources, no write or create permissions are required for landing zone services like AWS Control Tower, Organizations, CloudFormation, or Service Catalog.
-+ **Delegated Administrator accounts:** When using a Delegated Administrator connector, these read-only permissions are sufficient for the agent to perform analysis and generate IaC artifacts, even though Delegated Administrators cannot deploy Control Tower landing zones directly.
++ **Delegated Administrator accounts:** When using a Delegated Administrator connector, these read-only permissions are sufficient for the capability to perform analysis and generate IaC artifacts, even though Delegated Administrators cannot deploy Control Tower landing zones directly.
 
 ## Limitations in IaC-only mode
 <a name="transform-vmware-lz-iac-only-limitations"></a>

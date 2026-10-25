@@ -92,7 +92,7 @@ AWS Transform does not support using service-linked roles in every Region where 
 ## Using service-linked roles for AWS Transform Custom
 <a name="using-service-linked-roles-custom"></a>
 
-AWS Transform Custom uses the service-linked role named **AWSServiceRoleForAWSTransformCustom** to publish metrics and logs to your account on your behalf. These metrics let you monitor transformation counts, latencies, and status codes directly in your dashboards. Logs provide visibility into issues encountered during transformations.
+AWS Transform Custom uses the service-linked role named **AWSServiceRoleForAWSTransformCustom** to publish CloudWatch metrics and logs to your account on your behalf. These metrics let you monitor transformation counts, latencies, and status codes directly in your CloudWatch dashboards. Logs provide visibility into issues encountered during transformations.
 
 This [service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role) is predefined by AWS Transform Custom and includes only the permissions the service needs. You don't have to manually add any permissions, and the role can only be assumed by AWS Transform Custom. For general information about service-linked roles, see [Using service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) in the *IAM User Guide*.
 
@@ -104,9 +104,9 @@ The AWSServiceRoleForAWSTransformCustom service-linked role trusts the following
 
 The role permissions policy named AWSServiceRoleForAWSTransformCustom allows AWS Transform Custom to complete the following actions on the specified resources:
 + `cloudwatch:PutMetricData` on all AWS resources
-  + Publish operational metrics to under the `AWS/TransformCustom` namespace
+  + Publish operational metrics to CloudWatch under the `AWS/TransformCustom` and `AWS/TransformContinuousModernization` namespaces
   + Track transformation counts, latencies, and status codes
-  + Scoped to the `AWS/TransformCustom` namespace via the `cloudwatch:namespace` condition key
+  + Scoped to the `AWS/TransformCustom` and `AWS/TransformContinuousModernization` namespaces through the `cloudwatch:namespace` condition key
 + `logs:CreateLogGroup` and `logs:PutRetentionPolicy` on the `/aws/TransformCustom` log group
   + Create the CloudWatch Logs log group for publishing transformation logs
   + Set log retention policies on the log group

@@ -3,208 +3,86 @@
 # Create SQL Server modernization job
 <a name="sql-server-create-job"></a>
 
+To create a SQL Server modernization job, AWS Transform modernizes your schema from uploaded DDL files — no direct connection to your database is required. You run a provided extraction script against your SQL Server, upload the resulting schema files, and AWS Transform discovers, assesses, converts, and deploys the schema to Amazon Aurora PostgreSQL.
 
+**Important**  
+AWS Transform converts and deploys your schema only. It does not migrate real data. Where available, you can generate synthetic test data to validate the target. If you need to migrate real data, use the AWS DMS console to create a new data migration project.
 
-## Connect database and source code repo
-<a name="sql-server-connect-database-repo"></a>
+## Prerequisites
+<a name="sql-server-offline-prerequisites"></a>
++ A supported SQL Server version (2008 R2 through 2022, all editions).
++ **PowerShell 7 or later** to run the extraction script. PowerShell is pre-installed on Windows. On macOS or Linux, install PowerShell 7\+ and run the script with `pwsh`. See the [Microsoft installation guide](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell).
++ The `sqlcmd` utility available on the PATH. See [sqlcmd utility](https://learn.microsoft.com/en-us/sql/tools/sqlcmd/sqlcmd-utility).
++ A SQL Server authentication login (username and password) with at least `VIEW SERVER STATE` and `VIEW ANY DEFINITION` permissions. The script does not support Windows or domain authentication.
++ An AWS account for the later phases (creating the Aurora PostgreSQL target and deploying the converted schema), with IAM Identity Center or IAM authentication enabled.
++ No inbound or outbound database connectivity to AWS is required for the schema analysis and conversion phases.
 
-### Configure database connector
-<a name="sql-server-connect-database"></a>
+## Workflow steps
+<a name="sql-server-offline-workflow-steps"></a>
 
-Establish secure connectivity to your SQL Server databases by configuring database connectors. The connector performs environment analysis, dependency discovery, and enables AWS Transform to access your database schemas and metadata for assessment and conversion.
+1. **Upload DDL files** — AWS Transform provides a download button for an extraction script in the chat. Download and run the script against your SQL Server. Optionally limit extraction to specific databases with a comma-separated include list (case-insensitive). The script produces a timestamped `.zip` of SQL DDL files. Upload the `.zip` (or individual `.sql` files) using the chat upload button.
 
-**Actions to Complete:**
-+ Select **Configure Database Connector** from the setup wizard
-+ Choose connection method: **New Connection** or **Existing Connection**
-+ Provide SQL Server connection details (endpoint, port, database names)
-+ Configure authentication and test connectivity
-+ Review discovered databases and confirm selection
+1. **Discovery** — AWS Transform parses the uploaded files and catalogs the database objects (tables, stored procedures, views, triggers, indexes, constraints, sequences, and more), grouped by database. You review a per-database summary and choose which databases to assess. If some statements cannot be parsed, AWS Transform reports the issues and lets you continue with the objects that parsed, choose specific databases, or upload corrected files.
 
-**Note**  
-**Network Connectivity:** Ensure your SQL Server security groups and NACLs allow inbound connections from AWS Transform service endpoints.
+1. **Assessment** — AWS Transform evaluates conversion feasibility for the selected databases and produces a downloadable report with an executive summary, a per-database object summary, and a level-of-effort (LOE) estimate. Customize the LOE scores, upload additional files, or proceed to conversion.
 
-### Connect source code repository
-<a name="sql-server-connect-source-code"></a>
+1. **Schema conversion** — AWS Transform converts the SQL Server schema (including T-SQL stored procedures) to Aurora PostgreSQL, one database at a time. A single database converts automatically; with multiple databases, you choose which to convert. Databases convert independently and in parallel.
 
-Enable AWS Transform to access your .NET application source code. AWS Transform supports three methods for providing source code: a Personal Access Token (PAT) connector (recommended), AWS CodeConnections, or Amazon S3. This integration allows the service to analyze your application code, identify database dependencies, and perform automated code transformations for PostgreSQL compatibility.
+1. **Target provisioning** — For each converted database, AWS Transform creates or reuses an Amazon Aurora PostgreSQL cluster in your AWS account. You choose networking and target configuration through guided prompts.
 
-**Actions to Complete:**
-+ Navigate to **Connect Source Code Repository** section
-+ Choose your authentication method: **PAT Connector** (recommended), **AWS CodeConnections**, or **Amazon S3**
-+ Select repositories containing .NET applications
-+ Specify branch for analysis (typically main/master or development)
-+ Validate repository access and code structure
+1. **Schema deployment** — AWS Transform applies the converted schema to the Aurora cluster. After deployment, fix remaining objects in the chat or in an IDE, generate synthetic test data (where available), or finish.
 
-**Note**  
-**Repository Discovery:** AWS Transform automatically scans your repositories to identify .NET projects, Entity Framework configurations, database connection strings, and SQL dependencies.
+1. **Application code modernization** (optional) — AWS Transform can update associated .NET 6\+ applications to work with Aurora PostgreSQL. The service updates database connections in the source code and modifies ORM code in Entity Framework and ADO.NET to be compatible with Aurora PostgreSQL in a unified workflow with human supervision. Connect your source code repository using AWS CodeConnections or a Personal Access Token (PAT) for GitHub and GitLab, or provide an S3 URI for a zip file containing the source code.
 
 **Note**  
-**Security Note:** AWS Transform only requires read access to your repositories and creates new feature branches for transformed code. Your main branch remains untouched.
+Amazon Aurora PostgreSQL is the only supported target engine for this workflow.
 
-## Human in the loop
-<a name="human-in-the-loop"></a>
+## Service limits
+<a name="sql-server-offline-service-limits"></a>
 
-AWS Transform uses human-in-the-loop (HITL) mechanisms to ensure quality and allow you to review and approve critical transformation decisions. The following checkpoints require your attention:
+The following default limits apply. Some limits are configurable per account; contact your AWS account team to request an increase.
 
-### Wave plan review and approval
-<a name="wave-plan-review-approval"></a>
 
-**What you review:** The proposed migration waves, including which databases and applications are grouped together and the sequence of waves.
+| Limit | Default | Applies to | 
+| --- | --- | --- | 
+| Upload size per job | 1,024 MB (1 GB), cumulative across all uploads in the job | Upload DDL files | 
+| Concurrent schema conversions | 5 databases at a time | Schema conversion | 
+| Concurrent running jobs | 5 | Per account | 
++ The upload size limit is a per-job cumulative budget. If you reset input setup, the budget is cleared (this discards the files already uploaded and re-runs discovery and assessment within the same job).
++ When you choose more than 5 databases for conversion, the additional databases are queued and start automatically as running conversions finish.
 
-You can:
-+ Approve the wave plan
-+ Customize waves by moving databases between waves
-+ Modify wave sequence
-+ Split or merge waves
+## Troubleshooting
+<a name="sql-server-offline-troubleshooting"></a>
 
-After approval, AWS Transform proceeds with schema conversion.
+### Extraction script
+<a name="sql-server-offline-ts-extraction"></a>
++ **`pwsh: command not found` (macOS/Linux)** — PowerShell 7\+ is not installed. Install it and run `pwsh ./ExtractDatabaseMetadata.ps1`.
++ **Errors referencing `sqlcmd`** — The `sqlcmd` utility is not on the PATH. Install it and ensure it is on the PATH.
++ **Login or permission errors** — Use a SQL Server authentication login with `VIEW SERVER STATE` and `VIEW ANY DEFINITION`. Windows/domain authentication is not supported.
++ **Only some databases exported** — The include list narrowed the scope. Re-run without it, or specify the correct comma-separated database names.
 
-### Schema conversion review
-<a name="schema-conversion-review"></a>
+### Upload
+<a name="sql-server-offline-ts-upload"></a>
++ **Upload rejected with a size message** — The per-job upload budget is exceeded. Upload a smaller file, or ask the agent to reset input setup to clear the budget within the same job. Ask the agent for the current remaining budget rather than estimating.
++ **File not accepted** — Upload the `.zip` produced by the script, or individual `.sql` files. Zip multiple files into a single archive.
 
-**What you review:** Converted database objects including tables, stored procedures, functions, and triggers. Action items highlight objects that require attention.
-
-You can:
-+ Accept converted code
-+ Modify converted code
-+ Flag for human review after transformation
-+ View side-by-side comparison of original and converted code
-
-**What happens after approval:** AWS Transform applies the schema to Aurora PostgreSQL and proceeds with data migration (if configured).
-
-### Application code review
-<a name="application-code-review"></a>
-
-**What you review:** All application code changes including Entity Framework configurations, connection strings, data access code, and stored procedure calls.
-
-You can:
-+ Accept changes for each file
-+ Modify transformed code
-+ Reject changes (not recommended)
-+ Add comments for your team
-+ Download transformed code for local review
-
-**What happens after approval:** AWS Transform commits the changes to a new branch in your repository and proceeds with validation.
-
-### Validation results review
-<a name="validation-results-review"></a>
-
-**What you review:** Automated validation results including schema compatibility, data integrity checks, and application build status.
-
-You can:
-+ Review passed tests
-+ Investigate failed tests
-+ Address warnings
-+ Proceed to deployment or return to fix issues
-
-**What happens after approval:** AWS Transform prepares for deployment to your target environment.
-
-### Deployment approval
-<a name="deployment-approval"></a>
-
-**What you review:** Deployment configuration including infrastructure-as-code templates, ECS service configuration, and deployment settings.
-
-You can:
-+ Review and customize deployment settings
-+ Approve deployment to proceed
-+ Delay deployment for additional testing
-+ Download infrastructure code for review
-
-After approval, AWS Transform deploys your modernized application and database to the target environment.
-
-## Assessment and wave planning
-<a name="sql-server-assessment-wave-planning"></a>
-
-### Set up landing zone
-<a name="sql-server-setup-landing-zone"></a>
-
-Configure the target infrastructure environment where your modernized applications will be deployed. The landing zone setup includes Aurora PostgreSQL provisioning, networking configuration, and reference deployment configurations.
-
-**Actions to Complete:**
-+ Select **Set up Landing Zone** from the configuration menu
-+ Configure Aurora PostgreSQL target (version, instance class, Multi-AZ)
-+ Configure network and security settings (VPC, subnets, security groups)
-
-**Note**  
-**Cost Consideration:** Aurora PostgreSQL instances incur ongoing costs. Consider using Aurora Serverless v2 for development/testing environments.
+### Discovery
+<a name="sql-server-offline-ts-discovery"></a>
++ **SQL syntax issues detected** — Download the issues report. Objects in error-free sections are still cataloged. Choose to continue with the parsed objects, choose specific databases, or upload corrected files.
++ **Objects grouped under a generic name** — The parser could not find a `USE [Database]` statement. When prompted, provide the correct database name.
++ **No objects found** — The files contained no `CREATE` statements, or all failed to parse. Re-upload valid DDL.
 
 ### Assessment
-<a name="sql-server-assessment"></a>
+<a name="sql-server-offline-ts-assessment"></a>
++ **LOE estimates look off** — Choose to customize LOE scores, edit the template, and re-upload to regenerate the assessment.
++ **Missed objects** — Choose to upload additional SQL files; discovery and assessment re-run automatically.
 
-Conduct comprehensive analysis of your database schemas, application code, and dependencies. The assessment phase provides transformation complexity ratings, identifies potential challenges, and generates detailed reports.
+### Schema conversion
+<a name="sql-server-offline-ts-conversion"></a>
++ **A database conversion fails** — AWS Transform reports the reason. Reply asking to retry; conversion restarts for that database.
++ **A response goes to the wrong database** — When multiple databases are awaiting input, specify which database your message is for. You can address a specific database with `@DatabaseName:`.
 
-**Actions to Complete:**
-+ Select Repository Branch for code analysis
-+ Select Repositories and Databases for transformation
-+ Review Assessment Results and complexity ratings
-+ Generate Assessment Report with effort projections
-+ Export report for stakeholder review and approval
-
-**Note**  
-**Assessment Insights:** The assessment provides detailed analysis of schema objects, stored procedures, application dependencies, and estimates the level of human intervention required.
-
-### Wave planning
-<a name="sql-server-wave-planning"></a>
-
-Organize your modernization into manageable waves based on transformation complexity, business priorities, and application dependencies. AWS Transform generates intelligent wave recommendations that you can customize.
-
-**Actions to Complete:**
-+ Review AI-Generated Wave Plan and recommendations
-+ Customize Wave Configuration based on business priorities
-+ Validate Dependencies between applications and databases
-+ Finalize Wave Plan using conversational interface
-+ Set wave execution priorities and assign responsibilities
-
-**Note**  
-**AI-Powered Recommendations:** You can interact with the AI through natural language to adjust recommendations: 'Move CustomerDB to Wave 1' or 'Combine these two applications into the same wave.'
-
-**Note**  
-**Best Practice:** Start with a pilot wave containing 1-2 low-complexity databases to establish processes and build team confidence.
-
-## Data migration for each wave
-<a name="sql-server-data-migration"></a>
-
-### Schema conversion for each wave
-<a name="sql-server-schema-conversion"></a>
-
-Transform SQL Server database schemas to PostgreSQL-compatible equivalents using AI-enhanced conversion capabilities. This process converts tables, stored procedures, functions, triggers, and other database objects.
-
-**Actions to Complete:**
-+ Provide Schema Conversion Targets and configure preferences
-+ Execute Automated Conversion using DMS Schema Conversion service
-+ Review Conversion Results and identify human intervention items
-+ Handle Manual Interventions through HITL prompts
-+ Validate human corrections and re-run conversion if needed
-
-**Note**  
-**Common Manual Interventions:** Linked servers, user-defined types, advanced T-SQL patterns, and vendor-specific SQL features typically require human review and correction.
-
-### Data migration for each wave
-<a name="sql-server-data-transfer"></a>
-
-Transfer data from SQL Server to Aurora PostgreSQL using AWS Database Migration Service (AWS DMS) integration. Choose between production data migration or synthetic data generation for testing purposes.
-
-**Actions to Complete:**
-+ Choose **Production Data Migration** or **Synthetic Data Generation**
-+ Configure DMS replication instance for data transfer
-+ Monitor migration progress and handle data inconsistencies
-+ Validate data integrity and referential constraints
-+ Confirm successful completion before proceeding
-
-**Note**  
-**Automated DMS Integration:** AWS Transform abstracts the complexity of DMS configuration, automatically handling endpoint creation, task configuration, and data type mappings.
-
-**Note**  
-**Data Validation:** The service performs empirical testing by running identical queries against both source and target databases to ensure data consistency.
-
-## Code migration for each wave
-<a name="sql-server-code-migration"></a>
-
-Transform .NET application code to work with Aurora PostgreSQL, including Entity Framework configuration updates, connection string modifications, SQL query adaptations, and framework-specific adjustments.
-
-**Actions to Complete:**
-+ Execute Automated Code Analysis for SQL Server dependencies
-+ Perform Framework Transformation (Entity Framework provider updates)
-+ Adapt SQL Query syntax to PostgreSQL-compatible SQL
-+ Configure Target Branch Management for transformed code
-+ Handle Manual Interventions for complex patterns
+### Target provisioning and deployment
+<a name="sql-server-offline-ts-provisioning"></a>
++ **Cannot create the Aurora cluster** — Complete the guided credential and networking prompts, and ensure the account has permission to create Aurora PostgreSQL.
++ **Some objects did not deploy** — Use the post-deployment options to fix remaining objects in the chat or in an IDE, then redeploy.

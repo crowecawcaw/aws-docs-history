@@ -34,6 +34,8 @@ You can also adjust optional assumptions, such as the percentage of your workloa
 
 As part of the business case, AWS Transform estimates the carbon footprint reduction that results from migrating to AWS, consistent with the sustainability pillar of the AWS Well-Architected Framework. You can explore sustainability metrics through chat.
 
+The carbon estimate needs on-premises host data, such as CPU sockets and cores. When your inventory has no host data, AWS Transform skips the sustainability analysis.
+
 ## Example prompts
 <a name="transform-app-assessments-business-value-prompts"></a>
 + "Estimate the business value of migrating to AWS for my organization"

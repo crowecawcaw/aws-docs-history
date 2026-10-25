@@ -26,6 +26,8 @@ The AWS Transform agent guides you through the following steps, handling the ana
 1. Remove source rules after cutover.
 
 **Note**  
+For multi-account deployments, you must set up cross-account access before you start the network migration. For more information, see [Set up multi-account network migration](transform-vmware-network-multi-account-setup.md).
+
 Because this flow applies security posture to VPCs that already exist, it does not include the network diagram step that is part of mapping a source network to new VPCs.
 
 ## Step 1: Upload your source network file
@@ -104,22 +106,16 @@ For VPCs connected through a Transit Gateway, security group referencing also re
 
 AWS Transform runs the network mapping, the same as when you map a source network to new VPCs. When mapping completes, you review the generated security groups for your existing VPCs through a human-in-the-loop (HITL) review.
 
-The review shows your existing VPCs, discovered by their tags, and only the security groups that AWS Transform generated and associated for them. For example, the review might show `Application VPC (172.30.0.0/16) — 3 security groups` and `Database VPC (172.31.0.0/16) — 1 security group`. Other details, such as subnets and route tables, are not shown, because this flow applies security posture only.
+The review shows your existing VPCs, discovered by their tags, and only the security groups that AWS Transform generated and associated for them. For example, the review might show `Application VPC (172.30.0.0/16) — 3 security groups` and `Database VPC (172.31.0.0/16) — 1 security group`. Other details, such as subnets and route tables, are not shown, because this flow applies security posture only. The review is read-only: your existing VPCs are managed outside AWS Transform and are not modified by this migration, and AWS Transform adds only the generated security groups.
 
 When you open a VPC, AWS Transform shows its IPv4 CIDR, account, source (listed as *Existing*), and description, along with a **Security groups** tab. Each security group lists its name, ID, and rule count, and indicates the source rule it was generated from (for example, *Generated using: Web-Tier-HTTPS*), so you can trace each generated group back to your source configuration. You can search the security groups by name, ID, or description.
-
-**Note**  
-This review is read-only. Your existing VPCs are managed outside AWS Transform and are not modified by this migration. AWS Transform adds only the generated security groups.
 
 After you review the security groups, let the agent know to proceed.
 
 ## Step 6: Configure resource tagging
 <a name="transform-vmware-apply-security-posture-tagging"></a>
 
-You can optionally add custom job-level tags to the security groups that AWS Transform generates. Job-level tags apply to every security group created by this job, which helps you organize resources, track costs, and manage compliance.
-
-**Note**  
-This flow supports job-level tags only. It creates only security groups, so VPC-level tagging doesn't apply.
+You can optionally add custom job-level tags to the security groups that AWS Transform generates. Job-level tags apply to every security group created by this job, which helps you organize resources, track costs, and manage compliance. This flow supports job-level tags only; because it creates only security groups, VPC-level tagging doesn't apply.
 
 AWS Transform applies these tags when it generates the security groups.
 

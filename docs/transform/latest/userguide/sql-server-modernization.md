@@ -3,14 +3,14 @@
 # SQL Server modernization
 <a name="sql-server-modernization"></a>
 
-AWS Transform for SQL Server Modernization is an AI-powered service that automates the full-stack modernization of Microsoft SQL Server databases and their associated .NET applications to Amazon Aurora PostgreSQL. AWS Transform now converts SQL Server storage objects, powered by AWS DMS, and code objects (stored procedures) using an agentic, interactive experience. The service orchestrates the entire migration journey from schema conversion, data migration and modifying application code to match the new target PostgreSQL, making your teams more productive by automating complex and labor-intensive tasks.
+AWS Transform for SQL Server Modernization is an AI-powered service that automates the full-stack modernization of Microsoft SQL Server databases and their associated .NET applications to Amazon Aurora PostgreSQL. AWS Transform converts SQL Server storage objects and code objects (stored procedures) using an agentic, interactive experience. The service orchestrates the migration journey from schema conversion, synthetic data generation, and modifying application code to match the new target PostgreSQL, making your teams more productive by automating complex and labor-intensive tasks.
 
 ## Supported regions
 <a name="supported-regions"></a>
 
-AWS Transform for SQL Server is available in US East (N. Virginia) - us-east-1
+AWS Transform for SQL Server is available in US East (N. Virginia), Europe (Frankfurt), Europe (London), Asia Pacific (Mumbai), Asia Pacific (Seoul), Asia Pacific (Tokyo), Asia Pacific (Sydney), and Canada (Montreal).
 
-**Cross-Region Usage:** For databases in unsupported regions, you can clone the database to a supported region for transformation, then deploy the results back to your target region.
+**Cross-Region Usage:** For databases in unsupported regions, AWS Transform for full-stack Windows modernization supports cross-region deployment of converted Amazon Aurora PostgreSQL databases. You can upload SQL Server Database Design Language (DDL) files and set a target AWS Region in the transformation plan to convert the database and deploy the resulting Aurora PostgreSQL cluster to a different AWS Region. If you have data residency, latency, or disaster recovery requirements, you can start a job in any of the available AWS Regions and deploy the target cluster in the destination Region of your choice.
 
 ## Capabilities and key features
 <a name="capabilities-key-features"></a>
@@ -19,9 +19,9 @@ AWS Transform for SQL Server is available in US East (N. Virginia) - us-east-1
 <a name="database-transformation"></a>
 + **Schema conversion:** Automatically converts SQL Server schemas to Aurora PostgreSQL, including tables, views, indexes, constraints, and relationships
 + **Stored procedure transformation:** Converts T-SQL stored procedures to PL/pgSQL with AI-enhanced accuracy
-+ **Data migration:** Migrates data with integrity validation using AWS Database Migration Service (DMS)
 + **Database objects:** Supports triggers, functions, views, computed columns, and identity columns
-+ **Validation:** Automated data integrity verification and referential integrity checks
++ **Synthetic data generation:** Generate synthetic data for the converted PostgreSQL database to validate functionality
++ **Validation:** Automated functional equivalence checks for transformed database objects, stored procedures, and functions
 
 ### Application transformation
 <a name="application-transformation"></a>
@@ -33,18 +33,15 @@ AWS Transform for SQL Server is available in US East (N. Virginia) - us-east-1
 
 ### Orchestration & validation
 <a name="orchestration-validation"></a>
-+ **Wave-based modernization:** Organizes large estates into logical migration phases
-+ **Dependency mapping:** Identifies relationships between applications and databases
++ **Dependency mapping:** Identifies cross-database references and relationships between applications and databases to create a modernization plan
 + **Human-in-the-loop (HITL) checkpoints:** Provides review and approval gates at critical stages
 + **Automated validation:** Tests schema compatibility, data integrity, and application functionality
-+ **CI/CD integration:** Integrates with existing development pipelines
++ **Functional equivalence validation:** Loads the target database into a container to validate functional equivalence between the source and converted database
 
 ### Deployment
 <a name="deployment"></a>
-+ **Amazon ECS and Amazon EC2 deployment:** Automated containerized deployment with auto-scaling support
-+ **Infrastructure-as-code generation:** Creates CloudFormation or AWS CDK templates
-+ **Automated deployment validation:** Verifies successful deployment with health checks
-+ **Rollback capabilities:** Supports rollback procedures if issues arise
++ **Aurora PostgreSQL cluster:** Deploy the converted PostgreSQL database to an Amazon Aurora cluster
++ **Deployment capabilities:** Deploy to an existing cluster, or let AWS Transform automatically create a new cluster
 
 ## Supported versions and project types
 <a name="supported-versions-project-types"></a>
@@ -64,9 +61,6 @@ AWS Transform supports the following SQL Server versions:
 | SQL Server 2014 | Supported | 
 | SQL Server 2012 | Supported | 
 | SQL Server 2008 R2 | Supported | 
-
-**Note**  
-All SQL Server editions are supported (Express, Standard, Enterprise). SQL Server can be hosted on AWS (Amazon RDS for SQL Server or SQL Server on Amazon EC2) or hosted outside of AWS.
 
 ### .NET versions
 <a name="dotnet-versions"></a>
@@ -98,10 +92,10 @@ Legacy .NET Framework 4.x and earlier versions are not supported. If your applic
 
 AWS Transform supports the following source code platforms:
 + GitHub and GitHub Enterprise Server
-+ GitLab.com and GitLab Self-Managed
 + Bitbucket Cloud and Bitbucket Data Center
 + Azure DevOps and Azure DevOps Server
 + Amazon S3
++ Direct upload of source code zip files
 
 ### Target database
 <a name="target-database"></a>
@@ -114,12 +108,8 @@ AWS Transform targets Amazon Aurora PostgreSQL (PostgreSQL 15\+ compatible) with
 #### Database requirements
 <a name="database-requirements"></a>
 + Microsoft SQL Server version 2008 R2 through 2022
-+ SQL Server hosted on AWS (Amazon RDS for SQL Server or SQL Server on Amazon EC2) or hosted outside of AWS
-+ For AWS-hosted databases, the database and AWS Transform must be in the same AWS Region.
-+ For databases hosted outside of AWS, network connectivity to the AWS Transform service is required.
 + Database user with VIEW DEFINITION and VIEW DATABASE STATE permissions
 + Database passwords using printable ASCII characters only (excluding '/', '@', '"', and spaces)
-+ VPC containing the source SQL Server must have subnets in at least 2 different Availability Zones (required for DMS replication subnet groups)
 
 #### Application requirements
 <a name="application-requirements"></a>
@@ -133,16 +123,12 @@ AWS Transform targets Amazon Aurora PostgreSQL (PostgreSQL 15\+ compatible) with
 <a name="aws-account-requirements"></a>
 + AWS account with administrator access
 + IAM Identity Center enabled
-+ Required service roles created (see setup instructions below)
-+ VPC with appropriate network configuration
 
 ### Data processing and storage
 <a name="data-processing-storage"></a>
 
 #### Processing location
 <a name="processing-location"></a>
-+ Schema processing occurs in a DMS instance within your VPC
-+ Data migration is optional and can be excluded if required
 + Transformation artifacts are stored in the AWS Transform service region
 
 #### Stored artifacts
@@ -152,13 +138,62 @@ The following items are stored in the service region:
 + Agent logs
 + Assessment results
 + SQL schema files
-+ DMS output artifacts
 
 **Important**  
-**Important for Data Residency:** Even when data migration is opted out, metadata and processing artifacts are stored in the service region. This is important for organizations with strict data residency requirements.
+**Important for Data Residency:** Metadata and processing artifacts are stored in the service region. This is important for organizations with strict data residency requirements.
 
 #### Artifact management
 <a name="artifact-management"></a>
 + Customer option for encryption using your own KMS keys
 + Defined TTL (time-to-live) period for all artifacts
 + Artifacts can be downloaded for offline storage
+
+## Application requirements
+<a name="source-application-requirements"></a>
+
+### Legacy .NET Framework
+<a name="legacy-dotnet-framework"></a>
++ **Limitation:** .NET Framework 4.x and earlier versions are not supported.
++ **Workaround:** Use AWS Transform for .NET to upgrade to .NET Core 6\+ first, then use SQL Server transformation.
+
+### Entity Framework versions
+<a name="entity-framework-version-requirements"></a>
++ **Limitation:** Only Entity Framework 6.3-6.5 and EF Core 1.0-10.0 are supported.
++ **Workaround:** Upgrade to a supported Entity Framework version before transformation.
+
+### VB.NET applications
+<a name="vbnet-applications"></a>
++ **Limitation:** VB.NET is not supported.
++ **Workaround:** Convert to C\# or use AWS Transform custom to convert from VB.NET to C\#.
+
+### Cross-database dependencies
+<a name="cross-database-dependencies"></a>
++ **Limitation:** Challenges when database schemas interact across multiple databases.
++ **Workaround:** Review and refactor cross-database queries before migration. Consider consolidating databases or using PostgreSQL schemas.
++ **Impact:** May require human intervention for complex cross-database scenarios.
+
+### Repository-database coupling
+<a name="repository-database-coupling"></a>
++ **Limitation:** Challenges when a single repository serves multiple databases.
++ **Workaround:** Consider repository restructuring or phased migration approach.
++ **Impact:** May require additional planning when a repository spans multiple databases.
+
+## Infrastructure requirements
+<a name="infrastructure-requirements"></a>
+
+### Single account/region per job
+<a name="single-account-region-per-job"></a>
++ **Limitation:** Each transformation job targets one AWS account and region.
++ **Workaround:** Create multiple transformation jobs for multi-account or multi-region deployments.
+
+### Deployment targets
+<a name="deployment-targets"></a>
++ **Limitation:** AWS Transform supports deploying to Amazon Aurora as the target only. Amazon RDS cluster creation is not supported.
+
+## Repository requirements
+<a name="repository-requirements"></a>
+
+### Private NuGet packages
+<a name="private-nuget-packages"></a>
++ **Limitation:** Private NuGet packages require additional configuration.
++ **Workaround:** Configure private NuGet feeds in transformation settings before starting the job.

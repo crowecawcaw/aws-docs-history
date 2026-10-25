@@ -21,8 +21,12 @@ View details about updates to AWS managed policies for AWS Transform since March
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| [AWSTransformInfrastructureExecutorAccessBatch](#security-iam-awsmanpol-AWSTransformInfrastructureExecutorAccessBatch) – Updated policy | Added CloudWatch Logs permissions to allow AWS Transform Continuous Modernization to create the `/aws/TransformContinuousModernization` log group, set its retention, and write error records for local and AWS Batch runs to it in your account. | October 22, 2026 | 
+| [AWSTransformInfrastructureExecutorAccessEC2](#security-iam-awsmanpol-AWSTransformInfrastructureExecutorAccessEC2) – Updated policy | Added CloudWatch Logs permissions to allow AWS Transform Continuous Modernization to create the `/aws/TransformContinuousModernization` log group, set its retention, and write error records for local and Amazon EC2 runs to it in your account. | October 22, 2026 | 
+| [AWSTransformSecurityAgentExecutorAccess](#security-iam-awsmanpol-AWSTransformSecurityAgentExecutorAccess) – Updated policy | Added CloudWatch Logs permissions to allow AWS Transform Continuous Modernization to create the `/aws/TransformContinuousModernization` log group, set its retention, and write error records for local runs to it in your account. | October 22, 2026 | 
 | [AWSTransformServerMigrationAgentPolicy](#security-iam-awsmanpol-AWSTransformServerMigrationAgentPolicy) – Updated policy | Added permission for AWS Transform MGN to assume the `AWSTransformRehostSharingRole_{{account-id}}` role in other accounts in your organization on your behalf. This lets MGN run multi-account server migration operations in member accounts. | October 11, 2026 | 
 | [AWSTransformLandingZoneAgentPolicy](#security-iam-awsmanpol-AWSTransformLandingZoneAgentPolicy) – Updated policy | Updated the read-only AWS Organizations permissions that describe accounts, OUs, and policies, list the OU hierarchy, and list tags. These permissions now apply to resources in your organization (`aws:ResourceOrgID`) instead of only to resources in the calling account (`aws:ResourceAccount`). With this change, you can use the policy in a delegated administrator account to read your organization structure. | October 6, 2026 | 
+| [AWSServiceRoleForAWSTransformCustom](#security-iam-awsmanpol-AWSServiceRoleForAWSTransformCustom) – Updated policy | Added the `AWS/TransformContinuousModernization` namespace to the CloudWatch metrics publishing permission. | October 6, 2026 | 
 | [AWSTransformApplicationDeploymentPolicy](#security-iam-awsmanpol-AWSTransformApplicationDeploymentPolicy) – Updated policy | Added permissions to add and remove CloudFormation stack tags during stack create and update operations. | September 11, 2026 | 
 | [AWSTransformApplicationECSDeploymentPolicy](#security-iam-awsmanpol-AWSTransformApplicationECSDeploymentPolicy) – Updated policy | Added permissions to add and remove CloudFormation stack tags during stack create and update operations. | September 11, 2026 | 
 | [AWSTransformLandingZoneAgentPolicy](#security-iam-awsmanpol-AWSTransformLandingZoneAgentPolicy) – New policy | Added a new AWS managed policy that grants the permissions needed to set up AWS landing zones, including account provisioning, organizational governance, and AWS Control Tower configuration. | September 3, 2026 | 
@@ -70,7 +74,7 @@ This policy is attached to the [AWSServiceRoleForAWSTransformCustom](using-servi
 **Description** 
 
 This policy includes the following permissions:
-+ **Amazon CloudWatch** – Allows publishing metrics to CloudWatch under the `AWS/TransformCustom` namespace. This enables monitoring of transformation counts, latencies, and status codes in your CloudWatch dashboards.
++ **Amazon CloudWatch** – Allows publishing metrics to CloudWatch under the `AWS/TransformCustom` and `AWS/TransformContinuousModernization` namespaces in your account. The `cloudwatch:namespace` condition restricts metric publishing to these namespaces. This enables monitoring of transformation counts, latencies, and status codes in your CloudWatch dashboards.
 + **Amazon CloudWatch Logs** – Allows creating log groups, log streams, setting retention policies, and publishing log events to the `/aws/TransformCustom` log group. This provides visibility into issues encountered during transformations.
 
 ## AWS managed policy: AWSTransformApplicationDeploymentPolicy
@@ -174,7 +178,7 @@ This policy includes the following permissions:
 + **AWS Lambda** – Allows invoking and retrieving the configuration of specific `atx`-prefixed Lambda functions that orchestrate the transformation workflow, including job triggering, status retrieval, and job listing functions.
 + **Amazon S3** – Allows uploading source code to `atx-source-code-*` buckets, downloading transformation results from `atx-custom-output-*` and `atx-ct-output-*` buckets, and writing batch sidecar output to `atx-custom-output-*` buckets.
 + **AWS Key Management Service (KMS)** – Allows encryption and decryption of data using the AWS Transform encryption key (`alias/atx-encryption-key`).
-+ **Amazon CloudWatch Logs** – Allows reading Batch job and Lambda execution log events for transformation monitoring and debugging.
++ **Amazon CloudWatch Logs** – Allows reading Batch job and Lambda execution log events for transformation monitoring and debugging. Also allows creating the `/aws/TransformContinuousModernization` log group, setting its retention, and writing error records to its `local/*` and `batch/*` log streams, in the same account.
 + **Amazon CloudWatch** – Allows getting and listing the AWS Transform CLI dashboard for operational visibility.
 + **AWS Batch** – Allows describing and listing compute environments, job queues, job definitions, and job status.
 + **CloudFormation** – Allows describing and listing AWS Transform infrastructure stacks, including the Security Agent stack, to check deployment status.
@@ -205,6 +209,7 @@ This policy includes the following permissions:
 + **Amazon EC2 Systems Manager (SSM)** – Allows monitoring command execution status, and running commands and sessions on AWS Transform-tagged instances, including running the `AWS-RunShellScript` document.
 + **Amazon S3** – Allows managing source code and output artifacts in AWS Transform buckets, including getting, putting, and deleting objects and listing buckets.
 + **AWS Key Management Service (KMS)** – Allows encryption and decryption of data using the AWS Transform encryption key (`alias/atx-encryption-key`).
++ **Amazon CloudWatch Logs** – Allows creating the `/aws/TransformContinuousModernization` log group, setting its retention, and writing error records to its `local/*` and `ec2/*` log streams, in the same account.
 + **AWS Secrets Manager** – Allows retrieving and describing transformation secrets, such as repository credentials, stored under the `atx/` prefix.
 + **Amazon EventBridge Scheduler** – Allows managing scheduled transformation jobs within the `atx-ct` schedule group.
 + **Resource Groups Tagging API** – Allows retrieving tagged resources to discover AWS Transform infrastructure in your account.
@@ -276,6 +281,7 @@ This policy includes the following permissions:
 + **Amazon S3** – Allows downloading scan results and findings from the `atx-security-agent-*` bucket, and uploading source code for security scanning to the `security-scans/*` prefix within that bucket.
 + **AWS Identity and Access Management (IAM)** – Allows passing the `security-agent-*` role to the AWS Security Agent service so that it can perform the scan.
 + **CloudFormation** – Allows listing stacks in the account and describing the `AtxSecurityAgentStack-*` stack to discover and monitor the Security Agent infrastructure deployment status.
++ **Amazon CloudWatch Logs** – Allows creating the `/aws/TransformContinuousModernization` log group, setting its retention, and writing error records to its `local/*` log streams, in the same account.
 
 The policy implements least-privilege access through resource-level permissions, S3 bucket and key prefixes, the `aws:ResourceAccount` and `s3:ResourceAccount` conditions, and a service-scoped `iam:PassedToService` condition to ensure operations are limited to AWS Security Agent resources within the same AWS account.
 

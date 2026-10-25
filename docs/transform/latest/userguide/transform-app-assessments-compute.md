@@ -25,6 +25,8 @@ By default, AWS Transform recommends x86 instances (Intel and AMD). You can chan
 + **AWS Graviton only**—restricts recommendations to AWS Graviton-based instance families.
 + **Any**—considers both x86 and AWS Graviton instances and selects the best fit.
 
+You can also narrow x86 recommendations to a single vendor, such as Intel only or AMD only.
+
 **Note**  
 Moving to AWS Graviton may require recompiling or repackaging applications for the Arm architecture. SQL Server workloads on Amazon EC2 are recommended on x86 instances only.
 
@@ -46,6 +48,25 @@ AWS Transform computes and reports multiple pricing models side by side and reco
 + **Reserved Instances**—one-year and three-year commitments, with No Upfront, Partial Upfront, and All Upfront payment options.
 + **Savings Plans**—one-year and three-year commitments. You can choose Compute Savings Plans, which apply flexibly across instance families, sizes, Regions, and operating systems, or Amazon EC2 Instance Savings Plans, which offer a deeper discount in exchange for committing to a specific instance family in a Region.
 
+When you choose Savings Plans, AWS Transform prices the one-year and three-year terms as Savings Plans instead of Reserved Instances. By default, the Savings Plan covers 80 percent of compute hours, and the remaining hours are priced On-Demand.
+
+## Red Hat Enterprise Linux licensing
+<a name="transform-app-assessments-compute-linux-licensing"></a>
+
+By default, AWS Transform prices Red Hat Enterprise Linux (RHEL) servers with License Included pricing, where AWS provides the RHEL subscription. If you plan to bring your own Red Hat subscriptions, choose Bring Your Own License (BYOL), and AWS Transform prices your RHEL servers as Linux instances.
+
+## Specifying an instance type
+<a name="transform-app-assessments-compute-override"></a>
+
+When you already know the instance type you want for a group of servers, you can specify it. AWS Transform then skips right-sizing for those servers and prices each of them on the instance type you named, regardless of family filters. If the instance type isn't in the pricing data, those servers fall back to normal selection, with a warning. To keep right-sizing but limit the choices, include or exclude instance families instead.
+
+## VMware license renewal costs
+<a name="transform-app-assessments-compute-vmware-license"></a>
+
+If your inventory includes VMware virtual machines with details of their physical hosts, AWS Transform also estimates what it would cost to renew your VMware licenses, so you can weigh renewal against migration. The estimate uses Broadcom's per-core licensing model, with a minimum of 16 licensable cores per CPU. It covers the VMware Cloud Foundation (VCF), VMware vSphere Foundation (VVF), and VMware vSphere Standard (VVS) product tiers, over one-year, three-year, and five-year terms.
+
+The estimate needs the hypervisor name and version for each virtual machine, and each host's name, total CPU core count, and CPU socket count.
+
 ## Example prompts
 <a name="transform-app-assessments-compute-prompts"></a>
 + "Find the best-fit EC2 instance for each of my servers"
@@ -53,3 +74,5 @@ AWS Transform computes and reports multiple pricing models side by side and reco
 + "Recommend AWS Graviton instances where my workloads support Arm"
 + "Right-size my servers using aggressive utilization assumptions"
 + "What if I only use storage optimized instances?"
++ "Price my RHEL servers as Bring Your Own License"
++ "Use c5a.2xlarge for all of my web servers"

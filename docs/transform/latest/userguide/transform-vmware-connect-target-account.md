@@ -41,7 +41,7 @@ When you approve the connector request, you grant AWS Transform permissions to:
   + Manage AWS Service Catalog provisioning artifacts.
 
 **Note**  
-Connector types might be updated when new features require permission changes. The current version for the target account connector type is 2.0. When you create a new connector, it uses the latest version.
+Connector types might be updated when new features require permission changes. The current version for the target account connector type is 5. When you create a new connector, it uses the latest version.
 
 Before you set up the connector, understand the account roles involved in your migration:
 
@@ -124,6 +124,13 @@ For more information, see [Delegated administrator for MGN](https://docs.aws.ama
 
 During connector setup, AWS Transform creates the following IAM role in your target account:
 + `AWSTransform-Connector-role-` – Created when you set up the target account connector, in the management account or the delegated administrator account of your AWS Organization. This role allows AWS Transform to connect to your target account and act on your behalf to run migration operations.
+
+AWS Transform attaches the following AWS managed policies to the connector role. The role has no inline policy.
++ [AWS managed policy: AWSTransformLandingZoneAgentPolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSTransformLandingZoneAgentPolicy) – Grants permissions to build a landing zone, including account provisioning, organizational governance, and AWS Control Tower configuration.
++ [AWS managed policy: AWSTransformNetworkMigrationAgentPolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSTransformNetworkMigrationAgentPolicy) – Grants permissions to deploy and configure network infrastructure, including VPCs, transit gateways, and route tables.
++ [AWS managed policy: AWSTransformServerMigrationAgentPolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSTransformServerMigrationAgentPolicy) – Grants permissions to replicate, test, and cut over servers by using MGN.
+
+AWS updates these policies when new features require permission changes, so the connector role receives the updates without any action from you. For the full list of permissions in each policy, see [AWS managed policies for AWS Transform](security-iam-awsmanpol.md).
 
 ### Target account connector setup
 <a name="transform-vmware-cta-connector-setup"></a>

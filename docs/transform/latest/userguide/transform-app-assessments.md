@@ -17,7 +17,7 @@ A migration assessment helps you do the following:
 + **Define migration scope** – decide which servers and applications to migrate, which to retire, and which to defer, and see the cost of each choice.
 + **Uncover what your estate really costs** – hardware, licenses, data center space, support, and network. Licenses cover both your hypervisor and operating systems and your databases. Teams often spread these costs across separate budgets.
 + **Find savings** – you can right-size over-provisioned servers, move to AWS Graviton, cut license costs, and compare On-Demand pricing against Reserved Instance terms.
-+ **Align stakeholders on next steps** – you get one total cost of ownership (TCO) business case, plus a business value analysis and reports. Your finance, infrastructure, and application teams can all work from them. The results also show whether you qualify for AWS programs, such as the AWS Migration Acceleration Program (MAP).
++ **Align stakeholders on next steps** – you get one total cost of ownership (TCO) business case, plus a business value analysis and reports. Your finance, infrastructure, and application teams can all work from them.
 
 You refine an assessment through chat. This means you can start with the data you have today, get a directional business case, and improve it as better data arrives.
 
@@ -68,7 +68,7 @@ The following table gives examples of commonly used sources. It is not an exhaus
 | Migration Evaluator | Quick Insights file from the AWS Migration Evaluator console | 
 | MPA format | AWS Migration Portfolio Assessment (MPA) import file | 
 | NetApp Data Infrastructure Insights (DII) | Detailed storage discovery data from NetApp Data Infrastructure Insights, covering capacity, IOPS, and throughput for both host-attached and array-level storage. Use it for storage assessments, where it gives AWS Transform more to work with than the storage fields in a server inventory. | 
-| Partner discovery tools | Exports from AWS partner and third-party discovery tools, including ModelizeIT, Cloudamize, Matilda Cloud, and Device42 | 
+| Partner discovery tools | ModelizeIT exports. Cloudamize exports are accepted in MPA format. For exports from other third-party discovery tools, AWS Transform uses its flexible parser. | 
 | AWS Transform data template | Microsoft Excel file created from the AWS Transform Assessment Data template | 
 
 AWS Transform identifies the format during ingestion. The ingestion process validates your data and accepts partial data when some fields are missing. It also supports incremental uploads, so you can upload additional files at any time to supplement your inventory. You can add or correct details through chat.
@@ -118,7 +118,7 @@ The following table lists the available assumption categories.
 <a name="transform-app-assessments-capabilities"></a>
 
 AWS Transform assessments cover the workload categories that matter most in a typical enterprise migration. The following topics describe each assessment capability in detail.
-+ [Compute assessments](transform-app-assessments-compute.md)—best-fit, lowest-cost Amazon EC2 instance recommendations, including AWS Graviton, Dedicated Hosts, and multiple pricing models.
++ [Compute assessments](transform-app-assessments-compute.md)—best-fit, lowest-cost Amazon EC2 instance recommendations, including AWS Graviton, Dedicated Hosts, and multiple pricing models, plus VMware license renewal estimates.
 + [Database assessments](transform-app-assessments-databases.md)—Microsoft SQL Server on Amazon RDS for SQL Server and on Amazon EC2, with licensing analysis and edition recommendations.
 + [Storage assessments](transform-app-assessments-storage.md)—block, object, and file storage across Amazon EBS, Amazon S3, and Amazon FSx for NetApp ONTAP.
 + [Analytics assessments](transform-app-assessments-analytics.md)—self-managed Apache Kafka clusters assessed for Amazon MSK Express.
