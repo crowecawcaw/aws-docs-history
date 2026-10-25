@@ -123,6 +123,9 @@ All AWS DevOps Agent API calls are automatically captured by AWS CloudTrail with
 
 For MCP and A2A remote server connections, you can review `AuthenticateAccessToken` events that AWS DevOps Agent records in CloudTrail each time it authenticates an access token, including failed authentications. For more information about event fields and correlating authentications with downstream actions, see [Traceability](connecting-to-devops-agent-remote-servers-authentication-and-security.md) in *Authentication and security*.
 
+**Note**  
+For management and data events, only request parameters that are defined by the AWS DevOps Agent API are eligible for redaction. Any additional fields that you include in a request that are not part of the API are recorded in CloudTrail exactly as you sent them and are not redacted. Do not include passwords or other sensitive information in fields that are not part of the API.
+
 ## Prompt injection protection
 <a name="prompt-injection-protection"></a>
 

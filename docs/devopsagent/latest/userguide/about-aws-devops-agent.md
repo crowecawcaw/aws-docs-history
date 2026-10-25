@@ -37,8 +37,8 @@ AWS DevOps Agent includes a set of preview capabilities to help verify that code
 + **Autonomous release testing** – Generates and runs change-specific test plans for web and API-based applications in customer-provisioned environments, catching regressions, UX issues, and integration failures before they reach production. Tests target risk areas surfaced during the release readiness review rather than a static regression suite.
 + **Built into the developer workflow** – Delivers results through pull requests, coding agent IDEs, and CI/CD pipelines so developers stay in flow from code generation through deployment.
 
-## Environment intelligence
-<a name="environment-intelligence"></a>
+## Production intelligence
+<a name="production-intelligence"></a>
 
 AWS DevOps Agent continuously learns your environment, building deep understanding of your services, dependencies, and operational patterns:
 + **Application resource mapping** – Automatically discovers applications, their component services, and the resources that compose them. Maps these relationships into a dynamic, continuously updated topology.

@@ -65,7 +65,7 @@ Directed actions must be enabled on the agent space before any other elevated co
 
 You enable directed actions through the agent space's `preferences`. This field is a typed map of preference keys to Boolean values. You set it on `CreateAgentSpace` and `UpdateAgentSpace`.
 
-The following example enables directed actions with the AWS CLI.
+The following AWS Command Line Interface (AWS CLI) command enables directed actions:
 
 ```
 aws devops-agent update-agent-space \
@@ -90,6 +90,149 @@ When you register an elevated role, keep the following in mind:
 + Registration is optional per account. If you do not register an elevated role for an account, only read-only actions are available for that account.
 + We recommend a recognizable naming convention such as `DevOpsAgent-ElevatedAction-*` so elevated roles are easy to audit. The service does not require a specific name.
 + The role's permission policy is customer-managed. Scope it to the actions you want the agent to be able to take. The role defines the *ceiling* of what the agent can ever do in your account. It is not a standing grant. Every directed action additionally requires operator approval at execution time, and the agent's session is further scoped to the specific approved operation.
+
+### Creating the role with AWS CloudFormation (recommended)
+<a name="creating-the-role-with-aws-cloudformation-recommended"></a>
+
+The trust policy of the elevated role must include all three AWS Security Token Service (STS) actions that AWS DevOps Agent uses: `sts:AssumeRole`, `sts:SetSourceIdentity`, and `sts:TagSession`. It must also contain the confused deputy conditions. If any of the three actions is missing, directed actions fail at credential time. This happens even when the association validation status is `valid`.
+
+The following AWS CloudFormation template creates the role with all three actions and the conditions. It also attaches the AWS managed policy `AIDevOpsAgentActionsPolicy`. Use this template rather than creating the role manually.
+
+The AWS managed policy `AIDevOpsAgentActionsPolicy` is broad and is not a minimal-permission policy. For a version of the template that grants only specific actions, see [Example – Scoping the role to specific actions](#example-scoping-the-role-to-specific-actions).
+
+Save the following template as `devops-agent-elevated-role.yaml` and deploy it in the target account, in the same AWS Region as your agent space:
+
+```
+AWSTemplateFormatVersion: '2010-09-09'
+Description: AWS DevOps Agent - Elevated role for directed actions
+
+Parameters:
+  # Set only when the agent space is in another account.
+  AgentSpaceAccountId:
+    Type: String
+    Default: ''
+    Description: Optional. Account ID that owns the agent space. Leave empty if the agent space is in this account.
+
+Conditions:
+  # True when the agent space is in this account.
+  AgentSpaceInThisAccount: !Equals [!Ref AgentSpaceAccountId, '']
+
+Resources:
+  DevOpsAgentElevatedRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: DevOpsAgent-ElevatedAction-Role
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: aidevops.amazonaws.com
+            Action:
+              - sts:AssumeRole
+              - sts:SetSourceIdentity
+              - sts:TagSession
+            Condition:
+              StringEquals:
+                aws:SourceAccount: !If [AgentSpaceInThisAccount, !Ref AWS::AccountId, !Ref AgentSpaceAccountId]
+              ArnLike:
+                aws:SourceArn: !If
+                  - AgentSpaceInThisAccount
+                  - !Sub arn:aws:aidevops:${AWS::Region}:${AWS::AccountId}:agentspace/*
+                  - !Sub arn:aws:aidevops:${AWS::Region}:${AgentSpaceAccountId}:agentspace/*
+      # Broad default, not least privilege. See the scoped example below.
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AIDevOpsAgentActionsPolicy
+
+Outputs:
+  ElevatedRoleArn:
+    Description: Register this ARN as agentElevatedRoleArn on the association
+    Value: !GetAtt DevOpsAgentElevatedRole.Arn
+```
+
+The following AWS CLI command deploys the template:
+
+```
+aws cloudformation deploy \
+    --template-file devops-agent-elevated-role.yaml \
+    --stack-name devops-agent-elevated-role \
+    --capabilities CAPABILITY_NAMED_IAM
+```
+
+When the deployment succeeds, the command returns output similar to the following:
+
+```
+Successfully created/updated stack - devops-agent-elevated-role
+```
+
+Then register the `ElevatedRoleArn` output value as `agentElevatedRoleArn` on the association.
+
+If you create the association with AWS CloudFormation, set `AgentElevatedRoleArn` on the `AWS::DevOpsAgent::Association` resource to the role ARN. The following example registers the role on a monitor account association in the same template. For a source account association, set the property under `SourceAws` instead of `Aws`.
+
+In the following example, replace *`my-account-id`* with the ID of your monitor account.
+
+```
+MonitorAssociation:
+  Type: AWS::DevOpsAgent::Association
+  Properties:
+    AgentSpaceId: !Ref AgentSpaceId
+    ServiceId: aws
+    Configuration:
+      Aws:
+        # Replace with the ID of your monitor account.
+        AccountId: 'my-account-id'
+        AccountType: monitor
+        AssumableRoleArn: arn:aws:iam::my-account-id:role/DevOpsAgentRole-AgentSpace
+        AgentElevatedRoleArn: !GetAtt DevOpsAgentElevatedRole.Arn
+```
+
+To deploy the template, follow these steps.
+
+1. Decide which account owns the agent space. If the agent space is in this account, leave the `AgentSpaceAccountId` parameter empty. If the agent space belongs to a different account, such as a central monitoring account, set the parameter to the ID of that account. Use `--parameter-overrides AgentSpaceAccountId=`*`my-account-id`*, and replace *`my-account-id`* with the ID of the account that owns the agent space.
+
+1. Deploy the stack once per account. IAM role names are unique per account, not per Region. Deploy the stack in the Region of your agent space, because the `aws:SourceArn` condition uses the stack's Region. To use one role for agent spaces in multiple Regions, replace the Region with a wildcard in both branches of the `aws:SourceArn` condition. For an agent space in this account, the condition then resolves to `arn:aws:aidevops:*:${AWS::AccountId}:agentspace/*`. For an agent space in another account, it resolves to `arn:aws:aidevops:*:${AgentSpaceAccountId}:agentspace/*`.
+
+1. Register the `ElevatedRoleArn` output value on each association.
+
+The template attaches the AWS managed policy `AIDevOpsAgentActionsPolicy` as the permission policy. For a minimal-permission alternative, see [Example – Scoping the role to specific actions](#example-scoping-the-role-to-specific-actions).
+
+#### Example – Scoping the role to specific actions
+<a name="example-scoping-the-role-to-specific-actions"></a>
+
+`AIDevOpsAgentActionsPolicy` is a broad default. For a production role, scope the permission policy to the actions that your operators intend to approve. With the following policy, the elevated role can start, stop, and reboot only the Amazon EC2 instances that carry a specific tag.
+
+The following YAML shows the inline policy that replaces the `ManagedPolicyArns` block:
+
+```
+      Policies:
+        - PolicyName: DevOpsAgentScopedActions
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                # Allow only the actions that operators intend to approve.
+                Action:
+                  - ec2:StartInstances
+                  - ec2:StopInstances
+                  - ec2:RebootInstances
+                # Restrict the actions to EC2 instances in this account and Region.
+                Resource: !Sub arn:aws:ec2:${AWS::Region}:${AWS::AccountId}:instance/*
+                # Apply only to EC2 instances that carry the DevOpsAgentManaged tag.
+                Condition:
+                  StringEquals:
+                    aws:ResourceTag/DevOpsAgentManaged: 'true'
+```
+
+Customize the following elements of the policy:
++ Replace `ec2:StartInstances`, `ec2:StopInstances`, and `ec2:RebootInstances` with the actions that your operators intend to approve.
++ Replace the `Resource` ARN pattern with the resources that the role can act on.
++ Replace the `DevOpsAgentManaged` tag key and value with the tag that your operators use.
+
+For more information about least-privilege permissions, see [Granting permissions to the elevated role](#granting-permissions-to-the-elevated-role).
+
+To create the role by hand instead, follow the trust policy and permission policy guidance later on this page. For instructions on writing the trust policy, see [Writing the trust policy](#writing-the-trust-policy). For instructions on granting permissions to the role, see [Granting permissions to the elevated role](#granting-permissions-to-the-elevated-role). If you create the role in the IAM console, choose **Custom trust policy** as the trusted entity type and paste the full trust policy JSON. Do not use the **AWS service** trusted entity type. That type generates a trust policy without `sts:SetSourceIdentity` and `sts:TagSession`.
+
+For more information about the confused deputy problem, see [The confused deputy problem](https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html) in the *IAM User Guide*. For instructions on creating IAM roles, see [IAM role creation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the *IAM User Guide*. For the command reference, see [deploy](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/deploy.html) in the *AWS CLI Command Reference*.
 
 ### Writing the trust policy
 <a name="writing-the-trust-policy"></a>

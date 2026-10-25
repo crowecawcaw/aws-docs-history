@@ -39,15 +39,28 @@ Establish connection to your Datadog remote MCP endpoint with account access cre
 
 The MCP endpoint URL varies depending on your Datadog site. To identify your site, check the URL in your browser when logged into Datadog, or see [Access the Datadog site](https://docs.datadoghq.com/getting_started/site/#access-the-datadog-site).
 
+**Note**  
+** Ensure the endpoint URL matches your Datadog site region. Using an incorrect region might result in registration failures.
 
-| Datadog Site | Site Domain | MCP Endpoint URL | 
+
+| Datadog site | Site domain | MCP endpoint URL | 
 | --- | --- | --- | 
+| AP1 | ap1.datadoghq.com | https://mcp.ap1.datadoghq.com/v1/mcp | 
+| AP2 | ap2.datadoghq.com | https://mcp.ap2.datadoghq.com/v1/mcp | 
+| EU1 | datadoghq.eu | https://mcp.datadoghq.eu/v1/mcp | 
+| UK1 | uk1.datadoghq.com | https://mcp.uk1.datadoghq.com/v1/mcp | 
 | US1 (default) | datadoghq.com | https://mcp.datadoghq.com/v1/mcp | 
 | US3 | us3.datadoghq.com | https://mcp.us3.datadoghq.com/v1/mcp | 
 | US5 | us5.datadoghq.com | https://mcp.us5.datadoghq.com/v1/mcp | 
-| EU1 | datadoghq.eu | https://mcp.datadoghq.eu/v1/mcp | 
-| AP1 | ap1.datadoghq.com | https://mcp.ap1.datadoghq.com/v1/mcp | 
-| AP2 | ap2.datadoghq.com | https://mcp.ap2.datadoghq.com/v1/mcp | 
+
+#### Selecting Datadog toolsets
+<a name="selecting-datadog-toolsets"></a>
+
+By default, only the core Datadog toolset is available at the endpoint. A toolset is a group of the MCP tools that Datadog exposes through its remote MCP server. To expose more of these tools, append the `toolsets` query parameter to your endpoint URL. Use `?toolsets=all` to enable every available toolset. To enable specific toolsets, pass a comma-separated list. You can use an agent-action (write) tool only if you include its toolset in the URL.
++ To enable every available toolset, use `https://mcp.datadoghq.com/v1/mcp?toolsets=all`.
++ To enable specific toolsets, use a URL such as `https://mcp.datadoghq.com/v1/mcp?toolsets=core,cases,dashboards`.
+
+For more information about the available toolsets and the tools each one contains, see [Datadog MCP server](https://docs.datadoghq.com/bits_ai/mcp_server/) on the Datadog website.
 
 #### Authorization
 <a name="authorization"></a>
@@ -55,6 +68,9 @@ The MCP endpoint URL varies depending on your Datadog site. To identify your sit
 Complete OAuth authorization by:
 + Authorizing as your user on the Datadog OAuth page
 + If not logged in, choose Allow, login, then authorize
+
+**Note**  
+** Datadog refresh tokens last 90 days and cannot be extended. You must rotate the token every 90 days to maintain connectivity. If the token expires, the registration stops working until you re-authorize.
 
 Once configured, Datadog becomes available across all Agent spaces.
 
