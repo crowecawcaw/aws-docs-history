@@ -57,12 +57,12 @@
 ```
 java -version
 ```
-Expected output for 8u504:   
+Expected output for 8u512:   
 
 ```
-openjdk version "1.8.0_504"
-OpenJDK Runtime Environment Corretto-8.504.04.1 (build 1.8.0_504-b04)
-OpenJDK 64-Bit Server VM Corretto-8.504.04.1 (build 25.504-b04, mixed mode)
+openjdk version "1.8.0_512"
+OpenJDK Runtime Environment Corretto-8.512.08.1 (build 1.8.0_512-b08)
+OpenJDK 64-Bit Server VM Corretto-8.512.08.1 (build 25.512-b08, mixed mode)
 ```
 
  If you see a version string that doesn't mention `Corretto`, run the following command to change the default `java` or `javac` providers. 
