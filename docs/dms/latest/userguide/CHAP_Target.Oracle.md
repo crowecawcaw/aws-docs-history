@@ -61,6 +61,13 @@ Limitations when using Oracle as a target for data migration include the followi
 + AWS DMS doesn't create schema on the target Oracle database. You have to create any schemas you want on the target Oracle database. The schema name must already exist for the Oracle target. Tables from source schema are imported to the user or schema, which AWS DMS uses to connect to the target instance. To migrate multiple schemas, you can create multiple replication tasks. You can also migrate data to different schemas on a target. To do this, you need to use schema transformation rules on the AWS DMS table mappings.
 + AWS DMS doesn't support the `Use direct path full load` option for tables with INDEXTYPE CONTEXT. As a workaround, you can use array load. 
 + With the batch optimized apply option, loading into the net changes table uses a direct path, which doesn't support XML type. As a workaround, you can use transactional apply mode.
++ If you pre-create the Oracle target tables with `VARCHAR2` or `CHAR` columns and use the batch optimized apply option, migrating string data from a source such as PostgreSQL (`VARCHAR` or `CHAR` columns) can fail with ORA-12704 (character set mismatch) during change data capture (CDC). AWS DMS maps such columns to its internal `WSTRING` type, which becomes `NVARCHAR2` on the Oracle target, so the net changes table uses `NVARCHAR2` while your pre-created target columns are in the database character set. Oracle does not implicitly convert between the database character set and the national character set, so the batch apply that joins the net changes table to your pre-created table fails.
+
+  To work around this issue, use one of the following options:
+  + Let AWS DMS create the target tables.
+  + Pre-create the target tables with `NVARCHAR2` or `NCHAR` columns.
+  + Use a `change-data-type` transformation rule to change the affected columns from `wstring` to `string`, so that AWS DMS uses the Oracle database character set instead of the national character set. One rule can cover all affected columns. In the `object-locator`, set `column-name` to `%` and `data-type` to `wstring`; in the rule's `data-type`, set `type` to `string`. The `object-locator` `data-type` value is the AWS DMS data type (`wstring`), not the source column type.
+  + Use transactional apply mode.
 + Empty strings migrated from source databases can be treated differently by the Oracle target (converted to one-space strings, for example). This can result in AWS DMS validation reporting a mismatch.
 + You can express the total number of columns per table supported in Batch optimized apply mode, using the following formula:
 

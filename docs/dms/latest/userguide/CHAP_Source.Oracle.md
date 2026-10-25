@@ -272,6 +272,8 @@ For information about Oracle-specific premigration assessments, see [Oracle asse
 #### Prerequisites for handling open transactions for Oracle Standby
 <a name="CHAP_Source.Oracle.Self-Managed.Privileges.Standby"></a>
 
+A premigration assessment (PMA) checks this prerequisite. For more information, see [Oracle assessments](CHAP_Tasks.AssessmentReport.Oracle.md).
+
 When using AWS DMS versions 3.4.6 and higher, perform the following steps to handle open transactions for Oracle Standby. 
 
 1. Create a database link named, `AWSDMS_DBLINK` on the primary database. `{{DMS_USER}}` will use the database link to connect to the primary database. Note that the database link is executed from the standby instance to query the open transactions running on the primary database. See the following example. 
@@ -312,6 +314,8 @@ Here, `name`, `value`, and `description` are columns somewhere in the database t
 
 #### Making sure that ARCHIVELOG mode is on
 <a name="CHAP_Source.Oracle.Self-Managed.Configuration.ArchiveLogMode"></a>
+
+A premigration assessment (PMA) checks this prerequisite. For more information, see [Oracle assessments](CHAP_Tasks.AssessmentReport.Oracle.md).
 
 You can run Oracle in two different modes: the `ARCHIVELOG` mode and the `NOARCHIVELOG` mode. To run a CDC task, run the database in `ARCHIVELOG` mode. To know if the database is in `ARCHIVELOG` mode, execute the following query.
 
@@ -431,6 +435,8 @@ In some cases, you might use Oracle Managed Files (OMF) for storing the logs. Or
 
 ### Additional account privileges required when using Binary Reader with Oracle ASM
 <a name="CHAP_Source.Oracle.Self-Managed.ASMBinaryPrivileges"></a>
+
+A premigration assessment (PMA) checks this prerequisite. For more information, see [Oracle assessments](CHAP_Tasks.AssessmentReport.Oracle.md).
 
 To access the redo logs in Automatic Storage Management (ASM) using Binary Reader, grant the following privileges to the Oracle user specified in the Oracle endpoint connection settings.
 
@@ -663,6 +669,8 @@ For more information on using Oracle TDE with AWS DMS, see [Supported encryption
 
 #### Prerequisites for handling open transactions for Oracle Standby
 <a name="CHAP_Source.Oracle.Amazon-Managed.Privileges.Standby"></a>
+
+A premigration assessment (PMA) checks this prerequisite. For more information, see [Oracle assessments](CHAP_Tasks.AssessmentReport.Oracle.md).
 
 When using AWS DMS versions 3.4.6 and higher, perform the following steps to handle open transactions for Oracle Standby. 
 
