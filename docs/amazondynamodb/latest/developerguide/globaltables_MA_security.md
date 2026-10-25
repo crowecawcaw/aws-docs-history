@@ -55,6 +55,7 @@ All permissions described must be applied to the specific table resource ARN in 
 The following sections cover these step-by-step topics:
 + Creating multi-account global tables and adding replicas
 + Updating a multi-account global table
++ Disassociating a replica to keep its regional table
 + Deleting global tables and removing replicas
 
 ### Creating global tables and adding replicas
@@ -317,6 +318,15 @@ To update a replica auto scaling policy with the `UpdateTableReplicaAutoScaling`
 
 **Note**  
 You need to provide `dynamodb:ReplicateSettings` permissions across all replica regions and accounts for the update table to succeed. If any replica does not provide permissions to replicate settings to any replica in the multi-account global table, all Update operations across all replicas will fail with `AccessDeniedException` till the permissions are fixed.
+
+### Disassociating a replica
+<a name="globaltables_MA_disassociating"></a>
+
+To disassociate your replica, you must have both `dynamodb:UpdateTable` and `dynamodb:DisassociateTableReplica` IAM permissions on the replica's table ARN. Disassociation keeps its regional table and data. To change disassociation protection, you must have the `dynamodb:UpdateTable` IAM permission.
+
+Send both requests from the replica's own account to its Region. Global table membership doesn't grant permission to disassociate a replica owned by another account.
+
+For a policy example, prerequisites, and instructions, see [Disassociating a global table replica](globaltables-disassociate.md).
 
 ### Deleting global tables and removing replicas
 <a name="globaltables_MA_deleting"></a>

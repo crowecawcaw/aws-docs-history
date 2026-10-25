@@ -5,6 +5,8 @@
 
 This section provides step-by-step instructions for creating DynamoDB global tables that span across multiple AWS accounts.
 
+For instructions on keeping a replica as a regional table when you no longer need replication, see [Disassociating a global table replica](globaltables-disassociate.md). Each account must disassociate its own replica from that replica's Region. The deletion commands in the cleanup example delete the tables and their data.
+
 ## Create a multi-account global table using the DynamoDB console
 <a name="create-ma-gt-console"></a>
 

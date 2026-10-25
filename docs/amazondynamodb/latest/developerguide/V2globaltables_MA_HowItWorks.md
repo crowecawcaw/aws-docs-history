@@ -7,7 +7,7 @@ Multi-account global tables extend DynamoDB global tables fully managed, serverl
 
 Key differences from same-account global tables include:
 + Multi-account replication is supported for multi-Region eventual consistency (MREC) global tables.
-+ You can only add replicas by starting with a single-Region table. Converting an existing same-account global table into a multi-account setup is not supported. To migrate, you must delete existing replicas to return to a single-Region table before creating a new multi-account global table.
++ You can only add replicas by starting with a single-Region table. To migrate from a same-account global table, you can disassociate an MREC replica. Disassociation preserves the table and its data. The resulting regional table can serve as the source for a new multi-account global table. For requirements and instructions, see [Disassociating a global table replica](globaltables-disassociate.md).
 + Each replica must reside in a separate AWS account. For a multi-account global table with *N* replicas, you must have *N* accounts.
 + Multi-account global tables use unified table settings across all replicas by default. All replicas automatically share the same configuration (such as throughput mode and TTL), and unlike same-account global tables, these settings cannot be overridden per replica.
 + Customers must provide replication permissions to the DynamoDB global tables service principal in their resource policies.
@@ -46,6 +46,7 @@ The following settings are not synchronized between replicas and must be configu
 + Point-in-time Recovery
 + Server-side Encryption (SSE) KMS Key Id
 + Deletion Protection
++ Disassociation protection. Manage this setting in the replica's own account and Region. For more information, see [Disassociation protection and requirements](globaltables-disassociate.md#globaltables-disassociate-protection).
 + Kinesis Data Streams (KDSD)
 + Tags
 + Resource Policy

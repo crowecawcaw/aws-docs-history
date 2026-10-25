@@ -45,6 +45,7 @@ You can configure a global table using the AWS Management Console. Global tables
 + [Global tables core concepts](globaltables-CoreConcepts.md)
 + [DynamoDB same-account global table](globaltables-SameAccount.md)
 + [DynamoDB multi-account global tables](globaltables-MultiAccount.md)
++ [Disassociating a global table replica](globaltables-disassociate.md)
 + [Understanding Amazon DynamoDB billing for global tables](global-tables-billing.md)
 + [DynamoDB global tables versions](V2globaltables_versions.md)
 + [Best practices for global tables](globaltables-bestpractices.md)

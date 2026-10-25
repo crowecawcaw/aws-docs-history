@@ -44,6 +44,8 @@ If the same item is modified in multiple Regions simultaneously, DynamoDB will r
 
 You create a MREC global table by adding a replica to an existing DynamoDB table. Adding a replica has no performance impact on existing single-Region DynamoDB tables or global table replicas. You can add replicas to a MREC global table to expand the number of Regions where data is replicated, or remove replicas from an MREC global table if they are no longer needed. An MREC global table can have a replica in any Region where DynamoDB is available, and can have as many replicas as there are Regions in the [AWS partition.](https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/partitions.html)
 
+To stop replicating to an MREC replica and keep its table and data, you can disassociate the replica. It becomes a standalone regional table. For requirements and instructions, see [Disassociating a global table replica](globaltables-disassociate.md).
+
 ### Multi-Region strong consistency (MRSC)
 <a name="V2globaltables_HowItWorks.consistency-modes.mrsc"></a>
 

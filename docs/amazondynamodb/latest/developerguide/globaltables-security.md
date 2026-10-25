@@ -62,6 +62,7 @@ All permissions described must be applied to the specific table resource ARN in 
 **Topics**
 + [Creating global tables and adding replicas](#globaltables-creation-iam)
 + [Updating global tables](#globaltables-update-iam)
++ [Disassociating a replica](#globaltables-disassociate-iam)
 + [Deleting global tables and removing replicas](#globaltables-delete-iam)
 
 ### Creating global tables and adding replicas
@@ -356,6 +357,13 @@ You can additionally update other global table configurations, such as auto scal
   + `dynamodb:UpdateTimeToLive`
 
   Note that Time to Live (TTL) is only supported for global tables configured with Multi-Region Eventual Consistency (MREC). For more information about how global tables work with TTL, see [How DynamoDB global tables work](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_HowItWorks.html).
+
+### Disassociating a replica
+<a name="globaltables-disassociate-iam"></a>
+
+To disassociate an MREC replica and keep its regional table, you need both `dynamodb:UpdateTable` and `dynamodb:DisassociateTableReplica` on the replica's table ARN. Send the request from the replica's owning account to its local Region. Changing disassociation protection requires `dynamodb:UpdateTable`.
+
+For a policy example and the separate protection and disassociation requests, see [Disassociating a global table replica](globaltables-disassociate.md).
 
 ### Deleting global tables and removing replicas
 <a name="globaltables-delete-iam"></a>

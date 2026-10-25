@@ -577,6 +577,8 @@ Complete example of global table operations using AWS SDK for Java 2.x.
 
 ------
 
+For instructions on keeping a replica's table and data after you stop replication, see [Disassociating a global table replica](globaltables-disassociate.md). Disassociation applies to MREC global tables.
+
 ## Creating a global table configured for MRSC
 <a name="create-gt-mrsc"></a>
 
