@@ -3,7 +3,7 @@
 # Identity and Access Management for Bill to AWS
 <a name="security-iam"></a>
 
- Bill to AWS uses IAM to control access to billing approval actions. You must attach the IAM policy `ReInventTicketApprovalAccess` to the approver's identity before they can view or approve charges. 
+ Bill to AWS uses AWS Identity and Access Management (IAM) to control access to billing approval actions. You must attach the IAM policy `ReInventTicketApprovalAccess` to the approver's identity before they can view or approve charges. 
 
  If the approver attempts to review a charge without the policy attached, they receive an "Authorization failed" error prompting them to contact their AWS administrator to attach the `ReInventTicketApprovalAccess` policy. 
 
@@ -16,13 +16,16 @@
 
  For the full policy document, see [ReInventTicketApprovalAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/ReInventTicketApprovalAccess.html). 
 
-## To attach the ReInventTicketApprovalAccess policy
+## Attaching the ReInventTicketApprovalAccess policy
 <a name="attach-policy"></a>
 
-### Using IAM (IAM users and roles)
-<a name="attach-policy-iam"></a>
+You can attach the policy using IAM or AWS IAM Identity Center. Use the method that matches how you manage access to your account.<a name="attach-policy-iam"></a>
 
-1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/).
+**To use IAM**
+
+This method applies to IAM users and roles.
+
+1. Open the [IAM console](https://console.aws.amazon.com/iam/).
 
 1. In the navigation pane, choose **Users** or **Roles**.
 
@@ -34,28 +37,27 @@
 
 1. Search for `ReInventTicketApprovalAccess`, select the checkbox next to it, and choose **Next**.
 
-1. Choose **Add permissions**.
+1. Choose **Add permissions**.<a name="attach-policy-identity-center"></a>
 
-### Using IAM Identity Center (recommended for organizations using SSO)
-<a name="attach-policy-identity-center"></a>
+**To use IAM Identity Center**
 
-1. Open the IAM Identity Center console at [https://console.aws.amazon.com/singlesignon/](https://console.aws.amazon.com/singlesignon/).
+This method is recommended for organizations that use single sign-on.
+
+1. Open the [IAM Identity Center console](https://console.aws.amazon.com/singlesignon/).
 
 1. In the navigation pane, choose **Permission sets**.
 
 1. Select the permission set assigned to the designated approver.
 
-1. Choose **Policies** → **Attach policies**.
+1. Choose **Policies**, and then choose **Attach policies**.
 
-1. Under **AWS managed policies**, search for `ReInventTicketApprovalAccess`, select it, and save.
+1. Under **AWS managed policies**, search for `ReInventTicketApprovalAccess`, select it, and then choose **Save**.
 
 ## Policy updates
 <a name="security-iam-awsmanpol-updates"></a>
 
  The following table describes updates to the AWS managed policy for Bill to AWS. 
 
-
-**Policy updates for Bill to AWS**  
 
 | Change | Description | Date | 
 | --- | --- | --- | 

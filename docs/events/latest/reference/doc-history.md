@@ -5,10 +5,6 @@
 
  The following table describes the documentation releases for Bill to AWS. 
 
-
-**Document history**  
-
 | Change | Description | Date | 
-| --- | --- | --- | 
-| [AWS managed policy updates](security-iam.html#security-iam-awsmanpol-updates) – New policy | Bill to AWS added the `ReInventTicketApprovalAccess` managed policy. | June 10, 2026 | 
-| Initial release | Initial release of the Bill to AWS Reference documentation. | June 10, 2026 | 
+| --- |--- |--- |
+| [Initial release](#doc-history) | Initial release of the Bill to AWS reference documentation, including adding the `ReInventTicketApprovalAccess` managed policy. For more information, see [Policy updates](https://docs.aws.amazon.com/events/latest/reference/security-iam.html#security-iam-awsmanpol-updates). | June 10, 2026 | 
