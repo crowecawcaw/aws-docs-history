@@ -29,8 +29,8 @@ AWS accounts include the following core features:
 ## Are you a first-time AWS user?
 <a name="welcome-first-time-user"></a>
 
-**Warning**  
-We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.
+**Note**  
+Our new AWS experience lets you build using AWS accounts created with preconfigured defaults. If you have regulated workloads, want complete control over where your content is stored, or require advanced features right away, such as networking and security services, [sign up for AWS (advanced)](https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html). [Compare sign-up options](https://docs.aws.amazon.com/accounts/latest/reference/sign-up-for-aws.html#compare-sign-up-options).
 
 If you're a first-time user of AWS, your first step is to sign up for AWS. You can either create an AWS account where you have complete control over account configuration and where your content is stored, which is required for regulated workloads such as HIPAA or FedRAMP, or you can create AWS accounts with preconfigured defaults. To learn which sign up is right for you, see [Compare sign-up options](sign-up-for-aws.md).
 

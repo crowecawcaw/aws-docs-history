@@ -3,8 +3,8 @@
 # Opt out of use of your content for service improvement in AWS Settings
 <a name="opt-out-ai-data-use"></a>
 
-**Warning**  
-We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.
+**Note**  
+Our new AWS experience lets you build using AWS accounts created with preconfigured defaults. If you have regulated workloads, want complete control over where your content is stored, or require advanced features right away, such as networking and security services, [sign up for AWS (advanced)](https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html). [Compare sign-up options](https://docs.aws.amazon.com/accounts/latest/reference/sign-up-for-aws.html#compare-sign-up-options).
 
 AWS AI services may use and store customer content for service improvement, such as fixing operational issues, evaluating service performance, debugging, or model training. For this purpose, we might store such content in an AWS Region outside of the AWS Region where you are using the service. You can opt out of use of your content for service improvement through AWS Settings. The effect of opting out is that AWS attaches an AI services opt-out policy to your AWS organization. For more information about opt-out policies, see the [AI services opt-out policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html) documentation.
 

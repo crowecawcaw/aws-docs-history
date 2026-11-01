@@ -3,8 +3,8 @@
 # Close a project in AWS Settings
 <a name="close-project"></a>
 
-**Warning**  
-We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.
+**Note**  
+Our new AWS experience lets you build using AWS accounts created with preconfigured defaults. If you have regulated workloads, want complete control over where your content is stored, or require advanced features right away, such as networking and security services, [sign up for AWS (advanced)](https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html). [Compare sign-up options](https://docs.aws.amazon.com/accounts/latest/reference/sign-up-for-aws.html#compare-sign-up-options).
 
 If you no longer need your project, you can close it. After you close your project, you can reopen it within 90 days from the day you closed it. The time between the day you closed the project and when AWS permanently closes the project is the post-closure period.
 

@@ -3,8 +3,8 @@
 # Set a root user password for your management account
 <a name="set-root-user-password-management-account"></a>
 
-**Warning**  
-We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.
+**Note**  
+Our new AWS experience lets you build using AWS accounts created with preconfigured defaults. If you have regulated workloads, want complete control over where your content is stored, or require advanced features right away, such as networking and security services, [sign up for AWS (advanced)](https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html). [Compare sign-up options](https://docs.aws.amazon.com/accounts/latest/reference/sign-up-for-aws.html#compare-sign-up-options).
 
 After you've activated advanced features, your management account now uses a root email address for account recovery. While you can still recover access to your AWS Builder ID using [self-service options to recover access](https://docs.aws.amazon.com/signin/latest/userguide/recover-builder-id.html), you now recover access to your management account with root user credentials. To access the root user, you need to create a root user password. In addition, we recommend that you turn on multi-factor authentication (MFA) to enhance the security of your root user.
 

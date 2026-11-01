@@ -3,8 +3,8 @@
 # Invite a team member to a project in AWS Settings
 <a name="share-project"></a>
 
-**Warning**  
-We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.
+**Note**  
+Our new AWS experience lets you build using AWS accounts created with preconfigured defaults. If you have regulated workloads, want complete control over where your content is stored, or require advanced features right away, such as networking and security services, [sign up for AWS (advanced)](https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html). [Compare sign-up options](https://docs.aws.amazon.com/accounts/latest/reference/sign-up-for-aws.html#compare-sign-up-options).
 
 You can invite a team member to access a project. For information on what team members can do in a project, see [Invite team members to collaborate in AWS Settings](invite-team-members.md).
 

@@ -3,7 +3,7 @@
 # View AWS account identifiers
 <a name="manage-acct-identifiers"></a>
 
-This information is about viewing AWS account identifiers if you signed up for AWS using Sign up for AWS (advanced) or if you activated advanced features for your account. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md).
+This information is about viewing AWS account identifiers if you signed up for AWS using Sign up for AWS (advanced) or if you activated advanced features for your account. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md). If you signed up with the new AWS experience, you sign in with your AWS Builder ID. You can also find your account ID. For more information about finding your account ID, see [Find your account ID when signed in with AWS Builder ID](#FindAccountId-builder-id).
 
 AWS assigns the following unique identifiers to each AWS account:
 
@@ -97,6 +97,27 @@ $ aws sts get-caller-identity \
 ```
 
 ------
+
+### Find your account ID when signed in with AWS Builder ID
+<a name="FindAccountId-builder-id"></a>
+
+If you signed up with the new AWS experience, you sign in to your project with your AWS Builder ID.
+
+**To find your account ID before you activate advanced features**
+
+1. Open the [AWS Management Console](https://console.aws.amazon.com/).
+
+1. Choose **Manage projects**.
+
+1. In AWS Settings, choose your project to open its project detail page.
+
+1. On the project detail page, under **Additional info**, your account ID appears.
+
+**To find your account ID after you activate advanced features**
+
+1. In the navigation bar on the upper right, choose your account menu.
+
+1. Look for the entry **Account** and the account ID number next to it.
 
 ## Find the canonical user ID for your AWS account
 <a name="FindCanonicalId"></a>

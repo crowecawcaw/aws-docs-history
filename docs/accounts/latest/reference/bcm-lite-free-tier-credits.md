@@ -3,8 +3,8 @@
 # Earn additional credits
 <a name="bcm-lite-free-tier-credits"></a>
 
-**Warning**  
-We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.
+**Note**  
+Our new AWS experience lets you build using AWS accounts created with preconfigured defaults. If you have regulated workloads, want complete control over where your content is stored, or require advanced features right away, such as networking and security services, [sign up for AWS (advanced)](https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html). [Compare sign-up options](https://docs.aws.amazon.com/accounts/latest/reference/sign-up-for-aws.html#compare-sign-up-options).
 
 If you are a new AWS customer, you can earn an additional USD $100 in credits regardless of your account plan by completing activities. These activities assist your learning of AWS services. You can find the activities in the Explore AWS widget on your AWS Console Home dashboard. All of these activities will incur AWS service charges that are deducted from your AWS Free Tier credits, however when you complete each activity, you receive USD $20 in credits.
 

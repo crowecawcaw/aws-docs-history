@@ -3,8 +3,8 @@
 # Compare sign-up options
 <a name="sign-up-for-aws"></a>
 
-**Warning**  
-We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.
+**Note**  
+Our new AWS experience lets you build using AWS accounts created with preconfigured defaults. If you have regulated workloads, want complete control over where your content is stored, or require advanced features right away, such as networking and security services, [sign up for AWS (advanced)](https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html). [Compare sign-up options](https://docs.aws.amazon.com/accounts/latest/reference/sign-up-for-aws.html#compare-sign-up-options).
 
 When you sign up for AWS, you unlock the world's most comprehensive and broadly adopted cloud. We offer the greatest choice of innovative cloud and AI capabilities and expertise, on the most extensive global infrastructure, with industry-leading security, reliability, and performance.
 

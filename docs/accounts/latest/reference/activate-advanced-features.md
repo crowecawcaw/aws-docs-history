@@ -3,8 +3,8 @@
 # Activate advanced AWS features
 <a name="activate-advanced-features"></a>
 
-**Warning**  
-We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.
+**Note**  
+Our new AWS experience lets you build using AWS accounts created with preconfigured defaults. If you have regulated workloads, want complete control over where your content is stored, or require advanced features right away, such as networking and security services, [sign up for AWS (advanced)](https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html). [Compare sign-up options](https://docs.aws.amazon.com/accounts/latest/reference/sign-up-for-aws.html#compare-sign-up-options).
 
 When you activate advanced features, you take complete control of the AWS Organization, management account, and delegated administrator account that are used to manage the projects you created and team members you invited. You will directly manage the security, governance, and team membership of your AWS environment. You have access to additional AWS services, multi-Region capabilities, and enhanced administrative and billing controls.
 

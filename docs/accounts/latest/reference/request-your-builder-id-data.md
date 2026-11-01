@@ -3,8 +3,8 @@
 # Request your AWS Builder ID data
 <a name="request-your-builder-id-data"></a>
 
-**Warning**  
-We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.
+**Note**  
+Our new AWS experience lets you build using AWS accounts created with preconfigured defaults. If you have regulated workloads, want complete control over where your content is stored, or require advanced features right away, such as networking and security services, [sign up for AWS (advanced)](https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html). [Compare sign-up options](https://docs.aws.amazon.com/accounts/latest/reference/sign-up-for-aws.html#compare-sign-up-options).
 
 You can request and view the personal information associated with your AWS Builder ID and the AWS applications and services you accessed with your AWS Builder ID. We will process your request within 30 days and notify you when your data is ready. While your data request is pending, you cannot close your AWS profile. You can still close projects or the organization that owns all your projects.
 

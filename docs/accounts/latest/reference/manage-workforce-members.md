@@ -3,8 +3,8 @@
 # Manage workforce members
 <a name="manage-workforce-members"></a>
 
-**Warning**  
-We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.
+**Note**  
+Our new AWS experience lets you build using AWS accounts created with preconfigured defaults. If you have regulated workloads, want complete control over where your content is stored, or require advanced features right away, such as networking and security services, [sign up for AWS (advanced)](https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html). [Compare sign-up options](https://docs.aws.amazon.com/accounts/latest/reference/sign-up-for-aws.html#compare-sign-up-options).
 
 After you've activated advanced features, you can invite new workforce members or remove existing workforce members. This includes adding your existing workforce to new AWS accounts. The following information is only for AWS organizations that use AWS Builder ID as the identity source. If you use an external identity provider (IdP), you manage your workforce in those identity providers. If you use Identity Center directory, use the documentation described in [Manage users in the Identity Center directory](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-sso.html).
 

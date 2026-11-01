@@ -3,8 +3,8 @@
 # View and redeem credits in AWS Settings
 <a name="view-redeem-credits"></a>
 
-**Warning**  
-We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.
+**Note**  
+Our new AWS experience lets you build using AWS accounts created with preconfigured defaults. If you have regulated workloads, want complete control over where your content is stored, or require advanced features right away, such as networking and security services, [sign up for AWS (advanced)](https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html). [Compare sign-up options](https://docs.aws.amazon.com/accounts/latest/reference/sign-up-for-aws.html#compare-sign-up-options).
 
 You can view and redeem your available credits in AWS Settings. AWS credits are automatically applied to bills to help cover costs that are associated with eligible services. For more information about eligible services, see [Redeem Your AWS Promotional Credit](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/useconsolidatedbilling-credits.html). Credits are applied across all projects that you own until they are exhausted or they expire. You cannot select which project uses the credits that you redeem, they are applied across all projects that you own.
 

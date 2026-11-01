@@ -3,8 +3,8 @@
 # Remove organization policies
 <a name="remove-org-policies"></a>
 
-**Warning**  
-We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.
+**Note**  
+Our new AWS experience lets you build using AWS accounts created with preconfigured defaults. If you have regulated workloads, want complete control over where your content is stored, or require advanced features right away, such as networking and security services, [sign up for AWS (advanced)](https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html). [Compare sign-up options](https://docs.aws.amazon.com/accounts/latest/reference/sign-up-for-aws.html#compare-sign-up-options).
 
 After you've activated advanced features, you can modify the Resource Control Policies (RCPs) and Service Control Policies (SCPs) to change the governance of your AWS organization. Certain AWS managed organizational policies are removed when you activate advanced features. For more information, see [Managed policies for your organization](scps-and-rcps-for-projects.md). The following information is only for AWS organizations that use AWS Builder ID as the identity source. If you use another source, follow the steps in [Updating a policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_policies_update.html).
 

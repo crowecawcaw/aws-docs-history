@@ -3,8 +3,8 @@
 # Sign up for AWS (new)
 <a name="sign-in-new"></a>
 
-**Warning**  
-We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.
+**Note**  
+Our new AWS experience lets you build using AWS accounts created with preconfigured defaults. If you have regulated workloads, want complete control over where your content is stored, or require advanced features right away, such as networking and security services, [sign up for AWS (advanced)](https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html). [Compare sign-up options](https://docs.aws.amazon.com/accounts/latest/reference/sign-up-for-aws.html#compare-sign-up-options).
 
 When you use Sign up for AWS (new), you create a preconfigured AWS environment that lets you use a login that you already own like Google or GitHub to access your AWS resources. Your resources are organized in projects. A project contains an AWS account and settings for sharing with other collaborators. If you use the paid plan, your project can also have a set monthly pre-tax cost, called a spend limit. All of the projects you own make up your organization. You manage your organization, access your projects, and add team members in AWS Settings.
 
