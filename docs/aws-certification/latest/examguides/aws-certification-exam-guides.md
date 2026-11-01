@@ -42,7 +42,12 @@ Validate technical skills in deployment, management, and operations on AWS. This
 Validate technical skills in implementing data pipelines and data stores on AWS. This exam is intended for individuals who perform a data engineer role and validates the ability to implement data pipelines and optimize cost and performance.
 
 [AWS Certified Developer - Associate (DVA-C02)](../developer-associate-02.html)  
-Validate technical skills in developing and maintaining applications on AWS. This exam is intended for individuals who perform a developer role and validates proficiency in developing, deploying, and debugging cloud-based applications.
+Validate technical skills in developing and maintaining applications on AWS. This exam is intended for individuals who perform a developer role and validates proficiency in developing, deploying, and debugging cloud-based applications.  
+**Note:**  
+This exam is being updated. Registration for the updated version of the exam (DVA-C03) opens December 1, 2026. The last day to take the current version of the exam (DVA-C02) is November 30, 2026.
+
+[AWS Certified Developer - Associate (DVA-C03)](../developer-associate-03.html)  
+Validate technical skills in developing and maintaining applications on AWS, including using AI-assisted development tools. This exam is intended for individuals who perform a developer role and validates proficiency in developing, deploying, and debugging cloud-based applications.
 
 [AWS Certified Machine Learning Engineer - Associate (MLA-C02)](../machine-learning-engineer-associate-02.html)  
 Validate technical skills in implementing AI and ML solutions on AWS. This exam is intended for individuals who perform an ML engineer role and validates the ability to implement, deploy, and maintain AI and ML solutions.
@@ -62,7 +67,12 @@ Validate technical skills in provisioning, operating, and managing distributed a
 Validate advanced technical skills and experience in designing, implementing, and deploying AI solutions on AWS. This exam is intended for individuals who perform an AI practitioner role with hands-on experience.
 
 [AWS Certified Solutions Architect - Professional (SAP-C02)](../solutions-architect-professional-02.html)  
-Validate advanced technical skills and experience in designing distributed applications and systems on AWS. This exam is intended for individuals who perform a solutions architect role with two or more years of hands-on experience.
+Validate advanced technical skills and experience in designing distributed applications and systems on AWS. This exam is intended for individuals who perform a solutions architect role with 2 or more years of hands-on experience.  
+**Note:**  
+This exam is being updated. Registration for the updated version (SAP-C03) opens on October 27, 2026. The last day to take the current exam (SAP-C02) is November 16, 2026.
+
+[AWS Certified Solutions Architect - Professional (SAP-C03)](../solutions-architect-professional-03.html)  
+Validate a candidate's advanced technical skills and experience designing optimized AWS solutions that are based on the AWS Well-Architected Framework. This exam is intended for individuals who perform a solutions architect role with 2 or more years of experience.
 
 ## Specialty Certifications
 <a name="specialty-exams"></a>
