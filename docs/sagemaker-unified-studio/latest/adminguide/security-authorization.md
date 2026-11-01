@@ -23,8 +23,6 @@ Within this authorization model, Amazon SageMaker Unified Studio allows users to
 
 Users perform data analytics in specific projects when their Amazon SageMaker Unified Studio client requests IAM session credentials that Amazon SageMaker Unified Studio generates based on the user's effective profile in the specific project context. This session is scoped both to the user's permissions and also the specific project's resources. Users then use the projects tools (i.e. Amazon Athena or Amazon Redshift) to query the relevant data, and all of the underlying IAM work is completely abstracted away.
 
-Note that only IAM users and SSO users can access the Amazon SageMaker Unified Studio UI. IAM roles cannot access the Amazon SageMaker Unified Studio UI. But but IAM roles can interact with the Amazon SageMaker Unified Studio through APIs (searching assets, creating and managing projects, etc.)
-
 ## Amazon SageMaker Unified Studio profiles and roles
 <a name="security-authorization-profiles"></a>
 

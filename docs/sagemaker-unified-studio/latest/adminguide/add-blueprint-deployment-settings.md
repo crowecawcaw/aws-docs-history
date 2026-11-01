@@ -21,3 +21,5 @@ Blueprint deployment settings contain parameters used to create project profiles
    + AWS SSM Parameter Store path in AWS Systems Manager Parameters Store that contains parameters definition.
    + Blueprint parameters - these parameter values that will be used during project creation. You can override values that are set as blueprint or SSM values and check the Editable box if you want the values to be provided during project creation.
    + Notes for project owners - let project owners know why you made these changes and anything else they need to know about how this will impact their projects that use this project profile.
+
+Some blueprints have blueprint-specific setup in addition to these generic steps. For example, to add the SageMakerAIDomain blueprint and configure its code spaces parameters, see [Adding the blueprint to a project profile](sagemaker-ai-domain.md#sagemaker-ai-domain-add).

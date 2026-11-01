@@ -496,6 +496,9 @@ Pass `--status ENABLED`. A profile is created `DISABLED`, and a disabled profile
 
 Call `CreateProject` and reference the profile. Supply user parameter values under `--user-parameters`. The `environmentConfigurationName` value must match the name in the profile exactly.
 
+**Note**  
+You can create a project with a project profile that uses a custom Tooling blueprint only by using the API. You can't create this type of project through the SageMaker user interface.
+
 ```
 aws datazone create-project \
   --domain-identifier {{domain-id}} \

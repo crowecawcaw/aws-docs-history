@@ -23,6 +23,7 @@ Amazon SageMaker Unified Studio has the following quotas and limits.
 | Maximum number of projects | 1000 | 
 | Maximum number of environments | 1000 | 
 | Maximum number of Micro environments  | 200 | 
+| Maximum number of designations for your Amazon SageMaker unified domain | 10 | 
 
 ### Amazon DataZone quotas
 <a name="amazon-datazone-quotas"></a>

@@ -3,7 +3,7 @@
 # Domain administration for Identity Center-based domains
 <a name="access-domain-admin-portal-idc"></a>
 
-The domain administration page in Amazon SageMaker Unified Studio provides administrators with centralized management capabilities for domains, projects, and settings. Domain administrators can create and manage projects, configure domain-level settings including networking, and manage users and permissions.
+The domain administration page in Amazon SageMaker Unified Studio provides administrators with centralized management capabilities for domains, projects, designations, and settings. As a domain administrator, you can create and manage projects, create and manage designations that control project member permissions, configure domain-level settings including networking, and manage users and permissions.
 
 Access to the domain administration page is restricted to domain users with the designation Administrator. The IAM role used to create the domain will have this designation by default and access to the domain administration page.
 
@@ -12,11 +12,20 @@ Access to the domain administration page is restricted to domain users with the 
 1. From the Amazon SageMaker Unified Studio left navigation, choose **Domain management**.
 
 From the domain administration page, you can access:
-+ **Projects** — Manage existing projects and create new projects
-+ **Users** — Manage user access and permissions
-+ **Settings** — Configure network settings and account associations
 
-![Domain administration portal in Amazon SageMaker Unified Studio](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/adminguide/images/AdminPortal/AdminPortal.png)
+Projects  
+Manage existing projects and create new projects
+
+Users  
+Manage user access and permissions
+
+Designations  
+Create and manage designations, which are named permission sets that control the actions project members can perform
+
+Settings  
+Configure network settings and account associations
+
+![Domain administration page in Amazon SageMaker Unified Studio](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/adminguide/images/designations/Designations-Project-2.png)
 
 
 **Topics**

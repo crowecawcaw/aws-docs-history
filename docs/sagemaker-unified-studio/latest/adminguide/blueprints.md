@@ -13,6 +13,7 @@ A blueprint with which the project profile is created defines what AWS tools and
 + [Getting started with Amazon EMR on EKS in Amazon SageMaker Unified Studio](getting-started-with-emr-on-eks.md)
 + [Manage blueprint authorization](authorization-for-blueprints.md)
 + [Tooling blueprints in Amazon SageMaker Unified Studio](tooling.md)
++ [Setting up the SageMakerAIDomain blueprint for code spaces](sagemaker-ai-domain.md)
 + [Enable Tooling blueprint](enable-tooling-blueprint.md)
 + [Manage Tooling blueprint parameters](manage-tooling-blueprint.md)
 + [Modify the OnDemandWorkflows blueprint for creating workflow environments in a shared VPC](modify-on-demand-workflows-blueprint.md)
