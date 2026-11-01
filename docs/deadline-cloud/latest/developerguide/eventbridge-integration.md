@@ -28,6 +28,7 @@ For more information, see [EventBridge events](https://docs.aws.amazon.com/event
 | Event detail type | Description | 
 | --- | --- | 
 | [Budget Threshold Reached](events-detail-reference.md#event-detail-budget-threshold-reached) | Sent when a queue reaches a percentage of its assigned budget. | 
+| [Fleet Size Recommendation Change](events-detail-reference.md#event-detail-fleet-size-recommendation-change) | Sent when the recommended size of a fleet that uses event-based auto scaling changes, or when the actual fleet size doesn't match the recommended size. | 
 | [Job Lifecycle Status Change](events-detail-reference.md#event-detail-job-lifecycle-status-change) |  Sent when there is a change to the lifecycle status of a job. | 
 | [Job Run Status Change](events-detail-reference.md#event-detail-job-run-status-change) | Sent when the overall status of the tasks in a job changes. | 
 | [Step Lifecycle Status Change](events-detail-reference.md#event-detail-step-lifecycle-status-change) | Sent when there is a change to the lifecycle status of a step in a job. | 

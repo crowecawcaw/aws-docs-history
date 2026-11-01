@@ -59,14 +59,14 @@ The `source` and `detail-type` fields are included below because they contain sp
 }
 ```
 
-`detail-type`  <a name="job-lifecycle-status-change-detail-type"></a>
+`detail-type`  <a name="budget-threshold-reached-detail-type"></a>
 Identifies the type of event.  
 For this event, this value is `Budget Threshold Reached`.
 
-`source`  <a name="job-lifecycle-status-change-source"></a>
+`source`  <a name="budget-threshold-reached-source"></a>
 Identifies the service that generated the event. For Deadline Cloud events, this value is `aws.deadline`.
 
-`detail`  <a name="job-lifecycle-status-change-detail"></a>
+`detail`  <a name="budget-threshold-reached-detail"></a>
 A JSON object that contains information about the event. The service generating the event determines the content of this field.  
 For this event, this data includes:    
 `farmId`  <a name="budget-threshold-reached-field-1"></a>
@@ -428,7 +428,7 @@ The `source` and `detail-type` fields are included below because they contain sp
 
 `detail-type`  <a name="task-run-status-change-detail-type"></a>
 Identifies the type of event.  
-For this event, this value is `Fleet Size Recommendation Change`.
+For this event, this value is `Task Run Status Change`.
 
 `source`  <a name="task-run-status-change-source"></a>
 Identifies the service that generated the event. For Deadline Cloud events, this value is `aws.deadline`.

@@ -18,7 +18,7 @@ aws deadline update-job \
 --farm-id {{farmID}} \
 --queue-id {{queueID}} \
 --job-id {{jobID}} \
---target-task-run-status PENDING
+--target-task-run-status READY
 ```
 
 **Example – Cancel a job**  
@@ -99,7 +99,7 @@ aws deadline update-job \
 ```
 
 **Example – Archive a job**  
-Updates the job's lifecycle status to `ARCHIVED`. Archived jobs can't be scheduled or modified. You can only archive a job that is in the `FAILED`, `CANCELED`, `SUCCEEDED`, or `SUSPENDED` state.  
+Updates the job's lifecycle status to `ARCHIVED`. Archived jobs can't be scheduled or modified. You can only archive a job that is in the `FAILED`, `CANCELED`, `SUCCEEDED`, `SUSPENDED`, or `NOT_COMPATIBLE` state.  
 
 ```
 aws deadline update-job \
