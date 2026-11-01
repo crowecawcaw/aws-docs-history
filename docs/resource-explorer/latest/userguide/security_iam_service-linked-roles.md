@@ -14,6 +14,8 @@ For information about other services that support service-linked roles, see [AWS
 
 Resource Explorer uses the service-linked role named `AWSServiceRoleForResourceExplorer`. This role grants permissions to the Resource Explorer service to view resources and AWS CloudTrail events in your AWS account on your behalf and to index those resources to support searching.
 
+AWS Resource Explorer and AWS Config coordinate to describe and index each resource only once. Because of this, you might see CloudTrail entries in your account from either the Resource Explorer (`resource-explorer-2.amazonaws.com`) or AWS Config (`config.amazonaws.com`) service principal. These calls are expected, made using their respective service-linked roles (the Resource Explorer service-linked role and the AWS Config service-linked role), and do not change your bill. You are charged for AWS Config only if you have turned on AWS Config in your account.
+
 The `AWSServiceRoleForResourceExplorer` service-linked role trusts only the service with the following service principal to assume the role:
 + `resource-explorer-2.amazonaws.com`
 

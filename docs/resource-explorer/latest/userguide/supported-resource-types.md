@@ -19,6 +19,12 @@ If you have encrypted access to some of your resources, Resource Explorer is una
 The following tables list the resource types that are supported for searching in AWS Resource Explorer.
 
 **Note**  
+As of October 30, 2026, Resource Explorer no longer supports the following resource types:  
+**Amazon Pinpoint**— `mobiletargeting:apps/campaigns`
+**Amazon Pinpoint**— `mobiletargeting:apps/segments`
+**Amazon Pinpoint**— `mobiletargeting:templates/EMAIL`
+**Amazon Pinpoint**— `mobiletargeting:templates/PUSH`
+**Amazon Pinpoint**— `mobiletargeting:templates/SMS`
 As of September 30, 2026, Resource Explorer no longer supports the following resource types:  
 **AWS App Mesh**— `appmesh:mesh`
 **AWS App Mesh**— `appmesh:mesh/virtualGateway`
@@ -211,7 +217,6 @@ As of July 9, 2024, Resource Explorer no longer supports the following resource 
 + [Amazon Managed Workflows for Apache Airflow](#services-airflow)
 + [Amazon MemoryDB](#services-memorydb)
 + [AWS Migration Hub Refactor Spaces](#services-refactor-spaces)
-+ [AWS Mobile Targeting](#services-mobiletargeting)
 + [AWS Network Firewall](#services-network-firewall)
 + [AWS Network Manager](#services-networkmanager)
 + [Amazon OpenSearch Service](#services-es)
@@ -1110,14 +1115,6 @@ As of July 9, 2024, Resource Explorer no longer supports the following resource 
 + `refactor-spaces:environment/application`
 + `refactor-spaces:environment/application/route`
 + `refactor-spaces:environment/application/service`
-
-### AWS Mobile Targeting
-<a name="services-mobiletargeting"></a>
-+ `mobiletargeting:apps/campaigns`
-+ `mobiletargeting:apps/segments`
-+ `mobiletargeting:templates/EMAIL`
-+ `mobiletargeting:templates/PUSH`
-+ `mobiletargeting:templates/SMS`
 
 ### AWS Network Firewall
 <a name="services-network-firewall"></a>
