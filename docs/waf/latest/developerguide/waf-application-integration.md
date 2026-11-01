@@ -32,5 +32,6 @@ This is available for JavaScript applications.
 **Topics**
 + [Intelligent threat integration and AWS Managed Rules](waf-application-integration-with-AMRs.md)
 + [Accessing the AWS WAF client application integration APIs](waf-application-integration-location-in-console.md)
++ [Automatic SDK integration for CloudFront distributions](waf-challenge-javascript-sdk-injection.md)
 + [AWS WAF JavaScript integrations](waf-javascript-api.md)
 + [AWS WAF mobile application integration](waf-mobile-sdk.md)

@@ -11,6 +11,8 @@ This section explains how to use the AWS WAF JavaScript integrations.
 
 You can use the JavaScript integration APIs to implement AWS WAF application integrations in your browsers and other devices that execute JavaScript. 
 
+If you deliver your application through Amazon CloudFront, CloudFront can add the SDK script tag to your pages, except in the cases listed in [When pages don't receive the tag](waf-challenge-javascript-sdk-injection.md#waf-challenge-javascript-sdk-injection-not-inserted). In those cases, and when your application calls the SDK from its own code, integrate the SDK directly as described in [Using the intelligent threat JavaScript API](waf-js-challenge-api.md). For more information, see [Automatic SDK integration for CloudFront distributions](waf-challenge-javascript-sdk-injection.md).
+
 CAPTCHA puzzles and silent challenges can only run when browsers are accessing HTTPS endpoints. Browser clients must be running in secure contexts in order to acquire tokens. 
 + The intelligent threat APIs let you manage token authorization through a silent client-side browser challenge, and to include the tokens in the requests that you send to your protected resources. 
 + The CAPTCHA integration API adds to the intelligent threat APIs, and lets you customize the placement and characteristics of the CAPTCHA puzzle in your client applications. This API leverages the intelligent threat APIs to acquire AWS WAF tokens for use in the page after the end user successfully completes the CAPTCHA puzzle. 

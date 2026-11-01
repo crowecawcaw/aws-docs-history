@@ -14,6 +14,8 @@ Most of the targeted protections of the Bot Control managed rule group require t
 We highly recommend implementing the application integration SDKs, for the most effective use of the Bot Control rule group. The challenge script must run before the Bot Control rule group in order for the rule group to benefit from the tokens that the script acquires. 
 
 At minimum, add the JavaScript challenge script tag to your most critical pages such as login, checkout, and account creation. For the strongest detection, integrate the SDK more broadly across pages that serve dynamic content. The more behavioral data Bot Control has, the better it can distinguish real users from advanced bots. For detailed integration guidance, see [Integrating the client application integration SDKs](waf-bot-control-use-cases.md#waf-bot-control-sdk-guidance).
+
+If you deliver your application through Amazon CloudFront, you can have CloudFront add the SDK script tag for you automatically. For more information, see [Automatic SDK integration for CloudFront distributions](waf-challenge-javascript-sdk-injection.md).
 + With the application integration SDKs, the script runs automatically.
 + If you're unable to use the SDKs, you can configure your protection pack (web ACL) so that it runs the Challenge or CAPTCHA rule action against all requests that will be inspected by the Bot Control rule group. Using the Challenge or CAPTCHA rule action can incur additional fees. For pricing details, see [AWS WAF Pricing](https://aws.amazon.com/waf/pricing/). 
 

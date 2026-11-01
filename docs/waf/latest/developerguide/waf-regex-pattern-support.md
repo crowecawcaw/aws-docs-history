@@ -21,3 +21,6 @@ AWS WAF does not support the following PCRE patterns:
 + The \\K start of match reset directive
 + Callouts and embedded code
 + Atomic grouping and possessive quantifiers
++ Large values of quantifiers for repeated patterns
++ Excessive wildcard repeated patterns or excessive nested repeated patterns
++ Large number of `|` branches per pattern

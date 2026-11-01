@@ -9,6 +9,15 @@ You can now use the updated experience to access AWS WAF functionality anywhere 
 
 The following AWS WAF features work the same way for all CloudFront distributions. Considerations for multi-tenant distributions are listed following each feature scenario.
 
+## Automatic SDK integration for the AWS WAF JavaScript SDK
+<a name="cloudfront-features-challenge-sdk-injection"></a>
+
+The targeted protection level of Bot Control and the AWS WAF Fraud Control managed rule groups use client-side signals that the AWS WAF JavaScript SDK collects in the browser. Instead of adding the SDK script tag to your web pages, you can have CloudFront insert it into the HTML responses that your distributions return. This applies to the browser JavaScript SDK; mobile apps still require adding the mobile SDK to your app.
+
+For more information, see [Automatic SDK integration for CloudFront distributions](waf-challenge-javascript-sdk-injection.md).
+
+For multi-tenant distributions, distribution tenants that inherit the multi-tenant distribution's protection pack (web ACL) also inherit its automatic SDK integration setting. Distribution tenants that have their own protection pack (web ACL) use the setting in that protection pack (web ACL) instead.
+
 ## Using AWS WAF with CloudFront custom error pages
 <a name="cloudfront-features-custom-error-pages"></a>
 

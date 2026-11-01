@@ -34,9 +34,11 @@ This straightforward method of protecting CloudFront distributions is optimal fo
 
 ##### Standard distribution considerations
 <a name="standard-waf-considerations"></a>
-+ Changes to a protection pack (web ACL) affect only its associated distribution
-+ Each distribution requires independent protection pack (web ACL) configuration
-+ Rules and rule groups are managed separately for each distribution
+
+Consider the following when using standard distrubitions.
++ Changes to a protection pack (web ACL) affect only its associated distribution.
++ Each distribution requires independent protection pack (web ACL) configuration.
++ Rules and rule groups are managed separately for each distribution.
 
 #### Multi-tenant distributions
 <a name="tenant-distribution-overview"></a>
@@ -51,10 +53,12 @@ These two tiers make multi-tenant distributions optimal for sharing AWS WAF prot
 
 #### Multi-tenant distribution considerations
 <a name="tenant-waf-considerations"></a>
-+ Individual distribution tenants inherit changes made to protection packs (web ACLs) that are associated with related multi-tenant distributions
-+ The protection packs (web ACLs) associated with specific distribution tenants can override settings configured at the multi-tenant protection pack (web ACL) level
-+ Managed rule groups can be implemented at both distribution and distribution tenant levels
-+ Application identifiers can be located in logs to track security events by distribution
+
+Consider the following when using multi-tenant distributions.
++ Individual distribution tenants inherit changes made to protection packs (web ACLs) that are associated with related multi-tenant distributions.
++ The protection packs (web ACLs) associated with specific distribution tenants can override settings configured at the multi-tenant protection pack (web ACL) level.
++ Managed rule groups can be implemented at both distribution and distribution tenant levels.
++ Application identifiers can be located in logs to track security events by distribution.
 
 ### AWS WAF features by distribution type
 <a name="distribution-types-comparison"></a>
