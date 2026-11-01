@@ -74,8 +74,8 @@ You can also use an HTTPS domain for tracking open and link clicks. To set up an
    A response is returned as in the following example:
 
    ```
-   (python-sdk-test) jdoe@12a34567b89c BaconRedirectService % curl --head https://custom.domain.com/favicon.ico
-   HTTPS/1.1 200 OK
+   $ curl --head https://custom.domain.com/favicon.ico
+   HTTP/1.1 200 OK
    x-amz-ses-region: us-east-1
    x-amz-ses-request-protocol: https
    Content-Type: image/x-icon

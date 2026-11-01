@@ -33,7 +33,7 @@ For information about connecting to the Amazon SES SMTP interface using these me
 
 By default, Amazon SES uses *opportunistic TLS*. Opportunistic TLS in SES always uses STARTTLS and does not include the TLS Wrapper. The flow involves establishing an initial plaintext connection, followed by upgrading to a TLS-encrypted session if both the client and server support STARTTLS. If SES can't establish a secure connection, it sends the message unencrypted.
 
-You can change this behavior by using configuration sets. Use the [PutConfigurationSetDeliveryOptions](https://docs.aws.amazon.com/ses/latest/APIReference/API_PutConfigurationSetDeliveryOptions.html) API operation to set the `TlsPolicy` property for a configuration set to `Require`. You can use the [AWS CLI](https://aws.amazon.com/cli) to make this change.
+You can change this behavior by using configuration sets. Use the [PutConfigurationSetDeliveryOptions](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_PutConfigurationSetDeliveryOptions.html) operation in the Amazon SES API v2 to set the `TlsPolicy` property for a configuration set to `REQUIRE`. You can use the [AWS CLI](https://aws.amazon.com/cli) to make this change.
 
 **To configure Amazon SES to require TLS connections for a configuration set**
 + At the command line, enter the following command:

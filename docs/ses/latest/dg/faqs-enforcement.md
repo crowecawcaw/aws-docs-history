@@ -190,7 +190,7 @@ SES does not emit an Amazon EventBridge event when it pauses or reinstates sendi
 To read the account status programmatically, call the `GetAccount` operation in the Amazon SES API v2 and check the `EnforcementStatus` field. This is the same value shown as **Account status** in the SES console. When your account's ability to send email is paused for enforcement, this status reflects the pause. When your account is reinstated, the status returns to **Healthy**.
 
 **Important**  
-Do not use the value returned by `GetAccountSendingEnabled` (the `Enabled` flag) to detect an enforcement pause. That flag reflects whether you have turned account-level sending on or off yourself, and it does not change when SES pauses or reinstates your account for enforcement. Key your detection on the account status (`EnforcementStatus`) instead.
+Use the account status (`EnforcementStatus`) to detect an enforcement pause. Don't use the `SendingEnabled` field that `GetAccount` returns for this purpose. That field shows whether you turned account-level sending on or off yourself. It doesn't change when SES pauses or reinstates your account for enforcement. If you check `SendingEnabled` instead, you can miss an enforcement pause.
 
 You can also detect account-level pauses by monitoring the PHD. When we pause your account's ability to send email, we add an **SES sending paused** event to the PHD, as described in [Q3. My account's ability to send email is paused. Why didn't I receive a notification?](#sp-q3). You can use Amazon CloudWatch to create an alarm that alerts you when new events appear on your PHD.
 
@@ -226,10 +226,10 @@ If your bounce rate is 5% or greater, we'll place your account under review. If 
 
 We don't calculate your bounce rate based on a fixed period of time, because different senders send at different rates. Instead, we look at a *representative volume*—an amount of email that represents your typical sending practices. To be fair to both high- and low-volume senders, the representative volume is different for each user and changes as the user's sending patterns change.
 
-### Q6. Can I calculate my own bounce rate by using the information from the SES console or the GetSendStatistics API?
+### Q6. Can I calculate my own bounce rate from my sending statistics, such as the Send and Bounce metrics in CloudWatch?
 <a name="bn-q6"></a>
 
-No. The bounce rate is calculated using representative volume (see [Q5. Over what period of time is my bounce rate calculated?](#bn-q5)). Depending on your sending rate, your bounce rate can stretch farther back in time than the SES console or `GetSendStatistics` can retrieve. In addition, only emails to non-verified domains are considered when calculating your bounce rate. However, if you regularly monitor your bounce rates using those methods, you should still have a good indicator that you can use to catch problems before they get to levels that cause us to place your account under review or pause your account's ability to send email.
+No. The bounce rate is calculated using representative volume (see [Q5. Over what period of time is my bounce rate calculated?](#bn-q5)). Your bounce rate isn't based on a fixed time window. It won't match the counts for any date range that you choose. In addition, we consider only emails to non-verified domains when we calculate your bounce rate. To see the bounce rate that SES calculates, use the reputation metrics page of the SES console or the *Reputation.BounceRate* metric that SES publishes to CloudWatch for your account (see [Monitoring your Amazon SES sender reputation](monitor-sender-reputation.md)). This is the bounce rate that we use when we review your account. Monitor it regularly to catch problems early. That way, you can act before the rate reaches a level that causes us to place your account under review or pause your account's ability to send email.
 
 ### Q7. How can I find out which email addresses bounced?
 <a name="bn-q7"></a>
@@ -315,10 +315,10 @@ SES automatically sets the Feedback-ID header when you send messages, giving mai
 *AmazonSES* is a static tag identifying SES as the sending platform.
 Optionally, in addition to the standard Feedback-ID header value that SES provides, you can also specify your own customized feedback IDs (up to two) using the `ses:feedback-id-a` and `ses:feedback-id-b` message tags, see [Fine-grained feedback for email campaigns](monitor-using-event-publishing.md#event-publishing-fine-grained-feedback).
 
-#### Q2. Are these complaints included in the complaint rate statistic shown in the SES console and returned by the GetSendStatistics API?
+#### Q2. Are these complaints included in the complaint rate shown on the reputation metrics page and in the Reputation.ComplaintRate metric?
 <a name="cm-feedback-loop-q2"></a>
 
-Yes. However, the complaint rate statistic doesn't include complaints from email providers that don't provide feedback to SES. The complaint rate from domains that provide feedback is likely to be representative of the rest of your sending as well.
+Yes. However, the complaint rate doesn't include complaints from email providers that don't provide feedback to SES. The complaint rate from domains that provide feedback is likely to be representative of the rest of your sending as well.
 
 #### Q3. How can I be notified of these complaints?
 <a name="cm-feedback-loop-q3"></a>
@@ -344,11 +344,11 @@ If your complaint rate is 0.1% or greater, we'll place your account under review
 
 We don't calculate your complaint rate based on a fixed period of time, because different senders send at different rates. Instead, we look at a *representative volume*—an amount of mail that represents your typical sending practices. To be fair to both high- and low-volume senders, the representative volume is different for each user and changes as the user's sending patterns change. Additionally, the complaint rate isn't calculated based on every email. Instead, it's calculated as the percentage of complaints on mail sent to domains that send complaint feedback to SES.
 
-#### Q7. Can I calculate my own complaint rate by using metrics from the SES console or the GetSendStatistics API?
+#### Q7. Can I calculate my own complaint rate from my sending statistics, such as the Send and Complaint metrics in CloudWatch?
 <a name="cm-feedback-loop-q7"></a>
 
 No. There are two primary reasons for this:
-+ The complaint rate is calculated using representative volume (see [Q6. Over what period of time is my complaint rate calculated?](#cm-feedback-loop-q6)). Depending on your sending rate, your complaint rate can stretch farther back in time than the SES console or `GetSendStatistics` API can retrieve. For this reason, we recommend that you regularly use these methods to monitor the complaint rate for your account. Monitoring your complaint rate in this way gives you the information you need to identify problems before they reach levels that could impact the delivery of your email.
++ The complaint rate is calculated using representative volume (see [Q6. Over what period of time is my complaint rate calculated?](#cm-feedback-loop-q6)). Your complaint rate isn't based on a fixed time window. It won't match the counts for any date range that you choose. For this reason, we recommend that you regularly monitor the complaint rate that SES calculates for your account on the reputation metrics page of the SES console or with the *Reputation.ComplaintRate* metric in CloudWatch (see [Monitoring your Amazon SES sender reputation](monitor-sender-reputation.md)). Monitor your complaint rate to catch problems before they affect how your email is delivered.
 + When calculating complaint rate, not every email counts. Complaint rate is calculated as the percentage of complaints on mail sent to domains that send complaint feedback to SES.
 
 #### Q8. How can I find out which email addresses complained?
@@ -376,10 +376,10 @@ This topic provides information about complaints that SES receives directly from
 
 Multiple recipients directly contacted SES about your mail through email or some other means. 
 
-#### Q2. Are these complaints included in the complaint rate statistic shown in the SES console and returned by the GetSendStatistics API?
+#### Q2. Are these complaints included in the complaint rate shown on the reputation metrics page and in the Reputation.ComplaintRate metric?
 <a name="cm-direct-q2"></a>
 
-No. The complaint rate statistic you retrieve using the SES console or the `GetSendStatistics` API only includes complaints that SES receives through feedback loops. For more information about those types of complaints, see the [SES complaints through feedback loops FAQ](#cm-feedback-loop).
+No. The complaint rate on the reputation metrics page and in the *Reputation.ComplaintRate* metric only includes complaints that SES receives through feedback loops. For more information about those types of complaints, see the [SES complaints through feedback loops FAQ](#cm-feedback-loop).
 
 #### Q3. Why haven't I heard about these complaints through email feedback notifications or through Amazon SNS?
 <a name="cm-direct-q3"></a>
@@ -415,10 +415,10 @@ This topic provides information about complaints that SES receives through email
 
 An email provider reported to SES that a significant number of its customers marked your emails as spam. The report was provided to SES through a means other than the feedback loops described in the [SES complaints through feedback loops FAQ](#cm-feedback-loop).
 
-#### Q2. Are these complaints included in the complaint rate statistic shown in the SES console and returned by the GetSendStatistics API?
+#### Q2. Are these complaints included in the complaint rate shown on the reputation metrics page and in the Reputation.ComplaintRate metric?
 <a name="cm-email-provider-q2"></a>
 
-No. The complaint rate statistic you retrieve using the SES console or the `GetSendStatistics` API only includes complaints that SES receives through feedback loops.
+No. The complaint rate on the reputation metrics page and in the *Reputation.ComplaintRate* metric only includes complaints that SES receives through feedback loops.
 
 #### Q3. Why haven't I heard about these complaints through email feedback notifications or through Amazon SNS?
 <a name="cm-email-provider-q3"></a>

@@ -85,12 +85,14 @@ bool AwsDoc::SES::deleteIdentity(const Aws::String &identity,
 
 **AWS CLI**  
 **To delete an identity**  
-The following example uses the `delete-identity` command to delete an identity from the list of identities verified with Amazon SES:  
+The following `delete-identity` example deletes an identity from the list of identities verified with Amazon SES.  
 
 ```
-aws ses delete-identity --identity {{user@example.com}}
+aws ses delete-identity \
+    --identity {{user@example.com}}
 ```
-For more information about verified identities, see Verifying Email Addresses and Domains in Amazon SES in the *Amazon Simple Email Service Developer Guide*.  
+This command produces no output.  
+For more information, see [Verified identities in Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/verify-addresses-and-domains.html) in the *Amazon Simple Email Service Developer Guide*.  
 +  For API details, see [DeleteIdentity](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ses/delete-identity.html) in *AWS CLI Command Reference*. 
 
 ------

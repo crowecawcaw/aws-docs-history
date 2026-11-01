@@ -15,19 +15,20 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To verify a domain with Amazon SES**  
-The following example uses the `verify-domain-identity` command to verify a domain:  
+The following `verify-domain-identity` example verifies a domain.  
 
 ```
-aws ses verify-domain-identity --domain {{example.com}}
+aws ses verify-domain-identity \
+    --domain {{example.com}}
 ```
 Output:  
 
 ```
 {
-   "VerificationToken": "eoEmxw+YaYhb3h3iVJHuXMJXqeu1q1/wwmvjuEXAMPLE"
+    "VerificationToken": "eoEmxw+YaYhb3h3iVJHuXMJXqeu1q1/wwmvjuEXAMPLE"
 }
 ```
-To complete domain verification, you must add a TXT record with the returned verification token to your domain's DNS settings. For more information, see Verifying Domains in Amazon SES in the *Amazon Simple Email Service Developer Guide*.  
+To complete domain verification, you must add a TXT record with the returned verification token to your domain's DNS settings. For more information, see [Creating and verifying identities in Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html) in the *Amazon Simple Email Service Developer Guide*.  
 +  For API details, see [VerifyDomainIdentity](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ses/verify-domain-identity.html) in *AWS CLI Command Reference*. 
 
 ------

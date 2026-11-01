@@ -126,10 +126,10 @@ export const handler = async (event, context, callback) => {
 
     console.log('Processing message:', messageId);
 
-    // If DMARC verdict is FAIL and the sending domain's policy is REJECT
+    // If DMARC verdict is FAIL and the sending domain's policy is reject
     // (p=reject), bounce the email.
     if (receipt.dmarcVerdict.status === 'FAIL' 
-        && receipt.dmarcPolicy.status === 'REJECT') {
+        && receipt.dmarcPolicy === 'reject') {
         // The values that make up the body of the bounce message.
         const sendBounceParams = {
             BounceSender: `mailer-daemon@${emailDomain}`,
@@ -167,8 +167,8 @@ export const handler = async (event, context, callback) => {
           callback(e)
         }
         
-    // If the DMARC verdict is anything else (PASS, QUARANTINE or GRAY), accept
-    // the message and process remaining receipt rules in the rule set.
+    // Otherwise (the DMARC verdict is not FAIL, or the policy is not reject),
+    // accept the message and process remaining receipt rules in the rule set.
     } else {
         console.log('Accepting message:', messageId);
         callback(null, {disposition: 'CONTINUE'});

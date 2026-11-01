@@ -19,7 +19,7 @@ Building a large-scale email solution is often a complex and costly challenge fo
 
 Amazon SES integrates seamlessly with other AWS products. For example, you can:
 + Add email-sending capabilities to any application. 
-+  You can send email from Amazon EC2 by using an [AWS SDK](https://aws.amazon.com/tools/#sdk), by using the [Amazon SES SMTP interface](send-email-smtp.md), or by making calls directly to the [Amazon SES API](https://docs.aws.amazon.com/ses/latest/APIReference/).
++  You can send email from Amazon EC2 by using an [AWS SDK](https://aws.amazon.com/tools/#sdk), by using the [Amazon SES SMTP interface](send-email-smtp.md), or by making calls directly to the [Amazon SES API](https://docs.aws.amazon.com/ses/latest/APIReference-V2/).
 + Use [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/) to create an email-enabled application such as a program that uses Amazon SES to send a newsletter to customers.
 + Set up [Amazon Simple Notification Service (Amazon SNS)](https://aws.amazon.com/sns/) to notify you of your emails that bounced, produced a complaint, or were successfully delivered to the recipient's mail server. When you use Amazon SES to receive emails, your email content can be published to Amazon SNS topics.
 + Use the AWS Management Console to set up Easy DKIM, which is a way to authenticate your emails. Although you can use Easy DKIM with any DNS provider, it is especially easy to set up when you manage your domain with [Route 53](https://aws.amazon.com/route53/).

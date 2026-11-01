@@ -263,8 +263,8 @@ To pause a tenant:
 ```
 # Pause a tenant
 aws sesv2 update-reputation-entity-customer-managed-status \
-  --reputation-entity-type RESOURCE 
-  --reputation-entity-reference "arn:aws:ses:us-east-1:111122223333:tenant/tenantId"
+  --reputation-entity-type RESOURCE \
+  --reputation-entity-reference "arn:aws:ses:us-east-1:111122223333:tenant/tenantId" \
   --sending-status DISABLED
 ```
 
@@ -273,10 +273,18 @@ To unpause a tenant:
 ```
 # Unpause a tenant
 aws sesv2 update-reputation-entity-customer-managed-status \
-  --reputation-entity-type RESOURCE 
-  --reputation-entity-reference "arn:aws:ses:us-east-1:111122223333:tenant/tenantId"
+  --reputation-entity-type RESOURCE \
+  --reputation-entity-reference "arn:aws:ses:us-east-1:111122223333:tenant/tenantId" \
   --sending-status ENABLED
 ```
+
+**Important**  
+The AWS CLI and the console both update `CustomerManagedStatus`. Neither one changes `AwsSesManagedStatus`. Only AWS changes `AwsSesManagedStatus`.  
+If the `Status` in `AwsSesManagedStatus` is `DISABLED`, a call to [UpdateReputationEntityCustomerManagedStatus](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_UpdateReputationEntityCustomerManagedStatus.html) still succeeds. The tenant still cannot send email. `SendingStatusAggregate` stays `DISABLED` while either status is `DISABLED`. The console turns off **Resume sending** for that tenant.  
+To find out which status holds the pause, call [GetReputationEntity](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_GetReputationEntity.html). Compare the `Status` in `CustomerManagedStatus` with the `Status` in `AwsSesManagedStatus`. The `Cause` in each record explains the pause. Read `SendingStatusAggregate` for the combined result.  
+To restore sending for a tenant whose `AwsSesManagedStatus` is `DISABLED`, reply to the case that AWS opened for you in the AWS Support Center. Work with Trust and Safety to resolve the reputation findings on that tenant. For more information, see [Trust & Safety](#integration-with-aws-trust-safety).
+
+A reputation policy pauses a tenant by setting the `Status` in `CustomerManagedStatus` to `DISABLED`. You can clear that pause yourself. To send while findings are still open, run the same command with `--sending-status REINSTATED`. **Resume sending** in the console also sets `REINSTATED`. If you set `ENABLED` while findings are still open, the policy can pause the tenant again. SES assigns the Standard policy when you create a tenant. For more information about reputation policies, see [Reputation policies](#configuring-reputation-policies).
 
 ## Working with reputation findings
 <a name="working-with-reputation-findings"></a>

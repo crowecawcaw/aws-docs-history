@@ -321,7 +321,7 @@ In addition, if the rule conditions did not match for a message, that is, the me
    "rule_set_name": "MyRuleSet",
    "rule_name": "MyRule",
    "rule_index": 1,
-   "recipients_matched": [],
+   "recipients_matched": []
 }
 ```
 

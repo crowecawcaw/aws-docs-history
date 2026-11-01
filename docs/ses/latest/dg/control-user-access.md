@@ -42,7 +42,7 @@ Then, depending on the `Action`, specify the `Resource` element as follows:
   + One with `Action` set to an explicit list of the permitted non-email-sending APIs and `Resource` set to \*
   + One with `Action` set to one of the email-sending APIs (`ses:SendEmail` and/or `ses:SendRawEmail`), and `Resource` set to the ARN(s) of the identities you are permitting the user to use.
 
-For a list of available SES actions, see the [Amazon Simple Email Service API Reference](https://docs.aws.amazon.com/ses/latest/APIReference/). If the user will be using the SMTP interface, you must allow access to `ses:SendRawEmail` at a minimum.
+For a list of available SES actions, see [Actions, resources, and condition keys for Amazon SES](https://docs.aws.amazon.com/service-authorization/latest/reference/list_ses.html) and [Actions, resources, and condition keys for Amazon Simple Email Service v2](https://docs.aws.amazon.com/service-authorization/latest/reference/list_sesv2.html) in the *Service Authorization Reference*. If the user will be using the SMTP interface, you must allow access to `ses:SendRawEmail` at a minimum.
 
 ### Restricting Email Addresses
 <a name="iam-and-ses-restrict-addresses"></a>
@@ -290,6 +290,9 @@ The following policy permits a user to call the SES email-sending APIs, but only
 ```
 
 ------
+
+**Note**  
+The `SendBounce` operation is available only in version 1 of the Amazon SES API (the `aws ses` CLI commands and the SES v1 SDK clients). The Amazon SES API v2 has no equivalent operation. The Mail Manager **Bounce** rule action also needs `ses:SendBounce`, granted to the IAM role that Mail Manager uses. For that policy, see [Permission policy for *Bounce* rule action](eb-policies.md#eb-policies-bounce).
 
 The following policy permits a user to call the [SendBounce](https://docs.aws.amazon.com/ses/latest/APIReference/API_SendBounce.html) API, but only if the "From" address is *bounce@example.com*. 
 

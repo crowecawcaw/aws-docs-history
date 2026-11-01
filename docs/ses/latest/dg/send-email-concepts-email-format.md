@@ -12,7 +12,7 @@ The following is a simple example of an email. The header is followed by a blank
 
 ```
  1. Received: from abc.smtp-out.amazonses.com (123.45.67.89) by in.example.com (87.65.43.210); Fri, 17 Dec 2010 14:26:22
- 2. From: "Andrew" <andrew@example.com>;
+ 2. From: "Andrew" <andrew@example.com>
  3. To: "Bob" <bob@example.com>
  4. Date: Fri, 17 Dec 2010 14:26:21 -0800
  5. Subject: Hello
@@ -61,16 +61,17 @@ If you are sending an email message to a large number of recipients, then it mak
 ## Email information you need to provide to Amazon SES
 <a name="send-email-concepts-email-required-information"></a>
 
-When you send an email with Amazon SES, the email information you need to provide depends on how you call Amazon SES. You can provide a minimal amount of information and have Amazon SES take care of all of the formatting for you. Or, if you want to do something more advanced like send an attachment, you can provide the raw message yourself. The following sections review what you need to provide when you send an email by using the Amazon SES API, the Amazon SES SMTP interface, or the Amazon SES console.
+When you send an email with Amazon SES, the email information you need to provide depends on how you call Amazon SES. You can provide a minimal amount of information and have Amazon SES take care of all of the formatting for you. Or, if you want full control over the structure of the message, you can provide the raw message yourself. The following sections review what you need to provide when you send an email by using the Amazon SES API, the Amazon SES SMTP interface, or the Amazon SES console.
 
 ### Amazon SES API
 <a name="send-email-concepts-email-required-information-api"></a>
 
-If you call the Amazon SES API directly, you call either the `SendEmail` or the `SendRawEmail` API. The amount of information you need to provide depends on which API you call.
-+ The `SendEmail API` requires you to provide only a source address, destination address, message subject, and a message body. You can optionally provide "Reply-To" addresses. When you call this API, Amazon SES automatically assembles a properly formatted multi-part Multipurpose Internet Mail Extensions (MIME) email message optimized for display by email client software. For more information, see [Sending formatted email using the Amazon SES API](send-email-formatted.md).
-+ The `SendRawEmail` API provides you the flexibility to format and send your own raw email message by specifying headers, MIME parts, and content types. `SendRawEmail` is typically used by advanced users. You need to provide the body of the message and all header fields that are specified as required in the Internet Message Format specification ([RFC 5322](https://www.ietf.org/rfc/rfc5322.txt)). For more information, see [Sending raw email using the Amazon SES API v2](send-email-raw.md).
+If you call the Amazon SES API v2 directly, you call the `SendEmail` operation (or `SendBulkEmail` to send templated email to multiple destinations in one request). The amount of information you need to provide depends on the type of content that you specify in the request.
++ **Simple (formatted)** – You provide only a sender address (`FromEmailAddress`), destination addresses, a message subject, and a message body. You can optionally provide "Reply-To" addresses, custom headers, and attachments. When you send this type of content, Amazon SES automatically assembles a properly formatted multi-part Multipurpose Internet Mail Extensions (MIME) email message optimized for display by email client software. For more information, see [Sending formatted email using the Amazon SES API](send-email-formatted.md).
++ **Raw** – You format and send your own raw email message. You specify the headers, MIME parts, and content types. Advanced users typically use raw content. You provide the body of the message and every header field that the Internet Message Format specification requires. For information about the required header fields, see [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt). For more information about raw content, see [Sending raw email using the Amazon SES API v2](send-email-raw.md).
++ **Templated** – You provide a sender address, destination addresses, a stored template (by name or ARN) or inline template content, and the values that replace the variables in the template. You can optionally include custom headers and attachments. For more information, see [Using templates to send personalized email with the Amazon SES API](send-personalized-email-api.md).
 
-If you use an AWS SDK to call the Amazon SES API, you provide the information listed above to the corresponding functions (for example, `SendEmail` and `SendRawEmail` for Java).
+If you use an AWS SDK to call the Amazon SES API, you provide the information listed above to the corresponding function (for example, the `sendEmail` method of `SesV2Client` in the AWS SDK for Java 2.x).
 
 For more information about sending email using the Amazon SES API, see [Using the Amazon SES API to send email](send-email-api.md).
 

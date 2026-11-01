@@ -227,7 +227,7 @@ To add email addresses in bulk to your account-level suppression list, complete 
          "Service":"ses.amazonaws.com"
      },
      "Action": [
-         "kms:Decrypt", 
+         "kms:Decrypt"
      ],
      "Resource": "*"
   }
@@ -465,7 +465,7 @@ To remove email addresses in bulk from your account-level suppression list, comp
          "Service":"ses.amazonaws.com"
      },
      "Action": [
-         "kms:Decrypt", 
+         "kms:Decrypt"
      ],
      "Resource": "*"
   }
@@ -539,7 +539,7 @@ The preceding command returns all of the import jobs for the account. The output
 {
     "ImportJobs": [
         {
-            "CreatedTimestamp": 2020-07-31T06:06:55Z",
+            "CreatedTimestamp": "2020-07-31T06:06:55Z",
             "ImportDestination": {
                 "SuppressionListDestination": {
                     "SuppressionListImportAction": "PUT"

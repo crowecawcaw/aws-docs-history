@@ -129,7 +129,7 @@ If you encounter errors such as "Command not found" and "No such file or directo
    *Depending on the version of Linux or Sendmail, if the above doesn't work, try the following:*
 
    ```
-   sudo su service sendmail restart
+   sudo service sendmail restart
    ```
 
 1. Complete the following steps to send a test email:

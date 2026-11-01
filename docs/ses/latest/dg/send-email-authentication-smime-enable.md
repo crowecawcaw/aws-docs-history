@@ -32,7 +32,7 @@ To enable S/MIME signing on a configuration set, use the `update-configuration-s
 ```
 aws sesv2 update-configuration-set \
     --configuration-set-name {{my-config-set}} \
-    --message-security-options '{"SigningScheme":{"Smime":{}}}'
+    --message-security-options '{"SigningScheme":{"SmimeScheme":{}}}'
 ```
 
 The `SignatureFormat` defaults to `DETACHED`, which is the only supported value. You can also specify it explicitly:
@@ -40,7 +40,7 @@ The `SignatureFormat` defaults to `DETACHED`, which is the only supported value.
 ```
 aws sesv2 update-configuration-set \
     --configuration-set-name {{my-config-set}} \
-    --message-security-options '{"SigningScheme":{"Smime":{"SignatureFormat":"DETACHED"}}}'
+    --message-security-options '{"SigningScheme":{"SmimeScheme":{"SignatureFormat":"DETACHED"}}}'
 ```
 
 To disable S/MIME signing, set the signing scheme back to the default:
@@ -48,7 +48,7 @@ To disable S/MIME signing, set the signing scheme back to the default:
 ```
 aws sesv2 update-configuration-set \
     --configuration-set-name {{my-config-set}} \
-    --message-security-options '{"SigningScheme":{"Default":{}}}'
+    --message-security-options '{"SigningScheme":{"DefaultScheme":{}}}'
 ```
 
 ## Send-time behavior

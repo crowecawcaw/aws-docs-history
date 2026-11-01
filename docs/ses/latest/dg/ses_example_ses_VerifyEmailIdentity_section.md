@@ -93,14 +93,16 @@ bool AwsDoc::SES::verifyEmailIdentity(const Aws::String &emailAddress,
 
 **AWS CLI**  
 **To verify an email address with Amazon SES**  
-The following example uses the `verify-email-identity` command to verify an email address:  
+The following `verify-email-identity` example verifies an email address.  
 
 ```
-aws ses verify-email-identity --email-address {{user@example.com}}
+aws ses verify-email-identity \
+    --email-address {{user@example.com}}
 ```
+This command produces no output.  
 Before you can send an email using Amazon SES, you must verify the address or domain that you are sending the email from to prove that you own it. If you do not have production access yet, you also need to verify any email addresses that you send emails to except for email addresses provided by the Amazon SES mailbox simulator.  
 After verify-email-identity is called, the email address will receive a verification email. The user must click on the link in the email to complete the verification process.  
-For more information, see Verifying Email Addresses in Amazon SES in the *Amazon Simple Email Service Developer Guide*.  
+For more information, see [Creating and verifying identities in Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html) in the *Amazon Simple Email Service Developer Guide*.  
 +  For API details, see [VerifyEmailIdentity](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ses/verify-email-identity.html) in *AWS CLI Command Reference*. 
 
 ------

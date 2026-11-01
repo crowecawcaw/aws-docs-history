@@ -96,7 +96,7 @@ You can use the [`CreateContact`](https://docs.aws.amazon.com/ses/latest/APIRefe
   ```
   {
       "ContactListName": "ExampleContactListName",
-      "EmailAddress": "example@amazon.com",
+      "EmailAddress": "john.doe@example.com",
       "UnsubscribeAll": false,
       "TopicPreferences": [
           {
@@ -137,8 +137,8 @@ To add contacts in bulk to your contact list, complete the following steps.
 
   ```
   emailAddress,unsubscribeAll,attributesData,topicPreferences.Sports,topicPreferences.Cycling
-  example1@amazon.com,false,{"Name": "John"},OPT_IN,OPT_OUT
-  example2@amazon.com,true,,OPT_OUT,OPT_OUT
+  john.doe@example.com,false,{"Name": "John"},OPT_IN,OPT_OUT
+  jane.doe@example.com,true,,OPT_OUT,OPT_OUT
   ```
 
   **JSON format**
@@ -148,38 +148,11 @@ To add contacts in bulk to your contact list, complete the following steps.
   JSON format example for adding contacts in bulk to a contact list:
 
   ```
-  {
-       "emailAddress": "example1@amazon.com",
-       "unsubscribeAll": false,
-       "attributesData": "{\"Name\":\"John\"}",
-       "topicPreferences": [
-        {
-            "topicName": "Sports",
-            "subscriptionStatus": "OPT_IN"
-        },
-        {
-            "topicName": "Cycling",
-            "subscriptionStatus": "OPT_OUT"
-        }
-       ]
-  }
-  {
-       "emailAddress": "example2@amazon.com",
-       "unsubscribeAll": true,
-       "topicPreferences": [
-        {
-            "topicName": "Sports",
-            "subscriptionStatus": "OPT_OUT"
-        },
-        {
-            "topicName": "Cycling",
-            "subscriptionStatus": "OPT_OUT"
-        }
-       ]
-  }
+  {"emailAddress": "john.doe@example.com", "unsubscribeAll": false, "attributesData": "{\"Name\":\"John\"}", "topicPreferences": [{"topicName": "Sports", "subscriptionStatus": "OPT_IN"}, {"topicName": "Cycling", "subscriptionStatus": "OPT_OUT"}]}
+  {"emailAddress": "jane.doe@example.com", "unsubscribeAll": true, "topicPreferences": [{"topicName": "Sports", "subscriptionStatus": "OPT_OUT"}, {"topicName": "Cycling", "subscriptionStatus": "OPT_OUT"}]}
   ```
 
-  In the preceding examples, replace {{example1@amazon.com}} and {{example2@amazon.com}} with the email addresses you want to add to the contact list. Replace the `attributesData` values with the values specific to the contact. Additionally, replace {{Sports}} and {{Cycling}} with the `topicName` that applies to your contact. The acceptable `topicPreferences` are {{OPT\_IN}} and {{OPT\_OUT}}.
+  In the preceding examples, replace {{john.doe@example.com}} and {{jane.doe@example.com}} with the email addresses you want to add to the contact list. Replace the `attributesData` values with the values specific to the contact. Additionally, replace {{Sports}} and {{Cycling}} with the `topicName` that applies to your contact. The acceptable `topicPreferences` are {{OPT\_IN}} and {{OPT\_OUT}}.
 
   The following attributes are supported when uploading your contacts into an Amazon S3 object in either CSV or JSON format:
 
@@ -213,7 +186,7 @@ To add contacts in bulk to your contact list, complete the following steps.
          "Service":"ses.amazonaws.com"
      },
      "Action": [
-         "kms:Decrypt", 
+         "kms:Decrypt"
      ],
      "Resource": "*"
   }

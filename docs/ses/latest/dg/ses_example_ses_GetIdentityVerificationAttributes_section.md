@@ -50,27 +50,28 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To get the Amazon SES verification status for a list of identities**  
-The following example uses the `get-identity-verification-attributes` command to retrieve the Amazon SES verification status for a list of identities:  
+The following `get-identity-verification-attributes` example retrieves the Amazon SES verification status for a list of identities.  
 
 ```
-aws ses get-identity-verification-attributes --identities {{"user1@example.com"}} {{"user2@example.com"}}
+aws ses get-identity-verification-attributes \
+    --identities {{"user1@example.com"}} {{"user2@example.com"}}
 ```
 Output:  
 
 ```
 {
-   "VerificationAttributes": {
-       "user1@example.com": {
-           "VerificationStatus": "Success"
-       },
-       "user2@example.com": {
-           "VerificationStatus": "Pending"
-       }
-   }
+    "VerificationAttributes": {
+        "user1@example.com": {
+            "VerificationStatus": "Success"
+        },
+        "user2@example.com": {
+            "VerificationStatus": "Pending"
+        }
+    }
 }
 ```
 If you call this command with an identity that you have never submitted for verification, that identity won't appear in the output.  
-For more information about verified identities, see Verifying Email Addresses and Domains in Amazon SES in the *Amazon Simple Email Service Developer Guide*.  
+For more information, see [Verified identities in Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/verify-addresses-and-domains.html) in the *Amazon Simple Email Service Developer Guide*.  
 +  For API details, see [GetIdentityVerificationAttributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ses/get-identity-verification-attributes.html) in *AWS CLI Command Reference*. 
 
 ------

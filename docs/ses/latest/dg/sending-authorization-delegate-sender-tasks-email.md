@@ -64,25 +64,24 @@ Do not include these X-headers in the DKIM signature, because they are removed b
    1. X-SES-SOURCE-ARN: arn:aws:ses:us-east-1:123456789012:identity/example.com
    2. X-SES-FROM-ARN: arn:aws:ses:us-east-1:123456789012:identity/example.com
    3. X-SES-RETURN-PATH-ARN: arn:aws:ses:us-east-1:123456789012:identity/example.com
-   4. 
-   5. From: sender@example.com
-   6. To: recipient@example.com
-   7. Return-Path: feedback@example.com
-   8. Subject: subject
-   9. Content-Type: multipart/alternative;
-  10. 	boundary="----=_boundary"
-  11. 
-  12. ------=_boundary
-  13. Content-Type: text/plain; charset=UTF-8
-  14. Content-Transfer-Encoding: 7bit
-  15. 
-  16. body
-  17. ------=_boundary
-  18. Content-Type: text/html; charset=UTF-8
-  19. Content-Transfer-Encoding: 7bit
-  20. 
-  21. body
-  22. ------=_boundary--
+   4. From: sender@example.com
+   5. To: recipient@example.com
+   6. Return-Path: feedback@example.com
+   7. Subject: subject
+   8. Content-Type: multipart/alternative;
+   9. 	boundary="----=_boundary"
+  10. 
+  11. ------=_boundary
+  12. Content-Type: text/plain; charset=UTF-8
+  13. Content-Transfer-Encoding: 7bit
+  14. 
+  15. body
+  16. ------=_boundary
+  17. Content-Type: text/html; charset=UTF-8
+  18. Content-Transfer-Encoding: 7bit
+  19. 
+  20. body
+  21. ------=_boundary--
   ```
 
 ### SendEmail and SendTemplatedEmail
@@ -136,8 +135,7 @@ try:
 except ClientError as e:
     print(e.response['Error']['Message'])
 else:
-    print("Email sent! Message ID:"),
-    print(response['ResponseMetadata']['RequestId'])
+    print("Email sent! Message ID:", response['MessageId'])
 ```
 
 ## Using the Amazon SES SMTP interface

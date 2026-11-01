@@ -85,11 +85,11 @@ You can use the [`PutAccountSuppressionAttributes`](https://docs.aws.amazon.com/
   ```
   {
       "SuppressedReasons": ["BOUNCE", "COMPLAINT"],
-      "ValidationOptions": {
+      "ValidationAttributes": {
           "ConditionThreshold": {
               "ConditionThresholdEnabled": "ENABLED",
               "OverallConfidenceThreshold": {
-                  "Verdict": "HIGH"
+                  "ConfidenceVerdictThreshold": "HIGH"
               }
           }
       }
@@ -100,11 +100,11 @@ You can use the [`PutAccountSuppressionAttributes`](https://docs.aws.amazon.com/
   ```
   {
       "SuppressedReasons": ["BOUNCE", "COMPLAINT"],
-      "ValidationOptions": {
+      "ValidationAttributes": {
           "ConditionThreshold": {
               "ConditionThresholdEnabled": "ENABLED",
               "OverallConfidenceThreshold": {
-                  "Verdict": "MEDIUM"
+                  "ConfidenceVerdictThreshold": "MEDIUM"
               }
           }
       }
@@ -115,11 +115,11 @@ You can use the [`PutAccountSuppressionAttributes`](https://docs.aws.amazon.com/
   ```
   {
       "SuppressedReasons": ["BOUNCE", "COMPLAINT"],
-      "ValidationOptions": {
+      "ValidationAttributes": {
           "ConditionThreshold": {
               "ConditionThresholdEnabled": "ENABLED",
               "OverallConfidenceThreshold": {
-                  "Verdict": "MANAGED"
+                  "ConfidenceVerdictThreshold": "MANAGED"
               }
           }
       }
@@ -130,7 +130,7 @@ You can use the [`PutAccountSuppressionAttributes`](https://docs.aws.amazon.com/
   ```
   {
       "SuppressedReasons": ["BOUNCE", "COMPLAINT"],
-      "ValidationOptions": {
+      "ValidationAttributes": {
           "ConditionThreshold": {
               "ConditionThresholdEnabled": "DISABLED"
           }
@@ -163,7 +163,7 @@ You can use the [`PutConfigurationSetSuppressionOptions`](https://docs.aws.amazo
           "ConditionThreshold": {
               "ConditionThresholdEnabled": "ENABLED",
               "OverallConfidenceThreshold": {
-                  "Verdict": "HIGH"
+                  "ConfidenceVerdictThreshold": "HIGH"
               }
           }
       }

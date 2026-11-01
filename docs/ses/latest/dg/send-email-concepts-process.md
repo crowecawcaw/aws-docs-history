@@ -46,7 +46,7 @@ If the sender's email-sending request to SES fails, SES responds to the sender w
 On rare occasions, SES may accept an email for delivery even though the send request returns an error to the caller. If your application retries the request, a second email with a different message ID may be sent, and you may receive event notifications for the message associated with the failed call. To reliably correlate event notifications with your sending logic, use [message tags](monitor-using-event-publishing.md) rather than relying solely on the message ID.
 
 The method through which you can determine if the request has failed depends on how you call SES. The following are examples of how errors and exceptions are returned:
-+ If you are calling SES through the Query (HTTPS) API (`SendEmail` or `SendRawEmail`), the actions will return an error. For more information, see the [Amazon Simple Email Service API Reference](https://docs.aws.amazon.com/ses/latest/APIReference/).
++ If you are calling the SES API directly over HTTPS, the operation returns an error. For more information, see the [SendEmail](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_SendEmail.html) operation in the Amazon SES API v2.
 + If you are using an AWS SDK for a programming language that uses exceptions, the call to SES will throw a *MessageRejectedException*. (The name of the exception may vary slightly depending on the SDK.)
 + If you are using the SMTP interface, then the sender receives an SMTP response code, but how the error is conveyed depends on the sender's client. Some clients may display an error code; others may not.
 

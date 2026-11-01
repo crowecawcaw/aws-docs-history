@@ -112,7 +112,7 @@ You can disable click tracking for individual links by adding an attribute, `ses
 To disable click tracking for that link, modify it to resemble the following:
 
 ```
-<a ses:no-track href="aws.amazon.com">Amazon Web Services</a>
+<a ses:no-track href="https://aws.amazon.com">Amazon Web Services</a>
 ```
 
 Because `ses:no-track` isn't a standard HTML attribute, Amazon SES automatically removes it from the version of the email that arrives in your recipients' inboxes.

@@ -44,7 +44,7 @@ Messages larger than 10MB are subject to bandwidth throttling, and depending on 
 | --- | --- | --- | 
 | Maximum number of tenants | 10,000 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ses/quotas/L-E7F21B4C) | 
 | Maximum number of recipients per message | 50 recipients per message. A recipient is any "To", "CC", or "BCC" address.  | No. | 
-| Maximum number of identities that you can verify | 10,000 identities per AWS Region. An *identity* is a domain or email address that you use to send email through SES.  | Please contact your AWS Account Manager to discuss your use case. | 
+| Maximum number of identities that you can verify | 10,000 identities per AWS Region. An *identity* is a domain or email address that you use to send email through SES.  | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ses/quotas/L-5C01A92C) | 
 | Maximum number of dedicated IP pools (inclusive of both managed and standard IP pools) | 50 | No | 
 
 ### Quotas related to event publishing
@@ -129,7 +129,7 @@ The following table lists quotas that apply to both sending and receiving email 
 
 | Resource | Default Quota | Adjustable | 
 | --- | --- | --- | 
-| Rate at which you can call Amazon SES API actions | All actions (except for `SendEmail`, `SendRawEmail`, and `SendTemplatedEmail`) are throttled at one request per second. | No | 
+| Rate at which you can call Amazon SES API actions | All actions (except for `SendEmail` and `SendBulkEmail`) are throttled at one request per second.<br />In the SES API v1, the actions that are excluded from this limit are `SendEmail`, `SendRawEmail`, `SendTemplatedEmail`, and `SendBulkTemplatedEmail`. | No | 
 | MIME parts | 500 | No | 
 
 ### SES miscellaneous quotas

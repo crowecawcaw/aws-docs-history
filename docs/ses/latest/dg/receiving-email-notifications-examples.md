@@ -33,6 +33,9 @@ This section contains an example of an SNS action notification. Unlike the alert
     "dkimVerdict":{
       "status":"PASS"
     },
+    "dmarcVerdict":{
+      "status":"GRAY"
+    },
     "action":{
       "type":"SNS",
       "topicArn":"arn:aws:sns:us-east-1:012345678912:example-topic"
@@ -143,11 +146,14 @@ This section contains an example of an Amazon SNS notification that can be trigg
 	     "dkimVerdict": {
 	       "status": "PASS"
 	     },
+	     "dmarcVerdict": {
+	       "status": "GRAY"
+	     },
 	     "action": {
 	       "type": "S3",
 	       "topicArn": "arn:aws:sns:us-east-1:012345678912:example-topic",
 	       "bucketName": "my-S3-bucket",
-	       "objectKey": "\email"
+	       "objectKey": "d6iitobk75ur44p8kdnnp7g2n800"
 	     }
 	   },
 	   "mail": {

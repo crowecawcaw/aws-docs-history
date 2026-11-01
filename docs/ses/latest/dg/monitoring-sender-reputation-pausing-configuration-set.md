@@ -72,24 +72,25 @@ This function only pauses email sending for configuration sets in the AWS Region
 
 1. Under **Author from scratch**, complete the following steps:
    + For **Name**, type a name for the Lambda function.
-   + For **Runtime**, choose **Node.js 14x** (or the version currently offered in the select list).
+   + For **Runtime**, select the latest **Node.js** version offered in the select list. The code uses the AWS SDK for JavaScript v3, which all supported Node.js runtimes include.
    + For **Role**, choose **Choose an existing role**.
    + For **Existing role**, choose the IAM role you created in [Part 2: Create an IAM Role](#monitoring-sender-reputation-pausing-configuration-set-part-2).
 
    Choose **Create function**.
 
-1. Under **Function code**, in the code editor, paste the following code:
+1. Under **Function code**, in the code editor, paste the following code, and replace `{{my-configuration-set}}` with the name of the configuration set:
 
    ```
    'use strict';
    
    import {
-       SES
+       SESClient,
+       UpdateConfigurationSetSendingEnabledCommand
    }
-   from 'aws-sdk';
+   from '@aws-sdk/client-ses';
    
-   const ses = new SES();
-   const configSet = 'CONFIG_SET_NAME_HERE';
+   const ses = new SESClient();
+   const configSet = '{{my-configuration-set}}';
    
    const params = {
        ConfigurationSetName: configSet,
@@ -98,7 +99,7 @@ This function only pauses email sending for configuration sets in the AWS Region
    
    export const handler = async (event) => {
        try {
-           const data = await ses.updateConfigurationSetSendingEnabled(params).promise();
+           const data = await ses.send(new UpdateConfigurationSetSendingEnabledCommand(params));
            
            console.log('Configuration Set Update:', data);
            
@@ -111,19 +112,14 @@ This function only pauses email sending for configuration sets in the AWS Region
            };
        }
        catch (err) {
-           console.error('Error:', err.message);
-           return {
-               statusCode: 500,
-               body: JSON.stringify({
-                   message: 'Failed to pause email sending for configuration set.',
-                   error: err.message
-               }),
-           };
+           // Rethrow so that the invocation fails and the error is visible.
+           console.error('Failed to pause email sending for configuration set:', err.message);
+           throw err;
        }
    };
    ```
 
-   Replace {{ConfigSet}} in the preceding code with the name of the configuration set. Choose **Save**.
+   Choose **Deploy**.
 
 1. Choose **Test**. If the **Configure test event** window appears, type a name in the **Event name** field, and then choose **Create**.
 

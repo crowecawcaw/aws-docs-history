@@ -28,7 +28,7 @@ The sending authorization process consists of the following steps:
 
 1. The identity owner selects a verified identity for the delegate sender to use. (If you haven't verified an identity, see [Verified identities](verify-addresses-and-domains.md).)
 **Note**  
-The verified identity you choose for your delegate sender cannot have a [default configuration set](managing-configuration-sets.md#default-config-sets) assigned to it.
+If the verified identity you choose for your delegate sender has a [default configuration set](managing-configuration-sets.md#default-config-sets) assigned to it, Amazon SES doesn't apply that configuration set to email sent by the delegate sender. To apply a configuration set to that email, the delegate sender must specify its own configuration set in the send request.
 
 1. The delegate sender lets the identity owner know which AWS account ID or IAM user ARN they want to use for sending.
 

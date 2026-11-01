@@ -5,7 +5,7 @@
 
 Depending on how you use it, Amazon SES might store certain data that could be considered personal. For example, in order to send email using Amazon SES, you must provide at least one verified identity (an email address or a domain). You can use the Amazon SES console or the Amazon SES API to permanently delete this personal data.
 
-This chapter provides procedures for deleting various types of data that might be considered personal.
+This chapter provides procedures for deleting various types of data that might be considered personal. If you use Mail Manager, its archives and address lists can also contain personal data. To delete an archive, use the **Manage archives** tab in [Email archiving](eb-archiving.md). Mail Manager removes the archive 30 days after you delete it. To remove an address from an address list, or to delete the list, see [Managing Address Lists](eb-addlist.md#managing-address-lists).
 
 **Topics**
 + [Delete Email Addresses From the Account-Level Suppression List](#deleting-personal-data-account-suppression-list)
@@ -101,7 +101,7 @@ You can also use the Amazon SES API to delete identities. The following procedur
 + At the command line, type the following command:
 
   ```
-  aws ses delete-identity --identity {{sender@example.com}}
+  aws sesv2 delete-email-identity --email-identity {{sender@example.com}}
   ```
 
   In this command, replace {{sender@example.com}} with the identity that you want to delete.
@@ -127,7 +127,7 @@ You can also use the Amazon SES API to delete sender authentication policies. Th
 + At the command line, type the following command:
 
   ```
-  aws ses delete-identity-policy --identity {{example.com}} --policy-name {{samplePolicy}}
+  aws sesv2 delete-email-identity-policy --email-identity {{example.com}} --policy-name {{samplePolicy}}
   ```
 
   In this command, replace {{example.com}} with the identity that contains the sender authentication policy. Replace {{samplePolicy}} with the name of the sender authentication policy.
@@ -153,11 +153,14 @@ If you use Amazon SES to receive incoming email, you can create receipt rules th
 
 You can also use the Amazon SES API to delete receipt rules. The following procedure uses the AWS Command Line Interface (AWS CLI) to interact with the Amazon SES API. You can also interact with the API by using an AWS SDK, or by making HTTP requests directly.
 
+**Note**  
+The `DeleteReceiptRule` operation is available only in version 1 of the Amazon SES API (the `aws ses` CLI commands and the SES v1 SDK clients). The Amazon SES API v2 has no equivalent operation, so the example in this section uses the v1 API.
+
 **To delete a receipt rule by using the AWS CLI**
 + At the command line, type the following command:
 
   ```
-  aws ses delete-receipt-rule --rule-set {{myRuleSet}} --rule-name {{myReceiptRule}}
+  aws ses delete-receipt-rule --rule-set-name {{myRuleSet}} --rule-name {{myReceiptRule}}
   ```
 
   In this command, replace {{myRuleSet}} with the name of the receipt rule set that contains the receipt rule. Replace {{myReceiptRule}} with the name of the receipt rule that you want to delete.
@@ -176,6 +179,9 @@ If you use Amazon SES to receive incoming email, you can create filters to expli
 1. In the list of IP address filters, choose the filter that you want to remove, and then choose **Delete**.
 
 You can also use the Amazon SES API to delete IP address filters. The following procedure uses the AWS Command Line Interface (AWS CLI) to interact with the Amazon SES API. You can also interact with the API by using an AWS SDK, or by making HTTP requests directly.
+
+**Note**  
+The `DeleteReceiptFilter` operation is available only in version 1 of the Amazon SES API (the `aws ses` CLI commands and the SES v1 SDK clients). The Amazon SES API v2 has no equivalent operation, so the example in this section uses the v1 API.
 
 **To delete an IP address filter by using the AWS CLI**
 + At the command line, type the following command:
@@ -197,7 +203,7 @@ You can only delete email templates by using the Amazon SES API.
 + At the command line, type the following command:
 
   ```
-  aws ses delete-template --template-name {{sampleTemplate}}
+  aws sesv2 delete-email-template --template-name {{sampleTemplate}}
   ```
 
   In this command, replace {{sampleTemplate}} with the name of the email template that you want to delete.
@@ -213,7 +219,7 @@ You can only delete custom verification email templates by using the Amazon SES 
 + At the command line, type the following command:
 
   ```
-  aws ses delete-custom-verification-email-template --template-name {{verificationEmailTemplate}}
+  aws sesv2 delete-custom-verification-email-template --template-name {{verificationEmailTemplate}}
   ```
 
   In this command, replace {{verificationEmailTemplate}} with the name of the custom verification email template that you want to delete.
