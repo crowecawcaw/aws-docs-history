@@ -104,7 +104,7 @@ Output:
     ]
 }
 ```
-For more information, see https://docs.aws.amazon.com/transcribe/latest/dg/batch-med-transcription.html> in the *Amazon Transcribe Developer Guide*.  
+For more information, see [Amazon Transcribe Medical](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-medical.html) in the *Amazon Transcribe Developer Guide*.  
 +  For API details, see [ListMedicalTranscriptionJobs](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/list-medical-transcription-jobs.html) in *AWS CLI Command Reference*. 
 
 ------
