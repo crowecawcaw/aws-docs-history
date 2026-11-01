@@ -89,10 +89,9 @@ These algorithms encrypt your actual file data. The algorithm used depends on ho
 
 **FIPS-compliant algorithms (recommended for regulated environments)**
 + **AES-128, AES-192, AES-256** - Advanced Encryption Standard (recommended)
-+ **3DES** - Triple Data Encryption Standard (legacy, use AES when possible)
 
 **Other supported algorithms**
-+ IDEA, CAST5, Blowfish, DES, TwoFish, CAMELLIA-128, CAMELLIA-192, CAMELLIA-256
++ 3DES, IDEA, CAST5, Blowfish, DES, TwoFish, CAMELLIA-128, CAMELLIA-192, CAMELLIA-256
 
 **Note**  
 You don't choose the symmetric algorithm directly when using AWS Transfer Family workflows - it's determined by the PGP software used to create the encrypted file. However, you can configure your PGP software to prefer FIPS-compliant algorithms like AES-256.

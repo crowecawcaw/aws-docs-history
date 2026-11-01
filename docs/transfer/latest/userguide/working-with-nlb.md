@@ -18,6 +18,32 @@ When you enable PPv2, the client's source IP address becomes available in the fo
 + Authentication requests that AWS Transfer Family sends to your custom identity provider. You can then write IP-based access policies.
 + Log entries in Amazon CloudWatch Logs.
 
+## SSH client compatibility with PROXY protocol v2
+<a name="nlb-sftp-client-compatibility"></a>
+
+After the TCP connection is established, both the client and the server send an SSH identification string as their first data. This string identifies their SSH protocol and software versions, for example `SSH-2.0-OpenSSH_10.3`. For more information, see [SSH transport layer protocol (RFC 4253)](https://datatracker.ietf.org/doc/html/rfc4253#section-4.2) on the IETF Datatracker website.
+
+Some older SSH clients wait to receive the server's SSH identification string before they send their own. Clients that still support SSH protocol version 1 do this so that they can choose a protocol version based on the server's identification string. When PROXY protocol v2 is enabled on an NLB target group, the NLB doesn't deliver the server's identification string to the client until the client sends data. These clients connect and wait for the server's identification string, so they never send their own, and the connection stalls until it times out.
+
+The following table lists common SSH clients and the minimum version of each that is known to be compatible with PROXY protocol v2 in its default configuration. This list isn't comprehensive. An older version might also work if you configure it to use only SSH protocol version 2. If you use a client that isn't in this table, test its compatibility before you enable PROXY protocol v2.
+
+
+| Client | Minimum version | 
+| --- | --- | 
+| WinSCP | 5.8.1 | 
+| OpenSSH | 6.2 | 
+| JSch | 0.1.34 | 
+| Paramiko | All versions | 
+| SSH.NET | 2020.0.0 | 
+| FileZilla | 3.14.0 | 
+| ssh2 (Node.js) | All versions | 
+| Apache MINA SSHD | All versions | 
+| libssh2 | 0.6 | 
+| SSHJ | All versions | 
+| Cyberduck | 2.2 | 
+
+To find the SSH clients that connect to your server, enable structured logging for your server. The `client` field contains the client's identification string, for example `SSH-2.0-OpenSSH_10.3`. For more information, see [JSON structured logs for Transfer Family](cw-structure-logs.md#json-log-entries). If a client waits for the server's SSH identification string before sending its own, or doesn't appear in this table, ask those users to upgrade before you enable PROXY protocol v2 for your NLB.
+
 ## Enable PROXY protocol v2 enforcement on an existing server
 <a name="nlb-sftp-enable-ppv2"></a>
 
@@ -33,7 +59,10 @@ Complete the following three steps in order to enable enforcement without refusi
 
 Enable the `proxy_protocol_v2.enabled` attribute on the NLB target group that points at your server's VPC endpoint. This attribute tells the NLB to prepend a PPv2 header to each connection. For instructions, see [Proxy protocol for your Network Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/edit-target-group-attributes.html#proxy-protocol) in the *Elastic Load Balancing User Guide*.
 
-While the server is still set to `SftpMode=NONE`, it reads and ignores any PPv2 header. Enabling PROXY protocol v2 on the target group at this stage causes no disruption.
+While the server is set to `SftpMode=NONE`, it accepts connections with or without a PPv2 header.
+
+**Note**  
+Some SSH clients wait to receive the server's SSH identification string before sending their own. When you enable PROXY protocol v2, these clients fail to complete the connection. Before you enable PROXY protocol v2, confirm that your users' clients send their identification string first. For details, see [SSH client compatibility with PROXY protocol v2](#nlb-sftp-client-compatibility).
 
 ### Step 2: Verify that the header arrives on every connection
 <a name="nlb-sftp-enable-step2"></a>
