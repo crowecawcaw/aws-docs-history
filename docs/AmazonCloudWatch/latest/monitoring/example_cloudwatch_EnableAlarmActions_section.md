@@ -100,12 +100,15 @@ Enable the alarm actions.
 
 **AWS CLI**  
 **To enable all actions for an alarm**  
-The following example uses the `enable-alarm-actions` command to enable all actions for the alarm named myalarm.:  
+The following `enable-alarm-actions` example enables all actions for the alarm named myalarm.  
 
 ```
-aws cloudwatch enable-alarm-actions --alarm-names {{myalarm}}
+aws cloudwatch enable-alarm-actions \
+    --alarm-names {{myalarm}}
 ```
+This command produces no output.  
 This command returns to the prompt if successful.  
+For more information, see [Alarm actions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-actions.html) in the *Amazon CloudWatch User Guide*.  
 +  For API details, see [EnableAlarmActions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/enable-alarm-actions.html) in *AWS CLI Command Reference*. 
 
 ------

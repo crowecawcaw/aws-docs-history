@@ -50,11 +50,18 @@ Action examples are code excerpts from larger programs and must be run in contex
 #### [ CLI ]
 
 **AWS CLI**  
-**To get the CPU utilization per EC2 instance**  
-The following example uses the `get-metric-statistics` command to get the CPU utilization for an EC2 instance with the ID i-abcdef.  
+**Example 1: To get the CPU utilization per EC2 instance**  
+The following `get-metric-statistics` example gets the CPU utilization for an EC2 instance with the ID i-abcdef.  
 
 ```
-aws cloudwatch get-metric-statistics --metric-name {{CPUUtilization}} --start-time {{2014-04-08T23:18:00Z}} --end-time {{2014-04-09T23:18:00Z}} --period {{3600}} --namespace {{AWS/EC2}} --statistics {{Maximum}} --dimensions {{Name=InstanceId,Value=i-abcdef}}
+aws cloudwatch get-metric-statistics \
+    --metric-name {{CPUUtilization}} \
+    --start-time {{2014-04-08T23:18:00Z}} \
+    --end-time {{2014-04-09T23:18:00Z}} \
+    --period {{3600}} \
+    --namespace {{AWS/EC2}} \
+    --statistics {{Maximum}} \
+    --dimensions {{Name=InstanceId,Value=i-abcdef}}
 ```
 Output:  
 
@@ -180,13 +187,40 @@ Output:
     "Label": "CPUUtilization"
 }
 ```
-**Specifying multiple dimensions**  
-The following example illustrates how to specify multiple dimensions. Each dimension is specified as a Name/Value pair, with a comma between the name and the value. Multiple dimensions are separated by a space. If a single metric includes multiple dimensions, you must specify a value for every defined dimension.  
-For more examples using the `get-metric-statistics` command, see Get Statistics for a Metric in the *Amazon CloudWatch Developer Guide*.  
+For more information, see [Get statistics for a metric (GetMetricStatistics)](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/getting-metric-statistics.html) in the *Amazon CloudWatch User Guide*.  
+**Example 2: To get statistics for a metric with multiple dimensions**  
+The following `get-metric-statistics` example illustrates how to specify multiple dimensions. Each dimension is specified as a Name/Value pair, with a comma between the name and the value. Multiple dimensions are separated by a space. If a single metric includes multiple dimensions, you must specify a value for every defined dimension.  
 
 ```
-aws cloudwatch get-metric-statistics --metric-name {{Buffers}} --namespace {{MyNameSpace}} --dimensions {{Name=InstanceID,Value=i-abcdef}} {{Name=InstanceType,Value=m1.small}} --start-time {{2016-10-15T04:00:00Z}} --end-time {{2016-10-19T07:00:00Z}} --statistics {{Average}} --period {{60}}
+aws cloudwatch get-metric-statistics \
+    --metric-name {{Buffers}} \
+    --namespace {{MyNameSpace}} \
+    --dimensions {{Name=InstanceID,Value=i-abcdef}} {{Name=InstanceType,Value=m1.small}} \
+    --start-time {{2016-10-15T04:00:00Z}} \
+    --end-time {{2016-10-19T07:00:00Z}} \
+    --statistics {{Average}} \
+    --period {{60}}
 ```
+Output:  
+
+```
+{
+    "Label": "Buffers",
+    "Datapoints": [
+        {
+            "Timestamp": "2016-10-15T04:00:00Z",
+            "Average": 231434333.0,
+            "Unit": "Bytes"
+        },
+        {
+            "Timestamp": "2016-10-15T04:01:00Z",
+            "Average": 231434333.0,
+            "Unit": "Bytes"
+        }
+    ]
+}
+```
+For more information, see [Get statistics for a metric (GetMetricStatistics)](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/getting-metric-statistics.html) in the *Amazon CloudWatch User Guide*.  
 +  For API details, see [GetMetricStatistics](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/get-metric-statistics.html) in *AWS CLI Command Reference*. 
 
 ------

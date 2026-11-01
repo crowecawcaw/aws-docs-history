@@ -257,6 +257,16 @@ When enabling control plane logging:
 + Rule updates only affect new clusters or only clusters that do not have the scoped log types enabled
 + Can enable specific log types: api, audit, authenticator, controllerManager, scheduler
 
+**Amazon EKS Container Insights**  
+When enabling Container Insights:  
++ Supports the INSIGHTS telemetry type on the `AWS::EKS::Cluster` resource type. The rule enables Container Insights as a whole and ignores any telemetry source types that you specify.
++ Does not support a destination configuration. CloudWatch installs the Amazon CloudWatch Observability EKS add-on on each matching cluster, and the add-on sends metrics and logs to CloudWatch. For more information, see [Install the CloudWatch agent with the Amazon CloudWatch Observability EKS add-on or the Helm chart](install-CloudWatch-Observability-EKS-addon.md).
++ CloudWatch creates one service role named **CloudWatchTelemetryRuleEKSAddonRole** that every matching cluster in the account shares. CloudWatch always creates this role from an AWS managed IAM role template, so you cannot direct CloudWatch to use a different role or a different configuration.
++ CloudWatch identifies the role it created by the `CloudWatchTelemetryRuleManaged` tag. If your account already has a role with this name that does not have that tag, CloudWatch does not install the add-on on any cluster in the account, and does not report an error. Rename or delete the conflicting role, and CloudWatch installs the add-on on the next evaluation.
++ You can create only one Container Insights rule per account or organization in each Region. This limit does not apply to Amazon EKS control plane logs rules.
++ Deleting the rule does not stop telemetry collection or the associated charges. To stop collection, uninstall the add-on from each cluster, which also removes the add-on-managed Amazon EKS Pod Identity association, and then delete the IAM role if no cluster still needs it.
++ Available only in the commercial AWS Regions where CloudWatch telemetry configuration is available. Not available in the AWS GovCloud (US) Regions or in the European Sovereign Cloud. In other Regions, `CreateTelemetryRule` returns a validation error and the option does not appear in the console.
+
 **AWS WAF Web ACL Logs**  
 When creating WAF logs:  
 + Uses default CloudWatch log group pattern and always prefixes with aws-waf-logs-

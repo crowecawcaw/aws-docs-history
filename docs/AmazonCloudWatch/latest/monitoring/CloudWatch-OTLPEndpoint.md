@@ -32,7 +32,9 @@ You need to configure your OpenTelemetry collector to start sending metrics to C
 
 The traces endpoint follows the pattern `https://xray.{{AWS Region}}.amazonaws.com/v1/traces`. For example, for the US West (Oregon) (us-west-2) Region, the endpoint will be `https://xray.us-west-2.amazonaws.com/v1/traces`.
 
-You need to configure your OpenTelemetry collector to start sending traces to CloudWatch. The endpoint authenticates callers using Signature 4 authentication. For more information, see [AWS Signature Version 4 for API requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html).
+You need to configure your OpenTelemetry collector to start sending traces to CloudWatch. The endpoint supports two authentication methods:
++ **AWS Signature Version 4 (SigV4)**– The recommended authentication method using short-term credentials. For more information, see [AWS Signature Version 4 for API requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html).
++ **Bearer token (API key)**– For workloads running outside AWS or environments that do not support the AWS SDK. Uses a long-lived X-Ray API key passed in the `Authorization` header. For more information, including the supported Regions, see [Setting up bearer token authentication for traces](https://docs.aws.amazon.com/xray/latest/devguide/xray-opentelemetry-bearer-token.html) in the *X-Ray Developer Guide*.
 
 ## RUM endpoint
 <a name="CloudWatch-RUMEndpoint"></a>
@@ -55,7 +57,7 @@ The table lists the common endpoint limits and restrictions for metrics, traces,
 
 | Limit | Endpoint | Additional information | 
 | --- | --- | --- | 
-| Required collector extension | [sigv4authextension](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/extension/sigv4authextension) | To send metrics, logs, or traces to the OTLP endpoints you must use sigv4authextension. For the metrics and logs endpoints, you can alternatively authenticate with a bearer token using the [bearertokenauth extension](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/extension/bearertokenauthextension). See [Setting up bearer token authentication for Metrics](CloudWatch-OTLP-MetricsBearerTokenAuth.md) or [Setting up bearer token authentication for Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_HTTP_Endpoints_BearerTokenAuth.html). | 
+| Required collector extension | [sigv4authextension](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/extension/sigv4authextension) | To send metrics, logs, or traces to the OTLP endpoints, use sigv4authextension, or authenticate with a bearer token by using the [bearertokenauth extension](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/extension/bearertokenauthextension). See [Setting up bearer token authentication for Metrics](CloudWatch-OTLP-MetricsBearerTokenAuth.md) or [Setting up bearer token authentication for Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_HTTP_Endpoints_BearerTokenAuth.html), or [Setting up bearer token authentication for traces](https://docs.aws.amazon.com/xray/latest/devguide/xray-opentelemetry-bearer-token.html). | 
 | Supported protocol | HTTP | The endpoint supports only HTTP and doesn't support gRPC | 
 | Supported OTLP versions | OTLP 1.x |   | 
 | Payload format | binary, json | The endpoint accepts requests using binary and json formats | 

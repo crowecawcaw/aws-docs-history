@@ -117,15 +117,13 @@ You can use `aws:ResourceTag/*` to control access to any tagged resource.
 ## Telemetry ingestion identity
 <a name="omni-identity-and-access-management-for-cloudwatch-omni-telemetry-ingestion-identity"></a>
 
-CloudWatch Omni supports two ways to authenticate telemetry ingestion. Which ones are available depends on the signal.
+You can authenticate telemetry ingestion in two ways. Both are available for metrics, logs, and traces.
 
-1. **Signature Version 4 with an IAM role.** Sign OTLP ingestion requests with Signature Version 4 using temporary role credentials. This is the recommended approach, and it is the only approach available for all three signals.
+1. **Signature Version 4 with an IAM role.** Sign OTLP ingestion requests with Signature Version 4 using temporary role credentials. This is the recommended approach.
 
-1. **A bearer token.** For clients that cannot sign with Signature Version 4, you can use an IAM service-specific credential on a dedicated IAM user. This is available for **metrics and logs only.**
+1. **A bearer token.** For clients that cannot sign with Signature Version 4, you can use an IAM service-specific credential on a dedicated IAM user. This is available for metrics, logs, and traces, with a separate API key for each.
 
-Traces have no bearer-token path. The X-Ray OTLP endpoint accepts Signature Version 4 only, so a client that sends traces must sign.
-
-For metrics and logs, you create an API key from CloudWatch settings in the console. The console creates a dedicated IAM user with the `CloudWatchAPIKeyAccess` managed policy and issues the bearer token as a service-specific credential on that user. For the published setup steps, see [Bearer token authentication for OTLP metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-OTLP-MetricsBearerTokenAuth.html) in the *Amazon CloudWatch User Guide* and [OTLP endpoints for CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_HTTP_Endpoints_OTLP.html) in the *Amazon CloudWatch Logs User Guide*.
+For metrics and logs, you create an API key from CloudWatch settings in the console. The console creates a dedicated IAM user with the `CloudWatchAPIKeyAccess` managed policy and issues the bearer token as a service-specific credential on that user. For the published setup steps, see [Bearer token authentication for OTLP metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-OTLP-MetricsBearerTokenAuth.html) in the *Amazon CloudWatch User Guide* and [OTLP endpoints for CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_HTTP_Endpoints_OTLP.html) in the *Amazon CloudWatch Logs User Guide*. For traces, see [Setting up bearer token authentication for traces](https://docs.aws.amazon.com/xray/latest/devguide/xray-opentelemetry-bearer-token.html) in the *X-Ray Developer Guide*.
 
 You create and manage API keys and their credentials in the CloudWatch console using your own IAM permissions. CloudWatch Omni itself can list them but cannot create, rotate, or delete them.
 

@@ -8,6 +8,8 @@ With an Amazon CloudWatch managed Prometheus collector, you can automatically di
 **Note**  
 When a Amazon CloudWatch managed Prometheus collector delivers your Amazon MSK metrics to CloudWatch, it automatically enriches each metric with attributes that identify its origin. Every metric carries the collector's instrumentation scope, cloud attributes that record the AWS account and Region, and a unit that the collector infers from the metric name. You can filter and group on these attributes when you query your metrics with PromQL.
 
+For instructions on collecting consumer-group lag, committed offsets, and membership, see [Collect Amazon MSK consumer-group metrics in CloudWatch](managed-prometheus-collectors-msk-kafka-exporter.md). That procedure uses a managed Kafka exporter and IAM authentication. The following procedure collects Open Monitoring metrics.
+
 ## Prerequisites
 <a name="managed-prometheus-collectors-msk-prerequisites"></a>
 

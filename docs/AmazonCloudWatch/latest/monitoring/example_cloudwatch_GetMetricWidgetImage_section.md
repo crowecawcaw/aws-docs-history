@@ -77,6 +77,7 @@ aws cloudwatch get-metric-widget-image \
     --output {{text}} {{|}} {{base64}} --decode {{>}} {{image.png}}
 ```
 This command produces no output.  
+For more information, see [Graphing metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/graph_metrics.html) in the *Amazon CloudWatch User Guide*.  
 +  For API details, see [GetMetricWidgetImage](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/get-metric-widget-image.html) in *AWS CLI Command Reference*. 
 
 ------

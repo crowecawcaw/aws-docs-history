@@ -76,6 +76,14 @@ Pair it with a viewer grant:
 | US East (Ohio), us-east-2 | Amazon CloudWatch - US East (Ohio) | 
 | US West (Oregon), us-west-2 | Amazon CloudWatch - US West Oregon | 
 | Europe (Ireland), eu-west-1 | Amazon CloudWatch - EU (Ireland) | 
+| Asia Pacific (Mumbai), ap-south-1 | Amazon CloudWatch - AP (Mumbai) | 
+| Asia Pacific (Singapore), ap-southeast-1 | Amazon CloudWatch - AP (Singapore) | 
+| Asia Pacific (Sydney), ap-southeast-2 | Amazon CloudWatch - AP (Sydney) | 
+| Asia Pacific (Tokyo), ap-northeast-1 | Amazon CloudWatch - AP (Tokyo) | 
+| Canada (Central), ca-central-1 | Amazon CloudWatch - CA (Central) | 
+| Europe (Frankfurt), eu-central-1 | Amazon CloudWatch - EU (Frankfurt) | 
+| Europe (London), eu-west-2 | Amazon CloudWatch - EU (London) | 
+| South America (São Paulo), sa-east-1 | Amazon CloudWatch - SA (Sao Paulo) | 
 
 ## Disconnect an integration
 <a name="omni-connect-slack-disconnect-an-integration"></a>

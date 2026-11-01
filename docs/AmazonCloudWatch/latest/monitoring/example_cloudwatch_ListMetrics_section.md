@@ -221,6 +221,7 @@ Output:
     ]
 }
 ```
+For more information, see [View available metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/viewing_metrics_with_cloudwatch.html) in the *Amazon CloudWatch User Guide*.  
 +  For API details, see [ListMetrics](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/list-metrics.html) in *AWS CLI Command Reference*. 
 
 ------

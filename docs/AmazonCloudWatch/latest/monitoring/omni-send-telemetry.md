@@ -104,7 +104,7 @@ The CloudWatch agent is the recommended path for applications, and it is the pat
 
 | Endpoint | Use for | Authentication | 
 | --- | --- | --- | 
-| Traces | Application traces forwarded by the CloudWatch agent, and AgentCore runtime traces. The primary signal for Omni. | SigV4 only | 
+| Traces | Application traces forwarded by the CloudWatch agent, and AgentCore runtime traces. The primary signal for Omni. | SigV4, or a bearer token | 
 | Metrics | Custom OpenTelemetry metrics, queryable with PromQL. | SigV4, or a bearer token | 
 | Logs | Log records, forwarded to a log group and log stream you name in request headers. | SigV4, or a bearer token | 
 
@@ -116,11 +116,11 @@ Enable Transaction Search in the Region before you send traces. It is an account
 ## Authentication
 <a name="omni-send-telemetry-authentication"></a>
 
-AWS Signature Version 4 (SigV4) with short-lived credentials is the default for every path and the only method the traces endpoint accepts. A workload running on AWS compute signs with the role it already has, but that role must carry the permissions for the path you use, and the three paths do not share one permission set. Each procedure page shows the statement to attach.
+AWS Signature Version 4 (SigV4) with short-lived credentials is the default for every path. A workload running on AWS compute signs with the role it already has, but that role must carry the permissions for the path you use, and the three paths do not share one permission set. Each procedure page shows the statement to attach.
 + Collector path: the CloudWatch agent's managed policy, `CloudWatchAgentServerPolicy`.
 + An AgentCore runtime: the trace-delivery actions `xray:GetSamplingRules`, `xray:GetSamplingTargets`, `xray:PutTelemetryRecords`, and `xray:PutTraceSegments` on the runtime's execution role.
 
-Workloads outside AWS can federate for temporary credentials; the Azure and Google Cloud procedures do this. Restrict bearer tokens to scenarios where short-lived credentials are not feasible. The metrics and logs endpoints accept a long-lived bearer token. The traces endpoint does not, and accepts SigV4 only. See [Setting up bearer token authentication for Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-OTLP-MetricsBearerTokenAuth.html). Token creation requires IAM mutating actions, so it is an administrator task.
+Workloads outside AWS can federate for temporary credentials; the Azure and Google Cloud procedures do this. Restrict bearer tokens to scenarios where short-lived credentials are not feasible. The metrics, logs, and traces endpoints accept a long-lived bearer token, with a separate API key for each service. See [Setting up bearer token authentication for Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-OTLP-MetricsBearerTokenAuth.html), [Setting up bearer token authentication for Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_HTTP_Endpoints_BearerTokenAuth.html), and [Setting up bearer token authentication for traces](https://docs.aws.amazon.com/xray/latest/devguide/xray-opentelemetry-bearer-token.html). Token creation requires IAM mutating actions, so it is an administrator task.
 
 ## Environment support
 <a name="omni-send-telemetry-environment-support"></a>

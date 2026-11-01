@@ -57,7 +57,7 @@ Sending metrics over OTLP uses the `cloudwatch:PutMetricData` permission, even t
 
 People who query metrics or create alarms also need the `cloudwatch:GetMetricData` and `cloudwatch:ListMetrics` permissions. For more information, see [IAM permissions for PromQL](CloudWatch-PromQL.md#CloudWatch-PromQL-IAM).
 
-Workloads outside AWS can use a bearer token instead of SigV4 for metrics and logs. The traces endpoint doesn't support bearer tokens; traces require SigV4. For more information, see [Setting up bearer token authentication for Metrics](CloudWatch-OTLP-MetricsBearerTokenAuth.md).
+Workloads outside AWS can use a bearer token instead of SigV4 for metrics, logs, and traces. Each service needs its own API key. For more information, including the Regions where traces support bearer tokens, see [Setting up bearer token authentication for Metrics](CloudWatch-OTLP-MetricsBearerTokenAuth.md) and [Setting up bearer token authentication for traces](https://docs.aws.amazon.com/xray/latest/devguide/xray-opentelemetry-bearer-token.html).
 
 ## Step 1: Instrumenting your application
 <a name="GettingSetup-Instrument"></a>
@@ -337,7 +337,7 @@ Check the Collector logs first. Export errors include the HTTP status code from 
 | 4xx on logs, missing header | The logs exporter doesn't set the `x-aws-log-group` or `x-aws-log-stream` header. | Set both headers on the `otlphttp/logs` exporter to the target log group and stream. | 
 | A log event is truncated or rejected | A single request to the logs endpoint is larger than 1 MB. | Reduce the batch size or the size of each log record so that each request stays under 1 MB. | 
 | Traces rejected | Transaction Search isn't enabled in the Region. | Enable CloudWatch Transaction Search, and then resend the traces. | 
-| 403 on traces in the Collector logs | A bearer token was used for traces. The traces endpoint doesn't support bearer tokens. | Use SigV4 for traces. Configure the `sigv4auth` extension with the `xray` service. | 
+| 403 on traces in the Collector logs | A bearer token was used for traces with a metrics or logs API key, or the X-Ray API key is invalid, inactive, or expired, or its IAM user isn't allowed `xray:CallWithBearerToken` or `xray:PutTraceSegments`. | Use an X-Ray API key with the required permissions, or use SigV4 (the `sigv4auth` extension with the `xray` service). For more information, see [Setting up bearer token authentication for traces](https://docs.aws.amazon.com/xray/latest/devguide/xray-opentelemetry-bearer-token.html). | 
 | Connection errors to CloudWatch | The exporter is gRPC (`otlp`) instead of `otlphttp`, or the Region in the URL is wrong. | Use `otlphttp`, and use the same Region in the URL and in `sigv4auth`. | 
 | The application logs `connection refused` | The Collector isn't running, or port 4318 isn't published. | Start the Collector, and check `-p 4318:4318`. | 
 | 400, too many data points | A batch has more than 1,000 data points. | Set `send_batch_max_size: 1000`. | 
@@ -382,7 +382,7 @@ The following table shows where the Collector runs and which credentials to use 
 | Amazon EKS | A DaemonSet or Deployment. Applications send to its Service. | IAM roles for service accounts or Amazon EKS Pod Identity | 
 | Amazon ECS | A sidecar container in the task | Task role | 
 | Amazon EC2 | A service on each instance | Instance profile | 
-| On-premises | A service on each host, or a central gateway | IAM Roles Anywhere, or a bearer token for metrics and logs | 
+| On-premises | A service on each host, or a central gateway | IAM Roles Anywhere, or a bearer token for metrics, logs, and traces | 
 
 Before you go to production, also plan for the following:
 + Configure the sending queue and retry settings on each exporter.

@@ -28,7 +28,7 @@ A monitor publishes the following metrics:
 + **Round-trip time:** This metric, measured in microseconds, is a measure of performance. It records the time it takes for the probe to be transmitted to the destination IP address and for the associated response to be received. The round-trip time is the average time observed during the aggregation interval.
 + **Packet loss:** This metric measures the percentage of total packets sent and records the number of transmissions that didn't receive an associated response. No response implies that the packets were lost along the network path.
 
-Probes that reach destinations across an AWS Transit Gateway inter-Region peering connection send more traffic to cover the additional network paths. You can expect up to 240 packets per second (PPS) to each of these destinations.
+Probes on inter-Region paths send more traffic to cover the additional network paths. You can expect up to 240 packets per second (PPS) to each of these destinations.
 
 ## Supported communication protocols
 <a name="nw-monitor-protocol"></a>
@@ -44,7 +44,21 @@ TCP-based probes carry TCP SYN packets from your AWS hosted resources to the des
 
 Network Synthetic Monitor publishes a network health indicator (NHI) metric that provides information on issues with the AWS network for paths that include destinations connected through Direct Connect.
 
-You can also use the NHI metric for paths that reach a destination in a peered Region. These paths cross an AWS Transit Gateway inter-Region peering connection. For these paths, the NHI reflects the health of the AWS network path up to the Transit Gateway peering connection.
+The NHI also supports inter-Region paths, which reach a destination in another AWS Region. The NHI supports the following inter-Region path types:
+
+AWS PrivateLink  
+Paths to an interface VPC endpoint that connects to an endpoint service in another Region.
+
+AWS Transit Gateway inter-Region peering  
+Paths that use a Transit Gateway peering attachment to reach another Region. For these paths, the NHI reflects the health of the AWS network path up to the Transit Gateway peering connection.
+
+Amazon EC2 public IP address  
+Paths through an internet gateway to a public IP address of Amazon EC2 in another Region.
+
+Inter-Region VPC peering  
+Paths that use a VPC peering connection to a VPC in another Region. A VPC peering connection within the same Region is not an inter-Region path.
+
+For AWS PrivateLink, Amazon EC2 public IP address, and VPC peering paths, the NHI reflects the health of the AWS network path from the subnet where the monitor is deployed to the destination Region.
 
 The NHI binary value is based on a statistical measure of the health of the AWS-controlled network path from the AWS hosted resource, where the monitor is deployed, to the Direct Connect location. Network Synthetic Monitor uses anomaly detection to calculate availability drops or lower performance along the network paths. 
 

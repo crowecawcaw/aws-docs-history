@@ -44,10 +44,11 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To list information about an alarm**  
-The following example uses the `describe-alarms` command to provide information about the alarm named "myalarm":  
+The following `describe-alarms` example provides information about the alarm named "myalarm".  
 
 ```
-aws cloudwatch describe-alarms --alarm-names {{"myalarm"}}
+aws cloudwatch describe-alarms \
+    --alarm-names {{"myalarm"}}
 ```
 Output:  
 
@@ -56,12 +57,12 @@ Output:
     "MetricAlarms": [
         {
             "EvaluationPeriods": 2,
-            "AlarmArn": "arn:aws:cloudwatch:us-east-1:123456789012:alarm:myalarm",
+            "AlarmArn": "arn:aws:cloudwatch:us-west-2:123456789012:alarm:myalarm",
             "StateUpdatedTimestamp": "2014-04-09T18:59:06.442Z",
             "AlarmConfigurationUpdatedTimestamp": "2012-12-27T00:49:54.032Z",
             "ComparisonOperator": "GreaterThanThreshold",
             "AlarmActions": [
-                "arn:aws:sns:us-east-1:123456789012:myHighCpuAlarm"
+                "arn:aws:sns:us-west-2:123456789012:myHighCpuAlarm"
             ],
             "Namespace": "AWS/EC2",
             "AlarmDescription": "CPU usage exceeds 70 percent",
@@ -86,6 +87,7 @@ Output:
     ]
 }
 ```
+For more information, see [Using Amazon CloudWatch alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Alarms.html) in the *Amazon CloudWatch User Guide*.  
 +  For API details, see [DescribeAlarms](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/describe-alarms.html) in *AWS CLI Command Reference*. 
 
 ------

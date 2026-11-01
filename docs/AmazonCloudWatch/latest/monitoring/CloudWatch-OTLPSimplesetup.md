@@ -97,7 +97,7 @@ Steps:
       ```
 
 **Tip**  
-For on-premises hosts that only need to send metrics or logs, you can use bearer token authentication as a simpler alternative to configuring AWS access keys. Bearer tokens don't require the `aws configure` step or credential files on the host. For more information, see [Setting up bearer token authentication for Metrics](CloudWatch-OTLP-MetricsBearerTokenAuth.md).
+For on-premises hosts that send metrics, logs, or traces, you can use bearer token authentication as a simpler alternative to configuring AWS access keys. Bearer tokens don't require the `aws configure` step or credential files on the host. For more information, see [Setting up bearer token authentication for Metrics](CloudWatch-OTLP-MetricsBearerTokenAuth.md) and [Setting up bearer token authentication for traces](https://docs.aws.amazon.com/xray/latest/devguide/xray-opentelemetry-bearer-token.html).
 
 ------
 
@@ -163,9 +163,9 @@ For on-premises hosts that only need to send metrics or logs, you can use bearer
 ## Authenticate with a bearer token (API key)
 <a name="CloudWatch-OTLPBearerTokenAuth-Option"></a>
 
-If you don't need to configure AWS credentials on the host – for example, when running on non-AWS infrastructure, other cloud providers, or CI/CD pipelines – you can use bearer token authentication instead of SigV4. Bearer tokens are supported for the metrics and logs endpoints (separate API keys are required for each service). Bearer token authentication is not supported for traces.
+If you don't need to configure AWS credentials on the host – for example, when running on non-AWS infrastructure, other cloud providers, or CI/CD pipelines – you can use bearer token authentication instead of SigV4. Bearer tokens are supported for the metrics, logs, and traces endpoints (separate API keys are required for each service).
 
-For setup instructions, see [Setting up bearer token authentication for Metrics](CloudWatch-OTLP-MetricsBearerTokenAuth.md). For logs, see [Setting up bearer token authentication for Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_HTTP_Endpoints_BearerTokenAuth.html).
+For setup instructions, see [Setting up bearer token authentication for Metrics](CloudWatch-OTLP-MetricsBearerTokenAuth.md). For logs, see [Setting up bearer token authentication for Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_HTTP_Endpoints_BearerTokenAuth.html). For traces, including the Regions where bearer tokens are supported, see [Setting up bearer token authentication for traces](https://docs.aws.amazon.com/xray/latest/devguide/xray-opentelemetry-bearer-token.html) in the *X-Ray Developer Guide*.
 
 For a collector configuration example using bearer tokens, see the bearer token metrics example in the collector configuration examples below.
 

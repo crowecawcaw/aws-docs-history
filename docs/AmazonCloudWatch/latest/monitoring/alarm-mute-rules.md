@@ -68,7 +68,9 @@
 
  During an active mute window, when a targeted alarm changes state and has actions configured, CloudWatch mutes those actions from executing. Mutes are applied only to alarm actions, meaning that alarms continue to be evaluated and state changes are visible in the CloudWatch console. However, configured actions such as Amazon Simple Notification Service notifications, Amazon Elastic Compute Cloud Auto Scaling actions, or Amazon EC2 actions are prevented from executing. CloudWatch continues to evaluate alarm states normally throughout the mute period, and you can view this information through alarm history. 
 
- When a mute window ends, if the targeted alarm(s) remains in an alarming state (OK/ALARM/INSUFFICIENT\_DATA), CloudWatch automatically re-triggers the alarm actions that were muted during the window. This ensures that your alarm actions are executed for ongoing issues after the planned mute period ends, maintaining the integrity of your monitoring system. 
+ When a mute window ends, CloudWatch compares the current state of each targeted alarm with the state that the alarm was in when the mute window started. If the two states are different, CloudWatch automatically executes the actions configured for the alarm's current state. This ensures that your alarm actions are executed for ongoing issues after the planned mute period ends, maintaining the integrity of your monitoring system. 
+
+ If the alarm is in the same state as it was when the mute window started, no actions are executed when the window ends. This is true even if the alarm changed state during the window and then returned to its original state before the window ended. The state in which an individual action was muted is not used for this comparison. A state change that happens after the mute window has ended is not affected by the mute rule, and its actions are executed as usual. 
 
 **Note**  
  When you mute an alarm:   

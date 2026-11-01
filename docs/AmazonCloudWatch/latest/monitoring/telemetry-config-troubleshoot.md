@@ -21,6 +21,8 @@ If enablement rules are not applying to your resources, check the following:
 + Verify the rule scope configuration. Make sure the rule targets the correct organization, OU, or account.
 + Check tag filters. If the rule uses tag-based filtering, verify that the target resources have the expected tags.
 + Check for rule conflicts. If multiple conflicting rules exist, none of the conflicting rules are applied. For more information, see [Rule evaluation hierarchy](telemetry-config-rules.md#telemetry-config-rules-hierarchy).
++ For Amazon EKS Container Insights, check the cluster state. A rule does not apply to a cluster until the cluster reaches the `ACTIVE` state. CloudWatch retries on a later evaluation cycle.
++ For Amazon EKS Container Insights, check the add-on state. The Amazon CloudWatch Observability EKS add-on deploys the CloudWatch agent as a DaemonSet, so on a cluster that has no nodes the add-on installs but reports `DEGRADED` in the Amazon EKS `DescribeAddon` response and sends no telemetry. CloudWatch treats the rule as satisfied and does not retry. The add-on starts sending telemetry when a node becomes available.
 
 **Note**  
 When you create an enablement rule, we discover non-compliant resources (those without telemetry enabled) through AWS Config Configuration Items (CIs) before turning them on based on your enablement rule scope. The initial discovery of the resources may take up to 24 hours to complete in some cases.

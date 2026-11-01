@@ -44,10 +44,12 @@ The following code examples show how to use `DescribeAlarmHistory`.
 
 **AWS CLI**  
 **To retrieve history for an alarm**  
-The following example uses the `describe-alarm-history` command to retrieve history for the Amazon CloudWatch alarm named "myalarm":  
+The following `describe-alarm-history` example retrieves history for the Amazon CloudWatch alarm named "myalarm".  
 
 ```
-aws cloudwatch describe-alarm-history --alarm-name {{"myalarm"}} --history-item-type {{StateUpdate}}
+aws cloudwatch describe-alarm-history \
+    --alarm-name {{"myalarm"}} \
+    --history-item-type {{StateUpdate}}
 ```
 Output:  
 
@@ -71,6 +73,7 @@ Output:
     ]
 }
 ```
+For more information, see [Using Amazon CloudWatch alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Alarms.html) in the *Amazon CloudWatch User Guide*.  
 +  For API details, see [DescribeAlarmHistory](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/describe-alarm-history.html) in *AWS CLI Command Reference*. 
 
 ------
