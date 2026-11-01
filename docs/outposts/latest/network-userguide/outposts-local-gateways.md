@@ -14,6 +14,7 @@ The local gateway is a core component of the architecture for your Outposts rack
 + [VIF and VIF groups](vif-vif-groups.md)
 + [CoIP pools](coip-pools.md)
 + [Routing domains](routing-domains.md)
++ [Limits](lgw-limits.md)
 
 ## Local gateway basics
 <a name="local-gateway"></a>
