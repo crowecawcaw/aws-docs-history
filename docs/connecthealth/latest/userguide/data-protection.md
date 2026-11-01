@@ -63,4 +63,13 @@ Amazon Connect Health uses Amazon Bedrock foundation models to power AI capabili
 ## Service improvement and how to opt out
 <a name="service-improvement"></a>
 
-You can opt out of the use of your content for service improvement by contacting the Amazon Connect Health team at [amazon-connecthealth-ai-optout@amazon.com](mailto:amazon-connecthealth-ai-optout@amazon.com) with your AWS Account ID.
+You can always choose to opt out of having your data used to develop and improve the AI features of Amazon Connect Health by using an AWS Organizations opt-out policy. For information about how to opt out, see [AI services opt-out policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html) in the *AWS Organizations User Guide*.
+
+Amazon Connect Health supports two opt-out types that you can set independently in your AWS Organizations opt-out policy:
++  `connecthealth::operations` — Opts out of having your content used for quality evaluations and troubleshooting. When you stay opted in, Amazon Connect Health can proactively detect problems and improve performance and quality.
++  `connecthealth::training` — Opts out of using de-identified data for training general service models used for Amazon Connect Health.
+
+To check your opt-out status, review the opt-out policy configured by your organization. For more information, see [AI services opt-out policy syntax and examples](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out_syntax.html#ai-opt-out-policy-syntax-reference).
+
+**Note**  
+To use the opt-out policy, your AWS accounts must be centrally managed by AWS Organizations. If you haven’t already created an organization for your AWS accounts, see [Creating and managing an organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org.html) in the *AWS Organizations User Guide*.
