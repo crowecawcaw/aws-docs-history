@@ -13,8 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To describe the repositories in a registry**  
-This example describes the repositories in the default registry for an account.  
-Command:  
+The following `describe-repositories` example describes the repositories in the default registry for an account.  
 
 ```
 aws ecr describe-repositories
@@ -25,18 +24,19 @@ Output:
 {
     "repositories": [
         {
-            "registryId": "012345678910",
+            "registryId": "123456789012",
             "repositoryName": "ubuntu",
-            "repositoryArn": "arn:aws:ecr:us-west-2:012345678910:repository/ubuntu"
+            "repositoryArn": "arn:aws:ecr:us-west-2:123456789012:repository/ubuntu"
         },
         {
-            "registryId": "012345678910",
+            "registryId": "123456789012",
             "repositoryName": "test",
-            "repositoryArn": "arn:aws:ecr:us-west-2:012345678910:repository/test"
+            "repositoryArn": "arn:aws:ecr:us-west-2:123456789012:repository/test"
         }
     ]
 }
 ```
+For more information, see [Viewing the contents and details of a private repository in Amazon ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-info.html) in the *Amazon ECR User Guide*.  
 +  For API details, see [DescribeRepositories](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/describe-repositories.html) in *AWS CLI Command Reference*. 
 
 ------

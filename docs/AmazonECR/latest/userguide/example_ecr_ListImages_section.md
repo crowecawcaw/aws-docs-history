@@ -36,6 +36,7 @@ Output:
     ]
 }
 ```
+For more information, see [Private images in Amazon ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/images.html) in the *Amazon ECR User Guide*.  
 +  For API details, see [ListImages](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/list-images.html) in *AWS CLI Command Reference*. 
 
 ------

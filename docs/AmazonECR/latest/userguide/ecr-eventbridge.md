@@ -274,3 +274,36 @@ The following event is sent when each image replication is completed. For more i
   }
 }
 ```
+
+**Event for a replication backfill**
+
+The following event is sent when a replication backfill enters a terminal status (`COMPLETE`, `FAILED`, or `STOPPED`). For more information, see [Replication backfill](replication-backfill.md).
+
+```
+{
+    "version": "0",
+    "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    "detail-type": "ECR Replication Backfill",
+    "source": "aws.ecr",
+    "account": "{{123456789012}}",
+    "time": "2026-09-25T13:49:48Z",
+    "region": "us-east-1",
+    "resources": [],
+    "detail": {
+        "destination": {
+            "region": "us-west-2",
+            "registry-id": "{{123456789012}}"
+        },
+        "replication-backfill-id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+        "status": "COMPLETE",
+        "started-at": "2026-09-25T13:48:26.976Z",
+        "ended-at": "2026-09-25T13:49:48.857Z",
+        "progress": {
+            "number-of-replications": 250,
+            "number-of-replications-completed": 250,
+            "number-of-replications-failed": 0,
+            "failure-codes": []
+        }
+    }
+}
+```

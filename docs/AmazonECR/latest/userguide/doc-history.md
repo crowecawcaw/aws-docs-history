@@ -8,6 +8,7 @@ The following table describes the important changes to the documentation since t
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Added replication backfill | Amazon ECR added documentation describing how to use replication backfill to replicate preexisting images in your private registry to your configured replication destinations. For more information, see [Replication backfill](replication-backfill.md). | 26 October 2026 | 
 | Added migration guide for third-party registries | Amazon ECR added documentation describing how to identify, copy, and verify container images from third-party registries such as Docker Hub, GitHub Container Registry, and self-hosted registries into your Amazon ECR private registry. For more information, see [Migrate container images from a third-party registry](migrate-from-third-party.md). | 15 June 2026 | 
 | Clair-based scanning deprecation completed | As of February 2, 2026, Clair-based image scanning has been deprecated and all ECR accounts have been migrated to AWS native basic scanning. Documentation has been updated to remove Clair-specific content and reflect that AWS native is now the only implementation of basic scanning. | 2 February 2026 | 
 | ECR managed signing | Amazon ECR now supports managed container image signing to enhance your security posture and eliminate the operational overhead of setting up signing. Container image signing allows you to verify that images are from trusted sources. For more information, see [Managed signing](managed-signing.md). | 21 November 2025 | 

@@ -31,6 +31,7 @@ Output:
     ]
 }
 ```
+For more information, see [Private registry authentication in Amazon ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry_auth.html) in the *Amazon ECR User Guide*.  
 +  For API details, see [GetAuthorizationToken](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/get-authorization-token.html) in *AWS CLI Command Reference*. 
 
 ------

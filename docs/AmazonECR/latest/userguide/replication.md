@@ -10,6 +10,7 @@ You can configure your Amazon ECR private registry to support the replication of
 + [Considerations for private image replication](#replication-considerations)
 + [Private image replication examples for Amazon ECR](registry-settings-examples.md)
 + [Configuring private image replication in Amazon ECR](registry-settings-configure.md)
++ [Replication backfill](replication-backfill.md)
 + [Removing private image replication settings in Amazon ECR](registry-settings-remove.md)
 
 ## Cross-account replication policy requirements
@@ -100,7 +101,7 @@ If cross-account replication is failing, check the following:
 <a name="replication-considerations"></a>
 
 The following should be considered when using private image replication.
-+ Only repository content pushed or restored to a repository after replication is configured is replicated. Any preexisting content in a repository isn't replicated. If an image is restored after replication is turned on, it will be replicated. If it is restored before replication is turned on, it won't be replicated.
++ Only repository content pushed or restored to a repository after replication is configured is replicated. Any preexisting content in a repository isn't replicated. If an image is restored after replication is turned on, it will be replicated. If it is restored before replication is turned on, it won't be replicated. To replicate preexisting images, use replication backfill. For more information, see [Replication backfill](replication-backfill.md).
 + The repository name will remain the same across Regions and accounts when replication has occurred. Amazon ECR doesn't support changing the repository name during replication.
 + The first time you configure your private registry for replication, Amazon ECR creates a service-linked IAM role on your behalf. The service-linked IAM role grants the Amazon ECR replication service the permission it needs to create repositories and replicate images in your registry. For more information, see [Using service-linked roles for Amazon ECR](using-service-linked-roles.md).
 + For cross-account replication to occur, the private registry destination must grant permission to allow the source registry to replicate its images. This is done by setting a private registry permissions policy. For more information, see [Private registry permissions in Amazon ECR](registry-permissions.md).
