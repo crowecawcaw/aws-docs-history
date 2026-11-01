@@ -46,7 +46,9 @@ Yes, refer to [Lightsail service quotas](https://docs.aws.amazon.com/general/lat
 ## How can I configure my distribution to redirect HTTP requests to HTTPS?
 <a name="configure-distribution-to-redirect-to-https"></a>
 
-Lightsail distributions automatically redirect all HTTP requests to HTTPS to ensure that your content is served securely.
+For distributions that use an instance, load balancer, or container service as the origin, Lightsail automatically redirects all HTTP requests to HTTPS. This keeps your content secure.
+
+Distributions that use a bucket as the origin accept only HTTPS requests. A bucket-origin distribution does not redirect HTTP requests to HTTPS. Instead, it rejects any HTTP request.
 
 ## How do Lightsail distributions help protect my website?
 <a name="distribution-security-controls"></a>

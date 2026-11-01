@@ -22,7 +22,7 @@ You can choose one of the following origin protocol policies for your distributi
 The steps to edit your origin protocol policy are included in the [Create a distribution](amazon-lightsail-creating-content-delivery-network-distribution.md#creating-a-distribution) section of the [Create and configure a distribution](amazon-lightsail-creating-content-delivery-network-distribution.md) guide.
 
 **Note**  
-When you select a Lightsail bucket as the origin of your distribution, the **Origin protocol policy** defaults to **HTTP only**. You cannot change the origin protocol policy when a bucket is the origin of your distribution.
+When you select a Lightsail bucket as the origin of your distribution, the distribution connects to the bucket over HTTPS. You cannot change the origin protocol policy when a bucket is the origin of your distribution.
 
 ## Origin IP address type
 <a name="distribution-origin-ip-address-type"></a>

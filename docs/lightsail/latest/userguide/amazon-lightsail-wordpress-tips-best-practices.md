@@ -10,7 +10,7 @@ This guide collects practical tips for keeping a WordPress instance on Amazon Li
 
 ### Keep WordPress, themes, and plugins updated
 <a name="wordpress-keep-updated"></a>
-+ Apply WordPress core, theme, and plugin updates promptly. Updates often include performance and security fixes. For more information, see [Keep Lightsail instances and containers secure with update management](amazon-lightsail-update-management.md).
++ Apply WordPress core, theme, and plugin updates promptly. Updates often include performance and security fixes. For more information, see [Update your Lightsail instances and containers](amazon-lightsail-update-management.md).
 + Remove plugins and themes you are not using. Inactive plugins still add maintenance overhead and security surface, and poorly written plugins are a frequent cause of high memory usage.
 + Test major updates on a snapshot-launched copy of your instance before applying them to your live site.
 

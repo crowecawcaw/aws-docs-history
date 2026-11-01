@@ -1,9 +1,19 @@
 
 
-# Keep Lightsail instances and containers secure with update management
+# Update your Lightsail instances and containers
 <a name="amazon-lightsail-update-management"></a>
 
 Amazon Web Services (AWS), Amazon Lightsail, and third-party application vendors periodically update and patch the instance images (also known as *blueprints*) that are available on Lightsail. AWS and Lightsail do not update or patch the operating system or applications on instances after you create them. Lightsail also does not update or patch the operating system and software that you configure on your Lightsail container services. Therefore, we recommend that you regularly update, patch, and secure the operating system and applications on your Amazon Lightsail instances and container services. For more information, see the [AWS Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/).
+
+**Important**  
+**CVE-2026-98432**: A flaw in the Linux kernel's IPv4 networking code can let a remote attacker crash an instance, or possibly corrupt memory, by sending specially timed TCP traffic. This issue affects instances created from the Amazon Linux 2023 (AL2023) and Amazon Linux 2 blueprints. To address it, update the kernel to the following version or later, and then reboot the instance:  
+AL2023 (kernel 6.1): `6.1.189-236.400.amzn2023`
+Amazon Linux 2 (kernel 4.14): `4.14.355-287.758.amzn2`
+Amazon Linux 2 (kernel 5.10, if you installed it yourself): `5.10.271-272.1121.amzn2`
+For the update steps, see [Update Amazon Linux on Lightsail instances](update-amazon-linux.md).
+
+**Topics**
++ [Update Amazon Linux on Lightsail instances](update-amazon-linux.md)
 
 ## Instance blueprint software support
 <a name="instance-blueprint-vendor-links"></a>
@@ -15,8 +25,8 @@ The following list of Amazon Lightsail platforms and blueprints links to each ve
 + [Microsoft SQL Server](https://docs.microsoft.com/en-us/sql/)
 
 **Linux and Unix** – Operating system only
-+ [Amazon Linux 2023](https://aws.amazon.com/linux/amazon-linux-2023/)
-+ [Amazon Linux 2](https://aws.amazon.com/amazon-linux-2)
++ [Amazon Linux 2023](update-amazon-linux.md#update-amazon-linux-2023)
++ [Amazon Linux 2](update-amazon-linux.md#update-amazon-linux-2)
 + [Ubuntu](https://ubuntu.com/support/community-support)
 + [Debian](https://www.debian.org/support)
 + [FreeBSD](https://www.freebsd.org/community)

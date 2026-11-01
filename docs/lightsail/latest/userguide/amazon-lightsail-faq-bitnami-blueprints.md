@@ -32,6 +32,6 @@ The deprecation does not require you to modify your operating model. If you were
 ## Am I responsible for applying updates and patches to my existing instances that use blueprints packaged by Bitnami?
 <a name="am-i-responsible-for-updates-bitnami-instances"></a>
 
-Yes. Your operational model for maintaining existing instances is not affected. You are responsible for keeping your running instances up-to-date by applying any software updates and security patches. The nature of this responsibility model provides flexibility and control. To learn more, refer to [Update management](amazon-lightsail-update-management.md).
+Yes. Your operational model for maintaining existing instances is not affected. You are responsible for keeping your running instances up-to-date by applying any software updates and security patches. The nature of this responsibility model provides flexibility and control. To learn more, refer to [Update your Lightsail instances and containers](amazon-lightsail-update-management.md).
 
 When creating a new instance through the Lightsail console or API, we recommend using a blueprint packaged by Lightsail to get the up-to-date blueprint. Blueprints packaged by Lightsail are available for WordPress, WordPress Multisite, LAMP, Nginx, and Node.js.
