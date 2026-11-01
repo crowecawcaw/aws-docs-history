@@ -34,11 +34,14 @@ Use the [cancel-update-stack](https://docs.aws.amazon.com/cli/latest/reference/c
 
 **AWS CLI**  
 **To cancel a stack update that is in progress**  
-The following `cancel-update-stack` command cancels a stack update on the `myteststack` stack:  
+The following `cancel-update-stack` example cancels a stack update on the `myteststack` stack.  
 
 ```
-aws cloudformation cancel-update-stack --stack-name {{myteststack}}
+aws cloudformation cancel-update-stack \
+    --stack-name {{myteststack}}
 ```
+This command produces no output.  
+For more information, see [Cancel a stack update](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-update-cancel.html) in the *AWS CloudFormation User Guide*.  
 +  For API details, see [CancelUpdateStack](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/cancel-update-stack.html) in *AWS CLI Command Reference*. 
 
 ------
@@ -79,6 +82,7 @@ aws cloudformation continue-update-rollback \
     --stack-name {{my-stack}}
 ```
 This command produces no output.  
+For more information, see [Continue rolling back an update](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html) in the *AWS CloudFormation User Guide*.  
 +  For API details, see [ContinueUpdateRollback](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/continue-update-rollback.html) in *AWS CLI Command Reference*. 
 
 ------
@@ -114,19 +118,60 @@ The following examples show how to create a new stack with the specified name, t
 
 **AWS CLI**  
 **To create an AWS CloudFormation stack**  
-The following `create-stacks` command creates a stack with the name `myteststack` using the `sampletemplate.json` template:  
+The following `create-stack` example creates a stack with the name `myteststack` using the `sampletemplate.json` template.  
 
 ```
-aws cloudformation create-stack --stack-name {{myteststack}} --template-body {{file://sampletemplate.json}} --parameters {{ParameterKey=KeyPairName,ParameterValue=TestKey}} ParameterKey=SubnetIDs,ParameterValue=SubnetID1\\,SubnetID2
+aws cloudformation create-stack \
+    --stack-name {{myteststack}} \
+    --template-body {{file://sampletemplate.json}} \
+    --parameters {{ParameterKey=KeyPairName,ParameterValue=TestKey}} ParameterKey=SubnetIDs,ParameterValue=SubnetID1\\,SubnetID2
+```
+Contents of `sampletemplate.json`:  
+
+```
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "Sample template that creates an Amazon EC2 instance in the first of the specified subnets.",
+    "Parameters": {
+        "KeyPairName": {
+            "Type": "AWS::EC2::KeyPair::KeyName",
+            "Description": "Name of an existing EC2 key pair for SSH access to the instance."
+        },
+        "SubnetIDs": {
+            "Type": "CommaDelimitedList",
+            "Description": "Comma-delimited list of subnet IDs."
+        }
+    },
+    "Resources": {
+        "MyInstance": {
+            "Type": "AWS::EC2::Instance",
+            "Properties": {
+                "ImageId": "ami-0abcdef1234567890",
+                "InstanceType": "t3.micro",
+                "KeyName": {
+                    "Ref": "KeyPairName"
+                },
+                "SubnetId": {
+                    "Fn::Select": [
+                        "0",
+                        {
+                            "Ref": "SubnetIDs"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
 ```
 Output:  
 
 ```
 {
-    "StackId": "arn:aws:cloudformation:us-east-1:123456789012:stack/myteststack/466df9e0-0dff-08e3-8e2f-5088487c4896"
+    "StackId": "arn:aws:cloudformation:us-west-2:123456789012:stack/myteststack/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
 }
 ```
-For more information, see Stacks in the *AWS CloudFormation User Guide*.  
+For more information, see [Managing AWS resources as a single unit with CloudFormation stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html) in the *AWS CloudFormation User Guide*.  
 +  For API details, see [CreateStack](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/create-stack.html) in *AWS CLI Command Reference*. 
 
 ------
@@ -275,6 +320,7 @@ aws cloudformation delete-stack \
     --stack-name {{my-stack}}
 ```
 This command produces no output.  
+For more information, see [Managing AWS resources as a single unit with CloudFormation stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html) in the *AWS CloudFormation User Guide*.  
 +  For API details, see [DeleteStack](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/delete-stack.html) in *AWS CLI Command Reference*. 
 
 ------
@@ -344,33 +390,37 @@ The following `describe-stack-events` example displays the 2 most recent events 
 aws cloudformation describe-stack-events \
     --stack-name {{my-stack}} \
     --max-items {{2}}
+```
+Output:  
 
-{{{}}
-    "StackEvents": {{[}}
-        {{{}}
-            "StackId": "arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/d0a825a0-e4cd-xmpl-b9fb-061c69e99204",
-            "EventId": "4e1516d0-e4d6-xmpl-b94f-0a51958a168c",
+```
+{
+    "StackEvents": [
+        {
+            "StackId": "arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+            "EventId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
             "StackName": "my-stack",
             "LogicalResourceId": "my-stack",
-            "PhysicalResourceId": "arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/d0a825a0-e4cd-xmpl-b9fb-061c69e99204",
+            "PhysicalResourceId": "arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
             "ResourceType": "AWS::CloudFormation::Stack",
             "Timestamp": "2019-10-02T05:34:29.556Z",
-            "ResourceStatus": {{"UPDATE_COMPLETE"}}
-        {{},}}
-        {{{}}
-            "StackId": "arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/d0a825a0-e4cd-xmpl-b9fb-061c69e99204",
-            "EventId": "4dd3c810-e4d6-xmpl-bade-0aaf8b31ab7a",
+            "ResourceStatus": "UPDATE_COMPLETE"
+        },
+        {
+            "StackId": "arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+            "EventId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
             "StackName": "my-stack",
             "LogicalResourceId": "my-stack",
-            "PhysicalResourceId": "arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/d0a825a0-e4cd-xmpl-b9fb-061c69e99204",
+            "PhysicalResourceId": "arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
             "ResourceType": "AWS::CloudFormation::Stack",
             "Timestamp": "2019-10-02T05:34:29.127Z",
-            "ResourceStatus": {{"UPDATE_COMPLETE_CLEANUP_IN_PROGRESS"}}
-        {{}}}
-    {{],}}
-    "NextToken": {{"eyJOZXh0VG9XMPLiOiBudWxsLCAiYm90b190cnVuY2F0ZV9hbW91bnQiOiAyfQ=="}}
-{{}}}
+            "ResourceStatus": "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS"
+        }
+    ],
+    "NextToken": "eyJOZXh0VG9XMPLiOiBudWxsLCAiYm90b190cnVuY2F0ZV9hbW91bnQiOiAyfQ=="
+}
 ```
+For more information, see [Monitor stack progress](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/monitor-stack-progress.html) in the *AWS CloudFormation User Guide*.  
 +  For API details, see [DescribeStackEvents](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/describe-stack-events.html) in *AWS CLI Command Reference*. 
 
 ------
@@ -415,7 +465,7 @@ Output:
 {
     "StackResourceDetail": {
         "StackName": "MyStack",
-        "StackId": "arn:aws:cloudformation:us-east-2:123456789012:stack/MyStack/d0a825a0-e4cd-xmpl-b9fb-061c69e99204",
+        "StackId": "arn:aws:cloudformation:us-west-2:123456789012:stack/MyStack/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
         "LogicalResourceId": "MyFunction",
         "PhysicalResourceId": "my-function-SEZV4XMPL4S5",
         "ResourceType": "AWS::Lambda::Function",
@@ -428,6 +478,7 @@ Output:
     }
 }
 ```
+For more information, see [Managing AWS resources as a single unit with CloudFormation stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html) in the *AWS CloudFormation User Guide*.  
 +  For API details, see [DescribeStackResource](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/describe-stack-resource.html) in *AWS CLI Command Reference*. 
 
 ------
@@ -472,7 +523,7 @@ Output:
     "StackResources": [
         {
             "StackName": "my-stack",
-            "StackId": "arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/d0a825a0-e4cd-xmpl-b9fb-061c69e99204",
+            "StackId": "arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
             "LogicalResourceId": "bucket",
             "PhysicalResourceId": "my-stack-bucket-1vc62xmplgguf",
             "ResourceType": "AWS::S3::Bucket",
@@ -484,7 +535,7 @@ Output:
         },
         {
             "StackName": "my-stack",
-            "StackId": "arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/d0a825a0-e4cd-xmpl-b9fb-061c69e99204",
+            "StackId": "arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
             "LogicalResourceId": "function",
             "PhysicalResourceId": "my-function-SEZV4XMPL4S5",
             "ResourceType": "AWS::Lambda::Function",
@@ -496,7 +547,7 @@ Output:
         },
         {
             "StackName": "my-stack",
-            "StackId": "arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/d0a825a0-e4cd-xmpl-b9fb-061c69e99204",
+            "StackId": "arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
             "LogicalResourceId": "functionRole",
             "PhysicalResourceId": "my-functionRole-HIZXMPLEOM9E",
             "ResourceType": "AWS::IAM::Role",
@@ -509,6 +560,7 @@ Output:
     ]
 }
 ```
+For more information, see [Managing AWS resources as a single unit with CloudFormation stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html) in the *AWS CloudFormation User Guide*.  
 +  For API details, see [DescribeStackResources](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/describe-stack-resources.html) in *AWS CLI Command Reference*. 
 
 ------
@@ -570,10 +622,11 @@ Get-CFNStackResourceList -PhysicalResourceId "i-123456" -LogicalResourceId "Ec2I
 
 **AWS CLI**  
 **To describe AWS CloudFormation stacks**  
-The following `describe-stacks` command shows summary information for the `myteststack` stack:  
+The following `describe-stacks` example shows summary information for the `myteststack` stack.  
 
 ```
-aws cloudformation describe-stacks --stack-name {{myteststack}}
+aws cloudformation describe-stacks \
+    --stack-name {{myteststack}}
 ```
 Output:  
 
@@ -581,7 +634,7 @@ Output:
 {
     "Stacks":  [
         {
-            "StackId": "arn:aws:cloudformation:us-east-1:123456789012:stack/myteststack/466df9e0-0dff-08e3-8e2f-5088487c4896",
+            "StackId": "arn:aws:cloudformation:us-west-2:123456789012:stack/myteststack/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
             "Description": "AWS CloudFormation Sample Template S3_Bucket: Sample template showing how to create a publicly accessible S3 bucket. **WARNING** This template creates an S3 bucket. You will be billed for the AWS resources used if you create a stack from this template.",
             "Tags": [],
             "Outputs": [
@@ -601,7 +654,7 @@ Output:
     ]
 }
 ```
-For more information, see Stacks in the *AWS CloudFormation User Guide*.  
+For more information, see [Managing AWS resources as a single unit with CloudFormation stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html) in the *AWS CloudFormation User Guide*.  
 +  For API details, see [DescribeStacks](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/describe-stacks.html) in *AWS CLI Command Reference*. 
 
 ------
@@ -695,10 +748,11 @@ For more information, see the [Do not embed credentials in your templates](https
 
 **AWS CLI**  
 **To view the template body for an AWS CloudFormation stack**  
-The following `get-template` command shows the template for the `myteststack` stack:  
+The following `get-template` example shows the template for the `myteststack` stack.  
 
 ```
-aws cloudformation get-template --stack-name {{myteststack}}
+aws cloudformation get-template \
+    --stack-name {{myteststack}}
 ```
 Output:  
 
@@ -726,6 +780,7 @@ Output:
     }
 }
 ```
+For more information, see [Working with CloudFormation templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html) in the *AWS CloudFormation User Guide*.  
 +  For API details, see [GetTemplate](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/get-template.html) in *AWS CLI Command Reference*. 
 
 ------
@@ -757,7 +812,7 @@ Get-CFNTemplate -StackName "myStack"
 
 **AWS CLI**  
 **To list resources in a stack**  
-The following command displays the list of resources in the specified stack.  
+The following `list-stack-resources` example displays the list of resources in the specified stack.  
 
 ```
 aws cloudformation list-stack-resources \
@@ -801,6 +856,7 @@ Output:
     ]
 }
 ```
+For more information, see [Managing AWS resources as a single unit with CloudFormation stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html) in the *AWS CloudFormation User Guide*.  
 +  For API details, see [ListStackResources](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/list-stack-resources.html) in *AWS CLI Command Reference*. 
 
 ------
@@ -834,25 +890,29 @@ Use the [list-stacks](https://docs.aws.amazon.com/cli/latest/reference/cloudform
 
 **AWS CLI**  
 **To list AWS CloudFormation stacks**  
-The following `list-stacks` command shows a summary of all stacks that have a status of `CREATE_COMPLETE`:  
+The following `list-stacks` example shows a summary of all stacks that have a status of `CREATE_COMPLETE`.  
 
 ```
-aws cloudformation list-stacks --stack-status-filter {{CREATE_COMPLETE}}
+aws cloudformation list-stacks \
+    --stack-status-filter {{CREATE_COMPLETE}}
 ```
 Output:  
 
 ```
-[
-    {
-        "StackId": "arn:aws:cloudformation:us-east-1:123456789012:stack/myteststack/466df9e0-0dff-08e3-8e2f-5088487c4896",
-        "TemplateDescription": "AWS CloudFormation Sample Template S3_Bucket: Sample template showing how to create a publicly accessible S3 bucket. **WARNING** This template creates an S3 bucket. You will be billed for the AWS resources used if you create a stack from this template.",
-        "StackStatusReason": null,
-        "CreationTime": "2013-08-26T03:27:10.190Z",
-        "StackName": "myteststack",
-        "StackStatus": "CREATE_COMPLETE"
-    }
-]
+{
+    "StackSummaries": [
+        {
+            "StackId": "arn:aws:cloudformation:us-west-2:123456789012:stack/myteststack/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+            "TemplateDescription": "AWS CloudFormation Sample Template S3_Bucket: Sample template showing how to create a publicly accessible S3 bucket. **WARNING** This template creates an S3 bucket. You will be billed for the AWS resources used if you create a stack from this template.",
+            "StackStatusReason": null,
+            "CreationTime": "2013-08-26T03:27:10.190Z",
+            "StackName": "myteststack",
+            "StackStatus": "CREATE_COMPLETE"
+        }
+    ]
+}
 ```
+For more information, see [Managing AWS resources as a single unit with CloudFormation stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html) in the *AWS CloudFormation User Guide*.  
 +  For API details, see [ListStacks](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/list-stacks.html) in *AWS CLI Command Reference*. 
 
 ------
@@ -906,20 +966,50 @@ Use the [update-stack](https://docs.aws.amazon.com/cli/latest/reference/cloudfor
 
 **AWS CLI**  
 **To update AWS CloudFormation stacks**  
-The following `update-stack` command updates the template and input parameters for the `mystack` stack:  
+The following `update-stack` example updates the template and input parameters for the `mystack` stack.  
 
 ```
-aws cloudformation update-stack --stack-name {{mystack}} --template-url {{https://s3.amazonaws.com/sample/updated.template}} --parameters {{ParameterKey=KeyPairName,ParameterValue=SampleKeyPair}} ParameterKey=SubnetIDs,ParameterValue=SampleSubnetID1\\,SampleSubnetID2
+aws cloudformation update-stack \
+    --stack-name {{mystack}} \
+    --template-url {{https://s3.amazonaws.com/sample/updated.template}} \
+    --parameters {{ParameterKey=KeyPairName,ParameterValue=SampleKeyPair}} ParameterKey=SubnetIDs,ParameterValue=SampleSubnetID1\\,SampleSubnetID2
 ```
-The following `update-stack` command updates just the `SubnetIDs` parameter value for the `mystack` stack. If you don't specify a parameter value, the default value that is specified in the template is used:  
+Output:  
 
 ```
-aws cloudformation update-stack --stack-name {{mystack}} --template-url {{https://s3.amazonaws.com/sample/updated.template}} --parameters {{ParameterKey=KeyPairName,UsePreviousValue=true}} ParameterKey=SubnetIDs,ParameterValue=SampleSubnetID1\\,UpdatedSampleSubnetID2
+{
+    "StackId": "arn:aws:cloudformation:us-west-2:123456789012:stack/mystack/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+}
 ```
-The following `update-stack` command adds two stack notification topics to the `mystack` stack:  
+The following `update-stack` example updates just the `SubnetIDs` parameter value for the `mystack` stack. If you don't specify a parameter value, the default value that is specified in the template is used.  
 
 ```
-aws cloudformation update-stack --stack-name {{mystack}} --use-previous-template --notification-arns {{"arn:aws:sns:use-east-1:123456789012:mytopic1"}} {{"arn:aws:sns:us-east-1:123456789012:mytopic2"}}
+aws cloudformation update-stack \
+    --stack-name {{mystack}} \
+    --template-url {{https://s3.amazonaws.com/sample/updated.template}} \
+    --parameters {{ParameterKey=KeyPairName,UsePreviousValue=true}} ParameterKey=SubnetIDs,ParameterValue=SampleSubnetID1\\,UpdatedSampleSubnetID2
+```
+Output:  
+
+```
+{
+    "StackId": "arn:aws:cloudformation:us-west-2:123456789012:stack/mystack/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+}
+```
+The following `update-stack` example adds two stack notification topics to the `mystack` stack.  
+
+```
+aws cloudformation update-stack \
+    --stack-name {{mystack}} \
+    --use-previous-template \
+    --notification-arns {{"arn:aws:sns:use-east-1:123456789012:mytopic1"}} {{"arn:aws:sns:us-west-2:123456789012:mytopic2"}}
+```
+Output:  
+
+```
+{
+    "StackId": "arn:aws:cloudformation:us-west-2:123456789012:stack/mystack/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+}
 ```
 For more information, see [AWS CloudFormation stack updates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html) in the *AWS CloudFormation User Guide*.  
 +  For API details, see [UpdateStack](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/update-stack.html) in *AWS CLI Command Reference*. 
@@ -1029,21 +1119,44 @@ During validation, CloudFormation first checks if the template is valid JSON. If
 
 **AWS CLI**  
 **To validate an AWS CloudFormation template**  
-The following `validate-template` command validates the `sampletemplate.json` template:  
+The following `validate-template` example validates the `sampletemplate.json` template.  
 
 ```
-aws cloudformation validate-template --template-body {{file://sampletemplate.json}}
+aws cloudformation validate-template \
+    --template-body {{file://sampletemplate.json}}
+```
+Contents of `sampletemplate.json`:  
+
+```
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "AWS CloudFormation Sample Template S3_Bucket: Sample template showing how to create an S3 bucket. **WARNING** This template creates an S3 bucket. You will be billed for the AWS resources used if you create a stack from this template.",
+    "Resources": {
+        "S3Bucket": {
+            "Type": "AWS::S3::Bucket",
+            "DeletionPolicy": "Retain"
+        }
+    },
+    "Outputs": {
+        "BucketName": {
+            "Value": {
+                "Ref": "S3Bucket"
+            },
+            "Description": "Name of the sample Amazon S3 bucket."
+        }
+    }
+}
 ```
 Output:  
 
 ```
 {
-    "Description": "AWS CloudFormation Sample Template S3_Bucket: Sample template showing how to create a publicly accessible S3 bucket. **WARNING** This template creates an S3 bucket. You will be billed for the AWS resources used if you create a stack from this template.",
+    "Description": "AWS CloudFormation Sample Template S3_Bucket: Sample template showing how to create an S3 bucket. **WARNING** This template creates an S3 bucket. You will be billed for the AWS resources used if you create a stack from this template.",
     "Parameters": [],
     "Capabilities": []
 }
 ```
-For more information, see Working with AWS CloudFormation Templates in the *AWS CloudFormation User Guide*.  
+For more information, see [Working with CloudFormation templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html) in the *AWS CloudFormation User Guide*.  
 +  For API details, see [ValidateTemplate](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/validate-template.html) in *AWS CLI Command Reference*. 
 
 ------
