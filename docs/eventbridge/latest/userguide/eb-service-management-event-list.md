@@ -80,7 +80,6 @@ The following table list AWS services and the management events they generate th
 | AWS Billing and Cost Management | FindECSVForBillingPeriod | Console action | 
 | AWS Billing and Cost Management | ValidateReportDestination | Console action | 
 | AWS Billing and Cost Management | VerifyChinaPaymentEligibility | Console action | 
-| Amazon Braket | SearchCompilations | API call | 
 | Amazon Braket | SearchDevices | API call | 
 | Amazon Braket | SearchQuantumTasks | API call | 
 | Amazon Connect Customer Cases | BatchGetField | API call | 

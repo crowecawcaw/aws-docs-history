@@ -23,9 +23,9 @@ You attach this resource-based policy to the `central-event-bus` in the bus-owne
         "events:PutEvents"
       ],
       "Principal": {
-        "AWS": "arn:aws:iam::123456789012:root"
+        "AWS": "arn:aws:iam::{{111122223333}}:root"
       },
-      "Resource": "arn:aws:events:us-east-1:123456789012:event-bus/central-event-bus",
+      "Resource": "arn:aws:events:us-east-1:{{123456789012}}:event-bus/central-event-bus",
       "Condition": {
         "ForAllValues:StringEquals": {
           "events:source": "com.exampleCorp.webStore",

@@ -38,11 +38,14 @@ Enable a rule by its rule name.
 
 **AWS CLI**  
 **To enable a CloudWatch Events rule**  
-This example enables the rule named DailyLambdaFunction, which had been previously disabled:  
+The following `enable-rule` example enables the rule named `DailyLambdaFunction`, which had been previously disabled.  
 
 ```
-aws events enable-rule --name {{"DailyLambdaFunction"}}
+aws events enable-rule \
+    --name {{"DailyLambdaFunction"}}
 ```
+This command produces no output.  
+For more information, see [Rules in Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rules.html) in the *Amazon EventBridge User Guide*.  
 +  For API details, see [EnableRule](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/events/enable-rule.html) in *AWS CLI Command Reference*. 
 
 ------

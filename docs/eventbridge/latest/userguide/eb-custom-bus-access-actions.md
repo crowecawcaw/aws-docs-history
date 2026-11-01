@@ -10,6 +10,10 @@ Use this page when you write an IAM policy. It lists every `events:` action for 
 
 EventBridge supplies the following condition keys from the request, so that you can narrow a grant beyond the action and the resource. For the global condition keys, see [AWS global condition context keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*.
 
+The following table lists the condition keys for the custom event bus.
+
+
+**Condition keys for the custom event bus**  
 
 | Condition key | Value | Supplied on | 
 | --- | --- | --- | 
@@ -111,6 +115,8 @@ EventBridge checks conditions on the filter keys only for `CreateSubscriber` and
 
 The following table lists every action, the resource ARN to put in the policy's `Resource` element, and whether a bus owner can grant the action to another account through a resource policy or an AWS RAM share. The three `List` actions are not checked against any resource, so grant them with `"Resource": "*"`.
 
+
+**Resource ARN and cross-account grant for each Custom Event Bus action**  
 
 | IAM action | Checked against | Grantable to another account | 
 | --- | --- | --- | 

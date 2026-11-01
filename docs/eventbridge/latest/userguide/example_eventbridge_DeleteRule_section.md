@@ -39,11 +39,14 @@ Delete a rule by its name.
 
 **AWS CLI**  
 **To delete a CloudWatch Events rule**  
-This example deletes the rule named EC2InstanceStateChanges:  
+The following `delete-rule` example deletes the rule named `EC2InstanceStateChanges`.  
 
 ```
-aws events delete-rule --name {{"EC2InstanceStateChanges"}}
+aws events delete-rule \
+    --name {{"EC2InstanceStateChanges"}}
 ```
+This command produces no output.  
+For more information, see [Disabling or deleting a rule in Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-delete-rule.html) in the *Amazon EventBridge User Guide*.  
 +  For API details, see [DeleteRule](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/events/delete-rule.html) in *AWS CLI Command Reference*. 
 
 ------

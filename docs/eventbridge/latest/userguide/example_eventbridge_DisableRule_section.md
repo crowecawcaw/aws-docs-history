@@ -38,11 +38,14 @@ Disable a rule by its rule name.
 
 **AWS CLI**  
 **To disable a CloudWatch Events rule**  
-This example disables the rule named DailyLambdaFunction. The rule is not deleted:  
+The following `disable-rule` example disables the rule named `DailyLambdaFunction`. The rule is not deleted.  
 
 ```
-aws events disable-rule --name {{"DailyLambdaFunction"}}
+aws events disable-rule \
+    --name {{"DailyLambdaFunction"}}
 ```
+This command produces no output.  
+For more information, see [Disabling or deleting a rule in Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-delete-rule.html) in the *Amazon EventBridge User Guide*.  
 +  For API details, see [DisableRule](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/events/disable-rule.html) in *AWS CLI Command Reference*. 
 
 ------

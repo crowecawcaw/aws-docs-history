@@ -20,6 +20,8 @@ We recommend AWS RAM over a resource policy that you write yourself. With AWS RA
 The following table lists what the consumer account can do with each managed permission.
 
 
+**Managed permissions for a shared bus**  
+
 | Managed permission | What the consumer account can do | 
 | --- | --- | 
 | `AWSRAMEventBridgeEventBusV2PublishOnly` | Publish to the bus, and describe the bus | 

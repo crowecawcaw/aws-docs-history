@@ -8,7 +8,7 @@ Three sources tell you what a bus and its subscribers are doing. Amazon CloudWat
 ## Metrics
 <a name="eb-custom-bus-observability-metrics"></a>
 
-Subscriber metrics carry two dimensions, `EventBus` and `Subscriber`, each holding the resource ARN. When the subscriber belongs to a different account from the bus, EventBridge also emits the metric with `EventBus` and `SubscriberAccount` so that the bus owner can see consumption per account. The following table lists the metrics.
+Subscriber metrics carry two dimensions, `EventBus` and `Subscriber`, each holding the resource name and its generated ID (the last two segments of the ARN). For example, `EventBus` holds a value like `my-bus/5ltooic85xdh3driyogmu87ln` and `Subscriber` a value like `my-sub/282042snsiuyel613wyp110fd`. When the subscriber belongs to a different account from the bus, EventBridge also emits the metric with `EventBus` and `SubscriberAccount` so that the bus owner can see consumption per account. The following table lists the metrics.
 
 
 | Metric | Unit | Meaning | 
@@ -136,7 +136,7 @@ EventBridge emits one record per delivery attempt per event. Four fields are at 
 `SUCCESS` or `FAILURE` for this attempt, and which attempt it was, so retries are countable.
 
 `terminal_kind`  
-Present on the one record that says how the event ended: `EVENTS_DELIVERED`, `ON_FAILURE_DESTINATION_DELIVERED`, or `EVENTS_DROPPED` when retries ran out and no on-failure destination was configured.
+Present on the one record that says how the event ended: `EVENTS_DELIVERED`, `ON_FAILURE_DESTINATION_DELIVERED`, `EVENTS_DROPPED`, or `ON_FAILURE_DESTINATION_FAILED`. `EVENTS_DROPPED` is the terminal value when retries ran out and no on-failure destination was configured. `ON_FAILURE_DESTINATION_FAILED` is the terminal value on the final `ON_FAILURE_DESTINATION_DELIVERY_ATTEMPT` record, with `log_level` `ERROR`, when delivery to the on-failure destination also failed. The event then reached neither the target nor the destination, and the `OnFailureDestinationFailed` metric increments.
 
 `target_arn` and `target_properties`  
 The target the attempt was made against, and the target parameters the subscriber resolved for this event. `target_properties` is omitted when the subscriber configures no parameters.

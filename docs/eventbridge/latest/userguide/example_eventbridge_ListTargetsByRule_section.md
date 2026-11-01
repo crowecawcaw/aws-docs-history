@@ -47,11 +47,25 @@ List all of the targets for a rule using the rule name.
 
 **AWS CLI**  
 **To display all the targets for a CloudWatch Events rule**  
-This example displays all the targets of the rule named DailyLambdaFunction:  
+The following `list-targets-by-rule` example displays all the targets of the rule named `DailyLambdaFunction`.  
 
 ```
-aws events list-targets-by-rule --rule  {{"DailyLambdaFunction"}}
+aws events list-targets-by-rule \
+    --rule {{"DailyLambdaFunction"}}
 ```
+Output:  
+
+```
+{
+    "Targets": [
+        {
+            "Id": "1",
+            "Arn": "arn:aws:lambda:us-west-2:123456789012:function:MyFunctionName"
+        }
+    ]
+}
+```
+For more information, see [Event bus targets in Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-targets.html) in the *Amazon EventBridge User Guide*.  
 +  For API details, see [ListTargetsByRule](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/events/list-targets-by-rule.html) in *AWS CLI Command Reference*. 
 
 ------

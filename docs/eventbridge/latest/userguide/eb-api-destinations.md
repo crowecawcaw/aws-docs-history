@@ -51,6 +51,8 @@ The following section details how EventBridge handles HTTP headers in requests t
 In addition to the authorization headers defined for the connection used for an API destination, EventBridge includes the following headers in each request.
 
 
+**Headers included in requests to API destinations**  
+
 | Header key | Header value | 
 | --- | --- | 
 | User-Agent | Amazon/EventBridge/ApiDestinations | 

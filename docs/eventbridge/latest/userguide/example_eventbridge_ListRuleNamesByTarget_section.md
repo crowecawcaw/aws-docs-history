@@ -47,11 +47,22 @@ List all of the rule names using the target.
 
 **AWS CLI**  
 **To display all the rules that have a specified target**  
-This example displays all rules that have the Lambda function named "MyFunctionName" as the target:  
+The following `list-rule-names-by-target` example displays all rules that have the Lambda function named `MyFunctionName` as the target.  
 
 ```
-aws events list-rule-names-by-target --target-arn {{"arn:aws:lambda:us-east-1:123456789012:function:MyFunctionName"}}
+aws events list-rule-names-by-target \
+    --target-arn {{"arn:aws:lambda:us-west-2:123456789012:function:MyFunctionName"}}
 ```
+Output:  
+
+```
+{
+    "RuleNames": [
+        "DailyLambdaFunction"
+    ]
+}
+```
+For more information, see [Event bus targets in Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-targets.html) in the *Amazon EventBridge User Guide*.  
 +  For API details, see [ListRuleNamesByTarget](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/events/list-rule-names-by-target.html) in *AWS CLI Command Reference*. 
 
 ------
