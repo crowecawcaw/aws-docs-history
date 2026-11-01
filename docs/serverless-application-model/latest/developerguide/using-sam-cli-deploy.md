@@ -8,9 +8,13 @@ Use the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `
 + For a list of `sam deploy` command options, see [sam deploy](sam-cli-command-reference-sam-deploy.md).
 + For an example of using `sam deploy` during a typical development workflow, see [Step 3: Deploy your application to the AWS Cloud](serverless-getting-started-hello-world.md#serverless-getting-started-hello-world-deploy).
 
+**Important**  
+A template can define IAM roles and other resources that `sam deploy` creates with your credentials. Review the template and configuration file of any project that you didn't author before you deploy it.
+
 **Topics**
 + [Prerequisites](#using-sam-cli-deploy-prerequisites)
 + [Deploying applications using sam deploy](#using-sam-cli-deploy-deploying)
++ [Building and deploying Lambda Web Functions](#deploying-webfunctions)
 + [Best practices](#using-sam-cli-deploy-best)
 + [Options for sam deploy](#using-sam-cli-deploy-options)
 + [Troubleshooting](#using-sam-cli-deploy-troubleshooting)
@@ -352,6 +356,101 @@ You can configure code signing for your Lambda functions at deployment. You do t
    Signing Profile Name: 
    Signing Profile Owner Account ID (optional):
    ```
+
+## Building and deploying Lambda Web Functions
+<a name="deploying-webfunctions"></a>
+
+You can set the [CodeUri](sam-resource-webfunction.md#sam-webfunction-codeuri) of an [`AWS::Serverless::WebFunction`](sam-resource-webfunction.md) to a local directory. The AWS SAM CLI builds the code with `sam build` and uploads it to Amazon S3 when you run `sam deploy`, `sam sync`, or `sam package`.
+
+**Important**  
+Because a Web Function's revisions read their code from Amazon S3 for as long as they exist, `sam deploy` and `sam sync` upload Web Function code to an Amazon S3 bucket for your application stack, instead of the managed bucket that the AWS SAM CLI uses for other artifacts.
+
+### Building
+<a name="deploying-webfunctions-build"></a>
+
+`sam build` builds a Web Function the same way it builds a Node.js Lambda Event Function, with these differences:
++ The deployment package is always a `.zip` file archive built for the `x86_64` architecture.
++ The build always keeps dependencies in the deployment package, because Web Functions can't use layers. This also applies to `sam sync`, which otherwise moves dependencies to an automatically created layer.
+
+To bundle the code with esbuild, set `BuildMethod: esbuild` in the resource's `Metadata`. The [EntryPoint](sam-resource-webfunction.md#sam-webfunction-entrypoint) file is the esbuild entry point, and the built template's `EntryPoint` points at the bundled file. For example, `src/server.ts` becomes `server.js`. For the build properties that you can set, see [Building Node.js Lambda Event Functions with esbuild in AWS SAM](serverless-sam-cli-using-build-typescript.md).
+
+```
+Resources:
+  MyWebFunction:
+    Type: AWS::Serverless::WebFunction
+    Properties:
+      Runtime: nodejs24.x
+      AuthType: IamAuth
+      CodeUri: web/
+      EntryPoint: src/server.ts
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+```
+
+### Where the code is uploaded
+<a name="deploying-webfunctions-upload"></a>
+
+
+
+| Command | Web Function code is uploaded to | 
+| --- | --- | 
+| sam deploy --guided or sam deploy --resolve-s3 | The stack's code bucket. With --guided, this is the stack name that you enter at the prompt. | 
+| sam sync | The stack's code bucket. | 
+| sam deploy, sam sync, or sam package with --s3-bucket | The bucket that you specify. See [Using your own bucket](#deploying-webfunctions-own-bucket). | 
+| sam package --resolve-s3 | Not supported. sam package has no stack to create a code bucket for, so it returns an error. Use sam deploy, or pass --s3-bucket. | 
+
+A `CodeUri` that already points to Amazon S3 isn't uploaded and keeps its location. Lambda Event Functions and other artifacts in the same template still use the managed bucket or the bucket that you specify.
+
+### The stack's code bucket
+<a name="deploying-webfunctions-code-bucket"></a>
+
+The first time that you deploy a stack with a Web Function that has local code, the AWS SAM CLI creates a CloudFormation stack named `{{stack-name}}-{{hash}}-WebFunctionCode`. It contains an Amazon S3 bucket that:
++ Has versioning enabled, so that each revision can pin the object version that it uses.
++ Uses server-side encryption with Amazon S3 managed keys (SSE-S3).
++ Blocks all public access, and denies requests that don't use HTTPS.
++ Allows `lambda.amazonaws.com` to call `s3:GetObject` and `s3:GetObjectVersion` only for Web Function revisions in your account.
+
+The stack exports the bucket name, and the packaged template imports it:
+
+```
+CodeUri:
+  Bucket: !ImportValue {{stack-name}}-{{hash}}-WebFunctionCode-Bucket
+  Key: {{object-key}}
+  Version: {{object-version-id}}
+```
+
+Because of this import, CloudFormation doesn't delete the code bucket stack while any stack, including a nested stack, reads code from it.
+
+### Using your own bucket
+<a name="deploying-webfunctions-own-bucket"></a>
+
+When you pass `--s3-bucket`, the bucket must meet the requirements in [AWS::Serverless::WebFunction](sam-resource-webfunction.md). Before it uploads anything, the AWS SAM CLI checks the bucket:
++ If the bucket doesn't have versioning enabled, the command fails.
++ If `--kms-key-id` is an AWS managed key, the command fails. Use a customer managed key whose key policy allows `lambda.amazonaws.com` to call `kms:Decrypt`.
++ If the bucket policy or the key policy doesn't appear to allow Lambda to read the code, the command prints a warning and continues.
+
+Without `--kms-key-id`, the AWS SAM CLI uploads the code with SSE-S3, even if the bucket's default encryption uses AWS KMS.
+
+### Using sam sync
+<a name="deploying-webfunctions-sync"></a>
+
+Each change to a Web Function's code creates a new revision, so `sam sync --watch` doesn't watch Web Function code. It prints a note when it starts, and code changes are deployed with the next infrastructure sync.
+
+### Deleting
+<a name="deploying-webfunctions-delete"></a>
+
+`sam delete` deletes the stack, then empties the code bucket and deletes the code bucket stack.
+
+If a Web Function outlives the stack, its revisions still read code from the bucket. This happens when the Web Function, or a nested stack that contains it, has `DeletionPolicy: Retain` or is listed in `--retain-resources`. In this case, `sam delete` keeps the code bucket stack, turns on its termination protection, and lists the retained Web Functions. When you no longer need them, turn off termination protection, empty the bucket, and delete the stack.
+
+If an earlier `sam delete` deleted the stack but not the code bucket stack, run `sam delete` again to delete it.
+
+### Limitations
+<a name="deploying-webfunctions-limitations"></a>
++ A Web Function with local code can't be generated by `Fn::ForEach`. Define it outside `Fn::ForEach`, or set its `CodeUri` to code that's already in Amazon S3. For more information, see [CloudFormation language extensions support](sam-specification-language-extensions.md).
++ The `sam local` commands don't run Web Functions. Because a Web Function is an HTTP server, you can run and test it locally like any other Node.js server, for example with `npm start` or `node {{server.js}}`. If your server reads its host and port from the `AWS_LAMBDA_HTTP_ENDPOINT` environment variable, set that variable when you run it.
 
 ## Best practices
 <a name="using-sam-cli-deploy-best"></a>

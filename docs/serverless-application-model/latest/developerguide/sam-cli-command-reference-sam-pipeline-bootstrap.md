@@ -19,6 +19,9 @@ We recommend rotating access keys regularly. For more information, see [ Rotate 
 + An Amazon S3 bucket to hold the AWS SAM artifacts.
 + Optionally, an Amazon ECR image repository to hold container image Lambda deployment packages (if you have a resource that is of package type `Image`).
 
+**Important**  
+Don't run `sam pipeline bootstrap` with an untrusted configuration file. The file's OIDC provider and permission settings determine who can assume the IAM roles that this command creates.
+
 ## Usage
 <a name="sam-cli-command-reference-sam-pipeline-bootstrap-usage"></a>
 

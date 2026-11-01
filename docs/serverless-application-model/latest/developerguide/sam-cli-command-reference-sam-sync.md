@@ -9,6 +9,9 @@ This page provides reference information for the AWS Serverless Application Mode
 
 The `sam sync` command syncs local application changes to the AWS Cloud.
 
+**Important**  
+Don't run `sam sync` on untrusted code. The command builds the project in your local environment, which runs build tools and scripts that the project defines. It then deploys the resources in the template to your AWS account with your credentials.
+
 ## Usage
 <a name="sam-cli-command-reference-sam-sync-usage"></a>
 
@@ -82,6 +85,7 @@ The path and file name of the configuration file containing default parameter va
 
 `--dependency-layer | --no-dependency-layer`  <a name="sam-cli-command-reference-sam-sync-options-dependency-layer"></a>
 Specifies whether to separate dependencies of individual functions into another layer to speed up the sync process.  
+An `AWS::Serverless::WebFunction` can't use layers, so its dependencies always stay in its deployment package.  
 *Default*: `--dependency-layer`
 
 `--express | --no-express`  <a name="sam-cli-command-reference-sam-sync-options-express"></a>
@@ -129,7 +133,8 @@ Specifies the resource ID to sync. To sync multiple resources, you can specify t
 The Amazon Resource Name (ARN) of an IAM role that CloudFormation assumes when applying the changeset.
 
 `--s3-bucket {{TEXT}}`  <a name="sam-cli-command-reference-sam-sync-options-s3-bucket"></a>
-The name of the Amazon Simple Storage Service (Amazon S3) bucket where this command uploads your CloudFormation template. If your template is larger than 51,200 bytes, then either the `--s3-bucket` or the `--resolve-s3` option is required. If you specify both the `--s3-bucket` and `--resolve-s3` options, then an error occurs.
+The name of the Amazon Simple Storage Service (Amazon S3) bucket where this command uploads your CloudFormation template. If your template is larger than 51,200 bytes, then either the `--s3-bucket` or the `--resolve-s3` option is required. If you specify both the `--s3-bucket` and `--resolve-s3` options, then an error occurs.  
+If you specify this option, the code of an `AWS::Serverless::WebFunction` is also uploaded to this bucket. Otherwise, it's uploaded to a code bucket that belongs to the stack. For more information, see [Building and deploying Lambda Web Functions](using-sam-cli-deploy.md#deploying-webfunctions).
 
 `--s3-prefix {{TEXT}}`  <a name="sam-cli-command-reference-sam-sync-options-s3-prefix"></a>
 The prefix added to the names of the artifacts that you upload to the Amazon S3 bucket. The prefix name is a path name (folder name) for the Amazon S3 bucket. This applies only to functions declared with the `Zip` package type.
@@ -159,7 +164,8 @@ If your functions depend on packages that have natively compiled dependencies, u
 Currently, this option is not compatible with `--dependency-layer`. If you use `--use-container` with `--dependency-layer`, the AWS SAM CLI informs you and continues with `--no-dependency-layer`.
 
 `--watch`  <a name="sam-cli-command-reference-sam-sync-options-watch"></a>
-Starts a process that watches your local application for changes and automatically syncs them to the AWS Cloud. By default, when you specify this option, AWS SAM syncs all resources in your application as you update them. With this option, AWS SAM performs an initial CloudFormation deployment. Then, AWS SAM uses AWS service APIs to update code resources. AWS SAM uses CloudFormation to update infrastructure resources when you update your AWS SAM template.
+Starts a process that watches your local application for changes and automatically syncs them to the AWS Cloud. By default, when you specify this option, AWS SAM syncs all resources in your application as you update them. With this option, AWS SAM performs an initial CloudFormation deployment. Then, AWS SAM uses AWS service APIs to update code resources. AWS SAM uses CloudFormation to update infrastructure resources when you update your AWS SAM template.  
+The code of an `AWS::Serverless::WebFunction` isn't watched, because each code change creates a new revision. Code changes are deployed with the next infrastructure sync.
 
 `--watch-exclude {{TEXT}}`  <a name="sam-cli-command-reference-sam-sync-options-watch-exclude"></a>
 Excludes a file or folder from being observed for file changes. To use this option, `--watch` must also be provided.  

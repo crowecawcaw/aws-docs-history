@@ -9,6 +9,9 @@ This page provides reference information for the AWS Serverless Application Mode
 
 The `sam local start-api` subcommand runs your AWS Lambda Event Functions locally to test through a local HTTP server host.
 
+**Important**  
+Don't use `sam local start-api` with untrusted code, because it runs your functions in your local environment. For complete isolation, test the code in the Lambda service instead.
+
 ## Usage
 <a name="ref-sam-cli-local-start-api-usage"></a>
 

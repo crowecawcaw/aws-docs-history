@@ -12,6 +12,9 @@ The AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam 
 
 To create an AWS SAM project, refer to the topics in this sections.
 
+**Important**  
+Custom templates can include hooks that run code on your machine while `sam init` creates the project. Get custom templates only from authors that you trust.
+
 **Note**  
 `sam init` includes project templates for durable functions in supported runtimes (TypeScript, Python, Java). These templates provide starter code and configuration for building stateful serverless applications.
 
@@ -21,7 +24,7 @@ To create an AWS SAM project, refer to the topics in this sections.
 + [Troubleshooting](#using-sam-cli-init-troubleshooting)
 + [Examples](#using-sam-cli-init-examples)
 + [Learn more](#using-sam-cli-init-learn)
-+ [Next steps](#w2aac18c11c39)
++ [Next steps](#w2aac18c11c41)
 
 ## Initialize a new serverless application
 <a name="using-sam-cli-init-new"></a>
@@ -329,6 +332,6 @@ To learn more about using the `sam init` command, see the following:
 + **[Structuring serverless applications for use with the AWS SAM CLI (Sessions with SAM S2E7)](https://www.youtube.com/watch?v=k9IRdgze9fQ)** – Sessions with AWS SAM series on YouTube.
 
 ## Next steps
-<a name="w2aac18c11c39"></a>
+<a name="w2aac18c11c41"></a>
 
 Now that you have created your AWS SAM project, you are ready to start authoring your application. See [Define your infrastructure with AWS SAM](serverless-authoring.md) for detailed instructions on the tasks you need to complete to do this.

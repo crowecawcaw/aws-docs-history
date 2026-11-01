@@ -11,7 +11,11 @@ When you specify an `AWS::Serverless::WebFunction`, AWS Serverless Application M
 
 **`AWS::Lambda::WebFunctionRevision`**  
 *`LogicalId`: *`{{<webfunction‑LogicalId>}}Revision`  
-*Referenceable property: *N/A (you must use the `LogicalId` to reference this CloudFormation resource)
+*Referenceable property: *N/A (you must use the `LogicalId` to reference this CloudFormation resource)  
+*Resource attributes: *`UpdateReplacePolicy: Retain`  
+Every property of a revision is create-only, so a change to the function's code or configuration replaces the revision. AWS SAM sets `UpdateReplacePolicy: Retain` so that CloudFormation keeps the replaced revision instead of deleting it. An endpoint can still route traffic to it through `RevisionWeights`, and Lambda doesn't delete a revision that an endpoint uses. The replaced revision is no longer part of the stack. Deleting the function deletes all of its revisions.  
+The revision created by an update that fails and rolls back is also kept.  
+To override this, set `UpdateReplacePolicy` on the `AWS::Serverless::WebFunction`. AWS SAM then applies your value to every resource that it generates, including the Web Function endpoint.
 
 **`AWS::Lambda::WebFunctionEndpoint`**  
 *`LogicalId`: *`{{<webfunction‑LogicalId>}}Endpoint`  

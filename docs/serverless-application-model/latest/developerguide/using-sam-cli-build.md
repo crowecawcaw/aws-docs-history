@@ -8,6 +8,9 @@ Use the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `
 + For a list of `sam build` command options, see [sam build](sam-cli-command-reference-sam-build.md).
 + For an example of using `sam build` during a typical development workflow, see [Step 2: Build your application](serverless-getting-started-hello-world.md#serverless-getting-started-hello-world-build).
 
+**Important**  
+`sam build` runs the Makefile targets, package manager scripts, and other build tools that a project defines. Before you build a project that you didn't author, review its build files and dependencies.
+
 **Note**  
 Using `sam build` requires that you start with the basic components of a serverless application on your development machine. This includes an AWS SAM template, AWS Lambda Event Function code, and any language-specific files and dependencies. To learn more, see [Create your application in AWS SAM](using-sam-cli-init.md).
 
@@ -26,6 +29,8 @@ Using `sam build` requires that you start with the basic components of a serverl
 Before using `sam build`, consider configuring the following:
 
 1. **Lambda functions and layers** – The `sam build` command can build Lambda functions and layers. To learn more about Lambda layers, see [Building Lambda layers in AWS SAM](building-layers.md).
+
+   It can also build Lambda Web Functions (`AWS::Serverless::WebFunction`) that have local code. To learn more, see [Building and deploying Lambda Web Functions](using-sam-cli-deploy.md#deploying-webfunctions).
 
 1. **Lambda runtime** – The *runtime* provides a language-specific environment that runs your function in an execution environment when invoked. You can configure native and custom runtimes.
 

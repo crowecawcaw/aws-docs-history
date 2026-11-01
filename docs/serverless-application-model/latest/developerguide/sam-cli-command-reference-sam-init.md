@@ -9,6 +9,9 @@ This page provides reference information for the AWS Serverless Application Mode
 
 The `sam init` command provides options to initialize a new serverless application.
 
+**Important**  
+Don't use `sam init` with templates from untrusted sources. A custom template, such as one that you specify with `--location`, can run hooks in your local environment during project generation.
+
 ## Usage
 <a name="sam-cli-command-reference-sam-init-usage"></a>
 

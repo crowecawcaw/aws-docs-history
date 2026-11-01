@@ -14,6 +14,7 @@ The `Globals` section supports the following AWS SAM resource types:
 + `AWS::Serverless::StateMachine`
 + `AWS::Serverless::MicrovmImage`
 + `AWS::Serverless::NetworkConnector`
++ `AWS::Serverless::WebFunction`
 
 Example:
 
@@ -160,6 +161,23 @@ Globals:
     OperatorRole:
     Tags:
     PropagateTags:
+
+  WebFunction:
+    Runtime:
+    Timeout:
+    EnvironmentVariables:
+    ExecutionRoleArn:
+    AuthType:
+    KmsKeyArn:
+    LoggingConfig:
+    ScalingConfig:
+    ThrottleConfig:
+    MaxConcurrencyPerEnvironment:
+    EgressNetworkConnectorArn:
+    EndpointType:
+    AutoDeploymentMode:
+    ReplicaRegions:
+    Tags:
 ```
 
 **Note**  

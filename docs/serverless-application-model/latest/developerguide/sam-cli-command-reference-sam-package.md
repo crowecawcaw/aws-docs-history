@@ -12,6 +12,9 @@ By default when you use this command, the AWS SAM CLI assumes that your current
 **Note**  
 [sam deploy](sam-cli-command-reference-sam-deploy.md) now implicitly performs the functionality of `sam package`. You can use the [sam deploy](sam-cli-command-reference-sam-deploy.md) command directly to package and deploy your application.
 
+**Important**  
+Don't run `sam package` on untrusted code. It uploads the local files and folders that the template references, which can be outside the project directory, to Amazon S3.
+
 ## Usage
 <a name="sam-cli-command-reference-sam-package-usage"></a>
 
@@ -49,7 +52,8 @@ Shows this message and exits.
 The URI of the Amazon Elastic Container Registry (Amazon ECR) repository where this command uploads your function's image. Required for functions declared with the `Image` package type.
 
 `--kms-key-id {{TEXT}}`  <a name="sam-cli-command-reference-sam-package-options-kms-key-id"></a>
-The ID of an AWS Key Management Service (AWS KMS) key used to encrypt artifacts that are at rest in the Amazon S3 bucket. If this option is not specified, then AWS SAM uses Amazon S3-managed encryption keys.
+The ID of an AWS Key Management Service (AWS KMS) key used to encrypt artifacts that are at rest in the Amazon S3 bucket. If this option is not specified, then AWS SAM uses Amazon S3-managed encryption keys.  
+For an `AWS::Serverless::WebFunction`, the key must be a customer managed key whose key policy allows `lambda.amazonaws.com` to call `kms:Decrypt`. If it's an AWS managed key, the command fails.
 
 `--metadata`  <a name="sam-cli-command-reference-sam-package-options-metadata"></a>
 (Optional) A map of metadata to attach to all artifacts that are referenced in your template.
@@ -67,10 +71,12 @@ The specific profile from your credential file that gets AWS credentials.
 The AWS Region to deploy to. For example, us-east-1.
 
 `--resolve-s3`  <a name="sam-cli-command-reference-sam-package-options-resolve-s3"></a>
-Automatically create an Amazon S3 bucket to use for packaging. If you specify both the `--s3-bucket` and `--resolve-s3` options, then an error will result.
+Automatically create an Amazon S3 bucket to use for packaging. If you specify both the `--s3-bucket` and `--resolve-s3` options, then an error will result.  
+This option isn't supported for a template with an `AWS::Serverless::WebFunction` that has local code. Use `sam deploy` or `sam deploy --s3-bucket` instead. For more information, see [Building and deploying Lambda Web Functions](using-sam-cli-deploy.md#deploying-webfunctions).
 
 `--s3-bucket {{TEXT}}`  <a name="sam-cli-command-reference-sam-package-options-s3-bucket"></a>
-The name of the Amazon S3 bucket where this command uploads your artifact. If your artifact is larger than 51,200 bytes, then either the `--s3-bucket` or the `--resolve-s3` option is required. If you specify both the `--s3-bucket` and `--resolve-s3` options, then an error will result.
+The name of the Amazon S3 bucket where this command uploads your artifact. If your artifact is larger than 51,200 bytes, then either the `--s3-bucket` or the `--resolve-s3` option is required. If you specify both the `--s3-bucket` and `--resolve-s3` options, then an error will result.  
+For an `AWS::Serverless::WebFunction`, the bucket must have versioning enabled and allow Lambda to read the code. For more information, see [Building and deploying Lambda Web Functions](using-sam-cli-deploy.md#deploying-webfunctions).
 
 `--s3-prefix {{TEXT}}`  <a name="sam-cli-command-reference-sam-package-options-s3-prefix"></a>
 Prefix added to the artifacts name that are uploaded to the Amazon S3 bucket. The prefix name is a path name (folder name) for the Amazon S3 bucket. This only applies for functions declared with `Zip` package type.

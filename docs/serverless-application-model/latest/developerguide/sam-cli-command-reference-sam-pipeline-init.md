@@ -11,6 +11,9 @@ The `sam pipeline init` subcommand generates a pipeline configuration file that 
 
 Before using **sam pipeline init**, you must bootstrap the necessary resources for each stage in your pipeline. You can do this by running **sam pipeline init --bootstrap** to be guided through the setup and configuration file generation process, or refer to resources you have previously created with the **sam pipeline bootstrap** command.
 
+**Important**  
+Don't use `sam pipeline init` with pipeline templates from untrusted sources. A custom pipeline template can run hooks in your local environment during generation.
+
 ## Usage
 <a name="sam-cli-command-reference-sam-pipeline-init-usage"></a>
 

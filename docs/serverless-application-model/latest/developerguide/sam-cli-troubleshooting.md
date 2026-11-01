@@ -184,6 +184,16 @@ When trying to invoke the API Gateway endpoint, you see the following error:
 
 This means that you've attempted to send a request to the correct domain, but the URI isn't recognizable. To fix this, verify the full URL, and update the **curl** command with the correct URL.
 
+### Error: Cannot use --resolve-s3 with an AWS::Serverless::WebFunction that has local code
+<a name="sam-cli-troubleshoot-messages-webfunction-resolve-s3"></a>
+
+When running the **sam package --resolve-s3** command, if you see this error, it means Web Function code can't be stored in the managed bucket, and **sam package** has no stack to create a code bucket for. To fix this, run **sam deploy**, which creates a code bucket for the stack, or pass `--s3-bucket` with a bucket that meets the Web Function requirements. For more information, see [Building and deploying Lambda Web Functions](using-sam-cli-deploy.md#deploying-webfunctions).
+
+### Error: Lambda Web Functions can't read code uploaded with these settings
+<a name="sam-cli-troubleshoot-messages-webfunction-code-bucket"></a>
+
+When running **sam package**, **sam deploy**, or **sam sync** with `--s3-bucket`, if you see this error followed by one or more problems, it means that Lambda would reject a Web Function revision that reads code from this bucket. The bucket doesn't have versioning enabled, or `--kms-key-id` is an AWS managed key. To fix this, enable versioning on the bucket, or set `--kms-key-id` to a customer managed key whose key policy allows `lambda.amazonaws.com` to call `kms:Decrypt`. For more information, see [Building and deploying Lambda Web Functions](using-sam-cli-deploy.md#deploying-webfunctions).
+
 ## Warning messages
 <a name="sam-cli-troubleshoot-warning"></a>
 

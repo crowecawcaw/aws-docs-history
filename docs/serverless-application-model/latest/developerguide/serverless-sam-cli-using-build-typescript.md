@@ -7,6 +7,8 @@ To build and package Node.js AWS Lambda Event Functions, you can use the AWS SAM
 
 To build a Node.js Lambda function with esbuild, add a `Metadata` object to your `AWS:Serverless::Function` resource and specify `esbuild` for the `BuildMethod`. When you run the **sam build** command, AWS SAM uses esbuild to bundle your Lambda function code.
 
+You can also bundle an `AWS::Serverless::WebFunction` with esbuild. Its `EntryPoint` file is the entry point, and the built template points `EntryPoint` at the bundled file. For more information, see [Building and deploying Lambda Web Functions](using-sam-cli-deploy.md#deploying-webfunctions).
+
 ## Metadata properties
 <a name="serverless-sam-cli-using-build-typescript-metadata"></a>
 

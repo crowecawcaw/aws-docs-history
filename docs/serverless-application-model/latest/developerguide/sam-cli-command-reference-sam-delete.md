@@ -11,6 +11,11 @@ The `sam delete` command deletes an AWS SAM application by deleting the CloudFor
 
 This command also checks whether there is an Amazon ECR companion stack deployed, and if so prompts the user about deleting that stack and Amazon ECR repositories. If `--no-prompts` is specified, then companion stacks and Amazon ECR repositories are deleted by default.
 
+If the application has an `AWS::Serverless::WebFunction` with local code, this command also deletes the stack's Web Function code bucket after it deletes the application stack. If a Web Function is retained, the command keeps the code bucket and turns on its termination protection. For more information, see [Building and deploying Lambda Web Functions](using-sam-cli-deploy.md#deploying-webfunctions).
+
+**Warning**  
+Don't run `sam delete` with an untrusted configuration file. The command can read the stack name and other options, such as `no_prompts`, from the project's configuration file, and you can't undo a stack deletion. Before you run `sam delete` in a project that you didn't author, review its configuration file or specify `--stack-name`.
+
 ## Usage
 <a name="sam-cli-command-reference-sam-delete-usage"></a>
 

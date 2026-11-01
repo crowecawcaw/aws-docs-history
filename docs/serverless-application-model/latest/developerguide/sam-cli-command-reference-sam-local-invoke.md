@@ -9,8 +9,8 @@ This page provides reference information for the AWS Serverless Application Mode
 
 The `sam local invoke` subcommand initiates a one-time invocation of an AWS Lambda Event Function locally.
 
-**Note**  
-It's not recommended to use SAM CLI's local invoke capabilities in untrusted code. To have complete isolation from your local environment, execute the code in the Lambda service directly.
+**Important**  
+Don't use `sam local invoke` with untrusted code. To have complete isolation from your local environment, run the code in the Lambda service directly.
 
 **Note**  
 For durable functions, `sam local invoke` supports stateful execution with automatic checkpointing and replay. The container remains running during durable function execution to handle state persistence and resumption.

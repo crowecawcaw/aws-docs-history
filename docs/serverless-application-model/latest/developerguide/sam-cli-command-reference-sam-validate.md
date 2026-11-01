@@ -9,6 +9,9 @@ For an introduction to the AWS SAM CLI, see [What is the AWS SAM CLI?](what-is
 
 The `sam validate` command verifies whether an AWS SAM template file is valid.
 
+**Important**  
+Don't run `sam validate --lint` on untrusted code. **cfn-lint** reads its configuration file (`.cfnlintrc`) from the current directory, and that file can load custom rules that run code in your local environment.
+
 ## Usage
 <a name="sam-cli-command-reference-sam-validate-usage"></a>
 

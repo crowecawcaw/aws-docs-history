@@ -9,6 +9,9 @@ This page provides reference information for the AWS Serverless Application Mode
 
 The `sam build` command prepares an application for subsequent steps in the developer workflow, such as local testing or deploying to the AWS Cloud.
 
+**Important**  
+Don't run `sam build` on untrusted code. The command runs build tools and scripts that the project defines, such as Makefile targets, package manager scripts, and dependency installation, in your local environment.
+
 ## Usage
 <a name="ref-sam-cli-build-usage"></a>
 

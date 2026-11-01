@@ -9,6 +9,9 @@ This page provides reference information for the AWS Serverless Application Mode
 
 The `sam deploy` command deploys an application to the AWS Cloud using AWS CloudFormation.
 
+**Important**  
+Don't run `sam deploy` on untrusted code. The command uses your AWS credentials to create the resources that the template defines, including IAM roles and policies, and uploads the local files that the template references. It also applies the options in the project's configuration file as written. Review the template and the configuration file before you deploy a project that you didn't author.
+
 ## Usage
 <a name="ref-sam-cli-deploy-usage"></a>
 
@@ -78,7 +81,8 @@ You can specify this option multiple times in a single command.
 The name of the Amazon ECR repository where this command uploads your function's image. This option is required for functions declared with the `Image` package type.
 
 `--kms-key-id {{TEXT}}`  <a name="ref-sam-cli-deploy-options-kms-key-id"></a>
-The ID of an AWS Key Management Service (AWS KMS) key used to encrypt artifacts that are at rest in the Amazon S3 bucket. If you don't specify this option, then AWS SAM uses Amazon S3-managed encryption keys.
+The ID of an AWS Key Management Service (AWS KMS) key used to encrypt artifacts that are at rest in the Amazon S3 bucket. If you don't specify this option, then AWS SAM uses Amazon S3-managed encryption keys.  
+For an `AWS::Serverless::WebFunction` uploaded to the bucket that you specify with `--s3-bucket`, the key must be a customer managed key whose key policy allows `lambda.amazonaws.com` to call `kms:Decrypt`.
 
 `--metadata`  <a name="ref-sam-cli-deploy-options-metadata"></a>
 A map of metadata to attach to all artifacts that are referenced in your template.
@@ -130,13 +134,15 @@ Automatically create Amazon ECR repositories to use for packaging and deploying 
 If AWS SAM automatically creates any Amazon ECR repositories for functions or layers with this option, and you later delete those functions or layers from your AWS SAM template, then the corresponding Amazon ECR repositories are automatically deleted.
 
 `--resolve-s3`  <a name="ref-sam-cli-deploy-options-resolve-s3"></a>
-Automatically create an Amazon S3 bucket to use for packaging and deploying for non-guided deployments. If you specify the `--guided` option, then the AWS SAM CLI ignores `--resolve-s3`. If you specify both the `--s3-bucket` and `--resolve-s3` options, then an error occurs.
+Automatically create an Amazon S3 bucket to use for packaging and deploying for non-guided deployments. If you specify the `--guided` option, then the AWS SAM CLI ignores `--resolve-s3`. If you specify both the `--s3-bucket` and `--resolve-s3` options, then an error occurs.  
+With this option or `--guided`, the code of an `AWS::Serverless::WebFunction` is uploaded to a code bucket that belongs to the stack, not to the managed bucket. For more information, see [Building and deploying Lambda Web Functions](using-sam-cli-deploy.md#deploying-webfunctions).
 
 `--role-arn {{TEXT}}`  <a name="ref-sam-cli-deploy-options-role-arn"></a>
 The Amazon Resource Name (ARN) of an IAM role that CloudFormation assumes when applying the changeset.
 
 `--s3-bucket {{TEXT}}`  <a name="ref-sam-cli-deploy-options-s3-bucket"></a>
-The name of the Amazon S3 bucket where this command uploads your CloudFormation template. If your template is larger than 51,200 bytes, then either the `--s3-bucket` option or the `--resolve-s3` option is required. If you specify both the `--s3-bucket` and `--resolve-s3` options, then an error occurs.
+The name of the Amazon S3 bucket where this command uploads your CloudFormation template. If your template is larger than 51,200 bytes, then either the `--s3-bucket` option or the `--resolve-s3` option is required. If you specify both the `--s3-bucket` and `--resolve-s3` options, then an error occurs.  
+The code of an `AWS::Serverless::WebFunction` is also uploaded to this bucket, which must have versioning enabled and allow Lambda to read the code. For more information, see [Building and deploying Lambda Web Functions](using-sam-cli-deploy.md#deploying-webfunctions).
 
 `--s3-prefix {{TEXT}}`  <a name="ref-sam-cli-deploy-options-s3-prefix"></a>
 The prefix added to the names of the artifacts that are uploaded to the Amazon S3 bucket. The prefix name is a path name (folder name) for the Amazon S3 bucket.

@@ -7,8 +7,8 @@ Locally invoking a Lambda Event Function before testing or deploying in the clou
 
 You can invoke your Lambda function locally by using the [sam local invoke](sam-cli-command-reference-sam-local-invoke.md) command and providing the function's logical ID and an event file. **sam local invoke** also accepts `stdin` as an event. For more information about events, see [Event](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-concepts.html#gettingstarted-concepts-event) in the *AWS Lambda Developer Guide*. For information about event message formats from different AWS services, see [Using AWS Lambda with other services](https://docs.aws.amazon.com/lambda/latest/dg/lambda-services.html) in the *AWS Lambda Developer Guide*.
 
-**Note**  
-It's not recommended to use SAM CLI's local invoke capabilities in untrusted code. To have complete isolation from your local environment, execute the code in the Lambda service directly.
+**Important**  
+Local invocations run function code in your local environment. For code that you didn't write or review, use the Lambda service, which runs it in isolation from your machine.
 
 **Note**  
 The **sam local invoke** command corresponds to the AWS Command Line Interface (AWS CLI) command [`aws lambda invoke`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/invoke.html). You can use either command to invoke a Lambda function.

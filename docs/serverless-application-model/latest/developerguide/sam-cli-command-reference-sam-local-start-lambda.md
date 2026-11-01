@@ -9,6 +9,9 @@ This page provides reference information for the AWS Serverless Application Mode
 
 The `sam local start-lambda` subcommand starts a local endpoint to emulate AWS Lambda.
 
+**Important**  
+Don't use `sam local start-lambda` with untrusted code, because the local endpoint runs function code in your local environment. For complete isolation, invoke the code in the Lambda service instead.
+
 ## Usage
 <a name="ref-sam-cli-local-start-lambda-usage"></a>
 

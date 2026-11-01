@@ -7,6 +7,8 @@ Specifies the Amazon S3 location of a Web Function's deployment package. You can
 
 The bucket must have versioning enabled and a bucket policy that grants `lambda.amazonaws.com` the `s3:GetObject` and `s3:GetObjectVersion` permissions. We recommend that you scope the policy with an `aws:SourceArn` condition that matches the function's revisions. If the object is encrypted with SSE-KMS, use a customer managed key whose key policy allows `lambda.amazonaws.com` to call `kms:Decrypt`. The AWS managed key for Amazon S3 (`aws/s3`) isn't supported. For details, see [Deploying Web Function code from Amazon S3](https://docs.aws.amazon.com/lambda/latest/dg/web-functions-code-s3.html) in the *AWS Lambda Developer Guide*.
 
+To have the AWS SAM CLI build and upload your code, set `CodeUri` on the `AWS::Serverless::WebFunction` to a local path instead. For more information, see [Building and deploying Lambda Web Functions](using-sam-cli-deploy.md#deploying-webfunctions).
+
 ## Syntax
 <a name="sam-property-webfunction-codeuri-syntax"></a>
 

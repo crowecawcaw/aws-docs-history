@@ -17,7 +17,7 @@ Versioning is enabled.
 A bucket policy grants `lambda.amazonaws.com` the `s3:GetObject` and `s3:GetObjectVersion` permissions. We recommend that you scope the policy with an `ArnLike` condition on `aws:SourceArn` that matches the function's revisions, for example `arn:aws:lambda:{{us-east-1}}:{{111122223333}}:web-function/{{my-function}}/revision/*`.
 If the object is encrypted with SSE-KMS, it uses a customer managed key whose key policy allows `lambda.amazonaws.com` to call `kms:Decrypt`. The AWS managed key for Amazon S3 (`aws/s3`) isn't supported, because you can't change its key policy.
 For an example bucket policy, see [Bucket policy for Lambda](https://docs.aws.amazon.com/lambda/latest/dg/web-functions-code-s3.html#web-functions-code-s3-bucket-policy) in the *AWS Lambda Developer Guide*.  
-`CodeUri` must reference an object in Amazon S3. The `sam build` and `sam package` commands don't support local paths for this resource.
+If `CodeUri` is a local path, the AWS SAM CLI builds and uploads the code for you. For more information, see [Building and deploying Lambda Web Functions](using-sam-cli-deploy.md#deploying-webfunctions).
 
 ## Syntax
 <a name="sam-resource-webfunction-syntax"></a>
@@ -82,7 +82,8 @@ The value must resolve when AWS SAM transforms the template. A `Ref` to a parame
 *CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
  `CodeUri`   <a name="sam-webfunction-codeuri"></a>
-The Amazon S3 location of the deployment package. Specify an `s3://{{bucket}}/{{key}}` URI or an object with `Bucket`, `Key`, and optional `Version` keys. For bucket requirements, see the note at the top of this page.  
+The location of the deployment package. Specify an `s3://{{bucket}}/{{key}}` URI or an object with `Bucket`, `Key`, and optional `Version` keys. For bucket requirements, see the note at the top of this page.  
+You can also specify a local path. The AWS SAM CLI uploads the code and replaces the path with its Amazon S3 location. For more information, see [Building and deploying Lambda Web Functions](using-sam-cli-deploy.md#deploying-webfunctions).  
 *Type*: String \| [CodeUri](sam-property-webfunction-codeuri.md)  
 *Required*: Yes  
 *CloudFormation compatibility*: This property is similar to the `[BuildConfig.CodeConfig.S3Object](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-webfunctionrevision-s3object.html)` property of an `AWS::Lambda::WebFunctionRevision` resource. AWS SAM converts an `s3://` URI into `Bucket`, `Key`, and `VersionId`. 

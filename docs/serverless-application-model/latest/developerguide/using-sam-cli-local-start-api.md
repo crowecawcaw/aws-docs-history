@@ -8,6 +8,9 @@ Use the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `
 + For a list of `sam local start-api` command options, see [sam local start-api](sam-cli-command-reference-sam-local-start-api.md).
 + For an example of using `sam local start-api` during a typical development workflow, see [Step 7: (Optional) Test your application locally](serverless-getting-started-hello-world.md#serverless-getting-started-hello-world-test).
 
+**Important**  
+The local HTTP server runs your function code on your machine, with access to your local environment. Test code that you didn't author in the Lambda service, where it's isolated from your machine.
+
 **Note**  
 `sam local start-api` supports durable functions with automatic checkpointing and replay capabilities. Durable functions work seamlessly with the local API Gateway endpoint.
 

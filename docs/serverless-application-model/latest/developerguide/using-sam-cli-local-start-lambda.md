@@ -7,6 +7,9 @@ Use the AWS SAM CLI subcommand `sam local start-lambda` to invoke your Lambda E
 + For an introduction to the AWS SAM CLI, see [What is the AWS SAM CLI?](what-is-sam-overview.md#what-is-sam-cli)
 + For a list of `sam local start-lambda` command options, see [sam local start-lambda](sam-cli-command-reference-sam-local-start-lambda.md).
 
+**Important**  
+The local endpoint runs function code on your machine, not in the Lambda service. To keep untrusted code isolated from your local environment, invoke it in the Lambda service.
+
 **Note**  
 `sam local start-lambda` supports durable functions with automatic checkpointing and replay capabilities. Durable functions work seamlessly with the local Lambda endpoint.
 

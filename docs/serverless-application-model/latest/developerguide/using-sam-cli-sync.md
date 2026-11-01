@@ -13,6 +13,9 @@ The AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam 
 
 With `sam sync`, you can create a rapid development workflow that shortens the time it takes to sync your local changes to the cloud for testing and validation.
 
+**Important**  
+Each sync runs the project's build tools and scripts locally and deploys its resources with your AWS credentials. Use `sam sync` only on projects that you wrote or reviewed.
+
 **Note**  
 The `sam sync` command is recommended for development environments. For production environments, we recommend using `sam deploy` or configuring a *continuous integration and delivery (CI/CD)* pipeline. To learn more, see [Deploy your application and resources with AWS SAM](serverless-deploying.md).
 
@@ -43,6 +46,8 @@ Run `sam sync` with the `--watch` option to begin syncing your application to th
    If default values can’t be found, the AWS SAM CLI will inform you and exit the sync process.
 
 1. **Watch for local changes** – The AWS SAM CLI remains running and watches for local changes to your application. This is what the `--watch` option provides.
+
+   The code of an `AWS::Serverless::WebFunction` isn't watched, because each code change creates a new revision. Code changes are deployed with the next infrastructure sync.
 
    This option may be turned on by default. For default values, see your application’s `samconfig.toml` file. The following is an example file:
 

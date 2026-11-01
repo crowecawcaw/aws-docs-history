@@ -8,8 +8,8 @@ Use the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `
 + For a list of `sam local invoke` command options, see [sam local invoke](sam-cli-command-reference-sam-local-invoke.md).
 + For an example of using `sam local invoke` during a typical development workflow, see [Step 7: (Optional) Test your application locally](serverless-getting-started-hello-world.md#serverless-getting-started-hello-world-test).
 
-**Note**  
-It's not recommended to use SAM CLI's local invoke capabilities in untrusted code. To have complete isolation from your local environment, execute the code in the Lambda service directly.
+**Important**  
+`sam local invoke` runs function code with access to your local environment. Invoke code from an unknown source in the Lambda service, which isolates it from your machine.
 
 **Note**  
 `sam local invoke` supports durable functions with automatic checkpointing and replay capabilities. When invoking durable functions locally, execution state is automatically managed.
