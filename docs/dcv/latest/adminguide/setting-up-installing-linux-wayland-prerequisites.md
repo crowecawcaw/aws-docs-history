@@ -27,6 +27,31 @@ With the Wayland display protocol, Amazon DCV works only with the GNOME desktop 
 The following tabbed content shows the steps for installing the default desktop environment and desktop manager on the supported operating systems.
 
 ------
+#### [ Amazon Linux 2027 ]
+
+The default desktop environment for Amazon Linux 2027 is GNOME and the default desktop manager is GDM.
+
+**To install and configure the desktop environment and desktop manager on Amazon Linux 2027**
+
+1. Install the desktop environment and the desktop manager packages.
+
+   ```
+   $ sudo dnf group install "Desktop"
+   ```
+
+1. Update the software packages to ensure that the Linux server is up to date.
+
+   ```
+   $ sudo dnf upgrade
+   ```
+
+1. Reboot the Linux server.
+
+   ```
+   $ sudo reboot
+   ```
+
+------
 #### [ RHEL, CentOS, and Rocky Linux 10 ]
 
 The default desktop environment for RHEL, CentOS, and Rocky Linux 10 is GNOME and the default desktop manager is GDM.
@@ -115,6 +140,16 @@ We recommend that you configure your Linux server to start the graphical session
 <a name="linux-prereq-tools"></a>
 
 The eglinfo utility provides information about your Linux server's OpenGL configuration. The utility can be used to determine whether your Linux server is configured to support OpenGL hardware or software rendering. It provides information about the drivers and supported extensions.
+
+------
+#### [ Amazon Linux 2027 ]
+
+**To install the eglinfo utility**  
+Run the following command:
+
+```
+$ sudo dnf install egl-utils
+```
 
 ------
 #### [ RHEL, CentOS, and Rocky Linux 10 ]

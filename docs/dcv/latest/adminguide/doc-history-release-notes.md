@@ -15,6 +15,7 @@ This page provides the release notes and document history for Amazon DCV.
 This section provides an overview of the major updates, feature releases, and bug fixes for Amazon DCV. All the updates are organized by release data. We update the documentation frequently to address the feedback that you send us.
 
 **Topics**
++ [DCV 2026.0-25174 — October 28, 2026](#dcv-2026-0-25174)
 + [DCV 2026.0-24952 — October 13, 2026](#dcv-2026-0-24952)
 + [DCV 2025.0-21744 — April 1, 2026](#dcv-2025-0-21744)
 + [DCV 2025.0-20177 — November 11, 2025](#dcv-2025-0-20177)
@@ -73,6 +74,15 @@ This section provides an overview of the major updates, feature releases, and bu
 + [DCV 2017.0-5121 — March 18, 2018](#dcv-2017-0-5121)
 + [DCV 2017.0-4334 — January 24, 2018](#dcv-2017-0-4334)
 + [DCV 2017.0-4100 — December 18, 2017](#dcv-2017-0-4100)
+
+### DCV 2026.0-25174 — October 28, 2026
+<a name="dcv-2026-0-25174"></a>
+
+
+
+| Build numbers | New features | Changes and bug fixes | 
+| --- | --- | --- | 
+|  + nice-dcv-server: 25174<br />+ nice-dcv-client (Windows): 14158<br />+ nice-dcv-viewer (macOS): 14555<br />+ nice-dcv-viewer (Linux): 14555<br />+ nice-dcv-web-viewer: 25174<br />+ nice-xdcv: 715<br />+ nice-dcv-gl: 1124<br />+ nice-dcv-gltest: 372<br />+ nice-dcv-simple-external-authenticator: 301  |  +  Support for Amazon Linux 2027.   |  +  Bug fixes and security improvements.   | 
 
 ### DCV 2026.0-24952 — October 13, 2026
 <a name="dcv-2026-0-24952"></a>
@@ -605,6 +615,7 @@ The following table describes the documentation for this release of Amazon DCV.
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Amazon DCV Version 2026.0 | Amazon DCV updates and fixes for 2026.0. For more information, see [DCV 2026.0-25174 — October 28, 2026](#dcv-2026-0-25174). | October 28, 2026 | 
 | Amazon DCV Version 2026.0 | Amazon DCV 2026.0 is now available. For more information, see [DCV 2026.0-24952 — October 13, 2026](#dcv-2026-0-24952). | October 13, 2026 | 
 | Amazon DCV Version 2024.0 | Amazon DCV fixes for 2024.0. For more information, see [DCV 2024.0-19030 — June 10, 2025](#dcv-2024-0-19030-2). | June 10, 2025 | 
 | Amazon DCV Version 2024.0 | Amazon DCV fixes for 2024.0. For more information, see [DCV 2024.0-19030 — May 16, 2025](#dcv-2024-0-19030-1). | May 16, 2025 | 

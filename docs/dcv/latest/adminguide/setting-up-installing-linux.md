@@ -9,6 +9,7 @@ You can install the Amazon DCV server on a Linux server to run your Amazon DCV s
 | Operating system | Display protocol | Installation instructions | 
 | --- | --- | --- | 
 | Amazon Linux 2023 | X11 | [Installing the Amazon DCV Server on Linux with X11](setting-up-installing-linux-x11.md) | 
+| Amazon Linux 2027 | Wayland | [Installing the Amazon DCV Server on Linux with Wayland](setting-up-installing-linux-wayland.md) | 
 | RHEL, CentOS, and Rocky Linux 8 | X11 | [Installing the Amazon DCV Server on Linux with X11](setting-up-installing-linux-x11.md) | 
 | RHEL, CentOS, and Rocky Linux 9 | X11 | [Installing the Amazon DCV Server on Linux with X11](setting-up-installing-linux-x11.md) | 
 | RHEL, CentOS, and Rocky Linux 10 | Wayland | [Installing the Amazon DCV Server on Linux with Wayland](setting-up-installing-linux-wayland.md) | 

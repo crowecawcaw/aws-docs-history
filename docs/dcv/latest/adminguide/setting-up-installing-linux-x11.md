@@ -8,7 +8,7 @@ The Amazon DCV server software can be installed on a Linux Server and run your A
 This section describes how to install the Amazon DCV server on Linux using the X11 display protocol.
 
 **Note**  
-The X11 display protocol is used on operating systems such as Amazon Linux 2023, RHEL, CentOS, and Rocky Linux 8/9, SUSE Linux Enterprise 15, and Ubuntu 22.04/24.04. If you're using RHEL, CentOS, or Rocky Linux 10, or Ubuntu 26.04, see [Installing the Amazon DCV Server on Linux with Wayland](setting-up-installing-linux-wayland.md).
+The X11 display protocol is used on operating systems such as Amazon Linux 2023, RHEL, CentOS, and Rocky Linux 8/9, SUSE Linux Enterprise 15, and Ubuntu 22.04/24.04. If you're using Amazon Linux 2027, RHEL, CentOS, or Rocky Linux 10, or Ubuntu 26.04, see [Installing the Amazon DCV Server on Linux with Wayland](setting-up-installing-linux-wayland.md).
 
 **Topics**
 + [Prerequisites](setting-up-installing-linux-x11-prerequisites.md)

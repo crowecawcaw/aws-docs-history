@@ -26,12 +26,12 @@ Use the following command:
 
 ```
 gpg1 --import NICE-GPG-KEY-SECRET
-dpkg-sig --verify nice-dcv-server_2026.0.24952-1_amd64.deb
+dpkg-sig --verify nice-dcv-server_2026.0.25174-1_amd64.deb
 ```
 
 This will return a message that includes the term `GOODSIG` to confirm that the signature is verified. The following example shows a signature confirmation message. In place of {{Example Key}}, the key will be displayed.
 
 ```
-Processing nice-dcv-server_2026.0.24952-1_amd64.deb...
+Processing nice-dcv-server_2026.0.25174-1_amd64.deb...
 GOODSIG _gpgbuilder {{Example Key}}
 ```

@@ -33,12 +33,12 @@ The `nice-dcv-gl` and `nice-dcv-gltest` packages aren't available for servers ba
    + 64-bit x86
 
      ```
-     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Servers/nice-dcv-2026.0-24952-amzn2023-x86_64.tgz
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Servers/nice-dcv-2026.0-25174-amzn2023-x86_64.tgz
      ```
    + 64-bit ARM
 
      ```
-     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Servers/nice-dcv-2026.0-24952-amzn2023-aarch64.tgz
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Servers/nice-dcv-2026.0-25174-amzn2023-aarch64.tgz
      ```
 **Tip**  
 The [latest packages](http://download.amazondcv.com/latest.html) page of the download website contains links that point to the newest available version. You can use these links to automatically retrieve the newest Amazon DCV packages.  
@@ -57,55 +57,55 @@ The [latest packages](http://download.amazondcv.com/latest.html) page of the dow
    + 64-bit x86
 
      ```
-     $ tar -xvzf nice-dcv-2026.0-24952-amzn2023-x86_64.tgz && cd nice-dcv-2026.0-24952-amzn2023-x86_64
+     $ tar -xvzf nice-dcv-2026.0-25174-amzn2023-x86_64.tgz && cd nice-dcv-2026.0-25174-amzn2023-x86_64
      ```
    + 64-bit ARM
 
      ```
-     $ tar -xvzf nice-dcv-2026.0-24952-amzn2023-aarch64.tgz && cd nice-dcv-2026.0-24952-amzn2023-aarch64
+     $ tar -xvzf nice-dcv-2026.0-25174-amzn2023-aarch64.tgz && cd nice-dcv-2026.0-25174-amzn2023-aarch64
      ```
 
 1. Install the Amazon DCV server.
    + 64-bit x86
 
      ```
-     $ sudo dnf install nice-dcv-server-2026.0.24952-1.amzn2023.x86_64.rpm
+     $ sudo dnf install nice-dcv-server-2026.0.25174-1.amzn2023.x86_64.rpm
      ```
    + 64-bit ARM
 
      ```
-     $ sudo dnf install nice-dcv-server-2026.0.24952-1.amzn2023.aarch64.rpm
+     $ sudo dnf install nice-dcv-server-2026.0.25174-1.amzn2023.aarch64.rpm
      ```
 
 1. (Optional) If you plan to use the web client, install the `nice-dcv-web-viewer` package.
    + 64-bit x86
 
      ```
-     $ sudo dnf install nice-dcv-web-viewer-2026.0.24952-1.amzn2023.x86_64.rpm
+     $ sudo dnf install nice-dcv-web-viewer-2026.0.25174-1.amzn2023.x86_64.rpm
      ```
    + 64-bit ARM
 
      ```
-     $ sudo dnf install nice-dcv-web-viewer-2026.0.24952-1.amzn2023.aarch64.rpm
+     $ sudo dnf install nice-dcv-web-viewer-2026.0.25174-1.amzn2023.aarch64.rpm
      ```
 
 1. (Optional) If you plan to use virtual sessions, install the `nice-xdcv` package.
    + 64-bit x86
 
      ```
-     $ sudo dnf install nice-xdcv-2026.0.714-1.amzn2023.x86_64.rpm
+     $ sudo dnf install nice-xdcv-2026.0.715-1.amzn2023.x86_64.rpm
      ```
    + 64-bit ARM
 
      ```
-     $ sudo dnf install nice-xdcv-2026.0.714-1.amzn2023.aarch64.rpm
+     $ sudo dnf install nice-xdcv-2026.0.715-1.amzn2023.aarch64.rpm
      ```
 
 1. (Optional) If you plan to use GPU sharing, install the `nice-dcv-gl` package. 
    + 64-bit x86
 
      ```
-     $ sudo dnf install nice-dcv-gl-2026.0.1122-1.amzn2023.x86_64.rpm
+     $ sudo dnf install nice-dcv-gl-2026.0.1124-1.amzn2023.x86_64.rpm
      ```
 **Note**  
 You can optionally install the `nice-dcv-gltest` package. This package includes a simple OpenGL application that can be used to determine if your virtual sessions are properly configured to use hardware-based OpenGL.
@@ -114,12 +114,12 @@ You can optionally install the `nice-dcv-gltest` package. This package includes 
    + 64-bit x86
 
      ```
-     $ sudo dnf install nice-dcv-simple-external-authenticator-2026.0.300-1.amzn2023.x86_64.rpm
+     $ sudo dnf install nice-dcv-simple-external-authenticator-2026.0.301-1.amzn2023.x86_64.rpm
      ```
    + 64-bit ARM
 
      ```
-     $ sudo dnf install nice-dcv-simple-external-authenticator-2026.0.300-1.amzn2023.aarch64.rpm
+     $ sudo dnf install nice-dcv-simple-external-authenticator-2026.0.301-1.amzn2023.aarch64.rpm
      ```
 
 1. (Optional) If you plan to support specialized USB devices using USB remotization, install the DCV USB drivers. 
@@ -164,12 +164,12 @@ The `nice-dcv-gl` and `nice-dcv-gltest` packages aren't available for servers ba
    + 64-bit x86
 
      ```
-     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Servers/nice-dcv-2026.0-24952-el8-x86_64.tgz
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Servers/nice-dcv-2026.0-25174-el8-x86_64.tgz
      ```
    + 64-bit ARM
 
      ```
-     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Servers/nice-dcv-2026.0-24952-el8-aarch64.tgz
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Servers/nice-dcv-2026.0-25174-el8-aarch64.tgz
      ```
 **Tip**  
 The [latest packages](http://download.amazondcv.com/latest.html) page of the download website contains links that point to the newest available version. You can use these links to automatically retrieve the newest Amazon DCV packages.  
@@ -188,55 +188,55 @@ The [latest packages](http://download.amazondcv.com/latest.html) page of the dow
    + 64-bit x86
 
      ```
-     $ tar -xvzf nice-dcv-2026.0-24952-el8-x86_64.tgz && cd nice-dcv-2026.0-24952-el8-x86_64
+     $ tar -xvzf nice-dcv-2026.0-25174-el8-x86_64.tgz && cd nice-dcv-2026.0-25174-el8-x86_64
      ```
    + 64-bit ARM
 
      ```
-     $ tar -xvzf nice-dcv-2026.0-24952-el8-aarch64.tgz && cd nice-dcv-2026.0-24952-el8-aarch64
+     $ tar -xvzf nice-dcv-2026.0-25174-el8-aarch64.tgz && cd nice-dcv-2026.0-25174-el8-aarch64
      ```
 
 1. Install the Amazon DCV server.
    + 64-bit x86
 
      ```
-     $ sudo dnf install nice-dcv-server-2026.0.24952-1.el8.x86_64.rpm
+     $ sudo dnf install nice-dcv-server-2026.0.25174-1.el8.x86_64.rpm
      ```
    + 64-bit ARM
 
      ```
-     $ sudo dnf install nice-dcv-server-2026.0.24952-1.el8.aarch64.rpm
+     $ sudo dnf install nice-dcv-server-2026.0.25174-1.el8.aarch64.rpm
      ```
 
 1. (Optional) If you plan to use the web client, install the `nice-dcv-web-viewer` package.
    + 64-bit x86
 
      ```
-     $ sudo dnf install nice-dcv-web-viewer-2026.0.24952-1.el8.x86_64.rpm
+     $ sudo dnf install nice-dcv-web-viewer-2026.0.25174-1.el8.x86_64.rpm
      ```
    + 64-bit ARM
 
      ```
-     $ sudo dnf install nice-dcv-web-viewer-2026.0.24952-1.el8.aarch64.rpm
+     $ sudo dnf install nice-dcv-web-viewer-2026.0.25174-1.el8.aarch64.rpm
      ```
 
 1. (Optional) If you plan to use virtual sessions, install the `nice-xdcv` package.
    + 64-bit x86
 
      ```
-     $ sudo dnf install nice-xdcv-2026.0.714-1.el8.x86_64.rpm
+     $ sudo dnf install nice-xdcv-2026.0.715-1.el8.x86_64.rpm
      ```
    + 64-bit ARM
 
      ```
-     $ sudo dnf install nice-xdcv-2026.0.714-1.el8.aarch64.rpm
+     $ sudo dnf install nice-xdcv-2026.0.715-1.el8.aarch64.rpm
      ```
 
 1. (Optional) If you plan to use GPU sharing, install the `nice-dcv-gl` package. 
    + 64-bit x86
 
      ```
-     $ sudo dnf install nice-dcv-gl-2026.0.1122-1.el8.x86_64.rpm
+     $ sudo dnf install nice-dcv-gl-2026.0.1124-1.el8.x86_64.rpm
      ```
 **Note**  
 You can optionally install the `nice-dcv-gltest` package. This package includes a simple OpenGL application that can be used to determine if your virtual sessions are properly configured to use hardware-based OpenGL.
@@ -245,12 +245,12 @@ You can optionally install the `nice-dcv-gltest` package. This package includes 
    + 64-bit x86
 
      ```
-     $ sudo dnf install nice-dcv-simple-external-authenticator-2026.0.300-1.el8.x86_64.rpm
+     $ sudo dnf install nice-dcv-simple-external-authenticator-2026.0.301-1.el8.x86_64.rpm
      ```
    + 64-bit ARM
 
      ```
-     $ sudo dnf install nice-dcv-simple-external-authenticator-2026.0.300-1.el8.aarch64.rpm
+     $ sudo dnf install nice-dcv-simple-external-authenticator-2026.0.301-1.el8.aarch64.rpm
      ```
 
 1. (Optional) If you plan to support specialized USB devices using USB remotization, install the DCV USB drivers. 
@@ -303,12 +303,12 @@ The `nice-dcv-gl` and `nice-dcv-gltest` packages aren't available for servers ba
    + 64-bit x86
 
      ```
-     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Servers/nice-dcv-2026.0-24952-el9-x86_64.tgz
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Servers/nice-dcv-2026.0-25174-el9-x86_64.tgz
      ```
    + 64-bit ARM
 
      ```
-     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Servers/nice-dcv-2026.0-24952-el9-aarch64.tgz
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Servers/nice-dcv-2026.0-25174-el9-aarch64.tgz
      ```
 **Tip**  
 The [latest packages](http://download.amazondcv.com/latest.html) page of the download website contains links that point to the newest available version. You can use these links to automatically retrieve the newest Amazon DCV packages.  
@@ -327,55 +327,55 @@ The [latest packages](http://download.amazondcv.com/latest.html) page of the dow
    + 64-bit x86
 
      ```
-     $ tar -xvzf nice-dcv-2026.0-24952-el9-x86_64.tgz && cd nice-dcv-2026.0-24952-el9-x86_64
+     $ tar -xvzf nice-dcv-2026.0-25174-el9-x86_64.tgz && cd nice-dcv-2026.0-25174-el9-x86_64
      ```
    + 64-bit ARM
 
      ```
-     $ tar -xvzf nice-dcv-2026.0-24952-el9-aarch64.tgz && cd nice-dcv-2026.0-24952-el9-aarch64
+     $ tar -xvzf nice-dcv-2026.0-25174-el9-aarch64.tgz && cd nice-dcv-2026.0-25174-el9-aarch64
      ```
 
 1. Install the Amazon DCV server.
    + 64-bit x86
 
      ```
-     $ sudo dnf install nice-dcv-server-2026.0.24952-1.el9.x86_64.rpm
+     $ sudo dnf install nice-dcv-server-2026.0.25174-1.el9.x86_64.rpm
      ```
    + 64-bit ARM
 
      ```
-     $ sudo dnf install nice-dcv-server-2026.0.24952-1.el9.aarch64.rpm
+     $ sudo dnf install nice-dcv-server-2026.0.25174-1.el9.aarch64.rpm
      ```
 
 1. (Optional) If you plan to use the web client, install the `nice-dcv-web-viewer` package.
    + 64-bit x86
 
      ```
-     $ sudo dnf install nice-dcv-web-viewer-2026.0.24952-1.el9.x86_64.rpm
+     $ sudo dnf install nice-dcv-web-viewer-2026.0.25174-1.el9.x86_64.rpm
      ```
    + 64-bit ARM
 
      ```
-     $ sudo dnf install nice-dcv-web-viewer-2026.0.24952-1.el9.aarch64.rpm
+     $ sudo dnf install nice-dcv-web-viewer-2026.0.25174-1.el9.aarch64.rpm
      ```
 
 1. (Optional) If you plan to use virtual sessions, install the `nice-xdcv` package.
    + 64-bit x86
 
      ```
-     $ sudo dnf install nice-xdcv-2026.0.714-1.el9.x86_64.rpm
+     $ sudo dnf install nice-xdcv-2026.0.715-1.el9.x86_64.rpm
      ```
    + 64-bit ARM
 
      ```
-     $ sudo dnf install nice-xdcv-2026.0.714-1.el9.aarch64.rpm
+     $ sudo dnf install nice-xdcv-2026.0.715-1.el9.aarch64.rpm
      ```
 
 1. (Optional) If you plan to use GPU sharing, install the `nice-dcv-gl` package. 
    + 64-bit x86
 
      ```
-     $ sudo dnf install nice-dcv-gl-2026.0.1122-1.el9.x86_64.rpm
+     $ sudo dnf install nice-dcv-gl-2026.0.1124-1.el9.x86_64.rpm
      ```
 **Note**  
 You can optionally install the `nice-dcv-gltest` package. This package includes a simple OpenGL application that can be used to determine if your virtual sessions are properly configured to use hardware-based OpenGL.
@@ -384,12 +384,12 @@ You can optionally install the `nice-dcv-gltest` package. This package includes 
    + 64-bit x86
 
      ```
-     $ sudo dnf install nice-dcv-simple-external-authenticator-2026.0.300-1.el9.x86_64.rpm
+     $ sudo dnf install nice-dcv-simple-external-authenticator-2026.0.301-1.el9.x86_64.rpm
      ```
    + 64-bit ARM
 
      ```
-     $ sudo dnf install nice-dcv-simple-external-authenticator-2026.0.300-1.el9.aarch64.rpm
+     $ sudo dnf install nice-dcv-simple-external-authenticator-2026.0.301-1.el9.aarch64.rpm
      ```
 
 1. (Optional) If you plan to support specialized USB devices using USB remotization, install the DCV USB drivers. 
@@ -438,7 +438,7 @@ The Amazon DCV server is available for SUSE Linux Enterprise Server (SLES) 15 se
 1. Download the packages from the [Amazon DCV download website](http://download.amazondcv.com). The RPM packages are packaged into a `.tgz` archive. Make sure that you download the correct archive for your operating system.
 
    ```
-   $ curl -O https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Servers/nice-dcv-2026.0-24952-sles15-x86_64.tgz
+   $ curl -O https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Servers/nice-dcv-2026.0-25174-sles15-x86_64.tgz
    ```
 **Tip**  
 The [latest packages](http://download.amazondcv.com/latest.html) page of the download website contains links that point to the newest available version. You can use these links to automatically retrieve the newest Amazon DCV packages.  
@@ -450,31 +450,31 @@ The [latest packages](http://download.amazondcv.com/latest.html) page of the dow
 1. Extract the contents of the `.tgz` archive and navigate into the extracted directory.
 
    ```
-   $ tar -xvzf nice-dcv-2026.0-24952-sles15-x86_64.tgz && cd nice-dcv-2026.0-24952-sles15-x86_64
+   $ tar -xvzf nice-dcv-2026.0-25174-sles15-x86_64.tgz && cd nice-dcv-2026.0-25174-sles15-x86_64
    ```
 
 1. Install the Amazon DCV server.
 
    ```
-   $ sudo zypper install nice-dcv-server-2026.0.24952-1.sles15.x86_64.rpm
+   $ sudo zypper install nice-dcv-server-2026.0.25174-1.sles15.x86_64.rpm
    ```
 
 1. (Optional) If you plan to use the web client, install the `nice-dcv-web-viewer` package.
 
    ```
-   $ sudo zypper install nice-dcv-web-viewer-2026.0.24952-1.sles15.x86_64.rpm
+   $ sudo zypper install nice-dcv-web-viewer-2026.0.25174-1.sles15.x86_64.rpm
    ```
 
 1. (Optional) If you plan to use virtual sessions, install the `nice-xdcv` package.
 
    ```
-   $ sudo zypper install nice-xdcv-2026.0.714-1.sles15.x86_64.rpm
+   $ sudo zypper install nice-xdcv-2026.0.715-1.sles15.x86_64.rpm
    ```
 
 1. (Optional) If you plan to use GPU sharing, install the `nice-dcv-gl` package. 
 
    ```
-   $ sudo zypper install nice-dcv-gl-2026.0.1122-1.sles15.x86_64.rpm
+   $ sudo zypper install nice-dcv-gl-2026.0.1124-1.sles15.x86_64.rpm
    ```
 **Note**  
 You can optionally install the `nice-dcv-gltest` package. This package includes a simple OpenGL application that can be used to determine whether your virtual sessions are properly configured to use hardware-based OpenGL. 
@@ -482,7 +482,7 @@ You can optionally install the `nice-dcv-gltest` package. This package includes 
 1. (Optional) If you plan to use Amazon DCV with Amazon DCV EnginFrame, install the `nice-dcv-simple-external-authenticator` package. 
 
    ```
-   $ sudo zypper install nice-dcv-simple-external-authenticator-2026.0.300-1.sles15.x86_64.rpm
+   $ sudo zypper install nice-dcv-simple-external-authenticator-2026.0.301-1.sles15.x86_64.rpm
    ```
 
 1. (Optional) If you plan to support specialized USB devices using USB remotization, install the DCV USB drivers. 
@@ -557,22 +557,22 @@ The `nice-dcv-gl` and `nice-dcv-gltest` packages aren't available for servers ba
    + Ubuntu 22.04 (64-bit x86)
 
      ```
-     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Servers/nice-dcv-2026.0-24952-ubuntu2204-x86_64.tgz
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Servers/nice-dcv-2026.0-25174-ubuntu2204-x86_64.tgz
      ```
    + Ubuntu 22.04 (64-bit ARM)
 
      ```
-     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Servers/nice-dcv-2026.0-24952-ubuntu2204-aarch64.tgz
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Servers/nice-dcv-2026.0-25174-ubuntu2204-aarch64.tgz
      ```
    + Ubuntu 24.04 (64-bit x86)
 
      ```
-     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Servers/nice-dcv-2026.0-24952-ubuntu2404-x86_64.tgz
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Servers/nice-dcv-2026.0-25174-ubuntu2404-x86_64.tgz
      ```
    + Ubuntu 24.04 (64-bit ARM)
 
      ```
-     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Servers/nice-dcv-2026.0-24952-ubuntu2404-aarch64.tgz
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Servers/nice-dcv-2026.0-25174-ubuntu2404-aarch64.tgz
      ```
 **Tip**  
 The [latest packages](http://download.amazondcv.com/latest.html) page of the download website contains links that point to the newest available version. You can use these links to automatically retrieve the newest Amazon DCV packages.  
@@ -601,66 +601,66 @@ Ubuntu 24.04 (64-bit ARM)
    + Ubuntu 22.04 (64-bit x86)
 
      ```
-     $ tar -xvzf nice-dcv-2026.0-24952-ubuntu2204-x86_64.tgz && cd nice-dcv-2026.0-24952-ubuntu2204-x86_64
+     $ tar -xvzf nice-dcv-2026.0-25174-ubuntu2204-x86_64.tgz && cd nice-dcv-2026.0-25174-ubuntu2204-x86_64
      ```
    + Ubuntu 22.04 (64-bit ARM)
 
      ```
-     $ tar -xvzf nice-dcv-2026.0-24952-ubuntu2204-aarch64.tgz && cd nice-dcv-2026.0-24952-ubuntu2204-aarch64
+     $ tar -xvzf nice-dcv-2026.0-25174-ubuntu2204-aarch64.tgz && cd nice-dcv-2026.0-25174-ubuntu2204-aarch64
      ```
    + Ubuntu 24.04 (64-bit x86)
 
      ```
-     $ tar -xvzf nice-dcv-2026.0-24952-ubuntu2404-x86_64.tgz && cd nice-dcv-2026.0-24952-ubuntu2404-x86_64
+     $ tar -xvzf nice-dcv-2026.0-25174-ubuntu2404-x86_64.tgz && cd nice-dcv-2026.0-25174-ubuntu2404-x86_64
      ```
    + Ubuntu 24.04 (64-bit ARM)
 
      ```
-     $ tar -xvzf nice-dcv-2026.0-24952-ubuntu2404-aarch64.tgz && cd nice-dcv-2026.0-24952-ubuntu2404-aarch64
+     $ tar -xvzf nice-dcv-2026.0-25174-ubuntu2404-aarch64.tgz && cd nice-dcv-2026.0-25174-ubuntu2404-aarch64
      ```
 
 1. Install the Amazon DCV server.
    + Ubuntu 22.04 (64-bit x86)
 
      ```
-     $ sudo apt install ./nice-dcv-server_2026.0.24952-1_amd64.ubuntu2204.deb
+     $ sudo apt install ./nice-dcv-server_2026.0.25174-1_amd64.ubuntu2204.deb
      ```
    + Ubuntu 22.04 (64-bit ARM)
 
      ```
-     $ sudo apt install ./nice-dcv-server_2026.0.24952-1_arm64.ubuntu2204.deb
+     $ sudo apt install ./nice-dcv-server_2026.0.25174-1_arm64.ubuntu2204.deb
      ```
    + Ubuntu 24.04 (64-bit x86)
 
      ```
-     $ sudo apt install ./nice-dcv-server_2026.0.24952-1_amd64.ubuntu2404.deb
+     $ sudo apt install ./nice-dcv-server_2026.0.25174-1_amd64.ubuntu2404.deb
      ```
    + Ubuntu 24.04 (64-bit ARM)
 
      ```
-     $ sudo apt install ./nice-dcv-server_2026.0.24952-1_arm64.ubuntu2404.deb
+     $ sudo apt install ./nice-dcv-server_2026.0.25174-1_arm64.ubuntu2404.deb
      ```
 
 1. (Optional) If you plan to use the web client, install the `nice-dcv-web-viewer` package.
    + Ubuntu 22.04 (64-bit x86)
 
      ```
-     $ sudo apt install ./nice-dcv-web-viewer_2026.0.24952-1_amd64.ubuntu2204.deb
+     $ sudo apt install ./nice-dcv-web-viewer_2026.0.25174-1_amd64.ubuntu2204.deb
      ```
    + Ubuntu 22.04 (64-bit ARM)
 
      ```
-     $ sudo apt install ./nice-dcv-web-viewer_2026.0.24952-1_arm64.ubuntu2204.deb
+     $ sudo apt install ./nice-dcv-web-viewer_2026.0.25174-1_arm64.ubuntu2204.deb
      ```
    + Ubuntu 24.04 (64-bit x86)
 
      ```
-     $ sudo apt install ./nice-dcv-web-viewer_2026.0.24952-1_amd64.ubuntu2404.deb
+     $ sudo apt install ./nice-dcv-web-viewer_2026.0.25174-1_amd64.ubuntu2404.deb
      ```
    + Ubuntu 24.04 (64-bit ARM)
 
      ```
-     $ sudo apt install ./nice-dcv-web-viewer_2026.0.24952-1_arm64.ubuntu2404.deb
+     $ sudo apt install ./nice-dcv-web-viewer_2026.0.25174-1_arm64.ubuntu2404.deb
      ```
 
 1. Add the `dcv` user to the `video` group.
@@ -673,29 +673,29 @@ Ubuntu 24.04 (64-bit ARM)
    + Ubuntu 22.04 (64-bit x86)
 
      ```
-     $ sudo apt install ./nice-xdcv_2026.0.714-1_amd64.ubuntu2204.deb
+     $ sudo apt install ./nice-xdcv_2026.0.715-1_amd64.ubuntu2204.deb
      ```
    + Ubuntu 22.04 (64-bit ARM)
 
      ```
-     $ sudo apt install ./nice-xdcv_2026.0.714-1_arm64.ubuntu2204.deb
+     $ sudo apt install ./nice-xdcv_2026.0.715-1_arm64.ubuntu2204.deb
      ```
    + Ubuntu 24.04 (64-bit x86)
 
      ```
-     $ sudo apt install ./nice-xdcv_2026.0.714-1_amd64.ubuntu2404.deb
+     $ sudo apt install ./nice-xdcv_2026.0.715-1_amd64.ubuntu2404.deb
      ```
    + Ubuntu 24.04 (64-bit ARM)
 
      ```
-     $ sudo apt install ./nice-xdcv_2026.0.714-1_arm64.ubuntu2404.deb
+     $ sudo apt install ./nice-xdcv_2026.0.715-1_arm64.ubuntu2404.deb
      ```
 
 1. (Optional) If you plan to use GPU sharing, install the `nice-dcv-gl` package. 
    + Ubuntu 22.04 (64-bit x86)
 
      ```
-     $ sudo apt install ./nice-dcv-gl_2026.0.1122-1_amd64.ubuntu2204.deb
+     $ sudo apt install ./nice-dcv-gl_2026.0.1124-1_amd64.ubuntu2204.deb
      ```
 **Note**  
 You can optionally install the `nice-dcv-gltest` package. This package includes a simple OpenGL application that can be used to determine if your virtual sessions are properly configured to use hardware-based OpenGL.
@@ -704,22 +704,22 @@ You can optionally install the `nice-dcv-gltest` package. This package includes 
    + Ubuntu 22.04 (64-bit x86)
 
      ```
-     $ sudo apt install ./nice-dcv-simple-external-authenticator_2026.0.300-1_amd64.ubuntu2204.deb
+     $ sudo apt install ./nice-dcv-simple-external-authenticator_2026.0.301-1_amd64.ubuntu2204.deb
      ```
    + Ubuntu 22.04 (64-bit ARM)
 
      ```
-     $ sudo apt install ./nice-dcv-simple-external-authenticator_2026.0.300-1_arm64.ubuntu2204.deb
+     $ sudo apt install ./nice-dcv-simple-external-authenticator_2026.0.301-1_arm64.ubuntu2204.deb
      ```
    + Ubuntu 24.04 (64-bit x86)
 
      ```
-     $ sudo apt install ./nice-dcv-simple-external-authenticator_2026.0.300-1_amd64.ubuntu2404.deb
+     $ sudo apt install ./nice-dcv-simple-external-authenticator_2026.0.301-1_amd64.ubuntu2404.deb
      ```
    + Ubuntu 24.04 (64-bit ARM)
 
      ```
-     $ sudo apt install ./nice-dcv-simple-external-authenticator_2026.0.300-1_arm64.ubuntu2404.deb
+     $ sudo apt install ./nice-dcv-simple-external-authenticator_2026.0.301-1_arm64.ubuntu2404.deb
      ```
 
 1. (Optional) If you plan to support specialized USB devices using USB remotization, install the DCV USB drivers. 
@@ -748,12 +748,12 @@ You can optionally install the `nice-dcv-gltest` package. This package includes 
    + Ubuntu 22.04
 
      ```
-     $ sudo apt install ./nice-dcv-gnome-shell-extension_2026.0.80-1_all.ubuntu2204.deb
+     $ sudo apt install ./nice-dcv-gnome-shell-extension_2026.0.81-1_all.ubuntu2204.deb
      ```
    + Ubuntu 24.04
 
      ```
-     $ sudo apt install ./nice-dcv-gnome-shell-extension_2026.0.80-1_all.ubuntu2404.deb
+     $ sudo apt install ./nice-dcv-gnome-shell-extension_2026.0.81-1_all.ubuntu2404.deb
      ```
 
 ------
