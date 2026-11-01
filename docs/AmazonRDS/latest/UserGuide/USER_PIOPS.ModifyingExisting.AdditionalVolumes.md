@@ -43,6 +43,7 @@ Support for additional storage volumes depends on the DB engine and DB instance 
    + **Allocated storage** – Enter the storage size in GiB (minimum 200 GiB).
    + For io2 storage, configure **Provisioned IOPS**.
    + For gp3 storage, optionally configure **Storage throughput**.
+   + To turn on storage autoscaling for this volume, set a **Maximum storage threshold**. Amazon RDS scales this volume independently up to the threshold that you set. For more information, see [Storage autoscaling for additional storage volumes](USER_PIOPS.Autoscaling.md#USER_PIOPS.Autoscaling.AdditionalVolumes).
 
 1. For **Scheduling**, choose **Apply immediately**, and then choose **Submit**.
 
@@ -58,6 +59,8 @@ The following example adds an additional storage volume named `rdsdbdata2` with 
 
 When you add an additional storage volume, RDS applies the change immediately regardless of the `--no-apply-immediately` parameter.
 
+To turn on storage autoscaling for the volume, include the `MaxAllocatedStorage` field and set it to a value greater than `AllocatedStorage`. For more information, see [Storage autoscaling for additional storage volumes](USER_PIOPS.Autoscaling.md#USER_PIOPS.Autoscaling.AdditionalVolumes).
+
 ```
 aws rds modify-db-instance \
     --db-instance-identifier mydbinstance \
@@ -66,7 +69,8 @@ aws rds modify-db-instance \
             "VolumeName": "rdsdbdata2",
             "StorageType": "gp3",
             "AllocatedStorage": 5000,
-            "StorageThroughput": 725
+            "StorageThroughput": 725,
+            "MaxAllocatedStorage": 10000
         }
     ]'
 ```

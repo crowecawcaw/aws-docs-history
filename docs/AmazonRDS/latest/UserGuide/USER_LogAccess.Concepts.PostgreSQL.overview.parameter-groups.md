@@ -56,7 +56,7 @@ RDS for PostgreSQL can also generate the logs in `jsonlog` format, which outputs
 
 If you specify `csvlog` or `jsonlog` for this parameter, PostgreSQL generates both `stderr` and the additional `csvlog` or `jsonlog` files. Make sure to monitor the storage consumed by the logs, taking into account the `rds.log_retention_period` and other settings that affect log storage and turnover. Using `stderr` together with `csvlog` or `jsonlog` more than doubles the storage consumed by the logs.
 
-If you add `csvlog` to `log_destination` and you want to revert to the `stderr` alone, you need to reset the parameter. To do so, open the Amazon RDS Console and then open the custom DB parameter group for your instance. Choose the `log_destination` parameter, choose **Edit parameter**, and then choose **Reset**. 
+If you add `csvlog` to `log_destination` and you want to revert to `stderr` alone, you need to reset the parameter. To do so, open the [Amazon RDS console](https://console.aws.amazon.com/rds/) and then open the custom DB parameter group for your instance. Choose **Edit**, choose the **log\_destination** parameter, choose **Set to default value**, and then choose **Save Changes**.
 
 For more information about configuring logging, see [ Working with Amazon RDS and Aurora PostgreSQL logs: Part 1](https://aws.amazon.com/blogs/database/working-with-rds-and-aurora-postgresql-logs-part-1/).
 

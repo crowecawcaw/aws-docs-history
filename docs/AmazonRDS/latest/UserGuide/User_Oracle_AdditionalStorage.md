@@ -10,6 +10,7 @@ Use additional storage volumes to enable the following benefits:
 + **Flexible storage configuration and performance optimization** – Mix different storage types (gp3 and io2) to optimize for both cost and performance based on your data access patterns. Separate frequently accessed data on high-performance io2 storage from archival data on cost-effective gp3 storage.
 + **Expand and reduce storage capacity as needed** – Attach a volume when you need additional storage, as during data migration, and then later delete the volume. In this way, you can expand and reduce the total DB instance storage.
 + **Online data movement** – Use the built-in capabilities of Oracle database to move data between volumes without downtime.
++ **Automatic capacity management** – Enable storage autoscaling on each additional storage volume so that Amazon RDS increases the volume's storage automatically when it runs low on space. Each volume has its own maximum storage threshold and scales independently. For more information, see [Storage autoscaling for additional storage volumes](USER_PIOPS.Autoscaling.md#USER_PIOPS.Autoscaling.AdditionalVolumes).
 
 **Note**  
 You can remove additional storage volumes, but you can't remove the primary volume.
@@ -33,6 +34,7 @@ Consider the following when using additional storage volumes with RDS for Oracle
   + rdsdbdata4
 + You can only add General Purpose SSD (gp3) and Provisioned IOPS SSD (io2) storage types.
 + You can use Oracle’s online relocation capabilities to move data between volumes while your applications continue running.
++ You can enable storage autoscaling for each additional storage volume independently by setting a maximum storage threshold for the volume. For more information, see [Storage autoscaling for additional storage volumes](USER_PIOPS.Autoscaling.md#USER_PIOPS.Autoscaling.AdditionalVolumes).
 + When you create an additional storage volume by modifying the DB instance, RDS immediately creates the storage volume regardless of the schedule modifications setting. Adding a storage volume is an online operation and does not impact your database performance. See [Using the schedule modifications setting](USER_ModifyInstance.ApplyImmediately.md).
 
 For optimal performance, check the following when you are using additional storage volumes:
@@ -61,7 +63,6 @@ The following limitations apply to using additional storage volumes with RDS for
 + The minimum storage size is 200GiB for additional storage volumes. The primary storage volume of your DB instance should be equal to or larger than 200GiB to attach additional storage volumes. The maximum storage size for your DB instance is 256 TiB total across all volumes.
 + The following capabilities aren’t supported for DB instances with additional storage volumes:
   + Cross-region automated backups
-  + Storage autoscaling (for additional storage volumes)
   + Public snapshots
 + You can't delete the primary storage volume (`rdsdbdata`), but you can delete other additional storage volumes as long as they're empty.
 + You can't store the online redo logs, archived redo logs, and control files in additional storage volumes. These files can only be stored in the primary storage volume (`rdsdbdata`).

@@ -24,12 +24,12 @@ For more information about RUs and SPBs, see [Oracle minor version upgrades](USE
 
 The following are prerequisites for using Oracle Spatial: 
 + Make sure that your DB instance is of a sufficient instance class. Oracle Spatial isn't supported for the db.t3.small DB instance classes. For more information, see [RDS for Oracle DB instance classes](Oracle.Concepts.InstanceClasses.md). 
-+ Make sure that your DB instance has **Auto Minor Version Upgrade** enabled. This option enables your DB instance to receive minor DB engine version upgrades automatically when they become available and is required for any options that install the Oracle Java Virtual Machine (JVM). Amazon RDS uses this option to update your DB instance to the latest Oracle Patch Set Update (PSU) or Release Update (RU). For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md). 
 
 ## Best practices for Oracle Spatial
 <a name="Oracle.Options.Spatial.BestPractces"></a>
 
 The following are best practices for using Oracle Spatial: 
++ Keep your DB instance on a current minor engine version. Automatic minor version upgrade is optional for DB instances that use the `SPATIAL` option. This option installs Oracle Java Virtual Machine (JVM), and new minor engine versions include JVM security fixes. We recommend that you either turn on automatic minor version upgrade or apply new minor versions regularly. To control the order in which your environments are upgraded, you can use AWS Organizations upgrade rollout policy. For more information, see [Automatically upgrading the minor engine version](USER_UpgradeDBInstance.Upgrading.md#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades) and [Using AWS Organizations upgrade rollout policy for automatic minor version upgrades](RDS.Maintenance.AMVU.UpgradeRollout.md).
 + For maximum security, use the `SPATIAL` option with Secure Sockets Layer (SSL). For more information, see [Oracle Secure Sockets Layer](Appendix.Oracle.Options.SSL.md). 
 + Configure your DB instance to restrict access to your DB instance. For more information, see [Scenarios for accessing a DB instance in a VPC](USER_VPC.Scenarios.md) and [Working with a DB instance in a VPC](USER_VPC.WorkingWithRDSInstanceinaVPC.md). 
 

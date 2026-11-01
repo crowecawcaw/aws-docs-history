@@ -118,16 +118,16 @@ Use tags to organize your AWS bill to reflect your own cost structure. To do thi
 #### How cost allocation tags work with DB snapshots
 <a name="Tagging.Billing.Snapshots"></a>
 
-You can add a tag to a DB snapshot. However, your bill won't reflect this grouping. For cost allocation tags to apply to DB snapshots, the following conditions must be met:
-+ The tags must be attached to the parent DB instance.
-+ The parent DB instance must exist in the same AWS account as the DB snapshot.
-+ The parent DB instance must exist in the same AWS Region as the DB snapshot.
+You can add a cost allocation tag directly to a DB snapshot or DB cluster snapshot, and the tag is reflected on your bill. Snapshot storage charges are attributed to each snapshot, so you apply tags to the snapshots themselves to group those charges. You can attribute snapshot charges in either of the following ways:
++ Add tags directly to each snapshot.
++ Enable the copy-tags-to-snapshot option on a DB instance to copy its tags to the snapshots that it creates. This option applies only to snapshots created after you enable it, so you need to tag existing snapshots directly. For more information, see [Copying tags to DB snapshots](#USER_Tagging.CopyTags).
 
-DB snapshots are considered orphaned if they don't exist in the same Region as the parent DB instance, or if the parent DB instance is deleted. Orphaned DB snapshots don't support cost allocation tags. Costs for orphaned snapshots are aggregated in a single untagged line item. Cross-account DB snapshots aren't considered orphaned when the following conditions are met:
-+ They exist in the same Region as the parent DB instance.
-+ The parent DB instance is owned by the source account.
-**Note**  
-If the parent DB instance is owned by a different account, cost allocation tags don't apply to cross-account snapshots in the destination account.
+Cost allocation tags work on a snapshot even after its source DB instance is deleted. Copying tags across accounts isn't supported.
+
+**Important**  
+Cost allocation tags aren't applied retroactively. Any snapshot storage usage that is incurred before you assign a tag remains unattributed on your bill, so apply your tags as soon as possible.
+
+Because your free backup storage allowance is applied as a percentage discount across all of your snapshots, the per-instance totals in a tag-based breakdown don't match the per-instance totals that you saw before snapshot charges were attributed per snapshot, even though the overall charges in your AWS account and AWS Region are unchanged. For more information, see [Backup storage](USER_WorkingWithAutomatedBackups.md#USER_WorkingWithAutomatedBackups.BackupStorage).
 
 ## Best practices for tagging Amazon RDS resources
 <a name="Tagging.best-practices"></a>

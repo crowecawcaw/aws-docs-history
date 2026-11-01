@@ -16,3 +16,7 @@ You can filter Amazon RDS metrics data by using any dimension in the following t
 
 **Note**  
 If you are using additional storage volumes, you can see aggregate storage metrics under the `DBInstanceIdentifier` dimension. To see per-volume storage metrics, use the `DbInstanceIdentifier, VolumeName` dimensions.
+
+For Multi-AZ DB clusters, Amazon RDS publishes metrics for each DB instance in the cluster under the `DBInstanceIdentifier` dimension. Metrics aren't available under a DB cluster dimension such as `DBClusterIdentifier`.
+
+To monitor a Multi-AZ DB cluster, view the metrics for each DB instance in the cluster. To create an alarm that evaluates all of the DB instances in the cluster, use a metric math expression. For an example, see [Tutorial: Creating an Amazon CloudWatch alarm for Multi-AZ DB cluster replica lag for Amazon RDS](multi-az-db-cluster-cloudwatch-alarm.md).

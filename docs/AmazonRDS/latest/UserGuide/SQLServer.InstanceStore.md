@@ -39,6 +39,10 @@ For example, if you modify your DB instance class from `db.m5.2xlarge` to `db.m5
 **Note**  
 Besides the `tempdb` data and log files on the instance store (`T:\rdsdbdata\DATA`), you can still create extra `tempdb` data and log files on the data volume (`D:\rdsdbdata\DATA`). Those files always have an 8 MB initial size.
 
+**Orphaned tempdb files**  
+When you relocate a `tempdb` file by using `ALTER DATABASE [tempdb] MODIFY FILE` and then reboot the DB instance, SQL Server re-creates the `tempdb` file in the new location but can leave the original file behind on the source volume. RDS doesn't reclaim this storage automatically, so the orphaned file continues to consume space and over time can fill up the volume.  
+Because you don't have file system access on an Amazon RDS for SQL Server DB instance, you can't delete these orphaned files yourself. If you relocated `tempdb` files and you notice unexpected storage use on the `T:` drive, the `D:` drive, or an additional storage volume (`H:`, `I:`, or `J:`), contact AWS Support.
+
 ## Backup considerations
 <a name="SQLServer.InstanceStore.Backups"></a>
 

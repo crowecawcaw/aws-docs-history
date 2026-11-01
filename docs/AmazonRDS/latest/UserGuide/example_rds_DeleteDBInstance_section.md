@@ -87,11 +87,11 @@ Output:
 {
     "DBInstance": {
         "DBInstanceIdentifier": "test-instance",
-        "DBInstanceStatus": "deleting",
-        ...some output truncated...
+        "DBInstanceStatus": "deleting"
     }
 }
 ```
+For more information, see [Deleting a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html) in the *Amazon RDS User Guide*.  
 +  For API details, see [DeleteDBInstance](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/delete-db-instance.html) in *AWS CLI Command Reference*. 
 
 ------

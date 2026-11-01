@@ -43,7 +43,7 @@ Cross-Region read replicas with RDS for MySQL are available in all Regions for t
 ## Cross-Region read replicas with RDS for Oracle
 <a name="Concepts.RDS_Fea_Regions_DB-eng.Feature.CrossRegionReadReplicas.ora"></a>
 
-Cross-Region read replicas for RDS for Oracle are available in all AWS Regions for all supported database versions using Enterprise Edition. Replicas are supported only in non-CDBs and in the single-tenant configuration of the CDB architecture. Cross-Region read replicas aren't supported in the multi-tenant configuration of the CDB architecture. 
+Cross-Region read replicas for RDS for Oracle are available in all AWS Regions for all supported database versions using Enterprise Edition. Replicas are supported in non-CDBs and in both the single-tenant and multi-tenant configurations of the CDB architecture.
 
 For more information on additional requirements for cross-Region read replicas with RDS for Oracle, see [Requirements and considerations for RDS for Oracle replicas](oracle-read-replicas.limitations.md). 
 

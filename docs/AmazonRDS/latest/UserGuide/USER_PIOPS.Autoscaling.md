@@ -6,7 +6,7 @@
 If your workload is unpredictable, you can enable storage autoscaling for an Amazon RDS DB instance. To do so, you can use the Amazon RDS console, the Amazon RDS API, or the AWS CLI. 
 
 **Note**  
-Storage autoscaling isn't supported for additional storage volumes.
+For RDS for Oracle and RDS for SQL Server DB instances that use additional storage volumes, you can enable storage autoscaling for each additional storage volume independently, in addition to the primary storage volume. Each volume has its own maximum storage threshold. For more information, see [Storage autoscaling for additional storage volumes](#USER_PIOPS.Autoscaling.AdditionalVolumes).
 
 For example, you might use this feature for a new mobile gaming application that users are adopting rapidly. In this case, a rapidly increasing workload might exceed the available database storage. To avoid having to manually scale up database storage, you can use Amazon RDS storage autoscaling. 
 
@@ -38,6 +38,7 @@ We recommend that you carefully choose the maximum storage threshold based on us
 + [Changing the storage autoscaling settings for a DB instance](#USER_PIOPS.ModifyingAutoscaling)
 + [Manually scaling your DB instance down or in](#USER_PIOPS.ScalingDown)
 + [Turning off storage autoscaling for a DB instance](#USER_PIOPS.DisablingAutoscaling)
++ [Storage autoscaling for additional storage volumes](#USER_PIOPS.Autoscaling.AdditionalVolumes)
 
 ## Limitations of storage autoscaling
 <a name="autoscaling-limitations"></a>
@@ -53,7 +54,7 @@ The following limitations apply to storage autoscaling:
 + Autoscaling can't be used with magnetic storage.
 + Autoscaling can't be used with the following previous-generation instance classes that have less than 6 TiB of orderable storage: db.m3.large, db.m3.xlarge, and db.m3.2xlarge.
 + Autoscaling operations aren't logged by AWS CloudTrail. For more information on CloudTrail, see [Monitoring Amazon RDS API calls in AWS CloudTrail](logging-using-cloudtrail.md).
-+ Autoscaling isn't supported for additional storage volumes. For more information about additional storage volumes, see [Adding storage volumes](USER_PIOPS.ModifyingExisting.AdditionalVolumes.md).
++ For additional storage volumes on RDS for Oracle and RDS for SQL Server DB instances, autoscaling is evaluated independently for each volume against that volume's own maximum storage threshold. The preceding limitations apply to each additional storage volume in the same way that they apply to the primary volume. For more information about additional storage volumes, see [Adding storage volumes](USER_PIOPS.ModifyingExisting.AdditionalVolumes.md).
 
 Although automatic scaling helps you to increase storage on your Amazon RDS DB instance dynamically, you should still configure the initial storage for your DB instance to an appropriate size for your typical workload.
 
@@ -206,3 +207,44 @@ For more information about storage, see [Amazon RDS DB instance storage](CHAP_St
 +  `MaxAllocatedStorage` – Specify a value equal to the `AllocatedStorage` setting to prevent further Amazon RDS storage autoscaling for the specified DB instance. 
 
 For more information about storage, see [Amazon RDS DB instance storage](CHAP_Storage.md).
+
+## Storage autoscaling for additional storage volumes
+<a name="USER_PIOPS.Autoscaling.AdditionalVolumes"></a>
+
+For RDS for Oracle and RDS for SQL Server DB instances that use additional storage volumes, you can enable storage autoscaling for each additional storage volume independently, in the same way that you enable it for the primary storage volume. Each volume – the primary volume and each additional storage volume – has its own maximum storage threshold, and Amazon RDS evaluates and scales each volume independently against that threshold. For more information about additional storage volumes, see [Adding storage volumes](USER_PIOPS.ModifyingExisting.AdditionalVolumes.md).
+
+The conditions that trigger autoscaling, the storage increment that Amazon RDS adds, and the constraints on the maximum storage threshold are the same for an additional storage volume as they are for the primary volume. For a description of these conditions and constraints, see [Managing capacity automatically with Amazon RDS storage autoscaling](#USER_PIOPS.Autoscaling). The limitations in [Limitations of storage autoscaling](#autoscaling-limitations) also apply to each additional storage volume.
+
+Amazon RDS validates the maximum storage threshold for each additional storage volume independently, against the storage settings of that volume. For a volume that uses Provisioned IOPS (io1 or io2 Block Express) or gp3 storage, the ratio of IOPS to the volume's maximum storage threshold (in GiB) must be within the same range that applies to the volume's allocated storage. For these ranges, see [Provisioned IOPS SSD storage](CHAP_Storage.md#USER_PIOPS).
+
+When Amazon RDS autoscales an additional storage volume, it emits events that identify the affected volume. Amazon RDS emits [RDS-EVENT-0541](USER_Events.Messages.md#RDS-EVENT-0541) and [RDS-EVENT-0542](USER_Events.Messages.md#RDS-EVENT-0542) when it begins and finishes an autoscaling-initiated modification, and [RDS-EVENT-0594](USER_Events.Messages.md#RDS-EVENT-0594), [RDS-EVENT-0595](USER_Events.Messages.md#RDS-EVENT-0595), and [RDS-EVENT-0593](USER_Events.Messages.md#RDS-EVENT-0593) when a volume reaches or approaches its maximum storage threshold, or when autoscaling can't scale the volume. To avoid the approaching-threshold notification, set the maximum storage threshold for each volume to at least 26 percent more than its allocated storage. For more information, see [Amazon RDS event categories and event messages ](USER_Events.Messages.md).
+
+### Console
+<a name="USER_PIOPS.Autoscaling.AdditionalVolumes.console"></a>
+
+You set the maximum storage threshold for an additional storage volume in the same dialog that you use to add or modify the volume. When you add or modify an additional storage volume, set the **Maximum storage threshold** for that volume to turn on storage autoscaling for it. For the full procedure to add or modify an additional storage volume, see [Adding storage volumes](USER_PIOPS.ModifyingExisting.AdditionalVolumes.md).
+
+### AWS CLI
+<a name="USER_PIOPS.Autoscaling.AdditionalVolumes.cli"></a>
+
+To enable storage autoscaling for an additional storage volume, use the AWS CLI command [`modify-db-instance`](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-instance.html) and set the `MaxAllocatedStorage` field for the volume within the `--additional-storage-volumes` JSON array. The value sets the upper limit on storage size for that volume, in gibibytes. If the value is greater than the volume's `AllocatedStorage`, storage autoscaling is turned on for the volume. If the value is the same as the volume's `AllocatedStorage`, storage autoscaling is turned off for the volume.
+
+The following example turns on storage autoscaling for the additional storage volume named `rdsdbdata2` by setting its maximum storage threshold to 10,000 GiB.
+
+```
+aws rds modify-db-instance \
+    --db-instance-identifier mydbinstance \
+    --additional-storage-volumes '[
+        {
+            "VolumeName": "rdsdbdata2",
+            "StorageType": "gp3",
+            "AllocatedStorage": 5000,
+            "MaxAllocatedStorage": 10000
+        }
+    ]'
+```
+
+### RDS API
+<a name="USER_PIOPS.Autoscaling.AdditionalVolumes.api"></a>
+
+To enable storage autoscaling for an additional storage volume, use the Amazon RDS API operation [`ModifyDBInstance`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html) and set the `MaxAllocatedStorage` field on the volume's entry in the `AdditionalStorageVolumes` array. This value sets the upper limit on storage size for that volume, in gibibytes. Set it to a value greater than the volume's `AllocatedStorage` to turn on storage autoscaling, or equal to `AllocatedStorage` to turn it off.

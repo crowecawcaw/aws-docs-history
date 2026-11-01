@@ -70,7 +70,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To delete a DB parameter group**  
-The following `command` example deletes a DB parameter group.  
+The following `delete-db-parameter-group` example deletes a DB parameter group.  
 
 ```
 aws rds delete-db-parameter-group \

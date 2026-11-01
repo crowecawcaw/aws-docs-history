@@ -5,9 +5,6 @@
 
 Amazon RDS supports Oracle OLAP through the use of the `OLAP` option. This option provides On-line Analytical Processing (OLAP) for Oracle DB instances. You can use Oracle OLAP to analyze large amounts of data by creating dimensional objects and cubes in accordance with the OLAP standard. For more information, see [the Oracle documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/olaug/index.html). 
 
-**Important**  
-If you use Oracle OLAP, Amazon RDS automatically updates your DB instance to the latest Oracle PSU if there are security vulnerabilities with a Common Vulnerability Scoring System (CVSS) score of 9\+ or other announced security vulnerabilities. 
-
 Amazon RDS supports Oracle OLAP for the Enterprise Edition of Oracle Database 19c and Oracle Database 21c.
 
 **Note**  
@@ -19,13 +16,13 @@ RDS for Oracle doesn't support OLAP in Oracle Database 26ai because Oracle depre
 The following are prerequisites for using Oracle OLAP: 
 + You must have an Oracle OLAP license from Oracle. For more information, see [Licensing Information](https://docs.oracle.com/en/database/oracle/oracle-database/19/dblic/Licensing-Information.html#GUID-B6113390-9586-46D7-9008-DCC9EDA45AB4) in the Oracle documentation. 
 + Your DB instance must be of a sufficient instance class. Oracle OLAP isn't supported for the db.t3.small DB instance classes. For more information, see [RDS for Oracle DB instance classes](Oracle.Concepts.InstanceClasses.md). 
-+ Your DB instance must have **Auto Minor Version Upgrade** enabled. This option enables your DB instance to receive minor DB engine version upgrades automatically when they become available and is required for any options that install the Oracle Java Virtual Machine (JVM). Amazon RDS uses this option to update your DB instance to the latest Oracle Patch Set Update (PSU) or Release Update (RU). For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md). 
 + Your DB instance must not have a user named `OLAPSYS`. If it does, the OLAP option installation fails.
 
 ## Best practices for Oracle OLAP
 <a name="Oracle.Options.OLAP.BestPractces"></a>
 
 The following are best practices for using Oracle OLAP: 
++ Keep your DB instance on a current minor engine version. Automatic minor version upgrade is optional for DB instances that use the `OLAP` option. This option installs Oracle Java Virtual Machine (JVM), and new minor engine versions include JVM security fixes. We recommend that you either turn on automatic minor version upgrade or apply new minor versions regularly. To control the order in which your environments are upgraded, you can use AWS Organizations upgrade rollout policy. For more information, see [Automatically upgrading the minor engine version](USER_UpgradeDBInstance.Upgrading.md#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades) and [Using AWS Organizations upgrade rollout policy for automatic minor version upgrades](RDS.Maintenance.AMVU.UpgradeRollout.md).
 + For maximum security, use the `OLAP` option with Secure Sockets Layer (SSL). For more information, see [Oracle Secure Sockets Layer](Appendix.Oracle.Options.SSL.md). 
 + Configure your DB instance to restrict access to your DB instance. For more information, see [Scenarios for accessing a DB instance in a VPC](USER_VPC.Scenarios.md) and [Working with a DB instance in a VPC](USER_VPC.WorkingWithRDSInstanceinaVPC.md). 
 

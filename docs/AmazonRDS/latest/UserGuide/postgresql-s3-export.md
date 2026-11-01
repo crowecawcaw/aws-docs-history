@@ -5,9 +5,6 @@
 
 You can query data from an RDS for PostgreSQL DB instance and export it directly into files stored in an Amazon S3 bucket. To do this, you first install the RDS for PostgreSQL `aws_s3` extension. This extension provides you with the functions that you use to export the results of queries to Amazon S3. Following, you can find out how to install the extension and how to export data to Amazon S3. 
 
-**Note**  
-Cross-account export to Amazon S3 isn't supported. 
-
 All currently available versions of RDS for PostgreSQL support exporting data to Amazon Simple Storage Service. For detailed version information, see [Amazon RDS for PostgreSQL updates](https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-versions.html) in the *Amazon RDS for PostgreSQL Release Notes*.
 
 If you don't have a bucket set up for your export, see the following topics the *Amazon Simple Storage Service User Guide*. 

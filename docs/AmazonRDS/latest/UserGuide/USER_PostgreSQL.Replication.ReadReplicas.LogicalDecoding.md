@@ -3,13 +3,13 @@
 # Logical decoding on a read replica
 <a name="USER_PostgreSQL.Replication.ReadReplicas.LogicalDecoding"></a>
 
- RDS for PostgreSQL supports logical replication from standbys with PostgreSQL 16.1. This allows you to create logical decoding from a read-only standby that reduces the load on the primary DB instance. You can achieve higher-availability for your applications that need to synchronize data across multiple systems. This feature boosts the performance of your data warehouse and data analytics. 
+ RDS for PostgreSQL supports logical replication from read replicas with PostgreSQL 16.1. This allows you to create logical decoding from a read replica, which reduces the load on the primary DB instance. You can achieve higher-availability for your applications that need to synchronize data across multiple systems. This feature boosts the performance of your data warehouse and data analytics. 
 
- Also, replication slots on a given standby persist the promotion of that standby to a primary. This means that in the event of a primary DB instance failover or the promotion of a standby to be the new primary, the replication slots will persist and the former standby subscribers will not be affected. 
+ Also, replication slots on a given read replica persist when that read replica is promoted to a standalone DB instance. This means that in the event of a primary DB instance failover or the promotion of a read replica to be the new primary, the replication slots will persist and the subscribers of the former read replica will not be affected. 
 
 **To create logical decoding on a read replica**
 
-1. **Turn on logical replication** – To create logical decoding on a standby, you must turn on logical replication on your source DB instance and its physical replica. For more information, see [Read replica configuration with PostgreSQL](USER_PostgreSQL.Replication.ReadReplicas.Configuration.md).
+1. **Turn on logical replication** – To create logical decoding on a read replica, you must turn on logical replication on your source DB instance and its physical replica. For more information, see [Read replica configuration with PostgreSQL](USER_PostgreSQL.Replication.ReadReplicas.Configuration.md).
    + **To turn on logical replication for a newly created RDS for PostgreSQL DB instance** – Create a new DB custom parameter group and set the static parameter `rds.logical_replication` to `1`. Then, associate this DB parameter group with the Source DB instance and its physical read replica. For more information, see [Associating a DB parameter group with a DB instance in Amazon RDS](USER_WorkingWithParamGroups.Associating.md).
    + **To turn on logical replication for an existing RDS for PostgreSQL DB instance** – Modify the DB custom parameter group of the source DB instance and its physical read replica to set the static parameter `rds.logical_replication` to `1`. For more information, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.Modifying.md).
 **Note**  
@@ -59,7 +59,7 @@ You must reboot the DB instance to apply these parameter changes.
    (1 row)
    ```
 
-1. **Create a subscription from logical replica instance** – Create another RDS for PostgreSQL DB instance as the logical replica instance. Make sure that VPC is setup correctly to ensure that this logical replica instance can access the physical read replica instance. For more information, see [Amazon VPC and Amazon RDS](USER_VPC.md). If your source DB instance is idle, connectivity issues might occur and the primary doesn't send the data to standby.
+1. **Create a subscription from logical replica instance** – Create another RDS for PostgreSQL DB instance as the logical replica instance. Make sure that VPC is setup correctly to ensure that this logical replica instance can access the physical read replica instance. For more information, see [Amazon VPC and Amazon RDS](USER_VPC.md). If your source DB instance is idle, connectivity issues might occur and the primary doesn't send the data to the read replica.
 
    ```
    Postgres=>CREATE SUBSCRIPTION testsub CONNECTION 'host={{Physical replica host name}} port={{port}} 

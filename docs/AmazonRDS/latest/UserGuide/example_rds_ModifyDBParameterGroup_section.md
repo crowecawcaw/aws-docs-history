@@ -87,7 +87,7 @@ Output:
     "DBParameterGroupName": "test-sqlserver-se-2017"
 }
 ```
-For more information, see [Modifying Parameters in a DB Parameter Group](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html#USER_WorkingWithParamGroups.Modifying) in the *Amazon RDS User Guide*.  
+For more information, see [Modifying Parameters in a DB Parameter Group](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.Modifying.html) in the *Amazon RDS User Guide*.  
 +  For API details, see [ModifyDBParameterGroup](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/modify-db-parameter-group.html) in *AWS CLI Command Reference*. 
 
 ------

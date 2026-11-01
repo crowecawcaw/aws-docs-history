@@ -48,7 +48,7 @@ For more information about IAM database authentication, including information ab
 
 To use credentials from your self-managed Active Directory, you need to setup a trust relationship to the Directory Service for Microsoft Active Directory that the DB instance is joined to.
 
- RDS for PostgreSQL and RDS for MySQL support one-way and two-way forest trust relationships with forest-wide authentication or selective authentication.
+ RDS for PostgreSQL supports one-way and two-way forest trust relationships with forest-wide authentication or selective authentication.
 
 In some scenarios, you can configure Kerberos authentication over an external trust relationship. This requires your self-managed Active Directory to have additional settings. This includes but is not limited to [ Kerberos Forest Search Order](https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/kfso-not-work-in-external-trust-event-is-17). 
 

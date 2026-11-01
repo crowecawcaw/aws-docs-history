@@ -114,15 +114,15 @@ Output:
             "DBInstanceStatus": "available",
             "MasterUsername": "masterawsuser",
             "Endpoint": {
-                "Address": "mydbinstancecf.abcexample.us-east-1.rds.amazonaws.com",
+                "Address": "mydbinstancecf.abcexample.us-west-2.rds.amazonaws.com",
                 "Port": 3306,
                 "HostedZoneId": "Z2R2ITUGPM61AM"
-            },
-            ...some output truncated...
+            }
         }
     ]
 }
 ```
+For more information, see [Amazon RDS DB instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.html) in the *Amazon RDS User Guide*.  
 +  For API details, see [DescribeDBInstances](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-instances.html) in *AWS CLI Command Reference*. 
 
 ------

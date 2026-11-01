@@ -112,10 +112,7 @@ For more information about DB server certificate rotation, see [Automatic server
 ### Viewing the CA for your DB instance
 <a name="UsingWithRDS.SSL.RegionCertificateAuthorities.Viewing"></a>
 
-You can view the details about the CA for a database by viewing the **Connectivity & security** tab in the console, as in the following image.
-
-![Certificate authority details.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/certificate-authority-details.png)
-
+To view the details about the CA for a DB instance in the console, choose the **Connectivity & security** tab on the details page for the DB instance. For **Connect using**, choose **Endpoints**. The CA details appear in the **Security** section under **Additional configurations**. This section shows **Certificate authority** and, when available, **Certificate authority date** and **DB instance certificate expiration date**.
 
 If you're using the AWS CLI, you can view the details about the CA for a DB instance by using the [describe-db-instances](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-instances.html) command. You can view the details about the CA for a Multi-AZ DB cluster by using the [describe-db-clusters](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-clusters.html) command. 
 

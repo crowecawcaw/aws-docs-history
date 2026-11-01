@@ -55,7 +55,13 @@ For information on restoring DB instances from automated backups, see [Restoring
 
 The cost of a retained automated backup is the cost of total storage of the system snapshots that are associated with it. There is no additional charge for transaction logs or instance metadata. All other pricing rules for backups apply to restorable instances. 
 
-For example, suppose that your total allocated storage of running instances is 100 GB. Suppose also that you have 50 GB of manual snapshots plus 75 GB of system snapshots associated with a retained automated backup. In this case, you are charged only for the additional 25 GB of backup storage, like this: (50 GB \+ 75 GB) – 100 GB = 25 GB.
+Your free backup storage allowance is equal to 100 percent of the total provisioned database storage in your AWS account and Region, and it is applied as a percentage discount across all of your snapshots. For example, suppose that your total provisioned DB instance storage in the account and Region is 100 GB. Suppose also that you have 50 GB of manual snapshots plus 75 GB of system snapshots associated with a retained automated backup, for 125 GB of total snapshot storage. Your free allowance covers 100 of the 125 GB, or 80 percent, so each snapshot receives an 80 percent discount and you are billed for the remaining 20 percent:
+
+```
+50 GB * (1 - 0.80) + 75 GB * (1 - 0.80) = 10 GB + 15 GB = 25 GB total billed backup storage
+```
+
+Your total billed backup storage (25 GB) is the same as your total snapshot storage minus your free allowance (125 GB – 100 GB = 25 GB). The charge is attributed to each snapshot individually. Each snapshot charge appears as an individual line item in billing reports, attributed to the snapshot ARN. For more information, see [Backup storage](USER_WorkingWithAutomatedBackups.md#USER_WorkingWithAutomatedBackups.BackupStorage).
 
 ## Limitations
 <a name="USER_WorkingWithAutomatedBackups.Limits"></a>

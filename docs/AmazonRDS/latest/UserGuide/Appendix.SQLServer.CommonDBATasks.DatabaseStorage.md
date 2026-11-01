@@ -9,6 +9,7 @@ Benefits include:
 + **Flexible file distribution** – Distribute database data files and log files across multiple volumes for improved I/O performance.
 + **Storage optimization** – Use different storage types and configurations for different workload requirements.
 + **Scalability** – Add storage capacity without modifying existing volumes.
++ **Automatic capacity management** – Enable storage autoscaling on each additional storage volume so that Amazon RDS increases the volume's storage automatically when it runs low on space. Each volume has its own maximum storage threshold and scales independently. For more information, see [Storage autoscaling for additional storage volumes](USER_PIOPS.Autoscaling.md#USER_PIOPS.Autoscaling.AdditionalVolumes).
 
 **Topics**
 + [Considerations for using additional storage volumes with RDS for SQL Server](#SQLServer.ASV.Considerations)
@@ -27,11 +28,11 @@ Take note of the following features and limitations when using additional storag
   + `rdsdbdata3` – `I:` drive
   + `rdsdbdata4` – `J:` drive
 + TempDB files continue to use the `T:` drive when using NVMe instance storage. SQL Server Audit files and Microsoft Business Intelligence (MSBI) files remain on the `D:` drive.
++ You can enable storage autoscaling for each additional storage volume independently by setting a maximum storage threshold for the volume. For more information, see [Storage autoscaling for additional storage volumes](USER_PIOPS.Autoscaling.md#USER_PIOPS.Autoscaling.AdditionalVolumes).
 + You can only add General Purpose SSD (gp3) and Provisioned IOPS SSD (io2) storage types.
 + The minimum storage size of additional storage volumes is the same as the limit set for the default `D:` drive. The maximum storage size for your DB instance is 256 TiB total across all volumes.
 + Adding storage volumes to instances with read replicas or to read replica instances isn't supported.
 + Adding storage volumes to instances enabled for cross-region automated backup isn't supported.
-+ Configuring additional storage volumes for storage autoscaling isn't supported.
 + Moving files between volumes after creation isn't supported.
 + You can't delete the `D:` volume, but you can delete other storage volumes as long as they're empty.
 + Modifying the size of existing volumes during snapshot restore or point-in-time recovery (PITR) isn't supported. However, you can add new storage volumes during restore operations.

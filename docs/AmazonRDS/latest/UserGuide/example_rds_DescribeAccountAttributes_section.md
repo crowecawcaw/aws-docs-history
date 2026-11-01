@@ -98,6 +98,7 @@ Output:
     ]
 }
 ```
+For more information, see [Quotas and constraints for Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html) in the *Amazon RDS User Guide*.  
 +  For API details, see [DescribeAccountAttributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-account-attributes.html) in *AWS CLI Command Reference*. 
 
 ------

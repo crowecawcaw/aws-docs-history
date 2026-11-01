@@ -72,7 +72,7 @@ The IOPS and storage size ranges have the following constraints:
 + The ratio of IOPS to allocated storage (in GiB) must be from 0.5–1,000. For DB instances not based on the AWS Nitro System, the ratio must be from 0.5–500.
 + Maximum IOPS can be provisioned with volumes 256 GiB and larger (1,000 IOPS × 256 GiB = 256,000 IOPS). For DB instances not based on the AWS Nitro System, maximum IOPS are achieved at 512 GiB (500 IOPS x 512 GiB = 256,000 IOPS).
 + Throughput scales proportionally up to 0.256 MiB/s per provisioned IOPS. Maximum throughput of 4,000 MiB/s can be achieved at 256,000 IOPS with a 16-KiB I/O size and 16,000 IOPS or higher with a 256-KiB I/O size. For DB instances not based on the AWS Nitro System, maximum throughput of 2,000 MiB/s can be achieved at 128,000 IOPS with a 16-KiB I/O size.
-+ If you're using storage autoscaling, the same ratios between IOPS and maximum storage threshold (in GiB) also apply. For more information on storage autoscaling, see [Managing capacity automatically with Amazon RDS storage autoscaling](USER_PIOPS.Autoscaling.md).
++ If you're using storage autoscaling, the same ratios between IOPS and maximum storage threshold (in GiB) also apply, including for each additional storage volume on RDS for Oracle and RDS for SQL Server DB instances. For more information on storage autoscaling, see [Managing capacity automatically with Amazon RDS storage autoscaling](USER_PIOPS.Autoscaling.md).
 
 Amazon RDS io2 Block Express volumes are available in all commercial AWS Regions and AWS GovCloud (US) Regions. These volumes aren't available in the China Regions. 
 
@@ -98,7 +98,7 @@ The following table shows the range of Provisioned IOPS and maximum throughput f
 
 The IOPS and storage size ranges have the following constraints:
 + The ratio of IOPS to allocated storage (in GiB) must be from 1–50 on RDS for SQL Server, and 0.5–50 on other RDS DB engines.
-+ If you're using storage autoscaling, the same ratios between IOPS and maximum storage threshold (in GiB) also apply. 
++ If you're using storage autoscaling, the same ratios between IOPS and maximum storage threshold (in GiB) also apply, including for each additional storage volume on RDS for Oracle and RDS for SQL Server DB instances. 
 
   For more information on storage autoscaling, see [Managing capacity automatically with Amazon RDS storage autoscaling](USER_PIOPS.Autoscaling.md).
 
@@ -161,7 +161,7 @@ Storage performance values for gp3 volumes on RDS have the following constraints
 + The maximum ratio of storage throughput to IOPS is 0.25 for all supported DB engines.
 + The minimum ratio of IOPS to allocated storage (in GiB) is 0.5 on RDS for SQL Server. There is no minimum ratio for the other supported DB engines.
 + The maximum ratio of IOPS to allocated storage is 500 for all supported DB engines.
-+ If you're using storage autoscaling, the same ratios between IOPS and maximum storage threshold (in GiB) also apply. 
++ If you're using storage autoscaling, the same ratios between IOPS and maximum storage threshold (in GiB) also apply, including for each additional storage volume on RDS for Oracle and RDS for SQL Server DB instances. 
 
   For more information on storage autoscaling, see [Managing capacity automatically with Amazon RDS storage autoscaling](USER_PIOPS.Autoscaling.md).
 
@@ -266,6 +266,7 @@ Additional storage volumes provide the following benefits:
 + **Enhanced capacity** – Scale your total storage up to 256 TiB per DB instance by combining primary and additional storage volumes.
 + **Expand and reduce storage capacity as needed** – Create a volume when you need additional storage, as during data migration, and then later delete the volume. In this way, you can expand and reduce the total DB instance storage.
 + **Online data movement** – Use the built-in capabilities of Oracle Database to move data between volumes without downtime.
++ **Automatic capacity management** – Enable storage autoscaling on each additional storage volume so that Amazon RDS increases the volume's storage automatically when it runs low on space. Each volume has its own maximum storage threshold and scales independently. For more information, see [Storage autoscaling for additional storage volumes](USER_PIOPS.Autoscaling.md#USER_PIOPS.Autoscaling.AdditionalVolumes).
 
 **Note**  
 You can remove additional storage volumes but you can't remove the primary volume.
@@ -292,6 +293,7 @@ For more information about working with additional storage volumes, see the foll
 + [Working with storage for Amazon RDS DB instances](USER_PIOPS.StorageTypes.md)
 + [Working with storage in RDS for Oracle](User_Oracle_AdditionalStorage.md)
 + [Working with storage in RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.DatabaseStorage.md)
++ [Storage autoscaling for additional storage volumes](USER_PIOPS.Autoscaling.md#USER_PIOPS.Autoscaling.AdditionalVolumes)
 
 ## Dedicated log volume (DLV)
 <a name="CHAP_Storage.dlv"></a>

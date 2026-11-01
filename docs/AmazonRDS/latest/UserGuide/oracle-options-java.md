@@ -22,12 +22,12 @@ SELECT * FROM dba_java_policy
 
 The following are prerequisites for using Oracle Java:
 + Your DB instance must be of a large enough class. Oracle Java isn't supported for the db.t3.small DB instance class. For more information, see [DB instance classes](Concepts.DBInstanceClass.md).
-+ Your DB instance must have **Auto Minor Version Upgrade** enabled. This option enables your DB instance to receive minor DB engine version upgrades automatically when they become available. Amazon RDS uses this option to update your DB instance to the latest Oracle Patch Set Update (PSU) or Release Update (RU). For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md). 
 
 ## Best practices for Oracle JVM
 <a name="oracle-options-java.best-practices"></a>
 
 The following are best practices for using Oracle Java: 
++ Keep your DB instance on a current minor engine version. Automatic minor version upgrade is optional for DB instances that use the `JVM` option. Because new minor engine versions include Oracle JVM security fixes, we recommend that you either turn on automatic minor version upgrade or apply new minor versions regularly. To control the order in which your environments are upgraded, you can use AWS Organizations upgrade rollout policy. For more information, see [Automatically upgrading the minor engine version](USER_UpgradeDBInstance.Upgrading.md#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades) and [Using AWS Organizations upgrade rollout policy for automatic minor version upgrades](RDS.Maintenance.AMVU.UpgradeRollout.md).
 + For maximum security, use the `JVM` option with Secure Sockets Layer (SSL). For more information, see [Oracle Secure Sockets Layer](Appendix.Oracle.Options.SSL.md). 
 + Configure your DB instance to restrict network access. For more information, see [Scenarios for accessing a DB instance in a VPC](USER_VPC.Scenarios.md) and [Working with a DB instance in a VPC](USER_VPC.WorkingWithRDSInstanceinaVPC.md). 
 + Update the configuration of your HTTPS endpoints to support TLSv1.2 if you meet the following conditions:
