@@ -1,5 +1,7 @@
 
 
+This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
+
 # Steps to take after installation
 <a name="install-v3-after-install"></a>
 
@@ -10,7 +12,7 @@ You can verify that AWS ParallelCluster was installed correctly by running [`pcl
 ```
 $ pcluster version
 {
-"version": "3.16.1"
+"version": "3.16.2"
 }
 ```
 

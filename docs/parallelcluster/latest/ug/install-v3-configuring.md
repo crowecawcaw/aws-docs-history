@@ -1,5 +1,7 @@
 
 
+This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
+
 # Configure and create a cluster with the AWS ParallelCluster command line interface
 <a name="install-v3-configuring"></a>
 
@@ -321,7 +323,7 @@ $ pcluster create-cluster --cluster-name {{test-cluster}} --cluster-configuratio
     "cloudformationStackStatus": "CREATE_IN_PROGRESS",
     "cloudformationStackArn": "arn:aws:cloudformation:eu-west-1:xxx:stack/test-cluster/abcdef0-f678-890a-5abc-021345abcdef",
     "region": "eu-west-1",
-    "version": "3.16.1",
+    "version": "3.16.2",
     "clusterStatus": "CREATE_IN_PROGRESS"
   },
   "validationMessages": []

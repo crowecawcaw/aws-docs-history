@@ -1,5 +1,7 @@
 
 
+This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
+
 # Running your first job on AWS ParallelCluster
 <a name="tutorials-running-your-first-job-on-version-3"></a>
 
@@ -23,7 +25,7 @@ $ node --version
 v16.8.0
 $ pcluster version
 {
-  "version": "3.16.1"
+  "version": "3.16.2"
 }
 ```
 

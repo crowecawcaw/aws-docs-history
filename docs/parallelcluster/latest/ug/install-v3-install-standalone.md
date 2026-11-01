@@ -1,5 +1,7 @@
 
 
+This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
+
 # Install AWS ParallelCluster as a standalone application
 <a name="install-v3-install-standalone"></a>
 
@@ -18,7 +20,7 @@ Install AWS ParallelCluster as a standalone application on your environment. Fol
 
 **Install AWS ParallelCluster on your environment.**
 
-1. Download the latest [ pcluster installer](https://us-east-1-aws-parallelcluster.s3.amazonaws.com/parallelcluster/3.16.1/installer/pcluster-installer-bundle-3.16.1.1671-node-v22.22.0-Linux_x86_64-signed.zip) ([ checksum](https://us-east-1-aws-parallelcluster.s3.amazonaws.com/parallelcluster/3.16.1/installer/pcluster-installer-bundle-3.16.1.1671-node-v22.22.0-Linux_x86_64-signed.zip-sha256sum)).
+1. Download the latest [ pcluster installer](https://us-east-1-aws-parallelcluster.s3.amazonaws.com/parallelcluster/3.16.2/installer/pcluster-installer-bundle-3.16.2.1743-node-v22.22.0-Linux_x86_64-signed.zip) ([ checksum](https://us-east-1-aws-parallelcluster.s3.amazonaws.com/parallelcluster/3.16.2/installer/pcluster-installer-bundle-3.16.2.1743-node-v22.22.0-Linux_x86_64-signed.zip-sha256sum)).
 
 1. Unzip the installer bundle and install AWS ParallelCluster by using the following commands:
 
@@ -39,7 +41,7 @@ Install AWS ParallelCluster as a standalone application on your environment. Fol
    ```
    $ pcluster version
    {
-       "version": "3.16.1"
+       "version": "3.16.2"
    }
    ```
 

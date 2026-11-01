@@ -1,5 +1,7 @@
 
 
+This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
+
 # Updating the API
 <a name="api-reference-update-v3"></a>
 
@@ -14,7 +16,7 @@ Option 2: To update the existing API, run the following commands:
 ```
 $ REGION={{<region>}}
 $ API_STACK_NAME={{<stack-name>}}  # This needs to correspond to the existing API stack name
-$ VERSION=3.16.1
+$ VERSION=3.16.2
 $ aws cloudformation update-stack \
     --region ${REGION} \
     --stack-name ${API_STACK_NAME} \

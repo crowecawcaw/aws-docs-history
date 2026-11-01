@@ -1,5 +1,7 @@
 
 
+This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
+
 # AWS ParallelCluster Python library API
 <a name="pc-py-library-v3"></a>
 
@@ -40,7 +42,7 @@ Specify credentials by using any of the standard ways that are valid for boto3. 
 
 You can deploy a Lambda layer and runtime to access to the AWS ParallelCluster Python library. We host AWS ParallelCluster zip files that you can use by entering the link to the zip file as described in the following steps. Lambda uses the zip files to prepare the runtime environment to support access to the Python library. The AWS ParallelCluster Python library is added with AWS ParallelCluster version 3.5.0. You can only use the library for versions 3.5.0 and later.
 
-The hosted zip file URL is in the format: `s3://{{aws-region-id}}-aws-parallelcluster/parallelcluster/{{3.16.1}}/layers/aws-parallelcluster/lambda-layer.zip`. (Replace {{3.16.1}} with the AWS ParallelCluster version you want to use in the following step.)
+The hosted zip file URL is in the format: `s3://{{aws-region-id}}-aws-parallelcluster/parallelcluster/{{3.16.2}}/layers/aws-parallelcluster/lambda-layer.zip`. (Replace {{3.16.2}} with the AWS ParallelCluster version you want to use in the following step.)
 
 ### Get started accessing the AWS ParallelCluster Python library with AWS Lambda
 <a name="lambda-py-get-started-v3"></a>
@@ -53,7 +55,7 @@ The hosted zip file URL is in the format: `s3://{{aws-region-id}}-aws-parallelcl
 
 1. Enter a name for your layer and select **Upload a file from Amazon S3**.
 
-1. Enter the URL to the zip file: s3://{{aws-region-id}}-aws-parallelcluster/parallelcluster/{{3.16.1}}/layers/aws-parallelcluster/lambda-layer.zip.
+1. Enter the URL to the zip file: s3://{{aws-region-id}}-aws-parallelcluster/parallelcluster/{{3.16.2}}/layers/aws-parallelcluster/lambda-layer.zip.
 
 1. For **Compatible architectures**, choose the **x86\_64** architecture.
 

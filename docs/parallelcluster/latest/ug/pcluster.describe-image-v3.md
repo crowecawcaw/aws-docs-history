@@ -1,5 +1,7 @@
 
 
+This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
+
 # `pcluster describe-image`
 <a name="pcluster.describe-image-v3"></a>
 
@@ -110,7 +112,7 @@ $ pcluster describe-image --image-id {{custom-alinux2-image}}
         "key": "parallelcluster:pmix_version"
       },
       {
-        "value": "parallelcluster/3.16.1/images/alinux2-image-abcd1234efgh56781234",
+        "value": "parallelcluster/3.16.2/images/alinux2-image-abcd1234efgh56781234",
         "key": "parallelcluster:s3_image_dir"
       },
       {

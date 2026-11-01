@@ -1,5 +1,7 @@
 
 
+This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
+
 # Troubleshooting cluster deployment issues
 <a name="troubleshooting-v3-cluster-deployment"></a>
 
@@ -14,7 +16,7 @@ $ pcluster create-cluster --cluster-name {{mycluster}} --region {{eu-west-1}} \
     "cloudformationStackStatus": "CREATE_IN_PROGRESS",
     "cloudformationStackArn": "arn:aws:cloudformation:eu-west-1:xxx:stack/mycluster/1bf6e7c0-0f01-11ec-a3b9-024fcc6f3387",
     "region": "eu-west-1",
-    "version": "3.16.1",
+    "version": "3.16.2",
     "clusterStatus": "CREATE_IN_PROGRESS"
   }
 }
@@ -191,7 +193,7 @@ $ pcluster create-cluster --cluster-name {{mycluster}} --region {{eu-west-1}} \
      "cloudformationStackStatus": "CREATE_IN_PROGRESS",
      "cloudformationStackArn": "arn:aws:cloudformation:eu-west-1:xxx:stack/mycluster/1bf6e7c0-0f01-11ec-a3b9-024fcc6f3387",
      "region": "eu-west-1",
-     "version": "3.16.1",
+     "version": "3.16.2",
      "clusterStatus": "CREATE_IN_PROGRESS"
    }
  } 

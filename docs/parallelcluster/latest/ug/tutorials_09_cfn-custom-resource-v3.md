@@ -1,5 +1,7 @@
 
 
+This documentation references AWS ParallelCluster. For running HPC and AI workloads, we recommend [AWS Parallel Computing Service (AWS PCS)](https://aws.amazon.com/pcs/), our managed Slurm service that lets you focus on running your workloads rather than managing infrastructure.
+
 # Creating a cluster with CloudFormation
 <a name="tutorials_09_cfn-custom-resource-v3"></a>
 
@@ -24,7 +26,7 @@ In this tutorial, you use a quick-create stack to deploy a CloudFormation templa
 
 1. Sign in to the AWS Management Console.
 
-1. Open the CloudFormation [quick-create link](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=mycluster&templateURL=https://us-east-1-aws-parallelcluster.s3.amazonaws.com/parallelcluster/3.16.1/templates/1-click/cluster-example.yaml) to create the following resources in the CloudFormation console:
+1. Open the CloudFormation [quick-create link](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=mycluster&templateURL=https://us-east-1-aws-parallelcluster.s3.amazonaws.com/parallelcluster/3.16.2/templates/1-click/cluster-example.yaml) to create the following resources in the CloudFormation console:
    + A nested CloudFormation stack with a VPC with a public and private subnet for running the cluster head node and compute nodes, respectively.
    + A nested CloudFormation stack with an AWS ParallelCluster custom resource for managing the cluster.
    + A nested CloudFormation stack with the default policies for managing the cluster.
@@ -78,7 +80,7 @@ Replace {{inputs highlighted in red}}, such as {{keypair}}, with your own values
    Mappings:
      ParallelCluster:
        Constants:
-         Version: 3.16.1
+         Version: 3.16.2
    
    Resources:
      PclusterClusterProvider:
