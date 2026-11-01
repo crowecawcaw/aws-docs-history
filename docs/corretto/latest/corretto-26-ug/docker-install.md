@@ -5,10 +5,10 @@
 
  This topic describes how to build and launch a Docker image that uses Amazon Corretto 26. You must have the latest version of Docker installed. 
 
-## Using the official image for Amazon Corretto 26.
+## Using the official Docker image for Amazon Corretto 26
 <a name="docker-hello-world"></a>
 
- Amazon Corretto 26 is available as an [official image on Docker Hub](https://hub.docker.com/_/amazoncorretto). The following example runs a container and displays Corretto 26's version. 
+You can use the official Amazon Corretto 26 Docker image to quickly set up a consistent Java runtime environment without manually installing Amazon Corretto 26 on your host. Amazon Corretto 26 is available as an [official image on Docker Hub](https://hub.docker.com/_/amazoncorretto). The following example runs a container and displays Corretto 26's version. 
 
 **Example**  
 
@@ -38,7 +38,7 @@ docker pull public.ecr.aws/amazoncorretto/amazoncorretto:26
 docker run -it public.ecr.aws/amazoncorretto/amazoncorretto:26 /bin/bash
 ```
 
-You can see the list of available images by going [here](https://gallery.ecr.aws/amazoncorretto/amazoncorretto):
+You can see the list of available images on the [Amazon ECR Public Gallery](https://gallery.ecr.aws/amazoncorretto/amazoncorretto).
 
 ## Amazon Corretto on Alpine
 <a name="alpine-images"></a>
@@ -65,7 +65,7 @@ docker run -it amazoncorretto:26-alpine-jdk /bin/sh
 docker build -t amazon-corretto-26 github.com/corretto/corretto-docker#main:26/jdk/al2023
 ```
 
- After the command completes, you have an image called *amazon-corretto-26*. 
+ After the command completes, you have an image called `amazon-corretto-26`. 
 
  To launch this image locally, run the following command. 
 
