@@ -59,7 +59,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To detect the dominant language of input text**  
-The following `detect-dominant-language` analyzes the input text and identifies the dominant language. The pre-trained model's confidence score is also output.  
+The following `detect-dominant-language` example analyzes the input text and identifies the dominant language. The pre-trained model's confidence score is also output.  
 
 ```
 aws comprehend detect-dominant-language \

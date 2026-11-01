@@ -76,7 +76,7 @@ Output:
     }
 }
 ```
-For more information, see [Sentiment](https://docs.aws.amazon.com/comprehend/latest/dg/how-sentiment.html) in the *Amazon Comprehend Developer Guide*  
+For more information, see [Sentiment](https://docs.aws.amazon.com/comprehend/latest/dg/how-sentiment.html) in the *Amazon Comprehend Developer Guide*.  
 +  For API details, see [DetectSentiment](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/comprehend/detect-sentiment.html) in *AWS CLI Command Reference*. 
 
 ------

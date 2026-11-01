@@ -17,14 +17,14 @@ The following `describe-document-classifier` example gets the properties of a cu
 
 ```
 aws comprehend describe-document-classifier \
-    --document-classifier-arn {{arn:aws:comprehend:us-west-2:111122223333:document-classifier/example-classifier-1}}
+    --document-classifier-arn {{arn:aws:comprehend:us-west-2:123456789012:document-classifier/example-classifier-1}}
 ```
 Output:  
 
 ```
 {
     "DocumentClassifierProperties": {
-        "DocumentClassifierArn": "arn:aws:comprehend:us-west-2:111122223333:document-classifier/example-classifier-1",
+        "DocumentClassifierArn": "arn:aws:comprehend:us-west-2:123456789012:document-classifier/example-classifier-1",
         "LanguageCode": "en",
         "Status": "TRAINED",
         "SubmitTime": "2023-06-13T19:04:15.735000+00:00",
@@ -51,7 +51,7 @@ Output:
                 "HammingLoss": 0.0144
             }
         },
-        "DataAccessRoleArn": "arn:aws:iam::111122223333:role/service-role/AmazonComprehendServiceRole-example-role",
+        "DataAccessRoleArn": "arn:aws:iam::123456789012:role/service-role/AmazonComprehendServiceRole-example-role",
         "Mode": "MULTI_CLASS"
     }
 }

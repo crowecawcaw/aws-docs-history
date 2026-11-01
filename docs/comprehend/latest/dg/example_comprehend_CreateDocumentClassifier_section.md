@@ -18,7 +18,7 @@ The following `create-document-classifier` example begins the training process f
 ```
 aws comprehend create-document-classifier \
     --document-classifier-name {{example-classifier}} \
-    --data-access-role-arn {{arn:aws:iam::111122223333:role/service-role/AmazonComprehendServiceRole-example-role}} \
+    --data-access-role-arn {{arn:aws:iam::123456789012:role/service-role/AmazonComprehendServiceRole-example-role}} \
     --input-data-config {{"S3Uri=s3://amzn-s3-demo-bucket/"}} \
     --language-code {{en}}
 ```
@@ -26,7 +26,7 @@ Output:
 
 ```
 {
-    "DocumentClassifierArn": "arn:aws:comprehend:us-west-2:111122223333:document-classifier/example-classifier"
+    "DocumentClassifierArn": "arn:aws:comprehend:us-west-2:123456789012:document-classifier/example-classifier"
 }
 ```
 For more information, see [Custom Classification](https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html) in the *Amazon Comprehend Developer Guide*.  
