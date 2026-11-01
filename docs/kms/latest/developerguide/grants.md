@@ -41,8 +41,10 @@ The AWS KMS operations that you can allow in a grant. If you specify other opera
 These grant operations actually represent permission to use the operation. Therefore, for the `ReEncrypt` operation, you can specify `ReEncryptFrom`, `ReEncryptTo`, or both `ReEncrypt*`.  
 The grant operations are:  
 + Cryptographic operations
+  + [Decapsulate](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decapsulate.html)
   + [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html)
   + [DeriveSharedSecret](https://docs.aws.amazon.com/kms/latest/APIReference/API_DeriveSharedSecret.html)
+  + [Encapsulate](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encapsulate.html)
   + [Encrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html)
   + [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html)
   + [GenerateDataKeyPair](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyPair.html)

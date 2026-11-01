@@ -43,4 +43,4 @@ To see a complete working example of configuring and using hybrid post-quantum T
    ListKeysReponse keys = kmsAsync.listKeys().get();
    ```
 
-   To confirm that your call used hybrid post-quantum TLS, inspect its CloudTrail log entry as described in [Verifying Hybrid Post-Quantum TLS](pqtls.md#pqtls-verify).
+   To confirm that your call used hybrid post-quantum TLS, inspect its CloudTrail log entry as described in [Verifying and Monitoring Hybrid Post-Quantum TLS](pqtls.md#pqtls-verify).

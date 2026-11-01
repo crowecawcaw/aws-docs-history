@@ -20,6 +20,8 @@ To create a data key pair, call the [GenerateDataKeyPair](https://docs.aws.amazo
 
 `GenerateDataKeyPairWithoutPlaintext` returns a plaintext public key and an encrypted private key, but not a plaintext private key. Use this operation when you don't need a plaintext private key immediately, such as when you're encrypting with a public key. Later, when you need a plaintext private key to decrypt the data, you can call the [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) operation.
 
+You can generate RSA, ECC, and ML-KEM data key pairs. In China Regions, you can also generate SM2 data key pairs. If your applications rely on the long-term confidentiality of the plaintext private key returned by `GenerateDataKeyPair`, we recommend that you [use post-quantum TLS with AWS KMS](pqtls.md).
+
 The following image shows the `GenerateDataKeyPair` operation. The `GenerateDataKeyPairWithoutPlaintext` operation omits the plaintext private key.
 
 ![Generate a data key pair](https://docs.aws.amazon.com/kms/latest/developerguide/images/generate-data-key-pair.png)
@@ -78,10 +80,12 @@ The following diagram shows how to use the public key in a data key pair to veri
 ![Verify a cryptographic signature with the public key in a data key pair outside of AWS KMS.](https://docs.aws.amazon.com/kms/latest/developerguide/images/verify-with-data-key-pair.png)
 
 
-### Derive a shared secret with data key pairs
+### Establish a shared secret with data key pairs
 <a name="data-key-pairs-derive-shared-secret"></a>
 
-Key agreement enables two peers, each having an elliptic-curve public–private key pair, to establish a shared secret over an insecure channel. To [derive a shared secret](https://docs.aws.amazon.com/kms/latest/APIReference/API_DeriveSharedSecret.html), the two peers must exchange their public keys over the insecure communication channel (like the internet). Then, each party uses their *private key* and their peer's *public key* to calculate the same shared secret using a key agreement algorithm. You can use the shared secret value to derive a symmetric key that can encrypt and decrypt data that is sent between the two peers, or that can generate and verify HMACs.
+Key agreement enables two peers, each having an elliptic-curve public–private key pair, to establish a shared secret over an insecure channel. To derive a shared secret, the two peers must exchange their public keys. Then, each party uses their *private key* and their peer's *public key* to calculate the same shared secret using a key agreement algorithm. You can use the shared secret value to derive a symmetric key that can encrypt and decrypt data that is sent between the two peers, or that can generate and verify HMACs.
+
+You can also establish a shared secret with a post-quantum ML-KEM data key pair through key encapsulation. Unlike key agreement, which derives a shared secret from a key contributed by each party, key encapsulation generates the shared secret using only the recipient's public key. The sender uses the encapsulate operation on the recipient's public key to generate a shared secret and its encapsulated (ciphertext). It sends the encapsulated shared secret to the recipient. The recipient uses the decapsulate operation to recover the shared secret using their private key.
 
 **Note**  
-AWS KMS strongly recommends verifying that the public key you receive came from the expected party before using it to derive a shared secret.
+AWS KMS strongly recommends verifying that the public key you receive came from the expected party before using it to derive or encapsulate a shared secret.

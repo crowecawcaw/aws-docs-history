@@ -35,6 +35,8 @@ Do not include confidential or sensitive information in the alias, description, 
 
    To create an asymmetric KMS key for deriving shared secrets, in **Key usage**, choose **Key agreement**.
 
+   To create an asymmetric KMS key for post-quantum key establishment, in **Key usage**, choose **Encapsulate and decapsulate**.
+
    For help choosing a key usage value, see [Choosing what type of KMS key to create](create-keys.md#symm-asymm-choose).
 
 1. Select a specification (**Key spec**) for your asymmetric KMS key. 
@@ -93,7 +95,7 @@ To allow principals in the external accounts to use the KMS key, administrators 
 
 You can use the [CreateKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html) operation to create an asymmetric AWS KMS key. These examples use the [AWS Command Line Interface (AWS CLI)](https://aws.amazon.com/cli/), but you can use any supported programming language. 
 
-When you create an asymmetric KMS key, you must specify the `KeySpec` parameter, which determines the type of keys you create. Also, you must specify a `KeyUsage` value of ENCRYPT\_DECRYPT, SIGN\_VERIFY, or KEY\_AGREEMENT. You cannot change these properties after the KMS key is created.
+When you create an asymmetric KMS key, you must specify the `KeySpec` parameter, which determines the type of keys you create. Also, you must specify a `KeyUsage` value of ENCRYPT\_DECRYPT, SIGN\_VERIFY, KEY\_AGREEMENT, or ENCAPSULATE\_DECAPSULATE. You cannot change these properties after the KMS key is created.
 
 The `CreateKey` operation doesn't let you specify an alias, but you can use the [CreateAlias](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateAlias.html) operation to create an alias for your new KMS key.
 
@@ -176,6 +178,33 @@ $ aws kms create-key --key-spec ECC_NIST_P256 --key-usage KEY_AGREEMENT
         "KeySpec": "ECC_NIST_P256",
         "KeyAgreementAlgorithms": [
             "ECDH"
+        ],
+        "MultiRegion": false
+    }
+}
+```
+
+**Create an asymmetric KMS key pair for post-quantum key establishment**  
+The following example command creates an asymmetric KMS key that represents a pair of ML-KEM keys used for encapsulating and decapsulating shared secrets.
+
+```
+$ aws kms create-key --key-spec ML_KEM_1024 --key-usage ENCAPSULATE_DECAPSULATE
+{
+    "KeyMetadata": {
+        "AWSAccountId": "111122223333",
+        "KeyId": "0987dcba-09fe-87dc-65ba-ab0987654321",
+        "Arn": "arn:aws:kms:us-west-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
+        "CreationDate": "2026-10-18T18:30:50.878000+00:00",
+        "Enabled": true,
+        "Description": "",
+        "KeyUsage": "ENCAPSULATE_DECAPSULATE",
+        "KeyState": "Enabled",
+        "Origin": "AWS_KMS",
+        "KeyManager": "CUSTOMER",
+        "CustomerMasterKeySpec": "ML_KEM_1024",
+        "KeySpec": "ML_KEM_1024",
+        "EncapsulationAlgorithms": [
+            "ML_KEM"
         ],
         "MultiRegion": false
     }

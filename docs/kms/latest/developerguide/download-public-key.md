@@ -22,7 +22,7 @@ You can use the AWS Management Console to view, copy, and download the public ke
 
 1. Choose the alias or key ID of an asymmetric KMS key.
 
-1. Choose the **Cryptographic configuration** tab. Record the values of the **Key spec**, **Key usage**, and **Encryption algorithms** or **Signing Algorithms** fields. You'll need to use these values to use the public key outside of AWS KMS. Be sure to share this information when you share the public key.
+1. Choose the **Cryptographic configuration** tab. Record the values of the **Key spec**, **Key usage**, and **Encryption algorithms**, **Signing Algorithms**, or **Encapsulation algorithms** fields. You'll need to use these values to use the public key outside of AWS KMS. Be sure to share this information when you share the public key.
 
 1. Choose the **Public key** tab.
 

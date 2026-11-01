@@ -323,6 +323,24 @@ The console adds the following statement to the key policy for asymmetric KMS ke
 }
 ```
 
+**Asymmetric KMS keys for encapsulation and decapsulation**  
+The console adds the following statement to the key policy for asymmetric KMS keys with a key usage of **Encapsulate and decapsulate**.  
+
+```
+{
+  "Sid": "Allow use of the key",
+  "Effect": "Allow",
+  "Principal": {"AWS": "arn:aws:iam::111122223333:role/{{ExampleKeyUserRole}}"},
+  "Action": [
+    "kms:DescribeKey",
+    "kms:GetPublicKey",
+    "kms:Encapsulate",
+    "kms:Decapsulate"
+  ],
+  "Resource": "*"
+}
+```
+
 The actions in these statements give the key users the following permissions.
 
 [`kms:Encrypt`](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html)  
@@ -333,6 +351,12 @@ Allows key users to decrypt data with this KMS key.
 
 [`kms:DeriveSharedSecret`](https://docs.aws.amazon.com/kms/latest/APIReference/API_DeriveSharedSecret.html)  
 Allows key users to derive shared secrets with this KMS key.
+
+[`kms:Encapsulate`](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encapsulate.html)  
+Allows key users to generate and encapsulate a shared secret with this KMS key.
+
+[`kms:Decapsulate`](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decapsulate.html)  
+Allows key users to decapsulate an encapsulated shared secret with this KMS key.
 
 [`kms:DescribeKey`](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html)  
 Allows key users to get detailed information about this KMS key including its identifiers, creation date, and key state. It also allows the key users to display details about the KMS key in the AWS KMS console.

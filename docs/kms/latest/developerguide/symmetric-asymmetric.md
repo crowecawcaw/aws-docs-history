@@ -22,8 +22,13 @@ A KMS key with an elliptic curve key pair for signing and verification or derivi
 For technical details about the signing algorithms that AWS KMS supports for ECC KMS keys, see [Elliptic curve key specs](symm-asymm-choose-key-spec.md#key-spec-ecc).
 
 **ML-DSA KMS keys**  
-A KMS key with an ML-DSA key pair for signing and verification. ML-DSA is a post-quantum cryptography standard developed by the US National Institute of Standards and Technology (NIST) to protect against the security threats posed by quantum computing. ML-DSA is the recommended digital signature algorithm for organizations transitioning from RSA or Elliptic Curve digital signature algorithms to post-quantum safe cryptography.  
+A KMS key with an ML-DSA key pair for signing and verification. ML-DSA is a post-quantum cryptography standard developed by the US National Institute of Standards and Technology (NIST) to protect against the security threats posed by quantum computing. We recommend ML-DSA as the digital signature algorithm for organizations transitioning from RSA or Elliptic Curve digital signature algorithms to post-quantum cryptography.  
 AWS KMS supports several key lengths for different security requirements. For technical details about the signing algorithms that AWS KMS supports for ML-DSA KMS keys, see [ML-DSA key spec](symm-asymm-choose-key-spec.md#key-spec-mldsa).
+
+**ML-KEM KMS keys**  
+A KMS key with an ML-KEM key pair for encapsulating and decapsulating shared secrets. ML-KEM is a post-quantum key establishment standard developed by the US National Institute of Standards and Technology (NIST) to protect against the security threats posed by quantum computing. We recommend ML-KEM for organizations transitioning from classical key establishment methods, like RSA or Elliptic Curve Diffie-Hellman, to post-quantum cryptography.  
+AWS KMS supports several key lengths for different security requirements. For technical details about the encapsulation algorithm that AWS KMS supports for ML-KEM KMS keys, see [ML-KEM key specs](symm-asymm-choose-key-spec.md#key-spec-mlkem).  
+ML-KEM KMS keys are not available in the China Regions.
 
 **SM2 KMS keys (China Regions only)**  
 A KMS key with an SM2 key pair for encryption and decryption, signing and verification, or deriving shared secrets (you must choose one [Key usage](create-keys.md#key-usage) type).  
@@ -34,6 +39,8 @@ For help choosing your asymmetric key configuration, see [Choosing what type of 
 **Regions**
 
 Asymmetric KMS keys and asymmetric data key pairs are supported in all AWS Regions that AWS KMS supports.
+
+ML-KEM KMS keys are not available in the China Regions.
 
 **Learn more**
 + To create asymmetric KMS keys, see [Create an asymmetric KMS key](asymm-create-key.md). 

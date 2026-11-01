@@ -48,6 +48,12 @@ You might have to scroll horizontally or vertically to see all of the data in th
   - **Resources (for IAM policies):** `*`
   - **AWS KMS condition keys:** [kms:BypassPolicyLockoutSafetyCheck](conditions-kms.md#conditions-kms-bypass-policy-lockout-safety-check)<br />[kms:CallerAccount](conditions-kms.md#conditions-kms-caller-account)<br />[kms:KeySpec](conditions-kms.md#conditions-kms-key-spec)<br />[kms:KeyUsage](conditions-kms.md#conditions-kms-key-usage)<br />[kms:KeyOrigin](conditions-kms.md#conditions-kms-key-origin)<br />[kms:MultiRegion](conditions-kms.md#conditions-kms-multiregion)<br />[kms:MultiRegionKeyType](conditions-kms.md#conditions-kms-multiregion-key-type)<br />[kms:ViaService](conditions-kms.md#conditions-kms-via-service)<br />[aws:RequestTag/*tag-key*](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag) (AWS global condition key)<br />[aws:ResourceTag/*tag-key*](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag) (AWS global condition key)<br />[aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys) (AWS global condition key)
 
+- ** [Decapsulate](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decapsulate.html) `kms:Decapsulate` **
+  - **Policy type:** Key policy
+  - **Cross-account use:** Yes
+  - **Resources (for IAM policies):** KMS key
+  - **AWS KMS condition keys:** Conditions for cryptographic operations:[kms:EncapsulationAlgorithm](conditions-kms.md#conditions-kms-encapsulation-algorithm)<br />[kms:RequestAlias](conditions-kms.md#conditions-kms-request-alias)<br />*Conditions for KMS key operations:*<br />[kms:CallerAccount](conditions-kms.md#conditions-kms-caller-account)<br />[kms:KeySpec](conditions-kms.md#conditions-kms-key-spec)<br />[kms:KeyUsage](conditions-kms.md#conditions-kms-key-usage)<br />[kms:KeyOrigin](conditions-kms.md#conditions-kms-key-origin)<br />[kms:MultiRegion](conditions-kms.md#conditions-kms-multiregion)<br />[kms:MultiRegionKeyType](conditions-kms.md#conditions-kms-multiregion-key-type)<br />[kms:ResourceAliases](conditions-kms.md#conditions-kms-resource-aliases)<br />[aws:ResourceTag/*tag-key*](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag) (AWS global condition key)<br />[kms:ViaService](conditions-kms.md#conditions-kms-via-service)
+
 - ** [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) `kms:Decrypt` **
   - **Policy type:** Key policy
   - **Cross-account use:** Yes
@@ -117,6 +123,12 @@ You might have to scroll horizontally or vertically to see all of the data in th
   - **Cross-account use:** No
   - **Resources (for IAM policies):** KMS key
   - **AWS KMS condition keys:** *Conditions for KMS key operations:*<br />[kms:CallerAccount](conditions-kms.md#conditions-kms-caller-account)<br />[kms:KeySpec](conditions-kms.md#conditions-kms-key-spec)<br />[kms:KeyUsage](conditions-kms.md#conditions-kms-key-usage)<br />[kms:KeyOrigin](conditions-kms.md#conditions-kms-key-origin)<br />[kms:MultiRegion](conditions-kms.md#conditions-kms-multiregion)<br />[kms:MultiRegionKeyType](conditions-kms.md#conditions-kms-multiregion-key-type)<br />[kms:ResourceAliases](conditions-kms.md#conditions-kms-resource-aliases)<br />[aws:ResourceTag/*tag-key*](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag) (AWS global condition key)<br />[kms:ViaService](conditions-kms.md#conditions-kms-via-service)<br />*Automatic key rotation conditions:*<br />[kms:RotationPeriodInDays](conditions-kms.md#conditions-kms-rotation-period-in-days)
+
+- ** [Encapsulate](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encapsulate.html) `kms:Encapsulate` **
+  - **Policy type:** Key policy
+  - **Cross-account use:** Yes
+  - **Resources (for IAM policies):** KMS key
+  - **AWS KMS condition keys:** Conditions for cryptographic operations:[kms:EncapsulationAlgorithm](conditions-kms.md#conditions-kms-encapsulation-algorithm)<br />[kms:RequestAlias](conditions-kms.md#conditions-kms-request-alias)<br />*Conditions for KMS key operations:*<br />[kms:CallerAccount](conditions-kms.md#conditions-kms-caller-account)<br />[kms:KeySpec](conditions-kms.md#conditions-kms-key-spec)<br />[kms:KeyUsage](conditions-kms.md#conditions-kms-key-usage)<br />[kms:KeyOrigin](conditions-kms.md#conditions-kms-key-origin)<br />[kms:MultiRegion](conditions-kms.md#conditions-kms-multiregion)<br />[kms:MultiRegionKeyType](conditions-kms.md#conditions-kms-multiregion-key-type)<br />[kms:ResourceAliases](conditions-kms.md#conditions-kms-resource-aliases)<br />[aws:ResourceTag/*tag-key*](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag) (AWS global condition key)<br />[kms:ViaService](conditions-kms.md#conditions-kms-via-service)
 
 - ** [Encrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html) `kms:Encrypt` **
   - **Policy type:** Key policy

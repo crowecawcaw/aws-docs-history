@@ -46,8 +46,10 @@ Do not solely rely on last usage information when deleting unused keys. Instead,
 <a name="tracked-crypto-operations"></a>
 
 Only the following successful cryptographic operations are tracked and recorded for reporting the last usage information. Non-cryptographic operations are excluded.
++ `Decapsulate`
 + `Decrypt`
 + `DeriveSharedSecret`
++ `Encapsulate`
 + `Encrypt`
 + `GenerateDataKey`
 + `GenerateDataKeyPair`

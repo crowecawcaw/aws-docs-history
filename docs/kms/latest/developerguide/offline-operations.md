@@ -11,6 +11,7 @@ This topic provides example offline operations and details the tools AWS KMS pro
 
 **Topics**
 + [Deriving shared secrets offline](#key-spec-ecc-offline)
++ [Encapsulate a shared secret with a downloaded public key offline](#key-spec-mlkem-offline)
 + [Offline verification with ML-DSA key pairs](#mldsa-offline-verification)
 + [Offline verification with SM2 key pairs (China Regions only)](#key-spec-sm-offline-verification)
 
@@ -68,6 +69,52 @@ The following [OpenSSL](https://openssl.org/) walkthrough demonstrates one metho
    export OPENSSL_SHARED_SECRET1_BIN="openssl_shared_secret1.bin"
    openssl pkeyutl -derive -inkey ${OPENSSL_KEY1_PRIV_PEM} \
        -peerkey ${KMS_KEY1_PUB_PEM} -out ${OPENSSL_SHARED_SECRET1_BIN}
+   ```
+
+## Encapsulate a shared secret with a downloaded public key offline
+<a name="key-spec-mlkem-offline"></a>
+
+You can download the public key of an ML-KEM KMS key to establish a shared secret with the key's owner. Use the ML-KEM encapsulate operation with the public key to generate a shared secret and its encapsulated (ciphertext) form outside of AWS KMS. Send the encapsulated shared secret to the key's owner. The key's owner can recover the shared secret by calling the [Decapsulate](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decapsulate.html) API on the encapsulated shared secret.
+
+The following walkthrough uses [OpenSSL](https://openssl.org/) to encapsulate a shared secret from an ML-KEM public key downloaded from AWS KMS.
+
+**Note**  
+ML-KEM encapsulation in OpenSSL requires OpenSSL 3.5 or later.
+
+1. Download the public key of the ML-KEM KMS key
+
+   ```
+   // Save the ARN of your ML-KEM KMS key in MLKEM_KEY_ARN
+   export MLKEM_KEY_ARN=_<1234abcd-12ab-34cd-56ef-1234567890ab>_
+   
+   // Fetch the public key and save it after Base64 decoding
+   aws kms get-public-key \
+       --key-id ${MLKEM_KEY_ARN} \
+       --output text \
+       --query PublicKey | base64 --decode > mlkem_pub.der
+   ```
+
+1. Encapsulate a shared secret in OpenSSL using the public key. This produces the shared secret (`openssl_shared_secret.bin`) and its encapsulated form (`openssl_ciphertext.bin`).
+
+   ```
+   openssl pkeyutl -encap -inkey mlkem_pub.der -keyform DER -pubin \
+       -secret openssl_shared_secret.bin -out openssl_ciphertext.bin
+   ```
+
+1. Recover the same shared secret in AWS KMS by calling [Decapsulate](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decapsulate.html) with the encapsulated ciphertext. This operation uses the private key, which never leaves AWS KMS.
+
+   ```
+   aws kms decapsulate \
+       --key-id ${MLKEM_KEY_ARN} \
+       --encapsulation-algorithm ML_KEM \
+       --shared-secret-ciphertext-blob fileb://openssl_ciphertext.bin \
+       --query SharedSecret --output text
+   ```
+
+1. Confirm that the shared secrets match. The [Decapsulate](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decapsulate.html) response encodes the shared secret in Base64, so Base64-encode the shared secret produced by OpenSSL and compare the two values.
+
+   ```
+   base64 openssl_shared_secret.bin
    ```
 
 ## Offline verification with ML-DSA key pairs

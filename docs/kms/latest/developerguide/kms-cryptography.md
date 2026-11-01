@@ -23,15 +23,16 @@ Frequently, AWS omits the inclusion of the AAD in our descriptions, especially w
 
 AWS KMS provides an option for you to import key material into an AWS KMS key instead of relying on AWS KMS to generate the key material. This imported key material can be encrypted using [RSAES-OAEP](https://datatracker.ietf.org/doc/html/rfc8017#section-7.1) to protect the key during transport to the AWS KMS HSM. The RSA key pairs are generated on AWS KMS HSMs. The imported key material is decrypted on an AWS KMS HSM and re-encrypted under AES-GCM before being stored by the service. 
 
-## Asymmetric key operations (encryption, digital signing and signature verification)
+## Asymmetric key operations (encryption, digital signing, key establishment)
 <a name="asymmetric-key-ops"></a>
 
-AWS KMS supports the use of asymmetric key operations for both encryption, digital signature, and key agreement operations. Asymmetric key operations rely on a mathematically related public key and private key pair that you can use for encryption and decryption, signing and signature verification, *or* deriving shared secrets. The private key never leaves AWS KMS unencrypted. You can use the public key within AWS KMS by calling the AWS KMS API operations, or download the public key and use it outside of AWS KMS. 
+AWS KMS supports the use of asymmetric key operations for encryption, digital signing, and establishing shared secrets. Asymmetric key operations rely on a mathematically related public key and private key pair that you can use for encryption and decryption, signing and signature verification, or establishing shared secrets between two parties. The private key never leaves AWS KMS unencrypted. You can use the public key within AWS KMS by calling the AWS KMS API operations, or download the public key and use it outside of AWS KMS. 
 
 AWS KMS supports the following asymmetric ciphers. 
 + **RSA-OAEP (for encryption) & RSA-PSS and RSA-PKCS-\#1-v1\_5 (for signing and verification)** – Supports RSA key lengths (in bits): 2048, 3072, and 4096 for different security requirements. 
-+ **Elliptic Curve (ECC)** – Used for signing and verification or deriving shared secrets, but not both. Supports ECC curves: NIST P256, P384, P521, SECP 256k1, Ed25519. 
++ **Elliptic Curve (ECC)** – Used for signing and verification or deriving a shared secret between two parties, but not both. Supports ECC curves: NIST P256, P384, P521, SECP 256k1, Ed25519. 
 + **ML-DSA** – Used for signing and verification. Supported ML-DSA key specs are: ML\_DSA\_44, ML\_DSA\_65, and ML\_DSA\_87.
++ **ML-KEM** – Used for establishing a shared secret between two parties. Supported ML-KEM key specs are: ML\_KEM\_512, ML\_KEM\_768, and ML\_KEM\_1024.
 + **SM2 (China Regions only)** – Used for encryption and decryption, signing and verification, or deriving shared secrets, but you must choose one key usage. Supports SM2PKE for encryption and SM2DSA for signing. 
 
 ## Key derivation functions
@@ -90,8 +91,10 @@ The following table lists the AWS KMS cryptographic operations. It also shows th
 
 | Operation | Key type | Key usage | 
 | --- | --- | --- | 
+| [Decapsulate](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decapsulate.html) | Asymmetric | ENCAPSULATE\_DECAPSULATE | 
 | [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) | Symmetric or asymmetric | ENCRYPT\_DECRYPT | 
 | [DeriveSharedSecret](https://docs.aws.amazon.com/kms/latest/APIReference/API_DeriveSharedSecret.html) | Asymmetric | KEY\_AGREEMENT | 
+| [Encapsulate](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encapsulate.html) | Asymmetric | ENCAPSULATE\_DECAPSULATE | 
 | [Encrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html) | Symmetric or asymmetric | ENCRYPT\_DECRYPT | 
 | [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) | Symmetric  | ENCRYPT\_DECRYPT | 
 | [GenerateDataKeyPair](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyPair.html) | Symmetric [1]Not supported on KMS keys in custom key stores. | ENCRYPT\_DECRYPT | 

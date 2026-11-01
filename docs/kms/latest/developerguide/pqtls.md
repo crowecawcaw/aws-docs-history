@@ -7,7 +7,7 @@ The data that you send to AWS Key Management Service (AWS KMS) is protected in t
 
 In August 2024, NIST finalized its first post-quantum cryptography standards. These include Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM) specified in [FIPS 203](https://csrc.nist.gov/pubs/fips/203/final) on the NIST website. AWS KMS now supports a hybrid post-quantum key exchange option for TLS which combines [Elliptic Curve Diffie-Hellman](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman) (ECDH) with ML-KEM. This hybrid key exchange retains the strength of today's classic cipher suites while adding resilience against future quantum-capable adversaries. For more information, see [ML-KEM post-quantum TLS now supported in AWS KMS, ACM, and Secrets Manager](https://aws.amazon.com/blogs/security/ml-kem-post-quantum-tls-now-supported-in-aws-kms-acm-and-secrets-manager/) in the *AWS Security Blog*.
 
-If your applications rely on the long-term confidentiality of data passed over a TLS connection, you should use post-quantum cryptography. Otherwise, an adversary may be able to capture data encrypted with classic cipher suites today and decrypt it once quantum computers become available. This strategy is known as *harvest now, decrypt later*.
+If your applications rely on the long-term confidentiality of data passed over a TLS connection, you should use post-quantum cryptography. Otherwise, an adversary might be able to capture data encrypted with classic cipher suites today and decrypt it once quantum computers become available. This threat is known as *harvest now, decrypt later*.
 
 ## Using hybrid post-quantum TLS with AWS KMS
 <a name="pqtls-details"></a>
@@ -24,13 +24,55 @@ AWS KMS supports hybrid post-quantum TLS in all AWS Regions where it is availabl
 
 Many AWS SDKs support hybrid post-quantum TLS, as described in [Enabling hybrid post-quantum TLS](https://docs.aws.amazon.com/sdkref/latest/guide/pqtls-details.html) in the *AWS SDKs and Tools Reference Guide*. For a Java example, see [Configure hybrid post-quantum TLS](pqtls-how-to.md).
 
-### Verifying Hybrid Post-Quantum TLS
+### Verifying and Monitoring Hybrid Post-Quantum TLS
 <a name="pqtls-verify"></a>
 
 You can confirm that a specific AWS KMS API call used hybrid post-quantum TLS by inspecting its CloudTrail log entry. Find the `tlsDetails` section in the log entry for the call. The `keyExchange` field names the key exchange algorithm that was used. For a hybrid post-quantum connection, this field shows a hybrid algorithm such as `X25519MLKEM768`. For an example log entry, see [Decrypt with a standard symmetric encryption key over a post-quantum TLS connection](ct-decrypt.md#ct-decrypt-default-pqtls).
 
 **Note**  
-The `tlsDetails` field is not present in the log entry when an AWS service calls AWS KMS on your behalf. For details about the fields in a CloudTrail log entry and when they are present, see [CloudTrail record contents](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html) in the AWS CloudTrail User Guide.
+The `tlsDetails` field is not present in the log entry when an AWS service calls AWS KMS on your behalf. In that case, the `invokedBy` field in the `userIdentity` element identifies the calling service. For details about the fields in a CloudTrail log entry and when they are present, see [CloudTrail record contents](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html) in the AWS CloudTrail User Guide.
+
+To be alerted when a client calls AWS KMS without hybrid post-quantum TLS, create a CloudWatch metric filter and alarm. The metric filter finds calls where the `keyExchange` field is missing or its value does not contain `MLKEM`. It ignores calls that an AWS service makes on your behalf. Otherwise, they would appear as calls made without post-quantum TLS. For information about log group metric filters, see [Creating metrics from log events using filters](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/MonitoringLogData.html) in the Amazon CloudWatch Logs User Guide.
+
+To create the metric filter and alarm, complete the following steps.
+
+1. Send your CloudTrail events to Amazon CloudWatch Logs. For instructions, see [Sending events to CloudWatch Logs](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/send-cloudtrail-events-to-cloudwatch-logs.html) in the AWS CloudTrail User Guide.
+
+1. Create a CloudWatch metric filter that parses CloudTrail logs. For instructions on creating this metric filter, see [Create a metric filter for a log group](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.html) in the Amazon CloudWatch Logs User Guide. Use the following required values. For other fields, accept the default values and provide names as requested.
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Filter pattern</td><td><code>{ ($.eventSource = "kms.amazonaws.com") &amp;&amp; ($.userIdentity.invokedBy NOT EXISTS) &amp;&amp; (($.tlsDetails.keyExchange != "*MLKEM*") || ($.tlsDetails.keyExchange NOT EXISTS)) }</code></td></tr>
+  <tr><td>Metric value</td><td>1</td></tr>
+</tbody>
+</table>
+
+
+1. Create a CloudWatch alarm based on the metric filter that you created in Step 2.
+
+   For instructions on creating this alarm, see [Alarming on logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.html) in the Amazon CloudWatch User Guide. Use the following required values. For other fields, accept the default values and provide names as requested.
+
+
+<table>
+<thead>
+  <tr><th>Field</th><th>Value</th></tr>
+</thead>
+<tbody>
+  <tr><td>Metric filter</td><td>The name of the metric filter that you created in Step 2.</td></tr>
+  <tr><td>Threshold type</td><td>Static</td></tr>
+  <tr><td>Conditions</td><td><b>Whenever</b> {{metric-name}} is <b>Greater/Equal</b> than <code>1</code></td></tr>
+  <tr><td>Data points to alarm</td><td><code>1</code> out of <code>1</code></td></tr>
+  <tr><td>Missing data treatment</td><td><b>Treat missing data as good (not breaching threshold)</b></td></tr>
+</tbody>
+</table>
+
+
+**Note**  
+This alarm helps you find clients that call AWS KMS without hybrid post-quantum TLS. However, it doesn't identify the specific data that a misconfigured client might have exposed to the *harvest now, decrypt later* threat described earlier. CloudTrail log entries don't include sensitive values, such as the plaintext data key in the `GenerateDataKey` API response or the shared secret returned by `Encapsulate` and `Decapsulate`. To determine what might be affected, review other details in the log entry. These include the caller, the request time, the KMS key ID, and the encryption context. Then match those details against your application's own records.
 
 ### Performance
 <a name="pqtls-performance"></a>

@@ -64,15 +64,15 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To create an alias for a KMS key**  
-The following `create-alias` command creates an alias named `example-alias` for the KMS key identified by key ID `1234abcd-12ab-34cd-56ef-1234567890ab`.  
+The following `create-alias` example creates an alias named `example-alias` for the KMS key identified by key ID `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`.  
 Alias names must begin with `alias/`. Do not use alias names that begin with `alias/aws`; these are reserved for use by AWS.  
 
 ```
 aws kms create-alias \
     --alias-name {{alias/example-alias}} \
-    --target-key-id {{1234abcd-12ab-34cd-56ef-1234567890ab}}
+    --target-key-id {{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}
 ```
-This command doesn't return any output. To see the new alias, use the `list-aliases` command.  
+This command produces no output. To see the new alias, use the `list-aliases` command.  
 For more information, see [Using aliases](https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html) in the *AWS Key Management Service Developer Guide*.  
 +  For API details, see [CreateAlias](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/create-alias.html) in *AWS CLI Command Reference*. 
 

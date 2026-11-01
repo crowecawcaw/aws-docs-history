@@ -25,11 +25,12 @@ The **Cryptographic configuration** tab on the details page for a KMS key displa
 **In DescribeKey responses**  
 When you call the `DescribeKey` operation on an asymmetric KMS key the response includes the `KeySpec` and `KeyUsage` values, which can be used to determine if a KMS key is symmetric or asymmetric.   
 If the `KeySpec` value is `SYMMETRIC_DEFAULT`, the key is a symmetric encryption KMS key. For details on asymmetric key specs, see [Key spec reference](symm-asymm-choose-key-spec.md).  
-If the `KeyUsage` value is `SIGN_VERIFY` or `KEY_AGREEMENT`, the key is an asymmetric KMS key.   
+If the `KeyUsage` value is `SIGN_VERIFY`, `KEY_AGREEMENT`, or `ENCAPSULATE_DECAPSULATE`, the key is an asymmetric KMS key.   
 The `DescribeKey` operation also returns the following details for asymmetric KMS keys.  
 + For asymmetric KMS keys with a `KeyUsage` value of `ENCRYPT_DECRYPT`, the operation returns the `EncryptionAlgorithms`, which lists the valid encryption algorithms for the key.
 + For asymmetric KMS keys with a `KeyUsage` value of `SIGN_VERIFY`, the operation returns the `SigningAlgorithms`, which lists the valid signing algorithms for the key.
 + For asymmetric KMS keys with a `KeyUsage` value of `KEY_AGREEMENT`, the operation returns the `KeyAgreementAlgorithms`, which lists the valid key agreement algorithms for the key.
++ For asymmetric KMS keys with a `KeyUsage` value of `ENCAPSULATE_DECAPSULATE`, the operation returns the `EncapsulationAlgorithms`, which lists the valid encapsulation algorithms for the key.
 
 For more information on asymmetric KMS keys, see [Asymmetric keys in AWS KMS](symmetric-asymmetric.md).
 

@@ -18,14 +18,15 @@ The `--key-id` parameter identifies the KMS key. This example uses a key ARN val
 
 ```
 aws kms schedule-key-deletion \
-    --key-id arn:aws:kms:us-west-2:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab \
+    --key-id arn:aws:kms:us-west-2:123456789012:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111 \
     --pending-window-in-days 15
 ```
 The response includes the key ARN, key state, waiting period (`PendingWindowInDays`), and the deletion date in Unix time. To view the deletion date in local time, use the AWS KMS console. KMS keys in the `PendingDeletion` key state cannot be used in cryptographic operations.  
+Output:  
 
 ```
 {
-    "KeyId": "arn:aws:kms:us-west-2:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+    "KeyId": "arn:aws:kms:us-west-2:123456789012:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
     "DeletionDate": "2022-06-18T23:43:51.272000+00:00",
     "KeyState": "PendingDeletion",
     "PendingWindowInDays": 15

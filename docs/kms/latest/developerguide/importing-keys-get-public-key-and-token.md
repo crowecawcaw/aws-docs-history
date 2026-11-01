@@ -132,7 +132,7 @@ For primary multi-Region keys, the **Key materials** table includes a **Replica 
 To download the public key and import token, use the [GetParametersForImport](https://docs.aws.amazon.com/kms/latest/APIReference/API_GetParametersForImport.html) API. Specify the KMS key that will be associated with the imported key material. This KMS key must have an [Origin](create-keys.md#key-origin) value of `EXTERNAL`.
 
 **Note**  
-You can't import key material for ML-DSA KMS keys.
+You can't import key material for ML-DSA or ML-KEM KMS keys.
 
 This example specifies the `RSA_AES_KEY_WRAP_SHA_256` wrapping algorithm, the RSA\_3072 wrapping public key spec, and an example key ID. Replace these example values with valid values for your download. For the key ID, you can use a [key ID](concepts.md#key-id-key-id) or [key ARN](concepts.md#key-id-key-ARN), but you cannot use an [alias name](concepts.md#key-id-alias-name) or [alias ARN](concepts.md#key-id-alias-ARN) in this operation.
 

@@ -46,6 +46,11 @@ AWS KMS supports the following key specs for KMS keys:
 + ML\_DSA\_65
 + ML\_DSA\_87
 
+[ML-KEM key specs](#key-spec-mlkem)  
++ ML\_KEM\_512
++ ML\_KEM\_768
++ ML\_KEM\_1024
+
 ## SYMMETRIC\_DEFAULT key spec
 <a name="symmetric-cmks"></a>
 
@@ -199,7 +204,7 @@ AWS KMS supports symmetric HMAC keys in varying lengths. The key spec that you s
 ## ML-DSA key specs
 <a name="key-spec-mldsa"></a>
 
-An ML-DSA key is a cryptographic key used in the Module-Lattice-Based Digital Signature Algorithm (ML-DSA), which is designed for post-quantum cryptography. This algorithm is part of the NIST (National Institute of Standards and Technology) standardization effort, specifically outlined in [Federal Information Processing Standards (FIPS) 204](https://csrc.nist.gov/pubs/fips/204/final).
+An ML-DSA key is a cryptographic key used in the Module-Lattice-Based Digital Signature Algorithm (ML-DSA), which is designed for post-quantum cryptography. This algorithm is part of the NIST (National Institute of Standards and Technology) standardization effort, specifically outlined in [Federal Information Processing Standards (FIPS) 204](https://csrc.nist.gov/pubs/fips/204/final) on the NIST website.
 
 ML-DSA keys are used in a public-private key pair system. The private key is used for signing data, while the public key is used for verifying the signature. This system ensures the authenticity, integrity, and non-repudiation of digital messages or documents, even in the face of potential quantum computer threats.
 
@@ -211,6 +216,22 @@ AWS KMS supports the following ML-DSA key specs for asymmetric KMS keys:
 + ML\_DSA\_87
 
 AWS KMS supports the ML\_DSA\_SHAKE\_256 signing algorithm for all of the ML-DSA key specs.
+
+## ML-KEM key specs
+<a name="key-spec-mlkem"></a>
+
+An ML-KEM key is a cryptographic key used in the Module-Lattice-Based Key Encapsulation Mechanism (ML-KEM), which is designed for post-quantum cryptography. This mechanism is part of the NIST (National Institute of Standards and Technology) standardization effort, specifically outlined in [Federal Information Processing Standards (FIPS) 203](https://csrc.nist.gov/pubs/fips/203/final) on the NIST website.
+
+An ML-KEM key pair establishes a shared secret between two parties. The public key encapsulates the shared secret, and the private key decapsulates it. This provides quantum-resistant key establishment that remains secure even if quantum computers become available.
+
+When you create a key with an ML-KEM key spec, AWS KMS creates an asymmetric KMS key with an ML-KEM key pair for encapsulation and decapsulation. The private key that decapsulates shared secrets never leaves AWS KMS unencrypted. You can use the [Encapsulate](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encapsulate.html) and [Decapsulate](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decapsulate.html) operations within AWS KMS, or [download the public key](download-public-key.md) to encapsulate a shared secret outside of AWS KMS.
+
+AWS KMS supports the following ML-KEM key specs for asymmetric KMS keys:
++ ML\_KEM\_512
++ ML\_KEM\_768
++ ML\_KEM\_1024
+
+AWS KMS supports the ML\_KEM encapsulation algorithm for all of the ML-KEM key specs.
 
 ## SM2 key spec (China Regions only)
 <a name="key-spec-sm"></a>

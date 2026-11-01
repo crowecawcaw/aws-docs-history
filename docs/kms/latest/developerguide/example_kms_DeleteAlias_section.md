@@ -17,7 +17,7 @@ aws kms delete-alias \
     --alias-name {{alias/example-alias}}
 ```
 This command produces no output. To find the alias, use the `list-aliases` command.  
-For more information, see [Deleting an alias](https://docs.aws.amazon.com/kms/latest/developerguide/alias-manage.html#alias-delete) in the *AWS Key Management Service Developer Guide*.  
+For more information, see [Deleting an alias](https://docs.aws.amazon.com/kms/latest/developerguide/alias-delete.html) in the *AWS Key Management Service Developer Guide*.  
 +  For API details, see [DeleteAlias](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/delete-alias.html) in *AWS CLI Command Reference*. 
 
 ------

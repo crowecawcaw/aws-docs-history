@@ -25,7 +25,7 @@ When you use imported key material, you remain responsible for the key material 
 
 AWS KMS supports imported key material for the following types of KMS keys. You cannot import key material into KMS keys in [custom key stores](key-store-overview.md#custom-key-store-overview).
 + [Symmetric encryption KMS keys](symm-asymm-choose-key-spec.md#symmetric-cmks)
-+ [Asymmetric KMS keys (except ML-DSA keys)](symmetric-asymmetric.md)
++ [Asymmetric KMS keys (except ML-DSA and ML-KEM keys)](symmetric-asymmetric.md)
 + [HMAC KMS keys](hmac.md)
 + [Multi-Region keys](multi-region-keys-overview.md) of all supported types.
 

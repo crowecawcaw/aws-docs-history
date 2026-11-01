@@ -16,7 +16,7 @@ The KMS key you specify must be a symmetric encryption KMS key, that is, a KMS k
 
 ```
 aws kms generate-data-key-without-plaintext \
-    --key-id {{"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"}} \
+    --key-id {{"arn:aws:kms:us-west-2:123456789012:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"}} \
     --key-spec {{AES_256}}
 ```
 Output:  
@@ -24,12 +24,12 @@ Output:
 ```
 {
     "CiphertextBlob": "AQEDAHjRYf5WytIc0C857tFSnBaPn2F8DgfmThbJlGfR8P3WlwAAAH4wfAYJKoZIhvcNAQcGoG8wbQIBADBoBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDEFogL",
-    "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+    "KeyId": "arn:aws:kms:us-west-2:123456789012:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
     "KeyMaterialId": "0b7fd7ddbac6eef27907413567cad8c810e2883dc8a7534067a82ee1142fc1e6"
 }
 ```
 The `CiphertextBlob` (encrypted data key) is returned in base64-encoded format.  
-For more information, see [Data keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#data-keys) in the *AWS Key Management Service Developer Guide*.  
+For more information, see [Data keys](https://docs.aws.amazon.com/kms/latest/developerguide/data-keys.html) in the *AWS Key Management Service Developer Guide*.  
 +  For API details, see [GenerateDataKeyWithoutPlaintext](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/generate-data-key-without-plaintext.html) in *AWS CLI Command Reference*. 
 
 ------

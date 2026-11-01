@@ -53,7 +53,7 @@ Importing key material is useful when you need to generate keys using a specific
 ### Features
 <a name="imported-key-material-features"></a>
 
-Imported key material supports all AWS KMS features except automatic key rotation and post-quantum (ML-DSA) keys.
+Imported key material supports all AWS KMS features except automatic key rotation and post-quantum (ML-DSA and ML-KEM) keys.
 
 ### Operations
 <a name="imported-key-material-operations"></a>

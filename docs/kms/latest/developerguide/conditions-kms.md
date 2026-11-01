@@ -42,6 +42,7 @@ For detailed information about the `ForAnyValue` and `ForAllValues` set operator
 + [kms:CustomerMasterKeySpec (deprecated)](#conditions-kms-key-spec-replaced)
 + [kms:CustomerMasterKeyUsage (deprecated)](#conditions-kms-key-usage-replaced)
 + [kms:DataKeyPairSpec](#conditions-kms-data-key-spec)
++ [kms:EncapsulationAlgorithm](#conditions-kms-encapsulation-algorithm)
 + [kms:EncryptionAlgorithm](#conditions-kms-encryption-algorithm)
 + [kms:EncryptionContext:*context-key*](#conditions-kms-encryption-context)
 + [kms:EncryptionContextKeys](#conditions-kms-encryption-context-keys)
@@ -213,6 +214,40 @@ The following example key policy statement uses the `kms:DataKeyPairSpec` condit
 + [kms:EncryptionAlgorithm](#conditions-kms-encryption-algorithm)
 + [kms:EncryptionContext:*context-key*](#conditions-kms-encryption-context)
 + [kms:EncryptionContextKeys](#conditions-kms-encryption-context-keys)
+
+## kms:EncapsulationAlgorithm
+<a name="conditions-kms-encapsulation-algorithm"></a>
+
+
+| AWS KMS condition keys | Condition type | Value type | API operations | Policy type | 
+| --- | --- | --- | --- | --- | 
+| `kms:EncapsulationAlgorithm` | String | Single-valued | `Encapsulate`<br />`Decapsulate` | Key policies and IAM policies | 
+
+You can use the `kms:EncapsulationAlgorithm` condition key to control access to the [Encapsulate](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encapsulate.html) and [Decapsulate](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decapsulate.html) operations based on the value of the `EncapsulationAlgorithm` parameter in the request. The only valid value for `EncapsulationAlgorithm` is `ML_KEM`.
+
+For example, the following key policy statement uses the `kms:EncapsulationAlgorithm` condition key to deny all access to Encapsulate and Decapsulate unless the `EncapsulationAlgorithm` is `ML_KEM`.
+
+```
+{
+       "Effect": "Deny",
+       "Principal": {
+         "AWS": "arn:aws:iam::111122223333:role/ExampleRole"
+       },
+       "Action": [
+            "kms:Encapsulate",
+            "kms:Decapsulate"
+       ],
+       "Resource": "*",
+       "Condition": {
+            "StringNotEquals": {
+               "kms:EncapsulationAlgorithm": "ML_KEM"
+         }
+       }
+}
+```
+
+**See also**
++ [kms:KeyUsage](#conditions-kms-key-usage)
 
 ## kms:EncryptionAlgorithm
 <a name="conditions-kms-encryption-algorithm"></a>
@@ -1129,7 +1164,7 @@ For example, the following IAM policy allows principals to perform the specified
 
 The `kms:KeyUsage` condition key controls access to operations based on the value of the `KeyUsage` property of the KMS key that is created by or used in the operation. 
 
-You can use this condition key to control access to the [CreateKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html) operation based on the value of the [KeyUsage](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html#KMS-CreateKey-request-KeyUsage) parameter in the request. Valid values for `KeyUsage` are `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, `GENERATE_VERIFY_MAC`, and `KEY_AGREEMENT`.
+You can use this condition key to control access to the [CreateKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html) operation based on the value of the [KeyUsage](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html#KMS-CreateKey-request-KeyUsage) parameter in the request. Valid values for `KeyUsage` are `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, `GENERATE_VERIFY_MAC`, `KEY_AGREEMENT`, and `ENCAPSULATE_DECAPSULATE`.
 
 For example, you can to create a KMS key only when the `KeyUsage` is `ENCRYPT_DECRYPT` or deny a user permission when the `KeyUsage` is `SIGN_VERIFY`. 
 

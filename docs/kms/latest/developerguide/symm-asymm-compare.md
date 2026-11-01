@@ -15,53 +15,55 @@ This reference includes two tables.
 You might need to scroll horizontally or vertically to see all of the data in this table.
 
 
-| AWS KMS API operation | Symmetric encryption KMS keys | HMAC KMS keys | Asymmetric KMS keys (ENCRYPT\_DECRYPT) | Asymmetric KMS keys (SIGN\_VERIFY) | Asymmetric KMS keys (KEY\_AGREEMENT) | 
-| --- | --- | --- | --- | --- | --- | 
-| [CancelKeyDeletion](https://docs.aws.amazon.com/kms/latest/APIReference/API_CancelKeyDeletion.html) | Yes | Yes | Yes | Yes | Yes | 
-| [CreateAlias](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateAlias.html) | Yes | Yes | Yes | Yes | Yes | 
-| [CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html) | Yes | Yes | Yes | Yes | Yes | 
-| [CreateKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html) | Yes | Yes | Yes | Yes | Yes | 
-| [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) | Yes | No | Yes | No | No | 
-| [DeleteAlias](https://docs.aws.amazon.com/kms/latest/APIReference/API_DeleteAlias.html) | Yes | Yes | Yes | Yes | Yes | 
-| [DeleteImportedKeyMaterial](https://docs.aws.amazon.com/kms/latest/APIReference/API_DeleteImportedKeyMaterial.html)<br />Valid only on KMS keys with imported key material (`Origin` is `EXTERNAL`). | Yes | Yes | Yes | Yes | Yes | 
-| [DeriveSharedSecret](https://docs.aws.amazon.com/kms/latest/APIReference/API_DeriveSharedSecret.html) | No | No | No | No | Yes | 
-| [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html) | Yes | Yes | Yes | Yes | Yes | 
-| [DisableKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKey.html) | Yes | Yes | Yes | Yes | Yes | 
-| [DisableKeyRotation](https://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKeyRotation.html) |  Yes Valid only on KMS keys with AWS KMS key material (`Origin` is `AWS_KMS`). | No | No | No | No | 
-| [EnableKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKey.html) | Yes | Yes | Yes | Yes | Yes | 
-| [EnableKeyRotation](https://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKeyRotation.html) | Yes<br />Valid only on KMS keys with AWS KMS key material (`Origin` is `AWS_KMS`). | No | No | No | No | 
-| [Encrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html) | Yes | No | Yes | No | No | 
-| [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) | Yes  | No | No | No | No | 
-| [GenerateDataKeyPair](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyPair.html)<br />Generates an asymmetric data key pair that is protected by a symmetric encryption KMS key. | Yes Not valid on KMS keys in custom key stores. | No | No | No | No | 
-| [GenerateDataKeyPairWithoutPlaintext](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyPairWithoutPlaintext.html)<br />Generates an asymmetric data key pair that is protected by a symmetric encryption KMS key. | Yes <br />Not valid on KMS keys in custom key stores. | No | No | No | No | 
-| [GenerateDataKeyWithoutPlaintext](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyWithoutPlaintext.html) | Yes | No | No | No | No | 
-| [GenerateMac](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateMac.html) | No | Yes | No | No | No | 
-| [GetKeyPolicy](https://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyPolicy.html) | Yes | Yes | Yes | Yes | Yes | 
-| [GetKeyRotationStatus](https://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyRotationStatus.html) | Yes |  Yes (`KeyRotationEnabled` will always be `false`.) |  Yes (`KeyRotationEnabled` will always be `false`.) |  Yes (`KeyRotationEnabled` will always be `false`.) |  Yes (`KeyRotationEnabled` will always be `false`.) | 
-| [GetParametersForImport](https://docs.aws.amazon.com/kms/latest/APIReference/API_GetParametersForImport.html)<br />Valid only on KMS keys with imported key material (`Origin` is `EXTERNAL`). | Yes | Yes | Yes | Yes | Yes | 
-| [GetPublicKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GetPublicKey.html) | No | No | Yes | Yes | Yes | 
-| [ImportKeyMaterial](https://docs.aws.amazon.com/kms/latest/APIReference/API_ImportKeyMaterial.html)<br />Valid only on KMS keys with imported key material (`Origin` is `EXTERNAL`). | Yes | Yes | Yes | Yes | Yes | 
-| [ListAliases](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListAliases.html) | Yes | Yes | Yes | Yes | Yes | 
-| [ListGrants](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListGrants.html) | Yes | Yes | Yes | Yes | Yes | 
-| [ListKeyPolicies](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeyPolicies.html) | Yes | Yes | Yes | Yes | Yes | 
-| [ListKeyRotations](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeyRotations.html) | Yes | Yes (The `Rotations` field will always be null or empty.) | Yes (The `Rotations` field will always be null or empty.) | Yes (The `Rotations` field will always be null or empty.) | Yes (The `Rotations` field will always be null or empty.) | 
-| [ListResourceTags](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListResourceTags.html) | Yes | Yes | Yes | Yes | Yes | 
-| [ListRetirableGrants](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListRetirableGrants.html) | Yes | Yes | Yes | Yes | Yes | 
-| [PutKeyPolicy](https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html) | Yes | Yes | Yes | Yes | Yes | 
-| [ReEncrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html) | Yes | No | Yes | No | No | 
-| [ReplicateKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_ReplicateKey.html)<br />- Valid only on multi-Region keys | Yes | Yes | Yes | Yes | Yes | 
-| [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) | Yes | Yes | Yes | Yes | Yes | 
-| [RevokeGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html) | Yes | Yes | Yes | Yes | Yes | 
-| [RotateKeyOnDemand](https://docs.aws.amazon.com/kms/latest/APIReference/API_RotateKeyOnDemand.html) | Yes Valid only on customer-managed, symmetric encryption KMS keys with `AWS_KMS` or `EXTERNAL` origin. | No | No | No | No | 
-| [ScheduleKeyDeletion](https://docs.aws.amazon.com/kms/latest/APIReference/API_ScheduleKeyDeletion.html) | Yes | Yes | Yes | Yes | Yes | 
-| [Sign](https://docs.aws.amazon.com/kms/latest/APIReference/API_Sign.html) | No | No | No | Yes | No | 
-| [TagResource](https://docs.aws.amazon.com/kms/latest/APIReference/API_TagResource.html) | Yes | Yes | Yes | Yes | Yes | 
-| [UntagResource](https://docs.aws.amazon.com/kms/latest/APIReference/API_UntagResource.html) | Yes | Yes | Yes | Yes | Yes | 
-| [UpdateAlias](https://docs.aws.amazon.com/kms/latest/APIReference/API_UpdateAlias.html)<br />The current KMS key and the new KMS key must be the same type (both symmetric or both asymmetric or both HMAC) and they must have the same [key usage](create-keys.md#key-usage). | Yes | Yes | Yes | Yes | Yes | 
-| [UpdateKeyDescription](https://docs.aws.amazon.com/kms/latest/APIReference/API_UpdateKeyDescription.html) | Yes | Yes | Yes | Yes | Yes | 
-| [UpdateReplicaRegion](https://docs.aws.amazon.com/kms/latest/APIReference/API_UpdateReplicaRegion.html)<br />- Valid only on multi-Region keys | Yes | Yes | Yes | Yes | Yes | 
-| [Verify](https://docs.aws.amazon.com/kms/latest/APIReference/API_Verify.html) | No | No | No | Yes | No | 
-| [VerifyMac](https://docs.aws.amazon.com/kms/latest/APIReference/API_VerifyMac.html) | No | Yes | No | No | No | 
+| AWS KMS API operation | Symmetric encryption KMS keys | HMAC KMS keys | Asymmetric KMS keys (ENCRYPT\_DECRYPT) | Asymmetric KMS keys (SIGN\_VERIFY) | Asymmetric KMS keys (KEY\_AGREEMENT) | Asymmetric KMS keys (ENCAPSULATE\_DECAPSULATE) | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| [CancelKeyDeletion](https://docs.aws.amazon.com/kms/latest/APIReference/API_CancelKeyDeletion.html) | Yes | Yes | Yes | Yes | Yes | Yes | 
+| [CreateAlias](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateAlias.html) | Yes | Yes | Yes | Yes | Yes | Yes | 
+| [CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html) | Yes | Yes | Yes | Yes | Yes | Yes | 
+| [CreateKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html) | Yes | Yes | Yes | Yes | Yes | Yes | 
+| [Decapsulate](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decapsulate.html) | No | No | No | No | No | Yes | 
+| [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) | Yes | No | Yes | No | No | No | 
+| [DeleteAlias](https://docs.aws.amazon.com/kms/latest/APIReference/API_DeleteAlias.html) | Yes | Yes | Yes | Yes | Yes | Yes | 
+| [DeleteImportedKeyMaterial](https://docs.aws.amazon.com/kms/latest/APIReference/API_DeleteImportedKeyMaterial.html)<br />Valid only on KMS keys with imported key material (`Origin` is `EXTERNAL`). | Yes | Yes | Yes | Yes | Yes | No | 
+| [DeriveSharedSecret](https://docs.aws.amazon.com/kms/latest/APIReference/API_DeriveSharedSecret.html) | No | No | No | No | Yes | No | 
+| [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html) | Yes | Yes | Yes | Yes | Yes | Yes | 
+| [DisableKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKey.html) | Yes | Yes | Yes | Yes | Yes | Yes | 
+| [DisableKeyRotation](https://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKeyRotation.html) |  Yes Valid only on KMS keys with AWS KMS key material (`Origin` is `AWS_KMS`). | No | No | No | No | No | 
+| [EnableKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKey.html) | Yes | Yes | Yes | Yes | Yes | Yes | 
+| [EnableKeyRotation](https://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKeyRotation.html) | Yes<br />Valid only on KMS keys with AWS KMS key material (`Origin` is `AWS_KMS`). | No | No | No | No | No | 
+| [Encapsulate](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encapsulate.html) | No | No | No | No | No | Yes | 
+| [Encrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html) | Yes | No | Yes | No | No | No | 
+| [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) | Yes  | No | No | No | No | No | 
+| [GenerateDataKeyPair](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyPair.html)<br />Generates an asymmetric data key pair that is protected by a symmetric encryption KMS key. | Yes Not valid on KMS keys in custom key stores. | No | No | No | No | No | 
+| [GenerateDataKeyPairWithoutPlaintext](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyPairWithoutPlaintext.html)<br />Generates an asymmetric data key pair that is protected by a symmetric encryption KMS key. | Yes <br />Not valid on KMS keys in custom key stores. | No | No | No | No | No | 
+| [GenerateDataKeyWithoutPlaintext](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyWithoutPlaintext.html) | Yes | No | No | No | No | No | 
+| [GenerateMac](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateMac.html) | No | Yes | No | No | No | No | 
+| [GetKeyPolicy](https://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyPolicy.html) | Yes | Yes | Yes | Yes | Yes | Yes | 
+| [GetKeyRotationStatus](https://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyRotationStatus.html) | Yes |  Yes (`KeyRotationEnabled` will always be `false`.) |  Yes (`KeyRotationEnabled` will always be `false`.) |  Yes (`KeyRotationEnabled` will always be `false`.) |  Yes (`KeyRotationEnabled` will always be `false`.) |  Yes (`KeyRotationEnabled` will always be `false`.) | 
+| [GetParametersForImport](https://docs.aws.amazon.com/kms/latest/APIReference/API_GetParametersForImport.html)<br />Valid only on KMS keys with imported key material (`Origin` is `EXTERNAL`). | Yes | Yes | Yes | Yes | Yes | No | 
+| [GetPublicKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GetPublicKey.html) | No | No | Yes | Yes | Yes | Yes | 
+| [ImportKeyMaterial](https://docs.aws.amazon.com/kms/latest/APIReference/API_ImportKeyMaterial.html)<br />Valid only on KMS keys with imported key material (`Origin` is `EXTERNAL`). | Yes | Yes | Yes | Yes | Yes | No | 
+| [ListAliases](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListAliases.html) | Yes | Yes | Yes | Yes | Yes | Yes | 
+| [ListGrants](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListGrants.html) | Yes | Yes | Yes | Yes | Yes | Yes | 
+| [ListKeyPolicies](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeyPolicies.html) | Yes | Yes | Yes | Yes | Yes | Yes | 
+| [ListKeyRotations](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeyRotations.html) | Yes | Yes (The `Rotations` field will always be null or empty.) | Yes (The `Rotations` field will always be null or empty.) | Yes (The `Rotations` field will always be null or empty.) | Yes (The `Rotations` field will always be null or empty.) | Yes (The `Rotations` field will always be null or empty.) | 
+| [ListResourceTags](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListResourceTags.html) | Yes | Yes | Yes | Yes | Yes | Yes | 
+| [ListRetirableGrants](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListRetirableGrants.html) | Yes | Yes | Yes | Yes | Yes | Yes | 
+| [PutKeyPolicy](https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html) | Yes | Yes | Yes | Yes | Yes | Yes | 
+| [ReEncrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html) | Yes | No | Yes | No | No | No | 
+| [ReplicateKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_ReplicateKey.html)<br />- Valid only on multi-Region keys | Yes | Yes | Yes | Yes | Yes | Yes | 
+| [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) | Yes | Yes | Yes | Yes | Yes | Yes | 
+| [RevokeGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html) | Yes | Yes | Yes | Yes | Yes | Yes | 
+| [RotateKeyOnDemand](https://docs.aws.amazon.com/kms/latest/APIReference/API_RotateKeyOnDemand.html) | Yes Valid only on customer-managed, symmetric encryption KMS keys with `AWS_KMS` or `EXTERNAL` origin. | No | No | No | No | No | 
+| [ScheduleKeyDeletion](https://docs.aws.amazon.com/kms/latest/APIReference/API_ScheduleKeyDeletion.html) | Yes | Yes | Yes | Yes | Yes | Yes | 
+| [Sign](https://docs.aws.amazon.com/kms/latest/APIReference/API_Sign.html) | No | No | No | Yes | No | No | 
+| [TagResource](https://docs.aws.amazon.com/kms/latest/APIReference/API_TagResource.html) | Yes | Yes | Yes | Yes | Yes | Yes | 
+| [UntagResource](https://docs.aws.amazon.com/kms/latest/APIReference/API_UntagResource.html) | Yes | Yes | Yes | Yes | Yes | Yes | 
+| [UpdateAlias](https://docs.aws.amazon.com/kms/latest/APIReference/API_UpdateAlias.html)<br />The current KMS key and the new KMS key must be the same type (both symmetric or both asymmetric or both HMAC) and they must have the same [key usage](create-keys.md#key-usage). | Yes | Yes | Yes | Yes | Yes | Yes | 
+| [UpdateKeyDescription](https://docs.aws.amazon.com/kms/latest/APIReference/API_UpdateKeyDescription.html) | Yes | Yes | Yes | Yes | Yes | Yes | 
+| [UpdateReplicaRegion](https://docs.aws.amazon.com/kms/latest/APIReference/API_UpdateReplicaRegion.html)<br />- Valid only on multi-Region keys | Yes | Yes | Yes | Yes | Yes | Yes | 
+| [Verify](https://docs.aws.amazon.com/kms/latest/APIReference/API_Verify.html) | No | No | No | Yes | No | No | 
+| [VerifyMac](https://docs.aws.amazon.com/kms/latest/APIReference/API_VerifyMac.html) | No | Yes | No | No | No | No | 
 
 ## Special features table
 <a name="special-features-table"></a>
@@ -93,6 +95,7 @@ You might need to scroll horizontally or vertically to see all of the data in th
 | [CreateAlias](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateAlias.html) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png) | 
 | [CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png) | 
 | [ CreateKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html)You can use `CreateKey` to create a multi-Region primary key, a KMS key with imported key material, or a KMS key in a custom key store. To create a multi-Region replica key, use `ReplicateKey`. | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png)  | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png) | 
+| [Decapsulate](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decapsulate.html) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png) <br />Valid only when `KeyUsage` is `ENCAPSULATE_DECAPSULATE` | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-failed.png) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-failed.png) | 
 | [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png) <br />Valid only when `KeyUsage` is `ENCRYPT_DECRYPT` | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png) | 
 | [DeleteAlias](https://docs.aws.amazon.com/kms/latest/APIReference/API_DeleteAlias.html) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png) | 
 | [DeleteImportedKeyMaterial](https://docs.aws.amazon.com/kms/latest/APIReference/API_DeleteImportedKeyMaterial.html) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png)<br />Valid only for keys with imported key material (`Origin` is `EXTERNAL`) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-failed.png) | 
@@ -102,6 +105,7 @@ You might need to scroll horizontally or vertically to see all of the data in th
 | [DisableKeyRotation](https://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKeyRotation.html) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png)Valid only on symmetric encryption keys with AWS KMS key material (`Origin` is `AWS_KMS`). | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-failed.png) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-failed.png) | 
 | [EnableKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKey.html) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png)<br />Valid only on symmetric encryption KMS keys | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png) | 
 | [EnableKeyRotation](https://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKeyRotation.html) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png)<br />Valid only on symmetric encryption keys with AWS KMS key material (`Origin` is `AWS_KMS`). | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-failed.png) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-failed.png) | 
+| [Encapsulate](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encapsulate.html) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png)<br />Valid only when `KeyUsage` is `ENCAPSULATE_DECAPSULATE` | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-failed.png) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-failed.png) | 
 | [Encrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png)<br />Valid only when `KeyUsage` is `ENCRYPT_DECRYPT` | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png) | 
 | [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png) <br />Valid only on symmetric encryption KMS keys | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png) | 
 | [GenerateDataKeyPair](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyPair.html) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png)<br />Valid only on symmetric encryption KMS keys | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-successful.png) | ![](https://docs.aws.amazon.com/kms/latest/developerguide/images/icon-failed.png) | 

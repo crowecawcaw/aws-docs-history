@@ -15,8 +15,8 @@ The `--key-id` parameter identifies the KMS key. This example uses a key ARN val
 
 ```
 aws kms enable-key-rotation \
-    --key-id {{arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab}} \
-    --rotation-period-in-days {{180}}
+    --key-id arn:aws:kms:us-west-2:123456789012:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111 \
+    --rotation-period-in-days 180
 ```
 This command produces no output. To verify that the KMS key is enabled, use the `get-key-rotation-status` command.  
 For more information, see [Rotating keys](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) in the *AWS Key Management Service Developer Guide*.  
