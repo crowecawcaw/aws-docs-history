@@ -16,3 +16,4 @@ Amazon CodeWhisperer provides the following APIs for data retrieval.
 | <a name="codewhisperer-ListCustomizations"></a>[ListCustomizations](https://docs.aws.amazon.com/codewhisperer/latest/userguide/security_iam_service-with-iam.html) | Invoke ListCustomizations on CodeWhisperer | List | 
 | <a name="codewhisperer-ListProfiles"></a>[ListProfiles](https://docs.aws.amazon.com/codewhisperer/latest/userguide/security_iam_service-with-iam.html) | Invoke ListProfiles on CodeWhisperer | List | 
 | <a name="codewhisperer-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/codewhisperer/latest/userguide/security_iam_service-with-iam.html) | Invoke ListTagsForResource on CodeWhisperer | List | 
+| <a name="codewhisperer-TestOtelConnection"></a>[TestOtelConnection](https://docs.aws.amazon.com/codewhisperer/latest/userguide/security_iam_service-with-iam.html) | Test the OpenTelemetry export connection of a profile | Read | 

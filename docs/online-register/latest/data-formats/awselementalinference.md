@@ -16,4 +16,5 @@ AWS Elemental Inference provides the following APIs for data retrieval.
 | <a name="elemental-inference-GetMetadata"></a>[GetMetadata](https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_GetMetadata.html) | Retrieve metadata for a specific feed output | Read | 
 | <a name="elemental-inference-ListDictionaries"></a>[ListDictionaries](https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_ListDictionaries.html) | List dictionaries in the account | List | 
 | <a name="elemental-inference-ListFeeds"></a>[ListFeeds](https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_ListFeeds.html) | List feeds in the account | List | 
+| <a name="elemental-inference-ListScheduleActions"></a>[ListScheduleActions](https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_ListScheduleActions.html) | List schedule actions for a feed | Read | 
 | <a name="elemental-inference-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_ListTagsForResource.html) | List tags on a resource | Read | 

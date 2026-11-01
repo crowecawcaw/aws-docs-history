@@ -74,5 +74,6 @@ AWS Partner Central provides the following APIs for data retrieval.
 | <a name="partnercentral-ListRevenueAttributions"></a>[ListRevenueAttributions](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_prm_ListRevenueAttributions.html) | List revenue attributions in AWS Partner Central | List | 
 | <a name="partnercentral-ListSolutions"></a>[ListSolutions](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_ListSolutions.html) | List Solutions on AWS Partner Central | List | 
 | <a name="partnercentral-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_ListTagsForResource.html) | List tags for a resource in AWS Partner Central | Read | 
+| <a name="partnercentral-SearchOpportunities"></a>[SearchOpportunities](https://docs.aws.amazon.com/partner-central/latest/APIReference/access-control.html) | Search Opportunities on AWS Partner Central | List | 
 | <a name="partnercentral-SearchPartnerCentralContent"></a>[SearchPartnerCentralContent](API_content_SearchPartnerCentralContent.html) | Search content in AWS Partner Central | List | 
 | <a name="partnercentral-SearchPartnerProfiles"></a>[SearchPartnerProfiles](${UserGuideDocPage}controlling-access-in-aws-partner-central.html) | Search public partner profiles in AWS Partner Central | List | 

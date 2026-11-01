@@ -275,7 +275,6 @@ To browse this Online Register by service, see the following topics.
 + [Data retrieval APIs for AWS CodeDeploy](awscodedeploy.md)
 + [Data retrieval APIs for AWS CodeDeploy secure host commands service](awscodedeploysecurehostcommandsservice.md)
 + [Data retrieval APIs for AWS CodePipeline](awscodepipeline.md)
-+ [Data retrieval APIs for AWS CodeStar](awscodestar.md)
 + [Data retrieval APIs for AWS CodeStar Connections](awscodestarconnections.md)
 + [Data retrieval APIs for AWS CodeStar Notifications](awscodestarnotifications.md)
 + [Data retrieval APIs for AWS Compute Optimizer](awscomputeoptimizer.md)

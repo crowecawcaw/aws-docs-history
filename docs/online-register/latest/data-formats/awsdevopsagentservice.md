@@ -19,6 +19,7 @@ AWS DevOps Agent Service provides the following APIs for data retrieval.
 | <a name="aidevops-GetAssetFile"></a>[GetAssetFile](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetAssetFile.html) | Get an asset file | Read | 
 | <a name="aidevops-GetAssociation"></a>[GetAssociation](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetAssociation.html) | Get association | Read | 
 | <a name="aidevops-GetBacklogTask"></a>[GetBacklogTask](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetBacklogTask.html) | Get a backlog task | Read | 
+| <a name="aidevops-GetCatalogCapability"></a>[GetCatalogCapability](https://docs.aws.amazon.com/devopsagent/latest/userguide/aws-devops-agent-security-devops-agent-iam-permissions.html) | Get a capability from the catalog | Read | 
 | <a name="aidevops-GetKnowledgeItem"></a>[GetKnowledgeItem](https://docs.aws.amazon.com/devopsagent/latest/APIReference/what-is.html) | Get a knowledge item | Read | 
 | <a name="aidevops-GetOperatorApp"></a>[GetOperatorApp](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetOperatorApp.html) | Get operator auth config for any enabled auth flow | Read | 
 | <a name="aidevops-GetRecommendation"></a>[GetRecommendation](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetRecommendation.html) | Get a recommendation | Read | 
@@ -32,6 +33,9 @@ AWS DevOps Agent Service provides the following APIs for data retrieval.
 | <a name="aidevops-ListAssets"></a>[ListAssets](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListAssets.html) | List assets | List | 
 | <a name="aidevops-ListAssociations"></a>[ListAssociations](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListAssociations.html) | List associations | List | 
 | <a name="aidevops-ListBacklogTasks"></a>[ListBacklogTasks](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListBacklogTasks.html) | List backlog tasks | List | 
+| <a name="aidevops-ListCatalogCapabilities"></a>[ListCatalogCapabilities](https://docs.aws.amazon.com/devopsagent/latest/userguide/aws-devops-agent-security-devops-agent-iam-permissions.html) | List capabilities in the catalog | List | 
+| <a name="aidevops-ListCatalogCapabilityFiles"></a>[ListCatalogCapabilityFiles](https://docs.aws.amazon.com/devopsagent/latest/userguide/aws-devops-agent-security-devops-agent-iam-permissions.html) | List the files in a capability from the catalog | List | 
+| <a name="aidevops-ListCatalogCapabilityTypes"></a>[ListCatalogCapabilityTypes](https://docs.aws.amazon.com/devopsagent/latest/userguide/aws-devops-agent-security-devops-agent-iam-permissions.html) | List the capability types in the catalog | List | 
 | <a name="aidevops-ListChats"></a>[ListChats](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListChats.html) | List chats | List | 
 | <a name="aidevops-ListExecutions"></a>[ListExecutions](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListExecutions.html) | List executions | List | 
 | <a name="aidevops-ListGoals"></a>[ListGoals](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListGoals.html) | List goals | List | 
@@ -45,4 +49,5 @@ AWS DevOps Agent Service provides the following APIs for data retrieval.
 | <a name="aidevops-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListTagsForResource.html) | List tags for a resource | Read | 
 | <a name="aidevops-ListTriggers"></a>[ListTriggers](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListTriggers.html) | List triggers | List | 
 | <a name="aidevops-ListWebhooks"></a>[ListWebhooks](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListWebhooks.html) | List webhooks for association | List | 
+| <a name="aidevops-SearchAssets"></a>[SearchAssets](https://docs.aws.amazon.com/devopsagent/latest/userguide/aws-devops-agent-security-devops-agent-iam-permissions.html) | Search assets | Read | 
 | <a name="aidevops-SearchServiceAccessibleResource"></a>[SearchServiceAccessibleResource](https://docs.aws.amazon.com/devopsagent/latest/APIReference/what-is.html) | Look up a registered service accessible resources | Read | 
