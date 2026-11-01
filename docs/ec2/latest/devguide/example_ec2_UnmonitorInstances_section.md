@@ -64,26 +64,27 @@ bool AwsDoc::EC2::disableMonitoring(const Aws::String &instanceId,
 
 **AWS CLI**  
 **To disable detailed monitoring for an instance**  
-This example command disables detailed monitoring for the specified instance.  
-Command:  
+The following `unmonitor-instances` example disables detailed monitoring for the specified instance.  
 
 ```
-aws ec2 unmonitor-instances --instance-ids {{i-1234567890abcdef0}}
+aws ec2 unmonitor-instances \
+    --instance-ids {{i-1234567890abcdef0}}
 ```
 Output:  
 
 ```
 {
-  "InstanceMonitorings": [
-      {
-          "InstanceId": "i-1234567890abcdef0",
-          "Monitoring": {
-              "State": "disabling"
-          }
-      }
-  ]
+    "InstanceMonitorings": [
+        {
+            "InstanceId": "i-1234567890abcdef0",
+            "Monitoring": {
+                "State": "disabling"
+            }
+        }
+    ]
 }
 ```
+For more information, see [Manage detailed monitoring for your EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-detailed-monitoring.html) in the *Amazon EC2 User Guide*.  
 +  For API details, see [UnmonitorInstances](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/unmonitor-instances.html) in *AWS CLI Command Reference*. 
 
 ------

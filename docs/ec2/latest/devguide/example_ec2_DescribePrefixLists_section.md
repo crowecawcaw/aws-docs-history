@@ -13,8 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To describe prefix lists**  
-This example lists all available prefix lists for the region.  
-Command:  
+The following `describe-prefix-lists` example lists all available prefix lists for the region.  
 
 ```
 aws ec2 describe-prefix-lists
@@ -23,17 +22,18 @@ Output:
 
 ```
 {
-  "PrefixLists": [
-    {
-      "PrefixListName": "com.amazonaws.us-east-1.s3",
-      "Cidrs": [
-        "54.231.0.0/17"
-      ],
-      "PrefixListId": "pl-63a5400a"
-    }
-  ]
+    "PrefixLists": [
+        {
+            "PrefixListName": "com.amazonaws.us-west-2.s3",
+            "Cidrs": [
+                "54.231.0.0/17"
+            ],
+            "PrefixListId": "pl-63a5400a"
+        }
+    ]
 }
 ```
+For more information, see [AWS-managed prefix lists](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-aws-managed-prefix-lists.html) in the *Amazon VPC User Guide*.  
 +  For API details, see [DescribePrefixLists](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-prefix-lists.html) in *AWS CLI Command Reference*. 
 
 ------

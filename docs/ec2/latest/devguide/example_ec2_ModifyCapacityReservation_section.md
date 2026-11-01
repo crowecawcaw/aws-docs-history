@@ -34,6 +34,13 @@ aws ec2 modify-capacity-reservation \
     --end-date-type {{limited}} \
     --end-date {{2019-08-31T23:59:59Z}}
 ```
+Output:  
+
+```
+{
+    "Return": true
+}
+```
 For more information, see [Modify a Capacity Reservation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-modify.html) in the *Amazon EC2 User Guide*.  
 +  For API details, see [ModifyCapacityReservation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/modify-capacity-reservation.html) in *AWS CLI Command Reference*. 
 

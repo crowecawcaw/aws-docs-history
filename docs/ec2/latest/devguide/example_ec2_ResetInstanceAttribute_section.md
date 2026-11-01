@@ -9,27 +9,36 @@ The following code examples show how to use `ResetInstanceAttribute`.
 #### [ CLI ]
 
 **AWS CLI**  
-**To reset the sourceDestCheck attribute**  
-This example resets the `sourceDestCheck` attribute of the specified instance. The instance must be in a VPC. If the command succeeds, no output is returned.  
-Command:  
+**Example 1: To reset the sourceDestCheck attribute**  
+The following `reset-instance-attribute` example resets the `sourceDestCheck` attribute of the specified instance. The instance must be in a VPC.  
 
 ```
-aws ec2 reset-instance-attribute --instance-id {{i-1234567890abcdef0}} --attribute {{sourceDestCheck}}
+aws ec2 reset-instance-attribute \
+    --instance-id {{i-1234567890abcdef0}} \
+    --attribute {{sourceDestCheck}}
 ```
-**To reset the kernel attribute**  
-This example resets the `kernel` attribute of the specified instance. The instance must be in the `stopped` state. If the command succeeds, no output is returned.  
-Command:  
+This command produces no output.  
+For more information, see [NAT instances](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_NAT_Instance.html) in the *Amazon VPC User Guide*.  
+**Example 2: To reset the kernel attribute**  
+The following `reset-instance-attribute` example resets the `kernel` attribute of the specified instance. The instance must be in the `stopped` state.  
 
 ```
-aws ec2 reset-instance-attribute --instance-id {{i-1234567890abcdef0}} --attribute {{kernel}}
+aws ec2 reset-instance-attribute \
+    --instance-id {{i-1234567890abcdef0}} \
+    --attribute {{kernel}}
 ```
-**To reset the ramdisk attribute**  
-This example resets the `ramdisk` attribute of the specified instance. The instance must be in the `stopped` state. If the command succeeds, no output is returned.  
-Command:  
+This command produces no output.  
+For more information, see [User provided kernels](https://docs.aws.amazon.com/linux/al2/ug/UserProvidedKernels.html) in the *Amazon Linux 2 User Guide*.  
+**Example 3: To reset the ramdisk attribute**  
+The following `reset-instance-attribute` example resets the `ramdisk` attribute of the specified instance. The instance must be in the `stopped` state.  
 
 ```
-aws ec2 reset-instance-attribute --instance-id {{i-1234567890abcdef0}} --attribute {{ramdisk}}
+aws ec2 reset-instance-attribute \
+    --instance-id {{i-1234567890abcdef0}} \
+    --attribute {{ramdisk}}
 ```
+This command produces no output.  
+For more information, see [User provided kernels](https://docs.aws.amazon.com/linux/al2/ug/UserProvidedKernels.html) in the *Amazon Linux 2 User Guide*.  
 +  For API details, see [ResetInstanceAttribute](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/reset-instance-attribute.html) in *AWS CLI Command Reference*. 
 
 ------

@@ -13,7 +13,8 @@ The following code examples show how to use `DescribeHosts`.
 The following `describe-hosts` example displays details for the `available` Dedicated Hosts in your AWS account.  
 
 ```
-aws ec2 describe-hosts --filter {{"Name=state,Values=available"}}
+aws ec2 describe-hosts \
+    --filter {{"Name=state,Values=available"}}
 ```
 Output:  
 
@@ -36,7 +37,7 @@ Output:
             },
             "Instances": [],
             "State": "available",
-            "AvailabilityZone": "eu-west-1a",
+            "AvailabilityZone": "us-west-2a",
             "AvailableCapacity": {
                 "AvailableInstanceCapacity": [
                     {
@@ -54,7 +55,7 @@ Output:
     ]
 }
 ```
-For more information, see [Viewing Dedicated Hosts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-managing) in the *Amazon Elastic Compute Cloud User Guide for Linux Instances*.  
+For more information, see [Monitor the state of your Amazon EC2 Dedicated Hosts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-monitoring.html) in the *Amazon EC2 User Guide*.  
 +  For API details, see [DescribeHosts](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-hosts.html) in *AWS CLI Command Reference*. 
 
 ------

@@ -16,12 +16,14 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To delete a route table**  
-This example deletes the specified route table. If the command succeeds, no output is returned.  
-Command:  
+The following `delete-route-table` example deletes the specified route table.  
 
 ```
-aws ec2 delete-route-table --route-table-id {{rtb-22574640}}
+aws ec2 delete-route-table \
+    --route-table-id {{rtb-22574640}}
 ```
+This command produces no output.  
+For more information, see [Configure route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*.  
 +  For API details, see [DeleteRouteTable](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/delete-route-table.html) in *AWS CLI Command Reference*. 
 
 ------

@@ -13,19 +13,20 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To delete an endpoint**  
-This example deletes endpoints vpce-aa22bb33 and vpce-1a2b3c4d. If the command is partially successful or unsuccessful, a list of unsuccessful items is returned. If the command succeeds, the returned list is empty.  
-Command:  
+The following `delete-vpc-endpoints` example deletes endpoints vpce-aa22bb33 and vpce-1a2b3c4d. If the command is partially successful or unsuccessful, a list of unsuccessful items is returned. If the command succeeds, the returned list is empty.  
 
 ```
-aws ec2 delete-vpc-endpoints --vpc-endpoint-ids {{vpce-aa22bb33}} {{vpce-1a2b3c4d}}
+aws ec2 delete-vpc-endpoints \
+    --vpc-endpoint-ids {{vpce-aa22bb33}} {{vpce-1a2b3c4d}}
 ```
 Output:  
 
 ```
 {
-  "Unsuccessful": []
+    "Unsuccessful": []
 }
 ```
+For more information, see [Delete an interface endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/delete-interface-endpoint.html) in the *AWS PrivateLink User Guide*.  
 +  For API details, see [DeleteVpcEndpoints](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/delete-vpc-endpoints.html) in *AWS CLI Command Reference*. 
 
 ------

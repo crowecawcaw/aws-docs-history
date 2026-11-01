@@ -351,12 +351,12 @@ Output:
                     "ToPort": 22,
                     "IpProtocol": "tcp",
                     "UserIdGroupPairs": []
-                    }
+                }
             ],
             "GroupName": "MySecurityGroup",
             "VpcId": "vpc-1a2b3c4d",
             "OwnerId": "123456789012",
-            "GroupId": "sg-903004f8",
+            "GroupId": "sg-903004f8"
         }
     ]
 }
@@ -367,16 +367,25 @@ The following `describe-security-groups` example uses filters to scope the resul
 ```
 aws ec2 describe-security-groups \
     --filters {{Name=ip-permission.from-port,Values=22}} {{Name=ip-permission.to-port,Values=22}} Name=ip-permission.cidr,Values='0.0.0.0/0' \
-    --query {{"SecurityGroups[*].[GroupName]"}} \
-    --output {{text}}
+    --query {{"SecurityGroups[*].[GroupName]"}}
 ```
 Output:  
 
 ```
-default
-my-security-group
-web-servers
-launch-wizard-1
+[
+    [
+        "default"
+    ],
+    [
+        "my-security-group"
+    ],
+    [
+        "web-servers"
+    ],
+    [
+        "launch-wizard-1"
+    ]
+]
 ```
 **Example 3: To describe security groups based on tags**  
 The following `describe-security-groups` example uses filters to scope the results to security groups that include `test` in the security group name, and that have the tag `Test=To-delete`. The example uses the `--query` parameter to display only the names and IDs of the security groups.  
@@ -400,7 +409,7 @@ Output:
     }
 ]
 ```
-For additional examples using tag filters, see [Working with tags](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#Using_Tags_CLI) in the *Amazon EC2 User Guide*.  
+For additional examples using tag filters, see [Working with tags](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide*.  
 +  For API details, see [DescribeSecurityGroups](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-security-groups.html) in *AWS CLI Command Reference*. 
 
 ------

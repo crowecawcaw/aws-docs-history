@@ -12,12 +12,12 @@ Action examples are code excerpts from larger programs and must be run in contex
 #### [ CLI ]
 
 **AWS CLI**  
-**To create a virtual private gateway**  
-This example creates a virtual private gateway.  
-Command:  
+**Example 1: To create a virtual private gateway**  
+The following `create-vpn-gateway` example creates a virtual private gateway.  
 
 ```
-aws ec2 create-vpn-gateway --type {{ipsec.1}}
+aws ec2 create-vpn-gateway \
+    --type {{ipsec.1}}
 ```
 Output:  
 
@@ -32,12 +32,14 @@ Output:
     }
 }
 ```
-**To create a virtual private gateway with a specific Amazon-side ASN**  
-This example creates a virtual private gateway and specifies the Autonomous System Number (ASN) for the Amazon side of the BGP session.  
-Command:  
+For more information, see [How AWS Site-to-Site VPN works](https://docs.aws.amazon.com/vpn/latest/s2svpn/how_it_works.html) in the *AWS Site-to-Site VPN User Guide*.  
+**Example 2: To create a virtual private gateway with a specific Amazon-side ASN**  
+The following `create-vpn-gateway` example creates a virtual private gateway and specifies the Autonomous System Number (ASN) for the Amazon side of the BGP session.  
 
 ```
-aws ec2 create-vpn-gateway --type {{ipsec.1}} --amazon-side-asn {{65001}}
+aws ec2 create-vpn-gateway \
+    --type {{ipsec.1}} \
+    --amazon-side-asn {{65001}}
 ```
 Output:  
 
@@ -52,6 +54,7 @@ Output:
     }
 }
 ```
+For more information, see [How AWS Site-to-Site VPN works](https://docs.aws.amazon.com/vpn/latest/s2svpn/how_it_works.html) in the *AWS Site-to-Site VPN User Guide*.  
 +  For API details, see [CreateVpnGateway](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpn-gateway.html) in *AWS CLI Command Reference*. 
 
 ------

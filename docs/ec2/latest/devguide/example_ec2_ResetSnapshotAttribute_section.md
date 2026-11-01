@@ -10,12 +10,15 @@ The following code examples show how to use `ResetSnapshotAttribute`.
 
 **AWS CLI**  
 **To reset a snapshot attribute**  
-This example resets the create volume permissions for snapshot `snap-1234567890abcdef0`. If the command succeeds, no output is returned.  
-Command:  
+The following `reset-snapshot-attribute` example resets the create volume permissions for snapshot `snap-1234567890abcdef0`.  
 
 ```
-aws ec2 reset-snapshot-attribute --snapshot-id {{snap-1234567890abcdef0}} --attribute {{createVolumePermission}}
+aws ec2 reset-snapshot-attribute \
+    --snapshot-id {{snap-1234567890abcdef0}} \
+    --attribute {{createVolumePermission}}
 ```
+This command produces no output.  
+For more information, see [Share an Amazon EBS snapshot with other AWS accounts](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modifying-snapshot-permissions.html) in the *Amazon EBS User Guide*.  
 +  For API details, see [ResetSnapshotAttribute](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/reset-snapshot-attribute.html) in *AWS CLI Command Reference*. 
 
 ------

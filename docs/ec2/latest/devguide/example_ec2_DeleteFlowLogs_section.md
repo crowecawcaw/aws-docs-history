@@ -13,7 +13,8 @@ The following code examples show how to use `DeleteFlowLogs`.
 The following `delete-flow-logs` example deletes the specified flow log.  
 
 ```
-aws ec2 delete-flow-logs --flow-log-id {{fl-11223344556677889}}
+aws ec2 delete-flow-logs \
+    --flow-log-id {{fl-11223344556677889}}
 ```
 Output:  
 
@@ -22,6 +23,7 @@ Output:
     "Unsuccessful": []
 }
 ```
+For more information, see [Work with flow logs](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-flow-logs.html) in the *Amazon VPC User Guide*.  
 +  For API details, see [DeleteFlowLogs](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/delete-flow-logs.html) in *AWS CLI Command Reference*. 
 
 ------

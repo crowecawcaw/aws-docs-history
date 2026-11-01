@@ -16,11 +16,12 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To associate a route table with a subnet**  
-This example associates the specified route table with the specified subnet.  
-Command:  
+The following `associate-route-table` example associates the specified route table with the specified subnet.  
 
 ```
-aws ec2 associate-route-table --route-table-id {{rtb-22574640}} --subnet-id {{subnet-9d4a7b6c}}
+aws ec2 associate-route-table \
+    --route-table-id {{rtb-22574640}} \
+    --subnet-id {{subnet-9d4a7b6c}}
 ```
 Output:  
 
@@ -29,6 +30,7 @@ Output:
     "AssociationId": "rtbassoc-781d0d1a"
 }
 ```
+For more information, see [Subnet route tables](https://docs.aws.amazon.com/vpc/latest/userguide/subnet-route-tables.html) in the *Amazon VPC User Guide*.  
 +  For API details, see [AssociateRouteTable](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/associate-route-table.html) in *AWS CLI Command Reference*. 
 
 ------

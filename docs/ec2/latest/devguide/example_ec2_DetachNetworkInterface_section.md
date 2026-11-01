@@ -10,12 +10,14 @@ The following code examples show how to use `DetachNetworkInterface`.
 
 **AWS CLI**  
 **To detach a network interface from your instance**  
-This example detaches the specified network interface from the specified instance. If the command succeeds, no output is returned.  
-Command:  
+The following `detach-network-interface` example detaches the specified network interface from the specified instance.  
 
 ```
-aws ec2 detach-network-interface --attachment-id {{eni-attach-66c4350a}}
+aws ec2 detach-network-interface \
+    --attachment-id {{eni-attach-66c4350a}}
 ```
+This command produces no output.  
+For more information, see [Elastic network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html) in the *Amazon EC2 User Guide*.  
 +  For API details, see [DetachNetworkInterface](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/detach-network-interface.html) in *AWS CLI Command Reference*. 
 
 ------

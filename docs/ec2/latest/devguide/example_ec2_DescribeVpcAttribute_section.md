@@ -9,12 +9,13 @@ The following code examples show how to use `DescribeVpcAttribute`.
 #### [ CLI ]
 
 **AWS CLI**  
-**To describe the enableDnsSupport attribute**  
-This example describes the `enableDnsSupport` attribute. This attribute indicates whether DNS resolution is enabled for the VPC. If this attribute is `true`, the Amazon DNS server resolves DNS hostnames for your instances to their corresponding IP addresses; otherwise, it does not.  
-Command:  
+**Example 1: To describe the enableDnsSupport attribute**  
+The following `describe-vpc-attribute` example describes the `enableDnsSupport` attribute. This attribute indicates whether DNS resolution is enabled for the VPC. If this attribute is `true`, the Amazon DNS server resolves DNS hostnames for your instances to their corresponding IP addresses; otherwise, it does not.  
 
 ```
-aws ec2 describe-vpc-attribute --vpc-id {{vpc-a01106c2}} --attribute {{enableDnsSupport}}
+aws ec2 describe-vpc-attribute \
+    --vpc-id {{vpc-a01106c2}} \
+    --attribute {{enableDnsSupport}}
 ```
 Output:  
 
@@ -26,12 +27,14 @@ Output:
     }
 }
 ```
-**To describe the enableDnsHostnames attribute**  
-This example describes the `enableDnsHostnames` attribute. This attribute indicates whether the instances launched in the VPC get DNS hostnames. If this attribute is `true`, instances in the VPC get DNS hostnames; otherwise, they do not.  
-Command:  
+For more information, see [DNS attributes for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html) in the *Amazon VPC User Guide*.  
+**Example 2: To describe the enableDnsHostnames attribute**  
+The following `describe-vpc-attribute` example describes the `enableDnsHostnames` attribute. This attribute indicates whether the instances launched in the VPC get DNS hostnames. If this attribute is `true`, instances in the VPC get DNS hostnames; otherwise, they do not.  
 
 ```
-aws ec2 describe-vpc-attribute --vpc-id {{vpc-a01106c2}} --attribute {{enableDnsHostnames}}
+aws ec2 describe-vpc-attribute \
+    --vpc-id {{vpc-a01106c2}} \
+    --attribute {{enableDnsHostnames}}
 ```
 Output:  
 
@@ -43,6 +46,7 @@ Output:
     }
 }
 ```
+For more information, see [DNS attributes for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html) in the *Amazon VPC User Guide*.  
 +  For API details, see [DescribeVpcAttribute](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-vpc-attribute.html) in *AWS CLI Command Reference*. 
 
 ------

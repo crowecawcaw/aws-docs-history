@@ -10,11 +10,11 @@ The following code examples show how to use `CreateNetworkAcl`.
 
 **AWS CLI**  
 **To create a network ACL**  
-This example creates a network ACL for the specified VPC.  
-Command:  
+The following `create-network-acl` example creates a network ACL for the specified VPC.  
 
 ```
-aws ec2 create-network-acl --vpc-id {{vpc-a01106c2}}
+aws ec2 create-network-acl \
+    --vpc-id {{vpc-a01106c2}}
 ```
 Output:  
 
@@ -45,6 +45,7 @@ Output:
     }
 }
 ```
+For more information, see [Create a network ACL for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/create-network-acl.html) in the *Amazon VPC User Guide*.  
 +  For API details, see [CreateNetworkAcl](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-network-acl.html) in *AWS CLI Command Reference*. 
 
 ------

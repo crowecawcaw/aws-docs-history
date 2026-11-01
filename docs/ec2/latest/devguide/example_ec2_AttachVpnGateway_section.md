@@ -27,6 +27,7 @@ Output:
     }
 }
 ```
+For more information, see [Get started with AWS Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/SetUpVPNConnections.html) in the *AWS Site-to-Site VPN User Guide*.  
 +  For API details, see [AttachVpnGateway](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/attach-vpn-gateway.html) in *AWS CLI Command Reference*. 
 
 ------

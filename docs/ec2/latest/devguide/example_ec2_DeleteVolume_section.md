@@ -14,12 +14,14 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To delete a volume**  
-This example command deletes an available volume with the volume ID of `vol-049df61146c4d7901`. If the command succeeds, no output is returned.  
-Command:  
+The following `delete-volume` example deletes an available volume with the volume ID of `vol-049df61146c4d7901`.  
 
 ```
-aws ec2 delete-volume --volume-id {{vol-049df61146c4d7901}}
+aws ec2 delete-volume \
+    --volume-id {{vol-049df61146c4d7901}}
 ```
+This command produces no output.  
+For more information, see [Delete an Amazon EBS volume](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-deleting-volume.html) in the *Amazon EBS User Guide*.  
 +  For API details, see [DeleteVolume](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/delete-volume.html) in *AWS CLI Command Reference*. 
 
 ------

@@ -10,11 +10,14 @@ The following code examples show how to use `CreateInstanceExportTask`.
 
 **AWS CLI**  
 **To export an instance**  
-This example command creates a task to export the instance i-1234567890abcdef0 to the Amazon S3 bucket myexportbucket.  
-Command:  
+The following `create-instance-export-task` example creates a task to export the instance i-1234567890abcdef0 to the Amazon S3 bucket myexportbucket.  
 
 ```
-aws ec2 create-instance-export-task --description {{"RHEL5 instance"}} --instance-id {{i-1234567890abcdef0}} --target-environment {{vmware}} --export-to-s3-task {{DiskImageFormat=vmdk,ContainerFormat=ova,S3Bucket=myexportbucket,S3Prefix=RHEL5}}
+aws ec2 create-instance-export-task \
+    --description {{"RHEL5 instance"}} \
+    --instance-id {{i-1234567890abcdef0}} \
+    --target-environment {{vmware}} \
+    --export-to-s3-task {{DiskImageFormat=vmdk,ContainerFormat=ova,S3Bucket=myexportbucket,S3Prefix=RHEL5}}
 ```
 Output:  
 
@@ -37,6 +40,7 @@ Output:
     }
 }
 ```
+For more information, see [Export an EC2 instance as a VM using VM Import/Export](https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) in the *VM Import/Export User Guide*.  
 +  For API details, see [CreateInstanceExportTask](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-instance-export-task.html) in *AWS CLI Command Reference*. 
 
 ------

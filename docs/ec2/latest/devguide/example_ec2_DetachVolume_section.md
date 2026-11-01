@@ -14,11 +14,11 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To detach a volume from an instance**  
-This example command detaches the volume (`vol-049df61146c4d7901`) from the instance it is attached to.  
-Command:  
+The following `detach-volume` example detaches the volume (`vol-049df61146c4d7901`) from the instance it is attached to.  
 
 ```
-aws ec2 detach-volume --volume-id {{vol-1234567890abcdef0}}
+aws ec2 detach-volume \
+    --volume-id {{vol-049df61146c4d7901}}
 ```
 Output:  
 
@@ -31,6 +31,7 @@ Output:
     "Device": "/dev/sdb"
 }
 ```
+For more information, see [Detach an Amazon EBS volume from an Amazon EC2 instance](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-detaching-volume.html) in the *Amazon EBS User Guide*.  
 +  For API details, see [DetachVolume](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/detach-volume.html) in *AWS CLI Command Reference*. 
 
 ------

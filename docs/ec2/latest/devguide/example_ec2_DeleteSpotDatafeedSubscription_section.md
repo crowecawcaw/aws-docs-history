@@ -10,12 +10,13 @@ The following code examples show how to use `DeleteSpotDatafeedSubscription`.
 
 **AWS CLI**  
 **To cancel a Spot Instance data feed subscription**  
-This example command deletes a Spot data feed subscription for the account. If the command succeeds, no output is returned.  
-Command:  
+The following `delete-spot-datafeed-subscription` example deletes a Spot data feed subscription for the account.  
 
 ```
 aws ec2 delete-spot-datafeed-subscription
 ```
+This command produces no output.  
+For more information, see [Track your Spot Instance costs using the Spot Instance data feed](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html) in the *Amazon EC2 User Guide*.  
 +  For API details, see [DeleteSpotDatafeedSubscription](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/delete-spot-datafeed-subscription.html) in *AWS CLI Command Reference*. 
 
 ------

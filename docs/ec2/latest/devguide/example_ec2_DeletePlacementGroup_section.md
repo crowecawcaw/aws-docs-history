@@ -10,12 +10,14 @@ The following code examples show how to use `DeletePlacementGroup`.
 
 **AWS CLI**  
 **To delete a placement group**  
-This example command deletes the specified placement group.  
-Command:  
+The following `delete-placement-group` example deletes the specified placement group.  
 
 ```
-aws ec2 delete-placement-group --group-name {{my-cluster}}
+aws ec2 delete-placement-group \
+    --group-name {{my-cluster}}
 ```
+This command produces no output.  
+For more information, see [Delete a placement group](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/delete-placement-group.html) in the *Amazon EC2 User Guide*.  
 +  For API details, see [DeletePlacementGroup](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/delete-placement-group.html) in *AWS CLI Command Reference*. 
 
 ------

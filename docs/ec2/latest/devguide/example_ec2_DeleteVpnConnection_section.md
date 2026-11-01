@@ -10,12 +10,14 @@ The following code examples show how to use `DeleteVpnConnection`.
 
 **AWS CLI**  
 **To delete a VPN connection**  
-This example deletes the specified VPN connection. If the command succeeds, no output is returned.  
-Command:  
+The following `delete-vpn-connection` example deletes the specified VPN connection.  
 
 ```
-aws ec2 delete-vpn-connection --vpn-connection-id {{vpn-40f41529}}
+aws ec2 delete-vpn-connection \
+    --vpn-connection-id {{vpn-40f41529}}
 ```
+This command produces no output.  
+For more information, see [Delete an AWS Site-to-Site VPN connection](https://docs.aws.amazon.com/vpn/latest/s2svpn/delete-vpn-connection.html) in the *AWS Site-to-Site VPN User Guide*.  
 +  For API details, see [DeleteVpnConnection](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/delete-vpn-connection.html) in *AWS CLI Command Reference*. 
 
 ------

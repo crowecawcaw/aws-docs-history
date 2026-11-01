@@ -16,11 +16,11 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To create a route table**  
-This example creates a route table for the specified VPC.  
-Command:  
+The following `create-route-table` example creates a route table for the specified VPC.  
 
 ```
-aws ec2 create-route-table --vpc-id {{vpc-a01106c2}}
+aws ec2 create-route-table \
+    --vpc-id {{vpc-a01106c2}}
 ```
 Output:  
 
@@ -42,6 +42,7 @@ Output:
     }
 }
 ```
+For more information, see [Create a route table for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/create-vpc-route-table.html) in the *Amazon VPC User Guide*.  
 +  For API details, see [CreateRouteTable](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-route-table.html) in *AWS CLI Command Reference*. 
 
 ------

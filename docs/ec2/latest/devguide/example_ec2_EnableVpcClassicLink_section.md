@@ -10,17 +10,17 @@ The following code examples show how to use `EnableVpcClassicLink`.
 
 **AWS CLI**  
 **To enable a VPC for ClassicLink**  
-This example enables vpc-8888888 for ClassicLink.  
-Command:  
+The following `enable-vpc-classic-link` example enables `vpc-88888888` for ClassicLink.  
 
 ```
-aws ec2 enable-vpc-classic-link --vpc-id {{vpc-88888888}}
+aws ec2 enable-vpc-classic-link \
+    --vpc-id {{vpc-88888888}}
 ```
 Output:  
 
 ```
 {
-  "Return": true
+    "Return": true
 }
 ```
 +  For API details, see [EnableVpcClassicLink](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/enable-vpc-classic-link.html) in *AWS CLI Command Reference*. 

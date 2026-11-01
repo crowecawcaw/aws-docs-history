@@ -10,12 +10,14 @@ The following code examples show how to use `DeleteCustomerGateway`.
 
 **AWS CLI**  
 **To delete a customer gateway**  
-This example deletes the specified customer gateway. If the command succeeds, no output is returned.  
-Command:  
+The following `delete-customer-gateway` example deletes the specified customer gateway.  
 
 ```
-aws ec2 delete-customer-gateway --customer-gateway-id {{cgw-0e11f167}}
+aws ec2 delete-customer-gateway \
+    --customer-gateway-id {{cgw-0e11f167}}
 ```
+This command produces no output.  
+For more information, see [Delete an AWS Site-to-Site VPN connection and gateway](https://docs.aws.amazon.com/vpn/latest/s2svpn/delete-vpn.html) in the *AWS Site-to-Site VPN User Guide*.  
 +  For API details, see [DeleteCustomerGateway](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/delete-customer-gateway.html) in *AWS CLI Command Reference*. 
 
 ------

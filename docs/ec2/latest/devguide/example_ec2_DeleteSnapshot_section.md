@@ -13,12 +13,14 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To delete a snapshot**  
-This example command deletes a snapshot with the snapshot ID of `snap-1234567890abcdef0`. If the command succeeds, no output is returned.  
-Command:  
+The following `delete-snapshot` example deletes a snapshot with the snapshot ID of `snap-1234567890abcdef0`.  
 
 ```
-aws ec2 delete-snapshot --snapshot-id {{snap-1234567890abcdef0}}
+aws ec2 delete-snapshot \
+    --snapshot-id {{snap-1234567890abcdef0}}
 ```
+This command produces no output.  
+For more information, see [Delete an Amazon EBS snapshot](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-deleting-snapshot.html) in the *Amazon EBS User Guide*.  
 +  For API details, see [DeleteSnapshot](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/delete-snapshot.html) in *AWS CLI Command Reference*. 
 
 ------

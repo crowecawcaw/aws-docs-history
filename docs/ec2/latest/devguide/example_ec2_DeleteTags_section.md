@@ -17,6 +17,7 @@ aws ec2 delete-tags \
     --resources {{ami-1234567890abcdef0}} \
     --tags {{Key=Stack,Value=Test}}
 ```
+This command produces no output.  
 It's optional to specify the value for a tag. The following `delete-tags` example deletes the tag with the key name `purpose` from the specified instance, regardless of the tag value for the tag.  
 
 ```
@@ -24,6 +25,7 @@ aws ec2 delete-tags \
     --resources {{i-1234567890abcdef0}} \
     --tags {{Key=purpose}}
 ```
+This command produces no output.  
 If you specify the empty string as the tag value, the tag is deleted only if the tag's value is the empty string. The following `delete-tags` example specifies the empty string as the tag value for the tag to delete.  
 
 ```
@@ -31,6 +33,8 @@ aws ec2 delete-tags \
     --resources {{i-1234567890abcdef0}} \
     --tags {{Key=Name,Value=}}
 ```
+This command produces no output.  
+For more information, see [Tag your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide*.  
 **Example 2: To delete a tag from multiple resources**  
 The following `delete-tags` example deletes the tag``Purpose=Test`` from both an instance and an AMI. As shown in the previous example, you can omit the tag value from the command.  
 
@@ -39,6 +43,8 @@ aws ec2 delete-tags \
     --resources {{i-1234567890abcdef0}} {{ami-1234567890abcdef0}} \
     --tags {{Key=Purpose}}
 ```
+This command produces no output.  
+For more information, see [Tag your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide*.  
 +  For API details, see [DeleteTags](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/delete-tags.html) in *AWS CLI Command Reference*. 
 
 ------

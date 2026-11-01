@@ -10,33 +10,35 @@ The following code examples show how to use `PurchaseHostReservation`.
 
 **AWS CLI**  
 **To purchase a Dedicated Host Reservation**  
-This example purchases the specified Dedicated Host Reservation offering for the specified Dedicated Host in your account.  
-Command:  
+The following `purchase-host-reservation` example purchases the specified Dedicated Host Reservation offering for the specified Dedicated Host in your account.  
 
 ```
-aws ec2 purchase-host-reservation --offering-id {{hro-03f707bf363b6b324}} --host-id-set {{h-013abcd2a00cbd123}}
+aws ec2 purchase-host-reservation \
+    --offering-id {{hro-03f707bf363b6b324}} \
+    --host-id-set {{h-013abcd2a00cbd123}}
 ```
 Output:  
 
 ```
 {
-  "TotalHourlyPrice": "1.499",
-  "Purchase": [
-      {
-          "HourlyPrice": "1.499",
-          "InstanceFamily": "m4",
-          "PaymentOption": "NoUpfront",
-          "HostIdSet": [
-              "h-013abcd2a00cbd123"
-          ],
-          "HostReservationId": "hr-0d418a3a4ffc669ae",
-          "UpfrontPrice": "0.000",
-          "Duration": 31536000
-      }
-  ],
-  "TotalUpfrontPrice": "0.000"
+    "TotalHourlyPrice": "1.499",
+    "Purchase": [
+        {
+            "HourlyPrice": "1.499",
+            "InstanceFamily": "m4",
+            "PaymentOption": "NoUpfront",
+            "HostIdSet": [
+                "h-013abcd2a00cbd123"
+            ],
+            "HostReservationId": "hr-0d418a3a4ffc669ae",
+            "UpfrontPrice": "0.000",
+            "Duration": 31536000
+        }
+    ],
+    "TotalUpfrontPrice": "0.000"
 }
 ```
+For more information, see [Amazon EC2 Dedicated Host pricing and billing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-billing.html#dedicated-host-reservations) in the *Amazon EC2 User Guide*.  
 +  For API details, see [PurchaseHostReservation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/purchase-host-reservation.html) in *AWS CLI Command Reference*. 
 
 ------

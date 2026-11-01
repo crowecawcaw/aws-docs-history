@@ -10,12 +10,20 @@ The following code examples show how to use `DeregisterImage`.
 
 **AWS CLI**  
 **To deregister an AMI**  
-This example deregisters the specified AMI. If the command succeeds, no output is returned.  
-Command:  
+The following `deregister-image` example deregisters the specified AMI.  
 
 ```
-aws ec2 deregister-image --image-id {{ami-4fa54026}}
+aws ec2 deregister-image \
+    --image-id {{ami-4fa54026}}
 ```
+Output:  
+
+```
+{
+    "Return": true
+}
+```
+For more information, see [Deregister an Amazon EC2 AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html) in the *Amazon EC2 User Guide*.  
 +  For API details, see [DeregisterImage](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/deregister-image.html) in *AWS CLI Command Reference*. 
 
 ------

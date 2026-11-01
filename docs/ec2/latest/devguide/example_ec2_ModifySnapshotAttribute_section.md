@@ -19,6 +19,8 @@ aws ec2 modify-snapshot-attribute \
     --operation-type {{remove}} \
     --user-ids {{123456789012}}
 ```
+This command produces no output.  
+For more information, see [Share an Amazon EBS snapshot with other AWS accounts](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modifying-snapshot-permissions.html) in the *Amazon EBS User Guide*.  
 **Example 2: To make a snapshot public**  
 The following `modify-snapshot-attribute` example makes the specified snapshot public.  
 
@@ -29,6 +31,8 @@ aws ec2 modify-snapshot-attribute \
     --operation-type {{add}} \
     --group-names {{all}}
 ```
+This command produces no output.  
+For more information, see [Share an Amazon EBS snapshot with other AWS accounts](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modifying-snapshot-permissions.html) in the *Amazon EBS User Guide*.  
 +  For API details, see [ModifySnapshotAttribute](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/modify-snapshot-attribute.html) in *AWS CLI Command Reference*. 
 
 ------

@@ -36,6 +36,7 @@ Output:
     ]
 }
 ```
+For more information, see [Tag your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide*.  
 **Example 2: To describe all tags for a resource type**  
 The following `describe-tags` example describes the tags for your volumes.  
 
@@ -63,12 +64,40 @@ Output:
     ]
 }
 ```
+For more information, see [Tag your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide*.  
 **Example 3: To describe all your tags**  
 The following `describe-tags` example describes the tags for all your resources.  
 
 ```
 aws ec2 describe-tags
 ```
+Output:  
+
+```
+{
+    "Tags": [
+        {
+            "ResourceType": "instance",
+            "ResourceId": "i-1234567890abcdef8",
+            "Value": "Test",
+            "Key": "Stack"
+        },
+        {
+            "ResourceType": "instance",
+            "ResourceId": "i-1234567890abcdef8",
+            "Value": "Beta Server",
+            "Key": "Name"
+        },
+        {
+            "ResourceType": "volume",
+            "ResourceId": "vol-049df61146c4d7901",
+            "Value": "Logs",
+            "Key": "Purpose"
+        }
+    ]
+}
+```
+For more information, see [Tag your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide*.  
 **Example 4: To describe the tags for your resources based on a tag key**  
 The following `describe-tags` example describes the tags for your resources that have a tag with the key `Stack`.  
 
@@ -96,6 +125,7 @@ Output:
     ]
 }
 ```
+For more information, see [Tag your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide*.  
 **Example 5: To describe the tags for your resources based on a tag key and tag value**  
 The following `describe-tags` example describes the tags for your resources that have the tag `Stack=Test`.  
 
@@ -143,12 +173,13 @@ Output:
         {
             "ResourceType": "instance",
             "ResourceId": "i-1234567890abcdef5",
-            "Value": null,
+            "Value": "",
             "Key": "Purpose"
         }
     ]
 }
 ```
+For more information, see [Tag your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide*.  
 +  For API details, see [DescribeTags](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-tags.html) in *AWS CLI Command Reference*. 
 
 ------

@@ -10,12 +10,15 @@ The following code examples show how to use `DetachVpnGateway`.
 
 **AWS CLI**  
 **To detach a virtual private gateway from your VPC**  
-This example detaches the specified virtual private gateway from the specified VPC. If the command succeeds, no output is returned.  
-Command:  
+The following `detach-vpn-gateway` example detaches the specified virtual private gateway from the specified VPC.  
 
 ```
-aws ec2 detach-vpn-gateway --vpn-gateway-id {{vgw-9a4cacf3}} --vpc-id {{vpc-a01106c2}}
+aws ec2 detach-vpn-gateway \
+    --vpn-gateway-id {{vgw-9a4cacf3}} \
+    --vpc-id {{vpc-a01106c2}}
 ```
+This command produces no output.  
+For more information, see [How AWS Site-to-Site VPN works](https://docs.aws.amazon.com/vpn/latest/s2svpn/how_it_works.html) in the *AWS Site-to-Site VPN User Guide*.  
 +  For API details, see [DetachVpnGateway](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/detach-vpn-gateway.html) in *AWS CLI Command Reference*. 
 
 ------

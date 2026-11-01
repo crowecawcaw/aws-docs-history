@@ -10,12 +10,15 @@ The following code examples show how to use `DisableVgwRoutePropagation`.
 
 **AWS CLI**  
 **To disable route propagation**  
-This example disables the specified virtual private gateway from propagating static routes to the specified route table. If the command succeeds, no output is returned.  
-Command:  
+The following `disable-vgw-route-propagation` example disables the specified virtual private gateway from propagating static routes to the specified route table.  
 
 ```
-aws ec2 disable-vgw-route-propagation --route-table-id {{rtb-22574640}} --gateway-id {{vgw-9a4cacf3}}
+aws ec2 disable-vgw-route-propagation \
+    --route-table-id {{rtb-22574640}} \
+    --gateway-id {{vgw-9a4cacf3}}
 ```
+This command produces no output.  
+For more information, see [Enable or disable route propagation](https://docs.aws.amazon.com/vpc/latest/userguide/WorkWithRouteTables.html#EnableDisableRouteProp) in the *Amazon VPC User Guide*.  
 +  For API details, see [DisableVgwRoutePropagation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/disable-vgw-route-propagation.html) in *AWS CLI Command Reference*. 
 
 ------

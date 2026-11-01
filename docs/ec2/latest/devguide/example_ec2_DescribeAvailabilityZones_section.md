@@ -100,7 +100,7 @@ int AwsDoc::EC2::describeAvailabilityZones(const Aws::Client::ClientConfiguratio
 
 **AWS CLI**  
 **To describe your Availability Zones**  
-The following example `describe-availability-zones` displays details for the Availability Zones that are available to you. The response includes Availability Zones only for the current Region. In this example, it uses the profiles default `us-west-2` (Oregon) Region.  
+The following `describe-availability-zones` example displays details for the Availability Zones that are available to you. The response includes Availability Zones only for the current Region. In this example, it uses the profiles default `us-west-2` (Oregon) Region.  
 
 ```
 aws ec2 describe-availability-zones
@@ -163,6 +163,7 @@ Output:
     ]
 }
 ```
+For more information, see [Regions and Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html) in the *Amazon EC2 User Guide*.  
 +  For API details, see [DescribeAvailabilityZones](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-availability-zones.html) in *AWS CLI Command Reference*. 
 
 ------

@@ -16,12 +16,14 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To delete a subnet**  
-This example deletes the specified subnet. If the command succeeds, no output is returned.  
-Command:  
+The following `delete-subnet` example deletes the specified subnet.  
 
 ```
-aws ec2 delete-subnet --subnet-id {{subnet-9d4a7b6c}}
+aws ec2 delete-subnet \
+    --subnet-id {{subnet-9d4a7b6c}}
 ```
+This command produces no output.  
+For more information, see [Delete a subnet](https://docs.aws.amazon.com/vpc/latest/userguide/subnet-deleting.html) in the *Amazon VPC User Guide*.  
 +  For API details, see [DeleteSubnet](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/delete-subnet.html) in *AWS CLI Command Reference*. 
 
 ------

@@ -10,12 +10,14 @@ The following code examples show how to use `DeleteDhcpOptions`.
 
 **AWS CLI**  
 **To delete a DHCP options set**  
-This example deletes the specified DHCP options set. If the command succeeds, no output is returned.  
-Command:  
+The following `delete-dhcp-options` example deletes the specified DHCP options set.  
 
 ```
-aws ec2 delete-dhcp-options --dhcp-options-id {{dopt-d9070ebb}}
+aws ec2 delete-dhcp-options \
+    --dhcp-options-id {{dopt-d9070ebb}}
 ```
+This command produces no output.  
+For more information, see [Work with DHCP option sets](https://docs.aws.amazon.com/vpc/latest/userguide/DHCPOptionSet.html) in the *Amazon VPC User Guide*.  
 +  For API details, see [DeleteDhcpOptions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/delete-dhcp-options.html) in *AWS CLI Command Reference*. 
 
 ------

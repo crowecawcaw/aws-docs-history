@@ -25,6 +25,7 @@ Output:
     "State": "deleting"
 }
 ```
+For more information, see [Monitor an import image task](https://docs.aws.amazon.com/vm-import/latest/userguide/check-import-task-status.html) in the *VM Import/Export User Guide*.  
 +  For API details, see [CancelImportTask](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/cancel-import-task.html) in *AWS CLI Command Reference*. 
 
 ------

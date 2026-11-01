@@ -302,13 +302,14 @@ Output:
     ]
 }
 ```
-For more information, see [Instance Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in *Amazon Elastic Compute Cloud User Guide for Linux Instances*.  
+For more information, see [Amazon EC2 instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.  
 **Example 2: To filter the available instance types**  
-You can specify a filter to scope the results to instance types that have a specific characteristic. The following `describe-instance-types` example lists the instance types that support hibernation.  
+The following `describe-instance-types` example lists the instance types that support hibernation. You can specify a filter to scope the results to instance types that have a specific characteristic.  
 
 ```
 aws ec2 describe-instance-types \
-    --filters {{Name=hibernation-supported,Values=true}} --query '{{InstanceTypes[*].InstanceType}}'
+    --filters {{Name=hibernation-supported,Values=true}} \
+    --query '{{InstanceTypes[*].InstanceType}}'
 ```
 Output:  
 
@@ -331,7 +332,7 @@ Output:
     "c5.4xlarge"
 ]
 ```
-For more information, see [Instance Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in *Amazon Elastic Compute Cloud User Guide for Linux Instances*.  
+For more information, see [Amazon EC2 instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.  
 +  For API details, see [DescribeInstanceTypes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-instance-types.html) in *AWS CLI Command Reference*. 
 
 ------

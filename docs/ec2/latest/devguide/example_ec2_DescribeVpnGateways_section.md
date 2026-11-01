@@ -13,8 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To describe your virtual private gateways**  
-This example describes your virtual private gateways.  
-Command:  
+The following `describe-vpn-gateways` example describes your virtual private gateways.  
 
 ```
 aws ec2 describe-vpn-gateways
@@ -49,6 +48,7 @@ Output:
     ]
 }
 ```
+For more information, see [How AWS Site-to-Site VPN works](https://docs.aws.amazon.com/vpn/latest/s2svpn/how_it_works.html) in the *AWS Site-to-Site VPN User Guide*.  
 +  For API details, see [DescribeVpnGateways](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-vpn-gateways.html) in *AWS CLI Command Reference*. 
 
 ------

@@ -24,7 +24,7 @@ Output:
     "Return": true
 }
 ```
-For more information, see [Security group rules](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html#security-group-rules) in the *Amazon EC2 User Guide*.  
+For more information, see [Security group rules](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html) in the *Amazon EC2 User Guide*.  
 **Example 2: To update the description of an inbound security group rule with a prefix list source**  
 The following `update-security-group-rule-descriptions-ingress` example updates the description for the security group rule for the specified port and prefix list. The description '`SSH access from ABC office`' replaces any existing description for the rule.  
 
@@ -40,7 +40,7 @@ Output:
     "Return": true
 }
 ```
-For more information, see [Security group rules](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html#security-group-rules) in the *Amazon EC2 User Guide*.  
+For more information, see [Security group rules](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html) in the *Amazon EC2 User Guide*.  
 +  For API details, see [UpdateSecurityGroupRuleDescriptionsIngress](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/update-security-group-rule-descriptions-ingress.html) in *AWS CLI Command Reference*. 
 
 ------

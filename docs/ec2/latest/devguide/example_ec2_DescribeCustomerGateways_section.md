@@ -9,9 +9,8 @@ The following code examples show how to use `DescribeCustomerGateways`.
 #### [ CLI ]
 
 **AWS CLI**  
-**To describe your customer gateways**  
-This example describes your customer gateways.  
-Command:  
+**Example 1: To describe your customer gateways**  
+The following `describe-customer-gateways` example describes your customer gateways.  
 
 ```
 aws ec2 describe-customer-gateways
@@ -38,12 +37,13 @@ Output:
     ]
 }
 ```
-**To describe a specific customer gateway**  
-This example describes the specified customer gateway.  
-Command:  
+For more information, see [AWS Site-to-Site VPN customer gateway devices](https://docs.aws.amazon.com/vpn/latest/s2svpn/your-cgw.html) in the *AWS Site-to-Site VPN User Guide*.  
+**Example 2: To describe a specific customer gateway**  
+The following `describe-customer-gateways` example describes the specified customer gateway.  
 
 ```
-aws ec2 describe-customer-gateways --customer-gateway-ids {{cgw-0e11f167}}
+aws ec2 describe-customer-gateways \
+    --customer-gateway-ids {{cgw-0e11f167}}
 ```
 Output:  
 
@@ -60,6 +60,7 @@ Output:
     ]
 }
 ```
+For more information, see [AWS Site-to-Site VPN customer gateway devices](https://docs.aws.amazon.com/vpn/latest/s2svpn/your-cgw.html) in the *AWS Site-to-Site VPN User Guide*.  
 +  For API details, see [DescribeCustomerGateways](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-customer-gateways.html) in *AWS CLI Command Reference*. 
 
 ------

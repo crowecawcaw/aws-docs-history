@@ -10,17 +10,17 @@ The following code examples show how to use `EnableVpcClassicLinkDnsSupport`.
 
 **AWS CLI**  
 **To enable ClassicLink DNS support for a VPC**  
-This example enables ClassicLink DNS support for `vpc-88888888`.  
-Command:  
+The following `enable-vpc-classic-link-dns-support` example enables ClassicLink DNS support for `vpc-88888888`.  
 
 ```
-aws ec2 enable-vpc-classic-link-dns-support --vpc-id {{vpc-88888888}}
+aws ec2 enable-vpc-classic-link-dns-support \
+    --vpc-id {{vpc-88888888}}
 ```
 Output:  
 
 ```
 {
-  "Return": true
+    "Return": true
 }
 ```
 +  For API details, see [EnableVpcClassicLinkDnsSupport](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/enable-vpc-classic-link-dns-support.html) in *AWS CLI Command Reference*. 

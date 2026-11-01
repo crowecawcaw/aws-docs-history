@@ -25,7 +25,7 @@ Output:
     "ImageId": "ami-abcdef01234567890"
 }
 ```
-For more information about specifying a block device mapping for your AMI, see [Specifying a block device mapping for an AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#create-ami-bdm) in the *Amazon EC2 User Guide*.  
+For more information about specifying a block device mapping for your AMI, see [Specifying a block device mapping for an AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html) in the *Amazon EC2 User Guide*.  
 **Example 2: To create an AMI from an Amazon EBS-backed instance without reboot**  
 The following `create-image` example creates an AMI and sets the --no-reboot parameter, so that the instance is not rebooted before the image is created.  
 
@@ -42,9 +42,9 @@ Output:
     "ImageId": "ami-abcdef01234567890"
 }
 ```
-For more information about specifying a block device mapping for your AMI, see [Specifying a block device mapping for an AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#create-ami-bdm) in the *Amazon EC2 User Guide*.  
+For more information about specifying a block device mapping for your AMI, see [Specifying a block device mapping for an AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html) in the *Amazon EC2 User Guide*.  
 **Example 3: To tag an AMI and snapshots on creation**  
-The following `create-image` example creates an AMI, and tags the AMI and the snapshots with the same tag `cost-center=cc123`  
+The following `create-image` example creates an AMI, and tags the AMI and the snapshots with the same tag `cost-center=cc123`.  
 
 ```
 aws ec2 create-image \
@@ -59,7 +59,7 @@ Output:
     "ImageId": "ami-abcdef01234567890"
 }
 ```
-For more information about tagging your resources on creation, see [Add tags on resource creation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-on-create-examples) in the *Amazon EC2 User Guide*.  
+For more information about tagging your resources on creation, see [Add tags on resource creation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide*.  
 +  For API details, see [CreateImage](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-image.html) in *AWS CLI Command Reference*. 
 
 ------

@@ -25,11 +25,11 @@ Output:
     "ImportTaskId": "import-snap-1234567890abcdef0",
     "SnapshotTaskDetail": {
         "Description": "My server VMDK",
-        "DiskImageSize": "0.0",
+        "DiskImageSize": 0.0,
         "Format": "VMDK",
         "Progress": "3",
         "Status": "active",
-        "StatusMessage": "pending"
+        "StatusMessage": "pending",
         "UserBucket": {
             "S3Bucket": "my-import-bucket",
             "S3Key": "vms/my-server-vm.vmdk"
@@ -37,6 +37,7 @@ Output:
     }
 }
 ```
+For more information, see [Import a disk as an EBS snapshot using VM Import/Export](https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-import-snapshot.html) in the *VM Import/Export User Guide*.  
 +  For API details, see [ImportSnapshot](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/import-snapshot.html) in *AWS CLI Command Reference*. 
 
 ------

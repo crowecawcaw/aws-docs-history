@@ -12,12 +12,13 @@ Action examples are code excerpts from larger programs and must be run in contex
 #### [ CLI ]
 
 **AWS CLI**  
-**To create a snapshot**  
-This example command creates a snapshot of the volume with a volume ID of `vol-1234567890abcdef0` and a short description to identify the snapshot.  
-Command:  
+**Example 1: To create a snapshot**  
+The following `create-snapshot` example creates a snapshot of the volume with a volume ID of `vol-1234567890abcdef0` and a short description to identify the snapshot.  
 
 ```
-aws ec2 create-snapshot --volume-id {{vol-1234567890abcdef0}} --description {{"This is my root volume snapshot"}}
+aws ec2 create-snapshot \
+    --volume-id {{vol-1234567890abcdef0}} \
+    --description {{"This is my root volume snapshot"}}
 ```
 Output:  
 
@@ -31,16 +32,19 @@ Output:
     "VolumeSize": 8,
     "StartTime": "2018-02-28T21:06:01.000Z",
     "Progress": "",
-    "OwnerId": "012345678910",
-    "SnapshotId": "snap-066877671789bd71b"
+    "OwnerId": "123456789012",
+    "SnapshotId": "snap-0abcdef1234567890"
 }
 ```
-**To create a snapshot with tags**  
-This example command creates a snapshot and applies two tags: purpose=prod and costcenter=123.  
-Command:  
+For more information, see [Create Amazon EBS snapshots](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-creating-snapshot.html) in the *Amazon EBS User Guide*.  
+**Example 2: To create a snapshot with tags**  
+The following `create-snapshot` example creates a snapshot and applies two tags: purpose=prod and costcenter=123.  
 
 ```
-aws ec2 create-snapshot --volume-id {{vol-1234567890abcdef0}} --description '{{Prod backup}}' --tag-specifications '{{ResourceType=snapshot,Tags=[{Key=purpose,Value=prod},{Key=costcenter,Value=123}]}}'
+aws ec2 create-snapshot \
+    --volume-id {{vol-1234567890abcdef0}} \
+    --description '{{Prod backup}}' \
+    --tag-specifications '{{ResourceType=snapshot,Tags=[{Key=purpose,Value=prod},{Key=costcenter,Value=123}]}}'
 ```
 Output:  
 
@@ -56,17 +60,18 @@ Output:
             "Value": "123",
             "Key": "costcenter"
         }
-     ],
-     "Encrypted": false,
-     "VolumeId": "vol-1234567890abcdef0",
-     "State": "pending",
-     "VolumeSize": 8,
-     "StartTime": "2018-02-28T21:06:06.000Z",
-     "Progress": "",
-     "OwnerId": "012345678910",
-     "SnapshotId": "snap-09ed24a70bc19bbe4"
- }
+    ],
+    "Encrypted": false,
+    "VolumeId": "vol-1234567890abcdef0",
+    "State": "pending",
+    "VolumeSize": 8,
+    "StartTime": "2018-02-28T21:06:06.000Z",
+    "Progress": "",
+    "OwnerId": "123456789012",
+    "SnapshotId": "snap-09ed24a70bc19bbe4"
+}
 ```
+For more information, see [Create Amazon EBS snapshots](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-creating-snapshot.html) in the *Amazon EBS User Guide*.  
 +  For API details, see [CreateSnapshot](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-snapshot.html) in *AWS CLI Command Reference*. 
 
 ------

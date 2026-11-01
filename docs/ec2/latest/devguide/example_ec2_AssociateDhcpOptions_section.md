@@ -9,20 +9,26 @@ The following code examples show how to use `AssociateDhcpOptions`.
 #### [ CLI ]
 
 **AWS CLI**  
-**To associate a DHCP options set with your VPC**  
-This example associates the specified DHCP options set with the specified VPC. If the command succeeds, no output is returned.  
-Command:  
+**Example 1: To associate a DHCP options set with your VPC**  
+The following `associate-dhcp-options` example associates the specified DHCP options set with the specified VPC.  
 
 ```
-aws ec2 associate-dhcp-options --dhcp-options-id {{dopt-d9070ebb}} --vpc-id {{vpc-a01106c2}}
+aws ec2 associate-dhcp-options \
+    --dhcp-options-id {{dopt-d9070ebb}} \
+    --vpc-id {{vpc-a01106c2}}
 ```
-**To associate the default DHCP options set with your VPC**  
-This example associates the default DHCP options set with the specified VPC. If the command succeeds, no output is returned.  
-Command:  
+This command produces no output.  
+For more information, see [Work with DHCP option sets](https://docs.aws.amazon.com/vpc/latest/userguide/DHCPOptionSet.html) in the *Amazon VPC User Guide*.  
+**Example 2: To associate the default DHCP options set with your VPC**  
+The following `associate-dhcp-options` example associates the default DHCP options set with the specified VPC.  
 
 ```
-aws ec2 associate-dhcp-options --dhcp-options-id {{default}} --vpc-id {{vpc-a01106c2}}
+aws ec2 associate-dhcp-options \
+    --dhcp-options-id {{default}} \
+    --vpc-id {{vpc-a01106c2}}
 ```
+This command produces no output.  
+For more information, see [Work with DHCP option sets](https://docs.aws.amazon.com/vpc/latest/userguide/DHCPOptionSet.html) in the *Amazon VPC User Guide*.  
 +  For API details, see [AssociateDhcpOptions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/associate-dhcp-options.html) in *AWS CLI Command Reference*. 
 
 ------

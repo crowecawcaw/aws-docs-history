@@ -14,12 +14,14 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To disassociate a route table**  
-This example disassociates the specified route table from the specified subnet. If the command succeeds, no output is returned.  
-Command:  
+The following `disassociate-route-table` example disassociates the specified route table from the specified subnet.  
 
 ```
-aws ec2 disassociate-route-table --association-id {{rtbassoc-781d0d1a}}
+aws ec2 disassociate-route-table \
+    --association-id {{rtbassoc-781d0d1a}}
 ```
+This command produces no output.  
+For more information, see [Change the route table for a subnet](https://docs.aws.amazon.com/vpc/latest/userguide/WorkWithRouteTables.html#ChangeRouteTable) in the *Amazon VPC User Guide*.  
 +  For API details, see [DisassociateRouteTable](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/disassociate-route-table.html) in *AWS CLI Command Reference*. 
 
 ------

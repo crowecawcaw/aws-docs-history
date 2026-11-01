@@ -10,11 +10,12 @@ The following code examples show how to use `DescribeVolumeAttribute`.
 
 **AWS CLI**  
 **To describe a volume attribute**  
-This example command describes the `autoEnableIo` attribute of the volume with the ID `vol-049df61146c4d7901`.  
-Command:  
+The following `describe-volume-attribute` example describes the `autoEnableIo` attribute of the volume with the ID `vol-049df61146c4d7901`.  
 
 ```
-aws ec2 describe-volume-attribute --volume-id {{vol-049df61146c4d7901}} --attribute {{autoEnableIO}}
+aws ec2 describe-volume-attribute \
+    --volume-id {{vol-049df61146c4d7901}} \
+    --attribute {{autoEnableIO}}
 ```
 Output:  
 
@@ -26,6 +27,7 @@ Output:
     "VolumeId": "vol-049df61146c4d7901"
 }
 ```
+For more information, see [Amazon EBS volume status checks](https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-checks.html) in the *Amazon EBS User Guide*.  
 +  For API details, see [DescribeVolumeAttribute](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-volume-attribute.html) in *AWS CLI Command Reference*. 
 
 ------

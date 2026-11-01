@@ -10,8 +10,7 @@ The following code examples show how to use `DescribeVpcClassicLinkDnsSupport`.
 
 **AWS CLI**  
 **To describe ClassicLink DNS support for your VPCs**  
-This example describes the ClassicLink DNS support status of all of your VPCs.  
-Command:  
+The following `describe-vpc-classic-link-dns-support` example describes the ClassicLink DNS support status of all of your VPCs.  
 
 ```
 aws ec2 describe-vpc-classic-link-dns-support
@@ -20,16 +19,16 @@ Output:
 
 ```
 {
-  "Vpcs": [
-    {
-      "VpcId": "vpc-88888888",
-      "ClassicLinkDnsSupported": true
-    },
-    {
-      "VpcId": "vpc-1a2b3c4d",
-      "ClassicLinkDnsSupported": false
-    }
-  ]
+    "Vpcs": [
+        {
+            "VpcId": "vpc-88888888",
+            "ClassicLinkDnsSupported": true
+        },
+        {
+            "VpcId": "vpc-1a2b3c4d",
+            "ClassicLinkDnsSupported": false
+        }
+    ]
 }
 ```
 +  For API details, see [DescribeVpcClassicLinkDnsSupport](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-vpc-classic-link-dns-support.html) in *AWS CLI Command Reference*. 

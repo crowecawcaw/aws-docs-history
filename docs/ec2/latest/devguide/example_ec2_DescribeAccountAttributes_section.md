@@ -9,9 +9,8 @@ The following code examples show how to use `DescribeAccountAttributes`.
 #### [ CLI ]
 
 **AWS CLI**  
-**To describe all the attributes for your AWS account**  
-This example describes the attributes for your AWS account.  
-Command:  
+**Example 1: To describe all the attributes for your AWS account**  
+The following `describe-account-attributes` example describes the attributes for your AWS account.  
 
 ```
 aws ec2 describe-account-attributes
@@ -75,12 +74,13 @@ Output:
     ]
 }
 ```
-**To describe a single attribute for your AWS account**  
-This example describes the `supported-platforms` attribute for your AWS account.  
-Command:  
+For more information, see [Amazon EC2 service quotas](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html) in the *Amazon EC2 User Guide*.  
+**Example 2: To describe a single attribute for your AWS account**  
+The following `describe-account-attributes` example describes the `supported-platforms` attribute for your AWS account.  
 
 ```
-aws ec2 describe-account-attributes --attribute-names {{supported-platforms}}
+aws ec2 describe-account-attributes \
+    --attribute-names {{supported-platforms}}
 ```
 Output:  
 
@@ -101,6 +101,7 @@ Output:
     ]
 }
 ```
+For more information, see [Amazon EC2 service quotas](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html) in the *Amazon EC2 User Guide*.  
 +  For API details, see [DescribeAccountAttributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-account-attributes.html) in *AWS CLI Command Reference*. 
 
 ------

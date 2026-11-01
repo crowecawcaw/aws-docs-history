@@ -255,11 +255,11 @@ bool AwsDoc::EC2::startInstance(const Aws::String &instanceId,
 
 **AWS CLI**  
 **To start an Amazon EC2 instance**  
-This example starts the specified Amazon EBS-backed instance.  
-Command:  
+The following `start-instances` example starts the specified Amazon EBS-backed instance.  
 
 ```
-aws ec2 start-instances --instance-ids {{i-1234567890abcdef0}}
+aws ec2 start-instances \
+    --instance-ids {{i-1234567890abcdef0}}
 ```
 Output:  
 
@@ -280,7 +280,7 @@ Output:
     ]
 }
 ```
-For more information, see Stop and Start Your Instance in the *Amazon Elastic Compute Cloud User Guide*.  
+For more information, see [Stop and start Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html) in the *Amazon EC2 User Guide*.  
 +  For API details, see [StartInstances](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/start-instances.html) in *AWS CLI Command Reference*. 
 
 ------

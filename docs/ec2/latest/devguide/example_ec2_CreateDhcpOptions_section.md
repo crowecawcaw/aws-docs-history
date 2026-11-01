@@ -14,10 +14,7 @@ The following `create-dhcp-options` example creates a set of DHCP options that s
 
 ```
 aws ec2 create-dhcp-options \
-    --dhcp-configuration \
-        {{"Key=domain-name-servers,Values=10.2.5.1,10.2.5.2"}} \
-        {{"Key=domain-name,Values=example.com"}} \
-        {{"Key=netbios-node-type,Values=2"}}
+    --dhcp-configuration {{"Key=domain-name-servers,Values=10.2.5.1,10.2.5.2"}} {{"Key=domain-name,Values=example.com"}} {{"Key=netbios-node-type,Values=2"}}
 ```
 Output:  
 
@@ -57,6 +54,7 @@ Output:
     }
 }
 ```
+For more information, see [DHCP option sets in Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html) in the *Amazon VPC User Guide*.  
 +  For API details, see [CreateDhcpOptions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-dhcp-options.html) in *AWS CLI Command Reference*. 
 
 ------

@@ -102,7 +102,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To replace an IAM instance profile for an instance**  
-This example replaces the IAM instance profile represented by the association `iip-assoc-060bae234aac2e7fa` with the IAM instance profile named `AdminRole`.  
+The following `replace-iam-instance-profile-association` example replaces the IAM instance profile represented by the association `iip-assoc-060bae234aac2e7fa` with the IAM instance profile named `AdminRole`.  
 
 ```
 aws ec2 replace-iam-instance-profile-association \
@@ -124,6 +124,7 @@ Output:
     }
 }
 ```
+For more information, see [IAM roles for Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) in the *Amazon EC2 User Guide*.  
 +  For API details, see [ReplaceIamInstanceProfileAssociation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/replace-iam-instance-profile-association.html) in *AWS CLI Command Reference*. 
 
 ------

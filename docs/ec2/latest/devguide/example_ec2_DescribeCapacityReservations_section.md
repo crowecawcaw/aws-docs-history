@@ -23,11 +23,11 @@ Output:
         {
             "CapacityReservationId": "cr-1234abcd56EXAMPLE ",
             "OwnerId": "123456789111",
-            "CapacityReservationArn": "arn:aws:ec2:us-east-1:123456789111:capacity-reservation/cr-1234abcd56EXAMPLE",
+            "CapacityReservationArn": "arn:aws:ec2:us-west-2:123456789111:capacity-reservation/cr-1234abcd56EXAMPLE",
             "AvailabilityZoneId": "use1-az2",
             "InstanceType": "c5.large",
             "InstancePlatform": "Linux/UNIX",
-            "AvailabilityZone": "us-east-1a",
+            "AvailabilityZone": "us-west-2a",
             "Tenancy": "default",
             "TotalInstanceCount": 1,
             "AvailableInstanceCount": 1,
@@ -44,11 +44,11 @@ Output:
         {
             "CapacityReservationId": "cr-abcdEXAMPLE9876ef ",
             "OwnerId": "123456789111",
-            "CapacityReservationArn": "arn:aws:ec2:us-east-1:123456789111:capacity-reservation/cr-abcdEXAMPLE9876ef",
+            "CapacityReservationArn": "arn:aws:ec2:us-west-2:123456789111:capacity-reservation/cr-abcdEXAMPLE9876ef",
             "AvailabilityZoneId": "use1-az2",
             "InstanceType": "c4.large",
             "InstancePlatform": "Linux/UNIX",
-            "AvailabilityZone": "us-east-1a",
+            "AvailabilityZone": "us-west-2a",
             "Tenancy": "default",
             "TotalInstanceCount": 1,
             "AvailableInstanceCount": 1,
@@ -65,6 +65,7 @@ Output:
     ]
 }
 ```
+For more information, see [View the state of a Capacity Reservation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-view.html) in the *Amazon EC2 User Guide*.  
 **Example 2: To describe one or more of your capacity reservations**  
 The following `describe-capacity-reservations` example displays details about the specified capacity reservation.  
 
@@ -80,11 +81,11 @@ Output:
         {
             "CapacityReservationId": "cr-abcdEXAMPLE9876ef ",
             "OwnerId": "123456789111",
-            "CapacityReservationArn": "arn:aws:ec2:us-east-1:123456789111:capacity-reservation/cr-abcdEXAMPLE9876ef",
+            "CapacityReservationArn": "arn:aws:ec2:us-west-2:123456789111:capacity-reservation/cr-abcdEXAMPLE9876ef",
             "AvailabilityZoneId": "use1-az2",
             "InstanceType": "c4.large",
             "InstancePlatform": "Linux/UNIX",
-            "AvailabilityZone": "us-east-1a",
+            "AvailabilityZone": "us-west-2a",
             "Tenancy": "default",
             "TotalInstanceCount": 1,
             "AvailableInstanceCount": 1,
@@ -101,7 +102,7 @@ Output:
     ]
 }
 ```
-For more information, see [Viewing a Capacity Reservation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#capacity-reservations-view) in the *Amazon Elastic Compute Cloud User Guide for Linux Instances*.  
+For more information, see [View the state of a Capacity Reservation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-view.html) in the *Amazon EC2 User Guide*.  
 +  For API details, see [DescribeCapacityReservations](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-capacity-reservations.html) in *AWS CLI Command Reference*. 
 
 ------

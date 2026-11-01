@@ -255,11 +255,11 @@ bool AwsDoc::EC2::terminateInstances(const Aws::String &instanceID,
 
 **AWS CLI**  
 **To terminate an Amazon EC2 instance**  
-This example terminates the specified instance.  
-Command:  
+The following `terminate-instances` example terminates the specified instance.  
 
 ```
-aws ec2 terminate-instances --instance-ids {{i-1234567890abcdef0}}
+aws ec2 terminate-instances \
+    --instance-ids {{i-1234567890abcdef0}}
 ```
 Output:  
 
@@ -280,7 +280,7 @@ Output:
     ]
 }
 ```
-For more information, see Using Amazon EC2 Instances in the *AWS Command Line Interface User Guide*.  
+For more information, see [Launching, listing, and deleting Amazon EC2 instances in the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-instances.html) in the *AWS Command Line Interface User Guide*.  
 +  For API details, see [TerminateInstances](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/terminate-instances.html) in *AWS CLI Command Reference*. 
 
 ------

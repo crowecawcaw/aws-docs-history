@@ -225,13 +225,14 @@ bool AwsDoc::EC2::rebootInstance(const Aws::String &instanceId,
 
 **AWS CLI**  
 **To reboot an Amazon EC2 instance**  
-This example reboots the specified instance. If the command succeeds, no output is returned.  
-Command:  
+The following `reboot-instances` example reboots the specified instance.  
 
 ```
-aws ec2 reboot-instances --instance-ids {{i-1234567890abcdef5}}
+aws ec2 reboot-instances \
+    --instance-ids {{i-1234567890abcdef5}}
 ```
-For more information, see Reboot Your Instance in the *Amazon Elastic Compute Cloud User Guide*.  
+This command produces no output.  
+For more information, see [Reboot your Amazon EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-reboot.html) in the *Amazon EC2 User Guide*.  
 +  For API details, see [RebootInstances](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/reboot-instances.html) in *AWS CLI Command Reference*. 
 
 ------

@@ -10,12 +10,16 @@ The following code examples show how to use `ReportInstanceStatus`.
 
 **AWS CLI**  
 **To report status feedback for an instance**  
-This example command reports status feedback for the specified instance.  
-Command:  
+The following `report-instance-status` example reports status feedback for the specified instance.  
 
 ```
-aws ec2 report-instance-status --instances {{i-1234567890abcdef0}} --status {{impaired}} --reason-codes {{unresponsive}}
+aws ec2 report-instance-status \
+    --instances {{i-1234567890abcdef0}} \
+    --status {{impaired}} \
+    --reason-codes {{unresponsive}}
 ```
+This command produces no output.  
+For more information, see [Status checks for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html) in the *Amazon EC2 User Guide*.  
 +  For API details, see [ReportInstanceStatus](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/report-instance-status.html) in *AWS CLI Command Reference*. 
 
 ------

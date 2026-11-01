@@ -64,26 +64,27 @@ bool AwsDoc::EC2::enableMonitoring(const Aws::String &instanceId,
 
 **AWS CLI**  
 **To enable detailed monitoring for an instance**  
-This example command enables detailed monitoring for the specified instance.  
-Command:  
+The following `monitor-instances` example enables detailed monitoring for the specified instance.  
 
 ```
-aws ec2 monitor-instances --instance-ids {{i-1234567890abcdef0}}
+aws ec2 monitor-instances \
+    --instance-ids {{i-1234567890abcdef0}}
 ```
 Output:  
 
 ```
 {
-  "InstanceMonitorings": [
-      {
-          "InstanceId": "i-1234567890abcdef0",
-          "Monitoring": {
-              "State": "pending"
-          }
-      }
-  ]
+    "InstanceMonitorings": [
+        {
+            "InstanceId": "i-1234567890abcdef0",
+            "Monitoring": {
+                "State": "pending"
+            }
+        }
+    ]
 }
 ```
+For more information, see [Manage detailed monitoring for your EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-detailed-monitoring.html) in the *Amazon EC2 User Guide*.  
 +  For API details, see [MonitorInstances](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/monitor-instances.html) in *AWS CLI Command Reference*. 
 
 ------

@@ -10,8 +10,7 @@ The following code examples show how to use `DescribePlacementGroups`.
 
 **AWS CLI**  
 **To describe your placement groups**  
-This example command describes all of your placement groups.  
-Command:  
+The following `describe-placement-groups` example describes all of your placement groups.  
 
 ```
 aws ec2 describe-placement-groups
@@ -25,11 +24,11 @@ Output:
             "GroupName": "my-cluster",
             "State": "available",
             "Strategy": "cluster"
-        },
-        ...
+        }
     ]
 }
 ```
+For more information, see [Placement groups for your Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the *Amazon EC2 User Guide*.  
 +  For API details, see [DescribePlacementGroups](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-placement-groups.html) in *AWS CLI Command Reference*. 
 
 ------

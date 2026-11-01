@@ -62,7 +62,7 @@ Output:
             "NetworkAclId": "acl-0ea1f54ca7EXAMPLE",
             "Tags": [],
             "VpcId": "vpc-06e4ab6c6cEXAMPLE",
-            "OwnerId": "111122223333"
+            "OwnerId": "123456789012"
         },
         {
             "Associations": [],
@@ -128,7 +128,7 @@ Output:
             "NetworkAclId": "acl-0e2a78e4e2EXAMPLE",
             "Tags": [],
             "VpcId": "vpc-03914afb3eEXAMPLE",
-            "OwnerId": "111122223333"
+            "OwnerId": "123456789012"
         }
     ]
 }

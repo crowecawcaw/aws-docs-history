@@ -10,8 +10,7 @@ The following code examples show how to use `DescribeSpotDatafeedSubscription`.
 
 **AWS CLI**  
 **To describe Spot Instance datafeed subscription for an account**  
-This example command describes the data feed for the account.  
-Command:  
+The following `describe-spot-datafeed-subscription` example describes the data feed for the account.  
 
 ```
 aws ec2 describe-spot-datafeed-subscription
@@ -28,6 +27,7 @@ Output:
     }
 }
 ```
+For more information, see [Track your Spot Instance costs using the Spot Instance data feed](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html) in the *Amazon EC2 User Guide*.  
 +  For API details, see [DescribeSpotDatafeedSubscription](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-spot-datafeed-subscription.html) in *AWS CLI Command Reference*. 
 
 ------

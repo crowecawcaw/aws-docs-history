@@ -276,7 +276,6 @@ Output:
     "CustomerOwnedIp": "18.218.95.81",
     "CustomerOwnedIpv4Pool": "ipv4pool-ec2-1234567890abcdef0",
     "Domain": "vpc"
-    "NetworkBorderGroup": "us-west-2",
 }
 ```
 For more information, see [Elastic IP addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) in the *Amazon EC2 User Guide*.  
@@ -285,7 +284,6 @@ The following `allocate-address` example allocates a specific /32 Elastic IP add
 
 ```
 aws ec2 allocate-address \
-    --region {{us-east-1}} \
     --ipam-pool-id {{ipam-pool-1234567890abcdef0}} \
     --address {{192.0.2.0}}
 ```
@@ -296,7 +294,7 @@ Output:
     "PublicIp": "192.0.2.0",
     "AllocationId": "eipalloc-abcdef01234567890",
     "PublicIpv4Pool": "ipam-pool-1234567890abcdef0",
-    "NetworkBorderGroup": "us-east-1",
+    "NetworkBorderGroup": "us-west-2",
     "Domain": "vpc"
 }
 ```

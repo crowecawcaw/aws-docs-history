@@ -166,20 +166,24 @@ function aws_cli_error_log() {
 #### [ CLI ]
 
 **AWS CLI**  
-**To disassociate an Elastic IP addresses in EC2-Classic**  
-This example disassociates an Elastic IP address from an instance in EC2-Classic. If the command succeeds, no output is returned.  
-Command:  
+**Example 1: To disassociate an Elastic IP address in EC2-Classic**  
+The following `disassociate-address` example disassociates an Elastic IP address from an instance in EC2-Classic.  
 
 ```
-aws ec2 disassociate-address --public-ip {{198.51.100.0}}
+aws ec2 disassociate-address \
+    --public-ip {{198.51.100.0}}
 ```
-**To disassociate an Elastic IP address in EC2-VPC**  
-This example disassociates an Elastic IP address from an instance in a VPC. If the command succeeds, no output is returned.  
-Command:  
+This command produces no output.  
+For more information, see [Elastic IP addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) in the *Amazon EC2 User Guide*.  
+**Example 2: To disassociate an Elastic IP address in EC2-VPC**  
+The following `disassociate-address` example disassociates an Elastic IP address from an instance in a VPC.  
 
 ```
-aws ec2 disassociate-address --association-id {{eipassoc-2bebb745}}
+aws ec2 disassociate-address \
+    --association-id {{eipassoc-2bebb745}}
 ```
+This command produces no output.  
+For more information, see [Elastic IP addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) in the *Amazon EC2 User Guide*.  
 +  For API details, see [DisassociateAddress](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/disassociate-address.html) in *AWS CLI Command Reference*. 
 
 ------

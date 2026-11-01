@@ -10,17 +10,17 @@ The following code examples show how to use `DisableVpcClassicLinkDnsSupport`.
 
 **AWS CLI**  
 **To disable ClassicLink DNS support for a VPC**  
-This example disables ClassicLink DNS support for `vpc-88888888`.  
-Command:  
+The following `disable-vpc-classic-link-dns-support` example disables ClassicLink DNS support for `vpc-88888888`.  
 
 ```
-aws ec2 disable-vpc-classic-link-dns-support --vpc-id {{vpc-88888888}}
+aws ec2 disable-vpc-classic-link-dns-support \
+    --vpc-id {{vpc-88888888}}
 ```
 Output:  
 
 ```
 {
-  "Return": true
+    "Return": true
 }
 ```
 +  For API details, see [DisableVpcClassicLinkDnsSupport](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/disable-vpc-classic-link-dns-support.html) in *AWS CLI Command Reference*. 

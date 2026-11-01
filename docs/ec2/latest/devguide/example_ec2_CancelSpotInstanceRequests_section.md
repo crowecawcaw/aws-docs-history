@@ -10,11 +10,11 @@ The following code examples show how to use `CancelSpotInstanceRequests`.
 
 **AWS CLI**  
 **To cancel Spot Instance requests**  
-This example command cancels a Spot Instance request.  
-Command:  
+The following `cancel-spot-instance-requests` example cancels a Spot Instance request.  
 
 ```
-aws ec2 cancel-spot-instance-requests --spot-instance-request-ids {{sir-08b93456}}
+aws ec2 cancel-spot-instance-requests \
+    --spot-instance-request-ids {{sir-08b93456}}
 ```
 Output:  
 
@@ -28,6 +28,7 @@ Output:
     ]
 }
 ```
+For more information, see [Cancel a Spot Instance request](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-cancel.html) in the *Amazon EC2 User Guide*.  
 +  For API details, see [CancelSpotInstanceRequests](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/cancel-spot-instance-requests.html) in *AWS CLI Command Reference*. 
 
 ------
