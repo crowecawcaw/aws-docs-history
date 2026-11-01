@@ -79,6 +79,9 @@ JSON 's3://amzn-s3-demo-bucket/jsonpaths.txt';
 
 You can use a manifest to make sure that your COPY command loads all of the required files, and only the required files, from Amazon S3. You can also use a manifest when you need to load multiple files from different buckets or files that don't share the same prefix. 
 
+**Note**  
+A manifest file must not exceed 100 MB. For larger loads, split the entries across multiple manifest files and run a separate COPY command for each manifest.
+
 For example, suppose that you need to load the following three files: `custdata1.txt`, `custdata2.txt`, and `custdata3.txt`. You could use the following command to load all of the files in `amzn-s3-demo-bucket` that begin with `custdata` by specifying a prefix: 
 
 ```
