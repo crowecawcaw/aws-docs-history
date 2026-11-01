@@ -32,7 +32,7 @@ The `AWS/Network Manager` namespace includes the following metrics. All metrics 
 ### 1:1 NAT metrics
 <a name="cloudwan-metrics-nat"></a>
 
-Cloud WAN publishes four metrics in the `AWS/Network Manager` namespace for traffic translated by 1:1 network address translation (NAT). They count a subset of the traffic in the existing `PacketsIn`, `PacketsOut`, `BytesIn`, and `BytesOut` metrics, which continue to report all traffic. Metrics are published every minute in the US West (Oregon) AWS Region, like other Cloud WAN metrics.
+Cloud WAN publishes four metrics in the `AWS/Network Manager` namespace for traffic translated by 1:1 network address translation (NAT). They count a subset of the traffic in the existing `PacketsIn`, `PacketsOut`, `BytesIn`, and `BytesOut` metrics, which continue to report all traffic. Cloud WAN publishes NAT metrics every minute in the US West (Oregon) AWS Region, like other Cloud WAN metrics.
 
 The following table describes the 1:1 NAT metrics.
 

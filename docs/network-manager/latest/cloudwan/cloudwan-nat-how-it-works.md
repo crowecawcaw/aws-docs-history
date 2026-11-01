@@ -9,13 +9,13 @@
 Before you configure 1:1 NAT, confirm the following:
 + You have an existing Cloud WAN core network. For more information, see [Quick start: Create an AWS Cloud WAN global network and core network](cloudwan-getting-started.md).
 + You're the core network owner.
-+ You have at least one attachment of a supported type in a valid state. The attachment can be in the `AVAILABLE` state or a pending state; see [Attachment states](#cloudwan-nat-attachment-states).
++ You have at least one attachment of a supported type in a valid state. The attachment can be in the `AVAILABLE` state or a pending state. For more information, see [Attachment states](#cloudwan-nat-attachment-states).
 + You have the IAM permissions `networkmanager:UpdateAttachmentNatConfiguration` and `networkmanager:ListAttachmentNatConfigurations`.
-+ You've chosen NAT CIDRs (Classless Inter-Domain Routing blocks) that:
-  + are within RFC 1918 or CGNAT (RFC 6598, `100.64.0.0/10`) space,
-  + have the same prefix length as the original CIDR they map,
-  + don't overlap any original CIDR or NAT CIDR already configured on the same attachment, and
-  + don't overlap any other address range in your network, including other attachments' NAT CIDRs, the CIDRs of attachments without NAT rules, and the CIDRs of the VPCs and on-premises networks that need to reach the NAT addresses.
++ You've chosen NAT CIDRs (Classless Inter-Domain Routing blocks) that meet the following requirements:
+  + Are within RFC 1918 or carrier-grade NAT (CGNAT) space (RFC 6598, `100.64.0.0/10`).
+  + Have the same prefix length as the original CIDR they map.
+  + Don't overlap any original CIDR or NAT CIDR already configured on the same attachment.
+  + Don't overlap any other address range in your network, including other attachments' NAT CIDRs, the CIDRs of attachments without NAT rules, and the CIDRs of the VPCs and on-premises networks that need to reach the NAT addresses.
 + Your core network policy allows the NAT CIDRs to propagate to the segments that need to reach them. Check segment sharing, segment actions, and any routing policies that filter prefixes.
 + For attachments where NAT routes aren't installed automatically, you've planned static routes to the NAT CIDRs in your core network policy, or your peers advertise them.
 + Your VPC route tables route the NAT CIDRs you need to reach to the core network.
@@ -36,7 +36,7 @@ You can configure NAT on an attachment in the `AVAILABLE` state, or in one of th
 | PENDING\_TAG\_ACCEPTANCE | The NAT update is applied, and the attachment then returns to PENDING\_TAG\_ACCEPTANCE. | 
 | PENDING\_ATTACHMENT\_ACCEPTANCE | The NAT update isn't applied until the attachment is accepted. Until then, NatGatewaySupport and every rule in NatGatewayRules show the state PENDING\_ATTACHMENT\_ACCEPTANCE. | 
 
-## Example: single NAT
+## Example: Single NAT
 <a name="cloudwan-nat-example-single"></a>
 
 A Site-to-Site VPN attachment from a branch office uses the CIDR `10.10.100.0/24`, which conflicts with a range already in use in your core network. You configure the following rule on the VPN attachment.
@@ -48,7 +48,7 @@ A Site-to-Site VPN attachment from a branch office uses the CIDR `10.10.100.0/24
 
 Traffic from `10.10.100.5` arrives on the VPN attachment. Cloud WAN applies source NAT (SNAT), rewrites the source to `100.64.1.5`, and routes the packet based on its destination. Resources in your core network see the branch at `100.64.1.5`. Responses are sent to `100.64.1.5` and match the route for `100.64.1.0/24` to the VPN attachment. Cloud WAN applies destination NAT (DNAT) and rewrites the destination back to `10.10.100.5` before delivering the packet to the VPN attachment.
 
-## Example: Connecting VPCs with overlapping CIDRs
+## Example: Connect VPCs with overlapping CIDRs
 <a name="cloudwan-nat-example-overlapping"></a>
 
 When two or more networks use overlapping CIDRs, translate **each** of them to its own unique NAT CIDR. Every network is then reachable at a distinct address range, whatever its real addressing. This is the recommended way to use 1:1 NAT for overlapping networks.

@@ -18,7 +18,7 @@ Attachment owners in other accounts do receive the NAT CloudWatch metrics for th
 
 Both actions authorize against the attachment resource: `arn:aws:networkmanager::{{account-id}}:attachment/{{attachment-id}}`. To restrict which attachments a principal can manage, specify attachment ARNs or use tag-based conditions.
 
-## Creating an attachment with NAT configuration
+## Create an attachment with a NAT configuration
 <a name="cloudwan-nat-permissions-create"></a>
 
 If you include a NAT configuration when you create an attachment, for example with `CreateVpcAttachment`, you need permission for both the create action and `networkmanager:UpdateAttachmentNatConfiguration`. If you have permission for the create action but not for `UpdateAttachmentNatConfiguration`, a create request that includes a NAT configuration is denied. A create request without a NAT configuration needs only the create permission.

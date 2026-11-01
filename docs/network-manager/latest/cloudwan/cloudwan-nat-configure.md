@@ -3,18 +3,20 @@
 # Configure 1:1 NAT in AWS Cloud WAN
 <a name="cloudwan-nat-configure"></a>
 
-You manage NAT for an attachment through a single operation that sets the NAT options and the full rule set together. Every parameter except the attachment ID is optional. Changes are applied asynchronously: the attachment transitions to **Updating** while the workflow runs and returns to **Available** on completion. The operation is complete when the attachment is back to **Available**.
+You manage NAT for an attachment through a single operation that sets the NAT options and the full rule set together. Only the core network owner can configure NAT. Every parameter except the attachment ID is optional. Cloud WAN applies changes asynchronously: the attachment transitions to **Updating** while the workflow runs and returns to **Available** on completion. The operation is complete when the attachment is back to **Available**.
 
 **Important**  
-Currently, only the core network owner can configure NAT on Cloud WAN attachments. Shared attachment owners can't configure NAT.
+Only the core network owner can configure NAT on Cloud WAN attachments. Shared attachment owners can't configure NAT.
 On a VPC attachment, enabling NAT replaces the route for each VPC CIDR that a rule exactly matches with a route to its NAT CIDR. Other attachments that reach the VPC by its real addresses lose connectivity. Update those networks to use the NAT addresses before you enable NAT.
+
+**Important**  
 1:1 NAT is a paid feature. Enabling NAT on an attachment adds an hourly charge and a data processing charge. For more information, see [Cloud WAN pricing](what-is-cloudwan.md#cloudwan-available-pricing).
 
 ## Configure 1:1 NAT using the console
 <a name="cloudwan-nat-configure-console"></a>
 
 The **NAT system route support** setting controls whether Cloud WAN automatically installs routes for an attachment's NAT CIDRs in the attachment's segment. It works as follows for each attachment type:
-+ **Direct Connect gateway and BGP Site-to-Site VPN attachments** – You can turn this setting on or off; it's on by default. When it's on, Cloud WAN adds a system route for each NAT CIDR, and the routes your network advertises aren't changed. When it's off, you must advertise the NAT CIDRs from your network or add static routes in your core network policy.
++ **Direct Connect gateway and BGP Site-to-Site VPN attachments** – You can turn this setting on or off. It's on by default. When it's on, Cloud WAN adds a system route for each NAT CIDR, and the routes your network advertises aren't changed. When it's off, you must advertise the NAT CIDRs from your network or add static routes in your core network policy.
 + **VPC attachments** – This setting is always on. When a rule's match source CIDR exactly equals one of the VPC's CIDRs, the VPC CIDR's route is replaced by a route for the rule's NAT CIDR. For rules that don't exactly match a VPC CIDR, add a static route for the NAT CIDR in your core network policy.
 + **Connect attachments** – This setting is always off. Your peers must advertise the NAT CIDRs.
 
@@ -23,7 +25,7 @@ Each NAT rule has the following fields:
 + **Match source CIDR** – The source IPv4 CIDR of traffic arriving on this attachment, for example `10.100.10.0/24`. It can't overlap multicast (`224.0.0.0/4`) or link-local (`169.254.0.0/16`) ranges.
 + **NAT CIDR** – The IPv4 CIDR that source addresses are translated to, for example `100.64.10.0/24`. It must be within RFC 1918 or CGNAT (RFC 6598) space, with the same prefix length as the match source CIDR.
 
-No CIDR in a rule can overlap any other CIDR (match source or NAT) on the same attachment. You can add up to 50 rules per attachment.
+No CIDR in a rule can overlap any other CIDR (match source or NAT) on the same attachment. You can add up to 50 rules for each attachment.
 
 **To configure NAT during attachment creation**
 
@@ -75,7 +77,8 @@ While the configuration is applied, the attachment is in the **Updating** state.
 
 If the attachment is pending acceptance, the configuration is applied after the attachment is accepted. Until then, **NAT Gateway support** and the rules show **Pending attachment acceptance**. For more information, see [Attachment states](cloudwan-nat-how-it-works.md#cloudwan-nat-attachment-states).
 
-When you modify NAT rules, the rules on the form replace all existing rules on the attachment when you save. Any rule you remove from the form is deleted.
+**Important**  
+When you save, the rules on the form replace all existing rules on the attachment. Saving deletes any rule that you removed from the form.
 
 **To modify NAT rules**
 
@@ -93,7 +96,7 @@ When you modify NAT rules, the rules on the form replace all existing rules on t
 
 1. Choose **Save changes**.
 
-You can't save changes while the attachment is **Updating**. NAT can't be enabled with zero rules, so to remove every rule, also turn off **NAT Gateway support** in the same save.
+You can't save changes while the attachment is **Updating**. You can't enable NAT with zero rules, so to remove every rule, also turn off **NAT Gateway support** in the same save.
 
 **To view NAT configuration for an attachment**
 
@@ -107,7 +110,7 @@ You can't save changes while the attachment is **Updating**. NAT can't be enable
 
 1. Choose the name of the attachment you want to inspect.
 
-1. Choose the **1:1 NAT** tab to view the `natGatewaySupport`, the `natSystemRouteSupport` setting, and all configured rules.
+1. Choose the **1:1 NAT** tab to view the `natGatewaySupport` and `natSystemRouteSupport` settings, and all configured rules.
 
 **To disable NAT**
 
@@ -134,7 +137,7 @@ The attachment transitions to **Updating** while the change is applied and retur
 
 You manage the NAT configuration for a core network attachment with a single command, **update-attachment-nat-configuration**. With this command, you set the NAT options and the full rule set in one operation. Every parameter except `--attachment-id` is optional, so you can update options without changing rules, or replace rules without changing options.
 
-Changes are applied asynchronously. While a change is in progress, the attachment is in the `UPDATING` state; traffic keeps flowing, but you can't make further NAT changes. When the attachment returns to `AVAILABLE`, the change is complete. For attachments that span multiple Regions, such as Direct Connect gateway attachments, the NAT rules apply in every Region where the attachment is present.
+Changes are applied asynchronously. While a change is in progress, the attachment is in the `UPDATING` state. Traffic keeps flowing, but you can't make further NAT changes. When the attachment returns to `AVAILABLE`, the change is complete. For attachments that span multiple Regions, such as Direct Connect gateway attachments, the NAT rules apply in every Region where the attachment is present.
 
 In the following examples, replace the attachment ID, core network ID, and CIDRs with your own values.
 
@@ -155,10 +158,10 @@ aws networkmanager update-attachment-nat-configuration \
 
 Each rule needs a unique rule number from 1 to 32766. You can specify up to 50 rules.
 
-`--nat-gateway-support` (`ENABLE` \| `DISABLE`): Turns 1:1 NAT on or off for the attachment. When enabled, Cloud WAN translates traffic that matches the attachment's rules. NAT can't be enabled with zero rules, so you must include rules in the request, or rules must already be configured. When disabled, translation stops, and Cloud WAN keeps the rules in the deactivated state. If you omit this parameter, Cloud WAN keeps the current setting.
+`--nat-gateway-support` (`ENABLE` \| `DISABLE`): Turns 1:1 NAT on or off for the attachment. When enabled, Cloud WAN translates traffic that matches the attachment's rules. You can't enable NAT with zero rules, so you must include rules in the request, or rules must already be configured. When disabled, translation stops, and Cloud WAN keeps the rules in the deactivated state. If you omit this parameter, Cloud WAN keeps the current setting.
 
 `--nat-system-route-support` (`true` \| `false`) controls whether Cloud WAN automatically installs routes for the attachment's NAT CIDRs in the attachment's segment:
-+ **Direct Connect gateway and BGP Site-to-Site VPN attachments** – You can set to `true` or `false`. If you omit it, Cloud WAN keeps the current value; for a new configuration, it defaults to `true`. When NAT system route support is set to true, Cloud WAN adds a system route for each NAT CIDR specified in a NAT gateway rule, and the routes your network advertises aren't changed. When it's disabled, advertise the NAT CIDRs from your network, or add static routes in your core network policy.
++ **Direct Connect gateway and BGP Site-to-Site VPN attachments** – Valid values: `true` \| `false`. If you omit it, Cloud WAN keeps the current value. For a new configuration, it defaults to `true`. When NAT system route support is set to `true`, Cloud WAN adds a system route for each NAT CIDR specified in a NAT gateway rule, and the routes your network advertises aren't changed. When it's set to `false`, advertise the NAT CIDRs from your network, or add static routes in your core network policy.
 + **VPC attachments** – Always `true`; setting it to `false` is rejected. When a rule's `MatchSourceCidr` exactly equals one of the VPC's CIDRs, the VPC CIDR's route is replaced by a route for the rule's `NatCidr`. For rules that don't exactly match, add a static route for the `NatCidr` in your core network policy.
 + **Connect attachments** – Always `false`; setting it to `true` is rejected. Your peers must advertise the NAT CIDRs.
 
@@ -188,7 +191,7 @@ aws networkmanager update-attachment-nat-configuration \
     --nat-gateway-support DISABLE
 ```
 
-When you disable NAT, traffic on the attachment is no longer translated. Your rules are kept and their state changes to deactivated. They're reactivated when you enable NAT again.
+When you disable NAT, traffic on the attachment is no longer translated. Cloud WAN keeps your rules and changes their state to deactivated. The rules are reactivated when you enable NAT again.
 
 ### Clear all rules
 <a name="cloudwan-nat-cli-clear"></a>
