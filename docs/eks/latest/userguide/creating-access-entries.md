@@ -21,7 +21,7 @@ Before creating access entries, consider the following:
   +  `FARGATE_LINUX` - For an IAM role used with AWS Fargate (Fargate)
   +  `HYBRID_LINUX` - For an IAM role used with hybrid nodes
   +  `STANDARD` - Default type if none specified
-  +  `EC2` - For EKS Auto Mode custom node classes. For more information, see [Create node class access entry](create-node-class.md#auto-node-access-entry).
+  +  `EC2` - For an IAM role used with EKS Auto Mode custom node classes, or with self-managed nodes that use the EC2 instance ID as the node name. For more information, see [Create node class access entry](create-node-class.md#auto-node-access-entry) and [Using instance ID as node name](https://awslabs.github.io/amazon-eks-ami/nodeadm/doc/examples/#using-instance-id-as-node-name) in the Amazon EKS optimized AMI documentation on GitHub.
   + You can’t change the type after the access entry is created.
 + It’s unnecessary to create an access entry for an IAM role that’s used for a managed node group or a Fargate profile. EKS will create access entries (if enabled), or update the auth config map (if access entries are unavailable)
 + If the type of the access entry is `STANDARD`, you can specify a *username* for the access entry. If you don’t specify a value for username, Amazon EKS sets one of the following values for you, depending on the type of the access entry and whether the IAM principal that you specified is an IAM role or IAM user. Unless you have a specific reason for specifying your own username, we recommend that you don’t specify one and let Amazon EKS auto-generate it for you. If you specify your own username:
@@ -37,6 +37,7 @@ Before creating access entries, consider the following:
   <tr><td>User</td><td> <code>STANDARD</code> </td><td>The ARN of the user. Example: <code> arn:aws:iam::&lt;111122223333&gt;:user/&lt;my-user&gt;</code> </td></tr>
   <tr><td>Role</td><td> <code>STANDARD</code> </td><td>The STS ARN of the role when it’s assumed. Amazon EKS appends <code>{{SessionName}}</code> to the role.<br />Example: <code> arn:aws:sts::&lt;111122223333&gt;:assumed-role/&lt;my-role&gt;/{{SessionName}}</code> <br />If the ARN of the role that you specified contained a path, Amazon EKS removes it in the generated username.</td></tr>
   <tr><td>Role</td><td> <code>EC2_LINUX</code> or <code>EC2_WINDOWS</code> </td><td> <code>system:node:{{EC2PrivateDNSName}}</code> </td></tr>
+  <tr><td>Role</td><td> <code>EC2</code> </td><td> <code>system:node:{{SessionName}}</code> </td></tr>
   <tr><td>Role</td><td> <code>FARGATE_LINUX</code> </td><td> <code>system:node:{{SessionName}}</code> </td></tr>
   <tr><td>Role</td><td> <code>HYBRID_LINUX</code> </td><td> <code>system:node:{{SessionName}}</code> </td></tr>
 </tbody>
@@ -69,7 +70,13 @@ You can create an access entry using the AWS Management Console or the AWS CLI.
 
 1. For **IAM principal**, select an existing IAM role or user. IAM best practices recommend accessing your cluster using IAM *roles* that have short-term credentials, rather than IAM *users* that have long-term credentials. For more information, see [Require human users to use federation with an identity provider to access AWS using temporary credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#bp-users-federation-idp) in the *IAM User Guide*.
 
-1. For **Type**, if the access entry is for the node role used for self-managed Amazon EC2 nodes, select **EC2 Linux** or **EC2 Windows**. Otherwise, accept the default (**Standard**).
+1. For **Type**, choose the type for the IAM principal:
+
+   1. Choose **EC2** if the access entry is for the node role used for self-managed Amazon EC2 nodes that use the EC2 instance ID as the node name.
+
+   1. Choose **EC2 Linux** or **EC2 Windows** if the access entry is for the node role used for other self-managed Amazon EC2 nodes.
+
+   1. Accept the default (**Standard**) for all other IAM principals.
 
 1. If the **Type** you chose is **Standard** and you want to specify a **Username**, enter the username.
 
@@ -105,7 +112,14 @@ You can create an access entry using the AWS Management Console or the AWS CLI.
      aws eks create-access-entry --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:role/EKS-my-cluster-self-managed-ng-1 --type EC2_LINUX
      ```
 
-     You can’t use the `--kubernetes-groups` option when you specify a type other than `STANDARD`. You can’t associate an access policy to this access entry, because its type is a value other than `STANDARD`.
+     You can’t use the `--kubernetes-groups` option when you specify a type other than `STANDARD`. You can’t associate an access policy to this access entry.
+   + Create an access entry for self-managed Amazon EC2 Linux nodes that use the EC2 instance ID as the node name, such as Amazon Linux 2023 nodes with the `InstanceIdNodeName` feature gate enabled in `nodeadm`. Replace {{my-cluster}} with the name of your cluster, {{111122223333}} with your AWS account ID, and {{EKS-my-cluster-self-managed-ng-1}} with the name of your [node IAM role](create-node-role.md).
+
+     ```
+     aws eks create-access-entry --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:role/EKS-my-cluster-self-managed-ng-1 --type EC2
+     ```
+
+     You don’t need to associate an access policy with this access entry.
    + Create an access entry that allows an IAM role that’s not used for an Amazon EC2 self-managed node group, that you want Kubernetes to authorize access to your cluster with. Replace {{my-cluster}} with the name of your cluster, {{111122223333}} with your AWS account ID, and {{my-role}} with the name of your IAM role. Replace {{Viewers}} with the name of a group that you’ve specified in a Kubernetes `RoleBinding` or `ClusterRoleBinding` object on your cluster.
 
      ```

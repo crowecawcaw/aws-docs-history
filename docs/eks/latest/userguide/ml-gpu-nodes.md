@@ -8,7 +8,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 <a name="ml-gpu-nodes"></a>
 
 **Tip**  
- [Register](https://events.eksworkshop.com/workshops/genai/) for upcoming Amazon EKS AI/ML workshops.
+ [Register](https://awsworkshop.io/eks/genai?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) for upcoming Amazon EKS AI/ML workshops.
 
 After you set up the cluster infrastructure in [Set up Amazon EKS cluster for AI/ML workloads](ml-cluster-setup.md), the next step is GPU compute. This section defines the EKS Auto Mode or Karpenter NodePools that dynamically provision Amazon EC2 GPU instances, so that nodes are created as GPU workloads are scheduled and removed when they are no longer needed.
 

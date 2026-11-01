@@ -8,7 +8,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 <a name="ml-cluster-setup-tf"></a>
 
 **Tip**  
- [Register](https://events.eksworkshop.com/workshops/genai/) for upcoming Amazon EKS AI/ML workshops.
+ [Register](https://awsworkshop.io/eks/genai?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) for upcoming Amazon EKS AI/ML workshops.
 
 This section walks you through the steps to create the infrastructure required to run training or inference workloads on Amazon EKS by using Terraform. The steps include creating an EKS cluster with EKS Auto Mode or Karpenter for node auto-scaling, load balancing for in-cluster endpoints, a monitoring stack with Prometheus and Grafana, and Amazon S3 storage for model weights. You create the GPU NodePool that provisions GPU-enabled nodes in the [Create a GPU NodePool for AI/ML inference](ml-inference-gpu-nodepool.md) section.
 

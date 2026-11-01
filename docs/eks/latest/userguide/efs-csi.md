@@ -232,7 +232,7 @@ Run the following commands to create an IAM role with AWS CLI.
 1. Run the following command to create the Pod Identity association. Replace `<111122223333>` with your account ID.
 
    ```
-   aws eks create-pod-identity-association --cluster-name $cluster_name --role-arn {arn-aws}iam::<111122223333>:role/$role_name --namespace kube-system --service-account efs-csi-controller-sa
+   aws eks create-pod-identity-association --cluster-name $cluster_name --role-arn arn:aws:iam::<111122223333>:role/$role_name --namespace kube-system --service-account efs-csi-controller-sa
    ```
 
 1. For more information on creating Pod Identity associations, see [Create a Pod Identity association (AWS Console)](pod-id-association.md#pod-id-association-create).

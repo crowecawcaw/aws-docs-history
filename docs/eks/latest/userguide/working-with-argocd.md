@@ -22,6 +22,8 @@ Before working with Argo CD, you need:
 
 The following topics guide you through common Argo CD tasks:
 
+ ** [Using the Argo CD CLI with the managed capability](argocd-cli-configuration.md) ** - Install and configure the Argo CD CLI for use with the managed capability.
+
  ** [Configure repository access](argocd-configure-repositories.md) ** - Configure Argo CD to access your Git repositories using AWS Secrets Manager, AWS CodeConnections, or Kubernetes Secrets.
 
  ** [Register target clusters](argocd-register-clusters.md) ** - Register target clusters where Argo CD will deploy applications.

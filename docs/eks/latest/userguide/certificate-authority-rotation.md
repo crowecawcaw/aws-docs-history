@@ -57,21 +57,25 @@ The dual trust period gives you time to identify and update all the worker nodes
 **Note**  
 During the dual trust period, your cluster’s trust bundle contains two CAs. This is standard behavior for .pem-encoded trust bundles. Update applications that perform strict single-CA validation or CA pinning to accept multiple CAs before rotation begins.
 
-![Diagram showing trust bundle contents across CA rotation phases. Before rotation: one PEM block with outgoing CA. During dual trust: two PEM blocks with both outgoing and successor CA. After rotation: one PEM block with successor CA.](https://docs.aws.amazon.com/eks/latest/userguide/images/ca-rotation-trust-bundle-phases.png)
+The following diagram shows the trust bundle contents in each CA rotation phase. Before rotation, the trust bundle contains a single PEM block with the outgoing CA. During the dual trust period, it contains two PEM blocks with both the outgoing and successor CAs. After rotation, it contains a single PEM block with only the successor CA.
+
+![Trust bundle contents across the three CA rotation phases.](https://docs.aws.amazon.com/eks/latest/userguide/images/ca-rotation-trust-bundle-phases.png)
 
 
 It is important to understand how activation of the successor CA affects connectivity. When a client connects to the API server, it verifies the server’s identity by checking that the server’s certificate was signed by a CA it trusts.
 
 After the successor CA is activated, the API server presents its certificate signed by the successor CA. Clients that have updated their trust bundle to include the successor CA will verify successfully and connect as normal. Clients that have not updated their trust bundle will not recognize the server’s certificate and will not be able to establish a connection.
 
-The following diagram shows the TLS connection flow after successor CA activation.
+The following diagram shows the TLS connection flow after successor CA activation. A connecting component initiates a TLS connection to the API server, and the API server presents a certificate signed by the successor CA. If the client’s trust bundle contains the successor CA, the connection succeeds; if it does not, the TLS handshake is rejected.
 
-![Diagram showing the TLS connection flow after activation. A connecting component initiates a TLS connection to the API server. The API server presents a certificate signed by the successor CA. If the client’s trust bundle contains the successor CA](https://docs.aws.amazon.com/eks/latest/userguide/images/ca-rotation-tls-connection-flow.png)
+![TLS connection flow after successor CA activation.](https://docs.aws.amazon.com/eks/latest/userguide/images/ca-rotation-tls-connection-flow.png)
 
 
 This is why updating worker nodes and external clients before activation of the successor CA is important: they need the successor CA in their trust bundle to verify the API server’s identity and connect. The dual trust period and CA rollback provide you time and a safety net to complete this.
 
-![Diagram showing the three stages of CA rotation: Stage 1 Append (successor CA added](https://docs.aws.amazon.com/eks/latest/userguide/images/ca-rotation-three-stages.png)
+The following diagram shows the three stages of CA rotation. In Stage 1 (Append), the successor CA is added and the cluster trusts both CAs. In Stage 2 (Distribute), AWS updates the managed components. In Stage 3 (Activate), the cluster signs with the successor CA, and rollback remains available.
+
+![The three stages of CA rotation.](https://docs.aws.amazon.com/eks/latest/userguide/images/ca-rotation-three-stages.png)
 
 
 ## Shared responsibility model
@@ -101,7 +105,7 @@ We cannot perform these actions on your behalf. External clients exist outside t
 
 The sections that follow expand on each side: what AWS does for you, and what you need to do along with step-by-step guidance on how to do it.
 
-![Diagram showing the shared responsibility model for CA rotation. The service manages the control plane](https://docs.aws.amazon.com/eks/latest/userguide/images/ca-rotation-shared-responsibility.png)
+![Shared responsibility model for CA rotation: what the service manages versus what you manage.](https://docs.aws.amazon.com/eks/latest/userguide/images/ca-rotation-shared-responsibility.png)
 
 
 ## What AWS does for you
@@ -161,7 +165,7 @@ We notify you at each stage of the CA rotation lifecycle. Notifications are deli
 | Final auto-activation (if rolled back) | 45 days before expiration |  AWS activates the successor CA. No CA rollback available. | 
 
 **Note**  
-Clusters created in 2018-2019 have a different notification timeline. These clusters will receive automated notifications on an adjusted schedule.
+Clusters created in 2018–2019 have a different notification timeline. These clusters will receive automated notifications on an adjusted schedule.
 
 You can also configure your own notifications using Amazon EventBridge to integrate CA rotation events into your existing monitoring and alerting workflows.
 
@@ -173,7 +177,7 @@ A successful CA rotation requires you to update the components that AWS cannot r
 ### External clients
 <a name="_external_clients"></a>
 
-Any system that connects to your EKS cluster’s API server from outside the cluster. This includes developer workstations, CI/CD pipelines (Jenkins, GitHub Actions, GitLab, ArgoCD), monitoring and observability tools, automation scripts, and any application that uses a kubeconfig to communicate with the API server.
+Any system that connects to your EKS cluster’s API server from outside the cluster. This includes developer workstations, CI/CD pipelines (Jenkins, GitHub Actions, GitLab, Argo CD), monitoring and observability tools, automation scripts, and any application that uses a kubeconfig to communicate with the API server.
 
 These systems each maintain their own trust configuration. When the successor CA is activated, the API server presents certificates signed by the successor CA. Updating these clients to trust the successor CA before activation of the successor CA ensures they maintain connectivity. If a client is missed, CA rollback can restore access while you complete the update.
 
@@ -366,19 +370,27 @@ The Amazon EKS console provides a guided experience for CA rotation. You can vie
 
 The following image shows the certificate authority details view in the Amazon EKS console during an active rotation. The active CA and successor CA are both displayed with their signing status, expiration date, and days until expiration.
 
-![The Amazon EKS console showing certificate authority details](https://docs.aws.amazon.com/eks/latest/userguide/images/ca-rotation-console-ca-details.png)
+![Amazon EKS console certificate authority details showing the active and successor CA side by side.](https://docs.aws.amazon.com/eks/latest/userguide/images/ca-rotation-console-ca-details.png)
 
 
 The following image shows the rotation progress view in the Amazon EKS console. Each step of the rotation process is displayed with its current state, including append, distribution, updating worker nodes and external clients, activation, and deletion of the outgoing CA.
 
-![The Amazon EKS console showing the rotation progress view with each step of the CA rotation lifecycle and its completion status](https://docs.aws.amazon.com/eks/latest/userguide/images/ca-rotation-console-rotation-progress.png)
+![Amazon EKS console rotation progress view showing each CA rotation step and its status.](https://docs.aws.amazon.com/eks/latest/userguide/images/ca-rotation-console-rotation-progress.png)
+
+
+In addition to the per-cluster rotation progress view, the Amazon EKS console provides a cluster CA dashboard for monitoring rotation across your entire fleet. From a single view, the dashboard shows:
++ All clusters across your regions and accounts, with the CA rotation status of each.
++ Clusters whose CAs are approaching expiration, so that you can prioritize them.
++ Upcoming automated rotation events, so that you can plan ahead.
+
+![The Amazon EKS console cluster CA dashboard.](https://docs.aws.amazon.com/eks/latest/userguide/images/ca-rotation-cluster-dashboard.png)
 
 
 ## Updating your Kubernetes clients
 <a name="_updating_your_kubernetes_clients"></a>
 
 **Important**  
-During the dual trust period, your cluster’s trust bundle contains two CA certificates. The combined size of two base64-encoded CAs is approximately 2.8 KB (or approximately 1.9 KB with gzip compression). For worker nodes where custom user data is provided in EC2 launch templates, verify that your total user data size does not exceed the [EC2 user data limit of 16KB](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html). If your existing user data is close to this limit, consider compressing your user data content using gzip to reduce size.
+During the dual trust period, your cluster’s trust bundle contains two CA certificates. The combined size of two base64-encoded CAs is approximately 2.8 KB (or approximately 1.9 KB with gzip compression). For worker nodes where custom user data is provided in EC2 launch templates, verify that your total user data size does not exceed the [EC2 user data limit of 16 KB](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html). If your existing user data is close to this limit, consider compressing your user data content using gzip to reduce size.
 
 After the successor CA has been appended and AWS has completed distribution to managed components in your EKS cluster (`distributionStatus: COMPLETE`), you need to update your own components to trust the successor CA. A "client" in this context is any system that connects to your EKS cluster’s API server. This includes your local kubectl configuration, CI/CD pipelines, monitoring tools, automation scripts, and your worker nodes.
 
@@ -546,14 +558,14 @@ In Fargate, each pod runs in its own dedicated compute environment with its own 
 
 This means both managed data plane options (EKS Auto Mode and Fargate) for an EKS cluster have the same user experience for CA rotation: no customer action is required for your worker nodes. You are still responsible for updating any external clients that connect to the API server.
 
-This is an edge case. Given the rotation timeline (successor CA appended years before expiration), the natural patching cycle will complete well before activation of the successor CA in the vast majority of scenarios. The safeguard exists as a preventive measure for the unlikely case where a customer attempts early activation.
+This is an edge case. Given the rotation timeline (successor CA appended years before expiration), the natural patching cycle will complete well before activation of the successor CA in the vast majority of scenarios. The safeguard exists as a preventive measure for the unlikely case where you attempt early activation.
 
 ### External clients (monitoring tools, third-party integrations)
 <a name="_external_clients_monitoring_tools_third_party_integrations"></a>
 
 Any application or tool that connects to your EKS cluster’s API server using a kubeconfig or certificate trust configuration needs to be updated with the updated CA data. This includes:
 + Monitoring and observability tools (Datadog, Prometheus, Grafana agents)
-+ GitOps controllers running outside the cluster (ArgoCD, Flux)
++ GitOps controllers running outside the cluster (Argo CD, Flux)
 + Custom automation or scripts that call the Kubernetes API
 + Any system that stores `certificate-authority-data` as a static value
 
@@ -582,7 +594,7 @@ The CA lifecycle is managed through dedicated EKS APIs (`create-certificate-auth
 
 This means:
 + Applying or updating your IaC stack after a CA has been appended or activated will not detect drift or attempt to reconcile the CA state
-+ CA rotation operations initiated via CLI or Console do not conflict with IaC-managed cluster resources
++ CA rotation operations initiated through CLI or Console do not conflict with IaC-managed cluster resources
 
 The `certificateAuthority.data` field returned by `describe-cluster` is a read-only output. It reflects the current combined trust bundle (both CAs during the dual trust period) but is not a configurable property. IaC tools do not track it as something to reconcile.
 
@@ -683,7 +695,7 @@ aws eks activate-certificate-authority --cluster-name my-cluster --certificate-a
 + The successor CA remains in the trust bundle (both CAs are still trusted)
 + Worker nodes and clients that were already updated to trust the successor CA will continue to work (they trust both CAs)
 + Worker nodes and clients that had not yet been updated will resume normal operation (the API server is presenting certificates signed by the CA they already trust)
-+ Kubelet processes on worker nodes will automatically reconnect via their built-in retry loop
++ Kubelet processes on worker nodes will automatically reconnect through their built-in retry loop
 
 ### When to consider CA rollback
 <a name="_when_to_consider_ca_rollback"></a>
@@ -767,7 +779,7 @@ The original CA created with your cluster has a 10-year validity period. Success
 ### EC2 user data size during dual trust
 <a name="_ec2_user_data_size_during_dual_trust"></a>
 
-During the dual trust period, your cluster’s trust bundle increases in size due to containing two CA certificates (approximately 2.8 KB combined, or approximately 1.9 KB with gzip compression). For worker nodes where custom user data is provided in EC2 launch templates, verify that your total user data size does not exceed the [EC2 user data limit of 16KB](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html). If your existing user data is close to this limit, the addition of a second CA might cause launch template creation to fail and prevent new nodes from being provisioned. Consider compressing your user data content using gzip to reduce size.
+During the dual trust period, your cluster’s trust bundle increases in size due to containing two CA certificates (approximately 2.8 KB combined, or approximately 1.9 KB with gzip compression). For worker nodes where custom user data is provided in EC2 launch templates, verify that your total user data size does not exceed the [EC2 user data limit of 16 KB](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html). If your existing user data is close to this limit, the addition of a second CA might cause launch template creation to fail and prevent new nodes from being provisioned. Consider compressing your user data content using gzip to reduce size.
 
 ### Version upgrades during CA rotation
 <a name="_version_upgrades_during_ca_rotation"></a>
@@ -924,4 +936,4 @@ Applications and clients should be configured to trust a CA bundle rather than p
 ### Why is my notification timeline different from what this documentation describes?
 <a name="_why_is_my_notification_timeline_different_from_what_this_documentation_describes"></a>
 
-If your cluster was created in 2018-2019, your cluster will receive automated notifications on an adjusted timeline. Your first notification will include the relevant dates and next steps specific to your cluster. The standard notification milestones are calculated relative to your cluster’s CA expiration date. For clusters in this range, those calculated dates precede the availability of this feature, so an adjusted schedule is applied.
+If your cluster was created in 2018–2019, your cluster will receive automated notifications on an adjusted timeline. Your first notification will include the relevant dates and next steps specific to your cluster. The standard notification milestones are calculated relative to your cluster’s CA expiration date. For clusters in this range, those calculated dates precede the availability of this feature, so an adjusted schedule is applied.

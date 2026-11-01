@@ -161,10 +161,11 @@ This IAM policy grants the following permissions to allow Amazon EKS to manage E
 +  ** `ec2` Volume Management Permissions**:
   +  `ec2:AttachVolume`, `ec2:DetachVolume`, `ec2:ModifyVolume`, `ec2:EnableFastSnapshotRestores` - Allows attaching, detaching, modifying, and enabling fast snapshot restores for EC2 volumes.
   + These permissions are restricted to volumes tagged with the EKS cluster name.
-  +  `ec2:CreateTags` - Allows adding tags to the EC2 volumes and snapshots created by the `CreateVolume` and `CreateSnapshot` actions.
+  +  `ec2:CopyVolumes` - Allows copying EC2 volumes to create new volumes. This is restricted to source volumes tagged with the EKS cluster name.
+  +  `ec2:CreateTags` - Allows adding tags to the EC2 volumes and snapshots created by the `CreateVolume`, `CopyVolumes`, and `CreateSnapshot` actions.
 +  ** `ec2` Volume Creation Permissions**:
-  +  `ec2:CreateVolume` - Allows creating new EC2 volumes.
-  + The policy includes conditions to restrict the use of this permission to volumes tagged with the EKS cluster name and other relevant tags.
+  +  `ec2:CreateVolume` and `ec2:CopyVolumes` - Allows creating new EC2 volumes, including copies of existing volumes.
+  + The policy includes conditions to restrict the use of these permissions to volumes tagged with the EKS cluster name and other relevant tags.
   +  `ec2:CreateSnapshot` - Allows creating new EC2 volume snapshots.
   + The policy includes conditions to restrict the use of this permission to snapshots tagged with the EKS cluster name and other relevant tags.
 
@@ -411,6 +412,7 @@ https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/secu
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Added permission to [AWS managed policy: AmazonEKSBlockStoragePolicyV2](#security-iam-awsmanpol-AmazonEKSBlockStoragePolicyV2). | Added the `ec2:CopyVolumes` permission to `AmazonEKSBlockStoragePolicyV2`. With this permission, Amazon EKS Auto Mode can copy EBS volumes that have the EKS cluster name tag, for example to create a PersistentVolumeClaim from an existing one. | October 26, 2026 | 
 | Added permission to [AmazonEKSServiceRolePolicy](#security-iam-awsmanpol-amazoneksservicerolepolicy). | Added the `ec2:DescribeDhcpOptions` permission. This permission allows Amazon EKS to read the DHCP option set of the cluster VPC. As a result, the Kubernetes control plane uses the DNS servers and domain name configured for the VPC, even if your cluster IAM role doesn’t include this permission. If you associate a different DHCP option set with the VPC, the control plane automatically uses the new settings. | October 23, 2026 | 
 | Added permissions to [AmazonEKSServiceRolePolicy](#security-iam-awsmanpol-amazoneksservicerolepolicy). | Added the `eks:CreateCertificateAuthority`, `eks:ActivateCertificateAuthority`, `eks:DeleteCertificateAuthority`, and `ec2:RebootInstances` permissions. These permissions allow Amazon EKS to rotate cluster certificate authorities and reboot Amazon EC2 instances managed by EKS Auto Mode. | October 1, 2026 | 
 | Updated permissions to [AWS managed policy: AmazonEKSLoadBalancingPolicy](#security-iam-awsmanpol-AmazonEKSLoadBalancingPolicy). | Added `gateway.eks.amazonaws.com.alb/stack`, `gateway.eks.amazonaws.com.alb/resource`, `gateway.eks.amazonaws.com.nlb/stack`, and `gateway.eks.amazonaws.com.nlb/resource` tag keys to the resource-tagging allowlist in `AmazonEKSLoadBalancingPolicy`. This allows Amazon EKS Auto Mode Controller to manage AWS resources for Kubernetes Gateway API (ALB and NLB) workloads. | September 2, 2026 | 

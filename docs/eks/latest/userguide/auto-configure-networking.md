@@ -12,6 +12,7 @@ Configure the networking and load balancing behavior of your Amazon EKS Auto Mod
 **Topics**
 + [Create an IngressClass to configure an Application Load Balancer](auto-configure-alb.md)
 + [Use Service Annotations to configure Network Load Balancers](auto-configure-nlb.md)
++ [Configure the Kubernetes Gateway API in EKS Auto Mode](auto-configure-gateway-api.md)
 + [Configure multi-cluster target groups](auto-multi-cluster-target-groups.md)
 + [Share a target group across two clusters](auto-multi-cluster-target-groups-example.md)
 + [Use Network Policies with EKS Auto Mode](auto-net-pol.md)

@@ -8,7 +8,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 <a name="create-kubeconfig"></a>
 
 **Tip**  
- [Register](https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) for upcoming Amazon EKS workshops.
+ [Register](https://awsworkshop.io/eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) for upcoming Amazon EKS workshops.
 
 In this topic, you create a `kubeconfig` file for your cluster (or update an existing one).
 

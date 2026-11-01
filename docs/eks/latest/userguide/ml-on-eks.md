@@ -8,7 +8,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 <a name="ml-on-eks"></a>
 
 **Tip**  
- [Register](https://events.eksworkshop.com/workshops/genai/) for upcoming Amazon EKS AI/ML workshops.
+ [Register](https://awsworkshop.io/eks/genai?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) for upcoming Amazon EKS AI/ML workshops.
 
 Amazon Elastic Kubernetes Service (Amazon EKS) is a managed Kubernetes service that empowers organizations to deploy, manage, and scale artificial intelligence (AI) and machine learning (ML) workloads with unparalleled flexibility and control. Because Amazon EKS is built on upstream Kubernetes, you can apply your existing Kubernetes expertise while integrating seamlessly with open source tools and AWS services.
 

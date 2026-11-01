@@ -36,7 +36,7 @@ argocd cluster add $CLUSTER_ARN \
 ```
 
 **Note**  
-For information about configuring the Argo CD CLI to work with the Argo CD capability in EKS, see [Using the Argo CD CLI with the managed capability](argocd-comparison.md#argocd-cli-configuration).
+For information about configuring the Argo CD CLI to work with the Argo CD capability in EKS, see [Using the Argo CD CLI with the managed capability](argocd-cli-configuration.md).
 
 Alternatively, register the cluster using a Kubernetes Secret (see [Register target clusters](argocd-register-clusters.md) for details).
 

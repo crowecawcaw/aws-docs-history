@@ -8,7 +8,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 <a name="ml-inference"></a>
 
 **Tip**  
- [Register](https://events.eksworkshop.com/workshops/genai/) for upcoming Amazon EKS AI/ML workshops.
+ [Register](https://awsworkshop.io/eks/genai?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) for upcoming Amazon EKS AI/ML workshops.
 
 Inference is the process of running a trained AI model to generate predictions or outputs from input data. This includes serving large language models (LLMs) that produce text or code, diffusion models that generate images, speech models for voice synthesis and transcription, and video models for real-time analysis or generation. Amazon EKS provides a scalable, portable solution for deploying these inference workloads with NVIDIA GPUs or AWS Trainium accelerators, dynamic scaling, and integration with the broader Kubernetes and AWS landscape of tools and services.
 

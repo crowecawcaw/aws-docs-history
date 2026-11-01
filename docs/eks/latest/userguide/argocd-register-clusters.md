@@ -13,6 +13,7 @@ Register clusters to enable Argo CD to deploy applications to them. You can regi
 <a name="_prerequisites"></a>
 + An EKS cluster with the Argo CD capability created
 +  `kubectl` configured to communicate with your cluster
++ (Optional) The Argo CD CLI installed for easier cluster and repository management
 + For remote clusters: appropriate IAM permissions and access entries
 
 ## Register the local cluster

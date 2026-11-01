@@ -8,7 +8,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 <a name="ml-eks-optimized-amis-overview"></a>
 
 **Tip**  
- [Register](https://events.eksworkshop.com/workshops/genai/) for upcoming Amazon EKS AI/ML workshops.
+ [Register](https://awsworkshop.io/eks/genai?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) for upcoming Amazon EKS AI/ML workshops.
 
 Running AI/ML workloads on Amazon EKS requires an operating system image that includes the GPU drivers, kernel modules, and container runtime configuration that accelerated instances depend on. Amazon EKS publishes EKS-optimized accelerated AMIs that bundle these components with the standard EKS node components, so your nodes can run GPU-accelerated containers as soon as they join the cluster.
 
