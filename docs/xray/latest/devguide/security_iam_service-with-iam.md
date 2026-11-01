@@ -53,6 +53,8 @@ You can specify multiple actions using wildcards (\*). For example, to specify a
 
 To see a list of X-Ray actions, see [Actions Defined by AWS X-Ray](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsx-ray.html) in the *IAM User Guide*.
 
+The `xray:CallWithBearerToken` action is a permission-only action. It controls whether an IAM user can authenticate with an X-Ray API key (bearer token) when sending traces to the OpenTelemetry Protocol (OTLP) traces endpoint. A request with an API key must be allowed both `xray:CallWithBearerToken` and the action for the operation, `xray:PutTraceSegments`. X-Ray evaluates `xray:CallWithBearerToken` against identity-based policies only. For more information, see [Setting up bearer token authentication for traces](xray-opentelemetry-bearer-token.md).
+
 ### Resources
 <a name="security_iam_service-with-iam-id-based-policies-resources"></a>
 

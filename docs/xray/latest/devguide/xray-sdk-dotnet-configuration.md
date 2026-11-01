@@ -4,7 +4,7 @@
 <a name="xray-sdk-dotnet-configuration"></a>
 
 **Note**  
-X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SDKs/Daemon will enter maintenance mode, where AWS will limit X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see [X-Ray SDK and Daemon Support timeline](xray-sdk-daemon-timeline.md). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation ](https://docs.aws.amazon.com/xray/latest/devguide/xray-sdk-migration.html).
+X-Ray SDK/Daemon Maintenance Notice – As of February 25th, 2026, the AWS X-Ray SDKs/Daemon are in maintenance mode. AWS limits X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see [X-Ray SDK and Daemon Support timeline](xray-sdk-daemon-timeline.md). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation ](https://docs.aws.amazon.com/xray/latest/devguide/xray-sdk-migration.html).
 
 You can configure the X-Ray SDK for .NET with plugins to include information about the service that your application runs on, modify the default sampling behavior, or add sampling rules that apply to requests to specific paths.
 
@@ -168,7 +168,7 @@ AWSXRayRecorder.InitializeInstance(configuration,recorder);
 ## Logging (.NET)
 <a name="xray-sdk-dotnet-configuration-logging"></a>
 
-The X-Ray SDK for .NET uses the same logging mechanism as the [AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/net-dg-config-other.html#config-setting-awslogging). If you already configured your application to log AWS SDK for .NET output, the same configuration applies to output from the X-Ray SDK for .NET.
+The X-Ray SDK for .NET uses the same logging mechanism as the [AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-config-other.html#config-setting-awslogging). If you already configured your application to log AWS SDK for .NET output, the same configuration applies to output from the X-Ray SDK for .NET.
 
 To configure logging, add a configuration section named `aws` to your `App.config` file or `Web.config` file.
 
@@ -191,7 +191,7 @@ For more information, see [Configuring Your AWS SDK for .NET Application](https:
 ## Logging (.NET Core)
 <a name="xray-sdk-dotnet-configuration-corelogging"></a>
 
-The X-Ray SDK for .NET uses the same logging options as the [AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/net-dg-config-other.html#config-setting-awslogging). To configure logging for .NET Core applications, pass the logging option to the `AWSXRayRecorder.RegisterLogger` method.
+The X-Ray SDK for .NET uses the same logging options as the [AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-config-other.html#config-setting-awslogging). To configure logging for .NET Core applications, pass the logging option to the `AWSXRayRecorder.RegisterLogger` method.
 
 For example, to use log4net, create a configuration file that defines the logger, the output format, and the file location.
 

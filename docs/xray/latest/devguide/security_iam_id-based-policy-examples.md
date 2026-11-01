@@ -134,7 +134,7 @@ A user with a role that has the following policy attached cannot add the tag `ro
 ## IAM managed policies for X-Ray
 <a name="xray-permissions-managedpolicies"></a>
 
-To make granting permissions easy, IAM supports **managed policies** for each service. A service can update these managed policies with new permissions when it releases new APIs. AWS X-Ray provides managed policies for read only, write only, and administrator use cases.
+To make granting permissions easy, IAM supports **managed policies** for each service. A service can update these managed policies with new permissions when it releases new APIs. AWS X-Ray provides managed policies for read only, write only, administrator, and API key (bearer token) use cases.
 + `AWSXrayReadOnlyAccess` – Read permissions for using the X-Ray console, AWS CLI, or AWS SDK to get trace data, trace maps, insights, and X-Ray configuration from the X-Ray API. Includes Observability Access Manager (OAM) `oam:ListSinks` and `oam:ListAttachedSinks` permissions to allow the console to view traces shared from source accounts as part of [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html). The `BatchGetTraceSummaryById` and `GetDistinctTraceGraphs` API actions are not intended to be called by your code, and not included in the AWS CLI and AWS SDKs.
 
   ```
@@ -175,7 +175,7 @@ To make granting permissions easy, IAM supports **managed policies** for each se
               ],
               "Resource": "arn:aws:oam:*:*:sink/*"
           }
-  
+      ]
   }
   ```
 + `AWSXRayDaemonWriteAccess` – Write permissions for using the X-Ray daemon, AWS CLI, or AWS SDK to upload segment documents and telemetry to the X-Ray API. Includes read permissions to get [sampling rules](xray-console-sampling.md) and report sampling results.
@@ -285,6 +285,30 @@ To make granting permissions easy, IAM supports **managed policies** for each se
   ```
 
 ------
++ <a name="xray-permissions-managedpolicies-apikey"></a>`AWSXRayAPIKeyAccess` – Grants the permissions that an IAM user needs to send traces to the OpenTelemetry Protocol (OTLP) traces endpoint with an X-Ray API key (bearer token). Attach this AWS managed policy to the IAM user that owns the API key.
+
+  ```
+  {
+      "Version": "2012-10-17",
+      "Statement": [
+          {
+              "Sid": "XRayAPIKeyTraceIngestion",
+              "Effect": "Allow",
+              "Action": [
+                  "xray:CallWithBearerToken",
+                  "xray:PutTraceSegments"
+              ],
+              "Resource": "*"
+          }
+      ]
+  }
+  ```
+
+  The policy grants two permissions:
+  + `xray:CallWithBearerToken` – Allows the user's X-Ray API keys to be used to authenticate requests. Without it, requests made with the user's API keys are denied.
+  + `xray:PutTraceSegments` – Allows sending spans to the OTLP traces endpoint, which is authorized as `PutTraceSegments`.
+
+  The policy doesn't grant permission to read trace data, change X-Ray configuration, or create API keys. For more information, see [Setting up bearer token authentication for traces](xray-opentelemetry-bearer-token.md). To view the policy document, see [AWSXRayAPIKeyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSXRayAPIKeyAccess.html) in the *AWS Managed Policy Reference Guide*.
 
 **To add a managed policy to an IAM user, group, or role**
 
@@ -302,6 +326,7 @@ View details about updates to AWS managed policies for X-Ray since this service 
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| [IAM managed policies for X-Ray](#xray-permissions-managedpolicies) – Added new `AWSXRayAPIKeyAccess` policy. | X-Ray added a new AWS managed policy that grants `xray:CallWithBearerToken` and `xray:PutTraceSegments`, so that an IAM user can send traces to the OpenTelemetry Protocol (OTLP) traces endpoint with an X-Ray API key (bearer token).  | October 27, 2026 | 
 | [IAM managed policies for X-Ray](#xray-permissions-managedpolicies) – Added new `AWSXrayCrossAccountSharingConfiguration`, and updated `AWSXrayReadOnlyAccess` and `AWSXrayFullAccess` policies. | X-Ray added Observability Access Manager (OAM) permissions `oam:ListSinks` and `oam:ListAttachedSinks` to these policies to allow the console to view traces shared from source accounts as part of [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).  | November 27, 2022 | 
 | [IAM managed policies for X-Ray](#xray-permissions-managedpolicies) – Update to `AWSXrayReadOnlyAccess` policy. | X-Ray added an API action, `ListResourcePolicies`.  | November 15, 2022 | 
 | [Using the X-Ray console](#security_iam_id-based-policy-examples-console) – Update to `AWSXrayReadOnlyAccess` policy | X-Ray added two new API actions, `BatchGetTraceSummaryById` and `GetDistinctTraceGraphs`. <br />These actions are not intended to be called by your code. Therefore, these API actions are not included in the AWS CLI and AWS SDKs. | November 11, 2022 | 
