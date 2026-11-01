@@ -48,7 +48,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To get detailed information about a specified domain**  
-The following `get-domain-detail` command displays detailed information about the specified domain.  
+The following `get-domain-detail` example displays detailed information about the specified domain.  
 This command runs only in the `us-east-1` Region. If your default region is set to `us-east-1`, you can omit the `region` parameter.  
 
 ```
@@ -137,6 +137,7 @@ Output:
     ]
 }
 ```
+For more information, see [Registering and managing domains using Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar.html) in the *Amazon Route 53 Developer Guide*.  
 +  For API details, see [GetDomainDetail](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/route53domains/get-domain-detail.html) in *AWS CLI Command Reference*. 
 
 ------

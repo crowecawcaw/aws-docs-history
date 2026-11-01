@@ -58,18 +58,45 @@ Create a mobile configuration profile with the following structure:
         <string>HTTPS</string>
         <key>ServerAddresses</key>
         <array>
-          <string>3.3.3.3</string>
-          <string>3.3.3.4</string>
+          <string>{{3.3.3.3}}</string>
+          <string>{{3.3.3.4}}</string>
         </array>
         <key>ServerURL</key>
-        <string>https://a1bc234567890a.route53globalresolver.global.on.aws/dns-query?token=<your-token></string>
+        <string>https://{{a1bc234567890a.route53globalresolver.global.on.aws}}/dns-query/token/{{your-token}}</string>
       </dict>
       <key>PayloadType</key>
       <string>com.apple.dnsSettings.managed</string>
+      <key>PayloadDisplayName</key>
+      <string>Global Resolver DoH</string>
+      <key>PayloadIdentifier</key>
+      <string>{{com.example.dnssettings}}</string>
+      <key>PayloadUUID</key>
+      <string>{{uuid-1}}</string>
+      <key>PayloadVersion</key>
+      <integer>1</integer>
     </dict>
   </array>
+  <key>PayloadType</key>
+  <string>Configuration</string>
+  <key>PayloadIdentifier</key>
+  <string>{{com.example.dnssettings.profile}}</string>
+  <key>PayloadUUID</key>
+  <string>{{uuid-2}}</string>
+  <key>PayloadVersion</key>
+  <integer>1</integer>
+  <key>PayloadDisplayName</key>
+  <string>Global Resolver DoH</string>
 </dict>
 </plist>
 ```
 
-Install the profile through System Settings > Device Management.
+**Note**  
+On macOS, pass the token as a path segment (`/dns-query/token/<your-token>`), not a query parameter. macOS strips query parameters from the DoH server URL, so the token never reaches Global Resolver.
+
+Replace the example values:
++ {{a1bc234567890a.route53globalresolver.global.on.aws}}: your Global Resolver's DNS name.
++ {{3.3.3.3}} and {{3.3.3.4}}: your Global Resolver's IPv4 addresses. For dual-stack resolvers, you can also list its IPv6 addresses.
++ {{your-token}}: your access token value, as returned by `GetAccessToken`. Don't use the token ID.
++ {{com.example.dnssettings}} and {{com.example.dnssettings.profile}}: reverse-DNS identifiers for the DNS payload and the profile. {{uuid-1}} and {{uuid-2}}: unique UUIDs for each (for example, generate them with `uuidgen`).
+
+Install the profile manually on the device, or deploy it through your mobile device management (MDM) solution.

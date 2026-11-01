@@ -42,7 +42,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To get a list of suggested domain names**  
-The following `get-domain-suggestions` command displays a list of suggested domain names based on the domain name `example.com`. The response includes only domain names that are available. This command runs only in the `us-east-1` Region. If your default region is set to `us-east-1`, you can omit the `region` parameter.  
+The following `get-domain-suggestions` example displays a list of suggested domain names based on the domain name `example.com`. The response includes only domain names that are available. This command runs only in the `us-east-1` Region. If your default region is set to `us-east-1`, you can omit the `region` parameter.  
 
 ```
 aws route53domains get-domain-suggestions \
@@ -75,7 +75,7 @@ Output:
         {
             "DomainName": "examplelist.com",
             "Availability": "AVAILABLE"
-       },
+        },
         {
             "DomainName": "examplenews.net",
             "Availability": "AVAILABLE"
@@ -95,6 +95,7 @@ Output:
     ]
 }
 ```
+For more information, see [Registering a new domain](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-register.html) in the *Amazon Route 53 Developer Guide*.  
 +  For API details, see [GetDomainSuggestions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/route53domains/get-domain-suggestions.html) in *AWS CLI Command Reference*. 
 
 ------

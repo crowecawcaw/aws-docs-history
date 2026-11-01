@@ -54,25 +54,26 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To get the current status of an operation**  
-Some domain registration operations operate asynchronously and return a response before they finish. These operations return an operation ID that you can use to get the current status. The following `get-operation-detail` command returns the status of the specified operation.  
+The following `get-operation-detail` example returns the status of the specified operation. Some domain registration operations operate asynchronously and return a response before they finish. These operations return an operation ID that you can use to get the current status.  
 This command runs only in the `us-east-1` Region. If your default region is set to `us-east-1`, you can omit the `region` parameter.  
 
 ```
 aws route53domains get-operation-detail \
     --region {{us-east-1}} \
-    --operation-id {{edbd8d63-7fe7-4343-9bc5-54033example}}
+    --operation-id {{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}
 ```
 Output:  
 
 ```
 {
-    "OperationId": "edbd8d63-7fe7-4343-9bc5-54033example",
+    "OperationId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
     "Status": "SUCCESSFUL",
     "DomainName": "example.com",
     "Type": "DOMAIN_LOCK",
     "SubmittedDate": 1573749367.864
 }
 ```
+For more information, see [Viewing the status of a domain registration](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-view-status.html) in the *Amazon Route 53 Developer Guide*.  
 +  For API details, see [GetOperationDetail](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/route53domains/get-operation-detail.html) in *AWS CLI Command Reference*. 
 
 ------

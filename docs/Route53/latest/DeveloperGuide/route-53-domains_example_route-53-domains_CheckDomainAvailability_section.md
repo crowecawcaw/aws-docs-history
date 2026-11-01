@@ -38,7 +38,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To determine whether you can register a domain name with Route 53**  
-The following `check-domain-availability` command returns information about whether the domain name `example.com` is available to be registered using Route 53.  
+The following `check-domain-availability` example returns information about whether the domain name `example.com` is available to be registered using Route 53.  
 This command runs only in the `us-east-1` Region. If your default region is set to `us-east-1`, you can omit the `region` parameter.  
 
 ```
