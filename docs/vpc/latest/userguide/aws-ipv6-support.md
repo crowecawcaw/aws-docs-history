@@ -109,6 +109,7 @@ The following table lists the AWS services that provide dual stack support, IPv6
 | Amazon Managed Grafana 3 | Yes | No | Yes | Yes | 
 | AWS Ground Station 4 | Yes | No | Yes | Yes | 
 | Amazon GuardDuty | No | No | Yes | Yes | 
+| AWS Health | Yes | No | Yes | Yes | 
 | AWS HealthImaging | No | No | Yes | Yes | 
 | AWS HealthLake | No | No | Yes | Yes | 
 | AWS HealthOmics | No | No | Yes | Yes | 
