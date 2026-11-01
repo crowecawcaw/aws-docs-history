@@ -42,7 +42,7 @@ Skills in:
 
 Knowledge of:
 + AWS global infrastructure (for example, Availability Zones, AWS Regions, Amazon Route 53)
-+ AWS Managed Services (AMS) with appropriate use cases (for example, Amazon Comprehend, Amazon Polly)
++ AWS managed services with appropriate use cases (for example, Amazon Comprehend, Amazon Polly)
 + Basic networking concepts (for example, route tables)
 + Disaster recovery (DR) strategies (for example, backup and restore, pilot light, warm standby, active-active failover, recovery point objective [RPO], recovery time objective [RTO])
 + Distributed design patterns

@@ -27,7 +27,7 @@ The following list contains AWS services and features that are in scope for the 
 <a name="saa-03-in-scope-analytics"></a>
 + Amazon Athena
 + AWS Data Exchange
-+ Amazon Data Firehose
++ AWS Data Pipeline
 + Amazon EMR
 + AWS Glue
 + Amazon Kinesis
@@ -122,18 +122,18 @@ The following list contains AWS services and features that are in scope for the 
 + Amazon Managed Service for Prometheus
 + AWS Management Console
 + AWS Organizations
++ AWS Proton
 + AWS Service Catalog
 + AWS Systems Manager
-+ AWS Trusted Advisor
 + AWS Well-Architected Tool
 
 ## Media Services
 <a name="saa-03-in-scope-media-services"></a>
-+ Amazon Elastic Transcoder
 + Amazon Kinesis Video Streams
 
 ## Migration and Transfer
 <a name="saa-03-in-scope-migration-transfer"></a>
++ AWS Application Discovery Service
 + AWS Application Migration Service
 + AWS DataSync
 + AWS DMS

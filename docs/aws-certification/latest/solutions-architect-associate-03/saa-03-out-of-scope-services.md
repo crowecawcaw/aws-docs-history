@@ -7,8 +7,6 @@ The following list contains AWS services and features that are out of scope for 
 
 **Topics**
 + [Application Integration](#saa-03-out-of-scope-application-integration)
-+ [AR and VR](#saa-03-out-of-scope-ar-vr)
-+ [Blockchain](#saa-03-out-of-scope-blockchain)
 + [Compute](#saa-03-out-of-scope-compute)
 + [Database](#saa-03-out-of-scope-database)
 + [Developer Tools](#saa-03-out-of-scope-developer-tools)
@@ -26,14 +24,6 @@ The following list contains AWS services and features that are out of scope for 
 ## Application Integration
 <a name="saa-03-out-of-scope-application-integration"></a>
 + Amazon Managed Workflows for Apache Airflow (Amazon MWAA)
-
-## AR and VR
-<a name="saa-03-out-of-scope-ar-vr"></a>
-+ Amazon Sumerian
-
-## Blockchain
-<a name="saa-03-out-of-scope-blockchain"></a>
-+ Amazon Managed Blockchain
 
 ## Compute
 <a name="saa-03-out-of-scope-compute"></a>
@@ -70,11 +60,8 @@ The following list contains AWS services and features that are out of scope for 
 ## Machine Learning
 <a name="saa-03-out-of-scope-machine-learning"></a>
 + Apache MXNet on AWS
-+ AWS DeepComposer
 + AWS Deep Learning AMIs (DLAMI)
 + AWS Deep Learning Containers
-+ Amazon DevOps Guru
-+ Amazon Elastic Inference
 + Amazon HealthLake
 + AWS Inferentia
 + Amazon Personalize
