@@ -7,9 +7,6 @@ You can query data from an Aurora PostgreSQL DB cluster and export it directly i
 
 You can export from a provisioned or an Aurora serverless DB instance. These steps aren't supported for Aurora Serverless v1. 
 
-**Note**  
-Cross-account export to Amazon S3 isn't supported. 
-
 All currently available versions of Aurora PostgreSQL support exporting data to Amazon Simple Storage Service. For detailed version information, see [Amazon Aurora PostgreSQL updates](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Updates.html) in the *Release Notes for Aurora PostgreSQL*.
 
 If you don't have a bucket set up for your export, see the following topics the *Amazon Simple Storage Service User Guide*. 

@@ -9,7 +9,7 @@ Amazon RDS provisioned instances in an Amazon Aurora cluster are billed based on
 + Input/output (I/O) requests (per 1 million requests) – Total number of storage I/O requests that you have made in a billing cycle, for the Aurora Standard DB cluster configuration only.
 
   For more information on Amazon Aurora I/O billing, see [Storage configurations for Amazon Aurora DB clusters](Aurora.Overview.StorageReliability.md#aurora-storage-type).
-+ Backup storage (per GiB per month) – *Backup storage *is the storage that is associated with automated database backups and any active database snapshots that you have taken. Increasing your backup retention period or taking additional database snapshots increases the backup storage consumed by your database. Per second billing doesn't apply to backup storage (metered in GB-month).
++ Backup storage (per GiB per month) – *Backup storage *is the storage that is associated with automated database backups and any manual database snapshots that you have taken. Increasing your backup retention period or taking additional database snapshots increases the backup storage consumed by your database. Per second billing doesn't apply to backup storage (metered in GB-month).
 
   For more information, see [Backing up and restoring an Amazon Aurora DB cluster](BackupRestoreAurora.md).
 + Data transfer (per GB) – Data transfer in and out of your DB instance from or to the internet and other AWS Regions. For useful examples, see the AWS blog post [Exploring Data Transfer Costs for AWS Managed Databases](https://aws.amazon.com/blogs/architecture/exploring-data-transfer-costs-for-aws-managed-databases).

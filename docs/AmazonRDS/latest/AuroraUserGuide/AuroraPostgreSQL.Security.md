@@ -34,6 +34,7 @@ For general information about SSL/TLS support and PostgreSQL databases, see [SSL
 + [Requiring an SSL/TLS connection to an Aurora PostgreSQL DB cluster](#AuroraPostgreSQL.Security.SSL.Requiring)
 + [Determining the SSL/TLS connection status](#AuroraPostgreSQL.Security.SSL.Status)
 + [Configuring cipher suites for connections to Aurora PostgreSQL DB clusters](#AuroraPostgreSQL.Security.SSL.ConfiguringCipherSuites)
++ [TLS key-exchange groups in Aurora PostgreSQL](#PostgreSQL.Concepts.General.SSL.Groups)
 
 SSL/TLS support is available in all AWS Regions for Aurora PostgreSQL. Amazon RDS creates an SSL/TLS certificate for your Aurora PostgreSQL DB cluster when the DB cluster is created. If you enable SSL/TLS certificate verification, then the SSL/TLS certificate includes the DB cluster endpoint as the Common Name (CN) for the SSL/TLS certificate to guard against spoofing attacks. 
 
@@ -201,3 +202,25 @@ From Aurora PostgreSQL 18.3 onwards, two parameters control which cipher suites 
 <a name="AuroraPostgreSQL.Security.SSL.UpgradingCiphers"></a>
 
 Starting with Aurora PostgreSQL 18.3, TLS 1.3 ciphers are no longer controlled by the `ssl_ciphers` parameter. If you upgrade from an earlier version and your custom DB cluster parameter group set `ssl_ciphers` with the intent of restricting TLS 1.3 ciphers, those entries no longer take effect against TLS 1.3 connections after the upgrade. To control the TLS 1.3 cipher list, set `ssl_tls13_ciphers` in your custom DB cluster parameter group.
+
+### TLS key-exchange groups in Aurora PostgreSQL
+<a name="PostgreSQL.Concepts.General.SSL.Groups"></a>
+
+The `ssl_groups` parameter specifies the named groups to use for TLS key exchange. For more information, see the [ssl\_groups](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-SSL-GROUPS) in the PostgreSQL documentation.
+
+In Aurora PostgreSQL 18 and later, you can modify the `ssl_groups` cluster parameter to use specific values from the allowlisted groups. This is a dynamic parameter that doesn't require a reboot.
+
+The following table lists the default and allowlisted custom `ssl_groups` values by engine major version.
+
+
+| PostgreSQL engine version | Default `ssl_groups` values | Allowlisted custom `ssl_groups` values | 
+| --- | --- | --- | 
+| 18 | prime256v1:X25519 | `X25519MLKEM768`<br />`SecP256r1MLKEM768`<br />`X25519`<br />`prime256v1`<br />`secp384r1` | 
+
+When you configure `ssl_groups`, keep the following behavior in mind:
++ The order of the list sets the server preference. The first group in the list that the client also supports is used for a connection.
++ `ssl_groups` applies only to key exchange that uses named groups. For example, `ssl_groups` is ignored by TLS v1.2 cipher suites that use RSA key exchange. To use only the specified groups, make sure that `rds.force_ssl` is enabled. Then either set `ssl_min_protocol_version` to `TLSv1.3`, or restrict `ssl_ciphers` to ECDHE-based suites for TLS v1.2-based connections.
+
+  ML-KEM groups require TLS v1.3. To enforce that they are used, set `ssl_min_protocol_version` to `TLSv1.3`.
+
+For more information about modifying parameters and parameter groups, see [Modifying parameters in a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.ModifyingCluster.md).
