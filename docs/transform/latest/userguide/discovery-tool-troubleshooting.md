@@ -8,6 +8,67 @@
 
 If an export does not include all the data you expect, open the `export_summary.json` file in the export ZIP and check `overall_status` and each module's errors to identify which servers or data types were affected and why. For a description of the file, see [Understanding the export summary](discovery-tool-data-collection.md#discovery-tool-export-summary).
 
+**Insufficient memory for export**
+
+Before an export starts, the discovery tool estimates how much memory it needs. If there is not enough memory, the discovery tool doesn't start the export and displays the message `Insufficient memory for export`, followed by the estimated and available memory. This message does not mean that the service failed. To export your data, try the following, in order:
+
+1. Export a smaller date range.
+
+1. Export one module at a time.
+
+1. Increase the VM's memory, and then raise the service memory limit. The service is limited to 14 GB of memory by default, so adding VM memory alone has no effect. For instructions, see [Disk and memory sizing](discovery-tool-disk-sizing.md).
+
+**Another export is already in progress**
+
+The discovery tool runs one export at a time. Wait for the current export to finish, and then try again.
+
+**Export fails through a proxy or load balancer**
+
+A large export can take up to 30 minutes. If you access the discovery tool console through a reverse proxy or load balancer, set its timeout to more than 30 minutes.
+
+**Update fails or the new version does not work**
+
+If an in-place update does not finish, or the discovery tool does not work after the update, roll back to the previous version. For more information, see [Rolling back a manual update](discovery-tool-configure.md#discovery-tool-updating-rollback).
+
+## Discovery tool VM runs out of memory
+<a name="discovery-tool-vm-out-of-memory"></a>
+
+If the discovery tool VM runs out of memory, check whether the `sssd-kcm` service is using it. `sssd-kcm` is an operating system service with a known memory leak on Amazon Linux 2023. The discovery tool doesn't use it, so you can safely disable it.
+
+**To check and disable sssd-kcm**
+
+1. Access the discovery tool VM, and check which processes are using the most memory. For more information, see [Accessing the discovery tool VM](discovery-tool-configure.md#discovery-tool-vm-access).
+
+   ```
+   ps aux --sort=-rss | head
+   ```
+
+   The `RSS` column shows each process's memory in KB. If `sssd_kcm` is near the top with several GB, continue with the next step.
+
+   If the VM already ran out of memory, you can also check the kernel log:
+
+   ```
+   sudo dmesg | grep -i -E "out of memory|oom-kill"
+   ```
+   + If the `oom-kill` line contains `global_oom`, the whole VM ran out of memory. The process that the kernel stopped, often `discovery_tool`, isn't necessarily the one using the most memory. Check `sssd_kcm` with the `ps` command above, and if it's large, continue with the next step.
+   + If the `oom-kill` line contains `oom_memcg=/system.slice/discovery-tool.service`, the discovery tool reached its service memory limit. To increase the VM memory and the service memory limit, see [Disk and memory sizing](discovery-tool-disk-sizing.md).
+
+1. Stop and disable `sssd-kcm`.
+
+   ```
+   sudo systemctl disable --now sssd-kcm sssd-kcm.socket
+   ```
+
+1. Confirm that the service is stopped.
+
+   ```
+   systemctl status sssd-kcm
+   ```
+
+   The output shows the service as inactive.
+
+OVA and VHD images for version 1.0.2810 and later have `sssd-kcm` disabled. Self-update and manual updates don't change the operating system, so an appliance deployed from an earlier image keeps `sssd-kcm` enabled until you disable it.
+
 ## Verifying discovery tool connectivity to vCenter
 <a name="discovery-tool-vcenter-connectivity"></a>
 
@@ -170,6 +231,20 @@ The discovery tool tries a server's FQDN before its IP addresses. If the discove
 
 The discovery tool uses a backoff mechanism to prevent account lockouts from repeated failed authentication attempts. If your service account becomes locked out, you can reset the collection process by stopping and then starting the collection module through the discovery tool web UI at `https://<discovery-tool-vm-ip>:5000`.
 
+**Message stream modified**
+
+Symptom: Authentication fails with `Message stream modified`.
+
+The KDC encrypted the service ticket for a different account than the target server's computer account. This error has two common causes:
++ **The service principal name is registered on a different account** – For example, `HTTP/<server-fqdn>` is registered on a service account instead of the server's computer account.
++ **The computer account password is out of sync** – The server's computer account password no longer matches Active Directory.
+
+To check, ask your Active Directory administrator to run `setspn -Q HTTP/<server-fqdn>`, `setspn -Q WSMAN/<server-fqdn>`, and `setspn -X` on a domain-joined machine. Update the discovery tool to the latest version, which requests the `WSMAN` service principal name first. If the error continues, your administrator can move the service principal name to the server's computer account, or reset the computer account.
+
+**Kerberos authentication deferred**
+
+The discovery tool runs one Kerberos authentication at a time for each credential, to prevent account lockouts. Log entries that say `Kerberos authentication deferred` are informational. The discovery tool retries the authentication in the next collection cycle.
+
 **kinit fails from CLI**
 
 The following table lists common `kinit` errors and their solutions.
@@ -177,7 +252,7 @@ The following table lists common `kinit` errors and their solutions.
 
 | Error | Cause | Solution | 
 | --- | --- | --- | 
-| Cannot find KDC for realm | The KDC hostname or IP address is not reachable, or the realm is not configured in krb5.conf. | Verify that the krb5.conf file contains the correct KDC hostname and realm. Confirm DNS resolution and network connectivity to the KDC on port 88. | 
+| Cannot find KDC for realm | The KDC hostname or IP address is not reachable, or the realm is not configured in krb5.conf. | Verify that the krb5.conf file contains the correct KDC hostname and realm. The realm name in the [realms] section must be uppercase and exactly match the realm that you use. The KDC entries must be Active Directory domain controllers. Add a realm entry for every domain that you collect from. If you set dns\_lookup\_kdc = false, the KDCs listed in krb5.conf are the only ones that the discovery tool uses, so verify them first. Confirm DNS resolution and network connectivity to the KDC on port 88. | 
 | Preauthentication failed | The password for the service account is incorrect. | Verify the password and try again. If the account is locked out, unlock it in Active Directory before you retry. | 
 | Client not found in Kerberos database | The principal name does not match any account in Active Directory. | Verify that the principal name matches the account name exactly, including case. Use the format username@REALM with the realm in uppercase. | 
 | Cannot resolve network address for KDC | DNS cannot resolve the KDC hostname. | Verify DNS configuration in /etc/resolv.conf. Confirm that the DNS server can resolve the KDC hostname. Test with nslookup or dig. | 
@@ -439,6 +514,8 @@ This table describes common error messages and their explanations:
 | --- | --- | --- | 
 | A password has already been created | Create password page | Race condition when two users create passwords at the same time; refresh | 
 | Export failed | Inventory page | Retry or send logs | 
+| Insufficient memory for export | Inventory page | The export needs more memory than is available. For more information, see [Incomplete or failed export](#discovery-tool-export-troubleshooting). | 
+| Another export is already in progress | Inventory page | Only one export runs at a time. Wait for the current export to finish, and then try again. | 
 | An on-demand collection is already in progress | Inventory page | Race condition when two users start manual collections at the same time; try again after the current manual collection is finished | 
 | Command timed out after 60s | Server collection status | A command on the target server did not complete within 60 seconds. This can occur on heavily loaded servers. Retry the collection or investigate the target server's load. | 
 | One or more credentials contain unknown UUIDs | OS access page | Race condition when two users edit OS credentials at the same time; try again | 

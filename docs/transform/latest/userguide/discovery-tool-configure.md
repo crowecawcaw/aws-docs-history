@@ -523,6 +523,7 @@ Self-update requires outbound internet access from the discovery tool appliance 
 
 **Prerequisites**
 + Outbound HTTPS access to the discovery tool's release location, `s3.us-east-1.amazonaws.com/atx.discovery.collector.bundle/releases/latest/`. If outbound traffic is restricted, allow this location. Because the discovery tool uses path-style Amazon S3 URLs, a filter that matches only on host name cannot scope below `s3.us-east-1.amazonaws.com`; use a filter that matches on the full URL path to limit access to this location. Path-based filtering requires a firewall that performs TLS inspection; because the discovery tool validates the server certificate against the appliance's trust store, that firewall's certificate authority must be trusted on the appliance, or self-update fails with a TLS error. No proxy configuration is supported.
++ The appliance runs version 1.0.2810 or later, and it was originally deployed with version 1.0.2325 or later. If your appliance was originally deployed with an earlier version, use the manual update method. For more information, see [Minimum version for each update method](#discovery-tool-updating-min-version).
 + Sufficient free disk space. The discovery tool checks available space before starting and refuses the update with an "insufficient space" error if there is not enough room for the installer, a database snapshot, and a safety margin. Free up disk space if you see this error.
 
 **Enabling self-update**
@@ -563,7 +564,7 @@ If self-update is not available (for example, on appliances with no internet acc
 
 There are two ways to update:
 + **Update in place** – Updates the application inside your existing VM with the Linux installer. Your collected inventory, credentials, and configuration are preserved. This method needs operating system access to the discovery tool VM. We recommend this method.
-+ **Redeploy from a new image** – Deploys a new VM from the latest OVA for VMware or VHD for Hyper-V. A new deployment starts with an empty database. Your existing data and configuration are not carried over unless you migrate them yourself.
++ **Redeploy from a new image** – Deploys a new discovery tool VM from the latest OVA for VMware or VHD for Hyper-V. The new VM starts with an empty database. Your existing data and configuration are not carried over.
 
 Not every discovery tool version can update in place to every newer version. See [Minimum version for each update method](#discovery-tool-updating-min-version) for the minimum version each update method supports.
 
@@ -576,9 +577,11 @@ This method runs on the existing VM. It keeps your database, which holds your co
 This method updates only the discovery tool application. It does not update anything on the VM host, such as the operating system version, the preconfigured shell aliases, or the networking and firewall rules. To get host updates, redeploy from a new image instead. For more information, see [Redeploying from a new image](#discovery-tool-updating-redeploy).
 
 **Important**  
-Complete the backup step before you update, so that you can restore your data if the update does not finish.
+Before you update, take a snapshot of the VM and complete the backup step. You need either the snapshot or the backup to roll back if the update does not finish or the new version fails to start or run correctly. For instructions on rolling back a manual update, see [Rolling back a manual update](#discovery-tool-updating-rollback).
 
 **To update the discovery tool in place**
+
+1. Take a snapshot of the discovery tool VM. For the OVA or VHD appliance, use vSphere Client for VMware or Hyper-V Manager for Hyper-V. For a standalone Linux-installer host, use your platform's snapshot or image feature. A snapshot is the simplest way to roll back the update.
 
 1. Access the discovery tool VM through your hypervisor console, or through SSH after you run `enablessh`. For more information, see [Accessing the discovery tool VM](#discovery-tool-vm-access).
 
@@ -600,22 +603,26 @@ Complete the backup step before you update, so that you can restore your data if
    sudo ./AWS-Transform-discovery-tool.sh stop
    ```
 
-1. Back up the data directory so that you can restore it if you need to. This command reads the data directory from the service's own configuration, so it works whether you are on the standard OVA/VHD appliance or a standalone Linux-installer host.
+1. Back up the discovery tool application, its service files, and the data directory, so that you can roll back without a snapshot if you need to. The following Bash script reads the data directory from the service's own configuration, so it works whether you are on the standard OVA or VHD appliance or a standalone Linux-installer host:
 
    ```
    SVC=discovery-tool.service
-   DATA_DIR=$(systemctl show -p Environment --value "$SVC" | tr ' ' '\n' | sed -n 's/^DT_DATA_DIR=//p')
+   DATA_DIR=$(systemctl show -p Environment "$SVC" | sed 's/^Environment=//' | tr ' ' '\n' | sed -n 's/^DT_DATA_DIR=//p')
    if [ -z "$DATA_DIR" ]; then
-     SVC_USER=$(systemctl show -p User --value "$SVC")
+     SVC_USER=$(systemctl show -p User "$SVC" | sed 's/^User=//')
      DATA_DIR="$(getent passwd "$SVC_USER" | cut -d: -f6)/.local/share/DiscoveryTool"
    fi
+   DATA_DIR="${DATA_DIR%/}"
    echo "Discovery Tool data directory: $DATA_DIR"
    if [ ! -d "$DATA_DIR" ]; then
      echo "ERROR: data dir not found - do NOT proceed"
    else
      BACKUP="$HOME/discovery-tool-backup-$(date +%F).tar.gz"
-     sudo tar czf "$BACKUP" -C "$(dirname "$DATA_DIR")" "$(basename "$DATA_DIR")"
-     echo "Backup created: $BACKUP ($(du -h "$BACKUP" | cut -f1))"; tar tzf "$BACKUP" | head
+     if sudo tar czf "$BACKUP" /opt/discovery-tool /etc/systemd/system/discovery-tool* "$DATA_DIR"; then
+       echo "Backup created: $BACKUP ($(du -h "$BACKUP" | cut -f1))"
+     else
+       echo "ERROR: backup failed - do NOT proceed with the update"
+     fi
    fi
    ```
 
@@ -637,10 +644,68 @@ On an update, the installer always installs required system packages regardless 
 
 1. Verify the update. Open `https://{{ip_address}}:5000` in a web browser, sign in, and confirm that the version is updated and that your discovery sources, credentials, and inventory are present.
 
+#### Rolling back a manual update
+<a name="discovery-tool-updating-rollback"></a>
+
+If an in-place update does not finish, or the new version does not work, roll back to the version you had before the update. Choose the rollback method that matches what you prepared before the update:
++ **If you took a VM snapshot** – Revert the VM to the snapshot (a checkpoint in Hyper-V Manager), or restore it with your platform's snapshot or image feature. Reverting discards any data that the discovery tool collected after you took the snapshot.
++ **If you did not take a snapshot** – Restore the backup that you created before the update, using the following procedure.
+
+Before you begin, make sure that you have the backup file that you created in the backup step of [Updating in place with the Linux installer](#discovery-tool-updating-in-place), and `sudo` access to the discovery tool VM. The restore also returns service settings, such as a service memory limit, to how they were when you took the backup.
+
+**To roll back from the backup**
+
+1. Access the discovery tool VM as the user who created the backup, and change to the directory that contains the installer script.
+
+1. Stop the discovery tool service.
+
+   ```
+   sudo ./AWS-Transform-discovery-tool.sh stop
+   ```
+
+1. Remove the updated application, service files, and data directory, and then restore them from the backup. Replace {{YYYY-MM-DD}} with the date in your backup file name. The script looks for the backup file in your home directory, where the backup step saved it. If you moved the backup file, change the `BACKUP` path in the script to the file's location.
+**Warning**  
+This step permanently deletes the current application, service files, and data directory before it restores them from the backup. The script checks the backup first and stops without deleting anything if the backup is missing, unreadable, or doesn't contain the application, the service file, and the data directory. If you are not sure that your backup is good, revert to a VM snapshot instead.
+
+   ```
+   SVC=discovery-tool.service
+   DATA_DIR=$(systemctl show -p Environment "$SVC" | sed 's/^Environment=//' | tr ' ' '\n' | sed -n 's/^DT_DATA_DIR=//p')
+   if [ -z "$DATA_DIR" ]; then
+     SVC_USER=$(systemctl show -p User "$SVC" | sed 's/^User=//')
+     DATA_DIR="$(getent passwd "$SVC_USER" | cut -d: -f6)/.local/share/DiscoveryTool"
+   fi
+   DATA_DIR="${DATA_DIR%/}"
+   BACKUP="$HOME/discovery-tool-backup-YYYY-MM-DD.tar.gz"
+   CONTENTS=$(sudo tar tzf "$BACKUP" 2>/dev/null)
+   if [ $? -ne 0 ] || ! echo "$CONTENTS" | grep -q "^opt/discovery-tool/" || ! echo "$CONTENTS" | grep -q "^etc/systemd/system/discovery-tool.service$" || ! echo "$CONTENTS" | grep -q "^${DATA_DIR#/}/"; then
+     echo "ERROR: backup is missing, unreadable, or incomplete - do NOT proceed"
+   else
+     sudo systemctl stop discovery-tool-updater.path discovery-tool-updater.service discovery-tool-updater-recover.service 2>/dev/null
+     sudo rm -rf /opt/discovery-tool "$DATA_DIR" /etc/systemd/system/discovery-tool*
+     if sudo tar xzf "$BACKUP" -C / && sudo systemctl daemon-reload; then
+       echo "Restore complete"
+     else
+       echo "ERROR: restore failed - $BACKUP is unchanged. Run this step again. If it fails again, revert to your VM snapshot, or contact AWS Support."
+     fi
+   fi
+   ```
+
+1. Start the discovery tool service. The second command starts the self-update watcher, if your restored version has one.
+
+   ```
+   sudo systemctl start discovery-tool
+   sudo systemctl start discovery-tool-updater.path 2>/dev/null
+   ```
+
+1. Open `https://{{ip_address}}:5000` in a web browser, sign in, and confirm that the previous version is running and that your discovery sources, credentials, and inventory are present. The console can take up to a minute to become available after the service starts.
+
 #### Redeploying from a new image
 <a name="discovery-tool-updating-redeploy"></a>
 
-Use this method if you do not have operating system access to the VM, or if you prefer to deploy a new appliance. A redeployed VM starts with an empty database.
+Use this method if you do not have operating system access to the VM, or if you prefer to deploy a new VM. The new VM starts with an empty database. Your existing data and configuration are not carried over.
+
+**Note**  
+To keep the data and configuration that you already collected, update the discovery tool on your existing VM instead of deploying a new VM. For more information, see [Updating in place with the Linux installer](#discovery-tool-updating-in-place). If your current version is earlier than 1.0.2325, first contact AWS Support with your current discovery tool version to confirm whether you can update in place from that version.
 
 **To redeploy the discovery tool from a new image**
 
@@ -652,9 +717,6 @@ Use this method if you do not have operating system access to the VM, or if you 
 
 1. Configure your discovery sources, credentials, and server imports again on the new VM.
 
-**Note**  
-If you want to deploy a new discovery tool and keep the data and configuration that you already collected, contact AWS Support before you begin.
-
 #### Minimum version for each update method
 <a name="discovery-tool-updating-min-version"></a>
 
@@ -663,9 +725,9 @@ Not every version of the discovery tool can update in place to every newer versi
 
 | Update method | Minimum version to update from | Notes | 
 | --- | --- | --- | 
-| Redeploy from a new image | 1.0.0 | Always available. Starts with an empty database, so nothing to preserve. | 
-| Manual update (in place) | 1.0.2325 | Updating in place from a version older than 1.0.2325 can silently stop scheduled collection for one or more modules, or cause the discovery tool to fail to start, depending on your starting version. If you are on an older version, redeploy from a new image instead. | 
-| Self-update | 1.0.2810 | Self-update is available starting in 1.0.2810. Appliances on an earlier version do not have the self-update feature and must update manually or redeploy. | 
+| Redeploy from a new image | 1.0.0 | Always available. The new VM starts with an empty database. | 
+| Manual update (in place) | 1.0.2325 | Updating in place from a version older than 1.0.2325 can cause problems. Depending on your starting version, it can silently stop scheduled collection for one or more modules, or cause the discovery tool to fail to start. If you are on a version earlier than 1.0.2325 and want to keep your collected data and configuration, contact AWS Support with your current discovery tool version to ask whether you can update in place from that version. Otherwise, redeploy from a new image. The new VM starts with an empty database. | 
+| Self-update | 1.0.2810 | Self-update is available in version 1.0.2810 and later, on appliances originally deployed with version 1.0.2325 or later. For example, an appliance deployed with 1.0.2325 and then updated manually to 1.0.2810 can use self-update. Appliances originally deployed with an earlier version update manually or redeploy. | 
 
 ## Revoking access
 <a name="discovery-tool-revoking"></a>

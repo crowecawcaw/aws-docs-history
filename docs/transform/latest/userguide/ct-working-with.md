@@ -223,7 +223,7 @@ atx ct remote analysis --type {{type}} --mode aws-managed --sources {{name}} [--
 atx ct analysis get --id {{id}} --json
 ```
 
-This mode runs analyses only. It does not support remediation, the `custom` analysis type, or local sources. Because there is no stack, the `--stack-name`, `--tags`, `--existing-instance`, and `--batch-name` options don't apply. A single submission covers up to 100 repositories. To cover larger scopes, split them across multiple submissions with `--repos`. Unlike Amazon EC2 and Batch runs, you monitor progress with `atx ct analysis get` rather than `atx ct remote status`.
+This mode runs analyses only. It does not support remediation, the `custom` analysis type, or local sources. Because there is no stack, the `--stack-name`, `--tags`, `--existing-instance`, and `--batch-name` options don't apply. You can include up to 5,000 repositories in a single analysis submission. To cover larger scopes, split them across multiple submissions with `--repos`. Unlike Amazon EC2 and Batch runs, you monitor progress with `atx ct analysis get` rather than `atx ct remote status`.
 
 ### Networking
 <a name="ct-remote-network"></a>
@@ -287,7 +287,7 @@ The types in the third row share a single pool of 30 jobs. Running a comprehensi
 
 Amazon VPC reserves five addresses in every subnet, so the usable count is five fewer than the subnet size — a `/28` has 11 usable addresses and a `/24` has 251. For details, see [Subnet CIDR blocks](https://docs.aws.amazon.com/vpc/latest/userguide/subnet-sizing.html) in the *Amazon VPC User Guide*.
 
-The addresses each subnet needs are the peak concurrent jobs, plus one or more for each interface endpoint in that subnet, plus any other network interfaces that share the subnet. Peak concurrent jobs is the smaller of the number of repositories in the submission and the concurrency limit for the analysis type. Because the limit caps the total, a 1,000-repository fleet needs no more addresses than a 128-repository one.
+The addresses each subnet needs are the peak concurrent jobs, plus one or more for each interface endpoint in that subnet, plus any other network interfaces that share the subnet. Peak concurrent jobs is the smaller of the number of repositories in the submission and the concurrency limit for the analysis type. Because the limit caps the total, a 5,000-repository fleet needs no more addresses than a 128-repository one.
 
 
 | Analysis type | Peak concurrent jobs | Minimum subnet size | 
@@ -304,7 +304,7 @@ We recommend dedicating subnets to remote execution. AWS Transform admits jobs d
 #### Running large fleets
 <a name="ct-remote-sizing-large-fleets"></a>
 
-On Amazon EC2 and Batch infrastructure that you provision, a single submission covers up to 1,000 repositories (AWS Transform-managed runs are limited to 100). Submissions above the limit are rejected before any job starts. To cover larger fleets, split them with `--repos`, and list the repositories in a source with `atx ct repository list --source {{name}} --json`.
+You can include up to 5,000 repositories in a single analysis submission. AWS Transform rejects submissions that exceed the limit before starting any job. To cover larger fleets, split them with `--repos`, and list the repositories in a source with `atx ct repository list --source {{name}} --json`.
 
 Splitting a fleet does not reduce the addresses you need. Submissions that run at the same time draw from the same subnets, up to the concurrency limit for the analysis type.
 

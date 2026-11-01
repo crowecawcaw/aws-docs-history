@@ -3,13 +3,13 @@
 # Map source network to new VPCs
 <a name="transform-vmware-migrate-network-new-vpcs"></a>
 
-Get a complete, production-ready target network generated from your source configuration in a fraction of the time. AWS Transform translates your source environment into AWS network resources, including VPCs, subnets, security groups, NAT gateways, transit gateways, elastic IPs, routes, and route tables, which you review and adjust before deployment. You can deploy directly with AWS Transform or choose self-deployment and receive Infrastructure as Code (IaC) in your preferred format: AWS Cloud Development Kit (AWS CDK), Landing Zone Accelerator (LZA), or HashiCorp Terraform.
+Get a complete, production-ready target network generated from your migration plan data or source configuration in a fraction of the time. AWS Transform translates your source environment into AWS network resources, including VPCs, subnets, security groups, NAT gateways, transit gateways, elastic IPs, routes, and route tables, which you review and adjust before deployment. You can deploy directly with AWS Transform or choose self-deployment and receive Infrastructure as Code (IaC) in your preferred format: AWS Cloud Development Kit (AWS CDK), Landing Zone Accelerator (LZA), or HashiCorp Terraform.
 
 Choose **Map source network to new VPCs** when you are provisioning your AWS network as part of the migration.
 
 The AWS Transform agent guides you through the following steps, handling the analysis and generation while you make the decisions:
 
-1. Upload your source network file.
+1. Select your source data (migration plan data or a source network file).
 
 1. Upload additional configuration files (optional, for RVTools environments).
 
@@ -28,10 +28,22 @@ The AWS Transform agent guides you through the following steps, handling the ana
 **Note**  
 For multi-account deployments, you must set up cross-account access before you start the network migration. For more information, see [Set up multi-account network migration](transform-vmware-network-multi-account-setup.md).
 
-## Step 1: Source network mapping
+## Step 1: Select your source data
 <a name="transform-vmware-source-network-mapping"></a>
 
-AWS Transform generates target network infrastructure from a wide variety of source network configuration files. Upload one or more configuration files from your source environment, and AWS Transform uses them to generate target networks, including Amazon VPCs, subnets, and security groups. AWS Transform does not generate firewall or load balancer resources. However, it can use configuration from these network elements as input to generate target networks.
+Select the data AWS Transform uses to generate your network: your migration plan data or a source network file.
+
+### Use your migration plan data
+<a name="transform-vmware-source-network-plan-data"></a>
+
+If your migration plan includes observed network connections, choose **Use my migration plan data** to generate your network from your plan. AWS Transform uses your server and application inventories and the network connections observed during discovery and migration planning, so you don't upload a file. For more information, see [Use migration plan data as network input](transform-vmware-network-plan-data.md).
+
+### Upload a source network file
+<a name="transform-vmware-source-network-file"></a>
+
+To work from a discovery or configuration export instead, choose **Upload a network file**.
+
+AWS Transform generates target network infrastructure from a wide variety of source network configuration files. Upload one or more configuration files from your source environment, and AWS Transform uses them to generate target networks, including Amazon VPCs, subnets, and security groups. AWS Transform does not generate firewall or load balancer resources. However, it can use configuration from these network elements as input to generate target networks. The maximum supported source network file size is 70 MB.
 
 AWS Transform accepts configuration files from the following source types:
 + **Software Defined Networks (SDN):** Import/Export for VMware NSX network virtualization or Cisco ACI config for Cisco Application Centric Infrastructure.
@@ -40,11 +52,7 @@ AWS Transform accepts configuration files from the following source types:
 + **Hybrid networks that run both VMware and non-VMware workloads:** [AWS Transform discovery tool](https://docs.aws.amazon.com/transform/latest/userguide/discovery-tool.html) or modelizeIT.
 + **Other file types:** AWS Transform also accepts other network configuration files, such as Checkpoint and F5 configurations. If your configuration file is not one of the formats listed above, AWS Transform converts it automatically and uses it to generate target networks. This conversion can take up to two hours based on the file size and complexity.
 
-**Note**  
-The maximum supported source network file size is 70 MB.
-
-**Note**  
-To enable stale security group rule removal during network review, submit observed network traffic data from the [AWS Transform discovery tool](https://docs.aws.amazon.com/transform/latest/userguide/discovery-tool.html) or modelizeIT alongside your source network configuration. For more information, see [Guided network recommendations](#transform-vmware-guided-recommendations).
+To enable stale security group rule removal during network review, submit observed network traffic data from the [AWS Transform discovery tool](https://docs.aws.amazon.com/transform/latest/userguide/discovery-tool.html) or modelizeIT alongside your source network configuration. If you use migration plan data, the observed connections in your plan serve this purpose. For more information, see [Guided network recommendations](#transform-vmware-guided-recommendations).
 
 **Warning**  
 Download RVTools only from the official Dell site at [https://www.dell.com/en-us/shop/vmware/sl/rvtools](https://www.dell.com/en-us/shop/vmware/sl/rvtools). Do not download RVTools from unofficial sources.
@@ -188,7 +196,6 @@ Choose one of the following security group mapping strategies:
   Use this option for DHCP support with cross-VPC Transit Gateway communication. Also works with static IPs, but might produce broader rules than MAP.
 + **SKIP:** Does not translate security rules. Configure AWS security groups manually post-migration. Works with both static IP and DHCP environments. For RVTools source environments without additional configuration files, AWS Transform automatically uses SKIP.
 
-**Note**  
 Your mapping strategy determines your IP assignment options. MAP supports static IP only. MAP\_DHCP and SKIP support both static and DHCP.
 
 ### IP migration approaches
@@ -206,7 +213,6 @@ For **IP address assignment**, choose one of the following options:
 
 You can combine either range selection with either IP assignment method.
 
-**Note**  
 The IP address assignment strategy is set at the wave level. You can assign different strategies to specific servers by customizing the wave file. For example, if you chose a static IP address approach for the wave but want to assign a dynamic approach to a specific server, you would use `[RESET_VALUE]` as described in [Editing your configuration](https://docs.aws.amazon.com/mgn/latest/ug/configuration-editing.html) in the *MGN user guide*.
 
 ## Step 5: Review and optimize your network
@@ -221,14 +227,14 @@ If your target account already contains VPCs, from previous migration phases or 
 
 This visibility helps you understand how your planned network relates to your existing infrastructure, identify potential CIDR conflicts, and make informed decisions before deployment.
 
-**Note**  
-AWS Transform detects existing VPCs only (not subnets or other resources). Detection is read-only. AWS Transform does not modify your existing VPCs.
+AWS Transform detects existing VPCs only, not subnets or other resources. Detection is read-only, and AWS Transform does not modify your existing VPCs.
 
 ### Optimize your network
 <a name="transform-vmware-optimization-operations"></a>
 
+These operations apply to workload VPCs only. For appliance VPCs in the Hub and Spoke topology (Inspection, Inbound, Outbound), only Change IP address is supported.
+
 **Note**  
-These operations apply to workload VPCs only. For appliance VPCs in the Hub and Spoke topology (Inspection, Inbound, Outbound), only Change IP address is supported.  
 You can't undo Delete, Merge, and Split operations. Review your configuration carefully before you apply these changes.
 
 You can perform the following operations on VPCs:
@@ -295,7 +301,7 @@ AWS Transform might recommend the following optimizations:
 + **VPC capacity right-sizing:** Surfaces VPCs where the CIDR appears oversized or undersized for the subnets it contains. AWS Transform presents the current capacity data and lets you decide whether to resize.
 + **Security review:** Flags security group rules that allow unrestricted inbound traffic (0.0.0.0/0) for your review.
 + **Stale security group rule removal:** Identifies unused inbound firewall rules migrated from your on-premises environment and suggests removing them, so you don't carry forward security exposure that no longer serves a purpose. This recommendation works as follows:
-  + To identify unused rules, AWS Transform uses observed network traffic data collected by the [AWS Transform discovery tool](https://docs.aws.amazon.com/transform/latest/userguide/discovery-tool.html) or modelizeIT. You must submit this traffic data alongside your source network input.
+  + To identify unused rules, AWS Transform uses observed network traffic data collected by the [AWS Transform discovery tool](https://docs.aws.amazon.com/transform/latest/userguide/discovery-tool.html) or modelizeIT. You must submit this traffic data alongside your source network input. If you use migration plan data as your source, AWS Transform uses the observed network connections in your plan, and you don't submit separate traffic data.
   + AWS Transform compares your migrated firewall rules against the observed traffic over the observation window captured in that data. It flags a rule as unused when no inbound traffic matches it. The absence of observed inbound traffic is a reliable signal that a rule is unused.
   + Without traffic data, AWS Transform cannot determine which rules are unused and does not suggest removals.
   + AWS Transform removes only unused ingress (inbound) rules.
@@ -306,8 +312,7 @@ AWS Transform might recommend the following optimizations:
 
   This recommendation requires the application and environment data from your migration plan, so it is available only after migration planning.
 
-**Note**  
-All recommendations require your explicit confirmation before AWS Transform applies any changes. AWS Transform presents trade-offs when a recommendation affects multiple aspects of your network.
+AWS Transform presents trade-offs when a recommendation affects multiple aspects of your network.
 
 ## Step 6: Network diagram
 <a name="transform-vmware-network-diagram"></a>
@@ -330,7 +335,6 @@ AWS Transform automatically tags your migrated network resources (VPCs, subnets,
 
 These tags allow you to use the VPC and subnet to launch test and cutover instances in AWS.
 
-**Note**  
 Your migrated VPCs and subnets don't include internet connectivity by default, so they aren't suitable as staging areas for replication.
 
 To also use the VPC and subnet as a staging area (replication), manually add the following tags:
@@ -348,7 +352,6 @@ In addition to the tags applied automatically by AWS Transform, you can optional
 + **Job-level tags:** Apply to all resources created by this job, including all VPCs, subnets, security groups, and route tables.
 + **VPC-level tags:** Apply to a specific VPC and automatically cascade to all its associated resources (subnets, security groups, route tables).
 
-**Note**  
 Maximum 40 tags per request. Each tag requires a key and value. AWS tagging conventions apply.
 
 AWS Transform applies these tags when it generates the Infrastructure as Code templates.
@@ -364,8 +367,6 @@ If your migration is part of the **AWS Migration Acceleration Program (MAP 2.0)*
 
 After tagging, select your deployment strategy:
 + **AWS Transform-managed deployment:** AWS Transform uses CloudFormation templates to deploy your network and runs Reachability Analyzer to check connectivity between subnets across multiple VPCs and within the same VPC.
-**Note**  
-You must get explicit approval before your network deployment request runs. See [Deployment approvals process](#deployment-approvals-process).
 + **Self-deployment:** AWS Transform generates Infrastructure as Code (IaC) templates. CloudFormation templates are generated by default. You can also select additional output formats:
   + AWS CDK generates a TypeScript project for programmatic infrastructure deployment.
   + HashiCorp Terraform generates HashiCorp Configuration Language (HCL) templates for managing network resources.

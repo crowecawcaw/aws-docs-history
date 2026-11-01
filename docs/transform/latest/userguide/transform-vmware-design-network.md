@@ -61,7 +61,6 @@ After you confirm the design, AWS Transform generates the VPCs, along with the a
 
 Review the generated network through the same visual and chat interface that you use when you map a source network to new VPCs, and make changes through natural-language Direct Edits. AWS Transform validates each change and detects conflicts before it applies them. AWS Transform also marks the VPCs it proposes as *New* and any VPCs already in your target accounts as *Existing*, so you can see the full network across accounts and avoid CIDR conflicts before deployment. For more information, see [Review and optimize your network](transform-vmware-migrate-network-new-vpcs.md#transform-vmware-review-vpc-configs) in [Map source network to new VPCs](transform-vmware-migrate-network-new-vpcs.md).
 
-**Note**  
 Because you defined this network, AWS Transform doesn't recommend changes to your design choices, such as VPC names and sizes. It still validates your edits and flags conflicts.
 
 ## Step 4: Generate a network diagram (optional)

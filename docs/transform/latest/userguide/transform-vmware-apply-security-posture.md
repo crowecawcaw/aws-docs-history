@@ -3,13 +3,13 @@
 # Apply security posture to existing VPCs
 <a name="transform-vmware-apply-security-posture"></a>
 
-If you have already provisioned your AWS network outside of AWS Transform, you can automatically recreate your security rules on it. AWS Transform generates security groups from your source firewall rules and associates them with your existing VPCs, which saves you time and improves accuracy and consistency compared to recreating the rules manually.
+If you have already provisioned your AWS network outside of AWS Transform, you can automatically recreate your security rules on it. AWS Transform generates security groups from your migration plan data or your source firewall rules and associates them with your existing VPCs, which saves you time and improves accuracy and consistency compared to recreating the rules manually.
 
 Choose **Apply security posture to existing VPCs** when your target VPCs already exist and you want to apply your source security posture to them.
 
 The AWS Transform agent guides you through the following steps, handling the analysis and generation while you make the decisions:
 
-1. Upload your source network file.
+1. Select your source data (migration plan data or a source network file).
 
 1. Tag your existing VPCs.
 
@@ -30,16 +30,25 @@ For multi-account deployments, you must set up cross-account access before you s
 
 Because this flow applies security posture to VPCs that already exist, it does not include the network diagram step that is part of mapping a source network to new VPCs.
 
-## Step 1: Upload your source network file
+## Step 1: Select your source data
 <a name="transform-vmware-apply-security-posture-source-file"></a>
 
-Upload a source network file that contains security information. Because this flow extracts and applies your security posture, the file must include firewall rules. AWS Transform supports the following source file types for this flow:
+Select the data AWS Transform uses to generate your security groups: your migration plan data or a source network file.
+
+### Use your migration plan data
+<a name="transform-vmware-apply-security-posture-plan-data"></a>
+
+If your migration plan includes observed network connections, choose **Use my migration plan data** to generate your security groups from your plan. AWS Transform derives the security groups from the network connections observed during discovery and migration planning and organizes them around your applications, so you don't need a file that includes firewall rules. For more information, see [Use migration plan data as network input](transform-vmware-network-plan-data.md).
+
+### Upload a source network file
+<a name="transform-vmware-apply-security-posture-file"></a>
+
+To work from a file instead, choose **Upload a network file**. Because this flow extracts and applies your security posture, the file must include firewall rules. AWS Transform supports the following source file types for this flow:
 + **Software-defined networks (SDNs):** VMware NSX, Cisco ACI.
 + **Firewalls:** Palo Alto Networks, Fortinet FortiGate.
 + **Hybrid networks (VMware and non-VMware workloads):** modelizeIT or the [AWS Transform discovery tool](https://docs.aws.amazon.com/transform/latest/userguide/discovery-tool.html).
 + **Other file types:** If your file type is not one of the supported formats listed above, AWS Transform attempts to convert it automatically.
 
-**Note**  
 RVTools is not supported in this flow. RVTools files do not contain firewall rules, which are required for migrating security posture.
 
 You can provide the file in one of two ways:
@@ -59,7 +68,6 @@ Any VPC that AWS Transform created is automatically tagged with **Key:** `Create
 
 You can also apply or remove these tags manually from the [Amazon VPC console](https://console.aws.amazon.com/vpc/). After you tag your VPCs, let the agent know, and AWS Transform discovers the tagged VPCs for you.
 
-**Note**  
 The tagging page shows only the VPCs in the account you are currently logged in to. If you are not signed in to the AWS Management Console, the tagging page prompts you to sign in first. For multi-account migrations, tag the VPCs in each target account separately by signing in to that account.
 
 ## Step 3: Match source subnets to existing VPCs
@@ -98,7 +106,6 @@ AWS Transform needs to know your topology before it generates security groups be
 **Important**  
 Make sure your topology selection reflects your actual network. If you select **Connected** but your VPCs do not have connectivity, deployment of cross-VPC referencing rules fails because the referenced security groups cannot be resolved across unconnected VPCs.
 
-**Note**  
 For VPCs connected through a Transit Gateway, security group referencing also requires that `SecurityGroupReferencingSupport` is set to `enable` on the Transit Gateway and on each Transit Gateway VPC attachment. For more information, see [Transit gateway attachments to a VPC](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html) in the *AWS Transit Gateway Guide*.
 
 ## Step 5: Review the generated security groups
