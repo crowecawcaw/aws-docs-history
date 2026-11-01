@@ -28,6 +28,8 @@ Following are the contact-related APIs that support these context keys:
 
 1. [UpdateContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateContact.html)
 
+1. [UpdateOutboundEmailContactMessage](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateOutboundEmailContactMessage.html)
+
 1. [ListContactReferences](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListContactReferences.html)
 
 1. [TagContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_TagContact.html)

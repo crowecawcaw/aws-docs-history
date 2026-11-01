@@ -8,6 +8,7 @@ The following tables contain contact analytics data.
 **Topics**
 + [Conversational analytics](#data-lake-contact-lens-conversational-analytics)
 + [Contact evaluation record](#data-lake-contact-evaluation-record)
++ [Evaluation review record](#data-lake-evaluation-review-record)
 
 ## Conversational analytics
 <a name="data-lake-contact-lens-conversational-analytics"></a>
@@ -178,3 +179,92 @@ ORDER BY cp.lifetime_value_segment, cer.evaluation_measurement_name;
 ```
 
 For information about creating evaluation forms with business outcome metrics that generate the scores stored in the `evaluation_measurement_score` column, see [Create an evaluation form](create-evaluation-forms.md).
+
+## Evaluation review record
+<a name="data-lake-evaluation-review-record"></a>
+
+**Table name:** `evaluation_review_record`
+
+**Description:** Stores evaluation review lifecycle data, capturing who requested a review of a contact evaluation, who reviewed it, and the outcome, for quality management auditing and reporting.
+
+**Primary key:** `evaluation_review_id, contact_id, instance_id`
+
+**Partition key:** `creation_timestamp` (daily)
+
+**Join keys:**
++ `instance_id` — Joins to all tables
++ `contact_id` — Joins to Contact Record, Contact Statistic Record, Contact Lens, Contact Evaluation Record, Contact Flow Events
++ `evaluation_id` — Joins to Contact Evaluation Record
++ `evaluator_id`, `requested_by_user_id`, `review_created_by_user_id`, `reviewed_by_user_id` — Join to users (as `user_id`)
+
+The following table describes the columns in the `evaluation_review_record` table.
+
+
+|  **Column**  |  **Type**  |  **Nullable**  |  **Description**  | 
+| --- | --- | --- | --- | 
+|  aws\_account\_id  |  string  |  Yes  |  The ID of the AWS account that owns the contact.  | 
+|  instance\_id  |  string  |  No  |  The identifier of the Connect Customer instance. You can [find the instance ID](find-instance-arn.md) in the Amazon Resource Name (ARN) of the instance.  | 
+|  instance\_arn  |  string  |  Yes  |  The Amazon Resource Name (ARN) of the Connect Customer instance.  | 
+|  evaluation\_review\_id  |  string  |  No  |  Primary key, unique identifier for the evaluation review.  | 
+|  contact\_id  |  string  |  No  |  Primary key, the ID of the contact associated with the evaluation review.  | 
+|  evaluation\_id  |  string  |  Yes  |  The ID of the evaluation being reviewed.  | 
+|  evaluation\_form\_id  |  string  |  Yes  |  The ID of the evaluation form used for the evaluation.  | 
+|  evaluation\_form\_title  |  string  |  Yes  |  The title of the evaluation form used for the evaluation.  | 
+|  requested\_by\_user\_id  |  string  |  Yes  |  The user ID of the person who requested the review.  | 
+|  requested\_timestamp  |  Timestamp  |  Yes  |  Timestamp when the review was requested.  | 
+|  review\_created\_by\_user\_id  |  string  |  Yes  |  The user ID of the reviewer who created the review.  | 
+|  reviewed\_by\_user\_id  |  string  |  Yes  |  The user ID of the reviewer who completed the review.  | 
+|  creation\_timestamp  |  Timestamp  |  Yes  |  Timestamp when the review was created.  | 
+|  last\_modified\_timestamp  |  Timestamp  |  Yes  |  Timestamp when the review was last modified.  | 
+|  outcome  |  string  |  Yes  |  The outcome of the review. Valid values: APPROVED \| DECLINED. APPROVED means the reviewer changed the evaluation answers; DECLINED means the answers were not changed. Null while the review is in progress.  | 
+|  evaluator\_id  |  string  |  Yes  |  The user ID of the person who originally submitted the evaluation.  | 
+|  requester\_comment  |  string  |  Yes  |  Comment left by the agent requesting the review.  | 
+|  data\_lake\_last\_processed\_timestamp  |  Timestamp  |  Yes  |  Timestamp, which shows the last time the data lake processed the record. This can include transformation and backfill. This field cannot reliably be used to determine data freshness.  | 
+
+### Sample queries for evaluation reviews
+<a name="data-lake-evaluation-review-record-sample-queries"></a>
+
+The following example query in Amazon Athena returns the number of evaluation reviews by outcome. A review without an outcome is still in progress:
+
+```
+SELECT
+    COALESCE(outcome, 'IN_PROGRESS') AS review_status,
+    COUNT(*) AS review_count
+FROM "{{evaluation-review-record-resource-link-table-name}}"
+WHERE instance_id = '{{your-instance-id}}'
+    AND creation_timestamp >= TIMESTAMP '{{start-date}}'
+    AND creation_timestamp < TIMESTAMP '{{end-date}}'
+GROUP BY COALESCE(outcome, 'IN_PROGRESS')
+ORDER BY review_status;
+```
+
+The following example query in Amazon Athena returns the percentage of completed reviews with an `APPROVED` outcome for each evaluator who submitted the original evaluation:
+
+```
+SELECT
+    evaluator_id,
+    COUNT(*) AS completed_reviews,
+    CAST(COUNT_IF(outcome = 'APPROVED') AS DOUBLE) / COUNT(*) * 100.0 AS approved_pct
+FROM "{{evaluation-review-record-resource-link-table-name}}"
+WHERE instance_id = '{{your-instance-id}}'
+    AND outcome IS NOT NULL
+    AND creation_timestamp >= TIMESTAMP '{{start-date}}'
+    AND creation_timestamp < TIMESTAMP '{{end-date}}'
+GROUP BY evaluator_id
+ORDER BY approved_pct DESC;
+```
+
+The following example query in Amazon Athena returns the average time, in hours, from the review request to the last update of a completed review:
+
+```
+SELECT
+    AVG(date_diff('second', requested_timestamp, last_modified_timestamp)) / 3600.0
+        AS avg_review_completion_hours
+FROM "{{evaluation-review-record-resource-link-table-name}}"
+WHERE instance_id = '{{your-instance-id}}'
+    AND outcome IS NOT NULL
+    AND creation_timestamp >= TIMESTAMP '{{start-date}}'
+    AND creation_timestamp < TIMESTAMP '{{end-date}}';
+```
+
+For information about how agents request reviews of their evaluations, see [Request reviews of performance evaluations](evaluation-review-requests.md).

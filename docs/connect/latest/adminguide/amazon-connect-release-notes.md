@@ -8,6 +8,33 @@ We recommend subscribing to the RSS feed so updates to these notes are delivered
 ## October 2026 Updates
 <a name="oct26-release-notes"></a>
 
+### Amazon Connect Customer now provides evaluation review data in the analytics data lake
+<a name="oct26-evaluation-review-data-lake"></a>
+
+Amazon Connect Customer now provides evaluation review data in the analytics data lake, so you can report on how agents and supervisors appeal performance evaluations. Each record shows who requested the review, who reviewed it, and whether the reviewer changed the evaluation. Use Amazon Athena and Amazon QuickSight to track review volume, approval rates, and how long reviews take to complete. For example, a quality manager can find evaluators whose evaluations are often changed on review and target them for calibration.
+
+For more information, see [Evaluation review record](https://docs.aws.amazon.com/connect/latest/adminguide/data-lake-contact-analytics-data.html#data-lake-evaluation-review-record) in the Connect Customer Administrator Guide.
+
+Available in all AWS Regions where the Connect Customer analytics data lake is offered.
+
+### Connect Customer now publishes agent time off events to EventBridge
+<a name="oct26-time-off-events"></a>
+
+Connect Customer now publishes a time off event to EventBridge each time an agent's time off request changes status, so you can integrate Connect Customer scheduling with external HR systems. For example, you can route these events to a human resources system to drive a leave-approval workflow. Each event includes the request's status (one of AWAITING\_APPROVAL, APPROVED, REJECTED, or CANCELLED), the agent, the time off period, and related identifiers.
+
+For more information, see [Time off event stream](time-off-event-stream.md).
+
+### Connect Customer now automatically saves email drafts in the agent workspace
+<a name="oct26-email-drafts"></a>
+
+Connect Customer now automatically saves an agent's in-progress email as they compose a reply or a new outbound email in the agent workspace, so agents don't lose their work to a closed browser or an interrupted network connection. Connect Customer saves the draft every few seconds and when the agent chooses **Save draft** from the options menu, and restores it when the agent reopens the contact. Draft auto-save requires no configuration beyond enabling the email channel.
+
+Draft auto-save reduces the risk of agents losing work in progress. For example, an agent's network connection might drop while they compose a long reply. The agent can reopen the contact and continue from the recovered draft instead of starting over.
+
+For more information, see [Email draft auto-save in the agent workspace](https://docs.aws.amazon.com/connect/latest/adminguide/email-drafts.html) in the Connect Customer Administrator Guide.
+
+Email draft auto-save is available in all commercial AWS Regions where Connect Customer email is offered.
+
 ### Amazon Connect Customer now supports customizing the Customer Profiles app on the agent workspace
 <a name="oct26-customize-customer-profiles"></a>
 

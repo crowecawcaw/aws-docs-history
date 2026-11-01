@@ -21,6 +21,7 @@ Each data lake table uses a designated timestamp field for age calculations. The
 | contact\_lens\_conversational\_analytics | disconnect\_timestamp | 
 | contact\_statistic\_record | disconnect\_timestamp | 
 | contact\_record | disconnect\_timestamp | 
+| evaluation\_review\_record | creation\_timestamp | 
 | staff\_shift\_activities | last\_updated\_timestamp | 
 | staff\_shifts | last\_updated\_timestamp | 
 | staff\_timeoffs | last\_updated\_timestamp | 

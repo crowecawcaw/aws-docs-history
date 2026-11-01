@@ -217,9 +217,9 @@ The following image shows an example **Agent performance metrics** chart.
 ## Evaluations performed by evaluator
 <a name="evaluations-performed-by-evaluator-table"></a>
 
-On this table, you can view the evaluations performed by evaluator to assess evaluator productivity and drill-down into evaluations completed for each agent. 
+On this table, you can view the evaluations an evaluator completed for each agent to assess evaluator productivity, and compare evaluation scores across evaluators to assess their consistency and accuracy. Evaluations performed are split by new submissions and resubmitted ones to better understand evaluator productivity. 
 
-You can also compare evaluation scores across evaluators to assess evaluator consistency and accuracy.
+The following image shows the **Evaluations performed by evaluator** table. 
 
 ![Evaluations performed by evaluator.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluations-performed-by-evaluator-table.png)
 

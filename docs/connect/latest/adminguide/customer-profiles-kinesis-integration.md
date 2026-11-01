@@ -3,11 +3,20 @@
 # Create a Kinesis Integration with Connect Customer Customer Profiles
 <a name="customer-profiles-kinesis-integration"></a>
 
- The following steps outline the process of streaming objects from an Amazon Kinesis Data Stream into Connect Customer Customer Profiles. The integration consists of two main steps: 
+ The following steps outline the process of streaming objects from an Amazon Kinesis Data Stream into Connect Customer Customer Profiles. First complete the prerequisite, then complete the two integration steps: 
+
+1. Configure a dead-letter queue (DLQ) for your domain so that failed events are captured for troubleshooting.
 
 1.  Configure an EventBridge Pipe to stream data from your Kinesis Data Stream to an EventBridge bus. 
 
 1.  Set up a Customer Profiles data integration with your Kinesis Data Stream using your created EventBridge Pipe 
+
+## Prerequisite: Configure a dead-letter queue
+<a name="customer-profiles-kinesis-dlq-prerequisite"></a>
+
+Before you stream data into Customer Profiles, configure a dead-letter queue (DLQ) for your domain. Without a DLQ, failed events go unnoticed and you can't diagnose configuration problems.
+
+A DLQ is an Amazon SQS queue where Customer Profiles reports errors from streamed events. When you create a domain, you can specify a DLQ. For instructions on specifying a DLQ, see [Enable Customer Profiles, and specify a dead-letter queue and KMS key](enable-customer-profiles.md#enable-customer-profiles-step1). For an existing domain, use the UpdateDomain operation to add or change the DLQ.
 
 ## Step 1: Stream Data from Kinesis to EventBridge
 <a name="step-1-stream-data-from-kinesis-to-eventbridge"></a>

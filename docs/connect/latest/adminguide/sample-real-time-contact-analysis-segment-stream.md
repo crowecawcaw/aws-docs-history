@@ -97,6 +97,7 @@ This topic provides sample segment streams for STARTED, SEGMENTS, COMPLETED, and
                 ],
                 "MatchedDetails": {
                     "CreditCardRelated": {
+                        "RuleId": "6e4a9c1b-3d7f-5e2a-8b0c-1f9d2a4e7c6b",
                         "PointsOfInterest": [
                             {
                                 "BeginOffsetMillis": 19010,
@@ -105,6 +106,7 @@ This topic provides sample segment streams for STARTED, SEGMENTS, COMPLETED, and
                         ]
                     },
                     "CardBrokenIssue": {
+                        "RuleId": "7f5b0d2c-4e8a-6f3b-9c1d-2a0e3b5f8d7c",
                         "PointsOfInterest": [
                             {
                                 "BeginOffsetMillis": 25000,

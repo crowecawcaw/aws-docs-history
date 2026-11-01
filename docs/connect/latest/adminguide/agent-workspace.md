@@ -31,4 +31,5 @@ The following image shows the parts of the agent workspace:
 + [Choose a layout for the agent workspace](agent-workspace-layouts.md)
 + [Assign an agent workspace layout to agents](assign-agent-workspace-layout.md)
 + [Access the Worklist app in the agent workspace](worklist-app.md)
++ [Preview attachments in the agent workspace](preview-attachments.md)
 + [Integrate third-party applications in the agent workspace](3p-apps.md)

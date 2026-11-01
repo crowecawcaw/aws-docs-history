@@ -82,7 +82,6 @@ The service quotas for these resources are automatically matched across AWS Regi
 + Prompts (not including those stored in S3)
 + User hierarchies (groups and levels)
 + Agent status
-+ Predefined attributes
 + Saved reports
 + Views
 + Data tables
@@ -92,11 +91,15 @@ The service quotas for these resources are automatically matched across AWS Regi
 + Custom Metrics
 + Test Cases
 + Notifications
++ Instance attributes
+
+  Supported instance attributes are `INBOUND_CALLS`, `OUTBOUND_CALLS`, `EARLY_MEDIA`, `CONTACT_LENS`, `AUTO_RESOLVE_BEST_VOICES`, `MULTI_PARTY_CONFERENCE`, `ENHANCED_CONTACT_MONITORING`, `ENHANCED_CHAT_MONITORING`, `MULTI_PARTY_CHAT_CONFERENCE`, `MESSAGE_STREAMING`, `FORECASTING_PLANNING_SCHEDULING`, `AUTOMATED_INTERACTION_LOG`, and `MAX_PACKAGE`.
 
 **Important notes about specific resources**  
 **Saved reports**: While saved reports are replicated, the schedules associated with saved reports are *not* replicated.
 **Views**: Only Views in a *published* state are replicated. Views in a draft state are *not* replicated.
 **Data tables**: When you replicate an instance, Connect Customer updates the Region code of a literal Amazon Resource Name (ARN) for an Connect Customer or Connect Customer agent assist resource to the local Region. This applies whether the ARN is stored as a plain data table value or appears within a supported expression (for example, `=HOOP()` or `=XLOOKUP()`).
+**Instance attributes**: To onboard to instance attribute replication, match the configuration in your replica and reach out to AWS Support.
 
 [ReplicateInstance](https://docs.aws.amazon.com/connect/latest/APIReference/API_ReplicateInstance.html) also replicates the following associations across AWS Regions:
 + Phone number to flow

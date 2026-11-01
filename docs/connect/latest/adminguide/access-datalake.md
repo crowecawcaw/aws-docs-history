@@ -47,7 +47,8 @@ If you are unable to access the scheduling tables by using Option 1, try using O
      "contact_lens_conversational_analytics",
      "agent_queue_statistic_record",
      "agent_statistic_record",
-     "contact_evaluation_record"
+     "contact_evaluation_record",
+     "evaluation_review_record"
    ],
    "TargetAccountId": your_account_ID
    }

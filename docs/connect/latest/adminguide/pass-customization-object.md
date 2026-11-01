@@ -23,6 +23,9 @@ amazon_connect('customizationObject', {
             dropdown: true, 
             dynamicHeader: true,
             minimizeChatHeaderButton: true,
+            closeChatHeaderButton: false,
+            hide: false,
+            headingLevel: "h2.5",
         },
         transcript: { 
             hideDisplayNames: false, 
@@ -46,6 +49,7 @@ amazon_connect('customizationObject', {
                 agentMessage: "{{imageURL}}",
                 customerMessage: "{{imageURL}}",
             },
+            disableStreamedLexBotResponse: false,
         },
         composer: {
             disableEmojiPicker: true,
@@ -90,6 +94,9 @@ The following table lists the supported customization fields and recommended val
 | `header.dynamicHeader` | Boolean | Dynamically sets the header title to "Chatting with Bot/AgentName". | 
 | `header.hideTranscriptDownloadButton` | Boolean | Hide the [download transcript](chat-widget-download-transcript.md) button in the header dropdown menu. The default value is false. | 
 | `header.minimizeChatHeaderButton` | Boolean | Displays a Minimize button in the chat header. The default value is false. | 
+| `header.closeChatHeaderButton` | Boolean | Displays a close button in the chat header. While the chat is in progress, the button ends the chat in the same way as the End chat button. After the chat ends, the button closes the widget. This option takes effect only when header.dropdown is true. The default value is false. | 
+| `header.headingLevel` | String | Sets the Hypertext Markup Language (HTML) heading level of the header title so that the header fits the heading structure of your webpage for accessibility. Valid values are h1, h2, h2.5, h3, h4, h5, and h6. The default value is h2.5, which renders the title as an h2 element with the default header styling. With any other value, the title also uses the font styling of that heading level. | 
+| `header.hide` | Boolean | Hides the chat header, including the buttons in it. While the widget is open, this option also hides the button that minimizes the widget. The default value is false. | 
 | `transcript.hideDisplayNames` | Boolean | Hides all display names, will apply default name masks if `eventNames` is not provided. | 
 | `transcript.eventNames.customer` | String | Masks the display name of customer. | 
 | `transcript.eventNames.agent` | String | Masks the display name of agent. | 
@@ -105,6 +112,7 @@ The following table lists the supported customization fields and recommended val
 | `transcript.iconSources.systemMessage` | String | Icon displayed for system message, must be hosted on a public URL. | 
 | `transcript.iconSources.agentMessage` | String | Icon displayed for agent message, must be hosted on a public URL. | 
 | `transcript.iconSources.customerMessage` | String | Icon displayed for customer message, must be hosted on a public URL. | 
+| `transcript.disableStreamedLexBotResponse` | Boolean | Starts the chat with Response Mode set to `COMPLETE` instead of `INCREMENTAL`, so that bot responses appear only as complete messages. For more information, see [Incremental message responses](message-streaming-ai-chat.md#message-streaming-incremental). The default value is `false`, which uses `INCREMENTAL`. | 
 | `composer.alwaysHideToolbar` | Boolean | Hides the formatting toolbar that includes text styling features such as Bold, Italic, and both bulleted and numbered list options. | 
 | `composer.disableEmojiPicker` | Boolean | Disables the emoji picker when using the [rich text editor.](enable-text-formatting-chat.md) | 
 | `composer.disableCustomerAttachments` | Boolean | Prevents customers from sending or uploading attachments. | 

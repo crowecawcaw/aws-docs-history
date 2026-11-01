@@ -76,6 +76,7 @@ This topic provides sample segment streams for STARTED, SEGMENTS, COMPLETED, and
         "Categories": {
             "MatchedDetails": {
                 "Hi": {
+                    "RuleId": "8a6c1e3d-5f9b-7a4c-0d2e-3b1f4c6a9e8d",
                     "PointsOfInterest": [{
                         "TranscriptItems": [{
                             "Id": "5205b050-8aa9-4645-a381-a308801649ab",

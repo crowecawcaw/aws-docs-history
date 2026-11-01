@@ -8,6 +8,7 @@ Troubleshooting Contact Control Panel (CCP) issues requires support from your ne
 **Topics**
 + [Validate connectivity to Connect Customer with the Endpoint Test Utility](check-connectivity-tool.md)
 + [Troubleshoot audio quality issues in Connect Customer](troubleshoot-audio-quality.md)
++ [Troubleshoot contact routing and handling in Connect Customer](troubleshoot-contact-routing.md)
 + [Contact Control Panel (CCP) Issues](common-ccp-issues.md)
 + [Download and review Connect Customer Contact Control Panel (CCP) logs](download-ccp-logs.md)
 + [Agent workspace and CCP do not support mobile phones (iPhone, Android) and iPads](mobile-devices-not-supported.md)

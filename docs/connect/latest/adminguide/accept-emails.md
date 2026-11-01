@@ -217,3 +217,4 @@ Agents can handle multiple email contacts simultaneously, up to the limits confi
 + [Managing email contacts](#accept-emails-managing)
 + [Select a From email address](agent-select-from-email.md)
 + [Forward email contacts to external email addresses](agent-forward-email.md)
++ [Email draft auto-save in the agent workspace](email-drafts.md)

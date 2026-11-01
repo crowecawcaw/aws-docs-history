@@ -3,12 +3,13 @@
 # Flow block in Connect Customer: Resume contact
 <a name="resume-contact"></a>
 
-This topic defines the flow block for resuming a task contact from a paused state.
+This topic defines the flow block for resuming a task or email contact from a paused state.
 
 ## Description
 <a name="resume-contact-description"></a>
-+ Resumes a task contact from a paused state. This enables agents to free up an active slot so they can receive more critical tasks when their current task is stalled, for example, because of a missing approval or waiting on an external input.
++ Resumes a task or email contact from a paused state. This lets agents free up an active slot to receive more critical contacts. For example, a contact might be stalled because of a missing approval or because it is waiting on external input.
 + For more information how pausing and resuming tasks works in Connect Customer, see [Pause and resume tasks in Connect Customer Tasks](concepts-pause-and-resume-tasks.md). 
++ For more information about how pausing and resuming emails works in Connect Customer, see [Pause and resume emails in Connect Customer](concepts-pause-and-resume-emails.md). 
 
 ## Supported channels
 <a name="resume-contact-channels"></a>
@@ -21,7 +22,7 @@ The following table lists how this block routes a contact who is using the speci
 | Voice | No - Error branch | 
 | Chat | No - Error branch | 
 | Task | Yes | 
-| Email | No - Error branch | 
+| Email | Yes | 
 
 ## Flow types
 <a name="resume-contact-types"></a>

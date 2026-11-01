@@ -14,6 +14,13 @@ Customer Profiles does not support ingesting data from CSV headers that contain 
 
 For a list of the required IAM permissions needed for Customer Profiles to access data from the Amazon S3 bucket for data mapping, see `PutProfileObject` in the table in [Actions defined by Connect Customer Customer Profiles](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonconnectcustomerprofiles.html#amazonconnectcustomerprofiles-actions-as-permissions). 
 
+## Prerequisite: Configure a dead-letter queue
+<a name="customer-profiles-s3-dlq-prerequisite"></a>
+
+Before you ingest data from Amazon S3, configure a dead-letter queue (DLQ) for your Customer Profiles domain. Without a DLQ, failed records go unnoticed and you can't diagnose configuration problems.
+
+A DLQ is an Amazon SQS queue where Customer Profiles reports ingestion errors. When you create a domain, you can specify a DLQ. For instructions on specifying a DLQ, see [Enable Customer Profiles, and specify a dead-letter queue and KMS key](enable-customer-profiles.md#enable-customer-profiles-step1). For an existing domain, use the UpdateDomain operation to add or change the DLQ.
+
 ## Customer Profile ingestion
 <a name="customer-profiles-ingesting-account-based-profiles"></a>
 

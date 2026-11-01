@@ -57,6 +57,7 @@ The following example shows the output for an email contact with categorization,
     ],
     "MatchedDetails": {
       "refund-request": {
+        "RuleId": "4c2e7a9f-1d5b-6a3c-0e8f-9b4d3c1a6e5f",
         "PointsOfInterest": [
           {
             "Contacts": [
@@ -69,6 +70,7 @@ The following example shows the output for an email contact with categorization,
         "EventSource": "OnEmailAnalysisAvailable"
       },
       "shipping-issue": {
+        "RuleId": "5d3f8b0a-2e6c-7b4d-1f9a-0c5e4d2b7f6a",
         "PointsOfInterest": [],
         "EventSource": "OnEmailAnalysisAvailable"
       }

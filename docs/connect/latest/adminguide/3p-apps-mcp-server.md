@@ -3,44 +3,58 @@
 # Integrate an MCP server with Connect Customer
 <a name="3p-apps-mcp-server"></a>
 
-To integrate an MCP server with Connect Customer, you must configure a Bedrock AgentCore gateway. The gateway transforms your APIs, Lambda functions, and services into MCP-compatible tools for AI agents.
+To use an MCP server with Connect Customer, you need an Amazon Bedrock AgentCore gateway. The gateway turns your APIs, Lambda functions, and services into MCP tools. AI agents can use these tools.
 
 **Note**  
-Only one instance can be associated with a gateway, and that instance must be configured with the gateway's Discovery URL in Bedrock AgentCore. Each gateway can only be used with one MCP server.
+Each gateway supports one MCP server and one instance. The instance must use the gateway's Discovery URL. For information about setting up the gateway, see [Create a gateway in Bedrock AgentCore](#3p-apps-mcp-server-create-gateway).
 
 ## How to integrate an MCP server
 <a name="3p-apps-mcp-server-how-to-integrate"></a>
 
-1. On the **Add integration** page, enter the following information:
+1. On the **Add integration** page, enter the following details:
 
    1. **Integration information**
-      + **Display name** – A friendly name for the application. This name is displayed on security profiles and to your agents on the tab in the agent workspace. You can change this name later.
-      + **Description (optional)** – You can optionally provide a description for this application.
-      + **Integration type** – Select **MCP server**.  
-![The Add integration page showing Integration information fields for an MCP server application.](https://docs.aws.amazon.com/connect/latest/adminguide/images/integrations-3p-mcp-app.png)
+      + **Display name** – A name for the integration. This name appears on security profiles. You can change it later.
+      + **Description** (optional) – A description of the integration.
+      + **Integration type** – Select **MCP server**.
+      + **Integration identifier** – A unique ID for the integration. Use letters, numbers, hyphens (-), and underscores (\_). You can't change it later.
+**Note**  
+The **Integration identifier** doesn't need to match the gateway ID. You can use any value. Add the same value to the gateway's **Allowed audiences** field.  
+![The Add integration page showing the Integration information fields for an MCP server.](https://docs.aws.amazon.com/connect/latest/adminguide/images/integrations-3p-mcp-app.png)
 
    1. **Integration details**
 
-      Select a Bedrock AgentCore gateway to connect with Connect Customer. Gateways convert APIs, Lambda functions, and services into MCP-compatible tools for AI agents. If no gateways currently exist, create a new one using Bedrock AgentCore.  
+      Select a Bedrock AgentCore gateway to use with Connect Customer. If you don't have a gateway, choose **create a new one**. For more information about the gateway settings that Connect Customer requires, see [Create a gateway in Bedrock AgentCore](#3p-apps-mcp-server-create-gateway).  
 ![The Integration details section showing gateway selection.](https://docs.aws.amazon.com/connect/latest/adminguide/images/integrations-3p-mcp-select-gateway.png)
 
-      A new gateway can be created in Bedrock AgentCore.
-**Note**  
-The Discovery URL must follow this format: `[connect instance URL]/.well-known/openid-configuration`. For example: `https://my-instance.my.connect.aws/.well-known/openid-configuration`.
-**Configure the gateway's Allowed audiences field**  
-In the gateway's **Inbound Identity** configuration, add the gateway ID to the **Allowed audiences** field. The JSON Web Token (JWT) that Connect Customer sends to the gateway carries the gateway ID in its `aud` (audience) claim. When the gateway ID is missing from **Allowed audiences**, the gateway rejects the token and tool invocations fail.  
-**Allowed audiences** is the only field you must set for Connect Customer. You can leave the **Allowed clients**, **Allowed scopes**, and **Custom claims** fields empty.
-**Add a supported protocol version to the gateway**  
-The gateway's **Supported Versions** must include the Model Context Protocol (MCP) version that Connect Customer supports, which is `2025-03-26`. Gateways that you create or edit in the console must include protocol version `2025-03-26`.  
-To add the supported version, edit the gateway in Amazon Bedrock AgentCore. In **Additional Configurations**, add `2025-03-26` to the **Supported Versions** field.  
-![Additional gateway configuration options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/3p-apps-mcp-bedrock.png)
+   1. **Instance association** (optional)
 
-   1. **Instance association (optional)**
-
-      Select the instance that is configured with the selected gateway's Discovery URL. Defaults to **None**. If you are not ready to select an instance or if no instance has been associated with the selected gateway's Discovery URL, you might still create the MCP server integration now and associate an instance later.  
+      Select the instance that uses the gateway's Discovery URL. The default is **None**. You can skip this and add an instance later.  
 ![The Instance association section showing instance selection options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/3p-apps-mcp-instance.png)
 
 1. Choose **Add integration**.
 
-1. If the integration was successfully created, you will be sent to the **View integration** page where you will see a success banner and the integration summary.  
-![The View integration page showing a success banner after integrating an MCP server.](https://docs.aws.amazon.com/connect/latest/adminguide/images/3p-apps-mcp-success.png)
+1. After you add the integration, the **View integration** page opens. It shows a success notification and the **Integration details** section.  
+![The View integration page in the Connect Customer console with a success notification and the Integration details section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/3p-apps-mcp-success.png)
+
+## Create a gateway in Bedrock AgentCore
+<a name="3p-apps-mcp-server-create-gateway"></a>
+
+When you create a gateway in Bedrock AgentCore for Connect Customer, use the following settings.
+
+**Supported protocol versions**  
+Connect Customer supports only 2025 Model Context Protocol (MCP) versions. The gateway's **Supported versions** must include one of the 2025 versions: `2025-03-26`, `2025-06-18`, or `2025-11-25`.  
+When you create the gateway, expand **Additional configurations**. Then choose a 2025 version from the **Supported versions** list. You can't change the version later. If an existing gateway doesn't have a 2025 version, create a new one.
+
+![The Define gateway details page in Bedrock AgentCore with a 2025 version selected in Supported versions.](https://docs.aws.amazon.com/connect/latest/adminguide/images/3p-apps-mcp-bedrock.png)
+
+
+**Note**  
+The Discovery URL must use this format: `[connect instance URL]/.well-known/openid-configuration`. For example: `https://my-instance.my.connect.aws/.well-known/openid-configuration`.
+
+**Allowed audiences**  
+On the **Configure Inbound Identity** page, choose **Use JSON Web Tokens (JWT)** and **Use existing Identity provider configurations**. Under **Allowed audiences**, enter your **Integration identifier** in the **Audiences** field.  
+Connect Customer sends a JWT to the gateway. The token's `aud` (audience) claim has the **Integration identifier**. If the gateway's audiences don't include this value, the gateway rejects the token, and tool calls fail.  
+**Allowed audiences** is the only field that Connect Customer needs. You can leave the **Allowed clients**, **Allowed scopes and advertised values**, and **Custom claims** fields empty.
+
+![The Configure Inbound Identity page in Bedrock AgentCore with the Integration identifier entered in the Audiences field.](https://docs.aws.amazon.com/connect/latest/adminguide/images/3p-apps-mcp-bedrock-inbound-identity.png)

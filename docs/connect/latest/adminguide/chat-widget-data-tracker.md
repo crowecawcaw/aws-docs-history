@@ -195,14 +195,18 @@ If linking with an existing profile, we recommend setting `MaxProfileObjectCount
 
 If you don't need to link to an existing profile but want to group clickstream activity on your own, you can provide a custom identifier. Clickstream events sharing the same identifier are grouped under a common `_webAnalyticsUserId` profile key.
 
-There are two ways to provide it:
-+ **Via JWT claims** – Set the `customerId` field in your JWT claims (requires security enabled).
-+ **Via initialization** – Pass the identifier as an argument when initializing the tracker:
+To provide a custom identifier, set the `customerId` field in your JWT claims. You must enable security on your Communications widget before you can use this field. For instructions on enabling security, see [Step 3: Confirm and copy communications widget code and security keys](add-chat-to-website.md#confirm-and-copy-chat-widget-script).
 
-  ```
-  // Pass the custom user id as a positional string argument.
-  await window.amazon_connect.Web.ClickStream.init('<custom-user-id>');
-  ```
+The following example shows a JWT payload with the `customerId` field:
+
+```
+{
+  "sub": "<widgetId>",
+  "iat": 1234567890,
+  "exp": 1234571490,
+  "customerId": "<custom-user-id>"
+}
+```
 
 **Note**  
 If `profileKeys` are also provided and resolve to an existing profile, profile resolution uses that result and skips this custom identifier.

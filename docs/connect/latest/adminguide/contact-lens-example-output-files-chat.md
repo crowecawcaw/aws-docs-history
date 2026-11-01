@@ -97,6 +97,7 @@ Note the following about the original analysis file for chats:
         ],
         "MatchedDetails": {
             "agent-intro": {
+                "RuleId": "3b1d6f8e-0c4a-5f2b-9d7e-8a3c2b0f5d4e",
                 "PointsOfInterest": [
                     {
                         "TranscriptItems": [
@@ -954,6 +955,7 @@ Note the following about the original analysis file for chats:
         ],
         "MatchedDetails": {
             "agent-intro": {
+                "RuleId": "3b1d6f8e-0c4a-5f2b-9d7e-8a3c2b0f5d4e",
                 "PointsOfInterest": [
                     {
                         "TranscriptItems": [

@@ -16,3 +16,4 @@ Supervisors or managers with permissions can view agent time off requests and ov
 + [Import an agent's time off balance to Connect Customer](upload-timeoff-balance.md)
 + [Manager and Agent view request drawer in Connect Customer](manager-agent-view-request-drawer-to.md)
 + [Update or cancel a time off request in Connect Customer](update-cancel-to.md)
++ [Time off event stream](time-off-event-stream.md)
