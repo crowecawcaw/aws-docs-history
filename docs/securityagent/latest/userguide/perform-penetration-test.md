@@ -74,7 +74,7 @@ For how the test scope affects risk exclusion, see [Exclude risk types (optional
 
 Define which domains the penetration test is allowed to attack.
 
-The **Penetration testing scope** section holds the target URLs. Its **Advanced network access** subsection holds custom HTTP headers.
+In the **Penetration testing scope** section, you enter one or more target URLs. In its **Advanced network access** subsection, you can add custom HTTP headers and certificates.
 
 You classify the other domains the test may reach on the **Network configuration** step, after the agent has tested your credentials. For more information, see [Review network scope](#pentest-network-scope).
 
@@ -107,7 +107,7 @@ For best results, include all domains that are part of your application’s user
 ### Add custom HTTP headers (optional)
 <a name="_add_custom_http_headers_optional"></a>
 
-Specify custom HTTP headers that will be added to any requests made by AWS Security Agent during penetration testing.
+Specify custom HTTP headers that AWS Security Agent adds to every request it makes during penetration tests and credential tests. Credential tests can reach domains outside your target URLs. Do not put a value in a custom header that you would not send to those domains. For more information about credential tests, see [Test credentials](#pentest-test-credentials).
 
 1. Expand **Advanced network access**, then locate the **Custom HTTP headers** section.
 
@@ -122,6 +122,16 @@ By default, AWS Security Agent adds a custom header for **User-Agent** set to **
    1. Enter each additional custom header.
 
 1. To remove a custom header, choose **Remove** next to the header.
+
+### Add certificates (optional)
+<a name="_add_certificates_optional"></a>
+
+Add certificates so that AWS Security Agent can connect to target endpoints that use certificates that aren’t publicly trusted, or that require a client certificate. Both certificate types are in the **Advanced network access** subsection.
+
+**Note**  
+You must add one or more target URLs before you can attach a client certificate. You choose the certificate’s hosts from the target URLs, so until you add them, there are no hosts to choose.
++ If a target endpoint’s Transport Layer Security (TLS) certificate isn’t publicly trusted, add its trust anchor under **Trusted CA certificates**. This applies to self-signed certificates and to certificates issued by a private or internal certificate authority (CA). For more information about trusted CA certificates, see [Provide trusted CA certificates for a penetration test](provide-trusted-ca-certificates.md).
++ To test a target endpoint that requires mutual TLS (mTLS), attach a client certificate under **Client certificates for mTLS**. For more information about client certificates, see [Provide client certificates for mutual TLS](provide-client-certificates.md).
 
 ## Configure IAM Role
 <a name="_configure_iam_role"></a>
@@ -217,9 +227,14 @@ For production environments or sensitive credentials, we recommend using the adv
 To change a credential later, choose the edit icon in its row. To delete one, choose the remove icon.
 
 ### Test credentials
-<a name="_test_credentials"></a>
+<a name="pentest-test-credentials"></a>
 
 Test a credential to confirm that AWS Security Agent can sign in with it before the penetration test runs. Testing also discovers the domains your application reaches while signed in. AWS Security Agent then suggests those domains on the **Network configuration** step.
+
+**Important**  
+A credential test runs without the network scope so that it can discover these domains. It can reach any domain, including domains that you later mark **Out of scope**. AWS Security Agent adds your custom HTTP headers to every request.  
+If you configured VPC resources, the credential test runs from your subnets. Controls that you apply in your VPC also apply to the credential test, such as security groups and Amazon Route 53 Resolver DNS Firewall.  
+Testing credentials is optional. To keep all traffic within the network scope, skip credential testing and classify the domains on the **Network configuration** step yourself.
 
 1. In the credential’s row, choose **Test**. To test every credential at once, choose **Test all credentials**.
 
@@ -263,7 +278,7 @@ Every domain has one of three classifications:
 +  **Accessible** – A URL the penetration test can access but must not attack. Use this for a hosted login page, a content delivery network (CDN), or another supporting service your application depends on.
 +  **Out of scope** – A URL the penetration test must not access at all.
 
-<a name="add-out-of-scope-url-paths-optional"></a>By default, only your target URLs are reachable. Add an accessible entry for anything else your application needs. An entry can be a whole domain, such as `auth.example.com`, or a specific path, such as `https://example.com/callback`. An out-of-scope entry always takes precedence over an accessible one.
+<a name="add-out-of-scope-url-paths-optional"></a>By default, only your target URLs are reachable during the penetration test. This network scope does not apply to credential tests. Add an accessible entry for anything else your application needs. An entry can be a whole domain, such as `auth.example.com`, or a specific path, such as `https://example.com/callback`. An out-of-scope entry always takes precedence over an accessible one.
 
 <a name="add-accessible-domains-optional"></a>Accessible domains do not require ownership verification, even if they belong to a different domain than your target. Only target domains require verified ownership. AWS Security Agent does not penetration test accessible domains; it uses them only for login and navigation.
 

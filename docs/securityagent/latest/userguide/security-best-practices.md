@@ -64,7 +64,9 @@ Penetration tests can review and remediate private and public repositories that 
 ## Accessible URLs
 <a name="_accessible_urls"></a>
 
-Accessible URLs specify additional endpoints that the penetration testing environment can access during testing. These are necessary when your application depends on external services such as third-party authentication providers or CDNs. All network dependencies required for testing must be specified as either target URLs or accessible URLs. The network blocks access to any unspecified endpoints.
+Accessible URLs specify additional endpoints that the penetration testing environment can access during testing. These are necessary when your application depends on external services such as third-party authentication providers or CDNs. All network dependencies required for testing must be specified as either target URLs or accessible URLs.
+
+During a penetration test, AWS Security Agent blocks network access to any endpoint that you do not specify. Credential tests do not apply this restriction. A credential test can reach endpoints that you do not specify. AWS Security Agent adds your custom HTTP headers to those requests. For more information about credential tests, see [Test credentials](perform-penetration-test.md#pentest-test-credentials).
 
  **Security implications:** AWS Security Agent is not instructed to perform security testing on accessible URLs. By specifying accessible URLs, you indicate trust in these dependencies. Penetration test data, including credentials, may be transmitted to these accessible URL endpoints during testing.
 

@@ -4,12 +4,13 @@
 <a name="sample-cicd-bitbucket"></a>
 
 **Public preview**  
-CI/CD pipeline integration is in preview and is subject to change.
+CI/CD pipeline integration is in preview and is subject to change.  
+While it is in preview, AWS doesn’t charge for continuous pentest runs, however you start them. You still pay for the other AWS resources you use, such as hosting the application you test. Other penetration tests are metered as usual. For more information, see [Pricing and billing](pricing.md).
 
 This tutorial walks through a complete, reproducible setup that runs a continuous, scoped AWS Security Agent penetration test as a **post-deployment gate** in Bitbucket Pipelines. You deploy an intentionally vulnerable sample application to a staging environment, then let AWS Security Agent test the deployed change and block promotion to production when it finds a vulnerability.
 
 **Note**  
-Running a penetration test job and hosting the sample application might result in charges to your AWS account. For pricing details, see [AWS Security Agent pricing](https://aws.amazon.com/continuum/pricing/).
+Hosting the sample application might result in charges to your AWS account.
 
 For the concepts behind the integration — how the test is scoped to the deployed change, how OIDC authentication works, and how gating decisions are made — see [Run penetration tests from your CI/CD pipeline](cicd-pentest.md). This tutorial applies those concepts to a concrete Bitbucket repository.
 
@@ -228,7 +229,7 @@ Before you rely on the gate, run it once in dry-run mode. Add the dry-run variab
                 DRY_RUN: "true"
 ```
 
-The dry run checks AWS authentication, the Region, and that your repository resolves to its integration — without starting a billable penetration test job. It surfaces the common setup mistakes (a bad OIDC trust policy, a Region mismatch, or a repository that is not connected) in seconds. When it passes, remove the dry-run variable and continue. For more information, see [Validate your setup before you trust the gate](cicd-pentest.md#cicd-pentest-validate).
+The dry run checks AWS authentication, the Region, and that your repository resolves to its integration — without starting a penetration test job. It surfaces the common setup mistakes (a bad OIDC trust policy, a Region mismatch, or a repository that is not connected) in seconds. When it passes, remove the dry-run variable and continue. For more information, see [Validate your setup before you trust the gate](cicd-pentest.md#cicd-pentest-validate).
 
 ## Step 5: Trigger the gate and read the result
 <a name="_step_5_trigger_the_gate_and_read_the_result"></a>
@@ -280,7 +281,7 @@ The step log shows the same checks for the new commit, with no findings at or ab
 To avoid ongoing cost and to remove the intentionally vulnerable application:
 
 **Stopping the pipeline does not stop the penetration test**  
-If you stop a running pipeline from the Bitbucket UI or API, the penetration test job keeps running server-side and keeps accruing cost. A Pipe has no post-step hook on Bitbucket, so the gate cannot reliably request a stop once the pipeline is being torn down — unlike its own timeout, which it handles itself.  
+If you stop a running pipeline from the Bitbucket UI or API, the penetration test job keeps running server-side and keeps acting against your target. A Pipe has no post-step hook on Bitbucket, so the gate cannot reliably request a stop once the pipeline is being torn down — unlike its own timeout, which it handles itself.  
 If you stop a pipeline while the gate is waiting, open the penetration test in the AWS Security Agent console and stop the job there. Check for a running job before you delete the IAM role, because the role is what the cleanup would have used.
 
 1. Tear down the sample application from your staging environment.

@@ -4,12 +4,13 @@
 <a name="sample-cicd-github"></a>
 
 **Public preview**  
-CI/CD pipeline integration is in preview and is subject to change.
+CI/CD pipeline integration is in preview and is subject to change.  
+While it is in preview, AWS doesn’t charge for continuous pentest runs, however you start them. You still pay for the other AWS resources you use, such as hosting the application you test. Other penetration tests are metered as usual. For more information, see [Pricing and billing](pricing.md).
 
 This tutorial walks through a complete, reproducible setup that runs a continuous, scoped AWS Security Agent penetration test as a **post-deployment gate** in GitHub Actions. You deploy an intentionally vulnerable sample application to a staging environment, then let AWS Security Agent test the deployed change and block promotion to production when it finds a vulnerability.
 
 **Note**  
-Running a penetration test job and hosting the sample application might result in charges to your AWS account. For pricing details, see [AWS Security Agent pricing](https://aws.amazon.com/continuum/pricing/).
+Hosting the sample application might result in charges to your AWS account.
 
 For the concepts behind the integration — how the test is scoped to the deployed change, how OIDC authentication works, and how gating decisions are made — see [Run penetration tests from your CI/CD pipeline](cicd-pentest.md). This tutorial applies those concepts to a concrete GitHub repository.
 
@@ -235,7 +236,7 @@ Before you rely on the gate, run it once in dry-run mode. Add `dry-run: "true"` 
           dry-run: "true"
 ```
 
-The dry run checks AWS authentication, the Region, and that your repository resolves to its integration — without starting a billable penetration test job. If it fails, it surfaces the common setup mistakes (a bad OIDC trust policy, a Region mismatch, or a repository that is not connected) in seconds. When it passes, remove the `dry-run` input and continue. For more information, see [Validate your setup before you trust the gate](cicd-pentest.md#cicd-pentest-validate).
+The dry run checks AWS authentication, the Region, and that your repository resolves to its integration — without starting a penetration test job. If it fails, it surfaces the common setup mistakes (a bad OIDC trust policy, a Region mismatch, or a repository that is not connected) in seconds. When it passes, remove the `dry-run` input and continue. For more information, see [Validate your setup before you trust the gate](cicd-pentest.md#cicd-pentest-validate).
 
 ## Step 5: Trigger the gate and read the result
 <a name="_step_5_trigger_the_gate_and_read_the_result"></a>

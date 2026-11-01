@@ -4,12 +4,13 @@
 <a name="sample-cicd-gitlab"></a>
 
 **Public preview**  
-CI/CD pipeline integration is in preview and is subject to change.
+CI/CD pipeline integration is in preview and is subject to change.  
+While it is in preview, AWS doesn’t charge for continuous pentest runs, however you start them. You still pay for the other AWS resources you use, such as hosting the application you test. Other penetration tests are metered as usual. For more information, see [Pricing and billing](pricing.md).
 
 This tutorial walks through a complete, reproducible setup that runs a continuous, scoped AWS Security Agent penetration test as a **post-deployment gate** in GitLab CI/CD. You deploy an intentionally vulnerable sample application to a pre-production environment, then let AWS Security Agent test the deployed change and block promotion to production when it finds a vulnerability.
 
 **Note**  
-Running a penetration test job and hosting the sample application might result in charges to your AWS account. For pricing details, see [AWS Security Agent pricing](https://aws.amazon.com/continuum/pricing/).
+Hosting the sample application might result in charges to your AWS account.
 
 For the concepts behind the integration — how the test is scoped to the deployed change, how OIDC authentication works, and how gating decisions are made — see [Run penetration tests from your CI/CD pipeline](cicd-pentest.md). This tutorial applies those concepts to a concrete GitLab project.
 
@@ -214,7 +215,7 @@ deploy-prod:
 The component defines a job named `aws-continuum-pentest`. The `stage` input must name a stage that runs after your deploy stage, and the `deploy-prod` job’s `needs` must reference that job name so that promotion is gated on the result.
 
 **Exclude the baseline tag namespace, or the gate re-triggers itself**  
-Each time the gate passes it creates a tag under `continuum/pentest/cicd/baseline/`, and on GitLab creating a tag is a pipeline trigger. If any job in your pipeline is tag-driven — the common `rules: if: $CI_COMMIT_TAG` idiom, `only: tags`, or release automation — the gate fires again on its own tag, passes, writes another tag, and repeats. Each of those runs is a billable penetration test.  
+Each time the gate passes it creates a tag under `continuum/pentest/cicd/baseline/`, and on GitLab creating a tag is a pipeline trigger. If any job in your pipeline is tag-driven — the common `rules: if: $CI_COMMIT_TAG` idiom, `only: tags`, or release automation — the gate fires again on its own tag, passes, writes another tag, and repeats. Each of those runs starts another penetration test against your target, and each one holds one of your account’s concurrent pentest runs.  
 The `workflow: rules` block above prevents that for the whole pipeline. If you cannot use a `workflow` rule, exclude the namespace on each tag-driven job instead, with `rules: if: '$CI_COMMIT_TAG !~ /^continuum\/pentest\/cicd\/baseline\//'`.
 
 **Note**  
@@ -236,7 +237,7 @@ Before you rely on the gate, run it once in dry-run mode. Add `dry-run: "true"` 
       dry-run: "true"
 ```
 
-The dry run checks AWS authentication, the Region, and that your project resolves to its integration — without starting a billable penetration test job. It surfaces the common setup mistakes (a bad OIDC trust policy, a Region mismatch, or a project that is not connected) in seconds. When it passes, remove the `dry-run` input and continue. For more information, see [Validate your setup before you trust the gate](cicd-pentest.md#cicd-pentest-validate).
+The dry run checks AWS authentication, the Region, and that your project resolves to its integration — without starting a penetration test job. It surfaces the common setup mistakes (a bad OIDC trust policy, a Region mismatch, or a project that is not connected) in seconds. When it passes, remove the `dry-run` input and continue. For more information, see [Validate your setup before you trust the gate](cicd-pentest.md#cicd-pentest-validate).
 
 ## Step 6: Trigger the gate and read the result
 <a name="_step_6_trigger_the_gate_and_read_the_result"></a>

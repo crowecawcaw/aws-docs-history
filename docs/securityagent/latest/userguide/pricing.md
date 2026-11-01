@@ -15,12 +15,14 @@ The following table describes which capabilities AWS Security Agent bills for.
 
 | Capability | How AWS Security Agent charges you | 
 | --- | --- | 
-| Continuum for penetration testing | AWS Security Agent meters each task hour by the second of task time | 
+| Continuum for penetration testing | AWS Security Agent meters each task hour by the second of task time, except for continuous pentest runs while continuous pentesting is in preview | 
 | Continuum for code review | No charge while in preview | 
 | Continuum for design review | No charge while in preview | 
 | Continuum for threat modeling | No charge while in preview | 
 
 AWS Security Agent bills penetration testing for each second of task time. It converts the total to hours on your bill, so you pay for partial hours.
+
+While continuous pentesting is in preview, AWS doesn’t charge for continuous pentest runs, however you start them. You still pay for the other AWS resources you use, such as hosting the application you test. For more information, see [Run penetration tests from your CI/CD pipeline](cicd-pentest.md).
 
 ## What counts as a task hour
 <a name="_what_counts_as_a_task_hour"></a>
@@ -74,7 +76,7 @@ A job’s task hours reflect the total cumulative work done by AWS Security Agen
 ### Which capabilities does AWS Security Agent charge for?
 <a name="_which_capabilities_does_aws_security_agent_charge_for"></a>
 
-Penetration testing. AWS doesn’t charge for code reviews, design reviews, or threat models while those capabilities are in preview. Quotas still apply to those capabilities. For more information, see [Service Quotas](quotas.md).
+Penetration testing. AWS doesn’t charge for continuous pentest runs while continuous pentesting is in preview, or for code reviews, design reviews, or threat models while those capabilities are in preview. Quotas still apply to the capabilities that are in preview. For more information, see [Service Quotas](quotas.md).
 
 ### Does reaching a quota stop my charges?
 <a name="_does_reaching_a_quota_stop_my_charges"></a>
@@ -89,4 +91,4 @@ There is no precise estimation. Task hours depend on the breadth of the target a
 ### If I stop a run before it finishes, am I charged?
 <a name="_if_i_stop_a_run_before_it_finishes_am_i_charged"></a>
 
-Yes, the task hours that accrue until the job stops are charged.
+Yes, the task hours that accrue until the job stops are charged. Continuous pentest runs are an exception. AWS doesn’t charge for them while continuous pentesting is in preview.
