@@ -8,7 +8,7 @@ The following steps prepare you for upgrading. Perform these steps to ensure tha
 ## Check essential notes
 <a name="ver-ess-notes"></a>
 
-To identify changes in behavior with the upgrade, see the essential notes in the [ current Release Notes](https://docs.aws.amazon.com/elemental-live/). 
+To identify changes in behavior with the upgrade, see the essential notes in the [current Release Notes](https://docs.aws.amazon.com/elemental-live/latest/releasenotes/). 
 
 ## Verify the worker type
 <a name="ver-version-node"></a>
