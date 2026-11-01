@@ -15,6 +15,7 @@ This page provides the release notes and document history for Amazon DCV Session
 This section provides an overview of the major updates, feature releases, and bug fixes for Amazon DCV Session Manager. All the updates are organized by release date. We update the documentation frequently to address the feedback that you send us.
 
 **Topics**
++ [2026.0-577— October 28, 2026](#sm-2026.0-577)
 + [2026.0-570— September 30, 2026](#sm-2026.0-570)
 + [2025.0-561— June 25, 2026](#sm-2025.0-561)
 + [2025.0-544— February 2, 2026](#sm-2025.0-544-feb)
@@ -41,6 +42,15 @@ This section provides an overview of the major updates, feature releases, and bu
 + [2021.0-10242— April 12, 2021](#sm-2021.0-10242)
 + [2020.2-9662— December 04, 2020](#sm-2020.2-9662)
 + [2020.2-9508— November 11, 2020](#sm-2020.2-9508)
+
+### 2026.0-577— October 28, 2026
+<a name="sm-2026.0-577"></a>
+
+
+
+| Build numbers | Changes and bug fixes | 
+| --- | --- | 
+|  + Broker: 577<br />+ Agent: 920<br />+ CLI: 160  |  + Added support for Amazon Linux 2027 for the Agent (64-bit x86 and 64-bit ARM) and the Broker (64-bit x86).<br />+ Enforced authentication and authorization of nodes joining the Broker cluster to address a security vulnerability.  | 
 
 ### 2026.0-570— September 30, 2026
 <a name="sm-2026.0-570"></a>
@@ -285,6 +295,7 @@ The following table describes the documentation for this release of Amazon DCV S
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Amazon DCV Version 2026.0-577 | Amazon DCV Session Manager has been updated for Amazon DCV 2026.0-577. For more information, see [2026.0-577— October 28, 2026](#sm-2026.0-577). | October 28, 2026 | 
 | Amazon DCV Version 2026.0-570 | Amazon DCV Session Manager has been updated for Amazon DCV 2026.0-570. For more information, see [2026.0-570— September 30, 2026](#sm-2026.0-570). | September 30, 2026 | 
 | Amazon DCV Version 2025.0-561 | Amazon DCV Session Manager has been updated for Amazon DCV 2025.0-561. For more information, see [2025.0-561— June 25, 2026](#sm-2025.0-561). | June 25, 2026 | 
 | Amazon DCV Version 2025.0-544 | Amazon DCV Session Manager has been updated for Amazon DCV 2025.0-544. For more information, see [2025.0-544— February 2, 2026](#sm-2025.0-544-feb). | February 2, 2026 | 
