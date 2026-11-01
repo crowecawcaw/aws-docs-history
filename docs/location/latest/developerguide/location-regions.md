@@ -8,3 +8,5 @@ Amazon Location Service is available across multiple AWS regions globally. This 
 Amazon Location is available in the following AWS Regions, using the listed endpoints found [ here](https://docs.aws.amazon.com/general/latest/gr/location.html). 
 
 For more information, see [AWS service endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html). 
+
+In the AWS European Sovereign Cloud, some Amazon Location Service features use third-party service providers. To provide these features, Amazon Location can send information from your requests to these providers. The providers might process this information outside the AWS European Sovereign Cloud. For the third-party service providers that support Amazon Location, see [AWS Sub-processors](https://aws.amazon.com/compliance/sub-processors/).
