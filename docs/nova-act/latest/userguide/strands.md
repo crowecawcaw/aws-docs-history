@@ -74,4 +74,4 @@ def main():
 ## Running a Strands agent on AgentCore that uses a Nova Act tool
 <a name="running-strands-agentcore"></a>
 
-Now let’s run the same agent as above but instead of running on our local machine, this time let’s run it on AgentCore Runtime with AgentCore BrowserTool. Refer to [this guide](https://strandsagents.com/latest/documentation/docs/user-guide/deploy/deploy_to_bedrock_agentcore/) for instructions on deploying a Strands agent on AgentCore, and [this guide](https://builder.aws.com/content/32HpPjNanKLl7OZTpn48xhV0mSX/run-your-nova-act-workflow-on-amazon-bedrock-agentcore) for using Nova Act with AgentCore Browser Tool.
+Now let’s run the same agent as above but instead of running on our local machine, this time let’s run it on AgentCore Runtime with AgentCore BrowserTool. Refer to [this guide](https://strandsagents.com/docs/user-guide/sdk/deploy/deploy_to_bedrock_agentcore/python/) for instructions on deploying a Strands agent on AgentCore, and [this guide](https://builder.aws.com/content/32HpPjNanKLl7OZTpn48xhV0mSX/run-your-nova-act-workflow-on-amazon-bedrock-agentcore) for using Nova Act with AgentCore Browser Tool.

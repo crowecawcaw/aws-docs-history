@@ -78,7 +78,7 @@ Result for tool call 'read_row_as_dict': {'First Name': 'John', 'Last Name': 'Do
 
 The Model Context Protocol (MCP) is an open standard that enables developers to build secure, two-way connections between their data sources and AI-powered tools. Instead of writing custom adapters for each API or service, you can run an MCP server and integrate its tools with Nova Act automatically through a client bridge. Once connected, Nova Act treats these tools like any other external integration: it decides when to call them, sends the required parameters, and incorporates the results into its response.
 
-Below is an example using the [AWS Documentation MCP Server](https://awslabs.github.io/mcp/servers/aws-documentation-mcp-server). This example requires installing the [Strands Agents library](https://strandsagents.com/latest/).
+Below is an example using the [AWS Documentation MCP Server](https://awslabs.github.io/mcp/servers/aws-documentation-mcp-server). This example requires installing the [Strands Agents library](https://strandsagents.com/docs/user-guide/sdk/).
 
 ```
 from mcp import StdioServerParameters, stdio_client
