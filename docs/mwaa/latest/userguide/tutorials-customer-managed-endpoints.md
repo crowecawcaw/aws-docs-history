@@ -33,10 +33,10 @@ Use the following CloudFormation template and AWS CLI command to create a new Am
 
 1. Download the CloudFormation [template](samples/cfn-vpc-private-network.zip), then unzip the `.yml` file.
 
-1. In a new command prompt window, navigate to the folder where you saved the template, then use [`create-stack`](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/create-stack.html) to create the stack. The `--template-body` flag specifies the path to the template.
+1. In a new command prompt window, navigate to the folder where you saved the template, then use [create-stack](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/create-stack.html) to create the stack. The `--template-body` flag specifies the path to the template. Replace {{stack-name}}, {{availability-zone-1}}, and {{availability-zone-2}} with your own values. The two Availability Zones must be different and supported in your Region.
 
    ```
-   aws cloudformation create-stack --stack-name {{stack-name}} --template-body file://cfn-vpc-private-network.yml
+   aws cloudformation create-stack --stack-name {{stack-name}} --template-body file://cfn-vpc-private-network.yml --parameters ParameterKey=AvailabilityZone1,ParameterValue={{availability-zone-1}} ParameterKey=AvailabilityZone2,ParameterValue={{availability-zone-2}}
    ```
 
 In the next section, you'll create the Lambda function.

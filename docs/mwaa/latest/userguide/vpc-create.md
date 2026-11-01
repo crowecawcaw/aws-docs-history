@@ -41,6 +41,8 @@ Amazon MWAA does not support the use of `use1-az3` Availability Zone (AZ) in the
 aws ec2 describe-availability-zones --region us-east-1
 ```
 
+Choose two supported, different Availability Zones in your Region. If you run several environments, spread them across different zones.
+
 ### Option one: Creating the VPC network on the Amazon MWAA console
 <a name="vpc-create-mwaa-console"></a>
 
@@ -95,6 +97,23 @@ The following CloudFormation template creates an Amazon VPC network with interne
        Type: String
        Default: 10.192.21.0/24
    
+     AvailabilityZone1:
+       Description: >-
+         First Availability Zone for the subnets. Any two different AZs work.
+         Changing this on an existing stack replaces the subnets.
+       Type: AWS::EC2::AvailabilityZone::Name
+     AvailabilityZone2:
+       Description: >-
+         Second Availability Zone. Must differ from the first.
+         Changing this on an existing stack replaces the subnets.
+       Type: AWS::EC2::AvailabilityZone::Name
+   
+   Rules:
+     DifferentAZs:
+       Assertions:
+         - Assert: !Not [ !Equals [ !Ref AvailabilityZone1, !Ref AvailabilityZone2 ] ]
+           AssertDescription: The two Availability Zones must be different.
+   
    Resources:
      VPC:
        Type: AWS::EC2::VPC
@@ -123,7 +142,7 @@ The following CloudFormation template creates an Amazon VPC network with interne
        Type: AWS::EC2::Subnet
        Properties:
          VpcId: !Ref VPC
-         AvailabilityZone: !Select [ 0, !GetAZs '' ]
+         AvailabilityZone: !Ref AvailabilityZone1
          CidrBlock: !Ref PublicSubnet1CIDR
          MapPublicIpOnLaunch: true
          Tags:
@@ -134,7 +153,7 @@ The following CloudFormation template creates an Amazon VPC network with interne
        Type: AWS::EC2::Subnet
        Properties:
          VpcId: !Ref VPC
-         AvailabilityZone: !Select [ 1, !GetAZs  '' ]
+         AvailabilityZone: !Ref AvailabilityZone2
          CidrBlock: !Ref PublicSubnet2CIDR
          MapPublicIpOnLaunch: true
          Tags:
@@ -145,7 +164,7 @@ The following CloudFormation template creates an Amazon VPC network with interne
        Type: AWS::EC2::Subnet
        Properties:
          VpcId: !Ref VPC
-         AvailabilityZone: !Select [ 0, !GetAZs  '' ]
+         AvailabilityZone: !Ref AvailabilityZone1
          CidrBlock: !Ref PrivateSubnet1CIDR
          MapPublicIpOnLaunch: false
          Tags:
@@ -156,7 +175,7 @@ The following CloudFormation template creates an Amazon VPC network with interne
        Type: AWS::EC2::Subnet
        Properties:
          VpcId: !Ref VPC
-         AvailabilityZone: !Select [ 1, !GetAZs  '' ]
+         AvailabilityZone: !Ref AvailabilityZone2
          CidrBlock: !Ref PrivateSubnet2CIDR
          MapPublicIpOnLaunch: false
          Tags:
@@ -312,10 +331,10 @@ The following CloudFormation template creates an Amazon VPC network with interne
    cd mwaaproject
    ```
 
-1. Use the [`aws cloudformation create-stack`](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/create-stack.html) command to create the stack using the AWS CLI.
+1. Use the [create-stack](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/create-stack.html) command to create the stack using the AWS CLI. Replace {{availability-zone-1}} and {{availability-zone-2}} with two different, supported Availability Zones in your Region.
 
    ```
-   aws cloudformation create-stack --stack-name mwaa-environment --template-body file://cfn-vpc-public-private.yaml
+   aws cloudformation create-stack --stack-name mwaa-environment --template-body file://cfn-vpc-public-private.yaml --parameters ParameterKey=AvailabilityZone1,ParameterValue={{availability-zone-1}} ParameterKey=AvailabilityZone2,ParameterValue={{availability-zone-2}}
    ```
 **Note**  
 It takes about 30 minutes to create the Amazon VPC infrastructure.
@@ -347,7 +366,23 @@ This option uses [Private routing without internet access](networking-about.md#n
         Description: The IP range (CIDR notation) for the private subnet in the second Availability Zone
         Type: String
         Default: 10.192.11.0/24
+      AvailabilityZone1:
+        Description: >-
+          First Availability Zone for the subnets. Any two different AZs work.
+          Changing this on an existing stack replaces the subnets.
+        Type: AWS::EC2::AvailabilityZone::Name
+      AvailabilityZone2:
+        Description: >-
+          Second Availability Zone. Must differ from the first.
+          Changing this on an existing stack replaces the subnets.
+        Type: AWS::EC2::AvailabilityZone::Name
         
+   Rules:
+     DifferentAZs:
+       Assertions:
+         - Assert: !Not [ !Equals [ !Ref AvailabilityZone1, !Ref AvailabilityZone2 ] ]
+           AssertDescription: The two Availability Zones must be different.
+   
    Resources:
       VPC:
         Type: AWS::EC2::VPC
@@ -371,7 +406,7 @@ This option uses [Private routing without internet access](networking-about.md#n
         Type: AWS::EC2::Subnet
         Properties:
           VpcId: !Ref VPC
-          AvailabilityZone: !Select [ 0, !GetAZs  '' ]
+          AvailabilityZone: !Ref AvailabilityZone1
           CidrBlock: !Ref PrivateSubnet1CIDR
           MapPublicIpOnLaunch: false
           Tags:
@@ -382,7 +417,7 @@ This option uses [Private routing without internet access](networking-about.md#n
         Type: AWS::EC2::Subnet
         Properties:
           VpcId: !Ref VPC
-          AvailabilityZone: !Select [ 1, !GetAZs  '' ]
+          AvailabilityZone: !Ref AvailabilityZone2
           CidrBlock: !Ref PrivateSubnet2CIDR
           MapPublicIpOnLaunch: false
           Tags:
@@ -505,10 +540,10 @@ This option uses [Private routing without internet access](networking-about.md#n
    cd mwaaproject
    ```
 
-1. Use the [`aws cloudformation create-stack`](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/create-stack.html) command to create the stack using the AWS CLI.
+1. Use the [create-stack](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/create-stack.html) command to create the stack using the AWS CLI. Replace {{availability-zone-1}} and {{availability-zone-2}} with two different, supported Availability Zones in your Region.
 
    ```
-   aws cloudformation create-stack --stack-name mwaa-private-environment --template-body file://cfn-vpc-private.yaml
+   aws cloudformation create-stack --stack-name mwaa-private-environment --template-body file://cfn-vpc-private.yaml --parameters ParameterKey=AvailabilityZone1,ParameterValue={{availability-zone-1}} ParameterKey=AvailabilityZone2,ParameterValue={{availability-zone-2}}
    ```
 **Note**  
 It takes about 30 minutes to create the Amazon VPC infrastructure.

@@ -77,6 +77,21 @@ First, create a new Amazon VPC that the owner and participant accounts will shar
          Description: Please enter the IP range (CIDR notation) for the private subnet in the second Availability Zone
          Type: String
          Default: 10.192.21.0/24
+       AvailabilityZone1:
+         Description: >-
+           First Availability Zone for the subnets. Any two different AZs work.
+           Changing this on an existing stack replaces the subnets.
+         Type: AWS::EC2::AvailabilityZone::Name
+       AvailabilityZone2:
+         Description: >-
+           Second Availability Zone. Must differ from the first.
+           Changing this on an existing stack replaces the subnets.
+         Type: AWS::EC2::AvailabilityZone::Name
+   Rules:
+       DifferentAZs:
+         Assertions:
+           - Assert: !Not [ !Equals [ !Ref AvailabilityZone1, !Ref AvailabilityZone2 ] ]
+             AssertDescription: The two Availability Zones must be different.
    Resources:
        VPC:
          Type: 'AWS::EC2::VPC'
@@ -105,9 +120,7 @@ First, create a new Amazon VPC that the owner and participant accounts will shar
          Type: 'AWS::EC2::Subnet'
          Properties:
            VpcId: !Ref VPC
-           AvailabilityZone: !Select
-             - 0
-             - !GetAZs ''
+           AvailabilityZone: !Ref AvailabilityZone1
            CidrBlock: !Ref PublicSubnet1CIDR
            MapPublicIpOnLaunch: true
            Tags:
@@ -118,9 +131,7 @@ First, create a new Amazon VPC that the owner and participant accounts will shar
          Type: 'AWS::EC2::Subnet'
          Properties:
            VpcId: !Ref VPC
-           AvailabilityZone: !Select
-             - 1
-             - !GetAZs ''
+           AvailabilityZone: !Ref AvailabilityZone2
            CidrBlock: !Ref PublicSubnet2CIDR
            MapPublicIpOnLaunch: true
            Tags:
@@ -131,9 +142,7 @@ First, create a new Amazon VPC that the owner and participant accounts will shar
          Type: 'AWS::EC2::Subnet'
          Properties:
            VpcId: !Ref VPC
-           AvailabilityZone: !Select
-             - 0
-             - !GetAZs ''
+           AvailabilityZone: !Ref AvailabilityZone1
            CidrBlock: !Ref PrivateSubnet1CIDR
            MapPublicIpOnLaunch: false
            Tags:
@@ -144,9 +153,7 @@ First, create a new Amazon VPC that the owner and participant accounts will shar
          Type: 'AWS::EC2::Subnet'
          Properties:
            VpcId: !Ref VPC
-           AvailabilityZone: !Select
-             - 1
-             - !GetAZs ''
+           AvailabilityZone: !Ref AvailabilityZone2
            CidrBlock: !Ref PrivateSubnet2CIDR
            MapPublicIpOnLaunch: false
            Tags:

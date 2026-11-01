@@ -104,6 +104,22 @@ The AWS Command Line Interface (AWS CLI) is an open source tool that you can use
       Description: Log level for WebserverLogs
       Type: String
       Default: INFO
+    AvailabilityZone1:
+      Description: >-
+        First Availability Zone for the subnets. Any two different AZs work.
+        Changing this on an existing stack replaces the subnets.
+      Type: AWS::EC2::AvailabilityZone::Name
+    AvailabilityZone2:
+      Description: >-
+        Second Availability Zone. Must differ from the first.
+        Changing this on an existing stack replaces the subnets.
+      Type: AWS::EC2::AvailabilityZone::Name
+  
+  Rules:
+    DifferentAZs:
+      Assertions:
+        - Assert: !Not [ !Equals [ !Ref AvailabilityZone1, !Ref AvailabilityZone2 ] ]
+          AssertDescription: The two Availability Zones must be different.
   
   Resources:
     #####################################################################################################################
@@ -137,7 +153,7 @@ The AWS Command Line Interface (AWS CLI) is an open source tool that you can use
       Type: AWS::EC2::Subnet
       Properties:
         VpcId: !Ref VPC
-        AvailabilityZone: !Select [ 0, !GetAZs '' ]
+        AvailabilityZone: !Ref AvailabilityZone1
         CidrBlock: !Ref PublicSubnet1CIDR
         MapPublicIpOnLaunch: true
         Tags:
@@ -148,7 +164,7 @@ The AWS Command Line Interface (AWS CLI) is an open source tool that you can use
       Type: AWS::EC2::Subnet
       Properties:
         VpcId: !Ref VPC
-        AvailabilityZone: !Select [ 1, !GetAZs  '' ]
+        AvailabilityZone: !Ref AvailabilityZone2
         CidrBlock: !Ref PublicSubnet2CIDR
         MapPublicIpOnLaunch: true
         Tags:
@@ -159,7 +175,7 @@ The AWS Command Line Interface (AWS CLI) is an open source tool that you can use
       Type: AWS::EC2::Subnet
       Properties:
         VpcId: !Ref VPC
-        AvailabilityZone: !Select [ 0, !GetAZs  '' ]
+        AvailabilityZone: !Ref AvailabilityZone1
         CidrBlock: !Ref PrivateSubnet1CIDR
         MapPublicIpOnLaunch: false
         Tags:
@@ -170,7 +186,7 @@ The AWS Command Line Interface (AWS CLI) is an open source tool that you can use
       Type: AWS::EC2::Subnet
       Properties:
         VpcId: !Ref VPC
-        AvailabilityZone: !Select [ 1, !GetAZs  '' ]
+        AvailabilityZone: !Ref AvailabilityZone2
         CidrBlock: !Ref PrivateSubnet2CIDR
         MapPublicIpOnLaunch: false
         Tags:
@@ -464,10 +480,10 @@ The AWS Command Line Interface (AWS CLI) is an open source tool that you can use
    cd mwaaproject
    ```
 
-1. Use the [`aws cloudformation create-stack`](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/create-stack.html) command to create the stack using the AWS CLI.
+1. Use the [create-stack](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/create-stack.html) command to create the stack using the AWS CLI. Replace {{availability-zone-1}} and {{availability-zone-2}} with two different, supported Availability Zones in your Region.
 
    ```
-   aws cloudformation create-stack --stack-name mwaa-environment-public-network --template-body file://mwaa-public-network.yml --capabilities CAPABILITY_IAM
+   aws cloudformation create-stack --stack-name mwaa-environment-public-network --template-body file://mwaa-public-network.yml --parameters ParameterKey=AvailabilityZone1,ParameterValue={{availability-zone-1}} ParameterKey=AvailabilityZone2,ParameterValue={{availability-zone-2}} --capabilities CAPABILITY_IAM
    ```
 **Note**  
 It takes more than 30 minutes to create the Amazon VPC infrastructure, Amazon S3 bucket, and Amazon MWAA environment.

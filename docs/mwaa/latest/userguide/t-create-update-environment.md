@@ -6,6 +6,26 @@
 The topics on this page contain errors you can encounter when creating and updating an Amazon Managed Workflows for Apache Airflow environment and how to resolve these errors.
 
 **Contents**
++ [Environment errors](#troubleshooting-environment-errors)
+  + [`AIRFLOW_COMPONENT_FAILURE`](#t-airflow-component-failure)
+    + [Before you begin](#t-acf-before-you-begin)
+    + [Stabilization and resources](#t-acf-stabilization-resources)
+      + [My update fails or rolls back with a component at maximum utilization](#t-acf-max-utilization)
+      + [My environment is stuck in `UPDATING` and old worker tasks will not terminate](#t-acf-stuck-updating)
+    + [Dependencies and versions](#t-acf-dependencies-versions)
+      + [My scheduler or worker cannot install Python packages during the update](#t-acf-pip-install)
+  + [`VALID_KMS_KEY_REQUIRED`](#t-valid-kms-key-required)
+    + [Before you begin](#t-vkkr-before-you-begin)
+    + [Key policy](#t-vkkr-key-policy)
+      + [My environment fails to create with a KMS validation error, or stops logging to CloudWatch after an update](#t-vkkr-missing-cwl-grant)
+      + [I get an AccessDenied error on kms:Decrypt during DAG execution](#t-vkkr-runtime-decrypt)
+      + [My key policy does not grant the other services that MWAA integrates with](#t-vkkr-other-services)
+    + [Networking](#t-vkkr-networking)
+      + [My KMS failure occurs alongside VPC or security group problems](#t-vkkr-vpc-sg)
+  + [`VPC_ENDPOINT_LIMIT_EXCEEDED`](#t-vpc-endpoint-limit-exceeded)
+    + [Infrastructure prerequisites](#t-vel-infra-prereqs)
+      + [My update fails when increasing `MaxWorkers`](#t-vel-maxworkers-ip)
+  + [`INCORRECT_CONFIGURATION`](#t-incorrect-configuration)
 + [Updating `requirements.txt`](#troubleshooting-reqs)
   + [I specified a new version of my `requirements.txt` and it's taking more than 20 minutes to update my environment](#t-requirements)
   + [I get a `Could not install packages due to an OSError [Error 28] No space left on device` error](#t-requirements-no-space)
@@ -24,6 +44,162 @@ The topics on this page contain errors you can encounter when creating and updat
   + [I tried changing the environment class but the update failed](#t-rollback-billing-failure)
 + [Access environment](#troubleshooting-access-environment)
   + [I can't access the Apache Airflow UI](#t-no-access-airflow-ui)
+
+## Environment errors
+<a name="troubleshooting-environment-errors"></a>
+
+The following topics describe the errors you might receive for your Amazon MWAA environment.
+
+### `AIRFLOW_COMPONENT_FAILURE`
+<a name="t-airflow-component-failure"></a>
+
+The worker, scheduler, or webserver component fails to stabilize during environment creation or update.
+
+#### Before you begin
+<a name="t-acf-before-you-begin"></a>
+
+Before you apply a resolution, determine which update phase the environment is in and which component is failing the stabilization check. The recurring signal is a component failing its health check during stabilization, not a steady-state crash.
+
+We recommend the following steps:
+
+1. Determine whether the environment is in the `UPDATING` or `ROLLING_BACK` state, or is stuck.
+
+1. Identify whether the scheduler, worker, or webserver is the component that fails the stabilization check.
+
+1. Pull the affected component's CloudWatch Logs for the update window.
+
+1. Review the following metrics for the update window:
+   + CPU and memory utilization for the affected component
+   + Metadata database freeable memory
+
+#### Stabilization and resources
+<a name="t-acf-stabilization-resources"></a>
+
+##### My update fails or rolls back with a component at maximum utilization
+<a name="t-acf-max-utilization"></a>
+
+Resource saturation during stabilization is the most common cause of `AIRFLOW_COMPONENT_FAILURE`. Symptoms include the update failing or rolling back, the scheduler or webserver at maximum utilization, and slow worker stabilization.
+
+We recommend the following steps:
++ Right-size the environment class.
++ Reduce load before you retry the update:
+  + Fix DAG import errors and high parse time.
+  + Pause and restore DAGs gradually rather than all at once.
+  + Align your Apache Airflow concurrency settings with your worker capacity.
++ Increase the metadata database capacity to address worker instability, because low freeable memory can block stabilization.
+
+For more information, see [Performance tuning for Apache Airflow on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/best-practices-tuning.html).
+
+##### My environment is stuck in `UPDATING` and old worker tasks will not terminate
+<a name="t-acf-stuck-updating"></a>
+
+If the environment is stuck in the `UPDATING` state, tasks on old workers do not terminate. Graceful updates then fail because worker replacement cannot drain running tasks.
+
+We recommend the following steps:
++ Set the [worker replacement strategy](https://docs.aws.amazon.com/mwaa/latest/userguide/update-environment.html#worker-replacement-strategy) to `FORCED`. Forced updates stop running tasks so that the update does not wait for them to drain, which prevents the environment from getting stuck.
++ If the environment is already stuck, release the workers so the update can complete. To do this, mark running tasks as failed.
++ To prevent recurrence, pause your DAGs, drain running tasks, and run the update when no extra workers are active.
+
+#### Dependencies and versions
+<a name="t-acf-dependencies-versions"></a>
+
+##### My scheduler or worker cannot install Python packages during the update
+<a name="t-acf-pip-install"></a>
+
+If the scheduler or worker cannot install Python packages mid-update, the install is likely failing because of a transient `pip` or network stall. This stall typically occurs while pulling from public PyPI.
+
+We recommend the following steps:
++ Deliver dependencies locally by using `plugins.zip` instead of public PyPI.
++ Pre-download and pin wheels so the install can survive transient `pip` or network stalls during the update.
+
+### `VALID_KMS_KEY_REQUIRED`
+<a name="t-valid-kms-key-required"></a>
+
+Check that your AWS KMS customer managed key is enabled, and that the permissions policy attached to the key grants access to your environment.
+
+#### Before you begin
+<a name="t-vkkr-before-you-begin"></a>
+
+Before you edit the key policy, confirm where the failure occurs and that the key itself is valid. The principals you add to the key policy differ depending on whether the failure happens at creation, at update, or at runtime during DAG execution.
+
+We recommend the following steps:
+
+1. Determine where the failure occurs:
+   + Most occurrences are at environment creation, and some at update.
+   + A few are runtime `kms:Decrypt` `AccessDenied` errors during DAG execution.
+
+1. Confirm that the key is a valid, enabled customer managed key in the same AWS Region and account as the environment. Verify that you specified the key ARN correctly, and that the configuration does not reference an empty or invalid AWS KMS resource.
+
+#### Key policy
+<a name="t-vkkr-key-policy"></a>
+
+Several key policy problems can cause this error. Review the following scenarios, and apply the fix that matches your symptoms.
+
+##### My environment fails to create with a KMS validation error, or stops logging to CloudWatch after an update
+<a name="t-vkkr-missing-cwl-grant"></a>
+
+A missing CloudWatch Logs grant in the key policy is the most common root cause of `VALID_KMS_KEY_REQUIRED`. Symptoms include creation failing with the AWS KMS validation error, or components that stop logging to CloudWatch Logs after an update.
+
+We recommend the following steps:
++ Add the CloudWatch Logs service principal, `logs.{{region}}.amazonaws.com`, to the AWS KMS key policy with permission to use the key.
++ Scope the grant by using the `kms:ViaService` condition for CloudWatch Logs.
+
+##### I get an AccessDenied error on kms:Decrypt during DAG execution
+<a name="t-vkkr-runtime-decrypt"></a>
+
+Several symptoms point to this problem: a runtime `AccessDenied` error on `kms:Decrypt`, missing dependencies or import errors after a container is replaced, or a AWS KMS access-denied error during DAG execution. These symptoms indicate that the Amazon MWAA execution role lacks the required permissions on the key, or that the key policy scope is too restrictive.
+
+We recommend the following steps:
++ Grant the Amazon MWAA execution role the required AWS KMS actions on the key, notably `kms:Decrypt`, as well as `kms:Encrypt` and `kms:GenerateDataKey` as applicable. These permissions are required to access encrypted Amazon S3 objects (your DAGs, plugins, and `requirements.txt`) and other encrypted dependencies.
++ Correct a policy scope that is too restrictive.
+
+##### My key policy does not grant the other services that MWAA integrates with
+<a name="t-vkkr-other-services"></a>
+
+Creation validation checks that the key is usable by the full set of dependent principals, not CloudWatch Logs alone. If the key policy grants only CloudWatch Logs, validation can still fail.
+
+We recommend the following steps:
++ Make sure that the key policy also allows the other services that Amazon MWAA integrates with and that need the customer managed key, including Amazon S3, Amazon SQS, and the execution role.
+
+#### Networking
+<a name="t-vkkr-networking"></a>
+
+Networking problems can occur alongside this error. Review the following scenario.
+
+##### My KMS failure occurs alongside VPC or security group problems
+<a name="t-vkkr-vpc-sg"></a>
+
+Several AWS KMS failures occur in combination with Amazon VPC or security group misconfiguration. Networking problems can block the environment from validating or using the key. When you fix the key policy at creation time, verify your networking in the same pass.
+
+We recommend the following steps:
++ Check your security group inbound and outbound rules.
++ Verify that your Amazon VPC endpoints are reachable, including the AWS KMS endpoint, so that networking does not block key validation and use.
+
+For more information, see [Using customer managed keys for encryption](https://docs.aws.amazon.com/mwaa/latest/userguide/encryption.html).
+
+### `VPC_ENDPOINT_LIMIT_EXCEEDED`
+<a name="t-vpc-endpoint-limit-exceeded"></a>
+
+The Amazon VPC associated with your environment has reached the maximum number of Amazon VPC endpoints. Delete unused Amazon VPC endpoints or request a service quota increase before creating the environment.
+
+#### Infrastructure prerequisites
+<a name="t-vel-infra-prereqs"></a>
+
+Environment infrastructure limits can cause an update to fail.
+
+##### My update fails when increasing `MaxWorkers`
+<a name="t-vel-maxworkers-ip"></a>
+
+An update that increases `MinWorkers` or `MaxWorkers` can fail if the environment's subnets do not have enough free IP addresses for the additional workers.
+
+We recommend the following steps:
++ Reclaim orphaned elastic network interfaces (ENIs) to free IP addresses.
++ Alternatively, move the environment to larger subnets with greater IP capacity.
+
+### `INCORRECT_CONFIGURATION`
+<a name="t-incorrect-configuration"></a>
+
+Check the execution role permissions policy for your environment. Verify that each Amazon VPC networking component required by the environment allows traffic.
 
 ## Updating `requirements.txt`
 <a name="troubleshooting-reqs"></a>
