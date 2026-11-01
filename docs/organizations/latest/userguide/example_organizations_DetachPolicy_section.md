@@ -61,11 +61,15 @@ The following code examples show how to use `DetachPolicy`.
 
 **AWS CLI**  
 **To detach a policy from a root, OU, or account**  
-The following example shows how to detach a policy from an OU:  
+The following `detach-policy` example detaches a policy from an OU.  
 
 ```
-aws organizations  detach-policy  --target-id {{ou-examplerootid111-exampleouid111}} --policy-id {{p-examplepolicyid111}}
+aws organizations detach-policy \
+    --target-id {{ou-examplerootid111-exampleouid111}} \
+    --policy-id {{p-examplepolicyid111}}
 ```
+This command produces no output.  
+For more information, see [Detaching organization policies with AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_policies_detach.html) in the *AWS Organizations User Guide*.  
 +  For API details, see [DetachPolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/detach-policy.html) in *AWS CLI Command Reference*. 
 
 ------

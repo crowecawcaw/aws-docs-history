@@ -55,6 +55,7 @@ The following is a list of AWS services supported by the AI services opt-out pol
 + [Amazon Connect Health Operational Support](https://docs.aws.amazon.com/connecthealth/latest/userguide/)
 + [Amazon Connect Health Model Training](https://docs.aws.amazon.com/connecthealth/latest/userguide/)
 + [Amazon Connect Talent](https://docs.aws.amazon.com/talent/latest/adminguide/what-is-talent.html)
++ [AWS Continuum](https://docs.aws.amazon.com/continuum/latest/userguide/what-is-continuum.html)
 + [AWS Database Migration Service](https://docs.aws.amazon.com/dms)
 + [Amazon DataZone](https://docs.aws.amazon.com/datazone) (and [Amazon SageMaker Data Agent](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/sagemaker-data-agent.html))
 + [AWS DevOps Agent](https://docs.aws.amazon.com/devopsagent/latest/userguide/about-aws-devops-agent.html)

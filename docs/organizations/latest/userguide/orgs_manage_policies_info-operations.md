@@ -118,43 +118,46 @@ The following code examples show how to use `ListPolicies`.
 
 **AWS CLI**  
 **To retrieve a list of all policies in an organization of a certain type**  
-The following example shows you how to get a list of SCPs, as specified by the filter parameter:  
+The following `list-policies` example gets a list of SCPs, as specified by the `--filter` parameter.  
 
 ```
-aws organizations list-policies --filter {{SERVICE_CONTROL_POLICY}}
+aws organizations list-policies \
+    --filter {{SERVICE_CONTROL_POLICY}}
 ```
-The output includes a list of policies with summary information:  
+The output includes a list of policies with summary information.  
+Output:  
 
 ```
 {
-        "Policies": [
-                {
-                        "Type": "SERVICE_CONTROL_POLICY",
-                        "Name": "AllowAllS3Actions",
-                        "AwsManaged": false,
-                        "Id": "p-examplepolicyid111",
-                        "Arn": "arn:aws:organizations::111111111111:policy/service_control_policy/p-examplepolicyid111",
-                        "Description": "Enables account admins to delegate permissions for any S3 actions to users and roles in their accounts."
-                },
-                {
-                        "Type": "SERVICE_CONTROL_POLICY",
-                        "Name": "AllowAllEC2Actions",
-                        "AwsManaged": false,
-                        "Id": "p-examplepolicyid222",
-                        "Arn": "arn:aws:organizations::111111111111:policy/service_control_policy/p-examplepolicyid222",
-                        "Description": "Enables account admins to delegate permissions for any EC2 actions to users and roles in their accounts."
-                },
-                {
-                        "AwsManaged": true,
-                        "Description": "Allows access to every operation",
-                        "Type": "SERVICE_CONTROL_POLICY",
-                        "Id": "p-FullAWSAccess",
-                        "Arn": "arn:aws:organizations::aws:policy/service_control_policy/p-FullAWSAccess",
-                        "Name": "FullAWSAccess"
-                }
-        ]
+    "Policies": [
+        {
+            "Type": "SERVICE_CONTROL_POLICY",
+            "Name": "AllowAllS3Actions",
+            "AwsManaged": false,
+            "Id": "p-examplepolicyid111",
+            "Arn": "arn:aws:organizations::123456789012:policy/service_control_policy/p-examplepolicyid111",
+            "Description": "Enables account admins to delegate permissions for any S3 actions to users and roles in their accounts."
+        },
+        {
+            "Type": "SERVICE_CONTROL_POLICY",
+            "Name": "AllowAllEC2Actions",
+            "AwsManaged": false,
+            "Id": "p-examplepolicyid222",
+            "Arn": "arn:aws:organizations::123456789012:policy/service_control_policy/p-examplepolicyid222",
+            "Description": "Enables account admins to delegate permissions for any EC2 actions to users and roles in their accounts."
+        },
+        {
+            "AwsManaged": true,
+            "Description": "Allows access to every operation",
+            "Type": "SERVICE_CONTROL_POLICY",
+            "Id": "p-FullAWSAccess",
+            "Arn": "arn:aws:organizations::aws:policy/service_control_policy/p-FullAWSAccess",
+            "Name": "FullAWSAccess"
+        }
+    ]
 }
 ```
+For more information, see [Getting information about your organization's policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_info-operations.html) in the *AWS Organizations User Guide*.  
 +  For API details, see [ListPolicies](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/list-policies.html) in *AWS CLI Command Reference*. 
 
 ------
@@ -352,28 +355,30 @@ The following code examples show how to use `DescribePolicy`.
 
 **AWS CLI**  
 **To get information about a policy**  
-The following example shows how to request information about a policy:  
+The following `describe-policy` example requests information about a policy.  
 
 ```
-aws organizations describe-policy --policy-id {{p-examplepolicyid111}}
+aws organizations describe-policy \
+    --policy-id {{p-examplepolicyid111}}
 ```
-The output includes a policy object that contains details about the policy:  
+Output:  
 
 ```
 {
-        "Policy": {
-                "Content": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Effect\": \"Allow\",\n      \"Action\": \"*\",\n      \"Resource\": \"*\"\n    }\n  ]\n}",
-                "PolicySummary": {
-                        "Arn": "arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid111",
-                        "Type": "SERVICE_CONTROL_POLICY",
-                        "Id": "p-examplepolicyid111",
-                        "AwsManaged": false,
-                        "Name": "AllowAllS3Actions",
-                        "Description": "Enables admins to delegate S3 permissions"
-                }
+    "Policy": {
+        "Content": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Effect\": \"Allow\",\n      \"Action\": \"*\",\n      \"Resource\": \"*\"\n    }\n  ]\n}",
+        "PolicySummary": {
+            "Arn": "arn:aws:organizations::123456789012:policy/o-exampleorgid/service_control_policy/p-examplepolicyid111",
+            "Type": "SERVICE_CONTROL_POLICY",
+            "Id": "p-examplepolicyid111",
+            "AwsManaged": false,
+            "Name": "AllowAllS3Actions",
+            "Description": "Enables admins to delegate S3 permissions"
         }
+    }
 }
 ```
+For more information, see [Getting information about your organization's policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_info-operations.html) in the *AWS Organizations User Guide*.  
 +  For API details, see [DescribePolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/describe-policy.html) in *AWS CLI Command Reference*. 
 
 ------

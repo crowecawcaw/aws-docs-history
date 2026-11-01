@@ -62,22 +62,25 @@ The following code examples show how to use `CreateOrganizationalUnit`.
 
 **AWS CLI**  
 **To create an OU in a root or parent OU**  
-The following example shows how to create an OU that is named AccountingOU:  
+The following `create-organizational-unit` example creates an OU that is named AccountingOU.  
 
 ```
-aws organizations create-organizational-unit --parent-id {{r-examplerootid111}} --name {{AccountingOU}}
+aws organizations create-organizational-unit \
+    --parent-id {{r-examplerootid111}} \
+    --name {{AccountingOU}}
 ```
-The output includes an organizationalUnit object with details about the new OU:  
+Output:  
 
 ```
 {
-        "OrganizationalUnit": {
-                "Id": "ou-examplerootid111-exampleouid111",
-                "Arn": "arn:aws:organizations::111111111111:ou/o-exampleorgid/ou-examplerootid111-exampleouid111",
-                "Name": "AccountingOU"
-        }
+    "OrganizationalUnit": {
+        "Id": "ou-examplerootid111-exampleouid111",
+        "Arn": "arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid111-exampleouid111",
+        "Name": "AccountingOU"
+    }
 }
 ```
+For more information, see [Creating an organizational unit (OU) with AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/create_ou.html) in the *AWS Organizations User Guide*.  
 +  For API details, see [CreateOrganizationalUnit](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/create-organizational-unit.html) in *AWS CLI Command Reference*. 
 
 ------

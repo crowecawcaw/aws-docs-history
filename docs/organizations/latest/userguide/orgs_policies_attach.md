@@ -333,23 +333,26 @@ The following code examples show how to use `AttachPolicy`.
 #### [ CLI ]
 
 **AWS CLI**  
-**To attach a policy to a root, OU, or account**  
-**Example 1**  
-The following example shows how to attach a service control policy (SCP) to an OU:  
+**Example 1: To attach a policy to an OU**  
+The following `attach-policy` example attaches a service control policy (SCP) to an OU.  
 
 ```
-aws organizations attach-policy
-                --policy-id {{p-examplepolicyid111}}
-                --target-id {{ou-examplerootid111-exampleouid111}}
+aws organizations attach-policy \
+    --policy-id {{p-examplepolicyid111}} \
+    --target-id {{ou-examplerootid111-exampleouid111}}
 ```
-**Example 2**  
-The following example shows how to attach a service control policy directly to an account:  
+For more information, see [Attaching organization policies with AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_policies_attach.html) in the *AWS Organizations User Guide*.  
+This command produces no output.  
+**Example 2: To attach a policy to an account**  
+The following `attach-policy` example attaches a service control policy directly to an account.  
 
 ```
-aws organizations attach-policy
-                --policy-id {{p-examplepolicyid111}}
-                --target-id {{333333333333}}
+aws organizations attach-policy \
+    --policy-id {{p-examplepolicyid111}} \
+    --target-id {{123456789222}}
 ```
+This command produces no output.  
+For more information, see [Attaching organization policies with AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_policies_attach.html) in the *AWS Organizations User Guide*.  
 +  For API details, see [AttachPolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/attach-policy.html) in *AWS CLI Command Reference*. 
 
 ------

@@ -236,6 +236,27 @@ The following are the available fields for this attribute:
               }
             }
           }
+        },
+        "criteria_6": {
+          "allowed_image_providers": {
+            "@@assign": [
+              "amazon"
+            ]
+          },
+          "scan_result_condition": {
+            "maximum_severity_label": {
+              "@@assign": "high"
+            },
+            "max_days_since_last_finding_scan": {
+              "@@assign": 30
+            },
+            "max_days_since_critical_fix_available": {
+              "@@assign": 0
+            },
+            "max_days_since_high_fix_available": {
+              "@@assign": 7
+            }
+          }
         }
       }
     }
@@ -246,7 +267,7 @@ The following are the available fields for this attribute:
   + `"enabled"`: The attribute is active and enforced.
   + `"disabled"`: The attribute is inactive and not enforced.
   + `"audit_mode"`: The attribute is in audit mode. This means it will identify noncompliant images but not block their use.
-+ `"image_criteria"` (optional): A list of criteria. Supports up to 10 criteria with the name from criteria\_1 to criteria\_10. Each criterion can contain one or more of the following filters:
++ `"image_criteria"` (optional): A list of criteria. Supports up to 10 criteria with the name from criteria\_1 to criteria\_10. All filters within a single criterion must match for an image to satisfy that criterion. An image is allowed if it satisfies any one criterion. Each criterion can contain one or more of the following filters:
   + `"allowed_image_providers"`: A list of up to 200 entries. Each entry is a 12-digit account ID or an owner alias of `amazon`, `aws_marketplace`, or `aws_backup_vault`.
   + `"image_names"`: A list of up to 50 allowed image names. Names can include wildcards (`?` and `*`). Length: 1–128 characters. With `?`, the minimum is 3 characters.
   + `"marketplace_product_codes"`: A list of up to 50 AWS Marketplace product codes for allowed images. Length: 1–25 characters. Valid characters: Letters (A–Z, a–z) and numbers (0–9).
@@ -261,6 +282,16 @@ The following are the available fields for this attribute:
     + `"source_image_region"` (optional): The AWS Region where the watermark was originally created. Supports wildcards (`*` and `?`).
     + `"maximum_days_since_source_image_created"` (optional): The maximum number of days that have elapsed since the source image was created. Valid range: 0–2147483647.
     + `"maximum_days_since_watermark_created"` (optional): The maximum number of days that have elapsed since the watermark was attached. Valid range: 0–2147483647.
+  + `"scan_result_condition"` (optional): A set of vulnerability conditions, based on Amazon Inspector scan results, that an image must satisfy. An image passes only if it satisfies every condition that you specify in the block.
+
+    Fields within the block:
+    + `"maximum_severity_label"` (optional): The highest Amazon Inspector finding severity that is acceptable on the image. Valid values: `informational`, `low`, `medium`, `high`, and `critical`.
+    + `"max_days_since_last_finding_scan"` (optional): The maximum number of days that have elapsed since the image was last scanned for vulnerabilities. Valid range: 0–2147483647.
+    + `"max_days_since_informational_fix_available"` (optional): The maximum number of days since Amazon Inspector reported a fix as available for an informational-severity finding on the image. Valid range: 0–2147483647.
+    + `"max_days_since_low_fix_available"` (optional): The maximum number of days since Amazon Inspector reported a fix as available for a low-severity finding on the image. Valid range: 0–2147483647.
+    + `"max_days_since_medium_fix_available"` (optional): The maximum number of days since Amazon Inspector reported a fix as available for a medium-severity finding on the image. Valid range: 0–2147483647.
+    + `"max_days_since_high_fix_available"` (optional): The maximum number of days since Amazon Inspector reported a fix as available for a high-severity finding on the image. Valid range: 0–2147483647.
+    + `"max_days_since_critical_fix_available"` (optional): The maximum number of days since Amazon Inspector reported a fix as available for a critical-severity finding on the image. Valid range: 0–2147483647.
 
 **Considerations**
 

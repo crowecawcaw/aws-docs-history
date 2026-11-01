@@ -34,7 +34,7 @@ To accept or decline an invitation to join an organization, you must have the fo
 `organizations:ListHandshakesForAccount` – Required to see the list of invitations in the AWS Organizations console.
 `organizations:AcceptHandshake`.
 `organizations:DeclineHandshake`.
-`organizations:LeaveOrganization` – Required only when accepting an invitation when your account is already a member of an organization.
+`organizations:LeaveOrganization` – Required only when your account is already a member of an organization. If a [service control policy (SCP)](orgs_manage_policies_scps.md) in your current organization denies this action, you can't accept the invitation.
 `iam:CreateServiceLinkedRole` – Required only when accepting the invitation requires the creation of a service-linked role in the member account to support integration with other AWS services. For more information, see [AWS Organizations and service-linked roles](orgs_integrate_services.md#orgs_integrate_services-using_slrs).
 
 ------

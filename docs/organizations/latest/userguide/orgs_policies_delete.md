@@ -210,11 +210,14 @@ The following code examples show how to use `DeletePolicy`.
 
 **AWS CLI**  
 **To delete a policy**  
-The following example shows how to delete a policy from an organization. The example assumes that you previously detached the policy from all entities:  
+The following `delete-policy` example deletes a policy from an organization. The example assumes that you previously detached the policy from all entities.  
 
 ```
-aws organizations delete-policy --policy-id {{p-examplepolicyid111}}
+aws organizations delete-policy \
+    --policy-id {{p-examplepolicyid111}}
 ```
+This command produces no output.  
+For more information, see [Deleting organization policies with AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_policies_delete.html) in the *AWS Organizations User Guide*.  
 +  For API details, see [DeletePolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/delete-policy.html) in *AWS CLI Command Reference*. 
 
 ------

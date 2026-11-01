@@ -120,11 +120,13 @@ The following code examples show how to use `DeleteOrganization`.
 
 **AWS CLI**  
 **To delete an organization**  
-The following example shows how to delete an organization. To perform this operation, you must be an admin of the master account in the organization. The example assumes that you previously removed all the member accounts, OUs, and policies from the organization:  
+The following `delete-organization` example deletes an organization. To perform this operation, you must be an admin of the master account in the organization. The example assumes that you previously removed all the member accounts, OUs, and policies from the organization.  
 
 ```
 aws organizations delete-organization
 ```
+This command produces no output.  
+For more information, see [Deleting an organization with AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_delete.html) in the *AWS Organizations User Guide*.  
 +  For API details, see [DeleteOrganization](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/delete-organization.html) in *AWS CLI Command Reference*. 
 
 ------

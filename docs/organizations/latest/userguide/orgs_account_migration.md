@@ -35,8 +35,7 @@ Before migrating your AWS account from one organization to another, make sure yo
 Make sure you have applied the necessary permissions for migrating an account to the respective organizations.
 
 **Note**  
-With direct account transfer, you migrate an account by having the new organization send an invitation and the migrating account accept it. The account doesn't need to leave its current organization or operate as a standalone account first. For more information, see [AWS Organizations now supports direct account transfers](https://aws.amazon.com/about-aws/whats-new/2025/11/aws-organizations-direct-account-transfers/).  
-You need the `organizations:LeaveOrganization` permission only if you want an account to leave its organization and become a standalone account, rather than migrate directly to another organization.
+With direct account transfer, you migrate an account by having the new organization send an invitation and the migrating account accept it. The migrating account doesn't need to leave its current organization or operate as a standalone account first. It does need the `organizations:LeaveOrganization` permission, because accepting the invitation moves it out of its current organization. For more information about direct account transfers, see [AWS Organizations now supports direct account transfers](https://aws.amazon.com/about-aws/whats-new/2025/11/aws-organizations-direct-account-transfers/).
 
 **To have an account leave an organization and become a standalone account, you must have the following permissions:**
 + `organizations:DescribeOrganization` (console only)
@@ -50,12 +49,14 @@ For more information, see [Leave an organization from your member account](https
 
 For more information, see [Inviting an AWS account to join your organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_invites.html).
 
+For more information about the permissions required to accept an invitation and join a new organization, see [Accepting or declining account invitations with AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_accept-decline-invite.html).
+
 **To migrate an account, you cannot have IAM policies or service control policies that prevent migration**
 
 If you are the management account or a delegated administrator, you can control access to AWS resources by attaching permissions policies to IAM identities (users, groups, and roles) within an organization. For more information, see [IAM policies for AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions_iam-policies.html). 
 
 Before migrating an account:
-+ Check that there are no IAM policies or service control policies (SCPs) that prevent you from migrating the account.
++ Check that there are no IAM policies or service control policies (SCPs) that prevent you from migrating the account. An SCP in the source organization that denies `organizations:LeaveOrganization` blocks the transfer, even when the account's IAM policy allows it.
 + Identify existing IAM policies and service control policies (SCPs) that you need to replicate in the organization where you are migrating the account.
 + Identify existing IAM policies which specify your organization ID. For example, [`aws:PrincipalOrgID`](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-principalorgid).
 
