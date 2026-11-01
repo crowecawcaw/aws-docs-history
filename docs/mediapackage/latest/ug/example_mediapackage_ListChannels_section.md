@@ -10,7 +10,7 @@ The following code examples show how to use `ListChannels`.
 
 **AWS CLI**  
 **To list all channels**  
-The following `list-channels` command lists all of the channels that are configured on the current AWS account.  
+The following `list-channels` example lists all of the channels that are configured on the current AWS account.  
 
 ```
 aws mediapackage list-channels
