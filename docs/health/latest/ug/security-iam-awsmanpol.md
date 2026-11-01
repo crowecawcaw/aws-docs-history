@@ -22,6 +22,7 @@ AWS Health has the following managed policies.
 **Contents**
 + [AWS managed policy: AWSHealth\_EventProcessorServiceRolePolicy](#security-iam-awsmanpol-Health_EventProcessorServiceRolePolicy)
 + [AWS managed policy: Health\_OrganizationsServiceRolePolicy](#security-iam-awsmanpol-Health_OrganizationsServiceRolePolicy)
++ [AWS managed policy: TagsHealthServiceRolePolicy](#security-iam-awsmanpol-TagsHealthServiceRolePolicy)
 + [AWS managed policy: AWSHealthFullAccess](#security-iam-awsmanpol-AWSHealthFullAccess)
 + [AWS Health updates to AWS managed policies](#security-iam-awsmanpol-updates)
 
@@ -127,6 +128,22 @@ This policy includes the following permissions.
 
 For a list of changes to the policy, see [AWS Health updates to AWS managed policies](#security-iam-awsmanpol-updates).
 
+## AWS managed policy: TagsHealthServiceRolePolicy
+<a name="security-iam-awsmanpol-TagsHealthServiceRolePolicy"></a>
+
+AWS Health uses the [TagsHealthServiceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/TagsHealthServiceRolePolicy.html) AWS managed policy. This managed policy is attached to the `AWSServiceRoleForTagsHealth` service-linked role. The policy allows the service-linked role to complete actions for you. You can't attach this policy to your IAM entities. For more information, see [Using service-linked roles for AWS Health](using-service-linked-roles.md).
+
+This policy grants read-only permissions that allow AWS Health to read the tags on the resources in your account. AWS Health uses these tags so that you can view and filter your AWS Health events by resource tag. With this policy, AWS Health can't create, change, or remove tags, and it can't access the resources themselves.
+
+ **Permissions details** 
+
+This policy includes the following permissions.
++ `tag` – Retrieves the resources in your account and the tags attached to them through the AWS Resource Groups Tagging API.
+
+To view the permissions for this policy, see [TagsHealthServiceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/TagsHealthServiceRolePolicy.html) in the *AWS Managed Policy Reference*.
+
+For a list of changes to the policy, see [AWS Health updates to AWS managed policies](#security-iam-awsmanpol-updates).
+
 ## AWS managed policy: AWSHealthFullAccess
 <a name="security-iam-awsmanpol-AWSHealthFullAccess"></a>
 
@@ -221,6 +238,7 @@ The following table describes important updates to the AWS Health managed polici
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| [AWS managed policy: TagsHealthServiceRolePolicy](#security-iam-awsmanpol-TagsHealthServiceRolePolicy) - New policy | AWS Health added a new managed policy that is attached to the `AWSServiceRoleForTagsHealth` service-linked role. The policy grants read-only access to the AWS Resource Groups Tagging API so that AWS Health can read the tags on the resources in your account. For more information, see [Using service-linked roles for AWS Health](using-service-linked-roles.md). | October 30, 2026 | 
 | [AWS managed policy: AWSHealthFullAccess](#security-iam-awsmanpol-AWSHealthFullAccess) - Update to an existing policy | AWS Health has expanded the AWSHealthFullAccess policy to AWS GovCloud (US) Regions and China Regions. | October 16, 2023 | 
 | [AWS managed policy: Health\_OrganizationsServiceRolePolicy](#security-iam-awsmanpol-Health_OrganizationsServiceRolePolicy) - Update to an existing policy | AWS Health added new AWS Organizations actions to allow service-linked role to describe the accounts and AWS services that can be used with AWS Organizations. | July 19, 2023 | 
 | Change log published | Change log for the AWS Health managed policies. | January 13, 2023 | 

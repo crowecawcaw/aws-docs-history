@@ -10,9 +10,10 @@ You can use a service-linked role to set up AWS Health to avoid manually adding 
 ## Service-linked role permissions for AWS Health
 <a name="service-linked-role-permissions"></a>
 
-AWS Health has two service-linked roles: 
+AWS Health has three service-linked roles: 
 + [AWSServiceRoleForHealth\_Organizations](https://console.aws.amazon.com/iam/home?#/roles/AWSServiceRoleForHealth_Organizations) – This role trusts the AWS Health (`health.amazonaws.com`) to assume the role to access AWS services for you. Attached to this role is the `Health_OrganizationsServiceRolePolicy` AWS managed policy.
 + [AWSServiceRoleForHealth\_EventProcessor](https://console.aws.amazon.com/iam/home?#/roles/AWSServiceRoleForHealth_EventProcessor) – This role trusts the AWS Health service principal (`event-processor.health.amazonaws.com`) to assume the role for you. Attached to this role is the `AWSHealth_EventProcessorServiceRolePolicy` AWS managed policy. The service principal uses the role to create an Amazon EventBridge managed rule for AWS Incident Detection and Response. This rule is the infrastructure required in your AWS account to deliver alarm state change information from your account to AWS Health.
++ [AWSServiceRoleForTagsHealth](https://console.aws.amazon.com/iam/home?#/roles/AWSServiceRoleForTagsHealth) – This role trusts the AWS Health service principal (`tags.health.amazonaws.com`) to assume the role for you. Attached to this role is the [TagsHealthServiceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/TagsHealthServiceRolePolicy.html) AWS managed policy. The service principal uses the role to read the tags on the resources in your account through the AWS Resource Groups Tagging API, so that AWS Health can show your AWS Health events by resource tag.
 
 For more information about the AWS managed policies, see [AWS managed policies for AWS Health](security-iam-awsmanpol.md).
 
@@ -21,9 +22,11 @@ For more information about the AWS managed policies, see [AWS managed policies f
 ## Creating a service-linked role for AWS Health
 <a name="create-service-linked-role"></a>
 
-You don't need to create the AWSServiceRoleForHealth\_Organizations service-linked role. When you call the [EnableHealthServiceAccessForOrganization](https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html) operation, AWS Health creates the this service-linked role in the account for you.
+You don't need to create the AWSServiceRoleForHealth\_Organizations service-linked role. When you call the [EnableHealthServiceAccessForOrganization](https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html) operation, AWS Health creates this service-linked role in the account for you.
 
 You must manually create the AWSServiceRoleForHealth\_EventProcessor service-linked role in your account. For more information, see [Creating a service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#create-service-linked-role) in the *IAM User Guide*.
+
+You don't need to create the AWSServiceRoleForTagsHealth service-linked role. When you turn on the tags feature for your account, AWS Health creates the role in your account for you. When you turn on the tags feature for your organization from your organization's management account, AWS Health creates the role in the management account and in every member account of your organization. AWS Health also creates the role in any account that joins your organization after you turn on the feature.
 
 ## Editing a service-linked role for AWS Health
 <a name="edit-service-linked-role"></a>
@@ -38,6 +41,8 @@ To delete the AWSServiceRoleForHealth\_Organizations role, you must first call t
 
 
 To delete the AWSServiceRoleForHealth\_EventProcessor role, contact AWS Support and ask that they offboard your workloads from AWS Incident Detection and Response. After this process completes, you can then delete either role through the IAM console, IAM API, or AWS CLI.
+
+To delete the AWSServiceRoleForTagsHealth role, you must first turn off the tags feature for the account. If the account belongs to an organization that has the tags feature turned on, the organization's management account must also turn off the tags feature for the organization. If you try to delete the role while the tags feature is still enabled for the account or its organization, the deletion fails and IAM reports that the role is in use by AWS Health. After the feature is disabled, you can delete the role through the IAM console, IAM API, or AWS CLI.
 
 ### Related information
 <a name="related-information-deleting-service-linked-roles"></a>
