@@ -18,6 +18,30 @@ Subscribe to the RSS feed to get notified about new releases automatically: [clo
 
 The highlights below cover notable releases from the past year, most recent first.
 
+## CUDOS Dashboard v5.10.0: Redshift RG migration, NAT gateway and DynamoDB backup optimization (October 23, 2026)
+<a name="whats-new-cudos-5100"></a>
++  **Amazon Redshift RA3 to RG migration** — a new section on the **Databases** tab tracks adoption of Graviton-based RG instances and estimates the savings of migrating each RA3 cluster. Use the **Purchase Option** and **Incremental Snapshot Size** controls to adjust the estimate.
++  **NAT gateway optimization** — a new section on the **Data Transfer & Networking** tab highlights zonal NAT gateways that receive cross-AZ traffic and compares their current cost with a Regional NAT gateway, which improves resilience and can remove inter-AZ data transfer charges.
++  **DynamoDB backup optimization** — a new section on the **Amazon DynamoDB** tab finds native backups of deleted tables and older backups that are good candidates for cold storage, with estimated savings.
++  **Credits, refunds and discounts** — a new detailed view on the **Executive: Billing Summary** tab.
++  **More accurate usage categories** — usage type groups for databases, Amazon S3, Amazon CloudWatch, Amazon Cognito, AWS WAF, Amazon SageMaker AI, Amazon DynamoDB, Amazon MSK, Amazon EFS and Amazon FSx now cover newer usage types and use the names from the AWS pricing pages. Marketplace charges are split into *Marketplace Usage* and *Marketplace Fees*, and data transfer adds *Regional via Public IP* and *Cloud WAN Data Processed* types.
+
+### See screenshots
+<a name="collapsible-section-id-whats-new-cudos-5100"></a>
+
+![Databases tab: Amazon Redshift RA3 to RG migration adoption tracking and potential savings](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/whats-new/cudos-5100-redshift-ra3-to-rg.png)
+
+
+![Data Transfer and Networking tab: NAT gateways optimization opportunities with Regional NAT savings](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/whats-new/cudos-5100-nat-gateways.png)
+
+
+![Amazon DynamoDB tab: DynamoDB backup optimization with native backup cost by age and backups to review](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/whats-new/cudos-5100-dynamodb-backups.png)
+
+
+See the [CUDOS Dashboard](cudos-cid-kpi.md#foundational-cudos-dashboard).
+
+View the [changelog entry](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/changes/CHANGELOG-cudos.md#cudos---5100).
+
 ## cid-cmd v4.4.18: sharing on update, plugin parameters, and CloudFormation fixes (October 9, 2026)
 <a name="whats-new-cid-cmd-4418"></a>
 +  **More reliable CloudFormation deployments** — dashboards deployed one after another no longer inherit each other’s parameters (such as the row-level security dataset), which could make a dashboard fail to create.
@@ -54,6 +78,14 @@ This release changes an Athena view, so update with `--recursive` and refresh SP
 See the [Kiro User Activity Dashboard](kiro-user-activity-dashboard.md).
 
 View the [changelog entry](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/changes/CHANGELOG-kiro-user-activity.md).
+
+## Media Services Insights Hub v2.2.2: AWS Elemental MediaConvert add-on analysis (September 18, 2026)
+<a name="whats-new-media-services-222"></a>
++  **AWS Elemental MediaConvert** — refined analysis of MediaConvert add-ons.
+
+See the [Media Services Insights Hub](media-services-insights.md).
+
+View the [changelog](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/changes/CHANGELOG-media-services-insights.md).
 
 ## Kiro User Activity Dashboard v1.1.0: licence-level subscription visibility (September 16, 2026)
 <a name="whats-new-kiro-user-activity-110"></a>
