@@ -10,7 +10,7 @@ The following code examples show how to use `ListGroupPolicies`.
 
 **AWS CLI**  
 **To list all inline policies that are attached to the specified group**  
-The following `list-group-policies` command lists the names of inline policies that are attached to the IAM group named `Admins` in the current account.  
+The following `list-group-policies` example lists the names of inline policies that are attached to the IAM group named `Admins` in the current account.  
 
 ```
 aws iam list-group-policies \

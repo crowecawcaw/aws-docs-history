@@ -10,7 +10,7 @@ The following code examples show how to use `DeleteVirtualMfaDevice`.
 
 **AWS CLI**  
 **To remove a virtual MFA device**  
-The following `delete-virtual-mfa-device` command removes the specified MFA device from the current account.  
+The following `delete-virtual-mfa-device` example removes the specified MFA device from the current account.  
 
 ```
 aws iam delete-virtual-mfa-device \

@@ -156,7 +156,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To create an instance profile**  
-The following `create-instance-profile` command creates an instance profile named `Webserver`.  
+The following `create-instance-profile` example creates an instance profile named `Webserver`.  
 
 ```
 aws iam create-instance-profile \

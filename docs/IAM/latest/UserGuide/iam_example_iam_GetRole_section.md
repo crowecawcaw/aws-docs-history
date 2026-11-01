@@ -47,7 +47,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To get information about an IAM role**  
-The following `get-role` command gets information about the role named `Test-Role`.  
+The following `get-role` example gets information about the role named `Test-Role`.  
 
 ```
 aws iam get-role \
@@ -66,7 +66,7 @@ Output:
         "RoleName": "Test-Role",
         "Path": "/",
         "RoleLastUsed": {
-            "Region": "us-east-1",
+            "Region": "us-west-2",
             "LastUsedDate": "2019-11-13T17:14:00Z"
         },
         "Arn": "arn:aws:iam::123456789012:role/Test-Role"

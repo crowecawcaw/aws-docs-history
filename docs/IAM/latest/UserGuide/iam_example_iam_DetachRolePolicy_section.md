@@ -174,7 +174,7 @@ function iam_detach_role_policy() {
 
 **AWS CLI**  
 **To detach a policy from a role**  
-This example removes the managed policy with the ARN `arn:aws:iam::123456789012:policy/FederatedTesterAccessPolicy` from the role called `FedTesterRole`.  
+The following `detach-role-policy` example removes the managed policy with the ARN `arn:aws:iam::123456789012:policy/FederatedTesterAccessPolicy` from the role called `FedTesterRole`.  
 
 ```
 aws iam detach-role-policy \
@@ -182,7 +182,7 @@ aws iam detach-role-policy \
     --policy-arn {{arn:aws:iam::123456789012:policy/FederatedTesterAccessPolicy}}
 ```
 This command produces no output.  
-For more information, see [Modifying a role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html) in the *AWS IAM User Guide*.  
+For more information, see [IAM role management](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage.html) in the *AWS IAM User Guide*.  
 +  For API details, see [DetachRolePolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/detach-role-policy.html) in *AWS CLI Command Reference*. 
 
 ------

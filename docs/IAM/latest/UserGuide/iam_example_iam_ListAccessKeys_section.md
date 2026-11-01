@@ -154,7 +154,7 @@ bool AwsDoc::IAM::listAccessKeys(const Aws::String &userName,
 
 **AWS CLI**  
 **To list the access key IDs for an IAM user**  
-The following `list-access-keys` command lists the access keys IDs for the IAM user named `Bob`.  
+The following `list-access-keys` example lists the access keys IDs for the IAM user named `Bob`.  
 
 ```
 aws iam list-access-keys \

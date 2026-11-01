@@ -35,7 +35,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To remove a policy from an IAM user**  
-The following `delete-user-policy` command removes the specified policy from the IAM user named `Bob`.  
+The following `delete-user-policy` example removes the specified policy from the IAM user named `Bob`.  
 
 ```
 aws iam delete-user-policy \

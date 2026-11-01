@@ -172,7 +172,7 @@ bool AwsDoc::IAM::deleteAccessKey(const Aws::String &userName,
 
 **AWS CLI**  
 **To delete an access key for an IAM user**  
-The following `delete-access-key` command deletes the specified access key (access key ID and secret access key) for the IAM user named `Bob`.  
+The following `delete-access-key` example deletes the specified access key (access key ID and secret access key) for the IAM user named `Bob`.  
 
 ```
 aws iam delete-access-key \

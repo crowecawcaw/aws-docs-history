@@ -92,7 +92,7 @@ bool AwsDoc::IAM::listPolicies(const Aws::Client::ClientConfiguration &clientCon
 
 **AWS CLI**  
 **To list managed policies that are available to your AWS account**  
-This example returns a collection of the first two managed policies available in the current AWS account.  
+The following `list-policies` example returns a collection of the first three managed policies available in the current AWS account.  
 
 ```
 aws iam list-policies \

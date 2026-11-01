@@ -10,7 +10,7 @@ The following code examples show how to use `UntagUser`.
 
 **AWS CLI**  
 **To remove a tag from a user**  
-The following `untag-user` command removes any tag with the key name 'Department' from the specified user.  
+The following `untag-user` example removes any tag with the key name 'Department' from the specified user.  
 
 ```
 aws iam untag-user \

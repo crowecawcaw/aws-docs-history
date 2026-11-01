@@ -43,7 +43,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To remove a policy from an IAM role**  
-The following `delete-role-policy` command removes the policy named `ExamplePolicy` from the role named `Test-Role`.  
+The following `delete-role-policy` example removes the policy named `ExamplePolicy` from the role named `Test-Role`.  
 
 ```
 aws iam delete-role-policy \
@@ -51,7 +51,7 @@ aws iam delete-role-policy \
     --policy-name {{ExamplePolicy}}
 ```
 This command produces no output.  
-For more information, see [Modifying a role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html) in the *AWS IAM User Guide*.  
+For more information, see [IAM role management](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage.html) in the *AWS IAM User Guide*.  
 +  For API details, see [DeleteRolePolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-role-policy.html) in *AWS CLI Command Reference*. 
 
 ------

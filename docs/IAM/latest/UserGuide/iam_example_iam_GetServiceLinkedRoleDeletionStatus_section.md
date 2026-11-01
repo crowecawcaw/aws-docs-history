@@ -14,7 +14,7 @@ The following `get-service-linked-role-deletion-status` example displays the sta
 
 ```
 aws iam get-service-linked-role-deletion-status \
-    --deletion-task-id {{task/aws-service-role/lex.amazonaws.com/AWSServiceRoleForLexBots/1a2b3c4d-1234-abcd-7890-abcdeEXAMPLE}}
+    --deletion-task-id {{task/aws-service-role/lex.amazonaws.com/AWSServiceRoleForLexBots/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}
 ```
 Output:  
 

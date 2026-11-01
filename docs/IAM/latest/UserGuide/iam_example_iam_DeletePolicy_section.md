@@ -166,7 +166,7 @@ bool AwsDoc::IAM::deletePolicy(const Aws::String &policyArn,
 
 **AWS CLI**  
 **To delete an IAM policy**  
-This example deletes the policy whose ARN is `arn:aws:iam::123456789012:policy/MySamplePolicy`.  
+The following `delete-policy` example deletes the policy whose ARN is `arn:aws:iam::123456789012:policy/MySamplePolicy`.  
 
 ```
 aws iam delete-policy \

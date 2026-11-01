@@ -10,7 +10,7 @@ The following code examples show how to use `DeleteGroup`.
 
 **AWS CLI**  
 **To delete an IAM group**  
-The following `delete-group` command deletes an IAM group named `MyTestGroup`.  
+The following `delete-group` example deletes an IAM group named `MyTestGroup`.  
 
 ```
 aws iam delete-group \

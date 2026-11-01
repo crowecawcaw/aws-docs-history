@@ -13,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To get a credential report**  
-This example opens the returned report and outputs it to the pipeline as an array of text lines.  
+The following `get-credential-report` example opens the returned report and outputs it to the pipeline as an array of text lines.  
 
 ```
 aws iam get-credential-report

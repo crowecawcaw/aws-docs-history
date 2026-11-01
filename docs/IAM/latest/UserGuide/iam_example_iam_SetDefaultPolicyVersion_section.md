@@ -14,13 +14,14 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To set the specified version of the specified policy as the policy's default version.**  
-This example sets the `v2` version of the policy whose ARN is `arn:aws:iam::123456789012:policy/MyPolicy` as the default active version.  
+The following `set-default-policy-version` example sets the `v2` version of the policy whose ARN is `arn:aws:iam::123456789012:policy/MyPolicy` as the default active version.  
 
 ```
 aws iam set-default-policy-version \
     --policy-arn {{arn:aws:iam::123456789012:policy/MyPolicy}} \
     --version-id {{v2}}
 ```
+This command produces no output.  
 For more information, see [Policies and permissions in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) in the *AWS IAM User Guide*.  
 +  For API details, see [SetDefaultPolicyVersion](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/set-default-policy-version.html) in *AWS CLI Command Reference*. 
 

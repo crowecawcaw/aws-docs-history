@@ -40,7 +40,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To list the policies attached to an IAM role**  
-The following `list-role-policies` command lists the names of the permissions policies for the specified IAM role.  
+The following `list-role-policies` example lists the names of the permissions policies for the specified IAM role.  
 
 ```
 aws iam list-role-policies \

@@ -10,7 +10,7 @@ The following code examples show how to use `RemoveUserFromGroup`.
 
 **AWS CLI**  
 **To remove a user from an IAM group**  
-The following `remove-user-from-group` command removes the user named `Bob` from the IAM group named `Admins`.  
+The following `remove-user-from-group` example removes the user named `Bob` from the IAM group named `Admins`.  
 
 ```
 aws iam remove-user-from-group \

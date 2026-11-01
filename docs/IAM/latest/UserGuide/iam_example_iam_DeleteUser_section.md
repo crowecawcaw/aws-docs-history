@@ -163,14 +163,14 @@ function iam_delete_user() {
 
 **AWS CLI**  
 **To delete an IAM user**  
-The following `delete-user` command removes the IAM user named `Bob` from the current account.  
+The following `delete-user` example removes the IAM user named `Bob` from the current account.  
 
 ```
 aws iam delete-user \
     --user-name {{Bob}}
 ```
 This command produces no output.  
-For more information, see [Deleting an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_deleting) in the *AWS IAM User Guide*.  
+For more information, see [Deleting an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html) in the *AWS IAM User Guide*.  
 +  For API details, see [DeleteUser](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-user.html) in *AWS CLI Command Reference*. 
 
 ------

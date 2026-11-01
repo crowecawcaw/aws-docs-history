@@ -10,7 +10,7 @@ The following code examples show how to use `AddUserToGroup`.
 
 **AWS CLI**  
 **To add a user to an IAM group**  
-The following `add-user-to-group` command adds an IAM user named `Bob` to the IAM group named `Admins`.  
+The following `add-user-to-group` example adds an IAM user named `Bob` to the IAM group named `Admins`.  
 
 ```
 aws iam add-user-to-group \

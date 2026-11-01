@@ -10,7 +10,7 @@ The following code examples show how to use `DeleteOpenIdConnectProvider`.
 
 **AWS CLI**  
 **To delete an IAM OpenID Connect identity provider**  
-This example deletes the IAM OIDC provider that connects to the provider `example.oidcprovider.com`.  
+The following `delete-open-id-connect-provider` example deletes the IAM OIDC provider that connects to the provider `example.oidcprovider.com`.  
 
 ```
 aws iam delete-open-id-connect-provider \

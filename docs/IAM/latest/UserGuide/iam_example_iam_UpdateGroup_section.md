@@ -10,7 +10,7 @@ The following code examples show how to use `UpdateGroup`.
 
 **AWS CLI**  
 **To rename an IAM group**  
-The following `update-group` command changes the name of the IAM group `Test` to `Test-1`.  
+The following `update-group` example changes the name of the IAM group `Test` to `Test-1`.  
 
 ```
 aws iam update-group \

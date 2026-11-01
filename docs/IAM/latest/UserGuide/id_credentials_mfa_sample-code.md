@@ -19,7 +19,7 @@ The following code examples show how to use `GetSessionToken`.
 
 **AWS CLI**  
 **To get a set of short term credentials for an IAM identity**  
-The following `get-session-token` command retrieves a set of short-term credentials for the IAM identity making the call. The resulting credentials can be used for requests where multi-factor authentication (MFA) is required by policy. The credentials expire 15 minutes after they are generated.  
+The following `get-session-token` example retrieves a set of short-term credentials for the IAM identity making the call. The resulting credentials can be used for requests where multi-factor authentication (MFA) is required by policy. The credentials expire 15 minutes after they are generated.  
 
 ```
 aws sts get-session-token \
@@ -387,7 +387,7 @@ bool AwsDoc::STS::assumeRole(const Aws::String &roleArn,
 
 **AWS CLI**  
 **To assume a role**  
-The following `assume-role` command retrieves a set of short-term credentials for the IAM role `s3-access-example`.  
+The following `assume-role` example retrieves a set of short-term credentials for the IAM role `s3-access-example`.  
 
 ```
 aws sts assume-role \

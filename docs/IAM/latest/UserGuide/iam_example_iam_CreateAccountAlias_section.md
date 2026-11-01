@@ -42,7 +42,7 @@ bool AwsDoc::IAM::createAccountAlias(const Aws::String &aliasName,
 
 **AWS CLI**  
 **To create an account alias**  
-The following `create-account-alias` command creates the alias `examplecorp` for your AWS account.  
+The following `create-account-alias` example creates the alias `examplecorp` for your AWS account.  
 
 ```
 aws iam create-account-alias \

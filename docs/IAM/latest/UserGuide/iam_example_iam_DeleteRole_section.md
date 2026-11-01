@@ -150,7 +150,7 @@ function iam_delete_role() {
 
 **AWS CLI**  
 **To delete an IAM role**  
-The following `delete-role` command removes the role named `Test-Role`.  
+The following `delete-role` example removes the role named `Test-Role`.  
 
 ```
 aws iam delete-role \

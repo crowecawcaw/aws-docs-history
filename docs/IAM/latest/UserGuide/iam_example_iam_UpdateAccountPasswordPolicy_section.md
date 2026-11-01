@@ -10,7 +10,7 @@ The following code examples show how to use `UpdateAccountPasswordPolicy`.
 
 **AWS CLI**  
 **To set or change the current account password policy**  
-The following `update-account-password-policy` command sets the password policy to require a minimum length of eight characters and to require one or more numbers in the password.  
+The following `update-account-password-policy` example sets the password policy to require a minimum length of eight characters and to require one or more numbers in the password.  
 
 ```
 aws iam update-account-password-policy \

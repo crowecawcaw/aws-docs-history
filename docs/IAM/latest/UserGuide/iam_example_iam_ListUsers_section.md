@@ -163,7 +163,7 @@ bool AwsDoc::IAM::listUsers(const Aws::Client::ClientConfiguration &clientConfig
 
 **AWS CLI**  
 **To list IAM users**  
-The following `list-users` command lists the IAM users in the current account.  
+The following `list-users` example lists the IAM users in the current account.  
 
 ```
 aws iam list-users
@@ -190,7 +190,7 @@ Output:
     ]
 }
 ```
-For more information, see [Listing IAM users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_manage_list) in the *AWS IAM User Guide*.  
+For more information, see [Listing IAM users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html) in the *AWS IAM User Guide*.  
 +  For API details, see [ListUsers](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-users.html) in *AWS CLI Command Reference*. 
 
 ------

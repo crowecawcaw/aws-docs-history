@@ -27,7 +27,7 @@ aws iam put-role-permissions-boundary \
     --role-name {{x-account-admin}}
 ```
 This command produces no output.  
-For more information, see [Modifying a role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html) in the *AWS IAM User Guide*.  
+For more information, see [IAM role management](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage.html) in the *AWS IAM User Guide*.  
 +  For API details, see [PutRolePermissionsBoundary](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/put-role-permissions-boundary.html) in *AWS CLI Command Reference*. 
 
 ------

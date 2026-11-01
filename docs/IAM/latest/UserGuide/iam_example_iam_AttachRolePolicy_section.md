@@ -207,7 +207,7 @@ bool AwsDoc::IAM::attachRolePolicy(const Aws::String &roleName,
 
 **AWS CLI**  
 **To attach a managed policy to an IAM role**  
-The following `attach-role-policy` command attaches the AWS managed policy named `ReadOnlyAccess` to the IAM role named `ReadOnlyRole`.  
+The following `attach-role-policy` example attaches the AWS managed policy named `ReadOnlyAccess` to the IAM role named `ReadOnlyRole`.  
 
 ```
 aws iam attach-role-policy \

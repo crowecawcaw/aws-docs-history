@@ -221,7 +221,7 @@ bool AwsDoc::STS::assumeRole(const Aws::String &roleArn,
 
 **AWS CLI**  
 **To assume a role**  
-The following `assume-role` command retrieves a set of short-term credentials for the IAM role `s3-access-example`.  
+The following `assume-role` example retrieves a set of short-term credentials for the IAM role `s3-access-example`.  
 
 ```
 aws sts assume-role \

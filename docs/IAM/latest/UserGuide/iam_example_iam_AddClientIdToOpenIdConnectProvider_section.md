@@ -10,7 +10,7 @@ The following code examples show how to use `AddClientIdToOpenIdConnectProvider`
 
 **AWS CLI**  
 **To add a client ID (audience) to an Open-ID Connect (OIDC) provider**  
-The following `add-client-id-to-open-id-connect-provider` command adds the client ID `my-application-ID` to the OIDC provider named `server.example.com`.  
+The following `add-client-id-to-open-id-connect-provider` example adds the client ID `my-application-ID` to the OIDC provider named `server.example.com`.  
 
 ```
 aws iam add-client-id-to-open-id-connect-provider \

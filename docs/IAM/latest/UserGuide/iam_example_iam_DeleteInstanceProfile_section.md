@@ -73,7 +73,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To delete an instance profile**  
-The following `delete-instance-profile` command deletes the instance profile named `ExampleInstanceProfile`.  
+The following `delete-instance-profile` example deletes the instance profile named `ExampleInstanceProfile`.  
 
 ```
 aws iam delete-instance-profile \

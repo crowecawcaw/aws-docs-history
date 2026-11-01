@@ -37,7 +37,7 @@ The following code examples show how to use `ListAttachedRolePolicies`.
 
 **AWS CLI**  
 **To list all managed policies that are attached to the specified role**  
-This command returns the names and ARNs of the managed policies attached to the IAM role named `SecurityAuditRole` in the AWS account.  
+The following `list-attached-role-policies` example returns the names and ARNs of the managed policies attached to the IAM role named `SecurityAuditRole` in the AWS account.  
 
 ```
 aws iam list-attached-role-policies \

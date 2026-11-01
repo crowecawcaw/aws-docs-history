@@ -10,7 +10,7 @@ The following code examples show how to use `ListSigningCertificates`.
 
 **AWS CLI**  
 **To list the signing certificates for an IAM user**  
-The following `list-signing-certificates` command lists the signing certificates for the IAM user named `Bob`.  
+The following `list-signing-certificates` example lists the signing certificates for the IAM user named `Bob`.  
 
 ```
 aws iam list-signing-certificates \

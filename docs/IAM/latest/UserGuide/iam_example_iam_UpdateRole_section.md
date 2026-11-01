@@ -10,7 +10,7 @@ The following code examples show how to use `UpdateRole`.
 
 **AWS CLI**  
 **To change an IAM role's description or session duration**  
-The following `update-role` command changes the description of the IAM role `production-role` to `Main production role` and sets the maximum session duration to 12 hours.  
+The following `update-role` example changes the description of the IAM role `production-role` to `Main production role` and sets the maximum session duration to 12 hours.  
 
 ```
 aws iam update-role \
@@ -19,7 +19,7 @@ aws iam update-role \
     --max-session-duration {{43200}}
 ```
 This command produces no output.  
-For more information, see [Modifying a role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html) in the *AWS IAM User Guide*.  
+For more information, see [IAM role management](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage.html) in the *AWS IAM User Guide*.  
 +  For API details, see [UpdateRole](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/update-role.html) in *AWS CLI Command Reference*. 
 
 ------

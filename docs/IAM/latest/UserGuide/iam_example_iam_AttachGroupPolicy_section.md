@@ -10,7 +10,7 @@ The following code examples show how to use `AttachGroupPolicy`.
 
 **AWS CLI**  
 **To attach a managed policy to an IAM group**  
-The following `attach-group-policy` command attaches the AWS managed policy named `ReadOnlyAccess` to the IAM group named `Finance`.  
+The following `attach-group-policy` example attaches the AWS managed policy named `ReadOnlyAccess` to the IAM group named `Finance`.  
 
 ```
 aws iam attach-group-policy \

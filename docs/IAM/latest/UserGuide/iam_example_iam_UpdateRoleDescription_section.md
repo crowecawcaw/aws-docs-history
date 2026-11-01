@@ -10,7 +10,7 @@ The following code examples show how to use `UpdateRoleDescription`.
 
 **AWS CLI**  
 **To change an IAM role's description**  
-The following `update-role` command changes the description of the IAM role `production-role` to `Main production role`.  
+The following `update-role-description` example changes the description of the IAM role `production-role` to `Main production role`.  
 
 ```
 aws iam update-role-description \
@@ -44,7 +44,7 @@ Output:
     }
 }
 ```
-For more information, see [Modifying a role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html) in the *AWS IAM User Guide*.  
+For more information, see [IAM role management](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage.html) in the *AWS IAM User Guide*.  
 +  For API details, see [UpdateRoleDescription](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/update-role-description.html) in *AWS CLI Command Reference*. 
 
 ------

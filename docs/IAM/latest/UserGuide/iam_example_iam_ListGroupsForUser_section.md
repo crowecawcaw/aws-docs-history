@@ -10,7 +10,7 @@ The following code examples show how to use `ListGroupsForUser`.
 
 **AWS CLI**  
 **To list the groups that an IAM user belongs to**  
-The following `list-groups-for-user` command displays the groups that the IAM user named `Bob` belongs to.  
+The following `list-groups-for-user` example displays the groups that the IAM user named `Bob` belongs to.  
 
 ```
 aws iam list-groups-for-user \

@@ -4,7 +4,7 @@
 <a name="troubleshoot_access-denied-authorization-id"></a>
 
 **Important**  
-Access Troubleshooter is in public preview.
+Access Troubleshooter is in public preview. Its APIs are subject to change.
 
 ## Overview
 <a name="access-troubleshooter-overview"></a>
@@ -91,5 +91,8 @@ or call the GetRequestAuthorizationDetails API with the following authorization 
 ## Supported services
 <a name="access-troubleshooter-supported-services"></a>
 
- Support for `GetRequestAuthorizationDetails` is rolling out gradually across AWS APIs and AWS Region. The following service(s) support `GetRequestAuthorizationDetails`: 
-+ Most APIs in IAM
+ Support for Access Troubleshooter is rolling out gradually across AWS services and AWS Region. The following services support Access Troubleshooter: 
++ Most APIs in AWS Identity and Access Management
++ Most APIs in Amazon Kinesis Data Streams
++ Most APIs in AWS Security Token Service
++ Most APIs in AWS Step Functions

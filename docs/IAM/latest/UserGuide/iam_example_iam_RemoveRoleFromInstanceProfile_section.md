@@ -14,13 +14,14 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To remove a role from an instance profile**  
-The following `remove-role-from-instance-profile` command removes the role named `Test-Role` from the instance profile named `ExampleInstanceProfile`.  
+The following `remove-role-from-instance-profile` example removes the role named `Test-Role` from the instance profile named `ExampleInstanceProfile`.  
 
 ```
 aws iam remove-role-from-instance-profile \
     --instance-profile-name {{ExampleInstanceProfile}} \
     --role-name {{Test-Role}}
 ```
+This command produces no output.  
 For more information, see [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) in the *AWS IAM User Guide*.  
 +  For API details, see [RemoveRoleFromInstanceProfile](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/remove-role-from-instance-profile.html) in *AWS CLI Command Reference*. 
 

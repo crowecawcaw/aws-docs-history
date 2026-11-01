@@ -10,7 +10,7 @@ The following code examples show how to use `CreateGroup`.
 
 **AWS CLI**  
 **To create an IAM group**  
-The following `create-group` command creates an IAM group named `Admins`.  
+The following `create-group` example creates an IAM group named `Admins`.  
 
 ```
 aws iam create-group \

@@ -46,7 +46,7 @@ bool AwsDoc::IAM::deleteServerCertificate(const Aws::String &certificateName,
 
 **AWS CLI**  
 **To delete a server certificate from your AWS account**  
-The following `delete-server-certificate` command removes the specified server certificate from your AWS account.  
+The following `delete-server-certificate` example removes the specified server certificate from your AWS account.  
 
 ```
 aws iam delete-server-certificate \

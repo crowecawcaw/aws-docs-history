@@ -10,7 +10,7 @@ The following code examples show how to use `ListUserPolicies`.
 
 **AWS CLI**  
 **To list policies for an IAM user**  
-The following `list-user-policies` command lists the policies that are attached to the IAM user named `Bob`.  
+The following `list-user-policies` example lists the policies that are attached to the IAM user named `Bob`.  
 
 ```
 aws iam list-user-policies \

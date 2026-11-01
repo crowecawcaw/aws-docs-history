@@ -79,7 +79,7 @@ bool AwsDoc::IAM::putRolePolicy(
 
 **AWS CLI**  
 **To attach a permissions policy to an IAM role**  
-The following `put-role-policy` command adds a permissions policy to the role named `Test-Role`.  
+The following `put-role-policy` example adds a permissions policy to the role named `Test-Role`.  
 
 ```
 aws iam put-role-policy \
@@ -87,10 +87,24 @@ aws iam put-role-policy \
     --policy-name {{ExamplePolicy}} \
     --policy-document {{file://AdminPolicy.json}}
 ```
+Contents of `AdminPolicy.json`:  
+
+```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "*",
+            "Resource": "*"
+        }
+    ]
+}
+```
 This command produces no output.  
 The policy is defined as a JSON document in the *AdminPolicy.json* file. (The file name and extension do not have significance.)  
 To attach a trust policy to a role, use the `update-assume-role-policy` command.  
-For more information, see [Modifying a role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html) in the *AWS IAM User Guide*.  
+For more information, see [IAM role management](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage.html) in the *AWS IAM User Guide*.  
 +  For API details, see [PutRolePolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/put-role-policy.html) in *AWS CLI Command Reference*. 
 
 ------

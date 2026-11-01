@@ -36,7 +36,7 @@ The following code examples show how to use `ListGroups`.
 
 **AWS CLI**  
 **To list the IAM groups for the current account**  
-The following `list-groups` command lists the IAM groups in the current account.  
+The following `list-groups` example lists the IAM groups in the current account.  
 
 ```
 aws iam list-groups

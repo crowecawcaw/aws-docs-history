@@ -36,7 +36,7 @@ The following code examples show how to use `ListRoles`.
 
 **AWS CLI**  
 **To list IAM roles for the current account**  
-The following `list-roles` command lists IAM roles for the current account.  
+The following `list-roles` example lists IAM roles for the current account.  
 
 ```
 aws iam list-roles

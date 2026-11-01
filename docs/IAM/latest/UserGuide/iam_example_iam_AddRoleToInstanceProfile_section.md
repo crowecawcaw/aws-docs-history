@@ -15,7 +15,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To add a role to an instance profile**  
-The following `add-role-to-instance-profile` command adds the role named `S3Access` to the instance profile named `Webserver`.  
+The following `add-role-to-instance-profile` example adds the role named `S3Access` to the instance profile named `Webserver`.  
 
 ```
 aws iam add-role-to-instance-profile \

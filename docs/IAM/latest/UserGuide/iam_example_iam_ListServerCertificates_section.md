@@ -69,7 +69,7 @@ bool AwsDoc::IAM::listServerCertificates(
 
 **AWS CLI**  
 **To list the server certificates in your AWS account**  
-The following `list-server-certificates` command lists all of the server certificates stored and available for use in your AWS account.  
+The following `list-server-certificates` example lists all of the server certificates stored and available for use in your AWS account.  
 
 ```
 aws iam list-server-certificates

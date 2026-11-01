@@ -10,7 +10,7 @@ The following code examples show how to use `UpdateLoginProfile`.
 
 **AWS CLI**  
 **To update the password for an IAM user**  
-The following `update-login-profile` command creates a new password for the IAM user named `Bob`.  
+The following `update-login-profile` example creates a new password for the IAM user named `Bob`.  
 
 ```
 aws iam update-login-profile \

@@ -10,7 +10,7 @@ The following code examples show how to use `GetGroup`.
 
 **AWS CLI**  
 **To get an IAM group**  
-This example returns details about the IAM group `Admins`.  
+The following `get-group` example returns details about the IAM group `Admins`.  
 
 ```
 aws iam get-group \

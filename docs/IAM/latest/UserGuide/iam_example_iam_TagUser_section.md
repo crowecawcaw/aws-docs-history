@@ -10,7 +10,7 @@ The following code examples show how to use `TagUser`.
 
 **AWS CLI**  
 **To add a tag to a user**  
-The following `tag-user` command adds a tag with the associated Department to the specified user.  
+The following `tag-user` example adds a tag with the associated Department to the specified user.  
 
 ```
 aws iam tag-user \

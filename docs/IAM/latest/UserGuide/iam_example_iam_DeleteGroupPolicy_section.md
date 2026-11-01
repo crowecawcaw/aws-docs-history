@@ -10,7 +10,7 @@ The following code examples show how to use `DeleteGroupPolicy`.
 
 **AWS CLI**  
 **To delete a policy from an IAM group**  
-The following `delete-group-policy` command deletes the policy named `ExamplePolicy` from the group named `Admins`.  
+The following `delete-group-policy` example deletes the policy named `ExamplePolicy` from the group named `Admins`.  
 
 ```
 aws iam delete-group-policy \
