@@ -4,7 +4,7 @@
 <a name="aiml-storage"></a>
 
 **Tip**  
- [Register](https://events.eksworkshop.com/workshops/genai/) for upcoming Amazon EKS AI/ML workshops.
+ [Register](https://awsworkshop.io/eks/genai?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) for upcoming Amazon EKS AI/ML workshops.
 
 ## Data Management and Storage
 <a name="_data_management_and_storage"></a>
@@ -46,7 +46,7 @@ You can [Install the FSx for Lustre CSI driver](https://docs.aws.amazon.com/eks/
   +  **Data striping**: Allows FSx for Luster to distribute a file’s data across multiple Object Storage Targets (OSTs) within a Lustre file system maximizes parallel access and throughput, especially for large-scale ML training jobs.
   +  **Standalone file system striping**: By default, a 4-component Lustre striping configuration is created for you via the [Progressive file layouts (PFL)](https://docs.aws.amazon.com/fsx/latest/LustreGuide/performance.html#striping-pfl) capability of FSx for Lustre. In most scenarios you don’t need to update the default PFL Lustre stripe count/size. If you need to adjust the Lustre data striping, then you can manually adjust the Lustre striping by referring to [striping parameters of a FSx for Lustre file system](https://docs.aws.amazon.com/fsx/latest/LustreGuide/performance.html#striping-data).
   +  **S3-Linked File system**: Files imported into the FSx file system using the native Amazon S3 integration (Data Repository Association or DRA) don’t use the default PFL layout, but instead use the layout in the file system’s `ImportedFileChunkSize` parameter. S3-imported files larger than the `ImportedFileChunkSize` will be stored on multiple OSTs with a stripe count based on the `ImportedFileChunkSize` defined value (default 1GiB). If you have large files, we recommend tuning this parameter to a higher value.
-  +  **Placement**: Deploy an FSx for Lustre file system in the same Availability Zone as your compute or GPU nodes to enable the lowest latency access to the data, avoid cross Availability Zone access access patterns. If you have multiple GPU nodes located in different Availability Zones, then we recommend deploying a FSx file system in each Availability Zone for low latency data access.
+  +  **Placement**: Deploy an FSx for Lustre file system in the same Availability Zone as your compute or GPU nodes to enable the lowest latency access to the data, avoid cross Availability Zone access patterns. If you have multiple GPU nodes located in different Availability Zones, then we recommend deploying a FSx file system in each Availability Zone for low latency data access.
 
  **Example** 
 

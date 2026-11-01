@@ -4,7 +4,7 @@
 <a name="identity-and-access-management"></a>
 
 **Tip**  
- [Explore](https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) best practices through Amazon EKS workshops.
+ [Explore](https://awsworkshop.io/eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) best practices through Amazon EKS workshops.
 
  [Identity and Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) (IAM) is an AWS service that performs two essential functions: Authentication and Authorization. Authentication involves the verification of a identity whereas authorization governs the actions that can be performed by AWS resources. Within AWS, a resource can be another AWS service, e.g. EC2, or an AWS [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html#intro-structure-principal) such as an [IAM User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html#id_iam-users) or [Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html#id_iam-roles). The rules governing the actions that a resource is allowed to perform are expressed as [IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html).
 

@@ -243,7 +243,6 @@ RUN apt-get update && apt-get install -y \
 +  [Gatekeeper and OPA](https://github.com/open-policy-agent/gatekeeper) A policy based admission controller
 +  [Kyverno](https://kyverno.io/) A Kubernetes-native policy engine
 +  [in-toto](https://in-toto.io/) Allows the user to verify if a step in the supply chain was intended to be performed, and if the step was performed by the right actor
-+  [Notary](https://github.com/theupdateframework/notary) A project for signing container images
-+  [Notary v2](https://github.com/notaryproject/nv2) 
++  [Notation (Notary Project)](https://github.com/notaryproject/notation) The actively maintained CNCF tool for signing and verifying container images. It supersedes the original Notary ([theupdateframework/notary](https://github.com/theupdateframework/notary)), which was archived by its maintainers in 2025.
 +  [Grafeas](https://grafeas.io/) An open artifact metadata API to audit and govern your software supply chain
 +  [NeuVector by SUSE](https://www.suse.com/neuvector/) open source, zero-trust container security platform, provides container, image and registry scanning for vulnerabilities, secrets and compliance.

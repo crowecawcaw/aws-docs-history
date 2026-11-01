@@ -36,7 +36,7 @@ For general upgrade planning guidance including deprecation policies, release no
 Amazon EKS surfaces point-in-time rollback readiness insights under the `ROLLBACK_READINESS` category in cluster insights. These checks are your primary tool for assessing rollback safety.
 +  **Review insights immediately after upgrading.** Don’t wait until something goes wrong. After upgrading, check rollback readiness insights so you know your current rollback posture.
 +  **Address ERROR insights proactively.** If insights show ERROR status shortly after an upgrade, resolve them early while the 7-day window is still open. The longer you wait, the more likely your cluster state diverges and new blockers appear.
-+  **Understand what insights do and don’t cover.** Insights check Amazon EKS managed add-on versions, API usage, version skew, and cluster health. They don’t check self-managed add-ons, custom controllers, or application-level compatibility. Maintain your own compatibility validation for self-managed add-ons (for example, cluster-autoscaler, ingress controllers, custom operators, monitoring agents).
++  **Understand what insights do and don’t cover.** Insights check Amazon EKS managed add-on versions, API usage, version skew, and cluster health. They don’t check self-managed add-ons, custom controllers, Custom Resource Definitions (CRDs), or application-level compatibility. Maintain your own compatibility validation for self-managed add-ons (for example, cluster-autoscaler, ingress controllers, custom operators, monitoring agents).
 
 For the full list of insight checks and status behavior, see [Rollback cluster to previous Kubernetes version](https://docs.aws.amazon.com/eks/latest/userguide/rollback-cluster.html).
 

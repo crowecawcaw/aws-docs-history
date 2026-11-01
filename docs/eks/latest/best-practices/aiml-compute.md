@@ -4,7 +4,7 @@
 <a name="aiml-compute"></a>
 
 **Tip**  
- [Register](https://events.eksworkshop.com/workshops/genai/) for upcoming Amazon EKS AI/ML workshops.
+ [Register](https://awsworkshop.io/eks/genai?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) for upcoming Amazon EKS AI/ML workshops.
 
 ## GPU Resource Optimization and Cost Management
 <a name="_gpu_resource_optimization_and_cost_management"></a>
@@ -288,7 +288,7 @@ disruption:
   consolidateAfter: 60m
 ```
 
-This approach improves pod startup latency for spiky batch inference workloads and other interruption-sensitive jobs, such as real-time online inference data processing or model training, where the cost of interruption outweighs compute cost savings. Karpenter [NodePool Disruption Budgets](https://karpenter.sh/docs/concepts/disruption/#nodepool-disruption-budgets) is another feature for managing Karpenter disruptions. With budgets, you can make sure that no more than a certain number of nodes nodes will be disrupted in the chosen NodePool at a point in time. You can also use disruption budgets to prevent all nodes from being disrupted at a certain time (e.g. peak hours). To learn more, see [Karpenter Consolidation](https://karpenter.sh/docs/concepts/disruption/#consolidation) documentation.
+This approach improves pod startup latency for spiky batch inference workloads and other interruption-sensitive jobs, such as real-time online inference data processing or model training, where the cost of interruption outweighs compute cost savings. Karpenter [NodePool Disruption Budgets](https://karpenter.sh/docs/concepts/disruption/#nodepool-disruption-budgets) is another feature for managing Karpenter disruptions. With budgets, you can make sure that no more than a certain number of nodes will be disrupted in the chosen NodePool at a point in time. You can also use disruption budgets to prevent all nodes from being disrupted at a certain time (e.g. peak hours). To learn more, see [Karpenter Consolidation](https://karpenter.sh/docs/concepts/disruption/#consolidation) documentation.
 
 ### Use ttlSecondsAfterFinished to Auto Clean-Up Kubernetes Jobs
 <a name="_use_ttlsecondsafterfinished_to_auto_clean_up_kubernetes_jobs"></a>

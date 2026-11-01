@@ -4,7 +4,7 @@
 <a name="aiml-networking"></a>
 
 **Tip**  
- [Register](https://events.eksworkshop.com/workshops/genai/) for upcoming Amazon EKS AI/ML workshops.
+ [Register](https://awsworkshop.io/eks/genai?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) for upcoming Amazon EKS AI/ML workshops.
 
 ## Consider Higher Network Bandwidth or Elastic Fabric Adapter For Applications with High Inter-Node Communication
 <a name="_consider_higher_network_bandwidth_or_elastic_fabric_adapter_for_applications_with_high_inter_node_communication"></a>
