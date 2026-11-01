@@ -32,9 +32,6 @@ You must create a service-linked role for CloudWatch metrics to be collected.
 **Note**  
 The metric doesn't appear until you send at least one RCS message using AWS End User Messaging.
 
-**Note**  
-Confirm the exact RCS monthly spend metric name in the CloudWatch `SMSVoice` Account Metrics namespace before publishing [needs SME confirmation]. The other channels use `TextMessageMonthlySpend`, `MediaMessageMonthlySpend`, and `VoiceMessageMonthlySpend`.
-
 You can also create a CloudWatch billing alarm that notifies you through an Amazon SNS topic when your monthly RCS spending exceeds a certain amount. Before you create a billing alarm, set your AWS Region to US East (N. Virginia) Region, because billing metric data is stored there and represents worldwide charges. For more information, see [Using Amazon CloudWatch alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html) in the *Amazon CloudWatch User Guide*.
 
 ## Set a monthly spending limit for RCS
@@ -48,8 +45,5 @@ Set your own enforced limit with the `SetRcsMessageSpendLimitOverride` operation
 <a name="nx-rcs-scale-spending-billing"></a>
 
 RCS is billed per delivered message rather than per message part. Each RCS message that is confirmed delivered generates a single billable send, regardless of whether it is a text message, a rich card, or a carousel. A message that falls back to SMS is billed as an SMS message. For more information about pricing, see [AWS End User Messaging Pricing](https://aws.amazon.com/end-user-messaging/pricing/).
-
-**Note**  
-Confirm the exact RCS usage type string format on your bill, the set of usage types generated per send (message fee and pass-through carrier fee), and the per-country carrier fee treatment against the AWS Billing and Cost Management usage report before publishing specific examples [needs SME confirmation].
 
 You can use tags for organizing your bill to reflect your own cost structure. For example, you can tag several resources with a specific campaign name, and then organize your billing information to see the total cost of that campaign across several services. For more information, see [Cost allocation and tagging](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *AWS Billing User Guide*.

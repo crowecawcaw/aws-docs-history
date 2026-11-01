@@ -500,6 +500,8 @@ The message ID that started the conversation.
 
 #### Best practices for event processing
 <a name="nx-rcs-mon-events-best-practices-ref"></a>
+
+Follow these best practices when you configure event destinations and process AWS End User Messaging events:
 + Configure event destinations before you begin sending production messages. This ensures you capture all events from the start.
 + Use `DELIVERED` events to cancel fallback timers. If you receive a delivery confirmation, do not send an SMS or MMS fallback.
 + Process subscription events (`UNSUBSCRIBE`) immediately to maintain compliance with messaging regulations.
@@ -518,14 +520,14 @@ Unlike the message events in the preceding sections, which you receive through a
     "id": "a1b2c3d4-e5f6-7890-abcd-ef1234example",
     "detail-type": "Registration Status Change",
     "source": "aws.sms-voice",
-    "account": "123456789012",
+    "account": "111122223333",
     "time": "2024-04-25T00:00:00Z",
     "region": "us-east-1",
     "resources": [
-        "arn:aws:sms-voice:us-east-1:123456789012:registration/reg-12345example"
+        "arn:aws:sms-voice:us-east-1:111122223333:registration/reg-12345example"
     ],
     "detail": {
-        "registrationArn": "arn:aws:sms-voice:us-east-1:123456789012:registration/reg-12345example",
+        "registrationArn": "arn:aws:sms-voice:us-east-1:111122223333:registration/reg-12345example",
         "registrationDetails": {
             "registrationId": "reg-12345example",
             "registrationVersionNumber": 1,

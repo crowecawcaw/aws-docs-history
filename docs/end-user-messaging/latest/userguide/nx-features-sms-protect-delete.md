@@ -3,7 +3,7 @@
 # Delete a protect configuration in AWS End User Messaging
 <a name="nx-features-sms-protect-delete"></a>
 
-To delete a protect configuration, you can use the AWS End User Messaging console, the `DeleteProtectConfiguration` action in the AWS End User Messaging and voice v2 API, or the `aws sms-voice delete-protect-configuration` command in the AWS CLI. This section shows how to delete a protect configuration using the AWS End User Messaging console and the AWS CLI.
+To delete a protect configuration, you can use the AWS End User Messaging console, the `DeleteProtectConfiguration` operation in the AWS End User Messaging and voice v2 API, or the `aws sms-voice delete-protect-configuration` command in the AWS CLI. This section shows how to delete a protect configuration using the AWS End User Messaging console and the AWS CLI.
 
 **Important**  
 Deletion protection has to be disabled before you can delete a protect configuration.  

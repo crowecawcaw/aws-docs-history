@@ -5,7 +5,7 @@
 
 Tags are pairs of keys and values that you can optionally apply to your AWS resources to control access or usage. Adding a tag to a resource can help you categorize and manage resources in different ways, such as by purpose, owner, environment, or other criteria. You can use tags to easily find existing resources, or to control which users can access specific resources.
 
-To manage tags for a protect configuration, you can use the AWS End User Messaging console, the `TagResource` and `UnTagResource` actions in the AWS End User Messaging and voice v2 API, or the `aws sms-voice tag-resource` and `aws sms-voice untag-resource` commands in the AWS CLI. This section shows how to tag and untag a protect configuration using the AWS End User Messaging console and the AWS CLI.
+To manage tags for a protect configuration, you can use the AWS End User Messaging console, the `TagResource` and `UnTagResource` operations in the AWS End User Messaging and voice v2 API, or the `aws sms-voice tag-resource` and `aws sms-voice untag-resource` commands in the AWS CLI. This section shows how to tag and untag a protect configuration using the AWS End User Messaging console and the AWS CLI.
 
 ------
 #### [ Manage tags (Console) ]

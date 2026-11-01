@@ -14,7 +14,7 @@ For more information about AWS RAM, see the *AWS RAM User Guide*.
 This topic explains how to share resources that you own, and how to use resources that are shared with you.
 
 **Important**  
-Shared resources (phone numbers, sender IDs, pools, and opt-out lists) accessed via AWS RAM can only be used with the AWS End User Messaging API (for example, the [SendTextMessage](https://docs.aws.amazon.com/cli/latest/reference/pinpoint-sms-voice-v2/send-text-message.html) action). They are not supported with:  
+Shared resources (phone numbers, sender IDs, pools, and opt-out lists) accessed via AWS RAM can only be used with the AWS End User Messaging API (for example, the [SendTextMessage](https://docs.aws.amazon.com/cli/latest/reference/pinpoint-sms-voice-v2/send-text-message.html) operation). They are not supported with:  
 Amazon SNS (`Publish` API for SMS)
 Amazon Pinpoint (`SendMessages` API)
 The AWS End User Messaging console

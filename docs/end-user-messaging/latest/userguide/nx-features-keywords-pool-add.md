@@ -46,6 +46,6 @@ In the preceding command, make the following changes:
 + Replace {{OriginationIdentity}} with the unique ID or Amazon Resource Name (ARN) of the pool that you want to add the keyword to.
 + Replace {{Keyword}} with the new keyword.
 + Replace {{KeywordMessage}} with the message to use when responding to the keyword.
-+ Replace {{KeywordAction}} the action (`AUTOMATIC_RESPONSE`, `OPT_OUT`, `OPT_IN`) to perform when the keyword is received.
++ Replace {{KeywordAction}} with the action (`AUTOMATIC_RESPONSE`, `OPT_OUT`, `OPT_IN`) to perform when the keyword is received.
 
 ------

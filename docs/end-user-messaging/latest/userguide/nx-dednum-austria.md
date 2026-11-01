@@ -7,7 +7,7 @@ Registering a dedicated number is the first step in creating an origination iden
 
 To request a long code phone number, see the long code request process.
 
-Follow these directions to register your dedicated number in Australia.
+Follow these directions to register your dedicated number in Austria.
 
 **Complete Common Dedicated Number registration form**
 
@@ -40,11 +40,11 @@ If you already created a registration when requesting the toll-free number then 
    In order to give approval, mobile carriers need to know how you plan to use your dedicated number, and how you will interact with end users.
    + For **Service name**, Name of your SMS service or feature.
    + For **Use case category**, select the category which most closely aligns with your use case.
-   + For **Use case description**, enter a description of your use case for sending SMS messages with this long code..
-   + For **Monthly SMS volume**, enter a estimated number of SMS messages which will be sent from this long code each month.
+   + For **Use case description**, enter a description of your use case for sending SMS messages with this long code.
+   + For **Monthly SMS volume**, enter an estimated number of SMS messages which will be sent from this long code each month.
    + For **Is this a one-way or two-way program?**, select whether you require only sending outbound messages with this number or if you require 2-way messaging (both outbound and inbound).
-   + For **Opt-in Method**, enter a how the user will opt-in..
-   + For **Opt-in method other**, ff you chose Other, please explain.
+   + For **Opt-in Method**, enter how the user will opt-in.
+   + For **Opt-in method other**, if you chose Other, please explain.
    + For **Opt-in method user experience flow 1**, provide a step-by-step description of the end user experience when signing up for the SMS service..
    + For **Opt-in mock-up 1**, attach a mock up showing the call-to-action or opt-in location.
    + For **Opt-in method user experience flow 2**, provide a step-by-step description of the end user experience when signing up for the SMS service.

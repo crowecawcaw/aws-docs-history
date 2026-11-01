@@ -25,15 +25,12 @@ You can monitor AWS End User Messaging using CloudWatch, which collects raw data
 
 | Metric | Description | 
 | --- | --- | 
-| MediaMessageMonthlySpend | The month-to-date spend on MMS messages, in US Dollars. | 
+| MediaMessageMonthlySpend | The month-to-date spend on MMS messages, in US dollars. | 
 | NumberOfMessagesReceived | The number of inbound messages received, including replies to an MMS message. | 
 | Messages expecting feedback | The number of messages sent with message feedback enabled that are awaiting an outcome. For more information, see [Message feedback](#nx-mms-scale-monitoring-feedback). | 
 
 **Note**  
 AWS End User Messaging uses an AWS Identity and Access Management (IAM) service-linked role to publish metrics to CloudWatch. The service creates this role for you the first time you perform an action that publishes metrics, so in most cases you do not need to create it yourself.
-
-**Note**  
-For some metrics, the result might be approximate due to the distributed nature of the service. The exact set of CloudWatch delivery metrics emitted for MMS [needs SME confirmation].
 
 ### Filter metrics by origination identity type
 <a name="nx-mms-scale-monitoring-dimensions"></a>

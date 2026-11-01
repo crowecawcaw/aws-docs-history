@@ -9,7 +9,7 @@ To request a long code phone number, see the long code request process.
 
 To register a short code number, see the short code request process.
 
-Follow these directions to register your dedicated number in Italy.
+Follow these directions to register your dedicated number in Portugal.
 
 **Complete Common Dedicated Number registration form**
 

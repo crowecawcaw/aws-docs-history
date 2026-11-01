@@ -14,8 +14,8 @@ When you send a voice message with the `SendVoiceMessage` API, the `MessageBody`
 <a name="nx-voice-scale-limits-throughput"></a>
 
 AWS End User Messaging limits how fast you can originate voice calls and how many calls your account can have in progress at the same time. These are account quotas that are visible and, where supported, adjustable in the Service Quotas console.
-+ **Calls per second** — the maximum number of voice messages that your account can originate each second. The default value is [needs SME confirmation].
-+ **Concurrent calls** — the maximum number of voice calls that your account can have in progress at the same time. The default value is [needs SME confirmation].
++ **Calls per second** — the maximum number of voice messages that your account can originate each second.
++ **Concurrent calls** — the maximum number of voice calls that your account can have in progress at the same time.
 
 **Note**  
 While your account is in the voice sandbox, additional restrictions apply. For more information, see [Move out of the sandbox](nx-voice-scale-sandbox.md).

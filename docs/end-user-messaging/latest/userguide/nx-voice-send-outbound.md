@@ -32,6 +32,3 @@ While your account is in the sandbox, you can only place calls to verified desti
 If AWS End User Messaging accepts the request, it returns a `MessageId`. This means only that the request was accepted, not that the call has been answered.
 
 To play audio that you supply instead of synthesized speech, set `--message-body-text-type` to `SSML` and reference your audio file with an SSML `audio` tag in the message body, for example `"<speak><audio src='https://example.com/audio/greeting.mp3'/></speak>"`. For the SSML tags that Amazon Polly supports, see [Supported SSML tags](https://docs.aws.amazon.com/polly/latest/dg/supportedtags.html) in the *Amazon Polly Developer Guide*.
-
-**Note**  
-[needs SME confirmation] Confirm the supported audio hosting and file-format requirements for AWS End User Messaging voice calls (for example, whether the audio must be reachable over HTTPS and the accepted codecs/bitrate). The API Reference documents `MessageBody` and `MessageBodyTextType` but does not restate Amazon Polly audio constraints.

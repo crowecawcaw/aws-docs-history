@@ -15,7 +15,7 @@ You can also use CloudWatch to view and create alarms. For more information on C
 
 1. On the **Protect configuration** page, choose a protect configuration and then choose the **Monitoring** tab.
 
-1. The graphs display actual message blocks and recommended blocks across your SMS traffic. Review data by count, percentage, and country. Recommended-to-block data appears only for countries with monitor or filter rules enabled. Use the date and time controls to change the date range and timezone.
+1. The graphs display actual message blocks and recommended blocks across your SMS traffic. Review data by count, percentage, and country. Recommended-to-block data appears only for countries with monitor or filter rules enabled. Use the date and time controls to change the date range and time zone.
 
 ## How protect metrics are processed in AWS End User Messaging
 <a name="nx-features-sms-protect-monitoring-processed"></a>

@@ -35,7 +35,7 @@ aws pinpoint-sms-voice-v2 send-text-message \\
     --message-type {{TRANSACTIONAL}}
 ```
 
-Replace {{pool-a1b2c3d4e5f6g7h8i}} with your origination identity. Using a phone pool is recommended. To send over RCS only with no SMS fallback, specify an AWS RCS Agent ARN instead, for example `arn:aws:sms-voice:us-east-1:123456789012:rcs-agent/rcs-a1b2c3d4`. The `send-text-message` command is the same one you use for SMS; the origination identity you provide determines how the message is routed.
+Replace {{pool-a1b2c3d4e5f6g7h8i}} with your origination identity. Using a phone pool is recommended. To send over RCS only with no SMS fallback, specify an AWS RCS Agent ARN instead, for example `arn:aws:sms-voice:us-east-1:111122223333:rcs-agent/rcs-a1b2c3d4`. The `send-text-message` command is the same one you use for SMS; the origination identity you provide determines how the message is routed.
 
 To send rich RCS content such as cards, carousels, media, and suggestions, use the `SendRcsMessage` operation instead.
 

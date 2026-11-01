@@ -44,7 +44,7 @@ If you already created a registration when requesting the toll-free number then 
    + For **Monthly SMS volume**, enter a estimated number of SMS messages which will be sent from this long code each month.
    + For **Is this a one-way or two-way program?**, select whether you require only sending outbound messages with this number or if you require 2-way messaging (both outbound and inbound).
    + For **Opt-in Method**, enter a how the user will opt-in..
-   + For **Opt-in method other**, ff you chose Other, please explain.
+   + For **Opt-in method other**, if you chose Other, please explain.
    + For **Opt-in method user experience flow 1**, provide a step-by-step description of the end user experience when signing up for the SMS service..
    + For **Opt-in mock-up 1**, attach a mock up showing the call-to-action or opt-in location.
    + For **Opt-in method user experience flow 2**, provide a step-by-step description of the end user experience when signing up for the SMS service.

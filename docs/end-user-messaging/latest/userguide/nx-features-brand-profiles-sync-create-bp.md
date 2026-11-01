@@ -12,8 +12,6 @@ Create a new brand profile whose attributes are imported from an existing regist
 
 1. Open the AWS End User Messaging console at [https://console.aws.amazon.com/sms-voice/](https://console.aws.amazon.com/sms-voice/).
 
-1. Open the AWS End User Messaging console at [https://console.aws.amazon.com/sms-voice/](https://console.aws.amazon.com/sms-voice/).
-
 1. In the navigation pane, choose **Brand profiles**.
 
 1. Choose **Create brand profile**. In the **Source** section, choose **Import from registration**.

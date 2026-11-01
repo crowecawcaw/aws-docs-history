@@ -48,7 +48,7 @@ To pre-fill the brand profile from an existing registration instead, choose **Im
    ```
    {
        "brandProfileId": "bp-gkma20fagojtpys0e",
-       "brandProfileArn": "arn:aws:end-user-messaging:us-east-1:123456789012:brand-profile/bp-gkma20fagojtpys0e",
+       "brandProfileArn": "arn:aws:end-user-messaging:us-east-1:111122223333:brand-profile/bp-gkma20fagojtpys0e",
        "brandProfileName": "MyBrandProfile",
        "status": "ACTIVE",
        "attributesCreated": 12,

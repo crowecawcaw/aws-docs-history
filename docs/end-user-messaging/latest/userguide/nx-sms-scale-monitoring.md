@@ -31,7 +31,7 @@ AWS End User Messaging uses an AWS Identity and Access Management (IAM) service-
 | NumberOfTextMessagePartsSent | The number of SMS message parts sent. | 
 | NumberOfTextMessagePartsDelivered | The number of SMS message parts confirmed delivered. | 
 | NumberOfMessagesReceived | The number of inbound (two-way) messages received. | 
-| TextMessageMonthlySpend | The month-to-date spend on SMS messages, in US Dollars. | 
+| TextMessageMonthlySpend | The month-to-date spend on SMS messages, in US dollars. | 
 | TextMessagesBlockedByProtect | The number of SMS messages blocked by a protect configuration. | 
 | Messages expecting feedback | The number of messages sent with message feedback enabled that are awaiting an outcome. For more information, see [Message feedback](#nx-sms-scale-monitoring-feedback). | 
 

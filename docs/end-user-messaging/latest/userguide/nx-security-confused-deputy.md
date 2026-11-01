@@ -7,7 +7,7 @@ The confused deputy problem is a security issue where an entity that does not ha
 
 We recommend using the [`aws:SourceArn`](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn) and [`aws:SourceAccount`](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourceaccount) global condition context keys in resource policies to limit the permissions that AWS End User Messaging gives another service to the resource. Use `aws:SourceArn` if you want only one resource to be associated with the cross-service access. Use `aws:SourceAccount` if you want to allow any resource in that account to be associated with the cross-service use.
 
-The most effective way to protect against the confused deputy problem is to use the `aws:SourceArn` global condition context key with the full ARN of the resource. If you do not know the full ARN of the resource, or if you are specifying multiple resources, use the `aws:SourceArn` global condition context key with wildcard characters (`*`) for the unknown portions of the ARN. For example, `arn:aws:{{servicename}}:*:{{123456789012}}:*`.
+The most effective way to protect against the confused deputy problem is to use the `aws:SourceArn` global condition context key with the full ARN of the resource. If you do not know the full ARN of the resource, or if you are specifying multiple resources, use the `aws:SourceArn` global condition context key with wildcard characters (`*`) for the unknown portions of the ARN. For example, `arn:aws:{{servicename}}:*:{{111122223333}}:*`.
 
 If the `aws:SourceArn` value does not contain the account ID, such as an Amazon S3 bucket ARN, you must use both global condition context keys to limit permissions. The value of `aws:SourceArn` must be the ARN of the phone number.
 
@@ -36,4 +36,4 @@ The following example shows how you can use the `aws:SourceArn` and `aws:SourceA
  }
 ```
 
-The preceding example applies to the SMS, MMS, voice, and RCS channels, which use the `sms-voice.amazonaws.com` service principal and `sms-voice` resource ARNs. For the WhatsApp channel, use the `social-messaging.amazonaws.com` service principal and `social-messaging` resource ARNs instead. For example, set `aws:SourceArn` to `arn:aws:social-messaging:*:{{123456789012}}:*` to scope access to resources in your account.
+The preceding example applies to the SMS, MMS, voice, and RCS channels, which use the `sms-voice.amazonaws.com` service principal and `sms-voice` resource ARNs. For the WhatsApp channel, use the `social-messaging.amazonaws.com` service principal and `social-messaging` resource ARNs instead. For example, set `aws:SourceArn` to `arn:aws:social-messaging:*:{{111122223333}}:*` to scope access to resources in your account.

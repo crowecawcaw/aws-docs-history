@@ -3,7 +3,7 @@
 # Edit a configuration set protect configuration association in AWS End User Messaging
 <a name="nx-features-configuration-sets-edit-protect"></a>
 
-To change a configuration set's associated protect configuration, you can use the AWS End User Messaging console, the `AssociaterotectConfiguration` action in the AWS End User Messaging and voice v2 API, or the `aws sms-voice associate-protect-configuration` command in the AWS CLI. This section shows how to change a configuration set's protect configuration using the AWS End User Messaging console and the AWS CLI.
+To change a configuration set's associated protect configuration, you can use the AWS End User Messaging console, the `AssociateProtectConfiguration` operation in the AWS End User Messaging and voice v2 API, or the `aws sms-voice associate-protect-configuration` command in the AWS CLI. This section shows how to change a configuration set's protect configuration using the AWS End User Messaging console and the AWS CLI.
 
 To learn more about protect configurations see protect configurations.
 

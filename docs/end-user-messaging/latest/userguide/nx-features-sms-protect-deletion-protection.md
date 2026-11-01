@@ -5,7 +5,7 @@
 
 When you turn on deletion protection for a protect configuration you will not be able to delete the protect configuration until deletion protection is disabled and the protect configuration is no longer associated with a configuration set or the *account default* protect configuration. By default, deletion protection is disabled.
 
-To enable deletion protection for a protect configuration, you can use the AWS End User Messaging console, the `DeleteProtectConfiguration` action in the AWS End User Messaging and voice v2 API, or the `aws sms-voice delete-protect-configuration` command in the AWS CLI. This section shows how to delete a protect configuration using the AWS End User Messaging console and the AWS CLI.
+To enable deletion protection for a protect configuration, you can use the AWS End User Messaging console, the `DeleteProtectConfiguration` operation in the AWS End User Messaging and voice v2 API, or the `aws sms-voice delete-protect-configuration` command in the AWS CLI. This section shows how to delete a protect configuration using the AWS End User Messaging console and the AWS CLI.
 
 ------
 #### [ Enable deletion protection (Console) ]
@@ -35,7 +35,7 @@ You can use the update-protect-configuration command to enable deletion protecti
   ```
 
   In the preceding command, make the following changes:
-  + Replace {{ProtectConfigId}} with the unique identifier of the protect configuration.
+  + Replace {{ProtectConfigurationId}} with the unique identifier of the protect configuration.
   + Replace {{Status}} with *true* to enable or *false* to disable deletion protection.
 
 ------

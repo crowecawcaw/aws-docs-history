@@ -14,7 +14,7 @@ To create an event destination using the AWS End User Messaging console, follow 
 
 1. In the navigation pane, under **Configurations**, choose **Configuration sets**.
 
-1. On the **Configuration sets** page ,choose the configuration set to add an event destination to. 
+1. On the **Configuration sets** page, choose the configuration set to add an event destination to. 
 
 1. On the **Configuration set details** page, choose **Add destination event**.
 

@@ -38,7 +38,7 @@ View a single brand profile to see its name, ID, ARN, status, deletion protectio
    {
        "brandProfileId": "bp-gkma20fagojtpys0e",
        "brandProfileName": "MyBrandProfile",
-       "brandProfileArn": "arn:aws:end-user-messaging:us-east-1:123456789012:brand-profile/bp-gkma20fagojtpys0e",
+       "brandProfileArn": "arn:aws:end-user-messaging:us-east-1:111122223333:brand-profile/bp-gkma20fagojtpys0e",
        "status": "ACTIVE",
        "deletionProtectionEnabled": false
    }

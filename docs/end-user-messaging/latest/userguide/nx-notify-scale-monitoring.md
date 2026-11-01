@@ -33,7 +33,7 @@ AWS End User Messaging uses an AWS Identity and Access Management (IAM) service-
 | NotifyVoiceMessagesSent | The number of Notify voice messages sent. | 
 | NotifyVoiceMessagesDelivered | The number of Notify voice messages confirmed delivered. | 
 | NotifyVoiceMessagesBlocked | The number of Notify voice messages that were blocked. | 
-| NotifyMessageMonthlySpend | The month-to-date spend on Notify messages, in US Dollars. | 
+| NotifyMessageMonthlySpend | The month-to-date spend on Notify messages, in US dollars. | 
 
 With CloudWatch, you can also create alarms that trigger based on metric thresholds. For example, you can create an alarm on a Notify delivery or spend metric so that when the metric crosses a threshold you choose, an email notification is sent to an Amazon SNS topic.
 

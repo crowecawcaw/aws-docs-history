@@ -22,4 +22,4 @@ The following quotas and limits apply to Notify. For the full cross-channel quot
 </table>
 
 
-Send API rate limits are 1 request per second on the Basic tier and 25 requests per second on the Advanced tier. Management actions such as `CreateNotifyConfiguration`, `UpdateNotifyConfiguration`, `DescribeNotifyTemplates`, and `ListNotifyCountries` are limited to 1 request per second. To request an increase, open the [Service Quotas console](https://console.aws.amazon.com/servicequotas/), navigate to AWS End User Messaging SMS, select the quota, and choose **Request quota increase**.
+Send API rate limits are 1 request per second on the Basic tier and 25 requests per second on the Advanced tier. Management operations such as `CreateNotifyConfiguration`, `UpdateNotifyConfiguration`, `DescribeNotifyTemplates`, and `ListNotifyCountries` are limited to 1 request per second. To request an increase, open the [Service Quotas console](https://console.aws.amazon.com/servicequotas/), navigate to AWS End User Messaging SMS, select the quota, and choose **Request quota increase**.

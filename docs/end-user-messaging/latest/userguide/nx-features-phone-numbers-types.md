@@ -95,7 +95,7 @@ US mobile carriers require that you register your toll-free number before live m
 An AWS RCS Agent is the origination identity that you use to send RCS (Rich Communication Services) messages. An RCS agent represents your brand in the recipient's messaging app, including your brand name, logo, and color. To send RCS messages, your agent must be registered and in the *Active* state.
 
 You can use an RCS agent as the origination identity in two ways:
-+ Specify the agent directly to send rich RCS content (text, files, rich cards, carousels, and suggestions) with the `SendRcsMessage` API action.
++ Specify the agent directly to send rich RCS content (text, files, rich cards, carousels, and suggestions) with the `SendRcsMessage` API operation.
 + Add the agent to a phone pool that also contains an SMS-capable identity. When you send with `SendTextMessage`, the pool delivers over RCS to capable devices and falls back to SMS automatically.
 
 You can use RCS messaging with `SendRcsMessage` in all countries where RCS is supported.

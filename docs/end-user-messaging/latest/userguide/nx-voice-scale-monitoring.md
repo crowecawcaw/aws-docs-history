@@ -28,7 +28,7 @@ AWS End User Messaging uses an AWS Identity and Access Management (IAM) service-
 
 | Metric | Description | 
 | --- | --- | 
-| VoiceMessageMonthlySpend | The month-to-date spend on voice messages, in US Dollars. | 
+| VoiceMessageMonthlySpend | The month-to-date spend on voice messages, in US dollars. | 
 
 **Note**  
 AWS End User Messaging reports additional voice metrics under the `AWS/SMSVoice` namespace as your account sends voice messages. Browse the `AWS/SMSVoice` namespace in the CloudWatch console to see the full set of voice metrics available to your account.
