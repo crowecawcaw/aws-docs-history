@@ -3,13 +3,18 @@
 # Generate MAC
 <a name="generate-mac"></a>
 
-Generate MAC API is used to authenticate card-related data, such as track data from a card magnetic stripe, by using known cryptographic keys to generate a MAC (Message Authentication Code) for data validation between sending and receiving parties. The data used to generate MAC includes message data, secret MAC encryption key and MAC algorithm to generate a unique MAC value for transmission. The receiving party of the MAC will use the same MAC message data, MAC encryption key, and algorithm to reproduce another MAC value for comparison and data authentication. Even if one character of the message changes or the MAC key used for verification is not identical, the resulting MAC value is different. The API supports ISO 9797-1 Algorithm 1 and ISO 9797-1 Algorithm 3 MAC (using a static MAC key and a derived DUKPT key), HMAC and EMV MAC encryption keys for this operation.
+Generate MAC API is used to authenticate card-related data, such as track data from a card magnetic stripe, by using known cryptographic keys to generate a MAC (Message Authentication Code) for data validation between sending and receiving parties. The data used to generate MAC includes message data, secret MAC encryption key and MAC algorithm to generate a unique MAC value for transmission. The receiving party of the MAC will use the same MAC message data, MAC encryption key, and algorithm to reproduce another MAC value for comparison and data authentication. Even if one character of the message changes or the MAC key used for verification is not identical, the resulting MAC value is different. The API supports ISO 9797-1 Algorithm 1 and ISO 9797-1 Algorithm 3 MAC (using a static MAC key and a Derived Unique Key Per Transaction (DUKPT) key), HMAC and EMV MAC encryption keys for this operation.
 
 The input value for `message-data` must be hexBinary data.
 
 For more information on all options for this API, see [GenerateMac](https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/API_GenerateMac.html) and [VerifyMac](https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/API_VerifyMac.html).
 
-The optional parameter mac-length allows you to truncate the output value (although this can also be done within your code). A length of 8 refers to 8 bytes or 16 hex characters.
+You can use the optional mac-length parameter to truncate the output value. You can also truncate the output in your code. The unit of mac-length depends on the MAC algorithm:
++ ISO 9797-1, CMAC, AS2805, and DUKPT – number of hex characters. For example, a length of 8 refers to 8 hex characters (4 bytes).
++ EMV MAC – number of bytes.
++ HMAC – currently ignored.
+
+For valid values per algorithm, see [GenerateMac](https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/API_GenerateMac.html).
 
 MAC keys can either be created with AWS Payment Cryptography by calling [CreateKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html) or imported by calling [ImportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html). 
 
@@ -27,7 +32,7 @@ CMAC and HMAC algorithms don't require padding. All others require that the data
 
 In this example, we will generate a HMAC (Hash-Based Message Authentication Code) for card data authentication using HMAC algorithm `HMAC_SHA256` and HMAC encryption key. The key must have KeyUsage set to `TR31_M7_HMAC_KEY` and KeyModesOfUse to `Generate`. The hash length (e.g. 256) is defined when the key is created and cannot be modified. 
 
-The optional mac-length parameter will trim the output MAC, although this can be performed outside the service as well. This value is in bytes, so a value of 16 will expect a hex string of length 32.
+The mac-length parameter has no effect for HMAC. The output MAC is always the full hash output, for example 64 hex characters for `HMAC_SHA256`. To use a shorter MAC, truncate the output in your code.
 
 **Example**  
 
