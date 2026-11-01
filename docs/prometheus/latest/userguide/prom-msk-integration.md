@@ -5,6 +5,8 @@
 
 To use an Amazon Managed Service for Prometheus collector, you create a scraper that discovers and pulls metrics in your Amazon Managed Streaming for Apache Kafka cluster. You can also create a scraper that integrates with Amazon Elastic Kubernetes Service or with Amazon OpenSearch Service. For more information, see [Integrate Amazon EKS](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html) and [Integrate Amazon OpenSearch Service](https://docs.aws.amazon.com/prometheus/latest/userguide/prom-opensearch-integration.html).
 
+For instructions on collecting consumer-group lag, committed offsets, and membership with a managed Kafka exporter, see [Collect Amazon MSK consumer-group metrics](prom-msk-kafka-exporter.md). That procedure uses AWS Identity and Access Management (IAM) authentication and does not require Open Monitoring. The following procedure collects JMX and Node Exporter metrics from Open Monitoring.
+
 ## Create a scraper
 <a name="prom-msk-create-scraper"></a>
 

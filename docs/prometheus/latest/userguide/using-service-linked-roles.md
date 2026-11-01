@@ -27,6 +27,8 @@ The role permissions policy named AmazonPrometheusScraperServiceRolePolicy allow
 + Read metrics from Amazon EKS clusters and write metrics to your Amazon Managed Service for Prometheus workspaces.
 + Write metrics to Amazon CloudWatch Metrics datasets in the same account.
 
+The role has no Amazon MSK permissions by default. To collect consumer-group metrics with a managed Kafka exporter, grant the role access with an Amazon MSK cluster policy. For more information, see [Grant the scraper access to the cluster](prom-msk-kafka-exporter.md#prom-msk-kafka-exporter-access).
+
 You must configure permissions to allow your users, groups, or roles to create a service-linked role. For more information, see [Service-linked role permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#service-linked-role-permissions) in the *IAM User Guide*.
 
 ### Creating a service-linked role for Amazon Managed Service for Prometheus
