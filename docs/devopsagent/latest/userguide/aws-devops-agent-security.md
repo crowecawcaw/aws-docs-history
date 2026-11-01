@@ -22,6 +22,8 @@ Agent Spaces serve as the primary security boundary in AWS DevOps Agent. Each Ag
 
 Agent Spaces maintain strict isolation to ensure security and prevent unintended access across different environments or teams.
 
+Chats and investigations are shared within an Agent Space. To keep your teams' work separate, use a different Agent Space for each team.
+
 ## Regional processing and data flow
 <a name="regional-processing-and-data-flow"></a>
 
@@ -66,7 +68,7 @@ For the following Regions, the geography-based routing described previously does
 
 AWS DevOps Agent provides two authentication methods to log into the AWS DevOps Agent Space web app:
 + **AWS Identity Center integration** – The primary authentication method uses OAuth 2.0 with session-based authentication using HTTP-only cookies. AWS Identity Center can federate with external identity providers through standard OIDC and SAML protocols, including providers like Okta, Ping Identity, and Microsoft Entra ID. This method supports multi-factor authentication through your identity provider. AWS Identity Center defaults to session durations of up to 12 hours and can be configured to a desired duration.
-+ **IAM authentication link** – An alternative method provides direct access to the web app from the AWS Management Console using JWT-based tokens derived from an existing AWS Management Console session. This option is useful for evaluating AWS DevOps Agent before implementing full Identity Center integration as well as gaining administrative access if the AWS DevOps Agent web app becomes inaccessible through Identity Center based authentication. Sessions are limited to 10 minutes.
++ **IAM authentication link** – An alternative method provides direct access to the web app from the AWS Management Console using JWT-based tokens derived from an existing AWS Management Console session. This option is useful for evaluating AWS DevOps Agent before implementing full Identity Center integration as well as gaining administrative access if the AWS DevOps Agent web app becomes inaccessible through Identity Center based authentication. Sessions are limited to 8 hours.
 
 ### IAM roles
 <a name="iam-roles"></a>

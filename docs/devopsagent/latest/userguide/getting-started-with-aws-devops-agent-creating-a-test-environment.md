@@ -507,7 +507,7 @@ Skip this step if you just want to run the automated test
 
    1. Choose **Create new event**
 
-   1. **Event name**:`AWS-DevOpsAgent-test-event`
+   1. For **Event name**, enter `DevOpsAgent-test-event`.
 
    1. Use this JSON payload:
 

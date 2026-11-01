@@ -20,7 +20,7 @@ AWS DevOps Agent offers two authentication methods for accessing the Agent Space
 
 **IAM Identity Center authentication** – Recommended for production environments. Provides centralized user management, integration with external identity providers, and sessions up to 12 hours.
 
-**Admin access (IAM authentication)** – Provides quick access for administrators during initial setup and configuration. Sessions are limited to 30 minutes.
+**Admin access (IAM authentication)** – Provides quick access for administrators during initial setup and configuration. Sessions are limited to 8 hours.
 
 ## Configuring IAM Identity Center during Agent Space creation
 <a name="configuring-iam-identity-center-during-agent-space-creation"></a>
@@ -71,7 +71,7 @@ If you want to access the Agent Space web app immediately without setting up IAM
 
 1. Choose the **Admin access** button to launch the Agent Space web app with IAM authentication
 
-1. Sessions using this method are limited to 30 minutes
+1. Sessions using this method are limited to 8 hours
 
 **Note**  
 ** Admin access is intended for initial setup and configuration. For production use and ongoing operations, configure IAM Identity Center authentication.

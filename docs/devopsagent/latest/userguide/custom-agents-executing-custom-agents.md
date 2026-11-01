@@ -74,7 +74,7 @@ For cron expressions, exactly one of day-of-month or day-of-week must be `?` (qu
 
 1. Choose **Create**.
 
-After creation, the trigger appears in the list showing its expression, creation date, and next scheduled run time.
+After you create the **trigger**, it appears in the list showing its expression and the date it was created. This lets you quickly verify the trigger was created correctly and confirm its schedule.
 
 ### Creating an event trigger
 <a name="creating-an-event-trigger"></a>

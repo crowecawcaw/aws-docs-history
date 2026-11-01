@@ -18,21 +18,50 @@ Currently, AWS DevOps Agent supports Datadog users with built-in, 1 way integrat
 
 Establish connection to your Datadog remote MCP endpoint with account access credentials
 
+#### Choosing an authentication method
+<a name="choosing-an-authentication-method"></a>
+
+You connect AWS DevOps Agent to the Datadog Model Context Protocol (MCP) server through one of three authentication methods. You choose the method when you register Datadog. The method stays the same for the life of the registration.
+
+The **Authentication method** setting has the following options:
++ **OAuth** – Uses Open Authorization (OAuth) 2.0, with a sign-in to your Datadog account. AWS DevOps Agent registers its own OAuth client through dynamic client registration (DCR). For more information about DCR, see [OAuth 2.0 Dynamic Client Registration Protocol](https://datatracker.ietf.org/doc/html/rfc7591) on the IETF website.
++ **API key and application key** – Uses a Datadog API key and a Datadog application key. For more information about these keys, see [API and Application Keys](https://docs.datadoghq.com/account_management/api-app-keys/) on the Datadog website.
++ **Access token** – Uses a Datadog personal access token or service access token. For more information about these tokens, see [Personal Access Tokens](https://docs.datadoghq.com/account_management/personal-access-tokens/) and [Service Access Tokens](https://docs.datadoghq.com/account_management/service-access-tokens/) on the Datadog website.
+
+With OAuth or a personal access token, you use your own Datadog user identity. With a service access token, you connect as a Datadog service account, which doesn't belong to a person. With an application key, you connect as the key owner. For more information about each method, see [Set Up the Datadog MCP Server](https://docs.datadoghq.com/mcp_server/setup/) on the Datadog website.
+
+A Datadog administrator must turn on **MCP Access** in **Organization Settings**, and **MCP Write Access** for agent-action (write) tools. The Datadog account that you connect with must also have the MCP read permission. For agent-action tools, it must have the MCP write permission too. The Datadog Standard Role includes both permissions by default.
+
 #### Configuration
 <a name="configuration"></a>
 
-1. Go to the **Capability Providers** page (accessible from the side navigation)
+Before you register Datadog, make sure that the following are true:
++ You know the MCP endpoint URL for your Datadog site.
++ You have the Datadog credentials for the authentication method that you chose.
 
-1. Find **Datadog** in the **Available** providers section under **Telemetry** and choose **Register**
+To register Datadog with AWS DevOps Agent:
 
-1. Enter your Datadog MCP server details:
-   + **Server Name** - Unique identifier (e.g., my-datadog-server)
-   + **Endpoint URL** - Your Datadog MCP server endpoint. The endpoint URL varies depending on your Datadog site. See the Datadog site endpoint table below.
-   + **Description** - Optional server description
+1. Open the [Capability Providers page](https://console.aws.amazon.com/devops-agent/home#/services) in the AWS DevOps Agent console.
 
-1. Choose Next
+1. On the **Capability Providers** page, choose **Register** for **Datadog**.
 
-1. Review and submit
+1. On the server details page, enter the following values:
+   + For **Server Name**, enter a unique name for the registration.
+   + For **Endpoint URL**, enter the MCP endpoint URL for your Datadog site.
+   + (Optional) For **Description**, enter a description of the server.
+
+1. For **Authentication method**, select the method that you chose.
+
+1. Enter the credentials for the method that you selected:
+   + For API key and application key, enter your keys in **API key** and **Application key**.
+   + For Access token, enter your personal access token or service access token in **Access token**.
+   + For OAuth, continue to the next step.
+
+1. Choose **Next**.
+
+1. On the **Review and Submit** page, choose **Add**.
+
+After Datadog accepts the credentials, the registration appears on the **Capability Providers** page. If Datadog rejects them, you can return to the previous steps, correct the values, and choose **Add** again.
 
 #### Datadog site endpoints
 <a name="datadog-site-endpoints"></a>
@@ -62,15 +91,18 @@ By default, only the core Datadog toolset is available at the endpoint. A toolse
 
 For more information about the available toolsets and the tools each one contains, see [Datadog MCP server](https://docs.datadoghq.com/bits_ai/mcp_server/) on the Datadog website.
 
-#### Authorization
-<a name="authorization"></a>
+#### Authorizing with OAuth
+<a name="authorizing-with-oauth"></a>
 
-Complete OAuth authorization by:
-+ Authorizing as your user on the Datadog OAuth page
-+ If not logged in, choose Allow, login, then authorize
+With OAuth, you finish the registration in Datadog. After you choose **Add**, the Datadog consent page opens in the same browser tab. For more information about OAuth in Datadog, see [OAuth 2.0 (recommended)](https://docs.datadoghq.com/mcp_server/setup/#oauth-20-recommended) on the Datadog website.
 
-**Note**  
-** Datadog refresh tokens last 90 days and cannot be extended. You must rotate the token every 90 days to maintain connectivity. If the token expires, the registration stops working until you re-authorize.
+To authorize AWS DevOps Agent in Datadog:
+
+1. On the Datadog consent page, sign in with the Datadog account that you want to connect.
+
+1. On the Datadog consent page, choose **Authorize**.
+
+After you approve access, the registration appears on the **Capability Providers** page.
 
 Once configured, Datadog becomes available across all Agent spaces.
 
@@ -208,6 +240,39 @@ Send a test notification from a monitor (**Test Notifications** in the monitor e
 For general webhook troubleshooting, see [Invoking DevOps Agent through Webhook](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md).
 
 Learn more: [Datadog Remote MCP Server](https://www.datadoghq.com/blog/datadog-remote-mcp-server/)
+
+## Credential updates
+<a name="credential-updates"></a>
+
+Use this procedure to replace the credentials of a Datadog registration without deregistering it. Your Agent Space associations stay in place. You update a registration after you rotate a Datadog key or token, or before a token expires. An OAuth refresh token lasts 90 days, and you can't extend it. After it expires, AWS DevOps Agent can't use the Datadog tools until you re-authorize.
+
+What the update does depends on the authentication method of the registration:
++ **OAuth** – Restarts the Datadog consent flow. After you approve access, Datadog issues a new refresh token that lasts 90 days.
++ **API key and application key** – Replaces the API key and the application key. You enter both keys, even if only one of them has changed.
++ **Access token** – Replaces the personal access token or service access token with the token that you enter.
+
+To update the credentials of a Datadog registration:
+
+1. Open the [Capability Providers page](https://console.aws.amazon.com/devops-agent/home#/services) in the AWS DevOps Agent console.
+
+1. On the **Capability Providers** page, select the Datadog registration that you want to update.
+
+1. Choose **Actions**.
+
+1. Choose **Update**.
+
+1. On the **Datadog MCP Server Details** page, do one of the following:
+   + For an API key and application key, enter a new **API key** and a new **Application key**.
+   + For an access token, enter a new **Access token**.
+   + For OAuth, leave the fields as they are.
+
+1. Choose **Next**.
+
+1. On the **Review and update** page, choose **Update**.
+
+With keys or a token, you see a confirmation after Datadog accepts the new values. With OAuth, you then choose **Authorize** again on the Datadog consent page.
+
+You can change the **Server Name** of a registration. To change its endpoint URL or authentication method, you deregister Datadog and then register it again. For instructions on deregistering Datadog, see [Removal](#removal).
 
 ## Removal
 <a name="removal"></a>

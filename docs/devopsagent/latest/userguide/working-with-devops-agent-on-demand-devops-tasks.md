@@ -34,7 +34,7 @@ In AWS DevOps Agent chat, you see a prompt to create a formal investigation when
 ## Accessing Chat
 <a name="accessing-chat"></a>
 
-Chat is available as a persistent panel in the DevOps Agent Space web app. The left sidebar includes a **\+ New chat** button, a **Pages** section for navigating to Incidents, Improvements, and Topology, and a **Chats** section that displays your recent conversations. Choose **View all** to see your full conversation history.
+AWS DevOps Agent Chat is a persistent panel in the Agent Space web app. Use Chat to ask about incidents, improvements, and your topology. Choose **\+ New chat** to start a conversation. Open the **Pages** section for Incidents, Improvements, and Topology, or find a recent conversation in the **Chats** section. To see your full conversation history, choose **View all**. Chats are shared within the Agent Space. Everyone who has access to the Agent Space can see them.
 
 You can also start a new chat by adding the `?newChat` query parameter to any DevOps Agent web app URL for your Agent Space. Use this parameter to link to a fresh conversation from external tools, runbooks, or bookmarks.
 

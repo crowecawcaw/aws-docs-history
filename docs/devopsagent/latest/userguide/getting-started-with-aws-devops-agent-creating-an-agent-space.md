@@ -68,7 +68,7 @@ Use this option when you need to limit the services and resources the agent can 
 ### Enabling the Agent Space Web App
 <a name="enabling-the-agent-space-web-app"></a>
 
-The Web App is where personnel interact with AWS DevOps Agent for incident investigations and reviewing recommendations. See AWS DevOps Agent Console Architecture[link] to learn more. When enabled, users can access the Agent Space Web App through an IAM authentication link from the AWS Management Console.
+Use the Web App to work with AWS DevOps Agent on incident investigations and to review its recommendations. After you enable the Agent Space Web App, you can open it through an AWS Identity and Access Management (IAM) authentication link from the AWS DevOps Agent console. For more information, see [What is a DevOps Agent Web App?](about-aws-devops-agent-what-is-a-devops-agent-web-app.md).
 
 Select one of the following options:
 
