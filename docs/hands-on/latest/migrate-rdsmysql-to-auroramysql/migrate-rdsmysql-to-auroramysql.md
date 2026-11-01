@@ -28,7 +28,7 @@ The tutorial is not within the free tier and will cost you less than $1 provided
 
 ## Prerequisites
 <a name="prerequisites"></a>
-+ Existing AWS account, if you don’t have an AWS account then you can create [new account](https://portal.aws.amazon.com/billing/signup#/start) to get started. 
++ Existing AWS account, if you don’t have an AWS account then you can create [new account](https://signin.aws.amazon.com/signup?request_type=builderId) to get started. 
 + Amazon EC2 Key Pairs are used to connect securely to your EC2 Linux-based instances using SSH. If you already have a key pair, you can reuse it for this tutorial. If you don’t have key pair then follow the [instructions](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) to create new key pair in your preferred region, in which you will complete this tutorial. 
 + It is recommended that you complete this tutorial in Default VPC. Each AWS account is automatically created with a Default VPC in each region, containing a basic network configuration, where resources can be provisioned in any of that region’s availability zones, and can have direct access to the Internet. In rare circumstances, customers can re- purpose these default VPCs, or delete them entirely. If you cannot find the default VPC in your account and region, you can recreate it by following the steps listed [here](https://aws.amazon.com/premiumsupport/knowledge-center/deleted-default-vpc/). 
 
