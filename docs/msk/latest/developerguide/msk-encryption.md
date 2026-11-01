@@ -13,7 +13,9 @@ Amazon MSK integrates with [AWS Key Management Service](https://docs.aws.amazon.
 ## Amazon MSK encryption in transit
 <a name="msk-encryption-in-transit"></a>
 
-Amazon MSK uses TLS 1.2. By default, it encrypts data in transit between the brokers of your MSK cluster. You can override this default at the time you create the cluster. 
+Amazon MSK uses TLS 1.2 by default. TLS 1.3 is available on Amazon MSK Provisioned clusters through a TLS security policy. For more information, see [TLS security policies for Amazon MSK](msk-tls-security-policies.md).
+
+By default, Amazon MSK encrypts data in transit between the brokers of your MSK cluster. You can override this default at the time you create the cluster. 
 
 For communication between clients and brokers, you must specify one of the following three settings:
 + Only allow TLS encrypted data. This is the default setting.

@@ -18,3 +18,5 @@ This procedure describes how to create a custom worker configuration using the A
 1. Choose **Create worker configuration**.
 
 To use the MSK Connect API to create a worker configuration, see [CreateWorkerConfiguration](https://docs.aws.amazon.com/MSKC/latest/mskc/API_CreateWorkerConfiguration.html).
+
+To change the worker configuration that an existing connector uses, or to return a connector to the default worker configuration, update the connector's worker settings. For more information about updating worker settings, see [Update worker settings](mkc-update-connector.md#mkc-update-connector-worker-settings).

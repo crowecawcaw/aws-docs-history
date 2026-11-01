@@ -51,7 +51,7 @@ After a failed resume, you can also restart the connector to restart the tasks t
 `PAUSING` or `RESUMING`  
 First confirm that the operation has actually failed: call `DescribeConnectorOperation` and check the operation state, because a connector stays in `PAUSING` or `RESUMING` while the operation is still in progress too. If the operation state is `PAUSE_FAILED` or `RESUME_FAILED` and the connector is still `PAUSING` or `RESUMING`, Amazon MSK Connect could not confirm whether your connector accepted the change. You cannot retry the operation, and you cannot run any other lifecycle operation, because the connector is not in a state that any of them accept. Contact AWS Support to recover the connector.
 
-The `errorInfo` field reports one of the following Kafka Connect error codes.
+The `errorInfo` field reports one of the following Kafka Connect error codes.<a name="mkc-connector-error-codes"></a>
 
 `KafkaConnect.ConnectorNotReachedTargetState`  
 Your connector accepted the change, but some of its tasks did not reach the target state in time. The connector is in the state that you asked for, so work through the task counts and the connector logs rather than retrying the operation.
@@ -85,3 +85,24 @@ Here are some reasons why you might not be able to pause or resume a connector:
 
 **Cannot update a paused connector**  
 To update a connector that is in the `PAUSED` state, set `skipHealthValidation` to `true` in the update request, because Amazon MSK Connect cannot validate the health of a connector that is not processing records.
+
+**Worker settings update reaches UPDATE\_FAILED state**  
+A worker settings update that reaches the `UPDATE_FAILED` state did not take effect. The connector keeps its previous capacity, plugin, and worker configuration, and Amazon MSK Connect either did not start the update or rolled it back. Call `DescribeConnectorOperation` with the `connectorOperationArn` that your update request returned, and read the `errorInfo` field. Here are some common causes:<a name="mkc-update-failed-causes"></a>
++ The connector or its tasks did not become healthy on the new workers. For example, the new plugin does not contain the connector class that your connector configuration specifies, or the new worker configuration is not compatible with the connector. Review your connector logs in CloudWatch, Amazon S3, or Firehose for the period when the update ran. Fix the plugin or worker configuration, and then submit the update again. An update that skips health validation stays in effect even when the connector is unhealthy on the new workers. For more information about health validation, see [Health validation and rollback](mkc-update-connector.md#mkc-update-connector-health-validation).
++ `errorInfo` reports `KafkaConnect.NotFound`, `KafkaConnect.BrokerUnreachable`, or `KafkaConnect.BrokerAuthenticationFailure`. Amazon MSK Connect checks that the connector is registered on its workers and that it can reach your Kafka cluster before it starts a plugin or worker configuration update, so it did not start this update. For what each code means and how to resolve it, see [Kafka Connect error codes](#mkc-connector-error-codes). Then retry the update.
++ `errorInfo` reports `KafkaConnect.BrokerNamesUnresolvable`. The connector cannot resolve the names of your Kafka cluster's brokers, so Amazon MSK Connect did not start the update. Verify that the bootstrap servers in your connector's configuration are correct, and that the connector's subnets can resolve them. Then retry the update.
++ `errorInfo` reports `InvalidInput.InsufficientFreeAddressesInSubnet`. Your subnets do not have enough free IP addresses for the new workers. During a plugin or worker configuration update, the previous workers and the new workers exist at the same time, and each worker uses one IP address. Free up IP addresses in the connector's subnets, and then retry the update.
+
+**Worker settings update stays in UPDATE\_IN\_PROGRESS state**  
+An update takes time while Amazon MSK Connect applies the new worker settings. For a plugin or worker configuration change, that includes starting the new workers and moving the connector's tasks to them. While the operation is in the `UPDATE_IN_PROGRESS` state, the connector is `UPDATING`, and you cannot retry the update or run other lifecycle operations on the connector. If the operation does not reach the `UPDATE_COMPLETE` or `UPDATE_FAILED` state and the connector stays `UPDATING`, contact AWS Support to recover the connector.
+
+**Cannot update worker settings: 400 BadRequestException**  
+Here are some reasons why you might not be able to update a connector's worker settings:
++ The connector is not in the `RUNNING` or `PAUSED` state (for example, another lifecycle operation is in progress and the connector is `UPDATING`).
++ The request specifies `connectorConfiguration` together with a worker setting field (`capacity`, `plugins`, `workerConfiguration`, or `useDefaultWorkerConfiguration`). These two kinds of update require separate requests.
++ The request specifies both `workerConfiguration` and `useDefaultWorkerConfiguration`.
++ The request specifies more than one plugin. A connector uses exactly one plugin.
++ The values in the request are the same as the connector's current worker settings.
++ The `currentVersion` in the request is not the connector's current version. `DescribeConnector` returns the current version.
++ The custom plugin is not in the `ACTIVE` state, belongs to a different account or Region, or the revision that you specified does not exist.
++ The worker configuration belongs to a different account or Region, or the revision that you specified does not exist.

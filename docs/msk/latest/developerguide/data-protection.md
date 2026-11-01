@@ -17,5 +17,6 @@ We strongly recommend that you never put confidential or sensitive information, 
 
 **Topics**
 + [Amazon MSK encryption](msk-encryption.md)
++ [TLS security policies for Amazon MSK](msk-tls-security-policies.md)
 + [Get started with Amazon MSK encryption](msk-working-with-encryption.md)
 + [Use Amazon MSK APIs with Interface VPC Endpoints](privatelink-vpc-endpoints.md)

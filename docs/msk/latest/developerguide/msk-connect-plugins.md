@@ -6,7 +6,7 @@
 A plugin is an AWS resource that contains the code that defines your connector logic. You upload a JAR file (or a ZIP file that contains one or more JAR files) to an S3 bucket, and specify the location of the bucket when you create the plugin. When the plugin is created, MSK Connect copies the contents of the S3 object at that point in time. It does not maintain a link to the S3 object, so any subsequent modifications to the object will not affect the plugin or its connectors. When you create a connector, you specify the plugin that you want MSK Connect to use for it. The relationship of plugins to connectors is one-to-many: you can create one or more connectors from the same plugin.
 
 **Note**  
-Custom plugins cannot be updated in place. To use a new version of your plugin code, delete all connectors that reference the plugin, delete the plugin, and then recreate it.
+Custom plugins cannot be updated in place. To use a new version of your plugin code, create a new custom plugin that contains the new code, and then update your connectors to use it. For more information about updating worker settings, see [Update worker settings](mkc-update-connector.md#mkc-update-connector-worker-settings).
 
 **Dependency packaging for custom plugins**  
 We recommend that you include all required JAR files and dependencies for your plugin. Package your connector as one of the following:  
