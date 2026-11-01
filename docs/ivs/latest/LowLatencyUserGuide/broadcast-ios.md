@@ -19,7 +19,7 @@ The `AmazonIVSBroadcast` module implements the interface described in this docum
 
 **Sample code: **See the iOS sample repository on GitHub: [https://github.com/aws-samples/amazon-ivs-broadcast-ios-sample](https://github.com/aws-samples/amazon-ivs-broadcast-ios-sample).
 
-**Platform requirements:** iOS 14\+
+**Platform requirements:** iOS 15\+
 
 ## How iOS Chooses Camera Resolution and Frame Rate
 <a name="ios-publish-subscribe-resolution-framerate"></a>

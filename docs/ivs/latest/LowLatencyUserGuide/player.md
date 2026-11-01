@@ -65,7 +65,7 @@ The IVS Player Web SDK (including the Video.js and Player JW integrations) is no
 | Platform | Supported Versions | Supported Devices | 
 | --- | --- | --- | 
 | Android | 6.0 and later | Phones and tablets | 
-| iOS | 14\+ | All | 
+| iOS | 15\+ | All | 
 
 IVS supports a minimum of 4 major iOS versions and 6 major Android versions. Our current version support may extend beyond these minimums. Customers will be notified via SDK release notes at least 3 months in advance of a major version no longer being supported. 
 

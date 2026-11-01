@@ -27,6 +27,8 @@ You can create EventBridge rules for any of the following events.
 | IVS Stream State Change | Stream Takeover Failure | An attempt to take over an existing stream was rejected. The code field provides additional details on why the stream takeover failed. There are several values; note that the long descriptions are provided in the IVS console but not delivered through the IVS API or EventBridge: +  `StreamTakeoverMediaMismatch` — The broadcast client attempted to take over with different media properties (e.g., codec, resolution, or video track type) from the original stream. <br />+  `StreamTakeoverInvalidPriority` — The broadcast client attempted a takeover with either a priority integer value equal to or lower than the original stream's value or a value outside the allowed range of 1 to 2,147,483,647. <br />+  `StreamTakeoverLimitBreached` — The broadcast client reached the maximum allowed takeover attempts for this stream.   | 
 | IVS Stream Health Change | Starvation Start | A stream is not receiving data from the streamer; the stream is said to be in “starvation.” | 
 | IVS Stream Health Change | Starvation End | A starving stream begins receiving data from the streamer and the stream is healthy again. | 
+| IVS Failover Slate State Change | Failover Slate Start | A broadcaster stops sending valid video frames and the activation threshold time is reached. The slate begins displaying to viewers. | 
+| IVS Failover Slate State Change | Failover Slate End | The broadcaster resumes sending valid video frames after the minimum display duration has elapsed. The slate stops displaying and the broadcaster's content resumes. | 
 | IVS Limit Breach | Ingest Bitrate | The incoming stream’s bitrate exceeds the Amazon IVS limit. | 
 | IVS Limit Breach | Ingest Resolution | The incoming stream’s resolution exceeds the Amazon IVS limit. | 
 | IVS Limit Breach | Concurrent Broadcasts | The total number of channels streaming at the same time exceeds the Amazon IVS limit. | 
@@ -277,6 +279,61 @@ You can create a rule that triggers on an event emitted by Amazon IVS. Follow th
      "event_name": "Starvation End",
      "channel_name": "Your Channel",
      "stream_id": "st-1A2b3c4D5e6F78ghij9Klmn"
+   }
+}
+```
+
+## Examples: Failover Slate
+<a name="eventbridge-examples-failover-slate"></a>
+
+**Failover Slate Start:** This event is sent when the failover slate begins displaying to viewers, after the broadcaster stops sending valid video frames and the activation threshold time is reached.
+
+```
+{
+   "version": "0",
+   "id": "01234567-0123-0123-0123-012345678901",
+   "detail-type": "IVS Failover Slate State Change",
+   "source": "aws.ivs",
+   "account": "123456789012",
+   "time": "2024-01-15T12:30:45Z",
+   "region": "us-west-2",
+   "resources": [
+      "arn:aws:ivs:us-west-2:123456789012:channel/abCDef12GHij"
+   ],
+   "detail": {
+      "event_name": "Failover Slate Start",
+      "channel_name": "Your Channel",
+      "stream_id": "st-1A2b3c4D5e6F78ghij9Klmn",
+      "failover_slate_configuration_arn": "arn:aws:ivs:us-west-2:123456789012:failover-slate-configuration/xyz789",
+      "using_default_slate": false,
+      "reason_code": "ACTIVATION_THRESHOLD_EXCEEDED | ENCODER_DISCONNECT",
+      "orientation": "LANDSCAPE | PORTRAIT"
+   }
+}
+```
+
+**Failover Slate End:** This event is sent when the failover slate stops displaying, either when the broadcaster resumes sending valid video frames or when the stream goes offline.
+
+```
+{
+   "version": "0",
+   "id": "01234567-0123-0123-0123-012345678901",
+   "detail-type": "IVS Failover Slate State Change",
+   "source": "aws.ivs",
+   "account": "123456789012",
+   "time": "2024-01-15T12:31:02Z",
+   "region": "us-west-2",
+   "resources": [
+      "arn:aws:ivs:us-west-2:123456789012:channel/abCDef12GHij"
+   ],
+   "detail": {
+      "event_name": "Failover Slate End",
+      "channel_name": "Your Channel",
+      "stream_id": "st-1A2b3c4D5e6F78ghij9Klmn",
+      "failover_slate_configuration_arn": "arn:aws:ivs:us-west-2:123456789012:failover-slate-configuration/xyz789",
+      "slate_display_duration_seconds": 17,
+      "reason_code": "BROADCASTER_RECONNECTED | MAX_SLATE_DISPLAY_EXCEEDED | STREAM_ENDED",
+      "orientation": "LANDSCAPE | PORTRAIT"
    }
 }
 ```

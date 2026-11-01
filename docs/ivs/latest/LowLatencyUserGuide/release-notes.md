@@ -5,6 +5,58 @@
 
 This document contains all Amazon IVS Low-Latency Streaming release notes, latest first, organized by date of release.
 
+## October 29, 2026
+<a name="oct29-26-player-web-ll"></a>
+
+### IVS Player SDK: Web 1.58.0
+<a name="oct29-26-player-web-ll-1580"></a>
+
+
+| Platform | Downloads and Changes | 
+| --- | --- | 
+| [Web player 1.58.0](player-web.md) & [Video.js integration](player-videojs.md) & [JW player integration](player-jwplayer.md)  | **NPM Package:** [https://www.npmjs.com/package/amazon-ivs-player](https://www.npmjs.com/package/amazon-ivs-player)<br />**Script asset: **[https://player.live-video.net/1.58.0/amazon-ivs-player.min.js](https://player.live-video.net/1.58.0/amazon-ivs-player.min.js)<br />**Video.js tech asset: **[https://player.live-video.net/1.58.0/amazon-ivs-videojs-tech.min.js](https://player.live-video.net/1.58.0/amazon-ivs-videojs-tech.min.js)<br />**Reference documentation: **[https://aws.github.io/amazon-ivs-player-docs/1.58.0/web/](https://aws.github.io/amazon-ivs-player-docs/1.58.0/web/)+  Bug fixes and stability improvements. <br />+  Added support for midstream codec profile transitions on Safari 27 and later, improving playback continuity.  | 
+
+## October 29, 2026
+<a name="oct29-26-player-mobile-ll"></a>
+
+### IVS Player SDK: Android 1.58.0, iOS 1.58.0
+<a name="oct29-26-player-mobile-ll-1580"></a>
+
+
+| Platform | Downloads and Changes | 
+| --- | --- | 
+| [Android player 1.58.0](player-android.md) | **Reference documentation: **[https://aws.github.io/amazon-ivs-player-docs/1.58.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.58.0/android/)+  Bug fixes and stability improvements.  | 
+| [iOS player 1.58.0](player-ios.md) | **Download: **[https://player.live-video.net/1.58.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.58.0/AmazonIVSPlayer.xcframework.zip)<br />**Reference documentation: **[https://aws.github.io/amazon-ivs-player-docs/1.58.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.58.0/ios/)+  Bug fixes and stability improvements. <br />+  Support for iOS 14 is deprecated as of this release.  | 
+
+#### Mobile SDK Size: Android
+<a name="player-mobile-1580-sdk-size-android"></a>
+
+
+| Architecture | Compressed Size | Uncompressed Size | 
+| --- | --- | --- | 
+| arm64-v8a | 1.637 MB | 4.214 MB | 
+| armeabi-v7a | 1.455 MB | 2.992 MB | 
+| x86\_64 | 1.640 MB | 4.298 MB | 
+| x86  | 1.705 MB | 4.304 MB | 
+
+#### Mobile SDK Size: iOS
+<a name="player-mobile-1580-sdk-size-ios"></a>
+
+
+| Architecture | Compressed Size | Uncompressed Size | 
+| --- | --- | --- | 
+| arm64 | 0.856 MB | 1.852 MB | 
+
+## October 26, 2026
+<a name="oct26-26-failover-slate"></a>
+
+### Failover Slate
+<a name="oct26-26-failover-slate-details"></a>
+
+Amazon IVS failover slate automatically displays an animated slate to viewers during unexpected stream interruptions and seamlessly resumes playback when the broadcaster reconnects, preventing buffering wheels and retaining audience engagement.
+
+See the new [Failover Slate](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/failover-slate.html) document in the *IVS Low-Latency Streaming User Guide*. For details of all documentation changes, see the [Document History](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/doc-history.html) (both the User Guide and API Reference tables).
+
 ## October 22, 2026
 <a name="oct22-26-broadcast-web-ll"></a>
 

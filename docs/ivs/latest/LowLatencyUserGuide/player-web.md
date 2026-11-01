@@ -5,9 +5,9 @@
 
 The Amazon Interactive Video Service (IVS) Web player SDK can be integrated with [player frameworks](#web-framework-integrations) like Video.js or used standalone on top of an HTML `<video>` element.
 
-**Latest version of Web player:** 1.57.0 ([Release Notes](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/release-notes.html#oct01-26-player-web-ll))
+**Latest version of Web player:** 1.58.0 ([Release Notes](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/release-notes.html#oct29-26-player-web-ll))
 
-**Reference documentation:** For information on the most important methods available in the Amazon IVS Web player, see the reference documentation at [https://aws.github.io/amazon-ivs-player-docs/1.57.0/web/](https://aws.github.io/amazon-ivs-player-docs/1.57.0/web/).
+**Reference documentation:** For information on the most important methods available in the Amazon IVS Web player, see the reference documentation at [https://aws.github.io/amazon-ivs-player-docs/1.58.0/web/](https://aws.github.io/amazon-ivs-player-docs/1.58.0/web/).
 
 ## Framework Integrations
 <a name="web-framework-integrations"></a>

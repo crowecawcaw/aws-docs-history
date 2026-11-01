@@ -35,6 +35,11 @@ API call rate quotas are not adjustable.
 | Channel | `GetChannel` | 5 TPS | 
 | Channel | `ListChannels` | 5 TPS | 
 | Channel | `UpdateChannel` | 5 TPS | 
+| Failover slate | `CreateFailoverSlateConfiguration` | 5 TPS | 
+| Failover slate | `DeleteFailoverSlateConfiguration` | 5 TPS | 
+| Failover slate | `GetFailoverSlateConfiguration` | 5 TPS | 
+| Failover slate | `ListFailoverSlateConfigurations` | 5 TPS | 
+| Failover slate | `UpdateFailoverSlateConfiguration` | 5 TPS | 
 | Playback restriction policy | `CreatePlaybackRestrictionPolicy` | 5 TPS | 
 | Playback restriction policy | `DeletePlaybackRestrictionPolicy` | 5 TPS | 
 | Playback restriction policy | `GetPlaybackRestrictionPolicy` | 5 TPS | 
@@ -75,6 +80,7 @@ API call rate quotas are not adjustable.
 | Channels | 5,000 | Yes | Maximum number of channels, per AWS Region. | 
 | Concurrent streams | 100 | Yes | Maximum number of channels that can be streamed simultaneously, per AWS Region. If you exceed this threshold, the stream is rejected. | 
 | Concurrent views | 15,000 | Yes | Maximum number of views allowed to play back a live channel, across all channels in an AWS Region. (A view is a unique viewing session which is actively downloading or playing video. See the Important note at the beginning of this page.) | 
+| Failover slate configurations | 20 | Yes | Maximum number of failover slate configurations per account, per AWS Region. | 
 | Ingest bitrate (if channel `type` is `BASIC)` | 1.5 Mbps or 3.5 Mbps | No | Maximum bits per second that can be streamed to a channel whose `type` is `BASIC`. +  If input video quality is 480p or less, the default quota is 1.5 Mbps. <br />+  If input video quality is more than 480p but less than 1080p, the default quota is 3.5 Mbps. <br />Warning: If you exceed this threshold, the stream probably will disconnect immediately. For details on channel `type`, see [Channel Types](https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html) in the *IVS Low-Latency Streaming API Reference*. | 
 | Ingest bitrate (if channel `type` is `STANDARD`, with single-track input) | 8.5 Mbps | No | Maximum bits per second that can be streamed to a channel whose `type` is `STANDARD` (the default), with single-track input. Warning: If you exceed this threshold, the stream probably will disconnect immediately. For details on channel `type`, see [Channel Types](https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html) in the *IVS Low-Latency Streaming API Reference*. | 
 | Ingest bitrate (if channel `type` is `STANDARD`, with multitrack input up to `FULL_HD` resolution) | 15 Mbps | No | Maximum bits per second that can be streamed to a channel whose `type` is `STANDARD` (the default), whose `multitrackInputConfiguration.maximumResolution` is `SD`, `HD`, or `FULL_HD`, with multitrack input. Warning: If you exceed this threshold, the stream probably will disconnect immediately. For details on channel `type`, see [Channel Types](https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html) in the *IVS Low-Latency Streaming API Reference*. | 

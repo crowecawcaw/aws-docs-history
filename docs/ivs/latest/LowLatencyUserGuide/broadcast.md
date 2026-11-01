@@ -22,7 +22,7 @@ Your application can leverage the key features of the Amazon IVS broadcast SDK:
 | Platform | Supported Versions | 
 | --- | --- | 
 | Android | 6.0 and later | 
-| iOS | 14\+<br /> If broadcasting is essential to your application, specify Metal as a requirement for downloading your app from the Apple App Store, using [UIRequiredDeviceCapabilities](https://developer.apple.com/documentation/bundleresources/information_property_list/uirequireddevicecapabilities).  | 
+| iOS | 15\+<br /> If broadcasting is essential to your application, specify Metal as a requirement for downloading your app from the Apple App Store, using [UIRequiredDeviceCapabilities](https://developer.apple.com/documentation/bundleresources/information_property_list/uirequireddevicecapabilities).  | 
 
 IVS supports a minimum of 4 major iOS versions and 6 major Android versions. Our current version support may extend beyond these minimums. Customers will be notified via SDK release notes at least 3 months in advance of a major version no longer being supported.
 
