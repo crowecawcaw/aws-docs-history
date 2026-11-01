@@ -185,9 +185,11 @@ On the console results page, the Summary tables tab shows the compression ratio 
 + **No exact token budget.** You cannot target a specific length, such as "optimize to exactly 500 tokens." Shortening is on or off per template.
 + **No per-section compression control.** When your template has multiple `<advpo:optimize>` sections, all of them are eligible for shortening. You cannot enable shortening for one optimized section while leaving another at its original length. The compression ratio is reported for the whole template, not per section.
 + **Short prompts may not compress.** A prompt that is already concise may produce a compression ratio of 1.0 because the optimized prompt is not both shorter and at least as high scoring.
++ **Shortening depends on your evaluation.** The optimizer compares candidate prompts by evaluation score. If your original prompt already scores at the maximum on your evaluation samples, or if the samples do not distinguish between candidate prompts, the optimizer has no basis to prefer a shorter candidate and returns the original prompt with a compression ratio of 1.0. Text that does not affect your evaluation score, such as repeated or unused passages, is not removed on that basis alone.
 
 ## Best practices
 <a name="advanced-prompt-optimization-shorten-best-practices"></a>
 + **Expect iteration.** There can be a trade-off between prompt brevity and evaluation score improvement. If the job returns your original prompt, meaning a compression ratio of 1.0, consider refining your evaluation method or dataset and running the job again.
++ **Give the optimizer room to improve.** Include evaluation samples that your original prompt does not fully pass but that a better prompt could pass, so that candidate prompts can be distinguished by score.
 + **Validate on held-out data.** As with any optimization run, test the shortened prompt on data the optimizer has not seen to confirm quality gains hold.
 + **Protect content that must not change.** If sections of your prompt must remain verbatim, such as safety constraints or legal language, leave them outside your `<advpo:optimize>` tags, or use `<advpo:exclude>` tags if you are not using `<advpo:optimize>` at all. Every `<advpo:optimize>` section is eligible for shortening.

@@ -98,6 +98,14 @@ Commercial In-Region prices include a 10% fee over OpenAI rates. You do not need
 | --- | --- | --- | --- | --- | 
 | In-Region | $13.75 | $17.1875 | $1.375 | $82.50 | 
 
+### AWS GovCloud (US-East) — short context (272K input tokens or fewer)
+<a name="model-card-openai-gpt-56-cyber-pricing-govcloud-short"></a>
+
+
+| **Inference option** | **Input** | **Input — 30-minute cache write** | **Input — cache read** | **Output** | 
+| --- | --- | --- | --- | --- | 
+| In-Region | $16.875 | $21.09375 | $1.6875 | $101.25 | 
+
 ## Programmatic Access
 <a name="model-card-openai-gpt-56-cyber-programmatic-access"></a>
 
@@ -131,6 +139,7 @@ Amazon Bedrock offers three inference options: **In-Region** keeps requests with
 | **Region** | **In-Region** | **Geo** | **Global** | 
 | --- | --- | --- | --- | 
 | us-east-2 (Ohio) | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
+| us-gov-east-1 (AWS GovCloud (US-East)) | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 
 ## Quotas and Limits
 <a name="model-card-openai-gpt-56-cyber-quotas"></a>

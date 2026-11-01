@@ -10,7 +10,7 @@
 <a name="model-card-anthropic-claude-3-haiku-details"></a>
 
 **Important**  
-Claude 3 Haiku reached end of life on September 10, 2026 in most Regions, where requests now fail with `ResourceNotFoundException: This model version has reached the end of its life.` It remains available in `ca-central-1` (Canada), `eu-central-2` (Zurich) and `sa-east-1` (São Paulo), and is in the Legacy stage in `ap-northeast-2` (Seoul). For models that are currently available, see [Models at a glance](model-cards.md). For how model lifecycle stages work, see [Model lifecycle](model-lifecycle-legacy.md).
+Claude 3 Haiku reached end of life on September 10, 2026 in most Regions, where requests now fail with `ResourceNotFoundException: This model version has reached the end of its life.` It remains available in the Legacy stage in `ap-northeast-2` (Seoul), `ap-south-1` (Mumbai), `ap-southeast-1` (Singapore), `ca-central-1` (Canada), `eu-central-2` (Zurich), and `sa-east-1` (São Paulo). These Regions have an upcoming end of life of November 13, 2026, after which requests in these Regions will also fail. For models that are currently available, see [Models at a glance](model-cards.md). For how model lifecycle stages work, see [Model lifecycle](model-lifecycle-legacy.md).
 
 Claude 3 Haiku is Anthropic's fastest and most compact Claude 3 model, optimized for speed and efficiency in near-instant responses. For more information about model development and performance, see the [model/service card](https://www-cdn.anthropic.com/de8ba9b01c9ab7cbabf5c33b80b7bbc618857627/Model_Card_Claude_3.pdf).
 + **Model launch date:** Mar 13, 2024
@@ -65,6 +65,9 @@ This model is a third-party model offered and billed through AWS Marketplace. Ch
 <a name="model-card-anthropic-claude-3-haiku-programmatic-access"></a>
 
 Use the following model IDs and endpoint URLs to access this model programmatically. For more information about the available APIs and endpoints, see [APIs supported](apis.html) and [Endpoints supported](endpoints.html).
+
+**Important**  
+This model is offered through one or more inference profiles designated as inference profiles with limited model selection. These profiles are expected to offer a narrower selection of models, and new models or model versions might not be released for them. Before you take a dependency on one of these inference profiles, review [Inference profiles with limited model selection](inference-profiles-limited-model-selection.md) and plan for model lifecycle events.
 
 
 | **Endpoint** | **Model ID** | **In-Region endpoint URL** | **Geo inference ID** | **Global inference ID** | 

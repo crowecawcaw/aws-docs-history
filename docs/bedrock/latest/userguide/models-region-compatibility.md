@@ -1973,6 +1973,7 @@ Now, let us look at Regional availability across all the models supported by Ama
 | **Region** | **In-Region (`bedrock-runtime`)** | **Geo (`bedrock-runtime`)** | **Global (`bedrock-runtime`)** | 
 | --- | --- | --- | --- | 
 | us-east-2 (Ohio) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
+| us-gov-east-1 (AWS GovCloud (US-East)) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 
 
 **[Daybreak Blue: GPT-5.6 Sol](model-card-openai-gpt-daybreak-blue-56-sol.md)**  

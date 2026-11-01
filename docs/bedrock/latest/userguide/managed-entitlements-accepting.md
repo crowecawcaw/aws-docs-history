@@ -5,6 +5,9 @@
 
 After a grant has been distributed to a member account, the grant must be accepted and activated before the third-party Bedrock model can be used. The acceptance and activation workflow differs depending on your organization configuration.
 
+**Note**  
+If your administrator distributed a private offer from AWS Marketplace, your grant is already accepted and activated, and no action is required from you. The steps on this page apply to grants created in AWS License Manager.
+
 ## For organizations with all features enabled
 <a name="managed-entitlements-all-features"></a>
 
@@ -76,4 +79,31 @@ If you chose **Accept**, you must come back later and choose **Activate** to beg
 ## API
 <a name="managed-entitlements-accepting-api"></a>
 
-You can activate grants programmatically using the [CreateGrantVersion API.](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_CreateGrantVersion.html)
+Activating a grant is one step in the AWS License Manager workflow:
+
+1. Create the grant, as described in [Distributing licenses](managed-entitlements-distributing.md).
+
+1. Activate the grant, as described in this section.
+
+1. Invoke the model, as described in [Using third-party Bedrock models with granted licenses](managed-entitlements-using-models.md).
+
+To activate grants programmatically, use the `CreateGrantVersion` operation. For more information, see [creating a new grant version](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_CreateGrantVersion.html) in the *AWS License Manager API Reference*.
+
+The following AWS CLI command activates a grant for all recipients.
+
+```
+aws license-manager create-grant-version \
+    --region us-east-1 \
+    --client-token "$(uuidgen)" \
+    --grant-arn "{{my-grant-arn}}" \
+    --status ACTIVE \
+    --options ActivationOverrideBehavior=ALL_GRANTS_PERMITTED_BY_ISSUER
+```
+
+Replace or set the following values:
+
+`grant-arn`  
+The ARN of the grant that you want to activate.
+
+`ActivationOverrideBehavior`  
+The activation behavior for existing grants. Use `ALL_GRANTS_PERMITTED_BY_ISSUER` to disable any other active grant for the same product in member accounts and replace it with this grant. To keep existing grants in member accounts, use `DISTRIBUTED_GRANTS_ONLY`.

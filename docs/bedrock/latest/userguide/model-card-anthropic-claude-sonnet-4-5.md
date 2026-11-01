@@ -9,6 +9,9 @@
 ## Model Details
 <a name="model-card-anthropic-claude-sonnet-4-5-details"></a>
 
+**Important**  
+Claude Sonnet 4.5 is in the Legacy stage in all Regions. It has an upcoming end of life of April 8, 2027, after which requests will fail with `ResourceNotFoundException: This model version has reached the end of its life.` For models that are currently available, see [Models at a glance](model-cards.md). For how model lifecycle stages work, see [Model lifecycle](model-lifecycle-legacy.md).
+
 Claude Sonnet 4.5 is Anthropic's model optimized for agents, coding, and computer use with significant improvements across all benchmarks. For more information about model development and performance, see the [model/service card](https://www-cdn.anthropic.com/963373e433e489a87a10c823c52a0a013e9172dd.pdf).
 + **Model launch date:** Sep 30, 2025
 + **EOL no sooner than:** Sep 30, 2026

@@ -20,6 +20,8 @@ Before attempting to use a third-party Bedrock model, verify that your grant is 
 
 1. Verify the Grant status shows as **Active**.
 
+If your administrator distributed a private offer for a third-party model in Amazon Bedrock from AWS Marketplace, the grant shows as **Active** after distribution completes.
+
 If the status shows Disabled, you must activate the grant before using the model. If the status shows Pending Acceptance, you must first accept the grant.
 
 ## To invoke a third-party Bedrock model with a granted license
@@ -33,6 +35,6 @@ If the status shows Disabled, you must activate the grant before using the model
 
 1. Enter your prompt and choose **Run**.
 
-The model invocation works the same way as if you had subscribed directly. All usage is billed to the account that holds the original subscription (typically the management account).
+The model invocation works the same way as if you had subscribed directly. All usage is billed to your organization's management account, regardless of which account holds the original subscription.
 
 You can also invoke models programmatically using the AWS CLI or AWS SDKs with the [InvokeModel API](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html). The only requirement is that you have an active license grant in your account.

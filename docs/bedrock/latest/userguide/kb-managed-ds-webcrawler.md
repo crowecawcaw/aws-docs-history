@@ -5,6 +5,9 @@
 
 The Web Crawler connects to and crawls URLs you specify for use in your managed knowledge base. The Web Crawler traverses HTML pages starting from your seed URLs, following child links according to your crawl scope and limits. You can also provide sitemap URLs as starting points. The Web Crawler respects robots.txt in accordance with [RFC 9309](https://www.rfc-editor.org/rfc/rfc9309.html).
 
+**Note**  
+If your website is reachable only through a VPC (for example, an internal site), set up VPC connectivity first. See [Configure VPC connectivity for a data source](kb-managed-vpc-configuration.md). You need the VPC configuration ID when you create the data source.
+
 **Important**  
 When you select websites to crawl, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Use the Web Crawler only to index your own web pages, or web pages that you have authorization to crawl.
 
@@ -79,6 +82,8 @@ Setting up a Web Crawler data source involves the following steps:
 
 1. (Optional) Expand **URL filter patterns** to add regular expressions that include or exclude specific URLs.
 
+1. (Optional) If your website is reachable only through a VPC, then under **VPC configuration**, select a VPC configuration that reaches your website, or choose **Add VPC configuration** to create one. For more information, see [Configure VPC connectivity for a data source](kb-managed-vpc-configuration.md).
+
 ------
 #### [ API ]
 
@@ -104,7 +109,10 @@ The `webcrawler-managed-connector.json` file contains the following:
                 "seedUrls": [
                     "{{https://docs.example.com}}"
                 ],
-                "authType": "NO_AUTH"
+                "authType": "NO_AUTH",
+                "vpcConfiguration": {
+                    "vpcConfigurationId": "{{your-vpc-configuration-id}}"
+                }
             },
             "crawlConfiguration": {
                 "crawlDepth": 3,
@@ -123,7 +131,7 @@ The `webcrawler-managed-connector.json` file contains the following:
 }
 ```
 
-For an authenticated site, set `authType` to `BASIC_AUTH`, `FORM`, or `SAML`, and add a `secretArn` to `connectionConfiguration`.
+For an authenticated site, set `authType` to `BASIC_AUTH`, `FORM`, or `SAML`, and add a `secretArn` to `connectionConfiguration`. Include the `vpcConfiguration` block only when your site is reachable through a VPC; omit it for public sites.
 
 For managed knowledge bases, `CreateDataSource` is asynchronous: the data source status transitions from `CREATING` to `AVAILABLE` when the operation completes.
 
@@ -143,6 +151,7 @@ The data source configuration uses the following connector parameters. To use th
 | siteMapUrls | Conditional | List of sitemap URLs. Maximum of 3. Required unless you provide seedUrls. | 
 | authType | Yes | The authentication type: NO\_AUTH, BASIC\_AUTH, FORM, or SAML. See [Authentication methods](#kb-managed-webcrawler-auth-methods). | 
 | secretArn | Conditional | The ARN of the AWS Secrets Manager secret containing your credentials. Required when authType is not NO\_AUTH. | 
+| vpcConfiguration | Conditional | The private network path to your website. Contains a vpcConfigurationId field set to the ID of a VPC configuration on your knowledge base. Required only when your site is reachable through a VPC. See [Configure VPC connectivity for a data source](kb-managed-vpc-configuration.md). | 
 
 
 **crawlConfiguration (optional)**  

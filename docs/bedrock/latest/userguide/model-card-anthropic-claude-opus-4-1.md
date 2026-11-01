@@ -9,6 +9,9 @@
 ## Model Details
 <a name="model-card-anthropic-claude-opus-4-1-details"></a>
 
+**Important**  
+Claude Opus 4.1 is in the Legacy stage in all Regions. It has an upcoming end of life of January 8, 2027, after which requests will fail with `ResourceNotFoundException: This model version has reached the end of its life.` For models that are currently available, see [Models at a glance](model-cards.md). For how model lifecycle stages work, see [Model lifecycle](model-lifecycle-legacy.md).
+
 Claude Opus 4.1 is an upgrade to Anthropic's model with improved coding, reasoning, and agentic task capabilities. For more information about model development and performance, see the [model/service card](https://www-cdn.anthropic.com/9fa30625273bafdf5af82c93719d7ca606485a16.pdf).
 + **Model launch date:** Aug 05, 2025
 + **EOL no sooner than:** Aug 05, 2026

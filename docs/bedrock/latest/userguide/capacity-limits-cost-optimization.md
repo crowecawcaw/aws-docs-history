@@ -15,7 +15,7 @@ Amazon Bedrock offers flexible capacity options to match your workload requireme
 | On-Demand: Standard | Regular production workloads |  + Balanced cost and performance<br />+ Moderate throughput guarantees<br />+ Standard SLA<br />+ Most common choice  | 
 | On-Demand: Priority | High-priority, latency-sensitive apps |  + Highest on-demand cost<br />+ Premium throughput allocation<br />+ Enhanced SLA<br />+ Reduced throttling risk  | 
 | Reserved Tier | Consistent, high-volume workloads |  + Reserved model units<br />+ Guaranteed capacity<br />+ 1 or 3 month commitments<br />+ Predictable performance  | 
-| Batch | Large-scale, non-time-sensitive processing |  + 50% cost savings vs on-demand<br />+ 24-hour processing window<br />+ Ideal for bulk inference  | 
+| Batch | Large-scale, non-time-sensitive processing |  + 50% cost savings vs on-demand<br />+ On-demand requests are prioritized over batch jobs; jobs run as capacity is available<br />+ Best-effort completion; jobs are not guaranteed to complete<br />+ Job timeout of 24 hours by default, configurable up to 168 hours<br />+ Ideal for bulk inference  | 
 | Cross-Region Inference | Workloads that can be processed outside a single Region |  + Routes requests across the Regions in the inference profile<br />+ Lowers token costs for some models with global profiles<br />+ Uses on-demand pricing  | 
 
 ## Limits & Quotas
@@ -43,9 +43,8 @@ Amazon Bedrock offers flexible capacity options to match your workload requireme
 
 ### Batch Processing Limits
 <a name="batch-processing-limits"></a>
-+ Job size: Up to 10,000 records per batch
-+ File size: Maximum 200 MB input file
-+ Processing time: 24-hour completion window
++ Job size and file size: Quotas for records per job, records per input file, input file size, and job size vary by model. For current values, see the batch inference quotas in [Amazon Bedrock endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/bedrock.html) in the AWS General Reference.
++ Processing time: On-demand requests are prioritized over batch jobs, so processing time depends on available capacity. Completion is not guaranteed. Each job has a timeout, 24 hours by default and up to 168 hours, that you set with the `timeoutDurationInHours` field of [CreateModelInvocationJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateModelInvocationJob.html).
 + Concurrent jobs: Region-specific quotas
 
 ### Cross-Region Inference

@@ -5,6 +5,12 @@
 
 Before you can use managed entitlements for Amazon Bedrock, you must complete the following prerequisites.
 
+**Recommendation**: If you use AWS Organizations, request that private offers for third-party models in Amazon Bedrock be issued to your management account. When you accept the offer from your management account, you can distribute it to every account in your organization directly from AWS Marketplace, immediately after you accept it.
+
+If you prefer to manage private offers from an account other than your management account, you can register that account as your delegated administrator instead. You must complete delegated administrator registration before you accept the private offer, and you must accept the offer from that same account. To register a delegated administrator, see [Step 1: Determine if you need a delegated admin](managed-entitlements-setup.md#managed-entitlements-delegated-admin).
+
+If you accept the private offer from any other account, you cannot distribute it from AWS Marketplace. You must create grants in AWS License Manager instead, as described in [Distribute through AWS License Manager](managed-entitlements-license-manager.md).
+
 ## AWS Organization requirements
 <a name="managed-entitlements-org-requirements"></a>
 
@@ -24,3 +30,78 @@ Service-linked roles (SLRs) are predefined IAM roles that are linked directly to
 **Why SLRs are required**: For AWS Marketplace, this permission is required so that the service can successfully orchestrate license workflows and distributions across multiple AWS services on your behalf. For AWS License Manager, this permission enables the service to auto-accept grants between management and member accounts in an all-features-enabled organization and to track organization activity.
 
 You will create these service-linked roles as part of the setup process described in the next section.
+
+**Note**  
+If you distribute a private offer for a third-party model in Amazon Bedrock from AWS Marketplace, License Manager automatically creates the required service-linked roles in every account in your organization. For more information, see [Using service-linked roles for License Manager](https://docs.aws.amazon.com/license-manager/latest/userguide/using-service-linked-roles.html). For all other subscriptions, create the service-linked roles as described in [Setting up managed entitlements](managed-entitlements-setup.md).
+
+## Granting permissions to distribute from AWS Marketplace
+<a name="managed-entitlements-marketplace-permissions"></a>
+
+To distribute a private offer for a third-party model in Amazon Bedrock from AWS Marketplace, the IAM identity that accepts the offer needs the permissions in the following policy. The identity also needs permission to view and accept the private offer.
+
+The `DistributeMarketplaceSubscription` statement covers the actions used on every distribution. The `FirstTimeOnboarding` statements cover the setup that AWS performs the first time your organization distributes from AWS Marketplace.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DistributeMarketplaceSubscription",
+      "Effect": "Allow",
+      "Action": [
+        "organizations:DescribeOrganization",
+        "organizations:ListDelegatedAdministrators",
+        "organizations:ListAWSServiceAccessForOrganization",
+        "license-manager:GetServiceSettings",
+        "license-manager:ListReceivedLicenses",
+        "license-manager:ListReceivedGrants",
+        "license-manager:ListDistributedGrants",
+        "license-manager:GetGrant",
+        "license-manager:GetLicense",
+        "license-manager:CreateGrant",
+        "license-manager:CreateGrantVersion"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "FirstTimeOnboardingLM",
+      "Effect": "Allow",
+      "Action": [
+        "license-manager:UpdateServiceSettings"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "FirstTimeOnboardingIAM",
+      "Effect": "Allow",
+      "Action": "iam:CreateServiceLinkedRole",
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "iam:AWSServiceName": [
+            "license-manager.amazonaws.com",
+            "license-manager.master-account.amazonaws.com",
+            "license-management.marketplace.amazonaws.com"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "FirstTimeOnboardingOrganization",
+      "Effect": "Allow",
+      "Action": "organizations:EnableAWSServiceAccess",
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "organizations:ServicePrincipal": [
+            "license-manager.amazonaws.com",
+            "license-manager.member-account.amazonaws.com"
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+For all other subscriptions, the permissions in [Setting up managed entitlements](managed-entitlements-setup.md) and [Distributing licenses](managed-entitlements-distributing.md) still apply.

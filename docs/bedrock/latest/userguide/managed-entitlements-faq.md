@@ -14,6 +14,10 @@ A: Yes, but with limitations. Organizations with consolidated billing can use ma
 
 A: Yes. You can designate a delegated administrator account to manage license distribution. This member account can create and distribute grants independently from the management account. However, only one delegated administrator is supported per organization.
 
+**Q: Which account should I use to accept a private offer so that I can distribute it from AWS Marketplace?**
+
+A: If you use AWS Organizations, request that the private offer be issued to your management account, and accept it from that account. To use a different account, register it as your delegated administrator first. Then accept the offer from that account. If you accept the offer from any other account, you cannot distribute it from AWS Marketplace, and you must create grants in AWS License Manager instead.
+
 **Q: Do I need to set up managed entitlements in every AWS Region?**
 
 A: No. All license management happens in the us-east-1 (N. Virginia) region regardless of where you use Bedrock models. Once you complete setup in us-east-1, you can invoke licensed models in any supported Bedrock region.
@@ -27,18 +31,30 @@ A: Managed entitlements allows you to accept Private Offers in your management a
 
 **Q: Who gets billed when a member account uses a granted license?**
 
-A: The account that holds the original subscription (typically the management account) is billed for all usage across granted accounts. This centralized billing provides clear visibility into total Bedrock costs across your organization.
+A: Your organization's management account is billed for all usage across granted accounts. This applies regardless of which account holds the original subscription. For example, if a delegated administrator account subscribes and distributes grants, the charges still go to the management account. This centralized billing provides clear visibility into total Amazon Bedrock costs across your organization.
 
 **Q: Can different member accounts have different pricing for the same model?**
 
 A: No. When you distribute licenses through managed entitlements, all recipient accounts use the same pricing terms as the original subscription, including any Private Offer discounts.
+
+**Q: I accepted a private offer in my management account or delegated administrator account. Why are member accounts still billed at public rates?**
+
+A: A private offer applies only to the account that accepts it. Member accounts that invoke the model without an active grant are billed at public rates. To apply your negotiated pricing, distribute grants from the purchase confirmation page when you accept the offer, or later from AWS License Manager.
+
+**Q: Which subscriptions can I distribute from AWS Marketplace?**
+
+A: Distribution from AWS Marketplace is available for private offers for third-party models in Amazon Bedrock, except private offers that you accept as part of an offer set. For all other subscriptions, including public offers, offer sets, and other AWS Marketplace products such as AMIs, create and activate grants in AWS License Manager, as described in [Distribute through AWS License Manager](managed-entitlements-license-manager.md).
+
+**Q: Can I distribute a private offer that I accepted as part of an offer set from AWS Marketplace?**
+
+A: No. Private offers that you accept as part of an offer set are not supported for distribution from AWS Marketplace. To distribute these private offers, create grants in AWS License Manager, as described in [Distribute through AWS License Manager](managed-entitlements-license-manager.md).
 
 ## License distribution
 <a name="managed-entitlements-faq-distribution"></a>
 
 **Q: How long does it take for grants to appear in recipient accounts?**
 
-A: For individual account grants, licenses typically appear within 2-3 minutes. For organization-wide grants to thousands of accounts, distribution can take 15-30 minutes or longer. Check the License Manager console to verify grant status.
+A: For organization grants, most distributions complete within an hour. Depending on the size of your organization, distribution might take longer. To verify grant status, review the grant in AWS License Manager.
 
 **Q: Do I need to create a grant for every account that needs access?**
 
@@ -59,6 +75,22 @@ A: Yes. When creating a grant, you can specify an OU ID to distribute licenses o
 **Q: I have existing subscriptions in multiple member accounts. How do I migrate to centralized management?**
 
 A: When member accounts have active Bedrock models and their payer account distributes them a subscription to the same model, grant swap takes effect, the entitlements to the first subscription is disabled and they now have entitlements on the new distributed grant.
+
+**Q: Do member accounts need to accept or activate grants distributed from AWS Marketplace?**
+
+A: No. When you distribute from AWS Marketplace, AWS creates and activates grants for every account in your organization, and member accounts do not need to take any action. For grants that you create in AWS License Manager, the steps in [Accepting and activating grants](managed-entitlements-accepting.md) still apply.
+
+**Q: Can I choose which accounts receive a grant when I distribute from AWS Marketplace?**
+
+A: No. Distribution from AWS Marketplace targets your entire organization. To distribute to specific accounts or OUs, create grants in AWS License Manager.
+
+**Q: I accepted a private offer for a third-party model in Amazon Bedrock but did not distribute it to my organization at that time. How do I distribute it now?**
+
+A: Distribute it through AWS License Manager. Create grants as described in [Distributing licenses](managed-entitlements-distributing.md), and then activate them as described in [Accepting and activating grants](managed-entitlements-accepting.md). You can distribute from AWS Marketplace only on the purchase confirmation page, right after you accept a private offer. Until you distribute it, member accounts are billed at public rates.
+
+**Q: What happens if distribution fails for some accounts?**
+
+A: Check the status of the license and its grants in AWS License Manager, as described in [Tracking distributed grants](managed-entitlements-distributing.md#managed-entitlements-tracking-grants). Accounts that succeeded keep their grants. After you resolve the issue for the remaining accounts, create grants for them in AWS License Manager.
 
 ## Grant management
 <a name="managed-entitlements-faq-management"></a>
@@ -82,6 +114,10 @@ A: No. Deleting a grant is permanent and cannot be undone. However, you can crea
 **Q: What happens to granted licenses in linked accounts when the parent subscription expires in the management account?**
 
 A: The linked accounts will lose access to the model when the parent subscription expires in the management account.
+
+**Q: What happens to distributed grants when my private offer renews or is upgraded?**
+
+A: Grants that you already distributed to member accounts carry forward automatically. You do not need to redistribute when your private offer renews or is upgraded with a new agreement. Member accounts continue to be billed at your negotiated rate without any action from the management account or delegated administrator.
 
 ## Special configurations
 <a name="managed-entitlements-faq-special"></a>
@@ -107,7 +143,7 @@ A: Licenses can take 1-2 minutes to appear after subscription. Make sure you're 
 
 **Q: My recipient account can't see the grant I created. What should I check?**
 
-A: Verify the recipient is checking License Manager in the us-east-1 Region. Confirm you entered the correct 12-digit account ID when creating the grant. Wait 2-3 minutes for grant distribution. For organizations without all features enabled, ensure the recipient account has service-linked roles created.
+A: Verify the recipient is checking License Manager in the us-east-1 Region. Confirm you entered the correct 12-digit account ID when creating the grant. Allow time for grant distribution. Most distributions complete within an hour, and larger organizations might take longer. For organizations without all features enabled, ensure the recipient account has service-linked roles created.
 
 **Q: Why can't I activate a grant in my account?**
 

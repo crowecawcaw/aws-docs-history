@@ -65,7 +65,7 @@ The following fields are optional:
 | Field | Use case | 
 | --- | --- | 
 | modelInvocationType | To specify the API format of the input data. Set to Converse to use the Converse API format, or InvokeModel (default) to use model-specific request formats. For more information about the Converse request format, see [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html). | 
-| timeoutDurationInHours | To specify the duration in hours after which the job will time out. | 
+| timeoutDurationInHours | To specify the duration in hours after which the job will time out. The default is 24 hours. Valid values are 24 to 168 hours. | 
 | tags | To specify any tags to associate with the job. For more information, see [Tagging Amazon Bedrock resources](tagging.md). | 
 | vpcConfig | To specify the VPC configuration to use to protect your data during the job. For more information, see [Protect batch inference jobs using a VPC](batch-vpc.md). | 
 | clientRequestToken | To ensure the API request completes only once. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html). | 

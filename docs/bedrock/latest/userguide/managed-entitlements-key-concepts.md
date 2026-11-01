@@ -31,7 +31,7 @@ Understanding license and grant states helps you track the lifecycle of entitlem
 
 **Disabled**: Grant has been accepted by the end user but not activated for immediate use. Grants in this state cannot be used to invoke third-party Bedrock models.
 
-**Active**: Grant has been accepted and activated successfully. End users can now invoke the third-party Bedrock model.
+**Active**: You accepted and activated the grant, and you can now invoke the third-party Bedrock model. When your administrator distributes from AWS Marketplace, you receive the grant in the Active state.
 
 **Rejected**: End user has rejected the license that was granted to them. This is a terminal state for that grant. The grantor can create a new grant for the end user on the same license.
 

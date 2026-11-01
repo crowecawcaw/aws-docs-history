@@ -44,7 +44,7 @@ You can distribute licenses using three methods:
 
 1. Choose **Create grant**.
 
-The grant is created and will appear in the recipient account's License Manager console in a Pending Acceptance or Disabled state, depending on your organization configuration.
+AWS License Manager creates the grant, and it appears in the recipient account in a Pending Acceptance or Disabled state, depending on your organization configuration.
 
 **To create a grant to your organization**
 
@@ -76,12 +76,64 @@ The grant is created and automatically distributed to all member accounts in you
 
 The grant is created and automatically distributed to all member accounts within the specified organizational unit.
 
-Replace the license ARN, account ID, and organization ID with your actual values.
-
 ### API
 <a name="managed-entitlements-create-grants-api"></a>
 
 Creates a grant to distribute a license to other AWS accounts, organizations, or organizational units through [CreateGrantAPI](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_CreateGrant.html)
+
+The following AWS CLI procedure creates a grant for your organization. The `create-grant` command uses these values:
+
+`grant-name`  
+A name for the grant.
+
+`license-arn`  
+The ARN of the license that you received when you subscribed. You can find it in the output of the `list-received-licenses` command.
+
+`home-region`  
+Always `us-east-1`, because all licenses for third-party Bedrock models are managed in that Region.
+
+`allowed-operations`  
+The operations that recipients can perform with the license. Use `CheckoutLicense` and `ExtendConsumptionLicense`.
+
+`principals`  
+The ARN of your organization. To distribute to an organizational unit (OU), use an OU ARN such as `arn:aws:organizations::444455556666:ou/o-exampleorgid/ou-examplerootid-exampleouid`. To distribute to one account, use the 12-digit account ID.
+
+The example values in the following commands are fictitious. Replace them with your own values. If you receive an `AccessDenied` error, verify that your IAM identity has the `license-manager:CreateGrant` permission.
+
+**To create a grant with the AWS CLI**
+
+1. Find the license ARN.
+
+   ```
+   aws license-manager list-received-licenses --region us-east-1
+   ```
+
+1. Find your organization ID and management account ID.
+
+   ```
+   aws organizations describe-organization
+   ```
+
+1. Create the grant. The following command creates the grant by using the values described earlier in this section.
+
+   ```
+   aws license-manager create-grant \
+       --region us-east-1 \
+       --client-token "$(uuidgen)" \
+       --grant-name "{{my-bedrock-org-grant}}" \
+       --license-arn "{{arn:aws:license-manager::111122223333:license:l-0123456789EXAMPLE}}" \
+       --principals "{{arn:aws:organizations::444455556666:organization/o-exampleorgid}}" \
+       --home-region us-east-1 \
+       --allowed-operations "CheckoutLicense" "ExtendConsumptionLicense"
+   ```
+
+1. Check the grant status. Replace {{my-grant-arn}} with the grant ARN from the previous step.
+
+   ```
+   aws license-manager get-grant --region us-east-1 --grant-arn "{{my-grant-arn}}"
+   ```
+
+   The grant is ready to activate when its status is no longer `PENDING_WORKFLOW`. This might take a few minutes, so repeat the command until the status changes.
 
 ## Tracking distributed grants
 <a name="managed-entitlements-tracking-grants"></a>

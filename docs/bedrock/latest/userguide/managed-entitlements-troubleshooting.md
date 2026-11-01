@@ -9,7 +9,7 @@ This section provides solutions to common issues you may encounter when using Ma
 <a name="managed-entitlements-ts-license-missing"></a>
 
 **Possible causes and solutions**:
-+ **Subscription not yet processed**: Wait 5 minutes and refresh the License Manager console. Licenses can take a few minutes to be created after subscription.
++ **Subscription not yet processed**: Wait 5 minutes and refresh AWS License Manager. Licenses can take a few minutes to be created after subscription.
 + **Looking in wrong region**: Ensure you are viewing License Manager in the us-east-1 (N. Virginia) region. All licenses are created in us-east-1 regardless of subscription region.
 + **Subscription failed**: Go to AWS Marketplace Console, choose **Manage Subscriptions**, and verify the subscription shows as Active. If not active, retry the subscription process.
 + **Service-linked roles not set up**: Return to the Setting up managed entitlements section and complete all prerequisite steps. Verify SLRs exist in IAM Console by choosing **Roles** and searching for the required role names.
@@ -18,7 +18,7 @@ This section provides solutions to common issues you may encounter when using Ma
 <a name="managed-entitlements-ts-grant-missing"></a>
 
 **Possible causes and solutions**:
-+ **Grant not yet distributed**: Wait 2-3 minutes after creating the grant. Check the grantor account to confirm the grant was created successfully.
++ **Grant not yet distributed**: Most distributions complete within an hour. Depending on the size of your organization, distribution might take longer. Check the grantor account to confirm the grant was created successfully.
 + **Recipient looking in wrong region**: The recipient must check License Manager in the us-east-1 region. All grants appear only in us-east-1.
 + **Recipient account does not have service-linked roles**: For organizations without all features enabled, each account needs service-linked roles. The recipient should complete the prerequisite steps in their own account.
 + **Wrong account ID used**: Verify the correct 12-digit AWS account ID was entered when creating the grant. Check for typos in the account ID.
@@ -30,7 +30,7 @@ This section provides solutions to common issues you may encounter when using Ma
 + **Existing active license for same model**: The recipient account may already have an active license for this model. Deactivate or delete the existing license first, then activate the new grant.
 + **Grant not accepted yet**: For organizations without all features enabled, the recipient must first Accept the grant before it can be activated.
 + **Insufficient IAM permissions**: User needs `license-manager:CreateGrantVersion` permission. Contact your account administrator to grant necessary permissions.
-+ **Grant in wrong state**: The grant must be in Disabled or Pending Acceptance state to activate. Check grant status in License Manager console.
++ **Grant in wrong state**: The grant must be in Disabled or Pending Acceptance state to activate. Check grant status in AWS License Manager.
 
 ## Cannot use Bedrock model after activating grant
 <a name="managed-entitlements-ts-cannot-use-model"></a>

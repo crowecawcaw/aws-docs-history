@@ -5,6 +5,8 @@
 
 Before you can distribute licenses, you must first subscribe to a Bedrock model through AWS Marketplace.
 
+**Recommendation**: The account you use to accept this private offer determines whether you can distribute it to your organization directly from AWS Marketplace. If you use AWS Organizations, accept this offer from your management account. If you prefer to use a different account, register it as your delegated administrator before you continue, and then accept this offer from that delegated administrator account. For more information, see [Granting permissions to distribute from AWS Marketplace](managed-entitlements-prerequisites.md#managed-entitlements-marketplace-permissions). If you accept this offer from any other account, you cannot distribute it from AWS Marketplace, and member accounts continue to be billed at public rates until you create grants in AWS License Manager.
+
 **To subscribe to a third-party Bedrock model through AWS Marketplace**
 
 1. Choose the private offer link from the sellers to get started or sign in to your management account or designated billing account
@@ -17,7 +19,10 @@ Before you can distribute licenses, you must first subscribe to a Bedrock model 
 
 1. Choose **Subscribe** to complete the subscription.
 
-1. You will see a confirmation message indicating your subscription is active.
+1. Verify that the confirmation message shows that your subscription is active.
+
+**Note**  
+If you subscribed to a private offer from your management account or your delegated administrator account, the confirmation page also prompts you to distribute the offer to your organization. To distribute immediately, see [Distribute through AWS Marketplace](managed-entitlements-marketplace.md). If you leave the page without distributing, create grants as described in [Distributing licenses](managed-entitlements-distributing.md).
 
 ## To verify license creation
 <a name="managed-entitlements-verify-license"></a>
@@ -38,5 +43,8 @@ After subscribing, AWS License Manager automatically creates a license for your 
 
 **Note**  
 The license is always created in the us-east-1 region, regardless of which region you subscribed in. Always check License Manager in us-east-1 to view your licenses.
+
+**Note**  
+The license appears in **Granted Licenses** whether or not you distribute it. If you distributed from AWS Marketplace, the license details page also lists the grant that was created for your organization.
 
 If the license does not appear after 5 minutes, verify your subscription is active by going to AWS Marketplace Console, choosing Manage Subscriptions, and confirming your third-party Bedrock model subscription shows as Active.
