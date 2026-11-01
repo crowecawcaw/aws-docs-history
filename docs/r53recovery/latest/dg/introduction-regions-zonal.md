@@ -41,7 +41,6 @@ Zonal shift and zonal autoshift are currently available in the AWS Regions liste
 | Europe (Zurich) | eu-central-2 |  arc-zonal-shift.eu-central-2.amazonaws.com <br /> arc-zonal-shift.eu-central-2.api.aws  | HTTPS<br />HTTPS | 
 | Israel (Tel Aviv) | il-central-1 |  arc-zonal-shift.il-central-1.amazonaws.com <br /> arc-zonal-shift.il-central-1.api.aws  | HTTPS<br />HTTPS | 
 | Mexico (Central) | mx-central-1 |  arc-zonal-shift.mx-central-1.amazonaws.com <br /> arc-zonal-shift.mx-central-1.api.aws  | HTTPS<br />HTTPS | 
-| Middle East (Bahrain) | me-south-1 |  arc-zonal-shift.me-south-1.amazonaws.com <br /> arc-zonal-shift.me-south-1.api.aws  | HTTPS<br />HTTPS | 
 | Middle East (UAE) | me-central-1 |  arc-zonal-shift.me-central-1.amazonaws.com <br /> arc-zonal-shift.me-central-1.api.aws  | HTTPS<br />HTTPS | 
 | South America (São Paulo) | sa-east-1 |  arc-zonal-shift.sa-east-1.amazonaws.com <br /> arc-zonal-shift.sa-east-1.api.aws  | HTTPS<br />HTTPS | 
 |  AWS GovCloud (US-East) | us-gov-east-1 |  arc-zonal-shift.us-gov-east-1.amazonaws.com <br /> arc-zonal-shift-fips.us-gov-east-1.api.aws <br /> arc-zonal-shift.us-gov-east-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS | 
