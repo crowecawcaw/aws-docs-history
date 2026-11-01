@@ -72,6 +72,11 @@ For more information about IAM roles for Amazon EMR, see [Configure IAM roles fo
 
 You can enable CloudWatch logging when creating a new EMR cluster through the AWS Management Console, AWS CLI, or AWS SDKs. The configuration is specified through the `MonitoringConfiguration` parameter.
 
+### Known Limitations
+<a name="emr-plan-logging-cw-config-known-limitations"></a>
+
+CloudWatch logging for Amazon EMR step logs is supported only for steps submitted with the `AddJobFlowSteps` API after the cluster is created. Step logs for steps specified inline in the `Steps` parameter of the `RunJobFlow` API are not published to CloudWatch Logs. To publish step logs, create the cluster with CloudWatch logging enabled, and then submit steps with `AddJobFlowSteps`.
+
 ### Using the AWS Management Console
 <a name="emr-plan-logging-cw-config-console"></a>
 
@@ -107,7 +112,7 @@ You can enable CloudWatch logging using the AWS CLI with the `create-cluster` co
 #### Example: Default Configuration
 <a name="emr-plan-logging-cw-config-default-configuration"></a>
 
-EMR will automatically capture step logs and Spark driver logs only and send them to the default log group.
+With the default configuration, Amazon EMR captures Spark driver logs and logs for steps submitted with the `AddJobFlowSteps` API, and sends them to the default log group.
 
 ```
 aws emr create-cluster \
