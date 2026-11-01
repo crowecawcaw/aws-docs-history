@@ -38,7 +38,7 @@ ElastiCache supports the following node types. Generally speaking, the latest ge
 For performance details for each node type, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/).
 
 **--data-tiering-enabled**  
-Set this parameter if you are using an r6gd node type. If you don't want data tiering, set `--no-data-tiering-enabled`. For more information, see [Data tiering in ElastiCache](data-tiering.md).
+Set this parameter if you are using a data tiering node type. If you don't want data tiering, set `--no-data-tiering-enabled`. For more information, see [Data tiering in ElastiCache](data-tiering.md).
 
 **--cache-parameter-group**  
 Specify a parameter group that corresponds to your engine version. For example, if you are running Redis OSS 7.1, specify the `default.redis7` parameter group or a parameter group derived from `default.redis7` to create a Valkey or Redis OSS (cluster mode disabled) replication group. For more information, see [Valkey and Redis OSS parameters](ParameterGroups.Engine.md#ParameterGroups.Redis).
@@ -138,7 +138,7 @@ ElastiCache supports the following node types. Generally speaking, the latest ge
 For performance details for each node type, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/).
 
 **--data-tiering-enabled**  
-Set this parameter if you are using an r6gd node type. If you don't want data tiering, set `--no-data-tiering-enabled`. For more information, see [Data tiering in ElastiCache](data-tiering.md).
+Set this parameter if you are using a data tiering node type. If you don't want data tiering, set `--no-data-tiering-enabled`. For more information, see [Data tiering in ElastiCache](data-tiering.md).
 
 **CacheParameterGroup**  
 Specify a parameter group that corresponds to your engine version. For example, if you are running Redis OSS 7.1, specify the `default.redis7` parameter group or a parameter group derived from `default.redis7` to create a Valkey or Redis OSS (cluster mode disabled) replication group. For more information, see [Valkey and Redis OSS parameters](ParameterGroups.Engine.md#ParameterGroups.Redis).

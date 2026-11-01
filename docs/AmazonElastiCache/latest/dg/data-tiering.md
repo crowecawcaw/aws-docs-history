@@ -3,7 +3,7 @@
 # Data tiering in ElastiCache
 <a name="data-tiering"></a>
 
-ElastiCache for Valkey or Redis OSS clusters that comprise a replication group and use a node type from the r6gd family have their data tiered between memory and local SSD (solid state drives) storage. Data tiering provides a new price-performance option for Valkey or Redis OSS workloads by utilizing lower-cost solid state drives (SSDs) in each cluster node in addition to storing data in memory. It is ideal for workloads that access up to 20 percent of their overall dataset regularly, and for applications that can tolerate additional latency when accessing data on SSD.
+ElastiCache for Valkey or Redis OSS clusters that comprise a replication group and use a node type from the r6gd, r7gd, or r8gd families have their data tiered between memory and local SSD (solid state drives) storage. Data tiering provides a new price-performance option for Valkey or Redis OSS workloads by utilizing lower-cost solid state drives (SSDs) in each cluster node in addition to storing data in memory. It is ideal for workloads that access up to 20 percent of their overall dataset regularly, and for applications that can tolerate additional latency when accessing data on SSD.
 
 On ElastiCache clusters with data tiering, ElastiCache monitors the last access time of every item it stores. When available memory (DRAM) is fully consumed, ElastiCache uses a least-recently used (LRU) algorithm to automatically move infrequently accessed items from memory to SSD. When data on SSD is subsequently accessed, ElastiCache automatically and asynchronously moves it back to memory before processing the request. If you have a workload that accesses only a subset of its data regularly, data tiering is an optimal way to scale your capacity cost-effectively.
 
@@ -33,11 +33,11 @@ We recommend the following best practices:
 
 Data tiering has the following limitations:
 + You can only use data tiering on clusters that are part of a replication group.
-+ The node type you use must be from the r6gd family.
-+ You must use an engine that is Valkey 7.2 or later, or a Redis OSS 6.2 or later.
-+ You cannot restore a backup of an r6gd cluster into another cluster unless it also uses r6gd.
++ The node type you use must be from the r6gd, r7gd, or r8gd families.
++ For the r7gd and r8gd families, you must use Valkey 7.2 or later. For the r6gd family, you must use Valkey 7.2 or later, or Redis OSS 6.2 or later.
++ You can't restore a backup from a data tiering cluster into a cluster that doesn't use data tiering.
 + You cannot export a backup to Amazon S3 for data-tiering clusters.
-+ Online migration is not supported for clusters running on the r6gd node type.
++ Online migration is not supported for data tiering node types.
 + Scaling between clusters with data tiering enabled and data tiering disabled is not supported. To migrate data from an ElastiCache cluster with data tiering disabled to a cluster with data tiering enabled, you can restore a backup to a new cluster with data tiering enabled. For more information, see [Scaling ElastiCache](Scaling.md).
 + Auto scaling is supported on clusters using data tiering for Valkey version 7.2 and later, and Redis OSS version 7.0.7 and later. For more information, see [Auto Scaling Valkey and Redis OSS clusters](AutoScaling.md)
 + Data tiering only supports `volatile-lru`, `allkeys-lru`, `volatile-lfu`, `allkeys-lfu` and `noeviction` maxmemory policies. 
@@ -50,7 +50,7 @@ Data tiering has the following limitations:
 ## Pricing
 <a name="data-tiering-pricing"></a>
 
-R6gd nodes have 4.8x more total capacity (memory \+ SSD) and can help you achieve over 60 percent savings when running at maximum utilization compared to R6g nodes (memory only). For more information, see [ElastiCache pricing](https://aws.amazon.com/elasticache/pricing/).
+Data tiering offers a lower-cost way to scale your cache capacity by using local SSD storage in each node in addition to memory. R6gd nodes have 4.8x more total capacity (memory \+ SSD) and can help you achieve over 60 percent savings when running at maximum utilization compared to R6g nodes (memory only). For more information, see [ElastiCache pricing](https://aws.amazon.com/elasticache/pricing/).
 
 ## Monitoring
 <a name="data-tiering-monitoring"></a>
@@ -67,16 +67,16 @@ ElastiCache offers metrics designed specifically to monitor the performance clus
 ### Using data tiering using the AWS Management Console
 <a name="data-tiering-enabling-console"></a>
 
-When creating a cluster as part of a replication group, you use data tiering by selecting a node type from the r6gd family, such as *cache.r6gd.xlarge*. Selecting that node type automatically enables data tiering. 
+When creating a cluster as part of a replication group, you use data tiering by selecting a node type from the r6gd, r7gd, or r8gd families, such as *cache.r6gd.xlarge*. Selecting that node type automatically enables data tiering. 
 
 For more information on creating a cluster, see [Creating a cluster for Valkey or Redis OSS](Clusters.Create.md).
 
 ### Enabling data tiering using the AWS CLI
 <a name="data-tiering-enabling-cli"></a>
 
-When creating a replication group using the AWS CLI, you use data tiering by selecting a node type from the r6gd family, such as *cache.r6gd.xlarge* and setting the `--data-tiering-enabled` parameter. 
+When creating a replication group using the AWS CLI, you use data tiering by selecting a node type from the r6gd, r7gd, or r8gd families, such as *cache.r6gd.xlarge* and setting the `--data-tiering-enabled` parameter. 
 
-You cannot opt out of data tiering when selecting a node type from the r6gd family. If you set the `--no-data-tiering-enabled` parameter, the operation will fail.
+Data tiering node types always use data tiering. If you set the `--no-data-tiering-enabled` parameter, the operation fails.
 
 For Linux, macOS, or Unix:
 
@@ -135,7 +135,7 @@ After running this operation, you will see a response similar to the following:
 ## Restoring data from backup into clusters with data tiering enabled
 <a name="data-tiering-enabling-snapshots"></a>
 
-You can restore a backup to a new cluster with data tiering enabled using the (Console), (AWS CLI) or (ElastiCache API). When you create a cluster using node types in the r6gd family, data tiering is enabled. 
+You can restore a backup to a new cluster with data tiering enabled using the (Console), (AWS CLI) or (ElastiCache API). When you create a cluster using a node type from the r6gd, r7gd, or r8gd families, data tiering is enabled. 
 
 ### Restoring data from backup into clusters with data tiering enabled (console)
 <a name="data-tiering-enabling-snapshots-console"></a>
@@ -156,7 +156,7 @@ You can restore a backup to a new cluster with data tiering enabled using the (C
 
    1. **Cluster mode enabled (scale out)** – Choose this for a Valkey or Redis OSS (cluster mode enabled) cluster. 
 
-   1. **Node Type** – Specify **cache.r6gd.xlarge** or any other node type from the r6gd family.
+   1. **Node Type** – Specify **cache.r6gd.xlarge** or any other node type from the r6gd, r7gd, or r8gd families.
 
    1. **Number of Shards** – Choose the number of shards you want in the new cluster (API/CLI: node groups).
 
@@ -179,9 +179,9 @@ For more information on creating a cluster, see [Creating a cluster for Valkey o
 ### Restoring data from backup into clusters with data tiering enabled (AWS CLI)
 <a name="data-tiering-enabling-snapshots-cli"></a>
 
-When creating a replication group using the AWS CLI, data tiering is by default used by selecting a node type from the r6gd family, such as *cache.r6gd.xlarge* and setting the `--data-tiering-enabled` parameter. 
+When creating a replication group using the AWS CLI, data tiering is by default used by selecting a node type from the r6gd, r7gd, or r8gd families, such as *cache.r6gd.xlarge* and setting the `--data-tiering-enabled` parameter. 
 
-You cannot opt out of data tiering when selecting a node type from the r6gd family. If you set the `--no-data-tiering-enabled` parameter, the operation will fail.
+Data tiering node types always use data tiering. If you set the `--no-data-tiering-enabled` parameter, the operation fails.
 
 For Linux, macOS, or Unix:
 

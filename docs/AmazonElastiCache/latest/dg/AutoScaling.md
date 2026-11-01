@@ -10,7 +10,7 @@ ElastiCache Auto Scaling is limited to the following:
 + Valkey or Redis OSS (cluster mode enabled) clusters running Valkey 7.2 onwards, or running Redis OSS 6.0 onwards
 + Data tiering (cluster mode enabled) clusters running Valkey 7.2 onwards, or running Redis OSS 7.0.7 onwards 
 + Instance sizes - Large, XLarge, 2XLarge
-+ Instance type families - R8g, R7g, R6g, R6gd, R5, M8g, M7g, M6g, M5, C8gn, C7gn
++ Instance type families - R8g, R8gd, R7g, R7gd, R6g, R6gd, R5, M8g, M7g, M6g, M5, C8gn, C7gn
 + Auto Scaling in ElastiCache is not supported for clusters running in Global datastores, Outposts or Local Zones.
 
 ## Managing Capacity Automatically with ElastiCache Auto Scaling with Valkey or Redis OSS
@@ -113,7 +113,7 @@ Before registering to Auto Scaling, we recommend the following:
 
 1. **Customized Metrics for Target Tracking** – Be cautious when using customized metrics for Target Tracking as Auto scaling is best suited to scale-out/in proportional to changes in metrics chosen for the policy. If those metrics don't change proportionally to the scaling actions used for policy creation, it might lead to continuous scale-out or scale-in actions which might affect availability or cost. 
 
-    For data-tiering clusters (r6gd family instance types), avoid using memory-based metrics for scaling.
+    For data tiering clusters (r6gd, r7gd, and r8gd), avoid using memory-based metrics for scaling.
 
 1. **Scheduled Scaling** – If you identify that your workload is deterministic (reaches high/low at a specific time), we recommend using Scheduled Scaling and configure your target capacity according to the need. Target Tracking is best suitable for non-deterministic workloads and for the cluster to operate at the required target metric by scaling out when you need more resources and scaling in when you need less. 
 

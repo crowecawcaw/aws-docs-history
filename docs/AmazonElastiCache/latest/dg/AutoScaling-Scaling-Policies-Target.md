@@ -18,7 +18,7 @@ A predefined metric is a structure that refers to a specific name, dimension, an
 | --- | --- | --- | --- | 
 | ElastiCachePrimaryEngineCPUUtilization | `EngineCPUUtilization` | ReplicationGroupId, Role = Primary | None | 
 | ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage | `DatabaseCapacityUsageCountedForEvictPercentage` | Valkey or Redis OSS Replication Group Metrics | None | 
-| ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage | `DatabaseMemoryUsageCountedForEvictPercentage` | Valkey or Redis OSS Replication Group Metrics | R6gd | 
+| ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage | `DatabaseMemoryUsageCountedForEvictPercentage` | Valkey or Redis OSS Replication Group Metrics | R6gd, R7gd, R8gd | 
 
 Data-tiered instance types cannot use `ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage`, as these instance types store data in both memory and SSD. The expected use case for data-tiered instances is to have 100 percent memory usage and fill up SSD as needed.
 

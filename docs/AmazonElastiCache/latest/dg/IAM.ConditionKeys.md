@@ -1242,7 +1242,7 @@ This section shows example policies for implementing fine-grained access control
                "Action": "elasticache:CreateServerlessCache",
                "Resource": "*",
                "Condition": {
-                   "StringEquals": {
+                   "StringEqualsIgnoreCase": {
                        "elasticache:ConnectionType": "public"
                    }
                }

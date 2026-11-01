@@ -45,7 +45,7 @@ ElastiCache supports the following node types. Generally speaking, the latest ge
 For performance details for each node type, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/).
 
 **--data-tiering-enabled**  
-Set this parameter if you are using an r6gd node type. If you don't want data tiering, set `--no-data-tiering-enabled`. For more information, see [Data tiering in ElastiCache](data-tiering.md).
+Set this parameter if you are using a data tiering node type. If you don't want data tiering, set `--no-data-tiering-enabled`. For more information, see [Data tiering in ElastiCache](data-tiering.md).
 
 **--cache-parameter-group**  
 Specify the `default.redis6.x.cluster.on` parameter group or a parameter group derived from `default.redis6.x.cluster.on` to create a Valkey or Redis OSS (cluster mode enabled) replication group. For more information, see [Redis OSS 6.x parameter changes](ParameterGroups.Engine.md#ParameterGroups.Redis.6-x).
@@ -246,7 +246,7 @@ ElastiCache supports the following node types. Generally speaking, the latest ge
 For performance details for each node type, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/).
 
 **--data-tiering-enabled**  
-Set this parameter if you are using an r6gd node type. If you don't want data tiering, set `--no-data-tiering-enabled`. For more information, see [Data tiering in ElastiCache](data-tiering.md).
+Set this parameter if you are using a data tiering node type. If you don't want data tiering, set `--no-data-tiering-enabled`. For more information, see [Data tiering in ElastiCache](data-tiering.md).
 
 **CacheParameterGroup**  
 Specify the `default.redis6.x.cluster.on` parameter group or a parameter group derived from `default.redis6.x.cluster.on` to create a Valkey or Redis OSS (cluster mode enabled) replication group. For more information, see [Redis OSS 6.x parameter changes](ParameterGroups.Engine.md#ParameterGroups.Redis.6-x).

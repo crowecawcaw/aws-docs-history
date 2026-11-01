@@ -31,7 +31,7 @@ Consider the following constraints when planning or making backups:
 + Valkey or Redis OSS (cluster mode enabled) only supports taking backups on the cluster level (for the API or CLI, the replication group level). Valkey or Redis OSS (cluster mode enabled) doesn't support taking backups at the shard level (for the API or CLI, the node group level).
 + During the backup process, you can't run any other API or CLI operations on serverless cache. You can run API or CLI operations on a node-based cluster during backup.
 + If you are using Valkey or Redis OSS caches with data tiering, you cannot export a backup to Amazon S3.
-+ You can restore a backup of a cluster using the r6gd node type only to clusters using the r6gd node type.
++ You can restore a backup from a data tiering cluster to another cluster that also uses data tiering.
 
 ## Performance impact of backups of node-based clusters
 <a name="backups-performance"></a>

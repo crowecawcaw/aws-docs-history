@@ -328,7 +328,7 @@ The amount of time it takes to scale up to a larger node type varies, depending 
 The following sections walk you through how to scale a Valkey or Redis OSS (cluster mode disabled) cluster with replica nodes down to a smaller node type. Ensuring that the new, smaller node type is large enough to accommodate all the data and overhead is very important to success. For more information, see [Ensuring you have enough memory to make a Valkey or Redis OSS snapshot](BestPractices.BGSAVE.md).
 
 **Note**  
-For clusters running the r6gd node type, you can only scale to node sizes within the r6gd node family.
+For clusters running a data tiering node type, you can only scale to node sizes within the same data tiering node family.
 
 **Important**  
 If your parameter group uses `reserved-memory` to set aside memory for Valkey or Redis OSS overhead, before you begin scaling be sure that you have a custom parameter group that reserves the correct amount of memory for your new node type. Alternatively, you can modify a custom parameter group so that it uses `reserved-memory-percent` and use that parameter group for your new cluster.  

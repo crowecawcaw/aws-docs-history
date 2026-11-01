@@ -10,6 +10,7 @@ When configuring an ElastiCache cluster, you can choose between two durability o
 **Topics**
 + [Durability options](Durability.Options.md)
 + [Configuring durability](Durability.Configuring.md)
++ [Changing durability on an existing cluster](Durability.ChangingDurability.md)
 + [Consistency](Durability.Consistency.md)
 + [Failure scenarios](Durability.FailureScenarios.md)
 + [Limitations](Durability.Limitations.md)

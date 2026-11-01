@@ -8,7 +8,7 @@ With online migration, you can migrate your data from self-managed Valkey or Red
 This refers to migration from a self-managed instance to the ElastiCache service. For information on upgrading from Redis OSS to Valkey on ElastiCache see [Upgrading engine versions including cross engine upgrades](VersionManagement.HowTo.md).
 
 **Note**  
-This page covers online migration to node-based clusters. To migrate to an ElastiCache Serverless cache, see [Online migration to ElastiCache Serverless](migration-to-serverless.md). Online migration to node-based clusters doesn't support clusters that run on the r6gd node type.
+This page covers online migration to node-based clusters. To migrate to an ElastiCache Serverless cache, see [Online migration to ElastiCache Serverless](migration-to-serverless.md). Online migration to node-based clusters doesn't support clusters that use a data tiering node type.
 
 ## Overview
 <a name="Migration-Overview"></a>

@@ -65,7 +65,7 @@ When you scale up a single-node Valkey or Redis OSS cluster, ElastiCache perform
 1. ElastiCache deletes the old cluster. You will notice a brief interruption (a few seconds) of reads and writes from the old node because the connections to the old node will be disconnected. 
 
 **Note**  
-For clusters running the r6gd node type, you can only scale to node sizes within the r6gd node family.
+For clusters running a data tiering node type, you can only scale to node sizes within the same data tiering node family.
 
 As shown in the following table, your Valkey or Redis OSS scale-up operation is blocked if you have an engine upgrade scheduled for the next maintenance window. For more information on Maintenance Windows, see [Managing ElastiCache cluster maintenance](maintenance-window.md).
 
@@ -315,7 +315,7 @@ The following procedure describes how to scale up a single-node Valkey or Redis 
 The following sections walk you through how to scale a single-node Valkey or Redis OSS cluster down to a smaller node type. Ensuring that the new, smaller node type is large enough to accommodate all the data and Valkey or Redis OSS overhead is important to the long-term success of your new Valkey or Redis OSS cluster. For more information, see [Ensuring you have enough memory to make a Valkey or Redis OSS snapshot](BestPractices.BGSAVE.md).
 
 **Note**  
-For clusters running the r6gd node type, you can only scale to node sizes within the r6gd node family.
+For clusters running a data tiering node type, you can only scale to node sizes within the same data tiering node family.
 
 **Topics**
 + [Scaling down a single-node Valkey or Redis OSS cluster (Console)](#Scaling.RedisStandalone.ScaleDown.CON)

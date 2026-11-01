@@ -33,7 +33,7 @@ The following constraints on ElastiCache at-rest encryption should be kept in mi
 + At-rest encryption is supported on replication groups running Valkey 7.2 and later, and Redis OSS version 4.0.10 or later.
 + At-rest encryption is supported only for replication groups running in an Amazon VPC.
 + At-rest encryption is only supported for replication groups running the following node types.
-  + R8g, R7g, R6gd, R6g, R5, R4
+  + R8g, R8gd, R7g, R7gd, R6g, R6gd, R5, R4
   + M8g, M7g, M6g, M5, M4
   + T4g, T3
   + C8gn, C7gn
@@ -41,8 +41,8 @@ The following constraints on ElastiCache at-rest encryption should be kept in mi
   For more information, see [Supported node types](CacheNodes.SupportedTypes.md)
 + At-rest encryption is enabled by setting the parameter `AtRestEncryptionEnabled` to `true`. For Valkey, this parameter defaults to `true` if not specified.
 + You can enable at-rest encryption on a replication group only when creating the replication group. You cannot toggle at-rest encryption on and off by modifying a replication group. For information on implementing at-rest encryption on an existing replication group, see [Enabling At-Rest Encryption](#at-rest-encryption-enable).
-+ If a cluster is using a node type from the r6gd family, data stored on SSD is encrypted whether at-rest encryption is enabled or not.
-+ If a cluster is using a node type from the r6gd family, data stored on SSD is encrypted with the chosen customer managed AWS KMS key.
++ If a cluster is using a data tiering node type, data stored on a solid state drive (SSD) is encrypted whether at-rest encryption is enabled or not.
++ If a cluster is using a data tiering node type, data stored on SSD is encrypted with the chosen customer managed AWS KMS key.
 + With Memcached, at-rest encryption is supported only on serverless caches.
 
 Implementing at-rest encryption can reduce performance during backup and node sync operations. Benchmark at-rest encryption compared to no encryption on your own data to determine its impact on performance for your implementation.

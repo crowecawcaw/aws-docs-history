@@ -218,6 +218,18 @@ Instance types with burstable network performance use a network I/O credit mecha
 
 | Instance type | Minimum supported Valkey version | Enhanced I/O | TLS Offloading | Enhanced I/O Multiplexing | Baseline bandwidth (Gbps) | Burst bandwidth (Gbps) | Memory (GiB) | SSD (GiB) | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
+| cache.r8gd.xlarge | 7.2 | Yes | No | No | 1.875 | 12.5 | 29.68 | 99.33 | 
+| cache.r8gd.2xlarge | 7.2 | Yes | Yes | Yes | 3.75 | 15 | 61.33 | 198.65 | 
+| cache.r8gd.4xlarge | 7.2 | Yes | Yes | Yes | 7.5 | 15 | 124.65 | 398.14 | 
+| cache.r8gd.8xlarge | 7.2 | Yes | Yes | Yes | 15 | N/A | 251.27 | 796.28 | 
+| cache.r8gd.12xlarge | 7.2 | Yes | Yes | Yes | 22.5 | N/A | 377.9 | 1194.42 | 
+| cache.r8gd.16xlarge | 7.2 | Yes | Yes | Yes | 30 | N/A | 504.52 | 1592.56 | 
+| cache.r7gd.xlarge | 7.2 | Yes | No | No | 1.875 | 12.5 | 29.68 | 99.33 | 
+| cache.r7gd.2xlarge | 7.2 | Yes | Yes | Yes | 3.75 | 15 | 61.33 | 198.65 | 
+| cache.r7gd.4xlarge | 7.2 | Yes | Yes | Yes | 7.5 | 15 | 124.65 | 398.14 | 
+| cache.r7gd.8xlarge | 7.2 | Yes | Yes | Yes | 15 | N/A | 251.27 | 796.28 | 
+| cache.r7gd.12xlarge | 7.2 | Yes | Yes | Yes | 22.5 | N/A | 377.9 | 1194.42 | 
+| cache.r7gd.16xlarge | 7.2 | Yes | Yes | Yes | 30 | N/A | 504.52 | 1592.56 | 
 | cache.r6gd.xlarge | 7.2 | Yes | No | No | 1.25 | 10 | 26.32 | 99.33 | 
 | cache.r6gd.2xlarge | 7.2 | Yes | Yes | Yes | 2.5 | 10 | 52.82 | 199.07 | 
 | cache.r6gd.4xlarge | 7.2 | Yes | Yes | Yes | 5.0 | 10 | 105.81 | 398.14 | 
@@ -278,7 +290,7 @@ Instance types with burstable network performance use a network I/O credit mecha
 | cache.m4.2xlarge | 4.0.10 | Y | Y | Y | 1.0 | 10.0 | 29.70 | 
 | cache.m4.4xlarge | 4.0.10 | Y | Y | Y | 2.0 | 10.0 | 60.78 | 
 | cache.m4.10xlarge | 4.0.10 | Y | Y | Y | 5.0 | 10.0 | 154.64 | 
-| cache.t4g.micro | 4.0.10 | N | N | N | 0.064 | 5.0 | 0.50 | 
+| cache.t4g.micro | 5.0.6 | No | No | No | 0.064 | 5.0 | 0.50 | 
 | cache.t4g.small | 5.0.6 | No | No | No | 0.128 | 5.0 | 1.37 | 
 | cache.t4g.medium | 5.0.6 | No | No | No | 0.256 | 5.0 | 3.09 | 
 | cache.t3.micro | 4.0.10 | N | N | N | 0.064 | 5.0 | 0.50 | 

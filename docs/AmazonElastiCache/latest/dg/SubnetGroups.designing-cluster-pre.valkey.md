@@ -144,7 +144,7 @@ When you select a parameter group to set the engine configuration values, that p
 
          For more information, see [Choosing your node size](CacheNodes.SelectSize.md).
 
-         If you choose an r6gd node type, data-tiering is automatically enabled. For more information, see [Data tiering in ElastiCache](data-tiering.md).
+         If you choose a data tiering node type, ElastiCache automatically enables data tiering. For more information, see [Data tiering in ElastiCache](data-tiering.md).
 
       1. For **Number of replicas**, choose the number of read replicas you want. If you enabled Multi-AZ, the number must be between 1-5.
 

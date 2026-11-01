@@ -15,7 +15,7 @@ When creating an ElastiCache cluster, you can set the `--durability` parameter t
 | disabled | No durability; standard ElastiCache behavior | disabled | 
 | default | ElastiCache determines setting based on engine version and cluster configuration | disabled | 
 
-The `EffectiveDurability` property in the API response always shows the actual durability mode in effect (sync, async, or disabled). Whether durability is enabled or disabled is determined at cluster creation time and cannot be changed afterward. You can switch between sync and async modes on an existing cluster by calling `ModifyReplicationGroup` with the `--durability` parameter.
+The `EffectiveDurability` property in the API response always shows the actual durability mode in effect (sync, async, or disabled). You can switch between the sync, async, and disabled modes on an existing cluster by calling `ModifyReplicationGroup` with the `--durability` parameter. For more information, see [Changing durability on an existing cluster](Durability.ChangingDurability.md).
 
 For snapshots, ElastiCache stores the `EffectiveDurability` value so that restoring from a snapshot preserves the actual durability setting.
 

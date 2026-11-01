@@ -20,7 +20,7 @@ Before getting started with global datastores, be aware of the following:
   Replication must be enabled if you plan to use an existing single-node cluster.
 **Important**  
 When you add a secondary cluster to a global datastore, the secondary cluster inherits the Multi-AZ and automatic failover settings from the primary cluster. Automatic failover requires at least 2 nodes (1 primary and 1 replica). If you enabled automatic failover on the primary cluster, each secondary cluster must also have at least 1 replica. You cannot add a single-node secondary cluster to a global datastore if you enabled automatic failover on the primary.
-+ Global datastores are supported on the following instance families in size large and above: M5, M6g, M7g, M8g, R5, R6g, R6gd, R7g, R8g, C7gn, and C8gn. Previous generation instance types (such as M4 and R4) are not supported.
++ Global datastores are supported on the following instance families in size large and above: M5, M6g, M7g, M8g, R5, R6g, R7g, R8g, C7gn, and C8gn. Data tiering node types aren't supported. Previous generation instance types (such as M4 and R4) are not supported.
 **Note**  
 Supported node types may vary between AWS Regions. For more details, see [Amazon ElastiCache pricing](https://aws.amazon.com/elasticache/pricing/).
 + You can set up replication for a primary cluster from one AWS Region to a secondary cluster in up to two other AWS Regions. 

@@ -65,7 +65,7 @@ When you select a parameter group to set the engine configuration values, that p
 
          For more information, see [Choosing your node size](CacheNodes.SelectSize.md).
 
-         If you choose an r6gd node type, data-tiering is automatically enabled. For more information, see [Data tiering in ElastiCache](data-tiering.md).
+         If you choose a data tiering node type, ElastiCache automatically enables data tiering. For more information, see [Data tiering in ElastiCache](data-tiering.md).
 
       1. For **Number of shards**, choose the number of shards (partitions/node groups) that you want for this Valkey or Redis OSS (cluster mode enabled) cluster.
 
@@ -176,7 +176,7 @@ As soon as your cluster becomes available, you're billed for each hour or partia
 
 **Example – A Valkey or Redis OSS (cluster mode disabled) Cluster with no read replicas**  
 The following CLI code creates a Valkey or Redis OSS (cluster mode disabled) cluster with no replicas.  
-When creating cluster using a node type from the r6gd family, you must pass the `data-tiering-enabled` parameter.
+When creating cluster using a data tiering node type, you must pass the `data-tiering-enabled` parameter.
 For Linux, macOS, or Unix:  
 
 ```

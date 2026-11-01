@@ -40,7 +40,7 @@ You can upgrade to newer engine versions. If you upgrade major engine versions, 
    + Parameter Group
    + Node Type
 **Note**  
-If the cluster is using a node type from the r6gd family, you can only choose a different node size from within that family. If you choose a node type from the r6gd family, data tiering will automatically be enabled. For more information, see [Data tiering](data-tiering.md).
+If the cluster is using a data tiering node type, you can only choose a different node size from within the same data tiering node family. If you choose a data tiering node type, data tiering is automatically enabled. For more information, see [Data tiering](data-tiering.md).
    + Multi-AZ
    + Auto failover (cluster mode disabled only)
    + Enable Automatic Backups
