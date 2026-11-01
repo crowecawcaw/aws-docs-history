@@ -325,7 +325,7 @@ aws cloudtrail put-event-selectors \
 ### Example 5: Filtering on the `eventSource` field to exclude Amazon S3 authentication failure data events
 <a name="filtering-data-events-eventsource-s3auth"></a>
 
-The following example shows how to log all Amazon S3 data events but exclude Amazon S3 authentication failure events, such as `AuthenticateSignatureDoesNotMatch`, `AuthenticateInvalidAccessKeyId`, and `AuthenticateExpiredToken`. Amazon S3 authentication failure events use the `s3-authn-errors.amazonaws.com` event source. By filtering on the `s3-authn-errors.amazonaws.com` event source using the `NotEquals` operator, you can exclude these events while continuing to log all successful Amazon S3 data events.
+The following example shows how to log all Amazon S3 data events but exclude Amazon S3 authentication failure events, such as `SignatureDoesNotMatch`, `InvalidAccessKeyId`, and `ExpiredToken`. Amazon S3 authentication failure events use the `s3-authn-errors.amazonaws.com` event source. By filtering on the `s3-authn-errors.amazonaws.com` event source using the `NotEquals` operator, you can exclude these events while continuing to log all successful Amazon S3 data events.
 
 ```
 aws cloudtrail put-event-selectors \
@@ -342,5 +342,3 @@ aws cloudtrail put-event-selectors \
   }
 ]'
 ```
-
-This advanced event selector filters out all events where the `eventSource` is `s3-authn-errors.amazonaws.com`. Authentication failure events follow the naming pattern `Authenticate` followed by error code (for example, `AuthenticateSignatureDoesNotMatch`, `AuthenticateInvalidAccessKeyId`, `AuthenticateExpiredToken`, `AuthenticateInvalidToken`). Excluding these events can help reduce costs if you do not need to audit failed authentication attempts against your Amazon S3 resources.

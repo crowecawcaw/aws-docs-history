@@ -42,6 +42,7 @@ You can log network activity events for the following services:
 + AWS Partner Central Revenue Measurement
 + AWS Secrets Manager
 + AWS SSO
++ AWS Startups
 + AWS Step Functions
 + AWS Transfer Family
 + AWS Transform
@@ -172,6 +173,7 @@ The following advanced event selector fields are required to log network activit
   + `monitoring.amazonaws.com`
   + `partnercentral-prm.amazonaws.com`
   + `personalize.amazonaws.com`
+  + `pricelist.amazonaws.com`
   + `qbusiness.amazonaws.com`
   + `quicksight.amazonaws.com`
   + `rds.amazonaws.com`
@@ -195,6 +197,7 @@ The following advanced event selector fields are required to log network activit
   + `sso-directory.amazonaws.com`
   + `sso-oauth.amazonaws.com`
   + `sso.amazonaws.com`
+  + `startups.amazonaws.com`
   + `states.amazonaws.com`
   + `storagegateway.amazonaws.com`
   + `sts.amazonaws.com`

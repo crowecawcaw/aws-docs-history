@@ -377,6 +377,7 @@ You can log network activity events for the following services:
 + AWS Partner Central Revenue Measurement
 + AWS Secrets Manager
 + AWS SSO
++ AWS Startups
 + AWS Step Functions
 + AWS Transfer Family
 + AWS Transform
