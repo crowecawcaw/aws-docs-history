@@ -119,13 +119,10 @@ Action examples are code excerpts from larger programs and must be run in contex
 The following `start-crawler` example starts a crawler.  
 
 ```
-aws glue start-crawler --name {{my-crawler}}
+aws glue start-crawler \
+    --name {{my-crawler}}
 ```
-Output:  
-
-```
-None
-```
+This command produces no output.  
 For more information, see [Defining Crawlers](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) in the *AWS Glue Developer Guide*.  
 +  For API details, see [StartCrawler](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glue/start-crawler.html) in *AWS CLI Command Reference*. 
 

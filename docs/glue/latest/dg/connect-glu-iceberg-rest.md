@@ -48,6 +48,21 @@ AWS Glue Iceberg endpoint ` https://glue.{{us-east-1}}.amazonaws.com/iceberg` su
 + UpdateTable
 + DeleteTable
 
+## Authentication
+<a name="auth-glue-iceberg-rest"></a>
+
+The AWS Glue Iceberg REST endpoint supports two authentication methods. Choose the method that matches how your analytics engine or integration connects to the catalog.
++ **AWS Signature Version 4 (SigV4)** – The default for AWS SDKs and AWS native analytics engines that authenticate with AWS credentials.
++ **OAuth 2.0 bearer token** – For external integration partners and third-party query engines that use the OAuth authentication model defined by the Apache Iceberg REST Catalog specification. The client presents an OAuth access token in the `Authorization: Bearer` header on each request.
+
+**Authenticating with OAuth 2.0 bearer tokens**
+
+External clients obtain a short-lived OAuth access token from AWS Sign-In and present it to the AWS Glue Iceberg REST endpoint. AWS Glue validates the token and enforces AWS Lake Formation permissions on every request. For the LoadTable operation, the Amazon S3 credentials that AWS Glue vends are bounded by the assumed IAM role and the Lake Formation grants on that role.
+
+This integration uses the OAuth 2.0 Token Exchange Grant ([RFC 8693](https://datatracker.ietf.org/doc/html/rfc8693)). An integration partner presents an end user's JSON Web Token (JWT) to AWS Sign-In and exchanges it for a short-lived OAuth access token scoped to the AWS Glue service. The partner then presents that token to the AWS Glue Iceberg REST endpoint to read your tables.
+
+For the complete setup and token exchange details, see [Configure OAuth access to AWS Glue Iceberg REST Catalog](https://docs.aws.amazon.com/signin/latest/userguide/configure-oauth-glue-iceberg-rest.html) in the *AWS Sign-In User Guide*.
+
 ## Prefix and catalog path parameters
 <a name="prefix-catalog-path-parameters"></a>
 

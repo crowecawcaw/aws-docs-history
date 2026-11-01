@@ -151,7 +151,7 @@ Output:
     "JobRunId": "jr_22208b1f44eb5376a60569d4b21dd20fcb8621e1a366b4e7b2494af764b82ded"
 }
 ```
-For more information, see [Authoring Jobs](https://docs.aws.amazon.com/glue/latest/dg/author-job.html) in the *AWS Glue Developer Guide*.  
+For more information, see [Working with jobs in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/author-glue-job.html) in the *AWS Glue Developer Guide*.  
 +  For API details, see [StartJobRun](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glue/start-job-run.html) in *AWS CLI Command Reference*. 
 
 ------

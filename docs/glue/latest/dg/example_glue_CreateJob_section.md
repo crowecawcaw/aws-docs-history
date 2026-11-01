@@ -113,14 +113,11 @@ aws glue create-job \
         "Name": "gluestreaming", \
         "ScriptLocation": "s3://amzn-s3-demo-bucket/folder/" \
     }}}' \
-    --region {{us-east-1}} \
-    --output {{json}} \
     --default-arguments '{{{ \
         "--job-language":"scala", \
         "--class":"GlueApp" \
     }}}' \
-    --profile {{my-profile}} \
-    --endpoint {{https://glue.us-east-1.amazonaws.com}}
+    --profile {{my-profile}}
 ```
 Contents of `test_script.scala`:  
 
@@ -179,7 +176,7 @@ Output:
     "Name": "my-testing-job"
 }
 ```
-For more information, see [Authoring Jobs in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/author-job.html) in the *AWS Glue Developer Guide*.  
+For more information, see [Working with jobs in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/author-glue-job.html) in the *AWS Glue Developer Guide*.  
 +  For API details, see [CreateJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glue/create-job.html) in *AWS CLI Command Reference*. 
 
 ------

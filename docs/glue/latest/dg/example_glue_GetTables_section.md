@@ -102,7 +102,8 @@ Action examples are code excerpts from larger programs and must be run in contex
 The following `get-tables` example returns information about the tables in the specified database.  
 
 ```
-aws glue get-tables --database-name '{{tempdb}}'
+aws glue get-tables \
+    --database-name '{{tempdb}}'
 ```
 Output:  
 
@@ -130,7 +131,7 @@ Output:
                         "Type": "string"
                     }
                 ],
-                "Location": "s3://janetst-bucket-01/test-s3-output/",
+                "Location": "s3://amzn-s3-demo-bucket/test-s3-output/",
                 "Compressed": false,
                 "NumberOfBuckets": 0,
                 "SerdeInfo": {
@@ -142,9 +143,9 @@ Output:
             "Parameters": {
                 "classification": "json"
             },
-            "CreatedBy": "arn:aws:iam::007436865787:user/JRSTERN",
+            "CreatedBy": "arn:aws:iam::123456789012:user/JRSTERN",
             "IsRegisteredWithLakeFormation": false,
-            "CatalogId": "007436865787"
+            "CatalogId": "123456789012"
         },
         {
             "Name": "s3-source",
@@ -167,7 +168,7 @@ Output:
                         "Type": "string"
                     }
                 ],
-                "Location": "s3://janetst-bucket-01/",
+                "Location": "s3://amzn-s3-demo-bucket/",
                 "Compressed": false,
                 "NumberOfBuckets": 0,
                 "SortColumns": [],
@@ -176,9 +177,9 @@ Output:
             "Parameters": {
                 "classification": "json"
             },
-            "CreatedBy": "arn:aws:iam::007436865787:user/JRSTERN",
+            "CreatedBy": "arn:aws:iam::123456789012:user/JRSTERN",
             "IsRegisteredWithLakeFormation": false,
-            "CatalogId": "007436865787"
+            "CatalogId": "123456789012"
         },
         {
             "Name": "test-kinesis-input",
@@ -209,7 +210,7 @@ Output:
                 },
                 "SortColumns": [],
                 "Parameters": {
-                    "kinesisUrl": "https://kinesis.us-east-1.amazonaws.com",
+                    "kinesisUrl": "https://kinesis.us-west-2.amazonaws.com",
                     "streamName": "my-testing-stream",
                     "typeOfData": "kinesis"
                 },
@@ -218,9 +219,9 @@ Output:
             "Parameters": {
                 "classification": "json"
             },
-            "CreatedBy": "arn:aws:iam::007436865787:user/JRSTERN",
+            "CreatedBy": "arn:aws:iam::123456789012:user/JRSTERN",
             "IsRegisteredWithLakeFormation": false,
-            "CatalogId": "007436865787"
+            "CatalogId": "123456789012"
         }
     ]
 }

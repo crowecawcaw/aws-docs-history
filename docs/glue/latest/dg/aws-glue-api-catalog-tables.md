@@ -1209,6 +1209,7 @@ To ensure the immediate deletion of all related resources, before calling `Batch
 + `OperationTimeoutException`
 + `GlueEncryptionException`
 + `ResourceNotReadyException`
++ `ConcurrentModificationException`
 
 ## GetTable action (Python: get\_table)
 <a name="aws-glue-api-catalog-tables-GetTable"></a>

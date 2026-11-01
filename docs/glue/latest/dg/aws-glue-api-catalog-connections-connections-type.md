@@ -470,6 +470,15 @@ Configuration that defines the supported authentication types and required prope
 + `AuthenticationTypes` – *Required:* An array of UTF-8 strings.
 
   A list of authentication types supported by this connection type, such as Basic, OAuth2, or Custom authentication methods.
++ `OAuth2Properties` – A [ConnectorOAuth2Properties](#aws-glue-api-catalog-connections-connections-type-ConnectorOAuth2Properties) object.
+
+  The OAuth2 authentication properties for the connection type, defining the grant type and the flow-specific configuration used to obtain access tokens.
++ `BasicAuthenticationProperties` – A [BasicAuthenticationProperties](#aws-glue-api-catalog-connections-connections-type-BasicAuthenticationProperties) object.
+
+  The Basic authentication properties for the connection type, defining the username and password used to authenticate requests.
++ `CustomAuthenticationProperties` – A [CustomAuthenticationProperties](#aws-glue-api-catalog-connections-connections-type-CustomAuthenticationProperties) object.
+
+  The custom authentication properties for the connection type, defining the parameters for authentication mechanisms beyond standard Basic and OAuth2 flows.
 
 ## ConnectorProperty structure
 <a name="aws-glue-api-catalog-connections-connections-type-ConnectorProperty"></a>

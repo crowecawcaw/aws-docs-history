@@ -17,5 +17,6 @@ The table optimization features (compaction, snapshot retention, and orphan file
 + Europe (Stockholm)
 + US East (N. Virginia)
 + US East (Ohio)
++ US West (N. California)
 + US West (Oregon)
 + South America (São Paulo)

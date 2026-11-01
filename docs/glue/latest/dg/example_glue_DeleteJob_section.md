@@ -76,7 +76,7 @@ Output:
     "JobName": "my-testing-job"
 }
 ```
-For more information, see [Working with Jobs on the AWS Glue Console](https://docs.aws.amazon.com/glue/latest/dg/console-jobs.html) in the *AWS Glue Developer Guide*.  
+For more information, see [Managing ETL jobs with AWS Glue Studio](https://docs.aws.amazon.com/glue/latest/dg/managing-jobs-chapter.html) in the *AWS Glue Developer Guide*.  
 +  For API details, see [DeleteJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glue/delete-job.html) in *AWS CLI Command Reference*. 
 
 ------
