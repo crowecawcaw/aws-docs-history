@@ -11,6 +11,8 @@ This feature is not designed to be used as a configuration backup feature. AWS A
 Note the following important information about this feature:  
 Configurations saved to disk are stored in *plain text* and are human readable. Don't enable this feature for configurations that include sensitive data. 
 This feature writes to the local disk. Use the principle of least privilege for filesystem permissions. For more information, see [Implement least privilege access](appconfig-security.md#appconfig-security-least-privilege-access).
+AWS AppConfig Agent writes to the path that you specify in the manifest by using the permissions of the user that you run the agent as. If you don't specify a user, the agent runs as the `root` user and can write to any path on the host. Run the agent as a non-root user, and give that user write access only to the directories that you want to write configurations to.
+If your manifest is a configuration hosted in AWS AppConfig, any principal that can create and deploy versions of that configuration can change where the agent writes files. Grant the `appconfig:CreateHostedConfigurationVersion` and `appconfig:StartDeployment` permissions on the manifest configuration profile only to principals that you trust with this access.
 
 **To enable write configuration copy to disk**
 

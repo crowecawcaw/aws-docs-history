@@ -116,6 +116,58 @@ To stop the agent, run the following command:
 sudo systemctl stop aws-appconfig-agent
 ```
 
+**Important**  
+By default, the AWS AppConfig Agent `systemd` unit file doesn't specify a user, so the agent runs as the `root` user. To improve security, configure the agent to run as a non-root user that has only the filesystem permissions it needs. If the agent runs as a non-root user, it can only read and write the files that you grant that user access to.
+
+Complete the following procedure after you install the agent, or at any time to harden an existing installation. Make sure that the user has the permissions that the agent needs. If the user can't read the agent's configuration or write to its target directories, the agent fails to start or fails to write configuration data.
+
+Before you begin, create the non-root user and group that you want the agent to run as, and make sure that you have `sudo` access on the host.
+
+**To run AWS AppConfig Agent as a non-root user**
+
+1. Open a terminal on the host where the agent is installed.
+
+1. Run the following shell commands to create a `systemd` override file that sets the `User` and `Group` options. Replace the following values:  
+`{{appconfig-agent-user}}`  
+The name of the non-root user that you want the agent to run as.  
+`{{appconfig-agent-group}}`  
+The name of the group that you want the agent to run as.
+
+   ```
+   sudo mkdir -p /etc/systemd/system/aws-appconfig-agent.service.d
+   sudo tee /etc/systemd/system/aws-appconfig-agent.service.d/user.conf <<EOF
+   [Service]
+   User={{appconfig-agent-user}}
+   Group={{appconfig-agent-group}}
+   EOF
+   ```
+
+1. Run the following shell commands to reload `systemd` and restart the agent:
+
+   ```
+   sudo systemctl daemon-reload
+   sudo systemctl restart aws-appconfig-agent
+   ```
+
+1. Run the following shell command to verify that the agent is running:
+
+   ```
+   sudo systemctl status aws-appconfig-agent
+   ```
+
+   If successful, the command returns information like the following:
+
+   ```
+   aws-appconfig-agent.service - aws-appconfig-agent
+     ...
+     Active: active (running) since Mon 2023-07-26 00:00:00 UTC; 0s ago
+     ...
+   ```
+
+   If the agent fails to start, run `sudo journalctl -u aws-appconfig-agent` and check for file permission errors for the user and group that you specified.
+
+If you use the agent to write configuration copies to disk, make sure that this user has write access to the target directories. For more information about writing configuration copies to disk, see [Configuring AWS AppConfig Agent to write configuration copies to disk](appconfig-agent-how-to-use-additional-features-write-to-disk.md).
+
 ## Step 3: (Optional, but recommended) Sending log files to CloudWatch Logs
 <a name="appconfig-integration-ec2-logs"></a>
 

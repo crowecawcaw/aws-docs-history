@@ -22,6 +22,10 @@ To retrieve configuration data hosted by AWS AppConfig, your container applicati
 
 For more information about adding permissions to a policy, see [Adding and removing IAM identity permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html) in the *IAM User Guide*.
 
+**Important**  
+If you don't specify a different user, the AWS AppConfig Agent container runs as the `root` user. To improve security, you should run the agent container as a non-root user.  
+For Amazon ECS, set the `user` parameter in the container definition. For Amazon EKS, set `runAsUser` and `runAsNonRoot` in the container `securityContext`. If you use the agent to write configuration copies to disk, make sure that this user has write access to the target directories.
+
 **Topics**
 + [Starting the AWS AppConfig agent for Amazon ECS integration](appconfig-integration-containers-agent-starting-ecs.md)
 + [Starting the AWS AppConfig agent for Amazon EKS integration](appconfig-integration-containers-agent-starting-eks.md)
