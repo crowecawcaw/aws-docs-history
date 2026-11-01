@@ -5,6 +5,9 @@
 
 The following code examples show how to use `AddTagsToStream`.
 
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_kinesis_Scenario_GettingStarted_section.md) 
+
 ------
 #### [ .NET ]
 
@@ -91,6 +94,30 @@ aws kinesis add-tags-to-stream \
 This command produces no output.  
 For more information, see [Tagging Your Streams](https://docs.aws.amazon.com/streams/latest/dev/tagging.html) in the *Amazon Kinesis Data Streams Developer Guide*.  
 +  For API details, see [AddTagsToStream](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/add-tags-to-stream.html) in *AWS CLI Command Reference*. 
+
+------
+#### [ Python ]
+
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kinesis#code-examples). 
+
+```
+    def add_tags_to_stream(self, stream_name, tags):
+        """
+        Adds or updates tags for a Kinesis data stream.
+
+        :param stream_name: The name of the stream to tag.
+        :param tags: A dictionary of tag key-value pairs.
+        """
+        try:
+            self.kinesis_client.add_tags_to_stream(StreamName=stream_name, Tags=tags)
+            logger.info("Added %s tag(s) to stream '%s'.", len(tags), stream_name)
+        except ClientError as err:
+            if err.response["Error"]["Code"] == "ResourceNotFoundException":
+                logger.error("Stream '%s' not found. Cannot add tags.", stream_name)
+            raise
+```
++  For API details, see [AddTagsToStream](https://docs.aws.amazon.com/goto/boto3/kinesis-2013-12-02/AddTagsToStream) in *AWS SDK for Python (Boto3) API Reference*. 
 
 ------
 

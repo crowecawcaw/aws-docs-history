@@ -5,6 +5,9 @@
 
 The following code examples show how to use `PutRecords`.
 
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_kinesis_Scenario_GettingStarted_section.md) 
+
 ------
 #### [ CLI ]
 
@@ -102,6 +105,42 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
 }
 ```
 +  For API details, see [PutRecords](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/command/PutRecordsCommand) in *AWS SDK for JavaScript API Reference*. 
+
+------
+#### [ Python ]
+
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kinesis#code-examples). 
+
+```
+    def put_records(self, stream_name, records):
+        """
+        Writes multiple data records into a Kinesis data stream in a single call.
+
+        :param stream_name: The name of the stream to write records to.
+        :param records: A list of dicts, each with 'Data' (bytes) and 'PartitionKey' (str).
+        :return: The response from the PutRecords call.
+        """
+        try:
+            response = self.kinesis_client.put_records(
+                StreamName=stream_name, Records=records
+            )
+            failed_count = response.get("FailedRecordCount", 0)
+            logger.info(
+                "Put %s record(s) to stream '%s' with %s failure(s).",
+                len(records),
+                stream_name,
+                failed_count,
+            )
+            return response
+        except ClientError as err:
+            if err.response["Error"]["Code"] == "InvalidArgumentException":
+                logger.error(
+                    "Invalid argument for PutRecords. Check record sizes and parameters."
+                )
+            raise
+```
++  For API details, see [PutRecords](https://docs.aws.amazon.com/goto/boto3/kinesis-2013-12-02/PutRecords) in *AWS SDK for Python (Boto3) API Reference*. 
 
 ------
 

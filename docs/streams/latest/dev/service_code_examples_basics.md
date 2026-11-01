@@ -6,6 +6,7 @@
 The following code examples show how to use the basics of Amazon Kinesis with AWS SDKs. 
 
 **Contents**
++ [Hello](example_kinesis_Hello_section.md)
 + [Learn the basics](example_kinesis_Scenario_GettingStarted_section.md)
 + [Actions](service_code_examples_actions.md)
   + [`AddTagsToStream`](example_kinesis_AddTagsToStream_section.md)
@@ -13,11 +14,14 @@ The following code examples show how to use the basics of Amazon Kinesis with AW
   + [`DeleteStream`](example_kinesis_DeleteStream_section.md)
   + [`DeregisterStreamConsumer`](example_kinesis_DeregisterStreamConsumer_section.md)
   + [`DescribeStream`](example_kinesis_DescribeStream_section.md)
+  + [`DescribeStreamSummary`](example_kinesis_DescribeStreamSummary_section.md)
   + [`GetRecords`](example_kinesis_GetRecords_section.md)
   + [`GetShardIterator`](example_kinesis_GetShardIterator_section.md)
+  + [`ListShards`](example_kinesis_ListShards_section.md)
   + [`ListStreamConsumers`](example_kinesis_ListStreamConsumers_section.md)
   + [`ListStreams`](example_kinesis_ListStreams_section.md)
   + [`ListTagsForStream`](example_kinesis_ListTagsForStream_section.md)
   + [`PutRecord`](example_kinesis_PutRecord_section.md)
   + [`PutRecords`](example_kinesis_PutRecords_section.md)
   + [`RegisterStreamConsumer`](example_kinesis_RegisterStreamConsumer_section.md)
+  + [`RemoveTagsFromStream`](example_kinesis_RemoveTagsFromStream_section.md)

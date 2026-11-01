@@ -1,6 +1,6 @@
 
 
-# Use `GetShardIterator` with a CLI
+# Use `GetShardIterator` with an AWS SDK or CLI
 <a name="example_kinesis_GetShardIterator_section"></a>
 
 The following code examples show how to use `GetShardIterator`.
@@ -59,6 +59,46 @@ Get-KINShardIterator -StreamName "mystream" -ShardId "shardId-000000000000" -Sha
 AAAAAAAAAAGIc....9VnbiRNaP
 ```
 +  For API details, see [GetShardIterator](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
+
+------
+#### [ Python ]
+
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kinesis#code-examples). 
+
+```
+    def get_shard_iterator(self, stream_name, shard_id, iterator_type="TRIM_HORIZON"):
+        """
+        Gets a shard iterator for reading data records from a shard.
+
+        :param stream_name: The name of the stream.
+        :param shard_id: The ID of the shard.
+        :param iterator_type: The shard iterator type (e.g., TRIM_HORIZON, LATEST).
+        :return: A shard iterator string.
+        """
+        try:
+            response = self.kinesis_client.get_shard_iterator(
+                StreamName=stream_name,
+                ShardId=shard_id,
+                ShardIteratorType=iterator_type,
+            )
+            shard_iterator = response.get("ShardIterator", None)
+            logger.info(
+                "Got shard iterator for shard '%s' of type '%s'.",
+                shard_id,
+                iterator_type,
+            )
+            return shard_iterator
+        except ClientError as err:
+            if err.response["Error"]["Code"] == "ResourceNotFoundException":
+                logger.error(
+                    "Stream '%s' or shard '%s' not found. Verify shard ID is correct.",
+                    stream_name,
+                    shard_id,
+                )
+            raise
+```
++  For API details, see [GetShardIterator](https://docs.aws.amazon.com/goto/boto3/kinesis-2013-12-02/GetShardIterator) in *AWS SDK for Python (Boto3) API Reference*. 
 
 ------
 

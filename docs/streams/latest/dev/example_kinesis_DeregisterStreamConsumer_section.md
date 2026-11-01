@@ -5,6 +5,9 @@
 
 The following code examples show how to use `DeregisterStreamConsumer`.
 
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_kinesis_Scenario_GettingStarted_section.md) 
+
 ------
 #### [ .NET ]
 
@@ -86,6 +89,31 @@ aws kinesis deregister-stream-consumer \
 This command produces no output.  
 For more information, see [Developing Consumers with Enhanced Fan-Out Using the Kinesis Data Streams API](https://docs.aws.amazon.com/streams/latest/dev/building-enhanced-consumers-api.html) in the *Amazon Kinesis Data Streams Developer Guide*.  
 +  For API details, see [DeregisterStreamConsumer](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesis/deregister-stream-consumer.html) in *AWS CLI Command Reference*. 
+
+------
+#### [ Python ]
+
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kinesis#code-examples). 
+
+```
+    def deregister_stream_consumer(self, consumer_arn):
+        """
+        Deregisters an enhanced fan-out consumer.
+
+        :param consumer_arn: The ARN of the consumer to deregister.
+        """
+        try:
+            self.kinesis_client.deregister_stream_consumer(ConsumerARN=consumer_arn)
+            logger.info("Deregistered consumer with ARN '%s'.", consumer_arn)
+        except ClientError as err:
+            if err.response["Error"]["Code"] == "ResourceNotFoundException":
+                logger.error(
+                    "Consumer not found. It may have already been deregistered."
+                )
+            raise
+```
++  For API details, see [DeregisterStreamConsumer](https://docs.aws.amazon.com/goto/boto3/kinesis-2013-12-02/DeregisterStreamConsumer) in *AWS SDK for Python (Boto3) API Reference*. 
 
 ------
 
