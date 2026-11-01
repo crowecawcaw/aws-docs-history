@@ -43,11 +43,41 @@ Required fields:
 + `reward_model.style` — set to `"rule"` for programmatic verification
 + `reward_model.ground_truth` — the correct answer for verification
 
+To implement your own Lambda-based reward function, see [RLVR - Custom Lambda](model-customize-open-weight-samples.md#model-customize-open-weight-samples-RLVR4). For the supported Lambda response envelopes, see [Sample Lambda Output Payload](model-customize-evaluation-preset-custom-scorers.md#model-customize-evaluation-custom-scorers-lambda-output).
+
+**Note**  
+If your Lambda reward function returns a malformed payload, RLVR jobs can fail with `InvalidLambdaResponseException`. Return exactly one of the supported response envelopes described in [Sample Lambda Output Payload](model-customize-evaluation-preset-custom-scorers.md#model-customize-evaluation-custom-scorers-lambda-output) and make sure each result includes a matching `id`.
+
 ### Preset reward functions
 <a name="rlvr-preset-reward-functions"></a>
 + `gsm8k` — Grade school math verification
 + `prime_code` — Code correctness verification
 + `prime_math` — Mathematical reasoning verification
+
+### Python SDK example
+<a name="rlvr-sdk-example"></a>
+
+Use `RLVRTrainer` for serverless RLVR customization jobs:
+
+```
+from sagemaker.train import RLVRTrainer
+
+trainer = RLVRTrainer(
+    model_id="meta-textgeneration-llama-3-1-8b-instruct",
+    train_data="s3://my-bucket/rlvr-train.jsonl",
+    hyperparameters={
+        "preset_reward_function": "gsm8k",
+        "learning_rate": 1e-5,
+        "max_epochs": 1,
+        "global_batch_size": 128,
+        "lora_rank": 16,
+    },
+)
+
+trainer.train()
+```
+
+To run RLVR with FFT, use the same dataset format and remove LoRA-specific hyperparameters such as `lora_rank` and `lora_alpha`.
 
 ### RLVR LoRA hyperparameters
 <a name="hyperparameters-rlvr-lora-rft"></a>
@@ -125,12 +155,42 @@ Required fields:
 ### Judge templates
 <a name="rlaif-judge-templates"></a>
 
-The following preset judge templates are provided in the training container. Select one using the `judge_prompt_template` hyperparameter.
-+ `cot.jinja` — Chain-of-thought evaluation
-+ `evaluate.jinja` — General quality evaluation
-+ `faithfulness.jinja` — Faithfulness to source material
-+ `summarize.jinja` — Summarization quality
-+ `grader.jinja` — Rubric-based grading
+The following preset judge templates are provided in the training container. Set `judge_prompt_template` to one of these values:
+
+
+| Value | Container path | Use case | Example | 
+| --- | --- | --- | --- | 
+| cot.jinja | /opt/ml/code/verl/cot.jinja | Chain-of-thought judging | [RLAIF - Chain of Thought](model-customize-open-weight-samples.md#model-customize-open-weight-samples-rlaif2) | 
+| evaluate.jinja | /opt/ml/code/verl/evaluate.jinja | General response comparison and scoring | [Reinforcement Learning from AI Feedback (RLAIF) - Pair-Wise Judging](model-customize-open-weight-samples.md#model-customize-open-weight-samples-rlaif) | 
+| faithfulness.jinja | /opt/ml/code/verl/faithfulness.jinja | Groundedness and source faithfulness | [RLAIF - Faithfulness](model-customize-open-weight-samples.md#model-customize-open-weight-samples-rlaif3) | 
+| summarize.jinja | /opt/ml/code/verl/summarize.jinja | Summarization quality | [RLAIF - Summarization](model-customize-open-weight-samples.md#model-customize-open-weight-samples-rlaif4) | 
+
+To replace a preset template with your own Jinja prompt, see [RLAIF - Custom Prompt](model-customize-open-weight-samples.md#model-customize-open-weight-samples-rlaif5).
+
+### Python SDK example
+<a name="rlaif-sdk-example"></a>
+
+Use `RLAIFTrainer` for serverless RLAIF customization jobs:
+
+```
+from sagemaker.train import RLAIFTrainer
+
+trainer = RLAIFTrainer(
+    model_id="meta-textgeneration-llama-3-1-8b-instruct",
+    train_data="s3://my-bucket/rlaif-train.jsonl",
+    hyperparameters={
+        "judge_prompt_template": "evaluate.jinja",
+        "learning_rate": 1e-5,
+        "max_epochs": 1,
+        "global_batch_size": 128,
+        "lora_rank": 16,
+    },
+)
+
+trainer.train()
+```
+
+To run RLAIF with FFT, use the same dataset format and remove LoRA-specific hyperparameters such as `lora_rank` and `lora_alpha`.
 
 ### RLAIF LoRA hyperparameters
 <a name="hyperparameters-rlaif-lora-rft"></a>
@@ -140,7 +200,7 @@ Same parameters as RLVR LoRA with the following difference:
 
 | Parameter | Type | Required? | Range / Values | Description | 
 | --- | --- | --- | --- | --- | 
-| judge\_prompt\_template | string | Optional | cot.jinja, evaluate.jinja, faithfulness.jinja, summarize.jinja, grader.jinja | Template for LLM judge evaluation. Replaces preset\_reward\_function. | 
+| judge\_prompt\_template | string | Optional | cot.jinja, evaluate.jinja, faithfulness.jinja, summarize.jinja | Template for LLM judge evaluation. Replaces preset\_reward\_function. For the corresponding container paths and example prompts, see [Judge templates](#rlaif-judge-templates). | 
 
 ### RLAIF FFT hyperparameters
 <a name="hyperparameters-rlaif-fft-rft"></a>

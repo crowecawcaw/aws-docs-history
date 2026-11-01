@@ -89,7 +89,7 @@ Read it directly as a `.json` from the AWS S3 location or visualized automatical
 ![Sample performance metrics for custom gen-qa benchmark visualized in SageMaker Studio.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/gen-qa-metrics-visualization-sagemaker-studio.png)
 
 
-## MLFlow logging
+## MLflow logging
 <a name="model-customize-evaluation-metrics-mlflow"></a>
 
 **Provide your SageMaker MLFlow resource ARN**
@@ -97,6 +97,8 @@ Read it directly as a `.json` from the AWS S3 location or visualized automatical
 SageMaker Studio uses the default MLFlow app that gets provisioned on each Studio domain when you use the model customization capability for the first time. SageMaker Studio uses the default MLflow app associated ARN in evaluation job submission.
 
 You can also submit your evaluation job and explicitly provide an MLFlow Resource ARN to stream metrics to said associated tracking server/app for real time analysis.
+
+For more information about working with managed MLflow on SageMaker AI, see [Accelerate generative AI development using managed MLflow on Amazon SageMaker AI](mlflow.md), [Set up IAM permissions for MLflow](mlflow-create-tracking-server-iam.md), and [Set up IAM permissions for MLflow Apps](mlflow-app-setup-prerequisites-iam.md).
 
 **SageMaker Python SDK**
 

@@ -45,6 +45,8 @@ The inference component decouples the details of hosting the model from the endp
 **Scalability**  
 You can specify how many copies of each model to host, and you can set a minimum number of copies to ensure that the model loads in the quantity that you require to serve requests. You can scale any inference component copy down to zero, which makes room for another copy to scale up. 
 
+To run several inference components on one GPU, each in its own partition, see [Deploy models to GPU partitions with inference components](inference-components-accelerator-partitioning-deploy.md).
+
 SageMaker AI packages your models as inference components when you deploy them by using:
 + SageMaker Studio Classic.
 + The SageMaker Python SDK to deploy a Model object (where you set the endpoint type to `EndpointType.INFERENCE_COMPONENT_BASED`).

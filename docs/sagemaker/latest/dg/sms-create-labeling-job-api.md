@@ -71,16 +71,9 @@ To use the `CreateLabelingJob` operation, you need the following:
 + A pre-annotation and post-annotation (or annotation-consolidation) AWS Lambda function Amazon Resource Name (ARN) to process your input and output data. 
   + Lambda functions are predefined in each AWS Region for built-in task types. To find the pre-annotation Lambda ARN for your Region, see [PreHumanTaskLambdaArn](https://docs.aws.amazon.com/sagemaker/latest/dg/API_HumanTaskConfig.html#SageMaker-Type-HumanTaskConfig-PreHumanTaskLambdaArn). To find the annotation-consolidation Lambda ARN for your Region, see [AnnotationConsolidationLambdaArn](https://docs.aws.amazon.com/sagemaker/latest/dg/API_AnnotationConsolidationConfig.html#SageMaker-Type-AnnotationConsolidationConfig-AnnotationConsolidationLambdaArn). 
   + For custom labeling workflows, you must provide a custom pre- and post-annotation Lambda ARN. To learn how to create these Lambda functions, see [Processing data in a custom labeling workflow with AWS Lambda](sms-custom-templates-step3.md).
-+ A work team ARN that you specify in `WorkteamArn`. You receive a work team ARN when you subscribe to a vendor workforce or create a private workteam. If you are creating a labeling job for a video frame or point cloud task type, you cannot use the Amazon Mechanical Turk workforce. For all other task types, to use the Mechanical Turk workforce, use the following ARN. Replace {{`region`}} with the AWS Region you are using to create the labeling job.
-
-  ` arn:aws:sagemaker:{{region}}:394669845002:workteam/public-crowd/default`
-
-  If you use the [Amazon Mechanical Turk workforce](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html), use the `ContentClassifiers` parameter in `DataAttributes` of `InputConfig` to declare that your content is free of personally identifiable information and adult content. 
-
-  Ground Truth *requires* that your input data is free of personally identifiable information (PII) if you use the Mechanical Turk workforce. If you use Mechanical Turk and do not specify that your input data is free of PII using the `FreeOfPersonallyIdentifiableInformation` flag, your labeling job will fail. Use the `FreeOfAdultContent` flag to declare that your input data is free of adult content. SageMaker AI may restrict the Amazon Mechanical Turk workers that can view your task if it contains adult content. 
++ A work team ARN that you specify in `WorkteamArn`. You receive a work team ARN when you subscribe to a vendor workforce or create a private work team.
 
   To learn more about work teams and workforces, see [Workforces](sms-workforce-management.md). 
-+ If you use the Mechanical Turk workforce, you must specify the price you'll pay workers for performing a single task in `PublicWorkforceTaskPrice`.
 + To configure the task, you must provide a task description and title using `TaskDescription` and `TaskTitle` respectively. Optionally, you can provide time limits that control how long the workers have to work on an individual task (`TaskTimeLimitInSeconds`) and how long tasks remain in the worker portal, available to workers (`TaskAvailabilityLifetimeInSeconds`).
 + (Optional) For [some task types](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html), you can have multiple workers label a single data object by inputting a number greater than one for the `NumberOfHumanWorkersPerDataObject` parameter. For more information about annotation consolidation, see [Annotation consolidation](sms-annotation-consolidation.md).
 + (Optional) To create an automated data labeling job, specify one of the ARNs listed in [LabelingJobAlgorithmSpecificationArn](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_LabelingJobAlgorithmsConfig.html) in `LabelingJobAlgorithmsConfig`. This ARN identifies the algorithm used in the automated data labeling job. The task type associated with this ARN must match the task type of the `PreHumanTaskLambdaArn` and `AnnotationConsolidationLambdaArn` you specify. Automated data labeling is supported for the following task types: image classification, bounding box, semantic segmentation, and text classification. The minimum number of objects allowed for automated data labeling is 1,250, and we strongly suggest providing a minimum of 5,000 objects. To learn more about automated data labeling jobs, see [Automate data labeling](sms-automated-labeling.md).
@@ -154,7 +147,7 @@ response = client.create_labeling_job(
 ------
 #### [ AWS CLI ]
 
-The following is an example of an AWS CLI request to create a labeling job for a built-in task type in the US East (N. Virginia) Region using the [Amazon Mechanical Turk workforce](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html). For more information, see [start-human-loop](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/create-labeling-job.html) in the *[AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/)*. Replace all {{red-italized text}} with your labeling job resources and specifications. 
+The following is an example of an AWS CLI request to create a labeling job for a built-in task type in the US East (N. Virginia) Region. For more information, see [start-human-loop](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/create-labeling-job.html) in the *[AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/)*. Replace all {{red-italized text}} with your labeling job resources and specifications. 
 
 ```
 $ aws --region us-east-1 sagemaker create-labeling-job \
@@ -186,17 +179,10 @@ $ aws --region us-east-1 sagemaker create-labeling-job \
         "TaskTimeLimitInSeconds": {{3600}},
         "NumberOfHumanWorkersPerDataObject": {{1}},
         "PreHumanTaskLambdaArn":  "arn:aws:lambda:{{us-east-1:432418664414}}:function:PRE-{{tasktype}}",
-        "WorkteamArn": {{"arn:aws:sagemaker:us-east-1:394669845002:workteam/public-crowd/default"}},
-        "PublicWorkforceTaskPrice": {
-            "AmountInUsd": {
-                "Dollars": {{0}},
-                "TenthFractionsOfACent": {{6}},
-                "Cents": {{3
-}}            }
-        },
+        "WorkteamArn": {{"arn:aws:sagemaker:us-east-1:111122223333:workteam/private-crowd/my-work-team"}},
         "TaskDescription": {{"Select all labels that apply to the images shown"}},
         "MaxConcurrentTaskCount": {{1000}},
-        "TaskTitle": {{"Multi-label image classification task"}},,
+        "TaskTitle": {{"Multi-label image classification task"}},
         "TaskKeywords": [
             "{{Images}}",
             "{{Classification}}",

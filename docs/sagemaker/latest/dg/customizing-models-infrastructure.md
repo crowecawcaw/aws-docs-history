@@ -19,7 +19,7 @@ Amazon SageMaker AI offers three infrastructure options for model customization.
   - **Best for:** Custom instance configs, advanced distributed setups
 
 - **[HyperPod](customizing-models-hyperpod.md)**
-  - **What it is:** Persistent clusters with automatic fault detection and recovery. Clusters remain available across jobs.
+  - **What it is:** Persistent clusters with advanced fault detection and recovery. Clusters remain available across jobs.
   - **Interfaces:** Recipes, HP-CLI
   - **Best for:** Large-scale training, long-running jobs, multi-job workflows
 

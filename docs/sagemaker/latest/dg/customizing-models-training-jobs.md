@@ -25,8 +25,8 @@ Python SDK V3 (ModelTrainer)
 Use the `ModelTrainer` class from the SageMaker AI Python SDK to submit training jobs programmatically with full control over instance selection and configuration.  
 
 ```
-from sagemaker.modules.train import ModelTrainer
-from sagemaker.modules.configs import Compute, InputData
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import Compute, InputData
 
 trainer = ModelTrainer(
     training_image="my-training-image",

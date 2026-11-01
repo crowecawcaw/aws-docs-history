@@ -17,7 +17,7 @@ The prompt stereotyping evaluation is supported for the following task types wit
 
 |  Task type  |  Built-in datasets  |  Notes  | 
 | --- | --- | --- | 
-|  Open-ended generation  | [CrowS-Pairs](https://github.com/nyu-mll/crows-pairs) |  +   This dataset only supports the English language. To run this evaluation in any other language, you must upload your own dataset.  <br />+  The CrowS dataset has been found to be noisy as a result of being crowd-sourced. Some sentence pairs are low-quality or invalid. <br />+  CrowS measures stereotypes typical in the United States of America. Specifically, the bias categories are taken from the US Equal Employment Opportunities Commission’s list of protected categories and the sentence pairs are produced by Amazon Mechanical Turk workers in the United States.   | 
+|  Open-ended generation  | [CrowS-Pairs](https://github.com/nyu-mll/crows-pairs) |  +   This dataset only supports the English language. To run this evaluation in any other language, you must upload your own dataset.  <br />+  The CrowS dataset has been found to be noisy as a result of being crowd-sourced. Some sentence pairs are low-quality or invalid. <br />+  CrowS measures stereotypes typical in the United States of America. Specifically, the bias categories are taken from the US Equal Employment Opportunities Commission’s list of protected categories and the sentence pairs are produced by workers in the United States.   | 
 
 ## Computed values
 <a name="clarify-prompt-stereotyping-evaluation-values"></a>

@@ -67,6 +67,9 @@ When creating the app IAM service role, use the following IAM trust policy:
 
 ------
 
+**Important**  
+Amazon SageMaker AI uses the MLflow App IAM service role for as long as the app exists, not only at creation time. Don't delete this role or remove `sagemaker.amazonaws.com` from its trust policy while the app is in use. If you do, requests to the app fail with `PERMISSION_DENIED`.
+
 In the IAM console, add the following permissions policy to your app service role:
 
 ------

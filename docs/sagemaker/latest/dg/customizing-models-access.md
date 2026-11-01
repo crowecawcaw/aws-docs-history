@@ -54,7 +54,7 @@ Programmatic access for serverless and SageMaker AI Training Jobs workflows usin
 Use technique-specific trainer classes for fully managed customization:
 
 ```
-from sagemaker.modules.train import SFTTrainer, DPOTrainer, RLVRTrainer, RLAIFTrainer
+from sagemaker.train import SFTTrainer, DPOTrainer, RLVRTrainer, RLAIFTrainer
 
 # Example: Serverless SFT
 trainer = SFTTrainer(
@@ -75,8 +75,8 @@ trainer.train()
 Use `ModelTrainer` for full control over instance selection:
 
 ```
-from sagemaker.modules.train import ModelTrainer
-from sagemaker.modules.configs import Compute, InputData
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import Compute, InputData
 
 trainer = ModelTrainer(
     training_image="my-training-image",

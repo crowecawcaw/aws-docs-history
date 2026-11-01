@@ -205,6 +205,9 @@ The following notes apply to both response envelopes:
 + `metrics_list` is optional; when present, each entry must include `name`, `value`, and `type` (`"Reward"` or `"Metric"`).
 + Each result's `id` must match the input sample's `id`.
 
+**Note**  
+If your Lambda returns a payload that does not match one of these two envelopes, SageMaker AI cannot parse the reward response. In RFT workflows this commonly surfaces as `InvalidLambdaResponseException`. Common causes include returning a JSON object instead of a JSON string in `body`, omitting the sample `id`, returning a different number of results than inputs, or using unsupported field names in `metrics_list`.
+
 ### Custom Lambda Definition
 <a name="model-customize-evaluation-custom-scorers-lambda-definition"></a>
 

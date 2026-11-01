@@ -6,7 +6,7 @@
 **Note**  
 Amazon SageMaker Ground Truth is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Ground Truth, but we do not plan to introduce new features.
 
-To get started using Amazon SageMaker Ground Truth, follow the instructions in the following sections. The sections here explain how to use the console to create a bounding box labeling job, assign a public or private workforce, and send the labeling job to your workforce. You can also learn how to monitor the progress of a labeling job.
+To get started using Amazon SageMaker Ground Truth, follow the instructions in the following sections. The sections here explain how to use the console to create a bounding box labeling job, assign a private workforce, and send the labeling job to your workforce. You can also learn how to monitor the progress of a labeling job.
 
 This video shows you how to setup and use Amazon SageMaker Ground Truth. (Length: 9:37)
 
@@ -99,10 +99,10 @@ In this step you use the console to create a labeling job. You tell Amazon SageM
 ## Select Workers
 <a name="sms-getting-started-step3"></a>
 
-In this step you choose a workforce for labeling your dataset. It is recommended that you create a private workforce to test Amazon SageMaker Ground Truth. Use email addresses to invite the members of your workforce. If you create a private workforce in this step you won't be able to import your Amazon Cognito user pool later. If you want to create a private workforce using an Amazon Cognito user pool, see [Manage a Private Workforce (Amazon Cognito)](sms-workforce-management-private.md) and use the Mechanical Turk workforce instead in this tutorial.
+In this step you choose a workforce for labeling your dataset. It is recommended that you create a private workforce to test Amazon SageMaker Ground Truth. Use email addresses to invite the members of your workforce. If you create a private workforce in this step you won't be able to import your Amazon Cognito user pool later. If you want to create a private workforce using an Amazon Cognito user pool, see [Manage a Private Workforce (Amazon Cognito)](sms-workforce-management-private.md).
 
 **Tip**  
-To learn about the other workforce options you can use with Ground Truth, see [Workforces](sms-workforce-management.md). 
+If a private workforce doesn't meet your needs, you can also use a vendor-managed workforce. For more information about workforce options for Ground Truth, see [Workforces](sms-workforce-management.md). 
 
 **To create a private workforce:**
 
@@ -121,20 +121,6 @@ If you add yourself to the private workforce, you will receive an email that loo
 
 **Tip**  
 You can find the link to your private workforce's worker portal in the **Labeling workforces** section of the Ground Truth area of the SageMaker AI console. To see the link, select the **Private** tab. The link is under the **Labeling portal sign-in URL** header in **Private workforce summary**.
-
-If you choose to use the Amazon Mechanical Turk workforce to label the dataset, you are charged for labeling tasks completed on the dataset.
-
-**To use the Amazon Mechanical Turk workforce:**
-
-1. In the **Workers** section, choose **Public**.
-
-1. Set a **Price per task**.
-
-1. If applicable, choose **The dataset does not contain adult content** to acknowledge that the sample dataset has no adult content. This information enables Amazon SageMaker Ground Truth to warn external workers on Mechanical Turk that they might encounter potentially offensive content in your dataset.
-
-1. Choose the check box next to the following statement to acknowledge that the sample dataset does not contain any personally identifiable information (PII). This is a requirement to use Mechanical Turk with Ground Truth. If your input data does contain PII, use the private workforce for this tutorial. 
-
-   **You understand and agree that the Amazon Mechanical Turk workforce consists of independent contractors located worldwide and that you should not share confidential information, personal information or protected health information with this workforce.**
 
 ## Configure the Bounding Box Tool
 <a name="sms-getting-started-step4"></a>

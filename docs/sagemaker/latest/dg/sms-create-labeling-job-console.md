@@ -18,9 +18,7 @@ You need to provide the following to create a labeling job in the SageMaker AI c
   For more granular policies, see [Assign IAM Permissions to Use Ground Truth](sms-security-permission.md). 
 
   3D point cloud task types have additional security considerations. [Learn more](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud-general-information.html#sms-security-permission-3d-point-cloud). 
-+ A work team. You create a work team from a workforce made up of Amazon Mechanical Turk workers, vendors, or your own private workers.To lean more, see [Workforces](sms-workforce-management.md).
-
-  You cannot use the Mechanical Turk workforce for 3D point cloud or video frame labeling jobs. 
++ A work team. You create a work team from a private workforce or a vendor-managed workforce. For more information, see [Workforces](sms-workforce-management.md).
 + If you are using a custom labeling workflow, you must save a worker task template in Amazon S3 and provide an Amazon S3 URI for that template. For more information, see [Creating a custom worker task template](sms-custom-templates-step2.md).
 + (Optional) An AWS KMS key ARN if you want SageMaker AI to encrypt the output of your labeling job using your own AWS KMS encryption key instead of the default Amazon S3 service key.
 + (Optional) Existing labels for the dataset you use for your labeling job. Use this option if you want workers to adjust, or approve and reject labels.

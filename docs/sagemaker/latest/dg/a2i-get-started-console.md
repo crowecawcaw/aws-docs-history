@@ -146,7 +146,7 @@ Select your task type in the following table to see example requests for Amazon 
 ------
 #### [ Amazon Textract – Key-value pair extraction ]
 
-The following example uses the AWS SDK for Python (Boto3) to call `analyze_document` in us-west-2. Replace the italicized red text with your resources. Include the [`DataAttributes`](https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/API_HumanLoopDataAttributes.html) parameter if you are using the Amazon Mechanical Turk workforce. For more information, see the `[analyze\_document](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/textract.html#Textract.Client.analyze_document)` documention in the *AWS SDK for Python (Boto) API Reference*.
+The following example uses the AWS SDK for Python (Boto3) to call `analyze_document` in us-west-2. Replace the italicized red text with your resources. For more information, see the `[analyze\_document](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/textract.html#Textract.Client.analyze_document)` documention in the *AWS SDK for Python (Boto) API Reference*.
 
 ```
    response = client.analyze_document(
@@ -169,7 +169,7 @@ The following example uses the AWS SDK for Python (Boto3) to call `analyze_docum
 ------
 #### [ Amazon Rekognition – Image moderation ]
 
-The following example uses the AWS SDK for Python (Boto3) to call `detect_moderation_labels` in us-west-2. Replace the italicized red text with your resources. Include the [`DataAttributes`](https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/API_HumanLoopDataAttributes.html) parameter if you are using the Amazon Mechanical Turk workforce. For more information, see the `[detect\_moderation\_labels](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rekognition.html#Rekognition.Client.detect_moderation_labels)` documentation in the *AWS SDK for Python (Boto) API Reference*.
+The following example uses the AWS SDK for Python (Boto3) to call `detect_moderation_labels` in us-west-2. Replace the italicized red text with your resources. For more information, see the `[detect\_moderation\_labels](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rekognition.html#Rekognition.Client.detect_moderation_labels)` documentation in the *AWS SDK for Python (Boto) API Reference*.
 
 ```
    response = client.detect_moderation_labels(

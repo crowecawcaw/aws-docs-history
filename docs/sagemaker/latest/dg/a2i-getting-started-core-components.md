@@ -61,7 +61,7 @@ A *work team* is a group of human workers to whom you send your human review tas
 
 When you create a human review workflow, you specify a single work team. 
 
-Your work team can come from the [Amazon Mechanical Turk workforce](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html), a [vendor-managed workforce](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-vendor.html), or your own [private workforce](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-private.html). When you use the private workforce, you can create multiple work teams. Each work team can be used in multiple human review workflows. To learn how to create a workforce and work teams, see [Workforces](sms-workforce-management.md).
+Your work team can come from a [vendor-managed workforce](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-vendor.html) or your own [private workforce](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-private.html). When you use the private workforce, you can create multiple work teams. Each work team can be used in multiple human review workflows. To learn how to create a workforce and work teams, see [Workforces](sms-workforce-management.md).
 
 **Worker Task Template and Human Task UI**  
 You use a *worker task template* to create a worker UI (a *human task UI*) for your human review tasks.

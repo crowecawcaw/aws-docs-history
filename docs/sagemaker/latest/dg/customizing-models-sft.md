@@ -52,6 +52,30 @@ Provide the input and expected output as separate fields, with an optional top-l
 **Note**  
 The `system` message is optional. Ensure diversity in prompts and response styles.
 
+## Python SDK example
+<a name="customizing-models-sft-sdk-example"></a>
+
+Use `SFTTrainer` for serverless SFT customization jobs:
+
+```
+from sagemaker.train import SFTTrainer
+
+trainer = SFTTrainer(
+    model_id="meta-textgeneration-llama-3-1-8b-instruct",
+    train_data="s3://my-bucket/sft-train.jsonl",
+    hyperparameters={
+        "max_epochs": 3,
+        "learning_rate": 5e-5,
+        "global_batch_size": 32,
+        "lora_rank": 16,
+    },
+)
+
+trainer.train()
+```
+
+To run FFT instead of LoRA, use the same dataset format and remove LoRA-specific hyperparameters such as `lora_rank`, `lora_alpha`, and `lora_dropout`.
+
 ## Hyperparameters
 <a name="customizing-models-sft-hyperparameters"></a>
 

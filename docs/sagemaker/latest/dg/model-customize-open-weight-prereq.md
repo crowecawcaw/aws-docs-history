@@ -540,6 +540,11 @@ If you prefer to manage permissions manually, create an inline policy with the f
 }
 ```
 
+If you use MLflow tracking during customization or evaluation, see [Set up IAM permissions for MLflow](mlflow-create-tracking-server-iam.md) for MLflow Tracking Server permissions and [Set up IAM permissions for MLflow Apps](mlflow-app-setup-prerequisites-iam.md) for MLflow App permissions and setup guidance.
+
+**Important**  
+The MLflow App IAM service role must remain valid for the lifetime of the MLflow App. SageMaker AI assumes this role not only when you create the app, but also whenever a customization job, evaluation job, or other client logs runs, experiments, or models to the app. Don't delete this role or remove `sagemaker.amazonaws.com` from its trust policy while the app is in use, or MLflow operations through the app fail.
+
 ## Roles for Lambda and Bedrock
 <a name="model-customize-open-weight-roles"></a>
 

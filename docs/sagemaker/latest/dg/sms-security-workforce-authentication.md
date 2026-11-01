@@ -16,14 +16,14 @@ You can also restrict workers to a Classless Inter-Domain Routing (CIDR) block/I
 
 To learn how you can create a private workforce, see [Create a Private Workforce (Amazon Cognito)](sms-workforce-create-private.md).
 
-## Restrict Access to Workforce Types
+## Restrict access to workforce types
 <a name="sms-security-permission-condition-keys"></a>
 
-Amazon SageMaker Ground Truth work teams fall into one of three [workforce types](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management.html): public (with Amazon Mechanical Turk), private, and vendor. To restrict user access to a specific work team using one of these types or the work team ARN, use the `sagemaker:WorkteamType` and/or the `sagemaker:WorkteamArn` condition keys. For the `sagemaker:WorkteamType` condition key, use [string condition operators](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html#Conditions_String). For the `sagemaker:WorkteamArn` condition key, use [Amazon Resource Name (ARN) condition operators](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html#Conditions_ARN). If the user attempts to create a labeling job with a restricted work team, SageMaker AI returns an access denied error. 
+Amazon SageMaker Ground Truth work teams fall into one of two [workforce types](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management.html): private and vendor. To restrict user access to a specific work team using one of these types or the work team ARN, use the `sagemaker:WorkteamType` and/or the `sagemaker:WorkteamArn` condition keys. For the `sagemaker:WorkteamType` condition key, use [string condition operators](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html#Conditions_String). For the `sagemaker:WorkteamArn` condition key, use [Amazon Resource Name (ARN) condition operators](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html#Conditions_ARN). If the user attempts to create a labeling job with a restricted work team, SageMaker AI returns an access denied error. 
 
 The policies below demonstrate different ways to use the `sagemaker:WorkteamType` and `sagemaker:WorkteamArn` condition keys with appropriate condition operators and valid condition values. 
 
-The following example uses the `sagemaker:WorkteamType` condition key with the `StringEquals` condition operator to restrict access to a public work team. It accepts condition values in the following format: `{{workforcetype}}-crowd`, where {{workforcetype}} can equal `public`, `private`, or `vendor`.
+The following example uses the `sagemaker:WorkteamType` condition key with the `StringEquals` condition operator to restrict access to a work team. It accepts condition values in the following format: `{{workforcetype}}-crowd`, where {{workforcetype}} can equal `private` or `vendor`.
 
 ------
 #### [ JSON ]
@@ -41,7 +41,7 @@ The following example uses the `sagemaker:WorkteamType` condition key with the `
             "Resource": "*",
             "Condition": {
                 "StringEquals": {
-                    "sagemaker:WorkteamType": "{{public}}-crowd"
+                    "sagemaker:WorkteamType": "{{private}}-crowd"
                 }
             }
         }
@@ -51,7 +51,7 @@ The following example uses the `sagemaker:WorkteamType` condition key with the `
 
 ------
 
-The following policies show how to restrict access to a public work team using the `sagemaker:WorkteamArn` condition key. The first shows how to use it with a valid IAM regex-variant of the work team ARN and the `ArnLike` condition operator. The second shows how to use it with the `ArnEquals` condition operator and the work team ARN.
+The following policies show how to restrict access to a work team using the `sagemaker:WorkteamArn` condition key. The first shows how to use it with a valid IAM regex-variant of the work team ARN and the `ArnLike` condition operator. The second shows how to use it with the `ArnEquals` condition operator and the work team ARN.
 
 ------
 #### [ JSON ]
@@ -69,7 +69,7 @@ The following policies show how to restrict access to a public work team using t
             "Resource": "*",
             "Condition": {
                 "ArnLike": {
-                    "sagemaker:WorkteamArn": "arn:aws:sagemaker:*:*:workteam/public-crowd/*"
+                    "sagemaker:WorkteamArn": "arn:aws:sagemaker:*:*:workteam/private-crowd/*"
                 }
             }
         }
@@ -95,7 +95,7 @@ The following policies show how to restrict access to a public work team using t
             "Resource": "*",
             "Condition": {
                 "ArnEquals": {
-                    "sagemaker:WorkteamArn": "{{arn:aws:sagemaker:us-west-2:394669845002:workteam/public-crowd/default}}"
+                    "sagemaker:WorkteamArn": "arn:aws:sagemaker:{{us-east-1}}:{{123456789012}}:workteam/private-crowd/{{private-workteam-name}}"
                 }
             }
         }

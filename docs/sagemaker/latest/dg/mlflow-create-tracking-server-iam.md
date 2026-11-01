@@ -69,6 +69,9 @@ When creating the tracking server IAM service role, use the following IAM trust 
 
 ------
 
+**Important**  
+Amazon SageMaker AI uses the MLflow Tracking Server IAM service role for as long as the tracking server exists, not only at creation time. Don't delete this role or remove `sagemaker.amazonaws.com` from its trust policy while the tracking server is in use. If you do, requests to the tracking server fail with `PERMISSION_DENIED`.
+
 In the IAM console, add the following permissions policy to your tracking server service role:
 
 ------

@@ -124,7 +124,7 @@ For an overview of the `CreateFlowDefinition` operation, and details about each 
 ------
 #### [ Amazon Textract – Key-value pair extraction ]
 
-The following is an example of a request to create an Amazon Textract human review workflow (flow definition) using the AWS SDK for Python (Boto3). You must use `'AWS/Textract/AnalyzeDocument/Forms/V1'` to create a Amazon Textract human loop. Only include `PublicWorkforceTaskPrice` if you are using the Mechanical Turk workforce.
+The following is an example of a request to create an Amazon Textract human review workflow (flow definition) using the AWS SDK for Python (Boto3). You must use `'AWS/Textract/AnalyzeDocument/Forms/V1'` to create a Amazon Textract human loop.
 
 ```
 sagemaker_client = boto3.client('sagemaker', {{aws_region}})
@@ -149,14 +149,7 @@ response = sagemaker_client.create_flow_definition(
         'TaskTimeLimitInSeconds': {{123}},
         'TaskKeywords': [
             'Keyword1','Keyword2'
-        ],
-        'PublicWorkforceTaskPrice': {
-            'AmountInUsd': {
-                'Dollars': {{123}},
-                'Cents': {{123}},
-                'TenthFractionsOfACent': {{123}}
-            }
-        }
+        ]
     },
     OutputConfig={
         'S3OutputPath': 's3://{{bucket/path/}}',
@@ -175,7 +168,7 @@ response = sagemaker_client.create_flow_definition(
 ------
 #### [ Amazon Rekognition – Image moderation ]
 
-The following is an example of a request to create an Amazon Rekognition human review workflow (flow definition) using the AWS SDK for Python (Boto3). You must use `'AWS/Rekognition/DetectModerationLabels/Image/V3'` to create an Amazon Rekognition flow definition. Only include `PublicWorkforceTaskPrice` if you are using the Mechanical Turk workforce.
+The following is an example of a request to create an Amazon Rekognition human review workflow (flow definition) using the AWS SDK for Python (Boto3). You must use `'AWS/Rekognition/DetectModerationLabels/Image/V3'` to create an Amazon Rekognition flow definition.
 
 ```
 sagemaker_client = boto3.client('sagemaker', {{aws_region}})
@@ -200,14 +193,7 @@ response = sagemaker_client.create_flow_definition(
         'TaskTimeLimitInSeconds': {{123}},
         'TaskKeywords': [
             'Keyword1','Keyword2'
-        ],
-        'PublicWorkforceTaskPrice': {
-            'AmountInUsd': {
-                'Dollars': {{123}},
-                'Cents': {{123}},
-                'TenthFractionsOfACent': {{123}}
-            }
-        }
+        ]
     },
     OutputConfig={
         'S3OutputPath': 's3://{{bucket/path/}}',
@@ -226,7 +212,7 @@ response = sagemaker_client.create_flow_definition(
 ------
 #### [ Custom Workflow ]
 
-The following is an example of a request to create a human review workflow (flow definition) for a custom integration. To create this type of human review workflow, omit `HumanLoopRequestSource` from the flow definition request. You only need to include `PublicWorkforceTaskPrice` if you are using the Mechanical Turk workforce.
+The following is an example of a request to create a human review workflow (flow definition) for a custom integration. To create this type of human review workflow, omit `HumanLoopRequestSource` from the flow definition request.
 
 ```
 sagemaker_client = boto3.client('sagemaker', {{aws_region}})
@@ -248,14 +234,7 @@ response = sagemaker_client.create_flow_definition(
         'TaskTimeLimitInSeconds': {{123}},
         'TaskKeywords': [
             'Keyword1','Keyword2'
-        ],
-        'PublicWorkforceTaskPrice': {
-            'AmountInUsd': {
-                'Dollars': {{123}},
-                'Cents': {{123}},
-                'TenthFractionsOfACent': {{123}}
-            }
-        }
+        ]
     },
     OutputConfig={
         'S3OutputPath': 's3://{{bucket/path/}}',

@@ -21,3 +21,14 @@
 + Not compatible with [continuous customization](customizing-models-continuous.md) 
 
 For the full parameter reference including FFT-specific hyperparameters, see each technique page: [SFT](customizing-models-sft.md), [DPO](customizing-models-dpo.md), [RFT](customizing-models-rft.md).
+
+## Dataset compatibility
+<a name="fft-dataset-compatibility"></a>
+
+FFT uses the same dataset formats as LoRA for each customization technique. You do not need a separate dataset schema when you switch from LoRA to FFT.
++ SFT FFT uses the same dataset formats described in [Dataset format](customizing-models-sft.md#customizing-models-sft-dataset).
++ DPO FFT uses the same dataset formats described in [Dataset format](customizing-models-dpo.md#customizing-models-dpo-dataset).
++ RLVR FFT uses the same dataset format described in [Dataset format](customizing-models-rft.md#rlvr-dataset-format).
++ RLAIF FFT uses the same dataset format described in [Dataset format](customizing-models-rft.md#rlaif-dataset-format).
+
+The main difference between LoRA and FFT is how weights are updated and which hyperparameters are available, not how you structure your training data.

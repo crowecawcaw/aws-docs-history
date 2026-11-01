@@ -10,16 +10,19 @@
 + Minor versions: 6 months after next minor release
 + Patch versions: No guaranteed support (upgrade to latest patch)
 
-Below are the release notes for Base Deep Learning Containers for Amazon EKS (EKS) and SageMaker AI training jobs (SMTJ):
+The following table summarizes the distinct container images used by model family for SageMaker AI training jobs and HyperPod recipes. LoRA and full fine-tuning recipes use the same container image unless otherwise noted.
 
 
 
-| Version | Type | Service | Image URL | 
-| --- | --- | --- | --- | 
-| 1.0.0 | CUDA | EKS | `652744875666.dkr.ecr.amazonaws.com/hyperpod-model-customization:verl-eks-v1.0.0` | 
-| 1.0.0 | CUDA | SMTJ | `652744875666.dkr.ecr.amazonaws.com/hyperpod-model-customization:verl-smtj-v1.0.0` | 
-| 1.0.0 | CUDA | SMJT | `652744875666.dkr.ecr.amazonaws.com/hyperpod-model-customization:v1-v1.0.0` | 
-| 1.0.0 | CUDA | SMTJ | `652744875666.dkr.ecr.amazonaws.com/hyperpod-model-customization:llama-90b-v1.0.0` | 
+| Model family | Distinct container images | Notes | 
+| --- | --- | --- | 
+| Llama | `hyperpod-recipes:llmft-v1.0.0`; `hyperpod-recipes:verl-v1.0.0-eks`; `hyperpod-recipes:verl-v1.0.0-smtj`; `hyperpod-recipes-verl-0-7-0:verl-v1.1.4-smtj`; `hyperpod-checkpointless-training:v1.0.0`; `sagemaker-evaluation:latest` | Covers standard SFT and DPO, GRPO-based recipes, VERL 0.7 recipes, checkpointless training, and open-source evaluation. | 
+| Qwen | `hyperpod-recipes:llmft-v1.0.0`; `hyperpod-recipes:verl-v1.0.0-eks`; `hyperpod-recipes:verl-v1.0.0-smtj`; `hyperpod-recipes-verl-0-7-0:verl-v1.1.4-smtj`; `mtrl-recipes:rft-trainer-v1.0.0`; `sagemaker-evaluation:latest` | Includes shared open-weight training images and service-only MTRL workflows. | 
+| DeepSeek | `hyperpod-recipes:llmft-v1.0.0`; `hyperpod-recipes:verl-v1.0.0-eks`; `hyperpod-recipes:verl-v1.0.0-smtj`; `sagemaker-evaluation:latest` | Uses the shared open-weight training and evaluation images. | 
+| GPT-OSS | `hyperpod-recipes:llmft-v1.0.0`; `hyperpod-recipes:verl-v1.0.0-eks`; `hyperpod-recipes:verl-v1.0.0-smtj`; `hyperpod-recipes-verl-0-7-0:verl-v1.1.4-smtj`; `hyperpod-checkpointless-training:v1.0.0`; `mtrl-recipes:rft-trainer-v1.0.0`; `sagemaker-evaluation:latest` | Includes checkpointless training and service-only MTRL workflows. | 
+| Gemma | `hyperpod-recipes-verl-0-7-0:verl-v1.1.4-smtj-tf58`; `mtrl-recipes:rft-trainer-v1.0.0`; `sagemaker-evaluation:latest` | Uses a Gemma-specific VERL image track. | 
+| Nemotron | `hyperpod-recipes-verl-0-7-0:verl-v1.1.0-smtj-vllm012`; `hyperpod-recipes-verl-0-7-0:verl-v1.1.2-smtj-megatron`; `sagemaker-evaluation:latest` | Uses Nemotron-specific VERL image tracks for Nano and Lightning variants. | 
+| Nova | `nova-fine-tune-repo:*`; `nova-evaluation-repo:*`; `nova-distillation-repo:*`; `mtrl-recipes:rft-trainer-v1.0.0` | Uses dedicated Nova repositories instead of the shared `hyperpod-recipes` image family. | 
 
 **AWS Regions support**
 

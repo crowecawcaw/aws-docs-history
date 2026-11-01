@@ -56,7 +56,7 @@ The following table shows all supported combinations for continuous customizatio
 Continuous customization is available through the Python SDK. Provide the output path of a previous training job as the `resume_from_path` for the next technique.
 
 ```
-from sagemaker.modules.train import DPOTrainer
+from sagemaker.train import DPOTrainer
 
 # Continue from a previous SFT job with DPO
 trainer = DPOTrainer(

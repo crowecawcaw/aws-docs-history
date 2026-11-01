@@ -6,7 +6,7 @@
 **Note**  
 Amazon SageMaker Ground Truth is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Ground Truth, but we do not plan to introduce new features.
 
-To train a machine learning model, you need a large, high-quality, labeled dataset. Ground Truth helps you build high-quality training datasets for your machine learning models. With Ground Truth, you can use workers from either Amazon Mechanical Turk, a vendor company that you choose, or an internal, private workforce along with machine learning to enable you to create a labeled dataset. You can use the labeled dataset output from Ground Truth to train your own models. You can also use the output as a training dataset for an Amazon SageMaker AI model.
+To train a machine learning model, you need a large, high-quality, labeled dataset. Ground Truth helps you build high-quality training datasets for your machine learning models. With Ground Truth, you can use workers from a vendor company that you choose or from an internal, private workforce along with machine learning to enable you to create a labeled dataset. You can use the labeled dataset output from Ground Truth to train your own models. You can also use the output as a training dataset for an Amazon SageMaker AI model.
 
 Depending on your ML application, you can choose from one of the Ground Truth built-in task types to have workers generate specific types of labels for your data. You can also build a custom labeling workflow to provide your own UI and tools to workers labeling your data. To learn more about the Ground Truth built in task types, see [Built-in Task Types](sms-task-types.md). To learn how to create a custom labeling workflow, see [Custom labeling workflows](sms-custom-templates.md).
 
@@ -15,7 +15,6 @@ In order to automate labeling your training dataset, you can optionally use *aut
 Use either pre-built or custom tools to assign the labeling tasks for your training dataset. A *labeling UI template* is a webpage that Ground Truth uses to present tasks and instructions to your workers. The SageMaker AI console provides built-in templates for labeling data. You can use these templates to get started , or you can build your own tasks and instructions by using our HTML 2.0 components. For more information, see [Custom labeling workflows](sms-custom-templates.md). 
 
 Use the workforce of your choice to label your dataset. You can choose your workforce from:
-+ The Amazon Mechanical Turk workforce of over 500,000 independent contractors worldwide.
 + A private workforce that you create from your employees or contractors for handling data within your organization.
 + A vendor company that you can find in the AWS Marketplace that specializes in data labeling services.
 

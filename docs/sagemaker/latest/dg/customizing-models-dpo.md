@@ -64,6 +64,31 @@ Provide the prompt and both responses as separate string fields, with an optiona
 + Use the same prompt for both chosen and rejected
 + The `system` message is optional
 
+## Python SDK example
+<a name="customizing-models-dpo-sdk-example"></a>
+
+Use `DPOTrainer` for serverless DPO customization jobs:
+
+```
+from sagemaker.train import DPOTrainer
+
+trainer = DPOTrainer(
+    model_id="meta-textgeneration-llama-3-1-8b-instruct",
+    train_data="s3://my-bucket/dpo-train.jsonl",
+    hyperparameters={
+        "max_epochs": 2,
+        "learning_rate": 1e-5,
+        "global_batch_size": 32,
+        "lora_rank": 16,
+        "adam_beta": 0.01,
+    },
+)
+
+trainer.train()
+```
+
+To run FFT instead of LoRA, use the same dataset format and remove LoRA-specific hyperparameters such as `lora_rank`, `lora_alpha`, and `lora_dropout`.
+
 ## Hyperparameters - DPO LoRA
 <a name="customizing-models-dpo-hyperparameters-lora"></a>
 

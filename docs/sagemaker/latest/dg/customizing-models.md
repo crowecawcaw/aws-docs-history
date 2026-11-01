@@ -14,6 +14,7 @@ Amazon SageMaker AI model customization lets you adapt foundation models to your
 + **RFT** (Reinforcement Fine-Tuning) — Optimize via reward signals (RLVR or RLAIF). See [RFT](customizing-models-rft.md).
 + **MTRL** (Multi-Turn Reinforcement Learning) — Train agents for multi-step agentic tasks. See [Multi-turn reinforcement learning](model-customize-mtrl.md).
 + **Continuous Customization** — Chain techniques sequentially. See [Continuous customization](customizing-models-continuous.md).
++ **Distillation** — Transfer knowledge from a teacher model to a student model. See [Distillation](customizing-models-distillation.md).
 
 **Training types** determine *how much* of the model to update:
 + **LoRA** (Low-Rank Adaptation) — Trains a small set of adapter weights. Lower cost, faster training. See [LoRA](customizing-models-lora.md).
@@ -22,12 +23,12 @@ Amazon SageMaker AI model customization lets you adapt foundation models to your
 **Infrastructure options** control *where* your training job runs:
 + **Serverless** — Fully managed, no instance selection. Best for quick experimentation and production jobs without ops overhead. Serverless model customization also supports training session APIs, which give you full control over your training loop without managing GPU infrastructure. See [Serverless model customization](customize-model.md) and [Training session APIs](customizing-models-training-sessions.md).
 + **SageMaker AI Training Jobs** — Ephemeral jobs where you select instance type. Uses **Recipes** for pre-configured training. See [SageMaker AI Training Jobs](customizing-models-training-jobs.md).
-+ **HyperPod** — Persistent clusters with fault recovery. Uses **Recipes** for distributed training on EKS or Slurm. See [HyperPod](customizing-models-hyperpod.md).
++ **HyperPod** — Persistent clusters with advanced fault recovery. Uses **Recipes** for distributed training on Amazon EKS or Slurm. See [HyperPod](customizing-models-hyperpod.md).
 
 ## Choosing your approach
 <a name="customizing-models-choosing"></a>
 
-Before fine-tuning, consider whether a simpler approach meets your needs:
+Before customizing, consider whether a simpler approach meets your needs:
 
 Prompt Engineering  
 Your model gives acceptable answers but needs better tone, format, or style. No training required — fast iteration. See [Prompt engineering for foundation models](https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-customize-prompt-engineering.html).
@@ -37,6 +38,26 @@ Your model lacks knowledge about your specific domain. Augment with external kno
 
 Fine-tuning  
 Your model needs to consistently learn new behaviors, styles, or domain expertise. Train on your data to change model weights. Continue reading this guide.
+
+## Prerequisites
+<a name="customizing-models-prerequisites"></a>
+
+Before you start a customization workflow, review the prerequisites for the infrastructure and technique you plan to use:
++ For serverless model customization prerequisites and required IAM permissions, see [Prerequisites](model-customize-open-weight-prereq.md).
++ For multi-turn reinforcement learning (MTRL), see [Prerequisites](model-customize-mtrl-prereqs.md).
++ For HyperPod cluster setup, see [Prerequisites for using SageMaker AI HyperPod](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-prerequisites.html).
+
+### Network and encryption considerations
+<a name="customizing-models-network-encryption"></a>
+
+Serverless customization jobs, SageMaker AI Training Jobs, and HyperPod support customer-managed networking and encryption settings, but each infrastructure option is configured differently.
++ For serverless customization and SageMaker AI Training Jobs, provide subnets and security groups that can reach your training data, image sources, and logging destinations. If your subnets do not have internet egress, make sure you have routes or VPC endpoints for services such as Amazon S3, Amazon ECR, and CloudWatch Logs.
++ For multi-turn RL jobs, see [Configure a VPC for multi-turn RL jobs](model-customize-mtrl-vpc.md).
++ For HyperPod in your own VPC, see [IAM role for SageMaker HyperPod](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod) for the additional permissions required to create and manage network interfaces.
+
+If you use customer-managed KMS key encryption for model customization inputs, outputs, or artifacts, make sure the relevant execution role can use that key and that the key policy trusts the role you pass to the job. If your input data in Amazon S3 is encrypted with a customer-managed key, the execution role also needs permission to decrypt that data. For multi-turn RL encryption guidance, see [Encryption at rest for multi-turn reinforcement learning](model-customize-mtrl-encryption-at-rest.md). If you do not specify a customer-managed key, SageMaker AI uses its default encryption settings.
+
+For serverless and training job flows, the execution role also needs permission to discover available VPCs, roles, and KMS keys when you configure these advanced settings. The recommended managed policy already covers this; if you manage permissions manually, include the advanced-settings permissions described under [Setting up permissions manually](model-customize-open-weight-prereq.md#model-customize-open-weight-iam-manual).
 
 ## Supported models for fine-tuning
 <a name="customizing-models-supported"></a>
