@@ -5,10 +5,10 @@
 
  This topic describes how to build and launch a Docker image that uses Amazon Corretto 25. You must have the latest version of Docker installed. 
 
-## Using the official image for Amazon Corretto 25.
+## Using the official Docker image for Amazon Corretto 25
 <a name="docker-hello-world"></a>
 
- Amazon Corretto 25 is available as an [official image on Docker Hub](https://hub.docker.com/_/amazoncorretto). The following example runs a container and displays Corretto 25's version. 
+You can use the official Amazon Corretto 25 Docker image to quickly set up a consistent Java runtime environment without manually installing Amazon Corretto 25 on your host. Amazon Corretto 25 is available as an [official image on Docker Hub](https://hub.docker.com/_/amazoncorretto). The following example runs a container and displays Corretto 25's version. 
 
 **Example**  
 
@@ -21,9 +21,9 @@ docker run amazoncorretto:25 java -version
 **Example**  
 
 ```
-openjdk version "25.0.5" 2026-10-22 LTS
-OpenJDK Runtime Environment Corretto-25.0.5.0.9 (build 25.0.5+0-LTS)
-OpenJDK 64-Bit Server VM Corretto-25.0.5.0.9 (build 25.0.5+0-LTS, mixed mode)
+openjdk version "25.0.5" 2026-10-26 LTS
+OpenJDK Runtime Environment Corretto-25.0.5.0.10 (build 25.0.5+0-LTS)
+OpenJDK 64-Bit Server VM Corretto-25.0.5.0.10 (build 25.0.5+0-LTS, mixed mode)
 ```
 
 ## Using the Corretto ECR Instance
@@ -38,7 +38,7 @@ docker pull public.ecr.aws/amazoncorretto/amazoncorretto:25
 docker run -it public.ecr.aws/amazoncorretto/amazoncorretto:25 /bin/bash
 ```
 
-You can see the list of available images by going [here](https://gallery.ecr.aws/amazoncorretto/amazoncorretto):
+You can see the list of available images on the [Amazon ECR Public Gallery](https://gallery.ecr.aws/amazoncorretto/amazoncorretto).
 
 ## Amazon Corretto on Alpine
 <a name="alpine-images"></a>
@@ -65,7 +65,7 @@ docker run -it amazoncorretto:25-alpine-jdk /bin/sh
 docker build -t amazon-corretto-25 github.com/corretto/corretto-docker#main:25/jdk/al2023
 ```
 
- After the command completes, you have an image called *amazon-corretto-25*. 
+ After the command completes, you have an image called `amazon-corretto-25`. 
 
  To launch this image locally, run the following command. 
 
