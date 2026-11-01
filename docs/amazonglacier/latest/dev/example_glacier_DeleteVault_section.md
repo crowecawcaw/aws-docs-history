@@ -18,12 +18,16 @@ Action examples are code excerpts from larger programs and must be run in contex
 #### [ CLI ]
 
 **AWS CLI**  
-The following command deletes a vault named `my-vault`:  
+**To delete a vault**  
+The following `delete-vault` example deletes a vault named `my-vault`.  
 
 ```
-aws glacier delete-vault --vault-name {{my-vault}} {{-}}-account-id -
+aws glacier delete-vault \
+    --vault-name {{my-vault}} \
+    {{-}}-account-id -
 ```
-This command does not produce any output. Amazon Glacier requires an account ID argument when performing operations, but you can use a hyphen to specify the in-use account.  
+This command produces no output. Amazon Glacier requires an account ID argument when performing operations, but you can use a hyphen to specify the in-use account.  
+For more information, see [Deleting a Vault in Amazon Glacier Using the AWS Command Line Interface](https://docs.aws.amazon.com/amazonglacier/latest/dev/deleting-vaults-cli.html) in the *Amazon Glacier Developer Guide*.  
 +  For API details, see [DeleteVault](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glacier/delete-vault.html) in *AWS CLI Command Reference*. 
 
 ------

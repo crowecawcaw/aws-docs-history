@@ -45,10 +45,12 @@ Action examples are code excerpts from larger programs and must be run in contex
 #### [ CLI ]
 
 **AWS CLI**  
-The following command lists the vaults in the default account and region:  
+**To list the vaults**  
+The following `list-vaults` example lists the vaults in the default account and region.  
 
 ```
-aws glacier list{{-}}vaults --account-id -
+aws glacier list{{-}}vaults \
+    --account-id -
 ```
 Output:  
 
@@ -67,6 +69,7 @@ Output:
 }
 ```
 Amazon Glacier requires an account ID argument when performing operations, but you can use a hyphen to specify the in-use account.  
+For more information, see [Retrieving Vault Metadata in Amazon Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/retrieving-vault-info.html) in the *Amazon Glacier Developer Guide*.  
 +  For API details, see [ListVaults](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glacier/list-vaults.html) in *AWS CLI Command Reference*. 
 
 ------

@@ -46,10 +46,13 @@ The following code examples show how to use `ListTagsForVault`.
 #### [ CLI ]
 
 **AWS CLI**  
-The following command lists the tags applied to a vault named `my-vault`:  
+**To list the tags for a vault**  
+The following `list-tags-for-vault` example lists the tags applied to a vault named `my-vault`.  
 
 ```
-aws glacier list{{-}}tags-for-vault --account-id - --vault-name {{my-vault}}
+aws glacier list{{-}}tags-for-vault \
+    --account-id - \
+    --vault-name {{my-vault}}
 ```
 Output:  
 
@@ -62,6 +65,7 @@ Output:
 }
 ```
 Amazon Glacier requires an account ID argument when performing operations, but you can use a hyphen to specify the in-use account.  
+For more information, see [Tagging Amazon Glacier Resources](https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html) in the *Amazon Glacier Developer Guide*.  
 +  For API details, see [ListTagsForVault](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glacier/list-tags-for-vault.html) in *AWS CLI Command Reference*. 
 
 ------

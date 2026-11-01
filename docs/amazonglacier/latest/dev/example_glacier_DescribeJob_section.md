@@ -15,10 +15,14 @@ The following code examples show how to use `DescribeJob`.
 #### [ CLI ]
 
 **AWS CLI**  
-The following command retrieves information about an inventory retrieval job on a vault named `my-vault`:  
+**To describe a job**  
+The following `describe-job` example retrieves information about an inventory retrieval job on a vault named `my-vault`.  
 
 ```
-aws glacier describe{{-}}job --account-id - --vault-name {{my-vault}} --job-id {{zbxcm3Z_3z5UkoroF7SuZKrxgGoDc3RloGduS7Eg-RO47Yc6FxsdGBgf_Q2DK5Ejh18CnTS5XW4_XqlNHS61dsO4CnMW}}
+aws glacier describe{{-}}job \
+    --account-id - \
+    --vault-name {{my-vault}} \
+    --job-id {{zbxcm3Z_3z5UkoroF7SuZKrxgGoDc3RloGduS7Eg-RO47Yc6FxsdGBgf_Q2DK5Ejh18CnTS5XW4_XqlNHS61dsO4CnMW}}
 ```
 Output:  
 
@@ -36,6 +40,7 @@ Output:
 }
 ```
 The job ID can be found in the output of `aws glacier initiate-job` and `aws glacier list-jobs`. Amazon Glacier requires an account ID argument when performing operations, but you can use a hyphen to specify the in-use account.  
+For more information, see [Downloading a Vault Inventory in Amazon Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-inventory.html) in the *Amazon Glacier Developer Guide*.  
 +  For API details, see [DescribeJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glacier/describe-job.html) in *AWS CLI Command Reference*. 
 
 ------

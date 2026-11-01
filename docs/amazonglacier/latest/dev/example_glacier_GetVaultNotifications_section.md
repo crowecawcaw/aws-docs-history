@@ -15,10 +15,13 @@ The following code examples show how to use `GetVaultNotifications`.
 #### [ CLI ]
 
 **AWS CLI**  
-The following command gets a description of the notification configuration for a vault named `my-vault`:  
+**To get the notification configuration for a vault**  
+The following `get-vault-notifications` example gets a description of the notification configuration for a vault named `my-vault`.  
 
 ```
-aws glacier get{{-}}vault-notifications --account-id - --vault-name {{my-vault}}
+aws glacier get{{-}}vault-notifications \
+    --account-id - \
+    --vault-name {{my-vault}}
 ```
 Output:  
 
@@ -34,6 +37,7 @@ Output:
 }
 ```
 If no notifications have been configured for the vault, an error is returned. Amazon Glacier requires an account ID argument when performing operations, but you can use a hyphen to specify the in-use account.  
+For more information, see [Configuring Vault Notifications in Amazon Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html) in the *Amazon Glacier Developer Guide*.  
 +  For API details, see [GetVaultNotifications](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glacier/get-vault-notifications.html) in *AWS CLI Command Reference*. 
 
 ------

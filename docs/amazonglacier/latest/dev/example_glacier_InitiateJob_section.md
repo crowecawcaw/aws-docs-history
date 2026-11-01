@@ -77,10 +77,14 @@ Retrieve an archive from a vault. This example uses the ArchiveTransferManager c
 #### [ CLI ]
 
 **AWS CLI**  
-The following command initiates a job to get an inventory of the vault `my-vault`:  
+**To start an inventory retrieval job**  
+The following `initiate-job` example initiates a job to get an inventory of the vault `my-vault`.  
 
 ```
-aws glacier initiate{{-}}job --account-id - --vault-name {{my-vault}} --job-parameters '{{{"Type": "inventory-retrieval"}}}'
+aws glacier initiate{{-}}job \
+    --account-id - \
+    --vault-name {{my-vault}} \
+    --job-parameters '{{{"Type": "inventory-retrieval"}}}'
 ```
 Output:  
 
@@ -91,19 +95,24 @@ Output:
 }
 ```
 Amazon Glacier requires an account ID argument when performing operations, but you can use a hyphen to specify the in-use account.  
-The following command initiates a job to retrieve an archive from the vault `my-vault`:  
+For more information, see [Downloading a Vault Inventory in Amazon Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-inventory.html) in the *Amazon Glacier Developer Guide*.  
+The following `initiate-job` example initiates a job to retrieve an archive from the vault `my-vault`.  
 
 ```
-aws glacier initiate{{-}}job --account-id - --vault-name {{my-vault}} --job-parameters {{file://job-archive-retrieval.json}}
+aws glacier initiate{{-}}job \
+    --account-id - \
+    --vault-name {{my-vault}} \
+    --job-parameters {{file://job-archive-retrieval.json}}
 ```
-`job-archive-retrieval.json` is a JSON file in the local folder that specifies the type of job, archive ID, and some optional parameters:  
+`job-archive-retrieval.json` is a JSON file in the local folder that specifies the type of job, archive ID, and some optional parameters.  
+Contents of `job-archive-retrieval.json`:  
 
 ```
 {
-  "Type": "archive-retrieval",
-  "ArchiveId": "kKB7ymWJVpPSwhGP6ycSOAekp9ZYe_--zM_mw6k76ZFGEIWQX-ybtRDvc2VkPSDtfKmQrj0IRQLSGsNuDp-AJVlu2ccmDSyDUmZwKbwbpAdGATGDiB3hHO0bjbGehXTcApVud_wyDw",
-  "Description": "Retrieve archive on 2015-07-17",
-  "SNSTopic": "arn:aws:sns:us-west-2:0123456789012:my-topic"
+    "Type": "archive-retrieval",
+    "ArchiveId": "kKB7ymWJVpPSwhGP6ycSOAekp9ZYe_--zM_mw6k76ZFGEIWQX-ybtRDvc2VkPSDtfKmQrj0IRQLSGsNuDp-AJVlu2ccmDSyDUmZwKbwbpAdGATGDiB3hHO0bjbGehXTcApVud_wyDw",
+    "Description": "Retrieve archive on 2015-07-17",
+    "SNSTopic": "arn:aws:sns:us-west-2:0123456789012:my-topic"
 }
 ```
 Archive IDs are available in the output of `aws glacier upload-archive` and `aws glacier get-job-output`.  
@@ -111,11 +120,11 @@ Output:
 
 ```
 {
-    "location": "/011685312445/vaults/mwunderl/jobs/l7IL5-EkXyEY9Ws95fClzIbk2O5uLYaFdAYOi-azsX_Z8V6NH4yERHzars8wTKYQMX6nBDI9cMNHzyZJO59-8N9aHWav",
+    "location": "/123456789012/vaults/mwunderl/jobs/l7IL5-EkXyEY9Ws95fClzIbk2O5uLYaFdAYOi-azsX_Z8V6NH4yERHzars8wTKYQMX6nBDI9cMNHzyZJO59-8N9aHWav",
     "jobId": "l7IL5-EkXy2O5uLYaFdAYOiEY9Ws95fClzIbk-azsX_Z8V6NH4yERHzars8wTKYQMX6nBDI9cMNHzyZJO59-8N9aHWav"
 }
 ```
-See Initiate Job in the *Amazon Glacier API Reference* for details on the job parameters format.  
+For more information, see [Retrieving Amazon Glacier Archives](https://docs.aws.amazon.com/amazonglacier/latest/dev/downloading-an-archive-two-steps.html) in the *Amazon Glacier Developer Guide*.  
 +  For API details, see [InitiateJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glacier/initiate-job.html) in *AWS CLI Command Reference*. 
 
 ------

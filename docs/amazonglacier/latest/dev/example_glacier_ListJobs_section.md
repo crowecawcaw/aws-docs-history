@@ -49,10 +49,13 @@ Action examples are code excerpts from larger programs and must be run in contex
 #### [ CLI ]
 
 **AWS CLI**  
-The following command lists in-progress and recently completed jobs for a vault named `my-vault`:  
+**To list the jobs for a vault**  
+The following `list-jobs` example lists in-progress and recently completed jobs for a vault named `my-vault`.  
 
 ```
-aws glacier list{{-}}jobs --account-id - --vault-name {{my-vault}}
+aws glacier list{{-}}jobs \
+    --account-id - \
+    --vault-name {{my-vault}}
 ```
 Output:  
 
@@ -83,12 +86,13 @@ Output:
             "JobId": "zbxcm3Z_3z5UkoroF7SuZKrxgGoDc3RloGduS7Eg-RO47Yc6FxsdGBgf_Q2DK5Ejh18CnTS5XW4_XqlNHS61dsO4CnMW",
             "Action": "InventoryRetrieval",
             "CreationDate": "2015-07-17T20:23:41.616Z",
-            "StatusCode": ""InProgress""
+            "StatusCode": "InProgress"
         }
     ]
 }
 ```
 Amazon Glacier requires an account ID argument when performing operations, but you can use a hyphen to specify the in-use account.  
+For more information, see [Retrieving Amazon Glacier Archives](https://docs.aws.amazon.com/amazonglacier/latest/dev/downloading-an-archive-two-steps.html) in the *Amazon Glacier Developer Guide*.  
 +  For API details, see [ListJobs](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glacier/list-jobs.html) in *AWS CLI Command Reference*. 
 
 ------

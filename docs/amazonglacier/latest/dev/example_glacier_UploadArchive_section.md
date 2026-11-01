@@ -51,10 +51,14 @@ Action examples are code excerpts from larger programs and must be run in contex
 #### [ CLI ]
 
 **AWS CLI**  
-The following command uploads an archive in the current folder named `archive.zip` to a vault named `my-vault`:  
+**To upload an archive to a vault**  
+The following `upload-archive` example uploads an archive in the current folder named `archive.zip` to a vault named `my-vault`.  
 
 ```
-aws glacier upload{{-}}archive --account-id - --vault-name {{my-vault}} --body {{archive.zip}}
+aws glacier upload{{-}}archive \
+    --account-id - \
+    --vault-name {{my-vault}} \
+    --body {{archive.zip}}
 ```
 Output:  
 
@@ -66,7 +70,8 @@ Output:
 }
 ```
 Amazon Glacier requires an account ID argument when performing operations, but you can use a hyphen to specify the in-use account.  
-To retrieve an uploaded archive, initiate a retrieval job with the aws glacier initiate-job command.  
+To retrieve an uploaded archive, initiate a retrieval job with the [aws glacier initiate-job](https://docs.aws.amazon.com/cli/latest/reference/glacier/initiate-job.html) command.  
+For more information, see [Uploading an Archive in Amazon Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-an-archive.html) in the *Amazon Glacier Developer Guide*.  
 +  For API details, see [UploadArchive](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glacier/upload-archive.html) in *AWS CLI Command Reference*. 
 
 ------

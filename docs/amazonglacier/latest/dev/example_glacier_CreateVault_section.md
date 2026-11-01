@@ -50,12 +50,23 @@ Action examples are code excerpts from larger programs and must be run in contex
 #### [ CLI ]
 
 **AWS CLI**  
-The following command creates a new vault named `my-vault`:  
+**To create a vault**  
+The following `create-vault` example creates a new vault named `my-vault`.  
 
 ```
-aws glacier create-vault --vault-name {{my-vault}} {{-}}-account-id -
+aws glacier create-vault \
+    --vault-name {{my-vault}} \
+    {{-}}-account-id -
+```
+Output:  
+
+```
+{
+    "location": "/123456789012/vaults/my-vault"
+}
 ```
 Amazon Glacier requires an account ID argument when performing operations, but you can use a hyphen to specify the in-use account.  
+For more information, see [Creating a Vault in Amazon Glacier Using the AWS Command Line Interface](https://docs.aws.amazon.com/amazonglacier/latest/dev/creating-vaults-cli.html) in the *Amazon Glacier Developer Guide*.  
 +  For API details, see [CreateVault](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glacier/create-vault.html) in *AWS CLI Command Reference*. 
 
 ------

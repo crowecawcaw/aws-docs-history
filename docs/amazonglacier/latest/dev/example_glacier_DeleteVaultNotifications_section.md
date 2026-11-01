@@ -20,10 +20,11 @@ The following `delete-vault-notifications` example removes notifications sent by
 
 ```
 aws glacier delete-vault-notifications \
-    --account-id {{111122223333}} \
+    --account-id {{123456789012}} \
     --vault-name {{example_vault}}
 ```
 This command produces no output.  
+For more information, see [Configuring Vault Notifications in Amazon Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html) in the *Amazon Glacier Developer Guide*.  
 +  For API details, see [DeleteVaultNotifications](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glacier/delete-vault-notifications.html) in *AWS CLI Command Reference*. 
 
 ------
