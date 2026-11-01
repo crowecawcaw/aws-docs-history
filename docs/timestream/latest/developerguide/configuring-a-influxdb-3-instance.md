@@ -22,7 +22,7 @@ For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon
 
 1.  Configure cluster deployment: 
 
-   1.  Select either **1-node** (single node handling writer, reader, and compactor roles), **3-node** configuration, or a **multi-node cluster (up to 15 nodes)** using a custom parameter group. For details on multi-node configurations, see [Scaling a cluster](multi-node-scaling.md). 
+   1.  Select either **1-node** (single node handling writer, reader, and compactor roles), **3-node** configuration, or a **multi-node cluster (up to 15 nodes)** using a custom parameter group. For details on multi-node configurations, see [Scaling a cluster](multi-node-scaling.md). To size each cluster function independently instead of giving every node the same instance class, use a deployment configuration. See [Size cluster functions independently with deployment configurations](influxdb3-deployment-configuration.md). 
 **Note**  
 Single node deployments use Single-AZ compute resources. In case of an issue, a new compute resource must be initialized, resulting in longer remediation time
 
@@ -69,7 +69,7 @@ aws timestream-influxdb create-db-cluster \
 
  Key settings that apply to all nodes in your cluster include: 
 +  **Cluster identifier**: Unique name for your cluster 
-+  **Instance class**: Compute and memory capacity (same for all nodes) 
++  **Instance class**: Compute and memory capacity (same for all nodes, unless the cluster uses a deployment configuration, which sets it per node group) 
 +  **Node configuration**: 1-node, 3-node, or multi-node deployment (up to 15 nodes) 
 +  **Parameter group**: Engine configuration settings 
 +  **Network type**: IPv4 or dual-stack 
@@ -78,8 +78,8 @@ aws timestream-influxdb create-db-cluster \
 +  **Public accessibility**: Internet connectivity option 
 
  **Important Considerations** 
-+  **Uniform node configuration**: All nodes in a cluster must use the same instance class and network configuration. 
-+  **Scalability**: Enterprise clusters support up to 15 nodes. You can scale your cluster by creating a new parameter group with your desired node configuration and applying it to your cluster. See [Scaling a cluster](multi-node-scaling.md). 
++  **Node configuration**: All nodes in a cluster share the same network configuration. When you configure the cluster through a parameter group, all nodes also share one instance class. To give each cluster function its own instance class, configure the cluster with a deployment configuration instead. See [Size cluster functions independently with deployment configurations](influxdb3-deployment-configuration.md). 
++  **Scalability**: Enterprise clusters support up to 15 nodes. You can scale your cluster by creating a new parameter group with your desired node configuration and applying it to your cluster, or by submitting a new shape to `update-db-cluster` if the cluster uses a deployment configuration. See [Scaling a cluster](multi-node-scaling.md) and [Size cluster functions independently with deployment configurations](influxdb3-deployment-configuration.md). 
 +  **High availability**: Multi-node configurations provide better availability and performance distribution, with nodes spread across multiple Availability Zones. 
 +  **Compactor optimization**: In multi-node deployments (3\+ nodes), the dedicated compactor node ensures write and read performance isn't impacted by background optimization tasks 
 

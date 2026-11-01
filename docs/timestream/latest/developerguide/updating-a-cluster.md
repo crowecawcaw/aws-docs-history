@@ -40,7 +40,7 @@ Update instance type:
 aws timestream-influxdb update-db-cluster \
   --region us-east-1 \
   --identifier "my-influxdb3-cluster" \
-  --db-instance-type db.influxIOIncluded.2xlarge \
+  --db-instance-type db.influx.2xlarge \
   --apply-immediately
 ```
 
@@ -74,6 +74,8 @@ aws timestream-influxdb update-db-cluster \
 <a name="scaling-your-cluster"></a>
 
 For Enterprise edition clusters, you can scale your cluster size by applying a new parameter group with your desired node configuration. For detailed guidance, see [Scaling a cluster](multi-node-scaling.md).
+
+Alternatively, use a deployment configuration to size each cluster function (ingest, query, processing, and compaction) with its own instance type and node count, and scale it with a single `update-db-cluster` call. See [Size cluster functions independently with deployment configurations](influxdb3-deployment-configuration.md).
 +  **Scale up**: Add nodes by increasing ingestQueryInstances (up to 4) or queryOnlyInstances (up to 13) 
 +  **Scale down**: Remove nodes by decreasing these values 
 +  **Change node modes**: Adjust the ratio of writer/reader nodes to reader-only nodes 
@@ -158,8 +160,8 @@ For Enterprise edition clusters, you can scale your cluster size by applying a n
 +  Cannot modify VPC, subnets, security groups, or public accessibility after creation. 
 +  Upgrading from Core to Enterprise is supported (one-way), but you cannot downgrade from Enterprise to Core. See [Upgrade from Core to Enterprise edition](upgrading-core-to-enterprise.md). 
 +  Cannot rename the cluster (DB cluster identifier is immutable). 
-+  All nodes must use the same instance class (except for the compactor). 
++  In a cluster configured through a parameter group, all nodes must use the same instance class (except for the compactor). To give each cluster function its own instance class, use a deployment configuration. See [Size cluster functions independently with deployment configurations](influxdb3-deployment-configuration.md). 
 +  Parameter groups are immutable (must create new ones for changes). 
-+  Cluster scaling operations (adding/removing nodes) require creating and applying a new parameter group. 
++  Cluster scaling operations (adding/removing nodes) require creating and applying a new parameter group, unless the cluster uses a deployment configuration, in which case you submit the new shape directly to `update-db-cluster`. 
 
  By understanding these update capabilities and limitations, you can effectively manage and scale your InfluxDB 3 clusters to meet evolving workload requirements while planning appropriately for settings that must be configured at cluster creation time. 

@@ -56,15 +56,15 @@ For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon
 
 |  **Instance Class**  |  **vCPU**  |  **Memory (GiB)**  |  **Storage Type**  |  **Network bandwidth (Gbps)**  | 
 | --- | --- | --- | --- | --- | 
-|  db.influxIOIncluded.medium  |  1  |  8  |  S3 Object Storage  |  12  | 
-|  db.influxIOIncluded.large  |  2  |  16  |  S3 Object Storage  |  12  | 
-|  db.influxIOIncluded.xlarge  |  4  |  32  |  S3 Object Storage  |  15  | 
-|  db.influxIOIncluded.2xlarge  |  8  |  64  |  S3 Object Storage  |  20  | 
-|  db.influxIOIncluded.4xlarge  |  16  |  128  |  S3 Object Storage  |  25  | 
-|  db.influxIOIncluded.8xlarge  |  32  |  256  |  S3 Object Storage  |  30  | 
-|  db.influxIOIncluded.12xlarge  |  48  |  384  |  S3 Object Storage  |  22.5  | 
-|  db.influxIOIncluded.16xlarge  |  64  |  512  |  S3 Object Storage  |  30  | 
-|  db.influxIOIncluded.24xlarge  |  96  |  768  |  S3 Object Storage  |  40  | 
+|  db.influx.medium  |  1  |  8  |  S3 Object Storage  |  12  | 
+|  db.influx.large  |  2  |  16  |  S3 Object Storage  |  12  | 
+|  db.influx.xlarge  |  4  |  32  |  S3 Object Storage  |  15  | 
+|  db.influx.2xlarge  |  8  |  64  |  S3 Object Storage  |  20  | 
+|  db.influx.4xlarge  |  16  |  128  |  S3 Object Storage  |  25  | 
+|  db.influx.8xlarge  |  32  |  256  |  S3 Object Storage  |  30  | 
+|  db.influx.12xlarge  |  48  |  384  |  S3 Object Storage  |  22.5  | 
+|  db.influx.16xlarge  |  64  |  512  |  S3 Object Storage  |  30  | 
+|  db.influx.24xlarge  |  96  |  768  |  S3 Object Storage  |  40  | 
 
  The `db.influxIOIncluded` instance classes are specifically designed to: 
 
@@ -74,7 +74,9 @@ For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon
 
 1.  Support the computational requirements of the Data Fusion query engine.
 
- For Enterprise deployments with multi-node clusters, all nodes use the same instance class to ensure balanced performance across the cluster. As your workload grows, you can scale up by selecting a larger instance class for all nodes in the cluster or scale out by adding more nodes of the same class to your cluster. 
+ For Enterprise deployments with multi-node clusters configured through a parameter group, all nodes use the same instance class to ensure balanced performance across the cluster. As your workload grows, you can scale up by selecting a larger instance class for all nodes in the cluster or scale out by adding more nodes of the same class to your cluster. 
+
+ Alternatively, configure the cluster with a deployment configuration to give each cluster function (ingest, query, processing, and compaction) its own instance class and node count. See [Size cluster functions independently with deployment configurations](influxdb3-deployment-configuration.md). 
 
 ##### Hardware specifications for DB cluster classes
 <a name="hardware-specifications-for-db-cluster-classes"></a>
@@ -128,31 +130,40 @@ For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon
 +  **Query Patterns**: Consider whether your workload is continuous (24/7 monitoring) or intermittent (periodic analytics) 
 +  **Compaction Requirements**: Enterprise version includes compaction capabilities essential for long-term data storage and high-cardinality workloads. For deployments with 3-node clusters and larger, a dedicated compactor node is recommended to maximize writer and reader performance on the other individual nodes, ensuring that compaction processes don't compete for resources with query and ingestion operations. 
 
- To provide sizing recommendations, let's consider an exemplary workload with the following characteristics: 
-+  Data is collected and written by a fleet of Telegraf agents gathering System, CPU, Memory, Disk, IO, etc. from a data center. 
-+  Each write request contains 5000 lines. 
-+  The queries executed on the system are categorized as "moderate complexity" queries, exhibiting the following characteristics: 
-  +  They have multiple functions and one or two regular expressions. 
-  +  They may include group by clauses or sample a time range of multiple weeks. 
-  +  They typically take a few hundred milliseconds to a couple of thousand milliseconds to execute. 
-  +  The CPU favors query performance primarily. 
-  +  All tests were performed with a dataset containing a cardinality of 30 million time-series. 
+ Use the following as a guide for determining instance size in ideal conditions. These figures assume write batches of 5,000 lines and moderate complexity queries, meaning queries that combine several functions, one or two regular expressions, and optional group by clauses over time ranges spanning multiple weeks. 
 
 
-|  **Writes (lines per second)**  |  **Reads (Queries per second)**  |  **Instance class**  |  **Version**  | 
-| --- | --- | --- | --- | 
-|  \~150,000  |  <25  |  db.influxIOIncluded.large  |  Core  | 
-|  \~200,000  |  \~25  |  db.influxIOIncluded.xlarge  |  Core  | 
-|  \~250,000  |  \~35  |  db.influxIOIncluded.2xlarge  |  Enterprise  | 
-|  \~500,000  |  \~50  |  db.influxIOIncluded.4xlarge  |  Enterprise  | 
-|  <750,000  |  <100  |  db.influxIOIncluded.8xlarge  |  Enterprise  | 
-|  >750,000  |  >100  |  Multi-node Enterprise cluster  |  Enterprise  | 
+|  **Writes (lines per second)**  |  **Reads (queries per second)**  |  **Instance class**  | 
+| --- | --- | --- | 
+|  \~35,000  |  \~40  |  db.influx.medium  | 
+|  <100,000  |  \~140  |  db.influx.large  | 
+|  \~120,000  |  \~290  |  db.influx.xlarge  | 
+|  \~130,000  |  \~400  |  db.influx.2xlarge  | 
+|  \~140,000  |  \~425  |  db.influx.4xlarge  | 
+|  <200,000  |  <430  |  db.influx.8xlarge  | 
+|  \~200,000  |  <430  |  db.influx.12xlarge  | 
+|  \~210,000  |  \~430  |  db.influx.16xlarge  | 
+|  \~230,000  |  \~430  |  db.influx.24xlarge  | 
+
+ Treat these figures as a starting point rather than a guarantee. Cardinality, query shape, and batch size all move the result, so validate your choice against a dataset that matches your production cardinality and time ranges. 
+
+ To pick a starting point for a new deployment: 
++  For workloads focused on monitoring recent data, covering roughly three to five days, start with `db.influx.xlarge`. 
++  For higher write throughput or query concurrency, consider `db.influx.2xlarge` or `db.influx.4xlarge`. 
++  For maximum throughput requirements, evaluate `db.influx.8xlarge` or `db.influx.24xlarge`. 
++  To retain and analyze older data, choose the Enterprise version at an appropriate instance size. 
+
+ The Core version suits single-node deployments working with recent data. The Enterprise version adds the compaction and caching capabilities that long retention and high-cardinality workloads depend on, and it is the only version that supports multi-node clusters. When sustained load exceeds what a single node absorbs, move to a multi-node Enterprise cluster instead of continuing to scale a single node. 
+
+ **Batch size**: Larger batches reduce per-request overhead. Use 5,000 lines per batch for instance classes from `db.influx.medium` through `db.influx.4xlarge`, and 10,000 or more lines per batch for larger instance classes. 
+
+ **Target utilization**: A healthy instance running at production levels averages between 40% and 70% CPU and memory. If you run below 40% with a stable workload, you are overprovisioned. If you breach 70%, optimize your queries or scale up. Queries affect CPU usage more than writes do. You can resize an instance class up or down later, with a brief interruption. 
 
 #### DB Cluster Billing for Amazon Timestream for InfluxDB 3
 <a name="db-cluster-billing-for-amazon-timestream-for-influxdb-3"></a>
 
  Amazon Timestream for InfluxDB 3 clusters are billed based on the following components: 
-+  **DB cluster node hours (per hour)** – Based on the DB cluster node class, for example, db.influxIOIncluded.large. Pricing is listed on a per-hour basis, but bills are calculated down to the second and show times in decimal form. Usage is billed in 1-second increments, with a minimum of 10 minutes. For single-node Core deployments or multi-node Enterprise deployments, each node is billed separately based on its running time. 
++  **DB cluster node hours (per hour)** – Based on the DB cluster node class, for example, db.influx.large. Pricing is listed on a per-hour basis, but bills are calculated down to the second and show times in decimal form. Usage is billed in 1-second increments, with a minimum of 10 minutes. For single-node Core deployments or multi-node Enterprise deployments, each node is billed separately based on its running time. 
 +  **Object storage (per GB per month)** – Actual data volume stored in InfluxDB Object Storage, rather than provisioned capacity. This model allows you to pay only for the storage you use, with no need to pre-provision storage capacity. **Note: There is a minimum monthly storage charge equivalent to 200GB**, even if your actual storage usage is lower. 
 +  **Data transfer out (per GB)** – Data transfer out of your DB cluster to the internet or other AWS Regions. Data transfer in or traffic within the same VPC or between Availability Zones within the same AWS Region is free of charge. 
 +  **InfluxDB 3 Enterprise License (per vCPU per hour)** – For InfluxDB 3 Enterprise deployments, there is an additional InfluxData license cost charged on a per vCPU per hour basis. This license fee is billed directly through AWS Marketplace and appears as a separate line item on your AWS bill. The license enables Enterprise features such as multi-node clustering, compaction capabilities, and advanced security features. 

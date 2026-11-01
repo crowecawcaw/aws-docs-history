@@ -39,7 +39,7 @@ To create a multi-node cluster with more than 3 nodes, you must first create a c
 
 1.  Configure cluster settings 
    +  **DB cluster identifier**: Enter a unique name for your cluster. 
-   +  **DB instance class**: Select from `db.influx` instance classes (applies to all nodes). 
+   +  **DB instance class**: Select from `db.influx` instance classes (applies to all nodes, unless you configure the cluster with a deployment configuration, which sets the instance class per node group). 
    +  **Parameter group**: 
      +  Select a service-defined parameter group: 
        +  InfluxDBv3Core (for Core single-node) 
@@ -81,7 +81,7 @@ aws timestream-influxdb create-db-cluster \
   --db-instance-type db.influx.large \
   --vpc-subnet-ids subnet-12345abc subnet-67890def \
   --vpc-security-group-ids sg-12345abc \
-  --publicly-accessible false
+  --no-publicly-accessible
 ```
 
 Create an InfluxDB 3 Enterprise cluster (3-node):
@@ -94,7 +94,7 @@ aws timestream-influxdb create-db-cluster \
   --db-instance-type db.influx.xlarge \
   --vpc-subnet-ids subnet-12345abc subnet-67890def \
   --vpc-security-group-ids sg-12345abc \
-  --publicly-accessible false \
+  --no-publicly-accessible \
   --log-delivery-configuration '{
     "s3Configuration": {
       "bucketName": "my-influxdb-logs",
@@ -113,7 +113,7 @@ aws timestream-influxdb create-db-cluster \
   --db-instance-type db.influx.large \
   --vpc-subnet-ids subnet-12345abc subnet-67890def \
   --vpc-security-group-ids sg-12345abc \
-  --publicly-accessible false
+  --no-publicly-accessible
 ```
 
  Create a cluster with a custom parameter group:
@@ -168,7 +168,7 @@ aws timestream-influxdb create-db-cluster \
   --region us-east-1 \
   --name "my-multinode-enterprise-cluster" \
   --db-parameter-group-identifier "<parameter-group-identifier>" \
-  --db-instance-type db.influxIOIncluded.2xlarge \
+  --db-instance-type db.influx.2xlarge \
   --vpc-subnet-ids subnet-12345abc subnet-67890def \
   --vpc-security-group-ids sg-12345abc
 ```

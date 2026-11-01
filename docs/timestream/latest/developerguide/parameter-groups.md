@@ -11,6 +11,9 @@ Timestream defines parameter groups with default settings. You can also define y
 
 For InfluxDB 3, cluster configurations are managed through parameter groups. These parameter groups contain engine configuration values that determine how your InfluxDB 3 cluster operates.
 
+**Note**  
+Cluster *topology*, meaning how many nodes the cluster has and what each one does, can also be set with a deployment configuration, which supersedes the `ingestQueryInstances`, `queryOnlyInstances`, and `dedicatedCompactor` parameters described here. Every other parameter in this section continues to apply either way. See [Size cluster functions independently with deployment configurations](influxdb3-deployment-configuration.md).
+
 **Important:** All parameters are startup-only. There is no runtime reconfiguration mechanism. To change any parameter, the node/cluster must be restarted with updated arguments.
 
 **Topics**

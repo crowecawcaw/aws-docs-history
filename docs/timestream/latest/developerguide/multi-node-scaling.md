@@ -49,13 +49,16 @@ When generating writes or reads using multiple parallel threads from the same cl
 ## Managing cluster size
 <a name="multi-node-managing-cluster-size"></a>
 
-To modify your cluster configuration, you must use parameter groups:
+To modify the configuration of a cluster that uses parameter-group topology, use parameter groups:
 
 1. Create a new parameter group with your desired configuration
 
 1. Apply the parameter group to your cluster
 
 This approach applies to both scaling up (adding nodes) and scaling down (removing nodes).
+
+**Note**  
+If your cluster uses a deployment configuration, scale it by submitting the target shape to `update-db-cluster` instead. No new parameter group is needed, and you can size each function separately. See [Reshape an existing cluster](influxdb3-deployment-configuration.md#influxdb3-depcfg-update).
 
 **Important**  
 When creating a new parameter group for scaling, ensure you are using all the recommended parameters for your instance size. Review the [Supported Instance Types and Specifications](supported-instance-types.md) page for instance-specific guidance. Before applying the new parameter group, verify your current running configuration to ensure no settings are accidentally changed when adding or removing nodes. You can check your effective configuration by following the steps in [Creating Parameter Groups with the AWS CLI](creating-parameter-groups-cli.md).
@@ -72,8 +75,8 @@ When running multi-node clusters, nodes are automatically distributed across dif
 <a name="multi-node-requirements-limitations"></a>
 + Clusters with 3\+ nodes require a dedicated compactor
 + A minimum of 2 Writer/Reader nodes is recommended for high availability
-+ All nodes in a cluster must use the same instance type
-+ Node mode changes require creating a new parameter group
++ All nodes in a cluster configured through a parameter group must use the same instance type. To run nodes of different instance types in one cluster, use a deployment configuration instead. See [Size cluster functions independently with deployment configurations](influxdb3-deployment-configuration.md)
++ Node mode changes require creating a new parameter group, unless the cluster uses a deployment configuration, in which case you change `instanceModes` on the node group
 + Node endpoints may experience downtime during maintenance operations
 
 ## Best practices
