@@ -31,6 +31,8 @@ The following prerequisites help you access the GuardDuty sidecar container imag
 ### Permissions requirements
 <a name="ecs-runtime-permissions-requirements"></a>
 
+To authenticate the security agent, GuardDuty uses the task execution role.
+
 The task execution role requires certain Amazon Elastic Container Registry (Amazon ECR) permissions to download the GuardDuty security agent container image:
 
 ```

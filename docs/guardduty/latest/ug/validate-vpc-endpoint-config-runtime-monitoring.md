@@ -5,6 +5,8 @@
 
 After you install the security agent manually or through GuardDuty automated configuration, you can use this document to validate that the VPC endpoint configuration. You can also use these steps after troubleshooting any [runtime coverage issue](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring-assessing-coverage.html) for a resource type. You can ensure that the steps worked as expected and the coverage status would potentially show up as **Healthy**.
 
+These steps apply to an Amazon VPC that uses a GuardDuty-managed Amazon VPC endpoint. If your Amazon VPC uses link-local connectivity, there is no Amazon VPC endpoint to validate. For more information, see [Troubleshooting agent connectivity](runtime-monitoring-agent-connectivity-troubleshooting.md).
+
 Use the following steps to validate that VPC endpoint configuration for your resource type is set up correctly in the VPC owner account:
 
 1. Sign in to the AWS Management Console and open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/).

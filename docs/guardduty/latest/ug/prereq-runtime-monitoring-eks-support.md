@@ -34,6 +34,7 @@ The following table shows the Kubernetes versions for your EKS clusters that are
 
 | Amazon EKS add-on GuardDuty security agent version | Kubernetes version | 
 | --- | --- | 
+| v1.17.3 (latest - v1.17.3-eksbuild.2) | 1.31 - 1.36 | 
 | v1.17.1 (latest - v1.17.1-eksbuild.2) | 1.31 - 1.36 | 
 | v1.16.0 (latest - v1.16.0-eksbuild.2) | 1.28 - 1.36 | 
 | v1.15.0 (latest - v1.15.0-eksbuild.2) | 1.28 - 1.36 | 

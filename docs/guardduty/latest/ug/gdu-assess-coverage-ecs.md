@@ -3,9 +3,9 @@
 # Runtime coverage and troubleshooting for Amazon ECS clusters
 <a name="gdu-assess-coverage-ecs"></a>
 
-The runtime coverage for Amazon ECS clusters includes the tasks running on AWS Fargate and Amazon ECS container instances[1](#ecs-container-instance).
+The runtime coverage for Amazon ECS clusters includes the tasks running on AWS Fargate and Amazon ECS container instances[1](#ecs-container-instance), which are Amazon EC2 instances registered to the cluster.
 
-For an Amazon ECS cluster that runs on Fargate, the runtime coverage is assessed at the task level. The ECS clusters runtime coverage includes those Fargate tasks that have started running after you have enabled Runtime Monitoring and automated agent configuration for Fargate (ECS only). By default, a Fargate task is immutable. GuardDuty will not be able to install the security agent to monitor containers on already running tasks. To include such a Fargate task, you must stop and start the task again. Make sure to check if the associated service is supported.
+For an Amazon ECS cluster that runs on Fargate, the runtime coverage is assessed at the task level. Runtime Monitoring monitors tasks that start after enablement. To include a Fargate task that was already running, stop and start the task again, and check that the associated service is supported.
 
 For information about Amazon ECS container, see [Capacity creation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-capacity.html).
 
@@ -148,7 +148,7 @@ The following table provides the recommended troubleshooting steps for Fargate (
 
 
 - ** Agent not reporting **
-  - **Extra information:** Agent not reporting for tasks in `TaskDefinition - '{{TASK_DEFINITION}}'` / **Recommended troubleshooting steps:** Validate that the VPC endpoint for your Amazon ECS cluster's task is correctly configured. For more information, see [Validating VPC endpoint configuration](validate-vpc-endpoint-config-runtime-monitoring.md).<br />If your organization has a service control policy (SCP), validate that permissions boundary is not restricting the `guardduty:SendSecurityTelemetry` permission. For more information, see [Validating your organization service control policy in a multi-account environment](prereq-runtime-monitoring-ecs-support.md#validate-organization-scp-ecs).
+  - **Extra information:** Agent not reporting for tasks in `TaskDefinition - '{{TASK_DEFINITION}}'` / **Recommended troubleshooting steps:** First, determine which connectivity method your Amazon VPC uses. For more information, see [Determining VPC connectivity method](runtime-monitoring-agent-connectivity-troubleshooting.md#runtime-monitoring-link-local-which-method).<br />If your Amazon VPC uses a `guardduty-data` Amazon VPC endpoint, validate that the VPC endpoint for your Amazon ECS cluster's task is correctly configured. For more information, see [Validating VPC endpoint configuration](validate-vpc-endpoint-config-runtime-monitoring.md).<br />If your Amazon VPC has link-local connectivity, see [Troubleshooting agent connectivity](runtime-monitoring-agent-connectivity-troubleshooting.md).<br />If your organization has a service control policy (SCP), validate that permissions boundary is not restricting the `guardduty:SendSecurityTelemetry` permission. For more information, see [Validating your organization service control policy in a multi-account environment](prereq-runtime-monitoring-ecs-support.md#validate-organization-scp-ecs).
   - **Extra information:** `{{VPC_ISSUE}}; for task in TaskDefinition - '{{TASK_DEFINITION}}'` / **Recommended troubleshooting steps:** View the VPC issue details in the extra information.
 
 - ** Agent exited **

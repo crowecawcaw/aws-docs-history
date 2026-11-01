@@ -202,10 +202,12 @@ GuardDuty generates the following Custom Detection Rules finding types from Runt
 These rules attempt to detect processes that tunnel network traffic, such as DNS tunneling tools or protocol tunneling.
 
 
-| Finding type | Rule name | Severity | 
-| --- | --- | --- | 
-| [CommandAndControl:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#commandandcontrol-runtime-suspicious-command) | DnsTunnelingToolExecuted | HIGH | 
-| [CommandAndControl:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#commandandcontrol-runtime-suspicious-command) | SuspiciousProtocolTunneling | MEDIUM | 
+
+- **[CommandAndControl:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#commandandcontrol-runtime-suspicious-command)**
+  - **Rule name:** DnsTunnelingToolExecuted / **Severity:** HIGH
+  - **Rule name:** SuspiciousProtocolTunneling / **Severity:** MEDIUM
+
+
 
 ### Credential Access
 <a name="cdr-runtime-credential-access"></a>
@@ -223,15 +225,19 @@ These rules attempt to detect processes that read sensitive data, such as proces
 These rules attempt to detect processes that weaken host defenses, such as disabling audit logging, modifying firewall rules, or stopping services.
 
 
-| Finding type | Rule name | Severity | 
-| --- | --- | --- | 
-| [DefenseEvasion:Runtime/SensitiveFileModified](findings-runtime-monitoring.md#defense-evasion-runtime-sensitive-file-modified) | FirewallConfigModified | MEDIUM | 
-| [DefenseEvasion:Runtime/SensitiveFileModified](findings-runtime-monitoring.md#defense-evasion-runtime-sensitive-file-modified) | LogManipulation | MEDIUM | 
-| [DefenseEvasion:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#defenseevasion-runtime-suspicious-command) | AuditDisabled | MEDIUM | 
-| [DefenseEvasion:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#defenseevasion-runtime-suspicious-command) | FirewallDisablement | MEDIUM | 
-| [DefenseEvasion:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#defenseevasion-runtime-suspicious-command) | KernelHardeningDisabled | MEDIUM | 
-| [DefenseEvasion:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#defenseevasion-runtime-suspicious-command) | KillCommandUsage | MEDIUM | 
-| [DefenseEvasion:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#defenseevasion-runtime-suspicious-command) | ServiceStoppedOrDisabled | MEDIUM | 
+
+- **[DefenseEvasion:Runtime/SensitiveFileModified](findings-runtime-monitoring.md#defense-evasion-runtime-sensitive-file-modified)**
+  - **Rule name:** FirewallConfigModified / **Severity:** MEDIUM
+  - **Rule name:** LogManipulation / **Severity:** MEDIUM
+
+- **[DefenseEvasion:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#defenseevasion-runtime-suspicious-command)**
+  - **Rule name:** AuditDisabled / **Severity:** MEDIUM
+  - **Rule name:** FirewallDisablement / **Severity:** MEDIUM
+  - **Rule name:** KernelHardeningDisabled / **Severity:** MEDIUM
+  - **Rule name:** KillCommandUsage / **Severity:** MEDIUM
+  - **Rule name:** ServiceStoppedOrDisabled / **Severity:** MEDIUM
+
+
 
 ### Discovery
 <a name="cdr-runtime-discovery"></a>
@@ -239,15 +245,20 @@ These rules attempt to detect processes that weaken host defenses, such as disab
 These rules attempt to detect processes that gather information about a resource, such as reading password files, searching for credentials or keys, or detecting virtualization.
 
 
-| Finding type | Rule name | Severity | 
-| --- | --- | --- | 
-| [Discovery:Runtime/SensitiveFileRead](findings-runtime-monitoring.md#discovery-runtime-sensitive-file-read) | PasswordShadowFileDiscovery | MEDIUM | 
-| [Discovery:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#discovery-runtime-suspicious-command) | FindCommandReconCloudCredentials | MEDIUM | 
-| [Discovery:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#discovery-runtime-suspicious-command) | FindCommandReconKeyMaterial | MEDIUM | 
-| [Discovery:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#discovery-runtime-suspicious-command) | PromiscuousModeEnabled | MEDIUM | 
-| [Discovery:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#discovery-runtime-suspicious-command) | SSHWithHostKeyCheckingDisabled | MEDIUM | 
-| [Discovery:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#discovery-runtime-suspicious-command) | SqliteDatabaseDump | LOW | 
-| [Discovery:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#discovery-runtime-suspicious-command) | VirtualizationDetection | LOW | 
+
+- **[Discovery:Runtime/SensitiveFileRead](findings-runtime-monitoring.md#discovery-runtime-sensitive-file-read)**
+  - **Rule name:** PasswordShadowFileDiscovery
+  - **Severity:** MEDIUM
+
+- **[Discovery:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#discovery-runtime-suspicious-command)**
+  - **Rule name:** FindCommandReconCloudCredentials / **Severity:** MEDIUM
+  - **Rule name:** FindCommandReconKeyMaterial / **Severity:** MEDIUM
+  - **Rule name:** PromiscuousModeEnabled / **Severity:** MEDIUM
+  - **Rule name:** SSHWithHostKeyCheckingDisabled / **Severity:** MEDIUM
+  - **Rule name:** SqliteDatabaseDump / **Severity:** LOW
+  - **Rule name:** VirtualizationDetection / **Severity:** LOW
+
+
 
 ### Execution
 <a name="cdr-runtime-execution"></a>
@@ -255,17 +266,21 @@ These rules attempt to detect processes that gather information about a resource
 These rules attempt to detect processes that run commands or code that might be malicious, such as downloading and running a script or opening an interactive shell in a container.
 
 
-| Finding type | Rule name | Severity | 
-| --- | --- | --- | 
-| [Execution:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#execution-runtime-suspiciouscommand) | ChmodInTmpDirectory | MEDIUM | 
-| [Execution:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#execution-runtime-suspiciouscommand) | CurlWgetScriptDownload | MEDIUM | 
-| [Execution:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#execution-runtime-suspiciouscommand) | DataEncryptionUsingCommandLineUtilities | MEDIUM | 
-| [Execution:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#execution-runtime-suspiciouscommand) | InlinePythonExecution | MEDIUM | 
-| [Execution:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#execution-runtime-suspiciouscommand) | InteractiveShellInsideAContainer | MEDIUM | 
-| [Execution:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#execution-runtime-suspiciouscommand) | RemoteFileCopy | MEDIUM | 
-| [Execution:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#execution-runtime-suspiciouscommand) | ShellFromUtilities | MEDIUM | 
-| [Execution:Runtime/SuspiciousTool](findings-runtime-monitoring.md#execution-runtime-suspicioustool) | NetworkSnifferToolExecuted | MEDIUM | 
-| [Execution:Runtime/SuspiciousTool](findings-runtime-monitoring.md#execution-runtime-suspicioustool) | RawSocketCreated | MEDIUM | 
+
+- **[Execution:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#execution-runtime-suspiciouscommand)**
+  - **Rule name:** ChmodInTmpDirectory / **Severity:** MEDIUM
+  - **Rule name:** CurlWgetScriptDownload / **Severity:** MEDIUM
+  - **Rule name:** DataEncryptionUsingCommandLineUtilities / **Severity:** MEDIUM
+  - **Rule name:** InlinePythonExecution / **Severity:** MEDIUM
+  - **Rule name:** InteractiveShellInsideAContainer / **Severity:** MEDIUM
+  - **Rule name:** RemoteFileCopy / **Severity:** MEDIUM
+  - **Rule name:** ShellFromUtilities / **Severity:** MEDIUM
+
+- **[Execution:Runtime/SuspiciousTool](findings-runtime-monitoring.md#execution-runtime-suspicioustool)**
+  - **Rule name:** NetworkSnifferToolExecuted / **Severity:** MEDIUM
+  - **Rule name:** RawSocketCreated / **Severity:** MEDIUM
+
+
 
 ### Exfiltration
 <a name="cdr-runtime-exfiltration"></a>
@@ -273,11 +288,13 @@ These rules attempt to detect processes that run commands or code that might be 
 These rules attempt to detect processes that move data out of a resource, such as uploading files with curl, wget, or rclone, or splitting data before transfer.
 
 
-| Finding type | Rule name | Severity | 
-| --- | --- | --- | 
-| [Exfiltration:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#exfiltration-runtime-suspicious-command) | CurlWgetExfiltrateData | MEDIUM | 
-| [Exfiltration:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#exfiltration-runtime-suspicious-command) | DataSplittingForExfiltration | MEDIUM | 
-| [Exfiltration:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#exfiltration-runtime-suspicious-command) | S3DataExfiltrationWithRclone | MEDIUM | 
+
+- **[Exfiltration:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#exfiltration-runtime-suspicious-command)**
+  - **Rule name:** CurlWgetExfiltrateData / **Severity:** MEDIUM
+  - **Rule name:** DataSplittingForExfiltration / **Severity:** MEDIUM
+  - **Rule name:** S3DataExfiltrationWithRclone / **Severity:** MEDIUM
+
+
 
 ### Persistence
 <a name="cdr-runtime-persistence"></a>
@@ -285,19 +302,23 @@ These rules attempt to detect processes that move data out of a resource, such a
 These rules attempt to detect changes that keep access to a resource, such as modifying user accounts, SSH authorized keys, scheduled jobs, or system services.
 
 
-| Finding type | Rule name | Severity | 
-| --- | --- | --- | 
-| [Persistence:Runtime/SensitiveFileModified](findings-runtime-monitoring.md#persistence-runtime-sensitive-file-modified) | PAMConfigModification | MEDIUM | 
-| [Persistence:Runtime/SensitiveFileModified](findings-runtime-monitoring.md#persistence-runtime-sensitive-file-modified) | PasswordModification | MEDIUM | 
-| [Persistence:Runtime/SensitiveFileModified](findings-runtime-monitoring.md#persistence-runtime-sensitive-file-modified) | SSHAuthorizedKeysModification | MEDIUM | 
-| [Persistence:Runtime/SensitiveFileModified](findings-runtime-monitoring.md#persistence-runtime-sensitive-file-modified) | ScheduledJobManipulation | MEDIUM | 
-| [Persistence:Runtime/SensitiveFileModified](findings-runtime-monitoring.md#persistence-runtime-sensitive-file-modified) | ShellRCFileManipulated | MEDIUM | 
-| [Persistence:Runtime/SensitiveFileModified](findings-runtime-monitoring.md#persistence-runtime-sensitive-file-modified) | SystemdServiceManipulation | MEDIUM | 
-| [Persistence:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#persistence-runtime-suspicious-command) | AuditdKeylogger | MEDIUM | 
-| [Persistence:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#persistence-runtime-suspicious-command) | InteractiveLocalAccountCreation | MEDIUM | 
-| [Persistence:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#persistence-runtime-suspicious-command) | NobodyUserManipulation | HIGH | 
-| [Persistence:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#persistence-runtime-suspicious-command) | SshFromPublicIPAddress | MEDIUM | 
-| [Persistence:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#persistence-runtime-suspicious-command) | SystemdTransientServiceCreated | MEDIUM | 
+
+- **[Persistence:Runtime/SensitiveFileModified](findings-runtime-monitoring.md#persistence-runtime-sensitive-file-modified)**
+  - **Rule name:** PAMConfigModification / **Severity:** MEDIUM
+  - **Rule name:** PasswordModification / **Severity:** MEDIUM
+  - **Rule name:** SSHAuthorizedKeysModification / **Severity:** MEDIUM
+  - **Rule name:** ScheduledJobManipulation / **Severity:** MEDIUM
+  - **Rule name:** ShellRCFileManipulated / **Severity:** MEDIUM
+  - **Rule name:** SystemdServiceManipulation / **Severity:** MEDIUM
+
+- **[Persistence:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#persistence-runtime-suspicious-command)**
+  - **Rule name:** AuditdKeylogger / **Severity:** MEDIUM
+  - **Rule name:** InteractiveLocalAccountCreation / **Severity:** MEDIUM
+  - **Rule name:** NobodyUserManipulation / **Severity:** HIGH
+  - **Rule name:** SshFromPublicIPAddress / **Severity:** MEDIUM
+  - **Rule name:** SystemdTransientServiceCreated / **Severity:** MEDIUM
+
+
 
 ### Privilege Escalation
 <a name="cdr-runtime-privilege-escalation"></a>
@@ -305,18 +326,25 @@ These rules attempt to detect changes that keep access to a resource, such as mo
 These rules attempt to detect changes that grant higher-level permissions, such as modifying sudoers files, setting the setuid flag, or escaping a container with nsenter.
 
 
-| Finding type | Rule name | Severity | 
-| --- | --- | --- | 
-| [DefenseEvasion:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#defenseevasion-runtime-suspicious-command) | FindCommandReconSetuidSetgidFiles | MEDIUM | 
-| [PrivilegeEscalation:Runtime/SensitiveFileModified](findings-runtime-monitoring.md#privilege-escalation-runtime-sensitive-file-modified) | SudoerFileLinked | MEDIUM | 
-| [PrivilegeEscalation:Runtime/SensitiveFileModified](findings-runtime-monitoring.md#privilege-escalation-runtime-sensitive-file-modified) | SudoerFileManipulation | MEDIUM | 
-| [PrivilegeEscalation:Runtime/SensitiveFileModified](findings-runtime-monitoring.md#privilege-escalation-runtime-sensitive-file-modified) | SudoerFileRenamed | MEDIUM | 
-| [PrivilegeEscalation:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#privilege-escalation-runtime-suspicious-command) | AddSetUIDCapability | HIGH | 
-| [PrivilegeEscalation:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#privilege-escalation-runtime-suspicious-command) | NewUserAddedToRootGroup | HIGH | 
-| [PrivilegeEscalation:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#privilege-escalation-runtime-suspicious-command) | NsenterContainerEscape | HIGH | 
-| [PrivilegeEscalation:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#privilege-escalation-runtime-suspicious-command) | SetUidFlagSet | MEDIUM | 
-| [PrivilegeEscalation:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#privilege-escalation-runtime-suspicious-command) | SudoPrivilegeEnumeration | MEDIUM | 
-| [PrivilegeEscalation:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#privilege-escalation-runtime-suspicious-command) | SudoerFileRead | MEDIUM | 
+
+- **[DefenseEvasion:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#defenseevasion-runtime-suspicious-command)**
+  - **Rule name:** FindCommandReconSetuidSetgidFiles
+  - **Severity:** MEDIUM
+
+- **[PrivilegeEscalation:Runtime/SensitiveFileModified](findings-runtime-monitoring.md#privilege-escalation-runtime-sensitive-file-modified)**
+  - **Rule name:** SudoerFileLinked / **Severity:** MEDIUM
+  - **Rule name:** SudoerFileManipulation / **Severity:** MEDIUM
+  - **Rule name:** SudoerFileRenamed / **Severity:** MEDIUM
+
+- **[PrivilegeEscalation:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#privilege-escalation-runtime-suspicious-command)**
+  - **Rule name:** AddSetUIDCapability / **Severity:** HIGH
+  - **Rule name:** NewUserAddedToRootGroup / **Severity:** HIGH
+  - **Rule name:** NsenterContainerEscape / **Severity:** HIGH
+  - **Rule name:** SetUidFlagSet / **Severity:** MEDIUM
+  - **Rule name:** SudoPrivilegeEnumeration / **Severity:** MEDIUM
+  - **Rule name:** SudoerFileRead / **Severity:** MEDIUM
+
+
 
 ### Stealth
 <a name="cdr-runtime-stealth"></a>
@@ -324,10 +352,14 @@ These rules attempt to detect changes that grant higher-level permissions, such 
 These rules attempt to detect processes that hide activity, such as hijacking library functions with LD\_PRELOAD or encoding data with Base64.
 
 
-| Finding type | Rule name | Severity | 
-| --- | --- | --- | 
-| [DefenseEvasion:Runtime/SensitiveFileModified](findings-runtime-monitoring.md#defense-evasion-runtime-sensitive-file-modified) | LDPreloadFunctionHijack | MEDIUM | 
-| [DefenseEvasion:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#defenseevasion-runtime-suspicious-command) | Base64EncodeDecode | MEDIUM | 
-| [DefenseEvasion:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#defenseevasion-runtime-suspicious-command) | BpftoolProgramLoaded | MEDIUM | 
-| [DefenseEvasion:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#defenseevasion-runtime-suspicious-command) | DebugfsRawDiskAccess | MEDIUM | 
-| [DefenseEvasion:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#defenseevasion-runtime-suspicious-command) | SuspiciousExecutionPath | MEDIUM | 
+
+- **[DefenseEvasion:Runtime/SensitiveFileModified](findings-runtime-monitoring.md#defense-evasion-runtime-sensitive-file-modified)**
+  - **Rule name:** LDPreloadFunctionHijack
+  - **Severity:** MEDIUM
+
+- **[DefenseEvasion:Runtime/SuspiciousCommand](findings-runtime-monitoring.md#defenseevasion-runtime-suspicious-command)**
+  - **Rule name:** Base64EncodeDecode / **Severity:** MEDIUM
+  - **Rule name:** BpftoolProgramLoaded / **Severity:** MEDIUM
+  - **Rule name:** DebugfsRawDiskAccess / **Severity:** MEDIUM
+  - **Rule name:** SuspiciousExecutionPath / **Severity:** MEDIUM
+

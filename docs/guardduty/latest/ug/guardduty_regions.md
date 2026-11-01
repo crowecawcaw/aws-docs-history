@@ -22,7 +22,6 @@ The [GetFindingsStatistics](https://docs.aws.amazon.com/guardduty/latest/APIRefe
 GuardDuty supports the [Malware Protection for EC2](malware-protection.md) feature in the [AWS Dedicated Local Zones](https://aws.amazon.com/dedicatedlocalzones).
 
 **RDS Protection**  
-RDS Protection is not supported in Asia Pacific (Taipei) (`ap-east-2`) Region.  
 RDS Protection is not supported in the AWS Dedicated Local Zones.
 
 **IAM finding type – [CredentialAccess:IAMUser/CompromisedCredentials](guardduty_finding-types-iam.md#credentialaccess-iam-compromisedcredentials)**  

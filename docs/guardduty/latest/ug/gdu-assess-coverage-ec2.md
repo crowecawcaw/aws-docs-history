@@ -3,7 +3,7 @@
 # Runtime coverage and troubleshooting for Amazon EC2 instance
 <a name="gdu-assess-coverage-ec2"></a>
 
-For an Amazon EC2 resource, the runtime coverage is evaluated at the instance level. Your Amazon EC2 instances can run multiple types of applications and workloads amongst others in your AWS environment. This feature also supports Amazon ECS managed Amazon EC2 instances and if you have Amazon ECS clusters running on an Amazon EC2 instance, the coverage issues at the instance level will show up under Amazon EC2 runtime coverage. 
+For an Amazon EC2 resource, the runtime coverage is evaluated at the instance level. Coverage for Amazon EC2 also reflects the instance-level status for Amazon ECS clusters running on Amazon EC2 instances.
 
 **Topics**
 + [Reviewing coverage statistics](#review-coverage-statistics-ec2-runtime-monitoring)
@@ -13,11 +13,9 @@ For an Amazon EC2 resource, the runtime coverage is evaluated at the instance le
 ## Reviewing coverage statistics
 <a name="review-coverage-statistics-ec2-runtime-monitoring"></a>
 
-The coverage statistics for the Amazon EC2 instances associated with your own accounts or your member accounts is the percentage of the healthy EC2 instances over all EC2 instances in the selected AWS Region. The following equation represents this as:
+The coverage statistic for Amazon EC2 instances in your account and member accounts is the percentage of healthy instances in the selected AWS Region:
 
 *(Healthy instances/All instances)\*100*
-
-If you have also deployed the GuardDuty security agent for your Amazon ECS clusters, then any instance level coverage issue associated with Amazon ECS clusters running on an Amazon EC2 instance will appear as an Amazon EC2 instance runtime coverage issue. 
 
 Choose one of the access methods to review the coverage statistics for your accounts.
 
@@ -143,7 +141,7 @@ The following table lists the issue types and the corresponding troubleshooting 
   - **Issue message:** Waiting for SSM notification / **Troubleshooting steps:** Receiving the SSM notification may take a few minutes. <br />Make sure that the Amazon EC2 instance is SSM managed. For more information, see the steps under *Method 1 - By using AWS Systems Manager* in [Installing the security agent manually](installing-gdu-security-agent-ec2-manually.md). 
   - **Issue message:** (Empty on purpose) / **Troubleshooting steps:** If you are managing the GuardDuty security agent manually, make sure that you followed the steps under [Managing security agent manually for Amazon EC2 resource](managing-gdu-agent-ec2-manually.md).
   - **Troubleshooting steps:** If you've enabled automated agent configuration:+  Your EC2 instance is SSM managed. <br />+  View the status of your security agent periodically. For more information, see [Validating GuardDuty security agent installation status](installing-gdu-security-agent-ec2-manually.md#validate-ec2-gdu-agent-installation-healthy). 
-  - **Troubleshooting steps:** Validate that the VPC endpoint for your Amazon EC2 instance is correctly configured. For more information, see [Validating VPC endpoint configuration](validate-vpc-endpoint-config-runtime-monitoring.md).
+  - **Troubleshooting steps:** First, determine which connectivity method your Amazon VPC uses. For more information, see [Determining VPC connectivity method](runtime-monitoring-agent-connectivity-troubleshooting.md#runtime-monitoring-link-local-which-method).<br />If your Amazon VPC uses a `guardduty-data` Amazon VPC endpoint, validate that the VPC endpoint for your Amazon EC2 instance is correctly configured. For more information, see [Validating VPC endpoint configuration](validate-vpc-endpoint-config-runtime-monitoring.md).<br />If your Amazon VPC has link-local connectivity, see [Troubleshooting agent connectivity](runtime-monitoring-agent-connectivity-troubleshooting.md).
   - **Troubleshooting steps:** If your organization has a service control policy (SCP), validate that permissions boundary is not restricting the `guardduty:SendSecurityTelemetry` permission. For more information, see [Validating your organization service control policy in a multi-account environment](prereq-runtime-monitoring-ec2-support.md#validate-organization-scp-ec2).
   - **Issue message:** Agent disconnected / **Troubleshooting steps:**  +  View the status of your security agent. For more information, see [Validating GuardDuty security agent installation status](installing-gdu-security-agent-ec2-manually.md#validate-ec2-gdu-agent-installation-healthy). <br />+  View the security agent logs to identify the potential root cause. The logs provide detailed errors that you can use to troubleshoot the issue yourself. The log files are available under `/var/log/amzn-guardduty-agent/`. <br />Do `sudo journalctl -u amazon-guardduty-agent`.  
 

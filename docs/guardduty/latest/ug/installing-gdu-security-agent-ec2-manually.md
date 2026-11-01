@@ -81,29 +81,29 @@ We recommend verifying the GuardDuty security agent RPM signature before install
       + **Public key**: 
 
         ```
-        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.17.1}}/publickey.pem
+        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.17.3}}/publickey.pem
         ```
       + **GuardDuty security agent RPM signature**:  
 Signature of x86\_64 RPM  
 
         ```
-        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.17.1}}/x86_64/amazon-guardduty-agent-{{1.17.1}}.x86_64.sig
+        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.17.3}}/x86_64/amazon-guardduty-agent-{{1.17.3}}.x86_64.sig
         ```  
 Signature of arm64 RPM  
 
         ```
-        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.17.1}}/arm64/amazon-guardduty-agent-{{1.17.1}}.arm64.sig
+        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.17.3}}/arm64/amazon-guardduty-agent-{{1.17.3}}.arm64.sig
         ```
       + **Access links to the RPM scripts in Amazon S3 bucket**:  
 Access link for x86\_64 RPM  
 
         ```
-        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.17.1}}/x86_64/amazon-guardduty-agent-{{1.17.1}}.x86_64.rpm
+        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.17.3}}/x86_64/amazon-guardduty-agent-{{1.17.3}}.x86_64.rpm
         ```  
 Access link for arm64 RPM  
 
         ```
-        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.17.1}}/arm64/amazon-guardduty-agent-{{1.17.1}}.arm64.rpm
+        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.17.3}}/arm64/amazon-guardduty-agent-{{1.17.3}}.arm64.rpm
         ```
 
 
@@ -153,9 +153,9 @@ Access link for arm64 RPM
       In the following command to download appropriate public key, signature of x86\_64 RPM, signature of arm64 RPM, and the corresponding access link to the RPM scripts hosted in Amazon S3 buckets, make sure to replace the account ID with the appropriate AWS account ID and the Region with your current Region. 
 
       ```
-      aws s3 cp s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.17.1}}/x86_64/amazon-guardduty-agent-{{1.17.1}}.x86_64.rpm ./amazon-guardduty-agent-{{1.17.1}}.x86_64.rpm
-      aws s3 cp s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.17.1}}/x86_64/amazon-guardduty-agent-{{1.17.1}}.x86_64.sig ./amazon-guardduty-agent-{{1.17.1}}.x86_64.sig
-      aws s3 cp s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.17.1}}/publickey.pem ./publickey.pem
+      aws s3 cp s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.17.3}}/x86_64/amazon-guardduty-agent-{{1.17.3}}.x86_64.rpm ./amazon-guardduty-agent-{{1.17.3}}.x86_64.rpm
+      aws s3 cp s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.17.3}}/x86_64/amazon-guardduty-agent-{{1.17.3}}.x86_64.sig ./amazon-guardduty-agent-{{1.17.3}}.x86_64.sig
+      aws s3 cp s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-rpm-artifacts/{{1.17.3}}/publickey.pem ./publickey.pem
       ```
 
    1. 
@@ -183,7 +183,7 @@ Access link for arm64 RPM
       Use the following command to verify the signature
 
       ```
-      gpg --verify amazon-guardduty-agent-{{1.17.1}}.x86_64.sig amazon-guardduty-agent-{{1.17.1}}.x86_64.rpm
+      gpg --verify amazon-guardduty-agent-{{1.17.3}}.x86_64.sig amazon-guardduty-agent-{{1.17.3}}.x86_64.rpm
       ```
 
       If verification passes, you will see a message similar to the result below. You can now proceed to install the GuardDuty security agent using RPM.
@@ -220,7 +220,7 @@ Access link for arm64 RPM
 1. Install the GuardDuty security agent by using the following command:
 
    ```
-   sudo rpm -ivh amazon-guardduty-agent-{{1.17.1}}.x86_64.rpm
+   sudo rpm -ivh amazon-guardduty-agent-{{1.17.3}}.x86_64.rpm
    ```
 
 1. Validate if the GuardDuty agent installation is healthy. For more information about the steps, see [Validating GuardDuty security agent installation status](#validate-ec2-gdu-agent-installation-healthy).
@@ -240,29 +240,29 @@ We recommend verifying the GuardDuty security agent Debian signature before inst
       + **Public key**: 
 
         ```
-        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.17.1}}/publickey.pem
+        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.17.3}}/publickey.pem
         ```
       + **GuardDuty security agent Debian signature**:  
 Signature of amd64  
 
         ```
-        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.17.1}}/amd64/amazon-guardduty-agent-{{1.17.1}}.amd64.sig
+        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.17.3}}/amd64/amazon-guardduty-agent-{{1.17.3}}.amd64.sig
         ```  
 Signature of arm64  
 
         ```
-        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.17.1}}/arm64/amazon-guardduty-agent-{{1.17.1}}.arm64.sig
+        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.17.3}}/arm64/amazon-guardduty-agent-{{1.17.3}}.arm64.sig
         ```
       + **Access links to the Debian scripts in Amazon S3 bucket**:  
 Access link for amd64  
 
         ```
-        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.17.1}}/amd64/amazon-guardduty-agent-{{1.17.1}}.amd64.deb
+        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.17.3}}/amd64/amazon-guardduty-agent-{{1.17.3}}.amd64.deb
         ```  
 Access link for arm64  
 
         ```
-        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.17.1}}/arm64/amazon-guardduty-agent-{{1.17.1}}.arm64.deb
+        s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.17.3}}/arm64/amazon-guardduty-agent-{{1.17.3}}.arm64.deb
         ```
 
 
@@ -311,9 +311,9 @@ Access link for arm64
       In the following commands, replace the account ID with the appropriate AWS account ID, and the Region with your current Region. 
 
       ```
-      aws s3 cp s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.17.1}}/amd64/amazon-guardduty-agent-{{1.17.1}}.amd64.deb ./amazon-guardduty-agent-{{1.17.1}}.amd64.deb
-      aws s3 cp s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.17.1}}/amd64/amazon-guardduty-agent-{{1.17.1}}.amd64.sig ./amazon-guardduty-agent-{{1.17.1}}.amd64.sig
-      aws s3 cp s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.17.1}}/publickey.pem ./publickey.pem
+      aws s3 cp s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.17.3}}/amd64/amazon-guardduty-agent-{{1.17.3}}.amd64.deb ./amazon-guardduty-agent-{{1.17.3}}.amd64.deb
+      aws s3 cp s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.17.3}}/amd64/amazon-guardduty-agent-{{1.17.3}}.amd64.sig ./amazon-guardduty-agent-{{1.17.3}}.amd64.sig
+      aws s3 cp s3://{{694911143906}}-{{eu-west-1}}-guardduty-agent-deb-artifacts/{{1.17.3}}/publickey.pem ./publickey.pem
       ```
 
    1. Import the public key to the database
@@ -333,7 +333,7 @@ Access link for arm64
    1. Verify the signature
 
       ```
-      gpg --verify amazon-guardduty-agent-{{1.17.1}}.amd64.sig amazon-guardduty-agent-{{1.17.1}}.amd64.deb
+      gpg --verify amazon-guardduty-agent-{{1.17.3}}.amd64.sig amazon-guardduty-agent-{{1.17.3}}.amd64.deb
       ```
 
       After a successful verification, you will see a message similar to the following result:
@@ -372,7 +372,7 @@ Access link for arm64
 1. Install the GuardDuty security agent by using the following command:
 
    ```
-   sudo dpkg -i amazon-guardduty-agent-{{1.17.1}}.amd64.deb
+   sudo dpkg -i amazon-guardduty-agent-{{1.17.3}}.amd64.deb
    ```
 
 1. Validate if the GuardDuty agent installation is healthy. For more information about the steps, see [Validating GuardDuty security agent installation status](#validate-ec2-gdu-agent-installation-healthy).

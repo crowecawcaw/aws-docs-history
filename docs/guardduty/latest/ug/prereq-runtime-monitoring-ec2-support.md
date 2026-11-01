@@ -8,6 +8,7 @@ This section includes the prerequisites for monitoring runtime behavior of your 
 **Topics**
 + [Make EC2 instances SSM managed (for automated agent configuration only)](#ssm-managed-prereq-ec2)
 + [Validate architectural requirements](#validating-architecture-req-ec2)
++ [Permissions requirements](#ec2-runtime-permissions-requirements)
 + [Validating your organization service control policy in a multi-account environment](#validate-organization-scp-ec2)
 + [When using automated agent configuration](#runtime-ec2-prereq-automated-agent)
 + [CPU and memory limit for GuardDuty agent](#ec2-cpu-memory-limits-gdu-agent)
@@ -56,6 +57,11 @@ You can modify the default `RLIMIT_MEMLOCK` value either before or after install
 1. Update the default value by providing both hard and soft `RLIMIT_MEMLOCK` limits to at least 32MB. The update should look like this: `DefaultLimitMEMLOCK=32M:32M`. The format is `soft-limit:hard-limit`.
 
 1. Run `sudo reboot`.
+
+## Permissions requirements
+<a name="ec2-runtime-permissions-requirements"></a>
+
+To authenticate the security agent, GuardDuty uses [Instance identity roles](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#ec2-instance-identity-roles).
 
 ## Validating your organization service control policy in a multi-account environment
 <a name="validate-organization-scp-ec2"></a>
