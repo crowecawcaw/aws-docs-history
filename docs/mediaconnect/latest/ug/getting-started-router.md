@@ -70,7 +70,7 @@ If you need to receive content through your Amazon VPC instead of the public int
 ## Step 3: Create router inputs
 <a name="getting-started-router-create-inputs"></a>
 
-You create router inputs to receive content from your source endpoints. A router input is a connection point in the MediaConnect router that can receive content from your source. Each input is associated with a network interface and can be routed to multiple outputs.
+You create router inputs to receive content from your sources. A router input is a connection point in the MediaConnect router that can receive content from your source. Each input is associated with a network interface and can be routed to multiple outputs.
 
 For this tutorial, you create two inputs: one for the primary awards show feed and one for a backup feed. Use the following details:
 

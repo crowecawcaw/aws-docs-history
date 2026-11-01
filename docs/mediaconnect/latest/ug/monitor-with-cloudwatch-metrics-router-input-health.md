@@ -40,6 +40,13 @@ The following table lists router input metrics that AWS Elemental MediaConnect s
 | RouterInputTR101TSSyncLoss | The number of transport stream sync loss errors.<br />Units: Count<br />Valid dimensions:+  RouterInputName, RouterInputID, AvailabilityZone <br />+  RouterInputARN <br />+  AvailabilityZone <br />Protocols: All | 
 | RouterInputUpTime | The amount of time the input has been receiving data.<br />Units: Seconds<br />Valid dimensions:+  RouterInputName, RouterInputID, AvailabilityZone <br />+  RouterInputARN <br />+  AvailabilityZone <br />Protocols: All | 
 
+When a router input uses MediaConnect endpoints, the metrics in this table are also published with each of the following dimension combinations:
++ RouterInputName, RouterInputID, AvailabilityZone, DestinationEndpointName, DestinationEndpointID
++ RouterInputARN, DestinationEndpointARN, UpstreamSourceEndpointARN
++ UpstreamSourceEndpointARN
+
+When no source endpoint is connected, UpstreamSourceEndpointARN displays as `<unconnected>`. For more information, see [Working with endpoints](working-with-endpoints.md).
+
 ## Content quality metrics for router inputs
 <a name="monitor-with-cloudwatch-metrics-router-input-content-quality"></a>
 

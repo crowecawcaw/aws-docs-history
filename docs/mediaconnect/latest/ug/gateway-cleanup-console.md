@@ -64,7 +64,9 @@ You can remove a gateway using the console or the AWS CLI.
       sudo docker stop $(sudo docker ps -f "name=MediaConnectGatewayAgent" -q); \
       sudo docker stop ecs-agent; \
       sudo systemctl stop ecs amazon-ssm-agent; \
-      sudo yum remove -y amazon-ecs-init amazon-ssm-agent;  `# or apt or snap as needed` \
+      sudo yum remove -y amazon-ecs-init amazon-ssm-agent; \
+      sudo apt remove -y amazon-ecs-init amazon-ssm-agent; \
+      sudo snap remove amazon-ecs-init amazon-ssm-agent; \
       sudo rm /var/lib/ecs /etc/ecs /var/lib/amazon/ssm /var/log/ecs /var/log/amazon/ssm -rf; \
       sudo docker rm -f ecs-agent ssm-agent; \
       sudo docker container rm -f $(sudo docker ps -a -f "name=MediaConnectGatewayAgent" -q); \
@@ -72,6 +74,8 @@ You can remove a gateway using the console or the AWS CLI.
       sudo pkill -f -KILL network_bootstra[p]; \
       sudo pkill -KILL mcproxy;
       ```
+
+   1. Reboot the instance to complete the cleanup. The reboot might take several minutes to finish.
 
 1. After successfully deleting all bridges and deregistering all instances associated with the gateway, you may delete the gateway. Deleting the gateway will delete all networks created under that gateway.
 
@@ -117,7 +121,9 @@ You can remove a gateway using the console or the AWS CLI.
       sudo docker stop $(sudo docker ps -f "name=MediaConnectGatewayAgent" -q); \
       sudo docker stop ecs-agent; \
       sudo systemctl stop ecs amazon-ssm-agent; \
-      sudo yum remove -y amazon-ecs-init amazon-ssm-agent;  `# or apt or snap as needed` \
+      sudo yum remove -y amazon-ecs-init amazon-ssm-agent; \
+      sudo apt remove -y amazon-ecs-init amazon-ssm-agent; \
+      sudo snap remove amazon-ecs-init amazon-ssm-agent; \
       sudo rm /var/lib/ecs /etc/ecs /var/lib/amazon/ssm /var/log/ecs /var/log/amazon/ssm -rf; \
       sudo docker rm -f ecs-agent ssm-agent; \
       sudo docker container rm -f $(sudo docker ps -a -f "name=MediaConnectGatewayAgent" -q); \
@@ -125,6 +131,8 @@ You can remove a gateway using the console or the AWS CLI.
       sudo pkill -f -KILL network_bootstra[p]; \
       sudo pkill -KILL mcproxy;
       ```
+
+   1. Reboot the instance to complete the cleanup. The reboot might take several minutes to finish.
 
 1. Delete the gateway. This will delete all networks associated with the gateway.
 

@@ -21,7 +21,7 @@ MediaConnect provides two ways to manage your route assignments:
 
    For quick changes to individual outputs, you can use the Take Input option on any output details page. This method lets you select a new input for a single output without opening the control panel or matrix view.
 
-As you work with routes, remember that outputs are unassigned by default. You can take (assign) an input from any compatible output, regardless of whether the output is active or in standby. Taking a new input changes which source signal flows to the destination, similar to using a traditional switching router. These routing changes don't affect your external endpoint connections between your source and input, or between your output and destination.
+As you work with routes, remember that outputs are unassigned by default. You can take (assign) an input from any compatible output, regardless of whether the output is active or in standby. Taking a new input changes which source signal flows to the destination, similar to using a traditional switching router. These routing changes don't affect your external sender and receiver connections between your source and input, or between your output and destination.
 
 This chapter shows you how to use both the router control panel view and the router matrix view to manage your route assignments.
 

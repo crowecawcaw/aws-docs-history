@@ -3,19 +3,21 @@
 # Creating a router I/O in MediaConnect
 <a name="creating-router-io"></a>
 
-When you create a router I/O, you'll configure its connection details and operating parameters. Each router I/O connects to an external endpoint, which can be a public IP address, or a private VPC IP address.
+When you create a router I/O, you'll configure its connection details and operating parameters. Each router I/O connects to an external sender or receiver, which can be a public IP address, or a private VPC IP address.
 
 You can create two types of router I/Os:
-+ A **router input**, which receives content from a source endpoint (like a live video feed)
-+ A **router output**, which sends content to a destination endpoint (like a broadcast service)
++ A **router input**, which receives content from a sender (like a live video feed)
++ A **router output**, which sends content to a receiver (like a broadcast service)
 
-MediaConnect assigns each router I/O a permanent IP address. This ensures stable connections between your external endpoints and router I/Os, even when you change internal routing assignments. These connections persist until you either update the I/Os or delete them.
+MediaConnect assigns each router I/O a permanent IP address, so connections between router I/Os and your external senders and receivers stay stable even when you change internal routing assignments. These connections persist until you either update the I/Os or delete them.
 
 When creating a router I/O, you must specify both a tier and a maximum bitrate. The tier you select determines the capacity limits, performance characteristics, and associated costs. The maximum bitrate must fall within the limits of your selected tier. There are separate tiers for inputs and outputs, each with different capacity limits. 
 
 Choose a tier of up to 100 Mbps for compressed video, such as the MPEG transport streams used in typical broadcast contribution workflows. Choose a higher-bitrate tier for TR-07 (JPEG XS) workflows, which carry lightly compressed video at much higher bitrates. In all cases, select the tier whose limit covers your source's maximum bitrate.
 
 You can configure router I/Os with either a Regional routing scope or a global routing scope. By default, they use Regional scope, which restricts them to being assigned only to other router I/Os within the same AWS Region. You can optionally set the routing scope to global, which allows cross-Region routing (additional data transfer costs might apply). 
+
+You can manage the connections of a router I/O with either MediaConnect endpoints or manual configuration. By default, the console uses MediaConnect endpoints, which represents a router input as a destination endpoint and a router output as a source endpoint in your endpoint registry. You then connect the router I/O to other endpoints instead of configuring its protocol settings yourself. With manual configuration, you choose an input or output type, such as Standard or MediaConnect flow, and configure its settings. For more information, see [Working with endpoints](working-with-endpoints.md).
 
 **Note**  
 AWS charges you for active router I/Os based on the tier you select. When a router I/O is active, it charges the hourly rate for that tier. Cross-Region routing and public internet egress for outputs incur additional hourly charges when data transfer is active. For more information, see [MediaConnect pricing](https://aws.amazon.com/mediaconnect/pricing/).
@@ -26,7 +28,7 @@ For router outputs, the maximum bitrate must be greater than or equal to the inp
 <a name="create-router-io-prerequisites"></a>
 + You have an AWS MediaConnect account.
 + You know the AWS Region where you want to create the router I/O.
-+ You've identified the external endpoint that you want to connect to your router I/O.
++ You've identified the external sender or receiver that you want to connect to your router I/O.
 + You have [created a network interface](creating-router-network-interfaces.md).
 + If you want to connect your router I/O to a MediaConnect flow, your flow must be set up for router integration. For more information, see [Integrating router I/Os with MediaConnect flows](integrate-flow-with-router.md).
 + If you want to connect your router output to a MediaLive input, your MediaLive input must be set up for router integration. For more information, see [Integrating router I/Os with MediaLive](integrate-eml-with-router.md).
@@ -64,9 +66,13 @@ Choose a Region close to your upstream content source for optimal performance.
 
    1. **Routing scope** - Select *regional* to restrict routing to outputs in the same AWS Region, or *global* to enable cross-region routing. 
 
-1. Under **Input type**, choose an option and complete its configuration:
+1. Under **Connection management**, choose **MediaConnect endpoints** or **Manual configuration**.
 
-   1. **Standard** - To receive content from an external source endpoint, follow these steps: 
+1. If you chose **MediaConnect endpoints**, under **Endpoint configuration**, choose an **Availability zone** and a **Decryption key type**. If you choose **Secrets Manager decryption key**, also specify the **Secret type** and **Secret ARN**.
+
+1. If you chose **Manual configuration**, under **Input type**, choose an option and complete its configuration:
+
+   1. **Standard** - To receive content from an external sender, follow these steps: 
 
       1. Under **Standard router input configuration**, select a network interface to use. For public network interfaces, select the availability zone where the router input will be placed in. For VPC network interfaces, the availability zone is inferred from the network interface subnet. 
 
@@ -317,9 +323,13 @@ Choose a Region close to your downstream content destination for optimal perform
 
    1. **Routing scope** - Select *regional* to restrict routing from inputs in the same AWS Region, or *global* to enable cross-region routing. 
 
-1. Under **Output type**, choose one of these options and complete its configuration. 
+1. Under **Connection management**, choose **MediaConnect endpoints** or **Manual configuration**.
 
-   1. **Standard** - To send content to an external source endpoint, follow these steps:
+1. If you chose **MediaConnect endpoints**, under **Endpoint configuration**, choose an **Availability zone** and an **Encryption key type**. If you choose **Secrets Manager encryption key**, also specify the **Secret type** and **Secret ARN**.
+
+1. If you chose **Manual configuration**, under **Output type**, choose one of these options and complete its configuration. 
+
+   1. **Standard** - To send content to an external receiver, follow these steps:
 
       1. Under **Standard router output configuration**, select a network interface to use. For public network interfaces, select the availability zone where the router output will be placed in. For VPC network interfaces, the availability zone is inferred from the network interface subnet. 
 
@@ -469,6 +479,7 @@ This option requires a MediaLive input that's been set up for router integration
 + To view the router I/Os you've created, see [Viewing router I/Os in MediaConnect](viewing-router-io.md).
 + To start using your router I/O, see [Starting a router I/O in MediaConnect](starting-router-io.md).
 + To control how your media flows through the router, see [Managing routes in MediaConnect](assigning-route.md).
++ To connect your router I/O to other endpoints, see [Connecting and disconnecting endpoints in MediaConnect](connecting-endpoints.md).
 
 ## Additional resources
 <a name="create-router-io-additional-resources"></a>

@@ -7,6 +7,7 @@ The following table describes the documentation for this release of AWS Elementa
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [MediaConnect endpoints](working-with-endpoints.md) | You can now register endpoints that represent the sources and destinations in your media workflows, connect them, and share them with other AWS accounts. | October 26, 2026 | 
 | [High-bitrate router tiers](using-mediaconnect-router.md) | Router inputs and outputs now support 250 Mbps and 500 Mbps high-bitrate tiers for TR-07 (JPEG XS) workflows. | October 9, 2026 | 
 | [AWS Elemental Inference support](monitor-with-workflow-monitor.md#monitor-with-workflow-monitor-supported-services) | With workflow monitor, you can now discover AWS Elemental Inference (Elemental Inference) feeds and add them to signal maps. You can also create Amazon CloudWatch alarm templates that monitor Elemental Inference feed metrics. | October 8, 2026 | 
 | [Source metadata change EventBridge event](monitoring-eventbridge-events-flow-source-metadata.md) | You can now subscribe to an EventBridge event that is published when a flow's source metadata changes. | October 6, 2026 | 

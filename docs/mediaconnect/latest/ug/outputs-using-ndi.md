@@ -34,7 +34,7 @@ At a high level, here’s how your content moves through MediaConnect when you u
 
 1. MediaConnect processes the content to the flow output, creating a discoverable NDI source in your VPC.
 
-1. The production systems in your network can now discover and connect to these endpoints and receive your content.
+1. The production systems in your network can now discover and connect to these NDI sources and receive your content.
 
  This workflow maintains compatibility with existing broadcast infrastructure while adding the flexibility and networking advantages of NDI distribution.
 

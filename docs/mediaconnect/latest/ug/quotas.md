@@ -16,6 +16,8 @@ The following table describes quotas, formerly referred to as *limits*, in AWS E
 | RouterInputs | 20 per AWS Region | The maximum number of router inputs that you can create in each AWS Region.<br />You can [request a quota increase](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediaconnect/quotas). | 
 | RouterNetworkInterfaces | 10 per AWS Region | The maximum number of router network interfaces that you can create in each AWS Region.<br />You can [request a quota increase](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediaconnect/quotas). | 
 | RouterOutputs | 20 per AWS Region | The maximum number of router outputs that you can create in each AWS Region.<br />You can [request a quota increase](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediaconnect/quotas). | 
+| StandardTypeDestinationEndpoints | 1,000 per AWS Region | The maximum number of standard destination endpoints that you can register in each AWS Region. Managed endpoints don't count toward this quota.<br />You can [request a quota increase](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediaconnect/quotas). | 
+| StandardTypeSourceEndpoints | 1,000 per AWS Region | The maximum number of standard source endpoints that you can register in each AWS Region. Managed endpoints don't count toward this quota.<br />You can [request a quota increase](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediaconnect/quotas). | 
 | VpcInterfaces | 2 ENA interfaces and 1 EFA interface per flow | The maximum number of VPC interfaces that a flow can have.You cannot increase this quota. | 
 
 **Note**  

@@ -14,6 +14,7 @@ With AWS Elemental MediaConnect, you can do the following:
 + Ingest live video into the AWS Cloud from on-premises encoders or remote sources.
 + Distribute live video to multiple destinations inside or outside the AWS Cloud.
 + Dynamically route live video streams between cloud production tools, encoders, and third-party services by using the MediaConnect router.
++ Manage the sources and destinations of your media workflows in one place, connect them to route content through the MediaConnect router, and share them with other AWS accounts.
 + Transport uncompressed video at ultra-low latency by using AWS Cloud Digital Interface (AWS CDI).
 + Receive and distribute video from NDI®-enabled devices and software by using Network Device Interface (NDI).
 + Subscribe to a live video stream that is supplied by another AWS account.

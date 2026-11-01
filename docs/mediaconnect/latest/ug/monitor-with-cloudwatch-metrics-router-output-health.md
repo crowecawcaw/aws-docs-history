@@ -34,6 +34,13 @@ The following table lists router standard output metrics that AWS Elemental Medi
 | RouterOutputTotalPackets | The total number of packets sent by the output.<br />Units: Count<br />Valid dimensions:+  RouterOutputName, RouterOutputID, AvailabilityZone <br />+  RouterOutputARN <br />+  AvailabilityZone <br />Protocols: All | 
 | RouterOutputVideoFrames | The number of video frames sent by the output.<br />Units: Count<br />Valid dimensions:+  RouterOutputName, RouterOutputID, AvailabilityZone <br />+  RouterOutputARN <br />+  AvailabilityZone <br />Protocols: RTMP | 
 
+When a router output uses MediaConnect endpoints, the metrics in this table are also published with each of the following dimension combinations:
++ RouterOutputName, RouterOutputID, AvailabilityZone, SourceEndpointName, SourceEndpointID
++ RouterOutputARN, SourceEndpointARN, DownstreamDestinationEndpointARN
++ DownstreamDestinationEndpointARN
+
+When no destination endpoint is connected, DownstreamDestinationEndpointARN displays as `<unconnected>`. For more information, see [Working with endpoints](working-with-endpoints.md).
+
 ## Router output metrics for MediaConnect flow connections
 <a name="monitor-with-cloudwatch-metrics-router-output-flow"></a>
 

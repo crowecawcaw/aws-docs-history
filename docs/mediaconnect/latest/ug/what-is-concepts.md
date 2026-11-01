@@ -12,7 +12,10 @@ Contribution encoder
 An encoder that receives a live video feed and encodes the stream into a single, high-quality mezzanine stream for transportation or further processing into an adaptive bitrate (ABR) stream.
 
 Destination  
-A physical or virtual connection point in your downstream environment that receives content from MediaConnect. A destination might be an affiliate, a cloud encoder, an on-premises decoder, another MediaConnect flow, a MediaConnect router input, or a MediaLive input. In flows, you define destinations by adding outputs. In the router, you create router outputs that connect to your destination endpoints.
+A physical or virtual connection point in your downstream environment that receives content from MediaConnect. A destination might be an affiliate, a cloud encoder, an on-premises decoder, another MediaConnect flow, a MediaConnect router input, or a MediaLive input. In flows, you define destinations by adding outputs. In the router, you connect router outputs to destinations.
+
+Endpoint  
+A reusable reference to one side of a connection in your media workflow. A source endpoint represents the sending side, and a destination endpoint represents the receiving side. You connect a source endpoint to a destination endpoint so that content flows between them.
 
 Entitlement  
 A permission that allows an AWS account (the subscriber) to access the content in a specific MediaConnect flow. The content originator grants an entitlement to the subscriber account, which can then create a flow using the originator's content as the source.

@@ -8,6 +8,9 @@ As with other AWS products, there are no contracts or minimum commitments for us
 MediaConnect router  
 You are charged an hourly rate for each active input and output, based on maximum bitrate capacity. Base rates include uptime and same-Region transfers. Outputs that receive content from a different Region or that egress to the internet incur additional hourly charges. You are not charged for inputs and outputs that are stopped or idle.
 
+MediaConnect endpoints  
+You are not charged for endpoints. You pay for the resources that managed endpoints represent, at the rates for those resources.
+
 Transport stream flows  
 You are charged an hourly rate for each running flow, plus per-GB data transfer charges or reserved outbound bandwidth pricing for internet delivery. Standby flows don't incur active resource costs. Reserved outbound bandwidth requires a 12-month commitment.
 

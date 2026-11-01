@@ -18,21 +18,21 @@ The router supports flexible routing options between many sources and destinatio
 Before working with the router, familiarize yourself with these key concepts and terms.
 
 **Source and input components**  
-+ **Source (upstream endpoint) **
++ **Source (upstream sender) **
 
    A physical or virtual connection point in your upstream environment that can transmit content into MediaConnect. 
 + **Router input**
 
-  A connection point in the MediaConnect router that can receive content from your source endpoint. Each input can be routed to multiple outputs. There are several types of router input:
+  A connection point in the MediaConnect router that can receive content from your sender. Each input can be routed to multiple outputs. There are several types of router input:
   + **Standard input** 
 
-    A basic router input that receives content from a single source endpoint.
+    A basic router input that receives content from a single sender.
   + **Failover input **
 
-    A router input that can receive content from two source endpoints, allowing manual or automatic switching between them. 
+    A router input that can receive content from two senders, allowing manual or automatic switching between them. 
   + **Merge input **
 
-    A router input that combines content from two source endpoints with configurable merge window timing.
+    A router input that combines content from two senders with configurable merge window timing.
   + **Flow input**
 
     A router input that can receive content from a MediaConnect flow.
@@ -41,15 +41,15 @@ Before working with the router, familiarize yourself with these key concepts and
     A router input that can receive content from a MediaLive channel output.
 
 **Destination and output components**  
-+ **Destination (downstream endpoint)**
++ **Destination (downstream receiver)**
 
   A physical or virtual connection point in your downstream environment that can receive content from MediaConnect. 
 + **Router output**
 
-  A connection point in the MediaConnect router that can send content to your destination endpoint.
+  A connection point in the MediaConnect router that can send content to your receiver.
   + **Standard output**
 
-    A basic router output that sends content to a downstream destination endpoint.
+    A basic router output that sends content to a downstream receiver.
   + **Flow output**
 
     A router output that can send content to a MediaConnect flow.
@@ -84,17 +84,17 @@ Building on these concepts, the following steps show how you set up and use the 
 
 1. **Create network interfaces** - Set up public or VPC network interfaces to define the network security settings for how your router I/Os connect to other resources.
 
-1. **Create router I/Os** - Set up I/Os that connect to your external endpoints, associating each one with a network interface.
+1. **Create router I/Os** - Set up I/Os that connect to your external senders and receivers, associating each one with a network interface.
 
 1. **Start the router I/Os** - Change I/O status from Standby to Active when you're ready to begin streaming.
 
 1. **Assign routes** - Define routes by assigning inputs to outputs. You can assign routes regardless of I/O status.
 
-You can do these steps manually in the console, or programmatically using the MediaConnect API. When the router is set up in this way, it can connect **every** destination endpoint to **any** source stream. This gives you the flexibility to instantly switch feeds between sources and destinations in real time, either individually or in bulk.
+You can do these steps manually in the console, or programmatically using the MediaConnect API. When the router is set up in this way, it can connect **every** receiver to **any** source stream. This gives you the flexibility to instantly switch feeds between sources and destinations in real time, either individually or in bulk.
 
-The following diagram shows the anatomy of the MediaConnect router. The router system consists of a collection of different sources and destinations. These external endpoints are connected to router inputs and outputs. As you add or delete router I/Os, the size and shape of the routing matrix adjusts accordingly.
+The following diagram shows the anatomy of the MediaConnect router. The router system consists of a collection of different sources and destinations. These external senders and receivers are connected to router inputs and outputs. As you add or delete router I/Os, the size and shape of the routing matrix adjusts accordingly.
 
-![Diagram of MediaConnect router architecture showing data flow from source endpoints through inputs, a central routing matrix, and outputs, to destination endpoints, with a global control plane managing operations.](https://docs.aws.amazon.com/mediaconnect/latest/ug/images/router-anatomy.png)
+![Diagram of MediaConnect router architecture showing data flow from senders through inputs, a central routing matrix, and outputs, to receivers, with a global control plane managing operations.](https://docs.aws.amazon.com/mediaconnect/latest/ug/images/router-anatomy.png)
 
 
 ### Stream Adaptive Multipath Routing
@@ -147,7 +147,7 @@ As you plan your router implementation, keep these points in mind.
 | Router network interface capacity | You can create up to five router network interfaces in each AWS Region.<br />Each public router network interface can have up to 10 address ranges.<br />For VPC interfaces, you can associate up to 5 security groups. | 
 | Router input capacity | You can create up to 20 router inputs in each AWS Region.<br />You can connect one input to up to 10 outputs simultaneously.<br />Each input supports up to 500 Mbps. | 
 | Router output capacity | You can create up to 20 router outputs in each AWS Region.<br />Each output supports up to 500 Mbps. | 
-| Source failover and merge | The MediaConnect router supports both automatic failover between redundant sources and merged content from two source endpoints. <br />Supported protocols: +  Failover: RTP, RIST, SRT-listener, SRT-caller <br />+  Merge: RTP, RIST <br />Both sources must:+  Use the same protocol configuration <br />+  Use the same network configuration (VPC or public) <br />+  Use different port numbers <br />Merge inputs include configurable merge window timing.<br />Converting between failover and merge types requires recreating the input. | 
+| Source failover and merge | The MediaConnect router supports both automatic failover between redundant sources and merged content from two senders. <br />Supported protocols: +  Failover: RTP, RIST, SRT-listener, SRT-caller <br />+  Merge: RTP, RIST <br />Both sources must:+  Use the same protocol configuration <br />+  Use the same network configuration (VPC or public) <br />+  Use different port numbers <br />Merge inputs include configurable merge window timing.<br />Converting between failover and merge types requires recreating the input. | 
 | MediaLive integration | The MediaConnect router supports routing to or from MediaLive. You can send content from router outputs to MediaLive inputs, or receive content from MediaLive channel outputs into router inputs. For more details, see [Integrating router I/Os with MediaLive](integrate-eml-with-router.md). | 
 | Flow integration | The MediaConnect router supports routing to or from MediaConnect flows. <br />For more details on flow integration considerations, see [Integrating router I/Os with MediaConnect flows](integrate-flow-with-router.md). | 
 | Maintenance schedule updates | Unlike flows, router resources must be in standby mode before you can make any maintenance schedule changes. Once a router I/O is started, the schedule remains fixed until the next restart. For more information, see [Maintenance in MediaConnect](maintenance.md). | 
