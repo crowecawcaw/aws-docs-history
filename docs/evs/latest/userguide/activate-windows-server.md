@@ -48,8 +48,10 @@ Amazon EVS provides Windows Server activation for VMs that have Windows Server e
    +  `Volume activation expiration: 259200 minute(s) (180 day(s))` — or close to it
    +  `Registered KMS machine name: {{VPC_Endpoint_Private_DNS_Name}}:1688` 
 
-## Troubleshooting
-<a name="_troubleshooting"></a>
+## Troubleshooting Windows Server activation
+<a name="_troubleshooting_windows_server_activation"></a>
+
+If Windows Server activation fails on an entitled VM, use the following sections to identify and resolve the most common causes.
 
 ### Activation fails because the VM does not have a GVLK
 <a name="_activation_fails_because_the_vm_does_not_have_a_gvlk"></a>

@@ -1689,7 +1689,7 @@ The EC2 serial console can be accessed using the EC2 console or the AWS CLI. For
 The EC2 serial console is the only Amazon EVS supported mechanism to access the Direct Console User Interface (DCUI) to interact with an ESX host locally.
 
 **Note**  
-Amazon EVS disables remote SSH by default. For more information about enabling SSH to access the remote ESX Shell, see [Remote ESX Shell Access with SSH](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere-sdks-tools/8-0/getting-started-with-esxcli-8-0/running-host-management-commands-in-the-esxi-shell/remote-esxi-shell-access-with-ssh.html) in the VMware vSphere product documentation.
+Amazon EVS disables remote SSH by default. For more information about enabling SSH to access the remote ESX Shell, see [Remote ESX Shell Access with SSH](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere-sdks-tools/8-0/getting-started-with-esxcli/running-host-management-commands-in-the-esxi-shell/remote-esxi-shell-access-with-ssh.html) on the Broadcom TechDocs website.
 
  **Connect to the EC2 Serial Console** 
 
