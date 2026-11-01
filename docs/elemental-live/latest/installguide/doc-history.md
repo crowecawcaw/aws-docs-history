@@ -5,7 +5,7 @@
 
 The following table describes the documentation for this release of AWS Elemental Live.
 + **API version: 2.25 and later** 2.25
-+ **Release notes: **[ current Release Notes](https://docs.aws.amazon.com/elemental-live/)
++ **Release notes: **[current Release Notes](https://docs.aws.amazon.com/elemental-live/latest/releasenotes/)
 
 The following table describes the documentation for this release of AWS Elemental Live. For notification about updates to this documentation, you can subscribe to an RSS feed.
 
