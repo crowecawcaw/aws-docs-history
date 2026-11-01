@@ -85,7 +85,7 @@ To specify the path to the `odbc.ini` and `odbcinst.ini` files using the iODBC d
    athena_odbc_test=Amazon Athena ODBC (x64)
    
    [ATHENA_WIDE_SETTINGS] # Special DSN-name to signal driver about logging configuration.
-   LogLevel=0             # set to 1 to enable ODBC driver logs
+   LogLevel=OFF           # Set to a level such as INFO or DEBUG to enable ODBC driver logs. LogPath is required.
    UseAwsLogger=0         # set to 1 to enable AWS-SDK logs
    LogPath=/opt/amazon/athena-odbc/logs/ # Path to store the log files. Permissions to the location are required.
    

@@ -12,8 +12,8 @@ Each Linux client computer where you install the driver must meet the following 
 + You have root access.
 + Use one of the following Linux distributions:
   + Amazon Linux 2023
-  + Red Hat Enterprise Linux (RHEL) 9 or later. On RHEL 9, use Amazon Athena ODBC driver version 2.4.0.0 or later. Versions 2.1.0.0 through 2.2.0.1 can fail to install because they require `GLIBCXX` symbol versions that are unavailable in the standard RHEL 9 repositories.
-  + Red Hat Enterprise Linux (RHEL) 8. On RHEL 8, use Amazon Athena ODBC driver version 2.4.0.0 or later.
+  + Red Hat Enterprise Linux (RHEL) 9 or later. On RHEL 9, use Amazon Athena ODBC driver version 2.5.0.0 or later. Versions 2.1.0.0 through 2.2.0.1 can fail to install because they require `GLIBCXX` symbol versions that are unavailable in the standard RHEL 9 repositories.
+  + Red Hat Enterprise Linux (RHEL) 8. On RHEL 8, use Amazon Athena ODBC driver version 2.5.0.0 or later.
 + Have 100 MB of disk space available.
 + Use version 2.3.9 or later of [unixODBC](https://www.unixodbc.org/).
 + Use version 2.28 or later of the [GNU C Library](https://www.gnu.org/software/libc/) (glibc). Versions 2.1.0.0 through 2.2.0.1 require glibc 2.34 or later.
@@ -47,7 +47,7 @@ Use the following procedure to install the Amazon Athena ODBC driver on a Linux 
      Output:
 
      ```
-     amazon-athena-odbc-driver.x86_64 2.4.0.0-1.amzn2023 installed
+     amazon-athena-odbc-driver.x86_64 2.5.0.0-1.amzn2023 installed
      ```
    + 
 
@@ -58,7 +58,7 @@ Use the following procedure to install the Amazon Athena ODBC driver on a Linux 
      Output:
 
      ```
-     amazon-athena-odbc-driver-2.4.0.0-1.amzn2023.x86_64
+     amazon-athena-odbc-driver-2.5.0.0-1.amzn2023.x86_64
      ```
 
 ## Configuring a data source name on Linux
@@ -120,7 +120,7 @@ To specify the path to the `odbc.ini` and `odbcinst.ini` files using unixODBC, p
    athena_odbc_test=Amazon Athena ODBC (x64)
    
    [ATHENA_WIDE_SETTINGS]  # Special DSN-name to signal driver about logging configuration.
-   LogLevel=0              # To enable ODBC driver logs, set this to 1.
+   LogLevel=OFF            # Set to a level such as INFO or DEBUG to enable ODBC driver logs. LogPath is required.
    UseAwsLogger=0          # To enable AWS-SDK logs, set this to 1.
    LogPath=/opt/amazon/athena-odbc/logs/ # Path to store the log files. Permissions to the location are required.
    
@@ -173,16 +173,16 @@ Follow these steps to verify the signature of the Athena ODBC driver RPM package
 1. **Prepare the templates**
 
    Prepare the commands with the appropriate public key, RPM signature, and RPM package hosted in Amazon S3. Download the following files to your device:
-   + To download the Athena ODBC driver, choose [Athena ODBC driver](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/ODBC/v2.4.0.0/Linux/AmazonAthenaODBC-2.4.0.0-x86_64.rpm).
-   + To download the public key, choose [Public Key](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/ODBC/v2.4.0.0/Linux/public_key.pem).
-   + To download the Athena ODBC RPM signature, choose [Athena ODBC RPM signature](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/ODBC/v2.4.0.0/Linux/signature.bin).
+   + To download the Athena ODBC driver, choose [Athena ODBC driver](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/ODBC/v2.5.0.0/Linux/AmazonAthenaODBC-2.5.0.0-x86_64.rpm).
+   + To download the public key, choose [Public Key](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/ODBC/v2.5.0.0/Linux/public_key.pem).
+   + To download the Athena ODBC RPM signature, choose [Athena ODBC RPM signature](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/ODBC/v2.5.0.0/Linux/signature.bin).
 
 1. Download the Athena ODBC driver, public key, and Athena ODBC RPM signature to your device. 
 
 1. Run the following command to verify ODBC driver signature:
 
    ```
-   openssl dgst -sha256 -verify public_key.pem -signature signature.bin AmazonAthenaODBC-2.4.0.0-x86_64.rpm
+   openssl dgst -sha256 -verify public_key.pem -signature signature.bin AmazonAthenaODBC-2.5.0.0-x86_64.rpm
    ```
 
    If verification passes, you will see a message similar to `Verified OK`. This means you can now proceed to install the Athena ODBC driver. 

@@ -25,6 +25,10 @@ The following log levels are available:
 + `DEBUG` - Detailed debug information plus all lower level messages are logged
 + `TRACE` - Most detailed level of logging, includes all messages
 
+A value that the driver does not recognize causes the connection to fail with SQLSTATE `HY000`. An empty value is treated as not set. If the level in the registry or `odbc.ini` is anything other than `OFF`, `LogPath` must also be set. Otherwise the connection fails with the message "LogLevel enables logging but LogPath is missing".
+
+The driver accepts `LogLevel` in a DSN or connection string but only validates the value. The logging level in effect is the one set in the Windows registry or `odbc.ini`.
+
 **Note**  
 Each log level includes all messages from the levels below it. Higher log levels may impact performance and generate larger log files.
 
@@ -42,6 +46,8 @@ Specifies path to the file where the ODBC driver logs are stored. You can use th
 ```
 Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Amazon Athena\ODBC\Driver
 ```
+
+At the `ERROR` and `WARN` levels, the driver creates the log file when it writes the first message.
 
 
 

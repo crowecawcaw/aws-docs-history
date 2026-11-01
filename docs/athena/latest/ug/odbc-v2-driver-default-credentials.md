@@ -13,3 +13,5 @@ You can use the default credentials that you configure on your client system to 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example** | 
 | --- | --- | --- | --- | 
 | AuthenticationType | Required | IAM Credentials | AuthenticationType=Default Credentials; | 
+
+The driver also accepts `Default` as a shorter form of `Default Credentials`.

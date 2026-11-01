@@ -26,3 +26,5 @@ You can connect to Amazon Athena using the following authentication types. For a
 | [Ping](odbc-v2-driver-ping.md) | AuthenticationType=Ping; | 
 | [SageMaker Browser IDC](odbc-v2-driver-sagemaker-idc.md) | AuthenticationType=SageMakerBrowserIdc; | 
 | [SageMaker IAM](odbc-v2-driver-sagemaker-iam.md) | AuthenticationType=SageMakerIam; | 
+
+Use one of the values in this table for `AuthenticationType`. Any other value causes the connection to fail with SQLSTATE `HY000` and a message that lists the supported values. You can also use `Default` as a shorter form of `Default Credentials`.

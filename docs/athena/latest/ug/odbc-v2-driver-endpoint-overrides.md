@@ -47,6 +47,21 @@ The `ClientConfiguration.endpointOverride` method uses this value to override th
 | --- | --- | --- | --- | 
 | LakeFormationEndpointOverride | Optional | none | LakeFormationEndpointOverride=lakeformation.us-west-1.amazonaws.com; | 
 
+## AWS Glue endpoint override
+<a name="odbc-v2-driver-endpoint-overrides-glue"></a>
+
+The `ClientConfiguration.endpointOverride` method uses this value to override the default HTTP endpoint for the AWS Glue client that the driver uses for multi-catalog browsing. For more information, see [AWS Client configuration](https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/client-config.html) in the *AWS SDK for C\+\+ Developer Guide*.
+
+If a call to list AWS Glue catalogs fails for a reason other than an access-denied or entity-not-found error, such as throttling, catalog functions fail with SQLSTATE `HY000` and a message that begins with `[AmazonAthena][GlueClientError]`. To avoid the AWS Glue call for the top-level catalog list, set `UseSingleCatalogAndSchema=1`. For more information, see [Use single catalog and schema](odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-use-single-catalog-and-schema).
+
+The Windows ODBC Data Source Administrator dialog box has no field for this parameter, and saving a DSN from that dialog box removes the parameter. Set this parameter in your connection string or directly in your DSN.
+
+
+
+| **Connection string name** | **Parameter type** | **Default value** | **Connection string example** | 
+| --- | --- | --- | --- | 
+| GlueEndpointOverride | Optional | none | GlueEndpointOverride=glue.us-west-1.amazonaws.com; | 
+
 ## SSO endpoint override
 <a name="odbc-v2-driver-endpoint-overrides-sso"></a>
 

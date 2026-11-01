@@ -10,6 +10,8 @@ You can configure a named profile to connect to Amazon Athena using the ODBC dri
 
 Set the `credential_source` parameter in your AWS profile configuration to the appropriate value for your environment. If you want to use a custom credentials provider in a named profile, specify a value for the `plugin_name` parameter in your profile configuration.
 
+When your AWS credentials or config file changes, the driver reloads credentials if the selected profile, or any profile in its `source_profile` chain, changed. If the driver cannot resolve the profile from the changed files, the connection keeps its current valid credentials and logs a warning.
+
 ## Authentication type
 <a name="odbc-v2-driver-iam-profile-authentication-type"></a>
 

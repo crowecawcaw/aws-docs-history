@@ -68,7 +68,9 @@ Enable this option only if you have good network bandwidth. For example, in our 
 ## Use single catalog and schema
 <a name="odbc-v2-driver-advanced-options-use-single-catalog-and-schema"></a>
 
-By default, the ODBC driver queries Athena to get the list of available catalogs and schemas. This option forces the driver to use the catalog and schema specified by the ODBC Data Source Administrator configuration dialog box or connection parameters. 
+By default, the ODBC driver queries Athena to get the list of available catalogs and schemas. This option forces the driver to use the catalog and schema specified by the ODBC Data Source Administrator configuration dialog box or connection parameters. When this option is set to `1`, catalog functions such as `SQLTables` and `SQLColumns` return only the configured `Catalog` and `Schema`, and the driver does not call Athena or AWS Glue to list them.
+
+Set this parameter to `0` or `1`. Any other value causes the connection to fail. An empty value in a DSN is treated as `0`.
 
 
 
@@ -90,7 +92,7 @@ For `LAMBDA` catalog types, enables the ODBC driver to submit a [SHOW TABLES](sh
 ## Use WCHAR for string types
 <a name="odbc-v2-driver-advanced-options-use-wchar-for-string-types"></a>
 
-By default, the ODBC driver uses `SQL_CHAR` and `SQL_VARCHAR` for Athena the string data types `char`, `varchar`, `string`, `array`, `map<>`, `struct<>`, and `row`. Setting this parameter to `1` forces the driver to use `SQL_WCHAR` and `SQL_WVARCHAR` for string data types. Wide character and wide variable character types are used to ensure that characters from different languages can be stored and retrieved correctly.
+By default, the ODBC driver uses `SQL_CHAR` and `SQL_VARCHAR` for Athena the string data types `char`, `varchar`, `string`, `array`, `map<>`, `struct<>`, and `row`. Setting this parameter to `1` forces the driver to use `SQL_WCHAR` and `SQL_WVARCHAR` for string data types. Wide character and wide variable character types are used to ensure that characters from different languages can be stored and retrieved correctly. When this parameter is set to `1`, catalog result sets also describe their text columns as `SQL_WVARCHAR`, and `SQLColumns` reports wide types and four bytes per character in `BUFFER_LENGTH` and `CHAR_OCTET_LENGTH` for string columns. When this parameter is `1`, the octet length of `time with time zone` and `timestamp with time zone` result columns is 108 and 260. When it is `0`, the octet length is 27 and 65, the same as the column size.
 
 
 
@@ -152,6 +154,17 @@ Specifies the column length for columns with complex data types like `map`, `str
 | Connection string name | Parameter type | Default value | Connection string example | 
 | --- | --- | --- | --- | 
 | ComplexTypeColumnLength | Optional | 65535 | ComplexTypeColumnLength=123456; | 
+
+## Binary column length
+<a name="odbc-v2-driver-advanced-options-binary-column-length"></a>
+
+Specifies the column length for columns with the `varbinary` data type. The driver reports this value as the column size, buffer length, and precision of `varbinary` columns and as the `COLUMN_SIZE` of the `SQL_VARBINARY` type in `SQLGetTypeInfo`. The display size is twice this value. In Windows, you can also set this value in the **Binary Column Length** field of the **Advanced options** dialog box.
+
+
+
+| Connection string name | Parameter type | Default value | Connection string example | 
+| --- | --- | --- | --- | 
+| BinaryColumnLength | Optional | 32767 | BinaryColumnLength=65535; | 
 
 ## Trusted CA certificate
 <a name="odbc-v2-driver-advanced-options-trusted-ca-certificate"></a>
@@ -253,3 +266,18 @@ Specifies the socket read timeout for HTTP clients. This value is set for the `C
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example** | 
 | --- | --- | --- | --- | 
 | RequestTimeout | Optional | 10000 | RequestTimeout=30000; | 
+
+## Enable connection caching
+<a name="odbc-v2-driver-advanced-options-enable-connection-caching"></a>
+
+Use this parameter to cache the result of the `GetWorkGroup` call that the driver makes when you connect. When you set `EnableConnectionCaching=1`, the driver reuses the result for five minutes per driver process instead of calling Athena on every connection. The driver keeps one cache entry for each combination of AWS Region, workgroup, Athena endpoint override, and your credential identity. For the `SageMakerIam` and `SageMakerBrowserIdc` plugins, the cache entry is keyed by the Region, workgroup, endpoint overrides, SageMaker domain, project, and domain Region instead of your credential identity. The driver also caches the SageMaker connection lookup for five minutes.
+
+If you connect within five minutes of a successful connection with the same key, the driver skips the `GetWorkGroup` call. A revoked permission or a changed workgroup engine version is reported at your first query, or at the next connection after the cache expires. Only the literal value `1` enables caching. A missing or empty value, `0`, or any other value leaves caching disabled, and the driver performs a live check on every connection.
+
+The Windows ODBC Data Source Administrator dialog box has no field for this parameter. Its **Test** button always performs a live check, and saving a DSN from that dialog box removes the parameter. Set this parameter in your connection string or directly in your DSN.
+
+
+
+| **Connection string name** | **Parameter type** | **Default value** | **Connection string example** | 
+| --- | --- | --- | --- | 
+| EnableConnectionCaching | Optional | 0 | EnableConnectionCaching=1; | 
