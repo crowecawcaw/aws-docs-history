@@ -44,7 +44,7 @@ For more information and for FIPS endpoints, see [AWS CodeDeploy endpoints and q
 | Asia Pacific (Tokyo) | ap-northeast-1 | Yes | Yes |  | 
 | Canada (Central) | ca-central-1 | Yes | Yes |  | 
 | China (Beijing) | cn-north-1 | Yes | No |  | 
-| China (Ningxia) | cn-northwest-1 | No | No |  | 
+| China (Ningxia) | cn-northwest-1 | Yes | No |  | 
 | Europe (Frankfurt)  | eu-central-1 | Yes | Yes |  | 
 | Europe (Ireland) | eu-west-1 | Yes | Yes |  | 
 | Europe (London) | eu-west-2 | Yes | Yes |  | 
@@ -60,6 +60,7 @@ For more information and for FIPS endpoints, see [AWS CodeDeploy endpoints and q
 | South America (São Paulo) | sa-east-1 | Yes | Yes |  | 
 | AWS GovCloud (US-East) | us-gov-east-1 | No | No | Yes | 
 | AWS GovCloud (US-West) | us-gov-west-1 | No | No | Yes | 
+| AWS European Sovereign Cloud (Germany) | eusc-de-east-1 | Yes | Yes | No | 
 
 ## Create VPC endpoints for CodeDeploy
 <a name="create-vpc-endpoint-for-codedeploy"></a>
