@@ -1,7 +1,5 @@
 
 
-NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](https://docs.aws.amazon.com/transform/latest/userguide/getting-started.html) in the *AWS Transform User Guide*.
-
 # General questions
 <a name="General-Questions-FAQ"></a>
 
@@ -99,18 +97,7 @@ Yes. AWS Transform MGN supports migration to AWS Local Zones. Support for storin
 ## What are the AWS Transform MGN quota limits?
 <a name="MGN-service-limits-faq"></a>
 
-The following are the AWS Transform MGN service quota limits:
-
-
-| Name | Default | Description | 
-| --- | --- | --- | 
-| Concurrent jobs in progress | Each supported AWS Region: 20 | Launching a test or cutover instance, or a cleanup action is considered a job. Multiple servers launched together count as a single job. This parameter is the maximum number of Jobs that can be run concurrently. Jobs that are Completed are not counted against this quota. | 
-| Max active source servers | Each supported AWS Region: 150 | The maximum number of servers that can be actively replicating at any time. For larger migrations contact Support. | 
-| Max non-archived source servers | Each supported AWS Region: 4,000 | This parameter is used for agentless migrations. This is the max number of servers that can be managed by MGN, in non-archived state. This includes the servers that are actively replicating, as well as any servers whose replication has not yet started. The number of actively replicating servers is controlled by the parameter Max active source servers. | 
-| Max source servers in a single job | Each supported AWS Region: 200 | Launching a test or cutover instance, or a cleanup action is considered a job. If you select multiple servers, and perform one of these actions, they are grouped into a single job. This is the maximum number of servers that can be grouped into a single Job. | 
-| Max source servers in all jobs | Each supported AWS Region: 200 | Launching a test or cutover instance, or a cleanup action is considered a job. This is the maximum total number of servers that can be configured in all active Jobs. Jobs that are Completed are not counted against this quota. | 
-| Max total source servers per AWS account | Each supported AWS Region: 50,000 | This parameter is the maximum total servers, both active and archived, that can be migrated in a single account in each AWS Region. Servers that are deleted, are not counted against this quota. | 
-| Max concurrent jobs per source server | Each supported AWS Region: 1 | Launching a test or cutover instance, or a cleanup action is considered a job. This is the maximum number of active Jobs, that can be configured per server. Jobs that are Completed are not counted against this quota. | 
+For the current AWS Transform MGN quotas, see [AWS Transform MGN service quota limits](MGN-service-limits.md).
 
  You can learn about the AWS Transform MGN limits in the [AWS General Reference](https://docs.aws.amazon.com/general/latest/gr/mgn.html).
 

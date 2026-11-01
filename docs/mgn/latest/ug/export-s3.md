@@ -1,7 +1,5 @@
 
 
-NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](https://docs.aws.amazon.com/transform/latest/userguide/getting-started.html) in the *AWS Transform User Guide*.
-
 # Exporting your data inventory to an S3 bucket
 <a name="export-s3"></a>
 

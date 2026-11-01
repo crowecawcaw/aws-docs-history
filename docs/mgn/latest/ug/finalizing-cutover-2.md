@@ -1,7 +1,5 @@
 
 
-NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](https://docs.aws.amazon.com/transform/latest/userguide/getting-started.html) in the *AWS Transform User Guide*.
-
 # Finalizing a cutover
 <a name="finalizing-cutover-2"></a>
 
@@ -31,8 +29,4 @@ To finalize a cutover:
 
    1. When the **Archive X server** dialog appears, choose **Archive**.
 
-   1. To see your archived servers, open the **Preferences** menu by choosing the gear button.
-
-      Toggle the **Show only archived servers** option and choose **Confirm**.
-
-      You are now able to see all of your archived servers. Untoggle the **Show only archived servers** option to show non-archived servers. 
+   1. To view archived servers, choose **Archived source servers** from the drop-down menu above the source servers table. To see your active servers again, choose **Active source servers**.

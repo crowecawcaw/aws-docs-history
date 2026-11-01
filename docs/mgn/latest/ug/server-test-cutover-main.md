@@ -1,7 +1,5 @@
 
 
-NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](https://docs.aws.amazon.com/transform/latest/userguide/getting-started.html) in the *AWS Transform User Guide*.
-
 # Manage test and cutover instances
 <a name="server-test-cutover-main"></a>
 
@@ -28,17 +26,7 @@ The **Test and cutover** menu allows you to manage your test and cutover instanc
   The AWS Transform MGN console indicates **1 launch job complete** after the cutover has been completed successfully. 
 
   This changes your source servers' **Migration lifecycle** status to **Cutover in progress**, indicating that the cutover is in progress but has not yet been finalized.
-+ **Finalize cutover** – Choose this option to finalize the cutover for this server after you have successfully performed a cutover.
-
-  This changes your source servers' **Migration lifecycle** status to **Cutover complete**, indicating that the cutover is complete and that the migration has been performed successfully. In addition, this stops data replication and causes all replicated data to be discarded. All AWS resources used for data replication are terminated. 
-
-  The **Finalize cutover for X servers** dialog appears. Choose **Finalize**.
-
-  The AWS Transform MGN console indicates **X servers cutover. Data replication has been stopped for servers** once the cutover has been completed successfully. The AWS Transform MGN console automatically stops data replication for the cutover source servers to save resource costs. The selected source servers' **Migration lifecycle** column shows the **Cutover complete** status, the **Data replication** column shows **Disconnected** and the **Next step** column states **Mark as archived**. The source servers have now been successfully migrated into AWS and can be archived.
-
-  
-**Note**  
-This action does not uninstall the AWS Replication Agent from the source server. Use the **Disconnect from service** option under the **Actions** menu when you have completed the migration and want to uninstall the agent from your source server.
++ **Finalize cutover** – Finalize the cutover for this server after you have successfully performed a cutover. This stops data replication and terminates the AWS resources used for replication. [Learn more about finalizing a cutover](server-post-migration.md#server-post-migration-finalize-cutover).
 + **Revert to "ready for cutover"** – Choose this option to revert a finalized cutover for this server if you encounter any issues or want to reverse the cutover for any reason.
 
   This reverts your source servers' **Migration lifecycle** to the **Ready for cutover** status, indicating that these servers have not undergone cutover. 

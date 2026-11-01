@@ -1,7 +1,5 @@
 
 
-NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](https://docs.aws.amazon.com/transform/latest/userguide/getting-started.html) in the *AWS Transform User Guide*.
-
 # Initializing MGN with the console
 <a name="mgn-initialize-console"></a>
 
@@ -13,9 +11,9 @@ During the initialization process:
 + The required IAM roles and policies will be created.
 + The required templates are configured.
 
-AWS Transform MGN must be initialized upon first use from within the MGN console by creating a replication template.
+AWS Transform MGN must be initialized upon first use from within the MGN console by creating a replication template. To start, choose **Get started** on the AWS Transform MGN landing page.
 
-Once you create the replication template, the initialization process takes place automatically.
+Once you create the replication template, the initialization process takes place automatically. After MGN is initialized, you are taken to the **Source servers** page.
 
 **Note**  
 The AWS Transform MGN can only be initialized by the IAM user with the "AdministratorAccess" managed policy attached in your AWS account.

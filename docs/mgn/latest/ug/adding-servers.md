@@ -1,7 +1,5 @@
 
 
-NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](https://docs.aws.amazon.com/transform/latest/userguide/getting-started.html) in the *AWS Transform User Guide*.
-
 # Adding source servers
 <a name="adding-servers"></a>
 
@@ -15,7 +13,7 @@ Quick links:
 + [Agentless replication instructions](agentless-mgn.md)
 
 **Note**  
-While the use of AWS Transform MGN is free for 90 days, you will incur charges for any AWS infrastructure that is provisioned during migration and after cutover, such as compute (Amazon EC2) and storage (Amazon EBS or FSx for ONTAP) resources. These are billed to your account separately, at your regular rates.
+While the use of AWS Transform MGN is free for each server for 2,160 hours, which is 90 days when used continuously, you will incur charges for any AWS infrastructure that is provisioned during migration and after cutover, such as compute (Amazon EC2) and storage (Amazon EBS or FSx for ONTAP) resources. These are billed to your account separately, at your regular rates.
 
 **Topics**
 + [Installation requirements](installation-requirements.md)

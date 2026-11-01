@@ -1,7 +1,5 @@
 
 
-NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](https://docs.aws.amazon.com/transform/latest/userguide/getting-started.html) in the *AWS Transform User Guide*.
-
 # Document history for user guide
 <a name="doc-history"></a>
 
@@ -13,6 +11,8 @@ For additional details regarding new features and major updates, [see the MGN re
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Update support matrix with new OS | Added Debian 13 to the list of supported Linux operating systems. | October 29, 2026 | 
+| Quick start guide reorganized | Reorganized the quick start guide into a single checklist page that summarizes each step of the migration and links to the detailed instructions. For more information, see [Quick start guide for AWS Transform MGN](quick-start-guide-gs.md). | October 28, 2026 | 
 | Updated agentless replication availability | Updated the documentation to reflect that agentless replication is no longer available for new deployments, and that agent-based replication is recommended for all migrations. For more information, see [Why we recommend agent-based replication](installing-vcenter-overview-mgn.md#why-agent-based). | October 22, 2026 | 
 | Added Oracle Linux 7.9 support | Added Oracle Linux 7.9 to the list of supported Linux operating systems. | September 29, 2026 | 
 | Added Debian 12 support | Added Debian 12 to the list of supported Linux operating systems. | September 23, 2026 | 

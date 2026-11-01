@@ -1,7 +1,5 @@
 
 
-NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](https://docs.aws.amazon.com/transform/latest/userguide/getting-started.html) in the *AWS Transform User Guide*.
-
 # Agent questions
 <a name="Agent-Related-FAQ"></a>
 
@@ -156,7 +154,7 @@ Rescans can still happen following a hard reboot, crashes, or when you add or re
 +  RHEL 7–9.8, 10, 10.1, 10.2 
 +  Rocky Linux 8–9.8, 10, 10.1, 10.2 
 +  SLES 12 and 15 
-+  Debian 9–12 
++  Debian 9–13 
 +  Ubuntu 16, 18, 20, and 22 
 +  Amazon Linux 2 and 2023 
 +  AlmaLinux 9.6, 9.7, 9.8, 10, 10.1, 10.2 

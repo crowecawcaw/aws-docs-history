@@ -1,7 +1,5 @@
 
 
-NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](https://docs.aws.amazon.com/transform/latest/userguide/getting-started.html) in the *AWS Transform User Guide*.
-
 # Best practices for AWS Transform MGN
 <a name="best_practices_mgn"></a>
 
@@ -32,7 +30,7 @@ The following are the required steps to complete a successful migration implemen
 
 1. Confirm that the data replication status is **Healthy**. 
 
-1. Test the launch of Test instances a week before the actual cutover. 
+1. Test the launch of test instances at least two weeks before the actual cutover.
 
 1. Address any issues that come up, such as Launch setting misconfiguration and potential AWS limits.
 

@@ -1,7 +1,5 @@
 
 
-NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](https://docs.aws.amazon.com/transform/latest/userguide/getting-started.html) in the *AWS Transform User Guide*.
-
 # Troubleshooting agent issues
 <a name="Troubleshooting-Agent-Issues"></a>
 
@@ -110,90 +108,7 @@ If the installation failed on a Linux Source server, check the following:
 
 1. **Version of the Kernel headers package**
 
-   Verify that you have kernel-devel/linux-headers installed that are exactly of the same version as the kernel you are running. 
-
-   The version number of the kernel headers should be completely identical to the version number of the kernel.To handle this issue, follow these steps: 
-
-   1. **Identify the version of your running kernel.**
-
-      To identify the version of your running kernel, run the following command:
-
-      uname -r   
-![Terminal output showing kernel version 4.4.41-36.55.amzn1.x86_64 from uname command.](https://docs.aws.amazon.com/mgn/latest/ug/images/troubleshooting-26-re.png)
-
-      The 'uname -r' output version should match the version of one of the installed kernel headers packages (kernel-devel-<version number> / linux-headers-<version number>). 
-
-   1. **Identify the version of your kernel-devel/linux-headers.**
-
-      To identify the version of your running kernel, run the following command:
-
-      On RHEL/CENTOS/Oracle/SUSE:
-
-      rpm -qa \| grep kernel  
-![Terminal output showing three installed kernel packages with version 4.4.41-36.55.amzn1.x86_64.](https://docs.aws.amazon.com/mgn/latest/ug/images/troubleshooting-27-re.png)
-
-      **Note**: This command looks for kernel-devel.
-
-      On Debian/Ubuntu: apt-cache search linux-headers  
-![Terminal output showing apt-cache search results for linux-headers packages.](https://docs.aws.amazon.com/mgn/latest/ug/images/troubleshooting-28-re.png)
-
-   1. **Verifying that the folder that contains the kernel-devel/linux-headers is not a symbolic link.**
-
-      Sometimes, the content of the kernel-devel/linux-headers, which match the version of the kernel, is actually a symbolic link. In this case, you will need to remove the link before installing the required package. 
-
-      To verify that the folder that contains the kernel-devel/linux-headers is not a symbolic link, run the following command:
-
-      On RHEL/CENTOS/Oracle/SUSE:
-
-      ls -l /usr/src/kernels
-
-      On Debian/Ubuntu:
-
-      ls -l /usr/src  
-![Terminal output showing directory listing of /usr/src where linux-headers directories are real directories, not symbolic links.](https://docs.aws.amazon.com/mgn/latest/ug/images/troubleshooting-29-re.png)
-
-      In the above example, the results show that the linux-headers are not a symbolic link.  
-
-   1. **[If a symbolic link exists] Delete the symbolic link.**
-
-      If you found that the content of the kernel-devel/linux-headers, which match the version of the kernel, is actually a symbolic link, you need to delete the link. Run the following command:
-
-       rm /usr/src/<LINK NAME>
-
-      For example: rm /usr/src/linux-headers-4.4.1
-
-   1. **Install the correct kernel-devel/linux-headers from the repositories.**
-
-      If none of the already installed kernel-devel/linux-headers packages match your running kernel version, you need to install the matching package.
-
-      **Note**: You can have several kernel headers versions simultaneously on your OS, and you can therefore safely install new kernel headers packages in addition to your existing ones (without uninstalling the other versions of the package.) A new kernel headers package does not impact the kernel, and does not overwrite older versions of the kernel headers.
-
-      **Note**: For everything to work, you need to install a kernel headers package with the exact same version number of the running kernel. 
-
-      To install the correct kernel-devel/linux-headers, run the following command:
-
-      On RHEL/CENTOS/Oracle/SUSE:
-
-      sudo yum install kernel-devel-`uname -r`
-
-      On Oracle with Unbreakable Enterprise Kernel:
-
-      sudo yum install kernel-uek-devel-`uname -r`
-
-      On Debian/Ubuntu:
-
-      sudo apt-get install linux-headers-`uname -r`
-
-   1. **[If no matching package was found] Download the matching kernel-devel/linux-headers package.**
-
-      If no matching package was found on the repositories configured on your server, you can download it manually from the Internet and then install it. 
-
-      To download the matching *kernel-devel/linux-headers* package, navigate to these sites:
-      + [RHEL and Centos](https://access.redhat.com/)
-      + [Oracle Linux](https://yum.oracle.com/)
-      +  [SUSE](https://scc.suse.com/packages?name=SUSE)
-      +  [Debian](https://www.debian.org/distrib/packages/)
-      + [Ubuntu](https://packages.ubuntu.com/)
+   Make sure that the kernel headers installed on the source server exactly match the running kernel version. For instructions on how to verify and install the correct kernel headers, see [Linux installation requirements](installation-requirements.md#linux-requirements).
 
 1. **The make, openssl, wget, curl, gcc and build-essential packages.**
 

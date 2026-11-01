@@ -1,12 +1,12 @@
 
 
-NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](https://docs.aws.amazon.com/transform/latest/userguide/getting-started.html) in the *AWS Transform User Guide*.
-
 # Release notes
 <a name="mgn-release-notes"></a>
 
 ## October 2026
 <a name="release-notes-oct-2026"></a>
++ Added support for the following operating systems:
+  + Debian 13
 + Agentless replication is no longer available for new deployments. We recommend using agent-based replication for all migrations. For more information, see [Why we recommend agent-based replication](installing-vcenter-overview-mgn.md#why-agent-based).
 
 ## September 2026

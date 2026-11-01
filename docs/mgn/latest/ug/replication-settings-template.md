@@ -1,7 +1,5 @@
 
 
-NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](https://docs.aws.amazon.com/transform/latest/userguide/getting-started.html) in the *AWS Transform User Guide*.
-
 # Replication template
 <a name="replication-settings-template"></a>
 
@@ -20,7 +18,7 @@ You can also edit the replication settings for a particular server or group of s
 
 The replication template determines how data replication works for each new server you add to AWS Transform MGN. You are prompted to configure your replication template upon your first use of AWS Transform MGN. These settings are applied to each source server you add, but are not applied to servers already in the console when the template changes are made.
 
-For servers already in the console, you can change the replication settings for individual source servers or for a group of source servers. These changes do not affect the replication settings template. [Learn more about configuring your initial replication template](first-time-setup-gs.md). 
+For servers already in the console, you can change the replication settings for individual source servers or for a group of source servers. These changes do not affect the replication settings template. [Learn more about configuring your initial replication template](mgn-initialize-console.md). 
 
 ## Edit your replication settings template
 <a name="edit-replication-template"></a>

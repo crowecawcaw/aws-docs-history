@@ -1,7 +1,5 @@
 
 
-NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](https://docs.aws.amazon.com/transform/latest/userguide/getting-started.html) in the *AWS Transform User Guide*.
-
 # Launch template
 <a name="launch-template"></a>
 
@@ -11,10 +9,10 @@ To edit the launch template for your entire account, you need to edit your launc
 
 This opens the account template view. Choose **Edit** to update your account-level launch template. 
 
+You can change the settings for specific servers without affecting the launch template as described in [Review launch settings for a source server](launch-settings-source.md). 
+
 **Note**  
-Ensure the Account Level EC2 Launch Template is not deleted. If it is, edit and save the launch template page to create a new Account Level Template.
-You can change the settings for specific servers without affecting the launch template as described in [Edit replication settings for a server ](replication-settings-template.md#edit-replication-settings). 
-See [ Assign an IPv6 address to an instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-ipv6-addresses.html#assign-ipv6-address) in the *Amazon EC2 User Guide* for a list of instance types that do not support IPv6 addresses 
+Don't delete the default launch template. If it was deleted, open and save the launch template settings page, and MGN creates a new one. Any changes that you made to the previous template, including subnet and security groups, are discarded. You can make the same changes on the new launch template. They apply to servers that you add after you make the changes.
 
 **Topics**
 + [General launch settings reference](#general-launch-settings)
@@ -34,9 +32,7 @@ See [ Assign an IPv6 address to an instance](https://docs.aws.amazon.com/AWSEC2/
   Select the “Bring your own license (**BYOL**)” option if you are migrating a Linux server. All Linux licenses are BYOL by default. Any RHEL, SUSE or Debian licenses are transferred in their current form to the migrated instance. 
 
    For Windows servers, choose whether you want to use **BYOL**. This sets up a Dedicated Host. All the licenses from the source Windows server are automatically transferred to the test or cutover instance. Note that if you use BYOL licensing for Windows you have to change the **Placement.tenancy** type in the EC2 launch template to **Host**. Otherwise, instance launch fails. 
-+  **Boot mode**: When a computer boots, the first software that it runs is responsible for initializing the platform and providing an interface for the operating system to perform platform-specific operations. In Amazon EC2, two variants of the boot mode software are supported: Unified Extensible Firmware Interface (UEFI) and Legacy BIOS. The boot mode allows MGN to launch a test or cutover instance type that best matches the configuration of the source server. You can select between **Keep the source boot mode** or change it to **BIOS/UEFI modes** . 
-**Note**  
-UEFI is not supported in CentOS 6 and Rhel 6.
++  **Boot mode**: When a computer boots, the first software that it runs is responsible for initializing the platform and providing an interface for the operating system to perform platform-specific operations. In Amazon EC2, two variants of the boot mode software are supported: Unified Extensible Firmware Interface (UEFI) and Legacy BIOS. The boot mode allows MGN to launch a test or cutover instance type that best matches the configuration of the source server. You can select between **Keep the source boot mode** or change it to **BIOS/UEFI modes** . UEFI isn't supported on CentOS 6 and RHEL 6. 
 
 ## Default EC2 launch template settings
 <a name="default-ec2-launch-template"></a>
@@ -45,8 +41,8 @@ UEFI is not supported in CentOS 6 and Rhel 6.
 +  **Default target subnet** – Choose the target subnet for the test and cutover machines. All the test and cutover machines are launched in this target subnet. 
 +  **Target security groups** – Choose a number of security groups for the test and cutover machines. Upon the target launch, the selected security groups are attached to the Amazon EC2 instances. 
 **Note**  
-If you have selected FSx for ONTAP as the target storage in Replication settings, ensure you select a security group that allows your launched instances to connect to the FSx for ONTAP file system over iSCSI (TCP port 3260). See [Step 1: Configure security groups](fsx-ontap.md#fsx-ontap-step1-security-groups) in the [FSx for ONTAP configuration guide](fsx-ontap.md).
-+  **Default instance type** – Choose a default instance type for the test and cutover machines. The instance type chosen in this template is propagated to source server’s launch template and is used to launch the target instance. 
+If you selected FSx for ONTAP as the target storage in replication settings, choose a security group that allows your launched instances to connect to the FSx for ONTAP file system over iSCSI (TCP port 3260). For more information, see [Step 1: Configure security groups](fsx-ontap.md#fsx-ontap-step1-security-groups) in the [FSx for ONTAP configuration guide](fsx-ontap.md).
++  **Default instance type** – Choose a default instance type for the test and cutover machines. The instance type chosen in this template is propagated to source server’s launch template and is used to launch the target instance. Some instance types don't support IPv6 addresses. For a list, see [ Assign an IPv6 address to an instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-ipv6-addresses.html#assign-ipv6-address) in the *Amazon EC2 User Guide*. 
 +  **EBS volume type** – When using Amazon EBS as the target storage type, choose an Amazon EBS volume type for the test and cutover machines. The Amazon EBS volume type options are io1, io2, gp3, st1, and sc1. This setting does not apply when using FSx for ONTAP.
 
    If this setting is not chosen, the default volume type selected in the launch template is gp3 with maximum IOPS (16000). If a volume type is selected in this option, and if the disk size does not match the limits of the volume type, the default gp3 volume type is used with maximum IOPS. 
@@ -54,9 +50,6 @@ If you have selected FSx for ONTAP as the target storage in Replication settings
 +  **Throughput** – General Purpose SSD (gp3) volumes have a baseline performance of 125 MiB/s. You can provision additional throughput of 0.25 MiB/s per provisioned IOPS, up to a maximum of 2,000 MiB/s (at 8,000 IOPS or higher).
 +  **Volume initialization rate** – Specify the volume initialization rate, in MiB/s, at which the snapshot data is downloaded to the volume. Specifying an initialization rate ensures that volumes are fully initialized in a predictable amount of time. This option is supported only for volumes created from snapshots, and additional costs apply. For more information, see [Amazon EBS volume initialization rate](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html#volume-initialization-rate) in the *Amazon EBS User Guide*.
 +  **Delete on termination** – Indicates whether the volume should be automatically deleted when the instance is terminated. If you disable this feature, the volume persists independently from the running life of an Amazon EC2 instance. When you terminate the instance, the volume remains provisioned in your account. If you no longer need the volume after the instance has been terminated, you must delete it manually. You can also change the delete on termination behavior after the instance has been launched. For more information, see [How instance termination affects root and data volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/preserving-volumes-on-termination.html#how-instance-termination-affects-root-and-data-volumes) in the *Amazon EC2 User Guide*.
-
-**Note**  
-Note: if you manually delete the default launch template, MGN generates a new default launch template. Any changes previously made to the default template are discarded, including subnet and security groups. You can make the same changes on the new launch template, and they are applied to servers you add to the console after you make the changes.
 
 ## MAP program tagging setting
 <a name="map-program-tagging"></a>
