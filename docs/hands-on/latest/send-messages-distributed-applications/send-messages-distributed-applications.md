@@ -8,7 +8,7 @@
 | --- |--- |
 | **Cost to Complete** | Free Tier  | 
 | **Services Used** | [Amazon SQS](https://aws.amazon.com/sqs/)  | 
-| Sending Messages on AWS Requires an Account | AWS Free Tier includes 1,000,000 requests of Amazon Simple Queue Service. <br />[View AWS Free Tier Details »](https://aws.amazon.com/free/?e=gs21&src=introduction_freetier) <br />[Create a Free Account in Minutes](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?e=gs21&src=introduction_signup)  | 
+| Sending Messages on AWS Requires an Account | AWS Free Tier includes 1,000,000 requests of Amazon Simple Queue Service. <br />[View AWS Free Tier Details »](https://aws.amazon.com/free/?e=gs21&src=introduction_freetier) <br />[Create a Free Account in Minutes](https://signin.aws.amazon.com/signup?request_type=builderId)  | 
 
 ## Overview
 <a name="overview"></a>
