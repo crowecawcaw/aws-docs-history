@@ -3,6 +3,9 @@
 # Controlling access in AWS Marketplace Vendor Insights
 <a name="buyer-vendor-insights-controlling-access"></a>
 
+**AWS Marketplace Vendor Insights will no longer be available after November 26th, 2026.**  
+We're replacing AWS Marketplace Vendor Insights with new compliance validation features, coming soon. As of October 27th, 2026, you can't request access to any AWS Marketplace Vendor Insights profiles you don't already have access to. Any access you already have stays in place until November 26th, 2026. Download any reports or documents you want to keep before then. Your AWS Marketplace subscriptions and purchases are not affected. For more information, see the [AWS Marketplace Vendor Insights FAQ](buyer-vendor-insights-faq.md).
+
 AWS Identity and Access Management (IAM) is an AWS service that helps you control access to AWS resources. IAM is an AWS service that you can use with no additional charge. If you're an administrator, you control who can be *authenticated* (signed in) and *authorized* (have permissions) to use AWS Marketplace resources. AWS Marketplace Vendor Insights uses IAM to control access to seller data, assessments, seller self-attestation, and industry standard audit reports.
 
 The recommended way to control who can do what in AWS Partner Central is to use IAM to create users and groups. Then you add the users to the groups, and manage the groups. You can assign a policy or permissions to the group that provide read-only permissions. If you have other users that need read-only access, you can add them to the group you created rather than adding permissions to their AWS account.

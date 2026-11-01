@@ -71,3 +71,41 @@ After subscribing to an AWS Marketplace product, you can use the **Subscription 
 To separate AWS Marketplace charges from other POs, create a PO with an AWS Marketplace blanket-usage line item in the AWS Billing console. AWS Marketplace invoice transactions include the blanket-usage PO that you specify if certain criteria and parameters match (for example, billing entities). If you enter a PO number in AWS Marketplace that differs from your blanket PO, the charge isn't applied to your blanket PO.
 
  For more information, refer to [Managing your purchase orders](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-purchaseorders.html).
+
+## Using seller-level blanket purchase orders
+<a name="buyer-vendor-blanket-purchase-orders"></a>
+
+A seller-level blanket purchase order is a blanket PO that applies to the sellers that you select. You set up a seller-level blanket PO on the **Purchase orders** page of the AWS Billing console.
+
+Currently, you can select the following sellers for a seller-level blanket PO:
++ Anthropic models in Amazon Bedrock
++ OpenAI models in Amazon Bedrock
+
+**To set up a seller-level blanket PO**
+
+1. Open the [Purchase orders page of the AWS Billing console](https://console.aws.amazon.com/billing/home#/purchaseorders).
+
+1. On the **Purchase orders** page, create a PO line item.
+
+1. Add the line item to an existing PO, or create a new PO with a name of your choice.
+
+1. For **Line item type**, choose **AWS Marketplace Blanket Usage**.
+
+1. On the **AWS Marketplace 3P Sellers** dropdown list, choose one or more applicable sellers.
+
+1. On the **Purchase orders** page, confirm your selection.
+
+The seller-level blanket PO now applies to charges from the sellers that you selected.
+
+**Purchase order precedence**  
+You can have more than one PO that matches the same subscription. Understanding this order helps you predict which PO appears on your invoice and keep your billing accurate. The following table lists the PO types from highest to lowest precedence.
+
+
+| Precedence | PO type | PO entered in | 
+| --- | --- | --- | 
+| 1 | A PO that you assign during an AWS Marketplace transaction or on an existing subscription. For more information, see [Adding a purchase order during a transaction](#add-po-during-transaction). | AWS Marketplace | 
+| 2 | A PO with the seller-level blanket type. | AWS Billing | 
+| 3 | A PO with the AWS Marketplace Blanket Usage line item type. For more information, see [Using blanket-usage purchase orders](#buyer-using-blanket-usage). | AWS Billing | 
+| 4 | A PO with the All line item type. | AWS Billing | 
+
+For more information about setting up purchase orders in the AWS Billing console, refer to [Managing your purchase orders](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-purchaseorders.html).

@@ -3,6 +3,9 @@
 # Viewing the security profile of a product with AWS Marketplace Vendor Insights
 <a name="buyer-vendor-insights-view-profile"></a>
 
+**AWS Marketplace Vendor Insights will no longer be available after November 26th, 2026.**  
+We're replacing AWS Marketplace Vendor Insights with new compliance validation features, coming soon. As of October 27th, 2026, you can't request access to any AWS Marketplace Vendor Insights profiles you don't already have access to. Any access you already have stays in place until November 26th, 2026. Download any reports or documents you want to keep before then. Your AWS Marketplace subscriptions and purchases are not affected. For more information, see the [AWS Marketplace Vendor Insights FAQ](buyer-vendor-insights-faq.md).
+
 AWS Marketplace Vendor Insights gathers security data from sellers. A product's security profile displays updated information about the product's security, resiliency, compliance, and other factors needed for your assessment. This information supports buyers like you by helping you to procure trusted software that continuously meets industry standards. For each software as a service (SaaS) product that it assesses, AWS Marketplace Vendor Insights gathers the evidence-based information for multiple security controls.
 
 **Topics**
