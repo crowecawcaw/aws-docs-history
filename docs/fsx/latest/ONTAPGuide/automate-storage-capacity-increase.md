@@ -32,7 +32,7 @@ The diagram illustrates the following steps:
 
 1. The solution then triggers the Lambda function that is subscribed to this Amazon SNS topic.
 
-1. The Lambda function calculates the new file system storage capacity based on the specified percent increase value and sets the new file system storage capacity.
+1. The Lambda function calculates the new file system storage capacity based on the specified percent increase value, up to the maximum SSD storage capacity for the file system's configuration, and sets the new file system storage capacity.
 
 1. The original CloudWatch alarm state and results of the Lambda function operations are sent to the Amazon SNS queue.
 
@@ -44,6 +44,8 @@ To receive notifications about the actions that are performed as a response to t
 This solution uses CloudFormation to automate deploying the components that are used to automatically increase the storage capacity of an FSx for ONTAP file system. To use this solution, download the [FSxOntapDynamicStorageScaling](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/samples/FSxOntapDynamicStorageScaling.zip) CloudFormation template.
 
 The template adjusts the storage capacity increment based on the file system's recent usage growth rate rather than applying a fixed percentage on every alarm. Scheduler automatically retries storage scaling that the cooldown window blocks.
+
+If the calculated increase exceeds the file system's maximum SSD storage capacity, the Lambda function increases the storage capacity to the maximum. If the file system is already at its maximum SSD storage capacity, the function keeps the storage capacity unchanged and sends a notification.
 
 The template uses the **Parameters** described as follows. Review the template parameters and their default values, and modify them for the needs of your file system.
 

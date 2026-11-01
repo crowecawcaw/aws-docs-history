@@ -54,7 +54,7 @@ You can track the progress of the storage optimization process at any time by us
 
 Here are a few important items to consider when increasing your file system's SSD storage capacity and IOPS:
 + **(First-generation file systems only) Storage capacity increase only** – You can only increase the amount of SSD storage capacity for a file system; you can't decrease the storage capacity.
-+ **Storage capacity minimum increase** – Each SSD storage capacity increase must be a minimum of 10% of the file system's current SSD storage capacity, up to the maximum SSD storage capacity for your file system's configuration.
++ **Storage capacity minimum increase** – Each SSD storage capacity increase must be at least 10% of the current SSD storage capacity. If a 10% increase would reach or exceed the maximum, you can increase storage capacity by any amount up to that maximum. For more information about maximum SSD storage capacity, see [Resource quotas for each file system](limits.md#limits-ontap-resources-file-system).
 + **Time between increases** – After increasing SSD storage capacity, provisioned IOPS, or throughput capacity on a file system, you must wait at least six hours before modifying any of these configurations on the same file system again. This is sometimes referred to as a cooldown period.
 + **Provisioned IOPS modes** – For a provisioned IOPS change, you must specify one of the two IOPS modes:
   + **Automatic** mode – Amazon FSx automatically scales your SSD IOPS to maintain 3 provisioned SSD IOPS per GiB of SSD storage capacity, up to the maximum SSD IOPS for your file system configuration.

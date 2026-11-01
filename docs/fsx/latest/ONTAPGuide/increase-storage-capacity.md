@@ -21,8 +21,8 @@ You can increase or decrease a file system's SSD-based storage and the amount of
    + To enter the new value in GiB, choose **Absolute**.
 
 1. Depending on the input type, enter a value for **Desired % increase**.
-   + For **Percentage**, enter the percentage increase value. This value must be at least 10 percent greater than the current value.
-   + For **Absolute**, enter the new value in GiB, up to the maximum allowed value of 196,608 GiB.
+   + For **Percentage**, enter the percentage increase value. This value must be at least 10 percent. If a 10 percent increase would reach or exceed the maximum SSD storage capacity for your file system's configuration, choose **Absolute** instead.
+   + For **Absolute**, enter the new value in GiB. The value must be at least 10 percent greater than the current value, up to the maximum SSD storage capacity for your file system's configuration. If a 10 percent increase would reach or exceed that maximum, enter any greater value, up to the maximum.
 
 1. For **Provisioned SSD IOPS**, you have two options to modify the number of provisioned SSD IOPS for your file system:
    + If you want Amazon FSx to automatically scale your SSD IOPS to maintain 3 provisioned SSD IOPS per GiB of SSD storage capacity (up to a maximum of 160,000), choose **Automatic**.
@@ -39,7 +39,7 @@ At the bottom of the prompt, a configuration preview is shown for your new SSD s
 
 To increase the SSD storage capacity and provisioned IOPS for an FSx for ONTAP file system, use the AWS CLI command [update-file-system](https://docs.aws.amazon.com/cli/latest/reference/fsx/update-file-system.html) or the equivalent [UpdateFileSystem](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html) API action. Set the following parameters with your values:
 + Set `--file-system-id` to the ID of the file system that you are updating.
-+ To increase your SSD storage capacity, set `--storage-capacity` to the target storage capacity value, which must be at least 10 percent greater than the current value.
++ To increase your SSD storage capacity, set `--storage-capacity` to the target storage capacity value, which must be at least 10 percent greater than the current value. If a 10 percent increase would reach or exceed the maximum SSD storage capacity for your file system's configuration, set `--storage-capacity` to any greater value, up to that maximum.
 + To modify your provisioned SSD IOPS, use the `--ontap-configuration DiskIopsConfiguration` property. This property has two parameters, `Iops` and `Mode`:
   + If you want to specify the number of provisioned IOPS, use `Iops={{number_of_IOPS}}` (up to a maximum of 160,000) and `Mode=USER_PROVISIONED`. The IOPS value must be greater than or equal to three times the requested SSD storage capacity. If you're not increasing the storage capacity, the IOPs value must be greater than or equal to three times the current SSD storage capacity.
   + If you want Amazon FSx to automatically increase your SSD IOPS, use `Mode=AUTOMATIC` and don't use the `Iops` parameter. Amazon FSx will automatically maintain 3 SSD IOPS per GiB of the provisioned SSD storage capacity (up to a maximum of 160,000).

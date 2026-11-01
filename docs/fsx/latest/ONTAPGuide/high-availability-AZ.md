@@ -61,7 +61,7 @@ The following table illustrates the differences between first and second-generat
 <tbody>
   <tr><td>Deployment type</td><td>SINGLE_AZ_1<br />MULTI_AZ_1</td><td>SINGLE_AZ_2<br />MULTI_AZ_2</td><td>SINGLE_AZ_2</td></tr>
   <tr><td>HA pairs</td><td colspan="2">1 HA pair</td><td>1–12 HA pairs</td></tr>
-  <tr><td>SSD storage</td><td>Minimum: 1 TiB<br />Maximum: 192 TiB</td><td>Minimum: 1 TiB<br />Maximum: 512 TiB</td><td>Minimum: 1 TiB (per HA pair)<br />Maximum: 1 PiB (total)</td></tr>
+  <tr><td>SSD storage</td><td>Minimum: 1 TiB<br />Maximum: 192 TiB</td><td>Minimum: 1 TiB<br />Maximum: 512 TiB</td><td>Minimum: 1 TiB (per HA pair)<br />Maximum: 512 TiB (per HA pair), up to 1 PiB (total)</td></tr>
   <tr><td>SSD IOPS</td><td>Minimum: 3 IOPS/GIB of SSD<br />Maximum: 160,000</td><td>Minimum: 3 IOPS/GIB of SSD<br />Maximum: 200,000</td><td>Minimum: 3 IOPS/GIB of SSD<br />Maximum: 2,400,000 (200,000 per HA pair)</td></tr>
   <tr><td>Throughput capacity</td><td>128 MBps; 256 MBps; 512 MBps; 1,024 MBps;2,048 MBps; 4,096 MBps</td><td>384 MBps; 768 MBps; 1,536 MBps; 3,072 MBps; 6,144 MBps</td><td> 1,536 MBps (per HA pair); 3,072 MBps (per HA pair); 6,144 MBps (per HA pair)</td></tr>
 </tbody>
