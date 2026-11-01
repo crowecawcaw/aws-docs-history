@@ -104,6 +104,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 
 
+- **   [AccessAirflowResource](https://docs.aws.amazon.com/mwaa/latest/API/API_CheckAuthorization.html)  **
+  - **Description:** Grants permission to check whether a user is authorized to perform an action on an Airflow resource within an Amazon MWAA environment
+  - **Resource types (\*required):** [environment\*](#list_mwaa-resource-environment)
+  - **Condition keys:** [airflow:DagAccessEntity](#list_mwaa-airflow_DagAccessEntity)<br />[airflow:ResourceAction](#list_mwaa-airflow_ResourceAction)<br />[airflow:ResourceId](#list_mwaa-airflow_ResourceId)<br />[airflow:ResourceType](#list_mwaa-airflow_ResourceType)<br />[airflow:TeamNames](#list_mwaa-airflow_TeamNames)<br />[aws:ResourceTag/${TagKey}](#list_mwaa-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [CreateCliToken](https://docs.aws.amazon.com/mwaa/latest/API/API_CreateCliToken.html)  **
   - **Description:** Grants permission to create a short-lived token that allows a user to invoke Airflow CLI via an endpoint on the Apache Airflow Webserver
   - **Resource types (\*required):** [environment\*](#list_mwaa-resource-environment)

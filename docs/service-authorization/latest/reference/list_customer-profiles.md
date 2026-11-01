@@ -81,10 +81,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** Write
 
 - **   CreateRecommender  **
-  - **IAM action:**  [profile:CreateRecommender](#list_customer-profiles-action-CreateRecommender) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
+  - **IAM action:**  [profile:CreateRecommender](#list_customer-profiles-action-CreateRecommender)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [profile:TagResource](#list_customer-profiles-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
 - **   CreateRecommenderFilter  **
   - **IAM action:**  [profile:CreateRecommenderFilter](#list_customer-profiles-action-CreateRecommenderFilter)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write

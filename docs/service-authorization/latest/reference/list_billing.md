@@ -26,17 +26,41 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 
 
+- **   AssociateContract  **
+  - **IAM action:**  [billing:AssociateContract](#list_billing-action-AssociateContract) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   AssociateSourceViews  **
   - **IAM action:**  [billing:AssociateSourceViews](#list_billing-action-AssociateSourceViews)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [billing:UseSourceView](#list_billing-action-UseSourceView)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+
+- **   CancelContractualInvestmentAttestation  **
+  - **IAM action:**  [billing:CancelContractualInvestmentAttestation](#list_billing-action-CancelContractualInvestmentAttestation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   CreateBillingView  **
   - **IAM action:**  [billing:CreateBillingView](#list_billing-action-CreateBillingView)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [billing:TagResource](#list_billing-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
   - **IAM action:**  [billing:UseSourceView](#list_billing-action-UseSourceView)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
 
+- **   CreateContractualInvestmentAttestation  **
+  - **IAM action:**  [billing:CreateContractualInvestmentAttestation](#list_billing-action-CreateContractualInvestmentAttestation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   DeleteBillingView  **
   - **IAM action:**  [billing:DeleteBillingView](#list_billing-action-DeleteBillingView) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateContract  **
+  - **IAM action:**  [billing:DisassociateContract](#list_billing-action-DisassociateContract) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -53,6 +77,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   GetBillingView  **
   - **IAM action:**  [billing:GetBillingView](#list_billing-action-GetBillingView) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetContractInformation  **
+  - **IAM action:**  [billing:GetContractInformation](#list_billing-action-GetContractInformation) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -108,6 +138,30 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
+
+- **   ListContracts  **
+  - **IAM action:**  [billing:ListContracts](#list_billing-action-ListContracts) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListContractualInvestmentAttestations  **
+  - **IAM action:**  [billing:ListContractualInvestmentAttestations](#list_billing-action-ListContractualInvestmentAttestations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListContractualInvestmentSummaries  **
+  - **IAM action:**  [billing:ListContractualInvestmentSummaries](#list_billing-action-ListContractualInvestmentSummaries) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListContractualInvestments  **
+  - **IAM action:**  [billing:ListContractualInvestments](#list_billing-action-ListContractualInvestments) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
 
 - **   ListEnterpriseSupportLinkedAccountCharges  **
   - **IAM action:**  [billing:ListEnterpriseSupportLinkedAccountCharges](#list_billing-action-ListEnterpriseSupportLinkedAccountCharges) 

@@ -37,7 +37,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   CreateS3TableIntegration  **
   - **IAM action:**  [observabilityadmin:CreateS3TableIntegration](#list_observabilityadmin-action-CreateS3TableIntegration)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [observabilityadmin:TagResource](#list_observabilityadmin-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
-  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** logs.amazonaws.com, test.logs.amazonaws.com / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** logs.amazonaws.com / **Access level:** Write
 
 - **   CreateTelemetryPipeline  **
   - **IAM action:**  [observabilityadmin:CreateTelemetryPipeline](#list_observabilityadmin-action-CreateTelemetryPipeline)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write

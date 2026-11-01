@@ -121,7 +121,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   SetIdentityPoolRoles  **
   - **IAM action:**  [cognito-identity:SetIdentityPoolRoles](#list_cognito-identity-action-SetIdentityPoolRoles)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
-  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** cognito-identity.amazonaws.com / **Access level:** Write
 
 - **   SetPrincipalTagAttributeMap  **
   - **IAM action:**  [cognito-identity:SetPrincipalTagAttributeMap](#list_cognito-identity-action-SetPrincipalTagAttributeMap) 

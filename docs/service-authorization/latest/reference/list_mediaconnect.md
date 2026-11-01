@@ -56,6 +56,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [mediaconnect:TagResource](#list_mediaconnect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** mediaconnect.amazonaws.com / **Access level:** Write
 
+- **   BatchGetDestinationEndpoint  **
+  - **IAM action:**  [mediaconnect:GetDestinationEndpoint](#list_mediaconnect-action-GetDestinationEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   BatchGetRouterInput  **
   - **IAM action:**  [mediaconnect:GetRouterInput](#list_mediaconnect-action-GetRouterInput) 
   - **Condition key:** 
@@ -74,6 +80,18 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   BatchGetSourceEndpoint  **
+  - **IAM action:**  [mediaconnect:GetSourceEndpoint](#list_mediaconnect-action-GetSourceEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ConnectEndpoints  **
+  - **IAM action:**  [mediaconnect:ConnectEndpoints](#list_mediaconnect-action-ConnectEndpoints) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   CreateBridge  **
   - **IAM action:**  [mediaconnect:AddBridgeOutputs](#list_mediaconnect-action-AddBridgeOutputs)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [mediaconnect:AddBridgeSources](#list_mediaconnect-action-AddBridgeSources)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
@@ -85,7 +103,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [mediaconnect:AddFlowSources](#list_mediaconnect-action-AddFlowSources)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [mediaconnect:AddFlowVpcInterfaces](#list_mediaconnect-action-AddFlowVpcInterfaces)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [mediaconnect:CreateFlow](#list_mediaconnect-action-CreateFlow)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
-  - **IAM action:**  [mediaconnect:GrantFlowEntitlements](#list_mediaconnect-action-GrantFlowEntitlements)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [mediaconnect:GrantFlowEntitlements](#list_mediaconnect-action-GrantFlowEntitlements)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Permissions management, Write
   - **IAM action:**  [mediaconnect:TagResource](#list_mediaconnect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** mediaconnect.amazonaws.com / **Access level:** Write
 
@@ -98,6 +116,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   CreateRouterInput  **
   - **IAM action:**  [mediaconnect:AssociateRouterNetworkInterface](#list_mediaconnect-action-AssociateRouterNetworkInterface)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [mediaconnect:CreateRouterInput](#list_mediaconnect-action-CreateRouterInput)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [mediaconnect:RegisterDestinationEndpoint](#list_mediaconnect-action-RegisterDestinationEndpoint)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [mediaconnect:TagResource](#list_mediaconnect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
   - **IAM action:**  [mediaconnect:UpdateFlowOutput](#list_mediaconnect-action-UpdateFlowOutput)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** mediaconnect.amazonaws.com / **Access level:** Write
@@ -109,6 +128,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   CreateRouterOutput  **
   - **IAM action:**  [mediaconnect:AssociateRouterNetworkInterface](#list_mediaconnect-action-AssociateRouterNetworkInterface)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [mediaconnect:CreateRouterOutput](#list_mediaconnect-action-CreateRouterOutput)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [mediaconnect:RegisterSourceEndpoint](#list_mediaconnect-action-RegisterSourceEndpoint)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [mediaconnect:TagResource](#list_mediaconnect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
   - **IAM action:**  [mediaconnect:UpdateFlowSource](#list_mediaconnect-action-UpdateFlowSource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** mediaconnect.amazonaws.com / **Access level:** Write
@@ -124,7 +144,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [mediaconnect:RemoveFlowOutput](#list_mediaconnect-action-RemoveFlowOutput)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [mediaconnect:RemoveFlowSource](#list_mediaconnect-action-RemoveFlowSource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [mediaconnect:RemoveFlowVpcInterface](#list_mediaconnect-action-RemoveFlowVpcInterface)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
-  - **IAM action:**  [mediaconnect:RevokeFlowEntitlement](#list_mediaconnect-action-RevokeFlowEntitlement)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [mediaconnect:RevokeFlowEntitlement](#list_mediaconnect-action-RevokeFlowEntitlement)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Permissions management, Write
 
 - **   DeleteGateway  **
   - **IAM action:**  [mediaconnect:DeleteGateway](#list_mediaconnect-action-DeleteGateway) 
@@ -134,6 +154,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   DeleteRouterInput  **
   - **IAM action:**  [mediaconnect:DeleteRouterInput](#list_mediaconnect-action-DeleteRouterInput)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [mediaconnect:DeregisterDestinationEndpoint](#list_mediaconnect-action-DeregisterDestinationEndpoint)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [mediaconnect:UpdateFlowOutput](#list_mediaconnect-action-UpdateFlowOutput)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
 - **   DeleteRouterNetworkInterface  **
@@ -144,10 +165,23 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   DeleteRouterOutput  **
   - **IAM action:**  [mediaconnect:DeleteRouterOutput](#list_mediaconnect-action-DeleteRouterOutput)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [mediaconnect:DeregisterSourceEndpoint](#list_mediaconnect-action-DeregisterSourceEndpoint)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [mediaconnect:UpdateFlowSource](#list_mediaconnect-action-UpdateFlowSource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   DeregisterDestinationEndpoint  **
+  - **IAM action:**  [mediaconnect:DeregisterDestinationEndpoint](#list_mediaconnect-action-DeregisterDestinationEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   DeregisterGatewayInstance  **
   - **IAM action:**  [mediaconnect:DeregisterGatewayInstance](#list_mediaconnect-action-DeregisterGatewayInstance) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeregisterSourceEndpoint  **
+  - **IAM action:**  [mediaconnect:DeregisterSourceEndpoint](#list_mediaconnect-action-DeregisterSourceEndpoint) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -200,6 +234,18 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   DisconnectEndpoints  **
+  - **IAM action:**  [mediaconnect:DisconnectEndpoints](#list_mediaconnect-action-DisconnectEndpoints) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetDestinationEndpoint  **
+  - **IAM action:**  [mediaconnect:GetDestinationEndpoint](#list_mediaconnect-action-GetDestinationEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetRouterInput  **
   - **IAM action:**  [mediaconnect:GetRouterInput](#list_mediaconnect-action-GetRouterInput) 
   - **Condition key:** 
@@ -230,13 +276,25 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetSourceEndpoint  **
+  - **IAM action:**  [mediaconnect:GetSourceEndpoint](#list_mediaconnect-action-GetSourceEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GrantFlowEntitlements  **
-  - **IAM action:**  [mediaconnect:GrantFlowEntitlements](#list_mediaconnect-action-GrantFlowEntitlements)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [mediaconnect:GrantFlowEntitlements](#list_mediaconnect-action-GrantFlowEntitlements)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Permissions management, Write
   - **IAM action:**  [mediaconnect:TagResource](#list_mediaconnect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** mediaconnect.amazonaws.com / **Access level:** Write
 
 - **   ListBridges  **
   - **IAM action:**  [mediaconnect:ListBridges](#list_mediaconnect-action-ListBridges) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDestinationEndpoints  **
+  - **IAM action:**  [mediaconnect:ListDestinationEndpoints](#list_mediaconnect-action-ListDestinationEndpoints) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
@@ -295,6 +353,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   ListSourceEndpoints  **
+  - **IAM action:**  [mediaconnect:ListSourceEndpoints](#list_mediaconnect-action-ListSourceEndpoints) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListTagsForResource  **
   - **IAM action:**  [mediaconnect:ListTagsForResource](#list_mediaconnect-action-ListTagsForResource) 
   - **Condition key:** 
@@ -306,6 +370,14 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
+
+- **   RegisterDestinationEndpoint  **
+  - **IAM action:**  [mediaconnect:RegisterDestinationEndpoint](#list_mediaconnect-action-RegisterDestinationEndpoint)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [mediaconnect:TagResource](#list_mediaconnect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   RegisterSourceEndpoint  **
+  - **IAM action:**  [mediaconnect:RegisterSourceEndpoint](#list_mediaconnect-action-RegisterSourceEndpoint)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [mediaconnect:TagResource](#list_mediaconnect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
 - **   RemoveBridgeOutput  **
   - **IAM action:**  [mediaconnect:RemoveBridgeOutput](#list_mediaconnect-action-RemoveBridgeOutput) 
@@ -359,7 +431,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [mediaconnect:RevokeFlowEntitlement](#list_mediaconnect-action-RevokeFlowEntitlement) 
   - **Condition key:** 
   - **Possible value(s):** 
-  - **Access level:** Write
+  - **Access level:** Permissions management, Write
 
 - **   StartFlow  **
   - **IAM action:**  [mediaconnect:StartFlow](#list_mediaconnect-action-StartFlow) 
@@ -439,6 +511,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   UpdateDestinationEndpoint  **
+  - **IAM action:**  [mediaconnect:UpdateDestinationEndpoint](#list_mediaconnect-action-UpdateDestinationEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   UpdateFlow  **
   - **IAM action:**  [mediaconnect:UpdateFlow](#list_mediaconnect-action-UpdateFlow) 
   - **Condition key:** 
@@ -446,7 +524,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** Write
 
 - **   UpdateFlowEntitlement  **
-  - **IAM action:**  [mediaconnect:UpdateFlowEntitlement](#list_mediaconnect-action-UpdateFlowEntitlement)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [mediaconnect:UpdateFlowEntitlement](#list_mediaconnect-action-UpdateFlowEntitlement)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Permissions management, Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** mediaconnect.amazonaws.com / **Access level:** Write
 
 - **   UpdateFlowMediaStream  **
@@ -486,6 +564,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [mediaconnect:UpdateFlowSource](#list_mediaconnect-action-UpdateFlowSource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [mediaconnect:UpdateRouterOutput](#list_mediaconnect-action-UpdateRouterOutput)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** mediaconnect.amazonaws.com / **Access level:** Write
+
+- **   UpdateSourceEndpoint  **
+  - **IAM action:**  [mediaconnect:UpdateSourceEndpoint](#list_mediaconnect-action-UpdateSourceEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 
 
@@ -537,6 +621,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to associate a router network interface
   - **Resource types (\*required):** 
   - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [ConnectEndpoints](https://docs.aws.amazon.com/mediaconnect/latest/api/API_ConnectEndpoints.html)  **
+  - **Description:** Grants permission to connect a source endpoint to a destination endpoint in AWS Elemental MediaConnect
+  - **Resource types (\*required):** [DestinationEndpoint\*](#list_mediaconnect-resource-DestinationEndpoint)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [CreateBridge](https://docs.aws.amazon.com/mediaconnect/latest/api/API_CreateBridge.html)  **
@@ -593,6 +683,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Write
 
+- **   [DeleteResourcePolicy](https://docs.aws.amazon.com/mediaconnect/latest/api/API_DeleteResourcePolicy.html)  **
+  - **Description:** Grants permission to delete a resource policy from a resource in AWS Elemental MediaConnect
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Permissions management, Write
+
 - **   [DeleteRouterInput](https://docs.aws.amazon.com/mediaconnect/latest/api/API_DeleteRouterInput.html)  **
   - **Description:** Grants permission to delete a router input in AWS Elemental MediaConnect
   - **Resource types (\*required):** [RouterInput\*](#list_mediaconnect-resource-RouterInput)
@@ -611,10 +707,22 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [DeregisterDestinationEndpoint](https://docs.aws.amazon.com/mediaconnect/latest/api/API_DeregisterDestinationEndpoint.html)  **
+  - **Description:** Grants permission to deregister a destination endpoint in AWS Elemental MediaConnect
+  - **Resource types (\*required):** [DestinationEndpoint\*](#list_mediaconnect-resource-DestinationEndpoint)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [DeregisterGatewayInstance](https://docs.aws.amazon.com/mediaconnect/latest/api/API_DeregisterGatewayInstance.html)  **
   - **Description:** Grants permission to deregister gateway instance
   - **Resource types (\*required):** [GatewayInstance\*](#list_mediaconnect-resource-GatewayInstance)
   - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeregisterSourceEndpoint](https://docs.aws.amazon.com/mediaconnect/latest/api/API_DeregisterSourceEndpoint.html)  **
+  - **Description:** Grants permission to deregister a source endpoint in AWS Elemental MediaConnect
+  - **Resource types (\*required):** [SourceEndpoint\*](#list_mediaconnect-resource-SourceEndpoint)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [DescribeBridge](https://docs.aws.amazon.com/mediaconnect/latest/api/API_DescribeBridge.html)  **
@@ -665,9 +773,27 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Read
 
+- **   [DisconnectEndpoints](https://docs.aws.amazon.com/mediaconnect/latest/api/API_DisconnectEndpoints.html)  **
+  - **Description:** Grants permission to disconnect a source endpoint from a destination endpoint in AWS Elemental MediaConnect
+  - **Resource types (\*required):** [DestinationEndpoint\*](#list_mediaconnect-resource-DestinationEndpoint)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [DiscoverGatewayPollEndpoint](https://docs.aws.amazon.com/mediaconnect/latest/api/API_DiscoverGatewayPollEndpoint.html)  **
   - **Description:** Grants permission to discover gateway poll endpoint
   - **Resource types (\*required):** [Gateway\*](#list_mediaconnect-resource-Gateway)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetDestinationEndpoint](https://docs.aws.amazon.com/mediaconnect/latest/api/API_GetDestinationEndpoint.html)  **
+  - **Description:** Grants permission to retrieve information about a specific destination endpoint in AWS Elemental MediaConnect
+  - **Resource types (\*required):** [DestinationEndpoint\*](#list_mediaconnect-resource-DestinationEndpoint)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetResourcePolicy](https://docs.aws.amazon.com/mediaconnect/latest/api/API_GetResourcePolicy.html)  **
+  - **Description:** Grants permission to retrieve a resource policy for a resource in AWS Elemental MediaConnect
+  - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Read
 
@@ -701,14 +827,26 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [GetSourceEndpoint](https://docs.aws.amazon.com/mediaconnect/latest/api/API_GetSourceEndpoint.html)  **
+  - **Description:** Grants permission to retrieve information about a specific source endpoint in AWS Elemental MediaConnect
+  - **Resource types (\*required):** [SourceEndpoint\*](#list_mediaconnect-resource-SourceEndpoint)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [GrantFlowEntitlements](https://docs.aws.amazon.com/mediaconnect/latest/api/API_GrantFlowEntitlements.html)  **
   - **Description:** Grants permission to grant entitlements on any flow
   - **Resource types (\*required):** [Entitlement\*](#list_mediaconnect-resource-Entitlement) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mediaconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mediaconnect-aws_TagKeys)
   - **Resource types (\*required):** [Flow\*](#list_mediaconnect-resource-Flow) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mediaconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mediaconnect-aws_TagKeys)
-  - **Access level:** Write
+  - **Access level:** Permissions management, Write
 
 - **   [ListBridges](https://docs.aws.amazon.com/mediaconnect/latest/api/API_ListBridges.html)  **
   - **Description:** Grants permission to display a list of bridges that are associated with this account and an optionally specified Arn
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListDestinationEndpoints](https://docs.aws.amazon.com/mediaconnect/latest/api/API_ListDestinationEndpoints.html)  **
+  - **Description:** Grants permission to retrieve a list of destination endpoints in AWS Elemental MediaConnect
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** List
@@ -767,6 +905,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** List
 
+- **   [ListSourceEndpoints](https://docs.aws.amazon.com/mediaconnect/latest/api/API_ListSourceEndpoints.html)  **
+  - **Description:** Grants permission to retrieve a list of source endpoints in AWS Elemental MediaConnect
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
 - **   [ListTagsForResource](https://docs.aws.amazon.com/mediaconnect/latest/api/API_ListTagsForResource.html)  **
   - **Description:** Grants permission to display a list of all tags associated with a resource
   - **Resource types (\*required):** 
@@ -783,6 +927,24 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to purchase an offering
   - **Resource types (\*required):** [Reservation\*](#list_mediaconnect-resource-Reservation)
   - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [PutResourcePolicy](https://docs.aws.amazon.com/mediaconnect/latest/api/API_PutResourcePolicy.html)  **
+  - **Description:** Grants permission to attach a resource policy to a resource in AWS Elemental MediaConnect
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Permissions management, Write
+
+- **   [RegisterDestinationEndpoint](https://docs.aws.amazon.com/mediaconnect/latest/api/API_RegisterDestinationEndpoint.html)  **
+  - **Description:** Grants permission to register a new destination endpoint in AWS Elemental MediaConnect
+  - **Resource types (\*required):** [DestinationEndpoint\*](#list_mediaconnect-resource-DestinationEndpoint)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RegisterSourceEndpoint](https://docs.aws.amazon.com/mediaconnect/latest/api/API_RegisterSourceEndpoint.html)  **
+  - **Description:** Grants permission to register a new source endpoint in AWS Elemental MediaConnect
+  - **Resource types (\*required):** [SourceEndpoint\*](#list_mediaconnect-resource-SourceEndpoint)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [RemoveBridgeOutput](https://docs.aws.amazon.com/mediaconnect/latest/api/API_RemoveBridgeOutput.html)  **
@@ -837,7 +999,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to revoke entitlements on any flow
   - **Resource types (\*required):** [Entitlement\*](#list_mediaconnect-resource-Entitlement) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [Flow\*](#list_mediaconnect-resource-Flow) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)
-  - **Access level:** Write
+  - **Access level:** Permissions management, Write
 
 - **   [StartFlow](https://docs.aws.amazon.com/mediaconnect/latest/api/API_StartFlow.html)  **
   - **Description:** Grants permission to start flows
@@ -883,6 +1045,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [TagResource](https://docs.aws.amazon.com/mediaconnect/latest/api/API_TagResource.html)  **
   - **Description:** Grants permission to associate tags with resources
+  - **Resource types (\*required):** [DestinationEndpoint](#list_mediaconnect-resource-DestinationEndpoint) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mediaconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mediaconnect-aws_TagKeys)
   - **Resource types (\*required):** [Entitlement](#list_mediaconnect-resource-Entitlement) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mediaconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mediaconnect-aws_TagKeys)
   - **Resource types (\*required):** [Flow](#list_mediaconnect-resource-Flow) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mediaconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mediaconnect-aws_TagKeys)
   - **Resource types (\*required):** [MediaStream](#list_mediaconnect-resource-MediaStream) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mediaconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mediaconnect-aws_TagKeys)
@@ -891,6 +1054,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [RouterNetworkInterface](#list_mediaconnect-resource-RouterNetworkInterface) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mediaconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mediaconnect-aws_TagKeys)
   - **Resource types (\*required):** [RouterOutput](#list_mediaconnect-resource-RouterOutput) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mediaconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mediaconnect-aws_TagKeys)
   - **Resource types (\*required):** [Source](#list_mediaconnect-resource-Source) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mediaconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mediaconnect-aws_TagKeys)
+  - **Resource types (\*required):** [SourceEndpoint](#list_mediaconnect-resource-SourceEndpoint) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mediaconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mediaconnect-aws_TagKeys)
   - **Resource types (\*required):** [VpcInterface](#list_mediaconnect-resource-VpcInterface) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mediaconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mediaconnect-aws_TagKeys)
   - **Access level:** Tagging, Write
 
@@ -902,6 +1066,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [UntagResource](https://docs.aws.amazon.com/mediaconnect/latest/api/API_UntagResource.html)  **
   - **Description:** Grants permission to remove tags from resources
+  - **Resource types (\*required):** [DestinationEndpoint](#list_mediaconnect-resource-DestinationEndpoint) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mediaconnect-aws_TagKeys)
   - **Resource types (\*required):** [Entitlement](#list_mediaconnect-resource-Entitlement) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mediaconnect-aws_TagKeys)
   - **Resource types (\*required):** [Flow](#list_mediaconnect-resource-Flow) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mediaconnect-aws_TagKeys)
   - **Resource types (\*required):** [MediaStream](#list_mediaconnect-resource-MediaStream) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mediaconnect-aws_TagKeys)
@@ -910,6 +1075,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [RouterNetworkInterface](#list_mediaconnect-resource-RouterNetworkInterface) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mediaconnect-aws_TagKeys)
   - **Resource types (\*required):** [RouterOutput](#list_mediaconnect-resource-RouterOutput) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mediaconnect-aws_TagKeys)
   - **Resource types (\*required):** [Source](#list_mediaconnect-resource-Source) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mediaconnect-aws_TagKeys)
+  - **Resource types (\*required):** [SourceEndpoint](#list_mediaconnect-resource-SourceEndpoint) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mediaconnect-aws_TagKeys)
   - **Resource types (\*required):** [VpcInterface](#list_mediaconnect-resource-VpcInterface) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mediaconnect-aws_TagKeys)
   - **Access level:** Tagging, Write
 
@@ -937,6 +1103,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Write
 
+- **   [UpdateDestinationEndpoint](https://docs.aws.amazon.com/mediaconnect/latest/api/API_UpdateDestinationEndpoint.html)  **
+  - **Description:** Grants permission to update the configuration of a destination endpoint in AWS Elemental MediaConnect
+  - **Resource types (\*required):** [DestinationEndpoint\*](#list_mediaconnect-resource-DestinationEndpoint)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [UpdateFlow](https://docs.aws.amazon.com/mediaconnect/latest/api/API_UpdateFlow.html)  **
   - **Description:** Grants permission to update flows
   - **Resource types (\*required):** [Flow\*](#list_mediaconnect-resource-Flow)
@@ -947,7 +1119,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to update entitlements on any flow
   - **Resource types (\*required):** [Flow\*](#list_mediaconnect-resource-Flow)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)
-  - **Access level:** Write
+  - **Access level:** Permissions management, Write
 
 - **   [UpdateFlowMediaStream](https://docs.aws.amazon.com/mediaconnect/latest/api/API_UpdateFlowMediaStream.html)  **
   - **Description:** Grants permission to update media streams on any flow
@@ -991,6 +1163,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [UpdateSourceEndpoint](https://docs.aws.amazon.com/mediaconnect/latest/api/API_UpdateSourceEndpoint.html)  **
+  - **Description:** Grants permission to update the configuration of a source endpoint in AWS Elemental MediaConnect
+  - **Resource types (\*required):** [SourceEndpoint\*](#list_mediaconnect-resource-SourceEndpoint)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 
 
 ## Resource types defined by AWS Elemental MediaConnect
@@ -1003,6 +1181,7 @@ The following resource types are defined by this service and can be used in the 
 | Resource types | ARN | Condition keys | 
 | --- | --- | --- | 
 |  [Bridge](https://docs.aws.amazon.com/mediaconnect/latest/ug/gateway-components-bridges.html)  | arn:${Partition}:mediaconnect:${Region}:${Account}:bridge:${BridgeId}:${BridgeName} |   | 
+|  [DestinationEndpoint](https://docs.aws.amazon.com/mediaconnect/latest/ug/destination-endpoints.html)  | arn:${Partition}:mediaconnect:${Region}:${Account}:destinationEndpoint:${DestinationEndpointId} | [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_) | 
 |  [Entitlement](https://docs.aws.amazon.com/mediaconnect/latest/ug/entitlements.html)  | arn:${Partition}:mediaconnect:${Region}:${Account}:entitlement:${FlowId}:${EntitlementName} | [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_) | 
 |  [Flow](https://docs.aws.amazon.com/mediaconnect/latest/ug/flows.html)  | arn:${Partition}:mediaconnect:${Region}:${Account}:flow:${FlowId}:${FlowName} | [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_) | 
 |  [Gateway](https://docs.aws.amazon.com/mediaconnect/latest/ug/gateway.html)  | arn:${Partition}:mediaconnect:${Region}:${Account}:gateway:${GatewayId}:${GatewayName} |   | 
@@ -1015,6 +1194,7 @@ The following resource types are defined by this service and can be used in the 
 |  [RouterNetworkInterface](https://docs.aws.amazon.com/mediaconnect/latest/ug/managing-router-network-interfaces.html)  | arn:${Partition}:mediaconnect:${Region}:${Account}:routerNetworkInterface:${RouterNetworkInterfaceId} | [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_) | 
 |  [RouterOutput](https://docs.aws.amazon.com/mediaconnect/latest/ug/managing-router-io.html)  | arn:${Partition}:mediaconnect:${Region}:${Account}:routerOutput:${RouterOutputId} | [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_) | 
 |  [Source](https://docs.aws.amazon.com/mediaconnect/latest/ug/sources.html)  | arn:${Partition}:mediaconnect:${Region}:${Account}:source:${SourceId}:${SourceName} | [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_) | 
+|  [SourceEndpoint](https://docs.aws.amazon.com/mediaconnect/latest/ug/source-endpoints.html)  | arn:${Partition}:mediaconnect:${Region}:${Account}:sourceEndpoint:${SourceEndpointId} | [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_) | 
 |  [VpcInterface](https://docs.aws.amazon.com/mediaconnect/latest/ug/vpc-interfaces.html)  | arn:${Partition}:mediaconnect:${Region}:${Account}:flow:${FlowId}:${FlowName}/vpcInterface/${VpcInterfaceName} | [aws:ResourceTag/${TagKey}](#list_mediaconnect-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS Elemental MediaConnect

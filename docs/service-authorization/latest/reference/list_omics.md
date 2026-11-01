@@ -193,7 +193,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [omics:DeleteS3AccessPolicy](#list_omics-action-DeleteS3AccessPolicy) 
   - **Condition key:** 
   - **Possible value(s):** 
-  - **Access level:** Write
+  - **Access level:** Permissions management, Write
 
 - **   DeleteSequenceStore  **
   - **IAM action:**  [omics:DeleteSequenceStore](#list_omics-action-DeleteSequenceStore) 
@@ -535,7 +535,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [omics:PutS3AccessPolicy](#list_omics-action-PutS3AccessPolicy) 
   - **Condition key:** 
   - **Possible value(s):** 
-  - **Access level:** Write
+  - **Access level:** Permissions management, Write
 
 - **   StartAnnotationImportJob  **
   - **IAM action:**  [omics:StartAnnotationImportJob](#list_omics-action-StartAnnotationImportJob)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
@@ -836,7 +836,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to delete an access policy on a given store
   - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
-  - **Access level:** Write
+  - **Access level:** Permissions management, Write
 
 - **   [DeleteSequenceStore](https://docs.aws.amazon.com/omics/latest/api/API_DeleteSequenceStore.html)  **
   - **Description:** Grants permission to delete a Sequence Store
@@ -1178,7 +1178,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to put an access policy on a given store
   - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
-  - **Access level:** Write
+  - **Access level:** Permissions management, Write
 
 - **   [StartAnnotationImportJob](https://docs.aws.amazon.com/omics/latest/api/API_StartAnnotationImportJob.html)  **
   - **Description:** Grants permission to import a list of Annotation files to an Annotation Store

@@ -108,6 +108,24 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   PauseConnector  **
+  - **IAM action:**  [kafkaconnect:PauseConnector](#list_kafkaconnect-action-PauseConnector) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RestartConnector  **
+  - **IAM action:**  [kafkaconnect:RestartConnector](#list_kafkaconnect-action-RestartConnector) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ResumeConnector  **
+  - **IAM action:**  [kafkaconnect:ResumeConnector](#list_kafkaconnect-action-ResumeConnector) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   TagResource  **
   - **IAM action:**  [kafkaconnect:TagResource](#list_kafkaconnect-action-TagResource) 
   - **Condition key:** 
@@ -226,6 +244,24 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Read
+
+- **   [PauseConnector](https://docs.aws.amazon.com/MSKC/latest/mskc/API_PauseConnector.html)  **
+  - **Description:** Grants permission to pause an MSK Connect connector
+  - **Resource types (\*required):** [connector\*](#list_kafkaconnect-resource-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafkaconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RestartConnector](https://docs.aws.amazon.com/MSKC/latest/mskc/API_RestartConnector.html)  **
+  - **Description:** Grants permission to restart an MSK Connect connector
+  - **Resource types (\*required):** [connector\*](#list_kafkaconnect-resource-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafkaconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ResumeConnector](https://docs.aws.amazon.com/MSKC/latest/mskc/API_ResumeConnector.html)  **
+  - **Description:** Grants permission to resume an MSK Connect connector
+  - **Resource types (\*required):** [connector\*](#list_kafkaconnect-resource-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafkaconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
 
 - **   [TagResource](https://docs.aws.amazon.com/MSKC/latest/mskc/API_TagResource.html)  **
   - **Description:** Grants permission to tag an MSK Connect resource

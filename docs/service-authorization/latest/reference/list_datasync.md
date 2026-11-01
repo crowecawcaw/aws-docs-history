@@ -337,8 +337,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [CreateLocationAzureBlob](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationAzureBlob.html)  **
   - **Description:** Grants permission to create an endpoint for a Microsoft Azure Blob Storage container
-  - **Resource types (\*required):** 
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Resource types (\*required):** [agent](#list_datasync-resource-agent)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
   - **Access level:** Write
 
 - **   [CreateLocationEfs](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationEfs.html)  **
@@ -373,32 +373,32 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [CreateLocationHdfs](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationHdfs.html)  **
   - **Description:** Grants permission to create an endpoint for an Amazon Hdfs
-  - **Resource types (\*required):** 
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Resource types (\*required):** [agent\*](#list_datasync-resource-agent)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
   - **Access level:** Write
 
 - **   [CreateLocationNfs](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationNfs.html)  **
   - **Description:** Grants permission to create an endpoint for a NFS file system
-  - **Resource types (\*required):** 
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Resource types (\*required):** [agent\*](#list_datasync-resource-agent)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
   - **Access level:** Write
 
 - **   [CreateLocationObjectStorage](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationObjectStorage.html)  **
   - **Description:** Grants permission to create an endpoint for a self-managed object storage bucket
-  - **Resource types (\*required):** 
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Resource types (\*required):** [agent](#list_datasync-resource-agent)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
   - **Access level:** Write
 
 - **   [CreateLocationS3](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationS3.html)  **
   - **Description:** Grants permission to create an endpoint for an Amazon S3 bucket
-  - **Resource types (\*required):** 
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Resource types (\*required):** [agent](#list_datasync-resource-agent)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
   - **Access level:** Write
 
 - **   [CreateLocationSmb](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationSmb.html)  **
   - **Description:** Grants permission to create an endpoint for an SMB file system
-  - **Resource types (\*required):** 
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Resource types (\*required):** [agent\*](#list_datasync-resource-agent)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
   - **Access level:** Write
 
 - **   [CreateTask](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateTask.html)  **
@@ -643,8 +643,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [UpdateLocationAzureBlob](https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateLocationAzureBlob.html)  **
   - **Description:** Grants permission to update an Azure Blob Storage sync location
-  - **Resource types (\*required):** [location\*](#list_datasync-resource-location)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [agent](#list_datasync-resource-agent) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [UpdateLocationEfs](https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateLocationEfs.html)  **
@@ -679,20 +679,20 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [UpdateLocationHdfs](https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateLocationHdfs.html)  **
   - **Description:** Grants permission to update an HDFS sync Location
-  - **Resource types (\*required):** [location\*](#list_datasync-resource-location)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [agent](#list_datasync-resource-agent) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [UpdateLocationNfs](https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateLocationNfs.html)  **
   - **Description:** Grants permission to update an NFS sync Location
-  - **Resource types (\*required):** [location\*](#list_datasync-resource-location)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [agent](#list_datasync-resource-agent) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [UpdateLocationObjectStorage](https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateLocationObjectStorage.html)  **
   - **Description:** Grants permission to update a self-managed object storage server location
-  - **Resource types (\*required):** [location\*](#list_datasync-resource-location)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [agent](#list_datasync-resource-agent) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [UpdateLocationS3](https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateLocationS3.html)  **
@@ -703,8 +703,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [UpdateLocationSmb](https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateLocationSmb.html)  **
   - **Description:** Grants permission to update a SMB sync location
-  - **Resource types (\*required):** [location\*](#list_datasync-resource-location)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [agent](#list_datasync-resource-agent) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [UpdateStorageSystem](https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateStorageSystem.html)  **

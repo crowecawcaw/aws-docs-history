@@ -108,22 +108,22 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [signin:PrincipalArn](#list_signin-signin_PrincipalArn)
   - **Access level:** Read
 
-- **   [AuthorizeOAuth2Access](https://docs.aws.amazon.com/signin/latest/APIReference/API_AuthorizeOAuth2Access.html)  **
-  - **Description:** Grants permission to authenticate through a browser and obtain an OAuth 2.0 authorization code for credential exchange
+- **   [AuthorizeOAuth2Access](https://docs.aws.amazon.com/signin/latest/APIReference/API_dataplane-signin_AuthorizeOAuth2Access.html)  **
+  - **Description:** Grants permission to authenticate through a browser and obtain an OAuth 2 authorization code for credential exchange
   - **Resource types (\*required):** [console\*](#list_signin-resource-console) / **Condition keys:**  
   - **Resource types (\*required):** [oauth2-public-client-localhost\*](#list_signin-resource-oauth2-public-client-localhost) / **Condition keys:** [signin:OAuthClientId](#list_signin-signin_OAuthClientId)<br />[signin:OAuthRedirectUri](#list_signin-signin_OAuthRedirectUri)
   - **Resource types (\*required):** [oauth2-public-client-remote\*](#list_signin-resource-oauth2-public-client-remote) / **Condition keys:** [signin:OAuthClientId](#list_signin-signin_OAuthClientId)<br />[signin:OAuthRedirectUri](#list_signin-signin_OAuthRedirectUri)
   - **Resource types (\*required):** [oauth2-resource-service-principal\*](#list_signin-resource-oauth2-resource-service-principal) / **Condition keys:** [signin:OAuthClientId](#list_signin-signin_OAuthClientId)<br />[signin:OAuthRedirectUri](#list_signin-signin_OAuthRedirectUri)
   - **Access level:** Read
 
-- **   [CreateOAuth2PublicClient](https://docs.aws.amazon.com/signin/latest/APIReference/API_CreateOAuth2PublicClient.html)  **
-  - **Description:** Grants permission to dynamically register an OAuth 2.0 public client for use with AWS Sign-In
+- **   [CreateOAuth2PublicClient](https://docs.aws.amazon.com/signin/latest/APIReference/API_dataplane-signin_CreateOAuth2PublicClient.html)  **
+  - **Description:** Grants permission to dynamically register an OAuth 2 public client for use with AWS Sign-In
   - **Resource types (\*required):** [oauth2-public-client-registration\*](#list_signin-resource-oauth2-public-client-registration)
   - **Condition keys:** [signin:OAuthRedirectUri](#list_signin-signin_OAuthRedirectUri)
   - **Access level:** Write
 
-- **   [CreateOAuth2Token](https://docs.aws.amazon.com/signin/latest/APIReference/API_CreateOAuth2Token.html)  **
-  - **Description:** Grants permission to exchange an authorization code for OAuth 2.0 access token and refresh token that can be used to access AWS services from developer tools and applications
+- **   [CreateOAuth2Token](https://docs.aws.amazon.com/signin/latest/APIReference/API_dataplane-signin_CreateOAuth2Token.html)  **
+  - **Description:** Grants permission to exchange an authorization code, refresh token, SigV4 credentials, or JWT for OAuth 2 access token that can be used to access AWS services from developer tools and applications
   - **Resource types (\*required):** [console\*](#list_signin-resource-console) / **Condition keys:**  
   - **Resource types (\*required):** [oauth2-public-client-localhost\*](#list_signin-resource-oauth2-public-client-localhost) / **Condition keys:** [signin:OAuthClientAuthentication](#list_signin-signin_OAuthClientAuthentication)<br />[signin:OAuthClientId](#list_signin-signin_OAuthClientId)<br />[signin:OAuthGrantType](#list_signin-signin_OAuthGrantType)<br />[signin:OAuthRedirectUri](#list_signin-signin_OAuthRedirectUri)
   - **Resource types (\*required):** [oauth2-public-client-remote\*](#list_signin-resource-oauth2-public-client-remote) / **Condition keys:** [signin:OAuthClientAuthentication](#list_signin-signin_OAuthClientAuthentication)<br />[signin:OAuthClientId](#list_signin-signin_OAuthClientId)<br />[signin:OAuthGrantType](#list_signin-signin_OAuthGrantType)<br />[signin:OAuthRedirectUri](#list_signin-signin_OAuthRedirectUri)
@@ -160,8 +160,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Read
 
-- **   [IntrospectOAuth2Token](https://docs.aws.amazon.com/signin/latest/APIReference/API_IntrospectOAuth2Token.html)  **
-  - **Description:** Grants permission to inspect the metadata and active state of an OAuth 2.0 access token or refresh token
+- **   [IntrospectOAuth2Token](https://docs.aws.amazon.com/signin/latest/APIReference/API_dataplane-signin_IntrospectOAuth2TokenWithIAM.html)  **
+  - **Description:** Grants permission to inspect the metadata and active state of an OAuth 2 access token or refresh token
   - **Resource types (\*required):** [oauth2-public-client-localhost\*](#list_signin-resource-oauth2-public-client-localhost) / **Condition keys:** [signin:OAuthClientId](#list_signin-signin_OAuthClientId)<br />[signin:OAuthTokenType](#list_signin-signin_OAuthTokenType)
   - **Resource types (\*required):** [oauth2-public-client-remote\*](#list_signin-resource-oauth2-public-client-remote) / **Condition keys:** [signin:OAuthClientId](#list_signin-signin_OAuthClientId)<br />[signin:OAuthTokenType](#list_signin-signin_OAuthTokenType)
   - **Resource types (\*required):** [oauth2-resource-service-principal\*](#list_signin-resource-oauth2-resource-service-principal) / **Condition keys:** [signin:OAuthClientId](#list_signin-signin_OAuthClientId)<br />[signin:OAuthTokenType](#list_signin-signin_OAuthTokenType)
@@ -191,8 +191,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Write
 
-- **   [RevokeOAuth2Token](https://docs.aws.amazon.com/signin/latest/APIReference/API_RevokeOAuth2Token.html)  **
-  - **Description:** Grants permission to revoke an OAuth 2.0 refresh token and its associated refresh tokens
+- **   [RevokeOAuth2Token](https://docs.aws.amazon.com/signin/latest/APIReference/API_dataplane-signin_RevokeOAuth2TokenWithIAM.html)  **
+  - **Description:** Grants permission to revoke an OAuth 2 refresh token and its associated refresh tokens
   - **Resource types (\*required):** [oauth2-public-client-localhost\*](#list_signin-resource-oauth2-public-client-localhost) / **Condition keys:** [signin:OAuthTokenType](#list_signin-signin_OAuthTokenType)
   - **Resource types (\*required):** [oauth2-public-client-remote\*](#list_signin-resource-oauth2-public-client-remote) / **Condition keys:** [signin:OAuthTokenType](#list_signin-signin_OAuthTokenType)
   - **Resource types (\*required):** [oauth2-resource-service-principal\*](#list_signin-resource-oauth2-resource-service-principal) / **Condition keys:** [signin:OAuthTokenType](#list_signin-signin_OAuthTokenType)

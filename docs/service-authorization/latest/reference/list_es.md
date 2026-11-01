@@ -324,6 +324,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_es-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_es-aws_TagKeys)
   - **Access level:** Write
 
+- **   [AddReplicationPeer](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AddReplicationPeer.html)  **
+  - **Description:** Grants permission to pair two OpenSearch Service domains for replication. Requires the permission on both domains
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [AddTags](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AddTags.html)  **
   - **Description:** Grants permission to attach resource tags to an OpenSearch Service domain, data source, or application
   - **Resource types (\*required):** [application\*](#list_es-resource-application) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_es-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_es-aws_TagKeys)
@@ -373,6 +379,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [CompareDomainConfiguration](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CompareDomainConfiguration.html)  **
+  - **Description:** Grants permission to compare the configuration of two OpenSearch Service domains. Requires the permission on both domains
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [CreateApplication](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateApplication.html)  **
   - **Description:** Grants permission to create an OpenSearch Application
   - **Resource types (\*required):** 
@@ -382,13 +394,13 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [CreateDomain](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateDomain.html)  **
   - **Description:** Grants permission to create an Amazon OpenSearch Service domain
   - **Resource types (\*required):** [domain](#list_es-resource-domain)
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_es-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_es-aws_TagKeys)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_es-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_es-aws_TagKeys)<br />[es:SecurityGroupIds](#list_es-es_SecurityGroupIds)<br />[es:SubnetIds](#list_es-es_SubnetIds)
   - **Access level:** Write
 
 - **   [CreateElasticsearchDomain](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateDomain.html)  **
   - **Description:** Grants permission to create an OpenSearch Service domain. This permission is deprecated. Use CreateDomain instead
   - **Resource types (\*required):** [domain](#list_es-resource-domain)
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_es-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_es-aws_TagKeys)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_es-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_es-aws_TagKeys)<br />[es:SecurityGroupIds](#list_es-es_SecurityGroupIds)<br />[es:SubnetIds](#list_es-es_SubnetIds)
   - **Access level:** Write
 
 - **   [CreateElasticsearchServiceRole](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/Welcome.html)  **
@@ -559,6 +571,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [DescribeDomainReplication](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeDomainReplication.html)  **
+  - **Description:** Grants permission to retrieve the replication relationship details for an OpenSearch Service domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [DescribeDomains](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeDomains.html)  **
   - **Description:** Grants permission to view a description of the domain configuration for up to five specified OpenSearch Service domains
   - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
@@ -724,6 +742,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [ESHttpPut](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/Welcome.html)  **
   - **Description:** Grants permission to send HTTP PUT requests to the OpenSearch APIs
   - **Resource types (\*required):** [domain](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [FailoverReplication](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_FailoverReplication.html)  **
+  - **Description:** Grants permission to promote the secondary domain of a replication relationship when the primary is unavailable. Requires the permission on both domains
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -968,6 +992,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Write
 
+- **   [RemoveReplicationPeer](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_RemoveReplicationPeer.html)  **
+  - **Description:** Grants permission to end the replication relationship between two OpenSearch Service domains. Requires the permission on both domains
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [RemoveTags](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_RemoveTags.html)  **
   - **Description:** Grants permission to remove resource tags from an OpenSearch Service domain, data source, or application
   - **Resource types (\*required):** [application\*](#list_es-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_es-aws_TagKeys)
@@ -1013,6 +1043,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [StartServiceSoftwareUpdate](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_StartServiceSoftwareUpdate.html)  **
   - **Description:** Grants permission to start a service software update of a domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [SwitchoverReplication](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_SwitchoverReplication.html)  **
+  - **Description:** Grants permission to swap the primary and secondary roles of a replication relationship between two OpenSearch Service domains without data loss. Requires the permission on both domains
   - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
   - **Access level:** Write
@@ -1118,3 +1154,5 @@ Amazon OpenSearch Service defines the following condition keys that can be used 
 |   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access based on the tags that are passed in the request | String | 
 |   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access based on the tags associated with the resource | String | 
 |   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access based on the tag keys that are passed in the request | ArrayOfString | 
+|   [es:SecurityGroupIds](${AuthZDocPage})  | Filters access by the security group IDs specified in the VPC options of the request | ArrayOfString | 
+|   [es:SubnetIds](${AuthZDocPage})  | Filters access by the subnet IDs specified in the VPC options of the request | ArrayOfString | 

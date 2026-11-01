@@ -1400,6 +1400,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   ResetTokenVaultKeyMaterial  **
+  - **SDK client:** bedrock-agentcore-control
+  - **IAM action:**  [bedrock-agentcore:ResetTokenVaultKeyMaterial](#list_bedrock-agentcore-action-ResetTokenVaultKeyMaterial) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   SetTokenVaultCMK  **
   - **SDK client:** bedrock-agentcore-control
   - **IAM action:**  [bedrock-agentcore:SetTokenVaultCMK](#list_bedrock-agentcore-action-SetTokenVaultCMK) 

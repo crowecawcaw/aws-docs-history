@@ -199,10 +199,6 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
-- **   RegisterCrossAccountAccessRole  **
-  - **IAM action:**  [inspector:RegisterCrossAccountAccessRole](#list_inspector-action-RegisterCrossAccountAccessRole)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
-  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** inspector.amazonaws.com / **Access level:** Write
-
 - **   RemoveAttributesFromFindings  **
   - **IAM action:**  [inspector:RemoveAttributesFromFindings](#list_inspector-action-RemoveAttributesFromFindings) 
   - **Condition key:** 

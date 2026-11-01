@@ -261,6 +261,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetOnDemandScanStatus  **
+  - **IAM action:**  [inspector2:GetOnDemandScanStatus](#list_inspector2-action-GetOnDemandScanStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetSbomExport  **
   - **IAM action:**  [inspector2:GetSbomExport](#list_inspector2-action-GetSbomExport) 
   - **Condition key:** 
@@ -369,6 +375,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   ListOnDemandScans  **
+  - **IAM action:**  [inspector2:ListOnDemandScans](#list_inspector2-action-ListOnDemandScans) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListTagsForResource  **
   - **IAM action:**  [inspector2:ListTagsForResource](#list_inspector2-action-ListTagsForResource) 
   - **Condition key:** 
@@ -413,6 +425,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   StartCodeSecurityScan  **
   - **IAM action:**  [inspector2:StartCodeSecurityScan](#list_inspector2-action-StartCodeSecurityScan) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartOnDemandScan  **
+  - **IAM action:**  [inspector2:StartOnDemandScan](#list_inspector2-action-StartOnDemandScan) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -610,13 +628,13 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [CreateFindingsReport](https://docs.aws.amazon.com/inspector/v2/APIReference/API_CreateFindingsReport.html)  **
   - **Description:** Grants permission to request the generation of a findings report
   - **Resource types (\*required):** 
-  - **Condition keys:**  
+  - **Condition keys:** [inspector2:ExpectedBucketOwner](#list_inspector2-inspector2_ExpectedBucketOwner)
   - **Access level:** Write
 
 - **   [CreateSbomExport](https://docs.aws.amazon.com/inspector/v2/APIReference/API_CreateSbomExport.html)  **
   - **Description:** Grants permission to request the generation of an SBOM report
   - **Resource types (\*required):** 
-  - **Condition keys:**  
+  - **Condition keys:** [inspector2:ExpectedBucketOwner](#list_inspector2-inspector2_ExpectedBucketOwner)
   - **Access level:** Write
 
 - **   [DeleteCisScanConfiguration](https://docs.aws.amazon.com/inspector/v2/APIReference/API_DeleteCisScanConfiguration.html)  **
@@ -757,6 +775,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Read
 
+- **   [GetOnDemandScanStatus](https://docs.aws.amazon.com/inspector/v2/APIReference/API_GetOnDemandScanStatus.html)  **
+  - **Description:** Grants permission to retrieve the status of an on-demand scan for a specified resource
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
 - **   [GetSbomExport](https://docs.aws.amazon.com/inspector/v2/APIReference/API_GetSbomExport.html)  **
   - **Description:** Grants permission to retrieve a requested SBOM report
   - **Resource types (\*required):** 
@@ -865,6 +889,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** List
 
+- **   [ListOnDemandScans](https://docs.aws.amazon.com/inspector/v2/APIReference/API_ListOnDemandScans.html)  **
+  - **Description:** Grants permission to retrieve information about on-demand scans for a specified resource
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
 - **   [ListTagsForResource](https://docs.aws.amazon.com/inspector/v2/APIReference/API_ListTagsForResource.html)  **
   - **Description:** Grants permission to retrieve the tags for an Amazon Inspector resource
   - **Resource types (\*required):** 
@@ -909,6 +939,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [StartCodeSecurityScan](https://docs.aws.amazon.com/inspector/v2/APIReference/API_StartCodeSecurityScan.html)  **
   - **Description:** Grants permission to initiate a code security scan on a specified repository
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StartOnDemandScan](https://docs.aws.amazon.com/inspector/v2/APIReference/API_StartOnDemandScan.html)  **
+  - **Description:** Grants permission to initiate an on-demand scan on a specified resource
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Write
@@ -1033,3 +1069,4 @@ Amazon Inspector2 defines the following condition keys that can be used in the `
 |   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the presence of tag key-value pairs in the request | String | 
 |   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by tag key-value pairs attached to the resource | String | 
 |   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the presence of tag keys in the request | ArrayOfString | 
+|   [inspector2:ExpectedBucketOwner](https://docs.aws.amazon.com/inspector/latest/user/security-iam.html)  | Filters access by the AWS account ID that must own the destination S3 bucket when requesting a findings report or SBOM export | String | 

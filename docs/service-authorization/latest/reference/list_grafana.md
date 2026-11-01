@@ -137,9 +137,10 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** Read
 
 - **   TagResource  **
-  - **IAM action:**  [grafana:CreateWorkspace](#list_grafana-action-CreateWorkspace)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
-  - **IAM action:**  [grafana:TagResource](#list_grafana-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
-  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** grafana.amazonaws.com / **Access level:** Write
+  - **IAM action:**  [grafana:TagResource](#list_grafana-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
 
 - **   UntagResource  **
   - **IAM action:**  [grafana:UntagResource](#list_grafana-action-UntagResource) 

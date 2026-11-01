@@ -98,7 +98,6 @@ The **condition keys** table lists all of the condition keys that you can use in
 + [AWS CodeDeploy (codedeploy)](list_codedeploy.md)
 + [AWS CodeDeploy secure host commands service (codedeploy-commands-secure)](list_codedeploy-commands-secure.md)
 + [AWS CodePipeline (codepipeline)](list_codepipeline.md)
-+ [AWS CodeStar (codestar)](list_codestar.md)
 + [AWS CodeStar Connections (codestar-connections)](list_codestar-connections.md)
 + [AWS CodeStar Notifications (codestar-notifications)](list_codestar-notifications.md)
 + [AWS Compute Optimizer (compute-optimizer)](list_compute-optimizer.md)

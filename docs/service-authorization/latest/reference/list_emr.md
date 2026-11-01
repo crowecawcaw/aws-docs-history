@@ -379,7 +379,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   StartSession  **
   - **IAM action:**  [elasticmapreduce:AddTags](#list_emr-action-AddTags)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
   - **IAM action:**  [elasticmapreduce:StartSession](#list_emr-action-StartSession)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
-  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** elasticmapreduce.amazonaws.com / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** elasticmapreduce.amazonaws.com, managed-compute.elasticmapreduce.amazonaws.com / **Access level:** Write
 
 - **   StopNotebookExecution  **
   - **IAM action:**  [elasticmapreduce:StopNotebookExecution](#list_emr-action-StopNotebookExecution) 

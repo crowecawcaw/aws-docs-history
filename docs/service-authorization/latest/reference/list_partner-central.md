@@ -1541,6 +1541,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** Write
 
+- **   [SearchOpportunities](https://docs.aws.amazon.com/partner-central/latest/APIReference/access-control.html)  **
+  - **Description:** Grants permission to search Opportunities on AWS Partner Central
+  - **Resource types (\*required):** 
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** List
+
 - **   [SearchPartnerCentralContent](API_content_SearchPartnerCentralContent.html)  **
   - **Description:** Grants permission to search content in AWS Partner Central
   - **Resource types (\*required):** 

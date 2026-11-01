@@ -398,10 +398,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** Read
 
 - **   DescribeTermsByClient  **
-  - **IAM action:**  [cognito-idp:DescribeTerms](#list_cognito-idp-action-DescribeTerms) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Read
+  - **IAM action:**  [cognito-idp:DescribeTerms](#list_cognito-idp-action-DescribeTerms)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [cognito-idp:DescribeTermsByClient](#list_cognito-idp-action-DescribeTermsByClient)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
 
 - **   DescribeUserImportJob  **
   - **IAM action:**  [cognito-idp:DescribeUserImportJob](#list_cognito-idp-action-DescribeUserImportJob) 
@@ -444,6 +442,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
+
+- **   GetClientToken  **
+  - **IAM action:**  [cognito-idp:GetClientToken](#list_cognito-idp-action-GetClientToken) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   GetDevice  **
   - **IAM action:**  [cognito-idp:GetDevice](#list_cognito-idp-action-GetDevice) 
@@ -1157,6 +1161,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [DescribeTermsByClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeTermsByClient.html)  **
+  - **Description:** Grants permission to describe the terms documents associated with an app client
+  - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [DescribeUserImportJob](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserImportJob.html)  **
   - **Description:** Grants permission to describe any user import job
   - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
@@ -1198,6 +1208,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
   - **Access level:** Read
+
+- **   [GetClientToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetClientToken.html)  **
+  - **Description:** Grants permission to issue an access token for machine-to-machine authorization with an app client ID and client secret
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
 
 - **   [GetDevice](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetDevice.html)  **
   - **Description:** Grants permission to get the device

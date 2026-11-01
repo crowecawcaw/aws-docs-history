@@ -61,6 +61,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [kms:PutKeyPolicy](#list_kms-action-PutKeyPolicy)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Permissions management, Write
   - **IAM action:**  [kms:TagResource](#list_kms-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
+- **   Decapsulate  **
+  - **IAM action:**  [kms:Decapsulate](#list_kms-action-Decapsulate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   Decrypt  **
   - **IAM action:**  [kms:Decrypt](#list_kms-action-Decrypt) 
   - **Condition key:** 
@@ -129,6 +135,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   EnableKeyRotation  **
   - **IAM action:**  [kms:EnableKeyRotation](#list_kms-action-EnableKeyRotation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   Encapsulate  **
+  - **IAM action:**  [kms:Encapsulate](#list_kms-action-Encapsulate) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write

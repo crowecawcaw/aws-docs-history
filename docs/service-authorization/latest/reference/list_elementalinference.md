@@ -40,6 +40,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [elemental-inference:TagResource](#list_elementalinference-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** elemental-inference.amazonaws.com / **Access level:** Write
 
+- **   CreateScheduleAction  **
+  - **IAM action:**  [elemental-inference:CreateScheduleAction](#list_elementalinference-action-CreateScheduleAction) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   DeleteDictionary  **
   - **IAM action:**  [elemental-inference:DeleteDictionary](#list_elementalinference-action-DeleteDictionary) 
   - **Condition key:** 
@@ -54,6 +60,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   DeleteFeedPolicy  **
   - **IAM action:**  [elemental-inference:DeleteFeedPolicy](#list_elementalinference-action-DeleteFeedPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteScheduleAction  **
+  - **IAM action:**  [elemental-inference:DeleteScheduleAction](#list_elementalinference-action-DeleteScheduleAction) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -99,6 +111,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
+
+- **   ListScheduleActions  **
+  - **IAM action:**  [elemental-inference:ListScheduleActions](#list_elementalinference-action-ListScheduleActions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
 
 - **   ListTagsForResource  **
   - **IAM action:**  [elemental-inference:ListTagsForResource](#list_elementalinference-action-ListTagsForResource) 
@@ -162,6 +180,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_elementalinference-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_elementalinference-aws_TagKeys)
   - **Access level:** Write
 
+- **   [CreateScheduleAction](https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_CreateScheduleAction.html)  **
+  - **Description:** Grants permission to create a schedule action for a feed
+  - **Resource types (\*required):** [feed\*](#list_elementalinference-resource-feed)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_elementalinference-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [DeleteDictionary](https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_DeleteDictionary.html)  **
   - **Description:** Grants permission to delete a dictionary
   - **Resource types (\*required):** [dictionary\*](#list_elementalinference-resource-dictionary)
@@ -176,6 +200,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [DeleteFeedPolicy](https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_DeleteFeedPolicy.html)  **
   - **Description:** Grants permission to delete the resource-based policy of a feed
+  - **Resource types (\*required):** [feed\*](#list_elementalinference-resource-feed)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_elementalinference-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteScheduleAction](https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_DeleteScheduleAction.html)  **
+  - **Description:** Grants permission to delete a schedule action for a feed
   - **Resource types (\*required):** [feed\*](#list_elementalinference-resource-feed)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_elementalinference-aws_ResourceTag___TagKey_)
   - **Access level:** Write
@@ -227,6 +257,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** List
+
+- **   [ListScheduleActions](https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_ListScheduleActions.html)  **
+  - **Description:** Grants permission to list schedule actions for a feed
+  - **Resource types (\*required):** [feed\*](#list_elementalinference-resource-feed)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_elementalinference-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
 
 - **   [ListTagsForResource](https://docs.aws.amazon.com/elemental-inference/latest/APIReference/API_ListTagsForResource.html)  **
   - **Description:** Grants permission to list tags on a resource

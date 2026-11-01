@@ -120,6 +120,12 @@ The following actions are defined by Amazon CodeWhisperer but are not directly i
   - **Resource types (\*required):** [profile](#list_codewhisperer-resource-profile) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_codewhisperer-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_codewhisperer-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_codewhisperer-aws_TagKeys)
   - **Access level:** Tagging, Write
 
+- **   [TestOtelConnection](https://docs.aws.amazon.com/codewhisperer/latest/userguide/security_iam_service-with-iam.html)  **
+  - **Description:** Grants permission to test the OpenTelemetry export connection of a profile
+  - **Resource types (\*required):** [profile\*](#list_codewhisperer-resource-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codewhisperer-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [UntagResource](https://docs.aws.amazon.com/codewhisperer/latest/userguide/security_iam_service-with-iam.html)  **
   - **Description:** Grants permission to invoke UntagResource on CodeWhisperer
   - **Resource types (\*required):** [customization](#list_codewhisperer-resource-customization) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codewhisperer-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_codewhisperer-aws_TagKeys)

@@ -506,6 +506,7 @@ The following actions are defined by AWS X-Ray but are not directly invocable th
 | Actions | Description | Resource types (\*required) | Condition keys | Access level | 
 | --- | --- | --- | --- | --- | 
 |   [BatchGetTraceSummaryById](https://docs.aws.amazon.com/xray/latest/devguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-console)  | Grants permission to retrieve metadata for a list of traces specified by ID |  |   | Read | 
+|   [CallWithBearerToken](https://docs.aws.amazon.com/xray/latest/devguide/security_iam_service-with-iam.html)  | Grants permission to authenticate requests to AWS X-Ray using a bearer token |  |   | Write | 
 |   [GetDistinctTraceGraphs](https://docs.aws.amazon.com/xray/latest/devguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-console)  | Grants permission to retrieve distinct service graphs for one or more specific trace IDs |  |   | Read | 
 |   [Link](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.html#CloudWatch-Unified-Cross-Account-Setup-permissions)  | Grants permission to share X-Ray resources with a monitoring account |  |   | Write | 
 |   [PutSpansForIndexing](https://docs.aws.amazon.com/xray/latest/devguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-console)  | Grants permission to upload spans to AWS X-Ray to be indexed |  |   | Write | 
