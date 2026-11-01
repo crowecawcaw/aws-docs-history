@@ -7,10 +7,23 @@ This page lists the current and previous versions of AWS Elastic Beanstalk's Rub
 
 See the [Supported platforms](platforms-supported.md) page for information on the latest version of each platform supported by Elastic Beanstalk. Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/). 
 
-## October 20, 2026 – present
+## October 27, 2026 – present
+<a name="platform-history-2026-10-27"></a>
+
+The following Elastic Beanstalk platform versions for Ruby have been current since October 27, 2026:
+
+
+
+|  Platform Version and *Solution Stack Name*   |  AMI  |  Language  |  Package Manager  |  Application Server  |  AWS X-Ray  |  Proxy Server  | 
+| --- | --- | --- | --- | --- | --- | --- | 
+|  ** Ruby 4.0 AL2023 version 4.15.0** <br /> * 64bit Amazon Linux 2023 v4.15.0 running Ruby 4.0 *  | 2023.12.20261026 | Ruby 4.0.9 | RubyGems 4.0.20 | Puma 8.0.2 | 3.7.1 | nginx 1.30.6 | 
+|  ** Ruby 3.4 AL2023 version 4.15.0** <br /> * 64bit Amazon Linux 2023 v4.15.0 running Ruby 3.4 *  | 2023.12.20261026 | Ruby 3.4.12-p148 | RubyGems 3.6.9 | Puma 8.0.2 | 3.7.1 | nginx 1.30.6 | 
+|  ** Ruby 3.3 AL2023 version 4.15.0** <br /> * 64bit Amazon Linux 2023 v4.15.0 running Ruby 3.3 *  | 2023.12.20261026 | Ruby 3.3.13-p207 | RubyGems 3.5.22 | Puma 8.0.2 | 3.7.1 | nginx 1.30.6 | 
+
+## October 20, 2026 – October 26, 2026
 <a name="platform-history-2026-10-20"></a>
 
-The following Elastic Beanstalk platform versions for Ruby have been current since October 20, 2026:
+The following Elastic Beanstalk platform versions for Ruby were current between October 20, 2026 and October 26, 2026:
 
 
 

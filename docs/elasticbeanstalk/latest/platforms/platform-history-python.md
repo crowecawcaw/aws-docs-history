@@ -7,10 +7,25 @@ This page lists the current and previous versions of AWS Elastic Beanstalk's Pyt
 
 See the [Supported platforms](platforms-supported.md) page for information on the latest version of each platform supported by Elastic Beanstalk. Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/). 
 
-## October 20, 2026 – present
+## October 27, 2026 – present
+<a name="platform-history-2026-10-27"></a>
+
+The following Elastic Beanstalk platform versions for Python have been current since October 27, 2026:
+
+
+
+|  Platform Version and *Solution Stack Name*   |  AMI  |  Language  |  Package Manager  |  AWS X-Ray  |  Proxy Server  | 
+| --- | --- | --- | --- | --- | --- | 
+|  ** Python 3.15 AL2023 version 4.14.0** <br /> * 64bit Amazon Linux 2023 v4.14.0 running Python 3.15 *  | 2023.12.20261026 | Python 3.15.2 | pip 26.2.2, pipenv 2026.10.3 | 3.7.1 | nginx 1.30.6 (default), Apache 2.4.69 | 
+|  ** Python 3.14 AL2023 version 4.14.0** <br /> * 64bit Amazon Linux 2023 v4.14.0 running Python 3.14 *  | 2023.12.20261026 | Python 3.14.10 | pip 26.2.2, pipenv 2026.10.3 | 3.7.1 | nginx 1.30.6 (default), Apache 2.4.69 | 
+|  ** Python 3.13 AL2023 version 4.14.0** <br /> * 64bit Amazon Linux 2023 v4.14.0 running Python 3.13 *  | 2023.12.20261026 | Python 3.13.18 | pip 26.2.2, pipenv 2026.10.3 | 3.7.1 | nginx 1.30.6 (default), Apache 2.4.69 | 
+|  ** Python 3.12 AL2023 version 4.14.0** <br /> * 64bit Amazon Linux 2023 v4.14.0 running Python 3.12 *  | 2023.12.20261026 | Python 3.12.16 | pip 26.2.2, pipenv 2026.10.3 | 3.7.1 | nginx 1.30.6 (default), Apache 2.4.69 | 
+|  ** Python 3.11 AL2023 version 4.14.0** <br /> * 64bit Amazon Linux 2023 v4.14.0 running Python 3.11 *  | 2023.12.20261026 | Python 3.11.17 | pip 26.2.2, pipenv 2026.10.3 | 3.7.1 | nginx 1.30.6 (default), Apache 2.4.69 | 
+
+## October 20, 2026 – October 26, 2026
 <a name="platform-history-2026-10-20"></a>
 
-The following Elastic Beanstalk platform versions for Python have been current since October 20, 2026:
+The following Elastic Beanstalk platform versions for Python were current between October 20, 2026 and October 26, 2026:
 
 
 
