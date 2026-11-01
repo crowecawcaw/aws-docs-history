@@ -28,7 +28,7 @@ Manage applications is only available for application bundles that are subscribe
 ## Supported bundles for Manage applications
 <a name="w2aac11c33c23c11"></a>
 
-Manage applications allows you install and uninstall the following applications on your WorkSpaces. For Microsoft Office 2016 bundle and Microsoft Office 2019, you can only uninstall.
+Manage applications allows you to install and uninstall the following applications on your WorkSpaces. For Microsoft Office 2016 bundle and Microsoft Office 2019, you can only uninstall.
 
 **End of Support Notice**  
 Microsoft Office, Visio, and Project 2021 (Standard and Professional editions) will reach end of support on **October 13, 2026**. After this date, these applications will no longer receive security updates or technical support from Microsoft.  

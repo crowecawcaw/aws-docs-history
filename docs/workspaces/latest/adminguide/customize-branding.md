@@ -120,7 +120,7 @@ ByteArrayOutputStream baos = new ByteArrayOutputStream();
 ImageIO.write(bi, "png", baos);
 byte[] bytes = baos.toByteArray();
     
-// Create import attributes for the plateform 
+// Create import attributes for the platform 
 DefaultImportClientBrandingAttributes attributes =
         DefaultImportClientBrandingAttributes.builder()
                 .logo(SdkBytes.fromByteArray(bytes))

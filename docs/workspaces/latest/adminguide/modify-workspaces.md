@@ -29,14 +29,14 @@ You can increase the size of the root and user volumes for a WorkSpace, up to 20
 | [80, 100] | 
 | [175 to 2000, 100 to 2000] | 
 
-You can expand the root and user volumes whether they are encrypted or unencrypted, and you can expand both volumes once in a 6-hour period. However, you can't increase the size of the root and user volumes at the same time. For more information, see [Limitations for Increasing Volumes](#limitations_increasing_volumes).
+You can expand the root and user volumes whether they are encrypted or unencrypted, and you can expand both volumes once in a 6-hour period. However, you can't increase the size of the root and user volumes at the same time. For more information, see the [limitations for increasing volumes](#limitations_increasing_volumes).
 
 **Note**  
 When you expand a volume for a WorkSpace, WorkSpaces automatically extends the volume's partition within Windows or Linux. When the process is finished, you must reboot the WorkSpace for the changes to take effect. 
 
 To ensure that your data is preserved, you cannot decrease the size of the root or user volumes after you launch a WorkSpace. Instead, make sure that you specify the minimum sizes for these volumes when launching a WorkSpace.
 + You can launch a Value, Standard, Performance, Power, or PowerPro WorkSpace with a minimum of 80 GB for the root volume and 10 GB for the user volume.
-+ You can launch a GeneralPurpose.4xlarge or GeneralPurpose.8xlarge WorkSpace with a minimum of 175GB for the root volume and 100 GB for the user volume.
++ You can launch a GeneralPurpose.4xlarge or GeneralPurpose.8xlarge WorkSpace with a minimum of 175 GB for the root volume and 100 GB for the user volume.
 + You can launch a Graphics G7, Graphics.g6, Graphics.g4dn, GraphicsPro.g4dn, or GraphicsPro WorkSpace with a minimum of 100 GB for the root volume and 100 GB for the user volume. Volume sizing requirements vary based on larger graphics instance types.
 
 While a WorkSpace disk size increase is in progress, users can perform most tasks on their WorkSpace. However, they can't change their WorkSpace compute type, switch the WorkSpace running mode, rebuild their WorkSpace, or reboot (restart) their WorkSpace.
@@ -46,7 +46,7 @@ If you want your users to be able to use their WorkSpaces while the disk size in
 
 In most cases, the disk size increase process might take up to two hours. However, if you're modifying the volume sizes for a large number of WorkSpaces, the process can take significantly longer. If you have a large number of WorkSpaces to modify, we recommend contacting AWS Support for assistance.
 
-**Limitations for increasing volumes**
+The following limitations apply when you increase volume sizes:
 + You can resize only SSD volumes.
 + When you launch a WorkSpace, you must wait 6 hours before you can modify the sizes of its volumes.
 + You cannot increase the size of the root and user volumes at the same time. To increase the root volume, you must first change the user volume to 100 GB. After that change is made, you can then update the root volume to any value between 175 and 2000 GB. After the root volume has been changed to any value between 175 and 2000 GB, you can then update the user volume further, to any value between 100 and 2000 GB.
@@ -89,11 +89,11 @@ Use the [modify-workspace-properties](https://docs.aws.amazon.com/cli/latest/ref
 ## Modify compute type
 <a name="modify_compute"></a>
 
-You can switch a WorkSpace between the Standard, Power, Performance, PowerPro GeneralPurpose.4xlarge, and GeneralPurpose.8xlarge compute types. For more information about these compute types, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/features/#Amazon_WorkSpaces_Bundles).
+You can switch a WorkSpace between the Standard, Power, Performance, PowerPro, GeneralPurpose.4xlarge, and GeneralPurpose.8xlarge compute types. For more information about these compute types, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/features/#Amazon_WorkSpaces_Bundles).
 
 **Note**  
 If your source operating system is anything other than Windows Server 2022 or Windows 11, you cannot change your compute type from PowerPro to GeneralPurpose.
-If you are modifying the compute type from a non-GPU-enabled bundles to GeneralPurpose.4xlarge or GeneralPurpose.8xlarge, your WorkSpaces must meet the minimum root volume size of 175 GB and user volume size of 100 GB. To increase the volume size of your WorkSpaces, see [Modify volume sizes](#modify_volume_sizes).
+If you are modifying the compute type from a non-GPU-enabled bundle to GeneralPurpose.4xlarge or GeneralPurpose.8xlarge, your WorkSpaces must meet the minimum root volume size of 175 GB and user volume size of 100 GB. To increase the volume size of your WorkSpaces, see [Modify volume sizes](#modify_volume_sizes).
 GPU-enabled WorkSpaces support compute type modifications within the same instance family but do not support cross-family modifications. For example, you can modify the compute type between two G4dn instances, two G6 instances, or two G7 instances, but you cannot change across instance families, such as from a G4dn instance to a G6 or G7 instance family. To move between GPU-enabled WorkSpace bundles powered by different instance families, use the Migrate a WorkSpace feature. For more information, see [Migrate a WorkSpace in WorkSpaces Personal](migrate-workspaces.md)
 GraphicsPro bundle reaches end-of-life on October 31, 2025. We recommend migrating your GraphicsPro WorkSpaces to supported bundles before October 31, 2025. For more information, see [Migrate a WorkSpace in WorkSpaces Personal](migrate-workspaces.md).
 You cannot change the compute type of Graphics and GraphicsPro to any other value.

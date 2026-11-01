@@ -18,7 +18,7 @@ After a WorkSpace is disconnected and the AutoStop Time period has expired, it m
 
 When the WorkSpaces support hibernation, the state of the desktop is saved to the root volume of the WorkSpace. The WorkSpace resumes when a user logs in. All open documents and running programs return to their saved state with all WorkSpaces operating systems supporting hibernation.
 
-AutoStop GPU-enabled WorkSpaces and GeneralPurpose.4xlarge or GeneralPurpose.8xlarge do not support hibernation. The state of of applications/data is not preserved. We recommend saving your work when you're done using your WorkSpaces each time to avoid data loss. 
+AutoStop GPU-enabled WorkSpaces and GeneralPurpose.4xlarge or GeneralPurpose.8xlarge do not support hibernation. The state of applications/data is not preserved. We recommend saving your work when you're done using your WorkSpaces each time to avoid data loss. 
 
 **Important**  
 WorkSpaces running Windows Server 2025, Windows 11 24H2, or Windows 11 25H2 with nested virtualization enabled do not support hibernation. When these WorkSpaces are stopped, unsaved data will be lost. We recommend using AlwaysOn running mode for these WorkSpaces to avoid data loss. For more information, see [Nested virtualization for WorkSpaces Personal](nested-virtualization.md).

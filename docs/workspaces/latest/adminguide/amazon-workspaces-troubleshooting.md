@@ -251,7 +251,6 @@ The following information can help you troubleshoot specific issues with your Wo
 **Topics**
 + [I can't create an Amazon Linux WorkSpace because there are non-valid characters in the user name](#linux_workspace_provision_fail_username)
 + [I changed the shell for my Amazon Linux WorkSpace and now I can't provision a PCoIP session](#linux_workspace_provision_fail_shell_override)
-+ [My Amazon Linux WorkSpaces won't start](#linux_workspace_provision_fail_pcoip_agent_upgrade)
 + [Launching WorkSpaces in my connected directory often fails](#provision_fail)
 + [Launching WorkSpaces fails with an internal error](#launch-failure-ipv6)
 + [When I try to register a directory, the registration fails and leaves the directory in an ERROR state](#cannot-register-directory)
@@ -316,59 +315,6 @@ These limitations do not apply to Windows WorkSpaces. Windows WorkSpaces support
 <a name="linux_workspace_provision_fail_shell_override"></a>
 
 To override the default shell for Linux WorkSpaces, see [Override the default shell for Amazon Linux WorkSpaces](manage_linux_workspace.md#linux_shell). 
-
-### My Amazon Linux WorkSpaces won't start
-<a name="linux_workspace_provision_fail_pcoip_agent_upgrade"></a>
-
-Starting July 20, 2020, Amazon Linux WorkSpaces will be using new license certificates. These new certificates are compatible only with versions 2.14.1.1, 2.14.7, 2.14.9, and 20.10.6 or later of the PCoIP agent. 
-
-If you're using an unsupported version of the PCoIP agent, you must upgrade it to the latest version (20.10.6), which has the latest fixes and performance improvements that are compatible with the new certificates. If you don't make these upgrades by July 20, session provisioning for your Linux WorkSpaces will fail and your end users won't be able to connect to their WorkSpaces.
-
-**To upgrade your PCoIP agent to the latest version**
-
-1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home).
-
-1. In the navigation pane, choose **WorkSpaces**.
-
-1. Select your Linux WorkSpace, and reboot it by choosing **Actions**, **Reboot WorkSpaces**. If the WorkSpace status is `STOPPED`, you must choose **Actions**, **Start WorkSpaces** first and wait until its status is `AVAILABLE` before you can reboot it.
-
-1. <a name="step_maintenance_mode"></a>After your WorkSpace has rebooted and its status is `AVAILABLE`, we recommend that you change the status of the WorkSpace to `ADMIN_MAINTENANCE` while you are performing this upgrade. When you are finished, change the status of the WorkSpace to `AVAILABLE`. For more information about `ADMIN_MAINTENANCE` mode, see [ Manual Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html#admin-maintenance).
-
-   To change the status of a WorkSpace to `ADMIN_MAINTENANCE`, do the following:
-
-   1. Select the WorkSpace and choose **Actions**, **Modify WorkSpace**.
-
-   1. Choose **Modify State**.
-
-   1. For **Intended State**, select **ADMIN\_MAINTENANCE**.
-
-   1. Choose **Modify**.
-
-1. Connect to your Linux WorkSpace through SSH. For more information, see [Enable SSH connections for your Linux WorkSpaces in WorkSpaces Personal](connect-to-linux-workspaces-with-ssh.md). 
-
-1. To update the PCoIP agent, run the following command:
-
-   ```
-   sudo yum --enablerepo=pcoip-stable install pcoip-agent-standard-20.10.6
-   ```
-
-1. To verify the agent version and to confirm that the update succeeded, run the following command:
-
-   ```
-   rpm -q pcoip-agent-standard
-   ```
-
-   The verification command should produce following result:
-
-   ```
-   pcoip-agent-standard-20.10.6-1.el7.x86_64
-   ```
-
-1. Disconnect from the WorkSpace and reboot it again. 
-
-1. If you set the status of the WorkSpace to `ADMIN_MAINTENANCE` in [Step 4](#step_maintenance_mode), repeat [Step 4](#step_maintenance_mode) and set **Intended State** to `AVAILABLE`.
-
-If your Linux WorkSpace still fails to start after you upgrade the PCoIP agent, contact AWS Support.
 
 ### Launching WorkSpaces in my connected directory often fails
 <a name="provision_fail"></a>
@@ -972,7 +918,7 @@ To launch Amazon WorkSpaces using a directory in a Region that is not currently 
 If you receive errors when running AWS Command Line Interface commands, ensure you’re using the most recent AWS CLI version. For more information, see [Confirm that you're running a recent version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-troubleshooting.html#general-latest).
 
 #### Step 1: Create virtual private cloud (VPC) peering with another VPC in your account
-<a name="w2aac11c41b9c95b7"></a>
+<a name="w2aac11c41b9c93b7"></a>
 
 1. Create the VPC peering connection with a VPC in a different Region. For more information, see [ Create with VPCs in the same account and different Regions](https://docs.aws.amazon.com/vpc/latest/peering/create-vpc-peering-connection.html#same-account-different-region).
 
@@ -981,12 +927,12 @@ If you receive errors when running AWS Command Line Interface commands, ensure y
 1. After you activate the VPC peering connection, you can view your VPC peering connections using the Amazon VPC console, the AWS CLI, or an API. 
 
 #### Step 2: Update route tables for VPC peering in both Regions
-<a name="w2aac11c41b9c95b9"></a>
+<a name="w2aac11c41b9c93b9"></a>
 
  Update your route tables to turn on communication with the peer VPC over IPv4 or IPv6. For more information, see [Update your route tables for a VPC peering connection](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-routing.html). 
 
 #### Step 3: Create an AD Connector and register Amazon WorkSpaces
-<a name="w2aac11c41b9c95c11"></a>
+<a name="w2aac11c41b9c93c11"></a>
 
 1.  To review the AD Connector prerequisites, see [ AD Connector prerequisites](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/prereq_connector.html). 
 
@@ -1002,12 +948,12 @@ If you receive errors when running AWS Command Line Interface commands, ensure y
 <a name="firefox_al2"></a>
 
 #### Step 1: Verify auto-update is enabled
-<a name="w2aac11c41b9c97b3"></a>
+<a name="w2aac11c41b9c95b3"></a>
 
 To verify that autoupdate is enabled, run the command `systemctl status *os-update-mgmt.timer | grep enabled` on your WorkSpace. In the output, there should be two lines with the word `enabled` on them.
 
 #### Step 2: Initiate an update
-<a name="w2aac11c41b9c97b5"></a>
+<a name="w2aac11c41b9c95b5"></a>
 
 Firefox usually updates automatically in Amazon Linux 2 WorkSpaces along with all other software packages in the system during the maintenance window. However, this depends on the type of WorkSpaces you are using.
 + For AlwaysOn WorkSpaces, the weekly maintenance window is on Sunday 00h00 to 04h00, in the time zone of the WorkSpace.
@@ -1025,7 +971,7 @@ You can also download the necessary RPM packages from Amazon Linux 2 repositorie
 The exact file name will change based on the package version.
 
 #### Step 3: Verify Firefox repository is used
-<a name="w2aac11c41b9c97b7"></a>
+<a name="w2aac11c41b9c95b7"></a>
 
 Amazon Linux Extras automatically provides Firefox updates for Amazon Linux 2 WorkSpaces. Amazon Linux 2 WorkSpaces created after July 31, 2023 will already have the Firefox Extra repository activated. To verify that your WorkSpace is using the Firefox Extra repository, run the following command.
 

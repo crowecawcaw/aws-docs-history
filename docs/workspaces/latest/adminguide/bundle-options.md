@@ -151,7 +151,7 @@ The Graphics G7 WorkSpace bundle is well-suited for the following use cases:
 + Machine learning (ML) model training and AI inference
 
 **Note**  
-Graphics G7 is available in US East (N. Virginia), US East (Ohio), and US West (Oregon).
+Graphics G7 is available in US East (N. Virginia), US East (Ohio), US West (Oregon), and Europe (Frankfurt).
 
 ## Graphics G6 bundles
 <a name="graphicsg6"></a>

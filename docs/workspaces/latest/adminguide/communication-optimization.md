@@ -166,7 +166,7 @@ For enhanced video processing capabilities, such as background blur, virtual bac
 Most of the UC applications provide guidance to disable advanced video processing to reduce CPU utilization on non-GPU WorkSpaces.
 
 For more information, refer to the following resources.
-+ Microsoft Teams: [Teams for Virtualized Desktop Infrastructure](https://https://learn.microsoft.com/en-us/microsoftteams/vdi-2)
++ Microsoft Teams: [Teams for Virtualized Desktop Infrastructure](https://learn.microsoft.com/en-us/microsoftteams/vdi-2)
 + Zoom Meetings: [Managing the user experience for incompatible VDI plugins](https://support.zoom.us/hc/en-us/articles/4411856902285-Managing-the-user-experience-for-incompatible-VDI-plugins-)
 + Webex: [Deployment guide for Webex App for Virtual Desktop Infrastructure (VDI) - Manage and troubleshoot Webex App for VDI [Webex App]](https://www.cisco.com/c/en/us/td/docs/voice_ip_comm/cloudCollaboration/wbxt/vdi/wbx-vdi-deployment-guide/manage-teams-vdi.html#id_138538)
 + Google Meet: [Using VDI](https://support.google.com/a/answer/1279090?hl=en#VDI)

@@ -12,7 +12,7 @@ Rebuilding a WorkSpace causes the following to occur:
   Automatic snapshots for use when rebuilding a WorkSpace are scheduled every 12 hours. These snapshots of the user volume are taken regardless of the health of the WorkSpace. When you choose **Actions**, **Rebuild / Restore WorkSpace**, the date and time of the most recent snapshot is shown.
 
   When you rebuild a WorkSpace, new snapshots are also taken soon after the rebuild is finished (often within 30 minutes).
-+ The primary elastic network interface is recreated. The WorkSpace receives a new private IP address.
++ The primary elastic network interface is recreated. The WorkSpace receives a new private IP address and a new hostname. For WorkSpaces joined to Active Directory, the new hostname corresponds to a new computer object in the directory.
 
 **Note**  
 The nested virtualization setting is preserved during a WorkSpace rebuild. If nested virtualization was enabled before the rebuild, it remains enabled on the rebuilt WorkSpace.

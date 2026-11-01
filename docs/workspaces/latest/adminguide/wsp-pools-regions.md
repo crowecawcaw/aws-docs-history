@@ -27,5 +27,5 @@ For the AWS Regions that apply to WorkSpaces Personal, see [Amazon WorkSpaces en
 | Europe (London) | eu-west-2 |  workspaces.eu-west-2.amazonaws.com  | HTTPS | euw2-az2, euw2-az3 | 
 | Europe (Paris) | eu-west-3 |  workspaces.eu-west-3.amazonaws.com  | HTTPS | euw3-az1, euw3-az2, euw3-az3 | 
 | South America (São Paulo) | sa-east-1 |  workspaces.sa-east-1.amazonaws.com  | HTTPS | sae1-az1, sae1-az3 | 
-|  AWS GovCloud (US-East) | us-gov-east-1 |  workspaces.us-gov-east-1.amazonaws.com <br /> workspaces-fips.us-gov-east-1.amazonaws.com  | HTTPS<br />HTTPS | usgw1-az1, usgw1-az2, usgw1-az3 | 
-|  AWS GovCloud (US-West) | us-gov-west-1 |  workspaces.us-gov-west-1.amazonaws.com <br /> workspaces-fips.us-gov-west-1.amazonaws.com  | HTTPS<br />HTTPS | usge1-az1, usge1-az2, usge1-az3 | 
+|  AWS GovCloud (US-East) | us-gov-east-1 |  workspaces.us-gov-east-1.amazonaws.com <br /> workspaces-fips.us-gov-east-1.amazonaws.com  | HTTPS<br />HTTPS | usge1-az1, usge1-az2, usge1-az3 | 
+|  AWS GovCloud (US-West) | us-gov-west-1 |  workspaces.us-gov-west-1.amazonaws.com <br /> workspaces-fips.us-gov-west-1.amazonaws.com  | HTTPS<br />HTTPS | usgw1-az1, usgw1-az2, usgw1-az3 | 

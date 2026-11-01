@@ -30,18 +30,41 @@ You can create an IP access control group as follows. Each IP access control gro
 
 1. In the navigation pane, choose **IP Access Controls**.
 
-1. Choose **Create IP Group**.
+1. Choose **Create IP access control group**.
 
-1. In the **Create IP Group** dialog box, enter a name and description for the group and choose **Create**.
+1. In the **Create IP access group** dialog box, enter a name and description for the group.
 
-1. Select the group and choose **Edit**.
+1. Enter the first rule. For **Source**, enter the IP address or IP address range. For **Description**, optionally enter a description. To add more rules, choose **Add rule** and enter each additional rule.
 
-1. For each IP address, choose **Add Rule**. For **Source**, enter the IP address or IP address range. For **Description**, enter a description. When you are done adding rules, choose **Save**.
+1. Choose **Create**.
 
-## Associate an IP access control group with a directory
+## Add or remove rules in an IP access control group
+<a name="edit-ip-access-control-group-rules"></a>
+
+You can add or remove rules in an existing IP access control group. Removing a rule does not disconnect users who are already connected. However, after a user disconnects, they can reconnect only from an IP address that an existing rule allows.
+
+**To add or remove rules in an IP access control group**
+
+1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home).
+
+1. In the navigation pane, choose **IP Access Controls**.
+
+1. Choose the ID of the group that you want to edit.
+
+1. In the **Rules** section, choose **Edit**.
+
+1. On the **Edit rules** page, do one or both of the following:
+
+   1. To remove a rule, choose **Remove** for that rule.
+
+   1. To add a rule, choose **Add rule**. For **Source**, enter the IP address or IP address range. For **Description**, optionally enter a description.
+
+1. Choose **Save**.
+
+## Associate or disassociate an IP access control group with a directory
 <a name="associate-ip-access-control-group"></a>
 
-You can associate an IP access control group with a directory to ensure that WorkSpaces are accessed only from trusted networks.
+You can associate an IP access control group with a directory to ensure that WorkSpaces are accessed only from trusted networks. You can also disassociate a group from a directory, for example when you move a group from one directory to another.
 
 If you associate an IP access control group that has no rules with a directory, this blocks all access to all WorkSpaces.
 
@@ -51,11 +74,27 @@ If you associate an IP access control group that has no rules with a directory, 
 
 1. In the navigation pane, choose **Directories**.
 
-1. Select the directory and choose **Actions**, **Update Details**.
+1. Choose the directory ID.
 
-1. Expand **IP Access Control Groups** and select one or more IP access control groups.
+1. Scroll to the **IP access control groups** section, and then choose **Edit**.
 
-1. Choose **Update and Exit**.
+1. Select one or more IP access control groups to associate with the directory.
+
+1. Choose **Associate**.
+
+**To disassociate an IP access control group from a directory**
+
+1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home).
+
+1. In the navigation pane, choose **Directories**.
+
+1. Choose the directory ID.
+
+1. Scroll to the **IP access control groups** section, and then choose **Edit**.
+
+1. Clear the check box for each IP access control group that you want to disassociate.
+
+1. Choose **Disassociate**.
 
 ## Copy an IP access control group
 <a name="copy-ip-access-control-group"></a>
@@ -68,27 +107,25 @@ You can use an existing IP access control group as a base for creating a new IP 
 
 1. In the navigation pane, choose **IP Access Controls**.
 
-1. Select the group and choose **Actions**, **Copy to New**.
+1. Select the group and choose **Actions**, **Copy to new**.
 
-1. In the **Copy IP Group** dialog box, enter a name and description for the new group and choose **Copy Group**.
+1. In the **Copy to new** dialog box, enter a name and description for the new group and choose **Copy**.
 
-1. (Optional) To modify the rules copied from the original group, select the new group and choose **Edit**. Add, update, or remove rules as needed. Choose **Save**.
+1. (Optional) To modify the rules copied from the original group, see [Add or remove rules in an IP access control group](#edit-ip-access-control-group-rules).
 
 ## Delete an IP access control group
 <a name="delete-ip-access-control-group"></a>
 
-You can delete a rule from an IP access control group at any time. If you remove a rule that was used to allow a connection to a WorkSpace, the user is disconnected from the WorkSpace.
-
-Before you can delete an IP access control group, you must disassociate it from any directories.
+Before you can delete an IP access control group, you must disassociate it from any directories. For more information, see [Associate or disassociate an IP access control group with a directory](#associate-ip-access-control-group).
 
 **To delete an IP access control group**
 
 1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home).
 
-1. In the navigation pane, choose **Directories**.
-
-1. For each directory that is associated with the IP access control group, select the directory and choose **Actions**, **Update Details**. Expand **IP Access Control Groups**, clear the check box for the IP access control group, and choose **Update and Exit**.
+1. Disassociate the IP access control group from any directories that it is associated with.
 
 1. In the navigation pane, choose **IP Access Controls**.
 
-1. Select the group and choose **Actions**, **Delete IP Group**.
+1. Select the group and choose **Actions**, **Delete**.
+
+1. In the confirmation dialog box, enter **delete** to confirm, and then choose **Delete**.

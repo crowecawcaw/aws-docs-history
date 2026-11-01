@@ -773,7 +773,7 @@ No matter which type of directory you have, the following ports must be open on 
 | CAPTCHA | https://opfcaptcha-prod.s3.amazonaws.com/ | 
 | Client Auto-update | https://s3.amazonaws.com/workspaces-client-updates/prod/pdt/windows/WorkSpacesAppCast.xml | 
 | Connectivity Check | https://connectivity.amazonworkspaces.com/ | 
-| Client Metrics (for 3.0\+ WorkSpaces client applications) | Domain:<br />hhttps://skylight-client-ds.us-gov-west-1.amazonaws.com | 
+| Client Metrics (for 3.0\+ WorkSpaces client applications) | Domain:<br />https://skylight-client-ds.us-gov-west-1.amazonaws.com | 
 | Dynamic Messaging Service (for 3.0\+ WorkSpaces client applications) | Domain:<br />https://ws-client-service.us-gov-west-1.amazonaws.com | 
 | Directory Settings |  +  https://d32i4gd7pg4909.cloudfront.net/prod/<region>/<directory ID>  +  https://d32i4gd7pg4909.cloudfront.net/  +  https://s3.amazonaws.com/workspaces-client-properties/prod/pdt/<directory ID>  + https://s3.amazonaws.com/workspaces-client-assets/prod/pdt/<directory ID> + https://s3.amazonaws.com/workspaces-clients-css/workspaces\_v2.css + Not applicable  | 
 | Forrester Log Service  | https://fls-na.amazon.com/ | 
@@ -802,7 +802,7 @@ No matter which type of directory you have, the following ports must be open on 
 | CAPTCHA | https://opfcaptcha-prod.s3.amazonaws.com/ | 
 | Client Auto-update | https://s3.amazonaws.com/workspaces-client-updates/prod/osu/windows/WorkSpacesAppCast.xml | 
 | Connectivity Check | https://connectivity.amazonworkspaces.com/ | 
-| Client Metrics (for 3.0\+ WorkSpaces client applications) | Domain:<br />hhttps://skylight-client-ds.us-gov-east-1.amazonaws.com | 
+| Client Metrics (for 3.0\+ WorkSpaces client applications) | Domain:<br />https://skylight-client-ds.us-gov-east-1.amazonaws.com | 
 | Dynamic Messaging Service (for 3.0\+ WorkSpaces client applications) | Domain:<br />https://ws-client-service.us-gov-east-1.amazonaws.com | 
 | Directory Settings |  +  https://d32i4gd7pg4909.cloudfront.net/prod/<region>/<directory ID>  +  https://d32i4gd7pg4909.cloudfront.net/  +  https://s3.amazonaws.com/workspaces-client-properties/prod/osu/<directory ID>  + https://s3.amazonaws.com/workspaces-client-assets/prod/osu/<directory ID> + https://s3.amazonaws.com/workspaces-clients-css/workspaces\_v2.css + Not applicable  | 
 | Forrester Log Service  | https://fls-na.amazon.com/ | 
