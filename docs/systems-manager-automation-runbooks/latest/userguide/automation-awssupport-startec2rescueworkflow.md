@@ -129,6 +129,13 @@ Linux, macOS, Windows
   Default: t3.medium
 
   Description: (Optional) The EC2 instance type for the EC2Rescue instance.
++ HelperInstanceProfileName
+
+  Type: String
+
+  Default: `""`
+
+  Description: (Optional) The name of an existing IAM instance profile for the EC2Rescue instance. If you don't specify one, the automation creates a helper IAM role and instance profile, and deletes them when the automation completes.
 + InstanceId
 
   Type: String
@@ -170,62 +177,73 @@ Linux, macOS, Windows
 
 The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
 
-It is recommended the user who runs the automation have the **AmazonSSMAutomationRole** IAM managed policy attached. In addition to that policy, the user must have:
+Attach the **AmazonSSMAutomationRole** IAM managed policy to the IAM user or role that runs the automation, and add the permissions in the following example policy.
 
-------
-#### [ JSON ]
+The following example policy grants the additional permissions that the runbook needs. Each statement is scoped to the resource types that its actions use. The `DescribeActions` statement uses `"Resource": "*"` because describe actions don't support resource-level permissions. In the following example, replace {{111122223333}} with your AWS account ID, {{EC2RescueHelperProfile}} with the name of the instance profile that you pass in `HelperInstanceProfileName`, and {{EC2RescueHelperRole}} with the name of the IAM role inside that instance profile:
 
-****  
+**Note**  
+This policy assumes that you specify an existing instance profile in the `HelperInstanceProfileName` parameter.  
+The IAM role inside that instance profile is a separate identity from the one you attach this policy to, and it needs its own permissions:  
+It must trust `ec2.amazonaws.com`.
+It needs the **AmazonSSMManagedInstanceCore** policy, so that the EC2Rescue helper instance can register with Systems Manager and receive the commands this automation sends it.
+It needs whatever permissions the script that you pass in `OfflineScript` calls for. For example, `AWSSupport-ResetAccess` passes a script that stores a generated SSH key in Parameter Store, so the role it uses also needs `ssm:PutParameter` and `kms:Encrypt`.
+If you set `S3BucketName`, it needs `s3:PutObject` and `s3:AbortMultipartUpload` on that bucket under the `S3Prefix` that you specify, because the automation passes the bucket and prefix to your script rather than uploading on its own.
+If you leave `HelperInstanceProfileName` empty, the automation creates a helper IAM role and instance profile on your behalf, which requires permissions to create and configure IAM resources that this policy doesn't grant.
 
 ```
 {
-    "Version":"2012-10-17",		 	 	 
+    "Version": "2012-10-17",
     "Statement": [
         {
-            "Action": [
-                "lambda:InvokeFunction",
-                "lambda:DeleteFunction",
-                "lambda:GetFunction"
-            ],
-            "Resource": "arn:aws:lambda:*:{{111122223333}}:function:AWSSupport-EC2Rescue-*",
-            "Effect": "Allow"
+            "Sid": "ReadHelperInstanceProfile",
+            "Effect": "Allow",
+            "Action": "iam:GetInstanceProfile",
+            "Resource": "arn:aws:iam::{{111122223333}}:instance-profile/{{EC2RescueHelperProfile}}"
         },
         {
+            "Sid": "PassHelperInstanceRole",
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": "arn:aws:iam::{{111122223333}}:role/{{EC2RescueHelperRole}}",
+            "Condition": {
+                "StringEquals": {
+                    "iam:PassedToService": "ec2.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Sid": "EC2RescueStack",
+            "Effect": "Allow",
+            "Action": "cloudformation:DescribeStackResource",
+            "Resource": "arn:aws:cloudformation:*:{{111122223333}}:stack/AWSSupport-EC2Rescue-*/*"
+        },
+        {
+            "Sid": "InstanceAndRootVolume",
+            "Effect": "Allow",
             "Action": [
-                "s3:GetObject",
-                "s3:GetObjectVersion"
+                "ec2:AttachVolume",
+                "ec2:DetachVolume",
+                "ec2:ModifyInstanceAttribute",
+                "ec2:RebootInstances"
             ],
             "Resource": [
-                "arn:aws:s3:::awssupport-ssm.*/*.template",
-                "arn:aws:s3:::awssupport-ssm.*/*.zip"
-            ],
-            "Effect": "Allow"
+                "arn:aws:ec2:*:{{111122223333}}:instance/*",
+                "arn:aws:ec2:*:{{111122223333}}:volume/*"
+            ]
         },
         {
+            "Sid": "HelperLaunchTemplate",
+            "Effect": "Allow",
             "Action": [
-                "iam:CreateRole",
-                "iam:CreateInstanceProfile",
-                "iam:GetRole",
-                "iam:GetInstanceProfile",
-                "iam:PutRolePolicy",
-                "iam:DetachRolePolicy",
-                "iam:AttachRolePolicy",
-                "iam:PassRole",
-                "iam:AddRoleToInstanceProfile",
-                "iam:RemoveRoleFromInstanceProfile",
-                "iam:DeleteRole",
-                "iam:DeleteRolePolicy",
-                "iam:DeleteInstanceProfile"
+                "ec2:CreateLaunchTemplate",
+                "ec2:DeleteLaunchTemplate"
             ],
-            "Resource": [
-                "arn:aws:iam::{{111122223333}}:role/AWSSupport-EC2Rescue-*",
-                "arn:aws:iam::{{111122223333}}:instance-profile/AWSSupport-EC2Rescue-*"
-            ],
-            "Effect": "Allow"
+            "Resource": "arn:aws:ec2:*:{{111122223333}}:launch-template/*"
         },
         {
+            "Sid": "HelperNetwork",
+            "Effect": "Allow",
             "Action": [
-                "lambda:CreateFunction",
                 "ec2:CreateVpc",
                 "ec2:ModifyVpcAttribute",
                 "ec2:DeleteVpc",
@@ -234,26 +252,36 @@ It is recommended the user who runs the automation have the **AmazonSSMAutomatio
                 "ec2:DetachInternetGateway",
                 "ec2:DeleteInternetGateway",
                 "ec2:CreateSubnet",
+                "ec2:ModifySubnetAttribute",
                 "ec2:DeleteSubnet",
+                "ec2:CreateRouteTable",
                 "ec2:CreateRoute",
                 "ec2:DeleteRoute",
-                "ec2:CreateRouteTable",
                 "ec2:AssociateRouteTable",
                 "ec2:DisassociateRouteTable",
-                "ec2:DeleteRouteTable",
-                "ec2:CreateVpcEndpoint",
-                "ec2:DeleteVpcEndpoints",
-                "ec2:ModifyVpcEndpoint",
+                "ec2:DeleteRouteTable"
+            ],
+            "Resource": [
+                "arn:aws:ec2:*:{{111122223333}}:vpc/*",
+                "arn:aws:ec2:*:{{111122223333}}:subnet/*",
+                "arn:aws:ec2:*:{{111122223333}}:internet-gateway/*",
+                "arn:aws:ec2:*:{{111122223333}}:route-table/*"
+            ]
+        },
+        {
+            "Sid": "DescribeActions",
+            "Effect": "Allow",
+            "Action": [
+                "autoscaling:DescribeAutoScalingInstances",
                 "ec2:Describe*"
             ],
-            "Resource": "*",
-            "Effect": "Allow"
+            "Resource": "*"
         }
     ]
 }
 ```
 
-------
+The `HelperNetwork` statement is needed only when you set `SubnetId` to `CreateNewVPC`.
 
  **Document Steps** 
 
@@ -277,7 +305,7 @@ It is recommended the user who runs the automation have the **AmazonSSMAutomatio
 
       `aws:createStack` - Deploy the EC2Rescue CloudFormation stack
 
-1. `aws:invokeLambdaFunction` - Perform additional input validation
+1. `aws:executeScript` - Perform additional input validation
 
 1. `aws:executeAwsApi` - Update the EC2Rescue CloudFormation stack to create the EC2Rescue helper instance
 
