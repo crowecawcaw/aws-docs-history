@@ -8,6 +8,7 @@ The following table describes the latest updates that are available in released 
 
 | Client version | Release date | Changes | 
 | --- | --- | --- | 
+| 1.5.2.1118 | 10-30-2026 |  +  Fixed an issue in application view mode where application windows could not be moved or resized. <br />+  Updated the DCV SDK.   | 
 | 1.5.1.1066 | 08-25-2026 |  +  Fixed an issue where expired authentication tokens could cause connection failures during session reconnection. <br />+  Updated the DCV SDK. <br />+  Other bug fixes and enhancements.   | 
 | 1.5.0.1035 | 07-09-2026 |  +  Fixed an issue that caused the streaming session to be positioned incorrectly when entering full screen on a non-primary display, when multiple displays are connected. <br />+  Improved the connection reliability during network interruption scenarios and in proxy environments. <br />+  Updated the DCV SDK. <br />+  Other bug fixes and enhancements.   | 
 | 1.4.0.1012 | 04-28-2026 |  +  Added support for URL redirection, enabling administrators to configure certain websites to be redirected from the streaming session to the local device's web browser. <br />+  Fixed an issue that was preventing copying and pasting from the clipboard between the local client device and the streaming session in some scenarios. <br />+  Updated the DCV SDK. <br />+  Other bug fixes and enhancements.   | 

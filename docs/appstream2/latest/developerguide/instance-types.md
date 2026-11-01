@@ -14,6 +14,11 @@ The following table summarizes the available instance families and provides the 
 **Note**  
 If your use case involves real-time audio-video (AV) or other scenarios that require high frame rates and your display performance isn't as expected, consider scaling up to a larger instance size.
 
+**Important**  
+**Memory integrity**  
+*Memory integrity*, also known as *hypervisor-protected code integrity (HVCI)* or *hypervisor enforced code integrity*, isn't supported. Before you turn on Credential Guard, you must ensure this feature is disabled. For more information, see [Disable memory integrity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/credential-guard.html#disable-memory-integrity).  
+Enabling the feature may lead to performance or stability issues. We recommend disabling memory integrity in your Windows image. Credential Guard can remain enabled once memory integrity is disabled.
+
 
 | Instance Family | Description | Base Image Name | 
 | --- | --- | --- | 
@@ -23,7 +28,6 @@ If your use case involves real-time audio-video (AV) or other scenarios that req
 |  |  | [Import Image](import-image.md) for ComputeOptimized.\* instance types | 
 | Memory Optimized | Optimized for memory-intensive applications that process large amounts of data.If you plan to use WorkSpaces Applications z1d-based instances, you must provision them from images that were created from WorkSpaces Applications base images published on or after June 12, 2018. | For stream.memory.\* instance types:<br />AppStream-{{WinServerOperatingSystemVersion}}-{{MM-DD-YYYY}}<br />AppStream-RockyLinux8-{{MM-DD-YYYY}}<br />AppStream-RHEL8-{{MM-DD-YYYY}} | 
 |  |  | [Import Image](import-image.md) for MemoryOptimized.\* instance types | 
-| Graphics Design | Uses AMD FirePro S7150x2 Server GPUs and AMD Multiuser GPU technology to support graphics applications that use DirectX, OpenGL, or OpenCL. | AppStream-Graphics-Design-{{WinServerOperatingSystemVersion}}-{{MM-DD-YYYY}}  | 
 | Graphics G4dn | Uses NVIDIA T4 GPUs to support graphics intensive applications. | For stream.graphics.g4dn.\* instance types:<br />AppStream-Graphics-G4dn-{{WinServerOperatingSystemVersion}}-{{MM-DD-YYYY}}<br />AppStream-Graphics-G4dn-RockyLinux8-{{MM-DD-YYYY}}<br />AppStream-Graphics-G4dn-RHEL8-{{MM-DD-YYYY}} | 
 |  |  | [Import Image](import-image.md) for Accelerated.g4dn.\* instance types | 
 | Graphics G5 | Uses NVIDIA A10G GPUs to support graphics-intensive applications such as remote workstations, video rendering, and gaming, to produce high fidelity graphics in real time. | For stream.graphics.g5.\* instance types:<br />AppStream-Graphics-G5-{{WinServerOperatingSystemVersion}}-{{MM-DD-YYYY}}<br />AppStream-Graphics-G5-RockyLinux8-{{MM-DD-YYYY}}<br />AppStream-Graphics-G5-RHEL8-{{MM-DD-YYYY}} | 
