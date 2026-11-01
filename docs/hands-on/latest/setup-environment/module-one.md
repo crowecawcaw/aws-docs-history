@@ -23,7 +23,7 @@ An AWS account is the starting point to allow provisioning infrastructure. In th
 ### Step 1: Select email, account name, and password
 <a name="select-email-account-name-and-password"></a>
 
-To create a new AWS account, go to [**aws.amazon.com**](https://aws.amazon.com/) and choose [**Create an AWS Account**](https://portal.aws.amazon.com/billing/signup?nc2=h_ct&src=header_signup&redirect_url=https%3A%2F%2Faws.amazon.com%2Fregistration-confirmation#/start). 
+To create a new AWS account, go to [**aws.amazon.com**](https://aws.amazon.com/) and choose [**Create an AWS Account**](https://signup.aws.amazon.com/billing/signup?nc2=h_ct&src=header_signup&redirect_url=https%3A%2F%2Faws.amazon.com%2Fregistration-confirmation#/start). 
 
 1. Enter your information
 
