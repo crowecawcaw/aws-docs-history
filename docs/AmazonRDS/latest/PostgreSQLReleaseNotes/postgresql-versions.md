@@ -412,7 +412,7 @@ The following modifiable parameters were added:
 + `track_cost_delay_timing`
 + `idle_replication_slot_timeout`
 + `md5_password_warnings`
-+ `log_lock_failure`
++ `log_lock_failures`
 + `restrict_nonsystem_relation_kind`
 + `vacuum_truncate`
 + `vacuum_max_eager_freeze_failure_rate`
