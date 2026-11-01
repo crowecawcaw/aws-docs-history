@@ -26,9 +26,9 @@
 **Example**  
 
    ```
-   openjdk version "17.0.21" 2026-10-22 LTS
-   OpenJDK Runtime Environment Corretto-17.0.21.0.10 (build 17.0.21+0-LTS)
-   OpenJDK 64-Bit Server VM Corretto-17.0.21.0.10 (build 17.0.21+0-LTS, mixed mode, sharing)
+   openjdk version "17.0.21" 2026-10-26 LTS
+   OpenJDK Runtime Environment Corretto-17.0.21.0.11 (build 17.0.21+0-LTS)
+   OpenJDK 64-Bit Server VM Corretto-17.0.21.0.11 (build 17.0.21+0-LTS, mixed mode, sharing)
    ```
 
 ## Uninstall Amazon Corretto 17
