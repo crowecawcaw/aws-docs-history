@@ -17,7 +17,7 @@ Resources reference each other upward through the hierarchy. *Rules* are used wi
 
 The following sections describe each resource type in the hierarchy.
 
-**Rule** – The atomic unit of network security configuration. There are two types of rules – traffic inspection rules and firewall configuration rules. Traffic inspection focuses on how the security service addresses traffic. A configuration rule specifies system operations outside traffic inspection. The structure of a rule varies by firewall type.
+**Rule** – The atomic unit of network security configuration. There are two types of rules: traffic inspection rules and firewall configuration rules. Traffic inspection focuses on how the security service addresses traffic. A configuration rule specifies system operations outside traffic inspection. The structure of a rule varies by firewall type.
 
 **Template** – An ordered, reusable group of *rules* for a single firewall type. Use templates to package related rules together and share them across multiple *policies*. Templates are optional.
 
@@ -37,7 +37,7 @@ The following sections explain the behaviors and mechanisms that govern how AWS 
 ### Draft and Active lifecycle
 <a name="concepts-lifecycle"></a>
 
-Every AWS Network Security Manager resource – including rules, templates, policies, scopes, and deployments – has a status of either Draft or Active:
+Every AWS Network Security Manager resource—including rules, templates, policies, scopes, and deployments—has a status of either Draft or Active:
 + **Active** – The default status. The resource is published and available for use. Other resources can reference it, and deployments that include it enforce its configuration.
 + **Draft** – The resource is saved but not yet active. Draft resources are not enforced and cannot be referenced by other resources. When you create or update a resource, choose **Save draft** to keep it in draft status.
 
@@ -60,13 +60,13 @@ You cannot delete an Active resource that another Active resource references.
 ### Versioning
 <a name="concepts-snapshots"></a>
 
-Every AWS Network Security Manager resource – including rules, templates, policies, scopes, and deployments – can be versioned. To create a version of an Active resource, select the resource, choose **Action**, then choose **Create versioned snapshot**. Versions are not created automatically on every update.
+Every AWS Network Security Manager resource—including rules, templates, policies, scopes, and deployments—can be versioned. To create a version of an Active resource, select the resource, choose **Action**, then choose **Create versioned snapshot**. Versions are not created automatically on every update.
 
 **AWS CLI alternative**  
 You can also create a version using the `Create{Resource}Snapshot` API operation on an Active resource.
 
 Key version properties:
-+ Each version has a unique number (a sequential integer) and a version-qualified ARN (for example, `arn:aws:network-security-manager:us-east-1:123456789012:rule:abc123:3`).
++ Each version has a unique number (a sequential integer) and a version-qualified ARN (for example, `arn:aws:network-security-manager:us-east-1:111122223333:rule:abc123:3`).
 + Versions are immutable. They cannot be updated.
 + You can create up to 10 versions per resource.
 + Versions are taggable.
@@ -134,7 +134,7 @@ The `remediationEnabled` setting defaults to `false`, and AWS Network Security M
 
 When a resource is out of sync, the synchronization status includes out-of-sync reasons with per-setting details that show expected values compared to actual values. The reasons are organized into the following categories:
 + `missingFirewall` – No firewall protection is associated with the resource.
-+ `invalidFirewall` – A firewall exists but its configuration differs from the effective configuration. This includes six detail buckets: `incorrectSingleValueConfigurations`, `missingAppendableConfigurationValues`, `unexpectedAppendableConfigurationValues`, `incorrectAppendableConfigurationOrder`, `missingMergeableConfigurationValues`, and `unexpectedMergeableConfigurationValues`.
++ `invalidFirewall` – A firewall exists, but its configuration differs from the effective configuration. This includes six detail buckets: `incorrectSingleValueConfigurations`, `missingAppendableConfigurationValues`, `unexpectedAppendableConfigurationValues`, `incorrectAppendableConfigurationOrder`, `missingMergeableConfigurationValues`, and `unexpectedMergeableConfigurationValues`.
 
 If remediation is enabled but AWS Network Security Manager cannot fix a resource, the `remediationIssues` field provides an `issueType`, a `message` describing the problem, and a `correctiveAction` suggesting how to resolve it.
 

@@ -81,7 +81,7 @@ The following AWS CLI example registers an account as an AWS Network Security Ma
 
 ```
 aws network-security-manager put-admin-account \
-    --account-id 123456789012 \
+    --account-id 111122223333 \
     --priority 1
 ```
 

@@ -35,7 +35,7 @@ To access the AWS Network Security Manager console, you must have a minimum set 
 
 You don't need to allow minimum console permissions for users that are making calls only to the AWS CLI or the AWS API. Instead, allow access to only the actions that match the API operation that they're trying to perform.
 
-To access the AWS Network Security Manager console, a principal needs at minimum permissions for the `network-security-manager:List*` and `network-security-manager:Get*` actions.
+To access the AWS Network Security Manager console, you need at minimum permissions for the `network-security-manager:List*` and `network-security-manager:Get*` actions.
 
 ## Allow users to view their own permissions
 <a name="security_iam_id-based-policy-examples-view-own-permissions"></a>
@@ -80,7 +80,7 @@ This example shows how you might create a policy that allows IAM users to view t
 ## Read-only access to AWS Network Security Manager
 <a name="security_iam_id-based-policy-examples-read-only"></a>
 
-The following policy grants a principal read-only access to all AWS Network Security Manager resources. This is useful for auditors or monitoring roles that need to view configurations and synchronization status without making changes.
+The following policy grants you read-only access to all AWS Network Security Manager resources. This is useful for auditors or monitoring roles that need to view configurations and synchronization status without making changes.
 
 ```
 {
@@ -101,7 +101,7 @@ The following policy grants a principal read-only access to all AWS Network Secu
 ## Manage rules and templates only
 <a name="security_iam_id-based-policy-examples-manage-rules"></a>
 
-The following policy allows a principal to create, update, and delete rules and templates, without granting access to policies, scopes, or deployments. This is useful for teams that author security configurations but do not control enforcement.
+The following policy allows you to create, update, and delete rules and templates, without granting access to policies, scopes, or deployments. This is useful for teams that author security configurations but do not control enforcement.
 
 ```
 {

@@ -7,8 +7,13 @@ With the standard creation process, you set up each AWS Shield Advanced componen
 
 An AWS Shield Advanced policy is simple and does not contain rules, rule groups, or templates. When you apply the policy, AWS Network Security Manager creates an AWS Shield Advanced DDoS protection in each in-scope account. For information about how AWS Network Security Manager works, see [How AWS Network Security Manager works](concepts.md).
 
-**To create a policy (console)**  
+**Topics**
++ [Creating a policy](#managing-shield-standard-create-policy)
++ [Creating a scope](#managing-shield-standard-create-scope)
++ [Creating a deployment](#managing-shield-standard-create-deployment)
 
+## Creating a policy
+<a name="managing-shield-standard-create-policy"></a>
 
 Complete the following steps:
 
@@ -32,8 +37,8 @@ For information about setting up an AWS Network Security Manager administrator a
      + **Override association** replaces the existing DDoS protection with the AWS Network Security Manager created DDoS protection.
      + **Retrofit** retrofits its rules onto each existing DDoS protection and keeps the DDoS protection associated with the resource.
 
-**To create a scope (console)**  
-
+## Creating a scope
+<a name="managing-shield-standard-create-scope"></a>
 
 Complete the following steps:
 
@@ -70,8 +75,8 @@ This step applies to multi-account mode only. In multi-account mode, use the **A
 **CloudFront Region requirement**  
 To protect **CloudFront Distribution** resources, use the US East (N. Virginia) Region (`us-east-1`).
 
-**To create a deployment (console)**  
-
+## Creating a deployment
+<a name="managing-shield-standard-create-deployment"></a>
 
 A deployment binds your policies to a scope and activates enforcement. AWS Network Security Manager then applies your AWS Shield Advanced DDoS protections to the in-scope resources.
 

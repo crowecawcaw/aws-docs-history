@@ -3,12 +3,21 @@
 # Standard creation process for AWS WAF
 <a name="managing-waf-standard"></a>
 
-With the standard creation process, you create each AWS WAF component—rules, templates, policies, scopes, and deployments—individually for full control. Use this approach when you want to create reusable components and combine them as needed.
+With the AWS Network Security Manager standard creation process, you create each AWS WAF component—rules, templates, policies, scopes, and deployments—individually for full control. Use this approach when you want to create reusable components and combine them as needed.
 
 An AWS Network Security Manager AWS WAF policy can contain rules and templates. When you apply the policy, AWS Network Security Manager creates a web ACL in each in-scope account.
 
-**To create a rule (console)**  
+**Topics**
++ [Creating a rule](#standard-create-waf-create-rule)
++ [Creating a template](#standard-create-waf-create-template)
++ [Creating a policy](#standard-create-waf-create-policy)
++ [Creating a scope](#standard-create-waf-create-scope)
++ [Creating a deployment](#standard-create-waf-create-deployment)
 
+## Creating a rule
+<a name="standard-create-waf-create-rule"></a>
+
+To create a rule, complete the following steps:
 
 1. Sign in to the AWS Management Console using your AWS Network Security Manager administrator account, and then open the AWS Network Security Manager console at [https://console.aws.amazon.com/network-security-manager/](https://console.aws.amazon.com/network-security-manager/).
 **Administrator account setup**  
@@ -35,11 +44,9 @@ For information about setting up an AWS Network Security Manager administrator a
 1. (Optional) After your JSON rule definition is complete, you can associate a tag with your rule. Choose **Add new tag**, and then enter a **Key** and an optional **Value**.
 
 1. When you finish your definitions, choose either **Save draft** to save an inactive, potentially incomplete object, or **Create rule**.
-**Web ACL names are permanent**  
-You cannot change a web ACL name after you create it. If you update your policy's name, AWS Network Security Manager does not update the associated web ACL name. To have AWS Network Security Manager create a web ACL with a different name, you must create a new policy.
 
-**To create a template (console)**  
-
+## Creating a template
+<a name="standard-create-waf-create-template"></a>
 
 A template assembles rules in priority order for evaluation within a policy. You can organize your rule types into groupings that align with your security goals. You can also let different teams build security control statements that align with their responsibilities and skills.
 
@@ -49,10 +56,13 @@ A template assembles rules in priority order for evaluation within a policy. You
 
 1. (Optional) Create a tag for the template. When you finish, choose either **Save draft** or **Create template**. To continue to create a policy, choose **Create template**.
 
-**To create a policy (console)**  
-
+## Creating a policy
+<a name="standard-create-waf-create-policy"></a>
 
 This is the final step of policy definition and preparation for deployment.
+
+**Web ACL names are permanent**  
+You cannot change a web ACL name after you create it. If you update your policy's name, AWS Network Security Manager does not update the associated web ACL name. To have AWS Network Security Manager create a web ACL with a different name, you must create a new policy.
 
 1. On the **Overview** page, in the **Overview** pane, choose **Create policy**. On the **Create policy** page, enter a **Name** and an optional **Description**, and then choose a **Firewall type** (in this case, **AWS WAF**).
 
@@ -68,8 +78,10 @@ This is the final step of policy definition and preparation for deployment.
 
 1. After these configuration settings are complete, select the rules and templates that you want to add to the policy. In the **Templates and rules** pane, choose **Add rules** or **Add templates** to populate the policy. Both processes open a window that operates the same way as the rule selection process described earlier in this section.
 
-**To create a scope (console)**  
+## Creating a scope
+<a name="standard-create-waf-create-scope"></a>
 
+To create a scope, complete the following steps:
 
 1. You can start this step from the **Overview** page or from other areas within the tool. In the **Scope details** pane, enter a **Scope name** and an optional **Description**.
 
@@ -108,8 +120,8 @@ AWS Network Security Manager doesn't manage CloudFront distributions that use th
 
 1. For an **Application Load Balancer**, an additional **Configuration** criterion appears. Within **Configuration**, you can set a **Scheme** with the options **Internet-facing** or **Internal**.
 
-**To create a deployment (console)**  
-
+## Creating a deployment
+<a name="standard-create-waf-create-deployment"></a>
 
 A deployment binds your policies to a scope and activates enforcement, which causes AWS Network Security Manager to apply your AWS WAF rules to the in-scope resources.
 

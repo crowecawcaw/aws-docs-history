@@ -7,8 +7,16 @@ With Quick Create, you define and deploy AWS WAF protections in a single guided 
 
 To define and deploy an AWS WAF protection with Quick Create, complete the following procedures in order.
 
-**To create the policy and add protections**  
+**Topics**
++ [Creating the policy and adding protections](#quick-create-waf-create-policy)
++ [Configuring the policy](#quick-create-waf-configure-policy)
++ [Setting the scope](#quick-create-waf-set-scope)
++ [Reviewing and deploying the policy](#quick-create-waf-review-deploy)
 
+## Creating the policy and adding protections
+<a name="quick-create-waf-create-policy"></a>
+
+To create the policy and add protections, complete the following steps:
 
 1. Open the AWS Network Security Manager console at [https://console.aws.amazon.com/network-security-manager/](https://console.aws.amazon.com/network-security-manager/).
 
@@ -28,8 +36,10 @@ To define and deploy an AWS WAF protection with Quick Create, complete the follo
 
 1. To add templates, choose **Add templates**. In the **Add templates** window that appears, the table displays any available templates. Select the templates that you want, along with the version to include in the policy. Then choose **Add templates**.
 
-**To configure the policy**  
+## Configuring the policy
+<a name="quick-create-waf-configure-policy"></a>
 
+To configure the policy, complete the following steps:
 
 1. Review your selections in the **Templates and rules** table. The integer in the **Position** column determines the evaluation order of the rules and templates. To change the evaluation order, choose the position value in the **Position** column. Use the arrows to change the value. To accept the change, choose **Confirm**. To revert the change, choose **Cancel**.
 
@@ -43,8 +53,10 @@ To define and deploy an AWS WAF protection with Quick Create, complete the follo
 
 1. In the **Policy priority** pane, set the priority. AWS Network Security Manager evaluates policies according to their priority to resolve conflicts. Lower positions (lower integers) have a higher priority. To edit the priority, choose the **Position** value. Then increment it with the arrows, or enter a value directly. To confirm the selection, choose **Confirm**. To discard the change, choose **Cancel**.
 
-**To set the scope**  
+## Setting the scope
+<a name="quick-create-waf-set-scope"></a>
 
+To set the scope, complete the following steps:
 
 1. In the **Set the scope** pane, define the set of assets that the policies apply to. For **Scope name**, enter a name. (Optional) For **Description**, enter a description.
 
@@ -81,8 +93,10 @@ AWS Network Security Manager doesn't manage CloudFront distributions that use th
 
    All resource types have the **Tag** and **ARN** inclusion criteria. If you choose **Tag**, enter a **Key** and an optional **Value**. You can identify multiple tags. If your resource type is an **Application Load Balancer**, an additional **Configuration** criterion appears. Within **Configuration**, choose a **Scheme**, which has the options **Internet-facing** or **Internal**.
 
-**To review and deploy the policy**  
+## Reviewing and deploying the policy
+<a name="quick-create-waf-review-deploy"></a>
 
+To review and deploy the policy, complete the following steps:
 
 1. In the **Review and deploy** pane, for **Deployment name**, enter a name. (Optional) For **Description**, enter a description. To determine whether the content of your deployment is visible to other accounts in your organization, select **Enable cross-account visibility for this deployment**.
 
@@ -91,4 +105,4 @@ AWS Network Security Manager doesn't manage CloudFront distributions that use th
 1. To run what you defined, choose **Create and deploy**. When the process is complete, the **Deployments** page appears, where you can see the details of what was created.
 
 **Deployments might incur charges**  
-A deployment creates network security services and attaches them to a protected resource. AWS Network Security Manager charges for protected resources. The security services themselves protect the resource, which incurs additional charges. Before you deploy, review the [AWS Network Security Manager pricing page](https://aws.amazon.com/network-security-manager/pricing/) and the [AWS WAF pricing page](https://aws.amazon.com/waf/pricing/).
+A deployment creates network security services and attaches them to a protected resource. AWS Network Security Manager charges for protected resources. The security services themselves protect the resource, which incurs additional charges. Before you deploy, review the [AWS Network Security Manager pricing page](https://aws.amazon.com/network-security-manager/pricing/) and the [AWS WAF pricing page](https://aws.amazon.com/waf/pricing/) on the AWS website.

@@ -10,3 +10,7 @@ AWS Network Security Manager is not a part of the AWS Shield Advanced offer. For
 
 **AWS Shield Advanced subscription**  
 When an active deployment includes an account in its scope, AWS Network Security Manager subscribes that account to AWS Shield Advanced. AWS Network Security Manager does not cancel the subscription when the account leaves the scope or when you remove the deployment. To cancel an AWS Shield Advanced subscription, see [Subscribing to AWS Shield Advanced](https://docs.aws.amazon.com/waf/latest/developerguide/enable-ddos-prem.html) in the *AWS WAF Developer Guide*.
+
+**Topics**
++ [Quick Create for AWS Shield Advanced](managing-shield-quick-create.md)
++ [Standard creation process for AWS Shield Advanced](managing-shield-standard.md)

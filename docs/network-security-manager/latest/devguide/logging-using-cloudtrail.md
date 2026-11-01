@@ -47,15 +47,15 @@ The following example shows a CloudTrail log entry for the `CreatePolicy` operat
   "userIdentity": {
       "type": "AssumedRole",
       "principalId": "AROAEXAMPLEID:my-session",
-      "arn": "arn:aws:sts::123456789012:assumed-role/AdminRole/my-session",
-      "accountId": "123456789012",
+      "arn": "arn:aws:sts::111122223333:assumed-role/AdminRole/my-session",
+      "accountId": "111122223333",
       "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
       "sessionContext": {
           "sessionIssuer": {
               "type": "Role",
               "principalId": "AROAEXAMPLEID",
-              "arn": "arn:aws:iam::123456789012:role/AdminRole",
-              "accountId": "123456789012",
+              "arn": "arn:aws:iam::111122223333:role/AdminRole",
+              "accountId": "111122223333",
               "userName": "AdminRole"
           },
           "attributes": {
@@ -77,7 +77,7 @@ The following example shows a CloudTrail log entry for the `CreatePolicy` operat
       "priority": 1,
       "associatedTemplateAndRuleList": [
           {
-              "templateIdentifier": "arn:aws:network-security-manager:us-east-1:123456789012:template:t1a2b3c4d5"
+              "templateIdentifier": "arn:aws:network-security-manager:us-east-1:111122223333:template:t1a2b3c4d5"
           }
       ],
       "policyConfiguration": {
@@ -92,7 +92,7 @@ The following example shows a CloudTrail log entry for the `CreatePolicy` operat
   },
   "responseElements": {
       "policyId": "p9z8y7x6w5v4u3t2",
-      "policyArn": "arn:aws:network-security-manager:us-east-1:123456789012:policy:p9z8y7x6w5v4u3t2",
+      "policyArn": "arn:aws:network-security-manager:us-east-1:111122223333:policy:p9z8y7x6w5v4u3t2",
       "policyName": "production-web-acl-policy",
       "status": "ACTIVE",
       "version": "1"
@@ -102,14 +102,14 @@ The following example shows a CloudTrail log entry for the `CreatePolicy` operat
   "readOnly": false,
   "resources": [
       {
-          "accountId": "123456789012",
+          "accountId": "111122223333",
           "type": "AWS::NetworkSecurityManager::Policy",
-          "ARN": "arn:aws:network-security-manager:us-east-1:123456789012:policy:p9z8y7x6w5v4u3t2"
+          "ARN": "arn:aws:network-security-manager:us-east-1:111122223333:policy:p9z8y7x6w5v4u3t2"
       }
   ],
   "eventType": "AwsApiCall",
   "managementEvent": true,
-  "recipientAccountId": "123456789012",
+  "recipientAccountId": "111122223333",
   "eventCategory": "Management"
 }
 ```

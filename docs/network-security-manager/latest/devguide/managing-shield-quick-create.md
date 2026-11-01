@@ -7,8 +7,13 @@ With Quick Create, you define and deploy AWS Shield Advanced protections in a si
 
 To define and deploy an AWS Shield Advanced protection with Quick Create, complete the following procedures in order.
 
-**To create the policy and configure protections**  
+**Topics**
++ [Creating the policy and configuring protections](#managing-shield-quick-create-policy)
++ [Setting the scope](#managing-shield-quick-create-scope)
++ [Reviewing and deploying the policy](#managing-shield-quick-create-review)
 
+## Creating the policy and configuring protections
+<a name="managing-shield-quick-create-policy"></a>
 
 Complete the following steps:
 
@@ -34,8 +39,8 @@ Complete the following steps:
 
    To edit the priority, choose the **Position** value. Then increment it with the arrows, or enter a value directly. To confirm the selection, choose **Confirm**. To discard the change, choose **Cancel**.
 
-**To set the scope**  
-
+## Setting the scope
+<a name="managing-shield-quick-create-scope"></a>
 
 Complete the following steps:
 
@@ -72,8 +77,8 @@ This step applies to multi-account mode only. In multi-account mode, use the **A
 **CloudFront Region requirement**  
 To protect **CloudFront Distribution** resources, use the US East (N. Virginia) Region (`us-east-1`).
 
-**To review and deploy the policy**  
-
+## Reviewing and deploying the policy
+<a name="managing-shield-quick-create-review"></a>
 
 Complete the following steps:
 
