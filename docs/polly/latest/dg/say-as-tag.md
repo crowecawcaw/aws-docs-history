@@ -9,7 +9,7 @@
 
 Use the `<say-as>` tag with the `interpret-as` attribute to tell Amazon Polly how to say certain characters, words, and numbers. This enables you to provide additional context to eliminate any ambiguity on how Amazon Polly should render the text.
 
-The `<say-as>` tag uses one attribute, `interpret-as`, which uses a number of possible available values. Each uses the same syntax:
+Use the `interpret-as` attribute with the `<say-as>` tag to specify how to interpret the text. This attribute accepts several values, and some values also accept an optional `format` attribute. Each uses the same syntax:
 
 ```
 <say-as interpret-as="{{value}}">[{{text to be interpreted}}]</say-as>
@@ -26,7 +26,7 @@ This option is not currently supported for neural voices. If you're using a neur
 + `unit`: Interprets a numerical text as a measurement. The value should be either a number or a fraction followed by a unit with no space in between as in `1/2inch`, or by just a unit, as in `1meter`.
 + `date`: Interprets the text as a date. The format of the date must be specified with the format attribute. See below for more information.
 + `time`: Interprets the numerical text as duration, in minutes and seconds, as in `1'21"`. 
-+ `address`: Interprets the text as part of a street address. 
++ `address`: Interprets the text as part of a street address. To expand a two-letter US state abbreviation, use the `format` attribute. For more information, see the following section. 
 + `expletive`: "Beeps out" the content included within the tag. 
 + `telephone`: Interprets the numerical text as a 7-digit or 10-digit telephone number, as in `2025551212`. You can also use this value for handle telephone extensions, as in `2025551212x345`. See below for more information.
 **Note**  
@@ -86,6 +86,26 @@ The following formats can be used with the `date` attribute.
   ```
 
    `Format` is not needed.
+
+**Address**
+
+To expand a two-letter US state abbreviation, set `format` to `us-state`.
+
+This uses the following syntax:
+
+```
+<say-as interpret-as="address" format="us-state">{{[state abbreviation]}}</say-as>
+```
+
+For example:
+
+```
+<speak>
+     We will send your new card to the address we have on file in <say-as interpret-as="address" format="us-state">CA</say-as>.
+</speak>
+```
+
+The resulting speech is "We will send your new card to the address we have on file in California."
 
 **Telephone**
 

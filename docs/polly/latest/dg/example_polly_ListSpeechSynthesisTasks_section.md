@@ -21,9 +21,9 @@ Output:
 {
     "SynthesisTasks": [
         {
-            "TaskId": "70b61c0f-57ce-4715-a247-cae8729dcce9",
+            "TaskId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
             "TaskStatus": "completed",
-            "OutputUri": "https://s3.us-west-2.amazonaws.com/amzn-s3-demo-bucket/70b61c0f-57ce-4715-a247-cae8729dcce9.mp3",
+            "OutputUri": "https://s3.us-west-2.amazonaws.com/amzn-s3-demo-bucket/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111.mp3",
             "CreationTime": 1603911042.689,
             "RequestCharacters": 1311,
             "OutputFormat": "mp3",
@@ -33,7 +33,7 @@ Output:
     ]
 }
 ```
-For more information, see [Creating long audio files](https://docs.aws.amazon.com/polly/latest/dg/longer-cli.html) in the *Amazon Polly Developer Guide*.  
+For more information, see [Creating long audio files](https://docs.aws.amazon.com/polly/latest/dg/longer-console.html) in the *Amazon Polly Developer Guide*.  
 +  For API details, see [ListSpeechSynthesisTasks](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/polly/list-speech-synthesis-tasks.html) in *AWS CLI Command Reference*. 
 
 ------

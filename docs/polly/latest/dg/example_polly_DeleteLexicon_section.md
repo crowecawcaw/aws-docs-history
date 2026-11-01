@@ -79,7 +79,7 @@ aws polly delete-lexicon \
     --name {{w3c}}
 ```
 This command produces no output.  
-For more information, see [Using the DeleteLexicon operation](https://docs.aws.amazon.com/polly/latest/dg/gs-delete-lexicon.html) in the *Amazon Polly Developer Guide*.  
+For more information, see [Managing lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html) in the *Amazon Polly Developer Guide*.  
 +  For API details, see [DeleteLexicon](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/polly/delete-lexicon.html) in *AWS CLI Command Reference*. 
 
 ------
