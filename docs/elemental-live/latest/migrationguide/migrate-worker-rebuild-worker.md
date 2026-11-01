@@ -7,7 +7,7 @@
 
 Install new licenses. 
 
-If a specific node handles SMPTE 2110 inputs or outputs, you should have obtained a new license that includes the SMPTE 2110 add-on package. (The procedure for obtaining a new license is described in the essential notes in the [ current Release Notes](https://docs.aws.amazon.com/elemental-live/).) To deploy the license, see the section about configuring licenses in the [AWS Elemental Live Configuration Guide](https://docs.aws.amazon.com/elemental-live/latest/configguide/). 
+If a specific node handles SMPTE 2110 inputs or outputs, you should have obtained a new license that includes the SMPTE 2110 add-on package. (The procedure for obtaining a new license is described in the essential notes in the [current Release Notes](https://docs.aws.amazon.com/elemental-live/latest/releasenotes/).) To deploy the license, see the section about configuring licenses in the [AWS Elemental Live Configuration Guide](https://docs.aws.amazon.com/elemental-live/latest/configguide/). 
 
 **Set up worker features**
 

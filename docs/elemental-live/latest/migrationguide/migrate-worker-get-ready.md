@@ -6,7 +6,7 @@
 ## Read the essential notes
 <a name="migrate-worker-essential-notes"></a>
 
-Refer to the essential notes in the [ current Release Notes](https://docs.aws.amazon.com/elemental-live/) to identify key changes to the behavior of Elemental Live. 
+Refer to the essential notes in the [current Release Notes](https://docs.aws.amazon.com/elemental-live/latest/releasenotes/) to identify key changes to the behavior of Elemental Live. 
 
 **Important**  
 Make sure that you have the latest version of the Release Notes. If you downloaded the file more than a few days ago, we recommend that you download it again.

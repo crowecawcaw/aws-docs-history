@@ -7,7 +7,7 @@ Following is some key advice about migration.
 
 **Monitor ongoing migration issues**
 
-Before you start the migration, read the [ current Release Notes](https://docs.aws.amazon.com/elemental-live/). The Essential Notes section of the release notes includes topics about recently discovered issues. 
+Before you start the migration, read the [current Release Notes](https://docs.aws.amazon.com/elemental-live/latest/releasenotes/). The Essential Notes section of the release notes includes topics about recently discovered issues. 
 
 For each issue, the release notes initially describe the issue and specify the conditions for continuing with the migration. These issues might affect assets such as the lifeboat script that you use to create a database backup. We can often fix issues without waiting for a new release of the AWS Elemental software. 
 

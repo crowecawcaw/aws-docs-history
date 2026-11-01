@@ -23,7 +23,7 @@ This install procedure is very similar to the upgrade procedure (as described in
 
    Where:
 
-   `--skip-mellanox`. Optional. Applies only to Elemental Live. Skips installation of the Mellanox driver, even if the script detects that a Mellanox NIC is installed in the appliance. For more information, see [ current Release Notes](https://docs.aws.amazon.com/elemental-live/).
+   `--skip-mellanox`. Optional. Applies only to Elemental Live. Skips installation of the Mellanox driver, even if the script detects that a Mellanox NIC is installed in the appliance. For more information, see [current Release Notes](https://docs.aws.amazon.com/elemental-live/latest/releasenotes/).
 
    `--skip-all` skips all the prompts. There is no need to view prompts about configuration because when you restore the database to the node, all the configuration data is copied over and overwrites any configuration data already on the node. 
 
