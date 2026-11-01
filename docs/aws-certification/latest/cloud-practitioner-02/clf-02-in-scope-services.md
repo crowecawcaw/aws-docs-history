@@ -33,7 +33,7 @@ The following list contains AWS services and features that are in scope for the 
 + AWS Glue
 + Amazon Kinesis
 + Amazon OpenSearch Service
-+ Amazon Quick Sight
++ Amazon Quick
 + Amazon Redshift
 
 ## Application Integration

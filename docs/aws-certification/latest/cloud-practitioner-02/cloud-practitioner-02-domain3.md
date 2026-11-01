@@ -50,9 +50,9 @@ Knowledge of:
 + AWS compute services
 
 Skills in:
-+ Recognizing the appropriate use of various Amazon EC2 instance types (for example, compute optimized, storage optimized)
++ Recognizing the appropriate use of various EC2 instance types (for example, compute optimized, storage optimized)
 + Recognizing the appropriate use of various container options (for example, Amazon Elastic Container Service [Amazon ECS], Amazon Elastic Kubernetes Service [Amazon EKS])
-+ Recognizing the appropriate use of various serverless compute options (for example, AWS Fargate, AWS Lambda)
++ Recognizing the appropriate use of various serverless compute options (for example, AWS Fargate, Lambda)
 + Recognizing that auto scaling provides elasticity
 + Identifying the purposes of load balancers
 
@@ -66,7 +66,7 @@ Knowledge of:
 Skills in:
 + Deciding when to use EC2 hosted databases or AWS managed databases
 + Identifying relational databases (for example, Amazon RDS, Amazon Aurora)
-+ Identifying NoSQL databases (for example, Amazon DynamoDB)
++ Identifying NoSQL databases (for example, DynamoDB)
 + Identifying memory-based databases (for example, Amazon ElastiCache)
 + Identifying database migration tools (for example, AWS Database Migration Service [AWS DMS], AWS Schema Conversion Tool [AWS SCT])
 
@@ -106,7 +106,7 @@ Knowledge of:
 
 Skills in:
 + Understanding AI/ML services and the tasks that they accomplish (for example, Amazon SageMaker AI, Amazon Lex)
-+ Identifying the services for data analytics (for example, Amazon Athena, Amazon Kinesis, AWS Glue, Amazon Quick Sight)
++ Identifying the services for data analytics (for example, Amazon Athena, Amazon Kinesis, AWS Glue, Amazon Quick)
 
 ## Task Statement 3.8: Identify services from other in-scope AWS service categories.
 <a name="cloud-practitioner-02-task3.8"></a>

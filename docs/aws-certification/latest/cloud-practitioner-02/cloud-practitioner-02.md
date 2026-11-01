@@ -18,6 +18,7 @@ The AWS Certified Cloud Practitioner (CLF-C02) exam is intended for individuals 
 + [Technologies and Concepts](clf-technologies-concepts.md)
 + [In-Scope AWS Services](clf-02-in-scope-services.md)
 + [Out-of-Scope AWS Services](clf-02-out-of-scope-services.md)
++ [Revisions](clf-02-revisions.md)
 + [Survey](#cloud-practitioner-02-survey)
 
 ## Introduction

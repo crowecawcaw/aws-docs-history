@@ -8,7 +8,6 @@ The following list contains AWS services and features that are out of scope for 
 **Topics**
 + [Analytics](#clf-02-out-of-scope-analytics)
 + [Application Integration](#clf-02-out-of-scope-application-integration)
-+ [Business Applications](#clf-02-out-of-scope-business-applications)
 + [Compute](#clf-02-out-of-scope-compute)
 + [Cost Management](#clf-02-out-of-scope-cost-management)
 + [Customer Enablement](#clf-02-out-of-scope-customer-enablement)
@@ -23,7 +22,6 @@ The following list contains AWS services and features that are out of scope for 
 + [Migration and Transfer](#clf-02-out-of-scope-migration-transfer)
 + [Networking and Content Delivery](#clf-02-out-of-scope-networking)
 + [Security, Identity, and Compliance](#clf-02-out-of-scope-security)
-+ [Robotics](#clf-02-out-of-scope-robotics)
 + [Storage](#clf-02-out-of-scope-storage)
 
 ## Analytics
@@ -39,10 +37,6 @@ The following list contains AWS services and features that are out of scope for 
 + AWS AppFabric
 + Amazon Simple Workflow Service
 
-## Business Applications
-<a name="clf-02-out-of-scope-business-applications"></a>
-+ Amazon WorkDocs
-
 ## Compute
 <a name="clf-02-out-of-scope-compute"></a>
 + AWS Copilot
@@ -57,7 +51,7 @@ The following list contains AWS services and features that are out of scope for 
 <a name="clf-02-out-of-scope-customer-enablement"></a>
 + AWS Activate
 + AWS IQ
-+ AWS Managed Services (AMS)
++ Amazon Managed Services (AMS)
 
 ## Cloud Financial Management
 <a name="clf-02-out-of-scope-cloud-financial-management"></a>
@@ -81,26 +75,21 @@ The following list contains AWS services and features that are out of scope for 
 ## Game Tech
 <a name="clf-02-out-of-scope-game-tech"></a>
 + Amazon GameLift
-+ Amazon Lumberyard
 
 ## Internet of Things (IoT)
 <a name="clf-02-out-of-scope-iot"></a>
 + AWS IoT Device Defender
 + AWS IoT Greengrass
-+ Amazon Monitron
 
 ## Machine Learning
 <a name="clf-02-out-of-scope-machine-learning"></a>
 + Amazon Fraud Detector
-+ Amazon Lookout for Metrics
-+ AWS Panorama
 + Amazon Personalize
 
 ## Management and Governance
 <a name="clf-02-out-of-scope-management-governance"></a>
 + AWS Chatbot
 + Amazon Data Lifecycle Manager
-+ Amazon Elastic Transcoder
 + AWS Launch Wizard
 
 ## Media Services
@@ -110,7 +99,6 @@ The following list contains AWS services and features that are out of scope for 
 + AWS Elemental MediaConvert
 + AWS Elemental MediaLive
 + AWS Elemental MediaPackage
-+ AWS Elemental MediaStore
 + AWS Elemental MediaTailor
 + Amazon Interactive Video Service (Amazon IVS)
 
@@ -130,10 +118,6 @@ The following list contains AWS services and features that are out of scope for 
 <a name="clf-02-out-of-scope-security"></a>
 + Amazon Cloud Directory
 + AWS Network Firewall
-
-## Robotics
-<a name="clf-02-out-of-scope-robotics"></a>
-+ AWS RoboMaker
 
 ## Storage
 <a name="clf-02-out-of-scope-storage"></a>
