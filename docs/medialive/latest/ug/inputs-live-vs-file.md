@@ -19,6 +19,7 @@ The following table specifies whether each MediaLive input type supports live st
 | MediaConnect | Yes | No | 
 | MediaConnect Router | Yes | No | 
 | MP4 | No | Yes, with .mp4 file extension only | 
+| Multicast | Yes | No. A multicast input always carries a live stream. | 
 | RTMP Pull | Yes | Yes | 
 | RTMP Push | Yes | No | 
 | RTP | Yes | No | 

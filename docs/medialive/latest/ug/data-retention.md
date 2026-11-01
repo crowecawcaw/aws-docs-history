@@ -32,4 +32,4 @@ To delete data using the console, see the following sections:
 + [Deleting an input](delete-input.md)
 + [Deleting an input security group](delete-input-security-group.md)
 + [Deleting multiplexes, programs, and channels](delete-multiplex-program.md)
-+ [Deleting an expired reservation](deleting-reservations.md)
++ [Canceling or deleting a reservation](deleting-reservations.md)

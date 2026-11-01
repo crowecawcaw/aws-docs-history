@@ -124,7 +124,7 @@ Follow this guideline:
 
 The frame rate of the source video. 
 
-This metric is an indicator of the health of the input. If the value isn't stable, investigate determine if there are problems with your source,and/or problems in the network between MediaLive and the upstream system.
+This metric is an indicator of the health of the input. If the value isn't stable, investigate determine if there are problems with your source, and/or problems in the network between MediaLive and the upstream system.
 
 Follow this guideline:
 + For a channel that implements automatic input failover, we recommend that you choose the dimension set that includes the ActiveInputFailoverLabel dimension, so that you get data for only one input. 

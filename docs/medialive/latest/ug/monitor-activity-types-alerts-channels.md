@@ -25,7 +25,7 @@ The following table lists the alerts that MediaLive might generate for a channel
 | 5201  | Video Not Detected  | The channel can't decode the video in the source. Either the active input is unavailable, or the active input doesn't contain video, or the video is encrypted.  | 
 | 5202  | Black Video Detected  | Black video was detected. MediaLive might have performed an automatic input failover.  | 
 | 5301  | HTTP Get Failed  | The HTTP Get failed, so retrieval of the asset failed. Perhaps there was a network issue, or the HTTP server had a problem, or the server requires user credentials.  | 
-| 5302  | Stopped Receiving UDP Input  | A UDP input (which includes RTP, MediaConnect, and Link inputs) did not receive any packets for at least one second.  | 
+| 5302  | Stopped Receiving UDP Input  | A UDP input (which includes RTP, multicast, MediaConnect, and Link inputs) did not receive any packets for at least one second.  | 
 | 5304  | RTP Header Corruption  | The channel is configured to receive an RTP input, but the packets received don't conform to RTP.  | 
 | 5305  | RTMP Stream Not Found  | The channel is configured to receive an RTMP input, but the specified RTMP stream is not being received.  | 
 | 5307  | RTMP Has No Audio/Video  | The channel is configured to receive an RTMP input, but the specified RTMP stream is no longer present.  | 
@@ -36,7 +36,7 @@ The following table lists the alerts that MediaLive might generate for a channel
 | 5315  | Data PID Missing  | A transport stream data PID was specified in the channel configuration, but it isn’t available in the input.  | 
 | 5316  | Input PTS Behind PCR  | A transport stream input contains video and/or audio frames that are arriving too late to decode based on comparison of their PTS (presentation timestamp) to the transport stream PCRs (program clock references). MediaLive might not be able to decode the video or audio.  | 
 | 5601  | Input Failed Over  | An input has failed and the channel is configured for automatic input failover. MediaLive has switched to the other input.  | 
-| 6001  | ESAM HTTP Post Failed  | A HTTP Post to the configured ESAM server failed. ESAM is part of the SCTE 35 configuration for the channel.  | 
+| 6001  | ESAM HTTP Post Failed  | An HTTP Post to the configured ESAM server failed. ESAM is part of the SCTE 35 configuration for the channel.  | 
 | 6002  | Failed to Open UDP Socket For Write  | The channel failed to open a UDP output connection.  | 
 | 6003  | Failed to Write to UDP Socket  | The channel failed to write a UDP output packet.  | 
 | 6005  | Failed to Create Output File or Socket  | The channel failed to create an output file.  | 

@@ -3,7 +3,7 @@
 # Working with reservations in MediaLive
 <a name="reservations"></a>
 
-A reservation is a one-year commitment to a particular input or output configuration. The reservation is allocated and billed on a monthly basis through that year. You can configure reservations to renew automatically.
+A reservation is a one-year commitment to a particular input or output configuration. The reservation is allocated and billed on a monthly basis through that year. You can configure reservations to renew automatically. You can cancel a reservation during the calendar month (UTC) in which you purchased it. For more information, see [Canceling or deleting a reservation](deleting-reservations.md).
 
 You can purchase a reservation for processing resources that you are billed for, such as input processing, output processing, and add-ons like codec licenses. Each reservation gives you a reduced rate for the processing of the relevant resources. 
 
@@ -18,4 +18,4 @@ If some or all of the minutes in a reservation are not used in the month, those 
 + [Add-on reservations](addon-reservations.md)
 + [Purchasing a reservation](purchasing-reservations.md)
 + [Viewing purchased reservations](view-reservations.md)
-+ [Deleting an expired reservation](deleting-reservations.md)
++ [Canceling or deleting a reservation](deleting-reservations.md)

@@ -14,6 +14,7 @@ Some MediaLive inputs can be set up in Amazon Virtual Private Cloud (Amazon VPC)
 | MediaConnect | No | 
 | MediaConnect Router | No | 
 | MP4 | No | 
+| Multicast | No | 
 | Transport Stream (TS) file | No | 
 | RTMP Pull | No | 
 | RTMP Push | Yes, setup as a VPC input is supported | 

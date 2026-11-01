@@ -14,7 +14,7 @@ When you [planned the workflow for your channel](identify-downstream-system.md),
    + **Microsoft Smooth group destination** – This section contains fields for the [destination of the outputs](smooth-destinations.md).
    + **Microsoft Smooth settings** – This section contains fields for the [container](smooth-container.md), the [connection to the downstream system](smooth-destinations.md), and [resiliency](mss-other-fields.md#smooth-resiliency). 
    + **Microsoft Smooth outputs** – This section shows the single output that is added by default.
-   + **Event configuration** – This section contains fields for the [destination of the outputs](smooth-destinations.md) and the[container](smooth-container.md).
+   + **Event configuration** – This section contains fields for the [destination of the outputs](smooth-destinations.md) and the [container](smooth-container.md).
    + **Timecode configuration** – This section contains fields for the [timecode](mss-other-fields.md#smooth-timecode) in the outputs.
    + **Sparse track** – This section contains fields for the [container](smooth-container.md).
 

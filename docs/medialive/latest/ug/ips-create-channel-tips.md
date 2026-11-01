@@ -10,7 +10,7 @@ Note the following points, and then follow the steps for creating a channel as d
 ## Channel and input details pane
 <a name="ips-channel-specifications-section"></a>
 
-On the **Channel and input details **pane for the channel, in the [Input specifications](input-specification.md)section, set up each option to meet or exceed the most demanding of your inputs.
+On the **Channel and input details **pane for the channel, in the [Input specifications](input-specification.md) section, set up each option to meet or exceed the most demanding of your inputs.
 
 ## Input attachments pane
 <a name="ips-channel-input-attachment-section"></a>
@@ -35,7 +35,7 @@ Note the following points:
 + In the **General input settings** section for each input attachment, set **Source end behavior** to work correctly. For information, see [Handling the transition when the next input is fixed or immediate](ips-transition-gap.md).
 + In the **General input settings** section for each input attachment, set up the following sets of fields according to the plan that you created when you [planned the attachments](ips-step-plan-attachments.md): 
   + The fields in **Video selector**
-  + The fields in**Audio selectors**
+  + The fields in **Audio selectors**
   + The fields in **Caption selectors** 
 
 ## Output groups

@@ -32,7 +32,7 @@ The per-output option is useful if you want to overlay different images in diffe
 
 The per-output option is also useful if you want to insert an image without resizing it. For example, if you want the image to have the same absolute size in every output in an ABR stack. The image is the same absolute size on a 720p video frame as it is on a 4K video frame. Therefore, you can use the same image file in all the outputs.
 
-You might also want the image to have the same relative size in a group of outputs that have have different resolutions. For example, you want every image to take up 10% of the height. In this case, you must prepare separate files for each output, and create separate insert actions in the different outputs.
+You might also want the image to have the same relative size in a group of outputs that have different resolutions. For example, you want every image to take up 10% of the height. In this case, you must prepare separate files for each output, and create separate insert actions in the different outputs.
 
 ## Image layers and inserting images
 <a name="image-overlay-layers"></a>

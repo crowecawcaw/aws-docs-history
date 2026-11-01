@@ -17,6 +17,7 @@ Inputs are categorized by the deployment mode of the channel that they are attac
 | MediaConnect | AWS Cloud deployments only | 
 | MediaConnect Router | AWS Cloud deployments only | 
 | MP4 | Both | 
+| Multicast | MediaLive Anywhere deployments only | 
 | RTMP Pull | Both | 
 | RTMP Push | Both | 
 | RTP | Both | 

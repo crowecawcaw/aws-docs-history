@@ -4,7 +4,7 @@
 <a name="sample-manifest"></a>
 
 This section provides an example of the audio portion of the manifest that MediaLive produces when you set up an audio-only output. This sample manifest contains the following elements:
-+ Two video outputs, as indicated by the presence of two `EXT-STREAM-IN`F lines (the last two lines in the example).
++ Two video outputs, as indicated by the presence of two `EXT-STREAM-INF` lines (the last two lines in the example).
   + The first video output has a low bandwidth. As indicated by the `AUDIO` parameter, it is associated with *audio1*.
   + The second video output has a higher bandwidth. As indicated by the `AUDIO` parameter, it is associated with *audio2*.
 + Four audio outputs, as indicated by the presence of four `EXT-X-MEDIA` lines with `TYPE=AUDIO`. In each audio output, the values for the parameters come from the following fields in each audio output in the channel:

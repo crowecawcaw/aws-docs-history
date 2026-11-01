@@ -3,7 +3,7 @@
 # Set up the video encode
 <a name="creating-a-channel-step6"></a>
 
-In [Configure outputs](creating-a-channel-step4.md), you created the output groups and outputs that you identified when you planned the MediaLivechannel. Each output section contains a **Stream settings** section. You must now create all the video encodes. 
+In [Configure outputs](creating-a-channel-step4.md), you created the output groups and outputs that you identified when you planned the MediaLive channel. Each output section contains a **Stream settings** section. You must now create all the video encodes. 
 
 **General procedure**  
 Follow this general procedure to set up the video encode.

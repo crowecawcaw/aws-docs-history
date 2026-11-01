@@ -14,7 +14,7 @@
 
 1. If the source is using the RTMP protocol, you must set up an input security group using the regular MediaLive console. See [Working with input security groups](working-with-input-security-groups.md).
 
-1. Make sure that you have set up the IAM permissions that your users must have so that they can create and run the workflow. See [Setting up IAM permissions for users](setting-up-for-production.md), and specifically [Reference: summary of non-administrator user access requirements](setup-users-step-1-summary.md)
+1. Make sure that you have set up the IAM permissions that your users must have so that they can create and run the workflow. See [Setting up IAM permissions for users](setting-up-for-production.md), and specifically [Reference: summary of non-administrator user access requirements](setup-users-step-1-summary.md).
 
 1. Sign in to the AWS Management Console and open the MediaLive console at [https://console.aws.amazon.com/medialive/](https://console.aws.amazon.com/medialive/).
 
@@ -25,7 +25,7 @@
    The workflow wizard creates a CloudFormation stack. CloudFormation runs that stack to create all the other resources:
    + One MediaLive input.
    + One MediaLive channel.
-   + All the resources in all AWS services that are involved in the workflow you have created. You workflow might involve MediaPackage, MediaStore, and CloudFront. 
+   + All the resources in all AWS services that are involved in the workflow you have created. Your workflow might involve MediaPackage, MediaStore, and CloudFront. 
 
 1. When the resources have all been created, you can choose **Start workflow** on the details page for the workflow. The wizard starts the channel. The wizard also starts the MediaConnect flow, if you have one.
 

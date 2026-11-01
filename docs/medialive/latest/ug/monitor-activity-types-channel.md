@@ -15,7 +15,7 @@ The channel states are the following:
 + **Running**.
 + **Starting**
 + **Stopping**
-+ **Updating**: You changed the [channel class](class-channel-input.md)for a channel. This state is captured on the console but not in [Amazon CloudWatch events](monitoring-via-cloudwatch.md).
++ **Updating**: You changed the [channel class](class-channel-input.md) for a channel. This state is captured on the console but not in [Amazon CloudWatch events](monitoring-via-cloudwatch.md).
 
 MediaLive reports the state of all multiplexes. MediaLive turns these states into CloudWatch events with the detailType set to `MediaLive Multiplex State Change`.
 

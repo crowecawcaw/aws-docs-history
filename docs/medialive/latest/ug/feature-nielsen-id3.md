@@ -5,6 +5,9 @@
 
 If one or more inputs in a channel includes Nielsen watermarks in the audio, you have the option of setting up the channel to convert those watermarks to ID3 metadata. These watermarks are part of the measurement and analytics capabilities supported by Nielsen.
 
+**Note**  
+MediaLive creates ID3 tags only for Nielsen watermarks that are already present in the input audio. It doesn't create ID3 tags for Nielsen watermarks that MediaLive inserts into the output. For information about inserting watermarks, see [Creating and inserting Nielsen watermarks](feature-nielsen-watermark.md).
+
 This option applies only in the following scenario:
 + One or more inputs in your channel includes Nielsen watermarks in the audio.
 + Your channel has at least one output group that can include the Nielsen ID3 tag:

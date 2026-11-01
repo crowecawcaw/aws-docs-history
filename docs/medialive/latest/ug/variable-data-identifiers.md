@@ -32,7 +32,7 @@ MediaLive supports the variable data identifiers listed in the following table. 
 | $f$ | Integer | FPS frame rate without decimal places. For example, “23.976” appears as “23”. | 
 | $$ | $ | Escaped $. | 
 | $sn$ | Integer, fixed length | Number of the segment of the video in the output.  | 
-| %0n | Padding modifier | Modifier for any data identifier. The modifier pads the resolved value with leading zeros. The format is%0n, where n is a number. For example, to ensure the resolved value in the `$h$` identifier is 5 characters long, specify the identifier as `$h%05$`. <br />If the vertical resolution is “720”, then the resolved, padded value is “00720”. | 
+| %0n | Padding modifier | Modifier for any data identifier. The modifier pads the resolved value with leading zeros. The format is %0n, where n is a number. For example, to ensure the resolved value in the `$h$` identifier is 5 characters long, specify the identifier as `$h%05$`. <br />If the vertical resolution is “720”, then the resolved, padded value is “00720”. | 
 
 ## Rules for using variable data
 <a name="rules-variable-identifiers"></a>

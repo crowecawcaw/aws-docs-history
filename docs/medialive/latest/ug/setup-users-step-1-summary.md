@@ -82,7 +82,7 @@ If this table doesn't provide enough information for you to determine which perm
   - **Specific activities the user can perform:** Handle transfers of AWS Elemental Link devices
   - **Actions to include in the policy:** `AcceptInputDeviceTransfer`<br />`CancelInputDeviceTransfer`<br />`ClaimDevice`<br />`ListInputDeviceTransfers`<br />`RejectInputDeviceTransfer`<br />`TransferInputDevice`
 
-- **Set up a AWS Elemental Link device as the source for a MediaConnect flow**
+- **Set up an AWS Elemental Link device as the source for a MediaConnect flow**
   - **Corresponding service in IAM:** MediaConnect / **Specific activities the user can perform:** On the MediaLive console, view MediaConnect flows in the dropdown list. This dropdown list appears in the **Flow ARN** field in the **Attachments** tab on the **Device details** page. / **Actions to include in the policy:** ListFlows
   - **Corresponding service in IAM:** IAM / **Specific activities the user can perform:** On the MediaLive console, view IAM roles in the dropdown list. This dropdown list appears in the **Role ARN** field in the **Attachments** tab on the **Device details** page. / **Actions to include in the policy:** ListRoles
   - **Corresponding service in IAM:** Secrets Manager / **Specific activities the user can perform:** On the MediaLive console, view Secrets Manager secrets in the dropdown list. This dropdown list appears in the **Secret ARN** field in the **Attachments** tab on the **Device details** page. / **Actions to include in the policy:** ListSecrets

@@ -5,7 +5,7 @@
 
 This section is a supplement to the information in [Working with inputs](creating-input.md). It provides information that applies specifically to creating inputs for use in a MediaLive channel that contains multiple input attachments.
 
-Follow the steps in [Creating an input](create-input.md)for creating a channel, with the following notes.
+Follow the steps in [Creating an input](create-input.md) for creating a channel, with the following notes.
 + Create the inputs that you identified in the previous steps in this section.
 + Make sure that you set up each input as the correct type (static live, static file, or dynamic file).
 

@@ -7,7 +7,7 @@ Your organization might deploy AWS Elemental Link hardware devices in one or bot
 + As the video source for the input that you attach to an AWS Elemental MediaLive channel. 
 + As the video source for an AWS Elemental MediaConnect flow. 
 
-This section describes the permissions that you (an IAM administrator) must assign to users and other AWS identities so that they can configure an AWS Elemental Link device to work with a MediaLive input or an MediaConnect flow. For more information about these devices, see [Setting up AWS Elemental Link](setup-devices.md).
+This section describes the permissions that you (an IAM administrator) must assign to users and other AWS identities so that they can configure an AWS Elemental Link device to work with a MediaLive input or a MediaConnect flow. For more information about these devices, see [Setting up AWS Elemental Link](setup-devices.md).
 
 Read this information as follows:
 + Read this information if your organization has users who will both deploy devices and use those devices with MediaLive. 

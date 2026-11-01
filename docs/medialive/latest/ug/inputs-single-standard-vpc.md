@@ -16,6 +16,7 @@ When you have a choice, the type to use depends on whether you want to create a 
 | MediaConnect | Both | 
 | MediaConnect Router | Both | 
 | MP4 | Both | 
+| Multicast | Single-class only | 
 | RTMP Pull | Both | 
 | RTMP Push | Both | 
 | RTP | Standard-class only | 

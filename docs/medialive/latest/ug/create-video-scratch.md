@@ -88,4 +88,4 @@ For information about the **Color space** fields, see [Handling complex color sp
 ## Additional encoding settings
 <a name="video-encode-additional-settings"></a>
 
-For information about the **Additional encoding setting**s fields, see [Setting up enhanced VQ mode](video-enhancedvq.md)
+For information about the **Additional encoding settings** fields, see [Setting up enhanced VQ mode](video-enhancedvq.md)

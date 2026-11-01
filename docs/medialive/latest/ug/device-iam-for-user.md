@@ -3,7 +3,7 @@
 # Setting up users with IAM permissions
 <a name="device-iam-for-user"></a>
 
-This section describes the permissions that an IAM administrator must assign to users and other AWS identities so that they can configure a Link device to work with a MediaLive input or an MediaConnect flow. 
+This section describes the permissions that an IAM administrator must assign to users and other AWS identities so that they can configure a Link device to work with a MediaLive input or a MediaConnect flow. 
 
 This information supplements the information about setting up a user to work with all MediaLive features. Read this information as follows:
 + Read this section if your organization has users who will only work with MediaLive to deploy devices and configure them for use as sources, and you want to follow a *least permissions* rule. 
@@ -11,7 +11,7 @@ This information supplements the information about setting up a user to work wit
 
 This section assumes that you have already performed these tasks:
 + You have performed the initial setup described in [Preliminary steps for setting up to use MediaLive](setting-up.md) in order to sign up for MediaLive and to create an administrator. 
-+ You have read the recommendations in [Identity and Access Management for AWS Elemental MediaLive](security-iam.md)about how to create administrators, users, and other AWS identities.
++ You have read the recommendations in [Identity and Access Management for AWS Elemental MediaLive](security-iam.md) about how to create administrators, users, and other AWS identities.
 
 **Topics**
 + [Required permissions](#device-iam-permissions)

@@ -7,7 +7,7 @@ AWS Elemental MediaLive has several features that provide resiliency in the chan
 + Automatic input failover – You can set up two inputs in an *input failover pair*. Setting up this way provides resiliency in case of a failure either in the upstream system, or between the upstream system and the channel. 
 
   For more information, see [Implementing automatic input failover](automatic-input-failover.md).
-+ Input loss behavior – MediaLive always reacts to loss of video input.You can configure the fine points of how MediaLive behaves. This feature covers all inputs—those that are set up with automatic input failover, and those that aren't.
++ Input loss behavior – MediaLive always reacts to loss of video input. You can configure the fine points of how MediaLive behaves. This feature covers all inputs—those that are set up with automatic input failover, and those that aren't.
 
   For more information, see [Handling loss of video input](feature-input-loss.md).
 + Pipeline redundancy – You can set up the channel with two pipelines, to provide resiliency within the channel pipeline. This feature is controlled by the class of the inputs attached to the channel and by the class of the channel. For more information see the following:

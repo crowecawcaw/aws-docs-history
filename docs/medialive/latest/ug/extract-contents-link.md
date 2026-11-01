@@ -19,7 +19,7 @@ Obtain identifying information from the content provider.
   - **Format of information to obtain:** Obtain the numbers and languages of the tracks. For example, "track 1 is French". 
 
 - **Captions**
-  - **Details:** ARIB / **Format of information to obtain:** You don't need any information. With ARIB captions, MediaLiveextracts all the languages.
+  - **Details:** ARIB / **Format of information to obtain:** You don't need any information. With ARIB captions, MediaLive extracts all the languages.
   - **Details:** Embedded / **Format of information to obtain:** Obtain the languages of the channels. For example, "channel 1 is French". 
   - **Details:** Teletext / **Format of information to obtain:** [If your plan for teletext captions](assess-uss-captions.md) is to convert the captions to a different format, you must obtain the page numbers for the languages that you want to convert. If you plan to pass through the captions as Teletext in the output, you don't need any identifiers.
 

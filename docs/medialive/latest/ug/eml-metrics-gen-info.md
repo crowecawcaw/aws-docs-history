@@ -53,7 +53,7 @@ Metrics are available for the last 15 months. Make sure that you specify a perio
 Each MediaLive metric includes one or two specific sets of dimensions. MediaLive metrics include the following dimensions, from the dimension with the widest scope to the dimension with the narrowest scope.
 + ChannelID – Identifies a specific channel.
 + Pipeline – Identifies a specific pipeline. Standard channels have two pipelines (pipeline 0 or pipeline 1). Single-pipeline channels only have pipeline 0.
-+ ActiveInputFailoverLabel – This dimension identifies the currently active input in a failover pair (part of the[ automatic input failover feature](automatic-input-failover.md)). Choose a dimension set that includes this dimension only if your channel implements automatic input failover.
++ ActiveInputFailoverLabel – This dimension identifies the currently active input in a failover pair (part of the [automatic input failover feature](automatic-input-failover.md)). Choose a dimension set that includes this dimension only if your channel implements automatic input failover.
 
   If you use this dimension, then the metric shows data only for the active input in the channel. If you don't use this dimension, the metric shows data for both inputs.
 + OutputGroupName – Identifies a specific output group.

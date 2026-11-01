@@ -23,7 +23,7 @@ On the console, use the **Reservations** tab to purchase one or more reservation
 
 1. To purchase all of the offerings that are displayed on the **Cart** tab, choose **Purchase**.
 **Important**  
-You can't cancel a reservation after you have purchased it.
+You can cancel a reservation only during the calendar month (UTC) in which you purchased it. After that month ends, you can't cancel it.
 
 ## Filtering on the offerings page
 <a name="filtering-offerings"></a>

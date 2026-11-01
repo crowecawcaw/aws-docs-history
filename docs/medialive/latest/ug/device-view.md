@@ -77,7 +77,7 @@ A message indicates that the device is not being used. To set up the device as t
 
 The tab displays the ARN of the MediaLive input that the device is attached to. You can set up the device as the source for up to four inputs. You can detach the input so that the device isn't in use. For more information about both these tasks, see [Attaching and detaching a Link device](device-attach.md).
 
-**Device is configured as the source for an MediaConnect flow**
+**Device is configured as the source for a MediaConnect flow**
 
 Applies only to UHD devices. The tab displays information about the attachment to the flow:
 + The ARN of the flow

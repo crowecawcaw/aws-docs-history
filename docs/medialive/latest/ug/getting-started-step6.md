@@ -3,7 +3,7 @@
 # Step 8: Set up the output and encodes
 <a name="getting-started-step6"></a>
 
-Now that you have defined one output group in the channel, you can set up an output ins that output group, and specify how you want to encode the video output and the audio output.
+Now that you have defined one output group in the channel, you can set up an output in that output group, and specify how you want to encode the video output and the audio output.
 
 **To set up the output**
 
@@ -21,7 +21,7 @@ Now that you have defined one output group in the channel, you can set up an out
 
 1. For **Audio description name**, change the default name to **AAC audio**.
 
-1. For **Audio selector name**, enter **My audio source**, which is the audio selector that you created in[Step 6: Set up input video, audio, captions](getting-started-step4a-input-selectors.md).
+1. For **Audio selector name**, enter **My audio source**, which is the audio selector that you created in [Step 6: Set up input video, audio, captions](getting-started-step4a-input-selectors.md).
 
 1. For **Codec settings**, choose **AAC**.
 

@@ -5,7 +5,7 @@
 
 In this tutorial, the downstream system (the destination for the output from MediaLive) is AWS Elemental MediaPackage. 
 
-You must set up a channel in AWS Elemental MediaPackage, and you must set it up now because you need the two URLs that MediaPackage generates. These URLs are input URLS from the point of view of MediaPackage. They are destination URLs for the output, from the point of view of MediaLive.
+You must set up a channel in AWS Elemental MediaPackage, and you must set it up now because you need the two URLs that MediaPackage generates. These URLs are input URLs from the point of view of MediaPackage. They are destination URLs for the output, from the point of view of MediaLive.
 
 **To set up the downstream system**
 

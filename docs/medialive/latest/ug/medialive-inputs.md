@@ -22,6 +22,7 @@ The setup you perform is different for each combination of upstream system (form
 + [MediaConnect input](input-create-push-mediaconnect.md)
 + [MediaConnect Router input](input-create-mediaconnect-router.md)
 + [MP4 input](mp4-pull-input.md)
++ [Multicast input](input-create-multicast.md)
 + [RTMP pull input](input-create-rtmp-pull.md)
 + [RTMP push input](input-create-rtmp-push.md)
 + [RTMP VPC input](rtmp-push-vpc-input.md)

@@ -15,6 +15,7 @@
    + [Channel input—MediaConnect push input](input-mediaconnect-push.md)
    + [Channel input—MediaConnect Router input](input-mediaconnect-router.md)
    + [Channel input—MP4 pull input](input-mp4-pull.md)
+   + [Channel input—Multicast input](input-multicast.md)
    + [Channel input—RTMP push input](input-rtmp-push.md)
    +  [Channel input—RTMP pull input](input-rtmp-pull.md) 
    + [Channel input—RTP push input](input-rtp-push.md)
@@ -22,9 +23,10 @@
    + [Channel input—SRT caller input](input-srt-pull.md) 
    + [Channel input—SRT listener input](input-srt-push.md) 
 
-1. Complete the **Logical interface names** fields. These fields appear only if you set up the channel to [run in a MediaLive Anywhere cluster](creating-a-channel-step1.md) and the input is a SMPTE 2110 input. 
+1. Complete the **Logical interface names** fields. These fields appear only if you set up the channel to [run in a MediaLive Anywhere cluster](creating-a-channel-step1.md) and the input is a SMPTE 2110 input or a multicast input. 
    + You must specify the logical interface for the incoming content for the input.
-   + If the channel implements SMPTE 2022-7 seamless protection switching, you must also specify the logical interface for that content. Slide the selector beside **Use 2022-7 **to enable the feature. Then select the logical interface to use.
+   + If the input is a multicast input that has a secondary source, you must specify two different logical interfaces: the **Primary interface** for the multicast URL and the **Secondary interface** for the secondary URL. For more information, see [Channel input—Multicast input](input-multicast.md).
+   + If the input is a SMPTE 2110 input and the channel implements SMPTE 2022-7 seamless protection switching, you must also specify the logical interface for that content. Slide the selector beside **Use 2022-7 **to enable the feature. Then select the logical interface to use.
 
    If you were involved in [designing the MediaLive Anywhere clusters](emla-deploy-design-cluster.md) in your organization, you should know which logical interface or interfaces to select. If you weren't involved in this design, you must obtain this information from the video engineer who was involved. 
 

@@ -10,6 +10,7 @@ MediaLive supports the following input types. For more information about these t
 + MediaConnect
 + MediaConnect Router
 + MP4
++ Multicast
 + RTMP Pull
 + RTMP Push
 + RTP

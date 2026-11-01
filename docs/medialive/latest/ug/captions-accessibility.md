@@ -28,7 +28,7 @@ MediaLive supports the following styles of accessibility data.
 You can set up the captions encode to include accessibility data when you create the encode, as described in [Create embedded or object captions encodes](output-embedded-and-more.md) and [Create sidecar or SMPTE-TT captions encodes](output-sidecar-and-smptett-mss.md).
 
 In the output that has the captions encode that you want to set up, follow these steps:
-+ To include DASH Roles, choose **Add dash role**s as many times as you want. Choose the style in each role.
++ To include DASH Roles, choose **Add dash role** as many times as you want. Choose the style in each role.
 + To include DVB DASH accessibility style, in **DVB DASH accessibility**, choose the applicable description. You can add only one instance of this accessibility style.
 
 You can add more than one style of accessibility data to each encode. For example, you can add Dash Roles and DVB DASH accessibility style. You might want to do this because different downstream systems for these outputs implement different styles.

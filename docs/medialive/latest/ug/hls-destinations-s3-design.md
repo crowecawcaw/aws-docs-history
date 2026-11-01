@@ -48,7 +48,7 @@ These destination paths are constructed as follows:
 
   See the sections that follow.
 + MediaLive inserts the underscore before the counter.
-+ MediaLiveautomatically generates this counter. Initially, this is a five-digit number starting at 00001, and increasing by 1. So 00001, 00002, 00003 and so on. After 99999, the next number is 100000 (six digits), then 100001, 100002, and so on. Then from 999999 to 1000000 (seven digits), and so on.
++ MediaLive automatically generates this counter. Initially, this is a five-digit number starting at 00001, and increasing by 1. So 00001, 00002, 00003 and so on. After 99999, the next number is 100000 (six digits), then 100001, 100002, and so on. Then from 999999 to 1000000 (seven digits), and so on.
 + MediaLive inserts the dot before the extension.
 + MediaLive selects the extension:
   + For manifest files – always `.m3u8`

@@ -26,7 +26,7 @@ Your setup must observe these rules for VPCs and subnets:
 + There is no requirement for any of the VPCs or subnets to be the same or different.
 
 Your setup must observe these rules for the Availability Zones of the subnets that you identify:
-+ The channel endpoint can be in the same Availability Zone as the destination (or destinations)or in a different Availability Zone. If it is in a different Availability Zone, you will incur outgoing data transfer charges. For more information about pricing, see [https://aws.amazon.com/medialive/pricing/](https://aws.amazon.com/medialive/pricing/). 
++ The channel endpoint can be in the same Availability Zone as the destination (or destinations) or in a different Availability Zone. If it is in a different Availability Zone, you will incur outgoing data transfer charges. For more information about pricing, see [https://aws.amazon.com/medialive/pricing/](https://aws.amazon.com/medialive/pricing/). 
 
 **Standard channels**
 

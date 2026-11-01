@@ -29,7 +29,7 @@ When you set up a single-pipeline channel without any upgrade provision, the cha
 
   As this diagram illustrates, the upstream system provides one instance of the source content to the input, to the pipeline that is indicated by the blue line. The input provides that one instance to the one pipeline in the channel. The channel produces one instance of the output for the downstream system.  
 ![Flow from upstream origin server through single-class input and single-pipeline channel to downstream system.](https://docs.aws.amazon.com/medialive/latest/ug/images/pipeline-redundancy-single-channel-single-input.png)
-+ Each standard-class input input contain two pipelines. However, only one of the pipelines is connected to a content source. The other input pipeline is inactive.
++ Each standard-class input contains two pipelines. However, only one of the pipelines is connected to a content source. The other input pipeline is inactive.
 
   As this diagram illustrates, the upstream system provides one instance of the source content to the input, to the pipeline that is indicated by the blue line. The input provides that one instance to the one pipeline in the channel. The channel produces one instance of the output for the downstream system. The other pipeline in the input (the green pipeline) is always inactive.  
 ![](https://docs.aws.amazon.com/medialive/latest/ug/images/pipeline-redundancy-single-channel-standard-input.png)

@@ -5,7 +5,7 @@
 
 You must create an input. The input defines how the upstream system provides the source video stream to MediaLive. In this tutorial, you create an RTP input. 
 
-You must also create an input security group for the input. This input security group applies the rule "only this specific IP address (an IP address that you own) can push to this input on MediaLive." Without the protection of this rule, any third party could push content to an MediaLive input if they know the IP address and port of the input. 
+You must also create an input security group for the input. This input security group applies the rule "only this specific IP address (an IP address that you own) can push to this input on MediaLive." Without the protection of this rule, any third party could push content to a MediaLive input if they know the IP address and port of the input. 
 
 **To create an input and input security group**
 
@@ -15,11 +15,11 @@ You must also create an input security group for the input. This input security 
 
 1. On the **Inputs** page, choose **Create input**.
 
-1. In the **Input details** section, for **Input name**, enter **my rtp push**.
+1. In the **Input details** section, for **Input name**, enter **My RTP push**.
 
-1. For **Input type**, choose **rtp**. 
+1. For **Input type**, choose **RTP**. 
 
-1. in the **Input security group** section, choose **Create**. 
+1. In the **Input security group** section, choose **Create**. 
 
 1. In the text box, enter the IP address that you noted in [Step 1: Set up the upstream system](getting-started-step1.md) of this tutorial. Enter the address as a CIDR block. For example, **203.0.113.111/32** and **203.0.113.112/32**.
 
@@ -27,6 +27,6 @@ You must also create an input security group for the input. This input security 
 
 1. Choose **Create** to create the input.
 
-   MediaLive adds the input to the list of inputs and automatically creates two destinations (one primary and one redundant). These destinations include the port 5000. For example, **rtp://198.51.100.10:5000** and **rtp://192.0.2.131:5000**. These are the two locations where the upstream system must push the source. 
+   MediaLive adds the input to the list of inputs and automatically creates two destinations (one primary and one redundant). These destinations include port 5000. For example, **rtp://198.51.100.10:5000** and **rtp://192.0.2.131:5000**. These are the two locations where the upstream system must push the source. 
 
-1. Make a note of these two addresses because you will need them in [Step 10: Start the upstream system and the channel](getting-started-step8.md).
+1. Make a note of these two addresses because you need them in [Step 10: Start the upstream system and the channel](getting-started-step8.md).

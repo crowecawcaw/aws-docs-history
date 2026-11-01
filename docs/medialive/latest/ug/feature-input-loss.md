@@ -82,7 +82,7 @@ This table lists the delivery options for the output groups. Read across each ro
 | Type of output group | Field | Description | 
 | --- | --- | --- | 
 | HLS<br />Microsoft Smooth<br />RTMP | EMIT\_OUTPUT | Deliver the replacement content.This is the default for these output groups. | 
-| HLS<br />Microsoft Smooth<br />RTMP | PAUSE\_OUTPUT | Encode only the repeat frames, if the[ channel is configured](#feature-input-loss-customize-replacement) to process them. After that content ends, stop delivery for all outputs in this output group.Note that MediaLive keeps the underlying RTMP connection open. | 
+| HLS<br />Microsoft Smooth<br />RTMP | PAUSE\_OUTPUT | Encode only the repeat frames, if the [channel is configured](#feature-input-loss-customize-replacement) to process them. After that content ends, stop delivery for all outputs in this output group.Note that MediaLive keeps the underlying RTMP connection open. | 
 | UDPSRT | EMIT\_PROGRAM | Encode the replacement content, and deliver the program and all the tables for this output group. This is the default for UDP. | 
 | UDPSRT | DROP\_TS | Stop delivery of the entire transport stream in this output group. | 
 | UDPSRT | DROP\_PROGRAM | Drop the program from the transport stream. MediaLive replaces the program with null packets, in order to meet the TS bitrate requirement.<br />Deliver the null packets and all the tables for this output group. | 

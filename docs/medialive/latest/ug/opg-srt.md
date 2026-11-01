@@ -3,7 +3,7 @@
 # Creating an SRT output group
 <a name="opg-srt"></a>
 
-When you create a AWS Elemental MediaLive channel, you might want to include an SRT output group. For information about the use cases for an SRT output group, see [Containers, protocols, and downstream systems](outputs-supported-containers-downstream-systems.md).
+When you create an AWS Elemental MediaLive channel, you might want to include an SRT output group. For information about the use cases for an SRT output group, see [Containers, protocols, and downstream systems](outputs-supported-containers-downstream-systems.md).
 
 With an SRT output group, you can create one or more outputs. Each output is an SPTS with its own destination.
 

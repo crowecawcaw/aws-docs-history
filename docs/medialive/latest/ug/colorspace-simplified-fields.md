@@ -13,7 +13,7 @@ Read this section if you know how to handle color space in MediaLive, and you on
 <tbody>
   <tr><td rowspan="2">Input handling</td><td rowspan="2"><b>Input attachments</b></td><td rowspan="2"><b>Video Selector</b></td><td><b>Color space</b></td></tr>
   <tr><td><b>Color space usage</b></td></tr>
-  <tr><td rowspan="2">Enter the display metadata for an input from a AWS Elemental Link device</td><td rowspan="2"><b>Input attachments</b></td><td rowspan="2"><b>Video Selector</b>, then <b>Color space settings</b></td><td><b>Max CLL</b></td></tr>
+  <tr><td rowspan="2">Enter the display metadata for an input from an AWS Elemental Link device</td><td rowspan="2"><b>Input attachments</b></td><td rowspan="2"><b>Video Selector</b>, then <b>Color space settings</b></td><td><b>Max CLL</b></td></tr>
   <tr><td><b>Max Fall</b></td></tr>
   <tr><td>Configure the channel to use 3D LUTs files</td><td><b>General settings</b></td><td><b>Color correction settings</b></td><td><b>Url</b><b>Input color space</b><br /><b>Output color space</b></td></tr>
   <tr><td rowspan="4">Output, configure the video codec</td><td rowspan="4"><b>Output groups</b>, then <b>Outputs</b></td><td><b>Stream settings</b>, then <b>Video</b> </td><td><b>Codec settings</b></td></tr>

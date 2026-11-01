@@ -3,7 +3,7 @@
 # Running channels in AWS Elemental MediaLive Anywhere
 <a name="feature-emla"></a>
 
-Your organization can deploy a AWS Elemental MediaLive Anywhere cluster of on-premises nodes, and run channels on those nodes. This means that you can run channels on your own hardware, as well as running channels in the regular way, in the AWS Cloud.
+Your organization can deploy an AWS Elemental MediaLive Anywhere cluster of on-premises nodes, and run channels on those nodes. This means that you can run channels on your own hardware, as well as running channels in the regular way, in the AWS Cloud.
 
 You decide where to run the channel when you create the channel. In this case the channel is a MediaLive Anywhere channel. Several new rules apply:
 

@@ -106,7 +106,7 @@ You must create the Instance role. This is the pink box in the diagram.
 ------
 
 1. On the **Add Permissions** page, find the following polices and select the checkbox for each policy:
-   + The policy that you created.If you followed the recommendation, this policy has the name `MediaLiveAnywhereAccess`)
+   + The policy that you created. If you followed the recommendation, this policy has the name `MediaLiveAnywhereAccess`.
    + The `AmazonEC2ContainerServiceforEC2Role` policy
    + The `AmazonSSMManagedInstanceCore` policy
 

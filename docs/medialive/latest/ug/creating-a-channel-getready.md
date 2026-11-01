@@ -15,7 +15,7 @@ Here is the information that you need, listed in the order in which your will us
   + The assets to extract from each input. You identified these assets in [Map the output encodes to the sources](channel-map-output-source.md), as part of planning the channel.
 + You will need the following information when you follow the procedure in [Configure outputs](creating-a-channel-step4.md):
   + The output groups to create. You should have identified these output groups in step 1 of [Planning a MediaLive workflow](container-planning-workflow.md).
-  + The outputs to create. You should have designed the outputs and encodes (video, audio,and captions) when you [planned the channel](planning-the-channel-in-workflow.md).
+  + The outputs to create. You should have designed the outputs and encodes (video, audio, and captions) when you [planned the channel](planning-the-channel-in-workflow.md).
   + Information about the destinations for the outputs of each output group. You obtained this information in step 7 of [Planning a MediaLive workflow](container-planning-workflow.md).
 + You will need the following information when you follow the procedure in the three steps that start with [Set up the video encode](creating-a-channel-step6.md):
   + Details about the output encodes (video, audio, and captions) to create in each output group. You made these decisions in [Planning the outputs in the channel](planning-the-channel-in-workflow.md).

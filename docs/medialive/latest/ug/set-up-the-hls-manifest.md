@@ -9,7 +9,7 @@ If the captions are embedded captions and the output is HLS, you must include ca
 
 1. In the HLS output group in Output groups, go to the **Captions** section. In **Captions language setting**, choose **Insert**. Choosing this option inserts lines in the manifest for each embedded captions language. It inserts as many lines as the mappings that you will add in the next step. 
 **Note**  
-This **Captions** section is in the output group. Don't confuse this section with the the captions encode sections in the individual outputs.
+This **Captions** section is in the output group. Don't confuse this section with the captions encode sections in the individual outputs.
 
 1. Still in the HLS output group, for **HLS settings**, in **Captions language mappings**, choose **Add captions language mappings**.
 

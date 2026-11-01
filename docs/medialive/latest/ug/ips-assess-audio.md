@@ -44,7 +44,7 @@ For example, assume that the channel contains an Archive output group that conta
 For each language, every source must include audio that can produce all the highest coding mode among all the outputs in the channel. 
 
 For example, assume that the channel contains an Archive output group that contains one audio encode for Spanish AAC 2.0. The channel also contains one HLS output group that contains one audio encode for Spanish Dolby Digital 5.1:
-+ Assume that you have an source that contains Dolby Digital 5.1 audio in Spanish. 
++ Assume that you have a source that contains Dolby Digital 5.1 audio in Spanish. 
 
   This source contains audio that can produce all the desired output audio encodes for Spanish. You must set up the Archive output to remix the audio down to 2.0. You don't need to set up the HLS output to remix the audio.
 + Assume that you have a second source that contains AAC 2.0 in Spanish. 

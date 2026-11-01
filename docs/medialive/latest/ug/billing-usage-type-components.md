@@ -3,7 +3,7 @@
 # Usage type components
 <a name="billing-usage-type-components"></a>
 
-The following table describes each component that can appear in an MediaLive usage type string.
+The following table describes each component that can appear in a MediaLive usage type string.
 
 
 | Component | Values | Description | 
