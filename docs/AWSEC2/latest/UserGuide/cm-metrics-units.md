@@ -10,12 +10,15 @@ The metric names in Capacity Manager use four different prefixes to categorize t
 + `Reserved` — On-Demand Instance usage that is covered by your Capacity Reservations. 
 + `Unreserved` — On-Demand Instance usage that runs outside of any Capacity Reservations. 
 + `Spot` — Specifically for Spot Instance usage, including runtime and estimated costs. These metrics are separate from reservation-based capacity.
++ `Capacity` and `SpotCapacity` — Capacity fulfillment metrics that track whether your requests for capacity are being fulfilled and how each instance type and Availability Zone combination is performing. These metrics are available only to AWS Support customers on the Unified Operations plan. For more information, see [Monitor capacity fulfillment](capacity-manager-fulfillment.md).
 
 The following table also provides the *Dimensions available* for each metric. The dimension categories are broken down as follows:
 + **General capacity dimensions** — Account ID, Account Name, Region, Instance Family, Availability Zone, Instance Type, Platform, and Tenancy
 + **Capacity Reservation dimensions** — Reservation ID (Capacity Reservation ID), Reservation ARN, Unused Financial Owner, Reservation Type (ODCR/Capacity Block), Create timestamp, Start timestamp, End timestamp, State, and Instance match criteria.
 + **Reserved usage dimensions** — Reservation ID (CRID), Reservation ARN, Reservation type
 + **Tag dimensions** — Customer-managed tag keys and Capacity Manager-provided tags. You must activate a tag key before you can use it as a dimension. For more information, see [Managing monitored tag keys](managing-monitored-tag-keys.md).
+
+Some metrics are available in more than one unit, as shown in the *Units available* column. For those metrics, the unit is part of the metric name: append `Vcpu` for the vCPU unit or `Inst` for the instance unit. For example, the usage-hours metric appears as `UnreservedTotalUsageHrsVcpu` and `UnreservedTotalUsageHrsInst`.
 
 
 | Metric | Description | Dimensions available | Units available | 
@@ -50,6 +53,16 @@ The following table also provides the *Dimensions available* for each metric. Th
 | SpotTotalUsageHrs | Total hours of Spot Instance usage during the selected period. | General capacity dimensions | vCPU, Instance | 
 | UnreservedTotalEstimatedCost | Estimated cost of On-Demand Instance usage that was not covered by a Capacity Reservation during the selected period. This excludes Spot usage. | General capacity dimensions |  | 
 | UnreservedTotalUsageHrs | Total hours of On-Demand Instance usage that were not covered by a Capacity Reservation during the selected period. This excludes Spot usage. | General capacity dimensions | vCPU, Instance | 
+| CapacityTotalRequestedVcpu | Unified Operations plan only. The vCPUs you requested during the selected period. Retries within a five-minute window count once. | Tag, Account ID, Account Name, Region | vCPU | 
+| SpotCapacityTotalRequestedVcpu | Unified Operations plan only. The Spot vCPUs you requested during the selected period. Retries within a five-minute window count once. | Tag, Account ID, Account Name, Region | vCPU | 
+| CapacityTotalFulfilledVcpu | Unified Operations plan only. The vCPUs Amazon EC2 delivered during the selected period. At the instance type and Availability Zone level, add the instance type and Availability Zone dimensions. | Tag, Account ID, Account Name, Region, Instance Type, Instance Family, Availability Zone | vCPU | 
+| SpotCapacityTotalFulfilledVcpu | Unified Operations plan only. The Spot vCPUs Amazon EC2 delivered during the selected period. At the instance type and Availability Zone level, add the instance type and Availability Zone dimensions. | Tag, Account ID, Account Name, Region, Instance Type, Instance Family, Availability Zone | vCPU | 
+| CapacityRequestFulfillmentRate | Unified Operations plan only. Fulfilled divided by requested for each request. Capacity from a fallback counts as fulfilled. This metric is vCPU-weighted. | Tag, Account ID, Account Name, Region | Percentage | 
+| SpotCapacityRequestFulfillmentRate | Unified Operations plan only. Fulfilled divided by requested for each Spot request. Capacity from a fallback counts as fulfilled. This metric is vCPU-weighted. | Tag, Account ID, Account Name, Region | Percentage | 
+| AvgInstAzCountPerRequestedVcpu | Unified Operations plan only. The average number of instance type and Availability Zone combinations included in each request, whether or not Amazon EC2 needed them, weighted by vCPUs. A higher value means the request gives Amazon EC2 more options. | Tag, Account ID, Account Name, Region | Count | 
+| SpotAvgInstAzCountPerRequestedVcpu | Unified Operations plan only. The average number of instance type and Availability Zone combinations included in each Spot request, whether or not Amazon EC2 needed them, weighted by vCPUs. A higher value means the request gives Amazon EC2 more options. | Tag, Account ID, Account Name, Region | Count | 
+| InstAzFulfillmentRate | Unified Operations plan only. Fulfilled divided by requested for each instance type and Availability Zone combination. A fallback earns no credit. This metric is vCPU-weighted. Requires the Availability Zone ID dimension and at least one of instance type or instance family. | Instance Type, Instance Family, Availability Zone, Tag, Account ID, Account Name, Region | Percentage | 
+| SpotInstAzFulfillmentRate | Unified Operations plan only. Fulfilled divided by requested for each Spot instance type and Availability Zone combination. A fallback earns no credit. This metric is vCPU-weighted. Requires the Availability Zone ID dimension and at least one of instance type or instance family. | Instance Type, Instance Family, Availability Zone, Tag, Account ID, Account Name, Region | Percentage | 
 
 **Note**  
 If you include instances in your units, we recommend including the instance type in your dimensions.

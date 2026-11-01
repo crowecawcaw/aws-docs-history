@@ -30,6 +30,7 @@ The lifecycle of an AMI includes creating, copying, deprecating, disabling, and 
 + [AMI ancestry](ami-ancestry.md)
 + [AMI watermarks](ami-watermark.md)
 + [AMI allowed instance types](ami-allowed-instance-types.md)
++ [Scan an AMI for vulnerabilities](ami-scanning.md)
 + [AMI usage](ec2-ami-usage.md)
 + [Deprecate an AMI](ami-deprecate.md)
 + [Disable an AMI](disable-an-ami.md)

@@ -45,6 +45,9 @@ The configuration has three levels:
   + Single-value parameters:
     + `CreationDateCondition`
     + `DeprecationTimeCondition`
+    + `ScanResultCondition`
+
+      An AMI must meet *all* fields that you specify in `ScanResultCondition` (**AND** logic).
 + **2** – `ImageCriterion`
   + Groups multiple parameters with **AND** logic.
   + An AMI must match *all* parameters within an `ImageCriterion` to be allowed.
@@ -94,6 +97,17 @@ A list of watermark filters. The filter allows an AMI if any watermark on the AM
 + `MaximumDaysSinceSourceImageCreated` – The maximum age of the source AMI when you applied the watermark
 + `MaximumDaysSinceWatermarkCreated` – The maximum number of days since you applied the watermark
 
+`ScanResultCondition`  
+The vulnerability scan results that an AMI must meet to be allowed. If you specify more than one field, the AMI must meet all of them. When you specify this condition, Allowed AMIs blocks AMIs that Amazon Inspector hasn't scanned. For more information about AMI scan results, see [Scan an Amazon EC2 AMI for software vulnerabilities with Amazon Inspector](ami-scanning.md). The condition can include the following fields:  
++ `MaximumSeverityLabel` – The maximum severity that a finding on an allowed AMI can have. The severity values are `informational`, `low`, `medium`, `high`, and `critical`. For example, `medium` allows an AMI whose findings are `informational`, `low`, or `medium`. This limit applies to every finding on the AMI, whether or not a fix is available. A scanned AMI with no findings meets this limit.
++ `MaxDaysSinceLastFindingScan` – The maximum number of days since Amazon Inspector last scanned the AMI. AMIs that Amazon Inspector has not scanned aren't allowed.
++ `MaxDaysSinceInformationalFixAvailable` – The maximum number of days since Amazon Inspector reported a fix as available for an `informational` finding on the AMI.
++ `MaxDaysSinceLowFixAvailable` – The maximum number of days since Amazon Inspector reported a fix as available for a `low` finding on the AMI.
++ `MaxDaysSinceMediumFixAvailable` – The maximum number of days since Amazon Inspector reported a fix as available for a `medium` finding on the AMI.
++ `MaxDaysSinceHighFixAvailable` – The maximum number of days since Amazon Inspector reported a fix as available for a `high` finding on the AMI.
++ `MaxDaysSinceCriticalFixAvailable` – The maximum number of days since Amazon Inspector reported a fix as available for a `critical` finding on the AMI.
+The `MaxDaysSince*FixAvailable` fields consider only findings that have a fix available. For example, if you set `MaxDaysSinceHighFixAvailable` to `30`, an AMI isn't allowed if a fix has been available for one of its `high` findings for more than 30 days. An AMI with no `high` findings that have a fix available meets this limit.
+
 For the valid values and constraints for each criterion, see [ImageCriterionRequest](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImageCriterionRequest.html) in the *Amazon EC2 API Reference*.
 
 ### Allowed AMIs configuration
@@ -122,7 +136,16 @@ The core configuration for Allowed AMIs is the `ImageCriteria` configuration tha
                     "MaximumDaysSinceSourceImageCreated": integer,
                     "MaximumDaysSinceWatermarkCreated": integer
                 },...
-            ]
+            ],
+            "ScanResultCondition": {
+                "MaximumSeverityLabel": "string",
+                "MaxDaysSinceLastFindingScan": integer,
+                "MaxDaysSinceInformationalFixAvailable": integer,
+                "MaxDaysSinceLowFixAvailable": integer,
+                "MaxDaysSinceMediumFixAvailable": integer,
+                "MaxDaysSinceHighFixAvailable": integer,
+                "MaxDaysSinceCriticalFixAvailable": integer
+            }
          },
          ...
 }
@@ -131,7 +154,7 @@ The core configuration for Allowed AMIs is the `ImageCriteria` configuration tha
 #### ImageCriteria example
 <a name="allowed-amis-json-configuration-example"></a>
 
-The following `ImageCriteria` example configures five `ImageCriterion`. An AMI is allowed if it matches any one of these `ImageCriterion`. For information about how the criteria are evaluated, see [How criteria are evaluated](#how-allowed-amis-criteria-are-evaluated).
+The following `ImageCriteria` example configures six `ImageCriterion`. An AMI is allowed if it matches any one of these `ImageCriterion`. For information about how the criteria are evaluated, see [How criteria are evaluated](#how-allowed-amis-criteria-are-evaluated).
 
 ```
 {
@@ -182,6 +205,14 @@ The following `ImageCriteria` example configures five `ImageCriterion`. An AMI i
                     "MaximumDaysSinceWatermarkCreated": {{90}}
                 }
             ]
+        },
+        // ImageCriterion 6: Allow AMIs that Amazon Inspector scanned within the last 30 days
+        // AND whose highest finding severity is medium or lower
+        {
+            "ScanResultCondition": {
+                "MaximumSeverityLabel": "{{medium}}",
+                "MaxDaysSinceLastFindingScan": {{30}}
+            }
         }
     ]
 }
@@ -196,6 +227,7 @@ The following table explains the evaluation rules that determine if an AMI is al
 | Evaluation level | Operator | Requirement to be an Allowed AMI | 
 | --- | --- | --- | 
 | Parameter values for ImageProviders, ImageNames, MarketplaceProductCodes, and ImageWatermarks | OR | AMI must match at least one value in each parameter list | 
+| Fields in ScanResultCondition | AND | AMI must meet all fields that you specify in the condition | 
 | ImageCriterion | AND | AMI must match all parameters in each ImageCriterion | 
 | ImageCriteria | OR | AMI must match any one of the ImageCriterion | 
 
@@ -226,6 +258,12 @@ Using the preceding evaluation rules, let's see how to apply them to the [ImageC
     + `AND`
   + You applied the watermark less than 90 days ago
 
+  `OR`
++ `ImageCriterion` 6: Allows AMIs that meet both of these criteria:
+  + Scanned by Amazon Inspector within the last 30 days
+    + `AND`
+  + Highest finding severity is `medium` or lower, whether or not a fix is available
+
 ### Limits
 <a name="allowed-amis-json-configuration-limits"></a>
 
@@ -241,7 +279,7 @@ Each `ImageCriterion` can include up to:
 **Example of limits**
 
 Using the preceding [ImageCriteria example](#allowed-amis-json-configuration-example):
-+ There are 5 `ImageCriterion`. Up to 5 more can be added to the request to reach the limit of 10.
++ There are 6 `ImageCriterion`. You can add up to 4 more to the request to reach the limit of 10.
 + In the first `ImageCriterion`, there is 1 value for `MarketplaceProductCodes`. Up to 49 more can be added to this `ImageCriterion` to reach the limit of 50.
 + In the second `ImageCriterion`, there are 2 values for `ImageProviders`. Up to 198 more can be added to this `ImageCriterion` to reach the limit of 200.
 + In the third `ImageCriterion`, there is 1 value for `ImageNames`. Up to 49 more can be added to this `ImageCriterion` to reach the limit of 50.
@@ -287,6 +325,7 @@ When implementing Allowed AMIs, consider these best practices to ensure a smooth
 **Note**  
 When using AWS managed services, such as Amazon ECS, Amazon EKS, or AWS Lambda Managed Instances, we recommend specifying the `amazon` alias to allow AMIs created by AWS. These services depend on Amazon-published AMIs to launch instances.   
 Be cautious when setting `CreationDateCondition` restrictions for any AMIs. Setting overly restrictive date conditions (for example, AMIs must be less than 5 days old) can cause instance launch failures if the AMIs, whether from AWS or other providers, are not updated within your specified time frame.  
+Similarly, be cautious when setting the `MaxDaysSince*FixAvailable` conditions in a `ScanResultCondition`. A fix can become available for a finding on an AMI at any time, so an AMI that meets your criteria today might not meet them after a few days. Choose a number of days that gives you enough time to replace the AMI with an updated one.  
 We recommend pairing `ImageNames` with `ImageProviders` for better control and specificity. Using `ImageNames` alone might not uniquely identify an AMI.
 
 1. **Check for impact on expected business processes**

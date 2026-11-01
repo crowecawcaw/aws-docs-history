@@ -329,7 +329,10 @@ For requests made using IMDSv2, the following HTTP error codes can be returned:
 + `401 - Unauthorized` – The `GET` request uses an invalid token. The recommended action is to generate a new token.
 + `403 - Forbidden` – The request is not allowed or the IMDS is turned off.
 + `404 - Not Found` – The resource is not available or there is no such resource.
++ `405 - Method Not Allowed` – The request uses an HTTP method that the endpoint does not allow.
++ `500 - Internal Server Error` – Retry the request.
 + `503` – The request could not be completed. Retry the request.
++ `505 - HTTP Version Not Supported` – The request uses an HTTP version that the IMDS does not support. Use HTTP/1.0 or HTTP/1.1.
 
 If the IMDS returns an error, **curl** prints the error message in the output and returns a success status code. The error message is stored in the `TOKEN` variable, which causes **curl** commands that use the token to fail. If you call **curl** with the **-f** option, it returns an error status code in the event of an HTTP server error. If you enable error handling, the shell can catch the error and stop the script.
 

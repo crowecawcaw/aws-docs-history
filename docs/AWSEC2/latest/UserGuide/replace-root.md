@@ -36,7 +36,7 @@ This option replaces the current root volume with a replacement volume that is b
 
 The replacement root volume gets the same type, size, and delete on termination attributes as the original root volume.
 
-**Considerations for using a snapshot**
+Consider the following when you use a snapshot:
 + You can only use snapshots that were created directly from the instance's current or previous root volumes.
 + You can't use snapshot copies created from snapshots that were taken from the root volume. 
 + After successfully replacing the root volume, you can still use snapshots taken from the original root volume to replace the new (replacement) root volume.
@@ -63,7 +63,7 @@ After the root volume replacement task completes, the following new and updated 
 
 The new AMI ID is also reflected in the instance metadata.
 
-**Considerations for using an AMI:**
+Consider the following when you use an AMI:
 + If you use an AMI that has multiple block device mappings, only the root volume of the AMI is used. The other (non-root) volumes are ignored.
 + You can only use this feature if you have permissions to the AMI and its associated root volume snapshot. You cannot use this feature with AWS Marketplace AMIs.
 + You can only use an AMI without a product code only if the instance does not have a product code.
@@ -80,7 +80,7 @@ Before you use this option, you must create and prepare the replacement Amazon E
 
 The replacement root volume retains the size, type, and other attributes that you configured when you created and prepared it. The delete on termination attribute of the original root volume does not transfer to the replacement root volume.
 
-**Considerations for using an existing Amazon EBS volume**
+Consider the following when you use an existing Amazon EBS volume:
 + The instance keeps its current boot mode. The replacement volume must contain an operating system and bootloader that support that boot mode. For more information, see [Determine the boot mode of the operating system for your EC2 instance](os-boot-mode.md).
 + The replacement volume must be in the same Availability Zone as the instance.
 + The replacement volume must not be attached to any instance at the time of the request.
@@ -89,7 +89,7 @@ The replacement root volume retains the size, type, and other attributes that yo
 + You can use this option with AWS Marketplace instances, but both the marketplace product codes and the billing codes on the replacement volume must match those on the instance.
 + If the original root volume is encrypted, the replacement volume must also be encrypted. You can move from an unencrypted volume to an encrypted one, but not from encrypted to unencrypted. When the replacement volume is encrypted, your IAM principal must have the AWS KMS permissions required to detach the original volume. You must also have the permissions to attach and decrypt the replacement volume. These are the same permissions needed to attach an encrypted volume.
 
-You can choose whether to keep the original root volume after the root volume replacement process has completed. If you choose delete the original root volume after the replacement process completes, the original root volume is automatically deleted and becomes unrecoverable. If you choose to keep the original root volume after the process completes, the volume remains provisioned in your account; you must manually delete the volume when you no longer need it.
+You can choose whether to keep the original root volume after the root volume replacement process has completed. If you choose to delete the original root volume after the replacement process completes, the original root volume is automatically deleted and becomes unrecoverable. If you choose to keep the original root volume after the process completes, the volume remains provisioned in your account; you must manually delete the volume when you no longer need it.
 
 The root volume replacement task transitions through the following states:
 + `pending` — The replacement volume is being created.
@@ -105,11 +105,9 @@ If the root volume replacement task fails, the instance is rebooted and the orig
 ## Considerations
 <a name="replace-root-considerations"></a>
 
-Before you begin, consider the following.
-
-**Requirements**
+Before you begin, review the following requirements:
 + The instance must be in the `running` state.
-+ The instance is automatically rebooted during the process. The contents of the memory (RAM) is erased during the reboot. No manual reboots are required.
++ The instance is automatically rebooted during the process. The contents of the memory (RAM) are erased during the reboot. No manual reboots are required.
 + You can't replace the root volume if it is an instance store volume. Only instances with Amazon EBS root volumes are supported. 
 + You can replace the root volume for all virtualized instance types and EC2 Mac bare metal instances. No other bare metal instance types are supported.
 + When using a snapshot, you can only use snapshots that you created directly from the instance's current or previous root volumes.
