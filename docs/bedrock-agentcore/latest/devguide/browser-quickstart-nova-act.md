@@ -110,9 +110,9 @@ If you encounter errors, verify:
 
 While your browser script is running, you can view the session in real-time through the AWS Console:
 
-1. Open the [Amazon Bedrock AgentCore Browser Console](https://us-west-2.console.aws.amazon.com/bedrock-agentcore/builtInTools) 
+1. Open the [Amazon Bedrock AgentCore Browser Console](https://console.aws.amazon.com/bedrock-agentcore/builtInTools) 
 
-1. Navigate to **Built-in tools** in the left navigation
+1. Navigate to **Connections** in the left navigation
 
 1. Select the Browser tool (for example, `AgentCore Browser Tool` , or your custom browser)
 

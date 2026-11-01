@@ -7,7 +7,7 @@ This troubleshooting topic helps you identify and resolve common issues when wor
 
 **Topics**
 + [My agent invocations fail with "This runtime is not MMDSv2-enabled" ValidationException](#troubleshoot-runtime-mmdsv2-validation)
-+ [My agent invocations fail with 504 Gateway Timeout errors](#troubleshoot-runtime-timeout)
++ [My agent invocations time out with RuntimeClientError (424)](#troubleshoot-runtime-timeout)
 + [My Docker build fails with "403 Forbidden" when pulling Python base images](#troubleshoot-runtime-docker-403)
 + [I get "Unknown service: 'bedrock-agent-core-runtime'" error when using boto3](#troubleshoot-runtime-boto3)
 + [I get "AccessDeniedException" when trying to create an Amazon Bedrock AgentCore Runtime](#troubleshoot-runtime-access-denied)
@@ -66,17 +66,21 @@ except Exception as e:
 
 After you update, new invocations will succeed. Existing sessions are not affected.
 
-## My agent invocations fail with 504 Gateway Timeout errors
+## My agent invocations time out with RuntimeClientError (424)
 <a name="troubleshoot-runtime-timeout"></a>
 
- **When this occurs:** During agent invocation via SDK or console
+ **When this occurs:** During agent invocation via SDK or console, or requests through a session endpoint.
 
- **Why this happens:** Multiple factors can prevent your agent from responding within the timeout period
+ **Why this happens:** The application doesn’t become ready or respond within the timeout.
+
+For session endpoint requests, these failures return HTTP `424` with `RuntimeClientError` in the `X-Amzn-Bedrock-AgentCore-Runtime-Error` header and an empty response body. For details, see [Handle proxy errors](runtime-session-endpoints.md#runtime-session-endpoints-errors).
 
 Several factors can cause this:
-+  **Container Issues:** Make sure your Docker image exposes port 8080 and has the `/invocations` path
-+  **ARM64 Compatibility:** Your container must be ARM64 compatible
-+  **Retry Logic:** Review retry mechanisms for handling transient issues
++  **Container issues:** Make sure your server listens on the configured serving port. It must handle POST requests at the invocation path.
++  **ARM64 compatibility:** Your container must be ARM64 compatible
++  **Retry logic:** Review retry mechanisms for handling transient issues
+
+For HTTP, the default serving port is `8080` and the default invocation path is `/invocations`. For configuration details, see [Configure your agent’s serving port and invocation path](runtime-configure-invocation.md).
 
 ## My Docker build fails with "403 Forbidden" when pulling Python base images
 <a name="troubleshoot-runtime-docker-403"></a>
@@ -140,8 +144,8 @@ pip install --upgrade boto3 botocore
 Review [Amazon Bedrock AgentCore Runtime requirements](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-service-contract.html) for full details.
 
 In summary, your Docker container must meet these requirements:
-+  **Port:** Expose port 8080
-+  **Endpoint:** Must have `/invocations` path available
++  **Serving port:** Listen on the configured serving port (`8080` by default for HTTP). To make additional application ports reachable through a session endpoint, configure [allowed ports](runtime-session-endpoints.md#runtime-session-endpoints-allowed-ports).
++  **Endpoint:** Handle POST requests at the configured invocation path (`/invocations` by default for HTTP)
 +  **Architecture:** Must be ARM64 compatible
 +  **Response:** Should handle the expected payload format
 
@@ -423,7 +427,7 @@ For bidirectional streaming using WebSocket agents, follow these specific troubl
 
  **Verify endpoint configuration** 
 
-WebSocket agents must run on port 8080 and serve WebSocket connections at `/ws` path
+For the standard Runtime WebSocket API, configure the `/ws` endpoint as described in [HTTP protocol contract](runtime-http-protocol-contract.md). For WebSocket connections through a session endpoint, use your application’s WebSocket path and an allowed port as described in [HTTP, gRPC, and WebSocket connections](runtime-session-endpoints.md#runtime-session-endpoints-protocols).
 
  **Test locally with incremental complexity** 
 

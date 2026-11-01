@@ -77,7 +77,7 @@ Permanently remove a custom evaluator using the console interface, which include
 
 1. Open the Amazon Bedrock AgentCore console.
 
-1. In the navigation pane, choose **Evaluation**.
+1. In the navigation pane, under **Resources**, choose **Evaluations**.
 
 1. Choose **Custom evaluators** next to Evaluation configurations.
 

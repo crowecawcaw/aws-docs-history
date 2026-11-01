@@ -11,9 +11,9 @@ You can create a Code Interpreter using the Amazon Bedrock AgentCore console, AW
 
 1. Open the AgentCore console at [https://console.aws.amazon.com/bedrock-agentcore/home\#](https://console.aws.amazon.com/bedrock-agentcore/home#).
 
-1. In the navigation pane, choose **Built-in tools**.
+1. In the navigation pane, under **Connections**, choose **Code Interpreter**.
 
-1. Choose **Create Code Interpreter tool**.
+1. Choose **Create**.
 
 1. Provide a unique **Tool name** and optional **Description**.
 

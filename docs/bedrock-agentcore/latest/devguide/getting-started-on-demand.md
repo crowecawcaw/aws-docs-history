@@ -39,7 +39,7 @@ Create and deploy your agent by following the [Get Started guide for AgentCore R
 ## Step 2: Invoke your agent
 <a name="invoke-agent-on-demand"></a>
 
-Invoke your agent using the following command and view the traces, sessions and metrics on GenAI Observability dashboard on CloudWatch.
+Invoke your agent using the following command and view the traces, sessions, and metrics on the AgentCore observability page or the GenAI Observability dashboard on CloudWatch.
 
 **Topics**
 + [Example invoke\_agent.py](#example-invoke-agent)

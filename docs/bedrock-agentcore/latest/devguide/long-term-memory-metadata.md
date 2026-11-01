@@ -260,7 +260,7 @@ Every memory record carries these system fields, queryable with the same filter 
 
 | Field | Type | Description | 
 | --- | --- | --- | 
-|  `x-amz-agentcore-memory-recordType`  |  `stringValue`  | The type of the memory record | 
+|  `x-amz-agentcore-memory-recordType`  |  `stringValue`  | The type of the memory record. For example, full session summaries have the value `FULL_SESSION`. For more information about full session summaries, see [Full session summary](summary-strategy.md#summary-strategy-full-session-summary). | 
 |  `x-amz-agentcore-memory-createdAt`  |  `dateTimeValue`  | Record creation timestamp | 
 |  `x-amz-agentcore-memory-updatedAt`  |  `dateTimeValue`  | Record last-update timestamp | 
 

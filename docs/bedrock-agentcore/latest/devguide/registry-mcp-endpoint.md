@@ -43,8 +43,9 @@ Parameters:
 - searchQuery (required): string - Natural language search query
 - maxResults: integer - Maximum number of results to return (1-20, default 10)
 - filter: object - Optional metadata filter using structured JSON operators. Supports field-level operators ($eq, $ne,
-  $in) and logical operators ($and, $or) on filterable fields (name, recordType, recordVersion). Example:
-  {"recordType": {"$eq": "MCP"}}
+  $in) and logical operators ($and, $or). Filterable fields: name, recordType, recordVersion, and customMetadata.{key}
+  (for example, customMetadata.environment or customMetadata.team). Example:
+  {"recordType": {"$eq": "MCP"}, "customMetadata.environment": {"$eq": "prod"}}
 
 ---
 
@@ -91,6 +92,8 @@ Parameters:
   $in) and logical operators ($and, $or) on filterable fields (name, descriptorType, version). Example:
   {"descriptorType": {"$eq": "MCP"}}
 ```
+
+The `filter` parameter of `search_discoverable_registry_records` follows the same rules and limits as the `SearchDiscoverableRegistryRecords` API. See [Filter rules and limits](registry-search-records.md#registry-search-filter-rules). When a filter breaks these rules, the tool returns a result with `isError` set to `true` and the generic text `Error: Invalid request parameters` in its content. This text doesn’t name the rule that the filter broke.
 
 You can connect to registry from an existing MCP client, such as Kiro, Claude, etc.
 

@@ -124,9 +124,9 @@ You should see the agent navigate the website and return details about AgentCore
 
 While your agent is running, you can watch it in real-time through the AWS Console:
 
-1. Open the [AgentCore Browser Console](https://us-west-2.console.aws.amazon.com/bedrock-agentcore/builtInTools) 
+1. Open the [AgentCore Browser Console](https://console.aws.amazon.com/bedrock-agentcore/builtInTools) 
 
-1. Navigate to **Built-in tools** in the left navigation
+1. Navigate to **Connections** in the left navigation
 
 1. Select the Browser tool (for example, `AgentCore Browser Tool` , or your custom browser)
 
@@ -148,7 +148,7 @@ After using AgentCore Browser, view your resources in the AWS Console:
 | 2 | Session Recordings and Replay | Browser Console > Tool Name > **View recording**  | 
 | 3 | Browser Logs |  **CloudWatch** > **Log groups** > `/aws/bedrock-agentcore/browser/`  | 
 | 4 | Recording Files |  **S3** > Your bucket > `browser-recordings/` prefix | 
-| 5 | Custom Browsers |  **AgentCore Console** > **Built-in tools** > Your custom browser | 
+| 5 | Custom Browsers |  **AgentCore Console** > **Connections** > **Browser** > Your custom browser | 
 | 6 | IAM Roles |  **IAM** > **Roles** > Search for your execution role | 
 
 ## Next steps

@@ -25,6 +25,9 @@ You can use the following MCP operations with an AgentCore gateway:
 | sampling/createMessage | Requests an LLM completion from the client during a tool call (server-initiated) | 
 | notifications/progress | Reports progress on long-running tool calls (server-initiated) | 
 | notifications/message | Sends log messages from the server during tool execution (server-initiated) | 
+| tasks/get | Polls the status of a long-running task and returns its result when the task is complete (see [Use tasks with your AgentCore gateway](gateway-mcp-tasks.md)) | 
+| tasks/update | Supplies input to a task that requested it mid-execution | 
+| tasks/cancel | Requests cancellation of a running task | 
 
 On version `2026-07-28`, server-initiated interactions (`elicitation/create` and `sampling/createMessage`) use the multi round-trip requests (MRTR) pattern:
 
@@ -49,5 +52,6 @@ The following topics describe how to invoke your AgentCore gateway:
 + [Receive progress notifications from your AgentCore gateway](gateway-mcp-progress.md)
 + [Receive logging messages from your AgentCore gateway](gateway-mcp-logging.md)
 + [Use sampling with your AgentCore gateway](gateway-mcp-sampling.md)
++ [Use tasks with your AgentCore gateway](gateway-mcp-tasks.md)
 + [Search for tools in your AgentCore gateway with a natural language query](gateway-using-mcp-semantic-search.md)
 + [Create an agent that uses your AgentCore gateway](gateway-agent-integration.md)

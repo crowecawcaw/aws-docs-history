@@ -9,7 +9,7 @@ In the AWS Management Console, you can add gateway targets when you create the g
 
 1. Open the AgentCore console at [https://console.aws.amazon.com/bedrock-agentcore/home\#](https://console.aws.amazon.com/bedrock-agentcore/home#).
 
-1. Choose **Gateways**.
+1. In the left navigation pane, under **Resources**, choose **Gateways**.
 
 1. Select the gateway to which you want to add a target.
 

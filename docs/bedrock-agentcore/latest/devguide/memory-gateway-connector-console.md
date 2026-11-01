@@ -16,7 +16,7 @@ The **Create gateway** wizard creates both the gateway and its target in the sam
 
 1. Open the [Amazon Bedrock AgentCore](https://console.aws.amazon.com/bedrock-agentcore/) console.
 
-1. In the left navigation pane, choose **Gateways**.
+1. In the left navigation pane, under **Resources**, choose **Gateways**.
 
 1. Choose **Create gateway**.
 
@@ -42,6 +42,8 @@ The **Create gateway** wizard creates both the gateway and its target in the sam
 1. For **Memory**, choose the Memory resource that this target fronts.
 
 1. For **Outbound Auth configurations**, choose **IAM Role**.
+
+1. (Optional) For **Tool description**, describe when the agent should access this memory. This is the only guidance the agent sees when it chooses between available tools.
 
 1. Choose **Next**.
 

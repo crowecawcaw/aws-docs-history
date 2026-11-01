@@ -18,7 +18,9 @@ AgentCore Gateway lets you connect to paid MCP servers and API endpoints. You ca
 
 1. (Optional) Provide a **Target description**.
 
-1. For **Target type**, choose **Integrations**.
+1. For **Target type**, choose **Connectors**.
+
+1. Under **Pre-configured targets**, choose **Other integrations**.
 
 1. Select **Coinbase x402 Bazaar**.
 

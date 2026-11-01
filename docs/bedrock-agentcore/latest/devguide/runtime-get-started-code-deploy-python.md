@@ -160,14 +160,10 @@ The AgentCore Runtime needs permission to read the files in your deployment pack
    ```
 
    For more information about invoking an agent programmatically, see [Invoke streaming agents](runtime-invoke-agent.md#runtime-invoke-streaming-example).
-
-1. You can deploy your agent using the Amazon Bedrock AgentCore console with managed runtime support.
-
-   To deploy using the console, first create your deployment package following the steps in the *Boto3* tab above.
-
-    **Create agent through console** 
-
-   To create your agent:
+You can deploy your agent using the Amazon Bedrock AgentCore console with managed runtime support.  
+To deploy using the console, first create your deployment package following the steps in the *Boto3* tab above.  
+ **Create agent through console**   
+To create your agent:  
 
 1. From the Agents home page, choose **Host Agent** 
 
@@ -183,18 +179,12 @@ The AgentCore Runtime needs permission to read the files in your deployment pack
    + Execution role (create new or use existing)
 
 1. Choose **Create Agent** to deploy
-
-    **Create endpoint** 
-
-   Choose **Create Endpoint** to create a new endpoint for your agent. The endpoint name and associated version will be pre-filled.
-
-    **Test endpoint** 
-
-   Select an endpoint and choose **Test Endpoint** to navigate to the Playground/Sandbox for testing.
-
-    **Execution role requirements** 
-
-   Your agent requires an execution role with appropriate permissions. For detailed information about execution roles and permissions, see [AgentCore Runtime permissions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-permissions.html) . The execution role must include basic Amazon Bedrock AgentCore runtime permissions, S3 access permissions for your deployment package, and CloudWatch Logs permissions for observability.
+ **Create endpoint**   
+Choose **Create Endpoint** to create a new endpoint for your agent. The endpoint name and associated version will be pre-filled.  
+ **Test endpoint**   
+Select an endpoint and choose **Test Endpoint** to navigate to the Playground/Sandbox for testing.  
+ **Execution role requirements**   
+Your agent requires an execution role with appropriate permissions. For detailed information about execution roles and permissions, see [AgentCore Runtime permissions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-permissions.html) . The execution role must include basic Amazon Bedrock AgentCore runtime permissions, S3 access permissions for your deployment package, and CloudWatch Logs permissions for observability.
 
 ## Step 4: Stop a session, update, or clean up
 <a name="step-6-update-cleanup"></a>
@@ -299,22 +289,14 @@ Stop your runtime session, update, or cleanup your agent using one of the follow
    )
    print("Archive deleted successfully from S3!")
    ```
-
-1.  **Update agent** 
-
-   From the Agent details page, choose **Update hosting** to create a new version with updated code or configuration.
-
-    **Update endpoint** 
-
-   Select an endpoint from the Endpoints table and choose **Edit** to update the description or associated version.
-
-    **Delete endpoint** 
-
-   Select an endpoint and choose **Delete** . You’ll need to type "delete" to confirm the deletion.
-
-    **Delete agent** 
-
-   From the agent list or details page, select your agent and choose **Delete** to remove the agent and all associated resources.
+ **Update agent**   
+From the Agent details page, choose **Update hosting** to create a new version with updated code or configuration.  
+ **Update endpoint**   
+Select an endpoint from the Endpoints table and choose **Edit** to update the description or associated version.  
+ **Delete endpoint**   
+Select an endpoint and choose **Delete** . You’ll need to type "delete" to confirm the deletion.  
+ **Delete agent**   
+From the agent list or details page, select your agent and choose **Delete** to remove the agent and all associated resources.
 
 ## Python-specific concepts for direct code deployment
 <a name="runtime-code-deploy-python-concepts"></a>

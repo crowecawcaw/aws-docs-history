@@ -19,6 +19,7 @@ The following sections walk through the key capabilities, the architecture of th
 + [Use cases](#gateway-target-connector-web-search-tool-use-cases)
 + [Set up Web Search Tool](#gateway-target-connector-web-search-tool-setup)
 + [Use with a harness](#gateway-target-connector-web-search-tool-harness)
++ [Use Web Search Tool with Claude](#gateway-target-connector-web-search-tool-claude)
 + [Configure domain filtering](#gateway-target-connector-web-search-tool-domain-filtering)
 + [Configure the Gateway Service Role](#gateway-target-connector-web-search-tool-service-role)
 + [Input schema](#gateway-target-connector-web-search-tool-input-schema)
@@ -92,6 +93,89 @@ For instructions on how to create a Gateway Target with the Web Search Tool conn
 <a name="gateway-target-connector-web-search-tool-harness"></a>
 
 To give an [AgentCore harness](harness.md) web search capability, attach the gateway that you created in Set up Web Search Tool to the harness as an `agentcore_gateway` tool. The harness execution role requires the `bedrock-agentcore:InvokeGateway` permission on the gateway ARN. For the end-to-end walkthrough, see [Tools](harness-tools.md) in the harness documentation.
+
+## Use Web Search Tool with Claude
+<a name="gateway-target-connector-web-search-tool-claude"></a>
+
+Add Web Search Tool to Claude when you want Claude to answer with current, cited web results through a gateway in your own AWS account. Claude connects to the gateway as a custom connector.
+
+Claude calls the gateway over Model Context Protocol (MCP) with an Open Authorization (OAuth) access token. For this reason, the gateway uses JSON Web Token (JWT) inbound authorization instead of AWS Identity and Access Management (IAM).
+
+Before you begin, make sure that you have the following:
++ An AWS account in an AWS Region that offers Web Search Tool.
++ Permissions to create Amazon Cognito user pools and AgentCore gateways.
++ The [AgentCore command line interface (CLI)](https://github.com/aws/agentcore-cli) installed.
++ A Claude plan that supports custom connectors.
+
+To create the user pool and app client, complete the following steps:
+
+1. Open the Amazon Cognito console at https://console.aws.amazon.com/cognito/.
+
+1. Create a user pool with a domain.
+
+1. In the user pool, create an app client with a client secret.
+
+1. For the app client, select the authorization code grant.
+
+1. Add the `openid`, `email`, and `profile` scopes.
+
+1. Add the callback URL `https://claude.ai/api/mcp/auth_callback`.
+
+**Note**  
+Instead of Amazon Cognito, you can use any OpenID Connect identity provider that supports the authorization code grant.
+
+To create the gateway and the Web Search Tool target, complete the following steps:
+
+1. Create an AgentCore CLI project without an agent. Run the following AgentCore CLI commands:
+
+   ```
+   agentcore create --name WebSearchClaude --project-name WebSearchClaude --no-agent
+   cd WebSearchClaude
+   ```
+
+1. Add a gateway that uses your app client for JWT inbound authorization. In the following command, replace `<region>` with your Region code, `<user-pool-id>` with your user pool ID, and `<app-client-id>` with your app client ID. Then run the following AgentCore CLI command:
+
+   ```
+   agentcore add gateway --name web-search-claude --protocol-type MCP --authorizer-type CUSTOM_JWT \
+     --discovery-url https://cognito-idp.<region>.amazonaws.com/<user-pool-id>/.well-known/openid-configuration \
+     --allowed-clients <app-client-id> --no-semantic-search
+   ```
+
+   The `--no-semantic-search` option keeps Web Search Tool as the only tool on the gateway.
+
+1. Add the Web Search Tool target. Run the following AgentCore CLI command:
+
+   ```
+   agentcore add gateway-target --name amazon-web-search --gateway web-search-claude --type connector --connector web-search
+   ```
+
+   To add a target-level domain exclude list, add the `--exclude-domains` option to the `add gateway-target` command.
+
+1. Deploy the project. Run the following AgentCore CLI command:
+
+   ```
+   agentcore deploy -y
+   ```
+
+   The deploy output includes the gateway URL.
+
+To add the connector in Claude, complete the following steps:
+
+1. In Claude, add a custom connector.
+
+1. For the server URL, enter the gateway URL from the deploy output.
+
+1. Select the option to use your own OAuth client.
+
+1. Enter the app client ID and secret.
+
+1. Sign in with a user from your user pool.
+
+Claude lists the tool as **Web Search** and marks it read-only.
+
+Connector version `1.3.0` adds the tool annotations that Claude uses. Targets that you create without a version use `1.3.0`, the default. To use an existing target with Claude, update the target to `1.3.0`. For more information about connector versions, see [Connector versions](gateway-target-connector-versions.md).
+
+The citation requirements in [Acceptable use](#gateway-target-connector-web-search-tool-acceptable-use) apply to answers that Claude shows to your users.
 
 ## Configure domain filtering
 <a name="gateway-target-connector-web-search-tool-domain-filtering"></a>

@@ -14,9 +14,9 @@ You can create a Browser Tool using the Amazon Bedrock AgentCore console, AWS CL
 
 1. Open the AgentCore console at [https://console.aws.amazon.com/bedrock-agentcore/home\#](https://console.aws.amazon.com/bedrock-agentcore/home#).
 
-1. In the navigation pane, choose **Built-in tools**.
+1. In the navigation pane, under **Connections**, choose **Browser**.
 
-1. Choose **Create browser tool**.
+1. Choose **Create**.
 
 1. Provide a unique **Tool name** and optional **Description**.
 
@@ -111,7 +111,7 @@ You can get information about the Browser tool in your account and view their de
 
 1. Open the AgentCore console at [https://console.aws.amazon.com/bedrock-agentcore/home\#](https://console.aws.amazon.com/bedrock-agentcore/home#).
 
-1. In the navigation pane, choose **Built-in tools**.
+1. In the navigation pane, under **Connections**, choose **Browser**.
 
 1. The browser tools are listed in the **Browser tools** section.
 
@@ -160,7 +160,7 @@ You can list all browser tools in your account to view their details, status, an
 
 1. Open the AgentCore console at [https://console.aws.amazon.com/bedrock-agentcore/home\#](https://console.aws.amazon.com/bedrock-agentcore/home#).
 
-1. In the navigation pane, choose **Built-in tools**.
+1. In the navigation pane, under **Connections**, choose **Browser**.
 
 1. The browser tools are listed in the **Browser tools** section.
 
@@ -245,7 +245,7 @@ When you no longer need a browser tool, you can delete it to free up resources. 
 
 1. Open the AgentCore console at [https://console.aws.amazon.com/bedrock-agentcore/home\#](https://console.aws.amazon.com/bedrock-agentcore/home#).
 
-1. Navigate to **Built-in tools** and select your browser tool.
+1. In the navigation pane, under **Connections**, choose **Browser**, and then select your browser tool.
 
 1. Choose **Delete** from the **Actions** menu.
 

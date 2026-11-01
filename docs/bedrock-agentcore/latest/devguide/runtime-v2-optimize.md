@@ -55,7 +55,7 @@ The snapshot is captured once and shared by every restored instance, so any valu
 
 | To do this | Do it in the handler | Reason | 
 | --- | --- | --- | 
-| Generate random values, identifiers, or tokens | Call `os.urandom()`, `secrets`, or `uuid.uuid4()` on each request |  `os.urandom()` returns fresh entropy only each time you call it after a restore. A value read at startup is copied into the snapshot and is identical on every instance, however good the entropy source was when it was read. The `random` module is likewise seeded at startup, so restored instances repeat the same sequence. | 
+| Generate random values, identifiers, or tokens | Call `os.urandom()`, `secrets`, or `uuid.uuid4()` on each request. In Node.js, read `/dev/urandom` on each request. |  `os.urandom()` returns fresh entropy only each time you call it after a restore. A value read at startup is copied into the snapshot and is identical on every instance, however good the entropy source was when it was read. The `random` module is likewise seeded at startup, so restored instances repeat the same sequence. In Node.js, the `crypto` module can repeat values across instances even in the handler. For more information, see **Use snapshot-safe cryptographic libraries** on this page. | 
 | Read the current time | Compute it for each request | A timestamp captured at startup is fixed at the time of the snapshot. | 
 | Measure elapsed time | Take the reference timestamp in your handler |  `time.monotonic()` does not advance across a restore, so a duration measured from a startup reference is wrong without looking wrong. | 
 | Use credentials or tokens | Refresh them when they expire | Credentials loaded at startup can expire before an instance starts. | 
@@ -92,6 +92,7 @@ On AgentCore Runtime, snapshot-safe builds of cryptographic libraries don’t re
  **Workarounds** 
 + Generate secrets, keys, tokens, and session identifiers while handling a request, not when your agent starts. This avoids using any values created before AgentCore Runtime takes the snapshot in each instance restored from that snapshot.
 + Even while handling a request, get random values directly from the operating system, for example Python’s `secrets` or `os.urandom`, Go’s `crypto/rand`, or reading `/dev/urandom`. Don’t use random values from a cryptographic library such as OpenSSL, because they can repeat across instances.
++ In Node.js, the `crypto` module uses OpenSSL. This includes `crypto.randomBytes()`, `crypto.randomUUID()` (also with `disableEntropyCache: true`), `crypto.randomInt()`, `crypto.getRandomValues()`, and packages built on them, such as `uuid`. Values from these functions can repeat across instances, even when you call them in your handler. To get unique values in Node.js, read bytes from `/dev/urandom`.
 
 ## Networking
 <a name="_networking"></a>

@@ -25,7 +25,7 @@ To create a Coinbase payment connector, your account must have an active AWS Mar
 
 1. Open the [Amazon Bedrock AgentCore console](https://console.aws.amazon.com/bedrock-agentcore/).
 
-1. In the navigation pane, under **Build**, choose **Payments**.
+1. In the navigation pane, under **Connections**, choose **Payments**.
 
 1. In the **Payment Managers** section, choose **Create Payment Manager**.
 <a name="payments-setup-pm-console-step2"></a> **Step 2: Configure Payment Manager details**   

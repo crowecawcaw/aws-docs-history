@@ -85,6 +85,7 @@ AgentCore uses the `AWSServiceRoleForBedrockAgentCoreGatewayNetwork` service-lin
 Before creating a gateway target with a managed private endpoint, ensure the following:
 + Your private resource (MCP server or REST API) is running and accessible within your VPC.
 + You have at least one subnet in your VPC that has network access to the private resource.
++ Your subnets are in a supported Availability Zone for your Region. For the list, see [Supported Availability Zones for managed VPC resources](#lattice-vpc-egress-managed-lattice-azs).
 + Your security groups allow inbound traffic on the port used by your private resource (typically port 443 for HTTPS).
 + Your IAM principal has the `iam:CreateServiceLinkedRole` permission for `bedrock-agentcore.amazonaws.com` , so that AgentCore can create the service-linked role on your behalf if it does not already exist. For the required IAM policy, see [Gateway service-linked role](service-linked-roles.md#gateway-service-linked-role).
 + Your IAM principal has the following Amazon EC2 permissions, which are required for AgentCore to set up the VPC Lattice resource gateway in your VPC:
@@ -93,6 +94,45 @@ Before creating a gateway target with a managed private endpoint, ensure the fol
   +  `ec2:DescribeSecurityGroups` 
   +  `ec2:DescribeSubnets` 
 + If your private resource uses a TLS certificate issued by a private certificate authority, you can place an internal Application Load Balancer with a public ACM certificate in front of it. For more information, see [Workaround for private certificates: ALB](#lattice-vpc-egress-private-certs).
+
+### Supported Availability Zones for managed VPC resources
+<a name="lattice-vpc-egress-managed-lattice-azs"></a>
+
+When you use managed VPC resources, the subnets that you specify in `subnetIds` must be in Availability Zones that AgentCore Gateway supports for your Region. If none of your subnets are in a supported Availability Zone, target creation fails with a `ValidationException`. Always specify Availability Zone IDs rather than Availability Zone names, because the mapping of names to IDs is different for each AWS account.
+
+Only AgentCore Gateway targets that use managed VPC resources use this list. AgentCore Runtime and built-in tools support a different set of Availability Zones. For more information, see [Supported Availability Zones](agentcore-vpc.md#agentcore-supported-azs). AgentCore Gateway might support more Availability Zones over time.
+
+The following table shows the Availability Zone IDs that are currently supported for each Region:
+
+
+| Region | Region code | Supported Availability Zones | 
+| --- | --- | --- | 
+| US East (N. Virginia) | us-east-1 | use1-az1 use1-az2 use1-az4 use1-az5 use1-az6 | 
+| US East (Ohio) | us-east-2 | use2-az1 use2-az2 use2-az3 | 
+| US West (N. California) | us-west-1 | usw1-az1 usw1-az3 | 
+| US West (Oregon) | us-west-2 | usw2-az1 usw2-az2 usw2-az3 usw2-az4 | 
+| Asia Pacific (Malaysia) | ap-southeast-5 | apse5-az1 apse5-az2 apse5-az3 | 
+| Asia Pacific (Mumbai) | ap-south-1 | aps1-az1 aps1-az2 aps1-az3 | 
+| Asia Pacific (Hyderabad) | ap-south-2 | aps2-az1 aps2-az2 aps2-az3 | 
+| Asia Pacific (Seoul) | ap-northeast-2 | apne2-az1 apne2-az3 apne2-az4 | 
+| Asia Pacific (Singapore) | ap-southeast-1 | apse1-az1 apse1-az2 apse1-az3 | 
+| Asia Pacific (Sydney) | ap-southeast-2 | apse2-az1 apse2-az2 apse2-az3 | 
+| Asia Pacific (Tokyo) | ap-northeast-1 | apne1-az1 apne1-az2 apne1-az4 | 
+| Canada (Central) | ca-central-1 | cac1-az1 cac1-az2 cac1-az4 | 
+| Europe (Frankfurt) | eu-central-1 | euc1-az1 euc1-az3 | 
+| Europe (Ireland) | eu-west-1 | euw1-az1 euw1-az2 euw1-az3 | 
+| Europe (London) | eu-west-2 | euw2-az1 euw2-az2 euw2-az3 | 
+| Europe (Milan) | eu-south-1 | eus1-az1 eus1-az2 eus1-az3 | 
+| Europe (Paris) | eu-west-3 | euw3-az1 euw3-az2 euw3-az3 | 
+| Europe (Spain) | eu-south-2 | eus2-az1 eus2-az2 eus2-az3 | 
+| Europe (Stockholm) | eu-north-1 | eun1-az1 eun1-az2 eun1-az3 | 
+| South America (São Paulo) | sa-east-1 | sae1-az1 sae1-az2 sae1-az3 | 
+
+To identify the Availability Zone ID of a subnet, use the following AWS CLI command:
+
+```
+PROMPT> aws ec2 describe-subnets --subnet-ids subnet-12345678 --query 'Subnets[0].AvailabilityZoneId'
+```
 
 ### Create a target with a managed private endpoint
 <a name="lattice-vpc-egress-managed-lattice-create"></a>
@@ -459,6 +499,7 @@ The following table describes common issues and their solutions:
 | Issue | Solution | 
 | --- | --- | 
 | Target creation fails with an IAM permission error | Ensure your IAM principal has the `iam:CreateServiceLinkedRole` permission for `bedrock-agentcore.amazonaws.com` . For self-managed Lattice, ensure you have the required VPC Lattice permissions listed in [Prerequisites](#lattice-vpc-egress-self-managed-lattice-prereqs). | 
+| Target creation fails with a `ValidationException` that says the subnet Availability Zones do not overlap with the supported Availability Zones | At least one subnet in `subnetIds` must be in a supported Availability Zone. Check the Availability Zone ID of your subnets and compare it with the list in [Supported Availability Zones for managed VPC resources](#lattice-vpc-egress-managed-lattice-azs). If your subnets are in unsupported Availability Zones, specify subnets in a supported Availability Zone, or create a new subnet there. | 
 | Tool invocations fail with a connection error after target creation | Verify that the security groups associated with the resource gateway allow inbound traffic on the port used by your private resource. Also verify that the private resource is running and accessible from the specified subnets. | 
 | Tool invocations fail with a TLS error | If your private resource uses a certificate issued by a private CA, ensure that the certificate’s Subject Alternative Name (SAN) matches the domain in your MCP endpoint or OpenAPI server URL. If using a routing domain, ensure the routing domain correctly forwards TLS to your private resource. | 
 | Resource configuration not found (self-managed) | For cross-account scenarios, ensure the AWS RAM resource share has been accepted in the gateway owner account before creating the target. | 

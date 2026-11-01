@@ -6,7 +6,7 @@
 Understand the requirements for implementing the HTTP protocol in your agent application. Use the HTTP protocol to create direct REST API endpoints for traditional request/response patterns and WebSocket endpoints for real-time bidirectional streaming connections.
 
 **Note**  
-Both HTTP ( `/invocations` ) and WebSocket ( `/ws` ) endpoints can be deployed on the same container using port 8080, allowing a single agent implementation to support both traditional API interactions and real-time bidirectional streaming.
+Both HTTP ( `/invocations` ) and WebSocket ( `/ws` ) endpoints can be deployed on the same container using the default serving port 8080, allowing a single agent implementation to support both traditional API interactions and real-time bidirectional streaming.
 
 For example code, see [Get started with the AgentCore CLI](runtime-get-started-cli.md).
 
@@ -20,9 +20,11 @@ For example code, see [Get started with the AgentCore CLI](runtime-get-started-c
 <a name="container-requirements-http"></a>
 
 Your agent must be deployed as a containerized application meeting these specifications:
-+  **Host** : `0.0.0.0` 
-+  **Port** : `8080` - Standard port for HTTP-based agent communication
-+  **Platform** : ARM64 container - Required for compatibility with the AgentCore Runtime environment
++  **Host**: `0.0.0.0` 
++  **Serving port**: `8080` by default, or the serving port in `protocolConfiguration.port` 
++  **Platform**: ARM64 container - Required for compatibility with the AgentCore Runtime environment
+
+You can change the serving port and the `InvokeAgentRuntime` POST path with `protocolConfiguration`. See [Path requirements](#path-requirements-http) for the default paths. For configuration examples, see [Configure your agent’s serving port and invocation path](runtime-configure-invocation.md).
 
 ## Path requirements
 <a name="path-requirements-http"></a>
@@ -119,6 +121,8 @@ This is the primary WebSocket connection endpoint for real-time bidirectional co
  **Purpose** 
 
 Accepts WebSocket upgrade requests and maintains persistent connections for streaming agent interactions
+
+The WebSocket path is always `/ws`. `protocolConfiguration.path` doesn’t change it. If you configure `protocolConfiguration.port`, serve `/ws` on that port.
 
  **Use cases** 
 

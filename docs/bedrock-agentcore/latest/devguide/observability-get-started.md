@@ -10,7 +10,7 @@ Amazon Bedrock AgentCore Observability helps you trace, debug, and monitor agent
 + [Step 1: Enable transaction search on CloudWatch](#enabling-transaction-search)
 + [Step 2: Enable observability for Amazon Bedrock AgentCore Runtime hosted agents](#enabling-observability-runtime-hosted)
 + [Step 3: Enable observability for non-Amazon Bedrock AgentCore-hosted agents](#enabling-observability-non-runtime-hosted)
-+ [Step 4: Observe your agent with GenAI observability on Amazon CloudWatch](#agentcore-observability-genai-cloudwatch)
++ [Step 4: Observe your agent](#agentcore-observability-genai-cloudwatch)
 + [Best practices](#best-practices)
 
 ## Prerequisites
@@ -305,25 +305,21 @@ from opentelemetry import baggage, context
 ctx = baggage.set_baggage("session.id", session_id)
 ```
 
-## Step 4: Observe your agent with GenAI observability on Amazon CloudWatch
+## Step 4: Observe your agent
 <a name="agentcore-observability-genai-cloudwatch"></a>
 
-After implementing observability, you can view the collected data in CloudWatch:
+After you implement observability, you can view the collected data on the AgentCore console observability page or the CloudWatch generative AI observability page.
 
 ### Observe your agent
 <a name="agentcore-observability-observe"></a>
 
-1. Open the [GenAI Observability on CloudWatch console](https://console.aws.amazon.com/cloudwatch/home#gen-ai-observability) 
+Open the [AgentCore observability](https://console.aws.amazon.com/bedrock-agentcore/observability) page in the AgentCore console. You can also view the same data on the [CloudWatch generative AI observability](https://console.aws.amazon.com/cloudwatch/home#gen-ai-observability) page.
 
-1. You can view the data related to model invocations and agents on Amazon Bedrock AgentCore on the dashboard.
-
-1. In the Bedrock Agentcore tab you can view Agents View, Sessions View and Traces View.
-
-1. Agents View lists all your Agents that are on and not on runtime, you can also choose an agent and view further details like runtime metrics, sessions and traces specific to an agent.
-
-1. In the **Sessions View** tab, you can navigate across all the sessions associated with agents.
-
-1. In the **Trace View** tab, you can look into the traces and span information for agents. Also explore the trace trajectory and timeline by choosing a trace.
+The dashboard shows data about model invocations and your agents, including agents hosted on AgentCore Runtime and agents hosted elsewhere. It has the following tabs:
++  **Overview** – Summarizes metrics across your agents. Choose an agent to see its runtime metrics, sessions, and traces.
++  **Sessions** – Lists all sessions across your agents.
++  **Traces** – Shows the traces for your agents. Choose a trace to explore its trajectory and timeline.
++  **Spans** – Shows span details for the operations within your traces.
 
 ### View logs in CloudWatch
 <a name="view-logs-cloudwatch"></a>

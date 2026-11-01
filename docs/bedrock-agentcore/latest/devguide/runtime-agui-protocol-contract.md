@@ -26,9 +26,11 @@ Your AG-UI agent must implement these specific protocol requirements:
 <a name="agui-container-requirements"></a>
 
 Your AG-UI agent must be deployed as a containerized application meeting these specifications:
-+  **Host** : `0.0.0.0` 
-+  **Port** : `8080` - Standard port for AG-UI agent communication (same as HTTP protocol)
-+  **Platform** : ARM64 container - Required for compatibility with AWS Amazon Bedrock AgentCore runtime environment
++  **Host**: `0.0.0.0` 
++  **Serving port**: `8080` by default, or the serving port in `protocolConfiguration.port` 
++  **Platform**: ARM64 container - Required for compatibility with AWS Amazon Bedrock AgentCore runtime environment
+
+You can change the serving port and the `InvokeAgentRuntime` POST path with `protocolConfiguration`. See [Path requirements](#agui-path-requirements) for the default paths. For configuration examples, see [Configure your agent’s serving port and invocation path](runtime-configure-invocation.md).
 
 ## Path requirements
 <a name="agui-path-requirements"></a>
@@ -100,6 +102,8 @@ data: {"type":"RUN_FINISHED","threadId":"thread-123","runId":"run-456"}
 <a name="agui-ws-purpose"></a>
 
 Provides bidirectional real-time communication between clients and agents
+
+The WebSocket path is always `/ws`. `protocolConfiguration.path` doesn’t change it. If you configure `protocolConfiguration.port`, serve `/ws` on that port.
 
 #### Use cases
 <a name="agui-ws-use-cases"></a>

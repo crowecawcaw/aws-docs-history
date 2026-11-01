@@ -91,9 +91,9 @@ To enable Web Bot Auth, you need to configure it when creating a Browser Tool:
 
 1. Open the AgentCore console at [https://console.aws.amazon.com/bedrock-agentcore/home\#](https://console.aws.amazon.com/bedrock-agentcore/home#).
 
-1. In the navigation pane, choose **Built-in tools**.
+1. In the navigation pane, under **Connections**, choose **Browser**.
 
-1. Choose **Create browser tool**.
+1. Choose **Create**.
 
 1. Provide a unique **Tool name** and optional **Description**.
 

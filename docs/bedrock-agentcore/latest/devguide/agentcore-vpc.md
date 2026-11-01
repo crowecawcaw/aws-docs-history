@@ -75,6 +75,8 @@ The following table shows the supported Availability Zone IDs for each region:
 **Important**  
 Subnets must be located in the supported Availability Zones listed above. If you specify subnets in unsupported Availability Zones, the configuration will fail during resource creation.
 
+This table applies to AgentCore Runtime and built-in tools only. AgentCore Gateway targets that use managed VPC resources are supported in a different set of Availability Zones. For more information, see [Supported Availability Zones for managed VPC resources](vpc-egress-private-endpoints.md#lattice-vpc-egress-managed-lattice-azs).
+
 To identify the Availability Zone ID of your subnets, you can use the following CLI command:
 
 ```
@@ -132,9 +134,9 @@ You can configure VPC access for Amazon Bedrock AgentCore Runtime and built-in t
 
 1. Open the AgentCore console at [https://console.aws.amazon.com/bedrock-agentcore/home\#](https://console.aws.amazon.com/bedrock-agentcore/home#).
 
-1. Navigate to the AgentCore section
+1. Navigate to **Agents** 
 
-1. Select or create an Amazon Bedrock AgentCore Runtime configuration
+1. Select an existing Runtime type agent or create a new agent by selecting **Host agent** under **More** 
 
 1. Choose your ECR image
 
@@ -192,9 +194,9 @@ You can configure VPC access for Amazon Bedrock AgentCore Runtime and built-in t
 
 1. Open the AgentCore console at [https://console.aws.amazon.com/bedrock-agentcore/home\#](https://console.aws.amazon.com/bedrock-agentcore/home#).
 
-1. Navigate to AgentCore → Built-in Tools → Code Interpreter
+1. In the navigation pane, under **Connections**, choose **Code Interpreter** 
 
-1. Select **Create Code Interpreter** or modify existing configuration
+1. Choose **Create** or modify an existing configuration
 
 1. Provide a tool name (optional)
 
@@ -207,8 +209,6 @@ You can configure VPC access for Amazon Bedrock AgentCore Runtime and built-in t
 1. Choose appropriate subnets (recommend private subnets across multiple AZs with NAT gateway)
 
 1. Select security groups for ENI access control
-
-1. Configure execution role with necessary permissions
 
 1. Save your configuration
 
@@ -267,9 +267,9 @@ You can configure VPC access for Amazon Bedrock AgentCore Runtime and built-in t
 
 1. Open the AgentCore console at [https://console.aws.amazon.com/bedrock-agentcore/home\#](https://console.aws.amazon.com/bedrock-agentcore/home#).
 
-1. In the navigation pane, choose **Built-in tools** 
+1. In the navigation pane, under **Connections**, choose **Browser** 
 
-1. Choose **Create Browser tool** 
+1. Choose **Create** 
 
 1. Provide a tool name (optional) and description (optional)
 
@@ -280,8 +280,6 @@ You can configure VPC access for Amazon Bedrock AgentCore Runtime and built-in t
 1. Select your VPC and subnets
 
 1. Configure security groups for web access requirements
-
-1. Set execution role permissions
 
 1. Save your configuration
 

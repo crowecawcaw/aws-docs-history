@@ -10,12 +10,15 @@ Amazon Bedrock AgentCore Runtime lets you isolate each user session and safely r
 +  **Deterministic security for non-deterministic processes** : AI agent behavior can be non-deterministic due to the probabilistic nature of foundation models. AgentCore Runtime provides consistent, deterministic isolation boundaries regardless of agent execution patterns, delivering the predictable security properties required for enterprise deployments.
 
 **Note**  
-AgentCore does not enforce session-to-user mappings - your client backend should maintain the relationship between users and their session IDs. Additionally, your client backend should implement logic for user to session lifecycle management like maximum number of sessions per user. For complete session isolation guidance, see [Security best practices for AgentCore Runtime](runtime-security-best-practices.md).
+Use a unique session ID for each user. AgentCore does not enforce session-to-user mappings - your client backend should maintain the relationship between users and their session IDs. Additionally, your client backend should implement logic for user to session lifecycle management like maximum number of sessions per user. For complete session isolation guidance, see [Security best practices for AgentCore Runtime](runtime-security-best-practices.md).
+
+You can also access application servers in a session through an authenticated session endpoint. Configure `allowedPorts` to select the ports clients can reach. For more information, see [Connect to runtime sessions through a session endpoint](runtime-session-endpoints.md).
 
 **Topics**
 + [Understanding ephemeral context](#ephemeral-context)
 + [Extended conversations and multi-step workflows](#extended-conversations)
 + [AgentCore Runtime session lifecycle](#session-lifecycle)
++ [Session context keys](#runtime-session-isolation)
 + [How to use sessions](#using-sessions)
 + [Session headers by protocol](#session-headers-by-protocol)
 + [Configure Amazon Bedrock AgentCore lifecycle settings](runtime-lifecycle-settings.md)
@@ -51,6 +54,29 @@ Session state is determined by the compute lifecycle and can be one of the follo
 
 **Note**  
 While the service provisions or tears down a session, a second operation targeting that same session returns a retryable HTTP 409 `RetryableConflictException` (`Session operation in progress, please retry`). This window is brief. Already-running sessions are not affected. Retry with short exponential backoff.
+
+## Session context keys
+<a name="runtime-session-isolation"></a>
+
+Each runtime session runs with the execution role credentials configured on the agent runtime. Session context keys add the `runtimeSessionId` and `runtimeArn` to the credentials vended to each session. You can use this session context to scope access to per-session dependencies, such as Amazon S3 prefixes.
+
+**Note**  
+Session context keys are available only for agent runtimes on platform version V2. For more information, see [Platform versions](runtime-how-it-works.md#runtime-platform-versions).
+
+To scope access, AgentCore Runtime adds two AWS Identity and Access Management (IAM) context keys (a kind of [IAM condition key](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html)) to each session’s execution role credentials, which you use in the execution role policy:
+
+
+| Context key | Value | 
+| --- | --- | 
+|  `aws:AgentCoreRuntimeSourceSid`  | The `runtimeSessionId` of the invocation. | 
+|  `aws:AgentCoreRuntimeSourceArn`  | The ARN of the agent runtime. | 
+
+Both keys are present on every invocation, so a single execution role policy works for every session and you don’t create a separate role per session. `aws:AgentCoreRuntimeSourceSid` resolves to the specific invoking session, while `aws:AgentCoreRuntimeSourceArn` is the ARN of the agent runtime and is the same for every session of that runtime. You can use either key as a resource ARN variable, or in a [Condition block](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html), in any policy for a service that supports IAM condition keys, such as Amazon S3 or Amazon DynamoDB. For a working Amazon S3 policy that scopes each session to its own prefix, along with the session ID requirements, see [Mount your own file systems in your container](runtime-fuse-mounts.md).
+
+**Note**  
+These keys attest that the request’s credentials originated from a given runtime session. They do not prove that a request was made from inside the corresponding microVM. Use them to scope access, not as evidence of where a call ran.
+
+Session context keys are present only in the credentials that a session receives. When a session starts, AgentCore Runtime restores the session’s microVM from a snapshot that it took before any session existed. If your code creates an AWS SDK client at import or module scope, the client loads its credentials before the snapshot, and those credentials don’t include `aws:AgentCoreRuntimeSourceSid`. Create the client inside your invocation handler instead, so that it loads the session’s credentials. In Python, create the client from a new `boto3.Session()`, because `boto3.client()` reuses the credentials that the default session loaded first.
 
 ## How to use sessions
 <a name="using-sessions"></a>

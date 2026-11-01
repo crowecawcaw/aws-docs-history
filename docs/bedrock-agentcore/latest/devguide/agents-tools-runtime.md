@@ -68,6 +68,7 @@ A newer platform version, V2, is available. It starts your agent from a snapshot
 + [Authenticate and authorize with Inbound Auth and Outbound Auth](runtime-oauth.md)
 + [AgentCore Runtime versioning and endpoints](agent-runtime-versioning.md)
 + [Invoke an AgentCore Runtime agent](runtime-invoke-agent.md)
++ [Connect to runtime sessions through a session endpoint](runtime-session-endpoints.md)
 + [Shell execution](runtime-shell-execution.md)
 + [Observe agents in Amazon Bedrock AgentCore Runtime](runtime-observability.md)
 + [Security best practices for AgentCore Runtime](runtime-security-best-practices.md)

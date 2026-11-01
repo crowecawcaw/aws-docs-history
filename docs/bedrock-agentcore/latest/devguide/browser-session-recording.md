@@ -140,7 +140,7 @@ Monitor browser sessions in real-time and interact with active sessions:
 
  **To access live view in the console** 
 
-1. Open the Amazon Bedrock AgentCore console and navigate to **Built-in tools** 
+1. Open the Amazon Bedrock AgentCore console and navigate to **Browser** under **Connections** 
 
 1. Select your browser tool from the list (for example, `MyRecordingBrowser` )
 

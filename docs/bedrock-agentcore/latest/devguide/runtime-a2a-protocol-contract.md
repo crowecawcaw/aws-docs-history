@@ -27,9 +27,11 @@ Your A2A server must implement these specific protocol requirements:
 <a name="container-requirements"></a>
 
 Your A2A server must be deployed as a containerized application meeting these specifications:
-+  **Host** : `0.0.0.0` 
-+  **Port** : `9000` - Standard port for A2A server communication (different from HTTP and MCP protocols)
-+  **Platform** : ARM64 container - Required for compatibility with AWS Amazon Bedrock AgentCore runtime environment
++  **Host**: `0.0.0.0` 
++  **Serving port**: `9000` by default, or the serving port in `protocolConfiguration.port` 
++  **Platform**: ARM64 container - Required for compatibility with AWS Amazon Bedrock AgentCore runtime environment
+
+You can change the serving port and the `InvokeAgentRuntime` POST path with `protocolConfiguration`. See [Path requirements](#path-requirements) for the default paths. For configuration examples, see [Configure your agent’s serving port and invocation path](runtime-configure-invocation.md).
 
 ## Path requirements
 <a name="path-requirements"></a>

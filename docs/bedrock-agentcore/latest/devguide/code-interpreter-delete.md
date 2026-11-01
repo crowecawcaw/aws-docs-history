@@ -14,7 +14,7 @@ Deleting a Code Interpreter permanently removes it and all its configuration. Th
 
 1. Open the AgentCore console at [https://console.aws.amazon.com/bedrock-agentcore/home\#](https://console.aws.amazon.com/bedrock-agentcore/home#).
 
-1. In the navigation pane, choose **Built-in tools**.
+1. In the navigation pane, under **Connections**, choose **Code Interpreter**.
 
 1. From the list of code interpreter tools, select the tool you want to delete.
 

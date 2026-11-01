@@ -174,7 +174,7 @@ You can create online evaluation configurations using the Amazon Bedrock AgentCo
 
 1. Open the Amazon Bedrock AgentCore console.
 
-1. In the left navigation pane, choose **Evaluation**.
+1. In the navigation pane, under **Resources**, choose **Evaluations**.
 
 1. Choose **Create evaluation configuration**.
 

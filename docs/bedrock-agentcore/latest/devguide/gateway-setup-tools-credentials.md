@@ -24,7 +24,7 @@ You can interact with the Amazon Bedrock AgentCore Control Plane service in the 
 <a name="gateway-prerequisites-console"></a>
 
 The AWS Management Console lets you create and maintain gateway and gateway target resources through an interactive graphical interface in a web browser.
-+  **Installation** – None needed. To manage gateways through the AgentCore console, you can navigate to [https://console.aws.amazon.com/bedrock-agentcore/home\#](https://console.aws.amazon.com/bedrock-agentcore/home#) and select **Gateways** from the left navigation pane.
++  **Installation** – None needed. To manage gateways through the AgentCore console, you can navigate to [https://console.aws.amazon.com/bedrock-agentcore/home\#](https://console.aws.amazon.com/bedrock-agentcore/home#) and select **Gateways** under **Resources** from the left navigation pane.
 +  **Authentication** – Sign in with an IAM identity with permissions to use AgentCore Gateway actions.
 
 ### Direct HTTP requests

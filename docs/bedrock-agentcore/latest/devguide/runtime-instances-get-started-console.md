@@ -10,9 +10,9 @@ For the prerequisites, see [Get started with Instances](runtime-instances-gettin
 ## Step 1: Create a capacity provider
 <a name="runtime-instances-console-create-cp"></a>
 
-1. Open the Amazon Bedrock AgentCore console and choose **Runtime**.
+1. Open the Amazon Bedrock AgentCore console and choose **Capacity providers** under **Resources**.
 
-1. On the **Capacity providers** tab, choose **Create capacity provider**.
+1. On the **Capacity providers** page, choose **Create capacity provider**.
 
 1. Under **Capacity provider detail**, enter a **Name**. Valid characters are letters, digits, and underscores; the name must start with a letter and can have up to 48 characters.
 
@@ -34,7 +34,7 @@ After a capacity provider is created, only its description can be edited. To cha
 ## Step 2: Create an agent runtime that uses the capacity provider
 <a name="runtime-instances-console-create-runtime"></a>
 
-1. On the **Runtime** page, choose **Create runtime** (or, from the capacity provider’s detail page, choose **Host agent/tool**).
+1. On the **Agents** page, choose **Host agent** (or, from the capacity provider’s detail page, choose **Host agent/tool**).
 
 1. Enter a **Name** for the agent or tool.
 

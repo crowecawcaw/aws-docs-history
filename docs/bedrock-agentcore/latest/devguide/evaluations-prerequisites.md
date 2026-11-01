@@ -130,7 +130,7 @@ You can create the required IAM role directly through the AgentCore Evaluations 
 
 1. Open the Amazon Bedrock AgentCore console.
 
-1. In the left navigation pane, choose **Evaluation**.
+1. In the navigation pane, under **Resources**, choose **Evaluations**.
 
 1. Choose **Create evaluation configuration**.
 

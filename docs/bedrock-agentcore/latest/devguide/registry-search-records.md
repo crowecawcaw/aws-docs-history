@@ -28,6 +28,19 @@ Combined: `{"$and": [{"recordType": {"$eq": "MCP"}}, {"recordVersion": {"$eq": "
 
 Custom metadata example: `{"customMetadata.owner": {"$eq": "search-team"}}` 
 
+### Filter rules and limits
+<a name="registry-search-filter-rules"></a>
+
+Filters must follow these rules and limits:
++ A filter contains at least one condition. To search without a filter, omit `filters`. An empty object (`{}`) returns a `ValidationException`.
++ A filter contains at most 10 conditions. A condition is one field with one operator, such as `{"recordType": {"$eq": "MCP"}}`. A `$in` condition counts as one condition.
++  `$in` accepts from 1 to 25 values.
++ Filter values are strings or booleans.
++ Each condition has exactly one operator. To apply two operators to the same field, use `$and` with one object per condition.
++ To combine conditions with AND, list several fields in one object, such as `{"recordType": {"$eq": "MCP"}, "recordVersion": {"$eq": "1.0"}}`, or use `$and`.
++  `$and` and `$or` take an array of 1–10 objects, and each object contains exactly one condition. An object with more than one field, or an empty object, returns a `ValidationException`. You can’t combine conditions with AND inside `$or`. To find records that match (A AND B) OR C, run separate searches.
++ A filter uses at most one logical operator. You can’t nest `$and` or `$or`, or mix a logical operator with field conditions at the top level.
+
 ## Console
 <a name="registry-search-console"></a>
 
@@ -286,6 +299,21 @@ To combine a custom metadata filter with a base field filter:
   }
 }
 ```
+
+To match records that meet either of two conditions, use `$or` with one condition in each object:
+
+```
+{
+  "filters": {
+    "$or": [
+      { "recordType": { "$eq": "MCP" } },
+      { "customMetadata.owner": { "$eq": "search-team" } }
+    ]
+  }
+}
+```
+
+To match several values of the same field, use `$in` instead of `$or`. For the full rules, see [Filter rules and limits](#registry-search-filter-rules).
 
 **Note**  
 Filter values for `customMetadata.{fieldName}` are strings or native booleans. For a **Boolean** field, use the string `"true"` or `"false"`, or a native JSON boolean (`true` / `false`). For an **Enum** field, use one of the schema’s allowed values. A filter on a field matches records of every record type that has that field.

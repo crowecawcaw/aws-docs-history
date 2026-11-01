@@ -52,9 +52,11 @@ In both modes, Amazon Bedrock AgentCore always returns an `Mcp-Session-Id` heade
 <a name="container-requirements-mcp"></a>
 
 Your MCP server must be deployed as a containerized application meeting these specifications:
-+  **Host** : `0.0.0.0` 
-+  **Port** : `8000` - Standard port for MCP server communication (different from HTTP protocol)
-+  **Platform** : ARM64 container - Required for compatibility with AWS Amazon Bedrock AgentCore runtime environment
++  **Host**: `0.0.0.0` 
++  **Serving port**: `8000` by default, or the serving port in `protocolConfiguration.port` 
++  **Platform**: ARM64 container - Required for compatibility with AWS Amazon Bedrock AgentCore runtime environment
+
+You can change the serving port and the `InvokeAgentRuntime` POST path with `protocolConfiguration`. See [Path requirements](#path-requirements-mcp) for the default paths. For configuration examples, see [Configure your agent’s serving port and invocation path](runtime-configure-invocation.md).
 
 ## Path requirements
 <a name="path-requirements-mcp"></a>

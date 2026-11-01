@@ -127,7 +127,7 @@ When creating an AgentCore Memory, consider the following factors to maintain it
 
 1. Open the [Amazon Bedrock AgentCore](https://console.aws.amazon.com/bedrock-agentcore/) console.
 
-1. In the left navigation pane, choose **Memory**.
+1. In the left navigation pane, under **Resources**, choose **Memory**.
 
 1. Choose **Create memory**.
 

@@ -58,6 +58,6 @@ You can view and manage your online evaluation configurations through a visual i
 
 1. Open the Amazon Bedrock AgentCore console.
 
-1. In the navigation pane, choose **Evaluation**.
+1. In the navigation pane, under **Resources**, choose **Evaluations**.
 
 1. In the **Evaluation configurations** card, view the table that lists the evaluation configurations you have created.

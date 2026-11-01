@@ -12,7 +12,7 @@ You can create a consent portal from the AgentCore console. Before you begin, co
 
 1. Open the [AgentCore](https://console.aws.amazon.com/bedrock-agentcore/home#) console.
 
-1. From the left navigation pane, choose **Gateways**.
+1. From the left navigation pane, under **Resources**, choose **Gateways**.
 
 1. Choose the gateway that you configured as a prerequisite.
 

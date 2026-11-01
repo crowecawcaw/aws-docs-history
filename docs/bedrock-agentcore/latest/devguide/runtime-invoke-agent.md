@@ -9,6 +9,10 @@ To call `InvokeAgentRuntime` , you need `bedrock-agentcore:InvokeAgentRuntime` p
 
 The `InvokeAgentRuntime` operation accepts your request payload as binary data up to 100 MB in size and returns a streaming response that delivers chunks of data in real-time as the agent processes your request. This streaming approach allows you to receive partial results immediately rather than waiting for the complete response, making it ideal for interactive applications.
 
+To send the invocation POST to a different serving port or invocation path in your container, see [Configure your agent’s serving port and invocation path](runtime-configure-invocation.md). These settings work without enabling session endpoints.
+
+To access additional application routes or ports in the same session, see [Connect to runtime sessions through a session endpoint](runtime-session-endpoints.md). For runtimes with session endpoints enabled, the invocation response includes an optional `X-Amzn-Bedrock-AgentCore-Runtime-Session-Endpoint-Url` header.
+
 To execute shell commands (such as running tests, git operations, or environment setup) in the same session, use the [Execute shell commands in AgentCore Runtime sessions](runtime-execute-command.md) operation. Both operations work on the same agent runtime and session.
 
 If you plan on integrating your agent with OAuth, you can’t use the AWS SDK to call `InvokeAgentRuntime` . Instead, make a HTTPS request to InvokeAgentRuntime. For more information, see [Authenticate and authorize with Inbound Auth and Outbound Auth](runtime-oauth.md).

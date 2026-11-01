@@ -5,7 +5,7 @@
 
 You can create an AgentCore Runtime agent without the AgentCore CLI. Instead, you can use a combination of command line tools to configure and deploy your agent to an AgentCore Runtime. If you prefer a CLI-managed workflow, see [Get started with AgentCore Runtime using the AgentCore CLI](runtime-get-started-cli.md).
 
-This tutorial shows how to deploy a custom agent without using the AgentCore CLI. A custom agent is an agent built without using the AgentCore Python SDK. In this tutorial, the custom agent is built using FastAPI and Docker. The custom agent follows the [AgentCore Runtime requirements](runtime-service-contract.md) , meaning the agent must expose `/invocations` POST and `/ping` GET endpoints and be packaged in a Docker container. Amazon Bedrock AgentCore requires ARM64 architecture for all deployed agents.
+This tutorial shows how to deploy a custom agent without using the AgentCore CLI. A custom agent is an agent built without using the AgentCore Python SDK. In this tutorial, the custom agent is built using FastAPI and Docker. The custom agent follows the [AgentCore Runtime requirements](runtime-service-contract.md) , using the default `/invocations` POST and `/ping` GET endpoints in a Docker container. To use a different serving port or invocation path, see [Configure your agent’s serving port and invocation path](runtime-configure-invocation.md). Amazon Bedrock AgentCore requires ARM64 architecture for all deployed agents.
 
 **Note**  
 You can also use this approach for agents that you build with the AgentCore Python SDK.
@@ -56,9 +56,9 @@ For installation instructions on other platforms, refer to the [uv documentation
 <a name="agent-contract-requirements"></a>
 
 Your custom agent must fulfill these core requirements:
-+  **/invocations Endpoint** : POST endpoint for agent interactions (REQUIRED)
-+  **/ping Endpoint** : GET endpoint for health checks (REQUIRED)
-+  **Docker Container** : ARM64 containerized deployment package
++  **Invocation endpoint**: POST endpoint for agent interactions, at `/invocations` by default (required)
++  **Ping endpoint**: GET endpoint at `/ping` for health checks (required)
++  **Docker container**: ARM64 containerized deployment package
 
 ## Project structure
 <a name="project-structure"></a>
@@ -387,12 +387,12 @@ response = agent_core_client.stop_runtime_session(
 
 ## Amazon Bedrock AgentCore requirements summary
 <a name="bedrock-agentcore-runtime-requirements"></a>
-+  **Platform** : Must be `linux/arm64` 
-+  **Endpoints** : `/invocations` POST and `/ping` GET are mandatory
-+  **ECR** : Images must be deployed to ECR
-+  **Port** : Application runs on port 8080
-+  **Strands Integration** : Uses Strands Agent for AI processing
-+  **Credentials** : Strands agents require AWS credentials for operation
++  **Platform**: Must be `linux/arm64` 
++  **Endpoints**: This example uses `POST /invocations` and `GET /ping` 
++  **ECR**: Images must be deployed to ECR
++  **Serving port**: This example uses the default HTTP serving port `8080` 
++  **Strands integration**: Uses Strands Agent for AI processing
++  **Credentials**: Strands agents require AWS credentials for operation
 
 ## Conclusion
 <a name="conclusion"></a>

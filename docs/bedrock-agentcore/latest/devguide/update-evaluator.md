@@ -80,7 +80,7 @@ Modify your custom evaluator settings using the console’s editing interface, w
 
 1. Open the Amazon Bedrock AgentCore console.
 
-1. In the navigation pane, choose **Evaluation**.
+1. In the navigation pane, under **Resources**, choose **Evaluations**.
 
 1. Choose **Custom evaluators** next to Evaluation configurations.
 

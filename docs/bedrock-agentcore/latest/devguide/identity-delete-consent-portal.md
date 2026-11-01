@@ -12,7 +12,7 @@ When you no longer need a consent portal, you can delete it from the AgentCore c
 
 1. Open the [AgentCore](https://console.aws.amazon.com/bedrock-agentcore/home#) console.
 
-1. From the left navigation pane, choose **Identity**.
+1. From the left navigation pane, under **Connections**, choose **Identity**.
 
 1. Select the consent portal that you want to delete.
 

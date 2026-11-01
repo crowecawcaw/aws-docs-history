@@ -8,6 +8,36 @@ We recommend subscribing to the RSS feed so updates to these notes are delivered
 ## October 2026
 <a name="_october_2026"></a>
 
+### Runtime: Increased environment variable limit for V2 agents
+<a name="_runtime_increased_environment_variable_limit_for_v2_agents_2"></a>
+
+Amazon Bedrock AgentCore Runtime now supports up to 4 KB of environment variables for agents on platform version V2, the same limit as V1. Previously, V2 limited environment variables to 1.5 KB for direct code deployments and 2.5 KB for container agents.
+
+For more information, see [Resource allocation limits](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/bedrock-agentcore-limits.html#resource-allocation-limits) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+### Runtime: Scope access to a session or runtime
+<a name="_runtime_scope_access_to_a_session_or_runtime_2"></a>
+
+Amazon Bedrock AgentCore Runtime is the managed environment that hosts your agent containers. It now supports session context keys that scope access to a session or runtime.
+
+With this capability, sessions that share an execution role can each be restricted to only their own data with a single execution role policy, so you don’t need a separate role for each session. This capability is available on platform version V2 agent runtimes.
+
+For more information, see [Session context keys](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-sessions.html#runtime-session-isolation) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+### Runtime: Mount file systems with FUSE in your container
+<a name="_runtime_mount_file_systems_with_fuse_in_your_container_2"></a>
+
+Amazon Bedrock AgentCore Runtime is the managed environment that hosts your agent containers. It now supports mounting file systems with Filesystem in Userspace (FUSE) inside those containers.
+
+With this capability, your agent can mount storage at runtime and work with it as local files, instead of orchestrating downloads and uploads. This capability is available on platform version V2 agent runtimes.
+
+For more information about mounting file systems with FUSE, see [Mount your own file systems in your container](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-filesystem-configurations.html#runtime-fuse-mounts) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+### AWS Agent Registry now available in US East (Ohio), Europe (Frankfurt), Europe (London), and Canada (Central)
+<a name="shared_aws_agent_registry_now_available_in_us_east_ohio_europe_frankfurt_europe_london_and_canada_central"></a>
+
+ AWS Agent Registry is now available in US East (Ohio), Europe (Frankfurt), Europe (London), and Canada (Central). As in the other AWS Regions that support Agent Registry, semantic search uses cross-region inference. For more information, see [Supported AWS Regions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agentcore-regions.html) and [Cross-region inference in AWS Agent Registry](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry-cross-region-inference.html).
+
 ### Gateway: Amazon Bedrock InvokeModel support on inference targets
 <a name="_gateway_amazon_bedrock_invokemodel_support_on_inference_targets_2"></a>
 
@@ -30,6 +60,17 @@ Amazon Bedrock AgentCore Gateway now includes a built-in AWS Step Functions conn
 The connector works with Standard and Express workflows. Long-running Standard workflows record each step in the execution history, and the task-token operations support human-in-the-loop callbacks.
 
 For more information, see [AWS Step Functions as Connector Target](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-connector-step-functions.html) and [Add a Connector target with AWS Step Functions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-add-target-api-target-config.html#gateway-add-target-api-connector-step-functions).
+
+### Runtime: Session endpoints
+<a name="_runtime_session_endpoints_2"></a>
+
+Amazon Bedrock AgentCore Runtime is the managed environment that hosts your agent containers. It now gives you more control over where invocations reach your agent, and lets you connect to the applications that your agent runs in a session.
+
+With these capabilities, you can:
++  **Customize invocations**: Configure the serving port and POST path for `InvokeAgentRuntime`. These settings work without session endpoints.
++  **Connect to session servers**: Configure `allowedPorts` with individual ports or inclusive ranges. Use an authenticated session endpoint URL for HTTP routes, streaming responses, gRPC, and WebSocket connections. The allowed-port policy covers every destination port and excludes reserved platform ports.
+
+For invocation examples, see [Configure the serving port and invocation path](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-configure-invocation.html). For port rules, authentication, and troubleshooting, see [Session endpoints](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-session-endpoints.html).
 
 ### AgentCore CLI: Version 1.0 is now available
 <a name="_agentcore_cli_version_1_0_is_now_available_2"></a>
@@ -65,7 +106,11 @@ For more information, see [Configure record retention (time-to-live)](https://do
 
 Amazon Bedrock AgentCore Memory now bills short-term memory based on consumption instead of a flat rate per event, with charges calculated separately for ingestion, retrieval, and storage. This change applies automatically to short-term memory usage; no configuration is required.
 
-For more information, see [Amazon Bedrock AgentCore pricing](https://aws.amazon.com/bedrock/agentcore/pricing/) page.
+For more information, see [Amazon Bedrock AgentCore pricing](https://aws.amazon.com/bedrock/agentcore/pricing/) page. === Gateway: MCP task support for long-running tool calls
+
+Amazon Bedrock AgentCore Gateway now supports the MCP Tasks extension (`io.modelcontextprotocol/tasks`) on protocol version `2026-07-28`. A tool on an MCP server target can return a task ID immediately instead of holding the connection open, so long-running operations such as batch jobs, CI pipelines, or report compilation can run asynchronously. Clients poll `tasks/get` for status and the final result, answer mid-task input requests with `tasks/update`, and stop a task with `tasks/cancel`. The gateway issues its own task ID and routes each follow-up from that ID. On gateways that use JWT or IAM inbound authorization, each task is bound to the caller that created it. Tasks do not require MCP sessions or response streaming.
+
+For more information, see [Use tasks with your AgentCore gateway](gateway-mcp-tasks.md).
 
 ### Gateway: Private certificate authority support for targets
 <a name="_gateway_private_certificate_authority_support_for_targets_2"></a>
@@ -265,7 +310,7 @@ Resource quotas (such as active session workloads, agents, versions, and endpoin
 ### Gateway: Web Search Tool now available in Europe (Ireland) and Asia Pacific (Tokyo)
 <a name="_gateway_web_search_tool_now_available_in_europe_ireland_and_asia_pacific_tokyo_2"></a>
 
-The Web Search Tool connector on Amazon Bedrock AgentCore Gateway is now available in two new Regions. These Regions are Europe (Ireland) `eu-west-1` and Asia Pacific (Tokyo) `ap-northeast-1`. Agents in these Regions can invoke the `WebSearch` tool to ground responses in current web knowledge without routing traffic outside their Region. The same Amazon-operated web index and knowledge graph that powers US East (N. Virginia) backs these new Regions. AWS infrastructure processes all queries with the same privacy guarantees and zero data egress. All connector versions (`1.1.0` and `1.2.0`) are available, including request-level domain and date filters. Existing agents require no changes—create a gateway and add a `web-search` connector target in the new Region to get started. See [Web Search Tool](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-connector-web-search-tool.html).
+The Web Search Tool connector on Amazon Bedrock AgentCore Gateway is now available in two new Regions. These Regions are Europe (Ireland) `eu-west-1` and Asia Pacific (Tokyo) `ap-northeast-1`. Agents in these Regions can invoke the `WebSearch` tool to ground responses in current web knowledge without routing traffic outside their Region. The same Amazon-operated web index and knowledge graph power every Region, served locally within a Region. AWS infrastructure processes all queries with the same privacy guarantees and zero data egress. All connector versions (`1.1.0` and `1.2.0`) are available, including request-level domain and date filters. Existing agents require no changes—create a gateway and add a `web-search` connector target in the new Region to get started. See [Web Search Tool](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-connector-web-search-tool.html).
 
 ## July 2026
 <a name="_july_2026"></a>

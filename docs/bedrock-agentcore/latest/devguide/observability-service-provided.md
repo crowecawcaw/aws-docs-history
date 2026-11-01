@@ -3,7 +3,7 @@
 # Amazon Bedrock AgentCore generated observability data
 <a name="observability-service-provided"></a>
 
-For agents running in the AgentCore runtime, AgentCore automatically generates a set of session metrics which you can view in the Amazon CloudWatch Logs generative AI observability page. You can also use AgentCore observability to monitor the performance of memory, gateway, and built-in tool resources, even if you’re not using the AgentCore runtime to host your agents. For memory, gateway, and built-in tool resources, AgentCore outputs a default set of data to CloudWatch.
+For agents running in the AgentCore runtime, AgentCore automatically generates a set of session metrics which you can view on the AgentCore observability page or the Amazon CloudWatch generative AI observability page. You can also use AgentCore observability to monitor the performance of memory, gateway, and built-in tool resources, even if you’re not using the AgentCore runtime to host your agents. For memory, gateway, and built-in tool resources, AgentCore outputs a default set of data to CloudWatch.
 
 The following table summarizes the default data provided for each resource type, and where the data is available.
 

@@ -3,11 +3,11 @@
 # Add observability to your Amazon Bedrock AgentCore resources
 <a name="observability-configure"></a>
 
-Amazon Bedrock AgentCore provides a number of built-in metrics to monitor the performance of resources for the AgentCore runtime, memory, gateway, built-in tools, and identity resource types. This default data is available in Amazon CloudWatch. To view the full range of observability data in the CloudWatch console, or to output custom runtime metrics for agents, you need to instrument your code using the AWS Distro for Open Telemetry (ADOT) SDK.
+Amazon Bedrock AgentCore provides a number of built-in metrics to monitor the performance of resources for the AgentCore runtime, memory, gateway, built-in tools, and identity resource types. This default data is available in AgentCore and Amazon CloudWatch. To view the full range of observability data, or to output custom runtime metrics for agents, you need to instrument your code using the AWS Distro for Open Telemetry (ADOT) SDK.
 
-To view the observability dashboard in CloudWatch, open the [Amazon CloudWatch GenAi Observability](https://console.aws.amazon.com/cloudwatch/home#gen-ai-observability) page.
+To view the observability dashboards, open the [AgentCore observability](https://console.aws.amazon.com/bedrock-agentcore/observability) page.
 
-See the following sections to learn more about configuring your resources to view observability metrics in the CloudWatch console generative AI observability page and in CloudWatch Logs.
+See the following sections to learn more about configuring your resources to view observability metrics in the AgentCore console observability page, CloudWatch console generative AI observability page, and in CloudWatch Logs.
 
 **Tip**  
 Use of the ADOT SDK to output custom metrics is also supported for agents running outside the AgentCore runtime. To learn how to enable observability for these agents, see [Enabling observability for agents hosted outside of AgentCore](#observability-configure-3p).
@@ -139,7 +139,7 @@ When you use agent frameworks like [Strands](https://strandsagents.com/latest/) 
 +  [OpenLit](https://github.com/openlit/openlit) 
 +  [Traceloop](https://www.traceloop.com/docs/introduction) 
 
-To view this data in the CloudWatch console generative AI observability page and in Amazon CloudWatch, you need to add the AWS Distro for Open Telemetry (ADOT) SDK to your agent code.
+To view this data in the AgentCore console observability page, CloudWatch console generative AI observability page, and in Amazon CloudWatch, you need to add the AWS Distro for Open Telemetry (ADOT) SDK to your agent code.
 
 **Note**  
 With AgentCore, you can also view metrics for agents that aren’t running in the AgentCore runtime. Additional setup steps are required to configure telemetry outputs for non-AgentCore agents. See the instructions in [Enabling observability for agents hosted outside of AgentCore](#observability-configure-3p) to learn more.
@@ -324,7 +324,7 @@ To configure log destinations for memory or gateway logs in the AgentCore consol
 
 1. Open the [Built-in tools](https://console.aws.amazon.com/bedrock-agentcore/builtInTools) page in the AgentCore console.
 
-1. In the **Built-in tools** pane, either in the **Code interpreter tools** or the **Browser tools** tab, select the code interpreter tool or browser tool for which you want to configure a log destination.
+1. In the **Connections** pane, either in the **Code interpreter** or the **Browser** tab, select the code interpreter tool or browser tool for which you want to configure a log destination.
 
 1. Scroll down to the **Log delivery** pane and from the **Add** drop-down, choose the **Logging destination** - either Amazon CloudWatch Logs, Amazon S3, or Amazon Data Firehose.
 
@@ -391,7 +391,7 @@ This section describes how to enable trace delivery to CloudWatch to track the f
 
 1. Open the [Built-in tools](https://console.aws.amazon.com/bedrock-agentcore/builtInTools) page in the AgentCore console.
 
-1. In the **Built-in tools** pane, either in the **Code interpreter tools** or the **Browser tools** tab, select the code interpreter tool or browser tool for which you want to enable tracing.
+1. In the **Connections** pane, either in the **Code interpreter** or the **Browser** tab, select the code interpreter tool or browser tool for which you want to enable tracing.
 
 1. In the **Tracing** pane, choose **Edit** , toggle the widget to **Enable** , and then choose **Save**.
 

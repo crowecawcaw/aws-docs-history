@@ -232,7 +232,7 @@ First, create the **Payment Manager** (common to all providers):
 
 1. Open the [Amazon Bedrock AgentCore console](https://console.aws.amazon.com/bedrock-agentcore/).
 
-1. In the navigation pane, under **Build**, choose **Payments**.
+1. In the navigation pane, under **Connections**, choose **Payments**.
 
 1. Choose **Create Payment Manager**, enter a **Name**, and under **Permissions** choose **Create and use a new service role** (or select an existing role).
 

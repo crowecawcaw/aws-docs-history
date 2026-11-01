@@ -321,7 +321,7 @@ You can create custom evaluators using the Amazon Bedrock AgentCore console’s 
 
 1. Open the Amazon Bedrock AgentCore console.
 
-1. In the left navigation pane, choose **Evaluation** . Choose one of the following methods to create a custom evaluator:
+1. In the navigation pane, under **Resources**, choose **Evaluations**. Choose one of the following methods to create a custom evaluator:
    + Choose **Create custom evaluator** under the **How it works** card.
    + Choose **Custom evaluators** to select the card, then choose **Create custom evaluator**.
 

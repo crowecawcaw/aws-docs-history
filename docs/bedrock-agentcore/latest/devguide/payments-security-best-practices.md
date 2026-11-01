@@ -107,7 +107,7 @@ Rotate the API key as routine maintenance. Amazon Bedrock AgentCore registers th
 
 1. Open the [Amazon Bedrock AgentCore console](https://console.aws.amazon.com/bedrock-agentcore/).
 
-1. In the navigation pane, under **Build**, choose **Payments**.
+1. In the navigation pane, under **Connections**, choose **Payments**.
 
 1. Choose the Payment Manager that owns the connector. In the **Payment connectors** section, choose the connector.
 
@@ -185,7 +185,7 @@ Expect up to one minute of downtime for the `ProcessPayment` API while the Walle
 
 1. Open the [Amazon Bedrock AgentCore console](https://console.aws.amazon.com/bedrock-agentcore/).
 
-1. In the navigation pane, under **Build**, choose **Payments**.
+1. In the navigation pane, under **Connections**, choose **Payments**.
 
 1. Choose the Payment Manager that owns the connector. In the **Payment connectors** section, choose the connector.
 

@@ -20,5 +20,5 @@ The following table shows which features are supported in each AWS Region:
 | Policy in AgentCore | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | 
 | AgentCore Evaluations | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | 
 | AgentCore optimization | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | No | 
-|  AWS Agent Registry | ✓ Yes | No | No | ✓ Yes | No | ✓ Yes | No | No | No | No | No | No | No | No | No | ✓ Yes | No | ✓ Yes | No | No | No | No | 
+|  AWS Agent Registry | ✓ Yes | ✓ Yes | No | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | No | No | No | No | No | No | No | No | ✓ Yes | No | ✓ Yes | No | ✓ Yes | No | No | 
 | Web Search Tool | ✓ Yes | ✓ Yes | No | ✓ Yes | No | ✓ Yes | No | No | No | No | No | No | No | No | No | ✓ Yes | No | ✓ Yes | No | No | No | ✓ Yes | 

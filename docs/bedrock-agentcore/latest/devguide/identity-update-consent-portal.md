@@ -17,7 +17,7 @@ When you update the IdP credential configurations, the consent portal transition
 
 1. Open the [AgentCore](https://console.aws.amazon.com/bedrock-agentcore/home#) console.
 
-1. From the left navigation pane, choose **Identity**.
+1. From the left navigation pane, under **Connections**, choose **Identity**.
 
 1. Select the consent portal that you want to update.
 

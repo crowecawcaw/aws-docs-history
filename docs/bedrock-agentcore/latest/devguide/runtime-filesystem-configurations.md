@@ -13,6 +13,8 @@ AgentCore Runtime supports two categories of file system configurations:
 
 The managed type depends on your runtime’s compute type. Use session storage on microVM runtimes and capacity provider volumes on Instances runtimes. On microVM runtimes, you can combine session storage with bring-your-own file systems on a single agent runtime (up to 5 total configurations).
 
+With these configurations, AgentCore mounts storage for you with no mount code. If you’d rather run your own mount client, you can also mount file systems yourself. For more information, see [Mount your own file systems in your container](runtime-fuse-mounts.md).
+
 ## Storage options at a glance
 <a name="_storage_options_at_a_glance"></a>
 

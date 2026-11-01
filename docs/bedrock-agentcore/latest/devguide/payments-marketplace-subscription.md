@@ -43,7 +43,7 @@ You can subscribe either directly from the AWS Marketplace listing page or from 
 
 1. Wait for the subscription to become active. When the subscription is active, you can create a Coinbase payment connector. See [Create a Payment Manager and Connector](payments-create-manager.md).
 The Amazon Bedrock AgentCore console provides several entry points to subscribe:  
-+  **Payments page** — In the navigation pane, under **Build**, choose **Payments**. In the **How it works** section, under **Create payment manager with connectors**, choose **Subscribe on AWS Marketplace**.
++  **Payments page** — In the navigation pane, under **Connections**, choose **Payments**. In the **How it works** section, under **Create payment manager with connectors**, choose **Subscribe on AWS Marketplace**.
 +  **Create Payment Manager wizard** — On the **Add payment connector** step, if you configure a Coinbase connector and your account is not subscribed, the console displays a **Subscribe to Coinbase to enable billing through AWS ** alert with a **Subscribe** button.
 +  **Create connector page** — If you create a Coinbase connector and your account is not subscribed, the page displays the same alert with a **Subscribe** button.
 Choosing **Subscribe** opens the **Coinbase Wallets for AgentCore Payments** offer from AWS Marketplace in the console, where you can review the product details, pricing, and terms and conditions. Choose **Subscribe** to complete the subscription. After the subscription is active, continue creating your Coinbase connector. See [Create a Payment Manager and Connector](payments-create-manager.md).
