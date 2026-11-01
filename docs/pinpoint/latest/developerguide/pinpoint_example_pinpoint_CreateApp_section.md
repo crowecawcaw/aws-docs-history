@@ -54,6 +54,7 @@ Output:
     }
 }
 ```
+For more information, see [Managing Amazon Pinpoint projects](https://docs.aws.amazon.com/pinpoint/latest/userguide/projects-manage.html) in the *Amazon Pinpoint User Guide*.  
 +  For API details, see [CreateApp](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/pinpoint/create-app.html) in *AWS CLI Command Reference*. 
 
 ------

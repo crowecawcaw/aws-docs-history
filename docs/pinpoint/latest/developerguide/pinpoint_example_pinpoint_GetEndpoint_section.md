@@ -17,8 +17,7 @@ The following `get-endpoint` example retrieves information about the settings an
 ```
 aws pinpoint get-endpoint \
     --application-id {{611e3e3cdd47474c9c1399a505665b91}} \
-    --endpoint-id {{testendpoint}} \
-    --region {{us-east-1}}
+    --endpoint-id {{testendpoint}}
 ```
 Output:  
 
@@ -41,7 +40,7 @@ Output:
             "SmsDelivered": 1.0
         },
         "OptOut": "ALL",
-        "RequestId": "a204b1f2-7e26-48a7-9c80-b49a2143489d",
+        "RequestId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
         "User": {
             "UserAttributes": {
                 "Age": [
@@ -53,6 +52,7 @@ Output:
     }
 }
 ```
+For more information, see [Add endpoints to Amazon Pinpoint](https://docs.aws.amazon.com/pinpoint/latest/developerguide/audience-define-endpoints.html) in the *Amazon Pinpoint Developer Guide*.  
 +  For API details, see [GetEndpoint](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/pinpoint/get-endpoint.html) in *AWS CLI Command Reference*. 
 
 ------
