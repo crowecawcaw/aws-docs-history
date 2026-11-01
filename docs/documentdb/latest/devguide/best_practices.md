@@ -138,6 +138,8 @@ An instance has several different categories of metrics. How you determine accep
 **CPU**
 + **CPU Utilization** — The percentage of the computer processing capacity used. 
 
+  An instance shows some CPU utilization even when it has no connections or workload. This baseline comes from processes that Amazon DocumentDB runs continuously on every instance, such as monitoring, health checks, and instance management. The baseline is a larger share of capacity on smaller instance classes. When you set CPU alarms, measure the idle baseline for your instance class and watch for increases above it.
+
 **Memory**
 + **Freeable Memory** — How much RAM is available on the instance. 
 + **Swap Usage** — How much swap space is used by the instance, in megabytes. 

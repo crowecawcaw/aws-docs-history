@@ -62,12 +62,23 @@ The following table shows the format that you should use when constructing an AR
 
 | Resource Type | ARN Format / Example | 
 | --- | --- | 
-| Instance (`db`) | `arn:aws:rds:{{region}}:{{account_number}}:db:{{resource_id}}`<pre>arn:aws:rds:us-east-1:{{1234567890}}:db:{{sample-db-instance}}</pre> | 
-| Cluster (`cluster`) | `arn:aws:rds:{{region}}:{{account_number}}:cluster:{{resource_id}}`<pre>arn:aws:rds:us-east-1:{{1234567890}}:cluster:{{sample-db-cluster}}</pre> | 
-| Cluster parameter group (`cluster-pg`) | `arn:aws:rds:{{region}}:{{account_number}}:cluster-pg:{{resource_id}}`<pre>arn:aws:rds:us-east-1:{{1234567890}}:cluster-pg:{{sample-db-cluster-parameter-group}}</pre> | 
-| Security group (`secgrp`) | `arn:aws:rds:{{region}}:{{account_number}}:secgrp:{{resource_id}}`<pre>arn:aws:rds:us-east-1:{{1234567890}}:secgrp:{{sample-public-secgrp}}</pre> | 
-| Cluster snapshot (`cluster-snapshot`) | `arn:aws:rds:{{region}}:{{account_number}}:cluster-snapshot:{{resource_id}}`<pre>arn:aws:rds:us-east-1:{{1234567890}}:cluster-snapshot:{{sample-db-cluster-snapshot}}</pre> | 
-| Subnet group (`subgrp`) | `arn:aws:rds:{{region}}:{{account_number}}:subgrp:{{resource_id}}`<pre>arn:aws:rds:us-east-1:{{1234567890}}:subgrp:{{sample-subnet-10}}</pre> | 
+| Instance (`db`) | `arn:aws:rds:{{region}}:{{account_number}}:db:{{resource_id}}`<pre>arn:aws:rds:us-east-1:{{123456789012}}:db:{{sample-db-instance}}</pre> | 
+| Cluster (`cluster`) | `arn:aws:rds:{{region}}:{{account_number}}:cluster:{{resource_id}}`<pre>arn:aws:rds:us-east-1:{{123456789012}}:cluster:{{sample-db-cluster}}</pre> | 
+| Cluster parameter group (`cluster-pg`) | `arn:aws:rds:{{region}}:{{account_number}}:cluster-pg:{{resource_id}}`<pre>arn:aws:rds:us-east-1:{{123456789012}}:cluster-pg:{{sample-db-cluster-parameter-group}}</pre> | 
+| Security group (`secgrp`) | `arn:aws:rds:{{region}}:{{account_number}}:secgrp:{{resource_id}}`<pre>arn:aws:rds:us-east-1:{{123456789012}}:secgrp:{{sample-public-secgrp}}</pre> | 
+| Cluster snapshot (`cluster-snapshot`) | `arn:aws:rds:{{region}}:{{account_number}}:cluster-snapshot:{{resource_id}}`<pre>arn:aws:rds:us-east-1:{{123456789012}}:cluster-snapshot:{{sample-db-cluster-snapshot}}</pre> | 
+| Subnet group (`subgrp`) | `arn:aws:rds:{{region}}:{{account_number}}:subgrp:{{resource_id}}`<pre>arn:aws:rds:us-east-1:{{123456789012}}:subgrp:{{sample-subnet-10}}</pre> | 
+
+**Note**  
+Each Amazon DocumentDB cluster also has a cluster resource ID, which is the value of the `DbClusterResourceId` field (for example, `cluster-ABCDEFGHIJKLMNOPQRSTUVWXYZ`). Unlike the cluster identifier, the cluster resource ID doesn't change if you rename the cluster. The cluster ARN that Amazon DocumentDB API operations return, such as `DBClusterArn` in the output of `describe-db-clusters`, uses the cluster identifier. Use that ARN when you call Amazon DocumentDB API operations.  
+In billing data, such as AWS Cost Explorer and the AWS Cost and Usage Report, charges for a cluster can appear under an ARN that uses the cluster resource ID in lowercase, for example `arn:aws:rds:us-east-1:123456789012:cluster:cluster-abcdefghijklmnopqrstuvwxyz`. To find the cluster that the ARN refers to, list the identifier and resource ID of each of your clusters, and then match the resource ID without regard to case:  
+
+```
+aws docdb describe-db-clusters \
+    --filter Name=engine,Values=docdb \
+    --query "DBClusters[*].[DBClusterIdentifier,DbClusterResourceId]" \
+    --output table
+```
 
 ## Finding an Amazon DocumentDB resource ARN
 <a name="documentdb-arns-find"></a>
