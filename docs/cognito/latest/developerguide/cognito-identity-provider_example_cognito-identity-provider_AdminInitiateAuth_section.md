@@ -108,7 +108,7 @@ Output:
     }
 }
 ```
-For more information, see [Admin authentication flow](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow.html#amazon-cognito-user-pools-admin-authentication-flow) in the *Amazon Cognito Developer Guide*.  
+For more information, see [Admin authentication flow](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow.html) in the *Amazon Cognito Developer Guide*.  
 +  For API details, see [AdminInitiateAuth](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/admin-initiate-auth.html) in *AWS CLI Command Reference*. 
 
 ------

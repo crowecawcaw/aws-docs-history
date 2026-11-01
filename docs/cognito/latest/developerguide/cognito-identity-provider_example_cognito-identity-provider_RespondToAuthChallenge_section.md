@@ -46,9 +46,9 @@ The following `respond-to-auth-challenge` example chooses TOTP MFA as the MFA op
 
 ```
 aws cognito-idp respond-to-auth-challenge \
-    --client-id {{1example23456789}}
-    --session {{AYABeEv5HklEXAMPLE}}
-    --challenge-name {{SELECT_MFA_TYPE}}
+    --client-id {{1example23456789}} \
+    --session {{AYABeEv5HklEXAMPLE}} \
+    --challenge-name {{SELECT_MFA_TYPE}} \
     --challenge-responses {{USERNAME=testuser,ANSWER=SOFTWARE_TOKEN_MFA}}
 ```
 Output:  

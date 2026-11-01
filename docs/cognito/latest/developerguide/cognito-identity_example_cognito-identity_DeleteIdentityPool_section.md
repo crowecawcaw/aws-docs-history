@@ -11,13 +11,13 @@ The following code examples show how to use `DeleteIdentityPool`.
 **AWS CLI**  
 **To delete identity pool**  
 The following `delete-identity-pool` example deletes the specified identity pool.  
-Command:  
 
 ```
 aws cognito-identity delete-identity-pool \
-    --identity-pool-id {{"us-west-2:11111111-1111-1111-1111-111111111111"}}
+    --identity-pool-id {{"us-west-2:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"}}
 ```
 This command produces no output.  
+For more information, see [Amazon Cognito identity pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html) in the *Amazon Cognito Developer Guide*.  
 +  For API details, see [DeleteIdentityPool](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-identity/delete-identity-pool.html) in *AWS CLI Command Reference*. 
 
 ------

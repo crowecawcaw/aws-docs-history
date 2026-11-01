@@ -100,20 +100,24 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To sign up a user**  
-This example signs up jane@example.com.  
-Command:  
+The following `sign-up` example signs up jane@example.com.  
 
 ```
-aws cognito-idp sign-up --client-id {{3n4b5urk1ft4fl3mg5e62d9ado}} --username {{jane@example.com}} --password {{PASSWORD}} --user-attributes Name="email",Value="jane@example.com" Name="name",Value="Jane"
+aws cognito-idp sign-up \
+    --client-id {{3n4b5urk1ft4fl3mg5e62d9ado}} \
+    --username {{jane@example.com}} \
+    --password {{PASSWORD}} \
+    --user-attributes Name="email",Value="jane@example.com" Name="name",Value="Jane"
 ```
 Output:  
 
 ```
 {
-  "UserConfirmed": false,
-  "UserSub": "e04d60a6-45dc-441c-a40b-e25a787d4862"
+    "UserConfirmed": false,
+    "UserSub": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
 }
 ```
+For more information, see [Signing up and confirming user accounts](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html) in the *Amazon Cognito Developer Guide*.  
 +  For API details, see [SignUp](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/sign-up.html) in *AWS CLI Command Reference*. 
 
 ------

@@ -46,12 +46,14 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To delete a user**  
-This example deletes a user.  
-Command:  
+The following `delete-user` example deletes a user.  
 
 ```
-aws cognito-idp delete-user --access-token {{ACCESS_TOKEN}}
+aws cognito-idp delete-user \
+    --access-token {{ACCESS_TOKEN}}
 ```
+This command produces no output.  
+For more information, see [Managing users in your user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/managing-users.html) in the *Amazon Cognito Developer Guide*.  
 +  For API details, see [DeleteUser](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/delete-user.html) in *AWS CLI Command Reference*. 
 
 ------

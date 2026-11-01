@@ -16,7 +16,9 @@ Action examples are code excerpts from larger programs and must be run in contex
 The following `forgot-password` example sends a message to jane@example.com to change their password.  
 
 ```
-aws cognito-idp forgot-password --client-id {{38fjsnc484p94kpqsnet7mpld0}} --username {{jane@example.com}}
+aws cognito-idp forgot-password \
+    --client-id {{38fjsnc484p94kpqsnet7mpld0}} \
+    --username {{jane@example.com}}
 ```
 Output:  
 
@@ -29,6 +31,7 @@ Output:
     }
 }
 ```
+For more information, see [Passwords, account recovery, and password policies](https://docs.aws.amazon.com/cognito/latest/developerguide/managing-users-passwords.html) in the *Amazon Cognito Developer Guide*.  
 +  For API details, see [ForgotPassword](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/forgot-password.html) in *AWS CLI Command Reference*. 
 
 ------

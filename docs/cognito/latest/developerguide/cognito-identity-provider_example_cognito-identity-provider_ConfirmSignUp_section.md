@@ -81,12 +81,22 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To confirm sign-up**  
-This example confirms sign-up for username diego@example.com.  
-Command:  
+The following `confirm-sign-up` example confirms sign-up for username diego@example.com.  
 
 ```
-aws cognito-idp confirm-sign-up --client-id {{3n4b5urk1ft4fl3mg5e62d9ado}} --username=diego@example.com --confirmation-code {{CONF_CODE}}
+aws cognito-idp confirm-sign-up \
+    --client-id {{3n4b5urk1ft4fl3mg5e62d9ado}} \
+    --username {{diego@example.com}} \
+    --confirmation-code {{CONF_CODE}}
 ```
+Output:  
+
+```
+{
+    "Session": "AYABeEXAMPLEhLPy6WfPnN0bJ3VYeUg7Ryh2mB1xOCy2CFvpZx5jSEXAMPLE"
+}
+```
+For more information, see [Signing up and confirming user accounts](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html) in the *Amazon Cognito Developer Guide*.  
 +  For API details, see [ConfirmSignUp](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/confirm-sign-up.html) in *AWS CLI Command Reference*. 
 
 ------
