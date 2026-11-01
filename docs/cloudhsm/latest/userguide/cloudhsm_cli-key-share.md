@@ -5,7 +5,7 @@
 
 Use the **key share** command in CloudHSM CLI to share a key with other CUs in your AWS CloudHSM cluster.
 
-Only the CU who created the key and consequently owns it can share the key. Users with whom a key is shared can use the key in cryptographic operations, but they cannot delete, export, share, unshare, derive, or wrap the key. Additionally, these users cannot change [key attributes](cloudhsm_cli-key-attributes.md).
+Only the CU who created the key and consequently owns it can share the key. Users with whom a key is shared can use the key in cryptographic operations, but they cannot delete, export, share, unshare, derive, or wrap the key. Additionally, these users cannot change [key attributes](cloudhsm_cli-key-attributes.md). You can share a key with up to seven CUs in addition to the key owner.
 
 ## User type
 <a name="chsm-cli-key-share-user-type"></a>

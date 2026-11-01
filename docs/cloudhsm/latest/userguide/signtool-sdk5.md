@@ -7,6 +7,9 @@ In cryptography and public key infrastructure (PKI), digital signatures are used
 
 Many organizations use Microsoft SignTool, a command line tool that signs, verifies, and timestamps files to simplify the code signing process. You can use AWS CloudHSM to securely store your key pairs until they are needed by SignTool, thus creating an easily automatable workflow for signing data.
 
+**Note**  
+AWS CloudHSM supports only the 64-bit version of SignTool.
+
 The following topics provide an overview of how to use SignTool with AWS CloudHSM.
 
 **Topics**

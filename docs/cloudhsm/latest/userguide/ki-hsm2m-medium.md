@@ -65,12 +65,14 @@ The following issues impact all AWS CloudHSM hsm2m.medium instances.
 
 ## Issue: Operations can fail during backup creation
 <a name="ki-hsm2m-medium-8"></a>
-+ **Impact: **Operations like generating random numbers can fail on hsm2m.medium instances while AWS CloudHSM creates a backup.
-+ **Resolution: **To minimize service interruptions, implement these best practices:
-  + Create a multi-HSM cluster
-  + Configure your applications to retry cluster operations
++ **Impact: **Some operations, such as modifying key attributes, can fail on hsm2m.medium instances while AWS CloudHSM creates a backup. Key management operations run on every HSM in the cluster, so an operation can succeed on some HSMs and fail on another. When this happens, the HSMs in the cluster have different attributes for the key.
++ **Workaround: **To minimize service interruptions, implement these best practices:
+  + Create a multi-HSM cluster.
+  + Configure your applications to retry failed cluster operations with exponential backoff.
+  + Check the key after a key management operation fails, using the `key list --filter key-reference={{key-reference}} --verbose` command. Replace {{key-reference}} with the key reference of the key. If an attribute shows the value `inconsistent`, run the operation again. For more information, see [List keys for a user with CloudHSM CLI](cloudhsm_cli-key-list.md) and [Set the attributes of keys with CloudHSM CLI](cloudhsm_cli-key-set-attribute.md).
 
   For more information about best practices, see [Best practices for AWS CloudHSM](best-practices.md).
++ **Resolution status: **We are fixing this issue. You don't need to take any action to benefit from the fix.
 
 ## Issue: Client SDK 5.8 and above do not perform automatic retries for HSM throttled operations in some scenarios on hsm2m.medium
 <a name="ki-hsm2m-medium-9"></a>

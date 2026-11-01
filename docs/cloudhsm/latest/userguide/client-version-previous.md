@@ -721,7 +721,7 @@ Download version 5.16.2 software for Windows Server 2016 on x86\_64 architecture
 **Bug fixes/Improvements**
 + Enhanced token listing functionality to display more tokens in a single operation.
 + Fixed key usage token clearing issue in CloudHSM CLI interactive mode when signing with prehashed data.
-+ Resolved a known issue where some HSM throttled operations on hsm2m.medium would not be automatically retried. Refer to [Issue: Operations can fail during backup creation](ki-hsm2m-medium.md#ki-hsm2m-medium-8) for details.
++ Resolved a known issue where some HSM throttled operations on hsm2m.medium would not be automatically retried. Refer to [Issue: Client SDK 5.8 and above do not perform automatic retries for HSM throttled operations in some scenarios on hsm2m.medium](ki-hsm2m-medium.md#ki-hsm2m-medium-9) for details.
 
 ## Version 5.16.1
 <a name="client-version-5-16-1"></a>

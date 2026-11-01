@@ -5,7 +5,7 @@
 
 The AWS CloudHSM cloudhsm\_mgmt\_util command line tool helps crypto officers manage users in the hardware security modules (HSMs) in the AWS CloudHSM cluster. It also includes commands that allow crypto users (CUs) to share keys, and get and set key attributes. These commands complement the primary key management commands in the [key\_mgmt\_util](key_mgmt_util.md) command line tool. 
 
-For a quick start, see [Getting started with AWS CloudHSM Management Utility (CMU)](cloudhsm_mgmt_util-getting-started.md). 
+cloudhsm\_mgmt\_util is part of [the Client SDK 3 suite](choose-client-sdk.md). Client SDK 3 and its related command line tools (Key Management Utility and CloudHSM Management Utility) are only available in the HSM type *hsm1.medium*. For Client SDK 5, use [CloudHSM CLI](cloudhsm_cli.md). For a quick start, see [Getting started with AWS CloudHSM Management Utility (CMU)](cloudhsm_mgmt_util-getting-started.md). 
 
 Before you run any cloudhsm\_mgmt\_util command, you must start cloudhsm\_mgmt\_util and log in to the HSM. Be sure that you log in with the user account type that can run the commands you plan to use.
 
