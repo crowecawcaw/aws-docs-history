@@ -12,5 +12,6 @@ The following sections provide information on how to manage offers as a seller o
 **Topics**
 + [Work with private offers using the AWS Marketplace APIs](work-with-private-offers.md)
 + [Work with resale authorizations using the AWS Marketplace APIs](work-with-resale-authorizations.md)
++ [Work with subsidiary authorizations using the AWS Marketplace APIs](work-with-subsidiary-authorizations.md)
 + [Work with channel partner private offers using the AWS Marketplace APIs](work-with-cppos.md)
 + [Work with renewals](work-with-renewals.md)

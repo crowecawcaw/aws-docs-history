@@ -15,6 +15,13 @@ There are two types of offers:
 + **Private offers** are for sellers and buyers to negotiate pricing. Sellers sign an end-user license agreement (EULA) for software purchases in AWS Marketplace. An offer is visible only to a specified buyer. For more information, see [Private offers](https://docs.aws.amazon.com/marketplace/latest/userguide/private-offers-overview.html) in the *AWS Marketplace Seller Guide*.
 + **Public offers** are for global purchasing programs. Sellers identify customers based on available programs and geographical locations, which makes the offer accessible only to specific customers.
 
+An offer can originate in one of three ways:
++ **Direct** – The seller that owns the product creates the offer. For more information, see [Create an offer](#create-offer).
++ **From a resale authorization** – An AWS Marketplace Channel Partner creates the offer using a selling authorization granted by an independent software vendor (ISV). For more information, see [Create a CPPO](work-with-cppos.md#create-offer-using-resale-auth).
++ **From a subsidiary authorization** – One of a seller's own AWS Marketplace seller accounts creates the offer using an authorization granted by the account that owns the product. For more information, see [Create an offer using a subsidiary authorization](#create-offer-using-subsidiary-authorization).
+
+In every case, the account that creates the offer is the seller of record on that offer. That account sets its own pricing, is charged AWS Marketplace fees on its own account, and receives disbursement to its own bank account.
+
 See the following resources:
 + For working code examples, see [Manage offers with API](https://catalog.workshops.aws/mpseller/en-US/manage-offers-with-api) in the *AWS Marketplace seller workshop*. 
 + For API request code examples, see [Python](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/python/src/catalog_api/offers) and [Java](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java/resources/changeSets/offers) examples in *AWS Samples* on GitHub.
@@ -44,7 +51,7 @@ The following topics describe how to use the Catalog API to create and update of
 
 You can use the Catalog API to create a new offer in AWS Marketplace. If your request processes successfully, the AWS Marketplace Catalog API creates a `Draft`, which is an incomplete offer that's invisible to buyers. To complete an offer, use the `Update` change type. When the offer is complete, use the [`ReleaseOffer`](#release-offer) change type to create and release it. Releasing an offer validates it and makes it visible to buyers in AWS Marketplace.
 
-To create a new offer, call the `StartChangeSet` API operation with the `CreateOffer` change type, as shown in the following example. 
+To create a new offer for a product that your own account owns, call the `StartChangeSet` API operation with the `CreateOffer` change type, as shown in the following example. To create a new private offer for a product that another of your organization's accounts has authorized you to sell, see [Create an offer using a subsidiary authorization](#create-offer-using-subsidiary-authorization).
 
 **Request Syntax**
 
@@ -147,6 +154,128 @@ The following errors are specific to `CreateOffer` actions in the AWS Marketplac
 | INCOMPATIBLE\_PRODUCT | OfferSetId isn't supported in offers for the product. | 
 | INCOMPATIBLE\_PRODUCT | CreateOffer change type can't be invoked to create an offer for the product. Use CreateOfferUsingResaleAuthorization change type. | 
 
+### Create an offer using a subsidiary authorization
+<a name="create-offer-using-subsidiary-authorization"></a>
+
+You can use the Catalog API to create a private offer for a product that your organization's primary account has authorized you to sell through a subsidiary authorization. To learn more about subsidiary authorizations, see [Work with subsidiary authorizations using the AWS Marketplace APIs](work-with-subsidiary-authorizations.md).
+
+Creating the offer takes two steps: find the subsidiary authorization for the product you want to sell, then use its ID to create the offer. As with `CreateOffer`, the offer is created in `Draft` state. Use the `Update` change types on this page to complete it, then use the [`ReleaseOffer`](#release-offer) change type to publish it.
+
+**Step 1: Get your subsidiary authorization ID**
+
+To create the offer, you need the ID of an `Active` subsidiary authorization that targets your account. To find it, call the `[ListEntities](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_ListEntities.html)` API operation with `EntityType` set to `SubsidiaryAuthorization`. When you call it from a subsidiary account, the response contains only the active authorizations shared with your account. For the full list of filters and sort options, see [List your subsidiary authorizations](work-with-subsidiary-authorizations.md#list-subsidiary-authorizations).
+
+```
+POST /ListEntities HTTP/1.1
+Content-type: application/json
+
+{
+  "Catalog": "AWSMarketplace",
+  "EntityType": "SubsidiaryAuthorization",
+  "EntityTypeFilters": {
+    "SubsidiaryAuthorizationFilters": {
+      "Status": { "ValueList": ["Active"] }
+    }
+  }
+}
+```
+
+The response looks like the following.
+
+```
+{
+  "EntitySummaryList": [
+    {
+      "Name": "Test Subsidiary Authorization",
+      "EntityType": "SubsidiaryAuthorization",
+      "EntityId": "subauthz-1a2bexample34",
+      "EntityArn": "arn:aws:aws-marketplace:us-east-1:111122223333:AWSMarketplace/SubsidiaryAuthorization/subauthz-1a2bexample34",
+      "LastModifiedDate": "2026-10-26T21:21:07Z",
+      "SubsidiaryAuthorizationSummary": {
+        "Status": "Active",
+        "ResourceId": "prod-3c4dexample12",
+        "ResourceName": "Test SaaS Product",
+        "SubsidiaryAccountId": "444455556666",
+        "CreatedDate": "2026-10-26T21:15:47.88Z"
+      }
+    }
+  ],
+  "NextToken": "abcdabcd-wxyz-pqrs-lmno-defgdefgdefg"
+}
+```
+
+Find the entry whose `SubsidiaryAuthorizationSummary.ResourceId` is the product you want to sell, and use its `EntityId` as the `SubsidiaryAuthorizationId` in step 2.
+
+**Step 2: Create the offer**
+
+To create a new private offer using a subsidiary authorization, call the `StartChangeSet` API operation with the `CreateOfferUsingSubsidiaryAuthorization` change type and the `SubsidiaryAuthorizationId` from step 1, as shown in the following example.
+
+**Request Syntax**
+
+```
+POST /StartChangeSet HTTP/1.1
+Content-type: application/json
+
+{
+  "Catalog": "AWSMarketplace",
+  "ChangeSet": [
+    {
+      "ChangeType": "CreateOfferUsingSubsidiaryAuthorization",
+      "ChangeName": "TestingSubsidiaryOfferCreation",
+      "Entity": {
+        "Type": "Offer@1.0"
+      },
+      "DetailsDocument": {
+        "SubsidiaryAuthorizationId": "subauthz-1a2bexample34",
+        "Name": "Test Subsidiary Offer"
+      }
+    }
+  ]
+}
+```
+
+Provide information for the fields to add the `CreateOfferUsingSubsidiaryAuthorization` change type:
++ **Entity** (object) (required) – Your offer.
+  + **Type** (string) (required) – The `Type` is always `Offer@1.0`.
++ **DetailsDocument** (object) (required) – Specifics of the request.
+  + **SubsidiaryAuthorizationId** (string) (required) – The entity ID of the subsidiary authorization that grants you permission to sell the product. Must match the pattern `subauthz-` followed by 13 alphanumeric characters, for example `subauthz-1a2bexample34`.
+  + **Name** (string) (optional) – The display name of the offer. Up to 150 characters.
+  + **OfferSetId** (string) (optional) – The offer set to associate the offer with. Must match the pattern `offerset-` followed by 13 alphanumeric characters, for example `offerset-b3f9EXAMPLE27`. The offer set must be owned by your account.
+
+You don't supply the product ID or the seller of record. AWS Marketplace derives the product from the subsidiary authorization and sets the seller of record to your account.
+
+**Note**  
+`Description` isn't collected on this change type, which matches the `CreateOffer` change type.
+
+**Response Syntax**
+
+A change set is created for your request. The response gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
+
+```
+{
+  "ChangeSetId": "example444455556666abcdef",
+  "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:444455556666:AWSMarketplace/ChangeSet/example444455556666abcdef"
+}
+```
+
+The change request is added to a queue and processed. You can check the status of the request through the AWS Marketplace Management Portal, or directly through the Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation. If the `Status` is `SUCCEEDED`, a new `OfferId` is generated and the offer is in `Draft` state.
+
+**Note**  
+AWS Marketplace re-validates the offer against the subsidiary authorization when you publish it with `ReleaseOffer`. If the primary account revoked or narrowed the authorization after you created the offer, the release fails. For more information, see [Publish an offer](#release-offer).
+
+**Synchronous Validations**
+
+The following schema validations are specific to `CreateOfferUsingSubsidiaryAuthorization` actions in the AWS Marketplace Catalog API. These validations are performed when you call `StartChangeSet`. If the request doesn't meet the following requirements, it fails with an HTTP response.
+
+
+| Input field | Validation rule | HTTP code | 
+| --- | --- | --- | 
+| SubsidiaryAuthorizationId | Required<br />Must match `^subauthz-[a-zA-Z0-9]{13}$` | 422 | 
+| Name | Optional<br />Up to 150 characters<br />Can't begin with whitespace | 422 | 
+| OfferSetId | Optional<br />Must match `^offerset-[a-zA-Z0-9]{13}$`<br />Must be owned by the calling account | 422 | 
+
+If your account isn't permitted to use the referenced subsidiary authorization, the request is denied with `AccessDeniedException`. Other failures are returned asynchronously through `DescribeChangeSet`, with `Status` set to `FAILED`, `FailureCode` set to `CLIENT_ERROR`, and a reason code in `ErrorDetailList`.
+
 ## Create a replacement offer
 <a name="create-replacement-offer"></a>
 
@@ -154,7 +283,7 @@ You can use the Catalog API to create a replacement offer (also known as an agre
 
 If your request has been processed successfully, AWS Marketplace Catalog API will have an offer in `Draft` state generated for you, which is an incomplete offer and not visible to buyers on AWS Marketplace. You will use `Update` change types to complete the offer. After the offer is completed, you will use [`ReleaseOffer`](#release-offer) change type to complete offer creation process and release the offer, which will validate the entire offer and make your offer visible to buyers on AWS Marketplace. From there, the buyer has the option to accept the replacement offer or to continue to operate under the original agreement.
 
-To create a replacement offer, call the `StartChangeSet` API operation with the `CreateReplacementOffer` change type and provide a pre-existing agreement id, as shown in the following example. 
+To create a replacement offer for an agreement on a product that your own account owns, call the `StartChangeSet` API operation with the `CreateReplacementOffer` change type and provide a pre-existing agreement ID, as shown in the following example. To create a replacement offer for an agreement on an offer that you created from a subsidiary authorization, see [Create a replacement offer using a subsidiary authorization](#create-replacement-offer-using-subsidiary-authorization).
 
 **Request Syntax**
 
@@ -221,6 +350,93 @@ The following errors are specific to `CreateReplacementOffer` actions in the AWS
 | --- | --- | 
 | INCOMPATIBLE\_PRODUCT | Replacement offers aren't supported for the product. | 
 | INCOMPATIBLE\_AGREEMENT | CreateReplacementOffer change type can't be invoked to create a replacement offer for the agreement. Use CreateReplacementOfferUsingResaleAuthorization change type. | 
+
+### Create a replacement offer using a subsidiary authorization
+<a name="create-replacement-offer-using-subsidiary-authorization"></a>
+
+You can use the Catalog API to issue refreshed terms to a buyer who has already accepted an offer you created from a subsidiary authorization, for example at renewal.
+
+The replacement offer is a new offer created against the buyer's existing purchase agreement. The prior offer isn't dropped, replaced, or modified. Both offers exist at the same time, and the buyer chooses which one to act on.
+
+**Step 1: Get your subsidiary authorization ID and agreement ID**
+
+You need two IDs:
++ **SubsidiaryAuthorizationId** – The ID of the `Active` subsidiary authorization that you created the prior offer under. To find it, call `ListEntities` as described in step 1 of [Create an offer using a subsidiary authorization](#create-offer-using-subsidiary-authorization).
++ **AgreementId** – The ID of the buyer's existing agreement for the prior offer.
+
+**Step 2: Create the replacement offer**
+
+To create a replacement offer using a subsidiary authorization, call the `StartChangeSet` API operation with the `CreateReplacementOfferUsingSubsidiaryAuthorization` change type, as shown in the following example.
+
+**Request Syntax**
+
+```
+POST /StartChangeSet HTTP/1.1
+Content-type: application/json
+
+{
+  "Catalog": "AWSMarketplace",
+  "ChangeSet": [
+    {
+      "ChangeType": "CreateReplacementOfferUsingSubsidiaryAuthorization",
+      "ChangeName": "TestingSubsidiaryReplacementOfferCreation",
+      "Entity": {
+        "Type": "Offer@1.0"
+      },
+      "DetailsDocument": {
+        "SubsidiaryAuthorizationId": "subauthz-1a2bexample34",
+        "AgreementId": "agmt-pqrs4567pqrs4567pqrs4567",
+        "Name": "Test Subsidiary Replacement Offer"
+      }
+    }
+  ]
+}
+```
+
+Provide information for the fields to add the `CreateReplacementOfferUsingSubsidiaryAuthorization` change type:
++ **Entity** (object) (required) – Your offer.
+  + **Type** (string) (required) – The `Type` is always `Offer@1.0`.
++ **DetailsDocument** (object) (required) – Specifics of the request.
+  + **SubsidiaryAuthorizationId** (string) (required) – The entity ID of the subsidiary authorization that grants you permission to sell the product. Must match the pattern `subauthz-` followed by 13 alphanumeric characters.
+  + **AgreementId** (string) (required) – The buyer's purchase agreement ID for the prior offer. Must begin with `agmt-` and be up to 64 characters.
+  + **Name** (string) (optional) – The display name of the offer. Up to 150 characters.
+
+`OfferSetId` isn't accepted on this change type, which matches `CreateReplacementOfferUsingResaleAuthorization`.
+
+Prices on the new offer are seeded from the prior offer. You can change them with `UpdatePricingTerms` within the authorization's dimension set.
+
+**Response Syntax**
+
+A change set is created for your request. The response gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
+
+```
+{
+  "ChangeSetId": "example444455556666abcdef",
+  "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:444455556666:AWSMarketplace/ChangeSet/example444455556666abcdef"
+}
+```
+
+The change request is added to a queue and processed. You can check the status of the request using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
+
+**Validation**
+
+AWS Marketplace resolves `AgreementId` to the prior offer and checks that:
++ The proposed terms are within the scope of the **current** subsidiary authorization, not the scope it had when the prior offer was created.
++ The terms that the prior agreement fixes, which are the buyer and the product, match.
++ You created the prior offer under the same subsidiary authorization.
+
+If any check fails, the change set fails with a reason code in `ErrorDetailList` and the prior offer is unchanged.
+
+**Synchronous Validations**
+
+The following schema validations are specific to `CreateReplacementOfferUsingSubsidiaryAuthorization` actions in the AWS Marketplace Catalog API. These validations are performed when you call `StartChangeSet`. If the request doesn't meet the following requirements, it fails with an HTTP response.
+
+
+| Input field | Validation rule | HTTP code | 
+| --- | --- | --- | 
+| SubsidiaryAuthorizationId | Required<br />Must match `^subauthz-[a-zA-Z0-9]{13}$` | 422 | 
+| AgreementId | Required<br />Must match `^agmt-[A-Za-z0-9]+$`<br />Up to 64 characters | 422 | 
+| Name | Optional<br />Up to 150 characters | 422 | 
 
 ## Update offer information
 <a name="update-offer-information"></a>
@@ -424,6 +640,9 @@ The following errors are specific to `UpdateTargeting` actions in the AWS Market
 | MISSING\_COUNTRY\_CODES | Provide PositiveTargeting with CountryCodes: [x]. | 
 | INCOMPATIBLE\_COUNTRY\_CODES | Provide CountryCodes that are compatible. | 
 | INCOMPATIBLE\_BUYER\_ACCOUNTS | Provide BuyerAccounts that are compatible with the agreement. | 
+
+**Note**  
+If you created the offer from a subsidiary authorization, the buyer targeting, geography, and offer type you set must be within the scope of the **current** subsidiary authorization. AWS Marketplace evaluates buyer eligibility against the buyer's tax address. If the primary account has narrowed the authorization since you created the offer, a value that was valid before can now be rejected.
 
 ## Update refund policy
 <a name="update-support-terms"></a>
@@ -949,6 +1168,9 @@ The following errors are specific to `UpdatePricingTerms` actions in the AWS Mar
 | INVALID\_GRANTS | Provide MaxQuantity for all Grants in FixedUpfrontPricingTerm. | 
 | INVALID\_GRANTS | MaxQuantity isn't supported in FixedUpfrontPricingTerm for the product. | 
 | INCOMPATIBLE\_RESALE\_AUTHORIZATION | Ensure Grants in FixedUpfrontPricingTerm matches RateCards specified in the ResaleAuthorization. | 
+
+**Note**  
+If you created the offer from a subsidiary authorization, the dimensions you price must be a subset of the dimensions covered by the authorization, and the currency must be one that your account's AWS Marketplace payment setup supports. The authorization carries no pricing terms, so you set prices freely within those constraints.
 
 ## Update the discoverability of the offer
 <a name="update-availability"></a>
@@ -1583,6 +1805,9 @@ The following errors are specific to `ReleaseOffer` actions in the AWS Marketpla
 | MISSING\_MANDATORY\_TERMS | Provide a RenewalTerm for public offers with contract pricing for the product. | 
 | MISSING\_AGREEMENT\_END\_DATE | Provide an AgreementEndDate for replacement offers. | 
 
+**Note**  
+For an offer created from a subsidiary authorization, AWS Marketplace re-validates the offer against the current subsidiary authorization when you release it. The release fails and the offer stays in `Draft` state if, after you created the offer, the primary account revoked the authorization or narrowed its countries, offer types, or dimensions. An offer that was already published before the authorization was revoked remains valid and can still be accepted by the buyer.
+
 ## Describe existing offer details
 <a name="describe-entity"></a>
 
@@ -1762,6 +1987,45 @@ The response to this request gives you the offer details and looks like the foll
 }
 ```
 
+The following `DescribeEntity` response for an offer created from a subsidiary authorization is trimmed to the relevant fields.
+
+```
+{
+  "EntityType": "Offer@1.0",
+  "EntityIdentifier": "offer-hrja4qluqqoua@2",
+  "EntityArn": "arn:aws:aws-marketplace:us-east-1:444455556666:AWSMarketplace/Offer/offer-hrja4qluqqoua",
+  "LastModifiedDate": "2026-10-07T19:05:06Z",
+  "DetailsDocument": {
+    "Id": "offer-hrja4qluqqoua",
+    "Name": "Test Subsidiary Offer",
+    "ProductId": "prod-3c4dexample12",
+    "OfferSetId": "offerset-notyefzklyh2k",
+    "State": "Released",
+    "SubsidiaryAuthorizationId": "subauthz-1a2bexample34",
+    "Terms": [
+      {
+        "Type": "FixedUpfrontPricingTerm",
+        "CurrencyCode": "USD",
+        "Duration": "P3M",
+        "Price": "0",
+        "Grants": [ { "DimensionKey": "subauth_test_seats", "MaxQuantity": 1 } ]
+      },
+      { "Type": "ValidityTerm", "AgreementDuration": "P3M" }
+    ],
+    "Rules": [
+      { "Type": "AvailabilityRule", "AvailabilityEndDate": "2026-10-30T23:59:59.999Z" },
+      {
+        "Type": "TargetingRule",
+        "PositiveTargeting": {
+          "CountryCodes": ["US"],
+          "BuyerAccounts": ["777788889999"]
+        }
+      }
+    ]
+  }
+}
+```
+
 The following is information about the fields you see in the `DescribeEntity` response.
 + **EntityType** (string) – The named type of the entity, which is `Offer@1.0`.
 + **EntityIdentifier** (string) – The identifier of the entity, in the format of `EntityId@RevisionId`.
@@ -1779,5 +2043,6 @@ The following is information about the fields you see in the `DescribeEntity` re
     + **PricingModel** (string) – Indicates which pricing model the existing agreement uses. Possible values: `Contract`, `Usage`, `Byol`, `Free`.
   + **ProductId** (string) – The unique identifier of the product being offered.
   + **OfferSetId** (string) – The unique identifier of the offer set to associate this offer with.
+  + **SubsidiaryAuthorizationId** (string) (optional) – The ID of the subsidiary authorization used to create the offer. Present only on offers created with the `CreateOfferUsingSubsidiaryAuthorization` or `CreateReplacementOfferUsingSubsidiaryAuthorization` change types. The field is omitted entirely on direct offers, offers created from a resale authorization, and all other offers. Use the presence of this field to identify an offer created from a subsidiary authorization.
   + **Terms** (array of structures) – List of terms.
   + **Rules** (array of structures) – List of rules.

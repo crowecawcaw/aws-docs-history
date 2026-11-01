@@ -49,7 +49,7 @@ Content-type: application/json
                                       "Price": 0.1
                                     },    
                                     {
-                                      "DimensionKey": "m.i.c",
+                                      "DimensionKey": "inference.count.m.i.c",
                                       "Price": 0.1
                                     },
                                     {
@@ -82,7 +82,7 @@ Content-type: application/json
                                 "DimensionKey": "ml.m4.16xlarge.m.i.b"
                               },
                               {
-                                "DimensionKey": "m.i.c"
+                                "DimensionKey": "inference.count.m.i.c"
                               },
                               {
                                 "DimensionKey": "ml.m4.4xlarge.a.t"
@@ -116,19 +116,19 @@ Content-type: application/json
       + `RateCard` (array of objects) - The array of dimensions and rates for your machine learning product. All supported instance types must be priced in order to publish your product.
         + `DimensionKey` - The dimension you are pricing. Valid dimension keys are:
           + Instance type followed by the operation for hourly rates:
-            + Instance type will start with `ml` followed by the instance name and size. For exampole, `ml.m4.xlarge`
+            + Instance type starts with `ml` followed by the instance name and size. For example, `ml.m4.xlarge`.
             + Operation will be `m.i.b` for batch transform, `m.i.r` for hourly real-time inference, and `a.t` for algorithm training.
             + Examples: `ml.m4.4xlarge.m.i.b` for batch transform, `ml.m4.xlarge.m.i.r` for real-time inference, or `ml.m4.16xlarge.a.t` for algorithm training
-          + `m.i.c` for real-time per inference pricing.
+          + `inference.count.m.i.c` for real-time per-inference pricing. Use it instead of the `m.i.r` keys, because one per-inference price applies to all instance types.
         + `Price` - The rate of the dimension. The rate is either hourly or per-inference, depending on the dimensionKey.
-    + `Duration` (string) (required for `FreeTrialPricingTerm` or `FixedUpfrontPricingTerm` - The duration of your free trial or contract. For free trial valid values are between X and Y. For contract, valid values are between X and Y.
+    + `Duration` (string) (required for `FreeTrialPricingTerm` or `FixedUpfrontPricingTerm`) - The duration of your free trial or contract. For a free trial, specify 5 to 120 days, for example `P30D`. For a contract, specify the duration in days, for example `P365D`.
     + Grants (array of objects) - Details about which dimensionKeys are eligible for free trial. All supported dimensionKeys must be provided.
       + DimensionKey - The dimension to include as part of the free trial offer.
         + Instance type followed by the operation for hourly rates:
-          + Instance type starts with `ml` followed by the instance name and size e.g. `ml.m4.xlarge`
+          + Instance type starts with `ml` followed by the instance name and size, for example `ml.m4.xlarge`.
           + Operation is `m.i.b` for batch transform, `m.i.r` for hourly real-time inference, or `a.t` for algorithm training.
           + Examples: `ml.m4.4xlarge.m.i.b` for batch transform, `ml.m4.xlarge.m.i.r` for real-time inference, or `ml.m4.16xlarge.a.t` for algorithm training
-        + `m.i.c` for real-time per inference pricing.
+        + `inference.count.m.i.c` for real-time per-inference pricing.
 
 ## Response syntax
 <a name="update-pricing-response-syntax"></a>

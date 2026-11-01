@@ -99,7 +99,7 @@ Content-type: application/json
 
 The following rules apply to professional services products:
 + **Permissions** – If your IAM policy limits change types with the `catalog:ChangeType` condition key, it must allow `UpdateInformation`, `AddDimensions`, and `ReleaseProduct` as well as `CreateProduct`. Without them, a `CreateProduct` request for a professional services product is denied, even when the change set contains only `CreateProduct`. For more information, see [Access control for the AWS Marketplace Catalog API](catalog-api-access-control.md).
-+ **Product details** – `UpdateInformation` accepts the same fields as for other product types, except `VideoUrls`. Omit `VideoUrls` or set it to `null`.
++ **Product details** – `UpdateInformation` accepts the same fields as for other product types, including `VideoUrls`. It also accepts `AssociatedProducts`, which only professional services products can set. For more information about these fields, see [Update product details](work-with-seller-products.md#update-information).
 + **Pricing dimensions** – Professional services products use contract pricing. Set `Types` to `["Entitled"]` for every dimension. For the allowed units and other fields, see [Add pricing dimensions](work-with-seller-products.md#add-dimensions).
 + **Publishing** – `ReleaseProduct` requires at least one pricing dimension. You don't need a public offer to publish a professional services product. After the product is in `Limited` state, use `UpdateTargeting` to choose the AWS accounts that can view it.
 

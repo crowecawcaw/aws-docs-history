@@ -235,6 +235,7 @@ Currently, AWS Marketplace supports one URL in the array.
     + `Url` (string) – The URL to a resource that might be helpful for a buyer to understand your product.
   + `SupportDescription` (string) – The details about your support offering for your product.
   + `Categories` (array of strings) – The list of AWS Marketplace defined product categories that describe your product. For more information, see [Product categories](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-product-categories.html) in the *AWS Marketplace Buyer Guide*.
+  + `AssociatedProducts` (array of strings or null) – For `ProfessionalServicesProduct@1.0` only. The list of up to 10 product IDs of other AWS Marketplace products that complement your professional services product, with the most relevant product first. Each product must be a public Amazon Machine Image (AMI), container, data, machine learning, or SaaS product. Use `null` to unset this field. Other product types can't set this field and accept only `null`.
   + `SearchKeywords` (array of strings) – The list of keywords for your product to enhance the search experience. Seller name, product name, and product categories are automatically included in search keywords and don't need to be repeated here.
 
 **Note**  
@@ -274,6 +275,7 @@ The following schema validations are specific to `UpdateInformation` actions in 
 | AdditionalResources (array of structures) | Max length: 500 Optional | 400 | 
 | SupportDescription (string) | Max length: 2000Required | 400 | 
 | Categories (array of strings) | Min 1 - Max 3 Required | 400 | 
+| AssociatedProducts (array of strings or null) | Min 1 - Max 10 Each item is a product ID: `prod-` followed by 13 letters or digits, or a UUID<br />Optional | 400 | 
 | SearchKeywords (array of strings) | Min 1 - Max 15 Max 50 chars for each item<br />Required | 400 | 
 
 **Asynchronous Errors**
@@ -308,6 +310,9 @@ The following errors are specific to `UpdateInformation` actions in the AWS Mark
 | INVALID\_INPUT | The input for this change type could not be read. Submit a properly formatted input. | 
 | INVALID\_ADDITIONAL\_RESOURCES | Invalid URLs in AdditionalResources: [InvalidAdditionalResourcesUrls] Provide valid URLs. | 
 | INVALID\_CATEGORY\_NAMES | Provide valid category names supported by AWS Marketplace. | 
+| INVALID\_ASSOCIATED\_PRODUCT | Product '{ProductId}' does not exist. Newly created product may take up to 2 hours to show up. Provide a valid associated product. | 
+| INVALID\_ASSOCIATED\_PRODUCT | Product '{ProductId}' is currently in '{State}' state. Provide an associated product in the Public state. | 
+| INVALID\_ASSOCIATED\_PRODUCT | Product '{ProductId}' is not supported. Supported product types are [AmiProduct, ContainerProduct, DataProduct, MachineLearningProduct, SaaSProduct]. | 
 | InvalidImageProperties | Validation errors found: The file is not image type. Supported image types: [png\|jpg\|gif]. | 
 | EXPLICIT\_CONTENT | Explicit content: '{ExplicitContent}' detected. Provide media with no explicit content. | 
 | INVALID\_MEDIA | Invalid URL: {MediaUrl} Provide a new URL for media stored in S3. | 
@@ -415,7 +420,7 @@ Provide the following fields for the `AddDimensions` change type.
 
 + `Entity` (object) (required) – The named type of entity being created.
   + `Identifier` (string) (required) – Your product ID. For more information, see [Identifier](catalog-apis.md#identifier).
-  + `Type` (string) (required) – The `Type` is based on the delivery method (product type) that your product will be using: `AmiProduct@1.0`, `ProfessionalServicesProduct@1.0`, or `SaaSProduct@1.0`. 
+  + `Type` (string) (required) – The `Type` is based on the delivery method (product type) that your product will be using: `AmiProduct@1.0`, `SaaSProduct@1.0`, or `ProfessionalServicesProduct@1.0`. 
 
 **Response Syntax**
 
@@ -545,7 +550,7 @@ Use the following fields with the `UpdateDimensions` change type:
   + `Name` (string) optional – DIsplay name for the dimension on the website and customer's bill.
 + `Entity` (object) (required) – The named type of entity being created.
   + `Identifier` (string) (required) – Your product ID. For more information, see [Identifier](catalog-apis.md#identifier).
-  + `Type` (string) (required) – The `Type` is based on the delivery method (product type) that your product will be using: `AmiProduct@1.0`, `ProfessionalServicesProduct@1.0`, or `SaaSProduct@1.0`. 
+  + `Type` (string) (required) – The `Type` is based on the delivery method (product type) that your product will be using: `AmiProduct@1.0`, `SaaSProduct@1.0`, or `ProfessionalServicesProduct@1.0`. 
 
 **Response Syntax**
 

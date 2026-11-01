@@ -341,6 +341,9 @@ You can use the Catalog API to update pricing terms by a percentage value in you
 
 This will apply the given percentage markup on all pricing terms and payment terms (for future payment schedules) that are defined by the manufacturer in the ResaleAuthorization. Any existing markup will be overwritten. You can view updated pricing and payment terms using `DescribeEntity`.
 
+**Note**  
+`UpdateMarkup` doesn't apply to an offer created from a subsidiary authorization, and the request is rejected. A subsidiary authorization has no wholesale cost to mark up: the subsidiary account sets its own prices directly with `UpdatePricingTerms`.
+
 To update markup, call the `StartChangeSet` API operation with the `UpdateMarkup` change type, as shown in the following example. 
 
 **Request Syntax**
