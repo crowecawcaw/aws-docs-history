@@ -72,6 +72,7 @@ API call rate quotas are not adjustable.
 | Composition: max duration | 24 | No | Maximum amount of time a composition can exist, in hours. | 
 | Compositions | 20 | Yes | Maximum concurrent Composition resources per account. | 
 | Compositions per stage | 5 | Yes | Maximum concurrent Composition resources per stage. | 
+| Composition: video publishers | 12 | No | Maximum number of publishers whose video is included in a composition. Audio from publishers beyond this limit is still mixed into the composition, but their video is not included. | 
 | Concurrent participant replications | 5 | No | Maximum number of concurrent replications per participant across all stages in an AWS Region. | 
 | Concurrent publishers | 1,000 | Yes | Maximum number of participants who can be publishing across all stages in an AWS Region. | 
 | Concurrent subscriptions | 20,000 | Yes | Maximum number of simultaneous publisher-to-subscriber connections across all stages in an AWS Region. | 

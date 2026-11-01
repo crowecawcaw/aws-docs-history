@@ -97,6 +97,8 @@ For details on PiP layout (including valid values and defaults for all fields), 
 ![Server-side composition Picture-in-Picture (PiP) layout](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/ssc_PiP_Layout.png)
 
 
-**Note**: The maximum resolution supported by a stage publisher on server-side composition is 1080p. If a publisher sends video higher than 1080p, the publisher will be rendered as an audio-only participant.
+**Note**:
++ The maximum resolution supported by a stage publisher on server-side composition is 1080p. If a publisher sends video higher than 1080p, the publisher will be rendered as an audio-only participant.
++ A composition includes video from at most the number of publishers allowed by the Composition: video publishers quota. If more participants are publishing to the stage, video slots are assigned first to the PiP participant (if any), then to the featured participant (if any), then to the remaining participants in participant order (see [Custom Participant Ordering](ssc-getting-started-custom-participant-ordering.md)). Publishers without a video slot are not shown in the layout, but their audio is mixed into the composition.
 
 **Important**: Ensure your application does not depend on the specific features of the current layout, such as size and position of tiles. *Visual improvements to layouts can be introduced at any time*. 

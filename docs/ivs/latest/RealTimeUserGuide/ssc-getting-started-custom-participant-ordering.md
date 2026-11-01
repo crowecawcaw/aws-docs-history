@@ -51,7 +51,9 @@ Example use cases include:
 + Dynamic layouts – You can combine custom ordering with `featuredParticipantAttribute` and `pipParticipantAttribute` for complex scenarios.
 + Cross-stage interactions – When using participant replication for scenarios like VS Mode competitions where streamers from different stages interact, you can override ordering attributes to control positioning in the destination stage composition.
 
-**Note:** For participant-replication use cases, you can override participant attributes (including the order attribute) as needed when starting a replication to achieve the desired layout in the destination stage.
+**Note:**
++ For participant-replication use cases, you can override participant attributes (including the order attribute) as needed when starting a replication to achieve the desired layout in the destination stage.
++ If more participants are publishing to the stage than the Composition: video publishers quota allows, the composition includes video from the PiP participant first, then the featured participant, then the remaining participants in participant order. For publishers beyond the quota, only their audio is mixed into the composition.
 
 ## Backward Compatibility
 <a name="ssc-getting-started-custom-participant-ordering-backward-compatibility"></a>
