@@ -21,6 +21,7 @@ You specify the following types of information in the workflow definition:
 
 **Topics**
 + [HealthOmics workflow definition requirements](workflow-defn-requirements.md)
++ [Package and supply a HealthOmics workflow definition](workflow-defn-packaging.md)
 + [Version support for HealthOmics workflow definition languages](workflows-lang-versions.md)
 + [Task outputs in a HealthOmics workflow definition](workflows-task-outputs.md)
 + [Task compute and resources](task-compute-resources.md)

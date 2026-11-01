@@ -54,6 +54,8 @@ HealthOmics stops the task after a user-initiated request to cancel the run.
 <a name="debugging-tasks"></a>
 
 The following are best practices and considerations for troubleshooting your tasks.
+
+For the order in which to read a failed task's record, its logs, and its metrics, see [Debugging a HealthOmics workflow run](workflows-run-debug.md).
 + Task logs rely on `STDOUT` and `STDERR` being produced by the task. If the application used in the task doesn’t produce either of these, then there won't be a task log. To assist with debugging, use applications in `verbose` mode.
 + To view the commands being run in a task along with their interpolated values, use the `set -x` Bash command. This can help determine if the task is using the correct inputs and identify where errors might have kept the task from running as intended.
 + Use the `echo` command to output the values of variables to ` STDOUT` or `STDERR`. This helps you confirm that they're being set as expected.

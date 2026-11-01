@@ -27,5 +27,6 @@ You can use [Kiro CLI](https://docs.aws.amazon.com/kiro/latest/userguide/what-is
 + [HealthOmics run outputs](workflows-run-outputs.md)
 + [Run failure reasons](workflows-run-errors.md)
 + [Task lifecycle in a HealthOmics run](workflow-run-tasks.md)
++ [Debugging a HealthOmics workflow run](workflows-run-debug.md)
 + [Run optimization for a private HealthOmics workflow](workflows-run-optimize.md)
 + [Run operations in HealthOmics](run-operations.md)

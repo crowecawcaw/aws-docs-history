@@ -28,6 +28,8 @@ The following topics can help you troubleshoot issues that you encounter when us
 
 Use the **GetRun** API operation to retrieve the failure reason. For more information, see [Run failure reasons](workflows-run-errors.md).
 
+For the rest of the sequence, and the commands for each step, see [Debugging a HealthOmics workflow run](workflows-run-debug.md).
+
 ### How do I troubleshoot a failed task?
 <a name="troubleshooting-task-fail"></a>
 

@@ -11,6 +11,8 @@ HealthOmics workflows don't support operation processes. To learn more about ope
 
 Best practice is to define a separate CWL workflow for each container that you use. We recommend that you don't hardcode the dockerPull entry with a fixed Amazon ECR URI.
 
+For more information about validating a CWL definition before you create the workflow, see [Validating workflow definitions locally](workflows-validate-local.md).
+
 **Topics**
 + [Convert CWL workflows to use HealthOmics](#workflow-cwl-convert)
 + [Opt out of task retry using `omicsRetryOn5xx`](#workflow-cwl-retry-5xx)

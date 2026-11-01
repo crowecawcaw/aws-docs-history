@@ -45,6 +45,8 @@ Additional Nextflow considerations:
   HealthOmics supports the Nextflow execution report, timeline, trace, and DAG reports. Configure each report to write its output under `/mnt/workflow/output/` so that HealthOmics exports it to your run's Amazon S3 output location. For more information, see [Generate Nextflow execution reports](workflow-definition-nextflow.md#nextflow-execution-reports).
 + **Automatic syntax validation** – For WDL and Nextflow, HealthOmics runs built-in linters during workflow creation. For more information, see [Workflow linters in HealthOmics](workflows-linter.md).
 
+For more information about validating a definition locally before you create the workflow, see [Validating workflow definitions locally](workflows-validate-local.md).
+
 Additional CWL considerations:
 + **Container image uri interpolation**
 

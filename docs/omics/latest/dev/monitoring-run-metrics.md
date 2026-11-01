@@ -8,6 +8,7 @@ HealthOmics publishes near real-time resource-utilization metrics for your runs 
 + Detect memory pressure or scratch storage exhaustion before a task fails.
 + Right-size the compute and storage configurations for your workflows.
 + Build CloudWatch dashboards and alarms, or integrate with third-party observability tools.
++ Debug a failed or slow run, alongside the run record, the task records, and the logs. For more information, see [Debugging a HealthOmics workflow run](workflows-run-debug.md).
 
 Run metrics are available for private and shared workflows.
 
@@ -181,6 +182,8 @@ You can add a PromQL query to a CloudWatch dashboard as a widget so that you can
 1. Choose **Action**, and then choose **Add to dashboard**.
 
 1. Choose an existing dashboard or create a new one, and then save the widget.
+
+For a dashboard you don't have to build widget by widget, HealthOmics provides an open-source sample. The [HealthOmics Run Dashboard](https://github.com/awslabs/aws-healthomics-tools#healthomics-run-dashboard) on the **awslabs** GitHub site charts CPU, memory, file system I/O, network I/O, shared file system usage, and scratch storage for each workflow you name. You can deploy it with its command line tool or as a one-click AWS CloudFormation stack.
 
 ## Analyzing run metrics with the HealthOmics MCP server
 <a name="monitoring-run-metrics-mcp"></a>

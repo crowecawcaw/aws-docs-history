@@ -485,4 +485,4 @@ If you are using call caching, you should exclude tasks that require license che
 + [Connecting HealthOmics workflows to a VPC](workflows-vpc-networking.md)
 + [Internet access for VPC-connected workflows](workflows-vpc-internet.md)
 + [Container images for private workflows](workflows-ecr.md)
-+ [Requesting Sentieon licenses for private workflows](private-workflows-subscribe.md)
++ [Connecting HealthOmics runs to a Sentieon license server](private-workflows-subscribe.md)

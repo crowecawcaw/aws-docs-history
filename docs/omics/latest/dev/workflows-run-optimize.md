@@ -7,10 +7,13 @@ You can optimize runs for total cost, total run time, or a combination of both. 
 
 The first step is to understand the current task resource usage and cost for the tasks in the run, and then apply methods for optimizing the run cost and performance.
 
+To gather that usage data and compare it across runs, see [Debugging a HealthOmics workflow run](workflows-run-debug.md).
+
 **Topics**
 + [Run Analyzer](#workflows-run-analyzer)
 + [Determine run costs](#workflows-run-costs)
 + [Determine run time usage](#workflows-run-time)
++ [Building a task timeline from the run manifest](#workflows-run-timeline)
 + [Methods to optimize runs](#run-optimize-methods)
 + [Impact of file size variance between runs](#workflows-run-file-variance)
 + [Methods to optimize resource concurrency](#run-optimize-concurrency)
@@ -84,6 +87,45 @@ You can use the following methods to help you investigate run time usage:
 + From the **Run tasks** list, choose the **View logs** link for a task to view the task logs in CloudWatch.
 + The response to the `listRuns` API operation includes the run start time and stop time, so you can calculate the total run time.
 + The [Run Analyzer](#workflows-run-analyzer) tool shows task durations on a timeline view. This tool provides a visual representation of the task processing sequence, which you can match with the expected order.
++ To derive task durations, provisioning time, and parallelism yourself, see [Building a task timeline from the run manifest](#workflows-run-timeline).
+
+## Building a task timeline from the run manifest
+<a name="workflows-run-timeline"></a>
+
+The run manifest log records creation, start, and stop times for each workflow task in a run. Use them to reconstruct a timeline of the run. The [Run Analyzer](#workflows-run-analyzer) tool already reports most of these numbers. Build the timeline yourself when you want them in your own script or dashboard, or need a measurement the tool doesn't report, such as how many tasks ran concurrently.
+
+HealthOmics writes the manifest to a single CloudWatch log stream after the run reaches a terminal state, and a run started with logging turned off never gets one. For the log group and stream formats, and for how to turn logging off, see [Monitoring HealthOmics with CloudWatch Logs](monitoring-cloudwatch-logs.md). For the manifest contents and an example, see [Run metadata in CloudWatch](getinfo-about-runs.md#run-metadata).
+
+Each JSON object in the manifest is a separate log event. Task objects carry `creationTime`, `startTime`, and `stopTime`. HealthOmics sets `startTime` when it finishes provisioning the task, and sets `stopTime` whether the task succeeds, fails, or is cancelled. Task objects also carry descriptive fields you can group the timeline by, plus the resource utilization statistics described in [Log types for HealthOmics workflows](monitoring-cloudwatch-logs.md#log-descriptions).
+
+HealthOmics reports all three timestamps in UTC, so treat a timestamp without a UTC designator as UTC.
+
+To derive provisioning time, task durations, and parallelism, follow these steps:
+
+1. Retrieve the manifest log stream. The run UUID is the `uuid` field of the **GetRun** response (see [Key fields in the response](getinfo-about-runs.md#get-run-key-fields)).
+
+   ```
+   aws logs get-log-events \
+     --log-group-name /aws/omics/WorkflowLog \
+     --log-stream-name manifest/run/{{run-id}}/{{run-uuid}} \
+     --start-from-head
+   ```
+
+   Reading the whole stream takes several requests. Pass the `nextForwardToken` from each response as the next call's `--next-token`, keeping `--start-from-head`, until a response returns the token you passed. The token can keep advancing across a few empty responses before it repeats, so don't stop at the first empty response. For more information, see [ get-log-events](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/get-log-events.html) in the AWS CLI Command Reference.
+
+1. Parse each event's `message` field as JSON. A task object has an `arn` that contains `:task/`. Keep the one object whose `arn` field contains `:run/`: it is the run object, and step 4 uses its `stopTime`.
+
+1. For each task, compute the two intervals that make up its elapsed time:
+
+   1. Provisioning time is `startTime` minus `creationTime`.
+
+   1. Run duration is `stopTime` minus `startTime`.
+
+   A task served from the run cache carries no timestamps and has no place on the timeline. Otherwise, a task with no `startTime` never ran, and a task with no `stopTime` was still running when the run stopped, so it has a provisioning time but no run duration. Sort the tasks that have a run duration to find the longest-running ones.
+
+1. Measure parallelism across the tasks that have a `startTime`. Build a `+1` transition at each `startTime` and a `-1` at each `stopTime`, using the run object's `stopTime` for a task that has no `stopTime` of its own. Sort the transitions by timestamp and walk them keeping a running total, applying every transition that shares a timestamp before you read the total, so a task that ends as another begins isn't counted twice. The total at each timestamp is the number of tasks running concurrently, and the largest is the run's peak parallelism. A run where no task started has none.
+
+Long stretches at low concurrency point to a dependency chain in your workflow definition that you may be able to restructure. Consistently high provisioning times point to container image size or a wait for compute capacity. For the methods that reduce both, see [Methods to optimize runs](#run-optimize-methods).
 
 ## Methods to optimize runs
 <a name="run-optimize-methods"></a>

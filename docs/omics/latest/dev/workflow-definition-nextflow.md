@@ -7,6 +7,8 @@ HealthOmics supports Nextflow DSL1 and DSL2. For details, see [Nextflow version 
 
 Nextflow DSL2 is based on the Groovy programming language, so parameters are dynamic and type coercion is possible using the same rules as Groovy. Parameters and values supplied by the input JSON are available in the parameters (`params`) map of the workflow.
 
+For more information about linting a Nextflow definition before you create the workflow, see [Validating workflow definitions locally](workflows-validate-local.md).
+
 **Topics**
 + [Use nf-schema and nf-validation plugins](#schema-and-validation-plugins-nextflow)
 + [Specify storage URIs](#storage-uris-nextflow)

@@ -319,7 +319,7 @@ In the following example, file `mappings.json` contains this content:
         {
             "upstreamRegistryUrl": "quay.io",
             "ecrRepositoryPrefix": "quay",
-            "accountId": "123412341234"
+            "ecrAccountId": "111122223333"
         },
         {
 
@@ -329,12 +329,11 @@ In the following example, file `mappings.json` contains this content:
     ],
     "imageMappings": [{
             "sourceImage": "docker.io/library/ubuntu:latest",
-            "destinationImage": "healthomics-docker-2/custom/ubuntu:latest",
-            "accountId": "123412341234"
+            "destinationImage": "111122223333.dkr.ecr.us-east-1.amazonaws.com/healthomics-docker-2/custom/ubuntu:latest"
         },
         {
             "sourceImage": "nvcr.io/nvidia/k8s/dcgm-exporter",
-            "destinationImage": "healthomics-nvidia/k8s/dcgm-exporter"
+            "destinationImage": "111122223333.dkr.ecr.us-east-1.amazonaws.com/healthomics-nvidia/k8s/dcgm-exporter"
         }
     ]
 }

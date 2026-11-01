@@ -5,7 +5,15 @@
 
 When you start a run, you specify the resources that HealthOmics allocates for the run. The following settings are available:
 
-1. **Output location** – Specify an Amazon S3 URI where the output files from the run are stored. If you run a high volume of workflows concurrently, use separate Amazon S3 output URIs for each workflow to avoid bucket throttling. For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html) in the *Amazon S3 User Guide* and [Scale Storage Connections Horizontally](https://docs.aws.amazon.com/whitepapers/latest/s3-optimizing-performance-best-practices/scale-storage-connections-horizontally.html) in the *Optimizing Amazon S3 Performance* whitepaper.
+1. **Output location** – Specify an Amazon S3 URI where the output files from the run are stored. If you run a high volume of workflows concurrently, use separate Amazon S3 output URIs for each workflow to avoid bucket throttling.
+
+   The following rules apply to `outputUri`:
+   + `outputUri` (`--output-uri`) is required and must be a valid Amazon S3 URI. Maximum 750 characters.
+   + For the Region requirement on input and output locations, see [HealthOmics workflow definition requirements](workflow-defn-requirements.md).
+   + The service role in `roleArn` (`--role-arn`) must have permission to write to the bucket.
+   + A trailing slash is optional. HealthOmics treats `s3://amzn-s3-demo-bucket/output` and `s3://amzn-s3-demo-bucket/output/` as the same output location.
+
+   For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html) in the *Amazon S3 User Guide* and [Scale Storage Connections Horizontally](https://docs.aws.amazon.com/whitepapers/latest/s3-optimizing-performance-best-practices/scale-storage-connections-horizontally.html) in the *Optimizing Amazon S3 Performance* whitepaper.
 
 1. **Service role** – Specify an IAM service role that grants HealthOmics permissions to access the resources needed for the run. Optionally, the console can create the service role for you. You can also use session policies to further restrict permissions for individual runs. For more information, see [Service roles for AWS HealthOmics](permissions-service.md).
 
@@ -210,7 +218,7 @@ aws omics start-run \
 
 To disable ephemeral storage for a specific run (for example, to isolate a failure), set `--scratch-storage-mode` to `SHARED`.
 
-For more information, see [Ephemeral storage for HealthOmics workflow tasks](workflows-ephemeral-storage.md).
+For the values that `scratchStorageMode` accepts, the default that applies when you omit the parameter, and how the setting applies to CPU and GPU tasks, see [Ephemeral storage for HealthOmics workflow tasks](workflows-ephemeral-storage.md).
 
 For Nextflow engine settings (engine version, profiles, syntax parser), see [Specify Nextflow engine settings](#start-run-api-engine-settings).
 
@@ -312,7 +320,11 @@ To enable VPC networking:
 
 1. When starting a run using the API, use `--networking-mode VPC` and reference your configuration with `--configuration-name`.
 
-For more information, see [Connecting HealthOmics workflows to a VPC](workflows-vpc-networking.md).
+For the values that `networkingMode` (`--networking-mode`) accepts and its default, see [Networking modes](workflows-vpc-networking.md#vpc-networking-modes). For the `configurationName` (`--configuration-name`) parameter, see [Starting a run with VPC networking](workflows-vpc-networking.md#vpc-start-run).
+
+The following **StartRun** rules apply to `configurationName`:
++ For a `VPC` run, `configurationName` is required and the configuration must define `vpcConfig`, or **StartRun** fails.
++ If you supply `configurationName` in any networking mode, the configuration must have status `ACTIVE`, or **StartRun** fails. For configuration statuses, see [CreateConfiguration](workflows-vpc-networking.md#vpc-create-configuration). For troubleshooting, see [Run fails to start with VPC networking](vpc-troubleshooting-guide.md#vpc-ts-run-fails).
 
 ## Enable run metrics
 <a name="starting-a-run-metrics"></a>

@@ -77,6 +77,9 @@ The following example shows the response for a completed run of a private WDL wo
 | --- | --- | 
 | uuid | Universally unique identifier for the run. Along with outputUri, can be used to track where output data is written. | 
 | status | Current run status (see the preceding table). | 
+| failureReason | Why the run failed. Returned for a FAILED run. See [Run failure reasons](workflows-run-errors.md). | 
+| statusMessage | Detail about the current status. For some failures it names the resource involved, such as a container image URI. | 
+| logLocation | The CloudWatch log stream ARNs for the run: runLogStream for the run log, and engineLogStream for the engine log. | 
 | workflowType | Whether the workflow is PRIVATE or READY2RUN. | 
 | accelerators | Accelerator type used (for example, GPU), if applicable. | 
 | digest | SHA-256 digest of the workflow definition. | 

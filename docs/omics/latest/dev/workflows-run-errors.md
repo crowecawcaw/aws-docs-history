@@ -5,6 +5,8 @@
 
 If a run fails, use the [GetRun](https://docs.aws.amazon.com/omics/latest/api/API_GetRun.html) API operation to retrieve the failure reason. 
 
+For the order in which to read the run record, the failed task records, and the logs, see [Debugging a HealthOmics workflow run](workflows-run-debug.md).
+
 Review the failure reason to help you troubleshoot why the run failed. The following table lists each failure reason along with a description of the error.
 
 
@@ -14,7 +16,9 @@ Review the failure reason to help you troubleshoot why the run failed. The follo
 | ASSUME\_ROLE\_FAILED | HealthOmics doesn't have permission to assume the role. Specify the HealthOmics principal in the trust relationship for the role. | 
 | CANNOT\_START\_CONTAINER\_ERROR | Unable to start workflow task: {{name}}, id: {{ID}} container using image: {{image name}}. Make sure that the image is valid and try again. | 
 | CANNOT\_START\_CONTAINER\_SIZE\_ERROR | Unable to start workflow task: {{name}}, id: {{ID}} container using image: {{image name}}. Make sure that the image size is less than 45 GiB (95 GiB for a GPU instance) and try again. | 
+| ECR\_IMAGE\_NOT\_FOUND | Image not found at URI: {{uri}}. Make sure that the image tag or digest exists in the Amazon ECR repository, and try again. | 
 | ECR\_PERMISSION\_ERROR | HealthOmics doesn't have permission to access the image URI. Confirm that the Amazon ECR private repository exists and has granted access to the HealthOmics service principal. | 
+| ECR\_REPOSITORY\_NOT\_FOUND | Amazon ECR repository not found for image URI: {{uri}}. Make sure that the repository exists and that the URI is correct, and try again. | 
 | EXPORT\_FAILED | The export failed. Check that the output bucket exists and the run role has write permission to the bucket. | 
 | FILE\_SYSTEM\_OUT\_OF\_SPACE | The file system doesn't have enough space. Increase the file system size and run again. | 
 | IMAGE\_VERIFICATION\_FAILURE | Unable to verify image {{image name}}. To correct the issue, try pulling the image and then push it to your ECR repository again. | 

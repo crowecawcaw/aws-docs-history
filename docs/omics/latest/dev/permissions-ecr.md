@@ -24,6 +24,7 @@ The following sections describe how to configure Amazon ECR resource permissions
 + [Amazon ECR policies for shared workflows](#permissions-shared-workflows)
 + [Policies for Amazon ECR pull through cache](#permissions-ecr-ptc)
 + [Service role policy for non-PTC container support](#permissions-ecr-non-ptc)
++ [Verifying that HealthOmics can pull a container image](#permissions-ecr-verify)
 
 ## Create a resource policy for the Amazon ECR repository
 <a name="permissions-resource-policy"></a>
@@ -493,3 +494,99 @@ The following example policy grants these permissions. Replace the Region, the a
 + If you set `ecrAccountId` in the registry mapping, use that account's ID in the Amazon ECR repository ARN.
 + If your secret is in a different account, use that account's secret ARN in the `secretsmanager:GetSecretValue` resource.
 + If your secret is encrypted with a customer managed AWS KMS key, also allow `kms:Decrypt` on that key.
+
+## Verifying that HealthOmics can pull a container image
+<a name="permissions-ecr-verify"></a>
+
+Follow this procedure before you start a run to confirm that a container image is available in Amazon ECR and that HealthOmics can pull it. HealthOmics pulls the image while the run is in progress, so a permissions problem usually surfaces then rather than when you create the workflow or call `StartRun`.
+
+The repository must be in the same AWS Region as the run, whether it is in the run's account or in another account. Run each command against that Region, and replace every placeholder with your own value. The commands read your Amazon ECR configuration, so your own IAM permissions need `ecr:GetRepositoryPolicy` and `ecr:DescribeImages`.
+
+1. Find your case in the following table, which lists how an image reaches a run, where to grant access for it, and the principal that pulls it.
+
+<a name="permissions-ecr-verify-principal-table"></a>
+<table>
+<thead>
+  <tr><th>How the image reaches the run</th><th>Where to grant access</th><th>Principal that pulls</th></tr>
+</thead>
+<tbody>
+  <tr><td>The repository is in the run's account, and you push the image</td><td>The repository policy, as in <a href="#permissions-resource-policy">Create a resource policy for the Amazon ECR repository</a></td><td>The HealthOmics service principal, <code>omics.amazonaws.com</code></td></tr>
+  <tr><td>The repository is in another account</td><td>That account's repository policy, and the service role in the run's account, as in <a href="#permissions-cross-account-containers">Running workflows with cross-account containers</a></td><td>The HealthOmics service principal, and the service role that you pass to <code>StartRun</code></td></tr>
+  <tr><td>Amazon ECR pull through cache fills the repository</td><td>The repository creation template, which supplies the policy of each repository that the cache creates, and the registry policy, which lets HealthOmics create those repositories and import images, both as in <a href="#permissions-ecr-ptc">Policies for Amazon ECR pull through cache</a></td><td>The HealthOmics service principal, and for a cross-account cache the service role that you pass to <code>StartRun</code></td></tr>
+  <tr><td>HealthOmics copies the image, with non-PTC container support</td><td>The service role that copies the image, as in <a href="#permissions-ecr-non-ptc">Service role policy for non-PTC container support</a>, and the destination repository policy. If you set <code>ecrAccountId</code>, that account's registry and repository policies as well</td><td>The service role for the copy, and the HealthOmics service principal for the pull that follows</td></tr>
+</tbody>
+</table>
+
+
+   A workflow that you share is the exception: the repository policy needs no statement for the subscriber's account, as described in [Amazon ECR policies for shared workflows](#permissions-shared-workflows).
+
+1. Confirm that the image is available. The repository name includes any prefix that a pull through cache rule or a registry mapping adds, and any renaming from an image mapping.
+
+   ```
+   aws ecr describe-images \
+        --repository-name {{repository-name}} \
+        --image-ids imageTag={{tag}} \
+        --region {{region}}
+   ```
+
+   To name the image by digest instead of by tag, use `--image-ids imageDigest=sha256:{{hex-digest}}`, where {{hex-digest}} is the part after `sha256:`. Use the digest when the run pins one, because a tag can move to a different image.
+
+   For a repository in another account, add `--registry-id {{account-id}}` to this command, so that it reads that account's registry instead of your own. That account's repository policy must also grant you `ecr:DescribeImages`.
+
+   If the image or the repository isn't there, decide whether that is expected. In the pull through cache and non-PTC cases, HealthOmics fills the repository during a run, so before the first run that needs the image:
+   + With Amazon ECR pull through cache, Amazon ECR creates the repository and imports the image from the upstream registry on the first pull through the cache. A tag that the cache hasn't imported yet is imported the same way, even when the repository already exists. Whenever the image is absent, verify the registry policy and the repository creation template in [Policies for Amazon ECR pull through cache](#permissions-ecr-ptc) instead.
+   + With non-PTC container support, HealthOmics copies the image during the run, so check the upstream image and the service role permissions in [Service role policy for non-PTC container support](#permissions-ecr-non-ptc), then confirm the copy at its destination URI after the run, as described in [Destination repository naming](containers-non-ptc-registries.md#ecr-non-ptc-destination).
+
+1. Read the policy of the repository that holds the image.
+
+   ```
+   aws ecr get-repository-policy \
+        --repository-name {{repository-name}} \
+        --region {{region}}
+   ```
+
+   For a repository in another account, add `--registry-id {{account-id}}`, which also requires that account's repository policy to allow you `ecr:GetRepositoryPolicy`. An access-denied error from this command is about your own access, not about the access that HealthOmics has. For the command's response and errors, see [GetRepositoryPolicy](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_GetRepositoryPolicy.html) in the *Amazon Elastic Container Registry API Reference*.
+
+1. Confirm that the policy has an `Allow` statement that covers the repository, names the principal for your case, and grants the actions that a pull uses: `ecr:BatchGetImage`, `ecr:GetDownloadUrlForLayer`, and `ecr:BatchCheckLayerAvailability`. Grant all three in a policy that you write. A policy that a service created can grant fewer and still work. A wildcard that covers them also works.
+
+   The following JSON policy statement passes this step. Replace each placeholder with your own value, where {{run-account-id}} is the account that the run is in:
+
+   ```
+   {
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Sid": "HealthOmicsPull",
+         "Effect": "Allow",
+         "Principal": {
+           "Service": "omics.amazonaws.com"
+         },
+         "Action": [
+           "ecr:BatchGetImage",
+           "ecr:GetDownloadUrlForLayer",
+           "ecr:BatchCheckLayerAvailability"
+         ],
+         "Condition": {
+           "StringEquals": {
+             "aws:SourceAccount": "{{run-account-id}}",
+             "aws:SourceArn": "arn:aws:omics:{{region}}:{{run-account-id}}:workflow/{{workflow-id}}"
+           }
+         }
+       }
+     ]
+   }
+   ```
+
+   When the repository is in the run's account, a role there can instead be allowed by its own identity policy, so the repository policy doesn't need to name that role. A repository in another account must name the role, as in [Running workflows with cross-account containers](#permissions-cross-account-containers). Only the repository policy can allow the service principal.
+
+   Then check any `Condition` on that statement against the values that HealthOmics sends. `aws:SourceArn` is the ARN of the workflow that the run uses, and `aws:SourceAccount` is the account that the run is in. A condition scoped to run ARNs instead of workflow ARNs blocks every pull.
+
+   An explicit `Deny` that matches the principal blocks the pull whatever the `Allow` statements grant. For how AWS evaluates policies, see [Determining whether a request is allowed or denied](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-denyallow) in the *IAM User Guide*.
+
+   For a repository that Amazon ECR pull through cache created, the policy normally grants only `ecr:BatchGetImage` and `ecr:GetDownloadUrlForLayer`, from the repository creation template in [Repository creation template](#permissions-repo-template). Amazon ECR applies the template only when it creates the repository, so a template that changed later doesn't update the policy. Judge the repository's own policy, not the template. Those two actions are enough for a pull, so such a policy passes this step.
+
+   If the repository has no policy at all, HealthOmics can't pull from it, unless HealthOmics copies the image in: HealthOmics attaches a policy to a repository that has none, and leaves an existing policy unchanged, as described in [Destination repository naming](containers-non-ptc-registries.md#ecr-non-ptc-destination).
+
+1. If your case names a service role, confirm the identity side as well. The role's own policy must allow the same actions on the repository, as in [Service role policy for non-PTC container support](#permissions-ecr-non-ptc) for an image that HealthOmics copies, or [Running workflows with cross-account containers](#permissions-cross-account-containers) for a repository in another account. If you pass a session policy to `StartRun`, the run's permissions are the intersection of the role and that policy, so the session policy must allow these actions too, as described in [Use session policies to scope down permissions](permissions-service.md#permissions-service-sessionpolicy).
+
+1. If every check passes, the policies allow the principal for your case to pull the image. They don't prove the pull, because only a run exercises them with the values that HealthOmics sends. Start a run that uses the image. If a pull problem remains, the run fails with ECR\_PERMISSION\_ERROR before it creates any task, so start with the run's failure reason. When HealthOmics copies the image, a copy failure fails the task as well, so check the task's failure reason too. Either way, work through your case again. For the error, see [Run failure reasons](workflows-run-errors.md).

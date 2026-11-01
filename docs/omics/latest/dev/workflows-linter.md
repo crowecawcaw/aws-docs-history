@@ -113,6 +113,8 @@ The following external linters are available:
 + **Nextflow** – A public Amazon ECR image to run [Linter rules for Nextflow](https://gallery.ecr.aws/aws-genomics/linter-rules-for-nextflow) on Amazon ECR Public Gallery. You can access the source code from the [linter-rules-for-nextflow](https://github.com/awslabs/linter-rules-for-nextflow) repository on GitHub.
 + **CWL** – Not available.
 
+You can also validate WDL, Nextflow, and CWL definitions locally. For more information, see [Validating workflow definitions locally](workflows-validate-local.md).
+
 The following list describes the distinction between built-in and external linters:
 + **Built-in linters** – Run server-side during `CreateWorkflow` and `CreateWorkflowVersion`. For WDL, findings are blocking. For Nextflow DSL2, findings are non-blocking. Apply to WDL and Nextflow DSL2 workflows only.
 + **External linters** – Run locally before workflow creation. Can include additional HealthOmics-specific compatibility rules. Available as public Amazon ECR images.
