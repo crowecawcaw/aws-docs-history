@@ -8,6 +8,7 @@ The following table describes the releases for IPAM.
 
 | Feature | Description | Release Date | 
 | --- | --- | --- | 
+| [Updates to the AWS managed policy](iam-ipam-managed-pol.md#iam-ipam-managed-pol-updates) - New policy | New AWSIPAMOutboundServiceRolePolicy and AWSServiceRoleForIPAMOutbound service-linked role for discovering resources in external providers. | October 28, 2026 | 
 | [Updates to the AWS managed policy](iam-ipam-managed-pol.md#iam-ipam-managed-pol-updates) - Update to an existing policy | Existing AWSIPAMServiceRolePolicy updated. | October 15, 2026 | 
 | [Updates to the AWS managed policy](iam-ipam-managed-pol.md#iam-ipam-managed-pol-updates) - Update to an existing policy | Existing AWSIPAMServiceRolePolicy updated. | September 9, 2026 | 
 | [Monitor BGP route protection and delegate RPKI for BYOIP prefixes](monitor-bgp-route-security.md) | You can now monitor RPKI validity, ROA strength, and route overlaps for your BYOIP prefixes across accounts and Regions, and delegate ROA management to AWS with delegated RPKI. This feature requires IPAM Advanced Tier. | August 6, 2026 | 

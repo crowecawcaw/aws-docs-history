@@ -3,6 +3,11 @@
 # AWS managed policies for IPAM
 <a name="iam-ipam-managed-pol"></a>
 
+IPAM uses the following AWS managed policies. You can't attach these policies to your IAM entities. Each policy is attached to an IPAM [service-linked role](iam-ipam-slr.md) that IPAM uses to perform actions on your behalf.
+
+## AWS managed policy: AWSIPAMServiceRolePolicy
+<a name="iam-ipam-managed-pol-AWSIPAMServiceRolePolicy"></a>
+
 If you are using IPAM with a single AWS account and you create an IPAM, the **AWSIPAMServiceRolePolicy** managed policy is automatically created in your IAM account and attached to the **AWSServiceRoleForIPAM** [service-linked role](iam-ipam-slr.md).
 
 If you enable IPAM integration with AWS Organizations, the **AWSIPAMServiceRolePolicy** managed policy is automatically created in your IAM account and in each of your AWS Organizations member accounts, and the managed policy is attached to the **AWSServiceRoleForIPAM** service-linked role.
@@ -16,6 +21,15 @@ This managed policy enables IPAM to do the following:
 
 To view the current JSON policy document, version history, and ARN for this policy, see [AWSIPAMServiceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSIPAMServiceRolePolicy.html) in the *AWS Managed Policy Reference*.
 
+## AWS managed policy: AWSIPAMOutboundServiceRolePolicy
+<a name="iam-ipam-managed-pol-AWSIPAMOutboundServiceRolePolicy"></a>
+
+The **AWSIPAMOutboundServiceRolePolicy** managed policy is attached to the **AWSServiceRoleForIPAMOutbound** service-linked role, which IPAM uses for interacting with external providers of IPAM resources. For more information, see [Service-linked role permissions for external providers](iam-ipam-slr.md#outbound-service-linked-role-permissions).
+
+With this managed policy, IPAM requests an AWS web identity token (`sts:GetWebIdentityToken`). IPAM uses this token to federate into external providers and discover resources for your resource discovery. The `sts:IdentityTokenAudience` condition key limits each token to the external providers that IPAM supports. A request without an audience is denied.
+
+To view the current JSON policy document, version history, and ARN for this policy, see [AWSIPAMOutboundServiceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSIPAMOutboundServiceRolePolicy.html) in the *AWS Managed Policy Reference*.
+
 ## Updates to the AWS managed policy
 <a name="iam-ipam-managed-pol-updates"></a>
 
@@ -24,6 +38,7 @@ View details about updates to AWS managed policies for IPAM since this service b
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| AWSIPAMOutboundServiceRolePolicy – New policy | IPAM added a new AWS managed policy for the AWSServiceRoleForIPAMOutbound service-linked role. With this policy, IPAM requests AWS web identity tokens (sts:GetWebIdentityToken) to federate into external providers of IPAM resources. | October 28, 2026 | 
 | AWSIPAMServiceRolePolicy | Actions added to the AWSIPAMServiceRolePolicy managed policy (ec2:DescribeDhcpOptions, ec2:CreateDhcpOptions, ec2:AssociateDhcpOptions, and ec2:DeleteDhcpOptions) to let IPAM create, associate, and delete the DHCP option sets that it manages for IPAM policy DHCP rules. | October 15, 2026 | 
 | AWSIPAMServiceRolePolicy | Actions added to the AWSIPAMServiceRolePolicy managed policy (route53:ListHostedZones, route53:GetHostedZone, route53:ListResourceRecordSets, and route53:ListTagsForResource) to let IPAM read DNS records in Route 53 hosted zones during resource discovery. | October 15, 2026 | 
 | AWSIPAMServiceRolePolicy | Action added to the AWSIPAMServiceRolePolicy managed policy (ec2:GetIpamDiscoveredRoutes) to let IPAM get routes during resource discovery for BGP route protection monitoring. | September 9, 2026 | 
