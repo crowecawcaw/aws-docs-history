@@ -77,6 +77,9 @@ A distribution configuration allows you to specify the name and description of y
 ------
 #### [ Console ]
 
+**Tip**  
+Now you can create with AI. For more information, see [Create and update resources with AI - Preview](ai-assisted-resource-creation.md).
+
 Follow these steps to create a new AMI distribution configuration in the AWS Management Console:
 
 1. Open the EC2 Image Builder console at [https://console.aws.amazon.com/imagebuilder/](https://console.aws.amazon.com/imagebuilder/).
@@ -297,6 +300,9 @@ You can change your AMI distribution configuration. However, the changes you mak
 
 ------
 #### [ Console ]
+
+**Tip**  
+Now you can create with AI. For more information, see [Create and update resources with AI - Preview](ai-assisted-resource-creation.md).
 
 Follow these steps to update an AMI distribution configuration in the AWS Management Console:
 

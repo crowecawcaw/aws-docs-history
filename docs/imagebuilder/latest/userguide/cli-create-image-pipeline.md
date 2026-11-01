@@ -130,3 +130,44 @@ The path for the JSON file should follow the appropriate convention for the base
    ```
    aws imagebuilder create-image-pipeline --cli-input-json file://create-pipeline-with-workflows.json
    ```
+
+**Example: Create a pipeline with an on-demand AMI scan**  
+This example configures a pipeline that requests an on-demand AMI scan of the output AMI on each run. The image fails if the AMI has a finding with a fix available that's more severe than `HIGH`. For more information about on-demand AMI scans, see [Scan output AMIs with on-demand AMI scans](integ-inspector.md#integ-inspector-ami-scan).
+
+1. 
+
+**Create a configuration file**
+
+   Create a JSON file named `create-pipeline-with-ami-scan.json` with the following content. Replace the placeholder values with your own resource ARNs.
+
+   ```
+   {
+   	"name": "{{my-ami-scan-pipeline}}",
+   	"imageRecipeArn": "arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image-recipe/{{my-recipe}}/1.0.0",
+   	"infrastructureConfigurationArn": "arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:infrastructure-configuration/{{my-infra-config}}",
+   	"imageTestsConfiguration": {
+   		"imageTestsEnabled": true
+   	},
+   	"imageScanningConfiguration": {
+   		"imageScanningEnabled": true,
+   		"imageScanningTypes": ["ON_DEMAND_AMI_CVE"],
+   		"scanResultCondition": {
+   			"maximumSeverityLabel": "{{HIGH}}",
+   			"fixAvailable": {{true}}
+   		}
+   	}
+   }
+   ```
+**Note**  
+You must include the `file://` notation at the beginning of the JSON file path.
+The path for the JSON file should follow the appropriate convention for the base operating system where you are running the command. For example, Windows uses the backslash (\\) to refer to the directory path, while Linux and macOS use the forward slash (/).
+
+1. 
+
+**Run the command**
+
+   ```
+   aws imagebuilder create-image-pipeline --cli-input-json file://{{create-pipeline-with-ami-scan.json}}
+   ```
+
+You don't need to list the `test-ami-scan` workflow. Image Builder adds it on each pipeline run. To change how long the workflow waits for the scan, list it in `workflows` and set its `WaitForAmiScanTimeoutSeconds` parameter. If you specify `workflows` without a build workflow, the scan targets the parent AMI of the recipe. Your account must own that AMI. For the workflow parameters, see [AMI scan managed workflow (test-ami-scan)](manage-image-workflows.md#managed-workflow-test-ami-scan). For all scanning fields, see [Create custom images with Image Builder](create-images.md).

@@ -11,7 +11,7 @@ The destination account can then launch or modify the AMI, as needed.
 For information about a deployable example that includes the AWS KMS key policy and the target account role, see the [cross-account AMIs sample](https://github.com/aws-samples/amazon-ec2-image-builder-samples/tree/HEAD/distribution/cross-account-amis) on GitHub. The same repository includes a Terraform variant. For more information, see [Explore Image Builder sample projects on GitHub](sample-projects.md).
 
 **Note**  
-AWS CLI command examples in this section assume that you have previously created image recipe and infrastructure configuration JSON files. To create the JSON file for an image recipe, see [Create an image recipe with the AWS CLI](create-image-recipes.md#create-image-recipe-cli). To create the JSON file for an infrastructure configuration, see [Create an infrastructure configuration](create-infra-config.md).
+AWS CLI command examples in this section assume that you have previously created image recipe and infrastructure configuration JSON files. To create the JSON file for an image recipe, see [Create an image recipe with the AWS CLI or Tools for PowerShell](create-image-recipes.md#create-image-recipe-cli). To create the JSON file for an infrastructure configuration, see [Create an infrastructure configuration](create-infra-config.md).
 
 ## Prerequisites for cross-account AMI distribution
 <a name="cross-account-dist-prereqs"></a>

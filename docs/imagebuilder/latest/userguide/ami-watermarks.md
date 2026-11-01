@@ -65,11 +65,11 @@ You can add watermarks when you create an image recipe or a new version of an ex
 
 To add watermarks with the AWS CLI, include the `amiWatermarks` parameter in your JSON input file for the **create-image-recipe** command.
 
-The following example shows a recipe JSON file with watermarks configured.
+The following example shows a recipe JSON file with watermarks configured:
 
 ```
 {
-    "name": "{{MyWatermarkedRecipe}}",
+    "name": "{{my-watermarked-recipe}}",
     "description": "{{Recipe with AMI watermarks for lineage tracking.}}",
     "parentImage": "{{ami-1234567890abcdef1}}",
     "semanticVersion": "1.0.0",
@@ -79,40 +79,63 @@ The following example shows a recipe JSON file with watermarks configured.
         }
     ],
     "amiWatermarks": [
-        "{{ProductionV1}}",
+        "{{production-v1}}",
         "{{team-alpha}}"
     ]
 }
 ```
 
-Run the following command to create the recipe.
+To create the recipe, run the following command:
 
 ```
 aws imagebuilder create-image-recipe --cli-input-json file://{{create-watermarked-recipe.json}}
 ```
 
-The following list describes the `amiWatermarks` parameter.
+The following list describes the `amiWatermarks` parameter:
 + **amiWatermarks** (array of strings, optional) – A list of watermark names to attach to output AMIs built from this recipe. Specify 1 to 5 names. Each name must be 3 to 128 characters, and can include letters, numbers, spaces, and the following special characters: `( ) [ ] . / - ' @ _`
+
+------
+#### [ PowerShell ]
+
+To add watermarks with Tools for PowerShell, include the `AmiWatermark` parameter when you run the [New-EC2IBImageRecipe](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBImageRecipe.html) cmdlet. The following example creates a recipe with the same settings as the AWS CLI example:
+
+```
+Import-Module AWS.Tools.Imagebuilder
+
+$component = [Amazon.Imagebuilder.Model.ComponentConfiguration]@{
+    ComponentArn = "arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:component/{{my-component/1.0.0/1}}"
+}
+
+New-EC2IBImageRecipe -Name {{my-watermarked-recipe}} `
+    -Description "{{Recipe with AMI watermarks for lineage tracking.}}" `
+    -ParentImage {{ami-1234567890abcdef1}} `
+    -SemanticVersion 1.0.0 `
+    -Component $component `
+    -AmiWatermark "{{production-v1}}", "{{team-alpha}}"
+```
+
+The following list describes the `AmiWatermark` parameter:
++ **AmiWatermark** (string array, optional) – A comma-separated list of watermark names to attach to output AMIs built from this recipe. Specify 1 to 5 names. Each name must be 3 to 128 characters, and can include letters, numbers, spaces, and the following special characters: `( ) [ ] . / - ' @ _`
 
 ------
 #### [ CloudFormation ]
 
 You can specify AMI watermarks in an `AWS::ImageBuilder::ImageRecipe` resource by using the `AmiWatermarks` property.
 
-The following example shows a minimal image recipe template with watermarks configured.
+The following example shows a minimal image recipe template with watermarks configured:
 
 ```
 Resources:
   WatermarkedRecipe:
     Type: AWS::ImageBuilder::ImageRecipe
     Properties:
-      Name: {{MyWatermarkedRecipe}}
+      Name: {{my-watermarked-recipe}}
       Version: {{1.0.0}}
       ParentImage: arn:aws:imagebuilder:{{us-west-2}}:aws:image/amazon-linux-2023-x86/x.x.x
       Components:
         - ComponentArn: arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:component/{{my-component/1.0.0/1}}
       AmiWatermarks:
-        - {{ProductionV1}}
+        - {{production-v1}}
         - {{team-alpha}}
 ```
 
@@ -128,7 +151,7 @@ For more information about the `AmiWatermarks` property, see [AWS::ImageBuilder:
 ------
 #### [ AWS CLI ]
 
-The following example shows how to use the [get-image-recipe](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/get-image-recipe.html) command in the AWS CLI to view the watermarks configured for a recipe.
+The following example shows how to use the [get-image-recipe](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/get-image-recipe.html) command in the AWS CLI to view the watermarks configured for a recipe:
 
 ```
 aws imagebuilder get-image-recipe --image-recipe-arn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image-recipe/{{my-watermarked-recipe}}/{{1.0.0}}

@@ -7,10 +7,15 @@ When you create an image workflow, you have more control over your image creatio
 
 For image creation, you can specify one build stage workflow, one or more test stage workflows, and one distribution stage workflow. You can even skip a stage entirely, depending on your needs. You configure the actions that your workflow takes in the YAML definition document that your workflow uses. For more information about syntax for your YAML document, see [Create a YAML workflow document](image-workflow-create-document.md).
 
+To create a workflow with the AWS CLI or Tools for PowerShell, you must first create a YAML workflow document. The document contains all of the configuration for your workflow. For more information, see [Create a YAML workflow document](image-workflow-create-document.md).
+
 To create a new build, test, or distribution workflow, select the tab that matches your environment.
 
 ------
 #### [ Console ]
+
+**Tip**  
+Now you can create with AI. For more information, see [Create and update resources with AI - Preview](ai-assisted-resource-creation.md).
 
 You can use the following process to create a new workflow in the Image Builder console.
 
@@ -45,17 +50,16 @@ The YAML workflow document contains all of the configuration for your workflow.
 ------
 #### [ AWS CLI ]
 
-Before you run the [create-workflow](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-workflow.html) command in the AWS CLI, you must create the YAML document that contains all of the configuration for your workflow. For more information, see [Create a YAML workflow document](image-workflow-create-document.md).
+The following examples use the [create-workflow](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-workflow.html) command in the AWS CLI.
 
-The following example shows how to create a build workflow with the [create-workflow](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-workflow.html) AWS CLI command. The `--data` parameter refers to a YAML document that contains the build configuration for the workflow you create.
-
-**Example: Create workflow**
+**Create build workflow**  
+The following example shows how to create a build workflow with the `create-workflow` command. The `--data` parameter refers to a YAML document that contains the build configuration for the workflow you create:
 
 ```
 aws imagebuilder create-workflow --name {{example-build-workflow}} --semantic-version {{1.0.0}} --type BUILD --data {{file://example-build-workflow.yml}}
 ```
 
-**Output:**
+The following is example output:
 
 ```
 {
@@ -64,15 +68,14 @@ aws imagebuilder create-workflow --name {{example-build-workflow}} --semantic-ve
 }
 ```
 
-The following example shows how to create a test workflow with the [create-workflow](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-workflow.html) AWS CLI command. The `--data` parameter refers to a YAML document that contains the test configuration for the workflow you create.
-
-**Example: Create test workflow**
+**Create test workflow**  
+The following example shows how to create a test workflow with the `create-workflow` command. The `--data` parameter refers to a YAML document that contains the test configuration for the workflow you create:
 
 ```
 aws imagebuilder create-workflow --name {{example-test-workflow}} --semantic-version {{1.0.0}} --type TEST --data {{file://example-test-workflow.yml}}
 ```
 
-**Output:**
+The following is example output:
 
 ```
 {
@@ -81,15 +84,14 @@ aws imagebuilder create-workflow --name {{example-test-workflow}} --semantic-ver
 }
 ```
 
-The following example shows how to create a distribution workflow with the [create-workflow](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-workflow.html) AWS CLI command. The `--data` parameter refers to a YAML document that contains the distribution configuration for the workflow you create.
-
-**Example: Create distribution workflow**
+**Create distribution workflow**  
+The following example shows how to create a distribution workflow with the `create-workflow` command. The `--data` parameter refers to a YAML document that contains the distribution configuration for the workflow you create:
 
 ```
 aws imagebuilder create-workflow --name {{example-distribution-workflow}} --semantic-version {{1.0.0}} --type DISTRIBUTION --data {{file://example-distribution-workflow.yml}}
 ```
 
-**Output:**
+The following is example output:
 
 ```
 {
@@ -97,5 +99,46 @@ aws imagebuilder create-workflow --name {{example-distribution-workflow}} --sema
 	"clientToken": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
 }
 ```
+
+------
+#### [ PowerShell ]
+
+The following examples use the [New-EC2IBWorkflow](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBWorkflow.html) cmdlet with the same settings as the AWS CLI examples. Tools for PowerShell doesn't accept a `file://` path. Instead, the `Data` parameter takes the contents of the YAML document as a string, so each example reads the file with `Get-Content -Raw`.
+
+**Create build workflow**  
+The following example shows how to create a build workflow with the `New-EC2IBWorkflow` cmdlet. The `Data` parameter contains the build configuration for the workflow you create:
+
+```
+New-EC2IBWorkflow -Name {{example-build-workflow}} `
+    -SemanticVersion {{1.0.0}} `
+    -Type BUILD `
+    -Data (Get-Content -Raw {{example-build-workflow.yml}})
+```
+
+The cmdlet returns the Amazon Resource Name (ARN) of the new workflow build version.
+
+**Create test workflow**  
+The following example shows how to create a test workflow with the `New-EC2IBWorkflow` cmdlet. The `Data` parameter contains the test configuration for the workflow you create:
+
+```
+New-EC2IBWorkflow -Name {{example-test-workflow}} `
+    -SemanticVersion {{1.0.0}} `
+    -Type TEST `
+    -Data (Get-Content -Raw {{example-test-workflow.yml}})
+```
+
+The cmdlet returns the ARN of the new workflow build version.
+
+**Create distribution workflow**  
+The following example shows how to create a distribution workflow with the `New-EC2IBWorkflow` cmdlet. The `Data` parameter contains the distribution configuration for the workflow you create:
+
+```
+New-EC2IBWorkflow -Name {{example-distribution-workflow}} `
+    -SemanticVersion {{1.0.0}} `
+    -Type DISTRIBUTION `
+    -Data (Get-Content -Raw {{example-distribution-workflow.yml}})
+```
+
+The cmdlet returns the ARN of the new workflow build version.
 
 ------

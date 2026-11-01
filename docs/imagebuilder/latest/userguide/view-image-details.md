@@ -181,11 +181,13 @@ The timestamp when the specified step for this runtime instance of the workflow 
 ### Security findings tab
 <a name="view-image-details-console-findings-tab"></a>
 
-If you've activated scanning, the **Security findings** tab displays Common Vulnerabilities and Exposures (CVE) findings. Amazon Inspector identified these findings on the test instance that Image Builder launched to create your new image. To ensure that Image Builder captures findings for your image, you must configure scanning as follows:
+The **Security findings** tab displays the Common Vulnerabilities and Exposures (CVE) findings that Image Builder saved for your image from a test instance scan or a container image scan. The tab doesn't show the results of an on-demand AMI scan. For those results, see [View on-demand AMI scan results](integ-inspector.md#integ-inspector-ami-scan-results).
+
+To make sure that Image Builder captures findings for your image, configure scanning as follows:
 
 1. Activate Amazon Inspector scans for your account. For more information, see [Getting started tutorial: Activating Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/getting_started_tutorial.html) in the *Amazon Inspector User Guide*.
 
-1. Activate security findings for the pipeline that creates this image. When you activate security findings for your pipeline, Image Builder saves a snapshot of the findings before it terminates the test instance. For more information, see [Configure security scans for Image Builder images in the AWS Management Console](image-security-findings.md#image-config-security-scans)
+1. Turn on a test instance scan or a container image scan for the pipeline that creates this image. Image Builder then saves a snapshot of the findings before the scanned resource is removed. For more information, see [Configure security scans for Image Builder images in the AWS Management Console](image-security-findings.md#image-config-security-scans)
 
 The **Security findings** tab includes the following details for each vulnerability that Amazon Inspector identified for your image.
 
@@ -199,7 +201,7 @@ The severity level of the CVE finding. Values are as follows:
 + Critical
 
 **Finding ID**  
-The unique identifier for the CVE finding that Amazon Inspector detected for your image when it scanned the test instance. The ID is linked to the **Security findings > By vulnerability** page. For more information, see [Manage security findings for Image Builder images in the AWS Management Console](image-security-findings.md#image-manage-security-findings).
+The unique identifier for the CVE finding that Amazon Inspector detected for your image when it scanned the test instance or the container image. The ID is linked to the **Security findings > By vulnerability** page. For more information, see [Manage security findings for Image Builder images in the AWS Management Console](image-security-findings.md#image-manage-security-findings).
 
 **Source**  
 The source of the vulnerability information for the CVE finding.

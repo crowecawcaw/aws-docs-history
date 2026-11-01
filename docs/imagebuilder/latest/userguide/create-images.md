@@ -37,14 +37,24 @@ You can also specify any of the following resources that your image requires:
 
 **Optional resources and configuration**
 + **Distribution configuration** – By default, Image Builder distributes the output image resource to your account in the Region where you run the **create-image** command. To provide additional destinations or configuration for your distribution, specify the ARN for your distribution configuration resource with the `--distribution-configuration-arn` parameter.
-+ **Image scanning** – To scan your image with Amazon Inspector during the test stage of the build, use the `--image-scanning-configuration` parameter. By default, image scanning is off. When scanning is on, Image Builder waits for Amazon Inspector to scan the test instance, or pushes a copy of your container image to Amazon ECR for Amazon Inspector to scan. Image Builder then saves a snapshot of the findings with your image, so the findings remain available after the scanned resource no longer exists. If you specify a scanning configuration, the **get-image** response includes it, but image list responses don't. For an image that a pipeline builds, **get-image** returns the scanning configuration that the pipeline had when the build started. The **get-image-pipeline** and **list-image-pipelines** responses include the current scanning configuration of the pipeline. The `--image-scanning-configuration` parameter accepts the following fields:
-  + **imageScanningEnabled** (boolean) – Set to `true` to scan your image with Amazon Inspector during the test stage of the build. Set to `false`, or omit the field, to turn off scanning.
++ **Image scanning** – To scan your image with Amazon Inspector during the test stage of the build, use the `--image-scanning-configuration` parameter. By default, image scanning is off. For a test instance scan, Image Builder waits for Amazon Inspector to scan the test instance. For a container image scan, Image Builder pushes a copy of your container image to Amazon ECR for Amazon Inspector to scan. Image Builder then saves a snapshot of the findings with your image, so the findings remain available after the scanned resource no longer exists. For an on-demand AMI scan, Amazon Inspector scans the output AMI that the build creates, and the results appear in Amazon EC2. For more information about the scan types, see [Amazon Inspector integration in Image Builder](integ-inspector.md). If you specify a scanning configuration, the **get-image** response includes it, but image list responses don't. For an image that a pipeline builds, **get-image** returns the scanning configuration that the pipeline had when the build started. The **get-image-pipeline** and **list-image-pipelines** responses include the current scanning configuration of the pipeline. The `--image-scanning-configuration` parameter accepts the following fields:
+  + **imageScanningEnabled** (boolean) – Set to `true` to scan your image with Amazon Inspector during the test stage of the build. Set to `false`, or omit the field, to turn off scanning. You must set it to `true` to use `imageScanningTypes` or `scanResultCondition`.
   + **ecrConfiguration** (object) – Applies only to requests that specify a `containerRecipeArn`. Sets the Amazon ECR repository and tags for the copy of the container image that Image Builder pushes for Amazon Inspector to scan. If you turn on scanning and specify `repositoryName` or `containerTags` in `ecrConfiguration` for a request that specifies an `imageRecipeArn`, the request fails with an `InvalidParameterCombinationException`.
     + **repositoryName** (string) – The name of an existing Amazon ECR repository for the scanned image, 1–1024 characters. For repository requirements, see [Amazon Inspector integration in Image Builder](integ-inspector.md). If you omit it, Image Builder uses `image-builder-image-scanning-repository`, creates it if it doesn't exist, and removes the image after it collects the findings. The image stays in the repository if Image Builder doesn't finish collecting the findings, or if you name your own repository.
     + **containerTags** (list of strings) – Additional tags that Image Builder applies to the container image that it pushes for scanning. Image Builder also applies its own version tags to that image. Each tag must be from 1–1024 characters in length.
+  + **imageScanningTypes** (list of strings) – The type of scan. Specify exactly one value: `TEST_INSTANCE_CVE` to scan the test instance, or `ON_DEMAND_AMI_CVE` to scan the output AMI. You can't combine the two types. If you omit the field, Image Builder uses `TEST_INSTANCE_CVE` and saves that value in the scanning configuration. `ON_DEMAND_AMI_CVE` applies only to requests that specify an `imageRecipeArn`. For more information, see [Scan output AMIs with on-demand AMI scans](integ-inspector.md#integ-inspector-ami-scan).
+  + **scanResultCondition** (object) – Optional. Applies only when `imageScanningTypes` is `ON_DEMAND_AMI_CVE`. Sets the most severe finding that the output AMI can have. If the AMI has a more severe finding, the image fails.
+    + **maximumSeverityLabel** (string) – Required. The most severe finding that the image can have. Valid values are `INFORMATIONAL`, `LOW`, `MEDIUM`, and `HIGH`. A counted `CRITICAL` finding always fails the image.
+    + **fixAvailable** (boolean) – Set to `true` to count only findings that have a fix available. Set to `false` to count all findings. The default is `true`. With the default, a severe finding that has no fix doesn't fail the image. If you omit the field, the **get-image** response shows it as `true`.
 **Test stage requirements**  
 If you turn on scanning and set `imageTestsEnabled` to `false` in the `--image-tests-configuration` parameter, the request fails with an `InvalidParameterCombinationException`. This requirement applies to the **create-image**, **create-image-pipeline**, and **update-image-pipeline** commands.  
-If you use the `--workflows` parameter, include exactly one `CollectImageScanFindings` step across the test workflows for an image. Image Builder doesn't check for this step, and without it Image Builder saves no findings. The AWS managed `express-test-image` workflow doesn't include this step.
+For `TEST_INSTANCE_CVE` scans, if you use the `--workflows` parameter, include exactly one `CollectImageScanFindings` step across the test workflows for an image. Image Builder doesn't check for this step, and without it Image Builder saves no findings. The AWS managed `express-test-image` workflow doesn't include this step.
+**On-demand AMI scan requirements**  
+Image Builder rejects a request that sets `imageScanningTypes` to `ON_DEMAND_AMI_CVE` in the following cases:  
+The request specifies a `containerRecipeArn`.
+`imageTestsEnabled` is `false`. The request fails with an `InvalidParameterCombinationException`.
+You don't need to specify an execution role. Without one, Image Builder runs the scan with its service-linked role, which includes the permissions that the scan needs. If you specify an execution role in the `--execution-role` parameter, the role must have these permissions. For the permissions, see [Permissions for on-demand AMI scans](integ-inspector.md#integ-inspector-ami-scan-permissions).  
+Image Builder adds the AWS managed `test-ami-scan` workflow to the image automatically. You don't need to list it in `--workflows`. For more information, see [AMI scan managed workflow (test-ami-scan)](manage-image-workflows.md#managed-workflow-test-ami-scan).
 + **Image tests** – To suppress the Image Builder test stage, use the `--image-tests-configuration` parameter. You can't set `imageTestsEnabled` to `false` when you enable image scanning.
 + **Image tags** – Use the `--tags` parameter to add tags to your output image resource.
 + **Image workflows** – If you don't specify any build or test workflows, Image Builder creates your image with its default image workflow. To specify workflows that you've created, use the `--workflows` parameter.
@@ -72,6 +82,35 @@ aws imagebuilder create-image --image-recipe-arn arn:aws:imagebuilder:{{us-west-
     }
 ]
 }
+```
+
+**Example: Create an image with an on-demand AMI scan**
+
+The following example creates an image and requests an on-demand AMI scan of the output AMI. The image fails if the AMI has a finding with a fix available that's more severe than `HIGH`. Save the following scanning configuration in a file named `scan-config.json`:
+
+```
+{
+    "imageScanningEnabled": true,
+    "imageScanningTypes": ["ON_DEMAND_AMI_CVE"],
+    "scanResultCondition": {
+        "maximumSeverityLabel": "{{HIGH}}",
+        "fixAvailable": {{true}}
+    }
+}
+```
+
+Replace the following values in the scanning configuration:
++ `maximumSeverityLabel` – The most severe finding to allow. Valid values are `INFORMATIONAL`, `LOW`, `MEDIUM`, and `HIGH`. A counted `CRITICAL` finding always fails the image.
++ `fixAvailable` – Which findings to count. Enter `true` (the default) to count only findings that have a fix available, or `false` to count every finding.
+
+Then run the following AWS CLI command. Replace the Region, account ID, recipe, and infrastructure configuration names with your own values:
+
+```
+aws imagebuilder create-image \
+    --image-recipe-arn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image-recipe/{{simple-recipe-linux}}/{{1.0.0}} \
+    --infrastructure-configuration-arn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:infrastructure-configuration/{{simple-infra-config-linux}} \
+    --image-tests-configuration imageTestsEnabled=true \
+    --image-scanning-configuration file://{{scan-config.json}}
 ```
 
 ------

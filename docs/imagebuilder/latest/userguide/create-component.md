@@ -5,17 +5,21 @@
 
 After you've completed your component document, you can use it to create a custom component that your Image Builder recipes can use. You can create a custom component from the Image Builder console, from the API or SDKs, or from the command line. For more information about how to create a custom component with input parameters and use it in your recipes, see [Tutorial: Create a custom component with input parameters](tutorial-component-parameters.md).
 
-The following sections show you how to create components from the console or from the AWS CLI.
+The following sections show you how to create components from the console, the AWS CLI, or AWS Tools for PowerShell.
 
 **Topics**
 + [Create a custom component in the console](#create-component-ib-console)
 + [Create a custom component from the AWS CLI](#create-component-ib-cli)
-+ [Import a script to create a component from the AWS CLI](#import-component-cli)
++ [Create a custom component from AWS Tools for PowerShell](#create-component-ib-ps)
++ [Import a script to create a component](#import-component-cli)
 + [Automatic build version management](#auto-build-version-management)
 + [Using version references](#using-version-references)
 
 ## Create a custom component in the console
 <a name="create-component-ib-console"></a>
+
+**Tip**  
+Now you can create with AI. For more information, see [Create and update resources with AI - Preview](ai-assisted-resource-creation.md).
 
 To create an AWSTOE application component from the Image Builder console, follow these steps:
 
@@ -54,12 +58,12 @@ To create a new component version, follow these steps:
    + From the **Components** list page – Select the check box next to the component name, then select **Create new version** from the **Actions** menu.
    + From the component detail page – Choose the **Create new version** button in the upper right corner of the heading.
 
-1. The component information is already populated with the current values when the **Create Component** page displays. Follow the create a component steps to update the component. This ensures that you enter a unique semantic version in the **Component version**. To learn more about semantic versioning for Image Builder resources, see [Semantic versioning in Image Builder](ibhow-semantic-versioning.md).
+1. The component information is already populated with the current values when the **Create Component** page displays. Follow the create a component steps to update the component. Make sure that you enter a unique semantic version in the **Component version**. To learn more about semantic versioning for Image Builder resources, see [Semantic versioning in Image Builder](ibhow-semantic-versioning.md).
 
 ## Create a custom component from the AWS CLI
 <a name="create-component-ib-cli"></a>
 
-In this section, you'll learn how to set up and use Image Builder commands in the AWS CLI to create an AWSTOE application component, as follows.
+In this section, you'll learn how to set up and use Image Builder commands in the AWS CLI to create an AWSTOE application component, as follows:
 + Upload your YAML component document to an S3 bucket that you can reference from the command line.
 + Create the AWSTOE application component with the **create-component** command.
 + List component versions with the **list-components** command and a name filter to see what versions already exist. You can use the output to determine what the next version should be for updates.
@@ -103,9 +107,9 @@ To provide the data values as command line parameters, refer to the parameter na
    	"changeDescription": "{{Initial version.}}",
    	"platform": "Linux",
    	"uri": "s3://{{amzn-s3-demo-destination-bucket}}/{{my-path}}/{{update-linux-os.yaml}}",
-   	"kmsKeyId": "arn:aws:kms:{{us-west-2}}:{{123456789012}}:key/{{98765432-b123-456b-7f89-0123456f789c}}",
+   	"kmsKeyId": "arn:aws:kms:{{us-west-2}}:{{111122223333}}:key/{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}",
    	"tags": {
-   		"{{MyTagKey-purpose}}": "{{security-updates}}"
+   		"{{my-tag-key-purpose}}": "{{security-updates}}"
    	}
    }
    ```
@@ -160,9 +164,9 @@ To provide the data values as command line parameters, refer to the parameter na
    	"changeDescription": "{{Initial version.}}",
    	"platform": "Windows",
    	"uri": "s3://{{amzn-s3-demo-destination-bucket}}/{{my-path}}/{{update-windows-os.yaml}}",
-   	"kmsKeyId": "arn:aws:kms:{{us-west-2}}:{{123456789012}}:key/{{98765432-b123-456b-7f89-0123456f789c}}",
+   	"kmsKeyId": "arn:aws:kms:{{us-west-2}}:{{111122223333}}:key/{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}",
    	"tags": {
-   		"{{MyTagKey-purpose}}": "{{security-updates}}"
+   		"{{my-tag-key-purpose}}": "{{security-updates}}"
    	}
    }
    ```
@@ -220,9 +224,9 @@ To provide the data values as command line parameters, refer to the parameter na
    	"changeDescription": "{{Initial version.}}",
    	"platform": "macOS",
    	"uri": "s3://{{amzn-s3-demo-destination-bucket}}/{{my-path}}/{{wget-macos.yaml}}",
-   	"kmsKeyId": "arn:aws:kms:{{us-west-2}}:{{123456789012}}:key/{{98765432-b123-456b-7f89-0123456f789c}}",
+   	"kmsKeyId": "arn:aws:kms:{{us-west-2}}:{{111122223333}}:key/{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}",
    	"tags": {
-   		"{{MyTagKey-purpose}}": "{{install-software}}"
+   		"{{my-tag-key-purpose}}": "{{install-software}}"
    	}
    }
    ```
@@ -242,14 +246,19 @@ The path for the JSON file should follow the appropriate convention for the base
 
 ------
 
-### AWSTOE component versioning for updates from the AWS CLI
+### AWSTOE component versioning for updates
 <a name="component-update-cli"></a>
 
 AWSTOE component names and versions are embedded in the component's Amazon Resource Name (ARN), after the component prefix. Each new version of a component has its own unique ARN. The steps to create a new version are exactly the same as the steps to create a new component, as long as the semantic version is unique for that component name. To learn more about semantic versioning for Image Builder resources, see [Semantic versioning in Image Builder](ibhow-semantic-versioning.md).
 
-To ensure that you assign the next logical version, first get a list of the existing versions for the component that you want to change. Use the **list-components** command with the AWS CLI, and filter on the name.
+To make sure that you assign the next logical version, first get a list of the existing versions for the component that you want to change.
 
-In this example, you filter on the name of the component that you created in the prior Linux examples. To list the component that you created, use the value of the `name` parameter from the JSON file that you used in the **create-component** command.
+------
+#### [ AWS CLI ]
+
+Use the **list-components** command with the AWS CLI, and filter on the name.
+
+In this example, you filter on the name of the component that you created in the prior Linux examples. To list the component that you created, use the value of the `name` parameter from the JSON file that you used in the **create-component** command:
 
 ```
 aws imagebuilder list-components --filters name="name",values="{{update-linux-os}}"	
@@ -257,55 +266,233 @@ aws imagebuilder list-components --filters name="name",values="{{update-linux-os
     "requestId": "123a4567-b890-123c-45d6-ef789ab0cd1e",
     "componentVersionList": [
         {
-            "arn": "arn:aws:imagebuilder:us-west-2:1234560087789012:component/update-linux-os/1.0.0",
+            "arn": "arn:aws:imagebuilder:us-west-2:111122223333:component/update-linux-os/1.0.0",
             "name": "update-linux-os",
             "version": "1.0.0",
             "platform": "Linux",
             "type": "BUILD",
-            "owner": "123456789012",
+            "owner": "111122223333",
             "dateCreated": "2020-09-24T16:58:24.444Z"
         },
         {
-            "arn": "arn:aws:imagebuilder:us-west-2:1234560087789012:component/update-linux-os/1.0.1",
+            "arn": "arn:aws:imagebuilder:us-west-2:111122223333:component/update-linux-os/1.0.1",
             "name": "update-linux-os",
             "version": "1.0.1",
             "platform": "Linux",
             "type": "BUILD",
-            "owner": "123456789012",
+            "owner": "111122223333",
             "dateCreated": "2021-07-10T03:38:46.091Z"
         }
     ]
 }
 ```
 
+------
+#### [ PowerShell ]
+
+Use the [Get-EC2IBComponentList](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBComponentList.html) cmdlet with the `Filter` parameter, and filter on the name.
+
+In this example, you filter on the name of the Linux component that you created in [Create a custom component from AWS Tools for PowerShell](#create-component-ib-ps). To list the component that you created, use the value of the `Name` parameter that you used with the [New-EC2IBComponent](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBComponent.html) cmdlet:
+
+```
+Get-EC2IBComponentList -Filter @{Name="name";Values="{{update-linux-os}}"}
+```
+
+The cmdlet returns one object for each version of the component. Each object includes the component `Arn`, `Name`, `Version`, `Platform`, `Type`, `Owner`, and `DateCreated`.
+
+------
+
 Based on your results, you can determine what the next version should be.
 
-## Import a script to create a component from the AWS CLI
+## Create a custom component from AWS Tools for PowerShell
+<a name="create-component-ib-ps"></a>
+
+In this section, you learn how to use Image Builder cmdlets in AWS Tools for PowerShell to create an AWSTOE application component, as follows:
++ Upload your YAML component document to an S3 bucket with the [Write-S3Object](https://docs.aws.amazon.com/powershell/latest/reference/items/Write-S3Object.html) cmdlet.
++ Create the AWSTOE application component with the [New-EC2IBComponent](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBComponent.html) cmdlet.
++ List component versions with the [Get-EC2IBComponentList](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBComponentList.html) cmdlet and a name filter to see what versions already exist. You can use the results to determine what the next version should be for updates. For more information, see [AWSTOE component versioning for updates](#component-update-cli).
+
+The `New-EC2IBComponent` cmdlet takes each component setting as a separate parameter, so you don't need a JSON input file. Each example in this section uses the same values as the matching platform example in [Create a custom component from the AWS CLI](#create-component-ib-cli).
+
+**Note**  
+Most cmdlet parameter names match the request parameters of the Image Builder API operation, in Pascal case. For example, `semanticVersion` becomes `SemanticVersion`, and `kmsKeyId` becomes `KmsKeyId`. The `Tag` parameter takes a hashtable of tag keys and values. To review the API request parameters, see the [CreateComponent](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html) operation in the *EC2 Image Builder API Reference*.
+
+To create an AWSTOE application component from an input YAML document, follow the steps that match your image operating system platform.
+
+------
+#### [ Linux ]
+
+**Store your application component document in Amazon S3**
+
+You can use an S3 bucket as a repository for your AWSTOE application component source document. To store your component document, follow these steps:
++ 
+
+**Upload the document to Amazon S3**
+
+  *If your document is smaller than 64 KB, you can skip this step.* Documents that are 64 KB or larger in size must be stored in Amazon S3.
+
+  To upload the document, run the [Write-S3Object](https://docs.aws.amazon.com/powershell/latest/reference/items/Write-S3Object.html) cmdlet:
+
+  ```
+  Write-S3Object -BucketName {{amzn-s3-demo-destination-bucket}} `
+      -Key {{my-path}}/{{update-linux-os.yaml}} `
+      -File {{update-linux-os.yaml}}
+  ```
+
+**Create a component from the YAML document**
+
+Use the `Uri` parameter to reference the `{{update-linux-os.yaml}}` document that you uploaded earlier.
++ 
+
+**Create the component**
+
+  To create the component, run the [New-EC2IBComponent](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBComponent.html) cmdlet:
+
+  ```
+  New-EC2IBComponent -Name {{update-linux-os}} `
+      -SemanticVersion 1.1.2 `
+      -Description "{{An example component that updates the Linux operating system}}" `
+      -ChangeDescription "{{Initial version.}}" `
+      -Platform Linux `
+      -Uri s3://{{amzn-s3-demo-destination-bucket}}/{{my-path}}/{{update-linux-os.yaml}} `
+      -KmsKeyId arn:aws:kms:{{us-west-2}}:{{111122223333}}:key/{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}} `
+      -Tag @{ "{{my-tag-key-purpose}}" = "{{security-updates}}" }
+  ```
+
+------
+#### [ Windows ]
+
+**Store your application component document in Amazon S3**
+
+You can use an S3 bucket as a repository for your AWSTOE application component source document. To store your component document, follow these steps:
++ 
+
+**Upload the document to Amazon S3**
+
+  *If your document is smaller than 64 KB, you can skip this step.* Documents that are 64 KB or larger in size must be stored in Amazon S3.
+
+  To upload the document, run the [Write-S3Object](https://docs.aws.amazon.com/powershell/latest/reference/items/Write-S3Object.html) cmdlet:
+
+  ```
+  Write-S3Object -BucketName {{amzn-s3-demo-destination-bucket}} `
+      -Key {{my-path}}/{{update-windows-os.yaml}} `
+      -File {{update-windows-os.yaml}}
+  ```
+
+**Create a component from the YAML document**
+
+Use the `Uri` parameter to reference the `{{update-windows-os.yaml}}` document that you uploaded earlier.
++ 
+
+**Create the component**
+
+  To create the component, run the [New-EC2IBComponent](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBComponent.html) cmdlet:
+
+  ```
+  New-EC2IBComponent -Name {{update-windows-os}} `
+      -SemanticVersion 1.1.2 `
+      -Description "{{An example component that updates the Windows operating system.}}" `
+      -ChangeDescription "{{Initial version.}}" `
+      -Platform Windows `
+      -Uri s3://{{amzn-s3-demo-destination-bucket}}/{{my-path}}/{{update-windows-os.yaml}} `
+      -KmsKeyId arn:aws:kms:{{us-west-2}}:{{111122223333}}:key/{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}} `
+      -Tag @{ "{{my-tag-key-purpose}}" = "{{security-updates}}" }
+  ```
+
+------
+#### [ macOS ]
+
+**Store your application component document in Amazon S3**
+
+You can use an S3 bucket as a repository for your AWSTOE application component source document. To store your component document, follow these steps:
++ 
+
+**Upload the document to Amazon S3**
+
+  *If your document is smaller than 64 KB, you can skip this step.* Documents that are 64 KB or larger in size must be stored in Amazon S3.
+
+  To upload the document, run the [Write-S3Object](https://docs.aws.amazon.com/powershell/latest/reference/items/Write-S3Object.html) cmdlet:
+
+  ```
+  Write-S3Object -BucketName {{amzn-s3-demo-destination-bucket}} `
+      -Key {{my-path}}/{{wget-macos.yaml}} `
+      -File {{wget-macos.yaml}}
+  ```
+
+**Create a component from the YAML document**
+
+Use the `Uri` parameter to reference the `{{wget-macos.yaml}}` document that you uploaded earlier.
++ 
+
+**Create the component**
+
+  To create the component, run the [New-EC2IBComponent](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBComponent.html) cmdlet:
+
+  ```
+  New-EC2IBComponent -Name {{install-wget-macos-component}} `
+      -SemanticVersion 1.1.2 `
+      -Description "{{An example component that installs and verifies the wget utility on macOS.}}" `
+      -ChangeDescription "{{Initial version.}}" `
+      -Platform macOS `
+      -Uri s3://{{amzn-s3-demo-destination-bucket}}/{{my-path}}/{{wget-macos.yaml}} `
+      -KmsKeyId arn:aws:kms:{{us-west-2}}:{{111122223333}}:key/{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}} `
+      -Tag @{ "{{my-tag-key-purpose}}" = "{{install-software}}" }
+  ```
+
+------
+
+## Import a script to create a component
 <a name="import-component-cli"></a>
 
-For some scenarios, it might be easier to start with a pre-existing script. For this scenario, you can use the following example. 
+For some scenarios, it might be easier to start with a pre-existing script. For this scenario, you can use the following example.
 
-This example assumes that you have a file called `{{import-component.json}}` (as shown). Note that the file directly references a PowerShell script called `AdminConfig.ps1` that is already uploaded to `{{amzn-s3-demo-source-bucket}}`. Currently, `SHELL` is supported for the component `format`. 
+This example uses a PowerShell script called `{{admin-config.ps1}}` that you already uploaded to `{{amzn-s3-demo-source-bucket}}`. Currently, the only supported component format is `SHELL`.
+
+------
+#### [ AWS CLI ]
+
+This example assumes that you have a file called `{{import-component.json}}`. The file contains the following:
 
 ```
 {
-"name": "{{MyImportedComponent}}",
+"name": "{{my-imported-component}}",
 "semanticVersion": "1.0.0",
 "description": "{{An example of how to import a component}}",
 "changeDescription": "{{First commit message.}}",
 "format": "SHELL",
 "platform": "Windows",
 "type": "BUILD",
-"uri": "s3://{{amzn-s3-demo-source-bucket}}/{{AdminConfig.ps1}}",
-"kmsKeyId": "arn:aws:kms:{{us-west-2}}:{{123456789012}}:key/{{60763706-b131-418b-8f85-3420912f020c}}"
+"uri": "s3://{{amzn-s3-demo-source-bucket}}/{{admin-config.ps1}}",
+"kmsKeyId": "arn:aws:kms:{{us-west-2}}:{{111122223333}}:key/{{a1b2c3d4-5678-90ab-cdef-EXAMPLE22222}}"
 }
 ```
 
-To create the component from an imported script, run the following command.
+To create the component from an imported script, run the following command:
 
 ```
 aws imagebuilder import-component --cli-input-json file://{{import-component.json}}
 ```
+
+------
+#### [ PowerShell ]
+
+This example uses the same values as the AWS CLI example. Tools for PowerShell doesn't take a JSON input file. Instead, each JSON key is a cmdlet parameter. For example, `semanticVersion` becomes `SemanticVersion`, and `uri` becomes `Uri`.
+
+To create the component from an imported script, run the [Import-EC2IBComponent](https://docs.aws.amazon.com/powershell/latest/reference/items/Import-EC2IBComponent.html) cmdlet:
+
+```
+Import-EC2IBComponent -Name {{my-imported-component}} `
+    -SemanticVersion 1.0.0 `
+    -Description "{{An example of how to import a component}}" `
+    -ChangeDescription "{{First commit message.}}" `
+    -Format SHELL `
+    -Platform Windows `
+    -Type BUILD `
+    -Uri s3://{{amzn-s3-demo-source-bucket}}/{{admin-config.ps1}} `
+    -KmsKeyId arn:aws:kms:{{us-west-2}}:{{111122223333}}:key/{{a1b2c3d4-5678-90ab-cdef-EXAMPLE22222}}
+```
+
+------
 
 ## Automatic build version management
 <a name="auto-build-version-management"></a>
@@ -317,7 +504,8 @@ When you create a component with the same name and semantic version as an existi
 
 When you create or retrieve a component, Image Builder automatically provides pre-constructed ARNs with wildcard version patterns in the latestVersionReferences object. These references make it easy to use the latest versions of your components in recipes and pipelines without manually parsing ARNs. 
 
-**Choosing the right version reference**
+**Choose the right version reference**  
+The following list describes when to use each version reference:
 + latestVersionArn (x.x.x) - Always use the absolute latest component version.
 + latestMajorVersionArn (1.x.x) - Use the latest minor and patch versions within a major version.
 + latestMinorVersionArn (1.2.x) - Use the latest patch version only.

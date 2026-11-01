@@ -133,6 +133,8 @@ Image Builder sends this event with the results after it collects the findings f
 
 If scanning is off, the AWS managed test workflows skip the `CollectImageScanFindings` step, so Image Builder doesn't send this event. To turn on scanning, see [Configure security scans for Image Builder images in the AWS Management Console](image-security-findings.md#image-config-security-scans).
 
+On-demand AMI scans don't run a `CollectImageScanFindings` step, so Image Builder doesn't send this event for them. For their results, see [View on-demand AMI scan results](integ-inspector.md#integ-inspector-ami-scan-results).
+
 Image Builder sends this event only from a `CollectImageScanFindings` workflow step, and sends it even when the scan returns no findings, so check `finding-severity-counts` before you act on it. Delivery is best effort, so a delivery failure doesn't fail the build. After the first `CollectImageScanFindings` step for an image finishes, whether it succeeds or fails, any later `CollectImageScanFindings` step for the image fails and doesn't send an event.
 
 The event `detail` contains the following fields:

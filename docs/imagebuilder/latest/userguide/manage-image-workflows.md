@@ -43,7 +43,7 @@ The following table lists the default behavior of each stage. Because you define
 |  Order  |  Stage  |  Workflow type  |  What it does (default)  | 
 | --- | --- | --- | --- | 
 | 1 | **Build** | `BUILD` | Launches a build instance, runs your build components, and creates an image (AMI or container image) from the instance. | 
-| 2 | **Test** | `TEST` | Launches a test instance from the new image, runs your test components, and optionally collects image scan findings. | 
+| 2 | **Test** | `TEST` | Launches a test instance from the new image, runs your test components, and optionally runs a vulnerability scan of the test instance or of the output AMI. | 
 | 3 | **Distribution** | `DISTRIBUTION` | Copies the image to target Regions and accounts, modifies image attributes, and applies post-distribution configurations such as launch templates and license configurations. | 
 
 You can run a workflow for only some stages. For example, you can skip the build stage to test or distribute an image that already exists, or skip the test stage to build and distribute without testing. To skip the build or test stage, omit a workflow of that type from your pipeline or image request.
@@ -140,3 +140,40 @@ The following are express managed workflows:
 + **express-build-image** – Express Amazon-managed AMI build workflow that reduces build time. Waits only for the instance running state instead of full EC2 status checks, and skips image metadata collection.
 + **express-build-container** – Express Amazon-managed container build workflow that reduces build time. Waits only for the instance running state instead of full EC2 status checks.
 + **express-test-image** – Express Amazon-managed AMI test workflow that reduces test time. Waits only for the instance running state instead of full EC2 status checks, and skips security scan findings collection.
+
+Scan managed workflows  
+Scan managed workflows run vulnerability scans as part of the test stage. Image Builder adds them to your image when you request a scan type that uses them.  
+The following are scan managed workflows:  
++ **test-ami-scan** – AWS managed AMI test workflow that scans the output AMI for vulnerabilities with Amazon Inspector, and checks the results against the scan result condition of the image. For more information, see [AMI scan managed workflow (test-ami-scan)](#managed-workflow-test-ami-scan).
+
+### AMI scan managed workflow (test-ami-scan)
+<a name="managed-workflow-test-ami-scan"></a>
+
+The AWS managed `test-ami-scan` workflow runs an on-demand AMI scan with Amazon Inspector. It's a test workflow with the following ARN:
+
+```
+arn:aws:imagebuilder:{{us-west-2}}:aws:workflow/test/test-ami-scan/x.x.x
+```
+
+Image Builder adds this workflow to the image automatically when the image scanning configuration sets `imageScanningTypes` to `ON_DEMAND_AMI_CVE`, unless you already list it. Image Builder adds it when you create an image and on each pipeline run. In the Image Builder console, you can't select this workflow yourself. The **Test** section shows it as a locked row. For more information about on-demand AMI scans, see [Scan output AMIs with on-demand AMI scans](integ-inspector.md#integ-inspector-ami-scan).
+
+**Workflow steps**  
+The workflow runs the following steps. If a step fails, the workflow stops.
+
+1. The `StartAmiScan` workflow step submits an on-demand scan of the output AMI to Amazon Inspector. If a scan of the same AMI is already in progress, the step uses that scan.
+
+1. The `WaitForAmiScan` workflow step checks the scan status with `inspector2:GetOnDemandScanStatus` until the scan succeeds or fails, or the wait times out. This step runs only when the image has a scan result condition.
+
+1. The `EvaluateScanResultCondition` workflow step reads the scan results that Amazon EC2 reports for the AMI, and compares them with the scan result condition. It waits up to 15 minutes for Amazon EC2 to have the results. This step runs only when the image has a scan result condition.
+
+**Parameters**  
+The workflow has the following optional parameter:
++ **WaitForAmiScanTimeoutSeconds** (integer) – How long the `WaitForAmiScan` workflow step waits for Amazon Inspector to finish the scan, in seconds. Valid values are 1–43,500. The default and maximum value is 43,500 seconds, which is about 12 hours.
+
+**Run order**  
+Where the workflow runs depends on whether the image uses default or custom workflows:
++ **Default workflows** – The workflow runs in parallel with the `test-image` workflow, in the same parallel group.
++ **Custom workflows** – Image Builder inserts the workflow after your build workflows and before your test workflows. It runs first, by itself.
+
+**Service access**  
+The workflow uses the execution role of the image. If the image doesn't have an execution role, the workflow uses the Image Builder service-linked role, which includes the permissions that the scan needs. If you specify an execution role, the role must have these permissions. For the permissions that the execution role needs, see [Permissions for on-demand AMI scans](integ-inspector.md#integ-inspector-ami-scan-permissions).

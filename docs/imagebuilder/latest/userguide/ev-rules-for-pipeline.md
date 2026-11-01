@@ -260,7 +260,7 @@ To act on an event that Image Builder sends, create a rule whose event pattern m
 
 **Example: Alert only when a scan finds critical CVEs**
 
-Use a numeric matcher so that clean scans don't trigger the rule:
+Use a numeric matcher so that clean scans don't trigger the rule. Image Builder sends this event for test instance scans and container image scans, not for on-demand AMI scans:
 
 ```
 {

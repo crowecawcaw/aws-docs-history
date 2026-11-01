@@ -70,7 +70,7 @@ For example, when you create a component with version `1.2.3`, Image Builder ret
 
 The `latestVersionReferences` object contains four ARN patterns:
 + latestVersionArn (x.x.x) - Always resolves to the absolute latest version.
-+ atestMajorVersionArn (1.x.x) - Resolves to the latest minor and patch versions within a major version.
++ latestMajorVersionArn (1.x.x) - Resolves to the latest minor and patch versions within a major version.
 + latestMinorVersionArn (1.2.x) - Resolves to the latest patch version within a specific minor version.
 + latestPatchVersionArn (1.2.3) - References a specific semantic version and resolves to the latest build version for resources that support multiple build versions.
 

@@ -85,7 +85,7 @@ Image Builder provides the following system variables that you can use in your w
 | cloudWatchLogGroup | The name of the CloudWatch Logs group for output logs.<br />Format: `/aws/imagebuilder/{{<recipe-name>}}` | String | `/aws/imagebuilder/{{sampleImageRecipe}}` | 
 | cloudWatchLogStream | The name of the CloudWatch Logs stream for output logs. | String | {{1.0.0/1}} | 
 | collectImageMetadata | The setting that directs Image Builder whether to collect instance metadata. | Boolean | `true` \| `false` | 
-| collectImageScanFindings | The current value of the setting that enables Image Builder to collect image scan findings. | Boolean | `true` \| `false` | 
+| collectImageScanFindings | Specifies whether Image Builder collects image scan findings for the image. The value is `true` when scanning is turned on for a test instance scan or a container image scan. It's `false` for an on-demand AMI scan. | Boolean | `true` \| `false` | 
 | imageBuildNumber | The build version number of the image. | Integer | {{1}} | 
 | imageId | The AMI id of the base image. | String | {{ami-1234567890abcdef1}} | 
 | imageName | The name of the image. | String | {{sampleImage}} | 

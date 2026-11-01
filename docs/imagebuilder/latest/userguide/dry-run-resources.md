@@ -7,7 +7,7 @@ With a dry run, you can check whether a request to create an Image Builder resou
 + If validation succeeds, the request fails with a `DryRunOperationException` error. This error indicates that the request is valid, and that the resource creation would have succeeded without the `dryRun` parameter.
 + If validation fails, the request returns the same error that it would return without the `dryRun` parameter, for example `InvalidParameterValueException` or `ResourceAlreadyExistsException`.
 
-In both cases, Image Builder doesn't create the resource. Dry runs give you immediate feedback on your resource configurations. This is especially useful for automation and AI agents that create Image Builder resources. Such tools can validate each configuration and correct errors before they create anything.
+In both cases, Image Builder doesn't create the resource. Dry runs give you immediate feedback on your resource configurations. This is especially useful for automation and AI agents that create Image Builder resources. Such tools can validate each configuration and correct errors before they create anything. The Image Builder console's Create with AI feature uses dry runs this way. For more information, see [Create and update resources with AI - Preview](ai-assisted-resource-creation.md).
 
 The following create actions support the `dryRun` parameter:
 + `CreateComponent`

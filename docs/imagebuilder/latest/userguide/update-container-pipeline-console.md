@@ -7,6 +7,9 @@ After you have created an Image Builder container image pipeline for your Docker
 
 To update a container image pipeline with a new container recipe, you must use the AWS CLI. For more information, see [Update container image pipelines from the AWS CLI](cli-update-container-pipeline.md) in this guide.
 
+**Tip**  
+Now you can create with AI. For more information, see [Create and update resources with AI - Preview](ai-assisted-resource-creation.md).
+
 **Choose an existing Image Builder Docker image pipeline**
 
 1. Open the EC2 Image Builder console at [https://console.aws.amazon.com/imagebuilder/](https://console.aws.amazon.com/imagebuilder/).

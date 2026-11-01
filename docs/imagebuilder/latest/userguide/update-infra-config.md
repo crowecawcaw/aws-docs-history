@@ -20,6 +20,9 @@ You can edit the following infrastructure configuration details from the Image B
 + **VPC, subnet, and security groups**.
 + **Troubleshooting settings**, including **Terminate instance on failure**, the **Key pair** for connecting, and an optional S3 bucket location for instance logs.
 
+**Tip**  
+Now you can create with AI. For more information, see [Create and update resources with AI - Preview](ai-assisted-resource-creation.md).
+
 To update an infrastructure configuration resource from the Image Builder console, follow these steps:
 
 **Choose an existing Image Builder infrastructure configuration**

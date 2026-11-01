@@ -20,6 +20,9 @@ You can set up, configure, and manage AMI image pipelines from the Image Builder
 
 For more information and a step-by-step tutorial about using the **Create image pipeline** console wizard with default values where provided, see [Tutorial: Create an image pipeline with output AMI from the Image Builder console wizard](start-build-image-pipeline.md).
 
+**Tip**  
+Now you can create with AI. For more information, see [Create and update resources with AI - Preview](ai-assisted-resource-creation.md).
+
 **Topics**
 + [Create an AMI image pipeline from the AWS CLI](cli-create-image-pipeline.md)
 + [Update AMI image pipelines in the console](update-image-pipeline-console.md)

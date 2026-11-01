@@ -20,6 +20,8 @@ aws imagebuilder get-image-pipeline --image-pipeline-arn arn:aws:imagebuilder:{{
 ```
 Use the output as the basis for your update request JSON file.
 
+The update request takes the same image scanning configuration (`imageScanningConfiguration`) as the create request, including the scan type (`imageScanningTypes`) and the scan result condition (`scanResultCondition`). Because the update replaces the whole configuration, include `imageScanningConfiguration` in each update request for a pipeline that scans its images. For the scanning fields, see [Create custom images with Image Builder](create-images.md). For an example scanning configuration, see [Create an AMI image pipeline from the AWS CLI](cli-create-image-pipeline.md).
+
 1. 
 
 **Create a CLI input JSON file**

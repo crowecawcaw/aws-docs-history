@@ -67,8 +67,12 @@ The policy includes the following permissions:
 + **Amazon ECR** – Access is granted for Image Builder to create a repository if needed for container image vulnerability scans, and tag the resources it creates to limit the scope of its operations. Access is also granted for Image Builder to delete the container images that it created for the scans after it takes snapshots of the vulnerabilities.
 + **EventBridge** – Access is granted for Image Builder to create and manage EventBridge rules.
 + **IAM** – Access is granted for Image Builder to pass any role in your account to Amazon EC2, and to VM Import/Export.
+
+  Image Builder can also create the Amazon Inspector service-linked roles for the following service names: `agentless.inspector2.amazonaws.com`, `ami.inspector2.amazonaws.com`, and `inspector2.amazonaws.com`.
 + **Image Builder** – Access is granted for Image Builder to automatically trigger pipelines on the user's behalf on a user-provided schedule and apply tags to the resulting images. Only used when the `imageTags` property is set on a pipeline and that pipeline is configured to run on a schedule.
 + **Amazon Inspector** – Access is granted for Image Builder to determine when Amazon Inspector completes build instance scans, and to collect findings for images that are configured to allow it.
+
+  Image Builder can also start on-demand Amazon Inspector scans, get the status of those scans, and list them. Image Builder uses these permissions for on-demand AMI scans.
 + **AWS KMS** – Access is granted for Amazon EBS to encrypt, decrypt, or re-encrypt Amazon EBS volumes. This is crucial to ensure that encrypted volumes work when Image Builder builds an image.
 + **License Manager** – Access is granted for Image Builder to update License Manager specifications via `license-manager:UpdateLicenseSpecificationsForResource`.
 + **Amazon SNS** – Write permissions are granted for any Amazon SNS topic in your account.
@@ -105,8 +109,12 @@ The policy includes the following permissions:
 + **Amazon ECR** – Access is granted for Image Builder to create a repository if needed for container image vulnerability scans, and tag the resources it creates to limit the scope of its operations. Access is also granted for Image Builder to delete the container images that it created for the scans after it takes snapshots of the vulnerabilities.
 + **EventBridge** – Access is granted for Image Builder to create and manage EventBridge rules.
 + **IAM** – Access is granted for Image Builder to pass any role in your account to Amazon EC2, and to VM Import/Export.
+
+  Image Builder can also create service-linked roles for the following service names: `agentless.inspector2.amazonaws.com`, `ami.inspector2.amazonaws.com`, `ec2fastlaunch.amazonaws.com`, `inspector2.amazonaws.com`, and `ssm.amazonaws.com`.
 + **Image Builder** – Access is granted for Image Builder to automatically trigger pipelines on the user's behalf on a user-provided schedule and apply tags to the resulting images. Only used when the `imageTags` property is set on a pipeline and that pipeline is configured to run on a schedule.
 + **Amazon Inspector** – Access is granted for Image Builder to determine when Amazon Inspector completes build instance scans, and to collect findings for images that are configured to allow it.
+
+  Image Builder can also start on-demand Amazon Inspector scans, get the status of those scans, and list them. Image Builder uses these permissions for on-demand AMI scans.
 + **AWS KMS** – Access is granted for Amazon EBS to encrypt, decrypt, or re-encrypt Amazon EBS volumes. This is crucial to ensure that encrypted volumes work when Image Builder builds an image.
 + **License Manager** – Access is granted for Image Builder to update License Manager specifications via `license-manager:UpdateLicenseSpecificationsForResource`.
 + **Amazon SNS** – Write permissions are granted for any Amazon SNS topic in your account.
@@ -205,6 +213,8 @@ This section provides information about updates to AWS managed policies for Imag
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| [EC2ImageBuilderExecutionPolicy](#sec-iam-manpol-EC2ImageBuilderExecutionPolicy) – Update to an existing policy | Image Builder made the following changes to the policy to support on-demand AMI scans with Amazon Inspector.+  Added `inspector2:StartOnDemandScan`, `inspector2:GetOnDemandScanStatus`, and `inspector2:ListOnDemandScans` to allow Image Builder to start on-demand scans of output AMIs and check their status. <br />+  Added `ami.inspector2.amazonaws.com`, `inspector2.amazonaws.com`, and `agentless.inspector2.amazonaws.com` to the service names for which Image Builder can call `iam:CreateServiceLinkedRole`.  | October 29, 2026 | 
+| [AWSServiceRoleForImageBuilder](#sec-iam-manpol-AWSServiceRoleForImageBuilder) – Update to an existing policy | Image Builder made the following changes to the service role to support on-demand AMI scans with Amazon Inspector.+  Added `inspector2:StartOnDemandScan`, `inspector2:GetOnDemandScanStatus`, and `inspector2:ListOnDemandScans` to allow Image Builder to start on-demand scans of output AMIs and check their status. <br />+  Added `ami.inspector2.amazonaws.com`, `inspector2.amazonaws.com`, and `agentless.inspector2.amazonaws.com` to the service names for which Image Builder can call `iam:CreateServiceLinkedRole`.  | October 29, 2026 | 
 | [EC2ImageBuilderExecutionPolicy](#sec-iam-manpol-EC2ImageBuilderExecutionPolicy) – Update to an existing policy | Image Builder added `ec2:AttachImageWatermark` to allow Image Builder to attach AMI watermarks to output images tagged `CreatedBy: EC2 Image Builder`. | June 22, 2026 | 
 | [AWSServiceRoleForImageBuilder](#sec-iam-manpol-AWSServiceRoleForImageBuilder) – Update to an existing policy | Image Builder added `ec2:AttachImageWatermark` to allow Image Builder to attach AMI watermarks to output images tagged `CreatedBy: EC2 Image Builder`. | June 22, 2026 | 
 | [EC2ImageBuilderExecutionPolicy](#sec-iam-manpol-EC2ImageBuilderExecutionPolicy) – New policy | Image Builder added the new `EC2ImageBuilderExecutionPolicy` policy that contains permissions for Image Builder to call AWS services on your behalf. You can attach this policy to IAM roles that you pass to Image Builder as an execution role instead of using the service-linked role. | June 4, 2026 | 

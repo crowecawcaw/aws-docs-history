@@ -15,8 +15,10 @@ You can troubleshoot a single failed pipeline build or analyze multiple failed p
 **Topics**
 + [Prerequisites](#devops-agent-troubleshooting-prereqs)
 + [Set up troubleshooting](#devops-agent-troubleshooting-setup)
++ [DevOps Agent pricing for troubleshooting builds](#devops-agent-troubleshooting-pricing)
 + [Troubleshoot a failed build](#devops-agent-troubleshooting-single)
 + [Troubleshoot multiple failed pipelines](#devops-agent-troubleshooting-aggregate)
++ [Ask follow-up questions](#devops-agent-troubleshooting-follow-up)
 + [What Troubleshoot investigates](#devops-agent-troubleshooting-checks)
 + [Considerations](#devops-agent-troubleshooting-considerations)
 
@@ -31,6 +33,8 @@ Before you use the Troubleshoot feature, make sure that the IAM user or role tha
 
 For more information about IAM policies, see [Policies and permissions in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html).
 
+The Create with AI feature uses the same permissions and agent space. For more information, see [Create and update resources with AI - Preview](ai-assisted-resource-creation.md).
+
 ## Set up troubleshooting
 <a name="devops-agent-troubleshooting-setup"></a>
 
@@ -42,6 +46,13 @@ To start troubleshooting, choose the **Troubleshooting** icon in the AWS Managem
 
 **Note**  
 For more information about AWS DevOps Agent, see the [AWS DevOps Agent User Guide](https://docs.aws.amazon.com/devopsagent/latest/userguide/).
+
+## DevOps Agent pricing for troubleshooting builds
+<a name="devops-agent-troubleshooting-pricing"></a>
+
+The Troubleshoot feature uses AWS DevOps Agent. AWS bills DevOps Agent usage separately from Image Builder, based on the time that the agent spends working on your investigation, per agent-second. Creating an agent space is free. Charges appear in your AWS bill and in Cost Explorer under **AWS DevOps Agent**. For current rates, see [AWS DevOps Agent pricing](https://aws.amazon.com/devops-agent/pricing/).
+
+During an investigation, the agent also queries other AWS services on your behalf, such as Amazon CloudWatch Logs. Those services bill the queries at their standard rates.
 
 ## Troubleshoot a failed build
 <a name="devops-agent-troubleshooting-single"></a>
@@ -64,7 +75,7 @@ After you start troubleshooting, Troubleshoot investigates the failure. You can 
 + Remediation steps to resolve the issue
 + Commands or configuration changes to fix the problem
 
-After you review the results, you can provide feedback on the response quality. To re-run the analysis against the same failed build, choose **Troubleshoot again**.
+After you review the results, you can ask follow-up questions about the investigation in the same conversation. For more information about follow-up questions, see [Ask follow-up questions](#devops-agent-troubleshooting-follow-up). To copy the root cause report, choose the **Copy response** icon. This copies the root cause report, not answers to follow-up questions. To provide feedback on the investigation, choose **Helpful** or **Not helpful**. Your rating applies to the whole investigation, including its follow-up questions. To rerun the analysis against the same failed build, choose **Troubleshoot again**.
 
 ## Troubleshoot multiple failed pipelines
 <a name="devops-agent-troubleshooting-aggregate"></a>
@@ -86,7 +97,25 @@ You receive a grouped analysis organized by root cause. For each group, you get:
 + Pipelines affected by that root cause
 + Remediation steps for the group
 
-After the aggregate analysis, you can choose a drill-down prompt to investigate a specific pipeline in more detail.
+After the aggregate analysis, you can ask follow-up questions about the analysis, or choose a drill-down prompt to investigate a specific pipeline in more detail. For more information about follow-up questions, see [Ask follow-up questions](#devops-agent-troubleshooting-follow-up).
+
+## Ask follow-up questions
+<a name="devops-agent-troubleshooting-follow-up"></a>
+
+After an investigation completes, you can ask follow-up questions about the results in the same conversation. The agent keeps the context of the investigation. You can ask follow-up questions after you troubleshoot a single failed build or multiple failed pipelines, including after you drill down into a specific pipeline. For example, you can ask which step failed and why, or how to apply a remediation step. You can also ask about anything else in the report.
+
+**To ask a follow-up question**
+
+1. After the investigation completes, enter your question in the **Ask a follow-up question** box at the bottom of the troubleshooting drawer.
+
+1. Choose **Send** (send icon) or press Enter. The agent's answer appears in the conversation.
+
+1. (Optional) To stop a response while it's in progress, choose **Stop troubleshooting** in the drawer header.
+
+Follow-up questions work as follows:
++ You can enter up to 4,000 characters per question. A character count appears as you approach the limit.
++ You can send a new question after the agent finishes responding.
++ If a follow-up question fails, the drawer keeps your investigation. The drawer also restores your question in the input box, so you can send it again.
 
 ## What Troubleshoot investigates
 <a name="devops-agent-troubleshooting-checks"></a>

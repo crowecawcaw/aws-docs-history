@@ -6,10 +6,10 @@
 With image workflows, you can customize the workflows that your pipeline runs to build, test, and distribute images according to your needs. The workflows that you define run within the context of the Image Builder workflow framework. For more information about the stages that make up the workflow framework, see [Manage build, test, and distribution workflows for Image Builder images](manage-image-workflows.md).
 
 Build workflow  
-Build workflows run during the `Build` stage of the workflow framework. You can specify only one build workflow for your pipeline. Or you can skip the build entirely to configure a test-only pipeline.
+Build workflows run during the `Build` stage of the workflow framework. You can specify only one build workflow for your pipeline. Or you can skip the build entirely to configure a test-only pipeline. If a pipeline with an on-demand AMI scan skips the build, the scan targets the parent AMI of the recipe. Your account must own that AMI. For more information, see [Workflows for pipelines with on-demand AMI scans](#pipeline-workflows-ami-scan).
 
 Test workflow  
-Test workflows run during the `Test` stage of the workflow framework. You can add one or more test workflows to your pipeline, up to the limit of ten workflows total, which also counts your build and distribution workflows. Test workflows can run in parallel or one at a time, depending on how you define your test groups. You can also skip tests entirely if you only want your pipeline to build.
+Test workflows run during the `Test` stage of the workflow framework. You can add one or more test workflows to your pipeline, up to the limit of ten workflows total, which also counts your build and distribution workflows. Test workflows can run in parallel or one at a time, depending on how you define your test groups. You can also skip tests entirely if you only want your pipeline to build, unless the pipeline uses an on-demand AMI scan.
 
 Distribution workflow  
 Distribution workflows run during the `Distribution` stage of the workflow framework. A distribution workflow is optional. If you do not specify one, Image Builder still distributes your AMI by running the distribution configuration that you attach to the pipeline or image. Specify a distribution workflow when you want to override that distribution configuration with different distribution settings, or to gain more visibility into the distribution process. You can specify one distribution workflow for your pipeline. If you build container images and do not specify a distribution workflow, Image Builder adds the Amazon managed container-distribution workflow for you.
@@ -88,6 +88,26 @@ If the order doesn't matter, and you want to run as many test workflows as possi
 
 **Scenario 3: Mix and match**  
 If you have a mixed scenario, with some test workflows that can run at the same time and some that should run one at a time, you can configure your test groups to accomplish this goal. The only limit to how you configure your test groups is the maximum number of test workflows that can run for your pipeline
+
+## Workflows for pipelines with on-demand AMI scans
+<a name="pipeline-workflows-ami-scan"></a>
+
+When a pipeline uses an on-demand AMI scan, Image Builder runs the AWS managed `test-ami-scan` workflow in the test stage. Image Builder adds the workflow on each pipeline run, unless the pipeline already lists it. For more information about the scan, see [Scan output AMIs with on-demand AMI scans](integ-inspector.md#integ-inspector-ami-scan).
+
+Where the workflow runs depends on the workflows of the pipeline:
++ **Default workflows** – The workflow runs in parallel with the `test-image` workflow, in the same test group.
++ **Custom workflows** – Image Builder inserts the workflow after your build workflow and before your test workflows, without a group. It runs first, by itself.
++ **Workflows that you set in the console** – When you save a pipeline with **On-demand AMI scan** selected, the console lists the workflow at the start of your first test group. It runs at the same time as the other test workflows in that group.
+
+The workflow uses the execution role of the pipeline. If the pipeline doesn't have an execution role, the workflow uses the Image Builder service-linked role, which includes the permissions that the scan needs. If you specify an execution role, the role must have these permissions. For the permissions, see [Permissions for on-demand AMI scans](integ-inspector.md#integ-inspector-ami-scan-permissions).
+
+The limit of ten workflows applies to the workflows that you list. A `test-ami-scan` workflow in your list counts toward the limit. The workflow that Image Builder adds on a pipeline run doesn't.
+
+The following rules apply to the workflows of a pipeline that uses an on-demand AMI scan:
++ **AWS CLI and API** – If you specify `workflows` without a build workflow, the scan targets the parent AMI of the recipe, which your account must own. You must also turn on image tests.
++ **Console** – The **Test** section shows the `test-ami-scan` workflow as a locked row labeled **Required for AMI scan**, with an optional `WaitForAmiScanTimeoutSeconds` field. You can't select the workflow in the test workflow list yourself. To remove it, change **EC2 image scanning** in **Advanced settings**. You can't skip tests. You can't skip the build when your account doesn't own the parent image of the recipe, for example an AWS Marketplace image or an Amazon managed image.
+
+For the workflow parameters, see [AMI scan managed workflow (test-ami-scan)](manage-image-workflows.md#managed-workflow-test-ami-scan).
 
 ## Set workflow parameters for an Image Builder pipeline in the console
 <a name="pipeline-workflow-set-params"></a>

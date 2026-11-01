@@ -185,6 +185,7 @@ There is no cost to use EC2 Image Builder to create custom AMI or container imag
 + Storing container images in Amazon ECR
 + Pushing and pulling container images into and out of Amazon ECR
 + If Systems Manager Advanced Tier is turned on, and Amazon EC2 instances run with on-premises activation, you might be charged for resources through Systems Manager
++ Troubleshooting failed builds or creating resources with the AI features, which use AWS DevOps Agent. For more information about DevOps Agent pricing, see [DevOps Agent pricing for troubleshooting builds](devops-agent-troubleshooting.md#devops-agent-troubleshooting-pricing) and [DevOps Agent pricing for Create with AI](ai-assisted-resource-creation.md#ai-assisted-resource-creation-pricing).
 
 ## Related AWS services
 <a name="image-builder-related-services"></a>

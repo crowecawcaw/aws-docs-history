@@ -56,7 +56,7 @@ Run the **get-image** command with the build version ARN of the failed image.
 
 ```
 aws imagebuilder get-image \
-    --image-build-version-arn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image/{{my-example-recipe}}/1.0.0/1 \
+    --image-build-version-arn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image/{{my-example-recipe}}/1.0.0/1 \
     --query "image.state"
 ```
 
@@ -65,7 +65,7 @@ The following example output shows a build that failed because a component step 
 ```
 {
     "status": "FAILED",
-    "reason": "Workflow Execution ID: 'wf-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111' failed with reason: Document arn:aws:imagebuilder:us-west-2:123456789012:component/my-example-component/1.0.0/1 failed!",
+    "reason": "Workflow Execution ID: 'wf-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111' failed with reason: Component 'arn:aws:imagebuilder:us-west-2:111122223333:component/my-example-component/1.0.0/1' failed in the 'build' phase at step 'InstallPackages' (ExecuteBash): exit status 1. See the component log in CloudWatch (or console.log on the instance) for the step's output.",
     "failureContext": {
         "imageStatus": "BUILDING",
         "workflowExecutionId": "wf-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -73,7 +73,7 @@ The following example output shows a build that failed because a component step 
         "stepExecutionId": "step-a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
         "failedStep": "ApplyBuildComponents",
         "componentFailure": {
-            "componentArn": "arn:aws:imagebuilder:us-west-2:123456789012:component/my-example-component/1.0.0/1",
+            "componentArn": "arn:aws:imagebuilder:us-west-2:111122223333:component/my-example-component/1.0.0/1",
             "phaseName": "build",
             "stepName": "InstallPackages",
             "action": "ExecuteBash",
@@ -82,6 +82,8 @@ The following example output shows a build that failed because a component step 
     }
 }
 ```
+
+A build that uses an older version of the AWSTOE component manager might report the same failure with a reason like `Document {{component-ARN}} failed!`.
 
 The next example output shows an image that built and tested successfully, then failed while Image Builder updated launch templates in three destination Regions. The build succeeded in every other destination, so only the three failed Regions appear.
 
@@ -132,7 +134,7 @@ aws imagebuilder list-image-build-versions \
 To get the failure context, run the [Get-EC2IBImage](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBImage.html) cmdlet with the build version ARN of the failed image and read the `State` property:
 
 ```
-(Get-EC2IBImage -ImageBuildVersionArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image/{{my-example-recipe}}/1.0.0/1).State
+(Get-EC2IBImage -ImageBuildVersionArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image/{{my-example-recipe}}/1.0.0/1).State
 ```
 
 The `State` property includes `Status`, `Reason`, and `FailureContext`. `FailureContext` contains the same information as the `failureContext` member in the AWS CLI example output. Its property names use PascalCase, such as `ImageStatus`, `FailedStep`, `ComponentFailure`, and `DistributionFailure`.
@@ -184,7 +186,7 @@ When a component fails, AWSTOE writes the details of the first failed step to th
 
 ```
   Document: MyExampleDocument
-  ComponentArn: arn:aws:imagebuilder:us-west-2:123456789012:component/my-example-component/1.0.0/1
+  ComponentArn: arn:aws:imagebuilder:us-west-2:111122223333:component/my-example-component/1.0.0/1
   Phase: build
   Step: InstallPackages
   Action: ExecuteBash

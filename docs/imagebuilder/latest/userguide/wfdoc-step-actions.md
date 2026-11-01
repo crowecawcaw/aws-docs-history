@@ -250,7 +250,7 @@ $.stepOutputs.{{CollectMetadataStep}}.osVersion
 ## CollectImageScanFindings
 <a name="wfdoc-step-action-collect-findings"></a>
 
-This step action collects the image scan findings that Amazon Inspector reports for your test instance, or for the copy of your container image that Image Builder pushes to Amazon ECR. You can use this step action only in test workflows.
+This step action collects the image scan findings that Amazon Inspector reports for your test instance, or for the copy of your container image that Image Builder pushes to Amazon ECR. You can use this step action only in test workflows. It doesn't apply to on-demand AMI scans, which Image Builder runs with the AWS managed `test-ami-scan` workflow. For more information, see [AMI scan managed workflow (test-ami-scan)](manage-image-workflows.md#managed-workflow-test-ami-scan).
 
 **Default Timeout: **15 minutes
 

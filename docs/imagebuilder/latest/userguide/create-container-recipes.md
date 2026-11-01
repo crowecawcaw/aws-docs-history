@@ -7,7 +7,7 @@ This section shows you how to create a container recipe or a new version of an e
 
 **Topics**
 + [Create a new container recipe version in the console](#create-container-recipe-version)
-+ [Create a container recipe with the AWS CLI](#create-container-recipe-cli)
++ [Create a container recipe with the AWS CLI or Tools for PowerShell](#create-container-recipe-cli)
 
 ## Create a new container recipe version in the console
 <a name="create-container-recipe-version"></a>
@@ -107,6 +107,9 @@ Example:
 **Target repository**
 + **Target repository name** – The Amazon ECR repository where your output image is stored if there is no other repository specified in your pipeline's distribution configuration for the Region where the pipeline runs (Region 1).
 
+**Tip**  
+Now you can create with AI. For more information, see [Create and update resources with AI - Preview](ai-assisted-resource-creation.md).
+
 **To create a new container recipe version:**
 
 1. On the container recipe details page, choose **Create new version** at the top of the page. The console opens the **Create recipe** page for container recipes.
@@ -115,13 +118,13 @@ Example:
 
 For more information about creating a container recipe when you create an image pipeline, see [Step 2: Choose recipe](start-build-container-pipeline.md#start-build-container-step2) in the **Get started** section of this guide.
 
-## Create a container recipe with the AWS CLI
+## Create a container recipe with the AWS CLI or Tools for PowerShell
 <a name="create-container-recipe-cli"></a>
 
-To create an Image Builder container recipe with the `imagebuilder create-container-recipe` command in the AWS CLI, follow these steps:
+You can create an Image Builder container recipe with the `imagebuilder create-container-recipe` command in the AWS CLI or with the [New-EC2IBContainerRecipe](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBContainerRecipe.html) cmdlet in AWS Tools for PowerShell. To create the recipe, follow these steps:
 
 **Prerequisites**  
-Before you run the Image Builder commands in this section to create a container recipe with the AWS CLI, you must create the components that the recipe will use. The container recipe example in the following step refers to example components that are created in the [Create a custom component from the AWS CLI](create-component.md#create-component-ib-cli) section of this guide.
+Before you create a container recipe with these commands or cmdlets, you must create the components that the recipe uses. The container recipe example in the following step refers to example components that are created in the [Create a custom component from the AWS CLI](create-component.md#create-component-ib-cli) section of this guide.
 
 After you create your components, or if you are using existing components, note the ARNs that you want to include in the recipe.
 
@@ -130,6 +133,8 @@ After you create your components, or if you are using existing components, note 
 **Create a CLI input JSON file**
 
    You can provide all of the input for the **create-container-recipe** command with inline command parameters. However, the resulting command can be quite long. To streamline the command, you can instead provide a JSON file that contains all of the container recipe settings
+
+   Tools for PowerShell doesn't use a JSON input file. If you use Tools for PowerShell, review the following parameter summary, and then go to the next step.
 **Note**  
 The naming convention for the data values in the JSON file follows the pattern that is specified for the Image Builder API operation request parameters. To review the API operation request parameters, see the [CreateContainerRecipe](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateContainerRecipe.html) command in the *EC2 Image Builder API Reference*.  
 To provide the data values as command line parameters, refer to the parameter names specified in the *AWS CLI Command Reference*.
@@ -173,7 +178,7 @@ Example:
      {{{ imagebuilder:components }}}
      ```
 
-     To store the template in Amazon S3 instead, use the **dockerfileTemplateUri** parameter with a valid Amazon S3 URI (for example, `s3://{{my-bucket}}/templates/Dockerfile`).
+     To store the template in Amazon S3 instead, use the **dockerfileTemplateUri** parameter with a valid Amazon S3 URI (for example, `s3://{{amzn-s3-demo-bucket}}/templates/Dockerfile`).
    + **name** (string, required) – The name of the container recipe.
    + **description** (string) – The description of the container recipe.
    + **parentImage** (string, required) – The Docker container image to use in the container recipe as a baseline for your customized image.
@@ -197,13 +202,13 @@ Example:
      + **service** (string, required) – Specifies the repository service that stores the output image. The valid value is `ECR`. The target repository must already exist.
    + **workingDirectory** (string) – The working directory for use during build and test workflows.
 
-   The following example shows a complete container recipe input file that defines a Linux Docker container with build components. Save it as `create-container-recipe.json`, and use it in the **create-container-recipe** command.
+   The following example shows a complete container recipe input file that defines a Linux Docker container with build components. Save it as `create-container-recipe.json`, and use it in the **create-container-recipe** command:
 
    ```
    {
    	"components": [ 
    	  { 
-   		 "componentArn": "arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:component/helloworldal2/x.x.x"
+   		 "componentArn": "arn:aws:imagebuilder:{{us-west-2}}:aws:component/hello-world-linux/x.x.x"
    	  }
    	],
    	"containerType": "DOCKER",
@@ -242,24 +247,80 @@ Example:
 
 **Create the recipe**
 
-   Use the following command to create the recipe. Provide the name of the JSON file that you created in the prior step in the `--cli-input-json` parameter:
+------
+#### [ AWS CLI ]
+
+   To create the recipe, run the following command. In the `--cli-input-json` parameter, provide the name of the JSON file that you created in the prior step:
 
    ```
    aws imagebuilder create-container-recipe --cli-input-json file://{{create-container-recipe.json}}
    ```
+
 **Note**  
 You must include the `file://` notation at the beginning of the JSON file path.
 The path for the JSON file should follow the appropriate convention for the base operating system where you are running the command. For example, Windows uses the backslash (\\) to refer to the directory path, while Linux and macOS use the forward slash (/).
 
-   The following example output shows the ARN of the newly created container recipe, along with the request ID and client token for the request.
+   The following example output shows the ARN of the newly created container recipe, along with the request ID and client token for the request:
 
    ```
    {
    	"requestId": "{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}",
    	"clientToken": "{{a1b2c3d4-5678-90ab-cdef-EXAMPLE22222}}",
-   	"containerRecipeArn": "arn:aws:imagebuilder:us-west-2:{{123456789012}}:container-recipe/{{my-container-recipe}}/1.0.2"
+   	"containerRecipeArn": "arn:aws:imagebuilder:us-west-2:{{111122223333}}:container-recipe/{{my-container-recipe}}/1.0.2"
    }
    ```
+
+------
+#### [ PowerShell ]
+
+   To create a container recipe with Tools for PowerShell, run the [New-EC2IBContainerRecipe](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBContainerRecipe.html) cmdlet. The following example uses the same settings as the JSON file in the previous step. Tools for PowerShell doesn't take a JSON input file. Instead, most top-level JSON keys map to a cmdlet parameter of the same name, in singular form.
+
+   Nested settings become parameters named after their parent object. For example, `targetRepository.repositoryName` becomes `TargetRepository_RepositoryName`, and `instanceConfiguration.image` becomes `InstanceConfiguration_Image`. The block device mappings are `InstanceBlockDeviceMapping` objects, the tag map is a hashtable, and the Dockerfile template is a string.
+
+   The following example creates this container recipe:
+
+   ```
+   Import-Module AWS.Tools.Imagebuilder
+   
+   $component = [Amazon.Imagebuilder.Model.ComponentConfiguration]@{
+       ComponentArn = "arn:aws:imagebuilder:{{us-west-2}}:aws:component/hello-world-linux/x.x.x"
+   }
+   
+   $blockDevice = [Amazon.Imagebuilder.Model.InstanceBlockDeviceMapping]@{
+       DeviceName = "/dev/xvda"
+       Ebs        = [Amazon.Imagebuilder.Model.EbsInstanceBlockDeviceSpecification]@{
+           DeleteOnTermination = $true
+           Encrypted           = $false
+           VolumeSize          = 8
+           VolumeType          = "gp2"
+       }
+   }
+   
+   $dockerfile = @'
+   FROM {{{ imagebuilder:parentImage }}}
+   {{{ imagebuilder:environments }}}
+   {{{ imagebuilder:components }}}
+   '@
+   
+   New-EC2IBContainerRecipe -Name amazonlinux-container-recipe `
+       -Description "My Linux Docker container image" `
+       -ContainerType DOCKER `
+       -ParentImage amazonlinux:latest `
+       -PlatformOverride Linux `
+       -SemanticVersion 1.0.2 `
+       -Component $component `
+       -DockerfileTemplateData $dockerfile `
+       -Tag @{ sometag = "Tag detail" } `
+       -InstanceConfiguration_Image ami-1234567890abcdef1 `
+       -InstanceConfiguration_BlockDeviceMapping $blockDevice `
+       -TargetRepository_RepositoryName myrepo `
+       -TargetRepository_Service ECR `
+       -WorkingDirectory /tmp
+   ```
+
+   The cmdlet returns the ARN of the new container recipe.
+
+------
 
 ### Container recipe constraints
 <a name="container-recipe-constraints"></a>

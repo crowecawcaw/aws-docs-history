@@ -23,7 +23,7 @@ You can use the Troubleshoot feature, powered by AWS DevOps Agent, to diagnose f
 If an Image Builder pipeline build fails, Image Builder returns an error message that describes the failure. Image Builder also returns a `workflow execution ID` in the failure message, such as the one in the following example output:
 
 ```
-Workflow Execution ID: {{wf-12345abc-6789-0123-abc4-567890123abc}} failed with reason: …
+Workflow Execution ID: '{{wf-12345abc-6789-0123-abc4-567890123abc}}' failed with reason: …
 ```
 
 A failed image also carries structured failure context that names the workflow step, component step, or distribution AWS Region that caused the failure. For more information, see [Find the cause of a failed image build with failure context](image-failure-context.md).
@@ -68,10 +68,11 @@ For information about a sample that deploys a build that fails on purpose, with 
 
 This section lists the following detailed troubleshooting scenarios:
 + [Access denied – status code 403](#ts-access-denied)
-+ [Build times out while verifying the Systems Manager Agent availability on the build instance](#ts-timeout-ssm-agent)
++ [Build fails when the build or test instance isn't reachable through Systems Manager](#ts-timeout-ssm-agent)
 + [Windows secondary disk is offline at launch](#ts-win-disk-offline)
 + [Build fails with CIS hardened base image](#ts-cis-base)
-+ [AssertInventoryCollection fails (Systems Manager Automation)](#ts-ssm-mult-inventory)
++ [Enhanced image metadata collection fails (Systems Manager inventory association)](#ts-ssm-mult-inventory)
++ [On-demand AMI scan fails the image](#ts-ami-scan-fails)
 
 To see the details of a scenario, choose the scenario title to expand it. You can have multiple titles expanded at the same time.
 
@@ -81,7 +82,9 @@ To see the details of a scenario, choose the scenario title to expand it. You ca
 #### Description
 <a name="ts-access-denied-descr"></a>
 
-The pipeline build fails with "AccessDenied: Access Denied status code: 403".
+The pipeline build fails with "https response error StatusCode: 403" in the failure message, followed by an "api error AccessDenied" or "api error AccessDeniedException" clause.
+
+Older image builds might report this failure as "AccessDenied: Access Denied status code: 403".
 
 #### Cause
 <a name="ts-access-denied-cause"></a>
@@ -97,13 +100,15 @@ Depending on the cause, this issue can be resolved as follows:
 + **Instance profile is missing managed policies** – Add the missing policies to your instance profile role. Then run the pipeline again.
 + **Instance profile is missing write permissions for S3 bucket** – Add a policy to your instance profile role that grants **PutObject** permissions to write to your S3 bucket. Then run the pipeline again.
 
-### Build times out while verifying the Systems Manager Agent availability on the build instance
+### Build fails when the build or test instance isn't reachable through Systems Manager
 <a name="ts-timeout-ssm-agent"></a>
 
 #### Description
 <a name="ts-timeout-ssm-agent-descr"></a>
 
-The pipeline build fails with "status = 'TimedOut'" and "failure message = 'Step timed out while step is verifying the Systems Manager Agent availability on the target instance(s)'".
+The pipeline build fails with a message like "An error occurred (InvalidInstanceId) when calling the SendCommand operation: Instances [[i-1234567890abcdef0]] not in a valid state for account 111122223333 in workflow step LaunchBuildInstance". When Image Builder can determine why the instance never became reachable, the failure message also includes a diagnosis. For example: "The instance never registered with Systems Manager - check that the instance profile role has AmazonSSMManagedInstanceCore and that the instance can reach SSM endpoints. For user data overrides, instances you provide, and Windows images, also confirm SSM Agent is running."
+
+Older image builds might report this failure as "Step timed out while step is verifying the Systems Manager Agent availability on the target instance(s)".
 
 #### Cause
 <a name="ts-timeout-ssm-agent-cause"></a>
@@ -117,12 +122,12 @@ Possible causes include:
 
 Depending on the possible cause, this issue can be resolved as follows:
 + **Access issue, private subnet** – If you are building in a private subnet, make sure that you have set up PrivateLink endpoints for Systems Manager, Image Builder, and, if you want logging, Amazon S3/CloudWatch. For more information about setting up PrivateLink endpoints, see [Access AWS services through AWS PrivateLink](https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-aws-services.html).
-+ **Missing permissions** – Add the following managed policies to your IAM service-linked role for Image Builder:
++ **Missing permissions** – Add the following managed policies to the IAM role that's associated with your instance profile:
   + EC2InstanceProfileForImageBuilder
   + EC2InstanceProfileForImageBuilderECRContainerBuilds
   + AmazonSSMManagedInstanceCore
 
-  For more information about the Image Builder service-linked role, see [Use IAM service-linked roles for Image Builder](image-builder-service-linked-role.md).
+  For more information about the permissions that Image Builder requires, see [IAM prerequisites](set-up-ib-env.md#image-builder-IAM-prereq).
 
 ### Windows secondary disk is offline at launch
 <a name="ts-win-disk-offline"></a>
@@ -176,18 +181,20 @@ When the `/tmp` directory is classified as `noexec`, it can cause Image Builder 
 
 Choose a different location for your working directory in the `workingDirectory` field of the image recipe. For more information, see the [ImageRecipe](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ImageRecipe.html) data type description.
 
-### AssertInventoryCollection fails (Systems Manager Automation)
+### Enhanced image metadata collection fails (Systems Manager inventory association)
 <a name="ts-ssm-mult-inventory"></a>
 
 #### Description
 <a name="ts-ssm-mult-inventory-descr"></a>
 
-Systems Manager Automation shows a failure in the `AssertInventoryCollection` automation step.
+The pipeline build fails with a message like "The Systems Manager association this step created failed (ssm:DescribeAssociationExecutions: Failed, association a1b2c3d4-5678-90ab-cdef-EXAMPLE11111) in workflow step InventoryCollection".
+
+Older image builds might report this failure as "ssm:DescribeAssociationExecutions returned terminal state Failed in workflow step InventoryCollection", or as a failure in the `AssertInventoryCollection` step of a Systems Manager Automation.
 
 #### Cause
 <a name="ts-ssm-mult-inventory-cause"></a>
 
-You or your organization might have created a Systems Manager State Manager association that collects inventory information for EC2 instances. If enhanced image metadata collection is enabled for your Image Builder pipeline (this is the default), Image Builder attempts to create a new inventory association for the build instance. However, Systems Manager does not allow multiple inventory associations for managed instances, and prevents a new association if one already exists. This causes the operation to fail, and results in a failed pipeline build.
+You or your organization might have created a Systems Manager State Manager association that collects inventory information for EC2 instances. If enhanced image metadata collection is enabled for your Image Builder pipeline (this is the default), Image Builder attempts to create a new inventory association for the build instance. However, Systems Manager does not allow multiple inventory associations for managed instances, so the association that Image Builder creates fails to run. This results in a failed pipeline build.
 
 #### Solution
 <a name="ts-ssm-mult-inventory-solution"></a>
@@ -219,3 +226,37 @@ To resolve this issue, turn off enhanced image metadata collection, using one of
   ```
 
 To prevent this from happening for new pipelines, clear the **Enable enhanced metadata collection** check box when you create a new pipeline using the EC2 Image Builder console, or set the value of the `EnhancedImageMetadataEnabled` property in your JSON file to `false` when you create your pipeline using the AWS CLI.
+
+### On-demand AMI scan fails the image
+<a name="ts-ami-scan-fails"></a>
+
+#### Description
+<a name="ts-ami-scan-fails-descr"></a>
+
+An image that requests an on-demand AMI scan fails in the test stage. The failure message names the workflow step of the `test-ami-scan` workflow that failed: the `StartAmiScan`, `WaitForAmiScan`, or `EvaluateScanResultCondition` workflow step.
+
+#### Cause
+<a name="ts-ami-scan-fails-cause"></a>
+
+The image can fail for one of the following reasons:
++ **Access denied** – The execution role that you specified doesn't have the permissions that the scan needs, so the `StartAmiScan` workflow step fails with an access-denied error. For example, the role isn't allowed to call `inspector2:StartOnDemandScan`, or `iam:CreateServiceLinkedRole` for `ami.inspector2.amazonaws.com`.
++ **The scan wait timed out** – In the `WaitForAmiScan` workflow step, Amazon Inspector didn't finish the scan within the wait time. The scan might still be running.
++ **Amazon Inspector couldn't scan the AMI** – In the `WaitForAmiScan` workflow step, Amazon Inspector reports that the scan failed. The failure message includes the reason code in parentheses.
++ **The scan results weren't available** – In the `EvaluateScanResultCondition` workflow step, Amazon EC2 didn't have the Amazon Inspector scan results for the AMI within 15 minutes. Image Builder couldn't check the results against the scan result condition.
++ **The AMI breached the scan result condition** – In the `EvaluateScanResultCondition` workflow step, the most severe finding exceeds `maximumSeverityLabel`. If `fixAvailable` is `true`, Image Builder counts only findings that have a fix available. The failure message names the severity and the AMI ID.
+
+#### Solution
+<a name="ts-ami-scan-fails-solution"></a>
+
+When you retry a failed image or run the pipeline again, Image Builder starts a new scan. Before you retry, fix the cause:
++ **Access denied** – Attach the EC2ImageBuilderExecutionPolicy AWS managed policy to your execution role, or add the missing permissions to the role. If the image doesn't need an execution role for other features, such as custom image workflows, you can omit the execution role. Image Builder then runs the scan with its service-linked role. For the permissions, see [Permissions for on-demand AMI scans](integ-inspector.md#integ-inspector-ami-scan-permissions).
++ **The scan wait timed out** – Retry the image, or increase the `WaitForAmiScanTimeoutSeconds` parameter of the `test-ami-scan` workflow, up to 43,500 seconds. If the scan keeps timing out, contact Support. For the parameter, see [AMI scan managed workflow (test-ami-scan)](manage-image-workflows.md#managed-workflow-test-ami-scan).
++ **Amazon Inspector couldn't scan the AMI** – Use the reason code in the failure message:
+  + `UNSUPPORTED_OS` – Amazon Inspector doesn't support the operating system of the AMI. For supported operating systems, see [Running on-demand machine image scans with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/machine-image-on-demand.html) in the *Amazon Inspector User Guide*.
+  + `ACCESS_DENIED` – Amazon Inspector couldn't access the AMI, or the KMS key that encrypts it. Check the Amazon Inspector service-linked roles and the key policy. Also check that the key isn't in another account, and doesn't have the `InspectorEc2Exclusion` tag.
+  + `RESOURCE_TERMINATED` – The AMI or one of its snapshots no longer existed when Amazon Inspector tried to finish the scan. Keep the AMI and its snapshots until the scan finishes.
+  + `STORAGE_LIMIT_EXCEEDED` – The AMI exceeds the Amazon Inspector per-AMI scan quota of 8 snapshots or 1,200 GiB. Reduce the number or size of the snapshots.
+  + `EXTRACTION_COLLECTION_TIME_LIMIT_EXCEEDED` – The Amazon Inspector scan timed out. Retry the image.
+  + `INTERNAL_ERROR` – Retry the image.
++ **The scan results weren't available** – Retry the image. If the problem continues, contact Support.
++ **The AMI breached the scan result condition** – To review the findings, call the Amazon EC2 [GetImageFindings](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetImageFindings.html) API action with the AMI ID from the failure message. Remediate the findings, for example, by updating your components or the parent image. Alternatively, change the scan result condition. For more information, see [Scan result conditions](integ-inspector.md#integ-inspector-ami-scan-condition).
