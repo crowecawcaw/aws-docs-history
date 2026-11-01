@@ -94,7 +94,7 @@ For more information, see [Comparing faces in images](https://docs.aws.amazon.co
 
 **AWS CLI**  
 **To compare faces in two images**  
-The following `compare-faces` command compares faces in two images stored in an Amazon S3 bucket.  
+The following `compare-faces` example compares faces in two images stored in an Amazon S3 bucket.  
 
 ```
 aws rekognition compare-faces \

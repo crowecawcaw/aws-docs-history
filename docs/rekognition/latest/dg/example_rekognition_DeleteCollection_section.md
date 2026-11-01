@@ -48,7 +48,7 @@ For more information, see [Deleting a collection](https://docs.aws.amazon.com/re
 
 **AWS CLI**  
 **To delete a collection**  
-The following `delete-collection` command deletes the specified collection.  
+The following `delete-collection` example deletes the specified collection.  
 
 ```
 aws rekognition delete-collection \

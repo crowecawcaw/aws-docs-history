@@ -79,7 +79,7 @@ For more information, see [Recognizing celebrities in an image](https://docs.aws
 
 **AWS CLI**  
 **To recognize celebrities in an image**  
-The following `recognize-celebrities` command recognizes celebrities in the specified image stored in an Amazon S3 bucket.:  
+The following `recognize-celebrities` example recognizes celebrities in the specified image stored in an Amazon S3 bucket.  
 
 ```
 aws rekognition recognize-celebrities \

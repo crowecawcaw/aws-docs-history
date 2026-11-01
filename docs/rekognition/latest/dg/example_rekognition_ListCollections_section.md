@@ -64,7 +64,7 @@ For more information, see [Listing collections](https://docs.aws.amazon.com/reko
 
 **AWS CLI**  
 **To list the available collections**  
-The following `list-collections` command lists the available collections in the AWS account.  
+The following `list-collections` example lists the available collections in the AWS account.  
 
 ```
 aws rekognition list-collections

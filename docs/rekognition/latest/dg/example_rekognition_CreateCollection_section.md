@@ -50,7 +50,7 @@ For more information, see [Creating a collection](https://docs.aws.amazon.com/re
 
 **AWS CLI**  
 **To create a collection**  
-The following `create-collection` command creates a collection with the specified name.  
+The following `create-collection` example creates a collection with the specified name.  
 
 ```
 aws rekognition create-collection \

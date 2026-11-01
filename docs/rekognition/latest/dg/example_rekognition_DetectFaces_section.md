@@ -213,7 +213,7 @@ Display bounding box information for all faces in an image.
 
 **AWS CLI**  
 **To detect faces in an image**  
-The following `detect-faces` command detects faces in the specified image stored in an Amazon S3 bucket.  
+The following `detect-faces` example detects faces in the specified image stored in an Amazon S3 bucket.  
 
 ```
 aws rekognition detect-faces \

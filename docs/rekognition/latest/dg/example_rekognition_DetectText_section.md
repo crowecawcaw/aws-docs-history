@@ -72,7 +72,7 @@ For more information, see [Detecting text in an image](https://docs.aws.amazon.c
 
 **AWS CLI**  
 **To detect text in an image**  
-The following `detect-text` command detects text in the specified image.  
+The following `detect-text` example detects text in the specified image.  
 
 ```
 aws rekognition detect-text \
@@ -249,6 +249,7 @@ Output:
     ]
 }
 ```
+For more information, see [Detecting text in an image](https://docs.aws.amazon.com/rekognition/latest/dg/text-detecting-text-procedure.html) in the *Amazon Rekognition Developer Guide*.  
 +  For API details, see [DetectText](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rekognition/detect-text.html) in *AWS CLI Command Reference*. 
 
 ------

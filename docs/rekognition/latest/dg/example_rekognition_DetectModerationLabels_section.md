@@ -70,7 +70,7 @@ For more information, see [Detecting inappropriate images](https://docs.aws.amaz
 
 **AWS CLI**  
 **To detect unsafe content in an image**  
-The following `detect-moderation-labels` command detects unsafe content in the specified image stored in an Amazon S3 bucket.  
+The following `detect-moderation-labels` example detects unsafe content in the specified image stored in an Amazon S3 bucket.  
 
 ```
 aws rekognition detect-moderation-labels \
