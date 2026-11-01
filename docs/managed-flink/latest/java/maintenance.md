@@ -12,39 +12,44 @@ As part of the maintenance procedure, your Managed Service for Apache Flink appl
 
 | AWS Region | Maintenance time window | 
 | --- | --- | 
-| AWS GovCloud (US-West) | 06:00–14:00 UTC | 
-| AWS GovCloud (US-East) | 03:00–11:00 UTC | 
 | US East (N. Virginia) | 03:00–11:00 UTC | 
 | US East (Ohio) | 03:00–11:00 UTC | 
 | US West (N. California) | 06:00–14:00 UTC | 
 | US West (Oregon) | 06:00–14:00 UTC | 
-| Asia Pacific (Hong Kong) | 13:00–21:00 UTC | 
-| Asia Pacific (Mumbai) | 16:30–00:30 UTC | 
-| Asia Pacific (Hyderabad) | 16:30–00:30 UTC | 
-| Asia Pacific (Seoul) | 13:00–21:00 UTC | 
-| Asia Pacific (Singapore) | 14:00–22:00 UTC | 
-| Asia Pacific (Sydney) | 12:00–20:00 UTC | 
-| Asia Pacific (Jakarta) | 15:00–23:00 UTC | 
-| Asia Pacific (Tokyo) | 13:00–21:00 UTC | 
-| Canada (Central) | 03:00–11:00 UTC | 
-| China (Beijing) | 13:00–21:00 UTC | 
-| China (Ningxia) | 13:00–21:00 UTC | 
 | Europe (Frankfurt) | 06:00–14:00 UTC | 
 | Europe (Zurich) | 20:00–04:00 UTC | 
-| Europe (Ireland) | 22:00–06:00 UTC | 
-| Europe (London) | 22:00–06:00 UTC | 
 | Europe (Stockholm) | 23:00–07:00 UTC | 
 | Europe (Milan) | 21:00–05:00 UTC | 
 | Europe (Spain) | 21:00–05:00 UTC | 
-| Africa (Cape Town) | 20:00–04:00 UTC | 
 | Europe (Ireland) | 22:00–06:00 UTC | 
-| Europe (London) | 23:00–07:00 UTC | 
+| Europe (London) | 22:00–06:00 UTC | 
 | Europe (Paris) | 23:00–07:00 UTC | 
-| Europe (Stockholm) | 23:00–07:00 UTC | 
-| Middle East (Bahrain) | 13:00–21:00 UTC | 
-| Middle East (UAE) | 18:00–02:00 UTC | 
+| Asia Pacific (Hong Kong) | 13:00–21:00 UTC | 
+| Asia Pacific (Taipei) | 13:00–21:00 UTC | 
+| Asia Pacific (Tokyo) | 13:00–21:00 UTC | 
+| Asia Pacific (Seoul) | 13:00–21:00 UTC | 
+| Asia Pacific (Osaka) | 13:00–21:00 UTC | 
+| Asia Pacific (Mumbai) | 16:30–00:30 UTC | 
+| Asia Pacific (Hyderabad) | 16:30–00:30 UTC | 
+| Asia Pacific (Singapore) | 14:00–22:00 UTC | 
+| Asia Pacific (Sydney) | 12:00–20:00 UTC | 
+| Asia Pacific (Jakarta) | 15:00–23:00 UTC | 
+| Asia Pacific (Melbourne) | 12:00–20:00 UTC | 
+| Asia Pacific (Malaysia) | 13:30–21:30 UTC | 
+| Asia Pacific (New Zealand) | 09:00–17:00 UTC | 
+| Asia Pacific (Thailand) | 14:00–22:00 UTC | 
+| Canada (Central) | 03:00–11:00 UTC | 
+| Canada West (Calgary) | 04:00–12:00 UTC | 
+| Mexico (Central) | 03:00–11:00 UTC | 
 | South America (São Paulo) | 19:00–03:00 UTC | 
-| Israel (Tel Aviv) | 20:00–04:00 UTC | 
+| Middle East (UAE) | 18:00–02:00 UTC | 
+| Middle East (Bahrain) | 13:00–21:00 UTC | 
+| Israel (Tel Aviv) | 18:00–02:00 UTC | 
+| Africa (Cape Town) | 20:00–04:00 UTC | 
+| China (Beijing) | 13:00–21:00 UTC | 
+| China (Ningxia) | 13:00–21:00 UTC | 
+| AWS GovCloud (US-East) | 03:00–11:00 UTC | 
+| AWS GovCloud (US-West) | 06:00–14:00 UTC | 
 
 ## Choose a maintenance window
 <a name="maintenance-notice"></a>
