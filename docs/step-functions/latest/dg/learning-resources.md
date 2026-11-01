@@ -35,6 +35,7 @@ For specific scenarios, see the following tutorials:
 + [Continue long-running workflows using Step Functions API (recommended)](tutorial-continue-new.md)
 + [Using a Lambda function to continue a new execution in Step Functions](tutorial-use-lambda-cont-exec.md)
 + [Accessing cross-account AWS resources in Step Functions](tutorial-access-cross-acct-resources.md)
++ [Use your Step Functions workflows as tools for AI agents](tutorial-agentcore-gateway.md)
 
 **Learn with starter templates**  
 To deploy and learn from ready-to-run state machines for a variety of use cases, see [Starter templates](starter-templates.md).

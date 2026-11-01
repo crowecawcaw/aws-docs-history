@@ -10,6 +10,7 @@ With AWS Step Functions, you can build workflows that manage state over time, ma
 + [Machine learning](#use-cases-machine-learning)
 + [Microservice orchestration](#use-cases-orchestration)
 + [IT and security automation](#use-cases-security-automation)
++ [Tools for AI agents](#use-cases-agent-tools)
 
 ## Data processing
 <a name="use-cases-data-processing"></a>
@@ -106,3 +107,27 @@ Some examples automation workflows include the following:
 **Human Approval**
 + Automate machine learning model training, then get approval of the model by a data scientist before deploying the updated model.
 + Automate customer feedback routing based on sentiment analysis so negative comments are quickly escalated for review. 
+
+## Tools for AI agents
+<a name="use-cases-agent-tools"></a>
+
+AI agents decide which actions to take and in what order, based on a conversation or a goal. That flexibility is the point of an agent. But some processes require the same steps in the same order every time. They also need a record of what ran. With Step Functions, you can give an agent a workflow as a tool. The agent decides when to run the workflow and what input to pass. The state machine decides which steps run and in what order, so the agent can't skip or reorder them.
+
+Amazon Bedrock AgentCore Gateway includes a built-in Step Functions connector. The connector exposes a state machine to agents as Model Context Protocol (MCP) tools. You choose which Step Functions operations become tools, and you pin them to the state machine that you want the agent to use.
+
+The gateway creates the tool schemas and calls Step Functions with its service role. You don't write a Lambda function or an MCP server, and you don't define the tools yourself. Existing Standard and Express state machines work without changes. For more information about the connector, see [AWS Step Functions as Connector Target](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-connector-step-functions.html) in the *Amazon Bedrock AgentCore Developer Guide*, and the tutorial [Use your Step Functions workflows as tools for AI agents](tutorial-agentcore-gateway.md).
+
+You can also use the integration in the other direction: a Step Functions workflow can invoke an agent as one of its steps. For more information, see [Invoke Amazon Bedrock AgentCore harness with Step Functions](connect-bedrockagentcore.md).
+
+Some examples of agent tool workflows include the following:
+
+**Governed actions**
++ Let a customer support agent start an order-fulfillment, refund, or onboarding workflow. The agent collects the inputs in conversation, and the workflow runs the approved sequence of steps and records each one in the execution history.
++ Expose only the state machines that an agent should run. When you pin a state machine, the agent can start and list executions of that state machine only. Use the IAM policy on the gateway service role to limit which executions the agent can describe, inspect, or stop.
+
+**Long-running and human-in-the-loop work**
++ Start a Standard workflow that runs for hours or days, longer than an agent's session. The agent, or a later session, checks its status and output.
++ Pause a workflow with the [callback pattern](connect-to-resource.md#connect-wait-token), and deliver the task token to the agent's application. When the work is done, the agent completes the task with its result. IAM can't limit the task-token operations to specific executions, so treat task tokens as secrets and deliver each one only to the agent that should act on it.
+
+**Operational assistants**
++ Ask an agent which executions ran recently, why one failed, or to stop an execution that is misbehaving, without giving it direct access to the Step Functions API.

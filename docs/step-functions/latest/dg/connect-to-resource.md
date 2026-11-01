@@ -83,6 +83,15 @@ This example references the [Publish](https://docs.aws.amazon.com/sns/latest/api
 **Tip**  
 To deploy a sample workflow that uses the Request Response service integration pattern, see [Integrate a service](getting-started.md#step-4-integrate-a-service) in the getting started tutorial in this guide, or in the [Request Response module](https://catalog.workshops.aws/stepfunctions/integrating-services/1-request-response) in *The AWS Step Functions Workshop*.
 
+### Timeouts for Request Response tasks
+<a name="connect-default-timeout"></a>
+
+`TimeoutSeconds` (or `TimeoutSecondsPath` in JSONPath) sets the maximum time a `Task` state can run. Step Functions enforces this limit itself. It isn't passed to the API call that the task makes. If the task doesn't complete within that time, it fails with a `States.Timeout` error.
+
+If you don't set a timeout, Step Functions applies a default timeout, so a Request Response task doesn't wait indefinitely. If you set `TimeoutSeconds`, Step Functions uses your value instead of the default.
+
+Step Functions also limits how long it waits for the service to respond to the API call. `TimeoutSeconds` doesn't change that limit. Setting a larger value doesn't give the API call more time than that limit allows.
+
 ## Run a Job (.sync)
 <a name="connect-sync"></a>
 

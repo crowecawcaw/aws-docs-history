@@ -37,6 +37,9 @@ Consider another error name, this time the [CreateBucket](https://docs.aws.amazo
 
 For more information about error handling, see [Handling errors in Step Functions workflows](concepts-error-handling.md).
 
+**Note**  
+`TimeoutSeconds` sets a time limit for the `Task` state. It doesn't raise the separate limit on how long Step Functions waits for an AWS SDK API call to return. For more information, see [Timeouts for Request Response tasks](connect-to-resource.md#connect-default-timeout).
+
 Step Functions cannot autogenerate IAM policies for AWS SDK integrations. After you create your state machine, you will need to navigate to the IAM console and configure your role policies. See [How Step Functions generates IAM policies for integrated services](service-integration-iam-templates.md) for more information.
 
 See the [Gather Amazon S3 bucket info using AWS SDK service integrations](tutorial-gather-s3-info.md) tutorial for an example of how to use AWS SDK integrations.
