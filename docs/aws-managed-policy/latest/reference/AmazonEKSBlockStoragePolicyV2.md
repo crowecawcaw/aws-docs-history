@@ -16,13 +16,13 @@ You can attach `AmazonEKSBlockStoragePolicyV2` to your users, groups, and roles.
 <a name="AmazonEKSBlockStoragePolicyV2-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: May 11, 2026, 16:27 UTC 
-+ **Edited time:** May 11, 2026, 16:27 UTC
++ **Edited time:** October 26, 2026, 23:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AmazonEKSBlockStoragePolicyV2`
 
 ## Policy version
 <a name="AmazonEKSBlockStoragePolicyV2-version"></a>
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -39,6 +39,7 @@ The policy's default version is the version that defines the permissions for the
         "ec2:AttachVolume",
         "ec2:DetachVolume",
         "ec2:ModifyVolume",
+        "ec2:CopyVolumes",
         "ec2:EnableFastSnapshotRestores"
       ],
       "Resource" : "*",
@@ -56,6 +57,7 @@ The policy's default version is the version that defines the permissions for the
         "StringEquals" : {
           "ec2:CreateAction" : [
             "CreateVolume",
+            "CopyVolumes",
             "CreateSnapshot"
           ]
         }
@@ -64,7 +66,8 @@ The policy's default version is the version that defines the permissions for the
     {
       "Effect" : "Allow",
       "Action" : [
-        "ec2:CreateVolume"
+        "ec2:CreateVolume",
+        "ec2:CopyVolumes"
       ],
       "Resource" : "arn:aws:ec2:*:*:volume/*",
       "Condition" : {

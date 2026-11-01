@@ -16,13 +16,13 @@ You can attach `AWSTransformNetworkMigrationAgentPolicy` to your users, groups, 
 <a name="AWSTransformNetworkMigrationAgentPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 06, 2026, 15:27 UTC 
-+ **Edited time:** September 01, 2026, 10:37 UTC
++ **Edited time:** October 29, 2026, 10:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSTransformNetworkMigrationAgentPolicy`
 
 ## Policy version
 <a name="AWSTransformNetworkMigrationAgentPolicy-version"></a>
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -1245,6 +1245,58 @@ The policy's default version is the version that defines the permissions for the
         "StringEquals" : {
           "aws:ResourceOrgID" : "${aws:PrincipalOrgID}",
           "sts:ExternalId" : "${aws:PrincipalAccount}:workspace/${aws:PrincipalTag/WorkspaceId}"
+        }
+      }
+    },
+    {
+      "Sid" : "WellArchitectedAgentProfileListReadOnly",
+      "Effect" : "Allow",
+      "Action" : [
+        "wellarchitected:ListAgentProfiles"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:RequestedRegion" : "${aws:PrincipalTag/TargetRegion}"
+        }
+      }
+    },
+    {
+      "Sid" : "WellArchitectedAgentProfileOperationsWithResourceTag",
+      "Effect" : "Allow",
+      "Action" : [
+        "wellarchitected:CreateAgentContext",
+        "wellarchitected:CreateAgentGoal",
+        "wellarchitected:GetAgentProfile",
+        "wellarchitected:GetAgentRecommendationGeneration",
+        "wellarchitected:ListAgentContexts",
+        "wellarchitected:ListAgentGoals",
+        "wellarchitected:ListAgentRecommendations",
+        "wellarchitected:StartAgentRecommendationGeneration",
+        "wellarchitected:UpdateAgentContext",
+        "wellarchitected:UpdateAgentGoal",
+        "wellarchitected:UpdateAgentProfile"
+      ],
+      "Resource" : "arn:aws:wellarchitected:*:*:agent-profile/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:RequestedRegion" : "${aws:PrincipalTag/TargetRegion}",
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
+          "aws:ResourceTag/AWSTransformNetworkMigration" : "enabled"
+        }
+      }
+    },
+    {
+      "Sid" : "WellArchitectedAgentRecommendationReadOnly",
+      "Effect" : "Allow",
+      "Action" : [
+        "wellarchitected:GetAgentRecommendation"
+      ],
+      "Resource" : "arn:aws:wellarchitected:*:*:agent-recommendation/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:RequestedRegion" : "${aws:PrincipalTag/TargetRegion}",
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     }

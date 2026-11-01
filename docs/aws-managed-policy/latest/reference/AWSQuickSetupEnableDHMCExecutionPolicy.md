@@ -16,13 +16,13 @@ You can attach `AWSQuickSetupEnableDHMCExecutionPolicy` to your users, groups, a
 <a name="AWSQuickSetupEnableDHMCExecutionPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: November 15, 2024, 21:27 UTC 
-+ **Edited time:** November 15, 2024, 21:27 UTC
++ **Edited time:** October 27, 2026, 15:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSQuickSetupEnableDHMCExecutionPolicy`
 
 ## Policy version
 <a name="AWSQuickSetupEnableDHMCExecutionPolicy-version"></a>
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -70,6 +70,19 @@ The policy's default version is the version that defines the permissions for the
         "ssm:UpdateServiceSetting"
       ],
       "Resource" : "arn:aws:ssm:*:*:servicesetting/ssm/managed-instance/default-ec2-instance-management-role"
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : "ssm:GetCalendarState",
+      "Resource" : "arn:aws:ssm:*:*:document/*",
+      "Condition" : {
+        "StringLike" : {
+          "aws:userid" : "*:SystemsManager-Automation-ChangeCalendar-Check"
+        },
+        "StringEquals" : {
+          "ssm:DocumentType" : "ChangeCalendar"
+        }
+      }
     }
   ]
 }

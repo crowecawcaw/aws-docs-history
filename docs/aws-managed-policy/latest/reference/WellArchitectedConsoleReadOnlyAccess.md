@@ -16,13 +16,13 @@ You can attach `WellArchitectedConsoleReadOnlyAccess` to your users, groups, and
 <a name="WellArchitectedConsoleReadOnlyAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: November 29, 2018, 18:21 UTC 
-+ **Edited time:** July 09, 2026, 17:27 UTC
++ **Edited time:** October 29, 2026, 22:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/WellArchitectedConsoleReadOnlyAccess`
 
 ## Policy version
 <a name="WellArchitectedConsoleReadOnlyAccess-version"></a>
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -51,6 +51,11 @@ The policy's default version is the version that defines the permissions for the
         "trustedadvisor:Get*"
       ],
       "Resource" : "*"
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : "iam:GetRole",
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/scanning.agent.wellarchitected.amazonaws.com/AWSServiceRoleForWellArchitectedAgent_ResourceScanning"
     }
   ]
 }

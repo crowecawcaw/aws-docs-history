@@ -16,13 +16,13 @@ You can attach `SageMakerStudioProjectUserRolePolicy` to your users, groups, and
 <a name="SageMakerStudioProjectUserRolePolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: November 20, 2024, 21:59 UTC 
-+ **Edited time:** August 27, 2026, 20:57 UTC
++ **Edited time:** October 29, 2026, 22:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/SageMakerStudioProjectUserRolePolicy`
 
 ## Policy version
 <a name="SageMakerStudioProjectUserRolePolicy-version"></a>
 
-**Policy version:** v75 (default)
+**Policy version:** v76 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -558,7 +558,8 @@ The policy's default version is the version that defines the permissions for the
         "logs:GetQueryResults"
       ],
       "Resource" : [
-        "arn:aws:logs:*:*:log-group:airflow-DataZoneMWAAEnv-${aws:PrincipalTag/AmazonDataZoneDomain}-${aws:PrincipalTag/AmazonDataZoneProject}-${aws:PrincipalTag/AmazonDataZoneScopeName}-*"
+        "arn:aws:logs:*:*:log-group:airflow-DataZoneMWAAEnv-${aws:PrincipalTag/AmazonDataZoneDomain}-${aws:PrincipalTag/AmazonDataZoneProject}-${aws:PrincipalTag/AmazonDataZoneScopeName}-*",
+        "arn:aws:logs:*:*:log-group:/aws/bedrock-agentcore/agent-builder/${aws:PrincipalTag/AmazonDataZoneProject}/evaluations*"
       ]
     },
     {
@@ -575,7 +576,7 @@ The policy's default version is the version that defines the permissions for the
       }
     },
     {
-      "Sid" : "GlueJobCWPutMetricActions",
+      "Sid" : "CWPutMetrics",
       "Effect" : "Allow",
       "Action" : [
         "cloudwatch:PutMetricData"
@@ -586,7 +587,8 @@ The policy's default version is the version that defines the permissions for the
           "cloudwatch:namespace" : [
             "Glue",
             "AWS/Glue",
-            "Glue Data Quality"
+            "Glue Data Quality",
+            "bedrock-agentcore"
           ]
         }
       }
@@ -906,7 +908,8 @@ The policy's default version is the version that defines the permissions for the
       ],
       "Resource" : [
         "arn:aws:logs:*:*:log-group:${aws:PrincipalTag/LogGroupName}",
-        "arn:aws:logs:*:*:log-group:${aws:PrincipalTag/LogGroupName}:log-stream:*"
+        "arn:aws:logs:*:*:log-group:${aws:PrincipalTag/LogGroupName}:log-stream:*",
+        "arn:aws:logs:*:*:log-group:/aws/bedrock-agentcore/agent-builder/${aws:PrincipalTag/AmazonDataZoneProject}/evaluations"
       ]
     },
     {
@@ -1390,7 +1393,9 @@ The policy's default version is the version that defines the permissions for the
             "elasticmapreduce.amazonaws.com",
             "scheduler.amazonaws.com",
             "access-grants.s3.amazonaws.com",
-            "pods.eks.amazonaws.com"
+            "pods.eks.amazonaws.com",
+            "bedrock-agentcore.amazonaws.com",
+            "agent-registry.amazonaws.com"
           ]
         }
       }
@@ -1943,6 +1948,23 @@ The policy's default version is the version that defines the permissions for the
       }
     },
     {
+      "Sid" : "ACInvoke",
+      "Effect" : "Allow",
+      "Action" : [
+        "bedrock:InvokeModel",
+        "bedrock:InvokeModelWithResponseStream"
+      ],
+      "Resource" : [
+        "arn:aws:bedrock:*:*:inference-profile/*",
+        "arn:aws:bedrock:*::foundation-model/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:PrincipalTag/EnableAmazonBedrockPermissions" : "true"
+        }
+      }
+    },
+    {
       "Sid" : "InvokeBedrockModel",
       "Effect" : "Allow",
       "Action" : [
@@ -2036,6 +2058,7 @@ The policy's default version is the version that defines the permissions for the
         "bedrock:GetDataAutomationProject",
         "bedrock:GetDataAutomationStatus",
         "bedrock:GetEvaluationJob",
+        "bedrock:GetKnowledgeBase",
         "bedrock:GetIngestionJob",
         "bedrock:GetPrompt",
         "bedrock:InvokeAgent",
@@ -2159,7 +2182,9 @@ The policy's default version is the version that defines the permissions for the
       "Action" : [
         "bedrock:ListEvaluationJobs",
         "bedrock:RetrieveAndGenerate",
-        "bedrock:ListFoundationModels"
+        "bedrock:ListFoundationModels",
+        "bedrock:ListInferenceProfiles",
+        "bedrock:ListKnowledgeBases"
       ],
       "Resource" : "*",
       "Condition" : {
@@ -2392,27 +2417,12 @@ The policy's default version is the version that defines the permissions for the
       "Effect" : "Allow",
       "Action" : [
         "cloudformation:GetTemplate",
-        "cloudformation:DescribeStacks"
-      ],
-      "Resource" : "arn:aws:cloudformation:*:*:stack/DataZone-Env-*",
-      "Condition" : {
-        "StringEquals" : {
-          "aws:PrincipalTag/EnableAmazonBedrockIDEPermissions" : "true",
-          "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}"
-        }
-      }
-    },
-    {
-      "Sid" : "CFNGetDataZoneEnvironmentStack",
-      "Effect" : "Allow",
-      "Action" : [
         "cloudformation:DescribeStacks",
-        "cloudformation:GetTemplate"
+        "cloudformation:ListStackResources"
       ],
       "Resource" : "arn:aws:cloudformation:*:*:stack/DataZone-Env-*",
       "Condition" : {
         "StringEquals" : {
-          "aws:PrincipalTag/EnableAmazonBedrockPermissions" : "true",
           "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}"
         }
       }
@@ -2473,9 +2483,13 @@ The policy's default version is the version that defines the permissions for the
       "Action" : [
         "logs:CreateLogGroup",
         "logs:CreateLogStream",
-        "logs:PutLogEvents"
+        "logs:PutLogEvents",
+        "logs:DescribeLogStreams"
       ],
-      "Resource" : "arn:aws:logs:*:*:log-group:/aws/lambda/athenafederatedcatalog*"
+      "Resource" : [
+        "arn:aws:logs:*:*:log-group:/aws/lambda/athenafederatedcatalog*",
+        "arn:aws:logs:*:*:log-group:/aws/bedrock-agentcore/runtimes/*"
+      ]
     },
     {
       "Sid" : "DataConnOpen",

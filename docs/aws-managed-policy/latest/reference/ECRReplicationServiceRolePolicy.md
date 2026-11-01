@@ -16,13 +16,13 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="ECRReplicationServiceRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: December 04, 2020, 22:11 UTC 
-+ **Edited time:** December 04, 2020, 22:11 UTC
++ **Edited time:** October 29, 2026, 18:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/ECRReplicationServiceRolePolicy`
 
 ## Policy version
 <a name="ECRReplicationServiceRolePolicy-version"></a>
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -37,7 +37,8 @@ The policy's default version is the version that defines the permissions for the
       "Effect" : "Allow",
       "Action" : [
         "ecr:CreateRepository",
-        "ecr:ReplicateImage"
+        "ecr:ReplicateImage",
+        "ecr:ReplicateImageDelete"
       ],
       "Resource" : "*"
     }

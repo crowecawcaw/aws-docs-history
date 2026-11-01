@@ -16,13 +16,13 @@ You can attach `PartnerCentralIncentiveBenefitManagement` to your users, groups,
 <a name="PartnerCentralIncentiveBenefitManagement-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: February 11, 2026, 16:42 UTC 
-+ **Edited time:** March 12, 2026, 16:57 UTC
++ **Edited time:** October 28, 2026, 13:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/PartnerCentralIncentiveBenefitManagement`
 
 ## Policy version
 <a name="PartnerCentralIncentiveBenefitManagement-version"></a>
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -113,6 +113,25 @@ The policy's default version is the version that defines the permissions for the
         "partnercentral:ListOpportunities"
       ],
       "Resource" : "arn:aws:partnercentral:*:*:catalog/*/opportunity/*",
+      "Condition" : {
+        "StringEquals" : {
+          "partnercentral:Catalog" : [
+            "AWS",
+            "Sandbox"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "PartnerCentralContentAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "partnercentral:GetPartnerCentralContentDocument",
+        "partnercentral:GetPartnerCentralContentMetadata",
+        "partnercentral:ListPartnerCentralContent",
+        "partnercentral:SearchPartnerCentralContent"
+      ],
+      "Resource" : "*",
       "Condition" : {
         "StringEquals" : {
           "partnercentral:Catalog" : [

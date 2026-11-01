@@ -16,13 +16,13 @@ You can attach `AWSQuickSetupSSMLifecycleManagementExecutionPolicy` to your user
 <a name="AWSQuickSetupSSMLifecycleManagementExecutionPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: November 15, 2024, 21:55 UTC 
-+ **Edited time:** February 12, 2026, 18:01 UTC
++ **Edited time:** October 27, 2026, 15:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSQuickSetupSSMLifecycleManagementExecutionPolicy`
 
 ## Policy version
 <a name="AWSQuickSetupSSMLifecycleManagementExecutionPolicy-version"></a>
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -75,6 +75,19 @@ The policy's default version is the version that defines the permissions for the
         "StringEquals" : {
           "aws:RequestTag/QuickSetupDocument" : "AWSQuickSetupType-SSM",
           "aws:ResourceTag/QuickSetupDocument" : "AWSQuickSetupType-SSM"
+        }
+      }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : "ssm:GetCalendarState",
+      "Resource" : "arn:aws:ssm:*:*:document/*",
+      "Condition" : {
+        "StringLike" : {
+          "aws:userid" : "*:SystemsManager-Automation-ChangeCalendar-Check"
+        },
+        "StringEquals" : {
+          "ssm:DocumentType" : "ChangeCalendar"
         }
       }
     }

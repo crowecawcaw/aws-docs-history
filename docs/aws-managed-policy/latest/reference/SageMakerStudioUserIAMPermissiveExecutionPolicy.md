@@ -16,13 +16,13 @@ You can attach `SageMakerStudioUserIAMPermissiveExecutionPolicy` to your users, 
 <a name="SageMakerStudioUserIAMPermissiveExecutionPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 18, 2025, 17:19 UTC 
-+ **Edited time:** October 14, 2026, 19:37 UTC
++ **Edited time:** October 29, 2026, 22:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/SageMakerStudioUserIAMPermissiveExecutionPolicy`
 
 ## Policy version
 <a name="SageMakerStudioUserIAMPermissiveExecutionPolicy-version"></a>
 
-**Policy version:** v26 (default)
+**Policy version:** v27 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -51,7 +51,8 @@ The policy's default version is the version that defines the permissions for the
         "sagemaker-data-science-assistant:*",
         "rds:*",
         "quicksight:*",
-        "events:*"
+        "events:*",
+        "xray:*"
       ],
       "Resource" : "*"
     },
@@ -61,6 +62,7 @@ The policy's default version is the version that defines the permissions for the
       "Action" : [
         "athena:*",
         "bedrock:*",
+        "bedrock-agentcore:*",
         "codewhisperer:*",
         "sagemaker-unified-studio-mcp:*",
         "elasticmapreduce:*",
@@ -147,9 +149,9 @@ The policy's default version is the version that defines the permissions for the
       "Action" : [
         "datazone:AcceptPredictions",
         "datazone:AcceptSubscriptionRequest",
+        "datazone:BatchUpdateNotifications",
         "datazone:BatchGetAttributesMetadata",
         "datazone:BatchPutAttributesMetadata",
-        "datazone:BatchUpdateNotifications",
         "datazone:CancelMetadataGenerationRun",
         "datazone:CancelSubscription",
         "datazone:CreateAsset*",
@@ -157,6 +159,7 @@ The policy's default version is the version that defines the permissions for the
         "datazone:CreateEnvironment",
         "datazone:CreateListingChangeSet",
         "datazone:CreateProject",
+        "datazone:CreateProjectMembership",
         "datazone:CreateSubscriptionGrant",
         "datazone:CreateSubscriptionRequest",
         "datazone:DeleteAsset*",
@@ -164,6 +167,7 @@ The policy's default version is the version that defines the permissions for the
         "datazone:DeleteEnvironment",
         "datazone:DeleteListing",
         "datazone:DeleteProject",
+        "datazone:DeleteProjectMembership",
         "datazone:DeleteSubscriptionGrant",
         "datazone:DeleteSubscriptionRequest",
         "datazone:Get*",
@@ -230,7 +234,9 @@ The policy's default version is the version that defines the permissions for the
       "Action" : [
         "iam:GetRole",
         "iam:ListRoles",
-        "sts:AssumeRole"
+        "sts:AssumeRole",
+        "ecr-public:GetAuthorizationToken",
+        "sts:GetServiceBearerToken"
       ],
       "Resource" : "*"
     },
@@ -247,7 +253,11 @@ The policy's default version is the version that defines the permissions for the
         "arn:aws:iam::*:role/aws-service-role/airflow-serverless.amazonaws.com/AWSServiceRoleForAmazonMWAAServerless",
         "arn:aws:iam::*:role/aws-service-role/elasticmapreduce.amazonaws.com/AWSServiceRoleForEMRCleanup",
         "arn:aws:iam::*:role/aws-service-role/sagemaker.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_SageMakerEndpoint",
-        "arn:aws:iam::*:role/aws-service-role/observability.aoss.amazonaws.com/AWSServiceRoleForAmazonOpenSearchServerless"
+        "arn:aws:iam::*:role/aws-service-role/observability.aoss.amazonaws.com/AWSServiceRoleForAmazonOpenSearchServerless",
+        "arn:aws:iam::*:role/aws-service-role/runtime-identity.bedrock-agentcore.amazonaws.com/AWSServiceRoleForBedrockAgentCoreRuntimeIdentity",
+        "arn:aws:iam::*:role/aws-service-role/network.bedrock-agentcore.amazonaws.com/AWSServiceRoleForBedrockAgentCoreNetwork",
+        "arn:aws:iam::*:role/aws-service-role/bedrock-agentcore.amazonaws.com/AWSServiceRoleForBedrockAgentCoreGatewayNetwork",
+        "arn:aws:iam::*:role/aws-service-role/identity-network.bedrock-agentcore.amazonaws.com/AWSServiceRoleForBedrockAgentCoreIdentity"
       ]
     },
     {
@@ -277,6 +287,8 @@ The policy's default version is the version that defines the permissions for the
             "lakeformation.amazonaws.com",
             "glue.amazonaws.com",
             "bedrock.amazonaws.com",
+            "bedrock-agentcore.amazonaws.com",
+            "agent-registry.amazonaws.com",
             "redshift-serverless.amazonaws.com",
             "redshift.amazonaws.com",
             "scheduler.amazonaws.com",
@@ -665,6 +677,14 @@ The policy's default version is the version that defines the permissions for the
       "Resource" : [
         "arn:aws:ec2:*:*:network-interface/*"
       ]
+    },
+    {
+      "Sid" : "TagLookup",
+      "Effect" : "Allow",
+      "Action" : [
+        "tag:GetResources"
+      ],
+      "Resource" : "*"
     },
     {
       "Sid" : "SSOInstanceReadOnlyPermissions",

@@ -16,13 +16,13 @@ You can attach `SageMakerStudioAdminIAMPermissiveExecutionPolicy` to your users,
 <a name="SageMakerStudioAdminIAMPermissiveExecutionPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 18, 2025, 17:19 UTC 
-+ **Edited time:** October 15, 2026, 21:47 UTC
++ **Edited time:** October 29, 2026, 19:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/SageMakerStudioAdminIAMPermissiveExecutionPolicy`
 
 ## Policy version
 <a name="SageMakerStudioAdminIAMPermissiveExecutionPolicy-version"></a>
 
-**Policy version:** v24 (default)
+**Policy version:** v25 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -51,7 +51,8 @@ The policy's default version is the version that defines the permissions for the
         "sagemaker-data-science-assistant:*",
         "rds:*",
         "quicksight:*",
-        "events:*"
+        "events:*",
+        "xray:*"
       ],
       "Resource" : "*"
     },
@@ -61,6 +62,7 @@ The policy's default version is the version that defines the permissions for the
       "Action" : [
         "athena:*",
         "bedrock:*",
+        "bedrock-agentcore:*",
         "codewhisperer:*",
         "sagemaker-unified-studio-mcp:*",
         "datazone:*",
@@ -167,7 +169,9 @@ The policy's default version is the version that defines the permissions for the
         "iam:ListRoles",
         "iam:GetUser",
         "iam:ListUsers",
-        "sts:AssumeRole"
+        "sts:AssumeRole",
+        "ecr-public:GetAuthorizationToken",
+        "sts:GetServiceBearerToken"
       ],
       "Resource" : "*"
     },
@@ -185,7 +189,11 @@ The policy's default version is the version that defines the permissions for the
         "arn:aws:iam::*:role/aws-service-role/elasticmapreduce.amazonaws.com/AWSServiceRoleForEMRCleanup",
         "arn:aws:iam::*:role/aws-service-role/sagemaker.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_SageMakerEndpoint",
         "arn:aws:iam::*:role/aws-service-role/observability.aoss.amazonaws.com/AWSServiceRoleForAmazonOpenSearchServerless",
-        "arn:aws:iam::*:role/aws-service-role/ops.athena.amazonaws.com/AWSServiceRoleForAmazonAthena"
+        "arn:aws:iam::*:role/aws-service-role/ops.athena.amazonaws.com/AWSServiceRoleForAmazonAthena",
+        "arn:aws:iam::*:role/aws-service-role/runtime-identity.bedrock-agentcore.amazonaws.com/AWSServiceRoleForBedrockAgentCoreRuntimeIdentity",
+        "arn:aws:iam::*:role/aws-service-role/network.bedrock-agentcore.amazonaws.com/AWSServiceRoleForBedrockAgentCoreNetwork",
+        "arn:aws:iam::*:role/aws-service-role/bedrock-agentcore.amazonaws.com/AWSServiceRoleForBedrockAgentCoreGatewayNetwork",
+        "arn:aws:iam::*:role/aws-service-role/identity-network.bedrock-agentcore.amazonaws.com/AWSServiceRoleForBedrockAgentCoreIdentity"
       ]
     },
     {
@@ -204,6 +212,17 @@ The policy's default version is the version that defines the permissions for the
           ]
         }
       }
+    },
+    {
+      "Sid" : "UpdateDzManagedRoleTrustPolicy",
+      "Effect" : "Allow",
+      "Action" : "iam:UpdateAssumeRolePolicy",
+      "Resource" : [
+        "arn:aws:iam::*:role/service-role/AmazonSageMakerAdminIAMExecutionRole*",
+        "arn:aws:iam::*:role/service-role/AmazonSageMakerUserIAMExecutionRole*",
+        "arn:aws:iam::*:role/AmazonSageMakerAdminIAMExecutionRole*",
+        "arn:aws:iam::*:role/AmazonSageMakerUserIAMExecutionRole*"
+      ]
     },
     {
       "Sid" : "PassRoleForProvisioning",
@@ -236,6 +255,8 @@ The policy's default version is the version that defines the permissions for the
         "StringEquals" : {
           "iam:PassedToService" : [
             "bedrock.amazonaws.com",
+            "bedrock-agentcore.amazonaws.com",
+            "agent-registry.amazonaws.com",
             "datazone.amazonaws.com",
             "redshift-serverless.amazonaws.com",
             "redshift.amazonaws.com",
@@ -837,6 +858,14 @@ The policy's default version is the version that defines the permissions for the
           ]
         }
       }
+    },
+    {
+      "Sid" : "TagLookup",
+      "Effect" : "Allow",
+      "Action" : [
+        "tag:GetResources"
+      ],
+      "Resource" : "*"
     }
   ]
 }

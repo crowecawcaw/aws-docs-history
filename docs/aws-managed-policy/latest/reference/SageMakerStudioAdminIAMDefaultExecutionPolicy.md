@@ -16,13 +16,13 @@ You can attach `SageMakerStudioAdminIAMDefaultExecutionPolicy` to your users, gr
 <a name="SageMakerStudioAdminIAMDefaultExecutionPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 18, 2025, 17:19 UTC 
-+ **Edited time:** October 15, 2026, 21:47 UTC
++ **Edited time:** October 29, 2026, 19:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/SageMakerStudioAdminIAMDefaultExecutionPolicy`
 
 ## Policy version
 <a name="SageMakerStudioAdminIAMDefaultExecutionPolicy-version"></a>
 
-**Policy version:** v27 (default)
+**Policy version:** v28 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -59,7 +59,9 @@ The policy's default version is the version that defines the permissions for the
         "iam:ListRoles",
         "iam:GetUser",
         "iam:ListUsers",
-        "sts:AssumeRole"
+        "sts:AssumeRole",
+        "ecr-public:GetAuthorizationToken",
+        "sts:GetServiceBearerToken"
       ],
       "Resource" : "*"
     },
@@ -77,7 +79,11 @@ The policy's default version is the version that defines the permissions for the
         "arn:aws:iam::*:role/aws-service-role/elasticmapreduce.amazonaws.com/AWSServiceRoleForEMRCleanup",
         "arn:aws:iam::*:role/aws-service-role/sagemaker.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_SageMakerEndpoint",
         "arn:aws:iam::*:role/aws-service-role/observability.aoss.amazonaws.com/AWSServiceRoleForAmazonOpenSearchServerless",
-        "arn:aws:iam::*:role/aws-service-role/ops.athena.amazonaws.com/AWSServiceRoleForAmazonAthena"
+        "arn:aws:iam::*:role/aws-service-role/ops.athena.amazonaws.com/AWSServiceRoleForAmazonAthena",
+        "arn:aws:iam::*:role/aws-service-role/runtime-identity.bedrock-agentcore.amazonaws.com/AWSServiceRoleForBedrockAgentCoreRuntimeIdentity",
+        "arn:aws:iam::*:role/aws-service-role/network.bedrock-agentcore.amazonaws.com/AWSServiceRoleForBedrockAgentCoreNetwork",
+        "arn:aws:iam::*:role/aws-service-role/bedrock-agentcore.amazonaws.com/AWSServiceRoleForBedrockAgentCoreGatewayNetwork",
+        "arn:aws:iam::*:role/aws-service-role/identity-network.bedrock-agentcore.amazonaws.com/AWSServiceRoleForBedrockAgentCoreIdentity"
       ]
     },
     {
@@ -96,6 +102,17 @@ The policy's default version is the version that defines the permissions for the
           ]
         }
       }
+    },
+    {
+      "Sid" : "UpdateDzManagedRoleTrustPolicy",
+      "Effect" : "Allow",
+      "Action" : "iam:UpdateAssumeRolePolicy",
+      "Resource" : [
+        "arn:aws:iam::*:role/service-role/AmazonSageMakerAdminIAMExecutionRole*",
+        "arn:aws:iam::*:role/service-role/AmazonSageMakerUserIAMExecutionRole*",
+        "arn:aws:iam::*:role/AmazonSageMakerAdminIAMExecutionRole*",
+        "arn:aws:iam::*:role/AmazonSageMakerUserIAMExecutionRole*"
+      ]
     },
     {
       "Sid" : "CreateRole",
@@ -166,6 +183,8 @@ The policy's default version is the version that defines the permissions for the
           "iam:PassedToService" : [
             "datazone.amazonaws.com",
             "bedrock.amazonaws.com",
+            "bedrock-agentcore.amazonaws.com",
+            "agent-registry.amazonaws.com",
             "scheduler.amazonaws.com",
             "emr-serverless.amazonaws.com",
             "elasticmapreduce.amazonaws.com",
@@ -327,7 +346,8 @@ The policy's default version is the version that defines the permissions for the
         "logs:Describe*",
         "logs:Get*",
         "logs:PutLogEvents",
-        "logs:StopQuery"
+        "logs:StopQuery",
+        "logs:StartQuery"
       ],
       "Resource" : "*"
     },
@@ -1129,6 +1149,46 @@ The policy's default version is the version that defines the permissions for the
       ]
     },
     {
+      "Sid" : "AgentCore",
+      "Effect" : "Allow",
+      "Action" : "bedrock-agentcore:*",
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "ACXRay",
+      "Effect" : "Allow",
+      "Action" : [
+        "xray:GetTraceSegmentDestination",
+        "xray:GetSamplingRules",
+        "xray:GetSamplingTargets",
+        "xray:PutTraceSegments",
+        "xray:PutTelemetryRecords"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "ACLogRetention",
+      "Effect" : "Allow",
+      "Action" : "logs:PutRetentionPolicy",
+      "Resource" : "arn:aws:logs:*:*:log-group:/aws/bedrock-agentcore/*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "bedrock-agentcore.amazonaws.com"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "TagLookup",
+      "Effect" : "Allow",
+      "Action" : [
+        "tag:GetResources"
+      ],
+      "Resource" : "*"
+    },
+    {
       "Sid" : "S3AGObjectPermissions",
       "Effect" : "Allow",
       "Action" : [
@@ -1153,10 +1213,12 @@ The policy's default version is the version that defines the permissions for the
       }
     },
     {
-      "Sid" : "S3AGIdentityCenterAssociation",
+      "Sid" : "S3AGInstancePermissions",
       "Effect" : "Allow",
       "Action" : [
-        "s3:AssociateAccessGrantsIdentityCenter"
+        "s3:AssociateAccessGrantsIdentityCenter",
+        "s3:GetAccessGrantsInstance",
+        "s3:CreateAccessGrantsInstance"
       ],
       "Resource" : [
         "arn:aws:s3:*:*:access-grants/default"
@@ -1217,6 +1279,15 @@ The policy's default version is the version that defines the permissions for the
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
+    },
+    {
+      "Sid" : "S3TableBucketPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "s3tables:CreateTableBucket",
+        "s3tables:PutTableBucketPolicy"
+      ],
+      "Resource" : "arn:aws:s3tables:*:*:bucket/aws-sagemaker-unified-studio"
     }
   ]
 }

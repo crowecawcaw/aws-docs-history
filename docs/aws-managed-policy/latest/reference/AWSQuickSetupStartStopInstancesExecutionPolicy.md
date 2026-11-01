@@ -16,13 +16,13 @@ You can attach `AWSQuickSetupStartStopInstancesExecutionPolicy` to your users, g
 <a name="AWSQuickSetupStartStopInstancesExecutionPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 08, 2025, 12:04 UTC 
-+ **Edited time:** February 12, 2026, 17:57 UTC
++ **Edited time:** October 27, 2026, 15:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSQuickSetupStartStopInstancesExecutionPolicy`
 
 ## Policy version
 <a name="AWSQuickSetupStartStopInstancesExecutionPolicy-version"></a>
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -88,6 +88,19 @@ The policy's default version is the version that defines the permissions for the
             "arn:aws:ssm:*::document/AWSQuickSetupType-Scheduler-ApplyInstanceState",
             "arn:aws:ssm:*:*:association/*"
           ]
+        }
+      }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : "ssm:GetCalendarState",
+      "Resource" : "arn:aws:ssm:*:*:document/*",
+      "Condition" : {
+        "StringLike" : {
+          "aws:userid" : "*:SystemsManager-Automation-ChangeCalendar-Check"
+        },
+        "StringEquals" : {
+          "ssm:DocumentType" : "ChangeCalendar"
         }
       }
     }

@@ -16,13 +16,13 @@ You can attach `AWSMarketplaceSellerOfferManagement` to your users, groups, and 
 <a name="AWSMarketplaceSellerOfferManagement-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: November 19, 2024, 00:41 UTC 
-+ **Edited time:** March 31, 2026, 16:57 UTC
++ **Edited time:** October 27, 2026, 00:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSMarketplaceSellerOfferManagement`
 
 ## Policy version
 <a name="AWSMarketplaceSellerOfferManagement-version"></a>
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -86,7 +86,8 @@ The policy's default version is the version that defines the permissions for the
         "arn:aws:aws-marketplace:*:*:AWSMarketplace/ProfessionalServicesProduct/*",
         "arn:aws:aws-marketplace:*:*:AWSMarketplace/SaaSProduct/*",
         "arn:aws:aws-marketplace:*:*:AWSMarketplace/AmiProduct/*",
-        "arn:aws:aws-marketplace:*:*:AWSMarketplace/ResaleAuthorization/*"
+        "arn:aws:aws-marketplace:*:*:AWSMarketplace/ResaleAuthorization/*",
+        "arn:aws:aws-marketplace:*:*:AWSMarketplace/SubsidiaryAuthorization/*"
       ]
     },
     {

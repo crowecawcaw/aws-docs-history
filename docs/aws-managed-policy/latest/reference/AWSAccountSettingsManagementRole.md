@@ -16,13 +16,13 @@ You can attach `AWSAccountSettingsManagementRole` to your users, groups, and rol
 <a name="AWSAccountSettingsManagementRole-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: December 11, 2025, 17:49 UTC 
-+ **Edited time:** September 30, 2026, 19:27 UTC
++ **Edited time:** October 29, 2026, 17:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSAccountSettingsManagementRole`
 
 ## Policy version
 <a name="AWSAccountSettingsManagementRole-version"></a>
 
-**Policy version:** v11 (default)
+**Policy version:** v12 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -143,6 +143,18 @@ The policy's default version is the version that defines the permissions for the
         "support:AddAttachmentsToSet",
         "support:DescribeAttachment",
         "support:DescribeCommunications"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "user-subscriptions:CreatePurchaseSession",
+        "user-subscriptions:ConfirmPurchaseSession",
+        "user-subscriptions:CancelPurchaseSession",
+        "user-subscriptions:GetPurchaseSession",
+        "user-subscriptions:ListEntitlements",
+        "user-subscriptions:SetOverageConfig"
       ],
       "Resource" : "*"
     }

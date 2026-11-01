@@ -16,13 +16,13 @@ You can attach `AWSApplicationMigrationFSxProxyPolicy` to your users, groups, an
 <a name="AWSApplicationMigrationFSxProxyPolicy-details"></a>
 + **Type**: Service role policy 
 + **Creation time**: May 31, 2026, 13:12 UTC 
-+ **Edited time:** August 09, 2026, 12:17 UTC
++ **Edited time:** October 25, 2026, 09:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/service-role/AWSApplicationMigrationFSxProxyPolicy`
 
 ## Policy version
 <a name="AWSApplicationMigrationFSxProxyPolicy-version"></a>
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -140,6 +140,17 @@ The policy's default version is the version that defines the permissions for the
       "Condition" : {
         "Null" : {
           "aws:RequestTag/AWSApplicationMigrationServiceManaged" : "false"
+        }
+      }
+    },
+    {
+      "Sid" : "FSxListTagsSnapshot",
+      "Effect" : "Allow",
+      "Action" : "fsx:ListTagsForResource",
+      "Resource" : "arn:aws:fsx:*:*:snapshot/*/*",
+      "Condition" : {
+        "Null" : {
+          "aws:ResourceTag/AWSApplicationMigrationServiceManaged" : "false"
         }
       }
     }

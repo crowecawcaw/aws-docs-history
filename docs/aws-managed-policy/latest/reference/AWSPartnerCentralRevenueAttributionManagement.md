@@ -16,13 +16,13 @@ You can attach `AWSPartnerCentralRevenueAttributionManagement` to your users, gr
 <a name="AWSPartnerCentralRevenueAttributionManagement-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: June 30, 2026, 19:12 UTC 
-+ **Edited time:** June 30, 2026, 19:12 UTC
++ **Edited time:** October 28, 2026, 13:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSPartnerCentralRevenueAttributionManagement`
 
 ## Policy version
 <a name="AWSPartnerCentralRevenueAttributionManagement-version"></a>
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -184,6 +184,25 @@ The policy's default version is the version that defines the permissions for the
         "partnercentral:GetPartner"
       ],
       "Resource" : "arn:aws:partnercentral:*:*:catalog/*/partner/*",
+      "Condition" : {
+        "StringEquals" : {
+          "partnercentral:Catalog" : [
+            "AWS",
+            "Sandbox"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "PartnerCentralContentAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "partnercentral:GetPartnerCentralContentDocument",
+        "partnercentral:GetPartnerCentralContentMetadata",
+        "partnercentral:ListPartnerCentralContent",
+        "partnercentral:SearchPartnerCentralContent"
+      ],
+      "Resource" : "*",
       "Condition" : {
         "StringEquals" : {
           "partnercentral:Catalog" : [

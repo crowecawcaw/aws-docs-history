@@ -16,13 +16,13 @@ You can attach `AWSQuickSetupStartSSMAssociationsExecutionPolicy` to your users,
 <a name="AWSQuickSetupStartSSMAssociationsExecutionPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 08, 2025, 12:04 UTC 
-+ **Edited time:** March 05, 2026, 16:57 UTC
++ **Edited time:** October 27, 2026, 15:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSQuickSetupStartSSMAssociationsExecutionPolicy`
 
 ## Policy version
 <a name="AWSQuickSetupStartSSMAssociationsExecutionPolicy-version"></a>
 
-**Policy version:** v7 (default)
+**Policy version:** v8 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -62,6 +62,19 @@ The policy's default version is the version that defines the permissions for the
             "arn:aws:ssm:*:*:automation-execution/*",
             "arn:aws:ssm:*:*:automation-definition/AWSQuickSetupType-Scheduler-ChangeCalendarState*"
           ]
+        }
+      }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : "ssm:GetCalendarState",
+      "Resource" : "arn:aws:ssm:*:*:document/*",
+      "Condition" : {
+        "StringLike" : {
+          "aws:userid" : "*:SystemsManager-Automation-ChangeCalendar-Check"
+        },
+        "StringEquals" : {
+          "ssm:DocumentType" : "ChangeCalendar"
         }
       }
     }

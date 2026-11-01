@@ -16,13 +16,13 @@ You can attach `Billing` to your users, groups, and roles.
 <a name="Billing-details"></a>
 + **Type**: Job function policy 
 + **Creation time**: November 10, 2016, 17:33 UTC 
-+ **Edited time:** July 30, 2026, 22:12 UTC
++ **Edited time:** October 26, 2026, 17:07 UTC
 + **ARN**: `arn:aws:iam::aws:policy/job-function/Billing`
 
 ## Policy version
 <a name="Billing-version"></a>
 
-**Policy version:** v30 (default)
+**Policy version:** v31 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -53,6 +53,7 @@ The policy's default version is the version that defines the permissions for the
         "billing:GetIAMAccessPreference",
         "billing:GetSellerOfRecord",
         "billing:ListBillingViews",
+        "billing:ListContracts",
         "billing:PutContractInformation",
         "billing:RedeemCredits",
         "billing:GetResourcePolicy",
@@ -192,6 +193,20 @@ The policy's default version is the version that defines the permissions for the
         "tax:UpdateExemptions"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "ContractAdministration",
+      "Effect" : "Allow",
+      "Action" : [
+        "billing:AssociateContract",
+        "billing:CancelContractualInvestmentAttestation",
+        "billing:CreateContractualInvestmentAttestation",
+        "billing:DisassociateContract",
+        "billing:ListContractualInvestmentAttestations",
+        "billing:ListContractualInvestments",
+        "billing:ListContractualInvestmentSummaries"
+      ],
+      "Resource" : "arn:aws:billing::*:contract/*"
     }
   ]
 }

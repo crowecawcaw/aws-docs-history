@@ -16,13 +16,13 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AWSServiceRoleForImageBuilder-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: November 29, 2019, 22:02 UTC 
-+ **Edited time:** July 09, 2026, 15:27 UTC
++ **Edited time:** October 27, 2026, 23:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForImageBuilder`
 
 ## Policy version
 <a name="AWSServiceRoleForImageBuilder-version"></a>
 
-**Policy version:** v28 (default)
+**Policy version:** v29 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -384,8 +384,11 @@ The policy's default version is the version that defines the permissions for the
       "Condition" : {
         "StringEquals" : {
           "iam:AWSServiceName" : [
-            "ssm.amazonaws.com",
-            "ec2fastlaunch.amazonaws.com"
+            "agentless.inspector2.amazonaws.com",
+            "ami.inspector2.amazonaws.com",
+            "ec2fastlaunch.amazonaws.com",
+            "inspector2.amazonaws.com",
+            "ssm.amazonaws.com"
           ]
         }
       }
@@ -424,6 +427,17 @@ The policy's default version is the version that defines the permissions for the
         "inspector2:ListFindings"
       ],
       "Resource" : "*"
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "inspector2:StartOnDemandScan",
+        "inspector2:GetOnDemandScanStatus",
+        "inspector2:ListOnDemandScans"
+      ],
+      "Resource" : [
+        "arn:aws:inspector2:*:*:*"
+      ]
     },
     {
       "Effect" : "Allow",

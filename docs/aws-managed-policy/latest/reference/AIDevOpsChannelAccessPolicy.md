@@ -16,13 +16,13 @@ You can attach `AIDevOpsChannelAccessPolicy` to your users, groups, and roles.
 <a name="AIDevOpsChannelAccessPolicy-details"></a>
 + **Type**: Service role policy 
 + **Creation time**: August 26, 2026, 21:07 UTC 
-+ **Edited time:** August 26, 2026, 21:07 UTC
++ **Edited time:** October 26, 2026, 22:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/service-role/AIDevOpsChannelAccessPolicy`
 
 ## Policy version
 <a name="AIDevOpsChannelAccessPolicy-version"></a>
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -41,6 +41,48 @@ The policy's default version is the version that defines the permissions for the
         "aidevops:SendMessage"
       ],
       "Resource" : "arn:aws:aidevops:*:*:agentspace/${aws:PrincipalTag/AgentSpaceId}",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AllowAgentSpaceActions",
+      "Effect" : "Allow",
+      "Action" : [
+        "aidevops:CreateAsset",
+        "aidevops:UpdateAsset",
+        "aidevops:DeleteAsset",
+        "aidevops:CreateAssetFile",
+        "aidevops:UpdateAssetFile",
+        "aidevops:DeleteAssetFile",
+        "aidevops:GetAsset",
+        "aidevops:GetAssetContent",
+        "aidevops:GetAssetFile",
+        "aidevops:ListAssets",
+        "aidevops:ListAssetFiles",
+        "aidevops:CreateBacklogTask",
+        "aidevops:UpdateBacklogTask",
+        "aidevops:UpdateRecommendation",
+        "aidevops:CreateTrigger",
+        "aidevops:UpdateTrigger",
+        "aidevops:DeleteTrigger",
+        "aidevops:GetBacklogTask",
+        "aidevops:ListBacklogTasks",
+        "aidevops:GetRecommendation",
+        "aidevops:ListRecommendations",
+        "aidevops:ListTriggers",
+        "aidevops:ListGoals",
+        "aidevops:ListExecutions",
+        "aidevops:ListJournalRecords",
+        "aidevops:GetAssociation",
+        "aidevops:ListAssociations"
+      ],
+      "Resource" : [
+        "arn:aws:aidevops:*:*:agentspace/${aws:PrincipalTag/AgentSpaceId}",
+        "arn:aws:aidevops:*:*:agentspace/${aws:PrincipalTag/AgentSpaceId}/*"
+      ],
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"

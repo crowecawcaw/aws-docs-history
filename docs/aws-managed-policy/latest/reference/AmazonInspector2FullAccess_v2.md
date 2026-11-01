@@ -16,13 +16,13 @@ You can attach `AmazonInspector2FullAccess_v2` to your users, groups, and roles.
 <a name="AmazonInspector2FullAccess_v2-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: July 03, 2025, 16:07 UTC 
-+ **Edited time:** July 08, 2026, 19:12 UTC
++ **Edited time:** October 27, 2026, 15:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AmazonInspector2FullAccess_v2`
 
 ## Policy version
 <a name="AmazonInspector2FullAccess_v2-version"></a>
 
-**Policy version:** v9 (default)
+**Policy version:** v10 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -57,6 +57,7 @@ The policy's default version is the version that defines the permissions for the
         "StringEquals" : {
           "iam:AWSServiceName" : [
             "agentless.inspector2.amazonaws.com",
+            "ami.inspector2.amazonaws.com",
             "inspector2.amazonaws.com",
             "thirdparty.inspector2.amazonaws.com"
           ]
