@@ -115,9 +115,7 @@ Outposts on a month-to-month subscription cannot be scaled. To scale, you must f
 
    **Outpost ID** (existing Outpost) – Select the Outpost ID for the Outpost you want to add capacity to.
 
-1. For **Select capacities**, choose the compute capacity for your Outpost. You can select capacity in two ways:
-   + **By capacity type** – Select the quantity of your desired Amazon EC2 instance types and sizes.
-   + **By configuration** – Select from predefined configurations designed for common use cases, or previously used configurations from your account history.
+1. For **Select capacities**, choose the compute capacity for your Outpost. Select the quantity of your desired Amazon EC2 instance types and sizes.
 **Note**  
 You can only select instance capacities supported by your chosen Outpost generation and form factor.
 
