@@ -3,8 +3,8 @@
 # Troubleshooting our new AWS experience issues
 <a name="troubleshooting-sign-in-new"></a>
 
-**Warning**  
-We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.
+**Note**  
+Our new AWS experience lets you build using AWS accounts created with preconfigured defaults. If you have regulated workloads, want complete control over where your content is stored, or require advanced features right away, such as networking and security services, [sign up for AWS (advanced)](https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html). [Compare sign-up options](https://docs.aws.amazon.com/accounts/latest/reference/sign-up-for-aws.html#compare-sign-up-options).
 
 This troubleshooting information is for issues related to signing in to our new AWS experience. When you use our new AWS experience, you have access to AWS Settings and project accounts. If you use IAM users, the IAM identity center, or federated identities, use [Troubleshooting AWS account sign-in issues](troubleshooting-sign-in-issues.md) to troubleshoot.
 

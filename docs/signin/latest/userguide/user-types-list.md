@@ -70,8 +70,8 @@ This is only supported when you [Sign up for AWS (advanced)](https://docs.aws.am
 ## Project owner
 <a name="project-owner-type"></a>
 
-**Warning**  
-We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.
+**Note**  
+Our new AWS experience lets you build using AWS accounts created with preconfigured defaults. If you have regulated workloads, want complete control over where your content is stored, or require advanced features right away, such as networking and security services, [sign up for AWS (advanced)](https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html). [Compare sign-up options](https://docs.aws.amazon.com/accounts/latest/reference/sign-up-for-aws.html#compare-sign-up-options).
 
 A project owner creates a project when they use our new AWS experience. A project owner signs in to AWS using a login they already have. AWS supports using Google, GitHub, Apple, or Amazon as logins to access a project. For more information, see [Create a project in AWS Settings](https://docs.aws.amazon.com/accounts/latest/reference/create-project.html).
 
@@ -80,8 +80,8 @@ This is only supported when you sign in to our new AWS experience.
 ## Project team member
 <a name="project-team-member-type"></a>
 
-**Warning**  
-We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.
+**Note**  
+Our new AWS experience lets you build using AWS accounts created with preconfigured defaults. If you have regulated workloads, want complete control over where your content is stored, or require advanced features right away, such as networking and security services, [sign up for AWS (advanced)](https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html). [Compare sign-up options](https://docs.aws.amazon.com/accounts/latest/reference/sign-up-for-aws.html#compare-sign-up-options).
 
 A project team member can access a project shared with them. They receive an email from a project owner to access the project and can sign in to project using a login they already have. AWS supports using Google, GitHub, Apple, or Amazon as logins to access a project. For more information, see [Sign in to a project](sign-in-project.md).
 

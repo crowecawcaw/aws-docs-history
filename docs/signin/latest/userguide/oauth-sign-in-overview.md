@@ -69,13 +69,25 @@ For a walkthrough of connecting an agent using interactive authorization, see [A
 ### Non-interactive authorization
 <a name="oauth-sign-in-non-interactive"></a>
 
-Non-interactive authorization is intended for agents and applications that already possess AWS credentials and cannot perform browser-based authentication.
+Non-interactive authorization is intended for agents and applications that either possess AWS credentials or identity provider issued JSON Web Tokens (JWTs) and cannot perform browser-based authentication.
+
+#### Possessing AWS credentials
+<a name="oauth-sign-in-non-interactive-aws-credentials"></a>
 
 AWS Sign-In implements the OAuth 2.0 Client Credentials Grant using AWS Signature Version 4 (SigV4) credentials instead of a static OAuth client secret. Applications authenticate to the AWS Sign-In token endpoint using existing AWS credentials and receive a short-lived OAuth access token that can be used to access supported AWS services.
 
 The client credentials grant issues only access tokens (no refresh tokens). Request a new access token when the current token expires.
 
 For a walkthrough of connecting an application using non-interactive authorization, see [AWS MCP Server](aws-mcp-server.md).
+
+#### Possessing identity provider issued JWTs
+<a name="oauth-sign-in-non-interactive-jwt"></a>
+
+AWS Sign-In implements the OAuth 2.0 Token Exchange Grant ([RFC 8693](https://datatracker.ietf.org/doc/html/rfc8693)). Applications present an end user's JSON Web Token (JWT) to the AWS Sign-In token endpoint and receive a short-lived OAuth access token that can be used to access supported AWS services.
+
+The token exchange grant issues only access tokens (no refresh tokens). Request a new access token when the current token expires.
+
+For a walkthrough of connecting an external integration partner using token exchange, see [Configure OAuth access to AWS Glue Iceberg REST Catalog](configure-oauth-glue-iceberg-rest.md).
 
 ## Security model
 <a name="oauth-sign-in-security-model"></a>
@@ -90,6 +102,7 @@ OAuth authorization integrates with the existing AWS security model. AWS Sign-In
 + Single-use authorization codes and rotating single-use refresh tokens to prevent replay attacks.
 + VPCE support for OAuth APIs. See [AWS PrivateLink](oauth-privatelink.md).
 + Support trusted redirect URIs in DCR.
++ Support for external JWT identities through RFC 8693 token exchange, validated by AWS Sign-In against a customer-registered IAM identity provider and role trust policy.
 
 These capabilities allow administrators to govern OAuth authorization using the same IAM authorization model they already use across AWS.
 
@@ -102,7 +115,7 @@ AWS Sign-In provides the following OAuth endpoints.
 | Endpoint | Path | Description | 
 | --- | --- | --- | 
 | Authorization | /v1/authorize | Initiates the interactive authorization flow. | 
-| Token | /v1/token | Exchanges authorization codes, refresh tokens, or client credentials for OAuth tokens. | 
+| Token | /v1/token | Exchanges authorization codes, refresh tokens, client credentials, or JWTs for OAuth tokens. | 
 | Introspection | /v1/introspect | Returns metadata about an OAuth token. | 
 | Revocation | /v1/revoke | Revokes a refresh token. | 
 | Dynamic Client Registration | /v1/register | Registers approved OAuth clients with AWS Sign-In. Only allowlisted redirect URIs are accepted. | 

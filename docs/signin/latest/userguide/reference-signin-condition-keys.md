@@ -126,7 +126,7 @@ The following OAuth condition keys are available.
 | --- | --- | --- | --- | 
 | signin:OAuthClientId | String | Restricts authorization to approved OAuth clients. | signin:AuthorizeOAuth2Access, signin:CreateOAuth2Token, signin:IntrospectOAuth2Token | 
 | signin:OAuthRedirectUri | String | Restricts OAuth authorization to approved redirect URIs. | signin:AuthorizeOAuth2Access, signin:CreateOAuth2Token, signin:CreateOAuth2PublicClient | 
-| signin:OAuthGrantType | String | Controls which OAuth grant types are permitted. Values: authorization\_code, refresh\_token, client\_credentials. | signin:CreateOAuth2Token | 
+| signin:OAuthGrantType | String | Controls which OAuth grant types are permitted. Values: authorization\_code, refresh\_token, client\_credentials, urn:ietf:params:oauth:grant-type:token-exchange. | signin:CreateOAuth2Token | 
 | signin:OAuthClientAuthentication | String | Controls permitted OAuth client authentication methods. | signin:CreateOAuth2Token | 
 | signin:OAuthTokenType | String | Controls operations performed on OAuth access and refresh tokens. Values: access\_token, refresh\_token. | signin:RevokeOAuth2Token, signin:IntrospectOAuth2Token | 
 
@@ -138,6 +138,8 @@ Use `signin:OAuthClientId` to allow or deny OAuth authorization based on the reg
 OAuth client IDs are represented as AWS Sign-In Dynamic Client Registration (DCR) ARNs.
 
 For the non-interactive (client credentials) flow, the implicit client ID is `arn:aws:signin:::client-credentials/sigv4`.
+
+For the non-interactive token exchange flow, the implicit client ID is `arn:aws:signin:::external-client/token-exchange/jwt`.
 
 Applicable actions  
 + `signin:AuthorizeOAuth2Access`
@@ -219,6 +221,7 @@ Supported values include:
 + `authorization_code`
 + `refresh_token`
 + `client_credentials`
++ `urn:ietf:params:oauth:grant-type:token-exchange`
 
 Applicable actions  
 + `signin:CreateOAuth2Token`
@@ -239,6 +242,26 @@ Applicable actions
             "authorization_code",
             "refresh_token"
           ]
+        }
+      }
+    }
+  ]
+}
+```
+
+**Example – Allow the token exchange grant to mint a Glue-scoped access token:**
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "signin:CreateOAuth2Token",
+      "Resource": "arn:aws:signin:us-east-1:111111111111:service-principal/glue.amazonaws.com",
+      "Condition": {
+        "StringEquals": {
+          "signin:OAuthGrantType": "urn:ietf:params:oauth:grant-type:token-exchange"
         }
       }
     }

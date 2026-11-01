@@ -3,8 +3,8 @@
 # Sign in to AWS Settings
 <a name="sign-in-aws-settings"></a>
 
-**Warning**  
-We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.
+**Note**  
+Our new AWS experience lets you build using AWS accounts created with preconfigured defaults. If you have regulated workloads, want complete control over where your content is stored, or require advanced features right away, such as networking and security services, [sign up for AWS (advanced)](https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html). [Compare sign-up options](https://docs.aws.amazon.com/accounts/latest/reference/sign-up-for-aws.html#compare-sign-up-options).
 
 If you sign up for AWS using our new AWS experience, you can access AWS Settings. This portal lets you access all the projects you own, and projects shared with you. You can also use AWS Settings to modify your billing settings and invite team members.
 
