@@ -158,6 +158,8 @@ In the Amazon Quick administration console, add an extension access using the OI
 1. Enter the extension details using the values you recorded in Step 1:
 
 
+**Extension access details**  
+
 <table>
 <thead>
   <tr><th>Field</th><th>Value</th></tr>

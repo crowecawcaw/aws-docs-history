@@ -3,9 +3,9 @@
 # AWS Regions, websites, IP address ranges, and endpoints
 <a name="regions"></a>
 
-AWS cloud-computing resources are housed in highly available facilities in different areas of the world (for example, North America, Europe, and Asia). These facilities are each part of an AWS Region. For more information about AWS Regions and Availability Zones (AZs), see [Global infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/).
+Amazon Quick is available in many AWS Regions. AWS hosts its cloud-computing resources in secure facilities around the world, such as in North America, Europe, and Asia. Each facility is part of an AWS Region. To learn more about AWS Regions and Availability Zones (AZs), see [Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/) on the AWS website.
 
-The IP addresses listed in the sections below are the ranges where Amazon Quick traffic originates from when making outbound connections to databases. They are not the IP address ranges that you use to connect to the Amazon Quick website or service API. For more information about authorizing Amazon Quick, [Authorizing connections to AWS data sources](https://docs.aws.amazon.com/quicksight/latest/user/enabling-access.html).
+The following sections list the IP address ranges for Amazon Quick outbound traffic. Amazon Quick uses these ranges to connect to your databases. These are not the ranges you use to reach the Amazon Quick website or service API. To learn how to authorize Amazon Quick, see [Authorizing connections to AWS data sources](https://docs.aws.amazon.com/quicksight/latest/user/enabling-access.html).
 
 **Topics**
 + [Supported AWS Regions for Amazon Quick](#regions-qs)
@@ -44,8 +44,8 @@ Amazon Quick is currently supported in the following AWS Regions. The following 
 | Europe (Stockholm) | eu-north-1 | No |  https://eu-north-1.quicksight.aws.amazon.com  |  quicksight.eu-north-1.amazonaws.com  | 13.53.191.64/27 | 
 | Europe (Zurich) | eu-central-2 | No |  https://eu-central-2.quicksight.aws.amazon.com  |  quicksight.eu-central-2.amazonaws.com  | 16.63.53.32/27 | 
 | South America (São Paulo) | sa-east-1 | No |  https://sa-east-1.quicksight.aws.amazon.com  |  quicksight.sa-east-1.amazonaws.com  | 18.230.46.192/27 | 
-| AWS GovCloud (US-East) | gov-east-1 | No |  https://quicksight.us-gov-east-1.amazonaws.com  |  quicksight.us-gov-east-1.amazonaws.com  | 18.252.165.64/27 | 
-| AWS GovCloud (US-West) | gov-west-1 | Yes |  https://quicksight.us-gov-west-1.amazonaws.com  |  quicksight.us-gov-west-1.amazonaws.com  | 160.1.180.32/27 | 
+| AWS GovCloud (US-East) | us-gov-east-1 | No |  https://quicksight.us-gov-east-1.amazonaws.com  |  quicksight.us-gov-east-1.amazonaws.com  | 18.252.165.64/27 | 
+| AWS GovCloud (US-West) | us-gov-west-1 | Yes |  https://quicksight.us-gov-west-1.amazonaws.com  |  quicksight.us-gov-west-1.amazonaws.com  | 160.1.180.32/27 | 
 | Israel (Tel Aviv) | il-central-1 | No |  https://il-central-1.quicksight.aws.amazon.com  |  quicksight.il-central-1.amazonaws.com  | 51.17.195.32/27 | 
 | Middle East (UAE) | me-central-1 | No |  https://me-central-1.quicksight.aws.amazon.com  |  quicksight.me-central-1.amazonaws.com  | 51.112.11.224/27 | 
 
@@ -54,10 +54,11 @@ If your IAM Identity Center instance is replicated to multiple Regions, you can 
 ## Cross-Region calls for web search
 <a name="web-search-cross-region"></a>
 
-Amazon Quick makes cross-Region calls for web search functionality in Chat, Agents, and Research features. When using web search, requests originating in US West (Oregon) are processed in the US East (N. Virginia) Region. For customers in EMEA Regions, web search queries are processed in the Europe (Ireland) Region.
+Amazon Quick makes cross-Region calls for web search in the Chat, Agents, and Research features. Requests that start in US West (Oregon) are processed in the US East (N. Virginia) Region. For customers in EMEA Regions, web search queries are processed in the Europe (Ireland) Region.
 
 ### Web search regional availability
 <a name="web-search-regional-availability"></a>
+
 
 
 | Region name and code | Web search processing region | 
@@ -74,12 +75,12 @@ Amazon Quick makes cross-Region calls for web search functionality in Chat, Agen
 ## Cross-Region inference for Australia, Japan, Europe, and the United States
 <a name="cross-region-inference"></a>
 
-With cross-Region inference, Amazon Quick automatically selects the optimal Region within your geography to process your inference request. This approach maximizes available compute resources and model availability. With cross-Region inference, you get:
+With cross-Region inference, Amazon Quick picks the best AWS Region in your geography to handle your request. This gives you access to more compute resources and models. With it, you get:
 + Complete access to the most advanced Amazon Quick AI capabilities and features
 + Access to a variety of models suitable for different tasks
 + Improved performance for all your applications
 
-Cross-Region inference requests stay within the AWS Regions in the geography where your data originally resides. For example, a request made in the US stays within the AWS Regions in the US. Although data is stored only in your primary Region, your input prompts and output results might move outside of that Region when you use cross-Region inference. Amazon transmits all data encrypted across its secure network.
+Cross-Region inference requests stay within the AWS Regions in your geography. For example, a request made in the US stays in AWS Regions in the US. Your data is stored only in your primary Region. But when you use cross-Region inference, your prompts and results might move to another Region. Amazon encrypts all data that it sends across its network.
 
 **Note**  
 There is no additional cost for using cross-Region inference.  
@@ -91,6 +92,7 @@ Amazon CloudWatch and AWS CloudTrail logs do not specify the AWS Region in which
 For a list of Region codes and endpoints supported in Amazon Quick AI capabilities and features, see [Supported AWS Regions for Amazon Quick](https://docs.aws.amazon.com/quicksight/latest/user/regions-aqs.html).
 
 The following table summarizes the supported geographies and their inference Regions for Amazon Quick cross-Region inference.
+
 
 
 | Supported Amazon Quick geography | Inference Regions | 
@@ -122,21 +124,22 @@ Amazon Quick manages this cross-Region inference routing for you. You can't conf
 Amazon Q in Quick Generative BI features including scenarios are currently supported in the following AWS Regions:
 
 
+
 | Region | Scenarios | 
 | --- | --- | 
-| US East (N. Virginia) (us-east-1) | ✓ Yes | 
-| US East (Ohio) (us-east-2) | ✓ Yes | 
-| US West (Oregon) (us-west-2) | ✓ Yes | 
-| Asia Pacific (Mumbai) (ap-south-1) | ✓ Yes | 
-| Asia Pacific (Seoul) (ap-northeast-2) | ✓ Yes | 
-| Asia Pacific (Singapore) (ap-southeast-1) | ✓ Yes | 
-| Asia Pacific (Tokyo) (ap-northeast-1) | ✓ Yes | 
-| Asia Pacific (Sydney) (ap-southeast-2) | ✓ Yes | 
+| US East (N. Virginia) (us-east-1) | Yes | 
+| US East (Ohio) (us-east-2) | Yes | 
+| US West (Oregon) (us-west-2) | Yes | 
+| Asia Pacific (Mumbai) (ap-south-1) | Yes | 
+| Asia Pacific (Seoul) (ap-northeast-2) | Yes | 
+| Asia Pacific (Singapore) (ap-southeast-1) | Yes | 
+| Asia Pacific (Tokyo) (ap-northeast-1) | Yes | 
+| Asia Pacific (Sydney) (ap-southeast-2) | Yes | 
 | Canada (Central) (ca-central-1) | Not Available | 
-| Europe (Frankfurt) (eu-central-1) | ✓ Yes | 
-| Europe (Ireland) (eu-west-1) | ✓ Yes | 
-| Europe (London) (eu-west-2) | ✓ Yes | 
-| Europe (Paris) (eu-west-3) | ✓ Yes | 
+| Europe (Frankfurt) (eu-central-1) | Yes | 
+| Europe (Ireland) (eu-west-1) | Yes | 
+| Europe (London) (eu-west-2) | Yes | 
+| Europe (Paris) (eu-west-3) | Yes | 
 | Europe (Stockholm) (eu-north-1) | Not Available | 
 | Europe (Zurich) (eu-central-2) | Not Available | 
 | South America (São Paulo) (sa-east-1) | Not Available | 

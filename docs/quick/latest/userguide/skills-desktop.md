@@ -81,6 +81,8 @@ You can use a skill in one of the following ways.
 Choose a skill to open its detail panel. The panel shows the skill's description, its instructions, and its reference files. The available actions depend on whether it is a built-in skill or one of your own, your role for it, and whether it is published.
 
 
+**Skill detail panel actions**  
+
 | Action | Description | 
 | --- | --- | 
 | Try it | Start a conversation with the skill loaded. | 

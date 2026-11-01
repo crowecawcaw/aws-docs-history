@@ -36,6 +36,8 @@ If you sign in for the first time, the browser checks for an active Amazon Quick
 Amazon Quick verifies the signature on each ID token against the public keys published at your identity provider's JWKS URI. Your IdP must sign ID tokens with one of the following asymmetric algorithms.
 
 
+**Supported signing algorithms by key type**  
+
 | Key type | Supported `alg` values | 
 | --- | --- | 
 | RSA | RS256, RS384, RS512, PS256, PS384, PS512 | 
@@ -90,6 +92,8 @@ Administrators can configure and deploy Amazon Quick on desktop across an enterp
 Amazon Quick reads policies from vendor-neutral OS-managed locations. Any mobile device management (MDM) tool that can deliver a configuration profile (macOS) or registry policy (Windows) works without vendor-specific integration.
 
 
+**Managed policies for Amazon Quick on desktop**  
+
 | Policy | macOS location | Windows location | Effect | 
 | --- | --- | --- | --- | 
 | DisableSocialLogin | Preference domain com.aws.QuickWork.mac | HKLM\\SOFTWARE\\Policies\\Amazon\\Quick (REG\_DWORD) | Hides social sign-in, blocks it server-side, and hides "Sign up for free." This policy enforces enterprise SSO as the only authentication path. | 
@@ -137,6 +141,8 @@ Amazon Quick respects the operating system's proxy configuration (system proxy o
 
 The following table lists the application data paths for each operating system.
 
+
+**Application data paths by operating system**  
 
 | OS | Path | 
 | --- | --- | 

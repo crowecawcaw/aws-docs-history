@@ -14,7 +14,7 @@ Amazon Quick runs in the cloud. Your conversations, memory, knowledge graph, age
 
 Quick connects to the services you use every day: email, calendar, chat, customer relationship management (CRM) tools, and more. Once connected, Quick pulls information from these services, takes actions in them, and combines data across them in a single conversation.
 
-As you work with Quick, it builds a knowledge graph of the people, projects, and decisions relevant to you, and it retains your preferences and workflows in long-term memory. Together, these let Quick understand your work context and provide personalized responses that improve over time. You review and manage both from My context.
+As you work with Quick, it builds a knowledge graph of the people, projects, and decisions relevant to you, and it retains your preferences and workflows in long-term memory. Together, these let Quick understand your work context and provide personalized responses that improve over time. You review and manage both from My context. For details about what Quick remembers, see [Memories](memories-desktop.md).
 
 You create agents with their own instructions and knowledge, and pair them with schedules that run at intervals you define. Agents prepare for your meetings, summarize what changed in your channels, generate reports, and deliver results through an activity feed.
 

@@ -14,6 +14,8 @@ Verify that your system meets the following requirements.
 <a name="desktop-prerequisites-macos"></a>
 
 
+**macOS system requirements**  
+
 | Requirement | Minimum | 
 | --- | --- | 
 | Operating system | macOS 12 (Monterey) or later | 
@@ -25,6 +27,8 @@ Verify that your system meets the following requirements.
 ### Windows
 <a name="desktop-prerequisites-windows"></a>
 
+
+**Windows system requirements**  
 
 | Requirement | Minimum | 
 | --- | --- | 
@@ -44,6 +48,8 @@ You can download the Amazon Quick desktop application from the following locatio
 + **Amazon Quick web application** – Sign in to Amazon Quick on the web. In the left navigation, choose **Extensions**, find the desktop extension card, and choose the download for your platform.
 + **Direct download** – Use the following links:
 
+
+**Direct download links**  
 
 <table>
 <thead>
@@ -116,6 +122,8 @@ Enterprise sign-in becomes available after your organization's administrator con
 
 After you sign in for the first time, Quick guides you through connecting your data sources. The onboarding flow presents categories of connections:
 
+
+**First-run connection categories**  
 
 | Category | What it connects | Examples | 
 | --- | --- | --- | 

@@ -3,7 +3,7 @@
 # Knowledge graph
 <a name="knowledge-graph-desktop"></a>
 
-Amazon Quick builds a personal knowledge graph that captures entities and the relationships between them from your connected data sources and files. The graph gives Quick contextual understanding of the people, projects, organizations, and events in your work, so it provides more relevant, personalized responses. It is kept for you, per user, in your Amazon Quick account.
+Amazon Quick builds a personal knowledge graph that captures entities and the relationships between them from your connected data sources and files. The graph gives Quick contextual understanding of the people, projects, organizations, and events in your work, so it provides more relevant, personalized responses. It is kept for you, per user, in your Amazon Quick account. It complements your [Memories](memories-desktop.md), which capture the facts and preferences Quick learns from your conversations.
 
 If you ask about a project, Quick uses the graph to identify related people, recent meetings, associated documents, and relevant channels.
 

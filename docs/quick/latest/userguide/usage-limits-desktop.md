@@ -1,6 +1,6 @@
 
 
-# Usage limits
+# Amazon Quick desktop usage limits
 <a name="usage-limits-desktop"></a>
 
 Amazon Quick applies the following limits to your account.

@@ -40,6 +40,8 @@ For more information, see [OAuth 2.0 for Mobile & Desktop Apps](https://develope
 1. Configure the following settings:
 
 
+**OAuth client settings**  
+
 <table>
 <thead>
   <tr><th>Setting</th><th>Value</th></tr>
@@ -74,6 +76,8 @@ For more information, see [OAuth 2.0 for Mobile & Desktop Apps](https://develope
 Record the following OIDC endpoints. You enter these values, together with the **Client ID** you noted earlier, in Step 2.
 
 
+**OIDC endpoint values**  
+
 | Field | Value | 
 | --- | --- | 
 | Client ID | The Client ID from your OAuth client | 
@@ -102,6 +106,8 @@ In the Amazon Quick administration console, add an extension access using the OI
 
 1. Enter the extension details using the values you recorded in Step 1:
 
+
+**Extension access details**  
 
 <table>
 <thead>
