@@ -25,3 +25,5 @@ You can use task settings to configure the way DMS handles DDL behavior during c
 Rapid sequences of DDL operations in the source database (such as DDL>DML>DDL) can cause AWS DMS to parse the log incorrectly, leading to data loss or unexpected behavior. To maintain data consistency, wait for AWS DMS to apply each change to the target before performing subsequent operations.
 
 For example, during change data capture (CDC), multiple rapid table rename operations on a source table can trigger errors. If you rename a table and then quickly rename it back to its original name, AWS DMS might report that the table already exists in the target database.
+
+When you start a CDC task with a custom CDC start point, any DDL operations that occurred between the specified start point and the current time can cause unpredictable behavior. AWS DMS replays changes from the start point, but DDL operations (such as DROP TABLE, ALTER TABLE, or RENAME) that occurred in this window might conflict with the current state of the target. To avoid this, ensure that no structural changes were made to tables in scope between the CDC start point and the time the task begins.

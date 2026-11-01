@@ -267,9 +267,9 @@ GRANT SELECT ON DBA_DIRECTORIES to dms_user;
 GRANT EXECUTE ON SYS.DBMS_XMLGEN TO dms_user;
 ```
 
-For information about Oracle-specific premigration assessments, see [Oracle assessments](CHAP_Tasks.AssessmentReport.Oracle.md).
+For information about Oracle-specific premigration assessments (PMA), see [Oracle assessments](CHAP_Tasks.AssessmentReport.Oracle.md). Where applicable, prerequisite sections later in this topic are marked with **[Checked by PMA]** to indicate that a premigration assessment automatically validates the configuration.
 
-#### Prerequisites for handling open transactions for Oracle Standby
+#### Prerequisites for handling open transactions for Oracle Standby [Checked by PMA]
 <a name="CHAP_Source.Oracle.Self-Managed.Privileges.Standby"></a>
 
 A premigration assessment (PMA) checks this prerequisite. For more information, see [Oracle assessments](CHAP_Tasks.AssessmentReport.Oracle.md).
@@ -297,6 +297,9 @@ When using AWS DMS versions 3.4.6 and higher, perform the following steps to han
 <a name="CHAP_Source.Oracle.Self-Managed.Configuration"></a>
 
 Prepare your self-managed Oracle database as a source to run a CDC task by doing the following: 
+
+**Tip**  
+After completing these prerequisites, run a premigration assessment to validate your configuration. The premigration assessment (PMA) automatically verifies archivelog mode, archive log retention, Binary Reader privileges, standby DB link configuration, and ASM configuration, and partially verifies supplemental logging.
 + [Verifying that AWS DMS supports the source database version](#CHAP_Source.Oracle.Self-Managed.Configuration.DbVersion).
 + [Making sure that ARCHIVELOG mode is on](#CHAP_Source.Oracle.Self-Managed.Configuration.ArchiveLogMode).
 + [Setting up supplemental logging](#CHAP_Source.Oracle.Self-Managed.Configuration.SupplementalLogging).
@@ -312,7 +315,7 @@ SELECT name, value, description FROM v$parameter WHERE name = 'compatible';
 
 Here, `name`, `value`, and `description` are columns somewhere in the database that are being queried based on the value of `name`. If this query runs without error, AWS DMS supports the current version of the database and you can continue with the migration. If the query raises an error, AWS DMS does not support the current version of the database. To proceed with migration, first convert the Oracle database to an version supported by AWS DMS.
 
-#### Making sure that ARCHIVELOG mode is on
+#### Making sure that ARCHIVELOG mode is on [Checked by PMA]
 <a name="CHAP_Source.Oracle.Self-Managed.Configuration.ArchiveLogMode"></a>
 
 A premigration assessment (PMA) checks this prerequisite. For more information, see [Oracle assessments](CHAP_Tasks.AssessmentReport.Oracle.md).
@@ -433,7 +436,7 @@ AWS DMS CDC does not support Active Dataguard Standby that is not configured to 
 
 In some cases, you might use Oracle Managed Files (OMF) for storing the logs. Or your source endpoint is in ADG and thus you can't grant the CREATE ANY DIRECTORY privilege. In these cases, manually create the directories with all the possible log locations before starting the AWS DMS replication task. If AWS DMS does not find a precreated directory that it expects, the task stops. Also, AWS DMS does not delete the entries it has created in the `ALL_DIRECTORIES` view, so manually delete them.
 
-### Additional account privileges required when using Binary Reader with Oracle ASM
+### Additional account privileges required when using Binary Reader with Oracle ASM [Checked by PMA]
 <a name="CHAP_Source.Oracle.Self-Managed.ASMBinaryPrivileges"></a>
 
 A premigration assessment (PMA) checks this prerequisite. For more information, see [Oracle assessments](CHAP_Tasks.AssessmentReport.Oracle.md).
@@ -667,7 +670,7 @@ For more information on using Amazon RDS Active Dataguard Standby (ADG) with AWS
 
 For more information on using Oracle TDE with AWS DMS, see [Supported encryption methods for using Oracle as a source for AWS DMS](#CHAP_Source.Oracle.Encryption).
 
-#### Prerequisites for handling open transactions for Oracle Standby
+#### Prerequisites for handling open transactions for Oracle Standby [Checked by PMA]
 <a name="CHAP_Source.Oracle.Amazon-Managed.Privileges.Standby"></a>
 
 A premigration assessment (PMA) checks this prerequisite. For more information, see [Oracle assessments](CHAP_Tasks.AssessmentReport.Oracle.md).
@@ -843,8 +846,15 @@ After you do so, use the following procedure to use RDS for Oracle Standby as a 
 <a name="CHAP_Source.Oracle.Limitations"></a>
 
 The following limitations apply when using an Oracle database as a source for AWS DMS:
+
+**Note**  
+Some of the following limitations are validated by AWS DMS premigration assessments (PMA), while others require manual review. Where applicable, each limitation is marked with one of the following indicators:  
+**[Checked by PMA]** – A premigration assessment automatically validates this limitation.
+**[Partially checked by PMA]** – A premigration assessment covers some aspects of this limitation.
+**[Not checked by PMA]** – No premigration assessment exists for this limitation. Review manually before starting your migration.
+For more information, see [Oracle assessments](CHAP_Tasks.AssessmentReport.Oracle.md).
 + AWS DMS supports Oracle Extended data types in AWS DMS version 3.5.0 and higher.
-+ AWS DMS does not support Oracle identifiers longer than 30 bytes during CDC replication. This limitation applies regardless of whether the Oracle source version supports extended identifiers.
++ **[Checked by PMA]** AWS DMS does not support Oracle identifiers longer than 30 bytes during CDC replication. This limitation applies regardless of whether the Oracle source version supports extended identifiers.
 
   During full load, AWS DMS migrates objects with long identifiers successfully. However, during CDC, events for objects with identifiers exceeding 30 bytes are silently skipped without stopping the task. This can result in missing data on the target.
 
@@ -853,16 +863,16 @@ The following limitations apply when using an Oracle database as a source for AW
 The 30-byte limit is measured in bytes, not characters. Identifiers that use multibyte character sets, such as UTF-8 encoded CJK characters, can exceed 30 bytes with fewer than 30 characters. For example, a 15-character Japanese identifier encoded in UTF-8 can require up to 45 bytes.
 
   To avoid data loss during CDC replication, verify that all identifiers in the migration scope are within the 30-byte limit. To check the byte length of an object name, use the Oracle built-in function `LENGTHB('{{object-name}}')`. Alternatively, run a premigration assessment to validate all objects in the migration scope. For more information, see [Validate the length of the object name included in the task scope](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.Oracle.html#CHAP_Tasks.AssessmentReport.Oracle.30ByteLimit).
-+ AWS DMS does not support function-based indexes.
-+ If you manage supplemental logging and carry out transformations on any of the columns, make sure that supplemental logging is activated for all fields and columns. For more information on setting up supplemental logging, see the following topics:
++ **[Checked by PMA]** AWS DMS does not support function-based indexes.
++ **[Partially checked by PMA]** If you manage supplemental logging and carry out transformations on any of the columns, make sure that supplemental logging is activated for all fields and columns. For more information on setting up supplemental logging, see the following topics:
   + For a self-managed Oracle source database, see [Setting up supplemental logging](#CHAP_Source.Oracle.Self-Managed.Configuration.SupplementalLogging).
   + For an AWS-managed Oracle source database, see [Configuring an AWS-managed Oracle source for AWS DMS](#CHAP_Source.Oracle.Amazon-Managed.Configuration).
-+ AWS DMS does not support the multi-tenant container root database (CDB$ROOT). It does support a PDB using the Binary Reader.
-+ AWS DMS does not support deferred constraints.
++ **[Checked by PMA]** AWS DMS does not support the multi-tenant container root database (CDB$ROOT). It does support a PDB using the Binary Reader.
++ **[Not checked by PMA]** AWS DMS does not support deferred constraints.
 + AWS DMS version 3.5.3 and above fully supports secure LOBs.
-+ AWS DMS supports the `rename table table-name to new-table-name` syntax for all supported Oracle versions 11 and higher. This syntax isn't supported for any Oracle version 10 source databases.
-+ AWS DMS does not replicate results of the DDL statement `ALTER TABLE ADD {{column}} {{data_type}} DEFAULT {{default_value}}`. Instead of replicating `{{default_value}}` to the target, it sets the new column to `NULL`.
-+ When using AWS DMS version 3.4.7 or higher, to replicate changes that result from partition or subpartition operations, do the following before starting a DMS task.
++ **[Not checked by PMA]** AWS DMS supports the `rename table table-name to new-table-name` syntax for all supported Oracle versions 11 and higher. This syntax isn't supported for any Oracle version 10 source databases.
++ **[Not checked by PMA]** AWS DMS does not replicate results of the DDL statement `ALTER TABLE ADD {{column}} {{data_type}} DEFAULT {{default_value}}`. Instead of replicating `{{default_value}}` to the target, it sets the new column to `NULL`.
++ **[Checked by PMA]** When using AWS DMS version 3.4.7 or higher, to replicate changes that result from partition or subpartition operations, do the following before starting a DMS task.
   + Manually create the partitioned table structure (DDL); 
   + Make sure the DDL is the same on both Oracle source and Oracle target; 
   + Set the extra connection attribute `enableHomogenousPartitionOps=true`.
@@ -877,67 +887,68 @@ The 30-byte limit is measured in bytes, not characters. Identifiers that use mul
   + `EXCHANGE` operations might raise both a "0 rows affected" warning and "duplicates" errors.
 
   To replicate changes that result from partition or subpartition operations, reload the tables in question. After adding a new empty partition, operations on the newly added partition are replicated to the target as normal.
-+ AWS DMS versions prior to 3.4 don't support data changes on the target that result from running the `CREATE TABLE AS` statement on the source. However, the new table is created on the target.
-+ AWS DMS does not capture changes made by the Oracle `DBMS_REDEFINITION` package, for example the table metadata and the `OBJECT_ID` field.
-+ When Limited-size LOB mode is enabled, empty BLOB/CLOB columns on the Oracle source are replicated as NULL values. When Full LOB mode is enabled, they are replicated as an empty string (' ').
-+ When capturing changes with Oracle 11 LogMiner, an update on a CLOB column with a string length greater than 1982 is lost, and the target is not updated.
-+ During change data capture (CDC), AWS DMS does not support batch updates to numeric columns defined as a primary key.
-+ AWS DMS does not support certain `UPDATE` commands. The following example is an unsupported `UPDATE` command.
++ **[Not checked by PMA]** AWS DMS versions prior to 3.4 don't support data changes on the target that result from running the `CREATE TABLE AS` statement on the source. However, the new table is created on the target.
++ **[Not checked by PMA]** AWS DMS does not capture changes made by the Oracle `DBMS_REDEFINITION` package, for example the table metadata and the `OBJECT_ID` field.
++ **[Not checked by PMA]** When Limited-size LOB mode is enabled, empty BLOB/CLOB columns on the Oracle source are replicated as NULL values. When Full LOB mode is enabled, they are replicated as an empty string (' ').
++ **[Not checked by PMA]** When capturing changes with Oracle 11 LogMiner, an update on a CLOB column with a string length greater than 1982 is lost, and the target is not updated.
++ **[Not checked by PMA]** During change data capture (CDC), AWS DMS does not support batch updates to numeric columns defined as a primary key.
++ **[Not checked by PMA]** AWS DMS does not support certain `UPDATE` commands. The following example is an unsupported `UPDATE` command.
 
   ```
   UPDATE TEST_TABLE SET KEY=KEY+1;
   ```
 
   Here, `TEST_TABLE` is the table name and `KEY` is a numeric column defined as a primary key.
-+ AWS DMS does not support full LOB mode for loading LONG and LONG RAW columns. Instead, you can use limited LOB mode for migrating these datatypes to an Oracle target. In limited LOB mode, AWS DMS truncates any data to 64 KB that you set to LONG or LONG RAW columns longer than 64 KB.
-+ AWS DMS does not support full LOB mode for loading XMLTYPE columns. Instead, you can use limited LOB mode for migrating XMLTYPE columns to an Oracle target. In limited LOB mode, DMS truncates any data larger than the user defined 'Maximum LOB size' variable. The maximum recommended value for 'Maximum LOB size' is 100MB.
-+ AWS DMS does not replicate tables whose names contain apostrophes.
-+ AWS DMS supports CDC from materialized views. But DMS does not support CDC from any other views.
-+ AWS DMS does not support CDC for index-organized tables with an overflow segment.
-+ AWS DMS does not support the `Drop Partition` operation for tables partitioned by reference with `enableHomogenousPartitionOps` set to `true`.
-+ When you use Oracle LogMiner to access the redo logs, AWS DMS has the following limitations:
-  + For Oracle 12 only, AWS DMS does not replicate any changes to LOB columns.
-  + AWS DMS does not support XA transactions in replication while using Oracle LogMiner.
-  + Oracle LogMiner does not support connections to a pluggable database (PDB). To connect to a PDB, access the redo logs using Binary Reader.
-  + SHRINK SPACE operations aren’t supported.
-+ When you use Binary Reader, AWS DMS has these limitations:
-  + It does not support table clusters.
-  + It supports only table-level `SHRINK SPACE` operations. This level includes the full table, partitions, and sub-partitions.
-  + It does not support changes to index-organized tables with key compression.
-  + It does not support implementing online redo logs on raw devices.
-  + Binary Reader supports TDE only for self-managed Oracle databases since RDS for Oracle does not support wallet password retrieval for TDE encryption keys.
-+ AWS DMS does not support connections to an Amazon RDS Oracle source using an Oracle Automatic Storage Management (ASM) proxy.
-+ AWS DMS does not support virtual columns. 
-+ AWS DMS does not support the `ROWID` data type or materialized views based on a ROWID column.
++ **[Checked by PMA]** AWS DMS does not support full LOB mode for loading LONG and LONG RAW columns. Instead, you can use limited LOB mode for migrating these datatypes to an Oracle target. In limited LOB mode, AWS DMS truncates any data to 64 KB that you set to LONG or LONG RAW columns longer than 64 KB.
++ **[Checked by PMA]** AWS DMS does not support full LOB mode for loading XMLTYPE columns. Instead, you can use limited LOB mode for migrating XMLTYPE columns to an Oracle target. In limited LOB mode, DMS truncates any data larger than the user defined 'Maximum LOB size' variable. The maximum recommended value for 'Maximum LOB size' is 100MB.
++ **[Checked by PMA]** AWS DMS does not replicate tables whose names contain apostrophes.
++ **[Partially checked by PMA]** AWS DMS supports CDC from materialized views. But DMS does not support CDC from any other views.
++ **[Checked by PMA]** AWS DMS does not support CDC for index-organized tables with an overflow segment.
++ **[Not checked by PMA]** AWS DMS does not support the `Drop Partition` operation for tables partitioned by reference with `enableHomogenousPartitionOps` set to `true`.
++ **[Partially checked by PMA]** When you use Oracle LogMiner to access the redo logs, AWS DMS has the following limitations:
+  + **[Checked by PMA]** For Oracle 12 only, AWS DMS does not replicate any changes to LOB columns.
+  + **[Not checked by PMA]** AWS DMS does not support XA transactions in replication while using Oracle LogMiner.
+  + **[Checked by PMA]** Oracle LogMiner does not support connections to a pluggable database (PDB). To connect to a PDB, access the redo logs using Binary Reader.
+  + **[Not checked by PMA]** SHRINK SPACE operations aren't supported.
++ **[Not checked by PMA]** When you use Binary Reader, AWS DMS has these limitations:
+  + **[Not checked by PMA]** It does not support table clusters.
+  + **[Not checked by PMA]** It supports only table-level `SHRINK SPACE` operations. This level includes the full table, partitions, and sub-partitions.
+  + **[Not checked by PMA]** It does not support changes to index-organized tables with key compression.
+  + **[Not checked by PMA]** It does not support implementing online redo logs on raw devices.
+  + **[Not checked by PMA]** Binary Reader supports TDE only for self-managed Oracle databases since RDS for Oracle does not support wallet password retrieval for TDE encryption keys.
++ **[Not checked by PMA]** AWS DMS does not support connections to an Amazon RDS Oracle source using an Oracle Automatic Storage Management (ASM) proxy.
++ **[Checked by PMA]** AWS DMS does not support virtual columns. 
++ **[Checked by PMA]** AWS DMS does not support the `ROWID` data type or materialized views based on a ROWID column.
 
   AWS DMS has partial support for Oracle Materialized Views. For full-loads, DMS can do a full-load copy of an Oracle Materialized View. DMS copies the Materialized View as a base table to the target system and ignores any ROWID columns in the Materialized View. For ongoing replication (CDC), DMS tries to replicate changes to the Materialized View data but the results might not be ideal. Specifically, if the Materialized View is completely refreshed, DMS replicates individual deletes for all the rows, followed by individual inserts for all the rows. That is a very resource intensive exercise and might perform poorly for materialized views with large numbers of rows. For ongoing replication where the materialized views do a fast refresh, DMS tries to process and replicate the fast refresh data changes. In either case, DMS skips any ROWID columns in the materialized view.
-+ AWS DMS does not load or capture global temporary tables.
-+ For S3 targets using replication, enable supplemental logging on every column so source row updates can capture every column value. An example follows: `alter table yourtablename add supplemental log data (all) columns;`.
-+ An update for a row with a composite unique key that contains `null` can't be replicated at the target.
-+ AWS DMS does not support use of multiple Oracle TDE encryption keys on the same source endpoint. Each endpoint can have only one attribute for TDE encryption Key Name "`securityDbEncryptionName`", and one TDE password for this key.
-+ When replicating from Amazon RDS for Oracle, TDE is supported only with encrypted tablespace and using Oracle LogMiner.
-+ AWS DMS does not support multiple table rename operations in quick succession.
++ **[Not checked by PMA]** AWS DMS does not load or capture global temporary tables.
++ **[Checked by PMA]** For S3 targets using replication, enable supplemental logging on every column so source row updates can capture every column value. An example follows: `alter table yourtablename add supplemental log data (all) columns;`.
++ **[Not checked by PMA]** An update for a row with a composite unique key that contains `null` can't be replicated at the target.
++ **[Partially checked by PMA]** AWS DMS does not support use of multiple Oracle TDE encryption keys on the same source endpoint. Each endpoint can have only one attribute for TDE encryption Key Name "`securityDbEncryptionName`", and one TDE password for this key.
++ **[Partially checked by PMA]** When replicating from Amazon RDS for Oracle, TDE is supported only with encrypted tablespace and using Oracle LogMiner.
++ **[Not checked by PMA]** AWS DMS does not support multiple table rename operations in quick succession.
 + When using Oracle 19.0 as source, AWS DMS does not support the following features:
-  + Data-guard DML redirect
-  + Partitioned hybrid tables
-  + Schema-only Oracle accounts
-+ AWS DMS does not support migration of tables or views of type `BIN$` or `DR$`.
-+ Beginning with Oracle 18.x, AWS DMS does not support change data capture (CDC) from Oracle Express Edition (Oracle Database XE).
-+ When migrating data from a CHAR column, DMS truncates any trailing spaces. 
-+ AWS DMS does not support replication from application containers.
-+ AWS DMS does not support performing Oracle Flashback Database and restore points, as these operations affect the consistency of Oracle Redo Log files.
-+ Prior to AWS DMS version 3.5.3, Direct-load `INSERT` procedure with the parallel execution option is not supported in the following cases:
+  + **[Checked by PMA]** Data-guard DML redirect
+  + **[Checked by PMA]** Partitioned hybrid tables
+  + **[Checked by PMA]** Schema-only Oracle accounts
++ **[Not checked by PMA]** AWS DMS does not support migration of tables or views of type `BIN$` or `DR$`.
++ **[Checked by PMA]** Beginning with Oracle 18.x, AWS DMS does not support change data capture (CDC) from Oracle Express Edition (Oracle Database XE).
++ **[Not checked by PMA]** When migrating data from a CHAR column, DMS truncates any trailing spaces. 
++ **[Checked by PMA]** AWS DMS does not support replication from application containers.
++ **[Not checked by PMA]** AWS DMS does not support performing Oracle Flashback Database and restore points, as these operations affect the consistency of Oracle Redo Log files.
++ **[Not checked by PMA]** Prior to AWS DMS version 3.5.3, Direct-load `INSERT` procedure with the parallel execution option is not supported in the following cases:
   + Uncompressed tables with more than 255 columns
   + Row size exceeds 8K
   + Exadata HCC tables
   + Database running on Big Endian platform
-+ A source table with neither primary nor unique key requires ALL COLUMN supplemental logging to be enabled. It creates more redo log activities and may increase DMS CDC latency.
-+ AWS DMS does not migrate data from invisible columns in your source database. To include these columns in your migration scope, use the `ALTER TABLE` statement to make these columns visible.
-+ For all Oracle versions, AWS DMS does not replicate the result of `UPDATE` operations on `XMLTYPE` and LOB columns.
-+ AWS DMS does not support replication from tables with temporal validity constraints.
-+ If the Oracle source becomes unavailable during a full load task, AWS DMS might mark the task as completed after multiple reconnection attempts, even though the data migration remains incomplete. In this scenario, the target tables contain only the records migrated before the connection loss, potentially creating data inconsistencies between the source and target systems. To ensure data completeness, you must either restart the full load task entirely or reload the specific tables affected by the connection interruption.
++ **[Partially checked by PMA]** A source table with neither primary nor unique key requires ALL COLUMN supplemental logging to be enabled. It creates more redo log activities and may increase DMS CDC latency.
++ **[Checked by PMA]** AWS DMS does not migrate data from invisible columns in your source database. To include these columns in your migration scope, use the `ALTER TABLE` statement to make these columns visible.
++ **[Partially checked by PMA]** For all Oracle versions, AWS DMS does not replicate the result of `UPDATE` operations on `XMLTYPE` and LOB columns.
++ **[Not checked by PMA]** AWS DMS does not support replication from tables with temporal validity constraints.
++ **[Not checked by PMA]** If the Oracle source becomes unavailable during a full load task, AWS DMS might mark the task as completed after multiple reconnection attempts, even though the data migration remains incomplete. In this scenario, the target tables contain only the records migrated before the connection loss, potentially creating data inconsistencies between the source and target systems. To ensure data completeness, you must either restart the full load task entirely or reload the specific tables affected by the connection interruption.
 + If you are using Oracle LogMiner connected to an Oracle Active Data Guard standby and the primary database is Oracle RAC, all RAC nodes on the primary must be open (available). If any RAC node is stopped, CDC does not progress, and the task displays the message `REDO events corresponding SCN are not still archived`, but does not raise an error. This happens because AWS DMS cannot detect closed redo threads when reading from a standby database. To resolve this, ensure all primary RAC nodes are running, or switch to Binary Reader which reads directly from the primary. 
 + AWS DMS does not support Oracle Autonomous Database, including Autonomous Database on Dedicated Exadata Infrastructure, as a source endpoint for full load or change data capture (CDC) tasks. This limitation does not apply to other supported Oracle database deployments on Oracle Cloud Infrastructure (OCI). 
++ AWS DMS doesn't support Oracle Database@AWS as a source. This configuration hasn't been tested or certified, so some features might not work as expected.
 
 ## SSL support for an Oracle endpoint
 <a name="CHAP_Security.SSL.Oracle"></a>
@@ -1563,7 +1574,7 @@ The following table shows the endpoint settings that you can use with Oracle as 
 | `OpenTransactionWindow` |  Provides the timeframe in minutes to check for any open transactions for CDC only task.When you set `OpenTransactionWindow` to 1 or higher, DMS uses `SCN_TO_TIMESTAMP` to convert SCN values to timestamp values. Because of Oracle Database limitations, if you specify an SCN that is too old as the CDC start point, SCN\_TO\_TIMESTAMP will fail with an `ORA-08181` error, and you can't start CDC-only tasks.<br />Default value: 0 <br />Valid values: An integer from 0 to 240<br />Example: `openTransactionWindow=15;` | 
 | OraclePathPrefix | Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This value specifies the default Oracle root used to access the redo logs. For more information, see [Configuring a CDC task to use Binary Reader with an RDS for Oracle source for AWS DMS](#CHAP_Source.Oracle.Amazon-Managed.CDC).Default value: none <br />Valid value: /rdsdbdata/db/ORCL\_A/<br />Example: `--oracle-settings '{"OraclePathPrefix": "{{/rdsdbdata/db/ORCL_A/}}"}'` | 
 | ParallelASMReadThreads | Set this attribute to change the number of threads that DMS configures to perform change data capture (CDC) using Oracle Automatic Storage Management (ASM). You can specify an integer value between 2 (the default) and 8 (the maximum). Use this attribute together with the `ReadAheadBlocks` attribute. For more information, see [Configuring a CDC task to use Binary Reader with an RDS for Oracle source for AWS DMS](#CHAP_Source.Oracle.Amazon-Managed.CDC).<br />Default value: 2 <br />Valid values: An integer from 2 to 8<br />Example: `--oracle-settings '{"ParallelASMReadThreads": 6;}'` | 
-| ReadAheadBlocks | Set this attribute to change the number of read-ahead blocks that DMS configures to perform CDC using Oracle Automatic Storage Management (ASM) and non-ASM NAS storage. You can specify an integer value between 1000 (the default) and 2,000,000 (the maximum). Use this attribute together with the `ParallelASMReadThreads` attribute. For more information, see [Configuring a CDC task to use Binary Reader with an RDS for Oracle source for AWS DMS](#CHAP_Source.Oracle.Amazon-Managed.CDC).<br />Default value: 1000 <br />Valid values: An integer from 1000 to 2,000,000<br />Example: `--oracle-settings '{"ReadAheadBlocks": 150000}'` | 
+| ReadAheadBlocks | Set this attribute to change the number of read-ahead blocks that DMS configures to perform CDC using Oracle Automatic Storage Management (ASM) and non-ASM NAS storage. You can specify an integer value between 1000 (the default) and 200,000 (the maximum). Use this attribute together with the `ParallelASMReadThreads` attribute. For more information, see [Configuring a CDC task to use Binary Reader with an RDS for Oracle source for AWS DMS](#CHAP_Source.Oracle.Amazon-Managed.CDC).<br />Default value: 1000 <br />Valid values: An integer from 1000 to 200,000<br />Example: `--oracle-settings '{"ReadAheadBlocks": 150000}'` | 
 | `ReadTableSpaceName` | When set to `true`, this attribute supports tablespace replication.<br />Default value: false <br />Valid values: Boolean <br />Example: `--oracle-settings '{"ReadTableSpaceName": true}'` | 
 | ReplacePathPrefix | Set this attribute to true in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This setting tells DMS instance to replace the default Oracle root with the specified UsePathPrefix setting to access the redo logs. For more information, see [Configuring a CDC task to use Binary Reader with an RDS for Oracle source for AWS DMS](#CHAP_Source.Oracle.Amazon-Managed.CDC).Default value: false <br />Valid values: true/false<br />Example: `--oracle-settings '{"ReplacePathPrefix": true}'` | 
 | `RetryInterval` | Specifies the number of seconds that the system waits before resending a query. <br />Default value: 5 <br />Valid values: Numbers starting from 1 <br />Example: `--oracle-settings '{"RetryInterval": 6}'` | 

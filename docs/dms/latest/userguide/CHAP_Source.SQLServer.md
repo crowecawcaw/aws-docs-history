@@ -125,10 +125,6 @@ USE db_name;
                 ALTER ROLE [db_datareader] ADD MEMBER dms_user; 
                 GRANT VIEW DATABASE STATE to dms_user;
                 GRANT VIEW DEFINITION to dms_user;
-                
-                USE master;
-                
-                GRANT VIEW SERVER STATE TO dms_user;
 ```
 
 ### Permissions for tasks with ongoing replication
@@ -177,6 +173,7 @@ For Amazon RDS for Microsoft SQL Server sources, DMS version 3.5.3 and above sup
 
 ```
 USE msdb;
+    CREATE USER rds_user FOR LOGIN rds_user;
     GRANT EXEC ON msdb.dbo.rds_dms_tlog_download TO rds_user;
     GRANT EXEC ON msdb.dbo.rds_dms_tlog_read TO rds_user;
     GRANT EXEC ON msdb.dbo.rds_dms_tlog_list_current_lsn TO rds_user;
@@ -251,7 +248,7 @@ When you start an AWS DMS task for the first time, it might take longer than usu
 1. Ensure that your AWS DMS replication instance can resolve DNS names for all existing replicas, and connect to them. You can use the following SQL query to get DNS names for all of your replicas.
 
    ```
-   select ar.replica_server_name, ar.endpoint_url from sys.availability_replicas ar
+   select ar.replica_server_name, ar.endpoint_url, ar.read_only_routing_url from sys.availability_replicas ar
    JOIN sys.availability_databases_cluster adc
    ON adc.group_id = ar.group_id AND adc.database_name = '<source_database_name>';
    ```

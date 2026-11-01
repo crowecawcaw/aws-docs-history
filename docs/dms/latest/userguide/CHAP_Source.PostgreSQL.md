@@ -63,10 +63,10 @@ Before migrating data from a self-managed PostgreSQL source database, do the fol
 
   ```
               # Replication Instance
-              host all all 12.3.4.56/32 md5
+              host all all 192.0.2.1/32 md5
               # Allow replication connections from localhost, by a user with the
               # replication privilege.
-              host replication dms 12.3.4.56/32 md5
+              host replication dms 192.0.2.1/32 md5
   ```
 
   PostgreSQL's `pg_hba.conf` configuration file controls client authentication. (HBA stands for host-based authentication.) The file is traditionally stored in the database cluster's data directory. 
@@ -103,9 +103,9 @@ You can use an AWS-managed PostgreSQL DB instance as a source for AWS DMS. You c
 <a name="CHAP_Source.PostgreSQL.RDSPostgreSQL.Prerequisites"></a>
 
 Before migrating data from an AWS-managed PostgreSQL source database, do the following:
-+ We recommend that you use an AWS user account with the minimum required permissions for the PostgreSQL DB instance as the user account for the PostgreSQL source endpoint for AWS DMS. Using the master account is not recommended. The account must have the `rds_superuser` role and the `rds_replication` role. The `rds_replication` role grants permissions to manage logical slots and to stream data using logical slots.
++ We recommend that you use an AWS user account with the minimum required permissions for the PostgreSQL DB instance as the user account for the PostgreSQL source endpoint for AWS DMS. Using the admin account for the endpoint is not recommended, and the endpoint account doesn't require the `rds_superuser` role. For ongoing CDC, the endpoint account must have the `rds_replication` role, along with `SELECT` permissions on the tables that you migrate. The `rds_replication` role grants permissions to manage logical slots (create, read, and drop) and to stream data using logical slots. The endpoint account creates and manages the replication slot itself using the `rds_replication` role, including when a task restarts and recreates the slot; the `rds_superuser` role is not required for slot operations. An account with the `rds_superuser` role is needed only for initial database setup, to create the AWS DMS helper objects and event triggers and to enable logical replication.
 
-  Make sure to create several objects from the master user account for the account that you use. For information about creating these, see [Migrating an Amazon RDS for PostgreSQL database without using the master user account](#CHAP_Source.PostgreSQL.RDSPostgreSQL.NonMasterUser).
+  Make sure to create several objects from the admin account for the account that you use. For information about creating these, see [Migrating an Amazon RDS for PostgreSQL database without using the master user account](#CHAP_Source.PostgreSQL.RDSPostgreSQL.NonMasterUser).
 + If your source database is in a virtual private cloud (VPC), choose the VPC security group that provides access to the DB instance where the database resides. This is needed for the DMS replication instance to connect successfully to the source DB instance. When the database and DMS replication instance are in same VPC, add the appropriate security group to its own inbound rules.
 
 **Note**  
@@ -125,7 +125,7 @@ AWS DMS supports CDC on Amazon RDS PostgreSQL databases when the DB instance is 
 
 **To enable logical replication for an RDS PostgreSQL DB instance**
 
-1. Use the AWS master user account for the PostgreSQL DB instance as the user account for the PostgreSQL source endpoint. The master user account has the required roles that allow it to set up CDC. 
+1. Use an account with the `rds_superuser` role for the PostgreSQL DB instance to set up CDC. This account has the roles required to create the logical replication objects. After setup, the PostgreSQL source endpoint itself can use a least-privilege account that has the `rds_replication` role. 
 
    If you use an account other than the master user account, make sure to create several objects from the master account for the account that you use. For more information, see [Migrating an Amazon RDS for PostgreSQL database without using the master user account](#CHAP_Source.PostgreSQL.RDSPostgreSQL.NonMasterUser).
 
@@ -651,7 +651,9 @@ You can add additional configuration settings when migrating data from a Postgre
 ## Read replica as a source for PostgreSQL
 <a name="CHAP_Source.PostgreSQL.ReadReplica"></a>
 
-Use PostgreSQL read replicas as CDC sources in AWS DMS to reduce primary database load. This feature is available from PostgreSQL 16.x and requires AWS DMS version 3.6.1 or later. Using read replicas for CDC processing reduces the operational impact on your primary database.
+Use Amazon RDS for PostgreSQL read replicas as CDC sources in AWS DMS to reduce primary database load. This feature is available for Amazon RDS for PostgreSQL version 16.x and later and requires AWS DMS version 3.6.1 or later. Using read replicas for CDC processing reduces the operational impact on your primary database.
+
+Amazon Aurora PostgreSQL read replicas are not supported as a CDC source. Aurora PostgreSQL read replicas share the cluster's storage volume with the writer and don't have their own logical replication slots.
 
 **Note**  
 Amazon RDS PostgreSQL version 16.x has limitations for read replica logical replication in the Three-AZ (TAZ) configurations. For full read replica logical replication support in TAZ deployments, you must use PostgreSQL version 17.x or later.
@@ -770,7 +772,7 @@ The following limitations apply when using PostgreSQL as a source for AWS DMS:
 + In DDL replication as part of a script, the maximum total number of DDL commands per script is 8192 and maximum total number of lines per script is 8192 lines.
 + AWS DMS does not support Materialized Views.
 + For full load and CDC tasks using a read replica as the source, AWS DMS cannot create replication slots on read replicas.
-+ Amazon Aurora PostgreSQL read replicas are not supported as a source for CDC with AWS DMS versions earlier than 3.6.1. CDC from Aurora PostgreSQL read replicas requires PostgreSQL version 16.x or later and AWS DMS version 3.6.1 or later.
++ Amazon Aurora PostgreSQL read replicas are not supported as a source for CDC. Aurora PostgreSQL read replicas share the cluster's storage volume with the writer and don't have their own logical replication slots.
 
 ## Source data types for PostgreSQL
 <a name="CHAP_Source-PostgreSQL-DataTypes"></a>

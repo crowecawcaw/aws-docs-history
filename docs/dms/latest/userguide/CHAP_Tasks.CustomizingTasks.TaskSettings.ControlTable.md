@@ -59,14 +59,14 @@ The Replication History table (`dmslogs.awsdms_history`) contains the following 
 
 | Column | Type | Description | 
 | --- | --- | --- | 
-| SERVER\_NAME | nvchar | The name of the machine where the replication task is running. | 
-| TASK\_NAME | nvchar | The Resource ID of the AWS DMS task. Resource ID can be found in task ARN. | 
-| TIMESLOT\_TYPE | varchar | One of the following values:+  FULL LOAD <br />+  CHANGE PROCESSING (CDC) <br />If the task is running both full load and CDC, two history records are written to the time slot. | 
-| TIMESLOT | timestamp | The ending timestamp of the time slot. | 
-| TIMESLOT\_DURATION | int | The duration of the time slot, in minutes. | 
-| TIMESLOT\_LATENCY | int | The target latency at the end of the time slot, in seconds. This value only applies to CDC time slots. | 
-| RECORDS | int | The number of records processed during the time slot. | 
-| TIMESLOT\_VOLUME | int | The volume of data processed in MB. | 
+| server\_name | nvchar | The name of the machine where the replication task is running. | 
+| task\_name | nvchar | The Resource ID of the AWS DMS task. Resource ID can be found in task ARN. | 
+| timeslot\_type | varchar | One of the following values:+  FULL LOAD <br />+  CHANGE PROCESSING (CDC) <br />If the task is running both full load and CDC, two history records are written to the time slot. | 
+| timeslot | timestamp | The ending timestamp of the time slot. | 
+| timeslot\_duration | int | The duration of the time slot, in minutes. | 
+| timeslot\_latency | int | The target latency at the end of the time slot, in seconds. This value only applies to CDC time slots. | 
+| timeslot\_records | int | The number of records processed during the time slot. | 
+| timeslot\_volume | int | The volume of data processed in MB. | 
 
 The Validation Failure table (`awsdms_validation_failures_v1`) contains all the data validation failures for a task. For more information see, [Data Validation Troubleshooting](CHAP_Validating.md#CHAP_Validating.Troubleshooting).
 

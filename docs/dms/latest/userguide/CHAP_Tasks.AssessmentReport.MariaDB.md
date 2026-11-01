@@ -191,7 +191,7 @@ For more information about MariaDB endpoint limitations, see [Limitations on usi
 
 **API key:** `mariadb-check-supported-version`
 
-This premigration assessment verifies whether the source database version is compatible with DMS. CDC is not supported with Amazon RDS MariaDB versions 10.4 or lower, or MySQL versions greater than 10.11. For more information about supported MariaDB versions, see [Source endpoints for data migration](CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.DataMigration).
+This premigration assessment verifies whether the source database version is compatible with DMS. CDC is not supported with Amazon RDS MariaDB versions 10.4 or lower. For more information about supported MariaDB versions, see [Source endpoints for data migration](CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.DataMigration).
 
 ## Validate if the target database is configured to set `local_infile` to 1
 <a name="CHAP_Tasks.AssessmentReport.MariaDB.LocalInfile"></a>

@@ -48,6 +48,8 @@ You have some control over how the replication instance handles change processin
    +  The number of tasks and the number of threads impact CPU consumption. Avoid using more than eight `MaxFullLoadSubTasks` during the full load operation. 
 
 1.  Increase the disk space assigned to the replication instance when you have a high workload during full load. Doing this lets the replication instance use the maximum IOPS assigned to it. 
+**Note**  
+AWS DMS replication instances use Amazon EBS volumes, and you cannot decrease the disk size after you increase it.
 
  The preceding guidelines don't cover all possible scenarios. It's important to consider the specifics of your particular use case when you determine the size of your replication instance. 
 

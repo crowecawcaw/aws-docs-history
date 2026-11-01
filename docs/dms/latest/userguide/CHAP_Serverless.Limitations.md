@@ -19,5 +19,4 @@ AWS DMS Serverless has the following limitations:
   For information about setting up VPC endpoints, see [Configuring VPC endpoints for AWS DMS](CHAP_VPC_Endpoints.md).
 + AWS DMS serverless does not support views.
 + AWS DMS Serverless does not support SSL connections for DB2 endpoints.
-+ AWS DMS Serverless does not support setting custom CDC start points.
 + When a replication task is in deprovisioned state, the metadata related to the table and the replication statistics are lost.

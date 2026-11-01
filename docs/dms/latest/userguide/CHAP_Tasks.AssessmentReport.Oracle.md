@@ -15,7 +15,7 @@ grant select on gv_$parameter to dms_user;
                     grant select on v_$version to dms_user;
                     grant select on gv_$ASM_DISKGROUP to dms_user;
                     grant select on gv_$database to dms_user;
-                    grant select on DBA_DB_LINKS to to dms_user;
+                    grant select on DBA_DB_LINKS to dms_user;
                     grant select on gv_$log_History to dms_user;
                     grant select on gv_$log to dms_user;
                     grant select on dba_types to dms_user;
@@ -23,7 +23,7 @@ grant select on gv_$parameter to dms_user;
                     grant select on dba_directories to dms_user;
                     grant execute on SYS.DBMS_XMLGEN to dms_user;
 ```
-Additional permissions is required if you are using a self-managed Oracle database as a source for AWS DMS Serverless:  
+Additional permissions are required if you are using a self-managed Oracle database as a source for AWS DMS Serverless:  
 
 ```
 grant select on dba_segments to dms_user;
@@ -48,7 +48,7 @@ EXEC RDSADMIN.RDSADMIN_UTIL.GRANT_SYS_OBJECT('V_$PARAMETER', 'dms_user', 'SELECT
                     GRANT SELECT ON RDSADMIN.RDS_CONFIGURATION to dms_user;
                     GRANT EXECUTE ON SYS.DBMS_XMLGEN TO dms_user;
 ```
-Additional permissions is required if you are using an AWS-managed Oracle database as a source for AWS DMS Serverless:  
+Additional permissions are required if you are using an AWS-managed Oracle database as a source for AWS DMS Serverless:  
 
 ```
 EXEC RDSADMIN.RDSADMIN_UTIL.GRANT_SYS_OBJECT('DBA_SEGMENTS','dms_user', 'SELECT');
@@ -60,12 +60,14 @@ If you are using a self-managed Oracle database as a target for AWS DMS, use the
 
 ```
 grant select on v_$instance to dms_user;
+                    grant select on v_$database to dms_user;
                     grant execute on SYS.DBMS_XMLGEN to dms_user;
 ```
 If you are using an AWS-managed Oracle database as a target for AWS DMS, use the following set of permissions:  
 
 ```
 EXEC RDSADMIN.RDSADMIN_UTIL.GRANT_SYS_OBJECT('V_$INSTANCE', 'dms_user', 'SELECT');
+                    EXEC RDSADMIN.RDSADMIN_UTIL.GRANT_SYS_OBJECT('V_$DATABASE', 'dms_user', 'SELECT');
                     GRANT EXECUTE ON SYS.DBMS_XMLGEN TO dms_user;
 ```
 
@@ -151,6 +153,7 @@ EXEC RDSADMIN.RDSADMIN_UTIL.GRANT_SYS_OBJECT('V_$INSTANCE', 'dms_user', 'SELECT'
 + [Validate that the Oracle target does not have CONTEXT indexes when using direct path load](#CHAP_Tasks.AssessmentReport.Oracle.directpath.index)
 + [Validate that `FailTasksOnLobTruncation` is enabled when using limited LOB mode with existing LOB columns](#CHAP_Tasks.AssessmentReport.Oracle.FailTasksOnLobTruncation)
 + [Validate that `EnableHomogenousPartitionOps` endpoint setting is enabled](#CHAP_Tasks.AssessmentReport.Oracle.Homogenous.partition)
++ [Oracle source limitations not covered by premigration assessments](#CHAP_Tasks.AssessmentReport.Oracle.UncoveredLimitations)
 
 ## Validate that limited LOB mode only is used when `BatchApplyEnabled` is enabled
 <a name="CHAP_Tasks.AssessmentReport.Oracle.LimitedLOBMode"></a>
@@ -807,3 +810,38 @@ For more information, see [Endpoint settings when using Oracle as a source for A
 This premigration assessment validates that the `EnableHomogenousPartitionOps` endpoint setting is enabled for Oracle homogeneous migrations. This setting is required for AWS DMS to replicate Oracle partition and subpartition DDL operations.
 
 For more information, see [Limitations on using Oracle as a source for AWS DMS](CHAP_Source.Oracle.md#CHAP_Source.Oracle.Limitations).
+
+## Oracle source limitations not covered by premigration assessments
+<a name="CHAP_Tasks.AssessmentReport.Oracle.UncoveredLimitations"></a>
+
+**Important**  
+A successful premigration assessment does not validate the following Oracle source limitations. Review these items manually before starting your migration to avoid unexpected behavior or data loss during replication.
+
+
+| Limitation | Potential impact | Risk | 
+| --- | --- | --- | 
+| AWS DMS does not replicate results of ALTER TABLE ADD column DEFAULT default\_value. New columns are set to NULL. | Silent data loss: target columns contain NULL instead of defaults | High | 
+| AWS DMS does not capture changes made by DBMS\_REDEFINITION. | Silent data loss: table redefinition changes not replicated | High | 
+| AWS DMS does not support batch updates to numeric primary key columns during CDC (for example, UPDATE table SET KEY=KEY\+1). | Silent data loss: primary key updates dropped | High | 
+| AWS DMS does not support deferred constraints. | Data integrity violations on target | High | 
+| AWS DMS does not support replication from tables with temporal validity constraints. | Silent data loss: temporal data skipped | High | 
+| When Limited-size LOB mode is enabled, empty BLOB/CLOB columns are replicated as NULL instead of empty values. | Data inconsistency: NULL vs empty string on target | Medium | 
+| Oracle 11 LogMiner: CLOB updates with string length greater than 1982 characters are lost. | Silent data loss: large CLOB updates dropped | Medium | 
+| AWS DMS does not support XA transactions when using Oracle LogMiner. | Missing transactions on target | Medium | 
+| Updates to rows with a composite unique key containing NULL cannot be replicated. | Silent data loss | Medium | 
+| AWS DMS does not support migration of tables or views of type BIN$ or DR$. | Tables silently skipped | Medium | 
+| If the Oracle source becomes unavailable during full load, AWS DMS may mark the task as completed despite incomplete data migration. | Silent data loss: incomplete migration reported as successful | High | 
+| AWS DMS does not support multiple table rename operations in quick succession. | Data inconsistency | Low | 
+| AWS DMS does not support Oracle Flashback Database and restore points. | Redo log consistency issues | Low | 
+| AWS DMS does not support connections to an Amazon RDS Oracle source using an Oracle Automatic Storage Management (ASM) proxy. | Connection failure | Medium | 
+| AWS DMS supports the rename table syntax for Oracle versions 11 and higher only. Not supported for Oracle version 10 source databases. | DDL not replicated on Oracle 10 | Low | 
+| AWS DMS versions prior to 3.4 don't support data changes on the target that result from running the CREATE TABLE AS statement on the source. | Data changes from CTAS not replicated | Medium | 
+| Binary Reader does not support changes to index-organized tables with key compression. | Changes silently dropped | Medium | 
+| Binary Reader does not support implementing online redo logs on raw devices. | CDC failure | Medium | 
+| Binary Reader does not support table clusters. | Tables silently skipped | Medium | 
+| SHRINK SPACE operations are not supported. Only table-level SHRINK SPACE (full table, partitions, and sub-partitions) is supported. | Data inconsistency after SHRINK | Low | 
+| Prior to AWS DMS version 3.5.3, Direct-load INSERT with parallel execution is not supported for uncompressed tables with more than 255 columns, row size exceeding 8K, Exadata HCC tables, or databases on Big Endian platforms. | Data loss during parallel direct-load operations | Medium | 
+| When migrating data from a CHAR column, AWS DMS truncates any trailing spaces. | Data inconsistency: trailing spaces removed | Low | 
+| AWS DMS does not load or capture global temporary tables. | Temporary table data not migrated | Low | 
+
+For the complete list of Oracle source limitations including those validated by premigration assessments, see [Limitations on using Oracle as a source for AWS DMS](CHAP_Source.Oracle.md#CHAP_Source.Oracle.Limitations).

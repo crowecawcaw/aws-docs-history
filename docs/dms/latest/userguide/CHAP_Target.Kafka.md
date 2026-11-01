@@ -150,8 +150,8 @@ To enable client authentication and encryption using SSL authentication to conne
    -destkeystore keystore.p12 \
    -deststoretype PKCS12 \
    -srcalias msk-rsa-client \
-   -deststorepass test1234 \
-   -destkeypass test1234
+   -deststorepass {{your-keystore-password}} \
+   -destkeypass {{your-keystore-password}}
    ```
 
 1. Use the following command to export `keystore.p12` into `.pem` format. 
@@ -182,8 +182,8 @@ To enable client authentication and encryption using SSL authentication to conne
    ```
    aws dms create-endpoint --endpoint-identifier $endpoint-identifier --engine-name kafka --endpoint-type target --kafka-settings 
    '{"Broker": "b-0.kafka260.aaaaa1.a99.kafka.us-east-1.amazonaws.com:0000", "SecurityProtocol":"ssl-authentication", 
-   "SslClientCertificateArn": "arn:aws:dms:us-east-1:012346789012:cert:",
-   "SslClientKeyArn": "arn:aws:dms:us-east-1:0123456789012:cert:","SslClientKeyPassword":"test1234"}'
+   "SslClientCertificateArn": "arn:aws:dms:us-east-1:111122223333:cert:",
+   "SslClientKeyArn": "arn:aws:dms:us-east-1:111122223333:cert:","SslClientKeyPassword":"{{your-client-key-password}}"}'
    aws dms test-connection -replication-instance-arn=$rep_inst_arn —endpoint-arn=$kafka_tar_arn_msk
    ```
 

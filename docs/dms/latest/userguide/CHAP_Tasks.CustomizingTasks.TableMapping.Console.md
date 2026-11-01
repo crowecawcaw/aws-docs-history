@@ -10,7 +10,7 @@ You can include transformations in a table mapping after you have specified at l
 **Note**  
 AWS DMS doesn't support more than one transformation rule per schema level, table level, or column level.
 
-The following procedure shows how to set up selection rules, based on a table called **Customers** in a schema called **EntertainmentAgencySample**. 
+The following procedure shows how to set up selection rules, based on a table called **Customers** in a schema called **MySchema**. 
 
 **To specify a table selection, filter criteria, and transformations using the console**
 

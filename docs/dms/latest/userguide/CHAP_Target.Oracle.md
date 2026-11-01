@@ -79,6 +79,7 @@ Limitations when using Oracle as a target for data migration include the followi
 + AWS DMS doesn't support Autonomous DB on Oracle Cloud Infrastructure (OCI).
 + In transactional apply mode, an Oracle target can process DML statements up to 32 KB in size. While this limit is sufficient for many use cases, DML statements exceeding 32 KB will fail with the error: "ORA-01460: unimplemented or unreasonable conversion requested." To resolve this issue, you must enable the batch apply feature by setting the `BatchApplyEnabled` task setting to `true`. Batch apply reduces the overall statement size, allowing you to bypass the 32 KB limitation. For more information, see [Target metadata task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.TargetMetadata.md).
 + AWS DMS Direct path full load for LOB tables may fail with error ORA-39777 due to special handling requirements for LOB data. This error occurs during the direct path load process and can disrupt migration tasks involving LOB columns. To resolve, disable the `useDirectPathFullLoad` setting on the target endpoint and retry the load operation.
++ AWS DMS doesn't support Oracle Database@AWS as a target. This configuration hasn't been tested or certified, so some features might not work as expected.
 
 ## User account privileges required for using Oracle as a target
 <a name="CHAP_Target.Oracle.Privileges"></a>

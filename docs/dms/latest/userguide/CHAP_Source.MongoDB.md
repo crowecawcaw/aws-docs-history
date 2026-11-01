@@ -5,7 +5,7 @@
 
  For information about versions of MongoDB that AWS DMS supports as a source, see [Sources for AWS DMS](CHAP_Introduction.Sources.md). 
 
-Note the following about MongoDB version support:
+Note the following about MongoDB on-premises version support:
 + Versions of AWS DMS 3.4.5 and later support MongoDB versions 4.2 and 4.4. 
 + Versions of AWS DMS 3.4.5 and later and versions of MongoDB 4.2 and later support distributed transactions. For more information on MongoDB distributed transactions, see [Transactions](https://docs.mongodb.com/manual/core/transactions/) in the [MongoDB documentation](https://www.mongodb.com/docs/).
 + Versions of AWS DMS 3.5.0 and later don't support versions of MongoDB prior to 3.6.

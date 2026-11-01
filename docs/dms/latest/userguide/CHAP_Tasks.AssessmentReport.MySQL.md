@@ -93,7 +93,7 @@ For more information about sources for AWS DMS, see [ Using a self-managed MySQL
 
 This premigration assessment validates whether the DMS user specified in the target endpoint connection settings has the necessary permissions for the MySQL database as a target.
 
-For more information about MySQL source endpoint prerequisites, see [ Using any MySQL-compatible database as a source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MySQL.html#CHAP_Source.MySQL.Prerequisites).
+For more information about MySQL target endpoint prerequisites, see [Using any MySQL-compatible database as a target for AWS Database Migration Service](CHAP_Target.MySQL.md#CHAP_Target.MySQL.Prerequisites).
 
 ## Validate if automatic removal of binary logs is set for the source database
 <a name="CHAP_Tasks.AssessmentReport.MySQL.BinaryLogAutomaticRemoval"></a>

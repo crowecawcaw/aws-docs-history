@@ -31,5 +31,5 @@ The following table shows the endpoint settings that you can use with Db2 LUW as
 | --- | --- | 
 | `KeepCsvFiles` | If true, AWS DMS saves any .csv files to the Db2 LUW target that were used to replicate data. DMS uses these files for analysis and troubleshooting.. | 
 | `LoadTimeout` | The amount of time (in seconds) before AWS DMS times out operations performed by AWS DMS on the Db2 target. The default value is 1200 (20 minutes). | 
-| `MaxFileSize` | Specifies the maximum size (in KB) of .csv files used to transfer data to Db2 LUW. | 
+| `MaxFileSize` | Specifies the maximum size (in KB) of .csv files used to transfer data to Db2 LUW. The default value is 102400 (100 MB). | 
 | `WriteBufferSize` | The size (in KB) of the in-memory file write buffer used when generating .csv files on the local disk on the DMS replication instance. The default value is 1024 (1 MB). | 

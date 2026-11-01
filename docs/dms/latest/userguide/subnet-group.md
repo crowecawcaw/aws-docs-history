@@ -19,6 +19,6 @@ Before you create an instance profile, configure a subnet group for your instanc
 
 1. For **Add subnets**, choose subnets to include in the subnet group. You must choose subnets in at least two Availability Zones.
 
-   To connect to Amazon RDS databases, add public subnets into your subnet group. To connect to on-premises databases, add private subnets into your subnet group. 
+   Choose subnets that provide network connectivity between your replication instance and your source and target databases. The subnet type (public or private) does not by itself determine connectivity to Amazon RDS or on-premises databases; make sure the subnets you choose can reach your databases. 
 
 1. Choose **Create subnet group**.

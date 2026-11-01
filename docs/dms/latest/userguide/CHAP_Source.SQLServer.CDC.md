@@ -122,7 +122,7 @@ Disk access to read changes from transactional log backup files
 Add or alter the publication which DMS uses
 Add articles to the publication
 
-1. Set up Microsoft SQL Server for Replication as described in [Capturing data changes for ongoing replication from SQL Server](#CHAP_Source.SQLServer.CDC).
+1. Configure SQL Server distribution as described in [To set up distribution](#CHAP_Source.SQLServer.CDC.MSCDC.Setup).
 
 1. Enable MS-REPLICATION on the source database. This can either be done manually or by running the task once as a sysadmin user.
 
