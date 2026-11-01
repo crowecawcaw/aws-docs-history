@@ -35,7 +35,7 @@ The following `tag-resource` example shows how to add a tag to a data store.
 
 ```
 aws healthlake tag-resource \
-    --resource-arn {{"arn:aws:healthlake:us-east-1:123456789012:datastore/fhir/0725c83f4307f263e16fd56b6d8ebdbe"}} \
+    --resource-arn {{"arn:aws:healthlake:us-west-2:123456789012:datastore/fhir/0725c83f4307f263e16fd56b6d8ebdbe"}} \
     --tags '{{[{"Key": "key1", "Value": "value1"}]}}'
 ```
 This command produces no output.  
@@ -144,20 +144,26 @@ Choose a menu based on your access preference to AWS HealthLake.
 
 **AWS CLI**  
 **To list tags for a data store**  
-The following `list-tags-for-resource` example lists the tags associated with the specified data store.:  
+The following `list-tags-for-resource` example lists the tags associated with the specified data store.  
 
 ```
 aws healthlake list-tags-for-resource \
-    --resource-arn {{"arn:aws:healthlake:us-east-1:123456789012:datastore/fhir/0725c83f4307f263e16fd56b6d8ebdbe"}}
+    --resource-arn {{"arn:aws:healthlake:us-west-2:123456789012:datastore/fhir/0725c83f4307f263e16fd56b6d8ebdbe"}}
 ```
 Output:  
 
 ```
 {
-    "tags": {
-        "key": "value",
-        "key1": "value1"
-    }
+    "Tags": [
+        {
+            "Key": "key",
+            "Value": "value"
+        },
+        {
+            "Key": "key1",
+            "Value": "value1"
+        }
+    ]
 }
 ```
   
@@ -263,7 +269,7 @@ The following `untag-resource` example shows how to remove tags from a data stor
 
 ```
 aws healthlake untag-resource \
-    --resource-arn {{"arn:aws:healthlake:us-east-1:123456789012:datastore/fhir/b91723d65c6fdeb1d26543a49d2ed1fa"}} \
+    --resource-arn {{"arn:aws:healthlake:us-west-2:123456789012:datastore/fhir/b91723d65c6fdeb1d26543a49d2ed1fa"}} \
     --tag-keys '{{["key1"]}}'
 ```
 This command produces no output.  
