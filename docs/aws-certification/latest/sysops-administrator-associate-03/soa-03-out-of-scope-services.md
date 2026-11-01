@@ -42,13 +42,11 @@ The following list contains AWS services and features that are out of scope for 
 ## Business Applications
 <a name="soa-03-out-of-scope-business-applications"></a>
 + AWS AppFabric
-+ Amazon Chime
 + Amazon Connect
 + AWS End User Messaging SMS
 + Amazon One Enterprise
 + Amazon Pinpoint
 + AWS Supply Chain
-+ Amazon WorkDocs
 + Amazon WorkMail
 
 ## Compute

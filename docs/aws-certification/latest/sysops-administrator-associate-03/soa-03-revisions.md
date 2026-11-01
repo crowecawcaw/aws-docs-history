@@ -20,6 +20,7 @@ AWS exam guides are periodically reviewed and revised to ensure that each certif
 | --- | --- | 
 | 1.0 | September 30, 2025 | 
 | 1.1 | June 1, 2026 | 
+| 1.2 | October 29, 2026 | 
 
 ## Changes to Skills
 <a name="soa-03-changes-to-skills"></a>
@@ -54,6 +55,8 @@ AWS exam guides are periodically reviewed and revised to ensure that each certif
 + Amazon AppStream 2.0
 + Amazon Augmented AI (Amazon A2I)
 + AWS AppSync
++ Amazon Chime
 + Amazon Cloud Directory
 + Amazon Kendra
 + Amazon Q Developer
++ Amazon WorkDocs
