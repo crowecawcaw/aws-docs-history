@@ -1,6 +1,6 @@
 
 
-# Slot Types
+# Slot types
 <a name="acxd-slot-types"></a>
 
 Custom entity types for extracting structured data from user input. A slot type defines a list of values (with optional synonyms) that the NLP engine uses to identify entities in conversation.
@@ -12,7 +12,7 @@ Custom entity types for extracting structured data from user input. A slot type 
 + [UpdateSlotType](#acxd-slot-types-updateslottype)
 + [DeleteSlotType](#acxd-slot-types-deleteslottype)
 + [Request Parameters](#acxd-slot-types-request-parameters)
-+ [Slot Type Value](#acxd-slot-types-slot-type-value)
++ [Slot type value](#acxd-slot-types-slot-type-value)
 
 ## ListSlotTypes
 <a name="acxd-slot-types-listslottypes"></a>
@@ -391,7 +391,7 @@ Pagination token. See Common Types.
 Type: Integer  
 Max items per page (1–500). See Common Types.
 
-## Slot Type Value
+## Slot type value
 <a name="acxd-slot-types-slot-type-value"></a>
 
 

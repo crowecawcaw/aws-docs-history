@@ -184,7 +184,7 @@ Properties common across events (e.g., conversationId, applicationId). Each entr
 Type: Array  
 Properties specific to this event type (e.g., utterance, flowId). Each entry: `{ "key": "...", "value": "..." }`.
 
-### Time Filter
+### Time filter
 <a name="acxd-logs-querylogs-time-filter"></a>
 
 Provide exactly one variant:
@@ -216,7 +216,7 @@ Start of time range (ISO 8601).
 Type: String  
 End of time range (ISO 8601).
 
-### Search Filter
+### Search filter
 <a name="acxd-logs-querylogs-search-filter"></a>
 
 
@@ -263,7 +263,7 @@ Filter by end-user ID. Max 256 characters.
 Type: String  
 Filter by event type. See Event Types.
 
-### Event Types
+### Event types
 <a name="acxd-logs-querylogs-event-types"></a>
 
 

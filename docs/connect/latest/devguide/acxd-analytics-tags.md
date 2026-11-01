@@ -1,6 +1,6 @@
 
 
-# Analytics Tags
+# Analytics tags
 <a name="acxd-analytics-tags"></a>
 
 Tag conversation events with sentiment classifications for reporting and analysis.

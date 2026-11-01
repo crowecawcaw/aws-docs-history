@@ -1,11 +1,11 @@
 
 
-# Common Errors
+# Common errors
 <a name="acxd-common-errors"></a>
 
 This section lists the error types that the ACXD SDK may return.
 
-## Common Errors
+## Common errors
 <a name="acxd-common-errors-list"></a>
 
 ### `ValidationException`

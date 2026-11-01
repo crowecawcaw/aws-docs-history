@@ -1,19 +1,19 @@
 
 
-# Application Builds
+# Application builds
 <a name="acxd-application-builds"></a>
 
 A build creates an immutable package of your application's flow logic, language settings, and configuration. A build compiles an application's flows and configuration into a deployable artifact.
 
 **Topics**
-+ [Quick Start](#acxd-application-builds-quick-start)
++ [Quick start](#acxd-application-builds-quick-start)
 + [ListApplicationBuilds](#acxd-application-builds-listapplicationbuilds)
 + [CreateApplicationBuild](#acxd-application-builds-createapplicationbuild)
 + [GetApplicationBuild](#acxd-application-builds-getapplicationbuild)
 + [GetApplicationBuildDiff](#acxd-application-builds-getapplicationbuilddiff)
 + [Request Parameters](#acxd-application-builds-request-parameters)
 
-## Quick Start
+## Quick start
 <a name="acxd-application-builds-quick-start"></a>
 
 This example creates an application, attaches a flow, builds it, and checks build status.

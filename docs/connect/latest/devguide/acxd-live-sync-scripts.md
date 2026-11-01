@@ -1,6 +1,6 @@
 
 
-# Live Sync Scripts
+# Live Sync scripts
 <a name="acxd-live-sync-scripts"></a>
 
 **Topics**

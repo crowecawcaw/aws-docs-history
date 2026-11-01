@@ -12,7 +12,7 @@ Define input/output schemas for different interaction channels. Modalities descr
 + [UpdateModality](#acxd-modalities-updatemodality)
 + [DeleteModality](#acxd-modalities-deletemodality)
 + [Request Parameters](#acxd-modalities-request-parameters)
-+ [Modality Schema](#acxd-modalities-modality-schema)
++ [Modality schema](#acxd-modalities-modality-schema)
 
 ## ListModalities
 <a name="acxd-modalities-listmodalities"></a>
@@ -413,7 +413,7 @@ Type: Integer
 
 Max items per page (1–500). See Common Types.
 
-## Modality Schema
+## Modality schema
 <a name="acxd-modalities-modality-schema"></a>
 
 A recursive schema definition describing the structure of data for this modality.

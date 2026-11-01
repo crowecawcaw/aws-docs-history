@@ -20,4 +20,7 @@ Following are the conditions that you can use.
 + [OnCaseCreate](OnCaseCreate.md)
 + [OnCaseUpdate](OnCaseUpdate.md)
 + [OnSlaBreach](OnSlaBreach.md)
++ [OnSchedulePublish](OnSchedulePublish.md)
++ [OnScheduleUpdate](OnScheduleUpdate.md)
++ [OnScheduleTimeOffRequestActivity](OnScheduleTimeOffRequestActivity.md)
 + [PatternMatch Operands](patternmatch-operands.md)

@@ -7,7 +7,7 @@ Type: `String`
 
 A BCP-47 language code identifying a single language (e.g., `en-US`, `es-ES`, `fr-FR`).
 
-## Supported Language Codes
+## Supported language codes
 <a name="acxd-common-types-languagecode-supported"></a>
 
 

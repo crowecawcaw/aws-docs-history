@@ -1,6 +1,6 @@
 
 
-# API Reference
+# API reference
 <a name="acxd-api-reference"></a>
 
 All operations follow the Command pattern. Import the client and the command, then call client.send(command).
@@ -200,30 +200,30 @@ The following section lists the API operations by resource.
 + `DeleteWorkspace`
 
 **Topics**
-+ [Analytics Tags](acxd-analytics-tags.md)
-+ [API Tokens](acxd-api-tokens.md)
++ [Analytics tags](acxd-analytics-tags.md)
++ [API tokens](acxd-api-tokens.md)
 + [Applications](acxd-applications.md)
-+ [Application Builds](acxd-application-builds.md)
-+ [Application Deployments](acxd-application-deployments.md)
-+ [Context Variables](acxd-context-variables.md)
++ [Application builds](acxd-application-builds.md)
++ [Application deployments](acxd-application-deployments.md)
++ [Context variables](acxd-context-variables.md)
 + [Conversations](acxd-conversations.md)
-+ [Data Requests](acxd-data-requests.md)
++ [Data requests](acxd-data-requests.md)
 + [Downloads](acxd-downloads.md)
 + [Flows](acxd-flows.md)
 + [Guardrails](acxd-guardrails.md)
-+ [Knowledge Bases](acxd-knowledge-bases.md)
-+ [Knowledge Base Articles](acxd-knowledge-base-articles.md)
-+ [KnowledgeBase Documents](acxd-knowledge-base-documents.md)
-+ [Live Sync Scripts](acxd-live-sync-scripts.md)
++ [Knowledge bases](acxd-knowledge-bases.md)
++ [Knowledge base articles](acxd-knowledge-base-articles.md)
++ [Knowledge base documents](acxd-knowledge-base-documents.md)
++ [Live Sync scripts](acxd-live-sync-scripts.md)
 + [Logs](acxd-logs.md)
 + [Modalities](acxd-modalities.md)
-+ [Programmatic Users](acxd-programmatic-users.md)
++ [Programmatic users](acxd-programmatic-users.md)
 + [Roles](acxd-roles.md)
 + [Secrets](acxd-secrets.md)
-+ [Slot Types](acxd-slot-types.md)
++ [Slot types](acxd-slot-types.md)
 + [Team](acxd-team.md)
 + [Trails](acxd-trails.md)
 + [Users](acxd-users.md)
 + [Versions](acxd-versions.md)
 + [Workspaces](acxd-workspaces.md)
-+ [Common Types](acxd-common-types.md)
++ [Common types](acxd-common-types.md)

@@ -9,11 +9,11 @@ This topic provides guidance for using Connect Customer Describe and List APIs s
 + [Types of errors](#failure-types)
 + [Throttling in Connect Customer APIs](#throttling)
 + [How to configure your client Read API(s)](#configure-client-read-apis)
-+ [How to make 2 TPS work for List APIs](#configure-client-list-apis)
-+ [How to make 2 TPS work for Create/Update APIs](#configure-client-create-apis)
-+ [Hitting a resource quota? Delete resources](#delete-unused-resources)
++ [How to make 2 TPS work for List APIs when you have a large number of resources](#configure-client-list-apis)
++ [How to make 2 TPS work for Create/Update APIs when you have a large number of resources](#configure-client-create-apis)
++ [Hitting a resource quota? Delete unused / stale resources](#delete-unused-resources)
 + [How to request an increase to an API throttling quota](#request-quota-increase)
-+ [Supported SDKs](#supported-sdks)
++ [Supported SDKs for all Connect Customer APIs](#supported-sdks)
 
 ## Types of errors
 <a name="failure-types"></a>

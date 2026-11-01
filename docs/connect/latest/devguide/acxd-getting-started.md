@@ -1,6 +1,6 @@
 
 
-# Getting Started
+# Getting started
 <a name="acxd-getting-started"></a>
 
 This guide walks you through setting up authentication and making your first Agentic CX Designer SDK API call.
@@ -17,20 +17,20 @@ Before you begin, make sure that you have the following:
 
 ACXD SDK uses API key authentication. To get an API key you need a programmatic user.
 
-## Step 1: Create a Programmatic User
+## Step 1: Create a programmatic user
 <a name="acxd-getting-started-step1"></a>
 
 Programmatic users are machine identities that can authenticate with the ACXD SDK. Only account administrators can create them.
 
-1. In the Agentic CX Designer workspace, navigate to Admin Hub > Programmatic Users
+1. In the Agentic CX Designer workspace, choose **Admin Hub**, **Programmatic Users**.
 
-1. Click **Create Programmatic User**
+1. Choose **Create Programmatic User**.
 
-1. Provide a name and an optional description
+1. Provide a name and an optional description.
 
-1. Assign permissions via Role Configuration
+1. Assign permissions through Role configuration.
 
-### Role Configuration
+### Role configuration
 <a name="acxd-getting-started-step1-roleconfig"></a>
 
 Each programmatic user has a `roleConfig` that determines their access:
@@ -51,7 +51,7 @@ Grants full access across all workspaces in the account.
 #### Workspace-scoped roles
 <a name="acxd-getting-started-step1-workspace-roles"></a>
 
-Grants specific permissions per workspace
+Grants specific permissions per workspace.
 
 ```
 {
@@ -65,16 +65,16 @@ Grants specific permissions per workspace
 
 Workspace-scoped users can be assigned pre-defined roles (administrator, developer, content manager, read-only) or a custom role configured under Roles in Admin Hub.
 
-## Step 2: Generate an API Key
+## Step 2: Generate an API key
 <a name="acxd-getting-started-step2"></a>
 
 Once a programmatic user exists, generate an API key for it:
 
-1. In Admin Hub → Programmatic Users, select your user
+1. Choose **Admin Hub**, **Programmatic Users**, and then select your user.
 
-1. Click Generate API Key
+1. Choose **Generate API Key**.
 
-1. Copy the full key immediately, it is shown only once
+1. Copy the full key immediately. It is shown only once.
 
 The key format is: `acxd_live_<prefix>.<secret>`
 
@@ -88,7 +88,7 @@ Store your API key securely. It cannot be retrieved after creation. You can gene
 npm install amazon-connect-acxd-sdk
 ```
 
-## Step 4: Make your First Call
+## Step 4: Make your first call
 <a name="acxd-getting-started-step4"></a>
 
 With your API key and workspace ID, you can make requests to the ACXD SDK.
@@ -112,7 +112,7 @@ For account-level operations (e.g., managing programmatic users, workspaces), `w
 
 The API key is just a credential - it carries no permissions itself. Permissions are resolved at request time from the programmatic user's assigned role. If the role is updated in Admin Hub, the change takes effect immediately.
 
-## Next Steps
+## Next steps
 <a name="acxd-getting-started-next-steps"></a>
 
 After you make your first call, continue with the following resources:

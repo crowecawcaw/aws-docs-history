@@ -1,6 +1,6 @@
 
 
-# Knowledge Bases
+# Knowledge bases
 <a name="acxd-knowledge-bases"></a>
 
 Manage knowledge sources for AI-powered responses. Knowledge bases can contain articles (structured Q&A) or documents (uploaded files). They must be published before they are available in conversations.
@@ -16,7 +16,7 @@ Manage knowledge sources for AI-powered responses. Knowledge bases can contain a
 + [GetKnowledgeBasePublication](#acxd-knowledge-bases-getknowledgebasepublication)
 + [ListKnowledgeBasePublications](#acxd-knowledge-bases-listknowledgebasepublications)
 + [Request Parameters](#acxd-knowledge-bases-request-parameters)
-+ [Response Config](#acxd-knowledge-bases-response-config)
++ [Response config](#acxd-knowledge-bases-response-config)
 
 ## ListKnowledgeBases
 <a name="acxd-knowledge-bases-listknowledgebases"></a>
@@ -613,7 +613,7 @@ Type: String
 
 The identity of who last modified the knowledge base.
 
-## Response Config
+## Response config
 <a name="acxd-knowledge-bases-response-config"></a>
 
 

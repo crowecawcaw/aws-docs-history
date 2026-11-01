@@ -10,7 +10,7 @@ Query the audit trail of changes made to workspace resources. Trails use an asyn
 + [GetTrailQueryResults](#acxd-trails-gettrailqueryresults)
 + [Request Parameters](#acxd-trails-request-parameters)
 + [Response Fields](#acxd-trails-response-fields)
-+ [Event Names](#acxd-trails-event-names)
++ [Event names](#acxd-trails-event-names)
 
 ## StartTrailQuery
 <a name="acxd-trails-starttrailquery"></a>
@@ -43,7 +43,7 @@ await client.send(new StartTrailQueryCommand({
 }));
 ```
 
-### StartTrailQuery with Filters
+### StartTrailQuery with filters
 <a name="acxd-trails-starttrailquery-filters"></a>
 
 ```
@@ -246,7 +246,7 @@ User display name.
 Type: String  
 Account tier.
 
-## Event Names
+## Event names
 <a name="acxd-trails-event-names"></a>
 
 

@@ -12,8 +12,8 @@ A flow represents the structured path a conversation follows to fulfill a user's
 + [UpdateFlow](#acxd-flows-updateflow)
 + [DeleteFlow](#acxd-flows-deleteflow)
 + [Request Parameters](#acxd-flows-request-parameters)
-+ [Attached Slot](#acxd-flows-attached-slot)
-+ [Flow Node](#acxd-flows-flow-node)
++ [Attached slot](#acxd-flows-attached-slot)
++ [Flow node](#acxd-flows-flow-node)
 
 ## ListFlows
 <a name="acxd-flows-listflows"></a>
@@ -518,7 +518,7 @@ Type: Integer
 
 Max items per page (1–500). See Common Types.
 
-## Attached Slot
+## Attached slot
 <a name="acxd-flows-attached-slot"></a>
 
 
@@ -567,7 +567,7 @@ Type: String
 
 Optional regex pattern for validation. Max 300 characters.
 
-## Flow Node
+## Flow node
 <a name="acxd-flows-flow-node"></a>
 
 

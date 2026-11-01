@@ -1,12 +1,12 @@
 
 
-# Application Deployments
+# Application deployments
 <a name="acxd-application-deployments"></a>
 
 Deploying an application pushes a successful build to the channels where users interact: chat, voice, IVR, website, mobile, or MCP clients. Only one build is live per application at a time. Deploying a new build deactivates the previous one. You can roll back to any previous build at any time.
 
 **Topics**
-+ [Quick Start](#acxd-application-deployments-quick-start)
++ [Quick start](#acxd-application-deployments-quick-start)
 + [ListApplicationDeployments](#acxd-application-deployments-listapplicationdeployments)
 + [CreateApplicationDeployment](#acxd-application-deployments-createapplicationdeployment)
 + [GetApplicationDeployment](#acxd-application-deployments-getapplicationdeployment)
@@ -14,7 +14,7 @@ Deploying an application pushes a successful build to the channels where users i
 + [DeleteApplicationDeployment](#acxd-application-deployments-deleteapplicationdeployment)
 + [Request Parameters](#acxd-application-deployments-request-parameters)
 
-## Quick Start
+## Quick start
 <a name="acxd-application-deployments-quick-start"></a>
 
 ```

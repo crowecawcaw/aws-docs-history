@@ -10,6 +10,6 @@ We've provided you with the Flow language so you can:
 + Write flows rather than drag blocks onto the flow designer.
 
 **Topics**
-+ [Concepts](flow-language-concepts.md)
-+ [Example flow](flow-language-example.md)
-+ [Actions](flow-language-actions.md)
++ [Connect Customer Flow language concepts](flow-language-concepts.md)
++ [Example flow in Connect Customer Flow language](flow-language-example.md)
++ [Actions in the Connect Customer Flow Language](flow-language-actions.md)

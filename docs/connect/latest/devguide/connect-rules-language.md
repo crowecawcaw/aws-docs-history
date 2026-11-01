@@ -7,5 +7,5 @@ This section describes the Connect Customer Rules Function language. You can use
 
 **Topics**
 + [Concepts](rules-language-concepts.md)
-+ [Example rule function](example-rule-function.md)
-+ [Conditions](rule-function-conditions.md)
++ [Example rule function in Connect Customer Rule Function language](example-rule-function.md)
++ [Conditions in Connect Customer Rules Function language](rule-function-conditions.md)

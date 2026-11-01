@@ -14,11 +14,11 @@ Define safety rules that monitor conversation content and enforce behavior like 
 + [TestGuardrail](#acxd-guardrails-testguardrail)
 + [ListGuardrailEvents](#acxd-guardrails-listguardrailevents)
 + [Request Parameters](#acxd-guardrails-request-parameters)
-+ [Guardrail Rule](#acxd-guardrails-guardrail-rule)
++ [Guardrail rule](#acxd-guardrails-guardrail-rule)
 + [Detection](#acxd-guardrails-detection)
 + [Enforcement](#acxd-guardrails-enforcement)
-+ [Enforcement Behavior](#acxd-guardrails-enforcement-behavior)
-+ [Fallback Behavior](#acxd-guardrails-fallback-behavior)
++ [Enforcement behavior](#acxd-guardrails-enforcement-behavior)
++ [Fallback behavior](#acxd-guardrails-fallback-behavior)
 
 ## ListGuardrails
 <a name="acxd-guardrails-listguardrails"></a>
@@ -550,7 +550,7 @@ When the guardrail was last modified (ISO 8601).
 Type: String  
 The identity of who last modified the guardrail.
 
-## Guardrail Rule
+## Guardrail rule
 <a name="acxd-guardrails-guardrail-rule"></a>
 
 
@@ -651,7 +651,7 @@ Action-specific configuration. Provide the variant matching the action. See Enfo
 Type: Array  
 Tags to apply when triggered.
 
-## Enforcement Behavior
+## Enforcement behavior
 <a name="acxd-guardrails-enforcement-behavior"></a>
 
 Fields depend on the enforcement action:
@@ -686,7 +686,7 @@ Fields depend on the enforcement action:
 
 **flowId:** Flow to route the conversation to (required).
 
-## Fallback Behavior
+## Fallback behavior
 <a name="acxd-guardrails-fallback-behavior"></a>
 
 What to do if guardrail processing itself fails (e.g., LLM timeout).

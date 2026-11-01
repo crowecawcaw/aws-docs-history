@@ -12,8 +12,8 @@ Manage conversational AI applications, the top-level container for flows, builds
 + [UpdateApplication](#acxd-applications-updateapplication)
 + [DeleteApplication](#acxd-applications-deleteapplication)
 + [Request Parameters](#acxd-applications-request-parameters)
-+ [Application Settings](#acxd-applications-application-settings)
-+ [Deployment Settings](#acxd-applications-deployment-settings)
++ [Application settings](#acxd-applications-application-settings)
++ [Deployment settings](#acxd-applications-deployment-settings)
 
 ## ListApplications
 <a name="acxd-applications-listapplications"></a>
@@ -413,7 +413,7 @@ Type: String
 
 The identity of who last modified the application.
 
-## Application Settings
+## Application settings
 <a name="acxd-applications-application-settings"></a>
 
 
@@ -651,7 +651,7 @@ Type: Object
 
 How long to retain cluster data. `{ "count": 30, "resolution": "DAY" }` (1–90 days).
 
-## Deployment Settings
+## Deployment settings
 <a name="acxd-applications-deployment-settings"></a>
 
 **`oneClickDeployEnabled`**

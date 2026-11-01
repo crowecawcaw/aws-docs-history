@@ -13,8 +13,8 @@ Manage permission roles that can be assigned to programmatic users. Roles define
 + [DeleteRole](#acxd-roles-deleterole)
 + [GetRolePermissions](#acxd-roles-getrolepermissions)
 + [Request Parameters](#acxd-roles-request-parameters)
-+ [Role Permission](#acxd-roles-role-permission)
-+ [Condition Catalog](#acxd-roles-condition-catalog)
++ [Role permission](#acxd-roles-role-permission)
++ [Condition catalog](#acxd-roles-condition-catalog)
 
 ## ListRoles
 <a name="acxd-roles-listroles"></a>
@@ -386,7 +386,7 @@ When the role was last modified (ISO 8601).
 Type: String  
 The identity of who last modified the role.
 
-## Role Permission
+## Role permission
 <a name="acxd-roles-role-permission"></a>
 
 
@@ -408,7 +408,7 @@ Whether to allow or deny this permission. One of: `allow`, `deny`.
 Type: String  
 Optional reference to a condition in the condition catalog. When present, the permission only applies when the condition is met.
 
-## Condition Catalog
+## Condition catalog
 <a name="acxd-roles-condition-catalog"></a>
 
 Conditions enable fine-grained access control (e.g., restrict a user to specific languages or resources).
@@ -461,7 +461,7 @@ Composite condition (multiple conditions combined):
 }
 ```
 
-### Condition Operand Types
+### Condition operand types
 <a name="acxd-roles-condition-operand-types"></a>
 
 
@@ -471,7 +471,7 @@ Composite condition (multiple conditions combined):
 | resourceId | The ID of the resource being accessed | 
 | constant | A literal value to compare against | 
 
-### Condition Operators
+### Condition operators
 <a name="acxd-roles-condition-operators"></a>
 
 
@@ -486,7 +486,7 @@ Composite condition (multiple conditions combined):
 | CONTAINS | Contains | 
 | NOT\_CONTAINS | Does not contain | 
 
-### Boolean Operators
+### Boolean operators
 <a name="acxd-roles-boolean-operators"></a>
 
 
