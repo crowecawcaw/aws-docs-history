@@ -71,9 +71,9 @@ java -version
 Expected output for 11.0.33:   
 
 ```
-openjdk version "11.0.33" 2026-10-22 LTS
-OpenJDK Runtime Environment Corretto-11.0.33.0.9 (build 11.0.33+0-LTS)
-OpenJDK 64-Bit Server VM Corretto-11.0.33.0.9 (build 11.0.33+0-LTS, mixed mode)
+openjdk version "11.0.33" 2026-10-26 LTS
+OpenJDK Runtime Environment Corretto-11.0.33.0.10 (build 11.0.33+0-LTS)
+OpenJDK 64-Bit Server VM Corretto-11.0.33.0.10 (build 11.0.33+0-LTS, mixed mode)
 ```
 
  If you see a version string that doesn't mention `Corretto`, run the following command to change the default `java` or `javac` providers. 
