@@ -9,7 +9,7 @@ CloudWatch Logs enables you to centralize the logs from all of your systems, app
 
 CloudWatch Logs also supports querying your logs with a powerful query language, auditing and masking sensitive data in logs, and generating metrics from logs using filters or an embedded log format.
 
-CloudWatch Logs supports two *log classes*. Log groups in the *CloudWatch Logs Standard log class* support all CloudWatch Logs features. Log groups in the *CloudWatch Logs Infrequent Access log class* incur lower ingestion charges and support a subset of the Standard class capabilities. For more information, see [Log classes](CloudWatch_Logs_Log_Classes.md).
+CloudWatch Logs supports two *log classes*. Log groups in the *CloudWatch Logs Standard log class* support all CloudWatch Logs features. Log groups in the *CloudWatch Logs Essentials log class* (formerly Infrequent Access) incur lower ingestion charges and support a subset of the Standard class capabilities. For more information, see [Log classes](CloudWatch_Logs_Log_Classes.md).
 
 ## Features
 <a name="cloudwatch-logs-features"></a>

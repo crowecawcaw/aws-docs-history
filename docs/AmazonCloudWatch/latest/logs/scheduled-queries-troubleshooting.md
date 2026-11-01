@@ -89,4 +89,4 @@ There are some important points mentioned below to keep in mind when concurrency
 + **Dashboards:** Queries added to CloudWatch dashboards also count towards this concurrency limit, as they are executed when the dashboard is loaded or refreshed.
 + **OpenSearch Service PPL/SQL:** You can run up to 15 concurrent OpenSearch PPL or OpenSearch SQL queries per AWS account.
 + **Cross-account queries:** The concurrency quota applies to both single and cross-account queries. When using CloudWatch cross-account observability, queries initiated in a monitoring account against a linked source account also count towards the monitoring account's concurrency limit.
-+ **Infrequent Access Log Groups:** For log groups in the infrequent access log class, the maximum number of concurrent Logs Insights queries is limited to five.
++ **Essentials Log Groups (formerly Infrequent Access):** For log groups in the Essentials log class, the maximum number of concurrent Logs Insights queries is limited to five.

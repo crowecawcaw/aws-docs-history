@@ -75,12 +75,12 @@ For example, you can create an index of the `accessKeyId` child field within the
     "userIdentity": {
         "type": "IAMUser",
         "principalId": "EXAMPLE_PRINCIPAL_ID",
-        "arn": "arn: aws: iam: : 123456789012: user/Alice",
+        "arn": "arn:aws:iam::123456789012:user/Alice",
         "accessKeyId": "11112222",
         "accountId": "123456789012",
         "userName": "Alice"
     },
-    "eventTime": "2014-03-06T21: 22: 54Z",
+    "eventTime": "2014-03-06T21:22:54Z",
     "eventSource": "ec2.amazonaws.com",
     "eventName": "StartInstances",
     "awsRegion": "us-east-2",

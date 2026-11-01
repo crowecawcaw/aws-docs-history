@@ -22,7 +22,7 @@ To create queries that contain comments, set off the comments with the hash char
 The following table briefly describes each command. Following this table is a more comprehensive description of each command, with examples.
 
 **Note**  
-All Logs Insights QL query commands are supported on log groups in the Standard log class. Log groups in the Infrequent Access log class support all Logs Insights QL query commands except `pattern`, `diff`, and `unmask`.
+All Logs Insights QL query commands are supported on log groups in the Standard log class. Log groups in the Essentials log class (formerly Infrequent Access) support all Logs Insights QL query commands except `pattern`, `diff`, and `unmask`.
 
 
 |  |  | 
@@ -32,7 +32,7 @@ All Logs Insights QL query commands are supported on log groups in the Standard 
 | **` display`** |  Displays a specific field or fields in query results.  | 
 | **` fields`** |  Displays specific fields in query results and supports functions and operations you can use to modify field values and create new fields to use in your query.  | 
 | **` filter`** |  Filters the query to return only the log events that match one or more conditions.  | 
-| **` filterIndex`** |  Forces a query to attempt to scan only the log groups that are both indexed on the field mentioned in a field index and also contain a value for that field index. This reduces scanned volume by attempting to scan only log events from these log groups that contain the value specified in the query for this field index. <br />This command is not supported for log groups in the Infrequent Access log class. | 
+| **` filterIndex`** |  Forces a query to attempt to scan only the log groups that are both indexed on the field mentioned in a field index and also contain a value for that field index. This reduces scanned volume by attempting to scan only log events from these log groups that contain the value specified in the query for this field index. <br />This command is not supported for log groups in the Essentials log class (formerly Infrequent Access). | 
 | **` pattern`** | Automatically clusters your log data into patterns. A pattern is shared text structure that recurs among your log fields. CloudWatch Logs Insights provides ways for you to analyze the patterns found in your log events. For more information, see [Pattern analysis](CWL_AnalyzeLogData_Patterns.md). | 
 | **` diff`** | Compares the log events found in your requested time period with the log events from a previous time period of equal length, so that you can look for trends and find out if certain log events are new. | 
 | **` parse`** |  Extracts data from a log field to create an extracted field that you can process in your query. **`parse`** supports both glob mode using wildcards, and regular expressions.  | 

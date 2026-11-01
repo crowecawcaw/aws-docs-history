@@ -14,7 +14,7 @@ To use `SOURCE` to specify the log groups to query, you can use the following ke
 + `accountIdentifier` runs the query against log groups in the specified AWS account. This works only when you run the query in a monitoring account. If you omit this, the default is to query all linked source accounts and the current monitoring account. For more information about cross-account observability, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
 
   You can include as many as 20 account identifiers in the list.
-+ `logGroupClass` runs the query against log groups that are in the specified log class, either Standard or Infrequent Access. If you omit this, the default of Standard log class is used. For more information about log classes, see [Log classes](CloudWatch_Logs_Log_Classes.md).
++ `logGroupClass` runs the query against log groups that are in the specified log class, either Standard or Essentials (formerly Infrequent Access). If you omit this, the default of Standard log class is used. For more information about log classes, see [Log classes](CloudWatch_Logs_Log_Classes.md).
 
 Because you can specify large numbers of log groups to query this way, we recommend that you use `SOURCE` only in queries that use field indexes that you have created. For more information about indexing fields in log groups, see [Create field indexes to improve query performance and reduce scan volume](CloudWatchLogs-Field-Indexing.md)
 
@@ -36,10 +36,10 @@ The next example selects log groups based on name prefixes.
 SOURCE logGroups(namePrefix: ['namePrefix1', 'namePrefix2'])
 ```
 
-The following example selects all log groups in the Infrequent Access log class. If you don't include the `class` identifier, the query applies only to log groups in the Standard log class, which is the default. 
+The following example selects all log groups in the Essentials (formerly Infrequent Access) log class. If you don't include the `class` identifier, the query applies only to log groups in the Standard log class, which is the default. 
 
 ```
-SOURCE logGroups(class: ['INFREQUENT_ACCESS'])
+SOURCE logGroups(class: ['ESSENTIALS'])
 ```
 
 The next example selects log groups in the 111122223333 account that start with specific name prefixes and are in the Standard log class. The class is not mentioned in the command because Standard is the default log class value. 

@@ -12,7 +12,7 @@ You can create a data protection policy for all log groups in your account, and 
 If you create a data protection policy for your entire account and you also create a policy for a single log group, both policies apply to that log group. All managed data identifiers that are specified in either policy are audited and masked in that log group. 
 
 **Note**  
-Masking sensitive data is supported for log groups in both the Standard and Infrequent Access log classes. For more information about log classes, see [Log classes](CloudWatch_Logs_Log_Classes.md).
+Masking sensitive data is supported for log groups in both the Standard and Essentials (formerly Infrequent Access) log classes. For more information about log classes, see [Log classes](CloudWatch_Logs_Log_Classes.md).
 
 Each log group can have only one log group-level data protection policy, but that policy can specify many managed data identifiers to audit and mask. The limit for a data protection policy is 30,720 characters.
 

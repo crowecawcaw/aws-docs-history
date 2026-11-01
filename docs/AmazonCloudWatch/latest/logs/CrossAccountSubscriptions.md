@@ -22,5 +22,6 @@ These dimensions help in identifying the source of log data, allowing for more g
 **Topics**
 + [Cross-account cross-Region log data sharing using Amazon Kinesis Data Streams](CrossAccountSubscriptions-Kinesis.md)
 + [Cross-account cross-Region log data sharing using Firehose](CrossAccountSubscriptions-Firehose.md)
++ [Cross-account log data sharing using Lambda](CrossAccountSubscriptions-Lambda.md)
 + [Cross-account cross-Region account-level subscriptions using Amazon Kinesis Data Streams](CrossAccountSubscriptions-Kinesis-Account.md)
 + [Cross-account cross-Region account-level subscriptions using Firehose](CrossAccountSubscriptions-Firehose-Account.md)

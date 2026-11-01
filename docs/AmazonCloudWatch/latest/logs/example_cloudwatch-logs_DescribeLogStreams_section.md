@@ -12,10 +12,13 @@ Action examples are code excerpts from larger programs and must be run in contex
 #### [ CLI ]
 
 **AWS CLI**  
-The following command shows all log streams starting with the prefix `2015` in the log group `my-logs`:  
+**To describe the log streams in a log group**  
+The following `describe-log-streams` example shows all log streams starting with the prefix `2015` in the log group `my-logs`.  
 
 ```
-aws logs describe-log-streams --log-group-name {{my-logs}} --log-stream-name-prefix {{2015}}
+aws logs describe-log-streams \
+    --log-group-name {{my-logs}} \
+    --log-stream-name-prefix {{2015}}
 ```
 Output:  
 
@@ -37,6 +40,7 @@ Output:
     ]
 }
 ```
+For more information, see [Working with log groups and log streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html) in the *Amazon CloudWatch Logs User Guide*.  
 +  For API details, see [DescribeLogStreams](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/describe-log-streams.html) in *AWS CLI Command Reference*. 
 
 ------

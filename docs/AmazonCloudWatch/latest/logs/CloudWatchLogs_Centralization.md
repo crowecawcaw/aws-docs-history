@@ -37,7 +37,7 @@ Log group data is always encrypted in CloudWatch Logs. By default, CloudWatch Lo
   + If you are using customer managed KMS keys in your source accounts, CloudWatch Logs requires [KMS permissions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html#cmk-permissions-lg) in the following example scenarios: 
     + **Throughput Management**: When centralization throughput limits are reached, log data is temporarily stored encrypted with your customer managed KMS key until bandwidth becomes available.
     + **Data Protection and Redaction**: When source log groups have data protection policies enabled, CloudWatch Logs requires decrypt permissions to access raw log data to centralize it.
-Centralization rules are managed by the AWS Organizations management account or delegated administrator. To exclude customer managed KMS-encrypted log groups from centralization, configure the rule settings to "Do not centralize log groups encrypted with AWS KMS key."
+Centralization rules are managed by the AWS Organizations management account or delegated administrator. To exclude source log groups encrypted with customer managed KMS keys from centralization, configure the rule settings to **Do not centralize log groups encrypted with customer managed KMS keys**. This setting applies only to source log groups encrypted with customer managed KMS keys. Source log groups encrypted with an AWS owned KMS key are still centralized, and their data remains encrypted in the destination account.
 
 ## Setting up log centralization
 <a name="centralization-setup"></a>
@@ -49,7 +49,7 @@ Once the centralization rule is enabled and log events are being replicated to t
 ### Prerequisites
 <a name="centralization-prerequisites"></a>
 + AWS Organizations must be set up and the source and destination accounts must both belong to the organization.
-+  Trusted access must be enabled for CloudWatch, the management account and the destination account so provide access to the log data. 
++ Trusted access must be enabled for CloudWatch, the management account, and the destination account to provide access to the log data.
 **Note**  
 It is recommended to enable trusted access through the console, which automatically creates the required service-linked role (SLR). If trusted access is enabled through other methods, the service-linked role will need to be created separately.
 
@@ -208,7 +208,7 @@ Use the following procedure to create a centralization rule that replicates log 
       + **Editor**: A free-form text box to provide the source selection criteria
 
       Supported syntax for source selection criteria:
-      + *Supported Keys:* OrganizationId \| OrganizationUnitId \| AccountId \| \*
+      + *Supported Keys:* OrganizationId \| OrganizationalUnitId \| AccountId \| \*
       + *Supported Operators:* = \| IN \| OR
 
    1. **Source Regions**: Select a list of regions to look for the telemetry data to centralize.

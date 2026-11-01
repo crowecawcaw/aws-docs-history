@@ -5,6 +5,9 @@
 
 To be able to work with data protection policies for log groups, you must have certain permissions as shown in the following tables. The permissions are different for account-wide data protection policies and for data protection policies that apply to a single log group.
 
+**Note**  
+When you specify an Amazon S3 bucket as an audit findings destination, the following tables list the required permissions. With the `s3:GetBucketPolicy` and `s3:PutBucketPolicy` permissions, CloudWatch Logs can automatically create or update the bucket's resource policy. That resource policy grants the log delivery service (`delivery.logs.amazonaws.com`) the `s3:PutObject` and `s3:GetBucketAcl` permissions it needs to write audit findings to the bucket. For a cross-account destination bucket, or if you prefer to manage the bucket policy yourself, you must add this resource policy to the bucket manually. For more information about the required bucket resource policy, see [Logs sent to Amazon S3](AWS-logs-infrastructure-S3.md).
+
 ## Permissions required for account-level data protection policies
 <a name="data-protection-policy-permissions-accountlevel"></a>
 

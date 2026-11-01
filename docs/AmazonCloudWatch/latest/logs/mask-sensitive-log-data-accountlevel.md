@@ -5,6 +5,14 @@
 
 You can use the CloudWatch Logs console or AWS CLI commands to create a data protection policy to mask sensitive data for all log groups in your account. Doing so affects both current log groups and log groups that you create in the future.
 
+**Use AWS CloudFormation for account-wide policies**  
+To create and manage an account-wide data protection policy as infrastructure as code, you can use the `AWS::Logs::AccountPolicy` resource in AWS CloudFormation. This resource supports both YAML and JSON templates. Configure the following properties:  
+`PolicyName` (required): a name for the policy.
+`PolicyType` (required): set to `DATA_PROTECTION_POLICY`.
+`Scope`: set to `ALL`.
+`PolicyDocument` (required): the data protection policy, in JSON.
+For more information, see [AWS::Logs::AccountPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-logs-accountpolicy.html) in the AWS CloudFormation User Guide.
+
 **Important**  
 Sensitive data is detected and masked when it is ingested into the log group. When you set a data protection policy, log events ingested to the log group before that time are not masked.
 

@@ -53,11 +53,15 @@ Action examples are code excerpts from larger programs and must be run in contex
 #### [ CLI ]
 
 **AWS CLI**  
-The following command deletes a log group named `my-logs`:  
+**To delete a log group**  
+The following `delete-log-group` example deletes a log group named `my-logs`.  
 
 ```
-aws logs delete-log-group --log-group-name {{my-logs}}
+aws logs delete-log-group \
+    --log-group-name {{my-logs}}
 ```
+This command produces no output.  
+For more information, see [Working with log groups and log streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html) in the *Amazon CloudWatch Logs User Guide*.  
 +  For API details, see [DeleteLogGroup](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/delete-log-group.html) in *AWS CLI Command Reference*. 
 
 ------

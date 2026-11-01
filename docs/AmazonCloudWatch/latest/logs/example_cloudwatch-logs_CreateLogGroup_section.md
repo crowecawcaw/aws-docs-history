@@ -60,11 +60,15 @@ Action examples are code excerpts from larger programs and must be run in contex
 #### [ CLI ]
 
 **AWS CLI**  
-The following command creates a log group named `my-logs`:  
+**To create a log group**  
+The following `create-log-group` example creates a log group named `my-logs`.  
 
 ```
-aws logs create-log-group --log-group-name {{my-logs}}
+aws logs create-log-group \
+    --log-group-name {{my-logs}}
 ```
+This command produces no output.  
+For more information, see [Working with log groups and log streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html) in the *Amazon CloudWatch Logs User Guide*.  
 +  For API details, see [CreateLogGroup](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/create-log-group.html) in *AWS CLI Command Reference*. 
 
 ------

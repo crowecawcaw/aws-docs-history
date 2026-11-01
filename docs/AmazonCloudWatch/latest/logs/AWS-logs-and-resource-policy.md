@@ -39,6 +39,7 @@ Some services require additional permissions before they can deliver logs. Witho
 | AWS DevOps Agent | [Guide](https://docs.aws.amazon.com/devopsagent/latest/userguide/configuring-capabilities-for-aws-devops-agent-vended-logs-and-metrics.html) |
 | EC2 Spot Instance | [Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html) |
 | Amazon ECS | [Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_cloudwatch_logs.html) |
+| Amazon ECS Action Logs | [Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/action-logs-getting-started.html) |
 | Amazon EKS Auto Mode | [Guide](https://docs.aws.amazon.com/eks/latest/userguide/auto-managed-component-logs.html) |
 | Amazon EKS Capability Logs | [Guide](https://docs.aws.amazon.com/eks/latest/userguide/capabilities-controller-logs.html) |
 | Amazon EKS Control Plane | [Guide](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) |

@@ -29,6 +29,9 @@ When you install the CloudWatch Logs agent on an Amazon EC2 instance using the s
 **Tip**  
  You can favorite log groups, as well as dashboards and alarms, from the ***Favorites and recents*** menu in the navigation pane. Under the ***Recently visited*** column, hover over the log group that you want to favorite, and choose the star symbol next to it. 
 
+**Log groups can't be renamed**  
+You can't rename an existing log group. To use a different name, create a new log group. You also can't re-ingest historical log events into the new log group. When you call the [PutLogEvents](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html) API, CloudWatch Logs rejects any log event with a timestamp more than 14 days in the past or more than 2 hours in the future.
+
 ## Send logs to a log group
 <a name="SendingLogData"></a>
 

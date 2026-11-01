@@ -7,6 +7,9 @@ According to AWS cross-account policy evaluation logic, in order to access any c
 
 You can attach the identity-based policy to the IAM role or IAM user that you are using to create the subscription filter. This policy must be present in the sending account. If you are using the Administrator role to create the subscription filter, you can skip this step and move on to [Step 4: Create a subscription filter](CreateSubscriptionFilter.md).
 
+**Note**  
+The `logs:PutSubscriptionFilter` permission described in this section applies to log group-level subscription filters, which you create with the `PutSubscriptionFilter` operation in the next step. To create an account-level subscription filter policy instead, you use the `PutAccountPolicy` operation, which requires the `logs:PutAccountPolicy` permission. For the account-level cross-account flow, see [Step 3: Create an account-level subscription filter policy](CreateSubscriptionFilter-Account.md).
+
 **To add or validate the IAM permissions needed for cross-account**
 
 1. Enter the following command to check which IAM role or IAM user is being used to run AWS logs commands.
@@ -33,40 +36,28 @@ You can attach the identity-based policy to the IAM role or IAM user that you ar
 
    The following policy provides permissions to create a subscription filter on any destination resource only in a single AWS account, account `999999999999`:
 
-------
-#### [ JSON ]
-
-****  
-
    ```
    {
-        "Version":"2012-10-17",		 	 	 
-        "Statement": [
+       "Version": "2012-10-17",
+       "Statement": [
            {
                "Sid": "AllowSubscriptionFiltersOnAccountResources",
                "Effect": "Allow",
                "Action": "logs:PutSubscriptionFilter",
                "Resource": [
                    "arn:aws:logs:*:*:log-group:*",
-                   "arn:aws:logs:*:{{123456789012}}:destination:*"
+                   "arn:aws:logs:*:999999999999:destination:*"
                ]
            }
        ]
    }
    ```
 
-------
-
-   The following policy provides permissions to create a subscription filter only on a specific destination resource named `sampleDestination` in single AWS account, account `123456789012`:
-
-------
-#### [ JSON ]
-
-****  
+   The following policy provides permissions to create a subscription filter only on a specific destination resource named `sampleDestination` in single AWS account, account `999999999999`:
 
    ```
    {
-       "Version":"2012-10-17",		 	 	 
+       "Version": "2012-10-17",
        "Statement": [
            {
                "Sid": "AllowSubscriptionFiltersonAccountResource",
@@ -74,11 +65,9 @@ You can attach the identity-based policy to the IAM role or IAM user that you ar
                "Action": "logs:PutSubscriptionFilter",
                "Resource": [
                    "arn:aws:logs:*:*:log-group:*",
-                   "arn:aws:logs:*:{{123456789012}}:destination:{{sampleDestination}}"
+                   "arn:aws:logs:*:999999999999:destination:{{sampleDestination}}"
                ]
            }
        ]
    }
    ```
-
-------

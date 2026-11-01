@@ -88,7 +88,7 @@ The following table lists the keywords that CloudWatch Logs recognizes for speci
 | Country or region | Keywords | 
 | --- | --- | 
 | Brazil | registro geral, rg | 
-| France | assurance sociale, carte nationale d’identité, cni, code sécurité sociale, French social security number, fssn\#, insee, insurance number, national id number, nationalid\#, numéro d'assurance, sécurité sociale, sécurité sociale non., sécurité sociale numéro, social, social security, social security number, socialsecuritynumber, ss\#, ssn, ssn\# | 
+| France | assurance sociale, code sécurité sociale, French social security number, fssn\#, insee, insurance number, national id number, nationalid\#, numéro d'assurance, sécurité sociale, sécurité sociale non., sécurité sociale numéro, social, social security, social security number, socialsecuritynumber, ss\#, ssn, ssn\# | 
 | Germany | ausweisnummer, id number, identification number, identity number, insurance number, personal id, personalausweis | 
 | Italy | codice fiscal, dati anagrafici, ehic, health card, health insurance card, p. iva, partita i.v.a., personal data, tax code, tessera sanitaria | 
 | Spain | dni, dni\#, dninúmero\#, documento nacional de identidad, identidad único, identidadúnico\#, insurance number, national identification number, national identity, nationalid\#, nationalidno\#, número nacional identidad, personal identification number, personal identity no, unique identity number, uniqueid\# | 

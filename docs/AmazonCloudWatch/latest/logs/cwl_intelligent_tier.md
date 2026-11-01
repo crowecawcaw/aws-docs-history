@@ -9,7 +9,7 @@ CloudWatch Logs monitors access patterns and automatically reclassifies data not
 
 To start optimizing storage costs, enable Intelligent Tiering at the account level within a Region by using the CloudWatch console or by calling `PutStorageTierPolicy`. After you enable Intelligent Tiering, it applies to all log groups in your account within that Region.
 
-Amazon CloudWatch Logs Intelligent Tiering is available in all AWS commercial regions except the Middle East (Bahrain) and Middle East (UAE) Regions.
+Amazon CloudWatch Logs Intelligent Tiering is available in all commercial AWS Regions except the Middle East (Bahrain) and Middle East (UAE) Regions.
 
 ## CloudWatch Logs Intelligent Tiering access tiers
 <a name="cwl_intelligent_tier_access_tiers"></a>

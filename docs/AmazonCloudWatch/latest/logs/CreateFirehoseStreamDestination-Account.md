@@ -143,8 +143,8 @@ When the destination is created, CloudWatch Logs sends a test message to the des
        "Statement":[
          {
            "Effect":"Allow",
-           "Action":["firehose:*"],
-           "Resource":["arn:aws:firehose:region:222222222222:*"]
+           "Action":["firehose:PutRecord"],
+           "Resource":["arn:aws:firehose:{{region}}:222222222222:deliverystream/my-delivery-stream"]
          }
        ]
    }

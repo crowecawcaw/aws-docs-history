@@ -225,13 +225,13 @@ The actual log data, represented as an array of log event records. The "id" prop
 In this example, you'll create a CloudWatch Logs subscription filter that sends log data to your AWS Lambda function.
 
 **Note**  
-Before you create the Lambda function, calculate the volume of log data that will be generated. Be sure to create a function that can handle this volume. If the function does not have enough volume, the log stream will be throttled. For more information about Lambda limits, see [AWS Lambda Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html). 
+Before you create the Lambda function, calculate the volume of log data that will be generated. Be sure to create a function that can handle this volume of log data. If the function can't handle the volume of log data, the log stream will be throttled. For more information about Lambda limits, see [AWS Lambda Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html). 
 
 **To create a subscription filter for Lambda**
 
 1. Create the AWS Lambda function.
 
-   Ensure that you have set up the Lambda execution role. For more information, see [Step 2.2: Create an IAM Role (execution role)](https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html) in the *AWS Lambda Developer Guide*.
+   Ensure that you have set up the Lambda execution role. For more information, see [Defining Lambda function permissions with an execution role](https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html) in the *AWS Lambda Developer Guide*.
 
 1. Open a text editor and create a file named `helloWorld.js` with the following contents:
 
@@ -261,7 +261,7 @@ Before you create the Lambda function, calculate the volume of log data that wil
        --zip-file fileb://{{file-path}}/helloWorld.zip \
        --role {{lambda-execution-role-arn}} \
        --handler helloWorld.handler \
-       --runtime nodejs12.x
+       --runtime nodejs22.x
    ```
 
 1. Grant CloudWatch Logs the permission to execute your function. Use the following command, replacing the placeholder account with your own account and the placeholder log group with the log group to process:
@@ -348,7 +348,7 @@ The actual log data, represented as an array of log event records. The "id" prop
 ## Example 3: Subscription filters with Amazon Data Firehose
 <a name="FirehoseExample"></a>
 
-In this example, you'll create a CloudWatch Logs subscription that sends any incoming log events that match your defined filters to your Amazon Data Firehose delivery stream. Data sent from CloudWatch Logs to Amazon Data Firehose is already compressed with gzip level 6 compression, so you do not need to use compression within your Firehose delivery stream. You can then use the decompression feature in Firehose to automatically decompress the logs. For more information, see [ Send CloudWatch Logs to Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SubscriptionFilters.html#FirehoseExample).
+In this example, you'll create a CloudWatch Logs subscription that sends any incoming log events that match your defined filters to your Amazon Data Firehose delivery stream. Data sent from CloudWatch Logs to Amazon Data Firehose is already compressed with gzip level 6 compression, so you do not need to use compression within your Firehose delivery stream. You can then use the decompression feature in Firehose to automatically decompress the logs. For more information, see [ Send CloudWatch Logs to Firehose](https://docs.aws.amazon.com/firehose/latest/dev/writing-with-cloudwatch-logs.html).
 
 **Note**  
 Before you create the Firehose stream, calculate the volume of log data that will be generated. Be sure to create a Firehose stream that can handle this volume. If the stream cannot handle the volume, the log stream will be throttled. For more information about Firehose stream volume limits, see [Amazon Data Firehose Data Limits](https://docs.aws.amazon.com/firehose/latest/dev/limits.html). 

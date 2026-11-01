@@ -143,8 +143,8 @@ When the destination is created, CloudWatch Logs sends a test message to the des
        "Statement":[
          {
            "Effect":"Allow",
-           "Action":["firehose:*"],
-           "Resource":["arn:aws:firehose:region:222222222222:*"]
+           "Action":["firehose:PutRecord"],
+           "Resource":["arn:aws:firehose:{{region}}:222222222222:deliverystream/my-delivery-stream"]
          }
        ]
    }
@@ -177,7 +177,31 @@ When the destination is created, CloudWatch Logs sends a test message to the des
 
    1. After the previous step is complete, in the log data recipient account (222222222222), associate an access policy with the destination.
 
-      This policy enables the log data sender account (111111111111) to access the destination in just the log data recipient account (222222222222). You can use a text editor to put this policy in the **\~/AccessPolicy.json** file:
+      Use a text editor to create a file named `~/AccessPolicy.json` with one of the following policy statements.
+
+      This first example policy allows all accounts in the organization that have an ID of `o-1234567890` to send logs to the recipient account. The `aws:PrincipalOrgID` condition restricts the wildcard principal (`"*"`) to your organization. Do not use the wildcard principal without this condition, because doing so would allow open access.
+
+      ```
+      { 
+          "Version" : "2012-10-17", 		 	 	  
+          "Statement" : [ 
+              { 
+                  "Sid" : "", 
+                  "Effect" : "Allow",
+                  "Principal" : "*",
+                  "Action" : "logs:PutSubscriptionFilter", 
+                  "Resource" : "arn:aws:logs:us-east-1:222222222222:destination:testFirehoseDestination",
+                  "Condition": {
+                     "StringEquals" : {
+                         "aws:PrincipalOrgID" : ["o-1234567890"]
+                      }
+                  }
+              } 
+          ] 
+      }
+      ```
+
+      This next policy enables the log data sender account (111111111111) to access the destination in just the log data recipient account (222222222222). You can use a text editor to put this policy in the **\~/AccessPolicy.json** file:
 
 ------
 #### [ JSON ]

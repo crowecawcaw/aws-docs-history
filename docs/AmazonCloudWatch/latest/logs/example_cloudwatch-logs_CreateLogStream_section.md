@@ -58,11 +58,16 @@ The following code examples show how to use `CreateLogStream`.
 #### [ CLI ]
 
 **AWS CLI**  
-The following command creates a log stream named `20150601` in the log group `my-logs`:  
+**To create a log stream**  
+The following `create-log-stream` example creates a log stream named `20150601` in the log group `my-logs`.  
 
 ```
-aws logs create-log-stream --log-group-name {{my-logs}} --log-stream-name {{20150601}}
+aws logs create-log-stream \
+    --log-group-name {{my-logs}} \
+    --log-stream-name {{20150601}}
 ```
+This command produces no output.  
+For more information, see [Working with log groups and log streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html) in the *Amazon CloudWatch Logs User Guide*.  
 +  For API details, see [CreateLogStream](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/create-log-stream.html) in *AWS CLI Command Reference*. 
 
 ------

@@ -17,9 +17,9 @@ CloudWatch Logs uses **data protection policies** to select the sensitive data f
 
 As illustrated in the following figure, a data protection policy document includes the following elements:
 + Optional policy-wide information at the top of the document
-+ One statement that defines the audit and de-identify actions
++ Two statements: one that specifies the audit operation, and one that specifies the de-identify operation
 
-Only one data protection policy can be defined per CloudWatch Logs log group. The data protection policy can have one or more deny or de-identify statements, but only one audit statement.
+Only one data protection policy can be defined per CloudWatch Logs log group. A data protection policy must include exactly two statements: one that specifies the audit operation, and one that specifies the de-identify operation.
 
 ### JSON properties for the data protection policy
 <a name="data-protection-policy-json-properties"></a>

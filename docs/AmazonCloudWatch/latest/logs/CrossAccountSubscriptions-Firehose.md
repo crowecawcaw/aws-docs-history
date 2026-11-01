@@ -19,6 +19,7 @@ The log group and the destination must be in the same AWS Region. However, the A
 + [Step 1: Create a Firehose delivery stream](CreateFirehoseStream.md)
 + [Step 2: Create a destination](CreateFirehoseStreamDestination.md)
 + [Step 3: Add/validate IAM permissions for the cross-account destination](Subscription-Filter-CrossAccount-Permissions-Firehose.md)
++ [(Only if using an organization) Create an IAM role](CreateSubscriptionFilterFirehose-IAMrole.md)
 + [Step 4: Create a subscription filter](CreateSubscriptionFilterFirehose.md)
 + [Validating the flow of log events](ValidateLogEventFlowFirehose.md)
 + [Modifying destination membership at runtime](ModifyDestinationMembershipFirehose.md)

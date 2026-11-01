@@ -79,10 +79,12 @@ Action examples are code excerpts from larger programs and must be run in contex
 #### [ CLI ]
 
 **AWS CLI**  
-The following command describes a log group named `my-logs`:  
+**To describe a log group**  
+The following `describe-log-groups` example describes a log group named `my-logs`.  
 
 ```
-aws logs describe-log-groups --log-group-name-prefix {{my-logs}}
+aws logs describe-log-groups \
+    --log-group-name-prefix {{my-logs}}
 ```
 Output:  
 
@@ -100,6 +102,7 @@ Output:
     ]
 }
 ```
+For more information, see [Working with log groups and log streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html) in the *Amazon CloudWatch Logs User Guide*.  
 +  For API details, see [DescribeLogGroups](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/describe-log-groups.html) in *AWS CLI Command Reference*. 
 
 ------

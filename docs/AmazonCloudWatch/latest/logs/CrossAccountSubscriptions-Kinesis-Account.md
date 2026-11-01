@@ -28,6 +28,11 @@ An IAM policy document (in JSON format, written using IAM policy grammar) that g
 **Note**  
 The log group and the destination must be in the same AWS Region. However, the AWS resource that the destination points to can be located in a different Region. In the examples in the following sections, all Region-specific resources are created in US East (N. Virginia).
 
+When you set up a cross-account subscription, keep the following in mind:
++ In the sender account, the subscription filter must specify the CloudWatch Logs destination ARN (`arn:aws:logs:{{region}}:{{recipient-account-id}}:destination:{{destination-name}}`), not the ARN of the Amazon Kinesis Data Streams stream. CloudWatch Logs delivers log events to the stream by using the destination.
++ The role that you specify when you create the destination (the `Role ARN`) must be in the recipient account. This is the same account as the destination and the stream. CloudWatch Logs doesn't accept a role from a different account for the destination.
++ In the sender account, don't specify a role ARN (`--role-arn`) on `put-subscription-filter` unless the destination uses an organization access policy. In that case, the role must be in the sender account.
+
 **Topics**
 + [Setting up a new cross-account subscription](Cross-Account-Log_Subscription-New-Account.md)
 + [Updating an existing cross-account subscription](Cross-Account-Log_Subscription-Update-Account.md)

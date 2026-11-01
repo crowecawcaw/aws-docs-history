@@ -6,7 +6,7 @@
 The terminology and concepts that are central to your understanding and use of CloudWatch Logs are described below.
 
 **Log class**  
-CloudWatch Logs offers two classes of log groups. The Standard log class is a full-featured option for logs that require real-time monitoring or logs that you access frequently. The Infrequent Access log class is a lower-cost option for logs that you access less frequently. It supports a subset of the Standard log class capabilities.
+CloudWatch Logs offers two classes of log groups. The Standard log class is a full-featured option for logs that require real-time monitoring or logs that you access frequently. The Essentials log class (formerly Infrequent Access) is a lower-cost option for logs that you access less frequently. It supports a subset of the Standard log class capabilities.
 
 **Log events**  
 A log event is a record of some activity recorded by the application or resource being monitored. The log event record that CloudWatch Logs understands contains two properties: the timestamp of when the event occurred, and the raw event message. Event messages must be UTF-8 encoded.

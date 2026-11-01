@@ -24,7 +24,7 @@ CloudWatch Logs custom data identifiers have the following limitations:
   + Symbols: ( '\_' \| '-' )
 + RegEx has a maximum length of 200 characters. The following characters are supported:
   + Alphanumeric: (a-zA-Z0-9)
-  + Symbols: ( '\_' \| '\#' \| '=' \| '@' \|'/' \| ';' \| ',' \| '-' \| ' ' )
+  + Symbols: ( '\_' \| '\#' \| '=' \| '@' \|'/' \| ';' \| ',' \| '-' \| ' ' \| ''' \| '"' )
   + RegEx reserved characters: ( '^' \| '$' \| '?' \| '[' \| ']' \| '{' \| '}' \| '\|' \| '\\\\' \| '\*' \| '\+' \| '.' ) 
 + Custom data identifiers cannot share the same name as a managed data identifier.
 + Custom data identifiers can be specified within an account-level data protection policy or in log group-level data protection policies. Similar to managed data identifiers, custom data identifiers defined within an account-level policy work in combination with custom data identifiers defined in a log group-level policy.

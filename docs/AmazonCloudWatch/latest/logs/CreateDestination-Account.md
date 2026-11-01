@@ -228,4 +228,81 @@ When the destination is created, CloudWatch Logs sends a test message to the des
 
       To validate a user's privileges against an access policy, see [Using Policy Validator](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies_policy-validator.html) in the *IAM User Guide*.
 
+**Example: AWS CloudFormation template**  <a name="CreateDestination-Account-cfn-example"></a>
+The following AWS CloudFormation template performs the same setup as the preceding AWS CLI steps. Deploy it in the log data recipient account. It creates the Amazon Kinesis Data Streams data stream, the IAM role that lets CloudWatch Logs write to the stream, and the CloudWatch Logs destination with an access policy that grants the sender account permission to call **PutSubscriptionFilter**. Provide the sender account ID in the `SenderAccountId` parameter. After the stack is created, use the `DestinationArn` output value when you create the subscription filter in the sender account.  
+
+```
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >-
+  Cross-account CloudWatch Logs destination (Kinesis stream, IAM role, and
+  Logs destination with an access policy). Deploy in the log data recipient account.
+Parameters:
+  DestinationName:
+    Type: String
+    Default: testDestination
+    Description: Name of the CloudWatch Logs destination.
+  StreamName:
+    Type: String
+    Default: RecipientStream
+    Description: Name of the Kinesis data stream that receives the log data.
+  SenderAccountId:
+    Type: String
+    Description: AWS account ID of the log data sender allowed to create subscription filters (for example, 111111111111).
+  SourceArnAccountId:
+    Type: String
+    Description: Account ID for the role trust policy aws:SourceArn condition. Use the sender account ID once known; otherwise use the recipient account ID for the first deployment.
+Resources:
+  RecipientStream:
+    Type: AWS::Kinesis::Stream
+    Properties:
+      Name: !Ref StreamName
+      ShardCount: 1
+  CWLtoKinesisRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: CWLtoKinesisRole
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: logs.amazonaws.com
+            Action: sts:AssumeRole
+            Condition:
+              ArnLike:
+                aws:SourceArn:
+                  - !Sub 'arn:${AWS::Partition}:logs:${AWS::Region}:${SourceArnAccountId}:*'
+                  - !Sub 'arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:*'
+      Policies:
+        - PolicyName: Permissions-Policy-For-CWL
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: kinesis:PutRecord
+                Resource: !GetAtt RecipientStream.Arn
+  CWLDestination:
+    Type: AWS::Logs::Destination
+    Properties:
+      DestinationName: !Ref DestinationName
+      TargetArn: !GetAtt RecipientStream.Arn
+      RoleArn: !GetAtt CWLtoKinesisRole.Arn
+      DestinationPolicy: !Sub |
+        {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": { "AWS": "${SenderAccountId}" },
+              "Action": "logs:PutSubscriptionFilter",
+              "Resource": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:destination:${DestinationName}"
+            }
+          ]
+        }
+Outputs:
+  DestinationArn:
+    Description: ARN of the CloudWatch Logs destination. Provide this to the sender account.
+    Value: !GetAtt CWLDestination.Arn
+```
+
 When you have finished, if you're using AWS Organizations for your cross-account permissions, follow the steps in [Step 2: (Only if using an organization) Create an IAM role](CreateSubscriptionFilter-IAMrole-Account.md). If you're granting permissions directly to the other account instead of using Organizations, you can skip that step and proceed to [Step 3: Create an account-level subscription filter policy](CreateSubscriptionFilter-Account.md).

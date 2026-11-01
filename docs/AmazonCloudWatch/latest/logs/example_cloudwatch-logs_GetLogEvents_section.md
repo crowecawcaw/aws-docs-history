@@ -12,10 +12,13 @@ Action examples are code excerpts from larger programs and must be run in contex
 #### [ CLI ]
 
 **AWS CLI**  
-The following command retrieves log events from a log stream named `20150601` in the log group `my-logs`:  
+**To get log events from a log stream**  
+The following `get-log-events` example retrieves log events from a log stream named `20150601` in the log group `my-logs`.  
 
 ```
-aws logs get-log-events --log-group-name {{my-logs}} --log-stream-name {{20150601}}
+aws logs get-log-events \
+    --log-group-name {{my-logs}} \
+    --log-stream-name {{20150601}}
 ```
 Output:  
 
@@ -42,6 +45,7 @@ Output:
     "nextBackwardToken": "b/31961209122358285602261756944988674324553373268216709120"
 }
 ```
+For more information, see [Working with log groups and log streams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#ViewingLogData) in the *Amazon CloudWatch Logs User Guide*.  
 +  For API details, see [GetLogEvents](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/get-log-events.html) in *AWS CLI Command Reference*. 
 
 ------
