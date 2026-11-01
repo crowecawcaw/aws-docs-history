@@ -21,11 +21,13 @@ Each AWS Windows AMIs with Microsoft SQL Server AMI also includes the following
 
 AWS managed AMIs always include the AMI creation date as part of the name. The best way to ensure that your search returns the AMIs that you're looking for is to add date filtering for the name. Use one of the following command line options to find an AMI.
 
+You can run the following commands from [AWS CloudShell](https://docs.aws.amazon.com/cloudshell/latest/userguide/welcome.html), which comes with the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html) and [AWS Tools for PowerShell](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-welcome.html) pre-installed. AWS CloudShell automatically configures your credentials. To run the PowerShell commands, run `pwsh`.
+
 ------
 #### [ AWS CLI ]
 
 **Find the latest SQL AMIs**  
-The following example retrieves a list of the latest Windows Server AMIs that include Microsoft SQL Server.
+Use the [get-parameters-by-path](https://docs.aws.amazon.com/cli/latest/reference/ssm/get-parameters-by-path.html) command to retrieve a list of the latest Windows Server AMIs that include Microsoft SQL Server.
 
 ```
 aws ssm get-parameters-by-path \
@@ -36,7 +38,7 @@ aws ssm get-parameters-by-path \
 ```
 
 **Find a specific AMI**  
-The following example retrieves Windows Server AMIs with Microsoft SQL Server by filtering on the AMI name, the owner, the platform, and the creation date (year and month). Output is formatted as a table with columns for the AMI name and image ID.
+Use the [describe-images](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html) command to retrieve Windows Server AMIs with Microsoft SQL Server by filtering on the AMI name, the owner, the platform, and the creation date (year and month). Output is formatted as a table with columns for the AMI name and image ID.
 
 ```
 aws ec2 describe-images \
@@ -44,16 +46,28 @@ aws ec2 describe-images \
     --filters \
         "Name=name,Values=*SQL*" \
         "Name=platform,Values=windows" \
-        "Name=creation-date,Values={{2025-05}}*" \
+        "Name=creation-date,Values={{2026-10}}*" \
     --query 'Images[].[Name,ImageId]' \
     --output text | sort
 ```
 
+To narrow the results, use more specific values for the `name` filter. The following examples show additional name filters for the `describe-images` command.
++ English, SQL Server 2025 Standard Edition:
+
+  ```
+  "Name=name,Values=*English*SQL_2025*Standard*"
+  ```
++ Windows Server 2025, English, and SQL Server 2025:
+
+  ```
+  "Name=name,Values=*Server-2025-English*SQL_2025*"
+  ```
+
 ------
-#### [ PowerShell (recommended) ]
+#### [ PowerShell ]
 
 **Find the latest SQL AMIs**  
-The following example retrieves a list of the latest Windows Server AMIs that include Microsoft SQL Server.
+Use the [Get-SSMLatestEC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-SSMLatestEC2Image.html) cmdlet to retrieve a list of the latest Windows Server AMIs that include Microsoft SQL Server.
 
 ```
 Get-SSMLatestEC2Image `
@@ -62,12 +76,8 @@ Get-SSMLatestEC2Image `
 Sort-Object Name
 ```
 
-**Note**  
-If this command doesn't run in your environment, you might be missing a PowerShell module. For more information about this command, see [Get-SSMLatestEC2Image Cmdlet](https://docs.aws.amazon.com/powershell/v4/reference/items/Get-SSMLatestEC2Image.html).  
-Alternatively, you can use the [CloudShell console](https://console.aws.amazon.com/cloudshell/home) and run `pwsh` to bring up a PowerShell prompt that already has all of the AWS tools installed. For more information, see the [AWS CloudShell User Guide](https://docs.aws.amazon.com/cloudshell/latest/userguide/welcome.html).
-
 **Find a specific AMI**  
-The following example retrieves Windows Server AMIs with Microsoft SQL Server by filtering on the AMI name, the owner, the platform, and the creation date (year and month). Output is formatted as a table with columns for the AMI name and image ID.
+Use the [Get-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2Image.html) cmdlet to retrieve Windows Server AMIs with Microsoft SQL Server by filtering on the AMI name, the owner, the platform, and the creation date (year and month). Output is formatted as a table with columns for the AMI name and image ID.
 
 ```
 Get-EC2Image `
@@ -75,10 +85,22 @@ Get-EC2Image `
     -Filter @(
         @{Name = "name"; Values = @("*SQL*")}
         @{Name = "platform"; Values = @("windows")}
-        @{Name = "creation-date"; Values = @("{{2025-}}*")}
+        @{Name = "creation-date"; Values = @("{{2026-10}}*")}
     ) |
 Sort-Object Name |
 Format-Table Name, ImageID -AutoSize
 ```
+
+To narrow the results, use more specific values for the `name` filter. The following examples show additional name filters for the `Get-EC2Image` cmdlet.
++ English, SQL Server 2025 Standard Edition:
+
+  ```
+  @{Name = "name"; Values = @("*English*SQL_2025*Standard*")}
+  ```
++ Windows Server 2025, English, and SQL Server 2025:
+
+  ```
+  @{Name = "name"; Values = @("*Server-2025-English*SQL_2025*")}
+  ```
 
 ------
