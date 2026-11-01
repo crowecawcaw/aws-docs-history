@@ -142,7 +142,7 @@ The following table shows IPv6 support by submission model and Amazon EMR releas
 
 2 Requires additional configuration described in the preceding section for this submission model.
 
-## Troubleshooting
+## Troubleshooting EMR on EKS IPv6 clusters
 <a name="emr-eks-ipv6-troubleshooting"></a>
 
 The following are common errors you might encounter when running Amazon EMR on EKS workloads on IPv6 clusters.
