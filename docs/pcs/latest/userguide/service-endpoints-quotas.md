@@ -38,6 +38,7 @@ The `pcs.{{region}}.api.aws` endpoints are dual-stack. They support both IPv4 an
 | Asia Pacific (Tokyo) | ap-northeast-1 | pcs.ap-northeast-1.amazonaws.com<br />pcs.ap-northeast-1.api.aws | HTTPS | 
 | Asia Pacific (Seoul) | ap-northeast-2 | pcs.ap-northeast-2.amazonaws.com<br />pcs.ap-northeast-2.api.aws | HTTPS | 
 | Asia Pacific (Osaka) | ap-northeast-3 | pcs.ap-northeast-3.amazonaws.com<br />pcs.ap-northeast-3.api.aws | HTTPS | 
+| Canada (Central) | ca-central-1 | pcs.ca-central-1.amazonaws.com<br />pcs.ca-central-1.api.aws | HTTPS | 
 | Europe (Frankfurt) | eu-central-1 | pcs.eu-central-1.amazonaws.com<br />pcs.eu-central-1.api.aws | HTTPS | 
 | Europe (Ireland) | eu-west-1 | pcs.eu-west-1.amazonaws.com<br />pcs.eu-west-1.api.aws | HTTPS | 
 | Europe (London) | eu-west-2 | pcs.eu-west-2.amazonaws.com<br />pcs.eu-west-2.api.aws | HTTPS | 
