@@ -40,8 +40,6 @@ The following list contains AWS services and features that are out of scope for 
 
 ## Business Applications
 <a name="aif-01-out-of-scope-business-applications"></a>
-+ Amazon Chime
-+ Amazon Pinpoint
 + Amazon Simple Email Service (Amazon SES)
 + AWS Supply Chain
 + AWS Wickr
@@ -50,11 +48,9 @@ The following list contains AWS services and features that are out of scope for 
 <a name="aif-01-out-of-scope-cloud-financial-management"></a>
 + AWS Application Cost Profiler
 + AWS Billing Conductor
-+ AWS Marketplace
 
 ## Compute
 <a name="aif-01-out-of-scope-compute"></a>
-+ AWS App Runner
 + AWS Elastic Beanstalk
 + EC2 Image Builder
 + Amazon Lightsail
@@ -65,7 +61,6 @@ The following list contains AWS services and features that are out of scope for 
 
 ## Customer Enablement
 <a name="aif-01-out-of-scope-customer-enablement"></a>
-+ AWS IQ
 + AWS Managed Services (AMS)
 + AWS re:Post Private
 + AWS Support
@@ -73,7 +68,6 @@ The following list contains AWS services and features that are out of scope for 
 ## Database
 <a name="aif-01-out-of-scope-database"></a>
 + Amazon Keyspaces (for Apache Cassandra)
-+ Amazon Quantum Ledger Database (Amazon QLDB)
 + Amazon Timestream
 
 ## Developer Tools
@@ -81,8 +75,6 @@ The following list contains AWS services and features that are out of scope for 
 + AWS AppConfig
 + AWS Application Composer
 + AWS CloudShell
-+ Amazon CodeCatalyst
-+ AWS CodeStar
 + AWS Fault Injection Service
 + AWS X-Ray
 
@@ -91,7 +83,7 @@ The following list contains AWS services and features that are out of scope for 
 + Amazon AppStream 2.0
 + Amazon WorkSpaces
 + Amazon WorkSpaces Thin Client
-+ Amazon WorkSpaces Web
++ Amazon WorkSpaces Secure Browser
 
 ## Frontend Web and Mobile
 <a name="aif-01-out-of-scope-frontend-web-mobile"></a>
@@ -101,26 +93,19 @@ The following list contains AWS services and features that are out of scope for 
 
 ## Internet of Things (IoT)
 <a name="aif-01-out-of-scope-iot"></a>
-+ AWS IoT Analytics
 + AWS IoT Core
 + AWS IoT Device Defender
 + AWS IoT Device Management
-+ AWS IoT Events
 + AWS IoT FleetWise
 + FreeRTOS
 + AWS IoT Greengrass
-+ AWS IoT 1-Click
-+ AWS IoT RoboRunner
 + AWS IoT SiteWise
 + AWS IoT TwinMaker
 
 ## Machine Learning
 <a name="aif-01-out-of-scope-machine-learning"></a>
-+ AWS DeepComposer
 + AWS HealthImaging
 + AWS HealthOmics
-+ Amazon Monitron
-+ AWS Panorama
 
 ## Management and Governance
 <a name="aif-01-out-of-scope-management-governance"></a>
@@ -130,9 +115,6 @@ The following list contains AWS services and features that are out of scope for 
 + AWS License Manager
 + Amazon Managed Grafana
 + Amazon Managed Service for Prometheus
-+ AWS OpsWorks
-+ AWS Organizations
-+ AWS Proton
 + AWS Resilience Hub
 + AWS Resource Explorer
 + AWS Resource Groups
@@ -144,15 +126,12 @@ The following list contains AWS services and features that are out of scope for 
 
 ## Media
 <a name="aif-01-out-of-scope-media"></a>
-+ Amazon Elastic Transcoder
 + AWS Elemental MediaConnect
 + AWS Elemental MediaConvert
 + AWS Elemental MediaLive
 + AWS Elemental MediaPackage
-+ AWS Elemental MediaStore
 + AWS Elemental MediaTailor
 + Amazon Interactive Video Service (Amazon IVS)
-+ Amazon Nimble Studio
 
 ## Migration and Transfer
 <a name="aif-01-out-of-scope-migration-transfer"></a>
@@ -166,11 +145,9 @@ The following list contains AWS services and features that are out of scope for 
 
 ## Networking and Content Delivery
 <a name="aif-01-out-of-scope-networking"></a>
-+ AWS App Mesh
 + AWS Cloud Map
 + AWS Direct Connect
 + AWS Global Accelerator
-+ AWS Private 5G
 + Amazon Route 53
 + Amazon Route 53 Application Recovery Controller
 + Amazon VPC IP Address Manager (IPAM)
@@ -184,7 +161,6 @@ The following list contains AWS services and features that are out of scope for 
 + AWS Directory Service
 + AWS Firewall Manager
 + Amazon GuardDuty
-+ AWS IAM Identity Center
 + AWS Payment Cryptography
 + AWS Private Certificate Authority
 + AWS Resource Access Manager (AWS RAM)
