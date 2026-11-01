@@ -20,7 +20,7 @@ aws firehose put-record-batch \
     --delivery-stream-name {{my-stream}} \
     --records {{file://records.json}}
 ```
-Contents of `myfile.json`:  
+Contents of `records.json`:  
 
 ```
 [
