@@ -97,9 +97,7 @@ A quote provides a cost estimate based on your Outpost configuration. Quotes are
 
 1. **Country** – Select the country where your Outpost will be installed. Not all Outpost configurations are available in all countries.
 
-1. For **Select capacities**, choose the compute capacity for your Outpost. You can select capacity in two ways:
-   + **By capacity type** – Select the quantity of your desired Amazon EC2 instance types and sizes.
-   + **By configuration** – Select from predefined configurations designed for common use cases, or previously used configurations from your account history.
+1. For **Select capacities**, choose the compute capacity for your Outpost. Select the quantity of your desired Amazon EC2 instance types and sizes.
 **Note**  
 You can only select instance capacities supported by your chosen Outpost generation and form factor.
 
