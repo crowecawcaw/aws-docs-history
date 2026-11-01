@@ -211,12 +211,12 @@ Submitting a job that exceeds 50 parameters will fail with a validation error. I
 ## Command-line rendering with 3dsmaxcmd
 <a name="3dsmaxcmd-render"></a>
 
-Use the optional command-line render workflow to render your scene with `3dsmaxcmd.exe`, the 3ds Max command-line render server, instead of the standard adaptor. Because `3dsmaxcmd.exe` registers as a render server, network-licensed plugins such as PSOFT Pencil\+ 4 NTR render without a watermark. The workflow is opt-in. Unless you enable it, the submitter uses its default behavior.
+Use the optional command-line render workflow to render your scene with `3dsmaxcmd.exe`, the 3ds Max command-line render server, instead of the standard adaptor. `3dsmaxcmd.exe` registers as a render server. Because of this, you can render plugins that run only when 3ds Max runs as a render server, such as PSOFT Pencil\+ 4 NTR, on your fleet. The workflow is opt-in. Unless you enable it, the submitter uses its default behavior.
 
 ### When to use the command-line render workflow
 <a name="3dsmaxcmd-render-when"></a>
 
-Network-licensed plugins, such as PSOFT Pencil\+ 4 NTR, add a watermark to output rendered through the standard adaptor. The watermark appears because `3dsmaxbatch.exe` does not register as a render server. Use the command-line render workflow when your scene uses a plugin that requires 3ds Max to run as a render server to produce watermark-free output.
+Some plugins render only when 3ds Max runs as a render server. PSOFT Pencil\+ 4 NTR is one. Its Network Traffic Rendering (NTR) edition renders across a farm through the render server. The standard adaptor runs through `3dsmaxbatch.exe`, which is not a render server. Use the command-line render workflow when your scene uses a plugin that requires 3ds Max to run as a render server.
 
 For most other scenes, use the standard submitter workflow. The standard adaptor provides sticky sessions and additional monitoring that the command-line render workflow does not.
 
@@ -251,14 +251,54 @@ The tab provides the following options:
 + **3dsmaxcmd Executable** – Path to `3dsmaxcmd.exe` on the worker. Defaults to `3dsmaxcmd`, resolved on the worker's PATH. Set a full path if the executable is not on the PATH.
 + **Override Task Run Timeout** – When selected, a frame render that exceeds the timeout is cancelled. Leave unselected to allow renders to run until complete.
 
-### Setting up a fleet for Pencil\+
+### Network rendering with PSOFT Pencil\+ 4
+<a name="3dsmaxcmd-render-pencil"></a>
+
+PSOFT Pencil\+ 4 is a line-rendering plugin for 3ds Max that produces non-photorealistic, illustration-style line art. To render Pencil\+ scenes across a render farm, use the **Pencil\+ 4 NTR edition**, the edition PSOFT builds for distributed rendering on many machines at once.
+
+With the NTR edition, you render when 3ds Max runs as a render server. On a worker, the command-line render workflow runs the scene through `3dsmaxcmd.exe`, the 3ds Max render server. For this reason, render Pencil\+ scenes with the command-line render workflow rather than the standard adaptor, which runs through `3dsmaxbatch.exe` and is not a render server.
+
+Distributed rendering of the NTR edition is a Cloud Rights entitlement that PSOFT grants to Pencil\+ 4 subscribers, so you don't need a separate Pencil\+ license for each worker or a license server on your fleet. For 3ds Max itself, you can use the Autodesk Cloud Rights included with your subscription, as described in the note at the start of this page. Obtain the Pencil\+ 4 NTR installer from PSOFT. Confirm that cloud rendering rights for both 3ds Max and Pencil\+ cover your use against the terms each vendor provides before rendering at scale.
+
+#### Setting up a fleet for Pencil\+
 <a name="3dsmaxcmd-render-pencil-fleet"></a>
 
-Install Pencil\+ 4 on service-managed fleet workers with a host configuration script, the same way you install 3ds Max. Example scripts that install 3ds Max and Pencil\+ 4 are available for 3ds Max 2025 and 2027 on the GitHub website:
-+ [3dsmax-2025-and-pencilplus-4.ps1](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/host_configuration_scripts/3dsmax/3dsmax-2025-and-pencilplus-4.ps1)
-+ [3dsmax-2027-and-pencilplus-4.ps1](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/host_configuration_scripts/3dsmax/3dsmax-2027-and-pencilplus-4.ps1)
+Install Pencil\+ 4 on service-managed fleet workers with a host configuration script. Use the same method you use to install 3ds Max. The example scripts install the **Pencil\+ 4 NTR edition** alongside 3ds Max. They configure the worker PATH so that `3dsmaxcmd.exe` resolves, install the Deadline Cloud adaptor for 3ds Max, and verify that the Pencil\+ plugin files are present before the worker comes online. Download an example script from the GitHub website:
++ [3dsmax-2025-and-pencilplus-4.ps1](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/host_configuration_scripts/3dsmax/3dsmax-2025-and-pencilplus-4.ps1) installs 3ds Max 2025 and Pencil\+ 4 from installers you stage in your own Amazon S3 bucket.
++ [3dsmax-2027-and-pencilplus-4.ps1](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/host_configuration_scripts/3dsmax/3dsmax-2027-and-pencilplus-4.ps1) installs 3ds Max 2027 and Pencil\+ 4, and includes a workaround for the 3ds Max 2027 Autodesk ADP "Failed to start" issue.
++ [3dsmax-2026-pencilplus-persistent](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax/3dsmax-2026-pencilplus-persistent) installs 3ds Max 2026 and Pencil\+ 4 once, captures the installed payload to Amazon S3, and reuses it on every later worker instead of reinstalling. Reusing the captured payload cuts worker startup from a full install (around 20 minutes) to a few minutes. With a fleet persistent volume attached, startup takes a few seconds. Use this script when you need fast worker scale-up.
 
-The scripts install the Pencil\+ 4 NTR edition, which renders watermark-free without consuming a license when 3ds Max runs as a render server. Because `3dsmaxcmd.exe` is a render server, you don't need to configure a license server for the command-line render path. For the general host configuration setup steps, see [Fleet host configuration](#3ds-max-fleet-host-config).
+**Note**  
+Although these examples target 3ds Max 2025, 2026, and 2027, you use equivalent installation steps across these versions. To adapt an example to a different version, change the installer you stage in Amazon S3 and update the version number in the 3ds Max installation paths (for example, `C:\Program Files\Autodesk\3ds Max 2026`).
+
+The host configuration scripts perform the following steps:
+
+1. Download the 3ds Max and Pencil\+ 4 installers from an Amazon S3 bucket that you stage. The fleet IAM role must have `s3:GetObject` permission for the installer objects.
+
+1. Install 3ds Max silently, then install Pencil\+ 4 silently. The Pencil\+ installer is built with Inno Setup, so the scripts use the `/VERYSILENT`, `/SUPPRESSMSGBOXES`, `/NORESTART`, and `/SP-` switches for an unattended install. Do not use the `/S` switch, which belongs to a different installer framework and causes the Pencil\+ installer to open its interactive wizard and hang the headless worker.
+
+1. Add the 3ds Max installation directory to the worker's `PATH` so that `3dsmaxcmd.exe` resolves without a full path, and install the [deadline-cloud-for-3ds-max](https://github.com/aws-deadline/deadline-cloud-for-3ds-max) adaptor from the GitHub website.
+
+1. Verify that the Pencil\+ plugin files are present in the 3ds Max `plugins` directory. If the plugin is missing, the script fails host configuration. Failing here surfaces the problem at provisioning time, so you don't hit an opaque network-renderer error on every Pencil\+ render instead.
+
+For instructions on the general host configuration setup steps, including how to build the 3ds Max installer archive and attach a script to your fleet, see [Fleet host configuration](#3ds-max-fleet-host-config) and the [3ds Max host configuration scripts README](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/host_configuration_scripts/3dsmax/README.md) on the GitHub website.
+
+#### How Pencil\+ rendering uses 3dsmaxcmd
+<a name="3dsmaxcmd-render-pencil-command"></a>
+
+When you submit a Pencil\+ scene with the command-line render workflow, each task runs `3dsmaxcmd.exe` once per frame on the worker. By running the scene through the render server, you render the Pencil\+ 4 NTR edition across your fleet. For each frame, a task invokes the following `3dsmaxcmd` command with the scene file and per-frame options. In the following example, replace {{scene.max}}, {{render.exr}}, and {{Camera001}} with your scene file, output file, and camera name:
+
+```
+PROMPT> 3dsmaxcmd "{{scene.max}}" -frames:1 -outputName:"C:\output\{{render.exr}}" -camera:"{{Camera001}}"
+```
+
+The command uses the following options:
++ {{scene.max}} – The 3ds Max scene file to render.
++ `-frames` – The frame range to render.
++ `-outputName` – The output file path.
++ `-camera` – The camera to render from.
+
+You do not run this command yourself. The submitter builds the job bundle, and the task driver generates the per-frame `3dsmaxcmd` invocation. The task driver applies the session's Deadline Cloud path mapping so that the scene's asset and output paths resolve to their session locations on the worker. You control the frame range, output path, output file name, camera, and the `3dsmaxcmd` executable path from the **3dsmaxcmd Render** submitter tab. For instructions on using that tab, see [Submitting a command-line render job](#3dsmaxcmd-render-submit).
 
 ## V-Ray standalone tile rendering
 <a name="3ds-max-vray-tile-rendering"></a>
@@ -346,7 +386,7 @@ Because 3ds Max is installed with host configuration scripts instead of conda pa
 
 For example host configuration scripts that include these plugins, see [3dsmax-2025-vray-and-aec-plugins](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/host_configuration_scripts/3dsmax/3dsmax-2025-vray-and-aec-plugins.ps1) and [3dsmax-2027-vray-and-aec-plugins](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/host_configuration_scripts/3dsmax/3dsmax-2027-vray-and-aec-plugins.ps1) on the GitHub website.
 
-You can also use the **Pencil\+ 4** line rendering plugin from PSOFT. Because Pencil\+ uses network (NTR) licensing, render it with the command-line render workflow to produce watermark-free output. For more information, see [Command-line rendering with 3dsmaxcmd](#3dsmaxcmd-render).
+You can also use the **Pencil\+ 4** line rendering plugin from PSOFT. Render it with the command-line render workflow, which runs 3ds Max as a render server so you can render the Pencil\+ 4 NTR edition across your fleet. For more information, see [Command-line rendering with 3dsmaxcmd](#3dsmaxcmd-render).
 
 ## Advanced configurations
 <a name="3ds-max-advanced-configurations"></a>

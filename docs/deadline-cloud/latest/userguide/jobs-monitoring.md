@@ -26,7 +26,7 @@ For more information, see [Using the Deadline Cloud monitor](working-with-deadli
 
 If your team uses automatic downloads, the jobs and tasks tables in the Deadline Cloud monitor desktop application also show a **Download status** column that reports whether each job's outputs reached your file system. For more information, see [View output download status in Deadline Cloud](auto-downloads-status.md).
 
-Each task in a job or step has a status. The status of a job or step depends on the status of its tasks. The status is determined by tasks that have these statuses, in order. Step statuses are determined the same as the job status.
+Each task in a job or step has a status, and the job or step shows a status based on its tasks. A job shows the first status in the following list that any of its tasks has. For example, a job with some `READY` tasks and some `SUSPENDED` tasks shows `READY`. A job is `SUCCEEDED` only when all of its tasks succeeded. Steps work the same way.
 
 The following list describes the statuses:
 
@@ -49,16 +49,17 @@ Tasks for the job are scheduled on one or more workers as the worker's next acti
 At least one task for the job is ready to be processed.
 
 `INTERRUPTING`  
-At least one task in the job is being interrupted. An interruption can happen when you manually update the job's status, or when Amazon Elastic Compute Cloud (Amazon EC2) reclaims a Spot Instance.
+A running task in the job is stopping because you changed the status of the job, step, or task. This status is always temporary. When the task stops, it moves to the status that you requested, such as `CANCELED`, `SUSPENDED`, or `READY`.  
+When a worker stops unexpectedly, for example when Amazon Elastic Compute Cloud (Amazon EC2) reclaims a Spot Instance, its tasks return to `READY` so that another worker can run them.
 
 `FAILED`  
 One or more tasks in the job didn't complete successfully.
 
 `CANCELED`  
-One or more tasks in the job have been canceled.
+Tasks in the job were canceled and won't run. Cancel a job when you don't intend to run the work. Canceling a task also cancels the steps that depend on it. You can't submit a job as canceled. To run canceled tasks again, requeue the job.
 
 `SUSPENDED`  
-At least one task in the job has been suspended.
+Tasks in the job are paused and won't run until you requeue the job. Suspend a job when you plan to come back to it later. Deadline Cloud doesn't suspend jobs on its own. A job is suspended only when you submit it as suspended or suspend it after it's in the queue. Suspending a job doesn't change tasks that already succeeded, failed, or were canceled.
 
 `PENDING`  
 A task in the job is waiting on the availability of another resource.
