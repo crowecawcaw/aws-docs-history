@@ -8,6 +8,8 @@ The **Results destination in Amazon S3** can't be within the same S3 bucket as a
 
 The results of the job are located in the **Results settings defaults** section of the **Analysis** tab in the AWS Clean Rooms console.
 
+To choose whether job results are written as CSV or Parquet, on the **Analysis** tab, expand **Result settings defaults** and choose **Edit**. Parquet requires analysis templates that use PySpark 2.0.
+
 **To receive job results**
 
 1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home) with your AWS account (if you haven't yet done so).

@@ -25,7 +25,7 @@ For information about how to create a SQL analysis template using the AWS SDKs, 
 
 1. Choose the collaboration.
 
-1. On the **Templates** tab, go to the **Analysis templates created by you** section.
+1. On the **Templates** tab, go to the **Analysis templates** table.
 
 1. Choose **Create analysis template**.
 

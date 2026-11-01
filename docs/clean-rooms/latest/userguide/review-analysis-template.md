@@ -24,7 +24,7 @@ the only output destination is the result receiver's S3 bucket.
 
 1. Choose the collaboration.
 
-1. On the **Templates** tab, go to the **Analysis templates created by other members** section.
+1. On the **Templates** tab, go to the **Analysis templates** table.
 
 1. Choose the analysis template that has the **Can run status** of **No requires your review**.
 

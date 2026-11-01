@@ -227,7 +227,7 @@ As a collaboration creator, after you have created a collaboration, you can mana
 
 1. Choose the **Templates** tab.
 
-1. On the **Analysis templates created by you** section, choose the analysis template.
+1. In the **Analysis templates** table, choose the analysis template.
 
 1. On the analysis template table detail page, scroll down to the **Tags** section.
 

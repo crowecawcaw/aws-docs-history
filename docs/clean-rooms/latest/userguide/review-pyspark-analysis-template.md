@@ -41,7 +41,7 @@ To validate that the user script and libraries shared are the same as those refe
 
 1. Choose the collaboration.
 
-1. On the **Templates** tab, go to the **Analysis templates created by other members** section.
+1. On the **Templates** tab, go to the **Analysis templates** table.
 
 1. Choose the analysis template that has the **Can run status** of **No requires your review**.
 

@@ -657,7 +657,8 @@ This configuration enables AWS Clean Rooms scenarios where one party runs the co
 1. Use the following permissions policy according to the [Creating a role using custom trust policies (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-custom.html) procedure.
 **Note**  
 The following example policy supports the permissions needed to write to Amazon S3. However, you might need to modify this policy depending on how you've set up S3.  
-Your Amazon S3 resources must be in the same AWS Region as the AWS Clean Rooms collaboration.
+Your Amazon S3 resources must be in the same AWS Region as the AWS Clean Rooms collaboration.  
+Keep the `s3:GetBucketLocation` and `s3:ListBucket` permissions on the bucket in addition to `s3:PutObject`. If the role doesn't have `s3:ListBucket`, the job can fail with an Amazon S3 access denied error when it writes results.
 
 ------
 #### [ JSON ]
@@ -703,12 +704,32 @@ Your Amazon S3 resources must be in the same AWS Region as the AWS Clean Rooms c
 
 ------
 
+   If your Amazon S3 bucket uses server-side encryption with a customer managed AWS KMS key (SSE-KMS), add a statement that grants AWS KMS permissions to the previous policy. If the KMS key is in a different AWS account than this role, the key policy must also allow this role to use the key. If the role or the key policy doesn't grant these permissions, the job can fail with an access denied error from AWS KMS when it writes results.
+
+   The following JSON statement shows the AWS KMS permissions to add:
+
+   ```
+   {
+       "Effect": "Allow",
+       "Action": [
+           "kms:GenerateDataKey",
+           "kms:Decrypt"
+       ],
+       "Resource": "arn:aws:kms:{{region}}:{{keyOwnerAccountId}}:key/{{keyId}}"
+   }
+   ```
+
+   In the AWS KMS statement, replace the following values:
+   + {{region}} – The AWS Region of the KMS key.
+   + {{keyOwnerAccountId}} – The AWS account ID that owns the KMS key.
+   + {{keyId}} – The ID of the KMS key.
+
 1. Replace each {{placeholder}} with your own information:
    + {{region}} – The name of the AWS Region. For example, **us-east-1**.
-   + {{jobRunnerAccountId}} – The AWS account ID in which the S3 bucket is located.
+   + {{jobRunnerAccountId}} – The AWS account ID of the member who can run jobs. In the example trust policy, this is 111122223333.
    + {{jobRunnerMembershipId}} – The **Membership ID** of the member who can query and run jobs. The **Membership ID** can be found on the **Details** tab of the collaboration. This ensures that AWS Clean Rooms is assuming the role only when this member runs the analysis in this collaboration.
-   + {{rrAccountId}} – The AWS account ID in which the S3 bucket is located.
-   + {{rrMembershipId}} – The **Membership ID** of the member who can receive results. The **Membership ID** can be found on the **Details** tab of the collaboration. This ensures that AWS Clean Rooms is assuming the role only when this member runs the analysis in this collaboration.
+   + {{rrAccountId}} – The AWS account ID of the member who can receive results. In the example trust policy, this is 444455556666.
+   + {{rrMembershipId}} – The **Membership ID** of the member who can receive results. The **Membership ID** can be found on the **Details** tab of the collaboration. This ensures that AWS Clean Rooms is assuming the role only to write results for this member in this collaboration.
    + {{bucket}} – The name and location of the S3 bucket.
    + {{optionalPrefix}} – An optional prefix if you want to save your results under a specific S3 prefix.
    + {{s3BucketOwnerAccountId}} – The AWS account ID of the S3 bucket owner.

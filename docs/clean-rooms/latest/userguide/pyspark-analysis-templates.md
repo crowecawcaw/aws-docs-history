@@ -27,6 +27,8 @@ The compute environment components are divided into a separate user space and sy
 
 When customers submit an approved PySpark analysis template, AWS Clean Rooms runs it on its own secure compute environment which no customer can access. The compute environment implements a compute architecture with a user space and system space to preserve a secure compute environment. For more information, see [Security for PySpark analysis templates](#pyspark-analysis-templates-security).
 
+Supported column types and result formats differ between PySpark 1.0 and PySpark 2.0. For more information, see [Differences between PySpark 1.0 and PySpark 2.0 analysis templates](pyspark-template-versions.md).
+
 Consider the following limitations before you use PySpark in AWS Clean Rooms. 
 
 **Limitations**
@@ -91,3 +93,4 @@ The following topics explain how to create Python user scripts and libraries bef
 + [Storing a user script and virtual environment in S3](store-artifacts-in-s3.md)
 + [Creating a PySpark analysis template](create-pyspark-analysis-template.md)
 + [Reviewing a PySpark analysis template](review-pyspark-analysis-template.md)
++ [Differences between PySpark 1.0 and PySpark 2.0 analysis templates](pyspark-template-versions.md)
