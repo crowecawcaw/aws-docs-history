@@ -24,6 +24,7 @@ This section lists each of the policies used to manage seller access to AWS Mark
 + [AWS managed policy: AWSMarketplaceSellerProductsReadOnly](#security-iam-awsmanpol-awsmarketplacesellerproductsreadonly)
 + [AWS managed policy: AWSMarketplaceSellerOfferManagement](#security-iam-awsmanpol-awsmarketplaceselleroffermanagement)
 + [AWS managed policy: AWSMarketplaceResaleAuthorizationServiceRolePolicy](#security-iam-awsmanpol-awsmarketplaceresaleauthorizationservicerolepolicy)
++ [AWS managed policy: AWSMarketplaceSubsidiaryAuthorizationServiceRolePolicy](#security-iam-awsmanpol-awsmarketplacesubsidiaryauthorizationservicerolepolicy)
 + [AWS managed policy: AWSVendorInsightsVendorFullAccess](#security-iam-awsmanpol-awsvendorinsightsvendorfullaccess)
 + [AWS managed policy: AWSVendorInsightsVendorReadOnly](#security-iam-awsmanpol-awsvendorinsightsvendorreadonly)
 + [AWS Marketplace updates to AWS managed policies](#security-iam-awsmanpol-updates)
@@ -109,6 +110,7 @@ This policy includes the following permissions:
 + `support` – Allows principals to create support cases.
 + `q` – Allows principals to use Amazon Q Partner Assistant for conversations and requests.
 + `partnercentral` – Allows principals to start and retrieve seller verification status.
++ `partnercentral` – Grants permission to view the partner account connections for the principal's account, including subsidiary connections, so that a principal can select a subsidiary account when creating a subsidiary authorization. This permission is read-only: it doesn't grant permission to create, accept, reject, or cancel a connection or a connection invitation.
 + `s3` – Allows principals to upload objects to the AWS Marketplace ephemeral file upload bucket scoped to the caller's account.
 
 To view the permissions for this policy, see [AWSMarketplaceSellerFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSMarketplaceSellerFullAccess.html) in the *AWS Managed Policy Reference*.
@@ -121,6 +123,8 @@ You can attach the `AWSMarketplaceSellerProductsFullAccess` policy to your IAM i
 This policy grants contributor permissions that allow full access to manage products and to the AWS Marketplace Management Portal, and managing the Amazon EC2 AMI used in AMI-based products.
 
 **Permissions details**
+
+This policy grants `partnercentral` permission to view the partner account connections for the principal's account, including subsidiary connections, so that a principal can select a subsidiary account when creating a subsidiary authorization. This permission is read-only: it doesn't grant permission to create, accept, reject, or cancel a connection or a connection invitation.
 
 To view the permissions for this policy, see [AWSMarketplaceSellerProductsFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSMarketplaceSellerProductsFullAccess.html) in the *AWS Managed Policy Reference*.
 
@@ -149,7 +153,7 @@ This policy grants sellers access to manage offers and view purchase agreements.
 This policy includes the following permissions:
 + `aws-marketplace` – Allows principals to view and track the status of change sets submitted to AWS Marketplace.
 + `aws-marketplace` – Allows principals to initiate changes to existing offers and change sets, or create new offers on products.
-+ `aws-marketplace` – Allows principals to list and retrieve details about marketplace entities including offers, products, and resale authorizations.
++ `aws-marketplace` – Allows principals to list and retrieve details about marketplace entities including offers, products, resale authorizations, and subsidiary authorizations.
 + `aws-marketplace` – Allows principals to search and view purchase agreements and their terms where the user is the seller (proposer).
 + `aws-marketplace` – Allows principals to track invoice line items, billing adjustments, and cancellation requests for purchase agreements.
 
@@ -165,6 +169,15 @@ This policy grants permissions that allow AWS Marketplace to share ResaleAuthori
 This policy includes permissions for AWS Marketplace operations and AWS Resource Access Manager (RAM) actions to facilitate the sharing and management of ResaleAuthorization resources across different AWS accounts and catalogs.
 
 To view the permissions for this policy, see [AWSMarketplaceResaleAuthorizationServiceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSMarketplaceResaleAuthorizationServiceRolePolicy.html) in the *AWS Managed Policy Reference*.
+
+## AWS managed policy: AWSMarketplaceSubsidiaryAuthorizationServiceRolePolicy
+<a name="security-iam-awsmanpol-awsmarketplacesubsidiaryauthorizationservicerolepolicy"></a>
+
+This policy is attached to a service role that allows AWS Marketplace to perform actions on your behalf for Subsidiary Authorization. When you enable Subsidiary Authorization for your account, AWS Marketplace uses this policy to share SubsidiaryAuthorization entities between Parent and Subsidiary seller accounts using AWS Resource Access Manager (AWS RAM).
+
+This policy grants permissions for AWS RAM actions to create, associate, accept, and delete resource shares scoped to SubsidiaryAuthorization entities, and for AWS Marketplace operations to manage resource policies through AWS RAM and to describe SubsidiaryAuthorization entities.
+
+To view the permissions for this policy, see [AWSMarketplaceSubsidiaryAuthorizationServiceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSMarketplaceSubsidiaryAuthorizationServiceRolePolicy.html) in the *AWS Managed Policy Reference*.
 
 ## AWS managed policy: AWSVendorInsightsVendorFullAccess
 <a name="security-iam-awsmanpol-awsvendorinsightsvendorfullaccess"></a>
@@ -192,6 +205,10 @@ View details about updates to AWS managed policies for AWS Marketplace since thi
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| [AWSMarketplaceSellerOfferManagement](#security-iam-awsmanpol-awsmarketplaceselleroffermanagement) – Update to an existing policy | AWS Marketplace added the `SubsidiaryAuthorization` resource type to the `AWSMarketplaceEntitiesReadAccess` statement, which allows principals to retrieve details about subsidiary authorization entities using `aws-marketplace:DescribeEntity`. | October 26, 2026 | 
+| [AWSMarketplaceSubsidiaryAuthorizationServiceRolePolicy](#security-iam-awsmanpol-awsmarketplacesubsidiaryauthorizationservicerolepolicy) – New policy | AWS Marketplace added a new service role policy that allows AWS Marketplace to share SubsidiaryAuthorization entities between Parent and Subsidiary seller accounts using AWS Resource Access Manager. The policy grants permissions to create and manage AWS RAM resource shares scoped to SubsidiaryAuthorization entities and to manage resource policies through AWS RAM. | October 26, 2026 | 
+| [AWSMarketplaceSellerFullAccess](#security-iam-awsmanpol-awsmarketplacesellerfullaccess) – Update to an existing policy | AWS Marketplace added `partnercentral:ListConnections` and `partnercentral:GetConnection` so that sellers can view their account's partner account connections and select a subsidiary when creating a Subsidiary Authorization. The access is read-only and is limited to the calling account's own connections. | October 22, 2026 | 
+| [AWSMarketplaceSellerProductsFullAccess](#security-iam-awsmanpol-awsmarketplacesellerproductsfullaccess) – Update to an existing policy | AWS Marketplace added `partnercentral:ListConnections` and `partnercentral:GetConnection` so that sellers can view their account's partner account connections and select a subsidiary when creating a Subsidiary Authorization from the product management page. The access is read-only and is limited to the calling account's own connections. | October 22, 2026 | 
 | [AWSMarketplaceSellerFullAccess](#security-iam-awsmanpol-awsmarketplacesellerfullaccess) – Update to an existing policy | AWS Marketplace added `payments:DeletePaymentInstrument` to the `SellerSettings` statement. | August 12, 2026 | 
 | [AWSMarketplaceSellerFullAccess](#security-iam-awsmanpol-awsmarketplacesellerfullaccess) – Update to an existing policy | AWS Marketplace added new `TaxComplianceProfileChangeTaskManagement`, `TaxComplianceProfileRead`, and `TaxComplianceProfileList` statements with `aws-marketplace:StartTaxComplianceProfileChangeTask`, `aws-marketplace:GetTaxComplianceProfile`, `aws-marketplace:ListTaxComplianceProfileChangeTasks`, and `aws-marketplace:ListTaxComplianceProfiles`. Updated the `TagManagement` statement resource ARN to include tax compliance profile and tax compliance profile change task resources. | July 21, 2026 | 
 | [AWSMarketplaceSellerFullAccess](#security-iam-awsmanpol-awsmarketplacesellerfullaccess) – Update to an existing policy | AWS Marketplace added `tax:PutTaxRegistration` and `tax:ListTaxRegistrations` to the `SellerSettings` statement. | June 30, 2026 | 

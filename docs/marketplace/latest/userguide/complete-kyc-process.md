@@ -19,16 +19,16 @@ Sellers registered in Japan must complete **Japan Installment Sales Act verifica
 <a name="when-kyc-applies-korea"></a>
 
 To receive disbursements from the AWS South Korea invoicing entity, your business and bank account must be verified. Follow the verification options available in your seller settings:
-+ **NHN KCP verification:** Verify your business and bank account together in AWS Partner Central. See [South Korea business and bank account verification](#korea-business-verification).
++ **South Korea business and bank account verification:** Verify your business and bank account together in AWS Partner Central. See [South Korea business and bank account verification](#korea-business-verification).
 + **Global KYC through Amazon Payments Europe:** Completed Global KYC with the required bank account verification can also meet South Korea verification requirements. See [Global KYC requirements](#kyc-requirements).
 
 You do not need to complete both KYC processes to receive disbursements from the AWS South Korea invoicing entity.
 
-If you have already submitted verification to NHN KCP, continue that process. Contact AWS Marketplace Seller Support before changing verification processes.
+If you have already submitted the South Korea business and bank account verification form, continue that process. Contact AWS Marketplace Seller Support before changing verification processes.
 
 If you have already completed Global KYC, find **South Korea** in the **Global Know Your Customer (KYC)** table in your seller settings. Check **Disbursement status** and **Next step**, and complete any bank account verification requested.
 
-NHN KCP verification covers South Korea. If you use NHN KCP and also want to use the AWS EMEA invoicing entity, complete the [Global KYC requirements](#kyc-requirements) for EMEA separately.
+If you use the South Korea business and bank account verification form and also want to use the AWS EMEA invoicing entity, complete the [Global KYC requirements](#kyc-requirements) for EMEA separately.
 
 ### If your buyers are in Europe, the Middle East, and Africa (EMEA) or South Korea
 <a name="when-kyc-applies-buyer-region"></a>
@@ -52,7 +52,7 @@ This process doesn't apply to sellers in India, as they can only sell to buyers 
 
 **KYC email notifications**  
 For Amazon Payments Europe KYC, status updates are sent to your AWS account root email address and the custom email address you provide during registration. Add the people who manage your KYC verification to your custom email notifications so they receive status updates and requests. For more information, see [Adding or updating email addresses](email-notifications.md#adding-updating-email-addresses).  
-For NHN KCP verification, monitor the point-of-contact and business-contact email addresses entered in the verification form. NHN KCP can send identity-call invitations and requests for corrections directly to those addresses.
+For South Korea business and bank account verification, monitor the point-of-contact and business-contact email addresses entered in the verification form for identity-call invitations and requests for corrections.
 
 ## Japan Installment Sales Act verification
 <a name="japan-isa-verification"></a>
@@ -94,7 +94,7 @@ If you update your details after verification, submitting the changes starts rev
 ## South Korea business and bank account verification
 <a name="korea-business-verification"></a>
 
-This section explains how businesses registered in South Korea verify their business and bank account through NHN KCP in AWS Partner Central. Before you start, review [If your business is registered in South Korea](#when-kyc-applies-korea) for your verification options and requirements.
+Businesses registered in South Korea can complete this verification process in AWS Partner Central. NHN KCP is the verification provider that reviews your business, representative, owner, and bank account information. Before you start, review [If your business is registered in South Korea](#when-kyc-applies-korea) for your verification options and requirements.
 
 **Interactive demo available in Korean**  
 To preview the verification screens before you begin, view the [interactive South Korea business and bank account verification demo](https://awsmarketplace.storylane.io/share/nml3qn2oaxy6). The demo shows verification screens in Korean.
@@ -115,32 +115,74 @@ Set up your USD disbursement preference by selecting the bank account for your U
 The documents you need depend on your business and the people included in the form. Use the list below to prepare, and follow the requirements shown in your verification form:
 + **Business registration document:** select the document type that matches your business and upload it. The form accepts a business registration certificate (사업자등록증), unique identification number certificate (고유번호증), certificate of business registration (사업자등록증명원), or certificate of taxpayer identification number (납세번호증).
 + **Certificate of complete corporate registration (법인등기사항전부증명서, 법인등기부등본):** if requested, provide the complete certificate, issued within the last 3 months. Partial or view-only copies are not accepted.
-+ **Identity documents (신분증):** provide the documents requested for the representative or appointed delegate completing verification. These depend on the person's nationality and residency.
++ **Identity documents (신분증):** provide the documents requested for the representative or point of contact completing verification. These depend on the person's nationality and residency.
 
   For a Korean contact, the form accepts a resident registration ID (주민등록증) or driver's license (운전면허증). For a foreign contact, it requests a passport (여권) and one of the following: foreigner registration ID (외국인등록증), permanent resident ID (영주증), or domestic residence report ID (외국국적동포 국내거소신고증).
-+ **Letter of authorization (위임장):** your legal representative is the person authorized to represent your business. If someone else completes verification on their behalf, provide the authorization document requested in the form.
++ **Letter of authorization (위임장):** your legal representative is the person authorized to represent your business. If a different person completes this verification process as the point of contact, use the [Letter of authorization (위임장) template for South Korea](#kyc-loa-template-korea) when the form requests an authorization document.
 + **Corporate seal certificate (법인인감증명서):** provide the certificate requested for each representative. It must have been issued within the last 3 months.
 + **Corporate seal stamp (법인 인감 도장):** if the form requests a separate seal image, upload a clear image of the seal impression that matches the certificate.
 + **Use seal certificate (사용인감계):** if you use a different seal (사용인감) instead of the registered corporate seal, provide this certificate as instructed in the form.
 + **Proof of actual owner (실제소유자 확인 서류):** provide documents showing who owns or controls the business registered as your AWS Marketplace seller. The form accepts a stockholders' list (주주명부), auditor's report (감사보고서), statement of changes in shareholders' equity (주식변동사항명세서), employee list (사원명부), or list of investors/contributors (출자자명부).
 
-  If the form offers an exemption from individual owner details, upload the requested supporting documents. For an exemption based on DART financial reporting, upload the requested business or annual report (사업보고서, DART 공시). NHN KCP reviews your exemption and supporting documents.
+  If the form offers an exemption from individual owner details, upload the requested supporting documents. For an exemption based on DART financial reporting, upload the requested business or annual report (사업보고서, DART 공시). The verification team reviews your exemption and supporting documents.
 + **Bankbook copy (통장 사본):** provide the copy for the bank account selected for your USD disbursements.
 
-Follow the instructions displayed with each upload. If a document contains a Korean resident registration number (주민등록번호), cover the last 7 digits as instructed. Documents must be clear and readable. NHN KCP can request additional documents after reviewing your submission.
+Follow the instructions displayed with each upload. If a document contains a Korean resident registration number (주민등록번호), cover the last 7 digits as instructed. Documents must be clear and readable. The verification team can request additional documents after reviewing your submission.
 
-### Complete NHN KCP verification
+### Letter of authorization (위임장) template for South Korea
+<a name="kyc-loa-template-korea"></a>
+
+If you are the point of contact completing South Korea business and bank account verification on behalf of your business's legal representative, use the following template when the form requests a letter of authorization (위임장). Replace the placeholders with your business, legal representative, and point of contact details, and enter the date.
+
+For an individual, the legal representative must sign by hand. For a corporation, the legal representative must affix the corporate seal. If your business has joint representatives, all joint representatives must affix their corporate seals, and you must provide a corporate seal certificate (법인인감증명서) for each. If you affix a use seal (사용인감) instead, provide a use seal certificate (사용인감계) with the corporate seal certificate.
+
+This South Korea verification process does not include secondary-user verification.
+
+For Global KYC through Amazon Payments Europe, use the [Letter of authorization template for Global KYC](#kyc-loa-template).
+
+```
+권한 위임장
+(Power of Authority)
+
+주식회사 엔에이치엔케이씨피 귀중
+Attn: NHN KCP Corp
+
+위임인 (Legal representative)
+상호명 (Business name): **Enter business name**
+사업자등록번호 (Business registration number): **Enter business registration number**
+대표자명 (Legal representative name): **Enter legal representative name**
+
+대리인 (Point of contact)
+성명 (Point of contact name): **Enter point of contact's full name**
+생년월일 (Date of birth): **Enter date of birth**
+주소 (Address): **Enter address**
+위임인과의 관계 (Relationship to legal representative): **Enter relationship**
+
+위임내용 (Scope of authorization)
+본 회사의 '자금세탁방지 고객확인 대리 행위'에 관한 일체의 권한
+All authority related to acting on behalf of the company
+for Anti-Money Laundering (AML) customer due diligence
+
+날짜 (Date): **Year**년 **Month**월 **Day**일
+
+위임인 (Legal representative): ______________________ (서명 / 인)
+Legal representative signature/stamp
+개인: 자필서명 / 법인: 법인인감도장 날인
+Individual: handwritten signature / Corporation: corporate seal
+```
+
+### Complete South Korea verification
 <a name="korea-verification-steps"></a>
 
-If you have already submitted verification to NHN KCP, continue that process. Contact AWS Marketplace Seller Support before changing verification processes. For your options, see [If your business is registered in South Korea](#when-kyc-applies-korea).
+If you have already submitted this verification form, continue that process. Contact AWS Marketplace Seller Support before changing verification processes. For your options, see [If your business is registered in South Korea](#when-kyc-applies-korea).
 
-**Open the NHN KCP verification form**
+**Open the South Korea verification form**
 
 1. Sign in to AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home) and choose **Settings**.
 
 1. Choose the **Know Your Customer (KYC)** tab and locate **South Korea Know Your Customer (KYC)**, if available.
 
-1. Choose **Start verification** to begin or **Update verification** to continue an existing verification. You can also open the [NHN KCP verification form](https://us-east-1.console.aws.amazon.com/partnercentral/seller-verification/business-verification/KR?region=us-east-1) directly. Follow the verification options and next steps shown for your account.
+1. Choose **Start verification** to begin or **Update verification** to continue an existing verification. You can also open the [South Korea verification form](https://us-east-1.console.aws.amazon.com/partnercentral/seller-verification/business-verification/KR?region=us-east-1) directly. Follow the verification options and next steps shown for your account.
 
 The following steps describe a new verification. When updating a submitted verification, choose **Continue** where these steps say **Save and continue**, and follow any correction requests in the form.
 
@@ -163,7 +205,7 @@ If you cannot start verification, or a message says your business registration n
 ### After you submit
 <a name="korea-verification-review"></a>
 
-After you submit, NHN KCP reviews your information and documents. Check your seller settings for verification updates and requests for information. Review time varies, particularly if NHN KCP needs more documents or a video call to verify identity.
+After you submit, the verification team reviews your information and documents. Check your seller settings for verification updates and requests for information. Review time varies, particularly if more documents or a video call are needed to verify identity.
 
 In **Settings**, the **South Korea Know Your Customer (KYC)** card can show these verification statuses:
 + **Not started** — verification has not started. Follow the available verification option.
@@ -174,11 +216,11 @@ In **Settings**, the **South Korea Know Your Customer (KYC)** card can show thes
 
 To check your South Korea disbursement status, open the **Know Your Customer (KYC)** tab in **Settings**. Under **Global Know Your Customer (KYC)**, find **South Korea** in the table, check **Disbursement status**, and follow **Next step**. A **Verified** status on the verification card does not by itself confirm that disbursements are enabled.
 
-NHN KCP may email the point of contact and business contact listed in your form to arrange a recorded video call. Check these email accounts, including their spam folders. Follow the invitation to schedule the call for your representative or authorized contact and prepare the required identification.
+NHN KCP may email the point of contact and business contact listed in your form to arrange a recorded video call. Check these email accounts, including their spam folders. If the form or seller settings show **Action required: Check your email**, check your registered business email address for a message from the sender address or domain shown in the alert and follow its instructions. If you receive a call invitation, schedule the call for your representative or point of contact and prepare the required identification.
 
-During the call, the representative or authorized contact shows their identification to the camera. When showing a resident registration ID (주민등록증), cover the last 7 digits of the resident registration number (주민등록번호), as instructed by NHN KCP.
+During the call, the representative or point of contact shows their identification to the camera. When showing a resident registration ID (주민등록증), cover the last 7 digits of the resident registration number (주민등록번호), as instructed during the call.
 
-If NHN KCP requests corrections, check the messages in your form and any email from NHN KCP. Open your existing verification and correct the requested information or replace rejected documents. Check the requested changes for each affected representative and beneficial owner, then resubmit.
+If you are asked to make corrections, check the messages in your form and any verification email. Open your existing verification and correct the requested information or replace rejected documents. Check the requested changes for each affected representative and beneficial owner, then resubmit.
 
 If the required action is unclear or you cannot make the change, contact AWS Marketplace Seller Support. Include the status and message shown in the form.
 
@@ -202,7 +244,7 @@ If the form shows the wrong account, check your USD disbursement preference and 
 
 Global KYC through Amazon Payments Europe requires information and documents to verify your identity and business. Before you start, make sure you can monitor your AWS account root email address. The KYC team sends status updates and requests to that address. For more information, see [Managing account communications](managing-account-communications.md) in [Managing your seller account](seller-account-management.md).
 
-The following requirements apply to the Global KYC process. If you use NHN KCP for South Korea verification, follow [South Korea business and bank account verification](#korea-business-verification) for that process.
+The following requirements apply to the Global KYC process. For the South Korea verification form, follow [South Korea business and bank account verification](#korea-business-verification).
 
 Global KYC includes business verification, bank account verification, and optional secondary-user verification:
 
@@ -223,7 +265,7 @@ The verification team can request additional information or documents after revi
 ## Complete Global KYC business verification
 <a name="complete-kyc-process-steps"></a>
 
-Follow these steps for Global KYC business verification through Amazon Payments Europe. If you use NHN KCP for South Korea verification, follow [Complete NHN KCP verification](#korea-verification-steps) instead.
+Follow these steps for Global KYC business verification through Amazon Payments Europe. To complete the South Korea verification form, follow [Complete South Korea verification](#korea-verification-steps).
 
 **Note**  
 For accepted document types, templates, and formatting requirements referenced throughout these steps, see the [Templates and best practices for completing the KYC process](#kyc-best-practices) section at the end of this page.  
@@ -263,7 +305,7 @@ Your information is saved each time you choose **Next**.
 
 1. Enter the required **Point of contact information** as directed, and then choose **Next**.
 **Note**  
-The point of contact manages the AWS Marketplace account on behalf of your business. Where possible, use the seller account's root user. If this person does not have legal capacity to represent your business, upload a letter of authorization (LOA) in **Additional documents**. See [Letter of authorization template](#kyc-loa-template).
+The point of contact manages the AWS Marketplace account on behalf of your business. Where possible, use the seller account's root user. If this person does not have legal capacity to represent your business, upload a letter of authorization (LOA) in **Additional documents**. See [Letter of authorization template for Global KYC](#kyc-loa-template).
 Provide accepted identity and proof of address documents. See [Templates and best practices for completing the KYC process](#kyc-best-practices).
 
 1. Choose whether the **Beneficial owner** is the same as the point of contact, add beneficial owners (up to four) if necessary, confirm your additions, and then choose **Next**.
@@ -277,7 +319,7 @@ Provide accepted identity and proof of address documents. See [Templates and bes
 
 1. In the **Additional documents** section, upload your letter of authorization (if applicable) and statute documents.
 **Note**  
-**Letter of authorization (LOA):** If the point of contact does not have legal capacity to represent your business, provide a letter confirming their authorization. See [Letter of authorization template](#kyc-loa-template).
+**Letter of authorization (LOA):** If the point of contact does not have legal capacity to represent your business, provide a letter confirming their authorization. See [Letter of authorization template for Global KYC](#kyc-loa-template).
 **Statute document:** This is a governing document for your company. It should include articles of association, bylaws, or the most recent share allotment document, such as a statement of capital, annual return, or share register. For a privately owned company, it should include the full names of each beneficial owner who directly or indirectly owns more than 25% of the shares. If this information is missing, provide an organization chart showing the entire structure of your business. See [Organization chart template](#kyc-org-chart). Requirements vary by country and legal entity type. Provide a document that most closely matches these descriptions.
 Ensure these additional documents are signed by a legal representative, on company letterhead or stamped, and dated within 180 days. If more documents are needed, the KYC team contacts you at your AWS account root email address and can provide an example template.
 
@@ -299,7 +341,7 @@ If you need to add secondary users who can manage KYC information and financial 
 ## Templates and best practices for completing the KYC process
 <a name="kyc-best-practices"></a>
 
-The following identity and proof-of-address document requirements describe the Amazon Payments Europe process. For documents requested by NHN KCP for South Korea verification, see [Prepare your documents](#korea-verification-documents). For authorization documents, follow the instructions and template linked from your verification form.
+The following identity and proof-of-address document requirements describe the Amazon Payments Europe process. For documents requested in the South Korea business and bank account verification form, see [Prepare your documents](#korea-verification-documents). For a letter of authorization, use the [Letter of authorization template for Global KYC](#kyc-loa-template) for Global KYC or the [Letter of authorization (위임장) template for South Korea](#kyc-loa-template-korea) for the South Korea verification form.
 
 ### Accepted identity documents
 <a name="kyc-identity-documents"></a>
@@ -339,10 +381,10 @@ Requirements for proof of address documents:
 + The document must not be a screenshot.
 + The document must be dated within 180 days.
 
-### Letter of authorization template
+### Letter of authorization template for Global KYC
 <a name="kyc-loa-template"></a>
 
-If you need a letter of authorization, you can use the following sample:
+For Global KYC through Amazon Payments Europe, use the following template when your verification form requests a letter of authorization. For the South Korea verification form, use the [Letter of authorization (위임장) template for South Korea](#kyc-loa-template-korea).
 
 ```
 Letterhead of the company
@@ -395,4 +437,4 @@ Consider these best practices when completing the KYC process:
 ## Next steps
 <a name="next-steps-after-kyc"></a>
 
-After completing Global KYC business verification through Amazon Payments Europe, proceed to [Step 6: Complete bank account verification](complete-bank-verification.md). If you use NHN KCP for South Korea verification, follow [South Korea business and bank account verification](#korea-business-verification) to complete business and bank account verification for that process.
+After completing Global KYC business verification through Amazon Payments Europe, proceed to [Step 6: Complete bank account verification](complete-bank-verification.md). For the South Korea verification form, complete the business and bank account steps in [South Korea business and bank account verification](#korea-business-verification).

@@ -3,6 +3,9 @@
 # Setting up AWS Marketplace Vendor Insights
 <a name="vendor-insights-setting-up"></a>
 
+**AWS Marketplace Vendor Insights will no longer be available after November 26th, 2026.**  
+We're replacing AWS Marketplace Vendor Insights with new compliance validation features, coming soon. As of October 27th, 2026, you can no longer create or update AWS Marketplace Vendor Insights profiles. Your existing profiles stay available to you and your approved buyers until November 26th, 2026. To keep any documents for your records, please download them before November 26th, 2026. For more information, see the [AWS Marketplace Vendor Insights FAQ](vendor-insights-faq.md).
+
 The following procedure describes the high-level steps for setting up AWS Marketplace Vendor Insights on your AWS Marketplace software as a service (SaaS) listing. 
 
 **To set up AWS Marketplace Vendor Insights on your SaaS listing**

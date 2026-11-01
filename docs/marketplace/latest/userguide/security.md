@@ -30,4 +30,5 @@ To learn about security for buyers in AWS Marketplace, see [Security on AWS Mark
 + [Amazon SQS permissions](set-aws-iam-sqs-permissions.md)
 + [AWS Marketplace metering and entitlement API permissions](iam-user-policy-for-aws-marketplace-actions.md)
 + [Using service-linked roles for Selling Authorization with AWS Marketplace](using-roles-for-resale-authorization.md)
++ [Subsidiary authorization service role](using-roles-for-subsidiary-authorization.md)
 + [Logging AWS Marketplace API calls with AWS CloudTrail](cloudtrail-logging.md)

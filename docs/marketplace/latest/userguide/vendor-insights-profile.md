@@ -3,6 +3,9 @@
 # Viewing your AWS Marketplace Vendor Insights profile
 <a name="vendor-insights-profile"></a>
 
+**AWS Marketplace Vendor Insights will no longer be available after November 26th, 2026.**  
+We're replacing AWS Marketplace Vendor Insights with new compliance validation features, coming soon. As of October 27th, 2026, you can no longer create or update AWS Marketplace Vendor Insights profiles. Your existing profiles stay available to you and your approved buyers until November 26th, 2026. To keep any documents for your records, please download them before November 26th, 2026. For more information, see the [AWS Marketplace Vendor Insights FAQ](vendor-insights-faq.md).
+
 Your profile in AWS Marketplace Vendor Insights provides important information for buyers to use as they assess your product. For data protection purposes, we recommend that you protect your AWS account credentials and set up individual users with AWS Identity and Access Management (IAM). With that approach, each user is given only the permissions necessary to fulfill their job duties. For more information about creating users with IAM, see [Creating or using groups](marketplace-management-portal-user-access.md#creating-iam-groups). 
 
 Buyers can assess your product by using the AWS Marketplace Vendor Insights dashboard. There, buyers can see a product overview that is defined by the data sources you add to your profile. The security profile is defined by multiple security controls in 10 categories. 

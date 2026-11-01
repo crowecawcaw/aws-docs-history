@@ -71,26 +71,49 @@ For help with India-specific tax requirements, see [Tax help > India](https://aw
 ## Steps to provide tax information
 <a name="provide-tax-information-steps"></a>
 
-Follow these steps to provide your tax information in AWS Marketplace:
+AWS Marketplace uses your tax information to meet tax reporting requirements and to apply the correct tax treatment to your transactions. As a seller, you provide two separate types of tax information:
++ **Tax interview** – Determines your tax form (W-9 for US-based sellers, W-8 for non-US sellers).
++ **Tax registration** – Provide your Tax Registration Number (TRN), value-added tax (VAT) registration, or local tax identification details, if they apply to your jurisdiction.
+
+Complete the tax interview first. Then, if you sell in a jurisdiction that requires tax registration, provide those details as well.
+
+### Complete the tax interview
+<a name="complete-tax-interview"></a>
 
 1. Sign in to AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home).
 
-1. Navigate to the **Settings** tab.
+1. In the left navigation pane, under **Settings**, choose **Tax and invoices**.
 
-1. Select **Go to tax dashboard** in the **Payment information** section.
+1. On the **Tax information** tab, choose **Update tax information**.
 
-1. Complete the U.S. tax interview. Follow the on-screen instructions to complete the appropriate tax form based on your location (W-9 form for US-based sellers or W-8 form for non-US sellers).
-**Note**  
-If you see the error message "Tax interview location does not match the business location," ensure that the banking and tax information provided in Billing and Cost Management matches what is entered into AWS Partner Central. Your tax interview location must match the business location.
+1. Follow the on-screen instructions to complete the tax form for your location (W-9 form for US-based sellers or W-8 form for non-US sellers).
 
 1. Review all information for accuracy before submitting.
 
-1. Choose **Submit** to complete the tax information process.
-
-1. (Optional) If you need to complete VAT registration, return to the **Settings** page and choose **Complete VAT information**. This redirects you to the **Tax settings** page of the AWS Billing console.
+1. Choose **Submit** to complete the tax interview.
 
 **Note**  
-The tax interview process is managed by a third-party service provider. Your information is securely transmitted and stored in accordance with applicable tax regulations. The VAT information section is only available if you are in an AWS Region that supports VAT.
+Your tax interview location must match your business location. If you see the error message "Tax interview location does not match the business location," make sure that the banking and tax information in Billing and Cost Management matches the information in AWS Partner Central.  
+A third-party service provider manages the tax interview. The provider securely transmits and stores your information in accordance with applicable tax regulations.
+
+### Provide tax registration details
+<a name="provide-tax-registration-details"></a>
+
+If you sell in a jurisdiction that requires a TRN or VAT registration, provide those details on the **Tax settings** page of the AWS Billing and Cost Management console. Complete this procedure when you start selling in that jurisdiction, and again whenever your registration details change, so that AWS applies the correct tax treatment to your transactions.
+
+You can also reach the console by choosing your account name in the upper-right navigation bar and then choosing **Billing and Cost Management**.
+
+1. Sign in to the AWS Management Console and open the AWS Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/).
+
+1. In the navigation pane, under **Preferences and Settings**, choose **Tax settings**.
+
+1. On the **Tax settings** page, under **Tax registrations**, choose **Manage tax registration**.
+
+1. Add your tax registration details for the applicable country. Include your TRN or VAT registration number and any required supporting tax identification.
+
+1. Review your information and choose **Update** to save your changes.
+
+For more information about country-specific tax collection and remittance, see [Tax Services](tax-services.md).
 
 ## Best practices for providing tax information
 <a name="tax-information-best-practices"></a>
@@ -99,7 +122,7 @@ Consider these best practices when providing your tax information:
 + Ensure all information matches your official tax records to avoid processing delays.
 + Have your tax identification documents ready before starting the process.
 + If you're unsure about any tax requirements, consult with a tax professional before submitting your information.
-+ Keep your tax information up to date. If your tax status changes, update your information promptly in AWS Partner Central.
++ Keep your tax information up to date. Update your tax interview in AWS Partner Central, and update your tax registration details on the **Tax settings** page of the AWS Billing and Cost Management console.
 + For VAT/GST registration, ensure you understand the tax collection and remittance requirements in your jurisdiction.
 
 ## Next steps

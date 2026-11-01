@@ -3,6 +3,9 @@
 # Understanding AWS Marketplace Vendor Insights
 <a name="vendor-insights-understanding"></a>
 
+**AWS Marketplace Vendor Insights will no longer be available after November 26th, 2026.**  
+We're replacing AWS Marketplace Vendor Insights with new compliance validation features, coming soon. As of October 27th, 2026, you can no longer create or update AWS Marketplace Vendor Insights profiles. Your existing profiles stay available to you and your approved buyers until November 26th, 2026. To keep any documents for your records, please download them before November 26th, 2026. For more information, see the [AWS Marketplace Vendor Insights FAQ](vendor-insights-faq.md).
+
 AWS Marketplace Vendor Insights gathers compliance artifacts and security control information for your product and presents it in a dashboard. The dashboard takes data from the product owner's self-assessment, evidence from audit reports, and live evidence from AWS accounts. This data feeds into the security controls and then to the dashboard for buyers to review. 
 
 The dashboard presents the evidence-based information gathered by AWS Marketplace Vendor Insights from multiple security control categories. This provides insight with a near real-time view of the security profile and reduces discussions between the buyer and seller. Buyers can validate a seller's information completing assessments within a few hours. AWS Marketplace Vendor Insights provides a mechanism for sellers to keep security and compliance posture information up-to-date automatically. They can share it with buyers on-demand which eliminates the need to respond to questionnaires on a random basis.

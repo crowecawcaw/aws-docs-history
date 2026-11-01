@@ -5,9 +5,12 @@
 
 This section describes the tax collection, invoicing, reporting, and remittance services that AWS provides for AWS Marketplace sellers in specific countries or regions. The applicable services depend on your country of incorporation and your tax registration status.
 
+Notwithstanding anything to the contrary in Section 7(g) of the AWS Marketplace Seller Terms, AWS operates as a facilitator where it facilitates a Transaction (as defined in Section 1(j) of the AWS Marketplace Seller Terms) and issues an invoice for that Transaction (including a Transaction between a Listing Owner (as defined in Section 1(a) of the AWS Marketplace Resale Addendum) and an authorized reseller or channel partner. AWS may issue a tax invoice or commercial invoice and, where required by applicable tax law, apply marketplace facilitator rules on each Transaction.
+
 **Countries and regions**
 + [Australia](#tax-services-australia)
 + [Canada](#tax-services-canada)
++ [Colombia](#tax-services-colombia)
 + [India](#tax-services-india)
 + [Japan](#tax-services-japan)
 + [Korea](#tax-services-korea)
@@ -28,6 +31,13 @@ If this agreement is a "consumer contract" or "small business contract" as defin
 The following applies only if you are a supplier who is registered under subdivision D of Division V of Part IX of the Excise Tax Act (Canada) (**"ETA"**) for the tax levied under the ETA (**"GST/HST"**). Despite the foregoing, for purposes of the ETA only, you, as principal, and we, as agent, jointly elect to have AWS (752410290RT0001) account for GST/HST on supplies made by you to customers whose valid Amazon Web Services customer account country is Canada on AWS Marketplace so that AWS shall charge, collect, report and remit applicable GST/HST in connection with any related Transaction and with your Offering, and you do not account for GST/HST on same, while remaining responsible to charge, collect, report and remit any applicable GST/HST on all of your other supplies, whether they are made on, or outside AWS Marketplace.
 
 The following only applies to you if you are a supplier registered under Division I of Chapter VIII of Title I of the Act respecting the Québec sales tax (**"QST Act"**) for the tax levied under the QST Act ("QST"). Despite the foregoing, for the purposes of the QST Act only, you as principal, and we, as agent, jointly elect to have AWS (1224128815TQ0001) account for QST on supplies made by you to customers whose valid Amazon Web Services customer account location is Quebec, Canada on AWS Marketplace so that AWS shall charge, collect, report and remit applicable QST in connection with any related Transaction and with your Offering, and you do not account for QST on same, while remaining responsible to charge, collect, report and remit any applicable QST on all of your other supplies, whether they are made on, or outside AWS Marketplace.
+
+## Colombia: Tax Collection
+<a name="tax-services-colombia"></a>
+
+If your customer is located in Colombia and you have provided your RUT (Registro Único Tributario) informing us of your Colombia Value Added Tax ("VAT") registration, then AWS will (1) calculate Colombia VAT on Professional Services Transactions, (2) add that amount to the listing price, and (3) collect then remit this tax to you. It is your obligation to report and remit any VAT to the Colombia Tax Administration. Customers may request an electronic invoice (or electronic Credit Note if applicable) from you as the seller of record. In this case, it is your obligation to issue an electronic invoice directly to your customers.
+
+If you have not provided your RUT (Registro Único Tributario) informing us of your Colombia Value Added Tax ("VAT") registration, then AWS will not add VAT on your Professional Service sales to Colombia customers. It is your obligation to determine whether or not to collect, report, and remit VAT to the Colombia Tax Administration.
 
 ## India: Tax Collection and Tax Invoicing
 <a name="tax-services-india"></a>

@@ -37,21 +37,39 @@ You must configure permissions to allow your users, groups, or roles to create, 
 ## Creating a service-linked role for AWS Marketplace
 <a name="create-slr"></a>
 
-You don't need to manually create a service-linked role. When you choose a service-linked role in the AWS Marketplace Management Portal, AWS Marketplace creates the service-linked role for you. 
+You create the AWSServiceRoleForMarketplaceResaleAuthorization service-linked role in AWS Partner Central. You don't need to create it manually in IAM. Both manufacturers (ISVs) and channel partners need this role in the AWS account that they use for Selling Authorizations and channel partner private offers.
+
+To view the role status, you need the `iam:GetRole` permission. To create the role, you also need the `iam:CreateServiceLinkedRole` permission.
 
 **To create a service-linked role**
 
-1. In the [AWS Marketplace Management Portal](http://aws.amazon.com/marketplace/management/), sign in to the management account and choose **Settings**.
+1. Sign in to [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home) with the AWS account that you sell from.
 
-1. In the **Settings** section, select the **Service-linked roles** tab.
+1. In the navigation pane, under **Settings**, choose **Account**.
 
-1. On the **Service-linked roles** page, select **Service-linked role for Selling Authorizations** or **Selling Authorizations integration**, and then choose **Create service-linked role** or **Configure integration**.
+1. Choose the **Service roles** tab.
 
-1. On the **Service-linked role for Selling Authorizations** or **Create Selling Authorizations integrations** page, review the information and confirm by choosing **Create service-linked role** or **Create integration**.
+1. In the **Seller service-linked roles** section, check the status of the Resale Authorizations service-linked role.
 
-   A message appears on the **Service-linked roles** page, indicating that the Selling Authorization service-linked role was successfully created.
+   If the status is **AWS Marketplace Resale Authorization service-linked role created**, the role already exists in your account and you don't need to create it.
 
-If you delete a service-linked role, you can follow these steps to recreate it.
+1. Choose **Create service-linked role**.
+
+1. On the **Service-linked role for Resale Authorizations** page, under **Review service-linked role**, review the information about the role.
+
+1. Select **AWS Marketplace Resale Authorization service-linked role for this account**, and then choose **Create service-linked role**.
+
+   The **Service roles** tab opens and shows the message **Service-linked role was successfully created**. The status might take a few minutes to update.
+
+If you delete the service-linked role, you can follow these steps to recreate it.
+
+You can also create the role by using the AWS CLI or the IAM API. For example, run the following command in the account that needs the role.
+
+```
+aws iam create-service-linked-role --aws-service-name resale-authorization.marketplace.amazonaws.com
+```
+
+For more information, see [Creating a service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#create-service-linked-role) in the *IAM User Guide*.
 
 ## Editing a service-linked role for AWS Marketplace
 <a name="edit-slr"></a>

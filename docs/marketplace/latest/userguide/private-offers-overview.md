@@ -20,6 +20,7 @@ Sellers in India can create private offers in USD and INR, and can extend these 
 + [Supported product types for AWS Marketplace private offers](private-offers-supported-product-types.md)
 + [Creating and managing private offers](creating-private-offer.md)
 + [Auto-generated private offers](auto-generated-private-offers.md)
++ [Creating private offers as a subsidiary account](subsidiary-offers.md)
 + [Creating private offers as an AWS Marketplace Channel Partner](channel-partner-offers.md)
 + [Express private offers](express-private-offers.md)
 + [Private offer installment plans](installment-plans.md)

@@ -3,6 +3,9 @@
 # Managing snapshots in AWS Marketplace Vendor Insights
 <a name="vendor-insights-snapshot"></a>
 
+**AWS Marketplace Vendor Insights will no longer be available after November 26th, 2026.**  
+We're replacing AWS Marketplace Vendor Insights with new compliance validation features, coming soon. As of October 27th, 2026, you can no longer create or update AWS Marketplace Vendor Insights profiles. Your existing profiles stay available to you and your approved buyers until November 26th, 2026. To keep any documents for your records, please download them before November 26th, 2026. For more information, see the [AWS Marketplace Vendor Insights FAQ](vendor-insights-faq.md).
+
 A *snapshot* is a point-in-time posture of a security profile. In AWS Marketplace Vendor Insights, you can use snapshots to assess a seller's product at any given time. As the seller, you can compare the security postures of your profile at different times or the latest snapshots of different security profiles to support your decision making. Snapshots provide necessary security information in addition to providing transparency about freshness and source of the data.
 
 In the AWS Marketplace console, in the AWS Marketplace Vendor Insights **Snapshot summary** section, you can view the following snapshot details for the creation and release schedule:

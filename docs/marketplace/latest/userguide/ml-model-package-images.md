@@ -8,6 +8,7 @@ An Amazon SageMaker AI model package is a pre-trained model that makes predictio
 **Topics**
 + [Overview](#ml-model-package-images-overview)
 + [Create an inference image for model packages](#ml-creating-an-inference-image-for-model-packages)
++ [Support streaming responses and bidirectional streams](#ml-model-package-images-streaming)
 
 ## Overview
 <a name="ml-model-package-images-overview"></a>
@@ -63,7 +64,7 @@ The following example uses a web service, [Flask](https://pypi.org/project/Flask
 
  For the inference image to be compatible with SageMaker AI, the Docker image must expose HTTP endpoints. While your container is running, SageMaker AI passes buyer inputs for inference to the container’s HTTP endpoint. The inference results are returned in the body of the HTTP response. 
 
- The following walkthrough uses the Docker CLI in a development environment using a Linux Ubuntu distribution. 
+ The following walkthrough uses the Docker CLI in a development environment using a Linux Ubuntu distribution. To support streaming responses or bidirectional streams, see [Support streaming responses and bidirectional streams](#ml-model-package-images-streaming).
 + [Create the web server script](#ml-create-the-web-server-script)
 + [Create the script for the container run](#ml-create-the-script-for-the-container-run)
 + [Create the `Dockerfile`](#ml-create-the-dockerfile)
@@ -285,3 +286,158 @@ sudo docker container stop my-inference-container
 ```
 
  When your inference image is ready and tested, you can continue to [Uploading your images to Amazon Elastic Container Registry](ml-uploading-your-images.md). 
+
+## Support streaming responses and bidirectional streams
+<a name="ml-model-package-images-streaming"></a>
+
+Buyers can call your endpoint in three ways. The inference image in the previous section supports real-time requests. To support streaming responses and bidirectional streams, make the changes in this section.
+
+
+**Ways to call your endpoint**  
+
+| How the buyer calls your endpoint | SageMaker AI API | What your container does | 
+| --- | --- | --- | 
+| Real-time request | `InvokeEndpoint` | Returns the complete response to a POST request at `/invocations`. | 
+| Streaming response | `InvokeEndpointWithResponseStream` | Returns the response to a POST request at `/invocations` in parts as your model produces them, using HTTP chunked transfer encoding. | 
+| Bidirectional stream | `InvokeEndpointWithBidirectionalStream` | Accepts a WebSocket connection at `/invocations-bidirectional-stream` and exchanges messages with the buyer in both directions until the session ends. | 
+
+Your container must meet these requirements:
++ **Keep `/ping` and `/invocations`.** SageMaker AI checks `/ping` on every endpoint. AWS Marketplace validates your model package with a batch transform job that calls `/invocations`.
++ **Serve HTTP and WebSocket connections on port 8080** from the same web server.
++ **For bidirectional streams, add the Docker label** `com.amazonaws.sagemaker.capabilities.bidirectional-streaming=true`. SageMaker AI reads the label when a buyer deploys your model. Without it, buyers can't open bidirectional streams to the endpoint. Streaming responses don't need a label.
++ **Answer WebSocket ping frames with pong frames.** SageMaker AI sends a ping every 60 seconds and closes the connection after 5 missed pongs. Most WebSocket servers, including Uvicorn, answer pings for you.
++ **Plan for sessions of up to 30 minutes.** SageMaker AI ends a bidirectional stream after 30 minutes, and the buyer's application opens a new one. Store session state with the connection, so a new stream can start cleanly.
+
+For the full contract, see [Container contract to support bidirectional streaming capabilities](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-bidi) in the *Amazon SageMaker AI Developer Guide*.
+
+### Create the web server script for streaming
+<a name="ml-model-package-images-streaming-server"></a>
+
+The following example replaces the Flask server from the previous section with FastAPI, because Flask doesn't support WebSocket connections. One server handles all three ways of calling the endpoint. As before, the example has no inference logic: it returns the input in uppercase.
+
+ **`./web_app_serve.py`** 
+
+```
+from fastapi import FastAPI, Request, Response, WebSocket, WebSocketDisconnect
+from fastapi.responses import StreamingResponse
+
+app = FastAPI()
+
+
+# Health check, used by every invocation type
+@app.get("/ping")
+async def ping():
+    return Response(status_code=200)
+
+
+# Real-time requests, streaming responses, and batch transform
+@app.post("/invocations")
+async def invocations(request: Request):
+    input_str = (await request.body()).decode("utf8")
+
+    async def generate():
+        # Replace this loop with your model code. Yield each part as soon as it's ready.
+        for word in input_str.split():
+            yield word.upper() + "\n"
+
+    return StreamingResponse(generate(), media_type="text/plain")
+
+
+# Bidirectional streams
+@app.websocket("/invocations-bidirectional-stream")
+async def bidirectional_stream(websocket: WebSocket):
+    await websocket.accept()
+    try:
+        while True:
+            message = await websocket.receive_text()
+            # Replace this line with your model code.
+            await websocket.send_text(message.upper())
+    except WebSocketDisconnect:
+        pass
+```
+
+`/invocations` streams every response. Real-time requests and batch transform jobs receive the parts as one complete response, so you don't need separate code for them.
+
+### Create the script for the streaming container run
+<a name="ml-model-package-images-streaming-serve"></a>
+
+ **`./serve`** 
+
+```
+#!/bin/bash
+
+# Run the web server on port 8080 for SageMaker
+exec uvicorn web_app_serve:app --app-dir / --host 0.0.0.0 --port 8080
+```
+
+### Create the `Dockerfile` for streaming
+<a name="ml-model-package-images-streaming-dockerfile"></a>
+
+ `./Dockerfile` 
+
+```
+FROM python:3.12-slim
+
+# Tell SageMaker that this container supports bidirectional streams
+LABEL com.amazonaws.sagemaker.capabilities.bidirectional-streaming=true
+
+# Install the web server
+RUN pip install --no-cache-dir fastapi "uvicorn[standard]"
+
+# Add the web server script and the script that SageMaker runs
+COPY web_app_serve.py /web_app_serve.py
+COPY serve /opt/program/serve
+RUN chmod 755 /opt/program/serve
+ENV PATH=/opt/program:${PATH}
+```
+
+`uvicorn[standard]` includes the WebSocket library that Uvicorn needs. If you don't support bidirectional streams, leave out the `LABEL` line.
+
+### Test streaming locally
+<a name="ml-model-package-images-streaming-test"></a>
+
+Build and run the image as described in [Step 2: Build and testing the image locally](#ml-step-2-building-and-testing-the-image-locally), then run the following tests.
+
+**To test streaming locally**
+
+1. Confirm that the image has the label. The command returns `true`.
+
+   ```
+   sudo docker inspect --format '{{ index .Config.Labels "com.amazonaws.sagemaker.capabilities.bidirectional-streaming" }}' my-inference-image
+   ```
+
+1. Test a streaming response. The `--no-buffer` option prints each part as it arrives.
+
+   ```
+   curl --no-buffer --request POST --data "hello world" http://127.0.0.1:8080/invocations
+   ```
+
+   The command prints `HELLO` and `WORLD` on separate lines.
+
+1. Test a bidirectional stream with the following Python script. Install the client library with `pip install websockets`.
+
+    **`./test_bidi.py`** 
+
+   ```
+   import asyncio
+   
+   import websockets
+   
+   
+   async def main():
+       async with websockets.connect("ws://127.0.0.1:8080/invocations-bidirectional-stream") as ws:
+           for text in ["hello", "world"]:
+               await ws.send(text)
+               print(await ws.recv())
+   
+   
+   asyncio.run(main())
+   ```
+
+   ```
+   python test_bidi.py
+   ```
+
+   The script prints `HELLO` and `WORLD`.
+
+If your product uses inference pricing, your container also reports usage for streaming responses and bidirectional streams. For more information, see [Reporting usage for inference pricing](ml-inference-metering.md).

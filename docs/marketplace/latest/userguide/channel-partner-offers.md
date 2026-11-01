@@ -51,3 +51,10 @@ ISVs and Channel Partners can use the **Partners** menu on [AWS Partner Central]
 For detailed instructions about creating private offers, see [AWS Marketplace Channel Partner Private Offer – Create Offer](https://s3.us-west-2.amazonaws.com/external-mp-channel-partners/Consulting+Partner+Creates+(1).pdf).
 
 For information about third-party financing for private offers, see [Customer financing is now available in AWS Marketplace](https://s3.us-west-2.amazonaws.com/external-mp-channel-partners/Financing+External+Briefing+Document+Customer+Facing.pdf).
+
+## Non-payable invoices
+<a name="channel-partner-non-payable-invoices"></a>
+
+For Private Offer transactions in supported jurisdictions, channel partners receive a non-payable invoice. The invoices provide support for the purchase of the Authorized Resale Products and reflect the seller and the wholesale price stated in the selling authorization.
+
+To access non-payable invoices, open the AWS Billing and Cost Management Console. In the navigation pane, select **Bills**, then **Invoices**, then view the **Marketplace non-payable invoices** section.

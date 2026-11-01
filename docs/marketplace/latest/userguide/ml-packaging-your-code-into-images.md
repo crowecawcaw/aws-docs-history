@@ -8,6 +8,7 @@ Machine learning products in AWS Marketplace use Amazon SageMaker AI to create a
 **Topics**
 + [Which type of container image do I create?](#ml-which-type-of-container-image-do-i-create)
 + [Creating model package images](ml-model-package-images.md)
++ [Reporting usage for inference pricing](ml-inference-metering.md)
 + [Creating algorithm images](ml-algorithm-images.md)
 
 ## Which type of container image do I create?

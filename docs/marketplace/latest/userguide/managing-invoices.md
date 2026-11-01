@@ -44,6 +44,21 @@ Within the **Customer invoices** table, you can do the following:
 + Filter by **Customer name** (customer AWS account ID).
 + Filter by **Custom date range**. The table lists all invoices issued within the specified date range after the range is applied.
 
+### Viewing non-payable invoices (for channel partners)
+<a name="non-payable-invoices"></a>
+
+Non-payable invoices are available for channel partners participating in Private Offer transactions in supported jurisdictions. The invoices provide support for the purchase of the Authorized Resale Products and reflect the seller and the wholesale price stated in the selling authorization.
+
+**To access non-payable invoices**
+
+1. Sign in to the AWS Management Console.
+
+1. Navigate to AWS Billing and Cost Management.
+
+1. In the navigation pane, choose **Bills**.
+
+1. Select **Invoices** and view the **Marketplace non-payable invoices** section.
+
 ## Downloading tax invoices
 <a name="download-tax-invoices"></a>
 

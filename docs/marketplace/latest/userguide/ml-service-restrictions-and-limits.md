@@ -53,6 +53,8 @@ For batch transform, the maximum size of the input data per invocation is 100 MB
 
 For an endpoint, the maximum processing time per invocation is 60 seconds for regular responses and 8 min for streaming responses. This value can't be adjusted.
 
+For a bidirectional stream, a session can last up to 30 minutes.
+
 For batch transform, the maximum processing time per invocation is 60 minutes. This value can't be adjusted.
 
 ## Service quotas

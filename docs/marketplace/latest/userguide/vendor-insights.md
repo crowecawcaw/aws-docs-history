@@ -3,6 +3,9 @@
 # AWS Marketplace Vendor Insights
 <a name="vendor-insights"></a>
 
+**AWS Marketplace Vendor Insights will no longer be available after November 26th, 2026.**  
+We're replacing AWS Marketplace Vendor Insights with new compliance validation features, coming soon. As of October 27th, 2026, you can no longer create or update AWS Marketplace Vendor Insights profiles. Your existing profiles stay available to you and your approved buyers until November 26th, 2026. To keep any documents for your records, please download them before November 26th, 2026. For more information, see the [AWS Marketplace Vendor Insights FAQ](vendor-insights-faq.md).
+
 AWS Marketplace Vendor Insights is a feature that simplifies software risk assessments performed by organizations to safeguard procuring software they trust and meets their standards. With AWS Marketplace Vendor Insights, buyers can monitor the security profile of a product in near real-time from a single console. AWS Marketplace Vendor Insights can ease the procurement process for buyers and potentially increase sales for sellers. It reduces a buyer's assessment effort by providing a dashboard of the software product’s security and compliance information. 
 
 All security and compliance information in the AWS Marketplace Vendor Insights dashboard is based on evidence gathered from the following sources:
@@ -20,3 +23,4 @@ You must set up the baseline resources and infrastructure in your AWS accounts b
 + [Viewing your AWS Marketplace Vendor Insights profile](vendor-insights-profile.md)
 + [Managing snapshots in AWS Marketplace Vendor Insights](vendor-insights-snapshot.md)
 + [Controlling access in AWS Marketplace Vendor Insights](vendor-insights-seller-controlling-access.md)
++ [AWS Marketplace Vendor Insights FAQ for sellers](vendor-insights-faq.md)
