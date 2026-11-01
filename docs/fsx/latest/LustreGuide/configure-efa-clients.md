@@ -92,6 +92,9 @@ To access an FSx for Lustre file system using an EFA interface, you must install
 ### Quick setup
 <a name="quick-setup"></a>
 
+**Important**  
+The FSx for Lustre EFA configuration script must load the Lustre modules itself. If another component loads the `libcfs` module before the script runs, the script exits with an error. To resolve the error, unload your Lustre modules and run the script again.
+
 **To quickly configure your Lustre client**
 
 1. Connect to your Amazon EC2 instance.
@@ -146,7 +149,7 @@ For information on automatically mounting your Amazon FSx for Lustre file system
 ## Step 4: EFA interfaces
 <a name="add-efa-interfaces"></a>
 
-Each FSx for Lustre file system has a maximum limit of 1024 EFA connections across all client instances.
+Each FSx for Lustre file system has a maximum limit of 8192 EFA connections across all client instances.
 
 The `configure-efa-fsx-lustre-client.sh` script automatically configures EFA interfaces based on the instance type.
 
@@ -161,7 +164,7 @@ The `configure-efa-fsx-lustre-client.sh` script automatically configures EFA int
 | p5.48xlarge | 8 | 
 | Other instances | All available EFA interfaces | 
 
-Each configured EFA interface on a client instance counts as one connection against the 1024 EFA connection limit when connected to an FSx for Lustre file system.
+Each configured EFA interface on a client instance counts as one connection against the 8192 EFA connection limit when connected to an FSx for Lustre file system.
 
 ### Managing EFA interfaces manually
 <a name="manage-interfaces-manually"></a>

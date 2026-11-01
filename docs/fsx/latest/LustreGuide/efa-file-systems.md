@@ -16,7 +16,7 @@ EFA-enabled file systems support two additional performance features: GPUDirect 
 <a name="efa-considerations"></a>
 
 Here are a few important items to consider when creating EFA-enabled file systems:
-+ **Multiple connectivity options:** EFA-enabled file systems can communicate with client instances using ENA, ENA Express, and EFA.
++ **Multiple connectivity options:** EFA-enabled file systems can communicate with client instances using ENA, ENA Express, and EFA. Metadata traffic between clients and the file system always uses TCP.
 + **Deployment type:** EFA is supported on Persistent 2 file systems with a metadata configuration specified, including file systems using the Intelligent-Tiering storage class.
 + **Updating EFA setting:** You can choose to enable EFA when you create a new file system but you cannot enable or disable EFA on an existing file system.
 + **Scaling throughput with storage capacity:** You can scale storage capacity on an EFA-enabled SSD-based file system to increase throughput capacity but you cannot change the throughput tier of an EFA-enabled file system.
