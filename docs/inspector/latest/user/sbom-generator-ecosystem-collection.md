@@ -8,7 +8,7 @@
 ## Supported ecosystems
 <a name="w2aac39c27b5"></a>
 
- The ecosystem collection extends SBOM generation beyond packages installed through OS package managers. This is done through the collection of applications deployed in alternative methods, such as manual installation. These application collectors run under the `extra-ecosystems` scanner group, which is applied by default for container and localhost scans. For other scan types, add a scanner with the `--additional-scanners` option. For more information, see [Using the Amazon Inspector SBOM Generator](https://docs.aws.amazon.com/inspector/latest/user/sbom-generator.html#using-sbomgen). The Amazon Inspector SBOM Generator supports scanning for the following ecosystems: 
+ The ecosystem collection extends SBOM generation beyond packages installed through OS package managers. This is done through the collection of applications deployed through alternative methods, such as manual installation. These application collectors run under the `extra-ecosystems` scanner group, which is applied by default for container and localhost scans. For other scan types, add a scanner with the `--additional-scanners` option. For more information, see [Using the Amazon Inspector SBOM Generator](https://docs.aws.amazon.com/inspector/latest/user/sbom-generator.html#using-sbomgen). The Amazon Inspector SBOM Generator supports scanning for the following ecosystems: 
 
 
 | Ecosystems | Applications | 
@@ -43,7 +43,7 @@
 | Mozilla | Firefox<br />Firefox ESR<br />Thunderbird | 
 | Nginx | Nginx | 
 | Node | Node | 
-| Node.JS | node | 
+| Node.js | node | 
 | Nomic AI | GPT4All | 
 | Ollama | Ollama<br />Ollama Model Collector | 
 | OpenSSH | OpenSSH (versions 9 and 10) | 
@@ -59,23 +59,23 @@
 <a name="w2aac39c27b7"></a>
 
 **Supported applications**
-+  7 Zip archiver (version 21.07 or higher) 
++  7-Zip archiver (version 21.07 and higher) 
 
 **Key features**
 +  Examines 7-Zip binaries to extract the embedded version information. 
 
 **Note**  
- Specifically, it searches for the product version value from the binary. 
+ Specifically, it searches for the product version value in the binary. 
 
 **Supported platforms – Windows**
-+  `C:/Program Files/7-Zip/7z.exe` 
-+  `C:/Program Files/7-Zip/7za.exe` 
-+  `C:/Program Files/7-Zip/7zz.exe` 
-+  `C:/Program Files/7-Zip/7zr.exe` 
-+  `C:/Program Files (x86)/7-Zip/7z.exe` 
-+  `C:/Program Files (x86)/7-Zip/7za.exe` 
-+  `C:/Program Files (x86)/7-Zip/7zz.exe` 
-+  `C:/Program Files (x86)/7-Zip/7zr.exe` 
++  `C:\Program Files\7-Zip\7z.exe` 
++  `C:\Program Files\7-Zip\7za.exe` 
++  `C:\Program Files\7-Zip\7zz.exe` 
++  `C:\Program Files\7-Zip\7zr.exe` 
++  `C:\Program Files (x86)\7-Zip\7z.exe` 
++  `C:\Program Files (x86)\7-Zip\7za.exe` 
++  `C:\Program Files (x86)\7-Zip\7zz.exe` 
++  `C:\Program Files (x86)\7-Zip\7zr.exe` 
 
 **Example PURL**  
  The following is an example package URL for 7-Zip. 
@@ -84,7 +84,7 @@
 pkg:generic/7zip/7zip@25.01
 ```
 
-## AI Agent Skills ecosystem collection
+## AI agent skills ecosystem collection
 <a name="w2aac39c27b9"></a>
 
 **Supported applications**
@@ -96,7 +96,7 @@ pkg:generic/7zip/7zip@25.01
 
 **Key features**
 +  Detects `SKILL.md` files in default skill directories for supported AI agent skills. 
-+  Supports the cross-client standard path (`~/.agents/skills/`) and agent-specific paths (e.g., `~/.claude/skills/`). 
++  Supports the cross-client standard path (`~/.agents/skills/`) and agent-specific paths (for example, `~/.claude/skills/`). 
 +  Skills are not versioned. Each skill is identified by the SHA-256 hash of its `SKILL.md` file. 
 
 **Supported platforms**  
@@ -198,7 +198,7 @@ Sample PURL: pkg:generic/amazon/amazon-q@1.19.7?distro=linux
 ## Apache ecosystem collection
 <a name="w2aac39c27c15"></a>
 
- This section provides details about Apache Cassandra, Apache httpd, Apache Struts, and Apache tomcat applicatons. 
+ This section provides details about Apache Cassandra, Apache httpd, Apache Struts, and Apache tomcat applications. 
 
 ### Apache Cassandra
 <a name="w2aac39c27c15b5"></a>
@@ -221,10 +221,10 @@ Sample PURL: pkg:generic/amazon/amazon-q@1.19.7?distro=linux
 +  `/usr/local/Cellar/cassandra/` 
 
 **Windows**
-+  `/Program Files/cassandra/lib/` 
-+  `/Program Files/apache-cassandra/lib/` 
-+  `/Program Files (x86)/cassandra/lib/` 
-+  `/Program Files (x86)/apache-cassandra/lib/` 
++  `C:\Program Files\cassandra\lib\` 
++  `C:\Program Files\apache-cassandra\lib\` 
++  `C:\Program Files (x86)\cassandra\lib\` 
++  `C:\Program Files (x86)\apache-cassandra\lib\` 
 
 **Example `apache-cassandra-<specific.version>.jar/META-INF/MANIFEST.MF` file**  
  The following is an example of content inside an `apache-cassandra-<specific.version>.jar/META-INF/MANIFEST.MF` file. 
@@ -241,7 +241,7 @@ Implementation-Vendor: Apache
 ```
 
 **Example PURL**  
- The following is an example package URL for an `Apache Cassandra` application. 
+ The following is an example package URL for an Apache Cassandra application. 
 
 ```
 Sample PURL: pkg:generic/apache/cassandra@4.1.3
@@ -266,9 +266,9 @@ Sample PURL: pkg:generic/apache/cassandra@4.1.3
 +  `/usr/local/apache2/include/` 
 
 **Windows**
-+  `/Apache24/include/` 
-+  `/Program Files/Apache24/include/` 
-+  `/Program Files (x86)/Apache24/include/` 
++  `C:\Apache24\include\` 
++  `C:\Program Files\Apache24\include\` 
++  `C:\Program Files (x86)\Apache24\include\` 
 
 **Example `ap_release.h` file**  
  The following is an example of content inside an `ap_release.h` file. 
@@ -289,7 +289,7 @@ Sample PURL: pkg:generic/apache/cassandra@4.1.3
 ```
 
 **Example PURL**  
- The following is an example package URL for an `Apache httpd` application. 
+ The following is an example package URL for an Apache httpd application. 
 
 ```
 Sample PURL: pkg:generic/apache/httpd@2.4.1
@@ -317,8 +317,8 @@ Sample PURL: pkg:generic/apache/httpd@2.4.1
 +  `/opt/jetty/` 
 
 **Windows**
-+  `/Program Files/Apache Software Foundation/` 
-+  `/Program Files (x86)/Apache Software Foundation/` 
++  `C:\Program Files\Apache Software Foundation\` 
++  `C:\Program Files (x86)\Apache Software Foundation\` 
 
 **Example `struts2-core-<specific.version>.jar/META-INF/MANIFEST.MF` file**  
  The following is an example of content inside a `struts2-core-<specific.version>.jar/META-INF/MANIFEST.MF` file. 
@@ -335,7 +335,7 @@ Implementation-Vendor: Apache Software Foundation
 ```
 
 **Example PURL**  
- The following is an example package URL for an `Apache Struts` application. 
+ The following is an example package URL for an Apache Struts application. 
 
 ```
 Sample PURL: pkg:generic/apache/struts@6.4.0
@@ -358,16 +358,16 @@ Sample PURL: pkg:generic/apache/struts@6.4.0
 
 **Linux**
 +  `/opt/tomcat/lib/` 
-+  `/usr/share/tomcat/lib` 
++  `/usr/share/tomcat/lib/` 
 +  `/var/lib/tomcat/lib/` 
 
 **macOS**
 +  `/Library/Tomcat/lib/` 
-+  `/usr/local/tomcat/lib` 
++  `/usr/local/tomcat/lib/` 
 
 **Windows**
-+  `/Program Files/Apache Software Foundation` 
-+  `/Program Files (x86)/Apache Software Foundation/` 
++  `C:\Program Files\Apache Software Foundation\` 
++  `C:\Program Files (x86)\Apache Software Foundation\` 
 
 **Example `catalina.jar/META-INF/MANIFEST.MF` file**  
  The following is an example of content inside a `catalina.jar/META-INF/MANIFEST.MF` file. 
@@ -383,7 +383,7 @@ Implementation-Version: 10.1.31
 ```
 
 **Example PURL**  
- The following is an example package URL for an `Apache tomcat` application. 
+ The following is an example package URL for an Apache tomcat application. 
 
 ```
 Sample PURL: pkg:generic/apache/tomcat@10.1.31
@@ -460,7 +460,7 @@ pkg:generic/atlassian/jira-service-management@10.3.9?distro=linux
 
 **Key features**
 +  Claude Code is distributed as an npm package (`@anthropic-ai/claude-code`). The scanner discovers the `claude` CLI binary and resolves `package.json` relative to it using the standard npm `<prefix>/bin/<binary>` to `<prefix>/lib/node_modules/@anthropic-ai/claude-code/package.json` layout. 
-+  Version is read from the `Version:` field of `package.json`. 
++  Version is read from the `version` field of `package.json`. 
 
 **Supported platforms**  
  The Amazon Inspector SBOM Generator scans for installations in common installation paths across platforms: 
@@ -536,7 +536,7 @@ pkg:conda/flask@3.0.0?build=pyhd8ed1ab_0&subdir=noarch&type=conda
 ## Curl ecosystem collection
 <a name="w2aac39c27c23"></a>
 
- This section provides details about Curl and Libcurl applicatons. 
+ This section provides details about Curl and Libcurl applications. 
 
 ### Curl
 <a name="w2aac39c27c23b5"></a>
@@ -546,13 +546,13 @@ pkg:conda/flask@3.0.0?build=pyhd8ed1ab_0&subdir=noarch&type=conda
 
 **Supported platforms**
 +  Unix – Linux and macOS 
-  +  /usr/local/bin/curl 
+  +  `/usr/local/bin/curl` 
 
 **Key features – Curl**
 +  Examines curl binaries to extract the embedded version information. 
 
 **Note**  
- Specifically, it searches for version strings in the binary executable `.rodata` section (for ELF binaries on Linux), `.rdata` section (for PE binaries on Windows), or \_\_cstring section (for MachO binaries on macOS). 
+ Specifically, it searches for version strings in the binary executable `.rodata` section (for ELF binaries on Linux), `.rdata` section (for PE binaries on Windows), or `__cstring` section (for Mach-O binaries on macOS). 
 
 **Curl version string**  
  The following is an example of a version string embedded in a Curl binary: 
@@ -561,10 +561,10 @@ pkg:conda/flask@3.0.0?build=pyhd8ed1ab_0&subdir=noarch&type=conda
 curl/8.14.1
 ```
 
- Version `8.14.1` is extracted from the string to identify the `Curl` version. 
+ Version `8.14.1` is extracted from the string to identify the Curl version. 
 
 **Example PURL (Curl)**  
- The following is an example package URL for a `Curl` version file. 
+ The following is an example package URL for a Curl binary. 
 
 ```
 Sample PURL: pkg:generic/curl/curl@8.14.1
@@ -578,10 +578,10 @@ Sample PURL: pkg:generic/curl/curl@8.14.1
 
 **Supported platforms**
 +  Unix – Linux and macOS 
-  +  /usr/local/bin/curl/curlver.h 
+  +  `/usr/local/include/curl/curlver.h` 
 
 **Key features – Libcurl**
-+  Examines curlver.h to extract embedded version information for Libcurl. 
++  Examines `curlver.h` to extract embedded version information for Libcurl. 
 
 **Note**  
  Specifically, it extracts the version from the defined `LIBCURL_VERSION_MAJOR`, `LIBCURL_VERSION_MINOR`, and `LIBCURL_VERSION_PATCH` variables. 
@@ -591,14 +591,14 @@ Sample PURL: pkg:generic/curl/curl@8.14.1
 
 ```
 #define LIBCURL_VERSION_MAJOR 8
-    #define LIBCURL_VERSION_MINOR 14
-    #define LIBCURL_VERSION_PATCH 1
+#define LIBCURL_VERSION_MINOR 14
+#define LIBCURL_VERSION_PATCH 1
 ```
 
- Version `8.14.1` is extracted from these lines to identify the `Libcurl` version. 
+ Version `8.14.1` is extracted from these lines to identify the Libcurl version. 
 
 **Example PURL (Libcurl)**  
- The following is an example package URL for a `Libcurl` version file. 
+ The following is an example package URL for a Libcurl version file. 
 
 ```
 Sample PURL: pkg:generic/curl/libcurl@8.14.1
@@ -648,7 +648,7 @@ Sample PURL: pkg:generic/cursor/cursor@0.42.3?distro=linux
 +  Examines Docker static binaries to extract version information. 
 
 **Supported platforms**  
- The SBOM generator scans for binaries in the installation paths recommended in Docker's static binary installation documentation: 
+ The Amazon Inspector SBOM Generator scans for binaries in the installation paths recommended in Docker's static binary installation documentation: 
 
 **Linux**
 +  `/usr/bin/` 
@@ -657,7 +657,7 @@ Sample PURL: pkg:generic/cursor/cursor@0.42.3?distro=linux
 +  `/usr/local/bin/` 
 
 **Windows**
-+  `C:/Program Files/Docker/` 
++  `C:\Program Files\Docker\` 
 
 **Example PURL**  
  The following is an example package URL for Docker. 
@@ -679,12 +679,12 @@ pkg:generic/docker/runc@1.3.5
  Vulnerability evaluation only applies to Elasticsearch version 7.17.0. 
 
 **Key features**
-+  **Version** – Unpacks the `elasticsearch-<specific.version>.jar` file to extract installation macros inside of `META-INF/MANIFEST.MF` files, which contain the Elasticsearch version string. 
++  **Version** – Unpacks the `elasticsearch-<specific.version>.jar` file to extract installation macros inside `META-INF/MANIFEST.MF` files, which contain the Elasticsearch version string. 
 
 **Supported platforms**
-+  **Linux** – `/etc/elasticsearch/lib`, `/opt/elasticsearch/lib/`, and `/usr/share/elasticsearch/lib/` 
++  **Linux** – `/etc/elasticsearch/lib/`, `/opt/elasticsearch/lib/`, and `/usr/share/elasticsearch/lib/` 
 +  **macOS** – `/usr/local/var/lib/elasticsearch/lib/` 
-+  **Windows** – `/elasticsearch/`, `/Program Files (x86)/Elastic/elasticsearch/lib/`, and `/Program Files/Elastic/elasticsearch/lib/` 
++  **Windows** – `C:\elasticsearch\`, `C:\Program Files (x86)\Elastic\elasticsearch\lib\`, and `C:\Program Files\Elastic\elasticsearch\lib\` 
 
 **Example `elasticsearch-<specific.version>.jar/META-INF/MANIFEST.MF` file**  
  The following is an example of an `elasticsearch-<specific.version>.jar/META-INF/MANIFEST.MF` file. 
@@ -786,7 +786,7 @@ Sample PURL: pkg:generic/github/copilot@0.1.36?distro=linux
 +  The `chrome.exe` file (Windows Chrome installation) 
 +  The `puppeteer` file (installation) 
 
- For each of the supported artifacts, the Sbomgen parses and collects either chrome file or the puppeteer file. For puppeteer installations, the corresponding Chromium version is collected based on the puppeteer version. For more information, see [Supported browsers](https://pptr.dev/supported-browsers) on the Puppeteer website. 
+ For each of the supported artifacts, the Sbomgen parses and collects either the chrome file or the puppeteer file. For puppeteer installations, the corresponding Chromium version is collected based on the puppeteer version. For more information, see [Supported browsers](https://pptr.dev/supported-browsers) on the Puppeteer website. 
 
  When any of the following environment variables is set to `true`, evaluation is skipped, and the `skip_chromium_download=true` qualifier is added to the Puppeteer package URL. 
 +  `PUPPETEER_SKIP_CHROMIUM_DOWNLOAD` 
@@ -807,7 +807,7 @@ PATCH=58
  The following is an example package URL for a `chrome/VERSION` version file. 
 
 ```
-Sample PURL: pkg:generic/google/chrome@131.0.6778.87
+Sample PURL: pkg:generic/google/chrome@130.0.6723.58
 ```
 
 **Example `puppeteer` version file**  
@@ -848,9 +848,9 @@ pkg:generic/google/puppeteer@22.15.0?distro=linux&skip_chromium_download=true
 +  Homebrew package manager 
 
 **Key features**
-+  Detects Homebrew-managed packages by reading each formula's `INSTALL_RECEIPT.json` under the Homebrew `Cellar` directory 
-+  Scans the default `Cellar` locations (`/usr/local/Cellar`, `/opt/homebrew/Cellar`, and `/home/linuxbrew/.linuxbrew/Cellar`), as well as the location named by the `HOMEBREW_CELLAR` environment variable 
-+  Generates Homebrew Package URLs with the `brew` type 
++  Detects Homebrew-managed packages by reading each formula's `INSTALL_RECEIPT.json` under the Homebrew `Cellar` directory. 
++  Scans the default `Cellar` locations (`/usr/local/Cellar`, `/opt/homebrew/Cellar`, and `/home/linuxbrew/.linuxbrew/Cellar`), as well as the location named by the `HOMEBREW_CELLAR` environment variable. 
++  Generates Homebrew Package URLs with the `brew` type. 
 
 **Supported platforms**
 +  macOS 
@@ -877,9 +877,9 @@ pkg:brew/<name>@<version>
 +  HuggingFace `hf` CLI 
 
 **Key features**
-+  Extracts locally cached AI/ML models installed by HuggingFace 
-+  Generates HuggingFace Package URLs 
-+  Models downloaded using `hf download --local-dir` are not currently supported 
++  Extracts locally cached AI/ML models installed by HuggingFace. 
++  Generates HuggingFace Package URLs. 
++  Models downloaded using `hf download --local-dir` are not currently supported. 
 
 **Example path**  
  The following is an example of a cached HuggingFace model path. 
@@ -906,16 +906,16 @@ pkg:huggingface/MiniMaxAI/MiniMax-M2.5@<hash>
 **Key features**
 +  Extracts the string of the Java installation. 
 +  Identifies the directory path that contains the Java runtime. 
-+  Identifies the vendor as Oracle JDK, Oracle JRE, and Amazon Corretto. 
++  Identifies the vendor as Oracle JDK, Oracle JRE, or Amazon Corretto. 
 
  The Amazon Inspector SBOM Generator scans for Java installations across the following installation paths and platforms: 
 +  macOS: `/Library/Java/JavaVirtualMachines` 
 +  Linux 32-bit: `/usr/lib/jvm` 
 +  Linux 64-bit: `/usr/lib64/jvm` 
-+  Linux (generic): `/usr/java and /opt/java` 
++  Linux (generic): `/usr/java` and `/opt/java` 
 
 **Example Java version information**  
- The folllowing is an example of an Oracle Java release. 
+ The following are examples of Java release information for Amazon Corretto and Oracle JDK. 
 
 ```
 // Amazon Corretto
@@ -942,12 +942,12 @@ SOURCE=".:git:53b4a11304b0 open:git:967a28c3d85f"
 ```
 
 **Example PURL**  
- The following is an example package URL for an Oracle Java release. 
+ The following are example package URLs for Java releases. 
 
 ```
 Sample PURL:
 # Amazon Corretto
-pkg:generic/amazon/amazon-corretto@21.0.3 
+pkg:generic/amazon/amazon-corretto@21.0.3
 # Oracle JDK
 pkg:generic/oracle/jdk@11.0.16
 # Oracle JRE
@@ -964,20 +964,20 @@ pkg:generic/oracle/jre@20
  Vulnerability evaluation applies to Jenkins version 2.400.\* and higher. 
 
 **Key features**
-+  Extracts version information from `jenkins.war` file by reading the `META-INF/MANIFEST.M` file, which contains the Jenkins version string. 
++  Extracts version information from the `jenkins.war` file by reading the `META-INF/MANIFEST.MF` file, which contains the Jenkins version string. 
 
  The Amazon Inspector SBOM Generator looks for Jenkins installations in common installation paths across platforms: 
 
 **Linux**
 +  `/usr/share/jenkins/jenkins.war` 
-+  /usr/share/java/jenkins.war 
++  `/usr/share/java/jenkins.war` 
 
 **macOS**
 +  `/opt/homebrew/opt/jenkins-lts/libexec/jenkins.war` 
 
 **Windows**
-+  `/Program Files/Jenkins/Jenkins.war` 
-+  `/Program Files (x86)/Jenkins/Jenkins.war` 
++  `C:\Program Files\Jenkins\Jenkins.war` 
++  `C:\Program Files (x86)\Jenkins\Jenkins.war` 
 
 **Example files**  
  The following are examples of `jenkins.war/META-INF/MANIFEST.MF` files for different releases. 
@@ -1005,7 +1005,7 @@ Created-By: Apache Maven 3.8.6
  The following are package URLs for version 2.516.2 of the Jenkins LTS release and version 2.414 of the Jenkins automation server release. 
 
 ```
-LTS: pkg:generic/jenkins/jenkins-core-lts@2.516.2.1
+LTS: pkg:generic/jenkins/jenkins-core-lts@2.516.2
 Regular: pkg:generic/jenkins/jenkins-core@2.414
 ```
 
@@ -1052,7 +1052,7 @@ Sample PURL: pkg:generic/amazon/kiro@1.29.5?distro=linux
 +  Identifies the directory path containing the database server installation. 
 +  Automatically distinguishes between MariaDB and MySQL installations using data-driven file type detection. 
 
- The SBOM Generator looks for the MariaDB installation in common installation paths across platforms: 
+ The Amazon Inspector SBOM Generator looks for the MariaDB installation in common installation paths across platforms: 
 
 **Linux**
 +  `/usr/bin/mariadbd` 
@@ -1060,11 +1060,11 @@ Sample PURL: pkg:generic/amazon/kiro@1.29.5?distro=linux
 +  `/usr/local/bin/mariadbd` 
 
 **macOS**
-+  `/opt/homebrew/Cellar/mariadb/include/mysql/mariadb_version.h (MariaDB)` 
++  `/opt/homebrew/Cellar/mariadb/include/mysql/mariadb_version.h` (MariaDB) 
 
 **Windows**
-+  `C:/Program Files (x86)/MariaDB/include/mysql/mariadb_version.h (MariaDB)` 
-+  `C:/Program Files/MariaDB/include/mysql/mariadb_version.h (MariaDB)` 
++  `C:\Program Files (x86)\MariaDB\include\mysql\mariadb_version.h` (MariaDB) 
++  `C:\Program Files\MariaDB\include\mysql\mariadb_version.h` (MariaDB) 
 
 **Example PURL**  
 The following is an example package URL for a MariaDB server.
@@ -1075,7 +1075,7 @@ The following is an example package URL for a MariaDB server.
 pkg:generic/mysql/mariadb-server@10.11.8
 ```
 
-### MySQL ecosystem collection
+### MySQL
 <a name="w2aac39c27c47b5"></a>
 
 **Supported applications**
@@ -1088,7 +1088,7 @@ pkg:generic/mysql/mariadb-server@10.11.8
 +  Automatically distinguishes between MySQL and MariaDB installations using data-driven file type detection. 
 +  Identifies MySQL NDB Cluster builds of the server and reports them as `mysql-cluster` with the NDB Cluster version. 
 
- The SBOM Generator looks for the MySQL installation in common installation paths across platforms: 
+ The Amazon Inspector SBOM Generator looks for the MySQL installation in common installation paths across platforms: 
 
 **Linux**
 +  `/usr/local/bin/mysqld` 
@@ -1096,12 +1096,12 @@ pkg:generic/mysql/mariadb-server@10.11.8
 +  `/usr/sbin/mysqld` 
 
 **macOS**
-+  `/usr/local/mysql/include/mysql_version.h (MySQL)` 
++  `/usr/local/mysql/include/mysql_version.h` (MySQL) 
 
 **Windows**
-+  `C:/Program Files/MySQL/MySQL Server/include/mysql_version.h (MySQL)` 
-+  `C:/Program Files (x86)/MySQL/MySQL Server/include/mysql_version.h (MySQL)` 
-+  `C:/mysql-cluster-*-winx64/bin/mysqld.exe (MySQL NDB Cluster)` 
++  `C:\Program Files\MySQL\MySQL Server\include\mysql_version.h` (MySQL) 
++  `C:\Program Files (x86)\MySQL\MySQL Server\include\mysql_version.h` (MySQL) 
++  `C:\mysql-cluster-*-winx64\bin\mysqld.exe` (MySQL NDB Cluster) 
 
 **Example PURL**  
 The following are example package URLs for a MySQL server and a MySQL NDB Cluster server.
@@ -1119,7 +1119,7 @@ pkg:generic/mysql/mysql-cluster@7.6.25
 ## Microsoft applications ecosystem collection
 <a name="microsoft-app-ecosystem-collection"></a>
 
- The following Microsoft applications are inventoried by the Amazon Inspector SBOM generator. Due to limitations in the Microsoft CVRF API, detections in the InspectorScan API are only supported for versions of these applications released in 2021 (or later). Findings will be mapped to Microsoft KBs or CVEs (where applicable). 
+ The following Microsoft applications are inventoried by the Amazon Inspector SBOM Generator. Due to limitations in the Microsoft CVRF API, detections in the InspectorScan API are only supported for versions of these applications released in 2021 or later. Findings are mapped to Microsoft KBs or CVEs (where applicable). 
 
 **Supported Microsoft applications (2021\+)**
 + PowerShell
@@ -1147,12 +1147,12 @@ pkg:generic/mysql/mysql-cluster@7.6.25
 +  Microsoft Defender – Examines the `MsMpEng.exe` file to extract the embedded version information. 
 +  Exchange Server – Examines the `Exsetup.exe` file to extract the embedded version information. 
 +  Visual Studio – Parses the `state.json` file to retrieve the version string from the `catalogInfo.productDisplayVersion` field. 
-+ .NET Core Runtime – Searches for `Microsoft.NETCore.App.deps.json` file in installation paths and extracts the version string from the following file path pattern. 
++ .NET Core Runtime – Searches for the `Microsoft.NETCore.App.deps.json` file in installation paths and extracts the version string from the following file path pattern. 
 
   ```
   Microsoft.NETCore.App/<VERSION>/Microsoft.NETCore.App.deps.json
   ```
-+ .NET Framework – Parses Windows Registry and reads file metadata to detect installed .NET Framework versions. The scanner checks the following registry key and value, and files. 
++ .NET Framework – Parses the Windows Registry and reads file metadata to detect installed .NET Framework versions. The scanner checks the following registry keys, registry values, and files. 
   + **Registry Key** (<VERSION\_SUB\_KEY> represents the .NET Framework version, such as v2.0.50727, v3.5, or v4\\Full)
 
     ```
@@ -1168,41 +1168,41 @@ pkg:generic/mysql/mysql-cluster@7.6.25
     + Release – A REG\_DWORD value that maps to the installed .NET Framework version (version 4.5 or later)
   + **DLL Files**
 
-    The scanner extracts the file version from `mscorlib.dll` and `System.dll`. If these files exist, they are added to the SBOM as nested file components. For .NET Framework version 4.5 or later, the largest file version among files is reported as the version.
-+ ASP.NET Core Runtime – Searches for `Microsoft.AspNetCore.App.deps.json` file in installation paths and extracts the version string from the following file path pattern. 
+    The scanner extracts the file version from `mscorlib.dll` and `System.dll`. If these files exist, they are added to the SBOM as nested file components. For .NET Framework version 4.5 or later, the largest file version among these files is reported as the version.
++ ASP.NET Core Runtime – Searches for the `Microsoft.AspNetCore.App.deps.json` file in installation paths and extracts the version string from the following file path pattern. 
 
   ```
   Microsoft.AspNetCore.App/<VERSION>/Microsoft.AspNetCore.App.deps.json
   ```
-+ Outlook for Windows – Parses Windows Registry, and extracts version from the following registry key. 
++ Outlook for Windows – Parses the Windows Registry and extracts the version from the following registry key. 
 
   ```
   HKLM\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\PackageRepository\Packages\Microsoft.OutlookForWindows_<VERSION>_<ARCH>__8wekyb3d8bbwe
   ```
-+ Microsoft Teams – Parses Windows Registry, and extracts version from the following registry key. 
++ Microsoft Teams – Parses the Windows Registry and extracts the version from the following registry key. 
 
   ```
-  HKLM\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\PackageRepository\Packages\MSTeams_<VERSION>_<ARCH>__8wekyb3d8bbwee
+  HKLM\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\PackageRepository\Packages\MSTeams_<VERSION>_<ARCH>__8wekyb3d8bbwe
   ```
-+ Microsoft Office 365 / Microsoft 365 – Parses Windows Registry, and extracts version from the following registry key and value. 
++ Microsoft Office 365 / Microsoft 365 – Parses the Windows Registry and extracts the version from the following registry key and value. 
   + Registry Key
 
     ```
     HKLM\SOFTWARE\Microsoft\Office\ClickToRun\Configuration
     ```
   + Registry Value
-    + VersionToReport – Microsoft Office Version
+    + VersionToReport – Microsoft Office version
     + ProductReleaseIds – List of product IDs. This is used to identify installed Office products. For more information about product IDs, see [product IDs](https://learn.microsoft.com/en-us/troubleshoot/microsoft-365-apps/office-suite-issues/product-ids-supported-office-deployment-click-to-run) on the Microsoft website.
-+ Microsoft Office Suite – Collects installed each Office applications by examining the following executable files: 
++ Microsoft Office Suite – Collects each installed Office application by examining the following executable files: 
   + `EXCEL.EXE` – Microsoft Excel
   + `WINWORD.EXE` – Microsoft Word
   + `POWERPNT.EXE` – Microsoft PowerPoint
   + `OUTLOOK.EXE` – Microsoft Outlook
 
-   Version number in the Windows Registry is used as authoritative version number for each installed Office applications. 
+   The version number in the Windows Registry is used as the authoritative version number for each installed Office application. 
 
 **Example `state.json` file**  
- The following is an example of a `state.json` file to use to collect installed Visual Studio version. 
+ The following is an example of a `state.json` file that is used to collect the installed Visual Studio version. 
 
 ```
 {
@@ -1227,7 +1227,7 @@ pkg:generic/mysql/mysql-cluster@7.6.25
 
 Example PURL
 
- The following is an example package URL for each Microsoft Applications. 
+ The following are example package URLs for each Microsoft application. 
 
 ```
 // PowerShell
@@ -1267,7 +1267,7 @@ Sample PURL: pkg:generic/microsoft/aspdotnet@8.0.18
 Sample PURL: pkg:generic/microsoft/teams@25241.203.3947.4411
 
 // Outlook for Windows
-Sample PURL: pkg:generic/microsoft/outlookforwindows@1.2025.916.400                    
+Sample PURL: pkg:generic/microsoft/outlookforwindows@1.2025.916.400
 
 // Microsoft 365 / Office 365
 Sample PURL: pkg:generic/microsoft/office@16.0.19127.20264?product_ids=O365HomePremRetail
@@ -1424,22 +1424,22 @@ pkg:generic/mozilla/thunderbird@153.0.3?distro=darwin
  The following are supported platforms. 
 
 **Linux**
-+  /usr/sbin/nginx 
-+  /usr/local/nginx 
-+  /usr/local/etc/nginx 
-+  /usr/local/nginx/nginx 
-+  /usr/local/nginx/sbin/nginx 
-+  /etc/nginx/nginx 
++  `/usr/sbin/nginx` 
++  `/usr/local/nginx` 
++  `/usr/local/etc/nginx` 
++  `/usr/local/nginx/nginx` 
++  `/usr/local/nginx/sbin/nginx` 
++  `/etc/nginx/nginx` 
 
 **Windows**
-+  C:\\nginx\\nginx.exe 
-+  C:\\nginx-x.y.z\\nginx.exe (x.y.z is an arbitrary version) 
++  `C:\nginx\nginx.exe` 
++  `C:\nginx-x.y.z\nginx.exe` (where `x.y.z` is an arbitrary version) 
 
 **macOS**
-+  /usr/local/etc/nginx/nginx 
++  `/usr/local/etc/nginx/nginx` 
 
 **Key features**  
- This collection examines binaries to extract embedded version information. It searches for version strings in the binary executable `.rodata` section (for ELF binaries on Linux), `.rdata` section (for PE binaries on Windows), or `__ctring` section (for MachO binaries). 
+ This collection examines binaries to extract embedded version information. It searches for version strings in the binary executable `.rodata` section (for ELF binaries on Linux), `.rdata` section (for PE binaries on Windows), or `__cstring` section (for Mach-O binaries on macOS). 
 
 **Example version string**  
  The following is an example of a version string embedded in an Nginx binary. 
@@ -1457,47 +1457,47 @@ nginx version: nginx/1.27.5
 Sample PURL: pkg:generic/nginx/nginx@1.27.5
 ```
 
-## Node.JS runtime collection
+## Node.js runtime collection
 <a name="w2aac39c27c59"></a>
 
 **Supported applications**
-+  node runtime binary for Node.JS 
++  `node` runtime binary for Node.js 
 
 **Supported platforms**  
- The following are supported platforms. (\* is an arbitrary version) 
+ The following are supported platforms. In these paths, `*` represents an arbitrary version. 
 
 **Linux**
-+  /usr/local/bin/node 
-+  /usr/bin/node 
-+  /nodejs/bin/node 
-+  \~/.nvm/versions/node/\*/bin/node 
-+  \~/.local/share/fnm/node-versions/\*/installation/bin/node 
-+  \~/.asdf/installs/nodejs/\*/bin/node 
-+  \~/.local/share/mise/installs/node/\*/bin/node 
-+  \~/.volta/tools/image/node/\*/bin/node 
++  `/usr/local/bin/node` 
++  `/usr/bin/node` 
++  `/nodejs/bin/node` 
++  `~/.nvm/versions/node/*/bin/node` 
++  `~/.local/share/fnm/node-versions/*/installation/bin/node` 
++  `~/.asdf/installs/nodejs/*/bin/node` 
++  `~/.local/share/mise/installs/node/*/bin/node` 
++  `~/.volta/tools/image/node/*/bin/node` 
 
 **Windows**
-+  C:\\Program Files\\nodejs\\node.exe 
-+  C:\\Program Files (x86)\\nodejs\\node.exe 
-+  \~\\AppData\\Roaming\\fnm\\node-versions\\\*\\installation\\node.exe 
++  `C:\Program Files\nodejs\node.exe` 
++  `C:\Program Files (x86)\nodejs\node.exe` 
++  `%APPDATA%\fnm\node-versions\*\installation\node.exe` 
 
 **macOS**
-+  /opt/homebrew/Cellar/node/\*/bin/node 
++  `/opt/homebrew/Cellar/node/*/bin/node` 
 
 **Key features**  
- This collection examines binaries to extract embedded version information. It searches for version strings in the binary executable `.rodata` section (for ELF binaries on Linux), `.rdata` section (for PE binaries on Windows), or `__ctring` section (for MachO binaries). 
+ This collection examines binaries to extract embedded version information. It searches for version strings in the binary executable `.rodata` section (for ELF binaries on Linux), `.rdata` section (for PE binaries on Windows), or `__cstring` section (for Mach-O binaries on macOS). 
 
 **Example version string**  
- The following is an example of a version string embedded in an Node.JS runtime binary. 
+ The following is an example of a version string embedded in a Node.js runtime binary. 
 
 ```
 node.js/v24.11.1
 ```
 
- Version `24.11.1` is extracted to identify the Node.JS runtime version. 
+ Version `24.11.1` is extracted to identify the Node.js runtime version. 
 
 **Example PURL**  
- The following is an example package URL for Node.JS. 
+ The following is an example package URL for Node.js. 
 
 ```
 Sample PURL: pkg:generic/nodejs/node@24.11.1
@@ -1553,8 +1553,8 @@ Sample PURL: pkg:generic/ollama/ollama@0.21.0?distro=linux
 +  Ollama CLI 
 
 **Key features**
-+  Extracts locally cached AI/ML models installed by Ollama 
-+  Generates Ollama Package URLs 
++  Extracts locally cached AI/ML models installed by Ollama. 
++  Generates Ollama Package URLs. 
 
 **Example path**  
  The following is an example of a cached Ollama model path. 
@@ -1574,22 +1574,22 @@ pkg:ollama/gemma4@<hash>
 <a name="w2aac39c27c65"></a>
 
 **Supported applications**
-+  OpenSSH (Version 9) 
-+  OpenSSH (Version 10) 
++  OpenSSH (version 9) 
++  OpenSSH (version 10) 
 
-**Supported platforms Linux/macOS**
+**Supported platforms – Linux and macOS**
 +  `/usr/sbin/sshd` 
 +  `/usr/local/sbin/sshd` 
 
-**Supported platforms Windows**
-+  `C:/Windows/System32/OpenSSH/sshd.exe` 
-+  `C:/Program Files/OpenSSH/sshd.exe` 
-+  `C:/Program Files (x86)/OpenSSH/sshd.exe` 
-+  `C:/OpenSSH/sshd.exe` 
+**Supported platforms – Windows**
++  `C:\Windows\System32\OpenSSH\sshd.exe` 
++  `C:\Program Files\OpenSSH\sshd.exe` 
++  `C:\Program Files (x86)\OpenSSH\sshd.exe` 
++  `C:\OpenSSH\sshd.exe` 
 
 **Key features**
-+  Examines `sshd` binaries to extract embedded verion information. 
-+  Looks for version strings in the binary executable `.rodata` section (for ELF binaries on Linux, `__cstring` section (for Mach-O binaries on MacOs), or `.rdata` section (for PE binaries on Windows). 
++  Examines `sshd` binaries to extract embedded version information. 
++  Looks for version strings in the binary executable `.rodata` section (for ELF binaries on Linux), `__cstring` section (for Mach-O binaries on macOS), or `.rdata` section (for PE binaries on Windows). 
 
 **Example version string**  
  The following is an example of a version string embedded in an OpenSSH binary. 
@@ -1607,22 +1607,22 @@ OpenSSH_9.9p2
 Sample PURL: pkg:generic/openssh/openssh@9.9p2
 ```
 
-## OpenSSL ecosystem Collection
+## OpenSSL ecosystem collection
 <a name="w2aac39c27c67"></a>
 
 **Supported applications**  
- Support for OpenSSL libraries and development packages is limited to software built with official OpenSSL for 3.0.0 releases and above. The software also must follow semantic versioning. Custom or forked OpenSSL variants and versions lower than 3.0.0 are not supported. 
+ Support for OpenSSL libraries and development packages is limited to software built with official OpenSSL 3.0.0 releases and later. The software also must follow semantic versioning. Custom or forked OpenSSL variants and versions lower than 3.0.0 are not supported. 
 
  The Amazon Inspector SBOM Generator extracts key package information for each installed OpenSSL instance. 
 
 **Key features**
-+  Extracts the base SEMVER version string from the OpenSSL header file 
-+  Identifies the directory path containing the OpenSSL installation 
++  Extracts the base semantic version (SemVer) string from the OpenSSL header file. 
++  Identifies the directory path containing the OpenSSL installation. 
 
  The Amazon Inspector SBOM Generator looks for OpenSSL installations by scanning for the `opensslv.h` file in common installation paths across platforms. 
 
-**Example installation path for Linux/Unix**  
- The following is an example installation path for Linux/Unix. 
+**Example installation paths for Linux and Unix**  
+ The following are example installation paths for Linux and Unix. 
 
 ```
 /usr/local/include/openssl/opensslv.h
@@ -1653,7 +1653,7 @@ Sample PURL: pkg:generic/openssl/openssl@3.4.0
 **Supported applications**
 +  Oracle Database 
 
-**Supported platforms Linux**
+**Supported platforms – Linux**
 +  `/opt/oracle` 
 +  `/u01/app/oracle` 
 
@@ -1695,10 +1695,10 @@ Sample PURL: pkg:generic/oracle/database@23.7.0.25.01
  The Amazon Inspector SBOM Generator looks for PHP installations in common installation paths across platforms: 
 
 **Linux**
-+  `usr/bin/php8.1 through /usr/bin/php8.9` 
-+  `/usr/sbin/php8.1 through /usr/sbin/php8.9` 
-+  `/usr/local/bin/php, /usr/bin/php, /usr/sbin/php` 
-+  `/usr/local/bin/php8.1 through /usr/local/bin/php8.9` (versioned binaries) 
++  `/usr/bin/php8.1` through `/usr/bin/php8.9` 
++  `/usr/sbin/php8.1` through `/usr/sbin/php8.9` 
++  `/usr/local/bin/php`, `/usr/bin/php`, `/usr/sbin/php` 
++  `/usr/local/bin/php8.1` through `/usr/local/bin/php8.9` (versioned binaries) 
 
 **macOS**
 +  `/opt/homebrew/bin/php` 
@@ -1706,8 +1706,8 @@ Sample PURL: pkg:generic/oracle/database@23.7.0.25.01
 +  `/usr/local/bin/php` 
 
 **Windows**
-+  `C:/php/php.exe` 
-+  `C:/php8.1/php.exe through C:/php8.9/php.exe` (versioned directories) 
++  `C:\php\php.exe` 
++  `C:\php8.1\php.exe` through `C:\php8.9\php.exe` (versioned directories) 
 
 **Example PHP version extraction**  
  The Amazon Inspector SBOM Generator extracts version information from PHP binaries by searching for embedded version strings using the following pattern. 
@@ -1716,10 +1716,10 @@ Sample PURL: pkg:generic/oracle/database@23.7.0.25.01
 X-Powered-By: PHP/8.4.12
 ```
 
- `8.4.12` is extracted from this pattern to identify the PHP version. 
+ Version `8.4.12` is extracted from this pattern to identify the PHP version. 
 
 **Example PURL**  
- The following is an example package URL for a PHP pattern. 
+ The following is an example package URL for PHP. 
 
 ```
 pkg:generic/php/php@8.4.12
@@ -1817,9 +1817,9 @@ Sample PURL: pkg:generic/codeium/windsurf@1.10.5?distro=linux
 +  WordPress themes 
 
 **Key features**
-+  WordPress core – parses the `/wp-includes/version.php` file to extract version value from $wp\_version variable. 
-+  WordPress plugins – parses the `/wp-content/plugins/<WordPress Plugin>/readme.txt` file or `/wp-content/plugins/<WordPress Plugin>/readme.md` file to extract the `Stable` tag as the version string. 
-+  WordPress themes – parses the `/wp-content/themes/<WordPress Theme>/style.css` file to extract the version from the version metadata. 
++  WordPress core – Parses the `/wp-includes/version.php` file to extract the version value from the `$wp_version` variable. 
++  WordPress plugins – Parses the `/wp-content/plugins/<WordPress Plugin>/readme.txt` file or `/wp-content/plugins/<WordPress Plugin>/readme.md` file to extract the `Stable tag` value as the version string. 
++  WordPress themes – Parses the `/wp-content/themes/<WordPress Theme>/style.css` file to extract the version from the version metadata. 
 
 **Example `version.php` file**  
  The following is an example of a WordPress core `version.php` file. 

@@ -73,6 +73,7 @@ Note the following about how Amazon Inspector calculates cost on the **Usage** p
 + The projected cost represent the total cost for the 30 day usage period per scan type. If there has been less than 30 days of usage for an account, Amazon Inspector projects the cost after 30 days as if any currently covered resources will remain covered for the rest of the 30 day period. 
 + The cost per scan type is calculated based on the following:
   + EC2 scanning: cost reflects the average number of EC2 instances covered by Amazon Inspector in the last 30 days.
+  + Machine image scanning: cost reflects the sum of the number of initial machine image scans \+ machine image rescans in the last 30 days. This includes on-demand machine image scans that completed successfully. Amazon Inspector doesn't meter an on-demand scan that fails. For more information, see [Running on-demand machine image scans with Amazon Inspector](machine-image-on-demand.md).
   + ECR container scanning: cost reflects the sum of the number of initial image scans \+ image rescans in the last 30 days.
   + Lambda standard scanning: cost reflects the average number of Lambda functions covered by Amazon Inspector in the last 30 days. 
   + Lambda code scanning: cost reflects the average number of Lambda functions covered by Amazon Inspector in the last 30 days.
@@ -84,3 +85,6 @@ Note the following about how Amazon Inspector calculates cost on the **Usage** p
 
 **Note**  
  The free trial does not apply to [CIS scanning](https://docs.aws.amazon.com/inspector/latest/user/scanning-cis.html). 
+
+**Note**  
+ The free trial does not apply to [Running on-demand machine image scans with Amazon Inspector](machine-image-on-demand.md). Amazon Inspector meters on-demand machine image scans from your first scan, whether or not you activated Amazon Inspector for the account. 

@@ -55,6 +55,33 @@ In order to delete the `AWSServiceRoleForAmazonInspector2Agentless` role, you mu
 
 Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleForAmazonInspector2Agentless service-linked role. For more information, see [Deleting a service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role) in the *IAM User Guide*.
 
+## Creating a service-linked role for machine image scanning
+<a name="create-slr-ami"></a>
+
+You don't need to manually create the `AWSServiceRoleForAmazonInspector2Ami` service-linked role. When you enable machine image scanning in Amazon Inspector, Amazon Inspector automatically creates the service-linked role for you. 
+
+Amazon Inspector also creates this role automatically the first time you call the [StartOnDemandScan](https://docs.aws.amazon.com/inspector/v2/APIReference/API_StartOnDemandScan.html) API operation for a machine image, even if you haven't enabled machine image scanning for the account. To call StartOnDemandScan, the IAM identity must have permission for the `iam:CreateServiceLinkedRole` action. For more information, see [Running on-demand machine image scans with Amazon Inspector](machine-image-on-demand.md).
+
+## Editing a service-linked role for machine image scanning
+<a name="edit-slr-ami"></a>
+
+Amazon Inspector does not allow you to edit the `AWSServiceRoleForAmazonInspector2Ami` service-linked role. After a service-linked role is created, you cannot change the name of the role because various entities might reference the role. However, you can edit the description of the role by using IAM. For more information, see [Editing a service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#edit-service-linked-role) in the *IAM User Guide*.
+
+## Deleting a service-linked role for machine image scanning
+<a name="delete-slr-ami"></a>
+
+If you no longer need to use machine image scanning, we recommend that you delete the `AWSServiceRoleForAmazonInspector2Ami` service-linked role. That way you don't have an unused entity that isn't actively monitored or maintained.
+
+**Important**  
+In order to delete the `AWSServiceRoleForAmazonInspector2Ami` role, you must first disable machine image scanning in all Regions where it is enabled.
+
+**Important**  
+Amazon Inspector also blocks deletion of the `AWSServiceRoleForAmazonInspector2Ami` role while an on-demand machine image scan is in progress in any AWS Region, so that the scan can finish. If you attempt to delete the role while a scan is in progress, the deletion fails. Wait for your on-demand scans to reach a terminal state, and then try the deletion again. To check whether a scan is still running, use the [GetOnDemandScanStatus](https://docs.aws.amazon.com/inspector/v2/APIReference/API_GetOnDemandScanStatus.html) API operation.
+
+**To manually delete the service-linked role using IAM**
+
+Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleForAmazonInspector2Ami service-linked role. For more information, see [Deleting a service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role) in the *IAM User Guide*.
+
 ## Creating a service-linked role for multi-cloud scanning
 <a name="create-slr-third-party"></a>
 

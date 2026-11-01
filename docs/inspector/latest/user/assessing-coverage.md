@@ -19,6 +19,7 @@
 1.  To review coverage, choose one of the following tabs: 
    +  Choose **Accounts** to review account-level coverage. 
    +  Choose **Instances** to review coverage for Amazon Elastic Compute Cloud (Amazon EC2) instances. 
+   +  Choose **Machine images** to review coverage for the machine images (AMIs) that your accounts own. 
    +  Choose **Container repositories** to review coverage of Amazon Elastic Container Registry (Amazon ECR) repositories. 
    +  Choose **Container images** to review coverage for Amazon ECR container images. 
    +  Choose **Lambda functions** to review coverage for Lambda functions. 
@@ -31,6 +32,7 @@
 + [Assessing coverage of Amazon ECR repositories](#viewing-coverage-repositories)
 + [Assessing coverage of Amazon ECR container images](#viewing-coverage-images)
 + [Assessing coverage of AWS Lambda functions](#viewing-coverage-lambdas)
++ [Assessing coverage of machine images](#viewing-coverage-machine-images)
 
 ## Assessing account-level coverage
 <a name="viewing-coverage-accounts"></a>
@@ -176,3 +178,29 @@ For a Lambda function, the possible **Status** values are:
 + **Internal error**–An internal error occurred when Amazon Inspector attempted to scan the function. Amazon Inspector will automatically address the error and resume scanning as soon as possible.
 + **Pending initial scan**– Amazon Inspector has queued the function for an initial scan.
 + **Unsupported**– The Lambda function has an unsupported runtime.
+
+## Assessing coverage of machine images
+<a name="viewing-coverage-machine-images"></a>
+
+The **Machine images** tab shows the machine images (AMIs) that your accounts own. You can group machine images based on the following tabs:
++ **All** – Shows all the machine images that your accounts own. The **Status** column indicates the current scanning status for a machine image.
++ **Scanning** – Shows the machine images that Amazon Inspector is configured to scan. The **Status** column indicates the current scanning status for each machine image.
++ **Not scanning** – Shows the machine images that Amazon Inspector is not configured to scan. The **Reason** column indicates why Amazon Inspector is not monitoring and scanning a machine image.
+
+  A machine image can appear on the **Not scanning** tab for several reasons. Your scan configuration might exclude the image, its operating system or file system might not be supported, or it might fall outside of your scan eligibility windows. For more information, see [Machine image scanning](scanning-machine-images.md).
+
+On each tab, the **Machine image** column specifies the ID of the machine image. The **Account** column specifies the AWS account that owns the machine image. **Operating system** specifies the platform of the machine image. The **Status** column indicates the current scanning status for each machine image. **Resource tags** shows the tags that have been applied to the machine image. The **Last scanned** column shows you when Amazon Inspector last checked that machine image for vulnerabilities. For more information, see [Scan behaviors for machine image scanning](scanning-machine-images.md#machine-image-scan-behavior).
+
+### Scanning status values for machine images
+<a name="reviewing-coverage-status-machine-image"></a>
+
+For a machine image, the possible **Status** values are:
++ **Actively monitoring** – Amazon Inspector is continuously monitoring and scanning the machine image. Continuous scanning includes an initial scan when you create, copy, register, or enable the machine image, and automated rescans when new Common Vulnerabilities and Exposures (CVEs) are released.
++ **Pending initial scan** – Amazon Inspector has queued the machine image for an initial scan.
++ **Excluded by tag** – Amazon Inspector isn't scanning this machine image because your scan mode or your exclusion options exclude it. In exclusion (`SCAN_ALL`) mode, the image carries your configured exclusion tag. Amazon Inspector also reports this reason when the image is a copy of another image or Amazon Data Lifecycle Manager or AWS Backup created it, and you chose to exclude copied or backup images. For more information, see [Managing machine image scan mode](machine-image-scan-configuration.md#machine-image-scan-mode) and [Excluding copied and backup machine images](machine-image-scan-configuration.md#machine-image-exclusions).
++ **Scan eligibility expired** – Amazon Inspector is not monitoring this machine image because it falls outside of both of your scan eligibility windows. For more information, see [Setting scan eligibility windows](machine-image-scan-configuration.md#machine-image-eligibility-windows).
++ **Access denied** – Amazon Inspector couldn't access the machine image or the snapshots that back it.
++ **Unsupported operating system** – The operating system of the machine image isn't supported for scanning, or one or more of the snapshots that back the image uses a configuration that Amazon Inspector can't read, such as Logical Volume Manager (LVM).
++ **Collection time limit exceeded** – Amazon Inspector timed out while collecting the software inventory from the snapshots that back the machine image.
++ **Image size exceeded** – The combined size of the snapshots that back the machine image exceeds the limit that Amazon Inspector supports for scanning.
++ **Internal error** – An internal error occurred when Amazon Inspector attempted to scan the machine image. Amazon Inspector will automatically address the error and resume scanning as soon as possible.

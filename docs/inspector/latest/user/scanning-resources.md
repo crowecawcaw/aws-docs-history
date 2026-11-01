@@ -8,10 +8,14 @@
 **Note**  
  Lambda code scanning is an optional layer of Lambda function scanning that you can activate at any time. 
 
+**Note**  
+ Machine image scanning and Code Security for Amazon Inspector are optional scan types that you activate separately. Your account isn't automatically enrolled in them when you activate Amazon Inspector for the first time. 
+
 **Topics**
 + [Overview of Amazon Inspector scan types](#scan-types)
 + [Activating a scan type](activate-scans.md)
 + [Scanning Amazon EC2 instances with Amazon Inspector](scanning-ec2.md)
++ [Scanning machine images with Amazon Inspector](scanning-machine-images.md)
 + [Scanning Amazon Elastic Container Registry container images with Amazon Inspector](scanning-ecr.md)
 + [Scanning AWS Lambda functions with Amazon Inspector](scanning-lambda.md)
 + [Deactivating a scan type in Amazon Inspector](deactivate-scans.md)
@@ -23,6 +27,11 @@
 
 **Amazon EC2 scanning**  
  When you activate Amazon EC2 scanning, Amazon Inspector scans your EC2 instances for common vulnerabilities and exposures (CVEs), network exposure issues, network reachability issues, operating system and programming language package vulnerabilities. Amazon Inspector performs scans through the use of the SSM agent installed on your instance or through Amazon EBS snapshots of instances. For more information, see [Scanning Amazon EC2 instances with Amazon Inspector](scanning-ec2.md). By default, when you activate Amazon EC2 scanning, you automatically enable hybrid scanning mode. For more information, see [Agentless scanning](https://docs.aws.amazon.com/inspector/latest/user/scanning-ec2.html#agentless). 
+
+**Machine image scanning**  
+ When you activate machine image scanning, Amazon Inspector discovers the machine images (AMIs) that your account owns and scans them for operating system and programming language package vulnerabilities. Amazon Inspector collects a software inventory from the Amazon EBS snapshots that back each machine image, so you don't need to launch an instance from an image for Amazon Inspector to scan it. By default, machine image scanning is continuous: Amazon Inspector scans new images as you create, copy, register, or enable them, and rescans in-scope images when new CVEs are published. You control which images are in scope with scan eligibility windows, a scan mode, and exclusion options. For more information, see [Scanning machine images with Amazon Inspector](scanning-machine-images.md).   
+ You can also scan a single machine image on demand, without activating Amazon Inspector. For more information, see [Running on-demand machine image scans with Amazon Inspector](machine-image-on-demand.md).   
+ Findings from on-demand machine image scans are an exception. Amazon Inspector delivers them only through Amazon EventBridge, so they don't appear in the Amazon Inspector console, aren't returned by `ListFindings`, and aren't sent to Security Hub CSPM. For more information, see [Running on-demand machine image scans with Amazon Inspector](machine-image-on-demand.md). 
 
 **Amazon ECR scanning**  
  When you activate Amazon ECR scanning, Amazon Inspector converts all of the repositories in your private registry from basic scanning container repositories to enhanced scanning repositories. You can configure this setting with inclusion rules to scan on-push only or to scan select repositories. Amazon Inspector only scans ECR container images which are active (`imageStatus` field is `ACTIVE`) in ECR. Amazon Inspector scans all images pushed or transitioned to active (`lastActivatedAt`) in ECR, or pulled, within the configured re-scan duration. The default re-scan duration for new accounts, including new accounts added to an organization, is 7 days. For accounts that activated Amazon ECR scanning from May 16, 2024, to October 14, 2026, the default re-scan duration is 14 days. For Amazon Inspector accounts created prior to May 16, 2024, the default configuration monitors images that were pushed or pulled within the last 90 days. You can change this setting at any time. For more information, see [Scanning Amazon Elastic Container Registry container images with Amazon Inspector](scanning-ecr.md). 

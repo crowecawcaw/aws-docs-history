@@ -382,14 +382,21 @@ AWS_DEFAULT_REGION=$your_region \
 ### Evaluate CIS Docker Benchmark checks
 <a name="sbomgen-using-cis-docker"></a>
 
- When you scan a container image, you can use the `--enable-cis-docker` argument to evaluate supported CIS Docker Benchmark checks and record the result of each check as a property on the container component. 
+ When you scan a container image, you can use the `--enable-cis-docker` argument to evaluate supported CIS Docker Benchmark checks and record the result of each check as a property on the container component. Sbomgen evaluates the checks from the image configuration and build history. 
 
 **Note**  
  This argument is experimental, applies to container scans only, and is disabled by default. 
 
+ Sbomgen evaluates the following checks: 
++  `4.1` – The image is configured with a non-root user. 
++  `4.6` – The image is configured with an enabled `HEALTHCHECK`. 
++  `4.7` – Every package-manager update command is followed by an install command in the same `RUN` instruction. 
++  `4.9` – The build history doesn't contain an `ADD` instruction. 
++  `4.10` – No supported secret pattern is present in an `ARG`, `ENV`, or `RUN` instruction in the build history, or in the image's final environment variables. 
+
  Sbomgen records the following properties on the container component, where {{check}} is the identifier of an individual check: 
 +  `amazon:inspector:sbom_generator:image:cis:docker:{{check}}` – The `pass` or `fail` result of an individual check, one per supported check (currently 4.1, 4.6, 4.7, 4.9, and 4.10). 
-+  `amazon:inspector:sbom_generator:image:cis:docker:checks_passed` – The number of evaluated checks that passed. 
++  `amazon:inspector:sbom_generator:image:cis:docker:checks_passed` – `true` if every supported check passed, or `false` if any check failed. 
 
 **Example**  
  The following example shows how to use the `--enable-cis-docker` argument. 

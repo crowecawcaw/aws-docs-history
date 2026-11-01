@@ -15,6 +15,9 @@ When you deactivate a scan type, you lose access to any findings the scan type p
 
  Additionally, the Amazon Inspector SSM plugin is removed from all Windows hosts. For more information, see [Scanning Windows EC2 instance](windows-scanning.md). 
 
+**[Machine image scanning](https://docs.aws.amazon.com/inspector/latest/user/scanning-machine-images.html)**  
+ When you deactivate machine image scanning for an account, Amazon Inspector stops monitoring the machine images in that account, removes them from your coverage, and deletes the machine image scan configuration for the account. If you reactivate machine image scanning later, Amazon Inspector applies the default scan configuration. 
+
 **[Amazon ECR scanning](https://docs.aws.amazon.com/inspector/latest/user/scanning-ecr.html)**  
  When you deactivate Amazon ECR scanning for an account, the Amazon ECR scan type account changes from **Enhanced scanning** with Amazon Inspector to **Basic scanning** with Amazon ECR. 
 
@@ -53,6 +56,6 @@ To complete this procedure for a multi-account environment, follow these steps w
 ------
 #### [ API ]
 
-Run the [Disable](https://docs.aws.amazon.com/inspector/v2/APIReference/API_Disable.html) API operation. In the request, provide the account IDs you are deactivating scans for, and for `resourceTypes` provide one or more of `EC2`, `ECR`, `LAMBDA`, or `LAMBDA_CODE` to deactivate scans.
+Run the [Disable](https://docs.aws.amazon.com/inspector/v2/APIReference/API_Disable.html) API operation. In the request, provide the account IDs you are deactivating scans for, and for `resourceTypes` provide one or more of `EC2`, `MACHINE_IMAGE`, `ECR`, `LAMBDA`, or `LAMBDA_CODE` to deactivate scans.
 
 ------

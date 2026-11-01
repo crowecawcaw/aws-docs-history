@@ -5,6 +5,9 @@
 
  You can view findings in the Amazon Inspector console and with the Amazon Inspector [`ListFindings`](https://docs.aws.amazon.com/inspector/v2/APIReference/API_ListFindings.html) API. In the Amazon Inspector console, you can view all of your findings in the **Dashboard** and **Findings** screens. By default, these screens only show your active and critical findings. However, you can filter through findings or choose to view findings by category. You can also view some findings in [Security Hub CSPM and Amazon ECR](https://docs.aws.amazon.com/inspector/latest/user/integrations.html) if you activate these integrations. The procedures in this section describe how to view findings in Amazon Inspector console and with the Amazon Inspector `ListFindings` API. 
 
+**Note**  
+ Findings from on-demand machine image scans are an exception. Amazon Inspector delivers them only through Amazon EventBridge, so they don't appear in the Amazon Inspector console, aren't returned by `ListFindings`, and aren't sent to Security Hub CSPM. For more information, see [Running on-demand machine image scans with Amazon Inspector](machine-image-on-demand.md). 
+
 ------
 #### [ Console ]
 

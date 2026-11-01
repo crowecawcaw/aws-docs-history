@@ -8,6 +8,12 @@
 **[Amazon EC2 scanning](https://docs.aws.amazon.com/inspector/latest/user/scanning-ec2.html)**  
  This scan type extracts metadata from an Amazon EC2 instance before comparing the metadata against rules collected from security advisories. When you activate this scan type, Amazon Inspector scans all eligible Amazon EC2 instances in your account for package vulnerabilities and network reachability issues. After you activate this scan type, you can view how many instances are being scanned in the **Instances** tab. 
 
+**[Machine image scanning](https://docs.aws.amazon.com/inspector/latest/user/scanning-machine-images.html)**  
+ This scan type extracts a software inventory from the Amazon EBS snapshots that back a machine image (AMI) before comparing that inventory against rules collected from security advisories. When you activate this scan type, Amazon Inspector scans all eligible machine images that your account owns for package vulnerabilities and continues to monitor them. After you activate this scan type, you can view how many machine images are being scanned in the **Machine images** tab. 
+
+**Note**  
+ After you activate machine image scanning, review your scan configuration to control which machine images are in scope. For more information, see [Configuring machine image scanning](machine-image-scan-configuration.md). 
+
 **[Amazon ECR scanning](https://docs.aws.amazon.com/inspector/latest/user/scanning-ecr.html)**  
  This scan type scans container images and container repositories in Amazon ECR. When you activate this scan type, you change the scanning configuration setting for your private registry from basic scanning to enhanced scanning. After you activate Amazon ECR scanning, you can view how many images and repositories are being scanned in the **Container images** and **Container repositories** tabs. 
 
@@ -50,6 +56,6 @@
 ------
 #### [ API ]
 
-Run the [Enable](https://docs.aws.amazon.com/inspector/v2/APIReference/API_Enable.html) API operation. In the request, provide the account IDs you are activating scans for, and idempotency token, and one or more of `EC2`, `ECR`, `LAMBDA`, or `LAMBDA_CODE` for `resourceTypes` to activate scans of that type.
+Run the [Enable](https://docs.aws.amazon.com/inspector/v2/APIReference/API_Enable.html) API operation. In the request, provide the account IDs you are activating scans for, and idempotency token, and one or more of `EC2`, `MACHINE_IMAGE`, `ECR`, `LAMBDA`, or `LAMBDA_CODE` for `resourceTypes` to activate scans of that type.
 
 ------

@@ -173,6 +173,20 @@ You can't attach the `AmazonInspector2ServiceRolePolicy` policy to your IAM enti
 
 You can't attach the `AmazonInspector2AgentlessServiceRolePolicy` policy to your IAM entities. This policy is attached to a service-linked role that allows Amazon Inspector to perform actions on your behalf. For more information, see [Using service-linked roles for Amazon Inspector](using-service-linked-roles.md).
 
+## AWS managed policy: AmazonInspector2AmiServiceRolePolicy
+<a name="security-iam-awsmanpol-AmazonInspector2AmiServiceRolePolicy"></a>
+
+You can't attach the `AmazonInspector2AmiServiceRolePolicy` policy to your IAM entities. This policy is attached to a service-linked role that allows Amazon Inspector to perform actions on your behalf for machine image scanning. For more information, see [Service-linked role permissions for Amazon Inspector machine image scans](slr-permissions-ami.md).
+
+**Permissions details**
+
+This policy includes the following permissions.
++ `ec2` – Allows Amazon Inspector to retrieve information about the machine images that your account owns and the snapshots that back them.
++ `ebs` – Allows Amazon Inspector to read the contents of the snapshots that back your machine images. Unlike agentless Amazon EC2 scanning, machine image scanning doesn't create new snapshots.
++ `kms` – Allows Amazon Inspector to use select decryption actions to decrypt snapshots that are encrypted with AWS KMS customer managed keys.
+
+ To review the permissions for this policy, see [AmazonInspector2AmiServiceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonInspector2AmiServiceRolePolicy.html) in the *AWS Managed Policy Reference Guide*. 
+
 ## AWS managed policy: AmazonInspector2ThirdPartyServiceRolePolicy
 <a name="security-iam-awsmanpol-AmazonInspector2ThirdPartyServiceRolePolicy"></a>
 
@@ -206,6 +220,7 @@ View details about updates to AWS managed policies for Amazon Inspector since th
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+|  [AmazonInspector2AmiServiceRolePolicy](#security-iam-awsmanpol-AmazonInspector2AmiServiceRolePolicy) – New policy  |  Amazon Inspector has added a new service-linked role policy to allow scanning of the machine images (AMIs) that your account owns. The policy allows Amazon Inspector to retrieve information about your machine images and the Amazon EBS snapshots that back them, read the contents of those snapshots, and decrypt snapshots that are encrypted with AWS KMS customer managed keys.  | September 8, 2026 | 
 |  [AmazonInspector2FullAccess\_v2](#security-iam-awsmanpol-AmazonInspector2FullAccessV2) – Updates to an existing policy  |  Amazon Inspector added `iam` permissions that allow Amazon Inspector to create the service-linked role for multi-cloud connectors (`AWSServiceRoleForAmazonInspector2ThirdParty`) and the third-party service-linked role (`AWSServiceRoleForConfigThirdParty`). Amazon Inspector also added the multi-cloud service principal (`multicloud.inspector2.amazonaws.com`) to the conditions for `organizations` actions, and added connector permissions for multi-cloud resource discovery.  | July 7, 2026 | 
 |  [AmazonInspector2ReadOnlyAccess](#security-iam-awsmanpol-AmazonInspector2ReadOnlyAccess) – Updates to an existing policy  |  Amazon Inspector added read-only and AWS Systems Manager permissions for viewing multi-cloud connector health status.  | July 7, 2026 | 
 |  [AWSInspector2OrganizationsAccess](#security-iam-awsmanpol-AWSInspector2OrganizationsAccess) – New policy  |  Amazon Inspector has added a new managed policy that grants permissions needed to enable and manage Amazon Inspector via AWS Organizations policy.  | March 3, 2026 | 

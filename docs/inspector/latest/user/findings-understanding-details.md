@@ -26,7 +26,7 @@ All findings contain the AWS account ID number the finding was identified for, a
 The finding **Type** determines the remediation and vulnerability intelligence information available for the finding. Depending on the finding type, different finding details are available.
 
 **Package Vulnerability**  
-Package vulnerability findings are available for EC2 instances, ECR container images, and Lambda functions. See [Package vulnerability](findings-types.md#findings-types-package) for more info.   
+Package vulnerability findings are available for EC2 instances, machine images, ECR container images, and Lambda functions. See [Package vulnerability](findings-types.md#findings-types-package) for more info.   
 Package vulnerability findings also include [Viewing the Amazon Inspector score and understanding vulnerability intelligence details](findings-understanding-score.md).  
 This finding type has the following details:  
 + **Fix available** – Indicates if the vulnerability is fixed in a newer version of the affected packages. Has one of the following values: 

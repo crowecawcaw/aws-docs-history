@@ -9,6 +9,7 @@
 + [Amazon EventBridge base schema for Amazon Inspector](#event-schema-basic)
 + [Amazon Inspector finding event schema example](#event-finding)
 + [Amazon Inspector initial scan complete event schema example](#event-initial-scan)
++ [Amazon Inspector on-demand machine image scan event schema examples](#event-on-demand-scan)
 + [Amazon Inspector coverage event schema example](#event-coverage-event)
 + [Amazon Inspector auto enable schema example](#event-auto-enable)
 
@@ -979,6 +980,186 @@ Select from the options to see different initial scan event schemas by resource 
 ```
 
 ------
+#### [ Machine image initial scan ]
+
+```
+{
+  "version": "0",
+  "id": "6b1f9d0e-2c47-4a52-9f10-7a1b8c3d5e2f",
+  "detail-type": "Inspector2 Scan",
+  "source": "aws.inspector2",
+  "account": "111122223333",
+  "time": "2026-08-13T13:42:52Z",
+  "region": "us-east-1",
+  "resources": [
+    "ami-0abcdef1234567890"
+  ],
+  "detail": {
+    "scan-status": "INITIAL_SCAN_COMPLETE",
+    "finding-severity-counts": {
+      "CRITICAL": 0,
+      "HIGH": 2,
+      "MEDIUM": 5,
+      "TOTAL": 7
+    },
+    "machine-image-id": "ami-0abcdef1234567890",
+    "version": "1.0"
+  }
+}
+```
+
+------
+
+## Amazon Inspector on-demand machine image scan event schema examples
+<a name="event-on-demand-scan"></a>
+
+ The following are examples of the EventBridge event schemas for an on-demand machine image scan. Amazon Inspector publishes these events when you start a scan with the [StartOnDemandScan](https://docs.aws.amazon.com/inspector/v2/APIReference/API_StartOnDemandScan.html) API operation. EventBridge is the only delivery mechanism for on-demand scan findings. For more information, see [Running on-demand machine image scans with Amazon Inspector](machine-image-on-demand.md). 
+
+Amazon Inspector publishes two kinds of events for an on-demand scan:
++  A **scan complete event**, published once when the scan reaches a terminal state. The `detail-type` field is set to `Inspector2 OnDemand Scan Complete`. A successful event contains a `findingSeverityCounts` object. A failed event contains a `scanStatusReason` field instead. 
++  A **findings event**, published once for each vulnerability that Amazon Inspector detects. The `detail-type` field is set to `OnDemand AMI Scan Findings`. These events don't include machine image metadata beyond the machine image ID. 
+
+ Every event contains the `scanId` of the scan, so you can correlate findings events with the scan complete event for the same scan. 
+
+Select from the options to see the different on-demand scan event schemas.
+
+------
+#### [ Scan complete – successful ]
+
+```
+{
+    "version": "0",
+    "id": "7bf7f4b1-9f6c-4d3e-8a2b-5c1d0e9f3a44",
+    "detail-type": "Inspector2 OnDemand Scan Complete",
+    "source": "aws.inspector2",
+    "account": "111122223333",
+    "time": "2026-06-12T01:30:00Z",
+    "region": "us-east-1",
+    "resources": [
+        "ami-0abcdef1234567890"
+    ],
+    "detail": {
+        "scanId": "9f1c4b8d2e6a4f0b7c3d5e1a8b2f6c4d",
+        "awsAccountId": "111122223333",
+        "resourceId": "ami-0abcdef1234567890",
+        "resourceType": "MACHINE_IMAGE",
+        "scanStatus": "SUCCESSFUL",
+        "startedAt": "2026-06-12T00:00:00.000Z",
+        "completedAt": "2026-06-12T01:30:00.000Z",
+        "findingSeverityCounts": {
+            "CRITICAL": 0,
+            "HIGH": 2,
+            "MEDIUM": 5,
+            "LOW": 1,
+            "INFORMATIONAL": 0,
+            "UNTRIAGED": 0,
+            "TOTAL": 8
+        },
+        "version": "1.0"
+    }
+}
+```
+
+------
+#### [ Scan complete – failed ]
+
+```
+{
+    "version": "0",
+    "id": "3c2e9a17-8b4d-4f61-9a0c-2d7e6f1b8c33",
+    "detail-type": "Inspector2 OnDemand Scan Complete",
+    "source": "aws.inspector2",
+    "account": "111122223333",
+    "time": "2026-06-12T01:30:00Z",
+    "region": "us-east-1",
+    "resources": [
+        "ami-0abcdef1234567890"
+    ],
+    "detail": {
+        "scanId": "9f1c4b8d2e6a4f0b7c3d5e1a8b2f6c4d",
+        "awsAccountId": "111122223333",
+        "resourceId": "ami-0abcdef1234567890",
+        "resourceType": "MACHINE_IMAGE",
+        "scanStatus": "FAILED",
+        "scanStatusReason": "UNSUPPORTED_OS",
+        "startedAt": "2026-06-12T00:00:00.000Z",
+        "completedAt": "2026-06-12T01:30:00.000Z",
+        "version": "1.0"
+    }
+}
+```
+
+ For the list of `scanStatusReason` values that Amazon Inspector can return for a failed on-demand scan, see [Scan status values for on-demand machine image scans](machine-image-on-demand.md#machine-image-on-demand-status). 
+
+------
+#### [ Findings ]
+
+```
+{
+    "source": "inspector2.ami.ondemand",
+    "detail-type": "OnDemand AMI Scan Findings",
+    "detail": {
+        "findingArn": "arn:aws:inspector2:us-east-1:111122223333:finding/ondemand/9f1c4b8d2e6a4f0b7c3d5e1a8b2f6c4d/cea7c73a3d57d9c142992e845644d317",
+        "scanId": "9f1c4b8d2e6a4f0b7c3d5e1a8b2f6c4d",
+        "awsAccountId": "111122223333",
+        "type": "PACKAGE_VULNERABILITY",
+        "title": "CVE-2022-3171 - com.google.protobuf:protobuf-java",
+        "description": "A parsing issue with binary data in protobuf-java...",
+        "severity": "HIGH",
+        "status": "ACTIVE",
+        "firstObservedAt": "2026-06-12T01:30:00.000Z",
+        "lastObservedAt": "2026-06-12T01:30:00.000Z",
+        "updatedAt": "2026-06-12T01:30:00.000Z",
+        "resources": [
+            {
+                "type": "MACHINE_IMAGE",
+                "id": "ami-0abcdef1234567890",
+                "partition": "aws",
+                "region": "us-east-1"
+            }
+        ],
+        "inspectorScore": 7.5,
+        "inspectorScoreDetails": {
+            "adjustedCvss": {
+                "scoreSource": "NVD",
+                "cvssSource": "NVD",
+                "version": "3.1",
+                "score": 7.5,
+                "scoringVector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+                "adjustments": []
+            }
+        },
+        "packageVulnerabilityDetails": {
+            "vulnerabilityId": "CVE-2022-3171",
+            "vulnerablePackages": [
+                {
+                    "name": "com.google.protobuf:protobuf-java",
+                    "version": "2.5.0",
+                    "epoch": 0,
+                    "packageManager": "JAVA",
+                    "filePath": "/usr/lib/jars/protobuf-java-2.5.0.jar",
+                    "fixedInVersion": "3.16.3"
+                }
+            ],
+            "source": "NVD",
+            "sourceUrl": "https://nvd.nist.gov/vuln/detail/CVE-2022-3171",
+            "vendorSeverity": "high"
+        },
+        "remediation": {
+            "recommendation": {
+                "text": "Update com.google.protobuf:protobuf-java to 3.16.3 or later"
+            }
+        },
+        "fixAvailable": "YES",
+        "exploitAvailable": "NO"
+    }
+}
+```
+
+------
+
+**Note**  
+ EventBridge delivers events at least once, so your rule can receive the same event more than once. Use the `findingArn` field to deduplicate findings events. 
 
 ## Amazon Inspector coverage event schema example
 <a name="event-coverage-event"></a>

@@ -198,5 +198,20 @@ An error occurred (AccessDeniedException) when calling the Enable operation: Lam
 </table>
 
 
+**Machine image scanning Regions**  
+ Amazon Inspector supports machine image (AMI) scanning in the commercial AWS Regions, but not in the AWS GovCloud (US) Regions or the China Regions. The following table shows where continuous machine image scanning and on-demand machine image scans are available.   
+
+
+<table>
+<thead>
+  <tr><th>Feature</th><th>Commercial AWS Regions</th><th>AWS GovCloud (US) Regions</th><th>China Regions</th></tr>
+</thead>
+<tbody>
+  <tr><td>Continuous machine image scanning</td><td>Available</td><td>Not available</td><td>Not available</td></tr>
+  <tr><td>On-demand machine image scans</td><td>Available</td><td>Not available</td><td>Not available</td></tr>
+</tbody>
+</table>
+
+
 **AWS GovCloud (US) Regions**  
  For the latest information, see [Amazon Inspector](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-inspector2.html) in the *AWS GovCloud (US) User Guide*. 

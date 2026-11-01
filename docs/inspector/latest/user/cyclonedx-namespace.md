@@ -50,6 +50,8 @@
 | amazon:inspector:sbom\_generator:image:entrypoint:{{count}} | An absolute directory within the container image defined in default ENTRYPOINT configured at image build time. | 
 | amazon:inspector:sbom\_generator:image:workdir | The WORKDIR directory of the container image configured at image build time. | 
 | amazon:inspector:sbom\_generator:image:base\_layer | The diff ID of the container image's bottom-most layer, which identifies the image's base layer for downstream consumers. | 
+| amazon:inspector:sbom\_generator:image:cis:docker:{{check}} | The pass or fail result of a supported CIS Docker Benchmark check (4.1, 4.6, 4.7, 4.9, or 4.10). Recorded only when the experimental --enable-cis-docker argument is used. For more information, see [Evaluate CIS Docker Benchmark checks](https://docs.aws.amazon.com/inspector/latest/user/sbom-generator.html#sbomgen-using-cis-docker). | 
+| amazon:inspector:sbom\_generator:image:cis:docker:checks\_passed | A boolean value indicating whether every supported CIS Docker Benchmark check passed. Recorded only when the experimental --enable-cis-docker argument is used. | 
 | amazon:inspector:sbom\_generator:image\_docker\_version | The docker version used to build the container image. | 
 | amazon:inspector:sbom\_generator:is\_duplicate\_package | Indicates that the subject package was found by more than one file scanner. | 
 | amazon:inspector:sbom\_generator:duplicate\_purl | Indicates the duplicated package PURL found by another scanner. | 
