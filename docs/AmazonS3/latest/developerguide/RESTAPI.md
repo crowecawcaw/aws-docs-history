@@ -46,7 +46,7 @@ Following is an example of a path-style version of the same request.
 4. x-amz-date: Mon, 11 Apr 2016 12:00:00 GMT
 5. Authorization: {{authorization string}}
 ```
-Currently, Amazon S3 supports both virtual-hosted–style and path-style URL access in all AWS Regions. However, path-style URLs will be discontinued in the future. For more information, see the following **Important** note.  
+Currently, Amazon S3 supports both virtual-hosted-style and path-style URL access in all AWS Regions.  
 For more information about path-style requests, see [Path-style requests ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#path-style-access).  
 Update (September 23, 2020) – To make sure that customers have the time that they need to transition to virtual-hosted–style URLs, we have decided to delay the deprecation of path-style URLs. For more information, see [Amazon S3 Path Deprecation Plan – The Rest of the Story](https://aws.amazon.com/blogs/aws/amazon-s3-path-deprecation-plan-the-rest-of-the-story/) in the *AWS News Blog*.
 

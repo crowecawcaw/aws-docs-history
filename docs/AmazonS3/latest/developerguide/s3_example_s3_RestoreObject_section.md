@@ -97,15 +97,16 @@ The following code examples show how to use `RestoreObject`.
 
 **AWS CLI**  
 **To create a restore request for an object**  
-The following `restore-object` example restores the specified Amazon S3 Glacier object for the bucket `my-glacier-bucket` for 10 days.  
+The following `restore-object` example restores the specified Amazon S3 Glacier object for the bucket `amzn-s3-demo-bucket` for 10 days.  
 
 ```
 aws s3api restore-object \
-    --bucket {{my-glacier-bucket}} \
+    --bucket {{amzn-s3-demo-bucket}} \
     --key {{doc1.rtf}} \
     --restore-request {{Days=10}}
 ```
 This command produces no output.  
+For more information, see [Restoring an archived object](https://docs.aws.amazon.com/AmazonS3/latest/userguide/restoring-objects.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [RestoreObject](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/restore-object.html) in *AWS CLI Command Reference*. 
 
 ------

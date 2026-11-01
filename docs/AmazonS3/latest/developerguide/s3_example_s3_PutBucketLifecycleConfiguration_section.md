@@ -43,12 +43,16 @@ Action examples are code excerpts from larger programs and must be run in contex
 #### [ CLI ]
 
 **AWS CLI**  
-The following command applies a lifecycle configuration to a bucket named `amzn-s3-demo-bucket`:  
+**To apply a lifecycle configuration to a bucket**  
+The following `put-bucket-lifecycle-configuration` example applies a lifecycle configuration to a bucket named `amzn-s3-demo-bucket`.  
 
 ```
-aws s3api put-bucket-lifecycle-configuration --bucket {{amzn-s3-demo-bucket}} --lifecycle-configuration  {{file://lifecycle.json}}
+aws s3api put-bucket-lifecycle-configuration \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --lifecycle-configuration {{file://lifecycle.json}}
 ```
-The file `lifecycle.json` is a JSON document in the current folder that specifies two rules:  
+The file `lifecycle.json` is a JSON document in the current folder that specifies two rules.  
+Contents of `lifecycle.json`:  
 
 ```
 {
@@ -78,7 +82,15 @@ The file `lifecycle.json` is a JSON document in the current folder that specifie
     ]
 }
 ```
-The first rule moves files with the prefix `rotated` to Glacier on the specified date. The second rule moves old object versions to Glacier when they are no longer current. For information on acceptable timestamp formats, see Specifying Parameter Values in the *AWS CLI User Guide*.  
+Output:  
+
+```
+{
+    "TransitionDefaultMinimumObjectSize": "all_storage_classes_128K"
+}
+```
+The first rule moves files with the prefix `rotated` to Glacier on the specified date. The second rule moves old object versions to Glacier when they are no longer current. For information on acceptable timestamp formats, see [Specifying parameter values in the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html) in the *AWS CLI User Guide*.  
+For more information, see [Managing the lifecycle of objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [PutBucketLifecycleConfiguration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-lifecycle-configuration.html) in *AWS CLI Command Reference*. 
 
 ------

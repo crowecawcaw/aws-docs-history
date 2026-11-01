@@ -55,10 +55,13 @@ AwsDoc::S3::createMultipartUpload(const Aws::String &bucket, const Aws::String &
 #### [ CLI ]
 
 **AWS CLI**  
-The following command creates a multipart upload in the bucket `amzn-s3-demo-bucket` with the key `multipart/01`:  
+**To create a multipart upload**  
+The following `create-multipart-upload` example creates a multipart upload in the bucket `amzn-s3-demo-bucket` with the key `multipart/01`.  
 
 ```
-aws s3api create-multipart-upload --bucket {{amzn-s3-demo-bucket}} --key '{{multipart/01}}'
+aws s3api create-multipart-upload \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --key '{{multipart/01}}'
 ```
 Output:  
 
@@ -70,6 +73,7 @@ Output:
 }
 ```
 The completed file will be named `01` in a folder called `multipart` in the bucket `amzn-s3-demo-bucket`. Save the upload ID, key and bucket name for use with the `upload-part` command.  
+For more information, see [Uploading and copying objects using multipart upload in Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [CreateMultipartUpload](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-multipart-upload.html) in *AWS CLI Command Reference*. 
 
 ------

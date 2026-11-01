@@ -159,10 +159,12 @@ Aws::String getPermissionString(const Aws::S3::Model::Permission &permission) {
 #### [ CLI ]
 
 **AWS CLI**  
-The following command retrieves the access control list for a bucket named `amzn-s3-demo-bucket`:  
+**To retrieve the access control list of a bucket**  
+The following `get-bucket-acl` example retrieves the access control list for a bucket named `amzn-s3-demo-bucket`.  
 
 ```
-aws s3api get-bucket-acl --bucket {{amzn-s3-demo-bucket}}
+aws s3api get-bucket-acl \
+    --bucket {{amzn-s3-demo-bucket}}
 ```
 Output:  
 
@@ -183,6 +185,7 @@ Output:
     ]
 }
 ```
+For more information, see [Access control list (ACL) overview](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [GetBucketAcl](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-acl.html) in *AWS CLI Command Reference*. 
 
 ------

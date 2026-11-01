@@ -238,7 +238,7 @@ bool AwsDoc::S3::createBucket(const Aws::String &bucketName,
 
 **AWS CLI**  
 **Example 1: To create a bucket**  
-The following `create-bucket` example creates a bucket named `amzn-s3-demo-bucket`:  
+The following `create-bucket` example creates a bucket named `amzn-s3-demo-bucket`.  
 
 ```
 aws s3api create-bucket \
@@ -271,13 +271,13 @@ Output:
 ```
 For more information, see [Controlling ownership of objects and disabling ACLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide*.  
 **Example 3: To create a bucket outside of the ``us-east-1`` region**  
-The following `create-bucket` example creates a bucket named `amzn-s3-demo-bucket` in the `eu-west-1` region. Regions outside of `us-east-1` require the appropriate `LocationConstraint` to be specified in order to create the bucket in the desired region.  
+The following `create-bucket` example creates a bucket named `amzn-s3-demo-bucket` in the `us-west-2` region. Regions outside of `us-east-1` require the appropriate `LocationConstraint` to be specified in order to create the bucket in the desired region.  
 
 ```
 aws s3api create-bucket \
     --bucket {{amzn-s3-demo-bucket}} \
-    --region {{eu-west-1}} \
-    --create-bucket-configuration {{LocationConstraint=eu-west-1}}
+    --region {{us-west-2}} \
+    --create-bucket-configuration {{LocationConstraint=us-west-2}}
 ```
 Output:  
 

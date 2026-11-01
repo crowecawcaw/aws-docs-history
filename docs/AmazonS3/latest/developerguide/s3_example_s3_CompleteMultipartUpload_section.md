@@ -55,31 +55,36 @@ Aws::S3::Model::CompleteMultipartUploadOutcome AwsDoc::S3::completeMultipartUplo
 #### [ CLI ]
 
 **AWS CLI**  
-The following command completes a multipart upload for the key `multipart/01` in the bucket `amzn-s3-demo-bucket`:  
+**To complete a multipart upload**  
+The following `complete-multipart-upload` example completes a multipart upload for the key `multipart/01` in the bucket `amzn-s3-demo-bucket`.  
 
 ```
-aws s3api complete-multipart-upload --multipart-upload {{file://mpustruct}} --bucket {{amzn-s3-demo-bucket}} --key '{{multipart/01}}' --upload-id {{dfRtDYU0WWCCcH43C3WFbkRONycyCpTJJvxu2i5GYkZljF.Yxwh6XG7WfS2vC4to6HiV6Yjlx.cph0gtNBtJ8P3URCSbB7rjxI5iEwVDmgaXZOGgkk5nVTW16HOQ5l0R}}
+aws s3api complete-multipart-upload \
+    --multipart-upload {{file://mpustruct}} \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --key '{{multipart/01}}' \
+    --upload-id {{dfRtDYU0WWCCcH43C3WFbkRONycyCpTJJvxu2i5GYkZljF.Yxwh6XG7WfS2vC4to6HiV6Yjlx.cph0gtNBtJ8P3URCSbB7rjxI5iEwVDmgaXZOGgkk5nVTW16HOQ5l0R}}
 ```
 The upload ID required by this command is output by `create-multipart-upload` and can also be retrieved with `list-multipart-uploads`.  
 The multipart upload option in the above command takes a JSON structure that describes the parts of the multipart upload that should be reassembled into the complete file. In this example, the `file://` prefix is used to load the JSON structure from a file in the local folder named `mpustruct`.  
-mpustruct:  
+Contents of `mpustruct`:  
 
 ```
 {
-  "Parts": [
-    {
-      "ETag": "e868e0f4719e394144ef36531ee6824c",
-      "PartNumber": 1
-    },
-    {
-      "ETag": "6bb2b12753d66fe86da4998aa33fffb0",
-      "PartNumber": 2
-    },
-    {
-      "ETag": "d0a0112e841abec9c9ec83406f0159c8",
-      "PartNumber": 3
-    }
-  ]
+    "Parts": [
+        {
+            "ETag": "e868e0f4719e394144ef36531ee6824c",
+            "PartNumber": 1
+        },
+        {
+            "ETag": "6bb2b12753d66fe86da4998aa33fffb0",
+            "PartNumber": 2
+        },
+        {
+            "ETag": "d0a0112e841abec9c9ec83406f0159c8",
+            "PartNumber": 3
+        }
+    ]
 }
 ```
 The ETag value for each part is upload is output each time you upload a part using the `upload-part` command and can also be retrieved by calling `list-parts` or calculated by taking the MD5 checksum of each part.  
@@ -93,6 +98,7 @@ Output:
     "Key": "multipart/01"
 }
 ```
+For more information, see [Uploading and copying objects using multipart upload in Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [CompleteMultipartUpload](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/complete-multipart-upload.html) in *AWS CLI Command Reference*. 
 
 ------

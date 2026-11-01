@@ -18,6 +18,7 @@ aws s3api delete-object-tagging \
     --key {{doc1.rtf}}
 ```
 This command produces no output.  
+For more information, see [Tagging your objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [DeleteObjectTagging](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/delete-object-tagging.html) in *AWS CLI Command Reference*. 
 
 ------

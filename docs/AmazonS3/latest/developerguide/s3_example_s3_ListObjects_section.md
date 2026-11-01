@@ -12,13 +12,30 @@ Action examples are code excerpts from larger programs and must be run in contex
 #### [ CLI ]
 
 **AWS CLI**  
-The following example uses the `list-objects` command to display the names of all the objects in the specified bucket:  
+**To list the objects in a bucket**  
+The following `list-objects` example displays the names of all the objects in the specified bucket.  
 
 ```
-aws s3api list-objects --bucket {{text-content}} --query '{{Contents[].{Key: Key, Size: Size}}}'
+aws s3api list-objects \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --query '{{Contents[].{Key: Key, Size: Size}}}'
+```
+Output:  
+
+```
+[
+    {
+        "Key": "dir/my_data",
+        "Size": 20000
+    },
+    {
+        "Key": "dir/my_images.tar.bz2",
+        "Size": 3191
+    }
+]
 ```
 The example uses the `--query` argument to filter the output of `list-objects` down to the key value and size for each object  
-For more information about objects, see Working with Amazon S3 Objects in the *Amazon S3 Developer Guide*.  
+For more information, see [Listing object keys programmatically](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ListingKeysUsingAPIs.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [ListObjects](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/list-objects.html) in *AWS CLI Command Reference*. 
 
 ------

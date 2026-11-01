@@ -9,11 +9,15 @@ The following code examples show how to use `DeleteBucketTagging`.
 #### [ CLI ]
 
 **AWS CLI**  
-The following command deletes a tagging configuration from a bucket named `amzn-s3-demo-bucket`:  
+**To delete the tagging configuration of a bucket**  
+The following `delete-bucket-tagging` example deletes a tagging configuration from a bucket named `amzn-s3-demo-bucket`.  
 
 ```
-aws s3api delete-bucket-tagging --bucket {{amzn-s3-demo-bucket}}
+aws s3api delete-bucket-tagging \
+    --bucket {{amzn-s3-demo-bucket}}
 ```
+This command produces no output.  
+For more information, see [Using cost allocation S3 bucket tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/CostAllocTagging.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [DeleteBucketTagging](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/delete-bucket-tagging.html) in *AWS CLI Command Reference*. 
 
 ------

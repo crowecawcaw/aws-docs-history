@@ -122,11 +122,15 @@ bool AwsDoc::S3::deleteBucket(const Aws::String &bucketName,
 #### [ CLI ]
 
 **AWS CLI**  
-The following command deletes a bucket named `amzn-s3-demo-bucket`:  
+**To delete a bucket**  
+The following `delete-bucket` example deletes a bucket named `amzn-s3-demo-bucket`.  
 
 ```
-aws s3api delete-bucket --bucket {{amzn-s3-demo-bucket}} --region {{us-east-1}}
+aws s3api delete-bucket \
+    --bucket {{amzn-s3-demo-bucket}}
 ```
+This command produces no output.  
+For more information, see [Deleting a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/delete-bucket.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [DeleteBucket](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/delete-bucket.html) in *AWS CLI Command Reference*. 
 
 ------

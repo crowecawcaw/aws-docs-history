@@ -18,17 +18,18 @@ The following `update-job-priority` example updates the specified job to a new p
 ```
 aws s3control update-job-priority \
     --account-id {{123456789012}} \
-    --job-id {{8d9a18fe-c303-4d39-8ccc-860d372da386}} \
+    --job-id {{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}} \
     --priority {{52}}
 ```
 Output:  
 
 ```
 {
-    "JobId": "8d9a18fe-c303-4d39-8ccc-860d372da386",
+    "JobId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
     "Priority": 52
 }
 ```
+For more information, see [Assigning job priority](https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops-job-priority.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [UpdateJobPriority](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3control/update-job-priority.html) in *AWS CLI Command Reference*. 
 
 ------

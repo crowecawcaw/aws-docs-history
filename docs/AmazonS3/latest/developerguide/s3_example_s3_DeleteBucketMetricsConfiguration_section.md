@@ -18,6 +18,7 @@ aws s3api delete-bucket-metrics-configuration \
     --id {{123}}
 ```
 This command produces no output.  
+For more information, see [CloudWatch metrics configurations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metrics-configurations.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [DeleteBucketMetricsConfiguration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/delete-bucket-metrics-configuration.html) in *AWS CLI Command Reference*. 
 
 ------

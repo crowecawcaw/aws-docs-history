@@ -55,7 +55,7 @@ The following `get-object-retention` example retrieves the object retention conf
 
 ```
 aws s3api get-object-retention \
-    --bucket {{amzn-s3-demo-bucket-with-object-lock}} \
+    --bucket {{amzn-s3-demo-bucket}} \
     --key {{doc1.rtf}}
 ```
 Output:  
@@ -68,6 +68,7 @@ Output:
     }
 }
 ```
+For more information, see [Locking objects with Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [GetObjectRetention](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-object-retention.html) in *AWS CLI Command Reference*. 
 
 ------

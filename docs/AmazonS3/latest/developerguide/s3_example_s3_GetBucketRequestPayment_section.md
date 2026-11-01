@@ -23,6 +23,7 @@ Output:
     "Payer": "BucketOwner"
 }
 ```
+For more information, see [Using Requester Pays general purpose buckets for storage transfers and usage](https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [GetBucketRequestPayment](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-request-payment.html) in *AWS CLI Command Reference*. 
 
 ------

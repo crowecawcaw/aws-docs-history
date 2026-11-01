@@ -54,7 +54,7 @@ The following `get-object-lock-configuration` example retrieves the object lock 
 
 ```
 aws s3api get-object-lock-configuration \
-    --bucket {{amzn-s3-demo-bucket-with-object-lock}}
+    --bucket {{amzn-s3-demo-bucket}}
 ```
 Output:  
 
@@ -71,6 +71,7 @@ Output:
     }
 }
 ```
+For more information, see [Configuring S3 Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [GetObjectLockConfiguration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-object-lock-configuration.html) in *AWS CLI Command Reference*. 
 
 ------

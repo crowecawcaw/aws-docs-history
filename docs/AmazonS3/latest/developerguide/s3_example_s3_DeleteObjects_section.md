@@ -542,21 +542,25 @@ bool AwsDoc::S3::deleteObjects(const std::vector<Aws::String> &objectKeys,
 #### [ CLI ]
 
 **AWS CLI**  
-The following command deletes an object from a bucket named `amzn-s3-demo-bucket`:  
+**To delete an object by using a JSON file**  
+The following `delete-objects` example deletes an object from a bucket named `amzn-s3-demo-bucket`.  
 
 ```
-aws s3api delete-objects --bucket {{amzn-s3-demo-bucket}} --delete {{file://delete.json}}
+aws s3api delete-objects \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --delete {{file://delete.json}}
 ```
-`delete.json` is a JSON document in the current directory that specifies the object to delete:  
+The file `delete.json` is a JSON document in the current directory that specifies the object to delete.  
+Contents of `delete.json`:  
 
 ```
 {
-  "Objects": [
-    {
-      "Key": "test1.txt"
-    }
-  ],
-  "Quiet": false
+    "Objects": [
+        {
+            "Key": "test1.txt"
+        }
+    ],
+    "Quiet": false
 }
 ```
 Output:  
@@ -572,6 +576,7 @@ Output:
     ]
 }
 ```
+For more information, see [Deleting multiple objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/delete-multiple-objects.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [DeleteObjects](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/delete-objects.html) in *AWS CLI Command Reference*. 
 
 ------

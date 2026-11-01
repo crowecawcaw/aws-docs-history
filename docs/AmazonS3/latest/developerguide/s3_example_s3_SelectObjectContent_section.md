@@ -22,6 +22,7 @@ aws s3api select-object-content \
     --output-serialization '{{{"CSV": {}}}}' {{"output.csv"}}
 ```
 This command produces no output.  
+For more information, see [Querying data in place with Amazon S3 Select](https://docs.aws.amazon.com/AmazonS3/latest/userguide/selecting-content-from-objects.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [SelectObjectContent](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/select-object-content.html) in *AWS CLI Command Reference*. 
 
 ------

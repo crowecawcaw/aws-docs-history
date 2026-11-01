@@ -17,6 +17,7 @@ aws s3api delete-bucket-encryption \
     --bucket {{amzn-s3-demo-bucket}}
 ```
 This command produces no output.  
+For more information, see [Setting default server-side encryption behavior for Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [DeleteBucketEncryption](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/delete-bucket-encryption.html) in *AWS CLI Command Reference*. 
 
 ------

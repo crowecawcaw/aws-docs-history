@@ -12,16 +12,25 @@ Action examples are code excerpts from larger programs and must be run in contex
 #### [ CLI ]
 
 **AWS CLI**  
-The following command enables versioning on a bucket named `amzn-s3-demo-bucket`:  
+**To enable versioning on a bucket**  
+The following `put-bucket-versioning` example enables versioning on a bucket named `amzn-s3-demo-bucket`.  
 
 ```
-aws s3api put-bucket-versioning --bucket {{amzn-s3-demo-bucket}} --versioning-configuration {{Status=Enabled}}
+aws s3api put-bucket-versioning \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --versioning-configuration {{Status=Enabled}}
 ```
-The following command enables versioning, and uses an mfa code  
+This command produces no output.  
+The following command enables versioning and uses an MFA code.  
 
 ```
-aws s3api put-bucket-versioning --bucket {{amzn-s3-demo-bucket}} --versioning-configuration {{Status=Enabled}} --mfa {{"SERIAL 123456"}}
+aws s3api put-bucket-versioning \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --versioning-configuration {{Status=Enabled}} \
+    --mfa {{"SERIAL 123456"}}
 ```
+This command produces no output.  
+For more information, see [Retaining multiple versions of objects with S3 Versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [PutBucketVersioning](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-versioning.html) in *AWS CLI Command Reference*. 
 
 ------

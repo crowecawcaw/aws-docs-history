@@ -18,6 +18,7 @@ aws s3api put-bucket-request-payment \
     --request-payment-configuration '{{{"Payer":"Requester"}}}'
 ```
 This command produces no output.  
+For more information, see [Using Requester Pays general purpose buckets for storage transfers and usage](https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html) in the *Amazon S3 User Guide*.  
 **Example 2: To disable ``requester pays`` configuration for a bucket**  
 The following `put-bucket-request-payment` example disables `requester pays` for the specified bucket.  
 
@@ -27,6 +28,7 @@ aws s3api put-bucket-request-payment \
     --request-payment-configuration '{{{"Payer":"BucketOwner"}}}'
 ```
 This command produces no output.  
+For more information, see [Using Requester Pays general purpose buckets for storage transfers and usage](https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [PutBucketRequestPayment](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-request-payment.html) in *AWS CLI Command Reference*. 
 
 ------

@@ -38,11 +38,15 @@ bool AwsDoc::S3::deleteBucketPolicy(const Aws::String &bucketName,
 #### [ CLI ]
 
 **AWS CLI**  
-The following command deletes a bucket policy from a bucket named `amzn-s3-demo-bucket`:  
+**To delete a bucket policy**  
+The following `delete-bucket-policy` example deletes a bucket policy from a bucket named `amzn-s3-demo-bucket`.  
 
 ```
-aws s3api delete-bucket-policy --bucket {{amzn-s3-demo-bucket}}
+aws s3api delete-bucket-policy \
+    --bucket {{amzn-s3-demo-bucket}}
 ```
+This command produces no output.  
+For more information, see [Bucket policies for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-policies.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [DeleteBucketPolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/delete-bucket-policy.html) in *AWS CLI Command Reference*. 
 
 ------

@@ -69,10 +69,12 @@ bool AwsDoc::S3::getWebsiteConfig(const Aws::String &bucketName,
 #### [ CLI ]
 
 **AWS CLI**  
-The following command retrieves the static website configuration for a bucket named `amzn-s3-demo-bucket`:  
+**To retrieve the website configuration of a bucket**  
+The following `get-bucket-website` example retrieves the static website configuration for a bucket named `amzn-s3-demo-bucket`.  
 
 ```
-aws s3api get-bucket-website --bucket {{amzn-s3-demo-bucket}}
+aws s3api get-bucket-website \
+    --bucket {{amzn-s3-demo-bucket}}
 ```
 Output:  
 
@@ -86,6 +88,7 @@ Output:
     }
 }
 ```
+For more information, see [Hosting a static website using Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [GetBucketWebsite](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-website.html) in *AWS CLI Command Reference*. 
 
 ------

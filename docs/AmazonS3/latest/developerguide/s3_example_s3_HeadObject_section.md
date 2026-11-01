@@ -13,10 +13,13 @@ Action examples are code excerpts from larger programs and must be run in contex
 #### [ CLI ]
 
 **AWS CLI**  
-The following command retrieves metadata for an object in a bucket named `amzn-s3-demo-bucket`:  
+**To retrieve metadata for an object**  
+The following `head-object` example retrieves metadata for an object in a bucket named `amzn-s3-demo-bucket`.  
 
 ```
-aws s3api head-object --bucket {{amzn-s3-demo-bucket}} --key {{index.html}}
+aws s3api head-object \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --key {{index.html}}
 ```
 Output:  
 
@@ -31,6 +34,7 @@ Output:
     "Metadata": {}
 }
 ```
+For more information, see [Working with object metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingMetadata.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [HeadObject](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/head-object.html) in *AWS CLI Command Reference*. 
 
 ------

@@ -90,6 +90,7 @@ aws s3api put-bucket-accelerate-configuration \
     --accelerate-configuration {{Status=Enabled}}
 ```
 This command produces no output.  
+For more information, see [Configuring fast, secure file transfers using Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/transfer-acceleration.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [PutBucketAccelerateConfiguration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-accelerate-configuration.html) in *AWS CLI Command Reference*. 
 
 ------

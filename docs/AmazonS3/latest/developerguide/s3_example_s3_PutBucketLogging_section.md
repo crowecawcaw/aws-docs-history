@@ -208,12 +208,13 @@ Contents of `logging.json`:
 
 ```
 {
-     "LoggingEnabled": {
-         "TargetBucket": "amzn-s3-demo-bucket",
-         "TargetPrefix": "Logs/"
-     }
- }
+    "LoggingEnabled": {
+        "TargetBucket": "amzn-s3-demo-bucket",
+        "TargetPrefix": "Logs/"
+    }
+}
 ```
+This command produces no output.  
 The `put-bucket-policy` command is required to grant `s3:PutObject` permissions to the logging service principal.  
 For more information, see [Amazon S3 Server Access Logging](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html) in the *Amazon S3 User Guide*.  
 **Example 2: To set a bucket policy for logging access to only a single user**  
@@ -251,6 +252,7 @@ Contents of `logging.json`:
     }
 }
 ```
+This command produces no output.  
 the `put-bucket-acl` command is required to grant S3's log delivery system the necessary permissions (write and read-acp permissions).  
 For more information, see [Amazon S3 Server Access Logging](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html) in the *Amazon S3 Developer Guide*.  
 +  For API details, see [PutBucketLogging](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-logging.html) in *AWS CLI Command Reference*. 

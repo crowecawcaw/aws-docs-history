@@ -9,10 +9,12 @@ The following code examples show how to use `GetBucketLocation`.
 #### [ CLI ]
 
 **AWS CLI**  
-The following command retrieves the location constraint for a bucket named `amzn-s3-demo-bucket`, if a constraint exists:  
+**To retrieve the location constraint of a bucket**  
+The following `get-bucket-location` example retrieves the location constraint for a bucket named `amzn-s3-demo-bucket`, if a constraint exists.  
 
 ```
-aws s3api get-bucket-location --bucket {{amzn-s3-demo-bucket}}
+aws s3api get-bucket-location \
+    --bucket {{amzn-s3-demo-bucket}}
 ```
 Output:  
 
@@ -21,6 +23,7 @@ Output:
     "LocationConstraint": "us-west-2"
 }
 ```
+For more information, see [General purpose buckets overview](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingBucket.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [GetBucketLocation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-location.html) in *AWS CLI Command Reference*. 
 
 ------

@@ -55,6 +55,7 @@ Output:
     "IsTruncated": false
 }
 ```
+For more information, see [Cataloging and analyzing your data with S3 Inventory](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-inventory.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [ListBucketInventoryConfigurations](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/list-bucket-inventory-configurations.html) in *AWS CLI Command Reference*. 
 
 ------

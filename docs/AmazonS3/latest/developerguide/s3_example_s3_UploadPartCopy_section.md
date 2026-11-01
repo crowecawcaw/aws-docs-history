@@ -33,6 +33,7 @@ Output:
     }
 }
 ```
+For more information, see [Copying an object using multipart upload](https://docs.aws.amazon.com/AmazonS3/latest/userguide/CopyingObjectsMPUapi.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [UploadPartCopy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/upload-part-copy.html) in *AWS CLI Command Reference*. 
 
 ------

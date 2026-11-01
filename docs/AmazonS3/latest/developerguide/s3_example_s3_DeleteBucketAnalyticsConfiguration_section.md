@@ -18,6 +18,7 @@ aws s3api delete-bucket-analytics-configuration \
     --id {{1}}
 ```
 This command produces no output.  
+For more information, see [Amazon S3 analytics - Storage Class Analysis](https://docs.aws.amazon.com/AmazonS3/latest/userguide/analytics-storage-class.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [DeleteBucketAnalyticsConfiguration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/delete-bucket-analytics-configuration.html) in *AWS CLI Command Reference*. 
 
 ------

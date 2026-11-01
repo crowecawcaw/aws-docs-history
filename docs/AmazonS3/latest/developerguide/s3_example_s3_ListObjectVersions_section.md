@@ -100,10 +100,13 @@ Action examples are code excerpts from larger programs and must be run in contex
 #### [ CLI ]
 
 **AWS CLI**  
-The following command retrieves version information for an object in a bucket named `amzn-s3-demo-bucket`:  
+**To retrieve version information for an object**  
+The following `list-object-versions` example retrieves version information for an object in a bucket named `amzn-s3-demo-bucket`.  
 
 ```
-aws s3api list-object-versions --bucket {{amzn-s3-demo-bucket}} --prefix {{index.html}}
+aws s3api list-object-versions \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --prefix {{index.html}}
 ```
 Output:  
 
@@ -113,7 +116,7 @@ Output:
         {
             "Owner": {
                 "DisplayName": "my-username",
-                "ID": "7009a8971cd660687538875e7c86c5b672fe116bd438f46db45460ddcd036c32"
+                "ID": "7009a8971cd6606875a8875e7c86c5b672fe116bd438f46db45460ddcd036c32"
             },
             "IsLatest": true,
             "VersionId": "B2VsEK5saUNNHKcOAJj7hIE86RozToyq",
@@ -123,7 +126,7 @@ Output:
         {
             "Owner": {
                 "DisplayName": "my-username",
-                "ID": "7009a8971cd660687538875e7c86c5b672fe116bd438f46db45460ddcd036c32"
+                "ID": "7009a8971cd6606875a8875e7c86c5b672fe116bd438f46db45460ddcd036c32"
             },
             "IsLatest": false,
             "VersionId": ".FLQEZscLIcfxSq.jsFJ.szUkmng2Yw6",
@@ -140,7 +143,7 @@ Output:
             "Key": "index.html",
             "Owner": {
                 "DisplayName": "my-username",
-                "ID": "7009a8971cd660687538875e7c86c5b672fe116bd438f46db45460ddcd036c32"
+                "ID": "7009a8971cd6606875a8875e7c86c5b672fe116bd438f46db45460ddcd036c32"
             },
             "IsLatest": false,
             "Size": 38
@@ -153,7 +156,7 @@ Output:
             "Key": "index.html",
             "Owner": {
                 "DisplayName": "my-username",
-                "ID": "7009a8971cd660687538875e7c86c5b672fe116bd438f46db45460ddcd036c32"
+                "ID": "7009a8971cd6606875a8875e7c86c5b672fe116bd438f46db45460ddcd036c32"
             },
             "IsLatest": false,
             "Size": 38
@@ -166,7 +169,7 @@ Output:
             "Key": "index.html",
             "Owner": {
                 "DisplayName": "my-username",
-                "ID": "7009a8971cd660687538875e7c86c5b672fe116bd438f46db45460ddcd036c32"
+                "ID": "7009a8971cd6606875a8875e7c86c5b672fe116bd438f46db45460ddcd036c32"
             },
             "IsLatest": false,
             "Size": 533823
@@ -174,6 +177,7 @@ Output:
     ]
 }
 ```
+For more information, see [Retaining multiple versions of objects with S3 Versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [ListObjectVersions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/list-object-versions.html) in *AWS CLI Command Reference*. 
 
 ------

@@ -28,6 +28,7 @@ Output:
     }
 }
 ```
+For more information, see [Configuring block public access settings for your S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/configuring-block-public-access-bucket.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [GetPublicAccessBlock](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-public-access-block.html) in *AWS CLI Command Reference*. 
 
 ------

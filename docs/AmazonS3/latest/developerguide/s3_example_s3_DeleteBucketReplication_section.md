@@ -9,11 +9,15 @@ The following code examples show how to use `DeleteBucketReplication`.
 #### [ CLI ]
 
 **AWS CLI**  
-The following command deletes a replication configuration from a bucket named `amzn-s3-demo-bucket`:  
+**To delete the replication configuration of a bucket**  
+The following `delete-bucket-replication` example deletes a replication configuration from a bucket named `amzn-s3-demo-bucket`.  
 
 ```
-aws s3api delete-bucket-replication --bucket {{amzn-s3-demo-bucket}}
+aws s3api delete-bucket-replication \
+    --bucket {{amzn-s3-demo-bucket}}
 ```
+This command produces no output.  
+For more information, see [Replicating objects within and across Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [DeleteBucketReplication](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/delete-bucket-replication.html) in *AWS CLI Command Reference*. 
 
 ------

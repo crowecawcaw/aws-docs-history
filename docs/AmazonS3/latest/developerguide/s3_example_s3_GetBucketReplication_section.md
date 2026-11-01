@@ -9,10 +9,12 @@ The following code examples show how to use `GetBucketReplication`.
 #### [ CLI ]
 
 **AWS CLI**  
-The following command retrieves the replication configuration for a bucket named `amzn-s3-demo-bucket`:  
+**To retrieve the replication configuration of a bucket**  
+The following `get-bucket-replication` example retrieves the replication configuration for a bucket named `amzn-s3-demo-bucket1`.  
 
 ```
-aws s3api get-bucket-replication --bucket {{amzn-s3-demo-bucket}}
+aws s3api get-bucket-replication \
+    --bucket {{amzn-s3-demo-bucket1}}
 ```
 Output:  
 
@@ -24,7 +26,7 @@ Output:
                 "Status": "Enabled",
                 "Prefix": "",
                 "Destination": {
-                    "Bucket": "arn:aws:s3:::amzn-s3-demo-bucket-backup",
+                    "Bucket": "arn:aws:s3:::amzn-s3-demo-bucket2",
                     "StorageClass": "STANDARD"
                 },
                 "ID": "ZmUwNzE4ZmQ4tMjVhOS00MTlkLOGI4NDkzZTIWJjNTUtYTA1"
@@ -34,6 +36,7 @@ Output:
     }
 }
 ```
+For more information, see [Replicating objects within and across Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [GetBucketReplication](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-replication.html) in *AWS CLI Command Reference*. 
 
 ------

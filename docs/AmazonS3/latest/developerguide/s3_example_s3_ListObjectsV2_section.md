@@ -268,7 +268,7 @@ Output:
         },
         {
             "LastModified": "2019-11-05T23:11:50.000Z",
-            "ETag": "\"d1852dd683f404306569471af106988e\"",
+            "ETag": "\"d1852dd683f4043065a9471af106988e\"",
             "StorageClass": "STANDARD",
             "Key": "doc4.rtf",
             "Size": 6225
@@ -276,6 +276,7 @@ Output:
     ]
 }
 ```
+For more information, see [Listing object keys programmatically](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ListingKeysUsingAPIs.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [ListObjectsV2](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/list-objects-v2.html) in *AWS CLI Command Reference*. 
 
 ------

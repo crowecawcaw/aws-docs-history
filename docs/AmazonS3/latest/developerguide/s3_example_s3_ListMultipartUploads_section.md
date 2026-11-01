@@ -12,10 +12,12 @@ Action examples are code excerpts from larger programs and must be run in contex
 #### [ CLI ]
 
 **AWS CLI**  
-The following command lists all of the active multipart uploads for a bucket named `amzn-s3-demo-bucket`:  
+**To list the active multipart uploads for a bucket**  
+The following `list-multipart-uploads` example lists all of the active multipart uploads for a bucket named `amzn-s3-demo-bucket`.  
 
 ```
-aws s3api list-multipart-uploads --bucket {{amzn-s3-demo-bucket}}
+aws s3api list-multipart-uploads \
+    --bucket {{amzn-s3-demo-bucket}}
 ```
 Output:  
 
@@ -41,6 +43,7 @@ Output:
 }
 ```
 In progress multipart uploads incur storage costs in Amazon S3. Complete or abort an active multipart upload to remove its parts from your account.  
+For more information, see [Uploading and copying objects using multipart upload in Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [ListMultipartUploads](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/list-multipart-uploads.html) in *AWS CLI Command Reference*. 
 
 ------

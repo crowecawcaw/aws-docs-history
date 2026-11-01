@@ -72,6 +72,7 @@ Output:
     }
 }
 ```
+For more information, see [Setting default server-side encryption behavior for Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [GetBucketEncryption](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-encryption.html) in *AWS CLI Command Reference*. 
 
 ------

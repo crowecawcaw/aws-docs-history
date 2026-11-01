@@ -97,13 +97,23 @@ bool AwsDoc::S3::listBuckets(const Aws::S3::S3ClientConfiguration &clientConfig)
 #### [ CLI ]
 
 **AWS CLI**  
-The following command uses the `list-buckets` command to display the names of all your Amazon S3 buckets (across all regions):  
+**To list the names of all your Amazon S3 buckets**  
+The following `list-buckets` example displays the names of all your Amazon S3 buckets (across all regions).  
 
 ```
-aws s3api list-buckets --query {{"Buckets[].Name"}}
+aws s3api list-buckets \
+    --query {{"Buckets[].Name"}}
+```
+Output:  
+
+```
+[
+    "amzn-s3-demo-bucket1",
+    "amzn-s3-demo-bucket2"
+]
 ```
 The query option filters the output of `list-buckets` down to only the bucket names.  
-For more information about buckets, see Working with Amazon S3 Buckets in the *Amazon S3 Developer Guide*.  
+For more information, see [General purpose buckets overview](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingBucket.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [ListBuckets](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/list-buckets.html) in *AWS CLI Command Reference*. 
 
 ------

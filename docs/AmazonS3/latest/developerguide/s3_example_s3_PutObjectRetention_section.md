@@ -61,11 +61,12 @@ The following `put-object-retention` example sets an object retention configurat
 
 ```
 aws s3api put-object-retention \
-    --bucket {{amzn-s3-demo-bucket-with-object-lock}} \
+    --bucket {{amzn-s3-demo-bucket}} \
     --key {{doc1.rtf}} \
     --retention '{{{ "Mode": "GOVERNANCE", "RetainUntilDate": "2025-01-01T00:00:00" }}}'
 ```
 This command produces no output.  
+For more information, see [Locking objects with Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [PutObjectRetention](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object-retention.html) in *AWS CLI Command Reference*. 
 
 ------

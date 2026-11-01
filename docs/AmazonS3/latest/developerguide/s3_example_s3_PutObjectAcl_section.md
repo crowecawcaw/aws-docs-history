@@ -110,12 +110,18 @@ Aws::S3::Model::Type setGranteeType(const Aws::String &type) {
 #### [ CLI ]
 
 **AWS CLI**  
-The following command grants `full control` to two AWS users (*user1@example.com* and *user2@example.com*) and `read` permission to everyone:  
+**To set the access control list for an object**  
+The following `put-object-acl` example grants `full control` to two AWS users (*user1@example.com* and *user2@example.com*) and `read` permission to everyone.  
 
 ```
-aws s3api put-object-acl --bucket {{amzn-s3-demo-bucket}} --key {{file.txt}} --grant-full-control {{emailaddress=user1@example.com,emailaddress=user2@example.com}} --grant-read {{uri=http://acs.amazonaws.com/groups/global/AllUsers}}
+aws s3api put-object-acl \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --key {{file.txt}} \
+    --grant-full-control {{emailaddress=user1@example.com,emailaddress=user2@example.com}} \
+    --grant-read {{uri=http://acs.amazonaws.com/groups/global/AllUsers}}
 ```
-See http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTacl.html for details on custom ACLs (the s3api ACL commands, such as `put-object-acl`, use the same shorthand argument notation).  
+This command produces no output.  
+For more information, see [Access control list (ACL) overview](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [PutObjectAcl](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object-acl.html) in *AWS CLI Command Reference*. 
 
 ------

@@ -29,6 +29,7 @@ Output:
     }
 }
 ```
+For more information, see [CloudWatch metrics configurations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metrics-configurations.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [GetBucketMetricsConfiguration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-metrics-configuration.html) in *AWS CLI Command Reference*. 
 
 ------

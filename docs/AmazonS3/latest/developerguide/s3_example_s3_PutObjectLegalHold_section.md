@@ -59,11 +59,12 @@ The following `put-object-legal-hold` example sets a Legal Hold on the object `d
 
 ```
 aws s3api put-object-legal-hold \
-    --bucket {{amzn-s3-demo-bucket-with-object-lock}} \
+    --bucket {{amzn-s3-demo-bucket}} \
     --key {{doc1.rtf}} \
     --legal-hold {{Status=ON}}
 ```
 This command produces no output.  
+For more information, see [Locking objects with Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [PutObjectLegalHold](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object-legal-hold.html) in *AWS CLI Command Reference*. 
 
 ------

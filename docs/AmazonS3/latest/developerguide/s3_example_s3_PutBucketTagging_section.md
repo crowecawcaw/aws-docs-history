@@ -12,28 +12,37 @@ Action examples are code excerpts from larger programs and must be run in contex
 #### [ CLI ]
 
 **AWS CLI**  
-The following command applies a tagging configuration to a bucket named `amzn-s3-demo-bucket`:  
+**To apply a tagging configuration to a bucket**  
+The following `put-bucket-tagging` example applies a tagging configuration to a bucket named `amzn-s3-demo-bucket`.  
 
 ```
-aws s3api put-bucket-tagging --bucket {{amzn-s3-demo-bucket}} --tagging {{file://tagging.json}}
+aws s3api put-bucket-tagging \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --tagging {{file://tagging.json}}
 ```
-The file `tagging.json` is a JSON document in the current folder that specifies tags:  
+This command produces no output.  
+The file `tagging.json` is a JSON document in the current folder that specifies tags.  
+Contents of `tagging.json`:  
 
 ```
 {
-   "TagSet": [
-     {
-       "Key": "organization",
-       "Value": "marketing"
-     }
-   ]
+    "TagSet": [
+        {
+            "Key": "organization",
+            "Value": "marketing"
+        }
+    ]
 }
 ```
-Or apply a tagging configuration to `amzn-s3-demo-bucket` directly from the command line:  
+Alternatively, apply a tagging configuration to `amzn-s3-demo-bucket` directly from the command line.  
 
 ```
-aws s3api put-bucket-tagging --bucket {{amzn-s3-demo-bucket}} --tagging '{{TagSet=[{Key=organization,Value=marketing}]}}'
+aws s3api put-bucket-tagging \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --tagging '{{TagSet=[{Key=organization,Value=marketing}]}}'
 ```
+This command produces no output.  
+For more information, see [Using cost allocation S3 bucket tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/CostAllocTagging.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [PutBucketTagging](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-tagging.html) in *AWS CLI Command Reference*. 
 
 ------

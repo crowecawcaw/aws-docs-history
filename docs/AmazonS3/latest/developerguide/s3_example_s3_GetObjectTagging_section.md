@@ -73,6 +73,7 @@ Output:
     ]
 }
 ```
+For more information, see [Tagging your objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html) in the *Amazon S3 User Guide*.  
 +  For API details, see [GetObjectTagging](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-object-tagging.html) in *AWS CLI Command Reference*. 
 
 ------
