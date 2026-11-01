@@ -12,8 +12,8 @@ For instructions on how to connect to a Amazon DCV session using the macOS clien
 **To install the macOS client**
 
 1. Download the correct macOS client installer depending on your client computer.
-   + [macOS client for Intel processors](https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Clients/nice-dcv-viewer-2026.0.14405.x86_64.dmg)
-   + [macOS client for Apple Silicon processors](https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Clients/nice-dcv-viewer-2026.0.14405.arm64.dmg)
+   + [macOS client for Intel processors](https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Clients/nice-dcv-viewer-2026.0.14555.x86_64.dmg)
+   + [macOS client for Apple Silicon processors](https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Clients/nice-dcv-viewer-2026.0.14555.arm64.dmg)
 **Tip**  
 The [latest packages](http://download.amazondcv.com/latest.html) page of the download website contains links that always point to the newest available version. You can use these links to automatically retrieve the newest Amazon DCV packages.
 
