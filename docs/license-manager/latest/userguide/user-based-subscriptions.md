@@ -432,6 +432,7 @@ Microsoft Visual Studio is an integrated development environment (IDE) that enab
 **Supported editions**
 + Visual Studio Professional 2022
 + Visual Studio Enterprise 2022
++ Visual Studio Professional 2026
 
 The following table details the software subscription names and their associated product value used for License Manager user-based subscription API operations.
 
@@ -439,7 +440,7 @@ The following table details the software subscription names and their associated
 | Software subscription name | Product value | 
 | --- | --- | 
 | Visual Studio Enterprise 2022 | `VISUAL_STUDIO_ENTERPRISE` | 
-| Visual Studio Professional 2022 | `VISUAL_STUDIO_PROFESSIONAL` | 
+| Visual Studio Professional 2022<br />Visual Studio Professional 2026 | `VISUAL_STUDIO_PROFESSIONAL` | 
 
 #### Microsoft Office
 <a name="user-subs-ms-office"></a>
