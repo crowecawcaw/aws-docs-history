@@ -19,7 +19,7 @@
 
 This tutorial shows you how to publish a .NET application on a Windows Server 2022 instance in Amazon Lightsail. 
 
-[Get started with Lightsail for free](https://portal.aws.amazon.com/billing/signup?client=lightsail&fid=1A3F6B376ECAC516-2C15C39C5ACECACB&redirect_url=https%3A%2F%2Flightsail.aws.amazon.com%2Fls%2Fsignup#/start) 
+[Get started with Lightsail for free](https://signup.aws.amazon.com/billing/signup?client=lightsail&fid=1A3F6B376ECAC516-2C15C39C5ACECACB&redirect_url=https%3A%2F%2Flightsail.aws.amazon.com%2Fls%2Fsignup#/start) 
 
 ## What you will accomplish
 <a name="what-you-will-accomplish"></a>
@@ -42,7 +42,7 @@ Before starting this tutorial, you will need:
 <a name="create-an-amazon-lightsail-account"></a>
 + This tutorial is free tier eligible with [Amazon Lightsail](https://lightsail/), but costs may apply. 
 
-  [Sign up for AWS](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?client=lightsail&fid=3BE5EA8FA64943AD-0284EED1954F5F15) 
+  [Sign up for AWS](https://signup.aws.amazon.com/gp/aws/developer/registration/index.html?client=lightsail&fid=3BE5EA8FA64943AD-0284EED1954F5F15) 
 
   Already have an account? [Sign in](https://lightsail.aws.amazon.com/ls/) 
 
