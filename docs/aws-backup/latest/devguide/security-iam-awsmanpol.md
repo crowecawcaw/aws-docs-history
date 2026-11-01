@@ -671,6 +671,7 @@ View details about updates to AWS managed policies for AWS Backup since this ser
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| [AWSServiceRolePolicyForBackupRestoreTesting](#AWSServiceRolePolicyForBackupRestoreTesting) – Update to an existing policy | AWS Backup added the following permission to this policy:+  `redshift:DescribeTags` <br />This permission allows AWS Backup Restore Testing to view tags on Amazon Redshift resources. It was added to support onboarding Amazon Redshift to restore testing. | September 24, 2026 | 
 | [AWSBackupServiceRolePolicyForRestores](#AWSBackupServiceRolePolicyForRestores) – Update to an existing policy | AWS Backup added the following permission to this policy:+  `cloudformation:UntagResource` <br />This permission allows AWS Backup to untag CloudFormation resources. | August 27, 2026 | 
 | [AWSBackupServiceRolePolicyForS3Backup](#AWSBackupServiceRolePolicyForS3Backup) – Update to an existing policy | AWS Backup added the following permission to this policy:+  `s3:ListTagsForResource` <br />With this permission, AWS Backup can verify the Amazon S3 bucket system tag `aws:backup:enabled` when configuring Amazon EventBridge event notifications for Amazon S3 backups. | August 24, 2026 | 
 | [AWSBackupAccessPointOperatorAccess](#AWSBackupAccessPointOperatorAccess) – New policy | Use this new managed policy to create and manage backup access points and access backup data in recovery points through Amazon S3 access points. | August 6, 2026 | 

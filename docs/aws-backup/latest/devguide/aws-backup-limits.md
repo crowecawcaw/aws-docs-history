@@ -146,6 +146,7 @@ Note quotas do not apply to on-demand restore jobs, but to restore jobs created 
 | Amazon FSx | 40 | Yes | 
 | Amazon Neptune | 40 | Yes | 
 | Amazon RDS | 40 | Yes | 
+| Amazon Redshift | 30 | Yes | 
 | Amazon S3 | 30 | Yes | 
 
 ## AWS Backup gateway quotas

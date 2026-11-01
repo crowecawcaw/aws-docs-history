@@ -48,7 +48,7 @@ However, there are a few differences between the operation of a schedule restore
 | **Account** | Recommended best practice is to designate an account to be used for restore tests | You can restore resources from an account | 
 | **AWS Backup Audit Manager** | Can turn on a control to confirm if a restore test meets specified restore objectives |  | 
 | **Cadence** | Periodically as part of a scheduled plan. | On demand | 
-| **Resources** | The resource types you can assign to your testing plan include: Aurora, Amazon DocumentDB, Amazon DynamoDB, Amazon EBS, Amazon EC2, Amazon EFS, Amazon FSx (Lustre, ONTAP, OpenZFS, Windows), Amazon Neptune, Amazon RDS, and Amazon S3. | All resources can be restored. | 
+| **Resources** | The resource types you can assign to your testing plan include: Aurora, Amazon DocumentDB, Amazon DynamoDB, Amazon EBS, Amazon EC2, Amazon EFS, Amazon FSx (Lustre, ONTAP, OpenZFS, Windows), Amazon Neptune, Amazon RDS, Amazon Redshift, and Amazon S3. | All resources can be restored. | 
 | **Results** | After the restore testing job is completed, the restored resource is deleted after the [Restore testing validation](restore-testing-validation.md) window finishes. | Once the restore job is completed, the restored version of the resource remains. | 
 | **Tags** | For resource types which support tag on restore, testing applies tags on restore. | Tags are optional for supported resources. | 
 

@@ -51,6 +51,7 @@ If a resource type does not have a checkmark in the Cross-Region backup or Cross
 | AWS Storage Gateway | ✓ | ✓ | ✓ | ✓ |  |  |  |  |  | ✓ |  |  |  |  | 
 | Amazon DocumentDB | ✓ 3 | ✓ 3 |  |  |  |  |  |  | ✓ | ✓ |  |  |  |  | 
 | Amazon Neptune | ✓ 3 | ✓ 3 |  |  |  |  |  |  | ✓ | ✓ 9 |  |  |  |  | 
+| Amazon Redshift |  |  |  |  |  |  |  | ✓ | ✓ |  |  |  |  |  | 
 | Amazon Redshift Serverless |  |  |  |  |  |  |  | ✓ |  |  |  |  |  |  | 
 | Amazon Timestream | ✓ | ✓ |  | ✓ |  | ✓ | ✓ |  |  | ✓ |  |  |  |  | 
 | Windows VSS | ✓ | ✓ | ✓ | ✓ |  |  |  |  |  | ✓ |  |  |  |  | 
@@ -146,7 +147,7 @@ Some Regions require account opt-in, as noted in the following table. Some featu
 | South America (São Paulo) | Not required | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | AWS GovCloud (US-East) | [AWS GovCloud (US)](https://aws.amazon.com/govcloud-us/) | ✓ | ✓ | ✓3 | ✓ |  |  | ✓ | ✓ | ✓ |  | 
 | AWS GovCloud (US-West) | [AWS GovCloud (US)](https://aws.amazon.com/govcloud-us/) | ✓ | ✓ | ✓3 | ✓ |  |  | ✓ | ✓ | ✓ |  | 
-| AWS European Sovereign Cloud (Germany) | [AWS European Sovereign Cloud (Germany)](https://aws.amazon.com/aws.eu/) |  |  |  |  |  |  |  | ✓ |  |  | 
+| AWS European Sovereign Cloud (Germany) | [AWS European Sovereign Cloud (Germany)](https://aws.eu/) |  | ✓ | ✓ |  |  |  |  | ✓ |  |  | 
 
 1China (Beijing) and China (Ningxia) support cross-Region copy only between these two Regions. Cross-account backup copy and cross-account management are supported in both China Regions for accounts that belong to the same organization in AWS Organizations. AWS Backup does not support cross-Region copy between the China Regions and Regions outside the AWS China partition.
 
