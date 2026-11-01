@@ -84,7 +84,7 @@ The following instance types are available in Asia Pacific (Hyderabad).
 + **General Purpose:** M5 \| M5d \| M6a \| M6g \| M6gd \| M6i \| M6idn \| M6in \| M7g \| M7i \| M7i-flex \| M8a \| M8g \| M8i \| M8i-flex \| T3 \| T4g \| T8i
 + **Compute Optimized:** C5 \| C5d \| C6a \| C6g \| C6i \| C6in \| C7g \| C7i \| C7i-flex \| C8g \| C8gn \| C8i \| C8i-flex
 + **Memory Optimized:** R5 \| R5d \| R6a \| R6g \| R6i \| R7a \| R7g \| R7gd \| R7i \| R8g \| R8i \| R8i-flex \| U-6tb1 \| U7i-6tb \| U7i-8tb \| U7i-12tb \| X2idn \| X2iedn
-+ **Storage Optimized:** I3 \| I3en \| I4i \| I7i \| I7ie
++ **Storage Optimized:** I3 \| I3en \| I4i \| I7i \| I7ie \| I8ge
 + **Accelerated Computing:** G6 \| G6e \| P6-B200 \| P6-B300 \| Trn2 \| Trn2u
 
 ## Asia Pacific (Jakarta) — `ap-southeast-3`
@@ -200,6 +200,7 @@ The following instance types are available in Asia Pacific (Thailand).
 + **Compute Optimized:** C6g \| C6gn \| C6i \| C6id \| C6in \| C7g \| C7i \| C7i-flex \| C8g \| C8gd \| C8gn
 + **Memory Optimized:** R6g \| R6i \| R6id \| R7g \| R7gd \| R7i \| R8g \| U7i-6tb \| X2idn \| X2iedn
 + **Storage Optimized:** I3en \| I4i \| I7i \| I7ie \| I8ge
++ **Accelerated Computing:** G7e
 
 ## Asia Pacific (Tokyo) — `ap-northeast-1`
 <a name="instance-types-ap-northeast-1"></a>
