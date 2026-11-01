@@ -18,6 +18,7 @@ Some countries observe annual carrier provisioning freezes, during which mobile 
 | Country | Carriers | Freeze type | Freeze window | Submission guidance | 
 | --- | --- | --- | --- | --- | 
 | Canada | All | Short code provisioning freeze | October through December 2026 | Submit your Canada short code request and complete the required short code registration by Monday, October 19, 2026. If your application is not approved for carrier provisioning by October 22, 2026, carrier review will not begin until January 2027. | 
+| United States | Varies | Short code application review freeze | Weeks of November 2, November 23, December 21, and December 28, 2026. | Submit your short code request well ahead of these windows. Every carrier must finish its review before a short code is provisioned, so a freeze at any carrier delays provisioning. Carrier review resumes after each window ends. | 
 
 ## Important considerations
 <a name="phone-numbers-request-short-code-considerations"></a>

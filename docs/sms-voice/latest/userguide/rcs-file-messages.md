@@ -49,7 +49,7 @@ To allow AWS End User Messaging to retrieve files from your S3 bucket, attach th
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17", 		 	 	 
     "Statement": [
         {
             "Effect": "Allow",

@@ -53,10 +53,10 @@ We recommend always using a pool for messaging. There is no cost or downside to 
 ## Pool-per-use-case model
 <a name="rcs-sms-fallback-pool-per-use-case"></a>
 
-We recommend creating one pool per use case. Each pool should contain all of the phone numbers and the AWS RCS Agent that serve a single messaging purpose. For example:
-+ A **transactional pool** for OTP codes and account notifications, containing your AWS RCS Agent and a 10DLC number registered for transactional messaging.
-+ A **marketing pool** for promotional messages, containing the same AWS RCS Agent (or a different one) and a toll-free number registered for marketing.
-+ An **appointment reminders pool** for scheduling notifications, containing your AWS RCS Agent and a dedicated phone number for appointment-related messages.
+We recommend creating one pool per use case. Each pool should contain all of the phone numbers and a dedicated AWS RCS Agent that serve a single messaging purpose. Because an AWS RCS Agent can belong to only one pool, each pool uses its own AWS RCS Agent. For example:
++ A **transactional pool** for OTP codes and account notifications, containing a dedicated AWS RCS Agent and a 10DLC number registered for transactional messaging.
++ A **marketing pool** for promotional messages, containing a dedicated AWS RCS Agent and a toll-free number registered for marketing.
++ An **appointment reminders pool** for scheduling notifications, containing a dedicated AWS RCS Agent and a phone number for appointment-related messages.
 
 This model ensures that when RCS delivery fails and the service falls back to SMS, the fallback message is sent from a phone number that is registered and approved for the same use case. This keeps your messaging compliant with carrier requirements and registration terms.
 

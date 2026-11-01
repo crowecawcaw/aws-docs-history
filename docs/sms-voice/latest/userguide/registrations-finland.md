@@ -11,6 +11,9 @@ If you protect your sender ID with Traficom, Finnish operators block it after th
 
 To use that route, indicate during registration that your sender ID is protected. You then attach two documents: the Sender ID Protection letter of authorization and your Traficom certificate. The Traficom certificate is the numbering or registration decision issued to you by Traficom.
 
+**Important**  
+Starting November 2, 2026, messages sent from unregistered alphanumeric sender IDs or unregistered international long codes are marked to recipients as Roskaposti (Likely Scam). Unregistered Finnish long codes (numbers beginning \+358) are blocked. To avoid this, register a Finland sender ID and send from it.
+
 1. Open the AWS End User Messaging SMS console at [https://console.aws.amazon.com/sms-voice/](https://console.aws.amazon.com/sms-voice/).
 
 1. In the navigation pane, under **Registrations**, choose **Create registration**.

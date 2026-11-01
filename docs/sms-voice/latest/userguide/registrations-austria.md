@@ -66,6 +66,25 @@ If you already created a registration when requesting the origination identity, 
 
 1. Choose **Submit registration**.
 
+If your registration is denied, the AWS End User Messaging SMS console shows a denial reason on the registration. The following are the most common reasons Austria registrations are denied and what to do about each one.
+
+Sender ID invalid  
+The console shows the denial reason **Sender ID invalid** (`SENDER_ID_INVALID`): "The sender ID you provided is not valid for this country."  
+This means RTR rejected or deleted your sender ID registration. RTR does not share the reason with AWS. It sends the reason only to the brand owner, at the contact email address provided in the registration.  
+**What to do:** Check the inbox for the contact email address on the registration for a message from RTR. If there is no message, contact RTR at `sms_regulierung@rtr.at` to get the reason. The reason usually concerns the supporting documents. Fix the issue that RTR names, then create a new version of the registration and resubmit it.
+
+Letter of authorization invalid  
+The console shows the denial reason for an invalid letter of authorization (`LETTER_OF_AUTHORIZATION_INVALID`).  
+This happens when your letter of authorization does not use the official Austria template that you can download on this page ([letter of authorization](samples/Austria_SenderId_LetterOfAuthorization.zip)), you did not complete every field (you left sample placeholder values in), or it does not match the sender ID or company on the registration.  
+**What to do:** Download the template from this page, complete every field for the actual sender ID owner, and sign it. Upload the completed template in the **Letter of authorization** field, then resubmit.
+
+Missing required document  
+The console shows the denial reason for a missing conditional field (`MISSING_CONDITIONAL_FIELD`).  
+This means you did not attach the letter of authorization or the proof of sender ID connection.  
+**What to do:** Attach both the letter of authorization and the proof of sender ID connection, then resubmit.
+
+A denied registration can be updated and resubmitted as a new version by following the directions in [Edit a registration in AWS End User Messaging SMS](registrations-edit.md).
+
 What happens if I send messages with an unregistered sender ID after October 1, 2026?  
 Messages sent using an unregistered alphanumeric sender ID will be blocked by Austrian mobile operators and will not be delivered.
 
