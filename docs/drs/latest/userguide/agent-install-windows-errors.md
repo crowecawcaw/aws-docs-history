@@ -6,20 +6,17 @@
 This page covers errors that you might encounter when you install the AWS Elastic Disaster Recovery agent on Windows source servers. Each section describes the error message, its cause, and the resolution.
 
 **Topics**
-+ [Error: This app can't run on your PC](#error-app-cant-run)
-+ [Error: Cannot open self or archive](#error-corrupted-installer)
-+ [Error: TLS connection error downloading installer](#error-tls-connection)
-+ [Error: The directory is not empty](#error-directory-not-empty)
-+ [Error: Certificate verification failed](#error-certificate-verify-failed)
-+ [Error: BitLocker is not supported](#error-bitlocker)
-+ [Error: net.exe or sc.exe not found](#error-net-sc-path)
++ [DRS-INST-011: Windows version not supported](#error-app-cant-run)
++ [DRS-INST-023: BitLocker is not supported](#error-bitlocker)
++ [DRS-INST-909: net.exe or sc.exe not found](#error-net-sc-path)
++ [Environment errors](#windows-environment-errors)
 
-## Error: This app can't run on your PC
+## DRS-INST-011: Windows version not supported
 <a name="error-app-cant-run"></a>
 
-**Error message:** This app can't run on your PC when you run `AwsReplicationWindowsInstaller.exe`.
+**Error message:** Error code: DRS-INST-011 - Windows version not supported
 
-**Cause:** Windows is running in 32-bit mode. AWS Elastic Disaster Recovery requires a 64-bit operating system.
+**Cause:** The installer detected a Windows version or architecture that AWS Elastic Disaster Recovery does not support. AWS Elastic Disaster Recovery requires a 64-bit operating system. On 32-bit Windows, the installer cannot start, so Windows displays a generic compatibility error instead of this error code.
 
 **Resolution:**
 
@@ -31,7 +28,63 @@ This page covers errors that you might encounter when you install the AWS Elasti
 
 1. If the system is 64-bit but the error still appears, check for AppLocker policies, SmartScreen, or Windows Defender Application Control blocking the executable. Right-click `AwsReplicationWindowsInstaller.exe` and select **Run as administrator**.
 
-## Error: Cannot open self or archive
+## DRS-INST-023: BitLocker is not supported
+<a name="error-bitlocker"></a>
+
+**Error message:** Error code: DRS-INST-023 - BitLocker is not supported
+
+**Cause:** AWS Elastic Disaster Recovery performs block-level replication and cannot read data from BitLocker-encrypted volumes. The replication driver requires direct block access.
+
+**Resolution:**
+
+1. Disable BitLocker on all volumes to be replicated:
+
+   ```
+   manage-bde -off C:
+   ```
+
+1. Wait for decryption to complete. Check the status:
+
+   ```
+   manage-bde -status C:
+   ```
+
+1. Run the installer again after decryption completes.
+
+**Note**  
+BitLocker must remain disabled while using AWS Elastic Disaster Recovery.
+
+**Important**  
+Disabling BitLocker decrypts the drive. Verify this is acceptable per your organization's security policy before proceeding.
+
+## DRS-INST-909: net.exe or sc.exe not found
+<a name="error-net-sc-path"></a>
+
+**Error message:** Error code: DRS-INST-909 - net.exe or sc.exe not found
+
+**Cause:** The `C:\Windows\System32` directory is not included in the system PATH environment variable.
+
+**Resolution:**
+
+1. Verify in PowerShell:
+
+   ```
+   $env:Path -split ';' | Where-Object { $_ -like '*System32*' }
+   ```
+
+1. If System32 is missing from PATH, add it permanently:
+
+   ```
+   $machinePath = [System.Environment]::GetEnvironmentVariable('Path', 'Machine')
+   [System.Environment]::SetEnvironmentVariable('Path', $machinePath + ';C:\Windows\System32', 'Machine')
+   ```
+
+1. Restart the PowerShell session and run the installer again.
+
+## Environment errors
+<a name="windows-environment-errors"></a>
+
+### Cannot open self or archive
 <a name="error-corrupted-installer"></a>
 
 **Error message:** Cannot open self AwsReplicationWindowsInstaller.exe or archive
@@ -60,7 +113,7 @@ This page covers errors that you might encounter when you install the AWS Elasti
 
 1. If the hash matches but the error persists, check if antivirus software quarantined or modified the file.
 
-## Error: TLS connection error downloading installer
+### TLS connection error downloading installer
 <a name="error-tls-connection"></a>
 
 **Error message:** The underlying connection was closed: An unexpected error occurred on a send
@@ -81,7 +134,7 @@ This page covers errors that you might encounter when you install the AWS Elasti
   ```
 + Restart PowerShell after applying registry changes.
 
-## Error: The directory is not empty
+### The directory is not empty
 <a name="error-directory-not-empty"></a>
 
 **Error message:** OSError: [WinError 145] The directory is not empty
@@ -100,7 +153,7 @@ This page covers errors that you might encounter when you install the AWS Elasti
 
 1. If a previous partial installation exists, uninstall it first through Add/Remove Programs.
 
-## Error: Certificate verification failed
+### Certificate verification failed
 <a name="error-certificate-verify-failed"></a>
 
 **Error message:** CERTIFICATE\_VERIFY\_FAILED or certificate verify failed
@@ -109,64 +162,10 @@ This page covers errors that you might encounter when you install the AWS Elasti
 
 **Resolution:**
 + **Option 1 (internet access):** Run Windows Update, or open Microsoft Edge once. Windows auto-downloads trusted root CAs when a browser first connects to HTTPS sites.
-+ **Option 2 (no internet or air-gapped):** Download Amazon root certificates from [https://www.amazontrust.com/repository/](https://www.amazontrust.com/repository/) and import them:
++ **Option 2 (no internet or air-gapped):** Download the Amazon root certificates from the [Amazon Trust Services repository](https://www.amazontrust.com/repository/) on the amazontrust.com website, and then import them:
 
   ```
   Import-Certificate -FilePath .\AmazonRootCA1.cer -CertStoreLocation Cert:\LocalMachine\Root
   ```
 
-**Important**  
-Modifying the trusted certificate store is typically managed by system administrators. Consult your admin before importing certificates on production servers.
-
-## Error: BitLocker is not supported
-<a name="error-bitlocker"></a>
-
-**Error message:** BitLocker is not supported. Please disable BitLocker and try again
-
-**Cause:** AWS Elastic Disaster Recovery performs block-level replication and cannot read data from BitLocker-encrypted volumes. The replication driver requires direct block access.
-
-**Resolution:**
-
-1. Disable BitLocker on all volumes to be replicated:
-
-   ```
-   manage-bde -off C:
-   ```
-
-1. Wait for decryption to complete. Check the status:
-
-   ```
-   manage-bde -status C:
-   ```
-
-1. Run the installer again after decryption completes.
-
-**Note**  
-BitLocker must remain disabled while using AWS Elastic Disaster Recovery.
-
-**Important**  
-Disabling BitLocker decrypts the drive. Verify this is acceptable per your organization's security policy before proceeding.
-
-## Error: net.exe or sc.exe not found
-<a name="error-net-sc-path"></a>
-
-**Error message:** Installation fails because `net.exe` or `sc.exe` cannot be located.
-
-**Cause:** The `C:\Windows\System32` directory is not included in the system PATH environment variable.
-
-**Resolution:**
-
-1. Verify in PowerShell:
-
-   ```
-   $env:Path -split ';' | Where-Object { $_ -like '*System32*' }
-   ```
-
-1. If System32 is missing from PATH, add it permanently:
-
-   ```
-   $machinePath = [System.Environment]::GetEnvironmentVariable('Path', 'Machine')
-   [System.Environment]::SetEnvironmentVariable('Path', $machinePath + ';C:\Windows\System32', 'Machine')
-   ```
-
-1. Restart the PowerShell session and run the installer again.
+  Before you import certificates on a production server, check with your system administrator, who typically manages the trusted certificate store.

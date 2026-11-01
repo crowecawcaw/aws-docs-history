@@ -129,7 +129,7 @@ This feature is activated automatically for newly added servers. [Learn how to d
 +  Rocky 8 and 9 
 +  SLES 12 and 15 
 +  Debian 9–11 
-+  Ubuntu 16, 18, 20, and 22 
++  Ubuntu 16, 18, 20, 22, 24, and 26 
 +  Amazon Linux 2 
 
 ## No-Rescan Upon Reboot Limitations

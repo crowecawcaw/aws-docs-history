@@ -3,6 +3,10 @@
 # AWS Elastic Disaster Recovery Service Release Notes
 <a name="drs-service-release-notes"></a>
 
+## October 2026
+<a name="release-notes-october-2026"></a>
++ Added support for Ubuntu 26.04 as a source server operating system. Ubuntu 26.04 requires AWS Elastic Disaster Recovery Agent version 6.42.26 or later. See [Supported Linux operating systems](Supported-Operating-Systems-Linux.md).
+
 ## September 2026
 <a name="release-notes-september-2026"></a>
 + AWS Elastic Disaster Recovery now supports source servers that run on AWS Graviton (`arm64`) Amazon EC2 instances. You can replicate a 64-bit Linux `arm64` Amazon EC2 instance and recover it to an `arm64` instance type. Install the architecture-specific `arm64` AWS Replication Agent installer on the source server. Recovery instances boot with UEFI, and replication servers continue to use `x86_64` instance types. `arm64` source servers support recovery and failback within AWS only. On-premises and other cloud sources, Windows on `arm64`, and the Failback Client are not supported. For more information, see [AWS Graviton source servers](Supported-Operating-Systems-Linux.md#arm64-source-servers).

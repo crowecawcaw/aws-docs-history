@@ -81,30 +81,34 @@ The agent builds a kernel driver at install time to capture block-level writes. 
 <a name="prereq-windows"></a>
 
 Verify the following requirements on Windows source servers before running the installer.
-+ **Administrator access** — The installer must run with Administrator privileges to install the replication driver and system services.
-+ **.NET Framework 3.5 or later** — The agent requires .NET Framework for its Windows components. Verify on Windows Server:
+
+If the installer reports Error code: DRS-INST-005 - .NET Framework 3.5 or later not found, install .NET Framework 3.5 or later. If it reports Error code: DRS-INST-006 - .NET Framework 4.5 or later not found, install .NET Framework 4.5 or later. If it reports Error code: DRS-INST-024 - Not enough free disk space, the C:\\ drive does not have at least 1 GB of free disk space.
++ **Administrator access** – The installer must run with Administrator privileges to install the replication driver and system services.
++ **.NET Framework 4.5 or later** – The agent requires .NET Framework 4.5 or later on Windows Server 2008 R2 and later, and on desktop Windows. On Windows Server 2003 and Windows Server 2008, the agent requires .NET Framework 3.5 or later instead.
+
+  To verify that .NET Framework 4.5 or later is installed, run the following command. If the command returns a `Release` value, .NET Framework 4.5 or later is installed.
 
   ```
-  Get-WindowsFeature Net-Framework-Core
+  Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full' -Name Release
   ```
 
-  On desktop Windows, check Programs and Features for Microsoft .NET Framework 3.5 or later.
-+ **Disk space: 1 GB free on C:\\** — The agent binaries and service files require at least 1 GB on the system drive. Verify with:
+  On Windows Server 2003 and Windows Server 2008, check Programs and Features for Microsoft .NET Framework 3.5 or later.
++ **Disk space: 1 GB free on C:\\** – The agent binaries and service files require at least 1 GB on the system drive. Verify with:
 
   ```
   Get-PSDrive C
   ```
-+ **net.exe and sc.exe in system PATH** — The installer uses these utilities to manage Windows services. They are located in `C:\Windows\System32` by default. Verify with:
++ **`net.exe` and `sc.exe` in system PATH** – The installer uses these utilities to manage Windows services. They are located in `C:\Windows\System32` by default. Verify with:
 
   ```
   where.exe net.exe
   ```
-+ **BitLocker must be disabled** — BitLocker encryption prevents the replication driver from reading block-level data. You must disable BitLocker on all volumes that you want to replicate. Verify with:
++ **BitLocker must be disabled** – BitLocker encryption prevents the replication driver from reading block-level data. You must disable BitLocker on all volumes that you want to replicate. Verify with:
 
   ```
   manage-bde -status
   ```
-+ **TLS 1.2 must be enabled** — Elastic Disaster Recovery endpoints require TLS 1.2. Older Windows versions (such as Windows Server 2012) might default to TLS 1.0, which Elastic Disaster Recovery endpoints reject.
++ **Transport Layer Security (TLS) 1.2 must be enabled** – Elastic Disaster Recovery endpoints require TLS 1.2. Older Windows versions (such as Windows Server 2012) might default to TLS 1.0, which Elastic Disaster Recovery endpoints reject.
 **Note**  
 If your server uses Windows Server 2012 or earlier, verify that TLS 1.2 is enabled in the Windows Registry before running the installer.
-+ **Use PowerShell to run the installer** — Run the installer from PowerShell, not CMD. CMD has known issues with credential pasting that can cause authentication failures during installation.
++ **Use PowerShell to run the installer** – Run the installer from PowerShell, not CMD. CMD has known issues with credential pasting that can cause authentication failures during installation.

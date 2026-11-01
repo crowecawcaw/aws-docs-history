@@ -6,42 +6,28 @@
 This topic covers errors that you might encounter during or after installing the AWS Elastic Disaster Recovery agent on Linux source servers. Each section describes an error message, its cause, and the resolution.
 
 **Topics**
-+ [Error: Invalid disk path format](#error-disk-path-format)
-+ [Error: Kernel headers version mismatch](#error-kernel-headers-mismatch)
-+ [Error: GLIBC version not found](#error-glibc-version)
-+ [Error: Unsupported Linux kernel version](#error-unsupported-kernel)
-+ [Error: gcc not found](#error-gcc-not-found)
-+ [Error: Permission denied when loading kernel driver](#error-selinux-secure-boot)
-+ [Error: Failed to create system user](#error-user-creation-failed)
-+ [Error: Failed to map segment from shared object](#error-noexec-tmp)
-+ [Error: Multipath disk detection failure](#error-multipath)
-+ [Error: PowerPath multipath detected](#error-powerpath)
-+ [Error: Driver compiled for a different kernel](#error-driver-compiled)
-+ [Error: Agent driver build configuration failed](#error-driver-build-config-failed)
-+ [Error: Agent driver compilation failed](#error-driver-compile-failed)
-+ [Error: SUSE kernel headers package not found](#error-suse-kernel-headers)
-+ [Error: Oracle ASM Filter Driver requires a restart](#error-oracle-asmfd)
-+ [Error: Invalid driver state location](#error-driver-state-location)
++ [DRS-INST-002: Kernel headers link is broken](#error-kernel-headers-mismatch)
++ [DRS-INST-003: Kernel headers not found](#error-kernel-headers-not-found)
++ [DRS-INST-004: gcc not found](#error-gcc-not-found)
++ [DRS-INST-008: Unsupported Linux kernel version](#error-unsupported-kernel)
++ [DRS-INST-012: Oracle ASM Filter Driver requires a restart](#error-oracle-asmfd)
++ [DRS-INST-013: Agent driver build configuration failed](#error-driver-build-config-failed)
++ [DRS-INST-014: Agent driver compilation failed](#error-driver-compile-failed)
++ [DRS-INST-015: SUSE kernel headers package not found](#error-suse-kernel-headers)
++ [DRS-INST-022: Failed to create system user](#error-user-creation-failed)
++ [DRS-INST-025: Permission denied when loading kernel driver](#error-selinux-secure-boot)
++ [DRS-INST-914: Invalid driver state location](#error-driver-state-location)
++ [DRS-INST-915: Invalid disk path format](#error-disk-path-format)
++ [DRS-INST-916: Multipath disk detection failure](#error-multipath)
++ [DRS-INST-917: PowerPath multipath detected](#error-powerpath)
++ [Environment errors](#linux-environment-errors)
 
-## Error: Invalid disk path format
-<a name="error-disk-path-format"></a>
-
-**Error message:** Installation fails when you specify disks to replicate.
-
-**Cause:** Apostrophes, brackets, or non-existent paths were used in the disk list.
-
-**Resolution:** Use comma-separated paths only. Do not include quotes, brackets, or spaces. For example:
-
-```
-/dev/sda,/dev/sdb
-```
-
-## Error: Kernel headers version mismatch
+## DRS-INST-002: Kernel headers link is broken
 <a name="error-kernel-headers-mismatch"></a>
 
-**Error message:** Cannot find kernel headers or the driver build fails during installation.
+**Error message:** Error code: DRS-INST-002 - Kernel headers link is broken
 
-**Cause:** The agent builds a kernel driver at install time. This requires `kernel-devel` (RHEL/CentOS/SUSE) or `linux-headers` (Debian/Ubuntu) matching the exact running kernel version.
+**Cause:** The kernel headers link for the running kernel points to a directory that does not exist. This can occur after a kernel update removes the old headers.
 
 **Resolution:** Complete the following steps to install the correct kernel headers.
 
@@ -102,28 +88,19 @@ This topic covers errors that you might encounter during or after installing the
 **Note**  
 Multiple kernel-headers versions can coexist safely. Installing new headers does not affect the running kernel.
 
-## Error: GLIBC version not found
-<a name="error-glibc-version"></a>
+## DRS-INST-003: Kernel headers not found
+<a name="error-kernel-headers-not-found"></a>
 
-**Error message:** version 'GLIBC\_2.7' not found (required by ./aws-replication-installer-64bit)
+**Error message:** Error code: DRS-INST-003 - Kernel headers not found
 
-**Cause:** The operating system is unsupported or too old for the agent binary.
+**Cause:** The installer could not find kernel headers for the running kernel, and no headers package that matches `uname -r` was available.
 
-**Resolution:** Verify that your operating system is supported. For more information, see [Supported Linux operating systems](https://docs.aws.amazon.com/drs/latest/userguide/Supported-Operating-Systems-Linux.html).
+**Resolution:** The resolution is the same as for a broken kernel headers link. Follow the resolution steps in [DRS-INST-002: Kernel headers link is broken](#error-kernel-headers-mismatch).
 
-## Error: Unsupported Linux kernel version
-<a name="error-unsupported-kernel"></a>
-
-**Error message:** Your Linux kernel version is not supported
-
-**Cause:** The running kernel is not compatible with the AWS Elastic Disaster Recovery replication driver.
-
-**Resolution:** Check the supported kernels list. If your kernel is listed but the error persists, ensure that the matching kernel headers are installed. For more information, see the [Error: Kernel headers version mismatch](#error-kernel-headers-mismatch) section.
-
-## Error: gcc not found
+## DRS-INST-004: gcc not found
 <a name="error-gcc-not-found"></a>
 
-**Error message:** gcc was not found and could not be automatically fetched from the configured repositories
+**Error message:** Error code: DRS-INST-004 - gcc not found
 
 **Cause:** The `gcc` compiler is required to compile the replication driver, and the installer could not install it.
 
@@ -198,43 +175,116 @@ If none of the preceding conditions applies, install `gcc` and `make` manually a
   $ sudo zypper install gcc make
   ```
 
-## Error: Permission denied when loading kernel driver
-<a name="error-selinux-secure-boot"></a>
+## DRS-INST-008: Unsupported Linux kernel version
+<a name="error-unsupported-kernel"></a>
 
-**Error message:** insmod: ERROR: could not insert module ./aws-replication-driver.ko: Permission denied or Operation not permitted
+**Error message:** Error code: DRS-INST-008 - Unsupported Linux kernel version
 
-**Cause:** SELinux, Secure Boot, or endpoint protection software is blocking kernel module insertion.
+**Cause:** The running kernel is not compatible with the AWS Elastic Disaster Recovery replication driver.
 
-**Resolution:** Identify which mechanism is blocking the module and apply the corresponding fix.
+**Resolution:** Check the supported kernels list. If your kernel is listed but the error persists, ensure that the matching kernel headers are installed. For more information, see the [DRS-INST-002: Kernel headers link is broken](#error-kernel-headers-mismatch) section.
 
-**SELinux**  
-Check SELinux status:  
+## DRS-INST-012: Oracle ASM Filter Driver requires a restart
+<a name="error-oracle-asmfd"></a>
 
-```
-$ sestatus
-```
-Fix the security context on the driver module:  
+**Error message:** Error code: DRS-INST-012 - Oracle ASM Filter Driver requires a restart
 
-```
-$ restorecon /lib/modules/*/extra/aws-replication-driver.ko
-```
+**Cause:** The Oracle ASM Filter Driver (ASMFD) is loaded, but the AWS Elastic Disaster Recovery replication driver has not loaded yet. Installation completes successfully, but replication cannot start until the replication driver loads.
 
-**Secure Boot**  
-Check Secure Boot status:  
+**Resolution:** Restart the source server. The replication driver loads during startup and replication begins automatically. You do not have to deactivate ASMFD.
 
-```
-$ mokutil --sb-state
-```
-If Secure Boot is enabled, you must disable it to use the agent.  
-Consult your security team before disabling Secure Boot.
+## DRS-INST-013: Agent driver build configuration failed
+<a name="error-driver-build-config-failed"></a>
 
-**Antivirus or endpoint protection**  
-Check your endpoint protection software and add AWS Elastic Disaster Recovery components to the allow list.
+**Error message:** Error code: DRS-INST-013 - Agent driver build configuration failed
 
-## Error: Failed to create system user
+**Cause:** The agent builds a kernel driver at install time. The kernel headers are present, but the `configure` step failed before compilation. This usually means the kernel development package (`kernel-devel` or `linux-headers`) for the running kernel is incomplete. It can also mean the kernel build tree at `/lib/modules/$(uname -r)/build` is missing or invalid.
+
+**Resolution:** Complete the following steps.
+
+1. Confirm the kernel build tree exists and resolves to a valid directory:
+
+   ```
+   $ ls -l /lib/modules/$(uname -r)/build
+   ```
+
+1. Reinstall the complete kernel development package that matches the running kernel version:
+   + **RHEL/CentOS:**
+
+     ```
+     $ sudo yum install kernel-devel-$(uname -r)
+     ```
+   + **Debian/Ubuntu:**
+
+     ```
+     $ sudo apt-get install --reinstall linux-headers-$(uname -r)
+     ```
+   + **SUSE/SLES:**
+
+     ```
+     $ sudo zypper install kernel-default-devel=$(uname -r | sed "s/-default//") kernel-source
+     ```
+
+1. Run the AWS Replication Agent installer again.
+
+1. If the error persists, collect the installation log (`aws_replication_agent_installer.log`), which contains the `configure` output, and contact AWS Support.
+
+## DRS-INST-014: Agent driver compilation failed
+<a name="error-driver-compile-failed"></a>
+
+**Error message:** Error code: DRS-INST-014 - Agent driver compilation failed
+
+**Cause:** The kernel headers are present, but the driver module failed to compile. This error usually occurs when the compiler or toolset is incompatible with the compiler that built the running kernel. For example, a mismatched `gcc` version can cause this error. Insufficient free disk space is another common cause.
+
+**Resolution:** Complete the following steps.
+
+1. Confirm that `gcc` and `make` are installed, and compare the `gcc` version with the compiler that built the running kernel:
+
+   ```
+   $ gcc --version
+   $ cat /proc/version
+   ```
+
+1. If the versions differ, install a compatible compiler toolchain, then run the installer again.
+
+1. Confirm that there is sufficient free disk space:
+
+   ```
+   $ df -h /
+   ```
+
+1. If the error persists, collect the installation log (`aws_replication_agent_installer.log`), which contains the `make` output, and contact AWS Support.
+
+## DRS-INST-015: SUSE kernel headers package not found
+<a name="error-suse-kernel-headers"></a>
+
+**Error message:** Error code: DRS-INST-015 - SUSE kernel headers package not found
+
+**Cause:** On SUSE Linux Enterprise Server, the installer searches for the `kernel-source` package that matches the running kernel. It then installs the matching `kernel-default-devel` headers. The `zypper` search returned no matching package, which usually means the configured repositories do not include the required package.
+
+**Resolution:** Complete the following steps.
+
+1. Check the running kernel version:
+
+   ```
+   $ uname -r
+   ```
+
+1. Refresh the repositories and install the matching kernel development packages:
+
+   ```
+   $ sudo zypper refresh
+   $ sudo zypper install kernel-default-devel=$(uname -r | sed "s/-default//") kernel-source
+   ```
+
+1. If your repositories do not include the required packages, register the server with the SUSE Customer Center (SCC) to enable the required module. Then run the installer again. Alternatively, contact your SUSE support representative to obtain the correct packages before running the installer.
+
+1. If the error persists, collect the installation log (`aws_replication_agent_installer.log`) and contact AWS Support.
+
+## DRS-INST-022: Failed to create system user
 <a name="error-user-creation-failed"></a>
 
-**Error message:** Failed to set system user permissions: followed by one of several messages, for example: "getpwnam(): name not found: aws-replication", Unable to change permissions of /var/lib/aws-replication-agent, or sudoers file failed verification ...
+**Error message:** Error code: DRS-INST-022 - Failed to create system user
 
 **Cause:** The installer cannot create or configure the `aws-replication` system user because of a file-level restriction.
 
@@ -281,7 +331,111 @@ $ sudo visudo -c
 ```
 Correct any reported syntax errors, then run the installer again. Your existing `/etc/sudoers` file remains unchanged.
 
-## Error: Failed to map segment from shared object
+## DRS-INST-025: Permission denied when loading kernel driver
+<a name="error-selinux-secure-boot"></a>
+
+**Error message:** Error code: DRS-INST-025 - Permission denied when loading kernel driver
+
+**Cause:** SELinux, Secure Boot, or endpoint protection software is blocking kernel module insertion.
+
+**Resolution:** Identify which mechanism is blocking the module and apply the corresponding fix.
+
+**SELinux**  
+Check SELinux status:  
+
+```
+$ sestatus
+```
+Fix the security context on the driver module:  
+
+```
+$ restorecon /lib/modules/*/extra/aws-replication-driver.ko
+```
+
+**Secure Boot**  
+Check Secure Boot status:  
+
+```
+$ mokutil --sb-state
+```
+If Secure Boot is enabled, you must disable it to use the agent.  
+Consult your security team before disabling Secure Boot.
+
+**Antivirus or endpoint protection**  
+Check your endpoint protection software and add AWS Elastic Disaster Recovery components to the allow list.
+
+## DRS-INST-914: Invalid driver state location
+<a name="error-driver-state-location"></a>
+
+**Error message:** Error code: DRS-INST-914 - Invalid driver state location
+
+**Cause:** The path that you provided for the `--driver-state-location` parameter does not exist. Alternatively, the agent cannot write to that file system early in the boot process. For example, the agent cannot write to a Btrfs subvolume at that stage.
+
+**Resolution:** Use one of the following options:
++ Provide an existing directory on a supported file system, such as ext4 or xfs.
++ Do not point the `--driver-state-location` parameter at a Btrfs subvolume.
++ Omit the `--driver-state-location` parameter so that the installer chooses the location automatically.
+
+## DRS-INST-915: Invalid disk path format
+<a name="error-disk-path-format"></a>
+
+**Error message:** Error code: DRS-INST-915 - Invalid disk path format
+
+**Cause:** The installer could not find a disk in the list that you provided with the `--devices` option, such as when the path contains apostrophes, brackets, or spaces, or when the device does not exist. The installer skips that disk and continues the installation without it.
+
+**Resolution:** Use comma-separated paths only. Do not include quotes, brackets, or spaces. For example:
+
+```
+/dev/sda,/dev/sdb
+```
+
+Run the installer again with the corrected disk list so that the installer replicates the skipped disk.
+
+## DRS-INST-916: Multipath disk detection failure
+<a name="error-multipath"></a>
+
+**Error message:** Error code: DRS-INST-916 - Multipath disk detection failure
+
+**Cause:** Automatic disk detection cannot resolve multipath device mappings. The installation continues without interruption.
+
+**Resolution:** Specify disks explicitly with the `--devices` and `--no-prompt` options:
+
+```
+$ sudo ./aws-replication-installer-init \
+    --region {{region}} \
+    --aws-access-key-id {{key}} \
+    --aws-secret-access-key {{secret}} \
+    --devices /dev/sda,/dev/mapper/mpatha \
+    --no-prompt
+```
+
+If the installation still fails, add the `--force-volumes` option.
+
+**Important**  
+The `--force-volumes` option disables automatic disk detection. Manually verify that all required disks are included in the `--devices` list.
+
+## DRS-INST-917: PowerPath multipath detected
+<a name="error-powerpath"></a>
+
+**Error message:** Error code: DRS-INST-917 - PowerPath multipath detected
+
+**Cause:** PowerPath block-level I/O management conflicts with the AWS Elastic Disaster Recovery replication driver. The installation continues without interruption.
+
+**Resolution:** Contact AWS Support for guidance on installing the agent on PowerPath-configured servers. Use the `--force-volumes` option as a potential workaround.
+
+## Environment errors
+<a name="linux-environment-errors"></a>
+
+### GLIBC version not found
+<a name="error-glibc-version"></a>
+
+**Error message:** version 'GLIBC\_2.7' not found (required by ./aws-replication-installer-64bit)
+
+**Cause:** The operating system is unsupported or too old for the agent binary.
+
+**Resolution:** Verify that your operating system is supported. For more information, see [Supported Linux operating systems](https://docs.aws.amazon.com/drs/latest/userguide/Supported-Operating-Systems-Linux.html).
+
+### Failed to map segment from shared object
 <a name="error-noexec-tmp"></a>
 
 **Error message:** error while loading shared libraries: libz.so.1: failed to map segment from shared object
@@ -303,39 +457,7 @@ Correct any reported syntax errors, then run the installer again. Your existing 
 **Note**  
 The `noexec` option on `/tmp` is a common security hardening measure. The `TMPDIR` alternative avoids modifying mount options.
 
-## Error: Multipath disk detection failure
-<a name="error-multipath"></a>
-
-**Error message:** The installer does not correctly identify disks on a multipath-configured server.
-
-**Cause:** Automatic disk detection cannot resolve multipath device mappings.
-
-**Resolution:** Specify disks explicitly with the `--devices` and `--no-prompt` options:
-
-```
-$ sudo ./aws-replication-installer-init \
-    --region {{region}} \
-    --aws-access-key-id {{key}} \
-    --aws-secret-access-key {{secret}} \
-    --devices /dev/sda,/dev/mapper/mpatha \
-    --no-prompt
-```
-
-If the installation still fails, add the `--force-volumes` option.
-
-**Important**  
-The `--force-volumes` option disables automatic disk detection. Manually verify that all required disks are included in the `--devices` list.
-
-## Error: PowerPath multipath detected
-<a name="error-powerpath"></a>
-
-**Error message:** The installation detects EMC PowerPath.
-
-**Cause:** PowerPath block-level I/O management conflicts with the AWS Elastic Disaster Recovery replication driver.
-
-**Resolution:** Contact AWS Support for guidance on installing the agent on PowerPath-configured servers. Use the `--force-volumes` option as a potential workaround.
-
-## Error: Driver compiled for a different kernel
+### Driver compiled for a different kernel
 <a name="error-driver-compiled"></a>
 
 **Error message:** The agent log shows that the driver was compiled for a different kernel version and cannot load.
@@ -343,112 +465,3 @@ The `--force-volumes` option disables automatic disk detection. Manually verify 
 **Cause:** The kernel was updated (for example, through `yum update` or automated patching) after the agent driver was originally built. This commonly occurs when significant time passes between failover and failback.
 
 **Resolution:** Reboot the server to load the current kernel, then reinstall the agent. On a recovery instance, reboot and reinstall the agent as a recovery instance.
-
-## Error: Agent driver build configuration failed
-<a name="error-driver-build-config-failed"></a>
-
-**Error message:** Could not configure the AWS Replication Agent kernel driver build.
-
-**Cause:** The agent builds a kernel driver at install time. The kernel headers are present, but the `configure` step failed before compilation. This usually means the kernel development package (`kernel-devel` or `linux-headers`) for the running kernel is incomplete. It can also mean the kernel build tree at `/lib/modules/$(uname -r)/build` is missing or invalid.
-
-**Resolution:** Complete the following steps.
-
-1. Confirm the kernel build tree exists and resolves to a valid directory:
-
-   ```
-   $ ls -l /lib/modules/$(uname -r)/build
-   ```
-
-1. Reinstall the complete kernel development package that matches the running kernel version:
-   + **RHEL/CentOS:**
-
-     ```
-     $ sudo yum install kernel-devel-$(uname -r)
-     ```
-   + **Debian/Ubuntu:**
-
-     ```
-     $ sudo apt-get install --reinstall linux-headers-$(uname -r)
-     ```
-   + **SUSE/SLES:**
-
-     ```
-     $ sudo zypper install kernel-default-devel=$(uname -r | sed "s/-default//") kernel-source
-     ```
-
-1. Run the AWS Replication Agent installer again.
-
-1. If the error persists, collect the installation log (`aws_replication_agent_installer.log`), which contains the `configure` output, and contact AWS Support.
-
-## Error: Agent driver compilation failed
-<a name="error-driver-compile-failed"></a>
-
-**Error message:** Failed to compile the AWS Replication Agent kernel driver.
-
-**Cause:** The kernel headers are present, but the driver module failed to compile. This error usually occurs when the compiler or toolset is incompatible with the compiler that built the running kernel. For example, a mismatched `gcc` version can cause this error. Insufficient free disk space is another common cause.
-
-**Resolution:** Complete the following steps.
-
-1. Confirm that `gcc` and `make` are installed, and compare the `gcc` version with the compiler that built the running kernel:
-
-   ```
-   $ gcc --version
-   $ cat /proc/version
-   ```
-
-1. If the versions differ, install a compatible compiler toolchain, then run the installer again.
-
-1. Confirm that there is sufficient free disk space:
-
-   ```
-   $ df -h /
-   ```
-
-1. If the error persists, collect the installation log (`aws_replication_agent_installer.log`), which contains the `make` output, and contact AWS Support.
-
-## Error: SUSE kernel headers package not found
-<a name="error-suse-kernel-headers"></a>
-
-**Error message:** Could not find a matching kernel headers package for your SUSE kernel version.
-
-**Cause:** On SUSE Linux Enterprise Server, the installer searches for the `kernel-source` package that matches the running kernel. It then installs the matching `kernel-default-devel` headers. The `zypper` search returned no matching package, which usually means the configured repositories do not include the required package.
-
-**Resolution:** Complete the following steps.
-
-1. Check the running kernel version:
-
-   ```
-   $ uname -r
-   ```
-
-1. Refresh the repositories and install the matching kernel development packages:
-
-   ```
-   $ sudo zypper refresh
-   $ sudo zypper install kernel-default-devel=$(uname -r | sed "s/-default//") kernel-source
-   ```
-
-1. If your repositories do not include the required packages, register the server with the SUSE Customer Center (SCC) to enable the required module. Then run the installer again. Alternatively, contact your SUSE support representative to obtain the correct packages before running the installer.
-
-1. If the error persists, collect the installation log (`aws_replication_agent_installer.log`) and contact AWS Support.
-
-## Error: Oracle ASM Filter Driver requires a restart
-<a name="error-oracle-asmfd"></a>
-
-**Error message:** Oracle ASM Filter Driver detected. Please reboot to start replication.
-
-**Cause:** The Oracle ASM Filter Driver (ASMFD) is loaded, but the AWS Elastic Disaster Recovery replication driver has not loaded yet. Installation completes successfully, but replication cannot start until the replication driver loads.
-
-**Resolution:** Restart the source server. The replication driver loads during startup and replication begins automatically. You do not have to deactivate ASMFD.
-
-## Error: Invalid driver state location
-<a name="error-driver-state-location"></a>
-
-**Error message:** The value "{{location}}" provided for parameter "--driver-state-location" has a value for which the location does not exist, or is not on a supported file system type.
-
-**Cause:** The path that you provided for the `--driver-state-location` parameter does not exist. Alternatively, the agent cannot write to that file system early in the boot process. For example, the agent cannot write to a Btrfs subvolume at that stage.
-
-**Resolution:** Use one of the following options:
-+ Provide an existing directory on a supported file system, such as ext4 or xfs.
-+ Do not point the `--driver-state-location` parameter at a Btrfs subvolume.
-+ Omit the `--driver-state-location` parameter so that the installer chooses the location automatically.

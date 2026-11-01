@@ -48,9 +48,9 @@ The process exits after 60 seconds, and the service manager restarts it. Replica
 
 **Resolution:**
 
-1. On Linux, install kernel headers that match the running kernel, and then reinstall the agent to rebuild the driver. See [Error: Kernel headers version mismatch](agent-install-linux-errors.md#error-kernel-headers-mismatch).
+1. On Linux, install kernel headers that match the running kernel, and then reinstall the agent to rebuild the driver. See [DRS-INST-002: Kernel headers link is broken](agent-install-linux-errors.md#error-kernel-headers-mismatch).
 
-1. On Linux, resolve Secure Boot, SELinux, or endpoint protection settings that block the driver. See [Error: Permission denied when loading kernel driver](agent-install-linux-errors.md#error-selinux-secure-boot).
+1. On Linux, resolve Secure Boot, SELinux, or endpoint protection settings that block the driver. See [DRS-INST-025: Permission denied when loading kernel driver](agent-install-linux-errors.md#error-selinux-secure-boot).
 
 1. On Windows, check the driver service with `sc query AwsReplicationDriver`, confirm that endpoint protection software is not blocking the driver, and then restart the agent.
 

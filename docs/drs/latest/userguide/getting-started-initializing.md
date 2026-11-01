@@ -10,7 +10,7 @@ In order to use AWS Elastic Disaster Recovery, the service must first be initial
 
 AWS Elastic Disaster Recovery must be initialized upon first use from within the AWS Elastic Disaster Recovery Console. The initialization process occurs automatically once a user accesses the AWS Elastic Disaster Recovery Console. The user is directed to create the default replication settings, and upon saving the template, the service is initialized by creating the IAM roles which are required for the service to work. [Learn more about creating the default replication settings as part of the quick start guide.](quick-start-guide-gs.md#first-time-setup-gs) 
 
-AWS Elastic Disaster Recovery can only be initialized by the Admin user of your AWS Account. During initialization, the following IAM roles are created: 
+To initialize AWS Elastic Disaster Recovery from the console, sign in as an admin user of your AWS account. The AWSElasticDisasterRecoveryConsoleFullAccess policy does not include the IAM permissions required for initialization. To initialize the service with a least-privilege role, see [Programmatically initializing DRS](#drs-initializing-programmatically). During initialization, the following IAM roles are created: 
 + **AWSServiceRoleForElasticDisasterRecovery**
 + **AWSElasticDisasterRecoveryReplicationServerRole**
 + **AWSElasticDisasterRecoveryConversionServerRole**
