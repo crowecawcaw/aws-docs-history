@@ -396,6 +396,21 @@ Required: No
 The number of physical `GPUs` that the Amazon ECS container agent reserves for the container. You can specify an integer value, a decimal value for fractional GPUs, or `ALL`. When you specify `ALL`, all GPUs on the container instance are allocated to the container. When you specify a decimal value (such as `0.125`, `0.25`, or `0.5`), Amazon ECS places the task on a fractional GPU instance (G6f) that provides the requested GPU capacity. The number of GPUs reserved for all containers in a task must not exceed the number of available GPUs on the container instance the task is launched on. For more information, see [Amazon ECS task definitions for GPU workloads](ecs-gpu.md).  
 This parameter isn't supported for Windows containers.
 
+`sharingStrategy`  
+Type: SharingStrategy object  
+Required: No  
+The GPU sharing configuration for the container. Specify `sharingStrategy` to share a single physical GPU across multiple containers with NVIDIA Multi-Process Service (MPS). This object contains an `nvidiaMps` object with the following fields:  
+On a `GPU` resource requirement, `value` and `sharingStrategy` are mutually exclusive. When you specify `sharingStrategy`, you must omit `value`.    
+`memory`  
+Type: Integer  
+Required: Yes  
+The GPU memory limit for the container, in MiB. This value is a hard ceiling on the GPU memory that the container can use. The value must be greater than `0`.  
+`maxComputePercent`  
+Type: Integer  
+Required: No  
+The maximum percentage of GPU compute that the container can use, as an integer from `1` to `100`. This value is a ceiling, not a reservation. If you omit it, the container can use up to `100` percent.
+This parameter isn't supported for Windows containers.
+
 `Elastic Inference accelerator`  
 Type: [ResourceRequirement](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ResourceRequirement.html) object  
 Required: No  

@@ -5,6 +5,8 @@
 
 To use the GPUs on a container instance and the Docker GPU runtime, make sure that you designate the number of GPUs your container requires in the task definition. You can specify an integer value, a decimal value for fractional GPUs, or `ALL`. When you specify `ALL`, all GPUs on the container instance are allocated to the container. When you specify a decimal value such as `0.25`, Amazon ECS places the task on a fractional GPU instance that provides the requested GPU capacity. As containers that support GPUs are placed, the Amazon ECS container agent pins the desired number of physical GPUs to the appropriate container. The number of GPUs reserved for all containers in a task cannot exceed the number of available GPUs on the container instance the task is launched on. For more information, see [Creating an Amazon ECS task definition using the console](create-task-definition.md).
 
+To share a single physical GPU across multiple workloads instead of allocating a whole or fractional GPU to each container, see [Share GPUs on Amazon ECS](ecs-gpu-sharing.md).
+
 **Important**  
 If your GPU requirements aren't specified in the task definition, the task uses the default Docker runtime.
 

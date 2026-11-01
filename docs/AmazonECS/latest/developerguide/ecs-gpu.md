@@ -106,8 +106,10 @@ We recommend that you consider the following before you begin working with GPUs 
   For information about how to set the variable, see [Controlling the NVIDIA Container Runtime](https://sarus.readthedocs.io/en/stable/user/custom-cuda-images.html#controlling-the-nvidia-container-runtime) on the NVIDIA website.
 + GPUs are not supported on Windows containers.
 
-## Share GPUs
+## Share GPUs manually on Amazon ECS on Amazon EC2
 <a name="share-gpu"></a>
+
+To share GPUs manually on Amazon ECS on Amazon EC2, you set up and manage GPU sharing yourself. Use the managed approach instead, in which Amazon ECS sets up and manages the sharing for you. For more information about the managed approach, see [Share GPUs on Amazon ECS](ecs-gpu-sharing.md).
 
 When you want to share GPUs, you need to configure the following.
 

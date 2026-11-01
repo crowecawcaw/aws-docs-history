@@ -61,6 +61,7 @@ For these applications to resolve the IP addresses of Amazon ECS tasks, you need
 + [Amazon ECS Service Connect access logs](service-connect-envoy-access-logs.md)
 + [Amazon ECS Service Connect zone-aware routing](service-connect-zone-aware-routing.md)
 + [Encrypt Amazon ECS Service Connect traffic](service-connect-tls.md)
++ [Configure Service Connect proxy container](configure-service-connect-proxy-container.md)
 + [Configuring Amazon ECS Service Connect with the AWS CLI](create-service-connect.md)
 
 ## Pricing

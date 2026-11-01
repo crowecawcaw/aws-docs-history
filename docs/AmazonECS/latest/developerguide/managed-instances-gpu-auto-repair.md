@@ -10,6 +10,8 @@ Amazon ECS monitors NVIDIA GPU health on Amazon ECS Managed Instances that use G
 
 Amazon ECS uses NVIDIA Data Center GPU Manager (DCGM) to monitor NVIDIA GPU health on managed instances that have GPU hardware. When DCGM reports a critical GPU failure, Amazon ECS marks the instance as impaired.
 
+Amazon ECS also monitors the NVIDIA MPS daemon on instances that use GPU sharing. If the MPS daemon fails, Amazon ECS marks the instance as impaired and replaces it by using the same workflow.
+
 When GPU auto repair is enabled, Amazon ECS replaces the impaired instance by using a start-before-stop workflow:
 
 1. Amazon ECS sets the impaired instance to DRAINING. New tasks are not placed on the instance.

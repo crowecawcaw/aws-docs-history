@@ -14,6 +14,8 @@ The following is a subset of GPU-based instance types supported on Amazon ECS Ma
 
 When you use GPU-enabled instance types with Amazon ECS Managed Instances, the NVIDIA drivers and CUDA toolkit are pre-installed on the instance, making it easier to run GPU-accelerated workloads.
 
+You can also share a single GPU across multiple containers. For more information about GPU sharing, see [Share GPUs on Amazon ECS](ecs-gpu-sharing.md).
+
 ## GPU-enabled instance selection
 <a name="managed-instances-gpu-instance-selection"></a>
 

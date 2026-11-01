@@ -4,7 +4,7 @@
 <a name="Welcome"></a>
 
 **Tip**  
-Join our upcoming container workshop series to learn best practices for Amazon ECS and AWS Fargate. [Click here](https://aws-experience.com/amer/smb/events/series/Get-Hands-On-With-ECS?trk=45cf05ef-a935-47d7-9cce-c8183367acc8%26sc_channel%3Del) to sign up.
+Join the upcoming hands-on workshops to learn best practices for Amazon ECS and AWS Fargate. [Register for a workshop](https://awsworkshop.io/ecs?trk=45cf05ef-a935-47d7-9cce-c8183367acc8&sc_channel=el).
 
 Amazon Elastic Container Service (Amazon ECS) is a fully managed container orchestration service that helps you easily deploy, manage, and scale containerized applications. As a fully managed service, Amazon ECS comes with AWS configuration and operational best practices built-in. It's integrated with both AWS tools, such as Amazon Elastic Container Registry, and third-party tools, such as Docker. This integration makes it easier for teams to focus on building the applications, not the environment. You can run and scale your container workloads across AWS Regions in the cloud, and on-premises, without the complexity of managing a control plane.
 
