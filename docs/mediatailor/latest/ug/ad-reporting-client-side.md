@@ -7,6 +7,8 @@ Using the AWS Elemental MediaTailor client-side tracking API, you can incorporat
 
 For information about passing player parameters and session data to the ADS for client-side tracking, see [MediaTailor player variables for ADS requests](variables-player.md) and [MediaTailor session variables for ADS requests](variables-session.md).
 
+Because your player sends the beacons in client-side tracking, MediaTailor doesn't see them and can't report on them on its own. To get CloudWatch metrics and logs for the tracking events that your player reports, see [Beaconing configuration](beaconing-configuration.md).
+
 Client-side tracking enables functionality like the following: 
 + Ad-break countdown timers - For more information, see [Ad countdown timer](ad-reporting-client-side-ad-tracking-schema-player-controls.md#ad-reporting-client-side-ad-tracking-schema-player-controls-ad-countdown-timer).
 + Ad click-through - For more information, see [Ad click-through](ad-reporting-client-side-ad-tracking-schema-player-controls.md#ad-reporting-client-side-ad-tracking-schema-player-controls-ad-clickthrough).

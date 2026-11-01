@@ -77,7 +77,7 @@ The console will warn you if required fields are missing.
 
 1. Check CloudWatch metrics for `YieldOptimization.BidRequest` and `YieldOptimization.AdsInserted`.
 
-If `BidRequest` is emitting but `AdsInserted` is 0, check the `RAW_BID_REQUEST` event in the `ads_interaction_log` to verify your template is producing valid bid requests.
+If `BidRequest` is emitting but `AdsInserted` is 0, check the `RAW_BID_REQUEST` event in the `MediaTailor/AdDecisionServerInteractions` log group to verify your template is producing valid bid requests.
 
 ## Step 2 (alternative): Configure using the API
 <a name="yield-optimization-quickstart-step2-api"></a>

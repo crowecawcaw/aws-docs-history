@@ -68,6 +68,8 @@ These limits are enforced at authoring time.
 ## HTTP request limits
 <a name="monetization-functions-limits-http"></a>
 
+These limits apply to the HTTP requests that `HTTP_REQUEST` and `VAST_REQUEST` functions make. They don't apply to the ad decision server (ADS) request that MediaTailor makes for an ad break, including when a `PRE_ADS_REQUEST` function sets `adsRequest.url`.
+
 
 | Limit | Value | 
 | --- | --- | 

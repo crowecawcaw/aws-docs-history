@@ -90,7 +90,7 @@ APS region is set per playback configuration. If you serve viewers in multiple A
 
 Use CloudWatch metrics to calculate yield lift:
 + **Fill rate improvement:** Compare `YieldOptimization.AdsInserted` against total avails to measure incremental fill. `YieldOptimization.FillRate` (native per-avail metric) can also be averaged over a period.
-+ **Revenue contribution:** Use `YieldOptimization.Revenue` for total per-customer revenue (sum of inserted ad prices). Use `YieldOptimization.BidPriceAdsInserted` for account-wide average CPM. `YieldOptimization.IndicativeBidRevenue` is dual-emitted alongside `Revenue` during a deprecation window and will be removed. Prefer `Revenue` for new dashboards.
++ **Revenue contribution:** Use `YieldOptimization.Revenue` for total revenue (sum of inserted ad prices). Use `YieldOptimization.BidPriceAdsInserted` for the average CPM of inserted YO ads. Don't use `YieldOptimization.IndicativeBidRevenue` in your new dashboards. This metric is deprecated, and AWS might remove it in a future release. Use `YieldOptimization.Revenue` instead.
 + **Efficiency:** Compare `YieldOptimization.BidRequest` against `YieldOptimization.AdsInserted` to measure conversion rate.
 
 ### Avoid unresolved placeholder patterns

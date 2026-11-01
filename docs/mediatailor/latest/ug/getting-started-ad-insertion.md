@@ -48,9 +48,8 @@ HLS manifests must satisfy the following requirements:
 + Manifests must be accessible on the public internet.
 + Manifests must be live or video on demand (VOD).
 + Manifests must have an `EXT-X-VERSION` of `3` or higher.
-+ For live content, manifests must contain markers to delineate ad avails. This is optional for VOD content, which can use VMAP timeoffsets instead. 
-
-  The manifest file must have ad slots marked with one of the following:
++ For live content, manifests must contain one or more markers to delineate ad avails. This is optional for VOD content, which can use Video Multiple Ad Playlist (VMAP) timeoffsets instead. 
++ The manifest file must have ad slots marked with one of the following:
   + **\#EXT-X-CUE-OUT / \#EXT-X-CUE-IN** (more common) with durations as shown in the following example.
 
     ```
@@ -77,6 +76,7 @@ After you have configured the stream, note the content origin URL prefix for the
 DASH manifests must satisfy the following requirements:
 + Manifests must be accessible on the public internet.
 + Manifests must be live or video on demand (VOD).
++ For live content, manifests must contain one or more markers to delineate ad avails. This is optional for VOD content, which can use VMAP timeoffsets instead.
 + Manifests must mark events as ad avails using either splice insert markers or time signal markers. You can provide the ad markers in clear XML or in base64-encoded binary. For splice insert, the out-of-network indicator must be enabled. For time signal markers, the segmentation type ID, located inside the segmentation UPID, must be a cue-out value recognized by AWS Elemental MediaTailor. The ad avail starts at the event start and lasts for the event duration, if one is specified, or until the next event starts. 
 
   The following example shows an event designated as an ad avail using splice insert markers. The duration for this ad avail is the event's duration. 
@@ -117,7 +117,7 @@ https://my.ads.com/ad?output=vast&content_id=12345678&playerSession=[session.id]
 ```
 Where:  
 + **output** and **content\_id** are static values
-+ **playerSession=[session.id]** is a dynamic value provided by AWS Elemental MediaTailor. The value of **[session.id]** changes for each player session and results in a different URL for the VAST request for each session. 
++ **playerSession=[session.id]** is a dynamic value provided by AWS Elemental MediaTailor. The value of **[session.id]** changes for each player session and results in a different URL for the Video Ad Serving Template (VAST) request for each session. 
 + **cust\_params** are player-supplied dynamic values
 
 The multivariant playlist request from the player must provide key-value pairs that correspond to the `player_params.` query parameters in the ADS request URL. For more information about configuring key-value pairs in the request to AWS Elemental MediaTailor, see [MediaTailor dynamic ad variables for ADS requests](variables.md).

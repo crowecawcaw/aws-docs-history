@@ -34,15 +34,7 @@ If any condition is not met, Yield Optimization is skipped and MediaTailor proce
 ## Personalization time management
 <a name="yield-optimization-how-it-works-timing"></a>
 
-MediaTailor operates within a strict timing budget for ad personalization. Yield Optimization uses the *remaining* personalization time after the primary ADS request completes.
-
-**Key SDC (Safe Dynamic Configuration) flags that affect timing:**
-
-
-| Flag | Description | 
-| --- | --- | 
-| maximumLivePersonalizationLatencyMs | Maximum total time for all ad personalization (primary ADS plus YO) for live content. | 
-| adsRequestTimeOutMilliseconds | Timeout for the primary ADS request. | 
+MediaTailor operates within a strict timing budget for ad personalization. Yield Optimization uses the *remaining* personalization time after the primary ADS request completes. The total personalization time is bounded, so a slow primary ADS leaves less time for Yield Optimization.
 
 **Timing behavior:**
 + If insufficient time remains to start the APS request, YO is skipped entirely (emits the `SkipPersonalizationTimeoutExceeded` metric).

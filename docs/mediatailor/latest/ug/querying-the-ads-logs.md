@@ -36,6 +36,22 @@ fields @timestamp, beaconInfo.trackingEvent, beaconInfo.beaconUri, beaconInfo.he
 | sort @timestamp asc
 ```
 
+The following query retrieves the ad tracking events that the playback device reported back to MediaTailor during client-side reporting.
+
+```
+fields @timestamp, beaconInfo.trackingEvent, beaconInfo.source, beaconInfo.headers.0.value as @userAgent, beaconInfo.headers.1.value as @xForwardedFor, sessionId, requestId
+| filter eventType = "BEACON_RECEIVED"
+| sort @timestamp asc
+```
+
+The following query counts the ad tracking events that MediaTailor fired itself against the ones that the playback device reported, broken out by tracking event.
+
+```
+fields eventType, beaconInfo.trackingEvent as @trackingEvent
+| filter eventType in ["BEACON_FIRED", "BEACON_RECEIVED"]
+| stats count() as @eventCount by @trackingEvent, eventType
+```
+
 The following query retrieves information for a specific playback session, by filtering the results by `sessionId`. 
 
 ```

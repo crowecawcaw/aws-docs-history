@@ -19,7 +19,7 @@ MediaTailor publishes the following CloudWatch metrics for Yield Optimization. A
 | YieldOptimization.BidRequest | Emitted as 1 when a bid request opportunity is identified. | 
 | YieldOptimization.BidResponse | Emitted as 1 when a successful bid response is received. | 
 | YieldOptimization.BidDuration | The break duration (seconds) requested in the bid, calculated from avail duration minus primary ad duration. | 
-| YieldOptimization.Latency | Round-trip latency to APS in milliseconds. | 
+| YieldOptimization.Latency | Round-trip latency to Amazon Publisher Services (APS) in milliseconds. | 
 | YieldOptimization.NoBid | Emitted as 1 when APS returns HTTP 204 (no matching demand). The request itself was valid. | 
 | YieldOptimization.BidRequestThrottled | Emitted as 1 when APS returns HTTP 429 (throttled). APS is applying back-pressure. Back off before retrying. | 
 
@@ -42,9 +42,9 @@ MediaTailor publishes the following CloudWatch metrics for Yield Optimization. A
 | Metric | Description | 
 | --- | --- | 
 | YieldOptimization.Revenue | Total revenue for the customer, sourced from the price attribute of the oRTB bid response. Sum of price across inserted ads. | 
-| YieldOptimization.IndicativeBidRevenue | Summed per-impression indicative value of all RETURNED bids (bid price per impression, not per insertion). Dual-emitted alongside Revenue during a deprecation window and will be removed once dashboards cut over. Use Revenue for new dashboards. | 
-| YieldOptimization.BidPriceAdsInserted | The CPM price of each ad inserted by Yield Optimization. Dimensioned by the bid response cur (currency) attribute. Not emitted per-customer, so this is account-wide. | 
-| YieldOptimization.BidPriceAdsReturned | The CPM price of each bid returned in the BidResponse (before filtering to insertions). Dimensioned by cur. Not emitted per-customer, so this is account-wide. | 
+| YieldOptimization.IndicativeBidRevenue | Summed per-impression indicative value of all returned bids (bid price per impression, not per insertion). Don't use this metric in your new dashboards. This metric is deprecated, and AWS might remove it in a future release. Use YieldOptimization.Revenue instead. | 
+| YieldOptimization.BidPriceAdsInserted | The CPM price of each ad inserted by Yield Optimization, in the currency from the bid response cur attribute. | 
+| YieldOptimization.BidPriceAdsReturned | The CPM price of each bid returned in the bid response (before filtering to insertions), in the currency from the bid response cur attribute. | 
 
 ### Error and skip metrics
 <a name="yield-optimization-troubleshooting-metrics-error"></a>
@@ -64,7 +64,7 @@ MediaTailor publishes the following CloudWatch metrics for Yield Optimization. A
 ## Log events
 <a name="yield-optimization-troubleshooting-log-events"></a>
 
-Yield Optimization generates events in the `MidasMMSService/ads_interaction_log` log group:
+Yield Optimization generates events in the `MediaTailor/AdDecisionServerInteractions` log group:
 
 
 | Event type | Description | 
@@ -72,8 +72,11 @@ Yield Optimization generates events in the `MidasMMSService/ads_interaction_log`
 | RAW\_BID\_REQUEST | The complete OpenRTB bid request JSON sent to APS. Use this to verify template interpolation. | 
 | RAW\_BID\_RESPONSE | The raw OpenRTB bid response from APS, including bid pricing and VAST XML. | 
 | FILLED\_AVAIL | The complete avail with all ads. YO ads have fillMode: "YIELD\_OPTIMIZATION" and include bidId, bidPrice, currency, impressionId, and seatId. | 
-
-Error events are emitted in `MidasMMSService/application.log` with loggers like `YieldOptimizationSupport`, `OrtbBidRequestBuilder`, `HttpOrtbRequestSubmitter`, and `OrtbResponseProcessor`.
+| EMPTY\_BID\_RESPONSE | APS returned no bids (HTTP 204). APS found no matching demand, even though the request was valid. | 
+| ERROR\_INVALID\_BID\_REQUEST | APS rejected the bid request (HTTP 4xx other than 429). The additionalInfo field contains the APS error response. | 
+| ERROR\_BID\_REQUEST\_THROTTLED | APS throttled the bid request (HTTP 429). | 
+| ERROR\_BID\_RESPONSE\_SERVER\_ERROR | APS returned a server error (HTTP 5xx). The additionalInfo field contains the APS error response. | 
+| ERROR\_BID\_RESPONSE\_PARSE | APS returned an unexpected HTTP status, or MediaTailor could not process the bid response. | 
 
 ## Example CloudWatch Insights queries
 <a name="yield-optimization-troubleshooting-insights"></a>
@@ -82,30 +85,26 @@ Error events are emitted in `MidasMMSService/application.log` with loggers like 
 <a name="yield-optimization-troubleshooting-insights-errors"></a>
 
 ```
-fields @timestamp, message.sessionId, message.message, log.logger, log.level
-| filter message.awsAccountId = 'YOUR_ACCOUNT_ID'
-  and (log.level = 'ERROR' or log.level = 'WARN')
-  and (log.logger like /YieldOptimization/
-    or log.logger like /OrtbResponseProcessor/
-    or log.logger like /HttpOrtbRequestSubmitter/
-    or log.logger like /OrtbBidRequestBuilder/)
+fields @timestamp, sessionId, eventType, additionalInfo
+| filter eventType in ['ERROR_INVALID_BID_REQUEST',
+    'ERROR_BID_REQUEST_THROTTLED', 'ERROR_BID_RESPONSE_SERVER_ERROR',
+    'ERROR_BID_RESPONSE_PARSE']
 | sort @timestamp desc
 | limit 100
 ```
 
-**Log group:** `MidasMMSService/application.log`
+**Log group:** `MediaTailor/AdDecisionServerInteractions`
 
 ### Count bid requests vs responses
 <a name="yield-optimization-troubleshooting-insights-count"></a>
 
 ```
 fields @timestamp, sessionId, eventType
-| filter awsAccountId = 'YOUR_ACCOUNT_ID'
-  and (eventType = 'RAW_BID_REQUEST' or eventType = 'RAW_BID_RESPONSE')
+| filter eventType = 'RAW_BID_REQUEST' or eventType = 'RAW_BID_RESPONSE'
 | stats count(*) by eventType
 ```
 
-**Log group:** `MidasMMSService/ads_interaction_log`
+**Log group:** `MediaTailor/AdDecisionServerInteractions`
 
 ### Find YO ads in filled avails
 <a name="yield-optimization-troubleshooting-insights-filled"></a>
@@ -114,8 +113,7 @@ Each `FILLED_AVAIL` event contains a `creativeAds` array. YO ads within that arr
 
 ```
 fields @timestamp, sessionId, avail.availId, avail.numAds, avail.fillRate, avail.filledDuration
-| filter awsAccountId = 'YOUR_ACCOUNT_ID'
-  and eventType = 'FILLED_AVAIL'
+| filter eventType = 'FILLED_AVAIL'
   and @message like /YIELD_OPTIMIZATION/
 | sort @timestamp desc
 | limit 50
@@ -125,8 +123,7 @@ To pull the individual YO ad entries (bid ids and prices) for a specific session
 
 ```
 fields @timestamp, sessionId, avail.availId, avail.creativeAds
-| filter awsAccountId = 'YOUR_ACCOUNT_ID'
-  and eventType = 'FILLED_AVAIL'
+| filter eventType = 'FILLED_AVAIL'
   and sessionId = 'YOUR_SESSION_ID'
 | sort @timestamp desc
 | limit 20
@@ -134,36 +131,20 @@ fields @timestamp, sessionId, avail.availId, avail.creativeAds
 
 Filter the resulting `creativeAds` array client-side for entries where `fillMode == "YIELD_OPTIMIZATION"`.
 
-**Log group:** `MidasMMSService/ads_interaction_log`
+**Log group:** `MediaTailor/AdDecisionServerInteractions`
 
 ### Check for unresolved template variables
 <a name="yield-optimization-troubleshooting-insights-unresolved"></a>
 
 ```
 fields @timestamp, sessionId, @message
-| filter awsAccountId = 'YOUR_ACCOUNT_ID'
-  and eventType = 'RAW_BID_REQUEST'
+| filter eventType = 'RAW_BID_REQUEST'
   and @message like /\{[A-Z_]+\}/
 | sort @timestamp desc
 | limit 20
 ```
 
-**Log group:** `MidasMMSService/ads_interaction_log`
-
-### Measure YO latency and success rate
-<a name="yield-optimization-troubleshooting-insights-latency"></a>
-
-```
-fields @timestamp, @message
-| filter customerId = 'YOUR_ACCOUNT_ID'
-  and (@message like /YieldOptimization/ or @message like /ortb_/)
-| limit 10000
-```
-
-**Log group:** `MidasMMSService/service_log`
-
-**Note**  
-`service_log` uses `customerId` (not `awsAccountId`) for the account ID field.
+**Log group:** `MediaTailor/AdDecisionServerInteractions`
 
 ## Calculating yield lift
 <a name="yield-optimization-troubleshooting-yield-lift"></a>
@@ -172,7 +153,7 @@ To measure the revenue impact of Yield Optimization, create a CloudWatch dashboa
 
 1. **Incremental fill rate:** `Sum(YieldOptimization.AdsInserted) / Sum(YieldOptimization.BidRequest)` shows what percentage of YO opportunities result in inserted ads. Alternatively, use `Average(YieldOptimization.FillRate)` for the per-avail native metric.
 
-1. **Revenue per hour:** `Sum(YieldOptimization.Revenue)` over time shows total per-customer revenue from YO. `Sum(YieldOptimization.BidPriceAdsInserted)` gives account-wide average CPM.
+1. **Revenue per hour:** `Sum(YieldOptimization.Revenue)` over time shows total revenue from YO. `Average(YieldOptimization.BidPriceAdsInserted)` gives the average CPM of inserted YO ads.
 
 1. **Duration filled:** `Sum(YieldOptimization.FilledDuration)` against `Sum(YieldOptimization.BidDuration)` shows how much of the requested duration was actually filled.
 
@@ -187,7 +168,7 @@ To measure the revenue impact of Yield Optimization, create a CloudWatch dashboa
 | --- | --- | --- | 
 | No YO metrics at all | Is YO configured on the playback config? | Enable YO in the console or API. | 
 | SkipMinUnfilledDurationNotExceeded emitting | Primary ADS is filling most of the break | Lower MinimumUnfilledDuration or accept that primary fill is sufficient. | 
-| SkipPersonalizationTimeoutExceeded emitting | Primary ADS is too slow, leaving no time for YO | Optimize primary ADS latency or check personalization timeout SDC configuration. | 
+| SkipPersonalizationTimeoutExceeded emitting | Primary ADS is too slow, leaving no time for YO | Reduce primary ADS latency so that more personalization time remains for YO. | 
 
 ### Bid requests failing
 <a name="yield-optimization-troubleshooting-bidrequests-failing"></a>
@@ -195,11 +176,11 @@ To measure the revenue impact of Yield Optimization, create a CloudWatch dashboa
 
 | Symptom | Check | Resolution | 
 | --- | --- | --- | 
-| BidRequestConfigurationError metric | Template has missing or empty mandatory fields | Check application.log for the specific error (for example, app.bundle is required). Fix the template or ensure player params are sent. | 
+| BidRequestConfigurationError metric | Template has missing or empty mandatory fields | Verify that every mandatory field in your template (for example, app.bundle) resolves to a non-empty value, and that the player sends the player parameters that the template references. | 
 | HTTP 204 from APS | YieldOptimization.NoBid incrementing | APS returned no-bid. Not an error. Inspect RAW\_BID\_REQUEST for placeholder values ({UPPER\_CASE} patterns), verify bundle and storeurl are real, lower bidfloor. | 
 | HTTP 429 from APS | YieldOptimization.BidRequestThrottled incrementing | APS is throttling. Back off request rate. If persistent, contact APS support to raise TPS limits. | 
-| HTTP 400 from APS | Invalid request JSON | Check the APS error message in RAW\_BID\_RESPONSE. Verify JSON structure matches OpenRTB spec. | 
-| HTTP 500/503 from APS | APS server error or overload | Transient issue. Monitor YieldOptimization.Errors. If persistent, contact APS support. | 
+| HTTP 400 from APS | Invalid request JSON | Check the APS error message in the additionalInfo field of the ERROR\_INVALID\_BID\_REQUEST event. Verify JSON structure matches OpenRTB spec. | 
+| HTTP 500/503 from APS | APS server error or overload | Transient issue. Check the APS error message in the additionalInfo field of the ERROR\_BID\_RESPONSE\_SERVER\_ERROR event, and monitor YieldOptimization.Errors. If persistent, contact APS support. | 
 
 ### Ads returned but not inserted
 <a name="yield-optimization-troubleshooting-not-inserted"></a>

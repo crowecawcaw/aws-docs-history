@@ -20,6 +20,7 @@ The following events are emitted during MediaTailor interactions with the ad dec
 | --- | --- | 
 | AD\_MARKER\_FOUND | MediaTailor found an ad marker in the manifest. | 
 | BEACON\_FIRED | A tracking beacon was fired to report ad events. In server-side reporting mode (default), MediaTailor fires the beacon. In client-side reporting mode, the playback device fires the beacon. | 
+| BEACON\_RECEIVED | MediaTailor received a tracking event that the playback device reported during client-side reporting. | 
 | EMPTY\_VAST\_RESPONSE | The ADS returned an empty VAST response containing zero ads. | 
 | EMPTY\_VMAP\_RESPONSE | The ADS returned an empty VMAP response. | 
 | ERROR\_ADS\_INVALID\_RESPONSE | The ADS returned a non-200 status code. | 

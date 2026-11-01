@@ -10,3 +10,4 @@ For information about passing session and player data to the ad server using dyn
 **Topics**
 + [MediaTailor server-side ad tracking and reporting](ad-reporting-server-side.md)
 + [Client-side ad tracking](ad-reporting-client-side.md)
++ [Beaconing configuration](beaconing-configuration.md)
