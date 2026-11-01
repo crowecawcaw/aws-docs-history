@@ -7,7 +7,7 @@
 
 On Linux operating systems, you use an ODBC driver manager to configure the ODBC connection settings. ODBC driver managers use configuration files to define and configure ODBC data sources and drivers. The ODBC driver manager that you use depends on the operating system that you use. For Linux, it's unixODBC driver manager.
 
-For more information about the supported ODBC driver managers to configure the Amazon Redshift ODBC drivers, see [Using an Amazon Redshift ODBC driver on Linux](install-odbc-driver-linux.md) for Linux operating systems. Also, see "Specifying ODBC Driver Managers on Non- Windows Machines" in the [Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.3.1008/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf). 
+For more information about the supported ODBC driver managers to configure the Amazon Redshift ODBC drivers, see [Using an Amazon Redshift ODBC driver on Linux](install-odbc-driver-linux.md) for Linux operating systems. Also, see "Specifying ODBC Driver Managers on Non- Windows Machines" in the [Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.5.1013/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf). 
 
 Three files are required for configuring the Amazon Redshift ODBC driver: `amazon.redshiftodbc.ini`, `odbc.ini`, and `odbcinst.ini`.
 
@@ -25,14 +25,14 @@ For the `odbc.ini` and `odbcinst.ini` files, either use the configuration files 
 
 Whichever option you choose for the `odbc.ini` and `odbcinst.ini` files, modify the files to add driver and DSN configuration information. If you create new files, you also need to set environment variables to specify where these configuration files are located. 
 
-By default, ODBC driver managers are configured to use hidden versions of the `odbc.ini` and `odbcinst.ini` configuration files (named .`odbc.ini` and .`odbcinst.ini`) located in the home directory. They also are configured to use the `amazon.redshiftodbc.ini` file in the `/lib` subfolder of the driver installation directory. If you store these configuration files elsewhere, set the environment variables described following so that the driver manager can locate the files. For more information, see "Specifying the Locations of the Driver Configuration Files" in the [Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.3.1008/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf). 
+By default, ODBC driver managers are configured to use hidden versions of the `odbc.ini` and `odbcinst.ini` configuration files (named .`odbc.ini` and .`odbcinst.ini`) located in the home directory. They also are configured to use the `amazon.redshiftodbc.ini` file in the `/lib` subfolder of the driver installation directory. If you store these configuration files elsewhere, set the environment variables described following so that the driver manager can locate the files. For more information, see "Specifying the Locations of the Driver Configuration Files" in the [Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.5.1013/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf). 
 
 ## Creating a data source name on Linux operating systems
 <a name="configure-odbc-ini-file"></a>
 
  When connecting to your data store using a data source name (DSN), configure the `odbc.ini` file to define DSNs. Set the properties in the `odbc.ini` file to create a DSN that specifies the connection information for your data store.
 
-For information about how to configure the `odbc.ini` file, see "Creating a Data Source Name on a Non-Windows Machine" in the [Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.3.1008/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf) 
+For information about how to configure the `odbc.ini` file, see "Creating a Data Source Name on a Non-Windows Machine" in the [Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.5.1013/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf) 
 
  Use the following format on Linux operating systems.
 
@@ -82,7 +82,7 @@ locale=en-US
 
 To connect to your data store through a connection that doesn't have a DSN, define the driver in the `odbcinst.ini` file. Then provide a DSN-less connection string in your application.
 
-For information about how to configure the `odbcinst.ini` file in this case, see "Configuring a DSN-less Connection on a Non-Windows Machine" in the [Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.3.1008/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf). 
+For information about how to configure the `odbcinst.ini` file in this case, see "Configuring a DSN-less Connection on a Non-Windows Machine" in the [Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.5.1013/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf). 
 
 Use the following format on Linux operating systems.
 
@@ -123,7 +123,7 @@ Driver=/opt/amazon/redshiftodbc/lib/32/libamazonredshiftodbc32.so
 ## Configuring environment variables
 <a name="rs-mgmt-config-global-env-variables"></a>
 
-Use the correct ODBC driver manager to load the correct driver. To do this, set the library path environment variable. For more information, see "Specifying ODBC Driver Managers on Non-Windows Machines" in the [Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.3.1008/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf). 
+Use the correct ODBC driver manager to load the correct driver. To do this, set the library path environment variable. For more information, see "Specifying ODBC Driver Managers on Non-Windows Machines" in the [Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.5.1013/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf). 
 
 By default, ODBC driver managers are configured to use hidden versions of the `odbc.ini` and `odbcinst.ini` configuration files (named .`odbc.ini` and .`odbcinst.ini`) located in the home directory. They also are configured to use the `amazon.redshiftodbc.ini` file in the `/lib` subfolder of the driver installation directory. If you store these configuration files elsewhere, the environment variables so that the driver manager can locate the files. For more information, see "Specifying the Locations of the Driver Configuration Files" in *Amazon Redshift ODBC Connector Installation and Configuration Guide*. 
 
@@ -138,4 +138,4 @@ You can configure the following connection features for your ODBC setting:
 + Configure the ODBC driver to pass IAM authentication processes through a proxy server.
 + Configure the ODBC driver to use TCP keepalives to prevent connections from timing out.
 
-For information about these connection features, see the [Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.3.1008/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf). 
+For information about these connection features, see the [Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.5.1013/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf). 

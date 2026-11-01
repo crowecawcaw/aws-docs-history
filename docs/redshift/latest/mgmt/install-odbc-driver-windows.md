@@ -5,7 +5,7 @@
 # Using an Amazon Redshift ODBC driver on Microsoft Windows
 <a name="install-odbc-driver-windows"></a>
 
-You install the Amazon Redshift ODBC driver on client computers accessing an Amazon Redshift data warehouse. Each computer where you install the driver must meet a list of minimum system requirements. For information about minimum system requirements, see the [Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.3.1008/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf). 
+You install the Amazon Redshift ODBC driver on client computers accessing an Amazon Redshift data warehouse. Each computer where you install the driver must meet a list of minimum system requirements. For information about minimum system requirements, see the [Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.5.1013/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf). 
 
 **Topics**
 + [Downloading and installing the Amazon Redshift ODBC driver](odbc-driver-windows-how-to-install.md)

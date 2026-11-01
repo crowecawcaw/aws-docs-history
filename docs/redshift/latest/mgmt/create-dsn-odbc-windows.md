@@ -12,7 +12,7 @@ We recommend that you create a system DSN instead of a user DSN. Some applicatio
 **Note**  
 For authentication using AWS Identity and Access Management (IAM) credentials or identity provider (IdP) credentials, additional steps are required. For more information, see [Step 5: Configure a JDBC or ODBC connection to use IAM credentials](generating-iam-credentials-steps.md#generating-iam-credentials-configure-jdbc-odbc).
 
-For information about how to create a system DSN entry, see the [Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.3.1008/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf). 
+For information about how to create a system DSN entry, see the [Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.5.1013/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf). 
 
 **To create a system DSN entry for an ODBC connection on Windows**
 

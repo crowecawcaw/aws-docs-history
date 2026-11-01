@@ -11,6 +11,7 @@ Download a previous version of the Amazon Redshift ODBC driver only if your tool
 <a name="odbc-previous-versions-windows"></a>
 
 The following are the 64-bit drivers: 
++ [https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.3.1008/AmazonRedshiftODBC64-1.6.3.1008.msi](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.3.1008/AmazonRedshiftODBC64-1.6.3.1008.msi) 
 + [https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.3.1006/AmazonRedshiftODBC64-1.6.3.1006.msi](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.3.1006/AmazonRedshiftODBC64-1.6.3.1006.msi) 
 + [https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/AmazonRedshiftODBC64-1.6.1.1000.msi](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/AmazonRedshiftODBC64-1.6.1.1000.msi) 
 + [https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/AmazonRedshiftODBC64-1.5.20.1024.msi](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/AmazonRedshiftODBC64-1.5.20.1024.msi) 
@@ -30,6 +31,7 @@ The following are the 64-bit drivers:
 <a name="odbc-previous-versions-linux"></a>
 
 The following are the versions of the 64-bit driver: 
++ [https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.3.1008/AmazonRedshiftODBC-64-bit-1.6.3.1008-1.x86\_64.rpm](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.3.1008/AmazonRedshiftODBC-64-bit-1.6.3.1008-1.x86_64.rpm) 
 + [https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.3.1006/AmazonRedshiftODBC-64-bit-1.6.3.1006-1.x86\_64.rpm](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.3.1006/AmazonRedshiftODBC-64-bit-1.6.3.1006-1.x86_64.rpm) 
 + [https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/AmazonRedshiftODBC-64-bit-1.6.1.1000-1.x86\_64.rpm](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/AmazonRedshiftODBC-64-bit-1.6.1.1000-1.x86_64.rpm) 
 + [https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/AmazonRedshiftODBC-64-bit-1.5.20.1024-1.x86\_64.rpm](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/AmazonRedshiftODBC-64-bit-1.5.20.1024-1.x86_64.rpm) 
@@ -51,6 +53,7 @@ The following are the versions of the 64-bit driver:
 <a name="odbc-previous-versions-mac"></a>
 
 The following are the versions of the Amazon Redshift ODBC driver for macOS: 
++ [https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.3.1008/AmazonRedshiftODBC-64-bit.1.6.3.1008.universal.pkg](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.3.1008/AmazonRedshiftODBC-64-bit.1.6.3.1008.universal.pkg) 
 + [https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.3.1006/AmazonRedshiftODBC-64-bit.1.6.3.1006.universal.pkg](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.3.1006/AmazonRedshiftODBC-64-bit.1.6.3.1006.universal.pkg) 
 + [https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/AmazonRedshiftODBC-64-bit.1.6.1.1000.universal.pkg](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/AmazonRedshiftODBC-64-bit.1.6.1.1000.universal.pkg) 
 + [https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/AmazonRedshiftODBC-1.5.20.1024.arm64.dmg](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.5.20.1024/AmazonRedshiftODBC-1.5.20.1024.arm64.dmg) 

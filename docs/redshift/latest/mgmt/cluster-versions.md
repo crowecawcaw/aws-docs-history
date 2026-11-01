@@ -61,7 +61,9 @@ Critical updates that affect Amazon Redshift behavior are introduced as Amazon R
 <a name="cluster-version-206"></a>
 
 Cluster versions in this patch:
-+ 1.0.485645 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released October 13, 2026
++ 1.0.520420 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released October 27, 2026
+
+  1.0.485645 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released October 13, 2026
 
 ### New features and improvements in this patch
 <a name="cluster-version-2026-10-13-features"></a>
@@ -81,6 +83,7 @@ Cluster versions in this patch:
 + Vacuum of tables with dependent MVs -- With this enhancement, the refresh of materialized views (MVs) defined on local RMS (Redshift Managed Storage) tables stay incremental after a vacuum operation is run on the MV's base tables.
 + Materialized View internal backing tables are now stored in an internal protected schema.
 + AQMV support for MVs on Iceberg tables
++ Changed how tables load after a cluster restart so that commits no longer wait for all tables to load. The first commit can complete up to 15 minutes sooner, with minimal impact on query performance. This improvement is currently enabled for a limited set of Amazon Redshift Serverless workgroups and will be extended in future patches.
 + Fixed a rare issue where a disk error during internal cluster maintenance could cause an unexpected node restart.
 + Fixed a rare issue where memory pressure could cause an unexpected node restart.
 + Fixed an issue where files belonging to dropped databases were not cleaned up promptly under heavy `DROP DATABASE` activity.
@@ -89,6 +92,8 @@ Cluster versions in this patch:
 + Fixed an issue where a Lambda user-defined function in a join condition could cause an unexpected query failure when it referenced neither joined table.
 + Fixed a query failure that could occur when `ST_Collect` was combined with a `DISTINCT` aggregate (such as `COUNT(DISTINCT)`) in the same grouped aggregation
 + Fixed a query failure on an external (Spectrum/Iceberg) table that combined a Lambda UDF with a hash join and dynamic partition elimination
++ Provided a fix to improve reliability of online resize operations. A failure where the transition to read-only mode could stall and never complete is fixed, so these operations no longer get stuck partway through and complete successfully without manual intervention.
++ Fixed an issue where queries that call AWS Lambda user-defined functions (UDFs) could exhaust internal process resources and cause an unexpected cluster restart.
 + Improved error messages for zero-ETL integrations to provide clearer guidance on recovery behavior, including when Amazon Redshift automatically resynchronizes affected tables.
 
 ## Amazon Redshift patch 205

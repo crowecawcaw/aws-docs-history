@@ -9,9 +9,9 @@ You can use an ODBC connection to connect to your Amazon Redshift cluster from m
 
 Amazon Redshift provides 64-bit ODBC drivers for Linux, Windows, and macOS operating systems. The 32-bit ODBC drivers are discontinued. Further updates will not be released, except for urgent security patches. 
 
-For the latest information about ODBC driver functionality and prerequisites, see [Amazon Redshift ODBC driver release notes](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.3.1008/Release+Notes.pdf). 
+For the latest information about ODBC driver functionality and prerequisites, see [Amazon Redshift ODBC driver release notes](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.5.1013/Release+Notes.pdf). 
 
-For installation and configuration information for Amazon Redshift ODBC drivers, see the [Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.3.1008/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf). 
+For installation and configuration information for Amazon Redshift ODBC drivers, see the [Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.5.1013/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf). 
 
 **Topics**
 + [Getting the ODBC URL](obtain-odbc-url.md)
