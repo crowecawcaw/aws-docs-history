@@ -6,6 +6,50 @@
 **Note**  
 Use the following instructions to integrate Android instrumentation tests with AWS Device Farm. For more information about using instrumentation tests in Device Farm, see [Instrumentation for Android and AWS Device Farm](test-types-android-instrumentation.md). 
 
+## Configure instrumentation test reports using a custom test environment
+<a name="test-types-android-instrumentation-generate-reports"></a>
+
+Any file that your tests write to `$DEVICEFARM_LOG_DIR` in your test spec YAML file is available in your test output artifacts after the run completes. Device Farm can also generate a test report of its own, called test insights, which gives you a per-test breakdown of results, durations, and stack traces for failures. You can view test insights in the console, and through the AWS CLI and APIs. Test insights are in addition to the artifacts that your tests produce, not a replacement for them.
+
+Device Farm generates test insights for instrumentation tests only when you run them in a custom test environment. For more information, see [Test environments in AWS Device Farm](test-environments.md).
+
+1. Run **am instrument** with the `-r` option, and pipe its output through **tee** so that the output appears in your test spec output. Device Farm reads your test spec output to build the report. The default instrumentation test spec already does this:
+
+   ```
+   adb -s $DEVICEFARM_DEVICE_UDID shell am instrument -r -w --no-window-animation \
+     $DEVICEFARM_TEST_PACKAGE_NAME/$DEVICEFARM_TEST_PACKAGE_RUNNER 2>&1 | tee $DEVICEFARM_LOG_DIR/instrument.log
+   ```
+
+   The `-r` option tells **am instrument** to print raw results. **tee** writes those results to a file and also passes them through to your test spec output, which is what Device Farm reads. The results look like the following:
+
+   ```
+   INSTRUMENTATION_STATUS: class=com.example.GpsConnectInstrumentedTest
+   INSTRUMENTATION_STATUS: current=1
+   INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+   INSTRUMENTATION_STATUS: numtests=2
+   INSTRUMENTATION_STATUS: test=useAppContext
+   ```
+
+   If you redirect this output to a file only, with `>` instead of **tee**, the results never reach your test spec output and Device Farm cannot build a report.
+
+1. Opt in to test insights when you schedule the run. You can do this in the console or with the AWS CLI and APIs:
+   + In the console, in the **Run settings** section, under **Test Insights**, choose **Generate test report**. For more information, see [Run Android Instrumentation tests (console)](#test-types-android-instrumentation-upload).
+   + With the AWS CLI or the API, set the `insightsTypes` field of the `configuration` parameter of **ScheduleRun** to `TEST_REPORT`:
+
+     ```
+     aws devicefarm schedule-run \
+       --project-arn {{projectArn}} \
+       --device-pool-arn {{devicePoolArn}} \
+       --test type=INSTRUMENTATION,testPackageArn={{testPackageArn}},testSpecArn={{testSpecArn}} \
+       --configuration '{"insightsTypes":["TEST_REPORT"]}'
+     ```
+
+     Device Farm rejects `insightsTypes` if the run does not use a test spec, because test insights require a custom test environment.
+
+     For more information, see [ScheduleRun](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ScheduleRun.html) and [insightsTypes](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ScheduleRunConfiguration.html#devicefarm-Type-ScheduleRunConfiguration-insightsTypes) in the *Device Farm API Reference*.
+
+To view the report after the run completes, see [View a test report (console)](#test-types-android-instrumentation-view-insights-console). If Device Farm does not generate a report, see [Test insights](troubleshooting-instrumentation-tests.md#troubleshooting-instrumentation-tests-insights).
+
 ## Run Android Instrumentation tests (console)
 <a name="test-types-android-instrumentation-upload"></a>
 
@@ -34,9 +78,9 @@ To create a project, follow the instructions in [Creating a project in AWS Devic
 
 1. Under **Select devices**, choose a device selection method. Select **Use Device Pool** to choose from a curated collection of devices or a custom device pool you created. Select **Manually select devices** to pick individual devices to run your tests against. The **Device compatibility** section shows how many devices in the selected pool are compatible with your app. For more information, see [Device support in AWS Device Farm](devices.md).
 
-1. To configure run-level properties, update the **Run settings** section. Here you can do the following:
+1. To configure run-level properties, update the **Run settings** section.
 
-   1. (Optional) To have Device Farm generate a test report after your run completes, select **Generate test report**. This option is available in a custom test environment only. Device Farm generates the report from instrumentation results included in your test spec output. If you upload your own test spec, make sure it outputs instrumentation results to your test spec output.
+   (Optional) To have Device Farm generate a test report after your run completes, in the **Run settings** section, under **Test Insights**, choose **Generate test report**. This option is available in a custom test environment only. For the prerequisites, see [Configure instrumentation test reports using a custom test environment](#test-types-android-instrumentation-generate-reports).
 
 1. Complete the remaining steps, and then start the run.
 

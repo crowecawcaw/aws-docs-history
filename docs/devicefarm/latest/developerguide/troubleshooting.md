@@ -16,6 +16,7 @@ To troubleshoot Appium tests that unexpectedly fail on Device Farm, please see o
 + [Troubleshooting Appium Java TestNG web applications in AWS Device Farm](troubleshooting-appium-web-java-testng.md)
 + [Troubleshooting Appium Python tests in AWS Device Farm](troubleshooting-appium-python.md)
 + [Troubleshooting Appium Python web application tests in AWS Device Farm](troubleshooting-appium-web-python.md)
++ [Troubleshooting Appium Node.js tests in AWS Device Farm](troubleshooting-appium-node.md)
 + [Troubleshooting instrumentation tests in AWS Device Farm](troubleshooting-instrumentation-tests.md)
 + [Troubleshooting iOS application tests in AWS Device Farm](troubleshooting-ios-applications.md)
 + [Troubleshooting XCTest tests in AWS Device Farm](troubleshooting-xctest.md)

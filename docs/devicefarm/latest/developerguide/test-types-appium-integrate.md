@@ -5,6 +5,80 @@
 
 Use the following instructions to integrate Appium tests with AWS Device Farm. For more information about using Appium tests in Device Farm, see [Automatically run Appium tests in Device Farm](test-types-appium.md).
 
+## Configure Appium test reports using a custom test environment
+<a name="test-types-appium-generate-reports"></a>
+
+Any test report that your tests write to `$DEVICEFARM_LOG_DIR` in your test spec YAML file is available in your test output artifacts after the run completes. Device Farm can also generate a test report of its own, called test insights, which gives you a per-test breakdown of results, durations, and stack traces for failures. You can view test insights in the console, and through the AWS CLI and APIs. Test insights are in addition to the artifacts that your tests produce, not a replacement for them.
+
+Device Farm generates test insights for Appium Java (TestNG) and Appium Node.JS tests, and only when you run them in a custom test environment. For more information about test environments, see [Test environments in AWS Device Farm](test-environments.md).
+
+1. Configure your tests to write a results file that Device Farm can read. Choose your framework tab to see which file to produce.
+
+------
+#### [ Java (TestNG) ]
+
+   TestNG writes its results as an XML report named `testng-results.xml`. Device Farm reads that report to build your test insights, so your tests must write it to `$DEVICEFARM_LOG_DIR`. Device Farm accepts a file named `testng-results.xml`, or any XML file in that directory that has the TestNG root element.
+
+   The default Appium Java TestNG test spec produces and stores this report if you keep the default configuration, so most customers do not need to change anything. If you run TestNG yourself in your test spec file, set its output directory to `$DEVICEFARM_LOG_DIR`, as in the following example:
+
+   ```
+   java org.testng.TestNG -d $DEVICEFARM_LOG_DIR/test-output testng.xml
+   ```
+
+   If your build tool writes the report somewhere else, copy it into `$DEVICEFARM_LOG_DIR` in the `post_test` phase of your test spec file. Device Farm reads only what that directory contains.
+
+   The report must be well-formed XML in the standard TestNG report format.
+
+------
+#### [ Node.JS ]
+
+   Device Farm reads the output of a [WebdriverIO](https://webdriver.io/) reporter. If you run your tests with WebdriverIO, enable one of the following reporters:
+   + [@wdio/json-reporter](https://webdriver.io/docs/json-reporter/). Records test names, results, durations, stack traces, and a start and end time for each test. This is the recommended reporter.
+   + [@wdio/junit-reporter](https://webdriver.io/docs/junit-reporter/). Records test names, results, durations, and stack traces, but no per-test start or end times. If you enable both reporters, Device Farm builds the report from the JSON output.
+
+   Install the reporter that you chose so that it is available inside your test package:
+
+   ```
+   npm install --save-dev @wdio/json-reporter
+   ```
+
+   Next, add the reporter to the `reporters` array in your `wdio.conf.js` file and set its `outputDir` to a directory under `$DEVICEFARM_LOG_DIR`:
+
+   ```
+   exports.config = {
+     // ...
+     reporters: [
+       ['json', { outputDir: `${process.env.DEVICEFARM_LOG_DIR}/wdio-reports` }]
+     ]
+   }
+   ```
+
+   Keep the default file name that the reporter produces. Device Farm reads only files that end in `.json` for the JSON reporter, or `.xml` or `.log` for the JUnit reporter. The `spec` reporter writes to the console only, so it produces no file for Device Farm to read.
+
+   Install the reporter and update `wdio.conf.js` before you package your tests so that both are inside the package that you upload. For more information, see [Create a zipped test package file](#test-types-appium-create-a-zip).
+
+   If Device Farm does not generate a report for your run, see [Test insights](troubleshooting-appium-node.md#troubleshooting-appium-node-insights).
+
+------
+
+1. Opt in to test insights when you schedule the run. You can do this in the console or with the AWS CLI and APIs:
+   + In the console, in the **Run settings** section, under **Test Insights**, choose **Generate test report**. For more information, see [Run your Appium tests](#test-types-appium-upload).
+   + With the AWS CLI or the API, set the `insightsTypes` field of the `configuration` parameter of **ScheduleRun** to `TEST_REPORT`:
+
+     ```
+     aws devicefarm schedule-run \
+       --project-arn {{projectArn}} \
+       --device-pool-arn {{devicePoolArn}} \
+       --test type=APPIUM_NODE,testPackageArn={{testPackageArn}},testSpecArn={{testSpecArn}} \
+       --configuration '{"insightsTypes":["TEST_REPORT"]}'
+     ```
+
+     Use `APPIUM_JAVA_TESTNG` as the test type for Appium Java (TestNG) tests. Device Farm rejects `insightsTypes` if the run does not use a test spec, because test insights require a custom test environment.
+
+     For more information, see [ScheduleRun](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ScheduleRun.html) and [insightsTypes](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ScheduleRunConfiguration.html#devicefarm-Type-ScheduleRunConfiguration-insightsTypes) in the *Device Farm API Reference*.
+
+To view the report after the run completes, see [View a test report](#test-types-appium-view-insights).
+
 ## Configure your Appium test package
 <a name="test-types-appium-prepare"></a>
 
@@ -466,6 +540,9 @@ The file `zip-with-dependencies.zip` will be created as a result. This is your t
 ------
 #### [ Node.JS ]
 
+**Note**  
+If you want Device Farm to generate a test report for your run, enable a WebdriverIO reporter before you follow this procedure, so that the reporter is in the package that you build. For more information, see [Configure Appium test reports using a custom test environment](#test-types-appium-generate-reports).
+
 1. Check out your project.
 
    Make sure you are at the root directory of your project. You can see `package.json` at the root directory.
@@ -486,7 +563,7 @@ At this point, you should be able to run your tests locally.
    npm-bundle
    ```
 
-   This tarball (.tgz) file contains all your code and dependencies.
+   This tarball (.tgz) file contains all your code and dependencies, including your `wdio.conf.js` file and any reporter you installed.
 
 1. Run this command to bundle the tarball (\*.tgz file) generated in the previous step into a single zipped archive:
 
@@ -590,11 +667,9 @@ You can use the Device Farm console to upload your tests.
 
 1. Under **Select devices**, choose a device selection method. Select **Use Device Pool** to choose from a curated collection of devices or a custom device pool you created. Select **Manually select devices** to pick individual devices to run your tests against. The **Device compatibility** section shows how many devices in the selected pool are compatible with your app. For more information, see [Device support in AWS Device Farm](devices.md).
 
-1. (Optional) To configure run-level properties, update the **Run settings** section:
-   + Device Farm currently supports test insights only for Appium TestNG. To have Device Farm generate a test report after your run completes, select **Generate test report**. This option is available in a custom test environment only.
+1. (Optional) To configure run-level properties, update the **Run settings** section.
 
-     The following prerequisites apply:
-     + Your tests must generate a `testng-results.xml` file and write it to `$DEVICEFARM_LOG_DIR`. For example, pass `-d $DEVICEFARM_LOG_DIR/test-output` to the TestNG command in your test spec file. The default Appium Java TestNG test spec produces and stores this file automatically if you keep the default configuration.
+   To have Device Farm generate a test report after your run completes, in the **Run settings** section, under **Test Insights**, choose **Generate test report**. This option is available in a custom test environment only. For the prerequisites, see [Configure Appium test reports using a custom test environment](#test-types-appium-generate-reports).
 
 1. Choose **Confirm and start run**. For more information, see [Creating a test run in Device Farm](how-to-create-test-run.md).
 
@@ -618,56 +693,57 @@ To open a completed job in the Device Farm console:
 
 1. Choose one of the completed jobs to open the results for that device.
 
-What you see in the job results depends on the test framework and whether you enabled test insights. Choose your framework tab to view the results.
+What you see in the job results depends on the test framework and whether you enabled test insights.
+
+### With test insights enabled
+<a name="test-types-appium-view-insights-enabled"></a>
+
+The job results include a **Test report** tab. Choose it to see a per-test breakdown. Choose your framework tab below to see the **Test report** tab for that framework. For a description of each field, see [Test report fields](#test-types-appium-view-insights-fields).
+
+To download the full test report as a JSON file, choose **Download full summary** at the top of the job details.
+
+To choose which columns appear, choose the gear icon. In the settings, you can select the columns to display and turn **Group by class** on or off. **Group by class** is on by default, which groups the tests by their test class. Turn it off to see a flat list of all tests.
 
 ------
 #### [ Java (TestNG) ]
 
-The job results include a **Test report** tab. Choose it to see a per-test breakdown. The following screenshot shows the **Test report** tab.
+The following screenshot shows the **Test report** tab.
 
 ![The Test report tab for a completed Appium Java TestNG job.](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-test-insights/appium-testng-insights-enabled-test-report-column.png)
 
 
-The tab shows the following fields for each test:
-
-`testName`  
-The name of the test method.
-
-`testClass`  
-The name of the test class.
-
-`result`  
-The Device Farm result for the test.
-
-`frameworkResult`  
-The result that TestNG reported (`PASS`, `FAIL`, or `SKIP`). Device Farm maps this value to the normalized `result` field.
-
-`durationSeconds`  
-The duration of the test, in seconds.
-
-`startTimestamp`  
-The time when the test started.
-
-`endTimestamp`  
-The time when the test ended.
-
-`params`  
-For a parameterized test, the parameter values that TestNG passed to the test.
-
-`stackTrace`  
-For a failed test, the stack trace of the failure.
-
-To download the full test report as a JSON file, choose **Download full summary** at the top of the job details.
-
-To choose which columns appear, choose the gear icon. In the settings, you can select the columns to display and turn **Group by class** on or off. **Group by class** is on by default, which groups the tests by their test class. Turn it off to see a flat list of all tests, as shown in the following screenshot.
+The following screenshot shows the same tab with **Group by class** turned off.
 
 ![The Test report tab with Group by class turned off, showing a flat list of tests.](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-test-insights/appium-testng-insights-enabled-test-report-without-grouping.png)
 
 
+------
+#### [ Node.JS ]
+
+Device Farm builds the report from the WebdriverIO reporter you enabled. The JSON reporter records a start and end time for each test and the JUnit reporter does not, so a report built from the JUnit reporter omits the `startTimestamp` and `endTimestamp` fields. If you enable both reporters, Device Farm uses the JSON output.
+
+The following screenshot shows the **Test report** tab.
+
+![The Test report tab for a completed Appium Node.js job.](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-test-insights/appium-node-insights-enabled-test-report-column.png)
+
+
+The following screenshot shows the same tab with **Group by class** turned off.
+
+![The Test report tab with Group by class turned off, showing a flat list of tests.](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-test-insights/appium-node-insights-enabled-test-report-without-grouping.png)
+
+
+------
+
+### Without test insights enabled
+<a name="test-types-appium-view-insights-disabled"></a>
+
 The job results show the standard test output and artifacts, but no **Test report** tab. To generate a test report, schedule a new run with test insights enabled.
 
-![The job results for a completed Appium Java TestNG job without test insights enabled.](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-test-insights/console-instrumentation-insights-disabled-test-report.png)
+![The job results for a completed job without test insights enabled.](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-test-insights/console-instrumentation-insights-disabled-test-report.png)
 
+
+### View a test report (AWS CLI)
+<a name="test-types-appium-view-insights-cli"></a>
 
 Run **get-job** and specify the job ARN:
 
@@ -727,7 +803,7 @@ If you enabled test insights, the response also includes an `insights` object. T
         "insights": {
             "status": "COMPLETED",
             "testReport": {
-                "message": "Results: 3 Executed | 1 passed, 1 failed, 1 skipped. Median test duration: 1.83 seconds.",
+                "message": "Results: 3 Executed | 1 passed | 1 failed | 1 skipped, Median test duration: 1.83 seconds.",
                 "metrics": {
                     "testsTotal": 3,
                     "testsPassed": 1,
@@ -750,7 +826,10 @@ The `testDetailsUrl` field is a presigned URL to the full test report JSON. Down
 curl -o test-report.json "{{PRESIGNED_URL}}"
 ```
 
-The following is an example test report for an Appium Java TestNG job:
+Choose your framework tab for an example test report.
+
+------
+#### [ Java (TestNG) ]
 
 ```
 {
@@ -804,6 +883,73 @@ The following is an example test report for an Appium Java TestNG job:
 }
 ```
 
+------
+#### [ Node.JS ]
+
+The following report is from a job that used the JSON reporter:
+
+```
+{
+  "version": "1.0",
+  "jobArn": "arn:aws:devicefarm:us-west-2:123456789012:job:EXAMPLE-PROJECT/EXAMPLE-RUN/00000",
+  "deviceName": "Google Pixel 8a",
+  "deviceArn": "arn:aws:devicefarm:us-west-2::device:EXAMPLEDEVICEID",
+  "deviceOsVersion": "14",
+  "metrics": {
+    "testsTotal": 3,
+    "testsPassed": 1,
+    "testsFailed": 1,
+    "testsSkipped": 1,
+    "testsErrored": 0,
+    "testsOther": 0,
+    "testsPassedPercentage": 33.33,
+    "totalTestExecutionDurationSeconds": 4.932,
+    "medianTestExecutionDurationSeconds": 1.83
+  },
+  "testDetails": [
+    {
+      "testName": "should log in with valid credentials",
+      "testClass": "Login tests",
+      "frameworkResult": "passed",
+      "result": "PASSED",
+      "durationSeconds": 1.83,
+      "startTimestamp": "2026-09-10T19:28:17.265000Z",
+      "endTimestamp": "2026-09-10T19:28:19.095000Z",
+      "specs": ["login.e2e.js"]
+    },
+    {
+      "testName": "should complete checkout",
+      "testClass": "Checkout tests",
+      "frameworkResult": "failed",
+      "result": "FAILED",
+      "durationSeconds": 3.102,
+      "startTimestamp": "2026-09-10T19:28:19.120000Z",
+      "endTimestamp": "2026-09-10T19:28:22.222000Z",
+      "stackTrace": "Error: element (\"~submit\") still not displayed after 5000ms\n    at Context.<anonymous> (./test/specs/checkout.e2e.js:24:5)",
+      "specs": ["checkout.e2e.js"]
+    },
+    {
+      "testName": "should log out",
+      "testClass": "Login tests",
+      "frameworkResult": "pending",
+      "result": "SKIPPED",
+      "durationSeconds": 0.0,
+      "specs": ["login.e2e.js"]
+    }
+  ]
+}
+```
+
+A report built from the JUnit reporter has the same shape, without the `startTimestamp` and `endTimestamp` fields.
+
+------
+
+**Note**  
+Device Farm omits any field it has no value for, so a passing test has no `stackTrace` field at all.
+
+### Test report fields
+<a name="test-types-appium-view-insights-fields"></a>
+
 The report contains the following top-level fields:
 
 `version`  
@@ -837,23 +983,67 @@ The total duration of all tests, in seconds.
 The median duration of a test, in seconds.
 
 `testDetails`  
-A list of per-test results. Each entry in `testDetails` contains the following fields:    
+A list of per-test results. The fields in each entry depend on your test framework.
+
+**Note**  
+For Appium Node.JS tests, WebdriverIO reports a test that did not run as pending, which Device Farm maps to skipped. WebdriverIO has no errored state, so a test that throws is reported as failed rather than errored.
+
+Choose your framework tab to see the fields in each `testDetails` entry.
+
+------
+#### [ Java (TestNG) ]
+
 `testName`  
-The name of the test method.  
+The name of the test method.
+
 `testClass`  
-The name of the test class.  
+The name of the test class.
+
 `result`  
-The Device Farm result for the test.  
+The Device Farm result for the test.
+
 `frameworkResult`  
-The result that TestNG reported (`PASS`, `FAIL`, or `SKIP`). Device Farm maps this value to the normalized `result` field.  
+The result that TestNG reported (`PASS`, `FAIL`, or `SKIP`). Device Farm maps this value to the normalized `result` field.
+
 `durationSeconds`  
-The duration of the test, in seconds.  
+The duration of the test, in seconds.
+
 `startTimestamp`  
-The time when the test started.  
+The time when the test started.
+
 `endTimestamp`  
-The time when the test ended.  
+The time when the test ended.
+
 `params`  
-For a parameterized test, the parameter values that TestNG passed to the test.  
+For a parameterized test, the parameter values that TestNG passed to the test.
+
+`stackTrace`  
+For a failed test, the stack trace of the failure.
+
+------
+#### [ Node.JS ]
+
+`testName`  
+The name of the test.
+
+`testClass`  
+The name of the suite that contains the test. Node.js tests have no test class, so Device Farm reports the suite name in this field.
+
+`result`  
+The Device Farm result for the test.
+
+`frameworkResult`  
+The state that WebdriverIO reported. The JSON reporter reports `passed`, `failed`, `skipped`, or `pending`. The JUnit reporter reports only `passed`, `failed`, or `skipped`, because it records a pending test as skipped. Device Farm maps this value to the normalized `result` field.
+
+`durationSeconds`  
+The duration of the test, in seconds.
+
+`startTimestamp` and `endTimestamp`  
+The time when the test started and ended. Present only in a report built from the JSON reporter, and only for a test that ran. The JUnit reporter records only a suite-level timestamp, with no time zone and no subsecond precision, so Device Farm omits these fields rather than report a time it cannot place. A pending test never started, so these fields are omitted for it on both routes.
+
+`specs`  
+The names of the spec files that the test came from. WebdriverIO runs your spec files in parallel, so the same suite and test title can appear more than once in a job. This field tells those runs apart. It can name several spec files. That happens when one WebdriverIO runner handles a group of spec files, or when Device Farm reads a merged JSON report, which does not record which runner each suite came from.
+
 `stackTrace`  
 For a failed test, the stack trace of the failure.
 

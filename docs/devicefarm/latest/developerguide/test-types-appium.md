@@ -23,7 +23,7 @@ For more information about testing in Device Farm and how server-side works, see
 ### Scenario 1: Pre-configured Appium version
 <a name="w2aac24c15c41b7b1"></a>
 
- Device Farm comes pre-configured with different Appium server versions based on the test host. The host comes with tooling that enables the pre-configured version with the device platform's default driver (UiAutomator2 for Android, and XCUITest for iOS). For example, on the macos\_tahoe test host, Appium 3 is the default version and comes preinstalled with a compatible XCUITest driver for iOS. 
+ Device Farm comes pre-configured with different Appium server versions based on the test host. The host comes with tooling that enables the pre-configured version with the device platform's default driver (UiAutomator2 for Android, and XCUITest for iOS). For example, on the `macos_tahoe` test host, Appium 3 is the default version and comes preinstalled with a compatible XCUITest driver for iOS. 
 
 ```
 phases:

@@ -5,7 +5,7 @@
 
 **Warning**  
 We strongly recommend using the VPC-ENI connectivity described on [this](https://docs.aws.amazon.com/devicefarm/latest/developerguide/vpc-eni.html) page for private endpoint connectivity as VPCE is now considered a legacy feature. VPC-ENI provides more flexibility, simpler configurations, is more cost efficient, and requires significantly less maintenance overhead when compared to the VPCE connectivity method.  
-VPC endpoint (VPCE) connectivity is not supported on newer test hosts, including macos\_tahoe. To run tests that require private connectivity on these hosts, use VPC-ENI.
+VPC endpoint (VPCE) connectivity is not supported on newer test hosts, including `amazon_linux_2023` and `macos_tahoe`. To run tests that require private connectivity on these hosts, use VPC-ENI.
 
 **Note**  
 Using Amazon VPC Endpoint Services with Device Farm is only supported for customers with configured private devices. To enable your AWS account to use this feature with private devices, please [contact us](mailto:aws-devicefarm-support@amazon.com).

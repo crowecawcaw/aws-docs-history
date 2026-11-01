@@ -24,7 +24,7 @@ Reports in Device Farm contain pass and fail information, crash reports, test an
 ### Test Insights
 <a name="reports-test-insights"></a>
 
-For supported frameworks such as Appium TestNG, XCUI, and Instrumentation, Device Farm provides an optional **Test Insights** report. Test Insights include the following information:
+For supported frameworks such as Appium TestNG, Appium Node.js, XCUI, and Instrumentation, Device Farm provides an optional **Test Insights** report. Test Insights include the following information:
 + Passed, failed, skipped, and errored test counts for each job and for each run
 + Detailed test output with timestamps and stack traces for each test, where applicable
 + Median test execution time for each job, and median and average job execution duration for each run

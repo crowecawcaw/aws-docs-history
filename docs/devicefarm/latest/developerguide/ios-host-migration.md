@@ -75,7 +75,7 @@
 ### Step 3: Using Appium and its dependencies via the software selection tooling
 <a name="ios-host-migration-console-tutorial-step3"></a>
 
- Explicitly select the Appium version using the `devicefarm-cli`. On the macos\_tahoe test host, Appium 3 is the default version: 
+ Explicitly select the Appium version using the `devicefarm-cli`. On the `macos_tahoe` test host, Appium 3 is the default version: 
 
 ```
 - devicefarm-cli use appium 3 # Selects the version

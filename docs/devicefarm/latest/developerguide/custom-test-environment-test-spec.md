@@ -96,7 +96,7 @@ A test spec must be formatted as a valid YAML file. If the indenting or spacing 
 version: 0.1
 
 # The following field(s) allow you to select which Device Farm test host is used for your test run.
-android_test_host: {{amazon_linux_2}}
+android_test_host: {{amazon_linux_2023}}
 
 # Let Device Farm automatically select the iOS test host based on the device's iOS version.
 ios_test_host: default
@@ -139,7 +139,7 @@ artifacts:
 version: 0.1
 
 # The following fields(s) allow you to select which Device Farm test host is used for your test run. 
-android_test_host: {{amazon_linux_2}}
+android_test_host: {{amazon_linux_2023}}
 
 phases:
 
@@ -152,7 +152,7 @@ phases:
     commands:
       # The Appium server is written using Node.js. In order to run your desired version of Appium,
       # you first need to set up a Node.js environment that is compatible with your version of Appium.
-      - devicefarm-cli use node 22
+      - devicefarm-cli use node 24
       - node --version
 
       # Use the devicefarm-cli to select a preinstalled major version of Appium.
@@ -182,7 +182,7 @@ phases:
       - export APPIUM_BASE_PATH=
 
       # Use the devicefarm-cli to setup a Java environment, with which you can run your test suite.
-      - devicefarm-cli use java 17
+      - devicefarm-cli use java 25
       - java -version
 
   # The pre-test phase contains commands for setting up your test environment.
@@ -426,7 +426,7 @@ artifacts:
 version: 0.1
 
 # The following fields(s) allow you to select which Device Farm test host is used for your test run. 
-android_test_host: {{amazon_linux_2}}
+android_test_host: {{amazon_linux_2023}}
 ios_test_host: {{macos_tahoe}}
 
 phases:
@@ -440,7 +440,7 @@ phases:
     commands:
       # The Appium server is written using Node.js. In order to run your desired version of Appium,
       # you first need to set up a Node.js environment that is compatible with your version of Appium.
-      - devicefarm-cli use node 22
+      - devicefarm-cli use node 24
       - node --version
 
       # Use the devicefarm-cli to select a preinstalled major version of Appium.
@@ -481,7 +481,7 @@ phases:
       - export APPIUM_BASE_PATH=
 
       # Use the devicefarm-cli to setup a Java environment.
-      - devicefarm-cli use java 17
+      - devicefarm-cli use java 25
       - java -version
 
   # The pre-test phase contains commands for setting up your test environment.

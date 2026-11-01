@@ -3,19 +3,22 @@
 # Skipping app re-signing on private devices in AWS Device Farm
 <a name="skip-app-re-signing-on-private-devices"></a>
 
-App signing is a process that involves digitally signing an app package (e.g., [APK](https://developer.android.com/studio/publish/app-signing), [IPA](https://support.apple.com/guide/security/app-code-signing-process-sec7c917bf14/web)) with a private key before it can be installed on a device or published to an app store like the Google Play Store or the Apple App Store. To streamline testing by reducing the number of signatures and profiles needed and increase data security on remote devices, AWS Device Farm will re-sign your app after it has been uploaded to the service.
+App signing is a process that involves digitally signing an app package (e.g., [APK](https://developer.android.com/studio/publish/app-signing), [IPA](https://support.apple.com/guide/security/app-code-signing-process-sec7c917bf14/web)) with a private key before it can be installed on a device or published to an app store like the Google Play Store or the Apple App Store. To streamline testing by reducing the number of signatures and profiles needed and increase data security on remote devices, AWS Device Farm re-signs your app after it has been uploaded to the service, except for Android test runs on the `amazon_linux_2023` test host.
 
-Once you upload your app to AWS Device Farm, the service will generate a new signature for the app using its own signing certificates and provisioning profiles. This process replaces the original app signature with AWS Device Farm's signature. The re-signed app is then installed on the test devices provided by AWS Device Farm. The new signature allows the app to be installed and run on these devices without the need for the original developer's certificates.
+When AWS Device Farm re-signs your app, the service generates a new signature for the app using its own signing certificates and provisioning profiles. This process replaces the original app signature with AWS Device Farm's signature. The re-signed app is then installed on the test devices provided by AWS Device Farm. The new signature allows the app to be installed and run on these devices without the need for the original developer's certificates.
 
 On iOS, we replace the embedded provisioning profile with a wildcard profile and re-sign the app. If you provide it, we will add auxiliary data to the application package before installation so the data will be present in your app’s sandbox. Re-signing the iOS app results in the removal of all entitlements.
 
-On Android, we re-sign the app. This may break functionality that depends on the app signature, such as the Google Maps Android API. It may also trigger anti-piracy and anti-tamper detection available from products such as DexGuard. For built-in tests, we may modify the manifest to include permissions required to capture and save screenshots.
+On Android, re-signing the app might break functionality that depends on the app signature, such as the Google Maps Android API. It may also trigger anti-piracy and anti-tamper detection available from products such as DexGuard. For built-in tests, we may modify the manifest to include permissions required to capture and save screenshots.
 
-When you use private devices, you can skip the step where AWS Device Farm re-signs your app. This is different from public devices, where Device Farm always re-signs your app on the Android and iOS platforms.
+When you use private devices, you can skip the step where AWS Device Farm re-signs your app. This is different from public devices, where Device Farm re-signs your app on iOS and, on the `amazon_linux_2` test host, on Android.
+
+**Note**  
+On the `amazon_linux_2023` test host, Device Farm skips app re-signing for Android test runs by default, on both public and private devices. To have Device Farm re-sign your app, clear **Skip app re-signing** in the console, or set `skipAppResign` to `false` in your `ScheduleRun` request. For more information, see [Re-signing apps](apps.md#test-runs-app-resigning).
 
 You can skip app re-signing when you create a remote access session or a test run. This can be helpful if your app has functionality that breaks when Device Farm re-signs your app. For example, push notifications might not work after re-signing. For more information about the changes that Device Farm makes when it tests your app, see the [AWS Device Farm FAQs](https://aws.amazon.com/device-farm/faq/) or the [Apps](https://docs.aws.amazon.com/devicefarm/latest/developerguide/apps.html) page.
 
-To skip app re-signing for a test run, select **Skip app re-signing** under **Additional configuration**. This option is only available for private devices.
+To skip app re-signing for a test run, select **Skip app re-signing** under **Additional configuration**.
 
 ![Select Skip app re-signing when using private device instances on a test run](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-skip-app-re-signing.png)
 
@@ -30,7 +33,7 @@ Additional steps for configuring your app-signing settings vary, depending on wh
 ## Skipping app re-signing on Android devices
 <a name="signing-apps-on-android-devices"></a>
 
-If you're testing your app on a private Android device, select **Skip app re-signing** when you create your test run or your remote access session. No other configuration is required.
+If you're testing your app on a private Android device, select **Skip app re-signing** when you create your test run or your remote access session. Sign your app and test package yourself before you upload them. No other configuration is required.
 
 ## Skipping app re-signing on iOS devices
 <a name="signing-apps-on-ios-devices"></a>
