@@ -523,7 +523,9 @@ Output:
         {
             "SongTitle": {
                 "S": "Call Me Today"
-            },
+            }
+        },
+        {
             "SongTitle": {
                 "S": "Scared of My Shadow"
             }
@@ -539,7 +541,7 @@ Output:
 ```
 For more information, see [Working with Queries in DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.html) in the *Amazon DynamoDB Developer Guide*.  
 **Example 2: To query a table using strongly consistent reads and traverse the index in descending order**  
-The following example performs the same query as the first example, but returns results in reverse order and uses strongly consistent reads.  
+The following `query` example performs the same query as the first example, but returns results in reverse order and uses strongly consistent reads.  
 
 ```
 aws dynamodb query \
@@ -584,7 +586,7 @@ Output:
 ```
 For more information, see [Working with Queries in DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.html) in the *Amazon DynamoDB Developer Guide*.  
 **Example 3: To filter out specific results**  
-The following example queries the `MusicCollection` but excludes results with specific values in the `AlbumTitle` attribute. Note that this does not affect the `ScannedCount` or `ConsumedCapacity`, because the filter is applied after the items have been read.  
+The following `query` example queries the `MusicCollection` but excludes results with specific values in the `AlbumTitle` attribute. Note that this does not affect the `ScannedCount` or `ConsumedCapacity`, because the filter is applied after the items have been read.  
 
 ```
 aws dynamodb query \
@@ -639,7 +641,7 @@ Output:
 ```
 For more information, see [Working with Queries in DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.html) in the *Amazon DynamoDB Developer Guide*.  
 **Example 4: To retrieve only an item count**  
-The following example retrieves a count of items matching the query, but does not retrieve any of the items themselves.  
+The following `query` example retrieves a count of items matching the query, but does not retrieve any of the items themselves.  
 
 ```
 aws dynamodb query \
@@ -666,7 +668,7 @@ Output:
 ```
 For more information, see [Working with Queries in DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.html) in the *Amazon DynamoDB Developer Guide*.  
 **Example 5: To query an index**  
-The following example queries the local secondary index `AlbumTitleIndex`. The query returns all attributes from the base table that have been projected into the local secondary index. Note that when querying a local secondary index or global secondary index, you must also provide the name of the base table using the `table-name` parameter.  
+The following `query` example queries the local secondary index `AlbumTitleIndex`. The query returns all attributes from the base table that have been projected into the local secondary index. Note that when querying a local secondary index or global secondary index, you must also provide the name of the base table using the `table-name` parameter.  
 
 ```
 aws dynamodb query \

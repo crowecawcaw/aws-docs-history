@@ -313,7 +313,7 @@ Output:
 ```
 For more information, see [Reading an Item](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html#WorkingWithItems.ReadingData) in the *Amazon DynamoDB Developer Guide*.  
 **Example 2: To read an item using a consistent read**  
-The following example retrieves an item from the `MusicCollection` table using strongly consistent reads.  
+The following `get-item` example retrieves an item from the `MusicCollection` table using strongly consistent reads.  
 
 ```
 aws dynamodb get-item \
@@ -353,7 +353,7 @@ Output:
 ```
 For more information, see [Reading an Item](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html#WorkingWithItems.ReadingData) in the *Amazon DynamoDB Developer Guide*.  
 **Example 3: To retrieve specific attributes of an item**  
-The following example uses a projection expression to retrieve only three attributes of the desired item.  
+The following `get-item` example uses a projection expression to retrieve only three attributes of the desired item.  
 
 ```
 aws dynamodb get-item \

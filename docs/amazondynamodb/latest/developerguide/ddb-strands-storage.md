@@ -257,7 +257,7 @@ The [package README](https://github.com/aws/strands-dynamodb-storage) carries th
 
 ## Considerations
 <a name="strands-considerations"></a>
-+ A vector index's name, dimensions, and distance function are immutable after creation, and a newly created index backfills before it is searchable. A table supports up to five vector indexes, so adopting a different configuration later means adding an index, not rebuilding the table.
++ A vector index's name, dimensions, and distance function are immutable after creation, and a newly created index backfills before it is searchable. A table supports 5 vector indexes by default, and you can request up to 20, so adopting a different configuration later means adding an index, not rebuilding the table.
 + Vector indexes are eventually consistent, the same model as a global secondary index. A memory written moments ago may take a short time to become searchable.
 + Time to Live expiry filtering applies to read and list operations. Because Time to Live deletion is asynchronous, a search can briefly return items whose expiry has passed but which DynamoDB has not yet physically removed.
 + Listing requires a prefix that covers at least a full scope and identifier. Broad listings such as an empty prefix are rejected; the package never falls back to a table scan.

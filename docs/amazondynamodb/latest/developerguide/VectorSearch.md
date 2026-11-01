@@ -49,7 +49,7 @@ The following table compares vector indexes with global secondary indexes and lo
 | Query type | Similarity search | Exact match and range | Exact match and range | 
 | Read API | SearchVectors | Query, Scan | Query, Scan | 
 | Schema | Vector attribute, plus optional SearchSchema (partition key, inline filters) | Partition key(s) and optional sort key(s) | Same partition key, different sort key | 
-| Maximum per table | 5 | 20 | 5 | 
+| Maximum per table | 5 (adjustable up to 20) | 20 | 5 | 
 | Capacity mode | On-demand only | On-demand or provisioned | On-demand or provisioned | 
 
 ## Distance functions

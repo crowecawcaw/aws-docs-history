@@ -142,7 +142,7 @@ The following quotas apply to vector indexes.
 
 | Quota | Default | Adjustable | 
 | --- | --- | --- | 
-| Vector indexes per table | 5 | Yes (contact AWS Support) | 
+| Vector indexes per table | 5 | Yes, up to 20 (contact AWS Support) | 
 | Maximum dimensions per vector index | 4,096 | No | 
 | Maximum TopK per SearchVectors request | 100 | No | 
 | Maximum partition keys (HASH) per vector index | 1 | No | 
@@ -151,6 +151,8 @@ The following quotas apply to vector indexes.
 | Number of inline filters per vector index | 18 | No | 
 | Maximum base table size for vector index creation without allowlisting | 600 GB | Yes (contact AWS Support) | 
 | Concurrent vector index creations or deletions per table | 1 | No | 
+
+You can request an increase to a maximum of 20 vector indexes per table. Vector indexes count toward the per-table quota for global secondary indexes, which has a default of 20. For example, with the default quota, a table with 15 vector indexes can have up to 5 other global secondary indexes.
 
 **Example.** With a 768-dimensional embedding (such as Cohere Embed v3) and 1 KB of non-vector item data, each item is approximately 4 KB. At this item size, the per-partition-key throughput limits support approximately 250,000 vectors examined per second (1 GBps ÷ 4 KB) and 2,500 vector writes per second (10 MBps ÷ 4 KB). As the number of vectors in a partition grows, each search examines more data and you will approach the search limit sooner. Throughput scales linearly across partition key values. If your workload exceeds these limits, contact AWS Support.
 
