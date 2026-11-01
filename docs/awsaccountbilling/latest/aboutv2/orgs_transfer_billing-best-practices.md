@@ -21,6 +21,23 @@ Before you proceed with transfer billing from your bill source account, we stron
 **Important**  
 Downloading these billing artifacts helps ensure that you maintain access to your historical billing data after the billing transfer is complete.
 
+## Recreating your Cost and Usage Reports with the primary billing view
+<a name="orgs_transfer_billing-best-practices-cur"></a>
+
+In the bill source account, delete and recreate each applicable AWS Cost and Usage Report with the same settings, but specify the ARN of the account's primary billing view. Complete this step before the billing transfer start date. As a best practice, complete it before you accept the billing transfer invitation.
+
+To specify the primary billing view in the console, create the report on the **Data Exports** page and choose **Primary view** as the billing view. The legacy **Cost and Usage Reports** page doesn't support billing views. If you use the AWS CLI or API, set `BillingViewArn` (legacy CUR) or the `BILLING_VIEW_ARN` table configuration (CUR 2.0) to `arn:aws:billing::{{account-id}}:billingview/primary`.
+
+Reports created without a billing view ARN also appear as **Primary view** in the console, so recreate them even if they already show **Primary view**. Deleting a report doesn't delete the report files already delivered to your Amazon S3 bucket.
+
+For more information about creating reports based on a billing view, see [Creating exports with billing views](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-create-billing-view.html).
+
+**Important**  
+If you don't recreate the reports before the billing transfer start date, AWS doesn't finalize the report for the last billing period before the transfer. For example, if billing transfer starts on April 1, AWS doesn't update the March report with the invoice ID, and the report might be missing usage data.
+
+**Note**  
+This step doesn't replace creating reports for billing transfer views in the bill transfer account after billing transfer becomes active.
+
 ## Prerequisites
 <a name="orgs_transfer_billing-best-practices-prereq"></a>
 
@@ -56,6 +73,7 @@ In the AWS Billing and Cost Management console, choose **Preferences and Setting
 **Important**  
 Before proceeding with billing transfer:  
 Back up AWS Cost and Usage Report and AWS Budgets data from bill source accounts before billing transfer becomes active.  
+In bill source accounts, recreate existing AWS Cost and Usage Reports with the primary billing view before billing transfer becomes active. For more information, see [Recreating your Cost and Usage Reports with the primary billing view](#orgs_transfer_billing-best-practices-cur).  
 Create new AWS Cost and Usage Report preferences after billing transfer is active, as existing preferences become unhealthy and stop receiving data. Disable the split cost allocation data functionality when creating AWS Cost and Usage Report preferences.
 
 ### Option 2: Create an AWS organization before setting up billing transfer
@@ -178,6 +196,7 @@ In the AWS Billing and Cost Management console, choose **Preferences and Setting
 Before proceeding:  
 Wait for billing transfer to become active on the start date specified in the invitation.  
 Back up AWS Cost and Usage Report and AWS Budgets data from bill source accounts before billing transfer becomes active.  
+In bill source accounts, recreate existing AWS Cost and Usage Reports with the primary billing view before billing transfer becomes active. For more information, see [Recreating your Cost and Usage Reports with the primary billing view](#orgs_transfer_billing-best-practices-cur).  
 Create new AWS Cost and Usage Report preferences after billing transfer is active, as existing preferences become unhealthy and stop receiving data. Disable the split cost allocation data functionality when creating AWS Cost and Usage Report preferences.
 
 **Step 3: Prepare for root access transfer**

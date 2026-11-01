@@ -18,20 +18,16 @@ Before you set up an interface endpoint for Billing and Cost Management, review 
 
 Billing and Cost Management supports making calls to all of its API actions through the interface endpoint.
 
-VPC endpoint policies are not supported for Billing and Cost Management. By default, full access to Billing and Cost Management is allowed through the interface endpoint. Alternatively, you can associate a security group with the endpoint network interfaces to control traffic to Billing and Cost Management through the interface endpoint.
-
 ## Create an interface endpoint for Billing and Cost Management
 <a name="vpc-endpoint-create"></a>
 
 You can create an interface endpoint for Billing and Cost Management using either the Amazon VPC console or the AWS Command Line Interface (AWS CLI). For more information, see [Create an interface endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html#create-interface-endpoint-aws) in the *AWS PrivateLink Guide*.
 
-Create an interface endpoint for Billing and Cost Management using the following service name:
+Create an interface endpoint for Billing and Cost Management using the following service names. Replace {{region}} with the AWS Region that you're using.
++ `com.amazonaws.{{region}}.billing`
++ `com.amazonaws.{{region}}.freetier`
 
-```
-com.amazonaws.{{region}}.service-name
-```
-
-If you enable private DNS for the interface endpoint, you can make API requests to Billing and Cost Management using its default Regional DNS name. For example, `service-name.us-east-1.amazonaws.com`.
+If you enable private DNS for the interface endpoint, you can make API requests to Billing and Cost Management using its default Regional DNS name. For example, `billing.us-east-1.api.aws`.
 
 ## Create an endpoint policy for your interface endpoint
 <a name="vpc-endpoint-policy"></a>
@@ -45,14 +41,14 @@ An endpoint policy specifies the following information:
 
 For more information, see [Control access to services using endpoint policies](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-access.html) in the *AWS PrivateLink Guide*.
 
-**Example: VPC endpoint policy for AWS Price List API**  
-The following is an example of a custom endpoint policy. When you attach this policy to your interface endpoint, all users that have access to the endpoint are can access AWS Price List API.
+**Example – VPC endpoint policy for Billing and Cost Management actions**  
+The following is an example of a custom endpoint policy. When you attach this policy to your interface endpoint, principals that have access to the endpoint can list billing views. All other Billing and Cost Management actions through the endpoint are denied.
 
 ```
 {
     "Statement": [
         {
-            "Action": "pricing:*",
+            "Action": "billing:ListBillingViews",
             "Effect": "Allow",
             "Principal": "*",
             "Resource": "*"
@@ -60,5 +56,3 @@ The following is an example of a custom endpoint policy. When you attach this po
     ]
 }
 ```
-
-To use the bulk file download for Price List API through AWS PrivateLink, you must also enable Amazon S3 access through AWS PrivateLink. For more information, see [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) in the *Amazon S3 User Guide*.

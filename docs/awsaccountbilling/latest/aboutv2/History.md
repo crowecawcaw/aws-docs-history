@@ -7,6 +7,8 @@ The following table describes the documentation for this release of the *AWS Bil
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Updated documentation for AWS managed policies](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/managed-policies.html) | `Billing` and `AWSBillingReadOnlyAccess` – Updated existing managed policies to add Private Pricing permissions. | October 27, 2026 | 
+| [Added CloudTrail events for Private Pricing](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/logging-using-cloudtrail.html) | Added the Private Pricing CloudTrail events, which use the `billing.amazonaws.com` event source. | October 27, 2026 | 
 | [Updated documentation for AWS managed policies](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/managed-policies.html) | `Billing` and `AWSBillingReadOnlyAccess` – Updated existing managed policies to add the `invoicing:ListProcurementPortals` and `invoicing:ListProcurementPortalSuppliers`. | July 31, 2026 | 
 | [Deprecated Customer Carbon Footprint Tool](#History) | Removed the Customer Carbon Footprint Tool sections as the tool was deprecated in favor of the new [AWS Sustainability service](https://docs.aws.amazon.com/sustainability/latest/userguide). | June 30, 2026 | 
 | [Updated documentation for AWS managed policies](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/managed-policies.html) | `Billing` and `AWSBillingReadOnlyAccess` – Updated existing managed policies to add the `ce:ListCostCategoryResourceAssociations`. | April 8, 2026 | 

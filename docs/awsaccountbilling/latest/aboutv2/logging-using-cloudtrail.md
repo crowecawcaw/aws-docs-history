@@ -172,6 +172,25 @@ This section shows a full list of the CloudTrail events for the **Invoicing** fe
 | `ListInvoiceUnits` | Logs the retrieval and listing of invoice units. | 
 | `UpdateInvoiceUnit` | Logs the update of an invoice unit. | 
 
+### Private Pricing CloudTrail events
+<a name="billing-private-pricing-cloudtrail-events"></a>
+
+This section shows a full list of the CloudTrail events for the **Private Pricing** feature in the AWS Billing console. These CloudTrail events use `billing.amazonaws.com`.
+
+
+
+| Event name | Definition | 
+| --- | --- | 
+| `AssociateContract` | Logs verifying access to a Private Pricing contract. | 
+| `CancelContractualInvestmentAttestation` | Logs the cancellation of an investment attestation. | 
+| `CreateContractualInvestmentAttestation` | Logs the creation of an attestation for an outcome-based investment. | 
+| `DisassociateContract` | Logs removing access to a Private Pricing contract. | 
+| `GetContractInformation` | Logs the retrieval of the details of a Private Pricing contract. | 
+| `ListContracts` | Logs the retrieval and listing of the Private Pricing contracts available to an account. | 
+| `ListContractualInvestmentAttestations` | Logs the retrieval and listing of the investment attestations for a Private Pricing contract. | 
+| `ListContractualInvestments` | Logs the retrieval and listing of the outcome-based investments for a Private Pricing contract. | 
+| `ListContractualInvestmentSummaries` | Logs the retrieval and listing of the investment summaries for a Private Pricing contract. | 
+
 ## Billing and Cost Management information in CloudTrail
 <a name="service-name-info-in-cloudtrail"></a>
 
