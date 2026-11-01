@@ -15,6 +15,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 **To create an asset model**  
 The following `create-asset-model` example creates an asset model that defines a wind turbine with the following properties:  
 Serial number - The serial number of a wind turbineGenerated power - The generated power data stream from a wind turbineTemperature C - The temperature data stream from a wind turbine in CelsiusTemperature F - The mapped temperature data points from Celsius to Fahrenheit  
+The asset model definition is in the `create-wind-turbine-model.json` file.  
 
 ```
 aws iotsitewise create-asset-model \
@@ -98,8 +99,8 @@ Output:
 
 ```
 {
-    "assetModelId": "a1b2c3d4-5678-90ab-cdef-11111EXAMPLE",
-    "assetModelArn": "arn:aws:iotsitewise:us-west-2:123456789012:asset-model/a1b2c3d4-5678-90ab-cdef-11111EXAMPLE",
+    "assetModelId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "assetModelArn": "arn:aws:iotsitewise:us-west-2:123456789012:asset-model/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
     "assetModelStatus": {
         "state": "CREATING"
     }

@@ -17,19 +17,19 @@ The following `describe-asset-model` example describes a wind farm asset model.
 
 ```
 aws iotsitewise describe-asset-model \
-    --asset-model-id {{a1b2c3d4-5678-90ab-cdef-22222EXAMPLE}}
+    --asset-model-id {{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}
 ```
 Output:  
 
 ```
 {
-    "assetModelId": "a1b2c3d4-5678-90ab-cdef-22222EXAMPLE",
-    "assetModelArn": "arn:aws:iotsitewise:us-west-2:123456789012:asset-model/a1b2c3d4-5678-90ab-cdef-22222EXAMPLE",
+    "assetModelId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "assetModelArn": "arn:aws:iotsitewise:us-west-2:123456789012:asset-model/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
     "assetModelName": "Wind Farm Model",
     "assetModelDescription": "Represents a wind farm that comprises many wind turbines",
     "assetModelProperties": [
         {
-            "id": "a1b2c3d4-5678-90ab-cdef-99999EXAMPLE",
+            "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
             "name": "Total Generated Power",
             "dataType": "DOUBLE",
             "unit": "kW",
@@ -40,8 +40,8 @@ Output:
                         {
                             "name": "power",
                             "value": {
-                                "propertyId": "a1b2c3d4-5678-90ab-cdef-66666EXAMPLE",
-                                "hierarchyId": "a1b2c3d4-5678-90ab-cdef-77777EXAMPLE"
+                                "propertyId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+                                "hierarchyId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444"
                             }
                         }
                     ],
@@ -54,7 +54,7 @@ Output:
             }
         },
         {
-            "id": "a1b2c3d4-5678-90ab-cdef-88888EXAMPLE",
+            "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE55555",
             "name": "Region",
             "dataType": "STRING",
             "type": {
@@ -66,9 +66,9 @@ Output:
     ],
     "assetModelHierarchies": [
         {
-            "id": "a1b2c3d4-5678-90ab-cdef-77777EXAMPLE",
+            "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
             "name": "Wind Turbines",
-            "childAssetModelId": "a1b2c3d4-5678-90ab-cdef-11111EXAMPLE"
+            "childAssetModelId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE66666"
         }
     ],
     "assetModelCreationDate": 1575671284.0,
@@ -78,7 +78,7 @@ Output:
     }
 }
 ```
-For more information, see [Describing a specific asset model](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/discover-asset-resources.html#describe-asset-model) in the *AWS IoT SiteWise User Guide*.  
+For more information, see [Check the status of an asset or component model](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/check-model-status.html) in the *AWS IoT SiteWise User Guide*.  
 +  For API details, see [DescribeAssetModel](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iotsitewise/describe-asset-model.html) in *AWS CLI Command Reference*. 
 
 ------
