@@ -230,7 +230,7 @@ For information about patch compliance status values, see [Patch compliance stat
 
 On AlmaLinux, Red Hat Enterprise Linux (RHEL), and Rocky Linux, the patch selection process is as follows:
 
-1. On the managed node, the YUM library (RHEL 7) or the DNF library (AlmaLinux 8 and 9, RHEL 8, 9, and 10, and Rocky Linux 8 and 9) accesses the `updateinfo.xml` file for each configured repo.
+1. On the managed node, the YUM library (RHEL 7) or the DNF library (AlmaLinux 8 and 9, RHEL 8, 9, and 10, and Rocky Linux 8, 9, and 10) accesses the `updateinfo.xml` file for each configured repo.
 **Note**  
 The `updateinfo.xml` file might not be available if the repo isn't one managed by Red Hat. If there is no `updateinfo.xml` found, whether patches are installed depend on settings for **Include non-security updates** and **Auto-approval**. For example, if non-security updates are permitted, they're installed when the auto-approval time arrives.
 
@@ -265,8 +265,8 @@ The `updateinfo.xml` file might not be available if the repo isn't one managed b
   <tr><th>Security option</th><th>Patch selection</th></tr>
 </thead>
 <tbody>
-  <tr><td>Pre-defined default patch baselines provided by AWS and custom patch baselines where the <b>Include non-security updates</b> check box is <i>not</i> selected in any rule</td><td>For each update notice in <code>updateinfo.xml</code>, the patch baseline is used as a filter, allowing only the qualified packages to be included in the update. If multiple packages are applicable after applying the patch baseline definition, the latest version is used.<br />For RHEL 7, the equivalent yum command for this workflow is:<pre>sudo yum update-minimal --sec-severity=Critical,Important --bugfix -y</pre><br />For AlmaLinux 8 and 9, RHEL 8, 9, and 10, and Rocky Linux 8 and 9, the equivalent dnf command for this workflow is:<pre>sudo dnf upgrade-minimal --sec-severity=Critical --sec-severity=Important --bugfix -y</pre></td></tr>
-  <tr><td>Custom patch baselines where the <b>Include non-security updates</b> check box <i>is</i> selected with a SEVERITY list of <code>[Critical, Important]</code> and a CLASSIFICATION list of <code>[Security, Bugfix]</code></td><td>Besides applying the security updates that were selected from <code>updateinfo.xml</code>, Patch Manager applies nonsecurity updates that otherwise meet the patch filtering rules.<br />For RHEL 7, the equivalent yum command for this workflow is:<pre>sudo yum update --security --sec-severity=Critical,Important --bugfix -y</pre><br />For AlmaLinux 8 and 9, RHEL 8, 9, and 10, and Rocky Linux 8 and 9, the equivalent dnf command for this workflow is:<pre>sudo dnf upgrade --sec-severity=Critical --sec-severity=Important --bugfix -y</pre> New packages that replace now-obsolete packages with different names are installed if you run these <code>yum</code> or <code>dnf</code> commands outside of Patch Manager. However, they are <i>not</i> installed by the equivalent Patch Manager operations. </td></tr>
+  <tr><td>Pre-defined default patch baselines provided by AWS and custom patch baselines where the <b>Include non-security updates</b> check box is <i>not</i> selected in any rule</td><td>For each update notice in <code>updateinfo.xml</code>, the patch baseline is used as a filter, allowing only the qualified packages to be included in the update. If multiple packages are applicable after applying the patch baseline definition, the latest version is used.<br />For RHEL 7, the equivalent yum command for this workflow is:<pre>sudo yum update-minimal --sec-severity=Critical,Important --bugfix -y</pre><br />For AlmaLinux 8 and 9, RHEL 8, 9, and 10, and Rocky Linux 8, 9, and 10, the equivalent dnf command for this workflow is:<pre>sudo dnf upgrade-minimal --sec-severity=Critical --sec-severity=Important --bugfix -y</pre></td></tr>
+  <tr><td>Custom patch baselines where the <b>Include non-security updates</b> check box <i>is</i> selected with a SEVERITY list of <code>[Critical, Important]</code> and a CLASSIFICATION list of <code>[Security, Bugfix]</code></td><td>Besides applying the security updates that were selected from <code>updateinfo.xml</code>, Patch Manager applies nonsecurity updates that otherwise meet the patch filtering rules.<br />For RHEL 7, the equivalent yum command for this workflow is:<pre>sudo yum update --security --sec-severity=Critical,Important --bugfix -y</pre><br />For AlmaLinux 8 and 9, RHEL 8, 9, and 10, and Rocky Linux 8, 9, and 10, the equivalent dnf command for this workflow is:<pre>sudo dnf upgrade --sec-severity=Critical --sec-severity=Important --bugfix -y</pre> New packages that replace now-obsolete packages with different names are installed if you run these <code>yum</code> or <code>dnf</code> commands outside of Patch Manager. However, they are <i>not</i> installed by the equivalent Patch Manager operations. </td></tr>
 </tbody>
 </table>
 
@@ -311,6 +311,7 @@ Because it's not possible to reliably determine the release dates of update pack
    + Ubuntu Server 22.04 LTS: `jammy-security`
    + Ubuntu Server 24.04 LTS: `noble-security`
    + Ubuntu Server 25.04: `plucky-security`
+   + Ubuntu Server 26.04 LTS: `resolute-security`
 
    If nonsecurity updates are included, patches from other repositories are considered as well.
 

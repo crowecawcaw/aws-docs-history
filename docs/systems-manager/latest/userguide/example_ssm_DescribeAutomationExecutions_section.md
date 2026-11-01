@@ -14,7 +14,7 @@ The following `describe-automation-executions` example displays details about an
 
 ```
 aws ssm describe-automation-executions \
-    --filters {{Key=ExecutionId,Values=73c8eef8-f4ee-4a05-820c-e354fEXAMPLE}}
+    --filters {{Key=ExecutionId,Values=a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}
 ```
 Output:  
 
@@ -22,7 +22,7 @@ Output:
 {
     "AutomationExecutionMetadataList": [
         {
-            "AutomationExecutionId": "73c8eef8-f4ee-4a05-820c-e354fEXAMPLE",
+            "AutomationExecutionId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
             "DocumentName": "AWS-StartEC2Instance",
             "DocumentVersion": "1",
             "AutomationExecutionStatus": "Success",

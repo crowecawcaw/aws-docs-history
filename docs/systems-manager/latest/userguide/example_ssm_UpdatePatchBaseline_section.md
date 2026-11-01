@@ -14,9 +14,9 @@ The following `update-patch-baseline` example adds the specified two patches as 
 
 ```
 aws ssm update-patch-baseline \
-        --baseline-id {{"pb-0123456789abcdef0"}} \
-        --rejected-patches {{"KB2032276"}} {{"MS10-048"}} \
-        --approved-patches {{"KB2124261"}}
+    --baseline-id {{"pb-0123456789abcdef0"}} \
+    --rejected-patches {{"KB2032276"}} {{"MS10-048"}} \
+    --approved-patches {{"KB2124261"}}
 ```
 Output:  
 
@@ -63,6 +63,7 @@ Output:
     "Sources": []
 }
 ```
+For more information, see [Updating or deleting a custom patch baseline](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-update-or-delete-a-patch-baseline.html) in the *AWS Systems Manager User Guide*.  
 **Example 2: To rename a patch baseline**  
 The following `update-patch-baseline` example renames the specified patch baseline.  
 
@@ -71,7 +72,68 @@ aws ssm update-patch-baseline \
     --baseline-id {{"pb-0713accee01234567"}} \
     --name {{"Windows-Server-2012-R2-Important-and-Critical-Security-Updates"}}
 ```
-For more information, see Update or Delete a Patch Baseline <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-baseline-update-or-delete.html>`\_\_ in the *AWS Systems Manager User Guide*.  
+Output:  
+
+```
+{
+    "BaselineId": "pb-0713accee01234567",
+    "Name": "Windows-Server-2012-R2-Important-and-Critical-Security-Updates",
+    "OperatingSystem": "WINDOWS",
+    "GlobalFilters": {
+        "PatchFilters": [
+            {
+                "Key": "PRODUCT",
+                "Values": [
+                    "WindowsServer2012R2"
+                ]
+            },
+            {
+                "Key": "MSRC_SEVERITY",
+                "Values": [
+                    "Critical",
+                    "Important"
+                ]
+            },
+            {
+                "Key": "CLASSIFICATION",
+                "Values": [
+                    "SecurityUpdates"
+                ]
+            }
+        ]
+    },
+    "ApprovalRules": {
+        "PatchRules": [
+            {
+                "PatchFilterGroup": {
+                    "PatchFilters": [
+                        {
+                            "Key": "MSRC_SEVERITY",
+                            "Values": [
+                                "Critical",
+                                "Important"
+                            ]
+                        }
+                    ]
+                },
+                "ComplianceLevel": "CRITICAL",
+                "ApproveAfterDays": 3,
+                "EnableNonSecurity": false
+            }
+        ]
+    },
+    "ApprovedPatches": [],
+    "ApprovedPatchesComplianceLevel": "UNSPECIFIED",
+    "ApprovedPatchesEnableNonSecurity": false,
+    "RejectedPatches": [],
+    "RejectedPatchesAction": "ALLOW_AS_DEPENDENCY",
+    "CreatedDate": 1551822528.783,
+    "ModifiedDate": 1551822546.296,
+    "Description": "Windows Server 2012 R2, Important and Critical security updates",
+    "Sources": []
+}
+```
+For more information, see [Updating or deleting a custom patch baseline](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-update-or-delete-a-patch-baseline.html) in the *AWS Systems Manager User Guide*.  
 +  For API details, see [UpdatePatchBaseline](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/update-patch-baseline.html) in *AWS CLI Command Reference*. 
 
 ------

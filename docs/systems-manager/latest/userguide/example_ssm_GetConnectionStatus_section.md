@@ -10,7 +10,7 @@ The following code examples show how to use `GetConnectionStatus`.
 
 **AWS CLI**  
 **To display the connection status of a managed instance**  
-This `get-connection-status` example returns the connection status of the specified managed instance.  
+The following `get-connection-status` example returns the connection status of the specified managed instance.  
 
 ```
 aws ssm get-connection-status \
@@ -24,6 +24,7 @@ Output:
     "Status": "connected"
 }
 ```
+For more information, see [AWS Systems Manager Session Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html) in the *AWS Systems Manager User Guide*.  
 +  For API details, see [GetConnectionStatus](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/get-connection-status.html) in *AWS CLI Command Reference*. 
 
 ------

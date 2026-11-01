@@ -31,7 +31,7 @@ Output:
     "OpsItemId": "oi-1a2b3c4d5e6f"
 }
 ```
-For more information, see [Creating OpsItems](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html) in the *AWS Systems Manager User Guide*.  
+For more information, see [Creating OpsItems manually (AWS CLI)](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems-CLI.html) in the *AWS Systems Manager User Guide*.  
 +  For API details, see [CreateOpsItem](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/create-ops-item.html) in *AWS CLI Command Reference*. 
 
 ------

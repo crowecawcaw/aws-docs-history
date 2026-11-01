@@ -3,7 +3,7 @@
 # Run the EC2Rescue tool on unreachable instances
 <a name="automation-ec2rescue"></a>
 
-EC2Rescue can help you diagnose and troubleshoot problems on Amazon Elastic Compute Cloud (Amazon EC2) instances for Linux and Windows Server. You can run the tool manually, as described in [Using EC2Rescue for Linux Server](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Linux-Server-EC2Rescue.html) and [Using EC2Rescue for Windows Server](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Windows-Server-EC2Rescue.html). Or, you can run the tool automatically by using Systems Manager Automation and the **`AWSSupport-ExecuteEC2Rescue`** runbook. Automation is a tool in AWS Systems Manager. The **`AWSSupport-ExecuteEC2Rescue`** runbook is designed to perform a combination of Systems Manager actions, CloudFormation actions, and Lambda functions that automate the steps normally required to use EC2Rescue. 
+EC2Rescue can help you diagnose and troubleshoot problems on Amazon Elastic Compute Cloud (Amazon EC2) instances for Linux and Windows Server. You can run the tool manually, as described in [Using EC2Rescue for Linux Server](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Linux-Server-EC2Rescue.html) and [Using EC2Rescue for Windows Server](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Windows-Server-EC2Rescue.html). Or, you can run the tool automatically by using Systems Manager Automation and the **`AWSSupport-ExecuteEC2Rescue`** runbook. Automation is a tool in AWS Systems Manager. The **`AWSSupport-ExecuteEC2Rescue`** runbook is designed to perform a combination of Systems Manager actions and CloudFormation actions that automate the steps normally required to use EC2Rescue. 
 
 You can use the **`AWSSupport-ExecuteEC2Rescue`** runbook to troubleshoot and potentially remediate different types of operating system (OS) issues. Instances with encypted root volumes are not supported. See the following topics for a complete list:
 
@@ -16,12 +16,12 @@ You can use the **`AWSSupport-ExecuteEC2Rescue`** runbook to troubleshoot and po
 
 Troubleshooting an instance with Automation and the **`AWSSupport-ExecuteEC2Rescue`** runbook works as follows:
 + You specify the ID of the unreachable instance and start the runbook.
-+ The system creates a temporary VPC, and then runs a series of Lambda functions to configure the VPC.
++ The system creates a temporary VPC by deploying the EC2Rescue CloudFormation stack.
 + The system identifies a subnet for your temporary VPC in the same Availability Zone as your original instance.
 + The system launches a temporary, SSM-enabled helper instance.
 + The system stops your original instance, and creates a backup. It then attaches the original root volume to the helper instance.
 + The system uses Run Command to run EC2Rescue on the helper instance. EC2Rescue identifies and attempts to fix issues on the attached, original root volume. When finished, EC2Rescue reattaches the root volume back to the original instance.
-+ The system restarts your original instance, and terminates the temporary instance. The system also terminates the temporary VPC and the Lambda functions created at the start of the automation.
++ The system restarts your original instance, and terminates the temporary instance. The system also terminates the temporary VPC and deletes the EC2Rescue CloudFormation stack created at the start of the automation.
 
 ## Before you begin
 <a name="automation-ec2rescue-begin"></a>
@@ -34,9 +34,7 @@ Before you run the following Automation, do the following:
 ### Granting `AWSSupport-EC2Rescue` permissions to perform actions on your instances
 <a name="automation-ec2rescue-access"></a>
 
-EC2Rescue needs permission to perform a series of actions on your instances during the automation. These actions invoke the AWS Lambda, IAM, and Amazon EC2 services to safely and securely attempt to remediate issues with your instances. If you have Administrator-level permissions in your AWS account and/or VPC, you might be able to run the automation without configuring permissions, as described in this section. If you don't have Administrator-level permissions, then you or an administrator must configure permissions by using one of the following options.
-+ [Granting permissions by using IAM policies](#automation-ec2rescue-access-iam)
-+ [Granting permissions by using an CloudFormation template](#automation-ec2rescue-access-cfn)
+EC2Rescue needs permission to perform a series of actions on your instances during the automation. These actions invoke the IAM, Amazon EC2, and CloudFormation services to safely and securely attempt to remediate issues with your instances. If you have Administrator-level permissions in your AWS account and/or VPC, you might be able to run the automation without configuring permissions, as described in this section. If you don't have Administrator-level permissions, then you or an administrator must configure permissions as described in [Granting permissions by using IAM policies](#automation-ec2rescue-access-iam).
 
 #### Granting permissions by using IAM policies
 <a name="automation-ec2rescue-access-iam"></a>
@@ -44,11 +42,14 @@ EC2Rescue needs permission to perform a series of actions on your instances duri
 You can either attach the following IAM policy to your user, group, or role as an inline policy; or, you can create a new IAM managed policy and attach it to your user, group, or role. For more information about adding an inline policy to your user, group, or role see [Working With Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_inline-using.html). For more information about creating a new managed policy, see [Working With Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-using.html).
 
 **Note**  
-If you create a new IAM managed policy, you must also attach the **AmazonSSMAutomationRole** managed policy to it so that your instances can communicate with the Systems Manager API.
+Attach the **AmazonSSMAutomationRole** managed policy alongside the following policy, whether you add the following policy inline or as a new managed policy. The automation depends on permissions that **AmazonSSMAutomationRole** grants and the following policy doesn't, including the Systems Manager API permissions, `ec2:RunInstances`, and the CloudFormation permissions used to create and delete the temporary EC2Rescue stack.
+
+**Note**  
+This policy assumes that you specify an existing instance profile in the `HelperInstanceProfileName` parameter when you run the automation. The IAM role inside that instance profile is a separate identity from the one you attach the following policy to. It must trust `ec2.amazonaws.com` and have the **AmazonSSMManagedInstanceCore** policy attached, so that the EC2Rescue helper instance can register with Systems Manager and receive commands. Don't attach **AmazonSSMAutomationRole** to it, because the helper instance doesn't call those APIs. If you set `LogDestination`, that role additionally needs `s3:ListBucket` on the bucket, and `s3:PutObject` with `s3:AbortMultipartUpload` on the `AWSSupport-ExecuteEC2Rescue` prefix within it. If you leave `HelperInstanceProfileName` empty, the automation creates a helper IAM role and instance profile on your behalf, which requires permissions to create and configure IAM resources that this policy doesn't grant.
 
 **IAM Policy for AWSSupport-EC2Rescue**
 
-Replace {{account ID}} with your own information.
+Replace {{account ID}}, {{EC2RescueHelperRole}}, and {{EC2RescueAutomationRole}} with your own information.
 
 ------
 #### [ JSON ]
@@ -60,50 +61,66 @@ Replace {{account ID}} with your own information.
     "Version":"2012-10-17",		 	 	 
     "Statement": [
         {
-            "Action": [
-                "lambda:InvokeFunction",
-                "lambda:DeleteFunction",
-                "lambda:GetFunction"
-            ],
-            "Resource": "arn:aws:lambda:*:{{111122223333}}:function:AWSSupport-EC2Rescue-*",
-            "Effect": "Allow"
+            "Sid": "ReadApprovedHelperProfile",
+            "Effect": "Allow",
+            "Action": "iam:GetInstanceProfile",
+            "Resource": "arn:aws:iam::{{111122223333}}:instance-profile/{{EC2RescueHelperRole}}"
         },
         {
+            "Sid": "PassHelperRoleToEc2",
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": "arn:aws:iam::{{111122223333}}:role/{{EC2RescueHelperRole}}",
+            "Condition": {
+                "StringEquals": {
+                    "iam:PassedToService": "ec2.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Sid": "PassExecutionRoleToNestedAutomation",
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": "arn:aws:iam::{{111122223333}}:role/{{EC2RescueAutomationRole}}",
+            "Condition": {
+                "StringEquals": {
+                    "iam:PassedToService": "ssm.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Sid": "ReadRescueStackResources",
+            "Effect": "Allow",
+            "Action": "cloudformation:DescribeStackResource",
+            "Resource": "arn:aws:cloudformation:*:{{111122223333}}:stack/AWSSupport-EC2Rescue-*/*"
+        },
+        {
+            "Sid": "MoveRootVolumeAndRebootHelper",
+            "Effect": "Allow",
             "Action": [
-                "s3:GetObject",
-                "s3:GetObjectVersion"
+                "ec2:AttachVolume",
+                "ec2:DetachVolume",
+                "ec2:ModifyInstanceAttribute",
+                "ec2:RebootInstances"
             ],
             "Resource": [
-                "arn:aws:s3:::awssupport-ssm.*/*.template",
-                "arn:aws:s3:::awssupport-ssm.*/*.zip"
-            ],
-            "Effect": "Allow"
+                "arn:aws:ec2:*:{{111122223333}}:instance/*",
+                "arn:aws:ec2:*:{{111122223333}}:volume/*"
+            ]
         },
         {
+            "Sid": "ManageHelperLaunchTemplate",
+            "Effect": "Allow",
             "Action": [
-                "iam:CreateRole",
-                "iam:CreateInstanceProfile",
-                "iam:GetRole",
-                "iam:GetInstanceProfile",
-                "iam:PutRolePolicy",
-                "iam:DetachRolePolicy",
-                "iam:AttachRolePolicy",
-                "iam:PassRole",
-                "iam:AddRoleToInstanceProfile",
-                "iam:RemoveRoleFromInstanceProfile",
-                "iam:DeleteRole",
-                "iam:DeleteRolePolicy",
-                "iam:DeleteInstanceProfile"
+                "ec2:CreateLaunchTemplate",
+                "ec2:DeleteLaunchTemplate"
             ],
-            "Resource": [
-                "arn:aws:iam::{{111122223333}}:role/AWSSupport-EC2Rescue-*",
-                "arn:aws:iam::{{111122223333}}:instance-profile/AWSSupport-EC2Rescue-*"
-            ],
-            "Effect": "Allow"
+            "Resource": "arn:aws:ec2:*:{{111122223333}}:launch-template/*"
         },
         {
+            "Sid": "ManageTemporaryNetwork",
+            "Effect": "Allow",
             "Action": [
-                "lambda:CreateFunction",
                 "ec2:CreateVpc",
                 "ec2:ModifyVpcAttribute",
                 "ec2:DeleteVpc",
@@ -112,70 +129,36 @@ Replace {{account ID}} with your own information.
                 "ec2:DetachInternetGateway",
                 "ec2:DeleteInternetGateway",
                 "ec2:CreateSubnet",
+                "ec2:ModifySubnetAttribute",
                 "ec2:DeleteSubnet",
+                "ec2:CreateRouteTable",
                 "ec2:CreateRoute",
                 "ec2:DeleteRoute",
-                "ec2:CreateRouteTable",
                 "ec2:AssociateRouteTable",
                 "ec2:DisassociateRouteTable",
-                "ec2:DeleteRouteTable",
-                "ec2:CreateVpcEndpoint",
-                "ec2:DeleteVpcEndpoints",
-                "ec2:ModifyVpcEndpoint",
-                "ec2:Describe*",
-                "autoscaling:DescribeAutoScalingInstances"
+                "ec2:DeleteRouteTable"
             ],
-            "Resource": "*",
-            "Effect": "Allow"
+            "Resource": [
+                "arn:aws:ec2:*:{{111122223333}}:vpc/*",
+                "arn:aws:ec2:*:{{111122223333}}:subnet/*",
+                "arn:aws:ec2:*:{{111122223333}}:internet-gateway/*",
+                "arn:aws:ec2:*:{{111122223333}}:route-table/*"
+            ]
+        },
+        {
+            "Sid": "ReadInstanceAndNetworkState",
+            "Effect": "Allow",
+            "Action": [
+                "autoscaling:DescribeAutoScalingInstances",
+                "ec2:Describe*"
+            ],
+            "Resource": "*"
         }
     ]
 }
 ```
 
 ------
-
-#### Granting permissions by using an CloudFormation template
-<a name="automation-ec2rescue-access-cfn"></a>
-
-CloudFormation automates the process of creating IAM roles and policies by using a preconfigured template. Use the following procedure to create the required IAM roles and policies for the EC2Rescue Automation by using CloudFormation.
-
-**To create the required IAM roles and policies for EC2Rescue**
-
-1. Download [`AWSSupport-EC2RescueRole.zip`](https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/AWSSupport-EC2RescueRole.zip) and extract the `AWSSupport-EC2RescueRole.json` file to a directory on your local machine.
-
-1. If your AWS account is in a special partition, edit the template to change the ARN values to those for your partition.
-
-   For example, for the China Regions, change all cases of `arn:aws` to `arn:aws-cn`.
-
-1. Sign in to the AWS Management Console and open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/).
-
-1. Choose **Create stack**, **With new resources (standard)**.
-
-1. On the **Create stack** page, for **Prerequisite - Prepare template**, choose **Template is ready**.
-
-1. For **Specify template**, choose **Upload a template file**.
-
-1. Choose **Choose file**, and then browse to and select the `AWSSupport-EC2RescueRole.json` file from the directory where you extracted it.
-
-1. Choose **Next**.
-
-1. On the **Specify stack details** page, for **Stack name** field, enter a name to identify this stack, and then choose **Next**.
-
-1. (Optional) In the **Tags** area, apply one or more tag key name/value pairs to the stack.
-
-   Tags are optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a stack to identify the type of tasks it runs, the types of targets or other resources involved, and the environment it runs in.
-
-1. Choose **Next**
-
-1. On the **Review** page, review the stack details, and then scroll down and choose the **I acknowledge that CloudFormation might create IAM resources** option.
-
-1. Choose **Create stack**.
-
-   CloudFormation shows the **CREATE\_IN\_PROGRESS** status for a few minutes. The status changes to **CREATE\_COMPLETE** after the stack has been created. You can also choose the refresh icon to check the status of the create process.
-
-1. In the **Stacks** list, choose the option button the stack you just created, and then choose the **Outputs** tab.
-
-1. Note the **Value**. The is the ARN of the AssumeRole. You specify this ARN when you run the Automation in the next procedure, [Running the Automation](#automation-ec2rescue-executing). 
 
 ## Running the Automation
 <a name="automation-ec2rescue-executing"></a>
@@ -205,7 +188,9 @@ The following automation stops the unreachable instance. Stopping the instance c
 
    1. (Optional) For **EC2RescueInstanceType**, specify an instance type for the EC2Rescue instance. The default instance type is `t2.medium`.
 
-   1. For **AutomationAssumeRole**, if you created roles for this Automation by using the CloudFormation procedure described earlier in this topic, then choose the ARN of the AssumeRole that you created in the CloudFormation console.
+   1. For **AutomationAssumeRole**, choose the ARN of the IAM role that you granted the permissions described in [Granting permissions by using IAM policies](#automation-ec2rescue-access-iam). If you leave this empty, the automation runs with the permissions of your own user or role, which must then include those same permissions.
+
+   1. For **HelperInstanceProfileName**, enter the name of the instance profile that you prepared for the EC2Rescue helper instance.
 
    1. (Optional) For **LogDestination**, specify an S3 bucket if you want to collect operating system-level logs while troubleshooting your instance. Logs are automatically uploaded to the specified bucket.
 

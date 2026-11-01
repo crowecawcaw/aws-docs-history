@@ -14,7 +14,7 @@ The following `cancel-command` example attempts to cancel the specified command 
 
 ```
 aws ssm cancel-command \
-    --command-id {{"662add3d-5831-4a10-b64a-f2ff3EXAMPLE"}}
+    --command-id {{"a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"}}
 ```
 This command produces no output.  
 **Example 2: To cancel a command for specific instances**  
@@ -22,11 +22,11 @@ The following `cancel-command` example attempts to cancel a command for the spec
 
 ```
 aws ssm cancel-command \
-    --command-id {{"662add3d-5831-4a10-b64a-f2ff3EXAMPLE"}}
+    --command-id {{"a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"}} \
     --instance-ids {{"i-02573cafcfEXAMPLE"}}
 ```
 This command produces no output.  
-For more information, see [Tagging Systems Manager Parameters](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-tag.html) in the *AWS Systems Manager User Guide*.  
+For more information, see [Canceling a command](https://docs.aws.amazon.com/systems-manager/latest/userguide/cancel-run-command.html) in the *AWS Systems Manager User Guide*.  
 +  For API details, see [CancelCommand](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/cancel-command.html) in *AWS CLI Command Reference*. 
 
 ------

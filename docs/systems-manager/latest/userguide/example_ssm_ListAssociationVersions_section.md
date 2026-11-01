@@ -14,7 +14,7 @@ The following `list-association-versions` example lists all versions of the spec
 
 ```
 aws ssm list-association-versions \
-    --association-id {{"8dfe3659-4309-493a-8755-0123456789ab"}}
+    --association-id {{"a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"}}
 ```
 Output:  
 
@@ -22,7 +22,7 @@ Output:
 {
 "AssociationVersions": [
         {
-            "AssociationId": "8dfe3659-4309-493a-8755-0123456789ab",
+            "AssociationId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
             "AssociationVersion": "1",
             "CreatedDate": 1550505536.726,
             "Name": "AWS-UpdateSSMAgent",
@@ -48,7 +48,7 @@ Output:
     ]
 }
 ```
-For more information, see [Working with associations in Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-associations.html) in the *AWS Systems Manager User Guide*.  
+For more information, see [Working with associations in Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/state-manager-associations.html) in the *AWS Systems Manager User Guide*.  
 +  For API details, see [ListAssociationVersions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/list-association-versions.html) in *AWS CLI Command Reference*. 
 
 ------

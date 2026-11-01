@@ -13,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To delete a maintenance window**  
-This `delete-maintenance-window` example removes the specified maintenance window.  
+The following `delete-maintenance-window` example removes the specified maintenance window.  
 
 ```
 aws ssm delete-maintenance-window \

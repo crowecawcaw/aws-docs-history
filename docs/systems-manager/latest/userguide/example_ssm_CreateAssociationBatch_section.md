@@ -10,73 +10,74 @@ The following code examples show how to use `CreateAssociationBatch`.
 
 **AWS CLI**  
 **To create multiple associations**  
-This example associates a configuration document with multiple instances. The output returns a list of successful and failed operations, if applicable.  
-Command:  
+The following `create-association-batch` example associates a configuration document with multiple instances. The output returns a list of successful and failed operations, if applicable.  
 
 ```
-aws ssm create-association-batch --entries {{"Name=AWS-UpdateSSMAgent,InstanceId=i-1234567890abcdef0"}} {{"Name=AWS-UpdateSSMAgent,InstanceId=i-9876543210abcdef0"}}
+aws ssm create-association-batch \
+    --entries {{"Name=AWS-UpdateSSMAgent,InstanceId=i-1234567890abcdef0"}} {{"Name=AWS-UpdateSSMAgent,InstanceId=i-9876543210abcdef0"}}
 ```
 Output:  
 
 ```
 {
-  "Successful": [
-      {
-          "Name": "AWS-UpdateSSMAgent",
-          "InstanceId": "i-1234567890abcdef0",
-          "AssociationVersion": "1",
-          "Date": 1550504725.007,
-          "LastUpdateAssociationDate": 1550504725.007,
-          "Status": {
-              "Date": 1550504725.007,
-              "Name": "Associated",
-              "Message": "Associated with AWS-UpdateSSMAgent"
-          },
-          "Overview": {
-              "Status": "Pending",
-              "DetailedStatus": "Creating"
-          },
-          "DocumentVersion": "$DEFAULT",
-          "AssociationId": "8dfe3659-4309-493a-8755-0123456789ab",
-          "Targets": [
-              {
-                  "Key": "InstanceIds",
-                  "Values": [
-                      "i-1234567890abcdef0"
-                  ]
-              }
-          ]
-      },
-      {
-          "Name": "AWS-UpdateSSMAgent",
-          "InstanceId": "i-9876543210abcdef0",
-          "AssociationVersion": "1",
-          "Date": 1550504725.057,
-          "LastUpdateAssociationDate": 1550504725.057,
-          "Status": {
-              "Date": 1550504725.057,
-              "Name": "Associated",
-              "Message": "Associated with AWS-UpdateSSMAgent"
-          },
-          "Overview": {
-              "Status": "Pending",
-              "DetailedStatus": "Creating"
-          },
-          "DocumentVersion": "$DEFAULT",
-          "AssociationId": "9c9f7f20-5154-4fed-a83e-0123456789ab",
-          "Targets": [
-              {
-                  "Key": "InstanceIds",
-                  "Values": [
-                      "i-9876543210abcdef0"
-                  ]
-              }
-          ]
-      }
-  ],
-  "Failed": []
+    "Successful": [
+        {
+            "Name": "AWS-UpdateSSMAgent",
+            "InstanceId": "i-1234567890abcdef0",
+            "AssociationVersion": "1",
+            "Date": 1550504725.007,
+            "LastUpdateAssociationDate": 1550504725.007,
+            "Status": {
+                "Date": 1550504725.007,
+                "Name": "Associated",
+                "Message": "Associated with AWS-UpdateSSMAgent"
+            },
+            "Overview": {
+                "Status": "Pending",
+                "DetailedStatus": "Creating"
+            },
+            "DocumentVersion": "$DEFAULT",
+            "AssociationId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+            "Targets": [
+                {
+                    "Key": "InstanceIds",
+                    "Values": [
+                        "i-1234567890abcdef0"
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "AWS-UpdateSSMAgent",
+            "InstanceId": "i-9876543210abcdef0",
+            "AssociationVersion": "1",
+            "Date": 1550504725.057,
+            "LastUpdateAssociationDate": 1550504725.057,
+            "Status": {
+                "Date": 1550504725.057,
+                "Name": "Associated",
+                "Message": "Associated with AWS-UpdateSSMAgent"
+            },
+            "Overview": {
+                "Status": "Pending",
+                "DetailedStatus": "Creating"
+            },
+            "DocumentVersion": "$DEFAULT",
+            "AssociationId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+            "Targets": [
+                {
+                    "Key": "InstanceIds",
+                    "Values": [
+                        "i-9876543210abcdef0"
+                    ]
+                }
+            ]
+        }
+    ],
+    "Failed": []
 }
 ```
+For more information, see [Creating associations](https://docs.aws.amazon.com/systems-manager/latest/userguide/state-manager-associations-creating.html) in the *AWS Systems Manager User Guide*.  
 +  For API details, see [CreateAssociationBatch](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/create-association-batch.html) in *AWS CLI Command Reference*. 
 
 ------

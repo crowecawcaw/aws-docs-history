@@ -14,7 +14,7 @@ The following `describe-association-executions` example describes all executions
 
 ```
 aws ssm describe-association-executions \
-    --association-id {{"8dfe3659-4309-493a-8755-0123456789ab"}}
+    --association-id {{"a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"}}
 ```
 Output:  
 
@@ -22,24 +22,23 @@ Output:
 {
     "AssociationExecutions": [
         {
-            "AssociationId": "8dfe3659-4309-493a-8755-0123456789ab",
+            "AssociationId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
             "AssociationVersion": "1",
-            "ExecutionId": "474925ef-1249-45a2-b93d-0123456789ab",
+            "ExecutionId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
             "Status": "Success",
             "DetailedStatus": "Success",
             "CreatedTime": 1550505827.119,
             "ResourceCountByStatus": "{Success=1}"
         },
         {
-            "AssociationId": "8dfe3659-4309-493a-8755-0123456789ab",
+            "AssociationId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
             "AssociationVersion": "1",
-            "ExecutionId": "7abb6378-a4a5-4f10-8312-0123456789ab",
+            "ExecutionId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
             "Status": "Success",
             "DetailedStatus": "Success",
             "CreatedTime": 1550505536.843,
             "ResourceCountByStatus": "{Success=1}"
-        },
-        ...
+        }
     ]
 }
 ```
@@ -49,7 +48,7 @@ The following `describe-association-executions` example describes all executions
 
 ```
 aws ssm describe-association-executions \
-    --association-id {{"8dfe3659-4309-493a-8755-0123456789ab"}} \
+    --association-id {{"a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"}} \
     --filters {{"Key=CreatedTime,Value=2019-02-18T16:00:00Z,Type=GREATER_THAN"}}
 ```
 Output:  
@@ -58,24 +57,23 @@ Output:
 {
     "AssociationExecutions": [
         {
-            "AssociationId": "8dfe3659-4309-493a-8755-0123456789ab",
+            "AssociationId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
             "AssociationVersion": "1",
-            "ExecutionId": "474925ef-1249-45a2-b93d-0123456789ab",
+            "ExecutionId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
             "Status": "Success",
             "DetailedStatus": "Success",
             "CreatedTime": 1550505827.119,
             "ResourceCountByStatus": "{Success=1}"
         },
         {
-            "AssociationId": "8dfe3659-4309-493a-8755-0123456789ab",
+            "AssociationId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
             "AssociationVersion": "1",
-            "ExecutionId": "7abb6378-a4a5-4f10-8312-0123456789ab",
+            "ExecutionId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
             "Status": "Success",
             "DetailedStatus": "Success",
             "CreatedTime": 1550505536.843,
             "ResourceCountByStatus": "{Success=1}"
-        },
-        ...
+        }
     ]
 }
 ```

@@ -23,7 +23,7 @@ Output:
     "Tasks": [
         {
             "WindowId": "mw-06cf17cbefEXAMPLE",
-            "WindowTaskId": "018b31c3-2d77-4b9e-bd48-c91edEXAMPLE",
+            "WindowTaskId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
             "TaskArn": "AWS-RestartEC2Instance",
             "TaskParameters": {},
             "Type": "AUTOMATION",
@@ -32,19 +32,19 @@ Output:
             "MaxErrors": "1",
             "Name": "My-Automation-Example-Task",
             "Priority": 0,
-            "ServiceRoleArn": "arn:aws:iam::111222333444:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM",
+            "ServiceRoleArn": "arn:aws:iam::123456789012:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM",
             "Targets": [
                 {
                     "Key": "WindowTargetIds",
                     "Values": [
-                        "da89dcc3-7f9c-481d-ba2b-edcb7EXAMPLE"
+                        "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
                     ]
                 }
             ]
         },
         {
             "WindowId": "mw-06cf17cbefEXAMPLE",
-            "WindowTaskId": "1943dee0-0a17-4978-9bf4-3cc2fEXAMPLE",
+            "WindowTaskId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
             "TaskArn": "AWS-DisableS3BucketPublicReadWrite",
             "TaskParameters": {},
             "Type": "AUTOMATION",
@@ -53,12 +53,12 @@ Output:
             "MaxErrors": "5",
             "Name": "My-Disable-S3-Public-Read-Write-Access-Automation-Task",
             "Priority": 0,
-            "ServiceRoleArn": "arn:aws:iam::111222333444:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM",
+            "ServiceRoleArn": "arn:aws:iam::123456789012:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM",
             "Targets": [
                 {
                     "Key": "WindowTargetIds",
                     "Values": [
-                        "da89dcc3-7f9c-481d-ba2b-edcb7EXAMPLE"
+                        "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
                     ]
                 }
             ]
@@ -81,20 +81,20 @@ Output:
     "Tasks": [
         {
             "WindowId": "mw-ab12cd34eEXAMPLE",
-            "WindowTaskId": "0d36e6b4-3a4f-411e-adcb-3558eEXAMPLE",
+            "WindowTaskId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
             "TaskArn": "AWS-RunPowerShellScript",
             "Type": "RUN_COMMAND",
             "Targets": [
                 {
                     "Key": "WindowTargetIds",
                     "Values": [
-                        "da89dcc3-7f9c-481d-ba2b-edcb7EXAMPLE"
+                        "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
                     ]
                 }
             ],
             "TaskParameters": {},
             "Priority": 1,
-            "ServiceRoleArn": "arn:aws:iam::111222333444:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM",
+            "ServiceRoleArn": "arn:aws:iam::123456789012:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM",
             "MaxConcurrency": "1",
             "MaxErrors": "1",
             "Name": "MyTask"
@@ -117,40 +117,40 @@ Output:
     "Tasks": [
         {
             "WindowId": "mw-ab12cd34eEXAMPLE",
-            "WindowTaskId": "0d36e6b4-3a4f-411e-adcb-3558eEXAMPLE",
+            "WindowTaskId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
             "TaskArn": "AWS-RunPowerShellScript",
             "Type": "RUN_COMMAND",
             "Targets": [
                 {
                     "Key": "WindowTargetIds",
                     "Values": [
-                        "da89dcc3-7f9c-481d-ba2b-edcb7EXAMPLE"
+                        "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
                     ]
                 }
             ],
             "TaskParameters": {},
             "Priority": 3,
-            "ServiceRoleArn": "arn:aws:iam::111222333444:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM",
+            "ServiceRoleArn": "arn:aws:iam::123456789012:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM",
             "MaxConcurrency": "1",
             "MaxErrors": "1",
             "Name": "MyRunCommandTask"
         },
         {
             "WindowId": "mw-ab12cd34eEXAMPLE",
-            "WindowTaskId": "ee45feff-ad65-4a6c-b478-5cab8EXAMPLE",
+            "WindowTaskId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE55555",
             "TaskArn": "AWS-RestartEC2Instance",
             "Type": "AUTOMATION",
             "Targets": [
                 {
                     "Key": "WindowTargetIds",
                     "Values": [
-                        "da89dcc3-7f9c-481d-ba2b-edcb7EXAMPLE"
+                        "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
                     ]
                 }
             ],
             "TaskParameters": {},
             "Priority": 3,
-            "ServiceRoleArn": "arn:aws:iam::111222333444:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM",
+            "ServiceRoleArn": "arn:aws:iam::123456789012:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM",
             "MaxConcurrency": "10",
             "MaxErrors": "5",
             "Name": "My-Automation-Task",
@@ -160,7 +160,7 @@ Output:
 }
 ```
 **Example 4: To list all tasks for a maintenance window that have a Priority of 1 and use Run Command**  
-This `describe-maintenance-window-tasks` example lists all of the tasks for the specified maintenance window that have a `Priority` of `1` and use `Run Command`.  
+The following `describe-maintenance-window-tasks` example lists all of the tasks for the specified maintenance window that have a `Priority` of `1` and use `Run Command`.  
 
 ```
 aws ssm describe-maintenance-window-tasks \
@@ -174,20 +174,20 @@ Output:
     "Tasks": [
         {
             "WindowId": "mw-ab12cd34eEXAMPLE",
-            "WindowTaskId": "0d36e6b4-3a4f-411e-adcb-3558eEXAMPLE",
+            "WindowTaskId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
             "TaskArn": "AWS-RunPowerShellScript",
             "Type": "RUN_COMMAND",
             "Targets": [
                 {
                     "Key": "WindowTargetIds",
                     "Values": [
-                        "da89dcc3-7f9c-481d-ba2b-edcb7EXAMPLE"
+                        "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
                     ]
                 }
             ],
             "TaskParameters": {},
             "Priority": 1,
-            "ServiceRoleArn": "arn:aws:iam::111222333444:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM",
+            "ServiceRoleArn": "arn:aws:iam::123456789012:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM",
             "MaxConcurrency": "1",
             "MaxErrors": "1",
             "Name": "MyRunCommandTask"

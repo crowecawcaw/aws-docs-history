@@ -39,7 +39,7 @@ aws ssm add-tags-to-resource \
     --tags {{"Key=Quarter,Value=Q322"}}
 ```
 This command produces no output.  
-For more information, see [Tagging Systems Manager resources](https://docs.aws.amazon.com/systems-manager/latest/userguide/tagging-resources.html) in the *AWS Systems Manager User Guide*.  
+For more information, see [Managing tags with Tag Editor](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging-resources.html) in the *AWS Systems Manager User Guide*.  
 +  For API details, see [AddTagsToResource](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/add-tags-to-resource.html) in *AWS CLI Command Reference*. 
 
 ------

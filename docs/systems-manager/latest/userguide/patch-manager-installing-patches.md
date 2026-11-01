@@ -267,7 +267,7 @@ On AlmaLinux, Red Hat Enterprise Linux, and Rocky Linux managed nodes, the patch
 
 1. If multiple versions of a patch are approved, the latest version is applied.
 
-1. The YUM update API (on RHEL 7) or the DNF update API (on AlmaLinux 8 and 9, RHEL 8, 9, and 10, and Rocky Linux 8 and 9) is applied to approved patches according to the following rules:
+1. The YUM update API (on RHEL 7) or the DNF update API (on AlmaLinux 8 and 9, RHEL 8, 9, and 10, and Rocky Linux 8, 9, and 10) is applied to approved patches according to the following rules:
 
     
 
@@ -303,7 +303,7 @@ For example, `dnf upgrade-minimal --security` installs the *minimal* versions of
      sudo yum update --security --bugfix -y
      ```
 
-     For AlmaLinux 8 and 9, RHEL 8 and 9, and Rocky Linux 8 and 9, the equivalent dnf command for this workflow is:
+     For AlmaLinux 8 and 9, RHEL 8, 9, and 10, and Rocky Linux 8, 9, and 10, the equivalent dnf command for this workflow is:
 
      ```
      sudo dnf update --security --bugfix -y
@@ -373,6 +373,7 @@ Ubuntu Server 20.04 LTS: `focal-security`
 Ubuntu Server 22.04 LTS: `jammy-security`
 Ubuntu Server 24.04 LTS: `noble-security`
 Ubuntu Server 25.04: `plucky-security`
+Ubuntu Server 26.04 LTS: `resolute-security`
 
 1. Apply [ApprovedPatches](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches) as specified in the patch baseline. The approved patches are approved for update even if they're discarded by [GlobalFilters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#systemsmanager-CreatePatchBaseline-request-GlobalFilters) or if no approval rule specified in [ApprovalRules](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovalRules) grants it approval.
 

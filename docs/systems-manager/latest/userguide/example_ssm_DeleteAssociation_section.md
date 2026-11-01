@@ -14,7 +14,7 @@ The following `delete-association` example deletes the association for the speci
 
 ```
 aws ssm delete-association \
-    --association-id {{"8dfe3659-4309-493a-8755-0123456789ab"}}
+    --association-id {{"a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"}}
 ```
 This command produces no output.  
 For more information, see [Editing and creating a new version of an association](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-state-assoc-edit.html) in the *AWS Systems Manager User Guide*.  
@@ -27,7 +27,7 @@ aws ssm delete-association \
     --name {{"AWS-UpdateSSMAgent"}}
 ```
 This command produces no output.  
-For more information, see [Working with associations in Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-associations.html) in the *AWS Systems Manager User Guide*.  
+For more information, see [Working with associations in Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/state-manager-associations.html) in the *AWS Systems Manager User Guide*.  
 +  For API details, see [DeleteAssociation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/delete-association.html) in *AWS CLI Command Reference*. 
 
 ------

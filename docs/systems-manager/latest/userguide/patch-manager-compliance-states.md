@@ -22,6 +22,7 @@ Keep the following in mind when you're evaluating the `INSTALLED`, `INSTALLED_OT
 `jammy-security` (Ubuntu Server 22.04 LTS)
 `noble-security` (Ubuntu Server 24.04 LTS)
 `plucky-security` (Ubuntu Server 25.04)
+`resolute-security` (Ubuntu Server 26.04 LTS)
 `debian-security` (Debian Server)
 If you do select the **Include nonsecurity updates** check box, patches from other repositories are considered as well.
 

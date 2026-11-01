@@ -19,7 +19,7 @@ aws ssm remove-tags-from-resource \
     --tag-keys {{"Region"}}
 ```
 This command produces no output.  
-For more information, see [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference*.  
+For more information, see [Working with Patch Manager resources using the AWS CLI](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-cli-commands.html) in the *AWS Systems Manager User Guide*.  
 +  For API details, see [RemoveTagsFromResource](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ssm/remove-tags-from-resource.html) in *AWS CLI Command Reference*. 
 
 ------

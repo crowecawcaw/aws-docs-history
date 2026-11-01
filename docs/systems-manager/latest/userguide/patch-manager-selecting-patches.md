@@ -206,6 +206,7 @@ Packages are then filtered from `{{codename}}-security` repos, where the codenam
 + Ubuntu Server 22.04 LTS: `jammy-security`
 + Ubuntu Server 24.04 LTS: `noble-security`
 + Ubuntu Server 25.04: `plucky-security`
++ Ubuntu Server 26.04 LTS: `resolute-security`
 
 ------
 #### [ Windows Server ]
