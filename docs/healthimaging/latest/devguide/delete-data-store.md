@@ -113,7 +113,7 @@ function imaging_delete_datastore() {
 
 **AWS CLI**  
 **To delete a data store**  
-The following `delete-datastore` code example deletes a data store.  
+The following `delete-datastore` example deletes a data store.  
 
 ```
 aws medical-imaging delete-datastore \

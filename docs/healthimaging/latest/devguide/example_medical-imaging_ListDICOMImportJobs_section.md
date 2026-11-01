@@ -10,7 +10,7 @@ The following code examples show how to use `ListDICOMImportJobs`.
 
 **AWS CLI**  
 **To list dicom import jobs**  
-The following `list-dicom-import-jobs` code example lists dicom import jobs.  
+The following `list-dicom-import-jobs` example lists dicom import jobs.  
 
 ```
 aws medical-imaging list-dicom-import-jobs \

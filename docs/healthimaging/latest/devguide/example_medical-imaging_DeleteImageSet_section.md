@@ -51,7 +51,7 @@ bool AwsDoc::Medical_Imaging::deleteImageSet(
 
 **AWS CLI**  
 **To delete an image set**  
-The following `delete-image-set` code example deletes an image set.  
+The following `delete-image-set` example deletes an image set.  
 
 ```
 aws medical-imaging delete-image-set \

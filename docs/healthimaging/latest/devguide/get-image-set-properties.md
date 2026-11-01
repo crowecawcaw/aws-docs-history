@@ -33,7 +33,7 @@ Choose a menu based on your access preference to AWS HealthImaging.
 
 **AWS CLI**  
 **To get image set properties**  
-The following `get-image-set` code example gets the properties for an image set.  
+The following `get-image-set` example gets the properties for an image set.  
 
 ```
 aws medical-imaging get-image-set \

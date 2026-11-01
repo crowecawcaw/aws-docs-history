@@ -65,16 +65,22 @@ bool AwsDoc::Medical_Imaging::getImageFrame(const Aws::String &dataStoreID,
 
 **AWS CLI**  
 **To get image set pixel data**  
-The following `get-image-frame` code example gets an image frame.  
+The following `get-image-frame` example gets an image frame.  
 
 ```
-aws medical-imaging get-image-frame \
+aws medical-imaging get-image-frame {{imageframe.jph}} \
     --datastore-id {{"12345678901234567890123456789012"}} \
     --image-set-id {{"98765412345612345678907890789012"}} \
-    --image-frame-information {{imageFrameId=3abf5d5d7ae72f80a0ec81b2c0de3ef4}} \
-    {{imageframe.jph}}
+    --image-frame-information {{imageFrameId=3abf5d5d7ae72f80a0ec81b2c0de3ef4}}
 ```
-Note: This code example does not include output because the GetImageFrame action returns a stream of pixel data to the imageframe.jph file. For information about decoding and viewing image frames, see HTJ2K decoding libraries.  
+Output:  
+
+```
+{
+    "contentType": "application/octet-stream"
+}
+```
+The `GetImageFrame` action writes the stream of pixel data to the `imageframe.jph` file. For information about decoding and viewing image frames, see HTJ2K decoding libraries.  
   
 +  For API details, see [GetImageFrame](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/get-image-frame.html) in *AWS CLI Command Reference*. 
 
