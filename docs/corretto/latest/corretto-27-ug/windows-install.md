@@ -26,9 +26,9 @@
 **Example**  
 
    ```
-   openjdk 27 2026-10-22
-    OpenJDK Runtime Environment Corretto-27.0.1.0.10 (build 27+0-FR)
-    OpenJDK 64-Bit Server VM Corretto-27.0.1.0.10 (build 27+0-FR, mixed mode, sharing)
+   openjdk 27 2026-10-26
+    OpenJDK Runtime Environment Corretto-27.0.1.0.11 (build 27+0-FR)
+    OpenJDK 64-Bit Server VM Corretto-27.0.1.0.11 (build 27+0-FR, mixed mode, sharing)
    ```
 
 ## Uninstall Amazon Corretto 27

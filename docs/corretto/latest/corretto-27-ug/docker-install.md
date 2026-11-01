@@ -5,10 +5,10 @@
 
  This topic describes how to build and launch a Docker image that uses Amazon Corretto 27. You must have the latest version of Docker installed. 
 
-## Using the official image for Amazon Corretto 27.
+## Using the official Docker image for Amazon Corretto 27
 <a name="docker-hello-world"></a>
 
- Amazon Corretto 27 is available as an [official image on Docker Hub](https://hub.docker.com/_/amazoncorretto). The following example runs a container and displays Corretto 27's version. 
+You can use the official Amazon Corretto 27 Docker image to quickly set up a consistent Java runtime environment without manually installing Amazon Corretto 27 on your host. Amazon Corretto 27 is available as an [official image on Docker Hub](https://hub.docker.com/_/amazoncorretto). The following example runs a container and displays Corretto 27's version. 
 
 **Example**  
 
@@ -21,9 +21,9 @@ docker run amazoncorretto:27 java -version
 **Example**  
 
 ```
-openjdk 27 2026-10-22
- OpenJDK Runtime Environment Corretto-27.0.1.0.10 (build 27+0-FR)
- OpenJDK 64-Bit Server VM Corretto-27.0.1.0.10 (build 27+0-FR, mixed mode, sharing)
+openjdk 27 2026-10-26
+ OpenJDK Runtime Environment Corretto-27.0.1.0.11 (build 27+0-FR)
+ OpenJDK 64-Bit Server VM Corretto-27.0.1.0.11 (build 27+0-FR, mixed mode, sharing)
 ```
 
 ## Using the Corretto ECR Instance
@@ -38,7 +38,7 @@ docker pull public.ecr.aws/amazoncorretto/amazoncorretto:27
 docker run -it public.ecr.aws/amazoncorretto/amazoncorretto:27 /bin/bash
 ```
 
-You can see the list of available images by going [here](https://gallery.ecr.aws/amazoncorretto/amazoncorretto):
+You can see the list of available images on the [Amazon ECR Public Gallery](https://gallery.ecr.aws/amazoncorretto/amazoncorretto).
 
 ## Amazon Corretto on Alpine
 <a name="alpine-images"></a>
@@ -65,7 +65,7 @@ docker run -it amazoncorretto:27-alpine-jdk /bin/sh
 docker build -t amazon-corretto-27 github.com/corretto/corretto-docker#main:27/jdk/al2023
 ```
 
- After the command completes, you have an image called *amazon-corretto-27*. 
+ After the command completes, you have an image called `amazon-corretto-27`. 
 
  To launch this image locally, run the following command. 
 
