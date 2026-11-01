@@ -17,6 +17,8 @@ aws lambda delete-provisioned-concurrency-config \
     --function-name {{my-function}} \
     --qualifier {{GREEN}}
 ```
+This command produces no output.  
+For more information, see [Configuring provisioned concurrency for an Event Function](https://docs.aws.amazon.com/lambda/latest/dg/provisioned-concurrency.html) in the *AWS Lambda Developer Guide*.  
 +  For API details, see [DeleteProvisionedConcurrencyConfig](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/delete-provisioned-concurrency-config.html) in *AWS CLI Command Reference*. 
 
 ------

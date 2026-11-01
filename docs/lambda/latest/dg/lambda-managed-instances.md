@@ -90,6 +90,7 @@ Lambda Managed Instances changes how Lambda processes requests compared to Lambd
 + [Get started with Lambda Managed Instances](lambda-managed-instances-getting-started.md)
 + Learn about [capacity providers for Lambda Managed Instances](lambda-managed-instances-capacity-providers.md)
 + Understand [scaling for Lambda Managed Instances](lambda-managed-instances-scaling.md)
++ Learn about [deploying and updating Lambda Managed Instances functions](lambda-managed-instances-deployments.md)
 + Review [supported runtimes](lambda-managed-instances-runtimes.md)
 + Review runtime-specific guides for [Java](lambda-managed-instances-java-runtime.md), [Node.js](lambda-managed-instances-nodejs-runtime.md), and [Python](lambda-managed-instances-python-runtime.md)
 + Configure [VPC connectivity for your capacity providers](lambda-managed-instances-networking.md)

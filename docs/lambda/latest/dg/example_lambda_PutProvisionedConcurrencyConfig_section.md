@@ -22,12 +22,13 @@ Output:
 
 ```
 {
-    "Requested ProvisionedConcurrentExecutions": 100,
-    "Allocated ProvisionedConcurrentExecutions": 0,
+    "RequestedProvisionedConcurrentExecutions": 100,
+    "AllocatedProvisionedConcurrentExecutions": 0,
     "Status": "IN_PROGRESS",
     "LastModified": "2019-11-21T19:32:12+0000"
 }
 ```
+For more information, see [Configuring provisioned concurrency for an Event Function](https://docs.aws.amazon.com/lambda/latest/dg/provisioned-concurrency.html) in the *AWS Lambda Developer Guide*.  
 +  For API details, see [PutProvisionedConcurrencyConfig](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/put-provisioned-concurrency-config.html) in *AWS CLI Command Reference*. 
 
 ------

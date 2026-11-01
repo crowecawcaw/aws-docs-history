@@ -3,6 +3,8 @@
 # Lambda Managed Instances runtimes
 <a name="lambda-managed-instances-runtimes"></a>
 
+Lambda Event Functions on Lambda Managed Instances support both `.zip` file archive and container image deployment packages, which use the Open Container Initiative (OCI) format. To reduce startup time for large container images, see [Lazy-load container images with Seekable OCI (SOCI)](lambda-managed-instances-seekable-oci.md).
+
 Lambda processes requests differently when using Lambda Managed Instances. Instead of handling requests sequentially in each execution environment, Lambda Managed Instances process multiple requests concurrently within each execution environment. This change in execution model means that Lambda Event Functions using Lambda Managed Instances need to consider thread safety, state management, and context isolation. These concerns don't arise in the Lambda (default) single-concurrency model. In addition, the multi-concurrency implementation varies between runtimes.
 
 ## Supported languages

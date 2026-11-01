@@ -9,18 +9,19 @@ All Lambda event source types share the same [CreateEventSourceMapping](https://
 | Parameter | Required | Default | Notes | 
 | --- | --- | --- | --- | 
 | BatchSize | N | 100 | Maximum: 10,000 | 
+| SelfManagedKafkaEventSourceConfig.ConsumptionMode | N | Stream | `Stream` or `Queue`. Determines how Lambda consumes records from the topic. Can set only on Create. When `Queue`, `StartingPosition`, `StartingPositionTimestamp`, and `MaximumBatchingWindowInSeconds` do not apply. For details, see [Polling Kafka topics in Queue mode](polling-kafka-queue.md). | 
 | DestinationConfig | N | N/A | [Capturing discarded batches for Amazon MSK and self-managed Apache Kafka event sources](kafka-on-failure.md) | 
 | Enabled | N | True |  | 
 | FilterCriteria | N | N/A | [Control which events Lambda sends to your Event Function](invocation-eventfiltering.md) | 
 | FunctionName | Y | N/A |  | 
 | KMSKeyArn | N | N/A | [Encryption of filter criteria](invocation-eventfiltering.md#filter-criteria-encryption) | 
-| MaximumBatchingWindowInSeconds | N | 500 ms | [Batching behavior](invocation-eventsourcemapping.md#invocation-eventsourcemapping-batching) | 
+| MaximumBatchingWindowInSeconds | N | 500 ms | [Batching behavior](invocation-eventsourcemapping.md#invocation-eventsourcemapping-batching)<br />Does not apply when `ConsumptionMode` is `Queue`. | 
 | ProvisionedPollersConfig | N | `MinimumPollers`: default value of 1 if not specified<br />`MaximumPollers`: default value of 200 if not specified<br />`PollerGroupName`: N/A | [Provisioned mode](kafka-scaling-modes.md#kafka-provisioned-mode) | 
 | SelfManagedEventSource | Y | N/A | List of Kafka Brokers. Can set only on Create | 
 | SelfManagedKafkaEventSourceConfig | N | Contains the ConsumerGroupId field which defaults to a unique value. | Can set only on Create | 
 | SourceAccessConfigurations | N | No credentials | VPC information or authentication credentials for the cluster <br /> For SASL\_PLAIN, set to BASIC\_AUTH | 
-| StartingPosition | Y | N/A | AT\_TIMESTAMP, TRIM\_HORIZON, or LATEST<br />Can set only on Create | 
-| StartingPositionTimestamp | N | N/A | Required if StartingPosition is set to AT\_TIMESTAMP | 
+| StartingPosition | Y (Stream mode only) | N/A | AT\_TIMESTAMP, TRIM\_HORIZON, or LATEST<br />Can set only on Create<br />Does not apply when `ConsumptionMode` is `Queue`. | 
+| StartingPositionTimestamp | N | N/A | Required if StartingPosition is set to AT\_TIMESTAMP<br />Does not apply when `ConsumptionMode` is `Queue`. | 
 | Tags | N | N/A | [Using tags on event source mappings](tags-esm.md) | 
 | Topics | Y | N/A | Topic name<br />Can set only on Create | 
 

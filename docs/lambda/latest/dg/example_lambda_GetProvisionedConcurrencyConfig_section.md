@@ -28,6 +28,7 @@ Output:
     "LastModified": "2019-12-31T20:28:49+0000"
 }
 ```
+For more information, see [Configuring provisioned concurrency for an Event Function](https://docs.aws.amazon.com/lambda/latest/dg/provisioned-concurrency.html) in the *AWS Lambda Developer Guide*.  
 +  For API details, see [GetProvisionedConcurrencyConfig](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/get-provisioned-concurrency-config.html) in *AWS CLI Command Reference*. 
 
 ------

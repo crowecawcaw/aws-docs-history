@@ -14,6 +14,7 @@ When deciding between Amazon MSK and self-managed Apache Kafka, consider your op
 + [Using Lambda with self-managed Apache Kafka](with-kafka.md)
 + [Apache Kafka event poller scaling modes in Lambda](kafka-scaling-modes.md)
 + [Apache Kafka polling and stream starting positions in Lambda](kafka-starting-positions.md)
++ [Polling Kafka topics in Queue mode](polling-kafka-queue.md)
 + [Customizable consumer group ID in Lambda](kafka-consumer-group-id.md)
 + [Filtering events from Amazon MSK and self-managed Apache Kafka event sources](kafka-filtering.md)
 + [Using schema registries with Kafka event sources in Lambda](services-consume-kafka-events.md)

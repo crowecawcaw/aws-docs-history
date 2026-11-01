@@ -4,7 +4,7 @@
 <a name="foundation-arch"></a>
 
  The *instruction set architecture* of a Lambda function determines the type of computer processor that Lambda uses to run the function. Lambda provides a choice of instruction set architectures:
-+ arm64 – 64-bit ARM architecture, for the AWS Graviton2 processor.
++ arm64 – 64-bit ARM architecture, for AWS Graviton processors.
 + x86\_64 – 64-bit x86 architecture, for x86-based processors.
 
 **Note**  
@@ -21,13 +21,14 @@ For an example of how to create a function with arm64 architecture, see [AWS Lam
 ## Advantages of using arm64 architecture
 <a name="foundation-arch-adv"></a>
 
-Lambda functions that use arm64 architecture (AWS Graviton2 processor) can achieve significantly better price and performance than the equivalent function running on x86\_64 architecture. Consider using arm64 for compute-intensive applications such as high-performance computing, video encoding, and simulation workloads.
+Lambda functions that use arm64 architecture (AWS Graviton processors) can achieve significantly better price and performance than the equivalent function running on x86\_64 architecture. Consider using arm64 for compute-intensive applications such as high-performance computing, video encoding, and simulation workloads.
 
-The Graviton2 CPU uses the Neoverse N1 core and supports Armv8.2 (including CRC and crypto extensions) plus several other architectural extensions.
+Lambda manages the underlying hardware and does not guarantee a specific processor generation: your function might run on different generations of the Graviton processor depending on regional hardware availability. Your code does not target a specific chipset; it only needs to be compatible with the arm64 (AArch64) architecture. All Graviton generations provide these benefits over x86\_64:
++ A larger L2 cache per vCPU, which reduces memory read time and improves latency for web and mobile backends, microservices, and data processing systems.
++ Improved encryption performance through Arm cryptographic extensions.
++ Support for instruction sets that lower the latency of CPU-based machine learning inference.
 
-Graviton2 reduces memory read time by providing a larger L2 cache per vCPU, which improves the latency performance of web and mobile backends, microservices, and data processing systems. Graviton2 also provides improved encryption performance and supports instruction sets that improve the latency of CPU-based machine learning inference.
-
-For more information about AWS Graviton2, see [AWS Graviton Processor](https://aws.amazon.com/ec2/graviton).
+For more information, see [AWS Graviton processors](https://aws.amazon.com/ec2/graviton).
 
 ## Requirements for migration to arm64 architecture
 <a name="foundation-arch-consider"></a>

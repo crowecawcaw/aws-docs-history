@@ -21,7 +21,7 @@ For information about using layers with Go, see [Working with layers for Go Lamb
 ## Go runtime support
 <a name="golang-al1"></a>
 
-The Go 1.x managed runtime for Lambda is [deprecated](lambda-runtimes.md#runtime-support-policy). If you have functions that use the Go 1.x runtime, you must migrate your functions to `provided.al2023` or `provided.al2`. The `provided.al2023` and `provided.al2` runtimes offer several advantages over `go1.x`, including support for the arm64 architecture (AWS Graviton2 processors), smaller binaries, and slightly faster invoke times.
+The Go 1.x managed runtime for Lambda is [deprecated](lambda-runtimes.md#runtime-support-policy). If you have functions that use the Go 1.x runtime, you must migrate your functions to `provided.al2023` or `provided.al2`. The `provided.al2023` and `provided.al2` runtimes offer several advantages over `go1.x`, including support for the arm64 architecture (AWS Graviton processors), smaller binaries, and slightly faster invoke times.
 
 No code changes are required for this migration. The only required changes relate to how you build your deployment package and which runtime you use to create your function. For more information, see [Migrating AWS Lambda functions from the Go1.x runtime to the custom runtime on Amazon Linux 2](https://aws.amazon.com/blogs/compute/migrating-aws-lambda-functions-from-the-go1-x-runtime-to-the-custom-runtime-on-amazon-linux-2/) on the *AWS Compute Blog*.
 

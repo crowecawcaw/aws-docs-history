@@ -58,8 +58,12 @@ aws lambda create-capacity-provider \
 
 Specify the architecture and [instance types](https://aws.amazon.com/lambda/pricing/#:~:text=EPU%20pricing%20applies.-,Management%20Fees,-Pricing%20Example%3A%20High) for your capacity provider:
 + **Architectures**: Choose `x86_64` or `arm64`. Default is `x86_64`
-+ **AllowedInstanceTypes**: Specify allowed instance types. Example: `m5.8xlarge`
-+ **ExcludedInstanceTypes**: Specify excluded instance types using wildcards. You can specify only one of AllowedInstanceTypes or ExcludedInstanceTypes
++ **AllowedInstanceTypes**: Specify allowed instance types or entire instance families. You can use a wildcard (`*`) to match instance sizes within a specific instance type family. The wildcard applies only to the size portion (after the dot). For example:
+  + `m5.8xlarge` — Matches the exact instance type
+  + `c6i.*` — Matches all sizes in the `C6i` family (`c6i.xlarge`, `c6i.2xlarge`, `c6i.4xlarge`, and so on)
+
+  Wildcards on instance families or generations are not supported. For example, `c5*.*`, `r*`, and `*3*` are not valid patterns for Lambda Managed Instances.
++ **ExcludedInstanceTypes**: Specify instance types to exclude, using the same format as AllowedInstanceTypes. You can specify only one of AllowedInstanceTypes or ExcludedInstanceTypes.
 
 By default, Lambda chooses optimal instance types for your workload. We recommend letting Lambda Managed Instances choose instance types for you, as restricting the number of possible instance types might result in lower availability.
 

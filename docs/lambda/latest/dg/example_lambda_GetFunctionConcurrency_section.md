@@ -23,6 +23,7 @@ Output:
     "ReservedConcurrentExecutions": 250
 }
 ```
+For more information, see [Configuring reserved concurrency for an Event Function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) in the *AWS Lambda Developer Guide*.  
 +  For API details, see [GetFunctionConcurrency](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/get-function-concurrency.html) in *AWS CLI Command Reference*. 
 
 ------

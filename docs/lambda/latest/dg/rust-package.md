@@ -41,7 +41,7 @@ The following steps demonstrate how to create the project for your first Lambda 
    cargo lambda build --release
    ```
 
-   (Optional) If you want to use AWS Graviton2 on Lambda, add the `--arm64` flag to compile your code for ARM CPUs.
+   (Optional) If you want to use AWS Graviton on Lambda, add the `--arm64` flag to compile your code for ARM CPUs.
 
    ```
    cargo lambda build --release --arm64

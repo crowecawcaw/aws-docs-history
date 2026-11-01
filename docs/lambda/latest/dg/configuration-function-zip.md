@@ -220,5 +220,5 @@ In the `AWS::Lambda::Function` resource, set the following properties to create 
   + PackageType – Set to `Zip`.
   + Code – Enter the Amazon S3 bucket name and .zip file name in the `S3Bucket` and `S3Key`fields. For Node.js or Python, you can provide inline source code of your Lambda function.
   + Runtime – Set the runtime value.
-  + Architecture – Set the architecture value to `arm64` to use the AWS Graviton2 processor. By default, the architecture value is `x86_64`.
+  + Architecture – Set the architecture value to `arm64` to use AWS Graviton processors. By default, the architecture value is `x86_64`.
   + S3ObjectStorageMode – (Optional) Set to `REFERENCE` to use [self-managed S3 code storage](configuration-self-managed-storage.md). Set to `COPY` (default) to use Lambda-managed storage.
