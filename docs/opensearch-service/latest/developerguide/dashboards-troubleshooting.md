@@ -128,10 +128,21 @@ To catch this before Dashboards runs out of memory, watch the `OpenSearchDashboa
 <a name="dashboards-troubleshooting-payload"></a>
 
 Symptom  
-Certain Dashboards pages fail to load because the request payload exceeds the Dashboards payload limit (`server.maxPayloadBytes`, which defaults to 1 MB / 1,048,576 bytes).
+A Dashboards request fails because its payload exceeds the Dashboards payload limit (`server.maxPayloadBytes`, which defaults to 1 MB, or 1,048,576 bytes). Dashboards rejects the request with HTTP 413 and the following message:  
+
+```
+{"statusCode":413,"error":"Request Entity Too Large","message":"Payload content length greater than maximum allowed: 1048576"}
+```
+This most often happens with index patterns. You might see one or more of the following:  
++ Creating an index pattern, or choosing **Refresh field list** on an existing one, fails with `Request Entity Too Large`.
++ The **Discover** field list and filters don't show fields that exist in your documents.
++ Saved searches, visualizations, or saved Discover URLs that use the index pattern stop working or show no fields.
+To confirm, open your browser's developer tools and look for a `413` response to a request to `api/saved_objects/index-pattern`.  
+The cluster itself stays healthy. Dashboards rejects the request before it reaches the cluster.
 
 Root cause  
-Index patterns that match a very large number of indexes or fields produce requests larger than the payload limit.
+Index patterns that match a very large number of indexes or fields produce requests larger than the payload limit. Dashboards stores an index pattern's complete field list in a single saved object. The size of the request grows with the number of fields and the length of their names.  
+When Dashboards can't save the complete field list, it keeps the previously stored list, which can be incomplete. Refreshing the field list can't fix this, because the refresh has to save the complete list.
 
 How to mitigate  
 
@@ -140,7 +151,7 @@ How to mitigate
    + Reduce the number of fields.
    + Reduce field-name length.
 
-1. Contact [AWS Support](https://aws.amazon.com/premiumsupport/) to request the supported, account-level option that persists an increased `server.maxPayloadBytes` value so that it survives blue/green deployments and node replacements. This option is available on all supported Amazon OpenSearch Service versions.
+1. Contact [AWS Support](https://aws.amazon.com/premiumsupport/) to request the supported, account-level option that persists an increased `server.maxPayloadBytes` value so that it survives blue/green deployments and node replacements. This option is available on all supported Amazon OpenSearch Service versions. The limit can be increased up to 10 MB (10,485,760 bytes). After the increase is applied, refresh the field list of each affected index pattern.
 Don't try to raise this limit by editing the Dashboards configuration on nodes yourself. Node-level changes aren't persistent. Any blue/green deployment or node replacement removes them. Use the account-level option through AWS Support instead.
 
 Suggested action  

@@ -250,7 +250,7 @@ You can create an ingestion job from the OpenSearch Service console or with the 
 
 **To create an ingestion job (console)**
 
-1. Sign in to the OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home).
+1. Sign in to the [OpenSearch Service console](https://console.aws.amazon.com/aos/home#opensearch/collections).
 
 1. Open the collection.
 
@@ -391,7 +391,6 @@ Grant the IAM identity that creates and manages ingestion streams the following 
         "aoss:CreateIngestionStream",
         "aoss:GetIngestionStream",
         "aoss:ListIngestionStreams",
-        "aoss:UpdateIngestionStream",
         "aoss:DeleteIngestionStream"
       ],
       "Resource": [
@@ -446,7 +445,7 @@ You can create an ingestion stream from the OpenSearch Service console or with t
 
 **To create an ingestion stream (console)**
 
-1. Sign in to the OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home).
+1. Sign in to the [OpenSearch Service console](https://console.aws.amazon.com/aos/home#opensearch/collections).
 
 1. Open the collection.
 
@@ -486,7 +485,21 @@ aws opensearchserverless get-ingestion-stream \
     --region {{region}}
 ```
 
-When you no longer need the stream, delete it with the `delete-ingestion-stream` command.
+### Deleting an ingestion stream
+<a name="serverless-intelligent-ingestion-s3-streams-delete"></a>
+
+An ingestion stream continues to run until you delete it. Ingestion jobs don't require cleanup, because a job completes and stops ingestion after it processes the data. To stop a job before it completes, cancel it with the `cancel-ingestion-job` command. When you no longer need a stream, delete it to stop processing and avoid incurring further charges.
+
+To delete an ingestion stream from the console, open the collection, and then on the **Ingestion** tab, select the stream and delete it. Alternatively, the following AWS CLI command deletes the ingestion stream. Replace the {{placeholder values}} with your own information:
+
+```
+aws opensearchserverless delete-ingestion-stream \
+    --collection-id {{collection-id}} \
+    --ingestion-stream-id {{ingestion-stream-id}} \
+    --region {{region}}
+```
+
+Deleting a stream stops ingestion of new objects. It doesn't delete the data that the stream already wrote to the index, the Amazon SQS queue, or the source Amazon S3 bucket.
 
 ## Limitations for ingesting from Amazon S3
 <a name="serverless-intelligent-ingestion-s3-limitations"></a>

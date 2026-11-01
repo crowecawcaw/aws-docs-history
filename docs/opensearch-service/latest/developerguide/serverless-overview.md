@@ -57,9 +57,6 @@ OpenSearch Serverless supports three primary collection types:
 
 **Time series** – The log analytics segment that analyzes large volumes of semi-structured, machine-generated data in real-time, providing insights into operations, security, user behavior, and business performance.
 
-**Note**  
-Time series collections are only available for Classic collections. NextGen collections currently support Search and Vector search types only.
-
 **Search** – Full-text search that enables applications within internal networks, such as content management systems and legal document repositories, as well as internet-facing applications like e-commerce site search and content discovery.
 
 **Vector search** – Semantic search on vector embeddings simplifies vector data management and enables machine learning (ML)-augmented search experiences. It supports generative AI applications such as chatbots, personal assistants, and fraud detection.

@@ -46,7 +46,7 @@ For Classic collections that are not part of a collection group, capacity settin
 
 The maximum total of indexes a collection can contain is 1000. The minimum OCU capacity for a collection group is 0 OCUs for indexing and 0 OCUs for search. For each collection group, the maximum allowed capacity is 1,700 OCUs for indexing and 1,700 OCUs for search. You can configure the OCU count to be 2, 4, 8, 16, or any multiple of 16 up to the maximum allowed capacity.
 
-For Classic collections, each OCU includes hot ephemeral storage of 120 GiB. OpenSearch Serverless supports up to 10 TiB of managed hot storage per collection.
+For Classic collections, each OCU includes hot ephemeral storage of 120 GiB. For NextGen collections, OpenSearch Serverless supports up to 10 TiB of storage for search and vector collections and up to 100 TiB for time series collections.
 
 For a list of all quotas, see [OpenSearch Serverless quotas](https://docs.aws.amazon.com/general/latest/gr/opensearch-service.html#opensearch-limits-serverless).
 

@@ -39,6 +39,7 @@ To create a Classic collection instead, choose **Switch to Classic** in the **Se
    + Contains between 3 and 64 characters
 
 1. Choose a collection type:
+   + **Time series** – Log analytics segment that focuses on analyzing large volumes of semi-structured, machine-generated data. Recent data is stored in hot storage, and older data moves to warm storage. For more information, see [Using the warm-after setting in time series collections](serverless-warm-after.md).
    + **Search** – Full-text search that powers applications in your internal networks and internet-facing applications. All search data is stored in hot storage to ensure fast query response times.
    + **Vector search** – Semantic search on vector embeddings that simplifies vector data management. Powers machine learning (ML) augmented search experiences and generative AI applications.
 
@@ -57,7 +58,7 @@ The **Express create** button in the blue info banner on the Amazon OpenSearch S
 The **Express create** button on the Get Started Quick Create card
 Both open an Express Create modal directly without navigating to the full create page.
 
-When you use Express Create from the modal, you can create a collection in seconds without navigating to the full create collection form. Enter a collection name, choose a collection type (**Search** or **Vector search**), and choose **Create collection**. OpenSearch Serverless automatically configures the remaining settings with sensible defaults.
+When you use Express Create from the modal, you can create a collection in seconds without navigating to the full create collection form. Enter a collection name, choose a collection type (**Time series**, **Search**, or **Vector search**), and choose **Create collection**. OpenSearch Serverless automatically configures the remaining settings with sensible defaults.
 
 You can expand the **Configuration details** section to review or modify settings such as collection group, OpenSearch UI settings, encryption, network access, and data access before creating the collection. Some settings can also be changed after creation.
 

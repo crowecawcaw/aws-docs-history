@@ -7,6 +7,9 @@ The upgrade process is irreversible and can't be paused or cancelled. During an 
 
 If the cluster has dedicated master nodes, OpenSearch upgrades complete without downtime. However, a brief sub-second interruption (approximately 300ms) may occur during master node re-election. Otherwise, the cluster might be unresponsive for several seconds post-upgrade while it elects a master node.
 
+**Note**  
+Although an upgrade completes without downtime, it runs as a blue/green deployment. During the deployment, you might experience performance impact, such as increased latency or increased rejections for incoming requests. For more information, see [Performance impact of blue/green deployments](managedomains-configuration-changes.md#performance-impact-bluegreen).
+
 **To upgrade a domain to a later version of OpenSearch or Elasticsearch**
 
 1. [Take a manual snapshot](managedomains-snapshots.md) of your domain. This snapshot serves as a backup that you can [restore on a new domain](managedomains-snapshot-restore.md) if you want to return to using the prior OpenSearch version.

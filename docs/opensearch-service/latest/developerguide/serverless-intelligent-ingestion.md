@@ -3,7 +3,7 @@
 # Overview of Amazon OpenSearch intelligent ingestion
 <a name="serverless-intelligent-ingestion"></a>
 
-Amazon OpenSearch intelligent ingestion is a native, on-demand, serverless capability that makes data from supported data sources searchable in OpenSearch Serverless. You choose a data source, such as Amazon Simple Storage Service (Amazon S3), select how to process the data, and specify a target index. Intelligent ingestion discovers the source objects, processes their content, and indexes the results for you.
+Amazon OpenSearch Serverless intelligent ingestion is a native, on-demand, serverless capability that makes data from supported data sources searchable in OpenSearch Serverless. You choose a data source, such as Amazon Simple Storage Service (Amazon S3), select how to process the data, and specify a target index. Intelligent ingestion discovers the source objects, processes their content, and indexes the results for you.
 
 Intelligent ingestion supports both structured data and documents. For structured data, it can apply transformations and optionally generate vector embeddings. For documents, it can preserve document structure, describe visual content, divide text into retrieval-sized chunks, generate embeddings, and write the resulting text, vectors, and metadata to a vector index.
 
@@ -29,13 +29,15 @@ This topic walks you through creating your first ingestion job, which loads an e
 
 Before you begin, you need an AWS account, an OpenSearch Serverless NextGen collection, and an AWS Identity and Access Management (IAM) identity with permissions to call the ingestion APIs and access the source and destination. For more information, see [Ingesting from Amazon S3](serverless-intelligent-ingestion-s3.md).
 
-To create your first ingestion job:
+**To prepare the prerequisites**
 
 1. Prepare a supported data source, such as an Amazon S3 bucket, that contains your data or documents.
 
 1. Create or select an OpenSearch Serverless NextGen collection.
 
 1. Grant your IAM identity the permissions to create ingestion jobs and to access the source and destination, as described in [Ingestion jobs](serverless-intelligent-ingestion-s3.md#serverless-intelligent-ingestion-s3-jobs). Ingestion streams additionally use a dedicated ingestion role that the service assumes.
+
+**To create and monitor the ingestion job**
 
 1. In the OpenSearch Service console, open the collection and choose the **Ingestion** tab.
 
@@ -45,7 +47,9 @@ To create your first ingestion job:
 
 1. Monitor the job until processing completes, and then query the target index to verify the results.
 
-To keep an index synchronized as new data arrives, create an ingestion stream by using **Continuous streaming** or **Backfill then stream**. For source-specific setup, such as configuring event notifications, see [Ingesting from Amazon S3](serverless-intelligent-ingestion-s3.md).
+You don't need to clean up an ingestion job. After a job ingests all of the data, it completes on its own, stops ingestion, and stops consuming ingestion capacity. To stop a job before it completes, cancel it with the `cancel-ingestion-job` command. Documents that the job indexed before the cancellation remain in the index.
+
+To keep an index synchronized as new data arrives, create an ingestion stream by using **Continuous streaming** or **Backfill then stream**. For source-specific setup, such as configuring event notifications, see [Ingesting from Amazon S3](serverless-intelligent-ingestion-s3.md). Unlike a job, an ingestion stream continues to run until you delete it. When you no longer need a stream, delete it with the `delete-ingestion-stream` command to avoid incurring further charges.
 
 For more information, see the following topics:
 + [Ingesting from Amazon S3](serverless-intelligent-ingestion-s3.md)

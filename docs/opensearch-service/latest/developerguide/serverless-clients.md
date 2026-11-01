@@ -5,6 +5,8 @@
 
 These sections provide details about the supported ingest pipelines for data ingestion into Amazon OpenSearch Serverless collections. They also cover some of the clients that you can use to interact with the OpenSearch API operations. Your clients should be compatible with OpenSearch 2.x in order to integrate with OpenSearch Serverless.
 
+Amazon OpenSearch Serverless supports OpenSearch ingest pipelines, which transform or enrich documents before they're indexed, regardless of which client or integration you use to send them. An ingest pipeline is a sequence of processors that transform documents before they are indexed. For example, you can use ingest pipelines to remove sensitive fields, normalize field values, parse timestamps, or generate vector embeddings for semantic search. Because the pipeline runs in OpenSearch Serverless, your documents receive consistent transformations without custom preprocessing logic in each client. For more information, see [Ingest pipelines in Amazon OpenSearch Serverless](serverless-ingest-pipelines.md).
+
 **Topics**
 + [Minimum required permissions](#serverless-ingestion-permissions)
 + [OpenSearch Ingestion](#serverless-osis-ingestion)
@@ -582,6 +584,9 @@ print(delete_response)
 
 **Note**  
 The `id = '1'` parameter in this example specifies a custom document ID. Custom document IDs are only supported for *search* collections. For time series and vector search collections, indexing with a custom document ID is not supported and will return an error. Omit the `id` parameter when indexing into time series or vector search collections.
+
+**Note**  
+Every document that you ingest into a *NextGen time series* collection must include the index's designated timestamp field, and its value must be a valid `date`. OpenSearch Serverless rejects documents that omit the field or that provide an invalid value. For more information, see [Using the timestamp field in time series collections](serverless-timestamp-field.md).
 
 ## Ruby
 <a name="serverless-ruby"></a>
