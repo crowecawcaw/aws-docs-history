@@ -18,6 +18,7 @@ This service is available in the following AWS GovCloud (US) Regions:
 The following differences apply to AWS Lambda:
 + Schema registry support for Kafka event sources is not available.
 +  AWS Lambda Function URLs is not available.
++ Recursive loop detection is not available.
 + Event source mapping (ESM) tags for AWS Lambda is not available.
 + The DocumentDB event sources are not available.
 + Multi-VPC connectivity for Managed Streaming for Apache Kafka event source mappings is not available.

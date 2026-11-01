@@ -6,16 +6,14 @@
 Amazon Cognito provides authentication, authorization, and user management for your web and mobile apps. Your users can sign in directly with a user name and password, or through a third party such as Facebook, Amazon, Google or Apple. The two main components of Amazon Cognito are user pools and identity pools. User pools are user directories that provide sign-up and sign-in options for your app users. Identity pools enable you to grant your users access to other AWS services. You can use identity pools and user pools separately or together.
 
 ## Region availability
-<a name="_region_availability"></a>
+<a name="region-availability"></a>
 
-This service is available in the following AWS GovCloud (US) Regions:
-+  AWS GovCloud (US-West) 
+ Amazon Cognito is available in the following AWS GovCloud (US) Regions:
 +  AWS GovCloud (US-East) 
++  AWS GovCloud (US-West) 
 
 ## How Amazon Cognito differs
-<a name="govcloud-cog-diffs"></a>
-
-The following differences apply to Amazon Cognito:
+<a name="feature-diffs"></a>
 +  Amazon Pinpoint integration with user pools isn’t supported.
 +  Amazon Cognito in AWS GovCloud (US) uses FIPS endpoints only.
   + The API service endpoints are `cognito-idp-fips.us-gov-west-1.amazonaws.com` and `cognito-idp-fips.us-gov-east-1.amazonaws.com`. For more information about FIPS in AWS, see [Federal Information Processing Standard (FIPS) 140-3](https://aws.amazon.com/compliance/fips/).

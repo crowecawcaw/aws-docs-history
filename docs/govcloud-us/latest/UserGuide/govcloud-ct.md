@@ -30,7 +30,7 @@ The following differences apply to AWS CloudTrail:
   +  CloudTrail Lake query results summarization
   +  CloudTrail Lake event data stores for AWS Config configuration items, AWS Audit Manager evidence, and events outside of AWS.
   + The **Activity summary** widget on the Highlights dashboard.
-+  CloudTrail network activity events are only available for AWS KMS, Amazon S3, AWS CloudTrail, and AWS Secrets Manager. You can also log network activity events in Amazon CloudWatch that are sent through the monitoring VPC interface endpoint. For more information, see [Using CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-and-interface-VPC.html).
++  CloudTrail network activity events are currently not supported.
 +  CloudTrail enriched events are currently not supported.
 + To enable CloudTrail to write log files to your bucket in AWS GovCloud (US) Regions, you can use the following policy.
 **Warning**  

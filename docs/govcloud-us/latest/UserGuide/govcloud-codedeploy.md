@@ -6,16 +6,14 @@
 AWS CodeDeploy is a deployment service that enables developers to automate the deployment of applications to instances and to update the applications as required.
 
 ## Region availability
-<a name="_region_availability"></a>
+<a name="region-availability"></a>
 
-This service is available in the following AWS GovCloud (US) Regions:
-+  AWS GovCloud (US-West) 
+ AWS CodeDeploy is available in the following AWS GovCloud (US) Regions:
 +  AWS GovCloud (US-East) 
++  AWS GovCloud (US-West) 
 
 ## How AWS CodeDeploy differs
-<a name="govcloud-codedeploy-diffs"></a>
-
-The following differences apply to AWS CodeDeploy:
+<a name="feature-diffs"></a>
 + The new AWS CodeDeploy console is not available in the AWS GovCloud (US) Regions
 + Use TLS (HTTPS) when you make calls to the service in AWS GovCloud (US) Regions. In other regions, you can use HTTP or HTTPS.
 + Several procedures in the CodeDeploy User Guide require the customer to substitute the name of a region-specific Amazon S3 bucket or bucket ARN. These procedures are for tasks such as restricting bucket access and downloading installation files, samples, and templates. In AWS GovCloud (US) Regions, the formats for accessing these resources do not follow the same patterns as for other Regions.
