@@ -26,7 +26,7 @@ In this tutorial, you will create a simple iOS application using AWS Amplify, a 
 
 ## Prerequisites
 <a name="prerequisites"></a>
-+ An [AWS account](https://portal.aws.amazon.com/billing/signup#/start) with the correct permissions (an Administrator role or root account will also work, but we recommend a least-privileges approach). 
++ An [AWS account](https://signin.aws.amazon.com/signup?request_type=builderId) with the correct permissions (an Administrator role or root account will also work, but we recommend a least-privileges approach). 
 + [Node.js v 14.x](https://nodejs.org/) or more recent. 
 + [Xcode 15.x](https://developer.apple.com/xcode/) or more recent, available on the [Mac App Store](https://apps.apple.com/us/app/xcode/id497799835?mt=12s). 
 + AWS Command Line Interface [AWS CLI 2.x](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) or more recent. 
