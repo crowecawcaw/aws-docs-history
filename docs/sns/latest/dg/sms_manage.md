@@ -103,6 +103,7 @@ Output:
     ]
 }
 ```
+For more information, see [Managing Amazon SNS phone numbers and subscriptions](https://docs.aws.amazon.com/sns/latest/dg/sms_manage.html) in the *Amazon Simple Notification Service Developer Guide*.  
 +  For API details, see [ListPhoneNumbersOptedOut](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/list-phone-numbers-opted-out.html) in *AWS CLI Command Reference*. 
 
 ------
@@ -276,6 +277,7 @@ Output:
     "isOptedOut": false
 }
 ```
+For more information, see [Managing Amazon SNS phone numbers and subscriptions](https://docs.aws.amazon.com/sns/latest/dg/sms_manage.html) in the *Amazon Simple Notification Service Developer Guide*.  
 +  For API details, see [CheckIfPhoneNumberIsOptedOut](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/check-if-phone-number-is-opted-out.html) in *AWS CLI Command Reference*. 
 
 ------
@@ -518,9 +520,10 @@ The following `unsubscribe` example deletes the specified subscription from a to
 
 ```
 aws sns unsubscribe \
-    --subscription-arn {{arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f}}
+    --subscription-arn {{arn:aws:sns:us-west-2:0123456789012:my-topic:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}
 ```
 This command produces no output.  
+For more information, see [Deleting an Amazon SNS topic and subscription](https://docs.aws.amazon.com/sns/latest/dg/sns-delete-subscription-topic.html) in the *Amazon Simple Notification Service Developer Guide*.  
 +  For API details, see [Unsubscribe](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/unsubscribe.html) in *AWS CLI Command Reference*. 
 
 ------
@@ -897,6 +900,7 @@ aws sns delete-topic \
     --topic-arn {{"arn:aws:sns:us-west-2:123456789012:my-topic"}}
 ```
 This command produces no output.  
+For more information, see [Deleting an Amazon SNS topic and subscription](https://docs.aws.amazon.com/sns/latest/dg/sns-delete-subscription-topic.html) in the *Amazon Simple Notification Service Developer Guide*.  
 +  For API details, see [DeleteTopic](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/delete-topic.html) in *AWS CLI Command Reference*. 
 
 ------

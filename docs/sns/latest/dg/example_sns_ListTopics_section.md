@@ -141,6 +141,7 @@ Output:
     ]
 }
 ```
+For more information, see [Creating an Amazon SNS topic](https://docs.aws.amazon.com/sns/latest/dg/sns-create-topic.html) in the *Amazon Simple Notification Service Developer Guide*.  
 +  For API details, see [ListTopics](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/list-topics.html) in *AWS CLI Command Reference*. 
 
 ------

@@ -410,7 +410,7 @@ Aws::String AwsDoc::TopicsAndQueues::getFilterPolicyFromUser() {
 
 **AWS CLI**  
 **To subscribe to a topic**  
-The following `subscribe` command subscribes an email address to the specified topic.  
+The following `subscribe` example subscribes an email address to the specified topic.  
 
 ```
 aws sns subscribe \
@@ -425,6 +425,7 @@ Output:
     "SubscriptionArn": "pending confirmation"
 }
 ```
+For more information, see [Amazon SNS email subscription setup and management](https://docs.aws.amazon.com/sns/latest/dg/sns-email-notifications.html) in the *Amazon Simple Notification Service Developer Guide*.  
 +  For API details, see [Subscribe](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/subscribe.html) in *AWS CLI Command Reference*. 
 
 ------

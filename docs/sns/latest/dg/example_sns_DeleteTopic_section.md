@@ -83,6 +83,7 @@ aws sns delete-topic \
     --topic-arn {{"arn:aws:sns:us-west-2:123456789012:my-topic"}}
 ```
 This command produces no output.  
+For more information, see [Deleting an Amazon SNS topic and subscription](https://docs.aws.amazon.com/sns/latest/dg/sns-delete-subscription-topic.html) in the *Amazon Simple Notification Service Developer Guide*.  
 +  For API details, see [DeleteTopic](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/delete-topic.html) in *AWS CLI Command Reference*. 
 
 ------

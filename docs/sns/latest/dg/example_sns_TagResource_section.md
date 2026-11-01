@@ -18,6 +18,7 @@ aws sns tag-resource \
     --tags {{Key=Team,Value=Alpha}}
 ```
 This command produces no output.  
+For more information, see [Amazon SNS topic tagging](https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html) in the *Amazon Simple Notification Service Developer Guide*.  
 +  For API details, see [TagResource](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/tag-resource.html) in *AWS CLI Command Reference*. 
 
 ------

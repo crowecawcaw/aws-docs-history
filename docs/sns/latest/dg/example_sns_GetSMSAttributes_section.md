@@ -74,6 +74,7 @@ Output:
     }
 }
 ```
+For more information, see [Setting SMS messaging preferences in Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/sms_preferences.html) in the *Amazon Simple Notification Service Developer Guide*.  
 +  For API details, see [GetSMSAttributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/get-sms-attributes.html) in *AWS CLI Command Reference*. 
 
 ------

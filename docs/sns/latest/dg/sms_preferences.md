@@ -99,6 +99,7 @@ aws sns set-sms-attributes \
     --attributes {{DefaultSenderID=MyName}}
 ```
 This command produces no output.  
+For more information, see [Setting SMS messaging preferences in Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/sms_preferences.html) in the *Amazon Simple Notification Service Developer Guide*.  
 +  For API details, see [SetSMSAttributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/set-sms-attributes.html) in *AWS CLI Command Reference*. 
 
 ------

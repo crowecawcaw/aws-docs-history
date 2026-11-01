@@ -19,6 +19,7 @@ aws sns set-topic-attributes \
     --attribute-value {{MyTopicDisplayName}}
 ```
 This command produces no output.  
+For more information, see [Creating an Amazon SNS topic](https://docs.aws.amazon.com/sns/latest/dg/sns-create-topic.html) in the *Amazon Simple Notification Service Developer Guide*.  
 +  For API details, see [SetTopicAttributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/set-topic-attributes.html) in *AWS CLI Command Reference*. 
 
 ------
