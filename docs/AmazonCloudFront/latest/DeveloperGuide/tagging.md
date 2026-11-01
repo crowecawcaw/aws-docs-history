@@ -46,7 +46,7 @@ If you've just enabled reporting, data for the current month is available for vi
 
 You can use the CloudFront console to manage tags for your CloudFront resources.<a name="tagging-add-edit-delete-procedure"></a>
 
-**To add tags, edit, or delete tags for a resource**
+**To add, edit, or delete tags for a resource**
 
 1. Sign in to the AWS Management Console and open the CloudFront console at [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home).
 

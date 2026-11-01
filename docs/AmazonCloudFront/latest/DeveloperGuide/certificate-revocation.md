@@ -249,7 +249,7 @@ async function connectionHandler(connection) {
         connection.clientCertificate.certificates.leaf.serialNumber;
 
     // Check KVS to see if serial number exists as a key
-    // Remove : from the clientSerialNumber if KVS entries dont have it
+    // Remove : from the clientSerialNumber if KVS entries don't have it
     const serialNumberExistsInKvs =
         await kvsHandle.exists(clientSerialNumber.replaceAll(":", ""));
 

@@ -81,7 +81,7 @@ The following table shows the CloudFront, AWS WAF and DDoS, Amazon Route 53, Am
 |  **Origin load reduction** <br />Adds an additional caching layer close to your web application using [Origin Shield](origin-shield.md). Origin Shield consolidates requests from all edge locations, reducing load on your application particularly during traffic spikes. |  |  |  | Yes<br />![Green circle with white checkmark icon.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/icon-yes.png) | 
 |  **Automatic origin failover** <br />Automatically routes traffic to a backup origin if your primary origin fails, [maintaining high availability](high_availability_origin_failover.md) without disrupting users. |  |  |  | Yes<br />![Green circle with white checkmark icon.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/icon-yes.png) | 
 |  **Default origin request rules** <br />Control which information from viewer requests is automatically included in requests to your origin, using [AWS managed origin request policies](using-managed-origin-request-policies.md) optimized for common scenarios. | Yes<br />![Green circle with white checkmark icon.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/icon-yes.png) | Yes<br />![Green circle with white checkmark icon.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/icon-yes.png) | Yes<br />![Green circle with white checkmark icon.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/icon-yes.png) | Yes<br />![Green circle with white checkmark icon.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/icon-yes.png) | 
-|  **Default response header rules** <br />Use [AWS managed response header policies](using-managed-response-headers-policies.md) to add or remove HTTP headers in responses to viewers, preconfigured for common security headers, CORS settings, and other standard use cases. | Yes<br />![Green circle with white checkmark icon.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/icon-yes.png) | Yes<br />![Green circle with white checkmark icon.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/icon-yes.png) | Yes<br />![Green circle with white checkmark icon.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/icon-yes.png) | Yes<br />![Green circle with white checkmark icon.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/icon-yes.png) | 
+|  **Default response header rules** <br />Use [AWS managed response headers policies](using-managed-response-headers-policies.md) to add or remove HTTP headers in responses to viewers, preconfigured for common security headers, CORS settings, and other standard use cases. | Yes<br />![Green circle with white checkmark icon.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/icon-yes.png) | Yes<br />![Green circle with white checkmark icon.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/icon-yes.png) | Yes<br />![Green circle with white checkmark icon.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/icon-yes.png) | Yes<br />![Green circle with white checkmark icon.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/icon-yes.png) | 
 |  **Custom origin request rules** <br />Create your own [origin request policies](controlling-origin-requests.md) to specify exactly which URL query strings, headers, and cookies are forwarded to your origin, enabling custom analytics and request handling. |  |  | Yes<br />![Green circle with white checkmark icon.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/icon-yes.png) | Yes<br />![Green circle with white checkmark icon.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/icon-yes.png) | 
 |  **Custom response header rules** <br />Create your own [response header policies](modifying-response-headers.md) to control exactly which HTTP headers CloudFront adds or removes in responses to viewers, such as security headers, Content Security Policy (CSP), CORS settings, and custom application headers. |  |  | Yes<br />![Green circle with white checkmark icon.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/icon-yes.png) | Yes<br />![Green circle with white checkmark icon.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/icon-yes.png) | 
 |  **Number of cache behaviors** <br />Configure [cache behaviors](DownloadDistValuesCacheBehavior.md) to control how CloudFront handles requests for specific URL patterns, including which origin serves the content, how content is cached, and whether HTTPS or signed URLs are required. | 5 | 10 | 50 | 100 | 
@@ -164,7 +164,7 @@ Plans are designed to be flexible and accommodate real-world traffic patterns li
 
 Here's how it works:
 +  **Your first traffic spike up to 3x your monthly allowance won't affect your service that month.** This one-time accommodation handles unexpected events like viral content or successful product launches without penalizing your success.
-+  **Sustained usage above your allowance is evaluated over 2-3 months or more, not immediately.** Minor fluctuations and moderate growth are expected and accommodated. Only substantial, sustained excess usage indicate your application has outgrown your tier.
++  **Sustained usage above your allowance is evaluated over 2-3 months or more, not immediately.** Minor fluctuations and moderate growth are expected and accommodated. Only substantial, sustained excess usage indicates your application has outgrown your tier.
 +  **You'll receive notifications each month as you approach and exceed your allowance.** If your usage consistently and significantly exceeds your plan, we recommend upgrading to a tier that matches your growth and makes sure optimal performance as you scale. You control your performance by upgrading when your baseline usage patterns change.
 +  **If you continue to substantially exceed your plan's usage allowance without upgrading, your traffic delivery might be adjusted.** For example, your traffic might be served from fewer or more distant edge locations, or performance might be adjusted. The degree of adjustment is proportional—small excess usage sees minimal changes, larger sustained excess sees more noticeable changes. Upgrading restores full performance.
 
@@ -289,7 +289,7 @@ When you update a distribution, you can subscribe to a pricing plan. Before choo
 **Tip**  
 If your current distribution uses any [unsupported features](#pricing-plan-unsupported-features), you must disable those features before you can subscribe to the pricing plan. This includes disabling features like real-time access logs.
 
-After your distribution configuration is compatible, you can choose your desired pricing plan while update a distribution.
+After your distribution configuration is compatible, you can choose your desired pricing plan while updating a distribution.
 
 **To subscribe an existing distribution to a pricing plan**
 
@@ -365,7 +365,7 @@ If your distribution currently exceeds the usage allowance for a plan, you can d
 ### Cancel a pricing plan
 <a name="pricing-plan-cancel"></a>
 
-When you cancel a paid pricing plan, you will maintain your flat-rate price through the end of your current billing cycle. Your distribution and all associated plan resources will then switch to pay-as-you-go pricing at the start of the next billing cycle. Free plans are cancelled immediately.
+When you cancel a paid pricing plan, you will maintain your flat-rate price through the end of your current billing cycle. Your distribution and all associated plan resources will then switch to pay-as-you-go pricing at the start of the next billing cycle. Free plans are canceled immediately.
 
 **To cancel a pricing plan**
 
@@ -401,7 +401,7 @@ If you downgraded or canceled your flat-rate pricing plan, you must wait until t
 ### Deleting a distribution with a pricing plan
 <a name="pricing-plan-delete"></a>
 
-You can't delete a distribution that is subscribed to a pricing plan. You must first cancel the pricing plan. Paid pricing plan cancellations take effect after the current billing cycle. Free plans are cancelled immediately. After the plan is canceled, you can delete the distribution.
+You can't delete a distribution that is subscribed to a pricing plan. You must first cancel the pricing plan. Paid pricing plan cancellations take effect after the current billing cycle. Free plans are canceled immediately. After the plan is canceled, you can delete the distribution.
 
 **To delete a distribution with a pricing plan**
 
@@ -443,7 +443,7 @@ Before you can associate a distribution with a pricing plan, you must make sure 
 
 **Notes**  
 If your distribution or account has any of these restrictions, you must resolve them before you can use pricing plans. After you make changes to your distribution, wait for the changes to propagate to all edge locations.
-You must have a AWS WAF Web ACL associated with your distribution if you're using a pricing plan. This resource cannot be removed or disassociated from your distribution unless you switch to pay-as-you-go pricing for that distribution.
+You must have an AWS WAF Web ACL associated with your distribution if you're using a pricing plan. This resource cannot be removed or disassociated from your distribution unless you switch to pay-as-you-go pricing for that distribution.
 
 ### Unsupported features
 <a name="pricing-plan-disallowed-features"></a>

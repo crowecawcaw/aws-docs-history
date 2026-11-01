@@ -29,7 +29,7 @@ To configure CloudFront to compress objects, update the cache behavior that you 
 
 **Notes**  
 You must use [cache policies](controlling-the-cache-key.md) to use Brotli compression. Brotli doesn't support legacy cache settings.
-To enable compression by using [CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html) or the [CloudFront](https://docs.aws.amazon.com/cloudfront/latest/APIReference/Welcome.html) API, set the `Compress`, `EnableAcceptEncodingGzip`, `EnableAcceptEncodingBrotli` parameters to `true`.
+To enable compression by using [CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html) or the [CloudFront](https://docs.aws.amazon.com/cloudfront/latest/APIReference/Welcome.html) API, set the `Compress`, `EnableAcceptEncodingGzip`, and `EnableAcceptEncodingBrotli` parameters to `true`.
 
 To understand how CloudFront compresses objects, see the following section.
 
@@ -42,13 +42,13 @@ Chrome and Firefox web browsers support Brotli compression only when the request
 
 1. At the edge location, CloudFront checks the cache for a compressed copy of the requested object.
 
-1. Depending whether the compressed object is in the cache or not, CloudFront does one of the following:
+1. Depending on whether the compressed object is in the cache or not, CloudFront does one of the following:
    + If the compressed object is already in the cache, CloudFront sends the object to the viewer and skips the remaining steps.
    + If the compressed object isn't in the cache, CloudFront forwards the request to the origin.
 **Note**  
 If an uncompressed copy of the object is already in the cache, CloudFront might send it to the viewer without forwarding the request to the origin. For example, this can happen when CloudFront [previously skipped compression](#compression-skipped). When this happens, CloudFront caches the uncompressed object and continues to serve it until the object expires, is evicted, or is invalidated.
 
-1. If the origin returns a compressed object, (as indicated by the `Content-Encoding` header in the HTTP response), CloudFront sends the compressed object to the viewer, adds it to the cache, and skips the remaining steps. CloudFront doesn’t compress the object again.
+1. If the origin returns a compressed object (as indicated by the `Content-Encoding` header in the HTTP response), CloudFront sends the compressed object to the viewer, adds it to the cache, and skips the remaining steps. CloudFront doesn’t compress the object again.
 
 1. If the origin returns an uncompressed object to CloudFront without the `Content-Encoding` header in the HTTP response, CloudFront then determines whether the object can be compressed. For more information, see [Conditions for compression](#compressed-content-cloudfront-notes).
 

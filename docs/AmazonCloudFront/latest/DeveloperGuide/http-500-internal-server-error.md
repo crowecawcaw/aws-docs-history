@@ -12,7 +12,7 @@ An HTTP 500 status code (Internal Server Error) indicates that the server encoun
 <a name="origin-server-500-error"></a>
 
 Your origin server might be returning a 500 error to CloudFront. Refer to the following troubleshooting topics for more information:
-+ **If Amazon S3 returns a 500 error**, see [How do I troubleshoot a HTTP 500 or 503 error from Amazon S3?](https://repost.aws/knowledge-center/http-5xx-errors-s3)
++ **If Amazon S3 returns a 500 error**, see [How do I troubleshoot an HTTP 500 or 503 error from Amazon S3?](https://repost.aws/knowledge-center/http-5xx-errors-s3)
 + **If API Gateway returns a 500 error**, see [How do I troubleshoot 5xx errors for API Gateway REST API?](https://repost.aws/knowledge-center/api-gateway-5xx-error).
 + **If Elastic Load Balancing returns a 500 error**, see [HTTP 500: Internal server error](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-troubleshooting.html#http-500-issues) in the *User Guide for Application Load Balancers*.
 

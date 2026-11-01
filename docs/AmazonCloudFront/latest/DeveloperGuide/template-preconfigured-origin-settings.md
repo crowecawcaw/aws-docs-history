@@ -110,7 +110,7 @@ Following are the cache settings that CloudFront preconfigures for your custom o
 + **Cache HTTP methods** – No
 + **Allow gRPC requests over HTTP/2** – No
 + **Restrict viewer access** – No
-+ **Cache policy** – `UseOriginCacheControlHeaders` (Possible values: `UseOriginCacheControlHeaders-QueryStrings`, `CachingDisabled`, `CacheOptimized`, `CachingOptimizedForUncompressedObjects`)
++ **Cache policy** – `UseOriginCacheControlHeaders` (Possible values: `UseOriginCacheControlHeaders-QueryStrings`, `CachingDisabled`, `CachingOptimized`, `CachingOptimizedForUncompressedObjects`)
 + **Origin request policy** – `AllViewer` (Possible values: `AllViewerExceptHostHeader`, `AllViewerandCloudFrontHeaders-2022-06`)
 + **Response header policy** – None
 + **Smooth Streaming** – No
@@ -159,7 +159,7 @@ Following are the cache settings that CloudFront preconfigures for your Elastic 
   + If `Do Not Cache by Default` is selected, the `CachingDisabled` cache policy is used.
 + **Include query string in cache** – (Default: Yes, if `Cache by Default` is already selected)
   + If `Do Not Cache by Default` is already selected and you then choose to include the query string in the cache, the `UseOriginCacheControlHeaders-QueryStrings` cache policy is used.
-+ **Origin request policy** – `All Viewer` (Possible values: `AllViewerExceptHostHeader`, `AllViewerandCloudFrontHeaders-2022-06`)
++ **Origin request policy** – `AllViewer` (Possible values: `AllViewerExceptHostHeader`, `AllViewerandCloudFrontHeaders-2022-06`)
 + **Response header policy** – None
 + **Smooth Streaming** – No
 + **Field level encryption** – No

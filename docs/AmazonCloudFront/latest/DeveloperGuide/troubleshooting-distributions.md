@@ -49,7 +49,7 @@ Verify that you've selected the correct Amazon S3 bucket as the origin domain an
 
 If you don’t specify the correct permissions, an `AccessDenied` message can appear for your viewers. 
 
-When you distribute content from Amazon S3 and you’re also using AWS Key Management Service (AWS KMS) service-side encryption (SSE-KMS), there are additional IAM permissions that you need to specify for the KMS key and Amazon S3 bucket. Your CloudFront distribution needs these permissions to use the KMS key, which is used for encryption of the origin Amazon S3 bucket.. 
+When you distribute content from Amazon S3 and you’re also using AWS Key Management Service (AWS KMS) server-side encryption (SSE-KMS), there are additional IAM permissions that you need to specify for the KMS key and Amazon S3 bucket. Your CloudFront distribution needs these permissions to use the KMS key, which is used for encryption of the origin Amazon S3 bucket. 
 
 The configurations to the Amazon S3 bucket policy allow the CloudFront distribution to retrieve the encrypted objects for content delivery. 
 

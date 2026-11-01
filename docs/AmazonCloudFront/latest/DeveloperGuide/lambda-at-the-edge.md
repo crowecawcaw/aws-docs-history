@@ -10,7 +10,7 @@ After you create the function, you can add triggers using the Lambda console or 
 Lambda@Edge scales automatically, from a few requests per day to thousands per second. Processing requests at AWS locations closer to the viewer instead of on origin servers significantly reduces latency and improves the user experience.
 
 **Note**  
-Lambda@Edge isn't supported with gRPC requests. For more information. see [Using gRPC with CloudFront distributions](distribution-using-grpc.md).
+Lambda@Edge isn't supported with gRPC requests. For more information, see [Using gRPC with CloudFront distributions](distribution-using-grpc.md).
 
 **Topics**
 + [How Lambda@Edge works with requests and responses](lambda-edge-event-request-response.md)

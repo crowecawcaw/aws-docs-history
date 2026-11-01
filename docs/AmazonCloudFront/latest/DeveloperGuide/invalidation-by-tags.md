@@ -22,7 +22,7 @@ Before you invalidate content by cache tags, review the requirements and conside
    ```
 **Note**  
 For S3 origins, you can attach cache tags to your S3 objects as metadata. You can add a metadata entry with a key of your choice (example: ` cache-tag`) and a comma-separated list of tags as the value (example: `product:electronics, category:tv, brand:example`).  
-S3 surfaces object metadata as response headers prefixed with ` x-amz-meta-<Key>`, so a metadata key of `cache-tag` would be returned as a `x-amz-meta-cache-tag` header. You can set the ` HeaderName` in your `CacheTagConfig` to ` x-amz-meta-cache-tag` to enable sending invalidations to these tags.
+S3 surfaces object metadata as response headers prefixed with ` x-amz-meta-<Key>`, so a metadata key of `cache-tag` would be returned as an `x-amz-meta-cache-tag` header. You can set the ` HeaderName` in your `CacheTagConfig` to ` x-amz-meta-cache-tag` to enable sending invalidations to these tags.
 **Note**  
 Alternatively, you can attach an origin response Lambda@Edge function to your cache behavior to add cache tag headers. If using Lambda@Edge, the header name does not need to follow the `x-amz-meta-<Key>` format.
 

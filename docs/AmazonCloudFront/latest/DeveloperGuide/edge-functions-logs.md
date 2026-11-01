@@ -22,7 +22,7 @@ Lambda@Edge automatically sends function logs to CloudWatch Logs, creating log s
 **Note**  
 If you create a custom log group and specify the same name as the default `/aws/lambda/{{<FunctionName>}}`, Lambda@Edge adds the `us-east-1` prefix to the function name.
 
-In addition to customizing the log group name, Lambda@Edge functions support JSON and plain text log formats, and log-level filtering. For more information , see [Configuring advance logging controls for Lambda function](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-cloudwatchlogs-advanced.html) in the *AWS Lambda Developer Guide*.
+In addition to customizing the log group name, Lambda@Edge functions support JSON and plain text log formats, and log-level filtering. For more information, see [Configuring advanced logging controls for Lambda function](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-cloudwatchlogs-advanced.html) in the *AWS Lambda Developer Guide*.
 
 **Note**  
 Lambda@Edge throttles logs based on the request volume and the size of logs.

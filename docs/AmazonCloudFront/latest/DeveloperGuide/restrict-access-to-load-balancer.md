@@ -45,7 +45,7 @@ In production, use randomly generated header names and values. Treat header name
 You can edit the **Origin Custom Headers** setting when you create or edit an origin for an existing CloudFront distribution, and when you create a new distribution. For more information, see [Update a distribution](HowToUpdateDistribution.md) and [Create a distribution](distribution-web-creating-console.md).
 
 **To add a custom HTTP header (CloudFormation)**  
-In an CloudFormation template, use the `OriginCustomHeaders` property, as shown in the following example.  
+In a CloudFormation template, use the `OriginCustomHeaders` property, as shown in the following example.  
 The header name and value in this example are just for demonstration. In production, use randomly generated values. Treat the header name and value as a secure credential, like a user name and password.
 
 ```
@@ -139,6 +139,6 @@ For more information about accomplishing these steps, see the preceding sections
 ## (Optional) Limit access to origin by using the AWS-managed prefix list for CloudFront
 <a name="limit-access-to-origin-using-aws-managed-prefixes"></a>
 
-To further restrict access to your Application Load Balancer, you can configure the security group associated with the Application Load Balancer so that it only accept traffic from CloudFront when the service is using an AWS-managed prefix list. This prevents traffic that doesn't originate from CloudFront from reaching your Application Load Balancer at the network layer (layer 3) or transport layer (layer 4).
+To further restrict access to your Application Load Balancer, you can configure the security group associated with the Application Load Balancer so that it only accepts traffic from CloudFront when the service is using an AWS-managed prefix list. This prevents traffic that doesn't originate from CloudFront from reaching your Application Load Balancer at the network layer (layer 3) or transport layer (layer 4).
 
 For more information, see the [Limit access to your origins using the AWS-managed prefix list for Amazon CloudFront](https://aws.amazon.com/blogs/networking-and-content-delivery/limit-access-to-your-origins-using-the-aws-managed-prefix-list-for-amazon-cloudfront/) blog post.

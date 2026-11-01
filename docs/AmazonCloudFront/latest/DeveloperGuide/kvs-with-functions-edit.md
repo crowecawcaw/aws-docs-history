@@ -25,7 +25,7 @@ When you update a key value store, you can change the key-value pairs, or change
 
 1. **Change the key-value pairs** – You can add more key-value pairs, delete one or more key-value pairs, and change the value of an existing key-value pair. For more information, see [Work with key value data](kvs-with-functions-kvp.md).
 
-1. **Change the function association for the key value store ** – To update the function the association for the key value store, see [Associate a key value store with a function](kvs-with-functions-associate.md). 
+1. **Change the function association for the key value store ** – To update the function association for the key value store, see [Associate a key value store with a function](kvs-with-functions-associate.md). 
 **Tip**  
 You will need the ARN of the key value store. For more information, see [Get a reference to a key value store](kvs-with-functions-get-reference.md).
 

@@ -167,7 +167,7 @@ The following list describes the fields in the `config` object (`Records.cf.conf
 **`distributionDomainName` (read-only)**  
 The domain name of the distribution that's associated with the request.
 
-**`distributionID` (read-only)**  
+**`distributionId` (read-only)**  
 The ID of the distribution that's associated with the request.
 
 **`eventType` (read-only)**  
@@ -550,7 +550,7 @@ The following list describes the fields in the `config` object (`Records.cf.conf
 **`distributionDomainName` (read-only)**  
 The domain name of the distribution that's associated with the response.
 
-**`distributionID` (read-only)**  
+**`distributionId` (read-only)**  
 The ID of the distribution that's associated with the response.
 
 **`eventType` (read-only)**  

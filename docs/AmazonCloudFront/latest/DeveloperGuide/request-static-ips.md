@@ -138,7 +138,7 @@ For more information about quotas related to Anycast static IP lists, see [Amazo
 ## Update an Anycast static IP list
 <a name="update-static-ip-list"></a>
 
-After you have created your Anycast static IP address and associated it to a distribution, you can change the IP address type of your Anycast static IP list..
+After you have created your Anycast static IP address and associated it to a distribution, you can change the IP address type of your Anycast static IP list.
 
 **To update an Anycast static IP list**
 

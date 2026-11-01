@@ -50,7 +50,7 @@ The percentage of all viewer requests for which the response's HTTP status code 
 **Total error rate**  
 The percentage of all viewer requests for which the response's HTTP status code is `4xx` or `5xx`.
 
-These metrics are shown in graphs for each CloudFront distribution on the **Monitoring** page of the CloudFront console.. On each graph, the totals are displayed at 1-minute granularity. In addition to viewing the graphs, you can also [download metrics reports as CSV files](cloudwatch-csv.md).
+These metrics are shown in graphs for each CloudFront distribution on the **Monitoring** page of the CloudFront console. On each graph, the totals are displayed at 1-minute granularity. In addition to viewing the graphs, you can also [download metrics reports as CSV files](cloudwatch-csv.md).
 
 ## Turn on additional CloudFront distribution metrics
 <a name="monitoring-console.distributions-additional"></a>

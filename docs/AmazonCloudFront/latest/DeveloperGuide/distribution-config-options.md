@@ -52,7 +52,7 @@ CloudFront multi-tenant distributions are different in that you can create an in
 1. Finally, you must update the DNS record in your DNS host to route traffic to the distribution tenant. To do this, get the CloudFront endpoint value from your connection group and create a CNAME record that points to the CloudFront endpoint.
 
 **Example**  
-The following graphic demonstrates how a multi-tenant distribution,distribution tenants, and connection groups work together to deliver content for your viewers for multiple domains.  
+The following graphic demonstrates how a multi-tenant distribution, distribution tenants, and connection groups work together to deliver content for your viewers for multiple domains.  
 
 1. The multi-tenant distribution defines the inherited settings for each distribution tenant. You use the multi-tenant distribution as a template.
 

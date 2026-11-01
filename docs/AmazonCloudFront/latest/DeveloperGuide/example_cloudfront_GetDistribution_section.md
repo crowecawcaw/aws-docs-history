@@ -136,6 +136,7 @@ Output:
     }
 }
 ```
+For more information, see [Configure distributions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-working-with.html) in the *Amazon CloudFront Developer Guide*.  
 +  For API details, see [GetDistribution](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/get-distribution.html) in *AWS CLI Command Reference*. 
 
 ------

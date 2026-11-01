@@ -17,7 +17,7 @@ An HTTP 403 error means the client isn't authorized to access the requested reso
 ## Alternate CNAME is incorrectly configured
 <a name="alternate-cname-incorrectly-configured"></a>
 
-Verify that you specified the correct CNAME for our distribution. To use an alternate CNAME instead of the default CloudFront URL:
+Verify that you specified the correct CNAME for your distribution. To use an alternate CNAME instead of the default CloudFront URL:
 
 1. Create a CNAME record in your DNS to point the CNAME to CloudFront distribution URL.
 

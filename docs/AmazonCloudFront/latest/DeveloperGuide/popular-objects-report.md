@@ -48,7 +48,7 @@ Near the bottom of the list, objects constantly rise onto or drop off the list, 
 
 When an object drops off the list of the top 150 objects and then rises onto the list again over the course of a day, CloudFront adds an estimated number of requests for the period that the object was missing from the list. The estimate is based on the number of requests received by whichever object was at the bottom of the list during that time period.
 
-If the object rises into the top 50 objects later in the day, the estimates of the number of requests that CloudFront received while the object was out of the top 150 objects usually causes the number of requests in the popular objects report to exceed the number of requests that appear in the access logs for that object.
+If the object rises into the top 50 objects later in the day, the estimates of the number of requests that CloudFront received while the object was out of the top 150 objects usually cause the number of requests in the popular objects report to exceed the number of requests that appear in the access logs for that object.
 
 ## Download data in CSV format
 <a name="popular-objects-csv"></a>

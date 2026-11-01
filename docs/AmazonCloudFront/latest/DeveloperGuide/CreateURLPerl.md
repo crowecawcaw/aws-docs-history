@@ -50,7 +50,7 @@ cfsign.pl --action encode --url https://images.my-website.com/gallery1.zip --exp
 
 URL decode example:
 
-cfsign.pl --action decode --url "http//mydist.cloudfront.net/?Signature=AGO-PgxkYo99MkJFHvjfGXjG1QDEXeaDb4Qtzmy85wqyJjK7eKojQWa4BCRcow__&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cDovLypicmFkbS5qcGciLCJDb25kaXRpb24iOnsiSXBBZGRyZXNzIjp7IkFXUzpTb3VyY2VJcCI6IjEwLjUyLjE3LjkvMCJ9LCJEYXRlR3JlYXRlclRoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTI1MjUyMDgzMH19fV19Cg__&Key-Pair-Id=mykey"
+cfsign.pl --action decode --url "http://mydist.cloudfront.net/?Signature=AGO-PgxkYo99MkJFHvjfGXjG1QDEXeaDb4Qtzmy85wqyJjK7eKojQWa4BCRcow__&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cDovLypicmFkbS5qcGciLCJDb25kaXRpb24iOnsiSXBBZGRyZXNzIjp7IkFXUzpTb3VyY2VJcCI6IjEwLjUyLjE3LjkvMCJ9LCJEYXRlR3JlYXRlclRoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTI1MjUyMDgzMH19fV19Cg__&Key-Pair-Id=mykey"
 
 
 To generate an RSA key pair, you can use openssl and the following commands:
@@ -202,7 +202,7 @@ if ($action eq "encode") {
     }
 
     if ($private_key_filename eq "") {
-        print STDERR "You must specific the path to your private key file with --private-key\n";
+        print STDERR "You must specify the path to your private key file with --private-key\n";
         exit;
     }
 

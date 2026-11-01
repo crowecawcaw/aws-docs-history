@@ -83,7 +83,7 @@ You can include custom headers with the request by specifying a header name and 
 {"key1": "value1", "key2": "value2", ...}
 ```
 You can't add headers that are disallowed, and a header with the same name can't also be present in the incoming request `headers`. Header name must be lowercase in your function code. When CloudFront Functions converts the event object back into an HTTP request, the first letter of each word in header names is capitalized, and words are separated by a hyphen.  
-For example, if you function code adds a header named `example-header-name`, CloudFront converts this to `Example-Header-Name` in the HTTP request. For more information, see [Custom headers that CloudFront can’t add to origin requests](add-origin-custom-headers.md#add-origin-custom-headers-denylist) and [Restrictions on edge functions](edge-functions-restrictions.md).  
+For example, if your function code adds a header named `example-header-name`, CloudFront converts this to `Example-Header-Name` in the HTTP request. For more information, see [Custom headers that CloudFront can’t add to origin requests](add-origin-custom-headers.md#add-origin-custom-headers-denylist) and [Restrictions on edge functions](edge-functions-restrictions.md).  
 If this is not provided, then any custom headers from the assigned origin are used.
 
 **connectionAttempts (optional)**  
@@ -148,7 +148,7 @@ Specifies the IP address type that CloudFront uses to connect to the origin. Val
 
 **sni (optional, for non-S3 custom origins)**  
 The Server Name Indication (SNI) is an extension to the Transport Layer Security (TLS) protocol by which a client indicates which hostname it's attempting to connect to at the start of the TLS handshake process. This value should match a common name on a TLS certificate on your origin server. Otherwise, your origin server might throw an error.   
-If this is not provided, the value from the `hostHeader` parameter is used. If the host header not provided, the value from the `domainName` parameter is used.  
+If this is not provided, the value from the `hostHeader` parameter is used. If the host header is not provided, the value from the `domainName` parameter is used.  
 If neither host header or domain name parameter are provided, the domain name from the assigned origin is used or the host header from the incoming request if the forward to origin (FTO) policy includes the host. The SNI can't include a colon (`:`) and can't be an IP address. The SNI can be up to 253 characters.
 
 **allowedCertificateNames (optional, for non-S3 custom origins)**  
@@ -236,7 +236,7 @@ If neither host header or domain name parameter are provided, the domain name fr
 
 **sni (optional, for non-S3 custom origins)**  
 The Server Name Indication (SNI) is an extension to the Transport Layer Security (TLS) protocol by which a client indicates which hostname it's attempting to connect to at the start of the TLS handshake process. This value should match a common name on a TLS certificate on your origin server. Otherwise, your origin server might throw an error.   
-If this is not provided, the value from the `hostHeader` parameter is used. If the host header not provided, the value from the `domainName` parameter is used.   
+If this is not provided, the value from the `hostHeader` parameter is used. If the host header is not provided, the value from the `domainName` parameter is used.   
 If neither host header or domain name parameter are provided, the domain name from the assigned origin is used or the host header from the incoming request if the forward to origin (FTO) policy includes the host. The SNI can't include a colon (`:`) and can't be an IP address. The SNI can be up to 253 characters.
 
 **allowedCertificateNames (optional, for non-S3 custom origins)**  
@@ -304,7 +304,7 @@ The host header to use when making the request to the origin. If this is not pro
 If neither host header or domain name parameter are provided, the domain name from the assigned origin is used or the host header from the incoming request if the forward to origin (FTO) policy includes the host. The host header can't include a colon (`:`) and can't be an IP address. The host header can be up to 253 characters.  
 **sni (optional, for non-S3 custom origins)**  
 The Server Name Indication (SNI) is an extension to the Transport Layer Security (TLS) protocol by which a client indicates which hostname it is attempting to connect to at the start of the TLS handshaking process. This value should match a common name on a TLS certificate on your origin server, otherwise your origin server might throw an error.   
-If this is not provided, the value from the `hostHeader` parameter is used. If the host header not provided, the value from the `domainName` parameter is used.  
+If this is not provided, the value from the `hostHeader` parameter is used. If the host header is not provided, the value from the `domainName` parameter is used.  
 If neither host header or domain name parameter are provided, the domain name from the assigned origin is used or the host header from the incoming request if the forward to origin (FTO) policy includes the host. The SNI can't include a colon (`:`) and can't be an IP address. The SNI can be up to 253 characters.  
 **allowedCertificateNames (optional, for non-S3 custom origins)**  
 You can include a list of valid certificate names to be used by CloudFront to validate the domain matching from your origin server TLS certificate during the TLS handshake with your origin server. This field expects an array of valid domain names and can include wildcard domains, such as `*.example.com`.   

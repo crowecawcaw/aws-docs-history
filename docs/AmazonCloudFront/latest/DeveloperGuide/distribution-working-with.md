@@ -23,7 +23,7 @@ For the current maximum number of distributions that you can create for each AWS
 You can use distributions to serve the following content over HTTP or HTTPS:
 + Static and dynamic download content, such as HTML, CSS, JavaScript, and image files, using HTTP or HTTPS.
 + Video on demand in different formats, such as Apple HTTP Live Streaming (HLS) and Microsoft Smooth Streaming. (For multi-tenant distributions, Smooth Streaming is not supported.) For more information, see [Deliver video on demand with CloudFront](on-demand-video.md).
-+ A live event, such as a meeting, conference, or concert, in real time. For live streaming, you can create the distribution automatically by using an CloudFormation stack. For more information, see [Deliver video streaming with CloudFront and AWS Media Services](live-streaming.md).
++ A live event, such as a meeting, conference, or concert, in real time. For live streaming, you can create the distribution automatically by using a CloudFormation stack. For more information, see [Deliver video streaming with CloudFront and AWS Media Services](live-streaming.md).
 
 The following topics provide more details about CloudFront distributions and how to configure them to meet your business needs. For more information about creating a distribution, see [Create a distribution](distribution-web-creating-console.md).
 

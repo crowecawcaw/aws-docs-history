@@ -46,7 +46,7 @@ CloudFront Functions isn't invoked a second time when CloudFront is configured t
 ## `rawQueryString()` method
 <a name="raw-query-string-method"></a>
 
-This method doesn't require the `cloudFront` module.
+This method doesn't require the `cloudfront` module.
 
 Use the `rawQueryString()` method to retrieve the unparsed and unaltered query string as a string.
 
@@ -62,7 +62,7 @@ function handler(event) {
 **Response**
 
 Returns the full query string of the incoming request as a string value without the leading `?`. 
-+ If there isn't a query string, but the `?` is present, the functions returns an empty string. 
++ If there isn't a query string, but the `?` is present, the function returns an empty string. 
 + If there isn't a query string and the `?` isn't present, the function returns `undefined`.
 
 **Case 1: Full query string returned (without leading `?`)**  

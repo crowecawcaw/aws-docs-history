@@ -87,7 +87,7 @@ This policy has the following settings:
 
 [View this policy in the CloudFront console](https://console.aws.amazon.com/cloudfront/v4/home#/policies/origin/b689b0a8-53d0-40ab-baf2-68738e2966ac)
 
-This policy does ***not*** include the `Host` header from the viewer request, but does include all others values (headers, cookies, and query strings) from the viewer request.
+This policy does ***not*** include the `Host` header from the viewer request, but does include all other values (headers, cookies, and query strings) from the viewer request.
 
 This policy also includes additional [CloudFront request headers](adding-cloudfront-headers.md) for HTTP protocol, HTTP version, TLS version, and all device type and viewer location headers.
 

@@ -57,7 +57,7 @@ If your origin is an Amazon S3 bucket, note the following:
 
   `{{bucket-name}}.s3.{{region}}.amazonaws.com` 
 
-  If your bucket reside in a US Region, and you want Amazon S3 to route requests to a facility in northern Virginia, use the following format:
+  If your bucket resides in a US Region, and you want Amazon S3 to route requests to a facility in northern Virginia, use the following format:
 
   `{{bucket-name}}.s3.us-east-1.amazonaws.com` 
 + The files must be publicly readable unless you secure your content in Amazon S3 by using a CloudFront origin access control. For more information about access control, see [Restrict access to an Amazon S3 origin](private-content-restricting-access-to-s3.md).
@@ -224,7 +224,7 @@ For example, if you set the following settings:
 
 This means CloudFront will try to connect to the origin (up to 3 total attempts), with each connection attempt timing out at 10 seconds. Once connected, CloudFront will wait up to 30 seconds for the origin to respond to the request until it receives the last packet of the response.
 
-Regardless of the number of connection attempts or the response timeout, CloudFront will end the connection if the complete response from the origin takes longer than 60 seconds to complete. CloudFront will then return to the viewer a [HTTP 504 status code (Gateway Timeout)](http-504-gateway-timeout.md) error response or a custom error response if you specified one.
+Regardless of the number of connection attempts or the response timeout, CloudFront will end the connection if the complete response from the origin takes longer than 60 seconds to complete. CloudFront will then return to the viewer an [HTTP 504 status code (Gateway Timeout)](http-504-gateway-timeout.md) error response or a custom error response if you specified one.
 
 **Notes**  
 If you set a value for response completion timeout, the value must be equal to or greater than the value for the [response timeout (origin read timeout)](#DownloadDistValuesOriginResponseTimeout).

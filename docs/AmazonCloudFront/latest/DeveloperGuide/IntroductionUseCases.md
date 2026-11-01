@@ -19,7 +19,7 @@ CloudFront can speed up the delivery of your static content (for example, images
 
 A simple approach for storing and delivering static content is to use an Amazon S3 bucket. Using S3 together with CloudFront has a number of advantages, including the option to use [origin access control](private-content-restricting-access-to-s3.md) to easily restrict access to your Amazon S3 content.
 
-For more information about using Amazon S3 together with CloudFront, including an CloudFormation template to help you get started quickly, see [Get started with a secure static website](getting-started-secure-static-website-cloudformation-template.md).
+For more information about using Amazon S3 together with CloudFront, including a CloudFormation template to help you get started quickly, see [Get started with a secure static website](getting-started-secure-static-website-cloudformation-template.md).
 
 ## Serve video on demand or live streaming video
 <a name="IntroductionUseCasesStreaming"></a>

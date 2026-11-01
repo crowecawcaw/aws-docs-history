@@ -11,7 +11,7 @@ To set up AWS Lambda to run Lambda functions that are based on CloudFront events
 
 1. If you already have one or more Lambda functions, choose **Create function**.
 
-   If you've don't have any functions, choose **Get Started Now**.
+   If you don't have any functions, choose **Get Started Now**.
 
 1. In the Region list at the top of the page, choose **US East (N. Virginia)**.
 

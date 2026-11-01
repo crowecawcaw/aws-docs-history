@@ -10,7 +10,7 @@ The following code examples show how to use `ListCloudFrontOriginAccessIdentitie
 
 **AWS CLI**  
 **To list CloudFront origin access identities**  
-The following example gets a list of the CloudFront origin access identities (OAIs) in your AWS account:  
+The following `list-cloud-front-origin-access-identities` example gets a list of the CloudFront origin access identities (OAIs) in your AWS account.  
 
 ```
 aws cloudfront list-cloud-front-origin-access-identities
@@ -40,6 +40,7 @@ Output:
     }
 }
 ```
+For more information, see [Restrict access to an Amazon S3 origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html) in the *Amazon CloudFront Developer Guide*.  
 +  For API details, see [ListCloudFrontOriginAccessIdentities](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/list-cloud-front-origin-access-identities.html) in *AWS CLI Command Reference*. 
 
 ------

@@ -45,7 +45,7 @@ The billing report includes the following values that apply to CloudFront:
   + `RealTimeLog-KinesisDataStream`
   + `SSL-Cert-Custom`
 + **ItemDescription** – A description of the billing rate for the **UsageType**.
-+ **UsageStart Date** and **UsageEndDate** – The day that the usage applies to, in Coordinated Universal Time (UTC). 
++ **UsageStartDate** and **UsageEndDate** – The day that the usage applies to, in Coordinated Universal Time (UTC). 
 + **UsageQuantity** – One of the following values: 
   + The number of requests during the specified time period
   + The amount of data transferred in gigabytes
@@ -86,7 +86,7 @@ The CloudFront usage report includes the following values:
   + `SSL-Cert-Custom`
 + **Resource** – Either the ID of the CloudFront distribution associated with the usage or the certificate ID of an SSL certificate that you have associated with a CloudFront distribution.
 + **StartTime/EndTime** – The day that the usage applies to, in Coordinated Universal Time (UTC). 
-+ **UsageValue** – 1) The number of requests during the specified time period or 2)the amount of data transferred in bytes.
++ **UsageValue** – 1) The number of requests during the specified time period or 2) the amount of data transferred in bytes.
 
 If you’re using Amazon S3 as the origin for CloudFront, consider running the usage report for Amazon S3, too. However, if you use Amazon S3 for purposes other than as an origin for your CloudFront distributions, it might not be clear what portion applies to your CloudFront usage.
 

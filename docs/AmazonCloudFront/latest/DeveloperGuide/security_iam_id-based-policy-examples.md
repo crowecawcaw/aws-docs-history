@@ -174,7 +174,7 @@ When you're creating and updating distributions, you can perform the following o
 + View a list of S3 buckets that you can save access logs in
 This permission isn't required if you aren't using the CloudFront console.
 
-**`S3:PutBucketPolicy`**  
+**`s3:PutBucketPolicy`**  
 When you're creating or updating distributions that restrict access to S3 buckets, lets a user update the bucket policy to grant access to the CloudFront origin access identity. For more information, see [Use an origin access identity (legacy, not recommended)](private-content-restricting-access-to-s3.md#private-content-restricting-access-to-s3-oai).  
 This permission isn't required if you aren't using the CloudFront console.
 

@@ -24,7 +24,7 @@ This topic explains how to share resources that you own, and how to use resource
 
 ## Prerequisites for sharing resources
 <a name="sharing-prereqs"></a>
-+ You must have the AWSRAMDefaultPermissionCloudFront managed policy to grant read-only access the resource share. For more information, see [AWSRAMDefaultPermissionCloudFront](#aws-ram-default-permission-cloudfront).
++ You must have the AWSRAMDefaultPermissionCloudFront managed policy to grant read-only access to the resource share. For more information, see [AWSRAMDefaultPermissionCloudFront](#aws-ram-default-permission-cloudfront).
 + To share a VPC origin, you must own it in your AWS account. This means that the resource must be allocated or provisioned in your account. You can't share a resource that has been shared with you.
 + To share a resource with your organization or an organizational unit in AWS Organizations, you must enable sharing with AWS Organizations. For more information, see [ Enable Sharing with AWS Organizations](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-orgs) in the *AWS RAM User Guide*.
 
@@ -40,7 +40,7 @@ To share a VPC origin, you must add it to a resource share. A resource share is 
 
 A resource share specifies the following: 
 + The resources that you want to share
-+ The consumers with whom they are shared with
++ The consumers with whom they are shared
 + The service’s managed policy that determines the permissions to the resources
 
 When you share a VPC origin using the CloudFront console, you add it to an existing resource share. If you don't have a resource share already you can create one when you're sharing a VPC origin from the CloudFront console. You can also use the [AWS RAM console](https://console.aws.amazon.com/ram) or AWS CLI to create one separately.

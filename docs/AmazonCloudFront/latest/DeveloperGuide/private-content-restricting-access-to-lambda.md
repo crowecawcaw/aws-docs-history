@@ -42,7 +42,7 @@ To update the IAM policy for the Lambda function URL, you must use the AWS Comma
 The following AWS CLI command grants the CloudFront service principal (`cloudfront.amazonaws.com`) access to your Lambda function URL. The `Condition` element in the policy allows CloudFront to access Lambda *only* when the request is on behalf of the CloudFront distribution that contains the Lambda function URL. This is the distribution with the Lambda function URL origin that you want to add OAC to.
 
 **Example : AWS CLI command to update a policy to allow read-only access for a CloudFront distribution with OAC enabled**  
-The following AWS CLI commands allows the CloudFront distribution (`{{E1PDK09ESKHJWT}}`) access to your Lambda {{`FUNCTION_URL_NAME`}}.
+The following AWS CLI commands allow the CloudFront distribution (`{{E1PDK09ESKHJWT}}`) access to your Lambda {{`FUNCTION_URL_NAME`}}.
 
 ```
 aws lambda add-permission \
@@ -214,7 +214,7 @@ If your CloudFront origin is a Lambda function URL that's associated with an OAC
 
 This code assumes that you configured the OAC with the default signing behavior set to **Always sign origin requests** and that you didn't select the **Do not override authorization header** setting.
 
-This configuration allows the OAC to manage SigV4 authorization correctly with Lambda by using the Lambda hostname. The payload is signed by using SigV4 from the IAM identity that's authorized for the Lambda function URL, which is designated as the `IAM_AUTH` type. 
+This configuration allows the OAC to manage SigV4 authorization correctly with Lambda by using the Lambda hostname. The payload is signed by using SigV4 from the IAM identity that's authorized for the Lambda function URL, which is designated as the `AWS_IAM` type. 
 
 The template demonstrates how to handle signed payload hash values in the x-amz-content-sha256 header for `POST` requests from the client side. Specifically, this template is designed to manage form data payloads. The template enables secure file uploads to a Lambda function URL through CloudFront, and uses AWS authentication mechanisms to make sure that only authorized requests can access the Lambda function.
 

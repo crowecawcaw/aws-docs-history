@@ -12,7 +12,7 @@ To get both values, you can use the AWS Command Line Interface (AWS CLI) or the 
 
 **To get the key value store reference**
 
-1. To return a list of key value stores, run the following command Find the name of the key value store that you want to change.
+1. To return a list of key value stores, run the following command. Find the name of the key value store that you want to change.
 
    ```
    aws cloudfront list-key-value-stores

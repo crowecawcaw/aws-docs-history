@@ -60,7 +60,7 @@ However, you can add a wildcard alternate domain name, such as \*.example.com, t
 If you have an existing wildcard DNS entry that points to a CloudFront distribution and you receive an incorrectly configured DNS error when trying to add a new CNAME with a more specific name, see [CloudFront returns an incorrectly configured DNS record error when I try to add a new CNAME](troubleshooting-distributions.md#troubleshoot-incorrectly-configured-DNS-record-error).
 
 **Domain fronting**  
-CloudFront has protection against domain fronting occurring across different AWS account. This is a scenario when a non-standard client creates a TLS/SSL connection to a domain name in one AWS account, and then makes an HTTPS request for an unrelated domain name in another AWS account.  
+CloudFront has protection against domain fronting occurring across different AWS accounts. This is a scenario when a non-standard client creates a TLS/SSL connection to a domain name in one AWS account, and then makes an HTTPS request for an unrelated domain name in another AWS account.  
  For example, the TLS connection might connect to www.example.com, and then issue a request for www.example.org.  
 To determine whether a request is being domain fronted, CloudFront performs the following checks:  
 + The SNI extension is equal to the HTTP request `Host` header
@@ -70,7 +70,7 @@ If none of these conditions are met, CloudFront determines the request is domain
 If the client doesn't provide the SNI extension and gets a default \*.cloudfront.net certificate instead, CloudFront will accept the incoming requests.
 
 **How CloudFront identifies the distribution for a request**  
-CloudFront identifies a distribution for a HTTP request based on the `Host` header. CloudFront doesn't depend on the CloudFront IP address that you're connecting to or what SNI handshake was provided during TLS handshake.  
+CloudFront identifies a distribution for an HTTP request based on the `Host` header. CloudFront doesn't depend on the CloudFront IP address that you're connecting to or what SNI handshake was provided during TLS handshake.  
 When CloudFront receives a request, it will use the value of the `Host` header to match the request to the specific distribution.  
 For example, say that you have two distributions and you've updated your DNS configuration so that the alternate domain names route to the following endpoints:   
 + primary.example.com points to d111111primary.cloudfront.net 

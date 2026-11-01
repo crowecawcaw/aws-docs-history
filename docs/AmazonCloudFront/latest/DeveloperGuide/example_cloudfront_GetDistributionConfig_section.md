@@ -13,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To get a CloudFront distribution configuration**  
-The following example gets metadata about the CloudFront distribution with the ID `EDFDVBD6EXAMPLE`, including its `ETag`. The distribution ID is returned in the create-distribution and list-distributions commands.  
+The following `get-distribution-config` example gets metadata about the CloudFront distribution with the ID `EDFDVBD6EXAMPLE`, including its `ETag`. The distribution ID is returned in the create-distribution and list-distributions commands.  
 
 ```
 aws cloudfront get-distribution-config \
@@ -124,6 +124,7 @@ Output:
     }
 }
 ```
+For more information, see [Configure distributions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-working-with.html) in the *Amazon CloudFront Developer Guide*.  
 +  For API details, see [GetDistributionConfig](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/get-distribution-config.html) in *AWS CLI Command Reference*. 
 
 ------

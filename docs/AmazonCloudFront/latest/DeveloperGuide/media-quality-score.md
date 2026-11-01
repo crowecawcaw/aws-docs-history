@@ -26,7 +26,7 @@ Currently, this feature only supports MediaPackage v2 origins.
 
 To enable this feature for your distribution, complete the following steps:
 
-1. If you haven't already, create your MediaPackage v2 origins and enable this feature in your endpoint configuration. For a cross-region deployment, create a secondary channel in a different AWS Region with the same settings. For more information, see the following topics in the see the *AWS Elemental MediaPackage V2 User Guide*:
+1. If you haven't already, create your MediaPackage v2 origins and enable this feature in your endpoint configuration. For a cross-region deployment, create a secondary channel in a different AWS Region with the same settings. For more information, see the following topics in the *AWS Elemental MediaPackage V2 User Guide*:
    + [ Create a channel and endpoint](https://docs.aws.amazon.com/mediapackage/latest/userguide/getting-started.html)
    + [Enable the media quality score](https://docs.aws.amazon.com/mediapackage/latest/userguide/mqcs.html)
 
@@ -46,7 +46,7 @@ If you enabled the MQAR feature and origin access control (OAC), add the `mediap
 ## MQAR log fields
 <a name="media-quality-score-log-fields"></a>
 
-CloudFront provides the following fields in real-time access logs to reflect the quality score and the selected origin. You can enable these fields in your CloudFront real-time access logs logs:
+CloudFront provides the following fields in real-time access logs to reflect the quality score and the selected origin. You can enable these fields in your CloudFront real-time access logs:
 + `r-host`
 + `sr-reason`
 + `x-edge-mqcs`

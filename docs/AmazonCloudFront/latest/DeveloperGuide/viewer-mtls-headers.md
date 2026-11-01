@@ -5,7 +5,7 @@
 
 When using mutual TLS authentication, CloudFront can extract information from client certificates and forward it to your origins as HTTP headers. This allows your origin servers to access certificate details without implementing certificate validation logic.
 
-The following headers are available to for creating cache behaviors:
+The following headers are available for creating cache behaviors:
 
 
 | Header name | Description | Example value | Supported Modes | 
@@ -45,7 +45,7 @@ In verify mode, CloudFront automatically adds the CloudFront-Viewer-Cert-\* head
    + CloudFront-Viewer-Cert-Issuer
    + CloudFront-Viewer-Cert-Subject
    + CloudFront-Viewer-Cert-Present
-   + Cloudfront-Viewer-Cert-Sha256
+   + CloudFront-Viewer-Cert-Sha256
    + CloudFront-Viewer-Cert-Validity
    + CloudFront-Viewer-Cert-Pem
 

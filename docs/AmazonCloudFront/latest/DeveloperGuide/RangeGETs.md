@@ -19,7 +19,7 @@ If the viewer makes a `Range GET` request and the origin returns `Transfer-Encod
 CloudFront generally follows the RFC specification for the `Range` header. However, if your `Range` headers don’t adhere to the following requirements, CloudFront returns HTTP status code `200` with the full object instead of status code `206` with the specified ranges:
 + The ranges must be listed in ascending order. For example, `100-200,300-400` is valid, `300-400,100-200` is not valid.
 + The ranges must not overlap. For example, `100-200,150-250` is not valid.
-+ All of the ranges specifications must be valid. For example, you can’t specify a negative value as part of a range.
++ All of the range specifications must be valid. For example, you can’t specify a negative value as part of a range.
 
 For more information about the `Range` request header, see [Range Requests](https://httpwg.org/specs/rfc7233.html#range.requests) in RFC 7233, or [Range](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Range) in the MDN Web Docs.
 

@@ -316,7 +316,7 @@ This setting applies only when you choose **Specify Accounts** for **Trusted Sig
 If you want to create signed URLs using AWS accounts in addition to or instead of the current account, enter one AWS account number per line in this field. Note the following:
 + The accounts that you specify must have at least one active CloudFront key pair. For more information, see [Create key pairs for your signers](private-content-trusted-signers.md#private-content-creating-cloudfront-key-pairs).
 + You can't create CloudFront key pairs for IAM users, so you can't use IAM users as trusted signers.
-+ For information about how to get the AWS account number for an account, see [View AWS account identifiers](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-identifiers.html) in the *AWS account Management Reference Guide*.
++ For information about how to get the AWS account number for an account, see [View AWS account identifiers](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-identifiers.html) in the *AWS Account Management Reference Guide*.
 + If you enter the account number for the current account, CloudFront automatically checks the **Self** check box and removes the account number from the **AWS Account Numbers** list.
 
 ## Compress objects automatically

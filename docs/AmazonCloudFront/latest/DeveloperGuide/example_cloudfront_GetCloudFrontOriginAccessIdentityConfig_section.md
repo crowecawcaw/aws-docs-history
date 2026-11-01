@@ -10,10 +10,11 @@ The following code examples show how to use `GetCloudFrontOriginAccessIdentityCo
 
 **AWS CLI**  
 **To get a CloudFront origin access identity configuration**  
-The following example gets metadata about the CloudFront origin access identity (OAI) with the ID `E74FTE3AEXAMPLE`, including its `ETag`. The OAI ID is returned in the output of the create-cloud-front-origin-access-identity and list-cloud-front-origin-access-identities commands.  
+The following `get-cloud-front-origin-access-identity-config` example gets metadata about the CloudFront origin access identity (OAI) with the ID `E74FTE3AEXAMPLE`, including its `ETag`. The OAI ID is returned in the output of the create-cloud-front-origin-access-identity and list-cloud-front-origin-access-identities commands.  
 
 ```
-aws cloudfront get-cloud-front-origin-access-identity-config --id {{E74FTE3AEXAMPLE}}
+aws cloudfront get-cloud-front-origin-access-identity-config \
+    --id {{E74FTE3AEXAMPLE}}
 ```
 Output:  
 
@@ -26,6 +27,7 @@ Output:
     }
 }
 ```
+For more information, see [Restrict access to an Amazon S3 origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html) in the *Amazon CloudFront Developer Guide*.  
 +  For API details, see [GetCloudFrontOriginAccessIdentityConfig](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/get-cloud-front-origin-access-identity-config.html) in *AWS CLI Command Reference*. 
 
 ------

@@ -140,7 +140,7 @@ The following ES 12 prototype methods on strings are supported:
 `String.prototype.replaceAll()` is new in JavaScript runtime 2.0.
 
 **Number**  
-ALL ES 5 numbers are supported.  
+All ES 5 numbers are supported.  
 The following ES 6 properties on numbers are supported:  
 + `Number.EPSILON`
 + `Number.MAX_SAFE_INTEGER`
@@ -234,8 +234,8 @@ All ES 5.1 regular expression features are supported. The regular expression lan
 The following ES 5.1 prototype accessor properties are supported:  
 + `RegExp.prototype.global`
 + `RegExp.prototype.ignoreCase`
-+ `RegExp.protoype.multiline`
-+ `RegExp.protoype.source`
++ `RegExp.prototype.multiline`
++ `RegExp.prototype.source`
 + `RegExp.prototype.sticky`
 + `RegExp.prototype.flags`
 **Note**  
@@ -376,7 +376,7 @@ All Dataview ES 6 prototype methods are new in JavaScript runtime 2.0.
 **Symbol**  
 The following ES 6 methods are supported:  
 + `Symbol.for()`
-+ `Symbol.keyfor()`
++ `Symbol.keyFor()`
 **Note**  
 All Symbol ES 6 methods are new in JavaScript runtime 2.0.
 
@@ -546,13 +546,13 @@ The module provides the following buffer prototype methods:
 + `Buffer.prototype.indexOf(value[, byteOffset][, encoding])`
 
   Search for first `value` in `Buffer`. Returns `index` if found; returns `-1` if not found.
-  + `value`: Enter a string, `Buffer`, Unit8Array, or integer from 0 to 255. 
+  + `value`: Enter a string, `Buffer`, Uint8Array, or integer from 0 to 255. 
   + `byteOffset`: Optional. Enter an integer.
   + `encoding`: Optional. Enter one of the following if `value` is a string: `utf8`, `hex`, `base64`, `base64url`. Default is `utf8`.
 + `Buffer.prototype.lastIndexOf(value[, byteOffset][, encoding])`
 
   Search for last `value` in `Buffer`. Returns `index` if found; returns `-1` if not found.
-  + `value`: Enter a string, `Buffer`, Unit8Array, or integer from 0 to 255. 
+  + `value`: Enter a string, `Buffer`, Uint8Array, or integer from 0 to 255. 
   + `byteOffset`: Optional. Enter an integer.
   + `encoding`: Optional. Enter one of the following if `value` is a string: `utf8`, `hex`, `base64`, `base64url`. Default is `utf8`.
 + `Buffer.prototype.readInt8(offset)`
@@ -642,7 +642,7 @@ The module provides the following buffer prototype methods:
   Swap the `Buffer` array byte order, treating it as an array of 16-bit numbers. `Buffer` length must be divisible by 2, or you will receive an error.
 + `Buffer.prototype.swap32()`
 
-  Swap the `Buffer` array byte order, treating it as an array of 32-bit numbers . `Buffer` length must be divisible by 4, or you will receive an error.
+  Swap the `Buffer` array byte order, treating it as an array of 32-bit numbers. `Buffer` length must be divisible by 4, or you will receive an error.
 + `Buffer.prototype.swap64()`
 
   Swap the `Buffer` array byte order, treating it as an array of 64-bit numbers. `Buffer` length must be divisible by 8, or you will receive an error.
@@ -768,7 +768,7 @@ The following instance methods are supported:
 + `buffer[index]`
 
   Get and set octet (byte) at `index` in `Buffer`. 
-  + Get a number from `0` to `255`. Or set a number from from `0` to `255`.
+  + Get a number from `0` to `255`. Or set a number from `0` to `255`.
 
 The following instance properties are supported:
 + `buffer`

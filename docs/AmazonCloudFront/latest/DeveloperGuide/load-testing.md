@@ -11,5 +11,5 @@ CloudFront is designed to scale for viewers that have different client IP addres
 + For each client that is making requests, spread your client requests across the set of IP addresses that are returned by DNS. This makes sure that the load is distributed across multiple servers in a CloudFront edge location.
 
 **Notes**  
-Load testing isn't allowed on cache behaviors that have Lambda@Edge[viewer request or viewer response triggers](lambda-cloudfront-trigger-events.md).
+Load testing isn't allowed on cache behaviors that have Lambda@Edge [viewer request or viewer response triggers](lambda-cloudfront-trigger-events.md).
 Load testing isn't allowed on origins that have [Origin Shield](origin-shield.md) enabled.

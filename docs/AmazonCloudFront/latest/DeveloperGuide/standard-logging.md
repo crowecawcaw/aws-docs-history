@@ -109,7 +109,7 @@ There is an additional option to include cookies in standard logging. In the Clo
 
 **To enable standard logging for a distribution (CloudWatch API)**
 
-1. After you a create a distribution, get the Amazon Resource Name (ARN). 
+1. After you create a distribution, get the Amazon Resource Name (ARN). 
 
    You can find the ARN from the **Distribution** page in the CloudFront console or you can use the [GetDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistribution.html) API operation. A distribution ARN follows the format: `arn:aws:cloudfront::123456789012:distribution/d111111abcdef8` 
 
@@ -704,7 +704,7 @@ Use the following information to fix common issues when you work with CloudFront
 ### Delivery source already exists
 <a name="access-logging-resource-already-used"></a>
 
-When you enable standard logging for a distribution, you create a delivery source. You then use that delivery source to create deliveries to destination type that you want: CloudWatch Logs, Firehose, Amazon S3. Currently, you can only have one delivery source per distribution. If you try to create another delivery source for the same distribution, the following error message appears.
+When you enable standard logging for a distribution, you create a delivery source. You then use that delivery source to create deliveries to the destination type that you want: CloudWatch Logs, Firehose, Amazon S3. Currently, you can only have one delivery source per distribution. If you try to create another delivery source for the same distribution, the following error message appears.
 
 ```
 This ResourceId has already been used in another Delivery Source in this account

@@ -5,7 +5,7 @@
 
 You must create a key value store to hold the key-value pairs that you want to use in CloudFront Functions. 
 
-After you create the key value stores and added key-value pairs, you can use the key values in your CloudFront function code. 
+After you create the key value stores and add key-value pairs, you can use the key values in your CloudFront function code. 
 
 To get started, see the following topics: 
 

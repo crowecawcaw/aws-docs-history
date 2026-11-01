@@ -16,7 +16,7 @@ In the `openssl_sign` call, note that passing `OPENSSL_ALGO_SHA256` as the fourt
 + [Create a custom policy](#sample-custom-policy)
 + [Full code example](#full-example)
 
-The following sections breaks down the code example into individual parts. You can find the [Full code example](#full-example) below.
+The following sections break down the code example into individual parts. You can find the [Full code example](#full-example) below.
 
 ## Create the RSA SHA-1 signature
 <a name="sample-rsa-sign"></a>
@@ -57,7 +57,7 @@ function url_safe_base64_encode($value) {
 
 The following code snippet uses the functions `get_canned_policy_stream_name()` and `get_custom_policy_stream_name()` to create a canned and custom policy. CloudFront uses the policies to create the URL for streaming the video, including specifying the expiration time. 
 
-You can then used a canned policy or a custom policy to determine how to manage access to your content. For more information about which one to choose, see the [Decide to use canned or custom policies for signed URLs](private-content-signed-urls.md#private-content-choosing-canned-custom-policy) section.
+You can then use a canned policy or a custom policy to determine how to manage access to your content. For more information about which one to choose, see the [Decide to use canned or custom policies for signed URLs](private-content-signed-urls.md#private-content-choosing-canned-custom-policy) section.
 
 ## Create a canned policy
 <a name="sample-canned-policy"></a>
@@ -209,7 +209,7 @@ $video_path = 'https://example.com/secure/example.mp4';
 $expires = time() + 300; // 5 min from now
 $canned_policy_stream_name = get_canned_policy_stream_name($video_path, $private_key_filename, $key_pair_id, $expires);
 
-// Get the viewer real IP from the x-forward-for header as $_SERVER['REMOTE_ADDR'] will return viewer facing IP. An alternative option is to use CloudFront-Viewer-Address header. Note that this header is a trusted CloudFront immutable header. Example format: IP:PORT ("CloudFront-Viewer-Address": "1.2.3.4:12345")
+// Get the viewer real IP from the x-forwarded-for header as $_SERVER['REMOTE_ADDR'] will return viewer facing IP. An alternative option is to use CloudFront-Viewer-Address header. Note that this header is a trusted CloudFront immutable header. Example format: IP:PORT ("CloudFront-Viewer-Address": "1.2.3.4:12345")
 $client_ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
 $policy =
 '{'.

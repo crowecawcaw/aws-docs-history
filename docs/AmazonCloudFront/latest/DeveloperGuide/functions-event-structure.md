@@ -379,7 +379,7 @@ The following example shows a `response` object — the output of a viewer respo
 ## Example event object
 <a name="functions-event-structure-example"></a>
 
-The following example shows a complete `event` object. This is an example invocation for a standard distribution, and not for a multi-tenant distribution. For multi-tenant distributions, the `endpoint` field is used instead of `distributionDomainName` The value of `endpoint` is the CloudFront domain name (for example, d111111abcdef8.cloudfront.net) of the connection group that’s associated with the event.
+The following example shows a complete `event` object. This is an example invocation for a standard distribution, and not for a multi-tenant distribution. For multi-tenant distributions, the `endpoint` field is used instead of `distributionDomainName`. The value of `endpoint` is the CloudFront domain name (for example, d111111abcdef8.cloudfront.net) of the connection group that’s associated with the event.
 
 **Note**  
 The `event` object is the input to your function. Your function returns only the `request` or `response` object, not the complete `event` object.

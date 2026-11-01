@@ -62,7 +62,7 @@ If you specify `*` for the cache behavior, the Lambda function deploys to the de
 
    1. In the list of Regions at the top of the page, choose **US East (N. Virginia)**.
 
-   1. In the list of functions, choose name of the function that you want to add triggers to.
+   1. In the list of functions, choose the name of the function that you want to add triggers to.
 
    1. On the **Function overview** page, choose the **Versions** tab, and choose the numbered version that you want to add triggers to.
 

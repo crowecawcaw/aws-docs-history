@@ -13,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To delete a CloudFront distribution**  
-The following example deletes the CloudFront distribution with the ID `EDFDVBD6EXAMPLE`. Before you can delete a distribution, you must disable it. To disable a distribution, use the update-distribution command. For more information, see the update-distribution examples.  
+The following `delete-distribution` example deletes the CloudFront distribution with the ID `EDFDVBD6EXAMPLE`. Before you can delete a distribution, you must disable it. To disable a distribution, use the update-distribution command. For more information, see the update-distribution examples.  
 When a distribution is disabled, you can delete it. To delete a distribution, you must use the `--if-match` option to provide the distribution's `ETag`. To get the `ETag`, use the get-distribution or get-distribution-config command.  
 
 ```
@@ -21,7 +21,9 @@ aws cloudfront delete-distribution \
     --id {{EDFDVBD6EXAMPLE}} \
     --if-match {{E2QWRUHEXAMPLE}}
 ```
+This command produces no output.  
 When successful, this command has no output.  
+For more information, see [Delete a distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowToDeleteDistribution.html) in the *Amazon CloudFront Developer Guide*.  
 +  For API details, see [DeleteDistribution](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/delete-distribution.html) in *AWS CLI Command Reference*. 
 
 ------

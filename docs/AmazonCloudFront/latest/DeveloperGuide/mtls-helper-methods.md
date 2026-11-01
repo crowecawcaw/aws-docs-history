@@ -63,11 +63,11 @@ cf.mtls.renamePemHeaders({
 
 Allowed source headers:
 + In passthrough mode: `Client-Cert`, `Client-Cert-Chain`
-+ In required/optional mode: `Cloudfront-Viewer-Cert-PEM`
++ In required/optional mode: `CloudFront-Viewer-Cert-PEM`
 
 **`pemCertFormatInfo` fields:**
 
-For `Cloudfront-Viewer-Cert-PEM`:
+For `CloudFront-Viewer-Cert-PEM`:
 + `certHeader` replaces `-----BEGIN CERTIFICATE-----`.
 + `certFooter` replaces `-----END CERTIFICATE-----`.
 + `certEndMarker` sets a custom string after the certFooter.

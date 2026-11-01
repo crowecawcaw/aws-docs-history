@@ -37,18 +37,19 @@ You can add the following headers to determine the viewer's location. CloudFront
 + `CloudFront-Viewer-ASN` – Contains the autonomous system number (ASN) of the viewer.
 **Note**  
 `CloudFront-Viewer-Address` and `CloudFront-Viewer-ASN` can be added in an origin request policy, but not in a cache policy.
++ `CloudFront-Viewer-ISP` – Contains the name of the viewer's internet service provider (ISP). You can add this header only in an origin request policy, not in a cache policy or with legacy cache settings. CloudFront doesn't percent-encode this header's value, and doesn't add the header when it can't determine the viewer's ISP.
 + `CloudFront-Viewer-Country` – Contains the two-letter country code for the viewer's country. For a list of country codes, see [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 + `CloudFront-Viewer-City` – Contains the name of the viewer's city.
 
 When you add the following headers, CloudFront applies them to all requests *except* those that originate from the AWS network:
 + `CloudFront-Viewer-Country-Name` – Contains the name of the viewer's country.
-+ `CloudFront-Viewer-Country-Region` – Contains a code (up to three characters) that represent the viewer's region. The region is the first-level subdivision (the broadest or least specific) of the [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) code.
++ `CloudFront-Viewer-Country-Region` – Contains a code (up to three characters) that represents the viewer's region. The region is the first-level subdivision (the broadest or least specific) of the [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) code.
 + `CloudFront-Viewer-Country-Region-Name` – Contains the name of the viewer's region. The region is the first-level subdivision (the broadest or least specific) of the [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) code.
 + `CloudFront-Viewer-Latitude` – Contains the viewer's approximate latitude.
 + `CloudFront-Viewer-Longitude` – Contains the viewer's approximate longitude.
 + `CloudFront-Viewer-Metro-Code` – Contains the viewer's metro code. This is present only when the viewer is in the United States.
 + `CloudFront-Viewer-Postal-Code` – Contains the viewer's postal code.
-+ `CloudFront-Viewer-Time-Zone` Contains the viewer's time zone, in [IANA time zone database format](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (for example, `America/Los_Angeles`).
++ `CloudFront-Viewer-Time-Zone` – Contains the viewer's time zone, in [IANA time zone database format](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (for example, `America/Los_Angeles`).
 
 **Note**  
 `CloudFront-Viewer-City`, `CloudFront-Viewer-Metro-Code`, and `CloudFront-Viewer-Postal-Code` might not be available for every IP address. Some IP addresses can't be geolocated with enough specificity to get that information.
@@ -63,7 +64,7 @@ You can add the following headers to help identify the viewer based on the heade
 ## TLS-related headers
 <a name="tls-related-versions"></a>
 
-You can add the following headers to determine the viewer's JA3 fingerprint, JA4 fingerprint, and TLS connection details:
+You can add the following headers to determine the viewer's JA3 fingerprint, JA4 fingerprint, and TLS connection details. The TLS connection details include the key exchange and signature algorithms that the viewer and CloudFront negotiated.
 + `CloudFront-Viewer-JA3-Fingerprint` – Contains the [JA3 fingerprint](https://github.com/salesforce/ja3) of the viewer. The JA3 fingerprint can help you determine whether the request comes from a known client, whether that's malware or a malicious bot, or an expected (allow-listed) application. 
 + `CloudFront-Viewer-JA4-Fingerprint` – Contains the JA4 fingerprint of the viewer. Similar to the JA3 fingerprint, the [JA4 fingerprint](https://github.com/FoxIO-LLC/ja4) can help you determine whether the request comes from a known client, whether that's malware or a malicious bot, or an expected (allow-listed) application. You can use the fingerprint to build a database of known good and bad actors to apply when inspecting HTTP requests. You can then inspect the header value on your application web servers or in your [Lambda@Edge](lambda-at-the-edge.md) and [CloudFront Functions](cloudfront-functions.md) to compare the header value against a list of known malware fingerprints to block malicious clients.
 + `CloudFront-Viewer-TLS` – Contains the SSL/TLS version, the cipher, and information about the SSL/TLS handshake that was used for the connection between the viewer and CloudFront. The header value is in the following format:
@@ -96,10 +97,49 @@ You can add the following headers to determine the viewer's JA3 fingerprint, JA4
   ```
 
   For the full list of possible SSL/TLS versions and ciphers that can be in this header value, see [Supported protocols and ciphers between viewers and CloudFront](secure-connections-supported-viewer-protocols-ciphers.md).
++ `CloudFront-Viewer-TLS-Details` – Contains the SSL/TLS version, the cipher, information about the SSL/TLS handshake, and the public-key algorithms that the viewer and CloudFront negotiated for the connection. This header includes the same information as `CloudFront-Viewer-TLS`. It also adds the key exchange algorithm, the signature scheme, and the type of public key in the certificate that CloudFront presented to the viewer. You can use this header to determine whether a connection used a post-quantum key exchange. The header value is a JSON object in the following format:
+
+  ```
+  {"tlsVersion":"{{SSL/TLS_version}}","cipherSuite":"{{cipher}}","handshakeType":"{{handshake_information}}","keyExchange":"{{key_exchange}}","signatureScheme":"{{signature_scheme}}","signaturePublicKeyType":"{{public_key_type}}"}
+  ```
+
+  The header value contains the following fields:
+  + `tlsVersion` – The SSL/TLS version that was used for the connection. For example, `TLSv1.3`.
+  + `cipherSuite` – The cipher that was used for the connection. For example, `TLS_AES_128_GCM_SHA256`.
+  + `handshakeType` – Information about the SSL/TLS handshake: `fullHandshake`, `sessionResumed`, or `connectionReused`. These are the same values as in the `CloudFront-Viewer-TLS` header.
+  + `keyExchange` – The key exchange group that was negotiated for the connection. For example, `x25519`, `secp256r1`, or `X25519MLKEM768`. For the list of classical and quantum-safe key exchanges that CloudFront supports, see [OpenSSL, s2n, and RFC cipher names](secure-connections-supported-viewer-protocols-ciphers.md#secure-connections-openssl-rfc-cipher-names).
+  + `signatureScheme` – The signature scheme that CloudFront used to authenticate itself to the viewer. For example, `ecdsa_secp256r1_sha256` or `rsa_pss_rsae_sha256`.
+  + `signaturePublicKeyType` – The type and size of the public key in the certificate that CloudFront presented to the viewer. For example, `rsa2048`, `ecdsa_secp256r1`, or `mldsa65`.
+
+  When a previous SSL/TLS session is resumed, CloudFront sets the fields that don't apply to the resumed session to `NONE`:
+  + For a resumed TLS 1.2 session, `keyExchange`, `signatureScheme`, and `signaturePublicKeyType` are `NONE`.
+  + For a resumed TLS 1.3 session, `keyExchange` contains the negotiated key exchange group because TLS 1.3 performs a new key exchange when it resumes a session. `signatureScheme` and `signaturePublicKeyType` are `NONE`.
+
+  If CloudFront can't determine the value of a field, the field is empty.
+
+  The following are some example values for this header:
+
+  ```
+  {"tlsVersion":"TLSv1.3","cipherSuite":"TLS_AES_128_GCM_SHA256","handshakeType":"fullHandshake","keyExchange":"X25519MLKEM768","signatureScheme":"ecdsa_secp256r1_sha256","signaturePublicKeyType":"ecdsa_secp256r1"}
+  ```
+
+  ```
+  {"tlsVersion":"TLSv1.3","cipherSuite":"TLS_AES_128_GCM_SHA256","handshakeType":"sessionResumed","keyExchange":"x25519","signatureScheme":"NONE","signaturePublicKeyType":"NONE"}
+  ```
+
+  ```
+  {"tlsVersion":"TLSv1.2","cipherSuite":"ECDHE-RSA-AES128-GCM-SHA256","handshakeType":"fullHandshake","keyExchange":"secp256r1","signatureScheme":"rsa_pkcs1_sha256","signaturePublicKeyType":"rsa2048"}
+  ```
+
+  ```
+  {"tlsVersion":"TLSv1.2","cipherSuite":"ECDHE-RSA-AES128-GCM-SHA256","handshakeType":"sessionResumed","keyExchange":"NONE","signatureScheme":"NONE","signaturePublicKeyType":"NONE"}
+  ```
+
+  For the full list of possible SSL/TLS versions and ciphers that can be in this header value, see [Supported protocols and ciphers between viewers and CloudFront](secure-connections-supported-viewer-protocols-ciphers.md).
 
 **Notes**  
 The JA3 and JA4 fingerprints are derived from the SSL/TLS `Client Hello` packet. They are only present for HTTPS requests.
-For these TLS-related headers, you can add them to a [origin request policy](controlling-origin-requests.md), but not in a [cache policy](controlling-the-cache-key.md).
+For these TLS-related headers, you can add them to an [origin request policy](controlling-origin-requests.md), but not in a [cache policy](controlling-the-cache-key.md).
 
 ## Other CloudFront headers
 <a name="cloudfront-headers-other"></a>

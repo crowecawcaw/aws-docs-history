@@ -8,7 +8,7 @@ If you want to stop routing traffic for a domain or subdomain to a CloudFront di
 It’s important that you remove the alternate domain names from the distribution as well as update your DNS configuration. This helps prevent issues later if you want to associate the domain name with another CloudFront distribution. If an alternate domain name is already associated with one distribution, it can’t be set up with another.
 
 **Note**  
-If you want to remove the alternate domain name from this distribution so you can add it to another one, follow the steps in [Move an alternate domain name](alternate-domain-names-move.md). If you follow the steps here instead (to remove a domain) and then add the domain to another distribution, there will be a period of time during which the domain won’t link to the new distribution because CloudFront is propagating to the updates to edge locations.<a name="RemovingADomain"></a>
+If you want to remove the alternate domain name from this distribution so you can add it to another one, follow the steps in [Move an alternate domain name](alternate-domain-names-move.md). If you follow the steps here instead (to remove a domain) and then add the domain to another distribution, there will be a period of time during which the domain won’t link to the new distribution because CloudFront is propagating the updates to edge locations.<a name="RemovingADomain"></a>
 
 **To remove an alternate domain name from a distribution**
 

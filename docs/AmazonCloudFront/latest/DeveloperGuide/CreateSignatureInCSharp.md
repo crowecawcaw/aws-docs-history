@@ -161,7 +161,7 @@ The following C\# code creates a signed URL that uses a custom policy by doing t
 
 1. Hashes the policy statement using SHA1, and encrypts the result using RSA and the private key whose corresponding public key is in a trusted key group.
 
-1. Base64-encodes the hashed policy statement and replacing special characters to make the string safe to use as a URL request parameter.
+1. Base64-encodes the hashed policy statement and replaces special characters to make the string safe to use as a URL request parameter.
 
 1. Concatenates the values.
 

@@ -442,7 +442,7 @@ For calls to the CloudFront KeyValueStore API, the `eventSource` is `edgekeyvalu
     "eventName": "UpdateKeys",
     "awsRegion": "us-east-1",
     "sourceIPAddress": "3.235.183.252",
-    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36,
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
     "requestParameters": {
         "kvsARN": "arn:aws:cloudfront::111122223333:key-value-store/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
         "ifMatch": "KV3O6B1CX531EBP",

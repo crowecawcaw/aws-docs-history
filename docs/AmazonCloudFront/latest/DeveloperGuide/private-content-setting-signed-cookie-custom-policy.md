@@ -101,7 +101,7 @@ You can use the `Set-Cookie` header pairs for a signed request when you're using
 ```
 Set-Cookie: CloudFront-Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cDovL2QxMTExMTFhYmNkZWY4LmNsb3VkZnJvbnQubmV0L2dhbWVfZG93bmxvYWQuemlwIiwiQ29uZGl0aW9uIjp7IklwQWRkcmVzcyI6eyJBV1M6U291cmNlSXAiOiIxOTIuMC4yLjAvMjQifSwiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE0MjY1MDAwMDB9fX1dfQ__; Domain=d111111abcdef8.cloudfront.net; Path=/; Secure; HttpOnly
 Set-Cookie: CloudFront-Signature=dtKhpJ3aUYxqDIwepczPiDb9NXQ_; Domain=d111111abcdef8.cloudfront.net; Path=/; Secure; HttpOnly
-Set-Cookie: CloudFront-Key-Pair-Id=K2JCJMDEHXQW5F; Domain=dd111111abcdef8.cloudfront.net; Path=/; Secure; HttpOnly
+Set-Cookie: CloudFront-Key-Pair-Id=K2JCJMDEHXQW5F; Domain=d111111abcdef8.cloudfront.net; Path=/; Secure; HttpOnly
 Set-Cookie: CloudFront-Hash-Algorithm=SHA256; Domain=d111111abcdef8.cloudfront.net; Path=/; Secure; HttpOnly
 ```
 

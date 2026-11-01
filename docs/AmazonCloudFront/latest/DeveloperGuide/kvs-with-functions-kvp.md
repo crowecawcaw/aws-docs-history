@@ -208,7 +208,7 @@ aws cloudfront-keyvaluestore update-keys \
 ## Work with key-value pairs (API)
 <a name="kvs-with-functions-kvp-using-api"></a>
 
-Follow this section to work with your key-value pairs programatically. 
+Follow this section to work with your key-value pairs programmatically. 
 
 **Contents**
 + [Get a reference to a key value store](#kvs-with-functions-api-ref)

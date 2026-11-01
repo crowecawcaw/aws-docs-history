@@ -17,7 +17,7 @@ Creating a URL signature is just one part of the process of serving private cont
 + [Create the signed cookies](#create-the-signed-cookie)
 + [Full code](#full-code-signed-cookies)
 
-The following sections breaks down the code example into individual parts. You can find the complete [code sample](#full-code-signed-cookies) below.
+The following sections break down the code example into individual parts. You can find the complete [code sample](#full-code-signed-cookies) below.
 
 ## Create the RSA SHA-1 or SHA-256 signature
 <a name="create-rsa-sha-1signature-cookies"></a>
@@ -199,7 +199,7 @@ $base_url = 'https://d1234.cloudfront.net';
 
 $expires = time() + 3600; // 1 hour from now
 
-// Get the viewer real IP from the x-forward-for header as $_SERVER['REMOTE_ADDR'] will return viewer facing IP. An alternative option is to use CloudFront-Viewer-Address header. Note that this header is a trusted CloudFront immutable header. Example format: IP:PORT ("CloudFront-Viewer-Address": "1.2.3.4:12345")
+// Get the viewer real IP from the x-forwarded-for header as $_SERVER['REMOTE_ADDR'] will return viewer facing IP. An alternative option is to use CloudFront-Viewer-Address header. Note that this header is a trusted CloudFront immutable header. Example format: IP:PORT ("CloudFront-Viewer-Address": "1.2.3.4:12345")
 $client_ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
 
 

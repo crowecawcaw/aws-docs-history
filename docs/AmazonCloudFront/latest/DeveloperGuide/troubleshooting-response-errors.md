@@ -7,7 +7,7 @@ If CloudFront requests an object from your origin, and the origin returns an HTT
 
 This topic also includes troubleshooting steps for these status codes when using Lambda@Edge or CloudFront Functions.
 
-The following topics provide detailed explanations of the potential causes behind these error responses and offers step-by-step guidance on how to diagnose and resolve the underlying issues.
+The following topics provide detailed explanations of the potential causes behind these error responses and offer step-by-step guidance on how to diagnose and resolve the underlying issues.
 
 **Topics**
 + [HTTP 400 status code (Bad Request)](http-400-bad-request.md)

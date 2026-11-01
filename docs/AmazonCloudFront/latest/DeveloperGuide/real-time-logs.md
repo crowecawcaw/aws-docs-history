@@ -26,7 +26,7 @@ We recommend that you use the logs to understand the nature of the requests for 
 ## Create and use real-time access log configurations
 <a name="create-real-time-log-config"></a>
 
-To get information about requests made to a distribution in real time. you can use a real-time access log configurations. Logs are delivered within seconds of receiving the requests. You can create a real-time access log configuration in the CloudFront console, with the AWS Command Line Interface (AWS CLI), or with the CloudFront API.
+To get information about requests made to a distribution in real time, you can use a real-time access log configurations. Logs are delivered within seconds of receiving the requests. You can create a real-time access log configuration in the CloudFront console, with the AWS Command Line Interface (AWS CLI), or with the CloudFront API.
 
 To use a real-time access log configuration, you attach it to one or more cache behaviors in a CloudFront distribution.
 
@@ -78,7 +78,7 @@ To create a real-time access log configuration with the AWS CLI, use the **aws c
 1. Open the file named `rtl-config.yaml` that you just created. Edit the file to specify the real-time access log configuration settings that you want, then save the file. Note the following:
    + For `StreamType`, the only valid value is `Kinesis`.
 
-   For more information about the real-time long configuration settings, see [Understand real-time access log configurations](#understand-real-time-log-config).
+   For more information about the real-time log configuration settings, see [Understand real-time access log configurations](#understand-real-time-log-config).
 
 1. Use the following command to create the real-time access log configuration using input parameters from the `rtl-config.yaml` file.
 
@@ -428,7 +428,7 @@ For more information about these fields, see the [CTA Specification Web Applicat
 
 1. **`cmcd-buffer-starvation`**
 
-   Whether the buffer was starved at some point between the prior request and the object request. This can cause the player to be in a rebuffering stat, which can stall the video or audio playback. 
+   Whether the buffer was starved at some point between the prior request and the object request. This can cause the player to be in a rebuffering state, which can stall the video or audio playback. 
 
 1. **`cmcd-content-id`**
 

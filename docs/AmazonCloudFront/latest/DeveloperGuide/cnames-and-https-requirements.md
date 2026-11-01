@@ -94,7 +94,7 @@ You must have permission to use and import the SSL/TLS certificate. If you’re 
 The certificate key size that CloudFront supports depends on the type of key and certificate.
 
 **For RSA certificates:**  
-CloudFront supports 1024-bit, 2048-bit, and 3072-bit, and 4096-bit RSA keys. The maximum key length for an RSA certificate that you use with CloudFront is 4096 bits.  
+CloudFront supports 1024-bit, 2048-bit, 3072-bit, and 4096-bit RSA keys. The maximum key length for an RSA certificate that you use with CloudFront is 4096 bits.  
  Note that ACM issues RSA certificates with up to 2048-bit keys. To use a 3072-bit or 4096-bit RSA certificate, you need to obtain the certificate externally and import it into ACM, after which it will be available for you to use with CloudFront.   
 For information about how to determine the size of an RSA key, see [Determine the size of the public key in an SSL/TLS RSA certificate](cnames-and-https-size-of-public-key.md).
 
@@ -125,7 +125,7 @@ When you’re using a custom origin, the SSL/TLS certificate on your origin incl
 One of the domain names in the certificate must match the domain name that you specify for Origin Domain Name. If no domain name matches, CloudFront returns HTTP status code `502 (Bad Gateway)` to the viewer.
 
 **Important**  
-When you add an alternate domain name to a distribution, CloudFront checks that the alternate domain name is covered by the certificate that you’ve attached. The certificate must cover the alternate domain name in the subject alternate name (SAN) field of the certificate. This means the SAN field must contain an exact match for the alternate domain name, or contain a wildcard at the same level of the alternate domain name that you’re adding.  
+When you add an alternate domain name to a distribution, CloudFront checks that the alternate domain name is covered by the certificate that you’ve attached. The certificate must cover the alternate domain name in the subject alternative name (SAN) field of the certificate. This means the SAN field must contain an exact match for the alternate domain name, or contain a wildcard at the same level of the alternate domain name that you’re adding.  
 For more information, see [Requirements for using alternate domain names](CNAMEs.md#alternate-domain-names-requirements).
 
 ## Minimum SSL/TLS protocol version

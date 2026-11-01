@@ -3,7 +3,7 @@
 # Helper methods for CloudFront SaaS Manager properties
 <a name="saas-specific-logic-function-code"></a>
 
-Use the following helper functions for CloudFront SaaS Manager to retrieve values for your multi-tenant distributions in the function that you create. To use examples on this page, you must first create a CloudFront function by using JavaScript runtime 2.0. For more information, [JavaScript runtime 2.0 features for CloudFront Functions](functions-javascript-runtime-20.md).
+Use the following helper functions for CloudFront SaaS Manager to retrieve values for your multi-tenant distributions in the function that you create. To use examples on this page, you must first create a CloudFront function by using JavaScript runtime 2.0. For more information, see [JavaScript runtime 2.0 features for CloudFront Functions](functions-javascript-runtime-20.md).
 
 **Topics**
 + [Connection groups](#connection-groups-helper-function)

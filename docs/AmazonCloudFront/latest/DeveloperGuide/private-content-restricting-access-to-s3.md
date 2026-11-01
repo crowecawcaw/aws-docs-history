@@ -117,7 +117,7 @@ The following are examples of S3 bucket policies that allow a CloudFront distrib
 If the objects in the S3 bucket origin are encrypted using [server-side encryption with AWS Key Management Service (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html), you must make sure that the CloudFront distribution has permission to use the AWS KMS key. To give the CloudFront distribution permission to use the KMS key, add a statement to the [KMS key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html). For information about how to modify a key policy, see [Changing a key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying.html) in the *AWS Key Management Service Developer Guide*.
 
 **Example KMS key policy statement**  
-The following example shows a AWS KMS policy statement that allows the CloudFront distribution with OAC to access a KMS key for SSE-KMS.  
+The following example shows an AWS KMS policy statement that allows the CloudFront distribution with OAC to access a KMS key for SSE-KMS.  
 
 ```
 {

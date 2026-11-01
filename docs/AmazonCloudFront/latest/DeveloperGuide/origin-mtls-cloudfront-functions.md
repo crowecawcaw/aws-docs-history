@@ -15,7 +15,7 @@ CloudFront Functions can interact with mTLS-enabled origins in the following way
 
 The updateRequestOrigin() function supports limited modifications when working with mTLS-enabled origins:
 + **Switching between origin mTLS origins:** You can update the request to route to a different origin that uses origin mTLS, provided both origins use the **same client certificate**. This allows you to implement custom routing logic while maintaining mutual TLS authentication. Switching between origins that make use of different certificates is supported through the `selectRequestOriginById()` and `createRequestOriginGroup()` APIs.
-+ **Disabling origin mTLS:** You can switch from a mTLS-enabled origin to a non-mTLS origin by setting `mTLSConfig: 'off'` in the function. This provides flexibility to conditionally disable mutual TLS authentication based on request characteristics.
++ **Disabling origin mTLS:** You can switch from an mTLS-enabled origin to a non-mTLS origin by setting `mTLSConfig: 'off'` in the function. This provides flexibility to conditionally disable mutual TLS authentication based on request characteristics.
 
 #### Example: Switching between origin mTLS origins with the same certificate
 <a name="example-switching-mtls-origins"></a>
