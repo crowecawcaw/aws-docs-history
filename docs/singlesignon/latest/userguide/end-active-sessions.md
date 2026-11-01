@@ -33,5 +33,7 @@ You can only end active sessions that are loaded. If a user has many sessions, c
 1. Select the check box next to each session that you want to end, and then choose **End sessions**.
 
 1. A dialog box appears that confirms you are ending active sessions for this user. Review the information, and if you want to continue, type `confirm`, and then choose **End sessions**.
+**Note**  
+In multi-Region IAM Identity Center instances, when you end an active session for a workforce user, the session ends across all your enabled Regions.
 
 1. You are returned to the user's page. A green notification message appears to indicate that the selected sessions were successfully ended.

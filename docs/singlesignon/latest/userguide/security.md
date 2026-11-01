@@ -15,6 +15,7 @@ This documentation helps you understand how to apply the shared responsibility m
 + [Identity and access management for IAM Identity Center](iam-auth-access.md)
 + [IAM Identity Center console and API authorization](security-authorization.md)
 + [AWS STS condition context keys for IAM Identity Center](condition-context-keys-sts-idc.md)
++ [IAM Identity Center event notifications](event-notifications.md)
 + [Logging and monitoring in IAM Identity Center](security-logging-and-monitoring.md)
 + [Compliance validation for IAM Identity Center](compliance-validation.md)
 + [Resilience in IAM Identity Center](disaster-recovery-resiliency.md)

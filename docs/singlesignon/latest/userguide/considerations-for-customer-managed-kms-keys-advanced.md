@@ -25,3 +25,6 @@ When deciding whether to make the KMS key permissions more specific using [Advan
 **Important**  
  Don't apply this configuration to a KMS key already in use in an existing IAM Identity Center instance, as it may disrupt its normal operations. 
 +  Omit the encryption context condition from the KMS key policy until after the instance is enabled. 
+
+**Note**  
+In a multi-Region IAM Identity Center instance, each additional Region uses its own replica key that you manage independently. Before you delete or disable a key, review how AWS KMS handles multi-Region keys. For more information about multi-Region keys, see [Deleting multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html#deleting-mrks) and [Multi-Region keys in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html).

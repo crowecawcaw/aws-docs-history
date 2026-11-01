@@ -30,3 +30,8 @@ Deprovisioning is the process of removing users and group information from IAM I
 If you’re using Active Directory or an external identity provider with IAM Identity Center, you should remove users and groups from these identity sources rather than IAM Identity Center. Deleting IAM Identity Center users and groups will not completely remove them if your identity source is Active Directory or an external identity provider. 
 
 If you need to deprovision IAM Identity Center users or groups, you should first [remove any assignments of permission sets](howtoremovepermissionset.md) or applications to the users or groups you want to deprovision. Otherwise, you’ll have unassigned permission sets and application assignments in your IAM Identity Center.
+
+## Monitor changes to users and groups
+<a name="monitor-changes-users-groups"></a>
+
+With IAM Identity Center Identity Store, you can receive events in Amazon EventBridge when users, groups, group memberships, or the identity store itself are created, updated, or deleted, so you can respond to changes as they happen. For more information, see [IAM Identity Center event notifications](event-notifications.md).
