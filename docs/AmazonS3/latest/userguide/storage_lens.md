@@ -55,6 +55,6 @@ For more information about using S3 Storage Lens, see the following topics.
 + [Setting Amazon S3 Storage Lens permissions](storage_lens_iam_permissions.md)
 + [Working with Amazon S3 Storage Lens by using the console and API](S3LensExamples.md)
 + [Viewing metrics with Amazon S3 Storage Lens](storage_lens_view_metrics.md)
-+ [Working with S3 Storage Lens data in S3 Tables](storage-lens-s3-tables.md)
++ [Viewing metrics in AWS managed S3 Tables](storage-lens-s3-tables.md)
 + [Using Amazon S3 Storage Lens with AWS Organizations](storage_lens_with_organizations.md)
 + [Working with S3 Storage Lens groups to filter and aggregate metrics](storage-lens-groups-overview.md)

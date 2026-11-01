@@ -12,6 +12,13 @@ For an end to end walkthrough using PyIceberg, see [Access data in Amazon S3 Tab
 + [Create a table namespace](s3-tables-namespace-create.md)
 + [Have access to a data lake administrator account](https://docs.aws.amazon.com/lake-formation/latest/dg/initial-lf-config.html#create-data-lake-admin)
 
+## Authentication methods
+<a name="glue-endpoint-auth-methods"></a>
+
+The AWS Glue Iceberg REST endpoint supports two authentication methods for reaching your Amazon S3 tables:
++ **AWS Signature Version 4 (SigV4)** – The default for AWS SDKs and AWS native analytics engines. See [AWS Signature Version 4 for API requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html).
++ **OAuth 2.0 bearer token** – For external integration partners and third-party query engines that authenticate with an OAuth access token obtained from AWS Sign-In. See Authentication in [Connecting to the Data Catalog using AWS Glue Iceberg REST endpoint](https://docs.aws.amazon.com/glue/latest/dg/connect-glu-iceberg-rest.html), and [Configure OAuth access to AWS Glue Iceberg REST Catalog](https://docs.aws.amazon.com/signin/latest/userguide/configure-oauth-glue-iceberg-rest.html) in the *AWS Sign-In User Guide*.
+
 ## Create an IAM role for your client
 <a name="glue-endpoint-create-iam-role"></a>
 
@@ -106,8 +113,6 @@ The following steps explain how to apply Lake Formation access controls to allow
 
 In Lake Formation, you must enable full table access for external engines to access data. This allows third-party applications to get temporary credentials from Lake Formation when using an IAM role that has full permissions on the requested table.
 
-Open the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/).
-
 1. Open the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/), and sign in as a data lake administrator.
 
 1. In the navigation pane under **Administration**, choose **Application integration settings**.
@@ -150,3 +155,13 @@ rest_catalog = load_catalog(
 ```
 
 For additional information about the AWS Glue Iceberg REST endpoint implementation, see [Connecting to the Data Catalog using AWS Glue Iceberg REST endpoint](https://docs.aws.amazon.com/glue/latest/dg/connect-glu-iceberg-rest.html) in the *AWS Glue User Guide*.
+
+## Accessing Amazon S3 tables with an OAuth 2.0 bearer token
+<a name="glue-endpoint-oauth-access"></a>
+
+External integration partners and third-party query engines can access your Amazon S3 tables using an OAuth 2.0 bearer token instead of SigV4. The client obtains a short-lived, Glue-scoped access token from AWS Sign-In through a token exchange defined in [RFC 8693](https://datatracker.ietf.org/doc/html/rfc8693) on the IETF Datatracker website, then presents it to the AWS Glue Iceberg REST endpoint. AWS Glue validates the token and enforces the same Lake Formation permissions described earlier.
+
+Before a client can use this method, complete the identity-federation setup (IAM OIDC identity provider, an IAM role with a web-identity trust policy, and Lake Formation grants). The partner exchanges an end user's JSON Web Token (JWT) for the access token. For the full setup and token exchange details, see [Configure OAuth access to AWS Glue Iceberg REST Catalog](https://docs.aws.amazon.com/signin/latest/userguide/configure-oauth-glue-iceberg-rest.html) in the *AWS Sign-In User Guide*.
+
+**Note**  
+When a query engine authenticates with an OAuth bearer token, the Lake Formation permissions are enforced on the IAM role that the customer configured for the integration. Grant that role only the permissions the partner's users should have, for example, SELECT and DESCRIBE on specific tables. See Step 3: Grant Lake Formation permissions to the role in the *AWS Sign-In User Guide* ([Configure OAuth access to AWS Glue Iceberg REST Catalog](https://docs.aws.amazon.com/signin/latest/userguide/configure-oauth-glue-iceberg-rest.html)).

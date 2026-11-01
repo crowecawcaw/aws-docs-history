@@ -17,7 +17,7 @@ The following table contains the schema of your S3 Storage Lens metrics export w
 
 | Attribute name  | Data type | Column name | Description | 
 | --- | --- | --- | --- | 
-|  VersionNumber  | String |  version\_number  | The version of the S3 Storage Lens metrics being used. | 
+|  VersionNumber  | String |  version\_number  | The version of the export report. | 
 |  ConfigurationId  | String |  configuration\_id  | The  configuration\_id of your S3 Storage Lens configuration. | 
 |  ReportDate  | String  |  report\_date  | The date that the metrics were tracked. | 
 |  AwsAccountNumber  |  String  |  aws\_account\_number  | Your AWS account number. | 

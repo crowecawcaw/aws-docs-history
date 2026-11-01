@@ -23,7 +23,7 @@ When you're using virtual-hosted–style general purpose buckets with SSL, the S
 ## Path-style requests
 <a name="path-style-access"></a>
 
-Currently, Amazon S3 supports both virtual-hosted–style and path-style URL access in all AWS Regions. However, path-style URLs will be discontinued in the future. For more information, see the following **Important** note.
+Currently, Amazon S3 supports both virtual-hosted-style and path-style URL access in all AWS Regions.
 
 In Amazon S3, path-style URLs use the following format:
 

@@ -289,6 +289,8 @@ You can test the `put-bucket-lifecycle-configuration` as follows.
    $ aws s3api get-bucket-lifecycle-configuration  \
    --bucket {{amzn-s3-demo-bucket}}
    ```
+**Important**  
+The output of `get-bucket-lifecycle-configuration` includes `TransitionDefaultMinimumObjectSize` as a top-level field alongside `Rules`. This field is not part of the `LifecycleConfiguration` JSON schema accepted by `put-bucket-lifecycle-configuration`. If you use the GET output directly as the PUT input, the command fails with a validation error. To copy a lifecycle configuration between buckets, you must either remove `TransitionDefaultMinimumObjectSize` from the JSON file or use the `--query '{Rules: Rules}'` parameter with the GET command to extract only the rules. If you need to preserve the `TransitionDefaultMinimumObjectSize` value, pass it separately using the `--transition-default-minimum-object-size` parameter.
 
 1. To delete the S3 Lifecycle configuration, use the `delete-bucket-lifecycle` AWS CLI command as follows:
 

@@ -27,7 +27,7 @@ Several of the example policies show how you can use conditions keys with [PUT O
 + [Example 6: Requiring a minimum TLS version](#example-object-tls-version)
 + [Example 7: Excluding certain principals from a `Deny` statement](#example-exclude-principal-from-deny-statement)
 + [Example 8: Enforcing clients to conditionally upload objects based on object key names or ETags](#example-conditional-writes-enforce)
-+ [Example 9: Restricting annotation access by name prefix](#example-annotation-prefix-condition)
++ [Example 9: Restricting annotation listing by name prefix](#example-annotation-prefix-condition)
 + [Example 10: Requiring conditional writes for annotation operations](#example-annotation-conditional-writes)
 + [Example 11: Limiting pagination size for ListObjectAnnotations](#example-annotation-max-results)
 
@@ -305,10 +305,13 @@ With conditional writes, you can add an additional header to your `WRITE` reques
 
 For bucket policy examples that use conditions in a bucket policy to enforce conditional writes, see [Enforce conditional writes on Amazon S3 buckets](conditional-writes-enforce.md).
 
-### Example 9: Restricting annotation access by name prefix
+### Example 9: Restricting annotation listing by name prefix
 <a name="example-annotation-prefix-condition"></a>
 
-The following bucket policy grants the `s3user` user permission to create, retrieve, and delete annotations that have names beginning with `ml-output.`. This allows you to restrict annotation access by annotation name prefix.
+The following bucket policy grants the `s3user` user permission to list only the annotations whose names start with `ml-output` on objects in `amzn-s3-demo-bucket`. The `s3:annotation-prefix` condition key applies only to the `ListObjectAnnotations` and `ListObjectVersionAnnotations` actions.
+
+**Note**  
+You can't use `s3:annotation-prefix` with `PutObjectAnnotation`, `GetObjectAnnotation`, or `DeleteObjectAnnotation`. If a policy statement combines this condition key with those actions, IAM rejects the policy with the error `Conditions do not apply to combination of actions and resources in statement`.
 
 ```
 {
@@ -320,14 +323,13 @@ The following bucket policy grants the `s3user` user permission to create, retri
                 "AWS": "arn:aws:iam::123456789012:user/s3user"
             },
             "Action": [
-                "s3:PutObjectAnnotation",
-                "s3:GetObjectAnnotation",
-                "s3:DeleteObjectAnnotation"
+                "s3:ListObjectAnnotations",
+                "s3:ListObjectVersionAnnotations"
             ],
             "Resource": "arn:aws:s3:::amzn-s3-demo-bucket/*",
             "Condition": {
                 "StringLike": {
-                    "s3:annotation-prefix": "ml-output.*"
+                    "s3:annotation-prefix": "ml-output*"
                 }
             }
         }
@@ -376,7 +378,7 @@ The following bucket policy limits the `max-annotation-results` parameter to 100
             "Sid": "LimitAnnotationListPageSize",
             "Effect": "Deny",
             "Principal": "*",
-            "Action": "s3:ListObjectAnnotation",
+            "Action": "s3:ListObjectAnnotations",
             "Resource": "arn:aws:s3:::amzn-s3-demo-bucket/*",
             "Condition": {
                 "NumericGreaterThan": {
