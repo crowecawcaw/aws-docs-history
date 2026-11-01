@@ -96,19 +96,20 @@ bool AwsDoc::SQS::getQueueUrl(const Aws::String &queueName,
 
 **AWS CLI**  
 **To get a queue URL**  
-This example gets the specified queue's URL.  
-Command:  
+The following `get-queue-url` example gets the specified queue's URL.  
 
 ```
-aws sqs get-queue-url --queue-name {{MyQueue}}
+aws sqs get-queue-url \
+    --queue-name {{MyQueue}}
 ```
 Output:  
 
 ```
 {
-  "QueueUrl": "https://queue.amazonaws.com/80398EXAMPLE/MyQueue"
+    "QueueUrl": "https://queue.amazonaws.com/80398EXAMPLE/MyQueue"
 }
 ```
+For more information, see [Amazon SQS queue and message identifiers](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-message-identifiers.html) in the *Amazon Simple Queue Service Developer Guide*.  
 +  For API details, see [GetQueueUrl](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/get-queue-url.html) in *AWS CLI Command Reference*. 
 
 ------

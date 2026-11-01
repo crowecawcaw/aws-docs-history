@@ -58,17 +58,16 @@ bool AwsDoc::SQS::changeMessageVisibility(
 
 **AWS CLI**  
 **To change a message's timeout visibility**  
-This example changes the specified message's timeout visibility to 10 hours (10 hours \* 60 minutes \* 60 seconds).  
-Command:  
+The following `change-message-visibility` example changes the specified message's timeout visibility to 10 hours (10 hours \* 60 minutes \* 60 seconds).  
 
 ```
-aws sqs change-message-visibility --queue-url {{https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue}} --receipt-handle {{AQEBTpyI...t6HyQg==}} --visibility-timeout {{36000}}
+aws sqs change-message-visibility \
+    --queue-url {{https://sqs.us-west-2.amazonaws.com/80398EXAMPLE/MyQueue}} \
+    --receipt-handle {{AQEBTpyI...t6HyQg==}} \
+    --visibility-timeout {{36000}}
 ```
-Output:  
-
-```
-None.
-```
+This command produces no output.  
+For more information, see [Amazon SQS visibility timeout](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html) in the *Amazon Simple Queue Service Developer Guide*.  
 +  For API details, see [ChangeMessageVisibility](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/change-message-visibility.html) in *AWS CLI Command Reference*. 
 
 ------

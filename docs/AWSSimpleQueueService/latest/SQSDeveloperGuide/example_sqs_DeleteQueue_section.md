@@ -77,17 +77,14 @@ bool AwsDoc::SQS::deleteQueue(const Aws::String &queueURL,
 
 **AWS CLI**  
 **To delete a queue**  
-This example deletes the specified queue.  
-Command:  
+The following `delete-queue` example deletes the specified queue.  
 
 ```
-aws sqs delete-queue --queue-url {{https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyNewerQueue}}
+aws sqs delete-queue \
+    --queue-url {{https://sqs.us-west-2.amazonaws.com/80398EXAMPLE/MyNewerQueue}}
 ```
-Output:  
-
-```
-None.
-```
+This command produces no output.  
+For more information, see [Deleting an Amazon SQS queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/step-delete-queue.html) in the *Amazon Simple Queue Service Developer Guide*.  
 +  For API details, see [DeleteQueue](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/delete-queue.html) in *AWS CLI Command Reference*. 
 
 ------

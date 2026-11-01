@@ -138,17 +138,15 @@ bool AwsDoc::SQS::deleteMessage(const Aws::String &queueUrl,
 
 **AWS CLI**  
 **To delete a message**  
-This example deletes the specified message.  
-Command:  
+The following `delete-message` example deletes the specified message.  
 
 ```
-aws sqs delete-message --queue-url {{https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue}} --receipt-handle {{AQEBRXTo...q2doVA==}}
+aws sqs delete-message \
+    --queue-url {{https://sqs.us-west-2.amazonaws.com/80398EXAMPLE/MyQueue}} \
+    --receipt-handle {{AQEBRXTo...q2doVA==}}
 ```
-Output:  
-
-```
-None.
-```
+This command produces no output.  
+For more information, see [Receiving and deleting a message in Amazon SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/step-receive-delete-message.html) in the *Amazon Simple Queue Service Developer Guide*.  
 +  For API details, see [DeleteMessage](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/delete-message.html) in *AWS CLI Command Reference*. 
 
 ------

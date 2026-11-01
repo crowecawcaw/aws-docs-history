@@ -10,22 +10,23 @@ The following code examples show how to use `ListDeadLetterSourceQueues`.
 
 **AWS CLI**  
 **To list dead letter source queues**  
-This example lists the queues that are associated with the specified dead letter source queue.  
-Command:  
+The following `list-dead-letter-source-queues` example lists the queues that are associated with the specified dead letter source queue.  
 
 ```
-aws sqs list-dead-letter-source-queues --queue-url {{https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyDeadLetterQueue}}
+aws sqs list-dead-letter-source-queues \
+    --queue-url {{https://sqs.us-west-2.amazonaws.com/80398EXAMPLE/MyDeadLetterQueue}}
 ```
 Output:  
 
 ```
 {
-  "queueUrls": [
-    "https://queue.amazonaws.com/80398EXAMPLE/MyQueue",
-    "https://queue.amazonaws.com/80398EXAMPLE/MyOtherQueue"
-  ]
+    "queueUrls": [
+        "https://queue.amazonaws.com/80398EXAMPLE/MyQueue",
+        "https://queue.amazonaws.com/80398EXAMPLE/MyOtherQueue"
+    ]
 }
 ```
+For more information, see [Using dead-letter queues in Amazon SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html) in the *Amazon Simple Queue Service Developer Guide*.  
 +  For API details, see [ListDeadLetterSourceQueues](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/list-dead-letter-source-queues.html) in *AWS CLI Command Reference*. 
 
 ------
