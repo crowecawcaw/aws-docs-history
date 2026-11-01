@@ -102,7 +102,7 @@ Output:
     "endpointAddress": "abc123defghijk.iot.us-west-2.amazonaws.com"
 }
 ```
-For more information, see [DescribeEndpoint](https://docs.aws.amazon.com/iot/latest/developerguide/iot-commands.html#api-iot-DescribeEndpoint) in the *AWS IoT Developer Guide*.  
+For more information, see [DescribeEndpoint](https://docs.aws.amazon.com/iot/latest/developerguide/iot-commands.html) in the *AWS IoT Developer Guide*.  
 **Example 2: To get your ATS endpoint**  
 The following `describe-endpoint` example retrieves the Amazon Trust Services (ATS) endpoint.  
 

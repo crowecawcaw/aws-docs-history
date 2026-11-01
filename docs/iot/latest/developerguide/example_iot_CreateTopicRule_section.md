@@ -129,7 +129,7 @@ aws iot create-topic-rule \
     --rule-name {{"LowMoistureRule"}} \
     --topic-rule-payload {{file://plant-rule.json}}
 ```
-The example requires the following JSON code to be saved to a file named `plant-rule.json`:  
+Contents of `plant-rule.json`:  
 
 ```
 {
@@ -137,13 +137,15 @@ The example requires the following JSON code to be saved to a file named `plant-
     "description": "Sends an alert whenever soil moisture level readings are too low.",
     "ruleDisabled": false,
     "awsIotSqlVersion": "2016-03-23",
-    "actions": [{
+    "actions": [
+        {
             "sns": {
                 "targetArn": "arn:aws:sns:us-west-2:123456789012:MyRPiLowMoistureTopic",
                 "roleArn": "arn:aws:iam::123456789012:role/service-role/MyRPiLowMoistureTopicRole",
                 "messageFormat": "RAW"
             }
-    }]
+        }
+    ]
 }
 ```
 This command produces no output.  

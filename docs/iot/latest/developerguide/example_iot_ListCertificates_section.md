@@ -151,6 +151,7 @@ Output:
     ]
 }
 ```
+For more information, see [X.509 client certificates](https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html) in the *AWS IoT Core Developer Guide*.  
 +  For API details, see [ListCertificates](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/list-certificates.html) in *AWS CLI Command Reference*. 
 
 ------

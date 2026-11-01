@@ -106,7 +106,7 @@ aws iot update-thing \
     --thing-type-name {{"LightBulb"}} \
     --attribute-payload "{"attributes": {"wattage":"75", "model":"123"}}"
 ```
-This command does not produce output. Use the `describe-thing` command to see the result.  
+This command produces no output. Use the `describe-thing` command to see the result.  
 For more information, see [Thing Types](https://docs.aws.amazon.com/iot/latest/developerguide/thing-types.html) in the *AWS IoT Developers Guide*.  
 +  For API details, see [UpdateThing](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/update-thing.html) in *AWS CLI Command Reference*. 
 

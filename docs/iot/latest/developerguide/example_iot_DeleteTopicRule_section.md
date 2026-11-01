@@ -54,7 +54,7 @@ aws iot delete-topic-rule \
     --rule-name {{"LowMoistureRule"}}
 ```
 This command produces no output.  
-For more information, see [Deleting a Rule](https://docs.aws.amazon.com/iot/latest/developerguide/iot-delete-rule.html) in the *AWS IoT Developers Guide*.  
+For more information, see [Deleting a rule](https://docs.aws.amazon.com/iot/latest/developerguide/iot-managae-rule.html#iot-delete-rule) in the *AWS IoT Developers Guide*.  
 +  For API details, see [DeleteTopicRule](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/delete-topic-rule.html) in *AWS CLI Command Reference*. 
 
 ------
