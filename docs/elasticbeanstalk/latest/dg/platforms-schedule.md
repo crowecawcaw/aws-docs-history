@@ -29,8 +29,6 @@ The following table lists upcoming Elastic Beanstalk platform branches and their
 
 |  Runtime version / platform branch  |  Operating System  |  Target release date  | 
 | --- | --- | --- | 
-|  Python 3.15  | Amazon Linux 2023 | November 2026 | 
-|  Node.js 26  | Amazon Linux 2023 | November 2026 | 
 |  .NET 11  | Amazon Linux 2023 | December 2026 | 
 |  PHP 8.6  | Amazon Linux 2023 | January 2027 | 
 |  Ruby 4.1  | Amazon Linux 2023 | February 2027 | 
