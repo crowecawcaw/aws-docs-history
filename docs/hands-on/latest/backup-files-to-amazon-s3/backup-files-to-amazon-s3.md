@@ -8,7 +8,7 @@
 | --- |--- |
 | **Cost to complete** | Free Tier <br />AWS Free Tier includes 5GB storage, 20,000 Get Requests, and 2,000 Put Requests with Amazon S3. <br />[View AWS Free Tier Details »](https://aws.amazon.com/free/?e=gs21&src=introduction_freetier)  | 
 | **Services used** | Amazon S3  | 
-| **Requires** | Storing Your Files with AWS Requires an Account <br />[Create a free account in minutes](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?e=gs21&src=introduction_signup)  | 
+| **Requires** | Storing Your Files with AWS Requires an Account <br />[Create a free account in minutes](https://signin.aws.amazon.com/signup?request_type=builderId)  | 
 | **Last updated** | June 1, 2022  | 
 
 ## Overview
