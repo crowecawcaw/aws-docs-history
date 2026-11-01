@@ -26,6 +26,7 @@ The following tables describe the service endpoints and service quotas for AWS P
 | Asia Pacific (Singapore) | ap-southeast-1 |  pcs.ap-southeast-1.amazonaws.com <br /> pcs.ap-southeast-1.api.aws  | <br /> | 
 | Asia Pacific (Sydney) | ap-southeast-2 |  pcs.ap-southeast-2.amazonaws.com <br /> pcs.ap-southeast-2.api.aws  | <br /> | 
 | Asia Pacific (Tokyo) | ap-northeast-1 |  pcs.ap-northeast-1.amazonaws.com <br /> pcs.ap-northeast-1.api.aws  | <br /> | 
+| Canada (Central) | ca-central-1 |  pcs.ca-central-1.amazonaws.com <br /> pcs.ca-central-1.api.aws  | <br /> | 
 | Europe (Frankfurt) | eu-central-1 |  pcs.eu-central-1.amazonaws.com <br /> pcs.eu-central-1.api.aws  | <br /> | 
 | Europe (Ireland) | eu-west-1 |  pcs.eu-west-1.amazonaws.com <br /> pcs.eu-west-1.api.aws  | <br /> | 
 | Europe (London) | eu-west-2 |  pcs.eu-west-2.amazonaws.com <br /> pcs.eu-west-2.api.aws  | <br /> | 

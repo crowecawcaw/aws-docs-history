@@ -270,7 +270,7 @@ Choose one of the following links to go to the page for that service. To view th
 + [VPC Lattice](vpc-lattice-service.md)
 + [AWS WAF](waf.md)
 + [AWS WAF Classic](waf-classic.md)
-+ [AWS Well-Architected Tool](wellarchitected.md)
++ [AWS Well-Architected](wellarchitected.md)
 + [AWS Wickr](wickr.md)
 + [Amazon WorkMail](workmail.md)
 + [Amazon WorkSpaces](wsp.md)

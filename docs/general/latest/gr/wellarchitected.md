@@ -1,6 +1,6 @@
 
 
-# AWS Well-Architected Tool endpoints and quotas
+# AWS Well-Architected endpoints and quotas
 <a name="wellarchitected"></a>
 
 To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints. Some services provide global endpoints. For more information, see [AWS service endpoints](rande.md).
@@ -9,7 +9,7 @@ Service quotas, also referred to as limits, are the maximum number of service re
 
 The following are the service endpoints and service quotas for this service.
 
-## Service endpoints
+## AWS Well-Architected Tool endpoints
 <a name="wellarchitected_region"></a>
 
 
@@ -36,6 +36,16 @@ The following are the service endpoints and service quotas for this service.
 |  AWS GovCloud (US-East) | us-gov-east-1 |  wellarchitected.us-gov-east-1.amazonaws.com  | HTTPS | 
 |  AWS GovCloud (US-West) | us-gov-west-1 |  wellarchitected.us-gov-west-1.amazonaws.com  | HTTPS | 
 
+## AWS Well-Architected Agent endpoints
+<a name="wellarchitected-agent_region"></a>
+
+
+| Region Name | Region | Endpoint | Protocol | 
+| --- | --- | --- | --- | 
+| US East (Ohio) | us-east-2 |  wellarchitected-agent.us-east-2.amazonaws.com <br /> wellarchitected-agent-fips.us-east-2.api.aws <br /> wellarchitected-agent-fips.us-east-2.amazonaws.com <br /> wellarchitected-agent.us-east-2.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
+| US East (N. Virginia) | us-east-1 |  wellarchitected-agent.us-east-1.amazonaws.com <br /> wellarchitected-agent-fips.us-east-1.api.aws <br /> wellarchitected-agent-fips.us-east-1.amazonaws.com <br /> wellarchitected-agent.us-east-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
+| US West (Oregon) | us-west-2 |  wellarchitected-agent.us-west-2.amazonaws.com <br /> wellarchitected-agent-fips.us-west-2.api.aws <br /> wellarchitected-agent-fips.us-west-2.amazonaws.com <br /> wellarchitected-agent.us-west-2.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
+
 ## Service quotas
 <a name="limits_wellarchitected"></a>
 
@@ -59,3 +69,5 @@ The following are the service endpoints and service quotas for this service.
 | Shares per workload | Each supported Region: 20 | No | The maximum number of shares that can be created for a workload. | 
 | Versions per lens | Each supported Region: 100 | No | The maximum number of versions that can be created for a lens. | 
 | Workloads per account per Region | Each supported Region: 1,000 | No | The maximum number of workloads that can be created per account in a Region. | 
+
+For more detail on AWS Well-Architected Agent quotas and limits, see [Quotas and limits](https://docs.aws.amazon.com/wellarchitected/latest/userguide/agent-quotas.html).

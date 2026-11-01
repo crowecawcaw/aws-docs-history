@@ -40,28 +40,33 @@ The following are the service endpoints and service quotas for this service.
 
 <table>
 <thead>
-  <tr><th colspan="2">Resources</th><th colspan="6">Regions</th></tr>
+  <tr><th colspan="2">Resources</th><th colspan="8">Regions</th></tr>
 </thead>
 <tbody>
-  <tr><td>Synchronous Operations</td><td>API</td><td>US East (N. Virginia)</td><td>US West (Oregon)</td><td>US East (Ohio)</td><td>Europe (Ireland)</td><td>Asia Pacific (Mumbai)</td><td>Other Regions</td></tr>
-  <tr><td rowspan="4">Transactions per second per account for synchronous operations</td><td>AnalyzeDocument</td><td>10</td><td>10</td><td>10</td><td>5</td><td>5</td><td>1</td></tr>
-  <tr><td>DetectDocumentText</td><td>25</td><td>25</td><td>10</td><td>5</td><td>5</td><td>1</td></tr>
-  <tr><td>AnalyzeExpense</td><td>5</td><td>5</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
-  <tr><td>AnalyzeID</td><td>5</td><td>5</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
-  <tr><td>Asynchronous Operations</td><td>API</td><td>US East (N. Virginia)</td><td>US West (Oregon)</td><td>US East (Ohio)</td><td>Europe (Ireland)</td><td>Asia Pacific (Mumbai)</td><td>Other Regions</td></tr>
-  <tr><td rowspan="4">Transactions per second per account for all start (asynchronous) operations</td><td>StartDocumentAnalysis</td><td>10</td><td>10</td><td>10</td><td>5</td><td>5</td><td>2</td></tr>
-  <tr><td>StartDocumentTextDetection</td><td>15</td><td>15</td><td>5</td><td>5</td><td>5</td><td>1</td></tr>
-  <tr><td>StartExpenseAnalysis</td><td>5</td><td>5</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
-  <tr><td>StartLendingAnalysis</td><td>5</td><td>5</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
-  <tr><td rowspan="5">Transactions per second per account for all get (asynchronous) operations</td><td>GetDocumentAnalysis</td><td>10</td><td>10</td><td>10</td><td>5</td><td>5</td><td>5</td></tr>
-  <tr><td>GetDocumentTextDetection</td><td>25</td><td>25</td><td>10</td><td>5</td><td>5</td><td>5</td></tr>
-  <tr><td>GetExpenseAnalysis</td><td>5</td><td>5</td><td>5</td><td>5</td><td>5</td><td>5</td></tr>
-  <tr><td>GetLendingAnalysis</td><td>25</td><td>25</td><td>5</td><td>5</td><td>5</td><td>5</td></tr>
-  <tr><td>GetLendingAnalysisSummary</td><td>5</td><td>5</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
-  <tr><td>Maximum number of asynchronous jobs per account that can simultaneously exist</td><td></td><td>600</td><td>600</td><td>100</td><td>100</td><td>100</td><td>100</td></tr>
+  <tr><td>Synchronous Operations</td><td>API</td><td>US East (N. Virginia)</td><td>US West (Oregon)</td><td>US East (Ohio)</td><td>Europe (Ireland)</td><td>Asia Pacific (Mumbai)</td><td>Europe (Zurich)</td><td>Asia Pacific (Tokyo)</td><td>Other Regions</td></tr>
+  <tr><td rowspan="4">Transactions per second per account for synchronous operations</td><td>AnalyzeDocument</td><td>10</td><td>10</td><td>10</td><td>5</td><td>5</td><td>1</td><td>1</td><td>1</td></tr>
+  <tr><td>DetectDocumentText</td><td>25</td><td>25</td><td>10</td><td>5</td><td>5</td><td>1</td><td>1</td><td>1</td></tr>
+  <tr><td>AnalyzeExpense</td><td>5</td><td>5</td><td>1</td><td>1</td><td>1</td><td>None</td><td>None</td><td>1</td></tr>
+  <tr><td>AnalyzeID</td><td>5</td><td>5</td><td>1</td><td>1</td><td>1</td><td>None</td><td>None</td><td>1</td></tr>
+  <tr><td>Asynchronous Operations</td><td>API</td><td>US East (N. Virginia)</td><td>US West (Oregon)</td><td>US East (Ohio)</td><td>Europe (Ireland)</td><td>Asia Pacific (Mumbai)</td><td>Europe (Zurich)</td><td>Asia Pacific (Tokyo)</td><td>Other Regions</td></tr>
+  <tr><td rowspan="4">Transactions per second per account for all start (asynchronous) operations</td><td>StartDocumentAnalysis</td><td>25</td><td>25</td><td>20</td><td>10</td><td>10</td><td>5</td><td>5</td><td>5</td></tr>
+  <tr><td>StartDocumentTextDetection</td><td>50</td><td>50</td><td>25</td><td>30</td><td>30</td><td>15</td><td>15</td><td>15</td></tr>
+  <tr><td>StartExpenseAnalysis</td><td>5</td><td>5</td><td>5</td><td>5</td><td>5</td><td>None</td><td>None</td><td>1</td></tr>
+  <tr><td>StartLendingAnalysis</td><td>5</td><td>5</td><td>1</td><td>1</td><td>1</td><td>None</td><td>None</td><td>1</td></tr>
+  <tr><td rowspan="5">Transactions per second per account for all get (asynchronous) operations</td><td>GetDocumentAnalysis</td><td>50</td><td>50</td><td>35</td><td>25</td><td>25</td><td>5</td><td>5</td><td>5</td></tr>
+  <tr><td>GetDocumentTextDetection</td><td>100</td><td>100</td><td>50</td><td>40</td><td>40</td><td>20</td><td>20</td><td>20</td></tr>
+  <tr><td>GetExpenseAnalysis</td><td>10</td><td>10</td><td>5</td><td>5</td><td>5</td><td>None</td><td>None</td><td>5</td></tr>
+  <tr><td>GetLendingAnalysis</td><td>25</td><td>25</td><td>5</td><td>5</td><td>5</td><td>None</td><td>None</td><td>5</td></tr>
+  <tr><td>GetLendingAnalysisSummary</td><td>5</td><td>5</td><td>1</td><td>1</td><td>1</td><td>None</td><td>None</td><td>1</td></tr>
+  <tr><td>Maximum number of asynchronous jobs per account that can simultaneously exist</td><td></td><td>600</td><td>600</td><td>100</td><td>100</td><td>100</td><td>100</td><td>100</td><td>100</td></tr>
 </tbody>
 </table>
 
+
+None indicates that the API isn't available in that Region.
+
+**Note**  
+Europe (Zurich) and Asia Pacific (Tokyo) support only DetectDocumentText, AnalyzeDocument, and their asynchronous operations: StartDocumentTextDetection, GetDocumentTextDetection, StartDocumentAnalysis, and GetDocumentAnalysis.
 
 For more information, see [Amazon Textract Quotas](https://docs.aws.amazon.com/textract/latest/dg/limits.html) in the *Amazon Textract Developer Guide*.
 

@@ -30,7 +30,7 @@ For more information about pricing, see the [Amazon Q Developer pricing page](ht
 | Feature | Quota (per user) | 
 | --- | --- | 
 | [Amazon Q Developer Agent for code transformation](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/code-transformation.html) | 4,000 lines of code per month, pooled at the account level. Extra lines of code available. For more information, see [Amazon Q Developer Pro pricing](https://aws.amazon.com/q/developer/pricing/). | 
-| [Agentic requests (Q&A chat, agentic coding)](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/q-in-IDE-chat.html) | 1,000 lines of code per month | 
+| [Agentic requests (Q&A chat, agentic coding)](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/q-in-IDE-chat.html) | 10,000 inference requests per month | 
 
 ### Quotas for Amazon Q Developer Pro (in the AWS Management Console)
 <a name="q-in-console-quotas"></a>
