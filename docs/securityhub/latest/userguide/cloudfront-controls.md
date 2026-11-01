@@ -338,7 +338,7 @@ To add tags to a CloudFront distribution, see [Tagging Amazon CloudFront distrib
 
 **Schedule type:** Change triggered
 
-**Parameters:** `securityPolicies`: `TLSv1.2_2021,TLSv1.2_2025,TLSv1.3_2025` (not customizable)
+**Parameters:** `securityPolicies`: `TLSv1.2_2025,TLSv1.3_2025` (not customizable)
 
 This control checks whether an Amazon CloudFront distribution is configured to use a recommended TLS security policy. The control fails if the CloudFront distribution is not configured to use a recommended TLS security policy.
 
