@@ -24,6 +24,6 @@ longTermSupportVersion (Optional)Type: CSV
 List of string values for Aurora PostgreSQL versions that will have long-term support and are acceptable for use. Amazon Aurora PostgreSQL global databases using an Aurora PostgreSQL version specified in this parameter will be marked COMPLIANT. Aurora PostgreSQL database engine versions use a major.minor numbering scheme: X.Y. X denotes the major version, and Y represents the minor version.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1269c19"></a>
+<a name="w2aac20c16c17b7e1275c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

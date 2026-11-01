@@ -13,13 +13,13 @@ Checks if a private Amazon Elastic Container Registry (ECR) repository has tag i
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Israel (Tel Aviv) Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d663c19"></a>
+<a name="w2aac20c16c17b7d669c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

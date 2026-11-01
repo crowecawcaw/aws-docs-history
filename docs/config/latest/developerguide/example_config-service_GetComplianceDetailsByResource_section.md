@@ -10,10 +10,13 @@ The following code examples show how to use `GetComplianceDetailsByResource`.
 
 **AWS CLI**  
 **To get the evaluation results for an AWS resource**  
-The following command returns the evaluation results for each rule with which the EC2 instance `i-1a2b3c4d` does not comply:  
+The following `get-compliance-details-by-resource` example returns the evaluation results for each rule with which the EC2 instance `i-1a2b3c4d` does not comply.  
 
 ```
-aws configservice get-compliance-details-by-resource --resource-type {{AWS::EC2::Instance}} --resource-id {{i-1a2b3c4d}} --compliance-types {{NON_COMPLIANT}}
+aws configservice get-compliance-details-by-resource \
+    --resource-type {{AWS::EC2::Instance}} \
+    --resource-id {{i-1a2b3c4d}} \
+    --compliance-types {{NON_COMPLIANT}}
 ```
 Output:  
 
@@ -49,6 +52,7 @@ Output:
     ]
 }
 ```
+For more information, see [Viewing Compliance Information and Evaluation Results for your AWS Resources with AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_view-compliance.html) in the *AWS Config Developer Guide*.  
 +  For API details, see [GetComplianceDetailsByResource](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/get-compliance-details-by-resource.html) in *AWS CLI Command Reference*. 
 
 ------

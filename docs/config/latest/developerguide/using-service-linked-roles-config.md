@@ -8,6 +8,8 @@
 
 AWS Config uses the service-linked role named **AwsServiceRoleForConfig** – AWS Config uses this service-linked role to call other AWS services on your behalf. To view the latest updates, see [AWS Config updates to AWS managed policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates).
 
+AWS Config and AWS Resource Explorer coordinate to describe and index each resource only once. Because of this, you might see CloudTrail entries in your account from either the AWS Config (`config.amazonaws.com`) or Resource Explorer (`resource-explorer-2.amazonaws.com`) service principal. These calls are expected, made using their respective service-linked roles (the [AWS Config service-linked role](https://docs.aws.amazon.com/config/latest/developerguide/using-service-linked-roles-config.html) and the [Resource Explorer service-linked role](https://docs.aws.amazon.com/resource-explorer/latest/userguide/security_iam_service-linked-roles.html)), and do not change your bill.
+
 The AwsServiceRoleForConfig service-linked role trusts the following services to assume the role:
 + `config.amazonaws.com`
 

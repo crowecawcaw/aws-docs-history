@@ -13,7 +13,7 @@ Checks if an AWS Glue Spark job is running on the specified minimum supported AW
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), Asia Pacific (Thailand), Asia Pacific (Malaysia), Mexico (Central), Asia Pacific (Taipei), Canada West (Calgary) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), Asia Pacific (Thailand), Mexico (Central), Asia Pacific (Taipei), Canada West (Calgary) Region
 
 **Parameters:**
 
@@ -21,6 +21,6 @@ minimumSupportedGlueVersionType: String
 String value you must specify of the minimum supported AWS Glue version for the rule to check.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d901c19"></a>
+<a name="w2aac20c16c17b7d907c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

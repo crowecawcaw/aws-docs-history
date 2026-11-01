@@ -30,6 +30,6 @@ If a single value in a Lambda function resource-based policy (for example, one R
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1087c26"></a>
+<a name="w2aac20c16c17b7e1093c26"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

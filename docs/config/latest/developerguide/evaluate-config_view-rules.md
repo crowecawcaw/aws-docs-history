@@ -50,10 +50,11 @@ The following code examples show how to use `DescribeConfigRules`.
 
 **AWS CLI**  
 **To get details for an AWS Config rule**  
-The following command returns details for an AWS Config rule named `InstanceTypesAreT2micro`:  
+The following `describe-config-rules` example returns details for an AWS Config rule named `InstanceTypesAreT2micro`.  
 
 ```
-aws configservice describe-config-rules --config-rule-names {{InstanceTypesAreT2micro}}
+aws configservice describe-config-rules \
+    --config-rule-names {{InstanceTypesAreT2micro}}
 ```
 Output:  
 
@@ -64,10 +65,10 @@ Output:
             "ConfigRuleState": "ACTIVE",
             "Description": "Evaluates whether EC2 instances are the t2.micro type.",
             "ConfigRuleName": "InstanceTypesAreT2micro",
-            "ConfigRuleArn": "arn:aws:config:us-east-1:123456789012:config-rule/config-rule-abcdef",
+            "ConfigRuleArn": "arn:aws:config:us-west-2:123456789012:config-rule/config-rule-abcdef",
             "Source": {
                 "Owner": "CUSTOM_LAMBDA",
-                "SourceIdentifier": "arn:aws:lambda:us-east-1:123456789012:function:InstanceTypeCheck",
+                "SourceIdentifier": "arn:aws:lambda:us-west-2:123456789012:function:InstanceTypeCheck",
                 "SourceDetails": [
                     {
                         "EventSource": "aws.config",
@@ -86,6 +87,7 @@ Output:
     ]
 }
 ```
+For more information, see [Components of an AWS Config Rule](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_components.html) in the *AWS Config Developer Guide*.  
 +  For API details, see [DescribeConfigRules](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/describe-config-rules.html) in *AWS CLI Command Reference*. 
 
 ------
@@ -194,10 +196,11 @@ The following code examples show how to use `DescribeComplianceByConfigRule`.
 
 **AWS CLI**  
 **To get compliance information for your AWS Config rules**  
-The following command returns compliance information for each AWS Config rule that is violated by one or more AWS resources:  
+The following `describe-compliance-by-config-rule` example returns compliance information for each AWS Config rule that is violated by one or more AWS resources.  
 
 ```
-aws configservice describe-compliance-by-config-rule --compliance-types {{NON_COMPLIANT}}
+aws configservice describe-compliance-by-config-rule \
+    --compliance-types {{NON_COMPLIANT}}
 ```
 In the output, the value for each `CappedCount` attribute indicates how many resources do not comply with the related rule. For example, the following output indicates that 3 resources do not comply with the rule named `InstanceTypesAreT2micro`.  
 Output:  
@@ -228,6 +231,7 @@ Output:
     ]
 }
 ```
+For more information, see [Viewing Compliance Information and Evaluation Results for your AWS Resources with AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_view-compliance.html) in the *AWS Config Developer Guide*.  
 +  For API details, see [DescribeComplianceByConfigRule](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/describe-compliance-by-config-rule.html) in *AWS CLI Command Reference*. 
 
 ------
@@ -299,7 +303,7 @@ The following code examples show how to use `GetComplianceSummaryByConfigRule`.
 
 **AWS CLI**  
 **To get the compliance summary for your AWS Config rules**  
-The following command returns the number of rules that are compliant and the number that are noncompliant:  
+The following `get-compliance-summary-by-config-rule` example returns the number of rules that are compliant and the number that are noncompliant.  
 
 ```
 aws configservice get-compliance-summary-by-config-rule
@@ -322,6 +326,7 @@ Output:
     }
 }
 ```
+For more information, see [Viewing Compliance Information and Evaluation Results for your AWS Resources with AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_view-compliance.html) in the *AWS Config Developer Guide*.  
 +  For API details, see [GetComplianceSummaryByConfigRule](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/get-compliance-summary-by-config-rule.html) in *AWS CLI Command Reference*. 
 
 ------
@@ -369,10 +374,12 @@ The following code examples show how to use `GetComplianceDetailsByConfigRule`.
 
 **AWS CLI**  
 **To get the evaluation results for an AWS Config rule**  
-The following command returns the evaluation results for all of the resources that don't comply with an AWS Config rule named `InstanceTypesAreT2micro`:  
+The following `get-compliance-details-by-config-rule` example returns the evaluation results for all of the resources that don't comply with an AWS Config rule named `InstanceTypesAreT2micro`.  
 
 ```
-aws configservice get-compliance-details-by-config-rule --config-rule-name {{InstanceTypesAreT2micro}} --compliance-types {{NON_COMPLIANT}}
+aws configservice get-compliance-details-by-config-rule \
+    --config-rule-name {{InstanceTypesAreT2micro}} \
+    --compliance-types {{NON_COMPLIANT}}
 ```
 Output:  
 
@@ -421,6 +428,7 @@ Output:
     ]
 }
 ```
+For more information, see [Viewing Compliance Information and Evaluation Results for your AWS Resources with AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_view-compliance.html) in the *AWS Config Developer Guide*.  
 +  For API details, see [GetComplianceDetailsByConfigRule](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/get-compliance-details-by-config-rule.html) in *AWS CLI Command Reference*. 
 
 ------

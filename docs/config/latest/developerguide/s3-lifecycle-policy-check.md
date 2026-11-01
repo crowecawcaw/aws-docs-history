@@ -33,6 +33,6 @@ targetTransitionStorageClass (Optional)Type: String
 Destination storage class type. For example, Amazon S3 Standard-Infrequent Access (S3 Standard-IA). For more information, see [Understanding and managing Amazon S3 storage classes](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html).
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1457c19"></a>
+<a name="w2aac20c16c17b7e1463c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

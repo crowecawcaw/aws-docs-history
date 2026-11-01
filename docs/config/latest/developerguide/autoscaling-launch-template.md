@@ -13,7 +13,7 @@ Checks if an Amazon Elastic Compute Cloud (EC2) Auto Scaling group is created fr
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), Asia Pacific (Thailand), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central) Region
 
 **Parameters:**
 

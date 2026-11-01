@@ -13,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To get status information for the configuration recorder**  
-The following command returns the status of the default configuration recorder:  
+The following `describe-configuration-recorder-status` example returns the status of the default configuration recorder.  
 
 ```
 aws configservice describe-configuration-recorder-status
@@ -34,6 +34,7 @@ Output:
     ]
 }
 ```
+For more information, see [Working with the configuration recorder](https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html) in the *AWS Config Developer Guide*.  
 +  For API details, see [DescribeConfigurationRecorderStatus](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/describe-configuration-recorder-status.html) in *AWS CLI Command Reference*. 
 
 ------

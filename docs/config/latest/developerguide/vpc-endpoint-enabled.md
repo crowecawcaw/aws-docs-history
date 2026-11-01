@@ -27,6 +27,6 @@ vpcIds (Optional)Type: CSV
 Comma-separated list of Amazon VPC IDs for VPC endpoints. If provided, the rule is NON\_COMPLIANT if the services specified in the serviceName parameter do not have one of these VPC endpoints.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1633c19"></a>
+<a name="w2aac20c16c17b7e1639c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

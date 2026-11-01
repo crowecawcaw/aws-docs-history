@@ -13,7 +13,7 @@ Checks if Amazon CloudFront distributions point to a non-existent S3 bucket. The
 
 **Trigger type:** Periodic
 
-**AWS Region:** Only available in China (Beijing), US East (N. Virginia) Region
+**AWS Region:** Only available in Asia Pacific (New Zealand), China (Beijing), Asia Pacific (Thailand), Asia Pacific (Jakarta), US East (N. Virginia), Asia Pacific (Malaysia), Israel (Tel Aviv), Asia Pacific (Taipei) Region
 
 **Parameters:**
 

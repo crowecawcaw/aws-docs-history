@@ -24,6 +24,6 @@ MinRetentionPeriod (Optional)Type: int
 Minimum value for the retention period. Minimum value is 1.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1325c19"></a>
+<a name="w2aac20c16c17b7e1331c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

@@ -30,6 +30,6 @@ restrictPorts (Optional)Type: CSV
 Comma-separated list of ports that should not be open for incoming traffic over the full IP range. Valid port numbers range from 0 to 65535. If not specified, the rule defaults to check for 22 and 3389.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1643c19"></a>
+<a name="w2aac20c16c17b7e1649c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

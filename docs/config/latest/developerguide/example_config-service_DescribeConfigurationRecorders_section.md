@@ -13,7 +13,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **AWS CLI**  
 **To get details about the configuration recorder**  
-The following command returns details about the default configuration recorder:  
+The following `describe-configuration-recorders` example returns details about the default configuration recorder.  
 
 ```
 aws configservice describe-configuration-recorders
@@ -35,6 +35,7 @@ Output:
     ]
 }
 ```
+For more information, see [Working with the configuration recorder](https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html) in the *AWS Config Developer Guide*.  
 +  For API details, see [DescribeConfigurationRecorders](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/describe-configuration-recorders.html) in *AWS CLI Command Reference*. 
 
 ------

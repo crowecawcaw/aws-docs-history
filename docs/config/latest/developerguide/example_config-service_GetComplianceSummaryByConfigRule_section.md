@@ -10,7 +10,7 @@ The following code examples show how to use `GetComplianceSummaryByConfigRule`.
 
 **AWS CLI**  
 **To get the compliance summary for your AWS Config rules**  
-The following command returns the number of rules that are compliant and the number that are noncompliant:  
+The following `get-compliance-summary-by-config-rule` example returns the number of rules that are compliant and the number that are noncompliant.  
 
 ```
 aws configservice get-compliance-summary-by-config-rule
@@ -33,6 +33,7 @@ Output:
     }
 }
 ```
+For more information, see [Viewing Compliance Information and Evaluation Results for your AWS Resources with AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_view-compliance.html) in the *AWS Config Developer Guide*.  
 +  For API details, see [GetComplianceSummaryByConfigRule](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/get-compliance-summary-by-config-rule.html) in *AWS CLI Command Reference*. 
 
 ------

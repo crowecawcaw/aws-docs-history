@@ -36,6 +36,6 @@ resourceTags (Optional)Type: String
 The resource tags (ApplicationLoadBalancer, ApiGatewayStage and CloudFront distributions) that the rule should be associated with. (for example, { "tagKey1" : ["tagValue1"], "tagKey2" : ["tagValue2", "tagValue3"] })
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d859c21"></a>
+<a name="w2aac20c16c17b7d865c21"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

@@ -27,6 +27,6 @@ resourceTags (Optional)Type: String
 Tags of Amazon EC2 instances for the rule to check, in JSON format.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d605c19"></a>
+<a name="w2aac20c16c17b7d611c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

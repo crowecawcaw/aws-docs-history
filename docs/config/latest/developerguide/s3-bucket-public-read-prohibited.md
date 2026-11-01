@@ -32,6 +32,6 @@ If a single value in an S3 bucket policy (for example, one Resource or Condition
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1435c29"></a>
+<a name="w2aac20c16c17b7e1441c29"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

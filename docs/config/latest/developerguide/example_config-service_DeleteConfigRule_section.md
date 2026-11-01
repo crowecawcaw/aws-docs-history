@@ -10,11 +10,14 @@ The following code examples show how to use `DeleteConfigRule`.
 
 **AWS CLI**  
 **To delete an AWS Config rule**  
-The following command deletes an AWS Config rule named `MyConfigRule`:  
+The following `delete-config-rule` example deletes an AWS Config rule named `MyConfigRule`.  
 
 ```
-aws configservice delete-config-rule --config-rule-name {{MyConfigRule}}
+aws configservice delete-config-rule \
+    --config-rule-name {{MyConfigRule}}
 ```
+This command produces no output.  
+For more information, see [Deleting AWS Config Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_delete-rules.html) in the *AWS Config Developer Guide*.  
 +  For API details, see [DeleteConfigRule](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configservice/delete-config-rule.html) in *AWS CLI Command Reference*. 
 
 ------
