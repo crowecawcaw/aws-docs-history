@@ -16,6 +16,8 @@ You can run a DataSync agent on the following hypervisors:
 
   We recommend this option if you already have a KVM environment up and running and you're already familiar with how KVM works.
 
+  Red Hat OpenShift Virtualization can use the same agent image. DataSync supports OpenShift Virtualization 4.20 and newer.
+
   Running KVM on Amazon EC2 isn't supported and can't be used for DataSync agents.
 + **Microsoft Hyper-V (version 2012 R2, 2016, or 2019)**: For this setup, you need a Microsoft Hyper-V Manager on a Microsoft Windows client computer to connect to the host.
 

@@ -4,10 +4,7 @@
 <a name="choosing-task-mode"></a>
 
 Your AWS DataSync task can run in one of the following modes:
-+ **Enhanced mode** – Transfer virtually unlimited numbers of files or objects with higher performance than Basic mode. Enhanced mode tasks optimize the data transfer process by listing, preparing, transferring, and verifying data in parallel. Enhanced mode is currently available for the following transfers:
-  + Between Amazon S3, Amazon EFS, Amazon FSx for Lustre, and Amazon FSx for OpenZFS locations (no agent required)
-  + Between NFS or SMB file servers, or HDFS clusters, and supported AWS storage services using an Enhanced mode agent
-  + Between Azure Blob or object storage (including storage in other clouds) and supported AWS storage services (no agent is required when transferring to or from Amazon S3)
++ **Enhanced mode** – Transfer virtually unlimited numbers of files or objects with higher performance than Basic mode. Enhanced mode tasks optimize the data transfer process by listing, preparing, transferring, and verifying data in parallel. Enhanced mode is currently available for all transfers except those that use S3 on Outposts. Transfers between NFS, SMB, or HDFS locations and AWS storage require an Enhanced mode agent. Transfers between Azure Blob or object storage and AWS storage also require an Enhanced mode agent, unless you transfer to or from Amazon S3.
 + **Basic mode** – Transfer files or objects between AWS storage and all other supported DataSync locations. Basic mode tasks are subject to [quotas](datasync-limits.md) on the number of files, objects, and directories in a dataset. Basic mode sequentially prepares, transfers, and verifies data, making it slower than Enhanced mode for most workloads.
 
 ## Understanding task mode differences
@@ -22,7 +19,7 @@ The following information can help you determine which task mode to use.
 | Number of items in a dataset that DataSync can work with per task execution | Virtually unlimited numbers of objects | [Quotas](datasync-limits.md#task-hard-limits) apply | 
 | Data transfer [counters](transfer-performance-counters.md) and [metrics](monitor-datasync.md) | More counters and metrics than Basic mode, such as the number of objects that DataSync finds at your source location, how many objects are prepared during each task execution, and folder counters similar to file and object counters | Less counters and metrics than Enhanced mode | 
 | [Logging](configure-logging.md) | Structured logs (JSON format) | Unstructured logs | 
-| [Supported locations](working-with-locations.md) | Currently for transfers between Amazon S3, Amazon EFS, Amazon FSx for Lustre, Amazon FSx for OpenZFS, NFS, SMB, HDFS, Azure Blob, and object storage (including other clouds) locations. Some of these transfers require an Enhanced mode agent. For more information, see [Where can I transfer my data with AWS DataSync?](working-with-locations.md). | For transfers between all locations that DataSync supports | 
+| [Supported locations](working-with-locations.md) | For transfers between all locations that DataSync supports, except S3 on Outposts | For transfers between all locations that DataSync supports | 
 | [Data verification options](configure-data-verification-options.md) | DataSync verifies only transferred data | DataSync verifies all data by default | 
 | Cost | For more information, see the [DataSync pricing](https://aws.amazon.com/datasync/pricing) page | For more information, see the [DataSync pricing](https://aws.amazon.com/datasync/pricing) page | 
 | Failure handling for unsupported object tags | For cloud storage transfers to or from locations that don't support object tagging, task execution will fail immediately if the ObjectTags option is unspeficied or set to PRESERVE. | For cloud storage transfers to or from locations that don't support object tagging, task execution will run normally, but will report per-object failures for tagged objects if the ObjectTags option is unspecified or set to PRESERVE. | 
@@ -30,7 +27,7 @@ The following information can help you determine which task mode to use.
 ## Choosing a task mode
 <a name="choosing-task-mode-how-to"></a>
 
-You can choose Enhanced mode only for transfers between locations that Enhanced mode supports. For more information, see [Where can I transfer my data with AWS DataSync?](working-with-locations.md). Otherwise, you must use Basic mode. For example, a transfer to or from an Amazon FSx for Windows File Server location requires Basic mode.
+You can choose Enhanced mode only for transfers between locations that Enhanced mode supports. For more information, see [Where can I transfer my data with AWS DataSync?](working-with-locations.md). Otherwise, you must use Basic mode. For example, a transfer to or from S3 on Outposts requires Basic mode.
 
 Your task options and performance might vary depending on the task mode you choose. After you create your task, you can't change the task mode.
 

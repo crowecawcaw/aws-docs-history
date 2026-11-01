@@ -10,9 +10,10 @@ AWS DataSync handles hard links, symbolic links, and directories differently dep
 
 Here's how DataSync handles hard links in some common transfer scenarios:
 + **When transferring between an NFS file server, FSx for Lustre, FSx for OpenZFS, FSx for ONTAP (using NFS), and Amazon EFS**, hard links are preserved.
-+ **When transferring to Amazon S3**, each underlying file referenced by a hard link is transferred only once. During incremental transfers, separate objects are created in your S3 bucket. If a hard link is unchanged in Amazon S3, it's correctly restored when transferred to an NFS file server, FSx for Lustre, FSx for OpenZFS, FSx for ONTAP (using NFS), or Amazon EFS file system.
++ **When transferring to Amazon S3 from an NFS file server, FSx for Lustre, FSx for OpenZFS, FSx for ONTAP (using NFS), or Amazon EFS**, each underlying file referenced by a hard link is transferred only once. During incremental transfers, separate objects are created in your S3 bucket. If a hard link is unchanged in Amazon S3, it's correctly restored when transferred to an NFS file server, FSx for Lustre, FSx for OpenZFS, FSx for ONTAP (using NFS), or Amazon EFS file system.
++ **When transferring to Amazon S3 from an SMB file server, FSx for Windows File Server, or FSx for ONTAP (using SMB)**, each hard link is transferred as a separate object and isn't restored as a hard link when you transfer the objects to a file system.
 + **When transferring to Microsoft Azure Blob Storage**, each underlying file referenced by a hard link is transferred only once. During incremental transfers, separate objects are created in your blob storage if there are new references in the source. When transferring from Azure Blob Storage, DataSync transfers hard links as if they are individual files.
-+ **When transferring between an SMB file server, FSx for Windows File Server, and FSx for ONTAP (using SMB)**, hard links aren't supported. If DataSync encounters hard links in these situations, the transfer task completes with an error. To learn more, check your CloudWatch logs.
++ **When transferring from or to an SMB file server, FSx for Windows File Server, or FSx for ONTAP (using SMB)**, hard links aren't preserved. DataSync transfers each hard link as a separate, independent file.
 + **When transferring to HDFS**, hard links aren't supported. CloudWatch logs show these links as skipped.
 
 ## Symbolic links

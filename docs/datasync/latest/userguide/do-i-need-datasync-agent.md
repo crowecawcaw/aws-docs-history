@@ -32,14 +32,7 @@ The situations that don't require an agent apply whether you're transferring in 
 
 DataSync tasks run in Basic mode or Enhanced mode. Basic mode tasks require a Basic mode agent. Enhanced mode tasks require an Enhanced mode agent.
 
-Basic mode supports using an agent when copying to or from the following locations:
-+ NFS
-+ SMB
-+ HDFS
-+ Object storage (including other clouds)
-+ Azure Blob
-
-Enhanced mode supports using an agent for transfers to or from Amazon S3, Amazon EFS, Amazon FSx for Lustre, or Amazon FSx for OpenZFS and the following locations:
+Basic mode and Enhanced mode support using an agent when copying to or from the following locations:
 + NFS
 + SMB
 + HDFS

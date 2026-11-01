@@ -3,7 +3,7 @@
 # Deploying your AWS DataSync agent
 <a name="deploy-agents"></a>
 
-When creating an AWS DataSync agent, the first step is to deploy the agent in your storage environment. You can deploy an agent as a virtual machine (VM) on VMware ESXi, Linux Kernel-based Virtual Machine (KVM), Nutanix AHV (using the KVM image), and Microsoft Hyper-V hypervisors. You also can deploy an agent as an Amazon EC2 instance in a virtual private cloud (VPC) within AWS.
+When creating an AWS DataSync agent, the first step is to deploy the agent in your storage environment. You can deploy an agent as a virtual machine (VM) on VMware ESXi, Linux Kernel-based Virtual Machine (KVM), Nutanix AHV (using the KVM image), Red Hat OpenShift Virtualization (using the KVM image), and Microsoft Hyper-V hypervisors. You also can deploy an agent as an Amazon EC2 instance in a virtual private cloud (VPC) within AWS.
 
 **Tip**  
 Before you begin, confirm whether you [need a DataSync agent](do-i-need-datasync-agent.md).
@@ -38,11 +38,11 @@ You can download an agent from the DataSync console and deploy it in your VMware
 ## Deploying your agent on KVM
 <a name="create-kvm-agent"></a>
 
-You can download an agent from the DataSync console and deploy it in your KVM environment.
+You can download an agent from the DataSync console and deploy it in your KVM or OpenShift Virtualization environment.
 
-**Before you begin**: Make sure that your storage environment can support a DataSync agent. For more information, see [Virtual machine requirements](agent-requirements.md#hardware).
+**Before you begin**: Make sure that your storage environment can support a DataSync agent. For more information, see [Virtual machine requirements](agent-requirements.md#hardware).<a name="create-openshift-agent"></a>
 
-**To deploy an agent on KVM**
+**To deploy an agent on KVM or OpenShift Virtualization**
 
 1. Open the AWS DataSync console at [https://console.aws.amazon.com/datasync/](https://console.aws.amazon.com/datasync/).
 
@@ -54,7 +54,12 @@ You can download an agent from the DataSync console and deploy it in your KVM en
 
 1. To minimize network latency, deploy the agent as close as possible to the storage system that DataSync needs to access (the same local network if possible). For more information, see [Network requirements for on-premises, self-managed, and other cloud storage](datasync-network.md#on-premises-network-requirements).
 
-1. Run the following command to install your `.qcow2` image. 
+1. Deploy the agent image in your environment:
+
+------
+#### [ KVM ]
+
+   Run the following command to install your `.qcow2` image. 
 
    ```
    virt-install \
@@ -72,7 +77,65 @@ You can download an agent from the DataSync console and deploy it in your KVM en
 
    For information about how to manage this VM and your KVM host, see your hypervisor's documentation.
 
-1. Power on your hypervisor, log in to your VM, and get the IP address of the agent. You need this IP address to activate the agent.
+   Power on your hypervisor to start the agent VM.
+
+------
+#### [ OpenShift Virtualization ]
+
+   Run the following command to import your `.qcow2` image into a persistent volume claim.
+
+   ```
+   virtctl image-upload dv datasync-agent-disk \
+       --size=80Gi \
+       --image-path=datasync-yyyymmdd-x86_64.qcow2
+   ```
+
+   Save the following virtual machine configuration as `datasync-agent-vm.yaml`. For throughput-sensitive transfers, connect the agent to a Linux bridge network instead of the `masquerade` binding shown here.
+
+   ```
+   apiVersion: kubevirt.io/v1
+   kind: VirtualMachine
+   metadata:
+     name: datasync-agent
+   spec:
+     runStrategy: Always
+     template:
+       spec:
+         domain:
+           cpu:
+             cores: 4
+           memory:
+             guest: 32Gi
+           devices:
+             disks:
+               - name: rootdisk
+                 disk:
+                   bus: virtio
+             interfaces:
+               - name: default
+                 masquerade: {}
+                 model: virtio
+         networks:
+           - name: default
+             pod: {}
+         volumes:
+           - name: rootdisk
+             dataVolume:
+               name: datasync-agent-disk
+   ```
+
+   Run the following commands to start the VM.
+
+   ```
+   oc apply -f datasync-agent-vm.yaml
+   oc get vmi datasync-agent
+   ```
+
+   Wait for the VM's status to be **Running**.
+
+------
+
+1. Log in to your agent VM and get its IP address. You need this IP address to activate the agent.
 
    The agent VM's default credentials are login **admin** and password **password**. If needed, change the password through the [VM's local console](local-console-vm.md).
 

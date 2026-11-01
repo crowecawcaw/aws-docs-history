@@ -5,62 +5,47 @@
 
 Where you can transfer your data with AWS DataSync depends on the following factors:
 + Your transfer's source and destination [locations](how-datasync-transfer-works.md#sync-locations)
-+ If your locations are in different AWS accounts
-+ If your locations are in different AWS Regions
-+ If your are using Basic mode or Enhanced mode
++ Whether your locations are in different AWS accounts
++ Whether your locations are in different AWS Regions
++ Whether you are using Basic or Enhanced mode
 
 ## Supported transfers in the same AWS account
 <a name="working-with-locations-same-account"></a>
 
-DataSync supports transfers between the following storage resources that are associated with the same AWS account.
+DataSync supports transfers between the following storage resources that are associated with the same AWS account. You can use Basic or Enhanced mode for all of these transfers except those that use S3 on Outposts, which require Basic mode.
 
 
-| Source | Destination | Requires an agent? | Supported task mode | 
-| --- | --- | --- | --- | 
-|  + NFS<br />+ SMB  |  + Amazon S3  | Yes | Basic, Enhanced | 
-|  + NFS<br />+ SMB  |  + Amazon EFS<br />+ Amazon FSx  | Yes | Basic, Enhanced1 | 
-|  + HDFS<br />+ Object Storage  |  + Amazon S3<br />+ Amazon EFS<br />+ Amazon FSx  | Yes | Basic, Enhanced1 | 
-|  + Other cloud storage  |  + Amazon S3  | Only for Basic mode | Basic, Enhanced | 
-|  + Other cloud storage  |  + Amazon EFS<br />+ Amazon FSx  | Yes | Basic, Enhanced1 | 
-|  + Amazon S3  |  + Amazon S3  | No | Basic, Enhanced | 
-|  + Amazon S3  |  + Amazon EFS<br />+ Amazon FSx  | No | Basic, Enhanced1 | 
-|  + Amazon S3  |  + NFS<br />+ SMB  | Yes | Basic, Enhanced | 
-|  + Amazon S3  |  + HDFS<br />+ Object Storage  | Yes | Basic, Enhanced | 
-|  + Amazon S3  |  + Other cloud storage  | Only for Basic mode | Basic, Enhanced | 
-|  + Amazon EFS<br />+ Amazon FSx  |  + NFS<br />+ SMB  | Yes | Basic, Enhanced1 | 
-|  + Amazon EFS<br />+ Amazon FSx  |  + HDFS<br />+ Object Storage  | Yes | Basic, Enhanced1 | 
-|  + Amazon EFS<br />+ Amazon FSx  |  + Other cloud storage  | Yes | Basic, Enhanced1 | 
-|  + Amazon EFS<br />+ Amazon FSx  |  + Amazon S3  | No | Basic, Enhanced1 | 
-|  + Amazon EFS<br />+ Amazon FSx  |  + Amazon EFS<br />+ Amazon FSx  | No | Basic, Enhanced1 | 
-|  + S3 on Outposts  |  + S3 (in AWS Regions)  | Yes | Basic only | 
-|  + Amazon S3 (in AWS Regions)  |  + S3 on Outposts  | Yes | Basic only | 
-
-1 Enhanced mode supports Amazon FSx for Lustre and Amazon FSx for OpenZFS locations of the Amazon FSx file system types. Other Amazon FSx file system types (such as Amazon FSx for Windows File Server and Amazon FSx for NetApp ONTAP) are not yet supported with Enhanced mode and require Basic mode.
+| Source | Destination | Requires an agent? | 
+| --- | --- | --- | 
+|  + NFS<br />+ SMB<br />+ HDFS<br />+ Object Storage  |  + Amazon S3<br />+ Amazon EFS<br />+ Amazon FSx  | Yes | 
+|  + Amazon S3<br />+ Amazon EFS<br />+ Amazon FSx  |  + NFS<br />+ SMB<br />+ HDFS<br />+ Object Storage  | Yes | 
+|  + Other cloud storage  |  + Amazon S3  | Only for Basic mode | 
+|  + Amazon S3  |  + Other cloud storage  | Only for Basic mode | 
+|  + Other cloud storage  |  + Amazon EFS<br />+ Amazon FSx  | Yes | 
+|  + Amazon EFS<br />+ Amazon FSx  |  + Other cloud storage  | Yes | 
+|  + Amazon S3<br />+ Amazon EFS<br />+ Amazon FSx  |  + Amazon S3<br />+ Amazon EFS<br />+ Amazon FSx  | No | 
+|  + S3 on Outposts  |  + S3 (in AWS Regions)  | Yes | 
+|  + Amazon S3 (in AWS Regions)  |  + S3 on Outposts  | Yes | 
 
 ## Supported transfers across AWS accounts
 <a name="working-with-locations-across-accounts"></a>
 
-DataSync supports some transfers between storage resources that are associated with different AWS accounts.
+DataSync supports some transfers between storage resources that are associated with different AWS accounts. You can use Basic or Enhanced mode for all of these transfers.
 
 
-| Source | Destination | Requires an agent? | Supported task mode | 
-| --- | --- | --- | --- | 
-|  + NFS<br />+ SMB  |  + Amazon S3  | Yes | Basic, Enhanced | 
-|  + HDFS<br />+ Object Storage  |  + Amazon S3  | Yes | Basic, Enhanced | 
-|  + Amazon S3  |  + Amazon S3  | No | Basic, Enhanced | 
-|  + Amazon S3  |  + Amazon EFS<br />+ Amazon FSx  | No | Basic, Enhanced4 | 
-|  + Amazon S3  |  + NFS<br />+ SMB  | Yes | Basic, Enhanced | 
-|  + Amazon S3  |  + HDFS<br />+ Object Storage  | Yes | Basic, Enhanced | 
-|  + Amazon EFS<br />+ Amazon FSx  |  + Amazon S3  | No | Basic, Enhanced4 | 
-|  + Amazon EFS1<br />+ Amazon FSx for OpenZFS1<br />+ Amazon FSx for Windows File Server2<br />+ Amazon FSx for NetApp ONTAP3  |  + Amazon EFS<br />+ Amazon FSx4  | Yes (when used as an NFS/SMB location) | Basic, Enhanced4 | 
+| Source | Destination | Requires an agent? | 
+| --- | --- | --- | 
+|  + NFS<br />+ SMB<br />+ HDFS<br />+ Object Storage  |  + Amazon S3  | Yes | 
+|  + Amazon S3  |  + NFS<br />+ SMB<br />+ HDFS<br />+ Object Storage  | Yes | 
+|  + Amazon S3  |  + Amazon S3<br />+ Amazon EFS<br />+ Amazon FSx  | No | 
+|  + Amazon EFS<br />+ Amazon FSx  |  + Amazon S3  | No | 
+|  + Amazon EFS1<br />+ Amazon FSx for OpenZFS1<br />+ Amazon FSx for Windows File Server2<br />+ Amazon FSx for NetApp ONTAP3  |  + Amazon EFS<br />+ Amazon FSx  | Yes (when used as an NFS/SMB location) | 
 
 1 Configured as an [NFS location](create-nfs-location.md).
 
 2 Configured as an [SMB location](create-smb-location.md).
 
 3 Configured as an NFS or SMB location.
-
-4 Enhanced mode supports Amazon FSx for Lustre and Amazon FSx for OpenZFS locations of the Amazon FSx file system types. Other Amazon FSx file system types (such as Amazon FSx for Windows File Server and Amazon FSx for NetApp ONTAP) are not yet supported with Enhanced mode and require Basic mode.
 
 ## Supported transfers in the same AWS Region
 <a name="working-with-locations-same-region"></a>
