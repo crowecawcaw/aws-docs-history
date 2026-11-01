@@ -36,6 +36,7 @@ Interconnect - multicloud is supported with the following AWS Regions and cloud 
 +  AWS Europe (London) eu-west-2 – Google Cloud London (europe-west2)
 +  AWS Europe (Frankfurt) eu-central-1 – Google Cloud Frankfurt (europe-west3)
 +  AWS Europe (Stockholm) eu-north-1 – Google Cloud Stockholm (europe-north2)
++  AWS Asia Pacific (Tokyo) ap-northeast-1 – Google Cloud Tokyo (asia-northeast1)
 +  AWS Asia Pacific (Singapore) ap-southeast-1 – Google Cloud Singapore (asia-southeast1)
 +  AWS Asia Pacific (Sydney) ap-southeast-2 – Google Cloud Sydney (australia-southeast1)
 
