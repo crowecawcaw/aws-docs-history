@@ -109,7 +109,7 @@ The following `create-thing` example create a thing that has the specified thing
 aws iot create-thing \
     --thing-name {{"MyLightBulb"}} \
     --thing-type-name {{"LightBulb"}} \
-    --attribute-payload "{"attributes": {"wattage":"75", "model":"123"}}"
+    --attribute-payload '{{{"attributes": {"wattage":"75", "model":"123"}}}}'
 ```
 Output:  
 

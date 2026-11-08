@@ -104,7 +104,7 @@ The following `update-thing` example associates a thing in the AWS IoT registry 
 aws iot update-thing \
     --thing-name {{"MyOtherLightBulb"}} \
     --thing-type-name {{"LightBulb"}} \
-    --attribute-payload "{"attributes": {"wattage":"75", "model":"123"}}"
+    --attribute-payload '{{{"attributes": {"wattage":"75", "model":"123"}}}}'
 ```
 This command produces no output. Use the `describe-thing` command to see the result.  
 For more information, see [Thing Types](https://docs.aws.amazon.com/iot/latest/developerguide/thing-types.html) in the *AWS IoT Developers Guide*.  
