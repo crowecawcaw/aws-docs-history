@@ -50,6 +50,8 @@ You can change the replication server instance type for servers that are replica
 + Servers with less than 26 disks – Change the instance type to **m5.large**. Increase the instance type to m5.xlarge or higher as needed. 
 + Servers with more than 26 disks, or servers in AWS Regions that do not support m5 instance types – change the instance type to **m4.large**. Increase to m4.xlarge or higher, as needed. 
 
+For information about evaluating and changing the replication server instance type for many source servers at once, based on their provisioned disk capacity, see [Right-Size AWS Transform MGN Replication Servers](https://aws.amazon.com/blogs/migration-and-modernization/right-size-aws-transform-mgn-replication-servers/) on the AWS Migration & Modernization Blog.
+
 **Note**  
 Changing the replication server instance type will not affect data replication. Data replication will automatically continue from where it left off, using the new instance type you selected.
 By default, replication servers are automatically assigned a public IP address from Amazon's public IP space.
@@ -74,10 +76,12 @@ AWS Transform MGN supports two target storage types for replication. You can sel
 + **Amazon Elastic Block Store (Amazon EBS)** – The default storage type. Amazon EBS volumes are used by the replication servers. For configuration details, see [Amazon EBS configuration](ebs-storage.md).
 + **Amazon FSx for NetApp ONTAP (FSx for ONTAP)** – Enterprise file storage with NetApp ONTAP capabilities. When selecting FSx for ONTAP, you must provide an FSx Storage Secret ARN and a security group configured for iSCSI access. For setup instructions, see [FSx for ONTAP configuration](fsx-ontap.md).
 
-## Store snapshots in AWS Local Zone
+## Replicating to AWS Local Zones
 <a name="local-zone-snapshots"></a>
 
 MGN does not require special configuration for Local Zones. If you select a subnet in a Local Zone, MGN launches the replication server in that Local Zone the same way it would in any Availability Zone.
+
+For optimal performance of replication servers and conversion servers, we recommend placing the staging area subnet in the parent AWS Region rather than the Local Zone. If your requirements dictate using a Local Zone subnet for the staging area, we recommend testing replication and cutover thoroughly before proceeding with production migrations.
 
 When you replicate to a Local Zone, you can store Amazon EBS snapshots in the Local Zone instead of the parent AWS Region. By default, snapshots of Amazon EBS volumes in a Local Zone are stored in the parent AWS Region. If you replicate to a Local Zone that supports local snapshots, you can store the snapshots locally in the Local Zone to meet data residency requirements.
 

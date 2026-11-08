@@ -11,6 +11,7 @@ For additional details regarding new features and major updates, [see the MGN re
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| AWS Transform MGN now supports Ubuntu 26.04 LTS | Added Ubuntu 26.04 LTS to the list of supported Linux operating systems. | November 4, 2026 | 
 | Update support matrix with new OS | Added Debian 13 to the list of supported Linux operating systems. | October 29, 2026 | 
 | Quick start guide reorganized | Reorganized the quick start guide into a single checklist page that summarizes each step of the migration and links to the detailed instructions. For more information, see [Quick start guide for AWS Transform MGN](quick-start-guide-gs.md). | October 28, 2026 | 
 | Updated agentless replication availability | Updated the documentation to reflect that agentless replication is no longer available for new deployments, and that agent-based replication is recommended for all migrations. For more information, see [Why we recommend agent-based replication](installing-vcenter-overview-mgn.md#why-agent-based). | October 22, 2026 | 

@@ -318,7 +318,11 @@ The request to enter an AWS session token only appears if the system identifies 
      This parameter specifies which specific disks to replicate. 
    + --force-volumes 
 
-     This parameter must be used with the --no-prompt parameter. This parameter cancels the automatic detection of physical disks to replicate. You need to specify the exact disks to replicate using the --devices parameter (including the root disk, failure to specify the root disk causes replication to fail). This parameter should only be used as a troubleshooting tool if the --devices parameter fails to identify the disks correctly. 
+     This parameter must be used with the --no-prompt parameter. This parameter cancels the automatic detection of physical disks to replicate. You need to specify the exact disks to replicate using the --devices parameter, including the root disk. List the root disk first. With --force-volumes, the installer doesn't detect the boot disk and treats the first device in --devices as the root disk. If you don't include the root disk, replication fails.
+
+     If you list a data disk first, the test or cutover instance fails to boot, or it boots from the wrong disk. For instructions on fixing this, see [Test or cutover instance doesn't boot after installing with --force-volumes](Troubleshooting-Launch-Errors.md#force-volumes-wrong-root-disk).
+
+     Use this parameter only as a troubleshooting tool if the --devices parameter fails to identify the disks correctly.
    + --tags
 
      Use this parameter to add resource tags to the source server. Use a space to separate each tag (for example: --tags KEY=VALUE [KEY=VALUE ...])

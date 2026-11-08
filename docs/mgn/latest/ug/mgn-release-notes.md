@@ -3,6 +3,11 @@
 # Release notes
 <a name="mgn-release-notes"></a>
 
+## November 2026
+<a name="release-notes-nov-2026"></a>
++ Added support for the following operating systems:
+  + Ubuntu 26.04 LTS
+
 ## October 2026
 <a name="release-notes-oct-2026"></a>
 + Added support for the following operating systems:
@@ -19,7 +24,7 @@
   + Athens, Greece (eu-central-1-ath-1a)
   + Istanbul, Türkiye (eu-central-1-ist-1a)
 
-  For more information, see [Store snapshots in AWS Local Zone](replication-server-settings.md#local-zone-snapshots).
+  For more information, see [Replicating to AWS Local Zones](replication-server-settings.md#local-zone-snapshots).
 + You can now configure the following Amazon EBS volume settings: **Volume initialization rate** and **Delete on termination** through the AWS Transform MGN account launch template. You can set the configuration in the template under the **Default EC2 launch template** section. These parameters can now be configured at the account level for new servers, or at the individual server level via their EC2 launch template. For more information, see [Launch template](launch-template.md#default-ec2-launch-template).
 
 ## August 2026
@@ -68,7 +73,7 @@ Added support for the following operating systems:
 
 ## March 2026
 <a name="release-notes-mar-2026"></a>
-+ MGN now supports storing EBS snapshots locally within AWS Local Zones that support this feature. For more information, see [Store snapshots in AWS Local Zone](replication-server-settings.md#local-zone-snapshots).
++ MGN now supports storing EBS snapshots locally within AWS Local Zones that support this feature. For more information, see [Replicating to AWS Local Zones](replication-server-settings.md#local-zone-snapshots).
 + Added support for the following operating systems:
   + RHEL 9.7 and 10.1
   + Rocky Linux 9.7, 10, and 10.1

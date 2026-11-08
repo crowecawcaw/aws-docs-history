@@ -48,7 +48,7 @@ The following storage parameters: **Volume initialization rate**, **EBS card ind
 **Note**  
 When selecting a pre-existing ENI, you must change the **Auto-assign public IP** value to **Don't include in launch template** for a successful target launch.
   + **Description** – Add an optional description for the network interface (if chosen).
-  + **Subnet** – Choose the subnet. This is the subnet within which the network interface is located and the test or cutover instance is launched. AWS Transform MGN selects the default VPC subnet by default (if one exists).
+  + **Subnet** – Choose the target subnet. This is the subnet where the network interface is located and where the test or cutover instance is launched. By default, AWS Transform MGN selects the default VPC subnet, if one exists. You can change it to launch your instances in a different subnet. To launch instances in a Local Zone, specify a subnet in that Local Zone.
   + **Auto-assign public IP** - Choose whether you want the public IP to be auto-assigned.
   + **Primary IP** – Use this field if you wish to use a private IP. The private IP you set in the **Copy private IP** field in the MGN launch settings is copied to this field.
   + **Secondary IP** - Define a secondary IP, if needed.

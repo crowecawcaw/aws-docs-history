@@ -10,7 +10,7 @@ There are several key considerations when configuring your EC2 launch template. 
 If you change your instance type and do not deactivate the instance right-sizing feature, then AWS Transform MGN uses the instance type determined by the **Instance right-sizing** feature and not the instance type you chose in the EC2 launch template. MGN verifies the instance type once per hour, as a result, if you did not deactivate the instance right-sizing feature, the first time instance launch may still use the instance type you set in the EC2 launch template, but any subsequent launches use the right-sizing instance.
 The available capacity for each Amazon EC2 instance type varies by Availability Zone and Region, and may be subject to your specific AWS account limits. For mission-critical workloads consider using [Reserved Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-reserved-instances.html) to guarantee capacity for specific instance types. Note that additional costs apply when reserving capacity.
 
-1. **Subnet** – You can select an existing subnet or create a new subnet. 
+1. **Subnet** – You can select an existing subnet or create a new subnet. To launch instances in a Local Zone, specify a subnet in that Local Zone.
 **Note**  
 Customers that do not have a default VPC must modify the EC2 launch template and explicitly define the subnet in which to launch. Failure to do so results in errors when launching test or cutover instances.
 

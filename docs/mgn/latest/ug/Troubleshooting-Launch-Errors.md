@@ -11,6 +11,7 @@ Use the information in this section to troubleshoot launch errors.
 + [VPCIdNotSpecified error](#Troubleshooting-vpc-error)
 + [Error: Failed to connect using HTTP channel](#Error-Failed-to-connect-using-HTTP-channel)
 + [Could not take up-to-date snapshot. Launching from snapshot taken on...](#up-to-date-snapshot)
++ [Test or cutover instance doesn't boot after installing with --force-volumes](#force-volumes-wrong-root-disk)
 
 ## Do I need to recreate the entire launch template for every version?
 <a name="Solving-Communication-Problems1"></a>
@@ -54,3 +55,16 @@ When a test or cutover instance is launched, AWS Transform MGN will attempt to c
 To launch a test or cutover instance with the most up-to-date data, determine why the latest snapshot could not be created. Common causes include the source server not having a "Healthy" status, or backlog/lag. 
 
 Also check the CloudTrail Event History for errors on the CreateSnapshot and DescribeSnapshot API calls, which can prevent timely EBS snapshot creation. Resolving these underlying issues will allow successful creation of up-to-date snapshots for test and cutover instances.
+
+## Test or cutover instance doesn't boot after installing with --force-volumes
+<a name="force-volumes-wrong-root-disk"></a>
+
+If you installed the AWS Replication Agent with --force-volumes and listed a data disk first in --devices, MGN registers that disk as the root disk. The test or cutover instance fails to boot, or it boots from the wrong disk. You can't change the root disk for an existing source server.
+
+To fix this issue:
+
+1. Reinstall the AWS Replication Agent on the source server with --force-volumes, and list the root disk first in --devices.
+
+1. Wait for replication to complete.
+
+1. Launch a new test or cutover instance.

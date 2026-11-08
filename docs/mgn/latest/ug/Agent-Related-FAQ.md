@@ -155,7 +155,7 @@ Rescans can still happen following a hard reboot, crashes, or when you add or re
 +  Rocky Linux 8–9.8, 10, 10.1, 10.2 
 +  SLES 12 and 15 
 +  Debian 9–13 
-+  Ubuntu 16, 18, 20, and 22 
++  Ubuntu 16, 18, 20, 22, and 26 
 +  Amazon Linux 2 and 2023 
 +  AlmaLinux 9.6, 9.7, 9.8, 10, 10.1, 10.2 
 

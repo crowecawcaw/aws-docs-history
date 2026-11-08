@@ -92,7 +92,7 @@ Yes. AWS Transform MGN allows you to [perform an OS upgrade](predefined-post-lau
 ## Does AWS Transform MGN support migration to AWS Local Zones?
 <a name="can-migrate-to-local-zone"></a>
 
-Yes. AWS Transform MGN supports migration to AWS Local Zones. Support for storing snapshots locally in a Local Zone depends on the specific Local Zone. For more information, see [Store snapshots in AWS Local Zone](replication-server-settings.md#local-zone-snapshots).
+Yes. AWS Transform MGN supports migration to AWS Local Zones. Support for storing snapshots locally in a Local Zone depends on the specific Local Zone. For more information, see [Replicating to AWS Local Zones](replication-server-settings.md#local-zone-snapshots).
 
 ## What are the AWS Transform MGN quota limits?
 <a name="MGN-service-limits-faq"></a>
