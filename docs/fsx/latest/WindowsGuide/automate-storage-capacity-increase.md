@@ -47,7 +47,7 @@ To receive notifications about the actions that are performed as a response to t
 ## CloudFormation template
 <a name="storage-capacity-CFN-template"></a>
 
-This solution uses CloudFormation to automate deploying the components that are used to automatically increase the storage capacity of an FSx for Windows File Server file system. To use this solution, download the [IncreaseFSxSize](https://s3.amazonaws.com/solution-references/fsx/DynamicScaling/IncreaseFSxSize.yaml) CloudFormation template.
+This solution uses CloudFormation to automate deploying the components that are used to automatically increase the storage capacity of an FSx for Windows File Server file system. To use this solution, download the [IncreaseFSxSize](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/samples/IncreaseFSxSize.zip) CloudFormation template archive. You don't need an additional deployment package because the `IncreaseFSxSize.yaml` template in the archive defines the Lambda functions inline.
 
 The template uses the **Parameters** described as follows. Review the template parameters and their default values, and modify them for the needs of your file system.
 
@@ -84,7 +84,11 @@ Before you start, you must have the ID of the Amazon FSx file system running in 
 
 **To launch the automatic storage capacity increase solution stack**
 
-1. Download the [IncreaseFSxSize](https://s3.amazonaws.com/solution-references/fsx/DynamicScaling/IncreaseFSxSize.yaml) CloudFormation template. For more information about creating a CloudFormation stack, see [Creating a stack on the AWS CloudFormation console](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.html) in the *AWS CloudFormation User Guide*.
+1. Download the [IncreaseFSxSize](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/samples/IncreaseFSxSize.zip) CloudFormation template archive.
+
+1. Extract the `IncreaseFSxSize.yaml` template from the archive.
+
+1. Open the [CloudFormation console](https://console.aws.amazon.com/cloudformation/home#/stacks/create), and create a stack by uploading the `IncreaseFSxSize.yaml` template. For more information about creating a CloudFormation stack, see [Creating a stack on the AWS CloudFormation console](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.html) in the *AWS CloudFormation User Guide*.
 **Note**  
 Amazon FSx is currently only available in specific AWS Regions. You must launch this solution in an AWS Region where Amazon FSx is available. For more information, see [Amazon FSx endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/fsxn.html) in the *AWS General Reference*.
 
@@ -107,3 +111,5 @@ You can view the status of the stack in the CloudFormation console in the **Stat
 <a name="automate-storage-capacity-increase-update"></a>
 
 After the stack is created, you can update it by using the same template and providing new values for the parameters. For more information, see [Updating stacks directly](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-direct.html) in the *AWS CloudFormation User Guide*.
+
+If you deployed the solution from an earlier version of the template, use the CloudFormation console to update your stack with the current `IncreaseFSxSize.yaml` template. As of November 2026, the template uses a supported Python Lambda runtime instead of the .NET runtime used by earlier versions. You can keep your existing parameter values when you update the stack, and the update takes a few minutes to complete.

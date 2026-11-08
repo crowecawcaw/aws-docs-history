@@ -27,7 +27,7 @@ For more information, see [Accessing data using DNS aliases](dns-aliases.md).
 
 A DNS alias name for your FSx for Windows File Server file system needs to meet the following requirements:
 + Must be formatted as a fully qualified domain name (FQDN).
-+ Can contain alphanumeric characters and hyphens (‐).
++ Can contain alphanumeric characters, the underscore (\_), and the hyphen (‐).
 + Cannot start or end with a hyphen.
 + Can start with a numeric.
 

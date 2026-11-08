@@ -17,7 +17,7 @@ This procedure describes how to associate DNS aliases when creating a new file s
 
    Use the following guidelines when specifying DNS aliases:
    + Must be formatted as a fully qualified domain name (FQDN) `{{hostname.domain}}`, for example, `accounting.example.com`.
-   + Can contain alphanumeric characters and hyphens (‐).
+   + Can contain alphanumeric characters, the underscore (\_), and the hyphen (‐).
    + Cannot start or end with a hyphen.
    + Can start with a numeric.
 

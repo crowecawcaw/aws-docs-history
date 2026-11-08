@@ -9,7 +9,7 @@ With DNS aliases, you can continue to use your existing DNS names to access data
 
 A DNS alias name has to meet the following requirements:
 + Must be formatted as a fully qualified domain name (FQDN), for example, `accounting.example.com`.
-+ Can contain alphanumeric characters and the hyphen (‐).
++ Can contain alphanumeric characters, the underscore (\_), and the hyphen (‐).
 + Cannot start or end with a hyphen.
 + Can start with a numeric.
 
