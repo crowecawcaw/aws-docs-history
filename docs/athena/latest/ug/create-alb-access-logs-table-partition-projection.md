@@ -42,7 +42,11 @@ CREATE EXTERNAL TABLE IF NOT EXISTS alb_access_logs (
             target_status_code_list string,
             classification string,
             classification_reason string,
-            conn_trace_id string
+            conn_trace_id string,
+            transformed_host string,
+            transformed_uri string,
+            request_transform_status string,
+            ip_address string
             )
             PARTITIONED BY
             (
@@ -52,7 +56,7 @@ CREATE EXTERNAL TABLE IF NOT EXISTS alb_access_logs (
             WITH SERDEPROPERTIES (
             'serialization.format' = '1',
             'input.regex' = 
-        '([^ ]*) ([^ ]*) ([^ ]*) ([^ ]*):([0-9]*) ([^ ]*)[:-]([0-9]*) ([-.0-9]*) ([-.0-9]*) ([-.0-9]*) (|[-0-9]*) (-|[-0-9]*) ([-0-9]*) ([-0-9]*) \"([^ ]*) (.*) (- |[^ ]*)\" \"([^\"]*)\" ([A-Z0-9-_]+) ([A-Za-z0-9.-]*) ([^ ]*) \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" ([-.0-9]*) ([^ ]*) \"([^\"]*)\" \"([^\"]*)\" \"([^ ]*)\" \"([^\\s]+?)\" \"([^\\s]+)\" \"([^ ]*)\" \"([^ ]*)\" ?([^ ]*)? ?( .*)?'
+        '([^ ]*) ([^ ]*) ([^ ]*) ([^ ]*):([0-9]*) ([^ ]*)[:-]([0-9]*) ([-.0-9]*) ([-.0-9]*) ([-.0-9]*) (|[-0-9]*) (-|[-0-9]*) ([-0-9]*) ([-0-9]*) \"([^ ]*) (.*) (- |[^ ]*)\" \"([^\"]*)\" ([A-Z0-9-_]+) ([A-Za-z0-9.-]*) ([^ ]*) \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" ([-.0-9]*) ([^ ]*) \"([^\"]*)\" \"([^\"]*)\" \"([^ ]*)\" \"([^\\s]+?)\" \"([^\\s]+)\" \"([^ ]*)\" \"([^ ]*)\" ?([^ ]*)?(?: \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\")?(?: ([^ ]*))? ?( .*)?'
             )
             LOCATION 's3://amzn-s3-demo-bucket/AWSLogs/{{<ACCOUNT-NUMBER>}}/elasticloadbalancing/{{<REGION>}}/'
             TBLPROPERTIES

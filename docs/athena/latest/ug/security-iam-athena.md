@@ -23,6 +23,7 @@ The following topics provide more information about permissions for specific are
 + [Access to databases and tables in AWS Glue](fine-grained-access-to-glue-resources.md)
 + [Cross-account access to AWS Glue data catalogs](security-iam-cross-account-glue-catalog-access.md)
 + [Access to encrypted metadata in the Data Catalog](access-encrypted-data-glue-data-catalog.md)
++ [Access to system tables](security-iam-system-tables.md)
 + [Access to workgroups and tags](workgroups-access.md)
 + [Use IAM policies to control workgroup access](workgroups-iam-policy.md)
 + [IAM Identity Center enabled workgroups](workgroups-identity-center.md)

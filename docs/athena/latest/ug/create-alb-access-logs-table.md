@@ -7,7 +7,7 @@
 
    For information about each log file field, see [Access log entries](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html#access-log-entry-format) in the *User Guide for Application Load Balancers*.
 **Note**  
-The following example `CREATE TABLE` statement includes the recently added `classification`, `classification_reason`, and `conn_trace_id` ('traceability ID', or TID) columns. To create a table for Application Load Balancer access logs that do not contain these entries, remove the corresponding columns from the `CREATE TABLE` statement and modify the regular expression accordingly. 
+The following example `CREATE TABLE` statement includes the recently added `classification`, `classification_reason`, `conn_trace_id` ('traceability ID', or TID), `transformed_host`, `transformed_uri`, `request_transform_status`, and `ip_address` columns. To create a table for Application Load Balancer access logs that do not contain these entries, remove the corresponding columns from the `CREATE TABLE` statement and modify the regular expression accordingly. 
 
    ```
    CREATE EXTERNAL TABLE IF NOT EXISTS alb_access_logs (
@@ -44,13 +44,17 @@ The following example `CREATE TABLE` statement includes the recently added `clas
                target_status_code_list string,
                classification string,
                classification_reason string,
-               conn_trace_id string
+               conn_trace_id string,
+               transformed_host string,
+               transformed_uri string,
+               request_transform_status string,
+               ip_address string
                )
                ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.RegexSerDe'
                WITH SERDEPROPERTIES (
                'serialization.format' = '1',
                'input.regex' = 
-           '([^ ]*) ([^ ]*) ([^ ]*) ([^ ]*):([0-9]*) ([^ ]*)[:-]([0-9]*) ([-.0-9]*) ([-.0-9]*) ([-.0-9]*) (|[-0-9]*) (-|[-0-9]*) ([-0-9]*) ([-0-9]*) \"([^ ]*) (.*) (- |[^ ]*)\" \"([^\"]*)\" ([A-Z0-9-_]+) ([A-Za-z0-9.-]*) ([^ ]*) \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" ([-.0-9]*) ([^ ]*) \"([^\"]*)\" \"([^\"]*)\" \"([^ ]*)\" \"([^\\s]+?)\" \"([^\\s]+)\" \"([^ ]*)\" \"([^ ]*)\" ?([^ ]*)? ?( .*)?'
+           '([^ ]*) ([^ ]*) ([^ ]*) ([^ ]*):([0-9]*) ([^ ]*)[:-]([0-9]*) ([-.0-9]*) ([-.0-9]*) ([-.0-9]*) (|[-0-9]*) (-|[-0-9]*) ([-0-9]*) ([-0-9]*) \"([^ ]*) (.*) (- |[^ ]*)\" \"([^\"]*)\" ([A-Z0-9-_]+) ([A-Za-z0-9.-]*) ([^ ]*) \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" ([-.0-9]*) ([^ ]*) \"([^\"]*)\" \"([^\"]*)\" \"([^ ]*)\" \"([^\\s]+?)\" \"([^\\s]+)\" \"([^ ]*)\" \"([^ ]*)\" ?([^ ]*)?(?: \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\")?(?: ([^ ]*))? ?( .*)?'
                )
                LOCATION 's3://amzn-s3-demo-bucket/{{access-log-folder-path}}/'
    ```

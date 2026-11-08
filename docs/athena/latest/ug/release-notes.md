@@ -20,6 +20,11 @@ Describes Amazon Athena features, improvements, and bug fixes by release date.
 ## Athena release notes for 2026
 <a name="release-notes-2026"></a>
 
+### November 6, 2026
+<a name="release-note-2026-11-06"></a>
+
+Amazon Athena now offers system tables, starting with the query\_executions table, which automatically captures query execution data and makes it available for observability, usage analysis, and audit use cases. When you enable system tables, usage data becomes available within minutes of query completion across your workgroups. For more information about Athena system tables, see [Use Athena system tables](athena-system-tables.md).
+
 ### October 28, 2026
 <a name="release-note-2026-10-28"></a>
 
