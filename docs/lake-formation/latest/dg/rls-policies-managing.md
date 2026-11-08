@@ -20,10 +20,13 @@ Delete
 Data lake administrators have implicit access. Non-admin principals need `DROP` permission on the RLS policy resource.
 
 Attach, detach  
-Data lake administrators have implicit access. Non-admin principals need `ASSOCIATE` permission on the RLS policy resource, plus `SELECT` with the grant option (or `ALL`) on the target table. For tag-based attachments, `MANAGE_TAG_POLICY` on the referenced LF-Tag keys and values is required instead of table permissions.
+Data lake administrators have implicit access. Non-admin principals need `ASSOCIATE` permission on the RLS policy resource, plus `ALL` (explicitly or effectively) with the grant option on the target table. For tag-based attachments, `MANAGE_TAG_POLICY` on the referenced LF-Tag keys and values is required instead of table permissions.
 
-List policies, list attachments  
-Any principal with `DESCRIBE` permission on the RLS policy resource. Data lake administrators can list all policies.
+List policies  
+Data lake administrators can list all policies. Non-admin principals need `DESCRIBE` permission on the RLS policy resource.
+
+List attachments  
+Data lake administrators can list all attachments. Non-admin principals need `ASSOCIATE` permission on the RLS policy resource, plus `ALL` (explicitly or effectively) with the grant option on the target table. For tag-based attachments, `MANAGE_TAG_POLICY` on the referenced LF-Tag keys and values is required instead of table permissions.
 
 Data lake administrators have implicit permission to perform all RLS policy operations without explicit grants.
 
