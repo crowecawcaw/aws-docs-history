@@ -24,7 +24,7 @@ Choose the tab for your preferred method, and then follow the steps:
 
 1. In the **Short-term API keys** tab, choose **Generate short-term API keys**.
 
-The key expires when your console session expires (max 12 hours). To generate a key for a different Region, switch Regions in the console first.
+The key expires when your console session expires (maximum 12 hours). You can use a short-term API key only in the AWS Region where you generated it. To use the key in a different Region, change to that Region in the console and generate a new key.
 
 ------
 #### [ Python ]
@@ -107,8 +107,6 @@ Choose the tab for your preferred method, and then follow the steps:
 1. Choose an expiration time and optionally add permissions in **Advanced permissions**.
 
 1. Choose **Generate**.
-
-A long-term key works only in the Region you generated it in. To generate a key for a different Region, switch Regions in the console first. A request that uses a key from another Region fails with `Credential should be scoped to a valid region`, even when the model ID and endpoint URL are correct.
 
 ------
 #### [ CLI ]

@@ -3,8 +3,9 @@
 # Retain conversational context across multiple sessions using memory
 <a name="agents-memory"></a>
 
-**Note**  
-Amazon Bedrock Agents (now Amazon Bedrock Agents Classic) is no longer open to new customers. For capabilities similar to Bedrock Agents Classic, explore [Amazon Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agentcore-get-started-cli.html). Existing customers can continue to use the service as normal. For more information, see [Amazon Bedrock Agents Classic maintenance mode](agents-classic-maintenance-mode.md).
+**Amazon Bedrock Agents Classic availability**  
+You can no longer sign up for Amazon Bedrock Agents (now Amazon Bedrock Agents Classic). If you already use Agents Classic, you can continue to use it.  
+For more information about building code-defined agents with the Strands Agents SDK, see [Get started with Amazon Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agentcore-get-started-cli.html). For more information about Agents Classic, see [Amazon Bedrock Agents Classic maintenance mode](agents-classic-maintenance-mode.md).
 
 Memory provides your agent the ability to retain conversational context across multiple sessions and to recall past actions and behaviors. By default, your agent retains conversational context from a single session. To configure memory for your agent, enable the memory setting for your agent and specify the storage duration to retain the memory.
 

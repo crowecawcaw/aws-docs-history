@@ -3,8 +3,9 @@
 # Automate tasks in your application using AI agents
 <a name="agents"></a>
 
-**Note**  
-Amazon Bedrock Agents (now Amazon Bedrock Agents Classic) is no longer open to new customers. For capabilities similar to Bedrock Agents Classic, explore [Amazon Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agentcore-get-started-cli.html). Existing customers can continue to use the service as normal. For more information, see [Amazon Bedrock Agents Classic maintenance mode](agents-classic-maintenance-mode.md).
+**Amazon Bedrock Agents Classic availability**  
+You can no longer sign up for Amazon Bedrock Agents (now Amazon Bedrock Agents Classic). If you already use Agents Classic, you can continue to use it.  
+For more information about building code-defined agents with the Strands Agents SDK, see [Get started with Amazon Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agentcore-get-started-cli.html). For more information about Agents Classic, see [Amazon Bedrock Agents Classic maintenance mode](agents-classic-maintenance-mode.md).
 
 Amazon Bedrock Agents offers you the ability to build and configure autonomous agents in your application. An agent helps your end-users complete actions based on organization data and user input. Agents orchestrate interactions between foundation models (FMs), data sources, software applications, and user conversations. In addition, agents automatically call APIs to take actions and invoke knowledge bases to supplement information for these actions. By integrating agents, you can accelerate your development effort to deliver generative artificial intelligence (generative AI) applications.
 

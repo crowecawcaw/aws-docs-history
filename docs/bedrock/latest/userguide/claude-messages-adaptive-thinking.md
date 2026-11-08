@@ -3,42 +3,57 @@
 # Adaptive thinking
 <a name="claude-messages-adaptive-thinking"></a>
 
-Adaptive thinking lets Claude dynamically decide when and how much to think based on the complexity of each request, instead of requiring a fixed thinking token budget. It is supported on Claude Fable 5.1, Claude Mythos 5.1, Claude Opus 5, Claude Sonnet 5, and other thinking-capable models. Adaptive thinking reliably drives better performance than extended thinking with a fixed `budget_tokens`. No beta header is required.
+Adaptive thinking lets Claude dynamically decide when and how much to think based on the complexity of each request, instead of requiring a fixed thinking token budget. Adaptive thinking reliably drives better performance than extended thinking with a fixed `budget_tokens`. No beta header is required.
 
-The supported models are as follows:
+The following models support adaptive thinking. Each model's card describes its thinking defaults, whether thinking can be turned off, and its supported effort levels under **Reasoning**. For a side-by-side comparison, see [Thinking configuration by model](#claude-messages-adaptive-thinking-config-by-model).
 
 
 | Model | Model ID | 
 | --- | --- | 
-| Claude Haiku 5.5 | `anthropic.claude-haiku-5-5` | 
-| Claude Sonnet 5.5 | `anthropic.claude-sonnet-5-5` | 
-| Claude Opus 5.5 | `anthropic.claude-opus-5-5` | 
-| Claude Fable 5.1 | `anthropic.claude-fable-5-1` | 
-| Claude Mythos 5.1 | `anthropic.claude-mythos-5-1` | 
-| Claude Opus 5 | `anthropic.claude-opus-5` | 
-| Claude Sonnet 5 | `anthropic.claude-sonnet-5` | 
-| Claude Mythos 5 | `anthropic.claude-mythos-5` | 
-| Claude Fable 5 | `anthropic.claude-fable-5` | 
-| Claude Opus 4.8 | `anthropic.claude-opus-4-8` | 
-| Claude Opus 4.7 | `anthropic.claude-opus-4-7` | 
-| Claude Opus 4.6 | `anthropic.claude-opus-4-6-v1` | 
-| Claude Sonnet 4.6 | `anthropic.claude-sonnet-4-6` | 
-
-**Note**  
-Claude Fable 5.1, Claude Mythos 5.1, Claude Mythos 5, and Claude Fable 5 *only* support adaptive thinking. Manual extended thinking (`thinking.type: "enabled"` with `budget_tokens`) and disabled thinking (`thinking.type: "disabled"`) are not supported on these models and will return a 400 error. Use `thinking.type: "adaptive"` with `output_config.effort` to control thinking behavior.  
-Claude Opus 4.8 and Claude Opus 4.7 support adaptive and disabled thinking. To turn thinking off, use `thinking.type: "disabled"`. Manual extended thinking (`thinking.type: "enabled"` with `budget_tokens`) is not supported on these models and will return a 400 error.  
-`thinking.type: "enabled"` and `budget_tokens` are deprecated on Claude Opus 4.6 and Claude Sonnet 4.6 and will be removed in a future model release. Use `thinking.type: "adaptive"` with the effort parameter instead.  
-Older models (Claude Sonnet 4.5, Claude Opus 4.5, etc.) do not support adaptive thinking and require `thinking.type: "enabled"` with `budget_tokens`.
+| [Claude Haiku 5.5](model-card-anthropic-claude-haiku-5-5.md) | `anthropic.claude-haiku-5-5` | 
+| [Claude Sonnet 5.5](model-card-anthropic-claude-sonnet-5-5.md) | `anthropic.claude-sonnet-5-5` | 
+| [Claude Opus 5.5](model-card-anthropic-claude-opus-5-5.md) | `anthropic.claude-opus-5-5` | 
+| [Claude Fable 5.1](model-card-anthropic-claude-fable-5-1.md) | `anthropic.claude-fable-5-1` | 
+| [Claude Mythos 5.1](model-card-anthropic-claude-mythos-5-1.md) | `anthropic.claude-mythos-5-1` | 
+| [Claude Opus 5](model-card-anthropic-claude-opus-5.md) | `anthropic.claude-opus-5` | 
+| [Claude Sonnet 5](model-card-anthropic-claude-sonnet-5.md) | `anthropic.claude-sonnet-5` | 
+| [Claude Mythos 5](model-card-anthropic-claude-mythos-5.md) | `anthropic.claude-mythos-5` | 
+| [Claude Fable 5](model-card-anthropic-claude-fable-5.md) | `anthropic.claude-fable-5` | 
+| [Claude Opus 4.8](model-card-anthropic-claude-opus-4-8.md) | `anthropic.claude-opus-4-8` | 
+| [Claude Opus 4.7](model-card-anthropic-claude-opus-4-7.md) | `anthropic.claude-opus-4-7` | 
+| [Claude Opus 4.6](model-card-anthropic-claude-opus-4-6.md) | `anthropic.claude-opus-4-6-v1` | 
+| [Claude Sonnet 4.6](model-card-anthropic-claude-sonnet-4-6.md) | `anthropic.claude-sonnet-4-6` | 
 
 **Important**  
-**Adaptive thinking is on by default on Claude Sonnet 5 and Claude Opus 5.** A request that omits the `thinking` field runs with adaptive thinking. This is a change from Claude Sonnet 4.6, where the same request ran without thinking, so an application migrated from Claude Sonnet 4.6 without changes will produce thinking output — and be billed for those thinking tokens as output tokens — even though the request body did not change.  
-To turn thinking off entirely on these models, pass `"thinking": {"type": "disabled"}` explicitly. Omitting the `thinking` field does not turn thinking off — it selects adaptive thinking. A client setting that expresses "no thinking" as a zero or reduced thinking token budget also does not turn it off: `thinking.type: "enabled"` with `budget_tokens` is not supported on Claude Sonnet 5 and returns a `ValidationException`. Only the explicit `disabled` type turns thinking off.  
+**Adaptive thinking is on by default on Claude 5 and later models.** A request that omits the `thinking` field runs with adaptive thinking. On Claude Opus 4.8 and earlier models, the same request runs without thinking, so an application migrated from an earlier model without changes will produce thinking output — and be billed for those thinking tokens as output tokens — even though the request body did not change.  
+Omitting the `thinking` field doesn't turn thinking off, and neither does a zero or reduced `budget_tokens` (`"enabled"` returns a 400 error on these models). To turn thinking off where the model allows it, send `"thinking": {"type": "disabled"}`, or `"between_tools"` on Claude Sonnet 5.5. Some models can't turn thinking off; see [Thinking configuration by model](#claude-messages-adaptive-thinking-config-by-model).  
 Because `max_tokens` is a hard limit on total output — thinking plus response text — revisit `max_tokens` for workloads that previously ran without thinking. If you were using disabled thinking on Claude Sonnet 4.6, consider adaptive thinking with a lower `output_config.effort` level on Claude Sonnet 5 instead of disabling it.
+
+## Thinking configuration by model
+<a name="claude-messages-adaptive-thinking-config-by-model"></a>
+
+The following table shows how each model handles each `thinking.type` value. A 400 error means the request is rejected with a `ValidationException`.
+
+
+| Model | No `thinking` field | `"adaptive"` | `"enabled"` with `budget_tokens` | `"between_tools"` | `"disabled"` | 
+| --- | --- | --- | --- | --- | --- | 
+| Claude Opus 5.5 | Adaptive | Adaptive | 400 error | 400 error | 400 error | 
+| Claude Sonnet 5.5 | Adaptive | Adaptive | 400 error | Up-front thinking off at high effort or below | 400 error | 
+| Claude Haiku 5.5 | Adaptive | Adaptive | 400 error | 400 error | Thinking off at high effort or below | 
+| Claude Fable 5.1, Claude Mythos 5.1, Claude Fable 5, Claude Mythos 5 | Adaptive | Adaptive | 400 error | 400 error | 400 error | 
+| Claude Opus 5 | Adaptive | Adaptive | 400 error | 400 error | Thinking off at high effort or below | 
+| Claude Sonnet 5 | Adaptive | Adaptive | 400 error | 400 error | Thinking off | 
+| Claude Opus 4.8, Claude Opus 4.7 | Thinking off | Adaptive | 400 error | 400 error | Thinking off | 
+| Claude Opus 4.6, Claude Sonnet 4.6 | Thinking off | Adaptive | Extended thinking (deprecated) | 400 error | Thinking off | 
+
+"At `high` effort or below" means that combining that thinking type with `xhigh` or `max` effort returns a 400 error: `output_config.effort 'xhigh' is not supported when thinking is disabled on this model`. On those models, use adaptive thinking with a lower effort level instead of turning thinking off.
+
+`thinking.type: "enabled"` and `budget_tokens` are deprecated on Claude Opus 4.6 and Claude Sonnet 4.6 and will be removed in a future model release. Older models (Claude Sonnet 4.5, Claude Opus 4.5, and earlier) don't support adaptive thinking and require `thinking.type: "enabled"` with `budget_tokens`.
 
 ## How adaptive thinking works
 <a name="claude-messages-adaptive-thinking-how-it-works"></a>
 
-In adaptive mode, Claude evaluates the complexity of each request and decides whether and how much to think. At the default effort level (`high`), Claude will almost always think. At lower effort levels, Claude may skip thinking for simpler problems.
+In adaptive mode, Claude evaluates the complexity of each request and decides whether and how much to think. A simple question might get a direct answer with no thinking block, while a multi-step problem triggers deeper reasoning. The same conversation can contain turns with and without thinking, so don't build application logic that assumes every assistant turn starts with a thinking block. Higher effort levels make thinking more likely and deeper, but no effort level guarantees a thinking block on every request. In a tool-use loop, follow-up requests that only process tool results can skip thinking at any effort level.
 
 Adaptive thinking also automatically enables [Interleaved thinking (beta)](claude-messages-extended-thinking.md#claude-messages-extended-thinking-tool-use-interleaved). This means Claude can think between tool calls, making it especially effective for agentic workflows.
 
@@ -49,12 +64,13 @@ Set `thinking.type` to `"adaptive"` in your API request:
 
 ```
 aws bedrock-runtime invoke-model \
---model-id "us.anthropic.claude-opus-4-6-v1" \
+--model-id "global.anthropic.claude-opus-5-5" \
 --body '{
 "anthropic_version": "bedrock-2023-05-31",
 "max_tokens": 16000,
 "thinking": {
-"type": "adaptive"
+"type": "adaptive",
+"display": "summarized"
 },
 "messages": [
 {
@@ -76,16 +92,17 @@ import json
 
 bedrock_runtime = boto3.client(
     service_name='bedrock-runtime',
-    region_name='us-east-2'
+    region_name='us-east-1'
 )
 
 response = bedrock_runtime.invoke_model(
-    modelId="us.anthropic.claude-opus-4-6-v1",
+    modelId="global.anthropic.claude-opus-5-5",
     body=json.dumps({
         "anthropic_version": "bedrock-2023-05-31",
         "max_tokens": 16000,
         "thinking": {
-            "type": "adaptive"
+            "type": "adaptive",
+            "display": "summarized"
         },
         "messages": [{
             "role": "user",
@@ -113,12 +130,13 @@ async function main() {
     const client = new BedrockRuntimeClient({});
 
     const command = new InvokeModelCommand({
-        modelId: "us.anthropic.claude-opus-4-6-v1",
+        modelId: "global.anthropic.claude-opus-5-5",
         body: JSON.stringify({
             anthropic_version: "bedrock-2023-05-31",
             max_tokens: 16000,
             thinking: {
-                type: "adaptive"
+                type: "adaptive",
+                display: "summarized"
             },
             messages: [{
                 role: "user",
@@ -144,6 +162,8 @@ main().catch(console.error);
 
 ------
 
+On Claude 5 and later models, `display` defaults to `omitted`, so these examples set `"display": "summarized"` to return readable thinking text. For more information, see [Controlling thinking visibility with the display parameter](#claude-messages-adaptive-thinking-display).
+
 ## Adaptive thinking with the effort parameter
 <a name="claude-messages-adaptive-thinking-effort"></a>
 
@@ -152,20 +172,16 @@ You can combine adaptive thinking with the effort parameter to guide how much th
 
 | Effort level | Thinking behavior | 
 | --- | --- | 
-| max | Claude always thinks with no constraints on thinking depth. Claude Haiku 5.5, Claude Sonnet 5.5, Claude Opus 5.5, Claude Opus 5, Claude Sonnet 5, Claude Opus 4.8, Claude Opus 4.7, Claude Opus 4.6, and Claude Sonnet 4.6 support max. Requests using max on unsupported models return an error. | 
-| xhigh | Claude always thinks with extended depth. Claude Haiku 5.5, Claude Sonnet 5.5, Claude Opus 5.5, Claude Opus 5, Claude Sonnet 5, Claude Opus 4.8, and Claude Opus 4.7 only. | 
-| high (default) | Claude always thinks. Provides deep reasoning on complex tasks. | 
-| medium | Claude uses moderate thinking. May skip thinking for very simple queries. | 
+| max | Claude thinks the most readily and at the greatest depth, with no constraint on thinking length. Supported on Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5, Claude Fable 5.1, Claude Mythos 5.1, Claude Fable 5, Claude Mythos 5, Claude Opus 5, Claude Sonnet 5, Claude Opus 4.8, Claude Opus 4.7, Claude Opus 4.6, and Claude Sonnet 4.6. Requests using max on unsupported models return an error. | 
+| xhigh | Claude thinks more readily and at greater depth than at high, suited to long-running agentic work. Supported on Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5, Claude Fable 5.1, Claude Mythos 5.1, Claude Fable 5, Claude Mythos 5, Claude Opus 5, Claude Sonnet 5, Claude Opus 4.8, and Claude Opus 4.7. | 
+| high (default on most models) | Claude thinks on most requests that benefit from it. Provides deep reasoning on complex tasks. | 
+| medium (default on Claude Opus 5.5 and Claude Haiku 5.5) | Claude uses moderate thinking. May skip thinking for simple queries. | 
 | low | Claude minimizes thinking. Skips thinking for simple tasks where speed matters most. | 
 
-**Important**  
-The `effort` parameter must be placed inside a separate `output_config` object in your request body — not inside the `thinking` object. Placing `effort` inside `thinking` will result in a `ValidationException`.
+Setting `effort` to the model's default produces the same behavior as omitting it. Because Claude Opus 5.5 defaults to `medium`, a request that omits `effort` runs one level lower on Claude Opus 5.5 than on Claude Opus 5.
 
 **Important**  
-**Effort cap when thinking is disabled (Claude Opus 5):** Claude Opus 5 supports `"thinking": {"type": "disabled"}`, but when thinking is disabled, `output_config.effort` is capped at `high`. Requests with `xhigh` or `max` effort combined with disabled thinking will return an `invalid_request_error`. This cap also applies to per-turn effort set through a mid-conversation system message. To use `xhigh` or `max` effort, enable adaptive thinking (the default) or omit the `thinking` parameter entirely.
-
-**Important**  
-**Claude Haiku 5.5 effort levels and cap:** On Claude Haiku 5.5, `output_config.effort` accepts `low`, `medium`, `high`, `xhigh`, and `max`, with no beta header required, and the default effort level is `medium`. Claude Haiku 5.5 uses adaptive thinking by default and also supports disabled thinking (`"thinking": {"type": "disabled"}`). When thinking is disabled, `output_config.effort` is capped at `high`; requests that combine `xhigh` or `max` effort with disabled thinking return a `400 invalid_request_error`. Manual extended thinking (`thinking.type: "enabled"` with `budget_tokens`) is not available on Claude Haiku 5.5.
+The `effort` parameter must be placed inside a separate `output_config` object in your request body — not inside the `thinking` object. Placing `effort` inside `thinking` returns a 400 error: `thinking.adaptive.effort: Extra inputs are not permitted`.
 
 The following example shows how to set the effort level when using the InvokeModel API:
 
@@ -186,6 +202,24 @@ The following example shows how to set the effort level when using the InvokeMod
 }
 ```
 
+## Turning off up-front thinking on Claude Sonnet 5.5
+<a name="claude-messages-adaptive-thinking-between-tools"></a>
+
+Claude Sonnet 5.5 rejects `"thinking": {"type": "disabled"}` with a 400 error. To turn off the thinking that Claude Sonnet 5.5 does before it responds, set `thinking.type` to `"between_tools"`. This is the lowest thinking setting on Claude Sonnet 5.5. The model doesn't think before responding, but it still returns short progress updates between tool calls.
+
+```
+{
+    "anthropic_version": "bedrock-2023-05-31",
+    "max_tokens": 4096,
+    "thinking": {"type": "between_tools"},
+    "output_config": {"effort": "medium"},
+    "messages": [{"role": "user", "content": "Your prompt here"}]
+}
+```
++ `between_tools` works at `low`, `medium`, and `high` effort. At `xhigh` or `max`, the request returns a 400 error.
++ `between_tools` accepts no other fields. Setting `display` alongside it returns a 400 error.
++ Other models return `"thinking.type.between_tools" is not supported for this model`.
+
 ## Controlling thinking visibility with the display parameter
 <a name="claude-messages-adaptive-thinking-display"></a>
 
@@ -194,10 +228,11 @@ When you use adaptive thinking, the `display` field controls whether Claude retu
 
 | Display value | Behavior | 
 | --- | --- | 
-| omitted (default) | The response still contains a thinking block, but its thinking text is empty. The block carries a signature, so you can pass it back unchanged in multi-turn conversations. | 
-| summarized | The thinking block contains a summary of Claude's reasoning as text. | 
+| omitted (default on Claude 5 and later models) | The response still contains a thinking block, but its thinking text is empty. The block carries a signature, so you can pass it back unchanged in multi-turn conversations. | 
+| summarized | The thinking block contains a summary of Claude's reasoning as text. This is the default on Claude Opus 4.6, Claude Sonnet 4.6, and earlier models. | 
+| updates (beta) | Thinking blocks are returned with empty thinking text, as with omitted, and the short progress updates that some models write between tool calls are returned as readable text. Requires the thinking-display-updates-2026-08-18 value in anthropic\_beta. | 
 
-Both values are generally available and don't require a beta header. A value other than `summarized` or `omitted` returns a `400` error.
+`summarized` and `omitted` are generally available and don't require a beta header. Without the beta value, `updates` or any other value returns a `400` error: `thinking.adaptive.display: Input should be 'summarized', 'omitted'`. `display` isn't valid with `thinking.type: "disabled"` or `"between_tools"`. You're billed for the full thinking tokens regardless of the `display` value.
 
 **Note**  
 Setting `summarized` doesn't guarantee that reasoning text is returned. Some models accept the parameter but return no thinking text, and some don't return a thinking block at all. Read the `thinking` field of the response rather than assuming that a request accepted with `summarized` produced reasoning text.
@@ -219,6 +254,23 @@ The following example requests summarized reasoning when using the InvokeModel A
 }
 ```
 
+## Thinking token usage
+<a name="claude-messages-adaptive-thinking-usage"></a>
+
+Thinking tokens are billed as output tokens. To see how many output tokens were spent on thinking, read `usage.output_tokens_details.thinking_tokens` in the response. This value counts the full reasoning that the model generated, not the summarized text returned in the response, and is always less than or equal to `output_tokens`. It is `0` when the model skipped thinking. When streaming, the breakdown appears only in the final `message_delta` event.
+
+```
+"usage": {
+    "input_tokens": 52,
+    "output_tokens": 498,
+    "output_tokens_details": {
+        "thinking_tokens": 312
+    }
+}
+```
+
+`output_tokens` remains the total used for billing. Because thinking counts toward `max_tokens`, set `max_tokens` high enough for both the reasoning and the answer. If responses stop with `stop_reason: "max_tokens"`, raise `max_tokens` or lower the effort level.
+
 ## Using adaptive thinking with the Converse API
 <a name="claude-messages-adaptive-thinking-converse"></a>
 
@@ -227,10 +279,10 @@ When using the [Converse API](conversation-inference.md), pass the `thinking` an
 ```
 import boto3, json
 
-bedrock_runtime = boto3.client(service_name='bedrock-runtime', region_name='us-east-2')
+bedrock_runtime = boto3.client(service_name='bedrock-runtime', region_name='us-east-1')
 
 response = bedrock_runtime.converse(
-    modelId="us.anthropic.claude-opus-4-6-v1",
+    modelId="global.anthropic.claude-opus-5-5",
     messages=[{
         "role": "user",
         "content": [{"text": "Explain why the sum of two even numbers is always even."}]
@@ -249,7 +301,7 @@ To specify an effort level, add the `effort` field inside a separate `output_con
 
 ```
 response = bedrock_runtime.converse(
-    modelId="us.anthropic.claude-opus-4-6-v1",
+    modelId="global.anthropic.claude-opus-5-5",
     messages=[{
         "role": "user",
         "content": [{"text": "What is 2 + 2?"}]
@@ -288,23 +340,29 @@ To use per-turn effort, include one of the following `anthropic_beta` values: `m
 ```
 
 **Note**  
-Without one of the listed beta values — or on a model that does not support per-turn effort — a request that includes `output_config` on a system message returns `400 messages.N.output_config: Extra inputs are not permitted`. A per-turn `task_budget` is not supported and also returns a 400.
+Without one of the listed beta values — or on a model that does not support per-turn effort — a request that includes `output_config` on a system message returns `400 messages.N.output_config: Extra inputs are not permitted`. A per-turn `task_budget` is not supported and also returns a 400.  
+Claude Opus 5, Claude Sonnet 5, and Claude Opus 4.8 don't support per-turn effort and return the same error even with a beta value. On Claude Sonnet 5.5 with `thinking.type: "between_tools"` and on Claude Haiku 5.5 with `thinking.type: "disabled"`, effort can't change mid-conversation; use adaptive thinking to vary effort per turn.
 
 ## Prompt caching
 <a name="claude-messages-adaptive-thinking-prompt-caching"></a>
 
-Consecutive requests using `adaptive` thinking preserve prompt cache breakpoints. However, switching between `adaptive` and `enabled`/`disabled` thinking modes breaks cache breakpoints for messages. System prompts and tool definitions remain cached regardless of mode changes.
+Consecutive requests that keep the same thinking configuration preserve prompt cache breakpoints. Switching between thinking modes (for example, from `adaptive` to `disabled`) invalidates the cache, including breakpoints on the system prompt and tool definitions, so the next request writes the cache again. Pick a thinking mode for each conversation and keep it.
+
+To change effort for later turns of a conversation, use [Setting effort per turn (beta)](#claude-messages-adaptive-thinking-per-turn-effort) on models that support it.
 
 ## Tuning thinking behavior
 <a name="claude-messages-adaptive-thinking-tuning"></a>
 
-If Claude is thinking more or less often than you'd like, you can add guidance to your system prompt:
+If Claude is thinking more or less often than you'd like, lower or raise the effort level first. You can also add guidance to your system prompt:
 
 ```
 Extended thinking adds latency and should only be used when it
 will meaningfully improve answer quality — typically for problems
 that require multi-step reasoning. When in doubt, respond directly.
 ```
+
+**Note**  
+On Claude Sonnet 5.5 and Claude Haiku 5.5, prompt guidance to think less doesn't reliably reduce thinking. Lower the effort level instead.
 
 **Warning**  
 Steering Claude to think less often may reduce quality on tasks that benefit from reasoning. Measure the impact on your specific workloads before deploying prompt-based tuning to production. Consider testing with lower effort levels first.

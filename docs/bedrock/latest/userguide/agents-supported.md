@@ -3,8 +3,9 @@
 # Supported Regions for Amazon Bedrock Agents
 <a name="agents-supported"></a>
 
-**Note**  
-Amazon Bedrock Agents (now Amazon Bedrock Agents Classic) is no longer open to new customers. For capabilities similar to Bedrock Agents Classic, explore [Amazon Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agentcore-get-started-cli.html). Existing customers can continue to use the service as normal. For more information, see [Amazon Bedrock Agents Classic maintenance mode](agents-classic-maintenance-mode.md).
+**Amazon Bedrock Agents Classic availability**  
+You can no longer sign up for Amazon Bedrock Agents (now Amazon Bedrock Agents Classic). If you already use Agents Classic, you can continue to use it.  
+For more information about building code-defined agents with the Strands Agents SDK, see [Get started with Amazon Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agentcore-get-started-cli.html). For more information about Agents Classic, see [Amazon Bedrock Agents Classic maintenance mode](agents-classic-maintenance-mode.md).
 
 **Note**  
 Amazon Bedrock Agents supports all models supported by Amazon Bedrock. For more information about all models supported in Amazon Bedrock and the Regions they're supported in, see [Supported foundation models in Amazon Bedrock](models-supported.md).

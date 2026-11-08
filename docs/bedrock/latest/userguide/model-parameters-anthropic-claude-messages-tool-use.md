@@ -187,10 +187,10 @@ You can't combine the header with a bundled client toolset. A request that sends
 
 Claude Sonnet 4.5 supports the header but not `eager_input_streaming`, which it rejects with `tools.0.custom.eager_input_streaming: Extra inputs are not permitted`. Use the header for that model.
 
-## Computer use (Beta)
+## Computer use
 <a name="model-parameters-anthropic-claude-messages-computer-use"></a>
 
-Computer use is an Anthropic Claude tool family (in beta) for automating graphical user interface (GUI) tasks. For an overview, the Amazon Bedrock-specific request shape, and an end-to-end example, see [Use computer use tools to automate GUI tasks with Amazon Bedrock models](computer-use.md). To find which models support computer use on each endpoint, see the *Capabilities and Features* table in each [Models at a glance](model-cards.md).
+Computer use lets Anthropic Claude models automate graphical user interface (GUI) tasks. The client toolsets (`computer_toolset_20260801` and `browser_toolset_20260801`) are generally available on the newer Claude models and require no beta value. The `computer_20251124` and `computer_20250124` computer tools are in beta and require the matching beta value. For an overview, the Amazon Bedrock-specific request shape, and an end-to-end example, see [Use computer use tools to automate GUI tasks with Amazon Bedrock models](computer-use.md). To find which models support computer use on each endpoint, see the *Capabilities and Features* table in each [Models at a glance](model-cards.md).
 
 To enable computer use on a request, set `anthropic_beta` to a computer-use version and include a tool entry whose `type` matches that version. The valid pairings are:
 
@@ -199,11 +199,12 @@ To enable computer use on a request, set `anthropic_beta` to a computer-use vers
 | --- | --- | 
 | computer-use-2025-11-24 | computer\_20251124 | 
 | computer-use-2025-01-24 | computer\_20250124 | 
-| computer-use-2024-10-22 | computer\_20241022 | 
 
-Each tool type works only with a specific subset of models. Submitting a tool type that a model does not support returns a `400 invalid_request_error` with a message such as `'claude-opus-4-7' does not support tool types: computer_20241022`. Confirm support in the model's *Capabilities and Features* table before sending requests.
+The beta value is required for `computer_*` tool types. A request that includes a `computer_*` tool without the matching `anthropic_beta` value, or with a beta value for a different version (for example, `computer_20251124` with `computer-use-2025-01-24`), returns a `400 invalid_request_error`.
 
-For the underlying tool protocol, the full action vocabulary, and prompt-engineering guidance, see [Computer use](https://docs.anthropic.com/en/docs/build-with-claude/computer-use) in the Anthropic documentation.
+Each tool type works only with a specific subset of models. Submitting a tool type that a model does not support returns a `400 invalid_request_error` with a message such as `'claude-sonnet-4-5-20250929' does not support tool types: computer_20251124`. The `computer_20241022` tool type isn't accepted by any current Claude model. For the tool type that each model accepts, see [Supported models and tool types](computer-use.md#computer-use-model-support).
+
+For the underlying tool protocol, the full action vocabulary, and prompt-engineering guidance, see [Computer use](https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool) in the Anthropic documentation.
 
 ### Client toolsets
 <a name="model-parameters-anthropic-claude-messages-computer-use-toolsets"></a>
@@ -216,7 +217,9 @@ Some Claude models accept two bundled client toolsets as `tools[].type` values. 
 | computer\_toolset\_20260801 | Bundled computer-use tools for desktop interaction. | 
 | browser\_toolset\_20260801 | Bundled browser-automation tools. | 
 
-As with individual client tools, the model requests actions but does not run them. You execute each requested action and return a `tool_result`. Submitting a toolset type that a model does not support returns a `400 invalid_request_error`. To confirm which toolsets a model accepts, see the **Capabilities and Features** section in the model's model card.
+A toolset entry contains only the `type` field. Don't include a `name`; a toolset entry with a `name` returns a `400 invalid_request_error`, because the names of the tools in a toolset are fixed by the toolset type. In its response, the model calls each tool in the toolset by that tool's own name, for example `screenshot` from `computer_toolset_20260801` or `navigate` from `browser_toolset_20260801`, rather than through a single `computer` tool with an `action` field.
+
+As with individual client tools, the model requests actions but does not run them. You execute each requested action and return a `tool_result`. Submitting a toolset type that a model does not support returns a `400 invalid_request_error`. For the models that accept toolsets, see [Supported models and tool types](computer-use.md#computer-use-model-support).
 
 ## Anthropic defined tools
 <a name="model-parameters-anthropic-anthropic-defined-tools"></a>
@@ -228,10 +231,11 @@ Anthropic provides a set of pre-defined tools that Claude models can use to inte
 | --- | --- | 
 |  <pre>{ <br />    "type": "computer_20251124", <br />    "name": "computer" <br />}</pre>  | Latest computer-use tool. Use with `"anthropic_beta": ["computer-use-2025-11-24"]`. | 
 |  <pre>{ <br />    "type": "computer_20250124", <br />    "name": "computer" <br />}</pre>  | Use with `"anthropic_beta": ["computer-use-2025-01-24"]`. | 
-|  <pre>{ <br />    "type": "computer_20241022", <br />    "name": "computer" <br />}</pre>  | Legacy. Use with `"anthropic_beta": ["computer-use-2024-10-22"]`. | 
-|  <pre>{ <br />    "type": "text_editor_20250124", <br />    "name": "str_replace_based_edit_tool" <br />}</pre>  | Update to the existing `str_replace_editor` tool. Use with `"anthropic_beta": ["computer-use-2025-01-24"]` or `["computer-use-2025-11-24"]`. | 
+|  <pre>{ <br />    "type": "text_editor_20250728", <br />    "name": "str_replace_based_edit_tool" <br />}</pre>  | Latest text editor tool. No `anthropic_beta` value is required. | 
+|  <pre>{ <br />    "type": "text_editor_20250124", <br />    "name": "str_replace_editor" <br />}</pre>  | Earlier text editor tool. The `name` must be `str_replace_editor`. Accepted by older models such as Claude Opus 4.1; newer models, including Claude Sonnet 4.5, reject this type. Use `text_editor_20250728` instead. | 
 |  <pre>{ <br />    "type": "text_editor_20241022", <br />    "name": "str_replace_editor" <br />}</pre>  | Legacy. Use with `"anthropic_beta": ["computer-use-2024-10-22"]`. | 
-|  <pre>{ <br />    "type": "bash_20250124", <br />    "name": "bash" <br />}</pre>  | Use with `"anthropic_beta": ["computer-use-2025-01-24"]` or `["computer-use-2025-11-24"]`. | 
+|  <pre>{ <br />    "type": "bash_20250124", <br />    "name": "bash" <br />}</pre>  | No `anthropic_beta` value is required. If you send `bash_20250124` in the same request as a computer tool, include the beta value for that computer tool. Claude Opus 4.1 rejects the `computer-use-2025-11-24` value. | 
+|  <pre>{ <br />    "type": "memory_20250818", <br />    "name": "memory" <br />}</pre>  | Memory tool. No `anthropic_beta` value is required. Not accepted by Claude Sonnet 4.5 or Claude Opus 4.1. | 
 |  <pre>{ <br />    "type": "bash_20241022", <br />    "name": "bash" <br />}</pre>  | Legacy. Use with `"anthropic_beta": ["computer-use-2024-10-22"]`. | 
 
 The `type` field identifies the tool and its parameters for validation purposes; the `name` field is the tool name exposed to the model.

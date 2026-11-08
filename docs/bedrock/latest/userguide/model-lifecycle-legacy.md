@@ -58,14 +58,14 @@ The following models are in the Legacy state with an announced EOL date. Migrate
   - **Model ID:** anthropic.claude-3-haiku-20240307-v1:0
   - **Regions:** ap-northeast-2, ap-south-1, ap-southeast-1 / **Legacy date:** October 10, 2026 / **EOL date:** November 13, 2026 / **Public extended access start date:** October 10, 2026
   - **Regions:** eu-central-2, sa-east-1 / **Legacy date:** October 13, 2026 / **EOL date:** November 13, 2026 / **Public extended access start date:** October 13, 2026
-  - **Regions:** ca-central-1 / **Legacy date:** October 15, 2026 / **EOL date:** November 13, 2026 / **Public extended access start date:** October 15, 2026
+  - **Regions:** ca-central-1 / **Legacy date:** October 15, 2026 / **EOL date:** November 27, 2026 / **Public extended access start date:** October 15, 2026
 
 - **Anthropic**
   - **Model name:** Claude 3 Sonnet
   - **Model ID:** anthropic.claude-3-sonnet-20240229-v1:0
   - **Regions:** ap-south-1, ap-southeast-1, eu-west-2 / **Legacy date:** October 10, 2026 / **EOL date:** November 13, 2026 / **Public extended access start date:** October 10, 2026
   - **Regions:** sa-east-1 / **Legacy date:** October 13, 2026 / **EOL date:** November 13, 2026 / **Public extended access start date:** October 13, 2026
-  - **Regions:** ca-central-1 / **Legacy date:** October 15, 2026 / **EOL date:** November 13, 2026 / **Public extended access start date:** October 15, 2026
+  - **Regions:** ca-central-1 / **Legacy date:** October 15, 2026 / **EOL date:** November 27, 2026 / **Public extended access start date:** October 15, 2026
 
 - **Anthropic**
   - **Model name:** Claude 3.5 Sonnet

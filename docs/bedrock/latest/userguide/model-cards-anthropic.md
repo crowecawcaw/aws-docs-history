@@ -32,4 +32,26 @@ The following Anthropic models are available in Amazon Bedrock:
 <a name="model-cards-anthropic-billing-notes"></a>
 
 The following billing behaviors apply specifically to Anthropic models on Amazon Bedrock:
-+ **Refused requests (all Anthropic models on `bedrock-mantle`):** When a request is refused by a content classifier before inference begins, no input or output tokens are billed. Mid-stream refusals — where the classifier fires after output has begun streaming — are billed for tokens consumed before the block. Both refusal types return `stop_reason: "refusal"` in the response.
++ **Refused requests** – A refused request returns HTTP 200 with `stop_reason: "refusal"`. Whether it's billed depends on when the refusal occurred and on `stop_details.category`. These rules apply on both the `bedrock-runtime` and `bedrock-mantle` endpoints.
+
+  The following table describes each `stop_details.category` value and whether Amazon Bedrock bills a refusal in that category before any output.
+
+
+<table>
+<thead>
+  <tr><th><b><code>stop_details.category</code></b></th><th><b>What it means</b></th><th><b>Billed before any output</b></th></tr>
+</thead>
+<tbody>
+  <tr><td><code>"cyber"</code></td><td>The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.</td><td>No</td></tr>
+  <tr><td><code>"bio"</code></td><td>The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.</td><td>Yes</td></tr>
+  <tr><td><code>"frontier_llm"</code></td><td>The request could help with the development of competing AI models, which is restricted under Anthropic's commercial terms. Benign machine learning work can also trigger this category.</td><td>Yes</td></tr>
+  <tr><td><code>"reasoning_extraction"</code></td><td>The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use adaptive thinking. This category has no recommended fallback model, so change the prompt instead of retrying on another model.</td><td>Yes</td></tr>
+  <tr><td><code>"general_harms"</code></td><td>The request falls under a usage-policy area outside the four named categories. Benign work can also trigger this category.</td><td>No</td></tr>
+  <tr><td><code>null</code></td><td>The refusal doesn't map to a named category. <code>null</code> is a valid final value, not a placeholder.</td><td>No</td></tr>
+</tbody>
+</table>
+
+
+  Amazon Bedrock bills a refusal before any output like any other request, at the refused model's rates. For a refusal that arrives mid-stream, after partial output, Amazon Bedrock bills the input tokens and the output tokens already streamed, in any category. Treat any partial output as incomplete and discard it.
+
+  In every case, the response's `usage` still reports token counts, and the request counts against your quotas. The set of billed categories can change.

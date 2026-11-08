@@ -3,8 +3,9 @@
 # Configure agent to request information from user to increase accuracy of function prediction
 <a name="agents-user-input"></a>
 
-**Note**  
-Amazon Bedrock Agents (now Amazon Bedrock Agents Classic) is no longer open to new customers. For capabilities similar to Bedrock Agents Classic, explore [Amazon Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agentcore-get-started-cli.html). Existing customers can continue to use the service as normal. For more information, see [Amazon Bedrock Agents Classic maintenance mode](agents-classic-maintenance-mode.md).
+**Amazon Bedrock Agents Classic availability**  
+You can no longer sign up for Amazon Bedrock Agents (now Amazon Bedrock Agents Classic). If you already use Agents Classic, you can continue to use it.  
+For more information about building code-defined agents with the Strands Agents SDK, see [Get started with Amazon Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agentcore-get-started-cli.html). For more information about Agents Classic, see [Amazon Bedrock Agents Classic maintenance mode](agents-classic-maintenance-mode.md).
 
 You can configure your agent to request more information from the user if it doesn't have enough information to accomplish a task. If your agent has action groups or APIs with some parameters, by default, the agent will use the default values for those parameters or Foundation Model hallucinates to assume the values of the parameter to complete the API request if it is not provided by the user. This might lead to agent inaccurately predicting the next function or the method to invoke based on the current interaction and causing hallucination. 
 

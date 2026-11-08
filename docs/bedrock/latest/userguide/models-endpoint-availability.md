@@ -167,6 +167,7 @@ The following tables show which Amazon Bedrock endpoints support each model, org
 
 | Model name | `bedrock-runtime` | `bedrock-mantle` | 
 | --- | --- | --- | 
+| [Kimi K3.1 Pro - Highspeed](model-card-moonshot-ai-kimi-k3-1-highspeed.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 | [Kimi K3](model-card-moonshot-ai-kimi-k3.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 | [Kimi K2 Thinking](model-card-moonshot-ai-kimi-k2-thinking.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | [Kimi K2.5](model-card-moonshot-ai-kimi-k2-5.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 

@@ -250,7 +250,7 @@ Some models require data retention for safety and abuse-prevention purposes. If 
 Accounts approved for ZDR on a specific model will see `"none"` included in that model's `allowed_modes`.
 
 **Anthropic Claude models**  
-ZDR eligibility for Claude models is managed by Anthropic. Contact your Anthropic account representative for support.
+ZDR for Claude models that require data retention is granted to customers who are eligible for the Enterprise Frontier Safeguards program. To find out whether you're eligible, contact your AWS account team or AWS Support. For more information, see [Model-specific abuse detection](abuse-detection.md#abuse-detection-model-specific).
 
 ## Enforcing retention policy with IAM
 <a name="data-retention-iam"></a>

@@ -34,6 +34,8 @@ If the input data is in an S3 bucket that belongs to a different account from th
 If you plan to write the output data to an S3 bucket that belongs to a different account from the one from which you're submitting the job, you must use the API to submit the batch inference job. To learn how to do this, select the API tab above.
 
 1. In the **Service access** section, select one of the following options:
+**Role manager**  
+If role manager is enabled in your account, Amazon Bedrock attaches the role for you. The **Use an existing service role** and **Create and use a new service role** options described here are replaced by a **Customize** option. To use a different role, choose **Customize**. For more information, see [IAM role creation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the *IAM User Guide*.
    + **Use an existing service role** – Select a service role from the drop-down list. For more information on setting up a custom role with the appropriate permissions, see [Required permissions for batch inference](batch-inference-permissions.md).
    + **Create and use a new service role** – Enter a name for the service role.
 
