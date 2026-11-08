@@ -10,3 +10,4 @@ Scenarios target an intermediate level of experience to help you understand serv
 **Topics**
 + [Email Attachments Scenario](sesv2_example_sesv2_Scenario_EmailAttachments_section.md)
 + [Newsletter scenario](sesv2_example_sesv2_NewsletterWorkflow_section.md)
++ [Search and filter SES resources](sesv2_example_sesv2_SearchFilterBasics_section.md)
