@@ -34,6 +34,7 @@ Gateway versions 1.x.x can't be updated to 2.x.x.
 
 | Release Date | Software Version | Release Notes | 
 | --- | --- | --- | 
+| 2026-11-03 | **2.1.15** | **{{Urgent Security Update}}:**+  Urgent kernel patch applied to address CVE-2026-98432.  | 
 | 2026-10-15 | 2.1.14 |  +  Updates operating system components and software packages to improve security and performance. <br />+  Improved NFS compatibility for Linux clients running kernel 6.19 or later, resolving an issue that could cause input/output errors when accessing NFS file shares.   | 
 | 2026-09-15 | 2.1.13 |  +  Updates operating system components and software packages to improve security and performance.   | 
 | 2026-08-20 | 2.1.12 |  +  Updates operating system components and software packages to improve security and performance.   | 
@@ -65,6 +66,7 @@ The following table lists the release notes for gateways based on AL2.
 
 | Release Date | Software Version | Release Notes | 
 | --- | --- | --- | 
+| 2026-11-03 | **1.28.15** | **{{Urgent Security Update}}:**+  Urgent kernel patch applied to address CVE-2026-98432.  | 
 | 2026-10-15 | 1.28.14 |  +  Updates operating system components and software packages to improve security and performance.   | 
 | 2026-09-15 | 1.28.13 |  +  Updates operating system components and software packages to improve security and performance.   | 
 | 2026-08-17 | 1.28.11 |  +  Updates operating system components and software packages to improve security and performance.   | 
