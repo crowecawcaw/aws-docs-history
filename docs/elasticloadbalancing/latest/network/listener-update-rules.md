@@ -11,6 +11,9 @@ If you change the protocol from TCP, UDP, or QUIC to TLS, you must specify a sec
 
 When the target group for the default action of a TCP, TLS, or QUIC listener is updated, new connections are routed to the newly configured target group. However, this has no effect on any active connections that were created prior to this change. These active connections remain associated to the target in the original target group for up to one hour if traffic is being sent, or up to when the idle-timeout period elapses if no traffic is sent, whichever occurs first. The parameter `Connection termination on deregistration` is not applied when updating the listener, as it's applied when deregistering targets.
 
+**Note**  
+If you replace or remove a target group from a listener without first deregistering its targets, those targets keep handling existing active connections. In this case, the Network Load Balancer doesn't terminate the connections, and existing connections stay established unless the client or the target ends them. The `Connection termination on deregistration` setting applies only when you deregister targets, so these connections can persist beyond the one-hour period described previously. To have the Network Load Balancer terminate them, deregister the targets before you remove or replace the target group.
+
 Port updates for QUIC or TCP\_QUIC listeners are not allowed. To update the port for listeners that handle QUIC traffic, the listener must be deleted and re-created with the new port.
 
 ------
