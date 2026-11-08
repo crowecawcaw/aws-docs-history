@@ -174,7 +174,9 @@ For additional IAM configuration information, see the considerations section for
 
 The namespace-scoped `AmazonEKSArgoCDPolicy` applies only to the primary Argo CD namespace, which defaults to `argocd`. It grants the capability full access to Secrets and AppProjects, and read access to ConfigMaps in that namespace.
 
-The cluster-scoped `AmazonEKSArgoCDClusterPolicy` grants access to Applications, ApplicationSets, and their status and finalizers across the cluster. It also grants access to read, create, and patch Kubernetes Events. Argo CD reconciles these resources only in the primary namespace and the additional namespaces that you enable. The default policies don’t grant access to Secrets, ConfigMaps, or AppProjects in additional namespaces. For the complete policy permissions, see [Review access policy permissions](access-policy-permissions.md).
+The cluster-scoped `AmazonEKSArgoCDClusterPolicy` grants access to Applications, ApplicationSets, and their status and finalizers across the cluster. It also grants access to read, create, and patch Kubernetes Events. Argo CD reconciles these resources only in the primary namespace and the additional namespaces that you enable.
+
+In additional namespaces, the default policies grant read access to two objects only: the `argocd-notifications-cm` ConfigMap and the `argocd-notifications-secret` Secret, which the notifications controller reads to load per-namespace notification configuration. That access is restricted to those resource names and grants no write access. The default policies grant no other access to Secrets, ConfigMaps, or AppProjects in additional namespaces. For the complete policy permissions, see [Review access policy permissions](access-policy-permissions.md). For more information about notification configuration, see [Send notifications for Argo CD Applications](argocd-notifications.md).
 
 To maintain optimal security posture, follow these namespace isolation practices:
 + Keep only Argo CD-relevant secrets within the primary Argo CD namespace

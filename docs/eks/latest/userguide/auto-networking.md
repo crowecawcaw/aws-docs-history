@@ -39,13 +39,13 @@ Learn how to [Create an Amazon EKS NodeClass](create-node-class.md).
 
 EKS Auto Mode supports:
 + EKS Network Policies.
++ Security groups for individual Pods, through the `SecurityGroupPolicy` resource, on clusters running Kubernetes version 1.36 or later. For more information, see [Assign security groups to individual Pods in EKS Auto Mode](auto-sgp.md).
 + The `HostPort` and `HostNetwork` options for Kubernetes Pods.
 + Nodes and Pods in public or private subnets.
 + Caching DNS queries on the node.
 + Static network interface configuration for EFA workloads. For more information, see [Static Network Interface Configuration](create-node-class.md#static-network-interfaces).
 
 EKS Auto Mode does **not** support:
-+ Security Groups per Pod (SGPP). To apply separate security groups to Pod traffic in Auto Mode, use `podSecurityGroupSelectorTerms` in the `NodeClass` instead. For more information, see [Separate subnets and security groups for Pods](create-node-class.md#pod-subnet-selector).
 + Custom Networking in the `ENIConfig`. You can put pods in multiple subnets or exclusively isolate them from the node traffic with [Separate subnets and security groups for Pods](create-node-class.md#pod-subnet-selector).
 + Warm IP, warm prefix, and warm ENI configurations.
 + Minimum IP targets configuration.

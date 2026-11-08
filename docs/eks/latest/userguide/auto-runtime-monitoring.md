@@ -30,12 +30,26 @@ Fluent Bit is configured with a `ConfigMap`. Within the configuration, you speci
       Systemd_Filter      _SYSTEMD_UNIT=eks-ebs-csi-driver.service
       Systemd_Filter      _SYSTEMD_UNIT=eks-pod-identity-agent.service
       Systemd_Filter      _SYSTEMD_UNIT=eks-node-monitoring-agent.service
+      Systemd_Filter      _SYSTEMD_UNIT=eks-healthchecker.service
+      Systemd_Filter      _SYSTEMD_UNIT=ipamd.service
       DB                  /var/fluent-bit/state/systemd.db
       Path                /var/log/journal
-      Read_From_Tail      ${READ_FROM_TAIL}
+      Read_From_Tail      Off
 ```
 
 You can also collect file-based logs written by the VPC CNI components under `/var/log/aws-routed-eni/`. These include `ipamd`, `network-policy-agent`, `plugin`, and `ebpf-sdk` logs. To collect them, add a `tail` input to the configuration.
+
+```
+    [INPUT]
+      Name                tail
+      Tag                 dataplane.cni.*
+      Path                /var/log/aws-routed-eni/*.log
+      DB                  /var/fluent-bit/state/aws-routed-eni.db
+      Mem_Buf_Limit       10MB
+      Skip_Long_Lines     On
+      Refresh_Interval    10
+      Read_from_Head      On
+```
 
 **Note**  
 The preceding example is shortened for clarity. For a complete `ConfigMap` that collects application, runtime, and host logs and ships them to CloudWatch Logs, see the Container Insights Fluent Bit configuration in the Amazon CloudWatch documentation.
@@ -61,6 +75,7 @@ The following table shows the metrics endpoint (port and path) for each componen
 | Network Policy Agent |  `8900/metrics`  | 
 | Node Monitoring Agent |  `8801/metrics`  | 
 | Pod Identity Agent |  `2705/metrics`  | 
+| EKS Health Checker |  `62346/metrics`  | 
 
 ### Access a node to run diagnostic commands
 <a name="_access_a_node_to_run_diagnostic_commands"></a>

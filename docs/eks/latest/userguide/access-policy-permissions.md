@@ -517,6 +517,9 @@ Argo CD Resource Management:
 + Full access to Applications and ApplicationSets across the cluster.
 + Manage finalizers and status for Applications and ApplicationSets.
 
+Notification Configuration:
++ Read access to the `argocd-notifications-cm` ConfigMap and the `argocd-notifications-secret` Secret, by name only, so that the notifications controller can read notification configuration from the additional namespaces that you enable. For more information, see [Send notifications for Argo CD Applications](argocd-notifications.md).
+
 API Discovery:
 + Read access to Kubernetes API endpoints for resource discovery.
 
@@ -530,7 +533,12 @@ The Application and ApplicationSet permissions are cluster-wide for every Argo C
 |  `apiextensions.k8s.io`  |  |  `customresourcedefinitions` (Argo CD CRDs only) |  `get`, `update`, `patch`, `delete`  | 
 |  |  |  `events`  |  `get`, `list`, `watch`, `patch`, `create`  | 
 |  `argoproj.io`  |  |  `applications`, `applications/finalizers`, `applications/status`, `applicationsets`, `applicationsets/finalizers`, `applicationsets/status`  |  `*`  | 
+|  |  |  `configmaps` (`argocd-notifications-cm` only) |  `get`, `list`, `watch`  | 
+|  |  |  `secrets` (`argocd-notifications-secret` only) |  `get`, `list`, `watch`  | 
 |  |  `/api`, `/api/*`, `/apis`, `/apis/*`  |  |  `get`  | 
+
+**Note**  
+The `configmaps` and `secrets` permissions are restricted to those two resource names and grant no write access. No other ConfigMap or Secret in your cluster becomes readable through this access policy. Kubernetes authorizes a name-restricted `list` or `watch` only when the request filters on that name, so an unfiltered cluster-wide list of ConfigMaps or Secrets is still denied.
 
 ## AmazonEKSArgoCDPolicy
 <a name="_amazoneksargocdpolicy"></a>
@@ -596,6 +604,7 @@ View details about updates to access policies, since they were introduced. For a
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Update Argo CD access policy permissions | Add read access for the `argocd-notifications-cm` ConfigMap and the `argocd-notifications-secret` Secret, by name only, to `AmazonEKSArgoCDClusterPolicy`. This allows the notifications controller to read notification configuration from additional namespaces. The update applies automatically to existing Argo CD capabilities; no action is required. | November 2, 2026 | 
 | Update Argo CD access policy permissions | Move the `events`, `applications`, and `applicationsets` permissions from `AmazonEKSArgoCDPolicy` to `AmazonEKSArgoCDClusterPolicy`. The update applies automatically to existing Argo CD capabilities; no action is required. | September 24, 2026 | 
 | Add policies for EKS Capabilities | Publish `AmazonEKSACKPolicy`, `AmazonEKSArgoCDClusterPolicy`, `AmazonEKSArgoCDPolicy`, and `AmazonEKSKROPolicy` for managing EKS Capabilities | November 22, 2025 | 
 | Add `AmazonEKSSecretReaderPolicy`  | Add a new policy for read-only access to secrets | November 6, 2025 | 

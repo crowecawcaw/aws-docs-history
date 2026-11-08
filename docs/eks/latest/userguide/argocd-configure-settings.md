@@ -91,6 +91,8 @@ ApplicationSets in additional namespaces don’t support the Plugin (`plugin`), 
 
 The managed capability configures the required Kubernetes permissions and restarts the affected Argo CD components for you. Don’t apply the upstream Argo CD `ClusterRole` or `ClusterRoleBinding` manifests, and don’t restart managed workloads. If you remove a namespace from the ConfigMap, the capability stops managing `Application` or `ApplicationSet` resources in that namespace. However, it doesn’t delete those resources or their deployed workloads.
 
+The `argocd-cmd-params-cm` ConfigMap supports one more key, `notificationscontroller.selfservice.enabled`. Set it to `true` to let each additional namespace carry its own notification configuration. For more information, see [Configure notifications per namespace](argocd-notifications.md#argocd-notifications-selfservice).
+
 ## Supported settings
 <a name="argocd-supported-settings"></a>
 

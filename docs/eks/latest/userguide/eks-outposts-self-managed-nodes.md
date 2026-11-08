@@ -78,6 +78,14 @@ Alternatively you can also enable client certificate rotation (see: https://kube
 
 1. Download the latest version of the AWS CloudFormation template.
 
+   If your Outpost is configured with Amazon EC2 instance store, download `amazon-eks-outpost-instance-store-nodegroup.yaml`.
+
+   ```
+   curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2026-10-26/amazon-eks-outpost-instance-store-nodegroup.yaml
+   ```
+
+   Otherwise, download `amazon-eks-outpost-nodegroup.yaml`.
+
    ```
    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2025-11-24/amazon-eks-outpost-nodegroup.yaml
    ```
@@ -86,13 +94,15 @@ Alternatively you can also enable client certificate rotation (see: https://kube
 
 1. Choose **Create stack** and then select **With new resources (standard)**.
 
-1. For **Specify template**, select **Upload a template file** and then select **Choose file**. Select the `amazon-eks-outpost-nodegroup.yaml` file that you downloaded in a previous step and then select **Next**.
+1. For **Specify template**, select **Upload a template file** and then select **Choose file**.
+
+1. Select the template file that you downloaded in a previous step and then select **Next**.
 
 1. On the **Specify stack details** page, enter the following parameters accordingly, and then choose **Next**:
    +  **Stack name**: Choose a stack name for your AWS CloudFormation stack. For example, you can call it {{al-nodes}}. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphanumeric character and can’t be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you’re creating the cluster in.
    +  **ApiServerEndpoint**: Enter the Kubernetes API Server endpoint, visible in EKS console or via DescribeCluster API.
    +  **ClusterName**: Enter the name of your cluster. If this name doesn’t match your cluster name, your nodes can’t join the cluster.
-   +  **ClusterId**: Enter the id assigned to the cluster by EKS service. Visible via DescribeCluster API. If this id doesn’t match your cluster id, your nodes can’t join the cluster.
+   +  **ClusterId** (`amazon-eks-outpost-nodegroup.yaml` only): Enter the id that EKS assigned to the cluster. Visible via DescribeCluster API. If this id doesn’t match your cluster id, your nodes can’t join the cluster. `amazon-eks-outpost-instance-store-nodegroup.yaml` doesn’t have this parameter.
    +  **CertificateAuthority**: Enter base64 encoded string of the Kubernetes Certificate Authority. Visible in EKS console or via DescribeCluster API.
    +  **ServiceCidr**: Enter the Kubernetes Services CIDR. Visible in EKS console or via DescribeCluster API.
    +  **ClusterControlPlaneSecurityGroup**: Choose the **SecurityGroups** value from the AWS CloudFormation output that you generated when you created your [VPC](creating-a-vpc.md).

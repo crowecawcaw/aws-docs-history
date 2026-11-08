@@ -145,7 +145,7 @@ Deploy worker nodes to your local cluster using [self-managed node groups](launc
 1. Deploy the worker node AWS CloudFormation template or create individual EC2 instances on your Outpost.
 
    ```
-   curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2025-11-24/amazon-eks-outpost-nodegroup.yaml
+   curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2026-10-26/amazon-eks-outpost-instance-store-nodegroup.yaml
    ```
 
 1. Grant the node instance role access to your cluster. Create an [access entry](access-entries.md) for the node’s IAM role:

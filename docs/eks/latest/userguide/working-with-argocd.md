@@ -36,6 +36,8 @@ The following topics guide you through common Argo CD tasks:
 
  ** [Use ApplicationSets](argocd-applicationsets.md) ** - Use ApplicationSets to deploy applications across multiple environments or clusters using templates and generators.
 
+ ** [Send notifications for Argo CD Applications](argocd-notifications.md) ** - Send Application sync and health events to Slack, PagerDuty, Amazon SQS, Amazon EventBridge, and other services.
+
 ## Access the Argo CD UI
 <a name="_access_the_argo_cd_ui"></a>
 

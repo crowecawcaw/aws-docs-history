@@ -26,12 +26,13 @@ Each capability has one or more log types that you can configure independently a
 +  **EKS\_CAPABILITY\_ARGOCD\_APPLICATION\_LOGS** 
 +  **EKS\_CAPABILITY\_ARGOCD\_APPLICATIONSET\_LOGS** 
 +  **EKS\_CAPABILITY\_ARGOCD\_COMMITSERVER\_LOGS** 
++  **EKS\_CAPABILITY\_ARGOCD\_NOTIFICATION\_LOGS** 
 +  **EKS\_CAPABILITY\_ARGOCD\_REPOSERVER\_LOGS** 
 +  **EKS\_CAPABILITY\_ARGOCD\_SERVER\_LOGS** 
 
 ACK uses a single log type covering all ACK service controllers. Log records include a `controllerGroup` field (for example, `s3.services.k8s.aws`, `rds.services.k8s.aws`) that identifies which ACK service controller generated the log. You can use this field to filter logs for a specific service controller in CloudWatch Logs Insights or other query tools.
 
-Argo CD has five separate log types, one per controller component. This lets you enable logging for only the controllers you need and route them to different destinations.
+Argo CD has six separate log types, one per controller component. This lets you enable logging for only the controllers you need and route them to different destinations.
 
 ## Setting up log delivery
 <a name="_setting_up_log_delivery"></a>
