@@ -30,6 +30,9 @@ AWS PCS supports the `REBOOT_ONLY` value, which runs the `HealthCheckProgram` on
 + [JobRequeue](https://slurm.schedmd.com/slurm.conf.html#OPT_JobRequeue)
 + [LaunchParameters](https://slurm.schedmd.com/slurm.conf.html#OPT_LaunchParameters)
 + [Licenses](https://slurm.schedmd.com/slurm.conf.html#OPT_Licenses)
++ [MaxArraySize](https://slurm.schedmd.com/slurm.conf.html#OPT_MaxArraySize)
+**Note**  
+AWS PCS rejects a `MaxArraySize` greater than the cluster's `MaxJobCount`, which depends on the cluster size. If you don't set `MaxArraySize`, it equals `MaxJobCount`. For more information, see [Cluster size in AWS PCS](working-with_clusters_size.md).
 + [MetricsType](https://slurm.schedmd.com/slurm.conf.html#OPT_MetricsType)
 **Note**  
 For more information on Metrics in AWS PCS, see [Slurm metrics in AWS PCS](slurm-metrics.md).
