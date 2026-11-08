@@ -23,11 +23,15 @@ The following are the service endpoints and service quotas for this service.
 | Asia Pacific (Hyderabad) | ap-south-2 |  email.ap-south-2.amazonaws.com <br /> email.ap-south-2.api.aws  | HTTPS<br />HTTPS | 
 | Asia Pacific (Jakarta) | ap-southeast-3 |  email.ap-southeast-3.amazonaws.com <br /> email.ap-southeast-3.api.aws  | HTTPS<br />HTTPS | 
 | Asia Pacific (Malaysia) | ap-southeast-5 |  email.ap-southeast-5.amazonaws.com <br /> email.ap-southeast-5.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Melbourne) | ap-southeast-4 |  email.ap-southeast-4.amazonaws.com <br /> email.ap-southeast-4.api.aws  | HTTPS<br />HTTPS | 
 | Asia Pacific (Mumbai) | ap-south-1 |  email.ap-south-1.amazonaws.com <br /> email.ap-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (New Zealand) | ap-southeast-6 |  email.ap-southeast-6.amazonaws.com <br /> email.ap-southeast-6.api.aws  | HTTPS<br />HTTPS | 
 | Asia Pacific (Osaka) | ap-northeast-3 |  email.ap-northeast-3.amazonaws.com <br /> email.ap-northeast-3.api.aws  | HTTPS<br />HTTPS | 
 | Asia Pacific (Seoul) | ap-northeast-2 |  email.ap-northeast-2.amazonaws.com <br /> email.ap-northeast-2.api.aws  | HTTPS<br />HTTPS | 
 | Asia Pacific (Singapore) | ap-southeast-1 |  email.ap-southeast-1.amazonaws.com <br /> email.ap-southeast-1.api.aws  | HTTPS<br />HTTPS | 
 | Asia Pacific (Sydney) | ap-southeast-2 |  email.ap-southeast-2.amazonaws.com <br /> email.ap-southeast-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Taipei) | ap-east-2 |  email.ap-east-2.amazonaws.com <br /> email.ap-east-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Thailand) | ap-southeast-7 |  email.ap-southeast-7.amazonaws.com <br /> email.ap-southeast-7.api.aws  | HTTPS<br />HTTPS | 
 | Asia Pacific (Tokyo) | ap-northeast-1 |  email.ap-northeast-1.amazonaws.com <br /> email.ap-northeast-1.api.aws  | HTTPS<br />HTTPS | 
 | Canada (Central) | ca-central-1 |  email.ca-central-1.amazonaws.com <br /> email-fips.ca-central-1.api.aws <br /> email-fips.ca-central-1.amazonaws.com <br /> email.ca-central-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
 | Canada West (Calgary) | ca-west-1 |  email.ca-west-1.amazonaws.com <br /> email-fips.ca-west-1.api.aws <br /> email-fips.ca-west-1.amazonaws.com <br /> email.ca-west-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 
@@ -36,9 +40,11 @@ The following are the service endpoints and service quotas for this service.
 | Europe (London) | eu-west-2 |  email.eu-west-2.amazonaws.com <br /> email.eu-west-2.api.aws  | HTTPS<br />HTTPS | 
 | Europe (Milan) | eu-south-1 |  email.eu-south-1.amazonaws.com <br /> email.eu-south-1.api.aws  | HTTPS<br />HTTPS | 
 | Europe (Paris) | eu-west-3 |  email.eu-west-3.amazonaws.com <br /> email.eu-west-3.api.aws  | HTTPS<br />HTTPS | 
+| Europe (Spain) | eu-south-2 |  email.eu-south-2.amazonaws.com <br /> email.eu-south-2.api.aws  | HTTPS<br />HTTPS | 
 | Europe (Stockholm) | eu-north-1 |  email.eu-north-1.amazonaws.com <br /> email.eu-north-1.api.aws  | HTTPS<br />HTTPS | 
 | Europe (Zurich) | eu-central-2 |  email.eu-central-2.amazonaws.com <br /> email.eu-central-2.api.aws  | HTTPS<br />HTTPS | 
 | Israel (Tel Aviv) | il-central-1 |  email.il-central-1.amazonaws.com <br /> email.il-central-1.api.aws  | HTTPS<br />HTTPS | 
+| Mexico (Central) | mx-central-1 |  email.mx-central-1.amazonaws.com <br /> email.mx-central-1.api.aws  | HTTPS<br />HTTPS | 
 | Middle East (Bahrain) | me-south-1 |  email.me-south-1.amazonaws.com <br /> email.me-south-1.api.aws  | HTTPS<br />HTTPS | 
 | Middle East (UAE) | me-central-1 |  email.me-central-1.amazonaws.com <br /> email.me-central-1.api.aws  | HTTPS<br />HTTPS | 
 | South America (São Paulo) | sa-east-1 |  email.sa-east-1.amazonaws.com <br /> email.sa-east-1.api.aws  | HTTPS<br />HTTPS | 

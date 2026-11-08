@@ -25,10 +25,12 @@ The following are the service endpoints and service quotas for this service.
 | Asia Pacific (Malaysia) | ap-southeast-5 |  rds.ap-southeast-5.amazonaws.com  | HTTPS | 
 | Asia Pacific (Melbourne) | ap-southeast-4 |  rds.ap-southeast-4.amazonaws.com <br /> rds.ap-southeast-4.api.aws  | HTTPS<br />HTTPS | 
 | Asia Pacific (Mumbai) | ap-south-1 |  rds.ap-south-1.amazonaws.com <br /> rds.ap-south-1.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (New Zealand) | ap-southeast-6 |  rds.ap-southeast-6.amazonaws.com  | HTTPS | 
 | Asia Pacific (Osaka) | ap-northeast-3 |  rds.ap-northeast-3.amazonaws.com <br /> rds.ap-northeast-3.api.aws  | HTTPS<br />HTTPS | 
 | Asia Pacific (Seoul) | ap-northeast-2 |  rds.ap-northeast-2.amazonaws.com <br /> rds.ap-northeast-2.api.aws  | HTTPS<br />HTTPS | 
 | Asia Pacific (Singapore) | ap-southeast-1 |  rds.ap-southeast-1.amazonaws.com <br /> rds.ap-southeast-1.api.aws  | HTTPS<br />HTTPS | 
 | Asia Pacific (Sydney) | ap-southeast-2 |  rds.ap-southeast-2.amazonaws.com <br /> rds.ap-southeast-2.api.aws  | HTTPS<br />HTTPS | 
+| Asia Pacific (Taipei) | ap-east-2 |  rds.ap-east-2.amazonaws.com  | HTTPS | 
 | Asia Pacific (Thailand) | ap-southeast-7 |  rds.ap-southeast-7.amazonaws.com  | HTTPS | 
 | Asia Pacific (Tokyo) | ap-northeast-1 |  rds.ap-northeast-1.amazonaws.com <br /> rds.ap-northeast-1.api.aws  | HTTPS<br />HTTPS | 
 | Canada (Central) | ca-central-1 |  rds.ca-central-1.amazonaws.com <br /> rds.ca-central-1.api.aws <br /> rds-fips.ca-central-1.api.aws <br /> rds-fips.ca-central-1.amazonaws.com  | HTTPS<br />HTTPS<br />HTTPS<br />HTTPS | 

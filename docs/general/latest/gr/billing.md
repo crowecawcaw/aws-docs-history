@@ -115,14 +115,14 @@ AWS Billing and Cost Management includes the AWS Cost Explorer API, the AWS Cost
 | Cost Explorer saved reports | Each supported Region: 300 | No | The maximum number of reports that you save in an AWS account. | 
 | Number of AWS managed linked account, cost category, and cost allocation tag anomaly monitors | Each supported Region: 1 | No | Maximum number of AWS managed anomaly monitors (linked account, cost category, or cost allocation tags) per account | 
 | Number of AWS managed services anomaly monitors | Each supported Region: 1 | No | The maximum number of AWS managed service anomaly monitors per account | 
-| Number of Cost Categories | Each supported Region: 50 | No | The maximum number of Cost Categories per payer account | 
+| Number of Cost Categories | Each supported Region: 50 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/ce/quotas/L-1782F291)  | The maximum number of Cost Categories per payer account | 
 | Number of active cost allocation tag keys | Each supported Region: 500 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/ce/quotas/L-FE0E51D7)  | The maximum number of active cost allocation tag keys per payer account | 
 | Number of affected accounts in an organization that can be migrated using Bulk Policy Migrator | Each supported Region: 200 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/ce/quotas/L-3B4FC070)  | The maximum number of affected accounts in an organization that you can migrate with Bulk Policy Migrator | 
 | Number of affected policies in an organization that can be migrated using Bulk Policy Migrator | Each supported Region: 1,000 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/ce/quotas/L-563A19D7)  | The maximum number of affected policies in an organization that you can migrate with Bulk Policy Migrator | 
 | Number of anomaly alert subscriptions | Each supported Region: 100 | No | The maximum number of anomaly alert subscriptions you can create per account | 
 | Number of customer managed anomaly monitors | Each supported Region: 500 | No | Maximum number of customer managed anomaly monitors (linked account, cost category, or cost allocation tags) per account | 
 | Number of refresh requests for Savings Plans recommendations per day | Each supported Region: 3 per 24 hours | No | The maximum number of daily refresh requests for Savings Plans recommendations per consolidated billing family | 
-| Number of rules per Cost Category (API) | Each supported Region: 500 | No | The maximum number of Cost Category rules per Cost Category (API) | 
+| Number of rules per Cost Category (API) | Each supported Region: 500 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/ce/quotas/L-FD4BC3F8)  | The maximum number of Cost Category rules per Cost Category (API) | 
 | Number of rules per Cost Category (UI) | Each supported Region: 100 | No | The maximum number of Cost Category rules per Cost Category (UI) | 
 | Number of values tracked by AWS managed anomaly monitors | Each supported Region: 5,000 | No | Maximum tracked dimension values per AWS managed anomaly monitor | 
 

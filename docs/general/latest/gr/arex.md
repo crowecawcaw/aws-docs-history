@@ -47,6 +47,7 @@ The following are the service endpoints and service quotas for this service.
 | Israel (Tel Aviv) | il-central-1 |  resource-explorer-2.il-central-1.amazonaws.com  | HTTPS | 
 | Mexico (Central) | mx-central-1 |  resource-explorer-2.mx-central-1.amazonaws.com  | HTTPS | 
 | Middle East (Bahrain) | me-south-1 |  resource-explorer-2.me-south-1.amazonaws.com  | HTTPS | 
+| Middle East (Saudi Arabia) | me-west-1 |  resource-explorer-2.me-west-1.amazonaws.com  | HTTPS | 
 | Middle East (UAE) | me-central-1 |  resource-explorer-2.me-central-1.amazonaws.com  | HTTPS | 
 | South America (São Paulo) | sa-east-1 |  resource-explorer-2.sa-east-1.amazonaws.com  | HTTPS | 
 |  AWS GovCloud (US-East) | us-gov-east-1 |  resource-explorer-2.us-gov-east-1.amazonaws.com <br /> resource-explorer-2-fips.us-gov-east-1.amazonaws.com <br /> resource-explorer-2-fips.us-gov-east-1.api.aws  | HTTPS<br />HTTPS<br />HTTPS | 

@@ -26,7 +26,7 @@ The following are the service endpoints and service quotas for this service.
 | Asia Pacific (Malaysia) | ap-southeast-5 |  servicequotas.ap-southeast-5.amazonaws.com  | HTTPS | 
 | Asia Pacific (Melbourne) | ap-southeast-4 |  servicequotas.ap-southeast-4.amazonaws.com  | HTTPS | 
 | Asia Pacific (Mumbai) | ap-south-1 |  servicequotas.ap-south-1.amazonaws.com  | HTTPS | 
-| Asia Pacific (New Zealand) | ap-southeast-6 |  servicequotas.ap-southeast-6.amazonaws.com  | HTTPS | 
+| Asia Pacific (New Zealand) | ap-southeast-6 |  servicequotas.ap-southeast-6.amazonaws.com <br /> servicequotas.ap-southeast-6.api.aws  | HTTPS<br />HTTPS | 
 | Asia Pacific (Osaka) | ap-northeast-3 |  servicequotas.ap-northeast-3.amazonaws.com  | HTTPS | 
 | Asia Pacific (Seoul) | ap-northeast-2 |  servicequotas.ap-northeast-2.amazonaws.com  | HTTPS | 
 | Asia Pacific (Singapore) | ap-southeast-1 |  servicequotas.ap-southeast-1.amazonaws.com  | HTTPS | 
@@ -42,7 +42,7 @@ The following are the service endpoints and service quotas for this service.
 | Europe (Milan) | eu-south-1 |  servicequotas.eu-south-1.amazonaws.com  | HTTPS | 
 | Europe (Paris) | eu-west-3 |  servicequotas.eu-west-3.amazonaws.com  | HTTPS | 
 | Europe (Spain) | eu-south-2 |  servicequotas.eu-south-2.amazonaws.com  | HTTPS | 
-| Europe (Stockholm) | eu-north-1 |  servicequotas.eu-north-1.amazonaws.com  | HTTPS | 
+| Europe (Stockholm) | eu-north-1 |  servicequotas.eu-north-1.amazonaws.com <br /> servicequotas.eu-north-1.api.aws  | HTTPS<br />HTTPS | 
 | Europe (Zurich) | eu-central-2 |  servicequotas.eu-central-2.amazonaws.com  | HTTPS | 
 | Israel (Tel Aviv) | il-central-1 |  servicequotas.il-central-1.amazonaws.com  | HTTPS | 
 | Mexico (Central) | mx-central-1 |  servicequotas.mx-central-1.amazonaws.com  | HTTPS | 
