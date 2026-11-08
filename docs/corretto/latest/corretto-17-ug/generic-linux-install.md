@@ -80,9 +80,9 @@ java -version
 Expected output for 17.0.21:   
 
 ```
-openjdk version "17.0.21" 2026-10-26 LTS
-OpenJDK Runtime Environment Corretto-17.0.21.0.11 (build 17.0.21+0-LTS)
-OpenJDK 64-Bit Server VM Corretto-17.0.21.0.11 (build 17.0.21+0-LTS, mixed mode, sharing)
+openjdk version "17.0.21" 2026-10-20 LTS
+OpenJDK Runtime Environment Corretto-17.0.21.0.11 (build 17.0.21+11-LTS)
+OpenJDK 64-Bit Server VM Corretto-17.0.21.0.11 (build 17.0.21+11-LTS, mixed mode, sharing)
 ```
 
  If you see a version string that doesn't mention `Corretto`, run the following command to change the default `java` or `javac` providers. 
@@ -176,9 +176,9 @@ java -version
 Expected output for 17.0.21:   
 
 ```
-openjdk version "17.0.21" 2026-10-26 LTS
-OpenJDK Runtime Environment Corretto-17.0.21.0.11 (build 17.0.21+0-LTS)
-OpenJDK 64-Bit Server VM Corretto-17.0.21.0.11 (build 17.0.21+0-LTS, mixed mode, sharing)
+openjdk version "17.0.21" 2026-10-20 LTS
+OpenJDK Runtime Environment Corretto-17.0.21.0.11 (build 17.0.21+11-LTS)
+OpenJDK 64-Bit Server VM Corretto-17.0.21.0.11 (build 17.0.21+11-LTS, mixed mode, sharing)
 ```
 
  If you see a version string that doesn't mention `Corretto`, run the following command to change the default `java` or `javac` providers. 
