@@ -116,7 +116,7 @@ To grant users programmatic access, choose one of the following options.
 ## Install and configure the AWS CLI
 <a name="setting-up-cli"></a>
 
-If you want to use EMR Serverless APIs, install the latest version of the AWS Command Line Interface (AWS CLI). You don't need the AWS CLI to use EMR Serverless from the EMR Studio console, and get started without the CLI by following the steps in [Getting started with EMR Serverless from the console](gs-console.md).
+If you want to use EMR Serverless APIs, install the latest version of the AWS Command Line Interface (AWS CLI). You don't need the AWS CLI to use EMR Serverless from the EMR Studio console, and you can get started without the CLI by following the steps in [Getting started with EMR Serverless from the console](gs-console.md).
 
 **To set up the AWS CLI**
 
@@ -124,7 +124,7 @@ If you want to use EMR Serverless APIs, install the latest version of the AWS Co
 
 1. To configure the AWS CLI and secure setup of your access to AWS services, including EMR Serverless, refer to [Quick configuration with `aws configure`](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-config).
 
-1. To verify the setup, enter the following DataBrew command at the command prompt.
+1. To verify the setup, enter the following command at the command prompt.
 
    ```
    aws emr-serverless help

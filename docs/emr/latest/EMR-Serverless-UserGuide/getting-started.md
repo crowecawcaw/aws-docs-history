@@ -46,7 +46,7 @@ To set up a job runtime role, first create a runtime role with a trust policy so
 
 1. Choose **Create Policy**.
 
-1. The **Create policy** page opens on a new tab. Select the **Policy editor **as Json and Paste the policy JSON below.
+1. The **Create policy** page opens on a new tab. Select the **Policy editor **as JSON and paste the policy JSON below.
 **Important**  
 Replace `{{amzn-s3-demo-bucket}}` in the policy below with the actual bucket name created in [Prepare storage for EMR Serverless](#gs-prepare-storage). This is a basic policy for S3 access. For more job runtime role examples, see [Job runtime roles for Amazon EMR Serverless](security-iam-runtime-role.md).
 
@@ -198,7 +198,7 @@ Replace `{{amzn-s3-demo-bucket}}` in the policy below with the actual bucket nam
 
 1. Create a file named `emr-sample-access-policy.json` that defines the IAM policy for your workload. This provides read access to the script and data stored in public S3 buckets and read-write access to `{{amzn-s3-demo-bucket}}`. 
 **Important**  
-Replace `{{amzn-s3-demo-bucket}}` in the policy below with the actual bucket name created in [Prepare storage for EMR Serverless](#gs-prepare-storage).. This is a basic policy for AWS Glue and S3 access. For more job runtime role examples, see [Job runtime roles for Amazon EMR Serverless](security-iam-runtime-role.md).
+Replace `{{amzn-s3-demo-bucket}}` in the policy below with the actual bucket name created in [Prepare storage for EMR Serverless](#gs-prepare-storage). This is a basic policy for AWS Glue and S3 access. For more job runtime role examples, see [Job runtime roles for Amazon EMR Serverless](security-iam-runtime-role.md).
 
 ------
 #### [ JSON ]

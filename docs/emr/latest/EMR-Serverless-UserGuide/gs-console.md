@@ -22,7 +22,7 @@ Create a new application with EMR Serverless as follows.
 
 1. To create or manage EMR Serverless applications, you need the EMR Studio UI.
    + If you already have an EMR Studio in the AWS Region where you want to create an application, then select **Manage applications** to navigate to your EMR Studio, or select the studio that you want to use. 
-   + If you don't have an EMR Studio in the AWS Region where you want to create an application, choose **Get started** and then Choose **Create and launch Studio**. EMR Serverless creates a EMR Studio for you so that you can create and manage applications.
+   + If you don't have an EMR Studio in the AWS Region where you want to create an application, choose **Get started** and then choose **Create and launch Studio**. EMR Serverless creates an EMR Studio for you so that you can create and manage applications.
 
 1. In the **Create studio** UI that opens in a new tab, enter the name, type, and release version for your application. If you only want to run batch jobs, select **Use default settings for batch jobs only**. For interactive workloads, select **Use default settings for interactive workloads**. You can also run batch jobs on interactive-enabled applications with this option. If you need to, you can change these settings later.
 
@@ -146,7 +146,7 @@ Once you've created your application and set up the required permissions, use th
 
 1. In the notebook, you can access the driver log link and a link to the Apache Spark UI, a real-time interface that provides metrics to monitor your job. For more information, see [Monitoring EMR Serverless applications and jobs](https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/app-job-metrics.html) in the *Amazon EMR Serverless User Guide*.
 
-When you attach an application to an Studio workspace, the application start triggers automatically if it's not already running. You can also pre-start the application and keep it ready before you attach it to the workspace.
+When you attach an application to a Studio workspace, the application start triggers automatically if it's not already running. You can also pre-start the application and keep it ready before you attach it to the workspace.
 
 ------
 

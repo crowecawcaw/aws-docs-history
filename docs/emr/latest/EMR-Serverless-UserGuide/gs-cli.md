@@ -8,7 +8,7 @@ Get started with EMR Serverless from the AWS CLI with commands to create an appl
 ## Step 1: Create an EMR Serverless application
 <a name="gs-application-cli"></a>
 
-Use the [`emr-serverless create-application`](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_CreateApplication.html) command to create your first EMR Serverless application. You need to specify the application type and the the Amazon EMR release label associated with the application version you want to use. The name of the application is optional.
+Use the [`emr-serverless create-application`](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_CreateApplication.html) command to create your first EMR Serverless application. You need to specify the application type and the Amazon EMR release label associated with the application version you want to use. The name of the application is optional.
 
 ------
 #### [ Spark ]
@@ -198,7 +198,7 @@ aws emr-serverless delete-application \
 ### Delete your S3 log bucket
 <a name="delete-s3-bucket-cli"></a>
 
-To delete your S3 logging and output bucket, use the following command. Replace `{{amzn-s3-demo-bucket}}` with the actual name of the S3 bucket created in [Prepare storage for EMR Serverless](getting-started.md#gs-prepare-storage)..
+To delete your S3 logging and output bucket, use the following command. Replace `{{amzn-s3-demo-bucket}}` with the actual name of the S3 bucket created in [Prepare storage for EMR Serverless](getting-started.md#gs-prepare-storage).
 
 ```
 aws s3 rm s3://{{amzn-s3-demo-bucket}} --recursive
