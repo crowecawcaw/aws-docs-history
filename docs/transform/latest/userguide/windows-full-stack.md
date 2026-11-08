@@ -10,5 +10,6 @@ The [AWS Transform agent for .NET](dotnet.md) can help you modernize your .NET a
 AWS Transform for [SQL Server modernization](https://docs.aws.amazon.com/transform/latest/userguide/sql-server-modernization.html) is an AI-powered service that automates the full-stack modernization of Microsoft SQL Server databases and their associated .NET applications to Amazon Aurora PostgreSQL. The service orchestrates the migration journey from schema conversion, synthetic data generation, and modifying application code to match the new target PostgreSQL, making your teams more productive by automating complex and labor-intensive tasks.
 
 **Topics**
++ [Get started with AWS Transform for Windows modernization](windows-setup.md)
 + [Modernizing .NET with AWS Transform](dotnet.md)
 + [SQL Server modernization](sql-server-modernization.md)

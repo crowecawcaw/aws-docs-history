@@ -7,6 +7,9 @@ The AWS Transform discovery tool helps you automatically discover server invento
 
 After you configure a discovery source, the discovery tool begins collecting information. The time that the discovery tool needs to completely analyze your network depends on the size of your environment. For a directional migration business case, you can use the Migration Portfolio Assessment (MPA) files that the tool generates after server collection completes.
 
+**Note**  
+You can use the discovery tool with AWS Transform in the AWS GovCloud (US) Regions. Self-update is the only feature that might not work, depending on your network. For more information, see [Updating the discovery tool](discovery-tool-configure.md#discovery-tool-updating).
+
 ## Discovery tool workflow
 <a name="discovery-tool-workflow"></a>
 

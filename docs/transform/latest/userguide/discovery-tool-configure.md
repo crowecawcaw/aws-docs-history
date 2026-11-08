@@ -521,6 +521,9 @@ The discovery tool can update itself to a newer version without redeploying the 
 **Important**  
 Self-update requires outbound internet access from the discovery tool appliance to download updates. It is disabled by default. If your appliance cannot reach the internet, use the manual update method described in [Manual update](#discovery-tool-manual-update).
 
+**Note**  
+The discovery tool has no release location in the AWS GovCloud (US) Regions. If your network doesn't allow outbound access to the release location listed in the following prerequisites, use the manual update method described in [Manual update](#discovery-tool-manual-update).
+
 **Prerequisites**
 + Outbound HTTPS access to the discovery tool's release location, `s3.us-east-1.amazonaws.com/atx.discovery.collector.bundle/releases/latest/`. If outbound traffic is restricted, allow this location. Because the discovery tool uses path-style Amazon S3 URLs, a filter that matches only on host name cannot scope below `s3.us-east-1.amazonaws.com`; use a filter that matches on the full URL path to limit access to this location. Path-based filtering requires a firewall that performs TLS inspection; because the discovery tool validates the server certificate against the appliance's trust store, that firewall's certificate authority must be trusted on the appliance, or self-update fails with a TLS error. No proxy configuration is supported.
 + The appliance runs version 1.0.2810 or later, and it was originally deployed with version 1.0.2325 or later. If your appliance was originally deployed with an earlier version, use the manual update method. For more information, see [Minimum version for each update method](#discovery-tool-updating-min-version).

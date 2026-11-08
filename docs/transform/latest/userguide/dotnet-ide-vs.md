@@ -3,32 +3,21 @@
 # Modernizing .NET using AWS Transform in Visual Studio
 <a name="dotnet-ide-vs"></a>
 
-Complete these steps to port a Windows-based .NET application to a Linux-compatible cross-platform .NET application with AWS Transform in Visual Studio 2026 or 2022. 
+Complete these steps to port a Windows-based .NET application to a Linux-compatible cross-platform .NET application with AWS Transform in Visual Studio 2026 or 2022. Review the AWS Transform [capabilities](https://docs.aws.amazon.com/transform/latest/userguide/dotnet.html#capabilities) and [limitations](https://docs.aws.amazon.com/transform/latest/userguide/dotnet.html#limitations) for .NET modernization to confirm that your code can be transformed.
 
-## Step 1: Prerequisites
-<a name="transform-dotnet-prerequisites"></a>
-
-Before you continue, make sure you've downloaded and installed the [AWS Toolkit extension with Amazon Q](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.AWSToolkitforVisualStudio2022) from the Visual Studio Marketplace. Review the AWS Transform [capabilities](https://docs.aws.amazon.com/transform/latest/userguide/dotnet.html#capabilities) and [limitations](https://docs.aws.amazon.com/transform/latest/userguide/dotnet.html#limitations) for .NET modernization to confirm that your code can be transformed. 
-
-## Step 2: Authenticate in Visual Studio
+## Step 1: Authenticate in Visual Studio
 <a name="transform-dotnet-vs-authenticate"></a>
 
-To connect to your AWS accounts from the Toolkit for Visual Studio, open the Getting Started with the AWS Toolkit User Interface (connection UI): 
+1. In Visual Studio, navigate to the Getting Started page at **Extensions > AWS Toolkit > Getting Started**.
 
-1. From the Visual Studio main menu, navigate to **Extensions > AWS Toolkit > Getting Started** to open the **Getting Started: AWS Toolkit page**.
-
-1. Select **AWS Transform** authentication.
-
-1. Choose an existing profile or create a new one. When creating a new profile, enter a name for the profile and your AWS Transform start URL, which was emailed to you after you were added to IAM Identity Center by your administrator.
-
-1. Choose **Connect**. Follow the prompts to sign in and grant access permissions through your web browser. In Visual Studio, you should see **Connected with IAM Identity Center**.
+1. On the AWS Transform panel, select an existing profile or [create a new profile](dotnet-ide-toolkit.md#dotnet-setup-authentication-vs) to sign in.
 
 1. After signing in, you are taken to the **AWS Transform Dashboard**. From this landing page, you can do the following:
-   + Select an AWS Transform profile (region)
+   + Select an AWS Transform profile (Region)
    + Select or create a workspace
    + View status of transformation jobs
 
-## Step 3: Transform your application
+## Step 2: Transform your application
 <a name="transform-dotnet-app"></a>
 
 To transform your .NET solution or project, complete the following procedure:

@@ -35,6 +35,7 @@ AWS Transform continuous modernization supports the following analysis types to 
 | security | Static application security testing (SAST) using the AWS Security Agent. Scans source code for insecure coding patterns such as SQL injection, hardcoded secrets, and unsafe deserialization. Requires one-time infrastructure setup. | 
 | agentic-readiness | AI and agent integration readiness assessment. Scores 56 criteria across five categories: Infrastructure & Platform, Application Architecture, Data Foundations, Identity/Security/Governance, and Operations & Observability. | 
 | modernization-readiness | Cloud modernization opportunity assessment. Evaluates readiness across infrastructure, application, data, security, and operations dimensions. Identifies candidates for containerization, serverless migration, and platform upgrades. | 
+| graviton-readiness | AWS Graviton (Arm64) compatibility assessment for Java applications. Checks native libraries, dependencies, architecture-specific code, Dockerfiles, build configuration, and JVM flags. Each finding includes a recommended fix that you can apply with a remediation. | 
 | custom | Run one of your own transformation definitions as an analysis where each issue described is reported as a finding, which can link to an AWS managed transformation that fixes it. | 
 
 ## Understanding key concepts
@@ -57,7 +58,7 @@ Repositories are discovered by scanning sources. After discovery, you can filter
 ### Analyses
 <a name="ct-concept-analyses"></a>
 
-An analysis is a scan of one or more repositories using a specific analysis type. Each analysis produces findings that identify issues in your code. You can run analyses on demand or schedule them to run automatically. Analysis types include rapid-techdebt-analysis, tech-debt-comprehensive, security, agentic-readiness, modernization-readiness, and custom. Each analysis tracks its status (pending, running, complete, cancelled, or failed) and the repositories it scanned.
+An analysis is a scan of one or more repositories using a specific analysis type. Each analysis produces findings that identify issues in your code. You can run analyses on demand or schedule them to run automatically. Analysis types include rapid-techdebt-analysis, tech-debt-comprehensive, security, agentic-readiness, modernization-readiness, graviton-readiness, and custom. Each analysis tracks its status (pending, running, complete, cancelled, or failed) and the repositories it scanned.
 
 ### Findings
 <a name="ct-concept-findings"></a>
@@ -115,7 +116,7 @@ Run analyses on AWS Transform-managed infrastructure without provisioning or man
 
 This option requires a source hosted on a supported SCM provider (GitHub, GitLab, or Bitbucket). AWS Transform-managed infrastructure does not support local sources because it cannot reach repositories on your machine. You can choose the AWS Region the workload runs in with the `--region` option.
 
-AWS Transform-managed infrastructure runs analyses only. For remediation, or to run a custom transformation definition (`--type custom`), use AWS Batch or Amazon EC2.
+AWS Transform-managed infrastructure runs analyses only. For remediation, use AWS Batch or Amazon EC2.
 
 To run on AWS Transform-managed infrastructure, use the `atx ct remote analysis --mode aws-managed` command (see [Remote execution](ct-working-with.md#ct-remote-execution)), or install the Kiro Power or agent plugin (see [Developer tools](ct-developer-tools.md)) and ask the agent: *"Run my analysis on AWS with no infrastructure"*. A recurring analysis on AWS Transform-managed infrastructure requires an execution role (see [Scheduling recurring analysis](ct-working-with.md#ct-scheduling)).
 

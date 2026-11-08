@@ -40,6 +40,9 @@ Before you begin, ensure that you have the following:
 
 The containerization workflow consists of the following steps. The AWS Transform agent guides you through each step in the chat interface.
 
+**Note**  
+In AWS GovCloud (US), you stop the workflow after the infrastructure as code step. For more information, see [Differences in AWS GovCloud (US)](#transform-containers-govcloud).
+
 1. [Step 1: Review security disclaimer](transform-containers-step-disclaimer.md). Review and accept the security disclaimer.
 
 1. [Step 2: Clone source code](transform-containers-step-clone.md). Provide your application source code.
@@ -57,6 +60,18 @@ The containerization workflow consists of the following steps. The AWS Transform
 1. [Step 8: Clean up test infrastructure](transform-containers-step-cleanup.md). Tear down test resources.
 
 1. [Step 9: Deploy cutover infrastructure](transform-containers-step-cutover.md). Deploy production infrastructure.
+
+## Differences in AWS GovCloud (US)
+<a name="transform-containers-govcloud"></a>
+
+Source code containerization is available in the AWS GovCloud (US) Regions. Some services that the containerization workflow uses in other AWS Regions aren't available in the AWS GovCloud (US) Regions. When you use AWS Transform in the AWS GovCloud (US) Regions, the following differences apply.
++ **You must upload source code as ZIP files**. AWS CodeConnections isn't available in AWS GovCloud (US), so you can't clone from GitHub, Bitbucket, or GitLab, and AWS Transform can't push changes to a new branch in your repository. Upload one ZIP file per application. Download the modified source code from the links that AWS Transform provides during [Step 4: Review Docker artifacts and code changes](transform-containers-step-review.md). The connector configuration no longer asks for a CodeConnections ARN.
++ **A private Amazon ECR base image is required**. Amazon ECR Public isn't available in AWS GovCloud (US), so AWS Transform has no default base image and you can't use public registry images such as Amazon Linux from `public.ecr.aws` or Docker Hub. During [Step 2: Clone source code](transform-containers-step-clone.md), you provide the Amazon ECR image URI of the base image to use. Before you start, push a base image to an Amazon ECR repository in the account and Region of your connector, and tag the repository so that AWS Transform can access it. AWS Transform can't complete the step until it verifies access to the image.
++ **AWS CodeArtifact isn't supported**. AWS CodeArtifact isn't available in AWS GovCloud (US), so you can't configure Maven, PyPI, or npm repositories as private dependency sources. Private Amazon ECR base images are the only supported private dependency source.
++ **Infrastructure deployment is manual**. AWS Transform generates your Amazon EKS (Helm charts) or Amazon ECS (Terraform modules) infrastructure templates, but doesn't deploy them. The test deployment, test cleanup, and cutover deployment steps aren't part of the workflow. The workflow ends after infrastructure generation. Download the generated templates from the link that AWS Transform provides and deploy them yourself.
++ **You can use containerization only in AWS GovCloud (US) workspaces**. AWS GovCloud (US) Regions aren't available for workspaces in other [AWS Regions](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html#region). For the Regions that AWS Transform supports, see [Supported Regions for AWS Transform](regions.md).
+
+Image building, vulnerability scanning, and publishing to Amazon ECR work the same way in AWS GovCloud (US) as in other AWS Regions.
 
 ## Starting a containerization job
 <a name="transform-containers-starting"></a>

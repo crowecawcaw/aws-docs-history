@@ -110,6 +110,7 @@ The `--type` flag specifies the kind of analysis to run:
 + `security` – Static application security testing (SAST) for insecure coding patterns in source code.
 + `agentic-readiness` – Readiness of your repositories for AI agents (frameworks, APIs, documentation).
 + `modernization-readiness` – Modernization opportunities across your infrastructure, application, data, security, and operations dimensions.
++ `graviton-readiness` – AWS Graviton (Arm64) compatibility of your Java applications (native libraries, dependencies, architecture-specific code, Dockerfiles, build configuration, and JVM flags).
 + `custom` – Issues described by one of your own transformation definitions. Requires `--transformation-name`.
 
 ```
@@ -135,7 +136,7 @@ A **custom analysis** runs one of your own transformation definitions against yo
 
 1. Publish it with the `analysis` category. See [Transformation definition categories](custom.md#custom-transformation-categories).
 
-1. Run it with `--type custom` and `--transformation-name`, locally, remotely, or on a schedule.
+1. Run it with `--type custom` and `--transformation-name`, locally, remotely (including on AWS Transform-managed infrastructure), or on a schedule.
 
 ```
 atx ct analysis run --type custom --transformation-name {{name}} --source {{source}} --repo {{source}}::{{repo}} --wait
@@ -152,6 +153,26 @@ If the command fails because the transformation definition was not found, check 
 atx ct findings list --json
 atx ct findings list --repo {{source}}::{{repo}} --source {{name}} --severity {{high|medium|low}} --type {{analysis-type}} --status {{open|dismissed|obsolete|change_ready}} --analysis-id {{id}} --fix-transform {{transform-name}} --json
 ```
+
+### Matching findings to transformations
+<a name="ct-finding-transformations"></a>
+
+An analysis generates findings, and each finding can be matched to a transformation that remediates it. A remediation then runs the matched transformation on the finding's repository.
+
+Findings from tech-debt analyses (`rapid-techdebt-analysis` and `tech-debt-comprehensive`) and from custom analyses can be matched to an AWS managed transformation or to one of your own transformation definitions with the `remediation` category. Findings from other analysis types are matched to AWS managed transformations only.
+
+A finding is matched to a transformation only when that transformation performs the change needed to remediate it. Your own transformation definitions are judged by what their content says they change. Their names and descriptions don't need to describe the change. Neither kind of transformation is preferred: when more than one fits, the finding is matched to the one that most exactly performs the change. When no transformation fits, the finding isn't matched to one. The finding still describes the change to make (in its `recommendation` field), so you can make the change yourself.
+
+In `atx ct findings get` and `atx ct findings list --json`, the matched transformation is the `fix.transform_name` field.
+
+To list the findings matched to one of your transformation definitions:
+
+```
+atx ct findings list --fix-transform {{my-transformation-name}} --json
+```
++ `{{my-transformation-name}}` – The name of your transformation definition.
+
+A findings-based remediation (`atx ct remediation create --ids`) runs each finding's matched transformation. To make one of your transformation definitions eligible to be matched, see [Transformation definition categories](custom.md#custom-transformation-categories).
 
 ### Finding statuses
 <a name="ct-finding-statuses"></a>
@@ -189,6 +210,9 @@ Output by provider: GitHub PR, GitLab MR, Bitbucket PR, Local branch.
 **Note**  
 Token must have write access for PR/MR creation.
 
+**Important**  
+Remote remediations for `graviton-readiness` findings run on x86 infrastructure (Amazon EC2 or AWS Batch). The remediation makes the code changes needed for Arm64, but it can't build or test them on Arm64. Build and test the changes in your Arm64 pipeline before you merge them.
+
 Local execution with `--local` flag.
 
 ```
@@ -223,7 +247,13 @@ atx ct remote analysis --type {{type}} --mode aws-managed --sources {{name}} [--
 atx ct analysis get --id {{id}} --json
 ```
 
-This mode runs analyses only. It does not support remediation, the `custom` analysis type, or local sources. Because there is no stack, the `--stack-name`, `--tags`, `--existing-instance`, and `--batch-name` options don't apply. You can include up to 5,000 repositories in a single analysis submission. To cover larger scopes, split them across multiple submissions with `--repos`. Unlike Amazon EC2 and Batch runs, you monitor progress with `atx ct analysis get` rather than `atx ct remote status`.
+This mode runs analyses only. In this mode, you can't run remediations or use local sources. Because there is no stack, the `--stack-name`, `--tags`, `--existing-instance`, and `--batch-name` options don't apply. You can include up to 5,000 repositories in a single analysis submission. To cover larger scopes, split them across multiple submissions with `--repos`. Unlike Amazon EC2 and Batch runs, you monitor progress with `atx ct analysis get` rather than `atx ct remote status`.
+
+To run a custom analysis on AWS Transform-managed infrastructure, add `--type custom` and the name of a transformation definition that you published with the `analysis` category in the same AWS account and Region. For more information about custom analyses, see [Custom analysis](#ct-custom-analysis). In the following command, replace {{transformation-name}} and {{source-name}} with your own values:
+
+```
+atx ct remote analysis --type custom --transformation-name {{transformation-name}} --mode aws-managed --sources {{source-name}}
+```
 
 ### Networking
 <a name="ct-remote-network"></a>
@@ -276,7 +306,7 @@ AWS Transform limits how many remote jobs run at the same time in an AWS account
 | --- | --- | 
 | `security` | 5 | 
 | `tech-debt-quick` | 128 | 
-| `tech-debt-comprehensive`, `agentic-readiness`, `modernization-readiness`, and `custom` analysis, and remediation other than security remediation | 30, shared across all of these | 
+| `tech-debt-comprehensive`, `agentic-readiness`, `modernization-readiness`, `graviton-readiness`, and `custom` analysis, and remediation other than security remediation | 30, shared across all of these | 
 | Security remediation | 128 | 
 
 **Note**  
@@ -293,7 +323,7 @@ The addresses each subnet needs are the peak concurrent jobs, plus one or more f
 | Analysis type | Peak concurrent jobs | Minimum subnet size | 
 | --- | --- | --- | 
 | `security` | 5 | `/27` | 
-| `tech-debt-comprehensive`, `agentic-readiness`, `modernization-readiness`, `custom` | 30 | `/26` | 
+| `tech-debt-comprehensive`, `agentic-readiness`, `modernization-readiness`, `graviton-readiness`, `custom` | 30 | `/26` | 
 | `tech-debt-quick` | Up to 128 | `/24` | 
 | Every type running at its limit at once | 291 | `/23` | 
 
@@ -433,6 +463,12 @@ atx ct schedule get {{schedule-id}}
 atx ct schedule disable {{schedule-id}}
 atx ct schedule enable {{schedule-id}}
 atx ct schedule delete {{schedule-id}}
+```
+
+To schedule a custom analysis on AWS Transform-managed infrastructure, add `--type custom` and `--transformation-name`. Every run of the schedule uses that transformation definition. In the following command, replace {{schedule-name}}, {{role-arn}}, {{transformation-name}}, and {{source-name}} with your own values:
+
+```
+atx ct schedule create --name {{schedule-name}} --mode aws-managed --execution-role {{role-arn}} --recurrence daily --type custom --transformation-name {{transformation-name}} --sources {{source-name}}
 ```
 
 To view the analyses a schedule has run, use `atx ct analysis list --schedule-id {{schedule-id}}`, which returns the schedule's fired runs, newest first.

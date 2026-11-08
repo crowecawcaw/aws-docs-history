@@ -80,7 +80,7 @@ CLI version 2.0 and later uses the skills format. Existing transformation defini
 
 A transformation definition can have a **category** that says how it is used:
 + `analysis` – Reads code and reports findings. Continuous modernization runs these transformation definitions as a custom analysis.
-+ `remediation` – Changes code. Continuous modernization uses these transformation definitions to remediate findings.
++ `remediation` – Changes code. Continuous modernization uses these transformation definitions to remediate findings, and tech-debt and custom analyses can match findings to them.
 
 Set the category with the `--category` option of `atx custom def publish` or `atx custom def save-draft`:
 
@@ -97,8 +97,11 @@ AWS Transform uses the category to decide where a transformation definition can 
 | --- | --- | 
 | Custom analysis (--type custom) | Your own transformation definitions with the analysis category | 
 | Remediation with --transformation-name | Your own transformation definitions with the remediation category, or AWS managed transformations | 
+| Transformation matched to a finding from a tech-debt or custom analysis | Your own transformation definitions with the remediation category, or AWS managed transformations. A finding is never matched to a transformation definition with the analysis category, or with no category. | 
 
 Before submitting a custom analysis, schedule, or remediation, AWS Transform checks the transformation definition's category.
+
+To help findings be matched to your `remediation` transformation definition, put what it changes at the start. An analysis first reads only the beginning of each definition to decide which ones to consider, and reads the full text only of those. Start with a title and a short scope that say what the definition changes and where (for example, which languages or files), and keep each definition to one kind of change. See [Matching findings to transformations](ct-working-with.md#ct-finding-transformations).
 
 To change a transformation definition's category, publish it again with a different `--category` value. If you publish a new version without `--category`, the new version keeps the category of the previous version.
 
@@ -180,7 +183,7 @@ For each finding, include the file path, the line number, and the version you fo
 4. If nothing is found, state that the repository targets Java 17 or later.
 ```
 
-When this transformation definition runs against a project whose `pom.xml` sets `<source>1.8</source>`, it produces a `high` severity finding in the `outdated-compile-target` category, with `AWS/java-version-upgrade` as its fix.
+When this transformation definition runs against a project whose `pom.xml` sets `<source>1.8</source>`, it produces a `high` severity finding in the `outdated-compile-target` category, matched to the `AWS/java-version-upgrade` transformation.
 
 **Tips for writing analysis transformation definitions**
 + **Keep it read-only.** State explicitly that the analysis must not modify files. Fixing issues is the job of a remediation.

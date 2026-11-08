@@ -16,7 +16,7 @@ AUTH\_REQUIRED error
 No valid token found for the source. Verify your token is correct and has the required scopes. For GitHub, ensure the token has `repo` scope. For GitLab, ensure `api` scope.
 
 INVALID\_INPUT error  
-Verify you are using the correct analysis type name. Valid values are: `rapid-techdebt-analysis`, `tech-debt-comprehensive`, `security`, `agentic-readiness`, `modernization-readiness`, `custom`.
+Verify you are using the correct analysis type name. Valid values are: `rapid-techdebt-analysis`, `tech-debt-comprehensive`, `security`, `agentic-readiness`, `modernization-readiness`, `graviton-readiness`, `custom`.
 
 Permission errors during remediation  
 Remediation creates branches and pull/merge requests, which requires write access to the repository. Update your token with write permissions. For GitHub, ensure full `repo` scope. For GitLab, ensure `api` scope. For Bitbucket, ensure `write:repository:bitbucket` and `write:pullrequest:bitbucket` scopes.

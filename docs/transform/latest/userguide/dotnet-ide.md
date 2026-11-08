@@ -5,7 +5,7 @@
 
 AWS Transform includes an interactive, agentic AI assistant in the AWS Toolkit for Visual Studio. It enables you to modernize applications through a conversational, step-by-step guided experience directly in your IDE. To transform a .NET solution or project, the AWS Transform agent analyzes your codebase, determines the necessary updates to port your application, and generates an assessment report and transformation plan before the transformation begins.
 
-The Visual Studio IDE experience supports authentication by IAM Identity Center only. For more information, see [Adding users in IAM Identity Center](transform-user-management.md#transform-add-idc-users).
+You can sign in to Visual Studio IDE with [IAM Identity Center](transform-setup.md#transform-app-admin-starting-idc) or [credentials](transform-setup.md#transform-iam-only-access).
 
 The IDE experience offers autonomous and interactive modes. Use autonomous mode for unattended transformation, suitable for overnight or long-running jobs. Use interactive mode to work alongside the agent in chat, with high visibility into transformation, a customizable transformation plan, and step-by-step review of each project. You can iterate to refine results or change direction until satisfied.
 

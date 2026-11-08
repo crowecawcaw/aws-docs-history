@@ -19,7 +19,7 @@ Server migration is organized by waves. Each wave represents a group of servers 
 
 1. **Step 4: Data replication**. Continuous block-level replication keeps your target environment synchronized with source servers until you are ready for cutover.
 
-1. **Step 5: Testing**. Launch test instances to validate your migrated servers before committing to the final cutover.
+1. **Step 5: Testing**. Launch test instances to validate your migrated servers before committing to the final cutover, and mark applications as ready for cutover.
 
 1. **Step 6: Cutover**. Complete the migration with minimal downtime. The agent coordinates the final switchover and verifies success.
 
@@ -145,12 +145,12 @@ The `parameters` field is provided as a JSON structure:
 + `parameters` – Maps document parameter names to a list of value references (each with a `value` and an optional `type`, which defaults to `String`).
 + `externalParameters` – Maps document parameter names to dynamic path strings (no Systems Manager parameter is created).
 
-### Step 1: Set up migration wave
+## Step 1: Set up migration wave
 <a name="transform-vmware-ms-setup-wave"></a>
 
 In this phase, AWS Transform prepares the migration wave by configuring the target account, verifying service permissions, setting up resource tags, adding networking data to your inventory, and configuring replication and launch settings.
 
-#### Migration mode and account configuration
+### Migration mode and account configuration
 <a name="transform-vmware-ms-migration-mode"></a>
 
 AWS Transform supports two migration modes:
@@ -169,7 +169,7 @@ To learn more about these roles, see [Initializing MGN with the console](https:/
 
 For multi-account migrations, AWS Transform also creates the following role during the initialization step: `AWSTransformRehostSharingRole_<management-or-delegated-admin-account-id>`. This role is deployed across all migration target accounts.
 
-#### Resource tagging verification
+### Resource tagging verification
 <a name="transform-vmware-ms-resource-tagging"></a>
 
 After service permissions are confirmed, AWS Transform verifies that all required resources are properly tagged for the migration to be operated by the agent successfully. If any resources are missing required tags, AWS Transform provides a link to the tagging page where you can apply the missing tags before continuing. The following tags are required:
@@ -181,22 +181,22 @@ After service permissions are confirmed, AWS Transform verifies that all require
   VPCs and subnets created by the AWS Transform network migration agent are automatically tagged.
 + In addition to VPCs and subnets, AWS Transform also displays all existing Elastic Network Interfaces (ENIs) found in your target account. If you want AWS Transform to use them as part of your instance launch, they must be tagged with `CreatedFor: AWSTransform` and `ATWorkspace: <workspace_id>`. For more information on how to attach or add ENIs to the Amazon EC2 launch template, see [Detailed considerations](https://docs.aws.amazon.com/mgn/latest/ug/detailed-considerations.html) in the *MGN User Guide*.
 
-#### Add networking data to inventory
+### Add networking data to inventory
 <a name="transform-vmware-ms-networking-data"></a>
 
 AWS Transform adds networking information from your network migration to the inventory file. This step maps your servers to the appropriate target subnets and security groups based on the network configuration generated during the migrate network phase.
 
-#### Replication and launch settings
+### Replication and launch settings
 <a name="transform-vmware-ms-replication-settings"></a>
 
-##### Replication settings configuration
+#### Replication settings configuration
 <a name="transform-vmware-ms-replication-config"></a>
 
 Replication settings determine how data is replicated from your source servers to AWS. Configure the replication settings in the replication template before adding source servers to AWS Transform MGN. AWS Transform shows you all the replication settings parameters — you can configure them through a dedicated HITL or through the chat interface.
 
 For more details about the replication settings parameters, see [Replication settings template](https://docs.aws.amazon.com/mgn/latest/ug/replication-settings-template.html) in the *MGN User Guide*.
 
-##### Launch template settings
+#### Launch template settings
 <a name="transform-vmware-ms-launch-template-config"></a>
 
 The launch template allows you to control the way AWS Transform MGN launches instances in AWS. The default configuration defined in the template is automatically applied to every newly added server. You can configure launch template settings through a dedicated HITL or through the chat interface.
@@ -205,7 +205,7 @@ For more details about the launch template settings parameters, see [Launch temp
 
 AWS Transform also provides a link to the Amazon EC2 launch template ID associated with the launch template, allowing you to change additional Amazon EC2 launch template attributes. To edit the Amazon EC2 launch template, follow the instructions in [Launch template](https://docs.aws.amazon.com/mgn/latest/ug/launch-template.html) in the *MGN User Guide*.
 
-#### IP assignment strategy
+### IP assignment strategy
 <a name="transform-vmware-ms-ip-assignment"></a>
 
 You choose how IP addresses are assigned to your migrated servers:
@@ -215,7 +215,7 @@ You choose how IP addresses are assigned to your migrated servers:
 **Note**  
 If you selected the MAP security groups mapping strategy during network migration, only static IP assignment is available. For more details, see [Security groups mapping](transform-vmware-migrate-network-new-vpcs.md#transform-vmware-security-group-association).
 
-### Step 2: Validate and confirm inventory
+## Step 2: Validate and confirm inventory
 <a name="transform-vmware-ms-validate-inventory"></a>
 
 Before loading your server data into MGN, AWS Transform prepares the migration inventory file for your review. You must confirm the migration inventory file data and content as this sets the migration configuration. You can review the data in the file and update it using either of these methods:
@@ -239,7 +239,7 @@ Do not remove columns or change column headers in the inventory file. AWS Transf
 **Note**  
 AWS Transform allows one import to a given target AWS account and target AWS Region at a time. If you work on more than one wave simultaneously, or if there is more than one migration job running with the same target account, you must wait for an import to finish before you can perform another import in a different wave or job.
 
-### Step 3: Deploy replication agents
+## Step 3: Deploy replication agents
 <a name="transform-vmware-ms-deploy-agents"></a>
 
 To begin replicating data from your source servers to AWS, you install the AWS Replication Agent on each source server. AWS Transform offers three installation methods:
@@ -252,12 +252,12 @@ Key: `ATWorkspace` Value: {{workspace-id}}
 To tag the managed instance, open the AWS Systems Manager console, navigate to **Fleet Manager** under **Node Tools**, choose the managed instance of your MGN connector, and apply the tags above. Find your workspace ID in the AWS Transform web app URL: `https://.../workspace/{{workspace-id}}/job/{{job-id}}`.
 + **Manual installation** – Install the agent directly on each source server. This method requires direct access to each server but gives you full control over the installation process.
 
-#### AWS Transform MGN connector setup
+### AWS Transform MGN connector setup
 <a name="transform-vmware-ms-mgn-connector"></a>
 
 The AWS Transform MGN connector automates the deployment of replication agents across your source servers, eliminating the need to log into each server individually. The connector is a lightweight client deployed on a dedicated Linux machine in your on-premises environment. It connects to source servers over SSH (Linux) or WinRM (Windows) to install and configure replication agents, eliminating the need to manually coordinate across multiple AWS services.
 
-##### How the connector works
+#### How the connector works
 <a name="transform-vmware-ms-connector-how-it-works"></a>
 
 The connector operates through the following components:
@@ -278,7 +278,7 @@ When you deploy agents, AWS Transform sends an SSM document to the connector mac
 
 1. Verifies successful installation.
 
-##### Connector machine requirements
+#### Connector machine requirements
 <a name="transform-vmware-ms-connector-requirements"></a>
 
 
@@ -293,7 +293,7 @@ When you deploy agents, AWS Transform sends an SSM document to the connector mac
 **Note**  
 The connector must be installed on a Linux machine, but it can deploy agents to both Linux and Windows source servers.
 
-##### Setup process
+#### Setup process
 <a name="transform-vmware-ms-connector-setup-process"></a>
 
 AWS Transform guides you through the following steps to set up the connector:
@@ -358,7 +358,7 @@ Credential secret format. For more information, see [MGN connector credentials](
 }
 ```
 
-##### Agent deployment
+#### Agent deployment
 <a name="transform-vmware-ms-connector-deployment"></a>
 
 After credentials are configured and verified, AWS Transform deploys replication agents to your source servers. You can deploy to all servers in the current wave or select specific servers.
@@ -379,7 +379,7 @@ The deployment process for each server:
 
 You can monitor deployment progress in real time with per-server status tracking, including the current installation step, elapsed time, and estimated time remaining. If any servers fail, AWS Transform displays the failure reason and offers retry options per server. Successfully deployed servers can proceed independently while failed servers are retried.
 
-##### Connector reuse and lifecycle
+#### Connector reuse and lifecycle
 <a name="transform-vmware-ms-connector-reuse"></a>
 
 When deploying agents for subsequent waves, you can reuse an existing connector or create a new one. AWS Transform lists all connectors configured in your account, showing the connector name, status (Active or Expired), attached server count, and Hybrid Activation expiry date.
@@ -388,7 +388,7 @@ When deploying agents for subsequent waves, you can reuse an existing connector 
 
 SSM Hybrid Activations expire after 30 days. The activation is required only for installing the connector on the Linux machine. Once the connector is installed, you can continue to use it to install replication agents on source servers even after the activation expires. If you need to install the connector on a new machine after the activation has expired, you need to create a new connector through the setup process.
 
-#### Manual agent installation
+### Manual agent installation
 <a name="transform-vmware-ms-manual-install"></a>
 
 For manual installation, you first generate AWS credentials (temporary or permanent) and then install the agent on each source server.
@@ -431,7 +431,7 @@ You must install the replication agent on all servers in a wave. Disconnect and 
 
 For quotas related to replication, see [MGN service quota limits](https://docs.aws.amazon.com/mgn/latest/ug/MGN-service-limits.html) in the *MGN User Guide*.
 
-### Step 4: Data replication
+## Step 4: Data replication
 <a name="transform-vmware-ms-data-replication"></a>
 
 After the replication agents are installed, data replication begins automatically. AWS Transform uses continuous block-level replication to synchronize data from source servers to AWS.
@@ -455,7 +455,7 @@ You can control replication for individual servers or the entire wave at any tim
 + **Resume replication** – Resume previously paused replication.
 + **Stop replication** – Permanently stop replication. Stopped replication can be restarted, but it begins from the initial sync.
 
-### Step 5: Testing
+## Step 5: Testing
 <a name="transform-vmware-ms-testing"></a>
 
 After data replication is complete, you can launch test instances to validate your migrated servers before performing the final cutover. For more information, see [Launch test instances](https://docs.aws.amazon.com/mgn/latest/ug/launch-test-instances.html) in the *MGN User Guide*. AWS Transform supports two testing options:
@@ -467,12 +467,12 @@ AWS Transform launches Amazon EC2 instances from the replicated data and provide
 + Launch new test instances to retest.
 + Terminate test instances and address any issues before retesting.
 
-### Step 5b: Mark applications as ready for cutover
+### Mark applications as ready for cutover
 <a name="transform-vmware-ms-mark-ready"></a>
 
 After testing is complete and you are satisfied with the results, mark your applications as ready for cutover. AWS Transform reviews the replication status of each application and resolves any replication alerts before allowing you to proceed. Only applications with a clean replication status can be marked for cutover.
 
-### Step 6: Cutover
+## Step 6: Cutover
 <a name="transform-vmware-ms-cutover"></a>
 
 Cutover is the final migration step where your production workloads are moved to AWS. For more information, see [Launch cutover instances](https://docs.aws.amazon.com/mgn/latest/ug/launch-cutover-instances.html) in the *MGN User Guide*. Similar to testing, AWS Transform supports full wave cutover or selective cutover for specific servers.
@@ -495,7 +495,7 @@ Finalizing cutover stops the ongoing source machine replication. Make sure you h
 **Note**  
 Downtime occurs between source shutdown and cutover instance availability. Plan your cutover window accordingly.
 
-### Server lifecycle states
+## Server lifecycle states
 <a name="transform-vmware-ms-server-lifecycle"></a>
 
 During migration, each server progresses through the following lifecycle states. For more information, see [Source server lifecycle](https://docs.aws.amazon.com/mgn/latest/ug/migration-dashboard.html) in the *MGN User Guide*.
@@ -514,7 +514,7 @@ You can ask AWS Transform about the status of your servers at any time during th
 
 During wave migration, you can ask AWS Transform to update or change the status of individual servers. For example, if 9 out of 10 servers in your wave passed the test phase but one failed, you can allow AWS Transform to continue moving the 9 servers into the next phase while re-running the test on the failed server.
 
-### Deployment approvals
+## Deployment approvals
 <a name="transform-vmware-ms-approvals"></a>
 
 AWS Transform includes built-in approval workflows to ensure production changes go through your organization's review process. When an operation requires approval, AWS Transform routes the request to authorized approvers through the Approvals tab. Only users with the Admin role in AWS Transform can approve deployment requests. Deployments proceed only after receiving confirmation.

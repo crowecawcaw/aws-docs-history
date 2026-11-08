@@ -12,6 +12,7 @@ AWS Transform accelerates the transformation of your mainframe modernization app
 + [Tracking transformation progress](#transform-app-mainframe-workflow-track-progress)
 + [Set up a connector](#transform-app-mainframe-workflow-setup-connector)
 + [Assess and reimagine job plan](#transform-app-mainframe-workflow-assess-and-reimagine)
++ [Supported languages for business rules extraction](transform-app-mainframe-reimagine-supported.md)
 + [Reimagine job plan](#transform-app-mainframe-workflow-reimagine-job-plan)
 + [Custom job plan](#transform-app-mainframe-workflow-custom-job-plan)
 
@@ -228,6 +229,8 @@ In the reimagine phase, you can select one or all of the business functions that
 <a name="transform-app-mainframe-workflow-reimagine-business-logic"></a>
 
 After you select one or more business functions, AWS Transform begins generating business logic for the selected business functions. After extraction is complete, AWS Transform stores the results in an Amazon S3 bucket in JSON format for downstream use. You can monitor the progress of the extraction and review any issues directly within the AWS Transform console.
+
+For the list of source languages that business logic extraction supports, and how the constructs in each are represented in the extracted rules and requirements, see [Supported languages for business rules extraction](transform-app-mainframe-reimagine-supported.md).
 
 **To review business logic extraction results**
 
