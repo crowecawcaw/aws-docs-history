@@ -14,6 +14,7 @@ You use the Amazon FSx console, CLI, and API to [create an S3 access point and a
 Amazon S3 access points for FSx for OpenZFS ﬁle systems deliver latency in the tens of milliseconds range, consistent with S3 bucket access. Performance scales with your Amazon FSx ﬁle system’s provisioned throughput, with maximum throughput and requests per second bound by your underlying Amazon FSx ﬁle system conﬁguration. For more information about file system performance capabilities, see [Performance for Amazon FSx for OpenZFS](performance.md)
 
 **Topics**
++ [AWS Regions with Amazon S3 access points for FSx for OpenZFS](#access-points-for-fsx-openzfs-supported-regions)
 + [Access points naming rules, restrictions, and limitations](access-point-restrictions-limitations-naming-rules.md)
 + [Referencing access points with ARNs, access point aliases, or virtual-hosted-style URIs](referencing-access-points.md)
 + [Access point compatibility](access-points-object-api-support.md)
@@ -22,3 +23,48 @@ Amazon S3 access points for FSx for OpenZFS ﬁle systems deliver latency in the
 + [Managing Amazon S3 access points](access-points-manage.md)
 + [Using access points](access-points-usage-examples.md)
 + [Troubleshooting S3 access point issues](troubleshooting-access-points.md)
+
+## AWS Regions with Amazon S3 access points for FSx for OpenZFS
+<a name="access-points-for-fsx-openzfs-supported-regions"></a>
+
+The following table shows the AWS Regions where FSx for OpenZFS is available, and whether Amazon S3 access points for FSx for OpenZFS are supported in each AWS Region.
+
+
+| **AWS Region** | **Amazon S3 access points for FSx for OpenZFS** | 
+| --- | --- | 
+| US East (N. Virginia) | ✓ | 
+| US East (Ohio) | ✓ | 
+| US West (N. California) | ✓ | 
+| US West (Oregon) | ✓ | 
+| AWS GovCloud (US-West) |  | 
+| AWS GovCloud (US-East) |  | 
+| Asia Pacific (Hong Kong) | ✓ | 
+| Asia Pacific (Tokyo) | ✓ | 
+| Asia Pacific (Seoul) | ✓ | 
+| Asia Pacific (Osaka) | ✓ | 
+| Asia Pacific (Singapore) | ✓ | 
+| Asia Pacific (Sydney) | ✓ | 
+| Asia Pacific (Jakarta) | ✓ | 
+| Asia Pacific (Melbourne) | ✓ | 
+| Asia Pacific (Malaysia) | ✓ | 
+| Asia Pacific (Mumbai) | ✓ | 
+| Asia Pacific (Hyderabad) | ✓ | 
+| Asia Pacific (New Zealand) | ✓ | 
+| Asia Pacific (Taipei) | ✓ | 
+| Asia Pacific (Thailand) |  | 
+| Canada (Central) | ✓ | 
+| Canada West (Calgary) | ✓ | 
+| Europe (Milan) | ✓ | 
+| Europe (Spain) | ✓ | 
+| Europe (Frankfurt) | ✓ | 
+| Europe (Zurich) | ✓ | 
+| Europe (Ireland) | ✓ | 
+| Europe (London) | ✓ | 
+| Europe (Paris) | ✓ | 
+| Europe (Stockholm) | ✓ | 
+| Mexico (Central) | ✓ | 
+| Middle East (UAE) |  | 
+| Middle East (Bahrain) |  | 
+| South America (São Paulo) | ✓ | 
+| Israel (Tel Aviv) |  | 
+| Africa (Cape Town) | ✓ | 
