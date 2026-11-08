@@ -27,32 +27,30 @@ AWS Compute Optimizer generates recommendations for the following AWS resources:
 + **Amazon Aurora and Amazon Relational Database Service (Amazon RDS) databases**
 
   Compute Optimizer generates Aurora and RDS DB instances, RDS DB instance storage, and Aurora DB cluster recommendations for RDS for MySQL, RDS for PostgreSQL, and Amazon Aurora databases. For more information about the specific Amazon RDS resources supported by Compute Optimizer, see [Supported Amazon Aurora and RDS databases](#supported-rds).
-+ **Amazon NAT Gateway**
++ **NAT gateway**
 
-  Compute Optimizer generates idle recommendations for NAT Gateway. For more information, see [Viewing idle resource recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/view-idle-recommendations.html).
+  Compute Optimizer generates idle recommendations for NAT gateways. For more information, see [Viewing idle resource recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/view-idle-recommendations.html).
 + **Amazon DynamoDB**
 
-  Compute Optimizer generates idle recommendations for DynamoDB provisioned tables. For more information, see [Viewing idle resource recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/view-idle-recommendations.html).
+  Compute Optimizer generates idle recommendations for DynamoDB provisioned tables.
 + **Amazon ElastiCache**
 
-  Compute Optimizer generates idle recommendations for ElastiCache clusters running Redis or Valkey engines. For more information, see [Viewing idle resource recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/view-idle-recommendations.html).
+  Compute Optimizer generates idle recommendations for ElastiCache clusters running Redis or Valkey engines.
 + **Amazon MemoryDB**
 
-  Compute Optimizer generates idle recommendations for MemoryDB clusters. For more information, see [Viewing idle resource recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/view-idle-recommendations.html).
+  Compute Optimizer generates idle recommendations for MemoryDB clusters.
 + **Amazon DocumentDB**
 
-  Compute Optimizer generates idle recommendations for DocumentDB provisioned and serverless clusters. For more information, see [Viewing idle resource recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/view-idle-recommendations.html).
+  Compute Optimizer generates idle recommendations for DocumentDB provisioned and serverless clusters.
 + **Amazon WorkSpaces**
 
-  Compute Optimizer generates idle recommendations for WorkSpaces. For more information, see [Viewing idle resource recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/view-idle-recommendations.html).
+  Compute Optimizer generates idle recommendations for WorkSpaces.
 + **Amazon SageMaker**
 
-  Compute Optimizer generates idle recommendations for SageMaker endpoints. For more information, see [Viewing idle resource recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/view-idle-recommendations.html).
-
-
+  Compute Optimizer generates idle recommendations for SageMaker endpoints.
 
 **Note**  
-In order to generate recommendations for each resource, the resources must meet Compute Optimizer's metric and resource-specific requirements. For a list of the requiremtents for each resource, see [Resource requirements](requirements.md).
+To generate recommendations for a resource, make sure the resource meets Compute Optimizer's metric and resource-specific requirements. For a list of the requirements for each resource, see [Resource requirements](requirements.md).
 
 **Topics**
 + [Supported Amazon EC2 instance types](#supported-ec2-instances)
@@ -66,6 +64,8 @@ In order to generate recommendations for each resource, the resources must meet 
 
 Compute Optimizer generates recommendations for the instance types listed in this section. The following table lists the EC2 instance types that are supported by Compute Optimizer. 
 
+
+**Amazon EC2 instance types supported by Compute Optimizer**  
 
 | Instance series | Instance family | 
 | --- | --- | 
@@ -161,6 +161,8 @@ The following tables list the DB instance types for the databases that are suppo
 The DB instance types for the RDS for MySQL and RDS for PostgreSQL database engines supported by Compute Optimizer.
 
 
+**Amazon RDS DB instance types supported by Compute Optimizer**  
+
 | DB instance class family | Type | 
 | --- | --- | 
 | **General purpose** | db.m5 \| db.m5d \| db.m6g \| db.m6gd \| db.m6i \| db.m6id \| db.m7g \| db.m7i \| db.m8g | 
@@ -174,6 +176,8 @@ The DB instance types for the RDS for MySQL and RDS for PostgreSQL database engi
 
 The DB instance types for the Aurora MySQL-Compatible Edition and Aurora PostgreSQL-Compatible Edition database engines supported by Compute Optimizer.
 
+
+**Amazon Aurora DB instance types supported by Compute Optimizer**  
 
 | DB instance class family | Type | 
 | --- | --- | 

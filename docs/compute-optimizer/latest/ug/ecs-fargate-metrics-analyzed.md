@@ -6,6 +6,8 @@
 Compute Optimizer analyzes the following CloudWatch and Amazon ECS utilization metrics of your Amazon ECS services on Fargate.
 
 
+**Metrics analyzed for Amazon ECS services on Fargate**  
+
 | Metric | Description | 
 | --- | --- | 
 |  CPUUtilization  | The percentage of CPU capacity that's used in the service. | 

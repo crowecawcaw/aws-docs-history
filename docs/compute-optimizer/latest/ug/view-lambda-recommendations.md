@@ -26,6 +26,8 @@ The **Finding** column on the **Lambda functions recommendations** page provides
 The following findings classifications apply to Lambda functions.
 
 
+**Lambda function finding classifications**  
+
 | Classification | Description | 
 | --- | --- | 
 | Not optimized | A Lambda function is considered not optimized when Compute Optimizer has identified that its configured memory or CPU power (which is proportional to the configured memory) is under-provisioned or over-provisioned. In this case, Compute Optimizer generates a recommendation that can provide better performance or cost for your workload.<br />When a function is not optimized, Compute Optimizer displays a finding reason of either **Memory under-provisioned** or **Memory over-provisioned**. | 
@@ -72,6 +74,8 @@ You can change the graphs to display data for the last 24 hours, three days, one
 
 The following utilization graphs are displayed on the details page:
 
+
+**Lambda function utilization graphs**  
 
 | Graph name | Description | 
 | --- | --- | 

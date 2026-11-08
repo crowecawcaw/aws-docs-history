@@ -3,7 +3,7 @@
 # Viewing commercial software license recommendations
 <a name="view-license-recommendations"></a>
 
-AWS Compute Optimizer generates license recommendations for commercial software that run on Amazon EC2. These recommendations are displayed on the following pages of the Compute Optimizer console.
+AWS Compute Optimizer generates license recommendations for commercial software that run on Amazon EC2. The Compute Optimizer console displays these recommendations on the following pages.
 
 The **Recommendations for commercial software licenses** page lists the following information for each of your EC2 instances with licenses.
 + Finding classifications
@@ -16,10 +16,10 @@ The **Recommendations for commercial software licenses** page lists the followin
 The recommendations from Compute Optimizer are listed next to each of your EC2 instances with commercial software licenses. The information that's provided includes recommended saving opportunities, EC2 instance On-Demand prices, and hourly bring your own license (BYOL) prices. This information can help you decide if you should down-size your license edition. For more information about how to view your license recommendations for commercial software, see [Accessing commercial software license recommendations and details](license-view-recommendations.md).
 
 **Note**  
-The recommendations are refreshed daily and they can take up to 24 hours to generate. Keep in mind that Compute Optimizer requires 24 hours of metrics in the past 14 days to generate license recommendations. For more information, see [Commercial software license requirements](requirements.md#requirements-license).
+Compute Optimizer refreshes the recommendations daily, and they can take up to 24 hours to generate. Compute Optimizer requires 24 hours of metrics in the past 14 days to generate license recommendations. For more information, see [Commercial software license requirements](requirements.md#requirements-license).
 
 The **License details** page provides the following information for your license recommendation:
-+ Your current license settings and Compute Optimizer's recommended licence configurations. Use the table to compare your current license configurations, such as edition, model, and number of instance cores, with Compute Optimizer recommendations.
++ Your current license settings and Compute Optimizer's recommended license configurations. Use the table to compare your current license configurations, such as edition, model, and number of instance cores, with Compute Optimizer recommendations.
 + Use the utilization graphs to access the utilization of the current license during the analysis period.
 
 For more information about how to view the details for your license recommendation, see [Accessing commercial software license details page](license-view-recommendations.md#license-viewing-details).
@@ -41,6 +41,8 @@ The **Findings** column on the **Commercial software license recommendations ** 
 The following findings classifications apply to Microsoft SQL Server licenses.
 
 
+**Finding classifications for Microsoft SQL Server licenses**  
+
 | Classification | Description | 
 | --- | --- | 
 | Insufficient metrics | When Compute Optimizer detects that your CloudWatch Application Insights isn't enabled or is enabled with insufficient permissions. Compute Optimizer displays a finding reason of `InvalidCloudwatchApplicationInsights` or `CloudwatchApplicationInsightsError`. | 
@@ -57,6 +59,8 @@ The **Finding reasons** column on the **EC2 instances recommendations** and **EC
 The following finding reasons apply to Microsoft SQL server license recommendations.
 
 
+**Finding reasons for Microsoft SQL Server license recommendations**  
+
 | Finding reason | Description | 
 | --- | --- | 
 | `LicenseOverprovisioned` | A license is considered over-provisioned when any of the current license features aren't in use. CloudWatch Application Insights analyzes the `mssql_enterprise_features_used` metric to identify this.<br />If your license is over-provisioned, you can consider downgrading your Microsoft SQL Server license. If you meet certain eligibility requirements you can downgrade from SQL Server Enterprise edition to SQL Server Standard edition, or Developer edition if it is a non-production workload. For more information, see [Downgrade your Microsoft SQL Server edition](https://docs.aws.amazon.com/sql-server-ec2/latest/userguide/downgrade-sql-server-on-ec2) in the *Microsoft SQL Server on Amazon EC2 User Guide*. | 
@@ -66,9 +70,9 @@ The following finding reasons apply to Microsoft SQL server license recommendati
 ## Estimated monthly savings and savings opportunity
 <a name="license-savings-calculation"></a>
 
-The **Estimated monthly savings (On-Demand)** column lists the approximate monthly cost savings after you downgrade your license edition based on Compute Optimizer’s recommendations. To calculate this, Compute Optimizer multiplies the savings per hour by the estimated monthly running hours.
+The **Estimated monthly savings (On-Demand)** column lists the approximate monthly cost savings after you downgrade your license edition based on Compute Optimizer's recommendations. To calculate this, Compute Optimizer multiplies the savings per hour by the estimated monthly running hours.
 
-The **Savings opportunity (%)** column lists the percentage difference between your current Microsoft SQL server license and Compute Optimizer’s recommended license. The Bring Your Own License (BYOL) savings calculation is based on the license price. The License Included savings calculation is based on the On-Demand pricing.
+The **Savings opportunity (%)** column lists the percentage difference between your current Microsoft SQL server license and Compute Optimizer's recommended license. The Bring Your Own License (BYOL) savings calculation is based on the license price. The License Included savings calculation is based on the On-Demand pricing.
 
 **Important**  
 Savings opportunity data requires that you opt in to Cost Explorer, as well as activate **Receive Amazon EC2 resource recommendations** in the Cost Explorer preferences page. That creates a connection between Cost Explorer and Compute Optimizer. With this connection, Cost Explorer generates savings estimates considering the price of existing resources, the price of recommended resources, and historical usage data. Estimated monthly savings reflects the projected dollar savings associated with each of the recommendations generated. For more information, see [Enabling Cost Explorer](https://docs.aws.amazon.com/cost-management/latest/userguide/ce-enable.html) and [Optimizing your cost with Rightsizing Recommendations](https://docs.aws.amazon.com/cost-management/latest/userguide/ce-rightsizing.html) in the *Cost Management User Guide*.
@@ -84,21 +88,23 @@ You can't infer the SQLServer application in the Middle East (Bahrain), Africa (
 ## Compare current license edition with recommended license edition
 <a name="compare-license-table"></a>
 
-On the **License details** page, compare the configurations of your current license edition with Compute Optimizer’s recommended license edition. The following table provides a description for each column section in the console.
+On the **License details** page, compare the configurations of your current license edition with Compute Optimizer's recommended license edition. The following table provides a description for each column section in the console.
 
+
+**Current and recommended license edition columns**  
 
 | Column | Description | 
 | --- | --- | 
-| License edition | The current license edtion and the recommended license edition. For example, Enterprise, Standard, and Free. | 
+| License edition | The current license edition and the recommended license edition. For example, Enterprise, Standard, and Free. | 
 | Instance On-Demand price | The current and recommended On-Demand instance prices. | 
 | BYOL price (hourly) | The current and recommended Bring your own license (BYOL) hourly price.  | 
-| Estimated monthly savings | The approximate monthly cost savings after you downgrade your license edition based on Compute Optimizer’s recommendations. For more information, see [Estimated monthly savings and savings opportunity](#license-savings-calculation). | 
-| Savings opportunity (%) | The percentage difference between your current Microsoft SQL server license and Compute Optimizer’s recommended license. For more information, see [Estimated monthly savings and savings opportunity](#license-savings-calculation). | 
+| Estimated monthly savings | The approximate monthly cost savings after you downgrade your license edition based on Compute Optimizer's recommendations. For more information, see [Estimated monthly savings and savings opportunity](#license-savings-calculation). | 
+| Savings opportunity (%) | The percentage difference between your current Microsoft SQL server license and Compute Optimizer's recommended license. For more information, see [Estimated monthly savings and savings opportunity](#license-savings-calculation). | 
 | Instance cores | The current and recommended number of physical cores for an instance. Number of instance cores are used in licensing calculations.  | 
 
 ## Utilization graphs
 <a name="license-utilization-graphs"></a>
 
-The **License details** page displays current resource utilization of the current commercial software license. The graph only displays the number of Enterprise editon features that were used data over the analysis period. 
+The **License details** page displays current resource utilization of the current commercial software license. The graph only displays the number of Enterprise edition features that were used data over the analysis period. 
 
 You can change the graphs to display data for the last 24 hours, three days, one week, or two weeks.

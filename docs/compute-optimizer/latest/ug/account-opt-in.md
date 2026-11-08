@@ -79,4 +79,4 @@ After you opt in to Compute Optimizer using the previous command, the service be
 + [Identity and Access Management for AWS Compute Optimizer](security-iam.md)
 + [AWS managed policies for AWS Compute Optimizer](managed-policies.md)
 + [Using service-linked roles for AWS Compute Optimizer](using-service-linked-roles.md)
-+ Troubleshooting — [Troubleshooting in Compute Optimizer](troubleshooting-account-opt-in.md)
++ Troubleshooting — [Troubleshooting in AWS Compute Optimizer](troubleshooting-account-opt-in.md)

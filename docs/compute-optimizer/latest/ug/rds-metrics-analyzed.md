@@ -11,6 +11,8 @@ Compute Optimizer analyzes the following CloudWatch metrics of your Amazon Auror
 Compute Optimizer analyzes the following CloudWatch metrics of your Amazon RDS DB instances.
 
 
+**Amazon RDS DB instance metrics**  
+
 | Metric | Description | 
 | --- | --- | 
 |  CPUUtilization  | The percentage of allocated compute units that are in use on the DB instance. This metric identifies the processing power that's required to run an application on an instance. | 
@@ -31,6 +33,8 @@ If you enabled Amazon RDS Performance Insights, Compute Optimizer also analyzes 
 If Performance Insights isn’t enabled, Compute Optimizer doesn’t provide recommendations to reduce vCPU capacity.
 
 
+**Performance Insights metrics for Amazon RDS DB instances**  
+
 | Metric | Description | 
 | --- | --- | 
 |  DBLoad  | The level of session activity in your database. For more information, see [ Database load](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.ActiveSessions.html) in the *Amazon Relational Database Service User Guide*. | 
@@ -44,6 +48,8 @@ For more information about Amazon RDS metrics, see [ Metrics reference for Amazo
 
 Compute Optimizer analyzes the following CloudWatch metrics of your Amazon Aurora DB instances.
 
+
+**Aurora DB instance metrics**  
 
 | Metric | Description | 
 | --- | --- | 
@@ -67,6 +73,8 @@ For more information, see [ Amazon CloudWatch metrics for Amazon Aurora](https:/
 If you enabled Performance Insights for Aurora, Compute Optimizer also analyzes the following metrics of your Aurora DB instances. To enable Performance Insights for Aurora, see [ Turning Performance Insights on and off for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.Enabling.html) in the *Amazon Aurora User Guide*.
 
 
+**Performance Insights metrics for Aurora DB instances**  
+
 | Metric | Description | 
 | --- | --- | 
 |  DBLoad  | The number of active sessions for the database. Typically, you want the data for the average number of active sessions. In Performance Insights, this data is queried as db.load.avg. | 
@@ -79,6 +87,8 @@ For more information about Aurora metrics, see [ Metrics reference for Amazon Au
 
 Compute Optimizer analyzes the following CloudWatch metrics of your Amazon Aurora DB clusters.
 
+
+**Aurora DB cluster metrics**  
 
 | Metric | Description | 
 | --- | --- | 

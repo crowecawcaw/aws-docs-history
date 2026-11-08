@@ -185,7 +185,7 @@ Compute Optimizer supports using service-linked roles in all of the Regions wher
 
 ## Additional resources
 <a name="slr-resources"></a>
-+ Troubleshooting — [Troubleshooting in Compute Optimizer](troubleshooting-account-opt-in.md)
++ Troubleshooting — [Troubleshooting in AWS Compute Optimizer](troubleshooting-account-opt-in.md)
 + [AWS managed policies for AWS Compute Optimizer](managed-policies.md)
 + [Opting in to AWS Compute Optimizer](account-opt-in.md)
 + [Identity and Access Management for AWS Compute Optimizer](security-iam.md)

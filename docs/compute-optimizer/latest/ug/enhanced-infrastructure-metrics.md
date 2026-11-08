@@ -3,7 +3,7 @@
 # Enhanced infrastructure metrics
 <a name="enhanced-infrastructure-metrics"></a>
 
-Enhanced infrastructure metrics is a paid feature of Compute Optimizer that applies to Amazon EC2 instances, instances that are part of EC2 Auto Scaling groups, and Amazon RDS DB instances. This recommendation preference extends the utilization metrics analysis lookback period to up to 93 days, compared to the default 14-day period. This gives Compute Optimizer a longer history of utilization metrics data to analyze. You need to activate the enhanced infrastructure metrics preference. For more information, see [Organization, account, and resource level](#activating-enhanced-infrastructure-metrics).
+Enhanced infrastructure metrics is a paid feature of Compute Optimizer that applies to Amazon EC2 instances, instances that are part of EC2 Auto Scaling groups, and Amazon RDS DB instances. This recommendation preference extends the utilization metrics analysis lookback period to up to 93 days, compared to the default 14-day period. This gives Compute Optimizer a longer history of utilization metrics data to analyze. You need to activate the enhanced infrastructure metrics preference. For more information, see [Organization, account, and resource level](#activating-enhanced-infrastructure-metrics). You can activate this feature while viewing an Amazon EC2 instance. For instructions, see [Accessing EC2 instance recommendations and details](ec2-view-recommendations.md).
 
 ## Required permissions
 <a name="enhanced-infrastructure-metrics-required-permissions"></a>

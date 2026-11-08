@@ -15,6 +15,8 @@
 Compute Optimizer analyzes the following CloudWatch metrics of your EC2 instances, including instances that are part of EC2 Auto Scaling groups.
 
 
+**CloudWatch metrics analyzed for EC2 instances**  
+
 | Metric | Description | 
 | --- | --- | 
 |  CPUUtilization  | The percentage of allocated EC2 compute units that are in use on the instance. This metric identifies the processing power that's required to run an application on an instance. | 

@@ -695,7 +695,7 @@ The following policy grants read-only access to Compute Optimizer Automation for
 
 ## Additional resources
 <a name="iam-resources"></a>
-+ Troubleshooting — [Troubleshooting in Compute Optimizer](troubleshooting-account-opt-in.md)
++ Troubleshooting — [Troubleshooting in AWS Compute Optimizer](troubleshooting-account-opt-in.md)
 + [Opting in to AWS Compute Optimizer](account-opt-in.md)
 + [AWS managed policies for AWS Compute Optimizer](managed-policies.md)
 + [Using service-linked roles for AWS Compute Optimizer](using-service-linked-roles.md)
