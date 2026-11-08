@@ -10,14 +10,14 @@ You can now use the updated experience to access AWS WAF functionality anywhere 
 ## Base price
 <a name="waf-ai-traffic-monetization-base-price"></a>
 
-Set a base price per request in the MonetizationConfig. The price is specified as a decimal USD string with up to 3 decimal places. The minimum price per request is $0.001 USDC.
+Set a base price per request in the MonetizationConfig. The minimum price per request depends on how you settle payments. With self-managed wallets (`CryptoConfig`), the price is specified as a decimal string with up to 3 decimal places, and the minimum is 0.001 USDC. When you settle payments through a connected account, prices range from `0.01` to `999999.99` USDC, with up to 2 decimal places; sub-cent amounts are not supported.
 
 ## Price multipliers
 <a name="waf-ai-traffic-monetization-price-multipliers"></a>
 
 Use the `PriceMultiplier` parameter on individual Monetize rule actions to adjust pricing per rule. The effective price is the base price multiplied by this value.
 
-For example, if your base price is `"0.001"` ($0.001) and a rule has PriceMultiplier `"3"`, the effective price for requests matching that rule is $0.003.
+For example, if your base price is `"0.001"` (0.001 USDC) and a rule has PriceMultiplier `"3"`, the effective price for requests matching that rule is 0.003 USDC. Similarly, for a connected account whose base price is `"0.01"` (0.01 USDC), a rule with PriceMultiplier `"3"` produces an effective price of 0.03 USDC.
 
 ## Configuring pricing by intent
 <a name="waf-ai-traffic-monetization-pricing-intent"></a>
@@ -89,3 +89,8 @@ The exact latency depends on blockchain network conditions at the time of settle
 Because AI traffic monetization relies on third-party blockchain settlement services, payment processing may occasionally fail for reasons outside of our control. Possible causes include temporary unavailability of the Coinbase Developer Platform's x402 facilitator service, blockchain network congestion, or transient errors during on-chain settlement. When payment processing fails, content is not served to the client. The client receives a response indicating the failure and can retry the request.
 
 Additionally, AWS might throttle excessively high volumes of payment traffic to protect the integrity of the payment processing infrastructure and prevent abuse. If throttled, payment requests receive an error response and should be retried after a brief backoff. Normal request volumes are not affected by throttling.
+
+If deposit address provisioning doesn't return an address for a requested payment network, the create or update request fails with `WAFInternalErrorException`. Retry the request. If the error persists, remove that payment network from the configuration.
+
+**Note**  
+If a connected account becomes inactive or its crypto settlement capability is disabled after you set it up, subsequent web ACL or rule group create or update requests that reference it are rejected until you reactivate the account. Check the account status and crypto settlement capability in the AWS Billing and Cost Management console and reactivate the account as needed. For more information, see [Settling payments with a connected account](waf-ai-traffic-monetization-getting-started.md#waf-ai-traffic-monetization-connected-account).

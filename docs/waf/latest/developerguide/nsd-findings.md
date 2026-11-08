@@ -91,4 +91,4 @@ A resource can have multiple findings identified by network security director. E
 + Expand the **Remediation recommendations** for the finding to learn more about it.
 + Follow the steps suggested by network security director or choose the documentation link included to learn more.
 
-After reviewing and implementing the remediation recommendations for your affected resources, you may want to get additional insights about your overall security configuration. Continue to [Analyze network security with Amazon Q Developer](nsd-security-insights.md) to learn how to use Amazon Q Developer for further analysis.
+After reviewing and implementing the remediation recommendations for your affected resources, you may want to get additional insights about your overall security configuration. Continue to [Analyze network security with AWS assistant](nsd-security-insights.md) to learn how to use Amazon Q Developer for further analysis.

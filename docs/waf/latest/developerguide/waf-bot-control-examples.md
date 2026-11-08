@@ -26,3 +26,4 @@ The JSON listings shown in these examples were created in the console by configu
 + [Bot Control example: Allowing traffic from a bot that you control](waf-bot-control-example-scope-down-your-bot.md)
 + [Bot Control example: Enabling targeted inspection level](waf-bot-control-example-targeted-inspection-level.md)
 + [Bot Control example: Using two statements to limit the use of the targeted inspection level](waf-bot-control-example-common-and-targeted-inspection-level.md)
++ [Example – Challenging clients whose token came from a different type of network](waf-bot-control-example-token-provenance.md)
