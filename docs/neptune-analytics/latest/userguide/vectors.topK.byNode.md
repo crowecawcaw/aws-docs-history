@@ -13,6 +13,7 @@ CALL neptune.algo.vectors.topK.byNode(
   [{{a list of one or more nodes (required}})],
   {
     topK: {{the number of result nodes to return (optional, default: 10)}},
+    efSearch: {{the search beam width (optional, default: index default)}},
     concurrency: {{the number of cores to use to run the algorithm (optional)}}
   }
 )
@@ -28,6 +29,13 @@ RETURN node, score
 + **topK**   *(optional)*   *type:* a positive integer;   *default:* 10.
 
   The number of result nodes to return. 
++ **efSearch**   *(optional)*   *type:* a positive integer;   *default:* the index-level search candidates size (500 unless configured otherwise at graph creation).
+
+  Controls the size of the HNSW candidate list used during search. Higher values improve recall (the fraction of true nearest neighbors found) at the cost of latency; lower values are faster but may miss some true neighbors.
+
+  Typical values range from 10 to 1000. A reasonable starting point is `efSearch` = 10 × `topK`.
+
+  For example, if `topK` is 10, try `efSearch` values between 100 and 500.
 + **concurrency**   *(optional)*   –   *type:* 0 or 1;   *default:* 0.
 
   Controls the number of concurrent threads used to run the algorithm.

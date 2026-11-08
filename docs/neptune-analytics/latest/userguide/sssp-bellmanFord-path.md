@@ -10,12 +10,15 @@
 + Negative edge weights are not supported.
 + The traversal direction cannot be set to `both`.
 
+**Note**  
+The `.sssp.bellmanFord.path` algorithm computes *weighted* shortest paths and requires an `edgeWeightProperty`. If you want the unweighted shortest path (the one with the fewest hops), use [.bfs.path](bfs-path.md) instead.
+
 ## `.sssp.bellmanFord.path`   syntax
 <a name="sssp-bellmanFord-path-syntax"></a>
 
 ```
 CALL neptune.algo.sssp.bellmanFord.path(
-  [{{source node(s) (required)}}], [{{target node(s) (required)}}]
+  {{source node (required)}}, {{target node (required)}},
   {
     edgeWeightProperty: {{edge weight predicate for traversal (required)}}
     edgeWeightType: {{numeric type of the edge weight property (required)}}
@@ -25,21 +28,22 @@ CALL neptune.algo.sssp.bellmanFord.path(
     concurrency: {{number of threads to use (optional)}}
   }
 )
-YIELD {{the outputs to generate (source and/or node)}}
+YIELD {{the outputs to generate (source, target, distance, vertexPath, allDistances, and/or path)}}
 RETURN {{the outputs to return}}
 ```
 
 ## `.sssp.bellmanFord.path`   inputs
 <a name="sssp-bellmanFord-path-inputs"></a>
-+ **source node(s)**   *(required)*   –   *type:* `Node[]` or `NodeId[]`;   *default: none*.
++ **source node**   *(required)*   –   *type:* `Node` or `NodeId`;   *default: none*.
 
-  The node or nodes to use as the starting location(s) for the algorithm.
-  + Each starting node triggers its own execution of the algorithm.
-  + If the source node(s) is empty then the query result is also empty.
+  The node to use as the starting location for the algorithm.
+  + In a standalone call, provide a single node ID string. A list of nodes is not accepted.
+  + Each distinct source node triggers its own execution of the algorithm.
   + If the algorithm is called following a `MATCH` clause (this is known as query-algorithm integration), the output of the `MATCH` clause is used as the source node(s) for the algorithm.
-+ **target node(s)**   *(required)*   –   *type:* `Node[]` or `NodeId[]`;   *default: none*.
++ **target node**   *(required)*   –   *type:* `Node` or `NodeId`;   *default: none*.
 
-  The node or nodes to use as the ending location(s) for the algorithm.
+  The node to use as the ending location for the algorithm.
+  + In a standalone call, provide a single node ID string. A list of nodes is not accepted.
   + Each source-target node pair produces an output of the algorithm.
   + If the algorithm is called following a `MATCH` clause (this is known as query-algorithm integration), the output of the `MATCH` clause is used as the target node(s) for the algorithm.
 + 
@@ -129,11 +133,11 @@ aws neptune-graph execute-query \
   --query-string "MATCH (n:airport {code: 'FLL'})
   MATCH (m:airport {code: 'HNL'})
   CALL neptune.algo.sssp.bellmanFord.path(n, m, {
-  edgeWeightProperty: "dist", 
-  edgeWeightType: "int",
-  edgeLabels: ["route"],
-  vertexLabel: "airport",
-  traversalDirection: "outbound",
+  edgeWeightProperty: 'dist', 
+  edgeWeightType: 'int',
+  edgeLabels: ['route'],
+  vertexLabel: 'airport',
+  traversalDirection: 'outbound',
   concurrency: 0
   })
   YIELD source, target, distance, vertexPath, allDistances, path

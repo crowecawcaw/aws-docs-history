@@ -13,6 +13,8 @@ CALL neptune.algo.vectors.topK.byEmbedding(
     {
         embedding: [*an embedding*] (required),
         topK: the number of result nodes to return (optional, default: 10),
+        efSearch: the search beam width (optional, default: index default),
+        filteredThreshold: threshold for filtered search mode (optional, default: 10000),
         vertexFilter: a json structure that encodes vertex label or property filters (optional, default: empty),
         concurrency: the number of cores to use to run the algorithm (optional, default: 0)
     }
@@ -31,6 +33,16 @@ RETURN node, score
 + **topK**   *(optional)*   *type:* a positive integer;   *default:* 10.
 
   The number of result nodes to return. 
++ **efSearch**   *(optional)*   *type:* a positive integer;   *default:* the index-level search candidates size (500 unless configured otherwise at graph creation).
+
+  Controls the size of the HNSW candidate list used during search. Higher values improve recall (the fraction of true nearest neighbors found) at the cost of latency; lower values are faster but may miss some true neighbors.
+
+  Typical values range from 10 to 1000. A reasonable starting point is `efSearch` = 10 × `topK`.
+
+  For example, if `topK` is 10, try `efSearch` values between 100 and 500.
++ **filteredThreshold**   *(optional)*   *type:* a positive integer;   *default:* 10000.
+
+  Controls whether filtered vector search uses a pre-filter or pushdown strategy. The algorithm uses the pre-filter strategy when the number of vertices matching `vertexFilter` is less than this threshold; otherwise it uses pushdown. Pre-filter is more efficient for highly selective filters (few matching vertices); pushdown is more efficient when most vertices match the filter. This parameter has no effect when `vertexFilter` is not specified.
 + **vertexFilter**   *(optional)*   *type:* a json string   *default:* empty.
 
   The vertexFilter is a json structure encoding filters to use on the vertex labels and properties during computation. In it, there are two operation types: a joiner operation and a single operation. A joiner operation includes andAll and orAll , which is an array of joiner and/or single operations. A single operation includes the rest of the filters. A vertex filter can be used for either vertex labels or vertex properties or a combination of both. Among the single operations, only equals and notEquals support vertex label filtering. The details of all the operations are as follows:

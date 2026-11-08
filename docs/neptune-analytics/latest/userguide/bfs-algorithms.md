@@ -19,3 +19,4 @@ Neptune Analytics supports these BFS algorithms:
 + [`.bfs.levels`](bfs-levels.md)   –   This variant of BFS starts from a source vertex or vertices and finds the levels of each vertex during the search. It returns a key column of the vertices and a value column of integers that are the level values of the key vertices. 
 
   Note that the level of a source vertex is 0.
++ [`.bfs.path`](bfs-path.md)   –   This variant of BFS finds the shortest (fewest-hops) path between a source vertex and a target vertex. Because breadth-first search is unweighted, the distance is the number of hops along the path. If there are multiple shortest paths, only one is returned.
