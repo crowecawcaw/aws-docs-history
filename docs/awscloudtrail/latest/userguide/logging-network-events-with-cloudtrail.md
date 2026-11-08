@@ -211,6 +211,7 @@ The following advanced event selector fields are required to log network activit
   + `user-subscriptions.amazonaws.com`
   + `verifiedpermissions.amazonaws.com`
   + `voiceid.amazonaws.com`
+  + `wellarchitected.amazonaws.com`
   + `workmail.amazonaws.com`
   + `workmailmessageflow.amazonaws.com`
 
