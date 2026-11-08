@@ -57,5 +57,5 @@ After creating your Agent Space:
 + Connect Confluence for documentation context in design reviews and penetration testing
 + Enable code review capability for connected repositories (see [Enable pull request code review for GitHub repositories](enable-code-review.md))
 + Configure penetration testing capabilities including domain verification
-+  **(If using IAM Identity Center)** Assign users to this Agent Space under the **Web app** section of the Agent Space page. (see [Grant users access to the AWS Security Agent web application](grant-user-access.md))
++  **(If using IAM Identity Center)** Assign users or groups to this Agent Space on the **Web app** tab of the Agent Space page. (see [Grant users access to the AWS Security Agent web application](grant-user-access.md))
 +  **(If using IAM-only access)** Users with console access can launch the web application through the admin access link for this Agent Space

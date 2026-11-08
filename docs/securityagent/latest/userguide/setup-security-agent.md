@@ -92,11 +92,11 @@ Your application must be configured in the same Region where you enable IAM Iden
    + Choose **Create account instance** to create a new IAM Identity Center account instance
    + If an organization instance already exists in the same Region, AWS Security Agent will automatically connect to it
 **Note**  
-After AWS Security Agent is connected to IAM Identity Center, you can manage access by assigning users in IAM Identity Center to the application.
+After you connect AWS Security Agent to IAM Identity Center, create and manage users and groups in IAM Identity Center. Assign users and groups to Agent Spaces in the AWS Security Agent console.
 
 1. If you are connecting Active Directory or an external identity provider, review the informational alert.
 **Important**  
-If you’re already managing users in Active Directory or another identity source and plan to connect that identity source to IAM Identity Center, cancel setup and go to the IAM Identity Center console first. Choose the identity source you want to connect before setting up AWS Security Agent. Changing identity sources later might remove existing user assignments.
+If you already manage users in Active Directory or another identity source and plan to connect it to IAM Identity Center, cancel setup. Go to the IAM Identity Center console and choose the identity source before setting up AWS Security Agent. Changing identity sources later might remove existing user and group assignments.
 
 ## Step 3: Configure permissions (Optional)
 <a name="_step_3_configure_permissions_optional"></a>
@@ -135,6 +135,6 @@ After setting up AWS Security Agent:
 + Define security requirements for your organization
 + Configure penetration testing capabilities including domain verification and VPC access for your Agent Space
 + Connect GitHub repositories for code review and penetration testing context
-+  **(If using IAM Identity Center)** Assign users to the Agent Space in the AWS Security Agent console
-+  **(If using IAM-only access)** Launch the web application through the admin access link in the AWS Console
++ Assign users or groups to the Agent Space in the AWS Security Agent console if you use IAM Identity Center
++ Launch the web application through the admin access link in the AWS Console if you use IAM-only access
 + Create additional Agent Spaces for other applications (see [Create an Agent Space](create-agent-space.md))

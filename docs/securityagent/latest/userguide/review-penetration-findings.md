@@ -170,6 +170,15 @@ When you edit a finding, a **Version selector** appears in the finding details h
 
 1. Select **Latest** to return to the current version with your edits applied.
 
+### Retest of previous findings
+<a name="retest-previous-findings"></a>
+
+When you run a penetration test again, AWS Security Agent retests the findings from the most recent completed full run of that penetration test, before it tests for new findings. The **Logs** tab shows these actions in the **Retest previous findings** section. A finding that the retest reproduces appears in the new run’s findings, linked to the finding it was retested from.
+
+AWS Security Agent doesn’t retest findings that are false positives, findings that you accepted, or findings that the agent couldn’t confirm. If you revalidated a finding after that run, AWS Security Agent uses the most recent conclusive revalidation result instead of the original finding.
+
+To retest specific findings without running a full penetration test, see [Revalidate penetration test findings](revalidate-findings.md).
+
 ### Review personalized findings
 <a name="review-personalized-findings"></a>
 

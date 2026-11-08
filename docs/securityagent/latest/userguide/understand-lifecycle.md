@@ -34,7 +34,7 @@ Each Agent Space represents a distinct application or project you want to secure
 |  **Integrations**  | Source and documentation providers (GitHub, GitLab, Bitbucket, GitHub Enterprise Server, and Confluence) connected to this Agent Space | Different applications rely on different sources and documentation. Connecting them at the Agent Space level keeps application boundaries clear. | 
 |  **Code review settings**  | Configuration of code review capabilities including connected sources, scan settings, and PR comment enablement | Each application has its own repositories and security review needs configured independently. | 
 |  **Penetration test remediation settings**  | Configuration of which connected repositories can receive automated fix pull requests for penetration testing findings | Teams control where AWS Security Agent can submit code changes based on their application’s workflow. | 
-|  **User assignments**  | Users who have access to this specific Agent Space | Teams only see security assessments for applications they’re responsible for, keeping work organized and focused. | 
+|  **User and group assignments**  | Individual users and IAM Identity Center groups whose members can access this Agent Space | Teams only see security assessments for applications they’re responsible for, keeping work organized and focused. | 
 
 **Tip**  
 We recommend creating one Agent Space per application or project to maintain clear boundaries between teams and organize security assessments effectively.
@@ -65,7 +65,7 @@ Each security capability in AWS Security Agent follows a different workflow mode
 
 Penetration tests use a configuration-and-run model that supports iterative security testing:
 +  **Create once, execute many times** - Define a configuration for a specific target (API endpoint, feature area) with scope boundaries, authentication, and test parameters
-+  **Independent executions** - Execute the same configuration multiple times as you improve security. Each execution is independent and generates new findings
++  **Independent executions** - Execute the same configuration multiple times as you improve security. Each execution generates its own findings, and first retests the findings from the most recent completed full run. For more information, see [Retest of previous findings](review-penetration-findings.md#retest-previous-findings).
 
 This model supports continuous security validation as you develop and deploy improvements.
 

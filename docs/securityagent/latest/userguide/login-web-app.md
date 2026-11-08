@@ -12,7 +12,7 @@ You should log in to the AWS Security Agent web application to complete tasks su
 
 AWS Security Agent provides different methods to access the web application, depending on how your organization configured access during initial setup and whether you have AWS Console access.
 
- **IAM Identity Center (SSO)** - If your organization enabled IAM Identity Center, you can log in using your SSO credentials. You must be assigned to at least one Agent Space in IAM Identity Center before you can access the web application.
+ **IAM Identity Center (SSO)** - If your organization enabled IAM Identity Center, you can log in using your SSO credentials. To use an Agent Space in the web application, you must be assigned to it individually or belong to an IAM Identity Center group that is assigned to it.
 
  **Admin access (IAM)** - If you have AWS Console access with appropriate permissions, you can launch the web application through the admin access link on any Agent Space page. This method provides authentication through your existing Console session.
 
@@ -26,7 +26,7 @@ If your organization configured IAM Identity Center access, you can log in to th
 
 ### Prerequisites
 <a name="_prerequisites"></a>
-+ You have been assigned to at least one Agent Space in IAM Identity Center
++ You are assigned individually to at least one Agent Space, or you belong to an IAM Identity Center group that is assigned to one
 + You have your IAM Identity Center SSO credentials
 
 ### Access the web application
