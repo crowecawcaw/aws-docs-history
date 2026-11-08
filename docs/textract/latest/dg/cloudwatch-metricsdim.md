@@ -20,6 +20,7 @@ The following table summarizes the Amazon Textract metrics.
 | ResponseTime | The time in milliseconds for Amazon Textract to compute the response. <br />Units:1.  Count for `Data Samples` statistics <br />2.  Milliseconds for `Average` statistics <br />Valid statistics: `Data Samples,Average`The `ResponseTime` metric isn't included in the Amazon Textract metric pane. | 
 | ServerErrorCount | The number of server errors. The response code range for a server error is 500 to 599.<br />Unit: Count<br />Valid statistics: `Sum,Average` | 
 | UserErrorCount | The number of user errors (invalid parameters, invalid image, no permission, and so on). The response code range for a user error is 400 to 499.<br />Unit: Count<br />Valid statistics: `Sum,Average` | 
+| InProgressJobs | The number of asynchronous jobs in progress for the operation, recorded each time a new job is successfully started. The metric is published only for the asynchronous Start operations (`StartDocumentTextDetection`, `StartDocumentAnalysis`, `StartExpenseAnalysis`, and `StartLendingAnalysis`).<br />Unit: Count<br />Valid statistics: `Maximum,Average` | 
 
 ## CloudWatch Dimension for Amazon Textract
 <a name="cloudwatch-dimensions"></a>

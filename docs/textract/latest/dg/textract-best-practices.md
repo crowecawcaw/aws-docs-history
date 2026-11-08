@@ -25,6 +25,7 @@ The following is a list of a few ways that you can optimize your input documents
 + Ensure that your document text is in a language that Amazon Textract supports. Currently, Amazon Textract supports English, Spanish, German, Italian, French, and Portuguese.
 + Provide a high quality image, ideally at least 150 DPI.
 + If your document is already in one of the file formats that Amazon Textract supports (PDF, TIFF, JPEG, and PNG), don't convert or downsample the document before uploading it to Amazon Textract.
++ Ensure that the pages in your document are in their upright reading orientation.
 
 For the best results when extracting text from tables in documents, ensure that:
 + Tables in your document are visually separated from surrounding elements on the page. For example, the table isn't overlaid onto an image or complex pattern.
