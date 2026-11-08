@@ -18,7 +18,7 @@ The test endpoint is unauthenticated. There is no login, token, or per-client au
 
 Keep the following in mind before you launch the endpoint:
 + **Scope ingress on port 1500 to the addresses you test from.** Because the endpoint is unauthenticated, every address the security group admits can run tests and spend your bandwidth. Narrower ranges mean less exposure. We recommend against opening the rule to a wide range such as `0.0.0.0/0`: an internet-open, unauthenticated, bandwidth-generating endpoint is an abuse target. If no narrower range is workable, make that decision knowingly, and tear the endpoint down as soon as you have your numbers.
-+ **The instance is disposable and must be terminated.** The main cost risk is forgetting to terminate the instance, along with the data transfer that each run moves. See [Tear down the test rig](bwtest-teardown.md) and [Costs](bwtest-costs.md).
++ **The instance is disposable and must be terminated.** The main cost risk is forgetting to terminate the instance, along with the data transfer that each run moves. See [Tear down the test rig](bwtest-teardown.md) and [Costs of the network bandwidth test](bwtest-costs.md).
 + **Your organization's security tooling might isolate an internet-reachable endpoint.** Many organizations run automated detection that stops or isolates instances that expose an unauthenticated service, and it can act within hours.
 
 ## Choosing your connectivity path
@@ -60,5 +60,5 @@ From inside the VPC, an instance's public DNS name resolves to its private IP. T
 + [Test with the browser](bwtest-browser-test.md)
 + [Tear down the test rig](bwtest-teardown.md)
 + [Interpreting the result](bwtest-interpreting.md)
-+ [Costs](bwtest-costs.md)
++ [Costs of the network bandwidth test](bwtest-costs.md)
 + [Troubleshooting the bandwidth test](bwtest-troubleshooting.md)

@@ -115,7 +115,11 @@ This feature is activated automatically for newly added servers. [Learn how to d
 
  A shutdown (from the OS menu or CLI) of any supported Linux or Windows source server no longer causes a rescan in DRS once the source server is restarted. A rescan means that the agent on the source server rereads all blocks on all replicated disks and transmits blocks that are different from the previously replicated data. A rescan is similar to the initial sync but is faster because only blocks that are different need to be transmitted. 
 
- Rescans can still happen following a hard reboot, crashes, or when you add or remove disks to or from the source server. In addition, a rescan will occur if the underlying Storage types do not use static [DUIDs ](https://learn.microsoft.com/en-us/windows-hardware/drivers/storage/device-unique-identifiers--duids--for-storage-devices) (such as 3PARdata). Supported OSs include: 
+ Rescans can still happen after a hard reboot or a crash, or when you add, remove, or resize disks on the source server. Storage types that do not use static device unique identifiers (DUIDs), such as 3PARdata, cause rescans as well. 
+
+ For more information about DUIDs, see [Device unique identifiers (DUIDs) for storage devices](https://learn.microsoft.com/en-us/windows-hardware/drivers/storage/device-unique-identifiers--duids--for-storage-devices) on the Microsoft Learn website. For more information about all causes of rescans, see [What should I know about rescans?](Replication-Related-FAQ.md#How-Long-Rescan). 
+
+Supported operating systems include the following:
 
 **Windows Server**
 +  2012 and newer 

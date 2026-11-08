@@ -25,7 +25,7 @@ If the AWS replication agents are installed with a principal using [ AWSElasticD
      "Effect": "Allow",
      "Principal": "*",
      "Action": "execute-api:Invoke",
-     "Resource": "arn:aws:execute-api:<region>:*.*/POST/CreateSessionForDrs"
+     "Resource": "arn:aws:execute-api:<region>:*:*/POST/CreateSessionForDrs"
      }
 ```
 

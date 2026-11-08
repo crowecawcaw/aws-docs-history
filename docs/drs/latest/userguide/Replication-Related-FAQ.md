@@ -83,10 +83,12 @@ AWS Elastic Disaster Recovery uses TCP Port 1500 for replication between the sou
 During a rescan, the agent on the source server rereads the data on all replicated disks and transmits any differences from the previously replicated data. A rescan is similar to the initial sync but is faster because only changes are replicated. The rescan speed depends on factors such as the size of the source disks and disk performance. A rescan is functioning normally as long as it’s progressing. 
 
 Causes of rescans include:
-+ Hard reboots/crashes.
-+ Adding or removing disks or modifying the size of disks on the source server.
++ The source server has a hard reboot or crashes.
++ The disks on the source server are added, removed, or resized.
 + The OS is not supported for the no-rescan feature. Learn more in [Supported Windows operating systems](Supported-Operating-Systems-Windows.md) and [Supported Linux operating systems](Supported-Operating-Systems-Linux.md).
-+ Writing data to disks while the Replication Agent driver is unhooked.
++ An application writes data to disks while the Replication Agent driver is unhooked.
++ The AWS Replication Agent installer replaces the replication driver that is running on the source server. The installer shows a message before the rescan starts.
++ AWS Elastic Disaster Recovery starts a rescan, such as when it does not give the agent a point to resume replication from or asks the agent to rescan.
 
 ## How does AWS Elastic Disaster Recovery ensure that replication servers are patched and follow security best practices?
 <a name="How-Replication-Server-Patched"></a>

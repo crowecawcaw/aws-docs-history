@@ -1,6 +1,6 @@
 
 
-# Costs
+# Costs of the network bandwidth test
 <a name="bwtest-costs"></a>
 
 This procedure has two cost line items, and the second is the larger one.
