@@ -76,7 +76,7 @@ You can use the following parameters when you register a daemon task definition.
 + `memory` - Task-level memory in MiB as a string (for example, `"512"`).
 + `taskRoleArn` - The ARN of the IAM role that grants permissions to the containers in your daemon task.
 + `executionRoleArn` - The ARN of the IAM role that the Amazon ECS container agent uses to make AWS API calls on your behalf (for example, pulling images from Amazon ECR).
-+ `volumes` - An array of `DaemonVolume` objects. Daemon volumes support only bind mounts with `host` and `sourcePath`. Daemon task definitions do not support Amazon EBS, Amazon EFS, FSx for Windows File Server, Docker volumes, or ephemeral storage.
++ `volumes`: An array of `DaemonVolume` objects. A daemon volume is one of two types. A host bind mount uses `host` with a `sourcePath` to mount a path on the container instance. A log driver volume uses `logDriverVolumeConfiguration` so the daemon can read the log files that application tasks on the instance write. You can't specify both `host` and `logDriverVolumeConfiguration` for the same volume. Daemon task definitions do not support Amazon EBS, Amazon EFS, FSx for Windows File Server, Docker volumes, or ephemeral storage.
 + `tags` - An array of key-value pairs to tag your daemon task definition.
 + `pidMode` - Controls the PID namespace mode for the daemon.
 + `ipcMode` - Controls the IPC namespace mode for the daemon.
@@ -166,15 +166,18 @@ To share the IPC namespace with a daemon that has `ipcMode` set to `shared`, a n
 ## Volumes
 <a name="managed-daemons-volumes"></a>
 
-Managed Daemons support bind mounts using host volumes with a `sourcePath` specification. This allows daemon containers to mount host directories to access logs, metrics, and system information on the underlying Amazon EC2 instance. Log collection agents, metrics exporters, and security scanners commonly use this to gain visibility into host-level data.
-
-The daemon task definition supports host volume specifications with `sourcePath`. Daemon volumes persist for the lifecycle of the underlying container instance.
+Managed Daemons support two volume types: host bind mounts and log driver volumes.
 
 **Note**  
 Amazon EBS volumes, Amazon EFS volumes, FSx for Windows File Server volumes, Docker volumes, and ephemeral storage are not supported in daemon task definitions.
 
 **Note**  
 Daemons do not support volume sharing between each other. Each daemon operates with its own independent volume configuration.
+
+### Host bind mounts
+<a name="managed-daemons-host-volumes"></a>
+
+A host bind mount lets daemon containers mount host directories to access logs, metrics, and system information on the underlying Amazon EC2 instance. Log collection agents, metrics exporters, and security scanners commonly use this to gain visibility into host-level data. The daemon task definition supports host volume specifications with `sourcePath`. Host bind mount volumes persist for the lifecycle of the underlying container instance.
 
 The following example shows a log collector daemon with a bind mount:
 
@@ -197,6 +200,34 @@ The following example shows a log collector daemon with a bind mount:
 }
 ```
 
+### Log driver volumes
+<a name="managed-daemons-log-driver-volumes"></a>
+
+A daemon volume can use `logDriverVolumeConfiguration` instead of a `host` bind mount. With a log driver volume, the containers in a daemon task can read the log files that a log driver writes for the application tasks on the container instance. The only supported `driver` value is `json-file`. You can't specify both `host` and `logDriverVolumeConfiguration` for the same volume.
+
+The volume contains log files only for containers that set `json-file` as the log driver in their `logConfiguration`. Containers that use a different log driver don't write log files to the volume. The volume has one directory per container, named with the container ID. Each directory contains the container's log file, `<container-id>-json.log`, and any rotated log files. After a container stops and Amazon ECS removes it, Amazon ECS deletes that container's directory, so read the log files before the container is removed.
+
+To read the log files, mount the volume into a container in the daemon task with `mountPoints`. The following example shows a daemon task definition volume that uses `logDriverVolumeConfiguration`:
+
+```
+{
+    "containerDefinitions": [{
+        "name": "log-reader",
+        "image": "public.ecr.aws/my-company/log-reader:latest",
+        "mountPoints": [{
+            "sourceVolume": "app-logs",
+            "containerPath": "/var/log/tasks"
+        }]
+    }],
+    "volumes": [{
+        "name": "app-logs",
+        "logDriverVolumeConfiguration": {
+            "driver": "json-file"
+        }
+    }]
+}
+```
+
 ## Supported container parameters
 <a name="managed-daemons-container-params"></a>
 
@@ -212,8 +243,8 @@ Daemon container definitions support the following parameters:
 + `user` - User to run the container as
 + `workingDirectory` - Working directory inside the container
 + `readonlyRootFilesystem` - Mount the root filesystem as read-only
-+ `mountPoints` - Volume mount points (bind mounts with host and sourcePath only)
-+ `logConfiguration` - Logging configuration (supports awslogs, splunk, awsfirelens)
++ `mountPoints` - Volume mount points (host bind mounts and log driver volumes)
++ `logConfiguration` - Logging configuration (supports awslogs, splunk, awsfirelens, json-file)
 + `healthCheck` - Container health check configuration
 + `dependsOn` - Container startup dependencies
 + `ulimits` - Resource limits

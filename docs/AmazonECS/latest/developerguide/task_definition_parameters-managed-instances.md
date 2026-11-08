@@ -874,7 +874,7 @@ Consider the following when specifying a log configuration for your containers:
 
 ```
 "logConfiguration": {
-      "logDriver": "awslogs",""splunk", "awsfirelens",
+      "logDriver": "awslogs" | "splunk" | "awsfirelens" | "json-file",
       "options": {"{{string}}": "{{string}}"
         ...},
 	"secretOptions": [{
@@ -885,10 +885,10 @@ Consider the following when specifying a log configuration for your containers:
 ```  
 `logDriver`  
 Type: String  
-Valid values: `"awslogs","splunk","awsfirelens"`  
+Valid values: `"awslogs","splunk","awsfirelens","json-file"`  
 Required: Yes, when `logConfiguration` is used  
 The log driver to use for the container. By default, the valid values that are listed earlier are log drivers that the Amazon ECS container agent can communicate with.  
-The supported log drivers are `awslogs`, `splunk`, and `awsfirelens`.  
+The supported log drivers are `awslogs`, `splunk`, `awsfirelens`, and `json-file`.  
 For more information about how to use the `awslogs` log driver in task definitions to send your container logs to CloudWatch Logs, see [Send Amazon ECS logs to CloudWatch](using_awslogs.md).  
 For more information about using the `awsfirelens` log driver, see [Send Amazon ECS logs to an AWS service or AWS Partner](using_firelens.md).  
 If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://github.com/aws/amazon-ecs-agent) and customize it to work with that driver. We encourage you to submit pull requests for changes that you want to have included. However, we don't currently support running modified copies of this software.
