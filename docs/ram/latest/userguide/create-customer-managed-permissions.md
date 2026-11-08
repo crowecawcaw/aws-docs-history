@@ -9,10 +9,13 @@ Customer managed permissions are managed permissions that you author and maintai
 
 In addition, you can update or delete customer managed permissions as needed.
 
+You can also add parameters to the policy template of a customer managed permission. This approach reuses one permission across resource shares that need different condition values. You supply the values when you associate the permission with a resource share. For more information, see [Using parameterized managed permissions in AWS RAM](parameterized-managed-permissions.md).
+
 **Topics**
 + [Create a customer managed permission](#create_cmp)
 + [Create a new version of a customer managed permission](#update_mp)
 + [Choose a different version to be the default for a customer managed permission](#set_new_mp_default_version)
++ [Deprecate a customer managed permission](#deprecate_cmp)
 + [Delete a customer managed permission version](#delete_mp_version)
 + [Delete a customer managed permission](#delete_mp)
 
@@ -105,7 +108,7 @@ Each managed permission can have up to five versions, but you can associate only
 1. Find the Amazon Resource Name (ARN) of the managed permission for which you want create a new version. Do this by calling [list-permissions](https://docs.aws.amazon.com/cli/latest/reference/ram/list-permissions.html) with the `--permission-type CUSTOMER_MANAGED` parameter to include only customer managed permissions.
 
    ```
-   $ aws ram-cmp list-permissions --permission-type CUSTOMER_MANAGED
+   $ aws ram list-permissions --permission-type CUSTOMER_MANAGED
    {
        "permissions": [
            {
@@ -219,12 +222,69 @@ You can set another customer managed permission version as the new default versi
 1. After you have the version number to set as default, you can call the [set-default-permission-version](https://docs.aws.amazon.com/cli/latest/reference/ram/set-default-permission-version.html) operation.
 
    ```
-   $ aws ram-cmp set-default-permission-version \
+   $ aws ram set-default-permission-version \
        --permission-arn arn:aws:ram:us-east-1:123456789012:permission/TestCMP \
-       --version 2
+       --permission-version 2
+   {
+       "returnValue": true
+   }
    ```
 
-   This command returns no output if successful. You can run [list-permission-versions](https://docs.aws.amazon.com/cli/latest/reference/ram/list-permission-versions.html) again and verify that the `defaultVersion` field of the chosen version is now set to `true`.
+   You can run [list-permission-versions](https://docs.aws.amazon.com/cli/latest/reference/ram/list-permission-versions.html) again and verify that the `defaultVersion` field of the chosen version is now set to `true`.
+
+------
+
+## Deprecate a customer managed permission
+<a name="deprecate_cmp"></a>
+
+Deprecate a customer managed permission to retire it without breaking the resource shares that already use it. After you deprecate a customer managed permission, the following apply to every version of it:
++ No one, including you, can associate it with a resource share. This includes other AWS accounts that you shared it with.
++ You can't add it to a resource share as a resource to share it.
++ Resource shares that already use it keep working, and their owners can still disassociate it. They can't change its parameter values with `--replace`.
++ You can't create a new version of it.
++ Its status is `DEPRECATED`.
+
+After no resource share in any AWS account uses a deprecated customer managed permission, you can delete it.
+
+Deprecation and quotas:
++ Deprecated customer managed permissions don't count toward the quotas for the number of customer managed permissions or the number of customer managed permissions per resource type.
++ A separate quota limits how many deprecated customer managed permissions you can have.
++ Undeprecating returns the customer managed permission to the regular quotas. If you're already at one of them, undeprecating fails with a `PermissionLimitExceededException` error.
+
+For more information, see [Service quotas for AWS RAM](service-quotas.md).
+
+------
+#### [ Console ]
+
+**To deprecate a customer managed permission**
+
+1. Open the **[Managed permissions library](https://console.aws.amazon.com/ram/home#Permissions:)**.
+
+1. Choose the customer managed permission that you want to deprecate. To find it, you can filter the list by **Customer managed** or search for its name.
+
+1. Choose **Deprecate**.
+
+1. In the **Deprecate customer managed permission** dialog box, choose **Deprecate**.
+
+To undeprecate the customer managed permission, choose it, choose **Undeprecate**, and then confirm in the **Undeprecate customer managed permission** dialog box.
+
+------
+#### [ AWS CLI ]
+
+**To deprecate a customer managed permission**
+
+1. Run the [update-permission](https://docs.aws.amazon.com/cli/latest/reference/ram/update-permission.html) command with `--status DEPRECATED`.
+
+   ```
+   $ aws ram update-permission \
+       --permission-arn arn:aws:ram:us-east-1:123456789012:permission/TestCMP \
+       --status DEPRECATED
+   {
+       "permissionStatus": "DEPRECATED"
+   }
+   ```
+
+1. To undeprecate the customer managed permission, run the same command with `--status ATTACHABLE`.
 
 ------
 
@@ -264,12 +324,16 @@ You can have up to five versions of each customer managed permission. When a ver
 1. After you have the version number, provide it as a parameter to [delete-permission-version](https://docs.aws.amazon.com/cli/latest/reference/ram/delete-permission-version.html).
 
    ```
-   $ aws ram-cmp delete-permission-version \
+   $ aws ram delete-permission-version \
        --permission-arn arn:aws:ram:us-east-1:123456789012:permission/TestCMP \
-       --version 1
+       --permission-version 1
+   {
+       "returnValue": true,
+       "permissionStatus": "DELETING"
+   }
    ```
 
-   This command returns no output if successful. You can run [list-permission-versions](https://docs.aws.amazon.com/cli/latest/reference/ram/list-permission-versions.html) again and verify that the version is no longer included in the output.
+   You can run [list-permission-versions](https://docs.aws.amazon.com/cli/latest/reference/ram/list-permission-versions.html) again and verify that the version is no longer included in the output.
 
 ------
 
@@ -303,7 +367,7 @@ If a customer managed permission is no longer needed, and not in use, you can de
 1. Find the ARN of the managed permission you want to delete by calling [list-permissions](https://docs.aws.amazon.com/cli/latest/reference/ram/list-permissions.html) with the `--permission-type CUSTOMER_MANAGED` parameter to include only customer managed permissions.
 
    ```
-   $ aws ram-cmp list-permissions --permission-type CUSTOMER_MANAGED
+   $ aws ram list-permissions --permission-type CUSTOMER_MANAGED
    {
        "permissions": [
            {

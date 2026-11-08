@@ -16,11 +16,14 @@ The following definitions apply to the description in the quotas below:
 | Resource | Default limit | 
 | --- | --- | 
 | Maximum number of resource shares per AWS Region | 25,000 | 
-| Maximum number of resource associations per resource share | 5,000 | 
-| Maximum number of principal associations per resource share | 5,000 | 
+| Maximum number of resource associations per resource share This quota is not adjustable.  | 5,000 | 
+| Maximum number of principal associations per resource share This quota is not adjustable.  | 5,000 | 
 | Maximum number of customer managed permissions  | 1,500 | 
 | Maximum number of customer managed permissions per resource type | 10 | 
 | Maximum number of versions per customer managed permission | 5 | 
+| Maximum number of deprecated customer managed permissions This quota is not adjustable. Deprecated customer managed permissions don't count toward the quotas for the maximum number of customer managed permissions or the maximum number of customer managed permissions per resource type.  | 100 | 
+| Maximum number of template parameters per managed permission version This quota is not adjustable.  | 100 | 
+| Maximum number of values for a `STRING_LIST` template parameter This quota is not adjustable.  | 100 | 
 | Maximum number of resource associations across all resource shares in an AWS Region  Each resource included in a resource share counts against this limit. If a resource is included in 10 different resource shares, that counts 10 against the limit.  | 25,000 | 
 | Maximum number of principal associations across all resource shares in an AWS Region Each principal included in a resource share counts against this limit. If a principal is included in 10 different resource shares, that counts 10 against the limit.  | 25,000 | 
 | Maximum number of pending invitations per sharing account +  This quota applies to only **sending** accounts who are sharing with accounts that are not part of the same AWS Organizations. <br />+  There is no quota to limit how many pending invitations a receiving account can have. <br />+  Invitations are *not* used when sharing between accounts that are part of the same AWS Organizations and you've turned on resource sharing within the AWS Organizations.  | 250 | 

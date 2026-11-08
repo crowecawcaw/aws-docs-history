@@ -16,6 +16,8 @@ Choosing that button starts the [**Update resource share**](working-with-sharing
 
 The changes are not saved until you complete the wizard by choosing **Submit** on the last page of the wizard. 
 
+Each version of a managed permission can declare its own template parameters. If the version that you're updating to declares parameters, the wizard prompts you to enter a value for each parameter. For more information, see [Using parameterized managed permissions in AWS RAM](parameterized-managed-permissions.md).
+
 **Note**  
 You can attach only the default version, and you can't revert to another version.  
 For customer managed permissions, after you update the permissions to the default version, you can't apply another version to a resource share unless you first set that other version as the default. For example, if you updated a permission to the default version and then found an error that you wanted to roll back, you could designate the previous version as the default. Alternatively, you could create a different new version and then designate that as the default. After you performed one of those options, you would then update your resource shares to use what is now the default version.
@@ -45,6 +47,8 @@ For customer managed permissions, after you update the permissions to the defaul
        --permission-arn arn:aws:ram::aws:permission/AWSRAMDefaultPermissionCapacityReservation \
        --replace
    ```
+
+   If the version that you're updating to declares template parameters, also include the `--permission-template-parameters` parameter to supply a value for each declared parameter. Each version declares its parameters independently. The values that the new version requires can differ from those of the version that you're replacing. For more information, see [Using parameterized managed permissions in AWS RAM](parameterized-managed-permissions.md).
 
 1. Repeat the command in the previous step for each `ResourceShareArn` that you received in the results from the command in step 1.
 

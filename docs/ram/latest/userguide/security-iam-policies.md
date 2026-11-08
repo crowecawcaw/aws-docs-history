@@ -67,7 +67,9 @@ The *Resource* statement specifies the AWS RAM resources that are affected by th
 ### Condition
 <a name="iam-policies-condition"></a>
 
-*Condition* statements are optional. They can be used to further refine the conditions under which the policy applies. AWS RAM supports the following condition keys:
+*Condition* statements are optional. They can be used to further refine the conditions under which the policy applies. AWS RAM supports the following condition keys.
+
+The multivalued keys `ram:RequestedResourceArns`, `ram:RequestedResourceTypes`, `ram:RequestedPrincipals`, `ram:RequestedPermissionArns`, and `ram:RequestedPermissionResourceTypes` contain the resources, principals, or managed permissions in the request. Use them with the `ForAnyValue` and `ForAllValues` set operators to evaluate the whole request in one condition. For examples, see [Example IAM policies for AWS RAM](security-iam-policies-examples.md).
 + `aws:RequestTag/${TagKey}` – Tests whether the service request includes a tag with the specified tag key exists and has the specified value.
 + `aws:ResourceTag/${TagKey}` – Tests whether the resource acted on by the service request has an attached tag with a tag key that you specify in the policy.
 
@@ -83,10 +85,30 @@ The *Resource* statement specifies the AWS RAM resources that are affected by th
 + `aws:TagKeys` – Specifies the tag keys that must be used to create or tag a resource share.
 + `ram:AllowsExternalPrincipals` – Tests whether the resource share in the service request allows sharing with external principals. An external principal is an AWS account outside of your organization in AWS Organizations. If this evaluates to `False`, then you can share this resource share with accounts only in the same organization.
 + `ram:PermissionArn` – Tests whether the permission ARN specified in the service request matches an ARN string that you specify in the policy.
+**Note**  
+We recommend `ram:RequestedPermissionArns` instead. It contains the values of its kind in the request and works with the `ForAnyValue` and `ForAllValues` set operators, so one condition can authorize the whole request at once.
 + `ram:PermissionResourceType` – Tests whether the permission specified in the service request is valid for the resource type that you specify in the policy. Specify resource types using the format shown in the list of [shareable resource types](shareable.md).
+**Note**  
+We recommend `ram:RequestedPermissionResourceTypes` instead. It contains the values of its kind in the request and works with the `ForAnyValue` and `ForAllValues` set operators, so one condition can authorize the whole request at once.
++ `ram:PermissionTemplateParameter/{{parameter-name}}` – Tests the values that the request supplies for the named template parameter. This key is multivalued and is available on the permission resource for the `CreateResourceShare`, `AssociateResourceSharePermission`, and `ReplacePermissionAssociations` actions. For more information, see [Control template parameter values with IAM policies](parameterized-managed-permissions.md#template-iam-condition-keys).
 + `ram:Principal` – Tests whether the ARN of the principal specified in the service request matches an ARN string that you specify in the policy.
+**Note**  
+We recommend `ram:RequestedPrincipals` instead. It contains the values of its kind in the request and works with the `ForAnyValue` and `ForAllValues` set operators, so one condition can authorize the whole request at once.
 + `ram:RequestedAllowsExternalPrincipals` – Tests whether the service request includes the `allowExternalPrincipals` parameter and whether its argument matches the value you specify in the policy.
++ `ram:RequestedPermissionArns` – Tests the ARNs of the managed permissions in the request. This key is multivalued. It is available on `CreateResourceShare`, `AssociateResourceShare`, the actions that create, change, associate, or disassociate managed permissions, `GetPermission`, and `ListPermissionAssociations`. Note the following:
+  + For `CreateResourceShare`, it contains the managed permissions that you specify and the default AWS managed permission for each resource type that you don't specify a managed permission for.
+  + For `AssociateResourceShare`, it contains the default AWS managed permissions that AWS RAM adds for new resource types. If the resource share already covers every resource type in the request, the key isn't present.
+  + For `ReplacePermissionAssociations`, it contains only the managed permission that you replace with.
+  + For `ListPermissionAssociations`, it is present only when the request specifies a permission ARN.
++ `ram:RequestedPermissionResourceTypes` – Tests the resource types of the managed permissions in the request. This key is multivalued and is available on the same actions as `ram:RequestedPermissionArns`.
++ `ram:RequestedPrincipals` – Tests all of the principals specified in the request. This key is multivalued and is available on the `CreateResourceShare`, `AssociateResourceShare`, and `DisassociateResourceShare` actions.
++ `ram:RequestedResourceArns` – Tests the ARNs of all of the resources specified in the request. This key is multivalued and is available on the `CreateResourceShare`, `AssociateResourceShare`, and `DisassociateResourceShare` actions.
 + `ram:RequestedResourceType` – Tests whether the resource type of the resource being acted on matches a resource type string that you specify in the policy. Specify resource types using the format shown in the list of [shareable resource types](shareable.md).
+**Note**  
+We recommend `ram:RequestedResourceTypes` instead. It contains the values of its kind in the request and works with the `ForAnyValue` and `ForAllValues` set operators, so one condition can authorize the whole request at once.
++ `ram:RequestedResourceTypes` – Tests the resource types of all of the resources specified in the request. This key is multivalued and is available on the `CreateResourceShare`, `AssociateResourceShare`, and `DisassociateResourceShare` actions.
 + `ram:ResourceArn` – Tests whether the ARN of the resource being acted upon by the service request matches an ARN that you specify in the policy.
+**Note**  
+We recommend `ram:RequestedResourceArns` instead. It contains the values of its kind in the request and works with the `ForAnyValue` and `ForAllValues` set operators, so one condition can authorize the whole request at once.
 + `ram:ResourceShareName` – Tests whether the name of the resource share being acted upon by the service request matches a string that you specify in the policy.
 + `ram:ShareOwnerAccountId` – Tests the account ID number of the resource share being acted upon by the service request matches a string that you specify in the policy. 

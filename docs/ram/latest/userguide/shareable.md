@@ -114,7 +114,7 @@ You can share the following AWS Cloud Map resources by using AWS RAM.
 
 | Resource type and code | Use case | Can share with IAM users and roles | Can share with accounts outside its organization | Can use customer managed permissions | Can share with service principals | 
 | --- | --- | --- | --- | --- | --- | 
-| AWS Cloud Map Namespaces<br />`servicediscovery:Namespace` | Create and manage namespaces centrally, and share them with other AWS accounts within your organization. This lets multiple AWS accounts discover services and instances in the shared namespace without the need for temporary credentials. For more information, see [Shared AWS Cloud Map namespaces](https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html) in the *AWS Cloud Map Developer Guide*.  |  ![](https://docs.aws.amazon.com/ram/latest/userguide/images/icon-yes.png) Yes  |  ![](https://docs.aws.amazon.com/ram/latest/userguide/images/icon-no.png) No <br />Can share with **only** AWS accounts in its own organization. |  ![](https://docs.aws.amazon.com/ram/latest/userguide/images/icon-yes.png) Yes  |  ![](https://docs.aws.amazon.com/ram/latest/userguide/images/icon-no.png) No  | 
+| AWS Cloud Map Namespaces<br />`servicediscovery:Namespace` | Create and manage namespaces centrally, and share them with other AWS accounts. This lets multiple AWS accounts discover services and instances in the shared namespace without the need for temporary credentials. For more information, see [Shared AWS Cloud Map namespaces](https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html) in the *AWS Cloud Map Developer Guide*.  |  ![](https://docs.aws.amazon.com/ram/latest/userguide/images/icon-yes.png) Yes  |  ![](https://docs.aws.amazon.com/ram/latest/userguide/images/icon-yes.png) Yes <br />Can share with **any** AWS account. |  ![](https://docs.aws.amazon.com/ram/latest/userguide/images/icon-yes.png) Yes  |  ![](https://docs.aws.amazon.com/ram/latest/userguide/images/icon-no.png) No  | 
 
 ## AWS Cloud WAN
 <a name="shareable-globalwan"></a>
@@ -353,6 +353,16 @@ You can share the following AWS Private CA resources by using AWS RAM.
 | Resource type and code | Use case | Can share with IAM users and roles | Can share with accounts outside its organization | Can use customer managed permissions | Can share with service principals | 
 | --- | --- | --- | --- | --- | --- | 
 | Private certificate authority (CAs)<br />`acm-pca:CertificateAuthority` | Create and manage private certificate authorities (CAs) for your organization’s internal public key infrastructure (PKI), and share those CAs with other AWS accounts or your organization. This lets AWS Certificate Manager users in other accounts issue X.509 certificates signed by your shared CA. For more information, see [Controlling access to a private CA](https://docs.aws.amazon.com/acm-pca/latest/userguide/granting-ca-access.html) in the *AWS Private Certificate Authority User Guide*. |  ![](https://docs.aws.amazon.com/ram/latest/userguide/images/icon-yes.png) Yes  |  ![](https://docs.aws.amazon.com/ram/latest/userguide/images/icon-yes.png) Yes <br />Can share with **any** AWS account. |  ![](https://docs.aws.amazon.com/ram/latest/userguide/images/icon-yes.png) Yes  |  ![](https://docs.aws.amazon.com/ram/latest/userguide/images/icon-yes.png) Yes  | 
+
+## AWS Resource Access Manager
+<a name="shareable-ram"></a>
+
+You can share the following AWS Resource Access Manager resources by using AWS RAM.
+
+
+| Resource type and code | Use case | Can share with IAM users and roles | Can share with accounts outside its organization | Can use customer managed permissions | Can share with service principals | 
+| --- | --- | --- | --- | --- | --- | 
+| Customer managed permissions<br />`ram:Permission` | Share a customer managed permission that you created with other AWS accounts so that they can associate it with their own resource shares. This removes the need for each account to re-create the same customer managed permission. If the customer managed permission is parameterized, each receiving account supplies its own parameter values. For more information, see [Sharing and using customer managed permissions across accounts in AWS RAM](sharing-customer-managed-permissions.md). |  ![](https://docs.aws.amazon.com/ram/latest/userguide/images/icon-yes.png) Yes  |  ![](https://docs.aws.amazon.com/ram/latest/userguide/images/icon-yes.png) Yes <br />Can share with **any** AWS account. |  ![](https://docs.aws.amazon.com/ram/latest/userguide/images/icon-no.png) No  |  ![](https://docs.aws.amazon.com/ram/latest/userguide/images/icon-no.png) No  | 
 
 ## AWS Resource Explorer
 <a name="shareable-arex"></a>

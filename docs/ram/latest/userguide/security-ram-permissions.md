@@ -20,6 +20,8 @@ You can retrieve the list of the available managed permissions at any time. For 
 **Topics**
 + [Viewing managed permissions](working-with-sharing-view-permissions.md)
 + [Creating and using customer managed permissions in AWS RAM](create-customer-managed-permissions.md)
++ [Sharing and using customer managed permissions across accounts in AWS RAM](sharing-customer-managed-permissions.md)
++ [Using parameterized managed permissions in AWS RAM](parameterized-managed-permissions.md)
 + [Updating AWS managed permissions to a newer version](working-with-sharing-update-permissions.md)
 + [Considerations for using customer managed permissions in AWS RAM](managed-permission-considerations.md)
 + [How managed permissions work](#permissions-work)

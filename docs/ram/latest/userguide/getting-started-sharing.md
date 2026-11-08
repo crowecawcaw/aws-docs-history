@@ -149,6 +149,8 @@ If the selected managed permission has multiple versions, then AWS RAM automatic
 
    To display the actions that the managed permission allows, expand **View the policy template for this managed permission**.
 
+   If the managed permission that you select declares template parameters, the console prompts you to enter a value for each parameter. AWS RAM substitutes the values that you provide into the policy template when it applies permissions to the shared resources. For more information, see [Using parameterized managed permissions in AWS RAM](parameterized-managed-permissions.md).
+
 1. Choose **Next**.
 
 1. In **Step 3: Grant access to principals**, do the following:
@@ -222,7 +224,8 @@ To obtain the unique ARN for an IAM user, [view the list of users in the IAM con
 Use the [create-resource-share](https://docs.aws.amazon.com/cli/latest/reference/ram/create-resource-share.html) command. The following command creates a resource share that is shared with all of the AWS accounts in the organization. The share contains an AWS License Manager license configuration, and it grants the default managed permissions for that resource type.
 
 **Note**  
-If you want to use a customer managed permission with a resource type in this resource share, you can either use an existing customer managed permission or create a new customer managed permission. Make note of the ARN for the customer managed permission, and then create the resource share. For more information, see [Create a customer managed permission](create-customer-managed-permissions.md#create_cmp).
+If you want to use a customer managed permission with a resource type in this resource share, you can either use an existing customer managed permission or create a new customer managed permission. Make note of the ARN for the customer managed permission, and then create the resource share. For more information, see [Create a customer managed permission](create-customer-managed-permissions.md#create_cmp).  
+If the managed permission declares template parameters, you must also include the `--permission-template-parameters` parameter to supply a value for each declared parameter. For more information, see [Using parameterized managed permissions in AWS RAM](parameterized-managed-permissions.md).
 
 ```
 $ aws ram create-resource-share \
