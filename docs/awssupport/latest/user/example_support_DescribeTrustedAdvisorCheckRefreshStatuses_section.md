@@ -14,7 +14,7 @@ The following `describe-trusted-advisor-check-refresh-statuses` example lists th
 
 ```
 aws support describe-trusted-advisor-check-refresh-statuses \
-    --check-id {{"Pfx0RwqBli"}} {{"zXCkfM1nI3"}}
+    --check-ids {{"Pfx0RwqBli"}} {{"zXCkfM1nI3"}}
 ```
 Output:  
 

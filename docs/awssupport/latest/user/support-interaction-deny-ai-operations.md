@@ -49,3 +49,5 @@ The following example policy explicitly denies all AI-enhanced troubleshooting o
 
 **Note**  
 Denying these operations doesn't affect access to traditional support case management. You can continue creating and managing support cases using the standard workflow.
+
+If your custom policy doesn't include the support interaction operations, such as `support:StartInteraction` and `support:ListInteractions`, then the **Support interactions** section of the Support Dashboard shows **AI features limited**. To use AI-enhanced troubleshooting, add the support interaction operations to your custom policy, or attach the `AWSSupportAccess` managed policy. For more information, see [Option 1: Use the AWS managed policy (recommended)](support-interaction-perm-man-policy.md).

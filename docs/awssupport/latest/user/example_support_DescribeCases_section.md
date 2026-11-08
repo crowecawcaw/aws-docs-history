@@ -68,7 +68,7 @@ aws support describe-cases \
     --include-resolved-cases \
     --language {{"en"}} \
     --no-include-communications \
-    --max-item {{1}}
+    --max-items {{1}}
 ```
 Output:  
 

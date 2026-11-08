@@ -42,9 +42,17 @@ If you have a Basic Support plan, then you can't create a **Technical** support 
 **Note**  
 If you have the Basic Support plan, the **Additional contacts** option isn't available. However, the **Operations contact** specified in the **Alternate Contacts** section of the **My Account** page receives copies of the case correspondence, but only for the specific case types of account and billing.
 
-1. When you're ready to submit the support case, select **Submit**. You are directed to the **Case details** page where you can see your case details, the support interaction, and the case correspondences.
+1. When you're ready to submit the support case, choose **Submit**. Your case opens in a single view that shows your support interaction, your case details, and your case correspondence. The view includes the following:
+   + **Support agent request details:** The **Subject**, **Description**, **Case type**, **Service**, **Category**, **Severity**, and **Communication** preference for your case.
+   + **Support request submitted:** Your case ID. Response times depend on your support plan and the severity of your case.
+   + **Case status:** Whether a support agent is assigned to your case. A new case shows **Unassigned**.
+   + **Correspondence:** A text field where you can add details to your case. Don't share sensitive information in case correspondence, such as credentials, credit card numbers, signed URLs, or personally identifiable information.
 
-   Select **Case details** to view the information about your case, such as attachments, or severity level. Select **Support interactions** to see the support interactions associated with this case.
+   From this view, you can also choose **Request chat or call** to contact a support agent, or **Resolve case** to close your case.
+
+   This view applies to all support cases in the Support Center Console, including cases that you create from the AWS Support App or with the AWS Support API. Service quota increase requests are managed in the Service Quotas console.
+
+   If you have an AWS Business Support\+, AWS Enterprise Support, or AWS Unified Operations plan, AI-enhanced troubleshooting continues in this view until a support agent is assigned to your case. For more information, see [Troubleshoot with AI while you wait for a support agent](ai-troubleshooting-after-case-creation.md).
 
 ## Best practices and target response times for Enterprise Support cases
 <a name="enterprise-support-cases"></a>
