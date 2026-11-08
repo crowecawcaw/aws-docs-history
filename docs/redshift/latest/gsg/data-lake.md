@@ -20,8 +20,8 @@ The integrated data lake query engine eliminates the requirement to use Redshift
 **Note**  
 In some cases, you may observe slower performance on RG compared to RA3 clusters running Redshift Spectrum, which scales independently using dedicated compute resources. If you observe slower query performance, consider adding more nodes or upgrading to larger RG instance sizes.
 
-**Using Redshift Spectrum for DC2 and RA3**
+**Using Redshift Spectrum for RA3**
 
-On DC2 and RA3 provisioned clusters, Redshift Spectrum resides on dedicated Amazon Redshift servers that are independent of your cluster. Redshift Spectrum pushes many compute-intensive tasks, such as predicate filtering and aggregation, to the Redshift Spectrum layer. Redshift Spectrum also scales intelligently to take advantage of massively parallel processing.
+On RA3 provisioned clusters, Redshift Spectrum resides on dedicated Amazon Redshift servers that are independent of your cluster. Redshift Spectrum pushes many compute-intensive tasks, such as predicate filtering and aggregation, to the Redshift Spectrum layer. Redshift Spectrum also scales intelligently to take advantage of massively parallel processing.
 
 For more information about Redshift Spectrum, including how to work with Redshift Spectrum and data lakes, see [Getting started with Amazon Redshift Spectrum](https://docs.aws.amazon.com/redshift/latest/dg/c-getting-started-using-spectrum.html) in *Amazon Redshift Database Developer Guide*.
