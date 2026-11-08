@@ -81,7 +81,7 @@ Are you ready to build your first global cluster? In this section we will explai
 
 To create an Amazon DocumentDB Regional cluster, call the [create-global-cluster AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/docdb/create-global-cluster.html). The following AWS CLI command creates an Amazon DocumentDB cluster named `global-cluster-id`. For more information on deletion protection, see [Deleting an Amazon DocumentDB cluster](db-cluster-delete.md). 
 
-Also, `--engine-version` is an optional parameter that defaults to the latest major engine version. The current default engine version is `5.0.0` (note: Amazon DocumentDB 8.0 is available but must be explicitly specified as `8.0.0`). When new major engine versions are released, the default engine version for `--engine-version` is updated to reflect the last major engine version. As a result, for production workloads, and especially those that depend on scripting, automation, or CloudFormation templates, explicitly specify the `--engine-version` to the intended major version.
+Also, `--engine-version` is an optional parameter. If you omit it, Amazon DocumentDB uses the newest 8.0 minor version available in the AWS Region. To use a specific minor version, specify it with `--engine-version`. For more information, see [Amazon DocumentDB cluster settings](db-cluster-parameters.md).
 
 If a `db-subnet-group-name` or `vpc-security-group-id` is not specified, Amazon DocumentDB will use the default subnet group and Amazon VPC security group for the given Region.
 

@@ -43,7 +43,7 @@ If you don't see the navigation pane on the left side of your screen, choose the
 
    1. For **Cluster identifier**, enter a unique name, such as **myserverlesscluster**. Note that the console will change all cluster names into lower-case regardless of how they are entered.
 
-   1. For **Engine version**, choose **5.0.0** (this is the default option).
+   1. For **Engine version**, keep the default version, or choose another available version. For more information, see [Amazon DocumentDB cluster settings](db-cluster-parameters.md).
 
 1. In the **Cluster storage configuration** section, choose **Amazon DocumentDB Standard** (this is the default option).
 **Note**  

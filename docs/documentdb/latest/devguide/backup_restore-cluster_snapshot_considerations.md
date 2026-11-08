@@ -41,6 +41,7 @@ If you don't specify a preferred backup window when you create the cluster, Amaz
 | US West (Oregon) | us-west-2 | 06:00-14:00 | 
 | Africa (Cape Town) | af-south-1 | 03:00–11:00 | 
 | Asia Pacific (Hong Kong) | ap-east-1 | 06:00-14:00 | 
+| Asia Pacific (Taipei) | ap-east-2 | 09:00-17:00 | 
 | Asia Pacific (Hyderabad) | ap-south-2 | 06:30–14:30 | 
 | Asia Pacific (Malaysia) | ap-southeast-5 | 13:00-21:00 | 
 | Asia Pacific (Mumbai) | ap-south-1 | 06:00-14:00 | 
@@ -50,6 +51,7 @@ If you don't specify a preferred backup window when you create the cluster, Amaz
 | Asia Pacific (Sydney) | ap-southeast-2 | 12:00-20:00 | 
 | Asia Pacific (Jakarta) | ap-southeast-3 | 08:00-16:00 | 
 | Asia Pacific (Melbourne) | ap-southeast-4 | 11:00-19:00 | 
+| Asia Pacific (New Zealand) | ap-southeast-6 | 13:00-21:00 | 
 | Asia Pacific (Thailand) | ap-southeast-7 | 15:00-23:00 | 
 | Asia Pacific (Tokyo) | ap-northeast-1 | 13:00-21:00 | 
 | Canada (Central) | ca-central-1 | 03:00-11:00 | 

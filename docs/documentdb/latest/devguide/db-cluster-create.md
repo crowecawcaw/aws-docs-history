@@ -81,7 +81,7 @@ If you don't see the navigation pane on the left side of your screen, choose the
       + Cannot end with a hyphen or contain two consecutive hyphens.
       + Must be unique for all clusters across Amazon RDS, Neptune, and Amazon DocumentDB per AWS account, per Region.
 
-   1. **Engine version**—Accept the default engine version of 5.0.0, or optionally choose 8.0.0, 4.0.0, or 3.6.0.
+   1. **Engine version** – Keep the default version, or choose another available version. For more information, see [Amazon DocumentDB cluster settings](db-cluster-parameters.md).
 
    1. **Instance class**—Accept the default `db.r5.large`, or choose the instance class that you want from the list.
 
@@ -288,7 +288,7 @@ For additional parameters, see [CreateDBCluster](https://docs.aws.amazon.com/doc
 
 To create an Amazon DocumentDB cluster, call the `create-db-cluster` AWS CLI. The following AWS CLI command creates an Amazon DocumentDB cluster named `sample-cluster` with deletion protection enabled. For more information on deletion protection, see [Deleting an Amazon DocumentDB cluster](db-cluster-delete.md).
 
-Also, `--engine-version` is an optional parameter that defaults to the latest major engine version. The current default engine version is 5.0.0 (note: Amazon DocumentDB 8.0 is available but must be explicitly specified). When new major engine versions are released, the default engine version for `--engine-version` will be updated to reflect the last major engine version. As a result, for production workloads, and especially those that are dependent on scripting, automation, or CloudFormation templates, explicitly specify the `--engine-version` to the intended major version.
+Also, `--engine-version` is an optional parameter. If you omit it, Amazon DocumentDB uses the newest 8.0 minor version available in the AWS Region. To use a specific minor version, specify it with `--engine-version`. For more information, see [Amazon DocumentDB cluster settings](db-cluster-parameters.md).
 
 **Note**  
 If a `db-subnet-group-name` or `vpc-security-group-id` is not specified, Amazon DocumentDB will use the default subnet group and Amazon VPC security group for the given Region.

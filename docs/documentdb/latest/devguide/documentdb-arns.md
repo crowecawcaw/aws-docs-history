@@ -25,6 +25,7 @@ You can construct an ARN for an Amazon DocumentDB resource using the following s
 | Africa (Cape Town) | `af-south-1` | 3 | 
 | South America (São Paulo) | `sa-east-1` | 3 | 
 | Asia Pacific (Hong Kong) | `ap-east-1` | 3 | 
+| Asia Pacific (Taipei) | `ap-east-2` | 3 | 
 | Asia Pacific (Hyderabad) | `ap-south-2` | 3 | 
 | Asia Pacific (Malaysia) | `ap-southeast-5` | 3 | 
 | Asia Pacific (Mumbai) | `ap-south-1` | 3 | 
@@ -34,6 +35,7 @@ You can construct an ARN for an Amazon DocumentDB resource using the following s
 | Asia Pacific (Sydney) | `ap-southeast-2` | 3 | 
 | Asia Pacific (Jakarta) | `ap-southeast-3` | 3 | 
 | Asia Pacific (Melbourne) | `ap-southeast-4` | 3 | 
+| Asia Pacific (New Zealand) | `ap-southeast-6` | 3 | 
 | Asia Pacific (Thailand) | `ap-southeast-7` | 3 | 
 | Asia Pacific (Tokyo) | `ap-northeast-1` | 3 | 
 | Canada (Central) | `ca-central-1` | 3 | 

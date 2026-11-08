@@ -111,7 +111,7 @@ While the Amazon EC2 instance is being provisioned, you will create your Amazon 
 
 1. In **Cluster configuration**, for **Cluster identifier**, enter a unique name. Note that the console will change all cluster names into lower-case regardless of how they are entered.
 
-   Leave the **Engine version** at it's default value of **5.0.0**.
+   For **Engine version**, keep the default version, or choose another available version. For more information, see [Amazon DocumentDB cluster settings](db-cluster-parameters.md).
 
 1. For **Cluster storage configuration**, leave the default setting of **Amazon DocumentDB Standard**.
 

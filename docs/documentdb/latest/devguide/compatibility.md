@@ -39,7 +39,8 @@ Amazon DocumentDB 8.0 improves query performance by up to 7x, and improves compr
 To get started with Amazon DocumentDB 8.0, see the [Get started with Amazon DocumentDB](get-started-guide.md). You can create a new Amazon DocumentDB 8.0 cluster using the AWS Management Console or the AWS SDK, AWS CLI, or CloudFormation. When connecting to Amazon DocumentDB, it is required that you use a MongoDB driver or utility that is compatible with MongoDB 5.0 or higher.
 
 **Note**  
-When using the AWS SDK, AWS CLI, or CloudFormation, the engine version will default to 5.0.0. You must explicitly specify the parameter `engineVersion = 8.0.0` to create a new Amazon DocumentDB 8.0 cluster or `engineVersion = 4.0.0` to create a new Amazon DocumentDB 4.0 cluster or `engineVersion = 3.6.0` to create a new Amazon DocumentDB 3.6 cluster. For a given Amazon DocumentDB cluster, you can determine the cluster version using the AWS CLI to call `describe-db-clusters` or use the Amazon DocumentDB management console to view the engine version number for a particular cluster.
+When using the AWS SDK, AWS CLI, or CloudFormation, the engine version will default to the newest 8.0 minor version available in the AWS Region. To use a specific minor version, specify it with `engineVersion`. For more information, see [Amazon DocumentDB cluster settings](db-cluster-parameters.md).  
+For a given Amazon DocumentDB cluster, you can determine the cluster version using the AWS CLI to call `describe-db-clusters` or use the Amazon DocumentDB management console to view the engine version number for a particular cluster.
 
 Amazon DocumentDB 5.0 and 8.0 supports the Amazon EC2 `r8g` Graviton4 processor and Graviton2 processors such as `r6g` and `t4.medium` instance types for your clusters and is available in all supported AWS Regions (see [Instances](what-is.md#what-is-db-instances)). For more information on pricing, see [Amazon DocumentDB (with MongoDB compatibility) Pricing](https://aws.amazon.com/documentdb/pricing/).
 
@@ -102,7 +103,8 @@ Amazon DocumentDB 5.0.1 is the first minor version release for the Amazon Docume
 To get started with Amazon DocumentDB 5.0, see the [Get started with Amazon DocumentDB](get-started-guide.md). You can create a new Amazon DocumentDB 5.0 cluster using the AWS Management Console or the AWS SDK, AWS CLI, or CloudFormation. When connecting to Amazon DocumentDB, it is required that you use a MongoDB driver or utility that is compatible with MongoDB 5.0 or higher.
 
 **Note**  
-When using the AWS SDK, AWS CLI, or CloudFormation, the engine version will default to 5.0.0. You must explicitly specify the parameter `engineVersion = 4.0.0` to create a new Amazon DocumentDB 4.0 cluster or `engineVersion = 3.6.0` to create a new Amazon DocumentDB 3.6 cluster. For a given Amazon DocumentDB cluster, you can determine the cluster version using the AWS CLI to call `describe-db-clusters` or use the Amazon DocumentDB management console to view the engine version number for a particular cluster.
+When using the AWS SDK, AWS CLI, or CloudFormation, the engine version will default to the newest 8.0 minor version available in the AWS Region. To create a 5.0 cluster, specify `engineVersion` explicitly. For more information, see [Amazon DocumentDB cluster settings](db-cluster-parameters.md).  
+For a given Amazon DocumentDB cluster, you can determine the cluster version using the AWS CLI to call `describe-db-clusters` or use the Amazon DocumentDB management console to view the engine version number for a particular cluster.
 
 Amazon DocumentDB 5.0 and 8.0 supports the Amazon EC2 `r8g` Graviton4 processor and Graviton2 processors such as `r6g` and `t4.medium` instance types for your clusters and is available in all supported AWS Regions (see [Instances](what-is.md#what-is-db-instances)). For more information on pricing, see [Amazon DocumentDB (with MongoDB compatibility) Pricing](https://aws.amazon.com/documentdb/pricing/).
 
@@ -187,7 +189,8 @@ Amazon DocumentDB does not support every MongoDB 4.0 feature. When we built Amaz
 To get started with Amazon DocumentDB 4.0, see the [Get started with Amazon DocumentDB](get-started-guide.md). You can create a new Amazon DocumentDB 4.0 cluster using the AWS Management Console or the AWS SDK, AWS CLI, or CloudFormation. When connecting to Amazon DocumentDB, it is required that you use a MongoDB driver or utility that is compatible with MongoDB 4.0 or higher. 
 
 **Note**  
-When using the AWS SDK, AWS CLI, or CloudFormation, the engine version will default to 5.0.0. You must explicitly specify the parameter `engineVersion = 4.0.0` to create a new Amazon DocumentDB 4.0 cluster or `engineVersion = 3.6.0` to create a new Amazon DocumentDB 3.6 cluster. For a given Amazon DocumentDB cluster, you can determine the cluster version using the AWS CLI to call `describe-db-clusters` or use the Amazon DocumentDB management console to view the engine version number for a particular cluster.
+When using the AWS SDK, AWS CLI, or CloudFormation, the engine version will default to the newest 8.0 minor version available in the AWS Region. To create a 4.0 cluster, specify `engineVersion` explicitly. For more information, see [Amazon DocumentDB cluster settings](db-cluster-parameters.md).  
+For a given Amazon DocumentDB cluster, you can determine the cluster version using the AWS CLI to call `describe-db-clusters` or use the Amazon DocumentDB management console to view the engine version number for a particular cluster.
 
 Amazon DocumentDB 4.0 supports `r5`, `r6g`, `t3.medium`, and `t4g.medium` instance types for your clusters and is available in all supported AWS Regions. There is no additional cost for using Amazon DocumentDB 4.0. For more information on pricing, see [Amazon DocumentDB (with MongoDB compatibility) Pricing](https://aws.amazon.com/documentdb/pricing/).
 

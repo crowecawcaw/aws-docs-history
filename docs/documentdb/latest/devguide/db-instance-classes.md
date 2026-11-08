@@ -152,6 +152,7 @@ A particular instance class may or may not be supported in a given Region. The f
   <tr><td>Africa (Cape Town)</td><td></td><td></td><td>Supported</td><td>Supported</td><td></td><td>Supported</td><td>Supported</td><td>Supported</td></tr>
   <tr><td>South America (São Paulo)</td><td>Supported</td><td>Supported</td><td>Supported</td><td>Supported</td><td></td><td>Supported</td><td>Supported</td><td>Supported</td></tr>
   <tr><td>Asia Pacific (Hong Kong)</td><td>Supported</td><td></td><td>Supported</td><td>Supported</td><td></td><td>Supported</td><td>Supported</td><td>Supported</td></tr>
+  <tr><td>Asia Pacific (Taipei)</td><td></td><td></td><td>Supported</td><td></td><td></td><td>Supported</td><td>Supported</td><td></td></tr>
   <tr><td>Asia Pacific (Hyderabad)</td><td></td><td></td><td>Supported</td><td>Supported</td><td></td><td>Supported</td><td>Supported</td><td>Supported</td></tr>
   <tr><td>Asia Pacific (Malaysia)</td><td></td><td></td><td>Supported</td><td></td><td></td><td>Supported</td><td>Supported</td><td>Supported</td></tr>
   <tr><td>Asia Pacific (Mumbai)</td><td>Supported</td><td>Supported</td><td>Supported</td><td>Supported</td><td></td><td>Supported</td><td>Supported</td><td>Supported</td></tr>
@@ -160,6 +161,7 @@ A particular instance class may or may not be supported in a given Region. The f
   <tr><td>Asia Pacific (Sydney)</td><td>Supported</td><td>Supported</td><td>Supported</td><td>Supported</td><td></td><td>Supported</td><td>Supported</td><td>Supported</td></tr>
   <tr><td>Asia Pacific (Jakarta)</td><td>Supported</td><td>Supported</td><td>Supported</td><td>Supported</td><td></td><td>Supported</td><td>Supported</td><td>Supported</td></tr>
   <tr><td>Asia Pacific (Melbourne)</td><td></td><td></td><td>Supported</td><td>Supported</td><td></td><td>Supported</td><td>Supported</td><td>Supported</td></tr>
+  <tr><td>Asia Pacific (New Zealand)</td><td></td><td></td><td>Supported</td><td></td><td></td><td>Supported</td><td>Supported</td><td></td></tr>
   <tr><td>Asia Pacific (Singapore)</td><td>Supported</td><td>Supported</td><td>Supported</td><td>Supported</td><td></td><td>Supported</td><td>Supported</td><td>Supported</td></tr>
   <tr><td>Asia Pacific (Thailand)</td><td></td><td></td><td>Supported</td><td></td><td></td><td>Supported</td><td>Supported</td><td>Supported</td></tr>
   <tr><td>Asia Pacific (Tokyo)</td><td>Supported</td><td>Supported</td><td>Supported</td><td>Supported</td><td></td><td>Supported</td><td>Supported</td><td>Supported</td></tr>

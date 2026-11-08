@@ -79,6 +79,7 @@ For a complete list of instance types supported by Amazon DocumentDB in each ins
   <tr><td>Africa (Cape Town)</td><td></td><td></td><td>Supported</td><td>Supported</td><td></td><td>Supported</td><td>Supported</td><td>Supported</td></tr>
   <tr><td>South America (São Paulo)</td><td>Supported</td><td>Supported</td><td>Supported</td><td>Supported</td><td></td><td>Supported</td><td>Supported</td><td>Supported</td></tr>
   <tr><td>Asia Pacific (Hong Kong)</td><td>Supported</td><td></td><td>Supported</td><td>Supported</td><td></td><td>Supported</td><td>Supported</td><td>Supported</td></tr>
+  <tr><td>Asia Pacific (Taipei)</td><td></td><td></td><td>Supported</td><td></td><td></td><td>Supported</td><td>Supported</td><td></td></tr>
   <tr><td>Asia Pacific (Hyderabad)</td><td></td><td></td><td>Supported</td><td>Supported</td><td></td><td>Supported</td><td>Supported</td><td>Supported</td></tr>
   <tr><td>Asia Pacific (Malaysia)</td><td></td><td></td><td>Supported</td><td></td><td></td><td>Supported</td><td>Supported</td><td>Supported</td></tr>
   <tr><td>Asia Pacific (Mumbai)</td><td>Supported</td><td>Supported</td><td>Supported</td><td>Supported</td><td></td><td>Supported</td><td>Supported</td><td>Supported</td></tr>
@@ -87,6 +88,7 @@ For a complete list of instance types supported by Amazon DocumentDB in each ins
   <tr><td>Asia Pacific (Sydney)</td><td>Supported</td><td>Supported</td><td>Supported</td><td>Supported</td><td></td><td>Supported</td><td>Supported</td><td>Supported</td></tr>
   <tr><td>Asia Pacific (Jakarta)</td><td>Supported</td><td>Supported</td><td>Supported</td><td>Supported</td><td></td><td>Supported</td><td>Supported</td><td>Supported</td></tr>
   <tr><td>Asia Pacific (Melbourne)</td><td></td><td></td><td>Supported</td><td>Supported</td><td></td><td>Supported</td><td>Supported</td><td>Supported</td></tr>
+  <tr><td>Asia Pacific (New Zealand)</td><td></td><td></td><td>Supported</td><td></td><td></td><td>Supported</td><td>Supported</td><td></td></tr>
   <tr><td>Asia Pacific (Singapore)</td><td>Supported</td><td>Supported</td><td>Supported</td><td>Supported</td><td></td><td>Supported</td><td>Supported</td><td>Supported</td></tr>
   <tr><td>Asia Pacific (Thailand)</td><td></td><td></td><td>Supported</td><td></td><td></td><td>Supported</td><td>Supported</td><td>Supported</td></tr>
   <tr><td>Asia Pacific (Tokyo)</td><td>Supported</td><td>Supported</td><td>Supported</td><td>Supported</td><td></td><td>Supported</td><td>Supported</td><td>Supported</td></tr>
@@ -144,6 +146,7 @@ The Amazon DocumentDB architecture separates storage and compute. For the storag
 | Africa (Cape Town) | `af-south-1` | 3 | 
 | South America (São Paulo) | `sa-east-1` | 3 | 
 | Asia Pacific (Hong Kong) | `ap-east-1` | 3 | 
+| Asia Pacific (Taipei) | `ap-east-2` | 3 | 
 | Asia Pacific (Hyderabad) | `ap-south-2` | 3 | 
 | Asia Pacific (Malaysia) | `ap-southeast-5` | 3 | 
 | Asia Pacific (Mumbai) | `ap-south-1` | 3 | 
@@ -153,6 +156,7 @@ The Amazon DocumentDB architecture separates storage and compute. For the storag
 | Asia Pacific (Sydney) | `ap-southeast-2` | 3 | 
 | Asia Pacific (Jakarta) | `ap-southeast-3` | 3 | 
 | Asia Pacific (Melbourne) | `ap-southeast-4` | 3 | 
+| Asia Pacific (New Zealand) | `ap-southeast-6` | 3 | 
 | Asia Pacific (Thailand) | `ap-southeast-7` | 3 | 
 | Asia Pacific (Tokyo) | `ap-northeast-1` | 3 | 
 | Canada (Central) | `ca-central-1` | 3 | 
