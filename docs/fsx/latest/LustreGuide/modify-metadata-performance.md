@@ -20,7 +20,7 @@ You can increase a file system's metadata performance by using the Amazon FSx co
 
 1. For **Desired Metadata IOPS**, choose the new Metadata IOPS value. The value you enter must be greater than or equal to the current Metadata IOPS value.
    + For SSD file systems, valid values are `1500`, `3000`, `6000`, `12000`, and multiples of `12000` up to a maximum of `192000`.
-   + For Intelligent-Tiering file systems, valid values are `6000` and `12000`.
+   + For Intelligent-Tiering file systems, valid values are `6000`, `12000`, and multiples of `12000` up to a maximum of `192000`.
 
 1. Choose **Update**.
 
@@ -33,9 +33,9 @@ To increase the metadata performance for an FSx for Lustre file system, use the 
 
   1. If your file system is in USER\_PROVISIONED mode, using `Mode` is optional (if used, set `Mode` to `USER_PROVISIONED`).
 
-     If your SSD file system is in AUTOMATIC mode, set `Mode` to `USER_PROVISIONED` (which switches the file system mode to USER\_PROVISIONED in addition to increasing the Metadata IOPS value).
+     If your file system is in AUTOMATIC mode, set `Mode` to `USER_PROVISIONED` (which switches the file system mode to USER\_PROVISIONED in addition to increasing the Metadata IOPS value).
 
-  1. For SSD file systems, set `Iops` to a value of `1500`, `3000`, `6000`, `12000`, or multiples of `12000` up to a maximum of `192000`. For Intelligent-Tiering file systems, set `Iops` to `6000` or `12000`. The value you enter must be greater than or equal to the current Metadata IOPS value.
+  1. For SSD file systems, set `Iops` to a value of `1500`, `3000`, `6000`, `12000`, or multiples of `12000` up to a maximum of `192000`. For Intelligent-Tiering file systems, set `Iops` to `6000`, `12000`, or multiples of `12000` up to a maximum of `192000`. The value you enter must be greater than or equal to the current Metadata IOPS value.
 
 The following example updates the provisioned Metadata IOPS to 12000.
 

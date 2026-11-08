@@ -39,7 +39,7 @@ To learn more about network throughput, disk throughput, and IOPS characteristic
 
 File system metadata IO operations per second (IOPS) determine the number of files and directories that you can create, list, read, and delete per second.
 
-Persistent 2 file systems allow you to provision Metadata IOPS independent from storage capacity and provide increased visibility into the number and type of metadata IOPS client instances are driving on your file system. With SSD file systems, Metadata IOPS are automatically provisioned based on the storage capacity that you provision. Automatic mode is not supported on Intelligent-Tiering file systems.
+Persistent 2 file systems allow you to provision Metadata IOPS independent from storage capacity and provide increased visibility into the number and type of Metadata IOPS that client instances are driving on your file system. In Automatic mode, Amazon FSx provisions Metadata IOPS based on your file system's storage capacity for SSD file systems, and on throughput capacity for Intelligent-Tiering file systems.
 
 With FSx for Lustre Persistent 2 file systems, the number of Metadata IOPS you provision and the type of metadata operation determine the rate of metadata operations that your file system can support. The level of metadata IOPS you provision determines the number of IOPS provisioned for your file system's metadata disks.
 
@@ -62,11 +62,23 @@ For SSD file systems, you can choose to provision metadata IOPS using Automatic 
 | 12000–45600 GiB | 12000 | 
 | ≥48000 GiB | 12000 IOPS per 24000 GiB | 
 
+For Intelligent-Tiering file systems, Automatic mode provisions Metadata IOPS based on your file system's throughput capacity, as shown in the following table.
+
+
+| File system throughput capacity | Metadata IOPS provisioned in Automatic mode | 
+| --- | --- | 
+| 4000–8000 MBps | 6000 | 
+| 12000–44000 MBps | 12000 | 
+| ≥48000 MBps | 12000 IOPS per 24000 MBps | 
+
 In User-provisioned mode, you can optionally choose to specify the number of metadata IOPS to provision. Valid values are as follows:
 + For SSD file systems, valid values are `1500`, `3000`, `6000`, `12000`, and multiples of `12000` up to a maximum of `192000`.
-+ For Intelligent-Tiering file systems, valid values are `6000` and `12000`.
++ For Intelligent-Tiering file systems, valid values are `6000`, `12000`, and multiples of `12000` up to a maximum of `192000`.
 
-For information about how to configure Metadata IOPS, see [Managing metadata performance](managing-metadata-performance.md). Note that you pay for Metadata IOPS provisioned above the default number of Metadata IOPS for your file system.
+For information about how to configure Metadata IOPS, see [Managing metadata performance](managing-metadata-performance.md).
+
+**Note**  
+For SSD file systems, you pay for the Metadata IOPS you provision above the number that Automatic mode provisions for your file system. For Intelligent-Tiering file systems, you pay for all Metadata IOPS, including those provisioned in Automatic mode.
 
 ## Throughput to individual client instances
 <a name="throughput-clients"></a>

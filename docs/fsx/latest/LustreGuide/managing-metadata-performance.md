@@ -26,15 +26,17 @@ You can track the progress of a metadata performance increase at any time by usi
 The number of provisioned Metadata IOPS determines the maximum rate of metadata operations that can be supported by the file system.
 
 When you create the file system, you choose a metadata configuration mode:
-+ For SSD file systems, you can choose Automatic mode if you want Amazon FSx to automatically provision and scale the Metadata IOPS on your file system based on your file system's storage capacity. Note that Intelligent-Tiering file systems don't support Automatic mode.
-+ For SSD file systems, you can choose User-provisioned if you want to specify the number of Metadata IOPS to provision for your file system.
-+ For Intelligent-Tiering file systems, you must choose User-provisioned mode. With User-provisioned mode, you can specify the number of Metadata IOPS to provision for your file system.
-
-On SSD file systems, you can switch from Automatic mode to User-provisioned mode at any time. You can also switch from User-provisioned to Automatic mode if the number of Metadata IOPS provisioned on your file system matches the default number of Metadata IOPS provisioned in Automatic mode. Intelligent-Tiering file systems only support User-provisioned mode, so you can't switch metadata configuration modes.
++ Choose Automatic mode if you want Amazon FSx to provision and scale Metadata IOPS for you. For SSD file systems, the number is based on storage capacity. For Intelligent-Tiering file systems, it is based on throughput capacity.
++ Choose User-provisioned mode if you want to specify the number of Metadata IOPS to provision for your file system.
 
 Valid Metadata IOPS values are as follows:
 + For SSD file systems, valid Metadata IOPS values are 1500, 3000, 6000, and multiples of 12000 up to a maximum of 192000.
-+ For Intelligent-Tiering file systems, valid Metadata IOPS values are 6000 and 12000.
++ For Intelligent-Tiering file systems, valid Metadata IOPS values are 6000, 12000, and multiples of 12000 up to a maximum of 192000.
+
+**Note**  
+Intelligent-Tiering file systems created before November 5, 2026, support only User-provisioned mode, with valid Metadata IOPS values of 6000 and 12000. A file system restored from a backup inherits the supported metadata modes, Metadata IOPS values, and minimum Metadata IOPS requirement of the file system the backup was created from.
+
+You can't provision fewer Metadata IOPS than Automatic mode provisions for your file system, and you can switch to Automatic mode only if your current Metadata IOPS is less than or equal to that number. For the values that Automatic mode provisions, see [Metadata IOPS in Automatic mode for SSD file systems](performance.md#dne-auto-provision) and [Metadata IOPS in Automatic mode for Intelligent-Tiering file systems](performance.md#dne-auto-provision-int).
 
 If the metadata performance of your workload exceeds the number of Metadata IOPS provisioned in Automatic mode, you can use User-provisioned mode to increase the Metadata IOPS value for your file system.
 
@@ -50,6 +52,7 @@ Here are a few important considerations when increasing your metadata performanc
 + **Specifying Metadata IOPS in Automatic mode not supported** – You can't specify the number of Metadata IOPS on a file system that is in Automatic mode. You'll have to switch to User-provisioned mode and then make the request. For more information, see [Changing the metadata configuration mode](switch-provisioning-mode.md).
 + **Metadata IOPS for data written before scaling** – When scaling Metadata IOPS beyond 12000, FSx for Lustre adds new metadata servers to your file system. New metadata is automatically distributed across all servers for improved performance. However, existing metadata and subdirectories created before scaling remain on original servers, with no increase in Metadata IOPS.
 + **Time between increases** – You can't make further metadata performance increases on a file system until 6 hours after the last increase was requested.
++ **Throughput capacity increases on Intelligent-Tiering file systems** – Increasing throughput capacity can increase the minimum Metadata IOPS for your file system. For more information, see [Considerations when updating throughput capacity](managing-throughput-capacity.md#throughput-capacity-considerations).
 + **Concurrent metadata performance and SSD storage increases** – You cannot scale metadata performance and file system storage capacity concurrently.
 
 ## When to increase metadata performance

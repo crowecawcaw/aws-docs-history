@@ -3,11 +3,11 @@
 # Changing the metadata configuration mode
 <a name="switch-provisioning-mode"></a>
 
-For SSD-based file systems, you can change the metadata configuration mode of an existing file system using the AWS console and CLI, as explained in the following procedures.
+You can change the metadata configuration mode of an existing file system using the AWS console and CLI, as explained in the following procedures.
 
 When switching from Automatic mode to User-provisioned mode, you must provide a Metadata IOPS value greater than or equal to the current file system Metadata IOPS value.
 
-If you request to switch from User-provisioned to Automatic mode and the current Metadata IOPS value is greater than the automated default, Amazon FSx rejects the request, because downscaling Metadata IOPS is not supported. To unblock mode switch, you must increase storage capacity to match your current Metadata IOPS in Automatic mode in order to enable mode switch again.
+Amazon FSx rejects a switch to Automatic mode when your current Metadata IOPS value is greater than what Automatic mode provisions, because decreasing Metadata IOPS is not supported. To unblock the switch, increase storage capacity for SSD file systems, or throughput capacity for Intelligent-Tiering file systems, until Automatic mode provisions at least your current Metadata IOPS.
 
 You can change a file system's metadata configuration mode by using the Amazon FSx console, the AWS CLI, or the Amazon FSx API.
 
@@ -28,13 +28,13 @@ You can change a file system's metadata configuration mode by using the Amazon F
 
 1. Choose **Update**.
 
-## To change the metadata configuration mode for an SSD file system (CLI)
+## To change the metadata configuration mode for a file system (CLI)
 <a name="switch-provisioning-mode-cli"></a>
 
-To change the metadata configuration mode for an SSD FSx for Lustre file system, use the AWS CLI command [update-file-system](https://docs.aws.amazon.com/cli/latest/reference/fsx/update-file-system.html) (UpdateFileSystem is the equivalent API action). Set the following parameters:
+To change the metadata configuration mode for an FSx for Lustre file system, use the AWS CLI command [update-file-system](https://docs.aws.amazon.com/cli/latest/reference/fsx/update-file-system.html) (UpdateFileSystem is the equivalent API action). Set the following parameters:
 + Set `--file-system-id` to the ID of the file system that you are updating.
-+ To change the metadata configuration mode on SSD-based file systems, use the `--lustre-configuration MetadataConfiguration` property. This property has two parameters, `Mode` and `Iops`.
-  + To switch your SSD file system from AUTOMATIC mode to USER\_PROVISIONED mode, set `Mode` to `USER_PROVISIONED` and `Iops` to a Metadata IOPS value greater than or equal to the current file system Metadata IOPS value. For example:
++ To change the metadata configuration mode, use the `--lustre-configuration MetadataConfiguration` property. This property has two parameters, `Mode` and `Iops`.
+  + To switch your file system from AUTOMATIC mode to USER\_PROVISIONED mode, set `Mode` to `USER_PROVISIONED` and `Iops` to a Metadata IOPS value greater than or equal to the current file system Metadata IOPS value. For example:
 
     ```
     aws fsx update-file-system \
