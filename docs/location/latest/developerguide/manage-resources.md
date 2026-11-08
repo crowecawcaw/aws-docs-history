@@ -32,10 +32,17 @@ The following basic restrictions apply to tags:
 + Tag keys and values are case-sensitive. 
 + The `aws:` prefix is reserved for AWS use. If a tag has a tag key with this prefix, then you can't edit or delete the tag's key or value. Tags with the aws: prefix don't count against your tags per resource limit. 
 
+## Tags added by CloudFormation
+<a name="manage-resources_cloudformation-tags"></a>
+
+Starting February 26, 2027, when CloudFormation creates an Amazon Location resource, it adds the `aws:cloudformation:stack-name`, `aws:cloudformation:stack-id`, and `aws:cloudformation:logical-id` tags, so the identity that CloudFormation uses needs permission to use `geo:TagResource`. For more information about the tags that CloudFormation adds, see the [*CloudFormation Template Reference*](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-resource-tags.html). To learn how to manage the required permissions, see [Grant permission to tag resources](#manage-resources_grant-permission).
+
+These tags appear when you list the resource's tags, including after you remove all your own tags. You can't add, edit, or delete them, and they don't count toward the limit of 50 tags per resource.
+
 ## Grant permission to tag resources
 <a name="manage-resources_grant-permission"></a>
 
-You can use IAM policies to control access to your Amazon Location resources and grant permission to tag a resource on creation. In addition to granting permission to create resources, the policy can include Action permissions to allow tagging operations: 
+You can use IAM policies to control access to your Amazon Location resources and grant permission to tag a resource on creation. If tags are specified in the resource-creating action, AWS performs additional authorization on the `geo:TagResource` action to verify that users have permission to create tags. In addition to granting permission to create resources, the policy can include Action permissions to allow tagging operations: 
 + `geo:TagResource` – Allows a user to assign one or more tags to a specified Amazon Location resource. 
 + `geo:UntagResource` – Allows a user to remove one or more tags from a specified Amazon Location resource. 
 + `geo:ListTagsForResource` – Allows a user to list all the tags assigned to an Amazon Location resource. 
