@@ -405,3 +405,12 @@ Non-fully managed resources require a copy operation to the logically air-gapped
 **Possible cause:** Copy jobs to logically air-gapped vaults are queuing or failing because backups are scheduled more frequently than copies can complete.
 
 **Resolution:** Reduce your backup frequency or adjust your backup schedule to allow more time between backups. See the [AWS Backup quotas documentation](aws-backup-limits.md#lag-vault-quotas-table) for information about concurrent copy limits.
+
+### Temporary recovery point for Amazon FSx for NetApp ONTAP remains in `EXPIRED` state
+<a name="lag-primary-backup-troubleshoot-ontap-expired-recovery-point"></a>
+
+**Error:** `Amazon FSx does not support deleting the most recent AVAILABLE backup of an ONTAP volume unless all other backups of the volume have been deleted`
+
+**Possible cause:** For resources not supporting full AWS Backup management, AWS Backup creates a temporary recovery point in your backup vault and deletes it after the copy to your logically air-gapped vault completes. Amazon FSx for NetApp ONTAP does not support deleting the most recent `AVAILABLE` backup of a volume unless all other backups of that volume have been deleted. When the temporary recovery point is the only backup of the volume, the deletion request fails and the recovery point remains in `EXPIRED` state in your backup vault. This restriction applies only to FSx for ONTAP volumes; other Amazon FSx file system types are not affected.
+
+**Resolution:** The temporary recovery point is the volume's most recent backup when AWS Backup attempts to delete it, so Amazon FSx refuses the deletion while any other backup of that volume exists, and the recovery point remains in `EXPIRED` state. After a later backup of the volume is taken, the temporary recovery point is no longer the most recent backup and can be deleted. Manually delete any recovery point that remains in `EXPIRED` state from your backup vault; you are charged for it until you do. For more information, see [Deleting backups](https://docs.aws.amazon.com/aws-backup/latest/devguide/deleting-backups.html).
