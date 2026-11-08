@@ -21,6 +21,7 @@ To declare this entity in your AWS SAM template, use the following syntax.
   [BatchSize](#sam-function-selfmanagedkafka-batchsize): {{Integer}}
   [BisectBatchOnFunctionError](#sam-function-selfmanagedkafka-bisectbatchonfunctionerror): {{Boolean}}
   [ConsumerGroupId](#sam-function-selfmanagedkafka-consumergroupid): {{String}}
+  [ConsumptionMode](#sam-function-selfmanagedkafka-consumptionmode): {{String}}
   DestinationConfig: {{[DestinationConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html)}}
   [Enabled](#sam-function-selfmanagedkafka-enabled): {{Boolean}}
   [FilterCriteria](#sam-function-selfmanagedkafka-filtercriteria): {{[FilterCriteria](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filtercriteria.html)}}
@@ -62,6 +63,14 @@ A string that configures how events will be read from Kafka topics.
 *Type*: String  
 *Required*: No  
 *CloudFormation compatibility*: This property is passed directly to the `[SelfManagedKafkaEventSourceConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig)` property of an `AWS::Lambda::EventSourceMapping` resource.
+
+ `ConsumptionMode`   <a name="sam-function-selfmanagedkafka-consumptionmode"></a>
+The consumption mode for your self-managed Apache Kafka event source. If you don't specify a value, the default is `Stream`. Valid values:  
++ `Stream` (default) – Uses a consumer group with ordering for each partition.
++ `Queue` – Uses a share group for concurrent processing. Requires Apache Kafka 4.2 or later with share groups enabled.
+*Type*: String  
+*Required*: No  
+*CloudFormation compatibility*: This property is passed directly to the [SelfManagedKafkaEventSourceConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig.html) property of an `AWS::Lambda::EventSourceMapping` resource.
 
  `DestinationConfig`   <a name="sam-function-selfmanagedkafka-destinationconfig"></a>
 A configuration object that specifies the destination of an event after Lambda processes it.  
