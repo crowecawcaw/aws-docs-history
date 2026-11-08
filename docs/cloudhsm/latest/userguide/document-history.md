@@ -18,6 +18,7 @@ For details on new releases, see [Downloads for AWS CloudHSM Client SDK](client-
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Added new release](https://docs.aws.amazon.com/cloudhsm/latest/userguide/latest-releases.html#client-version-5-18-1) | Released AWS CloudHSM client version 5.18.1. | November 4, 2026 | 
 | [Added new release](https://docs.aws.amazon.com/cloudhsm/latest/userguide/latest-releases.html#client-version-5-18-0) | Released AWS CloudHSM client version 5.18.0. | August 18, 2026 | 
 | [Added new release](https://docs.aws.amazon.com/cloudhsm/latest/userguide/latest-releases.html#client-version-5-17-2) | Released AWS CloudHSM client version 5.17.2. | May 22, 2026 | 
 | [Added new release](https://docs.aws.amazon.com/cloudhsm/latest/userguide/latest-releases.html#client-version-5-17-1) | Released AWS CloudHSM client version 5.17.1. | March 19, 2026 | 

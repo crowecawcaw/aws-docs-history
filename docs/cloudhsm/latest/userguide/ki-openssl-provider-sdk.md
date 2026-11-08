@@ -54,4 +54,4 @@ settable_ctx_params failed: WrongObjectType({{<object handle>}}, "CloudHsmProvid
   + HAProxy: `sudo systemctl reload haproxy`
 
    If the reload doesn't replace the affected worker, restart the application with `sudo systemctl restart nginx` or `sudo systemctl restart haproxy`. A restart closes open client connections. Reloading or restarting the application restores the affected worker, but the issue can recur. 
-+  **Resolution status: **We are working on a fix for this issue for a future release of Client SDK 5. 
++  **Resolution status: **This issue has been resolved in [Client SDK 5.18.1](latest-releases.md#client-version-5-18-1). Upgrade to version 5.18.1 or later to benefit from the fix. 

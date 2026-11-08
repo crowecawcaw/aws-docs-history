@@ -151,7 +151,7 @@ Your EC private key remains within the HSM at all times, but the key derivation 
 When a `C_GetAttributeValue` call is throttled, it returns `CKR_DEVICE_ERROR`. Other throttled operations return `CKR_FUNCTION_FAILED`.
 + **Impact: **If your application only retries on `CKR_FUNCTION_FAILED`, it does not retry these throttled requests.
 + **Workaround: **Retry throttled operations with exponential backoff on both `CKR_DEVICE_ERROR` and `CKR_FUNCTION_FAILED`. If throttling persists, add more HSMs to your cluster to increase the total read and write rate, or reduce your request rate. For more information, see [HSM throttling](troubleshoot-hsm-throttling.md).
-+ **Resolution status: **This issue has been resolved in [Client SDK 5.18.0](latest-releases.md#client-version-5-18-0). `C_GetAttributeValue` now returns `CKR_FUNCTION_FAILED` for throttled certificate-store and key attribute reads. Upgrade to version 5.18.0 or later to benefit from the fix.
++ **Resolution status: **This issue has been resolved in [Client SDK 5.18.0](client-version-previous.md#client-version-5-18-0). `C_GetAttributeValue` now returns `CKR_FUNCTION_FAILED` for throttled certificate-store and key attribute reads. Upgrade to version 5.18.0 or later to benefit from the fix.
 
 ## Issue: The PKCS \#11 library does not retry throttled certificate storage operations
 <a name="ki-pkcs11-16"></a>
@@ -159,4 +159,4 @@ When a `C_GetAttributeValue` call is throttled, it returns `CKR_DEVICE_ERROR`. O
 When you exceed rate limits for certificate storage operations, the PKCS \#11 library does not automatically retry these throttled operations.
 + **Impact: **A throttled certificate storage operation returns an error to your application instead of being retried automatically.
 + **Workaround: **Retry throttled certificate storage operations in your application with exponential backoff. If throttling persists, add more HSMs to your cluster to increase the total read and write rate, or reduce your request rate. For more information, see [HSM throttling](troubleshoot-hsm-throttling.md).
-+ **Resolution status: **This issue has been resolved in [Client SDK 5.18.0](latest-releases.md#client-version-5-18-0). The PKCS \#11 library now automatically retries throttled certificate storage operations. Upgrade to version 5.18.0 or later to benefit from the fix.
++ **Resolution status: **This issue has been resolved in [Client SDK 5.18.0](client-version-previous.md#client-version-5-18-0). The PKCS \#11 library now automatically retries throttled certificate storage operations. Upgrade to version 5.18.0 or later to benefit from the fix.
