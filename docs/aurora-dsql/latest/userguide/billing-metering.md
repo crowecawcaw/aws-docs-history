@@ -370,7 +370,7 @@ Aurora DSQL publishes usage metrics to Amazon CloudWatch, allowing you to monito
 | ReadDPU | Read usage component | ClusterId | 
 | ComputeDPU | Query processing component | ClusterId | 
 | MultiRegionWriteDPU | Multi-Region replication (multi-Region clusters only) | ClusterId | 
-| StreamDPU | CDC streaming (clusters with CDC enabled only) | ClusterId, StreamId | 
+| StreamDPU | CDC streaming (clusters with CDC enabled only) | ClusterId (all streams); ClusterId, StreamId (per stream) | 
 | TotalDPU | Sum of all DPU components | ClusterId | 
 
 ### Viewing DPU metrics

@@ -3,6 +3,15 @@
 # Adding and editing resource-based policies for clusters
 <a name="rbp-attach-policy"></a>
 
+When you attach a policy or create a cluster with one, the policy must meet these requirements:
++ It's no longer than 20,480 characters.
++ It doesn't include service principals (the `Service` key in a `Principal` element).
++ Each of its statements includes a `Principal` element and a `Resource` element. Aurora DSQL doesn't support `NotPrincipal` or `NotResource`.
++ It doesn't grant public access. For more information, see [Blocking public access with resource-based policies in Aurora DSQL](rbp-block-public-access.md).
++ It doesn't deny you both `dsql:PutClusterPolicy` and `dsql:DeleteClusterPolicy`.
+
+The last requirement makes sure that you can still change or remove the policy after you attach it. To attach a policy that denies you both actions anyway, set `bypassPolicyLockoutSafetyCheck` to `true`, or pass `--bypass-policy-lockout-safety-check` in the AWS CLI.
+
 ## AWS Management Console
 <a name="rbp-attach-console"></a>
 
@@ -53,6 +62,8 @@ aws dsql put-cluster-policy --identifier your_cluster_id --policy '{
     }]
 }'
 ```
+
+To avoid overwriting a change that someone else made after you read the policy, pass the `policyVersion` value from `get-cluster-policy` in `--expected-policy-version`. If the policy changed after you read it, the command fails with a `ConflictException`.
 
 ## AWS SDKs
 <a name="rbp-attach-sdk"></a>

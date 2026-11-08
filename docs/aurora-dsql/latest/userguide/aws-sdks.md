@@ -5,7 +5,7 @@
 
  Aurora DSQL is compatible with many third-party database drivers and ORM libraries. AWS provides two types of tools to simplify working with Aurora DSQL: 
 + **[Connectors](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/SECTION_connectors.html)** – Authentication plugins that extend database drivers to handle IAM token generation automatically. Use connectors when working directly with database drivers.
-+ **Adapters and dialects** – Extensions for specific ORM frameworks that provide IAM authentication and improved Aurora DSQL compatibility. Use adapters when working with a supported ORM framework.
++ **[Adapters and dialects](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/SECTION_adapters.html)** – Extensions for specific ORM frameworks that provide IAM authentication and improved Aurora DSQL compatibility. Use adapters when working with a supported ORM framework.
 
 ## Aurora DSQL adapters and dialects
 <a name="aurora-dsql-adapters"></a>
@@ -15,10 +15,10 @@ The following table shows the available adapters and dialects for Aurora DSQL. E
 
 | Programming language | ORM/Framework | Repository link | 
 | --- |--- |--- |
-| Java | Hibernate | [aurora-dsql-orms/java/hibernate](https://github.com/awslabs/aurora-dsql-orms/tree/main/java/hibernate) | 
-| Python | Django | [aurora-dsql-orms/python/django](https://github.com/awslabs/aurora-dsql-orms/tree/main/python/django) | 
-| Python | SQLAlchemy | [aurora-dsql-orms/python/sqlalchemy](https://github.com/awslabs/aurora-dsql-orms/tree/main/python/sqlalchemy) | 
-| Python | Tortoise ORM | [aurora-dsql-orms/python/tortoise-orm](https://github.com/awslabs/aurora-dsql-orms/tree/main/python/tortoise-orm) | 
+| Java | [Hibernate](SECTION_program-with-dsql-dialect-for-hibernate.md) | [aurora-dsql-orms/java/hibernate](https://github.com/awslabs/aurora-dsql-orms/tree/main/java/hibernate) | 
+| Python | [Django](SECTION_program-with-dsql-adapter-for-django.md) | [aurora-dsql-orms/python/django](https://github.com/awslabs/aurora-dsql-orms/tree/main/python/django) | 
+| Python | [SQLAlchemy](SECTION_program-with-dsql-dialect-for-sqlalchemy.md) | [aurora-dsql-orms/python/sqlalchemy](https://github.com/awslabs/aurora-dsql-orms/tree/main/python/sqlalchemy) | 
+| Python | [Tortoise ORM](SECTION_program-with-dsql-adapter-for-tortoise-orm.md) | [aurora-dsql-orms/python/tortoise-orm](https://github.com/awslabs/aurora-dsql-orms/tree/main/python/tortoise-orm) | 
 | TypeScript | Drizzle ORM | [aurora-dsql-orms/node/drizzle](https://github.com/awslabs/aurora-dsql-orms/tree/main/node/drizzle) | 
 
 ## Database driver samples

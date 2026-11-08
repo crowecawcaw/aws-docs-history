@@ -8,6 +8,12 @@ This page describes new features, service launches, and important updates for Au
 ## 2026
 <a name="release-notes-2026"></a>
 
+### October 2026
+<a name="release-notes-2026-10"></a>
+
+October 16, 2026  
+✨ *Feature* — **CDC transaction field** — CDC envelope version `1.1` adds a `transaction` field, which you can use to reconstruct the net changes made by a transaction across rows and tables. For more information, see [Record payload](cdc-record-format.html#cdc-record-payload).
+
 ### September 2026
 <a name="release-notes-2026-09"></a>
 

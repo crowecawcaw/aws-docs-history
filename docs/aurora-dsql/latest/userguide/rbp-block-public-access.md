@@ -26,7 +26,7 @@ You can make a policy non-public by specifying one or more principals inside the
     ]
   },
   "Action": "dsql:*",
-  "Resource": "arn:aws:dsql:{{us-east-1:123456789012}}:cluster/{{cluster-id}}"
+  "Resource": "*"
 }
 ```
 
@@ -47,7 +47,7 @@ Policies that restrict access by specifying certain condition keys are also not 
 + `aws:SourceOrgID`
 + `aws:SourceOrgPaths`
 
-Additionally, for a resource-based policy to be non-public, the values for Amazon Resource Name (ARN) and string keys must not contain wildcards or variables. If your resource-based policy uses the `aws:PrincipalIsAWSService` key, you must make sure that you've set the key value to true.
+Additionally, for a resource-based policy to be non-public, the values for Amazon Resource Name (ARN) and string condition keys must not contain wildcards or variables. If your resource-based policy uses the `aws:PrincipalIsAWSService` key, you must make sure that you've set the key value to true.
 
 The following policy limits access to the user `Ben` in the specified account. The condition makes the `Principal` constrained and not be considered as public.
 
@@ -58,7 +58,7 @@ The following policy limits access to the user `Ben` in the specified account. T
     "AWS": "*"
   },
   "Action": "dsql:*",
-  "Resource": "arn:aws:dsql:{{us-east-1:123456789012}}:cluster/{{cluster-id}}",
+  "Resource": "*",
   "Condition": {
     "StringEquals": {
       "aws:PrincipalArn": "arn:aws:iam::123456789012:user/Ben"
@@ -79,7 +79,7 @@ The following example of a non-public resource-based policy constrains `sourceVP
         "AWS": "*"
       },
       "Action": "dsql:*",
-      "Resource": "arn:aws:dsql:{{us-east-1:123456789012}}:cluster/{{cluster-id}}",
+      "Resource": "*",
       "Condition": {
         "StringEquals": {
           "aws:SourceVpc": [

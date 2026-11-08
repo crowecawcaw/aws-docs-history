@@ -5,10 +5,13 @@
 
 These examples show common patterns for controlling access to your Aurora DSQL clusters. You can combine and modify these patterns to meet your specific access requirements.
 
+**Note**  
+Use `"Resource": "*"` in cluster policies. In a cluster policy, `*` means the cluster that has the policy. If a statement names a different cluster's ARN, such as one copied from a peered cluster in another AWS Region, the statement doesn't apply. When you create a cluster with a policy, you also can't name the cluster's ARN, because the cluster doesn't have one yet.
+
 ## Block public internet access
 <a name="rbp-example-block-public"></a>
 
-This policy blocks connections to your Aurora DSQL clusters from the public internet (non-VPC). The policy doesn't specify which VPC customers can connect from—only that they must connect from a VPC. To limit access to a specific VPC, use `aws:SourceVpc` with the `StringEquals` condition operator.
+This policy blocks connections to your Aurora DSQL clusters from the public internet (non-VPC). The policy doesn't restrict which VPC your connections come from, only that they come from a VPC. To limit access to a specific VPC, use a `StringNotEquals` condition on `aws:SourceVpc` instead, as in [Multi-Region cluster policies](#rbp-example-multi-region). This condition also blocks connections from the public internet, because they don't include `aws:SourceVpc`.
 
 ```
 {
@@ -88,7 +91,7 @@ This policy restricts access to principals within an AWS Organization:
         "dsql:DbConnect",
         "dsql:DbConnectAdmin"
       ],
-      "Resource": "arn:aws:dsql:us-east-1:123456789012:cluster/mydsqlclusterid0123456789a",
+      "Resource": "*",
       "Condition": {
         "StringNotEquals": {
           "aws:PrincipalOrgID": "o-exampleorgid"
@@ -114,9 +117,10 @@ This policy restricts access to principals within a specific Organizational Unit
         "AWS": "*"
       },
       "Action": [
-        "dsql:DbConnect"
+        "dsql:DbConnect",
+        "dsql:DbConnectAdmin"
       ],
-      "Resource": "arn:aws:dsql:us-east-1:123456789012:cluster/mydsqlclusterid0123456789a",
+      "Resource": "*",
       "Condition": {
         "ForAnyValue:StringNotLike": {
           "aws:PrincipalOrgPaths": "o-exampleorgid/r-examplerootid/ou-exampleouid/*"
@@ -130,7 +134,7 @@ This policy restricts access to principals within a specific Organizational Unit
 ## Multi-Region cluster policies
 <a name="rbp-example-multi-region"></a>
 
-For multi-Region clusters, each regional cluster maintains its own resource policy, allowing for Region-specific controls. Here's an example with different policies per region:
+For multi-Region clusters, each regional cluster maintains its own resource policy, allowing for Region-specific controls. In the following example, each policy denies connections that don't come from a specific VPC in its Region:
 
 *us-east-1 policy:*
 
@@ -145,14 +149,12 @@ For multi-Region clusters, each regional cluster maintains its own resource poli
       },
       "Resource": "*",
       "Action": [
-        "dsql:DbConnect"
+        "dsql:DbConnect",
+        "dsql:DbConnectAdmin"
       ],
       "Condition": {
         "StringNotEquals": {
           "aws:SourceVpc": "vpc-0a1b2c3d4e5f67890"
-        },
-        "Null": {
-          "aws:SourceVpc": "true"
         }
       }
     }
@@ -167,16 +169,17 @@ For multi-Region clusters, each regional cluster maintains its own resource poli
   "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
-      "Effect": "Allow",
+      "Effect": "Deny",
       "Principal": {
         "AWS": "*"
       },
       "Resource": "*",
       "Action": [
-        "dsql:DbConnect"
+        "dsql:DbConnect",
+        "dsql:DbConnectAdmin"
       ],
       "Condition": {
-        "StringEquals": {
+        "StringNotEquals": {
           "aws:SourceVpc": "vpc-0f9e8d7c6b5a43210"
         }
       }
