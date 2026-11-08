@@ -10,6 +10,8 @@ This log tracks changes occurring since April 2023. Choose a control to review a
 
 | Date of change | Control ID and title | Description of change | 
 | --- | --- | --- | 
+| November 4, 2026 | [[Lambda.2] Lambda functions should use supported runtimes](lambda-controls.md#lambda-2) | Security Hub CSPM no longer supports `python3.10` as a parameter value for this control. AWS Lambda no longer supports this runtime. | 
+| November 4, 2026 | [[Opensearch.8] Connections to OpenSearch domains should be encrypted using the latest TLS security policy](opensearch-controls.md#opensearch-8) | Security Hub CSPM now supports `Policy-Min-TLS-1-2-RFC9151-FIPS-2024-08` as a parameter value for this control. The control now produces a `PASSED` finding for OpenSearch domains that use this TLS security policy. | 
 | October 29, 2026 | [[ELB.17] Application and Network Load Balancers with listeners should use recommended security policies](elb-controls.md#elb-17) | Security Hub CSPM updated the parameter value for this control to reflect recommended security policies. | 
 | October 29, 2026 | [[CloudFront.15] CloudFront distributions should use the recommended TLS security policy](cloudfront-controls.md#cloudfront-15) | Security Hub CSPM updated the parameter value for this control to reflect recommended security policies. | 
 | October 12, 2026 | [[Bedrock.1] Amazon Bedrock data sources should be encrypted with customer managed AWS KMS keys](bedrock-controls.md#bedrock-1) | Security Hub CSPM updated the control to not evaluate data sources that belong to a managed knowledge base, because server-side encryption for a managed knowledge base is configured on the knowledge base instead of on its data sources. | 

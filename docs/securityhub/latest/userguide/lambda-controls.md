@@ -60,7 +60,7 @@ Replace `{{<function-name>}}` with the name of the Lambda function, and `{{<stat
 **Schedule type:** Change triggered
 
 **Parameters:** 
-+ `runtime`: `dotnet10, dotnet8, java25, java21, java17, java11, java8.al2, java17.al2023, java11.al2023, java8.al2023, nodejs24.x, nodejs22.x, python3.14, python3.13, python3.12, python3.11, python3.10, ruby4.0, ruby3.4, ruby3.3` (not customizable)
++ `runtime`: `dotnet10, dotnet8, java25, java21, java17, java11, java8.al2, java17.al2023, java11.al2023, java8.al2023, nodejs24.x, nodejs22.x, python3.14, python3.13, python3.12, python3.11, ruby4.0, ruby3.4, ruby3.3` (not customizable)
 
 This control checks whether AWS Lambda function runtime settings match the expected values set for the supported runtimes in each language. The control fails if the Lambda function doesn't use a supported runtime, as noted in the Parameters section. Security Hub CSPM ignores functions that have a package type of `Image`.
 

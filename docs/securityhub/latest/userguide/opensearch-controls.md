@@ -221,7 +221,7 @@ To enable fine-grained access control, see [Fine-grained access control in Amazo
 **Schedule type:** Change triggered
 
 **Parameters:**
-+ `tlsPolicies: Policy-Min-TLS-1-2-PFS-2023-10` (not customizable)
++ `tlsPolicies: Policy-Min-TLS-1-2-PFS-2023-10, Policy-Min-TLS-1-2-RFC9151-FIPS-2024-08` (not customizable)
 
 This controls checks whether an Amazon OpenSearch Service domain endpoint is configured to use the latest TLS security policy. The control fails if the OpenSearch domain endpoint isn't configured to use the latest supported policy or if HTTPs isn't enabled.
 

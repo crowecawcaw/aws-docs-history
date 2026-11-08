@@ -31,6 +31,8 @@ A single exposure finding contains issues identified in multiple remediation top
   + [The Amazon RDS DB cluster has deletion protection disabled](#rds-cluster-misconfiguration-db-cluster-deletion-protection-disabled)
   + [The Amazon RDS DB instance uses the default port for the database engine](#rds-instance-default-port-in-use)
   + [The Amazon RDS DB instance is not covered by a backup plan](#rds-instance-not-in-backup-plan)
++ [Reachability traits for Amazon RDS DB instances](#rds-reachability)
+  + [The Amazon RDS DB instance is reachable from the public internet](#internet-reachable)
 + [Sensitive data traits for Amazon RDS DB instances](#sensitive-data)
   + [The Amazon RDS DB instance contains sensitive data](#sensitive-data-present)
 
@@ -175,6 +177,30 @@ Take one or more of the following actions to address this exposure:
 
 **Remediation: Create and assign a backup plan for your DB instance**  
  In the exposure finding, choose the resource link. This opens the affected DB instance in the Amazon RDS console. Consider what backup frequency, retention period, and lifecycle rules are best for your applications. 
+
+## Reachability traits for Amazon RDS DB instances
+<a name="rds-reachability"></a>
+
+ Here are the reachability traits for Amazon RDS DB instances and suggested remediation steps. 
+
+### The Amazon RDS DB instance is reachable from the public internet
+<a name="internet-reachable"></a>
+
+ A network scan from the internet confirmed that the database port on the Amazon RDS DB instance endpoint accepts connections. Unlike a configuration check, this trait shows you whether the endpoint is actually reachable. The DB instance allows public access, and its security groups and network access control lists permit inbound traffic on the database port. 
+
+ A reachable database endpoint is exposed to port scanning, credential brute forcing, and exploitation attempts against the database engine. Following standard security principles, keep databases off the public internet and restrict access to only the networks that require it. 
+
+**Remediation**  
+Take one or more of the following actions to address this exposure:
+
+**Disable public access**  
+ In the exposure finding, choose the resource link to open the affected DB instance in the Amazon RDS console. If you don't need to reach the DB instance from the internet, modify the DB instance so that it isn't publicly accessible. This removes the public endpoint and closes the reachable port. For more information, see [Setting up public or private access in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/security-public-private.html). 
+
+**Restrict inbound security group rules**  
+ If you need the DB instance to remain publicly accessible, restrict the security groups that are associated with it. Remove inbound rules that permit traffic on the database port from any address (`0.0.0.0/0` or `::/0`), and add rules for trusted sources only. For instructions on configuring security group rules, see [Configure security group rules](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/changing-security-group.html#add-remove-security-group-rules) in the *Amazon EC2 User Guide*. 
+
+**Use private connectivity**  
+ To connect from outside the VPC, use private connectivity instead of a public endpoint. For example, use a VPN connection, AWS Direct Connect, or a bastion host in a public subnet that connects to the DB instance over the private network. 
 
 ## Sensitive data traits for Amazon RDS DB instances
 <a name="sensitive-data"></a>
