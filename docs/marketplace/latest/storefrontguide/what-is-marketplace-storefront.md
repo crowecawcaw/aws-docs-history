@@ -12,7 +12,7 @@ AWS Marketplace Storefront lets a Partner launch a branded procurement experienc
 + **Product curation** - Import products from the AWS Marketplace public catalog or your own seller account listings, and organize them with tags, categories, and badges.
 + **Buy With AWS integration** - Enable buyers to initiate procurement directly from your storefront, with requests routed to your team for offer creation.
 + **Governance and approval** - Configure approval policies, buyer groups, and spending thresholds to control procurement workflows.
-+ **Connector integrations** - Connect to CRM systems (HubSpot), co-selling programs (AWS ACE), and communication platforms (Slack) for workflow automation.
++ **Connector integrations** - Connect to CRM systems (HubSpot), co-selling programs (AWS ACE), procurement catalogs (Amazon Business), and communication platforms (Slack) for workflow automation.
 + **Role-based access control** - Manage team permissions with predefined roles at the organization, account, and storefront levels.
 + **Insights and reporting** - Track billed revenue, collections, disbursements, and agreement renewals.
 

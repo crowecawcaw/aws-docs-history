@@ -46,6 +46,11 @@ You can change the layout type at any time before or after deployment. When you 
 
 1. Choose **Save**.
 
+### Storefront theme
+<a name="layout-types-theme"></a>
+
+On the **Design** tab, **Theme** sets the template for product pages. The **Storefront Pro** theme supports Amazon Business price comparisons, quantity tiers, and other offers when Amazon Business supplies them. For storefronts that offer Amazon Business products, choose **Storefront Pro**. For more information, see [Adding Amazon Business products and the Buy button](connector-amazon-business-products.md).
+
 ### Filter panel styles
 <a name="layout-types-filter-panel"></a>
 

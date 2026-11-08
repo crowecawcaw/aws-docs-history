@@ -18,6 +18,7 @@ You can add products to your storefront from the AWS Marketplace public catalog,
 | --- | --- | 
 | AWS Marketplace | Browse and choose from publicly available AWS Marketplace listings | 
 | My Listings | Choose from your connected seller account's products, including limited-visibility listings | 
+| Amazon Business | Import Amazon Business products by ASIN through a connected Amazon Business connector. See [Adding Amazon Business products and the Buy button](connector-amazon-business-products.md). | 
 | Custom | Manually create product entries or group listings | 
 
 ### To import products from the public marketplace
@@ -101,6 +102,8 @@ Imported products are added to your storefront catalog.
 + Required columns vary by marketplace (refer to the downloaded template)
 + Product identifiers must match existing marketplace listings
 + For large datasets, split the data into multiple files.
+
+To import Amazon Business products, use the Amazon Business catalog import, which uses the `asin`, `selected`, `group`, and `tags` columns. For more information, see [Adding Amazon Business products and the Buy button](connector-amazon-business-products.md).
 
 ### Error handling
 <a name="bulk-catalog-import-errors"></a>

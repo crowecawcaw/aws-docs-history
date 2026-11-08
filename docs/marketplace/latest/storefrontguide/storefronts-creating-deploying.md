@@ -116,6 +116,8 @@ After configuring your storefront's design, products, and settings, you deploy i
 
 1. Open the storefront and choose the **Checkout & Deployment** tab.
 
+1. Under **Notification receivers**, confirm that at least one receiver exists. Publishing requires at least one receiver. To add one, choose **Add new notification receiver**, enter the **Owner name** and **Owner email**, choose whether to use a **Custom email** sender, and then choose **Add**.
+
 1. Turn on the **Deploy your storefront** toggle, then choose **Save**.
 
 1. The storefront becomes accessible at `https://<name>.storefront.marketplace.aws.com`.
@@ -131,7 +133,7 @@ https://<name>.storefront.marketplace.aws.com
 
 The subdomain is derived from the storefront name.
 
-Use the **Update domain** field to change the subdomain for your storefront URL.
+To change the subdomain for your storefront URL, under **Deployment status**, enter an available value in the **Domain label** field.
 
 The following controls are available for the storefront URL:
 + **Open link** – Opens the storefront URL in a new browser tab.
@@ -142,6 +144,11 @@ The following controls are available for the storefront URL:
 <a name="deployment-bwa-toggles"></a>
 
 On the **Checkout & Deployment** tab, the **Buy with AWS** toggle enables Buy with AWS for the storefront. The **Buy with AWS banner** toggle controls whether the Buy with AWS banner is displayed. Both toggles default to enabled.
+
+### Buy on Amazon Business button
+<a name="deployment-ab-buy-button"></a>
+
+If an Amazon Business connector is bound to the storefront, the **Checkout & Deployment** tab also shows the **Buy on Amazon Business button** toggle and the **Buy on Amazon button label** field. The label can be up to 40 characters. If you leave it empty, the button uses *Buy on Amazon*. For more information, see [Adding Amazon Business products and the Buy button](connector-amazon-business-products.md).
 
 ### To disable a storefront
 <a name="deployment-disable"></a>

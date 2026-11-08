@@ -3,7 +3,7 @@
 # Setting up single sign-on for your organization
 <a name="setting-up-sso"></a>
 
-Single sign-on (SSO) lets your organization members sign in to AWS Marketplace Storefront with your identity provider. AWS Marketplace Storefront supports Okta and Azure Entra ID. Only organization Owners can configure SSO.
+Single sign-on (SSO) lets your organization members sign in to AWS Marketplace Storefront with your identity provider. AWS Marketplace Storefront supports Okta and Microsoft Entra ID. Only organization Owners can configure SSO.
 
 **To configure organization SSO**
 
@@ -15,7 +15,7 @@ Single sign-on (SSO) lets your organization members sign in to AWS Marketplace S
 
 1. Enter the **Client ID** and **Client Secret** from your identity provider application.
 
-1. For Okta, enter the **Domain** (for example, yourcompany.okta.com). For Azure Entra ID, enter the **Tenant ID**.
+1. For Okta, enter the **Domain** (for example, yourcompany.okta.com). For Microsoft Entra ID, enter the **Tenant ID**.
 
 1. Choose **Save**.
 
