@@ -58,24 +58,44 @@ Use the training session APIs when you need:
 ## Supported models, pricing, and Regions
 <a name="training-sessions-models-pricing-regions"></a>
 
-**Supported models**
+### Supported models
+<a name="training-sessions-supported-models"></a>
 
 
 | Model | Region | 
 | --- | --- | 
 | openai/gpt-oss-20b | us-east-1, us-west-2, ap-south-1 | 
-| google/gemma-4-31B-it | us-west-2, ap-south-1 | 
+| google/gemma-4-E2B-it | us-west-2 | 
+| google/gemma-4-31B-it | us-east-1, us-west-2, ap-south-1 | 
 | Qwen/Qwen3.6-27B | us-west-2, ap-south-1 | 
 | Qwen/Qwen3.8-27B | us-west-2 | 
 
-**Pricing**
+### Context length limits
+<a name="training-sessions-context-length"></a>
+
+Each supported model has a maximum context length. The context length is the total number of tokens in one sequence. For sampling, this is the prompt plus the requested maximum completion length (`maxTokens`). For training, this is the full datum. The limit applies to both sampling and training calls. Requests that exceed the limit fail with the error `The input exceeds the model's maximum context length. Please reduce the length of your prompt or the requested max tokens.` Plan your prompt and response lengths so that each sequence fits within the limit. This matters most for multi-turn rollouts, where the context grows with each turn. For an example of sampling and training calls, see [End-to-end examples](training-sessions-example.md).
+
+The following table lists the maximum context length for each supported model and whether you can adjust it.
+
+
+| Model | Maximum context length (tokens) | Adjustable | 
+| --- | --- | --- | 
+| openai/gpt-oss-20b | 65,536 | No | 
+| google/gemma-4-E2B-it | 32,768 | No | 
+| google/gemma-4-31B-it | 32,768 | No | 
+| Qwen/Qwen3.6-27B | 65,536 | No | 
+| Qwen/Qwen3.8-27B | 65,536 | No | 
+
+### Pricing
+<a name="training-sessions-pricing"></a>
 
 For full pricing details, see the [SageMaker AI pricing](https://aws.amazon.com/sagemaker/ai/pricing/) page. Charges are based on three dimensions:
 + **Prefill** – the cost of processing the input tokens fed into the model at the start of each training step. This includes the prompt, conversation history, and any context the model receives before generating a response.
 + **Sample** – the cost of the tokens the model generates during the training rollout. This is where the model produces its responses, which are then evaluated and used to compute the reward signal.
 + **Train** – the cost of the backward pass, where the model weights are updated based on the reward signal. This is the core learning step in the RL process.
 
-**Quotas**
+### Training session quotas
+<a name="training-sessions-quotas"></a>
 
 The following quotas apply to the training session APIs. These quotas are adjustable. To request an increase, open the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/sagemaker/quotas). For more information, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html).
 
@@ -83,6 +103,11 @@ The following quotas apply to the training session APIs. These quotas are adjust
 | Name | Default | Adjustable | 
 | --- | --- | --- | 
 | Maximum number of concurrent fine-tuning training sessions | 2 | Yes | 
+
+**Note**  
+Some accounts have a default quota of 0 for training sessions. If your account does, request a quota increase in the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/sagemaker/quotas).
+
+For a list of all SageMaker AI quotas, see [Supported Regions and Quotas](regions-quotas.md).
 
 ## Topics
 <a name="training-sessions-topics"></a>

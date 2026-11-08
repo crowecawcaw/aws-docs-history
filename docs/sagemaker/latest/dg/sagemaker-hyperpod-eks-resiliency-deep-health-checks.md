@@ -5,6 +5,14 @@
 
 SageMaker HyperPod performs *deep health checks* on cluster instances during the creation and update of HyperPod clusters. You can also request deep health checks on-demand for a SageMaker HyperPod cluster using [StartClusterHealthCheck](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartClusterHealthCheck.html) API. The deep health checks ensure the reliability and stability of the SageMaker HyperPod clusters by testing the underlying hardware and infrastructure components. This proactive approach helps identify and mitigate potential issues early in the cluster lifecycle.
 
+## Deep health check types
+<a name="sagemaker-hyperpod-eks-resiliency-deep-health-checks-types"></a>
+
+SageMaker HyperPod supports three types of deep health checks for clusters orchestrated by Amazon EKS:
++ **InstanceStress** — Runs instance-level tests, including GPU/NVLink count, DCGM diagnostics, Neuron tests, and EFA tests. This validates the health of individual instance hardware.
++ **InstanceConnectivity** — Runs cluster-level tests (the NCCL test on GPU instances and the NCCOM cluster test on Trainium instances) across multiple instances to verify inter-instance communication performance.
++ **MultiNodeTrainingValidation** — Runs Tiny Megatron test on each instance and Megatron test across instances of the same type. This validates training correctness, such as NaN or infinite loss, loss divergence, and training time. This check is supported only on EFA-enabled NVIDIA GPU instance types.
+
 ## List of deep health checks done by SageMaker HyperPod
 <a name="sagemaker-hyperpod-eks-resiliency-deep-health-checks-list"></a>
 
@@ -21,6 +29,7 @@ SageMaker HyperPod runs the following deep health checks.
 | Accelerator | Neuron hardware check | Trainium | Runs a training workload and verifies the results to test the hardware. | 
 | Accelerator | NCCOM local test | Trainium | Evaluates the performance of collective communication operations on single Trainium nodes | 
 | Network | EFA | GPU and Trainium | Runs latency and bandwidth benchmarking on the attached EFA device. | 
+| Accelerator | Tiny Megatron test | Select NVIDIA GPU instance types | Runs a short Megatron-based training workload on all GPUs of the instance. Fails the instance if the training loss becomes NaN or infinite, rises above a threshold relative to its starting average, or training doesn't finish within the time limit. Runs only when you specify MultiNodeTrainingValidation. | 
 
 **Cluster-level deep health checks**
 
@@ -29,12 +38,16 @@ SageMaker HyperPod runs the following deep health checks.
 | --- | --- | --- | --- | 
 | Accelerator | NCCL test | GPU | Verifies the performance of collective communication operations on multiple NVIDIA GPUs | 
 | Accelerator | NCCOM cluster test | Trainium | Verifies the performance of collective communication operations on multiple Trainium nodes | 
+| Accelerator | Megatron test | Select NVIDIA GPU instance types | Runs the same training workload across instances of the same type over EFA, with the same failure conditions as the Tiny Megatron test. Runs only when you specify MultiNodeTrainingValidation. | 
 
 **Deep health checks with flexible instance groups**  
 For instance groups that use `InstanceRequirements` with multiple instance types, deep health checks behave as follows:  
 Instance-level deep health checks run only on eligible GPU instance types. CPU instance types within a flexible instance group are skipped.
 Cluster-level connectivity tests (such as NCCL AllReduce) run only between instances of the same type within the instance group. This ensures accurate test results that reflect the networking capabilities of each instance type.
 If deep health checks are enabled, at least one instance type in the flexible instance group must support deep health checks.
+
+**MultiNodeTrainingValidation**  
+The `MultiNodeTrainingValidation` deep health check runs the Tiny Megatron and Megatron tests. It runs only on clusters orchestrated by Amazon EKS, on supported EFA-enabled NVIDIA GPU instance types. It adds time to the deep health check run.
 
 ## Logs from the deep health checks
 <a name="sagemaker-hyperpod-eks-resiliency-deep-health-checks-log"></a>

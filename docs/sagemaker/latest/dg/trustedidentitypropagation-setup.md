@@ -16,7 +16,7 @@ Setting up trusted identity propagation for Amazon SageMaker Studio requires you
 Before setting up trusted identity propagation for SageMaker AI, set up your IAM Identity Center using the following instructions.
 
 **Note**  
-Ensure that your IAM Identity Center and domain are in the same region.
+Ensure that your IAM Identity Center and domain are in the same AWS Region, either the primary AWS Region of your IAM Identity Center instance or an AWS Region where the instance is replicated.
 +  [IAM Identity Center trusted identity propagation prerequisites](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overall-prerequisites.html#trustedidentitypropagation-prerequisites) 
 +  [Set up IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/getting-started.html) 
 +  [Add users to your IAM Identity Center directory](https://docs.aws.amazon.com/singlesignon/latest/userguide/addusers.html) 
@@ -26,7 +26,7 @@ Ensure that your IAM Identity Center and domain are in the same region.
 
 **Important**  
 You can only enable trusted identity propagation for domains with AWS IAM Identity Center authentication method configured.
-Your IAM Identity Center and Amazon SageMaker AI domain must be in the same AWS Region.
+Your IAM Identity Center and Amazon SageMaker AI domain must be in the same AWS Region, either the primary AWS Region of your IAM Identity Center instance or an AWS Region where the instance is replicated.
 
 Use one of the following options to learn how to enable trusted identity propagation for a new or existing domain.
 

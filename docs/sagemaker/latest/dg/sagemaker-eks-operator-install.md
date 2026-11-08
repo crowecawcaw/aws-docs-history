@@ -177,7 +177,7 @@ If you already have the training operator installed on your HyperPod cluster, yo
 | hpTrainingControllerManager.manager.resources.requests.memory | How much memory to allocate to the controller | 2Gi | 
 | hpTrainingControllerManager.manager.resources.limits.cpu | The CPU limit for the controller | 2 | 
 | hpTrainingControllerManager.manager.resources.limits.memory | The memory limit for the controller | 4Gi | 
-| hpTrainingControllerManager.nodeSelector | Node selector for the controller pods | Default behavior is to select nodes with the label sagemaker.amazonaws.com/compute-type: "HyperPod" | 
+| hpTrainingControllerManager.manager.nodeSelector | Node selector for the controller pods | Default behavior is to select nodes with the label sagemaker.amazonaws.com/compute-type: "hyperpod" | 
 
 ## HyperPod elastic agent
 <a name="sagemaker-eks-operator-elastic-agent"></a>

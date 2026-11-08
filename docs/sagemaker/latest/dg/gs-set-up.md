@@ -63,6 +63,133 @@ If you intend to create your own custom policy, these permissions are required t
 
 ------
 
+If you intend to use a domain configured with AWS IAM Identity Center authentication, also expand the following IAM Identity Center authentication permissions section.
+
+## AWS IAM Identity Center authentication permissions
+<a name="gs-idc-permissions"></a>
+
+To use a domain configured with AWS IAM Identity Center authentication, the IAM identity that you use to create and manage the domain also needs the following permissions. SageMaker AI requires these permissions for IAM Identity Center-related workflows.
+
+For information about adding policies, see [Adding and removing IAM identity permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html) in the *AWS Identity and Access Management User Guide*.
+
+------
+#### [ JSON ]
+
+****  
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "SSOApplicationPermissionsViaService",
+            "Effect": "Allow",
+            "Action": [
+                "sso:CreateApplication",
+                "sso:DeleteApplication",
+                "sso:PutApplicationGrant",
+                "sso:PutApplicationAuthenticationMethod",
+                "sso:PutApplicationAssignmentConfiguration",
+                "sso:PutApplicationAccessScope",
+                "sso:DeleteApplicationAccessScope"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "Bool": {
+                    "aws:ViaAWSService": "true"
+                }
+            }
+        },
+        {
+            "Sid": "SSOApplicationAssignmentPermissions",
+            "Effect": "Allow",
+            "Action": [
+                "sso:CreateApplicationAssignment",
+                "sso:DeleteApplicationAssignment"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "SSOReadOnlyPermissionsViaService",
+            "Effect": "Allow",
+            "Action": [
+                "sso:ListRegions"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "Bool": {
+                    "aws:ViaAWSService": "true"
+                }
+            }
+        },
+        {
+            "Sid": "SSOReadOnlyPermissions",
+            "Effect": "Allow",
+            "Action": [
+                "sso:ListInstances",
+                "sso:DescribeInstance",
+                "sso:DescribeApplication",
+                "sso:ListApplicationAssignments"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "OrganizationsReadOnlyPermissions",
+            "Effect": "Allow",
+            "Action": [
+                "organizations:DescribeOrganization"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "SsoDirectoryReadOnlyPermissions",
+            "Effect": "Allow",
+            "Action": [
+                "sso-directory:DescribeGroup",
+                "sso-directory:DescribeUser",
+                "sso-directory:SearchUsers",
+                "sso-directory:SearchGroups"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "SSOKMSPermissions",
+            "Effect": "Allow",
+            "Action": [
+                "kms:Decrypt"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "ArnLike": {
+                    "kms:EncryptionContext:aws:sso:instance-arn": "arn:aws:sso:::instance/*"
+                },
+                "StringLike": {
+                    "kms:ViaService": "sso.*.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Sid": "IdentityStoreKMSPermissions",
+            "Effect": "Allow",
+            "Action": [
+                "kms:Decrypt"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "ArnLike": {
+                    "kms:EncryptionContext:aws:identitystore:identitystore-arn": "arn:aws:identitystore::*:identitystore/*"
+                },
+                "StringLike": {
+                    "kms:ViaService": "identitystore.*.amazonaws.com"
+                }
+            }
+        }
+    ]
+}
+```
+
+------
+
 **Optional**: If you intend to manage your AWS services and resources for the account using the AWS CLI, proceed to the following instructions ([(Optional) Configure the AWS CLI](#gs-cli-prereq)).
 
 **After you have completed your prerequisites**, continue on to the setup instructions. You can continue on to your setup instructions by choosing one of the following options.

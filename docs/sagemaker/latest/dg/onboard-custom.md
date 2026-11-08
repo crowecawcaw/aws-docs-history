@@ -17,8 +17,9 @@ Before you set up the domain consider the authentication methods for your users 
 
 **AWS Identity Center**: 
 + **Helps simplify administration of access permissions to groups of users.** You can grant or deny permissions to groups of users, instead of applying those permissions to each individual user. If a user moves to a different organization, you can move that user to a different AWS Identity and Access Management Identity center (AWS IAM Identity Center) group. The user then automatically receives the permissions that are needed for the new organization.
-
-  Note that the IAM Identity Center needs to be in the same AWS Region as the domain.
+**Note**  
+Amazon SageMaker AI supports only organization instances of IAM Identity Center.  
+The Amazon SageMaker AI domain can reside in a different AWS Region than where the IAM Identity Center organization instance is located using IAM Identity Center multi-Region support. For information about setting up IAM Identity Center multi-Region, see [Using IAM Identity Center across multiple AWS Regions](https://docs.aws.amazon.com/singlesignon/latest/userguide/multi-region-iam-identity-center.html).
 
   To set up with IAM Identity Center, use the following instructions from the *AWS IAM Identity Center User Guide*:
   + Begin with [Enabling AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/get-set-up-for-idc.html).
