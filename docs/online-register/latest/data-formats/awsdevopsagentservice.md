@@ -20,6 +20,7 @@ AWS DevOps Agent Service provides the following APIs for data retrieval.
 | <a name="aidevops-GetAssociation"></a>[GetAssociation](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetAssociation.html) | Get association | Read | 
 | <a name="aidevops-GetBacklogTask"></a>[GetBacklogTask](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetBacklogTask.html) | Get a backlog task | Read | 
 | <a name="aidevops-GetCatalogCapability"></a>[GetCatalogCapability](https://docs.aws.amazon.com/devopsagent/latest/userguide/aws-devops-agent-security-devops-agent-iam-permissions.html) | Get a capability from the catalog | Read | 
+| <a name="aidevops-GetChat"></a>[GetChat](https://docs.aws.amazon.com/devopsagent/latest/APIReference/what-is.html) | Get a chat | Read | 
 | <a name="aidevops-GetKnowledgeItem"></a>[GetKnowledgeItem](https://docs.aws.amazon.com/devopsagent/latest/APIReference/what-is.html) | Get a knowledge item | Read | 
 | <a name="aidevops-GetOperatorApp"></a>[GetOperatorApp](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetOperatorApp.html) | Get operator auth config for any enabled auth flow | Read | 
 | <a name="aidevops-GetRecommendation"></a>[GetRecommendation](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetRecommendation.html) | Get a recommendation | Read | 

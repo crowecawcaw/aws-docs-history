@@ -12,7 +12,6 @@ AWS Assurance provides the following APIs for data retrieval.
 | <a name="assurance-BatchGetComment"></a>[BatchGetComment](https://docs.aws.amazon.com/assurance/latest/APIReference/API_BatchGetComment.html) | Retrieve multiple comments in a single request | Read | 
 | <a name="assurance-BatchGetControl"></a>[BatchGetControl](https://docs.aws.amazon.com/assurance/latest/APIReference/API_BatchGetControl.html) | Retrieve multiple controls in a single request | Read | 
 | <a name="assurance-BatchGetTask"></a>[BatchGetTask](https://docs.aws.amazon.com/assurance/latest/APIReference/API_BatchGetTask.html) | Retrieve multiple tasks in a single request | Read | 
-| <a name="assurance-DownloadEvidence"></a>[DownloadEvidence](https://docs.aws.amazon.com/assurance/latest/APIReference/API_DownloadEvidence.html) | Retrieve the content of an evidence item | Read | 
 | <a name="assurance-GetAnnotation"></a>[GetAnnotation](https://docs.aws.amazon.com/assurance/latest/APIReference/API_GetAnnotation.html) | Retrieve the annotation for a specific piece of evidence | Read | 
 | <a name="assurance-GetAssessment"></a>[GetAssessment](https://docs.aws.amazon.com/assurance/latest/APIReference/API_GetAssessment.html) | Retrieve a single assessment | Read | 
 | <a name="assurance-GetAssessmentReportContent"></a>[GetAssessmentReportContent](https://docs.aws.amazon.com/assurance/latest/APIReference/API_GetAssessmentReportContent.html) | Retrieve the content of a prepared assessment report | Read | 
@@ -52,7 +51,6 @@ AWS Assurance provides the following APIs for data retrieval.
 | <a name="assurance-ListPermissionSetAssignments"></a>[ListPermissionSetAssignments](https://docs.aws.amazon.com/assurance/latest/APIReference/API_ListPermissionSetAssignments.html) | List permission set assignments in an environment | Read | 
 | <a name="assurance-ListPermissionSets"></a>[ListPermissionSets](https://docs.aws.amazon.com/assurance/latest/APIReference/API_ListPermissionSets.html) | List permission sets in an environment | Read | 
 | <a name="assurance-ListProjects"></a>[ListProjects](https://docs.aws.amazon.com/assurance/latest/APIReference/API_ListProjects.html) | List all projects within a governance environment | Read | 
-| <a name="assurance-ListResourcesForControl"></a>[ListResourcesForControl](https://docs.aws.amazon.com/assurance/latest/APIReference/API_ListResourcesForControl.html) | List in-scope resources for a control | Read | 
 | <a name="assurance-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/assurance/latest/APIReference/API_ListTagsForResource.html) | List tags for a resource | Read | 
 | <a name="assurance-ListTaskHistory"></a>[ListTaskHistory](https://docs.aws.amazon.com/assurance/latest/APIReference/API_ListTaskHistory.html) | List task history for a task | Read | 
 | <a name="assurance-ListTasks"></a>[ListTasks](https://docs.aws.amazon.com/assurance/latest/APIReference/API_ListTasks.html) | List all tasks within a governance environment | Read | 

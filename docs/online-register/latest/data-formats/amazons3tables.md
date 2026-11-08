@@ -23,6 +23,7 @@ Amazon S3 Tables provides the following APIs for data retrieval.
 | <a name="s3tables-GetTableMaintenanceConfiguration"></a>[GetTableMaintenanceConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3Buckets_GetTableMaintenanceConfiguration.html) | Retrieve a maintenance configuration on a table | Read | 
 | <a name="s3tables-GetTableMaintenanceJobStatus"></a>[GetTableMaintenanceJobStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3Buckets_GetTableMaintenanceJobStatus.html) | Retrieve the status of maintenance jobs on a table | Read | 
 | <a name="s3tables-GetTableMetadataLocation"></a>[GetTableMetadataLocation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3Buckets_GetTableMetadataLocation.html) | Retrieve the metadata location of a table | Read | 
+| <a name="s3tables-GetTableMigration"></a>[GetTableMigration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3Buckets_GetTableMigration.html) | Get the status and details of a table migration | Read | 
 | <a name="s3tables-GetTablePolicy"></a>[GetTablePolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3Buckets_GetTablePolicy.html) | Retrieve a policy on a table | Read | 
 | <a name="s3tables-GetTableRecordExpirationConfiguration"></a>[GetTableRecordExpirationConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3Buckets_GetTableRecordExpirationConfiguration.html) | Retrieve a table maintenance configuration on a system table | Read | 
 | <a name="s3tables-GetTableRecordExpirationJobStatus"></a>[GetTableRecordExpirationJobStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3Buckets_GetTableRecordExpirationJobStatus.html) | Retrieve the status of table record expiration jobs on a system table | Read | 
@@ -31,5 +32,6 @@ Amazon S3 Tables provides the following APIs for data retrieval.
 | <a name="s3tables-GetTableStorageClass"></a>[GetTableStorageClass](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3Buckets_GetTableStorageClass.html) | Retrieve the storage class configuration for a specific table | Read | 
 | <a name="s3tables-ListNamespaces"></a>[ListNamespaces](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3Buckets_ListNamespaces.html) | List namespaces | List | 
 | <a name="s3tables-ListTableBuckets"></a>[ListTableBuckets](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3Buckets_ListTableBuckets.html) | List table buckets | List | 
+| <a name="s3tables-ListTableMigrations"></a>[ListTableMigrations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3Buckets_ListTableMigrations.html) | List table migrations | List | 
 | <a name="s3tables-ListTables"></a>[ListTables](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3Buckets_ListTables.html) | List tables | List | 
 | <a name="s3tables-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-tables-tagging.html) | List the tags for an S3 Tables resource | List | 
