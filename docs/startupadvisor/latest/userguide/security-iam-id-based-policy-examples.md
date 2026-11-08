@@ -9,7 +9,7 @@ To learn how to create an IAM identity-based policy using these example JSON pol
 
 **Topics**
 + [Policy best practices](#security-iam-service-with-iam-policy-best-practices)
-+ [Allowing access to the AWS credits and cost tracker](#security-iam-id-based-policy-examples-cost-tracker)
++ [Allowing access to Cost & Credits](#security-iam-id-based-policy-examples-cost-tracker)
 
 ## Policy best practices
 <a name="security-iam-service-with-iam-policy-best-practices"></a>
@@ -21,15 +21,15 @@ Identity-based policies determine whether someone can create, access, or delete 
 +  **Use IAM Access Analyzer to validate your IAM policies to ensure secure and functional permissions** – IAM Access Analyzer validates new and existing policies so that the policies adhere to the IAM policy language (JSON) and IAM best practices. IAM Access Analyzer provides more than 100 policy checks and actionable recommendations to help you author secure and functional policies. For more information, see [IAM Access Analyzer policy validation](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-policy-validation.html) in the *IAM User Guide*.
 +  **Require multi-factor authentication (MFA)** – If you have a scenario that requires IAM users or root users in your account, turn on MFA for additional security. To require MFA when API operations are called, add MFA conditions to your policies. For more information, see [Configuring MFA-protected API access](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_configure-api-require.html) in the *IAM User Guide*.
 
-## Allowing access to the AWS credits and cost tracker
+## Allowing access to Cost & Credits
 <a name="security-iam-id-based-policy-examples-cost-tracker"></a>
 
-The following least-privilege identity-based policy allows an identity to call `startups:GetSpendSummary`, which powers the AWS credits and cost tracker widget, along with the downstream AWS Cost Explorer and AWS Billing and Cost Management actions that the operation performs on your behalf. Because the IDE extension calls the operation with your own AWS profile credentials, attach this policy to your identity.
+The following least-privilege identity-based policy allows an identity to call `startups:GetSpendSummary`, which powers the **Cost & Credits** view, along with the downstream AWS Cost Explorer and AWS Billing and Cost Management actions that the operation performs on your behalf. Because the IDE extension calls the operation with your own AWS profile credentials, attach this policy to your identity.
 
 The `startups:GetSpendSummary` action does not support resource-level permissions, so the `Resource` element is set to ` ` (an asterisk). This is expected for this action, and the least-privilege control is the scoped list of actions. Do not use wildcard actions such as `startups:` or `ce:*`.
 
 **Note**  
-If your identity is missing one or more of the downstream permissions, the `startups:GetSpendSummary` operation still returns a successful response. However, one or more sections of the response contain an error with the code `ACCESS_DENIED` and a message from the downstream service. If the credits and cost tracker widget shows missing or empty sections, verify that your identity has all of the actions in the following policy.
+If your identity is missing one or more of the downstream permissions, the `startups:GetSpendSummary` operation still returns a successful response. However, one or more sections of the response contain an error with the code `ACCESS_DENIED` and a message from the downstream service. If the **Cost & Credits** view shows missing or empty sections, verify that your identity has all of the actions in the following policy.
 
 ```
 {

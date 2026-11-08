@@ -14,7 +14,7 @@ Use the following information to help you diagnose and fix common issues that yo
 
 If the AWS Management Console tells you that you’re not authorized to perform an action, then you must contact your administrator for assistance. Your administrator is the person that provided you with your user name and password.
 
-The following example error occurs when the `mateojackson` IAM user tries to view the credits and cost tracker but does not have `startups:GetSpendSummary` permissions.
+The following example error occurs when the `mateojackson` IAM user tries to view **Cost & Credits** but does not have `startups:GetSpendSummary` permissions.
 
 ```
 User: arn:aws:iam::123456789012:user/mateojackson is not authorized to perform: startups:GetSpendSummary

@@ -11,6 +11,7 @@
 + [Managing access using policies](#security-iam-access-manage)
 + [How AWS Startups works with IAM](security-iam-service-with-iam.md)
 + [AWS Startups identity-based policy examples](security-iam-id-based-policy-examples.md)
++ [Permissions for AWS DevOps Agent](security-iam-devops-agent.md)
 + [Troubleshooting AWS Startups identity and access](security-iam-troubleshoot.md)
 
 ## Audience

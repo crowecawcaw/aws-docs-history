@@ -5,7 +5,7 @@
 
 Before you use IAM to manage access to AWS Startups, learn what IAM features are available to use with AWS Startups. To get a high-level view of how AWS Startups and other AWS services work with IAM, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*.
 
- AWS Startups exposes the operation `startups:GetSpendSummary`, which the IDE extension calls to power the AWS credits and cost tracker widget. The IDE extension calls this operation with your own AWS profile credentials. AWS Startups then uses a forward-access session to call AWS Cost Explorer and AWS Billing and Cost Management on your behalf.
+ AWS Startups exposes the operation `startups:GetSpendSummary`, which the IDE extension calls to power the **Cost & Credits** view. The IDE extension calls this operation with your own AWS profile credentials. AWS Startups then uses a forward-access session to call AWS Cost Explorer and AWS Billing and Cost Management on your behalf.
 
 Because the operation runs with your identity rather than a separate service role, your identity must have permission for both `startups:GetSpendSummary` and the downstream actions that the operation calls on your behalf: `ce:GetCostAndUsage`, `ce:GetCostForecast`, `billing:GetCredits`, and `aws-portal:ViewBilling`. The `aws-portal:ViewBilling` permission is required in addition to the other three.
 

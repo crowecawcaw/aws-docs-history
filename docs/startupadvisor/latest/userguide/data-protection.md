@@ -27,6 +27,8 @@ We strongly recommend that you never put sensitive identifying information, such
 +  **Your data is not shared with third parties.** AWS Startups does not share your data with third parties.
 +  **Your data is used only to tailor your experience.** AWS Startups uses your data solely to tailor its guidance to your startup.
 
+If you choose to set up AWS DevOps Agent, it runs in your own AWS account. The one exception is optional automated release testing, which is off by default and requires a separate opt-in. When you turn it on, AWS DevOps Agent copies your code into an AWS managed verification environment to build and test it, instead of running it in your AWS account. The environment runs on dedicated compute, and its network access is limited to trusted sources such as AWS services and package registries. Built-in safeguards block credential exposure and data exfiltration, and prevent changes to your AWS resources. For more information, see [Release readiness code reviews](https://docs.aws.amazon.com/devopsagent/latest/userguide/release-management-release-readiness-code-review.html) in the * AWS DevOps Agent User Guide*. To turn off automated release testing later, ask your coding agent to turn it off, or open your Agent Space in the AWS DevOps Agent console, choose the **Capabilities** tab, edit the GitHub or GitLab connection, and turn off **Automatic verification testing** for the repository. Release reviews keep working without it.
+
 ## Encryption at rest
 <a name="encryption-rest"></a>
 
@@ -37,4 +39,15 @@ We strongly recommend that you never put sensitive identifying information, such
 
  AWS Startups encrypts all data in transit by using TLS 1.2 or later. This applies both to traffic between you and the service and to traffic between the service and downstream AWS services, such as AWS Cost Explorer and AWS Billing and Cost Management.
 
-For the AWS credits and cost tracker, AWS Startups retrieves your billing and cost data from AWS Cost Explorer and AWS Billing and Cost Management in real time on your behalf. AWS Startups does not store or retain this data.
+For **Cost & Credits**, AWS Startups retrieves your billing and cost data from AWS Cost Explorer and AWS Billing and Cost Management in real time on your behalf. AWS Startups does not store or retain this data.
+
+## Optional usage data in the plugin
+<a name="data-protection-plugin-usage-data"></a>
+
+The AWS Startup Advisor plugin can collect optional, consent-based usage data. Nothing is collected until you answer the notice, and opting out doesn’t change functionality.
+
+When you opt in, the plugin collects which skill you invoked, the plugin version, the host tool, and a randomly generated install identifier. For migration skills, it also collects the source cloud provider and which migration phase you start and complete. For the `operate-on-aws` skill, it collects the ID of the AWS DevOps Agent Space it creates. The plugin doesn’t link this data to your identity.
+
+In Claude Code and Cursor, the `/usage-data` command shows or changes the setting, with the `status`, `opt-out`, `opt-in`, and `show` options. The plugin stores the setting in the `~/.aws-startup-advisor/plugin-telemetry.json` file.
+
+The IDE extension has its own setting, `awsStartupAdvisor.telemetryEnabled`.

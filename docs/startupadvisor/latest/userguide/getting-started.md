@@ -3,12 +3,12 @@
 # Getting started with AWS Startup Advisor
 <a name="getting-started"></a>
 
-You can get started with AWS Startup Advisor on the web, in a supported IDE, or in Claude Code. Choose the entry point that fits your workflow. The same curated skills are available across all access methods, so you get the same guidance no matter which one you choose.
+You can get started with AWS Startup Advisor on the web, in a supported integrated development environment (IDE), or in Claude Code and other coding agents. Choose the entry point that fits your workflow. The same curated skills are available across all access methods, so you get the same guidance no matter which one you choose.
 
 **Topics**
 + [Prerequisites](#getting-started-prerequisites)
 + [Get started on the web](#getting-started-web)
-+ [Install the Claude Code plugin](#getting-started-claude-code)
++ [Install the plugin for Claude Code and Codex](#getting-started-claude-code)
 + [Install the IDE extension](#getting-started-ide)
 + [Install the AWS Startup Advisor skills in other coding agents (npx)](#getting-started-npx)
 + [Next steps](#getting-started-next-steps)
@@ -29,16 +29,48 @@ You can start using AWS Startup Advisor on the web. No install is required.
 
  AWS Startup Advisor uses your AWS Activate Credit application to pick up your stack and stage.
 
-## Install the Claude Code plugin
+## Install the plugin for Claude Code and Codex
 <a name="getting-started-claude-code"></a>
 
-You can install the AWS Startup Advisor plugin for Claude Code. To install the plugin, run the following command in your terminal:
+You can install the AWS Startup Advisor plugin for Claude Code and Codex. Every plugin install includes the curated skills and configures the `aws-mcp` server, so you get the skills and live AWS data in one step. For more information about the Model Context Protocol (MCP) server, see [Configure live data with the MCP server (optional)](mcp-servers.md). The plugin works on macOS, Windows, and Linux.
+
+For Claude Code, run the following command in your terminal:
 
 ```
 claude plugin install aws-startup-advisor@claude-plugins-official
 ```
 
-The plugin works on macOS, Windows, and Linux. For the plugin’s marketplace listing, see [the AWS Startup Advisor Claude Code Plugin Marketplace page](https://claude.com/plugins/aws-startup-advisor). To download Claude Code, see [the Claude Code page](https://claude.com/claude-code).
+The `claude-plugins-official` marketplace is added to Claude Code by default.
+
+**Tip**  
+If you get `Plugin not found`, update the marketplace index first. In Claude Code, run the following command:  
+
+```
+/plugin marketplace update claude-plugins-official
+```
+
+Alternatively, you can install the plugin from the Agent Toolkit for AWS repository’s own marketplace. In Claude Code, run the following commands:
+
+```
+/plugin marketplace add aws/agent-toolkit-for-aws
+/plugin install aws-startup-advisor@agent-toolkit-for-aws
+/reload-plugins
+```
+
+Use this alternative to get the newest version from the [Agent Toolkit for AWS repository on GitHub](https://github.com/aws/agent-toolkit-for-aws) as soon as it’s released, before it reaches `claude-plugins-official`. Install from one marketplace, not both.
+
+For the plugin’s marketplace listing, see [the AWS Startup Advisor Claude Code Plugin Marketplace page](https://claude.com/plugins/aws-startup-advisor). To download Claude Code, see [the Claude Code page](https://claude.com/claude-code).
+
+### Install the plugin for Codex
+<a name="getting-started-plugin-codex"></a>
+
+To add the marketplace, run the following command in a terminal:
+
+```
+codex plugin marketplace add aws/agent-toolkit-for-aws
+```
+
+Then, start Codex, run `/plugins`, and install **aws-startup-advisor**.
 
 ## Install the IDE extension
 <a name="getting-started-ide"></a>
@@ -110,7 +142,7 @@ This command requires the `kiro` CLI command on your PATH. To add it in Kiro, op
 ### Sign in
 <a name="getting-started-ide-signin"></a>
 
-After you install the extension, sign in to connect it to your AWS account. Signing in enables the extension’s alerts, because you give the extension permission to read your account. You can sign in using one of the following methods: AWS IAM Identity Center (SSO) (recommended), an AWS CLI profile, or IAM access keys.
+After you install the extension, sign in to connect it to your AWS account. When you sign in, you give the extension permission to read your account, which turns on alerts. Before you sign in, you can preview the **Cost & Credits** and **Alerts** views with illustrative data, and **Prompts** are available without signing in. You can sign in using one of the following methods: AWS IAM Identity Center (SSO) (recommended), an AWS CLI profile, or IAM access keys.
 
 1. Choose the AWS Startup Advisor icon in the activity bar.
 
@@ -124,27 +156,27 @@ After you sign in, the extension takes a few seconds to read your account. The s
 ## Install the AWS Startup Advisor skills in other coding agents (npx)
 <a name="getting-started-npx"></a>
 
-For agents beyond the IDE extension and Claude Code, for example Codex or GitHub Copilot, you can install just the skills with the skills CLI. This path requires Node.js. To download Node.js, see [the Node.js downloads page](https://nodejs.org).
+For agents beyond the IDE extension and the plugin, for example Kiro, fx, or GitHub Copilot, you can install just the skills with the skills CLI. This path requires Node.js. To download Node.js, see [the Node.js downloads page](https://nodejs.org).
 
 To install the skills, run the following command:
 
 ```
-npx skills add https://github.com/aws/agent-toolkit-for-aws/tree/main/plugins/aws-startup-advisor --skill '*'
+npx skills add aws/agent-toolkit-for-aws/plugins/aws-startup-advisor/skills --skill '*'
 ```
 
 If you get an npm authentication or registry error, retry against the public registry:
 
 ```
-npx --registry https://registry.npmjs.org skills add https://github.com/aws/agent-toolkit-for-aws/tree/main/plugins/aws-startup-advisor --skill '*'
+npx --registry https://registry.npmjs.org skills add aws/agent-toolkit-for-aws/plugins/aws-startup-advisor/skills --skill '*'
 ```
 
-Installing the skills requires no AWS credentials. This path installs the skills, but it does not configure MCP servers. For more information, see [Configure live data with MCP servers (optional)](mcp-servers.md).
+The `--skill '*'` option installs all 12 skills together, which we recommend because the skills depend on each other. Installing the skills requires no AWS credentials. This path installs the skills, but it does not configure the MCP server. For more information, see [Configure live data with the MCP server (optional)](mcp-servers.md).
 
 ## Next steps
 <a name="getting-started-next-steps"></a>
 
 How you get the AWS Startup Advisor skills depends on how you installed AWS Startup Advisor:
-+  **Claude Code plugin** – The skills are included when you install the plugin. You can start using them right away.
++  **Plugin (Claude Code or Codex)** – The skills are included when you install the plugin, on every host. You can start using them right away.
 +  **IDE extension (VS Code, Cursor, or Kiro)** – Installing the extension provides alerts and prompts, but not the skills. To add the skills, choose **Install AWS Startup Advisor skills** in the banner that the extension displays. After the skills install, they are available in your coding agent, which invokes them when they are relevant to your request.
 +  **Other coding agents (npx)** – The `npx skills add` command installs the skills directly, as described in the previous section.
 
