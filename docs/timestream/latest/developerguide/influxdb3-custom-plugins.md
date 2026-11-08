@@ -226,14 +226,18 @@ Both resolve to `https://raw.githubusercontent.com/<the gh: path>`.
 ## Update custom plugins
 <a name="influxdb3-custom-plugins-update"></a>
 
- To update a plugin after you push changes to your repository, use the `influxdb3 update trigger` command against your cluster endpoint. This re-fetches the plugin and applies the change to the running trigger without recreating it – no cluster reboot is required: 
+ To update a plugin after you push changes to your repository, disable and then enable the trigger against your cluster endpoint. This re-fetches the plugin and applies the change to the running trigger without recreating it, and no cluster reboot is required: 
 
 ```
-influxdb3 update trigger \
+influxdb3 disable trigger \
   --database DATABASE_NAME \
   --token YOUR_ADMIN_TOKEN \
-  --trigger-name enrich_sensor_data \
-  --path "gh:transforms/enrich.py"
+  enrich_sensor_data
+
+influxdb3 enable trigger \
+  --database DATABASE_NAME \
+  --token YOUR_ADMIN_TOKEN \
+  enrich_sensor_data
 ```
 
  To change the plugin *repository* itself (URL or secret), create a new parameter group with the new values and apply it to the cluster with `update-db-cluster`. The repository parameters are immutable on an existing parameter group. 
@@ -376,5 +380,5 @@ WHERE database = 'DATABASE_NAME';
 | Plugin fetch fails with 404 Not Found | The plugin path doesn't exist at the resolved URL. Verify the gh: path and that pluginRepositoryUrl includes the correct branch. Note that GitHub /tree/<branch> and /blob/... URLs are not supported – use a raw-content base URL. | 
 | Plugin fetch fails with 401/403 (private repository) | The access token is missing, expired, or lacks read access. Verify the token in the InfluxDB-RepoToken-\* secret and its scope. | 
 | AWS KMS access-denied reading the secret | You replaced the default key policy on your CMK. Ensure the Timestream for InfluxDB service-linked role can kms:Decrypt the key. | 
-| Updated a plugin but the trigger runs the old version | Run influxdb3 update trigger to re-fetch the updated plugin for that trigger. | 
+| Updated a plugin but the trigger runs the old version | Disable and then enable the trigger to re-fetch the updated plugin for that trigger. | 
 | Plugin fails with a Python import error | The plugin imports a package that is not in the managed Python environment. The package manager is disabled; use only the standard library and pre-installed libraries. Check system.processing\_engine\_logs. | 
