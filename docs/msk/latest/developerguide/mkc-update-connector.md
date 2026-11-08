@@ -3,6 +3,9 @@
 # Update a connector
 <a name="mkc-update-connector"></a>
 
+## Update connector configuration
+<a name="mkc-update-connector-configuration"></a>
+
 This procedure describes how to update the configuration of an existing MSK Connect connector using the AWS Management Console.
 
 **Updating connector configuration using the AWS Management Console**

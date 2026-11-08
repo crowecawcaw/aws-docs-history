@@ -27,6 +27,25 @@ After you have performed the validations above, create the MSK Replicator again.
 
 MSK Replicator creation can take up to 30 minutes. Wait for 30 minutes and check the state of the Replicator again.
 
+## Replicator doesn't start replicating
+<a name="msk-replicator-ts-startup"></a>
+
+**Note**  
+When a Replicator starts or restarts, it reads its internal topics first. If one of these reads doesn't finish, the Replicator doesn't replicate.
+
+If you turned on log delivery, each read writes a start line and a finish line to your Replicator logs. For more information, see [MSK Replicator logs](msk-replicator-logs.md). In a healthy startup, every start line is followed by a finish line for the same topic:
+
+```
+[Worker-0a1b2c3d4e5f67890] [2026-10-13 18:16:57,321] INFO Started reading internal topic __amazon_msk_replicator_offsets_my-replicator_a1b2c3d4-5678-90ab-cdef-1234567890ab-1.
+[Worker-0a1b2c3d4e5f67890] [2026-10-13 18:16:57,982] INFO Finished reading internal topic __amazon_msk_replicator_offsets_my-replicator_a1b2c3d4-5678-90ab-cdef-1234567890ab-1.
+```
+
+If the same start line keeps repeating with no finish line, the Replicator is restarting before it finishes reading the topic. To resolve this issue, do the following:
+
+1. Check whether a Kafka quota throttles your Replicator. A low quota can slow the read so much that it never finishes. If you set a quota for the Replicator's service execution role, raise it. See [Managing throughput with Kafka quotas](msk-replicator-bp-quotas.md).
+
+1. If your Replicator isn't throttled, wait 30 minutes. If the start line still repeats with no finish line, see the AWS Support Center and create a support case.
+
 ## Replicator is not replicating data or replicating only partial data
 <a name="msk-replicator-ts-not-replicating"></a>
 

@@ -51,19 +51,7 @@ After a failed resume, you can also restart the connector to restart the tasks t
 `PAUSING` or `RESUMING`  
 First confirm that the operation has actually failed: call `DescribeConnectorOperation` and check the operation state, because a connector stays in `PAUSING` or `RESUMING` while the operation is still in progress too. If the operation state is `PAUSE_FAILED` or `RESUME_FAILED` and the connector is still `PAUSING` or `RESUMING`, Amazon MSK Connect could not confirm whether your connector accepted the change. You cannot retry the operation, and you cannot run any other lifecycle operation, because the connector is not in a state that any of them accept. Contact AWS Support to recover the connector.
 
-The `errorInfo` field reports one of the following Kafka Connect error codes.<a name="mkc-connector-error-codes"></a>
-
-`KafkaConnect.ConnectorNotReachedTargetState`  
-Your connector accepted the change, but some of its tasks did not reach the target state in time. The connector is in the state that you asked for, so work through the task counts and the connector logs rather than retrying the operation.
-
-`KafkaConnect.NotFound`  
-Your connector is no longer registered on its Kafka Connect workers. This can happen for several reasons, for example if the Kafka Connect internal topics that store connector configurations are deleted. To recreate the connector, update its configuration. Updating the connector does not always bring it back in the state that you wanted, so check the connector's state and its task-count metrics before you run another operation on it.
-
-`KafkaConnect.BrokerAuthenticationFailure`  
-Amazon MSK Connect could not authenticate to your Kafka cluster. Verify the authentication type that your connector uses, and verify that the permissions that this type requires are still in place. Then retry the operation.
-
-`KafkaConnect.BrokerUnreachable`  
-Amazon MSK Connect could not reach your Kafka cluster. Verify that the cluster is healthy, that its bootstrap servers match your connector's configuration, and that the subnets and security groups that your connector uses still allow traffic to the cluster. Then retry the operation.
+For what each Kafka Connect error code means, see [Kafka Connect error codes](#mkc-connector-error-codes).
 
 For more information about where a failed operation leaves your connector, see [If a pause or resume operation fails](mkc-pause-resume-connector.md#mkc-pause-resume-connector-failures).
 
@@ -106,3 +94,20 @@ Here are some reasons why you might not be able to update a connector's worker s
 + The `currentVersion` in the request is not the connector's current version. `DescribeConnector` returns the current version.
 + The custom plugin is not in the `ACTIVE` state, belongs to a different account or Region, or the revision that you specified does not exist.
 + The worker configuration belongs to a different account or Region, or the revision that you specified does not exist.
+
+## Kafka Connect error codes
+<a name="mkc-connector-error-codes"></a>
+
+When a connector lifecycle operation fails, the `errorInfo` field in the `DescribeConnectorOperation` response can report one of the following Kafka Connect error codes.
+
+`KafkaConnect.ConnectorNotReachedTargetState`  
+Your connector accepted the change, but some of its tasks did not reach the target state in time. The connector is in the state that you asked for, so work through the task counts and the connector logs rather than retrying the operation.
+
+`KafkaConnect.NotFound`  
+Your connector is no longer registered on its Kafka Connect workers. This can happen for several reasons, for example if the Kafka Connect internal topics that store connector configurations are deleted. To recreate the connector, update its configuration. Updating the connector does not always bring it back in the state that you wanted, so check the connector's state and its task-count metrics before you run another operation on it.
+
+`KafkaConnect.BrokerAuthenticationFailure`  
+Amazon MSK Connect could not authenticate to your Kafka cluster. Verify the authentication type that your connector uses, and verify that the permissions that this type requires are still in place. Then retry the operation.
+
+`KafkaConnect.BrokerUnreachable`  
+Amazon MSK Connect could not reach your Kafka cluster. Verify that the cluster is healthy, that its bootstrap servers match your connector's configuration, and that the subnets and security groups that your connector uses still allow traffic to the cluster. Then retry the operation.

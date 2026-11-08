@@ -5,7 +5,7 @@
 
 Since MSK Replicator acts as a consumer for your source cluster, replication can cause other consumers to be throttled on your source cluster. The amount of throttling depends on the read capacity you have on your source cluster and the throughput of data you are replicating.
 
-You can set Kafka quotas for the Replicator on your source and target clusters to control how much capacity the MSK Replicator can use. A network bandwidth quota is recommended. A network bandwidth quota defines a byte rate threshold, defined as bytes per second, for one or more clients sharing a quota. This quota is defined on a per-broker basis.
+You can set Kafka quotas for the Replicator on your source cluster to control how much capacity the MSK Replicator can use. A network bandwidth quota is recommended. A network bandwidth quota defines a byte rate threshold, defined as bytes per second, for one or more clients sharing a quota. This quota is defined on a per-broker basis.
 
 Follow these steps to apply a quota:
 
@@ -28,7 +28,11 @@ Follow these steps to apply a quota:
 
 If you reuse a service execution role between multiple MSK Replicators, they are all subject to this quota. If you want to maintain separate quotas per Replicator, use separate service execution roles.
 
+For a bi-directional setup, we recommend the following:
++ Use two separate service execution roles (SERs), one for each direction of replication. This makes sure that each Replicator works correctly and can access the internal topics that it creates on its target cluster.
++ For each SER, apply the quota only on the source cluster of the corresponding Replicator. If you must set a quota on the target cluster, make sure that it's higher than 10 MB/s to avoid impacting replication.
+
 For more information on using MSK IAM authentication with quotas, see [Multi-tenancy Apache Kafka clusters in Amazon MSK with IAM access control and Kafka Quotas – Part 1](https://aws.amazon.com/blogs/big-data/multi-tenancy-apache-kafka-clusters-in-amazon-msk-with-iam-access-control-and-kafka-quotas-part-1/).
 
 **Warning**  
-Setting an extremely low `consumer_byte_rate` may cause your MSK Replicator to act in unexpected ways.
+Setting an extremely low `consumer_byte_rate` on the target cluster may cause MSK Replicator to behave unexpectedly and result in replication failure.
