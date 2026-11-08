@@ -55,7 +55,26 @@ AWS provides a set of predefined condition keys (AWS-wide condition keys) for al
 The following are the DynamoDB service-specific condition keys that apply to DynamoDB.
 
 **`dynamodb:LeadingKeys`**  
-Represents the first key attribute of a table—in other words, the partition key. The key name `LeadingKeys` is plural, even if the key is used with single-item actions. In addition, you must use the `ForAllValues` modifier when using `LeadingKeys` in a condition.
+Represents the first key attribute of a table—in other words, the partition key. The key name `LeadingKeys` is plural, even if the key is used with single-item actions. In addition, you must use the `ForAllValues` modifier when using `LeadingKeys` in a condition.  
+For `BatchGetItem` and `BatchWriteItem`, `dynamodb:LeadingKeys` contains the partition key value of every item in the request. For `TransactGetItems` and `TransactWriteItems`, DynamoDB authorizes each item in the transaction separately. The authorization uses the action for that item (`dynamodb:GetItem`, `dynamodb:PutItem`, `dynamodb:UpdateItem`, `dynamodb:DeleteItem`, or `dynamodb:ConditionCheckItem`) and the partition key value of that item.  
+The value of `dynamodb:LeadingKeys` has the same data type as the partition key. Use the condition operator that matches that type:  
++ **String** partition key: use `StringEquals`, or `StringLike` for a prefix match. The examples in this topic use a String partition key.
++ **Number** partition key: use `NumericEquals`. The comparison is numeric, so `12345` and `12345.0` in the policy both match an item whose partition key is `12345`. `StringEquals` compares the text of the value and matches only an identical string.
++ **Binary** partition key: use `BinaryEquals`, and specify the value as the base64 encoding of the partition key bytes. This is the same encoding that the DynamoDB API uses for binary attribute values. String condition operators such as `StringEquals` are not supported for binary partition key values.
+For more information about these operators, see [IAM JSON policy elements: Condition operators](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) in the *IAM User Guide*.  
+A `ForAllValues` condition evaluates to true when the condition key is not present in the request. `Scan`, for example, does not include `dynamodb:LeadingKeys` because it does not operate on a single partition key value. Add a `Null` condition on the same key to make sure that a statement grants access only when a partition key value is present:  
+
+```
+"Condition": {
+    "ForAllValues:StringEquals": {
+        "dynamodb:LeadingKeys": ["${www.amazon.com:user_id}"]
+    },
+    "Null": {
+        "dynamodb:LeadingKeys": "false"
+    }
+}
+```
+For more information about using this pattern with Number and Binary partition keys, see [Example 8: Grant permissions that limit access to a specific partition key value for Number and Binary partition keys](#FGAC_DDB.Examples.NumberAndBinaryPartitionKeys).
 
 **`dynamodb:Select`**  
 Represents the `Select` parameter of a request. `Select` can be any of the following values:  
@@ -593,6 +612,82 @@ The following policy denies access to sensitive attributes and ensures this rest
 ```
 
 ------
+
+#### Example 8: Grant permissions that limit access to a specific partition key value for Number and Binary partition keys
+<a name="FGAC_DDB.Examples.NumberAndBinaryPartitionKeys"></a>
+
+The preceding examples use tables whose partition key is a String. When the partition key is a Number or Binary, the value in `dynamodb:LeadingKeys` has that type, and the policy must use the matching condition operator. Both of the following policies also include a `Null` condition so that the statement grants access only when the request carries a partition key value.
+
+The following policy applies to a table named `SensorReadings` whose partition key, `SensorId`, is a Number. It allows read and write actions, including the item actions used inside `TransactGetItems` and `TransactWriteItems`, only on items whose `SensorId` is `12345`.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowOnlySensor12345",
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:GetItem",
+                "dynamodb:BatchGetItem",
+                "dynamodb:Query",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:DeleteItem",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:ConditionCheckItem"
+            ],
+            "Resource": "arn:aws:dynamodb:us-west-2:123456789012:table/SensorReadings",
+            "Condition": {
+                "ForAllValues:NumericEquals": {
+                    "dynamodb:LeadingKeys": ["12345"]
+                },
+                "Null": {
+                    "dynamodb:LeadingKeys": "false"
+                }
+            }
+        }
+    ]
+}
+```
+
+The following policy applies to a table named `ObjectDigests` whose partition key, `Digest`, is a Binary attribute that holds a 32-byte hash. The value in the condition is the base64 encoding of those 32 bytes.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowOnlyOneDigest",
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:GetItem",
+                "dynamodb:BatchGetItem",
+                "dynamodb:Query",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:DeleteItem",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:ConditionCheckItem"
+            ],
+            "Resource": "arn:aws:dynamodb:us-west-2:123456789012:table/ObjectDigests",
+            "Condition": {
+                "ForAllValues:BinaryEquals": {
+                    "dynamodb:LeadingKeys": ["RVhBTVBMRURJR0VTVDAxMjM0NTY3ODlhYmNkZWZnaGk="]
+                },
+                "Null": {
+                    "dynamodb:LeadingKeys": "false"
+                }
+            }
+        }
+    ]
+}
+```
+
+Note the following:
++ Neither policy grants `Scan`. `Scan` does not include `dynamodb:LeadingKeys` in the request, so the `Null` condition would deny it, and granting it would return items from every partition.
++ A request whose partition key value is different from the value in the policy is denied for every action listed, including the item actions inside a transaction.
++ With `NumericEquals`, the value in the policy can be written as `12345` or `12345.0`. With `BinaryEquals`, the value must be the standard base64 encoding of the key bytes, including padding.
 
 ## Related topics
 <a name="w2aac39c21c15c11"></a>

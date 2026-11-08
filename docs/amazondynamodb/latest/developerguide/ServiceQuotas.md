@@ -19,6 +19,7 @@ All size measurements in DynamoDB use binary-based units. DynamoDB denotes 1 KB 
 + [DynamoDB Streams](#limits-dynamodb-streams)
 + [Import from Amazon S3](#import-limits)
 + [Table export to Amazon S3](#limits-table-export)
++ [Bulk put items](#limits-bulk-put-items)
 + [Backup and restore](#limits-backup-restore)
 + [Contributor Insights](#contributor-insights-quotas)
 
@@ -190,6 +191,29 @@ DynamoDB Import from Amazon S3 can support up to 50 concurrent import jobs with 
 Full export: up to 300 concurrent export tasks, or up to a total of 100TB from all in-flight table exports, can be exported. Both of these limits are checked before an export is queued.
 
 Incremental export: DynamoDB Incremental Export to Amazon S3 can support up to 300 concurrent export jobs or up to a total of 100TB from all in-flight table exports. The export period window limits are 15 minutes minimum and 24 hours maximum.
+
+## Bulk put items
+<a name="limits-bulk-put-items"></a>
+
+The following quotas apply to DynamoDB bulk put items operations.
+
+
+| Quota | Value | 
+| --- | --- | 
+| Concurrent bulk put items operations, Standard performance tier | 5 per account | 
+| Concurrent bulk put items operations, Accelerated performance tier | 5 per account | 
+| Active bulk put items operations per table | 1 | 
+| Total input size per operation, Standard performance tier | 100 GB | 
+| Total input size per operation, Accelerated performance tier | 1 TB | 
+| Input objects per operation | 50,000 | 
+| Size of each input object | 5 GB | 
+| Minimum [MaxWriteRequestUnits](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_StartBulkPutItems.html#DDB-StartBulkPutItems-request-MaxWriteRequestUnits) | 1,024 | 
+
+DynamoDB counts the Standard and Accelerated performance tier concurrency quotas separately, per account, per AWS Region. You can run up to 5 Standard operations and 5 Accelerated operations at the same time in one account and Region. DynamoDB checks both concurrency quotas and the minimum `MaxWriteRequestUnits` value at the [StartBulkPutItems](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_StartBulkPutItems.html) call. A request that exceeds a concurrency quota for the maximum allowable jobs per account returns `LimitExceededException`, and no operation is created. A start on a table that already has an operation in progress returns `ResourceInUseException`. If several starts on the same table arrive at the same time, each can return an operation ARN, and all but one then end `FAILED` with `FailureCode` `ResourceInUseException`.
+
+DynamoDB enforces the remaining quotas after the start call succeeds, and an operation that exceeds one of them ends `FAILED`. A total input size above the limit for its performance tier ends the operation with `SizeLimitExceeded`, more than 50,000 input objects ends it with `S3ObjectsCountLimitExceeded`, and an input object larger than 5 GB ends it with `InputObjectTooLarge`.
+
+For permissions and other considerations for bulk put items, see [Bulk put items considerations, quotas, and permissions](BulkPutItems.Considerations.md).
 
 ## Backup and restore
 <a name="limits-backup-restore"></a>

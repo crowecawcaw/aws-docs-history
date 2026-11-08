@@ -10,7 +10,7 @@ Any SQL functions that are not included in this list are not currently supported
 
 ## Aggregate functions
 <a name="ql-functions.aggregate"></a>
-+ [Using the SIZE function with PartiQL for amazon DynamoDB](ql-functions.size.md)
++ [Using the SIZE function with PartiQL for Amazon DynamoDB](ql-functions.size.md)
 
 ## Conditional functions
 <a name="ql-functions.conditional"></a>

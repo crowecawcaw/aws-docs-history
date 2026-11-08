@@ -6,7 +6,7 @@
 ## Shard management considerations for Kinesis Data Streams
 <a name="kds_using-shards-and-metrics.shardmanagment"></a>
 
-A Kinesis data stream counts its throughput in [shards](https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html). In Amazon Kinesis Data streams, you can choose between an **on-demand** mode and a **provisioned** mode for your data streams. 
+A Kinesis data stream counts its throughput in [shards](https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html). In Amazon Kinesis Data Streams, you can choose between an **on-demand** mode and a **provisioned** mode for your data streams. 
 
 We recommend using on-demand mode for your Kinesis Data Stream if your DynamoDB write workload is highly variable and unpredictable. With on-demand mode, there is no capacity planning required as Kinesis Data Streams automatically manages the shards in order to provide the necessary throughput.
 

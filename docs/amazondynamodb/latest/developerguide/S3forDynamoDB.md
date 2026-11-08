@@ -7,6 +7,8 @@ Amazon DynamoDB import and export capabilities provide a simple and efficient wa
 
 DynamoDB import and export features help you move, transform, and copy DynamoDB table accounts. You can import from your S3 sources, and you can export your DynamoDB table data to Amazon S3 and use AWS services such as Athena, Amazon SageMaker AI, and AWS Lake Formation to analyze your data and extract actionable insights. You can also import data directly into new DynamoDB tables to build new applications with single-digit millisecond performance at scale, facilitate data sharing between tables and accounts, and simplify your disaster recovery and business continuity plans.
 
+To load data from Amazon S3 into a table that already exists, you use bulk put items. For more information, see [Working with bulk put items](BulkPutItems.HowItWorks.md).
+
 **Topics**
 + [Import from Amazon S3](S3DataImport.HowItWorks.md)
 + [Export to Amazon S3](S3DataExport.HowItWorks.md)

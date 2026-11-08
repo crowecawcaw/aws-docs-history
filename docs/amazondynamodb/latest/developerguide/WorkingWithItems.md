@@ -11,6 +11,8 @@ DynamoDB provides four operations for basic create, read, update, and delete (CR
 + `UpdateItem` — Update an item.
 + `DeleteItem` — Delete an item.
 
+To write a large number of items into an existing table from data in Amazon S3, you can use bulk put items. For more information, see [Working with bulk put items](BulkPutItems.HowItWorks.md).
+
 Each of these operations requires that you specify the primary key of the item that you want to work with. For example, to read an item using `GetItem`, you must specify the partition key and sort key (if applicable) for that item.
 
 In addition to the four basic CRUD operations, DynamoDB also provides the following:

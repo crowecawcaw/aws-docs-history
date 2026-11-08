@@ -182,7 +182,7 @@ npm install @aws-sdk/client-dynamodb @aws-sdk/lib-dynamodb
 Create a table with a simple base key structure and GSIs that use multi-attribute keys.
 
 #### Code example
-<a name="w2aac19c13c49c23b9c11b3b5b1"></a>
+<a name="w2aac19c15c49c23b9c11b3b5b1"></a>
 
 ```
 import { DynamoDBClient, CreateTableCommand } from "@aws-sdk/client-dynamodb";
@@ -251,7 +251,7 @@ console.log("Table with multi-attribute GSI keys created successfully");
 Add tournament match data using natural attributes. The GSI will automatically index these attributes without requiring synthetic keys.
 
 #### Code example
-<a name="w2aac19c13c49c23b9c11b5b5b1"></a>
+<a name="w2aac19c15c49c23b9c11b5b5b1"></a>
 
 ```
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
@@ -393,7 +393,7 @@ console.log("No synthetic keys created - GSIs use native attributes automaticall
 This example queries the TournamentRegionIndex Global Secondary Index which has a multi-attribute partition key (`tournamentId` \+ `region`). All partition key attributes must be specified with equality conditions in queries—you cannot query with just `tournamentId` alone or use inequality operators on partition key attributes.
 
 #### Code example
-<a name="w2aac19c13c49c23b9c11b7b5b1"></a>
+<a name="w2aac19c15c49c23b9c11b7b5b1"></a>
 
 ```
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
@@ -465,7 +465,7 @@ KeyConditionExpression: 'tournamentId = :tournament AND #region > :region'
 Sort key attributes must be queried left-to-right in the order they're defined in the Global Secondary Index. This example demonstrates querying the TournamentRegionIndex at different hierarchy levels: filtering by just `round`, by `round` \+ `bracket`, or by all three sort key attributes. You cannot skip attributes in the middle—for example, you cannot query by `round` and `matchId` while skipping `bracket`.
 
 #### Code example
-<a name="w2aac19c13c49c23b9c11b9b5b1"></a>
+<a name="w2aac19c15c49c23b9c11b9b5b1"></a>
 
 ```
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
@@ -588,7 +588,7 @@ Query 4: Attempting to skip first sort key attribute (WILL FAIL)
 Inequality conditions must be the last condition in your query. This example demonstrates using comparison operators (`>=`, `BETWEEN`) and prefix matching (`begins_with()`) on sort key attributes. Once you use an inequality operator, you cannot add any additional sort key conditions after it—the inequality must be the final condition in your key condition expression.
 
 #### Code example
-<a name="w2aac19c13c49c23b9c11c11b5b1"></a>
+<a name="w2aac19c15c49c23b9c11c11b5b1"></a>
 
 ```
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
@@ -693,7 +693,7 @@ try {
 This example queries the PlayerMatchHistoryIndex which has a single partition key (`player1Id`) and a multi-attribute sort key (`matchDate` \+ `round`). This enables cross-tournament analysis by querying all matches for a specific player without knowing tournament IDs—whereas the base table would require separate queries per tournament-region combination.
 
 #### Code example
-<a name="w2aac19c13c49c23b9c11c13b5b1"></a>
+<a name="w2aac19c15c49c23b9c11c13b5b1"></a>
 
 ```
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
@@ -773,7 +773,7 @@ console.log(`  Found ${query4.Items.length} matches\n`);
 Optimize for time-series queries with hierarchical time attributes
 
 #### Code example
-<a name="w2aac19c13c49c23b9c13b3b5b1"></a>
+<a name="w2aac19c15c49c23b9c13b3b5b1"></a>
 
 ```
 {
@@ -823,7 +823,7 @@ Optimize for time-series queries with hierarchical time attributes
 Track orders with multiple dimensions
 
 #### Code example
-<a name="w2aac19c13c49c23b9c13b5b5b1"></a>
+<a name="w2aac19c15c49c23b9c13b5b5b1"></a>
 
 ```
 {
@@ -883,7 +883,7 @@ Track orders with multiple dimensions
 Model organizational hierarchies
 
 #### Code example
-<a name="w2aac19c13c49c23b9c13b7b5b1"></a>
+<a name="w2aac19c15c49c23b9c13b7b5b1"></a>
 
 ```
 {
@@ -942,7 +942,7 @@ Model organizational hierarchies
 Combine multi-attribute keys to make a sparse GSI
 
 #### Code example
-<a name="w2aac19c13c49c23b9c13b9b5b1"></a>
+<a name="w2aac19c15c49c23b9c13b9b5b1"></a>
 
 ```
 {
@@ -992,7 +992,7 @@ Combine multi-attribute keys to make a sparse GSI
 Multi-tenant SaaS platform with customer isolation
 
 #### Code example
-<a name="w2aac19c13c49c23b9c13c11b5b1"></a>
+<a name="w2aac19c15c49c23b9c13c11b5b1"></a>
 
 ```
 // Table design
@@ -1054,7 +1054,7 @@ const documents = await docClient.send(new QueryCommand({
 Banking system tracking account transactions using GSIs
 
 #### Code example
-<a name="w2aac19c13c49c23b9c13c13b5b1"></a>
+<a name="w2aac19c15c49c23b9c13c13b5b1"></a>
 
 ```
 // Table design
@@ -1143,7 +1143,7 @@ const deposits = await docClient.send(new QueryCommand({
 The following example demonstrates multi-attribute keys from setup to cleanup:
 
 ### Code example
-<a name="w2aac19c13c49c23b9c15b5b1"></a>
+<a name="w2aac19c15c49c23b9c15b5b1"></a>
 
 ```
 import { 
@@ -1271,7 +1271,7 @@ multiAttributeKeysDemo().catch(console.error);
 **Minimal code scaffold**
 
 ### Code example
-<a name="w2aac19c13c49c23b9c15b9b1"></a>
+<a name="w2aac19c15c49c23b9c15b9b1"></a>
 
 ```
 // 1. Create table with GSI using multi-attribute keys
