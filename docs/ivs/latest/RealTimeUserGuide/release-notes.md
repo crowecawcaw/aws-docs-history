@@ -5,6 +5,37 @@
 
 This document contains all Amazon IVS Real-Time Streaming release notes, latest first, organized by date of release.
 
+## November 4, 2026
+<a name="nov04-26-broadcast-mobile-rt"></a>
+
+### Amazon IVS Broadcast SDK: Android 1.48.1, iOS 1.48.1 (Real-Time Streaming)
+<a name="nov04-26-broadcast-mobile-rt-1481"></a>
+
+
+| Platform | Downloads and Changes | 
+| --- | --- | 
+| [Android Broadcast SDK 1.48.1](broadcast-android.md) | **Reference documentation:** [https://aws.github.io/amazon-ivs-broadcast-docs/1.48.1/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.48.1/android/)+  Fixes two rare ANRs that could happen during initialization or during teardown when using an `ImagePreviewView`.  | 
+| [iOS Broadcast SDK 1.48.1](broadcast-ios.md) | **Download for real-time streaming: ** [https://broadcast.live-video.net/1.48.1/AmazonIVSBroadcast-Stages.xcframework.zip](https://broadcast.live-video.net/1.48.1/AmazonIVSBroadcast-Stages.xcframework.zip)<br />**Reference documentation:** [https://aws.github.io/amazon-ivs-broadcast-docs/1.48.1/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.48.1/ios/)+  Improves the quality of H.264 streams on iPhone 17 and later.  | 
+
+#### Broadcast SDK Size: Android
+<a name="broadcast-1481-rt-sdk-size-android"></a>
+
+
+| Architecture | Compressed Size | Uncompressed Size | 
+| --- | --- | --- | 
+| arm64-v8a | 6.259 MB | 15.214 MB | 
+| armeabi-v7a | 5.407 MB | 10.505 MB | 
+| x86\_64 | 6.372 MB | 15.815 MB | 
+| x86 | 6.663 MB | 16.510 MB | 
+
+#### Broadcast SDK Size: iOS
+<a name="broadcast-1481-rt-sdk-size-ios"></a>
+
+
+| Architecture | Compressed Size | Uncompressed Size | 
+| --- | --- | --- | 
+| arm64 | 1.060 MB | 2.322 MB | 
+
 ## October 22, 2026
 <a name="oct22-26-connection-reuse-rt"></a>
 

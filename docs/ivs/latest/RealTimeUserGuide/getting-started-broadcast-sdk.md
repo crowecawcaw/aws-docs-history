@@ -78,7 +78,7 @@ repositories {
 }
  
 dependencies {
-     implementation 'com.amazonaws:ivs-broadcast:1.48.0:stages@aar'
+     implementation 'com.amazonaws:ivs-broadcast:1.48.1:stages@aar'
 }
 ```
 
