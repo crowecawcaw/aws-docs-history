@@ -42,7 +42,7 @@
 ### Amazon Connect Decisions adds guided setup through conversation
 <a name="release-notes-guided-setup-through-conversation"></a>
 
- You can now configure metrics, rules, and thresholds through a guided conversation with your Teammate. The Teammate analyzes your data, recommends optimal thresholds and previews what would trigger. 
+ You can now configure metrics, rules, and thresholds through a guided conversation with your AI supply chain teammate. The AI teammate analyzes your data, recommends optimal thresholds and previews what would trigger. 
 
 ### Amazon Connect Decisions adds support for customer managed keys
 <a name="release-notes-customer-managed-keys"></a>
@@ -52,4 +52,4 @@
 ### Amazon Connect Decisions now supports custom permission roles
 <a name="release-notes-custom-permission-roles"></a>
 
- Amazon Connect Decisions now enables administrators to create custom permission roles with granular control over what each user can access. Previously, access control was limited to three fixed roles (Admin, Manager, Planner). With custom roles, you can define permission sets that match your organizational structure by selecting Create, Read, Update, and Delete operations across a visual permission matrix covering Insights, Plans, and Management. You can create up to 100 custom roles per instance, and permission changes take effect on the user's next action with no refresh or re-login required. Default roles remain available and cannot be modified. For more information, see [Overview of roles and permissions](https://docs.aws.amazon.com/connect-decisions/latest/adminguide/overview-roles-permissions.html). 
+ Amazon Connect Decisions now enables administrators to create custom permission roles with granular control over what each user can access. Previously, access control was limited to three fixed roles (Admin, Manager, Planner). With custom roles, you can define permission sets that match your organizational structure by selecting Create, Read, Update, and Delete operations across a visual permission matrix covering Insights, Plans, and Management. You can create up to 100 custom roles per instance, and permission changes take effect on the user's next action with no refresh or re-login required. Default roles remain available and cannot be modified. For more information, see [Overview of roles and permissions](overview-roles-permissions.html). 
