@@ -20,7 +20,7 @@ Creating a resource in a Local Zone subnet puts it close to your users. For a li
 ## Considerations
 <a name="considerations"></a>
 +  Amazon EBS snapshots storage vary depending on the Local Zone selected, see [AWS Local Zones features](https://aws.amazon.com/about-aws/global-infrastructure/localzones/features/). 
-+  Default encryption behavior of Amazon EBS volume varies depending on the Local Zone selected, see [AWS Local Zones features](https://aws.amazon.com/about-aws/global-infrastructure/localzones/features/). 
++  Default encryption behavior of Amazon EBS volume varies depending on the Local Zone selected, see [Amazon EBS encryption in AWS Local Zones](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-local-zones-outposts-wavelength.html). 
 + Local Zone subnets follow the same routing rules as Availability Zone subnets, including the use of route tables, security groups, and network ACLs.
 + Outbound internet traffic leaves a Local Zone from the Local Zone.
 + Network traffic will hairpin to the AWS Region when connecting from an on-premises location into a Local Zone using a Transit Gateway.
@@ -28,8 +28,8 @@ Creating a resource in a Local Zone subnet puts it close to your users. For a li
 + Traffic that is destined for a subnet in a Local Zone using Direct Connect does not travel through the parent Region of the Local Zone. Instead, traffic takes the shortest path to the Local Zone. This decreases latency and helps make your applications more responsive.
 
   If you require a more resilient connection, implement more than one Direct Connect between your on-premises locations and the Local Zone. For more information on building resilience with Direct Connect, see [Direct Connect Resiliency Recommendations](https://aws.amazon.com/directconnect/resiliency-recommendation/).
-+ The following Local Zones support IPv6: `us-east-1-atl-2a`, `us-east-1-chi-2a`, `us-east-1-dfw-2a`, `us-east-1-iah-2a`, `us-east-1-mia-2a`, `us-east-1-nyc-2a`, `us-west-2-lax-1a`, `us-west-2-lax-1b`, and `us-west-2-phx-2a`.
-+ The following Local Zones support edge association with virtual private gateway (VGW): `us-east-1-atl-2a`, `us-east-1-chi-2a`, `us-east-1-dfw-2a`, `us-east-1-iah-2a`, `us-east-1-mia-2a`, `us-east-1-nyc-2a`, `us-west-2-lax-1a`, `us-west-2-lax-1b`, and `us-west-2-phx-2a`.
++ The following Local Zones support IPv6: `us-east-1-atl-2a`, `us-east-1-atl-2b`, `us-east-1-chi-2a`, `us-east-1-dfw-2a`, `us-east-1-iah-2a`, `us-west-2-las-2a`, `us-west-2-lax-1a`, `us-west-2-lax-1b`, `us-east-1-mia-2a`, `us-east-1-nyc-2a`, `us-west-2-phx-2a`, `eu-central-1-ath-1a`, `eu-central-1-ist-1a`, and `ap-southeast-1-han-1a`.
++ The following Local Zones support edge association with virtual private gateway (VGW): `us-east-1-atl-2a`, `us-east-1-atl-2b`, `us-east-1-chi-2a`, `us-east-1-dfw-2a`, `us-east-1-iah-2a`, `us-west-2-las-2a`, `us-west-2-lax-1a`, `us-west-2-lax-1b`, `us-east-1-mia-2a`, `us-east-1-nyc-2a`, `us-west-2-phx-2a`, `eu-central-1-ath-1a`, `eu-central-1-ist-1a`, and `ap-southeast-1-han-1a`.
 
   To understand edge association and other route-table concepts, see [Route table concepts](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#RouteTables) in the *Amazon VPC User Guide*.
 
@@ -37,13 +37,14 @@ Creating a resource in a Local Zone subnet puts it close to your users. For a li
 + You cannot create VPC endpoints inside Local Zone subnets.
 + The AWS Site-to-Site VPN is not available in Local Zones. Use a software-based VPN to establish a site-to-site VPN connection into a Local Zone.
 + Generally, the Maximum Transmission Unit (MTU) is as follows:
-  + 9001 bytes between Amazon EC2 instances in the same Local Zone.
+  + 8801 bytes between Amazon EC2 instances in the same Local Zone except:
+    + 9001 bytes for `us-west-2-lax-1a` and `us-west-2-lax-1b`.
   + 1500 bytes between an internet gateway and a Local Zone.
   + 1500 bytes between Direct Connect and all Local Zones except:
-    + 8500 bytes for `us-east-1-atl-2a`, `us-east-1-chi-2a`, `us-east-1-dfw-2a`, `us-east-1-iah-2a`, `us-west-2-lax-1a`, `us-west-2-lax-1b`, `us-east-1-mia-2a`, `us-east-1-nyc-2a`, and `us-west-2-phx-2a`
+    + 8500 bytes for `us-east-1-atl-2a`, `us-east-1-atl-2b`, `us-east-1-chi-2a`, `us-east-1-dfw-2a`, `us-east-1-iah-2a`, `us-west-2-las-2a`, `us-west-2-lax-1a`, `us-west-2-lax-1b`, `us-east-1-mia-2a`, `us-east-1-nyc-2a`, `us-west-2-phx-2a`, `eu-central-1-ath-1a`, `eu-central-1-ist-1a`, and `ap-southeast-1-han-1a`.
   + 1300 bytes between an Amazon EC2 instance in a Local Zone and an Amazon EC2 instance in the Region for all Local Zones except:
-    + 9001 bytes for `us-west-2-lax-1a` and `us-west-2-lax-1b`
-    + 8801 bytes for `us-east-1-atl-2a`, `us-east-1-chi-2a`, `us-east-1-dfw-2a`, `us-east-1-iah-2a`, `us-east-1-mia-2a`, `us-east-1-nyc-2a`, and `us-west-2-phx-2a`
+    + 9001 bytes for `us-west-2-lax-1a` and `us-west-2-lax-1b`.
+    + 8801 bytes for `us-east-1-atl-2a`, `us-east-1-atl-2b`, `us-east-1-chi-2a`, `us-east-1-dfw-2a`, `us-east-1-iah-2a`, `us-west-2-las-2a`, `us-west-2-lax-1a`, `us-west-2-lax-1b`, `us-east-1-mia-2a`, `us-east-1-nyc-2a`, `us-west-2-phx-2a`, `eu-central-1-ath-1a`, `eu-central-1-ist-1a`, and `ap-southeast-1-han-1a`.
 
 ## Resources
 <a name="resources"></a>
