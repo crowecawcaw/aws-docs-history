@@ -25,6 +25,9 @@ The following considerations apply to zero-ETL integrations with Amazon Redshift
 + Zero-ETL integration runs in Amazon Redshift using parallel connections. It runs using the credentials of the user who created the database from the integration.
 + You can set the `REFRESH_INTERVAL` for a zero-ETL integration to control the frequency of data replication into Amazon Redshift. For more information, see [CREATE DATABASE](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html) and [ALTER DATABASE](https://docs.aws.amazon.com/redshift/latest/dg/r_ALTER_DATABASE.html) in the *Amazon Redshift Database Developer Guide*.
 + After you create an Amazon Redshift database from a zero-ETL integration with Amazon DynamoDB, the database state should change from **Creating** to **Active**. This starts the replication of data in the source DynamoDB tables to the target Redshift tables, which are created under the public schema of the destination database (`ddb_rs_customerprofiles_zetl_db`).
++ Amazon Redshift treats trailing spaces in character values as insignificant during comparison. For more information, see [Significance of trailing blanks](https://docs.aws.amazon.com/redshift/latest/dg/r_Character_types.html#r_Character_types-significance-of-trailing-blanks) in the *Amazon Redshift Database Developer Guide*. If your source table has primary key values that differ only by trailing spaces, Amazon Redshift considers them the same key. For example, Amazon Redshift treats `'abc'` and `'abc '` as identical.
+
+  This means updates or deletes on one row can affect the other, potentially causing unexpected data loss. Amazon Redshift can also flag these rows as duplicates in the zero-ETL integration target table. To avoid this, make sure your source primary key values don't rely on trailing spaces to be unique.
 
 ## Considerations when using history mode on the target
 <a name="zero-etl-considerations-history-mode"></a>

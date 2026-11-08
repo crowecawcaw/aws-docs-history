@@ -26,7 +26,6 @@ You can also use the AWS Command Line Interface (AWS CLI) command `describe-vpc-
 
 When using Amazon Redshift relocation, be aware of the following limitations:
 + Cluster relocation might not be possible in all scenarios due to potential resource limitations in a given Availability Zone. If this happens, Amazon Redshift doesn't change the original cluster.
-+ Relocation isn't supported on DC2 instance families of products.
 + You can't perform a relocation across AWS Regions.
 + Amazon Redshift relocation defaults to port number 5439. You can also change to another port in the ranges 5431-5455 or 8191-8215.
 

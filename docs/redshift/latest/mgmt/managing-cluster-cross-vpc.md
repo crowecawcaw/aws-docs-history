@@ -33,7 +33,6 @@ You can do this using the Amazon Redshift console, the AWS CLI, or the Amazon Re
 To create or modify Redshift-managed VPC endpoints, you need permission `ec2:CreateVpcEndpoint` or `ec2:ModifyVpcEndpoint` in your IAM policy, in addition to other permissions specified in the AWS managed policy `AmazonRedshiftFullAccess`.
 
 When using Redshift-managed VPC endpoints, keep the following in mind: 
-+ If you're using a provisioned cluster, it must have the RG or RA3 node type. An Amazon Redshift Serverless workgroup works for setting up a VPC endpoint too. 
 + For provisioned clusters, make sure that the cluster is enabled for either cluster relocation or Multi-AZ. For information about requirements to turn on cluster relocation, see [Relocating a cluster](managing-cluster-recovery.md). For information about enabling Multi-AZ, see [Setting up Multi-AZ when creating a new cluster](create-cluster-multi-az.md). 
 + Make sure that the cluster or workgroup to access through its security group is available within the valid port ranges 5431-5455 and 8191-8215. The default is 5439.
 + You can modify the VPC security groups associated with an existing Redshift-managed VPC endpoint. To modify other settings, delete the current Redshift-managed VPC endpoint and create a new one.

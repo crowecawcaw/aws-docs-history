@@ -7,9 +7,6 @@
 
 You can use query editor v2 to query data cataloged in your AWS Glue Data Catalog by using specific SQL commands and granting the permissions outlined in this section. By default, the AWS Glue Data Catalog is listed as a query editor v2 database named `awsdatacatalog`. Querying the AWS Glue Data Catalog is not available in all Amazon Redshift AWS Regions. Use the SHOW command to determine if this capability is available. For more information about AWS Glue, see [What is AWS Glue?](https://docs.aws.amazon.com/glue/latest/dg/what-is-glue.html) in the *AWS Glue Developer Guide*.
 
-**Note**  
-Querying the AWS Glue Data Catalog is only supported in Amazon Redshift RG or RA3 node type clusters and Amazon Redshift Serverless.
-
 You can configure your data warehouse and view the AWS Glue database objects cataloged using the following SQL commands:
 + SHOW – to display whether `awsdatacatalog` is mounted for the currently connected data warehouse. For example, to show the `data_catalog_auto_mount` parameter value, run:
 

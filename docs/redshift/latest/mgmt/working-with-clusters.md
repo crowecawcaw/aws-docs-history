@@ -32,8 +32,6 @@ RG nodes provide the following features over RA3 node types:
 + **Graviton-based instance types** – Deliver superior price performance for analytics workloads
 + **Integrated data lake query engine** – RG clusters include an integrated data lake query engine that runs directly on the cluster's own compute resources. RA3 clusters use Amazon Redshift Spectrum for data lake queries.
 
-DC2 nodes enable you to have compute-intensive data warehouses with local SSD storage included. You choose the number of nodes you need based on data size and performance requirements. DC2 nodes store your data locally for high performance, and as the data size grows, you can add more compute nodes to increase the storage capacity of the cluster. For datasets under 1 TB (compressed), we recommend DC2 node types for the best performance at the lowest price. If you expect your data to grow, we recommend using RA3 nodes so you can size compute and storage independently to achieve improved price and performance. You launch clusters that use the DC2 node types in a virtual private cloud (VPC). For more information, see [Creating a Redshift provisioned cluster or Amazon Redshift Serverless workgroup in a VPC](getting-started-cluster-in-vpc.md).
-
 Node types are available in different sizes. Node size and the number of nodes determine the total storage for a cluster. For more information, see [Node type details](#rs-node-type-info). 
 
 Some node types allow one node (single-node) or two or more nodes (multi-node). The minimum number of nodes for clusters of some node types is two nodes. On a single-node cluster, the node is shared for leader and compute functionality. Single-node clusters are not recommended for running production workloads. On a multi-node cluster, the leader node is separate from the compute nodes. The leader node is the same node type as the compute nodes. You only pay for compute nodes. 
@@ -99,28 +97,6 @@ The following table describes specifications for RA3 nodes.
 4 You can create a cluster with the ra3.xlplus (multi-node) node type that has up to 16 nodes. For multiple-node clusters, you can resize with elastic resize to a maximum of 32 nodes. 
 
 5 You can create a cluster with the ra3.4xlarge node type with up to 32 nodes. You can resize it with elastic resize to a maximum of 64 nodes. 
-
-The following table describes specifications for dense compute nodes.
-
-
-| Node type | vCPU | RAM (GiB) | Default slices per node | Storage per node | Node range | Total capacity | 
-| --- | --- | --- | --- | --- | --- | --- | 
-| dc2.large | 2 | 15 | 2 | 160 GB NVMe-SSD | 1–32 | 5.12 TB | 
-| dc2.8xlarge | 32 | 244 | 16 | 2.56 TB NVMe-SSD | 2–128 | 326 TB | 
-
-**Note**  
-Dense storage (DS2) node types are no longer available.
-<a name="rs-old-node-names"></a>
-**Previous node type names**  
-In previous releases of Amazon Redshift, certain node types had different names. You can use the previous names in the Amazon Redshift API and AWS CLI. However, we recommend that you update any scripts that reference those names to use the current names instead. The current and previous names are as follows. 
-
-
-| Current name | Previous names | 
-| --- | --- | 
-| ds2.xlarge | ds1.xlarge, dw.hs1.xlarge, dw1.xlarge | 
-| ds2.8xlarge | ds1.8xlarge, dw.hs1.8xlarge, dw1.8xlarge | 
-| dc1.large | dw2.large | 
-| dc1.8xlarge | dw2.8xlarge | 
 
 ### Determining the number of nodes
 <a name="how-many-nodes"></a>

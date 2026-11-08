@@ -122,7 +122,7 @@ Consider choosing RG and RA3 node types in these cases:
 + Your data volume is growing rapidly or is expected to grow rapidly. 
 + You want the flexibility to size the cluster based only on your performance needs. 
 
-Data lake query compute considerations – On DC2 and RA3 provisioned clusters, data lake queries run on Redshift Spectrum, which uses dedicated Amazon Redshift servers that are independent of your cluster. On RG provisioned clusters, data lake queries run on the cluster's own compute resources and share those resources with other workloads. For workloads with heavy data lake query usage, consider this when sizing your RG cluster.
+Data lake query compute considerations – On RA3 provisioned clusters, data lake queries run on Redshift Spectrum, which uses dedicated Amazon Redshift servers that are independent of your cluster. On RG provisioned clusters, data lake queries run on the cluster's own compute resources and share those resources with other workloads. For workloads with heavy data lake query usage, consider this when sizing your RG cluster.
 
 To use RG node types, your AWS Region must support RG. For more information, see [RG node type availability in AWS Regions](#rg-regions).
 
@@ -132,13 +132,6 @@ To use RA3 node types, your AWS Region must support RA3. For more information, s
 You can use ra3.xlplus node types only with cluster version 1.0.21262 or later. You can view the version of an existing cluster with the Amazon Redshift console. For more information, see [Determining the workgroup or cluster version](tracks.md#cluster-version).   
 Make sure that you use the new Amazon Redshift console when working with RG or RA3 node types.   
 In addition, to use RG or RA3 node types with Amazon Redshift operations that use the track, the maintenance track value must be set to a cluster version that supports RG or RA3. For more information about tracks, see [Choosing cluster maintenance tracks](#rs-mgmt-maintenance-tracks). 
-
-Consider the following when using single-node RA3 node types.
-+ Datasharing producers and consumers are supported.
-+ To change node types, only classic resize is supported. Changing the node type with elastic resize or snapshot restore isn't supported. The following scenarios are supported: 
-  + Classic resize of a 1-node dc2.xlarge to a 1-node ra3.xlplus, and vice versa.
-  + Classic resize of a 1-node dc2.xlarge to a multiple-node ra3.xlplus, and vice versa.
-  + Classic resize of a multiple-node dc2.xlarge to a 1-node ra3.xlplus, and vice versa.
 
 ##### Working with Amazon Redshift managed storage
 <a name="rs-managed-storage"></a>
@@ -235,17 +228,17 @@ The RA3 node types are available only in the following AWS Regions:
 + AWS GovCloud (US-East) (us-gov-east-1)
 + AWS GovCloud (US-West) (us-gov-west-1)
 
-### Upgrading to RG or RA3 node types
+### Upgrading from RA3 to RG node types
 <a name="rs-upgrading-to-ra3"></a>
 
-To upgrade your existing node type to RG or RA3, you have the following options to change the node type: 
-+ Restore from a snapshot – Amazon Redshift uses the most recent snapshot of your cluster and restores it to create a new RG or RA3 cluster. As soon as the cluster creation is complete (usually within minutes), RG or RA3 nodes are ready to run your full production workload. As compute is separate from storage, hot data is brought in to the local cache at fast speeds thanks to a large networking bandwidth. If you restore from the latest DC2 snapshot, RG and RA3 preserves hot block information of the DC2 workload and populates its local cache with the hottest blocks. For more information, see [Restoring a cluster from a snapshot](working-with-snapshot-restore-cluster-from-snapshot.md). 
+To upgrade your existing node type from RA3 to RG, you have the following options to change the node type: 
++ Restore from a snapshot – Amazon Redshift uses the most recent snapshot of your cluster and restores it to create a new RG cluster. As soon as the cluster creation is complete (usually within minutes), RG nodes are ready to run your full production workload. As compute is separate from storage, hot data is brought in to the local cache at fast speeds thanks to a large networking bandwidth. For more information, see [Restoring a cluster from a snapshot](working-with-snapshot-restore-cluster-from-snapshot.md). 
 
-  To keep the same endpoint for your applications and users, you can rename the new RG or RA3 cluster with the same name as the original DC2 cluster. To rename the cluster, modify the cluster in the Amazon Redshift console or `ModifyCluster` API operation. For more information, see [Renaming a cluster](rs-mgmt-rename-cluster.md) or [`ModifyCluster` API operation](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyCluster.html) in the *Amazon Redshift API Reference*.
-+ Elastic resize – resize the cluster using elastic resize. When you use elastic resize to change node type, Amazon Redshift automatically creates a snapshot, creates a new cluster, deletes the old cluster, and renames the new cluster. The elastic resize operation can be run on-demand or can be scheduled to run at a future time. You can quickly upgrade your existing DC2 node type clusters to RG or RA3 with elastic resize. For more information, see [Elastic resize](resizing-cluster.md#elastic-resize). 
+  To keep the same endpoint for your applications and users, you can rename the new RG cluster with the same name as the original RA3 cluster. To rename the cluster, modify the cluster in the Amazon Redshift console or `ModifyCluster` API operation. For more information, see [Renaming a cluster](rs-mgmt-rename-cluster.md) or [`ModifyCluster` API operation](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyCluster.html) in the *Amazon Redshift API Reference*.
++ Elastic resize – resize the cluster using elastic resize. When you use elastic resize to change node type, Amazon Redshift automatically creates a snapshot, creates a new cluster, deletes the old cluster, and renames the new cluster. The elastic resize operation can be run on-demand or can be scheduled to run at a future time. You can quickly upgrade your existing RA3 node type clusters to RG with elastic resize. For more information, see [Elastic resize](resizing-cluster.md#elastic-resize). 
 
 **Note**  
-To migrate existing RA3 clusters to rg.xlarge or rg.4xlarge, your source cluster must run patch version P201 or later. To migrate to rg.large or rg.12xlarge, your source cluster must run P202 or later. To create or migrate to a single-node rg.large cluster, your cluster must run P204 or later. DC2 clusters can migrate to RG regardless of patch version.
+To migrate existing RA3 clusters to rg.xlarge or rg.4xlarge, your source cluster must run patch version P201 or later. To migrate to rg.large or rg.12xlarge, your source cluster must run P202 or later. To create or migrate to a single-node rg.large cluster, your cluster must run P204 or later.
 
 The following table shows recommendations when upgrading to RG node types.
 
@@ -261,35 +254,10 @@ To better estimate your requirements, consider conducting a proof of concept (PO
 | ra3.xlplus | 1 | rg.large | Start with 2 nodes of rg.large for a single-node ra3.xlplus cluster1,2. | 
 | ra3.xlplus | 2–32 | rg.xlarge | Start with 1 node of rg.xlarge for every 1 node of ra3.xlplus1. | 
 | ra3.large | 1–16 | rg.large | Start with 1 node of rg.large for every 1 node of ra3.large1,2. | 
-| dc2.8xlarge | 2–15 | rg.4xlarge | Start with 3 nodes of rg.4xlarge for every 2 nodes of dc2.8xlarge1. | 
-| dc2.8xlarge | 16–128 | rg.12xlarge | Start with 1 node of rg.12xlarge for every 2 nodes of dc2.8xlarge1. | 
-| dc2.large | 1–3 | rg.large | Start with 1 node of rg.large for every 1 node of dc2.large1,2. | 
-| dc2.large | 4 | rg.large | Start with 3 nodes of rg.large1. | 
-| dc2.large | 5–15 | rg.xlarge | Start with 3 nodes of rg.xlarge for every 8 nodes of dc2.large1. | 
-| dc2.large | 16–32 | rg.4xlarge | Start with 1 node of rg.4xlarge for every 10 nodes of dc2.large1. | 
 
 1Extra nodes might be needed depending on workload requirements. Add or remove nodes based on the compute requirements of your required query performance. RG instances are lower in price per vCPU compared to RA3, so adding nodes can still result in lower overall cost compared to your previous configuration. For more information, see [Amazon Redshift pricing](https://aws.amazon.com/redshift/pricing/).
 
 2For single-node clusters, see **Single-node clusters** under [Things to consider when upgrading to RG nodes](#rg-upgrade-considerations).
-
-The following table shows recommendations when upgrading to RA3 node types.
-
-The recommendations in this table are starting cluster node types and sizes but depend on the computing requirements of your workload. To better estimate your requirements, consider conducting a proof of concept (POC) that uses [Test Drive](https://github.com/aws/redshift-test-drive/tree/main) to run potential configurations. Provision a cluster for your POC data warehouse instead of Redshift Serverless. For more information about conducting a proof of concept, see [Conduct a proof of concept (POC) for Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/proof-of-concept-playbook.html) in the *Amazon Redshift Database Developer Guide*.
-
-
-| Existing node type | Existing number of nodes | Recommended new node type | Upgrade action | 
-| --- | --- | --- | --- | 
-| dc2.8xlarge | 2–15 | ra3.4xlarge | Start with 2 nodes of ra3.4xlarge for every 1 node of dc2.8xlarge1.  | 
-| dc2.8xlarge | 16–128 | ra3.16xlarge | Start with 1 node of ra3.16xlarge for every 2 nodes of dc2.8xlarge1. | 
-| dc2.large | 1–4 | ra3.large | Start with 1 node of ra3.large for every 1 node of dc2.large1.<br />Start with 2 nodes of ra3.large for every 2 nodes of dc2.large1.<br />Start with 3 nodes of ra3.large for every 3 nodes of dc2.large1.<br />Start with 3 nodes of ra3.large for every 4 nodes of dc2.large1. | 
-| dc2.large | 5–15 | ra3.xlplus | Start with 3 nodes of ra3.xlplus for every 8 nodes of dc2.large1.  | 
-| dc2.large | 16–32 | ra3.4xlarge | Start with 1 node of ra3.4xlarge for every 8 nodes of dc2.large1,2. | 
-
-1Extra nodes might be needed depending on workload requirements. Add or remove nodes based on the compute requirements of your required query performance. 
-
-2Clusters with the dc2.large node type are limited to 32 nodes.
-
-The minimum number of nodes for some RA3 node types is 2 nodes. Take this into consideration when creating an RA3 cluster.
 
 ### Networking features supported by RG and RA3 nodes
 <a name="managing-cluster-rs-ra3-networking"></a>
@@ -307,7 +275,7 @@ RG and RA3 nodes support a collection of networking features not available to ot
 
 **Patch Version**
 
-To migrate from RA3 to RG, your source cluster must meet the minimum required patch version: P201 for rg.xlarge and rg.4xlarge, P202 for multi-node rg.large and rg.12xlarge and P204 for single-node rg.large. DC2 clusters can migrate to RG regardless of patch version. Before migrating, test your workloads by restoring a snapshot to an RG cluster before moving production traffic. For details, see [Amazon Redshift patch 201](cluster-versions.md#cluster-version-201), [Amazon Redshift patch 202](cluster-versions.md#cluster-version-202) and [Amazon Redshift patch 204](cluster-versions.md#cluster-version-204).
+To migrate from RA3 to RG, your source cluster must meet the minimum required patch version: P201 for rg.xlarge and rg.4xlarge, P202 for multi-node rg.large and rg.12xlarge and P204 for single-node rg.large. Before migrating, test your workloads by restoring a snapshot to an RG cluster before moving production traffic. For details, see [Amazon Redshift patch 201](cluster-versions.md#cluster-version-201), [Amazon Redshift patch 202](cluster-versions.md#cluster-version-202) and [Amazon Redshift patch 204](cluster-versions.md#cluster-version-204).
 
 **Single-node clusters**
 + Single-node RG clusters are supported on rg.large only.
@@ -316,13 +284,13 @@ To migrate from RA3 to RG, your source cluster must meet the minimum required pa
 
 **Spectrum workloads**
 
-Clusters with workloads that heavily use Spectrum may observe slower query performance after migrating to RG. Unlike RA3 and DC2, RG runs the integrated data lake query engine directly on cluster compute nodes rather than on a separate Spectrum fleet. If you experience degraded Spectrum performance, increase the number of nodes in your RG cluster or migrate to a larger RG node type.
+Clusters with workloads that heavily use Spectrum may observe slower query performance after migrating to RG. Unlike RA3, RG runs the integrated data lake query engine directly on cluster compute nodes rather than on a separate Spectrum fleet. If you experience degraded Spectrum performance, increase the number of nodes in your RG cluster or migrate to a larger RG node type.
 
-RG clusters also support querying data in Amazon S3 buckets located in a different AWS Region, removing the same-Region limitation that applies to RA3 and DC2 clusters using Spectrum. Cross-region queries incur additional data transfer charges. For more information, see [Querying your data lake](https://docs.aws.amazon.com/redshift/latest/gsg/data-lake.html).
+RG clusters also support querying data in Amazon S3 buckets located in a different AWS Region, removing the same-Region limitation that applies to RA3 clusters using Spectrum. Cross-region queries incur additional data transfer charges. For more information, see [Querying your data lake](https://docs.aws.amazon.com/redshift/latest/gsg/data-lake.html).
 
 **Cursor-based workloads**
 
-RG nodes have different supported cursor size compared to RA3 and DC2. Refer to [Cursor Constraints](https://docs.aws.amazon.com/redshift/latest/dg/declare.html#declare-constraints) for cursor size limits. If your workload relies heavily on cursors and you encounter cursor size limitations, migrate to a larger RG node type — you can decrease the number of nodes proportionally to maintain a similar total cluster size and cost.
+RG nodes have different supported cursor size compared to RA3. Refer to [Cursor Constraints](https://docs.aws.amazon.com/redshift/latest/dg/declare.html#declare-constraints) for cursor size limits. If your workload relies heavily on cursors and you encounter cursor size limitations, migrate to a larger RG node type — you can decrease the number of nodes proportionally to maintain a similar total cluster size and cost.
 
 **Concurrency Scaling eligibility**
 

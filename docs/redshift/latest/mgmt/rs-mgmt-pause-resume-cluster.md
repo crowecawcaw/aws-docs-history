@@ -30,7 +30,7 @@ When deciding to pause a cluster, consider the following:
 + Audit logs are archived and not restored on resume. 
 + After a cluster is paused, traces and logs might not be available for troubleshooting problems that occurred before the pause. 
 +  If you're managing your admin credentials using AWS Secrets Manager and pause your cluster, your cluster's secret won't be deleted and you'll continue to be billed for the secret. For more information on managing your Redshift admin password with AWS Secrets Manager, see [Managing Amazon Redshift admin passwords using AWS Secrets Manager](redshift-secrets-manager-integration.md). 
-+ No-backup tables on the cluster are restored on resume for RG and RA3 instance types. They aren't restored on resume for DC2 instance types. For more information about no-backup tables, see [Excluding tables from snapshots](working-with-snapshots.md#snapshots-no-backup-tables).
++ No-backup tables on the cluster are restored on resume. For more information about no-backup tables, see [Excluding tables from snapshots](working-with-snapshots.md#snapshots-no-backup-tables).
 
 When you resume a cluster, consider the following: 
 + The cluster version of the resumed cluster is updated to the maintenance version based on the maintenance window of the cluster. 

@@ -57,7 +57,7 @@ https://redshift.us-east-1.amazonaws.com/
    &MasterUsername=masteruser
    &MasterUserPassword=12345678Aa
    &NumberOfNode=2
-   &NodeType=dc2.large
+   &NodeType=rg.large
    &Version=2012-12-01
    &x-amz-algorithm=AWS4-HMAC-SHA256
    &x-amz-credential=AKIAIOSFODNN7EXAMPLE/20121207/us-east-1/redshift/aws4_request

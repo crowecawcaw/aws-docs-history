@@ -30,11 +30,6 @@ For information on restoring a disabled KMS key, see [Enable and disable keys](h
 
 Prior to encrypting your cluster, if you plan to continue to run database workloads, you can improve performance and speed up the process by adding nodes with elastic resize. You can't use elastic resize when encryption is in process, so do it before you encrypt. Note that adding nodes typically results in higher cost.
 
-### Encryption with other node types
-<a name="resize-classic-encryption-ds2"></a>
-
-When you encrypt a cluster with DC2 nodes, you don't have the ability to run write queries, like with RG or RA3 nodes. Only read queries can be run.
-
 ### Usage notes for encryption with RG and RA3 nodes
 <a name="resize-classic-encryption-usage"></a>
 
@@ -106,7 +101,7 @@ Before the snapshot is copied to the destination AWS Region, Amazon Redshift dec
 If you don't use AWS KMS for key management, you can use a hardware security module (HSM) for key management with Amazon Redshift. 
 
 **Important**  
-HSM encryption is not supported for DC2, RG, and RA3 node types.
+HSM encryption is not supported for RG or RA3 node types.
 
 HSMs are devices that provide direct control of key generation and management. They provide greater security by separating key management from the application and database layers. Amazon Redshift supports AWS CloudHSM Classic for key management. The encryption process is different when you use HSM to manage your encryption keys instead of AWS KMS.
 

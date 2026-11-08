@@ -12,14 +12,14 @@ Create the following VPC endpoints in the VPC and subnets where your cluster or 
 + **AWS Glue interface endpoint** – Gives your cluster or workgroup a route to the AWS Glue Data Catalog to resolve data lake schemas and tables. For steps, see [Creating an interface endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html) in the *Amazon VPC User Guide*.
 + **AWS Lake Formation interface endpoint** – Required only if your data lake tables are managed by AWS Lake Formation. Gives your cluster or workgroup a route to Lake Formation. For steps, see [Creating an interface endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html) in the *Amazon VPC User Guide*.
 
-The endpoint configuration is the same regardless of how you query external tables, but the way traffic is routed differs depending on the query engine. The following sections describe the behavior for the integrated data lake query engine on RG provisioned clusters and Amazon Redshift Serverless, and for Redshift Spectrum on RA3 and DC2 provisioned clusters.
+The endpoint configuration is the same regardless of how you query external tables, but the way traffic is routed differs depending on the query engine. The following sections describe the behavior for the integrated data lake query engine on RG provisioned clusters and Amazon Redshift Serverless, and for Redshift Spectrum on RA3 provisioned clusters.
 
 ## Integrated data lake query engine for RG provisioned clusters and Amazon Redshift Serverless
 <a name="spectrum-enhanced-vpc-integrated-engine"></a>
 
 RG provisioned clusters and Amazon Redshift Serverless include an integrated data lake query engine. This engine runs on the cluster's or workgroup's own compute resources, within your VPC. When enhanced VPC routing is turned on and the required VPC endpoints are in place, access to Amazon S3 and AWS Glue originates from your in-VPC compute and flows through those VPC endpoints. This traffic stays within your VPC boundary and on the AWS network. This access is authorized based on the IAM role that is attached to your cluster or workgroup. To further manage this traffic, you can modify the IAM role and the policy attached to the Amazon S3 bucket.
 
-## Amazon Redshift Spectrum for RA3 and DC2 provisioned clusters
+## Amazon Redshift Spectrum for RA3 provisioned clusters
 <a name="spectrum-enhanced-vpc-spectrum"></a>
 
 Redshift Spectrum runs on AWS managed resources that are owned by Amazon Redshift but are outside your VPC. As a result, even when enhanced VPC routing is turned on, the traffic that Redshift Spectrum sends to Amazon S3 does not pass through your VPC, but the cluster still requires the Amazon S3 and AWS Glue VPC endpoints described earlier to run data lake queries.

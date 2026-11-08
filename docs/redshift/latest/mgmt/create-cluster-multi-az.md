@@ -11,7 +11,7 @@ Using the Amazon Redshift console, you can easily create new Multi-AZ deployment
 
 You can convert an existing Single-AZ data warehouse into a Multi-AZ data warehouse, you can use either the Amazon Redshift console or the AWS CLI `modify-cluster` command using the `multi-az` parameter. Or, you can restore from a snapshot to configure a Single-AZ data warehouse into a Multi-AZ data warehouse either using the Amazon Redshift console or the AWS CLI `restore-from-cluster-snapshot` command using the `multi-az` parameter.
 
-Multi-AZ deployment only supports RG or RA3 node types that use Amazon Redshift Managed Storage (RMS). Amazon Redshift stores data in RMS, which uses Amazon S3 and is accessible in all Availability Zones in an AWS Region, without having to replicate the data at the Amazon Redshift level. 
+Multi-AZ deployment is supported by Amazon Redshift provisioned clusters. Amazon Redshift stores data in Amazon Redshift Managed Storage (RMS), which uses Amazon S3 and is accessible in all Availability Zones in an AWS Region, without having to replicate the data at the Amazon Redshift level. 
 
 You can set up Multi-AZ deployment when creating a new cluster either using the Amazon Redshift console or the AWS Command Line Interface.
 
@@ -26,7 +26,7 @@ You can set up Multi-AZ deployment when creating a new cluster either using the 
 
 1. Enter properties for your cluster. For general information about creating clusters, see [Creating a cluster](create-cluster.md).
 
-1. Choose one of the RG or RA3 node types from the **Node type** drop-down list. The AZ configuration option becomes available only when you chose an RG or RA3 node type.
+1. Choose a node type from the **Node type** drop-down list. The AZ configuration option becomes available after you choose a node type.
 
 1. Under **AZ configuration**, choose **Multi-AZ**.
 

@@ -7,6 +7,9 @@
 
  You can configure Amazon Redshift Serverless to automatically copy snapshots and recovery points to another AWS Region. When you create a snapshot in the *source* AWS Region, it's copied to a *destination* Region. You can configure your namespace so that it only copies snapshots and recovery points to one destination AWS Region at a time. For a list of AWS Regions where Amazon Redshift Serverless is available, see the endpoints listed for [Redshift Serverless API](https://docs.aws.amazon.com/general/latest/gr/redshift-service.html) in the *Amazon Web Services General Reference*. 
 
+**Note**  
+Because the initial snapshot copy begins immediately upon enablement, cross-region data transfer charges start accruing within minutes, not after the next scheduled backup. The total cost over time remains the same; only the timing of the first charge differs.
+
 When you configure copying backups, you can also specify a retention period of how long Amazon Redshift Serverless should keep the copied snapshot. You can't change the retention periods of recovery points, which must be 1 day. The retention periods of snapshots in the destination Region is separate from the retention period of the snapshot in the source Region. By default, the retention period is to keep the snapshot indefinitely. If you choose **Custom value** choose the number of days. This amount you choose must be between 1-3653 days, inclusive.
 
 To change the destination Region to copy snapshots to, first disable copying backups, and then specify the new destination Region when you re-enable copying.
