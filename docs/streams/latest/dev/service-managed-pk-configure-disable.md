@@ -7,7 +7,7 @@ To switch a stream back to user-managed partition keys, call the `UpdateStreamRe
 
 ```
 aws kinesis update-stream-record-distribution-strategy \
-    --stream-arn arn:aws:kinesis:us-east-1:123456789012:stream/my-telemetry-stream \
+    --stream-arn arn:aws:kinesis:us-east-1:111122223333:stream/my-telemetry-stream \
     --record-distribution-strategy USER_PARTITION_KEY
 ```
 

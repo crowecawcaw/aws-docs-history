@@ -9,7 +9,7 @@ To check which record distribution strategy a stream is currently using, call th
 
 ```
 aws kinesis describe-stream-summary \
-    --stream-arn arn:aws:kinesis:us-east-1:123456789012:stream/my-telemetry-stream
+    --stream-arn arn:aws:kinesis:us-east-1:111122223333:stream/my-telemetry-stream
 ```
 
 The response includes:
@@ -18,7 +18,7 @@ The response includes:
 {
     "StreamDescriptionSummary": {
         "StreamName": "my-telemetry-stream",
-        "StreamARN": "arn:aws:kinesis:us-east-1:123456789012:stream/my-telemetry-stream",
+        "StreamARN": "arn:aws:kinesis:us-east-1:111122223333:stream/my-telemetry-stream",
         "StreamStatus": "ACTIVE",
         "StreamModeDetails": {
             "StreamMode": "ON_DEMAND"

@@ -9,7 +9,7 @@ To enable service-managed record distribution on an existing on-demand stream, u
 
 ```
 aws kinesis update-stream-record-distribution-strategy \
-    --stream-arn arn:aws:kinesis:us-east-1:123456789012:stream/my-telemetry-stream \
+    --stream-arn arn:aws:kinesis:us-east-1:111122223333:stream/my-telemetry-stream \
     --record-distribution-strategy AUTO
 ```
 
