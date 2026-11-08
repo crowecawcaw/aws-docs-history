@@ -7,7 +7,7 @@ The computation and memory capacity of a DB instance is determined by its DB ins
 
 The following list of DB instance classes supported for Microsoft SQL Server is provided here for your convenience. For the most current list, see the RDS console: [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
 
-Not all DB instance classes are available on all supported SQL Server minor versions. For example, some newer DB instance classes such as db.r6i aren't available on older minor versions. You can use the [describe-orderable-db-instance-options](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-orderable-db-instance-options.html) AWS CLI command to find out which DB instance classes are available for your SQL Server edition and version.
+Not all DB instance classes are available on all supported SQL Server minor versions. For example, some newer DB instance classes such as db.r6i aren't available on older minor versions. You can use the [describe-orderable-db-instance-options](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-orderable-db-instance-options.html) AWS CLI command to find out which DB instance classes are available for your SQL Server edition and version. For BYOM, the command returns `bring-your-own-media` options only after a BYOM engine version for that edition and version has the `available` status.
 
 
 

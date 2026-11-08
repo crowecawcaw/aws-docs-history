@@ -1,6 +1,6 @@
 
 
-# Region and version availability
+# Region and version availability for AWS Managed Active Directory
 <a name="oracle-kerberos-setting-up.RegionVersionAvailability"></a>
 
 Feature availability and support varies across specific versions of each database engine, and across AWS Regions. For more information on version and Region availability of RDS for Oracle with Kerberos authentication, see [Supported Regions and DB engines for Kerberos authentication in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.KerberosAuthentication.md).

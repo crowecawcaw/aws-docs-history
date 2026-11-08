@@ -12,6 +12,9 @@ Reserved capacity is used only when you explicitly target the reservation. You r
 
 The DB instance's engine, DB instance class, license model (for engines that offer more than one), and Availability Zone must match the reservation, and the reservation must have available capacity in that Availability Zone (the matching entry in `AvailableCapacityPerAvailabilityZoneList` has an `AvailableCapacity` greater than 0). If they don't match or no capacity is available, the operation fails with an error that says the Availability Zone doesn't have enough capacity. For a Multi-AZ DB instance, both the primary and the standby Availability Zones must have available capacity.
 
+**Note**  
+Blue/Green Deployments don't support Capacity Reservations.
+
 ## Console
 <a name="capacity-reservations.using.console"></a>
 

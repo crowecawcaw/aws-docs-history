@@ -59,6 +59,41 @@ To use SSL, your RDS for Oracle DB instance must be associated with an option gr
      --options 'OptionName=SSL,Port=2484,VpcSecurityGroupMemberships="sg-68184619",OptionSettings=[{Name=SQLNET.SSL_VERSION,Value=1.2}]'
    ```
 
+   You can also specify cipher suites with the `SQLNET.CIPHER_SUITE` option setting. To specify multiple cipher suites, separate them with commas, don't include spaces, and enclose the value in double quotation marks. Without the quotation marks, the AWS CLI treats each comma as a separator between option settings.
+
+   The following example adds the `SSL` option with two cipher suites and TLS 1.2.  
+**Example**  
+
+   For Linux, macOS, or Unix:
+
+   ```
+   aws rds add-option-to-option-group --option-group-name ora-option-group \
+     --options 'OptionName=SSL,Port=2484,VpcSecurityGroupMemberships="sg-68184619",OptionSettings=[{Name=SQLNET.SSL_VERSION,Value=1.2},{Name=SQLNET.CIPHER_SUITE,Value="TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"}]'
+   ```
+
+   Alternatively, define the option in a JSON file and pass the file with `file://`. This approach works on any operating system and avoids quoting issues. For example, create a file named `ssl-option.json` with the following content.
+
+   ```
+   [
+     {
+       "OptionName": "SSL",
+       "Port": 2484,
+       "VpcSecurityGroupMemberships": ["sg-68184619"],
+       "OptionSettings": [
+         { "Name": "SQLNET.SSL_VERSION", "Value": "1.2" },
+         { "Name": "SQLNET.CIPHER_SUITE",
+           "Value": "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256" }
+       ]
+     }
+   ]
+   ```
+
+   Then run the following command.
+
+   ```
+   aws rds add-option-to-option-group --option-group-name ora-option-group --options file://ssl-option.json
+   ```
+
 1. Create a new RDS for Oracle DB instance and associate the option group with it, or modify an RDS for Oracle DB instance to associate the option group with it.
 
    For information about creating an DB instance, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md).

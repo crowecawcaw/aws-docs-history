@@ -51,6 +51,9 @@ The number of DB instances that you can reserve capacity for is based on your ac
 
 ## Considerations and limitations
 <a name="capacity-reservations.limitations"></a>
+
+Keep in mind the following limitations:
++ Capacity Reservations aren't supported with Amazon RDS Blue/Green Deployments. You can't specify a Capacity Reservation when you create a blue/green deployment, and the DB instances in the green environment don't draw from a reservation.
 + Capacity Reservations are scoped to a single AWS Region, and within that Region to the specific Availability Zones you specify. Reserved capacity can be used only in those Availability Zones – a DB instance in any other zone can't draw on the reservation, even in the same Region. Create separate reservations in each Region and Availability Zone where you need reserved capacity.
 + A reservation covers one DB instance class and one engine, plus one license model for engines that offer more than one, across one or more Availability Zones. To reserve different combinations, create multiple reservations.
 + A reservation reserves the same capacity in each Availability Zone you specify, up to the number of Availability Zones in the Region. To place Multi-AZ DB instances, reserve capacity in at least two Availability Zones so that both the primary and the standby can be placed.

@@ -23,5 +23,5 @@ The following limitations apply to Multi-AZ DB clusters.
   + `mysql.rds_show_configuration`
   + `mysql.rds_set_external_master_with_auto_position`
   + `mysql.rds_set_configuration`
-+ RDS for PostgreSQL Multi-AZ DB clusters don't support the following extensions: `aws_s3` and `pg_transport`.
++ RDS for PostgreSQL Multi-AZ DB clusters don't support the following extensions: `aws_s3`, `aws_lambda`, and `pg_transport`.
 + RDS for PostgreSQL Multi-AZ DB clusters don't support using a custom DNS server for outbound network access.

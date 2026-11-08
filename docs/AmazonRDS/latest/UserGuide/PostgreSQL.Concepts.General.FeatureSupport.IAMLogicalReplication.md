@@ -53,7 +53,7 @@ Multi-AZ clusters use only DB cluster parameter groups. Individual instance para
    GRANT rds_iam TO replication_user_name;
    
    -- Grant replication privileges
-   ALTER USER replication_user_name WITH REPLICATION;
+   GRANT rds_replication TO replication_user_name;
    ```
 
    After you complete these steps, the specified user must use IAM authentication for replication connections.

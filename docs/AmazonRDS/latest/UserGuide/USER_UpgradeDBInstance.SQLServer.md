@@ -45,6 +45,7 @@ Amazon RDS also supports upgrade rollout policy to manage automatic minor versio
 + [Considerations for SQL Server upgrades](USER_UpgradeDBInstance.SQLServer.Considerations.md)
 + [Testing an RDS for SQL Server upgrade](USER_UpgradeDBInstance.SQLServer.UpgradeTesting.md)
 + [Upgrading a SQL Server DB instance](#USER_UpgradeDBInstance.SQLServer.Upgrading)
++ [Operating system updates during upgrades](#USER_UpgradeDBInstance.SQLServer.OSUpdates)
 + [Upgrading deprecated DB instances before support ends](#USER_UpgradeDBInstance.SQLServer.DeprecatedVersions)
 
 ## Upgrading a SQL Server DB instance
@@ -56,6 +57,13 @@ For information about manually or automatically upgrading a SQL Server DB instan
 
 **Important**  
 If you have any snapshots that are encrypted using AWS KMS, we recommend that you initiate an upgrade before support ends. 
+
+## Operating system updates during upgrades
+<a name="USER_UpgradeDBInstance.SQLServer.OSUpdates"></a>
+
+When you perform a minor or major version upgrade on an RDS for SQL Server DB instance, Amazon RDS automatically applies the latest operating system updates. This behavior applies to both Single-AZ and Multi-AZ deployments.
+
+For more information about operating system updates for RDS DB instances, see [Operating system updates for RDS DB instances](USER_UpgradeDBInstance.Maintenance.md#OS_Updates).
 
 ## Upgrading deprecated DB instances before support ends
 <a name="USER_UpgradeDBInstance.SQLServer.DeprecatedVersions"></a>

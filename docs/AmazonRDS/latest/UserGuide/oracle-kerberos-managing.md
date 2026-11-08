@@ -1,9 +1,9 @@
 
 
-# Managing a DB instance in a domain
+# Managing a DB instance for AWS Managed Active Directory
 <a name="oracle-kerberos-managing"></a>
 
-You can use the console, the CLI, or the RDS API to manage your DB instance and its relationship with your Microsoft Active Directory. For example, you can associate a Microsoft Active Directory to enable Kerberos authentication. You can also disassociate a Microsoft Active Directory to disable Kerberos authentication. You can also move a DB instance to be externally authenticated by one Microsoft Active Directory to another.
+You can use the console, the CLI, or the RDS API to manage your DB instance and its relationship with your Active Directory. For example, you can associate an Active Directory to enable Kerberos authentication. You can also disassociate an Active Directory to disable Kerberos authentication. You can also move a DB instance to be externally authenticated by one Active Directory to another.
 
 For example, using the CLI, you can do the following: 
 + To reattempt enabling Kerberos authentication for a failed membership, use the [modify-db-instance](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-instance.html) CLI command and specify the current membership's directory ID for the `--domain` option.
@@ -31,7 +31,7 @@ Only Kerberos authentication with Amazon RDS for Oracle sends traffic to the dom
 ## Force-rotating Kerberos keys
 <a name="oracle-kerberos-managing.rotation"></a>
 
-A secret key is shared between AWS Managed Microsoft AD and Amazon RDS for Oracle DB instance. This key is rotated automatically every 45 days. You can use the following Amazon RDS procedure to force the rotation of this key.
+A secret key is shared between AWS Managed Active Directory and Amazon RDS for Oracle DB instance. This key is rotated automatically every 45 days. You can use the following Amazon RDS procedure to force the rotation of this key.
 
 ```
 SELECT rdsadmin.rdsadmin_kerberos_auth_tasks.rotate_kerberos_keytab AS TASK_ID FROM DUAL;

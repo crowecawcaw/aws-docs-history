@@ -56,7 +56,7 @@ Microsoft SQL Server and PostgreSQL DB instances support one-way and two-way for
 
 For information about Kerberos authentication with a specific DB engine, see the following:
 +  [Working with AWS Managed Active Directory with RDS for SQL Server](USER_SQLServerWinAuth.md) 
-+  [Configuring Kerberos authentication for Amazon RDS for Oracle](oracle-kerberos.md) 
++  [Working with AWS Managed Active Directory with an Amazon RDS for Oracle DB instance](oracle-kerberos.md) 
 +  [Using Kerberos authentication with Amazon RDS for PostgreSQL](postgresql-kerberos.md) 
 +  [Working with AWS Managed Active Directory with RDS for Db2](db2-managed-active-directory.md) .
 

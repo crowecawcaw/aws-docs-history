@@ -34,9 +34,15 @@ The following procedure copies an encrypted or unencrypted DB snapshot, in the s
 1. For **Actions**, choose **Copy snapshot**.
 
    The **Copy snapshot** page appears.  
-![Copy a DB snapshot.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/DBSnapshotCopy1.png)
+![Copy a DB snapshot.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/copy-db-snapshot-with-option-group.png)
 
-1. For **Target option group (optional)**, choose a new option group if you want.
+1. (Optional) For Oracle DB instances, select the **Copy option group from source DB snapshot** check box to copy the DB option group associated with the source snapshot and associate it with the snapshot copy.
+
+   You can copy the option group to a different AWS account, a different AWS Region, or both. If you choose this option, you can't choose a **Target DB option group**. For more information, see [Considerations for option groups](#USER_CopySnapshot.Options).
+
+   (Optional) To tag the copied option group, add one or more tags.
+
+1. For **Target DB option group**, if you aren't copying the DB option group from the source snapshot, choose an existing option group in the destination AWS Region.
 
    Specify this option if you are copying a snapshot from one AWS Region to another, and your DB instance uses a nondefault option group.
 
@@ -75,7 +81,8 @@ The following options are used to copy a DB snapshot. Not all options are requir
   + If you are copying from a shared manual DB snapshot, this parameter must be the Amazon Resource Name (ARN) of the shared DB snapshot.
   + If you are copying an encrypted snapshot this parameter must be in the ARN format for the source AWS Region, and must match the `SourceDBSnapshotIdentifier` in the `PreSignedUrl` parameter.
 + `--target-db-snapshot-identifier` – The identifier for the new copy of the encrypted DB snapshot. 
-+ `--copy-option-group` – Copy the option group from a snapshot that has been shared with your AWS account.
++ `--copy-option-group` – Copy the DB option group associated with the source snapshot to the target AWS account or AWS Region and associate it with the snapshot copy.
++ `--tag-specifications` – (Optional) The tags to assign to the copied option group. Use the resource type `og` to tag the copied option group. You can specify this option only when `--copy-option-group` is used. By default, the copied option group isn't tagged.
 + `--copy-tags` – Include the copy tags option to copy tags and values from the snapshot to the copy of the snapshot.
 + `--option-group-name` – The option group to associate with the copy of the snapshot.
 
@@ -147,6 +154,27 @@ aws rds copy-db-snapshot ^
     --option-group-name {{custom-option-group-name}}
 ```
 
+**Example across Regions, copying the option group with tags**  
+The following code copies a snapshot across AWS Regions, copies the DB option group associated with the source snapshot to the destination AWS Region, and assigns a tag to the copied option group. Run the command in the destination Region.  
+For Linux, macOS, or Unix:  
+
+```
+aws rds copy-db-snapshot \
+    --source-db-snapshot-identifier {{arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20161115}} \
+    --target-db-snapshot-identifier {{mydbsnapshotcopy}} \
+    --copy-option-group \
+    --tag-specifications '{{ResourceType=og,Tags=[{Key=environment,Value=production}]}}'
+```
+For Windows:  
+
+```
+aws rds copy-db-snapshot ^
+    --source-db-snapshot-identifier {{arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20161115}} ^
+    --target-db-snapshot-identifier {{mydbsnapshotcopy}} ^
+    --copy-option-group ^
+    --tag-specifications "{{ResourceType=og,Tags=[{Key=environment,Value=production}]}}"
+```
+
 The `--source-region` parameter is required when you're copying an encrypted snapshot between the AWS GovCloud (US-East) and AWS GovCloud (US-West) Regions. For `--source-region`, specify the AWS Region of the source DB instance.
 
 If `--source-region` isn't specified, specify a `--pre-signed-url` value. A *presigned URL* is a URL that contains a Signature Version 4 signed request for the `copy-db-snapshot` command that's called in the source AWS Region. To learn more about the `pre-signed-url` option, see [ copy-db-snapshot](https://docs.aws.amazon.com/cli/latest/reference/rds/copy-db-snapshot.html) in the *AWS CLI Command Reference*.
@@ -164,7 +192,8 @@ The following parameters are used to copy a DB snapshot. Not all parameters are 
   + If you are copying from a shared manual DB snapshot, this parameter must be the Amazon Resource Name (ARN) of the shared DB snapshot.
   + If you are copying an encrypted snapshot this parameter must be in the ARN format for the source AWS Region, and must match the `SourceDBSnapshotIdentifier` in the `PreSignedUrl` parameter.
 + `TargetDBSnapshotIdentifier` – The identifier for the new copy of the encrypted DB snapshot.
-+ `CopyOptionGroup` – Set this parameter to `true` to copy the option group from a shared snapshot to the copy of the snapshot. The default is `false`.
++ `CopyOptionGroup` – Set this parameter to `true` to copy the DB option group associated with the source snapshot to the target AWS account or AWS Region and associate it with the snapshot copy. The default is `false`.
++ `TagSpecifications` – (Optional) The tags to assign to the copied option group. Use the resource type `og` to tag the copied option group. You can specify this parameter only when `CopyOptionGroup` is `true`. By default, the copied option group isn't tagged.
 + `CopyTags` – Set this parameter to `true` to copy tags and values from the snapshot to the copy of the snapshot. The default is `false`.
 + `OptionGroupName` – The option group to associate with the copy of the snapshot.
 
@@ -216,6 +245,28 @@ The following code creates a copy of a snapshot, with the new name `mydbsnapshot
 ```
 https://rds.us-west-1.amazonaws.com/
 	?Action=CopyDBSnapshot
+	&SignatureMethod=HmacSHA256
+	&SignatureVersion=4
+	&SourceDBSnapshotIdentifier={{arn%3Aaws%3Ards%3Aus-east-1%3A123456789012%3Asnapshot%3Amysql-instance1-snapshot-20130805}}
+	&TargetDBSnapshotIdentifier={{mydbsnapshotcopy}}
+	&Version=2013-09-09
+	&X-Amz-Algorithm=AWS4-HMAC-SHA256
+	&X-Amz-Credential=AKIADQKE4SARGYLE/20140429/us-west-1/rds/aws4_request
+	&X-Amz-Date=20140429T175351Z
+	&X-Amz-SignedHeaders=content-type;host;user-agent;x-amz-content-sha256;x-amz-date
+	&X-Amz-Signature=9164337efa99caf850e874a1cb7ef62f3cea29d0b448b9e0e7c53b288ddffed2
+```
+
+**Example across Regions, copying the option group with tags**  
+The following code copies a snapshot to the US West (N. California) Region, copies the DB option group associated with the source snapshot to that Region, and assigns a tag to the copied option group.  
+
+```
+https://rds.us-west-1.amazonaws.com/
+	?Action=CopyDBSnapshot
+	&CopyOptionGroup={{true}}
+	&TagSpecifications.item.1.ResourceType={{og}}
+	&TagSpecifications.item.1.Tags.Tag.1.Key={{environment}}
+	&TagSpecifications.item.1.Tags.Tag.1.Value={{production}}
 	&SignatureMethod=HmacSHA256
 	&SignatureVersion=4
 	&SourceDBSnapshotIdentifier={{arn%3Aaws%3Ards%3Aus-east-1%3A123456789012%3Asnapshot%3Amysql-instance1-snapshot-20130805}}
@@ -543,7 +594,9 @@ When you copy a snapshot across AWS Regions, the copy is an incremental copy if 
 
 DB option groups are specific to the AWS Region that they are created in, and you can't use an option group from one AWS Region in another AWS Region.
 
-For Oracle databases, you can use the AWS CLI or RDS API to copy the custom DB option group from a snapshot that has been shared with your AWS account. You can only copy option groups within the same AWS Region. The option group isn't copied if it has already been copied to the destination account and no changes have been made to it since being copied. If the source option group has been copied before, but has changed since being copied, RDS copies the new version to the destination account. Default option groups aren't copied.
+For Oracle databases, when you copy a snapshot, you can use the AWS Management Console, AWS CLI, or RDS API to copy the DB option group associated with the source snapshot and associate it with the snapshot copy. You can copy the option group to a different AWS account, a different AWS Region, or both. When you copy an option group to another AWS account, only the options that support cross-account copying are included in the copy. Likewise, when you copy an option group to another AWS Region, only the options that support cross-Region copying are included in the copy. The option group isn't copied if it has already been copied to the destination and no changes have been made to it since being copied. If the source option group has been copied before, but has changed since being copied, RDS copies the new version to the destination. Default option groups aren't copied.
+
+You can assign tags to the copied option group by using the `--tag-specifications` option (AWS CLI) or the `TagSpecifications` parameter (RDS API) with the resource type `og`.
 
 When you copy a snapshot across Regions, you can specify a new option group for the snapshot. We recommend that you prepare the new option group before you copy the snapshot. In the destination AWS Region, create an option group with the same settings as the original DB instance. If one already exists in the new AWS Region, you can use that one.
 

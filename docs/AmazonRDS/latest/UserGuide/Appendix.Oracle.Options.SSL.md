@@ -51,6 +51,8 @@ Amazon RDS for Oracle supports multiple SSL cipher suites. By default, the Oracl
 
 You can specify multiple values for `SQLNET.CIPHER_SUITE`. This technique is useful if you have database links between your DB instances and decide to update your cipher suites.
 
+To specify multiple cipher suites, separate them with commas and don't include spaces, for example `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`. If the list contains spaces, the request fails with an `Invalid option setting value` error. All the cipher suites that you specify must support the TLS version set in `SQLNET.SSL_VERSION`. For the TLS version that each cipher suite supports, see the following table. For an example that specifies multiple cipher suites, see [AWS CLI](Appendix.Oracle.Options.SSL.OptionGroup.md#Appendix.Oracle.Options.SSL.OptionGroup.CLI) in [Adding the SSL option](Appendix.Oracle.Options.SSL.OptionGroup.md).
+
 The following table summarizes SSL support for RDS for Oracle in all editions of Oracle Database 19c, 21c, and 26ai.
 
 

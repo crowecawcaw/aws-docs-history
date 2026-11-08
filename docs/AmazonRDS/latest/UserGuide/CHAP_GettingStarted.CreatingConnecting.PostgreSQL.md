@@ -3,7 +3,7 @@
 # Creating and connecting to a PostgreSQL DB instance
 <a name="CHAP_GettingStarted.CreatingConnecting.PostgreSQL"></a>
 
-This tutorial creates an EC2 instance and an RDS for PostgreSQL DB instance. The tutorial shows you how to access the DB instance from the EC2 instance using a standard PostgreSQL client. As a best practice, this tutorial creates a private DB instance in a virtual private cloud (VPC). In most cases, other resources in the same VPC, such as EC2 instances, can access the DB instance, but resources outside of the VPC can't access it.
+This tutorial creates an EC2 instance and an RDS for PostgreSQL DB instance. The tutorial shows you how to access the DB instance from the EC2 instance using a standard PostgreSQL client. You use the EC2 instance only as a client to connect to the database; it isn't required for the DB instance to operate. As a best practice, this tutorial creates a private DB instance in a virtual private cloud (VPC). In most cases, other resources in the same VPC, such as EC2 instances, can access the DB instance, but resources outside the VPC can't access it. You can also connect from other resources, such as a Lambda function, or make the DB instance publicly accessible.
 
 After you complete the tutorial, there is a public and private subnet in each Availability Zone in your VPC. In one Availability Zone, the EC2 instance is in the public subnet, and the DB instance is in the private subnet.
 
@@ -350,7 +350,7 @@ If you used CloudFormation to create resources, delete the CloudFormation stack 
 
 1. Open the CloudFormation console.
 
-1. On the **Stacks** page in the CloudFormationconsole, select the root stack (the stack without the name VPCStack, BastionStack or RDSNS).
+1. On the **Stacks** page in the CloudFormation console, select the root stack (the stack without the name VPCStack, BastionStack or RDSNS).
 
 1. Choose **Delete**.
 

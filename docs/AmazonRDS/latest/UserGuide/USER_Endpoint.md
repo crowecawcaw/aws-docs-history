@@ -8,7 +8,7 @@ Each Amazon RDS DB instance has an endpoint, and each endpoint has the DNS name 
 You can find the endpoint for a DB instance using the Amazon RDS console or the AWS CLI.
 
 **Note**  
-If you are using Kerberos authentication, see [Connecting to Oracle with Kerberos authentication](oracle-kerberos-connecting.md).
+If you are using Kerberos authentication, see [Connecting with Kerberos authentication for AWS Managed Active Directory](oracle-kerberos-connecting.md).
 
 ## Console
 <a name="USER_Endpoint.Console"></a>

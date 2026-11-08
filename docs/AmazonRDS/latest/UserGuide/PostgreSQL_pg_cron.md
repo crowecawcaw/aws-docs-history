@@ -149,16 +149,12 @@ The metadata for `pg_cron` is all held in the PostgreSQL default database named 
 **Note**  
 Only users with `rds_superuser` role or `rds_superuser` privileges can list all cron jobs in the database. Other users can view only their own jobs in the `cron.job` table.
 
-1. In the cron database, schedule the job as you normally do using the [cron.schedule](#PostgreSQL_pg_cron.schedule).
+Use the `cron.schedule_in_database` function to schedule a job that runs in another database within your PostgreSQL DB instance in a single step. This avoids the metadata database running the job before you reassign it. This function is available in `pg_cron` 1.4.0 and higher.
+
+1. If you have the `rds_superuser` role, schedule the job directly in the target database by passing the database name as the final argument to `cron.schedule_in_database`.
 
    ```
-   postgres=> SELECT cron.schedule('database1 manual vacuum', '29 03 * * *', 'vacuum freeze test_table');
-   ```
-
-1. As a user with the `rds_superuser` role, update the database column for the job that you just created so that it runs in another database within your PostgreSQL DB instance.
-
-   ```
-   postgres=> UPDATE cron.job SET database = 'database1' WHERE jobid = 106;
+   postgres=> SELECT cron.schedule_in_database('database1 manual vacuum', '29 03 * * *', 'vacuum freeze test_table', 'database1');
    ```
 
 1.  Verify by querying the `cron.job` table.
@@ -171,9 +167,6 @@ Only users with `rds_superuser` role or `rds_superuser` privileges can list all 
      1   | 59 23 * * * | vacuum freeze pgbench_accounts | localhost | 8192     | postgres | adminuser | t      | manual vacuum
    (2 rows)
    ```
-
-**Note**  
-In some situations, you might add a cron job that you intend to run on a different database. In such cases, the job might try to run in the default database (`postgres`) before you update the correct database column. If the user name has permissions, the job successfully runs in the default database.
 
 ## Reference for the pg\_cron extension
 <a name="PostgreSQL_pg_cron.reference"></a>

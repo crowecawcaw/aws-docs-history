@@ -85,7 +85,7 @@ For more information about the procedure `rdsadmin.rds_file_util.read_text_file`
 ## Interpreting the precheck results
 <a name="USER_UpgradeDBInstance.Oracle.Precheck.Interpreting"></a>
 
-The log has one `CHECK:` line for each check, followed by a `Summary:` line and a `Result:` line. Which checks run depends on your engine version, your database architecture, and your DB instance configuration. Each check reports one of the following results.
+The log has one `CHECK:` line for each check, followed by a `Summary:` line and a `Result:` line. Which checks run depends on your engine version, your database architecture, and your DB instance configuration. Each check reports one of the following results:
 
 `PASSED`  
 The check found no problem.

@@ -1,36 +1,35 @@
 
 
-# Setting up Kerberos for Oracle DB instances
+# Setting up AWS Managed Active Directory
 <a name="oracle-kerberos-setting-up"></a>
 
-Use AWS Directory Service for Microsoft Active Directory, also called AWS Managed Microsoft AD, to set up Kerberos authentication for an Oracle DB instance. To set up Kerberos authentication, complete the following steps:
-+ [Step 1: Create a directory using the AWS Managed Microsoft AD](#oracle-kerberos.setting-up.create-directory)
-+ [Step 2: Create a trust](#oracle-kerberos.setting-up.create-forest-trust)
-+ [Step 3: Configure IAM permissions for Amazon RDS](#oracle-kerberos.setting-up.CreateIAMRole)
-+ [Step 4: Create and configure users](#oracle-kerberos.setting-up.create-users)
-+ [Step 5: Enable cross-VPC traffic between the directory and the DB instance](#oracle-kerberos.setting-up.vpc-peering)
-+ [Step 6: Create or modify an Oracle DB instance](#oracle-kerberos.setting-up.create-modify)
-+ [Step 7: Create Kerberos authentication Oracle logins](#oracle-kerberos.setting-up.create-logins)
-+ [Step 8: Configure an Oracle client](#oracle-kerberos.setting-up.configure-oracle-client)
+Use AWS Managed Active Directory to set up Kerberos authentication for an Oracle DB instance. To set up Kerberos authentication, complete the following steps:
++ [Step 1: Create a directory using the AWS Managed Active Directory](#oracle-kerberos.setting-up.create-directory)
++ [Step 2: Configure IAM permissions for Amazon RDS](#oracle-kerberos.setting-up.CreateIAMRole)
++ [Step 3: Create and configure users](#oracle-kerberos.setting-up.create-users)
++ [Step 4: Enable cross-VPC traffic between the directory and the DB instance](#oracle-kerberos.setting-up.vpc-peering)
++ [Step 5: Create or modify an Oracle DB instance](#oracle-kerberos.setting-up.create-modify)
++ [Step 6: Create Kerberos authentication Oracle logins](#oracle-kerberos.setting-up.create-logins)
++ [Step 7: Configure an Oracle client](#oracle-kerberos.setting-up.configure-oracle-client)
 
 **Note**  
 During the setup, RDS creates an Oracle database user named {{managed\_service\_user}}@{{example.com}} with the `CREATE SESSION` privilege, where {{example.com}} is your domain name. This user corresponds to the user that Directory Service creates inside your Managed Active Directory. Periodically, RDS uses the credentials provided by the Directory Service to log in to your Oracle database. Afterwards, RDS immediately destroys the ticket cache.
 
-## Step 1: Create a directory using the AWS Managed Microsoft AD
+## Step 1: Create a directory using the AWS Managed Active Directory
 <a name="oracle-kerberos.setting-up.create-directory"></a>
 
-Directory Service creates a fully managed Active Directory in the AWS Cloud. When you create an AWS Managed Microsoft AD directory, Directory Service creates two domain controllers and Domain Name System (DNS) servers on your behalf. The directory servers are created in different subnets in a VPC. This redundancy helps make sure that your directory remains accessible even if a failure occurs. 
+Directory Service creates a fully managed Active Directory in the AWS Cloud. When you create an AWS Managed Active Directory directory, Directory Service creates two domain controllers and Domain Name System (DNS) servers on your behalf. The directory servers are created in different subnets in a VPC. This redundancy helps make sure that your directory remains accessible even if a failure occurs. 
 
-When you create an AWS Managed Microsoft AD directory, Directory Service performs the following tasks on your behalf: 
+When you create an AWS Managed Active Directory directory, Directory Service performs the following tasks on your behalf: 
 + Sets up an Active Directory within the VPC. 
 + Creates a directory administrator account with the user name Admin and the specified password. You use this account to manage your directory. 
 **Note**  
 Be sure to save this password. Directory Service doesn't store it. You can reset it, but you can't retrieve it. 
 + Creates a security group for the directory controllers. 
 
-When you launch an AWS Managed Microsoft AD, AWS creates an Organizational Unit (OU) that contains all of your directory's objects. This OU has the NetBIOS name that you typed when you created your directory and is located in the domain root. The domain root is owned and managed by AWS. 
+When you launch an AWS Managed Active Directory, AWS creates an Organizational Unit (OU) that contains all of your directory's objects. This OU has the NetBIOS name that you typed when you created your directory and is located in the domain root. The domain root is owned and managed by AWS. 
 
-The Admin account that was created with your AWS Managed Microsoft AD directory has permissions for the most common administrative activities for your OU: 
+The Admin account that was created with your AWS Managed Active Directory directory has permissions for the most common administrative activities for your OU: 
 + Create, update, or delete users 
 + Add resources to your domain such as file or print servers, and then assign permissions for those resources to users in your OU 
 + Create additional OUs and containers 
@@ -45,13 +44,13 @@ The Admin account also has rights to perform the following domain-wide activitie
 
 To create the directory, use the AWS Management Console, the AWS CLI, or the Directory Service API. Make sure to open the relevant outbound ports on the directory security group so that the directory can communicate with the Oracle DB instance.
 
-**To create a directory with AWS Managed Microsoft AD**
+**To create a directory with AWS Managed Active Directory**
 
 1. Sign in to the AWS Management Console and open the Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/).
 
 1. In the navigation pane, choose **Directories** and choose **Set up Directory**. 
 
-1. Choose **AWS Managed Microsoft AD**. AWS Managed Microsoft AD is the only option that you can currently use with Amazon RDS. 
+1. Choose **AWS Managed Active Directory**. To join your DB instance directly to a self-managed AD domain instead, see [Working with self-managed Active Directory with an Amazon RDS for Oracle DB instance](oracle-smad.md).
 
 1.  Enter the following information:   
 **Directory DNS name**  
@@ -88,14 +87,7 @@ To see information about your directory, choose the directory name in the direct
 ![Directory details page.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/WinAuth3.png)
 
 
-## Step 2: Create a trust
-<a name="oracle-kerberos.setting-up.create-forest-trust"></a>
-
-If you plan to use AWS Managed Microsoft AD only, move on to [Step 3: Configure IAM permissions for Amazon RDS](#oracle-kerberos.setting-up.CreateIAMRole).
-
-To enable Kerberos authentication using your self-managed Active Directory, you must create a forest trust relationship between your self-managed Active Directory and the AWS Managed Microsoft AD created in the previous step. The trust can be one-way, where the AWS Managed Microsoft AD trusts the self-managed Active Directory. The trust can also be two-way, where both Active Directories trust each other. For more information about setting up forest trusts using Directory Service, see [When to create a trust relationship](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_setup_trust.html) in the *Directory Service Administration Guide*.
-
-## Step 3: Configure IAM permissions for Amazon RDS
+## Step 2: Configure IAM permissions for Amazon RDS
 <a name="oracle-kerberos.setting-up.CreateIAMRole"></a>
 
 To call Directory Service for you, Amazon RDS requires an IAM role that uses the managed IAM policy `AmazonRDSDirectoryServiceAccess`. This role allows Amazon RDS to make calls to the Directory Service.
@@ -220,17 +212,17 @@ The role must also have the following IAM policy.
 
 ------
 
-## Step 4: Create and configure users
+## Step 3: Create and configure users
 <a name="oracle-kerberos.setting-up.create-users"></a>
 
  You can create users with the Active Directory Users and Computers tool, which is one of the Active Directory Domain Services and Active Directory Lightweight Directory Services tools. In this case, *users* are individual people or entities that have access to your directory. 
 
-To create users in an Directory Service directory, you must be connected to a Windows-based Amazon EC2 instance that is a member of the Directory Service directory. At the same time, you must be logged in as a user that has privileges to create users. For more information about creating users in your Microsoft Active Directory, see [Manage users and groups in AWS Managed Microsoft AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_manage_users_groups.html) in the *Directory Service Administration Guide*.
+To create users in an Directory Service directory, you must be connected to a Windows-based Amazon EC2 instance that is a member of the Directory Service directory. At the same time, you must be logged in as a user that has privileges to create users. For more information about creating users in your Active Directory, see [Manage users and groups in AWS Managed Active Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_manage_users_groups.html) in the *Directory Service Administration Guide*.
 
-## Step 5: Enable cross-VPC traffic between the directory and the DB instance
+## Step 4: Enable cross-VPC traffic between the directory and the DB instance
 <a name="oracle-kerberos.setting-up.vpc-peering"></a>
 
-If you plan to locate the directory and the DB instance in the same VPC, skip this step and move on to [Step 6: Create or modify an Oracle DB instance](#oracle-kerberos.setting-up.create-modify).
+If you plan to locate the directory and the DB instance in the same VPC, skip this step and move on to [Step 5: Create or modify an Oracle DB instance](#oracle-kerberos.setting-up.create-modify).
 
 If you plan to locate the directory and the DB instance in different AWS accounts or VPCs, configure cross-VPC traffic using VPC peering or [AWS Transit Gateway](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html). The following procedure enables traffic between VPCs using VPC peering. Follow the instructions in [What is VPC peering?](https://docs.aws.amazon.com/vpc/latest/peering/Welcome.html) in the *Amazon Virtual Private Cloud Peering Guide*.
 
@@ -238,7 +230,7 @@ If you plan to locate the directory and the DB instance in different AWS account
 
 1. Set up appropriate VPC routing rules to ensure that network traffic can flow both ways.
 
-1. Ensure that the DB instance's security group can receive inbound traffic from the directory's security group. For more information, see [ Best practices for AWS Managed Microsoft AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_best_practices.html) in the *Directory Service Administration Guide*.
+1. Ensure that the DB instance's security group can receive inbound traffic from the directory's security group. For more information, see [ Best practices for AWS Managed Active Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_best_practices.html) in the *Directory Service Administration Guide*.
 
 1. Ensure that there is no network access control list (ACL) rule to block traffic.
 
@@ -246,13 +238,13 @@ If a different AWS account owns the directory, you must share the directory.
 
 **To share the directory between AWS accounts**
 
-1. Start sharing the directory with the AWS account that the DB instance will be created in by following the instructions in [Tutorial: Sharing your AWS Managed Microsoft AD directory for seamless EC2 Domain-join](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_tutorial_directory_sharing.html) in the *Directory Service Administration Guide*.
+1. Start sharing the directory with the AWS account that the DB instance will be created in by following the instructions in [Tutorial: Sharing your AWS Managed Active Directory directory for seamless EC2 Domain-join](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_tutorial_directory_sharing.html) in the *Directory Service Administration Guide*.
 
 1. Sign in to the Directory Service console using the account for the DB instance, and ensure that the domain has the `SHARED` status before proceeding.
 
 1. While signed into the Directory Service console using the account for the DB instance, note the **Directory ID** value. You use this directory ID to join the DB instance to the domain.
 
-## Step 6: Create or modify an Oracle DB instance
+## Step 5: Create or modify an Oracle DB instance
 <a name="oracle-kerberos.setting-up.create-modify"></a>
 
 Create or modify an Oracle DB instance for use with your directory. You can use the console, CLI, or RDS API to associate a DB instance with a directory. You can do this in one of the following ways:
@@ -322,12 +314,12 @@ aws rds describe-db-instances --db-instance-identifier {{mydbinstance}} --query 
 
 Confirm that `Status` shows `joined`. If it shows `failed`, verify that the security group allows traffic between the DB instance and the directory service.
 
-## Step 7: Create Kerberos authentication Oracle logins
+## Step 6: Create Kerberos authentication Oracle logins
 <a name="oracle-kerberos.setting-up.create-logins"></a>
 
-Use the Amazon RDS master user credentials to connect to the Oracle DB instance as you do any other DB instance. The DB instance is joined to the AWS Managed Microsoft AD domain. Thus, you can provision Oracle logins and users from the Microsoft Active Directory users in your domain. To manage database permissions, you grant and revoke standard Oracle permissions to these logins.
+Use the Amazon RDS master user credentials to connect to the Oracle DB instance as you do any other DB instance. The DB instance is joined to the AWS Managed Active Directory domain. Thus, you can provision Oracle logins and users from the Active Directory users in your domain. To manage database permissions, you grant and revoke standard Oracle permissions to these logins.
 
-**To allow a Microsoft Active Directory user to authenticate with Oracle**
+**To allow a Active Directory user to authenticate with Oracle**
 
 1. Connect to the Oracle DB instance using your Amazon RDS master user credentials.
 
@@ -342,7 +334,7 @@ Use the Amazon RDS master user credentials to connect to the Oracle DB instance 
 
    Users (both humans and applications) from your domain can now connect to the Oracle DB instance from a domain joined client machine using Kerberos authentication. 
 
-## Step 8: Configure an Oracle client
+## Step 7: Configure an Oracle client
 <a name="oracle-kerberos.setting-up.configure-oracle-client"></a>
 
 To configure an Oracle client, meet the following requirements:
@@ -350,7 +342,7 @@ To configure an Oracle client, meet the following requirements:
 + Verify that traffic can flow between the client host and Directory Service over DNS port 53 over TCP/UDP, Kerberos ports (88 and 464 for managed Directory Service) over TCP, and LDAP port 389 over TCP.
 + Verify that traffic can flow between the client host and the DB instance over the database port.
 
-Following is sample content for AWS Managed Microsoft AD.
+Following is sample content for AWS Managed Active Directory.
 
 ```
 [libdefaults]
@@ -365,7 +357,7 @@ Following is sample content for AWS Managed Microsoft AD.
  example.com = EXAMPLE.COM
 ```
 
-Following is sample content for on-premise Microsoft AD. In your krb5.conf or krb5.ini file, replace {{on-prem-ad-server-name}} with the name of your on-premises AD server.
+Following is sample content for on-premises Active Directory. In your krb5.conf or krb5.ini file, replace {{on-prem-ad-server-name}} with the name of your on-premises AD server.
 
 ```
 [libdefaults]

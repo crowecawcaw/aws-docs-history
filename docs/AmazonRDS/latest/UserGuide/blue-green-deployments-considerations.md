@@ -37,6 +37,9 @@ The following general limitations apply to blue/green deployments:
   + Cascading read replicas
   + Cross-Region read replicas
   + CloudFormation
+  + Capacity Reservations
+
+    You can't specify a Capacity Reservation when you create a blue/green deployment, and the DB instances in the green environment don't draw from a reservation. For more information about Capacity Reservations, see [Amazon RDS On-Demand Capacity Reservations](capacity-reservations.md).
   + Multi-AZ DB cluster deployments
 
     Blue/green deployments are supported for Multi-AZ DB instance deployments. For more information about Multi-AZ deployments, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.MultiAZ.md).
@@ -63,10 +66,9 @@ The following limitations apply to RDS for PostgreSQL blue/green deployments tha
 + After the green environment is created, you can't perform a manual major version upgrade.
 + Blue/green deployments that use physical replication don't support schema changes on the green environment, as it is strictly read-only.
 + The blue DB instance can't be a logical source (publisher) or replica (subscriber).
-+ Blue/Green deployments have the following limitations when configuring delayed replication in RDS for PostgreSQL:
-  + **Green source instance** — The `recovery_min_apply_delay parameter` is disregarded, even if configured in the parameter group. Any delay settings on the green source instance do not take effect.
-  + **Green replica instance** — The `recovery_min_apply_delay parameter` is fully supported and applied to the PostgreSQL configuration file. Delay settings function as expected during the switchover workflow.
-  + Delayed replication isn't compatible with RDS Blue/Green deployments for major version upgrades.
++ Blue/green deployments have the following limitations when configuring delayed replication in RDS for PostgreSQL:
+  + **Green source instance** – The `recovery_min_apply_delay` parameter is disregarded, even if configured in the parameter group. Any delay settings on the green source instance do not take effect.
+  + **Green replica instance** – The `recovery_min_apply_delay` parameter is fully supported and applied to the PostgreSQL configuration file. Delay settings function as expected during the switchover workflow.
 
 ### RDS for PostgreSQL limitations for blue/green deployments with logical replication
 <a name="blue-green-deployments-limitations-postgres-logical"></a>
@@ -99,7 +101,7 @@ The following table describes logical replication limitations that apply to blue
 | Limitation | Explanation | 
 | --- | --- | 
 | Data definition language (DDL) statements, such as CREATE TABLE and CREATE SCHEMA, aren't replicated from the blue environment to the green environment. | If Amazon RDS detects a DDL change in the blue environment, your green databases enter a state of **Replication degraded**. You must delete the blue/green deployment and all green databases, then recreate it. | 
-| Data control language (DCL) statements, such as GRANT and REVOKE, aren't replicated from the blue environment to the green environment. | If Amazon RDS PostgreSQL detects an attempt to execute a DCL statement in the blue environment, you will see a warning message. There is no configuration or API available to change this behavior, as it is a limitation of the blue/green deployment process. | 
+| Data control language (DCL) statements, such as GRANT, REVOKE, and ALTER DEFAULT PRIVILEGES, aren't replicated from the blue environment to the green environment. | If Amazon RDS PostgreSQL detects a DCL statement in the blue environment, your green databases enter a state of **Replication degraded** and switchover is blocked, the same as for a DDL change. You must delete the blue/green deployment and all green databases, then recreate it. A warning also appears in the PostgreSQL log. No configuration or API is available to change this behavior, because it is a limitation of the blue/green deployment process. | 
 | NEXTVAL operations on sequence objects aren't synchronized between the blue environment and the green environment. | During switchover, Amazon RDS increments sequence values in the green environment to match those in the blue environment. While a high volume of sequences generally allows the switchover to proceed, an exceptionally large number—such as several hundred thousand—might cause the process to time out before completion. You can increase the switchover timeout to allow more time for synchronization. For more information, see [Switchover timeout](blue-green-deployments-switching.md#blue-green-deployments-switching-timeout). | 
 | Large objects in the blue environment aren't replicated to the green environment. This includes both existing large objects and any newly created or modified large objects during the blue/green deployment process. | If Amazon RDS detects the creation or modification of large objects in the blue environment that are stored in the `pg_largeobject` system table, your green databases enter a state of **Replication degraded**. You must delete the blue/green deployment and all green databases, then recreate it. | 
 | Materialized views aren’t automatically refreshed in the green environment. | Refreshing materialized views in the blue environment doesn't refresh them in the green environment. After switchover, you can manually refresh them using the [REFRESH MATERIALIZED VIEW](https://www.postgresql.org/docs/current/sql-refreshmaterializedview.html) command, or schedule a refresh. | 

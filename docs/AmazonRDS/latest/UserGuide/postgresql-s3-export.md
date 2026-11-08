@@ -18,6 +18,7 @@ You can save DB snapshot data to Amazon S3 using the AWS Management Console, AWS
 
 **Topics**
 + [Installing the aws\_s3 extension](#USER_PostgreSQL.S3Export.InstallExtension)
++ [Upgrading the aws\_s3 extension](#postgresql-s3-export-upgrade)
 + [Overview of exporting data to Amazon S3](#postgresql-s3-export-overview)
 + [Specifying the Amazon S3 file path to export to](#postgresql-s3-export-file)
 + [Setting up access to an Amazon S3 bucket](postgresql-s3-export-access-bucket.md)
@@ -72,6 +73,14 @@ aws rds describe-db-engine-versions --region us-east-1
 ```
 
 If the output includes the string `"s3Export"`, then the engine supports Amazon S3 exports. Otherwise, the engine doesn't support them.
+
+## Upgrading the aws\_s3 extension
+<a name="postgresql-s3-export-upgrade"></a>
+
+Upgrading your RDS for PostgreSQL DB instance to a new version doesn't upgrade the `aws_s3` extension at the same time. To upgrade the extension after the engine upgrade completes, use the `ALTER EXTENSION ... UPDATE` command. For the general procedure, see [Upgrading PostgreSQL extensions](USER_UpgradeDBInstance.PostgreSQL.ExtensionUpgrades.md).
+
+**Important**  
+When you upgrade the `aws_s3` extension from version 1.1 to version 1.2, the extension's Amazon S3 export functions are recreated. As a result, any EXECUTE permissions that you previously granted on these functions to other users or roles (for example, by using `GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA aws_s3 TO your_user;`) are revoked. After this upgrade completes, re-grant these permissions to the affected users or roles.
 
 ## Overview of exporting data to Amazon S3
 <a name="postgresql-s3-export-overview"></a>

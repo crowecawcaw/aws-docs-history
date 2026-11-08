@@ -11,5 +11,5 @@ For information about network access for Oracle DB instances, see [Configuring U
 + [Using SSL with an RDS for Oracle DB instance](Oracle.Concepts.SSL.md)
 + [Updating applications to connect to Oracle DB instances using new SSL/TLS certificates](ssl-certificate-rotation-oracle.md)
 + [Using native network encryption with an RDS for Oracle DB instance](Oracle.Concepts.NNE.md)
-+ [Configuring Kerberos authentication for Amazon RDS for Oracle](oracle-kerberos.md)
++ [Kerberos authentication with Active Directory with Amazon RDS for Oracle](oracle-active-directory.md)
 + [Configuring UTL\_HTTP access using certificates and an Oracle wallet](Oracle.Concepts.ONA.md)
