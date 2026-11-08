@@ -3,7 +3,7 @@
 # Monitor the state of your AWS accounts
 <a name="orgs_manage_accounts_account_state"></a>
 
-AWS Organizations provides a way to quickly assess the health and operational status of all accounts in your organization. You can view this information using the **State** column within the AWS Organizations console or programmatically through AWS Organizations APIs. This enables you to track where each AWS account is in its life cycle, from creation through closure.
+AWS Organizations provides a way to quickly assess the health and operational status of all accounts in your organization. You can view this information in the AWS Organizations console or programmatically through AWS Organizations APIs. In the console, accounts that aren't active show their state next to the account name. You can also find the state of any account on its **Account details** page. This enables you to track where each AWS account is in its life cycle, from creation through closure.
 
 Continuous tracking of account state provides the following benefits:
 + Quickly identify accounts that require attention or action
@@ -39,9 +39,14 @@ The account `Status` parameter in AWS Organizations will be retired on September
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2). You must sign in as an IAM user, assume an IAM role, or sign in as the root user ([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)) in the organization’s management account.
 
-1. Navigate to the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page and notice the value in the **State** column next to the member account you want to examine. If the account that you want to see is a child of an OU, you might have to choose the triangle icon ![Right-pointing triangle icon.](https://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)next to an OU to expand it and see its children. Repeat until you find the account.
+1. Navigate to the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page.
+
+1. Find the account that you want to examine. In both the **Hierarchy** and **List** views, accounts that aren't ACTIVE show their state as a label next to the account name, for example **Closed**. If the account that you want to see is a child of an OU, you might have to choose the triangle icon ![Right-pointing triangle icon.](https://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)next to an OU to expand it and see its children. Repeat until you find the account.
+
+1. In the accounts list, choose the account name to open its **Account details** page, and then view the value of the **State** field.
+
 **Note**  
-You can also view the value of the **State** field from the **Account details** page in the AWS Organizations console.
+To view the state of all accounts in your organization at once, export the account list to a .csv file, which includes the **State** of each account. For more information, see [Export details for all accounts in AWS Organizations](orgs_manage_accounts_export.md).
 
 ------
 #### [ AWS CLI & AWS SDKs ]

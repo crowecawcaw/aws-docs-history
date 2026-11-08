@@ -14,7 +14,7 @@ Before creating Security Hub policies, understand these key points about policy 
 + Child policies can modify parent policies using inheritance operators unless explicitly restricted.
 + The `ALL_SUPPORTED` designation includes both current and future Regions.
 + Region names must be valid and available in Security Hub.
-+ The `features` map is optional and is available only in commercial AWS Regions (Regions other than the AWS GovCloud (US) Regions and the China Regions). It is not available in the AWS GovCloud (US) Regions or China Regions.
++ The `features` map is optional and is available only in commercial AWS Regions and the AWS GovCloud (US) Regions. It is not available in the China Regions.
 + Both `enable_in_regions` and `disable_in_regions` lists within a feature are required, though they can be empty.
 + When processing effective policies, `disable_in_regions` takes precedence over `enable_in_regions` for a feature, the same as for the top-level lists.
 + A feature is configured only in Regions where Security Hub is enabled by the same effective policy. Disabling Security Hub in a Region also disables its features in that Region.
@@ -41,7 +41,7 @@ A Security Hub policy uses this basic structure:
 }
 ```
 
-A Security Hub policy can also include an optional `features` map to manage opt-in Security Hub features, such as network scanning, across your organization. The `features` map is available only in commercial AWS Regions.
+A Security Hub policy can also include an optional `features` map to manage opt-in Security Hub features, such as network scanning, across your organization. The `features` map is available only in commercial AWS Regions and the AWS GovCloud (US) Regions.
 
 ```
 {
@@ -98,7 +98,7 @@ Inheritance operators
 
 `features`  
 The container for opt-in Security Hub feature settings.  
-Optional, and available only in commercial AWS Regions.  
+Optional, and available only in commercial AWS Regions and the AWS GovCloud (US) Regions.  
 When omitted, all features are left unmanaged by the policy.  
 Each feature is configured by its own child block, such as `network_scanning`.
 
@@ -225,7 +225,7 @@ The following example demonstrates how to handle regional compliance requirement
 }
 ```
 
-The following example enables Security Hub in two Regions and enables network scanning in those same Regions. The `features` map is available only in commercial AWS Regions.
+The following example enables Security Hub in two Regions and enables network scanning in those same Regions. The `features` map is available only in commercial AWS Regions and the AWS GovCloud (US) Regions.
 
 ```
 {

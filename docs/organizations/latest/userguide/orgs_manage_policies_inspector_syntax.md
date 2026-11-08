@@ -62,6 +62,7 @@ Specifies the Regions where Amazon Inspector should be auto-enabled.
 | EC2 scanning | ec2\_scanning | No | 
 | ECR scanning | ecr\_scanning | No | 
 | Code repository scanning | code\_repository\_scanning | No | 
+| Amazon Machine Image (AMI) scanning | ami\_scanning | No | 
 
 Each scan type is optional — include only the scan types you want to configure. However, for each scan type you include, both `enable_in_regions` and `disable_in_regions` are required.
 
@@ -134,6 +135,19 @@ Create a file `inspector-policy-enable.json`:
         }
       },
       "code_repository_scanning": {
+        "enable_in_regions": {
+          "@@assign": [
+            "us-east-1",
+            "us-west-2"
+          ]
+        },
+        "disable_in_regions": {
+          "@@assign": [
+            "eu-west-1"
+          ]
+        }
+      },
+      "ami_scanning": {
         "enable_in_regions": {
           "@@assign": [
             "us-east-1",
@@ -232,6 +246,18 @@ Create a file `inspector-policy-eu-west-1.json`:
         }
       },
       "code_repository_scanning": {
+        "enable_in_regions": {
+          "@@assign": [
+            "eu-west-1"
+          ]
+        },
+        "disable_in_regions": {
+          "@@assign": [
+            "eu-west-2"
+          ]
+        }
+      },
+      "ami_scanning": {
         "enable_in_regions": {
           "@@assign": [
             "eu-west-1"

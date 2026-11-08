@@ -3,7 +3,7 @@
 # Managing pending account invitations with AWS Organizations
 <a name="orgs_manage_accounts_manage-invites"></a>
 
-When you sign in to your management account, you can view all the linked AWS accounts in your organization and cancel any pending (open) invitations. To do this, complete the following steps.
+When you sign in to your management account, you can view all the linked AWS accounts in your organization and cancel any pending (open) invitations. To do this, complete the following steps. To learn how an invited account responds to an invitation, see [Accepting or declining account invitations with AWS Organizations](orgs_manage_accounts_accept-decline-invite.md).
 
 **Minimum permissions**  
 To manage pending invitations for your organization, you must have the following permissions:  
