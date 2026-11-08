@@ -20,8 +20,11 @@ Refer to the sample token below for a list of claims included in the token. Plea
   "https://sts.amazonaws.com/": {
     "aws_account": "123456789012",
     "source_region": "us-east-1",
+    "principal_id": "arn:aws:iam::123456789012:role/DataProcessingRole",
     "org_id": "o-abc1234567",
-    "ou_path": "o-a1b2c3d4e5/r-ab12/ou-ab12-11111111/ou-ab12-22222222/",
+    "ou_path": [
+      "o-a1b2c3d4e5/r-ab12/ou-ab12-11111111/ou-ab12-22222222/"
+    ],
     "principal_tags": {
       "environment": "production",
       "team": "data-engineering",
@@ -57,18 +60,21 @@ The standard OIDC claims present in the tokens facilitate interoperability with 
 
 In addition to the standard OIDC claims, AWS STS adds claims about the identity and session context when applicable. You can also add your own claims to the token by passing them as request tags. Custom claims are nested under the https://sts.amazonaws.com/ namespace.
 
+The condition keys in the following tables identify the source request context used to populate the claims. For the condition keys used in cross-partition role assumption and their availability in the destination session, see the AWS STS tab under [Available keys for AWS OIDC federation](reference_policies_iam-condition-keys.md#condition-keys-wif).
+
 ### AWS identity claims
 <a name="aws-identity-claims"></a>
 
 These claims provide detailed information about your AWS account, organization structure, and IAM principal.
 
 
-| Claim | Description | Maps to Condition Key | Example Value | 
+| Claim | Description | Source condition key | Example Value | 
 | --- | --- | --- | --- | 
 | aws\_account | Your AWS account ID | [aws:PrincipalAccount](reference_policies_condition-keys.md#condition-keys-principalaccount) | 123456789012 | 
 | source\_region | The AWS region where the token was requested | [aws:RequestedRegion](reference_policies_condition-keys.md#condition-keys-requestedregion) | us-east-1 | 
+| principal\_id | The ARN of the IAM principal that requested the token. | [aws:PrincipalArn](reference_policies_condition-keys.md#condition-keys-principalarn) | arn:aws:iam::123456789012:role/DataProcessingRole | 
 | org\_id | Your AWS Organizations ID (if your account is part of an organization) | [aws:PrincipalOrgID](reference_policies_condition-keys.md#condition-keys-principalorgid) | o-abc1234567 | 
-| ou\_path | Your organizational unit path (if applicable) | [aws:PrincipalOrgPaths](reference_policies_condition-keys.md#condition-keys-principalorgpaths) | o-a1b2c3d4e5/r-ab12/ou-ab12-11111111/ou-ab12-22222222/ | 
+| ou\_path | The AWS Organizations paths for the source account, as an array. Present when organization paths are available in the source request context. | [aws:PrincipalOrgPaths](reference_policies_condition-keys.md#condition-keys-principalorgpaths) | ["o-a1b2c3d4e5/r-ab12/ou-ab12-11111111/ou-ab12-22222222/"] | 
 | principal\_tags | Tags attached to the IAM principal or assumed role session. When a token is requested where the requesting IAM principal has both principal tags and session tags, the session tags will be present in the JWT. | [aws:PrincipalTag/<tag-key>](reference_policies_condition-keys.md#condition-keys-principaltag) | {"environment": "production", "team": "data-engineering", "cost-center":"engineering"} | 
 
 ### Session context claims
@@ -77,16 +83,19 @@ These claims provide detailed information about your AWS account, organization s
 These claims provide information about the compute environment and session where the token request originated. AWS STS automatically includes these claims when applicable based on the requesting principal's session context.
 
 
-| Claim | Description | Maps to Condition Key | Example Value | 
+| Claim | Description | Source condition key | Example Value | 
 | --- | --- | --- | --- | 
 | original\_session\_exp | When the original role session credentials will expire (for assumed roles) | N/A | 2024-01-15T10:00:00Z | 
+| invoked\_by | The AWS service acting on the customer's behalf by assuming the source role, or the last service in a [forward access session](access_forward_access_sessions.md). This claim is present only when the source session includes that service's identity. | N/A | ec2.amazonaws.com | 
+| mfa\_present | Indicates that the IAM principal authenticated with MFA. Present only when MFA was used, with the string value "true". It is never "false". | [aws:MultiFactorAuthPresent](reference_policies_condition-keys.md#condition-keys-multifactorauthpresent) | "true" | 
+| mfa\_age | The number of seconds since the IAM principal authenticated with MFA, encoded as a string. Present only when MFA was used and the authentication age is available. | [aws:MultiFactorAuthAge](reference_policies_condition-keys.md#condition-keys-multifactorauthage) | "1800" | 
 | federated\_provider | The identity provider name for federated sessions | [aws:FederatedProvider](reference_policies_condition-keys.md#condition-keys-federatedprovider) | arn:aws:iam::111122223333:oidc-provider/your\_oidc\_provider | 
 | identity\_store\_user\_id | IAM Identity Center user ID | [identitystore:UserId](reference_policies_condition-keys.md#condition-keys-identity-store-user-id) | user-abc123def456 | 
 | identity\_store\_arn | ARN of the Identity Center identity store | [identitystore:IdentityStoreArn](https://docs.aws.amazon.com/singlesignon/latest/userguide/condition-context-keys-sts-idc.html#condition-keys-identity-store-arn) | arn:aws:identitystore::123456789012:identitystore/d-abc1234567 | 
 | ec2\_source\_instance\_arn | ARN of the requesting EC2 instance | [ec2:SourceInstanceArn](reference_policies_condition-keys.md#condition-keys-ec2-source-instance-arn) | arn:aws:ec2:us-east-1:123456789012:instance/i-abc123def456 | 
 | ec2\_instance\_source\_vpc | VPC ID where EC2 role credentials were delivered | [aws:Ec2InstanceSourceVpc](reference_policies_condition-keys.md#condition-keys-ec2instancesourcevpc) | vpc-abc123def456 | 
 | ec2\_instance\_source\_private\_ipv4 | Private IPv4 address of the EC2 instance | [aws:Ec2InstanceSourcePrivateIPv4](reference_policies_condition-keys.md#condition-keys-ec2instancesourceprivateip4) | 10.0.1.25 | 
-| ec2\_role\_delivery | Instance metadata service version | [ec2:RoleDelivery](reference_policies_condition-keys.md#condition-keys-ec2-role-delivery) | 2 | 
+| ec2\_role\_delivery | The instance metadata service (IMDS) version that delivered the source role credentials: 1.0 for IMDSv1 or 2.0 for IMDSv2. | [ec2:RoleDelivery](reference_policies_condition-keys.md#condition-keys-ec2-role-delivery) | 2.0 | 
 | source\_identity | Source identity set by the principal | [aws:SourceIdentity](reference_policies_condition-keys.md#condition-keys-sourceidentity) | admin-user | 
 | lambda\_source\_function\_arn | ARN of the calling Lambda function | [lambda:SourceFunctionArn](reference_policies_condition-keys.md#condition-keys-lambda-source-function-arn) | arn:aws:lambda:us-east-1:123456789012:function:my-function | 
 | glue\_credential\_issuing\_service | AWS Glue service identifier for Glue jobs | [glue:CredentialIssuingService](reference_policies_condition-keys.md#condition-keys-glue-credential-issuing) | glue.amazonaws.com | 

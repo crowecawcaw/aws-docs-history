@@ -155,7 +155,7 @@ In programmatic calls to the AWS CLI or AWS API, the finding for this check incl
 
 **Resolving the error**
 
-The action that you specified is not valid. This can happen if you mis-type the service prefix or the action name. For some common issues, the policy check returns a suggested action.
+The action that you specified is not valid. This can happen if you mis-type the service prefix or the action name, or if the action is not yet recognized by IAM policy validation. For some common issues, the policy check returns a suggested action.
 
 **Related terms**
 + [Policy actions](reference_policies_elements_action.md)
@@ -166,9 +166,7 @@ The action that you specified is not valid. This can happen if you mis-type the 
 
 [AWS managed policies](access_policies_managed-vs-inline.md#aws-managed-policies) enable you to get started with AWS by assigning permissions based on general AWS use cases.
 
-The following AWS managed policies include invalid actions in their policy statements. Invalid actions do not affect the permissions granted by the policy. When using an AWS managed policy as a reference to create your managed policy, AWS recommends that you remove invalid actions from your policy.
-+ [AmazonEMRFullAccessPolicy\_v2](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonEMRFullAccessPolicy_v2)
-+ [CloudWatchSyntheticsFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/CloudWatchSyntheticsFullAccess)
+AWS managed policies can sometimes include invalid actions in their policy statements. Invalid actions do not affect the permissions granted by the policy. When using an AWS managed policy as a reference to create your managed policy, AWS recommends that you review the invalid actions to fix any errors.
 
 ## Error – Invalid ARN account
 <a name="access-analyzer-reference-policy-checks-error-invalid-arn-account"></a>

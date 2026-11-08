@@ -16,7 +16,7 @@ When you make a request to a service or resource, multiple policies may apply to
 
 ## I get "access denied" when I make a request to an AWS service
 <a name="troubleshoot_general_access-denied-service"></a>
-+  Check if the error message includes the type and [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns) of the policy responsible for denying access. If this is the case, then check for deny statements for theaction in the specified policy. If the policy type is provided but there is no policy ARN, then focus on troubleshooting issues for that policy type: Check for deny statements for the action in policies of the specified type. If the error message doesn't mention the policy type responsible for denying access, use the rest of the guidelines in this section to troubleshoot further. 
++  Check if the error message includes the type and [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns) of the policy responsible for denying access. If this is the case, then check for deny statements for the action in the specified policy. If the policy type is provided but there is no policy ARN, then focus on troubleshooting issues for that policy type: Check for deny statements for the action in policies of the specified type. If the error message doesn't mention the policy type responsible for denying access, use the rest of the guidelines in this section to troubleshoot further. 
 + Verify that you have the identity-based policy permission to call the action and resource that you have requested. If any conditions are set, you must also meet those conditions when you send the request. For information about viewing or modifying policies for an IAM user, group, or role, see [Manage IAM policies](access_policies_manage.md).
 + If the AWS Management Console returns a message stating that you're not authorized to perform an action, then you must contact your administrator for assistance. Your administrator provided you with your sign-in credentials or sign-in link.
 
@@ -67,9 +67,9 @@ When you make a request to a service or resource, multiple policies may apply to
 ## Access denied error message examples
 <a name="access-denied-error-examples"></a>
 
-Most access denied error messages appear in the format `User {{user}} is not authorized to perform {{action}} on {{resource}} because {{context}}`. In this example, {{user}} is the ARN of the principal that is denied access, {{action}} is the service action that the policy denies, and {{resource}} is the ARN of the resource on which the policy acts. The {{context}} field provides additional context about the policy type that denied access. In some cases, it also contains the ARN of the policy which denied access.
+Most access denied error messages appear in the format `User {{user}} is not authorized to perform {{action}} on {{resource}} because {{context}}`. In this example, {{user}} is the ARN of the principal that is denied access, {{action}} is the service action that the policy denies, and {{resource}} is the ARN of the resource on which the policy acts. The {{context}} field provides additional context about the policy that denied access.
 
-When a policy explicitly denies access because the policy contains a `Deny` statement, then AWS includes the phrase `with an explicit deny in a {{type}} policy` in the access denied error message. This phrase may also specify the ARN of the policy, as follows: `with an explicit deny in a {{type}} policy: {{policy ARN}}`.
+When a policy explicitly denies access because the policy contains a `Deny` statement, then AWS includes the phrase `with an explicit deny in a {{type}} policy` in the access denied error message. This phrase may also specify the ARN of the policy, as follows: `with an explicit deny in a {{type}} policy: {{policy ARN}}`. No ARN is present when an inline policy triggers the denial.
 
 When the policy implicitly denies access, then AWS includes the phrase `because no {{type}} policy allows the {{action}} action` in the access denied error message.
 

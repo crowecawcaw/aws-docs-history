@@ -18,9 +18,6 @@ Users who access AWS accounts using assignments in account access manager initia
 
 For more information about user interactive and application sessions in IAM Identity Center including session duration, see [Understanding authentication sessions in IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/authconcept.html) in the *AWS IAM Identity Center User Guide*.
 
-**Important**  
-Sessions of IAM roles assigned by account access manager operate based on the default session duration of 1 hour, regardless of the maximum session duration set in the IAM role, the status of the sessions in the account access portal and AWS access portal.
-
 ## Revoke user access
 <a name="aam-revoke-user-access"></a>
 

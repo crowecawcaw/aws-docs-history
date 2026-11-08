@@ -52,4 +52,4 @@ Amazon Cognito works with external identity providers that support SAML and Open
 ## Additional resources
 <a name="id_roles_providers_additional_resources"></a>
 + For a demonstration on how to create a custom federation proxy that enables single sign-on (SSO) into the AWS Management Console using your organization's authentication system, see [Enable custom identity broker access to the AWS console](id_roles_providers_enable-console-custom-url.md).
-+ For instructions on enabling your AWS workloads to access external services without storing credentials, see [Federating AWS Identities to external services](id_roles_providers_outbound.md).
++ For instructions on enabling your AWS workloads to access external services without storing credentials, see [Federating AWS identities to external services](id_roles_providers_outbound.md).

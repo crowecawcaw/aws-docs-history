@@ -27,7 +27,7 @@ To compare your condition against a request context with multiple key values, yo
 
 | Properties of the principal | Properties of a role session | Properties of the network | Properties of the resource | Properties of the request | 
 | --- | --- | --- | --- | --- | 
-| `aws:PrincipalArn`<br />`aws:PrincipalAccount`<br />`aws:PrincipalOrgPaths`<br />`aws:PrincipalOrgID`<br />`aws:PrincipalTag/*tag-key*`<br />`aws:PrincipalIsAWSService`<br />`aws:PrincipalServiceName`<br />`aws:PrincipalServiceNamesList`<br />`aws:PrincipalType`<br />`aws:userid`<br />`aws:username` | `aws:AssumedRoot`<br />`aws:FederatedProvider`<br />`aws:TokenIssueTime`<br />`aws:SignInSessionArn`<br />`aws:MultiFactorAuthAge`<br />`aws:MultiFactorAuthPresent`<br />`aws:ChatbotSourceArn`<br />`aws:Ec2InstanceSourceVpc`<br />`aws:Ec2InstanceSourcePrivateIPv4`<br />`aws:SourceIdentity`<br />`aws:ViaCustomerDomain`<br />`ec2:RoleDelivery`<br />`ec2:SourceInstanceArn`<br />`glue:RoleAssumedBy`<br />`glue:CredentialIssuingService`<br />`codebuild:BuildArn`<br />`codebuild:ProjectArn`<br />`lambda:SourceFunctionArn`<br />`ssm:SourceInstanceArn`<br />`identitystore:UserId` | `aws:SourceIp`<br />`aws:SourceVpc`<br />`aws:SourceVpcArn`<br />`aws:SourceVpce`<br />`aws:VpceAccount`<br />`aws:VpceOrgID`<br />`aws:VpceOrgPaths`<br />`aws:VpcSourceIp` | `aws:ResourceAccount`<br />`aws:ResourceOrgID`<br />`aws:ResourceOrgPaths`<br />`aws:ResourceTag/*tag-key*` | `aws:CalledVia`<br />`aws:CalledViaFirst`<br />`aws:CalledViaLast`<br />`aws:CalledViaAWSMCP`<br />`aws:ViaAWSService`<br />`aws:ViaAWSMCPService`<br />`aws:CurrentTime`<br />`aws:EpochTime`<br />`aws:referer`<br />`aws:RequestedRegion`<br />`aws:RequestTag/*tag-key*`<br />`aws:TagKeys`<br />`aws:SecureTransport`<br />`aws:SourceAccount`<br />`aws:SourceArn`<br />`aws:SourceOrgID`<br />`aws:SourceOrgPaths`<br />`aws:UserAgent`<br />`aws:IsMcpServiceAction` | 
+| `aws:PrincipalArn`<br />`aws:PrincipalAccount`<br />`aws:PrincipalOrgPaths`<br />`aws:PrincipalOrgID`<br />`aws:PrincipalTag/*tag-key*`<br />`aws:PrincipalIsAWSService`<br />`aws:PrincipalServiceName`<br />`aws:PrincipalServiceNamesList`<br />`aws:PrincipalType`<br />`aws:userid`<br />`aws:username` | `aws:AssumedRoot`<br />`aws:FederatedProvider`<br />`aws:CrossPartitionSourceRegion`<br />`aws:TokenIssueTime`<br />`aws:SignInSessionArn`<br />`aws:MultiFactorAuthAge`<br />`aws:MultiFactorAuthPresent`<br />`aws:ChatbotSourceArn`<br />`aws:Ec2InstanceSourceVpc`<br />`aws:Ec2InstanceSourcePrivateIPv4`<br />`aws:SourceIdentity`<br />`aws:ViaCustomerDomain`<br />`ec2:RoleDelivery`<br />`ec2:SourceInstanceArn`<br />`glue:RoleAssumedBy`<br />`glue:CredentialIssuingService`<br />`codebuild:BuildArn`<br />`codebuild:ProjectArn`<br />`lambda:SourceFunctionArn`<br />`ssm:SourceInstanceArn`<br />`identitystore:UserId` | `aws:SourceIp`<br />`aws:SourceVpc`<br />`aws:SourceVpcArn`<br />`aws:SourceVpce`<br />`aws:VpceAccount`<br />`aws:VpceOrgID`<br />`aws:VpceOrgPaths`<br />`aws:VpcSourceIp` | `aws:ResourceAccount`<br />`aws:ResourceOrgID`<br />`aws:ResourceOrgPaths`<br />`aws:ResourceTag/*tag-key*` | `aws:CalledVia`<br />`aws:CalledViaFirst`<br />`aws:CalledViaLast`<br />`aws:CalledViaAWSMCP`<br />`aws:ViaAWSService`<br />`aws:ViaAWSMCPService`<br />`aws:CurrentTime`<br />`aws:EpochTime`<br />`aws:referer`<br />`aws:RequestedRegion`<br />`aws:RequestTag/*tag-key*`<br />`aws:TagKeys`<br />`aws:SecureTransport`<br />`aws:SourceAccount`<br />`aws:SourceArn`<br />`aws:SourceOrgID`<br />`aws:SourceOrgPaths`<br />`aws:UserAgent`<br />`aws:IsMcpServiceAction` | 
 
 ## Sensitive condition keys
 <a name="condition-keys-sensitive"></a>
@@ -442,7 +442,7 @@ In the following example, when used as a service control policy, denies the usag
 ### aws:FederatedProvider
 <a name="condition-keys-federatedprovider"></a>
 
-Use this key to compare the principal's issuing identity provider (IdP) with the IdP that you specify in the policy. This means that an IAM role assumed using the [`AssumeRoleWithWebIdentity`](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity) AWS STS operation. When the resulting role session's temporary credentials are used to make a request, the request context identifies the IdP that authenticated the original federated identity.
+Use this key to compare the principal's issuing identity provider (IdP) with the IdP that you specify in the policy. This key applies to an IAM role assumed using the [AssumeRoleWithWebIdentity](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html) AWS STS operation. When the resulting role session's temporary credentials are used to make a request, the request context identifies the IdP that authenticated the original federated identity.
 + **Availability** – This key is present in the role-session of a role that was assumed using OpenID Connect (OIDC) provider, and in the role-trust policy when an OIDC provider is used to call `AssumeRoleWithWebIdentity`.
 + **Data type** – [String](reference_policies_elements_condition_operators.md#Conditions_String)\*
 + **Value type** – Single-valued
@@ -450,8 +450,40 @@ Use this key to compare the principal's issuing identity provider (IdP) with the
 \* The data type depends on your IdP:
 + If you're using a built-in AWS IdP, like [Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/iam-roles.html), the key value will be a **string**. The key value might look like: `cognito-identity.amazonaws.com`.
 + If you're using an IdP that is not built-in to AWS, like [GitHub](https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services) or [Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html), the key value will be **ARN**. The key value might look like: `arn:aws:iam::{{111122223333}}:oidc-provider/oidc.eks.{{region}}.amazonaws.com/id/{{OIDC_Provider_ID}}`.
++ If you're using [cross-partition identity federation](id_roles_providers_outbound_cross_partition.md), the key value is the **ARN** of the OIDC identity provider in the destination account that trusts the source account's issuer URL. The key value might look like: `arn:aws-cn:iam::{{111122223333}}:oidc-provider/{{issuer-id}}.tokens.sts.global.api.aws`.
 
 For more information on external IdPs and `AssumeRoleWithWebIdentity`, see [Common scenarios](id_federation_common_scenarios.md). For more information, see [Role session principals](reference_policies_elements_principal.md#principal-role-session).
+
+### aws:CrossPartitionSourceRegion
+<a name="condition-keys-crosspartitionsourceregion"></a>
+
+Use this key to compare the AWS Region where AWS STS issued a web identity token with the AWS Region that you specify in the policy. When you assume a role across an AWS partition boundary using a token from the [GetWebIdentityToken](https://docs.aws.amazon.com/STS/latest/APIReference/API_GetWebIdentityToken.html) operation, this key holds the source AWS Region where the token was issued. After a policy change propagates, an explicit deny using this key blocks matching requests from existing sessions without waiting for their temporary credentials to expire.
++ **Availability** – This key is present in the request context only for role sessions created through [cross-partition identity federation](id_roles_providers_outbound_cross_partition.md) by calling [AssumeRoleWithWebIdentity](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html) with a token issued by `GetWebIdentityToken`. It is not present for sessions created with tokens from other OpenID Connect (OIDC) identity providers.
++ **Data type** – [String](reference_policies_elements_condition_operators.md#Conditions_String)
++ **Value type** – Single-valued
++ **Policy types** – Use this key in policies that are evaluated for requests made with the role session, including SCPs, RCPs for supported resources, identity-based policies, and resource-based policies. It is not available when the role trust policy is evaluated for the `AssumeRoleWithWebIdentity` call. To restrict the source AWS Region before credentials are returned, use the `{{issuer-host}}:source_region` condition key in the role trust policy.
++ **Role chaining** – This key is not transitive. It is not present in sessions created when the role session assumes another role.
+
+The following example SCP denies every request made with credentials whose token was issued in `us-east-1`.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DenySourceRegion",
+            "Effect": "Deny",
+            "Action": "*",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:CrossPartitionSourceRegion": "us-east-1"
+                }
+            }
+        }
+    ]
+}
+```
 
 ### aws:TokenIssueTime
 <a name="condition-keys-tokenissuetime"></a>
