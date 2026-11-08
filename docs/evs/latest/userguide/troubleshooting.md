@@ -88,6 +88,28 @@ This error message indicates that the vSphere HA agent on a host is unable to re
 
 When attempting to upgrade the ESX host cluster using SDDC Manager, vSAN disk-related prechecks may fail. This is because Amazon EVS uses vSAN Express Storage Architecture (ESA), and the upgrade prechecks do not apply to vSAN ESA. For more information, see [the Broadcom knowledge base article on this topic](https://knowledge.broadcom.com/external/article/369423/upgrade-prechecks-fails-with-esxi-cluste.html).
 
+## vSAN capacity warning received in AWS Health
+<a name="troubleshoot-vsan-capacity"></a>
+
+You received an AWS Health notification with the event type `AWS_EVS_VSAN_CAPACITY_WARNING`. You can view the notification in the [AWS Health Dashboard](https://docs.aws.amazon.com/health/latest/ug/aws-health-account-views.html). To receive these notifications automatically, use Amazon EventBridge. For more information, see [Monitoring events in AWS Health with Amazon EventBridge](https://docs.aws.amazon.com/health/latest/ug/cloudwatch-events-health.html).
+
+Amazon EVS checks the vSAN utilization of each cluster once an hour. Amazon EVS sends this notification when a cluster reaches 70% utilization or more, or when it cannot read a cluster’s capacity.
+
+Amazon EVS closes the notification automatically after the issue is resolved. These warnings appear only in AWS Health and don’t affect your environment status or connector check results.
+
+Act on this notification promptly. vSAN needs free capacity to rebuild data after a host or device failure and to complete operations such as rebalancing and storage policy changes. If vSAN cannot rebuild data in a timely manner, you run the risk of cascading VM failures. A vSAN capacity warning might indicate one of the following issues:
++ A cluster’s vSAN utilization is 70% or more. To reduce utilization, do one or more of the following:
+  + In the vSphere Client, choose your cluster, and then choose **Monitor**, **vSAN**, **Capacity** to see what is using the space.
+  + Delete virtual machines and snapshots that you no longer need.
+  + Provision additional external storage, such as [Amazon FSx for NetApp ONTAP](fsx-ontap.md), and move virtual machines to it.
+  + Add hosts to your environment to increase capacity. For more information, see [Create an Amazon EVS host](evs-env-create-host.md).
++ The credentials in your environment connector don’t have permission to read cluster capacity. Amazon EVS reports a permission problem when the appliance denies the request, or when the appliance returns no clusters because the account can’t see them. If this is the issue, verify the access of the account that the connector uses. If you create a new user or API key, update the credentials in AWS Secrets Manager as described in [Update an Amazon EVS environment connector](evs-env-update-connector.md).
+  + For an SDDC Manager connector, verify that the API key belongs to a service user with the `VIEWER` role.
+  + For an Operations Manager connector, verify that the user has a read-only role, such as `ReadOnly`, with a scope that includes your clusters, such as `All Objects`.
++ Amazon EVS cannot read a cluster’s capacity. Amazon EVS can reach the appliance and has permission, but the appliance doesn’t return valid capacity values for a cluster. If this is the issue, in SDDC Manager or Operations Manager, verify that the cluster is listed and reports its vSAN capacity.
+
+If you are still unable to resolve the issue after following this guidance, contact AWS Support for further assistance.
+
 ## Add host failure due to incompatible cluster image
 <a name="troubleshoot-cluster-image"></a>
 

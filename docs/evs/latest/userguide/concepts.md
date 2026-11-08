@@ -97,8 +97,8 @@ VMware NSX is a software-defined networking (SDN) platform that enables network 
 An Amazon EVS connector enables Amazon EVS to communicate with a VMware Cloud Foundation management appliance in your environment. Each connector maps to a single management appliance, using the fully qualified domain name (FQDN) and credentials that you store in an AWS Secrets Manager secret to authenticate with the appliance.
 
 Amazon EVS supports the following connector types:
-+  **Operations Manager** (`OPERATIONS_MANAGER`) – The management connector for VCF 9.x. Amazon EVS uses it to connect to and stay in sync with your VMware deployment.
-+  **SDDC Manager** (`SDDC_MANAGER`) – The management connector for VCF 5.2.x. Amazon EVS uses it to validate host counts and license-key coverage.
++  **Operations Manager** (`OPERATIONS_MANAGER`) – The management connector for VCF 9.x. Amazon EVS uses it to connect to and stay in sync with your VMware deployment, and to monitor vSAN capacity. For more information, see [vSAN capacity warning received in AWS Health](troubleshooting.md#troubleshoot-vsan-capacity).
++  **SDDC Manager** (`SDDC_MANAGER`) – The management connector for VCF 5.2.x. Amazon EVS uses it to validate host counts and license-key coverage, and to monitor vSAN capacity. For more information, see [vSAN capacity warning received in AWS Health](troubleshooting.md#troubleshoot-vsan-capacity).
 +  **vCenter** (`VCENTER`) – Used to monitor VM lifecycle events, such as for Windows Server license entitlements. For more information, see [Windows Server License Entitlement for Amazon EVS](#concepts-windows-server-license-entitlement).
 
 Amazon EVS periodically performs reachability checks against each appliance through its connector. If a required management connector is not created, or loses reachability, Amazon EVS cannot validate your environment’s license and entitlement coverage, and reports impaired environment health through AWS Health notifications. If the vCenter connector loses reachability, Windows Server entitlements enter an at-risk state, and are dropped if reachability is not restored within the grace period.

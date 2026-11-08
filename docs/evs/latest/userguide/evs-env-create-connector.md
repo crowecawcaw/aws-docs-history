@@ -24,8 +24,8 @@ Before you create a connector, store the appliance credentials in AWS Secrets Ma
 </thead>
 <tbody>
   <tr><td> <code>VCENTER</code> </td><td>5.2.x, 9.0.x, 9.1.x</td><td> <code>username</code> and <code>password</code> </td><td>Monitors VM lifecycle events for entitled VMs.</td></tr>
-  <tr><td> <code>OPERATIONS_MANAGER</code> </td><td>9.0.x, 9.1.x</td><td> <code>username</code> and <code>password</code> </td><td>VCF 9.0.x and 9.1.x appliance that Amazon EVS uses to connect to and stay in sync with your VMware deployment. Replaces the license-management functions of SDDC Manager.</td></tr>
-  <tr><td> <code>SDDC_MANAGER</code> </td><td>5.2.x</td><td> <code>apiKey</code> </td><td>VCF 5.2.x appliance that Amazon EVS uses to validate host counts and license-key coverage.</td></tr>
+  <tr><td> <code>OPERATIONS_MANAGER</code> </td><td>9.0.x, 9.1.x</td><td> <code>username</code> and <code>password</code> </td><td>VCF 9.0.x and 9.1.x appliance that Amazon EVS uses to connect to and stay in sync with your VMware deployment, and to monitor vSAN capacity. Replaces the license-management functions of SDDC Manager.</td></tr>
+  <tr><td> <code>SDDC_MANAGER</code> </td><td>5.2.x</td><td> <code>apiKey</code> </td><td>VCF 5.2.x appliance that Amazon EVS uses to validate host counts and license-key coverage, and to monitor vSAN capacity.</td></tr>
 </tbody>
 </table>
 
