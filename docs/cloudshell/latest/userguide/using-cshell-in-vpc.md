@@ -24,7 +24,7 @@ Public IP addresses are not allocated to CloudShell VPC environments by default.
   ```
   echo $CLOUDSHELL_PRIVATE_IPV4
   ```
-+ Your AWS CloudShell environment will not be configured by default to use the local DNS zone in your VPC.
++ Your AWS CloudShell VPC environment does not inherit DHCP option set configuration of your VPC.
 + To provide a managed CloudShell environment for your account, AWS might provision network access to the following services for the underlying compute host:
   + Amazon S3
   + VPC endpoints
