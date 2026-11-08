@@ -125,6 +125,8 @@ Use force complete in two cases:
 + Abandoning a migration.
 + Ending a migration that has reported an error, because force complete is then the only way to end it.
 
+If you force complete before the data sync starts, your target has no data. To abandon a migration, first move your application traffic back to your source, and then force complete.
+
 Do not use force complete to finish a healthy migration that is still syncing.
 
 To force complete a migration, run the following command:
@@ -142,6 +144,8 @@ Where:
 <a name="w2aac20c13c39c21"></a>
 
 Your migration endpoint now serves from your ElastiCache Serverless cache, and your application needs no change. Your source cache is no longer part of the path. You can decommission it on your own schedule after you confirm that your application is healthy on the target.
+
+Before you decommission your source, confirm that your data arrived on your target. Compare the `CurrItems` metric of your target with the number of keys on your source, and read a few keys that your application wrote during the migration. After the migration completes, remove what you set up only for the migration: the inbound rule on your source security group, any test client you started, and the secret and the customer managed key if nothing else uses them.
 
 Completing the migration ends the migration charges. Your ElastiCache Serverless cache continues to bill at the standard data storage and ECPU rates, as it would at any other time.
 

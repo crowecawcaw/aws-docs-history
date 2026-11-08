@@ -14,7 +14,10 @@ Confirm that you have the following:
 + An ElastiCache Serverless for Valkey cache that is available and empty, with the IPv4 network type and no public endpoint.
 + A self-managed Valkey or Redis OSS source on Amazon EC2 that meets the source requirements.
 + A Secrets Manager secret that holds your source credentials, if your source requires authentication.
++ Your application's users set up on your target cache, with the same user names, passwords, and permissions as on your source, if your source requires authentication. For more information about setting up target users, see [Setting up your application's users on your target](migration-to-serverless-auth.md#migration-to-serverless-auth-target-users).
 + Your source TLS configuration, if your source requires TLS.
++ At least three subnets in different Availability Zones for your target cache, each with free IP addresses.
++ AWS CLI version 2.38.3 or later, if you use the AWS CLI.
 
 ## Create the migration
 <a name="w2aac20c13c37b7"></a>
@@ -54,10 +57,14 @@ The migration details page shows the state and controls for your migration. The 
 
 While ElastiCache prepares the migration, **Current state** reads **Preparing migration**, and the **Migration endpoint** field is hidden. The banner reads "Step 1 of 3: Preparing migration" and "This may take a few minutes. Once complete, choose Start migration to begin the data sync. You can remain on this page or return later to continue."
 
+How long the prepare step takes depends on the size of your source. While **Current state** reads **Preparing migration**, the step is still running.
+
 ## Redirect your application
 <a name="w2aac20c13c37c11"></a>
 
-When **Current state** reads **Ready to sync**, the banner reads "Migration is ready to sync" and "Your migration endpoint is active and traffic is routed to your source. Update your application to point to the migration endpoint, then choose Start migration when ready." The **Migration endpoint** field now shows the address. Update your application to connect to the migration endpoint. To copy the address, choose **Copy migration endpoint**. Your traffic is routed to your source until cutover. The console reminds you to do this before you start the data sync, because ElastiCache cannot detect whether your application has moved. Starting the data sync first does not affect the data on your target.
+While **Current state** reads **Preparing migration**, the migration endpoint does not accept connections. Before you prepare a migration, and after a prepare step that fails, the endpoint serves your target cache, which is empty. Point your application at the migration endpoint only when **Current state** reads **Ready to sync**.
+
+When **Current state** reads **Ready to sync**, the banner reads "Migration is ready to sync" and "Your migration endpoint is active and traffic is routed to your source. Update your application to point to the migration endpoint, then choose Start migration when ready." The **Migration endpoint** field now shows the address. Update your application to connect to the migration endpoint. Connect with TLS, and allow your application in your target cache's security group. For more information, see [Client configuration](migration-to-serverless-prerequisites.md#migration-to-serverless-client-config). To copy the address, choose **Copy migration endpoint**. Before you move all of your traffic, connect to the migration endpoint with TLS and read a key that exists on your source. When the read returns the value from your source, the endpoint is routing to your source. Your traffic is routed to your source until cutover. The console reminds you to do this before you start the data sync, because ElastiCache cannot detect whether your application has moved. Starting the data sync first does not affect the data on your target. If you use Auto-cutover, redirect your application before you start the data sync, because ElastiCache cuts over at the next fully synced window. A client that still connects straight to your source after cutover writes to a cache that no longer replicates to your target.
 
 ## Start the data sync
 <a name="w2aac20c13c37c13"></a>
@@ -76,7 +83,7 @@ Clearing the target cannot be undone.
 
 1. Choose **Start migration**.
 
-**Current state** moves to **Initializing sync** and then to **Data sync in progress**. While the data sync initializes, the banner reads "Step 2 of 3: Data sync is initiating". With Manual cutover it reads "Connecting to your source and initializing data sync. Once syncing begins, you can choose Complete migration and cutover will occur on the next fully synced window." With Auto-cutover it reads "Connecting to your source and initializing data sync. Once syncing begins, cutover will be performed automatically on the next fully synced window." When the data sync is running, the banner reads "Step 2 of 3: Data sync is in progress". With Manual cutover it reads "Choose Complete migration and cutover will occur on the next fully synced window." With Auto-cutover it reads "We will perform auto-cutover for you on the next fully synced window." The **Monitor** tab shows a selected set of the target cache's metrics.
+**Current state** moves to **Initializing sync** and then to **Data sync in progress**. The migration stays in **Initializing sync** until replication begins. While the data sync initializes, the banner reads "Step 2 of 3: Data sync is initiating". With Manual cutover it reads "Connecting to your source and initializing data sync. Once syncing begins, you can choose Complete migration and cutover will occur on the next fully synced window." With Auto-cutover it reads "Connecting to your source and initializing data sync. Once syncing begins, cutover will be performed automatically on the next fully synced window." When the data sync is running, the banner reads "Step 2 of 3: Data sync is in progress". With Manual cutover it reads "Choose Complete migration and cutover will occur on the next fully synced window." With Auto-cutover it reads "We will perform auto-cutover for you on the next fully synced window." The **Monitor** tab shows a selected set of the target cache's metrics.
 
 ## Complete the cutover
 <a name="w2aac20c13c37c15"></a>
@@ -91,6 +98,8 @@ ElastiCache cuts over at the next fully synced window. **Complete migration** is
 
 During cutover, **Current state** reads **Cutover in progress** and the banner reads "Step 3 of 3: Cutover is in progress" and "Traffic is being switched from your source to the target cache. This might take a few minutes." **Stop** and **Force complete** are disabled during cutover.
 
+For most of the **Cutover in progress** state, ElastiCache is removing the migration infrastructure, and your traffic is already on your target cache.
+
 With Auto-cutover, the console opens the cache details page when the migration finishes. This page shows a **Migration completed successfully** banner until you dismiss it. The **Events** tab lists the migration events.
 
 ## If you need to stop
@@ -99,12 +108,63 @@ With Auto-cutover, the console opens the cache details page when the migration f
 To stop the data sync, choose **Stop** on the migration details page. **Stop** is available only while **Current state** reads **Data sync in progress**. While the data sync stops, **Current state** reads **Stopping** and the banner reads "Data sync is being stopped. Traffic continues through the migration endpoint. Once stopped, the migration will return to Ready to sync." For more information about what stopping does, see [Cutover modes for online migration to ElastiCache Serverless](migration-to-serverless-cutover.md).
 
 **Force complete**  
-Force complete ends the migration even if your target is not in sync with your source. Your migration endpoint then serves from your target, which can have incomplete data. To return to your source, you must move your application traffic back to it yourself.
+Force complete ends the migration even if your target is not in sync with your source. Your migration endpoint then serves from your target, which can have incomplete data. To return to your source, move your application traffic back to it yourself before you force complete.
 
 To end a migration that has reported an error, use **Force complete**. It is available when **Current state** reads **Ready to sync** or **Data sync in progress**. The console shows "Force complete triggered for {{name}}." For more information, see [Cutover modes for online migration to ElastiCache Serverless](migration-to-serverless-cutover.md).
 
 ## Using the AWS CLI
 <a name="w2aac20c13c37c19"></a>
+
+Online migration to ElastiCache Serverless needs AWS CLI version 2.38.3 or later. For the parameters of each command, see [prepare-migration](https://docs.aws.amazon.com/cli/latest/reference/elasticache/prepare-migration.html), [start-migration](https://docs.aws.amazon.com/cli/latest/reference/elasticache/start-migration.html), [stop-migration](https://docs.aws.amazon.com/cli/latest/reference/elasticache/stop-migration.html), and [complete-migration](https://docs.aws.amazon.com/cli/latest/reference/elasticache/complete-migration.html) in the *AWS CLI Command Reference*.
+
+To migrate with the AWS CLI, run the following steps in order.
+
+1. Prepare the migration. For the authentication and TLS options, see [Source authentication for online migration to ElastiCache Serverless](migration-to-serverless-auth.md).
+
+   ```
+   aws elasticache prepare-migration \
+       --serverless-cache-name {{my-cache}} \
+       --customer-node-endpoint-list "Address='{{10.0.0.10}}',Port={{6379}}"
+   ```
+
+   Where:
+   + `my-cache` is the name of your target cache.
+   + `10.0.0.10` and `6379` are the private address and port of one node in your source.
+
+1. Check the migration state until the command returns `migrating` and `ready-to-sync`. A larger source takes longer to prepare. While the migration reads `preparing`, the migration endpoint does not accept connections. If the command returns `available` and `None`, the prepare step failed and ElastiCache rolled the migration back. Read the target cache's events for the reason.
+
+   ```
+   aws elasticache describe-serverless-caches \
+       --serverless-cache-name {{my-cache}} \
+       --query "ServerlessCaches[0].[Status,Migration.Status]" \
+       --output text
+   ```
+
+1. Get the migration endpoint and point your application at it. Connect with TLS. Before you move all of your traffic, read a key that exists on your source through the migration endpoint. When the read returns the value from your source, the endpoint is routing to your source.
+
+   ```
+   aws elasticache describe-serverless-caches \
+       --serverless-cache-name {{my-cache}} \
+       --query "ServerlessCaches[0].Migration.MigrationEndpoint"
+   ```
+
+1. Start the data sync. To have ElastiCache cut over for you, add `--auto-cutover`, and redirect your application before you run this command.
+
+   ```
+   aws elasticache start-migration \
+       --serverless-cache-name {{my-cache}}
+   ```
+
+1. Check the migration state with the command from step 2 until it returns `migrating` and `syncing`.
+
+1. Complete the migration. Skip this step if you chose automatic cutover.
+
+   ```
+   aws elasticache complete-migration \
+       --serverless-cache-name {{my-cache}}
+   ```
+
+1. Check the migration state with the command from step 2 until it returns `available` and `None`. The cache returns to `available` after a successful migration, after a force complete, and after a failed prepare step, so confirm the result in the target cache's events. The last event of a successful migration reads Successfully completed the migration for serverless cache {{my-cache}}.
 
 For more information about migrating with the AWS CLI, see the AWS CLI examples on [Source authentication for online migration to ElastiCache Serverless](migration-to-serverless-auth.md) and [Cutover modes for online migration to ElastiCache Serverless](migration-to-serverless-cutover.md).
 

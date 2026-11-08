@@ -5,10 +5,12 @@
 
 If your source cache requires authentication, ElastiCache needs credentials to connect to it. You store the credentials in AWS Secrets Manager and give ElastiCache the secret's ARN when you prepare the migration. ElastiCache does not accept credentials directly.
 
+Your target cache must also accept the credentials that your application uses on your source. For more information about setting up target users, see [Setting up your application's users on your target](#migration-to-serverless-auth-target-users).
+
 If your source cache accepts unauthenticated connections, you can skip the authentication configuration.
 
 ## Storing source credentials
-<a name="w2aac20c13c35b7"></a>
+<a name="w2aac20c13c35b9"></a>
 
 Store your source cache credentials in a Secrets Manager secret. You can use a secret you already manage, or create one for the migration. If you create the secret from the ElastiCache console as part of setting up the migration, ElastiCache configures its access for you.
 
@@ -49,20 +51,49 @@ Where:
 The prepare step validates the secret's format, whether you created the secret or ElastiCache created it for you. An empty secret, a secret that is not valid JSON, a secret with no `password` field, or a user name or password that does not meet the requirements above each fail with a specific message. If your source password does not meet them, change it on your source before you prepare the migration.
 
 ### Granting ElastiCache access to the secret
-<a name="w2aac20c13c35b7c31"></a>
+<a name="w2aac20c13c35b9c31"></a>
 
 ElastiCache reads the secret with its own service credentials, so the secret needs a resource policy. Grant `secretsmanager:GetSecretValue` to the `elasticache.amazonaws.com` service principal.
 
+The following resource policy grants ElastiCache read access to the secret.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": { "Service": "elasticache.amazonaws.com" },
+      "Action": "secretsmanager:GetSecretValue",
+      "Resource": "*"
+    }
+  ]
+}
+```
+
 If the secret is encrypted with a customer managed AWS KMS key, grant that service principal permission to use the key in the key policy.
+
+Add the following statement to the key policy of the customer managed key that encrypts the secret.
+
+```
+{
+  "Effect": "Allow",
+  "Principal": { "Service": "elasticache.amazonaws.com" },
+  "Action": "kms:Decrypt",
+  "Resource": "*"
+}
+```
 
 **Your secret cannot use the default AWS managed key for Secrets Manager.** That key cannot be granted to the ElastiCache service principal, so encrypt the secret with a customer managed key.
 
 If the resource policy or the key policy leaves out the service principal, ElastiCache cannot retrieve the credentials, and the prepare step fails with an access denied message.
 
-The IAM identity that calls `PrepareMigration` also needs `secretsmanager:GetSecretValue` on the secret, and `kms:Decrypt` on the key that encrypts it. ElastiCache first reads the secret with your credentials to confirm that you have access, and then with its own service credentials. If either read is denied, the prepare step fails with the same access denied message, so check both your own permissions and the secret's resource and key policies.
+Do not add an `aws:SourceAccount` or `aws:SourceArn` condition to these statements. A condition on either key denies the read, and the prepare step fails with an access denied message.
+
+The IAM identity that calls `PrepareMigration` also needs `secretsmanager:GetSecretValue` on the secret, and `kms:Decrypt` on the key that encrypts it. When it calls `PrepareMigration` and `StartMigration`, it also needs `ec2:DescribeSubnets`, because ElastiCache checks the subnets of your target cache with your credentials. ElastiCache first reads the secret with your credentials to confirm that you have access, and then with its own service credentials. If either read is denied, the prepare step fails with the same access denied message, so check both your own permissions and the secret's resource and key policies.
 
 ## Permissions for the migration user
-<a name="w2aac20c13c35b9"></a>
+<a name="w2aac20c13c35c11"></a>
 
 The credentials you store decide which user ElastiCache connects as. What that user is allowed to do on your source determines whether the migration can finish.
 
@@ -79,7 +110,7 @@ valkey-cli ACL SETUSER migration_user on '>your-password' -@all \
   +multi +exec +client|pause +client|kill +client|unpause
 ```
 
-This block applies as written to every source version that supports ACLs: Redis OSS 6.0 and later, and all supported Valkey versions.
+This block applies as written to every source version that supports access control lists (ACLs): Redis OSS 6.0 and later, and all supported Valkey versions.
 
 Where:
 + `-@all` removes every command, and the commands added after it are the only ones this user can run. The user cannot write to your source and cannot change your source's access control configuration.
@@ -89,12 +120,23 @@ Where:
 + `+psync`, `+sync`, and `+replconf` are the replication commands ElastiCache uses to synchronize your data.
 + `+multi`, `+exec`, `+client|pause`, `+client|kill`, and `+client|unpause` are required. ElastiCache uses these commands to run the cutover and validates them when you prepare the migration, except `+client|unpause` on Redis OSS 6.0 and 6.2.
 
-Your application's own users must exist on both your source and your target. During a migration, client authentication commands are forwarded to your source. After cutover, your target answers them. If your source and your target do not have a consistent ACL configuration, your application can encounter authentication errors during the migration.
-
 ElastiCache verifies these grants when you prepare the migration and again when you start the data sync, and a missing grant fails that step. The failure event might not name the missing permission. It can report instead that ElastiCache is unable to connect to your source, so if your source is reachable, check the migration user's grants against this list. After you prepare the migration, do not change or remove the migration user or its permissions. Doing so during a migration can cause data loss or make your cache unavailable.
 
+## Setting up your application's users on your target
+<a name="migration-to-serverless-auth-target-users"></a>
+
+Before you prepare the migration, set up authentication on your target cache to match your source. Create an ElastiCache user for each user that your application uses on your source, with the same user name, password, and permissions. Add those users to a user group, and then assign the group to your target cache. For more information, see [Role-Based Access Control (RBAC)](Clusters.RBAC.md) and [Assigning User Groups to Serverless Caches Using the AWS CLI](Clusters.RBAC.md#Users-groups-to-SCs-CLI).
+
+If your source uses a single password with no user names, your application authenticates as the default user. The default user in your target's user group must have that same password.
+
+ElastiCache user passwords must be 16 to 128 printable characters and cannot contain a comma, a double quotation mark, a slash, or an at sign. Your target checks your application's credentials during the migration and after cutover, so your application's password must meet these rules. If it does not, change the password on your source and in your application before you prepare the migration.
+
+Your application's own users must exist on both your source and your target. During a migration, the migration endpoint checks your application's credentials on your target first and then on your source. If your source and your target do not have a consistent ACL configuration, your application can encounter authentication errors during the migration. For example, a user that is missing on your target, or that has a different password there, fails with `WRONGPASS` as soon as your application authenticates through the migration endpoint.
+
+If your source accepts connections without authentication, keep the default user on your target enabled with no password. A client that does not authenticate gets a `NOAUTH` error from the migration endpoint when the default user on your target is disabled or has a password.
+
 ## Providing the secret when you prepare a migration
-<a name="w2aac20c13c35c11"></a>
+<a name="w2aac20c13c35c15"></a>
 
 Pass the secret ARN in the source authentication configuration:
 
@@ -114,7 +156,7 @@ Where:
 ElastiCache validates connectivity and credentials during the prepare step. If it cannot connect, the prepare step fails. ElastiCache reports a failure event on the cache that names the reason. The migration is rolled back, so the `Migration` object is removed and your cache returns to `available`. Correct the address, the network configuration, or the secret access, then try again.
 
 ## Encryption in transit
-<a name="w2aac20c13c35c13"></a>
+<a name="w2aac20c13c35c17"></a>
 
 If your source cache requires TLS, set `SourceTlsMode` to `verify-ca` in the `SourceTlsConfiguration` parameter when you prepare the migration, and pass your CA certificates in `SourceTlsCertificate`.
 
@@ -141,7 +183,7 @@ If your source also requires authentication, add the `--source-authentication-co
 If your source accepts unencrypted connections, set `SourceTlsMode` to `none`. Provide a certificate only with `verify-ca`. A certificate with `none`, or with no TLS mode set, fails the prepare step.
 
 ## Related topics
-<a name="w2aac20c13c35c15"></a>
+<a name="w2aac20c13c35c19"></a>
 + [Prerequisites for online migration to ElastiCache Serverless](migration-to-serverless-prerequisites.md)
 + [Online migration to ElastiCache Serverless](migration-to-serverless.md)
 + [Migrate your data to ElastiCache Serverless](migration-to-serverless-procedure.md)

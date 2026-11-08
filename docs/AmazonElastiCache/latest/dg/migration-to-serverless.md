@@ -28,7 +28,7 @@ The following topics describe the requirements, source authentication, the conso
 + [Migration states](#w2aac20c13c25)
 + [Monitoring a migration](#w2aac20c13c27)
 + [How you learn that a migration finished](#w2aac20c13c29)
-+ [What is supported at launch](#w2aac20c13c31)
++ [Supported sources and targets](#w2aac20c13c31)
 + [Prerequisites](migration-to-serverless-prerequisites.md)
 + [Source authentication](migration-to-serverless-auth.md)
 + [Migrate your data](migration-to-serverless-procedure.md)
@@ -39,9 +39,9 @@ The following topics describe the requirements, source authentication, the conso
 
 A migration has four steps. You start three of them with an API operation: prepare the migration, start the data sync, and complete the cutover. The fourth, pointing your application at the migration endpoint, is your own action. ElastiCache publishes an event at every transition.
 
-**Prepare the migration.** ElastiCache validates your source cache against the migration requirements. It provisions the infrastructure that reads from your source and returns the migration endpoint. If a requirement is not met, the prepare step fails. ElastiCache reports a failure event on the cache that names the reason. The migration is rolled back, so the `Migration` object is removed and your cache returns to `available`. Correct the source or the network configuration, then try again. For more information, see [Prerequisites for online migration to ElastiCache Serverless](migration-to-serverless-prerequisites.md).
+**Prepare the migration.** ElastiCache validates your source cache against the migration requirements. It provisions the infrastructure that reads from your source and returns the migration endpoint. If a requirement is not met, the prepare step fails. ElastiCache reports a failure event on the cache that names the reason. The migration is rolled back, so the `Migration` object, the record of your migration that `describe-serverless-caches` returns, is removed and your cache returns to `available`. Correct the source or the network configuration, then try again. For more information, see [Prerequisites for online migration to ElastiCache Serverless](migration-to-serverless-prerequisites.md).
 
-**Redirect your application.** Point your application at the migration endpoint and confirm that it is serving traffic through the endpoint. The console reminds you to do this before you start the data sync, because ElastiCache cannot detect whether your application has moved. Starting the data sync first does not affect the data on your target.
+**Redirect your application.** Point your application at the migration endpoint and confirm that it is serving traffic through the endpoint. The console reminds you to do this before you start the data sync, because ElastiCache cannot detect whether your application has moved. Starting the data sync first does not affect the data on your target. If you use Auto-cutover, redirect your application before you start the data sync, because ElastiCache cuts over at the next fully synced window. A client that still connects straight to your source after cutover writes to a cache that no longer replicates to your target.
 
 **Start the data sync.** ElastiCache begins replicating data from your source cache to the target cache. It keeps replicating as your application writes. Your application continues to be served throughout.
 
@@ -77,13 +77,15 @@ You can check the current state at any time with `describe-serverless-caches`. T
 | cutting-over | Cutover in progress | ElastiCache is finalizing the cutover to the target cache. | 
 | stopping | Stopping | ElastiCache is stopping the data sync at your request. Traffic continues through the migration endpoint. When the data sync stops, the migration returns to Ready to sync. | 
 
+How long the prepare step takes depends on the size of your source, because ElastiCache provisions migration infrastructure to match it. While the migration state reads `preparing`, the step is still running, so wait for `ready-to-sync`. After you start the data sync, the migration stays in `initiating-sync` until replication begins.
+
 The response also returns the migration endpoint address and port, along with a `CutoverMode` field. `CutoverMode` reports whether you opted in to automatic cutover when you started the data sync. It does not indicate that a cutover is in progress.
 
 The Migrations page shows the current state only. It shows no warning, no error badge, and no failure state. When a step fails, the state moves backward to the previous state, and a failed prepare step removes the migration from the page. These two changes are the only failure signals on this page. A stop that you request also moves the state backward.
 
 To find the reason, open the cache details page for your target cache and read the events on its Events tab.
 
-The `cutting-over` state persists while ElastiCache tears down the migration infrastructure. By this point, your traffic has already moved to your target cache. Do not read this state as a sign that your target is not yet serving.
+ElastiCache spends most of the `cutting-over` state tearing down the migration infrastructure. With Manual cutover, the state starts when you complete the migration, and ElastiCache first waits for a fully synced window to switch your traffic to your target. With Auto-cutover, the state stays `syncing` until ElastiCache finds that window. After the switch, your traffic is on your target for the rest of the state.
 
 Before you start the migration, the Cutover method field on the migration details page shows the API default, which can render as Manual (default). It does not reflect a choice you have made. You choose the mode in the Start migration dialog box, where the control is labeled Cutover mode, with the values Manual cutover and Auto-cutover.
 
@@ -101,7 +103,34 @@ ElastiCache publishes an event at each phase transition. The transitions are the
 + Complete succeeded or failed
 + Stop succeeded or failed
 
-Failure events carry the reason. You read a migration's events on the target cache's Events tab, or on the Events page in the console navigation. The Events tab filter offers a fixed set of predefined groups, and no migration-specific filter is available. The Migrations page shows migrations that are in progress. A completed migration no longer appears there. To review a finished migration, read the target cache's events.
+Failure events carry the reason.
+
+For a migration that succeeds, the events read as follows, where `my-cache` is the name of your target cache:
+
+
+| Transition | Event message | 
+| --- | --- | 
+| Prepare succeeded | Successfully prepared serverless cache {{my-cache}} for migration. | 
+| Start succeeded | Successfully started data sync for serverless cache {{my-cache}}. | 
+| Cutover started | Cutover initiated for serverless cache {{my-cache}}. Waiting for a suitable window to finalize the migration. | 
+| Complete succeeded | Successfully completed the migration for serverless cache {{my-cache}}. | 
+
+To list the events with the AWS CLI, run the following command:
+
+```
+aws elasticache describe-events \
+    --source-type serverless-cache \
+    --source-identifier {{my-cache}} \
+    --duration {{120}}
+```
+
+Where:
++ `my-cache` is the name of your target cache.
++ `120` is the number of minutes of events to return.
+
+To follow a migration's progress, check the migration state that `describe-serverless-caches` returns. Use the events to learn the reason when a step fails.
+
+You read a migration's events on the target cache's Events tab, or on the Events page in the console navigation. The Events tab filter offers a fixed set of predefined groups, and no migration-specific filter is available. The Migrations page shows migrations that are in progress. A completed migration no longer appears there. To review a finished migration, read the target cache's events.
 
 The console reads the migration state from `DescribeServerlessCaches`, which returns the `Migration` object on your target cache. It uses `DescribeEvents` to refresh the Monitor tab. The console can lag the underlying state.
 
@@ -128,15 +157,17 @@ A banner stays until you dismiss it, and it does not come back once dismissed. T
 
 A completed migration no longer appears on the Migrations page.
 
-## What is supported at launch
+## Supported sources and targets
 <a name="w2aac20c13c31"></a>
 
-At launch, online migration supports the following source and target combinations:
+Online migration supports the following source and target combinations:
 
 
-| Component | Supported at launch | 
+| Component | Supported | 
 | --- | --- | 
 | Source | Self-managed Valkey 7.2 through 8.1, or Redis OSS 4.0 through 7.2, running on Amazon EC2 in cluster mode. | 
 | Target | An ElastiCache Serverless for Valkey cache running Valkey 7.2, 8.1, or 9.0, that you create before you start. | 
 
 Your source version must be no higher than your target version. ElastiCache managed caches and Amazon MemoryDB caches are not supported as sources. Valkey 9.0 is supported as a target but not as a source.
+
+Your source must run in cluster mode. To migrate a source that runs with cluster mode disabled, use online migration to a node-based cluster. For more information, see [Online migration to ElastiCache node-based clusters](OnlineMigration.md).

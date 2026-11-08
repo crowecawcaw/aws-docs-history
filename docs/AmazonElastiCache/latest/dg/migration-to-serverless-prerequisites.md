@@ -3,7 +3,7 @@
 # Prerequisites for online migration to ElastiCache Serverless
 <a name="migration-to-serverless-prerequisites"></a>
 
-Before you start an online migration, confirm that your source cache and your target cache meet the following requirements. ElastiCache checks these requirements when you prepare the migration and checks some of them again when you start the data sync. If a requirement is not met, the step fails. ElastiCache reports a failure event on the cache that names the requirement. If the prepare step fails, the migration is rolled back, so the `Migration` object is removed and your cache returns to `available`. Correct the requirement, then try again.
+Before you start an online migration, confirm that your source cache and your target cache meet the following requirements. ElastiCache checks these requirements when you prepare the migration and checks some of them again when you start the data sync. If a requirement is not met, the step fails. ElastiCache reports a failure event on the cache that names the requirement. If the prepare step fails, the migration is rolled back, so the `Migration` object, the record of your migration that `describe-serverless-caches` returns, is removed and your cache returns to `available`. Correct the requirement, then try again.
 
 ## Source cache requirements
 <a name="w2aac20c13c33b5"></a>
@@ -22,12 +22,13 @@ Your source cache must meet the following requirements. ElastiCache checks each 
 | Slot coverage | Hash slots cover the full range with no gaps and no overlaps. | Prepare | 
 | No resharding | Not undergoing a slot migration when you prepare the migration, and not undergoing one while the migration runs. A slot migration that begins mid-flight fails the migration. | Prepare, and during the migration | 
 | Node health | Nodes must be healthy. ElastiCache checks node state when you prepare and continues to monitor node state. | Prepare, and during the migration | 
+| Protected mode | Protected mode turned off (protected-mode no) on a source that has no password. With protected mode on, a node without a password accepts only local connections, so ElastiCache cannot connect to it. A source that requires a password can keep protected mode on. | Prepare | 
 
 Compatibility holds for Redis versions whose data types Valkey supports. Valkey forked from Redis 7.2.4, where the supported range ends.
 
 A second, separate check applies while the migration is running. If your source dataset grows beyond what your target cache can hold, the migration fails with a memory error. Leave headroom if your dataset is growing.
 
-**Key name size.** No key name in your source can exceed 4 KiB, which is the ElastiCache Serverless limit. An oversized key name fails the migration during the initial data load, and you cannot start the data sync again. ElastiCache writes the key to your target before it reports the failure. To try again, end the migration with force complete. Your migration endpoint then serves from your target, so move your application traffic back to your source. Then flush the target and prepare a new migration. For more information, see [Cutover modes for online migration to ElastiCache Serverless](migration-to-serverless-cutover.md).
+**Key name size.** No key name in your source can exceed 4 KiB, which is the ElastiCache Serverless limit. An oversized key name fails the migration during the initial data load, and you cannot start the data sync again. ElastiCache writes the key to your target before it reports the failure. To try again, first point your application back at your source's own endpoint, and then end the migration with force complete, which switches the migration endpoint to your target. Then flush the target, remove or rename every key on your source whose name exceeds 4 KiB, and prepare a new migration. For more information, see [Cutover modes for online migration to ElastiCache Serverless](migration-to-serverless-cutover.md).
 
 **Replication support.** Your source must accept a replica connection from the migration path. It must support `PSYNC` and `REPLCONF`. If you renamed or disabled these commands on your source, restore them before you migrate.
 
@@ -53,6 +54,7 @@ Create an ElastiCache Serverless for Valkey cache before you start. Your target 
 | No public endpoint | No public endpoint. Leave public connectivity turned off when you create the target cache. For a cache that already exists, confirm that it has no public endpoint before you prepare the migration. | 
 | Network type | IPv4. ElastiCache rejects a target cache that uses the IPv6 or dual-stack network type. | 
 | Version | Runs Valkey 7.2, 8.1, or 9.0, at a version at least as high as your source version. | 
+| Authentication | Accepts the credentials that your application uses on your source. If your source requires authentication, set up the same users on your target before you prepare the migration. For more information about setting up target users, see [Setting up your application's users on your target](migration-to-serverless-auth.md#migration-to-serverless-auth-target-users). | 
 
 Your target inherits the standard ElastiCache Serverless limits, and your data must fit inside them:
 
@@ -69,15 +71,13 @@ Your target inherits the standard ElastiCache Serverless limits, and your data m
 
 ElastiCache connects to your source from the VPC of your target cache. Confirm that your source is reachable on a private endpoint from that VPC. Also confirm that your source security group allows inbound traffic from ElastiCache.
 
-Your target cache must have a subnet in each Availability Zone that ElastiCache Serverless uses in your AWS Region. If it does not, the prepare step fails.
+Your source nodes must listen on addresses that this VPC can reach. The default Valkey and Redis OSS configuration file binds to `127.0.0.1`, which accepts only local connections, so bind each node to its private IP address. Each node must also report a reachable address in its cluster topology, because ElastiCache discovers the rest of your nodes from the first one. For the security group rule, allow inbound TCP traffic on your source port from the security group of your target cache, or from the IPv4 CIDR ranges of its subnets.
 
-Preparing a migration creates network interfaces and a security group in your account, so you need quota headroom in four places. The prepare step fails if any of them is exhausted:
-+ Free IP addresses in the subnets your target cache uses.
-+ Network interface quota for the VPC.
-+ Security group quota for the VPC.
-+ Security group rule quota.
+Create your target cache with at least three subnets in different Availability Zones, each with free IP addresses. You cannot change the subnets of a serverless cache after you create it. If the prepare step or the data sync fails on subnets, the error message names the Availability Zones that need a subnet.
 
-**Resources that prepare creates.** Do not delete the resources that prepare creates. The security group that ElastiCache creates when you prepare the migration, and the Secrets Manager secret you provided, both must keep existing until the migration completes. If a node is replaced during the migration, ElastiCache re-runs network and authentication setup. A missing security group or secret fails that step.
+Preparing a migration creates network interfaces in the subnets of your target cache. They use the security groups of your target cache, and ElastiCache deletes them when the migration completes. The prepare step fails if your target's subnets have no free IP addresses or your VPC has no network interface quota headroom.
+
+**Resources to keep.** Keep the Secrets Manager secret that you provided until the migration completes. If a node is replaced during the migration, ElastiCache runs network and authentication setup again, and a missing secret fails that step.
 
 ## Command behavior during a migration
 <a name="w2aac20c13c33c11"></a>
@@ -95,7 +95,9 @@ Some commands behave differently on ElastiCache Serverless than on a self-manage
 **Pub/sub subscriptions.** Pub/sub subscriptions do not survive cutover. Subscribed clients are disconnected at cutover and have to reconnect and re-subscribe.
 
 ## Client configuration
-<a name="w2aac20c13c33c13"></a>
+<a name="migration-to-serverless-client-config"></a>
+
+Your application connects to the migration endpoint with TLS, because all ElastiCache Serverless caches use encryption in transit. If your application reaches your source without TLS, turn on TLS in your client before you point it at the migration endpoint. The security group of your target cache must allow inbound TCP traffic from your application on ports 6379 and 6380, because many clients connect to both.
 
 Instead of caching node IP addresses in your application, use the migration endpoint.
 
@@ -136,7 +138,7 @@ The ElastiCache Service Level Agreement applies to your ElastiCache Serverless c
 
 **One migration per cache.** A cache can be the target of only one migration at a time.
 
-**Pipelining is not supported during the migration.** If your application pipelines commands, they are serialized during the migration. A batch of 100 commands then takes 100 round trips instead of one. Latency for those batches increases in proportion to the batch depth.
+**Pipelining is not supported during the migration.** If your application pipelines commands, the migration endpoint serializes them from the moment the migration reads `ready-to-sync`. A batch of 100 commands then takes 100 round trips instead of one. Latency for those batches increases in proportion to the batch depth.
 
 **RESP3 Pub/Sub with regular commands on the same connection.** RESP3 lets a client run regular commands on a connection that has active Pub/Sub subscriptions (`SUBSCRIBE` or `SSUBSCRIBE`). This isn't supported while a migration is in progress. During migration, use separate connections for Pub/Sub and for regular commands. Most client libraries do this by default. This restriction ends when the migration completes.
 

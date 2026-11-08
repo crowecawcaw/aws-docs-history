@@ -19,13 +19,13 @@ To create a serverless cache, follow these steps.
 ### Step 1.1: Create a serverless cache
 <a name="LambdaRedis.step1.1"></a>
 
-In this step, you create a serverless cache in the default Amazon VPC in the us-east-1 region in your account using the AWS Command Line Interface (CLI). For information on creating serverless cache using the ElastiCache console or API, see [Create a Redis OSS serverless cache](GettingStarted.serverless-redis.step1.md).
+In this step, you create a serverless cache in the default Amazon VPC in the us-east-1 region in your account using the AWS Command Line Interface (CLI). For information on creating serverless cache using the ElastiCache console or API, see [Create a Valkey serverless cache](GettingStarted.serverless-valkey.step1.md).
 
 ```
 aws elasticache create-serverless-cache \
-  --serverless-cache-name cache-01  \
---description "ElastiCache IAM auth application" \
---engine valkey
+  --serverless-cache-name cache-01 \
+  --description "ElastiCache IAM auth application" \
+  --engine valkey
 ```
 
 Note that the value of the Status field is set to `CREATING`. ElastiCache creates your cache in about a minute.
@@ -33,11 +33,11 @@ Note that the value of the Status field is set to `CREATING`. ElastiCache create
 ### Step 1.2: Copy serverless cache endpoint
 <a name="LambdaRedis.step1.2"></a>
 
-Verify that ElastiCache for Redis OSS has finished creating the cache with the `describe-serverless-caches` command.
+Verify that ElastiCache has finished creating the cache with the `describe-serverless-caches` command.
 
 ```
 aws elasticache describe-serverless-caches \
---serverless-cache-name cache-01
+  --serverless-cache-name cache-01
 ```
 
 Copy the Endpoint Address shown in the output. You'll need this address when you create the deployment package for your Lambda function.
@@ -110,39 +110,28 @@ Copy the Endpoint Address shown in the output. You'll need this address when you
 **Important**  
 This step is required. Your Lambda function authenticates to ElastiCache using IAM. For this to work, you must create an IAM-enabled ElastiCache user, add it to a user group, and associate that user group with your cache. Without this configuration, connection attempts from Lambda will fail.
 
-1. Create a default user with access disabled. Every user group requires a default user. By disabling access on this user, you ensure that only explicitly configured IAM users can connect.
-
-   ```
-   aws elasticache create-user \
-     --user-name default \
-   --user-id default-user-disabled \
-   --engine redis \
-   --authentication-mode Type=no-password-required \
-   --access-string "off +get ~keys*"
-   ```
-
 1. Create an IAM-enabled user. This is the user identity that your Lambda function will authenticate as.
 
    ```
    aws elasticache create-user \
      --user-name iam-user-01 \
-   --user-id iam-user-01 \
-   --authentication-mode Type=iam \
-   --engine redis \
-   --access-string "on ~* +@all"
+     --user-id iam-user-01 \
+     --authentication-mode Type=iam \
+     --engine valkey \
+     --access-string "on ~* +@all"
    ```
 
-1. Create a user group, add both users to it, and associate the group with your cache.
+1. Create a user group, add the user to it, and associate the group with your cache.
 
    ```
    aws elasticache create-user-group \
      --user-group-id iam-user-group-01 \
-   --engine redis \
-   --user-ids default-user-disabled iam-user-01
+     --engine valkey \
+     --user-ids iam-user-01
    
    aws elasticache modify-serverless-cache \
-     --serverless-cache-name cache-01  \
-   --user-group-id iam-user-group-01
+     --serverless-cache-name cache-01 \
+     --user-group-id iam-user-group-01
    ```
 
 ## Step 2: Create a Lambda function for ElastiCache
@@ -164,13 +153,13 @@ from typing import Tuple, Union
 from urllib.parse import ParseResult, urlencode, urlunparse
 
 import botocore.session
-import redis
+import valkey
 from botocore.model import ServiceId
 from botocore.signers import RequestSigner
 from cachetools import TTLCache, cached
 import uuid
 
-class ElastiCacheIAMProvider(redis.CredentialProvider):
+class ElastiCacheIAMProvider(valkey.CredentialProvider):
     def __init__(self, user, cache_name, is_serverless=False, region="us-east-1"):
         self.user = user
         self.cache_name = cache_name
@@ -219,13 +208,13 @@ def lambda_handler(event, context):
     cache_name = "cache-01" # replace with your cache name
     elasticache_endpoint = "cache-01-xxxxx.serverless.use1.cache.amazonaws.com" # replace with your cache endpoint
     creds_provider = ElastiCacheIAMProvider(user=username, cache_name=cache_name, is_serverless=True)
-    redis_client = redis.Redis(host=elasticache_endpoint, port=6379, credential_provider=creds_provider, ssl=True, ssl_cert_reqs="none")
+    valkey_client = valkey.Valkey(host=elasticache_endpoint, port=6379, credential_provider=creds_provider, ssl=True, ssl_cert_reqs="none")
     
     key='uuid'
     # create a random UUID - this will be the sample element we add to the cache
     uuid_in = uuid.uuid4().hex
-    redis_client.set(key, uuid_in)
-    result = redis_client.get(key)
+    valkey_client.set(key, uuid_in)
+    result = valkey_client.get(key)
     decoded_result = result.decode("utf-8")
     # check the retrieved item matches the item added to the cache and print
     # the results
@@ -237,22 +226,22 @@ def lambda_handler(event, context):
     return "Fetched value from Valkey"
 ```
 
-This code uses the Python redis-py library to put items into your cache and retrieve them. This code uses cachetools to cache generated IAM Auth tokens for 15 mins. To create a deployment package containing redis-py and cachetools, carry out the following steps.
+This code uses the Python valkey-py library to put items into your cache and retrieve them. This code uses cachetools to cache generated IAM Auth tokens for 15 mins. To create a deployment package containing valkey-py and cachetools, carry out the following steps.
 
-In your project directory containing the app.py source code file, create a folder package to install the redis-py and cachetools libraries into.
+In your project directory containing the app.py source code file, create a folder package to install the valkey-py and cachetools libraries into.
 
 ```
 mkdir package
 ```
 
-Install redis-py, cachetools using pip.
+Install valkey-py, cachetools using pip.
 
 ```
-pip install --target ./package redis
+pip install --target ./package valkey
 pip install --target ./package cachetools
 ```
 
-Create a .zip file containing the redis-py and cachetools libraries. In Linux and macOS, run the following command. In Windows, use your preferred zip utility to create a .zip file with the redis-py and cachetools libraries at the root.
+Create a .zip file containing the valkey-py and cachetools libraries. In Linux and macOS, run the following command. In Windows, use your preferred zip utility to create a .zip file with the valkey-py and cachetools libraries at the root.
 
 ```
 cd package
