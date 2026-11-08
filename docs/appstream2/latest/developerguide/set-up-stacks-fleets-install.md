@@ -18,7 +18,7 @@ You can enable Google Drive, OneDrive, and Application Settings Persistence only
    + **Redirect URL** — Specify a URL to which users are redirected after their streaming sessions end.
    + **Feedback URL** — Specify a URL to which users are redirected after they click the **Send Feedback** link to submit feedback about their application streaming experience. If you do not specify a URL, this link is not displayed.
    + **Fleet** — Select an existing fleet or create a new one to associate with your stack.
-   + **AI agent access** — Select **Enable AI agent access** to allow AI agents to connect to streaming sessions and interact with desktop applications through the managed MCP service. When you enable agent access, Steps 2 and 3 of the stack creation wizard are configured for agent-specific settings. For more information, see [Learn more about agents accessing WorkSpaces](agent-access-setup.md).
+   + **AI agent access** — Select **Enable AI agent access** to allow AI agents to connect to streaming sessions and interact with desktop applications through the managed MCP server. When you enable agent access, Steps 2 and 3 of the stack creation wizard are configured for agent-specific settings. For more information, see [Overview](agent-access-mcp-server-overview.md).
    + **Streaming Protocol Preference** — Specify the streaming protocol you’d like your stack to prefer, UDP or TCP. UDP is currently only supported in the Windows native client. For more information, see [System Requirements and Feature Support (WorkSpaces Applications Client)](client-system-requirements-feature-support.md).
    + **Tags** — Choose **Add Tag**, and type the key and value for the tag. To add more tags, repeat this step. For more information, see [Tagging Your Amazon WorkSpaces Applications Resources](tagging-basic.md).
    + **VPC Endpoints (Advanced)** — You can create a private link, which is an [interface VPC endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html) (interface endpoint), in your virtual private cloud (VPC). To start creating the interface endpoint, select **Create VPC Endpoint**. Selecting this link opens the VPC console. To finish creating the endpoint, follow steps 3 through 6 in *To create an interface endpoint*, in [Tutorial: Creating and Streaming from Interface VPC Endpoints](creating-streaming-from-interface-vpc-endpoints.md). 
@@ -51,7 +51,7 @@ After you select **Enable OneDrive**, enter the name of least one organizational
 
 1. For **Step 3: User Settings**, configure the following settings. When you're done, choose **Review**. 
 **Note**  
-If you enabled AI agent access in Step 1, Step 3 displays **Edit agent settings** instead of **User Settings**. You configure computer input, computer vision, screenshot storage, screen resolution, screen image type, and application settings persistence for agents. For more information, see [Learn more about agents accessing WorkSpaces](agent-access-setup.md).
+If you enabled AI agent access in Step 1, Step 3 displays **Edit agent settings** instead of **User Settings**. You configure computer input, computer vision, screenshot storage, screen resolution, screen image type, and application settings persistence for agents. For more information, see [Overview](agent-access-mcp-server-overview.md).
 
    **Clipboard, file transfer, print to local device, and authentication permissions**:
 **Note**  

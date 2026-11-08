@@ -3,7 +3,7 @@
 # Get started providing agents with access to WorkSpaces Applications
 <a name="getting-started-agent-access"></a>
 
-To enable AI agents to operate desktop applications through Amazon WorkSpaces Applications, you create a stack with access enabled for agents, generate a streaming URL, and connect your agent to the managed MCP service.
+To enable AI agents to operate desktop applications through Amazon WorkSpaces Applications, you create a stack with access enabled for agents, generate a streaming URL, and connect your agent to the managed MCP server.
 
 If you are setting up agent access for the first time, you can use the Build Your First Agent quick-start experience. You can also follow the steps in this topic to configure agent access manually. The quick-start experience is available in the GitHub repository — [sample-code-for-workspaces-agent-access](https://github.com/aws-samples/sample-code-for-workspaces-agent-access).
 
@@ -15,7 +15,7 @@ The resources you create in this tutorial might result in charges to your AWS ac
 In this tutorial, you complete the following tasks:
 + Step 1: Create a stack with agent access enabled
 + Step 2: Generate a streaming URL
-+ Step 3: Connect your agent to the MCP service
++ Step 3: Connect your agent to the MCP server
 + Step 4: Verify agent activity
 + Step 5: Clean up resources
 
@@ -31,47 +31,7 @@ To get started, ask your agent "Help me complete the getting started WorkSpaces 
 ## Prerequisites
 <a name="getting-started-agent-access-prereqs"></a>
 
-Before you begin, make sure you have the following:
-+ An active Amazon WorkSpaces Applications fleet. If you haven't set one up yet, see [Get Started with Amazon WorkSpaces Applications: Set Up With Sample Applications](getting-started.md).
-+ AWS credentials (environment variables, AWS profile, EC2 instance role, or Lambda execution role) with the following IAM permissions. The agent uses these credentials directly to sign requests to the MCP service:
-
-  ```
-  {
-      "Sid": "MCP",
-      "Effect": "Allow",
-      "Action": ["agentaccess-mcp:*"],
-      "Resource": "*"
-  },
-  {
-      "Sid": "AppStream",
-      "Effect": "Allow",
-      "Action": ["appstream:CreateStreamingURL", "appstream:DescribeFleets"],
-      "Resource": "*"
-  }
-  ```
-
-  The `agentaccess-mcp:*` wildcard includes the following actions:
-  + `agentaccess-mcp:InvokeMcp` — Initialize sessions and discover tools
-  + `agentaccess-mcp:GetScreenshot` — Capture screen state
-  + `agentaccess-mcp:LeftClick` — Perform left mouse click
-  + `agentaccess-mcp:DoubleClick` — Perform double click
-  + `agentaccess-mcp:TripleClick` — Perform triple click
-  + `agentaccess-mcp:RightClick` — Perform right mouse click
-  + `agentaccess-mcp:MiddleClick` — Perform middle mouse click
-  + `agentaccess-mcp:TypeText` — Type text string
-  + `agentaccess-mcp:KeyPress` — Press key or key combination
-  + `agentaccess-mcp:HoldKey` — Hold key for duration
-  + `agentaccess-mcp:Scroll` — Scroll at coordinates
-  + `agentaccess-mcp:MovePointer` — Move pointer to coordinates
-  + `agentaccess-mcp:LeftClickDrag` — Perform left click drag
-  + `agentaccess-mcp:LeftMouseDown` — Press and hold left mouse button
-  + `agentaccess-mcp:LeftMouseUp` — Release left mouse button
-  + `agentaccess-mcp:CheckConnectionStatus` — Check connection status of a streaming session
-  + `agentaccess-mcp:CallForwardedTool` — Invoke a forwarded tool on a remote instance
-  + `agentaccess-mcp:LaunchApplication` — Launch a cataloged application in the current session
-  + `agentaccess-mcp:ToggleAppSwitcher` — Open or close the app-switcher overlay
-+ An MCP-compatible agent framework. The agent must be able to make SigV4-signed Streamable HTTP requests to the MCP endpoint. The [Strands Agents SDK](https://strandsagents.com/docs/user-guide/concepts/tools/mcp-tools/) provides native MCP client support, or you can use any framework with the mcp-proxy-for-aws transport.
-+ Python 3.10 or later. No specific operating system is required.
+Before you begin, review the agent access requirements. For the account, fleet, permissions, and agent prerequisites, see [Prerequisites](agent-access-mcp-prerequisites.md).
 
 ## Step 1: Create a stack with agent access enabled
 <a name="getting-started-agent-access-create-stack"></a>
@@ -97,9 +57,9 @@ Create a WorkSpaces Applications stack with agent access enabled to allow AI age
    + **Screenshot storage** — Configure where agent screenshots are stored during streaming sessions. If enabled, provide an Amazon S3 bucket that you have permissions to write to.
    + **Screen resolution** — Select the display resolution for the agent streaming environment (1280x720).
    + **Screen image type** — Select the image format for agent screen captures (PNG or JPEG).
-   + **Application settings persistence** — Optionally enable this to save your agent's application customizations and Windows settings between sessions. Settings are saved to an Amazon S3 bucket in your AWS account.
-   + **Enable MCP tool forwarding** — Allow agents to interact with applications and the desktop operating system through direct MCP calls rather than using computer use tools. When enabled, MCP tools configured on the WorkSpaces application session are forwarded to the agent.
-   + **Enable user control mode** — Allow users to observe agent sessions in real time through their browser. Observers see a live view of the desktop as the agent works. In VIEW\_STOP mode, observers can stop the agent using a button at the top of the screen. Once stopped, the agent must start a new session to resume.
+   + **Application settings persistence** — Optionally enable this to save your agent's application customizations and Windows settings between sessions. Settings are saved to an Amazon S3 bucket in your AWS account. This setting is available on Windows and is not supported on Linux.
+   + **Enable MCP tool forwarding** — Allow agents to interact with applications and the desktop operating system through direct MCP calls rather than using computer use tools. When enabled, MCP tools configured on the WorkSpaces application session are forwarded to the agent. Tool forwarding also requires a configuration file on the image. For the platform-specific path and setup steps, see [Setting up tool forwarding](agent-access-mcp-tool-forwarding-details.md#agent-access-tool-forwarding-setup).
+   + **Enable user control mode** — Allow users to observe agent sessions in real time through their browser. Observers see a live view of the desktop as the agent works. In VIEW\_STOP mode, observers can stop the agent using a button at the top of the screen. After the agent stops, it must start a new session to resume.
 **Note**  
 You must enable at least one of computer input or computer vision.
 
@@ -170,7 +130,7 @@ Create a streaming URL using the standard WorkSpaces Applications `CreateStreami
 
 1. In the **UserID** section, enter a user. You can enter `TestUser` if you are testing.
 
-1. In the **URL expiration** section, select the time you want the URL to be valid. A shorter time is recommended. 30 minutes is the default and recommended for testing.
+1. In the **URL expiration** section, select the time you want the URL to be valid. A shorter time is recommended. The default is 30 minutes, which is recommended for testing.
 
 1. Choose **GetURL** and copy the URL generated.
 
@@ -192,10 +152,10 @@ The response includes a `StreamingURL` that you pass to your agent in the next s
 **Note**  
 At any given time, only one agent can connect to a unique session. Named users, specified through the `UserId` parameter, can have only one active session per fleet at a time. To run multiple agents concurrently, each agent must connect to its own unique session.
 
-## Step 3: Connect your agent to the MCP service
+## Step 3: Connect your agent to the MCP server
 <a name="getting-started-agent-access-connect"></a>
 
-Your agent connects to the managed MCP service at the following fixed endpoint:
+Your agent connects to the managed MCP server at the following fixed endpoint:
 
 `https://agentaccess-mcp.{{region}}.api.aws/mcp`
 
@@ -222,7 +182,7 @@ After the agent connects, it can use the MCP tools to enter text, choose buttons
 <a name="getting-started-agent-access-verify"></a>
 
 You can verify agent activity using the following AWS services:
-+ **AWS CloudTrail** — AWS CloudTrail logs agent session events. Open the AWS CloudTrail console to view agent activity.
++ **AWS CloudTrail** — AWS CloudTrail logs agent session events. Open the AWS CloudTrail console to view agent activity. Tool calls are logged as data events, which requires a trail configured to [log data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html).
 + **CloudWatch** — CloudWatch provides operational metrics for agent sessions. Open the CloudWatch console to view metrics.
 + **Amazon S3** — If you enabled screenshot storage, Amazon S3 stores the screenshots in the bucket you specified during stack configuration.
 

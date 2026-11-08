@@ -41,7 +41,7 @@ Multi-session is available only on Always-on and On-demand fleets powered by a W
 Make sure you are using latest WorkSpaces Applications images for multi-session fleets. To keep your images are up-to-date, see [Keep Your Amazon WorkSpaces Applications Image Up-to-Date](keep-image-updated.md). For details on supported images and WorkSpaces Applications agent versions for multi-session, see [WorkSpaces Applications Base Image and Managed Image Update Release Notes](base-image-version-history.md).
 
 **agent session**  
-An *agent session* is a WorkSpaces streaming session initiated by an AI agent. You create agent sessions by using the `CreateStreamingURL` API. The agent passes the streaming URL to the MCP service as a header on each request. You can monitor agent sessions through AWS CloudTrail, and you can view operational metrics in CloudWatch. You can optionally store screenshots captured during agent sessions in a customer-managed Amazon S3 bucket.
+An *agent session* is a WorkSpaces streaming session initiated by an AI agent. You create agent sessions by using the CreateStreamingURL API. The agent passes the streaming URL to the MCP server as a header on each request. You can monitor agent sessions through AWS CloudTrail, and you can view operational metrics in CloudWatch. You can optionally store screenshots captured during agent sessions in a customer-managed Amazon S3 bucket.
 
 **computer input**  
 *Computer input* is a capability that allows agents to click buttons, enter text, and scroll on the desktop during a WorkSpaces streaming session. Computer input requires that you also enable computer vision.
@@ -49,5 +49,5 @@ An *agent session* is a WorkSpaces streaming session initiated by an AI agent. Y
 **computer vision**  
 *Computer vision* is a capability that allows agents to see the desktop by taking screenshots during a WorkSpaces streaming session.
 
-**Model Context Protocol (MCP) service**  
-The managed *MCP service* (`agentaccess-mcp`) provides AI agents with tools to click buttons, enter text, scroll, take screenshots of the desktop, and launch and switch between cataloged applications. Agents use these tools during a streaming session. Agents connect to the MCP service at a fixed endpoint using AWS IAM credentials with SigV4 signing. The MCP service is available when agent access is enabled on a stack.
+**Model Context Protocol (MCP) server**  
+The managed *MCP server* (`agentaccess-mcp`) provides AI agents with tools to click buttons, enter text, scroll, take screenshots of the desktop, and launch and switch between cataloged applications. Agents use these tools during a streaming session. Agents connect to the MCP server at a fixed endpoint using AWS IAM credentials with SigV4 signing. The MCP server is available when agent access is enabled on a stack.

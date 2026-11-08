@@ -38,6 +38,7 @@ Before you begin, verify the following:
 The following Windows 11 versions are supported for Amazon WorkSpaces Applications BYOL:
 + Windows 11 Version 24H2 (October 2024 release)
 + Windows 11 Version 25H2 (September 2025 release)
++ Windows 11 Version 26H2 (September 2026 release)
 
 **Note**  
 Windows 10 images imported through WorkSpaces are not supported for Amazon WorkSpaces Applications. Only Windows 11 images can be used with Amazon WorkSpaces Applications.
@@ -162,6 +163,9 @@ Windows BYOL for Amazon WorkSpaces Applications is available in all regions wher
 + South America (São Paulo)
 + AWS GovCloud (US-West)
 + AWS GovCloud (US-East)
+
+**Important**  
+Windows BYOL for Amazon WorkSpaces Applications is only available in a subset of the Availability Zones for each supported Region. For the list of AZ IDs that you can use in each Region, see [Availability Zones for WorkSpaces Personal](https://docs.aws.amazon.com/workspaces/latest/adminguide/azs-workspaces.html) in the *Amazon WorkSpaces Administration Guide*. To see the mapping of AZ IDs to Availability Zones in your account, see [AZ IDs for Your Resources](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html) in the *AWS RAM User Guide*.
 
 ## Important considerations
 <a name="byol-important-considerations"></a>
