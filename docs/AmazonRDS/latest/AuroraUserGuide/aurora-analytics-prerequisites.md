@@ -34,18 +34,16 @@ The high-level setup steps are as follows:
 
 Create an IAM policy that grants the extension read access to Amazon S3, and optionally to AWS Glue Data Catalog or Amazon S3 Tables, depending on the format of your data and where it's stored.
 
-The minimum privileges depend on how you reference the data: the data format (Parquet or Iceberg), the source (Amazon S3, AWS Glue Data Catalog, or Amazon S3 Tables), and whether you point at a single file or a directory. The following table lists the minimum IAM role privileges for the common same-account scenarios:
+The minimum privileges depend on how you reference the data: the data format (Parquet or Iceberg), the source (Amazon S3, AWS Glue Data Catalog, or Amazon S3 Tables), and whether you point at a single file or a directory. The following table lists the minimum IAM role privileges for the common same-account scenarios.
 
-
-**Minimum IAM role privileges by source**  
 
 | Source | Minimum privileges | 
 | --- | --- | 
 | Amazon S3, single file (s3://bucket/path/data.parquet) | s3:GetObject | 
 | Amazon S3, directory or glob (s3://bucket/path/) | s3:GetObject, s3:ListBucket | 
-| AWS Glue Data Catalog (arn:aws:glue:us-east-1:123456789012:table/mydb/mytable) | glue:GetTable \+ Amazon S3 privileges above | 
-| Amazon S3 Tables, direct ARN (arn:aws:s3tables:us-east-1:123456789012:bucket/mybucket/table/table\_id) | s3tables:GetTable, s3tables:GetTableBucket, s3tables:GetTableData, s3tables:GetNamespace | 
-| Amazon S3 Tables, via AWS Glue catalog ARN (arn:aws:glue:us-east-1:123456789012:table/s3tablescatalog/mybucket/myns/mytable) | glue:GetTable \+ s3tables privileges above | 
+| AWS Glue Data Catalog (arn:aws:glue:us-east-1:111122223333:table/mydb/mytable) | glue:GetTable \+ Amazon S3 privileges above | 
+| Amazon S3 Tables, direct ARN (arn:aws:s3tables:us-east-1:111122223333:bucket/amzn-s3-demo-bucket/table/table\_id) | s3tables:GetTable, s3tables:GetTableBucket, s3tables:GetTableData, s3tables:GetNamespace | 
+| Amazon S3 Tables, through the AWS Glue catalog ARN (arn:aws:glue:us-east-1:111122223333:table/s3tablescatalog/amzn-s3-demo-bucket/myns/mytable) | glue:GetTable \+ s3tables privileges above | 
 
 **Note**  
 `s3:ListBucket` is only needed when the extension lists an Amazon S3 prefix to discover files (for example, Parquet directory or glob access). Iceberg resolves exact file paths from its manifests, which means `s3:ListBucket` is not required.
@@ -111,7 +109,7 @@ Create an IAM role that Aurora can assume to access your Amazon S3 data on behal
    ```
    aws iam attach-role-policy \
      --role-name AuroraAnalyticsRole \
-     --policy-arn arn:aws:iam::123456789012:policy/AuroraAnalyticsReadAccess
+     --policy-arn arn:aws:iam::111122223333:policy/AuroraAnalyticsReadAccess
    ```
 
 Note the role ARN. You need it when you attach the role to your Aurora DB cluster. For more information, see [Creating IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the *IAM User Guide*.
@@ -134,17 +132,17 @@ After you create the DB cluster, associate the IAM role that you created for the
 1. Choose **Add role**.
 
 **To attach the IAM role using the AWS CLI**
-+ 
++ Run the following command.
 
   ```
   aws rds add-role-to-db-cluster \
     --region us-east-1 \
     --db-cluster-identifier my-analytics-cluster \
     --feature-name AuroraAnalytics \
-    --role-arn arn:aws:iam::123456789012:role/AuroraAnalyticsRole
+    --role-arn arn:aws:iam::111122223333:role/AuroraAnalyticsRole
   ```
 
-The IAM role status shows as **Active** after it is successfully attached. For more information, see [add-role-to-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/add-role-to-db-cluster.html) in the *AWS CLI Command Reference*.
+After you attach the role, the IAM role status shows as `Active`. This might take a few minutes. For more information, see [add-role-to-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/add-role-to-db-cluster.html) in the *AWS CLI Command Reference*.
 
 ## Set up networking
 <a name="aurora-analytics-setup-networking"></a>
@@ -153,8 +151,8 @@ When your Aurora DB cluster is deployed in a private subnet, it needs a network 
 
 VPC endpoints keep traffic on the AWS network without traversing the public internet, and an Amazon S3 gateway endpoint has no additional hourly charge, which makes them the recommended approach. A NAT gateway also works if your VPC already routes outbound traffic through one, but it sends traffic over a public path and incurs NAT data-processing charges. The rest of this section describes the VPC endpoint setup. For more information about NAT gateways, see [NAT gateways](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html).
 
+The following table lists the required VPC endpoints.
 
-**Required VPC endpoints**  
 
 | Service | Endpoint type | Required for | 
 | --- | --- | --- | 
@@ -184,7 +182,7 @@ For more information, see [Creating an interface endpoint](https://docs.aws.amaz
 The `aurora_analytics.enabled` parameter is set to `false` by default. After you create the DB cluster, enable the feature by setting this parameter to `true` in the DB cluster parameter group.
 
 **To enable the feature using the AWS CLI**
-+ 
++ Run the following command.
 
   ```
   aws rds modify-db-cluster-parameter-group \

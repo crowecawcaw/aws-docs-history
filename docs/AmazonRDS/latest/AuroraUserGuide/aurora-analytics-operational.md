@@ -15,7 +15,7 @@ After a restart or failover, the on-disk cache starts empty, so the first querie
 ## Setting up alarms
 <a name="aurora-analytics-alarms"></a>
 
-Create Amazon CloudWatch alarms that signal resource pressure, so you are notified before queries fail. For proactive monitoring, watch the following metrics.
+Create Amazon CloudWatch alarms that signal resource pressure, so you are notified before queries fail. For proactive monitoring, watch the following metrics:
 + `AuroraAnalyticsMemoryUsage`: Memory consumed by foreign table queries. A rising value signals memory pressure and the risk of out-of-memory errors.
 + `AuroraAnalyticsCacheHitRatio`: The share of reads served from the on-disk cache. A falling value means more queries are re-reading from Amazon S3, often because the working set exceeds the cache.
 + `AuroraAnalyticsDiskSpillSize`: How much data queries are spilling to local storage. A rising value means queries are exceeding their `query_mem` and can benefit from more memory or tuning.

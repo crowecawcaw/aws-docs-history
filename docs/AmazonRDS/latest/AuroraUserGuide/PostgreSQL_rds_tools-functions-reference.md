@@ -39,6 +39,8 @@ None.
 
 ### Output
 <a name="rds_tools.role_password_encryption_type-output"></a>
+
+This function returns the following columns:
 + `rolname` – The name of the database role.
 + `encryption_type` – The password encryption method used, such as `md5` or `scram-sha-256`.
 
@@ -76,6 +78,8 @@ None.
 
 ### Output
 <a name="rds_tools.postgres_get_av_diag-output"></a>
+
+This function returns the following columns:
 + `blocker` – The category of database activity blocking the vacuum. The value is one of the following:
   + Active statement
   + Idle in transaction

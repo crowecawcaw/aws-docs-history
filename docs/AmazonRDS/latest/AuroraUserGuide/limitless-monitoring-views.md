@@ -287,7 +287,7 @@ You must install the [pg\_stat\_statements](https://www.postgresql.org/docs/curr
 CREATE EXTENSION pg_stat_statements;
 
 -- Verify that the extension is created on all nodes in the DB shard group
-SELECT distinct node_id
+SELECT distinct subcluster_id
     FROM rds_aurora.limitless_stat_statements
     LIMIT 10;
 ```

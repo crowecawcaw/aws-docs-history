@@ -25,7 +25,7 @@ This tutorial walks you through setting up the analytics feature from scratch an
 
 Before you begin, make sure you have the following:
 + An AWS account with permissions to create IAM roles, Amazon RDS clusters, and VPC endpoints.
-+ The AWS CLI installed and configured.
++ The AWS Command Line Interface (AWS CLI) installed and configured.
 + A VPC with at least two subnets in different Availability Zones, a DB subnet group, and a security group for Aurora.
 + Parquet data files in an Amazon S3 bucket. If you don't have data yet, you can upload a sample file (this tutorial uses an example orders dataset).
 

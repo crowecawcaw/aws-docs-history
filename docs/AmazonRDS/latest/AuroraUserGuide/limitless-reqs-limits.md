@@ -16,7 +16,7 @@ Aurora PostgreSQL Limitless Database has the following requirements and consider
 Make sure to follow these requirements for Aurora PostgreSQL Limitless Database.
 + Aurora PostgreSQL Limitless Database is available in all AWS Regions except Asia Pacific (Taipei).
 **Note**  
-If you create your Aurora PostgreSQL Limitless Database DB cluster in US East (N. Virginia), don't include the `us-east-1e` Availability Zone (AZ) in your DB subnet group. Because of resource limitations, Aurora serverless (and therefore Aurora PostgreSQL Limitless Database) isn't supported in the `us-east-1e` AZ.
+If you create your Aurora PostgreSQL Limitless Database DB cluster in US East (N. Virginia), don't include the Availability Zone (AZ) with the AZ ID `use1-az3` in your DB subnet group. Because of resource limitations, Aurora serverless (and therefore Aurora PostgreSQL Limitless Database) isn't supported in the `use1-az3` AZ. AZ names, such as `us-east-1e`, map to different AZ IDs in each AWS account. For more information, see [Availability Zone IDs for your AWS resources](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html).
 + Aurora PostgreSQL Limitless Database supports only the Aurora I/O-Optimized DB cluster storage configuration. For more information, see [Storage configurations for Amazon Aurora DB clusters](Aurora.Overview.StorageReliability.md#aurora-storage-type).
 + Aurora PostgreSQL Limitless Database uses special Aurora PostgreSQL DB engine versions for Aurora PostgreSQL Limitless Database: `16.X-limitless`. See also [Available Aurora PostgreSQL Limitless Database Versions](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/limitless-updates.html)
 + Your DB cluster can't have any writer or reader DB instances.

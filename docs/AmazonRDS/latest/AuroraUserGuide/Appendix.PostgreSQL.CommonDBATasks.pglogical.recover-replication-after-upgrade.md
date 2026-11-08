@@ -13,7 +13,7 @@ The replication slots are hosted on the publisher node only. The Aurora PostgreS
 You can determine that the replication process has been disrupted by querying either the publisher node or the subscriber node, as follows.
 
 **To check the publisher node**
-+ Use `psql` to connect to the publisher node, and then query the `pg_replication_slots` function. Note the value in the active column. Normally, this will return `t` (true), showing that replication is active. If the query returns `f` (false), it's an indication that replication to the subscriber has stopped. 
++ Use `psql` to connect to the publisher node, and then query the `pg_replication_slots` view. Note the value in the `active` column. Normally, this will return `t` (true), showing that replication is active. If the query returns `f` (false), it's an indication that replication to the subscriber has stopped. 
 
   ```
   SELECT slot_name,plugin,slot_type,active FROM pg_replication_slots;
@@ -32,7 +32,7 @@ On the subscriber node, you can check the status of replication in three differe
   2022-07-06 16:17:03 UTC::@:[7361]:LOG: background worker "pglogical apply 16404:2880255011" (PID 14610) exited with exit code 1
   2022-07-06 16:19:44 UTC::@:[7361]:LOG: background worker "pglogical apply 16404:2880255011" (PID 21783) exited with exit code 1
   ```
-+ Query the `pg_replication_origin` function. Connect to the database on the subscriber node using `psql` and query the `pg_replication_origin` function, as follows.
++ Connect to the database on the subscriber node using `psql` and query the `pg_replication_origin` view, as follows.
 
   ```
   SELECT * FROM pg_replication_origin;

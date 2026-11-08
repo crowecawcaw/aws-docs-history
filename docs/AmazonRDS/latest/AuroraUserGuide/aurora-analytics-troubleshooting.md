@@ -22,8 +22,6 @@ ERROR:  extension "aurora_analytics" is not available
 **Causes and solutions**: This error means you are running a version of Aurora PostgreSQL that does not support the `aurora_analytics` extension. To use this feature, upgrade to Aurora PostgreSQL 17.11 or higher, or 18.6 or higher. Use the following table to identify the cause and resolve it.
 
 
-**Extension not available: causes and solutions**  
-
 | Cause | Solution | 
 | --- | --- | 
 | Engine version does not support the analytics feature. | Verify your DB cluster is running a supported Aurora PostgreSQL version (17.11 or higher, or 18.6 or higher). Upgrade if needed. | 
@@ -98,8 +96,6 @@ aws rds describe-db-clusters \
 **Solution**: Use the following table to act on the status.
 
 
-**IAM role status and action**  
-
 | Status | Action | 
 | --- | --- | 
 | PENDING | Wait a few minutes. Role association is asynchronous. | 
@@ -120,7 +116,7 @@ The following are common Amazon S3 and data access errors.
 ERROR:  [Aurora Analytics] HTTP 403 Forbidden
 ```
 
-**Causes and solutions**: Check the following.
+**Causes and solutions**: Check the following:
 + IAM policy is missing `s3:GetObject`: add the permission for the specific Amazon S3 prefix.
 + IAM policy is missing `s3:ListBucket`: required when the location points to a folder rather than a single file.
 + Wrong Amazon S3 bucket or prefix in policy: verify that the ARN matches your foreign table location exactly.
@@ -146,7 +142,7 @@ ERROR:  [Aurora Analytics] Glue GetTable API failed: curlCode: 28, Timeout was r
 
 **Cause**: No AWS Glue VPC interface endpoint exists, or a security group is blocking TCP port 443.
 
-**To resolve this issue**: Do the following.
+**To resolve this issue**: Do the following:
 
 1. Create an AWS Glue VPC interface endpoint in the same VPC as your Aurora DB cluster.
 
@@ -192,8 +188,6 @@ ERROR:  [Aurora Analytics] Glue GetTable API failed: EntityNotFoundException: Ta
 **Causes and solutions**: Use the following table to identify the cause and resolve it.
 
 
-**AWS Glue table not found: causes and solutions**  
-
 | Cause | Solution | 
 | --- | --- | 
 | Error in the database or table name. | Verify that names match exactly (case-sensitive). | 
@@ -228,7 +222,7 @@ DROP FOREIGN TABLE ft_my_table;
 CREATE FOREIGN TABLE ft_my_table ()
 SERVER aurora_analytics_server
 OPTIONS (
-    location 's3://my-bucket/data/',
+    location 's3://amzn-s3-demo-bucket/data/',
     format 'parquet',
     region 'us-east-1'
 );
@@ -245,7 +239,7 @@ ERROR:  [Aurora Analytics] Glue GetTable API failed: curlCode: 6, Could not reso
 
 **Cause**: Wrong Region in the AWS Glue ARN, or the VPC endpoint is not available in that Region.
 
-**Solution**: Do the following.
+**Solution**: Do the following:
 + Verify that the Region in your AWS Glue ARN matches the Region where your VPC endpoint is deployed.
 + Verify that the VPC endpoint has Private DNS enabled.
 
@@ -262,8 +256,6 @@ The following are common query performance issues.
 **Causes and solutions**: Use the following table to identify why queries are slow and how to respond.
 
 
-**Why queries are slow**  
-
 | Cause | Signal that identifies it | Source | Action | 
 | --- | --- | --- | --- | 
 | Cold cache after a restart, failover, or first access. | AuroraAnalyticsCacheHitRatio low then recovering on an identical rerun, or pg\_postmaster\_start\_time() recent. | Amazon CloudWatch | Warm the cache by running typical queries. Subsequent runs are faster. | 
@@ -271,7 +263,7 @@ The following are common query performance issues.
 | Query spilling to disk because query\_mem is too low. | analytics\_total\_disk\_spill greater than 0, AuroraAnalyticsDiskSpillSize rising. | Amazon CloudWatch, aurora\_analytics\_stat\_statements() | Reduce intermediate data first; raise query\_mem within headroom. | 
 | Too many concurrent analytical sessions. | AuroraAnalyticsActiveThreads rising alongside DatabaseConnections. | Amazon CloudWatch | Reduce concurrency, or scale up. | 
 | Foreign table queries consuming the instance CPU. | CPUUtilization sustained high, Extension:AuroraAnalyticsExecute dominating AAS. | Amazon CloudWatch, Database Insights | Reduce concurrency, or scale to more vCPUs. | 
-| Many small or uncompressed objects in Amazon S3. |  | Amazon CloudWatch | Consolidate into larger files and use Snappy or ZSTD. See [Optimizing data layout in Amazon S3](aurora-analytics-data-layout.md). | 
+| Many small or uncompressed objects in Amazon S3. | Not applicable | Amazon CloudWatch | Consolidate into larger files and use Snappy or ZSTD. See [Optimizing data layout in Amazon S3](aurora-analytics-data-layout.md). | 
 | Query reading columns it does not need (SELECT \* on a wide table). | analytics\_remote\_read\_bytes far exceeding analytics\_total\_result\_size. | aurora\_analytics\_stat\_statements() | Select only the columns you need. | 
 | Cross-Region Amazon S3 access after a Global Database switchover. | AuroraAnalyticsRemoteRead and AuroraAnalyticsS3GetRequest both elevated. | Amazon CloudWatch | Repoint foreign tables at a replica bucket in the local Region. See [Cross-Region Amazon S3 latency after switchover](#aurora-analytics-cross-region-latency). | 
 
@@ -318,16 +310,16 @@ ERROR:  [Aurora Analytics] Out of Memory Error: Failed to allocate memory for qu
 DETAIL:  Transaction cancelled due to insufficient memory
 ```
 
-**Cause**: Distinguish the two cases by the accompanying line.
+**Cause**: Distinguish the two cases by the accompanying line:
 + `HINT` present, query memory too low. The query's working set exceeds its per-query `query_mem` budget. This is specific to the query, and retrying without changing anything does not help. The query fails the same way each time until you give it more memory or reduce the data it processes.
 + `DETAIL` present, instance memory pressure. The DB instance is under overall memory pressure, often from too many concurrent sessions, and Aurora's improved memory management cancelled the transaction to keep the instance stable. This is often transient, and a retry frequently succeeds once pressure clears.
 
-**Confirm the cause with metrics**: Check the following.
+**Confirm the cause with metrics**: Check the following:
 + `AuroraAnalyticsMemoryUsage` high relative to instance size, at the time of the error: analytics sessions are consuming the memory. Reduce concurrency or `query_mem` per session.
 + `FreeableMemory` low at the time of the error: the whole instance is under memory pressure, not just analytics, which is the `DETAIL` case.
 + `DatabaseConnections` spiking alongside the error: too many concurrent sessions are competing for memory.
 
-**To resolve this issue**: Choose the path that matches the message. If the error carries a `HINT` (query memory too low), do the following.
+**To resolve this issue**: Choose the path that matches the message. If the error carries a `HINT` (query memory too low), do the following:
 + Increase memory for the session, then rerun.
 
   ```
@@ -338,7 +330,7 @@ DETAIL:  Transaction cancelled due to insufficient memory
 + Scale up the instance if the workload legitimately requires more memory than the instance can budget per query.
 + Retrying the same query unchanged does not resolve this case.
 
-If the error carries a `DETAIL` (instance memory pressure), do the following.
+If the error carries a `DETAIL` (instance memory pressure), do the following:
 + Retry the query. If the cause was transient instance-wide memory pressure, the query often succeeds after pressure is relieved.
 + Reduce concurrency. If many sessions are active, some may need to wait.
 + Scale up the instance to provide more memory for the same workload.
@@ -369,7 +361,7 @@ WHERE disk_spill_size > 0
 ORDER BY disk_spill_size DESC;
 ```
 
-**To resolve this issue**: Do the following.
+**To resolve this issue**: Do the following:
 + Reduce concurrency. Fewer concurrent spilling sessions means less total disk pressure. This addresses the usual cause, takes effect on the next run, and needs no elevated privileges.
 + Optimize the query to reduce intermediate data volume. Add `LIMIT` to ORDER BY queries, add filters before joins to reduce cardinality, or pre-aggregate in subqueries before joining.
 + Check whether the read cache, rather than spill, is consuming local storage, and clear it only if it is (requires the `rds_superuser` role, and make sure no queries are running).
@@ -505,13 +497,13 @@ The following are common issues after a Global Database switchover or failover.
 
 These volume metrics alone don't distinguish cross-Region reads from a cold cache re-warming locally, because both raise remote-read volume right after a switchover. Amazon S3 request latency is what separates them: a spike in per-request latency points to cross-Region reads, while a local cold cache re-warms at normal latency. Aurora PostgreSQL doesn't emit a remote-read latency metric, so to measure this, enable Amazon S3 Request Metrics on the bucket and watch `TotalRequestLatency` (average and p99) in the `AWS/S3` Amazon CloudWatch namespace. Amazon S3 Request Metrics are not enabled by default.
 
-**To resolve this issue**: Do the following.
+**To resolve this issue**: Do the following:
 + Replicate your data to the target Region before switchover or failover, for example with Amazon S3 Cross-Region Replication (CRR).
 + Make sure target-Region networking is ready (Amazon S3 gateway VPC endpoint, proper subnet routing).
 + After switchover or failover, update foreign table definitions to point to the local-Region replica bucket.
 
   ```
-  ALTER FOREIGN TABLE ft_orders OPTIONS (SET location 's3://my-bucket-target-region/data/orders/');
+  ALTER FOREIGN TABLE ft_orders OPTIONS (SET location 's3://amzn-s3-demo-destination-bucket/data/orders/');
   ALTER FOREIGN TABLE ft_orders OPTIONS (SET region 'us-west-2');
   ```
 + Wait for the replication to complete before expecting full performance on the new primary.

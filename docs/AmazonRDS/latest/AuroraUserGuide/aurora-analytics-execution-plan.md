@@ -80,7 +80,7 @@ LIMIT 5;
                Projections: price, mainroad
 ```
 
-Here, `soundex()` is a PostgreSQL function that can't be pushed to the analytics engine. The engine reads the columns (price, mainroad) efficiently via READ\_PARQUET, then PostgreSQL applies `soundex()` locally.
+Here, `soundex()` is a PostgreSQL function that can't be pushed to the analytics engine. The engine reads the columns (price, mainroad) efficiently through READ\_PARQUET, then PostgreSQL applies `soundex()` locally.
 
 ## Reading an execution plan: walkthrough
 <a name="aurora-analytics-reading-plan-walkthrough"></a>
@@ -137,15 +137,15 @@ ORDER BY l_returnflag, l_linestatus;
 
 **Reading this plan bottom-up:**
 
-1. **READ\_PARQUET**: Scanned `ft_lineitem` across 21 Parquet files. The filter `l_shipdate <= '1998-09-01'` was pushed to the scan level (predicate pushdown), skipping row groups that didn't match. "Rows Removed by Filter: 15,303,257,125" means billions of row-group entries were eliminated using min/max statistics. Only 4 columns were projected: `l_quantity`, `l_extendedprice`, `l_returnflag`, `l_linestatus`. The other 12 lineitem columns were never read from Amazon S3.
+1. **READ\_PARQUET** – Scanned `ft_lineitem` across 21 Parquet files. The filter `l_shipdate <= '1998-09-01'` was pushed to the scan level (predicate pushdown), skipping row groups that didn't match. "Rows Removed by Filter: 15,303,257,125" means billions of row-group entries were eliminated using min/max statistics. Only 4 columns were projected: `l_quantity`, `l_extendedprice`, `l_returnflag`, `l_linestatus`. The other 12 lineitem columns were never read from Amazon S3.
 
-1. **PROJECTION**: Passed 591 million qualifying rows with the 4 projected columns to the aggregation stage.
+1. **PROJECTION** – Passed 591 million qualifying rows with the 4 projected columns to the aggregation stage.
 
-1. **HASH\_GROUP\_BY**: Grouped by `l_returnflag` and `l_linestatus` (4 distinct combinations), computing `count(*)`, `sum(l_quantity)`, and `avg(l_extendedprice)`. Reduced 591M rows to 4 output rows.
+1. **HASH\_GROUP\_BY** – Grouped by `l_returnflag` and `l_linestatus` (4 distinct combinations), computing `count(*)`, `sum(l_quantity)`, and `avg(l_extendedprice)`. Reduced 591M rows to 4 output rows.
 
-1. **ORDER\_BY**: Sorted the 4 result rows by `l_returnflag`, `l_linestatus`.
+1. **ORDER\_BY** – Sorted the 4 result rows by `l_returnflag`, `l_linestatus`.
 
-1. **Custom Scan (aurora\_analytics)**: Top-level wrapper. Returned 4 rows to PostgreSQL. The `Pushdown SQL` line confirms the entire query was pushed to the analytical engine.
+1. **Custom Scan (aurora\_analytics)** – Top-level wrapper. Returned 4 rows to PostgreSQL. The `Pushdown SQL` line confirms the entire query was pushed to the analytical engine.
 
 **Cache and S3 metrics:**
 + Cache hit: \~4.5 GB (warm, data was cached from prior runs)
@@ -230,24 +230,24 @@ LIMIT 5;
 
 **Reading this plan bottom-up:**
 
-1. **Four READ\_PARQUET nodes**: Each foreign table is scanned independently:
+1. **Four READ\_PARQUET nodes** – Each foreign table is scanned independently:
    + `ft_nation`: 25 rows from 1 file (small dimension table)
    + `ft_customer`: 10M rows from 2 files, with dynamic filter pruning from the orders join
    + `ft_orders`: 22.8M rows from 6 files, after filtering to year 1994 (4.5B rows removed by date filter)
    + `ft_lineitem`: 92M rows from 21 files, with Bloom filter pushdown from the orders join key
 
-1. **Three HASH\_JOIN nodes**: The engine builds hash tables and joins in order:
+1. **Three HASH\_JOIN nodes** – The engine builds hash tables and joins in order:
    + nation ⋈ customer (on `c_nationkey = n_nationkey`)
    + result ⋈ orders (on `o_custkey = c_custkey`)
    + result ⋈ lineitem (on `l_orderkey = o_orderkey`)
 
-1. **Dynamic Filters**: Aurora PostgreSQL passes join key ranges and Bloom filters from the build side to the probe side's scan. The `l_orderkey IN BF(o_orderkey)` means only lineitem rows matching orders keys are read, a significant optimization.
+1. **Dynamic Filters** – Aurora PostgreSQL passes join key ranges and Bloom filters from the build side to the probe side's scan. The `l_orderkey IN BF(o_orderkey)` means only lineitem rows matching orders keys are read, a significant optimization.
 
-1. **PROJECTION**: Computes `l_extendedprice * (1 - l_discount)` for 91M joined rows.
+1. **PROJECTION** – Computes `l_extendedprice * (1 - l_discount)` for 91M joined rows.
 
-1. **HASH\_GROUP\_BY**: Groups by `n_name` (25 nations), reduces 91M rows to 25 groups.
+1. **HASH\_GROUP\_BY** – Groups by `n_name` (25 nations), reduces 91M rows to 25 groups.
 
-1. **TOP\_N**: Takes top 5 by revenue descending.
+1. **TOP\_N** – Takes top 5 by revenue descending.
 
 **Cache and S3 metrics:**
 + Cache hit: \~3.3 GB
@@ -297,13 +297,13 @@ GROUP BY ls.s_regionkey;
 
 **Reading this plan:**
 
-1. **Single top-level Custom Scan**: The entire query, including the join with the local table, is pushed to the analytics engine. There are no PostgreSQL nodes (HashAggregate, Hash Join) wrapping it, unlike the table-scan pushdown case above.
+1. **Single top-level Custom Scan** – The entire query, including the join with the local table, is pushed to the analytics engine. There are no PostgreSQL nodes (HashAggregate, Hash Join) wrapping it, unlike the table-scan pushdown case above.
 
-1. **POSTGRES\_SCAN (local\_supp)**: The local heap table is read by the analytics engine itself and fed into the pushed-down `HASH_JOIN`. The local table participates in the join *inside* the engine rather than being joined afterward by PostgreSQL.
+1. **POSTGRES\_SCAN (local\_supp)** – The local heap table is read by the analytics engine itself and fed into the pushed-down `HASH_JOIN`. The local table participates in the join *inside* the engine rather than being joined afterward by PostgreSQL.
 
-1. **READ\_PARQUET (ft\_lineitem)**: The foreign table scan pushes the `l_shipdate` filter and projects only `l_suppkey`.
+1. **READ\_PARQUET (ft\_lineitem)** – The foreign table scan pushes the `l_shipdate` filter and projects only `l_suppkey`.
 
-1. **HASH\_JOIN, HASH\_GROUP\_BY**: The join and the `GROUP BY`/`count(*)` aggregation both run inside the engine.
+1. **HASH\_JOIN, HASH\_GROUP\_BY** – The join and the `GROUP BY`/`count(*)` aggregation both run inside the engine.
 
 **Key takeaway**: Joining a foreign table with a local table does not force a fallback. As long as every function, data type, and collation in the query is supported, the local table is pushed into the analytics engine and the whole query is pushed down.
 
@@ -346,17 +346,17 @@ GROUP BY n_name;
 
 **Reading this plan:**
 
-1. **Plan structure**: Unlike the previous examples, this plan has PostgreSQL nodes (HashAggregate, Hash Join, Seq Scan) wrapping the analytics engine's Custom Scan. This is table-scan pushdown, not full query pushdown.
+1. **Plan structure** – Unlike the previous examples, this plan has PostgreSQL nodes (HashAggregate, Hash Join, Seq Scan) wrapping the analytics engine's Custom Scan. This is table-scan pushdown, not full query pushdown.
 
-1. **Custom Scan (ft\_lineitem)**: Aurora PostgreSQL handles only the foreign table scan. It pushes the `l_shipdate > '1998-01-01'` filter and projects only `l_suppkey`, an efficient columnar scan with predicate pushdown.
+1. **Custom Scan (ft\_lineitem)** – Aurora PostgreSQL handles only the foreign table scan. It pushes the `l_shipdate > '1998-01-01'` filter and projects only `l_suppkey`, an efficient columnar scan with predicate pushdown.
 
-1. **Seq Scan (nation)**: The local `nation` table is read through PostgreSQL's standard executor (shared\_buffers → Aurora Storage).
+1. **Seq Scan (nation)** – The local `nation` table is read through PostgreSQL's standard executor (shared\_buffers → Aurora Storage).
 
-1. **Hash Join**: PostgreSQL joins the two result sets using a hash join on `l_suppkey = n_nationkey`.
+1. **Hash Join** – PostgreSQL joins the two result sets using a hash join on `l_suppkey = n_nationkey`.
 
-1. **HashAggregate**: PostgreSQL performs the GROUP BY and count(\*) aggregation.
+1. **HashAggregate** – PostgreSQL performs the GROUP BY and count(\*) aggregation.
 
-1. **Unsupported Pushdown Expressions**: The reason full pushdown failed: `character(25)` (the `n_name` column type in the local `nation` table). The `char(n)` type is not supported for pushdown. If this table were a foreign table with `TEXT` columns, full pushdown would succeed.
+1. **Unsupported Pushdown Expressions** – The reason full pushdown failed: `character(25)` (the `n_name` column type in the local `nation` table). The `char(n)` type is not supported for pushdown. If this table were a foreign table with `TEXT` columns, full pushdown would succeed.
 
 **Key takeaway**: In table-scan pushdown, Aurora PostgreSQL still provides value through efficient columnar scanning with predicate pushdown and column pruning. PostgreSQL handles only the operations that can't be pushed down (unsupported functions, data types, or collations). Had the local table used a supported type such as `text` with a compatible collation, the entire hybrid join would have been pushed to the analytics engine as a single Custom Scan. To get full pushdown without changing the local table, see [Joining foreign tables with local tables](aurora-analytics-local-table-casts.md).
 
@@ -434,7 +434,7 @@ LIMIT 5;
 The plan shows:
 + **PostgreSQL handles** the `Limit` and `soundex()` function call
 + **Aurora PostgreSQL handles** only the table scan (reading `name` and `age` columns)
-+ **Reason**: `soundex(text)` is not a pushdown-safe function
++ **Reason** – `soundex(text)` is not a pushdown-safe function
 
 **Topics**
 + [Categories of unsupported expressions](#aurora-analytics-unsupported-categories)
@@ -470,8 +470,8 @@ Look for "Unsupported Pushdown Expressions" in the output.
 If present, read the category and description to understand what prevented full pushdown.
 
 **Step 3: Fix the expression**
-+ **Unsupported function**: There is no rewrite that pushes an unsupported function down. When a query applies an unsupported function (such as `soundex()`) to a foreign table column, Aurora PostgreSQL automatically falls back to table-scan pushdown: it still pushes the scan, projection, and any supported filters to the analytics engine, and applies the function in PostgreSQL on the returned rows. To regain full pushdown, avoid the unsupported function in queries against foreign tables, or precompute its result in the source data. Otherwise, accept table-scan pushdown, which still gives you efficient columnar scanning.
-+ **Non-C collation**: Add explicit `COLLATE "C"` to text comparisons:
++ **Unsupported function** – There is no rewrite that pushes an unsupported function down. When a query applies an unsupported function (such as `soundex()`) to a foreign table column, Aurora PostgreSQL automatically falls back to table-scan pushdown. It still pushes the scan, projection, and any supported filters to the analytics engine, and applies the function in PostgreSQL on the returned rows. To regain full pushdown, avoid the unsupported function in queries against foreign tables, or precompute its result in the source data. Otherwise, accept table-scan pushdown, which still gives you efficient columnar scanning.
++ **Non-C collation** – Add explicit `COLLATE "C"` to text comparisons:
 
   ```
   -- Instead of:
@@ -480,7 +480,7 @@ If present, read the category and description to understand what prevented full 
   -- Use:
   WHERE name COLLATE "C" LIKE 'Smith%'
   ```
-+ **Unsupported type**: Avoid casting to unsupported types in expressions on foreign table columns. For local table columns, see [Joining foreign tables with local tables](aurora-analytics-local-table-casts.md).
++ **Unsupported type** – Avoid casting to unsupported types in expressions on foreign table columns. For local table columns, see [Joining foreign tables with local tables](aurora-analytics-local-table-casts.md).
 
 **Step 4: Verify**
 
@@ -510,6 +510,8 @@ When `aurora_analytics.track_detailed_metrics` is on, each `Custom Scan` node al
 
 ## Tips for execution plan analysis
 <a name="aurora-analytics-tips"></a>
+
+Keep the following tips in mind when you analyze execution plans:
 + Always use `EXPLAIN VERBOSE` when debugging pushdown behavior. It shows both `Pushdown SQL` and `Unsupported Pushdown Expressions`.
 + A single `Custom Scan` at the top level of the plan = full pushdown (fastest). A `Custom Scan` nested inside PostgreSQL nodes (whether one or several) = table-scan pushdown (slower but still leverages the columnar scan).
 + The `Filters` line under `READ_PARQUET` confirms your WHERE clause was pushed to the scan level. If you see `Filter:` at the `Custom Scan` level instead, the predicate wasn't pushed all the way down.

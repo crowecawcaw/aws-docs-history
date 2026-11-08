@@ -38,7 +38,7 @@ You can reset stats for this function using `pg_stat_statements_reset()`.
 + `max_exec_peakmem` – Largest peak memory value, in bytes, seen during execution across all calls to this statement.
 
 **Note**  
-`total_plan_peakmen`, `min_plan_peakmem`, and `max_plan_peakmem` are only monitored when the setting `pg_stat_statements.track_planning` is turned on.
+`total_plan_peakmem`, `min_plan_peakmem`, and `max_plan_peakmem` are only monitored when the setting `pg_stat_statements.track_planning` is turned on.
 
 ## Usage notes
 <a name="aurora_stat_statements-usage-notes"></a>

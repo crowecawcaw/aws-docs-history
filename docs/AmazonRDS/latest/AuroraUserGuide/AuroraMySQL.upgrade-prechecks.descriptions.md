@@ -975,6 +975,7 @@ The following prechecks are specific to Aurora MySQL:
 + [auroraGetDanglingFulltextIndex](#auroraGetDanglingFulltextIndex)
 + [auroraUpgradeCheckForDatafilePathInconsistency](#auroraUpgradeCheckForDatafilePathInconsistency)
 + [auroraUpgradeCheckForFtsSpaceIdZero](#auroraUpgradeCheckForFtsSpaceIdZero)
++ [auroraUpgradeCheckForFtsSyncInconsistency](#auroraUpgradeCheckForFtsSyncInconsistency)
 + [auroraUpgradeCheckForIncompleteXATransactions](#auroraUpgradeCheckForIncompleteXATransactions)
 + [auroraUpgradeCheckForInstanceLimit](#auroraUpgradeCheckForInstanceLimit)
 + [auroraUpgradeCheckForInternalUsers](#auroraUpgradeCheckForInternalUsers)
@@ -1178,6 +1179,88 @@ Before rebuilding tablespaces, see [Partitioning operations](https://dev.mysql.c
  "detectedProblems": []
 }
 ```
+
+**auroraUpgradeCheckForFtsSyncInconsistency**  
+**Precheck level: Error**  
+**Check for FTS auxiliary table sync inconsistency**  
+This precheck detects tables with InnoDB Full-Text Search (FTS) indexes where the internal sync mechanism failed. Specifically, it identifies cases where the `synced_doc_id` in the FTS configuration is less than the maximum document ID in the on-disk auxiliary index tables.  
+This condition indicates that FTS sync operations failed silently, for example because of duplicate key errors, so the in-memory FTS cache keeps growing instead of flushing to disk.  
+If left unresolved, this inconsistency can lead to data loss in Full-Text Search indexes during any restart or upgrade.  
+**Example output:**  
+
+```
+{
+  "id": "auroraUpgradeCheckForFtsSyncInconsistency",
+  "title": "Check for FTS auxiliary table sync inconsistency",
+  "status": "OK",
+  "description": "Following table(s) has/have a potential duplicate key issue in the FTS auxiliary tables causing sync failures.",
+  "detectedProblems": [
+      {
+        "level": "Error",
+        "dbObject": "mydb.my_fts_table",
+        "description": "FTS sync is failing. Run 'ALTER TABLE `mydb`.`my_fts_table` FORCE' or 'OPTIMIZE TABLE `mydb`.`my_fts_table`' (with innodb_optimize_fulltext_only=OFF) or drop and recreate the FTS index (in separate statements) to rebuild the table before upgrade."
+      }
+  ]
+}
+```
+**How to identify affected tables:**  
+To manually verify which tables have FTS sync inconsistencies, follow these steps:  
+
+1. List all tables with FULLTEXT indexes:
+
+   ```
+   SELECT DISTINCT t.NAME
+   FROM information_schema.innodb_sys_tables t
+   INNER JOIN information_schema.innodb_sys_indexes i
+     ON t.TABLE_ID = i.TABLE_ID
+   WHERE i.TYPE = 32
+     AND t.NAME NOT LIKE 'mysql/%'
+     AND t.NAME NOT LIKE 'sys/%';
+   ```
+
+1. For each table returned by the preceding query, set the `innodb_ft_aux_table` parameter to point to that table. Because this is a global variable, you must update it through your DB cluster parameter group:
+
+   1. In the Amazon RDS console, choose **Parameter groups**.
+
+   1. Edit your DB cluster parameter group and set `innodb_ft_aux_table` to the table name in `schema/table` format (for example, `mydb/my_fts_table`).
+
+   1. Apply the parameter change. This takes effect immediately because it is a dynamic parameter.
+
+1. After setting the parameter, connect to the database and run the following queries to check for inconsistency:
+
+   ```
+   -- Verify the parameter is set correctly
+   SELECT @@GLOBAL.innodb_ft_aux_table;
+   -- Should return 'schema/table' (e.g., 'mydb/my_fts_table')
+   
+   -- Check synced_doc_id
+   SELECT CAST(VALUE AS UNSIGNED) AS synced_doc_id
+   FROM INFORMATION_SCHEMA.INNODB_FT_CONFIG
+   WHERE `KEY` = 'synced_doc_id';
+   
+   -- Check MAX(FIRST_DOC_ID) in the on-disk auxiliary index
+   SELECT MAX(FIRST_DOC_ID) AS max_first_doc_id
+   FROM INFORMATION_SCHEMA.INNODB_FT_INDEX_TABLE;
+   
+   -- If synced_doc_id < max_first_doc_id, this table has an FTS sync inconsistency.
+   ```
+Repeat steps 2 and 3 for each table identified in step 1.  
+**Resolution:**  
+Use one of the following methods to rebuild the FTS index on each affected table:  
+
+```
+-- Option 1: Drop and recreate the FULLTEXT index
+ALTER TABLE `schema`.`table` DROP INDEX ft_index_name;
+ALTER TABLE `schema`.`table` ADD FULLTEXT INDEX ft_index_name (column_name);
+
+-- Option 2: Rebuild the table (rebuilds all indexes including FTS)
+ALTER TABLE `schema`.`table` FORCE;
+
+-- Option 3: Optimize the table with full rebuild
+SET GLOBAL innodb_optimize_fulltext_only = OFF;
+OPTIMIZE TABLE `schema`.`table`;
+```
+After applying the fix, retry the upgrade. The precheck passes after all affected tables have consistent FTS auxiliary data.
 
 **auroraUpgradeCheckForIncompleteXATransactions**  
 **Precheck level: Error**  

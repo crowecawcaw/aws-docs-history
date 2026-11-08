@@ -38,9 +38,10 @@ Aurora PostgreSQL provides the following two functions for monitoring the write-
 + The `aurora_stat_logical_wal_cache` function – For reference documentation, see [aurora\_stat\_logical\_wal\_cache](aurora_stat_logical_wal_cache.md).
 + The `aurora_stat_reset_wal_cache` function – For reference documentation, see [aurora\_stat\_reset\_wal\_cache](aurora_stat_reset_wal_cache.md).
 
-If you find that the automatically adjusted WAL cache size isn't sufficient for your workloads, you can change the the value of the `rds.logical_wal_cache` manually. Consider the following:
+If you find that the automatically adjusted WAL cache size isn't sufficient for your workloads, you can change the value of the `rds.logical_wal_cache` manually. Consider the following:
 + When the `rds.logical_replication` parameter is disabled, `rds.logical_wal_cache` is set to zero (0).
 + When the `rds.logical_replication` parameter is enabled, `rds.logical_wal_cache` has a default value of 16 MB.
++ When you enable the `aurora.enhanced_logical_replication` parameter, Aurora PostgreSQL doesn't use the write-through cache. Enhanced logical replication reads the log records that it replicates through a different mechanism. In this case, Aurora PostgreSQL sets `rds.logical_wal_cache` to zero (0) and ignores any value that you set for this parameter. Aurora zero-ETL integrations require enhanced logical replication. For more information, see [Getting started with Aurora zero-ETL integrations](zero-etl.setting-up.md).
 + The `rds.logical_wal_cache` parameter is static and requires a database instance reboot for changes to take effect. This parameter is defined in terms of 8 Kb blocks. Note that any positive value less than 32 Kb is treated as 32 Kb. For more information about `wal_buffers` see [Write Ahead Log](https://www.postgresql.org/docs/current/runtime-config-wal.html#RUNTIME-CONFIG-WAL-SETTINGS) in the PostgreSQL documentation. 
 
 ## Managing logical slots for Aurora PostgreSQL

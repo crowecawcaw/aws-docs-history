@@ -66,7 +66,7 @@ If you connect to an EC2 instance, you can't make the DB shard group publicly ac
 
    1. Choose the **Virtual private cloud (VPC)** and **DB subnet group**, or use the default settings.
 **Note**  
-If you create your Limitless Database DB cluster in the US East (N. Virginia) Region, don't include the `us-east-1e` Availability Zone (AZ) in your DB subnet group. Because of resource limitations, Aurora serverless—and therefore Limitless Database—isn't supported in the `us-east-1e` AZ.
+If you create your Limitless Database DB cluster in the US East (N. Virginia) Region, don't include the Availability Zone (AZ) with the AZ ID `use1-az3` in your DB subnet group. Because of resource limitations, Aurora serverless—and therefore Limitless Database—isn't supported in the `use1-az3` AZ. AZ names, such as `us-east-1e`, map to different AZ IDs in each AWS account. For more information, see [Availability Zone IDs for your AWS resources](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html).
 
    1. Choose the **VPC security group (firewall)**, or use the default setting.
 
@@ -122,7 +122,7 @@ You can't modify this setting after you create the DB cluster.
 The following parameters are optional:
 + `--db-subnet-group-name` – The DB subnet group to associate with the DB cluster. This also determines the VPC associated with the DB cluster.
 **Note**  
-If you create your Limitless Database DB cluster in the US East (N. Virginia) Region, don't include the `us-east-1e` Availability Zone (AZ) in your DB subnet group. Because of resource limitations, Aurora serverless—and therefore Limitless Database—isn't supported in the `us-east-1e` AZ.
+If you create your Limitless Database DB cluster in the US East (N. Virginia) Region, don't include the Availability Zone (AZ) with the AZ ID `use1-az3` in your DB subnet group. Because of resource limitations, Aurora serverless—and therefore Limitless Database—isn't supported in the `use1-az3` AZ. AZ names, such as `us-east-1e`, map to different AZ IDs in each AWS account. For more information, see [Availability Zone IDs for your AWS resources](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html).
 + `--vpc-security-group-ids` – A list of VPC security groups to associate with the DB cluster.
 + `--performance-insights-kms-key-id` – The AWS KMS key identifier for encryption of Performance Insights data. If you don't specify a KMS key, the default key for your AWS account is used.
 + `--region` – The AWS Region where you create the DB cluster. It must be one that supports Aurora PostgreSQL Limitless Database.

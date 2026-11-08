@@ -22,8 +22,6 @@ These functions let you inspect analytics query performance, resource usage, and
 The following table summarizes the analytics SQL functions.
 
 
-**Analytics SQL functions**  
-
 | Function | Scope | What it answers | 
 | --- | --- | --- | 
 | aurora\_analytics\_stat\_statements() | Per normalized query, cumulative | Which queries read from Amazon S3 versus cache, spill to disk, or spend the most CPU. | 
@@ -54,10 +52,8 @@ Returns cumulative analytics performance statistics for each normalized query. U
 **Note**  
 By default, this function returns statistics only for the queries that your own role ran. Members of the `rds_superuser` role see statistics for all queries.
 
-The following table describes the return columns.
+The following table describes the return columns for `aurora_analytics_stat_statements()`.
 
-
-**Return columns for aurora\_analytics\_stat\_statements()**  
 
 | Column | Type | Description | 
 | --- | --- | --- | 
@@ -83,7 +79,7 @@ WHERE analytics_cache_hit_bytes > 0 OR analytics_remote_read_bytes > 0
 ORDER BY analytics_remote_read_bytes DESC;
 ```
 
-Interpret the results as follows.
+Interpret the results as follows:
 + `analytics_cache_hit_bytes` much greater than `analytics_remote_read_bytes` means the cache is warm and most reads are local.
 + `analytics_remote_read_bytes` much greater than `analytics_cache_hit_bytes` means the cache is cold or the working set is too large to fit in the cache.
 + `analytics_total_disk_spill` greater than 0 means the query is spilling to disk because of memory pressure.
@@ -99,10 +95,8 @@ aurora_analytics_stat_resource_usage()
 
 Returns a live snapshot of analytics resource usage for each backend. Use this function to find which backend is consuming memory, worker threads, and spill space right now.
 
-The following table describes the return columns.
+The following table describes the return columns for `aurora_analytics_stat_resource_usage()`.
 
-
-**Return columns for aurora\_analytics\_stat\_resource\_usage()**  
 
 | Column | Type | Description | 
 | --- | --- | --- | 
@@ -135,10 +129,8 @@ aurora_analytics_instance_metrics()
 
 Returns cumulative analytics metrics for the whole instance since the engine started. Use this function to see how much Amazon S3 request and cache activity the instance has done. The counters reset if the engine restarts.
 
-The following table describes the return columns.
+The following table describes the return columns for `aurora_analytics_instance_metrics()`.
 
-
-**Return columns for aurora\_analytics\_instance\_metrics()**  
 
 | Column | Type | Description | 
 | --- | --- | --- | 
@@ -224,10 +216,8 @@ Lists the PostgreSQL operators, functions, and types that the analytics engine s
 
 This function takes no arguments.
 
-The following table describes the return columns.
+The following table describes the return columns for `aurora_analytics_available_features()`.
 
-
-**Return columns for aurora\_analytics\_available\_features()**  
 
 | Column | Type | Description | 
 | --- | --- | --- | 
@@ -261,10 +251,8 @@ Reports memory usage and temporary storage usage per internal memory category fo
 
 This function takes no arguments.
 
-The following table describes the return columns.
+The following table describes the return columns for `aurora_analytics_stats_duckdb_memory()`.
 
-
-**Return columns for aurora\_analytics\_stats\_duckdb\_memory()**  
 
 | Column | Type | Description | 
 | --- | --- | --- | 
@@ -292,14 +280,12 @@ aurora_analytics_remote_tables(catalog text, schema_name text)
 
 Discovers the tables available in a remote catalog (an AWS Glue database or an Amazon S3 Tables namespace) and returns their names and storage locations.
 
-This function takes the following arguments.
+This function takes the following arguments:
 + `catalog`: An AWS Glue Data Catalog ARN or Amazon S3 Tables bucket ARN. This is the same catalog value that you use in `IMPORT FOREIGN SCHEMA`.
 + `schema_name`: The name of the schema (AWS Glue database or Amazon S3 Tables namespace) within the catalog. This is the same schema name that you use in `IMPORT FOREIGN SCHEMA`.
 
-The following table describes the return columns.
+The following table describes the return columns for `aurora_analytics_remote_tables()`.
 
-
-**Return columns for aurora\_analytics\_remote\_tables()**  
 
 | Column | Type | Description | 
 | --- | --- | --- | 
@@ -311,7 +297,7 @@ Permission: `USAGE` privilege on the foreign server.
 The following example lists the tables in a remote catalog and schema.
 
 ```
-SELECT * FROM aurora_analytics_remote_tables('arn:aws:glue:us-east-1:123456789012:catalog', 'my_database');
+SELECT * FROM aurora_analytics_remote_tables('arn:aws:glue:us-east-1:111122223333:catalog', 'my_database');
 ```
 
 ## aurora\_analytics\_iceberg\_snapshots()
@@ -325,10 +311,8 @@ Lists all available Iceberg snapshots for a foreign table. Use this function to 
 
 This function takes one argument, `table_name`, which is the name or OID of an Iceberg foreign table.
 
-The following table describes the return columns.
+The following table describes the return columns for `aurora_analytics_iceberg_snapshots()`.
 
-
-**Return columns for aurora\_analytics\_iceberg\_snapshots()**  
 
 | Column | Type | Description | 
 | --- | --- | --- | 
@@ -359,10 +343,8 @@ Lists the Iceberg manifest entries and data files for a foreign table. Use this 
 
 This function takes one argument, `table_name`, which is the name or OID of an Iceberg foreign table.
 
-The following table describes the return columns.
+The following table describes the return columns for `aurora_analytics_iceberg_metadata()`.
 
-
-**Return columns for aurora\_analytics\_iceberg\_metadata()**  
 
 | Column | Type | Description | 
 | --- | --- | --- | 

@@ -6,18 +6,16 @@
 This topic describes the metrics, wait events, and diagnostic queries you use to monitor your analytics workload, and how to build dashboards from them. For specific symptoms, see [Troubleshooting](aurora-analytics-troubleshooting.md).
 
 Aurora PostgreSQL reports its analytics activity through four channels. Each channel answers a different question, and most investigations use more than one.
-+ **Amazon CloudWatch metrics**: Instance-level time series for memory, cache, spill, Amazon S3 requests, and worker threads, alongside the standard Aurora metrics. Use them for dashboards, alarms, and trends over hours to weeks. This channel is the only one that supports alarms.
-+ **SQL diagnostic functions**: Per-query and per-backend counters read live from the instance. Use them when you need exact bytes, spill, or thread counts for one query or one process ID, which Amazon CloudWatch cannot attribute.
-+ **Database Insights**: Sampled session activity rather than published metrics. Use it to see which queries dominate the instance and what they are waiting on.
-+ **Logging**: Engine messages in the PostgreSQL error log. Use it as a last resort for problems that leave no trail in the other three channels.
++ **Amazon CloudWatch metrics** – Instance-level time series for memory, cache, spill, Amazon S3 requests, and worker threads, alongside the standard Aurora metrics. Use them for dashboards, alarms, and trends over hours to weeks. This channel is the only one that supports alarms.
++ **SQL diagnostic functions** – Per-query and per-backend counters read live from the instance. Use them when you need exact bytes, spill, or thread counts for one query or one process ID, which Amazon CloudWatch cannot attribute.
++ **Database Insights** – Sampled session activity rather than published metrics. Use it to see which queries dominate the instance and what they are waiting on.
++ **Logging** – Engine messages in the PostgreSQL error log. Use it as a last resort for problems that leave no trail in the other three channels.
 
 ## Amazon CloudWatch metrics
 <a name="aurora-analytics-cloudwatch-metrics"></a>
 
 The following Amazon CloudWatch metrics are published for Aurora Analytics.
 
-
-**Aurora Analytics Amazon CloudWatch metrics**  
 
 | Metric name | Description | Unit | 
 | --- | --- | --- | 
@@ -44,8 +42,8 @@ Aurora PostgreSQL uses local storage for the on-disk read cache and for query sp
 
 Classes such as `db.r8g`, `db.r7g`, and `db.r7i` have no instance store, so the read cache and spill files share the Amazon EBS-backed volume with the rest of the database. Analytical I/O therefore competes with normal PostgreSQL I/O, and it is reported by the general storage metrics rather than by a set of metrics specific to Analytics.
 
+The following table lists the storage metrics for Amazon EBS-only classes.
 
-**Storage metrics for Amazon EBS-only classes**  
 
 | Metric name | Relevance to analytics | Unit | 
 | --- | --- | --- | 
@@ -63,8 +61,8 @@ On Amazon EBS-only classes, watch `ReadLatency` and `DiskQueueDepth` together. R
 
 Classes such as `db.r8gd` and `db.r6gd` include an NVMe instance store, and Aurora PostgreSQL places the read cache and spill files there instead of on the Amazon EBS volume. This keeps analytical I/O off the database volume and gives the cache much lower read latency. The NVMe device reports through its own set of ephemeral storage metrics, so `ReadIOPS`, `ReadLatency`, and `DiskQueueDepth` no longer reflect analytical I/O on these classes.
 
+The following table lists the storage metrics for NVMe classes.
 
-**Storage metrics for NVMe classes**  
 
 | Metric name | Relevance to analytics | Unit | 
 | --- | --- | --- | 
@@ -82,8 +80,6 @@ The on-disk read cache does not survive an instance restart, replacement, or fai
 Beyond the metrics specific to analytics, the following standard Aurora metrics are useful for monitoring an analytical workload.
 
 
-**Standard Aurora metrics relevant to Analytics**  
-
 | Metric name | Relevance to analytics | Unit | 
 | --- | --- | --- | 
 | FreeLocalStorage | Available local storage for the read cache and for query spill files. A dropping value means the cache and spill files are filling the volume. On NVMe classes, use FreeEphemeralStorage instead, because the cache and spill files are on the instance store. | Bytes | 
@@ -96,8 +92,6 @@ Beyond the metrics specific to analytics, the following standard Aurora metrics 
 
 Aurora PostgreSQL provides SQL-callable functions that report counters Amazon CloudWatch cannot attribute: exact bytes, spill, and thread counts for one query or one backend. Start with the following table to choose a function, then see the SQL functions reference for its columns.
 
-
-**SQL diagnostic functions**  
 
 | Function | Scope | What it answers | 
 | --- | --- | --- | 
@@ -129,7 +123,7 @@ WHERE analytics_cache_hit_bytes > 0 OR analytics_remote_read_bytes > 0
 ORDER BY analytics_remote_read_bytes DESC;
 ```
 
-Interpret the results as follows.
+Interpret the results as follows:
 + `analytics_cache_hit_bytes` much greater than `analytics_remote_read_bytes`: cache is warm and most reads are served locally.
 + `analytics_remote_read_bytes` much greater than `analytics_cache_hit_bytes`: cache is cold or the working set is too large.
 + `analytics_total_disk_spill` greater than 0: query is spilling to disk due to memory pressure.
@@ -186,9 +180,9 @@ ORDER BY a.query_start;
 ## Interpreting the active thread count
 <a name="aurora-analytics-active-thread-count"></a>
 
-The `AuroraAnalyticsActiveThreads` Amazon CloudWatch metric and the `active_threads` column of `aurora_analytics_stat_resource_usage()` report the number of analytics worker threads that are actively executing at the moment of measurement. This count is often much higher than your number of concurrent sessions, which is expected. The active thread count includes two kinds of worker threads.
-+ **Query execution threads**: Threads that run the query plan (scan, filter, aggregate, join, sort). Aurora manages the number of these threads automatically, scaled from the query's memory budget. For more information, see [Worker threads](aurora-analytics-resource-management.md#aurora-analytics-worker-threads).
-+ **Amazon S3 I/O threads**: Threads from a pool that downloads data blocks from Amazon S3 in parallel on cache misses. These threads are active only while data is being fetched from Amazon S3. On a cold cache, or when the working set exceeds the cache, many of these threads can be active at once.
+The `AuroraAnalyticsActiveThreads` Amazon CloudWatch metric and the `active_threads` column of `aurora_analytics_stat_resource_usage()` report the number of analytics worker threads that are actively executing at the moment of measurement. This count is often much higher than your number of concurrent sessions, which is expected. The active thread count includes two kinds of worker threads:
++ **Query execution threads** – Threads that run the query plan (scan, filter, aggregate, join, sort). Aurora manages the number of these threads automatically, scaled from the query's memory budget. For more information, see [Worker threads](aurora-analytics-resource-management.md#aurora-analytics-worker-threads).
++ **Amazon S3 I/O threads** – Threads from a pool that downloads data blocks from Amazon S3 in parallel on cache misses. These threads are active only while data is being fetched from Amazon S3. On a cold cache, or when the working set exceeds the cache, many of these threads can be active at once.
 
 Only threads that are actively doing work are counted. A thread that is idle and waiting for work is not included, so the count rises and falls continuously as a query runs.
 
@@ -223,13 +217,11 @@ Where Amazon CloudWatch tells you that the instance is under pressure, Database 
 Aurora PostgreSQL adds one wait event for foreign table queries.
 
 
-**Analytics wait event**  
-
 | Wait event | Type | Meaning | 
 | --- | --- | --- | 
 | Extension:AuroraAnalyticsExecute | Extension | The backend is executing a query in the analytics engine, including time spent reading data from Amazon S3. This is the primary wait event for foreign table queries. | 
 
-To identify top analytical queries, do the following.
+To identify top analytical queries, do the following:
 
 1. Navigate to the Top SQL tab.
 
@@ -240,7 +232,7 @@ To identify top analytical queries, do the following.
 ### Interpreting the AuroraAnalyticsExecute wait event
 <a name="aurora-analytics-wait-event"></a>
 
-When a query references a foreign table, the PostgreSQL backend hands execution to the embedded analytics engine and blocks until the engine returns results. During this time, the backend reports the `Extension:AuroraAnalyticsExecute` wait event. In Database Insights, this appears in the average active sessions (AAS) chart as `Extension:AuroraAnalyticsExecute`. Keep the following in mind.
+When a query references a foreign table, the PostgreSQL backend hands execution to the embedded analytics engine and blocks until the engine returns results. During this time, the backend reports the `Extension:AuroraAnalyticsExecute` wait event. In Database Insights, this appears in the average active sessions (AAS) chart as `Extension:AuroraAnalyticsExecute`. Keep the following in mind:
 + **It is reported per session, not per thread.** Each PostgreSQL backend running an analytical query contributes at most one unit of average active sessions to `Extension:AuroraAnalyticsExecute`, in the same way as any other PostgreSQL wait event. If you run 8 concurrent analytical queries, the contribution of this wait event to AAS is bounded by 8, regardless of how many worker threads the engine uses internally.
 + **It covers both compute and Amazon S3 reads.** A single query spends time on columnar computation (aggregation, joins, sorting) and, on cache misses, on fetching data from Amazon S3. Both are counted under this one wait event. The engine does not currently emit a separate wait event for Amazon S3 reads.
 + **It is distinct from the active thread count.** The number of internal worker threads that the engine uses to process a query is reported separately, by the `AuroraAnalyticsActiveThreads` Amazon CloudWatch metric and the `aurora_analytics_stat_resource_usage()` function. A single session showing one unit of `Extension:AuroraAnalyticsExecute` in Database Insights can correspond to dozens or hundreds of active worker threads. For more information, see [Interpreting the active thread count](#aurora-analytics-active-thread-count).
@@ -248,7 +240,7 @@ When a query references a foreign table, the PostgreSQL backend hands execution 
 ### Tracking query duration trends
 <a name="aurora-analytics-query-duration-trends"></a>
 
-Use Database Insights to track whether average query time is stable or degrading over time. A sudden increase might indicate the following.
+Use Database Insights to track whether average query time is stable or degrading over time. A sudden increase might indicate the following:
 + The cache was cleared (restart, failover).
 + Data volume increased.
 + Concurrency increased beyond stable limits.
@@ -264,10 +256,10 @@ Turns engine logging on or off. On by default.
 `aurora_analytics.logging_level`  
 Controls verbosity. `DEBUG1` is the level that produces useful diagnostic detail.
 
-Messages go to the PostgreSQL error log. Retrieve it in one of three ways.
-+ **Amazon RDS console**: Choose your DB instance, choose **Logs and events**, then choose the log in the **Logs** section.
-+ **Amazon CloudWatch Logs**: Available when log export is configured for the DB cluster, which also gives you retention and querying.
-+ **AWS CLI**: Run the following command.
+Messages go to the PostgreSQL error log. Retrieve it in one of three ways:
++ **Amazon RDS console** – Choose your DB instance, choose **Logs and events**, then choose the log in the **Logs** section.
++ **Amazon CloudWatch Logs** – Available when log export is configured for the DB cluster, which also gives you retention and querying.
++ **AWS Command Line Interface (AWS CLI)** – Run the following command:
 
   ```
   aws rds download-db-log-file-portion \
@@ -284,8 +276,6 @@ PostgreSQL's own `log_temp_files` parameter does not capture analytics spill, be
 
 The following table provides a quick reference for analytics health. Two rows depend on your instance class, so check which storage the class uses before you build alarms from this table. On NVMe classes, `FreeLocalStorage` does not track the volume that holds the read cache and spill files, so an alarm on it will stay quiet while the instance store fills.
 
-
-**Key metrics reference**  
 
 | What to check | Metric | Healthy | Warning | Critical | 
 | --- | --- | --- | --- | --- | 

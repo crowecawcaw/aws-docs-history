@@ -57,6 +57,8 @@ The following temporary table and table variable operations are supported on Bab
 
 ### Local temporary table DDL
 <a name="babelfish-temp-tables-ro-supported-ddl"></a>
+
+The following local temporary table DDL operations are supported on read replicas:
 + `CREATE TABLE #tablename (...)` – creates a session-local temporary table on the read replica.
 + `SELECT col1, col2 INTO #tablename FROM source WHERE ...` – creates and populates a temporary table from a read query in a single statement.
 + `DROP TABLE #tablename` – explicitly drops a temporary table within the session; all temporary tables are also dropped automatically when the session ends.
@@ -64,6 +66,8 @@ The following temporary table and table variable operations are supported on Bab
 
 ### Local temporary table DML
 <a name="babelfish-temp-tables-ro-supported-dml"></a>
+
+The following local temporary table DML operations are supported on read replicas:
 + `INSERT INTO #tablename ...`
 + `SELECT ... FROM #tablename`
 + `UPDATE #tablename SET ...`
@@ -76,6 +80,8 @@ The following temporary table and table variable operations are supported on Bab
 
 ### Procedural and dynamic SQL patterns
 <a name="babelfish-temp-tables-ro-supported-procedural"></a>
+
+The following procedural and dynamic SQL patterns are supported on read replicas:
 + Stored procedures and batches that create temporary tables and read from permanent tables execute end-to-end on read replicas.
 + `sp_executesql` with dynamic SQL that creates and uses temporary tables works on read replicas.
 

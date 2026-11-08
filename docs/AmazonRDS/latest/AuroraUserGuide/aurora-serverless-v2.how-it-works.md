@@ -61,7 +61,7 @@ The following table shows the Aurora serverless capacity ranges and engine versi
 | --- | --- | --- | 
 | 0.5–128 | 3.02.0 and higher | 13.6 and higher, 14.3 and higher, 15.2 and higher, 16.1 and higher | 
 | 0.5–256 | 3.06.0 and higher | 13.13 and higher, 14.10 and higher, 15.5 and higher, 16.1 and higher | 
-| 0–256 | 3.08.0 and higher | 13.15 and higher, 14.12 and higher, 15.7 and higher, 16.3 and higher | 
+| 0–256 | 3.08.0 and higher | 13.15 and higher, 14.12 and higher, 15.7 and higher, 16.3 and higher, 17.4 and higher, 18.3 and higher | 
 | 0–384 |  | 14.23 and higher, 15.18 and higher, 16.14 and higher, 17.10 and higher, 18.4 and higher | 
 
 Platform versions in Aurora serverless represent improvements in performance, scaling capabilities or features. Amazon Aurora automatically manages platform version assignments at the cluster level. All new clusters, database restores, and new clones launch with the latest platform version available in your AWS Region. When a new platform version becomes available, existing clusters on previous platform versions can be upgraded directly to the latest platform version by applying the pending maintenance, stopping and restarting the cluster, or by using blue/green deployments. Amazon Aurora recommends upgrading to the latest platform version to benefit from all the latest improvements.

@@ -11,6 +11,10 @@ In many cases, the default settings for VACUUM or AUTOVACUUM on Aurora are suffi
 
 To get started, gather the most accurate information about how much space is used by dead tuples and how much you can recover by cleaning up the table and index bloat. To do so, use the `pgstattuple` extension to gather statistics on your Aurora cluster. For more information, see [pgstattuple](https://www.postgresql.org/docs/current/pgstattuple.html). Privileges to use the `pgstattuple` extension are limited to the `pg_stat_scan_tables` role and database superusers.
 
+**Performance impact of pgstattuple on large tables**  
+The `pgstattuple` function performs a full-table scan to return an exact count of live and dead tuples, their sizes, and free space. On a large table, this scan can run for a long time and add significant input/output (I/O) load to a production database. For large tables, use `pgstattuple_approx` instead.  
+With `pgstattuple_approx`, you can avoid most of the full-table scan. Pages that the visibility map marks as all-visible are skipped. You get exact dead-tuple statistics along with an approximation of the number and size of live tuples and free space. `pgstattuple_approx` is supported only for tables. To gather statistics on an index, use `pgstattuple` or `pgstatindex`.
+
 To create the `pgstattuple` extension on Aurora, connect a client session to the cluster, for example, psql or pgAdmin, and use the following command:
 
 ```

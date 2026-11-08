@@ -46,11 +46,11 @@ The steps following assume that your Aurora PostgreSQL DB cluster is associated 
 
 1. Choose the link to open the custom parameters associated with your Aurora PostgreSQL DB cluster. 
 
-1. In the **Parameters** search field, type `shared_pre` to find the `shared_preload_libraries` parameter.
+1. Choose **Edit** to access the parameter values.
 
-1. Choose **Edit parameters** to access the property values.
+1. In the **Filter parameters** search field, enter `shared_preload_libraries` to find the parameter.
 
-1. Add `pg_ad_mapping` to the list in the **Values** field. Use a comma to separate items in the list of values.   
+1. Add `pg_ad_mapping` to the list in the **Values** field. Use a comma to separate items in the list of values. Then choose **Save changes**.   
 ![The shared_preload_libaries parameter with pgAudit added.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg_shared_preload_pgadmapping.png)
 
 1. Reboot the writer instance of your Aurora PostgreSQL DB cluster so that your change to the `shared_preload_libraries` parameter takes effect. 

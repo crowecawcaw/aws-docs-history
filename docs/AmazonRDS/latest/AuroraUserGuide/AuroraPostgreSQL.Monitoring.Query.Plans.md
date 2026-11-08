@@ -9,6 +9,8 @@ The `aurora_compute_plan_id` is turned `OFF` by default in DB parameter group fr
 
 This plan identifier is used in several utilities that serve a different purpose.
 
+You can also analyze and compare these execution plans in the CloudWatch console by using the Advanced mode of CloudWatch Database Insights. For more information about analyzing execution plans in the CloudWatch console, see [Analyzing execution plans with CloudWatch Database Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Database-Insights-Execution-Plans.html) in the *Amazon CloudWatch User Guide*.
+
 You can monitor query peak memory usage in your DB instance to detect queries contributing to high database memory use from the following versions:
 + 16.3 and all higher versions
 + 15.7 and higher versions

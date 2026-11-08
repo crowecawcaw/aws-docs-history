@@ -17,8 +17,6 @@ You can configure analytics behavior and performance using PostgreSQL configurat
 The following table lists all analytics configuration parameters.
 
 
-**Analytics configuration parameters**  
-
 | Parameter name | Description | Default | Modifiable by | 
 | --- | --- | --- | --- | 
 | aurora\_analytics.enabled | Enables the aurora\_analytics extension | false | Parameter group | 
@@ -34,8 +32,8 @@ The following table lists all analytics configuration parameters.
 
 Enables the `aurora_analytics` extension.
 
+The following table lists the properties for `aurora_analytics.enabled`.
 
-**Properties for aurora\_analytics.enabled**  
 
 | Property | Value | 
 | --- | --- | 
@@ -52,8 +50,8 @@ This parameter is the primary switch for the analytics feature. Set it to `true`
 
 (KB) Sets the maximum memory that a single `aurora_analytics` query can use.
 
+The following table lists the properties for `aurora_analytics.query_mem`.
 
-**Properties for aurora\_analytics.query\_mem**  
 
 | Property | Value | 
 | --- | --- | 
@@ -77,10 +75,8 @@ query_mem = LEAST(
 )
 ```
 
-The following table shows approximate default values by instance class:
+The following table shows approximate default values by instance class.
 
-
-**Default query\_mem by instance class**  
 
 | Instance class | Instance memory | Default `query_mem` | 
 | --- | --- | --- | 
@@ -130,8 +126,8 @@ As a best practice, make sure that `concurrent_sessions x query_mem` doesn't exc
 
 Lowercases unquoted column names when inferring `aurora_analytics` foreign table columns.
 
+The following table lists the properties for `aurora_analytics.lowercase_unquoted_column_name`.
 
-**Properties for aurora\_analytics.lowercase\_unquoted\_column\_name**  
 
 | Property | Value | 
 | --- | --- | 
@@ -155,8 +151,8 @@ Leave this parameter at `true` (default) for the most natural PostgreSQL experie
 
 Skips columns with unsupported data types or conflicting names when inferring `aurora_analytics` foreign table columns.
 
+The following table lists the properties for `aurora_analytics.skip_unsupported_columns`.
 
-**Properties for aurora\_analytics.skip\_unsupported\_columns**  
 
 | Property | Value | 
 | --- | --- | 
@@ -177,8 +173,8 @@ Set this parameter to `true` when your source data contains a mix of supported a
 
 Enables logging for `aurora_analytics`.
 
+The following table lists the properties for `aurora_analytics.enable_logging`.
 
-**Properties for aurora\_analytics.enable\_logging**  
 
 | Property | Value | 
 | --- | --- | 
@@ -195,8 +191,8 @@ When enabled, the analytics engine writes diagnostic messages to the PostgreSQL 
 
 Sets detailed logging for `aurora_analytics`.
 
+The following table lists the properties for `aurora_analytics.logging_level`.
 
-**Properties for aurora\_analytics.logging\_level**  
 
 | Property | Value | 
 | --- | --- | 
@@ -215,8 +211,8 @@ This parameter requires `aurora_analytics.enable_logging` to be set to `true`.
 
 Collects detailed per-query performance metrics for `aurora_analytics`.
 
+The following table lists the properties for `aurora_analytics.track_detailed_metrics`.
 
-**Properties for aurora\_analytics.track\_detailed\_metrics**  
 
 | Property | Value | 
 | --- | --- | 

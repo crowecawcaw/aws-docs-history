@@ -143,11 +143,11 @@ For Linux, macOS, or Unix:
 ```
 aws rds create-db-cluster  \
     --db-cluster-identifier {{my-new-aurora-cluster}} \
-    --db-subnet-group-name {{my-db-subnet}}
-    --vpc-security-group-ids {{sg-11111111}} 
+    --db-subnet-group-name {{my-db-subnet}} \
+    --vpc-security-group-ids {{sg-11111111}} \
     --engine aurora-postgresql \
     --engine-version {{same-as-your-rds-instance-version}} \
-    --replication-source-identifier arn:aws:rds:{{aws-region}}:{{111122223333}}:db/{{rpg-source-db}} \
+    --replication-source-identifier arn:aws:rds:{{aws-region}}:{{111122223333}}:db:{{rpg-source-db}} \
     --storage-encrypted \
     --kms-key-id arn:aws:kms:{{aws-region}}:{{111122223333}}:key/{{11111111-2222-3333-444444444444}}
 ```
@@ -161,7 +161,7 @@ aws rds create-db-cluster  ^
     --vpc-security-group-ids {{sg-11111111}} ^
     --engine aurora-postgresql ^
     --engine-version {{same-as-your-rds-instance-version}} ^
-    --replication-source-identifier arn:aws:rds:{{aws-region}}:{{111122223333}}:db/{{rpg-source-db}} ^
+    --replication-source-identifier arn:aws:rds:{{aws-region}}:{{111122223333}}:db:{{rpg-source-db}} ^
     --storage-encrypted ^
     --kms-key-id arn:aws:kms:{{aws-region}}:{{111122223333}}:key/{{11111111-2222-3333-444444444444}}
 ```
@@ -171,7 +171,7 @@ In the following list you can find more information about some of the options sh
 + `--db-subnet-group-name` – Create your Aurora PostgreSQL DB cluster in the same DB subnet as the source DB instance.
 + `--vpc-security-group-ids` – Specify the security group for your Aurora PostgreSQL DB cluster. 
 + `--engine-version` – Specify the version to use for the Aurora PostgreSQL DB cluster. This should be the same as or a higher minor version than the version used by your source RDS for PostgreSQL DB instance. 
-+ `--replication-source-identifier` – Identify your RDS for PostgreSQL DB instance using its Amazon Resource Name (ARN). For more information about Amazon RDS ARNs, see [Amazon Relational Database Service (Amazon RDS)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-rds) in the *AWS General Reference*. of your DB cluster.
++ `--replication-source-identifier` – Identify your RDS for PostgreSQL DB instance using its Amazon Resource Name (ARN). For more information about Amazon RDS ARNs, see [Amazon Relational Database Service (Amazon RDS)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-rds) in the *AWS General Reference*.
 + `--storage-encrypted` – Optional. Use only when needed to specify encryption as follows:
   + Use this parameter when the source DB instance has encrypted storage. The call to [`create-db-cluster`](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html) fails if you don't use this parameter with a source DB instance that has encrypted storage. If you want to use a different key for the Aurora PostgreSQL DB cluster than the key used by the source DB instance, you need to also specify the `--kms-key-id`. 
   + Use if the source DB instance's storage is unencrypted but you want the Aurora PostgreSQL DB cluster to use encryption. If so, you also need to identify the encryption key to use with the `--kms-key-id` parameter.

@@ -18,8 +18,6 @@ When you create a foreign table without specifying column definitions (using emp
 The following table shows how source types that exist in both Parquet and Iceberg are inferred.
 
 
-**Type inference for Parquet and Iceberg source types**  
-
 | Parquet type | Iceberg type | PostgreSQL type | 
 | --- | --- | --- | 
 | BOOLEAN | boolean | boolean | 
@@ -41,8 +39,6 @@ The following table shows how source types that exist in both Parquet and Iceber
 
 The following additional Parquet types have no Iceberg equivalent and are inferred as shown.
 
-
-**Type inference for Parquet-only source types**  
 
 | Parquet type | PostgreSQL type | 
 | --- | --- | 
@@ -70,8 +66,8 @@ The following remote source types cannot be inferred automatically. When you cre
 + `GEOGRAPHY`
 
 You can handle these columns in two ways:
-+ **Skip them**: Set `aurora_analytics.skip_unsupported_columns` to `true` so automatic schema inference skips the unsupported columns and creates the foreign table with the remaining columns. A notice is emitted for each skipped column.
-+ **Define them manually**: Specify the column list explicitly and declare the struct, map, or nested-list columns as `json` (or `varchar` for a native text representation). Aurora PostgreSQL then returns the data in standard JSON format.
++ **Skip them** – Set `aurora_analytics.skip_unsupported_columns` to `true` so automatic schema inference skips the unsupported columns and creates the foreign table with the remaining columns. A notice is emitted for each skipped column.
++ **Define them manually** – Specify the column list explicitly and declare the struct, map, or nested-list columns as `json` (or `varchar` for a native text representation). Aurora PostgreSQL then returns the data in standard JSON format.
 
 ```
 CREATE FOREIGN TABLE my_table (
@@ -82,7 +78,7 @@ CREATE FOREIGN TABLE my_table (
     list_of_struct json
 )
 SERVER aurora_analytics_server
-OPTIONS (location 's3://my-bucket/data/', format 'parquet');
+OPTIONS (location 's3://amzn-s3-demo-bucket/data/', format 'parquet');
 ```
 
 ## Data types for foreign table columns
@@ -101,8 +97,6 @@ The following PostgreSQL data types are fully supported as foreign table column 
 The following PostgreSQL data types are supported with limitations.
 
 
-**Partially supported foreign table column types**  
-
 | PostgreSQL type | Limitation | 
 | --- | --- | 
 | VARCHAR, BPCHAR | Length constraints are not supported (for example, VARCHAR(n) or CHAR(n)). | 
@@ -118,20 +112,18 @@ The following PostgreSQL data types are supported with limitations.
 The following PostgreSQL data types cannot be used as foreign table column types. If a foreign table column is defined as one of these types (or a source column maps to one during schema inference), `CREATE FOREIGN TABLE` returns an error. You can still use these types elsewhere in a query (for example, building a `JSONB` value in the `SELECT` list or filtering with an array) because the restriction is on the column definition, not on query usage.
 
 
-**Unsupported foreign table column types**  
-
 | PostgreSQL type | Notes | 
 | --- | --- | 
-| JSONB | — | 
-| SMALLSERIAL, SERIAL, BIGSERIAL | — | 
+| JSONB | None | 
+| SMALLSERIAL, SERIAL, BIGSERIAL | None | 
 | Array types | For example, INTEGER[], TEXT[]. | 
-| ENUM | — | 
-| INET, CIDR, MACADDR, MACADDR8 | — | 
-| MONEY | — | 
+| ENUM | None | 
+| INET, CIDR, MACADDR, MACADDR8 | None | 
+| MONEY | None | 
 | Range types | For example, INT4RANGE, TSRANGE, DATERANGE. | 
 | Geometric types | For example, POINT, LINE, POLYGON, CIRCLE. | 
-| TSVECTOR, TSQUERY | — | 
-| XML | — | 
+| TSVECTOR, TSQUERY | None | 
+| XML | None | 
 
 **Note**  
 When Aurora PostgreSQL automatically infers a foreign table's schema and the source contains columns it cannot map, it errors by default. Set the `aurora_analytics.skip_unsupported_columns` parameter to `true` to skip those columns instead and create the foreign table with the remaining supported columns.

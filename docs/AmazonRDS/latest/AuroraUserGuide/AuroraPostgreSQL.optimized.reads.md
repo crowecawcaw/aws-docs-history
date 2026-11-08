@@ -29,7 +29,7 @@ In Aurora, the value for `shared_buffers` in the default parameter group is usua
 
 On an Aurora I/O-Optimized cluster, Optimized Reads makes use of both tiered cache and temporary objects on NVMe storage. With Optimized Reads-enabled tiered cache capability, Aurora allocates 2x the instance memory for temporary objects, approximately 10% of the storage for internal operations and the remaining storage as tiered cache. On an Aurora Standard cluster, Optimized Reads makes use of only temporary objects. 
 
-Aurora I/O-Optimized clusters allows you to resize the allocated space for Optimized Reads-enabled temporary objects using the dynamic parameter `aurora_temp_space_size` at the instance level. This resizing feature is available from the following PostgreSQL versions:
+With Aurora I/O-Optimized clusters, you can resize the allocated space for Optimized Reads-enabled temporary objects using the dynamic parameter `aurora_temp_space_size` at the instance level. This resizing feature is available from the following PostgreSQL versions:
 + 16.8 and all higher versions
 + 15.12 and higher 15 versions
 + 14.17 and higher 14 versions
@@ -74,11 +74,14 @@ rdsutils,pg_stat_statements,aurora_optimized_reads_cache
 ## Using Aurora Optimized Reads
 <a name="AuroraPostgreSQL.optimized.reads.using"></a>
 
-When you provision an Aurora PostgreSQL DB instance with one of the NVMe-based DB instances, the DB instance automatically uses Aurora Optimized Reads.
+When you provision an Aurora PostgreSQL DB instance with one of the NVMe-based DB instance classes, that DB instance automatically uses Aurora Optimized Reads.
+
+**Optimized Reads applies to each DB instance separately**  
+Aurora turns on Optimized Reads for each DB instance based on the DB instance class of that instance. It doesn't turn on Optimized Reads for the DB cluster as a whole. A DB cluster can contain DB instances with NVMe-based classes and DB instances with other classes. In such a cluster, only the DB instances that use an NVMe-based class use Optimized Reads. On the other DB instances, `shared_preload_libraries` doesn't include `aurora_optimized_reads_cache`, and `temp_tablespaces` is empty. To use Optimized Reads on every DB instance in your cluster, modify each DB instance to use an NVMe-based DB instance class.
 
 To turn on Aurora Optimized Reads, do one of the following:
 + Create an Aurora PostgreSQL DB cluster using one of the NVMe-based DB instance classes. For more information, see [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md).
-+ Modify an existing Aurora PostgreSQL DB cluster to use one of the NVMe-based DB instance classes. For more information, see [Modifying an Amazon Aurora DB cluster](Aurora.Modifying.md).
++ Modify the DB instances in an existing Aurora PostgreSQL DB cluster to use one of the NVMe-based DB instance classes. For more information, see [Modifying a DB instance in a DB cluster](Aurora.Modifying.md#Aurora.Modifying.Instance).
 
 Aurora Optimized Reads is available in all AWS Regions where one or more of the DB instance classes with local NVMe SSD storage are supported. For more information, see [Amazon AuroraDB instance classes](Concepts.DBInstanceClass.md).
 

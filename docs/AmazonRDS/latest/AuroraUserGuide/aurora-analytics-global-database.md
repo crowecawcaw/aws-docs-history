@@ -55,8 +55,8 @@ Immediately after a role is attached (or after an instance starts or is promoted
 
 VPC configuration also does not replicate. In the VPC for each DB cluster (primary and every secondary), provide a network path to the required services so that the DB cluster can reach the foreign table data to resolve queries. Ensure each secondary's cluster networking configuration permits reaching the foreign table's Region.
 
+The following table lists the required VPC endpoints for each Region.
 
-**Required VPC endpoints for each Region**  
 
 | Service | Endpoint type | Required for | 
 | --- | --- | --- | 
@@ -86,13 +86,13 @@ On the writer DB instance in the primary DB cluster, create foreign tables point
 -- Parquet via S3 URI
 CREATE FOREIGN TABLE ft_orders ()
 SERVER aurora_analytics_server
-OPTIONS (location 's3://my-bucket/orders/',
+OPTIONS (location 's3://amzn-s3-demo-bucket/orders/',
          format 'parquet', region 'us-east-1');
 
 -- Iceberg via Glue ARN
 CREATE FOREIGN TABLE ft_transactions ()
 SERVER aurora_analytics_server
-OPTIONS (location 'arn:aws:glue:us-east-1:123456789012:table/mydb/transactions',
+OPTIONS (location 'arn:aws:glue:us-east-1:111122223333:table/mydb/transactions',
          format 'iceberg');
 ```
 
@@ -125,8 +125,8 @@ Amazon S3 Multi-Region Access Points (MRAPs) are not supported as a foreign tabl
 <a name="aurora-analytics-gdb-dr-readiness"></a>
 
 Complete the per-Region setup in Steps 1–2 for the secondary DB cluster, then decide how the DB cluster will access foreign table data:
-+ **Accept cross-Region reads:** This approach is suitable only for planned switchover scenarios where the original Region is healthy.
-+ **Pre-stage a Region-local copy:** Use Amazon S3 Cross-Region Replication so analytical queries can read locally even if the original Region is unavailable. Prepare `ALTER FOREIGN TABLE ... OPTIONS (SET ...)` statements to update the foreign table locations to point to the Region-local copy.
++ **Accept cross-Region reads** – This approach is suitable only for planned switchover scenarios where the original Region is healthy.
++ **Pre-stage a Region-local copy** – Use Amazon S3 Cross-Region Replication so analytical queries can read locally even if the original Region is unavailable. Prepare `ALTER FOREIGN TABLE ... OPTIONS (SET ...)` statements to update the foreign table locations to point to the Region-local copy.
 
 **Note**  
 The on-disk read cache is not persisted or transferred when a switchover or failover occurs. The first queries after the event read data from Amazon S3 and run with higher latency until the cache warms up.
@@ -144,6 +144,8 @@ Both the primary and secondary DB clusters are healthy at the time of switchover
 #### Resuming operations after a switchover
 <a name="aurora-analytics-gdb-resuming"></a>
 
+To resume operations after a switchover, do the following:
+
 1. Allow clients to reconnect to the writer endpoint of the new primary DB cluster.
 
 1. Wait until the IAM role status is **Active**. Run a test query against a foreign table (for example, `SELECT count(*) FROM ft_orders`) with retry logic to confirm that analytics queries are operational.
@@ -152,7 +154,7 @@ Both the primary and secondary DB clusters are healthy at the time of switchover
 
    ```
    ALTER FOREIGN TABLE ft_orders OPTIONS (SET location 's3://dr-region-bucket/orders/', SET region 'us-west-2');
-   ALTER FOREIGN TABLE ft_transactions OPTIONS (SET location 'arn:aws:glue:us-west-2:123456789012:table/mydb/transactions');
+   ALTER FOREIGN TABLE ft_transactions OPTIONS (SET location 'arn:aws:glue:us-west-2:111122223333:table/mydb/transactions');
    ```
 
 **Note**  

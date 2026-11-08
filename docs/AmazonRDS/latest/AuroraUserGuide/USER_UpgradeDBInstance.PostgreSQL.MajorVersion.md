@@ -100,6 +100,110 @@ Before upgrading your production Aurora PostgreSQL DB clusters to a new major ve
            AND c.relnamespace = n.oid 
            AND n.nspname NOT IN ('pg_catalog', 'information_schema');
      ```
+   + Remove all uses of the *abstime*, *reltime*, and *tinterval* data types before attempting an upgrade. These data types were removed in PostgreSQL 12. If you are upgrading to version 12 or later from an earlier version, remove all uses of these types first. To find columns that use them (including columns whose type is a domain, array, composite, or range over these types), use the following query for each database. 
+
+     ```
+     WITH RECURSIVE oids AS (
+         SELECT 'pg_catalog.abstime'::pg_catalog.regtype AS oid
+         UNION ALL SELECT 'pg_catalog.reltime'::pg_catalog.regtype
+         UNION ALL SELECT 'pg_catalog.tinterval'::pg_catalog.regtype
+         UNION ALL
+         SELECT * FROM (
+             WITH x AS (SELECT oid FROM oids)
+             SELECT t.oid FROM pg_catalog.pg_type t, x WHERE typbasetype = x.oid AND typtype = 'd'
+             UNION ALL
+             SELECT t.oid FROM pg_catalog.pg_type t, x WHERE typelem = x.oid AND typtype = 'b'
+             UNION ALL
+             SELECT t.oid FROM pg_catalog.pg_type t, pg_catalog.pg_class c, pg_catalog.pg_attribute a, x
+             WHERE t.typtype = 'c' AND t.oid = c.reltype AND c.oid = a.attrelid
+               AND NOT a.attisdropped AND a.atttypid = x.oid
+             UNION ALL
+             SELECT t.oid FROM pg_catalog.pg_type t, pg_catalog.pg_range r, x
+             WHERE t.typtype = 'r' AND r.rngtypid = t.oid AND r.rngsubtype = x.oid
+         ) foo
+     )
+     SELECT n.nspname AS schema_name,
+            c.relname AS table_name,
+            a.attname AS column_name,
+            format_type(a.atttypid, a.atttypmod) AS data_type
+     FROM pg_catalog.pg_class c, pg_catalog.pg_namespace n, pg_catalog.pg_attribute a
+     WHERE c.oid = a.attrelid
+       AND NOT a.attisdropped
+       AND a.atttypid IN (SELECT oid FROM oids)
+       AND c.relkind IN ('r', 'm', 'i')
+       AND c.relnamespace = n.oid
+       AND n.nspname !~ '^pg_temp_'
+       AND n.nspname !~ '^pg_toast_temp_'
+       AND n.nspname NOT IN ('pg_catalog', 'information_schema');
+     ```
+   + Remove all uses of the *sql\_identifier* data type (in columns or indexes) before attempting an upgrade. The on-disk format of this data type changed in PostgreSQL 12. If you are upgrading to version 12 or later from an earlier version, remove all uses first. To find columns that use it (including columns whose type is a domain, array, composite, or range over this type), use the following query for each database. 
+
+     ```
+     WITH RECURSIVE oids AS (
+         SELECT 'information_schema.sql_identifier'::pg_catalog.regtype AS oid
+         UNION ALL
+         SELECT * FROM (
+             WITH x AS (SELECT oid FROM oids)
+             SELECT t.oid FROM pg_catalog.pg_type t, x WHERE typbasetype = x.oid AND typtype = 'd'
+             UNION ALL
+             SELECT t.oid FROM pg_catalog.pg_type t, x WHERE typelem = x.oid AND typtype = 'b'
+             UNION ALL
+             SELECT t.oid FROM pg_catalog.pg_type t, pg_catalog.pg_class c, pg_catalog.pg_attribute a, x
+             WHERE t.typtype = 'c' AND t.oid = c.reltype AND c.oid = a.attrelid
+               AND NOT a.attisdropped AND a.atttypid = x.oid
+             UNION ALL
+             SELECT t.oid FROM pg_catalog.pg_type t, pg_catalog.pg_range r, x
+             WHERE t.typtype = 'r' AND r.rngtypid = t.oid AND r.rngsubtype = x.oid
+         ) foo
+     )
+     SELECT n.nspname AS schema_name,
+            c.relname AS table_name,
+            a.attname AS column_name,
+            format_type(a.atttypid, a.atttypmod) AS data_type
+     FROM pg_catalog.pg_class c, pg_catalog.pg_namespace n, pg_catalog.pg_attribute a
+     WHERE c.oid = a.attrelid
+       AND NOT a.attisdropped
+       AND a.atttypid IN (SELECT oid FROM oids)
+       AND c.relkind IN ('r', 'm', 'i')
+       AND c.relnamespace = n.oid
+       AND n.nspname !~ '^pg_temp_'
+       AND n.nspname !~ '^pg_toast_temp_'
+       AND n.nspname NOT IN ('pg_catalog', 'information_schema');
+     ```
+   + Remove all uses of the *aclitem* data type before attempting an upgrade. The internal format of this data type changed in PostgreSQL 16. If you are upgrading to version 16 or later from an earlier version, remove all uses first. To find columns that use it (including columns whose type is a domain, array, composite, or range over this type), use the following query for each database. 
+
+     ```
+     WITH RECURSIVE oids AS (
+         SELECT 'pg_catalog.aclitem'::pg_catalog.regtype AS oid
+         UNION ALL
+         SELECT * FROM (
+             WITH x AS (SELECT oid FROM oids)
+             SELECT t.oid FROM pg_catalog.pg_type t, x WHERE typbasetype = x.oid AND typtype = 'd'
+             UNION ALL
+             SELECT t.oid FROM pg_catalog.pg_type t, x WHERE typelem = x.oid AND typtype = 'b'
+             UNION ALL
+             SELECT t.oid FROM pg_catalog.pg_type t, pg_catalog.pg_class c, pg_catalog.pg_attribute a, x
+             WHERE t.typtype = 'c' AND t.oid = c.reltype AND c.oid = a.attrelid
+               AND NOT a.attisdropped AND a.atttypid = x.oid
+             UNION ALL
+             SELECT t.oid FROM pg_catalog.pg_type t, pg_catalog.pg_range r, x
+             WHERE t.typtype = 'r' AND r.rngtypid = t.oid AND r.rngsubtype = x.oid
+         ) foo
+     )
+     SELECT n.nspname AS schema_name,
+            c.relname AS table_name,
+            a.attname AS column_name,
+            format_type(a.atttypid, a.atttypmod) AS data_type
+     FROM pg_catalog.pg_class c, pg_catalog.pg_namespace n, pg_catalog.pg_attribute a
+     WHERE c.oid = a.attrelid
+       AND NOT a.attisdropped
+       AND a.atttypid IN (SELECT oid FROM oids)
+       AND c.relkind IN ('r', 'm', 'i')
+       AND c.relnamespace = n.oid
+       AND n.nspname !~ '^pg_temp_'
+       AND n.nspname !~ '^pg_toast_temp_'
+       AND n.nspname NOT IN ('pg_catalog', 'information_schema');
+     ```
    + If you are upgrading an Aurora PostgreSQL version 10.18 or higher DB cluster that has the `pgRouting` extension installed, drop the extension before upgrading to version 12.4 or higher.
 
      If you are upgrading an Aurora PostgreSQL 10.x version that has the extension `pg_repack` version 1.4.3 installed, drop the extension before upgrading to any higher version.

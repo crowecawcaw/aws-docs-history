@@ -21,10 +21,8 @@ Foreign tables give your Aurora PostgreSQL database read-only access to Apache P
 ## Supported data formats
 <a name="aurora-analytics-foreign-tables-formats"></a>
 
-Aurora PostgreSQL supports the following open data formats for foreign tables:
+Aurora PostgreSQL supports the following open data formats for foreign tables.
 
-
-**Supported data formats for foreign tables**  
 
 | Format | Description | Access path | 
 | --- | --- | --- | 
@@ -50,7 +48,7 @@ OPTIONS (
 );
 ```
 
-The following parameters are accepted.
+The following parameters are accepted:
 
 `schema_name`  
 The PostgreSQL schema in which to create the foreign table.
@@ -65,7 +63,7 @@ Column definitions that match your Amazon S3 data schema. When you omit the colu
 The foreign server created automatically by the `aurora_analytics` extension. All foreign tables use this server.
 
 `OPTIONS`  
-The `OPTIONS` clause accepts the following options.    
+The `OPTIONS` clause accepts the following options:    
 `location`  
 Required. The Amazon S3 URI, AWS Glue ARN, or Amazon S3 Tables ARN pointing to your data. For example:  
 + Amazon S3 URI (Parquet): `s3://bucket-name/path/`.
@@ -103,7 +101,7 @@ CREATE FOREIGN TABLE ft_orders (
 )
 SERVER aurora_analytics_server
 OPTIONS (
-    location 's3://mybucket/data/orders/',
+    location 's3://amzn-s3-demo-bucket/data/orders/',
     format 'parquet'
 );
 ```
@@ -123,9 +121,11 @@ The following example creates a foreign table that uses schema auto-inference fo
 CREATE FOREIGN TABLE ft_orders ()
 SERVER aurora_analytics_server
 OPTIONS (
-    location 'arn:aws:glue:us-east-1:123456789012:table/my_database/orders'
+    location 'arn:aws:glue:us-east-1:111122223333:table/{{my_database}}/{{orders}}'
 );
 ```
+
+Replace {{my\_database}} and {{orders}} with the names of your AWS Glue database and table.
 
 **Note**  
 When you use an AWS Glue ARN or Amazon S3 Tables ARN for the `location`, you can omit the `format` option. Aurora PostgreSQL automatically detects the format from the catalog metadata.
@@ -145,10 +145,12 @@ To query a specific point-in-time snapshot of an Iceberg table, specify the snap
 CREATE FOREIGN TABLE ft_orders_snapshot ()
 SERVER aurora_analytics_server
 OPTIONS (
-    location 'arn:aws:glue:us-east-1:123456789012:table/my_database/orders',
+    location 'arn:aws:glue:us-east-1:111122223333:table/{{my_database}}/{{orders}}',
     snapshot '3847291056291847'
 );
 ```
+
+Replace {{my\_database}} and {{orders}} with the names of your AWS Glue database and table.
 
 ## Querying an Iceberg table at a specific timestamp
 <a name="aurora-analytics-foreign-tables-timestamp"></a>
@@ -159,10 +161,12 @@ To query an Iceberg table as of a specific point in time, specify the `timestamp
 CREATE FOREIGN TABLE ft_orders_timetravel ()
 SERVER aurora_analytics_server
 OPTIONS (
-    location 'arn:aws:glue:us-east-1:123456789012:table/my_database/orders',
+    location 'arn:aws:glue:us-east-1:111122223333:table/{{my_database}}/{{orders}}',
     timestamp '2024-06-15 12:00:00'
 );
 ```
+
+Replace {{my\_database}} and {{orders}} with the names of your AWS Glue database and table.
 
 The `timestamp` value is resolved at table creation time. You can use special keywords such as `'yesterday'` or `'now'`, or epoch milliseconds such as `'1704110400000'`.
 
@@ -194,7 +198,7 @@ To import all tables from an AWS Glue database:
 IMPORT FOREIGN SCHEMA my_analytics_db
     FROM SERVER aurora_analytics_server
     INTO analytics
-    OPTIONS (location 'arn:aws:glue:us-east-1:123456789012:catalog');
+    OPTIONS (location 'arn:aws:glue:us-east-1:111122223333:catalog');
 ```
 
 To import all tables from an Amazon S3 Tables namespace:
@@ -203,7 +207,7 @@ To import all tables from an Amazon S3 Tables namespace:
 IMPORT FOREIGN SCHEMA my_namespace
     FROM SERVER aurora_analytics_server
     INTO sales_data
-    OPTIONS (location 'arn:aws:s3tables:us-east-1:123456789012:bucket/my-bucket');
+    OPTIONS (location 'arn:aws:s3tables:us-east-1:111122223333:bucket/amzn-s3-demo-bucket');
 ```
 
 To import only specific tables:
@@ -213,7 +217,7 @@ IMPORT FOREIGN SCHEMA my_analytics_db
     LIMIT TO (orders, customers, products)
     FROM SERVER aurora_analytics_server
     INTO analytics
-    OPTIONS (location 'arn:aws:glue:us-east-1:123456789012:catalog');
+    OPTIONS (location 'arn:aws:glue:us-east-1:111122223333:catalog');
 ```
 
 To exclude specific tables:
@@ -223,7 +227,7 @@ IMPORT FOREIGN SCHEMA my_analytics_db
     EXCEPT (staging_temp, debug_logs)
     FROM SERVER aurora_analytics_server
     INTO analytics
-    OPTIONS (location 'arn:aws:glue:us-east-1:123456789012:catalog');
+    OPTIONS (location 'arn:aws:glue:us-east-1:111122223333:catalog');
 ```
 
 ## Column name restrictions
@@ -239,16 +243,14 @@ You can modify a foreign table with `ALTER FOREIGN TABLE`, for example, to renam
 To keep queries returning correct results, keep the foreign table definition in sync with the actual schema of your Amazon S3 data. If the source schema changes, update the table (or re-infer it) to match. For an automated way to do this, see `aurora_analytics_refresh_foreign_table`.
 
 The following characteristics apply to these foreign tables:
-+ **External storage**: Data resides in Amazon S3, not within PostgreSQL. Aurora PostgreSQL reads directly from Amazon S3 during query execution.
-+ **Read-only access**: `INSERT`, `UPDATE`, `DELETE`, and `TRUNCATE` are not supported. Modify your data through external processes that update the Amazon S3 files or Iceberg tables.
-+ **Metadata-only changes**: `ALTER` operations modify PostgreSQL catalog metadata only.
-+ **Constraints not enforced**: `NOT NULL`, `CHECK`, and `DEFAULT` constraints are stored in metadata for documentation purposes but are not enforced when reading external data.
-+ **Statistics managed externally**: PostgreSQL planner statistics (`SET STATISTICS`) have no effect. The analytics engine uses Parquet and Iceberg metadata for query planning.
++ **External storage** – Data resides in Amazon S3, not within PostgreSQL. Aurora PostgreSQL reads directly from Amazon S3 during query execution.
++ **Read-only access** – `INSERT`, `UPDATE`, `DELETE`, and `TRUNCATE` are not supported. Modify your data through external processes that update the Amazon S3 files or Iceberg tables.
++ **Metadata-only changes** – `ALTER` operations modify PostgreSQL catalog metadata only.
++ **Constraints not enforced** – PostgreSQL stores `NOT NULL`, `CHECK`, and `DEFAULT` constraints in metadata for documentation purposes but does not enforce them when reading external data.
++ **Statistics managed externally** – PostgreSQL planner statistics (`SET STATISTICS`) have no effect. The analytics engine uses Parquet and Iceberg metadata for query planning.
 
-Supported `ALTER` operations:
+The following table lists the supported `ALTER` operations.
 
-
-**Supported ALTER operations**  
 
 | Operation | Notes | 
 | --- | --- | 
@@ -260,10 +262,8 @@ Supported `ALTER` operations:
 | OWNER TO | Changes table ownership. | 
 | OPTIONS (SET) | Modifies location, format, region, snapshot or timestamp. | 
 
-The following operations are accepted by PostgreSQL but have no practical effect on these foreign tables:
+The following `ALTER` operations are accepted by PostgreSQL but have no practical effect on these foreign tables.
 
-
-**ALTER operations with no effect**  
 
 | Operation | Reason | 
 | --- | --- | 

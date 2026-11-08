@@ -87,6 +87,7 @@ The following instance-specific Amazon CloudWatch metrics apply to all Aurora My
 | `DMLThroughput` | The average number of inserts, updates, and deletes per second. | Aurora MySQL | Count per second | 
 | `EngineUptime` | The amount of time that the instance has been running. | Aurora MySQL and Aurora PostgreSQL | Seconds | 
 | `FreeableMemory` | The amount of available random access memory. For Aurora MySQL and Aurora PostgreSQL databases, this metric reports the value of the `MemAvailable` field of `/proc/meminfo`. | Aurora MySQL and Aurora PostgreSQL | Bytes | 
+| `FTSCacheMemoryUsed` | The total memory used by the InnoDB Full-Text Search (FTS) cache across all tables on the DB instance. | Aurora MySQL | Bytes | 
 | `FreeEphemeralStorage` | The amount of available Ephemeral NVMe storage. | Aurora PostgreSQL | Bytes | 
 | `FreeLocalStorage` | The amount of local storage available.<br />Unlike for other DB engines, for Aurora DB instances this metric reports the amount of storage available to each DB instance. This value depends on the DB instance class (for pricing information, see the [Amazon RDS pricing page](http://aws.amazon.com/rds/pricing)). You can increase the amount of free storage space for an instance by choosing a larger DB instance class for your instance.<br />(This doesn't apply to Aurora serverless.) | Aurora MySQL and Aurora PostgreSQL | Bytes | 
 | `InsertLatency` | The average duration of insert operations. | Aurora MySQL | Milliseconds | 

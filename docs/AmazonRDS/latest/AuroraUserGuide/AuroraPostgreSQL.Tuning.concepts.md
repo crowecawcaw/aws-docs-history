@@ -41,7 +41,7 @@ Aurora PostgreSQL allocates shared memory when the instance starts. Shared memor
 
 **Topics**
 + [Shared buffers](#AuroraPostgreSQL.Tuning.concepts.buffer-pool)
-+ [Write ahead log (WAL) buffers](#AuroraPostgreSQL.Tuning.concepts.WAL)
++ [Write-ahead log (WAL)](#AuroraPostgreSQL.Tuning.concepts.WAL)
 
 #### Shared buffers
 <a name="AuroraPostgreSQL.Tuning.concepts.buffer-pool"></a>
@@ -54,14 +54,12 @@ The shared buffer pool has finite memory. If a new request requires a page that 
 
 The `shared_buffers` parameter determines how much memory the server dedicates to caching data.
 
-#### Write ahead log (WAL) buffers
+#### Write-ahead log (WAL)
 <a name="AuroraPostgreSQL.Tuning.concepts.WAL"></a>
 
-A *write-ahead log (WAL) buffer* holds transaction data that Aurora PostgreSQL later writes to persistent storage. Using the WAL mechanism, Aurora PostgreSQL can do the following:
-+ Recover data after a failure
-+ Reduce disk I/O by avoiding frequent writes to disk
+Aurora PostgreSQL uses write-ahead logging (WAL). When a client changes data, Aurora PostgreSQL generates WAL records that describe the changes and saves the WAL records on Aurora storage. When the client issues a `COMMIT`, the session waits for the Aurora storage subsystem to acknowledge the commit. Aurora PostgreSQL reports this wait as the [IO:XactSync](apg-waits.xactsync.md) wait event.
 
-When a client changes data, Aurora PostgreSQL writes the changes to the WAL buffer. When the client issues a `COMMIT`, the WAL writer process writes transaction data to the WAL file.
+When you use logical replication, Aurora PostgreSQL caches the WAL stream in a buffer to reduce reads from Aurora storage during logical decoding. The `rds.logical_wal_cache` parameter sets the size of this buffer. When the `rds.logical_replication` parameter is turned off, Aurora PostgreSQL sets `rds.logical_wal_cache` to 0. For more information about the write-through cache, see [Monitoring the Aurora PostgreSQL logical replication write-through cache](AuroraPostgreSQL.Replication.Logical-monitoring.md#AuroraPostgreSQL.Replication.Logical-write-through-cache).
 
 The `wal_level` parameter determines how much information is written to the WAL.
 
@@ -80,7 +78,7 @@ Every backend process allocates local memory for query processing.
 
 The *work memory area* holds temporary data for queries that performs sorts and hashes. For example, a query with an `ORDER BY` clause performs a sort. Queries use hash tables in hash joins and aggregations.
 
-The `work_mem` parameter the amount of memory to be used by internal sort operations and hash tables before writing to temporary disk files. The default value is 4 MB. Multiple sessions can run simultaneously, and each session can run maintenance operations in parallel. For this reason, the total work memory used can be multiples of the `work_mem` setting. 
+The `work_mem` parameter specifies the amount of memory to be used by internal sort operations and hash tables before writing to temporary disk files. The default value is 4 MB. Multiple sessions can run simultaneously, and each session can run maintenance operations in parallel. For this reason, the total work memory used can be multiples of the `work_mem` setting. 
 
 #### Maintenance work memory area
 <a name="AuroraPostgreSQL.Tuning.concepts.local.maintenance_work_mem"></a>
@@ -124,12 +122,6 @@ If the postmaster authenticates a client request, the postmaster forks a new bac
 <a name="AuroraPostgreSQL.Tuning.concepts.vacuum"></a>
 
 The postmaster process forks several processes that perform different backend tasks. Some of the more important include the following:
-+ WAL writer
-
-  Aurora PostgreSQL writes data in the WAL (write ahead logging) buffer to the log files. The principle of write ahead logging is that the database can't write changes to the data files until after the database writes log records describing those changes to disk. The WAL mechanism reduces disk I/O, and allows Aurora PostgreSQL to use the logs to recover the database after a failure.
-+ Background writer
-
-  This process periodically write dirty (modified) pages from the memory buffers to the data files. A page becomes dirty when a backend process modifies it in memory.
 + Autovacuum daemon
 
   The daemon consists of the following:

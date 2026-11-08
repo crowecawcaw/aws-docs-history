@@ -55,7 +55,7 @@ The following example creates a foreign table that points to Parquet files in Am
 CREATE FOREIGN TABLE ft_orders ()
 SERVER aurora_analytics_server
 OPTIONS (
-    location 's3://my-bucket/data/orders/',
+    location 's3://amzn-s3-demo-bucket/data/orders/',
     format 'parquet',
     region 'us-east-1'
 );

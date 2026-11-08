@@ -19,12 +19,12 @@ The following diagram shows an overview of the capability.
 ## Key concepts
 <a name="aurora-analytics-concepts"></a>
 
-The following concepts are central to querying Iceberg and Parquet data in Aurora PostgreSQL.
-+ **Foreign tables**: PostgreSQL tables you define that point to your Apache Parquet or Apache Iceberg data in Amazon S3, Amazon S3 Tables, or the AWS Glue Data Catalog. Foreign tables behave like regular PostgreSQL tables, but the underlying data stays in your data lake. For more information, see [Working with foreign tables](aurora-analytics-foreign-tables.md).
-+ **Analytics engine**: A columnar analytical engine that executes analytical queries against foreign-table data. Aurora PostgreSQL uses DuckDB, embedded directly in the PostgreSQL server. Because the engine runs in-process with PostgreSQL, there is nothing separate to install or manage.
-+ **Query memory**: The working memory the analytics engine uses to run a query, set by the `aurora_analytics.query_mem` parameter. Its default is derived from your instance's memory. For more information, see [Query memory](aurora-analytics-resource-management.md#aurora-analytics-query-memory).
-+ **Worker threads**: The CPU parallelism the engine uses to run a query. Aurora scales worker threads automatically from the query's memory budget. For more information, see [Worker threads](aurora-analytics-resource-management.md#aurora-analytics-worker-threads).
-+ **Amazon S3 read cache**: A cache of frequently accessed Amazon S3 data on the DB instance's local storage (NVMe or Amazon EBS). The cache is shared across all sessions on the DB instance. For more information, see [On-disk read cache](aurora-analytics-resource-management.md#aurora-analytics-on-disk-read-cache).
+The following concepts are central to querying Iceberg and Parquet data in Aurora PostgreSQL:
++ **Foreign tables** – PostgreSQL tables you define that point to your Apache Parquet or Apache Iceberg data in Amazon S3, Amazon S3 Tables, or the AWS Glue Data Catalog. Foreign tables behave like regular PostgreSQL tables, but the underlying data stays in your data lake. For more information about foreign tables, see [Working with foreign tables](aurora-analytics-foreign-tables.md).
++ **Analytics engine** – A columnar analytical engine that executes analytical queries against foreign-table data. Aurora PostgreSQL uses DuckDB, embedded directly in the PostgreSQL server. Because the engine runs in-process with PostgreSQL, there is nothing separate to install or manage.
++ **Query memory** – The working memory the analytics engine uses to run a query, set by the `aurora_analytics.query_mem` parameter. Its default is derived from your instance's memory. For more information about query memory, see [Query memory](aurora-analytics-resource-management.md#aurora-analytics-query-memory).
++ **Worker threads** – The CPU parallelism the engine uses to run a query. Aurora scales worker threads automatically from the query's memory budget. For more information about worker threads, see [Worker threads](aurora-analytics-resource-management.md#aurora-analytics-worker-threads).
++ **Amazon S3 read cache** – A cache of frequently accessed Amazon S3 data on the DB instance's local storage (NVMe or Amazon EBS). The cache is shared across all sessions on the DB instance. For more information about the Amazon S3 read cache, see [On-disk read cache](aurora-analytics-resource-management.md#aurora-analytics-on-disk-read-cache).
 
 ## Key capabilities
 <a name="aurora-analytics-capabilities"></a>
@@ -33,6 +33,8 @@ The following capabilities are supported:
 
 ### Data access and formats
 <a name="aurora-analytics-capabilities-data-access"></a>
+
+Aurora PostgreSQL provides the following data access and format capabilities:
 + Query Apache Parquet and Apache Iceberg data stored in Amazon S3, Amazon S3 Tables, and the AWS Glue Data Catalog. For Iceberg tables managed in external Iceberg REST Catalog-compatible catalogs, use AWS Glue Data Catalog federation.
 + Reference data by Amazon S3 URI, AWS Glue Data Catalog ARN, or Amazon S3 Tables ARN. For AWS Glue Data Catalog locations, the data format is detected automatically from catalog metadata.
 + When you create a foreign table with an empty column list, column names and data types are automatically inferred from the Parquet or Iceberg metadata and mapped to PostgreSQL-compatible types.
@@ -41,6 +43,8 @@ The following capabilities are supported:
 
 ### Query execution and optimization
 <a name="aurora-analytics-capabilities-query-execution"></a>
+
+Aurora PostgreSQL provides the following query execution and optimization capabilities:
 + Predicate pushdown and column pruning minimize the data read from Amazon S3. `WHERE` filters are applied at the scan, using Parquet and Iceberg statistics to skip row groups and files that cannot match. Only the columns your query references are fetched.
 + Entire query plans, including joins between foreign tables and local PostgreSQL tables, can be pushed to the analytics engine for maximum performance.
 + Supported SQL features include aggregations (`COUNT`, `SUM`, `AVG`), grouping and filtering (`GROUP BY`, `WHERE`, `ORDER BY`), joins between foreign tables and PostgreSQL tables, common table expressions (CTEs), prepared statements (`PREPARE`/`EXECUTE`), and query plan analysis with `EXPLAIN` and `EXPLAIN ANALYZE`.
@@ -49,10 +53,14 @@ The following capabilities are supported:
 
 ### Monitoring
 <a name="aurora-analytics-capabilities-monitoring"></a>
+
+Aurora PostgreSQL provides the following monitoring capabilities:
 + Monitor and troubleshoot analytical workloads with the same tools that you use for Aurora PostgreSQL. Amazon CloudWatch reports instance-level cache hit rates, memory usage, disk spills, and Amazon S3 activity.
 + `EXPLAIN` and `EXPLAIN ANALYZE` show which parts of a query run in the analytics engine, along with filter pushdown and column projection. SQL functions report per-query and instance-wide metrics such as cache hits, bytes read from Amazon S3, and bytes spilled to disk.
 + Time spent in the analytics engine is reported through the `Extension:AuroraAnalyticsExecute` wait event. Analytical queries appear in the average active sessions (AAS) chart in Amazon CloudWatch Database Insights and Performance Insights alongside the rest of your PostgreSQL workload.
 
 ### Compatibility
 <a name="aurora-analytics-capabilities-compatibility"></a>
+
+Aurora PostgreSQL provides the following compatibility capabilities:
 + Coexists with other Aurora PostgreSQL extensions in the same database, and works with standard PostgreSQL client tools and utilities.

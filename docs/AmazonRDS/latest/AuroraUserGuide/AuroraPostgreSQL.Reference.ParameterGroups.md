@@ -114,7 +114,7 @@ For a listing of the DB instance parameters for this same default DB cluster par
 | apg\_plan\_mgmt.use\_plan\_baselines | Use only approved or fixed plans for managed statements. | false  | 
 | application\_name | Sets the application name to be reported in statistics and logs. | –  | 
 | array\_nulls | Enable input of NULL elements in arrays. | –  | 
-| aurora\_compute\_plan\_id | Monitors query execution plans to detect the execution plans contributing to current database load and to track performance statistics of execution plans over time. For more information, see [Monitoring query execution plans for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.Plans.html). | on  | 
+| aurora\_compute\_plan\_id | Monitors query execution plans to detect the execution plans contributing to current database load and to track performance statistics of execution plans over time. For more information, see [Monitoring query execution plans for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.Plans.html). | off  | 
 | authentication\_timeout | (s) Sets the maximum allowed time to complete client authentication. | –  | 
 | auto\_explain.log\_analyze | Use EXPLAIN ANALYZE for plan logging. | –  | 
 | auto\_explain.log\_buffers | Log buffers usage. | –  | 
@@ -492,7 +492,7 @@ For a listing of the DB cluster parameters for this same default DB parameter gr
 | apg\_plan\_mgmt.unapproved\_plan\_execution\_threshold | Estimated total plan cost below which an Unapproved plan will be executed. | 0  | 
 | apg\_plan\_mgmt.use\_plan\_baselines | Use only approved or fixed plans for managed statements. | false  | 
 | application\_name | Sets the application name to be reported in statistics and logs. | –  | 
-| aurora\_compute\_plan\_id | Monitors query execution plans to detect the execution plans contributing to current database load and to track performance statistics of execution plans over time. For more information, see [Monitoring query execution plans for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.Plans.html). | on  | 
+| aurora\_compute\_plan\_id | Monitors query execution plans to detect the execution plans contributing to current database load and to track performance statistics of execution plans over time. For more information, see [Monitoring query execution plans for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.Plans.html). | off  | 
 | aurora\_temp\_space\_size | (MB) Sets size of the allocated space for Optimized Reads-enabled temporary objects on Aurora I/O-Optimized clusters with supported instance classes. | DBInstanceClassMemory/524288 | 
 | authentication\_timeout | (s Sets the maximum allowed time to complete client authentication. | –  | 
 | auto\_explain.log\_analyze | Use EXPLAIN ANALYZE for plan logging. | –  | 

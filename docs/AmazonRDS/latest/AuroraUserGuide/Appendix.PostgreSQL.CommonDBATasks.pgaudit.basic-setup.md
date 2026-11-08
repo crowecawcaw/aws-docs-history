@@ -70,10 +70,6 @@ The steps following assume that your Aurora PostgreSQL DB cluster is associated 
 
 1. Choose **Save changes**.
 
-1. Open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
-
-1. Choose your Aurora PostgreSQL DB cluster's writer instance from the Databases list.
-
 ## AWS CLI
 <a name="Appendix.PostgreSQL.CommonDBATasks.pgaudit.basic-setup.CLI"></a>
 

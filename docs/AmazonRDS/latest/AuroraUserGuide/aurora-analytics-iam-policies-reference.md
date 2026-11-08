@@ -19,8 +19,6 @@ Aurora PostgreSQL requires IAM permissions to access your Iceberg and Parquet da
 The following table summarizes the permissions that Aurora PostgreSQL requires for each access path. Grant only the row that matches your configuration.
 
 
-**Required permissions by data format and access path**  
-
 | Data format and access path | Service | Required permissions | Resources | 
 | --- | --- | --- | --- | 
 | Apache Parquet, single file | Amazon S3 | s3:GetObject | Object key | 
@@ -40,7 +38,7 @@ Three points affect how much you need to grant:
 ## Example policies
 <a name="aurora-analytics-iam-examples"></a>
 
-These example policies use `amzn-s3-demo-bucket` as the bucket name, `amzn-s3-demo-table-bucket` as the Amazon S3 Tables table bucket name, and `123456789012` as the AWS account ID. To use these policies, replace the {{user input placeholders}} with your own information, and scope each `Resource` element to only the data that your foreign tables reference.
+These example policies use `amzn-s3-demo-bucket` as the bucket name, `amzn-s3-demo-table-bucket` as the Amazon S3 Tables table bucket name, and `111122223333` as the AWS account ID. To use these policies, replace the {{user input placeholders}} with your own information, and scope each `Resource` element to only the data that your foreign tables reference.
 
 ### Example: Parquet files in Amazon S3
 <a name="aurora-analytics-iam-parquet"></a>
@@ -102,10 +100,10 @@ The following example policy grants permission to query Iceberg tables that are 
             "Effect": "Allow",
             "Action": "glue:GetTable",
             "Resource": [
-                "arn:aws:glue:us-east-1:123456789012:catalog",
-                "arn:aws:glue:us-east-1:123456789012:database/analytics_db",
-                "arn:aws:glue:us-east-1:123456789012:table/analytics_db/orders",
-                "arn:aws:glue:us-east-1:123456789012:table/analytics_db/customers"
+                "arn:aws:glue:us-east-1:111122223333:catalog",
+                "arn:aws:glue:us-east-1:111122223333:database/analytics_db",
+                "arn:aws:glue:us-east-1:111122223333:table/analytics_db/orders",
+                "arn:aws:glue:us-east-1:111122223333:table/analytics_db/customers"
             ]
         },
         {
@@ -139,7 +137,7 @@ Amazon S3 Tables supports two access paths, and each requires a different set of
 #### Access through AWS Glue Data Catalog
 <a name="aurora-analytics-iam-s3tables-glue"></a>
 
-The following example policy grants permission to query an Amazon S3 Tables table through an AWS Glue ARN under the `s3tablescatalog` federated catalog, such as `arn:aws:glue:us-east-1:123456789012:table/s3tablescatalog/amzn-s3-demo-table-bucket/my_namespace/orders`.
+The following example policy grants permission to query an Amazon S3 Tables table through an AWS Glue ARN under the `s3tablescatalog` federated catalog, such as `arn:aws:glue:us-east-1:111122223333:table/s3tablescatalog/amzn-s3-demo-table-bucket/my_namespace/orders`.
 
 ```
 {
@@ -150,9 +148,9 @@ The following example policy grants permission to query an Amazon S3 Tables tabl
             "Effect": "Allow",
             "Action": "glue:GetTable",
             "Resource": [
-                "arn:aws:glue:us-east-1:123456789012:catalog/s3tablescatalog/amzn-s3-demo-table-bucket",
-                "arn:aws:glue:us-east-1:123456789012:database/s3tablescatalog/amzn-s3-demo-table-bucket/my_namespace",
-                "arn:aws:glue:us-east-1:123456789012:table/s3tablescatalog/amzn-s3-demo-table-bucket/my_namespace/orders"
+                "arn:aws:glue:us-east-1:111122223333:catalog/s3tablescatalog/amzn-s3-demo-table-bucket",
+                "arn:aws:glue:us-east-1:111122223333:database/s3tablescatalog/amzn-s3-demo-table-bucket/my_namespace",
+                "arn:aws:glue:us-east-1:111122223333:table/s3tablescatalog/amzn-s3-demo-table-bucket/my_namespace/orders"
             ]
         },
         {
@@ -165,8 +163,8 @@ The following example policy grants permission to query an Amazon S3 Tables tabl
                 "s3tables:GetNamespace"
             ],
             "Resource": [
-                "arn:aws:s3tables:us-east-1:123456789012:bucket/amzn-s3-demo-table-bucket",
-                "arn:aws:s3tables:us-east-1:123456789012:bucket/amzn-s3-demo-table-bucket/table/*"
+                "arn:aws:s3tables:us-east-1:111122223333:bucket/amzn-s3-demo-table-bucket",
+                "arn:aws:s3tables:us-east-1:111122223333:bucket/amzn-s3-demo-table-bucket/table/*"
             ]
         }
     ]
@@ -176,7 +174,7 @@ The following example policy grants permission to query an Amazon S3 Tables tabl
 #### Access by table ARN
 <a name="aurora-analytics-iam-s3tables-arn"></a>
 
-The following example policy grants permission to query an Amazon S3 Tables table by its table ARN, such as `arn:aws:s3tables:us-east-1:123456789012:bucket/amzn-s3-demo-table-bucket/table/1234abcd-12ab-34cd-56ef-1234567890ab`. This access path doesn't involve AWS Glue, and no AWS Glue permissions are required.
+The following example policy grants permission to query an Amazon S3 Tables table by its table ARN, such as `arn:aws:s3tables:us-east-1:111122223333:bucket/amzn-s3-demo-table-bucket/table/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`. This access path doesn't involve AWS Glue, and no AWS Glue permissions are required.
 
 ```
 {
@@ -192,8 +190,8 @@ The following example policy grants permission to query an Amazon S3 Tables tabl
                 "s3tables:GetNamespace"
             ],
             "Resource": [
-                "arn:aws:s3tables:us-east-1:123456789012:bucket/amzn-s3-demo-table-bucket",
-                "arn:aws:s3tables:us-east-1:123456789012:bucket/amzn-s3-demo-table-bucket/table/*"
+                "arn:aws:s3tables:us-east-1:111122223333:bucket/amzn-s3-demo-table-bucket",
+                "arn:aws:s3tables:us-east-1:111122223333:bucket/amzn-s3-demo-table-bucket/table/*"
             ]
         }
     ]
@@ -206,10 +204,8 @@ The statements in the preceding examples grant the following permissions:
 Grants permission to resolve the table through AWS Glue Data Catalog. Amazon S3 Tables table buckets appear in AWS Glue under the `s3tablescatalog` federated catalog, so the resource ARNs include the table bucket name in the catalog, database, and table paths. This statement is required only when you access the table through AWS Glue Data Catalog.
 
 `S3TablesAccess`  
-Grants permission to resolve and read the table through Amazon S3 Tables. All four actions are required, and each one authorizes a distinct step of table resolution:  
+Grants permission to resolve and read the table through Amazon S3 Tables. All four actions are required, and each one authorizes a distinct step of table resolution.  
 
-
-**Amazon S3 Tables actions and the steps they authorize**  
 
 <table>
 <thead>
@@ -240,7 +236,7 @@ If your data is encrypted with server-side encryption using AWS KMS keys (SSE-KM
     "Sid": "KMSDecrypt",
     "Effect": "Allow",
     "Action": "kms:Decrypt",
-    "Resource": "arn:aws:kms:us-east-1:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+    "Resource": "arn:aws:kms:us-east-1:111122223333:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
 }
 ```
 
@@ -249,7 +245,7 @@ For a KMS key that is owned by another account, the key policy in the owning acc
 ## Cross-account access
 <a name="aurora-analytics-iam-cross-account"></a>
 
-When another account owns your data, both accounts must allow the action. In the following examples, a cluster role in account `123456789012` reads Parquet files from a bucket that is owned by account `111122223333`.
+When another account owns your data, both accounts must allow the action. In the following examples, a cluster role in account `111122223333` reads Parquet files from a bucket that is owned by account `444455556666`.
 
 The following example bucket policy, in the data owner's account, grants the cluster role permission to read objects from the bucket.
 
@@ -261,7 +257,7 @@ The following example bucket policy, in the data owner's account, grants the clu
             "Sid": "AllowAuroraAnalyticsRole",
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::123456789012:role/amzn-analytics-demo-role"
+                "AWS": "arn:aws:iam::111122223333:role/amzn-analytics-demo-role"
             },
             "Action": "s3:GetObject",
             "Resource": "arn:aws:s3:::amzn-s3-demo-bucket/data/orders/*"
@@ -307,10 +303,10 @@ Whichever permissions policy you use, attach it to an IAM role whose trust polic
             "Action": "sts:AssumeRole",
             "Condition": {
                 "StringEquals": {
-                    "aws:SourceAccount": "123456789012"
+                    "aws:SourceAccount": "111122223333"
                 },
                 "ArnLike": {
-                    "aws:SourceArn": "arn:aws:rds:us-east-1:123456789012:cluster:amzn-rds-demo-cluster"
+                    "aws:SourceArn": "arn:aws:rds:us-east-1:111122223333:cluster:amzn-rds-demo-cluster"
                 }
             }
         }
@@ -322,8 +318,8 @@ Whichever permissions policy you use, attach it to an IAM role whose trust polic
 <a name="aurora-analytics-iam-best-practices"></a>
 
 When you create these IAM policies, follow these best practices:
-+ **Use least privilege**: Grant only the specific Amazon S3 prefixes, AWS Glue resources, and Amazon S3 Tables resources that your foreign tables require. Avoid wildcard (`*`) resource ARNs.
-+ **Grant `s3:ListBucket` only where it is needed**: See the summary table for which access paths require it.
-+ **Use prefix conditions**: Apply `s3:prefix` conditions to `s3:ListBucket` actions to restrict which folders can be listed.
-+ **Separate roles for separate concerns**: If different databases or users access different Amazon S3 data, consider using separate IAM roles for each scope.
-+ **Audit regularly**: Review policy permissions periodically to confirm that they match your current foreign table definitions.
++ **Use least privilege** – Grant only the specific Amazon S3 prefixes, AWS Glue resources, and Amazon S3 Tables resources that your foreign tables require. Avoid wildcard (`*`) resource ARNs.
++ **Grant `s3:ListBucket` only where it is needed** – See the summary table for which access paths require it.
++ **Use prefix conditions** – Apply `s3:prefix` conditions to `s3:ListBucket` actions to restrict which folders can be listed.
++ **Separate roles for separate concerns** – If different databases or users access different Amazon S3 data, consider using separate IAM roles for each scope.
++ **Audit regularly** – Review policy permissions periodically to confirm that they match your current foreign table definitions.

@@ -8,9 +8,9 @@ Monitoring on instance level is key to understand connection skew, workload skew
 ## Overview
 <a name="limitless-instance-monitoring-overview"></a>
 
-When your application issues a query against , that request traverses a sophisticated distributed system before returning results. A seemingly simple `SELECT` statement might touch multiple database instances, each playing a distinct role in processing your request. Understanding this journey—and the instances that power it—transforms how you design applications, interpret monitoring data, and diagnose performance issues.
+When your application issues a query against Amazon Aurora PostgreSQL Limitless Database, that request traverses a sophisticated distributed system before returning results. A seemingly simple `SELECT` statement might touch multiple database instances, each playing a distinct role in processing your request. Understanding this journey—and the instances that power it—transforms how you design applications, interpret monitoring data, and diagnose performance issues.
 
-This guide provides deep technical insight into instance architecture:
+This guide provides deep technical insight into Aurora PostgreSQL Limitless Database instance architecture:
 + Limitless Architecture refresher, router and shards
 + When and how to scale each instance type to meet your performance and capacity requirements
 + How to monitor, troubleshoot, and optimize instance-level performance
@@ -19,11 +19,11 @@ This guide provides deep technical insight into instance architecture:
 ## Instance architecture fundamentals
 <a name="limitless-instance-monitoring-architecture"></a>
 
- achieves horizontal scalability through functional separation across two specialized instance types:
+Aurora PostgreSQL Limitless Database achieves horizontal scalability through functional separation across two specialized instance types:
 + **Router instances** provide the orchestration layer—they accept client connections, analyze queries, coordinate distributed operations, and aggregate results. Routers are stateless, meaning they don't store data and can be added or removed without data migration.
 + **Shard instances** provide the data and compute layer—they store table data, execute queries against local data, and handle transactions. Shards are stateful, each owning a specific subset of your data determined by consistent hashing.
 
-This separation allows to scale connection handling, query coordination, and data storage independently based on your workload characteristics.
+This separation allows Aurora PostgreSQL Limitless Database to scale connection handling, query coordination, and data storage independently based on your workload characteristics.
 
 ### Router and shard comparison
 <a name="limitless-instance-monitoring-comparison"></a>
@@ -40,12 +40,12 @@ This separation allows to scale connection handling, query coordination, and dat
 ## Monitoring instance performance
 <a name="limitless-instance-monitoring-performance"></a>
 
-Understanding instance-level performance is critical for operating effectively. Instance-specific monitoring reveals the distribution patterns that impact performance: connection skew, workload skew, and data skew.
+Understanding instance-level performance is critical for operating Aurora PostgreSQL Limitless Database effectively. Instance-specific monitoring reveals the distribution patterns that impact performance: connection skew, workload skew, and data skew.
 
 ### Detecting skew
 <a name="limitless-instance-monitoring-skew"></a>
 
-In an ideal deployment, workload and resources distribute evenly across instances. In practice, applications frequently experience skew—uneven distribution that concentrates load on specific instances.
+In an ideal Aurora PostgreSQL Limitless Database deployment, workload and resources distribute evenly across instances. In practice, applications frequently experience skew—uneven distribution that concentrates load on specific instances.
 
 Three types of skew to monitor:
 + **Connection skew**: Uneven distribution of client connections across routers
@@ -133,7 +133,7 @@ A shard with popular shard keys will have more data and higher workloads. This m
 ### Shard data volumes
 <a name="limitless-instance-monitoring-shard-data"></a>
 
-Use SQL functions to query data volumes:
+Use Aurora PostgreSQL Limitless Database SQL functions to query data volumes:
 
 ```
 SELECT subcluster_id, subcluster_type, pg_size_pretty(db_size) 

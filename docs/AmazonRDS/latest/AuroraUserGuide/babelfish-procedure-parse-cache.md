@@ -8,7 +8,7 @@ Starting with Babelfish versions 5.7.0 and 6.2.0, you can use a persistent ANTLR
 **With the procedure parse cache:**
 + Large T-SQL routines (hundreds to thousands of lines) no longer incur full T-SQL parsing overhead on the first execution in every new session.
 + The parsed result is serialized once at `CREATE`/`ALTER` procedure/function time, stored in the catalog, and reused across sessions – emulating SQL Server's system-wide caching behavior.
-+ The feature is controlled by the session-level GUC `babelfishpg_tsql.enable_antlr_parse_cache`, with optional per-routine overrides via `sys.enable_antlr_parse_cache()`.
++ The feature is controlled by the session-level GUC `babelfishpg_tsql.enable_antlr_parse_cache`, with optional per-routine overrides through `sys.enable_antlr_parse_cache()`.
 + By default the feature is **OFF**.
 
 **Performance:** For large routines, ANTLR parsing can take up to several seconds. With the ANTLR parse cache, first-execution parse time is reduced to a few milliseconds. Subsequent executions in the same session are served from the in-session cache (sub-millisecond) and are unaffected.
@@ -19,10 +19,10 @@ Starting with Babelfish versions 5.7.0 and 6.2.0, you can use a persistent ANTLR
 Babelfish must validate T-SQL syntax by parsing a routine's body the first time it runs in a session. This parse result is normally cached only for the lifetime of that session, so every new connection re-parses from scratch. The parse cache persists the parse result in the catalog so that new sessions can reuse it.
 
 How it behaves:
-+ **At `CREATE`/`ALTER`:** When caching is enabled, Babelfish parses the routine and stores the serialized parse result in the persistent cache.
-+ **First execution without a persistent entry:** If no cached entry exists (for example, the routine was created before caching was enabled), Babelfish performs the normal ANTLR parse and populates the persistent cache.
-+ **First execution in a later session:** Babelfish loads and deserializes the cached parse result instead of re-parsing – this is where the time savings occur.
-+ **Subsequent executions in the same session:** served from the in-session cache (unchanged behavior).
++ **At `CREATE`/`ALTER`** – When caching is enabled, Babelfish parses the routine and stores the serialized parse result in the persistent cache.
++ **First execution without a persistent entry** – If no cached entry exists (for example, the routine was created before caching was enabled), Babelfish performs the normal ANTLR parse and populates the persistent cache.
++ **First execution in a later session** – Babelfish loads and deserializes the cached parse result instead of re-parsing – this is where the time savings occur.
++ **Subsequent executions in the same session** – served from the in-session cache (unchanged behavior).
 + If a cached result is missing or was created by a different Babelfish version, Babelfish performs the normal ANTLR parse and repopulates the persistent cache when caching is enabled.
 + If Babelfish encounters an error while serializing or deserializing a cached result, the statement fails and returns an error. Disable caching for the affected routine and retry the statement, or retry in a new session with the cache GUC disabled. If the error persists, contact AWS Support.
 
@@ -98,7 +98,7 @@ GO
 
 **Note**  
 The GUC is **session-scoped** and resets to the default (OFF) when the session ends.
-This GUC is **not** currently configurable cluster-wide via `sp_babelfish_configure`.
+This GUC is not currently configurable cluster-wide through `sp_babelfish_configure`.
 
 ## Controlling the cache per routine
 <a name="babelfish-procedure-parse-cache-per-routine"></a>
@@ -178,12 +178,16 @@ GO
 
 ## Upgrade considerations
 <a name="babelfish-procedure-parse-cache-upgrade"></a>
+
+The ANTLR parse cache behaves as follows across Babelfish version upgrades:
 + The ANTLR parse cache is bound to a specific Babelfish version. When the Babelfish version changes, cached parse results are no longer reused. New executions re-parse the routine and repopulate the cache automatically when caching is enabled.
 + Existing routines created before 5.7.0 and 6.2.0 are cached on their next `CREATE`/`ALTER` or on a cold-session execution once caching is enabled.
 
 ## Important limitations
 <a name="babelfish-procedure-parse-cache-limitations"></a>
-+ **Default OFF:** the feature must be explicitly enabled per session (or forced per routine).
-+ **Connection type:** the cache is active only for **TDS (SQL Server protocol) connections**, not for psql/libpq connections.
-+ **Not cached:** **triggers, event triggers, and inline table-valued functions (ITVFs)** are not cached in this release.
-+ **Cluster-wide config:** the session GUC is not currently settable via `sp_babelfish_configure`.
+
+The following limitations apply to the ANTLR parse cache:
++ **Default OFF** – the feature must be explicitly enabled per session (or forced per routine).
++ **Connection type** – the cache is active only for **TDS (SQL Server protocol) connections**, not for psql/libpq connections.
++ **Not cached** – **triggers, event triggers, and inline table-valued functions (ITVFs)** are not cached in this release.
++ **Cluster-wide config** – the session GUC is not currently settable through `sp_babelfish_configure`.

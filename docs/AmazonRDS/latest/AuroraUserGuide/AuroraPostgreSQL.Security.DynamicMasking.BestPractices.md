@@ -264,7 +264,7 @@ UPDATE 1
 ```
 
 Triggers on views with pg\_columnmask (Instead of triggers)  
-Triggers can only be created on views in PostgreSQL. They are used for running DML statements on views that are not updatable. Transit tables are always masked inside instead of trigger (IOT), because the view and the base tables used inside the view query could have different owners. In which case, base tables might have some masking policies applicable on the view owner and the view owner must always see masked data from base tables inside its triggers. This is different from triggers on tables because in that case the trigger creator and the data inside the tables are owned by the same user which is not the case here.  
+You can create `INSTEAD OF` triggers only on views in PostgreSQL. They are used for running DML statements on views that are not updatable. Transit tables are always masked inside instead of trigger (IOT), because the view and the base tables used inside the view query could have different owners. In which case, base tables might have some masking policies applicable on the view owner and the view owner must always see masked data from base tables inside its triggers. This is different from triggers on tables because in that case the trigger creator and the data inside the tables are owned by the same user which is not the case here.  
 
 ```
 -- Create a view over credit card table

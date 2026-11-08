@@ -3,11 +3,11 @@
 # Resource management
 <a name="aurora-analytics-resource-management"></a>
 
-Aurora PostgreSQL manages four types of resources to run queries against foreign tables that reference your Iceberg and Parquet data.
-+ **Query memory**: The working memory (from instance memory) that a query uses for hash tables, sorting, aggregation, and intermediate results, controlled by the `aurora_analytics.query_mem` parameter. For more information, see [Query memory](#aurora-analytics-query-memory).
-+ **Disk spilling**: When a query exceeds its memory budget, Aurora PostgreSQL writes intermediate data to temporary files on local storage and then automatically deletes them when the query finishes. This allows most large queries to complete without failing, though queries with very large intermediate results might still exhaust the available spill space. For more information, see [Disk spilling](#aurora-analytics-disk-spilling).
-+ **Worker threads**: The CPU parallelism the engine uses to run a query. Aurora manages this automatically and scales it from the query's memory budget. For more information, see [Worker threads](#aurora-analytics-worker-threads).
-+ **On-disk read cache**: Local storage (NVMe or Amazon EBS) that caches Amazon S3 data so repeated reads are served locally. For more information, see [On-disk read cache](#aurora-analytics-on-disk-read-cache).
+Aurora PostgreSQL manages four types of resources to run queries against foreign tables that reference your Iceberg and Parquet data:
++ **Query memory** – The working memory (from instance memory) that a query uses for hash tables, sorting, aggregation, and intermediate results. The `aurora_analytics.query_mem` parameter controls this memory. For more information, see [Query memory](#aurora-analytics-query-memory).
++ **Disk spilling** – When a query exceeds its memory budget, Aurora PostgreSQL writes intermediate data to temporary files on local storage and then automatically deletes them when the query finishes. This allows most large queries to complete without failing. However, queries with very large intermediate results might still exhaust the available spill space. For more information, see [Disk spilling](#aurora-analytics-disk-spilling).
++ **Worker threads** – The CPU parallelism the engine uses to run a query. Aurora manages this automatically and scales it from the query's memory budget. For more information, see [Worker threads](#aurora-analytics-worker-threads).
++ **On-disk read cache** – Local storage (NVMe or Amazon EBS) that caches Amazon S3 data so repeated reads are served locally. For more information, see [On-disk read cache](#aurora-analytics-on-disk-read-cache).
 
 This topic explains how each resource is allocated, how they interact, and how you can tune them for your workload.
 
@@ -21,7 +21,7 @@ This topic explains how each resource is allocated, how they interact, and how y
 ## Query memory
 <a name="aurora-analytics-query-memory"></a>
 
-Aurora PostgreSQL allocates a per-query memory budget from instance memory for hash tables, sorting, aggregation buffers, and intermediate results during query execution. The `aurora_analytics.query_mem` parameter controls this budget, and it works as follows.
+Aurora PostgreSQL allocates a per-query memory budget from instance memory for hash tables, sorting, aggregation buffers, and intermediate results during query execution. The `aurora_analytics.query_mem` parameter controls this budget, and it works as follows:
 + It sets the maximum memory a single query can use.
 + You can specify it as a string with a unit (for example, `'4GB'` or `'16GB'`) or as an integer in kilobytes (kB).
 + The effective limit is capped at instance memory minus the memory reserved for PostgreSQL `shared_buffers`. Setting `query_mem` above that cap has no additional effect.
@@ -39,7 +39,7 @@ available_memory ≈ instance_memory − shared_buffers
 
 If you run workloads that are predominantly foreign table queries, reducing `shared_buffers` frees more memory for `query_mem` and is often the most effective tuning step.
 
-Aurora PostgreSQL includes built-in memory protection that cancels queries when system-wide memory pressure becomes critical. To reduce the risk of cancellations, do the following.
+Aurora PostgreSQL includes built-in memory protection that cancels queries when system-wide memory pressure becomes critical. To reduce the risk of cancellations, do the following:
 + Reduce `shared_buffers`.
 + Lower `query_mem`.
 + Limit concurrent sessions.
@@ -54,7 +54,7 @@ When a query's intermediate results exceed `query_mem`, Aurora PostgreSQL spills
 ### Common causes of spilling
 <a name="aurora-analytics-disk-spilling-causes"></a>
 
-The following are common causes of spilling.
+The following are common causes of spilling:
 + Large `ORDER BY` without `LIMIT`.
 + Hash joins between two large unfiltered tables.
 + `GROUP BY` with high cardinality (millions of distinct groups).
@@ -67,14 +67,12 @@ Spilling lets a query finish even when its data is larger than memory, but it do
 ### Impact on other workloads
 <a name="aurora-analytics-disk-spilling-other-workloads"></a>
 
-Spilling creates I/O contention on the same local storage used by the read cache. When multiple concurrent sessions spill simultaneously, the following can occur.
-+ **Disk space is shared**: Spill files and the read cache both occupy local storage.
-+ **OLTP impact**: On instances running mixed workloads, heavy spilling can create local storage I/O contention that indirectly affects local PostgreSQL operations.
+Spilling creates I/O contention on the same local storage used by the read cache. When multiple concurrent sessions spill simultaneously, the following can occur:
++ **Disk space is shared** – Spill files and the read cache both occupy local storage.
++ **OLTP impact** – On instances running mixed workloads, heavy spilling can create local storage I/O contention that indirectly affects local PostgreSQL operations.
 
 The following table compares spilling, out-of-memory errors, and query cancellation.
 
-
-**Spilling compared with out-of-memory errors and query cancellation**  
 
 | Scenario | What happens | Query completes? | 
 | --- | --- | --- | 
@@ -88,9 +86,9 @@ Monitor the Amazon CloudWatch metric `AuroraAnalyticsDiskSpillSize` to detect wh
 ## Worker threads
 <a name="aurora-analytics-worker-threads"></a>
 
-Aurora PostgreSQL uses a multi-threaded execution engine for each query. Threads are used for both computation and cache I/O (fetching data from the on-disk cache or Amazon S3).
-+ **Query execution threads**: Execute the query plan. Aurora PostgreSQL manages the number of these threads automatically, scaled from the query's memory budget.
-+ **Cache I/O threads**: Read from the on-disk cache or download Amazon S3 data in parallel on cache misses. These are separate from query execution threads and are also managed internally.
+Aurora PostgreSQL uses a multi-threaded execution engine for each query. Threads are used for both computation and cache I/O (fetching data from the on-disk cache or Amazon S3):
++ **Query execution threads** – Execute the query plan. Aurora PostgreSQL manages the number of these threads automatically, scaled from the query's memory budget.
++ **Cache I/O threads** – Read from the on-disk cache or download Amazon S3 data in parallel on cache misses. These are separate from query execution threads and are also managed internally.
 
 Both kinds of threads are internal to the engine and managed by Aurora PostgreSQL. You do not configure either one.
 
@@ -117,8 +115,6 @@ New Parquet files added to an existing Amazon S3 prefix are discovered and cache
 Aurora PostgreSQL provides the following functions to manage the on-disk read cache.
 
 
-**Cache management functions**  
-
 | Function | Description | Required permission | 
 | --- | --- | --- | 
 | aurora\_analytics\_cache\_size() | Returns the current cache size in bytes. | All users. | 
@@ -127,9 +123,9 @@ Aurora PostgreSQL provides the following functions to manage the on-disk read ca
 ### When to clear the cache
 <a name="aurora-analytics-on-disk-read-cache-clear"></a>
 
-Consider clearing the cache in the following situations.
-+ **Disk space pressure**: When the `FreeLocalStorage` or `FreeEphemeralStorage` Amazon CloudWatch metrics are low and you need immediate disk space for query spills.
-+ **Performance testing**: When benchmarking cold-cache performance.
+Consider clearing the cache in the following situations:
++ **Disk space pressure** – When the `FreeLocalStorage` or `FreeEphemeralStorage` Amazon CloudWatch metrics are low and you need immediate disk space for query spills.
++ **Performance testing** – When benchmarking cold-cache performance.
 
 ## Memory protection (query cancellation under memory pressure)
 <a name="aurora-analytics-memory-protection"></a>
@@ -153,13 +149,13 @@ DETAIL:  Transaction cancelled due to insufficient memory
 ### How to reduce query cancellations
 <a name="aurora-analytics-memory-protection-reduce"></a>
 
-To reduce query cancellations, do the following.
-+ **Reduce per-session memory**: Lower `query_mem` so each session uses less memory, allowing more headroom.
-+ **Reduce concurrency**: Fewer concurrent foreign table queries means less total memory pressure.
-+ **Scale up the instance**: A larger DB instance provides more instance memory for the same workload.
+To reduce query cancellations, do the following:
++ **Reduce per-session memory** – Lower `query_mem` so each session uses less memory, allowing more headroom.
++ **Reduce concurrency** – Fewer concurrent foreign table queries means less total memory pressure.
++ **Scale up the instance** – A larger DB instance provides more instance memory for the same workload.
 
 **Note**  
-Improved memory management is controlled by the `rds.enable_memory_management` parameter (enabled by default). We recommend keeping it enabled. Disabling it removes the protection against workload-induced DB instance restarts from memory exhaustion. For more information, see [Improved memory management in Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Reference.html) in the *Amazon Aurora User Guide*.
+The `rds.enable_memory_management` parameter (enabled by default) controls improved memory management. We recommend keeping it enabled. Disabling it means that memory exhaustion can restart your DB instance. For more information, see [Improved memory management in Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Reference.html) in the *Amazon Aurora User Guide*.
 
 **Note**  
 Queries run by users with the `rds_superuser` role are exempt from memory pressure cancellation.

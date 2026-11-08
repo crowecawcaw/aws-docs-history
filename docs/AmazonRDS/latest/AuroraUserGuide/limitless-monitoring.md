@@ -7,6 +7,7 @@ You can use Amazon CloudWatch, Enhanced Monitoring, and Performance Insights to 
 
 **Topics**
 + [Monitoring Aurora PostgreSQL Limitless Database with Amazon CloudWatch](limitless-monitoring.cw.md)
++ [Instance-specific performance and resource monitoring](limitless-instance-monitoring.md)
 + [Monitoring Aurora PostgreSQL Limitless Database with CloudWatch Database Insights](limitless-monitoring.cwdbi.md)
 + [Monitoring Aurora PostgreSQL Limitless Database with Amazon CloudWatch Logs](limitless-monitoring.cwl.md)
 + [Monitoring Aurora PostgreSQL Limitless Database with Enhanced Monitoring](limitless-monitoring.em.md)

@@ -151,7 +151,7 @@ Amazon RDS Extended Support for Aurora MySQL version 2 starts on November 1, 202
 
 Amazon Aurora major versions remain available at least until community end of life for the corresponding community version. You can use Aurora end of standard support dates to plan your testing and upgrade cycles. These dates represent the earliest date that an upgrade to a newer version might be required. For more information on the dates, see [Amazon Aurora major versions](#Aurora.VersionPolicy.MajorVersions).
 
-Before Aurora asks you to upgrade to a newer major version and to help you plan, you receive a reminder at least 12 months in advance. The reminders communicate the following about the upgrade process.
+Before Aurora asks you to upgrade to a newer major version and to help you plan, Aurora typically provides a reminder 12 months in advance. The reminders communicate the following about the upgrade process.
 + The timing of certain milestones
 + The impact on your DB clusters
 + Recommended actions
