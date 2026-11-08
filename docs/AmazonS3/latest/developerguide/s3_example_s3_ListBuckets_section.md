@@ -296,7 +296,7 @@ Get-S3Bucket -BucketName amzn-s3-demo-bucket
 ```
 Get-S3Bucket
 ```
-**Example 2: This command returns bucket named "test-files"**  
+**Example 2: This command returns bucket named "amzn-s3-demo-bucket".**  
 
 ```
 Get-S3Bucket -BucketName amzn-s3-demo-bucket

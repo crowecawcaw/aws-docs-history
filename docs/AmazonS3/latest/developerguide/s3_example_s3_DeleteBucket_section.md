@@ -307,7 +307,7 @@ Remove-S3Bucket -BucketName amzn-s3-demo-bucket -DeleteBucketContent
 +  For API details, see [DeleteBucket](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
 **Tools for PowerShell V5**  
-**Example 1: This command removes all objects and object versions from the bucket 'test-files' and then deletes the bucket. The command will prompt for confirmation before proceeding. Add the -Force switch to suppress confirmation. Note that buckets that are not empty cannot be deleted.**  
+**Example 1: This command removes all objects and object versions from the bucket 'amzn-s3-demo-bucket' and then deletes the bucket. The command will prompt for confirmation before proceeding. Add the -Force switch to suppress confirmation. Note that buckets that are not empty cannot be deleted.**  
 
 ```
 Remove-S3Bucket -BucketName amzn-s3-demo-bucket -DeleteBucketContent

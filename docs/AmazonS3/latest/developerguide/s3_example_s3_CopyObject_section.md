@@ -888,17 +888,17 @@ Copy-S3Object -BucketName amzn-s3-demo-bucket -KeyPrefix data -LocalFolder c:\do
 +  For API details, see [CopyObject](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
 **Tools for PowerShell V5**  
-**Example 1: This command copies the object "sample.txt" from bucket "test-files" to the same bucket but with a new key of "sample-copy.txt".**  
+**Example 1: This command copies the object "sample.txt" from bucket "amzn-s3-demo-bucket" to the same bucket but with a new key of "sample-copy.txt".**  
 
 ```
 Copy-S3Object -BucketName amzn-s3-demo-bucket -Key sample.txt -DestinationKey sample-copy.txt
 ```
-**Example 2: This command copies the object "sample.txt" from bucket "test-files" to the bucket "backup-files" with a key of "sample-copy.txt".**  
+**Example 2: This command copies the object "sample.txt" from bucket "amzn-s3-demo-source-bucket" to the bucket "amzn-s3-demo-destination-bucket" with a key of "sample-copy.txt".**  
 
 ```
 Copy-S3Object -BucketName amzn-s3-demo-source-bucket -Key sample.txt -DestinationKey sample-copy.txt -DestinationBucket amzn-s3-demo-destination-bucket
 ```
-**Example 3: This command downloads the object "sample.txt" from bucket "test-files" to a local file with name "local-sample.txt".**  
+**Example 3: This command downloads the object "sample.txt" from bucket "amzn-s3-demo-bucket" to a local file with name "local-sample.txt".**  
 
 ```
 Copy-S3Object -BucketName amzn-s3-demo-bucket -Key sample.txt -LocalFile local-sample.txt

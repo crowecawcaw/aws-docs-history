@@ -938,17 +938,17 @@ Remove-S3Object -BucketName $BucketName -KeyAndVersionCollection $keyVersions -F
 +  For API details, see [DeleteObjects](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
 **Tools for PowerShell V5**  
-**Example 1: This command removes the object "sample.txt" from bucket "test-files". You are prompted for confirmation before the command executes; to suppress the prompt use the -Force switch.**  
+**Example 1: This command removes the object "sample.txt" from bucket "amzn-s3-demo-bucket". You are prompted for confirmation before the command executes; to suppress the prompt use the -Force switch.**  
 
 ```
 Remove-S3Object -BucketName amzn-s3-demo-bucket -Key sample.txt
 ```
-**Example 2: This command removes the specified version of object "sample.txt" from bucket "test-files", assuming the bucket has been configured to enable object versions.**  
+**Example 2: This command removes the specified version of object "sample.txt" from bucket "amzn-s3-demo-bucket", assuming the bucket has been configured to enable object versions.**  
 
 ```
 Remove-S3Object -BucketName amzn-s3-demo-bucket -Key sample.txt -VersionId HLbxnx6V9omT6AQYVpks8mmFKQcejpqt
 ```
-**Example 3: This command removes objects "sample1.txt", "sample2.txt" and "sample3.txt" from bucket "test-files" as a single batch operation. The service response will list all keys processed, regardless of the success or error status of the deletion. To obtain only errors for keys that were not able to be processed by the service add the -ReportErrorsOnly parameter (this parameter can also be specified with the alias -Quiet.**  
+**Example 3: This command removes objects "sample1.txt", "sample2.txt" and "sample3.txt" from bucket "amzn-s3-demo-bucket" as a single batch operation. The service response will list all keys processed, regardless of the success or error status of the deletion. To obtain only errors for keys that were not able to be processed by the service add the -ReportErrorsOnly parameter (this parameter can also be specified with the alias -Quiet).**  
 
 ```
 Remove-S3Object -BucketName amzn-s3-demo-bucket -KeyCollection @( "sample1.txt", "sample2.txt", "sample3.txt" )
@@ -956,7 +956,7 @@ Remove-S3Object -BucketName amzn-s3-demo-bucket -KeyCollection @( "sample1.txt",
 **Example 4: This example uses an inline expression with the -KeyCollection parameter to obtain the keys of the objects to delete. Get-S3Object returns a collection of Amazon.S3.Model.S3Object instances, each of which has a Key member of type string identifying the object.**  
 
 ```
-Remove-S3Object -bucketname "amzn-s3-demo-bucket" -KeyCollection (Get-S3Object "test-files" -KeyPrefix "prefix/subprefix" | select -ExpandProperty Key)
+Remove-S3Object -bucketname "amzn-s3-demo-bucket" -KeyCollection (Get-S3Object "amzn-s3-demo-bucket" -KeyPrefix "prefix/subprefix" | select -ExpandProperty Key)
 ```
 **Example 5: This example obtains all objects that have a key prefix "prefix/subprefix" in the bucket and deletes them. Note that the incoming objects are processed one at a time. For large collections consider passing the collection to the cmdlet's -InputObject (alias -S3ObjectCollection) parameter to enable the deletion to occur as a batch with a single call to the service.**  
 
