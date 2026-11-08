@@ -32,32 +32,36 @@ The CLI builds the container image with AWS CodeBuild in your account, so you do
 ## Step 1: Create the project
 <a name="runtime-get-started-bma-create"></a>
 
-Install the AgentCore CLI, and set your credentials and Region:
+ **To create the project** 
 
-```
-npm install -g @aws/agentcore
-agentcore --version
+1. Install the AgentCore CLI.
 
-export AWS_PROFILE=your-profile
-export AWS_REGION=us-east-1
-```
+   ```
+   npm install -g @aws/agentcore
+   agentcore --version
+   ```
 
-Create the project from the `environment-python-bma` template:
+1. Set your credentials and Region.
 
-```
-agentcore create --name MyManagedAgent --template environment-python-bma
-cd MyManagedAgent
-```
+   ```
+   export AWS_PROFILE={{your-profile}}
+   export AWS_REGION=us-east-1
+   ```
 
+1. Create the project from the `environment-python-bma` template.
+
+   ```
+   agentcore create --name {{MyManagedAgent}} --template environment-python-bma
+   cd {{MyManagedAgent}}
+   ```
+**Note**  
 You can also run `agentcore create` with no flags. Choose **code-based**, and then choose the `environment-python-bma` template.
 
-The project has the Runtime configuration in `agentcore/agentcore.json` and the container source in `app/agent/`. The Runtime is named `agent`. The container runs `codex exec-server`, which connects out to Bedrock Managed Agents and runs the commands of the agent.
+   The project has the Runtime configuration in `agentcore/agentcore.json` and the container source in `app/agent/`. The Runtime is named `agent`. The container runs `codex exec-server`, which connects out to Bedrock Managed Agents and runs the commands of the agent.
 
-The template configures the Runtime with these defaults:
-+ A 30 minute idle timeout and an 8 hour maximum lifetime. See [Configure lifecycle settings](runtime-lifecycle-settings.md).
-+ An execution role with the permissions in `policies/bma-acr-policy.json`.
-
-If you set `executionRoleArn` on the runtime in `agentcore/agentcore.json`, the CLI uses your existing role. It cannot attach `policies/bma-acr-policy.json` to that role. Grant the role `bedrock-mantle:RegisterEnvironment` and `bedrock-mantle:ConnectEnvironment` before you deploy.
+   The template configures the Runtime with these defaults:
+   + A 30 minute idle timeout and an 8 hour maximum lifetime. See [Configure lifecycle settings](runtime-lifecycle-settings.md).
+   + An execution role with the permissions in `policies/bma-acr-policy.json`.
 
 ### Project structure
 <a name="runtime-get-started-bma-project-structure"></a>
@@ -87,52 +91,33 @@ Key files:
 +  `Dockerfile` - Installs Codex, the CloudWatch agent, and Python, and copies `lifecycle/`, `otel/`, and `plugins/` to `/opt/bma`.
 +  `otel/collector.yaml` - Sends the spans and logs of the exec-server to X-Ray and CloudWatch Logs.
 +  `plugins/acr-report/` - A sample plugin with one skill. The skill saves `acr-report.txt` in the workspace.
-+  `policies/bma-acr-policy.json` - The policy of the Runtime execution role. Allows `bedrock-mantle:RegisterEnvironment` and `bedrock-mantle:ConnectEnvironment`. To limit it to one project, change `Resource` to `arn:aws:bedrock-mantle:<region>:<account-id>:project/<project-id>`.
++  `policies/bma-acr-policy.json` - The policy of the Runtime execution role. Allows `bedrock-mantle:RegisterEnvironment` and `bedrock-mantle:ConnectEnvironment`. To limit it to one project, change `Resource` to `arn:aws:bedrock-mantle:{{region}}:{{account-id}}:project/{{project-id}} `.
 +  `pyproject.toml` - The Python dependencies. The `dev` group is for `client.py` only.
 +  `policies/bma-session-trust.json` and `policies/bma-session-policy.json` - The trust policy and the permissions of the session role. See [The session role](#runtime-get-started-bma-session-role).
 +  `client.py` - A sample client that starts a session. You run it in Step 3.
 
-### Deploy the Runtime in a VPC
-<a name="runtime-get-started-bma-vpc"></a>
+<a name="runtime-get-started-bma-provision-session-role"></a>The Runtime execution role registers and connects the environment. The session role is different: Bedrock Managed Agents assumes it to call the model and invoke or stop your Runtime. The CLI template does not automatically create or select this session role.
 
-Create the project from the `environment-python-bma` template as shown above. Then add the following fields to the `agent` Runtime entry in `agentcore/agentcore.json`:
+ **To provision the session role with the generated CDK application** 
 
-```
-{
-  "networkMode": "VPC",
-  "networkConfig": {
-    "vpcId": "vpc-0123456789abcdef0",
-    "subnets": ["subnet-0123456789abcdef0"],
-    "securityGroups": ["sg-0123456789abcdef0"]
-  }
-}
-```
+1. Edit `agentcore/cdk/lib/cdk-stack.ts`.
 
-Replace the IDs with the IDs of your VPC, subnets, and security groups. A container build in VPC mode needs `vpcId`.
+1. Replace the constructor’s existing assignment to `this.application` with the following code:
 
-The subnets must have a route to the Bedrock Managed Agents endpoint, because the exec-server connects out to it. The image build runs in the same subnets and downloads Codex and Python, so the subnets also need a route to the internet. See [Configure AgentCore for VPC](agentcore-vpc.md).
-
-### Configure the Bedrock Managed Agents session role
-<a name="runtime-get-started-bma-provision-session-role"></a>
-
-The Runtime execution role registers and connects the environment. The session role is different: Bedrock Managed Agents assumes it to call the model and invoke or stop your Runtime. The CLI template does not automatically create or select this session role.
-
-To provision the session role with the generated CDK application, edit `agentcore/cdk/lib/cdk-stack.ts`. Replace the constructor’s existing assignment to `this.application` with the following code:
-
-```
-const applicationProps = {
-  ...props.application,
-  spec: {
-    ...props.application.spec,
-    runtimes: (props.application.spec.runtimes ?? []).map(runtime =>
-      runtime.name === 'agent'
-        ? { ...runtime, bedrockManagedAgents: true }
-        : runtime
-    ),
-  },
-};
-this.application = new AgentCoreApplication(this, 'Application', applicationProps);
-```
+   ```
+   const applicationProps = {
+     ...props.application,
+     spec: {
+       ...props.application.spec,
+       runtimes: (props.application.spec.runtimes ?? []).map(runtime =>
+         runtime.name === 'agent'
+           ? { ...runtime, bedrockManagedAgents: true }
+           : runtime
+       ),
+     },
+   };
+   this.application = new AgentCoreApplication(this, 'Application', applicationProps);
+   ```
 
 This sets the L3 construct’s activation marker after the project has been loaded. Do not add `bedrockManagedAgents` to `agentcore.json`; it is not a supported CLI Runtime field. If you renamed the Runtime, replace `agent` in the snippet with its logical name.
 
@@ -140,56 +125,75 @@ The L3 session role trusts `bedrock-mantle.amazonaws.com`, with source-account a
 
 Alternatively, create or obtain a session role with the trust and permissions in the [Bedrock Managed Agents security guide](https://docs.aws.amazon.com/bedrock/latest/userguide/bedrock-managed-agents-openai-security.html). In either case, the role must be in the calling account, and your client identity must be authorized to pass that specific role to Bedrock Managed Agents.
 
+ **(Optional) To use an existing execution role** 
+
+If you set `executionRoleArn` on the runtime in `agentcore/agentcore.json`, the CLI uses your existing role. It cannot attach `policies/bma-acr-policy.json` to that role.
+
+1. Grant the role `bedrock-mantle:RegisterEnvironment` and `bedrock-mantle:ConnectEnvironment` before you deploy.
+
+  **(Optional) To deploy the Runtime in a VPC** 
+
+By default, the Runtime runs without VPC access. Deploy the Runtime in a VPC when the agent needs to reach private resources in your VPC, or when you plan to share skills from an Amazon S3 bucket, which requires VPC network mode.
+
+1. Add the following fields to the `agent` Runtime entry in `agentcore/agentcore.json`:
+
+   ```
+   {
+     "networkMode": "VPC",
+     "networkConfig": {
+       "vpcId": "{{vpc-0123456789abcdef0}}",
+       "subnets": "],
+       "securityGroups": "]
+     }
+   }
+   ```
+
+   Replace the IDs with the IDs of your VPC, subnets, and security groups. A container build in VPC mode needs `vpcId`.
+
+The subnets must have a route to the Bedrock Managed Agents endpoint, because the exec-server connects out to it. The image build runs in the same subnets and downloads Codex and Python, so the subnets also need a route to the internet. See [Configure AgentCore for VPC](agentcore-vpc.md).
+
 ## Step 2: Deploy
 <a name="runtime-get-started-bma-deploy"></a>
 
-```
-agentcore deploy
-agentcore status --json
-```
+ `agentcore dev` does not support the `environment-python-bma` template. In a project with other supported Runtimes, it skips this Runtime unless you select it explicitly, in which case it reports that local development is unsupported. Deploy the environment and use `client.py` as shown in [Run a session](#runtime-get-started-bma-client). This limitation does not prevent running the Codex exec-server independently on your own computer.
 
-The CLI builds the image with AWS CodeBuild in your account, and deploys the Runtime and its execution role. Bedrock Managed Agents invokes the Runtime for you.
+ **To deploy the Runtime** 
 
-**Note**  
- `agentcore dev` does not support the `environment-python-bma` template. In a project with other supported Runtimes, it skips this Runtime unless you select it explicitly, in which case it reports that local development is unsupported. Deploy the environment and use `client.py` as shown in Step 3. This limitation does not prevent running the Codex exec-server independently on your own computer.
+1. Deploy the Runtime and check its status.
 
-Save the `arn` of the `agent` Runtime from the output of `agentcore status --json`:
+   ```
+   agentcore deploy
+   agentcore status --json
+   ```
 
-```
-{
-  "resourceType": "runtime",
-  "name": "agent",
-  "deploymentState": "deployed",
-  "arn": "arn:aws:bedrock-agentcore:us-east-1:111122223333:runtime/MyManagedAgent_agent-a1b2c3d4e5"
-}
-```
+   The CLI builds the image with AWS CodeBuild in your account, and deploys the Runtime and its execution role. Bedrock Managed Agents invokes the Runtime for you.
 
-The CDK session-role setup above also produces a CloudFormation output described as `IAM role ARN for Bedrock Managed Agents sessions`. Read it from the deployed stack’s **Outputs** tab, or use the stack name shown during deployment:
+1. Save the `arn` of the `agent` Runtime from the output of `agentcore status --json`.
 
-```
-aws cloudformation describe-stacks \
-  --stack-name <stack-name> \
-  --query "Stacks[0].Outputs[?Description=='IAM role ARN for Bedrock Managed Agents sessions'].OutputValue" \
-  --output text
-```
+   ```
+   {
+     "resourceType": "runtime",
+     "name": "agent",
+     "deploymentState": "deployed",
+     "arn": "arn:aws:bedrock-agentcore:us-east-1:111122223333:runtime/MyManagedAgent_agent-a1b2c3d4e5"
+   }
+   ```
 
-Save this ARN for `SESSION_ROLE_ARN` in the client. It is not the Runtime execution-role ARN, and `agentcore status` does not report this session-role output. Authorize your client identity for `iam:PassRole` on this ARN, with `iam:PassedToService` set to `bedrock-mantle.amazonaws.com`, in addition to the session/event permissions in the Bedrock Managed Agents security guide.
+1. Read the session-role ARN. The CDK session-role setup above also produces a CloudFormation output described as `IAM role ARN for Bedrock Managed Agents sessions`. Read it from the deployed stack’s **Outputs** tab, or use the stack name shown during deployment.
+
+   ```
+   aws cloudformation describe-stacks \
+     --stack-name {{stack-name}} \
+     --query "Stacks[0].Outputs[?Description=='IAM role ARN for Bedrock Managed Agents sessions'].OutputValue" \
+     --output text
+   ```
+
+1. Save this ARN for `SESSION_ROLE_ARN` in the client. It is not the Runtime execution-role ARN, and `agentcore status` does not report this session-role output. Authorize your client identity for `iam:PassRole` on this ARN, with `iam:PassedToService` set to `bedrock-mantle.amazonaws.com`, in addition to the session/event permissions in the Bedrock Managed Agents security guide.
 
 ## Step 3: Run a session
 <a name="runtime-get-started-bma-client"></a>
 
-Bedrock Managed Agents uses a session role to call the model and to invoke your Runtime. The session role is not the Runtime execution role. **When you run `client.py`, it creates the session role in your account.** `agentcore deploy` does not create the session role, and `agentcore remove` does not delete it. See [The session role](#runtime-get-started-bma-session-role).
-
-Run the client from the Runtime directory:
-
-```
-cd app/agent
-uv run client.py --runtime <runtime-arn>
-```
-
- `uv run` installs the dependencies and the `dev` group from `pyproject.toml` in `.venv`. The client creates a session and prints the session ID, each command with its output, and the answer of the agent. By default, the agent uses the `acr-report` skill to save `acr-report.txt` in the workspace.
-
-The next section tells you how the client manages the session role, and which IAM permissions you need to run the client.
+Bedrock Managed Agents uses a session role to call the model and to invoke your Runtime. The session role is not the Runtime execution role. When you run `client.py`, it creates the session role in your account. `agentcore deploy` does not create the session role, and `agentcore remove` does not delete it. See [The session role](#runtime-get-started-bma-session-role).
 
 ### The session role
 <a name="runtime-get-started-bma-session-role"></a>
@@ -198,7 +202,7 @@ The session role is not the Runtime execution role. `agentcore deploy` creates t
 
 When you start a new session and do not give `--role-arn`, the client does these steps:
 
-1. If the role `BmaSessionRole-<region>` does not exist, the client creates it.
+1. If the role `BmaSessionRole-{{region}} ` does not exist, the client creates it.
 
 1. The client compares the trust policy and the inline policy `BmaSession` of the role with `policies/bma-session-trust.json` and `policies/bma-session-policy.json`. If a policy is not the same, the client writes the file to the role. The files are limited to the account and the Region of the Runtime.
 
@@ -206,9 +210,9 @@ When you start a new session and do not give `--role-arn`, the client does these
 
 To change the role, change the files. The client does not remove other policies that someone adds to the role. It does not check the role when you give `--session-id`, and it does not change a role that you give with `--role-arn`.
 
-For production, give the client a role for one Runtime and one gateway with `--role-arn`. To make the role, use the two files in `policies/`. Put in your partition, Region, and account ID, and change the ` ` in `runtime/` and `gateway/*` to your Runtime ID and gateway ID. Do not change the files in the project, because all the projects in the Region share `BmaSessionRole-<region>`.
+For production, give the client a role for one Runtime and one gateway with `--role-arn`. To make the role, use the two files in `policies/`. Put in your partition, Region, and account ID. Then change the ` ` in `runtime/` and `gateway/*` to your Runtime ID and gateway ID. Do not change the files in the project, because all the projects in the Region share `BmaSessionRole-{{region}} `.
 
-The identity that runs the client needs the Bedrock Managed Agents client permissions, `bedrock-mantle:CallWithBearerToken`, and `iam:PassRole` on the session role. To let the client create and repair the role, also give `iam:GetRole`, `iam:CreateRole`, `iam:UpdateAssumeRolePolicy`, `iam:GetRolePolicy`, and `iam:PutRolePolicy` on `arn:aws:iam::<account-id>:role/BmaSessionRole-*`. If you give `--role-arn`, the client does not need these five permissions.
+The identity you use to run the client needs the Bedrock Managed Agents client permissions, `bedrock-mantle:CallWithBearerToken`, and `iam:PassRole` on the session role. To let the client create and repair the role, also give these permissions on `arn:aws:iam::{{account-id}}:role/BmaSessionRole-*`: `iam:GetRole`, `iam:CreateRole`, `iam:UpdateAssumeRolePolicy`, `iam:GetRolePolicy`, and `iam:PutRolePolicy`. If you give `--role-arn`, the client does not need these five permissions.
 
 For the trust policy, the permissions of the session role, and the client permissions, see [Security and IAM roles](https://docs.aws.amazon.com/bedrock/latest/userguide/bedrock-managed-agents-openai-security.html) in the *Amazon Bedrock User Guide*.
 
@@ -425,24 +429,40 @@ if __name__ == "__main__":
     main()
 ```
 
+ **To run a session** 
+
+1. Run the client from the Runtime directory with the following command. Replace {{runtime-arn}} with the ARN of your Runtime.
+
+   ```
+   cd app/agent
+   uv run client.py --runtime {{runtime-arn}}
+   ```
+
+    `uv run` installs the dependencies and the `dev` group from `pyproject.toml` in `.venv`. The client creates a session and prints the session ID, each command with its output, and the agent’s answer. By default, the agent uses the `acr-report` skill to save `acr-report.txt` in the workspace.
+
 ## Step 4: Continue the session
 <a name="runtime-get-started-bma-continue"></a>
 
 To send another input to the same session, add the session ID. The turn uses the same workspace. To keep the workspace after an idle stop, add session storage as in [Keep files after an idle stop](#runtime-get-started-bma-keep-files).
 
-```
-uv run client.py --runtime <runtime-arn> --session-id <session-id> \
-  --input "Run cat acr-report.txt and show the output."
-```
+ **To continue a session** 
 
-If the session does not exist, the client creates a new session and prints its ID. Add `--delete` to delete the session after the turn, or `--raw` to print each event as JSON.
+1. Send another input to the same session by adding the session ID. In the following command, replace {{runtime-arn}} with the ARN of your Runtime and {{session-id}} with the ID of your session.
 
-### Keep files after an idle stop
-<a name="runtime-get-started-bma-keep-files"></a>
+   ```
+   uv run client.py --runtime {{runtime-arn}} --session-id {{session-id}} \
+     --input "Run cat acr-report.txt and show the output."
+   ```
+
+   If the session does not exist, the client creates a new session and prints its ID. Add `--delete` to delete the session after the turn, or `--raw` to print each event as JSON.
+
+  **(Optional) To keep files after an idle stop** 
 
 Files in the home directory are removed when the Runtime session stops after the idle timeout. On a microVM Runtime, put the home directory of the exec-server on session storage. Then the workspace, the connection state, and `CODEX_HOME` stay after an idle stop.
 
-1. Create the project from the `environment-python-bma` template as shown in Step 1. Then add the following fields to the `agent` Runtime entry in `agentcore/agentcore.json`. The `BMA_HOME_DIR` variable moves the home directory of the exec-server to the session storage mounted at `/mnt/home`.
+A workspace directory on session storage works only on a Runtime that has session storage. For more information about session storage, see [File system configurations for AgentCore Runtime](runtime-filesystem-configurations.md).
+
+1. Add the following fields to the `agent` Runtime entry in `agentcore/agentcore.json`. The `BMA_HOME_DIR` variable moves the home directory of the exec-server to the session storage mounted at `/mnt/home`.
 
    ```
    {
@@ -466,148 +486,190 @@ Files in the home directory are removed when the Runtime session stops after the
 
 1. Deploy, and run the client.
 
-A workspace directory on session storage works only on a Runtime that has session storage. For more information about session storage, see [File system configurations for AgentCore Runtime](runtime-filesystem-configurations.md).
-
 ## Step 5: (Optional) Add skills
 <a name="runtime-get-started-bma-skills"></a>
 
-To add a skill to the image, add a plugin under `plugins/` and deploy. A plugin has a `.codex-plugin/plugin.json` file and a `skills/` directory. The `skills/` directory has one subdirectory for each skill, with a `SKILL.md` file in it. The image copies it to `/opt/bma/plugins`, which the client already gives to Bedrock Managed Agents.
+To add a skill to the image, you add a plugin under `plugins/` and deploy. A plugin has a `.codex-plugin/plugin.json` file and a `skills/` directory. The `skills/` directory has one subdirectory for each skill, with a `SKILL.md` file in it. The image copies it to `/opt/bma/plugins`, which the client already gives to Bedrock Managed Agents.
 
-To start, copy `plugins/acr-report/`, and rename the plugin directory and `skills/acr-report/` to the name of your plugin and your skill. In `plugin.json`, set `name`, `version`, `description`, and `"skills": "./skills/"`. Each `SKILL.md` starts with front matter that has `name` and `description`. After the deploy, start a new session with `--input "Use the <skill-name> skill to …​"`.
+ **To add a skill** 
 
-### Share skills from an Amazon S3 bucket
-<a name="runtime-get-started-bma-skills-s3"></a>
+1. Copy `plugins/acr-report/`, and rename the plugin directory and `skills/acr-report/` to the name of your plugin and your skill.
 
-Mount an S3 Files access point in the Runtime. Then the skills change when the bucket changes, and the image stays the same. For the S3 Files file system, the access point, and the security group rules, see [File system configurations for AgentCore Runtime](runtime-filesystem-configurations.md).
+1. In `plugin.json`, set `name`, `version`, `description`, and `"skills": "./skills/"`. Each `SKILL.md` starts with front matter that has `name` and `description`.
 
-An S3 Files mount needs a Runtime in VPC network mode. Configure the Runtime with the network options in [Deploy the Runtime in a VPC](#runtime-get-started-bma-vpc).
+1. Deploy.
 
-In the bucket, put each plugin in its own directory under the root directory of the access point. Use the same layout as `plugins/acr-report/`: `<plugin>/.codex-plugin/plugin.json` and `<plugin>/skills/<skill>/SKILL.md`.
+1. Start a new session with `--input "Use the {{skill-name}} skill to …​"`.
 
-Add the mount to the entry for the Runtime in `agentcore/agentcore.json`:
+ **(Optional) To share skills from an Amazon S3 bucket** 
 
-```
-{
-  "filesystemConfigurations": [
-    {
-      "s3FilesAccessPoint": {
-        "accessPointArn": "arn:aws:s3files:us-east-1:111122223333:file-system/fs-0123456789abcdef0/access-point/fsap-0123456789abcdef0",
-        "mountPath": "/mnt/skills"
-      }
-    }
-  ]
-}
-```
+You can mount an S3 Files access point in the Runtime. Then the skills change when the bucket changes, and the image stays the same. For the S3 Files file system, the access point, and the security group rules, see [File system configurations for AgentCore Runtime](runtime-filesystem-configurations.md).
 
-Then set `CAPABILITY_DIRECTORIES` in `client.py` to `["/opt/bma/plugins", "/mnt/skills"]`, and deploy.
+1. Configure the Runtime with the network options in [Deploy the Runtime in a VPC](#runtime-get-started-bma-vpc).
+
+1. In the bucket, put each plugin in its own directory under the root directory of the access point. Use the same layout as `plugins/acr-report/`: ` {{plugin}}/.codex-plugin/plugin.json` and ` {{plugin}}/skills/{{skill}}/SKILL.md`.
+
+1. Add the mount to the entry for the Runtime in `agentcore/agentcore.json`.
+
+   ```
+   {
+     "filesystemConfigurations": [
+       {
+         "s3FilesAccessPoint": {
+           "accessPointArn": "arn:aws:s3files:us-east-1:111122223333:file-system/fs-0123456789abcdef0/access-point/fsap-0123456789abcdef0",
+           "mountPath": "/mnt/skills"
+         }
+       }
+     ]
+   }
+   ```
+
+1. Set `CAPABILITY_DIRECTORIES` in `client.py` to `["/opt/bma/plugins", "/mnt/skills"]`, and deploy.
 
 ## Step 6: View logs and traces
 <a name="runtime-get-started-bma-observe"></a>
-
-Search the Runtime logs from the last 15 minutes, and list the recent traces:
-
-```
-agentcore logs runtime --since 15m
-agentcore traces runtime list --since 30m
-```
 
  `agentcore deploy` turns on CloudWatch Transaction Search in your account. The traces show after about 10 minutes. To see the traces in the console, open the CloudWatch console and choose **GenAI Observability**. Each call from Bedrock Managed Agents to the lifecycle server has one `bma.invocation` span. For more information, see [View observability data for your Amazon Bedrock AgentCore agents](observability-view.md).
 
 **Transaction Search settings apply to the entire account**  
 Transaction Search and its span indexing apply to the entire account in the Region, and additional charges might apply. To keep your current settings, add `"disableTransactionSearch": true` to `~/.agentcore/config.json` before you deploy.
 
+ **To view logs and traces** 
+
+1. Search the Runtime logs from the last 15 minutes, and list the recent traces.
+
+   ```
+   agentcore logs runtime --since 15m
+   agentcore traces runtime list --since 30m
+   ```
+
 ## Step 7: Update and redeploy
 <a name="runtime-get-started-bma-update"></a>
 
-Change the Runtime settings in `agentcore/agentcore.json`, or the files of the image, and deploy again. For example, this setting stops an idle session after 10 minutes. The values are in seconds.
+ **To update and redeploy** 
 
-```
-{
-  "lifecycleConfiguration": {
-    "idleRuntimeSessionTimeout": 600,
-    "maxLifetime": 28800
-  }
-}
-```
+1. Change the lifecycle settings in `agentcore/agentcore.json`. For example, this setting stops an idle session after 10 minutes. The values are in seconds.
 
-```
-agentcore deploy
-```
+   ```
+   {
+     "lifecycleConfiguration": {
+       "idleRuntimeSessionTimeout": 600,
+       "maxLifetime": 28800
+     }
+   }
+   ```
 
-The changes apply to new sessions.
+1. Set environment variables for the lifecycle server in the `envVars` list of the Runtime entry. For example, this variable turns off the traces and the exec-server logs.
 
-### Environment variables of the lifecycle server
-<a name="runtime-get-started-bma-env-vars"></a>
+   ```
+   {
+     "envVars": [
+       { "name": "DISABLE_ADOT_OBSERVABILITY", "value": "true" }
+     ]
+   }
+   ```
 
-Add a variable to `envVars` in the entry for the Runtime, for example:
-
-```
-{
-  "envVars": [
-    { "name": "DISABLE_ADOT_OBSERVABILITY", "value": "true" }
-  ]
-}
-```
+   The lifecycle server supports the following environment variables.
 
 
-| Variable | Default | Description | 
-| --- | --- | --- | 
-|  `DISABLE_ADOT_OBSERVABILITY`  | Not set | Set to `true` to turn off the traces and the exec-server logs. The lifecycle server still writes its own logs to the log group of the Runtime. | 
-|  `BMA_HOME_DIR`  |  `/home/app`  |  `HOME` of the exec-server. | 
-|  `BMA_STATE_DIR`  |  `.bma` in `BMA_HOME_DIR`  | The directory of `state.json`, which keeps the connection state of the session. | 
-|  `BMA_CODEX_HOME`  |  `.codex` in `BMA_HOME_DIR`  |  `CODEX_HOME` of the exec-server. | 
-|  `BMA_CODEX_BINARY`  |  `/opt/bma/bin/codex`  | The Codex binary. | 
-|  `BMA_MAX_TURN_LEASE`  |  `300`  | The longest turn lease, in seconds. The lifecycle server changes a longer request to this value. | 
+<table>
+<thead>
+  <tr><th>Variable</th><th>Default</th><th>Description</th></tr>
+</thead>
+<tbody>
+  <tr><td> <code>DISABLE_ADOT_OBSERVABILITY</code> </td><td>Not set</td><td>Set to <code>true</code> to turn off the traces and the exec-server logs. The lifecycle server still writes its own logs to the log group of the Runtime.</td></tr>
+  <tr><td> <code>BMA_HOME_DIR</code> </td><td> <code>/home/app</code> </td><td> <code>HOME</code> of the exec-server.</td></tr>
+  <tr><td> <code>BMA_STATE_DIR</code> </td><td> <code>.bma</code> in <code>BMA_HOME_DIR</code> </td><td>The directory of <code>state.json</code>, which keeps the connection state of the session.</td></tr>
+  <tr><td> <code>BMA_CODEX_HOME</code> </td><td> <code>.codex</code> in <code>BMA_HOME_DIR</code> </td><td> <code>CODEX_HOME</code> of the exec-server.</td></tr>
+  <tr><td> <code>BMA_CODEX_BINARY</code> </td><td> <code>/opt/bma/bin/codex</code> </td><td>The Codex binary.</td></tr>
+  <tr><td> <code>BMA_MAX_TURN_LEASE</code> </td><td> <code>300</code> </td><td>The longest turn lease, in seconds. The lifecycle server changes a longer request to this value.</td></tr>
+</tbody>
+</table>
 
-Each image build installs the latest Codex release. The lifecycle server needs Codex 0.154.0 or later. To pin a release, add `CODEX_RELEASE=<version>` next to `CODEX_NON_INTERACTIVE=1` in the `Dockerfile`.
+
+1. To pin the Codex release, set `CODEX_RELEASE` to a {{version}} in the `Dockerfile`, next to `CODEX_NON_INTERACTIVE=1`. Otherwise, each image build installs the latest Codex release. The lifecycle server needs Codex 0.154.0 or later.
+
+1. Deploy again.
+
+   ```
+   agentcore deploy
+   ```
+
+   The changes apply to new sessions.
 
 ## Step 8: Clean up
 <a name="runtime-get-started-bma-clean-up"></a>
 
-To delete a session, add `--delete` to the last run of the client for that session. Then remove the resources of the project, and deploy to delete the Runtime, its execution role, and the stack.
+**Important**  
+These steps permanently delete resources and revert account-level settings such as Transaction Search. Make sure you no longer need them before you continue.
 
-```
-agentcore remove all --yes
-agentcore deploy --yes
-```
+ **To delete the project resources** 
+
+1. To delete a session, add `--delete` to the last run of the client for that session.
+
+1. Remove the resources of the project.
+
+   ```
+   agentcore remove all --yes
+   ```
+
+1. Deploy to delete the Runtime, its execution role, and the stack.
+
+   ```
+   agentcore deploy --yes
+   ```
 
 The deploy does not delete these resources:
 + The CloudWatch Logs log groups of the Runtime, of the CodeBuild project that builds the image, and of the Lambda function that starts the build.
 + The AWS KMS key of the Amazon ECR repository. The key stays in the **Pending deletion** state for 30 days, and then AWS KMS deletes it.
 + The `CDKToolkit` stack, if the first deploy bootstrapped the account and Region. Other AWS CDK apps can use this stack. Delete it only if no other app uses it.
-+ The Transaction Search settings from Step 6.
-+ The session role that `client.py` created in Step 3.
++ The Transaction Search settings from [Step 6](#runtime-get-started-bma-observe).
++ The session role that `client.py` created in [Step 3](#runtime-get-started-bma-client).
 
-To delete the session role, run these commands:
+ **To delete the session role** 
 
-```
-aws iam delete-role-policy --role-name BmaSessionRole-<region> --policy-name BmaSession
-aws iam delete-role --role-name BmaSessionRole-<region>
-```
+1. Delete the session role’s inline policy and the role.
 
-To find the log groups, run these commands. Then delete each log group.
+   ```
+   aws iam delete-role-policy --role-name BmaSessionRole-{{region}} --policy-name BmaSession
+   aws iam delete-role --role-name BmaSessionRole-{{region}}
+   ```
 
-```
-aws logs describe-log-groups --log-group-name-prefix /aws/bedrock-agentcore/runtimes/<project-name>_<agent-name>- --query 'logGroups[].logGroupName'
-aws logs describe-log-groups --log-group-name-prefix /aws/codebuild/AgentCore-<project-name>-<target-name>- --query 'logGroups[].logGroupName'
-aws logs describe-log-groups --log-group-name-prefix /aws/lambda/AgentCore- --query 'logGroups[].logGroupName'
-aws logs delete-log-group --log-group-name <log-group-name>
-```
+ **To find and delete the log groups** 
 
-Replace these values:
-+  `<project-name>` - The name of the project. In Step 1, it is `MyManagedAgent`.
-+  `<agent-name>` - The name of the agent. In Step 1, it is also `MyManagedAgent`.
-+  `<target-name>` - The name of the deploy target in `agentcore/aws-targets.json`. The default is `default`. In the CodeBuild names, each underscore (`_`) in the project name and the target name changes to a hyphen (`-`).
+1. Find the Runtime log groups. Replace {{project-name}} with the name of your project and {{agent-name}} with the name of your agent. In [Step 1](#runtime-get-started-bma-create), both are `MyManagedAgent`.
 
-The name of the Lambda log group is shortened, as in this example:
+   ```
+   aws logs describe-log-groups --log-group-name-prefix /aws/bedrock-agentcore/runtimes/{{project-name}}_{{agent-name}}- --query 'logGroups[].logGroupName'
+   ```
 
-```
-/aws/lambda/AgentCore-MyManagedAgent--ApplicationAgentMyManage-<suffix>
-```
+1. Find the CodeBuild log groups. Replace {{project-name}} with the same project name as in the previous step, and {{target-name}} with the name of the deploy target in `agentcore/aws-targets.json`; the default is `default`. In the CodeBuild name, each underscore (`_`) in the project name and the target name becomes a hyphen (`-`).
 
-The command lists the Lambda log groups of all AgentCore CLI projects in the Region. Delete only the log groups of your project.
+   ```
+   aws logs describe-log-groups --log-group-name-prefix /aws/codebuild/AgentCore-{{project-name}}-{{target-name}}- --query 'logGroups[].logGroupName'
+   ```
 
-If you added other resources to the project, such as a gateway or a memory, check that the deploy deleted them.
+1. Find the Lambda log groups. This command lists the Lambda log groups of all AgentCore CLI projects in the Region, so identify only the ones for your project.
+
+   ```
+   aws logs describe-log-groups --log-group-name-prefix /aws/lambda/AgentCore- --query 'logGroups[].logGroupName'
+   ```
+**Note**  
+The name is shortened, as in the following example, where {{suffix}} is a generated string.  
+
+   ```
+   /aws/lambda/AgentCore-MyManagedAgent--ApplicationAgentMyManage-{{suffix}}
+   ```
+
+1. Delete each log group that you found for your project. Replace {{log-group-name}} with the name of the log group.
+
+   ```
+   aws logs delete-log-group --log-group-name {{log-group-name}}
+   ```
+
+ **(Optional) To check for other resources** 
+
+1. If you added other resources to the project, such as a gateway or a memory, confirm that the deploy deleted them.
 
 ## Related resources
 <a name="runtime-get-started-bma-related"></a>

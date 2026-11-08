@@ -16,6 +16,7 @@ Select a topic to see examples of adding a target type:
 + [Add an MCP server target](#gateway-add-target-api-MCPserver)
 + [Add a Connector target with Amazon Bedrock Managed Knowledge Bases](#gateway-add-target-api-connector-managed-kb)
 + [Add a Connector target with Web Search Tool](#gateway-add-target-api-connector-web-search)
++ [Add a Connector target with Web Answer](#gateway-add-target-api-connector-web-answer)
 + [Add a Connector target with AWS Step Functions](#gateway-add-target-api-connector-step-functions)
 
 ## Add a Lambda target
@@ -1180,6 +1181,185 @@ Add a policy with the following content to the service role attached to the Gate
       "Effect": "Allow",
       "Action": "bedrock-agentcore:InvokeWebSearch",
       "Resource": "arn:aws:bedrock-agentcore:<REGION>:aws:tool/web-search.v1"
+    }
+  ]
+}
+```
+
+## Add a Connector target with Web Answer
+<a name="gateway-add-target-api-connector-web-answer"></a>
+
+You can add a built-in connector as a target to your gateway. With the Web Answer connector, your agent can ask a question and get a synthesized answer with citations to web sources, without custom infrastructure, model endpoints, or API keys.
+
+For more information about the Web Answer connector, see [Web Answer](gateway-target-connector-web-answer-tool.md).
+
+### Set up Web Answer
+<a name="gateway-add-target-api-connector-web-answer-setup"></a>
+
+Web Answer is available in US East (N. Virginia) `us-east-1`. Create the gateway in that Region.
+
+Web Answer uses the connector’s current default version. For more information about connector versions, see [Connector versions](gateway-target-connector-versions.md).
+
+In the following examples, replace `<GATEWAY_ID>` with the identifier of your gateway.
+
+**Example**  
+
+1. The following Python code shows how to create a Gateway Target with the Web Answer connector configuration using the AWS Python SDK (Boto3):
+
+   ```
+   import boto3
+   
+   gateway_client = boto3.client("bedrock-agentcore-control", region_name="us-east-1")
+   
+   gateway_client.create_gateway_target(
+       name="web-answer-tool",
+       gatewayIdentifier="<GATEWAY_ID>",
+       targetConfiguration={
+           "mcp": {
+               "connector": {
+                   "source": {"connectorId": "web-answer"},
+                   "configurations": [{"name": "WebAnswer", "parameterValues": {}}],
+               }
+           }
+       },
+       credentialProviderConfigurations=[
+           {"credentialProviderType": "GATEWAY_IAM_ROLE"}
+       ],
+   )
+   ```
+
+1. The following command creates a Gateway Target with the Web Answer connector configuration using the AWS CLI:
+
+   ```
+   aws bedrock-agentcore-control create-gateway-target \
+     --gateway-identifier "<GATEWAY_ID>" \
+     --name "web-answer-tool" \
+     --target-configuration '{
+       "mcp": {
+         "connector": {
+           "source": {
+             "connectorId": "web-answer"
+           },
+           "configurations": [
+             {
+               "name": "WebAnswer",
+               "parameterValues": {}
+             }
+           ]
+         }
+       }
+     }' \
+     --credential-provider-configurations '[{"credentialProviderType": "GATEWAY_IAM_ROLE"}]' \
+     --region "us-east-1"
+   ```
+
+Wait until `GetGatewayTarget` reports the target status as `READY` before you call the tool. The tool appears in `tools/list` as `<target-name>_WebAnswer_WebAnswer`.
+
+### Configure domain filtering
+<a name="gateway-add-target-api-connector-web-answer-domain-filtering"></a>
+
+In connector version `1.1.0` and later, you can restrict the domains that Web Answer uses as sources:
++  **Target-level domain exclude list** – `parameterValues.domainFilter.exclude`, up to 50 domains. Web Answer doesn’t use sources from these domains for any request on the target.
++  **Target-level domain include list** – `parameterValues.domainFilter.include`, up to 50 domains. Web Answer uses only sources from these domains.
+
+Web Answer enforces both lists server-side, and your agent can’t see them. Request-level filters from your agent compose with these lists, and your agent can’t relax them. For the merge rules, see [Configure domain filtering](gateway-target-connector-web-answer-tool.md#gateway-target-connector-web-answer-tool-domain-filtering) on the Web Answer page.
+
+The following examples create a Web Answer target with both domain include and exclude lists. Replace `<GATEWAY_ID>` with the identifier of your gateway, and replace the example domains with your own.
+
+**Example**  
+
+1. The following Python code shows how to create a Web Answer target with domain filtering using the AWS Python SDK (Boto3):
+
+   ```
+   import boto3
+   
+   gateway_client = boto3.client("bedrock-agentcore-control", region_name="us-east-1")
+   
+   gateway_client.create_gateway_target(
+       name="web-answer-tool",
+       gatewayIdentifier="<GATEWAY_ID>",
+       targetConfiguration={
+           "mcp": {
+               "connector": {
+                   "source": {"connectorId": "web-answer"},
+                   "configurations": [
+                       {
+                           "name": "WebAnswer",
+                           "parameterValues": {
+                               "domainFilter": {
+                                   "include": ["example.com", "example.net"],
+                                   "exclude": ["blocked.example.com"]
+                               }
+                           },
+                       }
+                   ],
+               }
+           }
+       },
+       credentialProviderConfigurations=[
+           {"credentialProviderType": "GATEWAY_IAM_ROLE"}
+       ],
+   )
+   ```
+
+1. The following command creates a Web Answer target with domain filtering using the AWS CLI:
+
+   ```
+   aws bedrock-agentcore-control create-gateway-target \
+     --gateway-identifier "<GATEWAY_ID>" \
+     --name "web-answer-tool" \
+     --target-configuration '{
+       "mcp": {
+         "connector": {
+           "source": {
+             "connectorId": "web-answer"
+           },
+           "configurations": [
+             {
+               "name": "WebAnswer",
+               "parameterValues": {
+                 "domainFilter": {
+                   "include": ["example.com", "example.net"],
+                   "exclude": ["blocked.example.com"]
+                 }
+               }
+             }
+           ]
+         }
+       }
+     }' \
+     --credential-provider-configurations '[{"credentialProviderType": "GATEWAY_IAM_ROLE"}]' \
+     --region "us-east-1"
+   ```
+
+You can also update an existing target to add or modify domain filtering using `UpdateGatewayTarget`.
+
+### Configure the Gateway Service Role
+<a name="gateway-add-target-api-connector-web-answer-service-role"></a>
+
+The Gateway needs a service role that allows the AgentCore service to perform actions on your behalf. For Web Answer, the role needs the following permissions:
++  `bedrock-agentcore:InvokeGateway` — to invoke the Gateway
++  `bedrock-agentcore:InvokeWebAnswer` — to authorize Web Answer invocations, checked per-request against the service-owned ARN `arn:aws:bedrock-agentcore:<region>:aws:tool/web-answer.v1` 
+
+The role doesn’t need `bedrock:InvokeModel`. Web Answer runs its own model, and your agent’s model runs under your agent’s identity.
+
+The following policy grants the permissions that Web Answer requires. Add it to the service role attached to the Gateway, and replace `<ACCOUNT_ID>` with your AWS account ID:
+
+```
+{
+  "Version": "2012-10-17", 
+  "Statement": [
+    {
+      "Sid": "InvokeGateway",
+      "Effect": "Allow",
+      "Action": "bedrock-agentcore:InvokeGateway",
+      "Resource": "arn:aws:bedrock-agentcore:us-east-1:<ACCOUNT_ID>:gateway/*"
+    },
+    {
+      "Sid": "InvokeWebAnswer",
+      "Effect": "Allow",
+      "Action": "bedrock-agentcore:InvokeWebAnswer",
+      "Resource": "arn:aws:bedrock-agentcore:us-east-1:aws:tool/web-answer.v1"
     }
   ]
 }

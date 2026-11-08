@@ -9,6 +9,8 @@ Building custom web search integrations to solve this is costly — procuring th
 
 Web Search Tool on Amazon Bedrock AgentCore eliminates that complexity. It is a fully managed, MCP-compliant web search capability that lets your agents retrieve information from the web without any infrastructure overhead. It is available as a managed connector that you connect to your AgentCore Gateway. Agents discover it with a standard `tools/list` call and invoke it like any other Model Context Protocol tool. There are no search APIs to provision, no outbound credentials to manage, and no result-parsing glue to maintain.
 
+If your agent needs a finished answer with citations instead of ranked results, use [Web Answer](gateway-target-connector-web-answer-tool.md).
+
 The following sections walk through the key capabilities, the architecture of the purpose-built web index, privacy guarantees, use cases, and how to set up Web Search Tool.
 
 **Topics**

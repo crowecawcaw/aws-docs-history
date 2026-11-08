@@ -9,8 +9,8 @@
 Use custom metadata to add your own fields to records in a registry, such as an owning team, a review status, or a data classification. You define the fields once on the registry. Then, when you create or edit a record, you fill them in.
 
 You define two kinds of fields:
-+  **Common attributes** — fields available to records of every record type, defined in the default schema (`defaultSchema` in the API). Whether a record must have a value depends on the field’s **Required** setting.
-+  **Record type fields** — extra fields for one record type, such as Model Context Protocol (MCP) servers or agents. For the list of record types, see [Supported record types and descriptors](registry-supported-record-types.md).
++  **Common attributes** – Fields available to records of every record type, defined in the default schema (`defaultSchema` in the API). Whether a record must have a value depends on the field’s **Required** setting.
++  **Record type fields** – Extra fields for one record type, such as Model Context Protocol (MCP) servers or agents. For the list of record types, see [Supported record types and descriptors](registry-supported-record-types.md).
 
 A record can carry the common attributes plus the fields for its record type. Use common attributes for anything you want to filter or report on across all records.
 
@@ -55,7 +55,7 @@ Records can then carry:
 
 The Agent fields don’t repeat `owner`, because every record type already gets the common attributes. They do repeat `dataClassification`. This makes the field required for agents and allows the additional value `restricted`. To change a common attribute for one record type like this, include it in that record type’s fields with the same type and all of its allowed values. You can add allowed values and make it required.
 
-## Define the schema
+## Defining the schema
 <a name="registry-custom-metadata-schema-define"></a>
 
 ### Console
@@ -109,7 +109,7 @@ jq -n --rawfile common common.json --rawfile agent agent.json \
   > schema-update.json
 
 aws agent-registry-control update-registry \
-  --registry-id "<registryId>" \
+  --registry-id "{{registryId}}" \
   --custom-metadata-schema-configuration file://schema-update.json \
   --region us-east-1
 ```
@@ -162,7 +162,7 @@ To change the schema later, send the complete new configuration wrapped in `opti
 common_attributes["properties"]["team"] = {"type": "string"}
 
 client.update_registry(
-    registryId='<registryId>',
+    registryId='{{registryId}}',
     customMetadataSchemaConfiguration={
         'optionalValue': {
             'defaultSchema': json.dumps(common_attributes),
@@ -174,7 +174,7 @@ client.update_registry(
 )
 ```
 
-## Change the schema
+## Changing the schema
 <a name="registry-custom-metadata-schema-change"></a>
 
 An update replaces the whole schema, so include every field and record type you want to keep.
@@ -196,7 +196,7 @@ You can’t make these changes:
 
 Existing records aren’t changed when you update the schema. A record that no longer matches it, for example because you made a field required, is reported as `NON_COMPLIANT` in `customMetadataSchemaComplianceStatus` and keeps its approval status. Update its custom metadata before you next submit it for approval.
 
-## View the schema
+## Viewing the schema
 <a name="registry-custom-metadata-schema-view"></a>
 
  **Console** — On the registry detail page, the **Custom metadata schema** section has a tab for each record type with the fields its records can carry.
@@ -205,7 +205,7 @@ Existing records aren’t changed when you update the schema. A record that no l
 
 ```
 aws agent-registry-control get-registry \
-  --registry-id "<registryId>" \
+  --registry-id "{{registryId}}" \
   --region us-east-1 \
   --output json | jq '.customMetadataSchemaConfiguration'
 ```
@@ -217,12 +217,14 @@ import boto3
 
 client = boto3.client('agent-registry-control')
 
-registry = client.get_registry(registryId='<registryId>')
+registry = client.get_registry(registryId='{{registryId}}')
 print(registry['customMetadataSchemaConfiguration'])
 ```
 
 ## Schema rules and limits
 <a name="registry-custom-metadata-schema-constraints"></a>
+
+A custom metadata schema must follow these rules:
 + Each field is Text (`{"type":"string"}`), Enum (`{"type":"string","enum":[…​]}`), URL (`{"type":"string","format":"uri"}`), or Boolean (`{"type":"boolean"}`). Fields can’t be nested or use other keywords, such as `default` or `pattern`.
 + A field has the same field type (Text, Enum, URL, or Boolean) everywhere in the schema. Its allowed values can differ by record type.
 + Field names can’t differ only in capitalization, such as `owner` and `Owner`.

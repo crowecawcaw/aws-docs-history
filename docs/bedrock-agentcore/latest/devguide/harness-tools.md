@@ -140,7 +140,7 @@ agentcore deploy
 Use the SDK when you need to override the tools for one invocation without changing the deployed harness.
 
 ## Web search
-<a name="_web_search"></a>
+<a name="harness-web-search"></a>
 
 To give your agent web search, put the [Web Search Tool](gateway-target-connector-web-search-tool.md) connector behind an [AgentCore Gateway](gateway.md) and attach that gateway to your harness as an `agentcore_gateway` tool. The gateway exposes web search as a standard MCP `WebSearch` tool. Your agent discovers and calls it like any other gateway tool. AgentCore Gateway serves all queries entirely within AWS. For more information about the privacy model and the purpose-built web index, see the Web Search Tool connector page.
 
@@ -205,6 +205,55 @@ agentcore deploy
 agentcore invoke --harness research_agent \
   --prompt "Search the web for the latest AWS announcements and cite your sources."
 ```
+
+## Web answer
+<a name="harness-web-answer"></a>
+
+To give your agent finished, cited answers to questions that need current web information, put the [Web Answer](gateway-target-connector-web-answer-tool.md) connector behind an AgentCore Gateway and attach that gateway to your harness as an `agentcore_gateway` tool. The gateway exposes the connector as an MCP `<target-name>___WebAnswer` tool. Your agent calls it with a question and gets back an answer with citations, instead of raw search results.
+
+**Region availability**  
+Web Answer is available in US East (N. Virginia) `us-east-1`. Create the gateway and harness in that Region.
+
+Complete the following steps to set up Web Answer for your harness.
+
+1.  **Create the gateway and connector target.** Follow the steps in [Set up Web Answer](gateway-add-target-api-target-config.md#gateway-add-target-api-connector-web-answer-setup) to create a Gateway (MCP protocol, `AWS_IAM` inbound auth) in `us-east-1` and add a target with `connectorId: "web-answer"`. That target needs a Gateway service role with `bedrock-agentcore:InvokeWebAnswer` on the connector. For more information, see [Configure the Gateway Service Role](gateway-add-target-api-target-config.md#gateway-add-target-api-connector-web-answer-service-role). Note the gateway ARN once it reaches `READY`.
+
+1.  **Grant the harness execution role access.** The harness execution role (distinct from the Gateway service role in the previous step) needs `bedrock-agentcore:InvokeGateway` on the gateway ARN. For more information about the required permissions, see the [AgentCore Gateway](harness-security.md) optional-permissions policy in the security topic. If your harness uses managed memory, the execution role also needs the [AgentCore Memory](harness-security.md) permissions.
+
+1.  **Attach the gateway to the harness.** Add it as an `agentcore_gateway` tool with the default `AWS_IAM` outbound auth. The following examples show how to attach the gateway at create time.
+
+**Example**  
+Attach the gateway at create time (or pass `tools` on `update_harness` / `invoke_harness`):  
+
+```
+tools = [
+    {
+        "type": "agentcore_gateway",
+        "name": "web-answer",
+        "config": {"agentCoreGateway": {
+            "gatewayArn": "arn:aws:bedrock-agentcore:us-east-1:123456789012:gateway/my-web-answer-gateway",
+            "outboundAuth": {"awsIam": {}}
+        }},
+    },
+]
+
+client.create_harness(
+    harnessName="research_agent",
+    executionRoleArn="arn:aws:iam::123456789012:role/MyHarnessRole",
+    tools=tools,
+)
+```
+The Web Answer tool is now available to the agent. Invoke the harness with a question that needs current information:  
+
+```
+response = client.invoke_harness(
+    harnessArn=HARNESS_ARN,
+    runtimeSessionId=SESSION_ID,
+    messages=[{"role": "user", "content": [{"text": "What are the Basel III minimum requirements for Tier 1 capital? Cite your sources."}]}],
+)
+```
+
+You can also add a Web Search Tool target and a Web Answer target to the same gateway, so the agent can choose raw results or a finished answer for each question.
 
 ## Inline function calls
 <a name="harness-inline-functions"></a>

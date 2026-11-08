@@ -17,11 +17,11 @@ Custom providers enable you to connect to any OAuth2-compatible resource server 
 
 1. In the **Provider configurations** section, depending on your provider requirements, choose one of the following options:
 
-   1.  **Discovery URL** (recommended) – Choose this option to have AgentCore Identity automatically retrieve configuration details from your provider. You provide the discovery URL where your provider publishes its OpenID Connect configuration, and AgentCore Identity handles the endpoint discovery process. This is the recommended approach when available as it reduces manual configuration.
+   1.  **Discovery URL** (recommended) – Choose this option to have AgentCore Identity automatically retrieve configuration details from your provider. You provide the discovery URL where your provider publishes its metadata, and AgentCore Identity handles the endpoint discovery process. This is the recommended approach when available because it reduces manual configuration.
 
       1. For **Client authentication method**, choose the client authentication method used to authenticate with identity provider token endpoint. For more information, see [Client authentication methods](client-auth-methods.md).
 
-      1. For **Discovery URL**, enter the URL where your provider publishes its OpenID Connect configuration. Discovery URLs must end with `.well-known/openid-configuration` . For example, https:// {{example.com}} /.well-known/openid-configuration.
+      1. For **Discovery URL**, enter the URL where your provider publishes its metadata. Discovery URLs must contain either `.well-known/openid-configuration` for OpenID Connect or `.well-known/oauth-authorization-server` for OAuth 2.0 Authorization Server Metadata (RFC 8414). For example, https:// {{example.com}} /.well-known/openid-configuration.
 
       1. For **Client ID**, enter the unique identifier you received when registering your application with the identity provider.
 

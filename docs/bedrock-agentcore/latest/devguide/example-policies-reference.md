@@ -8,7 +8,7 @@ The examples in this section are written against one illustrative gateway rather
 Every example authorizes requests to this gateway:
 
 ```
-arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5
+arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5
 ```
 
 Replace this ARN with your own gateway’s ARN when you adapt an example. The gateway belongs to an insurance claims application and has five targets covering every target type that Policy in AgentCore authorizes: one Model Context Protocol (MCP) target, one AgentCore Runtime target, and three inference targets.
@@ -126,7 +126,7 @@ An AgentCore Runtime target hosting a claims assistant.
    **Response body:** `completion` (string)
 
 **Important**  
-For a runtime target, the fields a policy can read come from the **OpenAPI schema declared on the gateway target**, not from what the runtime actually sends. A field the schema does not declare is not addressable — `context.output.<field>` works only for a response property the schema lists, and the same applies to `output.<field>` in a temporal predicate.  
+For a runtime target, the fields a policy can read come from the **OpenAPI schema declared on the gateway target**, not from what the runtime actually sends. A field the schema does not declare is not addressable — `context.output.{{field}} ` works only for a response property the schema lists, and the same applies to `output.{{field}} ` in a temporal predicate.  
 If a condition on a runtime field is rejected as undeclared, check the target’s schema rather than the runtime’s code.
 
 ## Inference request bodies by path
@@ -190,7 +190,7 @@ The following table gives the location of the conversation text on each path, fo
 Two paths list more than one inbound location because the wire format varies. On `/v1/responses`, `input` is either a bare string or a list of items, so the text is at `input` in one case and at `input[*].content[*].text` in the other. On `/v1/messages`, a message’s `content` is either a string or an array of typed blocks. Naming both shapes covers either wire form without your having to know which the caller sent.
 
 **Important**  
-These locations sit inside arrays and records, so you **cannot** reach them with a bare `context.input.<field>` path — `context.input.messages` is a `Set<record>`, not text, and Dogwood has no array-projection operator, so `messages[*].content` is a parse error in a field path. Guardrail data paths reach them with a `$`-prefixed JSONPath string instead. For more information, see [Reaching text inside arrays with a JSONPath](example-policies-guardrails.md#example-policies-guardrails-jsonpath).  
+These locations sit inside arrays and records, so you **cannot** reach them with a bare `context.input.{{field}} ` path — `context.input.messages` is a `Set<record>`, not text, and Dogwood has no array-projection operator, so `messages[*].content` is a parse error in a field path. Guardrail data paths reach them with a `$`-prefixed JSONPath string instead. For more information, see [Reaching text inside arrays with a JSONPath](example-policies-guardrails.md#example-policies-guardrails-jsonpath).  
 For an ordinary Cedar condition, only scalar members are usable — `context.input.model` is a `String` and works, while `context.input.messages` cannot be compared or pattern-matched at all.
 
 ## Principals
@@ -199,10 +199,10 @@ For an ordinary Cedar condition, only scalar members are usable — `context.inp
 The principal entity type depends on how the gateway authenticates inbound callers. The examples use whichever type the pattern calls for, and most patterns work with either.
 
 AgentCore::OAuthUser  
-The gateway uses a JWT authorizer. The entity ID is the token’s `sub` claim, and the token’s other claims are available as tags through `principal.hasTag("<claim>")` and `principal.getTag("<claim>")`. The examples use three claims: `username`, `role`, and `scope`.
+The gateway uses a JWT authorizer. The entity ID is the token’s `sub` claim, and the token’s other claims are available as tags through `principal.hasTag("{{claim}}")` and `principal.getTag("{{claim}}")`. The examples use three claims: `username`, `role`, and `scope`.
 
 AgentCore::IamEntity  
-The gateway uses `AWS_IAM`. The entity ID is the caller’s ARN with any session name removed, so an assumed role appears as `arn:aws:sts::<account>:assumed-role/<role-name>`. That form is stable across sessions, so you can match it with `principal ==` or match a family of roles with `principal.id like`.
+The gateway uses `AWS_IAM`. The entity ID is the caller’s ARN with any session name removed, so an assumed role appears as `arn:aws:sts::{{account}}:assumed-role/{{role-name}} `. That form is stable across sessions, so you can match it with `principal ==` or match a family of roles with `principal.id like`.
 
 For the full list of principal attributes and how claims map to tags, see [Principal](policy-scope.md#policy-principal).
 
@@ -220,7 +220,7 @@ A tool parameter’s JSON Schema type determines its Cedar type, and the Cedar t
 |  `boolean`  |  `Bool`  |  `==`, and direct use in a condition | 
 |  `object`  |  `Record`  | Access members with `.`, and test for a member with `has`  | 
 |  `array`  |  `Set`  |  `.contains()`, `.containsAll()`, `.containsAny()`  | 
-|  `null`  |  `Entity`  | Not comparable. A `null` argument is omitted from `context.input`, so test for its absence with `!(context.input has <field>)`  | 
+|  `null`  |  `Entity`  | Not comparable. A `null` argument is omitted from `context.input`, so test for its absence with `!(context.input has {{field}})`  | 
 
 These are Cedar’s own type names, and they are the names the generated schema uses. For the full mapping including the notes on each conversion, see [Context](policy-schema-constraints.md#policy-context).
 

@@ -31,7 +31,7 @@ Test with `hasTag` before reading a tag with `getTag`; reading a tag that does n
 permit(
   principal is AgentCore::OAuthUser,
   action == AgentCore::Action::"InsuranceAPI___file_claim",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when {
   principal.hasTag("scope") &&
@@ -46,13 +46,13 @@ Because `like` matches substrings, choose the pattern carefully: `*insurance:cla
 
  **Intent:** Allow the user `clare` to update coverage.
 
-If the identity you want to match is the token subject, match the entity directly in the policy scope with `principal == AgentCore::OAuthUser::"<sub>"` instead. That needs no condition at all, and is cheaper to evaluate.
+If the identity you want to match is the token subject, match the entity directly in the policy scope with `principal == AgentCore::OAuthUser::"{{sub}}"` instead. That needs no condition at all, and is cheaper to evaluate.
 
 ```
 permit(
   principal is AgentCore::OAuthUser,
   action == AgentCore::Action::"InsuranceAPI___update_coverage",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when {
   principal.hasTag("username") &&
@@ -69,7 +69,7 @@ when {
 permit(
   principal is AgentCore::OAuthUser,
   action == AgentCore::Action::"InsuranceAPI___delete_claim",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when {
   principal.hasTag("role") &&
@@ -88,7 +88,7 @@ This reaches a similar outcome to the previous example by the opposite route, an
 forbid(
   principal is AgentCore::OAuthUser,
   action == AgentCore::Action::"InsuranceAPI___update_coverage",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 unless {
   principal.hasTag("role") &&
@@ -118,7 +118,7 @@ when {
 ## IAM principals
 <a name="example-policies-principal-iam"></a>
 
-These patterns apply when your gateway uses `AWS_IAM`, so the principal is an `AgentCore::IamEntity`. The entity ID is the caller’s ARN with the session name removed, which makes an assumed role appear as `arn:aws:sts::<account>:assumed-role/<role-name>` and lets you match it reliably across sessions.
+These patterns apply when your gateway uses `AWS_IAM`, so the principal is an `AgentCore::IamEntity`. The entity ID is the caller’s ARN with the session name removed, which makes an assumed role appear as `arn:aws:sts::{{account}}:assumed-role/{{role-name}} ` and lets you match it reliably across sessions.
 
 ### Permit any IAM caller
 <a name="example-policies-principal-iam-any"></a>
@@ -131,7 +131,7 @@ Use this only when authenticating as any IAM identity is a sufficient authorizat
 permit(
   principal is AgentCore::IamEntity,
   action == AgentCore::Action::"InsuranceAPI___get_contract",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 );
 ```
 
@@ -144,9 +144,9 @@ Matching with `principal ==` in the policy scope is the most precise form and ne
 
 ```
 permit(
-  principal == AgentCore::IamEntity::"arn:aws:sts::123456789012:assumed-role/ClaimsProcessorRole",
+  principal == AgentCore::IamEntity::"arn:aws:sts::111122223333:assumed-role/ClaimsProcessorRole",
   action == AgentCore::Action::"InsuranceAPI___disburse_payment",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 );
 ```
 
@@ -156,14 +156,14 @@ permit(
  **Intent:** Allow any claims-processing role, in any account, to read claim status.
 
 Use `principal.id like` when one policy must cover several roles. Two other useful patterns:
-+  `principal.id like "arn:aws:sts::123456789012:assumed-role/*"` matches any role in one account.
-+  `principal.id like "*:123456789012:*"` matches any IAM ARN from one account, whatever its form.
++  `principal.id like "arn:aws:sts::111122223333:assumed-role/*"` matches any role in one account.
++  `principal.id like "*:111122223333:*"` matches any IAM ARN from one account, whatever its form.
 
 ```
 permit(
   principal is AgentCore::IamEntity,
   action == AgentCore::Action::"InsuranceAPI___get_claim_status",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when {
   principal.id like "arn:aws:sts::*:assumed-role/ClaimsProcessor*"
@@ -199,7 +199,7 @@ A `forbid` that lists the write actions fails safe in one direction only. Adding
 
 ```
 forbid(
-  principal == AgentCore::IamEntity::"arn:aws:sts::123456789012:assumed-role/ReadOnlyAgentRole",
+  principal == AgentCore::IamEntity::"arn:aws:sts::111122223333:assumed-role/ReadOnlyAgentRole",
   action in [
     AgentCore::Action::"InsuranceAPI___file_claim",
     AgentCore::Action::"InsuranceAPI___update_coverage",
@@ -207,7 +207,7 @@ forbid(
     AgentCore::Action::"InsuranceAPI___disburse_payment",
     AgentCore::Action::"InsuranceAPI___delete_claim"
   ],
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 );
 ```
 
@@ -219,25 +219,25 @@ forbid(
 Several agents can share one gateway and one policy engine while seeing different tools. Each agent’s `tools/list` response contains only the tools its principal is authorized to call, so an agent is not told about tools it cannot use.
 
 ```
-// Triage agent: read only
+// Triage agent: read only.
 permit(
-  principal == AgentCore::IamEntity::"arn:aws:sts::123456789012:assumed-role/TriageAgentRole",
+  principal == AgentCore::IamEntity::"arn:aws:sts::111122223333:assumed-role/TriageAgentRole",
   action in [
     AgentCore::Action::"InsuranceAPI___get_contract",
     AgentCore::Action::"InsuranceAPI___get_claim_status"
   ],
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 );
 
-// Processing agent: read, approve, and disburse
+// Processing agent: read, approve, and disburse.
 permit(
-  principal == AgentCore::IamEntity::"arn:aws:sts::123456789012:assumed-role/ProcessingAgentRole",
+  principal == AgentCore::IamEntity::"arn:aws:sts::111122223333:assumed-role/ProcessingAgentRole",
   action in [
     AgentCore::Action::"InsuranceAPI___get_contract",
     AgentCore::Action::"InsuranceAPI___get_claim_status",
     AgentCore::Action::"InsuranceAPI___approve_claim",
     AgentCore::Action::"InsuranceAPI___disburse_payment"
   ],
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 );
 ```

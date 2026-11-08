@@ -81,7 +81,7 @@ When you create a registry through the console and select JWT authorization, you
 <a name="registry-jwt-manual"></a>
 
 If you have an existing identity provider, configure JWT authorization manually. You need:
-+  **Discovery URL** (required) — The OpenID Connect discovery URL from your identity provider (for example, `https://cognito-idp.us-east-1.amazonaws.com/YOUR_POOL_ID/.well-known/openid-configuration` ). AWS Agent Registry uses this URL to fetch the login, token, and verification settings.
++  **Discovery URL** (required) — The OpenID Connect (OIDC) or OAuth 2.0 Authorization Server Metadata (RFC 8414) discovery URL from your identity provider (for example, `https://cognito-idp.us-east-1.amazonaws.com/YOUR_POOL_ID/.well-known/openid-configuration` ). AWS Agent Registry uses this URL to fetch the login, token, and verification settings.
 
 You must also configure at least one of the following JWT authorization rules:
 +  **Allowed audiences** — Permitted values for the `aud` claim. An audience claim specifies which resource server the token is intended for, preventing token reuse across different APIs.

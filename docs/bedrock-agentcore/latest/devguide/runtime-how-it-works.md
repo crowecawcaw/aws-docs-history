@@ -104,7 +104,12 @@ V2 is available in the following AWS Regions:
 + US East (N. Virginia), `us-east-1` 
 + US East (Ohio), `us-east-2` 
 + US West (Oregon), `us-west-2` 
++ Europe (Frankfurt), `eu-central-1` 
 + Europe (Ireland), `eu-west-1` 
++ Europe (Stockholm), `eu-north-1` 
++ Asia Pacific (Mumbai), `ap-south-1` 
++ Asia Pacific (Singapore), `ap-southeast-1` 
++ Asia Pacific (Sydney), `ap-southeast-2` 
 + Asia Pacific (Tokyo), `ap-northeast-1` 
 
 ### Enable V2
@@ -231,7 +236,7 @@ Inbound Auth, powered by AgentCore Identity, controls who can access and invoke 
 
 #### OAuth configuration options
 <a name="runtime-oauth-config"></a>
-+  **Discovery URL** : Your identity provider’s OpenID Connect discovery endpoint
++  **Discovery URL** : Your identity provider’s OpenID Connect (OIDC) or OAuth 2.0 Authorization Server Metadata (RFC 8414) discovery endpoint
 +  **Allowed Audiences** : List of valid audience values your tokens should contain
 +  **Allowed Clients** : List of client identifiers that can access this agent
 

@@ -12,14 +12,12 @@ A consent portal requires an OAuth2 credential provider for your JWT-issuing OID
 
 When you create the IdP application that backs this credential provider, use an OIDC web application that uses the authorization-code grant and has a client secret. Do not set a real redirect URI yet — the portal’s callback URL does not exist until after you create the portal. Leave the redirect URI list empty or set a placeholder value, and also create at least one active test user that you can sign in as. You register the real redirect URI and complete the sign-in after the portal is `ACTIVE`, as described in [Create a consent portal with the AWS CLI](identity-create-consent-portal.md).
 
-The consent portal supports only primary IdPs that issue JWT access tokens. OAuth2-only vendors that issue no ID token and publish no OIDC discovery document (for example, GitHub, Slack, Salesforce, Atlassian, and LinkedIn) cannot be used as the primary IdP, though they remain valid as outbound providers for gateway targets.
+The consent portal requires a primary IdP that issues JWT access tokens and is OIDC-compatible. Providers that issue opaque access tokens cannot be used as the primary IdP. Similarly, providers that support only OAuth 2.0 and cannot issue an ID token also cannot be used as the primary IdP. Such unsupported IdPs remain valid as outbound credential providers for gateway targets.
 
 ## Gateway with JWT inbound authentication
 <a name="consent-portal-gateway-prereq"></a>
 
 A consent portal attaches to exactly one Amazon Bedrock AgentCore Gateway as its single source of type `agentcore-gateway`. The gateway must be configured with an inbound authentication type of JWT so that its authorizer references an OIDC identity provider. When you create the consent portal, AWS validates that the gateway’s authorizer and the OAuth2 credential provider you supply in `idpConfig` reference the same OIDC issuer. For more information about configuring credential providers and identity providers, see [Manage credential providers with AgentCore Identity](identity-outbound-credential-provider.md) and [Provider setup and configuration](identity-idps.md).
-
-The consent portal supports only IdPs that issue JWT access tokens. IdPs that issue opaque access tokens, and OAuth2-only vendors, are not supported as the primary IdP for a consent portal.
 
 The gateway must exist before you create the consent portal, but you do not need to add its outbound-authentication targets yet. Targets determine what appears on the portal’s Connections page, and their return URL depends on the portal’s `portalUrl`, which does not exist until the portal is `ACTIVE`. Add targets as a post-creation step, described in [Create a consent portal with the AWS CLI](identity-create-consent-portal.md).
 

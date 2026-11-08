@@ -261,7 +261,7 @@ Binary message handling requires:
 ### /ping - GET
 <a name="ping-endpoint"></a>
 
- **Purpose** 
+  **Purpose** 
 
 Verifies that your agent is operational and ready to handle requests
 
@@ -317,7 +317,7 @@ Unlike the A2A, MCP, and AG-UI protocols, the HTTP protocol does not wrap errors
  `ConflictException` and `RetryableConflictException` both return HTTP 409. The `x-amzn-ErrorType` header and message distinguish them. The service returns `RetryableConflictException` (`Session operation in progress, please retry`) when a second operation targets a session that the service is provisioning or tearing down. This condition is transient and retryable. Retry with short exponential backoff. The AWS SDKs auto-retry this exception when default retries are enabled. If you call the API directly without an AWS SDK, you must retry it yourself.
 
 **Note**  
- `ServiceQuotaExceededException` returns HTTP 402 on this native HTTP surface. On the A2A protocol it returns HTTP 429, the same HTTP status as throttling. On the MCP protocol it shares the throttling JSON-RPC error code (`-32003`) but returns HTTP 200. On AG-UI it uses a distinct `SERVICE_QUOTA_EXCEEDED` SSE code and returns HTTP 429.
+ `ServiceQuotaExceededException` returns HTTP 402 on this native HTTP surface. On the A2A protocol it returns HTTP 429, the same HTTP status as throttling. On the MCP protocol it shares the throttling JSON-RPC error code (`-32003`) and returns HTTP 429 (version `2026-07-28` and later) or HTTP 200 (earlier versions). On AG-UI it uses a distinct `SERVICE_QUOTA_EXCEEDED` SSE code and returns HTTP 429.
 
 ## OAuth authentication responses
 <a name="http-oauth-authentication-responses"></a>

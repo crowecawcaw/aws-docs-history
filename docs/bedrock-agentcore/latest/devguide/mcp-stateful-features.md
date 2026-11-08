@@ -7,6 +7,9 @@ The Model Context Protocol (MCP) provides a standardized way for AI applications
 
 For complete protocol details, see the [MCP Specification](https://modelcontextprotocol.io/specification/2025-11-25).
 
+**Note**  
+This guide applies to MCP protocol version `2025-11-25` and earlier. The server in this guide uses server-initiated requests for elicitation and sampling, which MCP protocol version `2026-07-28` removes. In version `2026-07-28` and later, elicitation and sampling use the [multi round-trip requests](https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/mrtr) pattern, which doesn’t require stateful mode. To keep the client and server on an earlier protocol version, this guide pins `fastmcp` and `mcp` to compatible versions.
+
 ## MCP features overview
 <a name="mcp-features-overview"></a>
 
@@ -31,7 +34,7 @@ Sampling allows servers to request LLM-generated content from the client. Use sa
 Progress notifications keep clients informed about long-running operations. Use progress reporting to provide real-time feedback during tasks like searching for flights or processing bookings.
 
 **Note**  
-Features like elicitation, sampling, and progress notifications require stateful MCP sessions. Enable stateful mode by setting `stateless_http=False` when running your server.
+For MCP protocol version `2025-11-25` and earlier, features like elicitation, sampling, and progress notifications require stateful MCP sessions. Enable stateful mode by setting `stateless_http=False` when running your server.
 
  **Session management** 
 
@@ -45,8 +48,8 @@ In stateful mode, the server returns an `Mcp-Session-Id` header during the initi
 1. Create a `requirements.txt` file with the required dependencies:
 
    ```
-   fastmcp>=2.10.0
-   mcp
+   fastmcp>=2.10.0,<3
+   mcp>=1.30,<2
    ```
 
 1. Install the dependencies:
@@ -511,8 +514,8 @@ if __name__ == "__main__":
    uv init --bare
    uv add \
      "aws-opentelemetry-distro~=0.21.0" \
-     "fastmcp>=2.10.0" \
-     "mcp>=1.28.1,<2"
+     "fastmcp>=2.10.0,<3" \
+     "mcp>=1.30,<2"
    cd ../..
    ```
 

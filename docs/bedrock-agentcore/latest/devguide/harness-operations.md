@@ -42,7 +42,7 @@ The following table describes the capabilities that can incur charges when you u
 | Model inference | The model provider bills each time the agent calls the configured model. One harness invocation can make multiple model calls. | The provider calculates charges from input and output tokens. Input includes the system prompt, conversation history, retrieved memory, skill instructions, and definitions for allowed tools. For tool-definition overhead, see [Tools](harness-tools.md). | 
 | AgentCore Memory | AgentCore Memory bills when the harness writes events or retrieves records. Managed Memory is enabled by default; charges also apply to attached Memory. | AgentCore Memory meters new short-term events, stored long-term memory records, and long-term memory retrieval requests. | 
 | AgentCore Browser and Code Interpreter | Browser and Code Interpreter bill when the agent uses these configured tools. | Each service meters active CPU and memory consumption for its sessions. Their tool definitions can still add model input tokens when allowed, even if the agent doesn’t call them. | 
-| AgentCore Gateway and Web Search | Gateway bills when the harness discovers or invokes tools, performs searches, or uses indexed tools. Web Search bills when the harness submits a query. | Gateway meters API operations, search queries, and indexed tools, as applicable. Web Search meters its queries separately. | 
+| AgentCore Gateway, Web Search, and Web Answer | Gateway bills when the harness discovers or invokes tools, performs searches, or uses indexed tools. Web Search bills when the harness submits a query. Web Answer bills when the harness asks a question. | Gateway meters API operations, search queries, and indexed tools, as applicable. Web Search meters its queries separately. Web Answer meters its calls separately. | 
 | Observability | CloudWatch bills for the traces, logs, and metrics that every invocation emits. | CloudWatch meters ingestion, storage, and query usage. | 
 | Storage and network | Storage and network services bill when you use a custom container, persistent filesystems, or data transfer. | Amazon ECR meters image storage. Amazon S3 and EFS meter resource usage. Standard data transfer rates apply to network traffic. | 
 
@@ -73,8 +73,8 @@ Set hard caps so a runaway agent can’t burn through resources:
 +  ** `maxIterations` ** - reasoning/action cycles per invocation. Default 75.
 +  ** `timeoutSeconds` ** - wall-clock timeout for a single invocation. Default 3600.
 +  ** `maxTokens` ** - token budget per invocation. Default N/A.
-+  ** `idleRuntimeSessionTimeout` ** - how long an idle microVM stays warm. Default 900.
-+  ** `maxLifetime` ** - maximum lifetime of a microVM session. Default 28800.
++  ** `idleRuntimeSessionTimeout` ** - how long an idle microVM stays warm. Default 900. Valid range 60–28800, and must be less than or equal to `maxLifetime`.
++  ** `maxLifetime` ** - maximum lifetime of a microVM session. Default 28800. Valid range 60–28800 (8 hours).
 
 All limits are optional; omit them to use service defaults. Because harness is backed by AgentCore Runtime, harness invocations are also subject to Runtime service quotas. For more information, see [AgentCore harness Service Quotas](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/bedrock-agentcore-limits.html#harness-service-limits) and [AgentCore Runtime Service Quotas](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/bedrock-agentcore-limits.html#runtime-service-limits).
 

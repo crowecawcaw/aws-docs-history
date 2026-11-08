@@ -113,6 +113,9 @@ AgentCore logs the following information for gateway resources:
 + MCP Requests with missing or incorrect authorization headers
 + MCP Requests with incorrect request parameters (tools, method)
 
+**Policy decisions aren’t logged**  
+Gateway application logs don’t include policy authorization decisions. When a policy denies a tool call, the gateway doesn’t invoke the target. The gateway doesn’t log a request or response record for that call. A missing record doesn’t mean that the policy wasn’t evaluated. To monitor policy decisions, use the policy metrics and spans described in [AgentCore generated policy observability data](observability-policy-metrics.md).
+
 You can also see request and response bodies as part of your Vended Logs integration when any of the MCP Operations are performed on the Gateway. They can do further analysis on these logs, using the `span_id` and `trace_id` fields to connect the vended spans and logs being emitted. For more information about encrypting your gateways with customer-managed KMS keys, see [Advanced features and topics for Amazon Bedrock AgentCore Gateway](gateway-advanced.md).
 
 Sample log:

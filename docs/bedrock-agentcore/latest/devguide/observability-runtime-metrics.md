@@ -35,6 +35,9 @@ Represents the number of client-side errors resulting from invalid requests. The
 Latency  
 The total time elapsed between receiving the request and sending the final response token. Represents complete end-to-end processing time of the request.
 
+OverheadLatency  
+The time attributable to AgentCore Runtime for a request. AgentCore Runtime measures this time from when it receives the request to when your agent returns its first response byte, excluding your agent’s own processing time. Use this metric with `Latency` to see how much of your cold-start and request latency comes from the platform and how much comes from your agent. For agents on platform version V2, AgentCore Runtime emits this metric in the `AWS/Bedrock-AgentCore` namespace for every request to the `InvokeAgentRuntime`, `InvokeAgentRuntimeWithWebSocketStream`, `InvokeAgentRuntimeCommand`, and `InvokeAgentRuntimeCommandShell` APIs.
+
 Total Errors  
 The total number of system and user errors. In the Amazon Bedrock AgentCore console, this metric displays the number of errors as a percentage of the total number of invocations.
 

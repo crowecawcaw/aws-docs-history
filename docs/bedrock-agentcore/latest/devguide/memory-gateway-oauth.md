@@ -15,7 +15,7 @@ This page builds on the AgentCore Memory connector. Set up a gateway with a Memo
 
 When a gateway uses `CUSTOM_JWT` inbound authentication in front of a Memory connector target:
 
-1. The caller sends a request to the gateway with a JWT bearer token issued by your OpenID Connect provider. Depending on your application, the token can represent an end user or the agent itself, and can carry end-user information in its claims.
+1. The caller sends a request to the gateway with a JWT bearer token issued by your identity provider. Depending on your application, the token can represent an end user or the agent itself, and can carry end-user information in its claims.
 
 1. The gateway validates the token against the provider you configured, and the token’s claims (such as `sub` and `client_id`) become available to the gateway’s access-control policies as principal tags.
 
@@ -27,7 +27,7 @@ This is why fine-grained access control matters: with it, you can ensure a reque
 
 With an agent application, your end users can sign in through a standard OAuth identity provider — for example, Amazon Cognito or any OpenID Connect provider — and you can enforce per-user Memory isolation based on the authenticated end user’s identity. Your application does not distribute AWS credentials to end users, and Memory does not need to natively understand OAuth.
 
-Configuring the `CUSTOM_JWT` authorizer (the OpenID Connect discovery URL, allowed audience and clients, and scopes) is a standard gateway inbound-authorization task and is not specific to Memory. For the authorizer configuration, see [Create an AgentCore gateway](gateway-create.md). For how JWT claims map to the `AgentCore::OAuthUser` principal and its tags, see [Core concepts](policy-core-concepts.md).
+Configuring the `CUSTOM_JWT` authorizer (the discovery URL, allowed audience and clients, and scopes) is a standard gateway inbound-authorization task and is not specific to Memory. For the authorizer configuration, see [Create an AgentCore gateway](gateway-create.md). For how JWT claims map to the `AgentCore::OAuthUser` principal and its tags, see [Core concepts](policy-core-concepts.md).
 
 **Note**  
 OAuth (`CUSTOM_JWT`) inbound is compatible only with the `GATEWAY_IAM_ROLE` outbound credential mode. The `CALLER_IAM_CREDENTIALS` mode forwards the caller’s IAM identity, which does not exist for a JWT-authenticated caller, so it is rejected at target creation. For the full compatibility matrix, see [Inbound and outbound authentication modes](memory-gateway-connector.md#memory-gateway-connector-auth-modes).

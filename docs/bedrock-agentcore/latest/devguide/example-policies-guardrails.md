@@ -18,7 +18,7 @@ Five rules govern where a guardrail call is valid. Four are enforced synchronous
 Policy evaluation is deny-by-default: a request is allowed only when some `permit` matches it. A guardrail `forbid` only ever **removes** access, and a `suppressOutput` acts on an action that already ran, so neither makes an action reachable. With a guardrail policy alone the action is denied before the guardrail is ever consulted, so the request is denied with nothing screened. Pair every guardrail policy with a plain `permit` for the same action.
 
  **The effect decides which side you may read**   
-An authorization effect — `permit` or `forbid` — may only read the inbound payload. The `suppressOutput` effect may only read the outbound one. Using `context.output` with `permit` or `forbid` is rejected with `Guardrail '<name>' references 'context.output' but the policy has an authorization effect`.
+An authorization effect — `permit` or `forbid` — may only read the inbound payload. The `suppressOutput` effect may only read the outbound one. Using `context.output` with `permit` or `forbid` is rejected with `Guardrail '{{name}}' references 'context.output' but the policy has an authorization effect`.
 
  **One call reads one side**   
 A single guardrail call cannot mix inbound and outbound paths. To screen both directions, write two policies.
@@ -96,18 +96,18 @@ For the text location on each inference API path, see [Text locations for each p
 The base permit makes the runtime action reachable; the `forbid` removes access when the guardrail detects a prompt-injection attempt. The runtime target’s `prompt` is a scalar string, so a bare `context.input.prompt` field path works and no JSONPath is needed. The first argument lists the categories to evaluate, the second lists the content, and the result is indexed by category to read that category’s score.
 
 ```
-// Base permit: makes the action reachable at all
+// Base permit: makes the action reachable at all.
 permit(
   principal,
   action == AgentCore::Action::"ClaimsAgent___POST:/invocations",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 );
 
-// Inbound: reject prompt-injection attempts
+// Inbound: reject prompt-injection attempts.
 forbid(
   principal,
   action == AgentCore::Action::"ClaimsAgent___POST:/invocations",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when guardrails {
   BedrockGuardrails::PromptAttack(["PROMPT_INJECTION"], [context.input.prompt])["PROMPT_INJECTION"]
@@ -124,7 +124,7 @@ Screening the outbound side works the same way, against the runtime target’s s
 suppressOutput(
   principal,
   action == AgentCore::Action::"ClaimsAgent___POST:/invocations",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when guardrails {
   BedrockGuardrails::ContentFilter(["VIOLENCE", "HATE"], [context.output.completion])
@@ -142,18 +142,18 @@ when guardrails {
  `$.messages[*].content` collects every message in the conversation, system and user alike, and `$.choices[*].message.content` collects every completion the model returned. Screening both directions takes three policies in total: the base permit, the inbound `forbid`, and the outbound `suppressOutput`.
 
 ```
-// Base permit: makes the action reachable at all
+// Base permit: makes the action reachable at all.
 permit(
   principal,
   action == AgentCore::Action::"ClaimsChat___POST:/v1/chat/completions",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 );
 
-// Inbound: what the caller sent
+// Inbound: what the caller sent.
 forbid(
   principal,
   action == AgentCore::Action::"ClaimsChat___POST:/v1/chat/completions",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when guardrails {
   BedrockGuardrails::ContentFilter(
@@ -162,11 +162,11 @@ when guardrails {
   ).maxConfidenceScore().greaterThan(decimal("0.2"))
 };
 
-// Outbound: what the model returned
+// Outbound: what the model returned.
 suppressOutput(
   principal,
   action == AgentCore::Action::"ClaimsChat___POST:/v1/chat/completions",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when guardrails {
   BedrockGuardrails::ContentFilter(
@@ -187,13 +187,13 @@ Three paths appear in the inbound call because `input` is either a bare string o
 permit(
   principal,
   action == AgentCore::Action::"ClaimsResponses___POST:/v1/responses",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 );
 
 forbid(
   principal,
   action == AgentCore::Action::"ClaimsResponses___POST:/v1/responses",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when guardrails {
   BedrockGuardrails::ContentFilter(
@@ -205,7 +205,7 @@ when guardrails {
 suppressOutput(
   principal,
   action == AgentCore::Action::"ClaimsResponses___POST:/v1/responses",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when guardrails {
   BedrockGuardrails::ContentFilter(
@@ -228,13 +228,13 @@ Including `$.instructions` matters: the system prompt is a place an injected ins
 permit(
   principal,
   action == AgentCore::Action::"ClaimsMessages___POST:/v1/messages",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 );
 
 forbid(
   principal,
   action == AgentCore::Action::"ClaimsMessages___POST:/v1/messages",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when guardrails {
   BedrockGuardrails::ContentFilter(
@@ -246,7 +246,7 @@ when guardrails {
 suppressOutput(
   principal,
   action == AgentCore::Action::"ClaimsMessages___POST:/v1/messages",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when guardrails {
   BedrockGuardrails::ContentFilter(
@@ -267,18 +267,18 @@ Take the paths for each API from [Text locations for each path](example-policies
 An MCP tool’s arguments are declared in its schema, so a scalar argument such as `description` is reached with a bare field path. `count()` returns the number of categories detected, as a `Long`, so it is compared with an ordinary integer operator rather than a `decimal` method. Any detection at all denies the request.
 
 ```
-// Base permit: makes the action reachable at all
+// Base permit: makes the action reachable at all.
 permit(
   principal,
   action == AgentCore::Action::"InsuranceAPI___file_claim",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 );
 
-// Inbound: reject payment card or bank details
+// Inbound: reject payment card or bank details.
 forbid(
   principal,
   action == AgentCore::Action::"InsuranceAPI___file_claim",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when guardrails {
   BedrockGuardrails::SensitiveInformation(
@@ -296,7 +296,7 @@ Several scalar fields can go in one call, and the guardrail evaluates all of the
 forbid(
   principal,
   action == AgentCore::Action::"InsuranceAPI___file_claim",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when guardrails {
   BedrockGuardrails::ContentFilter(
@@ -317,18 +317,18 @@ when guardrails {
  `suppressOutput` runs after the action has been authorized and has produced a result, and it acts on that result rather than on the decision to allow the call. The tool still runs; what the caller receives is suppressed.
 
 ```
-// Base permit: makes the action reachable at all
+// Base permit: makes the action reachable at all.
 permit(
   principal,
   action == AgentCore::Action::"InsuranceAPI___get_claim_status",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 );
 
-// Outbound: suppress the whole response when it carries a social security number
+// Outbound: suppress the whole response when it carries a social security number.
 suppressOutput(
   principal,
   action == AgentCore::Action::"InsuranceAPI___get_claim_status",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when guardrails {
   BedrockGuardrails::SensitiveInformation(
@@ -351,18 +351,18 @@ Output-phase evaluation changes how a response is delivered. The gateway holds t
 A guardrail call is an ordinary function call, so it composes with Cedar conditions: here a `when` holds the guardrail check and an `unless` exempts a trusted role. Writing `when { …​ }` instead of `when guardrails { …​ }` is equivalent.
 
 ```
-// Base permit: makes the action reachable at all
+// Base permit: makes the action reachable at all.
 permit(
   principal,
   action == AgentCore::Action::"ClaimsAgent___POST:/invocations",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 );
 
-// Inbound: screen external callers for injection attempts
+// Inbound: screen external callers for injection attempts.
 forbid(
   principal is AgentCore::OAuthUser,
   action == AgentCore::Action::"ClaimsAgent___POST:/invocations",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when {
   BedrockGuardrails::PromptAttack(["PROMPT_INJECTION", "JAILBREAK"], [context.input.prompt])

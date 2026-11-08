@@ -5,6 +5,8 @@
 
 For policy and policy engine resource types, Amazon Bedrock AgentCore publishes invocation metrics to CloudWatch by default. Additional span data is available when traces are enabled for the attached AgentCore Gateway resource, which will emit spans for Policy in AgentCore related operations. See [Enabling observability for AgentCore runtime, memory, gateway, built-in tools, and identity resources](observability-configure.md#observability-configure-cloudwatch) to learn more about enablement.
 
+Gateway application logs don’t include policy decisions. For details, see [Provided log data](observability-gateway-metrics.md#observability-gateway-logs-provided) for gateway.
+
 **Topics**
 + [Provided metric data](#observability-policy-metrics-provided)
 + [Provided span data](#observability-policy-spans)

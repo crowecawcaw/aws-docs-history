@@ -50,7 +50,7 @@ With Amazon Bedrock AgentCore, developers can accelerate AI agents into producti
 ## Pricing for Amazon Bedrock AgentCore
 <a name="agentcore-pricing"></a>
 
-AgentCore offers flexible, consumption-based pricing with no upfront commitments or minimum fees. For more information, see [AgentCore pricing](https://aws.amazon.com/bedrock/agentcore/pricing/) . AgentCore may use and store your content to improve your service experience or performance. Such improvements would be for your use of AgentCore and not for other customers.
+AgentCore offers flexible, consumption-based pricing with no upfront commitments or minimum fees. For more information, see [AgentCore pricing](https://aws.amazon.com/bedrock/agentcore/pricing/) on the AWS website.
 
 ## Next Steps
 <a name="next-steps"></a>

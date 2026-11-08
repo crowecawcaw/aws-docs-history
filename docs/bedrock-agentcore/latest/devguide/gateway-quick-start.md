@@ -120,7 +120,7 @@ agentcore add gateway-target \
 
 You can also run `agentcore add gateway` without options to add the gateway in an interactive wizard.
 
-To use JWT-based authorization instead, provide the project authorizer configuration for an existing OIDC provider:
+To use JWT-based authorization instead, provide the project authorizer configuration for an existing identity provider:
 
 ```
 agentcore add gateway \

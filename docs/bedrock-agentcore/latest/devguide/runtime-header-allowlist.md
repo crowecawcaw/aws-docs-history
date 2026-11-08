@@ -215,9 +215,9 @@ To pass the JWT token used for OAuth-based inbound access to your agent, configu
    agentcore deploy
    ```
 
-   With this configuration, the `Authorization` header from incoming requests is validated against your OIDC provider and forwarded to your agent code, along with the custom headers.
+   With this configuration, the `Authorization` header from incoming requests is validated against your identity provider and forwarded to your agent code, along with the custom headers.
 
-   When you invoke the agent in Step 3, also pass a JWT from your OIDC provider with `--bearer-token`. Replace `<access-token>` with the token:
+   When you invoke the agent in Step 3, also pass a JWT from your identity provider with `--bearer-token`. Replace `<access-token>` with the token:
 
    ```
    agentcore invoke --runtime MyHeaderAgent \

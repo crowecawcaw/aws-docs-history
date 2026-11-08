@@ -46,6 +46,8 @@ Key characteristics:
 
 When you create an agent runtime, you choose its **compute type**. Selecting **Instances** associates the runtime with a capacity provider through the `capacityProviderConfiguration` parameter. The runtime still defines what agent runs (the code or container artifact) and how it’s configured (protocol, authentication, endpoints, versions); the capacity provider defines the compute it runs on.
 
+An MCP server on Instances follows the same [MCP protocol contract](runtime-mcp-protocol-contract.md) as one on microVMs, including support for MCP protocol version `2026-07-28`.
+
 You can’t change the compute type after a runtime is created.
 
 ### Session

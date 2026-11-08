@@ -54,7 +54,7 @@ Inbound authorization controls who can access this Payment Manager. In the **Inb
 
 1. For **JWT schema configuration**, choose **Use existing Identity provider configurations**. This option lets you bring existing inbound authorization configurations from any identity provider to enable OAuth 2.0.
 
-1. For **Discovery URL**, enter the discovery URL from your identity provider (for example, Okta or Cognito), typically found in that provider’s documentation. This allows your agent or tool to fetch login, downstream resource token, and verification settings. For example, `https://accounts.cognito.com/.well-known/openid-configuration`.
+1. For **Discovery URL**, enter the OpenID Connect (OIDC) or OAuth 2.0 Authorization Server Metadata (RFC 8414) discovery URL from your identity provider (for example, Okta or Cognito), typically found in that provider’s documentation. This allows your agent or tool to fetch login, downstream resource token, and verification settings. For example, `https://accounts.cognito.com/.well-known/openid-configuration`.
 
 1. For **Allowed audiences**, enter client IDs that are registered with identity providers or any arbitrary string in the JWT audience claim that the authorizer must verify. Choose **\+ Add audience** to add additional audiences.
 

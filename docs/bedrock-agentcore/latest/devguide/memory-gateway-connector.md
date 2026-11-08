@@ -10,7 +10,7 @@ When your backend calls Memory for many users, Memory sees only your backend’s
 With an [AgentCore Gateway](gateway.md) in front of AgentCore Memory, you can move that enforcement out of your application code and into the infrastructure. The gateway becomes a single, secure entry point for Memory traffic. It authenticates each caller, evaluates access-control policies, and forwards allowed requests to Memory. Fronting Memory with a gateway gives you two features that direct access does not:
 
  **OAuth authentication for end users**   
-Memory’s data plane is SigV4-only. With a gateway configured for OAuth (JWT) inbound authentication, your end users can authenticate with a standard OpenID Connect provider, and your application does not distribute AWS credentials to them. For more information, see [Authenticate end users to Memory with OAuth](memory-gateway-oauth.md).
+Memory’s data plane is SigV4-only. With a gateway configured for OAuth (JWT) inbound authentication, your end users can authenticate with a standard identity provider, and your application does not distribute AWS credentials to them. For more information, see [Authenticate end users to Memory with OAuth](memory-gateway-oauth.md).
 
  **Fine-grained access control**   
 A gateway can evaluate policies that restrict callers to their own actor, their own namespace, or a specific set of Memory operations, including for callers authenticated with OAuth. For more information, see [Fine-grained access control for Memory](memory-gateway-fgac.md).  
@@ -71,7 +71,7 @@ When a client calls Memory through the gateway, the gateway processes the reques
 A gateway has an *inbound* authorizer type that controls how it authenticates callers, and each Memory connector target has an *outbound* credential mode that controls the identity the gateway uses to call Memory. Most deployments use one of two combinations:
 
  **OAuth end users (the primary fine-grained access control path)**   
- `CUSTOM_JWT` inbound with `GATEWAY_IAM_ROLE` outbound. Your users or agents authenticate with an OpenID Connect provider, and the gateway calls Memory under its own gateway execution role. This is the combination to use when you want per-user isolation for callers who are not IAM principals. For more information, see [Authenticate end users to Memory with OAuth](memory-gateway-oauth.md).
+ `CUSTOM_JWT` inbound with `GATEWAY_IAM_ROLE` outbound. Your users or agents authenticate with an identity provider, and the gateway calls Memory under its own gateway execution role. This is the combination to use when you want per-user isolation for callers who are not IAM principals. For more information, see [Authenticate end users to Memory with OAuth](memory-gateway-oauth.md).
 
  **IAM backend services with identity pass-through**   
  `AWS_IAM` inbound with `CALLER_IAM_CREDENTIALS` outbound. The gateway forwards each caller’s own IAM identity to Memory, so Memory evaluates the caller’s IAM permissions and you can source-pin gateway-forwarded traffic. Use this when your callers are already IAM principals and you want Memory to authorize them directly.

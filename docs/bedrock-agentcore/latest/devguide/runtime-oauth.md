@@ -49,7 +49,7 @@ For a consolidated view of all Runtime security recommendations, see [Security b
  **JWT Bearer Token Authentication**   
 You can configure your agent runtime to accept JWT bearer tokens by providing authorizer configuration during agent creation.  
 This configuration includes:  
-+ Discovery URL - A string that must match the pattern `^.+/\.well-known/openid-configuration$` for OpenID Connect discovery URLs
++ Discovery URL – A string that must match the pattern `^[^\s?#]+/\.well-known/(openid-configuration|oauth-authorization-server)(/[^\s?#]+)?$` for OpenID Connect (OIDC) or OAuth 2.0 Authorization Server Metadata (RFC 8414) discovery URLs
 + Allowed audiences - A list of permitted audiences that will be validated against the aud claim in the JWT token
 + Allowed clients - A list of permitted client identifiers that will be validated against the client\_id claim in the JWT token
 + Allowed scopes - A list of permitted scopes that will be validated against the scope claim in the JWT token. The `allowedScopes` authorization field will be configured as a list of strings.

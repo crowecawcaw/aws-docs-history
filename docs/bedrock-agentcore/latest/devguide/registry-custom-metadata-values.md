@@ -11,7 +11,7 @@ When a registry has a custom metadata schema, you fill in its fields when you cr
 **Note**  
 You can create or update a record without custom metadata. If you enter any, fill in every required field. Before a record can be submitted for approval, all required fields must have a value.
 
-## Set values
+## Setting values
 <a name="registry-custom-metadata-values-set"></a>
 
 ### Console
@@ -36,7 +36,7 @@ These examples use the schema from the [example](registry-custom-metadata-schema
 
 ```
 aws agent-registry-control create-registry-record \
-  --registry-id "<registryId>" \
+  --registry-id "{{registryId}}" \
   --name "my-mcp-server" \
   --record-type MCP \
   --descriptors '{"mcpServer": {"data": "{\"name\":\"my/mcp-server\",\"description\":\"My MCP server\",\"version\":\"1.0.0\"}", "dataSchemaVersion": "2025-12-11"}}' \
@@ -54,8 +54,8 @@ This example replaces the record’s values:
 
 ```
 aws agent-registry-control update-registry-record \
-  --registry-id "<registryId>" \
-  --record-id "<recordId>" \
+  --registry-id "{{registryId}}" \
+  --record-id "{{recordId}}" \
   --custom-metadata '{"optionalValue": {"owner": "search-team", "dataClassification": "confidential"}}' \
   --region us-east-1
 ```
@@ -76,7 +76,7 @@ server_content = json.dumps({
 })
 
 response = client.create_registry_record(
-    registryId='<registryId>',
+    registryId='{{registryId}}',
     name='my-mcp-server',
     recordType='MCP',
     descriptors={
@@ -95,13 +95,13 @@ To change the values later, pass `customMetadata` wrapped in `optionalValue`, as
 
 ```
 client.update_registry_record(
-    registryId='<registryId>',
-    recordId='<recordId>',
+    registryId='{{registryId}}',
+    recordId='{{recordId}}',
     customMetadata={'optionalValue': {'owner': 'search-team', 'dataClassification': 'confidential'}}
 )
 ```
 
-## View values
+## Viewing values
 <a name="registry-custom-metadata-values-view"></a>
 
 ### Console
@@ -114,8 +114,8 @@ On a record detail page, the **Custom metadata** section shows the record’s va
 
 ```
 aws agent-registry-control get-registry-record \
-  --registry-id "<registryId>" \
-  --record-id "<recordId>" \
+  --registry-id "{{registryId}}" \
+  --record-id "{{recordId}}" \
   --region us-east-1
 ```
 
@@ -127,12 +127,14 @@ import boto3
 
 client = boto3.client('agent-registry-control')
 
-record = client.get_registry_record(registryId='<registryId>', recordId='<recordId>')
+record = client.get_registry_record(registryId='{{registryId}}', recordId='{{recordId}}')
 print(record['customMetadata'])
 ```
 
 ## Constraints
 <a name="registry-custom-metadata-values-constraints"></a>
+
+Custom metadata values have these constraints:
 + Values must be strings or native booleans (`true` / `false`). Numbers, arrays, objects, and null are rejected.
 + Text and URL values can be up to 128 characters. An Enum value must be one of the field’s allowed values, each of which is up to 64 characters.
 + A Boolean field requires a native JSON boolean. The string `"true"` is rejected — there is no type conversion.

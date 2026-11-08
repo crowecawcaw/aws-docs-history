@@ -19,7 +19,7 @@ Two requirements apply to every policy on this page, and a policy that breaks ei
 
 | If the action scope is | The resource scope must be | 
 | --- | --- | 
-| One or more specific actions — `action == …` or `action in […]`  | A specific gateway — `resource == AgentCore::Gateway::"<arn>"`  | 
+| One or more specific actions — `action == …` or `action in […]`  | A specific gateway — `resource == AgentCore::Gateway::"{{arn}}"`  | 
 | Unconstrained — a bare `action`  | A type test — `resource is AgentCore::Gateway`  | 
 
  **The resource can never be left unconstrained.** A bare `resource` is rejected with `a wildcard resource was detected`, whichever action scope you used.
@@ -31,7 +31,7 @@ Naming a specific action therefore means knowing the gateway ARN, which you only
 
  `*` means different things in different parts of a policy, and it is not accepted everywhere.
 
- **Not in an action name.** Cedar has no wildcard for action names, so `AgentCore::Action::"InsuranceAPI___get*"` is not valid. List the actions with `action in [ …​ ]`, or scope the policy to the whole target with `action in AgentCore::Action::"<TargetName>"`, which also picks up tools added to that target later. For more information, see [Multiple actions](policy-scope.md#policy-action-wildcards).
+ **Not in an action name.** Cedar has no wildcard for action names, so `AgentCore::Action::"InsuranceAPI___get*"` is not valid. List the actions with `action in [ …​ ]`, or scope the policy to the whole target with `action in AgentCore::Action::"{{TargetName}}"`, which also picks up tools added to that target later. For more information, see [Multiple actions](policy-scope.md#policy-action-wildcards).
 
  **Not in a resource.** A bare `resource` is rejected. Use a specific gateway ARN or the type test `resource is AgentCore::Gateway`, as described in the previous section.
 
@@ -53,7 +53,7 @@ Anchor the pattern where you can: `auto*` matches values beginning with `auto`, 
 
 Grouping related read operations with `action in [ …​ ]` avoids one policy per tool. Each action is named explicitly because action names take no wildcard — see [Where wildcards work](#example-policies-action-resource-wildcards).
 
- **We recommend scoping to the target when you want the whole tool set.** Writing `action in AgentCore::Action::"<TargetName>"` covers every tool the target exposes, including tools added later, so the policy does not need editing each time the target gains a tool. The trade-off is that a target-scoped policy cannot carry a condition on tool input, because the input differs per tool. For more information, see [Multiple actions](policy-scope.md#policy-action-wildcards).
+ **We recommend scoping to the target when you want the whole tool set.** Writing `action in AgentCore::Action::"{{TargetName}}"` covers every tool the target exposes, including tools added later, so the policy does not need editing each time the target gains a tool. The trade-off is that a target-scoped policy cannot carry a condition on tool input, because the input differs per tool. For more information, see [Multiple actions](policy-scope.md#policy-action-wildcards).
 
 ```
 permit(
@@ -62,7 +62,7 @@ permit(
     AgentCore::Action::"InsuranceAPI___get_contract",
     AgentCore::Action::"InsuranceAPI___get_claim_status"
   ],
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 );
 ```
 
@@ -77,7 +77,7 @@ An AgentCore Runtime target is authorized as a single action, named for the targ
 permit(
   principal,
   action == AgentCore::Action::"ClaimsAgent___POST:/invocations",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 );
 ```
 
@@ -96,7 +96,7 @@ permit(
     AgentCore::Action::"ClaimsResponses___POST:/v1/responses",
     AgentCore::Action::"ClaimsMessages___POST:/v1/messages"
   ],
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 );
 ```
 
@@ -111,14 +111,14 @@ permit(
 permit(
   principal,
   action == AgentCore::Action::"ClaimsChat___POST:/v1/chat/completions",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when {
   context.input.model like "openai.gpt-oss-*"
 };
 ```
 
-The `model` value carries both the provider and the model, in the form `<provider>.<model>`. Match it exactly to pin one model, as in `"openai.gpt-oss-120b-1:0"`. Anchor a `like` pattern on the provider prefix to allow that provider’s models only, as in `like "openai.*"`. Repeat the policy for `ClaimsResponses` and `ClaimsMessages` with their own approved values.
+The `model` value carries both the provider and the model, in the form ` {{provider}}.{{model}} `. Match it exactly to pin one model, as in `"openai.gpt-oss-120b-1:0"`. Anchor a `like` pattern on the provider prefix to allow that provider’s models only, as in `like "openai.*"`. Repeat the policy for `ClaimsResponses` and `ClaimsMessages` with their own approved values.
 
 **Important**  
  **A Cedar condition cannot read the conversation itself — use a guardrail for that.**   
@@ -139,7 +139,7 @@ To act on what was actually said, write a guardrail whose data path is a JSONPat
 permit(
   principal,
   action == AgentCore::Action::"InsuranceAPI___file_claim",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when {
   (context.input.claimType == "health" ||
@@ -159,7 +159,7 @@ A set literal with `.contains()` reads better than a chain of `||` comparisons a
 permit(
   principal,
   action == AgentCore::Action::"InsuranceAPI___file_claim",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when {
   ["health", "property", "auto"].contains(context.input.claimType)
@@ -177,7 +177,7 @@ In a `like` pattern `*` matches any run of characters, so `auto`, `auto-liabilit
 permit(
   principal,
   action == AgentCore::Action::"InsuranceAPI___calculate_premium",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when {
   context.input.coverageType like "auto*"
@@ -195,7 +195,7 @@ when {
 permit(
   principal,
   action == AgentCore::Action::"InsuranceAPI___file_claim",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when {
   context.input.policyTermMonths >= 12
@@ -211,7 +211,7 @@ when {
 permit(
   principal,
   action == AgentCore::Action::"InsuranceAPI___file_claim",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when {
   context.input.amount.lessThan(decimal("1000.00"))
@@ -233,7 +233,7 @@ A `boolean` parameter is used directly as a condition. To require the opposite, 
 permit(
   principal,
   action == AgentCore::Action::"InsuranceAPI___approve_claim",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when {
   context.input.approved
@@ -251,7 +251,7 @@ An `object` parameter becomes a Cedar record, a set of named members you reach w
 permit(
   principal,
   action == AgentCore::Action::"InsuranceAPI___calculate_premium",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when {
   context.input has riskFactors &&
@@ -275,7 +275,7 @@ There are two ways to write this, and they behave differently. **We recommend th
 permit(
   principal,
   action == AgentCore::Action::"InsuranceAPI___file_claim",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when {
   context.input has description
@@ -288,7 +288,7 @@ A `forbid` makes the field mandatory no matter which other policies apply:
 forbid(
   principal,
   action == AgentCore::Action::"InsuranceAPI___file_claim",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 unless {
   context.input has description
@@ -339,7 +339,7 @@ The tool disappears from `tools/list` for every caller while this policy is in p
 forbid(
   principal,
   action == AgentCore::Action::"InsuranceAPI___disburse_payment",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 );
 ```
 
@@ -359,7 +359,7 @@ One policy can constrain the principal and the input together, and doing so in a
 permit(
   principal is AgentCore::OAuthUser,
   action == AgentCore::Action::"InsuranceAPI___update_coverage",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when {
   principal.hasTag("role") &&
@@ -377,11 +377,11 @@ when {
 Tiered authority takes one `permit` per tier, each pairing the job title with its own ceiling. Because the two policies are alternatives, a manager is not restricted by the adjuster policy. `amountCents` is an `integer`, so it uses ordinary ordered operators rather than `decimal` methods.
 
 ```
-// Adjusters: up to 1,000.00
+// Adjusters: up to USD $1,000.00.
 permit(
   principal is AgentCore::OAuthUser,
   action == AgentCore::Action::"InsuranceAPI___disburse_payment",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when {
   principal.hasTag("role") &&
@@ -389,11 +389,11 @@ when {
   context.input.amountCents <= 100000
 };
 
-// Managers: up to 25,000.00
+// Managers: up to USD $25,000.00.
 permit(
   principal is AgentCore::OAuthUser,
   action == AgentCore::Action::"InsuranceAPI___disburse_payment",
-  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+  resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when {
   principal.hasTag("role") &&

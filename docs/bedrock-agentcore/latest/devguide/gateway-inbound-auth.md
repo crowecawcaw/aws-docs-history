@@ -77,7 +77,7 @@ You can use the AgentCore CLI to configure a gateway with an existing JWT identi
 ### Configure a JWT authorizer
 <a name="gateway-inbound-auth-jwt-default"></a>
 
-Create an application and client with a supported identity provider. For an Amazon Cognito example, see [Get started with Amazon Cognito](identity-getting-started-cognito.md). Note the OIDC discovery URL and client ID.
+Create an application and client with a supported identity provider. For an Amazon Cognito example, see [Get started with Amazon Cognito](identity-getting-started-cognito.md). Note the OpenID Connect (OIDC) or OAuth 2.0 Authorization Server Metadata (RFC 8414) discovery URL and client ID.
 
 Run the following command in an AgentCore project directory:
 
@@ -88,13 +88,13 @@ agentcore add gateway \
   --authorizer-type CUSTOM_JWT \
   --authorizer-configuration '{
     "customJwtAuthorizer": {
-      "discoveryUrl": "<OIDC_DISCOVERY_URL>",
+      "discoveryUrl": "<DISCOVERY_URL>",
       "allowedClients": ["<CLIENT_ID>"]
     }
   }'
 ```
 
-The AgentCore CLI uses the OIDC configuration of your existing identity provider. To invoke the gateway, obtain an access token from your provider. For Amazon Cognito, see [The token issuer endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/token-endpoint.html) in the Amazon Cognito Developer Guide.
+The AgentCore CLI uses the configuration of your existing identity provider. To invoke the gateway, obtain an access token from your provider. For Amazon Cognito, see [The token issuer endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/token-endpoint.html) in the Amazon Cognito Developer Guide.
 
 ### Set up a JWT manually
 <a name="gateway-inbound-auth-jwt-manual"></a>
@@ -127,7 +127,7 @@ The `scope` value contains the space-delimited scopes configured as **Allowed sc
 ### Use a private (VPC-hosted) identity provider
 <a name="gateway-inbound-auth-jwt-private-idp"></a>
 
-AgentCore Gateway supports JWT-based inbound authorization with identity providers hosted inside your VPC. You can configure a `privateEndpoint` on the `customJWTAuthorizer` to enable AgentCore to reach your private OIDC discovery, token, and JWKS endpoints without exposing them to the public internet.
+AgentCore Gateway supports JWT-based inbound authorization with identity providers hosted inside your VPC. You can configure a `privateEndpoint` on the `customJWTAuthorizer` to enable AgentCore to reach your private discovery, token, and JWKS endpoints without exposing them to the public internet.
 
 Your IAM principal must have the `iam:CreateServiceLinkedRole` permission for `identity-network.bedrock-agentcore.amazonaws.com`, so that AgentCore Identity can create the `AWSServiceRoleForBedrockAgentCoreIdentity` service-linked role on your behalf if it does not already exist.
 

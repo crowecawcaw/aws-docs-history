@@ -23,8 +23,8 @@ Every predicate must include `eventResource: resource`, which ties the matched e
 
  **Ordered comparisons need integers; equality does not**   
 Inside a `temporal { }` block the two kinds of comparison accept different types.  
-+  **Ordering** — `<`, `⇐`, `>`, `>=` — requires an `integer` on both sides. A `decimal` or a `string` is rejected when you create the policy, with `comparison requires numeric operands on both sides`.
-+  **Equality** — `==` and `!=` — works on any type, as long as both sides are the same type. This is what correlation uses: matching `input.claimId` against `context.input.claimId` compares two strings, which is supported.
++  **Ordering** – `<`, `⇐`, `>`, `>=` – requires an `integer` on both sides. A `decimal` or a `string` is rejected when you create the policy, with `comparison requires numeric operands on both sides`.
++  **Equality** – `==` and `!=` – works on any type, as long as both sides are the same type. This is what correlation uses: matching `input.claimId` against `context.input.claimId` compares two strings, which is supported.
 So model any value a temporal policy has to **total or threshold** as an `integer`. This is why the reference gateway states money in integer minor units on the tools these examples aggregate. Summing has the same requirement and its own message: `sum` needs an `integer` summand. For more information, see [Parameter types in conditions](example-policies-reference.md#example-policies-types).
 
 ## Require a prior approval for the same claim
@@ -38,7 +38,7 @@ The `::response` predicate matches a completed `approve_claim`. Correlating its 
 permit (
     principal,
     action == AgentCore::Action::"InsuranceAPI___disburse_payment",
-    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when temporal {
     formerly within 1h AgentCore::Action::"InsuranceAPI___approve_claim"::response{
@@ -66,7 +66,7 @@ Pair this with a plain permit so approvals are allowed and recorded:
 permit (
     principal,
     action == AgentCore::Action::"InsuranceAPI___approve_claim",
-    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 );
 ```
 
@@ -88,7 +88,7 @@ Matching `::request` means the prerequisite only has to have been **attempted**,
 permit (
     principal,
     action == AgentCore::Action::"InsuranceAPI___approve_claim",
-    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when temporal {
     formerly within 5m AgentCore::Action::"InsuranceAPI___get_claim_status"::request{
@@ -108,7 +108,7 @@ The only change from the previous example is `::response` in place of `::request
 permit (
     principal,
     action == AgentCore::Action::"InsuranceAPI___approve_claim",
-    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when temporal {
     formerly within 5m AgentCore::Action::"InsuranceAPI___get_claim_status"::response{
@@ -135,7 +135,7 @@ when temporal {
 forbid (
     principal,
     action == AgentCore::Action::"InsuranceAPI___disburse_payment",
-    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when temporal {
     exists (n: Long).
@@ -159,7 +159,7 @@ This is not a security control. The caller supplies the session ID, so they can 
 forbid (
     principal,
     action == AgentCore::Action::"InsuranceAPI___disburse_payment",
-    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when temporal {
     exists (total: Long).
@@ -185,7 +185,7 @@ The `since` operator holds when the anchor on its right occurred within the wind
 permit (
     principal,
     action == AgentCore::Action::"InsuranceAPI___disburse_payment",
-    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when temporal {
     !AgentCore::Action::"InsuranceAPI___disburse_payment"::response{ eventResource: resource }
@@ -216,7 +216,7 @@ This condition refers to the same action it authorizes. `::response` is what mak
 forbid (
     principal,
     action == AgentCore::Action::"InsuranceAPI___disburse_payment",
-    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when temporal {
     formerly within 1m AgentCore::Action::"InsuranceAPI___disburse_payment"::response{
@@ -236,7 +236,7 @@ This has the same shape as the one-time-use approval, but the negated action dif
 permit (
     principal,
     action == AgentCore::Action::"InsuranceAPI___disburse_payment",
-    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when temporal {
     !AgentCore::Action::"InsuranceAPI___get_claim_status"::response{ eventResource: resource }
@@ -260,21 +260,21 @@ when temporal {
 One policy per link, and the chain emerges from their composition. Grant a plain permit for the first action so the chain can start. A step attempted out of order is denied until its prerequisite completes.
 
 ```
-// Link 1: approve only after a completed status lookup
+// Link 1: approve only after a completed status lookup.
 permit (
     principal,
     action == AgentCore::Action::"InsuranceAPI___approve_claim",
-    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when temporal {
     formerly within 5m AgentCore::Action::"InsuranceAPI___get_claim_status"::response{ eventResource: resource }
 };
 
-// Link 2: disburse only after a completed approval
+// Link 2: disburse only after a completed approval.
 permit (
     principal,
     action == AgentCore::Action::"InsuranceAPI___disburse_payment",
-    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when temporal {
     formerly within 5m AgentCore::Action::"InsuranceAPI___approve_claim"::response{ eventResource: resource }
@@ -292,7 +292,7 @@ Two `formerly` conditions joined with `&&` require both, and neither constrains 
 permit (
     principal,
     action == AgentCore::Action::"InsuranceAPI___disburse_payment",
-    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when temporal {
     formerly within 1h AgentCore::Action::"InsuranceAPI___get_claim_status"::response{ eventResource: resource }
@@ -308,21 +308,21 @@ when temporal {
 Exclusion needs two symmetric policies, one per direction; a single `forbid` would only block one order. Matching `::request` means merely **attempting** one action blocks the other, without waiting for it to complete.
 
 ```
-// Forbid deletion if a disbursement was requested within 2m
+// Forbid deletion if a disbursement was requested within 2m.
 forbid (
     principal,
     action == AgentCore::Action::"InsuranceAPI___delete_claim",
-    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when temporal {
     formerly within 2m AgentCore::Action::"InsuranceAPI___disburse_payment"::request{ eventResource: resource }
 };
 
-// Forbid disbursement if a deletion was requested within 2m
+// Forbid disbursement if a deletion was requested within 2m.
 forbid (
     principal,
     action == AgentCore::Action::"InsuranceAPI___disburse_payment",
-    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when temporal {
     formerly within 2m AgentCore::Action::"InsuranceAPI___delete_claim"::request{ eventResource: resource }
@@ -340,7 +340,7 @@ Correlating `input.claimId` with the current request’s claim scopes the count 
 permit (
     principal,
     action == AgentCore::Action::"InsuranceAPI___delete_claim",
-    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when temporal {
     exists (n: Long).
@@ -364,7 +364,7 @@ An `error` event records a request that was denied or that failed, so `::error` 
 forbid (
     principal,
     action == AgentCore::Action::"InsuranceAPI___disburse_payment",
-    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when temporal {
     formerly within 3m AgentCore::Action::"InsuranceAPI___approve_claim"::error{
@@ -386,7 +386,7 @@ All three condition kinds compose in one policy, and every clause must hold for 
 permit (
     principal is AgentCore::OAuthUser,
     action == AgentCore::Action::"InsuranceAPI___file_claim",
-    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
+    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:111122223333:gateway/insurance-gw-a1b2c3d4e5"
 )
 when temporal {
     exists (n: Long).

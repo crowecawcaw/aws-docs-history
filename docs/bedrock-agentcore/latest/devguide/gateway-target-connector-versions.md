@@ -31,6 +31,17 @@ The following table describes how the Gateway resolves connector versions when y
 |  `1.2.0`  | 2026-07-20 | Agent-side request-level filters: domain include and exclude lists (up to 100 domains per list) and published-date range filtering (ISO-8601 UTC). | 
 |  `1.1.0`  | 2026-06-15 | Added `structuredContent` in tool results; added `publishedDate` field; improved snippet extraction. | 
 
+## Web Answer (`web-answer`)
+<a name="gateway-target-connector-versions-web-answer"></a>
+
+ **Default version:** `1.1.0` 
+
+
+| Version | Released | Changes | 
+| --- | --- | --- | 
+|  `1.1.0`  | 2026-11-04 | Query length up to 30,000 characters. Target-level domain include and exclude lists (up to 50 domains per list). Agent-side request-level filters: domain include and exclude lists (up to 50 domains per list) and published-date range (ISO-8601, UTC). Optional `userLocation.country` to refine results for a country. | 
+|  `1.0.0`  | 2026-11-04 | Initial release — `WebAnswer` operation with a `query` input. | 
+
 ## Amazon Bedrock Managed Knowledge Bases (`bedrock-knowledge-bases`)
 <a name="gateway-target-connector-versions-managed-kb"></a>
 

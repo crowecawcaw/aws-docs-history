@@ -5,6 +5,41 @@
 
 We recommend subscribing to the RSS feed so updates to these notes are delivered to your Inbox.
 
+## November 2026
+<a name="_november_2026"></a>
+
+### Gateway: Get cited web answers with the Web Answer connector
+<a name="_gateway_get_cited_web_answers_with_the_web_answer_connector_2"></a>
+
+Web Answer is a built-in connector for Amazon Bedrock AgentCore Gateway, now generally available in US East (N. Virginia) `us-east-1`. With Web Answer, your agent can ask a natural-language question and get a synthesized answer with citations to current web sources, from one tool call.
+
+For more information, see [Web Answer](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-connector-web-answer-tool.html) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+### Runtime: Platform version V2 now available in five additional Regions
+<a name="_runtime_platform_version_v2_now_available_in_five_additional_regions_2"></a>
+
+Amazon Bedrock AgentCore Runtime platform version V2 is now available in Europe (Frankfurt), Europe (Stockholm), Asia Pacific (Mumbai), Asia Pacific (Singapore), and Asia Pacific (Sydney). Platform version V2 starts your agent from a snapshot to keep cold starts fast and consistent regardless of concurrency or image size. V2 is now available in 10 AWS Regions.
+
+For more information, see [Supported Regions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html#runtime-platform-versions-regions) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+### Runtime: Higher concurrent connection limit for V2 agents
+<a name="_runtime_higher_concurrent_connection_limit_for_v2_agents_2"></a>
+
+Amazon Bedrock AgentCore Runtime agents on platform version V2 can now hold up to 250 concurrent connections per session with the default 2-vCPU allocation. The previous limit was 8 connections per vCPU, or 16 connections for a 2-vCPU session. With the higher limit, connection-heavy agents, such as agents that use WebSocket streams, server-sent events (SSE), or parallel tool calls, can hold many more connections at the same time.
+
+The increase applies automatically to all platform version V2 agent runtimes. No action is required.
+
+For more information, see [Invocation limits](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/bedrock-agentcore-limits.html#invocation-limits) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+### Runtime: OverheadLatency metric for V2 agents
+<a name="_runtime_overheadlatency_metric_for_v2_agents_2"></a>
+
+Amazon Bedrock AgentCore Runtime now emits an `OverheadLatency` vended metric in the `AWS/Bedrock-AgentCore` CloudWatch namespace. The metric isolates the time attributable to the platform. It measures from when AgentCore Runtime receives a request to when your agent returns its first response byte, excluding your agent’s own processing. Use it to see how much of your cold-start and request latency comes from the platform and how much comes from your agent.
+
+AgentCore Runtime emits the metric for every request to the `InvokeAgentRuntime`, `InvokeAgentRuntimeWithWebSocketStream`, `InvokeAgentRuntimeCommand`, and `InvokeAgentRuntimeCommandShell` APIs. AgentCore Runtime enables this metric for all platform version V2 agent runtimes.
+
+For more information, see [Observability runtime metrics](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-runtime-metrics.html#observability-runtime-metrics-one) in the *Amazon Bedrock AgentCore Developer Guide*.
+
 ## October 2026
 <a name="_october_2026"></a>
 
@@ -37,6 +72,15 @@ For more information about mounting file systems with FUSE, see [Mount your own 
 <a name="shared_aws_agent_registry_now_available_in_us_east_ohio_europe_frankfurt_europe_london_and_canada_central"></a>
 
  AWS Agent Registry is now available in US East (Ohio), Europe (Frankfurt), Europe (London), and Canada (Central). As in the other AWS Regions that support Agent Registry, semantic search uses cross-region inference. For more information, see [Supported AWS Regions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agentcore-regions.html) and [Cross-region inference in AWS Agent Registry](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry-cross-region-inference.html).
+
+### Evaluations: Custom multi-dimension evaluators
+<a name="_evaluations_custom_multi_dimension_evaluators_2"></a>
+
+Amazon Bedrock AgentCore Evaluations now supports custom multi-dimension evaluators. A multi-dimension evaluator is an LLM-as-a-judge evaluator that rates one target on several named dimensions in a single judge call. Each dimension has its own instruction and its own numerical or categorical rating scale, and returns its own result.
+
+For example, you can rate a support agent’s reply on issue resolution, policy compliance, and tone with one evaluator instead of three. The judge model reads the trace once and returns three results. You can use multi-dimension evaluators in on-demand, online, and batch evaluations. They aren’t supported in A/B tests or recommendations.
+
+For more information, see [Custom multi-dimension evaluators](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/multi-dimension-evaluators.html) in the *Amazon Bedrock AgentCore Developer Guide*.
 
 ### Gateway: Amazon Bedrock InvokeModel support on inference targets
 <a name="_gateway_amazon_bedrock_invokemodel_support_on_inference_targets_2"></a>
@@ -94,6 +138,15 @@ Amazon Bedrock AgentCore Evaluations now includes the failure analysis evaluator
 
 For more information, see [Insights in batch evaluation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/batch-evaluations-insights.html) and [Insight evaluators](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/insight-evaluators.html).
 
+### Runtime: Support for MCP protocol version 2026-07-28
+<a name="_runtime_support_for_mcp_protocol_version_2026_07_28_2"></a>
+
+Amazon Bedrock AgentCore Runtime now supports Model Context Protocol (MCP) version `2026-07-28` for MCP servers on both the microVMs and Instances compute types. For clients that use this version, error responses use HTTP status codes that align with the MCP specification. AgentCore Runtime also uses the `X-Amzn-Bedrock-AgentCore-Runtime-Session-Id` header to keep requests in the same session.
+
+Clients that use earlier protocol versions are unaffected. For version `2025-11-25` and earlier, both stateful and stateless mode are supported. For more information about MCP support in AgentCore Runtime, see [MCP protocol contract](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-mcp-protocol-contract.html).
+
+To give AgentCore Runtime a reliable health signal, implement the `GET /ping` health endpoint on your MCP server’s serving port. The endpoint reports health independent of the MCP protocol version. Without `GET /ping`, AgentCore Runtime can detect only that a server on version `2026-07-28` has stopped responding. It can also detect errors other than the `ping` rejection, such as server errors.
+
 ### Memory: Time-to-live for long-term memory records
 <a name="_memory_time_to_live_for_long_term_memory_records_2"></a>
 
@@ -106,7 +159,10 @@ For more information, see [Configure record retention (time-to-live)](https://do
 
 Amazon Bedrock AgentCore Memory now bills short-term memory based on consumption instead of a flat rate per event, with charges calculated separately for ingestion, retrieval, and storage. This change applies automatically to short-term memory usage; no configuration is required.
 
-For more information, see [Amazon Bedrock AgentCore pricing](https://aws.amazon.com/bedrock/agentcore/pricing/) page. === Gateway: MCP task support for long-running tool calls
+For more information, see [Amazon Bedrock AgentCore pricing](https://aws.amazon.com/bedrock/agentcore/pricing/) page.
+
+### Gateway: MCP task support for long-running tool calls
+<a name="_gateway_mcp_task_support_for_long_running_tool_calls_2"></a>
 
 Amazon Bedrock AgentCore Gateway now supports the MCP Tasks extension (`io.modelcontextprotocol/tasks`) on protocol version `2026-07-28`. A tool on an MCP server target can return a task ID immediately instead of holding the connection open, so long-running operations such as batch jobs, CI pipelines, or report compilation can run asynchronously. Clients poll `tasks/get` for status and the final result, answer mid-task input requests with `tasks/update`, and stop a task with `tasks/cancel`. The gateway issues its own task ID and routes each follow-up from that ID. On gateways that use JWT or IAM inbound authorization, each task is bound to the caller that created it. Tasks do not require MCP sessions or response streaming.
 

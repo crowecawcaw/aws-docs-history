@@ -44,7 +44,7 @@ This policy allows a workload identity to retrieve API keys only from a specific
         "arn:aws:bedrock-agentcore:us-east-1:<account_id>:workload-identity-directory/default",
         "arn:aws:bedrock-agentcore:us-east-1:<account_id>:workload-identity-directory/default/workload-identity/<workload-identity-name>",
         "arn:aws:bedrock-agentcore:us-east-1:<account_id>:token-vault/default",
-        "arn:aws:bedrock-agentcore:us-east-1:<account_id>:token-vault/default/api-key/<provider-name>"
+        "arn:aws:bedrock-agentcore:us-east-1:<account_id>:token-vault/default/apikeycredentialprovider/<provider-name>"
       ]
     }
   ]
@@ -69,7 +69,7 @@ This policy allows a workload identity to retrieve OAuth2 tokens only from a spe
         "arn:aws:bedrock-agentcore:us-east-1:<account_id>:workload-identity-directory/default",
         "arn:aws:bedrock-agentcore:us-east-1:<account_id>:workload-identity-directory/default/workload-identity/<workload-identity-name>",
         "arn:aws:bedrock-agentcore:us-east-1:<account_id>:token-vault/default",
-        "arn:aws:bedrock-agentcore:us-east-1:<account_id>:token-vault/default/oauth2-credential-provider/<provider-name>"
+        "arn:aws:bedrock-agentcore:us-east-1:<account_id>:token-vault/default/oauth2credentialprovider/<provider-name>"
       ]
     }
   ]
@@ -96,7 +96,7 @@ This policy allows multiple workload identities to retrieve API keys from the sa
         "arn:aws:bedrock-agentcore:us-east-1:<account_id>:workload-identity-directory/default/workload-identity/agent-2",
         "arn:aws:bedrock-agentcore:us-east-1:<account_id>:workload-identity-directory/default/workload-identity/agent-3",
         "arn:aws:bedrock-agentcore:us-east-1:<account_id>:token-vault/default",
-        "arn:aws:bedrock-agentcore:us-east-1:<account_id>:token-vault/default/api-key/<provider-name>"
+        "arn:aws:bedrock-agentcore:us-east-1:<account_id>:token-vault/default/apikeycredentialprovider/<provider-name>"
       ]
     }
   ]
@@ -120,8 +120,8 @@ You can explicitly deny a workload identity access to a specific credential prov
         "bedrock-agentcore:GetResourceOauth2Token"
       ],
       "Resource": [
-        "arn:aws:bedrock-agentcore:us-east-1:<account_id>:token-vault/default/api-key/<sensitive-provider-name>",
-        "arn:aws:bedrock-agentcore:us-east-1:<account_id>:token-vault/default/oauth2-credential-provider/<sensitive-provider-name>"
+        "arn:aws:bedrock-agentcore:us-east-1:<account_id>:token-vault/default/apikeycredentialprovider/<sensitive-provider-name>",
+        "arn:aws:bedrock-agentcore:us-east-1:<account_id>:token-vault/default/oauth2credentialprovider/<sensitive-provider-name>"
       ]
     }
   ]
@@ -159,7 +159,7 @@ For example, if Agent A should access only Provider X and Agent B should access 
         "arn:aws:bedrock-agentcore:us-east-1:<account_id>:workload-identity-directory/default",
         "arn:aws:bedrock-agentcore:us-east-1:<account_id>:workload-identity-directory/default/workload-identity/agent-a",
         "arn:aws:bedrock-agentcore:us-east-1:<account_id>:token-vault/default",
-        "arn:aws:bedrock-agentcore:us-east-1:<account_id>:token-vault/default/api-key/provider-x"
+        "arn:aws:bedrock-agentcore:us-east-1:<account_id>:token-vault/default/apikeycredentialprovider/provider-x"
       ]
     }
   ]
@@ -182,7 +182,7 @@ For example, if Agent A should access only Provider X and Agent B should access 
         "arn:aws:bedrock-agentcore:us-east-1:<account_id>:workload-identity-directory/default",
         "arn:aws:bedrock-agentcore:us-east-1:<account_id>:workload-identity-directory/default/workload-identity/agent-b",
         "arn:aws:bedrock-agentcore:us-east-1:<account_id>:token-vault/default",
-        "arn:aws:bedrock-agentcore:us-east-1:<account_id>:token-vault/default/api-key/provider-y"
+        "arn:aws:bedrock-agentcore:us-east-1:<account_id>:token-vault/default/apikeycredentialprovider/provider-y"
       ]
     }
   ]
@@ -197,8 +197,8 @@ To implement workload identity-based access control for credential providers:
 1.  **Identify your workload identities** – Use `aws bedrock-agentcore-control list-workload-identities` to list all workload identities in your account. For information about creating and managing workload identities, see [Manage workload identities with AgentCore Identity](identity-manage-agent-ids.md).
 
 1.  **Determine credential provider ARNs** – Identify the specific credential providers you want to control access to. Credential provider ARNs follow these formats:
-   +  `arn:aws:bedrock-agentcore:<region>:<account_id>:token-vault/default/api-key/<provider-name>` 
-   +  `arn:aws:bedrock-agentcore:<region>:<account_id>:token-vault/default/oauth2-credential-provider/<provider-name>` 
+   +  `arn:aws:bedrock-agentcore:<region>:<account_id>:token-vault/default/apikeycredentialprovider/<provider-name>` 
+   +  `arn:aws:bedrock-agentcore:<region>:<account_id>:token-vault/default/oauth2credentialprovider/<provider-name>` 
 
 1.  **Create IAM policies** – Write IAM policies that specify which workload identities can access which credential providers
 

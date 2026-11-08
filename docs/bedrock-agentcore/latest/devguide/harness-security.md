@@ -176,7 +176,7 @@ agentcore add harness \
 agentcore deploy
 ```
 To invoke the harness with a Bearer token, send the request over HTTPS as shown in the preceding tab.  
-When your identity provider’s OIDC discovery endpoint is reachable only over PrivateLink, include a private endpoint in the authorizer JSON. To use a service-managed VPC endpoint:  
+When your identity provider’s discovery endpoint is reachable only over PrivateLink, include a private endpoint in the authorizer JSON. To use a service-managed VPC endpoint:  
 
 ```
 agentcore add harness \

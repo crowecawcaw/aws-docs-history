@@ -15,13 +15,13 @@ AgentCore supports two VPC Lattice connectivity modes — **managed Lattice** (s
 
 Private identity providers are common in enterprise environments where organizations:
 + Run self-hosted authorization servers inside their VPC for compliance or data residency requirements
-+ Use private OIDC discovery endpoints that are not publicly accessible
++ Use private IdP discovery endpoints that are not publicly accessible
 + Require all authentication traffic to stay within the AWS network without traversing the public internet
 
 ## Inbound JWT authorization with a private IdP
 <a name="private-idp-inbound-auth"></a>
 
-When you configure inbound JWT authorization for AgentCore Runtime or AgentCore Gateway, the authorizer uses the discovery URL to fetch the IdP’s public keys (JWKS) and validate incoming JWT tokens. If your IdP is hosted inside a VPC and the discovery URL is not publicly accessible, you must configure a private endpoint so that AgentCore Identity can reach the IdP’s OIDC discovery and JWKS endpoints.
+When you configure inbound JWT authorization for AgentCore Runtime or AgentCore Gateway, the authorizer uses the OpenID Connect (OIDC) or OAuth 2.0 Authorization Server Metadata (RFC 8414) discovery URL to fetch the IdP’s public keys (JWKS) and validate incoming JWT tokens. If your IdP is hosted inside a VPC and the discovery URL is not publicly accessible, you must configure a private endpoint so that AgentCore Identity can reach the IdP’s discovery and JWKS endpoints.
 
 ### Configure inbound authorization with a private IdP
 <a name="private-idp-inbound-config"></a>
@@ -215,7 +215,7 @@ For self-managed Lattice, replace `managedVpcResource` with `selfManagedLatticeR
 
 Before configuring a private identity provider, ensure the following:
 + Your identity provider is running and accessible within your VPC.
-+ The IdP’s OIDC discovery endpoint ( `/.well-known/openid-configuration` ), JWKS endpoint, and token endpoint are reachable from the specified subnets.
++ The IdP’s discovery endpoint ( `/.well-known/openid-configuration` or `/.well-known/oauth-authorization-server` ), JWKS endpoint, and token endpoint are reachable from the specified subnets.
 + Your security groups allow inbound traffic on the port used by your IdP (typically port 443 for HTTPS).
 + For managed Lattice, your IAM principal must have the `iam:CreateServiceLinkedRole` permission so that AgentCore can create the Identity Network service-linked role on your behalf. For the required IAM policy, see [Identity Network service-linked role](service-linked-roles.md#identity-network-service-linked-role).
 + For managed Lattice, your IAM principal needs the following Amazon EC2 permission: `ec2:CreateNetworkInterface` as well.
@@ -229,7 +229,7 @@ For the full policy document and instructions for creating, editing, and deletin
 
 ## Limitations and considerations
 <a name="private-idp-limitations"></a>
-+  **Discovery URL must be HTTPS** : The IdP’s OIDC discovery URL must use HTTPS. HTTP endpoints are not supported.
++  **Discovery URL must be HTTPS** : The IdP’s discovery URL must use HTTPS. HTTP endpoints are not supported.
 +  **Private certificates** : Your IdP must use a publicly trusted TLS certificate, or you must place an ALB with a public ACM certificate in front of it. For more information, see [Workaround for private certificates: ALB](vpc-egress-private-endpoints.md#lattice-vpc-egress-private-certs).
 +  **Cross-account** : Cross-account private IdP connectivity requires the self-managed Lattice option.
 

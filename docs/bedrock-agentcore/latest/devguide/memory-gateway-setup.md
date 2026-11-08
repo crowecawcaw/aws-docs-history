@@ -19,7 +19,7 @@ The following steps use the AWS CLI. For the input and output shapes of each API
 
 1. Create a gateway with [CreateGateway](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateGateway.html) and choose its inbound authorizer type (`authorizerType`). The authorizer determines how callers authenticate to the gateway and which identity information is available to access-control policies. For more information, see [Inbound and outbound authentication modes](memory-gateway-connector.md#memory-gateway-connector-auth-modes).
 
-   The following example creates a gateway that authenticates end users with OAuth (`CUSTOM_JWT`) — the primary fine-grained access control path. Provide your OpenID Connect provider’s discovery URL and allowed client ids.
+   The following example creates a gateway that authenticates end users with OAuth (`CUSTOM_JWT`) — the primary fine-grained access control path. Provide your identity provider’s OpenID Connect (OIDC) or OAuth 2.0 Authorization Server Metadata (RFC 8414) discovery URL and allowed client ids.
 
    ```
    aws bedrock-agentcore-control create-gateway \
