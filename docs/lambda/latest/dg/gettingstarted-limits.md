@@ -98,10 +98,10 @@ The following quotas apply to [durable functions](durable-functions.md). Quotas 
 | Maximum payload size per durable operation | 1 MB<br />Cannot be increased. Applies to checkpoint and callback payloads. | 
 | Function invocation rate to initiate durable executions | 3,000 requests per second.<br />6,000 requests per second in US East (N. Virginia), US West (Oregon), and Europe (Ireland). | 
 | [CheckpointDurableExecution](https://docs.aws.amazon.com/lambda/latest/api/API_CheckpointDurableExecution.html) API requests | 10,000 requests per second.<br />20,000 requests per second in US East (N. Virginia), US West (Oregon), and Europe (Ireland). | 
-| [GetDurableExecution](https://docs.aws.amazon.com/lambda/latest/api/API_GetDurableExecution.html) API requests | 30 requests per second. | 
-| [GetDurableExecutionHistory](https://docs.aws.amazon.com/lambda/latest/api/API_GetDurableExecutionHistory.html) API requests | 15 requests per second. | 
+| [GetDurableExecution](https://docs.aws.amazon.com/lambda/latest/api/API_GetDurableExecution.html) API requests | 300 requests per second.<br />600 requests per second in US East (N. Virginia), US West (Oregon), and Europe (Ireland). | 
+| [GetDurableExecutionHistory](https://docs.aws.amazon.com/lambda/latest/api/API_GetDurableExecutionHistory.html) API requests | 150 requests per second.<br />300 requests per second in US East (N. Virginia), US West (Oregon), and Europe (Ireland). | 
 | [GetDurableExecutionState](https://docs.aws.amazon.com/lambda/latest/api/API_GetDurableExecutionState.html) API requests | 10,000 requests per second.<br />20,000 requests per second in US East (N. Virginia), US West (Oregon), and Europe (Ireland). | 
-| [ListDurableExecutionsByFunction](https://docs.aws.amazon.com/lambda/latest/api/API_ListDurableExecutionsByFunction.html) API requests | 15 requests per second. | 
+| [ListDurableExecutionsByFunction](https://docs.aws.amazon.com/lambda/latest/api/API_ListDurableExecutionsByFunction.html) API requests | 150 requests per second.<br />300 requests per second in US East (N. Virginia), US West (Oregon), and Europe (Ireland). | 
 | [SendDurableExecutionCallbackFailure](https://docs.aws.amazon.com/lambda/latest/api/API_SendDurableExecutionCallbackFailure.html) API requests | 3,000 requests per second.<br />6,000 requests per second in US East (N. Virginia), US West (Oregon), and Europe (Ireland). | 
 | [SendDurableExecutionCallbackHeartbeat](https://docs.aws.amazon.com/lambda/latest/api/API_SendDurableExecutionCallbackHeartbeat.html) API requests | 3,000 requests per second.<br />6,000 requests per second in US East (N. Virginia), US West (Oregon), and Europe (Ireland). | 
 | [SendDurableExecutionCallbackSuccess](https://docs.aws.amazon.com/lambda/latest/api/API_SendDurableExecutionCallbackSuccess.html) API requests | 3,000 requests per second.<br />6,000 requests per second in US East (N. Virginia), US West (Oregon), and Europe (Ireland). | 
@@ -112,8 +112,8 @@ The following quotas apply to [durable functions](durable-functions.md). Quotas 
 
 Lambda MicroVMs sets quotas for compute, storage, and API requests. Quotas marked as adjustable can be increased through the Service Quotas console.
 
-**Note**  
-Lambda MicroVMs support the ARM64 (AWS Graviton) architecture.
+**Supported CPU architectures**  
+Lambda MicroVMs supports the `x86_64` and `ARM64` architectures.
 
 ### Compute and storage
 <a name="microvms-quotas-compute"></a>
@@ -140,7 +140,7 @@ Lambda MicroVMs support the ARM64 (AWS Graviton) architecture.
 
 | Resource | Limit | Adjustable | 
 | --- | --- | --- | 
-| Concurrent connections per MicroVM | 8 (1 vCPU), 16 (2 vCPU), 32 (4 vCPU), 64 (8 vCPU), 128 (16 vCPU) | No | 
+| Concurrent connections per MicroVM | Floor of 150, plus 50 per additional vCPU, up to a maximum of 600 | No | 
 | Requests per second per MicroVM | 40 (4 vCPU / 8 GB), 160 (16 vCPU / 32 GB) | No | 
 
 ### API rate limits

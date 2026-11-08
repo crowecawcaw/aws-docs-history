@@ -5,7 +5,7 @@
 
 You can use AWS Lambda MicroVMs as self-hosted machines for your Cursor Cloud Agents, keeping repositories, tool execution, and network access in infrastructure you control. Cursor hosts the agent loop and model; the Lambda MicroVM is where the worker claims pool requests and runs tool calls. With this pattern, you control the execution environment – what is installed in the image, what network access is available, and what AWS resources the worker's IAM role can reach.
 
-Each MicroVM is a Firecracker-isolated virtual machine with snapshot-based startup, runs for up to 8 hours, and is terminated when the session ends. Sessions never share state. You get the security boundary of a VM with the operational model of serverless – no clusters to manage, no idle pool capacity to pay for. You orchestrate MicroVMs with a scheduled controller Lambda function that responds to pending pool requests. Review the [Run self-hosted machines for Cursor Cloud Agents on AWS Lambda MicroVMs](https://github.com/anysphere/aws-lambda-workers) reference template for more detail.
+Each MicroVM is a Firecracker-isolated virtual machine with snapshot-based startup, runs for up to 8 hours, and is terminated when the session ends. Sessions never share state. You get the security boundary of a VM with the operational model of serverless – no clusters to manage, no idle pool capacity to pay for. You orchestrate MicroVMs with a scheduled controller Lambda function that responds to pending pool requests. Review the [Run self-hosted machines for Cursor Cloud Agents on Lambda MicroVMs](https://github.com/anysphere/aws-lambda-workers) reference template for more detail.
 
 ## How it works
 <a name="microvms-integrations-cursor-self-hosted-machines-how-it-works"></a>
@@ -22,7 +22,7 @@ A scheduled controller launches one MicroVM per pending pool request:
 
 1. When the session is idle past the release timeout, the worker releases and the MicroVM terminates.
 
-Your Cursor service-account API key is stored in AWS Systems Manager Parameter Store as a `SecureString`. The controller and the MicroVM read it at runtime through `ssm:GetParameter`; the key is never baked into the image.
+Your Cursor service-account API key is stored in Systems Manager Parameter Store as a `SecureString`. The controller and the MicroVM read it at runtime through `ssm:GetParameter`; the key is never baked into the image.
 
 ## Key properties
 <a name="microvms-integrations-cursor-self-hosted-machines-properties"></a>
@@ -107,7 +107,7 @@ Keep the stack's `PoolNames` and the image's `POOL_NAME` aligned so the controll
 ## Networking
 <a name="microvms-integrations-cursor-self-hosted-machines-networking"></a>
 
-The reference `spawn.sh` attaches the managed `INTERNET_EGRESS` connector so the worker can reach Cursor's control plane, and `ALL_INGRESS` for the image hooks. Outbound-only workers never receive inbound HTTPS after boot.
+The reference `spawn.sh` attaches the managed `INTERNET_EGRESS` connector so the worker can reach Cursor's control plane, and `HTTP_INGRESS` for the image hooks. Outbound-only workers never receive inbound HTTPS after boot.
 
 To reach private resources (for example an Amazon Aurora database or Amazon ElastiCache cluster) or to apply your own restrictions, attach a VPC egress connector at launch time in place of `INTERNET_EGRESS`. See [Working with egress network connectors](microvms-networking.md#microvms-networking-connectors).
 
@@ -128,7 +128,7 @@ aws logs tail /aws/lambda/microvms/cursor-pool-worker --follow
 aws lambda-microvms list-microvms --image-identifier cursor-pool-worker
 ```
 
-## Troubleshooting
+## Troubleshoot Cursor MicroVM workers
 <a name="microvms-integrations-cursor-self-hosted-machines-troubleshooting"></a>
 
 
@@ -137,13 +137,13 @@ aws lambda-microvms list-microvms --image-identifier cursor-pool-worker
 | Image build fails (S3 or IAM) | Verify stack outputs ArtifactBucketName and BuildRoleArn; the zip must land in that bucket and the build role must be able to read it | 
 | No MicroVM launches | Controller not running or unable to call RunMicrovm; confirm the cursor-pool-worker image exists and (for a local controller) that SpawnRoleArn is assumed | 
 | Worker exits immediately | Guest is missing CURSOR\_API\_KEY (SSM /cursor-lambda-workers/cursor-api-key), or the /run hook did not start cursor-agent worker … start | 
-| Exec format error on node | Image installed the wrong CLI architecture; MicroVMs here are aarch64 (arm64) | 
+| Exec format error on node | CLI architecture mismatch. These images use ARM64 by default, so install the ARM64 build of the CLI. | 
 | Service-account key reported invalid | CURSOR\_API\_ENDPOINT / CURSOR\_API\_URL were forwarded into the guest; these must stay unset so worker start uses the default auth host | 
 | Image built before hooks enabled | Rebuild the MicroVM image so ready, validate, and run hooks are in the snapshot path | 
 
 ## Related resources
 <a name="microvms-integrations-cursor-self-hosted-machines-related"></a>
-+ [AWS Lambda MicroVMs](https://docs.aws.amazon.com/lambda/latest/dg/lambda-microvms-guide.html)
++ [AWS Lambda MicroVMs](lambda-microvms-guide.md)
 + [RunMicrovm CLI reference](https://docs.aws.amazon.com/cli/latest/reference/lambda-microvms/run-microvm.html)
 + [Cursor self-hosted machines Quickstart](https://cursor.com/docs/cloud-agent/bring-your-own-machine)
 + Reference template: [anysphere/aws-lambda-workers](https://github.com/anysphere/aws-lambda-workers)

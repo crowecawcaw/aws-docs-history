@@ -34,5 +34,4 @@ To give you more control over how your capacity provider system logs are capture
 
 For more information about configuring logging controls, see the following topics:
 + [Log-level filtering for capacity provider system logs](lambda-managed-instances-monitoring-log-levels.md)
-+ [Capacity provider system log format](lambda-managed-instances-monitoring-log-format.md)
 + [Capacity provider system log event reference](lambda-managed-instances-monitoring-system-log-events.md)

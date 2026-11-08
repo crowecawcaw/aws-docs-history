@@ -199,13 +199,20 @@ from common import boto3
 ### Working with built distributions (wheels)
 <a name="python-package-wheels"></a>
 
- To download a wheel that's compatible with Lambda, you use the pip `--platform` option. 
+ To download a wheel that's compatible with Lambda, you use the pip `--platform` option. The platform tag you specify depends on the operating system that your function's runtime is built on: 
++  Python 3.12 and later runtimes are built on Amazon Linux 2023, which includes glibc 2.34. For these runtimes, use the `manylinux_2_28` platform tags (`manylinux_2_28_x86_64` for x86\_64 and `manylinux_2_28_aarch64` for arm64). These wheels require a minimum glibc version of 2.28, which is compatible with Amazon Linux 2023. 
++  Python 3.11 and earlier runtimes are built on Amazon Linux 2, which includes glibc 2.26. For these runtimes, use the `manylinux2014` platform tags (`manylinux2014_x86_64` for x86\_64 and `manylinux2014_aarch64` for arm64). These wheels require a minimum glibc version of 2.17, which is compatible with Amazon Linux 2. 
 
- If your function uses the **x86\_64** instruction set architecture, run the following `pip install` command to install a compatible wheel in your `package` directory. Replace `--python 3.x` with the version of the Python runtime you are using. 
+**Note**  
+ Many Python packages have stopped publishing `manylinux2014` wheels in favor of `manylinux_2_28`. If you use a Python 3.12 or later runtime, use the `manylinux_2_28` platform tags to install the latest versions of these packages. 
+
+ The following commands are for Python 3.12 and later runtimes. Replace `{{3.x}}` with the version of the Python runtime you are using. 
+
+ If your function uses the **x86\_64** instruction set architecture, run the following `pip install` command to install a compatible wheel in your `package` directory. 
 
 ```
 pip install \
---platform manylinux2014_x86_64 \
+--platform manylinux_2_28_x86_64 \
 --target=package \
 --implementation cp \
 --python-version {{3.x}} \
@@ -213,11 +220,11 @@ pip install \
 <package_name>
 ```
 
- If your function uses the **arm64** instruction set architecture, run the following command. Replace `--python 3.x` with the version of the Python runtime you are using. 
+ If your function uses the **arm64** instruction set architecture, run the following command. 
 
 ```
 pip install \
---platform manylinux2014_aarch64 \
+--platform manylinux_2_28_aarch64 \
 --target=package \
 --implementation cp \
 --python-version {{3.x}} \

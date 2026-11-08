@@ -132,16 +132,16 @@ The following example shows a CloudTrail log entry that demonstrates a data even
   "eventTime": "2026-04-20T18:26:44Z",
   "eventSource": "lambda.amazonaws.com",
   "eventName": "RunMicrovm",
-  "awsRegion": "us-east-1",
+  "awsRegion": "{{us-east-1}}",
   "sourceIPAddress": "127.0.0.1",
   "requestParameters": {
-    "microvmImageArn": "arn:aws:lambda:us-east-1:111122223333:microvm-image:my-image"
+    "microvmImageArn": "arn:aws:lambda:{{us-east-1}}:111122223333:microvm-image:my-image"
   },
   "responseElements": {
     "microvmId": "ai-12345678-abcd-1234-ef56-123456789abc",
     "microvmState": "PENDING",
-    "endpoint": "12345678-abcd-1234-ef56-123456789abc.lambda-microvm.us-east-1.on.aws",
-    "microvmImageArn": "arn:aws:lambda:us-east-1:111122223333:microvm-image:my-image",
+    "endpoint": "12345678-abcd-1234-ef56-123456789abc.lambda-microvm.{{us-east-1}}.on.aws",
+    "microvmImageArn": "arn:aws:lambda:{{us-east-1}}:111122223333:microvm-image:my-image",
     "microvmImageVersion": "1.0"
   },
   "requestID": "7aebcd0f-cda1-11e4-aaa2-e356da31e4ff",
@@ -151,7 +151,7 @@ The following example shows a CloudTrail log entry that demonstrates a data even
     {
       "accountId": "111122223333",
       "type": "AWS::Lambda::MicrovmImage",
-      "ARN": "arn:aws:lambda:us-east-1:111122223333:microvm-image:my-image"
+      "ARN": "arn:aws:lambda:{{us-east-1}}:111122223333:microvm-image:my-image"
     }
   ],
   "eventType": "AwsApiCall",

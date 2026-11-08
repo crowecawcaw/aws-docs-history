@@ -12,8 +12,8 @@ Use the `run-microvm` command to launch a new MicroVM from a specified image. La
 
 ```
 aws lambda-microvms run-microvm \
-  --image-identifier {{arn:aws:lambda:us-east-1:123456789012:microvm-image:my-microvm-image}} \
-  --ingress-network-connectors "arn:aws:lambda:{{us-east-1}}:aws:network-connector:aws-network-connector:ALL_INGRESS" \
+  --image-identifier arn:aws:lambda:{{us-east-1}}:123456789012:microvm-image:my-microvm-image \
+  --ingress-network-connectors "arn:aws:lambda:{{us-east-1}}:aws:network-connector:aws-network-connector:HTTP_INGRESS" \
   --egress-network-connectors "arn:aws:lambda:{{us-east-1}}:aws:network-connector:aws-network-connector:INTERNET_EGRESS" \
   --idle-policy '{"autoResumeEnabled":true,"maxIdleDurationSeconds":900,"suspendedDurationSeconds":1800}' \
   --maximum-duration-in-seconds 14400
@@ -75,7 +75,7 @@ Use runtime payloads to provide configuration that varies per MicroVM – for ex
 
 ```
 aws lambda-microvms run-microvm \
-  --image-identifier {{arn:aws:lambda:us-east-1:123456789012:microvm-image:my-microvm-image}} \
+  --image-identifier arn:aws:lambda:{{us-east-1}}:123456789012:microvm-image:my-microvm-image \
   --run-hook-payload 'tenant-specific-string'
 ```
 
@@ -144,7 +144,7 @@ The following examples show how to run a MicroVM and connect to it using the AWS
 import boto3, requests
 client = boto3.client("lambda-microvms")
 run_resp = client.run_microvm(
-    imageIdentifier="arn:aws:lambda:us-east-1:123456789012:microvm-image:my-microvm-image",
+    imageIdentifier="arn:aws:lambda:{{us-east-1}}:123456789012:microvm-image:my-microvm-image",
     idlePolicy={"autoResumeEnabled": True, "maxIdleDurationSeconds": 900, "suspendedDurationSeconds": 300}
 )
 microvm_id = run_resp["microvmId"]
@@ -167,7 +167,7 @@ print(resp.status_code, resp.json())
 import { LambdaMicrovmsClient, RunMicrovmCommand, CreateMicrovmAuthTokenCommand } from "@aws-sdk/client-lambda-microvms";
 const client = new LambdaMicrovmsClient({});
 const { microvmId, endpoint } = await client.send(new RunMicrovmCommand({
-  imageIdentifier: "arn:aws:lambda:us-east-1:123456789012:microvm-image:my-microvm-image",
+  imageIdentifier: "arn:aws:lambda:{{us-east-1}}:123456789012:microvm-image:my-microvm-image",
   idlePolicy: { autoResumeEnabled: true, maxIdleDurationSeconds: 900, suspendedDurationSeconds: 300 }
 }));
 const { authToken } = await client.send(new CreateMicrovmAuthTokenCommand({

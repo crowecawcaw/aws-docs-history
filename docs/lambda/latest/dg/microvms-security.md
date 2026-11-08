@@ -77,16 +77,16 @@ aws lambda-microvms create-microvm-image \
 
 # List tags on a resource
 aws lambda-microvms list-tags \
-  --resource arn:aws:lambda:us-east-1:123456789012:microvm-image:my-app-image
+  --resource arn:aws:lambda:{{us-east-1}}:123456789012:microvm-image:my-app-image
 
 # Add tags to an existing resource
 aws lambda-microvms tag-resource \
-  --resource arn:aws:lambda:us-east-1:123456789012:microvm-image:my-app-image \
+  --resource arn:aws:lambda:{{us-east-1}}:123456789012:microvm-image:my-app-image \
   --tags '{"CostCenter":"12345","Project":"sandbox-platform"}'
 
 # Remove tags by key
 aws lambda-microvms untag-resource \
-  --resource arn:aws:lambda:us-east-1:123456789012:microvm-image:my-app-image \
+  --resource arn:aws:lambda:{{us-east-1}}:123456789012:microvm-image:my-app-image \
   --tag-keys '["CostCenter","Project"]'
 ```
 

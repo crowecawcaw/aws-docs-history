@@ -92,16 +92,16 @@ The `X-aws-proxy-*` header namespace is reserved by Lambda for request metadata,
 ### Request/response bandwidth
 <a name="microvms-networking-bandwidth"></a>
 
-Each Lambda MicroVM has a request/response bandwidth that scales linearly with its size. This bandwidth applies to all traffic through the MicroVM endpoint, both inbound requests and outbound responses.
+Each Lambda MicroVM has an ingress bandwidth that scales with its size at 2 MB/s per vCPU, with a burst allowance of 10 MB/s per vCPU for up to 5 seconds. This bandwidth applies to all traffic through the MicroVM endpoint, both inbound requests and outbound responses.
 
 
-| MicroVM size (baseline) | Max bandwidth | 
-| --- | --- | 
-| 0.5 GB, 0.25 vCPU | 1 MB/s (8 Mbps) | 
-| 1 GB, 0.5 vCPU | 2 MB/s (16 Mbps) | 
-| 2 GB, 1 vCPU | 4 MB/s (32 Mbps) | 
-| 4 GB, 2 vCPU | 8 MB/s (64 Mbps) | 
-| 8 GB, 4 vCPU | 16 MB/s (128 Mbps) | 
+| MicroVM size (baseline) | Sustained bandwidth | Burst bandwidth (up to 5 s) | 
+| --- | --- | --- | 
+| 0.5 GB, 0.25 vCPU | 0.5 MB/s | 2.5 MB/s | 
+| 1 GB, 0.5 vCPU | 1 MB/s | 5 MB/s | 
+| 2 GB, 1 vCPU | 2 MB/s | 10 MB/s | 
+| 4 GB, 2 vCPU | 4 MB/s | 20 MB/s | 
+| 8 GB, 4 vCPU | 8 MB/s | 40 MB/s | 
 
 If you experience increased request latency due to network saturation, either reduce your request concurrency or payload size, or select a larger MicroVM size to increase the available bandwidth.
 
@@ -209,8 +209,8 @@ Example `run-microvm` call pinning a specific connector version:
 
 ```
 aws lambda-microvms run-microvm \
-  --image-identifier {{arn:aws:lambda:us-east-1:123456789012:microvm-image:my-microvm-image}} \
-  --egress-network-connectors {{arn:aws:lambda:us-east-1:123456789012:network-connector:nc-id:version-number}} \
+  --image-identifier arn:aws:lambda:{{us-east-1}}:123456789012:microvm-image:my-microvm-image \
+  --egress-network-connectors arn:aws:lambda:{{us-east-1}}:123456789012:network-connector:nc-id:version-number \
   --idle-policy '{"maxIdleDurationSeconds":900,"suspendedDurationSeconds":1800,"autoResumeEnabled":false}'
 ```
 
@@ -221,7 +221,7 @@ Reference the connector ARN when running a MicroVM:
 
 ```
 aws lambda-microvms run-microvm \
-  --image-identifier arn:aws:lambda:us-east-1:{{123456789012}}:microvm-image:my-microvm-image \
+  --image-identifier arn:aws:lambda:{{us-east-1}}:{{123456789012}}:microvm-image:my-microvm-image \
   --egress-network-connectors {{connector-arn}} \
   --idle-policy '{"maxIdleDurationSeconds":900,"suspendedDurationSeconds":1800,"autoResumeEnabled":false}'
 ```
@@ -271,7 +271,7 @@ The following example policy allows user `MyUser` to list and get MicroVM images
 ### VPC endpoint for MicroVM connectivity
 <a name="microvms-networking-privatelink-data"></a>
 
-To keep HTTPS traffic to your running MicroVMs private, create an interface endpoint for the `com.amazonaws.{{region}}.lambda-microvm` service. This endpoint handles connections to MicroVM endpoint URLs (for example, `abc123def456.lambda-microvm.us-east-1.on.aws`).
+To keep HTTPS traffic to your running MicroVMs private, create an interface endpoint for the `com.amazonaws.{{region}}.lambda-microvm` service. This endpoint handles connections to MicroVM endpoint URLs (for example, `abc123def456.lambda-microvm.{{us-east-1}}.on.aws`).
 
 To learn more about interface endpoint properties, review the [interface endpoints guide](https://docs.aws.amazon.com/vpc/latest/privatelink/interface-endpoints.html) in the *Amazon VPC documentation*.
 
@@ -321,7 +321,7 @@ aws ec2 describe-vpc-endpoints \
 #### Private DNS behavior
 <a name="microvms-networking-privatelink-data-dns"></a>
 
-**When private DNS is enabled** – The endpoint manages DNS resolution for `*.lambda-microvm.{{region}}.on.aws` inside your VPC. Your existing MicroVM endpoint hostnames (for example, `abc123def456.lambda-microvm.us-east-1.on.aws`) resolve to the private IP addresses of the endpoint network interfaces. No client change is required.
+**When private DNS is enabled** – The endpoint manages DNS resolution for `*.lambda-microvm.{{region}}.on.aws` inside your VPC. Your existing MicroVM endpoint hostnames (for example, `abc123def456.lambda-microvm.{{us-east-1}}.on.aws`) resolve to the private IP addresses of the endpoint network interfaces. No client change is required.
 
 **When private DNS is disabled** – Amazon VPC generates an endpoint-specific DNS name for your endpoint in the form `{{vpce-id-hash}}.lambda-microvm.{{region}}.vpce.amazonaws.com`. To route traffic through this endpoint while still reaching the correct MicroVM, you must preserve the original MicroVM hostname in two places:
 + **TLS Server Name Indication (SNI)** – The TLS handshake uses this value to identify which MicroVM the connection is for.
@@ -334,8 +334,8 @@ If either value is set to the VPC endpoint hostname instead of the MicroVM hostn
 The following example uses [curl](https://curl.se/) with the `--connect-to` flag to redirect the TCP connection to your VPC endpoint while keeping the MicroVM hostname in the URL, SNI, and Host header:
 
 ```
-ENDPOINT_HOST=abc123def456.lambda-microvm.us-east-1.on.aws
-VPCE_HOST=vpce-0a1b2c3d4e5f67890-a1b2c3d4.lambda-microvm.us-east-1.vpce.amazonaws.com
+ENDPOINT_HOST=abc123def456.lambda-microvm.{{us-east-1}}.on.aws
+VPCE_HOST=vpce-0a1b2c3d4e5f67890-a1b2c3d4.lambda-microvm.{{us-east-1}}.vpce.amazonaws.com
 
 curl --connect-to "$ENDPOINT_HOST:443:$VPCE_HOST:443" \
   -H "x-aws-proxy-auth: $MICROVM_AUTH_TOKEN" \

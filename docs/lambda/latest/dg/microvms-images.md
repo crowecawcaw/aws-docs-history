@@ -44,6 +44,29 @@ The following table lists the available sizes:
 | 4 GB memory, 2 vCPU | 16 GB memory, 8 vCPU | 16 GB | 
 | 8 GB memory, 4 vCPU | 32 GB memory, 16 vCPU | 32 GB | 
 
+## CPU architecture
+<a name="microvms-images-cpu-architecture"></a>
+
+Lambda MicroVMs supports the `x86_64` and `ARM64` CPU architectures. `ARM64` is the default. `x86_64` is supported starting with base image version 3. For more information, see [Version 3](microvms-base-image-release-notes.md#microvms-base-image-release-notes-v3) in the base image release notes. Each MicroVM image version has a fixed architecture, and every MicroVM inherits it from the version it runs.
+
+Set the architecture with the `cpuConfigurations` parameter. In the AWS CLI and API, the architecture values are `ARM_64` and `X86_64`. The following example creates a MicroVM image that runs on `x86_64`:
+
+```
+aws lambda-microvms create-microvm-image \
+  --name my-microvm-image \
+  --code-artifact uri=s3://{{your-bucket-name}}/app.zip \
+  --base-image-arn arn:aws:lambda:{{us-east-1}}:aws:microvm-image:al2023-1 \
+  --build-role-arn arn:aws:iam::{{123456789012}}:role/MicrovmBuildRole \
+  --cpu-configurations architecture=X86_64
+```
+
+If you omit `cpuConfigurations`, Lambda builds the image for `ARM64`. To change the architecture of an existing MicroVM image, pass `cpuConfigurations` to `update-microvm-image`. Each update produces a new MicroVM image version. For more information, see [Updating a MicroVM image](#microvms-images-updating).
+
+The base image version that you build on must support the architecture that you select. For details, see [Supported CPU architectures for base image versions](#microvms-images-base-images-architectures).
+
+**Match the CPU architecture**  
+Your container base image and any prebuilt binaries must be built for the CPU architecture that you select. This includes binaries that you package in your code artifact and binaries that you stage into the MicroVM at run time. A mismatch fails the image build. If a mismatched binary reaches a running MicroVM, your application fails to start with an `Exec format error`.
+
 ## MicroVM base images
 <a name="microvms-images-base-images"></a>
 
@@ -73,6 +96,35 @@ aws lambda-microvms list-managed-microvm-image-versions \
   --image-identifier arn:aws:lambda:{{us-east-1}}:aws:microvm-image:al2023-1
 ```
 
+### Supported CPU architectures for base image versions
+<a name="microvms-images-base-images-architectures"></a>
+
+`x86_64` is supported starting with base image version 3. For more information, see [Version 3](microvms-base-image-release-notes.md#microvms-base-image-release-notes-v3) in the base image release notes.
+
+Run `list-managed-microvm-image-versions` and pick a version whose `supportedCpuConfigurations` includes your architecture. The list uses the API values `ARM_64` and `X86_64`. If the base image version doesn't support the architecture that you select, the `create-microvm-image` or `update-microvm-image` request fails with a `ValidationException`. If no version lists your architecture, the architecture might not be available in your account or Region yet.
+
+The following example shows the JSON output of `list-managed-microvm-image-versions` for a version that supports both architectures:
+
+```
+{
+    "items": [
+        {
+            "imageArn": "arn:aws:lambda:{{us-east-1}}:aws:microvm-image:al2023-1",
+            "imageVersion": "{{3}}",
+            "status": "AVAILABLE",
+            "supportedCpuConfigurations": [
+                { "architecture": "ARM_64" },
+                { "architecture": "X86_64" }
+            ],
+            "createdAt": "{{2026-10-01T00:00:00Z}}",
+            "updatedAt": "{{2026-10-01T00:00:00Z}}"
+        }
+    ]
+}
+```
+
+If you pin a base image version with the `base-image-version` parameter, confirm that the version supports the architecture that you set in `cpuConfigurations`.
+
 ## MicroVM image build hooks
 <a name="microvms-images-build-hooks"></a>
 
@@ -100,6 +152,7 @@ You can update an existing MicroVM image by calling the `update-microvm-image` A
 + **Deploy new application code** – Point to a new code artifact (a new zip uploaded to Amazon S3) to ship a new version of your application.
 + **Move to a newer MicroVM base image** – Change the MicroVM base image ARN to upgrade to newer versions of the Lambda MicroVM base image. For more information, refer to [MicroVM image patching](#microvms-images-patching) and [MicroVM base images](#microvms-images-base-images).
 + **Change the build role** – Update the build role ARN when the permissions Lambda needs during the build change, such as when your code artifact moves to a different Amazon S3 bucket or you start pulling from a private ECR repository.
++ **Change the CPU architecture** – Pass `cpuConfigurations` to build the new version for a different architecture. For more information about CPU architectures, see [CPU architecture](#microvms-images-cpu-architecture).
 + **Adjust the runtime configuration** – Change hooks, environment variables, or capabilities to reconfigure how your MicroVM image is built and run.
 + **Update the description** – Change the MicroVM image description to record what changed in this version.
 
@@ -107,7 +160,7 @@ The following CLI command shows how you can update a MicroVM image. The `--base-
 
 ```
 aws lambda-microvms update-microvm-image \
-  --image-identifier {{arn:aws:lambda:us-east-1:123456789012:microvm-image:my-microvm-image}} \
+  --image-identifier arn:aws:lambda:{{us-east-1}}:123456789012:microvm-image:my-microvm-image \
   --code-artifact uri=s3://my-bucket/deployments/app-v2.zip \
   --base-image-arn arn:aws:lambda:{{us-east-1}}:aws:microvm-image:al2023-1 \
   --build-role-arn arn:aws:iam::123456789012:role/MicrovmBuildRole \
@@ -163,7 +216,7 @@ You can either start with the Lambda base container image for Amazon Linux 2023 
 
 ### Requirements
 <a name="microvms-images-container-base-requirements"></a>
-+ The container base image must be compatible with the target CPU architecture.
++ The container base image must be built for the same CPU architecture as your MicroVM image. For more information, see [CPU architecture](#microvms-images-cpu-architecture).
 + Container base images from private AWS ECR repositories require the build role to have `ecr:GetAuthorizationToken` and `ecr:BatchGetImage` permissions.
 + The container base image must be based on a Linux operating system.
 + Container base images must be accessible from the Lambda build infrastructure (public internet or an ECR repository in the same AWS account).
@@ -180,7 +233,7 @@ As Lambda MicroVMs starts each MicroVM from a pre-initialized snapshot, base ima
 Reference your private ECR container base image in the `FROM` instruction of your `Dockerfile`:
 
 ```
-FROM 123456789012.dkr.ecr.us-east-1.amazonaws.com/my-base:latest
+FROM 123456789012.dkr.ecr.{{us-east-1}}.amazonaws.com/my-base:latest
 WORKDIR /app
 COPY . .
 CMD ["./my-app"]
