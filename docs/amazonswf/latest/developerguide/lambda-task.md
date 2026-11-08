@@ -88,7 +88,7 @@ You can use the pre-defined role, *AWSLambdaRole*, to give your Amazon SWF workf
 
 **To use AWSLambdaRole to give Amazon SWF access to invoke Lambda functions**
 
-1. Open the [Amazon IAM console](https://console.aws.amazon.com/iam/).
+1. Open the [IAM console](https://console.aws.amazon.com/iam/).
 
 1. Choose **Roles**, then **Create New Role**.
 
@@ -107,7 +107,7 @@ If you want to provide access to invoke a specific Lambda function from your wor
 
 **To create an IAM policy to provide access to a particular Lambda function**
 
-1. Open the [Amazon IAM console](https://console.aws.amazon.com/iam/).
+1. Open the [IAM console](https://console.aws.amazon.com/iam/).
 
 1. Choose **Policies**, then **Create Policy**.
 
@@ -124,7 +124,7 @@ You can then select this policy when creating a new IAM role, and use that role 
 
 **To create a Amazon SWF role using your Lambda policy**
 
-1. Open the [Amazon IAM console](https://console.aws.amazon.com/iam/).
+1. Open the [IAM console](https://console.aws.amazon.com/iam/).
 
 1. Choose **Roles**, then **Create New Role**.
 
