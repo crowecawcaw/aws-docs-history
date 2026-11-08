@@ -10,6 +10,7 @@ This guide explains how to update Amazon Lightsail instances created from the Am
 AL2023 (kernel 6.1): `6.1.189-236.400.amzn2023`
 Amazon Linux 2 (kernel 4.14): `4.14.355-287.758.amzn2`
 Amazon Linux 2 (kernel 5.10, if you installed it yourself): `5.10.271-272.1121.amzn2`
+For affected instances that use other Linux blueprints, and a temporary firewall rule you can apply until you update, see [Address CVE-2026-98432 on Linux-based Lightsail instances](address-cve-2026-98432.md).  
 For details, see [CVE-2026-98432](https://explore.alas.aws.amazon.com/CVE-2026-98432.html) in the Amazon Linux Security Center.
 
 Lightsail does not update the operating system on your instances after you create them. You are responsible for installing operating system and kernel updates. For more information, see [Update your Lightsail instances and containers](amazon-lightsail-update-management.md).

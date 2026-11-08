@@ -8,6 +8,7 @@ This guide covers the following topics related to managing and connecting to you
 **Topics**
 + [Start, stop, or reboot your Lightsail instance](lightsail-how-to-start-stop-or-restart-your-instance-virtual-private-server.md)
 + [Force stop stuck Lightsail instances](amazon-lightsail-force-stop-instance.md)
++ [Update Lightsail instances to run on newer-generation hardware](amazon-lightsail-update-instance-newer-generation.md)
 + [Enable enhanced networking for Amazon EC2 instances](amazon-lightsail-updating-ec2-instances.md)
 + [Extend the file system of your Windows Server instance in Lightsail](extending-windows-server-storage-space-in-amazon-lightsail.md)
 + [Configure Linux/Unix instances with launch scripts in Lightsail](lightsail-how-to-configure-server-additional-data-shell-script.md)

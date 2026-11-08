@@ -34,6 +34,8 @@ Use the following options if you get an insufficient instance capacity error whe
 
 1. Wait a few minutes and then submit your request again. Instance capacity can shift frequently. Continue to option 2 if you are unable to create your instance after waiting a few minutes.
 
+1. Update the instance to run on newer-generation hardware when you start it. Continue to option 3 if the update isn't available for your instance. For more information, see [Update Lightsail instances to run on newer-generation hardware](amazon-lightsail-update-instance-newer-generation.md).
+
 1. Create a new instance from a snapshot. Take a snapshot of the stopped instance. Then, use the snapshot to create a new instance in an AZ that’s different from the original instance. For example, if your instance is currently in us-east-2a (Zone A), select us-east-2c (Zone C) when you create the new instance. For more information, see [Create an instance from a snapshot](lightsail-how-to-create-instance-from-snapshot.md).
 
 1. You can also choose a different instance plan when creating a new instance from a snapshot. This action is optional. 

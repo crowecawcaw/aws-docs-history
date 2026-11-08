@@ -11,6 +11,8 @@ Each bundle will include public IP addressing. It will provide either a public I
 
 To understand how to pick the right bundle for your use case, see [Choose the right plan for your Lightsail instance](amazon-lightsail-right-size-instance.md).
 
+If your instance uses previous-generation hardware, you can update it to run on newer-generation hardware when you start it. For more information, see [Update Lightsail instances to run on newer-generation hardware](amazon-lightsail-update-instance-newer-generation.md).
+
 **Topics**
 + [Linux/Unix bundles (with public IPv4 addressing)](#linux-unix-bundles)
 + [Linux/Unix bundles (IPv6-only)](#linux-unix-ipv6-bundles)

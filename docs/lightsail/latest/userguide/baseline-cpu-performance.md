@@ -48,6 +48,8 @@ For more information about the sustainable and burstable zones, see [Identify wh
 
 The following table outlines the performance baselines for Lightsail instances that were created prior to **June 29, 2023**. These performance baselines are per vCPU.
 
+To update an instance that uses previous-generation hardware, see [Update Lightsail instances to run on newer-generation hardware](amazon-lightsail-update-instance-newer-generation.md).
+
 
 |  Instance plan  |  vCPUs  |  Memory  |  Storage  |  Performance baseline  | 
 | --- | --- | --- | --- | --- | 

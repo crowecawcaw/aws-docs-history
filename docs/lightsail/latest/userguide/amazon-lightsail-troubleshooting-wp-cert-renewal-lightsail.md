@@ -88,3 +88,54 @@ $ sudo certbot renew --force-renewal
 ```
 $ sudo systemctl restart apache2
 ```
+
+## Renew your certificate when your domain points to a distribution
+<a name="cert-renewal-distribution-lightsail"></a>
+
+If your domain points to a Lightsail distribution, use one of the following options to renew your certificate.
+
+### Option 1: Restart Lightsail Setup (Recommended)
+<a name="cert-renewal-distribution-rerun-setup-lightsail"></a>
+
+Point your domain to your instance, restart Lightsail Setup, and then point your domain to your distribution again. To do this, complete the following steps:
+
+1. Point your domain to your instance.
+
+1. After your domain resolves to your instance, complete [Option 1: Restart Lightsail Setup (Recommended)](#cert-renewal-rerun-lightsail-setup).
+
+1. After Lightsail Setup completes, point your domain to your distribution. For instructions, see [Point your domain to a distribution](amazon-lightsail-point-domain-to-distribution.md).
+
+After you complete these steps, your certificate is renewed and automatic renewal is restored.
+
+### Option 2: Update the renewal service manually
+<a name="cert-renewal-distribution-manual-lightsail"></a>
+
+Use this option to keep your domain pointed to your distribution.
+
+1. Connect to your instance by using the Lightsail [browser-based SSH client](lightsail-how-to-connect-to-your-instance-virtual-private-server.md).
+
+1. Run the following command to change the renewal service to use the Certbot webroot plugin instead of standalone.
+
+   Standalone requires port 80 to be available, so the renewal service stops your web server. Webroot writes to the webroot directory of your running web server, so your web server keeps running. For more information, see [Webroot](https://eff-certbot.readthedocs.io/en/stable/using.html#webroot) and [Standalone](https://eff-certbot.readthedocs.io/en/stable/using.html#standalone) in the Certbot documentation.
+
+   ```
+   $ sudo sed -i 's|^ExecStart=.*|ExecStart=/usr/bin/certbot renew --force-renewal --authenticator webroot --webroot-path /var/www/html --deploy-hook "systemctl reload apache2"|' /etc/systemd/system/certbot-renew.service
+   ```
+
+1. Run the following command to load the change:
+
+   ```
+   $ sudo systemctl daemon-reload
+   ```
+
+1. Run the following command to turn on automatic renewal:
+
+   ```
+   $ sudo systemctl enable --now certbot-renew.timer
+   ```
+
+1. Run the following command to renew your certificate:
+
+   ```
+   $ sudo systemctl start certbot-renew.service
+   ```
