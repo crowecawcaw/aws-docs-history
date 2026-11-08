@@ -6,7 +6,7 @@
 To change your Network Firewall firewall policy settings, use the following procedure:
 
 **Warning**  
-Updating any stateful engine option (rule evaluation order type, stream exception policy, or flow timeouts such as TCP idle timeout) may require a restart of the stateful engine in order to apply the changes. When this occurs, existing connections will be treated according to your stream exception policy configuration.
+Updating any stateful engine option (rule evaluation order type, stream exception policy, or flow timeouts such as TCP idle timeout), or enabling, disabling, or changing the DNS Firewall rule group ID of resolved IP validation, may require a restart of the stateful engine in order to apply the changes. When this occurs, existing connections will be treated according to your stream exception policy configuration.
 
 **To update a firewall policy**
 

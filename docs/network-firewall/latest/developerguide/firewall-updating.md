@@ -8,7 +8,7 @@ To make changes to your firewall settings through the console, use the following
 After you create a firewall, you can update the firewall settings or view reports on firewall traffic from within the console. To view your firewall settings and reports through the console, use the following procedure:
 
 **Warning**  
-If your firewall update changes any stateful engine option, including the rule evaluation order type, stream exception policy, or flow timeouts (such as TCP idle timeout), it may require a restart of the stateful engine in order to apply the changes. When this occurs, existing connections will be treated according to your stream exception policy configuration. For more information about stateful engine options, see [Firewall policy settings in AWS Network Firewall](firewall-policy-settings.md). 
+If your firewall update changes any stateful engine option, including the rule evaluation order type, stream exception policy, or flow timeouts (such as TCP idle timeout), or enables, disables, or changes the DNS Firewall rule group ID of resolved IP validation, it may require a restart of the stateful engine in order to apply the changes. When this occurs, existing connections will be treated according to your stream exception policy configuration. For more information about stateful engine options, see [Firewall policy settings in AWS Network Firewall](firewall-policy-settings.md). 
 
 Updating a firewall affects all endpoints for the firewall, both those defined inside the firewall and those defined as VPC endpoint associations.
 
