@@ -10,6 +10,7 @@ This section describes common issues and resolutions related to SSD capacity dec
 + [Your SSD decrease operation is paused due to FlexClone relationships](#ssd-decrease-flexclone-relationship)
 + [Redirecting client access for volume(s) failed during SSD decrease](#ssd-decrease-redirect-client-access-failed)
 + [Your SSD decrease operation is taking longer than expected](#ssd-decrease-operation-duration)
++ [Your SSD decrease request fails due to thick-provisioned volumes](#ssd-decrease-thick-provisioned-volumes)
 
 ## Your SSD decrease operation is paused due to high SSD utilization
 <a name="ssd-decrease-paused-high-utilization"></a>
@@ -67,3 +68,38 @@ The time required to complete an SSD decrease operation depends on several facto
 + Reduce write-heavy workloads during the operation to minimize resource contention.
 
 You can track the progress of the operation by checking the `ProgressPercent` property in the `STORAGE_OPTIMIZATION` administrative action.
+
+## Your SSD decrease request fails due to thick-provisioned volumes
+<a name="ssd-decrease-thick-provisioned-volumes"></a>
+
+Amazon FSx rejects a request to decrease SSD storage capacity if the file system contains thick-provisioned volumes (volumes with a space guarantee of `volume`). You might see an Administrative Actions message similar to:
+
+```
+Request failed. Amazon FSx does not support decreasing SSD storage capacity on file systems with thick-provisioned volumes.
+```
+
+During an SSD decrease operation, Amazon FSx moves volumes to a new, smaller aggregate. ONTAP doesn't allow moving thick-provisioned volumes that aren't SVM root volumes.
+
+**To identify thick-provisioned volumes**
+
+1. To access the ONTAP CLI, establish an SSH session on the management port of the Amazon FSx for NetApp ONTAP file system or SVM by running the following command. Replace `{{management_endpoint_ip}}` with the IP address of the file system's management port.
+
+   ```
+   [~]$ ssh fsxadmin@{{management_endpoint_ip}}
+   ```
+
+   For more information, see [Managing file systems with the ONTAP CLI](managing-resources-ontap-apps.md#fsxadmin-ontap-cli). 
+
+1. List the volumes whose space guarantee is `volume`.
+
+   ```
+   PROMPT> volume show -vsroot false -space-guarantee volume -fields vserver,volume,space-guarantee,space-slo
+   vserver volume space-guarantee space-slo
+   ------- ------ --------------- ---------
+   svm1    vol2   volume          thick
+   1 entries were displayed.
+   ```
+
+**To resolve this issue**
+
+ONTAP does not support modifying a volume's space guarantee. To decrease SSD capacity, either delete thick-provisioned volumes or copy their data to volumes with a space guarantee of `none`, delete the original thick-provisioned volumes, and resubmit the decrease request.

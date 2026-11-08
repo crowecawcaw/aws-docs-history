@@ -29,4 +29,44 @@ Amazon S3 access points for FSx for ONTAP ﬁle systems deliver latency in the t
 ## AWS Regions with Amazon S3 access points for FSx for ONTAP
 <a name="access-points-for-fsx-ontap-supported-regions"></a>
 
-Amazon S3 access points for FSx for ONTAP are supported in the following AWS Regions: Africa (Cape Town), Asia Pacific (Hong Kong, Hyderabad, Jakarta, Melbourne, Mumbai, Osaka, Seoul, Singapore, Sydney, Tokyo), Canada (Central), Canada West (Calgary), Europe (Frankfurt, Ireland, London, Milan, Paris, Spain, Stockholm, Zurich), Israel (Tel Aviv), Middle East (Bahrain, UAE), South America (São Paulo), US East (N. Virginia, Ohio), and US West (N. California, Oregon).
+The following table shows the AWS Regions where FSx for ONTAP is available, and whether Amazon S3 access points for FSx for ONTAP are supported in each AWS Region.
+
+
+| **AWS Region** | **Amazon S3 access points for FSx for ONTAP** | 
+| --- | --- | 
+| US East (N. Virginia) | ✓ | 
+| US East (Ohio) | ✓ | 
+| US West (N. California) | ✓ | 
+| US West (Oregon) | ✓ | 
+| AWS GovCloud (US-East) |  | 
+| AWS GovCloud (US-West) |  | 
+| Africa (Cape Town) | ✓ | 
+| Asia Pacific (Hong Kong) | ✓ | 
+| Asia Pacific (Tokyo) | ✓ | 
+| Asia Pacific (Seoul) | ✓ | 
+| Asia Pacific (Osaka) | ✓ | 
+| Asia Pacific (Mumbai) | ✓ | 
+| Asia Pacific (Hyderabad) | ✓ | 
+| Asia Pacific (Singapore) | ✓ | 
+| Asia Pacific (Sydney) | ✓ | 
+| Asia Pacific (Jakarta) | ✓ | 
+| Asia Pacific (Melbourne) | ✓ | 
+| Asia Pacific (Malaysia) | ✓ | 
+| Asia Pacific (New Zealand) | ✓ | 
+| Asia Pacific (Taipei) | ✓ | 
+| Asia Pacific (Thailand) |  | 
+| Canada (Central) | ✓ | 
+| Canada West (Calgary) | ✓ | 
+| Europe (Frankfurt) | ✓ | 
+| Europe (Zurich) | ✓ | 
+| Europe (Stockholm) | ✓ | 
+| Europe (Milan) | ✓ | 
+| Europe (Spain) | ✓ | 
+| Europe (Ireland) | ✓ | 
+| Europe (London) | ✓ | 
+| Europe (Paris) | ✓ | 
+| Israel (Tel Aviv) | ✓ | 
+| Mexico (Central) | ✓ | 
+| Middle East (UAE) | ✓ | 
+| Middle East (Bahrain) | ✓ | 
+| South America (São Paulo) | ✓ | 
