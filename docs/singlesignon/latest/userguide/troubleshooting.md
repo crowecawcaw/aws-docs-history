@@ -202,6 +202,8 @@ This error can also occur when the Assertion Consumer Service (ACS) endpoint con
 
 Additionally, you can troubleshoot external identity provider sign-in failures further by going to AWS CloudTrail and filtering on the event name **ExternalIdPDirectoryLogin**.
 
+You can also inspect `CredentialVerification` events with `additionalEventData.CredentialType` set to `EXTERNAL_IDP`. A value of `Failure` in `serviceEventDetails.CredentialVerification` indicates that verification failed. For event descriptions and examples, see [Understanding IAM Identity Center sign-in events](understanding-sign-in-events.md).
+
 ## Error 'Attributes for access control failed to enable'
 <a name="issue9"></a>
 

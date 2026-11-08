@@ -10,6 +10,8 @@ IAM Identity Center emits the `UserName` field under the `additionalEventData` e
 + `UserAuthentication`
   + When `CredentialType` is "`EXTERNAL_IDP`" – applies to authentication with an external IdP.
 
+For sign-in with an external identity provider, an earlier `CredentialChallenge` event can omit `UserName` or contain `HIDDEN_DUE_TO_SECURITY_REASONS`. Use `UserAuthentication` to find the user's sign-in name.
+
 The value of `UserName` for successful authentications is as follows :
 + When the identity source is an external IdP, the value is equal to the `nameID` value in the incoming SAML assertion. This value is equal to the `UserName` field in the IAM Identity Center directory.
 + When the identity source is an IAM Identity Center directory, the value emitted is equal to the `UserName` field in this directory.

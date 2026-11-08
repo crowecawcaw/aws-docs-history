@@ -11,6 +11,7 @@ The following examples illustrate the typical CloudTrail event sequences generat
 + [Successful sign-in when authenticating with a password and a time-based one-time password (TOTP) authenticator app](#sign-in-events-examples-3)
 + [Successful sign-in when authenticating with a password and forced MFA registration is required](#sign-in-events-examples-4)
 + [Failed sign-in due to incorrect password authentication](#sign-in-events-examples-5)
++ [Failed sign-in when authenticating with an external identity provider](#sign-in-events-examples-6)
 
 ## Successful sign-in when authenticating with password only
 <a name="sign-in-events-examples-1"></a>
@@ -145,6 +146,88 @@ The following sequence of events captures an example of a successful password on
 <a name="sign-in-events-examples-2"></a>
 
 The following sequence of events captures an example of a successful sign-in when authenticated through the SAML protocol using an external identity provider. 
+
+The following credential events show a sign-in where IAM Identity Center redirects the user to the external IdP.
+
+**CredentialChallenge (External Identity Provider)**
+
+```
+{
+   "eventVersion":"1.08",
+   "userIdentity":{
+      "type":"Unknown",
+      "arn":"",
+      "accountId":"111122223333",
+      "accessKeyId":"",
+      "credentialId":"8f761cae-883d-4a3d-af67-3abf46488f71"
+   },
+   "eventTime":"2020-12-07T20:33:58Z",
+   "eventSource":"signin.amazonaws.com",
+   "eventName":"CredentialChallenge",
+   "awsRegion":"us-east-1",
+   "sourceIPAddress":"203.0.113.0",
+   "userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36",
+   "requestParameters":null,
+   "responseElements":null,
+   "additionalEventData":{
+      "AuthWorkflowID":"9de74b32-8362-4a01-a524-de21df59fd83",
+      "CredentialType":"EXTERNAL_IDP",
+      "IdentityProviderId":"12345678-90ab-4cde-8f01-234567890abc"
+   },
+   "requestID":"e4328875-1e2d-42ef-ae31-ccb96fe28597",
+   "eventID":"30bbbd25-3da3-42cf-9a2d-3a539800c605",
+   "readOnly":false,
+   "eventType":"AwsServiceEvent",
+   "managementEvent":true,
+   "eventCategory":"Management",
+   "recipientAccountId":"111122223333",
+   "serviceEventDetails":{
+      "CredentialChallenge":"Success"
+   }
+}
+```
+
+**Successful CredentialVerification (External Identity Provider)**
+
+```
+{
+   "eventVersion":"1.08",
+   "userIdentity":{
+      "type":"IdentityCenterUser",
+      "arn":"",
+      "accountId":"111122223333",
+      "accessKeyId":"",
+      "onBehalfOf":{
+         "userId":"94d00cd8-e9e6-4810-b177-b08e84725435",
+         "identityStoreArn":"arn:aws:identitystore::111122223333:identitystore/d-1234567890"
+      },
+      "credentialId":"8f761cae-883d-4a3d-af67-3abf46488f71"
+   },
+   "eventTime":"2020-12-07T20:34:09Z",
+   "eventSource":"signin.amazonaws.com",
+   "eventName":"CredentialVerification",
+   "awsRegion":"us-east-1",
+   "sourceIPAddress":"203.0.113.0",
+   "userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36",
+   "requestParameters":null,
+   "responseElements":null,
+   "additionalEventData":{
+      "AuthWorkflowID":"9de74b32-8362-4a01-a524-de21df59fd83",
+      "CredentialType":"EXTERNAL_IDP",
+      "IdentityProviderId":"12345678-90ab-4cde-8f01-234567890abc"
+   },
+   "requestID":"f3cf52ad-fd3d-4889-8c15-f18d1a7c7393",
+   "eventID":"9edb3230-d132-42ab-81ad-63634413c34f",
+   "readOnly":false,
+   "eventType":"AwsServiceEvent",
+   "managementEvent":true,
+   "eventCategory":"Management",
+   "recipientAccountId":"111122223333",
+   "serviceEventDetails":{
+      "CredentialVerification":"Success"
+   }
+}
+```
 
 **Successful UserAuthentication (External Identity Provider)**
 
@@ -599,6 +682,46 @@ The following sequence of events demonstrates an authentication attempt where th
    },
    "requestID":"04528c82-a678-4a1f-a56d-ea2c6445a72a",
    "eventID":"9160fe06-fc2a-474f-9b78-000ee067a09d",
+   "readOnly":false,
+   "eventType":"AwsServiceEvent",
+   "managementEvent":true,
+   "eventCategory":"Management",
+   "recipientAccountId":"111122223333",
+   "serviceEventDetails":{
+      "CredentialVerification":"Failure"
+   }
+}
+```
+
+## Failed sign-in when authenticating with an external identity provider
+<a name="sign-in-events-examples-6"></a>
+
+The following event shows a failed SAML verification. The IdP configuration identifier is unavailable, so `IdentityProviderId` is omitted.
+
+```
+{
+   "eventVersion":"1.08",
+   "userIdentity":{
+      "type":"Unknown",
+      "arn":"",
+      "accountId":"111122223333",
+      "accessKeyId":"",
+      "credentialId":"6e63172c-aaed-4796-b186-2e7770b3dd96"
+   },
+   "eventTime":"2020-12-08T18:56:15Z",
+   "eventSource":"signin.amazonaws.com",
+   "eventName":"CredentialVerification",
+   "awsRegion":"us-east-1",
+   "sourceIPAddress":"203.0.113.0",
+   "userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36",
+   "requestParameters":null,
+   "responseElements":null,
+   "additionalEventData":{
+      "AuthWorkflowID":"f869d07c-45c4-4ebd-bb60-2037e25014c2",
+      "CredentialType":"EXTERNAL_IDP"
+   },
+   "requestID":"6d223576-5376-41c2-9f02-f3db2e71d62f",
+   "eventID":"43a9b70e-df70-44ce-898d-c0b3d2fc6005",
    "readOnly":false,
    "eventType":"AwsServiceEvent",
    "managementEvent":true,

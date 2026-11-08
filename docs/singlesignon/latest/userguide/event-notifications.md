@@ -49,7 +49,7 @@ Each event contains the following information:
 + The ID of the request that made the change.
 + The time of the change and the AWS Region where the event was sent.
 
-Events don't include user or group attributes, such as names or email addresses, and `Updated` events don't describe what changed. To get the current attributes, call the [DescribeUser](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_DescribeUser.html), [DescribeGroup](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_DescribeGroup.html), or [DescribeGroupMembership](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_DescribeGroupMembership.html) operation. For more information, see the *[Identity Store API Reference](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html)*. For the event structure, see [Set up event notifications](setup-event-notifications.md).
+Events don't include user or group attributes, such as names or email addresses, and `Updated` events don't describe what changed. To get the current attributes, call the [DescribeUser](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_DescribeUser.html), [DescribeGroup](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_DescribeGroup.html), or [DescribeGroupMembership](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_DescribeGroupMembership.html) operation. For more information, see the *[Identity Store API Reference](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html)*. For the event structure, see [EventBridge event message structure](eventbridge-event-message-structure.md).
 
 ## Considerations for event notifications
 <a name="event-notifications-considerations"></a>
@@ -63,4 +63,5 @@ Events don't include user or group attributes, such as names or email addresses,
 + [Events that IAM Identity Center Identity Store sends](#events-identitystore-sends)
 + [Using IAM Identity Center across multiple AWS Regions](multi-region-iam-identity-center.md)
 + [Set up event notifications](setup-event-notifications.md)
++ [EventBridge event message structure](eventbridge-event-message-structure.md)
 + [Receive events in other accounts and Regions](receive-events-other-accounts-regions.md)
