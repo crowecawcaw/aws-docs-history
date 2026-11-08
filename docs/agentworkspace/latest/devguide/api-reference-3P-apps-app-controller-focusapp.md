@@ -22,15 +22,19 @@ const applicationFocusResult: AppFocusResult = await appControllerClient.focusAp
 
 |  **Parameter**  |  **Type**  |  **Description**  | 
 | --- | --- | --- | 
-| appInstanceId Required | string | The instance ID of the application | 
+| instanceId Required | string | The instance ID of the application | 
 
  **Output - AppFocusResult** 
 
 
 |  **Parameter**  |  **Type**  |  **Description**  | 
 | --- | --- | --- | 
-| instanceId | string | The AmazonResourceName(ARN) of the application | 
+| instanceId | string | The instance ID of the application instance that the request focused | 
 | result | "queued" \| "completed" \| "failed" | Indicates if the request is queued, completed or failed | 
+
+ **Contact scope:** 
+
+The target instance must belong to the AppManager of the calling instance, or to one of that AppManager's ancestors. Otherwise, the request fails. When the calling instance has a scope (contact or idle), it can act only on instances that have the same scope or no scope. An instance without a scope can act on instances of any scope.
 
  **Permissions required:** 
 

@@ -14,35 +14,37 @@ import {
   ServiceContext,
   ServiceCreatedEvent,
 } from "@amazon-connect/app";
-import { ContactClient } from "@amazon-connect/contact";
+import { AppControllerClient } from "@amazon-connect/app-controller";
+import { AppConfig } from "@amazon-connect/workspace-types";
 
-const provider = AmazonConnectService.init({
-  onCreate: onCreateHandler,
-});
+const SDK_LOG_PREFIX = "[TestService]";
 
 const onCreateHandler = async (event: ServiceCreatedEvent) => {
   const context: ServiceContext = event.context;
   console.log(`${SDK_LOG_PREFIX} Service created: `, context.instanceId);
-  await registerEventHandlers();
 
-  const appName = 'TargetAppName';
-  console.log(`Launching app in ACW`, { event: contactEvent, appName: appName });
+  const appName = "TargetAppName";
+  console.log(`${SDK_LOG_PREFIX} Launching app on startup`, { appName });
   const appControllerClient = new AppControllerClient(context.getProvider());
-    
-  // Get list of all applications available to the agent
+
+  // Get list of all applications available to the agent.
   const apps: AppConfig[] = await appControllerClient.getAppCatalog();
 
-  // Find your application by name
+  // Find your application by name.
   const appArn = apps.find(
     (app) => app.name === appName
   )?.arn;
 
   if (!appArn) {
-    throw new Error(`${appName} not found!`);
+    throw new Error(`${appName} not found.`);
   }
 
-  await appControllerClient.launchApp(appArn); 
+  await appControllerClient.launchApp(appArn);
 };
+
+const { provider } = AmazonConnectService.init({
+  onCreate: onCreateHandler,
+});
 ```
 
 ## Contact event listening with application launching functionality
@@ -54,63 +56,76 @@ import {
   ServiceContext,
   ServiceCreatedEvent,
 } from "@amazon-connect/app";
-import { ContactClient } from "@amazon-connect/contact";
+import { AppControllerClient } from "@amazon-connect/app-controller";
+import {
+  ContactClearedHandler,
+  ContactClient,
+  ContactConnectedHandler,
+  ContactStartingAcwHandler,
+} from "@amazon-connect/contact";
+import { AppConfig } from "@amazon-connect/workspace-types";
 
-const provider = AmazonConnectService.init({
-  onCreate: onCreateHandler,
-});
+const SDK_LOG_PREFIX = "[TestService]";
+
+// Log connected contacts.
+const handleConnected: ContactConnectedHandler = async (contactEvent) => {
+  console.log(`${SDK_LOG_PREFIX} Contact connected!`, { event: contactEvent });
+};
+
+// Launch an application when a contact enters After Contact Work (ACW).
+const handleStartingAcw: ContactStartingAcwHandler = async (contactEvent) => {
+  const appName = "TargetAppName";
+  console.log(`${SDK_LOG_PREFIX} Launching app in ACW`, {
+    event: contactEvent,
+    appName,
+  });
+  const appControllerClient = new AppControllerClient(provider);
+
+  // Get list of all applications available to the agent.
+  const apps: AppConfig[] = await appControllerClient.getAppCatalog();
+
+  // Find your application by name.
+  const appArn = apps.find(
+    (app) => app.name === appName
+  )?.arn;
+
+  if (!appArn) {
+    throw new Error(`${appName} not found.`);
+  }
+
+  await appControllerClient.launchApp(appArn);
+};
+
+// Log contacts that are cleared.
+const handleCleared: ContactClearedHandler = async (contactEvent) => {
+  console.log(`${SDK_LOG_PREFIX} Contact cleared:`, {
+    event: contactEvent,
+    type: contactEvent.type,
+  });
+};
+
+function registerEventHandlers(contactClient: ContactClient) {
+  contactClient.onConnected(handleConnected);
+  contactClient.onStartingAcw(handleStartingAcw);
+  contactClient.onCleared(handleCleared);
+}
+
+// To stop receiving cleared events, pass the same handler that you subscribed.
+function unregisterClearedHandler(contactClient: ContactClient) {
+  contactClient.offCleared(handleCleared);
+}
 
 const onCreateHandler = async (event: ServiceCreatedEvent) => {
   const context: ServiceContext = event.context;
   console.log(`${SDK_LOG_PREFIX} Service created: `, context.instanceId);
-  await registerEventHandlers();
-  return Promise.resolve();
+
+  const contactClient = new ContactClient(context.getProvider());
+  registerEventHandlers(contactClient);
 };
 
-async function registerEventHandlers() {
-  const contactClient = new ContactClient(provider);
-
-  // Listen for connected contacts
-  contactClient.onConnected(async (contactEvent) => {
-    console.log(`Contact connected!`, { event: contactEvent });
-  });
-
-  // Listen for contacts that have entered After Contact Work (ACW)
-  contactClient.onStartingAcw(async (contactEvent) => {
-    const appName = 'TargetAppName';
-    console.log(`Launching app in ACW`, { event: contactEvent, appName: appName });
-    const appControllerClient = new AppControllerClient(provider);
-    
-    // Get list of all applications available to the agent
-    const apps: AppConfig[] = await appControllerClient.getAppCatalog();
-    
-    // Find your application by name
-    const appArn = apps.find(
-        (app) => app.name === appName
-    )?.arn;
-    
-    if (!appArn) {
-        throw new Error(`${appName} not found!`);
-    }
-    
-    await appControllerClient.launchApp(appArn);   
-    
-  });
-  
-  // Listen for contacts that are cleared
-  contactClient.onCleared(async (contactEvent) => {
-    try {
-      console.log(`Contact Cleared:`, { event: contactEvent, type: contactEvent.type });
-    } catch (error) {
-      console.error(`Error handling incoming contact:`, { event: contactEvent, error: error });
-    }
-  });
-
-  // This is emitted when the service unsubscribes from the cleared event
-  contactClient.offCleared(async (contactEvent) => {
-    console.log(`Contact no longer in the incoming state`, { event: contactEvent });
-  });
-}
+const { provider } = AmazonConnectService.init({
+  onCreate: onCreateHandler,
+});
 ```
 
 ## Authentication popup functionality
@@ -119,6 +134,7 @@ async function registerEventHandlers() {
 ```
 import { AmazonConnectService } from "@amazon-connect/app";
 import { AppControllerClient } from "@amazon-connect/app-controller";
+import { AmazonConnectProvider } from "@amazon-connect/core";
 import { AppConfig } from "@amazon-connect/workspace-types";
 
 interface IdpMessage {
@@ -138,29 +154,27 @@ const IDP_POPUP_CONFIG = {
   title: 'IDP Simulation'
 };
 
-let provider;
-
-// Start the authentication service
-export function initIDPService() {
-  provider = AmazonConnectService.init({
-    onCreate: onCreateHandler
-  });
-}
+let provider: AmazonConnectProvider;
 
 const onCreateHandler = async () => {
   console.log(`${SDK_LOG_PREFIX} Service running...`);
-  
-  try {
-    // Start the authentication flow
-    runIdpFlow();
-  } catch(e) {
-    // This reports an error in the auth flow but allows the service
-    // to continue running.
+
+  // Start the authentication flow without waiting for it, so that service
+  // creation completes. A failure in the auth flow is reported but allows
+  // the service to continue running.
+  runIdpFlow().catch((error: unknown) => {
     console.error(`${SDK_LOG_PREFIX} IDP flow failed:`, error);
-  }
+  });
 
   console.log(`${SDK_LOG_PREFIX} Service creation complete`);
 };
+
+// Start the authentication service.
+export function initIDPService() {
+  ({ provider } = AmazonConnectService.init({
+    onCreate: onCreateHandler
+  }));
+}
 
 /**
   * Creates the IDP authentication popup

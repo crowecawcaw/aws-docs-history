@@ -5,38 +5,31 @@
 
 The Connect Customer SDK provides an `AgentClient` which serves as an interface that your app in the Connect Customer agent workspace can use to subscribe to agent events and make agent data requests.
 
-The `AgentClient` accepts an optional constructor argument, ` ConnectClientConfig` which itself is defined as:
+To create an `AgentClient`, pass it the `provider` that `AmazonConnectApp.init` returns. For details, see [Initialize the Connect Customer SDK in your application for Connect Customer agent workspace](getting-started-initialize-sdk.md). This is the recommended option.
 
 ```
-export type ConnectClientConfig = {  
-    context?: ModuleContext;  
-    provider?: AmazonConnectProvider;
-};
-```
-
-If you do not provide a value for this config, then the client will default to using the ** AmazonConnectProvider** set in the global provider scope. You can also manually configure this using **setGlobalProvider**.
-
-You can instantiate the agent client as follows:
-
-```
+import { AmazonConnectApp } from "@amazon-connect/app";
 import { AgentClient } from "@amazon-connect/contact";
- 
-const agentClient = new AgentClient({ provider });
-```
 
-**Note**  
-You must first instantiate the [ AmazonConnectApp](getting-started-initialize-sdk.md) which initializes the default AmazonConnectProvider and returns ` { provider } `. This is the recommended option.
-
-Alternatively, providing a constructor argument:
-
-```
-import { AgentClient } from "@amazon-connect/contact";
-        
-const agentClient = new AgentClient({
-    context: sampleContext,  
-    provider: sampleProvider
+const { provider } = AmazonConnectApp.init({
+  onCreate: async (event) => {
+    // Your app is ready.
+  },
 });
+
+const agentClient = new AgentClient(provider);
 ```
+
+The constructor argument has the type `ConnectClientConfig`, which is defined as follows:
+
+```
+type ConnectClientConfig =
+  | AmazonConnectProvider
+  | { context: ModuleContext; provider?: AmazonConnectProvider }
+  | { provider: AmazonConnectProvider };
+```
+
+You can also pass the provider inside an object, for example `new AgentClient({ provider })`.
 
 The following sections describe API calls for working with the Agent API.
 
@@ -46,7 +39,6 @@ The following sections describe API calls for working with the Agent API.
 + [getExtension()](3P-apps-agent-requests-getextension.md)
 + [getName()](3P-apps-agent-requests-getname.md)
 + [getRoutingProfile()](3P-apps-agent-requests-getroutingprofile.md)
-+ [getState() - Deprecated](3P-apps-agent-requests-getstate.md)
 + [listAvailabilityStates()](3P-apps-agent-requests-listavailabilitystates.md)
 + [listQuickConnects()](3P-apps-agent-requests-listquickconnects.md)
 + [offEnabledChannelListChanged()](3P-apps-agent-requests-off-enabledchannellistchanged.md)
@@ -56,8 +48,6 @@ The following sections describe API calls for working with the Agent API.
 + [setAvailabilityState()](3P-apps-agent-requests-setavailabilitystate.md)
 + [setAvailabilityStateByName()](3P-apps-agent-requests-setavailabilitystatebyname.md)
 + [setOffline()](3P-apps-agent-requests-setoffline.md)
-+ [onStateChanged() - Deprecated](3P-apps-agent-events-statechanged-sub.md)
-+ [offStateChanged() - Deprecated](3P-apps-agent-events-statechanged-unsub.md)
 + [getDefaultOutboundQueue()](3P-apps-agent-requests-getdefaultoutboundqueue.md)
 + [getRoutingProfileQueues()](3P-apps-agent-requests-getroutingprofilequeues.md)
 + [getAvailabilityState()](3P-apps-agent-requests-getavailabilitystate.md)

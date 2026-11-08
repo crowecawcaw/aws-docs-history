@@ -29,7 +29,7 @@ const addParticipantResult: AddParticipantResult = await contactClient.addPartic
 |  **Parameter**  |  **Type**  |  **Description**  | 
 | --- | --- | --- | 
 |  contactId Required  |  string  |  The id of the contact to which a participant needs to be added.  | 
-|  quickConnect Required  |  QuickConnect  |  Its either AgentQuickConnect or QueueQuickConnect or PhoneNumberQuickConnect which contains endpointARN and name. Additionally PhoneNumberQuickConnect contains phoneNumber  | 
+|  quickConnect Required  |  QuickConnect  |  Either AgentQuickConnect or QueueQuickConnect or PhoneNumberQuickConnect which contains endpointARN and name. Additionally PhoneNumberQuickConnect contains phoneNumber  | 
 
  **Output - AddParticipantResult** 
 

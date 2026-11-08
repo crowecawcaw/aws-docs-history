@@ -5,38 +5,25 @@
 
 The Connect Customer SDK provides a `MessageTemplateClient` which serves as an interface that you can use to make requests to search and get content from your Connect Customer Message Template Knowledge Base.
 
-The `MessageTemplateClient` accepts an optional constructor argument, ` ConnectClientConfig` which itself is defined as:
+The `MessageTemplateClient` constructor accepts a `ConnectClientConfig` argument, which is defined as:
 
 ```
-export type ConnectClientConfig = {  
-    context?: ModuleContext;  
-    provider?: AmazonConnectProvider;
-};
+export type ConnectClientConfig =
+    | AmazonConnectProvider
+    | { context: ModuleContext; provider?: AmazonConnectProvider }
+    | { provider: AmazonConnectProvider };
 ```
 
-If you do not provide a value for this config, then the client will default to using the ** AmazonConnectProvider** set in the global provider scope. You can also manually configure this using **setGlobalProvider**.
-
-You can instantiate the agent client as follows:
+Pass the `provider` that `AmazonConnectApp.init` returns directly to the constructor:
 
 ```
 import { MessageTemplateClient } from "@amazon-connect/message-template";
 
-const messageTemplateClient = new MessageTemplateClient({ provider });
+const messageTemplateClient = new MessageTemplateClient(provider);
 ```
 
 **Note**  
-You must first instantiate the [ AmazonConnectApp](getting-started-initialize-sdk.md) which initializes the default AmazonConnectProvider and returns ` { provider } `. This is the recommended option.
-
-Alternatively, providing a constructor argument:
-
-```
-import { MessageTemplateClient } from "@amazon-connect/message-template";
-            
-const messageTemplateClient = new MessageTemplateClient({
-    context: sampleContext,  
-    provider: sampleProvider
-});
-```
+You must first instantiate the [ AmazonConnectApp](getting-started-initialize-sdk.md), which initializes the default AmazonConnectProvider and returns `{ provider }`.
 
 **Note**  
 Third-party applications must be configured with \* permission in order to utilize the MessageTemplateClient APIs.

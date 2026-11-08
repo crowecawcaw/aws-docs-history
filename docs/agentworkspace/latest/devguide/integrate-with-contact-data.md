@@ -22,8 +22,8 @@ Once the contact client is instantiated, you can use it to subscribe to events a
 <a name="integrate-contact-data-scope"></a>
 
 ContactClient operations use a `contactId` parameter to identify the target contact.
-+ **Event subscriptions** (such as `onConnected`): The `contactId` parameter is optional. If you omit it, you receive events for the contact context from which your app launched.
-+ **Request operations** (such as `getAttribute` and `accept`): You must provide `contactId`.
++ **Event subscriptions** (such as `onConnected`): The `contactId` parameter is optional. If you omit it, the subscription receives events for every contact that the instance is allowed to see: only the contact that the instance is scoped to for a contact-scoped instance, and all of the agent's contacts for an instance with no scope value. An instance with the `idle` scope receives none.
++ **Request operations** (such as `getContactAttribute` and `accept`): You must provide `contactId`.
 
 For more information about ContactClient operations, see the [ContactClient API reference](api-reference-3P-apps-contact-client.md).
 +  **Applications registered with Per contact scope** 

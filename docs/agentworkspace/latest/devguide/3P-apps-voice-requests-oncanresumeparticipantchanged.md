@@ -35,3 +35,9 @@ voiceClient.onCanResumeParticipantChanged(handleCanResumeChanged, "participant-4
 | --- | --- | --- | 
 | handler Required | CanResumeParticipantChangedHandler | Event handler function to call when the capability changes | 
 | participantId | string | Optional participant ID to filter events for a specific participant | 
+
+ **Permissions required:** 
+
+```
+*
+```

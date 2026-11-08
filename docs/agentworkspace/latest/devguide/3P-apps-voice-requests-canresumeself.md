@@ -30,3 +30,13 @@ if (canResume) {
  **Output** 
 
 Returns a Promise that resolves to a boolean: true if the current user can be resumed, false otherwise
+
+ **Contact scope:** 
+
+Requires an instance that is scoped to the contact that you pass in `contactId`, or an instance without a contact scope. For details, see [Connect Customer SDK Contact API](api-reference-3P-apps-contact-client.md).
+
+ **Permissions required:** 
+
+```
+*
+```

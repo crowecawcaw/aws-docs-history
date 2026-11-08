@@ -32,3 +32,13 @@ if (isOnHold) {
  **Output** 
 
 Returns a Promise that resolves to a boolean: true if the participant is on hold, false otherwise
+
+ **Contact scope:** 
+
+Requires an instance that is scoped to the contact that the participant belongs to, or an instance without a contact scope. For details, see [Connect Customer SDK Contact API](api-reference-3P-apps-contact-client.md).
+
+ **Permissions required:** 
+
+```
+*
+```

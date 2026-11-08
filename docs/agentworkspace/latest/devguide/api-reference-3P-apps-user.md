@@ -3,39 +3,38 @@
 # Connect Customer SDK User API
 <a name="api-reference-3P-apps-user"></a>
 
-The Connect Customer SDK provides an `SettingsClient` which serves as an interface that your app in Connect Customer agent workspace can use to make data requests on user settings.
+The `@amazon-connect/user` package of the Connect Customer SDK provides two clients that your app in Connect Customer agent workspace can use to work with the current user:
++ `SettingsClient` reads and changes the user's settings. It provides the `getLanguage`, `setLanguage`, `onLanguageChanged`, `offLanguageChanged`, `setVisualMode`, `onVisualModeChange`, and `offVisualModeChange` operations.
++ `UserClient` returns information about the user and the Connect Customer instance. It provides the `getUserArn`, `getInstanceId`, and `getUserRegion` operations.
 
-The `SettingsClient` accepts an optional constructor argument, ` ConnectClientConfig` which itself is defined as:
-
-```
-        export type ConnectClientConfig = {  
-            context?: ModuleContext;  
-            provider?: AmazonConnectProvider;
-         };
-```
-
-If you do not provide a value for this config, then the client will default to using the ** AmazonConnectProvider** set in the global provider scope. You can also manually configure this using **setGlobalProvider**.
-
-You can instantiate the agent client as follows:
+To create either client, pass it the `provider` that `AmazonConnectApp.init` returns. For details, see [Initialize the Connect Customer SDK in your application for Connect Customer agent workspace](getting-started-initialize-sdk.md). This is the recommended option.
 
 ```
-        import { SettingsClient } from "@amazon-connect/user";
-        const settingsClient = new SettingsClient({ provider });
+import { AmazonConnectApp } from "@amazon-connect/app";
+import { SettingsClient, UserClient } from "@amazon-connect/user";
+
+const { provider } = AmazonConnectApp.init({
+  onCreate: async (event) => {
+    // Your app is ready.
+  },
+});
+
+const settingsClient = new SettingsClient(provider);
+const userClient = new UserClient(provider);
 ```
 
-**Note**  
-You must first instantiate the [ AmazonConnectApp](getting-started-initialize-sdk.md) which initializes the default AmazonConnectProvider and returns ` { provider } `. This is the recommended option.
-
-Alternatively, providing a constructor argument:
+The constructor argument has the type `ConnectClientConfig`, which is defined as follows:
 
 ```
-        import { SettingsClient } from "@amazon-connect/user";
-        
-        const settingsClient = new SettingsClient({
-            context: sampleContext,  
-            provider: sampleProvider
-    });
+type ConnectClientConfig =
+  | AmazonConnectProvider
+  | { context: ModuleContext; provider?: AmazonConnectProvider }
+  | { provider: AmazonConnectProvider };
 ```
+
+You can also pass the provider inside an object, for example `new SettingsClient({ provider })`.
+
+Always pass a provider when you create a `SettingsClient` or a `UserClient`.
 
 The following sections describe API calls for working with the User API.
 
@@ -45,6 +44,7 @@ The following sections describe API calls for working with the User API.
 + [offLanguageChanged()](3P-apps-user-events-languagechanged-unsub.md)
 + [getUserArn()](3P-apps-user-requests-getuserarn.md)
 + [getInstanceId()](3P-apps-user-requests-getinstanceid.md)
++ [getUserRegion()](3P-apps-user-requests-getuserregion.md)
 + [getNetworkType()](3P-apps-user-requests-getnetworktype.md)
 + [setLanguage()](3P-apps-user-requests-setlanguage.md)
 + [setVisualMode()](3P-apps-user-requests-setvisualmode.md)

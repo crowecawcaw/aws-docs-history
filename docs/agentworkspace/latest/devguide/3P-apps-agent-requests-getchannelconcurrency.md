@@ -6,7 +6,7 @@
 Returns a map of `ChannelType`-to-number indicating how many concurrent contacts can an Connect Customer agent workspace agent have on a given channel. 0 represents a disabled channel.
 
 ```
-async getChannelConcurrency(): Promise<AgentChannelConcurrencyMap>         
+async getChannelConcurrency(): Promise<AgentChannelConcurrency>         
 ```
 
  **Permissions required:** 

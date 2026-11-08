@@ -8,7 +8,7 @@ Subscribes a callback function to-be-invoked whenever an inbound email contact h
  **Signature** 
 
 ```
-onAcceptedEmail(handler: SubscriptionHandler<EmailContactId> contactId?: string): void
+onAcceptedEmail(handler: SubscriptionHandler<EmailContactId>, contactId?: string): void
 ```
 
  **Usage** 

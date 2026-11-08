@@ -13,7 +13,7 @@ Following the instructions here to properly integrate your service with the agen
 ```
 
 **Note**  
- If you do not use NPM, refer to [Using Connect Customer SDK without pacakage manager](https://docs.aws.amazon.com/agentworkspace/latest/devguide/sdk-without-package-manager.html) 
+ If you do not use NPM, refer to [Using Connect Customer SDK without package manager](https://docs.aws.amazon.com/agentworkspace/latest/devguide/sdk-without-package-manager.html) 
 
 Then, add the following initialization code to your app:
 

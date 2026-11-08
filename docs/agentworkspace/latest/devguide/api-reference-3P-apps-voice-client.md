@@ -3,43 +3,35 @@
 # Connect Customer SDK Voice API
 <a name="api-reference-3P-apps-voice-client"></a>
 
-The Connect Customer SDK provides an `VoiceClient` which serves as an interface that your app in the Connect Customer agent workspace can use to make data requests on voice contact.
+The Connect Customer SDK provides a `VoiceClient` which serves as an interface that your app in the Connect Customer agent workspace can use to make data requests on voice contacts.
 
-The `VoiceClient` accepts an optional constructor argument, ` ConnectClientConfig` which itself is defined as:
-
-```
-export type ConnectClientConfig = {  
-    context?: ModuleContext;  
-    provider?: AmazonConnectProvider;
-};
-```
-
-If you do not provide a value for this config, then the client will default to using the ** AmazonConnectProvider** set in the global provider scope. You can also manually configure this using **setGlobalProvider**.
-
-You can instantiate the agent client as follows:
+To create a `VoiceClient`, pass it the `provider` that `AmazonConnectApp.init` returns. For details, see [Initialize the Connect Customer SDK in your application for Connect Customer agent workspace](getting-started-initialize-sdk.md). This is the recommended option.
 
 ```
+import { AmazonConnectApp } from "@amazon-connect/app";
 import { VoiceClient } from "@amazon-connect/voice";
 
-const voiceClient = new VoiceClient({ provider });
-```
-
-**Note**  
-You must first instantiate the [ AmazonConnectApp](getting-started-initialize-sdk.md) which initializes the default AmazonConnectProvider and returns ` { provider } `. This is the recommended option.
-
-Alternatively, providing a constructor argument:
-
-```
-import { VoiceClient } from "@amazon-connect/voice";
-            
-const voiceClient = new VoiceClient({
-    context: sampleContext,  
-    provider: sampleProvider
+const { provider } = AmazonConnectApp.init({
+  onCreate: async (event) => {
+    // Your app is ready.
+  },
 });
+
+const voiceClient = new VoiceClient(provider);
 ```
 
-**Note**  
-Third-party applications must be configured with \* permission in order to utilize the VoiceClient APIs.
+The constructor argument has the type `ConnectClientConfig`, which is defined as follows:
+
+```
+type ConnectClientConfig =
+  | AmazonConnectProvider
+  | { context: ModuleContext; provider?: AmazonConnectProvider }
+  | { provider: AmazonConnectProvider };
+```
+
+You can also pass the provider inside an object, for example `new VoiceClient({ provider })`.
+
+Each operation in the following sections lists the permission that it requires under **Permissions required**. Operations that take a `contactId` or a `participantId` also state their requirement under **Contact scope**.
 
 The following sections describe API calls for working with the Voice API.
 
@@ -51,9 +43,11 @@ The following sections describe API calls for working with the Voice API.
 + [getInitialCustomerPhoneNumber()](3P-apps-voice-requests-getinitialcustomerphonenumber.md)
 + [getOutboundCallPermission()](3P-apps-voice-requests-getoutboundcallpermission.md)
 + [holdParticipant()](3P-apps-voice-requests-holdparticipant.md)
++ [holdSelf()](3P-apps-voice-requests-holdself.md)
 + [getVoiceEnhancementMode()](3P-apps-voice-requests-getvoiceenhancementmode.md)
 + [getVoiceEnhancementPaths()](3P-apps-voice-requests-getvoiceenhancementpaths.md)
 + [isParticipantOnHold()](3P-apps-voice-requests-isparticipantonhold.md)
++ [isSelfOnHold()](3P-apps-voice-requests-isselfonhold.md)
 + [listDialableCountries()](3P-apps-voice-requests-listdialablecountries.md)
 + [offCanResumeParticipantChanged()](3P-apps-voice-requests-offcanresumeparticipantchanged.md)
 + [offCanResumeSelfChanged()](3P-apps-voice-requests-offcanresumeselfchanged.md)
@@ -70,4 +64,5 @@ The following sections describe API calls for working with the Voice API.
 + [onSelfResume()](3P-apps-voice-requests-onselfresume.md)
 + [onVoiceEnhancementModeChanged()](3P-apps-voice-requests-onvoiceenhancementmodechanged.md)
 + [resumeParticipant()](3P-apps-voice-requests-resumeparticipant.md)
++ [resumeSelf()](3P-apps-voice-requests-resumeself.md)
 + [setVoiceEnhancementMode()](3P-apps-voice-requests-setvoiceenhancementmode.md)

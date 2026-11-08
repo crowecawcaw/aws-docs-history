@@ -18,4 +18,4 @@ Install the app package from NPM by installing ** @amazon-connect/app**.
 ```
 
 **Note**  
- If you do not use NPM, refer to [Using Connect Customer SDK without pacakage manager](https://docs.aws.amazon.com/agentworkspace/latest/devguide/sdk-without-package-manager.html) 
+ If you do not use NPM, refer to [Using Connect Customer SDK without package manager](https://docs.aws.amazon.com/agentworkspace/latest/devguide/sdk-without-package-manager.html) 

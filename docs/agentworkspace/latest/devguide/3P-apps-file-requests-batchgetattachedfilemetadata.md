@@ -28,7 +28,7 @@ batchGetAttachedFileMetadata({ relatedAttachments, activeContactId }: { relatedA
 | fileId | string | The unique identifier of the attached file resource | 
 | fileArn | string | The unique identifier of the attached file resource (ARN). | 
 | fileName | string | A case-sensitive name of the attached file being uploaded. | 
-| fileStatus | FileStatus | The current status of the attached file. Supported values: "APPROVED", "REJECTED", "PROCESSING", "FAILED" | 
+| fileStatus | FileStatus | The current status of the attached file. Supported values: "APPROVED", "REJECTED", "PROCESSING", "PENDING\_UPLOAD", "UPLOAD\_EXPIRED", "FAILED", "DELETED" | 
 | fileSizeInBytes | number | The size of the attached file in bytes. | 
 | creationTime | string | The time of Creation of the file resource as an ISO timestamp. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2024-05-03T02:41:28.172Z. | 
 

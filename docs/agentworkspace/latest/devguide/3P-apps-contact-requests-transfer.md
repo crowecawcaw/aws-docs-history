@@ -29,7 +29,7 @@ await contactClient.transfer(contactId, quickConnect);
 |  **Parameter**  |  **Type**  |  **Description**  | 
 | --- | --- | --- | 
 |  contactId Required  |  string  |  The id of the contact to which a participant needs to be transferred. | 
-|  quickConnect Required  |  QuickConnect  |  Its either AgentQuickConnect or QueueQuickConnect  | 
+|  quickConnect Required  |  QuickConnect  |  Either AgentQuickConnect or QueueQuickConnect  | 
 
  **Contact scope:** 
 

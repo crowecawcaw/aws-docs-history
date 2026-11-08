@@ -34,3 +34,9 @@ voiceClient.onParticipantHold(handleParticipantHold, "participant-456");
 | --- | --- | --- | 
 | handler Required | ParticipantHoldHandler | Event handler function to call when participants are put on hold | 
 | participantId | string | Optional participant ID to filter events for a specific participant | 
+
+ **Permissions required:** 
+
+```
+*
+```

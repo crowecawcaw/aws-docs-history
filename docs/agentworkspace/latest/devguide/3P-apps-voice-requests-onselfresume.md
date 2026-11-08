@@ -30,3 +30,9 @@ voiceClient.onSelfResume(handleSelfResume, "contact-123");
 | --- | --- | --- | 
 | handler Required | ParticipantResumeHandler | Event handler function to call when the current user's participant is taken off hold | 
 | contactId | string | Optional contact ID to filter events for a specific contact | 
+
+ **Permissions required:** 
+
+```
+*
+```

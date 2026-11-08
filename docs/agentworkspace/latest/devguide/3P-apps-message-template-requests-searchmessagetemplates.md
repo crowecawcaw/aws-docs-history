@@ -16,7 +16,7 @@ searchMessageTemplates(request: SearchMessageTemplatesParams): Promise<SearchMes
 
 |  **Parameter**  |  **Type**  |  **Description**  | 
 | --- | --- | --- | 
-| messageTemplate | MessageTemplate[] | List of message templates matching the search criteria specified in the request | 
+| messageTemplates | MessageTemplate[] | List of message templates matching the search criteria specified in the request | 
 | nextToken | string | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. | 
 
  **MessageTemplate Properties** 

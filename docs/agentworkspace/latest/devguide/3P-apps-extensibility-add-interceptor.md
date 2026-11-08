@@ -3,7 +3,7 @@
 # Register an interceptor in Connect Customer agent workspace
 <a name="3P-apps-extensibility-add-interceptor"></a>
 
-Registers an asynchronous interceptor callback for the specified action key. When the UI triggers the action, your interceptor runs before the default behavior.
+Registers an asynchronous interceptor callback for the specified action key. When the UI triggers the action, your interceptor runs before the default behavior. If the same function is already registered for the same key and parameter, the call has no effect.
 
  **Signature** 
 
@@ -47,3 +47,13 @@ The following table describes the input parameters.
  **Output** 
 
 `Promise<void>`
+
+ **Contact scope:** 
+
+Applies when you pass a `parameter` for one of the contact interceptor keys (`openQuickConnect`, `openOutboundDialer`, or `clearContact`). Requires an instance that is scoped to the contact that you pass in `parameter`, or an instance without a contact scope. For details, see [Connect Customer SDK Contact API](api-reference-3P-apps-contact-client.md). A registration without a `parameter`, or for any other key, has no contact scope requirement.
+
+ **Permissions required:** 
+
+```
+*
+```

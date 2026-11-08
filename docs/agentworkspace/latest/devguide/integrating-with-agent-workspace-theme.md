@@ -7,10 +7,11 @@ The theme package defines and applies the Connect Customer theme when developing
 
  **Install from NPM** 
 
-Install the theme package and Cloudscape global-styles from NPM by installing ** @amazon-connect/theme** and ** @cloudscape-design/global-styles**.
+Install the theme package and its Cloudscape peer dependencies from NPM by installing **@amazon-connect/theme**, **@cloudscape-design/components**, and **@cloudscape-design/global-styles**.
 
 ```
-% npm install -P @amazon-connect/theme  
+% npm install -P @amazon-connect/theme
+% npm install -P @cloudscape-design/components
 % npm install -P @cloudscape-design/global-styles
 ```
 
@@ -26,6 +27,8 @@ await applyConnectTheme(provider);
 
 **Note**  
 You must first instantiate the [ AmazonConnectApp](getting-started-initialize-sdk.md) which initializes the default AmazonConnectProvider and returns ` { provider } `. 
+
+Pass the provider to `applyConnectTheme`.
 
 From then on Cloudscape components and design tokens can be used directly from Cloudscape.
 

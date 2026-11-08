@@ -30,7 +30,7 @@ console.log(`Queue: ${contactData.queue.name}`);
 
 The ContactData interface includes:
 + `contactId`: string - Unique identifier for the contact
-+ `type`: ContactType - Type of contact (voice, chat, task)
++ `type`: ContactType - The type of contact (voice, chat, task, email)
 + `subtype`: string - Subtype providing additional classification
 + `initialContactId`?: string - Initial contact ID for transferred contacts
 + `queue`: Queue - Queue information

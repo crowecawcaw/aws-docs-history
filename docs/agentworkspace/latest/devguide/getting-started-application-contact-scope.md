@@ -64,7 +64,7 @@ const { provider } = AmazonConnectApp.init({
         const { contactId } = scope;
         const contactClient = new ContactClient({ provider });
 
-        const attributes = await contactClient.getAttributes(contactId, "*");
+        const attributes = await contactClient.getAllContactAttributes(contactId);
         renderContactView(contactId, attributes);
         contactClient.onConnected(() => refreshContactView(contactId));
     },
@@ -79,7 +79,7 @@ An application registered with the **Per contact** scope starts in one of two st
 + **`{ type: "contact", contactId }`** – The instance is bound to that contact, can access data for that contact only, and is destroyed when the contact ends. Read the `contactId` once and use it for the lifetime of the instance.
 + **`{ type: "idle" }`** – The agent opened your application while they were not handling a contact. The instance cannot access contact data while it holds this scope. Contact events are not delivered to it, and `ContactClient` request operations fail authorization, including operations that do not identify a specific contact, such as `listContacts`. Render an empty state. This is expected behavior. You do not need to register a second application to handle it.
 
-Pass the `contactId` to the `ContactClient` request operations that require it, such as `getAttributes` and `accept`. For event subscriptions such as `onConnected`, the `contactId` parameter is optional: if you omit it, the instance receives events for the contact that it is scoped to. For more information, see [Integrate application with Connect Customer agent workspace contact data](integrate-with-contact-data.md).
+Pass the `contactId` to the `ContactClient` request operations that require it, such as `getContactAttributes` and `accept`. For event subscriptions such as `onConnected`, the `contactId` parameter is optional: if you omit it, the instance receives events for the contact that it is scoped to. For more information, see [Integrate application with Connect Customer agent workspace contact data](integrate-with-contact-data.md).
 
 **Note**  
 If your application shows contact-specific content but is registered with the **Cross contacts** scope, none of the preceding behavior applies. The instance receives no `scope` value, a single instance is shared across all of the agent's contacts and receives contact events for all of them, and your application must determine which contact its content belongs to. See [Choose a contact scope](#getting-started-application-contact-scope-choosing).
@@ -103,7 +103,7 @@ The agent application that hosts your application launches it with an explicit s
 - ** **Per contact** **
   - **Launch-time scope:**  contact  / **Resulting behavior:** AppManager creates one instance per contact and destroys the instance when the contact ends.
   - **Launch-time scope:**  idle  / **Resulting behavior:** The instance is available while the agent is idle and is not destroyed when contacts end. It cannot access contact data while it holds this scope.
-  - **Launch-time scope:** Not specified / **Resulting behavior:** Behaves the same as contact if an active contact exists at launch, and the same as idle if the agent is idle. The scope of the launching application does not apply.
+  - **Launch-time scope:** Not specified / **Resulting behavior:** Behaves the same as contact if an active contact exists at launch, and the same as idle if the agent is idle. If an application that has a scope launches it, the instance receives that application's scope instead.
 
 - ** **Cross contacts** **
   - **Launch-time scope:** Not specified, launched at the top level / **Resulting behavior:** The instance persists across contacts and is destroyed only when the page session ends or the agent application calls `destroy()`. It receives contact events for every contact the agent is handling and can request data for any of them.<br />This is the configuration that matches the publisher's intent for a cross-contact application.
@@ -114,6 +114,6 @@ The agent application that hosts your application launches it with an explicit s
 
 
 **Note**  
-From within an application that already has a scope, a launch that requests a different scope fails with the `invalidScopeProvided` error. A nested launch can request only the scope of the launching application, or no scope value.
+When an application that has a scope launches another application, the new instance receives the launching application's scope. If the launch requests a different scope, the request fails authorization. A launch through an AppManager that was created inside a scoped application fails with the `invalidScopeProvided` error instead. A nested launch can request only the scope of the launching application, or no scope value.
 
 If you are building a custom agent application, or if your application launches other applications, see [Launch-time scope](integrate-aws-managed-apps-contact-scoped.md#integrate-aws-managed-apps-contact-scoped-launch) for how to pass a scope, and [Launch an application with an explicit scope](integrate-aws-managed-apps-contact-scoped.md#integrate-aws-managed-apps-contact-scoped-launch-examples) for code examples.

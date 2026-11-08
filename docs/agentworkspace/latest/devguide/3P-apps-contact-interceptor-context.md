@@ -20,4 +20,4 @@ The following table describes the properties.
 
 | **Property** | **Type** | **Description** | 
 | --- | --- | --- | 
-| contactId Optional | string | The identifier of the contact that triggered the action. The service omits this value when no specific contact initiated the action. | 
+| contactId Optional | string | The identifier of the contact that triggered the action. When no specific contact initiated the action, the value is absent. Although the SDK types this property as an optional string, the agent workspace can also pass null in that case, so treat both null and a missing value as no contact. | 

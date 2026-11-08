@@ -21,7 +21,7 @@ startAttachedFileUpload(data: NewAttachment): Promise<UploadableAttachment>
 | uploadUrl | string | A pre-signed S3 URL that should be used for uploading the attached file. | 
 | uploadHeaders | Record<string, string> | A map of headers that should be provided in the request when uploading the attached file. | 
 | uploadMethod | "PUT" | The upload request must be a PUT. | 
-| fileStatus | FileStatus | The current status of the attached file. Supported values: "APPROVED", "REJECTED", "PROCESSING", "FAILED" | 
+| fileStatus | FileStatus | The current status of the attached file. Supported values: "APPROVED", "REJECTED", "PROCESSING", "PENDING\_UPLOAD", "UPLOAD\_EXPIRED", "FAILED", "DELETED" | 
 
  **NewAttachment Properties** 
 

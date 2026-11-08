@@ -34,3 +34,9 @@ voiceClient.onSelfHold(handleSelfHold, "contact-123");
 | --- | --- | --- | 
 | handler Required | ParticipantHoldHandler | Event handler function to call when the current user's participant is put on hold | 
 | contactId | string | Optional contact ID to filter events for a specific contact | 
+
+ **Permissions required:** 
+
+```
+*
+```

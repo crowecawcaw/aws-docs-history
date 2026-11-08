@@ -5,37 +5,31 @@
 
 The Connect Customer SDK provides an `ContactClient` which serves as an interface that your app in the Connect Customer agent workspace can use to subscribe to contact events and make contact data requests.
 
-The `ContactClient` accepts an optional constructor argument, ` ConnectClientConfig` which itself is defined as:
+To create a `ContactClient`, pass it the `provider` that `AmazonConnectApp.init` returns. For details, see [Initialize the Connect Customer SDK in your application for Connect Customer agent workspace](getting-started-initialize-sdk.md). This is the recommended option.
 
 ```
-            export type ConnectClientConfig = {  
-                context?: ModuleContext;  
-                provider?: AmazonConnectProvider;
-             };
+import { AmazonConnectApp } from "@amazon-connect/app";
+import { ContactClient } from "@amazon-connect/contact";
+
+const { provider } = AmazonConnectApp.init({
+  onCreate: async (event) => {
+    // Your app is ready.
+  },
+});
+
+const contactClient = new ContactClient(provider);
 ```
 
-If you do not provide a value for this config, then the client will default to using the ** AmazonConnectProvider** set in the global provider scope. You can also manually configure this using **setGlobalProvider**.
-
-You can instantiate the agent client as follows:
+The constructor argument has the type `ConnectClientConfig`, which is defined as follows:
 
 ```
-            import { ContactClient } from "@amazon-connect/contact";
-            const contactClient = new ContactClient({ provider });
+type ConnectClientConfig =
+  | AmazonConnectProvider
+  | { context: ModuleContext; provider?: AmazonConnectProvider }
+  | { provider: AmazonConnectProvider };
 ```
 
-**Note**  
-You must first instantiate the [ AmazonConnectApp](getting-started-initialize-sdk.md) which initializes the default AmazonConnectProvider and returns ` { provider } `. This is the recommended option.
-
-Alternatively, providing a constructor argument:
-
-```
-            import { ContactClient } from "@amazon-connect/contact";
-            
-            const contactClient = new ContactClient({
-                context: sampleContext,  
-                provider: sampleProvider
-        });
-```
+You can also pass the provider inside an object, for example `new ContactClient({ provider })`.
 
 The operations that a `ContactClient` can perform depend on the contact scope of the application instance that uses it. Each operation in the following sections states its requirement under **Contact scope**. The following table describes the operations that a `ContactClient` can perform for each contact scope.
 
@@ -61,11 +55,16 @@ The following sections describe API calls for working with the Contact API.
 + [offConnected()](3P-apps-contact-events-connected-unsub.md)
 + [disconnectParticipant()](3P-apps-contact-requests-disconnectparticipant.md)
 + [engagePreviewContact()](3P-apps-contact-requests-engagepreviewcontact.md)
-+ [getAttribute()](3P-apps-contact-requests-getattribute.md)
-+ [getAttributes()](3P-apps-contact-requests-getattributes.md)
++ [getAllContactAttributes()](3P-apps-contact-requests-getallcontactattributes.md)
++ [getAttribute() - Deprecated](3P-apps-contact-requests-getattribute.md)
++ [getAttributes() - Deprecated](3P-apps-contact-requests-getattributes.md)
 + [getChannelType()](3P-apps-contact-requests-getchanneltype.md)
 + [getContact()](3P-apps-contact-requests-getcontact.md)
++ [getContactAttribute()](3P-apps-contact-requests-getcontactattribute.md)
++ [getContactAttributes()](3P-apps-contact-requests-getcontactattributes.md)
++ [getContactRegion()](3P-apps-contact-requests-getcontactregion.md)
 + [getInitialContactId()](3P-apps-contact-requests-getinitialcontactid.md)
++ [getInstanceDetails()](3P-apps-contact-requests-getinstancedetails.md)
 + [getParticipant()](3P-apps-contact-requests-getparticipant.md)
 + [getParticipantState()](3P-apps-contact-requests-getparticipantstate.md)
 + [getPreviewConfiguration()](3P-apps-contact-requests-getpreviewconfiguration.md)
@@ -84,6 +83,7 @@ The following sections describe API calls for working with the Contact API.
 + [onParticipantDisconnected()](3P-apps-contact-events-participantdisconnected-sub.md)
 + [offParticipantDisconnected()](3P-apps-contact-events-participantdisconnected-unsub.md)
 + [onParticipantStateChanged()](3P-apps-contact-events-participantstatechanged-sub.md)
++ [offParticipantStateChanged()](3P-apps-contact-events-participantstatechanged-unsub.md)
 + [onStartingAcw()](3P-apps-contact-events-startingacw-sub.md)
 + [offStartingAcw()](3P-apps-contact-events-startingacw-unsub.md)
 + [transfer()](3P-apps-contact-requests-transfer.md)

@@ -28,7 +28,7 @@ Choose the appropriate package based on your integration needs:
   ```
 
 **Note**  
- If you do not use NPM, refer to [Using Connect Customer SDK without pacakage manager](https://docs.aws.amazon.com/agentworkspace/latest/devguide/sdk-without-package-manager.html) 
+ If you do not use NPM, refer to [Using Connect Customer SDK without package manager](https://docs.aws.amazon.com/agentworkspace/latest/devguide/sdk-without-package-manager.html) 
 
 ## Step 2: Add the AppManager plugin in CCP initialization
 <a name="integrate-aws-managed-apps-step2"></a>
@@ -111,15 +111,19 @@ AppManager configures the iframe source, do not manually set the `src` attribute
 Launch the Worklist AWS managed application using the AppManager `launchApp` API:
 
 ```
+import { IFrameAppHost } from "@amazon-connect/app-manager";
+
 // Launch the Worklist AWS managed application
 const appHost = await provider.appManager.launchApp("Worklist");
 
 // Retrieve the iframe element for displaying the Worklist AWS managed application
-const awsAppIframe = document.getElementById("aws-app-iframe");
+const awsAppIframe = document.getElementById("aws-app-iframe") as HTMLIFrameElement;
 
 // AppManager uses the iframe to render the AWS managed application
-appHost.setIFrame(awsAppIframe);
+(appHost as IFrameAppHost).setIFrame(awsAppIframe);
 ```
+
+`launchApp` returns the base `AppHost` type. AWS managed applications are rendered in an iframe, so cast the result to `IFrameAppHost` to call `setIFrame`.
 
 **Note**  
 This example passes no launch options, so the application's registration-time scope determines the lifecycle of the instance. To control that lifecycle yourself, pass a `scope` value in `AppLaunchOptions`. For example, you can bind the instance to a single contact so that it is destroyed when that contact ends. For both scope settings and the behavior each one produces, see [Launch an application with an explicit scope](getting-started-application-contact-scope.md#getting-started-application-contact-scope-launch-examples).

@@ -5,8 +5,6 @@
 
 Subscribes a callback function to be invoked whenever the agent's availability state changes in the Connect Customer agent workspace.
 
-This API supersedes [onStateChanged()](3P-apps-agent-events-statechanged-sub.md), which is now deprecated.
-
  **Signature** 
 
 ```

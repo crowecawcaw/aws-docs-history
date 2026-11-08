@@ -5,38 +5,25 @@
 
 The Connect Customer SDK provides an `AIAgentsClient` which serves as an interface that your app can use to interact with AI Agent functionality. This client provides methods for real-time agent assistance use cases like checking AI Agent support, sending messages to AI Agents, retrieving message history, fetching knowledge content, and subscribing to real-time AI Agent message events.
 
-The `AIAgentsClient` accepts an optional constructor argument, ` ConnectClientConfig` which itself is defined as:
+The `AIAgentsClient` constructor requires a `ConnectClientConfig` argument, which is defined as:
 
 ```
-export type ConnectClientConfig = {  
-    context?: ModuleContext;
-    provider?: AmazonConnectProvider;
-};
+export type ConnectClientConfig =
+    | AmazonConnectProvider
+    | { context: ModuleContext; provider?: AmazonConnectProvider }
+    | { provider: AmazonConnectProvider };
 ```
 
-If you do not provide a value for this config, then the client will default to using the **AmazonConnectProvider** set in the global provider scope. You can also manually configure this using **setGlobalProvider**.
-
-You can instantiate the client as follows:
+Pass the `provider` that `AmazonConnectApp.init` returns to the constructor. You must provide this argument.
 
 ```
 import { AIAgentsClient } from "@amazon-connect/ai-agents";
 
-const aiAgentsClient = new AIAgentsClient();
+const aiAgentsClient = new AIAgentsClient(provider);
 ```
 
 **Note**  
-You must first instantiate the [ AmazonConnectApp](getting-started-initialize-sdk.md) which initializes the default AmazonConnectProvider and returns ` { provider }`. This is the recommended option.
-
-Alternatively, you can provide a constructor argument:
-
-```
-import { AIAgentsClient } from "@amazon-connect/ai-agents";
-
-const aiAgentsClient = new AIAgentsClient({
-    context: sampleContext,
-    provider: sampleProvider
-});
-```
+You must first instantiate the [ AmazonConnectApp](getting-started-initialize-sdk.md), which initializes the default AmazonConnectProvider and returns `{ provider }`.
 
 The following sections describe the API calls for working with the AI Agents API.
 

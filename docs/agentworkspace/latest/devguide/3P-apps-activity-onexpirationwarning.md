@@ -25,3 +25,9 @@ sessionExpirationWarningClient.onExpirationWarning(handler);
    expiration: number;
 }
 ```
+
+ **Permissions required:** 
+
+```
+*
+```

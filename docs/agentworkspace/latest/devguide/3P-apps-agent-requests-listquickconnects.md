@@ -35,8 +35,8 @@ const quickConnects: ListQuickConnectsResult = await agentClient.listQuickConnec
 
 |  **Parameter**  |  **Type**  |  **Description**  | 
 | --- | --- | --- | 
-|  quickConnects  |  QuickConnect[]  |  Its either AgentQuickConnect or QueueQuickConnect or PhoneNumberQuickConnect which contains endpointARN and name. Additionally PhoneNumberQuickConnect contains phoneNumber  | 
-|  nextToken  |  string  |  If there are additional results, this is the token for the next set of results.  | 
+|  quickConnects  |  QuickConnect[]  |  Either AgentQuickConnect or QueueQuickConnect or PhoneNumberQuickConnect which contains endpointARN and name. Additionally PhoneNumberQuickConnect contains phoneNumber  | 
+|  nextToken  |  string \| null  |  If there are additional results, this is the token for the next set of results.  | 
 
  **Permissions required:** 
 

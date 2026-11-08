@@ -40,5 +40,5 @@ The handler receives a ParticipantDisconnected event with:
  **Permissions required:** 
 
 ```
-Contact.Details.View
+*
 ```

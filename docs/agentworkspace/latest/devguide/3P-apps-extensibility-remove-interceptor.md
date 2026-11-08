@@ -3,7 +3,7 @@
 # Unregister an interceptor in Connect Customer agent workspace
 <a name="3P-apps-extensibility-remove-interceptor"></a>
 
-Removes a previously registered interceptor. You must pass the same function reference and the same optional parameter that you used at registration.
+Removes a previously registered interceptor. You must pass the same function reference and the same optional parameter that you used at registration. If no matching interceptor is registered, the call has no effect.
 
  **Signature** 
 
@@ -38,3 +38,9 @@ The following table describes the input parameters.
  **Output** 
 
 `Promise<void>`
+
+ **Permissions required:** 
+
+```
+*
+```

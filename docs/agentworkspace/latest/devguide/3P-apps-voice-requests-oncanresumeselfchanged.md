@@ -36,3 +36,9 @@ voiceClient.onCanResumeSelfChanged(handleCanResumeSelfChanged, "contact-123");
 | --- | --- | --- | 
 | handler Required | CanResumeParticipantChangedHandler | Event handler function to call when the capability changes | 
 | contactId | string | Optional contact ID to filter events for a specific contact | 
+
+ **Permissions required:** 
+
+```
+*
+```

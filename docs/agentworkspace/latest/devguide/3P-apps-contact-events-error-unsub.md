@@ -8,7 +8,7 @@ Unsubscribes the callback function from Error event in the Connect Customer agen
  **Signature** 
 
 ```
-offError(handler: ContactErrorHandler)
+offError(handler: ContactErrorHandler, contactId?: string)
 ```
 
  **Usage** 

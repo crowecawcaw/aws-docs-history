@@ -64,11 +64,11 @@ const toEmailAddress = {
 const emailContent = {
   subject: "Hello!",
   body: "Thank you!",
-  bodyType: "text/plain",
-}
+  bodyType: "text/plain" as const,
+};
 
 const draftContact = {
-  to: [toEmailAddress]
+  to: [toEmailAddress],
   emailContent,
   contactId: draftContactId, // This is the contact ID of the draft contact created via createDraftEmail()
 };
@@ -86,3 +86,7 @@ try {
   }
 }
 ```
+
+ **Contact scope:** 
+
+Requires an instance that is scoped to the contact that you pass in `contactId`, or an instance without a contact scope. For details, see [Connect Customer SDK Contact API](api-reference-3P-apps-contact-client.md).

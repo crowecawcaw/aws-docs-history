@@ -21,19 +21,19 @@ Once the agent client is instantiated, you can use it to subscribe to events and
 ## Example agent event
 <a name="integrate-agent-data-example-event"></a>
 
-The code sample below subscribes a callback to the state change event topic. Whenever the agent’s state is modified, the agent workspace will invoke your provided callback, passing in the event data payload for your function to operate on. In this example, it logs the event data to the console.
+The following code sample subscribes a callback to the availability state change event. Whenever the agent’s state is modified, the agent workspace will invoke your provided callback, passing in the event data payload for your function to operate on. In this example, it logs the event data to the console.
 
 ```
-import { AgentStateChanged } from "@amazon-connect/contact";
+import { AgentAvailabilityStateChanged } from "@amazon-connect/contact";
 
-// A simple callback that just console logs the state change event data 
-// returned by the workspace whenever the logged-in agent's state changes
-const handler = async (data: AgentStateChanged) => {
+// A simple callback that logs the availability state change event data
+// returned by the workspace whenever the logged-in agent's availability state changes.
+const handler = async (data: AgentAvailabilityStateChanged) => {
     console.log(data);
 };
 
-// Subscribe to the state change topic using the above handler
-agentClient.onStateChanged(handler);
+// Subscribe to the availability state change topic using the above handler.
+agentClient.onAvailabilityStateChanged(handler);
 ```
 
 ## Example agent request

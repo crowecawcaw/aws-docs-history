@@ -30,3 +30,9 @@ voiceClient.onParticipantResume(handleParticipantResume, "participant-456");
 | --- | --- | --- | 
 | handler Required | ParticipantResumeHandler | Event handler function to call when participants are taken off hold | 
 | participantId | string | Optional participant ID to filter events for a specific participant | 
+
+ **Permissions required:** 
+
+```
+*
+```

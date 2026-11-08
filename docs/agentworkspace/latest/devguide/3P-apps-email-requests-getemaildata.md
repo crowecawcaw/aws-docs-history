@@ -29,6 +29,8 @@ getEmailData({ contactId, activeContactId }: { contactId: string; activeContactI
 | direction | "INBOUND" \| "OUTBOUND" | INBOUND means the email contact was delivered to Connect Customer; OUTBOUND means the email contact is from Connect Customer | 
 | bodyLocation | EmailArtifactLocation | An object that includes the id and associated resource ARN of the file that the email contact's body is stored in; this value could be undefined when the email contact has not been sent. | 
 | attachmentLocations | EmailArtifactLocation[] | An array of objects, each including the id and associated resource ARN, of files that have been attached to the email contact | 
+| initiationTimestamp | Date | Optional. The date and time when the email message was delivered to Connect Customer. | 
+| messageType | "FORWARD" \| "REPLY\_TO\_CLOSED" | Optional. The message type of the contact; this value could be undefined if this segment attribute was not set during contact creation. | 
 
  **EmailAddress Properties** 
 
@@ -70,3 +72,7 @@ if (bodyLocation) {
 
 **Note**  
 The EmailContact object will contain bodyLocation and attachmentLocations, both of which will require use of the FileClient's getAttachedFileUrl to get the relevant data for those objects.
+
+ **Contact scope:** 
+
+Requires an instance that is scoped to the contact that you pass in `contactId`, or an instance without a contact scope. For details, see [Connect Customer SDK Contact API](api-reference-3P-apps-contact-client.md).

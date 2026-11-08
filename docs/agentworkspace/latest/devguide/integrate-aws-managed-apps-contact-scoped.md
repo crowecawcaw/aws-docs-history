@@ -20,15 +20,20 @@ Consider the following behaviors when you launch an application from your agent 
 + Do not pass the `idle` scope to launch a cross-contact application that needs contact data, because an instance holding that scope cannot access contact data. Omit the `scope` value instead.
 
 **Note**  
-When no launch-time scope is provided, the resulting scope depends on the registration-time scope, and for a per-contact application it also depends on whether an active contact exists at launch time. To guarantee a specific behavior when you launch at the top level, set `scope.type` explicitly to `"contact"` or `"idle"`. From inside an application that already has a scope, an explicit scope that does not match fails the launch rather than overriding it, as described in **Nested launches**, following.
+When no launch-time scope is provided, the resulting scope depends on the registration-time scope, and for a per-contact application it also depends on whether an active contact exists at launch time. To guarantee a specific behavior when you launch at the top level, set `scope.type` explicitly to `"contact"` or `"idle"`. From inside an application that already has a scope, the launching application's scope applies, and an explicit scope that does not match fails the launch rather than overriding it, as described in **Nested launches**, following.
 
 **Nested launches**
 
-An application can launch another application by calling `launchApp` on `AppControllerClient`. When it does, the scope of the launching application constrains the scope of the application it launches.
+An application can launch another application by calling `launchApp` on `AppControllerClient`, or through an AppManager that it creates itself. When it does, the scope of the launching application constrains the scope of the application it launches.
++ When an application that has a scope calls `AppControllerClient.launchApp`, the new instance receives the launching application's scope, regardless of the registration-time scope of the new application. This applies to applications registered with either the **Per contact** or the **Cross contacts** scope.
 + If you omit the `scope` value and the application is registered with the **Cross contacts** scope, the new application inherits the scope of the nearest application above it in the launch chain that has one. It runs without a scope only when no application in that chain has a scope. A cross-contact application launched from within a contact-scoped application is therefore bound to that contact, and is destroyed when the contact ends.
-+ If you provide a `scope` value that does not match the scope of the nearest application above the new application in the launch chain that has one, `launchApp` fails with the `invalidScopeProvided` error. Launching from within a contact-scoped application, you can pass only that same contact scope, or no `scope` value.
++ If you provide a `scope` value that does not match the scope of the launching application, the launch fails. How it fails depends on how the application launches:
+  + A scoped application that calls `AppControllerClient.launchApp` with a different scope fails authorization. The workspace rejects the request before it selects a scope.
+  + A launch through an AppManager that is created inside a scoped application fails with the `invalidScopeProvided` error when the scope does not match the scope of the nearest application above the new application in the launch chain that has one.
 
-An application registered with the **Per contact** scope is not affected by inheritance. When you omit the `scope` value, the application is bound to the current active contact if one exists, and receives the `idle` scope if the agent is not handling a contact.
+  Launching from within a contact-scoped application, you can pass only that same contact scope, or no `scope` value.
+
+When your agent application (the host page) or an application without a scope launches an application registered with the **Per contact** scope, the application is not affected by inheritance. When you omit the `scope` value, the application is bound to the current active contact if one exists, and receives the `idle` scope if the agent is not handling a contact. When an application that has a scope launches it through `AppControllerClient`, the new instance receives the launching application's scope instead.
 
 ## Launch an application with an explicit scope
 <a name="integrate-aws-managed-apps-contact-scoped-launch-examples"></a>
@@ -40,6 +45,8 @@ To control the scope under which an application runs, provide a `scope` object i
 Provide the `contact` type and the ID of the contact to which the application is bound:
 
 ```
+import { AppLaunchOptions, IFrameAppHost } from "@amazon-connect/app-manager";
+
 const launchOptions: AppLaunchOptions = {
     scope: {
         type: "contact",
@@ -52,7 +59,7 @@ const appHost = await appManager.launchApp(app.arn, launchOptions);
 
 // Create and configure the iframe for the application
 const appIframe = document.createElement("iframe");
-appHost.setIFrame(appIframe);
+(appHost as IFrameAppHost).setIFrame(appIframe);
 ```
 
  **Launch with `idle` scope:** 
@@ -60,6 +67,8 @@ appHost.setIFrame(appIframe);
 Provide the `idle` type to launch an application that is not bound to the lifecycle of any contact:
 
 ```
+import { AppLaunchOptions, IFrameAppHost } from "@amazon-connect/app-manager";
+
 const launchOptions: AppLaunchOptions = {
     scope: {
         type: "idle"
@@ -72,13 +81,13 @@ const appHost = await appManager.launchApp(app.arn, launchOptions);
 
 // Create and configure the iframe for the application
 const appIframe = document.createElement("iframe");
-appHost.setIFrame(appIframe);
+(appHost as IFrameAppHost).setIFrame(appIframe);
 ```
 
 ## Manage the active contact
 <a name="integrate-aws-managed-apps-contact-scoped-active-contact"></a>
 
-AppManager binds applications to the active contact when no `scope` value is provided at launch. Therefore, when an agent handles multiple contacts simultaneously, you must keep the active contact accurate so that the correct contact context is used when launching applications without an explicit `contactId` in the `scope` option. Use `setActiveContact` to update the active contact in AppManager:
+AppManager binds applications registered with the **Per contact** scope to the active contact when no `scope` value is provided at launch. Therefore, when an agent handles multiple contacts simultaneously, you must keep the active contact accurate so that the correct contact context is used when launching applications without an explicit `contactId` in the `scope` option. Use `setActiveContact` to update the active contact in AppManager:
 
 ```
 // Update AppManager with the currently active contact

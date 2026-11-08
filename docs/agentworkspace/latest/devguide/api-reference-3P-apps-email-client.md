@@ -5,41 +5,29 @@
 
 The Connect Customer SDK provides an `EmailClient` which serves as an interface that your app can use to subscribe to email contact events and make email contact requests.
 
-The `EmailClient` accepts an optional constructor argument, ` ConnectClientConfig` which itself is defined as:
+The `EmailClient` constructor accepts a `ConnectClientConfig` argument, which is defined as:
 
 ```
-export type ConnectClientConfig = {  
-    context?: ModuleContext;  
-    provider?: AmazonConnectProvider;
-};
+export type ConnectClientConfig =
+    | AmazonConnectProvider
+    | { context: ModuleContext; provider?: AmazonConnectProvider }
+    | { provider: AmazonConnectProvider };
 ```
 
-If you do not provide a value for this config, then the client will default to using the ** AmazonConnectProvider** set in the global provider scope. You can also manually configure this using **setGlobalProvider**.
-
-You can instantiate the agent client as follows:
+Pass the `provider` that `AmazonConnectApp.init` returns directly to the constructor:
 
 ```
 import { EmailClient } from "@amazon-connect/email";
 
-const emailClient = new EmailClient({ provider });
+const emailClient = new EmailClient(provider);
 ```
 
 **Note**  
-You must first instantiate the [ AmazonConnectApp](getting-started-initialize-sdk.md) which initializes the default AmazonConnectProvider and returns ` { provider } `. This is the recommended option.
-
-Alternatively, providing a constructor argument:
-
-```
-import { EmailClient } from "@amazon-connect/email";
-            
-const emailClient = new EmailClient({
-    context: sampleContext,  
-    provider: sampleProvider
-});
-```
+You must first instantiate the [ AmazonConnectApp](getting-started-initialize-sdk.md), which initializes the default AmazonConnectProvider and returns `{ provider }`.
 
 **Note**  
-Third-party applications must be configured with Cross Contact scope in order to utilize the EmailClient APIs, and \* permission is required.
+All `EmailClient` operations require the `*` permission.  
+The contact scope of the application instance applies only to `getEmailData()` and `sendEmail()`. Both require an instance that is scoped to the contact that you pass in `contactId`, or an instance without a contact scope. `createDraftEmail()`, `getEmailThread()`, and `listFromEmailAddresses()` are not restricted by the contact scope of the instance. For details about contact scope, see [Connect Customer SDK Contact API](api-reference-3P-apps-contact-client.md).
 
 The following sections describe API calls for working with the Email API.
 
@@ -51,4 +39,5 @@ The following sections describe API calls for working with the Email API.
 + [offDraftEmailCreated()](3P-apps-email-requests-draftemailcreated-unsubscribing.md)
 + [getEmailData()](3P-apps-email-requests-getemaildata.md)
 + [getEmailThread()](3P-apps-email-requests-getemailthread.md)
++ [listFromEmailAddresses()](3P-apps-email-requests-listfromemailaddresses.md)
 + [sendEmail()](3P-apps-email-requests-sendemail.md)

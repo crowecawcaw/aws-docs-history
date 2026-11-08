@@ -46,3 +46,13 @@ The following table describes the input parameters.
 **Output**
 
 `Promise<void>`
+
+**Contact scope:**
+
+Applies when you pass a `contactId`. Requires an instance that is scoped to the contact that you pass in `contactId`, or an instance without a contact scope. For details, see [Connect Customer SDK Contact API](api-reference-3P-apps-contact-client.md). A registration without a `contactId` has no contact scope requirement.
+
+**Permissions required:**
+
+```
+*
+```

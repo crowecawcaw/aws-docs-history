@@ -45,10 +45,11 @@ onParticipantStateChanged(handler: ParticipantStateChangedHandler, participantId
 
 The handler receives a ParticipantStateChanged event with:
 + `participantId`: string - The ID of the participant whose state changed
++ `contactId`: string - The ID of the contact that the participant belongs to
 + `state`: ParticipantState - The new state of the participant
 
  **Permissions required:** 
 
 ```
-Contact.Details.View
+*
 ```

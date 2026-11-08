@@ -8,7 +8,7 @@ Unsubscribes the callback function from Connecting event in the Connect Customer
  **Signature** 
 
 ```
-offConnecting(handler: ContactConnectingHandler)
+offConnecting(handler: ContactConnectingHandler, contactId?: string)
 ```
 
  **Usage** 

@@ -5,24 +5,31 @@
 
 The Connect Customer SDK provides an `AppControllerClient` to control applications in the Connect Customer agent workspace.
 
-The `AppControllerClient` accepts an optional argument, ` ConnectClientConfig` which itself is defined as:
+To create an `AppControllerClient`, pass it the `provider` that `AmazonConnectApp.init` returns. For details, see [Initialize the Connect Customer SDK in your application for Connect Customer agent workspace](getting-started-initialize-sdk.md). This is the recommended option.
 
 ```
-export type ConnectClientConfig = {  
-    context?: ModuleContext;  
-    provider?: AmazonConnectProvider;
-};
-```
-
-If you do not provide a value for this config, then the client will default to using the ** AmazonConnectProvider** set in the global provider scope. You can also manually configure this using **setGlobalProvider**.
-
-You can instantiate the AppControllerClient as follows:
-
-```
+import { AmazonConnectApp } from "@amazon-connect/app";
 import { AppControllerClient } from "@amazon-connect/app-controller";
 
-const appControllerClient = new AppControllerClient({ provider });
+const { provider } = AmazonConnectApp.init({
+  onCreate: async (event) => {
+    // Your app is ready.
+  },
+});
+
+const appControllerClient = new AppControllerClient(provider);
 ```
+
+The constructor argument has the type `ConnectClientConfig`, which is defined as follows:
+
+```
+type ConnectClientConfig =
+  | AmazonConnectProvider
+  | { context: ModuleContext; provider?: AmazonConnectProvider }
+  | { provider: AmazonConnectProvider };
+```
+
+You can also pass the provider inside an object, for example `new AppControllerClient({ provider })`.
 
 The following sections describe API calls for working with the App Controller API.
 
