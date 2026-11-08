@@ -3,21 +3,23 @@
 # Data Requirements for Supply Planning
 <a name="data-requirements-for-supply-planning"></a>
 
-## Data Entities for Supply Planning
-<a name="data-requirements-for-supply-planning-data-entities"></a>
+**Data Entities for Supply Planning**
 
 The following table lists the data entities and columns used by Supply Planning.
 
-How to read the table:
-+ Required - The entity or columns in the data entity are mandatory for the supply planning engine to function correctly.
-+ Conditionally required - The entity or columns in the data entity are required depending on the specific major functional requirements, policy type, order type, or sourcing rule type selected.
-+ Optional - The entity or columns in the data entity is optional. For enhanced planning accuracy and feature output, it is recommended to add the column with values.
+## How to read the table:
+<a name="data-requirements-for-supply-planning-how-to-read"></a>
++ **Required** – The entity or columns in the data entity are mandatory for the supply planning engine to function correctly.
++ **Conditionally required** – The entity or columns in the data entity are required depending on the specific major functional requirements, policy type, order type, or sourcing rule type selected.
++ **Optional** – The entity or columns in the data entity is optional. For enhanced planning accuracy and feature output, it is recommended to add the column with values.
 
-### site (required)
+## site (required)
 <a name="data-requirements-for-supply-planning-site"></a>
 
-How is this data entity used? Supply Planning uses the site data to define the internal locations (plants, warehouses, and distribution centers) within the supply chain network. Sites serve as the origin and destination nodes for transportation lanes and sourcing rules.
+**How is this data entity used?** Supply Planning uses the site data to define the internal locations (plants, warehouses, and distribution centers) within the supply chain network. Sites serve as the origin and destination nodes for transportation lanes and sourcing rules.
 
+
+**site columns**  
 
 | Column | Is the column required? | How is this column used in Supply Planning? | 
 | --- | --- | --- | 
@@ -33,11 +35,13 @@ How is this data entity used? Supply Planning uses the site data to define the i
 | site\_level\_4 | Optional | The fourth level in the site hierarchy, representing a specific site cluster or sub-region within level 3. Leave blank if your site hierarchy has fewer than 4 levels. | 
 | site\_level\_5 | Optional | The fifth and most granular level in the site hierarchy. Leave blank if your site hierarchy has fewer than 5 levels. | 
 
-### product (required)
+## product (required)
 <a name="data-requirements-for-supply-planning-product"></a>
 
-How is this data entity used? Supply Planning uses the product data to identify and classify all items being planned. Product data are used to establish hierarchy filters for supply plan review, link products to inventory policies and sourcing rules, and support multi-level product segmentation.
+**How is this data entity used?** Supply Planning uses the product data to identify and classify all items being planned. Product data are used to establish hierarchy filters for supply plan review, link products to inventory policies and sourcing rules, and support multi-level product segmentation.
 
+
+**product columns**  
 
 | Column | Is the column required? | How is this column used in Supply Planning? | 
 | --- | --- | --- | 
@@ -56,11 +60,13 @@ How is this data entity used? Supply Planning uses the product data to identify 
 | product\_level\_4 | Optional | The fourth level in the product hierarchy, representing a specific product family or sub-classification within level 3. Leave blank if your product hierarchy has fewer than 4 levels. | 
 | product\_level\_5 | Optional | The fifth and most granular level in the product hierarchy. Leave blank if your product hierarchy has fewer than 5 levels. | 
 
-### sourcing\_rules (required)
+## sourcing\_rules (required)
 <a name="data-requirements-for-supply-planning-sourcing-rules"></a>
 
-How is this data entity used? Supply Planning uses sourcing rules to determine how each product at each destination site is replenished. Rules specify whether supply comes from an external buy (purchase order), internal transfer (transfer order), or manufacturing (production order), and define the sourcing priority and allocation ratios when multiple supply options exist.
+**How is this data entity used?** Supply Planning uses sourcing rules to determine how each product at each destination site is replenished. Rules specify whether supply comes from an external buy (purchase order), internal transfer (transfer order), or manufacturing (production order), and define the sourcing priority and allocation ratios when multiple supply options exist.
 
+
+**sourcing\_rules columns**  
 
 | Column | Is the column required? | How is this column used in Supply Planning? | 
 | --- | --- | --- | 
@@ -80,11 +86,13 @@ How is this data entity used? Supply Planning uses sourcing rules to determine h
 | eff\_start\_date | Optional | Date from which this sourcing rule is active. Default is 1900-01-01 00:00:00. | 
 | eff\_end\_date | Optional | Date after which this sourcing rule expires. Default is 2999-12-31 23:59:59. | 
 
-### inventory\_policy (required)
+## inventory\_policy (required)
 <a name="data-requirements-for-supply-planning-inventory-policy"></a>
 
-How is this data entity used? Supply Planning uses inventory policy data to determine the safety stock calculation method and replenishment thresholds for each product-site combination. The policy type (absolute level, days-of-cover average demand, or days-of-cover future forecast) governs how the planning engine computes inventory buffers and generates replenishment recommendations.
+**How is this data entity used?** Supply Planning uses inventory policy data to determine the safety stock calculation method and replenishment thresholds for each product-site combination. The policy type (absolute level, days-of-cover average demand, or days-of-cover future forecast) governs how the planning engine computes inventory buffers and generates replenishment recommendations.
 
+
+**inventory\_policy columns**  
 
 | Column | Is the column required? | How is this column used in Supply Planning? | 
 | --- | --- | --- | 
@@ -104,11 +112,13 @@ How is this data entity used? Supply Planning uses inventory policy data to dete
 | eff\_start\_date | Optional | Date from which the inventory policy is effective. Default is 1900-01-01 00:00:00. | 
 | eff\_end\_date | Optional | Date after which the inventory policy expires. Default is 9999-12-31 23:59:59. | 
 
-### trading\_partner (conditional required)
+## trading\_partner (conditional required)
 <a name="data-requirements-for-supply-planning-trading-partner"></a>
 
-How is this data entity used? Supply Planning uses trading partner data to identify suppliers in the supply chain. Trading partners are referenced by sourcing rules, inbound order lines, and vendor lead times to associate supply activities with external business entities. This data is required for sourcing rule lines which have sourcing rule type set to "buy".
+**How is this data entity used?** Supply Planning uses trading partner data to identify suppliers in the supply chain. Trading partners are referenced by sourcing rules, inbound order lines, and vendor lead times to associate supply activities with external business entities. This data is required for sourcing rule lines which have sourcing rule type set to “buy”.
 
+
+**trading\_partner columns**  
 
 | Column | Is the column required? | How is this column used in Supply Planning? | 
 | --- | --- | --- | 
@@ -117,11 +127,13 @@ How is this data entity used? Supply Planning uses trading partner data to ident
 | eff\_start\_date | Optional | Date from which the trading partner relationship is valid. Default 1900-01-01 00:00:00. | 
 | eff\_end\_date | Optional | Date after which the trading partner relationship expires. Default 2999-12-31 23:59:59. | 
 
-### vendor\_product (conditional required)
+## vendor\_product (conditional required)
 <a name="data-requirements-for-supply-planning-vendor-product"></a>
 
-How is this data entity used? Supply Planning uses vendor product data to define which vendors are authorized to supply specific products. This data enables the planning engine to validate sourcing rules and generate purchase orders only for approved vendor-product combinations within their effective date ranges. This data is required for sourcing rule lines which have sourcing rule type set to "buy".
+**How is this data entity used?** Supply Planning uses vendor product data to define which vendors are authorized to supply specific products. This data enables the planning engine to validate sourcing rules and generate purchase orders only for approved vendor-product combinations within their effective date ranges. This data is required for sourcing rule lines which have sourcing rule type set to “buy”.
 
+
+**vendor\_product columns**  
 
 | Column | Is the column required? | How is this column used in Supply Planning? | 
 | --- | --- | --- | 
@@ -130,11 +142,13 @@ How is this data entity used? Supply Planning uses vendor product data to define
 | eff\_start\_date | Required | Date from which the vendor is authorized to supply this product. | 
 | eff\_end\_date | Required | Date after which the vendor is no longer authorized for this product. | 
 
-### vendor\_lead\_time (optional)
+## vendor\_lead\_time (optional)
 <a name="data-requirements-for-supply-planning-vendor-lead-time"></a>
 
-How is this data entity used? Supply Planning uses vendor lead time data to determine the expected duration between placing a purchase order and receiving the goods at the destination site. Accurate lead times are critical for the planning engine to recommend orders with the correct timing to meet demand without creating unnecessary stockouts or excess inventory. Supply planning will assume zero vendor lead time if this data is not available.
+**How is this data entity used?** Supply Planning uses vendor lead time data to determine the expected duration between placing a purchase order and receiving the goods at the destination site. Accurate lead times are critical for the planning engine to recommend orders with the correct timing to meet demand without creating unnecessary stockouts or excess inventory. Supply planning will assume zero vendor lead time if this data is not available.
 
+
+**vendor\_lead\_time columns**  
 
 | Column | Is the column required? | How is this column used in Supply Planning? | 
 | --- | --- | --- | 
@@ -147,11 +161,13 @@ How is this data entity used? Supply Planning uses vendor lead time data to dete
 | eff\_start\_date | Optional | Date from which this lead time definition is valid. Default is 1900-01-01 00:00:00. | 
 | eff\_end\_date | Optional | Date after which this lead time definition expires. Default is 2999-12-31 23:59:59. | 
 
-### transportation\_lane (optional)
+## transportation\_lane (optional)
 <a name="data-requirements-for-supply-planning-transportation-lane"></a>
 
-How is this data entity used? Supply Planning uses transportation lane data to model the routes between origin and destination sites in the network. This data defines transit times and validity windows that the system uses to schedule the transfer orders. Supply planning will assume zero vendor lead time if this data is not available for sourcing rule lines which have sourcing rule type set to "transfer".
+**How is this data entity used?** Supply Planning uses transportation lane data to model the routes between origin and destination sites in the network. This data defines transit times and validity windows that the system uses to schedule the transfer orders. Supply planning will assume zero vendor lead time if this data is not available for sourcing rule lines which have sourcing rule type set to “transfer”.
 
+
+**transportation\_lane columns**  
 
 | Column | Is the column required? | How is this column used in Supply Planning? | 
 | --- | --- | --- | 
@@ -164,11 +180,13 @@ How is this data entity used? Supply Planning uses transportation lane data to m
 | eff\_start\_date | Required | Date from which this transportation lane becomes active/valid. | 
 | eff\_end\_date | Required | Date after which this transportation lane is no longer valid. | 
 
-### inventory\_level (required)
+## inventory\_level (required)
 <a name="data-requirements-for-supply-planning-inventory-level"></a>
 
-How is this data entity used? Supply Planning uses inventory level snapshots to establish the current on-hand stock position at each site for each product. This data is the starting point for replenishment calculations, enabling the planning engine to determine the gap between current inventory and the target level defined by the inventory policy.
+**How is this data entity used?** Supply Planning uses inventory level snapshots to establish the current on-hand stock position at each site for each product. This data is the starting point for replenishment calculations, enabling the planning engine to determine the gap between current inventory and the target level defined by the inventory policy.
 
+
+**inventory\_level columns**  
 
 | Column | Is the column required? | How is this column used in Supply Planning? | 
 | --- | --- | --- | 
@@ -176,13 +194,15 @@ How is this data entity used? Supply Planning uses inventory level snapshots to 
 | site\_id | Required | Site where this inventory is located. | 
 | product\_id | Required | Product whose inventory is being reported. | 
 | on\_hand\_inventory | Required | Quantity on hand. | 
-| inv\_condition | Optional | The inv\_condition indicates whether inventory is available for planning purposes. Unrestricted - Interpreted as Available. Blocked - Interpreted as Not Available. No value - Interpreted as Available. Any other status or condition - Interpreted as Available. | 
+| inv\_condition | Optional | The inv\_condition indicates whether inventory is available for planning purposes.<br />Unrestricted — Interpreted as Available.<br />Blocked — Interpreted as Not Available.<br />No value — Interpreted as Available.<br />Any other status or condition — Interpreted as Available. | 
 
-### forecast (conditionally required)
+## forecast (conditionally required)
 <a name="data-requirements-for-supply-planning-forecast"></a>
 
-How is this data entity used? Supply Planning uses forecast data as the primary demand signal for replenishment calculations. The system uses the forecasted demand quantities by product and site to determine how much inventory needs to be replenished and when, driving purchase, transfer, and production order recommendations across the planning horizon. This data is not required if forecast is generated by Amazon Connect Decisions Demand Intelligence and the forecast source in supply plan configuration is set to Internal. This data is required when Forecast is selected for Demand Netting and Forecast Source is set to External on supply planning configuration page.
+**How is this data entity used?** Supply Planning uses forecast data as the primary demand signal for replenishment calculations. The system uses the forecasted demand quantities by product and site to determine how much inventory needs to be replenished and when, driving purchase, transfer, and production order recommendations across the planning horizon. This data is not required if forecast is generated by Amazon Connect Decisions Demand Intelligence and the forecast source in supply plan configuration is set to Internal. This data is required when Forecast is selected for Demand Netting and Forecast Source is set to External on supply planning configuration page.
 
+
+**forecast columns**  
 
 | Column | Is the column required? | How is this column used in Supply Planning? | 
 | --- | --- | --- | 
@@ -190,23 +210,25 @@ How is this data entity used? Supply Planning uses forecast data as the primary 
 | site\_id | Required | Site for which the demand is being forecasted. | 
 | product\_id | Required | Product for which the demand is being forecasted. | 
 | mean | Optional | Arithmetic mean of the demand forecast distribution for this product-site-period combination. Serves as the primary planning signal when probabilistic forecast values are not available. | 
-| p50 | Conditionally required | Median (50th percentile) forecast quantity representing the most likely demand scenario. This field needs to be populated if mean is not populated. If both fields are populated, P50 takes precedence over mean. | 
+| p50 | Conditionally required | Median (50th percentile) forecast quantity representing the most likely demand scenario.<br />This field needs to be populated if mean is not populated. If both fields are populated, P50 takes precedence over mean. | 
 | p10/20/30/40/50/60/70/80/90 | Optional | Probabilistic forecast values at 10th, 50th, and 90th percentiles for demand variability analysis. | 
 | forecast\_start\_dttm | Required | Start date/time of the forecast bucket period. | 
 | forecast\_end\_dttm | Required | End date/time of the forecast bucket period. | 
 
-### outbound\_order\_line (conditionally required)
+## outbound\_order\_line (conditionally required)
 <a name="data-requirements-for-supply-planning-outbound-order-line"></a>
 
-How is this data entity used? Supply Planning uses outbound order line data to track customer orders. This data provides visibility into confirmed demand, allowing the system to plan inventory for committed customer orders. This data is required if Sales order is enabled for demand netting in supply plan configuration.
+**How is this data entity used?** Supply Planning uses outbound order line data to track customer orders. This data provides visibility into confirmed demand, allowing the system to plan inventory for committed customer orders. This data is required if Sales order is enabled for demand netting in supply plan configuration.
 
+
+**outbound\_order\_line columns**  
 
 | Column | Is the column required? | How is this column used in Supply Planning? | 
 | --- | --- | --- | 
 | id | Required | Unique identifier for the outbound order line (delivery line item). | 
 | product\_id | Required | Product being shipped to the customer. | 
 | cust\_order\_id | Required | Customer's sales order number this line belongs to. | 
-| status | Optional | Current fulfillment status of the line. The supported status includes Open, Cancelled, and Closed. Open - Open sales order line. Cancelled - The system will ignore the cancelled lines. Closed - The system will ignore the closed lines. Any other status or condition - Interpreted as Open. | 
+| status | Optional | Current fulfillment status of the line. The supported status includes Open, Cancelled, and Closed.<br />Open — Open sales order line.<br />Cancelled — The system will ignore the cancelled lines.<br />Closed — The system will ignore the closed lines.<br />Any other status or condition — Interpreted as Open. | 
 | order\_date | Optional | Date the order was placed. | 
 | requested\_delivery\_date | Conditionally required | Date the customer originally requested delivery. This field is required if promised\_delivery\_date is not populated. If both fields are populated, promised\_delivery\_date takes precedence over requested\_delivery\_date. | 
 | promised\_delivery\_date | Optional | Date committed to the customer after availability check. promised\_delivery\_date takes precedence over requested\_delivery\_date if both are populated. | 
@@ -216,11 +238,13 @@ How is this data entity used? Supply Planning uses outbound order line data to t
 | quantity\_promised | Optional | Quantity confirmed to the customer. quantity\_promised takes precedence over init\_quantity\_requested and final\_quantity\_requested. | 
 | quantity\_delivered | Optional | Quantity that has been delivered. When calculating the orde line open quantity, quantity\_delivered is subtracted from quantity\_promised or quantity\_requested. | 
 
-### inbound\_order\_line (optional)
+## inbound\_order\_line (optional)
 <a name="data-requirements-for-supply-planning-inbound-order-line"></a>
 
-How is this data entity used? Supply Planning uses inbound order line data to track open purchase orders, transfer orders, and manufacturing orders. This data provides visibility into existing supply orders, enabling the system to account for in-transit and confirmed inventory when generating replenishment recommendations.
+**How is this data entity used?** Supply Planning uses inbound order line data to track open purchase orders, transfer orders, and manufacturing orders. This data provides visibility into existing supply orders, enabling the system to account for in-transit and confirmed inventory when generating replenishment recommendations.
 
+
+**inbound\_order\_line columns**  
 
 | Column | Is the column required? | How is this column used in Supply Planning? | 
 | --- | --- | --- | 
@@ -231,7 +255,7 @@ How is this data entity used? Supply Planning uses inbound order line data to tr
 | tpartner\_id | Conditionally required | Mandatory for PO (Purchase Orders). Links the order line to the vendor/supplier. | 
 | from\_site\_id | Conditionally required | Mandatory for TO(Transfer Orders). Origin site from which the product is being shipped. | 
 | to\_site\_id | Required | Destination site for this line item's delivery. | 
-| status | Optional | Current status of this specific line item. Supported status includes Open, InTransit, Closed, Cancelled. Open - Open TO lines will be considered as both demand at origin site and supply at destination site. Open PO and MO lines are only considered as supply. InTransit - In-transit lines will only be considered as supply. Cancelled - The system will ignore the cancelled lines. Closed - The system will ignore the closed lines. Any other status or condition - Interpreted as Open. | 
+| status | Optional | Current status of this specific line item. Supported status includes Open, InTransit, Closed, Cancelled.<br />Open — Open TO lines will be considered as both demand at origin site and supply at destination site. Open PO and MO lines are only considered as supply.<br />InTransit — In-transit lines will only be considered as supply.<br />Cancelled — The system will ignore the cancelled lines.<br />Closed — The system will ignore the closed lines.<br />Any other status or condition — Interpreted as Open. | 
 | quantity\_submitted | Conditionally required | Original quantity requested/ordered. This field needs to be populated if quantity\_confirmed is not provided. | 
 | quantity\_confirmed | Optional | Quantity confirmed for delivery. Either quantity\_submitted or quantity\_confirmed should be provided. If both fields are popualted, quantity\_confirmed takes precedence over quantity\_submitted. | 
 | quantity\_received | Optional | Quantity received at the destination site. If populated, quantity\_received will be subtracted from submitted quantity or confirmed quantity to calculate the order line open quantity. | 
@@ -239,11 +263,13 @@ How is this data entity used? Supply Planning uses inbound order line data to tr
 | expected\_delivery\_date | required | Planned or promised delivery date for this line item. At least one of earliest\_delivery\_date, latest\_delivery\_date or expected\_delivery\_date should be provided. | 
 | latest\_ship\_date | Optional | Latest date and time when this order line should be shipped. If populated, the system will use this date to determine order start date. If it is populated, the system will use lead time to calculate the order start date. | 
 
-### product\_bom (Optional)
+## product\_bom (Optional)
 <a name="data-requirements-for-supply-planning-product-bom"></a>
 
-How is this data entity used? Supply Planning uses Product Bill of Materials (BOM) data to explode finished goods demand into component-level requirements. When the planning engine generates production orders for manufactured products, it uses the BOM to calculate how much of each raw material or sub-assembly is needed, creating dependent demand signals for component procurement and production planning. If product\_bom is not defined, the production order will not consume any raw material.
+**How is this data entity used?** Supply Planning uses Product Bill of Materials (BOM) data to explode finished goods demand into component-level requirements. When the planning engine generates production orders for manufactured products, it uses the BOM to calculate how much of each raw material or sub-assembly is needed, creating dependent demand signals for component procurement and production planning. If product\_bom is not defined, the production order will not consume any raw material.
 
+
+**product\_bom columns**  
 
 | Column | Is the column required? | How is this column used in Supply Planning? | 
 | --- | --- | --- | 
@@ -256,11 +282,13 @@ How is this data entity used? Supply Planning uses Product Bill of Materials (BO
 | eff\_end\_date | Required | Calendar date after which this BOM relationship is no longer valid and should not be used for planning. | 
 | production\_process\_id | Optional | Foreign key to the Production Process table identifying which manufacturing route uses this specific BOM. | 
 
-### production\_process (Optional)
+## production\_process (Optional)
 <a name="data-requirements-for-supply-planning-production-process"></a>
 
-How is this data entity used? The planning engine will use setup time plus operation time to calculate the manufacturing lead times and evaluate production capacity feasibility. Supply planning will assume zero vendor lead time if this data is not available for sourcing rule lines which have sourcing rule type set to "manufacture".
+**How is this data entity used?** The planning engine will use setup time plus operation time to calculate the manufacturing lead times and evaluate production capacity feasibility. Supply planning will assume zero vendor lead time if this data is not available for sourcing rule lines which have sourcing rule type set to “manufacture”.
 
+
+**production\_process columns**  
 
 | Column | Is the column required? | How is this column used in Supply Planning? | 
 | --- | --- | --- | 
@@ -270,11 +298,13 @@ How is this data entity used? The planning engine will use setup time plus opera
 | setup\_time | Optional | Fixed duration (in days) required to changeover, calibrate, and prepare the production equipment before a batch run can begin. | 
 | operation\_time | Required | Fixed duration (in days) consumed in the actual manufacturing process. Total production duration = setup\_time \+ operation\_time | 
 
-### segmentation\_rule (Optional)
+## segmentation\_rule (Optional)
 <a name="data-requirements-for-supply-planning-segmentation-rule"></a>
 
-How is this data entity used? Segmentation Rule data will enable differentiated classifications by grouping products and sites into segments (e.g. by planner code, ABC classifications, or product lifecycle). These segments can be used as filters in the planning hub.
+**How is this data entity used?** Segmentation Rule data will enable differentiated classifications by grouping products and sites into segments (e.g. by planner code, ABC classifications, or product lifecycle). These segments can be used as filters in the planning hub.
 
+
+**segmentation\_rule columns**  
 
 | Column | Is the column required? | How is this column used in Supply Planning? | 
 | --- | --- | --- | 
@@ -295,11 +325,13 @@ How is this data entity used? Segmentation Rule data will enable differentiated 
 | site\_level\_4 | Optional | Fourth-level site hierarchy. Enables fine-grained geographic segmentation. | 
 | site\_level\_5 | Optional | Most granular site hierarchy level. Leave blank if the rule targets a coarser level or a specific site\_id. | 
 
-### product\_alternate (Optional)
+## product\_alternate (Optional)
 <a name="data-requirements-for-supply-planning-product-alternate"></a>
 
-How is this data entity used? When an alternate product relationship is defined, supply planning considers available inventory and supply of the alternate product at the same site when fulfilling demand for the main product. The system consumes the available alternate product supply first. Once that supply is exhausted, the system will then create new planned orders for the main product.
+**How is this data entity used?** When an alternate product relationship is defined, supply planning considers available inventory and supply of the alternate product at the same site when fulfilling demand for the main product. The system consumes the available alternate product supply first. Once that supply is exhausted, the system will then create new planned orders for the main product.
 
+
+**product\_alternate columns**  
 
 | Column | Is the column required? | How is this column used in Forecasting? | 
 | --- | --- | --- | 
@@ -311,11 +343,13 @@ How is this data entity used? When an alternate product relationship is defined,
 | eff\_end\_date | Optional | The date and time the record ends. Make sure this date is on or after the eff\_start\_date. | 
 | status | Optional | Status of the alternate product record. For example, Active, Inactive. Inactive records will be ignored. | 
 
-### product\_uom (Optional)
+## product\_uom (Optional)
 <a name="data-requirements-for-supply-planning-product-uom"></a>
 
-How is this data entity used? The Product UOM data defines unit-of-measure (UOM) conversions for products. Each product has a base UOM specified in the Product Master table. The Product UOM table establishes conversion rates between the base UOM and supported alternate UOMs. These conversions enable users to view product quantities in alternate units of measure within the Supply Planning Hub, including the Horizontal Supply Plan Grid and other applicable planning views. This provides flexibility in how product quantities are displayed while maintaining consistency with the product's defined base UOM.
+**How is this data entity used?** The Product UOM data defines unit-of-measure (UOM) conversions for products. Each product has a base UOM specified in the Product Master table. The Product UOM table establishes conversion rates between the base UOM and supported alternate UOMs. These conversions enable users to view product quantities in alternate units of measure within the Supply Planning Hub, including the Horizontal Supply Plan Grid and other applicable planning views. This provides flexibility in how product quantities are displayed while maintaining consistency with the product’s defined base UOM.
 
+
+**product\_uom columns**  
 
 | Column | Is the column required? | How is this column used in Forecasting? | 
 | --- | --- | --- | 
@@ -327,14 +361,16 @@ How is this data entity used? The Product UOM data defines unit-of-measure (UOM)
 | eff\_end\_date | Optional | The date and time the record ends. Make sure this date is on or after the eff\_start\_date. | 
 | status | Optional | Status of the alternate product record. For example, Active, Inactive. Inactive records will be ignored. | 
 
-**Note**  
-Planning constraints such as production\_capacity\_constraints, capacity\_product\_mapping, warehouse\_space\_limit, planning\_time\_fence\_constraints don't require setting up the data ingestion flows. These data should be directly uploaded on supply planning configuration page through Decision Teammates.
-
-### production\_capacity\_constraints (optional)
+## production\_capacity\_constraints (optional)
 <a name="data-requirements-for-supply-planning-production-capacity-constraints"></a>
 
-How is this data entity used? Supply Planning uses production capacity constraint data to define the minimum and maximum throughput limits for each production capacity resource at each site within defined time buckets. The system enforces these constraints when generating production orders to ensure the supply plan remain within contractual production feasibility boundaries.
+**Note**  
+Planning constraints such as production\_capacity\_constraints, capacity\_product\_mapping, warehouse\_space\_limit, planning\_time\_fence\_constraints don’t require setting up the data ingestion flows. These data should be directly uploaded on the supply planning configuration page through the AI supply chain teammate.
 
+**How is this data entity used?** Supply Planning uses production capacity constraint data to define the minimum and maximum throughput limits for each production capacity resource at each site within defined time buckets. The system enforces these constraints when generating production orders to ensure the supply plan remain within contractual production feasibility boundaries.
+
+
+**production\_capacity\_constraints columns**  
 
 | Column | Is the column required? | How is this column used in Supply Planning? | 
 | --- | --- | --- | 
@@ -347,11 +383,13 @@ How is this data entity used? Supply Planning uses production capacity constrain
 | max\_capacity\_usage | Required | Maximum throughput or utilization volume allowed within the defined time bucket. The planning engine must not schedule production or allocate inventory beyond this limit. | 
 | max\_changeover | Optional | Maximum number of allowed changeovers within the defined time bucket, effectively setting the limit on the SKU mix that can be produced in that period. | 
 
-### capacity\_product\_mapping (optional)
+## capacity\_product\_mapping (optional)
 <a name="data-requirements-for-supply-planning-capacity-product-mapping"></a>
 
-How is this data entity used? Supply Planning uses capacity product mapping data to link products to the production capacity resources they consume at each site. This mapping enables the system to aggregate total capacity demand across all products sharing a common resource, identify bottlenecks, and prioritize production sequencing when capacity is limited.
+**How is this data entity used?** Supply Planning uses capacity product mapping data to link products to the production capacity resources they consume at each site. This mapping enables the system to aggregate total capacity demand across all products sharing a common resource, identify bottlenecks, and prioritize production sequencing when capacity is limited.
 
+
+**capacity\_product\_mapping columns**  
 
 | Column | Is the column required? | How is this column used in Supply Planning? | 
 | --- | --- | --- | 
@@ -360,22 +398,26 @@ How is this data entity used? Supply Planning uses capacity product mapping data
 | capacity\_id | Required | capacity\_id identifying which capacity resource this product consumes during production, storage, or handling. | 
 | capacity\_usage | Optional | Capacity usage defines how many units of capacity is consumed by producing one unit of a product. | 
 
-### warehouse\_space\_limit (optional)
+## warehouse\_space\_limit (optional)
 <a name="data-requirements-for-supply-planning-warehouse-space-limit"></a>
 
-How is this data entity used? Supply Planning uses warehouse space limit data to constrain replenishment recommendations so that planned inventory never exceeds the physical storage capacity of a warehouse. This prevents the system from generating supply orders that would result in overcrowding or infeasible storage requirements at a site.
+**How is this data entity used?** Supply Planning uses warehouse space limit data to constrain replenishment recommendations so that planned inventory never exceeds the physical storage capacity of a warehouse. This prevents the system from generating supply orders that would result in overcrowding or infeasible storage requirements at a site.
 
+
+**warehouse\_space\_limit columns**  
 
 | Column | Is the column required? | How is this column used in Supply Planning? | 
 | --- | --- | --- | 
 | site\_id | Required | Identifier of the warehouse whose capacity is being defined. | 
 | max\_capacity | Required | Maximum storage capacity of the warehouse, expressed in the volume unit of measure defined in the Product entity. Used to constrain supply plans from exceeding physical space. | 
 
-### planning\_time\_fence\_constraints (optional)
+## planning\_time\_fence\_constraints (optional)
 <a name="data-requirements-for-supply-planning-planning-time-fence-constraints"></a>
 
-How is this data entity used? Supply Planning uses planning time fence constraint data to define time boundaries within which the planning engine is restricted from making changes to existing supply orders. These constraints enable planners to protect near-term supply plans from automatic rescheduling, preserving confirmed orders for specific products and sites within the defined time fence window.
+**How is this data entity used?** Supply Planning uses planning time fence constraint data to define time boundaries within which the planning engine is restricted from making changes to existing supply orders. These constraints enable planners to protect near-term supply plans from automatic rescheduling, preserving confirmed orders for specific products and sites within the defined time fence window.
 
+
+**planning\_time\_fence\_constraints columns**  
 
 | Column | Is the column required? | How is this column used in Supply Planning? | 
 | --- | --- | --- | 

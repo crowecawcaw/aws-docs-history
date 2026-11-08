@@ -6,7 +6,7 @@
 ## Onboarding for Amazon Connect Decisions
 <a name="onboarding-overview"></a>
 
-Amazon Connect Decisions's onboarding agent serves as your AI setup teammates, abstracting away the technical complexity of configuring insights monitoring. Instead of manually defining SQL queries, mapping data schemas, or translating business requirements into technical specifications, you work conversationally with the agent to set up your monitoring system.
+During onboarding, your AI supply chain teammate handles the technical complexity of configuring insights monitoring. Instead of manually defining SQL queries, mapping data schemas, or translating business requirements into technical specifications, you work conversationally with the agent to set up your monitoring system.
 
 **What the onboarding agent can help you with:**
 

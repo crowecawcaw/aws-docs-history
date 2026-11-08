@@ -5,10 +5,10 @@
 
 Amazon Connect Decisions proactively identifies opportunities to improve your demand forecast accuracy by detecting patterns and anomalies that require your business context. Plan improvement actions are AI-generated tasks that surface where your input can most meaningfully enhance forecast quality, enabling your AI teammates to learn from your expertise and produce more accurate plans over time.
 
-The system uses ML-driven detection to analyze your demand data, identify products and sites where forecasts would benefit from your input, and presents actions grouped by type. You provide input through the Supply Chain Decisions Teammate, and your feedback is automatically integrated into future forecast runs, creating a continuous improvement loop between you and your AI teammates.
+The system uses ML-driven detection to analyze your demand data, identify products and sites where forecasts would benefit from your input, and presents actions grouped by type. You provide input through the AI supply chain teammate, and your feedback is automatically integrated into future forecast runs, creating a continuous improvement loop between you and the AI teammate.
 
 ## How Plan improvement actions work
-<a name="plan-improvement-actions-how-they-work"></a>
+<a name="plan-improvement-actions-how-it-works"></a>
 
 Plan improvement actions follow a three-step workflow:
 
@@ -16,7 +16,7 @@ Plan improvement actions follow a three-step workflow:
 
 1. **Surface** - Detected actions are converted into digestible, pattern-level insights that you can confirm, correct, or contextualize. Actions are presented in the Demand Plan, grouped by action type.
 
-1. **Act** - You apply validated corrections by providing input through the Supply Chain Decisions Teammate. Your inputs are integrated into planning configuration updates, data treatment rules, related time series inputs, and forecast override rules. The system then uses your input to refine models and improve future forecast accuracy.
+1. **Act** - You apply validated corrections by providing input through the AI teammate. Your inputs are integrated into planning configuration updates, data treatment rules, related time series inputs, and forecast override rules. The system then uses your input to refine models and improve future forecast accuracy.
 
 **Note**  
 Plan improvement actions are refreshed every time a plan is run, ensuring that as incremental data is ingested into the system (such as additional products/sites added to planning or recent demand history uploads), you continue to receive updated actions on products and patterns needing your input.
@@ -43,45 +43,45 @@ The tab displays a list of actions grouped by action type alongside your forecas
 + **Actions** - Available operations (View, Complete)
 
 ## Understanding action types
-<a name="plan-improvement-actions-understanding-action-types"></a>
+<a name="plan-improvement-actions-action-types"></a>
 
 Plan improvement actions cover the most common scenarios where planner expertise improves forecast accuracy:
 
 
 | \# | Action Type | Description | Example | 
 | --- | --- | --- | --- | 
-| 1 | **Provide input for new products/sites** | Products launched recently with zero or limited history and no product lineage data available. | 25 products launched in the last 2 months have zero or limited history and no product lineage data available. | 
-| 2 | **Provide input on products with extremely low forecastability** | Products with average demand per period since launch/first order in history < 0.5, such as slow sellers and long tail products. | 30 Slow Sellers/Long Tail Products/Sporadic sellers with average demand per period since launch/first order in history < 0.5. | 
-| 3 | **Provide input on products with continuous periods of zero sales** | Active products/product-sites with zero orders in the last year that may need discontinuation or scope adjustment. | 100 Active product/product-site with zero orders in last 1 year. | 
-| 4 | **Provide reasoning for intermittent gaps in historical demand** | Random/non-repeating demand spikes and demand drops in history with no correlated causals (related time series). | Unexplained, intermittent periods of no sales (e.g., random/non-repeating demand spikes or demand drop in history with no correlated causals). | 
-| 5 | **Validate "known" global events** | One-time anomalies that coincide with known global disruptions or major differences in trend levels during specific periods. | One-time anomalies that coincide with known global disruptions/Major Difference in trend levels for 100 products during 2020-2021 periods coinciding with COVID. | 
-| 6 | **Provide causals/events for high-variability products** | Products exhibiting high variability in historical demand and "flat" forecast outputs. | 26 products exhibit High Variability in historical demand and "flat" forecast outputs. | 
+| 1 | Provide input for new products/sites | Products launched recently with zero or limited history and no product lineage data available. | 25 products launched in the last 2 months have zero or limited history and no product lineage data available. | 
+| 2 | Provide input on products with extremely low forecastability | Products with average demand per period since launch/first order in history < 0.5, such as slow sellers and long tail products. | 30 Slow Sellers/Long Tail Products/Sporadic sellers with average demand per period since launch/first order in history < 0.5. | 
+| 3 | Provide input on products with continuous periods of zero sales | Active products/product-sites with zero orders in the last year that may need discontinuation or scope adjustment. | 100 Active product/product-site with zero orders in last 1 year. | 
+| 4 | Provide reasoning for intermittent gaps in historical demand | Random/non-repeating demand spikes and demand drops in history with no correlated causals (related time series). | Unexplained, intermittent periods of no sales (e.g., random/non-repeating demand spikes or demand drop in history with no correlated causals). | 
+| 5 | Validate “known” global events | One-time anomalies that coincide with known global disruptions or major differences in trend levels during specific periods. | One-time anomalies that coincide with known global disruptions/Major Difference in trend levels for 100 products during 2020-2021 periods coinciding with COVID. | 
+| 6 | Provide causals/events for high-variability products | Products exhibiting high variability in historical demand and “flat” forecast outputs. | 26 products exhibit High Variability in historical demand and “flat” forecast outputs. | 
 
 ## Completing a Plan improvement action
 <a name="plan-improvement-actions-completing"></a>
 
-You provide input through the Supply Chain Decisions Teammate, which allows you to share business context for multiple products through natural language conversation.
+You provide input through the AI teammate, which allows you to share business context for multiple products through natural language conversation.
 
-### Using the Supply Chain Decisions Teammate
-<a name="plan-improvement-actions-using-teammate"></a>
+### Using the AI Supply Chain Teammate
+<a name="plan-improvement-actions-using-ai-teammate"></a>
 
 1. From the Plan Improvement Actions tab, choose View on the action you want to address.
 
-1. The Supply Chain Decisions Teammate panel opens on the right side of the screen, contextual to the selected action topic.
+1. The AI supply chain teammate panel opens on the right side of the screen, contextual to the selected action topic.
 
 1. The agent will ask clear and specific questions about the products in scope. For example:
-   + "What is the reason for the one-time 4x spike in demand for Product X in Feb 2024?"
-   + "Do you expect this event to recur?"
+   + “What is the reason for the one-time 4x spike in demand for Product X in Feb 2024?”
+   + “Do you expect this event to recur?”
 
 1. Provide your response in natural language. The agent will:
    + Clarify through follow-up questions if needed (e.g., if your previous input contradicts new input)
    + Intelligently manage and prevent redundant questions (enabled by smart memory)
-   + Present hypotheses for you to validate (e.g., "Should I treat this as promo uplift or true spike?")
+   + Present hypotheses for you to validate (e.g., “Should I treat this as promo uplift or true spike?”)
 
 1. When you have finished providing input for all product-sites in scope, the action status changes to Closed.
 
 **Note**  
-You can also initiate a conversation with the agent to provide input proactively, even without navigating from a specific action. For example, you can ask "Why do I see a zero forecast for the entire forecast horizon for product XX?"
+You can also initiate a conversation with the agent to provide input proactively, even without navigating from a specific action. For example, you can ask “Why do I see a zero forecast for the entire forecast horizon for product XX?”
 
 **Note**  
 If 10 products have similar input, the system groups them together as Agent groups to help simplify and ease planner actions.
@@ -94,8 +94,8 @@ Plan improvement actions have the following status lifecycle:
 
 | Status | Description | 
 | --- | --- | 
-| **Open** | The action has been detected and surfaced but no planner input has been provided yet. | 
-| **Closed** | The planner has provided input through the Supply Chain Decisions Teammate, covering all product-sites in scope. | 
+| Open | The action has been detected and surfaced but no planner input has been provided yet. | 
+| Closed | The planner has provided input through the AI teammate, covering all product-sites in scope. | 
 
 **Tracking overall progress:**
 + The system continuously tracks closed versus open actions after every plan run.
@@ -105,12 +105,9 @@ Plan improvement actions have the following status lifecycle:
 <a name="plan-improvement-actions-how-input-improves-forecasts"></a>
 
 Your input from Plan improvement actions is seamlessly integrated into three key areas:
-
-1. **Refinement of demand planning rules** - For example, your input on the reason for long periods of missing demand results in the product being removed from planning scope (product discontinuation).
-
-1. **Enriching forecast inputs with causal data** - Enriching forecast inputs with causal data/Related Time Series (RTS) constructed based on your provided business context in natural language (e.g., automatically constructing a related time series for a recurring promotion).
-
-1. **Capturing business rules** - Helps capture business rules unique to a select pattern of products (e.g., exclude from forecasting products with less than 3 orders).
++ **Refinement of demand planning rules** - For example, your input on the reason for long periods of missing demand results in the product being removed from planning scope (product discontinuation).
++ **Enriching forecast inputs with causal data** - Enriching forecast inputs with causal data/Related Time Series (RTS) constructed based on your provided business context in natural language (e.g., automatically constructing a related time series for a recurring promotion).
++ **Capturing business rules** - Helps capture business rules unique to a select pattern of products (e.g., exclude from forecasting products with less than 3 orders).
 
 Your inputs can result in different types of plan configuration updates, including:
 + **Upload Product Lineage or Site Lineage Data** - Ingest Product Alternate, Site Alternate, or Product-Site Alternate data
@@ -120,5 +117,5 @@ Your inputs can result in different types of plan configuration updates, includi
 
 ## Best practices
 <a name="plan-improvement-actions-best-practices"></a>
-+ **Provide context, not just answers** - When using the Supply Chain Decisions Teammate, explain the business reasoning behind your input. This helps the agent learn generalizable patterns.
++ **Provide context, not just answers** - When using the AI teammate, explain the business reasoning behind your input. This helps the agent learn generalizable patterns.
 + **Review actions each planning cycle** - New actions are generated with each plan run as new data is ingested. Regular review ensures your forecasts continuously improve.

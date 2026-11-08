@@ -1,27 +1,27 @@
 
 
-# Other Capabilities from Supply Chain Decisions Teammate
-<a name="other-capabilities-from-supply-chain-decisions-teammate"></a>
+# Other Capabilities from the AI Supply Chain Teammate
+<a name="other-capabilities-from-the-ai-supply-chain-teammate"></a>
 
-The Supply Chain Decisions Teammate, located at the chat interface (right panel) in Plans, goes beyond basic forecast explanations and edits. It provides advanced analytical capabilities to help you understand your demand patterns, identify issues, and make data-driven decisions.
+The AI supply chain teammate, located at the chat interface (right panel) in Plans, goes beyond basic forecast explanations and edits. It provides advanced analytical capabilities to help you understand your demand patterns, identify issues, and make data-driven decisions.
 
 ## Retrieving Top Products by Sales
 <a name="other-capabilities-retrieving-top-products-by-sales"></a>
-+ You can ask the Supply Chain Decisions Teammate to identify your highest-performing products.
++ You can ask the AI teammate to identify your highest-performing products.
 + Example query: "Show me the top 10 products by sales volume for Q4 2025"
-+ The teammate will analyze your historical sales data and present the products ranked by sales performance, helping you focus your planning efforts on the most critical items.
++ The AI teammate will analyze your historical sales data and present the products ranked by sales performance, helping you focus your planning efforts on the most critical items.
 
 ## Analyzing Forecast Accuracy Across Important SKUs
 <a name="other-capabilities-analyzing-forecast-accuracy-across-important-skus"></a>
-+ The teammate can perform detailed forecast accuracy analysis for your key products.
++ The AI teammate can perform detailed forecast accuracy analysis for your key products.
 + Example query: "Analyze forecast accuracy for my top 20 SKUs over the past 3 months"
 + The system will evaluate multiple accuracy metrics (MAPE, WAPE, RMSE, Bias, and MAE) and provide insights into which products have reliable forecasts and which require attention.
 
 ## Recommended Next Steps for Improving Forecasts
 <a name="other-capabilities-recommended-next-steps-for-improving-forecasts"></a>
 
-When the teammate identifies forecast quality issues, it can recommend specific actions, such as adding contextual data.
-+ If forecasts show high error, the teammate may recommend:
+When the AI teammate identifies forecast quality issues, it can recommend specific actions, such as adding contextual data.
++ If forecasts show high error, the AI teammate may recommend:
   + Supplementary time series data: Add promotional calendars, pricing changes, or holiday indicators
   + Product lifecycle information: Include product launch dates or discontinuation dates
   + Demand drivers: Incorporate marketing spend, inventory availability, or competitor actions
@@ -29,9 +29,9 @@ When the teammate identifies forecast quality issues, it can recommend specific 
 
 ## Pattern Analysis Across Multiple Products
 <a name="other-capabilities-pattern-analysis-across-multiple-products"></a>
-+ The Supply Chain Decisions Teammate can identify systemic issues affecting multiple products.
++ The AI teammate can identify systemic issues affecting multiple products.
 + Example query: "Are there any common patterns causing forecast errors across my winter apparel category?"
-+ The teammate will analyze forecast performance across product groups and identify:
++ The AI teammate will analyze forecast performance across product groups and identify:
   + Seasonal patterns that the model may be missing
   + Common demand drivers affecting multiple products
   + Systematic biases (over-forecasting or under-forecasting trends)
@@ -39,12 +39,12 @@ When the teammate identifies forecast quality issues, it can recommend specific 
 
 ## Creating Visualizations for Forecast Scenarios
 <a name="other-capabilities-creating-visualizations-for-forecast-scenarios"></a>
-+ The teammate can generate graphs and charts to help you visualize potential forecast scenarios:
++ The AI teammate can generate graphs and charts to help you visualize potential forecast scenarios:
   + Baseline vs. adjusted forecasts: Compare the AI-generated forecast with your proposed changes
   + Historical actuals vs. forecasts: Visualize past forecast accuracy to build confidence
   + What-if scenarios: Show how different assumptions (promotions, price changes, inventory levels) would impact future demand
 + Example query: "Create a graph showing how the forecast for Product GHI would look with a 20% promotional discount in March 2026"
-+ The teammate will generate visualizations that help you:
++ The AI teammate will generate visualizations that help you:
   + Communicate forecast assumptions to stakeholders
   + Evaluate the impact of business decisions on demand
   + Compare multiple planning scenarios side-by-side
@@ -52,9 +52,9 @@ When the teammate identifies forecast quality issues, it can recommend specific 
 
 ## Continuous Improvement Through Feedback
 <a name="other-capabilities-continuous-improvement-through-feedback"></a>
-+ You can provide feedback to help the teammate improve future forecasts.
++ You can provide feedback to help the AI teammate improve future forecasts.
 + Example feedback:
   + "The model should give more weight to recent trends for fast-fashion products"
   + "Holiday seasonality patterns have changed; please adjust accordingly"
   + "When inventory is low, historical sales understate true demand"
-+ The teammate uses this feedback to refine its recommendations and help you build more accurate forecasts over time.
++ The AI teammate uses this feedback to refine its recommendations and help you build more accurate forecasts over time.

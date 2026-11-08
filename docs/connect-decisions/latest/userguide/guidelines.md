@@ -19,21 +19,21 @@ Guidelines provide context and constraints that influence how the system:
 + Prioritizes remediation approaches based on your business rules
 + Adapts guidance to your operational environment and supply chain constraints
 
-## Working with your onboarding teammate
-<a name="guidelines-working-with-onboarding-teammate"></a>
+## Working with your AI supply chain teammate
+<a name="guidelines-working-with-teammate"></a>
 
-Use your onboarding teammate to create and refine guidelines conversationally. Ask questions like:
+Use your AI supply chain teammate to create and refine guidelines conversationally. Ask questions like:
 + “Create a guideline to prioritize replenishment for high-velocity SKUs during promotional periods”
 + "Add a guideline to flag slow-moving inventory exceeding 45 days of cover for markdown review"
 + "Can we create a guideline that ensures minimum order quantities align with vendor lead times?"
 
-Share your standard operating procedures or business policies to help the teammate understand your requirements. The teammate analyzes your inputs and translates them into guidelines and guardrails that shape AI teammate’s behavior.
+Share your standard operating procedures or business policies to help the AI teammate understand your requirements. The AI teammate analyzes your inputs and translates them into guidelines and guardrails that shape its behavior.
 
 ## Creating Guidelines
 <a name="guidelines-creating"></a>
 
 To create a new guideline, you can either:
-+ **Use natural language**: Ask the onboarding teammate to create guidelines for you. For example: "Create a guideline that prioritizes inventory reduction strategies over expedited shipping when addressing excess inventory."
++ **Use natural language**: Ask the AI teammate to create guidelines for you. For example: "Create a guideline that prioritizes inventory reduction strategies over expedited shipping when addressing excess inventory."
 + **Use the Create Guideline button**: Click **Add guidelines** to define parameters directly.
 
 ## Example Guidelines
@@ -46,7 +46,7 @@ To create a new guideline, you can either:
 ## Reviewing and Editing Guidelines
 <a name="guidelines-reviewing-and-editing"></a>
 
-Select any guideline to view its configuration. Work with the onboarding teammate to understand how the guideline influences insights. Ask questions like:
+Select any guideline to view its configuration. Work with the AI teammate to understand how the guideline influences insights. Ask questions like:
 + "How does this guideline affect recommendations for excess inventory insights?"
 + "Can we make this guideline more specific to A-class products?"
 + "Show me examples of recommendations before and after applying this guideline"
@@ -64,7 +64,7 @@ To preview a guideline's impact:
 
 1. Select **Preview** to generate the investigation output with the guideline applied.
 
-1. Iterate with your onboarding teammate — refine the guideline and preview again until the output matches your operational needs.
+1. Iterate with the AI teammate. Refine the guideline and preview again until the output matches your operational needs.
 
 1. When you are satisfied, set the guideline to **Ready** to apply it (see "Activating Guidelines" below).
 
@@ -75,7 +75,7 @@ Previewing lets you answer questions like "Show me examples of recommendations b
 
 Guidelines operate with a Draft/Ready status model:
 + Create and refine guidelines in **Draft** status to test their impact
-+ Iterate with the onboarding teammate until the guideline produces desired behavior
++ Iterate with the AI teammate until the guideline produces desired behavior
 + Change status to **Ready** to apply the guideline to all future root cause analysis and recommendations
 + Click **Save changes** to activate
 

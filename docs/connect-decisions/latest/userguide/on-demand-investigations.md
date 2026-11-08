@@ -3,7 +3,7 @@
 # On-demand Investigations
 <a name="on-demand-investigations"></a>
 
-Connect Customer Decisions automatically runs root cause analysis and recommendations for the insights it generates. Because this automatic processing is subject to a quota, an on-demand investigation lets you prioritize the specific exceptions that matter most to you — generating their root cause analysis and recommendations directly, even beyond what is automatically processed.
+Amazon Connect Decisions automatically runs root cause analysis and recommendations for the insights it generates. Because this automatic processing is subject to a quota, an on-demand investigation lets you prioritize exceptions that matter most to you — generating their root cause analysis and recommendations even if you’ve already reached your automatic processing quota.
 
 ## When to use an On-demand investigation
 <a name="on-demand-investigations-when-to-use"></a>
@@ -20,11 +20,11 @@ On the Insights page, the Root Cause Analysis status of each insight tells you w
 
 ### Running an on-demand investigation
 <a name="on-demand-investigations-running"></a>
-
-1. On the Insights page, locate an insight that has not been automatically processed.
-
-1. Open the insight, or use its actions menu, and click the button Investigate (on top right).
-
-1. The system begins the investigation. Root cause analysis and recommendations populate on the Insight Details page once the investigation completes. User is notified via the Notifications (bell icon on top right).
-
-1. Review the generated root cause analysis and recommendations, and act on them as you would for any other insight (see [Acting on Recommendations](acting-on-recommendations.html)).
++ On the Insights page, locate an insight that has not been automatically processed.
++ Open the Insight and click the Investigate button near the top right.
+  + You can also select multiple Insights and start investigations for all of them at once.
++ Once you click the button, Amazon Connect Decisions will investigate and determine the root cause for the Insight and then provide recommendations. Depending on complexity, this should take between 3-15 minutes.
++ When the investigation is complete, you’ll see email and in-app notifications.
+  + The in-app notifications can be accessed on the notifications screen by clicking the bell icon in the top-right.
+  + These notifications can be disabled in settings.
++ Review the generated root cause analysis and recommendations, and act on them as you would for any other insight (see [Acting on Recommendations](acting-on-recommendations.html)).
