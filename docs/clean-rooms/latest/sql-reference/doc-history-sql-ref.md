@@ -9,6 +9,7 @@ For notification about updates to this documentation, you can subscribe to the R
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Corrected unsupported operators in Spark SQL](https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/OPERATOR_SYMBOLS.html) | Removed the `^` operator, which AWS Clean Rooms Spark SQL doesn't support. Use the POWER function for exponentiation. | October 30, 2026 | 
 | [Nested data types supported for Amazon Athena data sources](https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/s_Supported_data_types.html) | Nested data types (ARRAY, MAP, and STRUCT) are now supported for Amazon Athena data sources in AWS Clean Rooms Spark SQL. | September 30, 2026 | 
 | [Clarified nested data type limitation for Amazon Athena data sources](https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/s_Supported_data_types.html) | Clarified that nested data types (ARRAY, MAP, and STRUCT) are not supported for Amazon Athena data sources in AWS Clean Rooms Spark SQL. | July 23, 2026 | 
 | [Spark SQL supports Hints](https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/sql-commands-hints-spark.html) | AWS Clean Rooms Spark SQL supports query hints to optimize query performance and reduce compute costs. | January 20, 2026 | 

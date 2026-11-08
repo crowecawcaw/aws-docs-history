@@ -16,7 +16,9 @@
 | \*  | multiplication  | 2 \* 3  | 6  | 
 | /  | division  | 4 / 2  | 2  | 
 | %  | modulo  | 5 % 4  | 1  | 
-| ^  | exponentiation  | 2.0 ^ 3.0  | 8  | 
+
+**Note**  
+For exponentiation, use the POWER function, for example `POWER(2, 3)`. AWS Clean Rooms Spark SQL doesn't support the bitwise operators `&`, `|`, `^`, and `~`.
 
 ## Examples
 <a name="OPERATOR_SYMBOLS-examples"></a>
@@ -45,16 +47,16 @@ pricepaid | twentypct
 (1 row)
 ```
 
-Forecast ticket sales based on a continuous growth pattern. In this example, the subquery returns the number of tickets sold in 2008. That result is multiplied exponentially by a continuous growth rate of 5 percent over 10 years. 
+Forecast ticket sales based on a compound growth pattern. In this example, the subquery returns the number of tickets sold in 2008. That result is multiplied by an annual growth rate of 5 percent, compounded over 10 years. 
 
 ```
 select (select sum(qtysold) from sales, date
 where sales.dateid=date.dateid and year=2008)
-^ ((5::float/100)*10) as qty10years;
+* power(1.05, 10) as qty10years;
 
 qty10years
 ------------------
-587.664019657491
+562537.1304629629
 (1 row)
 ```
 
