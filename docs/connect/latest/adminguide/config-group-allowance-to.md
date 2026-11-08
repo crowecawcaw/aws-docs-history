@@ -29,6 +29,7 @@ You use a .csv file to quickly specify time off allowances at a hourly level, fo
 1. When you add your time off data to the template, note the following:
    + Do not change the top row of the .csv file template.
    + In the **Time off activities** column, separate multiple activities with two pipes **\|\|**.
+   + Connect Customer interprets the **Start time** and **End time** values in the .csv file as UTC and stores them as-is. Connect Customer converts these UTC times to the local time zone for display in the Published Calendar and when agents apply for time off. If your instance uses a time zone that observes Daylight saving time (DST), enter the timestamps in UTC to avoid display offsets. For example, to show an allowance window of `08:00`–`17:00` BST (UTC\+1), enter `07:00`–`16:00` in the .csv file.
    + The **Start time** and **End time** must have a one-hour duration and set as multiples of 15 minutes. If they do not meet these criteria, the validation will fail when you attempt to upload your .csv file. The following example shows the error message that you might encounter: 
 
      `Column START_TIME value [2023-08-15T05:01:00] is not a multiple of 15 minutes from top of the hour, such as HH:00, HH:15, HH:30 and HH:45`

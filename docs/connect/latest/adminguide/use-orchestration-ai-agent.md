@@ -44,4 +44,13 @@ I'd be happy to help you. Let me see what I can do.
 </message>
 ```
 
+Tell your AI agent to say it's an AI when it first introduces itself and whenever a customer asks. For example:
+
+```
+User: "Am I talking to a real person?"
+<message>
+No, I'm an AI that answers questions for [business name]. How can I help with your account?
+</message>
+```
+
 You can use multiple `<message>` tags in a single response to provide an initial message for immediate acknowledgment while the agent processes the request, then follow up with additional messages containing results or updates. This improves the customer experience by providing instant feedback and breaking information into logical chunks.

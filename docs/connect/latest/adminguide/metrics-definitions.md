@@ -2136,6 +2136,23 @@ This metric measures the average amount of time spent to resolve a case during t
 
 For a list of all case driven metrics, see [Connect Customer Cases metrics](case-management-metrics.md).
 
+## Average connected to agent time (observed)
+<a name="average-connected-to-agent-time-observed"></a>
+
+This metric measures the average time a contact was connected to an agent per segment, including hold time, counted only within the requested interval. Each connected segment is clipped to the interval boundaries before averaging, so a segment that starts before the interval or ends after it contributes only the portion of time that falls inside the interval.
+
+For more information, see [Observed metrics](observed-metrics-concepts.md).
+
+**Metric type**: Double
+
+**Metric category**: Contact observed metric (Contact Event Stream-driven)
+
+**How to access using the Connect Customer API**: 
++ [GetMetricDataV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html) API: `AVG_CONNECTED_TO_AGENT_TIME_OBSERVED`
+
+**Calculation logic**: 
++ Average, over the interval, of the time each contact segment was connected to an agent, with each segment clipped to the interval boundaries.
+
 ## Average contact duration
 <a name="average-contact-duration"></a>
 
@@ -2624,6 +2641,23 @@ This metric measures the average time that agents spent interacting with a custo
   + If Agent.AgentInteractionDuration is present, then set result = Agent.AgentInteractionDuration.
 + Return final\_result = average of the result values across all outbound contact records.
 
+## Average pause time (observed)
+<a name="average-pause-time-observed"></a>
+
+This metric measures the average time a task was paused per segment, counted only within the requested interval. Applies to contacts that support pause, such as tasks. Each paused segment is clipped to the interval boundaries before averaging, so a segment that starts before the interval or ends after it contributes only the portion of time that falls inside the interval.
+
+For more information, see [Observed metrics](observed-metrics-concepts.md).
+
+**Metric type**: Double
+
+**Metric category**: Contact observed metric (Contact Event Stream-driven)
+
+**How to access using the Connect Customer API**: 
++ [GetMetricDataV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html) API: `AVG_PAUSE_TIME_OBSERVED`
+
+**Calculation logic**: 
++ Average, over the interval, of the time each task segment was paused, with each segment clipped to the interval boundaries.
+
 ## Average queue abandon time
 <a name="average-queue-abandon-time"></a>
 
@@ -2761,6 +2795,23 @@ Average queue answer time also includes the time during the agent whisper becaus
 
 **How to access using the Connect Customer admin website**: 
 + Dashboard: [Intraday forecast performance dashboard](intraday-forecast-performance-dashboard.md)
+
+## Average queue time (observed)
+<a name="average-queue-time-observed"></a>
+
+This metric measures the average time a contact was in queue per segment, counted only within the requested interval. Each queued segment is clipped to the interval boundaries before averaging, so a segment that starts before the interval or ends after it contributes only the portion of time that falls inside the interval.
+
+For more information, see [Observed metrics](observed-metrics-concepts.md).
+
+**Metric type**: Double
+
+**Metric category**: Contact observed metric (Contact Event Stream-driven)
+
+**How to access using the Connect Customer API**: 
++ [GetMetricDataV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html) API: `AVG_QUEUE_TIME_OBSERVED`
+
+**Calculation logic**: 
++ Average, over the interval, of the time each contact segment was in queue, with each segment clipped to the interval boundaries.
 
 ## Average resolution time
 <a name="average-resolution-time"></a>
@@ -3817,6 +3868,23 @@ The count of contacts handled by an agent who consulted with another agent in Co
 **How to access using the Connect Customer API**: 
 + [GetMetricData](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html) API metric identifier: `CONTACTS_CONSULTED`
 
+## Contacts connected to agent (observed)
+<a name="contacts-connected-to-agent-observed"></a>
+
+This metric measures the number of times contacts were connected to an agent, including time on hold, during the requested interval. Each connected segment is counted if any portion of its connected time falls within the interval, whether the segment started before, ended after, or was fully contained within it.
+
+For more information, see [Observed metrics](observed-metrics-concepts.md).
+
+**Metric type**: Integer
+
+**Metric category**: Contact observed metric (Contact Event Stream-driven)
+
+**How to access using the Connect Customer API**: 
++ [GetMetricDataV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html) API: `CONTACTS_CONNECTED_TO_AGENT_OBSERVED`
+
+**Calculation logic**: 
++ Count of contact segments connected to an agent across the requested interval.
+
 ## Contacts disconnected
 <a name="contacts-disconnected"></a>
 
@@ -3837,6 +3905,30 @@ This metric counts the number of contacts that were disconnected by the customer
   + If PreDisconnectState is present AND PreDisconnectState == "IN\_QUEUE", then count this record as 1.
   + Else, skip this record.
 + Return final\_result = sum of the counts across all contacts.
+
+## Contacts deferred service level (observed)
+<a name="contacts-deferred-service-level-observed"></a>
+
+This metric measures the percentage of contacts that disconnected during the interval within the requested threshold of being initiated, out of all contacts observed in queue, connected to an agent, or paused whose time in those states overlaps the interval. A contact counts toward the percentage only when its last state before it disconnects is connected to an agent or paused. A contact that disconnects while it is still in queue counts toward the total but not toward the percentage. You set the threshold in seconds on the metric request.
+
+For more information, see [Observed metrics](observed-metrics-concepts.md).
+
+**Metric type**: Double
++ Min value: 0.00%
++ Max value: 100.00%
+
+**Metric category**: Contact observed metric (Contact Event Stream-driven)
+
+**How to access using the Connect Customer API**: 
++ [GetMetricDataV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html) API: `CONTACTS_DEFERRED_SERVICE_LEVEL_OBSERVED`
+
+**Calculation logic**: 
++ 100 \* (Sum of contacts completed within threshold / Unique contacts observed in queue, connected to an agent, or paused)
++ Contacts completed within threshold: for each connected-to-agent or paused segment, the result is 1 when all of the following are true, else 0:
+  + The segment is the last segment of the contact.
+  + The contact disconnected within the requested interval.
+  + The time from contact initiation to disconnect is within the threshold.
++ Unique contacts observed in queue, connected to an agent, or paused: the number of unique contacts that have a queued, connected-to-agent, or paused segment whose time overlaps the requested interval.
 
 ## Contacts handled
 <a name="contacts-handled"></a>
@@ -4064,6 +4156,23 @@ In the real-time metrics report, when queue size is greater than 95% of capacity
 + Real-time metrics reports: In queue
 + Dashboard: Queue size
 
+## Contacts in queue (observed)
+<a name="contacts-in-queue-observed"></a>
+
+This metric measures the number of times contacts were in queue during the requested interval. Each queued segment is counted if any portion of its time in queue falls within the interval, whether the segment started before, ended after, or was fully contained within it.
+
+For more information, see [Observed metrics](observed-metrics-concepts.md).
+
+**Metric type**: Integer
+
+**Metric category**: Contact observed metric (Contact Event Stream-driven)
+
+**How to access using the Connect Customer API**: 
++ [GetMetricDataV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html) API: `CONTACTS_IN_QUEUE_OBSERVED`
+
+**Calculation logic**: 
++ Count of contact segments in queue across the requested interval.
+
 ## Contacts incoming
 <a name="contacts-incoming"></a>
 
@@ -4085,6 +4194,40 @@ This metric counts the incoming contacts, including inbound contacts and transfe
 
 **Notes**:
 + Multiple join attempts don't increase this number for an agent, that is, a missed connection attempt for an agent does not populate this metric for that agent.
+
+## Contacts initiated (observed)
+<a name="contacts-initiated-observed"></a>
+
+This metric measures the number of contacts in the initiated state, before being queued or connected to an agent, during the requested interval. A contact is counted if any portion of its time in the initiated state falls within the interval, whether it started before, ended after, or was fully contained within it.
+
+For more information, see [Observed metrics](observed-metrics-concepts.md).
+
+**Metric type**: Integer
+
+**Metric category**: Contact observed metric (Contact Event Stream-driven)
+
+**How to access using the Connect Customer API**: 
++ [GetMetricDataV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html) API: `CONTACTS_INITIATED_OBSERVED`
+
+**Calculation logic**: 
++ Count of contacts in the initiated state across the requested interval.
+
+## Contacts on pause (observed)
+<a name="contacts-on-pause-observed"></a>
+
+This metric measures the number of times tasks were paused during the requested interval. Each paused segment is counted if any portion of its paused time falls within the interval, whether the segment started before, ended after, or was fully contained within it. This metric applies to tasks only.
+
+For more information, see [Observed metrics](observed-metrics-concepts.md).
+
+**Metric type**: Integer
+
+**Metric category**: Contact observed metric (Contact Event Stream-driven)
+
+**How to access using the Connect Customer API**: 
++ [GetMetricDataV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html) API: `CONTACTS_ON_PAUSE_OBSERVED`
+
+**Calculation logic**: 
++ Count of task segments paused across the requested interval.
 
 ## Contacts put on hold
 <a name="contacts-put-on-hold"></a>

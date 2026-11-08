@@ -667,6 +667,10 @@ Type: [Endpoint](#ctr-endpoint)
 [Tags](granular-billing.md) associated with the contact. This contains both AWS generated and user-defined tags.   
 Type: String to string map
 
+**Cases**  
+A list of cases associated with the contact. This field is populated when one or more cases have been linked to the contact.  
+Type: Array of [CaseEntry](#ctr-CaseEntry)
+
 **GlobalResiliencyMetadata**  
 Information about the global resiliency configuration for the contact, including traffic distribution details.  
 Type: [GlobalResiliencyMetadata](#ctr-GlobalResiliencyMetadata)
@@ -975,6 +979,21 @@ Type: String (*yyyy-mm-dd*T*hh:mm:ss*Z)
 The path where evaluation was exported.   
 Type: String  
 Length: 0-256
+
+## CaseEntry
+<a name="ctr-CaseEntry"></a>
+
+Information about a case associated with a contact.
+
+**CaseId**  
+Unique identifier of the case in UUID format.  
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 36.
+
+**CaseReferenceNumber**  
+A friendly number for the case. Reference numbers are not guaranteed to be unique.  
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 50.
 
 ## MediaStream
 <a name="MediaStream"></a>

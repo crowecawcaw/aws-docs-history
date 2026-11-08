@@ -158,6 +158,7 @@ All the Cases quotas are at the Account level.
 | Case fields per case layout | 100 | No | 
 |  SLAs that can be attached to a case | 10 | Yes | 
 | Fields in a Custom type related item | 5 | Yes | 
+| Cases associated with a contact | 64 | No | 
 
 ## Conversational analytics service quotas
 <a name="contactlens-quotas"></a>

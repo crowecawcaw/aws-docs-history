@@ -621,6 +621,28 @@ The turns in completed conversations for which the invoking resource (flow or fl
 
 **Supported Statistics:** SUM, AVG, MIN, and MAX
 
+## Contact Segment Count
+<a name="contact-segment-count-definition"></a>
+
+This metric counts contact segments of a given state. A segment is one state a contact passed through, such as queued, connected to an agent, or paused. To create a custom metric that counts specific segments, filter this primitive by the desired segment type. This primitive counts each segment that overlaps the requested interval, whether the segment is still open or has ended. For more information, see [Observed metrics](observed-metrics-concepts.md).
+
+**Metric Primitive Name:** `Contact segment count`
+
+**Metric Primitive Category:** Contact observed
+
+**Supported Statistics:** COUNT
+
+## Contact Segment Time
+<a name="contact-segment-time-definition"></a>
+
+This metric measures the duration of contact segments in a given state. Filter by segment type to select the state to measure. Over an interval, each segment is clipped to the interval boundaries: a segment that starts before the interval or ends after it contributes only the portion of its duration that falls inside the interval. For more information, see [Observed metrics](observed-metrics-concepts.md).
+
+**Metric Primitive Name:** `Contact segment time`
+
+**Metric Primitive Category:** Contact observed
+
+**Supported Statistics:** AVG
+
 ## Metric level filters supported per metric primitive category
 <a name="supported-metric-filters"></a>
 
@@ -695,6 +717,12 @@ The turns in completed conversations for which the invoking resource (flow or fl
 - ** GenAI Evaluation **
   - **Metric Level Filter Key:** Channel / **Metric Level Filter Key Description:** How the contact reached your contact center. / **Metric Level Filter Values:** Valid values: Voice, Chat, Task, Email
   - **Metric Level Filter Key:** Metric score / **Metric Level Filter Key Description:** The raw score value from the business outcome evaluation question. / **Metric Level Filter Values:** For CSAT: 1, 2, 3, 4, 5. For all others: 0, 1
+
+- ** Contact observed **
+  - **Metric Level Filter Key:** Segment type / **Metric Level Filter Key Description:** The contact state the segment represents. / **Metric Level Filter Values:** Valid values: INITIATED, QUEUED, CONNECTED\_TO\_AGENT, PAUSED.
+  - **Metric Level Filter Key:** Channel / **Metric Level Filter Key Description:** How the contact reached your contact center. / **Metric Level Filter Values:** Valid values: Voice, Chat, Task, Email
+  - **Metric Level Filter Key:** Initiation method / **Metric Level Filter Key Description:** Indicates how the contact was initiated. / **Metric Level Filter Values:** Example: INBOUND, OUTBOUND, TRANSFER, QUEUE\_TRANSFER, CALLBACK, API.
+  - **Metric Level Filter Key:** Subtype / **Metric Level Filter Key Description:** The subtype of the channel used for the contact. / **Metric Level Filter Values:** For valid values, see the **connect:Subtype** table row in the [SegmentAttributes](https://docs.aws.amazon.com/connect/latest/adminguide/connect-attrib-list.html#attribs-segment-attributes) section.
 
 
 
@@ -792,6 +820,13 @@ The turns in completed conversations for which the invoking resource (flow or fl
   - **Grouping Key:** QUEUE / **Grouping Dashboard Display Name:** Queue
   - **Grouping Key:** REPEAT\_CALLER / **Grouping Dashboard Display Name:** Repeat caller
   - **Grouping Key:** ROUTING\_PROFILE / **Grouping Dashboard Display Name:** Routing profile
+
+- ** Contact observed **
+  - **Grouping Key:** AGENT / **Grouping Dashboard Display Name:** Agent
+  - **Grouping Key:** CHANNEL / **Grouping Dashboard Display Name:** Channel
+  - **Grouping Key:** QUEUE / **Grouping Dashboard Display Name:** Queue
+  - **Grouping Key:** ROUTING\_PROFILE / **Grouping Dashboard Display Name:** Routing profile
+  - **Grouping Key:** contact/segmentAttributes/connect:Subtype / **Grouping Dashboard Display Name:** Subtype
 
 
 
@@ -892,6 +927,13 @@ The turns in completed conversations for which the invoking resource (flow or fl
   - **Top Level Filter Key:** QUEUE / **Top Level Filter Dashboard Display Name:** Queue / **Filter Key Description:** Valid inputs to this key are Queue ARNs
   - **Top Level Filter Key:** REPEAT\_CALLER / **Top Level Filter Dashboard Display Name:** Repeat caller / **Filter Key Description:** 
   - **Top Level Filter Key:** ROUTING\_PROFILE / **Top Level Filter Dashboard Display Name:** Routing profile / **Filter Key Description:** Valid input is Routing Profile ARNs.
+
+- ** Contact observed **
+  - **Top Level Filter Key:** AGENT / **Top Level Filter Dashboard Display Name:** Agent / **Filter Key Description:** Valid input to this key is Agent ARNs.
+  - **Top Level Filter Key:** CHANNEL / **Top Level Filter Dashboard Display Name:** Channel / **Filter Key Description:** Valid values: Voice, Chat, Task, Email
+  - **Top Level Filter Key:** QUEUE / **Top Level Filter Dashboard Display Name:** Queue / **Filter Key Description:** Valid input to this key is Queue ARNs.
+  - **Top Level Filter Key:** ROUTING\_PROFILE / **Top Level Filter Dashboard Display Name:** Routing profile / **Filter Key Description:** Valid input to this key is Routing Profile ARNs.
+  - **Top Level Filter Key:** contact/segmentAttributes/connect:Subtype / **Top Level Filter Dashboard Display Name:** Subtype / **Filter Key Description:** For valid values, see the **connect:Subtype** table row in the [SegmentAttributes](https://docs.aws.amazon.com/connect/latest/adminguide/connect-attrib-list.html#attribs-segment-attributes) section.
 
 
 

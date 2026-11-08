@@ -77,6 +77,7 @@ The AfterContactWorkEndTimestamp might show discrepancies.
 + [Expiry](#Expiry)
 + [Expression](#Expression)
 + [GlobalResiliencyMetadata](#GlobalResiliencyMetadata)
++ [CaseEntry](#ces-CaseEntry)
 + [QueueInfo](#QueueInfo)
 + [RoutingCriteria](#RoutingCriteria)
 + [Steps](#Steps)
@@ -314,6 +315,10 @@ Type: [ParticipantMetrics](#participantmetrics) object
 Information about agent interactions in a contact.  
 Type: [ParticipantMetrics](#participantmetrics) object
 
+**Cases**  
+A list of cases associated with the contact. This field is populated when one or more cases have been linked to the contact.  
+Type: Array of [CaseEntry](#ces-CaseEntry) objects
+
 **GlobalResiliencyMetadata**  
 Information about the global resiliency configuration for the contact, including traffic distribution details.  
 Type: [GlobalResiliencyMetadata](#GlobalResiliencyMetadata) object
@@ -386,6 +391,21 @@ Length Constraints: Minimum length of 0. Maximum length of 1024.
 The identifier of the traffic distribution group.  
 Type: String  
 Pattern: `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$`
+
+### CaseEntry
+<a name="ces-CaseEntry"></a>
+
+Information about a case associated with a contact.
+
+**CaseId**  
+Unique identifier of the case in UUID format.  
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 36.
+
+**CaseReferenceNumber**  
+A friendly number for the case. Reference numbers are not guaranteed to be unique.  
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 50.
 
 ### QueueInfo
 <a name="QueueInfo"></a>

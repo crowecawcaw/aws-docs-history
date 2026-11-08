@@ -52,7 +52,7 @@ Note the following about the analyzed file:
                     "RuleId": "cccccccc-9529-4249-a1d4-5738b4883748"
                 }
             ]
-        },
+        }
     ]
   },
   "LanguageCode": "en-US",
@@ -431,7 +431,7 @@ In this example, `RedactionMaskMode` is set to PII. When an entity is redacted, 
                     "RuleId": "cccccccc-9529-4249-a1d4-5738b4883748"
                 }
             ]
-        },
+        }
     ]
   },
   "LanguageCode": "en-US",

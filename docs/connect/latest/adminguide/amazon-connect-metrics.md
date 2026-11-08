@@ -15,6 +15,7 @@ For detailed information about the activity of agents in your contact center, us
 **Topics**
 + [Metric definitions in Connect Customer](metrics-definitions.md)
 + [Custom metric primitives](metric-primitive-definitions.md)
++ [Observed metrics](observed-metrics-concepts.md)
 + [Assign permissions to view dashboards and reports in Connect Customer](dashboard-required-permissions.md)
 + [Dashboards in Connect Customer for getting contact center performance data](dashboards.md)
 + [Manager assist in Connect Customer](manager-assist.md)

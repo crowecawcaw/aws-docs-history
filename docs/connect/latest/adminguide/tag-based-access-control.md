@@ -17,7 +17,7 @@ For more detailed information on tag-based access control, see [Controlling acce
 
 A *resource* tag is a custom metadata label that you can add to a resource to make it easier to identify, organize, and find in a search. You can apply tags programmatically using the Connect Customer SDK/APIs, and for certain resources you can apply tags from within the Connect Customer console. To learn more about resource tags, see [Add tags to resources in Connect Customer](tagging.md).
 
-An access control tag is similar to a resource tag in that it uses the same *Key:value* structure. However, the distinction with an access control tag is that it introduces authorization controls that limit a user's access, to only specified resources containing resource tags with identical *Key:value* pairs. Access control tags are defined within security profiles, by first selecting the resource (routing profile, queue, users) for which to control access to, and then defining the *Key:value* pair to match on. Once a security profile with access control tags has been applied to a user, it will limit their access based on the defined combination of the selected resource(s) and access control tag(s) (*Key:value*). Without access control tags applied, a user will be able to see all resources if given permission to do so.
+An access control tag is similar to a resource tag in that it uses the same *Key:value* structure. However, the distinction with an access control tag is that it introduces authorization controls that limit a user's access, to only specified resources containing resource tags with identical *Key:value* pairs. Access control tags are defined within security profiles, by first selecting the resource (routing profile, queue, users, rules) for which to control access to, and then defining the *Key:value* pair to match on. Once a security profile with access control tags has been applied to a user, it will limit their access based on the defined combination of the selected resource(s) and access control tag(s) (*Key:value*). Without access control tags applied, a user will be able to see all resources if given permission to do so.
 
 To use tags to control access to resources within the admin website of your Connect Customer instance, you need to configure the access control section within a given security profile. For example, to control access to a routing profile based on the tags you've assigned to it, you would specify the routing profile as an access controlled resource, and then specify which tag *Key:value* pair you would like to enable access to.
 
@@ -57,7 +57,6 @@ As a best practice, you should disable access to the following resources/modules
 | Outbound Campaign | Campaigns - View | 
 | Prompts | Prompts - View | 
 | Quick connect | Quick connects - View | 
-| Rules | Rules - View | 
 | Saved reports | Saved reports - View | 
 | Scheduling | Schedule manager | 
 | Scheduling | Published schedule calendar | 

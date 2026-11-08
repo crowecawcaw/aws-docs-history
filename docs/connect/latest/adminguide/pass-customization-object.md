@@ -56,6 +56,7 @@ amazon_connect('customizationObject', {
             disableCustomerAttachments: true,
             alwaysHideToolbar: true,
             hide: false,
+            richTextEditorV2Enabled: false,
         },
         footer: {
             disabled:true,
@@ -117,6 +118,7 @@ The following table lists the supported customization fields and recommended val
 | `composer.disableEmojiPicker` | Boolean | Disables the emoji picker when using the [rich text editor.](enable-text-formatting-chat.md) | 
 | `composer.disableCustomerAttachments` | Boolean | Prevents customers from sending or uploading attachments. | 
 | `composer.hide` | Boolean | Hides the composer (`true`) or shows it (`false`). To toggle the composer based on events (such as when an agent joins), use `registerCallback` with the `hideComposer` method. For more information, see [Supported widget snippet fields in Connect Customer that are customizable](supported-snippet-fields.md).<pre>document.getElementById("amazon-connect-chat-widget-iframe").contentWindow.connect.ChatInterface.hideComposer(false)</pre> | 
+| `composer.richTextEditorV2Enabled` | Boolean | Specifies whether the widget uses an updated message composer when you turn on [rich text formatting](enable-text-formatting-chat.md). You get the same formatting options, with improved handling of predictive text and autocorrect on mobile keyboards. The default value is `false`. | 
 | `footer.disabled` | Boolean | Hides the default footer and **End chat** button. | 
 | `footer.skipCloseChatButton` | Boolean | Directly closes the widget on click of the **End chat** button instead of showing **Close** button. | 
 | `endChat.enableConfirmationDialog` | Boolean | Enables the End Chat confirmation dialog. Default texts are used if confirmationDialogText is not provided. | 

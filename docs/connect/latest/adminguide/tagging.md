@@ -48,6 +48,7 @@ The following table describes the Connect Customer resources that can be tagged 
 | Queues | Yes | Yes | Yes | 
 | Quick connects | No | Yes | Yes | 
 | Routing Profile | Yes | Yes | Yes | 
+| Rules | Yes | Yes | Yes | 
 | Security profile | Yes | Yes | Yes | 
 | Task template | No | No | Yes | 
 | Traffic distribution group | No | Yes | Yes | 

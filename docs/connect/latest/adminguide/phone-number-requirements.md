@@ -1666,23 +1666,21 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 
 
-
-- **Africa (Cape Town) **
-  - **Type of Number:** Local numbers:  / **Are there ID requirements?:** Yes / **Acceptable Identification:** Your business address. It must be a local address corresponding to the area code of the telephone number(s). Your Tax ID.
-  - **Type of Number:** Mobile numbers: / **Are there ID requirements?:** Yes / **Acceptable Identification:** Your business address in South Africa and proof of address such as one of the following documents:+  Excerpt from the commercial register showing the South Africa address <br />+  Utility bill <br />+  Tax notice <br />+  Rent receipt <br />+  Title deed 
-  - **Type of Number:** Toll-free prefixes: \+27 80 / **Are there ID requirements?:** Yes / **Acceptable Identification:** Your business address in South Africa, along with your tax ID, and a service description.
-  - **Type of Number:** Shared-Cost prefixes: \+27 860, \+27 861 / **Are there ID requirements?:** Yes / **Acceptable Identification:** Your business address in South Africa, along with your tax ID, and a service description.
-
-
+| Type of Number | Are there ID requirements? | Acceptable Identification | 
+| --- | --- | --- | 
+| Local numbers:  | Yes | Your business address. It must be a local address corresponding to the area code of the telephone number(s). Your Tax ID. | 
+| Mobile numbers: | Yes | Your business address in South Africa and proof of address such as one of the following documents:+  Excerpt from the commercial register showing the South Africa address <br />+  Utility bill <br />+  Tax notice <br />+  Rent receipt <br />+  Title deed  | 
+| Toll-free prefixes: \+27 80 | Yes | Your business address in South Africa, along with your tax ID, and a service description. | 
+| Shared-Cost prefixes: \+27 860, \+27 861 | Yes | Your business address in South Africa, along with your tax ID, and a service description. | 
 
 ### Number portability
 <a name="za-porting"></a>
 
 
 
-| Supported Regions | Portability windows | Required Documents | 
-| --- | --- | --- | 
-| Africa (Cape Town) | Monday–Friday 17:00–20:00 SAST | 1.  Last invoice. <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it. <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers.   | 
+| Portability windows | Required Documents | 
+| --- | --- | 
+| Monday–Friday 17:00–20:00 SAST | 1.  Last invoice. <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it. <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers.   | 
 
 ## South Korea (KR)
 <a name="southkorea-requirements"></a>

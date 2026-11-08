@@ -13,6 +13,9 @@ To learn how to create an IAM identity-based policy using these example JSON pol
 + [Grant "View User" permissions](#security_iam_id-based-policy-example-view-user-permissions)
 + [Allow users to integrate with external applications](#security_iam_id-based-policy-examples-integrate)
 + [Describe and update Connect Customer users based on tags](#security_iam_id-based-policy-examples-view-widget-tags)
++ [Allow batch and single-case operations for cases](#security_iam_id-based-policy-examples-allow-batch-case-and-single-case-actions)
++ [Allow only batch operations for cases](#security_iam_id-based-policy-examples-only-allow-batch-case-actions)
++ [Allow only single-case operations for cases](#security_iam_id-based-policy-examples-deny-batch-case-actions)
 + [Create Connect Customer users based on tags](#connect-access-control-resources-example1)
 + [Create and view Amazon AppIntegrations resources](#appintegration-resources-example1)
 + [Create and view Connect Customer agent assist Assistants](#wisdom-resources-example1)
@@ -180,6 +183,93 @@ The following sample policy allows the "describe" and "update" actions for users
 ------
 
 This policy allows "describe user" and "update user" but only for those Connect Customer users tagged with tag "Department: Test" where "Department" is the tag key and "Test" is the tag value. 
+
+## Allow batch and single-case operations for cases
+<a name="security_iam_id-based-policy-examples-allow-batch-case-and-single-case-actions"></a>
+
+The [BatchUpdateCase](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_BatchUpdateCase.html) and [BatchCreateRelatedItem](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_BatchCreateRelatedItem.html) operations use the same IAM actions as their single-case counterparts, `cases:UpdateCase` and `cases:CreateRelatedItem`. A policy that doesn't include the `cases:IsBatchAction` condition key allows both batch and single-case operations by default. Set the key to `true` to allow only batch operations, or set it to `false` to deny batch operations. Use this key to control which type of operation a policy allows.
+
+A policy that grants these actions without a `cases:IsBatchAction` condition allows both batch and single-case operations. With the following sample policy, you can update cases and create related items in both batch and single-case operations.
+
+```
+{
+    "Version": "2012-10-17", 		 	 	 
+    "Statement": [
+        {
+            "Sid": "AllowBatchAndSingleCaseActions",
+            "Effect": "Allow",
+            "Action": [
+                "cases:UpdateCase",
+                "cases:CreateRelatedItem"
+            ],
+            "Resource": "arn:aws:cases:{{region}}:{{account-id}}:domain/{{domain-id}}/case/*"
+        }
+    ]
+}
+```
+
+## Allow only batch operations for cases
+<a name="security_iam_id-based-policy-examples-only-allow-batch-case-actions"></a>
+
+With the following sample policy, you can update cases and create related items in batch operations only.
+
+```
+{
+    "Version": "2012-10-17", 		 	 	 
+    "Statement": [
+        {
+            "Sid": "AllowOnlyBatchCaseActions",
+            "Effect": "Allow",
+            "Action": [
+                "cases:UpdateCase",
+                "cases:CreateRelatedItem"
+            ],
+            "Resource": "arn:aws:cases:{{region}}:{{account-id}}:domain/{{domain-id}}/case/*",
+            "Condition": {
+                "BoolIfExists": {
+                    "cases:IsBatchAction": "true"
+                }
+            }
+        }
+    ]
+}
+```
+
+## Allow only single-case operations for cases
+<a name="security_iam_id-based-policy-examples-deny-batch-case-actions"></a>
+
+An `Allow` statement without a `cases:IsBatchAction` condition permits both batch and single-case operations. To allow only single-case operations, add an explicit `Deny` statement for requests where `cases:IsBatchAction` is `true` or the condition key is missing. An explicit `Deny` overrides any `Allow`, so batch operations stay blocked even if another policy allows them. With the following sample policy, you can only update cases and create related items in single-case operations. The policy denies these actions for batch operations.
+
+```
+{
+    "Version": "2012-10-17", 		 	 	 
+    "Statement": [
+        {
+            "Sid": "AllowCaseActions",
+            "Effect": "Allow",
+            "Action": [
+                "cases:UpdateCase",
+                "cases:CreateRelatedItem"
+            ],
+            "Resource": "arn:aws:cases:{{region}}:{{account-id}}:domain/{{domain-id}}/case/*"
+        },
+        {
+            "Sid": "DenyBatchCaseActions",
+            "Effect": "Deny",
+            "Action": [
+                "cases:UpdateCase",
+                "cases:CreateRelatedItem"
+            ],
+            "Resource": "arn:aws:cases:{{region}}:{{account-id}}:domain/{{domain-id}}/case/*",
+            "Condition": {
+                "BoolIfExists": {
+                    "cases:IsBatchAction": "true"
+                }
+            }
+        }
+    ]
+}
+```
 
 ## Create Connect Customer users based on tags
 <a name="connect-access-control-resources-example1"></a>
