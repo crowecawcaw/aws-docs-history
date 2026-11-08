@@ -13,9 +13,9 @@ SAP LogServ is an SAP-managed service, part of SAP Enterprise Cloud Services, th
 SAP LogServ has two zones. A Data Landing Zone (DLZ) collects and pre-processes logs from across the SAP-managed landscape. The DLZ then feeds a per-customer Customer Landing Zone (CLZ), an isolated data lake in the SAP RISE managed account that holds your logs. The CLZ provides an Amazon Simple Storage Service (Amazon S3) object store and Amazon Simple Queue Service (Amazon SQS) event notifications. SAP retains logs in the CLZ for 365 days by default.
 
 The logs cover three high-level families:
-+  **Operating system logs**: for example, Linux system messages, authentication and `sudo` logs, cron, and (on Windows hosts) Windows Event Log entries.
-+  **Database logs and traces**: for example, SAP HANA audit logs and trace files.
-+  **SAP application logs**: from SAP NetWeaver Application Server for ABAP, SAP HANA, SAP NetWeaver Application Server for Java, and SAP Web Dispatcher (for example, work process, dispatcher, ICM, and message server traces).
++  **Operating system logs** – For example, Linux system messages, authentication and `sudo` logs, cron, and (on Windows hosts) Windows Event Log entries.
++  **Database logs and traces** – For example, SAP HANA audit logs and trace files.
++  **SAP application logs** – From SAP NetWeaver Application Server for ABAP, SAP HANA, SAP NetWeaver Application Server for Java, and SAP Web Dispatcher (for example, work process, dispatcher, ICM, and message server traces).
 
 These log families map to the categories and subcategories you filter on when you deploy the forwarder (see [Prerequisites](#rise-observability-options-logserv-prerequisites) and the forwarder guidance for the full category list).
 
@@ -58,20 +58,16 @@ You also need the [AWS Serverless Application Model (AWS SAM) CLI](https://docs.
 ## Deployment
 <a name="_deployment"></a>
 
-You deploy the forwarder with AWS SAM. The forwarder’s SAM template defines a set of CloudFormation parameters, so you tailor its behavior without changing code. The following table shows the four required connection inputs; the forwarder guidance documents every parameter.
-
-
-| Input | Description | 
-| --- | --- | 
-|  `DestBucketName`  | The destination Amazon S3 bucket in your account where the forwarder writes processed logs. | 
-|  `SourceBucketName`  | The CLZ source Amazon S3 bucket provided by SAP. Also acts as an allowlist: events naming a different bucket are rejected before the object is read. | 
-|  `SourceSqsQueueName`  | The CLZ notification queue name provided by SAP. | 
-|  `SourceAwsAccountId`  | The AWS account ID of the SAP RISE managed account that owns the source bucket and queue. | 
+You deploy the forwarder with AWS SAM. The forwarder’s SAM template defines a set of CloudFormation parameters, so you tailor its behavior without changing code. The following four parameters are the required connection inputs (the forwarder guidance documents every parameter):
++  `DestBucketName` – The destination Amazon S3 bucket in your account where the forwarder writes processed logs.
++  `SourceBucketName` – The CLZ source Amazon S3 bucket provided by SAP. Also acts as an allowlist: events naming a different bucket are rejected before the object is read.
++  `SourceSqsQueueName` – The CLZ notification queue name provided by SAP.
++  `SourceAwsAccountId` – The AWS account ID of the SAP RISE managed account that owns the source bucket and queue.
 
 The remaining parameters are optional and fall into three groups:
-+  **Content and filtering**: control which logs you keep and how they are stored: `IncludeCategories`, `ExcludeSubcategories`, `ForwardAWSLogs`, `Decompress`, `DestPrefix`, and `RetentionDays`.
-+  **Performance**: tune throughput: `BatchSize`, `BatchWindow`, `ReservedConcurrency`, `MaxFileSizeMB`, and `EmitMetrics` (see [Cost](#rise-observability-options-logserv-cost) for the cost impact of enabling metrics).
-+  **Security and access**: scope who can read the data and how it is monitored: `AllowedPrincipalArns`, `AlarmNotificationTopicArn`, and `AccessLogBucketName`.
++  **Content and filtering** – Control which logs you keep and how they are stored: `IncludeCategories`, `ExcludeSubcategories`, `ForwardAWSLogs`, `Decompress`, `DestPrefix`, and `RetentionDays`.
++  **Performance** – Tune throughput: `BatchSize`, `BatchWindow`, `ReservedConcurrency`, `MaxFileSizeMB`, and `EmitMetrics` (see [Cost](#rise-observability-options-logserv-cost) for the cost impact of enabling metrics).
++  **Security and access** – Scope who can read the data and how it is monitored: `AllowedPrincipalArns`, `AlarmNotificationTopicArn`, and `AccessLogBucketName`.
 
 The two filtering parameters are the first things most customers configure:
 +  `IncludeCategories` is an allowlist. Set it to forward only the categories you need. For example, `hana,linux,abap`. Leave it blank to forward all categories. Valid values are `abap`, `dns`, `hana`, `linux`, `sap`, `scc`, `webdispatcher`, `bobj_bi`, `bobj_bods`, `bobj_sacagent`, `sybase`, `java`, and `windows`.
@@ -92,18 +88,20 @@ To manage cost:
 
 ## Security
 <a name="_security"></a>
-+  **Encryption at rest**: The destination Amazon S3 bucket uses SSE-S3 (AES-256), and the dead-letter queue uses the AWS managed SSE-SQS key.
-+  **Encryption in transit**: All access uses TLS 1.2 or later, and the destination bucket policy denies non-TLS requests.
-+  **Amazon S3 hardening**: All four public access block settings are enabled, and object versioning is enabled.
-+  **Least-privilege access**: The AWS Lambda execution role is scoped to only the actions and resources it needs (`s3:PutObject` on the destination, `s3:GetObject` on the source, and the specific queue ARN). Cross-account read access to the destination is granted to specific IAM principals through `AllowedPrincipalArns` (not to account-root) and is conditional on secure transport.
-+  **Input validation and hardening**: The forwarder validates Amazon S3 keys, pins the source bucket, enforces file-size limits against the object’s real size, protects against decompression bombs, and sanitizes log output.
-+  **Auditability**: Optional Amazon S3 server access logging and Amazon CloudWatch alarms provide monitoring and audit evidence.
+
+The reference solution includes the following security controls:
++  **Encryption at rest** – The destination Amazon S3 bucket uses SSE-S3 (AES-256), and the dead-letter queue uses the AWS managed SSE-SQS key.
++  **Encryption in transit** – All access uses TLS 1.2 or later, and the destination bucket policy denies non-TLS requests.
++  **Amazon S3 hardening** – All four public access block settings are enabled, and object versioning is enabled.
++  **Least-privilege access** – The AWS Lambda execution role is scoped to only the actions and resources it needs (`s3:PutObject` on the destination, `s3:GetObject` on the source, and the specific queue Amazon Resource Name (ARN)). The solution grants cross-account read access to the destination to specific IAM principals through `AllowedPrincipalArns` (not to account-root), conditional on secure transport.
++  **Input validation and hardening** – The forwarder validates Amazon S3 keys, pins the source bucket, enforces file-size limits against the object’s real size, protects against decompression bombs, and sanitizes log output.
++  **Auditability** – Optional Amazon S3 server access logging and Amazon CloudWatch alarms provide monitoring and audit evidence.
 
 You are responsible for validating that these controls meet your organization’s requirements before you deploy to production.
 
- **Key management (SSE-KMS).** The reference solution encrypts the destination bucket with SSE-S3 and does not currently expose a parameter for SSE-KMS with a customer managed key. If your compliance framework requires a customer managed key, treat this as a known limitation of the reference template. You can either modify the template to set the bucket encryption to `aws:kms` with your key, or point the forwarder at an existing SSE-KMS bucket by setting `CreateDestBucket` to `false`. In both cases you must also extend the AWS Lambda execution role with `kms:GenerateDataKey` and `kms:Decrypt` on your key, which the reference role does not grant by default.
-
- **Network (VPC).** The forwarder Lambda function runs outside a VPC and reaches the cross-account Amazon SQS queue and Amazon S3 buckets over public AWS service endpoints, secured with TLS 1.2 or later. It needs no access to private VPC resources, and running outside a VPC avoids elastic network interface (ENI) cold-start latency and subnet IP-address consumption. If your security posture requires AWS API traffic to stay on private networking, attach the function to a VPC and add Amazon S3 and Amazon SQS VPC endpoints, along with the associated networking permissions. The reference template does not configure VPC networking today.
+The reference solution has the following known limitations:
++  **Key management (SSE-KMS)** – The reference solution encrypts the destination bucket with SSE-S3. It does not currently expose a parameter for SSE-KMS with a customer managed key. If your compliance framework requires a customer managed key, treat this as a known limitation of the reference template. You can either modify the template to set the bucket encryption to `aws:kms` with your key, or point the forwarder at an existing SSE-KMS bucket by setting `CreateDestBucket` to `false`. In both cases, you must also extend the AWS Lambda execution role with `kms:GenerateDataKey` and `kms:Decrypt` on your key. The reference role does not grant these by default.
++  **Network (VPC)** – The forwarder Lambda function runs outside a virtual private cloud (VPC). It reaches the cross-account Amazon SQS queue and Amazon S3 buckets over public AWS service endpoints, secured with TLS 1.2 or later. It needs no access to private VPC resources. Running outside a VPC also avoids elastic network interface (ENI) cold-start latency and subnet IP-address consumption. If your security posture requires AWS API traffic to stay on private networking, attach the function to a VPC. Also add Amazon S3 and Amazon SQS VPC endpoints, along with the associated networking permissions. The reference template does not configure VPC networking today.
 
 ## Performance and scaling
 <a name="_performance_and_scaling"></a>
@@ -116,8 +114,8 @@ A single landscape typically produces around 100 to 200 files per minute, well w
 <a name="_monitoring_and_troubleshooting"></a>
 
 The forwarder ships with operational monitoring so you can run it day to day:
-+  **Alarms**: When you provide an Amazon SNS topic through `AlarmNotificationTopicArn`, the solution notifies you on three Amazon CloudWatch alarms: any message landing in the dead-letter queue (DLQ), Lambda errors above 10 per 5-minute window, and Lambda throttles above 5 per 5-minute window.
-+  **Dead-letter queue**: The DLQ preserves messages that fail processing, with 14-day retention. Because the SAP CLZ retains source logs for 365 days, you have ample time to investigate and reprocess. The forwarder retries transient failures automatically. It logs and skips permanent failures (for example, an oversized object or corrupt gzip) rather than retrying them indefinitely.
-+  **Metrics and dashboards**: With `EmitMetrics` enabled, the forwarder emits per-file and per-batch CloudWatch metrics (files processed, filtered, and failed; processing time; batch size) under the `SAP/LogServ` namespace. Useful widgets include files per minute (throughput and cost-crossover signal), average and p99 processing time, batch utilization, and an error rate derived from files failed over files processed.
++  **Alarms** – When you provide an Amazon Simple Notification Service (Amazon SNS) topic through `AlarmNotificationTopicArn`, the solution notifies you on three Amazon CloudWatch alarms. These fire on any message landing in the dead-letter queue (DLQ), Lambda errors above 10 per 5-minute window, and Lambda throttles above 5 per 5-minute window.
++  **Dead-letter queue** – The DLQ preserves messages that fail processing, with 14-day retention. The SAP CLZ retains source logs for 365 days, giving you ample time to investigate and reprocess. The forwarder retries transient failures automatically. It logs and skips permanent failures (for example, an oversized object or corrupt gzip) rather than retrying them indefinitely.
++  **Metrics and dashboards** – With `EmitMetrics` enabled, the forwarder emits per-file and per-batch CloudWatch metrics under the `SAP/LogServ` namespace. These metrics include files processed, filtered, and failed; processing time; and batch size. Useful widgets include files per minute (throughput and cost-crossover signal), average and p99 processing time, batch utilization, and an error rate derived from files failed over files processed.
 
 For the full list of alarms, metrics, dimensions, and recommended dashboard widgets, see the forwarder guidance.
