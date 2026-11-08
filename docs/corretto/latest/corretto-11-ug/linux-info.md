@@ -7,4 +7,4 @@ The topics in this section describe installation instructions for Amazon Corrett
 
 **Topics**
 + [Amazon Corretto 11 Installation Instructions for Debian-Based, RPM-Based and Alpine Linux Distributions](generic-linux-install.md)
-+ [Amazon Corretto 11 Installation Instructions for Amazon Linux 2 and Amazon Linux 2023](amazon-linux-install.md)
++ [Amazon Corretto 11 Installation Instructions for Amazon Linux 2, Amazon Linux 2023, and Amazon Linux 2027](amazon-linux-install.md)

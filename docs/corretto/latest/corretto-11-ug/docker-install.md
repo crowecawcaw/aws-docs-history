@@ -21,9 +21,9 @@ docker run amazoncorretto:11 java -version
 **Example**  
 
 ```
-openjdk version "11.0.33" 2026-10-26 LTS
-OpenJDK Runtime Environment Corretto-11.0.33.0.10 (build 11.0.33+0-LTS)
-OpenJDK 64-Bit Server VM Corretto-11.0.33.0.10 (build 11.0.33+0-LTS, mixed mode)
+openjdk version "11.0.33" 2026-10-20 LTS
+OpenJDK Runtime Environment Corretto-11.0.33.0.10 (build 11.0.33+10-LTS)
+OpenJDK 64-Bit Server VM Corretto-11.0.33.0.10 (build 11.0.33+10-LTS, mixed mode)
 ```
 
 ## Using the Corretto ECR Instance
