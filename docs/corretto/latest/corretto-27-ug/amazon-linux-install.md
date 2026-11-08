@@ -1,9 +1,9 @@
 
 
-# Amazon Corretto 27 Installation Instructions for Amazon Linux 2023
+# Amazon Corretto 27 Installation Instructions for Amazon Linux 2023 and Amazon Linux 2027
 <a name="amazon-linux-install"></a>
 
- This topic describes how to install and uninstall Amazon Corretto 27 on a host or container running the Amazon Linux 2023 operating systems. 
+ This topic describes how to install and uninstall Amazon Corretto 27 on a host or container running the Amazon Linux 2023 or Amazon Linux 2027 operating systems. 
 
 ## Option 1: Install using the yum Package Manager on Amazon Linux
 <a name="amazon-linux-install-instruct"></a>
@@ -71,9 +71,9 @@ java -version
 Expected output for 27.0.1:   
 
 ```
-openjdk 27 2026-10-26
- OpenJDK Runtime Environment Corretto-27.0.1.0.11 (build 27+0-FR)
- OpenJDK 64-Bit Server VM Corretto-27.0.1.0.11 (build 27+0-FR, mixed mode, sharing)
+openjdk 27.0.1 2026-10-20
+ OpenJDK Runtime Environment Corretto-27.0.1.0.11 (build 27.0.1+11-FR)
+ OpenJDK 64-Bit Server VM Corretto-27.0.1.0.11 (build 27.0.1+11-FR, mixed mode, sharing)
 ```
 
  If you see a version string that doesn't mention `Corretto`, run the following command to change the default `java` or `javac` providers. 
