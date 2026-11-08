@@ -13,18 +13,20 @@
 | --- |
 |    Intended audience:  System administrators  | 
 
-This page walks you through all four steps to set up enterprise sign-in with Okta:
+Use these steps only if you choose **Configure Identity Provider** when you add the desktop connector. Most organizations don't need a separate identity provider configuration for the desktop application. For the default setup, see [Turning on desktop access](desktop-enterprise-setup.md#desktop-enterprise-turn-on).
 
-1. Create an OIDC application in Okta and record its values.
+This page walks you through the three steps to set up enterprise sign-in with Okta:
 
-1. Add the extension access in the Amazon Quick administration console.
+1. Create an OpenID Connect (OIDC) application in Okta and record its values.
 
-1. Create the extension in the Amazon Quick console.
+1. Add the desktop connector with your identity provider configuration.
 
 1. Download, verify, and distribute the desktop application.
 
+Before you begin, review the prerequisites in [Setting up Amazon Quick on desktop for enterprise deployments](desktop-enterprise-setup.md) and [Using a dedicated identity provider configuration (advanced)](desktop-enterprise-advanced-idp.md).
+
 **Note**  
-Before you begin, review the prerequisites in [Setting up Amazon Quick on desktop for enterprise deployments](desktop-enterprise-setup.md).
+To sign in, users need an active Amazon Quick web session in their browser. The email address in Okta must exactly match the user's email address in Quick, and Okta must not mark that email address as unverified. For more information, see [How sign-in works with a dedicated identity provider](desktop-enterprise-advanced-idp.md#desktop-enterprise-how-it-works).
 
 ## Step 1: Create an OIDC application in Okta
 <a name="desktop-enterprise-okta-step1"></a>
@@ -87,87 +89,58 @@ Record the following OIDC endpoints. You enter these values, together with the *
 **Use the standard Okta domain, not the admin subdomain**  
 Use your standard Okta domain (for example, `your-org.okta.com`) in these endpoints, not the `-admin` subdomain (`your-org-admin.okta.com`) shown in the address bar of the admin console. The `-admin` subdomain does not host the OAuth endpoints, so using it causes sign-in to fail with an HTTP 404 error.
 
-## Step 2: Add the extension access in the Amazon Quick administration console
-<a name="w2aac51c11c29c15"></a>
+## Step 2: Add the desktop connector with your identity provider configuration
+<a name="w2aac51c53c15c27c27c19"></a>
 
-In the Amazon Quick administration console, add an extension access using the OIDC endpoint values and Client ID that you recorded in Step 1.
+In the Amazon Quick console, add the desktop connector and enter the values that you recorded in Step 1.
 
-**To add the extension access**
+**Important**  
+Adding the desktop connector turns on desktop access for all users in your account right away. To roll out desktop in stages, restrict the **Quick desktop** capability in a custom permissions profile before you add the connector. For more information, see [Turning on desktop access](desktop-enterprise-setup.md#desktop-enterprise-turn-on). You can also restrict the capability after you add the connector.
 
-1. Sign in to the Amazon Quick administration console and choose **Manage account**.
+**To add the desktop connector**
 
-1. In the left navigation pane, under **Permissions**, choose **Extension access**.
+1. Sign in to the Amazon Quick console as an administrator.
 
-1. Choose **Add extension access**.
+1. Choose your profile icon, and then choose **Manage account**.
 
-1. Under **Select Service**, select **Amazon Quick (Desktop application for Quick)**, and then choose **Next**.
+1. In the navigation pane, choose **Inbound connectors**, and then choose the **Quick Desktop** tab.
 
-1. Enter the extension details using the values you recorded in Step 1:
+1. Choose **Add desktop connector**.
+
+1. For the identity setup, choose **Configure Identity Provider**, and then enter the values that you recorded in Step 1:
 
 
-**Extension access details**  
+**Identity provider configuration values**  
 
 <table>
 <thead>
   <tr><th>Field</th><th>Value</th></tr>
 </thead>
 <tbody>
-  <tr><td>Name</td><td>A name for this extension access (for example, <code>QuickDesktop-access</code>). This is an internal reference only and is not configured in your IdP. Use alphanumeric characters and hyphens only, with no spaces.</td></tr>
-  <tr><td>Description</td><td>(Optional) A description of this extension access, for your reference only.</td></tr>
   <tr><td>Issuer URL</td><td>The exact OIDC issuer URL from Step 1, including any required path suffix.</td></tr>
-  <tr><td>Authorization Endpoint</td><td>The OIDC authorization endpoint URL from Step 1</td></tr>
-  <tr><td>Token Endpoint</td><td>The OIDC token endpoint URL from Step 1</td></tr>
-  <tr><td>JWKS URI</td><td>The JSON Web Key Set URI from Step 1</td></tr>
-  <tr><td>Client ID</td><td>The OIDC client identifier (Client ID or Application (client) ID) that you recorded in Step 1. Required.</td></tr>
+  <tr><td>Authorization endpoint</td><td>The OIDC authorization endpoint URL from Step 1.</td></tr>
+  <tr><td>Token endpoint</td><td>The OIDC token endpoint URL from Step 1.</td></tr>
+  <tr><td>JWKS URI</td><td>The JSON Web Key Set URI from Step 1.</td></tr>
+  <tr><td>Client ID</td><td>The OIDC client identifier (Client ID or Application (client) ID) that you recorded in Step 1.</td></tr>
 </tbody>
 </table>
 
 
-1. Choose **Add**.
-**Important**  
-Verify that all values are correct before you choose **Add**. The extension access configuration cannot be edited after creation. If any value is incorrect, you must delete the extension access and create a new one.
+1. Choose **Confirm**.
 
-## Step 3: Create the extension in the Amazon Quick console
-<a name="w2aac51c11c29c17"></a>
-
-After you add the extension access in the Amazon Quick administration console, create the extension on the **Extensions** page in the Amazon Quick console.
-
-**To create the extension**
-
-1. In the Amazon Quick console, in the left navigation pane, choose **Extensions**. If you don't see **Extensions**, choose **More** to find it.
-
-1. Choose **Add extension**.
-
-1. Select the **Desktop application for Quick** extension access that you created in Step 2, and then choose **Next**.
-
-1. Choose **Create**.
-
-**Important**  
-Both Step 2 and Step 3 are required. If you add the extension access but do not create the extension, enterprise sign-in is not available and users see the error: "Enterprise sign-in for Quick Desktop has not been configured for this account."
+1. Verify that the connector card shows the name **Quick Desktop** and the status **Enabled**.
 
 **Note**  
-Creating the extension is a one-time, account-level action. After an administrator creates the extension, enterprise sign-in is available for all users in the account. Individual users do not need to enable the extension themselves — they only need to download the desktop application and sign in.
+Adding the desktop connector is a one-time, account-level action. After the connector is enabled, all users in your account can sign in with your identity provider. Users don't need to turn anything on themselves.
 
-## Step 4: Download, verify, and distribute the desktop application
-<a name="w2aac51c11c29c19"></a>
+## Step 3: Download, verify, and distribute the desktop application
+<a name="w2aac51c53c15c27c27c21"></a>
 
-In this step, you download and install the desktop application, verify that enterprise sign-in works, and then distribute the application to your users.
+In this step, you install the desktop application, verify that enterprise sign-in works, and then distribute the application to your users.
 
-First, download the application from the Amazon Quick console.
+First, download and install the application. For download locations and installation steps, see [Downloading and installing](getting-started-desktop.md#desktop-download-install).
 
-**To download the desktop application**
-
-1. In the Amazon Quick console, in the left navigation pane, choose **Extensions**. If you don't see **Extensions**, choose **More** to find it.
-
-1. Select the Quick Desktop extension that you created in Step 3.
-
-1. Choose the more options icon (**...**) for the extension.
-
-1. Choose **Download for Windows** or **Download for Mac**, depending on your operating system.
-
-Then, install the application. For installation instructions, see [Getting started with the Amazon Quick desktop application](getting-started-desktop.md).
-
-After you install the application, verify that enterprise sign-in works.
+Then, verify that enterprise sign-in works.
 
 **To verify enterprise sign-in**
 
@@ -175,11 +148,11 @@ After you install the application, verify that enterprise sign-in works.
 
 1. On the sign-in screen, choose **Continue with SSO**.
 
-1. (Optional) Select your AWS Region from the list, or choose **Dynamic** to have the application detect your Region automatically.
+1. (Optional) Select your AWS Region, or choose **Dynamic** to detect your Region automatically.
 
-1. Authenticate with your corporate credentials. The application redirects to your identity provider, and then returns to the Home screen after authentication succeeds.
+1. Sign in with your corporate credentials. The application redirects to your identity provider, and then opens the Home screen after sign-in succeeds.
 
 **Tip**  
-If sign-in fails, verify the values you entered in Step 2 against the OIDC endpoints and Client ID from Step 1. If any value is incorrect, delete the extension access under **Permissions → Extension access** in the Amazon Quick administration console, and repeat Step 2 with the correct values. For more help, see [Troubleshooting enterprise sign-in for Amazon Quick on desktop](desktop-enterprise-setup-troubleshooting.md).
+If sign-in fails, check the values that you entered in Step 2 against the values from Step 1. For more information, see [Troubleshooting enterprise sign-in for Amazon Quick on desktop](desktop-enterprise-setup-troubleshooting.md).
 
-Finally, after you verify the setup, distribute the application to your users. Direct them to [Getting started with the Amazon Quick desktop application](getting-started-desktop.md) for download, installation, and sign-in instructions. Users choose **Continue with SSO** and sign in with their corporate credentials — no additional per-user configuration is required.
+Finally, distribute the application to your users. Direct them to [Getting started with the Amazon Quick desktop application](getting-started-desktop.md) for download, installation, and sign-in instructions. Users choose **Continue with SSO** and sign in with their corporate credentials. They don't need any other setup.

@@ -33,7 +33,7 @@ The following table shows how each user type in Amazon Quick interacts with spac
 | User type | Capabilities | 
 | --- | --- | 
 | Administrators |  +  Control whether users with space creation capabilities can create spaces   | 
-| Author Pro and Reader Pro users |  +  Create and maintain spaces <br />+  Add topics, dashboards, datasets, knowledge bases, and application actions to spaces <br />+  Upload files directly into spaces <br />+  Attach an agent to a space <br />+  Interact with space data through chat <br />+  Share spaces   | 
+| All other users |  +  Create and maintain spaces <br />+  Add topics, dashboards, datasets, knowledge bases, and application actions to spaces <br />+  Upload files directly into spaces <br />+  Attach an agent to a space <br />+  Interact with space data through chat <br />+  Share spaces   | 
 
 ## Amazon Quick user permission for spaces
 <a name="user-space-permissions"></a>

@@ -5,6 +5,8 @@
 
 Amazon Quick supports multiple authentication methods for connectors. The available methods depend on the specific connector. During setup, you choose your authentication method from the **OAuth Configuration** options or from the connector-specific authentication settings.
 
+Amazon Quick invokes connectors from your Amazon Quick account, so the web, mobile, and desktop applications don't call the third-party service directly. Amazon Quick stores each connector's OAuth tokens in a token vault in your Amazon Quick account and uses the refresh token to renew the access token. With three-legged OAuth (3LO), you sign in to the third-party service, so Amazon Quick doesn't receive your password. Some connectors authenticate differently, as the following sections describe.
+
 ## Default OAuth app
 <a name="quick-managed-auth"></a>
 

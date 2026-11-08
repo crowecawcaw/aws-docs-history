@@ -13,176 +13,87 @@
 | --- |
 |    Intended audience:  System administrators  | 
 
-To use Amazon Quick on desktop for enterprise deployments, administrators must configure enterprise single sign-on (SSO) so that users in the organization can sign in with their corporate credentials. This setup connects your organization's OpenID Connect (OIDC) compatible identity provider (IdP) to Amazon Quick.
+Users in your organization sign in to Amazon Quick on desktop with the sign-in method your Quick account already uses on the web. By default, you don't register an OpenID Connect (OIDC) application in your identity provider, create a client ID, or add extension access. If a user can sign in to Quick on the web, that user can sign in to the desktop application.
+
+To turn on desktop access, an administrator adds the desktop connector one time. For instructions, see [Turning on desktop access](#desktop-enterprise-turn-on). If you need to manage desktop sign-in separately in your identity provider, you can set up a dedicated identity provider configuration instead. For more information, see [Using a dedicated identity provider configuration (advanced)](desktop-enterprise-advanced-idp.md).
+
+Both sign-in options work for accounts that use IAM Identity Center, IAM federation, or Quick-managed users.
+
+**Note**  
+If your organization already set up enterprise sign-in for the desktop application with a desktop extension, that setup keeps working. To move to the desktop connector, see [Moving from the desktop extension to the desktop connector](#desktop-enterprise-migrate).
 
 **Note**  
 If you are using a Free or Plus account, this section does not apply to you. Continue to [Getting started with the Amazon Quick desktop application](getting-started-desktop.md).
-
-## How enterprise sign-in works
-<a name="desktop-enterprise-how-it-works"></a>
-
-The Amazon Quick desktop application uses the OIDC protocol to authenticate users. When you choose **Continue with SSO**, a browser window opens to Amazon Quick. Amazon Quick identifies your configured identity provider and redirects to your IdP's authorization endpoint. The application then exchanges the resulting authorization code for tokens using Proof Key for Code Exchange (PKCE).
-
-To identify the configured identity provider, your browser must have an active Amazon Quick web session. If no session exists, the browser prompts you to sign in to Amazon Quick before the application redirects to your IdP.
-
-Amazon Quick validates the token and maps the user to an identity in your account. The email address in your IdP must exactly match the email address of the user in Amazon Quick.
-
-**Note**  
-If you sign in for the first time, the browser checks for an active Amazon Quick web session. If no session exists, the browser opens the Amazon Quick sign-in page instead of redirecting to your IdP. Sign in to Amazon Quick in the browser to continue. The desktop application then completes sign-in through your configured identity provider.
-
-## Supported token signing algorithms
-<a name="desktop-enterprise-token-signing"></a>
-
-Amazon Quick verifies the signature on each ID token against the public keys published at your identity provider's JWKS URI. Your IdP must sign ID tokens with one of the following asymmetric algorithms.
-
-
-**Supported signing algorithms by key type**  
-
-| Key type | Supported `alg` values | 
-| --- | --- | 
-| RSA | RS256, RS384, RS512, PS256, PS384, PS512 | 
-| ECDSA | ES256, ES384, ES512 | 
-
-**Symmetric signing is not supported**  
-Amazon Quick does not accept ID tokens signed with HMAC (`HS256`, `HS384`, or `HS512`). These algorithms sign the token with the client secret rather than with a key that can be published in a JWKS, so the signature cannot be verified against your IdP's JWKS URI. Unsecured tokens (an `alg` value of `none`) are also rejected. If your IdP is configured to use one of these, sign-in fails with a token validation error.
-
-You do not select the algorithm in Amazon Quick. Your IdP chooses it when it issues the token, and Amazon Quick accepts any of the algorithms in the preceding table. Most identity providers use `RS256` by default.
 
 ## Prerequisites
 <a name="desktop-enterprise-prerequisites"></a>
 
 Before you begin, verify that you have the following:
-+ An AWS account with an active Amazon Quick subscription. The Amazon Quick account's home region (identity region) must be in a supported AWS Region. For a list of supported Regions, see [Supported AWS Regions for Amazon Quick](regions.md#regions-qs). All identity types are supported, including IAM Identity Center, IAM federation, and native Amazon Quick (username/password) users.
++ An AWS account with an active Amazon Quick subscription. The account's home Region (identity Region) must be a supported AWS Region. For a list of supported Regions, see [Supported AWS Regions for Amazon Quick](regions.md#regions-qs).
 + Administrator access to your Amazon Quick account.
-+ Access to your IdP with permissions to create OIDC application registrations.
++ Version 1.1.4053 or later of the desktop application.
 + In restricted network environments, the ability to reach the required Amazon Quick and identity provider domains. For the list of domains to add to your allow list, see [Network access and required domains](desktop-security.md#desktop-network-access).
 
 **Important**  
-Amazon Quick on desktop is available for Enterprise accounts in AWS Regions that support the full Amazon Quick feature set. Regions that support Amazon Quick Sight capabilities only do not include desktop. For the full list, see [Supported AWS Regions for Amazon Quick](regions.md#regions-qs).
+Amazon Quick on desktop is available only in AWS Regions that support agentic features. To check your Region, see the **Agentic Features** column in [Supported AWS Regions for Amazon Quick](regions.md#regions-qs).
 
-## Setup process
-<a name="desktop-enterprise-process"></a>
-
-Setting up enterprise sign-in involves the same four steps regardless of which identity provider you use:
-
-1. **Create an OIDC application in your identity provider.** Register a public OIDC client and record its Client ID and OIDC endpoints. The steps and endpoint formats are specific to your identity provider.
-
-1. **Add the extension access in the Amazon Quick administration console.** In the Amazon Quick administration console, add an extension access using the Client ID and OIDC endpoints from Step 1.
-
-1. **Create the extension in the Amazon Quick console.** On the **Extensions** page in the Amazon Quick console, create the extension from the extension access you added in Step 2.
-
-1. **Download, verify, and distribute the desktop application.** Download and install the application, choose **Continue with SSO** to confirm that authentication succeeds, and then direct your users to download and sign in.
-
-The complete procedure for each of these steps is documented on the page for your identity provider. Choose your identity provider to get started:
-+ [Microsoft Entra ID](desktop-enterprise-entra-id.md) – Microsoft Entra ID
-+ [Google Workspace](desktop-enterprise-google-workspace.md) – Google Workspace
-+ [Okta](desktop-enterprise-okta.md) – Okta
-+ [Ping Identity](desktop-enterprise-ping-identity.md) – Ping Identity (PingFederate and PingOne)
-
-If you encounter problems during setup or sign-in, see [Troubleshooting enterprise sign-in for Amazon Quick on desktop](desktop-enterprise-setup-troubleshooting.md).
-
-## Managed deployment configuration
-<a name="desktop-enterprise-managed-deployment"></a>
-
-Administrators can configure and deploy Amazon Quick on desktop across an enterprise fleet using the following options.
-
-### Managed policies
-<a name="desktop-enterprise-mdm-policies"></a>
-
-Amazon Quick reads policies from vendor-neutral OS-managed locations. Any mobile device management (MDM) tool that can deliver a configuration profile (macOS) or registry policy (Windows) works without vendor-specific integration.
-
-
-**Managed policies for Amazon Quick on desktop**  
-
-| Policy | macOS location | Windows location | Effect | 
-| --- | --- | --- | --- | 
-| DisableSocialLogin | Preference domain com.aws.QuickWork.mac | HKLM\\SOFTWARE\\Policies\\Amazon\\Quick (REG\_DWORD) | Hides social sign-in, blocks it server-side, and hides "Sign up for free." This policy enforces enterprise SSO as the only authentication path. | 
-| DisableAutoUpdates | Preference domain com.aws.QuickWork.mac | HKLM\\SOFTWARE\\Policies\\Amazon\\Quick (REG\_SZ) | Stops the application from updating itself, so that your organization controls when new versions reach the fleet. Accepts patch, minor, or major. The value is the smallest update size that the policy disables. patch disables all automatic updates, including patch, minor, and major updates. minor disables minor and major updates. major disables major updates only. | 
-
-Amazon Quick reads policy values at application startup.
-
-Deploy a configuration profile with preference domain `com.aws.QuickWork.mac`. The profile supports device scope (`/Library/Managed Preferences/com.aws.QuickWork.mac.plist`) or user scope.
-
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-    <key>DisableSocialLogin</key>
-    <true/>
-    <key>DisableAutoUpdates</key>
-    <string>major</string>
-</dict>
-</plist>
-```
-
-Set the registry values at `HKLM\SOFTWARE\Policies\Amazon\Quick`. The Policies hive is not user-editable and survives application updates.
-
-The following example shows both policies configured in the registry:
-
-```
-HKLM\SOFTWARE\Policies\Amazon\Quick
-  DisableSocialLogin  (REG_DWORD)  =  1
-  DisableAutoUpdates  (REG_SZ)     =  major
-```
-
-For MDM-specific deployment steps, see your provider's documentation:
-+ [macOS preference file profiles](https://learn.microsoft.com/en-us/mem/intune/configuration/preference-file-settings-macos) on the Microsoft Intune website
-+ [Application & Custom Settings](https://developer.jamf.com/jamf-pro/docs/application-custom-settings) on the Jamf Pro website
-
-### Proxy support
-<a name="desktop-enterprise-proxy-support"></a>
-
-Amazon Quick respects the operating system's proxy configuration (system proxy on Windows, Proxy Auto-Configuration on macOS). All application network traffic, including child processes, routes through the configured enterprise proxy automatically. You don't need to configure the proxy separately.
-
-### Application data paths
-<a name="desktop-enterprise-data-paths"></a>
-
-The following table lists the application data paths for each operating system.
-
-
-**Application data paths by operating system**  
-
-| OS | Path | 
-| --- | --- | 
-| macOS | \~/.quickwork/ | 
-| Windows | %USERPROFILE%\\.quickwork\\ | 
-
-This directory contains local user-specific settings and configurations.
-
-### Silent installation and fleet deployment
-<a name="desktop-enterprise-silent-install"></a>
-
-To distribute the application silently to a managed fleet with a mobile device management (MDM) solution – including per-machine packaging for Microsoft Intune and other MDM tools, certificate authority trust, and troubleshooting – see [Deploying Amazon Quick on desktop to a managed fleet with MDM](desktop-enterprise-mdm.md).
-
-For a single-user silent installation on Windows, the installer also supports silent mode. This installs Amazon Quick for the current user in `%LOCALAPPDATA%` and creates desktop and Start menu shortcuts.
-
-```
-.\Amazon-Quick-Setup.exe /S
-```
-
-### Application updates
-<a name="desktop-enterprise-updates"></a>
-
-By default, Amazon Quick delivers updates automatically over HTTPS. Updates are code-signed and apply for each user on the next restart. On macOS, updates use Apple notarization. On Windows, updates use Authenticode signing.
-
-To take control of update delivery, set the `DisableAutoUpdates` policy described in [Managed policies](#desktop-enterprise-mdm-policies). When you block updates, you become responsible for delivering new versions to the fleet, using the same tools you use to deploy other managed applications.
-
-Even when you block updates, Amazon Quick can still notify your users of a required update and restrict functionality remotely if a critical issue is found.
+## Turning on desktop access
+<a name="desktop-enterprise-turn-on"></a>
 
 **Important**  
-We strongly recommend that you continue to allow patch updates. Patch updates deliver security fixes, performance improvements, and bug fixes. To control larger updates while your fleet still receives patches, set `DisableAutoUpdates` to `minor` or `major` instead of `patch`.
+Adding the desktop connector turns on desktop access for all users in your account right away. To roll out desktop in stages, first restrict the **Quick desktop** capability in a custom permissions profile for the users or roles that shouldn't have access yet, and then add the connector. To give more users access later, update the profile. For more information, see [Custom permissions](custom-permissions.md). You can also restrict the capability after you add the connector.
+
+**To add the desktop connector**
+
+1. Sign in to the Amazon Quick console as an administrator.
+
+1. Choose your profile icon, and then choose **Manage account**.
+
+1. In the navigation pane, choose **Inbound connectors**, and then choose the **Quick Desktop** tab.
+
+1. Choose **Add desktop connector**.
+
+1. For the identity setup, choose **Use Quick's existing configured sign-in method**, and then choose **Confirm**. If your users already sign in to Quick on the web through your identity provider, this option already uses it. If you need to manage desktop sign-in separately in your identity provider, see [Using a dedicated identity provider configuration (advanced)](desktop-enterprise-advanced-idp.md) instead.
+
+1. Quick creates the connector. Verify that the connector card shows the name **Quick Desktop**, the connector type **Quick desktop**, and the status **Enabled**.
+
+To install the application, see [Getting started with the Amazon Quick desktop application](getting-started-desktop.md). To deploy the application to a managed fleet, see [Managed deployment configuration](desktop-enterprise-managed-deployment.md).
+
+## How sign-in works
+<a name="desktop-enterprise-sign-in"></a>
++ To sign in, users need an active Amazon Quick web session in their browser. If they don't have one, the browser prompts them to sign in to Quick first.
++ A sign-in lasts up to 30 days, regardless of activity. During that time, access lasts one hour and renews automatically in the background, so users stay signed in. After 30 days, users sign in again.
++ Users are signed out if access can't be renewed or their session ends.
+
+If you use a dedicated identity provider configuration, your identity provider's session limits also apply. For more information, see [How sign-in works with a dedicated identity provider](desktop-enterprise-advanced-idp.md#desktop-enterprise-how-it-works).
+
+The desktop application stores its tokens in the operating system credential vault, with either sign-in method. For more information, see [Sign-in and credentials](desktop-security.md#desktop-security-sign-in).
+
+## Moving from the desktop extension to the desktop connector
+<a name="desktop-enterprise-migrate"></a>
+
+If your organization set up enterprise sign-in with a desktop extension, that setup keeps working. There's no planned end date for the desktop extension, so you can move to the desktop connector at any time.
+
+**To move to the desktop connector**
+
+1. Update the desktop application on every device to version 1.1.4053 or later. To check the version, choose **Amazon Quick** > **About Amazon Quick** in the menu bar.
+
+1. Add the desktop connector. For instructions, see [Turning on desktop access](#desktop-enterprise-turn-on).
+
+1. After all users have updated to version 1.1.4053 or later, delete the desktop extension on the **Extensions** page in the Amazon Quick console.
+
+**Important**  
+Don't delete the extension until all users have moved. Users who haven't moved yet lose access. Older versions of the application show this error: "Enterprise sign-in for Quick Desktop has not been configured for this account. Contact your IT team for further support."
+
+**Warning**  
+If you use the `DisableAutoUpdates` policy, devices don't update automatically. Deploy version 1.1.4053 or later to every device before you add the connector. For more information, see [Application updates](desktop-enterprise-managed-deployment.md#desktop-enterprise-updates).
 
 **Topics**
-+ [How enterprise sign-in works](#desktop-enterprise-how-it-works)
-+ [Supported token signing algorithms](#desktop-enterprise-token-signing)
 + [Prerequisites](#desktop-enterprise-prerequisites)
-+ [Setup process](#desktop-enterprise-process)
-+ [Managed deployment configuration](#desktop-enterprise-managed-deployment)
-+ [Set up enterprise sign-in with Microsoft Entra ID for Amazon Quick on desktop](desktop-enterprise-entra-id.md)
-+ [Set up enterprise sign-in with Google Workspace for Amazon Quick on desktop](desktop-enterprise-google-workspace.md)
-+ [Set up enterprise sign-in with Okta for Amazon Quick on desktop](desktop-enterprise-okta.md)
-+ [Set up enterprise sign-in with Ping Identity for Amazon Quick on desktop](desktop-enterprise-ping-identity.md)
++ [Turning on desktop access](#desktop-enterprise-turn-on)
++ [How sign-in works](#desktop-enterprise-sign-in)
++ [Moving from the desktop extension to the desktop connector](#desktop-enterprise-migrate)
++ [Using a dedicated identity provider configuration (advanced)](desktop-enterprise-advanced-idp.md)
++ [Managed deployment configuration](desktop-enterprise-managed-deployment.md)
 + [Troubleshooting enterprise sign-in for Amazon Quick on desktop](desktop-enterprise-setup-troubleshooting.md)
 + [Deploying Amazon Quick on desktop to a managed fleet with MDM](desktop-enterprise-mdm.md)

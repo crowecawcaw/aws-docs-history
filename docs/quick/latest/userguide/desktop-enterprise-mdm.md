@@ -26,7 +26,7 @@ This page describes how to complete the following tasks:
 1. (Optional) Trust a corporate certificate authority for networks that inspect encrypted traffic.
 
 **Note**  
-This page covers distributing the application binary. To let users sign in with their corporate credentials, you must also configure enterprise single sign-on. For more information, see [Setting up Amazon Quick on desktop for enterprise deployments](desktop-enterprise-setup.md). To enforce enterprise SSO as the only sign-in method by disabling consumer social login across your fleet, see [Managed policies](desktop-enterprise-setup.md#desktop-enterprise-mdm-policies).
+This page covers distributing the application binary. To let users sign in, you must also turn on desktop access. For more information, see [Turning on desktop access](desktop-enterprise-setup.md#desktop-enterprise-turn-on). To enforce enterprise SSO as the only sign-in method by disabling consumer social login across your fleet, see [Managed policies](desktop-enterprise-managed-deployment.md#desktop-enterprise-mdm-policies).
 
 ## Prerequisites
 <a name="desktop-mdm-prerequisites"></a>

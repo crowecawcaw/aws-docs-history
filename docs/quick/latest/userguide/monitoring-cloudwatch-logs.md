@@ -57,6 +57,7 @@ To enable logging for Amazon Quick chat and feedback, configure IAM permissions,
 **Topics**
 + [Set up IAM permissions](#quicksuite-chat-feedback-setup-iam-permissions)
 + [Configure log subscription](#quicksuite-chat-feedback-configure-log-subscription)
++ [Choose or change the fields in a delivery](#quicksuite-vended-logs-change-fields)
 + [Verify log delivery](#quicksuite-chat-feedback-verify-log-delivery)
 
 ### Set up IAM permissions
@@ -71,7 +72,7 @@ To set up CloudWatch Logs for Amazon Quick, use the following IAM policy example
         "Sid": "QuicksightLogDeliveryPermissions",
         "Effect": "Allow",
         "Action": "quicksight:AllowVendedLogDeliveryForResource",
-        "Resource": "arn:aws:quicksight:{{your-region}}:{{your-account-id}}:account/{{your-account-id}}"
+        "Resource": "*"
     }]
 }
 ```
@@ -165,6 +166,35 @@ To enable user conversation logging with the CloudWatch Logs API operations, you
 **Note**  
 Vended-log delivery is per Region. Each delivery captures only the activity that occurs in the Region specified by the `resourceArn` in `PutDeliverySource`. To receive logs from multiple Regions, configure a separate delivery in each Region.
 
+### Choose or change the fields in a delivery
+<a name="quicksuite-vended-logs-change-fields"></a>
+
+Each log type has a list of allowed fields. A delivery created without `recordFields` uses the default list of its log type. It also receives any field that Quick later adds to that list. You can set a delivery's own list with `CreateDelivery` or `UpdateDeliveryConfiguration`. A delivery with its own list sends exactly those fields, in that order. It does not receive fields later added to the default list. Opt-in fields are delivered only if you name them in your own list. Your own list must include every mandatory field.
+
+To add or remove fields, replace the delivery's field list with [UpdateDeliveryConfiguration](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateDeliveryConfiguration.html). The new list replaces the old one. Repeat for each delivery and Region.
+
+**To change the fields of a delivery**
+
+1. Get the allowed and mandatory fields of the log type. Replace {{log-type}} with a log type such as `CHAT_LOGS`, and {{destination-type}} with `CWL`, `S3`, or `FH`. The following AWS CLI command lists them.
+
+   ```
+   aws logs describe-configuration-templates --service quicksight \
+       --log-types {{log-type}} --delivery-destination-types {{destination-type}} \
+       --query 'configurationTemplates[0].allowedFields'
+   ```
+
+1. Update the delivery with the complete list. To find the delivery ID, use `aws logs describe-deliveries`. The following AWS CLI command adds the `CHAT_LOGS` opt-in fields `latency`, `time_to_first_token`, and `web_search` to the default list. Replace {{delivery-id}} with the ID of your delivery.
+
+   ```
+   aws logs update-delivery-configuration --id {{delivery-id}} --record-fields \
+       resource_arn event_timestamp logType accountId user_arn user_type status_code \
+       conversation_id system_message_id message_scope user_message_id user_message \
+       agent_id flow_id system_text_message user_selected_resources action_connectors \
+       cited_resource file_attachment namespace surface_type latency time_to_first_token web_search
+   ```
+
+Records delivered after the update contain the fields in the new list. Records already delivered do not change.
+
 ### Verify log delivery
 <a name="quicksuite-chat-feedback-verify-log-delivery"></a>
 
@@ -183,9 +213,6 @@ Each Amazon Quick log type has its own schema. The field names, including the lo
 <a name="quicksuite-chat-logs"></a>
 
 Chat logs capture conversation interactions:
-
-**Note**  
-Temporary conversations that are excluded from history and memory are still delivered to chat logs. Each record includes the `user_arn` and `user_type` of the user who initiated the conversation.
 + `user_arn` – Amazon Quick user ARN associated with the event
 + `user_type` – Amazon Quick user type associated with the event (for example, `ADMIN_PRO`)
 + `status_code` – Status of the chat request (for example, `success`, `request_blocked`, `no_answer_found`)
@@ -205,12 +232,21 @@ Temporary conversations that are excluded from history and memory are still deli
 + `event_timestamp` – Timestamp of the event
 + `logType` – `CHAT_LOGS`
 + `accountId` – AWS account ID
++ `namespace` – (Default, String) Amazon Quick namespace of the user, taken from `user_arn`
++ `surface_type` – (Default, String) Client the message came from (for example, `WEB_EXPERIENCE`, `QUICK_DESKTOP`, `BROWSER_EXTENSION_CHROME`, `MOBILE_EXPERIENCE`, `SLACK`, `OUTLOOK_ADD_IN_NATIVE_AUTH`)
++ `latency` – (Opt-in, Long) Time from the request to the end of the response, in milliseconds
++ `time_to_first_token` – (Opt-in, Long) Time from the request to the first part of the response, in milliseconds, or `0` when not measured. It currently equals `latency` except for chats from the Quick desktop app and Office add-ins, so treat it as a time to first token only when it is greater than 0 and less than `latency`.
++ `web_search` – (Opt-in, Boolean) `true` when the web search connector (`quicksuite-websearch`) was available for the message, as in `action_connectors`. It does not show whether a web search ran.
+
+Fields marked **Opt-in** are delivered only if you add them to the delivery's field list (see [Choose or change the fields in a delivery](#quicksuite-vended-logs-change-fields)). All other fields are in the default field list.
+
+When you configure chat log delivery, Quick also delivers temporary conversations to chat logs, including incognito conversations on desktop. These conversations are excluded from history and memory. Each record includes the `user_arn` and `user_type` of the person who started the conversation.
 
 The following is an example of chat logs:
 
 ```
 {
-    "user_arn": "arn:aws:quicksight:us-east-1:111122223333:user/default/johndoe",
+    "user_arn": "arn:aws:quicksight:us-east-1:111122223333:user/default/johnstiles",
     "user_type": "ADMIN_PRO",
     "status_code": "success",
     "conversation_id": "c11ba72c-ff18-4213-9686-1952bb547c19",
@@ -225,6 +261,8 @@ The following is an example of chat logs:
     "action_connectors": [{"actionConnectorId": "quicksuite-documentation"}, {"actionConnectorId": "quicksuite-websearch"}],
     "cited_resource": [{"citedResourceType": "document", "citedResourceId": null, "citedResourceName": "example-document.html"}],
     "file_attachment": [{"fileAttachmentType": "html", "fileAttachmentName": "example-document.html"}],
+    "namespace": "default",
+    "surface_type": "WEB_EXPERIENCE",
     "resource_arn": "arn:aws:quicksight:us-east-1:111122223333:account/111122223333",
     "event_timestamp": 1787185484508,
     "logType": "CHAT_LOGS",
@@ -249,12 +287,13 @@ Feedback logs capture user feedback on chat responses:
 + `event_timestamp` – Timestamp of the event
 + `logType` – `FEEDBACK_LOGS`
 + `accountId` – AWS account ID
++ `namespace` – (Default, String) Amazon Quick namespace of the user, taken from `user_arn`
 
 The following is an example of feedback logs:
 
 ```
 {
-    "user_arn": "arn:aws:quicksight:us-east-1:111122223333:user/default/johndoe",
+    "user_arn": "arn:aws:quicksight:us-east-1:111122223333:user/default/johnstiles",
     "user_type": "ADMIN_PRO",
     "status_code": "success",
     "conversation_id": "c11ba72c-ff18-4213-9686-1952bb547c19",
@@ -263,6 +302,7 @@ The following is an example of feedback logs:
     "feedback_type": "Not Useful",
     "feedback_reason": "Too wordy",
     "feedback_details": "The answer included too much background information.",
+    "namespace": "default",
     "resource_arn": "arn:aws:quicksight:us-east-1:111122223333:account/111122223333",
     "event_timestamp": 1787185500123,
     "logType": "FEEDBACK_LOGS",
@@ -283,7 +323,7 @@ This log type captures the usage logs for different agents within your Quick acc
 + `usage_hours` – Decimal value indicating the agent hours consumed for this record
 + `service_resource_arn` – ARN of the resource that consumed the hours (for example, a flow, automation, or research session)
 + `resource_arn` – Resource ARN of your Amazon Quick account
-+ `event_timestamp` – Timestamp of the event
++ `event_timestamp` – Time the usage was reported, as Unix epoch time in *seconds*. Other Quick log types use milliseconds.
 + `logType` – `AGENT_HOURS_LOGS`
 + `accountId` – AWS account ID
 
@@ -291,14 +331,14 @@ The following is an example of Agent Hours logs:
 
 ```
 {
-    "user_arn": "arn:aws:quicksight:us-east-1:111122223333:user/default/johndoe",
+    "user_arn": "arn:aws:quicksight:us-east-1:111122223333:user/default/johnstiles",
     "subscription_type": "ENTERPRISE",
     "reporting_service": "RESEARCH",
     "usage_group": "Included",
     "usage_hours": 0.0928,
     "service_resource_arn": "arn:aws:quicksight::111122223333:research/a11b2bbc-c123-3abc-a12b-12a34b5c678d",
     "resource_arn": "arn:aws:quicksight:us-east-1:111122223333:account/111122223333",
-    "event_timestamp": 1787183715000,
+    "event_timestamp": 1787183715,
     "logType": "AGENT_HOURS_LOGS",
     "accountId": "111122223333"
 }
@@ -321,14 +361,14 @@ Agent metadata logs capture lifecycle events for chat agents, including creation
 + `permissions_granted` – Permissions added in this operation.
 + `permissions_revoked` – Permissions removed in this operation.
 + `permissions_state` – Current permissions after the operation.
-+ `update_action` – The update action performed.
++ `update_action` – Not populated.
 + `version` – Agent version number.
 + `icon_id` – Icon identifier for the agent.
 + `magic_builder_query` – The natural language query used to create the agent via the builder.
-+ `instructions` – Agent instructions.
++ `instructions` – Not populated.
 + `failed_to_add_spaces` – Spaces that could not be attached.
 + `failed_to_remove_spaces` – Spaces that could not be detached.
-+ `draft_discarded` – Whether a draft was discarded.
++ `draft_discarded` – Not populated (always `false`).
 + `custom_prompt_input` – Custom prompt input configured for the agent.
 + `welcome_message` – Welcome message shown to users of the agent.
 + `starter_prompts` – Starter prompts suggested to users of the agent.
@@ -406,7 +446,7 @@ For information about building dashboards and running queries against index usag
 Knowledge base file sync logs capture per-document sync status events. One log record is emitted per document per sync run:
 + `document_id` – Original document identifier such as a URL or file path.
 + `document_title` – Document title.
-+ `document_status` – Terminal document status. Values: `ADDED`, `MODIFIED`, `UNMODIFIED`, `DELETED`, `SKIPPED`, `FAILED`.
++ `document_status` – Terminal document status. Values: `ADDED`, `MODIFIED`, `UNMODIFIED`, `DELETED`, `SKIPPED`, `BLOCKED`, `FAILED`.
 + `sync_result` – High-level availability result. Values: `AVAILABLE` or `UNAVAILABLE`.
 + `sync_id` – Sync job execution ID.
 + `data_source_id` – Identifier of the data source that the knowledge base is connected to.
@@ -479,7 +519,7 @@ Every `DLP_LOGS` record includes these common fields:
 + `event_timestamp` – Unix epoch time in milliseconds
 + `log_type` – `DLP_LOGS`
 + `account_id` – AWS account ID
-+ `event_type` – The DLP event: `DLP_FILE_BLOCKED`, `DLP_FILE_WARNED`, `DLP_INSPECTION_FAILED`, `DLP_SETTING_CREATED`, `DLP_SETTING_UPDATED`, or `DLP_SETTING_DELETED`
++ `event_type` – The DLP event: `DLP_FILE_BLOCKED`, `DLP_FILE_WARNED`, `DLP_INSPECTION_FAILED`, `DLP_WARN_ACKNOWLEDGED`, `DLP_WARN_DECLINED`, `DLP_SETTING_CREATED`, `DLP_SETTING_UPDATED`, `DLP_SETTING_DELETED`, `DLP_SETTING_ENFORCEMENT_ENABLED`, or `DLP_SETTING_ENFORCEMENT_DISABLED`
 + `request_id` – Unique identifier for the event
 + `user_arn` – Amazon Quick user ARN associated with the event (`system` for service-initiated events)
 

@@ -34,7 +34,13 @@ Manage account identity and view plan and usage. The Account tab shows your prof
 
 When you connect Quick to your running browser, follow the setup steps to enable remote debugging, then test the connection. Enabling remote debugging allows applications on your computer to connect to the browser and access open pages, cookies, and authenticated sessions; turn it off when you are not using this feature. When this option is off, the agent launches a separate browser instance with a copy of your profile.
 
+## Privacy controls
+<a name="desktop-privacy-controls"></a>
+
+You can control whether Quick learns from your conversations, searches your conversation history, and extracts entities from connected services. You can also view, edit, and delete individual memories. For more information, see [My context](desktop-settings-my-context.md).
+
+For information about what incognito mode keeps and how incognito conversations appear in chat logs, see [Incognito mode](working-with-chat-desktop.md#desktop-incognito-mode) and [Monitoring and auditing](desktop-security.md#desktop-monitoring).
+
 ## Advanced
 <a name="desktop-settings-advanced"></a>
 + Export diagnostics: save diagnostic logs for troubleshooting; choose a time range and export.
-+ Clear all data: removes all Quick data, including conversations, cached messages, knowledge graph, saved credentials, and preferences. The application quits after cleanup. Clearing all data is irreversible.

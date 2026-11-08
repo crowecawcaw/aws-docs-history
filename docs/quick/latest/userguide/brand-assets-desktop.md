@@ -212,7 +212,7 @@ If you upload any other file type, Quick shows an error that lists the accepted 
 | --- | --- | --- | --- | 
 | Create and update brand kits | Who can curate brand assets. For default availability and configuration guidance, see [Assigning brand managers](#brand-assets-admin-delegate). | The user can extract, refine, publish, update, and delete brands for the organization. | The user can browse, download, and apply published brands, but can't change what the organization publishes. | 
 
-## Troubleshooting
+## Troubleshooting brand assets
 <a name="brand-assets-troubleshooting"></a>
 
 **The Brand assets tab isn't available**  

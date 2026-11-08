@@ -14,10 +14,10 @@
 |    Intended audience:  Amazon Quick developers  | 
 
 You can enable the following Generative BI features in your embedded console:
-+ Executive summaries: When enabled, registered Author Pro and Reader Pro users can generate executive summaries that provide a summary of all insights that Amazon Quick Sight has generated for the dashboard to easily discover key insights.
++ Executive summaries: When enabled, registered users can generate executive summaries that provide a summary of all insights that Amazon Quick Sight has generated for the dashboard to easily discover key insights.
 + Authoring: When enabled, Author Pro users can use Generative BI to build calculated fields and build and refine visuals.
-+ Q&A: When enabled, Author Pro and Reader Pro users can use the AI-powered Q&A to both suggest and answer questions related their data.
-+ Data stories: When enabled, Author Pro and Reader Pro users can provide details to quickly generate a first draft of their data story.
++ Q&A: When enabled, users can use the AI-powered Q&A to both suggest and answer questions related to their data.
++ Data stories: When enabled, users can provide details to quickly generate a first draft of their data story.
 
 **To enable Generative BI features in embedded consoles for registered users**
 + Follow the steps in [Embedding the full functionality of the Amazon Quick Sight console for registered users](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-full-console-for-authenticated-users.html) to embed a console with the following changes:

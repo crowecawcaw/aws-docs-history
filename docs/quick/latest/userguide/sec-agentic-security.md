@@ -91,7 +91,7 @@ You can apply human approval gates at five points in the lifecycle of AI and age
 
 1. **Runtime review (human-in-the-loop task center)** – For workflows where you want a person to approve an action before it executes, the human-in-the-loop task center pauses execution and collects approval. This gate is optional and per-workflow. For more information, see [Human-in-the-loop task center](hitl-task-center.md).
 
-1. **Per-action user control (Desktop, Preview)** – On Quick Desktop, each system tool can be enabled or disabled individually and supports a three-tier permission model – **Full Access**, **Read Only**, and **Ask Each Time** – with granularity for each operation. **Full Access** runs operations without prompting for confirmation. **Ask Each Time** confirms every operation. This places an approval decision in your hands at the moment of each action, for the tools you have enabled. For more information, see [Access levels](system-tools-desktop.md#system-tools-access-levels) and [Managing permissions](system-tools-desktop.md#desktop-settings-manage-permissions).
+1. **Per-action user control (desktop)** – In Quick on desktop, you can turn each system tool on or off and set each operation to one of three access levels: **Always Allow**, **Ask Each Time**, or **Always Deny**. **Always Allow** runs operations without prompting for confirmation. **Ask Each Time** confirms every operation. This places an approval decision in your hands at the moment of each action, for the tools you have enabled. For more information, see [Access levels](system-tools-desktop.md#system-tools-access-levels) and [Managing permissions](system-tools-desktop.md#desktop-settings-manage-permissions).
 
 Where a per-action prompt applies, it is a user-configurable choice. On Desktop, you set a tool to **Ask Each Time** to confirm every operation, or to **Full Access** to run without prompting. In the web experience, on-demand actions execute when you trigger them, and automated workflows are non-interactive by design – the gates at capability, build, and share time do the work there.
 
@@ -191,15 +191,14 @@ Retained context is part of the read surface described in [Two-condition model f
 ### Controls
 <a name="sec-agentic-security-memory-controls"></a>
 + **Isolation** – Memories are specific to the individual user and are not shared with other users.
-+ **User control** – You can review your chat memory through **Conversation History**. On Desktop, you can additionally manage whether Quick learns from your conversations, searches your conversation history, and extracts entities from connected services. You can also view, edit, and delete individual memories. For more information, see [Privacy controls](desktop-security.md#desktop-privacy-controls).
-+ **Full reset (Desktop)** – The **Clear all data** option irreversibly removes all conversations, knowledge graph data, saved credentials, and user preferences. For more information, see [Clearing all data](desktop-security.md#desktop-clearing-data).
++ **User control** – You can review your chat memory through **Conversation History**. On Desktop, you can additionally manage whether Quick learns from your conversations, searches your conversation history, and extracts entities from connected services. You can also view, edit, and delete individual memories. For more information, see [Privacy controls](desktop-settings.md#desktop-privacy-controls).
 + **Administrator control** – Custom permissions include capabilities that restrict building and managing engrams (profiles of a user's writing style and patterns) and creating and accessing knowledge memory in Quick Desktop. For more information, see [Custom permissions](custom-permissions.md).
 + **No training** – Quick does not use your conversations, files, or personal context to train or improve AI models.
 
 ### Limitations
 <a name="sec-agentic-security-memory-limits"></a>
 + Chat memory is not supported for accounts configured with AWS KMS customer managed keys. An organization that requires customer managed keys does not get chat memory. For more information, see [Memory and response personalization](using-quick-chat.md#chat-memory).
-+ Quick Desktop is in Preview. The My Context surface, the Knowledge graph tab, the ability to view, edit, and delete individual memories, and the **Clear all data** option are Desktop features. In the web experience, you review chat memory through **Conversation History**. Confirm which controls are available on the surface you deploy rather than assuming parity between Desktop and web.
++ The My Context surface, the Knowledge graph tab, and the ability to view, edit, and delete individual memories are Quick on desktop features. In the web experience, you review chat memory through **Conversation History**. Confirm which controls are available on the surface you deploy rather than assuming parity between Desktop and web.
 
 ## Where to go next
 <a name="sec-agentic-security-next-steps"></a>

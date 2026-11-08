@@ -47,7 +47,6 @@ When an app queries datasets directly for live data, the following limitations a
 ### Sharing and access
 <a name="apps-limits-live-data-sharing"></a>
 + **Sharing an app does not share its data** — Grant each app user read access to every dataset the app uses, or share the folder that holds them.
-+ **App user roles** — Only Admin, Author, Admin Pro, Author Pro, and Reader Pro roles can view live data (Reader Pro only where enabled). Standard Reader and Restricted Reader cannot.
 + **No public apps** — An app that uses live datasets cannot be made public.
 + **One-time consent** — Each app user approves a prompt per dataset the first time they open the app.
 

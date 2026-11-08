@@ -42,25 +42,17 @@ Verify that your system meets the following requirements.
 <a name="desktop-download-install"></a>
 
 **Important**  
-If your organization uses an Enterprise account, complete the steps in [Setting up Amazon Quick on desktop for enterprise deployments](desktop-enterprise-setup.md) before downloading or distributing the application. Enterprise sign-in becomes available after an administrator configures it.
+If your organization uses an Enterprise account, make sure an administrator has turned on desktop access before you distribute the application. For instructions, see [Turning on desktop access](desktop-enterprise-setup.md#desktop-enterprise-turn-on).
 
-You can download the Amazon Quick desktop application from the following locations:
-+ **Amazon Quick web application** – Sign in to Amazon Quick on the web. In the left navigation, choose **Extensions**, find the desktop extension card, and choose the download for your platform.
-+ **Direct download** – Use the following links:
+To download the Amazon Quick desktop application, use the following links.
 
 
 **Direct download links**  
 
-<table>
-<thead>
-  <tr><th>Platform</th><th>Download</th></tr>
-</thead>
-<tbody>
-  <tr><td>macOS (Apple Silicon)</td><td><a href="https://desktop.downloads.quick.aws.com/mac/arm64/Amazon-Quick.dmg">Amazon-Quick.dmg</a></td></tr>
-  <tr><td>Windows (x64)</td><td><a href="https://desktop.downloads.quick.aws.com/windows/x64/Amazon-Quick.exe">Amazon-Quick.exe</a></td></tr>
-</tbody>
-</table>
-
+| Platform | Download | 
+| --- | --- | 
+| macOS (Apple Silicon) | [Amazon-Quick.dmg](https://desktop.downloads.quick.aws.com/mac/arm64/Amazon-Quick.dmg) | 
+| Windows (x64) | [Amazon-Quick.exe](https://desktop.downloads.quick.aws.com/windows/x64/Amazon-Quick.exe) | 
 
 **To install on macOS**
 
@@ -103,9 +95,19 @@ When you open the application, the sign-in screen shows the available options.
 
 1. After authentication succeeds, the application loads the Home screen.
 
-Enterprise sign-in becomes available after your organization's administrator configures it.
+**To sign in with your organization's Amazon Quick account**
 
-**To sign in with an enterprise account**
+1. Open the application.
+
+1. Enter your Amazon Quick account name, and then choose **Sign In**.
+
+1. Your browser opens Amazon Quick. If you aren't already signed in to Quick on the web, sign in the way you usually do.
+
+1. The browser returns you to the application, and the Home screen loads.
+
+You stay signed in for up to 30 days. For more information, see [How sign-in works](desktop-enterprise-setup.md#desktop-enterprise-sign-in).
+
+**To sign in if your organization uses a dedicated identity provider configuration**
 
 1. Open the application.
 
@@ -116,6 +118,8 @@ Enterprise sign-in becomes available after your organization's administrator con
 1. Enter your corporate credentials on your organization's identity provider page.
 
 1. After authentication succeeds, the application loads the Home screen.
+
+If you aren't sure which procedure applies, ask your administrator.
 
 ## First-run setup
 <a name="desktop-first-run-setup"></a>

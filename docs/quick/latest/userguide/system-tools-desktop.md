@@ -34,6 +34,13 @@ Below the access level, each tool lists its operations grouped into read and wri
 
 1. Close the panel. Changes take effect immediately.
 
+## System tool permissions
+<a name="desktop-security-tool-permissions"></a>
+
+Amazon Quick on desktop uses the same access levels for system tools, for connectors to third-party services such as Slack, Microsoft Outlook, and Gmail, and for local tools that run on your computer. You can turn each one on or off and set each operation to **Always Allow**, **Ask Each Time**, or **Always Deny**.
+
+Quick stores your permission choices and applies them whenever an agent acts on your behalf, including scheduled agents. An agent can take only the actions that you allow, and you can review or change these permissions at any time.
+
 ## Available system tools
 <a name="system-tools-available"></a>
 
@@ -52,7 +59,7 @@ The built-in system tools include:
 + File indexing and search: find and cite content across the folders you have granted access to. Operations include Search files (search across indexed files by keyword or meaning), Read document (return the full content of a specific file), Check indexing (report indexing status for a folder or file), and Approve indexing (approve or skip a pending indexing operation). For how folders are indexed, see [Knowledge](knowledge-desktop.md).
 + Working with your data: answer questions in natural language about the datasets and dashboards you connect through Quick spaces. Quick can answer questions from datasets (run analytical queries and return an answer with the underlying data), read dashboards (interpret and summarize the data behind a dashboard visual), and discover data (browse the catalog of datasets and dashboards available to you). Which datasets and dashboards Quick can see depends on your organization's permissions.
 
-All system tools are enabled by default with Always Allow permissions. You restrict or disable any tool at any time; changes take effect immediately for new conversations and agent runs. For the permission model and hardening guidance, see [Security, privacy, and architecture](desktop-security.md).
+All system tools are turned on by default, with write operations set to **Ask Each Time**. You can restrict or turn off any tool at any time. Changes take effect immediately, in existing and new conversations and agent runs. For information about the controls that administrators set, see [Administrator and user controls](desktop-security.md#desktop-admin-user-controls).
 
 ### Code execution
 <a name="system-tool-code-execution"></a>

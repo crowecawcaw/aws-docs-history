@@ -12,7 +12,7 @@
 <a name="desktop-ts-connection"></a>
 + A messaging, email, or calendar connection fails: disconnect and reconnect in Customize, on the Connectors tab, verify your permissions in the third-party service, and check your internet connection.
 + A connection shows Not synced: verify connectivity, then disconnect and reconnect; if it persists, the service might be having an outage.
-+ Sign-in or responses fail only on a corporate network or virtual private network (VPN): confirm the required Quick domains are reachable, and address Transport Layer Security (TLS) inspection with your network administrator (see [Security, privacy, and architecture](desktop-security.md)). If it persists, export logs and contact AWS Support.
++ Sign-in or responses fail only on a corporate network or virtual private network (VPN): confirm the required Quick domains are reachable, and address Transport Layer Security (TLS) inspection with your network administrator (see [Security, privacy, and architecture of Amazon Quick on desktop](desktop-security.md)). If it persists, export logs and contact AWS Support.
 
 ## Performance issues
 <a name="desktop-ts-performance"></a>

@@ -3,7 +3,7 @@
 # Knowledge
 <a name="knowledge-desktop"></a>
 
-The **Knowledge** tab in **Customize** is where you give Amazon Quick access to files on your computer and control how Quick indexes them. For each folder, choose whether Quick uploads its files for full-content search, extracts information from them into your knowledge graph, both, or neither. Adding a folder grants access only; indexing stays off until you turn it on.
+The **Knowledge** tab in **Customize** is where you give Amazon Quick access to files on your computer and control how Quick indexes them. For each folder, choose whether Quick uploads its files for full-content search, extracts information from them into your knowledge graph, both, or neither. When you add a folder, Quick can read its files on your computer, but it doesn't upload them until you turn on indexing.
 
 ## Indexing options
 <a name="knowledge-indexing-options"></a>
@@ -35,4 +35,6 @@ Global search-indexing limits apply across all indexed folders. Indexing stops a
 ## Folder access permissions
 <a name="knowledge-permissions"></a>
 
-To set what Quick can do with a folder, choose **Manage permissions** and set an access level: **Full Access** (read and write), **Read Only**, or **Ask Each Time**. You can adjust individual read and write operations independently.
+Quick uses operating system sandboxing to control file access. It can reach only the folders that you grant, and you can revoke access at any time by turning off **Agent access** for a folder. Each folder also has its own settings for keyword search, semantic search, and knowledge graph extraction, as described in [Indexing options](#knowledge-indexing-options).
+
+Quick can also reach the system temporary folders, whatever your folder permissions are. On Windows, these are `C:\TEMP`, `C:\TMP`, `\TEMP`, and `\TMP`. On macOS, these are `/tmp`, `/var/tmp`, and `/usr/tmp`.

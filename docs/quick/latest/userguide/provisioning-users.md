@@ -44,7 +44,7 @@ You can use an AWS user or group policy to give users the ability to create an A
 ## Self-provisioning an Amazon Quick read-only user
 <a name="self-service-read-only-users"></a>
 
-Amazon Quick read-only users or *readers* can view and manipulate dashboards that are shared with them, but they can't make any changes or save a dashboard for further analysis. Amazon Quick readers can't create data sources, datasets, analyses, or visuals. They can't do any administrative tasks. Choose this role for people who are consumers of the dashboards but don't author their own analysis, for example, executives. Reader Pro users have access to advanced features including AI chat agents, collaborative spaces, flows, and extensions.
+Amazon Quick Essentials (Readers) or Amazon Quick Professional (Reader Pro) users can view and manipulate dashboards that are shared with them, but they can't make any changes or save a dashboard for further analysis. Amazon Quick readers can't create data sources, datasets, analyses, or visuals. They can't do any administrative tasks. Choose this role for people who are consumers of the dashboards but don't author their own analysis, for example, executives. Both Essentials (Reader) and Professional (Reader Pro) users now have access to Amazon Quick AI features.
 
 If you are using Microsoft Active Directory with Amazon Quick, you can manage read-only permissions by using a group. Otherwise, you can bulk-invite users to use Amazon Quick. You can also use an AWS user or group policy to give people the ability to create an Amazon Quick reader account for themselves. 
 

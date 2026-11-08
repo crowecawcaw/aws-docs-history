@@ -21,7 +21,7 @@ The new capabilities for Amazon Quick are available via the following monthly us
 To manage Amazon Quick users, billing and services, you need the Admin Pro role, which is the same as Amazon Quick Enterprise user subscription.
 
 Amazon Quick also provides the following monthly user subscriptions to support business only (BI) only use cases:
-+ **Amazon Quick Sight Reader** – For users who need to view and interact with dashboards and reports.
++ **Amazon Quick Essentials** (or Amazon Quick Sight Reader role) – For users who need to view and interact with dashboards and reports. Starting on October 30th, 2026, Essentials users also have access to Amazon Quick AI features.
 + **Amazon Quick Sight Author** – For users who need to create and manage BI content.
 
   To manage Amazon Quick Sight users, billing and services, you need Admin role, which is the same as Amazon Quick Sight Author user subscription.
@@ -32,7 +32,7 @@ For pricing information, see [Amazon Quick pricing](https://aws.amazon.com/quick
 ## Understanding reader capabilities
 <a name="reader-user-type"></a>
 
-Readers can use Quick to access company data and find answers through chat interactions with AI agents. They can upload files, run automations, create visualizations, and share spaces via direct links. Reader Pro users additionally have access to advanced Amazon Quick features including AI chat agents, collaborative spaces, flows, and extensions. For detailed information about reader capabilities and subscription types, see [Amazon Quick pricing](https://aws.amazon.com/quicksuite/pricing/).
+Both Essentials (Reader) and Professional (Reader Pro) can use Quick to access company data and find answers through chat interactions with AI agents. They can upload files, run automations, create visualizations, and share spaces via direct links. Existing security controls still apply, including row-level and column-level security and administrator Custom Permissions. For pricing, see [Amazon Quick pricing](https://aws.amazon.com/quick/pricing/).
 
 ## Understanding author capabilities
 <a name="author-user-type"></a>

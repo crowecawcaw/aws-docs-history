@@ -21,7 +21,7 @@ The navigation rail on the left provides access to the main areas of Amazon Quic
 | Features | What you do there | 
 | --- | --- | 
 | Chat | Start and continue conversations with Quick. This is the primary way you work. | 
-| Feed | Review a prioritized activity feed, your calendar, and your to-dos, drawn from connected services. | 
+| Feed | Review a prioritized activity feed, your calendar, and your to-dos, drawn from connected services. For more information, see [Activity feed](activity-feed-desktop.md). | 
 | Library | Browse, search, and reuse your content and Quick resources in one place. | 
 | Customize | Manage the agents, skills, connectors, and knowledge that power your agents. | 
 | Apps | Open and build interactive applications (Apps in Amazon Quick). | 

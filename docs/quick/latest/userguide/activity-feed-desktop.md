@@ -3,12 +3,12 @@
 # Activity feed
 <a name="activity-feed-desktop"></a>
 
-The activity feed is your single place to catch what happened across your connected services, such as Slack, Outlook, and your calendar, without opening each app. Amazon Quick reads that activity, enriches it with your knowledge graph (the people, projects, and topics in your work), and surfaces only what is relevant to you. A feed agent processes items from your connected messaging, email, and calendar sources, assigns importance, and suggests actions. The feed is organized into **Feed**, **Calendar**, and **To-dos** tabs.
+In Amazon Quick, the activity feed is your single place to catch what happened across your connected services, such as Slack, Outlook, and your calendar. You don't need to open each app. Quick reads that activity and surfaces only what is relevant to you. It uses your knowledge graph (the people, projects, and topics in your work) to decide what matters. A feed agent processes items from your messaging, email, and calendar sources. It assigns importance and suggests actions. The feed is organized into **Feed**, **Calendar**, and **To-dos** tabs.
 
 The feed has these characteristics.
 + **Personalized every time**: items are ranked by what matters to you, not by what arrived most recently.
 + **Burns down as you work**: the feed gets smaller as you handle items, not bigger. The goal is an empty feed, not an endless timeline.
-+ **Does not consume agent hours**: using the feed does not consume agent hours. Only scheduled tasks that post results to your feed use agent hours. For plan availability and pricing, see [Amazon Quick pricing](https://aws.amazon.com/quick/pricing/).
++ **Does not consume agent hours**: using the feed does not consume agent hours. Only scheduled tasks that post results to your feed use agent hours. For plan availability and pricing, see [Amazon Quick pricing](https://aws.amazon.com/quick/pricing/) on the AWS website.
 
 ## On Home
 <a name="activity-feed-home"></a>
@@ -18,7 +18,7 @@ Your activity feed surfaces directly on the desktop and mobile home page, so the
 ## Feed
 <a name="activity-feed-feed"></a>
 
-The **Feed** tab shows an aggregated activity stream. Each item shows its source service, an AI-generated summary, an importance level, and suggested actions, including a suggested draft when a reply is appropriate. Related items group into collapsible threads. A density control switches the cards between a comfortable and a compact layout.
+The **Feed** tab shows an aggregated activity stream. Each item shows its source service, an AI-generated summary, an importance level, and suggested actions. When a reply is appropriate, the item includes a suggested draft. Related items group into collapsible threads. A density control switches the cards between a comfortable and a compact layout.
 
 Quick assigns one of the following importance levels.
 
@@ -32,7 +32,7 @@ Quick assigns one of the following importance levels.
 ## Briefing
 <a name="activity-feed-briefing"></a>
 
-Quick on desktop delivers a daily briefing at the top of your activity feed to help you stay on top of your day. The briefing is a curated card that summarizes what you need to know: overnight activity in your connected services, your day plan and calendar, decisions that need your attention, and follow-ups that are due. Choose **Show briefing** on the card to expand it, or choose the card to open the full briefing view.
+Quick on desktop delivers a daily briefing at the top of your activity feed to help you stay on top of your day. The briefing is a card that summarizes what you need to know. It covers overnight activity in your connected services, your day plan and calendar, decisions that need your attention, and follow-ups that are due. Choose **Show briefing** on the card to expand it, or choose the card to open the full briefing view.
 + **Delivered through the feed**: the briefing appears as a card at the top of your activity feed. You do not need to configure it separately.
 + **Updated three times a day**: the briefing refreshes in the morning, midday, and afternoon, so it reflects the latest activity, not just what happened overnight.
 + **Personalized over time**: Quick tailors the briefing based on the topics, people, and projects you engage with.
@@ -48,22 +48,22 @@ Filters are visible by default at the top of the feed. Narrow the feed by label,
 ## Auto resolve
 <a name="activity-feed-auto-resolve"></a>
 
-Quick automatically clears feed items that no longer need you, so your feed stays focused on what is still open. When an item has been handled, such as when you replied to the message elsewhere, the meeting passed, or a newer update supersedes it, Quick resolves it for you. Resolved items collapse behind a **Resolved** filter, so you can still review what was cleared. You can also give feedback on any item (**Not relevant**, **Already handled**, or **Something else**) to sharpen what surfaces over time.
+Quick clears feed items that no longer need you. Your feed stays focused on what is still open. Quick resolves an item after you handle it. For example, you replied to the message elsewhere, the meeting passed, or a newer update replaced it. Resolved items collapse behind a **Resolved** filter, so you can still review what was cleared. You can also give feedback on any item (**Not relevant**, **Already handled**, or **Something else**) to sharpen what surfaces over time.
 
 ## Catch-up
 <a name="activity-feed-catch-up"></a>
 
-When you return after being away, the feed offers a catch-up summary: a consolidated view of everything that happened while you were gone, organized by importance level, so you can get up to speed quickly. This summarizes activity across your connected services. For a recap of a single long-running task in a conversation, see the Away From Keyboard (AFK) recap in [Working with chat](working-with-chat-desktop.md).
+When you return after being away, the feed offers a catch-up summary. It shows everything that happened while you were gone in one view. Items are organized by importance level, so you can get up to speed quickly. This summarizes activity across your connected services. For a recap of a single long-running task in a conversation, see the Away From Keyboard (AFK) recap in [Working with chat](working-with-chat-desktop.md).
 
 ## Always on
 <a name="activity-feed-always-on"></a>
 
-Because Quick runs in the cloud, your feed continues to update while the desktop application is closed and your computer is off. Scheduled tasks, monitoring agents, and background workflows run overnight and post their results to your feed, so anything that happened while you were away is captured and waiting for you. You open your day to a feed and briefing that already reflect what is most important, instead of starting from an empty screen or a backlog to sort through.
+Because Quick runs in the cloud, your feed continues to update while the desktop application is closed and your computer is off. Scheduled tasks, monitoring agents, and background workflows run overnight. They post their results to your feed. Anything that happened while you were away is waiting for you. You start your day with a feed and briefing that already show what is most important. You don't start from an empty screen or a backlog to sort through.
 
 ## Calendar
 <a name="activity-feed-calendar"></a>
 
-The **Calendar** tab shows your day on a time grid, today or tomorrow, alongside a **Quick Suggests** side panel of AI recommendations tied to your events and free time. Each suggestion is a card you act on, copy, or mark done, and you can start a chat about it. For a free slot, Quick can block focus time directly on your calendar. Other suggestions start a chat with a prefilled prompt, such as preparing for a meeting.
+The **Calendar** tab shows your day on a time grid, for today or tomorrow. A **Quick Suggests** side panel lists AI recommendations tied to your events and free time. Each suggestion is a card you act on, copy, or mark done, and you can start a chat about it. For a free slot, Quick can block focus time directly on your calendar. Other suggestions start a chat with a prefilled prompt, such as preparing for a meeting.
 
 ## To-dos
 <a name="activity-feed-todos"></a>

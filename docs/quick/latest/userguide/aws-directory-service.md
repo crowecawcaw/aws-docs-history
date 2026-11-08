@@ -29,7 +29,7 @@ When you use AWS Directory Service to launch a directory, AWS creates an organiz
 After you establish your directory, you use it with Quick by creating groups for users. Amazon Quick has six specific user roles that can be assigned, including Pro versions that provide access to advanced capabilities:
 + **Quick admins** – Admins can change account settings, manage accounts. Admins can also purchase additional Amazon Quick user subscriptions or [SPICE](https://docs.aws.amazon.com/quicksight/latest/user/spice.html) capacity, or cancel the subscription to Amazon Quick for your AWS account. Admin Pro users have additional capabilities including creating content using natural language, building knowledge bases, configuring actions, and accessing advanced automation workflows.
 + **Quick authors** – Amazon Quick authors can create data sources, datasets, analyses, and dashboards. They can share analyses and dashboards with other Amazon Quick users. Author Pro users can additionally create content using natural language, build knowledge bases, configure actions, and access advanced automation capabilities.
-+ **Quick readers** – Readers can view and interact with dashboards that were created by someone else. Reader Pro users have access to advanced features including AI chat agents, collaborative spaces, flows, and extensions.
++ **Quick readers** – both Essentials (Reader) and Professional (Reader Pro) users can view and interact with dashboards that were created by someone else, as well as have access to advanced features including AI chat agents, collaborative spaces, flows, and extensions.
 
 You can add or refine access by applying IAM policies. For example, you can use IAM policies to allow users to subscribe themselves.
 

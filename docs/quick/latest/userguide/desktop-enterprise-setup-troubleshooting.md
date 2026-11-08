@@ -13,6 +13,12 @@
 | --- |
 |    Intended audience:  System administrators  | 
 
+If a user can't sign in to the desktop application, check the following:
++ The user can sign in to Amazon Quick on the web in the same browser.
++ The user has version 1.1.4053 or later of the desktop application. To check, choose **Amazon Quick** > **About Amazon Quick** in the menu bar.
+
+The rest of this page applies if your administrator chose **Configure Identity Provider** (advanced) or still uses a desktop extension.
+
 Use the following guidance to resolve common enterprise sign-in issues, regardless of which identity provider you use.
 
 **Tip**  
@@ -37,15 +43,16 @@ This error has two common causes:
 Token validation failure  
 This error has two common causes:  
 
-1. **The issuer URL does not match.** Verify that the issuer URL in the extension access configuration matches the issuer URL in your IdP's OIDC configuration exactly.
+1. **The issuer URL does not match.** Verify that the issuer URL in the extension access configuration matches the issuer URL in your IdP's OpenID Connect (OIDC) configuration exactly.
 
-1. **The ID token is signed with an unsupported algorithm.** Amazon Quick accepts asymmetric signatures only. If your IdP signs ID tokens with HMAC (`HS256`, `HS384`, or `HS512`), validation fails regardless of the JWKS URI you configured, because the signing key is never published in a JWKS. Reconfigure your IdP to use a supported algorithm. For the list, see [Supported token signing algorithms](desktop-enterprise-setup.md#desktop-enterprise-token-signing).
+1. **The ID token is signed with an unsupported algorithm.** Amazon Quick accepts asymmetric signatures only. If your IdP signs ID tokens with HMAC (`HS256`, `HS384`, or `HS512`), validation fails regardless of the JWKS URI you configured, because the signing key is never published in a JWKS. Reconfigure your IdP to use a supported algorithm. For the list, see [Supported token signing algorithms](desktop-enterprise-advanced-idp.md#desktop-enterprise-token-signing).
 
 Invalid issuer error (Microsoft Entra ID)  
 If sign-in fails with "Invalid issuer: https://login.microsoftonline.com/TENANT\_ID/v2.0", verify that the Issuer URL in your extension access configuration includes the `/v2.0` path suffix. The Entra ID v2.0 endpoint issues tokens with an `iss` claim that includes `/v2.0`. If the suffix is missing, delete the extension access and recreate it with the correct Issuer URL.
 
-Enterprise sign-in not configured for this account  
-This error means the extension access was created but the extension itself was not. In the Amazon Quick console, in the left navigation pane, choose **Extensions** (you might need to choose **More** to find it), and create the extension, selecting the extension access you previously configured.
+Enterprise sign-in for Quick Desktop has not been configured for this account. Contact your IT team for further support.  
++ This error means the extension access was created but the extension itself was not. In the Amazon Quick console, in the navigation pane, choose **Extensions**. If you don't see **Extensions**, choose **More** to find it. Create the extension, and select the extension access that you configured.
++ If your administrator moved to the desktop connector, update the application to version 1.1.4053 or later.
 
 User info request failed (HTTP 504)  
 This is a transient backend timeout. Sign in to your Amazon Quick account via the web browser first, then retry the desktop sign-in. If the error persists, verify network connectivity to the Amazon Quick service endpoint. For the list of required domains, see [Network access and required domains](desktop-security.md#desktop-network-access).

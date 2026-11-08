@@ -9,7 +9,6 @@ For the plans that include Amazon Quick on desktop and pricing details, see [Ama
 
 **Topics**
 + [What is Amazon Quick on desktop?](what-is-desktop.md)
-+ [Setting up Amazon Quick on desktop for enterprise deployments](desktop-enterprise-setup.md)
 + [Getting started with the Amazon Quick desktop application](getting-started-desktop.md)
 + [Understanding the desktop interface](desktop-interface.md)
 + [Working with chat](working-with-chat-desktop.md)
@@ -29,6 +28,6 @@ For the plans that include Amazon Quick on desktop and pricing details, see [Ama
 + [Knowledge graph](knowledge-graph-desktop.md)
 + [Settings](desktop-settings.md)
 + [System tools](system-tools-desktop.md)
-+ [Security, privacy, and architecture](desktop-security.md)
 + [Amazon Quick desktop usage limits](usage-limits-desktop.md)
 + [Troubleshooting](desktop-troubleshooting.md)
++ [Administering Amazon Quick on desktop](desktop-administration.md)

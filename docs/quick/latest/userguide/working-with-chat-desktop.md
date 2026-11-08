@@ -164,7 +164,7 @@ Inside an incognito conversation, Quick still follows the current conversation f
 To start an incognito conversation, choose the Incognito control at the top right of the chat surface. A private-mode indicator appears while incognito is active.
 
 **Note**  
-Privacy is locked once a chat has messages. Turn on incognito before you begin. When you leave an incognito conversation, its contents are deleted and nothing is retained.
+Privacy is locked once a chat has messages. Turn on incognito before you begin. When you leave an incognito conversation, its contents are deleted and nothing is retained. If your administrator has set up chat log delivery, Quick still delivers incognito conversations to the log destination.
 
 ## Managing conversation context
 <a name="desktop-context-meter"></a>

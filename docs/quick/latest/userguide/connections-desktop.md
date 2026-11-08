@@ -4,7 +4,7 @@
 <a name="connections-desktop"></a>
 
 Connectors bring cloud connectors, system tools, local connectors, and coding agents together in one place, with a catalog to discover and add new ones. A connector links Amazon Quick to an external application or a native tool so agents can access data and act on your behalf. You manage them from Customize, on the Connectors tab, which supports four capabilities.
-+ Cloud connectors connect Quick to external services such as Outlook, SharePoint, OneDrive, Slack, Jira, Asana, Airtable, and Salesforce, as well as remotely hosted Model Context Protocol (MCP) servers. Once connected, they are reachable from any Quick device, including desktop, mobile, and web.
++ Cloud connectors connect Quick to external services such as Outlook, SharePoint, OneDrive, Slack, Jira, Asana, Airtable, and Salesforce, as well as remotely hosted Model Context Protocol (MCP) servers. Once connected, they are reachable from any Quick device, including desktop, mobile, and web. For the full list, see [Supported integrations](supported-integrations.md).
 + System tools are the capabilities Quick provides out of the box, such as image generation, browser automation, and research. You do not install or sign in to them, but you can turn them on or off. Some run in the cloud; others, such as browser automation, are device specific. For the full list, see [System tools](system-tools-desktop.md).
 + Local connectors run on your own machine, covering local MCP servers you host yourself. Their tools are available only when that machine is on and connected.
 + Coding agents such as Kiro and Claude Code can be connected so you can delegate development work to them from chat. See the Coding agents section.
@@ -85,12 +85,18 @@ By default, tools are set to Let Users Choose at the connector level. The user-l
 | Write tasks | Let Users Choose | Ask Each Time (can be changed by the user) | 
 | Read tasks | Let Users Choose | Always Allow (can be changed by the user) | 
 
+For tools from an MCP server, Quick treats a tool as a read task only when the server marks it as read-only with the `readOnlyHint` annotation. Quick treats every other MCP tool as a write task.
+
 New tools discovered during an MCP sync are disabled by default, so a connector owner can review them before making them available.
 
 ## MCP servers
 <a name="desktop-mcp-servers"></a>
 
 Amazon Quick supports the Model Context Protocol (MCP), an open standard that extends Quick with custom tools and integrations. When you connect an MCP server, its tools become available in your chat conversations and scheduled runs, for example a server that provides database query tools.
+
+An MCP server that you add on desktop is a local connector that belongs to you. The desktop application stores its configuration on your computer, and only you can use it. To share an MCP server across the web, mobile, and desktop applications, its owner sets it up as a cloud connector instead. For more information, see [Model Context Protocol (MCP) integration](mcp-integration.md). A cloud connector runs from your Amazon Quick account, supports OAuth with Dynamic Client Registration (DCR), and stores its tokens in the account's token vault.
+
+How a local connector communicates depends on where the server runs. A server that runs as a command on your computer communicates over standard input and output (stdio). A server at a URL communicates over Streamable HTTP, and Quick falls back to HTTP with server-sent events (SSE) when the server doesn't support Streamable HTTP. Local connectors don't support OAuth or DCR, because the desktop application doesn't store or renew tokens for them. To authenticate to a URL server, add a header, such as an API key, and store its value as a secret.
 
 To add one, choose Create and then MCP server. A dialog offers three connection types. You can also paste a standard MCP server JSON configuration to populate the form.
 
@@ -107,8 +113,12 @@ Run an MCP server as a command on your machine, the most common option for devel
 | Environment variables | No | Key-value pairs the server requires. | 
 | Startup timeout | No | Seconds to wait for the server to start, 5 to 300 (default 30). | 
 
+In the **Command** and **Arguments** fields, you can start a path with `~` for your home folder. If **Command** is a program name instead of a full path, Quick finds it on your PATH. On macOS, Quick uses the PATH from your login shell.
+
 **Import**  
 Load MCP server definitions from an existing configuration file, so you reuse configurations from other tools. Quick supports configuration files from Kiro, Claude Code, AIM, Antigravity, and QuickWork exports. Enter the configuration file path (for example, `~/.kiro/settings/mcp.json`). Quick scans the file and detects the servers defined in it, and also detects compatible tools installed on your system, showing them as chips under "Detected on this system". Choose Load file to import the servers.
+
+An MCP server receives only an allowed set of system environment variables from your computer, such as PATH and your proxy and certificate settings. If a server needs another value, such as an API token, add it to the server's **Environment variables** field and mark it as a secret.
 
 **Remote**  
 Connect to an MCP server over HTTP, for shared team servers or hosted services.
