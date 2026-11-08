@@ -3,10 +3,9 @@
 # Securing storage location credentials with Secrets Manager
 <a name="location-credentials"></a>
 
-**Note**  
-Secrets Manager integration is available for object storage and Microsoft Azure Blob Storage.
+DataSync uses [locations](https://docs.aws.amazon.com/datasync/latest/userguide/how-datasync-transfer-works.html#sync-locations) to access your storage resources located on premises, in other clouds, or in AWS. Some location types require credentials to authenticate with your storage system. Credential types include an access key and secret key, a user name and password, a Kerberos keytab, or a SAS token. These types of credentials are inherently security-sensitive (must be kept secret), and they are valid until you explicitly revoke then via your authentication management system (e.g. Active Directory, or cloud storage IAM). When you create a DataSync location that requires access credentials for authentication, you can use AWS Secrets Manager (Secrets Manager) to store the secret for your credentials.
 
-DataSync uses [locations](https://docs.aws.amazon.com/datasync/latest/userguide/how-datasync-transfer-works.html#sync-locations) to access your storage resources located on premises, in other clouds, or in AWS. Some location types require credentials to authenticate with your storage system. Credential types include an access key and secret key, a user name and password, a Kerberos keytab, or a SAS token. When you create a DataSync location that requires credentials for authentication, you can use AWS Secrets Manager (Secrets Manager) to store the secret for your credentials. The following options are available:
+The following options are available :
 + [ManagedSecretConfig](https://docs.aws.amazon.com/datasync/latest/userguide/API_ManagedSecretConfig.html): DataSync-Managed Secret configuration. Store the secret in Secrets Manager using a DataSync service-managed secret encrypted with a default key.
 + [CmkSecretConfig](https://docs.aws.amazon.com/datasync/latest/userguide/API_CmkSecretConfig.html): DataSync-Managed Secret with a Customer Managed Key configuration. Store the secret in Secrets Manager using a DataSync service-managed secret encrypted with an AWS KMS key that you manage.
 + [CustomSecretConfig](https://docs.aws.amazon.com/datasync/latest/userguide/API_CustomSecretConfig.html): Customer-Managed Secret configuration. Store the secret in Secrets Manager using a secret and key that you create and manage. DataSync accesses this secret using an IAM role that you provide.

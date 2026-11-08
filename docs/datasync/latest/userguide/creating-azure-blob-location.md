@@ -20,6 +20,7 @@ How DataSync accesses your Azure Blob Storage depends on several factors, includ
 
 **Topics**
 + [SAS tokens](#azure-blob-sas-tokens)
++ [Federated identity (OIDC)](#azure-blob-federated-identity)
 + [Access tiers](#azure-blob-access-tiers)
 
 ### SAS tokens
@@ -94,6 +95,114 @@ You can't add the tag permission when generating a SAS token in the Azure portal
 Make sure that your SAS doesn't expire before you expect to finish your transfer. For information about configuring a SAS expiration policy, see the [Azure Blob Storage documentation](https://learn.microsoft.com/en-us/azure/storage/common/sas-expiration-policy).
 
 If the SAS expires during the transfer, DataSync can no longer access your Azure Blob Storage location. (You might see a Failed to open directory error.) If this happens, [update your location](#azure-blob-update-location) with a new SAS token and restart your DataSync task.
+
+### Federated identity (OIDC)
+<a name="azure-blob-federated-identity"></a>
+
+ Some third-party cloud storage systems support the use of temporary credentials to access the storage, and they also integrate with AWS Security Token Service (STS) to allow AWS services to obtain cloud storage access tokens using AWS credentials. This type of integration is often referred to as identity federation across cloud providers. DataSync supports identity federation with Microsoft Azure Blob Storage through Microsoft Entra workload identity federation. 
+
+**Note**  
+Federated identity access to Azure Blob Storage is supported only for Enhanced mode tasks. You can't create a Basic mode task that uses a location configured with federated identity.  
+For a location, provide either federated identity parameters (`FederatedIdentity`) or a shared access signature (SAS) configuration (`SasConfiguration`), but not both.
+
+ Using temporary short-lived credentials is often a preferred alternative to using long-lived credentials. While long-lived credentials are usually private (and must be stored securely to assure privacy), short-lived temporary credentials can be obtained at runtime without having to leverage any private information. Cloud services can obtain and refresh the temporary credentials (access tokens) at runtime to assure uninterrupted access to cloud storage. 
+
+ DataSync can access Azure Blob Storage containers without having to store a long-lived shared access signature (SAS). Instead, DataSync can obtain a short-lived signed AWS STS JWT (web token) and can leverage Microsoft Entra workload identity federation to exchange the web token for a Microsoft Entra access token. The token exchange flow is as follows:
++ DataSync assumes your IAM role
++ DataSync calls AWS STS GetWebIdentityToken with the assumed role's credentials to get a signed JWT
++ DataSync exchanges the JWT with the Microsoft Entra token endpoint for an Entra access token
++ DataSync uses the Entra access token to access the Azure Blob Storage container
+
+To configure an Azure Blob Storage location with federated identity parameters, follow these steps.
+
+1. Create an AWS IAM role for DataSync with the following trust policy and permissions:
+
+   ```
+   {
+       "Version": "2012-10-17",
+       "Statement": [
+           {
+               "Effect": "Allow",
+               "Principal": {
+                   "Service": "datasync.amazonaws.com"
+               },
+               "Action": "sts:AssumeRole",
+               "Condition": {
+                   "StringEquals": {
+                       "aws:SourceAccount": "CUSTOMER_AWS_ACCOUNT_ID"
+                   },
+                   "ArnLike": {
+                       "aws:SourceArn": "arn:aws:datasync:REGION:CUSTOMER_AWS_ACCOUNT_ID:*"
+                   }
+               }
+           }
+       ]
+   }
+   ```
+
+   and 
+
+   ```
+   {
+       "Version": "2012-10-17",
+       "Statement": [
+           {
+               "Effect": "Allow",
+               "Action": "sts:GetWebIdentityToken",
+               "Resource": "*"
+           }
+       ]
+   }
+   ```
+
+1. Obtain the issuer URL for your AWS account. DataSync federates outbound using an account-specific issuer that hosts the OpenID Connect (OIDC) discovery endpoints. You register this issuer with Microsoft Entra.
+
+   1. Enable outbound web identity federation for your AWS account. This is a one-time, account-wide setting. If the feature is already enabled, this call returns an error that you can ignore.
+
+      ```
+      % aws iam enable-outbound-web-identity-federation
+      ```
+
+   1. Retrieve the issuer URL for your account:
+
+      ```
+      % aws iam get-outbound-web-identity-federation-info
+      ```
+
+      The result is similar to
+
+      ```
+      {
+          "IssuerIdentifier": "https://a1755d5f-34cd-4f3c-9353-0ab65648e333.tokens.sts.global.api.aws",
+          "JwtVendingEnabled": true
+      }
+      ```
+
+      The `IssuerIdentifier` value is your issuer URL. The subject (`sub`) that Microsoft Entra must trust is the ARN of the IAM role you created in the previous step, in the form `arn:aws:iam::CUSTOMER_ACCOUNT:role/ROLE_NAME`.
+
+1. In the Microsoft Entra admin center, create (or identify) the identity that DataSync federates with:
+   + Create a user-assigned managed identity or an app registration to represent DataSync.
+   + Record its *Client ID* (application ID) and the *Tenant ID* (directory ID) that it belongs to. You provide both values when you create the DataSync location.
+
+1. Add a federated identity credential to the identity so Microsoft Entra trusts tokens minted by your AWS account:
+   + On the identity, open **Federated credentials** and add a credential using the **Other issuer** scenario.
+   + Issuer: the issuer URL obtained above.
+   + Subject identifier: the ARN of the IAM role, `arn:aws:iam::CUSTOMER_ACCOUNT:role/ROLE_NAME`.
+   + Audience: `api://AzureADTokenExchange`.
+
+1. Grant the identity access to your Azure Blob Storage container:
+   + In the Azure portal, go to your storage account, then the container, and open **Access Control (IAM)**.
+   + Assign a role with sufficient access rights (for example, *Storage Blob Data Contributor*) to the managed identity or app registration.
+
+1. Configure the DataSync location, for example using the DataSync AWS CLI:
+
+   ```
+   % aws datasync create-location-azure-blob \
+   --container-url https://STORAGE_ACCOUNT.blob.core.windows.net/CONTAINER \
+   --authentication-type OIDC \
+   --subdirectory /prefix-within-the-container \
+   --federated-identity 'AwsIamRole=arn:aws:iam::CUSTOMER_ACCOUNT:role/ROLE_NAME,AzureOidc={TenantId=TENANT_ID,ClientId=CLIENT_ID}'
+   ```
 
 ### Access tiers
 <a name="azure-blob-access-tiers"></a>

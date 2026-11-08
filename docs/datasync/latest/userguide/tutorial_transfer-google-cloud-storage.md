@@ -23,6 +23,10 @@ DataSync uses the [Google Cloud Storage XML API](https://cloud.google.com/storag
 
 When you use an agent for transfers, you can deploy it in Google Cloud Storage or your Amazon VPC.
 
+When you use Basic mode for transfers, you need to authenticate to Google Cloud Storage using long-lived access and secret keys.
+
+ When you use Enhanced mode for transfer, DataSync has two options for authenticating to Google Cloud Storage: authentication with long-lived access key and secret key, or authentication with short-lived Google access token. The first option is discussed in detail below. The second option is discussed further in [Federated identity (OIDC)](#gcs-federated-identity).
+
 ------
 #### [ Agent in Google Cloud ]
 
@@ -89,6 +93,124 @@ DataSync uses an HMAC key that's associated with your Google service account to 
 1. Save your HMAC key's access ID and secret in a secure location.
 
    You'll need these items later to configure your DataSync source location.
+
+## Federated identity (OIDC)
+<a name="gcs-federated-identity"></a>
+
+ Some third-party cloud storage object storage systems support use of temporary credentials to access the storage, and they also integrate with AWS Security Token Service (STS) to allow AWS services to obtain cloud storage access tokens using AWS credentials. This type of integration is often referred to as identity federation across cloud providers. DataSync supports identity federation with Google Cloud Storage. 
+
+**Note**  
+Federated identity access to Google Cloud Storage is supported only for Enhanced mode tasks. You can't create a Basic mode task that uses a location configured with federated identity.  
+For a location, provide either federated identity parameters (`FederatedIdentity`) or an access key and secret key (`AccessKey` and `SecretKey`), but not both.
+
+ Using temporary short-lived credentials is often a preferred alternative to using long-lived credentials. While long-lived credentials are usually private (and must be stored securely to assure privacy), short-lived temporary credentials can be obtained at runtime without having to leverage any private information. Cloud services can obtain and refresh the temporary credentials (access tokens) at runtime to assure uninterrupted access to cloud storage. 
+
+ DataSync can access Google Cloud Storage (GCS) locations without having to store long-lived credentials. Instead, DataSync can obtain a short-lived signed AWS STS JWT (web token) and can leverage Google Workload Identity Federation to exchange the web token for an OpenId Connect (OIDC) access token via Google STS. The token exchange flow is as follows:
++ DataSync assumes your IAM role
++ DataSync calls AWS STS GetWebIdentityToken with assumed role's credentials to get a signed JWT
++ DataSync exchanges the JWT via Google STS for GCP access token
++ DataSync uses GCP access token to access GCS location
+
+To configure GCS object storage location with federated identity parameters, follow these steps.
+
+1. Create AWS IAM role for DataSync with the following trust policy and permissions:
+
+   ```
+   {
+       "Version": "2012-10-17",
+       "Statement": [
+           {
+               "Effect": "Allow",
+               "Principal": {
+                   "Service": "datasync.amazonaws.com"
+               },
+               "Action": "sts:AssumeRole",
+               "Condition": {
+                   "StringEquals": {
+                       "aws:SourceAccount": "CUSTOMER_AWS_ACCOUNT_ID"
+                   },
+                   "ArnLike": {
+                       "aws:SourceArn": "arn:aws:datasync:REGION:CUSTOMER_AWS_ACCOUNT_ID:*"
+                   }
+               }
+           }
+       ]
+   }
+   ```
+
+   and 
+
+   ```
+   {
+       "Version": "2012-10-17",
+       "Statement": [
+           {
+               "Effect": "Allow",
+               "Action": "sts:GetWebIdentityToken",
+               "Resource": "*"
+           }
+       ]
+   }
+   ```
+
+1. Create a GCP Workload Identity Pool (or use an existing one):
+   + Go to GCP **IAM and Admin** → **Workload Identity Federation**
+   + Click **Create Pool**
+   + Enter name and description, e.g. Name: datasync-pool, Description: Workload Identity Pool for DataSync
+   + Click **Continue**
+
+1. Obtain the issuer URL for your AWS account. DataSync federates outbound using an account-specific issuer that hosts the OpenID Connect (OIDC) discovery endpoints. You register this issuer with your identity provider.
+
+   1. Enable outbound web identity federation for your AWS account. This is a one-time, account-wide setting. If the feature is already enabled, this call returns an error that you can ignore.
+
+      ```
+      % aws iam enable-outbound-web-identity-federation
+      ```
+
+   1. Retrieve the issuer URL for your account:
+
+      ```
+      % aws iam get-outbound-web-identity-federation-info
+      ```
+
+      The result is similar to
+
+      ```
+      {
+          "IssuerIdentifier": "https://a1755d5f-34cd-4f3c-9353-0ab65648e333.tokens.sts.global.api.aws",
+          "JwtVendingEnabled": true
+      }
+      ```
+
+      The `IssuerIdentifier` value is your issuer URL. The subject (`sub`) that your identity provider must trust is the ARN of the IAM role you created in the previous step, in the form `arn:aws:iam::CUSTOMER_ACCOUNT:role/ROLE_NAME`.
+
+1. Add an OIDC provider to the pool. Click **Add Provider** and select the **OpenID Connect (OIDC)** provider type, then enter the **Provider details**:
+   + Provider name: e.g. aws-oidc-provider
+   + Issuer (URL): the issuer URL obtained above
+   + Audiences: select **Allowed audiences** and enter: //iam.googleapis.com/projects/PROJECT\_NUMBER/locations/global/workloadIdentityPools/POOL\_NAME/providers/PROVIDER\_NAME
+   + Click **Continue**
+
+1. Under **Attribute mapping**, add:
+   + google.subject = assertion.sub
+   + attribute.aws\_role = assertion.sub
+   + Click **Save**
+
+1. Grant GCS bucket access:
+   + Go to **Cloud Storage** → **Buckets** → your bucket → **Permissions**
+   + Click **Grant Access**
+   + In **New principals**, enter: principalSet://iam.googleapis.com/projects/PROJECT\_NUMBER/locations/global/workloadIdentityPools/POOL\_NAME/attribute.aws\_role/arn:aws:iam::AWS\_ACCOUNT\_ID:role/ROLE\_NAME
+   + For **Role**, select a role with sufficient access rights, e.g. Storage Object Admin
+   + Click **Save**
+
+1. Configure the DataSync location, e.g. using DataSync CLI:
+
+   ```
+   % aws datasync create-location-object-storage \
+   --server-hostname storage.googleapis.com \
+   --subdirectory prefix-within-the-bucket \
+   --bucket-name bucket-name \
+   --federated-identity 'AwsIamRole=arn:aws:iam::CUSTOMER_ACCOUNT:role/ROLE_NAME,ExternalIdentity={GoogleOidc={ProjectName=PROJECT_NAME,ProjectNumber=PROJECT_NUMBER,IdentityPoolName=POOL_NAME,IdentityProviderName=PROVIDER_NAME}}'
+   ```
 
 ## Step 2: Configure your network
 <a name="transfer-google-cloud-storage-configure-network"></a>
