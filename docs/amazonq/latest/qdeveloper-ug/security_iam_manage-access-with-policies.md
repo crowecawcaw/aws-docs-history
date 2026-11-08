@@ -5,7 +5,7 @@
 
 **Note**  
 The information on this page pertains to accessing Amazon Q Developer. For information about managing access to Amazon Q Business, see [Identity-based policy examples for Amazon Q Business](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/security_iam_id-based-policy-examples.html) in the *Amazon Q Business User Guide*.   
-The policies and examples in this topic are specific to Amazon Q in the AWS Management Console, AWS Console Mobile Application, AWS website, AWS Documentation, and in chat applications. Other services integrated with Amazon Q might require different policies or settings. End users of Amazon Q in third-party IDEs are not required to use IAM policies. For more information, see the documentation for the service that contains an Amazon Q feature or integration.
+The policies and examples in this topic are specific to the AWS assistant in the AWS Management Console and AWS Console Mobile Application, and to Amazon Q Developer in chat applications. Other services integrated with Amazon Q might require different policies or settings. End users of Amazon Q in third-party IDEs are not required to use IAM policies. For more information, see the documentation for the service that contains an Amazon Q feature or integration.
 
 By default, users and roles don't have permission to use Amazon Q. IAM administrators can manage access to Amazon Q Developer and its features by granting permissions to IAM identities.
 
@@ -98,7 +98,7 @@ The `codewhisperer` prefix is a legacy name from a service that merged with Amaz
 The following SCP denies access to Amazon Q Developer. 
 
 **Note**  
-Denying access to Amazon Q will not disable the Amazon Q icon or chat panel in the AWS console, AWS website, AWS documentation pages, or AWS Console Mobile Application. 
+Denying access to Amazon Q Developer doesn't hide the AWS assistant icon or chat panel in the AWS Management Console or AWS Console Mobile Application.
 
 ------
 #### [ JSON ]

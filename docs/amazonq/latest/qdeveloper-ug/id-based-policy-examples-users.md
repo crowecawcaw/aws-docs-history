@@ -669,7 +669,7 @@ The following example policy grants permission to chat with a specific plugin, s
 The following example policy denies all permissions to use Amazon Q.
 
 **Note**  
-When you deny access to Amazon Q, the Amazon Q icon and chat panel will still appear in the AWS console, AWS website, AWS documentation pages, or AWS Console Mobile Application.
+When you deny access to Amazon Q Developer, the AWS assistant icon and chat panel still appear in the AWS Management Console and AWS Console Mobile Application.
 
 ------
 #### [ JSON ]

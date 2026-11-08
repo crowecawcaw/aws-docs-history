@@ -13,7 +13,7 @@ Your data may be processed in a different Region from the Region where you use A
 ## Supported Regions (enabled by default)
 <a name="default-regions"></a>
 
-Amazon Q Developer is available in the AWS Management Console, AWS Console Mobile Application, AWS website, AWS Documentation website, and integrated chat applications in the following AWS Regions. These Regions are enabled by default, meaning you don't need to enable them before use. For more information, see [Regions that are enabled by default](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html#regionthat). 
+Amazon Q Developer is available in integrated chat applications in the following AWS Regions. For the AWS assistant in the AWS Management Console and AWS Console Mobile Application, see [Supported AWS Regions for the AWS assistant](https://docs.aws.amazon.com/assistant/latest/userguide/regions.html) in the *AWS assistant User Guide*. These Regions are enabled by default, meaning you don't need to enable them before use. For more information, see [Regions that are enabled by default](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html#regionthat). 
 
 **Note**  
 The Amazon Q Developer service within the AWS Management Console is only available in the Regions outlined in [Supported Regions for the Q Developer console and Q Developer profile](q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions). To manage Amazon Q Developer settings as an administrator, you must go to the Amazon Q Developer service and then use the Region selector to switch to a supported Region.  

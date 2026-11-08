@@ -398,7 +398,7 @@ If you aren’t able to download your code after your transformation is complete
 
 After the transformation is complete, Amazon Q generates an output artifact that contains a diff with your upgraded code and a transformation summary with information about the changes it made. The output artifact must be 1 GB or less in order for the IDE to download it. 
 
-If the output artifact exceeds the limit, you will not be able to download your upgraded code or transformation summary. Try transforming a smaller project to prevent a large output artifact. If the issue persists, contact Support. For information about contacting Support with Amazon Q, see [Using Amazon Q Developer to chat with Support](support-chat.md).
+If the output artifact exceeds the limit, you will not be able to download your upgraded code or transformation summary. Try transforming a smaller project to prevent a large output artifact. If the issue persists, contact Support. For information about contacting Support with Amazon Q, see [Using Amazon Q Developer to chat with AWS Support](support-chat.md).
 
 ### Download code diff within 30 days
 <a name="download-30-hrs"></a>

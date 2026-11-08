@@ -3,22 +3,6 @@
 # Chatting about your telemetry and operations
 <a name="chat-ops"></a>
 
-Amazon Q analyzes your CloudWatch telemetry and operational data to help manage your AWS environment. It retrieves resource health information, monitors alarms, and provides troubleshooting guidance. When you ask questions, Amazon Q may prompt you for specific details like resource names and time ranges to ensure accurate assistance.
+This conversational experience is now part of the AWS assistant.
 
-**AWS service health check:** Evaluate the health of resources of specified AWS services, assisting customers in troubleshooting and resolving issues or errors they encounter with these resources.
-+ Is my Lambda function X healthy?
-+ Is anything wrong with my Amazon ECS clusters?
-+ Help me troubleshoot my DynamoDB tables between time X and Y.
-+ Investigate anomalies related to Amazon S3 between time X and Y.
-+ Graph network utilization for my Amazon EC2 instances over 12 hours across all regions.
-+ Show me CPU utilization trends for my Lambda functions this week.
-
-**Alarm troubleshooting:** Identifies alarms in Alarm state and the underlying telemetry that triggered the alarm, helping customers diagnose the reasons behind the alarm/alert/pages.
-+ Why is my alarm with name X firing?
-+ Show me the metrics that triggered my alarm X over the last 6 hours.
-
-**Application Signals specific troubleshooting:** Analyzes CloudWatch Application Signals service-level objectives and indicators to determine the overall health of a service, enabling you to assess and maintain application performance.
-+ Is my Service X in environment Y healthy?
-+ Create a latency chart for my API Gateway endpoints over the last 6 hours.
-
-For more information about how Amazon Q analyzes your CloudWatch telemetry and operational data, see *CloudWatch investigations* in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations.html).
+For current documentation, see [Chatting about telemetry and operations](https://docs.aws.amazon.com/assistant/latest/userguide/service-insights.html#operations-insights) in the *AWS assistant User Guide*.

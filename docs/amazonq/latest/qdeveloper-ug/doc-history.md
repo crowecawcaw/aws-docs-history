@@ -7,6 +7,7 @@ The following table describes the document history for the *Amazon Q Developer U
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Console chat moved to the AWS assistant User Guide](#doc-history) | Amazon Q Developer in the AWS Management Console is now the AWS assistant. Documentation for chatting in the AWS Management Console and AWS Console Mobile Application, including plugins, moved to the [AWS assistant User Guide](https://docs.aws.amazon.com/assistant/latest/userguide/what-is.html). | November 5, 2026 | 
 | [End of support notice](#doc-history) | End of support notice: On April 30, 2027, AWS will discontinue support for Amazon Q Developer IDE plugins. For capabilities similar to Amazon Q Developer IDE plugins, explore Kiro to access the latest models and features, including agentic coding, chat and MCP support. For more information, see [Amazon Q Developer IDE plugins end of support](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/q-developer-ide-end-of-support.html). | August 17, 2026 | 
 | [Updated Builder ID unsubscribe instructions](#doc-history) | Added guidance for unsubscribing a personal account (Builder ID) when the Amazon Q Developer Profile has been deleted, including steps to re-enable via the console and a link to create a Kiro Profile. | March 19, 2026 | 
 | [Updated account limit for subscriptions](#doc-history) | You can now subscribe users in a maximum of 20 accounts per AWS Region, per organization, increased from 10. | February 18, 2026 | 

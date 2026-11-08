@@ -45,7 +45,7 @@ For more information about the Amazon Q Developer profile, see [What is the Amaz
 
 **Note**  
 The following features aren’t supported for Q Developer profiles created in the Europe (Frankfurt) Region:  
-[Chatting with Support](support-chat.md)
+[Chatting with AWS Support](support-chat.md)
 [Troubleshooting resources with Amazon Q](chat-actions-troubleshooting.md)
 [.NET transformations in the IDE](transform-dotnet-IDE.md)
 [Amazon Q in chat applications (for Slack)](q-in-chat-applications.md)

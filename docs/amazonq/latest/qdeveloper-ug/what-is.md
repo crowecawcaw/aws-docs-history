@@ -6,6 +6,9 @@
 **End of support notice**  
 On April 30, 2027, AWS will discontinue support for Amazon Q Developer IDE plugins. For capabilities similar to Amazon Q Developer IDE plugins, explore Kiro to access the latest models and features, including agentic coding, chat and MCP support. For more information, see [Amazon Q Developer IDE plugins end of support](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/q-developer-ide-end-of-support.html).
 
+**Amazon Q Developer in the AWS Management Console is now the AWS assistant**  
+The Amazon Q Developer conversational experience in the AWS Management Console and AWS Console Mobile Application is now the AWS assistant. For documentation about chatting with the AWS assistant, including questions about your resources and costs, see the [AWS assistant User Guide](https://docs.aws.amazon.com/assistant/latest/userguide/what-is.html). Amazon Q Developer in the IDE and on the command line keeps its name.
+
 **Note**  
  Powered by Amazon Bedrock: Amazon Q Developer is built on Amazon Bedrock and includes [automated abuse detection](https://docs.aws.amazon.com/bedrock/latest/userguide/abuse-detection.html) implemented in Amazon Bedrock to enforce safety, security, and the responsible use of AI. 
 
@@ -24,7 +27,7 @@ This is the documentation for Amazon Q Developer. If you are looking for documen
 To quickly get started using Amazon Q, you can access it in the following ways: 
 
 **AWS apps and websites**  
-Add the [necessary permissions](security_iam_id-based-policy-examples.md) to your IAM identity, and then choose the Amazon Q icon to start chatting in the AWS Management Console, AWS Documentation website, AWS website, or AWS Console Mobile Application. For more information, see [Using Amazon Q Developer on AWS apps and websites](q-on-aws.md).
+Chatting with Amazon Q Developer in the AWS Management Console and AWS Console Mobile Application is now the AWS assistant. For more information, see the [AWS assistant User Guide](https://docs.aws.amazon.com/assistant/latest/userguide/what-is.html). On the AWS Marketing website, it's now Ask AWS. On the AWS Documentation website, it's now the AWS documentation assistant.
 
 **IDEs**  
 Download the Amazon Q extension and use your AWS Builder ID (no AWS account required) to sign in for free.   
