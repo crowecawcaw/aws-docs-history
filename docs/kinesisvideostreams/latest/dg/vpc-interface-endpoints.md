@@ -5,7 +5,7 @@
 
 You can access Amazon Kinesis Video Streams privately from your VPC using an interface VPC endpoint powered by AWS PrivateLink. With this endpoint, traffic between your VPC and Kinesis Video Streams does not traverse the public internet. The endpoint provides private access to the Kinesis Video Streams control plane and to the video ingestion and playback data planes.
 
-**Contents**
+**Topics**
 + [What is supported](#vpce-pl-supported)
 + [Prerequisites](#vpce-pl-prereqs)
 + [Finding the endpoint service name for your Region](#vpce-pl-finding)
@@ -21,9 +21,9 @@ You can access Amazon Kinesis Video Streams privately from your VPC using an int
 <a name="vpce-pl-supported"></a>
 
 The interface VPC endpoint supports the following:
-+ Control plane – The [Kinesis Video Streams API](https://docs.aws.amazon.com/kinesisvideostreams/latest/APIReference/API_Operations_Amazon_Kinesis_Video_Streams.html) operations.
-+ Ingestion and retrieval (data plane) – The [Kinesis Video Streams Media API](https://docs.aws.amazon.com/kinesisvideostreams/latest/APIReference/API_Operations_Amazon_Kinesis_Video_Streams_Media.html) operations (`PutMedia`, `GetMedia`).
-+ Playback (data plane) – The [Kinesis Video Streams Archived Media API](https://docs.aws.amazon.com/kinesisvideostreams/latest/APIReference/API_Operations_Amazon_Kinesis_Video_Streams_Archived_Media.html) operations (`GetMediaForFragmentList` and the other retrieval operations).
++ **Control plane** – The [Kinesis Video Streams API](https://docs.aws.amazon.com/kinesisvideostreams/latest/APIReference/API_Operations_Amazon_Kinesis_Video_Streams.html) operations.
++ **Ingestion and retrieval (data plane)** – The [Kinesis Video Streams Media API](https://docs.aws.amazon.com/kinesisvideostreams/latest/APIReference/API_Operations_Amazon_Kinesis_Video_Streams_Media.html) operations (`PutMedia`, `GetMedia`).
++ **Playback (data plane)** – The [Kinesis Video Streams Archived Media API](https://docs.aws.amazon.com/kinesisvideostreams/latest/APIReference/API_Operations_Amazon_Kinesis_Video_Streams_Archived_Media.html) operations (`GetMediaForFragmentList` and the other retrieval operations).
 
 **Important**  
 AWS PrivateLink is not supported for any Kinesis Video Streams WebRTC component, including [signaling, STUN, TURN, media, and control plane](https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/kvswebrtc-how-it-works.html). Do not route any Kinesis Video Streams WebRTC traffic through the Kinesis Video Streams interface endpoint.
@@ -35,14 +35,14 @@ Before you create an interface VPC endpoint for Kinesis Video Streams, make sure
 + A VPC.
 + Subnets in each Availability Zone that you want to use.
 + A security group that allows inbound HTTPS (443) from your clients.
-+ The **Enable DNS hostnames** and **Enable DNS support** attributes enabled on the VPC (required to use a private DNS name). For more information, see [Private DNS for interface endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/interface-endpoints.html) in the AWS PrivateLink Guide.
++ The **Enable DNS hostnames** and **Enable DNS support** attributes enabled on the VPC (required to use a private DNS name). For more information about private DNS for interface endpoints, see [Private DNS for interface endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/interface-endpoints.html) in the *AWS PrivateLink Guide*.
 
 ## Finding the endpoint service name for your Region
 <a name="vpce-pl-finding"></a>
 
 The endpoint service name and private DNS name follow these patterns:
-+ VPC endpoint service name – `com.amazonaws.{{region}}.kinesisvideo` (all Regions, all partitions)
-+ Private DNS name – Varies by partition. For the private DNS name in each partition, see the following table.
++ **VPC endpoint service name** – `com.amazonaws.{{region}}.kinesisvideo` (all Regions, all partitions).
++ **Private DNS name** – Varies by partition. For the private DNS name in each partition, see the following table.
 
 The recommended way to find the exact service name, private DNS name, and Availability Zones for a Region is to run the following command. To run this command, you need permission to call `ec2:DescribeVpcEndpointServices`. This example uses the `us-east-1` Region. Replace it with your Region.
 
@@ -71,12 +71,10 @@ The output is similar to the following.
 ]
 ```
 
-For more information, see [describe-vpc-endpoint-services](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-endpoint-services.html) in the AWS Command Line Interface Command Reference.
+For more information about the `describe-vpc-endpoint-services` command, see [describe-vpc-endpoint-services](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-vpc-endpoint-services.html) in the *AWS Command Line Interface Command Reference*.
 
 The endpoint service name is the same in every partition. The private DNS name is not—it follows the Region's own service endpoint domain.
 
-
-**Private DNS name by partition**  
 
 | Partition | Private DNS name | 
 | --- | --- | 
@@ -90,11 +88,11 @@ In AWS GovCloud (US) Regions, only the private DNS name contains `-fips`. The en
 ## Creating an interface VPC endpoint for Kinesis Video Streams
 <a name="vpce-pl-creating"></a>
 
-You create an interface VPC endpoint for Kinesis Video Streams the same way you create one for other AWS services. For more information, see [Access an AWS service using an interface VPC endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html) in the AWS PrivateLink Guide.
+You create an interface VPC endpoint for Kinesis Video Streams the same way you create one for other AWS services. For more information, see [Access an AWS service using an interface VPC endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html) in the *AWS PrivateLink Guide*.
 
-To create an interface VPC endpoint for Kinesis Video Streams by using the Amazon VPC console, do the following:
+**To create an interface VPC endpoint for Kinesis Video Streams by using the Amazon VPC console**
 
-1. Open the Amazon VPC console. Under **Virtual private cloud**, choose **Endpoints**, and then choose **Create endpoint**.
+1. Open the [Amazon Virtual Private Cloud (Amazon VPC) console](https://console.aws.amazon.com/vpc/home/). Under **Virtual private cloud**, choose **Endpoints**, and then choose **Create endpoint**.
 
 1. (Optional) Under **Endpoint settings**, enter a **Name tag**.
 
@@ -119,7 +117,7 @@ To create an interface VPC endpoint for Kinesis Video Streams by using the Amazo
 
 **Enable private DNS name** is selected by default when you create the endpoint. Selecting it associates a private hosted zone for your Region's private DNS name with the VPC, so requests from the VPC resolve to the endpoint's private IP addresses. This is what makes traffic use the endpoint. For your Region's private DNS name, see [Finding the endpoint service name for your Region](#vpce-pl-finding).
 
-If you clear it, requests to the hostname resolve to the public IP addresses for Kinesis Video Streams, and traffic no longer uses the interface endpoint. Clients in the VPC must then be able to reach the public endpoint over the internet. For more information about giving your VPC internet access, see [Connect your VPC to other networks](https://docs.aws.amazon.com/vpc/latest/userguide/extend-intro.html) in the Amazon VPC User Guide.
+If you clear it, requests to the hostname resolve to the public IP addresses for Kinesis Video Streams, and traffic no longer uses the interface endpoint. Clients in the VPC must then be able to reach the public endpoint over the internet. For more information about giving your VPC internet access, see [Connect your VPC to other networks](https://docs.aws.amazon.com/vpc/latest/userguide/extend-intro.html) in the *Amazon VPC User Guide*.
 
 **Important**  
 When **Enable private DNS name** is selected, requests to your Region's private DNS name from anywhere in the VPC resolve to the interface endpoint. The endpoint does not serve WebRTC, so any WebRTC traffic in the VPC fails.
@@ -132,28 +130,21 @@ To use AWS PrivateLink with Kinesis Video Streams, you must keep **Enable privat
 **Note**  
 In AWS GovCloud (US) Regions, there is no non-FIPS private DNS name for Kinesis Video Streams. The FIPS hostname shown in the partition table (see [Finding the endpoint service name for your Region](#vpce-pl-finding)) is the only private DNS name that resolves within the VPC.
 
-For more information, see [Private DNS for interface endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/interface-endpoints.html) in the AWS PrivateLink Guide.
+For more information about private DNS for interface endpoints, see [Private DNS for interface endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/interface-endpoints.html) in the *AWS PrivateLink Guide*.
 
 ## Controlling access to Kinesis Video Streams over VPC endpoints
 <a name="vpce-pl-control-access"></a>
 
 By default, the endpoint policy allows **Full access**. To restrict the actions, principals, and stream resources allowed through the endpoint, choose **Custom** and attach a VPC endpoint policy. An endpoint policy does not replace IAM identity-based policies; all applicable policies must allow the call.
 
-For more information about restricting endpoint access, see [Control access to VPC endpoints using endpoint policies](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-access.html) in the AWS PrivateLink Guide.
+For more information about restricting endpoint access, see [Control access to VPC endpoints using endpoint policies](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-access.html) in the *AWS PrivateLink Guide*.
 
 ## Quotas and throttling
 <a name="vpce-pl-quotas"></a>
 
 Traffic through a VPC endpoint is subject to additional throttling. This quota is separate from the quota that applies to traffic over the public internet. All other Kinesis Video Streams quotas continue to apply to endpoint traffic. For more information, see [Amazon Kinesis Video Streams service quotas](limits.md).
 
-**Request rate (transactions per second)** – Applied per AWS account, per VPC endpoint, across the ingestion and playback APIs. Requests above the limit are throttled, and the operation returns a `ClientLimitExceededException`. Use exponential backoff and retry.
-
-
-**Request rate quota**  
-
-| Quota | Value | 
-| --- | --- | 
-| Requests per second, per account, per VPC endpoint | 500 | 
+**Request rate (transactions per second)** – Applied per AWS account, per VPC endpoint, across the ingestion and playback APIs. The limit is 500 requests per second, per account, per VPC endpoint. Requests above the limit are throttled, and the operation returns a `ClientLimitExceededException`. Use exponential backoff and retry.
 
 **Note**  
 This quota can differ from the corresponding quota for traffic over the public internet. To request a quota increase, contact AWS Support.
