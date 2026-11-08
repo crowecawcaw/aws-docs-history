@@ -102,6 +102,11 @@ Use this option when you need to customize permissions for web app access.
 
 1. Follow the instructions to create the new role’s trust policy and inline policy.
 
+### Configuring the content safety guardrail (optional)
+<a name="configuring-the-content-safety-guardrail-optional"></a>
+
+The content safety guardrail screens the prompts sent to this Agent Space and is on by default. To create the Agent Space without it, turn off **Enable content safety guardrail**. You can change this setting later on the Agent Space's **Configuration** tab. For more information about the guardrail, see [Content safety guardrail](aws-devops-agent-security.html#content-safety-guardrail).
+
 ### Adding tags (optional)
 <a name="adding-tags-optional"></a>
 

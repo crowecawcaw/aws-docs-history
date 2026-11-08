@@ -24,9 +24,15 @@ You will need an MCP URL and token to connect Splunk.
 Your Splunk Administrator needs to perform the following steps:
 + enable [REST API access ](https://docs.splunk.com/Documentation/SplunkCloud/latest/RESTTUT/RESTandCloud)
 + [enable token authentication ](https://help.splunk.com/en/splunk-cloud-platform/administer/manage-users-and-security/9.2.2406/authenticate-into-the-splunk-platform-with-tokens/enable-or-disable-token-authentication) on the deployment.
-+ create a new role 'mcp\_user', the new role does not need to have any capabilities.
++ Create a new role named `mcp_user`, and grant it the following permissions:
+  + The `mcp_tool_execute` capability, so that the role can use the Model Context Protocol (MCP) server tools. Splunk MCP Server version 1.3 and later can map roles to MCP tools. If you use this mapping, allow the role on each tool that you want AWS DevOps Agent to use.
+  + The `search` capability, so that the role can run searches.
+  + Read access to the indexes that you want AWS DevOps Agent to query. In Splunk, these are the role's allowed indexes (`srchIndexesAllowed`).
 + assign the role 'mcp\_user' to any users on the deployment who are authorized to use the MCP server.
 + create the token for the authorized users with audience as 'mcp' and set the appropriate expiration, if the user does not have the permission to create tokens themselves.
+
+**Note**  
+Registration doesn't check search permissions. If the role is missing the `search` capability or read access to your indexes, registration still succeeds, but searches during investigations fail or return no results.
 
 ### Splunk User steps
 <a name="splunk-user-steps"></a>

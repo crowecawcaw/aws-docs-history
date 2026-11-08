@@ -65,7 +65,7 @@ SigV4 authentication uses your AWS credentials instead of an access token. The K
 ### Prerequisites
 <a name="prerequisites"></a>
 + AWS credentials available in the environment (through SSO, environment variables, or credential file).
-+ Your credentials must have permission to invoke AWS DevOps Agent actions. For the required permissions, see [DevOps Agent IAM permissions](aws-devops-agent-security-devops-agent-iam-permissions.md).
++ Your credentials must have permission to invoke AWS DevOps Agent operations. For the required permissions, see [DevOps Agent IAM permissions](aws-devops-agent-security-devops-agent-iam-permissions.md).
 + `uvx` installed (the proxy runs through `uvx mcp-proxy-for-aws@latest`).
 
 ### Example configuration
@@ -260,8 +260,8 @@ To prevent users in your organization from enabling access tokens, create a Serv
 }
 ```
 
-## Troubleshooting
-<a name="troubleshooting"></a>
+## Troubleshoot remote server authentication
+<a name="troubleshoot-remote-server-authentication"></a>
 
 
 | Symptom | Cause | Resolution | 

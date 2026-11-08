@@ -195,6 +195,17 @@ The verification testing environment has outbound network access restricted to a
 **Note**  
 ** If your application requires network access to domains not on this list, you can connect your verification testing environment to a VPC will cause the agent to use your own network firewall settings, allowing you to configure access to any of the services your application requires.
 
+## Repository content and external references
+<a name="repository-content-and-external-references"></a>
+
+During a release readiness code review, the agent reads content in your connected repositories. This includes code, README files, issues, and pull request or merge request comments. The agent might act on instructions or references that it finds in this content. During [automatic verification testing](#automatic-verification-testing), it might fetch referenced resources, such as external repositories or packages, from the [allowed network destinations](#allowed-network-destinations).
+
+Repository content can contain malicious instructions that attempt to influence the agent. Connect only repositories that you trust.
+
+To restrict outbound network access during automatic verification testing, use a Release Management environment connected to your own virtual private cloud (VPC). The verification testing environment's traffic then follows the routing and firewall rules in your VPC. For instructions on configuring Release Management environments for private VPC access, see [Step 2: Configure Release Management environments for private VPC access (optional)](#step-2-configure-release-management-environments-for-private-vpc-access-optional). You can also turn off automatic verification testing for a repository.
+
+For more information about how security responsibilities are shared between AWS and you, see [Shared responsibility model](aws-devops-agent-security.md).
+
 ## Reviewing code review results
 <a name="reviewing-code-review-results"></a>
 

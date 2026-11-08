@@ -63,6 +63,13 @@ Once you have established connectivity, you’ll need to configure a business ru
 
 1. Set the “Table” field to “Incident [incident]”, check the “Advanced” box, and set the rule to run after Insert, Update, and Delete.
 
+**Important**  
+If you set the rule to run on Update, the comments that AWS DevOps Agent posts can trigger it again. ServiceNow records each comment as an update by your OAuth application user. Each of those updates triggers the rule and sends the incident to AWS DevOps Agent again.
+
+To prevent this, exclude updates by the OAuth application user. This is the user that you chose when you created the OAuth application client. Its login name is the **User ID** field on that user's record, not the display name. In the following condition, replace `<oauth-user-id>` with that login name. On the **Advanced** tab, set the **Condition** field to `gs.getUserName() != '<oauth-user-id>'`.
+
+If you only need to send new incidents to AWS DevOps Agent, set the rule to run after Insert only instead.
+
 ![Business Rule form for CloudSmith Integration on Incident table.](https://docs.aws.amazon.com/devopsagent/latest/userguide/images/6f2a7370e2c0.png)
 
 

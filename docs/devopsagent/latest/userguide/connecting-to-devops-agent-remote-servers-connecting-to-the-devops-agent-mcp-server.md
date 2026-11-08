@@ -45,7 +45,7 @@ For [Claude Code](https://code.claude.com/docs/en/overview) users, AWS DevOps Ag
 
 For any MCP-compatible client, configure the server with:
 + **URL** – `https://connect.aidevops.{region}.api.aws/mcp`
-+ **Authorization header** – `Bearer <your-token>`
++ **Authorization header** – `Bearer <your-access-token>`
 + **Timeout** – 120 seconds minimum (initial responses can take 5–30 seconds; ongoing chat sessions may take longer)
 
 This configuration also works with Kiro and Claude Code if you prefer to configure the connection manually instead of using the dedicated power or plugin.

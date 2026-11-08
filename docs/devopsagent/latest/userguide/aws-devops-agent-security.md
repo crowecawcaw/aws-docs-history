@@ -136,7 +136,7 @@ A prompt injection attack occurs when an attacker embeds malicious instructions 
 Prompt injection safeguards:
 + **Limited write capabilities** – The tools available to the agent are not able to mutate resources, with the exception of opening tickets and support cases. This prevents malicious instructions from modifying your infrastructure or applications.
 + **Account boundary enforcement** – AWS DevOps Agent only operates within the boundary permitted by the roles assigned to the agent in the primary and connected secondary AWS accounts. The agent cannot access or modify resources outside of its configured scope.
-+ **AI safety protections** – AWS DevOps Agent uses models with AI Safety Level 3 (ASL-3) protections, which include built-in classifiers that detect and resist prompt injection attempts. The agent also uses the [Amazon Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-prompt-attack.html) prompt attack filter to detect and block prompt injection and jailbreak attempts before they can affect agent behavior.
++ **AI safety protections** – AWS DevOps Agent uses models with AI Safety Level 3 (ASL-3) protections, which include built-in classifiers that detect and resist prompt injection attempts. When the [content safety guardrail](#content-safety-guardrail) is on, which is the default, the agent also uses a prompt attack filter that detects and blocks prompt injection and jailbreak attempts. For more information about the filter, see [Detect prompt attacks with Amazon Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-prompt-attack.html) in the *Amazon Bedrock User Guide*.
 + **Immutable audit trail** – The agent journal logs every reasoning step and action taken. Journal entries cannot be modified by the agent once recorded, preventing prompt injection attacks from hiding malicious actions.
 
 While AWS DevOps Agent provides multiple layers of protection against prompt injection attacks, certain configurations can increase risk:
@@ -156,6 +156,27 @@ To mitigate these risks:
 1. Regularly audit which MCP servers are connected to your Agent Spaces
 
 1. Since any content retrieved from allowlisted URLs could attempt to manipulate the agent's behavior, only include trusted sources in your allowlist.
+
+### Content safety guardrail
+<a name="content-safety-guardrail"></a>
+
+AWS DevOps Agent provides a content safety guardrail, powered by Amazon Bedrock Guardrails, that screens the prompts sent to your Agent Space. It helps keep prompt injection and jailbreak attempts from reaching the agent. We manage the guardrail for you. It is on by default, including for existing Agent Spaces, unless you turn it off.
+
+#### Choosing whether to turn off the guardrail
+<a name="choosing-whether-to-turn-off-the-guardrail"></a>
++ **With the guardrail on**, it screens the prompts sent to your Agent Space, and its prompt attack filter detects and blocks prompt injection and jailbreak attempts. The guardrail might occasionally block legitimate content.
++ **With the guardrail off**, the guardrail doesn't screen or block prompts. The agent still uses the built-in protections of its models. For more information about these protections, see [Prompt injection protection](#prompt-injection-protection).
+
+#### Turning the content safety guardrail on or off
+<a name="turning-the-content-safety-guardrail-on-or-off"></a>
+
+1. Open the [Agent Spaces page](https://console.aws.amazon.com/aidevops/home#/agent-spaces) in the AWS DevOps Agent console and choose your Agent Space.
+
+1. On the **Configuration** tab, turn **Enable content safety guardrail** on or off.
+
+To turn off the guardrail when you create an Agent Space, see [Configuring the content safety guardrail (optional)](getting-started-with-aws-devops-agent-creating-an-agent-space.html#configuring-the-content-safety-guardrail-optional).
+
+To check whether the guardrail is on, open the Agent Space web app and choose **Settings**. The web app shows the setting as read-only and links to the **Configuration** tab in the console.
 
 ## Integration security
 <a name="integration-security"></a>
@@ -326,6 +347,8 @@ Customers are responsible for:
 + Limiting access to trusted users of external systems that provide inputs to the agent, such as services and resources that produce logs, CloudTrail events, tickets, and more – that may be used to attempt malicious prompt injection.
 + Ensure all connected data sources have trusted data that is unlikely to be used to attempt prompt injection attacks
 + Ensuring bring-your-own MCP server integrations operate securely
++ Connecting only trusted repositories for release readiness code reviews
++ Only referencing trusted and related code repositories in READMEs, pull and merge request comments, issues, and AGENTS.md files. For more information, see [Repository content and external references](release-management-release-readiness-code-review.md).
 + Ensuring IAM roles assigned to the agent are properly scoped
 + Redacting PII data before storing in observability logs and other agent data sources
 + Following the recommended practice of granting only read-only permissions to connected data sources, including bring-your-own MCP servers

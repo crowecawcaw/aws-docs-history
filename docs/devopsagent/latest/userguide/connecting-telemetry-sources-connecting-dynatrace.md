@@ -9,15 +9,23 @@
 Currently, AWS DevOps Agent supports Dynatrace users with a built-in, 2-way integration enabling the following:
 + **Topology resource mapping** - AWS DevOps Agent will augment your DevOps Agent Space Topology with entities and relationships available to it from your Dynatrace environment.
 + **Automated Investigation triggering** - Dynatrace Workflows can be configured to trigger incident resolution Investigations from Dynatrace Problems.
-+ **Telemetry introspection** - AWS DevOps Agent can introspect Dynatrace telemetry as it investigates an issue via the AWS DevOps Agent-hosted Dynatrace MCP server.
-+ **Status updates** - AWS DevOps Agent will publish key investigation findings, root cause analyses, and generated mitigation plans to the Dynatrace user interface.
++ **Telemetry introspection** - AWS DevOps Agent can introspect Dynatrace telemetry as it investigates an issue. It uses a Dynatrace Model Context Protocol (MCP) server that AWS DevOps Agent hosts.
++ **Status updates** - AWS DevOps Agent publishes key investigation findings, root cause analyses, and generated mitigation plans to the Dynatrace user interface.
+
+AWS DevOps Agent sends an event to Dynatrace when an investigation starts and each time its status changes, including when it completes or fails. It also sends updates as the investigation progresses. It sends these events for every investigation that Dynatrace triggers, even when an investigation ends without findings.
 
 ## Prerequisites
 <a name="prerequisites"></a>
 
-The AWS DevOps Agent integration with Dynatrace requires **Dynatrace SaaS**. The integration depends on Dynatrace platform features (Workflows, AppEngine apps including the SRE Agents app, and OAuth clients) that are only available in Dynatrace SaaS environments.
+The AWS DevOps Agent integration with Dynatrace requires **Dynatrace SaaS**. The integration depends on Dynatrace platform features (Workflows, AppEngine apps including the SRE Agents app, and Open Authorization (OAuth) clients) that are only available in Dynatrace SaaS environments.
 
 **Dynatrace Managed (on-premises) is not supported**, and Dynatrace has no plans to bring these platform features to Managed. If you are running Dynatrace Managed, you will need to upgrade to Dynatrace SaaS before connecting it to AWS DevOps Agent. See [Upgrading from Dynatrace Managed to SaaS](https://www.dynatrace.com/platform/saas-upgrade/).
+
+To receive status updates in Dynatrace, your environment also needs the following:
++ Your OAuth client must have the `openpipeline:events:ingest` permission. The client's subject user also needs a policy that grants this permission, such as the built-in **OpenPipeline Ingest** policy. This permission lets AWS DevOps Agent send events to Dynatrace. For more information about the permissions, see [Step 1: Connect](#step-1-connect).
++ Your Dynatrace environment must use the Dynatrace Platform Subscription (DPS) licensing model. AWS DevOps Agent sends events to the Dynatrace events ingest endpoint (`/platform/ingest/v1/events`), which is available only for the DPS licensing model.
+
+If the Dynatrace SRE Agents app shows no events for an investigation that Dynatrace triggered, configure log delivery for your Agent Space and check the vended logs for delivery failures. For more information, see [Vended Logs and Metrics](configuring-integrations-and-knowledge-vended-logs-and-metrics.md).
 
 ## Onboarding
 <a name="onboarding"></a>
@@ -49,9 +57,26 @@ Establish connection to your Dynatrace environment
 
    1. See [Dynatrace documentation](https://docs.dynatrace.com/docs/manage/identity-access-management/access-tokens-and-oauth-clients/oauth-clients#create-an-oauth2-client)
 
-   1. When ready press next
+   1. Select the following permissions for the client.
+      + `storage:bizevents:read`
+      + `storage:logs:read`
+      + `storage:events:read`
+      + `storage:metrics:read`
+      + `storage:system:read`
+      + `storage:buckets:read`
+      + `storage:spans:read`
+      + `storage:entities:read`
+      + `storage:smartscape:read`
+      + `storage:fieldsets:read`
+      + `storage:user.events:read`
+      + `storage:security.events:read`
+      + `openpipeline:events:ingest`
 
-   1. You can connect multiple Dynatrace environments and later scope to specific ones for each DevOps Agent Space you may have.
+   1. Bind policies that grant the same permissions to a group that contains the client's subject user. This user is typically a service user.
+
+   1. Bind the built-in **OpenPipeline Ingest** policy to the same group. This policy grants `openpipeline:events:ingest`.
+
+   1. Choose **Next**.
 
 1. Enter your Dynatrace details from the OAuth client setup:
    + **Client Name**
@@ -63,7 +88,18 @@ Establish connection to your Dynatrace environment
 
 1. Review and add
 
-Each registration connects to one Dynatrace OAuth client. To connect additional Dynatrace accounts, repeat this process for each one.
+**Note**  
+The permissions in step 3 are the full set that AWS DevOps Agent requests. With the `storage` permissions, AWS DevOps Agent reads your Dynatrace data. With `openpipeline:events:ingest`, it sends status updates. The permissions on the OAuth client only define what the client can request, so you must also grant them to the client's subject user through policies.
+
+Without a policy that grants `openpipeline:events:ingest`, Dynatrace rejects each event with a 403 error. The response body looks like the following:
+
+```
+{"error":{"code":403,"message":"User is missing required permission: openpipeline:events:ingest"}}
+```
+
+For more information about these policies, see [Dynatrace default policies reference](https://docs.dynatrace.com/docs/manage/identity-access-management/use-cases/built-in-policies) on the Dynatrace website.
+
+Each registration connects to one Dynatrace OAuth client. To connect additional Dynatrace accounts, repeat this process for each one. You can connect multiple Dynatrace environments. You can then scope each DevOps Agent Space to specific environments.
 
 ### Step 2: Enable
 <a name="step-2-enable"></a>

@@ -22,10 +22,10 @@ https://connect.aidevops.{region}.api.aws
 | Agent card discovery | GET /.well-known/agent-card.json | 
 | SendMessage | POST /a2a/message:send | 
 | SendStreamingMessage | POST /a2a/message:stream | 
-| GetTask | GET /a2a/tasks/{id} | 
+| GetTask | GET /a2a/tasks/{task-id} | 
 | ListTasks | GET /a2a/tasks | 
-| CancelTask | POST /a2a/tasks/{id}:cancel | 
-| SubscribeToTask | POST /a2a/tasks/{id}:subscribe | 
+| CancelTask | POST /a2a/tasks/{task-id}:cancel | 
+| SubscribeToTask | POST /a2a/tasks/{task-id}:subscribe | 
 
 For the list of available Regions, see [Supported Regions](about-aws-devops-agent-supported-regions.md).
 
