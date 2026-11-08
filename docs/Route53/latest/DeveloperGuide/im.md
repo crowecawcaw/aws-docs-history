@@ -30,7 +30,7 @@ Not supported.
 
 **Deadlines for renewing and restoring domains**  
 + Renewal is possible: Until the expiration date
-+ Late renewal with Route 53 is possible: Until 29 days after expiration
-+ Domain is deleted from Route 53: 30 days after expiration
-+ Restoration with the registry is possible: No
++ Late renewal with Route 53 is possible: No
++ Domain is deleted from Route 53: On the expiration date
++ Restoration with the registry is possible: Until 30 days after expiration
 + Domain is deleted from the registry: 30 days after expiration

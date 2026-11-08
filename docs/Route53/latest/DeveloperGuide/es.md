@@ -29,14 +29,14 @@ Depending on whether you remember your password at the registrar, or not, you ca
 Not supported.
 
 **Domain locking to prevent unauthorized transfers**  
-Supported
+Not supported. We recommend that you prevent unauthorized transfers by restricting access to the [RetrieveDomainAuthCode](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_RetrieveDomainAuthCode.html) operation. (When you restrict access to this Route 53 API, you also restrict who can generate an authorization code using the Route 53 console, AWS SDKs, and other programmatic methods.) For more information, see [Identity and access management in Amazon Route 53](security-iam.md).
 
 **Internationalized domain names**  
 Supported.
 
 **Authorization code required for transfers**  
 Yes  
-The .es registry manages the authorization code with a time-to-live and it might become expired. You can refresh the auth code by removing the transfer lock (clientTransferProhibited) status from your domain if it is present. If the domain has no transfer lock, you can refresh the auth code by turning it on first, and then off.
+The .es registry manages the authorization code with a time-to-live, so it might expire. If your authorization code doesn't work, contact [AWS Support](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-contact-support.html).
 
 **DNSSEC**  
 Supported for domain registration. For more information, see [Configuring DNSSEC for a domain](domain-configure-dnssec.md).

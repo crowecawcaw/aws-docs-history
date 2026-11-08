@@ -44,6 +44,7 @@ Some TLD registries have restrictions on when you can renew a domain. For detail
 For more information about renewal periods, see the Deadlines for renewing and restoring domains section for your TLD in [Domains that you can register with Amazon Route 53](registrar-tld-list.md).
 
 **After the expiration date**  
-The registrar holds most domains for a brief time after expiration, so you might be able to renew an expired domain after the expiration date, but if you want to keep your domain, we strongly recommend that you keep automatic renewal enabled. For information about trying to renew a domain after the expiration date, see [Restoring an expired or deleted domain](domain-restore-expired.md).  
+The registrar holds most domains for a brief time after expiration, so you might be able to renew an expired domain after the expiration date, but if you want to keep your domain, we strongly recommend that you keep automatic renewal enabled.  
+If your domain was already deleted or it's past the end of its late-renewal period, you might need to restore it instead of renewing it. For more information, see [Restoring an expired or deleted domain](domain-restore-expired.md).  
 If your domain expires but late renewal is allowed for the domain, you can renew the domain for its renewal price. To determine whether a domain is still within the late-renewal period, perform the procedure in the [Extending the registration period for a domain](domain-extend.md) section. If the domain is still listed, it's within the late-renewal period.  
 For more information about renewal periods, see the Deadlines for renewing and restoring domains section for your TLD in [Domains that you can register with Amazon Route 53](registrar-tld-list.md).

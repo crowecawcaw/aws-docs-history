@@ -59,7 +59,7 @@ Supported for domain registration. For more information, see [Configuring DNSSEC
 + Late renewal with Route 53 is possible: Until 44 days after expiration
 + Domain is deleted from Route 53: 45 days after expiration
 + Restoration with the registry is possible: Between 45 days and 75 days after expiration
-+ Domain is deleted from the registry: Varies. Contact [AWS Support](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-contact-support.html). 
++ Domain is deleted from the registry: After the restoration period ends.
 
 **Deletion of domain registration**  
 The registry for .ca domains doesn't allow you to delete domain registrations. Instead, you must disable automatic renewal and wait for the domain to expire. For more information, see [Deleting a domain name registration](domain-delete.md).

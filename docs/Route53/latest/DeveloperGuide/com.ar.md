@@ -26,6 +26,6 @@ Not supported.
 **Deadlines for renewing and restoring domains**  
 + Renewal is possible: Contact [AWS Support](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-contact-support.html).
 + Late renewal with Route 53 is possible: Contact [AWS Support](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-contact-support.html).
-+ Domain is deleted from Route 53: Contact [AWS Support](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-contact-support.html).
-+ Restoration with the registry is possible: Contact [AWS Support](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-contact-support.html).
-+ Domain is deleted from the registry: Contact [AWS Support](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-contact-support.html).
++ Domain is deleted from Route 53: After the late-renewal period ends.
++ Restoration with the registry is possible: Yes, for a limited time after the domain is deleted.
++ Domain is deleted from the registry: After the restoration period ends.

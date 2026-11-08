@@ -31,8 +31,8 @@ Supported for domain registration. For more information, see [Configuring DNSSEC
 + Renewal is possible: Until 16 days before the expiration date
 + Late renewal with Route 53 is possible: No
 + Domain is deleted from Route 53: 6 days before expiration
-+ Restoration with the registry is possible: Contact [AWS Support](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-contact-support.html).
-+ Domain is deleted from the registry: Contact [AWS Support](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-contact-support.html).
++ Restoration with the registry is possible: Yes, for a limited time after the domain is deleted.
++ Domain is deleted from the registry: After the restoration period ends.
 
 **Note**  
 Registering non-general-purpose JP domains such as .co.jp and .or.jp is currently not possible.

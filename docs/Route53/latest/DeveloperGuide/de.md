@@ -34,5 +34,10 @@ Supported for domain registration. For more information, see [Configuring DNSSEC
 + Renewal is possible: Until the expiration date
 + Late renewal with Route 53 is possible: No
 + Domain is deleted from Route 53: On the expiration date
-+ Restoration with the registry is possible: Contact [AWS Support](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-contact-support.html).
-+ Domain is deleted from the registry: Contact [AWS Support](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-contact-support.html).
++ Restoration with the registry is possible: Only if you deleted the domain. Expired .de domains can't be restored. See the following note.
++ Domain is deleted from the registry: After the restoration period ends.
+
+**Note**  
+How you recover a .de domain depends on its status with DENIC, the registry for .de.  
+If you deleted the domain and it's within DENIC's redemption grace period, you can recover the domain by [restoring it](domain-restore-expired.md).
+If the domain expires, it leaves Route 53 and enters DENIC's TRANSIT status. DENIC mails the domain holder a letter with an authorization code. If you don't receive it, you can request a new code from DENIC. Within the period stated in the letter, you can recover the domain by [transferring it back to Route 53](domain-transfer-to-route-53.md) using that code.

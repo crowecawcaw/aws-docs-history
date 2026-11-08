@@ -124,6 +124,7 @@ Register, renew, and transfer domains
 + [RegisterDomain](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_RegisterDomain.html)
 + [RenewDomain](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_RenewDomain.html)
 + [ResendContactReachabilityEmail](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ResendContactReachabilityEmail.html)
++ [RestoreDomain](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_RestoreDomain.html)
 + [RetrieveDomainAuthCode](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_RetrieveDomainAuthCode.html)
 + [TransferDomain](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomain.html)
 + [DeleteDomain](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_DeleteDomain.html)

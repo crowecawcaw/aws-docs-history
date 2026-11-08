@@ -34,4 +34,4 @@ Not supported.
 + Late renewal with Route 53 is possible: Until 13 days after expiration
 + Domain is deleted from the registry: 49 days after expiration
 + Restoration with the registry is possible: Between 14 days and 44 days after expiration
-+ Domain is deleted from the registry: Contact [AWS Support](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-contact-support.html).
++ Domain is deleted from the registry: After the restoration period ends.
