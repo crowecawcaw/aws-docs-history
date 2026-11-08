@@ -330,6 +330,11 @@ After updating the stack (or attaching the policy), retry the `cid-cmd` update o
 
 No. Quick Sight Datasets using Cost and Usage Reports (CUR) require Full Refresh exclusively. Incremental Refresh cannot be used because AWS updates and overwrites previous month’s CUR data after invoice finalization, which typically occurs mid-month. To ensure data accuracy and consistency, the 'Full Refresh' must be implemented for all CUR-based datasets in Quick Sight.
 
+### The Health Events data collection Lambda times out - what do I do?
+<a name="the-health-events-data-collection-lambda-times-out-what-do-i-do"></a>
+
+The Health Data Collection module is optimized to process batches of 100 events at a time. Occasionally, one or a few AWS Health events can affect thousands of resources. While processing such very large resource lists, the default batching configuration can result in the function exceeding the 15-minute limit. A corresponding timeout error will then appear in the CloudWatch logs and the collection will fail. To address this, lower the `EVENTS_PER_BATCH` environment variable on the `CID-DC-health-events-Lambda` function (it can be set as low as 1). If that does not help, set the optional `MAX_LIST_SIZE` variable to truncate the affected resources list collected for the large events. By default there is no limit. See [Health Events Dashboard troubleshooting](health-events-dashboard.md#health-events-dashboard-lambda-timeout) for the steps.
+
 ## Pricing
 <a name="pricing"></a>
 
@@ -476,8 +481,27 @@ FROM "(database)"."(table)"
 WHERE line_item_usage_account_id IN( '(account ID)', '(account ID)', '(account ID)', '(account ID)')
 ```
 
-**Export on schedule**  
+ **Export on schedule** 
+
 If you need to regularly export this data, you can deploy this as a Lambda to run on schedule.
+
+#### Click to display an automated solution
+<a name="collapsible-section-id-faq-21"></a>
+
+An automated pipeline can copy CUR 2.0 data for selected AWS accounts from the Data Collection account into a separate account. The target account can belong to a business unit, another Organization, or a standalone CID deployment, and CUDOS dashboards can then be deployed on top of the copied data.
+
+Prerequisites, templates, parameters, backfill guidance for newly added accounts, and cost considerations are covered in [Deploying CUDOS dashboards for a subset of AWS accounts](https://repost.aws/articles/AR4FfBj-JgQJCpBxJyxRM0QQ/deploying-cudos-dashboards-for-a-subset-of-aws-accounts).
+
+The solution uses two CloudFormation stacks:
+
+ **Target account stack**: Creates an S3 bucket. Its bucket policy allows writes only from the extraction role in the Data Collection account.
+
+ **Data Collection account stack**: Deploys a scheduled Lambda function. The function runs an Athena `UNLOAD` query that filters CUR 2.0 data to a specified list of account IDs, and writes the results to the target bucket as Parquet files partitioned by `billing_period`. The stack also includes alarms and a dead-letter queue for failure monitoring.
+
+The first run loads the full billing history. Each later run refreshes only the last three billing periods. Once the data arrives, running `cid-cmd deploy --dashboard-id cudos-v5` in the target account creates the Glue crawler and the CUDOS dashboard.
+
+**Tip**  
+When the requirement is only to limit what users see within a single shared dashboard, and a separate copy of the data isn’t needed, [row-level security](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/row-level-security.html) is the simpler option.
 
 ### I have an archive of Cost and Usage Report (CUR). How do I integrate with CID after migration?
 <a name="i-have-an-archive-of-cost-and-usage-report-cur-how-do-i-integrate-with-cid-after-migration"></a>
@@ -783,7 +807,7 @@ Below is a feature comparison of both dashboards, which will help you decide whi
 | Lowest Time Granularity | Daily |  **Hourly**  | 
 | Lowest Construct |  **Container**  | Pod | 
 | Supported Aggregation Levels | Cluster: Cluster name, Cluster ARN. K8s constructs: Namespace, Controller kind, Controller name, Deployment, DaemonSet, StatefulSet, Job, Pod name, Container name, Pod label, Node label, Pod Annotation. Node: Node name, Node instance ID, Node capacity type (On-Demand, Spot), Node instance type, Node OS, Node architecture, Node node group, Node image (AMI ID), Karpenter provisioner name. Other: Linked account ID, Region code, AZ | Cluster: Cluster type, Cluster name, Cluster ARN. K8s constructs: Node name, Namespace, Controller kind, Controller name, Deployment, ReplicaSet, DaemonSet, StatefulSet, Job, ReplicationController, Pod name, Pod UID. Amazon ECS: Service, Task ID. AWS Batch: Compute environment, Job definition name, Job definition revision, Job queue. Instance: Instance ID, Purchase option (On-Demand, Spot, SP, RI), Instance family, Instance type family, Instance type, OS. Other: Payer account ID, Linked account name, Linked account ID, Region code, AZ | 
-| K8s Labels Support | Yes (requires user input) | No | 
+| K8s Pod Labels Support | Yes (requires user input) | Yes, see [Post Deployment](scad-containers-dashboard-post-deployment.md)  | 
 | K8s Node Labels Support | Yes (requires user input) | No | 
 | K8s Annotations Support | Yes (requires user input) | No | 
 

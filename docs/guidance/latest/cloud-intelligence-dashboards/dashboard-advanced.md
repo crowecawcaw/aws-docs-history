@@ -21,3 +21,4 @@ Advanced Dashboards require [CID Data Collection Stack](data-collection.md). Thi
 +  [Data Collection Monitor](data-collection-monitor.md) 
 +  [Media Services Insights Hub](media-services-insights.md) 
 +  [Kiro User Activity Dashboard](kiro-user-activity-dashboard.md) 
++  [Database Resilience, Operations, and Insights (DROID) Dashboard](droid-dashboard.md) 

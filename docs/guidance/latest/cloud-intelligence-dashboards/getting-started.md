@@ -68,6 +68,7 @@ At any moment, please contact your AWS or Partner Account Team to discuss how yo
 +  [IDP Education testimonial (cloud consumption visibility via the CUDOS Dashboard)](https://aws.amazon.com/premiumsupport/customers/testimonials/) 
 +  [How Accor optimized its costs and carbon footprint with AWS Graviton (blog post in French)](https://aws.amazon.com/fr/blogs/france/comment-accor-a-optimise-ses-couts-et-son-empreinte-carbone-avec-aws-graviton/) 
 +  [Automating multi-cloud cost management at scale: a2a’s FinOps platform powered by AWS](https://aws.amazon.com/blogs/aws-cloud-financial-management/automating-multi-cloud-cost-management-at-scale-a2as-finops-platform-powered-by-aws/) 
++  [Analyzing unit costs using Cloud Intelligence Dashboards on AWS with NXP](https://aws.amazon.com/solutions/case-studies/nxp-cid/) 
 
 ## AWS Blog posts referring to Cloud Intelligence Dashboards
 <a name="aws-blog-posts-referring-to-cloud-intelligence-dashboards"></a>

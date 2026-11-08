@@ -18,6 +18,78 @@ Subscribe to the RSS feed to get notified about new releases automatically: [clo
 
 The highlights below cover notable releases from the past year, most recent first.
 
+## DROID Dashboard v1.0.0: new dashboard for Amazon RDS and Amazon Aurora (November 3, 2026)
+<a name="whats-new-droid-100"></a>
+
+A new dashboard, Database Resilience, Operations, and Insights (DROID), gives you a single view of your Amazon RDS and Amazon Aurora fleet across accounts and Regions.
++  **Inventory** — instances and clusters by account, Region, engine, instance class, and processor (Graviton or x86), with filters for collection date, account, Region, engine, and tags.
++  **Version and maintenance** — current engine versions compared with the latest available, standard and extended support end dates, and pending maintenance actions.
++  **Security and resiliency** — encryption, Multi-AZ, deletion protection, storage autoscaling, and certificate expiration.
++  **Backup** — daily, 14-day, and 30-day backup coverage, and cluster snapshot analysis.
++  **Cost** — RDS spend by account, Region, engine, and instance type, and Aurora I/O-Optimized recommendations based on estimated savings.
+
+Requires CUR 2.0 and CID Data Collection v3.14.11 or later with the Inventory, Reference, and RDS modules enabled.
+
+See the [DROID Dashboard](droid-dashboard.md), or explore the [interactive demo dashboard](https://cid.workshops.aws.dev/demo?dashboard=droid).
+
+View the [changelog entry](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/changes/CHANGELOG-droid.md).
+
+## Data Collection v3.14.11: RDS module and new price lists (November 3, 2026)
+<a name="whats-new-data-collection-3-14-11"></a>
++  **RDS module** — a new module that collects Amazon RDS and Amazon Aurora pending maintenance actions and cluster snapshots across accounts, for the [DROID Dashboard](droid-dashboard.md). It requires the Inventory and Reference modules.
++  **Pricing** — new price lists for Database Savings Plans, Amazon Redshift, Amazon EKS, Amazon EMR, Amazon ECS, Amazon MSK, Amazon DocumentDB, Amazon MemoryDB, Amazon Neptune, and Amazon SageMaker AI.
++  **Fixes** — the `inventory_ec2_instances_data` table no longer fails every Athena query with `HIVE_SERDE_NOT_FOUND`, and the CUR crawler can create its CloudWatch log group.
+
+See [Update the Data Collection framework](data-collection-update.md).
+
+View the [release notes](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-data-collection/releases/tag/3.14.11).
+
+## Data Exports v0.13.0: new CUR 2.0 columns (November 3, 2026)
+<a name="whats-new-data-exports-0130"></a>
++  **CUR 2.0 table** — added the `net_*` columns and other columns, such as `line_item_net_unblended_cost`, `pricing_public_on_demand_rate`, `product_region_code`, and `product_sku`.
++  **Crawler logs** — the crawler role can create its log group by log group ARN, ahead of the CloudWatch Logs IAM change in April 2027.
++  **Secondary destination bucket** — fixed `SecondaryDestinationBucket`, which stopped receiving data in v0.11.0. If you use it, follow the upgrade note in the changelog.
+
+See [Data Exports](data-exports.md).
+
+View the [changelog](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-data-collection/blob/main/data-exports/CHANGELOG.md).
+
+## Extended Support Cost Projection v5.3.0: Database Savings Plans coverage (November 2, 2026)
+<a name="whats-new-extended-support-530"></a>
++  **Database Savings Plans coverage** — the RDS view now includes usage covered by Savings Plans, so RDS and Aurora resources in Extended Support that are covered by Database Savings Plans are no longer missing.
++  **More robust RDS view** — the view no longer fails when a line item has a non-numeric vCPU value. Such rows are kept, with no vCPU-based cost.
++  **New data preparation experience** — the RDS, EKS, OpenSearch, ElastiCache, and tagging datasets are migrated to the new Amazon Quick data preparation experience. Visuals and calculations are unchanged.
+
+This update requires `cid-cmd` v4.4.12 or later. If you customized the datasets, make a copy before you update. Run the update with `--recursive`; without it, only the dashboard is updated and the datasets are not migrated: `cid-cmd update --dashboard-id extended-support-cost-projection --recursive`.
+
+See the [Extended Support Cost Projection Dashboard](extended-support.md).
+
+View the [changelog entry](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/changes/CHANGELOG-extended-support-cost-projection.md).
+
+## Graviton Savings Dashboard v3.0.6: Database Savings Plans support (October 27, 2026)
+<a name="whats-new-graviton-savings-306"></a>
++  **Database Savings Plans** — RDS, OpenSearch, and ElastiCache recognize Database Savings Plan coverage and price covered usage at its effective rate, so covered Graviton resources are no longer missing from the scan or priced at On-Demand.
++  **Savings accuracy** — ElastiCache and OpenSearch **Current Unit Cost** and **Existing Savings %** now use amortized cost, and a new `graviton_unit_cost` column shows the per-unit Graviton rate.
++  **Fixes** — OpenSearch Gen7 (m7g and r7g) rows no longer show blank unit cost and savings, and cost is no longer double-counted for OpenSearch domains and ElastiCache clusters that report more than one engine version.
+
+Requires the Database Savings Plans price list from the Data Collection pricing module (v3.14.11 or later). After you update Data Collection, run `cid-cmd update --dashboard-id graviton-savings --force --recursive`.
+
+See the [Graviton Savings Dashboard](graviton-savings-dashboard.md).
+
+View the [changelog entry](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/changes/CHANGELOG-graviton-savings.md).
+
+## Data Collection v3.14.10: Health Events Lambda timeout controls (October 20, 2026)
+<a name="whats-new-data-collection-3-14-10"></a>
+
+Update to fix Health Events data collection Lambda time out edge cases.
++  **Smaller default batch size** — the detail Step Function now sends 100 events to each Lambda invocation instead of 500. Set `EVENTS_PER_BATCH` on the Lambda to change this if you encounter Lambda timeout errors during data collection.
++  **Optional limit on affected resources per event** — for events with very large numbers of affected resources, where data collection might time out, `MAX_LIST_SIZE` limits the resources retrieved. By default there is no limit. Events and affected accounts are never dropped. A truncated event shows a `WARNING: Entity list truncated` resource on the dashboard, and you can see the full list in the AWS Health console.
++  **Easier debugging** — with `LOG_LEVEL=DEBUG`, the Lambda logs per-event progress, so you can find the event that times out.
+
+See [Health Events Dashboard troubleshooting](health-events-dashboard.md#health-events-dashboard-lambda-timeout).
+
+View the [release notes on the GitHub website](https://github.com/awslabs/cid-framework/releases).
+
 ## CUDOS Dashboard v5.10.0: Redshift RG migration, NAT gateway and DynamoDB backup optimization (October 23, 2026)
 <a name="whats-new-cudos-5100"></a>
 +  **Amazon Redshift RA3 to RG migration** — a new section on the **Databases** tab tracks adoption of Graviton-based RG instances and estimates the savings of migrating each RA3 cluster. Use the **Purchase Option** and **Incremental Snapshot Size** controls to adjust the estimate.
@@ -319,6 +391,7 @@ For the complete release history of each dashboard, see its changelog on GitHub.
 | ResilienceVue |  [CHANGELOG-resiliencevue.md](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/changes/CHANGELOG-resiliencevue.md)  | 
 | Support Cases Radar |  [CHANGELOG-support-cases-radar.md](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/changes/CHANGELOG-support-cases-radar.md)  | 
 | Health Events Dashboard (HED) |  [CHANGELOG-hed.md](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/changes/CHANGELOG-hed.md)  | 
+| DROID Dashboard |  [CHANGELOG-droid.md](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/changes/CHANGELOG-droid.md)  | 
 
 ## Feedback & Support
 <a name="whats-new-feedback-support"></a>

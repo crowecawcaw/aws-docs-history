@@ -154,6 +154,51 @@ An alternative method to install dashboards is the [cid-cmd](https://github.com/
 
    Please follow the instructions from the deployment wizard. More info about command line options are in the [Readme](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd) or `cid-cmd --help`.
 
+## Troubleshooting
+<a name="troubleshooting"></a>
+
+### Data collection Lambda times out
+<a name="health-events-dashboard-lambda-timeout"></a>
+
+In large organizations, some AWS Health events affect thousands of resources. Collecting the details for these events can exceed the 15-minute Lambda limit. When this happens, the Lambda’s CloudWatch logs show `Task timed out after 900 seconds` and the `CID-DC-health-events-detail-StateMachine` execution fails.
+
+You can tune the collection with environment variables on the `CID-DC-health-events-Lambda` function. (If you used a custom resource prefix, the name starts with that prefix.)
+
+
+| Variable | Description | Default | 
+| --- | --- | --- | 
+|  `EVENTS_PER_BATCH`  | Number of Health events processed by each Lambda invocation. Smaller numbers will slow the overall data collection but has a minimal impact on cost. Requires Data Collection v3.14.10 or later. | 100 | 
+|  `MAX_LIST_SIZE`  | Optional. Limits the number of affected resources retrieved for each event. Use it only for events with very large numbers of affected resources. This will truncate the resources reported for an affected event but will report such truncation to the dashboard and the CloudWatch log so you can explore affected events in the Health console. Note: Events and affected accounts are never truncated, only resources. Requires Data Collection v3.14.10 or later. | 0 (no limit) | 
+|  `LOG_LEVEL`  | Set to `DEBUG` to log the progress of each event, so you can find the event that times out. | INFO | 
+
+To change a value:
+
+1. Log in to your **Data Collection** Account and open the [AWS Lambda console](https://console.aws.amazon.com/lambda/home).
+
+1. Open the `CID-DC-health-events-Lambda` function.
+
+1. Choose **Configuration**, then **Environment variables**, then **Edit**.
+
+1. Choose **Add environment variable**, enter the key and value, and choose **Save**.
+
+1. Wait for the next scheduled run, or start the `CID-DC-health-events-StateMachine` Step Function manually.
+
+Work through these steps in order, and stop when the timeout is resolved:
+
+1. Set `EVENTS_PER_BATCH` to `5`.
+
+1. If the Lambda still times out, set `EVENTS_PER_BATCH` to `1`.
+
+1. If a single event still times out, keep `EVENTS_PER_BATCH` at `1` and set the optional `MAX_LIST_SIZE` to `2000`. If that still times out, keep lowering `MAX_LIST_SIZE` until the collection succeeds. By default there is no limit, so leave `MAX_LIST_SIZE` unset unless you need it.
+
+If the Lambda still times out with a low `MAX_LIST_SIZE`, the event probably affects too many accounts to collect in one invocation. Contact us using [Feedback & Support](#health-events-dashboard-feedback-support).
+
+**Note**  
+When `MAX_LIST_SIZE` cuts short the list of affected resources for an event:  
+The dashboard shows an extra affected resource, `WARNING: Entity list truncated. See Health Console for full list`, for each account in the group of 10 accounts that was cut short. These rows are included in affected resource counts.
+The Lambda logs a `Truncating 'describe_affected_entities_for_organization'` warning in CloudWatch.
+To see all affected resources for the event, open it in the AWS Health console from your management account (or delegated administrator account), using the organizational view.
+
 ## Update
 <a name="update"></a>
 
