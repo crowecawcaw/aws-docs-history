@@ -3,6 +3,9 @@
 # Automate AWS Certificate Manager email validation
 <a name="email-automation"></a>
 
+**Important**  
+Throughout 2027, AWS Certificate Manager will deprecate email validation for new public certificates and renewals. Use DNS validation instead. For more information, see [AWS Certificate Manager will discontinue email validation to prove domain validation for certificates](https://aws.amazon.com/blogs/security/aws-certificate-manager-will-discontinue-email-validation-to-prove-domain-validation-for-certificates/) on the AWS Security Blog.
+
 Email-validated ACM certificates normally require manual action by the domain owner. Organizations dealing with large numbers of email-validated certificates may prefer to create a parser that can automate the required responses. To assist customers using email validation, the information in this section describes the templates used for domain validation email messages and the workflow involved in completing the validation process. 
 
 ## Validation email templates

@@ -33,6 +33,7 @@ ACM records management events and data events in CloudTrail.
 + [Retrieving external account binding credentials ([GetAcmeExternalAccountBindingCredentials](https://docs.aws.amazon.com/acm/latest/APIReference/API_GetAcmeExternalAccountBindingCredentials.html))](#ct-acme-getacmeexternalaccountbindingcredentials)
 + [Retrieving a certificate ([GetCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_GetCertificate.html))](#ct-acm-get)
 + [Import a certificate ([ImportCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_ImportCertificate.html))](#ct-acm-import)
++ [Issuing a certificate from an ACME endpoint (IssueCertificate)](#ct-acme-issuecertificate)
 + [Listing ACME accounts ([ListAcmeAccounts](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListAcmeAccounts.html))](#ct-acme-listacmeaccounts)
 + [Listing ACME domain validations ([ListAcmeDomainValidations](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListAcmeDomainValidations.html))](#ct-acme-listacmedomainvalidations)
 + [Listing ACME endpoints ([ListAcmeEndpoints](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListAcmeEndpoints.html))](#ct-acme-listacmeendpoints)
@@ -1148,6 +1149,55 @@ The following example shows the CloudTrail log entry that records a call to the 
    "eventID":"01234567-89ab-cdef-0123-456789abcdef",
    "eventType":"AwsApiCall",
    "recipientAccountId":"111122223333"
+}
+```
+
+### Issuing a certificate from an ACME endpoint (IssueCertificate)
+<a name="ct-acme-issuecertificate"></a>
+
+ACM records an `IssueCertificate` management event when it finishes processing a finalized order. The following CloudTrail example shows a log entry for an issued certificate.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "accountId": "123456789012",
+    "invokedBy": "acm-acme.amazonaws.com"
+  },
+  "eventTime": "2026-10-15T20:11:22Z",
+  "eventSource": "acm-acme.amazonaws.com",
+  "eventName": "IssueCertificate",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "acm-acme.amazonaws.com",
+  "userAgent": "acm-acme.amazonaws.com",
+  "requestParameters": null,
+  "responseElements": null,
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "readOnly": false,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::Certificate",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:certificate/a1b2c3d4-5678-90ab-cdef-EXAMPLE55555"
+    },
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeEndpoint",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+    }
+  ],
+  "eventType": "AwsServiceEvent",
+  "managementEvent": true,
+  "recipientAccountId": "123456789012",
+  "serviceEventDetails": {
+    "certificateKeyPairOrigin": "ACME",
+    "acmeOrderId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+    "status": "ISSUED",
+    "acmeAccountId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    "certificateArn": "arn:aws:acm:us-east-1:123456789012:certificate/a1b2c3d4-5678-90ab-cdef-EXAMPLE55555"
+  },
+  "eventCategory": "Management"
 }
 ```
 

@@ -39,7 +39,7 @@ The **tag** field can be one of the following values. Note that the **iodef** fi
 **issue**  
 Indicates that the ACM CA that you specify in the **value** field is authorized to issue a certificate for your domain or subdomain.   
 **issuewild**  
-Indicates that the ACM CA that you specified in the **value** field is authorized to issue a wildcard certificate for your domain or subdomain. A wildcard certificate applies to the domain or subdomain and all of its subdomains. Note that if you plan to use HTTP validation, this setting won't apply because HTTP validation doesn't support wildcard certificates. Use DNS or email validation instead for wildcard certificates.
+Indicates that the ACM CA that you specified in the **value** field is authorized to issue a wildcard certificate for your domain or subdomain. A wildcard certificate applies to the domain or subdomain and all of its subdomains. Note that if you plan to use HTTP validation, this setting won't apply because HTTP validation doesn't support wildcard certificates. Use DNS validation instead for wildcard certificates.
 
 **value**  
 The value of this field depends on the value of the **tag** field. You must enclose this value in quotation marks ("").     
@@ -56,7 +56,7 @@ When there is an **issuewild** CAA record present that does not include an ACM C
 
 **Example CAA Record Examples**  
 In the following examples, your domain name comes first followed by the record type (CAA). The **flags** field is always 0. The **tags** field can be **issue** or **issuewild**. If the field is **issue** and you type the domain name of a CA server in the **value** field, the CAA record indicates that your specified server is permitted to issue your requested certificate. If you type a semicolon ";" in the **value** field, the CAA record indicates that no CA is permitted to issue a certificate. The configuration of CAA records varies by DNS provider.   
-If you plan to use HTTP validation with CloudFront, you don't need to configure **issuewild** records because HTTP validation doesn't support wildcard certificates. For wildcard certificates, use DNS or email validation instead.
+If you plan to use HTTP validation with CloudFront, you don't need to configure **issuewild** records because HTTP validation doesn't support wildcard certificates. For wildcard certificates, use DNS validation instead.
 
 ```
 Domain       Record type  Flags  Tag      Value   

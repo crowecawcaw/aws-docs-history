@@ -3,7 +3,10 @@
 # AWS Certificate Manager email validation
 <a name="email-validation"></a>
 
-Before the Amazon certificate authority (CA) can issue a certificate for your site, AWS Certificate Manager (ACM) must verify that you own or control all of the domains that you specified in your request. You can perform verification using either email or DNS. This topic discusses email validation.
+**Important**  
+Throughout 2027, AWS Certificate Manager will deprecate email validation for new public certificates and renewals. Use DNS validation instead. For more information, see [AWS Certificate Manager will discontinue email validation to prove domain validation for certificates](https://aws.amazon.com/blogs/security/aws-certificate-manager-will-discontinue-email-validation-to-prove-domain-validation-for-certificates/) on the AWS Security Blog.
+
+Before the Amazon certificate authority (CA) can issue a certificate for your site, AWS Certificate Manager (ACM) must verify that you own or control all of the domains that you specified in your request. This topic describes email validation for customers who are already using it. For new certificates, use DNS validation (see [AWS Certificate Manager DNS validation](dns-validation.md)).
 
 If you encounter problems using email validation, see [Troubleshoot email validation problems](troubleshooting-email-validation.md).
 
@@ -33,7 +36,7 @@ ACM no longer supports WHOIS email validation for new certificates or renewals. 
 Observe the following considerations about email validation.
 + You need a working email address registered in your domain in order to use email validation. Procedures for setting up an email address are outside the scope of this guide.
 + Validation applies only to publicly trusted certificates issued by ACM. ACM does not validate domain ownership for [imported certificates](import-certificate.md) or for certificates signed by a private CA. ACM cannot validate resources in an Amazon VPC [private hosted zone](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-private-hosted-zones) or any other private domain. For more information, see [Troubleshoot certificate validation](certificate-validation.md).
-+ After you create a certificate with email validation, you cannot switch to validating it with DNS. To use DNS validation, delete the certificate and then create a new one that uses DNS validation.
++ To switch an existing certificate from email validation to DNS validation, use the [`UpdateCertificateOptions`](https://docs.aws.amazon.com/acm/latest/APIReference/API_UpdateCertificateOptions.html) API.
 
 ## Certificate expiration and renewal
 <a name="renewal"></a>

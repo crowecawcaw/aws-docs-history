@@ -3,6 +3,9 @@
 # Request a public certificate in AWS Certificate Manager
 <a name="acm-public-certificates"></a>
 
+**Important**  
+Throughout 2027, AWS Certificate Manager will deprecate email validation for new public certificates and renewals. Use DNS validation instead. For more information, see [AWS Certificate Manager will discontinue email validation to prove domain validation for certificates](https://aws.amazon.com/blogs/security/aws-certificate-manager-will-discontinue-email-validation-to-prove-domain-validation-for-certificates/) on the AWS Security Blog.
+
 You can request AWS Certificate Manager public certificates from the ACM console, AWS CLI, or API. You can use these certificates with integrated AWS services or export them for use outside of AWS Cloud.
 
 The following list describes the differences between public certificates and exportable public certificates.
@@ -45,10 +48,10 @@ In compliance with [RFC 5280](https://datatracker.ietf.org/doc/html/rfc5280), th
 1. If you want to create an ACM exportable public certificates, select the **Enable export** option. You'll be able to access the certificate's private keys and use it outside AWS Cloud. For more information, see [AWS Certificate Manager exportable public certificates](acm-exportable-certificates.md).
 
 1. In the **Validation method** section, choose either **DNS validation – recommended** or **Email validation**, depending on your needs.
-**Note**  
-If you are able to edit your DNS configuration, we recommend that you use DNS domain validation rather than email validation. DNS validation has multiple benefits over email validation. See [AWS Certificate Manager DNS validation](dns-validation.md). 
 
-   Before ACM issues a certificate, it validates that you own or control the domain names in your certificate request. You can use either email validation or DNS validation. 
+   Before ACM issues a certificate, it validates that you own or control the domain names in your certificate request.
+
+   Use DNS validation for new certificates. With DNS validation, you can renew certificates automatically and avoid email delivery issues. The following substeps describe both DNS validation and email validation for reference while email validation remains available.
 
    1. If you choose email validation, ACM sends validation email to the domain that you specify in the domain name field. If you specify a validation domain, ACM sends the email to that validation domain instead. For more information about email validation, see [AWS Certificate Manager email validation](email-validation.md).
 

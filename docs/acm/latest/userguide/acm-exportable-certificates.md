@@ -22,7 +22,7 @@ The following outlines how ACM exportable public certificates work:
 
 1. Request an exportable certificate through ACM for your domain.
 
-1. Validate domain ownership using DNS or email validation.
+1. Validate domain ownership using DNS validation.
 
 1. Export the certificate, private key, and certificate chain.
 

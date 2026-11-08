@@ -13,7 +13,7 @@ Public certificates requested through ACM come from [Amazon Trust Services](http
 ACM issues leaf or end-entity certificates to customers through intermediate CAs, randomly assigned based on the certificate type (RSA or ECDSA). ACM doesn't provide intermediate CA information due to this random selection.
 
 **Domain Validation (DV)**  <a name="domain-validation-term"></a>
-ACM certificates are domain validated, identifying only a domain name. When requesting an ACM certificate, you must prove ownership or control of all specified domains. You can validate ownership using email or DNS. For more information, see [AWS Certificate Manager email validation](email-validation.md) and [AWS Certificate Manager DNS validation](dns-validation.md).
+ACM certificates are domain validated, identifying only a domain name. When requesting an ACM certificate, you must prove ownership or control of all specified domains. You can validate ownership using DNS. For more information, see [AWS Certificate Manager DNS validation](dns-validation.md).
 
 **HTTP validation**  <a name="http-validation-term"></a>
 ACM supports HTTP validation for domain ownership verification when issuing public TLS certificates for use with CloudFront. This method uses HTTP redirects to prove domain ownership and offers automatic renewal similar to DNS validation. HTTP validation is currently only available through the CloudFront Distribution Tenants feature.

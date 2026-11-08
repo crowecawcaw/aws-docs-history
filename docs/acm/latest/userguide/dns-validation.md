@@ -6,7 +6,7 @@
 The Domain Name System (DNS) is a directory service for resources that are connected to a network. Your DNS provider maintains a database containing records that define your domain. When you choose DNS validation, ACM provides you with one or more CNAME records that must be added to this database. These records contain a unique key-value pair that serves as proof that you control the domain.
 
 **Note**  
-After you create a certificate with email validation, you cannot switch to validating it with DNS. To use DNS validation, delete the certificate and then create a new one that uses DNS validation.
+To switch an existing certificate from email validation to DNS validation, use the [`UpdateCertificateOptions`](https://docs.aws.amazon.com/acm/latest/APIReference/API_UpdateCertificateOptions.html) API.
 
 For example, if you request a certificate for the `example.com` domain with `www.example.com` as an additional name, ACM creates two CNAME records for you. Each record, created specifically for your domain and your account, contains a name and a value. The value is an alias that points to an AWS domain that ACM uses to automatically renew your certificate. The CNAME records must be added to your DNS database only once. ACM automatically renews your certificate as long as the certificate is in use and your CNAME record remains in place. 
 
@@ -18,7 +18,7 @@ Without the need to repeat validation, you can request additional ACM certificat
 You can stop automatic renewal either by removing the certificate from the AWS service with which it is associated or by deleting the CNAME record. If Route 53 is not your DNS provider, contact your provider to find out how to delete a record. If Route 53 is your provider, see [Deleting Resource Record Sets](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-deleting.html) in the *Route 53 Developer Guide*. For more information about managed certificate renewal, see [Managed certificate renewal in AWS Certificate Manager](managed-renewal.md). 
 
 **Note**  
-CNAME resolution will fail if more than five CNAMEs are chained together in your DNS configuration. If you require a longer chaining, we recommend using [email validation](email-validation.md).
+CNAME resolution will fail if more than eight CNAMEs are chained together in your DNS configuration.
 
 ## How CNAME records for ACM work
 <a name="cnames-overview"></a>

@@ -70,7 +70,7 @@ When this happens, the ACME client sees the order transition to `invalid` status
     "status": "invalid",
     "error": {
         "type": "urn:ietf:params:acme:error:dns",
-        "detail": "DNS CNAME records not found: [{{_a1b2c3d4e5f67890abcdef1234567890.example.com.}}]"
+        "detail": "DNS CNAME records not found or incorrect: [{{_a1b2c3d4e5f67890abcdef1234567890.example.com.}}]"
     },
     "identifiers": [{ "type": "dns", "value": "{{example.com}}" }],
     "authorizations": ["https://acm-acme-enroll.{{region}}.api.aws/{{00000000-0000-0000-0000-000000000000}}/authz/{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}"],
@@ -83,10 +83,10 @@ ACME clients surface the order's error in their own output. For example, Certbot
 
 ```
 An unexpected error occurred:
-DNS CNAME records not found: [{{_a1b2c3d4e5f67890abcdef1234567890.example.com.}}]
+DNS CNAME records not found or incorrect: [{{_a1b2c3d4e5f67890abcdef1234567890.example.com.}}]
 ```
 
-If you have configured an CloudTrail trail or event data store to record ACM data events, the failure also appears on the `IssueCertificate` CloudTrail event under `serviceEventDetails`, with the same `errorType` and `errorMessage`. For more information, see [ACM API actions supported in CloudTrail logging](acm-supported-actions-in-cloudtrail.md).
+The failure also appears in CloudTrail as an `IssueCertificate` management event with a `status` of `FAILED`. Its `serviceEventDetails` carry the ACME error type as `errorType` and its `detail` as `errorMessage`. Management events are logged by default. For more information about `IssueCertificate` events, see [Issuing a certificate from an ACME endpoint (IssueCertificate)](acm-supported-actions-in-cloudtrail.md#ct-acme-issuecertificate).
 
 To resolve the issue, restore the CNAME record listed in the error. To find the expected CNAME for a domain validation, use `DescribeAcmeDomainValidation` or view the domain validation in the ACM console.
 

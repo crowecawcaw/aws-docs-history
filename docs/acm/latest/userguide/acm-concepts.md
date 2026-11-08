@@ -229,7 +229,7 @@ The Hypertext Transfer Protocol (HTTP) is the foundation of data communication o
 
 In the context of ACM, HTTP can be used for domain validation when issuing SSL/TLS certificates. This process involves ACM sending specific HTTP requests to verify domain ownership. The server's ability to respond correctly to these requests demonstrates control over the domain.
 
-Unlike email or DNS-validated certificates, ACM customers can't issue HTTP-validated certificates directly from ACM. Instead, these certificates are automatically issued and managed as part of the CloudFront provisioning process. Customers can use ACM to view, monitor, and manage these certificates, but the initial issuance is handled by the integration between ACM and CloudFront.
+Unlike DNS-validated certificates, you can't issue HTTP-validated certificates directly from ACM. Instead, these certificates are automatically issued and managed as part of the CloudFront provisioning process. Customers can use ACM to view, monitor, and manage these certificates, but the initial issuance is handled by the integration between ACM and CloudFront.
 
 While HTTP is widely used, it's important to note that it transmits data in plain text. For secure communication, HTTPS (HTTP Secure) is used, which encrypts the data using SSL/TLS protocols. For more information on secure communications, see [Secure HTTPS](#concept-https).
 

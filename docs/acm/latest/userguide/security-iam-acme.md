@@ -39,7 +39,7 @@ PKI administrators who create and manage ACME resources need the following permi
         {
             "Effect": "Allow",
             "Action": "iam:PassRole",
-            "Resource": "arn:aws:iam::{{account-id}}:role/{{AcmeIssuanceRole}}",
+            "Resource": "arn:aws:iam::{{111122223333}}:role/{{AcmeIssuanceRole}}",
             "Condition": {
                 "StringEquals": {
                     "iam:PassedToService": "acm-acme.amazonaws.com"

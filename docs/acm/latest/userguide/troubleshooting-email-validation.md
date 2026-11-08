@@ -3,12 +3,15 @@
 # Troubleshoot email validation problems
 <a name="troubleshooting-email-validation"></a>
 
+**Important**  
+Throughout 2027, AWS Certificate Manager will deprecate email validation for new public certificates and renewals. Use DNS validation instead. For more information, see [AWS Certificate Manager will discontinue email validation to prove domain validation for certificates](https://aws.amazon.com/blogs/security/aws-certificate-manager-will-discontinue-email-validation-to-prove-domain-validation-for-certificates/) on the AWS Security Blog.
+
 Consult the following guidance if you are having trouble validating a certificate domain with email.
 
 **Topics**
 + [Not receiving validation email](#troubleshooting-no-mail)
 + [Persistent initial timestamp for email validation](#initial-dates)
-+ [I can't switch to DNS validation](#troubleshoot-switch-to-dns)
++ [How to switch to DNS validation](#troubleshoot-switch-to-dns)
 
 ## Not receiving validation email
 <a name="troubleshooting-no-mail"></a>
@@ -32,7 +35,7 @@ If, after reviewing the preceding guidance, you still don't receive the domain v
 
 The timestamp of a certificate's first email-validation request persists through later requests for validation renewal. This is not evidence of an error in ACM operations.
 
-## I can't switch to DNS validation
+## How to switch to DNS validation
 <a name="troubleshoot-switch-to-dns"></a>
 
-After you create a certificate with email validation, you cannot switch to validating it with DNS. To use DNS validation, delete the certificate and then create a new one that uses DNS validation.
+To switch an existing certificate from email validation to DNS validation, use the [`UpdateCertificateOptions`](https://docs.aws.amazon.com/acm/latest/APIReference/API_UpdateCertificateOptions.html) API.
