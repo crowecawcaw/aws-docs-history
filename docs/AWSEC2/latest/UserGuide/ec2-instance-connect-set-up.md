@@ -17,9 +17,9 @@ Before you install EC2 Instance Connect, ensure that you meet the following prer
 + **Verify that the instance uses one of the following:**
   + Amazon Linux 2 prior to version 2.0.20190618 \*
   + AL2023 minimal AMI or Amazon ECS-optimized AMI
-  + CentOS Stream 8 and 9
+  + CentOS Stream 9 and 10
   + macOS Sonoma prior to 14.2.1, Ventura prior to 13.6.3, and Monterey prior to 12.7.2 \*
-  + Red Hat Enterprise Linux (RHEL) 8 and 9
+  + Red Hat Enterprise Linux (RHEL) 8, 9, and 10
   + Ubuntu 16.04 and 18.04 \*
 **Tip**  
 \* For Amazon Linux 2, macOS, and Ubuntu: If you launched your instance using a later version than those listed above, EC2 Instance Connect comes preinstalled and no manual installation is required.
@@ -126,17 +126,17 @@ If you previously configured `AuthorizedKeysCommand` and `AuthorizedKeysCommandU
 
 1. Install the EC2 Instance Connect package on your instance by running the following commands.
 
-   The EC2 Instance Connect configuration files for CentOS are provided in a Red Hat Package Manager (RPM) package, with different RPM packages for CentOS 8 and CentOS 9 and for instance types that run on Intel/AMD (x86\_64) or ARM (AArch64).
+   The EC2 Instance Connect configuration files for CentOS are provided in a Red Hat Package Manager (RPM) package, with different RPM packages for CentOS Stream 9 and CentOS Stream 10 and for instance types that run on Intel/AMD (x86\_64) or ARM (AArch64).
 
    Use the command block for your operating system and CPU architecture.
-   + CentOS 8
+   + CentOS Stream 9
 
      Intel/AMD (x86\_64)
 
      ```
      [ec2-user ~]$ mkdir /tmp/ec2-instance-connect
-     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_amd64/ec2-instance-connect-2.0.0-5.rhel8.x86_64.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect.rpm
-     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_amd64/ec2-instance-connect-selinux-2.0.0-5.noarch.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect-selinux.rpm
+     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_amd64/ec2-instance-connect-2.0.0-6.rhel9.x86_64.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect.rpm
+     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_amd64/ec2-instance-connect-selinux-2.0.0-6.noarch.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect-selinux.rpm
      [ec2-user ~]$ sudo yum install -y /tmp/ec2-instance-connect/ec2-instance-connect.rpm /tmp/ec2-instance-connect/ec2-instance-connect-selinux.rpm
      ```
 
@@ -144,18 +144,18 @@ If you previously configured `AuthorizedKeysCommand` and `AuthorizedKeysCommandU
 
      ```
      [ec2-user ~]$ mkdir /tmp/ec2-instance-connect
-     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_arm64/ec2-instance-connect-2.0.0-5.rhel8.aarch64.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect.rpm
-     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_arm64/ec2-instance-connect-selinux-2.0.0-5.noarch.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect-selinux.rpm
+     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_arm64/ec2-instance-connect-2.0.0-6.rhel9.aarch64.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect.rpm
+     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_arm64/ec2-instance-connect-selinux-2.0.0-6.noarch.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect-selinux.rpm
      [ec2-user ~]$ sudo yum install -y /tmp/ec2-instance-connect/ec2-instance-connect.rpm /tmp/ec2-instance-connect/ec2-instance-connect-selinux.rpm
      ```
-   + CentOS 9
+   + CentOS Stream 10
 
      Intel/AMD (x86\_64)
 
      ```
      [ec2-user ~]$ mkdir /tmp/ec2-instance-connect
-     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_amd64/ec2-instance-connect-2.0.0-5.rhel9.x86_64.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect.rpm
-     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_amd64/ec2-instance-connect-selinux-2.0.0-5.noarch.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect-selinux.rpm
+     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_amd64/ec2-instance-connect-2.0.0-6.rhel10.x86_64.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect.rpm
+     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_amd64/ec2-instance-connect-selinux-2.0.0-6.noarch.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect-selinux.rpm
      [ec2-user ~]$ sudo yum install -y /tmp/ec2-instance-connect/ec2-instance-connect.rpm /tmp/ec2-instance-connect/ec2-instance-connect-selinux.rpm
      ```
 
@@ -163,8 +163,8 @@ If you previously configured `AuthorizedKeysCommand` and `AuthorizedKeysCommandU
 
      ```
      [ec2-user ~]$ mkdir /tmp/ec2-instance-connect
-     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_arm64/ec2-instance-connect-2.0.0-5.rhel9.aarch64.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect.rpm
-     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_arm64/ec2-instance-connect-selinux-2.0.0-5.noarch.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect-selinux.rpm
+     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_arm64/ec2-instance-connect-2.0.0-6.rhel10.aarch64.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect.rpm
+     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_arm64/ec2-instance-connect-selinux-2.0.0-6.noarch.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect-selinux.rpm
      [ec2-user ~]$ sudo yum install -y /tmp/ec2-instance-connect/ec2-instance-connect.rpm /tmp/ec2-instance-connect/ec2-instance-connect-selinux.rpm
      ```
 
@@ -175,16 +175,10 @@ If you previously configured `AuthorizedKeysCommand` and `AuthorizedKeysCommandU
    ```
 
 1. (Optional) Verify that EC2 Instance Connect was successfully installed on your instance.
-   + For CentOS 8:
 
-     ```
-     [ec2-user ~]$ sudo less /lib/systemd/system/sshd.service.d/ec2-instance-connect.conf
-     ```
-   + For CentOS 9:
-
-     ```
-     [ec2-user ~]$ sudo less /etc/ssh/sshd_config.d/60-ec2-instance-connect.conf
-     ```
+   ```
+   [ec2-user ~]$ sudo less /etc/ssh/sshd_config.d/60-ec2-instance-connect.conf
+   ```
 
    EC2 Instance Connect was successfully installed if the `AuthorizedKeysCommand` and `AuthorizedKeysCommandUser` lines contain the following values:
 
@@ -280,7 +274,7 @@ If you previously configured `AuthorizedKeysCommand` and `AuthorizedKeysCommandU
 
 1. Install the EC2 Instance Connect package on your instance by running the following commands. 
 
-   The EC2 Instance Connect configuration files for RHEL are provided in a Red Hat Package Manager (RPM) package, with different RPM packages for RHEL 8 and RHEL 9 and for instance types that run on Intel/AMD (x86\_64) or ARM (AArch64).
+   The EC2 Instance Connect configuration files for RHEL are provided in a Red Hat Package Manager (RPM) package, with different RPM packages for RHEL 8, RHEL 9, and RHEL 10 and for instance types that run on Intel/AMD (x86\_64) or ARM (AArch64).
 
    Use the command block for your operating system and CPU architecture.
    + RHEL 8
@@ -289,8 +283,8 @@ If you previously configured `AuthorizedKeysCommand` and `AuthorizedKeysCommandU
 
      ```
      [ec2-user ~]$ mkdir /tmp/ec2-instance-connect
-     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_amd64/ec2-instance-connect-2.0.0-5.rhel8.x86_64.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect.rpm
-     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_amd64/ec2-instance-connect-selinux-2.0.0-5.noarch.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect-selinux.rpm
+     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_amd64/ec2-instance-connect-2.0.0-6.rhel8.x86_64.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect.rpm
+     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_amd64/ec2-instance-connect-selinux-2.0.0-6.noarch.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect-selinux.rpm
      [ec2-user ~]$ sudo yum install -y /tmp/ec2-instance-connect/ec2-instance-connect.rpm /tmp/ec2-instance-connect/ec2-instance-connect-selinux.rpm
      ```
 
@@ -298,8 +292,8 @@ If you previously configured `AuthorizedKeysCommand` and `AuthorizedKeysCommandU
 
      ```
      [ec2-user ~]$ mkdir /tmp/ec2-instance-connect
-     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_arm64/ec2-instance-connect-2.0.0-5.rhel8.aarch64.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect.rpm
-     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_arm64/ec2-instance-connect-selinux-2.0.0-5.noarch.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect-selinux.rpm
+     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_arm64/ec2-instance-connect-2.0.0-6.rhel8.aarch64.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect.rpm
+     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_arm64/ec2-instance-connect-selinux-2.0.0-6.noarch.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect-selinux.rpm
      [ec2-user ~]$ sudo yum install -y /tmp/ec2-instance-connect/ec2-instance-connect.rpm /tmp/ec2-instance-connect/ec2-instance-connect-selinux.rpm
      ```
    + RHEL 9
@@ -308,8 +302,8 @@ If you previously configured `AuthorizedKeysCommand` and `AuthorizedKeysCommandU
 
      ```
      [ec2-user ~]$ mkdir /tmp/ec2-instance-connect
-     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_amd64/ec2-instance-connect-2.0.0-5.rhel9.x86_64.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect.rpm
-     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_amd64/ec2-instance-connect-selinux-2.0.0-5.noarch.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect-selinux.rpm
+     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_amd64/ec2-instance-connect-2.0.0-6.rhel9.x86_64.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect.rpm
+     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_amd64/ec2-instance-connect-selinux-2.0.0-6.noarch.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect-selinux.rpm
      [ec2-user ~]$ sudo yum install -y /tmp/ec2-instance-connect/ec2-instance-connect.rpm /tmp/ec2-instance-connect/ec2-instance-connect-selinux.rpm
      ```
 
@@ -317,8 +311,27 @@ If you previously configured `AuthorizedKeysCommand` and `AuthorizedKeysCommandU
 
      ```
      [ec2-user ~]$ mkdir /tmp/ec2-instance-connect
-     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_arm64/ec2-instance-connect-2.0.0-5.rhel9.aarch64.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect.rpm
-     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_arm64/ec2-instance-connect-selinux-2.0.0-5.noarch.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect-selinux.rpm
+     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_arm64/ec2-instance-connect-2.0.0-6.rhel9.aarch64.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect.rpm
+     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_arm64/ec2-instance-connect-selinux-2.0.0-6.noarch.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect-selinux.rpm
+     [ec2-user ~]$ sudo yum install -y /tmp/ec2-instance-connect/ec2-instance-connect.rpm /tmp/ec2-instance-connect/ec2-instance-connect-selinux.rpm
+     ```
+   + RHEL 10
+
+     Intel/AMD (x86\_64)
+
+     ```
+     [ec2-user ~]$ mkdir /tmp/ec2-instance-connect
+     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_amd64/ec2-instance-connect-2.0.0-6.rhel10.x86_64.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect.rpm
+     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_amd64/ec2-instance-connect-selinux-2.0.0-6.noarch.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect-selinux.rpm
+     [ec2-user ~]$ sudo yum install -y /tmp/ec2-instance-connect/ec2-instance-connect.rpm /tmp/ec2-instance-connect/ec2-instance-connect-selinux.rpm
+     ```
+
+     ARM (AArch64)
+
+     ```
+     [ec2-user ~]$ mkdir /tmp/ec2-instance-connect
+     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_arm64/ec2-instance-connect-2.0.0-6.rhel10.aarch64.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect.rpm
+     [ec2-user ~]$ curl https://amazon-ec2-instance-connect-us-west-2.s3.us-west-2.amazonaws.com/latest/linux_arm64/ec2-instance-connect-selinux-2.0.0-6.noarch.rpm -o /tmp/ec2-instance-connect/ec2-instance-connect-selinux.rpm
      [ec2-user ~]$ sudo yum install -y /tmp/ec2-instance-connect/ec2-instance-connect.rpm /tmp/ec2-instance-connect/ec2-instance-connect-selinux.rpm
      ```
 
@@ -334,7 +347,7 @@ If you previously configured `AuthorizedKeysCommand` and `AuthorizedKeysCommandU
      ```
      [ec2-user ~]$ sudo less /lib/systemd/system/sshd.service.d/ec2-instance-connect.conf
      ```
-   + For RHEL 9:
+   + For RHEL 9 and RHEL 10:
 
      ```
      [ec2-user ~]$ sudo less /etc/ssh/sshd_config.d/60-ec2-instance-connect.conf

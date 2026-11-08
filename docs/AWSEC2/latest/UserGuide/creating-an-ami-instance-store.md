@@ -10,6 +10,9 @@ To create an Amazon S3-backed Linux AMI, start from an instance that you've laun
 You can't create an Amazon S3-backed Windows AMI because Windows AMIs don't support instance store for the root volume.
 
 **Important**  
+Starting November 2, 2026, if your AWS account doesn't already own an Amazon S3-backed AMI in an AWS Region, you can no longer register a new one in that Region. If your account already owns an Amazon S3-backed AMI in a Region, you can continue to register Amazon S3-backed AMIs in that Region. AWS recommends using Amazon EBS-backed AMIs. For more information, see [Create an Amazon EBS-backed AMI](creating-an-ami-ebs.md).
+
+**Important**  
 Only the following instance types support an instance store volume as the root volume and require an Amazon S3-backed AMI: C1, C3, D2, I2, M1, M2, M3, R3, and X1.
 
 The AMI creation process is different for Amazon EBS-backed AMIs. For more information, see [Create an Amazon EBS-backed AMI](creating-an-ami-ebs.md).

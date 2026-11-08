@@ -37,6 +37,9 @@ For more information, see [Root volumes for your Amazon EC2 instances](RootDevic
 **Note**  
 Amazon S3-backed AMIs are considered end of life and are not recommended for new usage. They are only supported on the following older instance types: C1, C3, D2, I2, M1, M2, M3, R3, and X1.
 
+**Important**  
+Starting November 2, 2026, if your AWS account doesn't already own an Amazon S3-backed AMI in an AWS Region, you can no longer create a new one in that Region. If your account already owns an Amazon S3-backed AMI in a Region, you can continue to create Amazon S3-backed AMIs in that Region. AWS recommends using Amazon EBS-backed AMIs. For more information, see [Create an Amazon EBS-backed AMI](creating-an-ami-ebs.md).
+
 The following table summarizes the important differences when using the two types of AMIs.
 
 

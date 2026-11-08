@@ -11,6 +11,5 @@ Before you can activate or optimize a GPU-based instance, you must install the a
 
 **Topics**
 + [Activate NVIDIA GRID Virtual Applications](activate_grid.md)
-+ [Optimize GPU settings](optimize_gpu.md)
 + [Set up dual 4K displays on G4ad](activate_g4ad_4k.md)
 + [Get started with GPU accelerated instances](gpu-instances-started.md)

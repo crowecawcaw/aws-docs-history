@@ -270,5 +270,3 @@ To install the NVIDIA driver on Windows, follow these steps:
 Don't disable the display adapter named **Microsoft Remote Display Adapter**. If **Microsoft Remote Display Adapter** is disabled your connection might be interrupted and attempts to connect to the instance after it has rebooted might fail.
 
 1. Check Device Manager to verify that the GPU is working correctly.
-
-1. To achieve the best performance from your GPU, complete the optimization steps in [Optimize GPU settings on Amazon EC2 instances](optimize_gpu.md).
