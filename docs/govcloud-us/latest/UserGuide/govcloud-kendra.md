@@ -6,15 +6,13 @@
  Amazon Kendra is an intelligent search service powered by machine learning. Amazon Kendra reimagines enterprise search for your websites and applications so your employees and customers can easily find the content they are looking for, even when it is scattered across multiple locations and content repositories within your organization.
 
 ## Region availability
-<a name="_region_availability"></a>
+<a name="region-availability"></a>
 
-This service is available in the following AWS GovCloud (US) Regions:
+Amazon Kendra is available in the following AWS GovCloud (US) Regions:
 +  AWS GovCloud (US-West) 
 
 ## How Amazon Kendra differs
-<a name="govcloud-diffs-19"></a>
-
-The following differences apply to Amazon Kendra:
+<a name="feature-diffs"></a>
 +  Amazon Kendra in AWS GovCloud (US) only supports connectors for S3, Sharepoint (Online, 2013 and 2016), Confluence (server and cloud) and custom data source connector. Other data sources are not currently supported.
 +  IAM Identity Center Integration is not available.
 + Experience Builder is not available.

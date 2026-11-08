@@ -28,6 +28,7 @@ The following differences apply to Amazon Simple Storage Service:
 + Bucket-style aliases for your Amazon S3 Object Lambda Access Points are not available.
 +  Amazon S3 Express One Zone is not available.
 +  Amazon S3 Tables replication is not available.
++  Amazon S3 Tables migration is not available.
 + Access points for directory buckets are not available.
 + You cannot use S3 access points to access file data stored on Amazon FSx file systems.
 

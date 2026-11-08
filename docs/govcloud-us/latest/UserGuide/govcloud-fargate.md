@@ -6,16 +6,14 @@
 AWS Fargate is a compute engine for Amazon ECS that lets you run containers in production without deploying or managing servers. Fargate lets you focus on designing and building your applications instead of managing the infrastructure that runs them.
 
 ## Region availability
-<a name="_region_availability"></a>
+<a name="region-availability"></a>
 
-This service is available in the following AWS GovCloud (US) Regions:
-+  AWS GovCloud (US-West) 
+ AWS Fargate is available in the following AWS GovCloud (US) Regions:
 +  AWS GovCloud (US-East) 
++  AWS GovCloud (US-West) 
 
 ## How AWS Fargate differs
-<a name="govcloud-fargate-diffs"></a>
-
-The following differences apply to AWS Fargate:
+<a name="feature-diffs"></a>
 + Amazon EKS on Fargate is not available in AWS GovCloud (US).
 
 ## Documentation

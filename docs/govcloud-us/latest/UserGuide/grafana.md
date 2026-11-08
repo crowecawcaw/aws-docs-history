@@ -8,16 +8,14 @@ This topic describes the functionality of Amazon Managed Grafana in the AWS GovC
 Amazon Managed Grafana is a fully managed and secure data visualization service that you can use to instantly query, correlate, and visualize operational metrics, logs, and traces from multiple sources. Amazon Managed Grafana makes it easy to deploy, operate, and scale Grafana, a widely deployed data visualization tool that is popular for its extensible data support.
 
 ## Region availability
-<a name="_region_availability"></a>
+<a name="region-availability"></a>
 
-This service is available in the following AWS GovCloud (US) Regions:
-+  AWS GovCloud (US-West) 
+ Amazon Managed Grafana is available in the following AWS GovCloud (US) Regions:
 +  AWS GovCloud (US-East) 
++  AWS GovCloud (US-West) 
 
 ## How Amazon Managed Grafana differs
-<a name="how_shared_gralong_differs"></a>
-
-The following differences apply to Amazon Managed Grafana in AWS GovCloud (US) Regions:
+<a name="feature-diffs"></a>
 + Enterprise Plugins are not available.
 + Customer Managed Keys are not available.
 + Dual-stack functionality is not available.

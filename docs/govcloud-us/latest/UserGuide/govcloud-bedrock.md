@@ -18,6 +18,7 @@ This service is available in the following AWS GovCloud (US) Regions:
 The following differences apply to Amazon Bedrock:
 + Model availability for all regions, including AWS GovCloud (US), is available at [Regional availability by models](https://docs.aws.amazon.com/bedrock/latest/userguide/models-region-compatibility.html).
 + FedRAMP Class D certification and DoD CSP SRG IL-4 and IL-5 approvals are available at [Amazon Bedrock models - FedRAMP and DoD CSP SRG (IL4/IL5) certification status](https://aws.amazon.com/compliance/services-in-scope/FedRAMP/amazon-bedrock-models/).
++ Access to OpenAI closed-weight models in AWS GovCloud (US) is controlled through a limited AWS Marketplace listing. To request access, contact OpenAI through the [OpenAI listing in AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-lmbk4sopcjyi4).
 
 ## Documentation
 <a name="govcloud-docs-50"></a>

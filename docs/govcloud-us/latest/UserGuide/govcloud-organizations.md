@@ -38,6 +38,9 @@ The following differences apply to AWS Organizations:
   +  [Tag policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html) 
   +  [Declarative policies for EC2](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ec2.html) 
   +  [Declarative policies for S3](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_s3.html) 
+  +  [Declarative policies for Security Hub](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub.html) 
+  +  [Declarative policies for Amazon Inspector](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inspector.html) 
+  +  [Declarative policies for Amazon GuardDuty](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_guardduty.html) 
 **Note**  
 As a rule, you can create tag policies that reference only those resource types whose services are supported in the AWS GovCloud (US) Regions. However, you can use the following additional resource types in a tag policy even though the associated service is not yet supported in the AWS GovCloud (US) Regions:
     +  `chime:meeting` 

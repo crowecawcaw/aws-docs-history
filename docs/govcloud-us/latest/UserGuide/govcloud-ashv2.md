@@ -39,9 +39,9 @@ The Security Hub Extended plan is not available in the AWS GovCloud (US) Region.
 
 In the AWS GovCloud (US) Region the unused access analyzer runs in the us-gov-west-1 region. For more information about unused access findings see: [Understanding unused access findings in Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/unused-access-findings.html) in the * AWS Security Hub User Guide*.
 
- **Network Scanning** 
+ **Multicloud** 
 
-The Network Scanning feature is not available in the AWS GovCloud (US) Region. For more information about Network Scanning in Security Hub see [Network Scanning in Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-v2-network-scanning.html) in the * AWS Security Hub User Guide*.
+Security Hub does not support integrations with Azure in the AWS GovCloud (US) Region. For more information about the Azure integration see: [Integrating AWS Security Hub with Microsoft Azure](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-v2-azure.html) in the * AWS Security Hub User Guide*.
 
  **Account Coverage** 
 

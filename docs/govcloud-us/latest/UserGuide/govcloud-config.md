@@ -8,16 +8,14 @@ AWS Config provides a detailed view of the resources associated with your AWS ac
  AWS Config and AWS Config Rules are supported in the AWS GovCloud (US) Region.
 
 ## Region availability
-<a name="_region_availability"></a>
+<a name="region-availability"></a>
 
-This service is available in the following AWS GovCloud (US) Regions:
-+  AWS GovCloud (US-West) 
+ AWS Config is available in the following AWS GovCloud (US) Regions:
 +  AWS GovCloud (US-East) 
++  AWS GovCloud (US-West) 
 
 ## How AWS Config differs
-<a name="govcloud-config-diffs"></a>
-
-The following differences apply to AWS Config:
+<a name="feature-diffs"></a>
 + For a list of rules supported in AWS GovCloud (US-East), see [List of AWS Config Managed Rules by Region Availability \| AWS GovCloud (US-East)](https://docs.aws.amazon.com/config/latest/developerguide/managing-rules-by-region-availability.html#aws-govcloud-us-east-section-head).
 + For a list of rules supported in AWS GovCloud (US-West), see [List of AWS Config Managed Rules by Region Availability \| AWS GovCloud (US-West)](https://docs.aws.amazon.com/config/latest/developerguide/managing-rules-by-region-availability.html#aws-govcloud-us-west-section-head).
 +  AWS Config recording of third-party resources or custom resource types are not available.

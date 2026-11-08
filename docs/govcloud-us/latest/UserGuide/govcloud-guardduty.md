@@ -6,16 +6,14 @@
 Amazon GuardDuty is a continuous security monitoring service. Amazon GuardDuty can help to identify unexpected and potentially unauthorized or malicious activity in your AWS environment.
 
 ## Region availability
-<a name="_region_availability"></a>
+<a name="region-availability"></a>
 
-This service is available in the following AWS GovCloud (US) Regions:
-+  AWS GovCloud (US-West) 
+ Amazon GuardDuty is available in the following AWS GovCloud (US) Regions:
 +  AWS GovCloud (US-East) 
++  AWS GovCloud (US-West) 
 
 ## How Amazon GuardDuty differs
-<a name="govcloud-gdu-diffs"></a>
-
-The following differences apply to Amazon GuardDuty:
+<a name="feature-diffs"></a>
 + When using [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html) (including EKS Runtime Monitoring), make the following changes in the AWS GovCloud (US) Regions:
 
   1.  **For both Amazon EC2 and Amazon EKS **– In the prerequisite step for creating an Amazon VPC endpoint manually, the **Service name** in the AWS GovCloud (US) Region should be `com.amazonaws.<us-gov-east-1>.guardduty-data-fips`.

@@ -6,16 +6,14 @@
 Amazon Elastic Compute Cloud Image Builder is a fully managed AWS service that makes it easier to automate the creation, management and deployment of customized, secure and up-to-date “golden” server images that are pre-installed and pre-configured with software and settings to meet specific IT standards. You can use the AWS Management Console, AWS CLI or APIs to create “golden” images in your AWS account. The images you build are created in your account and you can configure them for operating system patches on an ongoing basis.
 
 ## Region availability
-<a name="_region_availability"></a>
+<a name="region-availability"></a>
 
-This service is available in the following AWS GovCloud (US) Regions:
-+  AWS GovCloud (US-West) 
+Amazon EC2 Image Builder is available in the following AWS GovCloud (US) Regions:
 +  AWS GovCloud (US-East) 
++  AWS GovCloud (US-West) 
 
 ## How Amazon EC2 Image Builder differs
-<a name="govcloud-ec2ib-diffs"></a>
-
-The following differences apply to Amazon EC2 Image Builder:
+<a name="feature-diffs"></a>
 +  Image Builder doesn’t support macOS images.
 + The following Image Builder features are not available:
   + Image lifecycle policies

@@ -48,6 +48,7 @@ The following differences apply to IAM:
   + Documentation that mentions **All AWS Regions** refers to **Both the SigV4 and SigV4A algorithms** for the AWS STS endpoint in the AWS GovCloud (US-West) Region.
 +  IAM Access Analyzer policy generation is not available in AWS GovCloud (US). To learn more, see [Using AWS Identity and Access Management Access Analyzer](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html) in the * IAM User Guide*.
 +  IAM Roles Anywhere is now supported in AWS GovCloud (US). To learn more, see [Providing access for non AWS workloads](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_non-aws.html) in the * IAM User Guide*.
+  + Automatic revocation checking with certificate revocation list (CRL) distribution points is not available in AWS GovCloud (US). You can’t turn on `crlDpRevocationEnabled` for a trust anchor. To check revocation status, import your CRLs instead. To learn more, see [Revocation](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/trust-model.html#revocation) in the * IAM Roles Anywhere User Guide*.
 + When configuring SAML Applications for single sign on in AWS GovCloud (US), the SAML Audience and ACS links will be different than those used in the standard Regions.
   + Application ACS URL: https://signin.amazonaws-us-gov.com/saml
   + Application SAML audience: `urn:amazon:webservices:govcloud` 

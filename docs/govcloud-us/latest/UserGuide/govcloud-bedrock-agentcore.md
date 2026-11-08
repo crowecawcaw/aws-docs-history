@@ -21,6 +21,9 @@ The following differences apply to Amazon Bedrock AgentCore:
 + Temporal Policy is not available
 + AgentCore payments is not available
 + AgentCore optimization is not available
++ The following CloudFormation resources are not available:
+  +  `AWS::AgentRegistry::Registry` 
+  +  `AWS::AgentRegistry::RegistryRecord` 
 
 ## Documentation
 <a name="govcloud-docs-85"></a>

@@ -8,16 +8,14 @@
 For information related to Release history, refer to [Amazon EMR Release Information](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-whatsnew-history.html).
 
 ## Region availability
-<a name="_region_availability"></a>
+<a name="region-availability"></a>
 
-This service is available in the following AWS GovCloud (US) Regions:
-+  AWS GovCloud (US-West) 
+Amazon Elastic MapReduce (EMR) is available in the following AWS GovCloud (US) Regions:
 +  AWS GovCloud (US-East) 
++  AWS GovCloud (US-West) 
 
-## How Amazon EMR differs
-<a name="govcloud-emr-diffs"></a>
-
-The following differences apply to Amazon EMR:
+## How Amazon Elastic MapReduce (EMR) differs
+<a name="feature-diffs"></a>
 + MapR distributions are currently not supported.
 + In AWS GovCloud (US) Regions, you launch all Amazon EMR job flows in Amazon Virtual Private Cloud (Amazon VPC). For information about configuring an Amazon VPC that can run a job flow, see [Set up a VPC to host clusters](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-vpc-host-job-flows.html).
 + Launching a job flow with debugging is not currently supported.

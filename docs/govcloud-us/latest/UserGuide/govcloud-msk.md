@@ -16,7 +16,6 @@ Amazon Managed Streaming for Apache Kafka (MSK) is available in the following AW
 <a name="feature-diffs"></a>
 
 The following differences apply to Amazon Managed Streaming for Apache Kafka (MSK):
-+ MSK Replicator is not available.
 + MSK Serverless is not available.
 +  Firehose isn’t available as a destination for broker logs.
 
