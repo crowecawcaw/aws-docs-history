@@ -62,7 +62,7 @@ You can use one of the following operations:
 
      ```
      $ C:\> aws mpa delete-identity-source \
-       --identity-source-arn arn:aws:mpa:{{region}}:{{123456789012}}:identity-sources/IamIdentityCenter
+       --identity-source-arn arn:aws:mpa:{{region}}:{{123456789012}}:identity-source/IamIdentityCenter
      ```
 + AWS SDKs: [ListIdentitySources](https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListIdentitySources.html) and [DeleteIdentitySource](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeleteIdentitySource.html)
 

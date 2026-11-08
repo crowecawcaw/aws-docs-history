@@ -93,7 +93,11 @@ You can use one of the following operations:
        --arn arn:aws:mpa:{{region}}:{{123456789012}}:approval-team/{{TeamName-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}} \
        --description "{{Description for my team}}" \
        --approval-strategy '{"MofN":{"MinApprovalsRequired":{{integer}}}}' \
-       --approvers '[{"PrimaryIdentityId":"{{544894e8-80c1-707f-60e3-3ba6510dfac1}}","PrimaryIdentitySourceArn":"arn:aws:mpa:{{region}}:{{123456789012}}:identity-sources/IamIdentityCenter"}]'
+       --approvers '[
+         {"PrimaryIdentityId":"{{a1b2c3d4-5678-90ab-cdef-EXAMPLE22222}}","PrimaryIdentitySourceArn":"arn:aws:mpa:{{region}}:{{123456789012}}:identity-source/IamIdentityCenter"},
+         {"PrimaryIdentityId":"{{a1b2c3d4-5678-90ab-cdef-EXAMPLE33333}}","PrimaryIdentitySourceArn":"arn:aws:mpa:{{region}}:{{123456789012}}:identity-source/IamIdentityCenter"},
+         {"PrimaryIdentityId":"{{a1b2c3d4-5678-90ab-cdef-EXAMPLE44444}}","PrimaryIdentitySourceArn":"arn:aws:mpa:{{region}}:{{123456789012}}:identity-source/IamIdentityCenter"}
+       ]'
      ```
      + **`arn`**: Amazon Resource Name (ARN) for the team.
      + **`description`** (Optional): Description for the team.

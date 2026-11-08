@@ -7,7 +7,7 @@ By default, users and roles don't have permission to create or modify Multi-part
 
 To learn how to create an IAM identity-based policy by using these example JSON policy documents, see [Create IAM policies (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html) in the *IAM User Guide*.
 
-For details about actions and resource types defined by Multi-party approval, including the format of the ARNs for each of the resource types, see [Actions, Resources, and Condition Keys for Multi-party approval ](https://docs.aws.amazon.com/IAM/latest/UserGuide/mpa.html) in the *Service Authorization Reference*.
+For details about actions and resource types defined by Multi-party approval, including the format of the ARNs for each of the resource types, see [Actions, Resources, and Condition Keys for Multi-party approval](https://docs.aws.amazon.com/service-authorization/latest/reference/list_mpa.html) in the *Service Authorization Reference*.
 
 **Topics**
 + [Policy best practices](#security_iam_service-with-iam-policy-best-practices)

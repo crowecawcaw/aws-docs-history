@@ -57,7 +57,7 @@ The `Action` element of a JSON policy describes the actions that you can use to 
 
 
 
-To see a list of Multi-party approval actions, see [Actions Defined by Multi-party approval ](https://docs.aws.amazon.com/IAM/latest/UserGuide/mpa.html#your_service-actions-as-permissions) in the *Service Authorization Reference*.
+To see a list of Multi-party approval actions, see [Actions Defined by Multi-party approval](https://docs.aws.amazon.com/service-authorization/latest/reference/list_mpa.html#list_mpa-actions-as-permissions) in the *Service Authorization Reference*.
 
 Policy actions in Multi-party approval use the following prefix before the action:
 
@@ -93,7 +93,7 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 "Resource": "*"
 ```
 
-To see a list of Multi-party approval resource types and their ARNs, see [Resources Defined by Multi-party approval ](https://docs.aws.amazon.com/IAM/latest/UserGuide/mpa.html#your_service-resources-for-iam-policies) in the *Service Authorization Reference*. To learn with which actions you can specify the ARN of each resource, see [Actions Defined by Multi-party approval ](https://docs.aws.amazon.com/IAM/latest/UserGuide/mpa.html#your_service-actions-as-permissions).
+To see a list of Multi-party approval resource types and their ARNs, see [Resources Defined by Multi-party approval](https://docs.aws.amazon.com/service-authorization/latest/reference/list_mpa.html#list_mpa-resources-for-iam-policies) in the *Service Authorization Reference*. To learn with which actions you can specify the ARN of each resource, see [Actions Defined by Multi-party approval](https://docs.aws.amazon.com/service-authorization/latest/reference/list_mpa.html#list_mpa-actions-as-permissions).
 
 
 
@@ -110,7 +110,7 @@ Administrators can use AWS JSON policies to specify who has access to what. That
 
 The `Condition` element specifies when statements execute based on defined criteria. You can create conditional expressions that use [condition operators](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html), such as equals or less than, to match the condition in the policy with values in the request. To see all AWS global condition keys, see [AWS global condition context keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*.
 
-To see a list of Multi-party approval condition keys, see [Condition Keys for Multi-party approval ](https://docs.aws.amazon.com/IAM/latest/UserGuide/mpa.html#your_service-policy-keys) in the *Service Authorization Reference*. To learn with which actions and resources you can use a condition key, see [Actions Defined by Multi-party approval ](https://docs.aws.amazon.com/IAM/latest/UserGuide/mpa.html#your_service-actions-as-permissions).
+To see a list of Multi-party approval condition keys, see [Condition Keys for Multi-party approval](https://docs.aws.amazon.com/service-authorization/latest/reference/list_mpa.html#list_mpa-policy-keys) in the *Service Authorization Reference*. To learn with which actions and resources you can use a condition key, see [Actions Defined by Multi-party approval](https://docs.aws.amazon.com/service-authorization/latest/reference/list_mpa.html#list_mpa-actions-as-permissions).
 
 To view examples of Multi-party approval identity-based policies, see [Identity-based policy examples for Multi-party approval](security_iam_id-based-policy-examples.md).
 

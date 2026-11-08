@@ -514,6 +514,10 @@ The following example shows a CloudTrail event that demonstrates the `CreateAppr
       {
         "primaryIdentityId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
         "primaryIdentitySourceArn": "arn:aws:mpa:us-east-1:111122223333:identity-source/IamIdentityCenter"
+      },
+      {
+        "primaryIdentityId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE66666",
+        "primaryIdentitySourceArn": "arn:aws:mpa:us-east-1:111122223333:identity-source/IamIdentityCenter"
       }
     ],
     "description": "HIDDEN_DUE_TO_SECURITY_REASONS",

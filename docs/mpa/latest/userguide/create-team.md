@@ -88,8 +88,12 @@ You can use one of the following operations:
        --name "{{MyTeam}}" \
        --description "{{Description for my team}}" \
        --approval-strategy '{"MofN":{"MinApprovalsRequired":{{approval threshold}}}}' \
-       --approvers '[{"PrimaryIdentityId":"{{544894e8-80c1-707f-60e3-3ba6510dfac1}}","PrimaryIdentitySourceArn":"arn:aws:mpa:{{region}}:{{123456789012}}:identity-sources/IamIdentityCenter"}]' \
-       --policies '["arn:aws:mpa::aws:policy/backup.amazonaws.com/CreateRestoreAccessVault"]' \
+       --approvers '[
+         {"PrimaryIdentityId":"{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}","PrimaryIdentitySourceArn":"arn:aws:mpa:{{region}}:{{123456789012}}:identity-source/IamIdentityCenter"},
+         {"PrimaryIdentityId":"{{a1b2c3d4-5678-90ab-cdef-EXAMPLE22222}}","PrimaryIdentitySourceArn":"arn:aws:mpa:{{region}}:{{123456789012}}:identity-source/IamIdentityCenter"},
+         {"PrimaryIdentityId":"{{a1b2c3d4-5678-90ab-cdef-EXAMPLE33333}}","PrimaryIdentitySourceArn":"arn:aws:mpa:{{region}}:{{123456789012}}:identity-source/IamIdentityCenter"}
+       ]' \
+       --policies '[{"PolicyArn":"arn:aws:mpa:::aws:policy/backup.amazonaws.com/CreateRestoreAccessVault/$DEFAULT"}]' \
        --tags '{"{{Key1}}":"{{Value1}}","{{Key2}}":"{{Value2}}"}'
      ```
      + **`name`**: Name for the team.
@@ -98,7 +102,7 @@ You can use one of the following operations:
      + **`approvers`**: List of approvers. You must have at least three approvers per team. Each approver requires:
        + **`PrimaryIdentitySourceArn`**: Amazon Resource Name (ARN) for Multi-party approval identity source.
        + **`PrimaryIdentityId`**: User ID from the IAM Identity Center identity store for the approver you want to assign to the team.
-     + **`policies`**: List of Amazon Resource Names (ARNs) for Multi-party approval resource policies that define permissions protecting the team. For a list of available policies, use `mpa list-policies`.
+     + **`policies`**: List of `PolicyReference` objects for the Multi-party approval resource policies that define permissions protecting the team. Each object contains a `PolicyArn`, the Amazon Resource Name (ARN) for the policy. The ARN must end with a version number or `$DEFAULT`. For a list of available policies, use `mpa list-policies`.
      + **`tags`**: (Optional) Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter teams.
 + AWS SDKs: [ListInstances](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListInstances.html), [ListUsers](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_ListUsers.html), and [CreateApprovalTeam](https://docs.aws.amazon.com/mpa/latest/APIReference/API_CreateApprovalTeam.html)
 
