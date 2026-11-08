@@ -20,7 +20,7 @@
 + [Are you a first-time Amazon MWAA Serverless user?](#first-time-user)
 + [Key concepts](mwaas-concepts.md)
 + [Apache Airflow Parameter Support](supported-airflow-parameters.md)
-+ [Template Variables, Filters and Macros](supported-jinja-parameters.md)
++ [Template variables, filters, and macros](supported-jinja-parameters.md)
 
 ## Key features
 <a name="mwaas-feature-overview"></a>
@@ -48,7 +48,7 @@ The following are key features of Amazon MWAA Serverless:
 | Cost model | Pay-per-use: charged only when workflows run |  [Hourly rate](https://aws.amazon.com/managed-workflows-for-apache-airflow/pricing/) for environment, schedulers, web servers, and additional workers  | 
 | Workflow isolation |  Each workflow has its own execution role and access permissions. Tasks each run in isolated compute assuming the workflow's execution role.  |  Each MWAA environment provides the same access to all tasks. Airflow's role-based authentication supports UI-level level isolation within an environment  | 
 | Startup time | Each task provisions its own compute before execution | Environment always running, fast execution of tasks when worker capacity exists | 
-| Workflow definition | YAML workflows definitions using the DAG factory format, supporting AWS operators, with option to convert Python definitions | Python DAG support with AWS and custom operators | 
+| Workflow definition | YAML workflow definitions using the DAG factory format, supporting AWS operators, Python and Bash operators, operators from provider packages, and custom operators supplied in a code package, with option to convert Python definitions | Python DAG support with AWS and custom operators | 
 | Airflow UI access | No direct Airflow UI access (monitoring via logs) | Airflow web interface access | 
 
 ### When to use Amazon MWAA Serverless

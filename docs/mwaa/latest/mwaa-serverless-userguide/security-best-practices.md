@@ -11,4 +11,5 @@ Amazon MWAA Serverless provides a number of security features to consider as you
 <a name="security-best-practices-for-airflow"></a>
 
 To implement security boundaries for your workflows:
-+ Store secrets in AWS Secrets Manager. While this will not prevent users who can write workflow definitions from reading secrets, it prevents them from modifying the secrets that your workflow uses.
++ Store secrets in AWS Secrets Manager. Although this doesn't prevent users who can write workflow definitions from reading secrets, it prevents them from modifying the secrets that your workflow uses. For more information about configuring a secrets backend, see [Managing connections and variables](connections.md).
++ Don't store secrets in workflow environment variables, because `GetWorkflow` returns them in plain text. For more information, see [Using environment variables in Amazon MWAA Serverless workflows](workflows-environment-variables.md).

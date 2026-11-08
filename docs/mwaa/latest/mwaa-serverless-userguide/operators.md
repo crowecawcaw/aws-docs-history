@@ -3,7 +3,9 @@
 # Supported operators
 <a name="operators"></a>
 
-Amazon MWAA Serverless currently supports a specific set of [Apache Airflow operators](https://airflow.apache.org/docs/apache-airflow-providers-amazon/stable/index.html) that are optimized for AWS service integration. These operators are categorized as follows:
+With Amazon MWAA Serverless, you can use a specific set of [Apache Airflow operators](https://airflow.apache.org/docs/apache-airflow-providers-amazon/9.38.0/index.html) out of the box. These operators are optimized for AWS service integration. You can also run Python and Bash operators, operators from Apache Airflow provider packages, and operators that you write yourself. To run them, provide a code package when you create or update a workflow. For more information, see [Running custom code with Python, Bash, and custom operators](custom-code-operators.md).
+
+Amazon MWAA Serverless supports the following categories of AWS service operators out of the box:
 
 ## Analytics
 <a name="operators-analytics"></a>
@@ -231,11 +233,13 @@ Amazon MWAA Serverless currently supports a specific set of [Apache Airflow oper
 + `MwaaServerlessCreateWorkflowOperator`: Creates a workflow in Amazon MWAA Serverless.
 + `MwaaServerlessStartWorkflowRunOperator`: Starts a workflow run in Amazon MWAA Serverless.
 
-## Python and Bash
+## Python, Bash, and custom operators
 <a name="operators-python-bash"></a>
 
-In addition to AWS service operators, Amazon MWAA Serverless supports the following Apache Airflow core operators for running custom code as part of your workflows. For instructions on using these operators, see [Using Python and Bash operators](operators-python-bash-detail.md).
+In addition to AWS service operators, you can run your own code as workflow tasks in Amazon MWAA Serverless when you provide a code package. For instructions, see [Running custom code with Python, Bash, and custom operators](custom-code-operators.md).
 + `PythonOperator`: Runs a Python callable as a task. Provide your Python modules as code when creating or updating a workflow.
 + `BashOperator`: Runs a Bash command or shell script as a task.
++ Operators from Apache Airflow provider packages: Include a provider package that isn't pre-installed in your code package. Then reference the operator by its full class path.
++ Your own operators: Subclass `BaseOperator` and include the module in your code package.
 
 `PythonOperator` and `BashOperator` tasks are considered AWS Managed Tasks, and the same billing applies. For more information about pricing, see [AWS pricing for Managed Workflows for Apache Airflow](https://aws.amazon.com/managed-workflows-for-apache-airflow/pricing/).

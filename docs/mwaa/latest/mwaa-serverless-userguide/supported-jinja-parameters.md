@@ -1,23 +1,23 @@
 
 
-# Template Variables, Filters and Macros
+# Template variables, filters, and macros
 <a name="supported-jinja-parameters"></a>
 
- Amazon MWAA Serverless supports [Jinja templates](https://airflow.apache.org/docs/apache-airflow/stable/templates-ref.html) that come out of the box with Apache Airflow. Please refer below for the supported list of Jinja Variables, and Macros. 
+ Amazon MWAA Serverless supports [Jinja templates](https://airflow.apache.org/docs/apache-airflow/3.0.6/templates-ref.html) that come out of the box with Apache Airflow. The following tables list the supported Jinja variables and macros. 
 
 **Topics**
-+ [Supported Jinja template Variables](#jinja-variables)
-+ [Supported Macros](#jinja-macros)
++ [Supported Jinja template variables](#jinja-variables)
++ [Supported macros](#jinja-macros)
 
-## Supported Jinja template Variables
+## Supported Jinja template variables
 <a name="jinja-variables"></a>
 
- The following table lists the supported Vriabls available for Jinja templating in Amazon MWAA Serverless. 
+ The following table lists the variables that you can use for Jinja templating in Amazon MWAA Serverless. 
 
 
 | Variable | Type | Description | 
 | --- | --- | --- | 
-| {{ macros }} |  | A reference to the macros package. See Macros below. | 
+| {{ macros }} |  | A reference to the macros package. For more information, see [Supported macros](#jinja-macros). | 
 | {{ task\_instance }} | TaskInstance | The currently running TaskInstance. | 
 | {{ ti }} | TaskInstance | Same as {{ task\_instance }}. | 
 | {{ params }} | dict[str, Any] | The user-defined params. This can be overridden by the mapping passed to trigger\_dag -c if dag\_run\_conf\_overrides\_params is enabled in airflow.cfg. | 
@@ -25,12 +25,14 @@
 | {{ ds\_nodash }} | str | Same as {{ logical\_date \\\| ds\_nodash }}. | 
 | {{ ts }} | str | Same as {{ logical\_date \\\| ts }}. Example: 2018-01-01T00:00:00\+00:00. | 
 | {{ ts\_nodash }} | str | Same as {{ logical\_date \\\| ts\_nodash }}. Example: 20180101T000000. | 
-| {{ macros }} |  |  | 
+| {{ var.value.{{key}} }} | str | The value of the Apache Airflow variable {{key}}. To return a default when the variable doesn't exist, use {{ var.value.get('{{key}}', '{{default}}') }}. For more information about where Apache Airflow reads variables from, see [How Amazon MWAA Serverless looks up connections and variables](connections.md#connections-lookup-order). | 
+| {{ var.json.{{key}} }} | Any | The Apache Airflow variable {{key}}, parsed as JSON. | 
+| {{ conn.{{conn\_id}} }} | Connection | The Apache Airflow connection {{conn\_id}}. Access its fields as attributes, such as {{ conn.{{conn\_id}}.host }} or {{ conn.{{conn\_id}}.port }}. | 
 
-## Supported Macros
+## Supported macros
 <a name="jinja-macros"></a>
 
- The following table lists the supported Macros that are supported in Amazon MWAA Serverless. 
+ The following table lists the macros that Amazon MWAA Serverless supports. 
 
 
 | Macro | Type | 

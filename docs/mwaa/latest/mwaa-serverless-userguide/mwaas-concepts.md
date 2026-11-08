@@ -6,8 +6,8 @@
  Understanding Amazon MWAA Serverless concepts helps you design, deploy, and manage your workflow orchestration solutions. This section explains the core concepts and how they relate to traditional Apache Airflow terminology. 
 +  **Workflow**: The Amazon MWAA Serverless resource that represents your orchestration logic. A workflow is created through the Amazon MWAA Serverless API, or CLI. It contains metadata about scheduling, execution roles, and the orchestrated data processing steps (tasks). 
 +  **Workflow Definition**: The Apache Airflow concept that defines the structure and dependencies of your tasks. While creating your Workflow, you provide your workflow definition file in Amazon S3. You can use the [Python to YAML DAG converter ](https://pypi.org/project/python-to-yaml-dag-converter-mwaa-serverless/) to convert existing Python based DAG to YAML definitions. 
-+  **[Task](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/tasks.html)**: An individual unit of work within a workflow. Each task represents a specific operation that runs on a worker. 
-+  **[Operator](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/operators.html)**: An Operator is a template for a predefined task. 
++  **[Task](https://airflow.apache.org/docs/apache-airflow/3.0.6/core-concepts/tasks.html)**: An individual unit of work within a workflow. Each task represents a specific operation that runs on a worker. 
++  **[Operator](https://airflow.apache.org/docs/apache-airflow/3.0.6/core-concepts/operators.html)**: An Operator is a template for a predefined task. 
 
 **Topics**
 + [Workflow isolation](#workflow-isolation)
