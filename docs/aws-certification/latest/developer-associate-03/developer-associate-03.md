@@ -7,7 +7,7 @@ The AWS Certified Developer - Associate (DVA-C03) exam is intended for individua
 
 **Note:** AWS exam guides are periodically reviewed and revised to ensure that each certification exam tests skills and AWS services and features that are current and relevant for the job role(s) that the certification is designed to target. Exam guide revisions will be published at least one month before changes are reflected on your exam. Check the Revisions section for a summary of changes.
 
-**Note:** This exam is being updated. Registration for the updated version of the exam (DVA-C03) opens December 1, 2026. The last day to take the current version of the exam (DVA-C02) is November 30, 2026.
+**Note:** This exam is being updated. Registration for the updated version of the exam (DVA-C03) opened on October 27, 2026. The last day to take the current version of the exam (DVA-C02) is November 30, 2026.
 
 **Topics**
 + [Introduction](#developer-associate-03-intro)
