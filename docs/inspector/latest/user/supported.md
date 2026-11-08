@@ -171,7 +171,6 @@ Ubuntu
 | AlmaLinux | 8 | CVE Errata | Fixed | Yes | Yes | 
 | AlmaLinux | 9 | CVE Errata | Fixed | Yes | Yes | 
 | AlmaLinux | 10 | CVE Errata | Fixed | Yes | Yes | 
-| Alpine Linux | 3.21 | CVE Errata | Fixed | Yes | Yes | 
 | Alpine Linux | 3.22 | CVE Errata | Fixed | Yes | Yes | 
 | Alpine Linux | 3.23 | CVE Errata | Fixed | Yes | Yes | 
 | Alpine Linux | 3.24 | CVE Errata | Fixed | Yes | Yes | 
@@ -244,7 +243,6 @@ Ubuntu
 | AlmaLinux | 8 | 
 | AlmaLinux | 9 | 
 | AlmaLinux | 10 | 
-| Alpine Linux | 3.21 | 
 | Alpine Linux | 3.22 | 
 | Alpine Linux | 3.23 | 
 | Alpine Linux | 3.24 | 
@@ -261,6 +259,7 @@ Ubuntu
 | Echo | 2 | 
 | Fedora | 43 | 
 | Fedora | 44 | 
+| Fedora | 45 | 
 | Hummingbird OS | – | 
 | macOS | 11\+ | 
 | Oracle Linux | 8 | 
@@ -319,6 +318,7 @@ Ubuntu
 | Alpine Linux | 3.18 | May 9, 2025 | 
 | Alpine Linux | 3.19 | November 1, 2025 | 
 | Alpine Linux | 3.20 | April 1, 2026 | 
+| Alpine Linux | 3.21 | November 1, 2026 | 
 | Amazon Linux (AL1) | 2012 | December 31, 2021 | 
 | Amazon Linux 2 (AL2) | AL2 | June 30, 2026 | 
 | CentOS Linux (CentOS) | 7 | June 30, 2024 | 

@@ -11,7 +11,7 @@
 +  C\+\+ (C\+\+ 17 or earlier) 
 +  Go (Go 1.18 only) 
 +  Java (Java 25 or earlier) 
-+  JavaScript (EMCMAScript 2021 or earlier) 
++  JavaScript (ECMAScript 2021 or earlier) 
 +  JSX (React 17 or earlier) 
 +  Kotlin (Kotlin 2.0 or earlier) 
 +  PHP (PHP 8.2 or earlier) 
@@ -26,7 +26,7 @@
 **Supported languages for software composition analysis**
 +  Go 
 +  Java (Java 25 or earlier) 
-+  JavaScript (EMCMAScript 2021 or earlier) 
++  JavaScript (ECMAScript 2021 or earlier) 
 +  PHP (PHP 8.2 or earlier) 
 +  Python (Python 3.13 or earlier within the Python 3 series) 
 +  .Net 

@@ -10,6 +10,8 @@
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Updates for the Amazon Inspector SBOM Generator](#doc-history) |  Amazon Inspector is aware of a scenario where the Amazon Inspector SBOM Generator might generate a vulnerability finding for CVE-2026-116591. This finding will be resolved in the next release.  | November 6, 2026 | 
+| [Updates for the Amazon Inspector SBOM Generator](#doc-history) |  Amazon Inspector is aware of a scenario where the Amazon Inspector SBOM Generator might generate vulnerability findings for CVE-2026-78661 and CVE-2026-97045. These findings are resolved by upgrading the Amazon Inspector SBOM Generator to version 1.17.4 or later.  | November 3, 2026 | 
 | [Updates for the Amazon Inspector SBOM Generator](#doc-history) |  Amazon Inspector is aware of a scenario where the Amazon Inspector SBOM Generator might generate vulnerability findings for CVE-2026-78661 and CVE-2026-97045. It was confirmed that the Amazon Inspector SBOM Generator is not impacted by these vulnerabilities. These findings will be resolved in the next release.  | October 28, 2026 | 
 | [Updates for the Amazon Inspector SBOM Generator](#doc-history) |  Amazon Inspector is aware of a scenario where the Amazon Inspector SBOM Generator might generate a vulnerability finding for CVE-2026-111943. This finding is resolved by upgrading the Amazon Inspector SBOM Generator to version 1.17.3 or later.  | October 22, 2026 | 
 | [Updates for the Amazon Inspector SBOM Generator](#doc-history) |  Amazon Inspector is aware of a scenario where the Amazon Inspector SBOM Generator might generate a vulnerability finding for CVE-2026-111943. This finding will be resolved in the next release.  | October 21, 2026 | 
