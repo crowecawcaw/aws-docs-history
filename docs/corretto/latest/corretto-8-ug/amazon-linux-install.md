@@ -1,14 +1,14 @@
 
 
-# Amazon Corretto 8 Installation Instructions for Amazon Linux 2 and Amazon Linux 2023
+# Amazon Corretto 8 Installation Instructions for Amazon Linux 2, Amazon Linux 2023, and Amazon Linux 2027
 <a name="amazon-linux-install"></a>
 
- This topic describes how to install and uninstall Amazon Corretto 8 on a host or container running the Amazon Linux 2 or Amazon Linux 2023 operating systems. 
+ This topic describes how to install and uninstall Amazon Corretto 8 on a host or container running the Amazon Linux 2, Amazon Linux 2023, or Amazon Linux 2027 operating systems. 
 
 ## Option 1: Install using the yum Package Manager on Amazon Linux
 <a name="amazon-linux-install-instruct"></a>
 
-1.  Enable the yum repository in Amazon Linux 2. This is not required on Amazon Linux 2022 and later.   
+1.  Enable the yum repository in Amazon Linux 2. This is not required on Amazon Linux 2023 and later.   
 **Example**  
 
    ```
