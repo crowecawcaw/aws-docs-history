@@ -37,11 +37,13 @@ A shared mesh has the following permissions.
 + Owners can list and describe all resources in any mesh the account owns.
 + Owners and consumers can modify resources in a mesh that the account created, but they cannot modify resources that other another account created.
 + Consumers can delete any resource in a mesh that the account created.
-+ Owners can delete any resource in a mesh that any account created.
++ Owners can delete any resource in a mesh that any account created. However, if the account that created a resource is closed, the owner can no longer describe or delete that resource, and the request fails with `AccessDeniedException`.
 + Owner's resources can only reference other resources in the same account. For example, a virtual node can only reference AWS Cloud Map or an AWS Certificate Manager certificate that is in the same account as the virtual node's owner.
 + Owners and consumers can connect an Envoy proxy to App Mesh as a virtual node that the account owns.
 + Owners can create virtual gateways and virtual gateway routes.
 + Owners and consumers can list tags and can tag/untag resources in a mesh that the account created. They can't list tags and tag/untag resources in a mesh that aren't created by the account.
+
+To avoid resources that no account can delete, remove a consumer account's resources from a mesh before you close that account. If the account is already closed and can't be reopened, contact Support to delete the resources.
 
 Shared meshes use a policy-based authorization. A mesh is shared with with a fixed set of permissions. These permissions are selected to be added to a resource policy, and an optional IAM policy can also be selected based on IAM user/role. The intersection of permissions allowed in these policies, less any explicit permissions denied, determines a principal's access to the mesh.
 
