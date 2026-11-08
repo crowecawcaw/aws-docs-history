@@ -41,7 +41,7 @@ To send an invitation, you must have the following permissions:
 `billingconductor:ListPricingPlans`
 
 ------
-#### [  ]
+#### [ AWS Management Console ]
 
 **To send an invitation**
 
@@ -60,7 +60,7 @@ When you use two-level billing transfer as a bill receiver account, you can cont
    + **Email address or account ID of the AWS management account:** Account you want to invite. This must be the management account of an organization.
    + **Monthly billing period start:** Start date when your account will begin managing and paying for their consolidated bills. It can be the first day of any month from the next month up to six months in the future.
 **Note**  
-The start date is the first day of the month you select. Transfers begin on the start date regardless of the date the invitation is accepted. Invitations expire at 8 PM Eastern Standard Time two days before the start date.
+The start date is the first day of the month you select. Transfers begin on the start date regardless of the date the invitation is accepted. Invitations expire at 11:59:59 PM UTC (6:59:59 PM Eastern Standard Time) two days before the start date.
    + **Pricing configuration:** Pricing seen by the *bill-source account* once the transfer begins.
    + **(Optional) Message to include in the request**: Text included in the email sent to the management account. For example, "Hello account owner, I'd like to pay your organization's consolidated bill."
    + **(Optional) Add new tags**: Specify one or more tags that are automatically applied to the inbound transfer. To do this, choose **Add tag** and then enter a key and an optional value. Leaving the value blank sets it to an empty string; it isn't `null`. You can attach up to 50 tags to an inbound transfer.
@@ -68,20 +68,20 @@ The start date is the first day of the month you select. Transfers begin on the 
 1. On the **Send a billing transfer invitation** page, choose **Send invitation**.
 
 ------
-#### [  ]
+#### [ AWS CLI & AWS SDKs ]
 
 **To send an invitation**  
 You can use one of the following operations:
 + AWS CLI: [invite-organization-to-transfer-responsibility](https://docs.aws.amazon.com/cli/latest/reference/organizations/invite-organization-to-transfer-responsibility.html)
 
   ```
-  $ C:\>  organizations invite-organization-to-transfer-responsibility \
+  $ C:\> aws organizations invite-organization-to-transfer-responsibility \
       --type BILLING \
-      --target '[{"Id":"{{123456789012}}","Type":"{{ACCOUNT}}"}]' \
-      --start-timestamp {{yyyy‑MM‑dd HH:mm:ss.SSS}} \
-      --sourceName {{"My billing transfer"}} \
-      --notes {{"Optional notes for the invitation"}}
-      --tags '[{"Key":"{{exampleKey}}","{{Value}}":"{{exampleValue}}"}]'
+      --target '{"Id":"{{123456789012}}","Type":"{{ACCOUNT}}"}' \
+      --start-timestamp {{"yyyy-MM-dd HH:mm:ss.SSS"}} \
+      --source-name {{"My billing transfer"}} \
+      --notes {{"Optional notes for the invitation"}} \
+      --tags '[{"Key":"{{exampleKey}}","Value":"{{exampleValue}}"}]'
   ```
 + **`type` (Required)**: `BILLING`.
 + **`target` (Required)**: A `HandshakeParty` object. Contains details for the account you want to invite.
@@ -91,13 +91,13 @@ You can use one of the following operations:
   - `Type`: The type of ID for the participant: `ACCOUNT` or `EMAIL`.
 + **`start-timestamp` (Required)**: Start date when your account will begin managing and paying for their consolidated bill. It can be the first day of any month from the next month up to six months in the future. It must be the beginning of the day (00:00:00.000).
 **Note**  
-The start date is the first day of the month you select. Transfers begin on the start date regardless of the date the invitation is accepted. Invitations expire at 8 PM Eastern Standard Time two days before the start date.
-+ **`sourceName` (Optional)**: Name you want to assign to the transfer.
+The start date is the first day of the month you select. Transfers begin on the start date regardless of the date the invitation is accepted. Invitations expire at 11:59:59 PM UTC (6:59:59 PM Eastern Standard Time) two days before the start date.
++ **`source-name` (Required)**: Name you want to assign to the transfer.
 + **`notes` (Optional)**: Text included in the email sent to the management account. For example, "Hello account owner, I'd like to pay your organization's consolidated bill."
-+ **`tags (Optional)`**: Specify one or more tags that are automatically applied to the inbound transfer. You can attach up to 50 tags to an inbound transfer.
++ **`tags` (Optional)**: Specify one or more tags that are automatically applied to the inbound transfer. You can attach up to 50 tags to an inbound transfer.
 + AWS SDKs: [InviteOrganizationToTransferResponsibility](https://docs.aws.amazon.com/organizations/latest/APIReference/API_InviteOrganizationToTransferResponsibility.html)
 
 ------
 
 **What to do next**  
-You will receive an email notification if you get a response to your invitation. After you send an invitation you can monitor the status in the AWS Billing and Cost Management console or using the . For more information, see [View invitation](orgs_transfer_billing-view-invitation.md).
+You will receive an email notification if you get a response to your invitation. After you send an invitation you can monitor the status in the AWS Billing and Cost Management console or using the AWS CLI & AWS SDKs. For more information, see [View invitation](orgs_transfer_billing-view-invitation.md).

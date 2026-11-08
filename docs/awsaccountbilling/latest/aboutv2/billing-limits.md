@@ -22,6 +22,8 @@ For more information about other AWS service quotas, see [AWS service quotas](ht
 ## Cost categories
 <a name="limits-categories"></a>
 
+You can adjust the total number of cost categories for a management account from Service Quotas. You can also adjust the number of cost category rules for a cost category (API). For more information, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) in the *Service Quotas User Guide*. You can't adjust the number of cost category rules for a cost category (UI).
+
 See the following quotas and restrictions for cost categories.
 
 

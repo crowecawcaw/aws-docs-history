@@ -20,7 +20,7 @@ If a transfer is withdrawn, the account that was managing and paying for another
 
 **Transfers end at the end of the month**
 
-If a transfer is withdrawn, the end date is 23:59:59 UTC on the last day of the month specified in the withdrawal. Note, this is 6:59 PM Eastern Standard Time on the evening before the last day of the month.
+If a transfer is withdrawn, the end date is 23:59:59 UTC on the last day of the month specified in the withdrawal. Note, this is 6:59:59 PM Eastern Standard Time on the last day of the month.
 
 ## Withdraw a transfer
 <a name="orgs_transfer_billing-stop-transfer-steps"></a>
@@ -39,7 +39,7 @@ To withdraw a transfer, you must have the following permissions:
 To withdraw a transfer, complete the following steps.
 
 ------
-#### [  ]
+#### [ AWS Management Console ]
 
 **To withdraw a transfer**
 
@@ -70,7 +70,7 @@ To withdraw a transfer, complete the following steps.
    1. On the confirmation dialogue box, select the month you want to end the transfer and choose **Withdraw transfer**.
 
 ------
-#### [  ]
+#### [ AWS CLI & AWS SDKs ]
 
 **To withdraw a transfer**  
 You can use one of the following operations:

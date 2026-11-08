@@ -7,6 +7,7 @@ The following table describes the documentation for this release of the *AWS Bil
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Adjustable cost category quotas](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-limits.html#limits-categories) | You can now adjust the total number of cost categories for a management account and the number of cost category rules for a cost category (API) from Service Quotas. | November 4, 2026 | 
 | [Updated documentation for AWS managed policies](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/managed-policies.html) | `Billing` and `AWSBillingReadOnlyAccess` – Updated existing managed policies to add Private Pricing permissions. | October 27, 2026 | 
 | [Added CloudTrail events for Private Pricing](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/logging-using-cloudtrail.html) | Added the Private Pricing CloudTrail events, which use the `billing.amazonaws.com` event source. | October 27, 2026 | 
 | [Updated documentation for AWS managed policies](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/managed-policies.html) | `Billing` and `AWSBillingReadOnlyAccess` – Updated existing managed policies to add the `invoicing:ListProcurementPortals` and `invoicing:ListProcurementPortalSuppliers`. | July 31, 2026 | 

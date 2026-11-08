@@ -36,7 +36,7 @@ To view an invitation, you must have the following permissions
 To view an invitation, complete the following steps.
 
 ------
-#### [  ]
+#### [ AWS Management Console ]
 
 **To view an invitation**
 
@@ -66,7 +66,7 @@ To view an invitation, complete the following steps.
 You can view invitations for 30 days before they are deleted. If you accept an invitation, details for that transfer are not deleted.
 
 ------
-#### [  ]
+#### [ AWS CLI & AWS SDKs ]
 
 **To view an invitation**  
 You can use one of the following operations:

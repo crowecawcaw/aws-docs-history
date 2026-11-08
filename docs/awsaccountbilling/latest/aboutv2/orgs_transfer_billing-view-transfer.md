@@ -34,7 +34,7 @@ To view a transfer, you must have the following permissions
 To view a transfer, complete the following steps.
 
 ------
-#### [  ]
+#### [ AWS Management Console ]
 
 **To view a transfer**
 
@@ -61,7 +61,7 @@ To view a transfer, complete the following steps.
    1. On the **Outbound billing** tab, you can view details for the transfer.
 
 ------
-#### [  ]
+#### [ AWS CLI & AWS SDKs ]
 
 **To view a transfer**  
 You can use one of the following operations:

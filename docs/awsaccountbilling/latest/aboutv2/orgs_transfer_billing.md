@@ -63,9 +63,9 @@ Either management account involved in a transfer can withdraw the transfer at an
 
 **Transfer start and end dates align with the calendar month**
 
-If an invitation is accepted, the start date is Midnight 00:00:00 UTC on the first day of the month specified in the invitation (for Eastern Standard Time this is 8:00 PM on the evening before the first day of the month).
+If an invitation is accepted, the start date is Midnight 00:00:00 UTC on the first day of the month specified in the invitation (for Eastern Standard Time this is 7:00 PM on the evening before the first day of the month).
 
-If a transfer is withdrawn, the end date is 23:59:59 UTC on the last day of the current or next month (for Eastern Standard Time this is 7:59 PM on the evening before the last day of the month).
+If a transfer is withdrawn, the end date is 23:59:59 UTC on the last day of the current or next month (for Eastern Standard Time this is 6:59:59 PM on the last day of the month).
 
 **Setting up Billing Transfer using console requires the use of AWS Billing Conductor**
 

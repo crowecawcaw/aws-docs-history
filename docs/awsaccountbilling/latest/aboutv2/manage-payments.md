@@ -23,6 +23,7 @@ For more information about payments or payment methods, see [Getting help with y
 + [Paying an invoice with Guest Checkout](guest-checkout.md)
 + [Using Advance Pay](manage-advancepay.md)
 + [Making payments in Chinese yuan](manage-payment-cny.md)
++ [Managing Connected accounts](manage-connected-accounts.md)
 + [Making payments using PIX (Brazil)](manage-payment-brazil.md)
 + [Managing your payments in India](edit-aispl-payment-method.md)
 + [Managing your payments in AWS Europe](emea-payments.md)

@@ -21,7 +21,7 @@ To cancel an invitation, you must have the following permissions
 To cancel an invitation, complete the following steps.
 
 ------
-#### [  ]
+#### [ AWS Management Console ]
 
 **To cancel an invitation**
 
@@ -34,7 +34,7 @@ To cancel an invitation, complete the following steps.
 1. Choose the **Actions** dropdown menu, and then chose **Cancel**.
 
 ------
-#### [  ]
+#### [ AWS CLI & AWS SDKs ]
 
 **To cancel an invitation**  
 You can use one of the following operations:
@@ -59,4 +59,4 @@ You can use one of the following operations:
 ------
 
 **What to do next**  
-If you cancel an invitation, you can send another one at any time in the AWS Billing and Cost Management console or using the . For more information, see [Send invitation](orgs_transfer_billing-send-invitation.md).
+If you cancel an invitation, you can send another one at any time in the AWS Billing and Cost Management console or using the AWS CLI & AWS SDKs. For more information, see [Send invitation](orgs_transfer_billing-send-invitation.md).

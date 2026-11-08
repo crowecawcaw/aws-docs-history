@@ -131,6 +131,10 @@ For a list of actions policies for the AWS Cost Management console, see [AWS Cos
 | ce:ListCostCategoryDefinitions | Grants permissions to list cost categories.<br />For an example policy, see [View and manage cost categories](billing-example-policies.md#example-policy-cc-api). | 
 | ce:UpdateCostCategoryDefinition | Grants permissions to update cost categories.<br />For an example policy, see [View and manage cost categories](billing-example-policies.md#example-policy-cc-api). | 
 | aws-portal:ViewUsage | Grants permission to view AWS usage [Reports](https://console.aws.amazon.com/billing/home#/reports).<br />To allow IAM users to view usage reports, you must allow both `ViewUsage` and `ViewBilling`.<br />For an example policy, see [Allow IAM users to access the reports console page](billing-example-policies.md#example-billing-view-reports).  | 
+| payments:CreateConnectedAccount | Allows IAM users to link an external payment provider account for AWS WAF AI traffic monetization. | 
+| payments:DeleteConnectedAccount | Allows IAM users to unlink a Connected account from their AWS account. | 
+| payments:GetConnectedAccount | Allows IAM users to retrieve the details of a Connected account, such as its name and status. | 
+| payments:ListConnectedAccounts | Allows IAM users to list the Connected accounts that are linked to their AWS account. | 
 | payments:AcceptFinancingApplicationTerms | Allows IAM users to agree with the terms provided by the financing lender. Users are required to provide their bank account details for repayment, and sign the legal documents provided by the lender. | 
 | payments:CreateFinancingApplication | Allows IAM users to apply for a new finance loan, and reference the chosen financing option. | 
 | payments:GetFinancingApplication | Allows IAM users to retrieve the details of a financing application. For example, status, limits, terms, and lender information. | 

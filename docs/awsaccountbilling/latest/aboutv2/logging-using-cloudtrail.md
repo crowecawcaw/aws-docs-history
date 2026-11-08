@@ -82,6 +82,10 @@ This section shows a full list of the CloudTrail events for the **Payments** fea
 
 | Event name | Definition | 
 | --- | --- | 
+| `ConnectedAccount_CreateConnectedAccount` | Logs the creation of a connected account. | 
+| `ConnectedAccount_DeleteConnectedAccount` | Logs the deletion of a connected account. | 
+| `ConnectedAccount_GetConnectedAccount` | Logs the retrieval of a connected account. | 
+| `ConnectedAccount_ListConnectedAccounts` | Logs the retrieval of the list of connected accounts. | 
 | `Financing_AcceptFinancingApplicationTerms` | Logs the acceptance of terms in a financing application. | 
 | `Financing_CreateFinancingApplication` | Logs the creation of a financing application. | 
 | `Financing_GetFinancingApplication` | Logs the access of a financing application. | 

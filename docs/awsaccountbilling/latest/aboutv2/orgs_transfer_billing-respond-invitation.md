@@ -30,14 +30,14 @@ The following are terms and concepts used in the AWS Billing and Cost Management
 
 **Minimum permissions**  
 To respond to an invitation, you must have the following permissions actions:  
-`organizations:ListHandshakesAccount`
+`organizations:ListHandshakesForAccount`
 `organizations:AcceptHandshake`
 `organizations:DeclineHandshake`
 
 To respond to an invitation, complete the following steps.
 
 ------
-#### [  ]
+#### [ AWS Management Console ]
 
 **To respond to an invitation**
 
@@ -52,7 +52,7 @@ To respond to an invitation, complete the following steps.
 1. On the details page for the invitation, choose **Decline** or **Accept**.
 
 ------
-#### [  ]
+#### [ AWS CLI & AWS SDKs ]
 
 **To respond to an invitation**  
 You can use one of the following operations:
@@ -89,4 +89,4 @@ You can use one of the following operations:
 ------
 
 **What to do next**  
-After you accepting an invitation, you can monitor the status in the AWS Billing and Cost Management console or using the . For more information, see [View transfers](orgs_transfer_billing-view-transfer.md). If you decline an invitation or the invitation expires, the account that sent the invitation must send another one if you want to begin a transfer.
+After you accepting an invitation, you can monitor the status in the AWS Billing and Cost Management console or using the AWS CLI & AWS SDKs. For more information, see [View transfers](orgs_transfer_billing-view-transfer.md). If you decline an invitation or the invitation expires, the account that sent the invitation must send another one if you want to begin a transfer.

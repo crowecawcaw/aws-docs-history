@@ -24,7 +24,7 @@ To update a transfer, your must have the following permissions:
 To update a transfer, complete the following steps.
 
 ------
-#### [  ]
+#### [ AWS Management Console ]
 
 **To update a transfer**
 
@@ -39,7 +39,7 @@ To update a transfer, complete the following steps.
 1. On the **Edit the transfer name** dialogue box, enter a new name and choose **Update name**.
 
 ------
-#### [  ]
+#### [ AWS CLI & AWS SDKs ]
 
 **To update a transfer**  
 You can use one of the following operations:
