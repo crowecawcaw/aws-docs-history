@@ -1,12 +1,12 @@
 
 
-**End of support notice:** On October 30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
+**End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Getting started with Amazon Pinpoint
 <a name="gettingstarted"></a>
 
 **Important**  
-Amazon Pinpoint is no longer accepting new customers as of May 20, 2025. Existing customers can continue using Amazon Pinpoint until end of support on October 30, 2026. For migration guidance, see [Amazon Pinpoint end of support](migrate.md).
+Amazon Pinpoint stopped accepting new customers on May 20, 2025, and support for Amazon Pinpoint ended on October 30, 2026. For migration guidance, see [Amazon Pinpoint end of support](migrate.md).
 
 The following tutorial content is preserved for existing customers who need to reference the original onboarding steps. New implementations should use [Amazon Connect Customer outbound campaigns](https://aws.amazon.com/connect/outbound/) or [AWS End User Messaging](https://aws.amazon.com/end-user-messaging/) instead.
 

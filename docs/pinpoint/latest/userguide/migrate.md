@@ -1,11 +1,15 @@
 
 
-**End of support notice:** On October 30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
+**End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Amazon Pinpoint end of support
 <a name="migrate"></a>
 
-After careful consideration, we decided to end support for Amazon Pinpoint, effective October 30, 2026. Amazon Pinpoint will no longer accept new customers beginning May 20, 2025. As an existing customer with an account signed up for the service before May 20, 2025, you can continue to use Amazon Pinpoint features. After October 30, 2026, you will no longer be able to use Amazon Pinpoint.
+Support for Amazon Pinpoint ended on October 30, 2026. Amazon Pinpoint stopped accepting new customers on May 20, 2025. Amazon Pinpoint engagement features (endpoints, segments, campaigns, journeys, and analytics) are no longer available.
+
+Push notifications, OTP, and phone number validation continue to operate for all customers. SMS, voice, and email sending continue for existing customers only. New customers can use [AWS End User Messaging](https://aws.amazon.com/end-user-messaging/) for SMS and voice, and [Amazon Simple Email Service](https://aws.amazon.com/ses) for email. For more information, see [Message sending and analytics after end of support](#message-sending-and-analytics-after-eos).
+
+The following tutorial content is preserved for existing customers who need to reference the original onboarding steps. If you are starting a new implementation, use [Amazon Connect Customer outbound campaigns](https://aws.amazon.com/connect/outbound/), [Amazon Connect Customer Customer Profiles](https://aws.amazon.com/connect/customer-profiles/), or [AWS End User Messaging](https://aws.amazon.com/end-user-messaging/).
 
 Today, customers use Amazon Pinpoint either for its engagement capabilities (endpoints, segments, campaigns, journeys, and analytics), or its messaging channel APIs (SMS, MMS, push, WhatsApp, and text to voice messaging capabilities). We have created offboarding plans for both sets of customers.
 
@@ -13,7 +17,7 @@ Today, customers use Amazon Pinpoint either for its engagement capabilities (end
 
 If you are using Amazon Pinpoint engagement features (endpoints, segments, campaigns, journeys, and analytics), we recommend you to migrate to Connect Customer proactive engagement solutions (e.g., [Amazon Connect Customer outbound campaigns](https://aws.amazon.com/connect/outbound/) and [Amazon Connect Customer Customer Profiles](https://aws.amazon.com/connect/customer-profiles/)) to drive personalized, timely engagement across channels with unified performance tracking and the ability to manage inbound (e.g., customer support) and outbound (e.g., proactive communications) using one unified application. If you are using events collection and mobile analytics, we recommend to use [Amazon Kinesis](https://aws.amazon.com/kinesis).
 
-Amazon Pinpoint communication channels (SMS, MMS, push, WhatsApp, and text to voice messaging capabilities) were renamed in Q3 2024 as [AWS End User Messaging](https://aws.amazon.com/end-user-messaging), and will continue to serve developer needs for message delivery with customers. Use of APIs related to SMS, Voice, Mobile Push, OTP and Phone Number Validate will not be affected by this change. If you are using Amazon Pinpoint to send email, we recommend you migrate to [Amazon Simple Email Service](https://aws.amazon.com/ses) (SES). If you are using email deliverability dashboard in Amazon Pinpoint, we now offer email deliverability dashboard functionality in [Amazon Simple Email Service Virtual Deliverability Manager](https://docs.aws.amazon.com/ses/latest/dg/vdm-global-deliverability.html).
+Amazon Pinpoint communication channels (SMS, MMS, push, WhatsApp, and text to voice messaging capabilities) were renamed in Q3 2024 as [AWS End User Messaging](https://aws.amazon.com/end-user-messaging), and continue to serve developer needs for message delivery with customers. Use of APIs related to SMS, Voice, Mobile Push, OTP and Phone Number Validate is not affected by this change. If you are using Amazon Pinpoint to send email, we recommend you migrate to [Amazon Simple Email Service](https://aws.amazon.com/ses) (SES). If you are using email deliverability dashboard in Amazon Pinpoint, we now offer email deliverability dashboard functionality in [Amazon Simple Email Service Virtual Deliverability Manager](https://docs.aws.amazon.com/ses/latest/dg/vdm-global-deliverability.html).
 
 **Topics**
 + [Message sending and analytics after end of support](#message-sending-and-analytics-after-eos)
@@ -91,7 +95,7 @@ Message templates for SMS, voice, and email continue to be supported. You can co
 ### SendMessages and SendUsersMessages
 <a name="eos-sendmessages"></a>
 
-`SendMessages` continues to operate for whichever channels remain available to your account. For the list of channels, see the preceding table. `SendUsersMessages` is not supported, because it depends on the endpoint registry that is part of the engagement platform being retired. Sending to a stored endpoint ID is also not supported for any channel.
+`SendMessages` continues to operate for whichever channels remain available to your account. For the list of channels, see the preceding table. `SendUsersMessages` is not supported, because it depends on the endpoint registry that is part of the retired engagement platform. Sending to a stored endpoint ID is also not supported for any channel.
 
 ### Event and metric delivery
 <a name="eos-event-metric-delivery"></a>
@@ -534,12 +538,12 @@ For customers who need to delete Mobile Analytics applications as part of their 
 This script makes a `DELETE` request to the Mobile Analytics API to remove the specified application. Make sure to run this for each Mobile Analytics application you need to delete.
 
 **Note**  
-Active Mobile Analytics customers can continue to ingest events through `putEvents` API and view them in Amazon Pinpoint until the Amazon Pinpoint end of support date.
+As of the Amazon Pinpoint end-of-support date, October 30, 2026, Mobile Analytics customers can no longer ingest events through the `putEvents` API.
 
 ## Summary
 <a name="migration-summary"></a>
 
-Organizations with at least one Amazon Pinpoint account, can continue to use Amazon Pinpoint engagement features, including segments, campaigns, journeys, analytics and email  until October 30, 2026, when support for the service will end.
+Support for Amazon Pinpoint engagement features, including endpoints, segments, campaigns, journeys, and analytics, ended on October 30, 2026.
 
 ## Additional resources
 <a name="migration-additional-resources"></a>

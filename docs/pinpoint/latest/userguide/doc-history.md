@@ -1,6 +1,6 @@
 
 
-**End of support notice:** On October 30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
+**End of support notice:** On October 30, 2026, AWS ended support for Amazon Pinpoint. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging.
 
 # Document history for Amazon Pinpoint
 <a name="doc-history"></a>
@@ -10,6 +10,7 @@ The following table describes important changes in each release of the *Amazon P
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [End of support](#doc-history) | Support for Amazon Pinpoint ended on October 30, 2026. You can no longer access the Amazon Pinpoint console or Amazon Pinpoint engagement resources (endpoints, segments, campaigns, journeys, and analytics). APIs related to SMS, voice, mobile push, OTP, and phone number validate continue to operate and are supported by AWS End User Messaging. For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). | November 4, 2026 | 
 | [End of support notice](#doc-history) | **End of support notice:** On October 30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints, segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of support](https://docs.aws.amazon.com/console/pinpoint/migration-guide). **Note:** APIs related to SMS, voice, mobile push, OTP, and phone number validate are not impacted by this change and are supported by AWS End User Messaging. | May 20, 2025 | 
 | [Amazon Pinpoint has updated their user guide documentation](#doc-history) | To get the latest information regarding how to create, configure, and manage your Push resources, see the new [End User Messaging Push User Guide](https://docs.aws.amazon.com/push-notifications/latest/userguide/what-is-service.html).  | July 24, 2024 | 
 | [Email Headers](#doc-history) | You can add email headers to your email templates and messages. For more information, see [Creating email templates](https://docs.aws.amazon.com/pinpoint/latest/userguide/message-templates-creating-email.html).  | May 7, 2024 | 
