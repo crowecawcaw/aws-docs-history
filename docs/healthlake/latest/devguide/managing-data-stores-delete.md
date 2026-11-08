@@ -20,16 +20,16 @@ The following `delete-fhir-datastore` example demonstrates how to delete a data 
 
 ```
 aws healthlake delete-fhir-datastore \
-    --datastore-id {{(Data}} {{store}} {{ID)}}
+    --datastore-id {{a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6}}
 ```
 Output:  
 
 ```
 {
-    "DatastoreEndpoint": "https://healthlake.us-west-2.amazonaws.com/datastore/(Data store ID)/r4/",
-    "DatastoreArn": "arn:aws:healthlake:us-west-2:(AWS Account ID):datastore/(Data store ID)",
+    "DatastoreEndpoint": "https://healthlake.us-west-2.amazonaws.com/datastore/a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6/r4/",
+    "DatastoreArn": "arn:aws:healthlake:us-west-2:123456789012:datastore/a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6",
     "DatastoreStatus": "DELETING",
-    "DatastoreId": "(Data store ID)"
+    "DatastoreId": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6"
 }
 ```
   

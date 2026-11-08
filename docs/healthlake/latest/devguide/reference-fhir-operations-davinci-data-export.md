@@ -30,8 +30,8 @@ POST [base]/Group/[id]/$davinci-data-export
 | --- | --- | --- | 
 | patient | 0..\* | Specific members whose data to export. When omitted, all members in the Group are exported. | 
 | \_type | 0..1 | Comma-delimited list of FHIR resource types to export. When omitted, all supported resource types for the specified export type are included. For ATR exports, this defaults to the 8 attribution resource types. For PDex exports, this includes all attribution resource types plus clinical and claims resource types from the US Core, CARIN Blue Button, and PDex profiles. | 
-| \_since | 0..1 | Only include resources updated after this date and time. | 
-| \_until | 0..1 | Only include resources updated before this date and time. | 
+| \_since | 0..1 | Includes only resources updated after this date and time, except Provenance. For details, see [Temporal filtering for PDex exports](#davinci-data-export-temporal-filtering). | 
+| \_until | 0..1 | Includes only resources updated before this date and time, except Provenance. | 
 | exportType | 0..1 | The type of export to perform. Valid values: hl7.fhir.us.davinci-atr (ATR), hl7.fhir.us.davinci-pdex (Provider Access), hl7.fhir.us.davinci-pdex\#provider-snapshot (Provider Access snapshot), hl7.fhir.us.davinci-pdex.p2p (Payer-to-Payer), hl7.fhir.us.davinci-pdex.member (Member Access). Default: hl7.fhir.us.davinci-atr. | 
 | \_includeEOB2xWoFinancial | 0..1 | When set to true, includes ExplanationOfBenefit resources that declare a CARIN BB 2.x Financial (non-Basis) profile in the export with financial data stripped. The exported resource conforms to the corresponding Basis profile, but the original resource in the data store is not modified. This parameter has no effect on resources that already declare a Basis profile, as those are always included and have residual financial data removed automatically. Default: false. | 
 | \_security | 0..\* | Filter exported resources by meta.security Coding values. Use the system\|code format (pipe character must be URL-encoded as %7C). When multiple values are provided, resources must match all of them (AND semantics). Use system\| (trailing pipe, no code) to match any code from a given system. | 
@@ -64,19 +64,21 @@ For PDex exports (Provider Access, Payer-to-Payer, and Member Access), all clini
 The `$davinci-data-export` operation supports the following export types. You specify the export type by using the `exportType` parameter.
 
 
-| Export Type | Purpose | Data Scope | Temporal Limit | 
+| Export Type | Purpose | Data Scope | 5-Year Filter | 
 | --- | --- | --- | --- | 
-| hl7.fhir.us.davinci-atr | Member Attribution List | Attribution-related resources | None | 
-| hl7.fhir.us.davinci-pdex | Provider Access API | Clinical and claims data for attributed patients | None | 
-| hl7.fhir.us.davinci-pdex\#provider-snapshot | Provider Access API (snapshot) | All clinical, prior authorization, and non-financial claims and encounter data for attributed patients | None | 
-| hl7.fhir.us.davinci-pdex.p2p | Payer-to-Payer Exchange | Historical member data for insurance transitions | 5 years | 
-| hl7.fhir.us.davinci-pdex.member | Member Access API | Member's own health data | 5 years | 
+| hl7.fhir.us.davinci-atr | Member Attribution List | Attribution-related resources | No | 
+| hl7.fhir.us.davinci-pdex | Provider Access API | Clinical and claims data for attributed patients | No | 
+| hl7.fhir.us.davinci-pdex\#provider-snapshot | Provider Access API (snapshot) | All clinical, prior authorization, and non-financial claims and encounter data for attributed patients | No | 
+| hl7.fhir.us.davinci-pdex.p2p | Payer-to-Payer Exchange | Historical member data for insurance transitions | Yes | 
+| hl7.fhir.us.davinci-pdex.member | Member Access API | Member's own health data | Yes | 
 
-**Temporal limits by export type**  
-The 5-year temporal limit applies only to the Payer-to-Payer (`hl7.fhir.us.davinci-pdex.p2p`) and Member Access (`hl7.fhir.us.davinci-pdex.member`) export types. The Provider Access export types (`hl7.fhir.us.davinci-pdex` and `hl7.fhir.us.davinci-pdex#provider-snapshot`) have no temporal restriction. For the export types that are temporally limited, the 5-year limit does not apply to ATR resource types (`Group`, `Patient`, `Coverage`, `RelatedPerson`, `Practitioner`, `PractitionerRole`, `Organization`, `Location`). These resources are not limited by age, but the `_since` and `_until` parameters still apply to them.
+**Note**  
+HealthLake applies the 5-year filter only to the Payer-to-Payer (`hl7.fhir.us.davinci-pdex.p2p`) and Member Access (`hl7.fhir.us.davinci-pdex.member`) export types. The Provider Access export types (`hl7.fhir.us.davinci-pdex` and `hl7.fhir.us.davinci-pdex#provider-snapshot`) are not subject to the 5-year filter.  
+For Payer-to-Payer and Member Access, the 5-year filter doesn't apply to `Provenance` or to the ATR resource types. The ATR resource types are `Group`, `Patient`, `Coverage`, `RelatedPerson`, `Practitioner`, `PractitionerRole`, `Organization`, and `Location`. The `_since` and `_until` parameters still apply to the ATR resource types.  
+For all PDex export types, neither the 5-year filter nor the `_since` and `_until` parameters apply to `Provenance`, as described later on this page.
 
 **Temporal filtering basis**  
-Temporal limits and the `_since` and `_until` parameters are evaluated against each resource's `meta.lastUpdated` timestamp rather than clinical or service dates. This provides consistent temporal filtering across all resource types.
+HealthLake evaluates the 5-year filter and the `_since` and `_until` parameters against each resource's `meta.lastUpdated` timestamp, not clinical or service dates. This applies to all resource types except `Provenance`, which HealthLake selects by the resources it targets rather than by its own timestamp.
 
 ### ATR (hl7.fhir.us.davinci-atr)
 <a name="davinci-data-export-type-atr"></a>
@@ -87,7 +89,7 @@ Supported Resource Types
 `Group`, `Patient`, `Coverage`, `RelatedPerson`, `Practitioner`, `PractitionerRole`, `Organization`, `Location`
 
 Temporal Filtering  
-No temporal filtering is applied. All matching resources are exported regardless of date.
+No 5-year filter applies. The `_since` and `_until` parameters apply.
 
 ### PDex Export Types
 <a name="davinci-data-export-type-pdex"></a>
@@ -103,7 +105,7 @@ For PDex exports, you do not need to reference clinical or claims resources in t
 + *Referenced providers (Payer-to-Payer only)*: The operation also exports the `Practitioner`, `PractitionerRole`, `Organization`, and `Location` resources that the resources exported for the members reference, such as the practitioner on an `Encounter`, the agent on a `Provenance`, or the payer organization on a `Coverage`. It then follows the references in those provider resources, for example from a `PractitionerRole` to its `Practitioner` and from an `Organization` to its parent organization. The operation follows only relative references, such as `Practitioner/123`. It does not follow absolute URLs, references to contained resources, or references to a specific resource version.
 + *Attributed providers*: For all PDex export types, the attributed providers in the Group (`Group.member.extension:attributedProvider`) are also exported. For Provider Access (`hl7.fhir.us.davinci-pdex` and `hl7.fhir.us.davinci-pdex#provider-snapshot`) and Member Access exports, provider resources come only from the attributed providers in the Group and the locations of attributed practitioner roles.
 
-Referenced resources are subject to the same `_since`, `_until`, and temporal limits as other resources of their type. If the export finds no resources of a requested type, the output has no file for that type. For the resource types that you can export, see [Supported Resource Types](#davinci-data-export-supported-resources).
+Referenced resources are subject to the same `_since`, `_until`, and 5-year filter as other resources of their type. If the export finds no resources of a requested type, the output has no file for that type. For the resource types that you can export, see [Supported Resource Types](#davinci-data-export-supported-resources).
 
 When you specify `_type`, a referenced resource is exported only if its type is in `_type`. For example, to export practitioners that are referenced only through a `PractitionerRole` in a Payer-to-Payer export, include both `PractitionerRole` and `Practitioner` in `_type`. Similarly, a `Medication` is exported only if `Medication` and the referencing `MedicationRequest` or `MedicationDispense` type are in `_type`.
 
@@ -111,7 +113,7 @@ Provider Access (`hl7.fhir.us.davinci-pdex`)
 Enables in-network providers to retrieve patient data for attributed patients.
 
 Provider Access — snapshot (`hl7.fhir.us.davinci-pdex#provider-snapshot`)  
-Returns a full snapshot of all clinical, prior authorization, and non-financial claims and encounter data for attributed patients. This export type behaves the same as `hl7.fhir.us.davinci-pdex` and is not subject to a temporal limit.
+Returns a full snapshot of all clinical, prior authorization, and non-financial claims and encounter data for attributed patients. This export type behaves the same as `hl7.fhir.us.davinci-pdex` and is not subject to the 5-year filter.
 
 Payer-to-Payer (`hl7.fhir.us.davinci-pdex.p2p`)  
 Enables data exchange between payers when a patient changes insurance.
@@ -169,7 +171,9 @@ The operation uses the following rules to detect and validate profiles:
 ## Temporal filtering for PDex exports
 <a name="davinci-data-export-temporal-filtering"></a>
 
-HealthLake applies a 5-year temporal filter for the Payer-to-Payer (`hl7.fhir.us.davinci-pdex.p2p`) and Member Access (`hl7.fhir.us.davinci-pdex.member`) export types. The filter is based on when the resource was last updated. The Provider Access export types (`hl7.fhir.us.davinci-pdex` and `hl7.fhir.us.davinci-pdex#provider-snapshot`) are not subject to any temporal limit. For the temporally limited export types, the filter applies to all resources except the following core attribution resource types, which are always exported regardless of age:
+Payer-to-Payer (`hl7.fhir.us.davinci-pdex.p2p`) and Member Access (`hl7.fhir.us.davinci-pdex.member`) exports include only resources last updated within the past 5 years (the 5-year filter). The Provider Access export types (`hl7.fhir.us.davinci-pdex` and `hl7.fhir.us.davinci-pdex#provider-snapshot`) are not subject to the 5-year filter.
+
+For Payer-to-Payer and Member Access, the 5-year filter applies to all resources except `Provenance`, described after the list, and the following core attribution resource types:
 + `Patient`
 + `Coverage`
 + `Organization`
@@ -179,7 +183,11 @@ HealthLake applies a 5-year temporal filter for the Payer-to-Payer (`hl7.fhir.us
 + `Location`
 + `Group`
 
-These administrative and demographic resources are exempt because they provide essential context for the exported data. ATR exports are not subject to any temporal filtering.
+These administrative and demographic resources are exempt from the 5-year filter because they provide essential context for the exported data. The `_since` and `_until` parameters still apply to them.
+
+HealthLake exports a `Provenance` resource when it targets a patient in the Group, a member data resource exported for those patients, or an exported `Medication`. HealthLake doesn't check the `Provenance` resource's own last update, so neither the 5-year filter nor the `_since` and `_until` parameters apply to it.
+
+ATR exports have no 5-year filter. The `_since` and `_until` parameters apply to ATR exports.
 
 ## Sample Requests
 <a name="davinci-data-export-examples"></a>
@@ -333,7 +341,7 @@ Resource Validation Errors
 + *Patient Filtering*: Use the `patient` parameter when you only need data for specific members
 + *Job Monitoring*: Regularly check job status for large exports
 + *Error Handling*: Implement proper retry logic for failed jobs
-+ *Temporal Filter Awareness*: For Payer-to-Payer and Member Access exports, consider the 5-year temporal filter when you select resource types
++ *Temporal Filter Awareness*: For Payer-to-Payer and Member Access exports, consider the 5-year filter when you select resource types
 + *Financial Data Removal*: Use `_includeEOB2xWoFinancial=true` when you need claims data without financial information
 + *Profile Management*: Ensure resources have appropriate profile declarations, validate against target profiles before ingestion, and use profile versioning to control export behavior
 
