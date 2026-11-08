@@ -16,13 +16,13 @@ You can attach `SageMakerStudioDomainExecutionRolePolicy` to your users, groups,
 <a name="SageMakerStudioDomainExecutionRolePolicy-details"></a>
 + **Type**: Service role policy 
 + **Creation time**: November 20, 2024, 21:56 UTC 
-+ **Edited time:** August 12, 2026, 17:27 UTC
++ **Edited time:** November 05, 2026, 22:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/service-role/SageMakerStudioDomainExecutionRolePolicy`
 
 ## Policy version
 <a name="SageMakerStudioDomainExecutionRolePolicy-version"></a>
 
-**Policy version:** v23 (default)
+**Policy version:** v25 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -99,6 +99,7 @@ The policy's default version is the version that defines the permissions for the
         "datazone:GetDesignation",
         "datazone:GetDomain",
         "datazone:GetDomainUnit",
+        "datazone:GetEffectiveUICustomization",
         "datazone:GetEnvironment",
         "datazone:GetEnvironmentAction",
         "datazone:GetEnvironmentActionLink",
@@ -131,6 +132,7 @@ The policy's default version is the version that defines the permissions for the
         "datazone:ListDataSourceRunActivities",
         "datazone:ListDataSourceRuns",
         "datazone:ListDataSources",
+        "datazone:ListDeployableEnvironmentBlueprints",
         "datazone:ListDesignations",
         "datazone:ListDomainUnitsForParent",
         "datazone:ListEntityOwners",

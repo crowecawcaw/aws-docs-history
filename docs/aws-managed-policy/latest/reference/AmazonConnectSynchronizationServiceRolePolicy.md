@@ -16,13 +16,13 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AmazonConnectSynchronizationServiceRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: October 27, 2023, 22:38 UTC 
-+ **Edited time:** October 28, 2026, 19:17 UTC
++ **Edited time:** November 06, 2026, 19:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AmazonConnectSynchronizationServiceRolePolicy`
 
 ## Policy version
 <a name="AmazonConnectSynchronizationServiceRolePolicy-version"></a>
 
-**Policy version:** v7 (default)
+**Policy version:** v8 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -124,6 +124,7 @@ The policy's default version is the version that defines the permissions for the
       "Effect" : "Allow",
       "Action" : [
         "app-integrations:CreateApplication",
+        "app-integrations:CreateApplicationAssociation",
         "app-integrations:GetApplication",
         "app-integrations:UpdateApplication",
         "app-integrations:DeleteApplication",
@@ -132,6 +133,22 @@ The policy's default version is the version that defines the permissions for the
         "app-integrations:UntagResource"
       ],
       "Resource" : "arn:aws:app-integrations:*:*:application/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AllowAppIntegrationsScopedToApplicationAssociations",
+      "Effect" : "Allow",
+      "Action" : [
+        "app-integrations:DeleteApplicationAssociation",
+        "app-integrations:ListTagsForResource",
+        "app-integrations:TagResource",
+        "app-integrations:UntagResource"
+      ],
+      "Resource" : "arn:aws:app-integrations:*:*:application-association/*",
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"

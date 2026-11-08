@@ -16,13 +16,13 @@ You can attach `AWSBackupFullAccess` to your users, groups, and roles.
 <a name="AWSBackupFullAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: November 18, 2019, 22:21 UTC 
-+ **Edited time:** February 12, 2026, 18:02 UTC
++ **Edited time:** November 05, 2026, 18:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSBackupFullAccess`
 
 ## Policy version
 <a name="AWSBackupFullAccess-version"></a>
 
-**Policy version:** v30 (default)
+**Policy version:** v31 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -244,11 +244,11 @@ The policy's default version is the version that defines the permissions for the
       ],
       "Resource" : "*",
       "Condition" : {
-        "ForAnyValue:StringEquals" : {
-          "kms:EncryptionContextKeys" : "aws:backup:backup-vault"
-        },
         "Bool" : {
           "kms:GrantIsForAWSResource" : true
+        },
+        "ForAnyValue:StringEquals" : {
+          "kms:EncryptionContextKeys" : "aws:backup:backup-vault"
         },
         "StringLike" : {
           "kms:ViaService" : "backup.*.amazonaws.com"
@@ -465,13 +465,13 @@ The policy's default version is the version that defines the permissions for the
         "arn:aws:redshift-serverless:*:*:snapshot/*"
       ],
       "Condition" : {
-        "Null" : {
-          "aws:ResourceTag/aws:backup:source-resource" : "false"
-        },
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : [
             "backup.amazonaws.com"
           ]
+        },
+        "Null" : {
+          "aws:ResourceTag/aws:backup:source-resource" : "false"
         }
       }
     },
@@ -523,6 +523,17 @@ The policy's default version is the version that defines the permissions for the
         "eks:DescribeCluster"
       ],
       "Resource" : "arn:aws:eks:*:*:cluster/*"
+    },
+    {
+      "Sid" : "S3GetObjectPermissions",
+      "Effect" : "Allow",
+      "Action" : "s3:GetObject",
+      "Resource" : "arn:aws:s3:::*/*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "backup.amazonaws.com"
+        }
+      }
     },
     {
       "Sid" : "IamPassRolePermissionsForGuardDuty",

@@ -16,13 +16,13 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="ComputeOptimizerServiceRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: December 03, 2019, 08:45 UTC 
-+ **Edited time:** May 27, 2026, 17:42 UTC
++ **Edited time:** November 06, 2026, 20:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/ComputeOptimizerServiceRolePolicy`
 
 ## Policy version
 <a name="ComputeOptimizerServiceRolePolicy-version"></a>
 
-**Policy version:** v10 (default)
+**Policy version:** v11 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -48,7 +48,10 @@ The policy's default version is the version that defines the permissions for the
         "organizations:DescribeOrganization",
         "organizations:ListAccounts",
         "organizations:ListAWSServiceAccessForOrganization",
-        "organizations:ListDelegatedAdministrators"
+        "organizations:ListDelegatedAdministrators",
+        "organizations:ListParents",
+        "organizations:ListChildren",
+        "organizations:DescribeOrganizationalUnit"
       ],
       "Resource" : [
         "*"

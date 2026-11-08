@@ -16,13 +16,13 @@ You can attach `AmazonBioDiscoveryFullAccess` to your users, groups, and roles.
 <a name="AmazonBioDiscoveryFullAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 18, 2026, 06:27 UTC 
-+ **Edited time:** August 18, 2026, 06:27 UTC
++ **Edited time:** November 06, 2026, 22:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AmazonBioDiscoveryFullAccess`
 
 ## Policy version
 <a name="AmazonBioDiscoveryFullAccess-version"></a>
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -132,6 +132,52 @@ The policy's default version is the version that defines the permissions for the
         },
         "StringLike" : {
           "kms:ViaService" : "identitystore.*.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "AllowCreateAmazonBioDiscoveryServiceLinkedRole",
+      "Effect" : "Allow",
+      "Action" : "iam:CreateServiceLinkedRole",
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/researchstudio.amazonaws.com/AWSServiceRoleForAmazonBioDiscovery",
+      "Condition" : {
+        "StringEquals" : {
+          "iam:AWSServiceName" : "researchstudio.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "AmazonBioDiscoveryVpcDescribeAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:DescribeVpcs",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeSecurityGroups"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AmazonBioDiscoveryS3ListBucketsAccess",
+      "Effect" : "Allow",
+      "Action" : "s3:ListAllMyBuckets",
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "s3:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AmazonBioDiscoveryS3BucketReadAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "s3:ListBucket",
+        "s3:GetEncryptionConfiguration"
+      ],
+      "Resource" : "arn:aws:s3:::*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     }

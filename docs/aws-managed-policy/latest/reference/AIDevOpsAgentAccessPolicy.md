@@ -16,13 +16,13 @@ You can attach `AIDevOpsAgentAccessPolicy` to your users, groups, and roles.
 <a name="AIDevOpsAgentAccessPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: March 26, 2026, 03:42 UTC 
-+ **Edited time:** October 27, 2026, 18:07 UTC
++ **Edited time:** November 06, 2026, 21:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AIDevOpsAgentAccessPolicy`
 
 ## Policy version
 <a name="AIDevOpsAgentAccessPolicy-version"></a>
 
-**Policy version:** v12 (default)
+**Policy version:** v14 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -208,6 +208,7 @@ The policy's default version is the version that defines the permissions for the
         "cloudwatch:GetMetricStatistics",
         "cloudwatch:GetMetricStream",
         "cloudwatch:GetOTelEnrichment",
+        "cloudwatch:GetProfileRecords",
         "cloudwatch:GetService",
         "cloudwatch:GetServiceLevelObjective",
         "cloudwatch:List*",
@@ -344,7 +345,9 @@ The policy's default version is the version that defines the permissions for the
         "dynamodb:GetResourcePolicy",
         "dynamodb:List*",
         "ec2:Describe*",
+        "ec2:GetActiveVpnTunnelStatus",
         "ec2:GetAssociatedEnclaveCertificateIamRoles",
+        "ec2:GetAwsNetworkPerformanceData",
         "ec2:GetCapacityManagerAttributes",
         "ec2:GetCapacityManagerMetricData",
         "ec2:GetCapacityManagerMonitoredTagKeys",
@@ -359,6 +362,8 @@ The policy's default version is the version that defines the permissions for the
         "ec2:GetVerifiedAccessEndpointPolicy",
         "ec2:GetVerifiedAccessGroupPolicy",
         "ec2:GetVerifiedAccessInstanceWebAcl",
+        "ec2:GetVpnConnectionDeviceTypes",
+        "ec2:GetVpnTunnelReplacementStatus",
         "ec2:SearchLocalGatewayRoutes",
         "ec2:SearchTransitGatewayRoutes",
         "ecr:Describe*",
@@ -518,7 +523,11 @@ The policy's default version is the version that defines the permissions for the
         "inspector2:SearchVulnerabilities",
         "inspector:Describe*",
         "inspector:List*",
+        "internetmonitor:GetHealthEvent",
+        "internetmonitor:GetInternetEvent",
         "internetmonitor:GetMonitor",
+        "internetmonitor:GetQueryResults",
+        "internetmonitor:GetQueryStatus",
         "internetmonitor:List*",
         "iot:Describe*",
         "iot:GetPackage",
@@ -667,6 +676,17 @@ The policy's default version is the version that defines the permissions for the
         "mq:List*",
         "network-firewall:Describe*",
         "network-firewall:List*",
+        "networkflowmonitor:GetMonitor",
+        "networkflowmonitor:GetQueryResultsMonitorTopContributors",
+        "networkflowmonitor:GetQueryResultsWorkloadInsightsTopContributors",
+        "networkflowmonitor:GetQueryResultsWorkloadInsightsTopContributorsData",
+        "networkflowmonitor:GetQueryStatusMonitorTopContributors",
+        "networkflowmonitor:GetQueryStatusWorkloadInsightsTopContributors",
+        "networkflowmonitor:GetQueryStatusWorkloadInsightsTopContributorsData",
+        "networkflowmonitor:GetScope",
+        "networkflowmonitor:ListMonitors",
+        "networkflowmonitor:ListScopes",
+        "networkflowmonitor:ListTagsForResource",
         "networkmanager:Describe*",
         "networkmanager:GetConnectAttachment",
         "networkmanager:GetConnectPeer",
@@ -683,6 +703,10 @@ The policy's default version is the version that defines the permissions for the
         "networkmanager:GetTransitGatewayRouteTableAttachment",
         "networkmanager:GetVpcAttachment",
         "networkmanager:List*",
+        "networkmonitor:GetMonitor",
+        "networkmonitor:GetProbe",
+        "networkmonitor:ListMonitors",
+        "networkmonitor:ListTagsForResource",
         "oam:GetLink",
         "oam:GetSink",
         "oam:GetSinkPolicy",

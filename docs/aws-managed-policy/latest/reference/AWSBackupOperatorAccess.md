@@ -16,13 +16,13 @@ You can attach `AWSBackupOperatorAccess` to your users, groups, and roles.
 <a name="AWSBackupOperatorAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: November 18, 2019, 22:23 UTC 
-+ **Edited time:** February 12, 2026, 17:59 UTC
++ **Edited time:** November 05, 2026, 18:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSBackupOperatorAccess`
 
 ## Policy version
 <a name="AWSBackupOperatorAccess-version"></a>
 
-**Policy version:** v28 (default)
+**Policy version:** v29 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -405,6 +405,17 @@ The policy's default version is the version that defines the permissions for the
         "eks:DescribeCluster"
       ],
       "Resource" : "arn:aws:eks:*:*:cluster/*"
+    },
+    {
+      "Sid" : "S3GetObjectPermissions",
+      "Effect" : "Allow",
+      "Action" : "s3:GetObject",
+      "Resource" : "arn:aws:s3:::*/*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "backup.amazonaws.com"
+        }
+      }
     },
     {
       "Sid" : "IamPassRolePermissionsForGuardDuty",

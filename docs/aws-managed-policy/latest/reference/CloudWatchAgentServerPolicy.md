@@ -16,13 +16,13 @@ You can attach `CloudWatchAgentServerPolicy` to your users, groups, and roles.
 <a name="CloudWatchAgentServerPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: March 07, 2018, 01:06 UTC 
-+ **Edited time:** February 06, 2024, 16:37 UTC
++ **Edited time:** November 03, 2026, 13:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy`
 
 ## Policy version
 <a name="CloudWatchAgentServerPolicy-version"></a>
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -38,6 +38,7 @@ The policy's default version is the version that defines the permissions for the
       "Effect" : "Allow",
       "Action" : [
         "cloudwatch:PutMetricData",
+        "cloudwatch:PutProfileRecords",
         "ec2:DescribeVolumes",
         "ec2:DescribeTags",
         "logs:PutLogEvents",

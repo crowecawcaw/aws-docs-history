@@ -16,13 +16,13 @@ You can attach `AWSBatchFullAccess` to your users, groups, and roles.
 <a name="AWSBatchFullAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: December 06, 2016, 19:35 UTC 
-+ **Edited time:** October 24, 2022, 16:09 UTC
++ **Edited time:** November 04, 2026, 18:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSBatchFullAccess`
 
 ## Policy version
 <a name="AWSBatchFullAccess-version"></a>
 
-**Policy version:** v7 (default)
+**Policy version:** v8 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -83,6 +83,38 @@ The policy's default version is the version that defines the permissions for the
       "Condition" : {
         "StringEquals" : {
           "iam:AWSServiceName" : "batch.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "BatchEksAccessEntryCreate",
+      "Effect" : "Allow",
+      "Action" : "eks:CreateAccessEntry",
+      "Resource" : "*",
+      "Condition" : {
+        "ArnLike" : {
+          "eks:principalArn" : "arn:aws:iam::*:role/aws-service-role/batch.amazonaws.com/AWSServiceRoleForBatch"
+        }
+      }
+    },
+    {
+      "Sid" : "BatchEksAccessEntryManage",
+      "Effect" : "Allow",
+      "Action" : [
+        "eks:DescribeAccessEntry",
+        "eks:DeleteAccessEntry"
+      ],
+      "Resource" : "arn:aws:eks:*:*:access-entry/*/role/*/AWSServiceRoleForBatch/*"
+    },
+    {
+      "Sid" : "BatchEksAccessEntryAssociatePolicy",
+      "Effect" : "Allow",
+      "Action" : "eks:AssociateAccessPolicy",
+      "Resource" : "arn:aws:eks:*:*:access-entry/*/role/*/AWSServiceRoleForBatch/*",
+      "Condition" : {
+        "StringEquals" : {
+          "eks:policyArn" : "arn:aws:eks::aws:cluster-access-policy/AWSBatchClusterPolicy",
+          "eks:accessScope" : "cluster"
         }
       }
     }

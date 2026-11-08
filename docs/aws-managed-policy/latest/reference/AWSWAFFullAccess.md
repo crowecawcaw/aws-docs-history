@@ -16,13 +16,13 @@ You can attach `AWSWAFFullAccess` to your users, groups, and roles.
 <a name="AWSWAFFullAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: October 06, 2015, 20:44 UTC 
-+ **Edited time:** July 28, 2026, 21:42 UTC
++ **Edited time:** November 05, 2026, 22:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSWAFFullAccess`
 
 ## Policy version
 <a name="AWSWAFFullAccess-version"></a>
 
-**Policy version:** v17 (default)
+**Policy version:** v18 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -98,6 +98,14 @@ The policy's default version is the version that defines the permissions for the
         "wafv2:DisassociateWebACL"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "AllowGetActionForPaymentsConnectedAccount",
+      "Effect" : "Allow",
+      "Action" : [
+        "payments:GetConnectedAccount"
+      ],
+      "Resource" : "arn:aws:payments::*:connectedaccount/*"
     },
     {
       "Sid" : "AllowListActionsForALB",

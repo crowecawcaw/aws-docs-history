@@ -16,13 +16,13 @@ You can attach `SupportUser` to your users, groups, and roles.
 <a name="SupportUser-details"></a>
 + **Type**: Job function policy 
 + **Creation time**: November 10, 2016, 17:21 UTC 
-+ **Edited time:** February 12, 2026, 18:03 UTC
++ **Edited time:** November 05, 2026, 18:07 UTC
 + **ARN**: `arn:aws:iam::aws:policy/job-function/SupportUser`
 
 ## Policy version
 <a name="SupportUser-version"></a>
 
-**Policy version:** v11 (default)
+**Policy version:** v12 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -234,6 +234,19 @@ The policy's default version is the version that defines the permissions for the
         "ssm:Describe*",
         "storagegateway:Describe*",
         "storagegateway:List*",
+        "support-console:CheckSubscription",
+        "support-console:CreateCaseDraft",
+        "support-console:CreateContact",
+        "support-console:DeleteCaseDraft",
+        "support-console:DescribeDynamicHelp",
+        "support-console:GetAccountGovCloudEnabled",
+        "support-console:GetAccountState",
+        "support-console:GetBanner",
+        "support-console:GetCaseDraft",
+        "support-console:GetIssueClassificationPredictions",
+        "support-console:GetIssueTextSummary",
+        "support-console:GetQuestionnaire",
+        "support-console:SaveFeedback",
         "swf:Count*",
         "swf:Describe*",
         "swf:Get*",

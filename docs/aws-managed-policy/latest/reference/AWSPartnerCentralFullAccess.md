@@ -16,13 +16,13 @@ You can attach `AWSPartnerCentralFullAccess` to your users, groups, and roles.
 <a name="AWSPartnerCentralFullAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: November 18, 2024, 23:33 UTC 
-+ **Edited time:** October 17, 2026, 11:37 UTC
++ **Edited time:** November 05, 2026, 23:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSPartnerCentralFullAccess`
 
 ## Policy version
 <a name="AWSPartnerCentralFullAccess-version"></a>
 
-**Policy version:** v15 (default)
+**Policy version:** v16 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -259,6 +259,25 @@ The policy's default version is the version that defines the permissions for the
         "aws-marketplace:UntagResource"
       ],
       "Resource" : "arn:aws:aws-marketplace:*:*:AWSMarketplace*/CaseStudy/*"
+    },
+    {
+      "Sid" : "IAMGetRole",
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:GetRole"
+      ],
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/partnercentral-account.amazonaws.com/AWSServiceRoleForPartnerCentralAccount"
+    },
+    {
+      "Sid" : "CreateServiceLinkedRole",
+      "Effect" : "Allow",
+      "Action" : "iam:CreateServiceLinkedRole",
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "iam:AWSServiceName" : "partnercentral-account.amazonaws.com"
+        }
+      }
     }
   ]
 }

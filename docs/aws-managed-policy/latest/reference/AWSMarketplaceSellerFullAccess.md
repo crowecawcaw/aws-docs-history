@@ -16,13 +16,13 @@ You can attach `AWSMarketplaceSellerFullAccess` to your users, groups, and roles
 <a name="AWSMarketplaceSellerFullAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: July 02, 2019, 20:40 UTC 
-+ **Edited time:** October 22, 2026, 17:47 UTC
++ **Edited time:** November 02, 2026, 19:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSMarketplaceSellerFullAccess`
 
 ## Policy version
 <a name="AWSMarketplaceSellerFullAccess-version"></a>
 
-**Policy version:** v34 (default)
+**Policy version:** v35 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -311,7 +311,10 @@ The policy's default version is the version that defines the permissions for the
       "Action" : [
         "aws-marketplace:StartTaxComplianceProfileChangeTask"
       ],
-      "Resource" : "arn:aws:aws-marketplace:*:*:tax-compliance-profile-change-task/*"
+      "Resource" : [
+        "arn:aws:aws-marketplace:*:*:tax-compliance-profile-change-task/*",
+        "arn:aws:aws-marketplace:*:*:tax-compliance-profile/*"
+      ]
     },
     {
       "Sid" : "TaxComplianceProfileRead",

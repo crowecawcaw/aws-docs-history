@@ -16,13 +16,13 @@ You can attach `AWSPartnerCentralOpportunityManagement` to your users, groups, a
 <a name="AWSPartnerCentralOpportunityManagement-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: November 14, 2024, 19:09 UTC 
-+ **Edited time:** October 28, 2026, 13:47 UTC
++ **Edited time:** November 06, 2026, 02:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSPartnerCentralOpportunityManagement`
 
 ## Policy version
 <a name="AWSPartnerCentralOpportunityManagement-version"></a>
 
-**Policy version:** v11 (default)
+**Policy version:** v12 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -62,6 +62,7 @@ The policy's default version is the version that defines the permissions for the
         "partnercentral:ListEngagementResourceAssociations",
         "partnercentral:ListEngagements",
         "partnercentral:ListOpportunities",
+        "partnercentral:SearchOpportunities",
         "partnercentral:ListOpportunityFromEngagementTasks",
         "partnercentral:ListProspectingFromEngagementTasks",
         "partnercentral:ListResourceSnapshotJobs",

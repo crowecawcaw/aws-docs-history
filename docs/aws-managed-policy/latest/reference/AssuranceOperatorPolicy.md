@@ -16,13 +16,13 @@ You can attach `AssuranceOperatorPolicy` to your users, groups, and roles.
 <a name="AssuranceOperatorPolicy-details"></a>
 + **Type**: Service role policy 
 + **Creation time**: October 21, 2026, 15:17 UTC 
-+ **Edited time:** October 21, 2026, 15:17 UTC
++ **Edited time:** November 06, 2026, 16:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/service-role/AssuranceOperatorPolicy`
 
 ## Policy version
 <a name="AssuranceOperatorPolicy-version"></a>
 
-**Policy version:** v1 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -53,7 +53,6 @@ The policy's default version is the version that defines the permissions for the
         "assurance:DeleteFramework",
         "assurance:DeleteProject",
         "assurance:DisableFramework",
-        "assurance:DownloadEvidence",
         "assurance:EnableFramework",
         "assurance:GetAnnotation",
         "assurance:GetAssessment",
@@ -69,6 +68,7 @@ The policy's default version is the version that defines the permissions for the
         "assurance:GetEvidenceContent",
         "assurance:GetFramework",
         "assurance:GetProject",
+        "assurance:GetResourceActivitiesQueryResults",
         "assurance:GetTask",
         "assurance:ListAssessmentAnnotations",
         "assurance:ListEvidenceAnnotations",
@@ -80,13 +80,13 @@ The policy's default version is the version that defines the permissions for the
         "assurance:ListConnectionItems",
         "assurance:ListControls",
         "assurance:ListControlGroups",
+        "assurance:ListControlResources",
         "assurance:ListDiscoveredResources",
         "assurance:ListEnabledFrameworks",
         "assurance:ListEnvironmentConnections",
         "assurance:ListEvidence",
         "assurance:ListFrameworks",
         "assurance:ListProjects",
-        "assurance:ListResourcesForControl",
         "assurance:ListTagsForResource",
         "assurance:ListTaskHistory",
         "assurance:ListTasks",
@@ -95,15 +95,14 @@ The policy's default version is the version that defines the permissions for the
         "assurance:PutEvidence",
         "assurance:StartAssessment",
         "assurance:StartAssessmentReportExport",
-        "assurance:StartResourceDiscovery",
+        "assurance:StartResourceActivitiesQuery",
         "assurance:UpdateComment",
         "assurance:UpdateControl",
         "assurance:UpdateControlGroup",
         "assurance:UpdateEvidence",
         "assurance:UpdateFramework",
         "assurance:UpdateProject",
-        "assurance:UpdateTask",
-        "assurance:UploadEvidence"
+        "assurance:UpdateTask"
       ],
       "Resource" : [
         "arn:aws:assurance:*:*:environment/*"

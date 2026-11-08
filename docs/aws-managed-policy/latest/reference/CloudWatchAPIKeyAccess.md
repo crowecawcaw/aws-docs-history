@@ -16,13 +16,13 @@ You can attach `CloudWatchAPIKeyAccess` to your users, groups, and roles.
 <a name="CloudWatchAPIKeyAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: May 08, 2026, 08:57 UTC 
-+ **Edited time:** June 04, 2026, 20:42 UTC
++ **Edited time:** November 03, 2026, 13:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/CloudWatchAPIKeyAccess`
 
 ## Policy version
 <a name="CloudWatchAPIKeyAccess-version"></a>
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -41,6 +41,14 @@ The policy's default version is the version that defines the permissions for the
         "cloudwatch:PutMetricData"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "CloudWatchProfilesAPIs",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudwatch:PutProfileRecords"
+      ],
+      "Resource" : "arn:aws:cloudwatch:*:*:dataset/*"
     },
     {
       "Sid" : "KMSDecryptForCMKDatasets",

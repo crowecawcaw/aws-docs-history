@@ -16,13 +16,13 @@ You can attach `ROSANodePoolManagementPolicy` to your users, groups, and roles.
 <a name="ROSANodePoolManagementPolicy-details"></a>
 + **Type**: Service role policy 
 + **Creation time**: June 08, 2023, 20:48 UTC 
-+ **Edited time:** July 29, 2026, 16:57 UTC
++ **Edited time:** November 04, 2026, 19:07 UTC
 + **ARN**: `arn:aws:iam::aws:policy/service-role/ROSANodePoolManagementPolicy`
 
 ## Policy version
 <a name="ROSANodePoolManagementPolicy-version"></a>
 
-**Policy version:** v9 (default)
+**Policy version:** v10 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -144,6 +144,21 @@ The policy's default version is the version that defines the permissions for the
       }
     },
     {
+      "Sid" : "ModifyInstanceMetadataOptions",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:ModifyInstanceMetadataOptions"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*:*:instance/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/red-hat-managed" : "true"
+        }
+      }
+    },
+    {
       "Sid" : "CreateTags",
       "Effect" : "Allow",
       "Action" : [
@@ -204,6 +219,75 @@ The policy's default version is the version that defines the permissions for the
       "Condition" : {
         "StringEquals" : {
           "aws:RequestTag/red-hat-managed" : "true"
+        }
+      }
+    },
+    {
+      "Sid" : "DeleteTagsCAPAControllerReconcileNetworkInterface",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:DeleteTags"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*:*:network-interface/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/red-hat-managed" : "true"
+        },
+        "ForAllValues:StringNotEquals" : {
+          "aws:TagKeys" : [
+            "red-hat-managed"
+          ]
+        },
+        "Null" : {
+          "aws:TagKeys" : "false"
+        }
+      }
+    },
+    {
+      "Sid" : "DeleteTagsCAPAControllerReconcileInstance",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:DeleteTags"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*:*:instance/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/red-hat-managed" : "true"
+        },
+        "ForAllValues:StringNotEquals" : {
+          "aws:TagKeys" : [
+            "red-hat-managed"
+          ]
+        },
+        "Null" : {
+          "aws:TagKeys" : "false"
+        }
+      }
+    },
+    {
+      "Sid" : "DeleteTagsCAPAControllerReconcileVolume",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:DeleteTags"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*:*:volume/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/red-hat-managed" : "true"
+        },
+        "ForAllValues:StringNotEquals" : {
+          "aws:TagKeys" : [
+            "red-hat-managed"
+          ]
+        },
+        "Null" : {
+          "aws:TagKeys" : "false"
         }
       }
     },
