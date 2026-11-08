@@ -50,6 +50,10 @@ When configuring the VPC for your Amazon Comprehend jobs, use the following guid
 
 Your VPC subnets should have at least two private IP addresses for each instance in a job. For more information, see [VPC and Subnet Sizing for IPv4](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-sizing-ipv4) in the *Amazon VPC User Guide*. 
 
+**Use Subnets in Multiple Availability Zones**
+
+Specify subnets in at least two Availability Zones. Amazon Comprehend runs the job in one of the subnets that you provide. If all of your subnets are in one Availability Zone, Amazon Comprehend can't move the job to another zone when that zone is impaired. In that case, the job can fail.
+
 **Create an Amazon S3 VPC Endpoint **
 
 If you configure your VPC so that job containers don't have access to the internet, they can't connect to the Amazon S3 buckets that contain your data unless you create a VPC endpoint that allows access. By creating a VPC endpoint, you allow the job containers to access your data during training and analysis jobs. 
@@ -127,40 +131,45 @@ The following policy allows access to S3 buckets. Edit this policy to allow acce
 
 Use default DNS settings for your endpoint route table, so that standard Amazon S3 URLs (for example, `http://s3-aws-region.amazonaws.com/amzn-s3-demo-bucket`) resolve. If you don't use default DNS settings, ensure that the URLs that you use to specify the locations of the data in your jobs resolve by configuring the endpoint route tables. For information about VPC endpoint route tables, see [Routing for Gateway Endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-gateway.html#vpc-endpoints-routing) in the *Amazon VPC User Guide*. 
 
-The default endpoint policy allows users to install packages from the Amazon Linux and Amazon Linux 2 repositories on our jobs container. If you don't want users to install packages from that repository, create a custom endpoint policy that explicitly denies access to the Amazon Linux and Amazon Linux 2 repositories. Comprehend itself doesn't need any such packages, so there won't be any functionality impact. The following is an example of a policy that denies access to these repositories: 
+The default endpoint policy allows users to install packages from the Amazon Linux and Amazon Linux 2 repositories on our jobs container. If you don't want users to install packages from that repository, create a custom endpoint policy that explicitly denies access to the Amazon Linux and Amazon Linux 2 repositories. Comprehend itself doesn't need any such packages, so there won't be any functionality impact. The following are example policies that deny access to these repositories: 
 
 ```
-{ 
-    "Statement": [ 
-      { 
-        "Sid": "AmazonLinuxAMIRepositoryAccess",
-        "Principal": "*",
-        "Action": [ 
-            "s3:GetObject" 
-        ],
-        "Effect": "Deny",
-        "Resource": [
-            "arn:aws:s3:::packages.*.amazonaws.com/*",
-            "arn:aws:s3:::repo.*.amazonaws.com/*"
-        ] 
-      } 
-    ] 
-} 
-
-{ 
-    "Statement": [ 
-        { "Sid": "AmazonLinux2AMIRepositoryAccess",
-          "Principal": "*",
-          "Action": [ 
-              "s3:GetObject" 
+{
+      "Version": "2012-10-17",
+      "Statement": [
+          {
+              "Sid": "AmazonLinuxAMIRepositoryAccess",
+              "Principal": "*",
+              "Action": [
+                  "s3:GetObject"
               ],
-          "Effect": "Deny",
-          "Resource": [
-              "arn:aws:s3:::amazonlinux.*.amazonaws.com/*" 
-              ] 
-         } 
-    ] 
-}
+              "Effect": "Deny",
+              "Resource": [
+                  "arn:aws:s3:::packages.*.amazonaws.com/*",
+                  "arn:aws:s3:::repo.*.amazonaws.com/*"
+              ]
+          }
+      ]
+  }
+```
+
+```
+{
+      "Version": "2012-10-17",
+      "Statement": [
+          {
+              "Sid": "AmazonLinux2AMIRepositoryAccess",
+              "Principal": "*",
+              "Action": [
+                  "s3:GetObject"
+              ],
+              "Effect": "Deny",
+              "Resource": [
+                  "arn:aws:s3:::amazonlinux.*.amazonaws.com/*"
+              ]
+          }
+      ]
+  }
 ```
 
 **Permissions for the `DataAccessRole`**

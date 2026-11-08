@@ -104,11 +104,9 @@ The following `start-topics-detection-job` example starts an asynchronous topics
 ```
 aws comprehend start-topics-detection-job \
     --job-name {{example_topics_detection_job}} \
-    --language-code {{en}} \
     --input-data-config {{"S3Uri=s3://amzn-s3-demo-bucket1/"}} \
     --output-data-config {{"S3Uri=s3://amzn-s3-demo-bucket2/testfolder/"}} \
-    --data-access-role-arn {{arn:aws:iam::123456789012:role/service-role/AmazonComprehendServiceRole-example-role}} \
-    --language-code {{en}}
+    --data-access-role-arn {{arn:aws:iam::123456789012:role/service-role/AmazonComprehendServiceRole-example-role}}
 ```
 Output:  
 
