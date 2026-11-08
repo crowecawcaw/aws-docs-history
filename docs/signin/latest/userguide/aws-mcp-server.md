@@ -128,6 +128,37 @@ aws signin create-oauth2-token-with-iam \
     --region us-east-1
 ```
 
+### Token exchange authorization
+<a name="aws-mcp-server-token-exchange"></a>
+
+Token exchange authorization uses the OAuth 2.0 Token Exchange Grant (RFC 8693). It enables third-party applications to exchange an existing OpenID Connect (OIDC) identity token for a short-lived OAuth access token. This token is scoped to a supported AWS service and requires no AWS credentials.
+
+The general workflow is:
+
+1. The application obtains an OIDC token from its identity provider.
+
+1. The application submits the token to the AWS Sign-In token exchange endpoint.
+
+1. AWS validates the identity and IAM role permissions and issues a service-scoped OAuth access token.
+
+1. The application uses the access token to access the supported AWS service.
+
+The IAM role's permissions and applicable service-specific authorization controls continue to govern access.
+
+Required IAM permission:
++ `signin:CreateOAuth2Token`
+
+The following example shows how to exchange an OIDC token to obtain access:
+
+```
+aws signin create-oauth2-token-with-token-exchange \
+    --grant-type urn:ietf:params:oauth:grant-type:token-exchange \
+    --subject-token "$OIDC_TOKEN" \
+    --subject-token-type urn:ietf:params:oauth:token-type:jwt \
+    --resource aws-mcp.amazonaws.com \
+    --region us-east-1
+```
+
 ## OAuth resource types
 <a name="aws-mcp-server-resource-types"></a>
 
