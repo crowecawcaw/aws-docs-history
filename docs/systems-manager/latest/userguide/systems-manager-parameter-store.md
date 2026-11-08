@@ -34,12 +34,12 @@ If you manage credentials such as usernames, passwords, or any other secrets, we
 
 | Feature | Parameter Store | AWS AppConfig | AWS Secrets Manager | 
 | --- | --- | --- | --- | 
-| Use cases |  +  Static configuration <br />+  Key-value storage without deployment or validation   |  +  Frequently changed application configuration <br />+  Zero-downtime deployments <br />+  Runtime experiments   |  +  Credentials or any other secrets <br />+  Encrypted data requiring automatic rotation, cross-account access, or fine-grained audit logging   | 
+| Use cases |  +  Static configuration <br />+  Key-value storage without deployment, with optional validation by data type. For more information, see [Parameter data types in Parameter Store](parameter-store-data-types.md).   |  +  Frequently changed application configuration <br />+  Zero-downtime deployments <br />+  Runtime experiments   |  +  Credentials or any other secrets <br />+  Encrypted data requiring automatic rotation, cross-account access, or fine-grained audit logging   | 
 | Typical data |  +  Approved AMI IDs <br />+  Environment variables <br />+  Endpoint URLs <br />+  Resource identifiers <br />+  Tuning parameters   |  +  Feature flags <br />+  Operational toggles <br />+  Tunable parameters <br />+  Allow and deny lists   |  +  Database credentials <br />+  API keys <br />+  OAuth tokens <br />+  Private keys and certificates   | 
 | Encryption | Optional with `SecureString` and AWS KMS | AWS managed encryption at rest; optional additional customer managed key | AWS KMS encryption at rest with an AWS managed or customer managed key | 
 | Credential rotation | None | Not applicable | Automatic, with native database integrations | 
 | Cost | Standard tier free; advanced tier and higher throughput billed | Billed per configuration request | Billed per secret per month and per API call | 
-| Deployment | Versioning without pre-deployment validation or automatic rollback | Gradual rollout, pre-deployment validation, and automatic rollback on Amazon CloudWatch alarms | Versioning with staging labels | 
+| Deployment | Versioning and value validation by data type, without gradual rollout or automatic rollback | Gradual rollout, pre-deployment validation, and automatic rollback on Amazon CloudWatch alarms | Versioning with staging labels | 
 
 ## Parameter Store features
 <a name="parameter-store-features"></a>
@@ -49,7 +49,8 @@ Parameter Store supports the following features:
 
   Update your configuration without code changes or redeployments, improving operational agility and reducing risk. For example, you can update /myapp/prod/inventory-service-endpoint to point to a new endpoint after migrating the inventory service.
 **Note**  
-A parameter update takes effect on the next read, with no validation, gradual rollout, or automatic revert. For configuration where a bad value could cause an outage, AWS AppConfig adds a managed deployment workflow. It validates the change (using JSON Schema or Lambda), rolls it out gradually, and monitors your Amazon CloudWatch alarms. If an alarm is triggered, AWS AppConfig automatically rolls back the change (this requires the necessary IAM permissions). See [Working with deployment strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html).
+A parameter update takes effect on the next read. Parameter Store doesn't roll out the update gradually or revert it automatically, and it validates the new value only against the parameter's data type and any allowed pattern. For more information about data types, see [Parameter data types in Parameter Store](parameter-store-data-types.md).  
+For configuration where a bad value could cause an outage, AWS AppConfig adds a managed deployment workflow. It validates the change (using JSON Schema or Lambda), rolls it out gradually, and monitors your Amazon CloudWatch alarms. If an alarm goes into the `ALARM` state, AWS AppConfig automatically rolls back the change (this requires the necessary IAM permissions). See [Working with deployment strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html).
 + **High-performance throughput option**
 
   Parameter Store provides a default throughput suitable for lower-scale workloads. For large or latency-sensitive applications that need higher request rates, you can enable high-throughput mode for an additional cost.
@@ -102,6 +103,7 @@ The following table describes the differences between parameter tiers.
 | Maximum value size | 4 KB | 8 KB | 
 | Parameter policies | Not supported | Supported<br />For more information, see [Assigning parameter policies in Parameter Store](parameter-store-policies.md). | 
 | Shareability across AWS accounts | Not supported | Supported<br />For more information, see [Working with shared parameters in Parameter Store](parameter-store-shared-parameters.md). | 
+| Data types | All data types except `url`, `json`, and `jsonc` | All data types<br />For more information, see [Parameter data types in Parameter Store](parameter-store-data-types.md). | 
 | Upgrade and downgrade capability | Upgradeable | Not downgradeable | 
 | Cost | No additional charge | Charges apply<br />For more information, see [AWS Systems Manager Pricing for Parameter Store](https://aws.amazon.com/systems-manager/pricing/#Parameter_Store). | 
 

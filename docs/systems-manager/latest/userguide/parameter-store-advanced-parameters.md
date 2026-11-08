@@ -23,6 +23,7 @@ The following table describes the differences between parameter tiers.
 | Maximum value size | 4 KB | 8 KB | 
 | Parameter policies | Not supported | Supported<br />For more information, see [Assigning parameter policies in Parameter Store](parameter-store-policies.md). | 
 | Shareability across AWS accounts | Not supported | Supported<br />For more information, see [Working with shared parameters in Parameter Store](parameter-store-shared-parameters.md). | 
+| Data types | All data types except `url`, `json`, and `jsonc` | All data types<br />For more information, see [Parameter data types in Parameter Store](parameter-store-data-types.md). | 
 | Upgrade and downgrade capability | Upgradeable | Not downgradeable | 
 | Cost | No additional charge | Charges apply<br />For more information, see [AWS Systems Manager Pricing for Parameter Store](https://aws.amazon.com/systems-manager/pricing/#Parameter_Store). | 
 
@@ -38,6 +39,8 @@ Parameter Store supports the following related settings:
 + Tier for an individual parameter
 
   You can specify the tier when you create or update an individual parameter. You can change a standard parameter to an advanced parameter, but you can't change an advanced parameter to a standard parameter.
+
+  If you change the data type of an existing standard parameter to `url`, `json`, or `jsonc`, you must also change the parameter to the advanced tier, or the request fails. If you use Intelligent-Tiering, Parameter Store upgrades the parameter to the advanced tier automatically. On the console, you must choose **Switch to advanced**. For more information, see [Supported data types](parameter-store-data-types.md#parameter-store-data-types-table).
 
 The default parameter tier is separate from the tier of an individual parameter. Changing the default parameter tier affects only new parameters that you create without specifying a tier. Existing parameters aren't affected.
 

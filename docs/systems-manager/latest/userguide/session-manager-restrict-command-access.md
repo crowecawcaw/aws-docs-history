@@ -355,9 +355,14 @@ You can create IAM policies that allow users to access only the `Session` docume
          ]
       },
       {
-         "Effect": "Allow",
-         "Action": ["ssmmessages:OpenDataChannel"],
-         "Resource": ["arn:aws:ssm:*:*:session/${aws:userid}-*"]
+          "Effect": "Allow",
+          "Action": "ssmmessages:OpenDataChannel",
+          "Resource": "arn:aws:ssm:*:*:session/*",
+          "Condition": {
+              "StringEquals": {
+                  "ssm:resourceTag/aws:ssmmessages:session-id": "${aws:userid}"
+              }
+          }
       }
    ]
 }
@@ -379,9 +384,14 @@ You can create IAM policies that allow users to access only the `Session` docume
          ]
       },
       {
-         "Effect": "Allow",
-         "Action": ["ssmmessages:OpenDataChannel"],
-         "Resource": ["arn:aws:ssm:*:*:session/${aws:userid}-*"]
+          "Effect": "Allow",
+          "Action": "ssmmessages:OpenDataChannel",
+          "Resource": "arn:aws:ssm:*:*:session/*",
+          "Condition": {
+              "StringEquals": {
+                  "ssm:resourceTag/aws:ssmmessages:session-id": "${aws:userid}"
+              }
+          }
       }
    ]
 }
@@ -404,9 +414,14 @@ You can create IAM policies that allow users to access only the `Session` docume
          ]
       },
       {
-         "Effect": "Allow",
-         "Action": ["ssmmessages:OpenDataChannel"],
-         "Resource": ["arn:aws:ssm:*:*:session/${aws:userid}-*"]
+          "Effect": "Allow",
+          "Action": "ssmmessages:OpenDataChannel",
+          "Resource": "arn:aws:ssm:*:*:session/*",
+          "Condition": {
+              "StringEquals": {
+                  "ssm:resourceTag/aws:ssmmessages:session-id": "${aws:userid}"
+              }
+          }
       }
    ]
 }

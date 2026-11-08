@@ -12,13 +12,13 @@ If your AWS account has reached the maximum number of OpsItems allowed when you 
 + Total number of OpsItems per AWS account per Region (including `Open` and `Resolved` OpsItems): 500,000 
 + Maximum number of OpsItems per AWS account per month: 10,000
 
-These quotas apply to OpsItems created from any source except the following:
-+ OpsItems created by AWS Security Hub CSPM findings
-+ OpsItems that are auto-generated when an Incident Manager incident is opened
+These quotas apply to OpsItems created from any source, including OpsItems created by AWS Security Hub CSPM findings. If your account reaches either quota, you can't create new OpsItems from any source, including Security Hub CSPM findings, until your account is below the quota.
 
-OpsItems created from these sources don't count against your OpsItem quotas, but you are charged for each OpsItem.
+OpsItems that are auto-generated when an Incident Manager incident is opened don't count against your OpsItem quotas, but you are charged for each OpsItem.
 
-If you receive an `OpsItemLimitExceededException`, you can manually delete OpsItems until you are below the quota preventing you from creating a new OpsItem. Again, deleting OpsItems created for Security Hub CSPM findings or Incident Manager incidents won't reduce your total number of OpsItems enforced by the quotas. You must delete OpsItems from other sources. For information about how to delete an OpsItem, see [Delete OpsItems](OpsCenter-delete-OpsItems.md).
+If you receive an `OpsItemLimitExceededException`, you can manually delete OpsItems until you are below the quota preventing you from creating a new OpsItem. Deleting OpsItems created for Incident Manager incidents won't reduce your total number of OpsItems enforced by the quotas. You must delete OpsItems from other sources. For information about how to delete an OpsItem, see [Delete OpsItems](OpsCenter-delete-OpsItems.md).
+
+If you need higher quotas, you can request an increase for the **Total OpsItems** and **OpsItems per month** quotas in the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/ssm/quotas). For more information, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) in the *Service Quotas User Guide*.
 
 ## You receive a large bill from AWS for large numbers of auto-generated OpsItems
 <a name="OpsCenter-troubleshooting-auto-generated-OpsItems"></a>
@@ -28,9 +28,9 @@ If you configured integration with AWS Security Hub CSPM, OpsCenter creates OpsI
 
   If you are logged into a member account when you configure integration, the system only creates OpsItems for findings in that individual account. For more information about the Security Hub CSPM administrator account, member accounts, and their relation to the EventBridge event feed for findings, see [Types of Security Hub CSPM integration with EventBridge](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-cwe-integration-types.html) in the *AWS Security Hub User Guide*.
 + For each finding that creates an OpsItem, you are charged the regular price for creating the OpsItem. You are also charged if you edit the OpsItem or if the corresponding finding is updated in Security Hub CSPM (which triggers an OpsItem update).
-+ OpsItems that are created by an integration with AWS Security Hub CSPM are *not* currently limited by the maximum quota of 500,000 OpsItems per account in a Region. It is therefore possible for Security Hub CSPM alerts to create more than 500,000 chargeable OpsItems in each Region in an account.
++ OpsItems that are created by an integration with AWS Security Hub CSPM count toward the OpsItem quotas of 500,000 total OpsItems and 10,000 OpsItems per month for each account in a Region. If your account reaches either quota, you can't create new OpsItems from any source, including Security Hub CSPM findings, until your account is below the quota. For more information, see [You receive the OpsItemLimitExceededException](#OpsCenter-troubleshooting-OpsItemLimitExceededException).
 
-  For high-production environments, we therefore recommend limiting the scope of Security Hub CSPM findings to high severity issues only.
+  For high-production environments, we recommend limiting the scope of Security Hub CSPM findings to high severity issues only.
 
 **Important**  
 If you believe a large number of OpsItems were created in error and your AWS bill is unwarranted, contact Support.

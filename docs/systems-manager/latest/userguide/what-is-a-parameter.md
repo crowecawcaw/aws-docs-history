@@ -14,7 +14,7 @@ Parameters can't be referenced or nested in the values of other parameters. You 
 
 Parameter Store provides support for three types of parameters: `String`, `StringList`, and `SecureString`. 
 
-With one exception, when you create or update a parameter, you enter the parameter value as plaintext, and Parameter Store performs no validation on the text you enter. For `String` parameters, however, you can specify the data type as `aws:ec2:image`, and Parameter Store validates that the value you enter is the proper format for an Amazon EC2 AMI; for example: `ami-12345abcdeEXAMPLE`.
+By default, when you create or update a parameter, Parameter Store performs no validation on the value you enter. However, you can specify a *data type* to enable value validation. For example, set the data type to `aws:ec2:image` to validate that the value is a valid AMI ID, or `integer` to validate that the value is an integer. For the full list of supported data types, see [Parameter data types in Parameter Store](parameter-store-data-types.md).
 
 ## Parameter type: String
 <a name="parameter-type-string"></a>
@@ -105,7 +105,7 @@ The requirements and constraints for parameter names include the following:
 + **Valid characters**: Parameter names can consist of the following symbols and letters only: `a-zA-Z0-9_.-`
 
   In addition, the slash character ( / ) is used to delineate hierarchies in parameter names. For example: `/Dev/Production/East/Project-ABC/MyParameter`
-+ **Valid AMI format**: When you choose `aws:ec2:image` as the data type for a `String` parameter, the ID you enter must validate for the AMI ID format `ami-12345abcdeEXAMPLE`.
++ **Data type validation**: When you specify a data type other than `text`, the parameter value must conform to the rules for that data type. For example, a parameter with data type `aws:ec2:image` must be a valid AMI ID such as `ami-12345abcdeEXAMPLE`. For more information, see [Parameter data types in Parameter Store](parameter-store-data-types.md).
 + **Fully qualified**: When you create or reference a parameter in a hierarchy, include a leading forward slash character (/) . When you reference a parameter that is part of a hierarchy, specify the entire hierarchy path including the initial slash (/).
   + Fully qualified parameter names: `MyParameter1`, `/MyParameter2`, `/Dev/Production/East/Project-ABC/MyParameter`
   + Not fully qualified parameter name: `MyParameter3/L1`

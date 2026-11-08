@@ -20,7 +20,7 @@ aws ssm register-task-with-maintenance-window \
     --task-arn {{AWS-RestartEC2Instance}} \
     --service-role-arn {{arn:aws:iam::123456789012:role/SSM}} \
     --task-type {{AUTOMATION}} \
-    --task-invocation-parameters "{\"Automation\":{\"DocumentVersion\":\"\$LATEST\",\"Parameters\":{\"InstanceId\":[\"{{RESOURCE_ID}}\"]}}}" \
+    --task-invocation-parameters '{{{"Automation":{"DocumentVersion":"$LATEST","Parameters":{"InstanceId":["{{RESOURCE_ID}}"]}}}}}' \
     --priority {{0}} \
     --max-concurrency {{1}} \
     --max-errors {{1}} \
@@ -121,7 +121,7 @@ aws ssm register-task-with-maintenance-window \
     --targets {{"Key=WindowTargetIds,Values=a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"}} \
     --task-arn {{"AWS-RunShellScript"}} \
     --service-role-arn {{"arn:aws:iam::123456789012:role/MaintenanceWindowsRole"}} \
-    --window-id {{"mw-ab12cd34eEXAMPLE"}} \
+    --window-id {{"mw-ab12cd34efEXAMPLE"}} \
     --task-type {{"RUN_COMMAND"}} \
     --task-parameters  "{\"commands\":{\"Values\":[\"df\"]}}" \
     --max-concurrency {{1}} \

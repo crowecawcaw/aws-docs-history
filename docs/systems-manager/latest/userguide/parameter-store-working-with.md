@@ -19,5 +19,6 @@ Parameter Store centralizes configuration data such as environment variables, se
 + [Working with parameter versions in Parameter Store](sysman-paramstore-versions.md)
 + [Working with shared parameters in Parameter Store](parameter-store-shared-parameters.md)
 + [Working with parameters in Parameter Store using Run Command commands](sysman-param-runcommand.md)
++ [Parameter data types in Parameter Store](parameter-store-data-types.md)
 + [Using native parameter support in Parameter Store for Amazon Machine Image IDs](parameter-store-ec2-aliases.md)
 + [Deleting parameters from Parameter Store](deleting-parameters.md)

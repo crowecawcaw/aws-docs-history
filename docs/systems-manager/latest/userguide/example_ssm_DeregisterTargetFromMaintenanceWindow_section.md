@@ -14,14 +14,14 @@ The following `deregister-target-from-maintenance-window` example removes the sp
 
 ```
 aws ssm deregister-target-from-maintenance-window \
-    --window-id {{"mw-ab12cd34ef56gh78"}} \
+    --window-id {{"mw-ab12cd34efEXAMPLE"}} \
     --window-target-id {{"1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d-1a2"}}
 ```
 Output:  
 
 ```
 {
-    "WindowId":"mw-ab12cd34ef56gh78",
+    "WindowId":"mw-ab12cd34efEXAMPLE",
     "WindowTargetId":"1a2b3c4d-1a2b-1a2b-1a2b-1a2b3c4d-1a2"
 }
 ```

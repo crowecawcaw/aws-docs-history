@@ -35,7 +35,7 @@ Parameters are only available in the AWS Region where they were created.
 
    Run the following command to create a parameter that contains an Amazon Machine Image (AMI) ID as the parameter value.
 **Note**  
-To create a parameter with a tag, create the service.model.tag before hand as a variable. Here is an example.  
+To create a parameter with a tag, first create an `Amazon.SimpleSystemsManagement.Model.Tag` object as a variable. The following is an example.  
 
    ```
    $tag = New-Object Amazon.SimpleSystemsManagement.Model.Tag
@@ -52,7 +52,7 @@ To create a parameter with a tag, create the service.model.tag before hand as a 
        -Tags $tag
    ```
 
-   The `-DataType` option must be specified only if you are creating a parameter that contains an AMI ID. For all other parameters, the default data type is `text`. For more information, see [Using native parameter support in Parameter Store for Amazon Machine Image IDs](parameter-store-ec2-aliases.md).
+   The `-DataType` parameter specifies how Parameter Store validates the parameter value. For example, use `aws:ec2:image` to validate an AMI ID or `integer` to validate an integer value. If you don't specify a data type, the default is `text`, which performs no validation. For the full list of supported data types, see [Parameter data types in Parameter Store](parameter-store-data-types.md). For more information about the `aws:ec2:image` data type, see [Using native parameter support in Parameter Store for Amazon Machine Image IDs](parameter-store-ec2-aliases.md).
 
    Here is an example that uses a parameter hierarchy.
 
@@ -79,7 +79,7 @@ To create a parameter with a tag, create the service.model.tag before hand as a 
 
 1. Run the following command to create a StringList parameter. Replace each {{example resource placeholder}} with your own information.
 **Note**  
-To create a parameter with a tag, create the service.model.tag before hand as a variable. Here is an example.   
+To create a parameter with a tag, first create an `Amazon.SimpleSystemsManagement.Model.Tag` object as a variable. The following is an example.  
 
    ```
    $tag = New-Object Amazon.SimpleSystemsManagement.Model.Tag
@@ -131,7 +131,7 @@ Parameter Store only supports [symmetric encryption KMS keys](https://docs.aws.a
 
 1. Run the following command to create a parameter. Replace each {{example resource placeholder}} with your own information.
 **Note**  
-To create a parameter with a tag, first create the service.model.tag as a variable. Here is an example.   
+To create a parameter with a tag, first create an `Amazon.SimpleSystemsManagement.Model.Tag` object as a variable. The following is an example.  
 
    ```
    $tag = New-Object Amazon.SimpleSystemsManagement.Model.Tag

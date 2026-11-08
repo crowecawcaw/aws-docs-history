@@ -14,8 +14,8 @@ The following `register-target-with-maintenance-window` example registers an ins
 
 ```
 aws ssm register-target-with-maintenance-window \
-    --window-id {{"mw-ab12cd34ef56gh78"}} \
-    --target {{"Key=InstanceIds,Values=i-0000293ffd8c57862"}} \
+    --window-id {{"mw-ab12cd34efEXAMPLE"}} \
+    --targets {{"Key=InstanceIds,Values=i-0000293ffd8c57862"}} \
     --owner-information {{"Single instance"}} \
     --resource-type {{"INSTANCE"}}
 ```
@@ -31,8 +31,8 @@ The following `register-target-with-maintenance-window` example registers two in
 
 ```
 aws ssm register-target-with-maintenance-window \
-    --window-id {{"mw-ab12cd34ef56gh78"}} \
-    --target {{"Key=InstanceIds,Values=i-0000293ffd8c57862,i-0cb2b964d3e14fd9f"}} \
+    --window-id {{"mw-ab12cd34efEXAMPLE"}} \
+    --targets {{"Key=InstanceIds,Values=i-0000293ffd8c57862,i-0cb2b964d3e14fd9f"}} \
     --owner-information {{"Two instances in a list"}} \
     --resource-type {{"INSTANCE"}}
 ```
@@ -67,7 +67,7 @@ The following `register-target-with-maintenance-window` example register instanc
 aws ssm register-target-with-maintenance-window \
     --window-id {{"mw-0c50858d01EXAMPLE"}} \
     --resource-type {{"INSTANCE"}} \
-    --target {{"Key=tag-key,Values=Name,Instance-Type,CostCenter"}}
+    --targets {{"Key=tag-key,Values=Name,Instance-Type,CostCenter"}}
 ```
 Output:  
 
@@ -83,7 +83,7 @@ The following `register-target-with-maintenance-window` example register a speci
 aws ssm register-target-with-maintenance-window \
     --window-id {{"mw-0c50858d01EXAMPLE"}} \
     --resource-type {{"RESOURCE_GROUP"}} \
-    --target {{"Key=resource-groups:Name,Values=MyResourceGroup"}}
+    --targets {{"Key=resource-groups:Name,Values=MyResourceGroup"}}
 ```
 Output:  
 

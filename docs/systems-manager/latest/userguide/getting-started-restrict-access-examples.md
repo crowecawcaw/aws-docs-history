@@ -77,25 +77,19 @@ For federated users, see [Example 4: Allow a user to end only sessions they star
             ]
         },
         {
-         "Effect": "Allow",
-         "Action": ["ssmmessages:OpenDataChannel"],
-         "Resource": ["arn:aws:ssm:*:*:session/${aws:userid}-*"]
-       },
-        {
             "Effect": "Allow",
             "Action": [
                 "ssm:TerminateSession",
-                "ssm:ResumeSession"
+                "ssm:ResumeSession",
+                "ssmmessages:OpenDataChannel"
             ],
-            "Resource": [
-                "arn:aws:ssm:*:*:session/${aws:userid}-*"
-            ]
-        },
-        {
-         "Effect": "Allow",
-         "Action": ["ssmmessages:OpenDataChannel"],
-         "Resource": ["arn:aws:ssm:*:*:session/${aws:userid}-*"]
-       }
+            "Resource": "arn:aws:ssm:*:*:session/*",
+            "Condition": {
+                "StringEquals": {
+                    "ssm:resourceTag/aws:ssmmessages:session-id": "${aws:userid}"
+                }
+            }
+        }
     ]
 }
 ```
@@ -133,19 +127,18 @@ You can restrict access to managed nodes based on specific tags. In the followin
             }
         },
         {
-         "Effect": "Allow",
-         "Action": ["ssmmessages:OpenDataChannel"],
-         "Resource": ["arn:aws:ssm:*:*:session/${aws:userid}-*"]
-       },
-        {
             "Effect": "Allow",
             "Action": [
                 "ssm:TerminateSession",
-                "ssm:ResumeSession"
+                "ssm:ResumeSession",
+                "ssmmessages:OpenDataChannel"
             ],
-            "Resource": [
-                "arn:aws:ssm:*:*:session/${aws:userid}-*"
-            ]
+            "Resource": "arn:aws:ssm:*:*:session/*",
+            "Condition": {
+                "StringEquals": {
+                    "ssm:resourceTag/aws:ssmmessages:session-id": "${aws:userid}"
+                }
+            }
         },
         {
             "Effect": "Allow",
@@ -171,31 +164,38 @@ You can create IAM policies that allow a user to start sessions to managed nodes
 
 ```
 {
-   "Version":"2012-10-17",		 	 	 
-   "Statement":[
-      {
-         "Effect":"Allow",
-         "Action":[
-            "ssm:StartSession"
-         ],
-         "Resource":"*",
-         "Condition":{
-            "StringLike":{
-               "ssm:resourceTag/tag-key1":[
-                  "tag-value1"
-               ],
-               "ssm:resourceTag/tag-key2":[
-                  "tag-value2"
-               ]
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:StartSession"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "ssm:resourceTag/tag-key1": [
+                        "tag-value1"
+                    ],
+                    "ssm:resourceTag/tag-key2": [
+                        "tag-value2"
+                    ]
+                }
             }
-         }
-      },
-      {
-         "Effect": "Allow",
-         "Action": ["ssmmessages:OpenDataChannel"],
-         "Resource": ["arn:aws:ssm:*:*:session/${aws:userid}-*"]
-       },
-      {
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssmmessages:OpenDataChannel"
+            ],
+            "Resource": "arn:aws:ssm:*:*:session/*",
+            "Condition": {
+                "StringEquals": {
+                    "ssm:resourceTag/aws:ssmmessages:session-id": "${aws:userid}"
+                }
+            }
+        },
+        {
             "Effect": "Allow",
             "Action": [
                 "ssm:StartSession"
@@ -203,8 +203,8 @@ You can create IAM policies that allow a user to start sessions to managed nodes
             "Resource": [
                 "arn:aws:ssm:{{us-east-1}}:{{111122223333}}:document/SSM-SessionManagerRunShell"
             ]
-      }
-   ]
+        }
+    ]
 }
 ```
 
@@ -237,22 +237,20 @@ This method doesn't work for accounts that grant access to AWS using federated I
     "Version":"2012-10-17",		 	 	 
     "Statement": [
         {
+            "Effect": "Allow",
             "Action": [
                 "ssm:DescribeSessions"
             ],
-            "Effect": "Allow",
-            "Resource": [
-                "*"
-            ]
+            "Resource": "*"
         },
         {
-            "Action": [
-                "ssm:TerminateSession"
-            ],
             "Effect": "Allow",
-            "Resource": [
-                "arn:aws:ssm:*:*:session/${aws:username}-*"
-            ]
+            "Action": [
+                "ssm:TerminateSession",
+                "ssm:ResumeSession",
+                "ssmmessages:OpenDataChannel"
+            ],
+            "Resource": "arn:aws:ssm:*:*:session/${aws:username}-*"
         }
     ]
 }
@@ -276,23 +274,25 @@ With this tag key, you include the managed node ID as the value in policy. In th
 
 ```
 {
-     "Version":"2012-10-17",		 	 	 
-     "Statement": [
-         {
-             "Effect": "Allow",
-             "Action": [
-                "ssm:TerminateSession"
-             ],
-             "Resource": "*",
-             "Condition": {
-                 "StringLike": {
-                     "ssm:resourceTag/aws:ssmmessages:target-id": [
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:TerminateSession",
+                "ssm:ResumeSession",
+                "ssmmessages:OpenDataChannel"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "ssm:resourceTag/aws:ssmmessages:target-id": [
                         "{{i-02573cafcfEXAMPLE}}"
-                     ]
-                 }
-             }
-         }
-     ]
+                    ]
+                }
+            }
+        }
+    ]
 }
 ```
 If the user tries to end a session for which they haven’t been granted this `TerminateSession` permission, they receive an `AccessDeniedException` error.
@@ -304,23 +304,23 @@ The following example demonstrates a policy for cases where the caller type is `
 
 ```
 {
-     "Version":"2012-10-17",		 	 	 
-     "Statement": [
-         {
-             "Effect": "Allow",
-             "Action": [
-                "ssm:TerminateSession"
-             ],
-             "Resource": "*",
-             "Condition": {
-                 "StringLike": {
-                     "ssm:resourceTag/aws:ssmmessages:session-id": [
-                        "AIDIODR4TAW7CSEXAMPLE"
-                     ]
-                 }
-             }
-         }
-     ]
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:TerminateSession",
+                "ssm:ResumeSession",
+                "ssmmessages:OpenDataChannel"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "ssm:resourceTag/aws:ssmmessages:session-id": "AIDAJQABLZS4A3QDU576Q"
+                }
+            }
+        }
+    ]
 }
 ```
 The following example demonstrates a policy for cases where the caller type is `AssumedRole`. You can use the `{aws:userid}` variable for the value you supply for `aws:ssmmessages:session-id`. Alternatively, you can hardcode a role ID for the value you supply for `aws:ssmmessages:session-id`. If you hardcode a role ID, you must provide the value in the format `{{role-id}}:{{caller-specified-role-name}}`. For example, `AIDIODR4TAW7CSEXAMPLE:MyRole`.  
@@ -330,23 +330,23 @@ To retrieve the role ID for a role in your AWS account, use the `get-caller-iden
 
 ```
 {
-     "Version":"2012-10-17",		 	 	 
-     "Statement": [
-         {
-             "Effect": "Allow",
-             "Action": [
-                "ssm:TerminateSession"
-             ],
-             "Resource": "*",
-             "Condition": {
-                 "StringLike": {
-                     "ssm:resourceTag/aws:ssmmessages:session-id": [
-                        "${aws:userid}*"
-                     ]
-                 }
-             }
-         }
-     ]
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:TerminateSession",
+                "ssm:ResumeSession",
+                "ssmmessages:OpenDataChannel"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "ssm:resourceTag/aws:ssmmessages:session-id": "${aws:userid}"
+                }
+            }
+        }
+    ]
 }
 ```
 If a user tries to end a session for which they haven’t been granted this `TerminateSession` permission, they receive an `AccessDeniedException` error.
@@ -357,26 +357,28 @@ You can also create IAM policies that allow a user to end sessions that are tagg
 
 ```
 {
-   "Version":"2012-10-17",		 	 	 
-   "Statement":[
-      {
-         "Effect":"Allow",
-         "Action":[
-            "ssm:TerminateSession"
-         ],
-         "Resource":"*",
-         "Condition":{
-            "StringLike":{
-               "ssm:resourceTag/aws:ssmmessages:target-id":[
-                  "{{i-02573cafcfEXAMPLE}}"
-               ],
-               "ssm:resourceTag/aws:ssmmessages:session-id":[
-                  "${aws:userid}*"
-               ]
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:TerminateSession",
+                "ssm:ResumeSession",
+                "ssmmessages:OpenDataChannel"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "ssm:resourceTag/aws:ssmmessages:target-id": [
+                        "{{i-02573cafcfEXAMPLE}}"
+                    ]
+                },
+                "StringEquals": {
+                    "ssm:resourceTag/aws:ssmmessages:session-id": "${aws:userid}"
+                }
             }
-         }
-      }
-   ]
+        }
+    ]
 }
 ```
 
@@ -408,10 +410,12 @@ The following IAM policy allows a user to fully interact with all managed nodes 
             ]
         },
         {
-         "Effect": "Allow",
-         "Action": ["ssmmessages:OpenDataChannel"],
-         "Resource": ["arn:aws:ssm:*:*:session/${aws:userid}-*"]
-       }
+            "Effect": "Allow",
+            "Action": [
+                "ssmmessages:OpenDataChannel"
+            ],
+            "Resource": "*"
+        }
     ]
 }
 ```

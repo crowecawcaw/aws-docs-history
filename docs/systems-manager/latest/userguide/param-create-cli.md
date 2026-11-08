@@ -81,7 +81,7 @@ Parameters are only available in the AWS Region where they were created.
 
    The `--name` option supports hierarchies. For information about hierarchies, see [Working with parameter hierarchies in Parameter Store](sysman-paramstore-hierarchies.md).
 
-   The `--data-type` option must be specified only if you are creating a parameter that contains an AMI ID. It validates that the parameter value you enter is a properly formatted Amazon Elastic Compute Cloud (Amazon EC2) AMI ID. For all other parameters, the default data type is `text` and it's optional to specify a value. For more information, see [Using native parameter support in Parameter Store for Amazon Machine Image IDs](parameter-store-ec2-aliases.md).
+   The `--data-type` option specifies how Parameter Store validates the parameter value. For example, use `aws:ec2:image` to validate an AMI ID or `integer` to validate an integer value. If you don't specify a data type, the default is `text`, which performs no validation. For the full list of supported data types, see [Parameter data types in Parameter Store](parameter-store-data-types.md).
 **Important**  
 If successful, the command returns the version number of the parameter. **Exception**: If you have specified `aws:ec2:image` as the data type, a new version number in the response doesn't mean that the parameter value has been validated yet. For more information, see [Using native parameter support in Parameter Store for Amazon Machine Image IDs](parameter-store-ec2-aliases.md).
 
