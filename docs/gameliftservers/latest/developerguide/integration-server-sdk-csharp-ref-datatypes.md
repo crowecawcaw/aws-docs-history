@@ -67,7 +67,7 @@ Player session status to filter results on. Possible player session statuses inc
 + RESERVED – The player session request has been received, but the player has not yet connected to the server process and/or been validated.
 + ACTIVE – The player has been validated by the server process and is currently connected.
 + COMPLETED – The player connection has been dropped.
-+ TIMEDOUT – A player session request was received, but the player did not connect and/or was not validated within the time-out limit (60 seconds).
++ TIMEDOUT – A player session request was received, but the player did not connect and/or was not validated within the player session timeout. The timeout defaults to 60 seconds and is adjustable for each account in each Region. For more information, see [Amazon GameLift Servers service quotas](https://docs.aws.amazon.com/general/latest/gr/gamelift.html#limits_gamelift).
 Type: String  
 Required: No
 

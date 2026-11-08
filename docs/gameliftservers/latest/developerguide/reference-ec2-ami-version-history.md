@@ -12,12 +12,12 @@ Amazon GameLift Servers uses the following AMIs to host game servers that are in
 
 | Amazon GameLift Servers image | Architecture | Most recent patch | Base AWS image | 
 | --- | --- | --- | --- | 
-| Amazon Linux 2023<br />BASE\_AMI\_LINUX\_2023 | x86 | 2026-07-22 | Amazon Linux 2023 AMI 2023.12.20260720.0 x86\_64 HVM kernel-6.1 ([release notes](https://docs.aws.amazon.com/linux/al2023/release-notes/relnotes-2023.12.20260720.html)) | 
-| Amazon Linux 2<br />BASE\_AMI\_LINUX\_2\_SDK\_5 | x86 | 2026-07-22 | Amazon Linux 2 Kernel 5.10 AMI 2.0.20260720.0 x86\_64 HVM gp2 ([release notes](https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-20260720.html)) | 
-| Windows 2016<br />BASE\_AMI\_WINDOWS\_2016\_SDK\_5 | x86 | 2026-07-22 | Windows\_Server-2016-English-Full-Base-2026.07.15 ([release notes](https://docs.aws.amazon.com/ec2/latest/windows-ami-reference/ec2-windows-ami-version-history.html#amis-2026)) | 
-| Amazon Linux 2023<br />BASE\_AMI\_LINUX\_2023\_ARM | ARM64 | 2026-07-22 | Amazon Linux 2023 AMI 2023.12.20260720.0 arm64 HVM kernel-6.1 ([release notes](https://docs.aws.amazon.com/linux/al2023/release-notes/relnotes-2023.12.20260720.html)) | 
-| Amazon Linux 2<br />BASE\_AMI\_LINUX\_2\_ARM | ARM64 | 2026-07-22 | Amazon Linux 2 LTS Arm64 Kernel 5.10 AMI 2.0.20260720.0 arm64 HVM gp2 ([release notes](https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-20260720.html)) | 
-| Windows 2022<br />BASE\_AMI\_WINDOWS\_2022 | x86 | 2026-07-22 | Windows\_Server-2022-English-Full-Base-2026.07.15 ([release notes](https://docs.aws.amazon.com/ec2/latest/windows-ami-reference/ec2-windows-ami-version-history.html#amis-2026)) | 
+| Amazon Linux 2023<br />BASE\_AMI\_LINUX\_2023 | x86 | 2026-11-02 | Amazon Linux 2023 AMI 2023.12.20261102.0 x86\_64 HVM kernel-6.1 ([release notes](https://docs.aws.amazon.com/linux/al2023/release-notes/relnotes-2023.12.20261102.html)) | 
+| Amazon Linux 2<br />BASE\_AMI\_LINUX\_2\_SDK\_5 | x86 | 2026-11-02 | Amazon Linux 2 Kernel 5.10 AMI 2.0.20261102.0 x86\_64 HVM gp2 ([release notes](https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-20261102.html)) | 
+| Windows 2016<br />BASE\_AMI\_WINDOWS\_2016\_SDK\_5 | x86 | 2026-10-28 | Windows\_Server-2016-English-Full-Base-2026.10.14 ([release notes](https://docs.aws.amazon.com/ec2/latest/windows-ami-reference/ec2-windows-ami-version-history.html#amis-2026)) | 
+| Amazon Linux 2023<br />BASE\_AMI\_LINUX\_2023\_ARM | ARM64 | 2026-11-02 | Amazon Linux 2023 AMI 2023.12.20261102.0 arm64 HVM kernel-6.1 ([release notes](https://docs.aws.amazon.com/linux/al2023/release-notes/relnotes-2023.12.20261102.html)) | 
+| Amazon Linux 2<br />BASE\_AMI\_LINUX\_2\_ARM | ARM64 | 2026-11-02 | Amazon Linux 2 LTS Arm64 Kernel 5.10 AMI 2.0.20261102.0 arm64 HVM gp2 ([release notes](https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-20261102.html)) | 
+| Windows 2022<br />BASE\_AMI\_WINDOWS\_2022 | x86 | 2026-10-28 | Windows\_Server-2022-English-Full-Base-2026.10.14 ([release notes](https://docs.aws.amazon.com/ec2/latest/windows-ami-reference/ec2-windows-ami-version-history.html#amis-2026)) | 
 
 **AMIs for use with server SDK for Amazon GameLift Servers 4**
 
@@ -26,9 +26,9 @@ Amazon GameLift Servers uses the following AMIs to host game servers that are in
 
 | Amazon GameLift Servers image | Architecture | Most recent patch | Base AWS image | 
 | --- | --- | --- | --- | 
-| Amazon Linux 2<br />BASE\_AMI\_LINUX\_2\_SDK\_4 | x86 | 2026-06-11 | Amazon Linux 2 AMI 2.0.20260608.0 x86\_64 HVM gp2 ([release notes](https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-20260608.html)) | 
-| Amazon Linux 2023<br />BASE\_AMI\_LINUX\_2023\_SDK\_4<br />*Available in the China (Beijing) and China (Ningxia) Regions only.* | x86 | 2026-06-11 | Amazon Linux 2023 AMI 2023.12.20260608.0 x86\_64 HVM kernel-6.1 ([release notes](https://docs.aws.amazon.com/linux/al2023/release-notes/relnotes-2023.12.20260608.html)) | 
-| Windows 2016<br />BASE\_AMI\_WINDOWS\_2016\_SDK\_4 | x86 | 2026-07-22 | Windows\_Server-2016-English-Full-Base-2026.07.15 ([release notes](https://docs.aws.amazon.com/ec2/latest/windows-ami-reference/ec2-windows-ami-version-history.html#amis-2026)) | 
+| Amazon Linux 2<br />BASE\_AMI\_LINUX\_2\_SDK\_4 | x86 | 2026-11-02 | Amazon Linux 2 AMI 2.0.20261102.0 x86\_64 HVM gp2 ([release notes](https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-20261102.html)) | 
+| Amazon Linux 2023<br />BASE\_AMI\_LINUX\_2023\_SDK\_4<br />*Available in the China (Beijing) and China (Ningxia) Regions only.* | x86 | 2026-11-02 | Amazon Linux 2023 AMI 2023.12.20261102.0 x86\_64 HVM kernel-6.1 ([release notes](https://docs.aws.amazon.com/linux/al2023/release-notes/relnotes-2023.12.20261102.html)) | 
+| Windows 2016<br />BASE\_AMI\_WINDOWS\_2016\_SDK\_4 | x86 | 2026-10-28 | Windows\_Server-2016-English-Full-Base-2026.10.14 ([release notes](https://docs.aws.amazon.com/ec2/latest/windows-ami-reference/ec2-windows-ami-version-history.html#amis-2026)) | 
 
 For more information, see the following resources: 
 + [ Amazon Linux 2023 release notes](https://docs.aws.amazon.com/linux/al2023/release-notes/relnotes.html)

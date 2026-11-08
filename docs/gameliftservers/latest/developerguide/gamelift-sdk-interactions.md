@@ -93,7 +93,7 @@ A game can optionally use player sessions to track player connections to game se
 
    1. If the connection is accepted, then Amazon GameLift Servers sets the `PlayerSession` status to `ACTIVE` and passes the `PlayerSession` to the game server process.
 
-   1. If the game server process doesn't call `AcceptPlayerSession()` for the player session ID within a certain time period after the original `CreatePlayerSession()` request, the Amazon GameLift Servers service changes the `PlayerSession` status to `TIMEDOUT` and reopens the player slot in the game session.
+   1. If the game server process doesn't call `AcceptPlayerSession()` for the player session ID within the player session timeout after the original `CreatePlayerSession()` request, the Amazon GameLift Servers service changes the `PlayerSession` status to `TIMEDOUT` and reopens the player slot in the game session. The timeout defaults to 60 seconds and is adjustable for each account in each Region. For more information, see [Amazon GameLift Servers service quotas](https://docs.aws.amazon.com/general/latest/gr/gamelift.html#limits_gamelift). The server SDK doesn't notify the game server when a player session times out. To check player session status, call `DescribePlayerSessions()`.
 
 ### Removing a player
 <a name="gamelift-sdk-interactions-remove-player"></a>
