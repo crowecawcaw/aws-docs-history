@@ -37,7 +37,7 @@ The following controls are enabled by the carrier gateway for internet flows by 
   UDP traffic from a device on the carrier network is allowed to route to an Amazon EC2 instance in a Wavelength Zone.
 + ICMP is allowed
 
-In addition, inbound routing from the carrier network is optimized for devices in the location of the Wavelength Zone. For example, a Wavelength Zone in the San Francisco Bay area allows low latency access only from devices that are in that metro area and carrier network.
+In addition, inbound routing from the carrier network is optimized for devices in the location of the Wavelength Zone. For example, a Wavelength Zone allows low-latency access only from devices that are in the same metro area and carrier network.
 
 ## Amazon EC2 considerations
 <a name="ec2-considerations"></a>

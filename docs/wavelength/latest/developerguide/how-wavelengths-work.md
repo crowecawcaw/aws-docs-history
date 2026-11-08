@@ -50,7 +50,7 @@ Carrier gateways are only available for VPCs that contain subnets in a Wavelengt
 
 A *Carrier IP address* is the address that you assign to a network interface, which resides in a subnet in a Wavelength Zone (for example an EC2 instance). The carrier gateway uses the address for traffic from the interface to the internet or to mobile devices. The carrier gateway uses NAT to translate the address, and then sends the traffic to the destination. Traffic from the telecommunication carrier network routes through the carrier gateway.
 
-You allocate a Carrier IP address from a network border group, which is a unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses, for example, `us-east-1-wl1-bos-wlz-1`.
+You allocate a Carrier IP address from a network border group, which is a unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses.
 
 ## Routing
 <a name="wavelength-routing-overview"></a>

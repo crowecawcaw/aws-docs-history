@@ -13,4 +13,3 @@ The following CSP partners that offer AWS Wavelength Zones have expanded the ava
 | Communication service provider | Ingress from outside the carrier network | Ingress from 4G/5G-connected device | Ingress from Fixed Wireless Access | 
 | --- | --- | --- | --- | 
 | Orange | Yes | Yes | Yes | 
-| Verizon | No | Yes | Yes | 

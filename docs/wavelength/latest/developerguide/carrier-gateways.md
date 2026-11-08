@@ -151,7 +151,7 @@ If you used the Amazon EC2 console to launch the instance, or you did not use th
 1. Use the [allocate-address](https://docs.aws.amazon.com/cli/latest/reference/ec2/allocate-address.html) command as follows.
 
    ```
-   aws ec2 allocate-address --region us-east-1 --domain vpc --network-border-group us-east-1-wl1-bos-wlz-1
+   aws ec2 allocate-address --region us-east-1 --domain vpc --network-border-group {{network-border-group}}
    ```
 
    The following is example output:
@@ -160,7 +160,7 @@ If you used the Amazon EC2 console to launch the instance, or you did not use th
    {
        "AllocationId": "eipalloc-05807b62acEXAMPLE",
        "PublicIpv4Pool": "amazon",
-       "NetworkBorderGroup": "us-east-1-wl1-bos-wlz-1",
+       "NetworkBorderGroup": "{{network-border-group}}",
        "Domain": "vpc",
        "CarrierIp": "155.146.10.111"
    

@@ -33,10 +33,7 @@ Application Load Balancer (ALB) is supported in select Wavelength Zones. Load ba
 + Cross-Zone load balancing across multiple Wavelength Zones is not supported.
 
 ALB is available in the following Wavelength Zones:
-+ All Wavelength Zones in the `us-east-1` Region.
-+ All Wavelength Zones in `us-west-2` Region.
 + All Wavelength Zones in the `ap-northeast-1` Region.
-+ All Wavelength Zones in the `eu-central-1` Region.
 
 ## High availability
 <a name="architecture-high-availability"></a>
@@ -48,7 +45,7 @@ Follow these strategies to deploy highly available architectures at the edge.
 
 Consider the following:
 + **Multiple Wavelength Zones within a given VPC**: using techniques highlighted in the [Discover the closest Wavelength Zone endpoint](#discover-nearest-wavelength-zone) section, you can steer traffic to the optimal Wavelength Zone based on latency or application health.
-+ **Combine Wavelength Zones with other AWS hybrid and edge locations**: you can combine AWS Local Zones subnets with AWS Wavelength Zones subnets to create highly-available deployments within a given geography. For example, you can create an Atlanta AWS Local Zone subnet (`us-east-1-atl-2a`) alongside an Atlanta Wavelength Zone subnet (`us-east-1-wl1-atl-wlz-1`) within the same VPC.
++ **Combine Wavelength Zones with other AWS hybrid and edge locations**: you can combine AWS Local Zones subnets with AWS Wavelength Zones subnets to create highly-available deployments within a given geography. For example, you can combine an AWS Local Zone subnet alongside a Wavelength Zone subnet within the same VPC.
 
 ### DNS resolution
 <a name="w2aac15c19b7"></a>

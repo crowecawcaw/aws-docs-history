@@ -178,7 +178,7 @@ You can launch EC2 instances in the subnet that you created when you added the c
 1. Use the [allocate-address](https://docs.aws.amazon.com/cli/latest/reference/ec2/allocate-address.html) command as follows to allocate a Carrier IP address.
 
    ```
-   aws ec2 allocate-address --region {{us-east-1}} --domain vpc --network-border-group {{us-east-1-wl1-bos-wlz-1}}
+   aws ec2 allocate-address --region {{us-east-1}} --domain vpc --network-border-group {{network-border-group}}
    ```
 
    The following is example output.
@@ -187,7 +187,7 @@ You can launch EC2 instances in the subnet that you created when you added the c
    {
        "AllocationId": "eipalloc-05807b62acEXAMPLE",
        "PublicIpv4Pool": "amazon",
-       "NetworkBorderGroup": "us-east-1-wl1-bos-wlz-1",
+       "NetworkBorderGroup": "{{network-border-group}}",
        "Domain": "vpc",
        "CarrierIp": "155.146.10.111"
    
