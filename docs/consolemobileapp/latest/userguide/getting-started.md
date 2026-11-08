@@ -178,13 +178,13 @@ On your home screen, under **Recently Visited**, you can view a swipeable list o
 
 If you want to receive push notifications about AWS services and resources of interest on your mobile device, enable push notifications. For more information, see [Push notifications](managing-notifications.md).
 
-## (Optional) Step 5: Access Amazon Q
-<a name="optional-step-5-access-amazon-q"></a>
+## (Optional) Step 5: Access the AWS assistant
+<a name="optional-step-5-access-the-aws-assistant"></a>
 
-If you want to receive in-app answers to your AWS service questions, access Amazon Q. You can access the generative Artificial Intelligence (AI) from the Amazon Q tab at the bottom of your screen if you have the necessary permissions. For more information, see [What is Amazon Q Developer?](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/what-is.html) and [AmazonQFullAccess](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/managed-policy.html#amazonq-policy-fullaccess) in the the *Amazon Q User Guide*.
+If you want to receive in-app answers to your AWS service questions, access the AWS assistant. If you have the necessary permissions, choose the **AWS assistant** button in the upper-right corner of your screen. For more information about the AWS assistant, see [What is the AWS assistant?](https://docs.aws.amazon.com/assistant/latest/userguide/what-is.html) in the *AWS assistant User Guide*. For the required permissions, see [AmazonQFullAccess](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/managed-policy.html#amazonq-policy-fullaccess) in the *Amazon Q Developer User Guide*.
 
 **Note**  
-For Apple users, Amazon Q is supported on iOS 16 and higher.
+For Apple users, the AWS assistant is supported on iOS 16 and higher.
 
 ## Step 6: View information about other AWS services
 <a name="step-6-view-information-about-other-aws-services"></a>
