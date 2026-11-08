@@ -5,7 +5,9 @@
 
 AWS Service Catalog enables you to launch a product in one or more accounts and AWS Regions. To do this, administrators must apply a stack set constraint to the product with the accounts and Regions, where it can launch as a stack set. For more information, see [AWS Service Catalog Stack Set Constraints](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/constraints-stackset.html) in the *AWS Service Catalog Administrator Guide*.
 
-When you launch a product as a stack set, AWS Service Catalog by default, selects all of the accounts and Regions where that product can launch. You can remove accounts and Regions as needed. You can select the order of the Regions where you want to deploy the product while products deploy across accounts. Products deploy across accounts simultaneously.
+When you launch a product as a stack set, AWS Service Catalog shows the accounts and Regions that your administrator allows for that product. By default, all of them are selected. Clear the accounts and Regions that you don't want to deploy to. You can select the order of the Regions where you want to deploy the product. Products deploy across accounts simultaneously.
+
+If your administrator has limited the product to your own account, the account list contains only your account, and it is already selected. The product deploys only into your account.
 
 **(Optional) Setting maximum concurrent options and failure tolerance** 
 
