@@ -46,7 +46,7 @@ Alternatively, you can use the native storage tools to calculate the IOPS requir
  AWS has multiple options for database storage, based on your throughput and IOPS requirements.
 
  **Two options for general purpose SSD**:
-+  `gp3` volumes deliver a consistent baseline rate of 3,000 IOPS and 125 MiB/s, included with the price of storage. You can provision additional IOPS (up to 16,000) and throughput (up to 1,000 MiB/s) for an additional cost.
++  `gp3` volumes deliver a consistent baseline rate of 3,000 IOPS and 125 MiB/s, included with the price of storage. You can provision additional IOPS (up to 80,000) and throughput (up to 2,000 MiB/s) for an additional cost.
 +  `gp2` volumes deliver performance linked to the size of the volume. We recommend new customers to use `gp3` volumes. Existing `gp2` users can migrate to `gp3` easily with [Amazon EBS Elastic Volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modify-volume.html). It enables modification of volume types, IOPS or throughput of your existing Amazon EBS volumes without interrupting the Amazon EC2 instances.
 
  **Three options for provisioned IOPS SSD**:
