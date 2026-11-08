@@ -92,7 +92,7 @@ name,inspection_result,inspection_closed_business,violation_type,violation_point
    if __name__ == "__main__":
        parser = argparse.ArgumentParser()
        parser.add_argument(
-           '--data_source', help="The URI for you CSV restaurant data, like an S3 bucket location.")
+           '--data_source', help="The URI for your CSV restaurant data, like an S3 bucket location.")
        parser.add_argument(
            '--output_uri', help="The URI where output is saved, like an S3 bucket location.")
        args = parser.parse_args()

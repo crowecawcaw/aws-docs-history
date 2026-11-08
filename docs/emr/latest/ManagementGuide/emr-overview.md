@@ -77,11 +77,11 @@ The following diagram represents the step sequence and change of state for the s
 ![Sequence diagram for Amazon EMR showing the different cluster step states.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/step-sequence.png)
 
 
-If a step fails during processing, its state changes to **FAILED**. You can determine what happens next for each step. By default, any remaining steps in the sequence are set to **CANCELLED** and do not run if a preceeding step fails. You can also choose to ignore the failure and allow remaining steps to proceed, or to terminate the cluster immediately.
+If a step fails during processing, its state changes to **FAILED**. You can determine what happens next for each step. By default, any remaining steps in the sequence are set to **CANCELLED** and do not run if a preceding step fails. You can also choose to ignore the failure and allow remaining steps to proceed, or to terminate the cluster immediately.
 
 The following diagram represents the step sequence and default change of state when a step fails during processing. 
 
-![Sequence diagram for Amazon EMR showing what happens to subsequent steps when a preceeding cluster step fails.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/step-sequence-failed.png)
+![Sequence diagram for Amazon EMR showing what happens to subsequent steps when a preceding cluster step fails.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/step-sequence-failed.png)
 
 
 ## Understanding the cluster lifecycle

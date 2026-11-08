@@ -45,4 +45,4 @@ This table lists updates to the Amazon EMR managed scaling capability.
 | February 28, 2023 | Added AWS KMS customer-managed key support for application log storage for EMR Serverless applications. | 
 | February 23, 2023 | Added one-click IAM role creation for EMR Serverless job submission. Added ECR lookup for when you select a custom image for EMR Serverless applications. | 
 | January 27, 2023 | Headless execution notebooks can track the progress of each cell execution with `%execute_notebook` magic. | 
-| January 23, 2023 | Persistent application have been optimized for faster launch times. | 
+| January 23, 2023 | Persistent applications have been optimized for faster launch times. | 

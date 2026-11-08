@@ -74,7 +74,7 @@ Amazon EMR leverages other AWS services, such as IAM and Amazon VPC, and feature
 ### IAM
 <a name="emr-benefits-iam"></a>
 
-Amazon EMR integrates with IAM to manage permissions. You define permissions using IAM policies, which you attach to a users or IAM groups. The permissions that you define in the policy determine the actions that those users or members of the group can perform and the resources that they can access. For more information, see [How Amazon EMR works with IAM](security_iam_service-with-iam.md).
+Amazon EMR integrates with IAM to manage permissions. You define permissions using IAM policies, which you attach to a user or IAM groups. The permissions that you define in the policy determine the actions that those users or members of the group can perform and the resources that they can access. For more information, see [How Amazon EMR works with IAM](security_iam_service-with-iam.md).
 
 Additionally, Amazon EMR uses IAM roles for the Amazon EMR service itself and the EC2 instance profile for the instances. These roles grant permissions for the service and instances to access other AWS services on your behalf. There is a default role for the Amazon EMR service and a default role for the EC2 instance profile. The default roles use AWS managed policies, which are created for you automatically the first time you launch an EMR cluster from the console and choose default permissions. You can also create the default IAM roles from the AWS CLI. If you want to manage the permissions instead of AWS, you can choose custom roles for the service and instance profile. For more information, see [Configure IAM service roles for Amazon EMR permissions to AWS services and resources](emr-iam-roles.md).
 
