@@ -79,7 +79,7 @@ Amazon Lex V2 supports the following languages and locales.
 | zh\_HK | Cantonese (Hong Kong) | 
 | zu\_ZA\* | Zulu (South Africa) | 
 
-Locales marked with an asterisk (\*) have limited feature support via generative AI and third-party Automatic Speech Recognition (ASR) or Text-To-Speech (TTS). See the following table for a complete list of supported features.
+Locales marked with an asterisk (\*) have limited feature support through generative AI, agentic voice, or third-party Automatic Speech Recognition (ASR) or Text-To-Speech (TTS). See the following table for a complete list of supported features.
 
 Generative AI feature support includes [Assisted NLU](https://docs.aws.amazon.com/lexv2/latest/dg/assisted-nlu.html) in Primary Mode, [Assisted Slot Resolution](https://docs.aws.amazon.com/lexv2/latest/dg/assisted-slot.html), and [Intent Disambiguation](https://docs.aws.amazon.com/lexv2/latest/dg/generative-intent-disambiguation.html).
 
@@ -95,14 +95,13 @@ The following table lists Amazon Lex V2 features that are limited to certain lan
 | [AMAZON.KendraSearchIntent](built-in-intent-kendra-search.md) | English (US) (en\_US) | 
 | [Improving speech recognition with a custom vocabulary](vocab.md) | English (UK) (en\_GB)<br />English (US) (en\_US) | 
 | [Automated Chatbot Designer](https://docs.aws.amazon.com/lexv2/latest/dg/designing.html) | English (US) (en\_US) | 
-| Region availability | The following languages and locales are not available in the Asia Pacific (Singapore) (ap-southeast-1) and Africa (Cape Town) (ap-south-1) Regions:+  Gulf Arabic (United Arab Emirates) (ar\_AE) <br />+  Catalan (Spain) (ca\_ES) <br />+  Finnish (Finland) (fi\_FI) <br />+  Hindi (India) (hi\_IN) <br />+  Dutch (The Netherlands) (nl\_NL) <br />+  Norwegian (Norway) (no\_NO) <br />+  Polish (pl\_PL) <br />+  Portuguese (Brazil) (pt\_BR) <br />+  Portuguese (Portugal) (pt\_PT) <br />+  Swedish (sv\_SE) <br />+  Mandarin (PRC) (zh\_CN) <br />+  Cantonese (Hong Kong) (zh\_HK)  | 
+| Region availability | The following languages and locales are not available in the Asia Pacific (Singapore) (ap-southeast-1) and Africa (Cape Town) (af-south-1) Regions:+  Gulf Arabic (United Arab Emirates) (ar\_AE) <br />+  Catalan (Spain) (ca\_ES) <br />+  Finnish (Finland) (fi\_FI) <br />+  Hindi (India) (hi\_IN) <br />+  Dutch (The Netherlands) (nl\_NL) <br />+  Norwegian (Norway) (no\_NO) <br />+  Polish (pl\_PL) <br />+  Portuguese (Brazil) (pt\_BR) <br />+  Portuguese (Portugal) (pt\_PT) <br />+  Swedish (sv\_SE) <br />+  Mandarin (PRC) (zh\_CN) <br />+  Cantonese (Hong Kong) (zh\_HK)  | 
 | [Setting intent context for your Lex V2 bot](context-mgmt-active-context.md) | English (US) (en\_US) | 
 | [Grammar slot type](building-srgs.md) | English (Australia) (en\_AU)<br />English (UK) (en\_GB)<br />English (US) (en\_US) | 
 | [Using multiple values in a slot](multi-valued-slots.md) | English (US) (en\_US) | 
 | [Improving recognition of slot values with runtime hints in the conversation](using-hints.md) | English (UK) (en\_GB)<br />English (US) (en\_US) | 
 | [Capturing slot values with spelling styles during the conversation](spelling-styles.md) | English (Australia) (en\_AU)<br />English (UK) (en\_GB)<br />English (US) (en\_US) | 
 | [Using confidence scores to improve conversation accuracy](confidence-scores.md) | English (UK) (en\_GB)<br />English (US) (en\_US) | 
-| Only with Third-party ASR (Deepgram) | Dutch (Belgium) (nl\_BE)<br />French (Belgium) (fr\_BE) | 
 | Only with Third-party TTS (ElevenLabs) | Afrikaans (South Africa) (af\_ZA)<br />Bulgarian (Bulgaria) (bg\_BG)<br />Croatian (Croatia) (hr\_HR)<br />English (Scotland) (en\_AB)<br />Estonian (Estonia) (et\_ET)<br />Farsi (Iran) (fa\_IR)<br />Hebrew (Israel) (he\_IL)<br />Hungarian (Hungary) (hu\_HU)<br />Indonesian (Indonesia) (id\_ID)<br />Latvian (Latvia) (lv\_LV)<br />Lithuanian (Lithuania) (lt\_LT)<br />Malay (Malaysia) (ms\_MY)<br />Serbian (Serbia) (sr\_RS)<br />Slovak (Slovakia) (sk\_SK)<br />Slovenian (Slovenia) (sl\_SI) | 
 
 ## Regions

@@ -15,7 +15,7 @@ Amazon Lex V2 automatically selects the appropriate Deepgram API endpoint based 
 + **EU regions:** For bots deployed in AWS regions with the `eu-` prefix (such as `eu-west-1`, `eu-west-2`, and `eu-central-1`), Amazon Lex V2 uses the Deepgram EU endpoint (`api.eu.deepgram.com`).
 + **All other regions:** For bots deployed in all other AWS regions, Amazon Lex V2 uses the global Deepgram endpoint (`api.deepgram.com`).
 
-This endpoint selection is automatic and currently cannot be customized. The same Deepgram API key works with both endpoints. Amazon Lex V2 does not support the `apiTokenRegion` parameter that Amazon Connect provides for custom endpoint configuration. For more information about Amazon Connect's endpoint configuration options, see [Endpoints and Regions for third-party STT providers](https://docs.aws.amazon.com/connect/latest/adminguide/endpoints-regions-third-party-stt.html) in the Amazon Connect Administrator Guide.
+This endpoint selection is automatic and currently cannot be customized. The same Deepgram API key works with both endpoints. Amazon Lex V2 does not support the `apiTokenRegion` parameter that Connect Customer provides for custom endpoint configuration. For more information about Connect Customer's endpoint configuration options, see [Endpoints and Regions for third-party STT providers](https://docs.aws.amazon.com/connect/latest/adminguide/endpoints-regions-third-party-stt.html) in the *Connect Customer Administrator Guide*.
 
 ## Creating a Deepgram API key
 <a name="deepgram-api-key-setup"></a>

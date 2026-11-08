@@ -35,6 +35,8 @@ Amazon Lex V2 monitors diarization throughout each conversation. If diarization 
 
 ## What speaker diarization does not do
 <a name="speaker-diarization-limitations"></a>
+
+Speaker diarization has the following limitations:
 + It does not identify who a speaker is. There is no enrollment, no speaker names, and no association with user accounts. The bot distinguishes only between the primary speaker and other speakers.
 + It does not separate the audio into per-speaker channels, and it does not return speaker labels in the transcript. The only effect is which audio Amazon Lex V2 treats as caller speech.
 + It does not remove overlapping background speech from audio captured while the primary speaker is talking. Speech that overlaps the primary speaker's turn is still transcribed. Diarization ends the capture as soon as the primary speaker stops.
@@ -130,6 +132,8 @@ Turned off for bots that have never configured the setting.
 
 ## Best practices for speaker diarization
 <a name="speaker-diarization-best-practices"></a>
+
+Consider the following best practices when you use speaker diarization:
 + **Enable it where the caller's environment is noisy** - The benefit comes from interference by other speakers, such as callers at home with a television on, callers on speakerphone, open offices, and conference rooms. In quiet one-on-one calls, the feature is designed to have no noticeable effect.
 + **Expect the loudest voice to be treated as the caller** - The primary speaker is chosen by loudness. Two people might share a call, such as a caller and a family member, or a caller and an interpreter. In this case, Amazon Lex V2 treats the quieter person as background until that person becomes the louder speaker for a sustained period. Leave speaker diarization turned off for conversation flows that depend on two people speaking in turn.
 + **Turn off barge-in on a long opening prompt** - Speaker diarization cannot help before the caller has spoken. If your bot opens with a lengthy prompt and your callers are often in constant background conversation, set the `x-amz-lex:allow-interrupt:*:*` session attribute to `false` for that prompt. The prompt then plays through, and speaker diarization takes over once the caller has spoken. For more information, see [How interrupt behavior works in a Lex V2 bot](session-attribs-speech.md#allow-interrupt).

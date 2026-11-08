@@ -16,6 +16,9 @@ The standard speech recognition model provides reliable speech recognition perfo
 Neural model  
 The neural speech recognition model provides enhanced accuracy and better handling of natural speech patterns, accents, and background noise. This model uses advanced neural network architectures to improve recognition performance, especially in challenging audio environments.
 
+Advanced model  
+The advanced speech recognition model is a streaming recognizer designed for natural, low-latency turn taking in real-time conversations. This model is available through the Connect Customer agentic voice feature and must be enabled for your account and locale.
+
 Deepgram  
 Deepgram provides a public speech-to-text (STT) API for users that create an account and an API key. See [https://deepgram.com/](https://deepgram.com/) for information about their public offerings.
 
@@ -33,6 +36,7 @@ To configure speech model preferences:
 1. For **Speech model preference**, choose one of the following options:
    + **Standard** - Use the standard speech recognition model for reliable performance across general use cases.
    + **Neural** - Use the neural speech recognition model for enhanced accuracy and better handling of natural speech patterns.
+   + **Advanced** - Use the advanced speech recognition model with Connect Customer agentic voice. For setup instructions, see [Agentic voice configuration guide](https://docs.aws.amazon.com/connect/latest/adminguide/agentic-voice-configuration-guide.html) in the *Connect Customer Administrator Guide*.
    + **Deepgram** - Use Deepgram's Listen API for speech recognition. For setup instructions, see [Setting up Deepgram speech model preference](customizing-speech-deepgram-setup.md).
 
 1. Save your changes to apply the speech model preference to your bot locale.
@@ -48,4 +52,4 @@ Consider the following factors when choosing a speech recognition model for your
 + **Speaker diversity** - If your bot will interact with users who have diverse accents or speech patterns, the neural model's enhanced natural language processing capabilities may improve recognition performance.
 + **Performance requirements** - The standard model provides consistent performance and may be sufficient for applications with controlled audio environments and clear speech input.
 
-You can test both models with your specific use case to determine which provides the best balance of accuracy and performance for your application.
+You can test these models with your specific use case to determine which provides the best balance of accuracy and performance for your application.

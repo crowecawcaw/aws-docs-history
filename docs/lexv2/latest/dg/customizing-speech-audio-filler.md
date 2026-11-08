@@ -5,9 +5,6 @@
 
 Audio filler plays brief background audio, such as a light melody or soft keystrokes, during the pause between the end of a user's utterance and the start of the bot's response. This masks processing delays and keeps voice conversations feeling natural.
 
-**Note**  
-At launch, audio filler is available for bot locales that support speech-to-speech interactions and have `unifiedSpeechSettings` configured. Support for additional conversation modes will roll out over the next several months.
-
 ## Available audio filler types
 <a name="audio-filler-types"></a>
 

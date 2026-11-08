@@ -91,5 +91,5 @@ Recommendations are automatically deleted after 15 days.
 
 ------
 + [Best practices for creating Amazon Lex interaction models](https://aws.amazon.com/blogs/machine-learning/best-practices-for-creating-amazon-lex-interaction-models/)
-+ [Improve intent classification and slot resolution in Lex V2 with assisted NLU](assisted-nlu.md)
++ [Improve intent classification and slot resolution in Lex V2 with Assisted NLU](assisted-nlu.md)
 + [Using assisted slot resolution to clarify slot values in Amazon Lex V2](assisted-slot.md)

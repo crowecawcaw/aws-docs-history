@@ -52,7 +52,7 @@ Turn on the generative AI capabilities for your bot locale. To do so, follow the
 + [Use utterance generation to generate sample utterances for intent recognition](utterance-generation.md)
 + [Using assisted slot resolution to clarify slot values in Amazon Lex V2](assisted-slot.md)
 + [Using BedrockAgentIntent to use a Amazon Bedrock Agent in Amazon Lex V2](bedrock-agent-intent.md)
-+ [Improve intent classification and slot resolution in Lex V2 with assisted NLU](assisted-nlu.md)
++ [Improve intent classification and slot resolution in Lex V2 with Assisted NLU](assisted-nlu.md)
 + [Resolve ambiguous user inputs with Intent Disambiguation](generative-intent-disambiguation.md)
 + [Optimize Bot using AI-powered Bot Analyzer](bot-analyzer.md)
 + [AMAZON.QnAIntent](generative-qna.md)
