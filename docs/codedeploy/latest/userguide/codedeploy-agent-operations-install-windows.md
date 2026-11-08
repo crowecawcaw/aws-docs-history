@@ -10,7 +10,16 @@ On Windows Server instances, you can use one of these methods to download and in
 + Run an Amazon S3 copy command.
 
 **Note**  
-The folder that the CodeDeploy agent is installed to is `C:\ProgramData\Amazon\CodeDeploy`. Do not place directory junctions or symlinks on this path. For version 2.0.x and later, the agent enforces this requirement and refuses to start if the service binary is not under `C:\ProgramData\Amazon\CodeDeploy\`.
+The folder that the CodeDeploy agent is installed to is `C:\ProgramData\Amazon\CodeDeploy`. Do not place directory junctions or symlinks on this path. For version 2.0.x and later, the agent enforces this requirement and refuses to start if the service binary is not under `C:\ProgramData\Amazon\CodeDeploy\`.  
+For version 2.1.3 and later, only the Administrators group and the SYSTEM account can modify this folder and its contents. Standard users can read the folders that the agent creates for deployments, such as `deployment-logs`, but can't modify them.
+
+**Note**  
+The agent installer (`codedeploy-agent.msi`) and the agent binaries it installs (`codedeploy-agent.exe` and `codedeploy-local.exe`) are Authenticode-signed by Amazon. To check a signature, run:  
+
+```
+Get-AuthenticodeSignature -FilePath .\codedeploy-agent.msi
+```
+The `Status` must be `Valid`.
 
 **Topics**
 + [Use Systems Manager](#codedeploy-agent-operations-install-system-manager)

@@ -56,6 +56,7 @@ To use the AWS CLI to change deployment group settings, call the [update-deploym
 + For EC2/On-Premises deployments only:
   + (Optional) Replacement tags or tag groups that uniquely identify the instances to be included in the deployment group.
   + (Optional) The names of replacement Amazon EC2 Auto Scaling groups to be added to the deployment group.
+  + (Optional) For in-place deployments, the Amazon EC2 Auto Scaling processes for CodeDeploy to suspend during each deployment. For more information, see [Suspending Amazon EC2 Auto Scaling processes during deployments](integrations-aws-auto-scaling-suspend-processes.md).
 + For Amazon ECS deployments only:
   +  The Amazon ECS service to deploy. 
   +  Load balancer information, including the Application Load Balancer or Network Load Balancer, the target groups required for an Amazon ECS deployment, and production and optional test listener information. 

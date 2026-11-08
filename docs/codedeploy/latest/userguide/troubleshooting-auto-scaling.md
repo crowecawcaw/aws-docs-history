@@ -68,6 +68,7 @@ If an EC2 instance is launched through Amazon EC2 Auto Scaling, and the instance
 
 To address this issue:
 + In general, make sure that all deployments are complete before the instance is terminated or rebooted. Make sure that all deployments start after the instance has started or been rebooted. 
++ For in-place deployments, you can have CodeDeploy suspend the `Terminate` process so that scale-in events don't terminate instances while the deployment runs. For more information, see [Suspending Amazon EC2 Auto Scaling processes during deployments](integrations-aws-auto-scaling-suspend-processes.md).
 + Deployments can fail if you specify a Windows Server base Amazon Machine Image (AMI) for an Amazon EC2 Auto Scaling configuration and use the EC2Config service to set the computer name of the instance. To fix this issue, in the Windows Server base AMI, on the **General** tab of **EC2 Service Properties**, clear **Set Computer Name**. After you clear this check box, this behavior is disabled for all new Windows Server Amazon EC2 Auto Scaling instances launched with that Windows Server base AMI. For Windows Server Amazon EC2 Auto Scaling instances on which this behavior enabled, you do not need to clear this check box. Simply redeploy failed deployments to those instances after they have been rebooted.
 
 ## Avoid associating multiple deployment groups with a single Amazon EC2 Auto Scaling group
