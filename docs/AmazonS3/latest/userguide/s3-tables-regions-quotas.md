@@ -8,6 +8,7 @@ The following sections include the supported AWS Regions and service quotas for 
 **Topics**
 + [S3 Tables AWS Regions and endpoints](#s3-tables-regions)
 + [S3 Tables quotas](#s3-tables-quotas)
++ [S3 Tables table migration quotas](#s3-tables-migration-quotas)
 
 ## S3 Tables AWS Regions and endpoints
 <a name="s3-tables-regions"></a>
@@ -31,3 +32,18 @@ Quotas, also referred to as limits, are the maximum number of service resources 
 | Table Buckets | 100 | To request a quota increase, contact [Support](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase). | The number of Amazon S3 table buckets that you can create per AWS Region in an account. | 
 | Namespaces | 10,000 | To request a quota increase, contact [Support](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase). | The number of Amazon S3 table namespaces that you can create per table bucket. | 
 | Tables | 10,000 | To request a quota increase, contact [Support](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase). | The number of Amazon S3 tables that you can create per table bucket. | 
+
+## S3 Tables table migration quotas
+<a name="s3-tables-migration-quotas"></a>
+
+The following are the quotas for S3 Tables table migration.
+
+
+| Name | Default | Adjustable | Description | 
+| --- | --- | --- | --- | 
+| Source objects per migration | 1,000,000,000 | No | The maximum number of objects in the source table that can be migrated in a single migration. | 
+| Column type nesting depth | 20 | No | The maximum nesting depth of column types, like a map of lists in the source table schema. Columns nested deeper than this limit are reported as unsupported in the table compatibility report. | 
+| Partitions per source table | 100,000 | No | The maximum number of partitions in the source table that can be migrated. | 
+| Source object size | 10 GiB | No | The maximum size of a single source object that can be migrated. | 
+| Concurrent migrations per account | 10 | No | The number of concurrent migrations allowed per account. | 
+| Concurrent migrations per destination table | 1 | No | The number of concurrent migrations allowed per destination table at any time. | 

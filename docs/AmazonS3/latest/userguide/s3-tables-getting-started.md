@@ -6,7 +6,8 @@
 In this tutorial, you create a table bucket and integrate table buckets in your Region with AWS analytics services. Next, you will use the AWS CLI or console to create your first namespace and table in your table bucket. Then, you can begin querying your table with Athena.
 
 **Tip**  
-If you're migrating tabular data from general purpose buckets to table buckets, the AWS Solutions Library has a guided solution to assist you. This solution automates moving Apache Iceberg and Apache Hive tables that are registered in AWS Glue Data Catalog and stored in general purpose buckets to table buckets by using AWS Step Functions and Amazon EMR with Apache Spark. For more information, see [Guidance for Migrating Tabular Data from Amazon S3 to S3 Tables](https://aws.amazon.com/solutions/guidance/migrating-tabular-data-from-amazon-s3-to-s3-tables/) in the AWS Solutions Library.
+If you're migrating tabular data from general purpose buckets to table buckets, Amazon S3 has a managed migration feature to assist you. This feature migrates AWS Glue-registered Apache Hive tables in Amazon S3 to Apache Iceberg tables in S3 Tables. For more information, see [Migrating tables to S3 Tables](s3-tables-migrate.md).  
+For information about migrating AWS Glue-registered Apache Iceberg tables, see [Guidance for Migrating Tabular Data from Amazon S3 to S3 Tables](https://aws.amazon.com/solutions/guidance/migrating-tabular-data-from-amazon-s3-to-s3-tables/) in the AWS Solutions Library.
 
 **Topics**
 + [Step 1: Create a table bucket and integrate it with AWS analytics services](#s1-tables-tutorial-create-bucket)
