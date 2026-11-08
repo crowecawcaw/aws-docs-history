@@ -30,8 +30,8 @@ This is the administrative execution policy for using IAM roles with Amazon Sage
 + Amazon ECR permissions are required to run SageMaker training jobs.
 + Amazon ECR Public permissions are required to get an authorization token to pull public container images.
 + Amazon MWAA permissions are required to manage and schedule workflows.
-+ Amazon Bedrock AgentCore permissions are required to build and run agents with Agent Builder in Amazon SageMaker Unified Studio, including creating the AgentCore service-linked roles and passing roles to AgentCore and the agent registry.
-+ AWS X-Ray permissions are required to send trace data and get sampling rules for agents built with Agent Builder.
++ Amazon Bedrock AgentCore permissions are required to build and run agents in Amazon SageMaker Unified Studio, including creating the AgentCore service-linked roles and passing roles to AgentCore and the agent registry.
++ AWS X-Ray permissions are required to send trace data and get sampling rules for agents.
 + AWS Resource Groups Tagging API permissions are required to look up resources by tag.
 + AWS KMS permissions are required to support customer managed key. Resources provisioned by Amazon SageMaker Unified Studio can be encrypted with your customer managed key.
 + AWS IAM Identity Center permissions are required to look up the users and groups that Amazon S3 Access Grants are issued to.

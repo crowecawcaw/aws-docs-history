@@ -17,7 +17,7 @@ Additional access is provided for the following services:
 + Amazon ECR permissions are required to run SageMaker training jobs.
 + Amazon ECR Public permissions are required to get an authorization token to pull public container images.
 + Amazon MWAA permissions are required to manage and schedule workflows.
-+ IAM permissions are required to create the Amazon Bedrock AgentCore service-linked roles and pass roles to AgentCore and the agent registry for Agent Builder in Amazon SageMaker Unified Studio.
++ IAM permissions are required to create the Amazon Bedrock AgentCore service-linked roles and pass roles to AgentCore and the agent registry in Amazon SageMaker Unified Studio.
 + AWS Resource Groups Tagging API permissions are required to look up resources by tag.
 + AWS KMS permissions are required to support customer managed key. Resources provisioned by Amazon SageMaker Unified Studio can be encrypted with your customer managed key.
 + AWS IAM Identity Center permissions are required to look up the users and groups that Amazon S3 Access Grants are issued to.
