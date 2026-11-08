@@ -12,22 +12,22 @@ Additionally, AWS supports managed policies for job functions that span multiple
 ## AWS managed policy: AWSTransferConsoleFullAccess
 <a name="security-iam-awsmanpol-transferconsolefullaccess"></a>
 
-The `AWSTransferConsoleFullAccess` policy provides full access to Transfer Family through the AWS Management Console. For more information, see [Service-linked role for AWS Transfer Family](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSTransferConsoleFullAccess.html).
+The `AWSTransferConsoleFullAccess` policy provides full access to Transfer Family through the AWS Management Console. For more information, see [AWSTransferConsoleFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSTransferConsoleFullAccess.html).
 
 ## AWS managed policy: AWSTransferFullAccess
 <a name="security-iam-awsmanpol-transferfullaccess"></a>
 
- The `AWSTransferFullAccess` policy provides full access to Transfer Family services. For more information, see [Service-linked role for AWS Transfer Family](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSTransferFullAccess.html).
+ The `AWSTransferFullAccess` policy provides full access to Transfer Family services. For more information, see [AWSTransferFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSTransferFullAccess.html).
 
 ## AWS managed policy: AWSTransferLoggingAccess
 <a name="security-iam-awsmanpol-transferloggingaccess"></a>
 
- The `AWSTransferLoggingAccess` policy grants AWS Transfer Family full access to create log streams and groups and put log events to your account. For more information, see [Service-linked role for AWS Transfer Family](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSTransferLoggingAccess.html).
+ The `AWSTransferLoggingAccess` policy grants AWS Transfer Family full access to create log streams and groups and put log events to your account. For more information, see [AWSTransferLoggingAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSTransferLoggingAccess.html).
 
 ## AWS managed policy: AWSTransferReadOnlyAccess
 <a name="security-iam-awsmanpol-transferreadonlyaccess"></a>
 
- The `AWSTransferReadOnlyAccess` policy provides read-only access to Transfer Family services. For more information, see [Service-linked role for AWS Transfer Family](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSTransferReadOnlyAccess.html).
+ The `AWSTransferReadOnlyAccess` policy provides read-only access to Transfer Family services. For more information, see [AWSTransferReadOnlyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSTransferReadOnlyAccess.html).
 
 ## AWS managed policy: AWSTransferServiceRolePolicy
 <a name="security-iam-awsmanpol-transferservicerolepolicy"></a>
