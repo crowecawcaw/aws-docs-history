@@ -7,7 +7,8 @@ The following table describes important additions to the AWS Elemental MediaConv
 
 | Change | Description | Date | 
 | --- |--- |--- |
-| [Smart Cropping with Elemental Inference](smart-cropping-with-elemental-inference.md) | MediaConvert added support for Smart Cropping with Elemental Inference. | April 1, 2026 | 
+| [Configuring Smart subtitling with AWS Elemental Inference](smart-subtitling-with-elemental-inference.md) | MediaConvert added support for Smart subtitling with AWS Elemental Inference. | November 6, 2026 | 
+| [Configuring Smart cropping with AWS Elemental Inference](smart-cropping-with-elemental-inference.md) | MediaConvert added support for Smart cropping with AWS Elemental Inference. | April 1, 2026 | 
 | [TAMS inputs](tams-input.md) | MediaConvert added support for processing content directly from TAMS servers. | July 21, 2025 | 
 | [Video passthrough](video-passthrough.md) | MediaConvert added support for video passthrough for HEVC (H.265) input videos. | July 3, 2025 | 
 | [C2PA manifests](c2pa-manifest.md) | MediaConvert added support for C2PA manifests in MP4 outputs. | June 10, 2025 | 

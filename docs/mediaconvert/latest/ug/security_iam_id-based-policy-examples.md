@@ -65,6 +65,7 @@ The following sample policy grants the IAM user permissions to all AWS Elemental
         "StringLike": {
             "iam:PassedToService": "mediaconvert.amazonaws.com"
         }
+      }
     },
     {
       "Sid": "s3Actions",
@@ -150,6 +151,7 @@ The following example policy grants the basic permissions to operate AWS Element
         "StringLike": {
             "iam:PassedToService": "mediaconvert.amazonaws.com"
         }
+      }
     },
     {
       "Sid": "s3Actions",

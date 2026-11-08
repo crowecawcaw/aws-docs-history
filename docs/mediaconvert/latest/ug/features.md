@@ -32,4 +32,4 @@ This chapter contains detailed information for implementing AWS Elemental MediaC
 + [Video padding](video-padding.md)
 + [Video rotation](auto-rotate.md)
 + [Video scaling](video-scaling.md)
-+ [Smart Cropping](smart-cropping-with-elemental-inference.md)
++ [Elemental Inference](elemental-inference.md)
