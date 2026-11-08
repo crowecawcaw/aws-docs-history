@@ -31,3 +31,4 @@ Key metrics available in these dashboards include:
 + [Model Invocations](model-invocations.md)
 + [Amazon Bedrock AgentCore](AgentCore-Agents.md)
 + [Monitor AI coding agents with Amazon CloudWatch Coding Agent Insights](coding-agents-insights.md)
++ [Send Claude Platform traces to Amazon CloudWatch](CloudWatch-OTLP-ClaudePlatformTraces.md)

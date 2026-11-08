@@ -5,7 +5,23 @@
 
 The CloudWatch embedded metric format allows you to generate custom metrics asynchronously in the form of logs written to CloudWatch Logs. You can embed custom metrics alongside detailed log event data, and CloudWatch automatically extracts the custom metrics so that you can visualize and alarm on them, for real-time incident detection. Additionally, the detailed log events associated with the extracted metrics can be queried using CloudWatch Logs Insights to provide deep insights into the root causes of operational events. 
 
-Embedded metric format helps you generate actionable custom metrics from ephemeral resources such as Lambda functions and containers. By using the embedded metric format to send logs from these ephemeral resources, you can now easily create custom metrics without having to instrument or maintain separate code, while gaining powerful analytical capabilities on your log data.
+**Note**  
+OpenTelemetry (OTLP) metrics are the recommended path for ingesting metrics into CloudWatch. For most new workloads, publish custom metrics to the CloudWatch OTLP endpoint, for example by using the CloudWatch agent. For more information, see [Publish custom metrics with OpenTelemetry](metrics-otel-send.md).
+
+Both embedded metric format and OpenTelemetry metrics let you publish custom metrics to CloudWatch, but they suit different needs. OpenTelemetry metrics are the better choice for most new workloads. Embedded metric format is best when you need a metric and its originating log event to stay together.
+
+Use **OpenTelemetry (OTLP) metrics** when:
++ You are building new workloads and want the recommended, actively developed ingestion path.
++ You want to query with PromQL and reuse existing Grafana dashboards.
++ You need high-cardinality labels such as pod names, custom tags, or OpenTelemetry semantic-convention attributes. OpenTelemetry metrics support up to 150 labels per data point and handle high cardinality, but they are not suited to very high cardinality values such as per-request IDs.
++ You are instrumenting containerized applications on Amazon ECS or Amazon EKS, or you already use OpenTelemetry, Container Insights with OpenTelemetry, or CloudWatch Application Signals.
+
+Use **embedded metric format** when:
++ You want to emit a metric and keep the detailed, high-cardinality log event it came from, so you can alarm on the metric and later investigate the underlying logs with CloudWatch Logs Insights.
++ You are running on Lambda or other ephemeral compute, where writing structured logs to standard output is the simplest way to publish metrics without running a separate collector or agent.
++ You already have embedded metric format instrumentation in place.
+
+Embedded metric format helps you generate actionable custom metrics from ephemeral compute such as Lambda functions. By using the embedded metric format to send logs from these ephemeral resources, you can now easily create custom metrics without having to instrument or maintain separate code, while gaining powerful analytical capabilities on your log data.
 
 No setup is required to use the embedded metric format. Either structure your logs by following the [Embedded metric format specification](CloudWatch_Embedded_Metric_Format_Specification.md), or generate them using our client libraries and send them to CloudWatch Logs using the [PutLogEvents API](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html) or the [CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Generation_CloudWatch_Agent.html). 
 

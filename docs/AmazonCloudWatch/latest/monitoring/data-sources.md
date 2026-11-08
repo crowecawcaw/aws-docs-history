@@ -34,7 +34,7 @@ For more information about CloudWatch Logs data sources, see [Data source discov
 ## Third-party data sources
 <a name="data-sources-third-party"></a>
 
-CloudWatch extends monitoring capabilities beyond AWS with direct integrations for 38 third-party security, identity, and endpoint platforms. These integrations consolidate security events, audit logs, and telemetry data from external sources into CloudWatch Logs for unified analysis.
+CloudWatch extends monitoring capabilities beyond AWS with direct integrations for 48 third-party security, identity, and endpoint platforms. These integrations consolidate security events, audit logs, and telemetry data from external sources into CloudWatch Logs for unified analysis.
 
 The following table lists the supported direct third-party integrations:
 
@@ -42,8 +42,12 @@ The following table lists the supported direct third-party integrations:
 | Source | Integration pattern | Category | 
 | --- | --- | --- | 
 | Akamai DataStream 2 | S3 Delivery | CDN and edge security | 
+| Box | API | Content management and file sharing | 
+| Broadcom Carbon Black | S3 Delivery | Endpoint detection and response | 
 | Check Point NGFW | S3 Delivery | Network security | 
 | Cisco Duo | API | Identity and access management | 
+| Cisco FTD | S3 Delivery | Network security | 
+| Cisco ISE | S3 Delivery | Network access control | 
 | Cisco Meraki | API | Network security | 
 | Cisco Umbrella | S3 Delivery | DNS and network security | 
 | CrowdStrike Falcon | S3 Delivery | Endpoint security | 
@@ -52,8 +56,11 @@ The following table lists the supported direct third-party integrations:
 | F5 BIG-IP | S3 Delivery | Network security | 
 | GitHub | API | Source code and audit logs | 
 | GitLab | API | DevSecOps and source code | 
+| Google Workspace | API | Productivity and audit logs | 
 | HashiCorp Vault | S3 Delivery | Secrets management | 
+| Jamf Pro | API | Device management (Apple) | 
 | Jamf Protect | S3 Delivery | Endpoint security | 
+| JumpCloud | API | Identity and access management | 
 | Microsoft Entra ID | API | Identity and access management | 
 | Microsoft Office 365 | API | Productivity and audit logs | 
 | Microsoft Windows Event Logs | API | Operating system events | 
@@ -67,15 +74,18 @@ The following table lists the supported direct third-party integrations:
 | PingIdentity PingFederate | S3 Delivery | Identity federation | 
 | PingIdentity PingOne | API | Identity and access management | 
 | Proofpoint TAP | API | Email security | 
-| Slack Audit Log | API | Collaboration and audit logs | 
+| Qualys CSAM | API | Asset management | 
+| Qualys Policy Audit | API | Compliance management | 
+| Qualys VMDR | API | Vulnerability management | 
+| SailPoint ISC | API | Identity governance | 
+| Salesforce ELF | API | CRM and audit logs | 
+| Salesforce RTEM | API | CRM security events | 
 | SentinelOne | S3 Delivery | Endpoint security | 
 | ServiceNow CMDB | API | IT service management | 
+| Slack Audit Log | API | Collaboration and audit logs | 
 | Tanium Endpoint Management | S3 Delivery | Endpoint security and management | 
 | Tenable Vulnerability Management | API | Vulnerability management | 
 | Wazuh Platform | API | Security monitoring and threat detection | 
-| Box | API | Content management and file sharing | 
-| Jamf Pro | API | Device management (Apple) | 
-| Broadcom Carbon Black | S3 Delivery | Endpoint detection and response | 
 | Wiz CNAPP | API | Cloud security | 
 | Zeek | S3 Delivery | Network security monitoring | 
 | Zscaler ZIA/ZPA | S3 Delivery | Network security | 
@@ -83,7 +93,7 @@ The following table lists the supported direct third-party integrations:
 For detailed setup procedures, prerequisites, and configuration steps for each integration, see [Third-party data sources integration](third-party-integration-setup.md).
 
 **Additional third-party sources through Security Hub CSPM**  
-Beyond the 34 direct integrations, 49\+ additional third-party sources are available through AWS Security Hub CSPM integration. Security Hub CSPM partner providers that send findings to Security Hub are automatically available as data sources. For the full list of supported partners, see the [Security Hub CSPM partner providers](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-partner-providers.html) documentation.
+Beyond the 48 direct integrations, 49\+ additional third-party sources are available through AWS Security Hub CSPM integration. Security Hub CSPM partner providers that send findings to Security Hub are automatically available as data sources. For the full list of supported partners, see the [Security Hub CSPM partner providers](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-partner-providers.html) documentation.
 
 **Additional third-party sources through Security Hub**  
 AWS Security Hub (distinct from Security Hub CSPM) provides its own set of third-party integrations. These integrations that send findings to Security Hub are automatically available as data sources. For the full list of supported integrations, see the [Security Hub third-party integrations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-v2-integrations.html) documentation.

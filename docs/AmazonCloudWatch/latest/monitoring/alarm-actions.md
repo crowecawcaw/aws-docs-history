@@ -27,7 +27,7 @@ The following table shows the actions executed for alarms along with their behav
 | --- | --- | --- | --- | --- | --- | 
 | SNS notifications | Supported | Contributor Level | Contributor Level | Contributor Level | [Amazon SNS event destinations](https://docs.aws.amazon.com/sns/latest/dg/sns-event-destinations.html) | 
 | EC2 actions (stop, terminate, reboot, recover) | Supported | Not supported | Not supported | Not supported | [Stop, terminate, reboot, or recover an EC2 instance](UsingAlarmActions.md) | 
-| Auto Scaling group actions | Simple, step, and target tracking | Not supported | Not supported | Not supported | [Auto Scaling actions](#alarm-actions-auto-scaling) | 
+| Auto Scaling group actions | Simple, step, and target tracking | Not supported | Simple and step | Not supported | [Auto Scaling actions](#alarm-actions-auto-scaling) | 
 | Application Auto Scaling actions | Step and target tracking | Not supported | Step | Not supported | [Auto Scaling actions](#alarm-actions-auto-scaling) | 
 | Systems Manager OpsItem creation | Supported | Alarm Level | Not supported | Alarm Level | [Configure CloudWatch alarms to create OpsItems](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-create-OpsItems-from-CloudWatch-Alarms.html) | 
 | Systems Manager Incident Manager incidents | Supported | Alarm Level | Not supported | Not supported | [Creating incidents automatically with CloudWatch alarms](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-creation.html#incident-tracking-auto-alarms) | 

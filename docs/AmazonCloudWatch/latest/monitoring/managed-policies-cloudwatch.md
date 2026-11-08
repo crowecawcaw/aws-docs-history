@@ -17,6 +17,7 @@ AWS addresses many common use cases by providing standalone IAM policies that ar
 + [CloudWatchAutomaticDashboardsAccess](#managed-policies-cloudwatch-CloudWatch-CloudWatchAutomaticDashboardsAccess)
 + [CloudWatchAgentServerPolicy](#managed-policies-cloudwatch-CloudWatchAgentServerPolicy)
 + [CloudWatchAgentAdminPolicy](#managed-policies-cloudwatch-CloudWatchAgentAdminPolicy)
++ [CloudWatchAPIKeyAccess](#managed-policies-cloudwatch-CloudWatchAPIKeyAccess)
 + [CloudWatchNetworkFlowMonitorTopologyServiceRolePolicy](#managed-policies-cloudwatch-CloudWatchNetworkFlowMonitorTopologyServiceRolePolicy)
 + [AWS managed (predefined) policies for CloudWatch cross-account observability](#managed-policies-cloudwatch-crossaccount)
 + [AWS managed (predefined) policies for CloudWatch investigations](#managed-policies-cloudwatch-QInvestigations)
@@ -35,6 +36,9 @@ View details about updates to AWS managed policies for CloudWatch since this ser
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+|  [CloudWatchAgentServerPolicy](#managed-policies-cloudwatch-CloudWatchAgentServerPolicy) – Updated policy | CloudWatch added the `cloudwatch:PutProfileRecords` permission to **CloudWatchAgentServerPolicy**.<br />With this permission, the CloudWatch agent can send continuous profiling data to CloudWatch in OpenTelemetry format, in addition to metrics, logs, and traces. | November 6, 2026 | 
+|  [CloudWatchAgentAdminPolicy](#managed-policies-cloudwatch-CloudWatchAgentAdminPolicy) – Updated policy | CloudWatch added the `cloudwatch:PutProfileRecords` permission to **CloudWatchAgentAdminPolicy**.<br />With this permission, the CloudWatch agent can send continuous profiling data to CloudWatch in OpenTelemetry format, in addition to metrics, logs, and traces. | November 6, 2026 | 
+|  [CloudWatchAPIKeyAccess](#managed-policies-cloudwatch-CloudWatchAPIKeyAccess) – Updated policy | CloudWatch added the `cloudwatch:PutProfileRecords` permission to **CloudWatchAPIKeyAccess**, scoped to CloudWatch dataset resources.<br />With this permission, you can use an API key to send continuous profiling data to CloudWatch in OpenTelemetry format, in addition to metrics. The policy still grants no permission to read or query data. | November 6, 2026 | 
 |  [ CloudWatchNetworkMonitorServiceRolePolicy](security-iam-awsmanpol-nw.md#security-iam-CloudWatchNetworkMonitorServiceRolePolicy) – Updated policy | The **CloudWatchNetworkMonitorServiceRolePolicy** managed policy now includes the `ec2:DescribeVpcPeeringConnections` and `ec2:DescribeVpcEndpoints` permissions. Network Synthetic Monitor uses these permissions to identify the destination Region reached across an inter-Region VPC peering connection or an interface VPC endpoint. It then generates network health indicator (NHI) values for the path to that destination Region. | October 28, 2026 | 
 |  [CloudWatchFullAccessV2](#managed-policies-cloudwatch-CloudWatchFullAccessV2) – Updated policy | CloudWatch added the `kms:DescribeKey` permission to **CloudWatchFullAccessV2**.<br />CloudWatch Logs requires this permission from the caller to create a log group with a customer managed AWS KMS key or to associate a key with a log group. You also need it to encrypt the `aws/spans` log group with a customer managed key when you enable [Transaction Search](CloudWatch-Transaction-Search.md). You can use this permission only for requests that CloudWatch Logs makes on your behalf (`kms:ViaService`), and only for keys in your own account. | October 20, 2026 | 
 |  [CloudWatchNetworkFlowMonitorTopologyServiceRolePolicy](#managed-policies-cloudwatch-CloudWatchNetworkFlowMonitorTopologyServiceRolePolicy) – Updated policy | CloudWatch updated the **CloudWatchNetworkFlowMonitorTopologyServiceRolePolicy** to include additional permissions. `elasticloadbalancing:` permissions describe load balancers, listeners, rules, target groups, and target health. `networkmanager:` permissions describe AWS Cloud WAN core networks, attachments, and routes. `config:` and `iam:` permissions create, delete, and describe a service-linked configuration recorder and create the AWS Config service-linked role. With these permissions, Network Flow Monitor can generate topology snapshots of Elastic Load Balancing and AWS Cloud WAN resources and record resource configuration data through AWS Config. | August 31, 2026 | 
@@ -175,6 +179,8 @@ To see the full contents of the policy, see [CloudWatchAutomaticDashboardsAccess
 
 The **CloudWatchAgentServerPolicy** policy can be used in IAM roles that are attached to Amazon EC2 instances to allow the CloudWatch agent to read information from the instance and write it to CloudWatch.
 
+The policy includes `cloudwatch:PutProfileRecords` so that the agent can send continuous profiling data (sampled stack traces) to CloudWatch.
+
 To see the full contents of the policy, see [CloudWatchAgentServerPolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/CloudWatchAgentServerPolicy.html) in the *AWS Managed Policy Reference Guide*.
 
 ## CloudWatchAgentAdminPolicy
@@ -182,7 +188,30 @@ To see the full contents of the policy, see [CloudWatchAgentServerPolicy](https:
 
 The **CloudWatchAgentAdminPolicy** policy can be used in IAM roles that are attached to Amazon EC2 instances. This policy allows the CloudWatch agent to read information from the instance and write it to CloudWatch, and also to write information to Parameter Store.
 
+The policy includes `cloudwatch:PutProfileRecords` so that the agent can send continuous profiling data (sampled stack traces) to CloudWatch.
+
 To see the full contents of the policy, see [CloudWatchAgentAdminPolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/CloudWatchAgentAdminPolicy.html) in the *AWS Managed Policy Reference Guide*.
+
+## CloudWatchAPIKeyAccess
+<a name="managed-policies-cloudwatch-CloudWatchAPIKeyAccess"></a>
+
+The **CloudWatchAPIKeyAccess** policy grants the permissions you need to send telemetry to CloudWatch with an API key (bearer token) instead of SigV4 signing. Attach it to the IAM user that owns your API key. The policy grants only ingestion permissions. It does not grant permission to read or query data.
+
+The policy includes the following permissions:
+
+`cloudwatch:CallWithBearerToken`  
+You can authenticate CloudWatch requests with an API key. CloudWatch requires this permission on every request that uses an API key, in addition to the permission for the operation itself.
+
+`cloudwatch:PutMetricData`  
+You can publish metric data, including metrics sent in OpenTelemetry (OTLP) format.
+
+`cloudwatch:PutProfileRecords`  
+You can send continuous profiling data (sampled stack traces) in OpenTelemetry format. This permission is limited to CloudWatch dataset resources.
+
+`kms:Decrypt`  
+You can send data to a CloudWatch dataset that is encrypted with a customer managed AWS KMS key. The permission applies only to requests that CloudWatch makes on your behalf (`kms:ViaService`) and only to keys used for CloudWatch datasets (the `aws:cloudwatch:arn` encryption context).
+
+To see the full contents of the policy, see [CloudWatchAPIKeyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/CloudWatchAPIKeyAccess.html) in the *AWS Managed Policy Reference Guide*.
 
 ## CloudWatchNetworkFlowMonitorTopologyServiceRolePolicy
 <a name="managed-policies-cloudwatch-CloudWatchNetworkFlowMonitorTopologyServiceRolePolicy"></a>

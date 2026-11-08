@@ -196,7 +196,25 @@ When a child directory is the root, then the Amazon S3 URI should be formatted a
 ## Viewing unminified stack traces in the RUM console
 <a name="CloudWatch-RUM-viewunminifiedstacktraces"></a>
 
-After uploading your source maps to Amazon S3, enabling source maps on your RUM app monitor, and deploying your web application with the `releaseId` configured in the CloudWatch RUM web client, select **Events** in the RUM console. This tab displays the raw RUM event data. Filter by the JS error event type and view the latest JS error event. You will see the unminified stack trace in the new `event_details.unminifiedStack` field for events ingested after the feature was enabled.
+After uploading your source maps to Amazon S3, enabling source maps on your RUM app monitor, and deploying your web application with the `releaseId` configured in the CloudWatch RUM web client, you can view unminified stack traces in the RUM console.
+
+**To view an unminified stack trace in the RUM console**
+
+1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
+
+1. In the navigation pane, choose **Application Signals**, **RUM**.
+
+1. Choose your app monitor.
+
+1. Choose the **Sessions** tab.
+
+1. Choose a session that contains a JavaScript error.
+
+1. In the session waterfall, choose a `com.amazon.rum.js_error_event` event.
+
+1. Choose the **Raw event** tab. The unminified stack trace appears in the `event_details.unminifiedStack` field.
+
+You see the `event_details.unminifiedStack` field only for events that RUM ingests after you enable source map unminification. For more information about analyzing unminified stack traces across multiple sessions, see [Viewing unminified stack traces in CloudWatch Logs](#CloudWatch-RUM-viewunminifiedstacktracesCWL).
 
 ## Viewing unminified stack traces in CloudWatch Logs
 <a name="CloudWatch-RUM-viewunminifiedstacktracesCWL"></a>

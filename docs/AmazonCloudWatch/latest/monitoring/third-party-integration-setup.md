@@ -20,8 +20,12 @@ The following table identified the integrations methods used by the supported th
 | Source | Integration pattern | Requires S3 bucket | Requires SQS queue | Uses Secrets Manager extension | Required IAM policies | 
 | --- | --- | --- | --- | --- | --- | 
 | Akamai DataStream 2 | S3 Delivery | Yes | Yes | No | [Source-specific IAM policies](pipeline-iam-reference.md#source-specific-iam-policies) | 
+| Box | API | No | No | Yes | [API caller permissions](pipeline-iam-reference.md#api-caller-permissions) | 
+| Broadcom Carbon Black | S3 Delivery | Yes | Yes | No | [Source-specific IAM policies](pipeline-iam-reference.md#source-specific-iam-policies) | 
 | Check Point NGFW | S3 Delivery | Yes | Yes | No | [Source-specific IAM policies](pipeline-iam-reference.md#source-specific-iam-policies) | 
 | Cisco Duo | API | No | No | Yes | [API caller permissions](pipeline-iam-reference.md#api-caller-permissions) | 
+| Cisco FTD | S3 Delivery | Yes | Yes | No | [Source-specific IAM policies](pipeline-iam-reference.md#source-specific-iam-policies) | 
+| Cisco ISE | S3 Delivery | Yes | Yes | No | [Source-specific IAM policies](pipeline-iam-reference.md#source-specific-iam-policies) | 
 | Cisco Meraki | API | No | No | Yes | [API caller permissions](pipeline-iam-reference.md#api-caller-permissions) | 
 | Cisco Umbrella | S3 Delivery | Yes | Yes | No | [Source-specific IAM policies](pipeline-iam-reference.md#source-specific-iam-policies) | 
 | CrowdStrike Falcon | S3 Delivery | Yes | Yes | No | [Source-specific IAM policies](pipeline-iam-reference.md#source-specific-iam-policies) | 
@@ -30,8 +34,11 @@ The following table identified the integrations methods used by the supported th
 | F5 BIG-IP | S3 Delivery | Yes | Yes | No | [Source-specific IAM policies](pipeline-iam-reference.md#source-specific-iam-policies) | 
 | GitHub | API | No | No | Yes (optional) | [API caller permissions](pipeline-iam-reference.md#api-caller-permissions) | 
 | GitLab | API | No | No | Yes | [API caller permissions](pipeline-iam-reference.md#api-caller-permissions) | 
+| Google Workspace | API | No | No | Yes | [API caller permissions](pipeline-iam-reference.md#api-caller-permissions) | 
 | HashiCorp Vault | S3 Delivery | Yes | Yes | No | [Source-specific IAM policies](pipeline-iam-reference.md#source-specific-iam-policies) | 
+| Jamf Pro | API | No | No | Yes | [API caller permissions](pipeline-iam-reference.md#api-caller-permissions) | 
 | Jamf Protect | S3 Delivery | Yes | Yes | No | [Source-specific IAM policies](pipeline-iam-reference.md#source-specific-iam-policies) | 
+| JumpCloud | API | No | No | Yes | [API caller permissions](pipeline-iam-reference.md#api-caller-permissions) | 
 | Microsoft Entra ID | API | No | No | Yes | [API caller permissions](pipeline-iam-reference.md#api-caller-permissions) | 
 | Microsoft Office 365 | API | No | No | Yes | [API caller permissions](pipeline-iam-reference.md#api-caller-permissions) | 
 | Microsoft Windows Event Logs | API | No | No | Yes | [API caller permissions](pipeline-iam-reference.md#api-caller-permissions) | 
@@ -45,11 +52,18 @@ The following table identified the integrations methods used by the supported th
 | PingIdentity PingFederate | S3 Delivery | Yes | Yes | No | [Source-specific IAM policies](pipeline-iam-reference.md#source-specific-iam-policies) | 
 | PingIdentity PingOne | API | No | No | Yes | [API caller permissions](pipeline-iam-reference.md#api-caller-permissions) | 
 | Proofpoint TAP | API | No | No | Yes | [API caller permissions](pipeline-iam-reference.md#api-caller-permissions) | 
-| Slack Audit Log | API | No | No | Yes | [API caller permissions](pipeline-iam-reference.md#api-caller-permissions) | 
+| Qualys CSAM | API | No | No | Yes | [API caller permissions](pipeline-iam-reference.md#api-caller-permissions) | 
+| Qualys Policy Audit | API | No | No | Yes | [API caller permissions](pipeline-iam-reference.md#api-caller-permissions) | 
+| Qualys VMDR | API | No | No | Yes | [API caller permissions](pipeline-iam-reference.md#api-caller-permissions) | 
+| SailPoint ISC | API | No | No | Yes | [API caller permissions](pipeline-iam-reference.md#api-caller-permissions) | 
+| Salesforce ELF | API | No | No | Yes | [API caller permissions](pipeline-iam-reference.md#api-caller-permissions) | 
+| Salesforce RTEM | API | No | No | Yes | [API caller permissions](pipeline-iam-reference.md#api-caller-permissions) | 
 | SentinelOne | S3 Delivery | Yes | Yes | No | [Source-specific IAM policies](pipeline-iam-reference.md#source-specific-iam-policies) | 
 | ServiceNow CMDB | API | No | No | Yes | [API caller permissions](pipeline-iam-reference.md#api-caller-permissions) | 
+| Slack Audit Log | API | No | No | Yes | [API caller permissions](pipeline-iam-reference.md#api-caller-permissions) | 
 | Tanium Endpoint Management | S3 Delivery | Yes | Yes | No | [Source-specific IAM policies](pipeline-iam-reference.md#source-specific-iam-policies) | 
 | Tenable Vulnerability Management | API | No | No | Yes | [API caller permissions](pipeline-iam-reference.md#api-caller-permissions) | 
+| Wazuh Platform | API | No | No | Yes | [API caller permissions](pipeline-iam-reference.md#api-caller-permissions) | 
 | Wiz CNAPP | API | No | No | Yes | [API caller permissions](pipeline-iam-reference.md#api-caller-permissions) | 
 | Zeek | S3 Delivery | Yes | Yes | No | [Source-specific IAM policies](pipeline-iam-reference.md#source-specific-iam-policies) | 
 | Zscaler ZIA/ZPA | S3 Delivery | Yes | Yes | No | [Source-specific IAM policies](pipeline-iam-reference.md#source-specific-iam-policies) | 

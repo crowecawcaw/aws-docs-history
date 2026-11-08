@@ -36,6 +36,8 @@ You need to configure your OpenTelemetry collector to start sending traces to Cl
 + **AWS Signature Version 4 (SigV4)**– The recommended authentication method using short-term credentials. For more information, see [AWS Signature Version 4 for API requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html).
 + **Bearer token (API key)**– For workloads running outside AWS or environments that do not support the AWS SDK. Uses a long-lived X-Ray API key passed in the `Authorization` header. For more information, including the supported Regions, see [Setting up bearer token authentication for traces](https://docs.aws.amazon.com/xray/latest/devguide/xray-opentelemetry-bearer-token.html) in the *X-Ray Developer Guide*.
 
+To send traces from the Claude Platform to CloudWatch, see [Send Claude Platform traces to Amazon CloudWatch](CloudWatch-OTLP-ClaudePlatformTraces.md).
+
 ## RUM endpoint
 <a name="CloudWatch-RUMEndpoint"></a>
 

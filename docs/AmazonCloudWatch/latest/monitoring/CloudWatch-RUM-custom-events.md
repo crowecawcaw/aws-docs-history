@@ -7,7 +7,9 @@ CloudWatch RUM records and ingests the events listed in [Information collected b
 
 Custom events are ingested only if the app monitor has custom events enabled. To update the configuration settings of your app monitor, use the CloudWatch RUM console or the [UpdateAppMonitor](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_UpdateAppMonitor.html) API. 
 
-After you enable custom events, and then define and send custom events, you can search for them. To search for them, use the **Events** tab in the CloudWatch RUM console. Search by using the event type.
+After you enable custom events, and then define and send custom events, you can search for them in the CloudWatch RUM console. Choose your app monitor, and then choose the **Sessions** tab. In the filter bar at the top of the tab, enter `event_type = ` followed by your custom event type (for example, `event_type = my_custom_event`). Select the matching suggestion, and then choose **Apply filters**. The **Most recent sessions** table then lists only the sessions that contain that event. To view the event details, choose a session, choose the event in the session waterfall, and then choose the **Raw event** tab.
+
+If you turn on **Data storage** for your app monitor, you can also query custom events across sessions by using CloudWatch Logs Insights.
 
 ## Requirements and syntax
 <a name="CloudWatch-RUM-custom-event-syntax"></a>
