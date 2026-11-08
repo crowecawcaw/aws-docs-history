@@ -5,8 +5,11 @@
 
 The following table describes important additions to the documentation for Amazon Cognito. We also make frequent minor updates to the documentation in response to the feedback that you send. To submit feedback, locate the **Feedback** link at the bottom of any page in Amazon Cognito documentation.
 
+For changes to the Amazon Cognito service itself, such as new features, behavior changes, deprecations, and new Regions, see [What's new in Amazon Cognito](cognito-whats-new.md).
+
 | Change | Description | Date | 
 | --- |--- |--- |
+| [SCIM-compatible custom attribute names](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-custom-attributes-scim) | Custom attribute names must now comply with the attribute-name rule of the System for Cross-domain Identity Management (SCIM) protocol in RFC 7644. Existing custom attributes aren't affected. | November 2, 2026 | 
 | [Reorganized API and endpoint references](#cognito-document-history) | The user pool endpoints and managed login reference is now a top-level section of the guide. The guide no longer links to the Amazon Cognito user pools, Amazon Cognito identity pools, and Amazon Cognito Sync API references. These API references remain available in their respective API reference guides. | October 8, 2026 | 
 | [Status codes in AWS WAF custom block responses](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html#user-pool-waf-custom-response-status) | Amazon Cognito now returns a `403` status code in place of `5xx` status codes from AWS WAF custom block responses in managed login and the classic hosted UI. | October 1, 2026 | 
 | [Amazon Cognito Sync is no longer open to new customers.](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sync-availability-change.html) | Amazon Cognito Sync is no longer open to new customers. For alternatives to Amazon Cognito Sync, please explore AWS AppSync and DynamoDB. [Learn more](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sync-availability-change.html). | July 31, 2026 | 

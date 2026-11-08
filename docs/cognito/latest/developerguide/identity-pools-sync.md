@@ -3,6 +3,9 @@
 # Using Amazon Cognito Sync with identity pools
 <a name="identity-pools-sync"></a>
 
+**Note**  
+Amazon Cognito Sync is no longer open to new customers. For alternatives to Amazon Cognito Sync, please explore [AWS AppSync](https://docs.aws.amazon.com/appsync/) and [DynamoDB](https://docs.aws.amazon.com/dynamodb/). [Learn more](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sync-availability-change.html).
+
  Amazon Cognito Sync is an AWS service and client library that makes it possible to sync application-related user data across devices. Amazon Cognito Sync can synchronize user profile data across mobile devices and the web without using your own back end. The client libraries cache data locally so that your app can read and write data regardless of device connectivity status. When the device is online, you can synchronize data. If you set up push sync, you can notify other devices immediately that an update is available. 
 
 ## Managing datasets

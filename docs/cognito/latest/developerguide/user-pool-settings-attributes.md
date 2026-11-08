@@ -342,6 +342,41 @@ Use the following procedure to create a new custom attribute.
 
 1. Choose **Save changes**.
 
+### SCIM-compatible custom attribute names
+<a name="user-pool-settings-custom-attributes-scim"></a>
+
+When you create a custom attribute, you must give it a name that complies with the attribute-name rule of the System for Cross-domain Identity Management (SCIM) protocol. With SCIM-compatible names, identity providers and provisioning tools that synchronize users with SCIM can exchange all of your user pool attributes.
+
+When you add a custom attribute in a [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) or [AddCustomAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AddCustomAttributes.html) request, or in the Amazon Cognito console, Amazon Cognito rejects the request if the attribute name contains characters that SCIM doesn't allow.
+
+This requirement doesn't affect existing custom attributes. If your user pool already has custom attributes with names that contain characters that SCIM doesn't allow, those attributes, their values, and your app's access to them continue to work as before. Any new custom attribute that you add to an existing user pool must meet the following requirements.
+
+Amazon Cognito validates the name that you choose, without the `custom:` prefix, against the `ATTRNAME` rule in [RFC 7644, section 3.4.2.2, on the IETF Datatracker website](https://datatracker.ietf.org/doc/html/rfc7644#section-3.4.2.2):
+
+```
+ATTRNAME  = ALPHA *(nameChar)
+nameChar  = "-" / "_" / DIGIT / ALPHA
+```
+
+In practice, the name must meet the following requirements:
++ Starts with an ASCII letter (`A`–`Z` or `a`–`z`). Digits are allowed, but not as the first character.
++ Contains only ASCII letters, digits (`0`–`9`), hyphens (`-`), and underscores (`_`). Names can't contain spaces, periods (`.`), colons (`:`), forward slashes, `@`, or other punctuation and symbol characters. SCIM reserves the period for sub-attribute paths and the colon for schema URNs.
++ Doesn't contain accented or other non-ASCII letters.
+
+The following table shows examples of accepted and rejected custom attribute names.
+
+
+| Name | Accepted | Reason | 
+| --- | --- | --- | 
+| custom:tenantId | Yes | Starts with a letter and contains only letters. | 
+| custom:cost\_center-2 | Yes | Contains only letters, digits, underscores, and hyphens. | 
+| custom:2fa\_method | No | Starts with a digit. The first character must be a letter. | 
+| custom:org.unit | No | Contains a period. | 
+| custom:tenant/id | No | Contains a forward slash. | 
+| custom:département | No | Contains a non-ASCII letter. | 
+
+SCIM attribute names are also case insensitive. As a best practice, don't add custom attributes whose names differ only in case, such as `custom:TenantId` and `custom:tenantid`. These names conflict in a SCIM integration even though Amazon Cognito treats them as separate attributes.
+
 ## Attribute permissions and scopes
 <a name="user-pool-settings-attribute-permissions-and-scopes"></a>
 
