@@ -39,6 +39,23 @@ When you create Exadata infrastructure in Oracle Database@AWS, you specify infor
 
 To learn how to create Oracle Exadata infrastructure, see [Step 2: Create an Oracle Exadata infrastructure in Oracle Database@AWS](getting-started.md#getting-started-infra).
 
+## Exascale storage on Dedicated Infrastructure
+<a name="how-it-works.exascale-storage-dedicated"></a>
+
+On Oracle Exadata Database Service on Dedicated Infrastructure, you choose how to manage database storage. You can use Oracle Automatic Storage Management (ASM), Oracle Exadata Exascale, or a combination of both on the same Exadata infrastructure. An Exadata VM cluster on Dedicated Infrastructure runs its databases on either ASM or an associated Exadata Dedicated storage vault. You choose the storage type when you create the VM cluster.
+
+**Exascale storage**  
+When you configure Exascale storage, you allocate capacity for Exascale from the total Exadata storage available on your infrastructure. Note the following:  
++ Exascale reserves the allocated capacity for its own use.
++ The minimum capacity that you can allocate is 2 TB.
++ Configuring Exascale storage on existing infrastructure restarts the database servers in a rolling manner.
++ After the initial configuration, you can scale Exascale capacity online. Scaling can trigger a storage rebalance.
+
+**Exadata Dedicated storage vault**  
+An Exadata Dedicated storage vault is a single logical storage container drawn from the Exascale storage pool. A vault automatically applies high redundancy to each object that it stores. It requires no disk-group planning or capacity partitions. You can configure a vault to scale automatically as consumption approaches its allocation. A single vault can provide storage for all databases in one VM cluster, and multiple VM clusters can share the same vault.
+
+For more information about configuring Exascale storage, see [Configuring Exascale storage on Dedicated Infrastructure](getting-started.md#getting-started-exascale-dedicated).
+
 ## ODB network
 <a name="how-it-works.odb-network"></a>
 

@@ -266,6 +266,36 @@ With ExaDB-XS, you get elastic Oracle Exadata compute and storage without provis
 
 1. Create your Oracle database in the OCI console (see [Step 4: Create Oracle Exadata databases in Oracle Cloud Infrastructure](#getting-started-db)).
 
+## Configuring Exascale storage on Dedicated Infrastructure
+<a name="getting-started-exascale-dedicated"></a>
+
+On Oracle Exadata Database Service on Dedicated Infrastructure, you can use Oracle Exadata Exascale storage instead of, or alongside, Oracle Automatic Storage Management (ASM). Before you create a VM cluster that uses Exascale storage, configure Exascale storage on your Oracle Exadata infrastructure and create an Exadata Dedicated storage vault. For more information about Exascale storage, see [Exascale storage on Dedicated Infrastructure](how-it-works.md#how-it-works.exascale-storage-dedicated).
+
+Before you begin, make sure that you meet the following prerequisites:
++ You have an Oracle Exadata infrastructure with a status of **Available**.
++ You have the IAM permissions to update the Oracle Exadata infrastructure.
++ Your Oracle Grid Infrastructure and Oracle Database versions are 26ai or later. Exadata Dedicated storage vaults require these versions.
+
+**To configure Exascale storage and create an Exadata Dedicated storage vault**
+
+1. Sign in to the AWS Management Console and open the Oracle Database@AWS console at [https://console.aws.amazon.com/odb/](https://console.aws.amazon.com/odb/).
+
+1. On the Exadata infrastructure details page, choose **Actions**, and then choose **Edit Exascale storage**.
+
+1. For the total Exascale storage capacity, enter at least 2 TB.
+
+1. Enter the Exascale VM storage, and then choose **Save changes**. During the initial configuration, the database servers restart in a rolling manner.
+
+1. Create an Exadata Dedicated storage vault on this Exadata infrastructure. To allow for system overhead, make the Exascale storage pool larger than the vault that you request. For example, allocate at least 2.2 TB of pool capacity for a 2 TB vault.
+
+After you complete these steps, your Exadata Dedicated storage vault is ready to use with a VM cluster. When you create your Exadata VM cluster, associate the VM cluster with your Exadata Dedicated storage vault. To use ASM instead, don't specify a storage vault. You can also run both ASM-based and Exascale-based VM clusters on the same Oracle Exadata infrastructure.
+
+If you no longer need Exascale storage, delete the Exadata Dedicated storage vault and deconfigure Exascale storage to return the capacity to ASM. For more information, see [Managing Exascale storage on Exadata infrastructure](managing.md#managing-exascale-dedicated).
+
+For more information about configuring Exascale storage and creating an Exadata Dedicated storage vault, see [Exadata Exascale Storage Vault](https://docs.oracle.com/en-us/iaas/Content/database-at-aws-exadata-awscr/awscr-create-exadata-exascale-storage-vault.html) on the Oracle Help Center website.
+
+For more information about storage configuration requirements, see [Storage Configuration Requirements for Oracle Exadata Database Service on Dedicated Infrastructure](https://docs.oracle.com/en/engineered-systems/exadata-cloud-service/ecscm/ecs-storage-config.html) on the Oracle Help Center website.
+
 ## Step 1: Create an ODB network in Oracle Database@AWS
 <a name="getting-started-odb"></a>
 

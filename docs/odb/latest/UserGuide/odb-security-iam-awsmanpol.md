@@ -281,6 +281,8 @@ Creating an ODB network provisions a default Oracle-managed backup integration t
 
 The managed policies do not grant these actions. Add them through your own customer managed policy. The full-access policy trusts the `vpc-lattice.amazonaws.com` service principal in its service-linked role creation condition. With this trust in place, VPC Lattice can create its own service-linked role.
 
+To harden this policy, you can restrict `ec2:CreateVpcEndpoint` and `ec2:DeleteVpcEndpoints` to requests that VPC Lattice makes on the principal's behalf. The `aws:CalledVia` condition with the `vpc-lattice.amazonaws.com` service principal allows VPC Lattice to manage the endpoint for the principal while preventing the principal from creating or deleting the endpoint directly. The remaining tagging and describe actions stay unconditional.
+
 ```
 {
     "Version": "2012-10-17",
@@ -303,11 +305,25 @@ The managed policies do not grant these actions. Add them through your own custo
             "Resource": "*"
         },
         {
-            "Sid": "AllowOdbVpcEndpointManagement",
+            "Sid": "AllowOdbVpcEndpointManagementViaVpcLattice",
             "Effect": "Allow",
             "Action": [
                 "ec2:CreateVpcEndpoint",
-                "ec2:DeleteVpcEndpoints",
+                "ec2:DeleteVpcEndpoints"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "ForAnyValue:StringEquals": {
+                    "aws:CalledVia": [
+                        "vpc-lattice.amazonaws.com"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "AllowOdbVpcEndpointManagement",
+            "Effect": "Allow",
+            "Action": [
                 "ec2:CreateTags",
                 "ec2:DescribeVpcEndpoints",
                 "ec2:DescribeVpcEndpointAssociations"

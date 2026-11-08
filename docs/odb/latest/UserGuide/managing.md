@@ -163,9 +163,6 @@ Additional permissions required for the caller:
 
 You can perform the following lifecycle operations on Oracle Exadata Database Service on Exascale Infrastructure (ExaDB-XS) resources from the Oracle Database@AWS console, CLI, or APIs.
 
-**OCI console operations**  
-Some operations might also be available from the OCI console. Check the OCI documentation for additional management options.
-
 **Scale compute**  
 Scale the ECPU count on an Exascale VM cluster up or down to match your workload demand. Scaling compute does not require downtime.
 
@@ -177,3 +174,17 @@ Delete an Exascale VM cluster that you no longer need. You must delete all datab
 
 **Delete an Exascale storage vault**  
 Delete an Exascale storage vault that you no longer need. You must delete all Exascale VM clusters that reference the vault before you can delete it.
+
+## Managing Exascale storage on Exadata infrastructure
+<a name="managing-exascale-dedicated"></a>
+
+You can perform the following lifecycle operations on Exascale storage for Oracle Exadata Database Service on Dedicated Infrastructure from the Oracle Database@AWS console, CLI, or APIs.
+
+**Scale an Exadata Dedicated storage vault**  
+Scale the capacity of an Exadata Dedicated storage vault online. Scaling can trigger a storage rebalance.
+
+**Delete an Exadata Dedicated storage vault**  
+Delete an Exadata Dedicated storage vault that you no longer need. You must delete all databases and VM clusters that use the vault before you can delete it.
+
+**Deconfigure Exascale storage**  
+Deconfigure Exascale storage on the Exadata infrastructure to return the allocated capacity to Oracle Automatic Storage Management (ASM). This operation affects the storage available to existing VM clusters, so plan it carefully.
