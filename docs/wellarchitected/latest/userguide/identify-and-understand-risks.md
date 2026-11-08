@@ -18,7 +18,7 @@ AWS Well-Architected Agent is in preview release and is subject to change.
 
  The [AWS Well-Architected Tool (AWS WA Tool) dashboard](https://docs.aws.amazon.com/wellarchitected/latest/userguide/dashboard.html) provides access to your workloads and their associated HRIs and MRIs. You also can include workloads that have been shared with you. Using the dashboard, you can filter the issues by workload, pillar, or by severity (high or medium). 
 
- In the dashboard page, you can see the list of HRI and MRIs filtered by pillar or severity. Once an improvement item is selected, it takes you directly to the best practices associated with it from the Well-Architected Framework. From there, you can read about the recommended action needed to take to remediate the issue along with necessary resources. 
+ On the dashboard page, you can see the list of HRI and MRIs filtered by pillar or severity. Once an improvement item is selected, it takes you directly to the best practices associated with it from the Well-Architected Framework. From there, you can read about the recommended action needed to take to remediate the issue along with necessary resources. 
 
  You can combine all these findings in one report by choosing [Generate report](https://docs.aws.amazon.com/wellarchitected/latest/userguide/workloads-report.html) from the WA Tool Dashboard. 
 

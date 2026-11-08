@@ -7,14 +7,14 @@ AWS Well-Architected Agent is in preview release and is subject to change.
 
 Architecture reviews analyze your infrastructure as code (IaC) templates against the AWS Well-Architected Framework and return deployment-ready updated templates with best-practice fixes applied. Unlike resource and application recommendations, architecture reviews target templates before deployment, enabling you to identify and resolve issues before they reach production.
 
-Unlike Resource and Application recommendations, AWS WA Agent, Architecture type recommendations are not automatically generated. You must manually conduct an architecture review to generate them.
+Unlike Resource and Application recommendations, Architecture-type recommendations are not automatically generated. You must manually conduct an architecture review to generate them.
 
 ## Supported input formats
 <a name="agent-review-supported-inputs"></a>
 
 You provide an Amazon S3 URI containing your infrastructure as code (IaC) templates for an architecture review. AWS CDK and Terraform projects are supported. The following input types are accepted:
-+ **.zip file:** A compressed archive of your IaC project files. The .zip file cannot exceed 25 MB.
-+ **Amazon S3 folder:** A folder in Amazon S3 containing your IaC project files. The total folder size cannot exceed 100 MB, and no individual file can exceed 1 MB.
++ **.zip file** – A compressed archive of your IaC project files. The .zip file cannot exceed 25 MB.
++ **Amazon S3 folder** – A folder in Amazon S3 containing your IaC project files. The total folder size cannot exceed 100 MB, and no individual file can exceed 1 MB.
 
 AWS WA Agent validates submitted files and rejects requests that contain malicious content or files that exceed these size limits. Binary and media files are excluded from the review.
 

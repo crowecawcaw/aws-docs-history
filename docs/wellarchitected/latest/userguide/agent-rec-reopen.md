@@ -15,7 +15,7 @@ You can reopen recommendations that are marked as complete or suppressed. Reopen
 
 1. Choose the recommendation to view its details page.
 
-1. In the recommendation details page, choose **Reopen**.
+1. On the recommendation details page, choose **Reopen**.
 
 1. In the confirmation dialog, review the recommendation details and choose **Reopen** to confirm.
 

@@ -12,7 +12,7 @@ You can update a profile's display name, description, pillars, execution role, a
 
 **To update a profile**
 
-1. Choose **Agent profiles** in the left-hand navigation.
+1. Choose **Agent profiles** in the left navigation.
 
 1. Choose **Actions** on the profile, then **Edit profile**.
 

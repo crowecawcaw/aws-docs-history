@@ -15,7 +15,7 @@ Goals can be added either in **Agent profiles** or in the **Dashboard** for the 
 
 **To add goals from the profile**
 
-1. Choose **Agent profiles** in the left-hand navigation.
+1. Choose **Agent profiles** in the left navigation.
 
 1. Choose **Actions**, then **Edit profile**.
 
@@ -27,7 +27,7 @@ Concrete, specific goals help AWS WA Agent prioritize and recommend actions. For
 
 **To add goals from the dashboard**
 
-1. Choose **Dashboard** in the left-hand navigation.
+1. Choose **Dashboard** in the left navigation.
 
 1. Verify that you have the correct profile selected under **Profile**.
 

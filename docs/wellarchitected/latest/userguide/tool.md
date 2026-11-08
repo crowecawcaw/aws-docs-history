@@ -14,7 +14,7 @@ You can use AWS WA Tool to document and measure your workload using the best pra
 
 In addition to AWS best practices, you can use custom lenses to measure your workload using your own best practices. You can tailor the questions in a custom lens to be specific to a particular technology or to help you meet the governance needs within your organization. Custom lenses extend the guidance provided by the AWS lenses.
 
-Integrations with [AWS Trusted Advisor](https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor.html) and [AWS Service Catalog AppRegistry](https://docs.aws.amazon.com/servicecatalog/latest/arguide/intro-app-registry.html) helps you more easily discover the information needed to answer AWS Well-Architected Toolreview questions. 
+Integrations with [AWS Trusted Advisor](https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor.html) and [AWS Service Catalog AppRegistry](https://docs.aws.amazon.com/servicecatalog/latest/arguide/intro-app-registry.html) helps you more easily discover the information needed to answer AWS Well-Architected Tool review questions. 
 
 This service is intended for those involved in technical product development, such as chief technology officers (CTOs), architects, developers, and operations team members. AWS customers use AWS WA Tool to document their architectures, provide product launch governance, and to understand and manage the risks in their technology portfolio.
 

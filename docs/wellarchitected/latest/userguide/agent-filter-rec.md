@@ -11,11 +11,11 @@ Use filters to narrow down recommendations based on specific criteria to focus o
 <a name="agent-filter-rec-console"></a>
 
 The Filters panel on the left side of the dashboard allows you to refine recommendations by:
-+ **Type:** Application, Architecture, or Resource-level recommendations
-+ **Pillars:** Cost Optimization, Security, Resilience, or Performance
-+ **Effort:** Small, Medium, or Large effort to fix
-+ **Impact:** High, Medium, or Low impact fixes
-+ **Services:** Select services from the list
++ **Type** – Application, Architecture, or Resource-level recommendations
++ **Pillars** – Cost Optimization, Security, Resilience, or Performance
++ **Effort** – Small, Medium, or Large effort to fix
++ **Impact** – High, Medium, or Low impact fixes
++ **Services** – Select services from the list
 
 You can select multiple filter criteria simultaneously. The **Clear filters** button removes all applied filters to return to the full recommendations view.
 

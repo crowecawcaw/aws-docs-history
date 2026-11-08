@@ -90,7 +90,7 @@ For more details about this policy, including the full JSON policy document, see
 ## AWS Well-Architected policy updates
 <a name="security-iam-awsmanpol-updates"></a>
 
-View details about updates to AWS managed policies for AWS Well-Architected since this service began tracking these changes. For automatic alerts about changes to this page, subscribe to the RSS feed in [Release notes](release-notes.md).
+View details about updates to AWS managed policies for AWS Well-Architected since this service began tracking these changes. For automatic alerts about changes to this page, subscribe to the RSS feed in [Document history](doc-history.md).
 
 
 | Change | Description | Date | 

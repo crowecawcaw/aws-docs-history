@@ -27,8 +27,8 @@ Each profile has the following attributes:
 <a name="agent-concept-roles"></a>
 
 AWS WA Agent uses two types of IAM roles to discover and analyze resources across your accounts:
-+ **Execution role:** An IAM role in the same account as your AWS WA Agent profile. You create this role during profile setup or select an existing one. AWS WA Agent assumes this role to orchestrate resource discovery across your configured accounts. The trust policy allows the `wellarchitected.amazonaws.com` service principal to assume the role.
-+ **Access role:** An IAM role that you create in each account you want AWS WA Agent to analyze. The access role is encouraged to use the `WellArchitectedAgentResourceScanning` managed policy, which grants read-only access to resource metadata and configuration. Alternatively, you can scope the access role permissions to only the actions you want AWS WA Agent to perform on your behalf. You update the trust policy on each access role to allow the execution role to assume it.
++ **Execution role** – An IAM role in the same account as your AWS WA Agent profile. You create this role during profile setup or select an existing one. AWS WA Agent assumes this role to orchestrate resource discovery across your configured accounts. The trust policy allows the `wellarchitected.amazonaws.com` service principal to assume the role.
++ **Access role** – An IAM role that you create in each account you want AWS WA Agent to analyze. The access role is encouraged to use the `WellArchitectedAgentResourceScanning` managed policy, which grants read-only access to resource metadata and configuration. Alternatively, you can scope the access role permissions to only the actions you want AWS WA Agent to perform on your behalf. You update the trust policy on each access role to allow the execution role to assume it.
 
 Neither role grants AWS WA Agent permission to modify your resources. The execution role's only permission is to assume your access roles, and access roles grant read-only access to resource metadata and configuration.
 
@@ -65,9 +65,9 @@ Application context includes the following:
 <a name="agent-concept-rec-types"></a>
 
 AWS WA Agent generates three types of recommendations:
-+ **Resource:** Targets a specific resource such as an Amazon EC2 instance, Lambda function, or Amazon RDS database. Identifies optimization opportunities at the individual resource level.
-+ **Application:** Spans multiple related resources within a discovered application. Considers how resources interact and provides guidance that accounts for relationships between components.
-+ **Architecture:** Generated from IaC template analysis. Upload your CloudFormation, Terraform, or AWS CDK templates and receive recommendations aligned to AWS Well-Architected best practices, along with deployment-ready updated templates.
++ **Resource** – Targets a specific resource such as an Amazon EC2 instance, Lambda function, or Amazon RDS database. Identifies optimization opportunities at the individual resource level.
++ **Application** – Spans multiple related resources within a discovered application. Considers how resources interact and provides guidance that accounts for relationships between components.
++ **Architecture** – Generated from IaC template analysis. Upload your CloudFormation, Terraform, or AWS CDK templates and receive recommendations aligned to AWS Well-Architected best practices, along with deployment-ready updated templates.
 
 ## Architecture reviews
 <a name="agent-concept-arch-reviews"></a>

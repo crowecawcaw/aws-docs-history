@@ -12,8 +12,8 @@ You can share a recommendation by email from either the AWS WA Agent dashboard o
 **To share a recommendation**
 
 1. Open the share dialog from one of the following locations:
-   + **From the dashboard:** Choose the radio button next to the recommendation you want to share, then choose **Share**.
-   + **From the recommendation detail page:** Choose **Actions** in the top right corner, then **Share recommendation**.
+   + **From the dashboard** – Choose the radio button next to the recommendation you want to share, then choose **Share**.
+   + **From the recommendation detail page** – Choose **Actions** in the top right corner, then **Share recommendation**.
 
 1. Enter the email address you want to share the recommendation with.
 
