@@ -12,7 +12,7 @@ The following table lists the quotas for Next generation Resilience Hub.
 | 2 | Services per account per AWS Region | 100 | Yes | 
 | 3 | User journeys per system | 20 | No | 
 | 4 | Assessable Resources per service | 500 | Yes | 
-| 5 | Total Resources per service | 2,000 | No | 
+| 5 | Total Resources per service | 20,000 | No | 
 | 6 | Input sources per service | 20 | Yes | 
 | 7 | Service functions per service | 20 | No | 
 | 8 | Resilience policies per account per AWS Region | 100 | No | 
