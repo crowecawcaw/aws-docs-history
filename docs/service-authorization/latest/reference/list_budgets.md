@@ -65,8 +65,10 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [aws-portal:ViewBilling](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
 
 - **   DescribeBudgetAction  **
-  - **IAM action:**  [budgets:DescribeBudgetAction](#list_budgets-action-DescribeBudgetAction)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
-  - **IAM action:**  [aws-portal:ViewBilling](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [budgets:DescribeBudgetAction](#list_budgets-action-DescribeBudgetAction) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
 
 - **   DescribeBudgetActionHistories  **
   - **IAM action:**  [budgets:DescribeBudgetActionHistories](#list_budgets-action-DescribeBudgetActionHistories)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read

@@ -176,6 +176,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Permissions management, Write
 
+- **   DeregisterDefaultHostManagementConfiguration  **
+  - **IAM action:**  [ssm:DeregisterDefaultHostManagementConfiguration](#list_ssm-action-DeregisterDefaultHostManagementConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   DeregisterManagedInstance  **
   - **IAM action:**  [ssm:DeregisterManagedInstance](#list_ssm-action-DeregisterManagedInstance) 
   - **Condition key:** 
@@ -716,6 +722,10 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Permissions management, Write
 
+- **   RegisterDefaultHostManagementConfiguration  **
+  - **IAM action:**  [ssm:RegisterDefaultHostManagementConfiguration](#list_ssm-action-RegisterDefaultHostManagementConfiguration)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** ssm.amazonaws.com / **Access level:** Write
+
 - **   RegisterDefaultPatchBaseline  **
   - **IAM action:**  [ssm:RegisterDefaultPatchBaseline](#list_ssm-action-RegisterDefaultPatchBaseline) 
   - **Condition key:** 
@@ -786,10 +796,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** ssm.amazonaws.com / **Access level:** Write
 
 - **   StartExecutionPreview  **
-  - **IAM action:**  [ssm:StartExecutionPreview](#list_ssm-action-StartExecutionPreview) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Read
+  - **IAM action:**  [ssm:AddTagsToResource](#list_ssm-action-AddTagsToResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [ssm:StartExecutionPreview](#list_ssm-action-StartExecutionPreview)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
 
 - **   StartSession  **
   - **IAM action:**  [ssm:StartSession](#list_ssm-action-StartSession) 
@@ -1087,6 +1095,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [opsitemgroup](#list_ssm-resource-opsitemgroup) / **Condition keys:**  
   - **Resource types (\*required):** [parameter](#list_ssm-resource-parameter) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ssm-aws_ResourceTag___TagKey_)<br />[ssm:resourceTag/tag-key](#list_ssm-ssm_resourceTag_tag-key)
   - **Access level:** Permissions management, Write
+
+- **   [DeregisterDefaultHostManagementConfiguration](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterDefaultHostManagementConfiguration.html)  **
+  - **Description:** Grants permission to disable Default Host Management Configuration (DHMC) for an AWS account and Region
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
 
 - **   [DeregisterManagedInstance](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterManagedInstance.html)  **
   - **Description:** Grants permission to deregister a specified on-premises server or virtual machine (VM) from Systems Manager
@@ -1662,6 +1676,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [opsitemgroup](#list_ssm-resource-opsitemgroup) / **Condition keys:**  
   - **Resource types (\*required):** [parameter](#list_ssm-resource-parameter) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ssm-aws_ResourceTag___TagKey_)<br />[ssm:resourceTag/tag-key](#list_ssm-ssm_resourceTag_tag-key)
   - **Access level:** Permissions management, Write
+
+- **   [RegisterDefaultHostManagementConfiguration](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_RegisterDefaultHostManagementConfiguration.html)  **
+  - **Description:** Grants permission to enable Default Host Management Configuration (DHMC) for an AWS account and Region
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
 
 - **   [RegisterDefaultPatchBaseline](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_RegisterDefaultPatchBaseline.html)  **
   - **Description:** Grants permission to specify the default patch baseline for an operating system type

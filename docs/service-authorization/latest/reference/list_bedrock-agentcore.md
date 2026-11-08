@@ -3210,6 +3210,12 @@ The following actions are defined by Amazon Bedrock Agentcore but are not direct
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)
   - **Access level:** Permissions management, Write
 
+- **   [InvokeWebAnswer](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/welcome.html)  **
+  - **Description:** Grants permission to invoke a web answer target
+  - **Resource types (\*required):** [web-answer\*](#list_bedrock-agentcore-resource-web-answer)
+  - **Condition keys:**  
+  - **Access level:** Write
+
 - **   [InvokeWebSearch](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/welcome.html)  **
   - **Description:** Grants permission to invoke a web search target
   - **Resource types (\*required):** [web-search\*](#list_bedrock-agentcore-resource-web-search)
@@ -3299,6 +3305,7 @@ The following resource types are defined by this service and can be used in the 
 |  [runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/runtime.html)  | arn:${Partition}:bedrock-agentcore:${Region}:${Account}:runtime/${RuntimeId} | [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_) | 
 |  [runtime-endpoint](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/runtimeEndpoint.html)  | arn:${Partition}:bedrock-agentcore:${Region}:${Account}:runtime/${RuntimeId}/runtime-endpoint/${Name} | [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_) | 
 |  [token-vault](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/tokenVault.html)  | arn:${Partition}:bedrock-agentcore:${Region}:${Account}:token-vault/${TokenVaultId} | [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_) | 
+|  [web-answer](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/webAnswer.html)  | arn:${Partition}:bedrock-agentcore:${Region}:aws:tool/web-answer.v1 |   | 
 |  [web-search](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/webSearch.html)  | arn:${Partition}:bedrock-agentcore:${Region}:${Account}:tool/web-search.v1 |   | 
 |  [workload-identity](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/workloadIdentity.html)  | arn:${Partition}:bedrock-agentcore:${Region}:${Account}:workload-identity-directory/${DirectoryId}/workload-identity/${WorkloadIdentityName} | [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_) | 
 |  [workload-identity-directory](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/workloadIdentityDirectory.html)  | arn:${Partition}:bedrock-agentcore:${Region}:${Account}:workload-identity-directory/${DirectoryId} | [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_) | 

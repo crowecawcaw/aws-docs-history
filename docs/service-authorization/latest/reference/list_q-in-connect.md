@@ -495,6 +495,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   RegisterAssistantReplicaKey  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:RegisterAssistantReplicaKey](#list_q-in-connect-action-RegisterAssistantReplicaKey) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   RemoveAssistantAIAgent  **
   - **SDK client:** qconnect
   - **IAM action:**  [wisdom:RemoveAssistantAIAgent](#list_q-in-connect-action-RemoveAssistantAIAgent) 

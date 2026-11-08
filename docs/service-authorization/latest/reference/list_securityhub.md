@@ -514,6 +514,24 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetSoftwareResourcesV2  **
+  - **IAM action:**  [securityhub:GetSoftwareResourcesV2](#list_securityhub-action-GetSoftwareResourcesV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSoftwareStatisticsV2  **
+  - **IAM action:**  [securityhub:GetSoftwareStatisticsV2](#list_securityhub-action-GetSoftwareStatisticsV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSoftwareV2  **
+  - **IAM action:**  [securityhub:GetSoftwareV2](#list_securityhub-action-GetSoftwareV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   InviteMembers  **
   - **IAM action:**  [securityhub:InviteMembers](#list_securityhub-action-InviteMembers) 
   - **Condition key:** 
@@ -1236,6 +1254,24 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to get the definition details of a specific security control identified by ID
   - **Resource types (\*required):** 
   - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetSoftwareResourcesV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetSoftwareResourcesV2.html)  **
+  - **Description:** Grants permission to retrieve a list of resources that contain a software package
+  - **Resource types (\*required):** [hubv2](#list_securityhub-resource-hubv2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetSoftwareStatisticsV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetSoftwareStatisticsV2.html)  **
+  - **Description:** Grants permission to retrieve aggregate statistics about software packages
+  - **Resource types (\*required):** [hubv2](#list_securityhub-resource-hubv2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetSoftwareV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetSoftwareV2.html)  **
+  - **Description:** Grants permission to retrieve a list of software packages found on resources
+  - **Resource types (\*required):** [hubv2](#list_securityhub-resource-hubv2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [InviteMembers](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_InviteMembers.html)  **

@@ -31,6 +31,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [cost-optimization-hub:GetRecommendation](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostOptimizationHub_GetRecommendation.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
   - **IAM action:**  [cost-optimization-hub:ListRecommendations](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostOptimizationHub_ListRecommendations.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
   - **IAM action:**  [cur:PutReportDefinition](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_cur_PutReportDefinition.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [cur:PutReportDefinition](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_cur_PutReportDefinition.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [sustainability:GetCarbonFootprintSummary](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-create-standard.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
 
 - **   DeleteExport  **

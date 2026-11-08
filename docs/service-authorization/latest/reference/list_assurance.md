@@ -56,7 +56,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Access level:** Read
 
 - **   [Chat](https://docs.aws.amazon.com/assurance/latest/APIReference/API_Chat.html)  **
-  - **Description:** Grants permission to start a streaming chat session with the AI Governance agent
+  - **Description:** Grants permission to start a streaming chat session with the AWS Assurance agent
   - **Resource types (\*required):** [environment\*](#list_assurance-resource-environment)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_assurance-aws_ResourceTag___TagKey_)
   - **Access level:** Write
@@ -289,6 +289,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_assurance-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [GetResourceActivitiesQueryResults](https://docs.aws.amazon.com/assurance/latest/APIReference/API_GetResourceActivitiesQueryResults.html)  **
+  - **Description:** Grants permission to retrieve results of an asynchronous resource-activities query for an AI agent
+  - **Resource types (\*required):** [environment\*](#list_assurance-resource-environment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_assurance-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [GetTask](https://docs.aws.amazon.com/assurance/latest/APIReference/API_GetTask.html)  **
   - **Description:** Grants permission to retrieve a specific task by its identifying fields
   - **Resource types (\*required):** [environment\*](#list_assurance-resource-environment)
@@ -427,12 +433,6 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_assurance-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
-- **   [ListResourcesForControl](https://docs.aws.amazon.com/assurance/latest/APIReference/API_ListResourcesForControl.html)  **
-  - **Description:** Grants permission to list in-scope resources for a control
-  - **Resource types (\*required):** [environment\*](#list_assurance-resource-environment)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_assurance-aws_ResourceTag___TagKey_)
-  - **Access level:** Read
-
 - **   [ListTagsForResource](https://docs.aws.amazon.com/assurance/latest/APIReference/API_ListTagsForResource.html)  **
   - **Description:** Grants permission to list tags for a resource
   - **Resource types (\*required):** [environment\*](#list_assurance-resource-environment)
@@ -499,11 +499,11 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_assurance-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
-- **   [StartResourceDiscovery](https://docs.aws.amazon.com/assurance/latest/APIReference/API_StartResourceDiscovery.html)  **
-  - **Description:** Grants permission to start discovery of in-scope resources
+- **   [StartResourceActivitiesQuery](https://docs.aws.amazon.com/assurance/latest/APIReference/API_StartResourceActivitiesQuery.html)  **
+  - **Description:** Grants permission to start an asynchronous resource-activities query for an AI agent
   - **Resource types (\*required):** [environment\*](#list_assurance-resource-environment)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_assurance-aws_ResourceTag___TagKey_)
-  - **Access level:** Write
+  - **Access level:** Read
 
 - **   [TagResource](https://docs.aws.amazon.com/assurance/latest/APIReference/API_TagResource.html)  **
   - **Description:** Grants permission to add or overwrite tags on a resource
@@ -599,12 +599,6 @@ The following actions are defined by AWS Assurance but are not directly invocabl
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_assurance-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
-- **   [DownloadEvidence](https://docs.aws.amazon.com/assurance/latest/APIReference/API_DownloadEvidence.html)  **
-  - **Description:** Grants permission to retrieve the content of an evidence item
-  - **Resource types (\*required):** [environment\*](#list_assurance-resource-environment)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_assurance-aws_ResourceTag___TagKey_)
-  - **Access level:** Read
-
 - **   [UpdateAnnotation](https://docs.aws.amazon.com/assurance/latest/APIReference/API_UpdateAnnotation.html)  **
   - **Description:** Grants permission to update the reviewer notes on an existing annotation
   - **Resource types (\*required):** [environment\*](#list_assurance-resource-environment)
@@ -615,18 +609,6 @@ The following actions are defined by AWS Assurance but are not directly invocabl
   - **Description:** Grants permission to update an assessment's status and result
   - **Resource types (\*required):** [environment\*](#list_assurance-resource-environment)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_assurance-aws_ResourceTag___TagKey_)
-  - **Access level:** Write
-
-- **   [UploadEvidence](https://docs.aws.amazon.com/assurance/latest/APIReference/API_UploadEvidence.html)  **
-  - **Description:** Grants permission to upload new evidence to support a compliance assessment
-  - **Resource types (\*required):** [environment\*](#list_assurance-resource-environment)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_assurance-aws_ResourceTag___TagKey_)
-  - **Access level:** Write
-
-- **   [VendConnectionAccessToken](https://docs.aws.amazon.com/assurance/latest/APIReference/API_VendConnectionAccessToken.html)  **
-  - **Description:** Grants permission to retrieve a short-lived access token for a third-party connection in an environment
-  - **Resource types (\*required):** 
-  - **Condition keys:**  
   - **Access level:** Write
 
 

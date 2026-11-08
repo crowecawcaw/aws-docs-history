@@ -31,6 +31,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Write
 
+- **   [CreateConnectedAccount](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html)  **
+  - **Description:** Grants permission to create a connected account
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_payments-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_payments-aws_TagKeys)
+  - **Access level:** Write
+
 - **   [CreateFinancingApplication](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/security_iam_id-based-policy-examples.html#billing-permissions-ref)  **
   - **Description:** Grants permission to create a financing application
   - **Resource types (\*required):** 
@@ -42,6 +48,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** 
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_payments-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_payments-aws_TagKeys)
   - **Access level:** Write
+
+- **   [DeleteConnectedAccount](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html)  **
+  - **Description:** Grants permission to delete a connected account
+  - **Resource types (\*required):** [connectedaccount\*](#list_payments-resource-connectedaccount)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_payments-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetConnectedAccount](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html)  **
+  - **Description:** Grants permission to get information about a connected account
+  - **Resource types (\*required):** [connectedaccount\*](#list_payments-resource-connectedaccount)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_payments-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
 
 - **   [GetFinancingApplication](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/security_iam_id-based-policy-examples.html#billing-permissions-ref)  **
   - **Description:** Grants permission to get information about a financing application
@@ -71,6 +89,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to get information about a payment instrument
   - **Resource types (\*required):** [payment-instrument](#list_payments-resource-payment-instrument)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_payments-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListConnectedAccounts](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html)  **
+  - **Description:** Grants permission to list connected accounts
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
   - **Access level:** List
 
 - **   [ListFinancingApplications](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/security_iam_id-based-policy-examples.html#billing-permissions-ref)  **
@@ -105,20 +129,20 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [ListTagsForResource](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html)  **
   - **Description:** Grants permission to list tags on a payment resource
-  - **Resource types (\*required):** [payment-instrument](#list_payments-resource-payment-instrument)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_payments-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [connectedaccount](#list_payments-resource-connectedaccount) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_payments-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [payment-instrument](#list_payments-resource-payment-instrument) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_payments-aws_ResourceTag___TagKey_)
   - **Access level:** List
 
 - **   [TagResource](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html)  **
   - **Description:** Grants permission to tag a payment resource
-  - **Resource types (\*required):** [payment-instrument](#list_payments-resource-payment-instrument)
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_payments-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_payments-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_payments-aws_TagKeys)
+  - **Resource types (\*required):** [connectedaccount](#list_payments-resource-connectedaccount) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_payments-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_payments-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_payments-aws_TagKeys)
+  - **Resource types (\*required):** [payment-instrument](#list_payments-resource-payment-instrument) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_payments-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_payments-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_payments-aws_TagKeys)
   - **Access level:** Tagging, Write
 
 - **   [UntagResource](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html)  **
   - **Description:** Grants permission to untag a payment resource
-  - **Resource types (\*required):** [payment-instrument](#list_payments-resource-payment-instrument)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_payments-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_payments-aws_TagKeys)
+  - **Resource types (\*required):** [connectedaccount](#list_payments-resource-connectedaccount) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_payments-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_payments-aws_TagKeys)
+  - **Resource types (\*required):** [payment-instrument](#list_payments-resource-payment-instrument) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_payments-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_payments-aws_TagKeys)
   - **Access level:** Tagging, Write
 
 - **   [UpdateFinancingApplication](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/security_iam_id-based-policy-examples.html#billing-permissions-ref)  **
@@ -155,6 +179,7 @@ The following resource types are defined by this service and can be used in the 
 
 | Resource types | ARN | Condition keys | 
 | --- | --- | --- | 
+|  [connectedaccount](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  | arn:${Partition}:payments::${Account}:connectedaccount/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_payments-aws_ResourceTag___TagKey_) | 
 |  [payment-instrument](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  | arn:${Partition}:payments::${Account}:payment-instrument:${ResourceId} | [aws:ResourceTag/${TagKey}](#list_payments-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS Payments

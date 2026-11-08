@@ -293,10 +293,9 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   DescribeBotReplica  **
   - **SDK client:** lexv2-models
-  - **IAM action:**  [lex:DescribeBotReplica](#list_lex-v2-action-DescribeBotReplica) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Read
+  - **IAM action:**  [lex:DescribeBotAlias](#list_lex-v2-action-DescribeBotAlias)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [lex:DescribeBotReplica](#list_lex-v2-action-DescribeBotReplica)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [lex:DescribeBotVersion](#list_lex-v2-action-DescribeBotVersion)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
 
 - **   DescribeBotResourceGeneration  **
   - **SDK client:** lexv2-models

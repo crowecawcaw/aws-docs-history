@@ -7,7 +7,7 @@ Amazon Polly (service prefix: `polly`) provides the following service-specific o
 
 References:
 + Learn how to [configure this service](https://docs.aws.amazon.com/polly/latest/dg/).
-+ View a list of the [API operations available for this service](https://docs.aws.amazon.com/polly/latest/dg/API_Reference.html).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/polly/latest/APIReference/).
 + Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/polly/latest/dg/security_iam_service-with-iam.html) permission policies.
 + View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/polly/polly.json) for this service.
 
@@ -61,11 +61,15 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
-- **   PutLexicon  **
-  - **IAM action:**  [polly:PutLexicon](#list_polly-action-PutLexicon) 
+- **   ListTagsForResource  **
+  - **IAM action:**  [polly:ListTagsForResource](#list_polly-action-ListTagsForResource) 
   - **Condition key:** 
   - **Possible value(s):** 
-  - **Access level:** Write
+  - **Access level:** Read
+
+- **   PutLexicon  **
+  - **IAM action:**  [polly:PutLexicon](#list_polly-action-PutLexicon)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [polly:TagResource](#list_polly-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
 - **   StartSpeechSynthesisStream  **
   - **IAM action:**  [polly:StartSpeechSynthesisStream](#list_polly-action-StartSpeechSynthesisStream) 
@@ -85,6 +89,18 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   TagResource  **
+  - **IAM action:**  [polly:TagResource](#list_polly-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [polly:UntagResource](#list_polly-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
 
 
 ## Actions defined by Amazon Polly
@@ -95,65 +111,83 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 
 
-- **   [DeleteLexicon](https://docs.aws.amazon.com/polly/latest/dg/API_DeleteLexicon.html)  **
+- **   [DeleteLexicon](https://docs.aws.amazon.com/polly/latest/APIReference/API_DeleteLexicon.html)  **
   - **Description:** Grants permission to delete the specified pronunciation lexicon stored in an AWS Region
   - **Resource types (\*required):** [lexicon\*](#list_polly-resource-lexicon)
-  - **Condition keys:**  
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_polly-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
-- **   [DescribeVoices](https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html)  **
+- **   [DescribeVoices](https://docs.aws.amazon.com/polly/latest/APIReference/API_DescribeVoices.html)  **
   - **Description:** Grants permission to describe the list of voices that are available for use when requesting speech synthesis
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** List
 
-- **   [GetLexicon](https://docs.aws.amazon.com/polly/latest/dg/API_GetLexicon.html)  **
+- **   [GetLexicon](https://docs.aws.amazon.com/polly/latest/APIReference/API_GetLexicon.html)  **
   - **Description:** Grants permission to retrieve the content of the specified pronunciation lexicon stored in an AWS Region
   - **Resource types (\*required):** [lexicon\*](#list_polly-resource-lexicon)
-  - **Condition keys:**  
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_polly-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
-- **   [GetSpeechSynthesisTask](https://docs.aws.amazon.com/polly/latest/dg/API_GetSpeechSynthesisTask.html)  **
+- **   [GetSpeechSynthesisTask](https://docs.aws.amazon.com/polly/latest/APIReference/API_GetSpeechSynthesisTask.html)  **
   - **Description:** Grants permission to get information about specific speech synthesis task
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Read
 
-- **   [ListLexicons](https://docs.aws.amazon.com/polly/latest/dg/API_ListLexicons.html)  **
+- **   [ListLexicons](https://docs.aws.amazon.com/polly/latest/APIReference/API_ListLexicons.html)  **
   - **Description:** Grants permission to list the pronunciation lexicons stored in an AWS Region
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** List
 
-- **   [ListSpeechSynthesisTasks](https://docs.aws.amazon.com/polly/latest/dg/API_ListSpeechSynthesisTasks.html)  **
+- **   [ListSpeechSynthesisTasks](https://docs.aws.amazon.com/polly/latest/APIReference/API_ListSpeechSynthesisTasks.html)  **
   - **Description:** Grants permission to list requested speech synthesis tasks
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** List
 
-- **   [PutLexicon](https://docs.aws.amazon.com/polly/latest/dg/API_PutLexicon.html)  **
+- **   [ListTagsForResource](https://docs.aws.amazon.com/polly/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list the tags of a resource
+  - **Resource types (\*required):** [lexicon\*](#list_polly-resource-lexicon)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_polly-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [PutLexicon](https://docs.aws.amazon.com/polly/latest/APIReference/API_PutLexicon.html)  **
   - **Description:** Grants permission to store a pronunciation lexicon in an AWS Region
   - **Resource types (\*required):** [lexicon\*](#list_polly-resource-lexicon)
-  - **Condition keys:**  
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_polly-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_polly-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_polly-aws_TagKeys)
   - **Access level:** Write
 
-- **   [StartSpeechSynthesisStream](https://docs.aws.amazon.com/polly/latest/dg/API_StartSpeechSynthesisStream.html)  **
+- **   [StartSpeechSynthesisStream](https://docs.aws.amazon.com/polly/latest/APIReference/API_StartSpeechSynthesisStream.html)  **
   - **Description:** Grants permission to perform synthesis with bidirectional streaming
   - **Resource types (\*required):** [lexicon](#list_polly-resource-lexicon)
-  - **Condition keys:**  
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_polly-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
-- **   [StartSpeechSynthesisTask](https://docs.aws.amazon.com/polly/latest/dg/API_StartSpeechSynthesisTask.html)  **
+- **   [StartSpeechSynthesisTask](https://docs.aws.amazon.com/polly/latest/APIReference/API_StartSpeechSynthesisTask.html)  **
   - **Description:** Grants permission to synthesize long inputs to the provided S3 location
   - **Resource types (\*required):** [lexicon](#list_polly-resource-lexicon)
-  - **Condition keys:**  
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_polly-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
-- **   [SynthesizeSpeech](https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html)  **
+- **   [SynthesizeSpeech](https://docs.aws.amazon.com/polly/latest/APIReference/API_SynthesizeSpeech.html)  **
   - **Description:** Grants permission to synthesize speech
   - **Resource types (\*required):** [lexicon](#list_polly-resource-lexicon)
-  - **Condition keys:**  
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_polly-aws_ResourceTag___TagKey_)
   - **Access level:** Read
+
+- **   [TagResource](https://docs.aws.amazon.com/polly/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to add tags to a resource
+  - **Resource types (\*required):** [lexicon\*](#list_polly-resource-lexicon)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_polly-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_polly-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_polly-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/polly/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to remove tags from a resource
+  - **Resource types (\*required):** [lexicon\*](#list_polly-resource-lexicon)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_polly-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_polly-aws_TagKeys)
+  - **Access level:** Tagging, Write
 
 
 
@@ -166,9 +200,17 @@ The following resource types are defined by this service and can be used in the 
 
 | Resource types | ARN | Condition keys | 
 | --- | --- | --- | 
-|  [lexicon](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html)  | arn:${Partition}:polly:${Region}:${Account}:lexicon/${LexiconName} |   | 
+|  [lexicon](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html)  | arn:${Partition}:polly:${Region}:${Account}:lexicon/${LexiconName} | [aws:ResourceTag/${TagKey}](#list_polly-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon Polly
 <a name="list_polly-policy-keys"></a>
 
-Amazon Polly has no service-specific condition keys that can be used in the `Condition` element of policy statements.
+Amazon Polly defines the following condition keys that can be used in the `Condition` element of an IAM policy.
+
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by a tag's key and value in a request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the tag key-value pairs attached to the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the tag keys in a request | ArrayOfString | 

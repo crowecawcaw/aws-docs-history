@@ -249,6 +249,12 @@ The following actions are defined by Amazon Connect Health but are not directly 
 
 
 
+- **   [BatchRefillPatientPharmacyPrescriptions](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to batch request patient pharmacy prescription refills
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Integration\*](#list_connecthealth-resource-Integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [CancelAppointment](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
   - **Description:** Grants permission to cancel an appointment
   - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
@@ -360,6 +366,12 @@ The following actions are defined by Amazon Connect Health but are not directly 
 
 - **   [ListPatientMedications](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
   - **Description:** Grants permission to list patient medications
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Integration\*](#list_connecthealth-resource-Integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListPatientPharmacyPrescriptions](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to list a patient's pharmacy prescriptions
   - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [Integration\*](#list_connecthealth-resource-Integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
   - **Access level:** Read

@@ -1652,6 +1652,10 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   UpdateResourcePermissions  **
+  - **IAM action:**  [quicksight:UpdateResourcePermissions](#list_quicksight-action-UpdateResourcePermissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** quicksight.amazonaws.com / **Access level:** Write
+
 - **   UpdateRoleCustomPermission  **
   - **IAM action:**  [quicksight:UpdateRoleCustomPermission](#list_quicksight-action-UpdateRoleCustomPermission) 
   - **Condition key:** 
@@ -2563,6 +2567,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Read
 
+- **   [DescribeResourcePermissions](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeResourcePermissions.html)  **
+  - **Description:** Grants permission to describe the QuickSight service role configuration for an account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
 - **   [DescribeRoleCustomPermission](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeRoleCustomPermission.html)  **
   - **Description:** Grants permission to describe the custom permission associated with a role
   - **Resource types (\*required):** 
@@ -2912,6 +2922,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [ListTagsForResource](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ListTagsForResource.html)  **
   - **Description:** Grants permission to list tags of a QuickSight resource
+  - **Resource types (\*required):** [accessControlApplication](#list_quicksight-resource-accessControlApplication) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [actionconnector](#list_quicksight-resource-actionconnector) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [analysis](#list_quicksight-resource-analysis) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [app](#list_quicksight-resource-app) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)
@@ -2925,6 +2936,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [emailCustomizationTemplate](#list_quicksight-resource-emailCustomizationTemplate) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [flow](#list_quicksight-resource-flow) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [folder](#list_quicksight-resource-folder) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [inboundConnector](#list_quicksight-resource-inboundConnector) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [namespace](#list_quicksight-resource-namespace) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [oauthClientApplication](#list_quicksight-resource-oauthClientApplication) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [template](#list_quicksight-resource-template) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)
@@ -3140,6 +3152,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [TagResource](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_TagResource.html)  **
   - **Description:** Grants permission to add tags to a QuickSight resource
+  - **Resource types (\*required):** [accessControlApplication](#list_quicksight-resource-accessControlApplication) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_quicksight-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_quicksight-aws_TagKeys)
   - **Resource types (\*required):** [actionconnector](#list_quicksight-resource-actionconnector) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_quicksight-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_quicksight-aws_TagKeys)
   - **Resource types (\*required):** [analysis](#list_quicksight-resource-analysis) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_quicksight-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_quicksight-aws_TagKeys)
   - **Resource types (\*required):** [app](#list_quicksight-resource-app) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_quicksight-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_quicksight-aws_TagKeys)
@@ -3153,6 +3166,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [emailCustomizationTemplate](#list_quicksight-resource-emailCustomizationTemplate) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_quicksight-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_quicksight-aws_TagKeys)
   - **Resource types (\*required):** [flow](#list_quicksight-resource-flow) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_quicksight-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_quicksight-aws_TagKeys)
   - **Resource types (\*required):** [folder](#list_quicksight-resource-folder) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_quicksight-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_quicksight-aws_TagKeys)
+  - **Resource types (\*required):** [inboundConnector](#list_quicksight-resource-inboundConnector) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_quicksight-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_quicksight-aws_TagKeys)
   - **Resource types (\*required):** [ingestion](#list_quicksight-resource-ingestion) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_quicksight-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_quicksight-aws_TagKeys)
   - **Resource types (\*required):** [namespace](#list_quicksight-resource-namespace) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_quicksight-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_quicksight-aws_TagKeys)
   - **Resource types (\*required):** [oauthClientApplication](#list_quicksight-resource-oauthClientApplication) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_quicksight-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_quicksight-aws_TagKeys)
@@ -3165,6 +3179,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [UntagResource](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UntagResource.html)  **
   - **Description:** Grants permission to remove tags from a QuickSight resource
+  - **Resource types (\*required):** [accessControlApplication](#list_quicksight-resource-accessControlApplication) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_quicksight-aws_TagKeys)
   - **Resource types (\*required):** [actionconnector](#list_quicksight-resource-actionconnector) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_quicksight-aws_TagKeys)
   - **Resource types (\*required):** [analysis](#list_quicksight-resource-analysis) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_quicksight-aws_TagKeys)
   - **Resource types (\*required):** [app](#list_quicksight-resource-app) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_quicksight-aws_TagKeys)
@@ -3178,6 +3193,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [emailCustomizationTemplate](#list_quicksight-resource-emailCustomizationTemplate) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_quicksight-aws_TagKeys)
   - **Resource types (\*required):** [flow](#list_quicksight-resource-flow) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_quicksight-aws_TagKeys)
   - **Resource types (\*required):** [folder](#list_quicksight-resource-folder) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_quicksight-aws_TagKeys)
+  - **Resource types (\*required):** [inboundConnector](#list_quicksight-resource-inboundConnector) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_quicksight-aws_TagKeys)
   - **Resource types (\*required):** [ingestion](#list_quicksight-resource-ingestion) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_quicksight-aws_TagKeys)
   - **Resource types (\*required):** [namespace](#list_quicksight-resource-namespace) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_quicksight-aws_TagKeys)
   - **Resource types (\*required):** [oauthClientApplication](#list_quicksight-resource-oauthClientApplication) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_quicksight-aws_TagKeys)
@@ -3452,6 +3468,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Write
 
+- **   [UpdateResourcePermissions](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateResourcePermissions.html)  **
+  - **Description:** Grants permission to update resource permissions and the QuickSight service role configuration for an account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
 - **   [UpdateRoleCustomPermission](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateRoleCustomPermission.html)  **
   - **Description:** Grants permission to update the custom permission associated with a role
   - **Resource types (\*required):** 
@@ -3588,6 +3610,12 @@ The following actions are defined by Amazon QuickSight but are not directly invo
   - **Condition keys:**  
   - **Access level:** Permissions management, Write
 
+- **   [AuthorizeOAuthAccess](https://docs.aws.amazon.com/quick/latest/userguide/desktop-enterprise-setup.html)  **
+  - **Description:** Grants permission to authorize OAuth 2.0 access for Amazon QuickSight clients
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
 - **   [BatchGetPreferences](https://docs.aws.amazon.com/quicksight/latest/user/iam-actions.html)  **
   - **Description:** Grants permission to get user preferences
   - **Resource types (\*required):** 
@@ -3598,6 +3626,18 @@ The following actions are defined by Amazon QuickSight but are not directly invo
   - **Description:** Grants permission to update user preferences
   - **Resource types (\*required):** 
   - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateAccessControlApplication](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateAccessControlApplication.html)  **
+  - **Description:** Grants permission to create an access control application
+  - **Resource types (\*required):** [accessControlApplication\*](#list_quicksight-resource-accessControlApplication)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_quicksight-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_quicksight-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateAccessControlApplicationSecret](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateAccessControlApplicationSecret.html)  **
+  - **Description:** Grants permission to create a client secret for an access control application
+  - **Resource types (\*required):** [accessControlApplication\*](#list_quicksight-resource-accessControlApplication)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [CreateAdmin](https://docs.aws.amazon.com/quicksight/latest/user/iam-actions.html)  **
@@ -3624,6 +3664,18 @@ The following actions are defined by Amazon QuickSight but are not directly invo
   - **Condition keys:**  
   - **Access level:** Write
 
+- **   [CreateInboundConnector](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateInboundConnector.html)  **
+  - **Description:** Grants permission to create an inbound connector
+  - **Resource types (\*required):** [inboundConnector\*](#list_quicksight-resource-inboundConnector)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_quicksight-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_quicksight-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateOAuthToken](https://docs.aws.amazon.com/quick/latest/userguide/desktop-enterprise-setup.html)  **
+  - **Description:** Grants permission to issue OAuth 2.0 access and refresh tokens for Amazon QuickSight clients
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
 - **   [CreateReader](https://docs.aws.amazon.com/quicksight/latest/user/iam-actions.html)  **
   - **Description:** Grants permission to provision Amazon QuickSight readers
   - **Resource types (\*required):** [user\*](#list_quicksight-resource-user)
@@ -3633,6 +3685,18 @@ The following actions are defined by Amazon QuickSight but are not directly invo
 - **   [CreateUser](https://docs.aws.amazon.com/quicksight/latest/user/iam-actions.html)  **
   - **Description:** Grants permission to provision Amazon QuickSight authors and readers
   - **Resource types (\*required):** [user\*](#list_quicksight-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAccessControlApplication](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DeleteAccessControlApplication.html)  **
+  - **Description:** Grants permission to delete an access control application
+  - **Resource types (\*required):** [accessControlApplication\*](#list_quicksight-resource-accessControlApplication)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAccessControlApplicationSecret](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DeleteAccessControlApplicationSecret.html)  **
+  - **Description:** Grants permission to delete a client secret from an access control application
+  - **Resource types (\*required):** [accessControlApplication\*](#list_quicksight-resource-accessControlApplication)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -3653,6 +3717,18 @@ The following actions are defined by Amazon QuickSight but are not directly invo
   - **Resource types (\*required):** [extensionaccess\*](#list_quicksight-resource-extensionaccess)
   - **Condition keys:**  
   - **Access level:** Write
+
+- **   [DeleteInboundConnector](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DeleteInboundConnector.html)  **
+  - **Description:** Grants permission to delete an inbound connector
+  - **Resource types (\*required):** [inboundConnector\*](#list_quicksight-resource-inboundConnector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DescribeAccessControlApplication](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAccessControlApplication.html)  **
+  - **Description:** Grants permission to describe an access control application
+  - **Resource types (\*required):** [accessControlApplication\*](#list_quicksight-resource-accessControlApplication)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
 
 - **   [DescribeChatConfiguration](https://docs.aws.amazon.com/quicksight/latest/user/iam-actions.html)  **
   - **Description:** Grants permission to describe chat configuration
@@ -3690,6 +3766,12 @@ The following actions are defined by Amazon QuickSight but are not directly invo
   - **Condition keys:**  
   - **Access level:** Read
 
+- **   [DescribeInboundConnector](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeInboundConnector.html)  **
+  - **Description:** Grants permission to describe an inbound connector
+  - **Resource types (\*required):** [inboundConnector\*](#list_quicksight-resource-inboundConnector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [DescribeQuickIndexCapacity](https://docs.aws.amazon.com/quicksight/latest/user/iam-actions.html)  **
   - **Description:** Grants permission to describe index capacity
   - **Resource types (\*required):** 
@@ -3720,6 +3802,12 @@ The following actions are defined by Amazon QuickSight but are not directly invo
   - **Condition keys:**  
   - **Access level:** Read
 
+- **   [ListAccessControlApplications](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ListAccessControlApplications.html)  **
+  - **Description:** Grants permission to list access control applications in an account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
 - **   [ListCustomPermissionAssignments](https://docs.aws.amazon.com/quicksight/latest/user/iam-actions.html)  **
   - **Description:** Grants permission to list assignment information of the custom permission profile in an account
   - **Resource types (\*required):** 
@@ -3746,6 +3834,18 @@ The following actions are defined by Amazon QuickSight but are not directly invo
 
 - **   [ListExtensions](https://docs.aws.amazon.com/quicksight/latest/user/iam-actions.html)  **
   - **Description:** Grants permission to list extensions
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListInboundConnectorApplicationAssociations](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ListInboundConnectorApplicationAssociations.html)  **
+  - **Description:** Grants permission to list the access control applications associated with an inbound connector
+  - **Resource types (\*required):** [inboundConnector\*](#list_quicksight-resource-inboundConnector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListInboundConnectors](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ListInboundConnectors.html)  **
+  - **Description:** Grants permission to list inbound connectors in an account
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** List
@@ -3794,6 +3894,12 @@ The following actions are defined by Amazon QuickSight but are not directly invo
 
 - **   [RemoveCustomerManagedKey](https://docs.aws.amazon.com/quicksight/latest/user/key-management.html)  **
   - **Description:** Grants permission to remove a customer managed key
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [RevokeOAuthToken](https://docs.aws.amazon.com/quick/latest/userguide/desktop-enterprise-setup.html)  **
+  - **Description:** Grants permission to revoke OAuth 2.0 tokens issued to Amazon QuickSight clients
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Write
@@ -3852,6 +3958,18 @@ The following actions are defined by Amazon QuickSight but are not directly invo
   - **Condition keys:**  
   - **Access level:** Write
 
+- **   [UpdateAccessControlApplication](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateAccessControlApplication.html)  **
+  - **Description:** Grants permission to update an access control application
+  - **Resource types (\*required):** [accessControlApplication\*](#list_quicksight-resource-accessControlApplication)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAccessControlApplicationSecret](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateAccessControlApplicationSecret.html)  **
+  - **Description:** Grants permission to update a client secret for an access control application
+  - **Resource types (\*required):** [accessControlApplication\*](#list_quicksight-resource-accessControlApplication)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [UpdateChatConfiguration](https://docs.aws.amazon.com/quicksight/latest/user/iam-actions.html)  **
   - **Description:** Grants permission to update chat configuration
   - **Resource types (\*required):** 
@@ -3882,14 +4000,20 @@ The following actions are defined by Amazon QuickSight but are not directly invo
   - **Condition keys:**  
   - **Access level:** Permissions management, Write
 
-- **   [UpdateQuickIndexCapacity](https://docs.aws.amazon.com/quicksight/latest/user/iam-actions.html)  **
-  - **Description:** Grants permission to update index capacity
-  - **Resource types (\*required):** 
-  - **Condition keys:**  
+- **   [UpdateInboundConnector](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateInboundConnector.html)  **
+  - **Description:** Grants permission to update an inbound connector
+  - **Resource types (\*required):** [inboundConnector\*](#list_quicksight-resource-inboundConnector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
-- **   [UpdateResourcePermissions](https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html)  **
-  - **Description:** Grants permission to update resource-level permissions in QuickSight
+- **   [UpdateInboundConnectorApplicationAssociations](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateInboundConnectorApplicationAssociations.html)  **
+  - **Description:** Grants permission to associate or disassociate access control applications with an inbound connector
+  - **Resource types (\*required):** [inboundConnector\*](#list_quicksight-resource-inboundConnector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateQuickIndexCapacity](https://docs.aws.amazon.com/quicksight/latest/user/iam-actions.html)  **
+  - **Description:** Grants permission to update index capacity
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Write
@@ -3905,6 +4029,7 @@ The following resource types are defined by this service and can be used in the 
 
 | Resource types | ARN | Condition keys | 
 | --- | --- | --- | 
+|  [accessControlApplication](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_AccessControlApplication.html)  | arn:${Partition}:quicksight:${Region}:${Account}:access-control-application/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_) | 
 |  [account](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_AccountInfo.html)  | arn:${Partition}:quicksight:${Region}:${Account}:account/${ResourceId} |   | 
 |  [actionconnector](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ActionConnectorDetail.html)  | arn:${Partition}:quicksight:${Region}:${Account}:action-connector/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_) | 
 |  [agent](https://docs.aws.amazon.com/quicksight/latest/user/iam-actions.html)  | arn:${Partition}:quicksight:${Region}:${Account}:agent/${ResourceId} |   | 
@@ -3931,6 +4056,7 @@ The following resource types are defined by this service and can be used in the 
 |  [flow](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_Flow.html)  | arn:${Partition}:quicksight:${Region}:${Account}:flow/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_) | 
 |  [folder](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_Folder.html)  | arn:${Partition}:quicksight:${Region}:${Account}:folder/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_) | 
 |  [group](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_Group.html)  | arn:${Partition}:quicksight:${Region}:${Account}:group/${ResourceId} |   | 
+|  [inboundConnector](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_InboundConnector.html)  | arn:${Partition}:quicksight:${Region}:${Account}:inbound-connector/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_) | 
 |  [ingestion](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_Ingestion.html)  | arn:${Partition}:quicksight:${Region}:${Account}:dataset/${DatasetId}/ingestion/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_) | 
 |  [knowledgeBase](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_KnowledgeBase.html)  | arn:${Partition}:quicksight:${Region}:${Account}:knowledge-base/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_quicksight-aws_ResourceTag___TagKey_) | 
 |  [limitsProfile](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_LimitsProfile.html)  | arn:${Partition}:quicksight:${Region}:${Account}:limits-profile/${ResourceId} |   | 

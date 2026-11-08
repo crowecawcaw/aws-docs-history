@@ -552,10 +552,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** Write
 
 - **   PutServiceLinkedConfigurationRecorder  **
-  - **IAM action:**  [config:PutServiceLinkedConfigurationRecorder](#list_config-action-PutServiceLinkedConfigurationRecorder) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
+  - **IAM action:**  [config:PutServiceLinkedConfigurationRecorder](#list_config-action-PutServiceLinkedConfigurationRecorder)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [config:TagResource](#list_config-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
 - **   PutStoredQuery  **
   - **IAM action:**  [config:PutStoredQuery](#list_config-action-PutStoredQuery)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write

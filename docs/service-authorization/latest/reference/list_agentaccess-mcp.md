@@ -27,6 +27,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 | --- | --- | --- | --- | --- | 
 |   [CallForwardedTool](https://docs.aws.amazon.com/appstream2/latest/developerguide/)  | Grants permission to invoke a forwarded tool on a remote instance |  | [agentaccess-mcp:StackArn](#list_agentaccess-mcp-agentaccess-mcp_StackArn) | Write | 
 |   [CheckConnectionStatus](https://docs.aws.amazon.com/appstream2/latest/developerguide/)  | Grants permission to check the connection status of a streaming session |  | [agentaccess-mcp:StackArn](#list_agentaccess-mcp-agentaccess-mcp_StackArn) | Read | 
+|   [CloseSession](https://docs.aws.amazon.com/appstream2/latest/developerguide/)  | Grants permission to close a desktop session |  | [agentaccess-mcp:StackArn](#list_agentaccess-mcp-agentaccess-mcp_StackArn) | Write | 
 |   [DoubleClick](https://docs.aws.amazon.com/appstream2/latest/developerguide/)  | Grants permission to perform double click at coordinates |  | [agentaccess-mcp:StackArn](#list_agentaccess-mcp-agentaccess-mcp_StackArn) | Write | 
 |   [GetScreenshot](https://docs.aws.amazon.com/appstream2/latest/developerguide/)  | Grants permission to capture screen state |  | [agentaccess-mcp:StackArn](#list_agentaccess-mcp-agentaccess-mcp_StackArn) | Read | 
 |   [GetSessionInfo](https://docs.aws.amazon.com/appstream2/latest/developerguide/)  | Grants permission to retrieve information about the current session |  | [agentaccess-mcp:StackArn](#list_agentaccess-mcp-agentaccess-mcp_StackArn) | Read | 

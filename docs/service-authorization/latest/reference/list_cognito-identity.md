@@ -171,7 +171,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [CreateIdentityPool](https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_CreateIdentityPool.html)  **
   - **Description:** Grants permission to create a new identity pool
   - **Resource types (\*required):** 
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_cognito-identity-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_cognito-identity-aws_TagKeys)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_cognito-identity-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_cognito-identity-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_cognito-identity-aws_TagKeys)
   - **Access level:** Write
 
 - **   [DeleteIdentities](https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_DeleteIdentities.html)  **

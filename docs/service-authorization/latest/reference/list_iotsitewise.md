@@ -111,10 +111,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** Write
 
 - **   CreateAccessPolicy  **
-  - **IAM action:**  [iotsitewise:CreateAccessPolicy](#list_iotsitewise-action-CreateAccessPolicy) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
+  - **IAM action:**  [iotsitewise:CreateAccessPolicy](#list_iotsitewise-action-CreateAccessPolicy)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iotsitewise:TagResource](#list_iotsitewise-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
 - **   CreateApplication  **
   - **IAM action:**  [iotsitewise:CreateApplication](#list_iotsitewise-action-CreateApplication)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write

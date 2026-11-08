@@ -2300,6 +2300,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   UpdateOutboundEmailContactMessage  **
+  - **SDK client:** connect
+  - **IAM action:**  [connect:UpdateOutboundEmailContactMessage](#list_connect-action-UpdateOutboundEmailContactMessage) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   UpdateParticipantAuthentication  **
   - **SDK client:** connect
   - **IAM action:**  [connect:UpdateParticipantAuthentication](#list_connect-action-UpdateParticipantAuthentication) 
@@ -4744,6 +4751,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to update the content of a notification in an Amazon Connect instance
   - **Resource types (\*required):** [notification\*](#list_connect-resource-notification)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connect-aws_ResourceTag___TagKey_)<br />[connect:InstanceId](#list_connect-connect_InstanceId)
+  - **Access level:** Write
+
+- **   [UpdateOutboundEmailContactMessage](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateOutboundEmailContactMessage.html)  **
+  - **Description:** Grants permission to update the draft outbound email message for a contact in an Amazon Connect instance
+  - **Resource types (\*required):** [contact\*](#list_connect-resource-contact)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connect-aws_ResourceTag___TagKey_)<br />[connect:Channel](#list_connect-connect_Channel)<br />[connect:ContactAssociationId](#list_connect-connect_ContactAssociationId)<br />[connect:InstanceId](#list_connect-connect_InstanceId)<br />[connect:UserArn](#list_connect-connect_UserArn)
   - **Access level:** Write
 
 - **   [UpdateParticipantAuthentication](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateParticipantAuthentication.html)  **

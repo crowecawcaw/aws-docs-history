@@ -1685,7 +1685,6 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [bedrock:CallWithBearerToken](#list_bedrock-action-CallWithBearerToken)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
   - **IAM action:**  [bedrock:InvokeModel](#list_bedrock-action-InvokeModel)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
   - **IAM action:**  [bedrock:InvokeModelWithResponseStream](#list_bedrock-action-InvokeModelWithResponseStream)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
-  - **IAM action:**  [bedrock:InvokeTool](#list_bedrock-action-InvokeTool)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
 
 - **   ListAsyncInvokes  **
   - **SDK client:** bedrock-runtime

@@ -26,6 +26,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 
 
+- **   CompleteTableMigration  **
+  - **IAM action:**  [s3tables:CompleteTableMigration](#list_s3tables-action-CompleteTableMigration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   CreateNamespace  **
   - **IAM action:**  [s3tables:CreateNamespace](#list_s3tables-action-CreateNamespace) 
   - **Condition key:** 
@@ -177,6 +183,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetTableMigration  **
+  - **IAM action:**  [s3tables:GetTableMigration](#list_s3tables-action-GetTableMigration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetTablePolicy  **
   - **IAM action:**  [s3tables:GetTablePolicy](#list_s3tables-action-GetTablePolicy) 
   - **Condition key:** 
@@ -221,6 +233,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   ListTableBuckets  **
   - **IAM action:**  [s3tables:ListTableBuckets](#list_s3tables-action-ListTableBuckets) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTableMigrations  **
+  - **IAM action:**  [s3tables:ListTableMigrations](#list_s3tables-action-ListTableMigrations) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
@@ -299,6 +317,14 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   StartTableMigration  **
+  - **IAM action:**  [s3tables:StartTableMigration](#list_s3tables-action-StartTableMigration)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** migration.s3tables.amazonaws.com / **Access level:** Write
+
+- **   SyncTableMigration  **
+  - **IAM action:**  [s3tables:SyncTableMigration](#list_s3tables-action-SyncTableMigration)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** migration.s3tables.amazonaws.com / **Access level:** Write
+
 - **   TagResource  **
   - **IAM action:**  [s3tables:TagResource](#list_s3tables-action-TagResource) 
   - **Condition key:** 
@@ -317,6 +343,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   UpdateTableMigration  **
+  - **IAM action:**  [s3tables:UpdateTableMigration](#list_s3tables-action-UpdateTableMigration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 
 
 ## Actions defined by Amazon S3 Tables
@@ -326,6 +358,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 
 
+
+- **   [CompleteTableMigration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3Buckets_CompleteTableMigration.html)  **
+  - **Description:** Grants permission to complete a table migration
+  - **Resource types (\*required):** [Table\*](#list_s3tables-resource-Table)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_s3tables-aws_ResourceTag___TagKey_)<br />[s3tables:namespace](#list_s3tables-s3tables_namespace)<br />[s3tables:TableBucketTag/${TagKey}](#list_s3tables-s3tables_TableBucketTag___TagKey_)<br />[s3tables:tableName](#list_s3tables-s3tables_tableName)
+  - **Access level:** Write
 
 - **   [CreateNamespace](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3Buckets_CreateNamespace.html)  **
   - **Description:** Grants permission to create a namespace
@@ -477,6 +515,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_s3tables-aws_ResourceTag___TagKey_)<br />[s3tables:namespace](#list_s3tables-s3tables_namespace)<br />[s3tables:TableBucketTag/${TagKey}](#list_s3tables-s3tables_TableBucketTag___TagKey_)<br />[s3tables:tableName](#list_s3tables-s3tables_tableName)
   - **Access level:** Read
 
+- **   [GetTableMigration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3Buckets_GetTableMigration.html)  **
+  - **Description:** Grants permission to get the status and details of a table migration
+  - **Resource types (\*required):** [Table\*](#list_s3tables-resource-Table)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_s3tables-aws_ResourceTag___TagKey_)<br />[s3tables:namespace](#list_s3tables-s3tables_namespace)<br />[s3tables:TableBucketTag/${TagKey}](#list_s3tables-s3tables_TableBucketTag___TagKey_)<br />[s3tables:tableName](#list_s3tables-s3tables_tableName)
+  - **Access level:** Read
+
 - **   [GetTablePolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3Buckets_GetTablePolicy.html)  **
   - **Description:** Grants permission to retrieve a policy on a table
   - **Resource types (\*required):** [Table\*](#list_s3tables-resource-Table)
@@ -523,6 +567,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to list table buckets
   - **Resource types (\*required):** 
   - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTableMigrations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3Buckets_ListTableMigrations.html)  **
+  - **Description:** Grants permission to list table migrations
+  - **Resource types (\*required):** [Table](#list_s3tables-resource-Table) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_s3tables-aws_ResourceTag___TagKey_)<br />[s3tables:namespace](#list_s3tables-s3tables_namespace)<br />[s3tables:TableBucketTag/${TagKey}](#list_s3tables-s3tables_TableBucketTag___TagKey_)<br />[s3tables:tableName](#list_s3tables-s3tables_tableName)
+  - **Resource types (\*required):** [TableBucket](#list_s3tables-resource-TableBucket) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_s3tables-aws_ResourceTag___TagKey_)<br />[s3tables:namespace](#list_s3tables-s3tables_namespace)<br />[s3tables:TableBucketTag/${TagKey}](#list_s3tables-s3tables_TableBucketTag___TagKey_)<br />[s3tables:tableName](#list_s3tables-s3tables_tableName)
   - **Access level:** List
 
 - **   [ListTables](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3Buckets_ListTables.html)  **
@@ -609,6 +659,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_s3tables-aws_ResourceTag___TagKey_)<br />[s3tables:namespace](#list_s3tables-s3tables_namespace)<br />[s3tables:TableBucketTag/${TagKey}](#list_s3tables-s3tables_TableBucketTag___TagKey_)<br />[s3tables:tableName](#list_s3tables-s3tables_tableName)
   - **Access level:** Write
 
+- **   [StartTableMigration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3Buckets_StartTableMigration.html)  **
+  - **Description:** Grants permission to start a migration of a table into a table bucket
+  - **Resource types (\*required):** [TableBucket\*](#list_s3tables-resource-TableBucket)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_s3tables-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_s3tables-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_s3tables-aws_TagKeys)<br />[s3tables:namespace](#list_s3tables-s3tables_namespace)<br />[s3tables:TableBucketTag/${TagKey}](#list_s3tables-s3tables_TableBucketTag___TagKey_)
+  - **Access level:** Write
+
+- **   [SyncTableMigration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3Buckets_SyncTableMigration.html)  **
+  - **Description:** Grants permission to sync a migrated table with its source
+  - **Resource types (\*required):** [Table\*](#list_s3tables-resource-Table)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_s3tables-aws_ResourceTag___TagKey_)<br />[s3tables:namespace](#list_s3tables-s3tables_namespace)<br />[s3tables:TableBucketTag/${TagKey}](#list_s3tables-s3tables_TableBucketTag___TagKey_)<br />[s3tables:tableName](#list_s3tables-s3tables_tableName)
+  - **Access level:** Write
+
 - **   [TagResource](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-tables-tagging.html)  **
   - **Description:** Grants permission to tag a S3 Tables resource
   - **Resource types (\*required):** [Table](#list_s3tables-resource-Table) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_s3tables-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_s3tables-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_s3tables-aws_TagKeys)<br />[s3tables:namespace](#list_s3tables-s3tables_namespace)<br />[s3tables:TableBucketTag/${TagKey}](#list_s3tables-s3tables_TableBucketTag___TagKey_)<br />[s3tables:tableName](#list_s3tables-s3tables_tableName)
@@ -623,6 +685,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [UpdateTableMetadataLocation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3Buckets_UpdateTableMetadataLocation.html)  **
   - **Description:** Grants permission to update the metadata location of a table
+  - **Resource types (\*required):** [Table\*](#list_s3tables-resource-Table)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_s3tables-aws_ResourceTag___TagKey_)<br />[s3tables:namespace](#list_s3tables-s3tables_namespace)<br />[s3tables:TableBucketTag/${TagKey}](#list_s3tables-s3tables_TableBucketTag___TagKey_)<br />[s3tables:tableName](#list_s3tables-s3tables_tableName)
+  - **Access level:** Write
+
+- **   [UpdateTableMigration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3Buckets_UpdateTableMigration.html)  **
+  - **Description:** Grants permission to update a table migration
   - **Resource types (\*required):** [Table\*](#list_s3tables-resource-Table)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_s3tables-aws_ResourceTag___TagKey_)<br />[s3tables:namespace](#list_s3tables-s3tables_namespace)<br />[s3tables:TableBucketTag/${TagKey}](#list_s3tables-s3tables_TableBucketTag___TagKey_)<br />[s3tables:tableName](#list_s3tables-s3tables_tableName)
   - **Access level:** Write

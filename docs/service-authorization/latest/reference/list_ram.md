@@ -14,6 +14,7 @@ References:
 **Topics**
 + [API operations defined by AWS Resource Access Manager (RAM)](#list_ram-operations)
 + [Actions defined by AWS Resource Access Manager (RAM)](#list_ram-actions-as-permissions)
++ [Permission-only actions for AWS Resource Access Manager (RAM)](#list_ram-permission-only-actions)
 + [Resource types defined by AWS Resource Access Manager (RAM)](#list_ram-resources-for-iam-policies)
 + [Condition keys for AWS Resource Access Manager (RAM)](#list_ram-policy-keys)
 
@@ -225,6 +226,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Tagging, Write
 
+- **   UpdatePermission  **
+  - **IAM action:**  [ram:UpdatePermission](#list_ram-action-UpdatePermission) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   UpdateResourceShare  **
   - **IAM action:**  [ram:UpdateResourceShare](#list_ram-action-UpdateResourceShare) 
   - **Condition key:** 
@@ -250,44 +257,45 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [AssociateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_AssociateResourceShare.html)  **
   - **Description:** Grants permission to associate resource(s) and/or principal(s) to a resource share
   - **Resource types (\*required):** [resource-share\*](#list_ram-resource-resource-share)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:AllowsExternalPrincipals](#list_ram-ram_AllowsExternalPrincipals)<br />[ram:Principal](#list_ram-ram_Principal)<br />[ram:RequestedResourceType](#list_ram-ram_RequestedResourceType)<br />[ram:ResourceArn](#list_ram-ram_ResourceArn)<br />[ram:ResourceShareName](#list_ram-ram_ResourceShareName)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)<br />[ram:RetainSharingOnAccountLeaveOrganization](#list_ram-ram_RetainSharingOnAccountLeaveOrganization)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:AllowsExternalPrincipals](#list_ram-ram_AllowsExternalPrincipals)<br />[ram:Principal](#list_ram-ram_Principal)<br />[ram:RequestedPermissionArns](#list_ram-ram_RequestedPermissionArns)<br />[ram:RequestedPermissionResourceTypes](#list_ram-ram_RequestedPermissionResourceTypes)<br />[ram:RequestedPrincipals](#list_ram-ram_RequestedPrincipals)<br />[ram:RequestedResourceArns](#list_ram-ram_RequestedResourceArns)<br />[ram:RequestedResourceType](#list_ram-ram_RequestedResourceType)<br />[ram:RequestedResourceTypes](#list_ram-ram_RequestedResourceTypes)<br />[ram:ResourceArn](#list_ram-ram_ResourceArn)<br />[ram:ResourceShareName](#list_ram-ram_ResourceShareName)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)<br />[ram:RetainSharingOnAccountLeaveOrganization](#list_ram-ram_RetainSharingOnAccountLeaveOrganization)
   - **Access level:** Write
 
 - **   [AssociateResourceSharePermission](https://docs.aws.amazon.com/ram/latest/APIReference/API_AssociateResourceSharePermission.html)  **
   - **Description:** Grants permission to associate a Permission with a Resource Share
-  - **Resource types (\*required):** [customer-managed-permission\*](#list_ram-resource-customer-managed-permission) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)
-  - **Resource types (\*required):** [permission\*](#list_ram-resource-permission) / **Condition keys:** [ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)
-  - **Resource types (\*required):** [resource-share\*](#list_ram-resource-resource-share) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:AllowsExternalPrincipals](#list_ram-ram_AllowsExternalPrincipals)<br />[ram:ResourceShareName](#list_ram-ram_ResourceShareName)
+  - **Resource types (\*required):** [customer-managed-permission\*](#list_ram-resource-customer-managed-permission) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)<br />[ram:PermissionTemplateParameter/${ParameterName}](#list_ram-ram_PermissionTemplateParameter___ParameterName_)<br />[ram:RequestedPermissionArns](#list_ram-ram_RequestedPermissionArns)<br />[ram:RequestedPermissionResourceTypes](#list_ram-ram_RequestedPermissionResourceTypes)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [permission\*](#list_ram-resource-permission) / **Condition keys:** [ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)<br />[ram:PermissionTemplateParameter/${ParameterName}](#list_ram-ram_PermissionTemplateParameter___ParameterName_)<br />[ram:RequestedPermissionArns](#list_ram-ram_RequestedPermissionArns)<br />[ram:RequestedPermissionResourceTypes](#list_ram-ram_RequestedPermissionResourceTypes)
+  - **Resource types (\*required):** [resource-share\*](#list_ram-resource-resource-share) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:AllowsExternalPrincipals](#list_ram-ram_AllowsExternalPrincipals)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:RequestedPermissionArns](#list_ram-ram_RequestedPermissionArns)<br />[ram:RequestedPermissionResourceTypes](#list_ram-ram_RequestedPermissionResourceTypes)<br />[ram:ResourceShareName](#list_ram-ram_ResourceShareName)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)<br />[ram:RetainSharingOnAccountLeaveOrganization](#list_ram-ram_RetainSharingOnAccountLeaveOrganization)
   - **Access level:** Write
 
 - **   [CreatePermission](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreatePermission.html)  **
   - **Description:** Grants permission to create a Permission that can be associated to a Resource Share
-  - **Resource types (\*required):** 
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_ram-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ram-aws_TagKeys)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)
+  - **Resource types (\*required):** [customer-managed-permission\*](#list_ram-resource-customer-managed-permission)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_ram-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ram-aws_TagKeys)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)<br />[ram:RequestedPermissionArns](#list_ram-ram_RequestedPermissionArns)<br />[ram:RequestedPermissionResourceTypes](#list_ram-ram_RequestedPermissionResourceTypes)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [CreatePermissionVersion](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreatePermissionVersion.html)  **
   - **Description:** Grants permission to create a new version of a Permission that can be associated to a Resource Share
   - **Resource types (\*required):** [customer-managed-permission\*](#list_ram-resource-customer-managed-permission)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)<br />[ram:RequestedPermissionArns](#list_ram-ram_RequestedPermissionArns)<br />[ram:RequestedPermissionResourceTypes](#list_ram-ram_RequestedPermissionResourceTypes)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [CreateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html)  **
   - **Description:** Grants permission to create a resource share with provided resource(s) and/or principal(s)
-  - **Resource types (\*required):** 
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_ram-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_ram-aws_TagKeys)<br />[ram:AllowsExternalPrincipals](#list_ram-ram_AllowsExternalPrincipals)<br />[ram:Principal](#list_ram-ram_Principal)<br />[ram:RequestedAllowsExternalPrincipals](#list_ram-ram_RequestedAllowsExternalPrincipals)<br />[ram:RequestedResourceType](#list_ram-ram_RequestedResourceType)<br />[ram:ResourceArn](#list_ram-ram_ResourceArn)<br />[ram:RetainSharingOnAccountLeaveOrganization](#list_ram-ram_RetainSharingOnAccountLeaveOrganization)
+  - **Resource types (\*required):** [customer-managed-permission](#list_ram-resource-customer-managed-permission) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ram-aws_TagKeys)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)<br />[ram:PermissionTemplateParameter/${ParameterName}](#list_ram-ram_PermissionTemplateParameter___ParameterName_)<br />[ram:RequestedPermissionArns](#list_ram-ram_RequestedPermissionArns)<br />[ram:RequestedPermissionResourceTypes](#list_ram-ram_RequestedPermissionResourceTypes)<br />[ram:RequestedPrincipals](#list_ram-ram_RequestedPrincipals)<br />[ram:RequestedResourceArns](#list_ram-ram_RequestedResourceArns)<br />[ram:RequestedResourceTypes](#list_ram-ram_RequestedResourceTypes)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [permission](#list_ram-resource-permission) / **Condition keys:** [aws:TagKeys](#list_ram-aws_TagKeys)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)<br />[ram:PermissionTemplateParameter/${ParameterName}](#list_ram-ram_PermissionTemplateParameter___ParameterName_)<br />[ram:RequestedPermissionArns](#list_ram-ram_RequestedPermissionArns)<br />[ram:RequestedPermissionResourceTypes](#list_ram-ram_RequestedPermissionResourceTypes)<br />[ram:RequestedPrincipals](#list_ram-ram_RequestedPrincipals)<br />[ram:RequestedResourceArns](#list_ram-ram_RequestedResourceArns)<br />[ram:RequestedResourceTypes](#list_ram-ram_RequestedResourceTypes)
+  - **Resource types (\*required):** [resource-share\*](#list_ram-resource-resource-share) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_ram-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ram-aws_TagKeys)<br />[ram:AllowsExternalPrincipals](#list_ram-ram_AllowsExternalPrincipals)<br />[ram:Principal](#list_ram-ram_Principal)<br />[ram:RequestedAllowsExternalPrincipals](#list_ram-ram_RequestedAllowsExternalPrincipals)<br />[ram:RequestedPermissionArns](#list_ram-ram_RequestedPermissionArns)<br />[ram:RequestedPermissionResourceTypes](#list_ram-ram_RequestedPermissionResourceTypes)<br />[ram:RequestedPrincipals](#list_ram-ram_RequestedPrincipals)<br />[ram:RequestedResourceArns](#list_ram-ram_RequestedResourceArns)<br />[ram:RequestedResourceType](#list_ram-ram_RequestedResourceType)<br />[ram:RequestedResourceTypes](#list_ram-ram_RequestedResourceTypes)<br />[ram:ResourceArn](#list_ram-ram_ResourceArn)<br />[ram:ResourceShareName](#list_ram-ram_ResourceShareName)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)<br />[ram:RetainSharingOnAccountLeaveOrganization](#list_ram-ram_RetainSharingOnAccountLeaveOrganization)
   - **Access level:** Write
 
 - **   [DeletePermission](https://docs.aws.amazon.com/ram/latest/APIReference/API_DeletePermission.html)  **
   - **Description:** Grants permission to delete a specified Permission
   - **Resource types (\*required):** [customer-managed-permission\*](#list_ram-resource-customer-managed-permission)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)<br />[ram:RequestedPermissionArns](#list_ram-ram_RequestedPermissionArns)<br />[ram:RequestedPermissionResourceTypes](#list_ram-ram_RequestedPermissionResourceTypes)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [DeletePermissionVersion](https://docs.aws.amazon.com/ram/latest/APIReference/API_DeletePermissionVersion.html)  **
   - **Description:** Grants permission to delete a specified version of a permission
   - **Resource types (\*required):** [customer-managed-permission\*](#list_ram-resource-customer-managed-permission)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)<br />[ram:RequestedPermissionArns](#list_ram-ram_RequestedPermissionArns)<br />[ram:RequestedPermissionResourceTypes](#list_ram-ram_RequestedPermissionResourceTypes)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [DeleteResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_DeleteResourceShare.html)  **
@@ -299,14 +307,14 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DisassociateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_DisassociateResourceShare.html)  **
   - **Description:** Grants permission to disassociate resource(s) and/or principal(s) from a resource share
   - **Resource types (\*required):** [resource-share\*](#list_ram-resource-resource-share)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:AllowsExternalPrincipals](#list_ram-ram_AllowsExternalPrincipals)<br />[ram:Principal](#list_ram-ram_Principal)<br />[ram:RequestedResourceType](#list_ram-ram_RequestedResourceType)<br />[ram:ResourceArn](#list_ram-ram_ResourceArn)<br />[ram:ResourceShareName](#list_ram-ram_ResourceShareName)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)<br />[ram:RetainSharingOnAccountLeaveOrganization](#list_ram-ram_RetainSharingOnAccountLeaveOrganization)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:AllowsExternalPrincipals](#list_ram-ram_AllowsExternalPrincipals)<br />[ram:Principal](#list_ram-ram_Principal)<br />[ram:RequestedPrincipals](#list_ram-ram_RequestedPrincipals)<br />[ram:RequestedResourceArns](#list_ram-ram_RequestedResourceArns)<br />[ram:RequestedResourceType](#list_ram-ram_RequestedResourceType)<br />[ram:RequestedResourceTypes](#list_ram-ram_RequestedResourceTypes)<br />[ram:ResourceArn](#list_ram-ram_ResourceArn)<br />[ram:ResourceShareName](#list_ram-ram_ResourceShareName)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)<br />[ram:RetainSharingOnAccountLeaveOrganization](#list_ram-ram_RetainSharingOnAccountLeaveOrganization)
   - **Access level:** Write
 
 - **   [DisassociateResourceSharePermission](https://docs.aws.amazon.com/ram/latest/APIReference/API_DisassociateResourceSharePermission.html)  **
   - **Description:** Grants permission to disassociate a Permission from a Resource Share
-  - **Resource types (\*required):** [customer-managed-permission\*](#list_ram-resource-customer-managed-permission) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)
-  - **Resource types (\*required):** [permission\*](#list_ram-resource-permission) / **Condition keys:** [ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)
-  - **Resource types (\*required):** [resource-share\*](#list_ram-resource-resource-share) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:AllowsExternalPrincipals](#list_ram-ram_AllowsExternalPrincipals)<br />[ram:ResourceShareName](#list_ram-ram_ResourceShareName)
+  - **Resource types (\*required):** [customer-managed-permission\*](#list_ram-resource-customer-managed-permission) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)<br />[ram:RequestedPermissionArns](#list_ram-ram_RequestedPermissionArns)<br />[ram:RequestedPermissionResourceTypes](#list_ram-ram_RequestedPermissionResourceTypes)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [permission\*](#list_ram-resource-permission) / **Condition keys:** [ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)<br />[ram:RequestedPermissionArns](#list_ram-ram_RequestedPermissionArns)<br />[ram:RequestedPermissionResourceTypes](#list_ram-ram_RequestedPermissionResourceTypes)
+  - **Resource types (\*required):** [resource-share\*](#list_ram-resource-resource-share) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:AllowsExternalPrincipals](#list_ram-ram_AllowsExternalPrincipals)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:RequestedPermissionArns](#list_ram-ram_RequestedPermissionArns)<br />[ram:RequestedPermissionResourceTypes](#list_ram-ram_RequestedPermissionResourceTypes)<br />[ram:ResourceShareName](#list_ram-ram_ResourceShareName)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)<br />[ram:RetainSharingOnAccountLeaveOrganization](#list_ram-ram_RetainSharingOnAccountLeaveOrganization)
   - **Access level:** Write
 
 - **   [EnableSharingWithAwsOrganization](https://docs.aws.amazon.com/ram/latest/APIReference/API_EnableSharingWithAwsOrganization.html)  **
@@ -317,8 +325,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [GetPermission](https://docs.aws.amazon.com/ram/latest/APIReference/API_GetPermission.html)  **
   - **Description:** Grants permission to get the contents of an AWS RAM permission
-  - **Resource types (\*required):** [customer-managed-permission\*](#list_ram-resource-customer-managed-permission) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)
-  - **Resource types (\*required):** [permission\*](#list_ram-resource-permission) / **Condition keys:** [ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)
+  - **Resource types (\*required):** [customer-managed-permission\*](#list_ram-resource-customer-managed-permission) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)<br />[ram:RequestedPermissionArns](#list_ram-ram_RequestedPermissionArns)<br />[ram:RequestedPermissionResourceTypes](#list_ram-ram_RequestedPermissionResourceTypes)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [permission\*](#list_ram-resource-permission) / **Condition keys:** [ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)<br />[ram:RequestedPermissionArns](#list_ram-ram_RequestedPermissionArns)<br />[ram:RequestedPermissionResourceTypes](#list_ram-ram_RequestedPermissionResourceTypes)
   - **Access level:** Read
 
 - **   [GetResourcePolicies](https://docs.aws.amazon.com/ram/latest/APIReference/API_GetResourcePolicies.html)  **
@@ -342,7 +350,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [GetResourceShares](https://docs.aws.amazon.com/ram/latest/APIReference/API_GetResourceShares.html)  **
   - **Description:** Grants permission to get a set of resource shares from a provided list or with a specified status
   - **Resource types (\*required):** 
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_ram-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_ram-aws_TagKeys)
+  - **Condition keys:**  
   - **Access level:** Read
 
 - **   [ListPendingInvitationResources](https://docs.aws.amazon.com/ram/latest/APIReference/API_ListPendingInvitationResources.html)  **
@@ -353,14 +361,14 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [ListPermissionAssociations](https://docs.aws.amazon.com/ram/latest/APIReference/API_ListPermissionAssociations.html)  **
   - **Description:** Grants permission to list information about the permission and any associations
-  - **Resource types (\*required):** [customer-managed-permission\*](#list_ram-resource-customer-managed-permission) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)
-  - **Resource types (\*required):** [permission\*](#list_ram-resource-permission) / **Condition keys:** [ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ram:RequestedPermissionArns](#list_ram-ram_RequestedPermissionArns)<br />[ram:RequestedPermissionResourceTypes](#list_ram-ram_RequestedPermissionResourceTypes)
   - **Access level:** List
 
 - **   [ListPermissionVersions](https://docs.aws.amazon.com/ram/latest/APIReference/API_ListPermissionVersions.html)  **
   - **Description:** Grants permission to list the versions of an AWS RAM permission
-  - **Resource types (\*required):** 
-  - **Condition keys:**  
+  - **Resource types (\*required):** [customer-managed-permission\*](#list_ram-resource-customer-managed-permission) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [permission\*](#list_ram-resource-permission) / **Condition keys:** [ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)
   - **Access level:** List
 
 - **   [ListPermissions](https://docs.aws.amazon.com/ram/latest/APIReference/API_ListPermissions.html)  **
@@ -384,7 +392,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [ListResourceSharePermissions](https://docs.aws.amazon.com/ram/latest/APIReference/API_ListResourceSharePermissions.html)  **
   - **Description:** Grants permission to list the Permissions associated with a Resource Share
   - **Resource types (\*required):** [resource-share\*](#list_ram-resource-resource-share)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:AllowsExternalPrincipals](#list_ram-ram_AllowsExternalPrincipals)<br />[ram:ResourceShareName](#list_ram-ram_ResourceShareName)<br />[ram:RetainSharingOnAccountLeaveOrganization](#list_ram-ram_RetainSharingOnAccountLeaveOrganization)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:AllowsExternalPrincipals](#list_ram-ram_AllowsExternalPrincipals)<br />[ram:ResourceShareName](#list_ram-ram_ResourceShareName)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)<br />[ram:RetainSharingOnAccountLeaveOrganization](#list_ram-ram_RetainSharingOnAccountLeaveOrganization)
   - **Access level:** List
 
 - **   [ListResourceTypes](https://docs.aws.amazon.com/ram/latest/APIReference/API_ListResourceTypes.html)  **
@@ -408,13 +416,13 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [PromotePermissionCreatedFromPolicy](https://docs.aws.amazon.com/ram/latest/APIReference/API_PromotePermissionCreatedFromPolicy.html)  **
   - **Description:** Grants permission to create a separate, fully manageable customer managed permission
   - **Resource types (\*required):** [customer-managed-permission\*](#list_ram-resource-customer-managed-permission)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)<br />[ram:RequestedPermissionArns](#list_ram-ram_RequestedPermissionArns)<br />[ram:RequestedPermissionResourceTypes](#list_ram-ram_RequestedPermissionResourceTypes)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [PromoteResourceShareCreatedFromPolicy](https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html)  **
   - **Description:** Grants permission to promote the specified resource share
   - **Resource types (\*required):** [resource-share\*](#list_ram-resource-resource-share)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:AllowsExternalPrincipals](#list_ram-ram_AllowsExternalPrincipals)<br />[ram:ResourceShareName](#list_ram-ram_ResourceShareName)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:AllowsExternalPrincipals](#list_ram-ram_AllowsExternalPrincipals)<br />[ram:ResourceShareName](#list_ram-ram_ResourceShareName)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)<br />[ram:RetainSharingOnAccountLeaveOrganization](#list_ram-ram_RetainSharingOnAccountLeaveOrganization)
   - **Access level:** Write
 
 - **   [RejectResourceShareInvitation](https://docs.aws.amazon.com/ram/latest/APIReference/API_RejectResourceShareInvitation.html)  **
@@ -425,33 +433,67 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [ReplacePermissionAssociations](https://docs.aws.amazon.com/ram/latest/APIReference/API_ReplacePermissionAssociations.html)  **
   - **Description:** Grants permission to update all resource shares to a new permission
-  - **Resource types (\*required):** [customer-managed-permission\*](#list_ram-resource-customer-managed-permission) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)
-  - **Resource types (\*required):** [permission\*](#list_ram-resource-permission) / **Condition keys:** [ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)
+  - **Resource types (\*required):** [customer-managed-permission\*](#list_ram-resource-customer-managed-permission) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)<br />[ram:PermissionTemplateParameter/${ParameterName}](#list_ram-ram_PermissionTemplateParameter___ParameterName_)<br />[ram:RequestedPermissionArns](#list_ram-ram_RequestedPermissionArns)<br />[ram:RequestedPermissionResourceTypes](#list_ram-ram_RequestedPermissionResourceTypes)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [permission\*](#list_ram-resource-permission) / **Condition keys:** [ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)<br />[ram:PermissionTemplateParameter/${ParameterName}](#list_ram-ram_PermissionTemplateParameter___ParameterName_)<br />[ram:RequestedPermissionArns](#list_ram-ram_RequestedPermissionArns)<br />[ram:RequestedPermissionResourceTypes](#list_ram-ram_RequestedPermissionResourceTypes)
   - **Access level:** Write
 
 - **   [SetDefaultPermissionVersion](https://docs.aws.amazon.com/ram/latest/APIReference/API_SetDefaultPermissionVersion.html)  **
   - **Description:** Grants permission to specify a version number as the default version for the respective customer managed permission
   - **Resource types (\*required):** [customer-managed-permission\*](#list_ram-resource-customer-managed-permission)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)<br />[ram:RequestedPermissionArns](#list_ram-ram_RequestedPermissionArns)<br />[ram:RequestedPermissionResourceTypes](#list_ram-ram_RequestedPermissionResourceTypes)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [TagResource](https://docs.aws.amazon.com/ram/latest/APIReference/API_TagResource.html)  **
   - **Description:** Grants permission to tag the specified resource share or permission
-  - **Resource types (\*required):** [customer-managed-permission](#list_ram-resource-customer-managed-permission) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_ram-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ram-aws_TagKeys)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)
-  - **Resource types (\*required):** [resource-share](#list_ram-resource-resource-share) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_ram-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ram-aws_TagKeys)<br />[ram:AllowsExternalPrincipals](#list_ram-ram_AllowsExternalPrincipals)<br />[ram:ResourceShareName](#list_ram-ram_ResourceShareName)
+  - **Resource types (\*required):** [customer-managed-permission](#list_ram-resource-customer-managed-permission) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_ram-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ram-aws_TagKeys)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [resource-share](#list_ram-resource-resource-share) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_ram-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ram-aws_TagKeys)<br />[ram:AllowsExternalPrincipals](#list_ram-ram_AllowsExternalPrincipals)<br />[ram:ResourceShareName](#list_ram-ram_ResourceShareName)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)<br />[ram:RetainSharingOnAccountLeaveOrganization](#list_ram-ram_RetainSharingOnAccountLeaveOrganization)
   - **Access level:** Tagging, Write
 
 - **   [UntagResource](https://docs.aws.amazon.com/ram/latest/APIReference/API_UntagResource.html)  **
   - **Description:** Grants permission to untag the specified resource share or permission
-  - **Resource types (\*required):** [customer-managed-permission](#list_ram-resource-customer-managed-permission) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ram-aws_TagKeys)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)
-  - **Resource types (\*required):** [resource-share](#list_ram-resource-resource-share) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ram-aws_TagKeys)<br />[ram:AllowsExternalPrincipals](#list_ram-ram_AllowsExternalPrincipals)<br />[ram:ResourceShareName](#list_ram-ram_ResourceShareName)
+  - **Resource types (\*required):** [customer-managed-permission](#list_ram-resource-customer-managed-permission) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ram-aws_TagKeys)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [resource-share](#list_ram-resource-resource-share) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ram-aws_TagKeys)<br />[ram:AllowsExternalPrincipals](#list_ram-ram_AllowsExternalPrincipals)<br />[ram:ResourceShareName](#list_ram-ram_ResourceShareName)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)<br />[ram:RetainSharingOnAccountLeaveOrganization](#list_ram-ram_RetainSharingOnAccountLeaveOrganization)
   - **Access level:** Tagging, Write
+
+- **   [UpdatePermission](https://docs.aws.amazon.com/ram/latest/APIReference/API_UpdatePermission.html)  **
+  - **Description:** Grants permission to update a customer managed permission, such as to deprecate it or restore it
+  - **Resource types (\*required):** [customer-managed-permission\*](#list_ram-resource-customer-managed-permission)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)<br />[ram:RequestedPermissionArns](#list_ram-ram_RequestedPermissionArns)<br />[ram:RequestedPermissionResourceTypes](#list_ram-ram_RequestedPermissionResourceTypes)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)
+  - **Access level:** Write
 
 - **   [UpdateResourceShare](https://docs.aws.amazon.com/ram/latest/APIReference/API_UpdateResourceShare.html)  **
   - **Description:** Grants permission to update attributes of the resource share
   - **Resource types (\*required):** [resource-share\*](#list_ram-resource-resource-share)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:AllowsExternalPrincipals](#list_ram-ram_AllowsExternalPrincipals)<br />[ram:RequestedAllowsExternalPrincipals](#list_ram-ram_RequestedAllowsExternalPrincipals)<br />[ram:ResourceShareName](#list_ram-ram_ResourceShareName)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)<br />[ram:RetainSharingOnAccountLeaveOrganization](#list_ram-ram_RetainSharingOnAccountLeaveOrganization)
   - **Access level:** Write
+
+
+
+## Permission-only actions for AWS Resource Access Manager (RAM)
+<a name="list_ram-permission-only-actions"></a>
+
+The following actions are defined by AWS Resource Access Manager (RAM) but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
+
+
+
+
+- **   [DeleteCustomerManagedPermissionPolicy](https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing.html)  **
+  - **Description:** Grants permission to delete a resource-based policy on a customer-managed permission
+  - **Resource types (\*required):** [customer-managed-permission\*](#list_ram-resource-customer-managed-permission)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)<br />[ram:RequestedPermissionArns](#list_ram-ram_RequestedPermissionArns)<br />[ram:RequestedPermissionResourceTypes](#list_ram-ram_RequestedPermissionResourceTypes)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [GetCustomerManagedPermissionPolicy](https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing.html)  **
+  - **Description:** Grants permission to get a resource-based policy on a customer-managed permission
+  - **Resource types (\*required):** [customer-managed-permission\*](#list_ram-resource-customer-managed-permission)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)<br />[ram:RequestedPermissionArns](#list_ram-ram_RequestedPermissionArns)<br />[ram:RequestedPermissionResourceTypes](#list_ram-ram_RequestedPermissionResourceTypes)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [PutCustomerManagedPermissionPolicy](https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing.html)  **
+  - **Description:** Grants permission to put a resource-based policy on a customer-managed permission
+  - **Resource types (\*required):** [customer-managed-permission\*](#list_ram-resource-customer-managed-permission)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)<br />[ram:RequestedPermissionArns](#list_ram-ram_RequestedPermissionArns)<br />[ram:RequestedPermissionResourceTypes](#list_ram-ram_RequestedPermissionResourceTypes)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
 
 
 
@@ -464,10 +506,10 @@ The following resource types are defined by this service and can be used in the 
 
 | Resource types | ARN | Condition keys | 
 | --- | --- | --- | 
-|  [customer-managed-permission](${ActionsDocRoot}API_ResourceSharePermissionDetail.html)  | arn:${Partition}:ram:${Region}:${Account}:permission/${ResourcePath} | [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType) | 
-|  [permission](${ActionsDocRoot}API_ResourceSharePermissionDetail.html)  | arn:${Partition}:ram::${Account}:permission/${ResourcePath} | [ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType) | 
-|  [resource-share](${ActionsDocRoot}API_ResourceShare.html)  | arn:${Partition}:ram:${Region}:${Account}:resource-share/${ResourcePath} | [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:AllowsExternalPrincipals](#list_ram-ram_AllowsExternalPrincipals)<br />[ram:ResourceShareName](#list_ram-ram_ResourceShareName) | 
-|  [resource-share-invitation](${ActionsDocRoot}API_ResourceShareInvitation.html)  | arn:${Partition}:ram:${Region}:${Account}:resource-share-invitation/${ResourcePath} | [ram:ShareOwnerAccountId](#list_ram-ram_ShareOwnerAccountId) | 
+|  [customer-managed-permission](${ActionsDocRoot}API_ResourceSharePermissionDetail.html)  | arn:${Partition}:ram:${Region}:${Account}:permission/${ResourcePath} | [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_) | 
+|  [permission](${ActionsDocRoot}API_ResourceSharePermissionDetail.html)  | arn:${Partition}:ram::aws:permission/${ResourcePath} | [ram:PermissionArn](#list_ram-ram_PermissionArn)<br />[ram:PermissionResourceType](#list_ram-ram_PermissionResourceType) | 
+|  [resource-share](${ActionsDocRoot}API_ResourceShare.html)  | arn:${Partition}:ram:${Region}:${Account}:resource-share/${ResourcePath} | [aws:ResourceTag/${TagKey}](#list_ram-aws_ResourceTag___TagKey_)<br />[ram:AllowsExternalPrincipals](#list_ram-ram_AllowsExternalPrincipals)<br />[ram:ResourceShareName](#list_ram-ram_ResourceShareName)<br />[ram:ResourceTag/${TagKey}](#list_ram-ram_ResourceTag___TagKey_)<br />[ram:RetainSharingOnAccountLeaveOrganization](#list_ram-ram_RetainSharingOnAccountLeaveOrganization) | 
+|  [resource-share-invitation](${ActionsDocRoot}API_ResourceShareInvitation.html)  | arn:${Partition}:ram:${Region}:${Account}:resource-share-invitation/${ResourcePath} | [ram:ResourceShareName](#list_ram-ram_ResourceShareName)<br />[ram:ShareOwnerAccountId](#list_ram-ram_ShareOwnerAccountId) | 
 
 ## Condition keys for AWS Resource Access Manager (RAM)
 <a name="list_ram-policy-keys"></a>
@@ -482,12 +524,18 @@ AWS Resource Access Manager (RAM) defines the following condition keys that can 
 |   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the tags associated with the resource | String | 
 |   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the tag keys that are passed when creating or tagging a resource share | ArrayOfString | 
 |   [ram:AllowsExternalPrincipals](https://docs.aws.amazon.com/ram/latest/userguide/iam-policies.html#iam-policies-condition)  | Filters access by resource shares that allow or deny sharing with external principals. For example, specify true if the action can only be performed on resource shares that allow sharing with external principals. External principals are AWS accounts that are outside of its AWS organization | Bool | 
-|   [ram:PermissionArn](https://docs.aws.amazon.com/ram/latest/userguide/iam-policies.html#iam-policies-condition)  | Filters access by the specified Permission ARN | ARN | 
-|   [ram:PermissionResourceType](https://docs.aws.amazon.com/ram/latest/userguide/iam-policies.html#iam-policies-condition)  | Filters access by permissions of specified resource type | String | 
-|   [ram:Principal](https://docs.aws.amazon.com/ram/latest/userguide/iam-policies.html#iam-policies-condition)  | Filters access by format of the specified principal | String | 
+|   [ram:PermissionArn](https://docs.aws.amazon.com/ram/latest/userguide/iam-policies.html#iam-policies-condition)  | Filters access by the specified Permission ARN. WARNING: We recommend using ram:RequestedPermissionArns instead | ARN | 
+|   [ram:PermissionResourceType](https://docs.aws.amazon.com/ram/latest/userguide/iam-policies.html#iam-policies-condition)  | Filters access by permissions of specified resource type. WARNING: We recommend using ram:RequestedPermissionResourceTypes instead | String | 
+|   [ram:PermissionTemplateParameter/${ParameterName}](https://docs.aws.amazon.com/ram/latest/userguide/iam-policies.html#iam-policies-condition)  | Filters access by permission template parameter values | ArrayOfString | 
+|   [ram:Principal](https://docs.aws.amazon.com/ram/latest/userguide/iam-policies.html#iam-policies-condition)  | Filters access by format of the specified principal. WARNING: We recommend using ram:RequestedPrincipals instead | String | 
 |   [ram:RequestedAllowsExternalPrincipals](https://docs.aws.amazon.com/ram/latest/userguide/iam-policies.html#iam-policies-condition)  | Filters access by the specified value for 'allowExternalPrincipals'. External principals are AWS accounts that are outside of its AWS Organization | Bool | 
-|   [ram:RequestedResourceType](https://docs.aws.amazon.com/ram/latest/userguide/iam-policies.html#iam-policies-condition)  | Filters access by the specified resource type | String | 
-|   [ram:ResourceArn](https://docs.aws.amazon.com/ram/latest/userguide/iam-policies.html#iam-policies-condition)  | Filters access by the specified ARN | ARN | 
+|   [ram:RequestedPermissionArns](https://docs.aws.amazon.com/ram/latest/userguide/iam-policies.html#iam-policies-condition)  | Filters access by the specified Permission ARNs | ArrayOfARN | 
+|   [ram:RequestedPermissionResourceTypes](https://docs.aws.amazon.com/ram/latest/userguide/iam-policies.html#iam-policies-condition)  | Filters access by permissions of specified resource types | ArrayOfString | 
+|   [ram:RequestedPrincipals](https://docs.aws.amazon.com/ram/latest/userguide/iam-policies.html#iam-policies-condition)  | Filters access by format of the specified principals | ArrayOfString | 
+|   [ram:RequestedResourceArns](https://docs.aws.amazon.com/ram/latest/userguide/iam-policies.html#iam-policies-condition)  | Filters access by the specified ARNs | ArrayOfARN | 
+|   [ram:RequestedResourceType](https://docs.aws.amazon.com/ram/latest/userguide/iam-policies.html#iam-policies-condition)  | Filters access by the specified resource type. WARNING: We recommend using ram:RequestedResourceTypes instead | String | 
+|   [ram:RequestedResourceTypes](https://docs.aws.amazon.com/ram/latest/userguide/iam-policies.html#iam-policies-condition)  | Filters access by the specified resource types | ArrayOfString | 
+|   [ram:ResourceArn](https://docs.aws.amazon.com/ram/latest/userguide/iam-policies.html#iam-policies-condition)  | Filters access by the specified ARN. WARNING: We recommend using ram:RequestedResourceArns instead | ARN | 
 |   [ram:ResourceShareName](https://docs.aws.amazon.com/ram/latest/userguide/iam-policies.html#iam-policies-condition)  | Filters access by a resource share with the specified name | String | 
 |   [ram:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the tags associated with the resource | String | 
 |   [ram:RetainSharingOnAccountLeaveOrganization](https://docs.aws.amazon.com/ram/latest/userguide/iam-policies.html#iam-policies-condition)  | Filters access by RetainSharingOnAccountLeaveOrganization value within ResourceShareConfiguration that is set on resource share | Bool | 

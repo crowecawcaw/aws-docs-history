@@ -29,7 +29,7 @@ Changes to the service reference information may take up to 24 hours to be refle
 
    There are three main entry points:
 
-   [http://servicereference.us-east-1.amazonaws.com/](http://servicereference.us-east-1.amazonaws.com/) displays a list of AWS services for which reference information is available.
+   [https://servicereference.us-east-1.amazonaws.com/](https://servicereference.us-east-1.amazonaws.com/) displays a list of AWS services for which reference information is available.
 
    The following example shows a partial list of services and URLs for their respective reference information:
 

@@ -87,6 +87,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   CreateProject  **
   - **IAM action:**  [codebuild:CreateProject](#list_codebuild-action-CreateProject)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** codebuild.amazonaws.com / **Access level:** Write
+  - **IAM action:**  [secretsmanager:DescribeSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_DescribeSecret.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
 
 - **   CreateReportGroup  **
   - **IAM action:**  [codebuild:CreateReportGroup](#list_codebuild-action-CreateReportGroup) 
@@ -349,6 +350,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   UpdateProject  **
   - **IAM action:**  [codebuild:UpdateProject](#list_codebuild-action-UpdateProject)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** codebuild.amazonaws.com / **Access level:** Write
+  - **IAM action:**  [secretsmanager:DescribeSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_DescribeSecret.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
 
 - **   UpdateProjectVisibility  **
   - **IAM action:**  [codebuild:UpdateProjectVisibility](#list_codebuild-action-UpdateProjectVisibility)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write

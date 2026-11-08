@@ -81,6 +81,10 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   CreateSystemTableConfiguration  **
+  - **IAM action:**  [athena:CreateSystemTableConfiguration](#list_athena-action-CreateSystemTableConfiguration)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [athena:TagResource](#list_athena-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
 - **   CreateWorkGroup  **
   - **IAM action:**  [athena:CreateWorkGroup](#list_athena-action-CreateWorkGroup)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [athena:TagResource](#list_athena-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
@@ -112,6 +116,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   DeletePreparedStatement  **
   - **IAM action:**  [athena:DeletePreparedStatement](#list_athena-action-DeletePreparedStatement) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteSystemTableConfiguration  **
+  - **IAM action:**  [athena:DeleteSystemTableConfiguration](#list_athena-action-DeleteSystemTableConfiguration) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -230,6 +240,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetSystemTableConfiguration  **
+  - **IAM action:**  [athena:GetSystemTableConfiguration](#list_athena-action-GetSystemTableConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetTableMetadata  **
   - **IAM action:**  [athena:GetTableMetadata](#list_athena-action-GetTableMetadata) 
   - **Condition key:** 
@@ -322,6 +338,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   ListSessions  **
   - **IAM action:**  [athena:ListSessions](#list_athena-action-ListSessions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSystemTableStatuses  **
+  - **IAM action:**  [athena:ListSystemTableStatuses](#list_athena-action-ListSystemTableStatuses) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
@@ -434,6 +456,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   UpdateSystemTableConfiguration  **
+  - **IAM action:**  [athena:UpdateSystemTableConfiguration](#list_athena-action-UpdateSystemTableConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   UpdateWorkGroup  **
   - **IAM action:**  [athena:UpdateWorkGroup](#list_athena-action-UpdateWorkGroup)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** athena.amazonaws.com / **Access level:** Write
@@ -514,6 +542,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [CreateSystemTableConfiguration](https://docs.aws.amazon.com/athena/latest/APIReference/API_CreateSystemTableConfiguration.html)  **
+  - **Description:** Grants permission to create a system table configuration
+  - **Resource types (\*required):** [system-table\*](#list_athena-resource-system-table)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_athena-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_athena-aws_TagKeys)
+  - **Access level:** Write
+
 - **   [CreateWorkGroup](https://docs.aws.amazon.com/athena/latest/APIReference/API_CreateWorkGroup.html)  **
   - **Description:** Grants permission to create a workgroup
   - **Resource types (\*required):** [workgroup\*](#list_athena-resource-workgroup)
@@ -547,6 +581,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DeletePreparedStatement](https://docs.aws.amazon.com/athena/latest/APIReference/API_DeletePreparedStatement.html)  **
   - **Description:** Grants permission to delete a prepared statement specified
   - **Resource types (\*required):** [workgroup\*](#list_athena-resource-workgroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteSystemTableConfiguration](https://docs.aws.amazon.com/athena/latest/APIReference/API_DeleteSystemTableConfiguration.html)  **
+  - **Description:** Grants permission to delete a system table configuration
+  - **Resource types (\*required):** [system-table\*](#list_athena-resource-system-table)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -706,6 +746,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [workgroup\*](#list_athena-resource-workgroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [GetSystemTableConfiguration](https://docs.aws.amazon.com/athena/latest/APIReference/API_GetSystemTableConfiguration.html)  **
+  - **Description:** Grants permission to get a system table configuration
+  - **Resource types (\*required):** [system-table\*](#list_athena-resource-system-table)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [GetTable](https://docs.aws.amazon.com/athena/latest/ug/connect-with-previous-jdbc.html#jdbc-prev-version-policies)  **
   - **Description:** Grants permission to enable access to the specified table. Applies only to AWS services managed policy and principals that use an Athena JDBC driver version 1.1.0
   - **Resource types (\*required):** 
@@ -814,6 +860,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_)
   - **Access level:** List
 
+- **   [ListSystemTableStatuses](https://docs.aws.amazon.com/athena/latest/APIReference/API_ListSystemTableStatuses.html)  **
+  - **Description:** Grants permission to return the statuses of system tables for the specified AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
 - **   [ListTableMetadata](https://docs.aws.amazon.com/athena/latest/APIReference/API_ListTableMetadata.html)  **
   - **Description:** Grants permission to return a list of table metadata in a database for a given datacatalog
   - **Resource types (\*required):** [datacatalog\*](#list_athena-resource-datacatalog)
@@ -825,6 +877,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [capacity-reservation\*](#list_athena-resource-capacity-reservation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [datacatalog\*](#list_athena-resource-datacatalog) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [session\*](#list_athena-resource-session) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [system-table\*](#list_athena-resource-system-table) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [workgroup\*](#list_athena-resource-workgroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
@@ -881,6 +934,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [capacity-reservation\*](#list_athena-resource-capacity-reservation) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_athena-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_athena-aws_TagKeys)
   - **Resource types (\*required):** [datacatalog\*](#list_athena-resource-datacatalog) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_athena-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_athena-aws_TagKeys)
   - **Resource types (\*required):** [session\*](#list_athena-resource-session) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_athena-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_athena-aws_TagKeys)
+  - **Resource types (\*required):** [system-table\*](#list_athena-resource-system-table) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_athena-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_athena-aws_TagKeys)
   - **Resource types (\*required):** [workgroup\*](#list_athena-resource-workgroup) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_athena-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_athena-aws_TagKeys)
   - **Access level:** Tagging, Write
 
@@ -895,6 +949,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [capacity-reservation\*](#list_athena-resource-capacity-reservation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_athena-aws_TagKeys)
   - **Resource types (\*required):** [datacatalog\*](#list_athena-resource-datacatalog) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_athena-aws_TagKeys)
   - **Resource types (\*required):** [session\*](#list_athena-resource-session) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_athena-aws_TagKeys)
+  - **Resource types (\*required):** [system-table\*](#list_athena-resource-system-table) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_athena-aws_TagKeys)
   - **Resource types (\*required):** [workgroup\*](#list_athena-resource-workgroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_athena-aws_TagKeys)
   - **Access level:** Tagging, Write
 
@@ -934,6 +989,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [UpdateSystemTableConfiguration](https://docs.aws.amazon.com/athena/latest/APIReference/API_UpdateSystemTableConfiguration.html)  **
+  - **Description:** Grants permission to update a system table configuration
+  - **Resource types (\*required):** [system-table\*](#list_athena-resource-system-table)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [UpdateWorkGroup](https://docs.aws.amazon.com/athena/latest/APIReference/API_UpdateWorkGroup.html)  **
   - **Description:** Grants permission to update a workgroup
   - **Resource types (\*required):** [workgroup\*](#list_athena-resource-workgroup)
@@ -954,6 +1015,7 @@ The following resource types are defined by this service and can be used in the 
 |  [capacity-reservation](https://docs.aws.amazon.com/athena/latest/ug/example-policies-capacity-reservations.html)  | arn:${Partition}:athena:${Region}:${Account}:capacity-reservation/${CapacityReservationName} | [aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_) | 
 |  [datacatalog](https://docs.aws.amazon.com/athena/latest/ug/datacatalogs-example-policies.html)  | arn:${Partition}:athena:${Region}:${Account}:datacatalog/${DataCatalogName} | [aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_) | 
 |  [session](https://docs.aws.amazon.com/athena/latest/ug/example-policies-workgroup.html)  | arn:${Partition}:athena:${Region}:${Account}:workgroup/${WorkGroupName}/session/${SessionId} | [aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_) | 
+|  [system-table](https://docs.aws.amazon.com/athena/latest/ug/system-tables-iam-policy.html)  | arn:${Partition}:athena:${Region}:${Account}:system-table/${TableName} | [aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_) | 
 |  [workgroup](https://docs.aws.amazon.com/athena/latest/ug/example-policies-workgroup.html)  | arn:${Partition}:athena:${Region}:${Account}:workgroup/${WorkGroupName} | [aws:ResourceTag/${TagKey}](#list_athena-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon Athena

@@ -12,10 +12,217 @@ References:
 + View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/applicationinsights/applicationinsights.json) for this service.
 
 **Topics**
++ [API operations defined by Amazon CloudWatch Application Insights](#list_application-insights-operations)
 + [Actions defined by Amazon CloudWatch Application Insights](#list_application-insights-actions-as-permissions)
 + [Permission-only actions for Amazon CloudWatch Application Insights](#list_application-insights-permission-only-actions)
 + [Resource types defined by Amazon CloudWatch Application Insights](#list_application-insights-resources-for-iam-policies)
 + [Condition keys for Amazon CloudWatch Application Insights](#list_application-insights-policy-keys)
+
+## API operations defined by Amazon CloudWatch Application Insights
+<a name="list_application-insights-operations"></a>
+
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_application-insights-actions-as-permissions).
+
+
+
+
+- **   AddWorkload  **
+  - **IAM action:**  [applicationinsights:AddWorkload](#list_application-insights-action-AddWorkload) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateApplication  **
+  - **IAM action:**  [applicationinsights:CreateApplication](#list_application-insights-action-CreateApplication)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [applicationinsights:TagResource](#list_application-insights-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateComponent  **
+  - **IAM action:**  [applicationinsights:CreateComponent](#list_application-insights-action-CreateComponent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateLogPattern  **
+  - **IAM action:**  [applicationinsights:CreateLogPattern](#list_application-insights-action-CreateLogPattern) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteApplication  **
+  - **IAM action:**  [applicationinsights:DeleteApplication](#list_application-insights-action-DeleteApplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteComponent  **
+  - **IAM action:**  [applicationinsights:DeleteComponent](#list_application-insights-action-DeleteComponent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteLogPattern  **
+  - **IAM action:**  [applicationinsights:DeleteLogPattern](#list_application-insights-action-DeleteLogPattern) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DescribeApplication  **
+  - **IAM action:**  [applicationinsights:DescribeApplication](#list_application-insights-action-DescribeApplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeComponent  **
+  - **IAM action:**  [applicationinsights:DescribeComponent](#list_application-insights-action-DescribeComponent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeComponentConfiguration  **
+  - **IAM action:**  [applicationinsights:DescribeComponentConfiguration](#list_application-insights-action-DescribeComponentConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeComponentConfigurationRecommendation  **
+  - **IAM action:**  [applicationinsights:DescribeComponentConfigurationRecommendation](#list_application-insights-action-DescribeComponentConfigurationRecommendation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeLogPattern  **
+  - **IAM action:**  [applicationinsights:DescribeLogPattern](#list_application-insights-action-DescribeLogPattern) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeObservation  **
+  - **IAM action:**  [applicationinsights:DescribeObservation](#list_application-insights-action-DescribeObservation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeProblem  **
+  - **IAM action:**  [applicationinsights:DescribeProblem](#list_application-insights-action-DescribeProblem) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeProblemObservations  **
+  - **IAM action:**  [applicationinsights:DescribeProblemObservations](#list_application-insights-action-DescribeProblemObservations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeWorkload  **
+  - **IAM action:**  [applicationinsights:DescribeWorkload](#list_application-insights-action-DescribeWorkload) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListApplications  **
+  - **IAM action:**  [applicationinsights:ListApplications](#list_application-insights-action-ListApplications) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListComponents  **
+  - **IAM action:**  [applicationinsights:ListComponents](#list_application-insights-action-ListComponents) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListConfigurationHistory  **
+  - **IAM action:**  [applicationinsights:ListConfigurationHistory](#list_application-insights-action-ListConfigurationHistory) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListLogPatternSets  **
+  - **IAM action:**  [applicationinsights:ListLogPatternSets](#list_application-insights-action-ListLogPatternSets) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListLogPatterns  **
+  - **IAM action:**  [applicationinsights:ListLogPatterns](#list_application-insights-action-ListLogPatterns) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListProblems  **
+  - **IAM action:**  [applicationinsights:ListProblems](#list_application-insights-action-ListProblems) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [applicationinsights:ListTagsForResource](#list_application-insights-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListWorkloads  **
+  - **IAM action:**  [applicationinsights:ListWorkloads](#list_application-insights-action-ListWorkloads) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   RemoveWorkload  **
+  - **IAM action:**  [applicationinsights:RemoveWorkload](#list_application-insights-action-RemoveWorkload) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [applicationinsights:TagResource](#list_application-insights-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [applicationinsights:UntagResource](#list_application-insights-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateApplication  **
+  - **IAM action:**  [applicationinsights:UpdateApplication](#list_application-insights-action-UpdateApplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateComponent  **
+  - **IAM action:**  [applicationinsights:UpdateComponent](#list_application-insights-action-UpdateComponent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateComponentConfiguration  **
+  - **IAM action:**  [applicationinsights:UpdateComponentConfiguration](#list_application-insights-action-UpdateComponentConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateLogPattern  **
+  - **IAM action:**  [applicationinsights:UpdateLogPattern](#list_application-insights-action-UpdateLogPattern) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateProblem  **
+  - **IAM action:**  [applicationinsights:UpdateProblem](#list_application-insights-action-UpdateProblem) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateWorkload  **
+  - **IAM action:**  [applicationinsights:UpdateWorkload](#list_application-insights-action-UpdateWorkload) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by Amazon CloudWatch Application Insights
 <a name="list_application-insights-actions-as-permissions"></a>

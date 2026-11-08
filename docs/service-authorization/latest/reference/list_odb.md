@@ -431,8 +431,10 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** Tagging, Write
 
 - **   UpdateAutonomousDatabase  **
-  - **IAM action:**  [odb:UpdateAutonomousDatabase](#list_odb-action-UpdateAutonomousDatabase)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
-  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** odb.amazonaws.com / **Access level:** Write
+  - **IAM action:**  [odb:UpdateAutonomousDatabase](#list_odb-action-UpdateAutonomousDatabase) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   UpdateAutonomousDatabaseBackup  **
   - **IAM action:**  [odb:UpdateAutonomousDatabaseBackup](#list_odb-action-UpdateAutonomousDatabaseBackup) 

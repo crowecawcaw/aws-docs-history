@@ -988,6 +988,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [Opportunity\*](#list_partner-central-resource-Opportunity) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
   - **Access level:** Write
 
+- **   [AssociateBusinessPlan](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_AssociateBusinessPlan.html)  **
+  - **Description:** Grants permission to associate business plan items with opportunities or campaigns in AWS Partner Central
+  - **Resource types (\*required):** [BusinessPlan\*](#list_partner-central-resource-BusinessPlan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
 - **   [AssociateOpportunity](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_AssociateOpportunity.html)  **
   - **Description:** Grants permission to associate Opportunities on AWS Partner Central with other entities
   - **Resource types (\*required):** [Opportunity\*](#list_partner-central-resource-Opportunity)
@@ -998,6 +1004,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to cancel benefit applications in AWS Partner Central
   - **Resource types (\*required):** [BenefitApplication\*](#list_partner-central-resource-BenefitApplication)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
+  - **Access level:** Write
+
+- **   [CancelBusinessPlan](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_CancelBusinessPlan.html)  **
+  - **Description:** Grants permission to cancel business plans in AWS Partner Central
+  - **Resource types (\*required):** [BusinessPlan\*](#list_partner-central-resource-BusinessPlan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:AllowAwsEngagement](#list_partner-central-partnercentral_AllowAwsEngagement)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
+- **   [CancelBusinessPlanSubmissionTask](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_CancelBusinessPlanSubmissionTask.html)  **
+  - **Description:** Grants permission to cancel business plan submission tasks in AWS Partner Central
+  - **Resource types (\*required):** [BusinessPlan\*](#list_partner-central-resource-BusinessPlan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:AllowAwsEngagement](#list_partner-central-partnercentral_AllowAwsEngagement)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** Write
 
 - **   [CancelChannelHandshake](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_channel_CancelChannelHandshake.html)  **
@@ -1028,6 +1046,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to create benefit applications in AWS Partner Central
   - **Resource types (\*required):** 
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_partner-central-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
+  - **Access level:** Write
+
+- **   [CreateBusinessPlan](${UserGuideDocPage}controlling-access-in-aws-partner-central.html)  **
+  - **Description:** Grants permission to create business plans in AWS Partner Central
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_partner-central-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:AllowAwsEngagement](#list_partner-central-partnercentral_AllowAwsEngagement)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
+- **   [CreateBusinessPlanItem](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_CreateBusinessPlanItem.html)  **
+  - **Description:** Grants permission to create business plan items in AWS Partner Central
+  - **Resource types (\*required):** [BusinessPlan\*](#list_partner-central-resource-BusinessPlan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:AllowAwsEngagement](#list_partner-central-partnercentral_AllowAwsEngagement)<br />[partnercentral:BusinessPlanItemStage](#list_partner-central-partnercentral_BusinessPlanItemStage)<br />[partnercentral:BusinessPlanItemType](#list_partner-central-partnercentral_BusinessPlanItemType)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** Write
 
 - **   [CreateChannelHandshake](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_channel_CreateChannelHandshake.html)  **
@@ -1114,6 +1144,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_partner-central-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** Write
 
+- **   [DeleteBusinessPlanAttachment](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_DeleteBusinessPlanAttachment.html)  **
+  - **Description:** Grants permission to delete business plan attachments in AWS Partner Central
+  - **Resource types (\*required):** [BusinessPlan\*](#list_partner-central-resource-BusinessPlan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:AllowAwsEngagement](#list_partner-central-partnercentral_AllowAwsEngagement)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
+- **   [DeleteBusinessPlanItem](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_DeleteBusinessPlanItem.html)  **
+  - **Description:** Grants permission to delete business plan items in AWS Partner Central
+  - **Resource types (\*required):** [BusinessPlan\*](#list_partner-central-resource-BusinessPlan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:AllowAwsEngagement](#list_partner-central-partnercentral_AllowAwsEngagement)<br />[partnercentral:BusinessPlanItemStage](#list_partner-central-partnercentral_BusinessPlanItemStage)<br />[partnercentral:BusinessPlanItemType](#list_partner-central-partnercentral_BusinessPlanItemType)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
 - **   [DeleteProgramManagementAccount](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_channel_DeleteProgramManagementAccount.html)  **
   - **Description:** Grants permission to delete program management accounts in AWS Partner Central
   - **Resource types (\*required):** [ProgramManagementAccount\*](#list_partner-central-resource-ProgramManagementAccount)
@@ -1143,6 +1185,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [BenefitAllocation\*](#list_partner-central-resource-BenefitAllocation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
   - **Resource types (\*required):** [BenefitApplication\*](#list_partner-central-resource-BenefitApplication) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
   - **Resource types (\*required):** [Opportunity\*](#list_partner-central-resource-Opportunity) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
+  - **Access level:** Write
+
+- **   [DisassociateBusinessPlan](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_DisassociateBusinessPlan.html)  **
+  - **Description:** Grants permission to disassociate business plan items from opportunities or campaigns in AWS Partner Central
+  - **Resource types (\*required):** [BusinessPlan\*](#list_partner-central-resource-BusinessPlan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** Write
 
 - **   [DisassociateOpportunity](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_DisassociateOpportunity.html)  **
@@ -1179,6 +1227,48 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to retrieve benefit application details in AWS Partner Central
   - **Resource types (\*required):** [BenefitApplication\*](#list_partner-central-resource-BenefitApplication)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
+  - **Access level:** Read
+
+- **   [GetBusinessPlan](${UserGuideDocPage}controlling-access-in-aws-partner-central.html)  **
+  - **Description:** Grants permission to retrieve business plan details in AWS Partner Central
+  - **Resource types (\*required):** [BusinessPlan\*](#list_partner-central-resource-BusinessPlan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Read
+
+- **   [GetBusinessPlanAttachment](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_GetBusinessPlanAttachment.html)  **
+  - **Description:** Grants permission to retrieve business plan attachment details in AWS Partner Central
+  - **Resource types (\*required):** [BusinessPlan\*](#list_partner-central-resource-BusinessPlan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Read
+
+- **   [GetBusinessPlanAttachmentImportTask](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_GetBusinessPlanAttachmentImportTask.html)  **
+  - **Description:** Grants permission to retrieve business plan attachment import task details in AWS Partner Central
+  - **Resource types (\*required):** [BusinessPlan\*](#list_partner-central-resource-BusinessPlan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Read
+
+- **   [GetBusinessPlanItem](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_GetBusinessPlanItem.html)  **
+  - **Description:** Grants permission to retrieve business plan item details in AWS Partner Central
+  - **Resource types (\*required):** [BusinessPlan\*](#list_partner-central-resource-BusinessPlan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:BusinessPlanItemStage](#list_partner-central-partnercentral_BusinessPlanItemStage)<br />[partnercentral:BusinessPlanItemType](#list_partner-central-partnercentral_BusinessPlanItemType)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Read
+
+- **   [GetBusinessPlanItemSchema](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_GetBusinessPlanItemSchema.html)  **
+  - **Description:** Grants permission to retrieve the item schema of business plans in AWS Partner Central
+  - **Resource types (\*required):** 
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Read
+
+- **   [GetBusinessPlanSettings](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_GetBusinessPlanSettings.html)  **
+  - **Description:** Grants permission to retrieve business plan settings in AWS Partner Central
+  - **Resource types (\*required):** 
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Read
+
+- **   [GetBusinessPlanSubmissionTask](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_GetBusinessPlanSubmissionTask.html)  **
+  - **Description:** Grants permission to retrieve business plan submission task details in AWS Partner Central
+  - **Resource types (\*required):** [BusinessPlan\*](#list_partner-central-resource-BusinessPlan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** Read
 
 - **   [GetConnection](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_GetConnection.html)  **
@@ -1250,6 +1340,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [GetPartnerDashboard](${UserGuideDocPage}controlling-access-in-aws-partner-central.html)  **
   - **Description:** Grants permission to retrieve partner dashboard information in AWS Partner Central
   - **Resource types (\*required):** [Dashboard\*](#list_partner-central-resource-Dashboard)
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Read
+
+- **   [GetPartnerReportingData](${UserGuideDocPage}controlling-access-in-aws-partner-central.html)  **
+  - **Description:** Grants permission to execute a structured query against a partner analytics dataset in AWS Partner Central
+  - **Resource types (\*required):** [Dataset\*](#list_partner-central-resource-Dataset)
   - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** Read
 
@@ -1353,6 +1449,48 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to list benefits in AWS Partner Central
   - **Resource types (\*required):** [Benefit\*](#list_partner-central-resource-Benefit)
   - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
+  - **Access level:** List
+
+- **   [ListBusinessPlanAssociations](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_ListBusinessPlanAssociations.html)  **
+  - **Description:** Grants permission to list business plan associations in AWS Partner Central
+  - **Resource types (\*required):** [BusinessPlan](#list_partner-central-resource-BusinessPlan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** List
+
+- **   [ListBusinessPlanAttachmentImportTasks](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_ListBusinessPlanAttachmentImportTasks.html)  **
+  - **Description:** Grants permission to list business plan attachment import tasks in AWS Partner Central
+  - **Resource types (\*required):** [BusinessPlan\*](#list_partner-central-resource-BusinessPlan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** List
+
+- **   [ListBusinessPlanAttachments](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_ListBusinessPlanAttachments.html)  **
+  - **Description:** Grants permission to list business plan attachments in AWS Partner Central
+  - **Resource types (\*required):** [BusinessPlan\*](#list_partner-central-resource-BusinessPlan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** List
+
+- **   [ListBusinessPlanHistory](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_ListBusinessPlanHistory.html)  **
+  - **Description:** Grants permission to list the change history of business plans in AWS Partner Central
+  - **Resource types (\*required):** [BusinessPlan\*](#list_partner-central-resource-BusinessPlan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** List
+
+- **   [ListBusinessPlanItems](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_ListBusinessPlanItems.html)  **
+  - **Description:** Grants permission to list business plan items in AWS Partner Central
+  - **Resource types (\*required):** [BusinessPlan](#list_partner-central-resource-BusinessPlan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** List
+
+- **   [ListBusinessPlanSubmissionTasks](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_ListBusinessPlanSubmissionTasks.html)  **
+  - **Description:** Grants permission to list business plan submission tasks in AWS Partner Central
+  - **Resource types (\*required):** [BusinessPlan\*](#list_partner-central-resource-BusinessPlan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** List
+
+- **   [ListBusinessPlans](${UserGuideDocPage}controlling-access-in-aws-partner-central.html)  **
+  - **Description:** Grants permission to list business plans in AWS Partner Central
+  - **Resource types (\*required):** 
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** List
 
 - **   [ListChannelHandshakes](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_channel_ListChannelHandshakes.html)  **
@@ -1505,6 +1643,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** Write
 
+- **   [PutBusinessPlanSettings](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_PutBusinessPlanSettings.html)  **
+  - **Description:** Grants permission to set business plan settings, including whether AWS can contribute to business plans, in AWS Partner Central
+  - **Resource types (\*required):** 
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
 - **   [PutProfileVisibility](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_PutProfileVisibility.html)  **
   - **Description:** Grants permission to set profile visibility in AWS Partner Central
   - **Resource types (\*required):** [Partner\*](#list_partner-central-resource-Partner)
@@ -1557,6 +1701,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to send email verification codes in AWS Partner Central
   - **Resource types (\*required):** 
   - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
+- **   [StartBusinessPlanAttachmentImportTask](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_StartBusinessPlanAttachmentImportTask.html)  **
+  - **Description:** Grants permission to initiate tasks that import business plan attachments in AWS Partner Central
+  - **Resource types (\*required):** [BusinessPlan\*](#list_partner-central-resource-BusinessPlan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:AllowAwsEngagement](#list_partner-central-partnercentral_AllowAwsEngagement)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
+- **   [StartBusinessPlanSubmissionTask](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_StartBusinessPlanSubmissionTask.html)  **
+  - **Description:** Grants permission to initiate tasks that submit business plans for review in AWS Partner Central
+  - **Resource types (\*required):** [BusinessPlan\*](#list_partner-central-resource-BusinessPlan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:AllowAwsEngagement](#list_partner-central-partnercentral_AllowAwsEngagement)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** Write
 
 - **   [StartEngagementByAcceptingInvitationTask](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_StartEngagementByAcceptingInvitationTask.html)  **
@@ -1640,6 +1796,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [TagResource](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_TagResource.html)  **
   - **Description:** Grants permission to add new tags to a resource. Supported resource: ResourceSnapshotJob
   - **Resource types (\*required):** [BenefitApplication](#list_partner-central-resource-BenefitApplication) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_partner-central-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
+  - **Resource types (\*required):** [BusinessPlan](#list_partner-central-resource-BusinessPlan) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_partner-central-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
   - **Resource types (\*required):** [ChannelHandshake](#list_partner-central-resource-ChannelHandshake) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_partner-central-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
   - **Resource types (\*required):** [MarketplaceRevenueShare](#list_partner-central-resource-MarketplaceRevenueShare) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_partner-central-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
   - **Resource types (\*required):** [Opportunity](#list_partner-central-resource-Opportunity) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_partner-central-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
@@ -1653,6 +1810,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [UntagResource](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_UntagResource.html)  **
   - **Description:** Grants permission to remove tags from a resource. Supported resource: ResourceSnapshotJob
   - **Resource types (\*required):** [BenefitApplication](#list_partner-central-resource-BenefitApplication) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
+  - **Resource types (\*required):** [BusinessPlan](#list_partner-central-resource-BusinessPlan) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
   - **Resource types (\*required):** [ChannelHandshake](#list_partner-central-resource-ChannelHandshake) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
   - **Resource types (\*required):** [MarketplaceRevenueShare](#list_partner-central-resource-MarketplaceRevenueShare) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
   - **Resource types (\*required):** [Opportunity](#list_partner-central-resource-Opportunity) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_partner-central-aws_TagKeys)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
@@ -1667,6 +1825,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to update benefit applications in AWS Partner Central
   - **Resource types (\*required):** [BenefitApplication\*](#list_partner-central-resource-BenefitApplication)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)<br />[partnercentral:FulfillmentTypes](#list_partner-central-partnercentral_FulfillmentTypes)<br />[partnercentral:Programs](#list_partner-central-partnercentral_Programs)
+  - **Access level:** Write
+
+- **   [UpdateBusinessPlan](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_UpdateBusinessPlan.html)  **
+  - **Description:** Grants permission to update business plans in AWS Partner Central
+  - **Resource types (\*required):** [BusinessPlan\*](#list_partner-central-resource-BusinessPlan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:AllowAwsEngagement](#list_partner-central-partnercentral_AllowAwsEngagement)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Write
+
+- **   [UpdateBusinessPlanItem](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_UpdateBusinessPlanItem.html)  **
+  - **Description:** Grants permission to update business plan items in AWS Partner Central
+  - **Resource types (\*required):** [BusinessPlan\*](#list_partner-central-resource-BusinessPlan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:AllowAwsEngagement](#list_partner-central-partnercentral_AllowAwsEngagement)<br />[partnercentral:BusinessPlanItemStage](#list_partner-central-partnercentral_BusinessPlanItemStage)<br />[partnercentral:BusinessPlanItemType](#list_partner-central-partnercentral_BusinessPlanItemType)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** Write
 
 - **   [UpdateConnectionPreferences](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_UpdateConnectionPreferences.html)  **
@@ -1722,18 +1892,15 @@ The following actions are defined by AWS Partner Central but are not directly in
 
 | Actions | Description | Resource types (\*required) | Condition keys | Access level | 
 | --- | --- | --- | --- | --- | 
-|   [CreateBusinessPlan](${UserGuideDocPage}controlling-access-in-aws-partner-central.html)  | Grants permission to create business plans in AWS Partner Central |  |   | Write | 
 |   [CreateCollaborationChannelMembers](${UserGuideDocPage}controlling-access-in-aws-partner-central.html)  | Grants permission to create collaboration channel members in AWS Partner Central |  |   | Write | 
 |   [CreateCollaborationChannelRequest](${UserGuideDocPage}controlling-access-in-aws-partner-central.html)  | Grants permission to create collaboration channel requests in AWS Partner Central |  |   | Write | 
 |   [EnrollInPartnerPath](${UserGuideDocPage}controlling-access-in-aws-partner-central.html)  | Grants permission to enroll in partner paths in AWS Partner Central |  |   | Write | 
-|   [GetBusinessPlan](${UserGuideDocPage}controlling-access-in-aws-partner-central.html)  | Grants permission to retrieve business plan details in AWS Partner Central |  |   | Read | 
 |   [GetCollaborationChannel](${UserGuideDocPage}controlling-access-in-aws-partner-central.html)  | Grants permission to retrieve collaboration channel details in AWS Partner Central |  |   | Read | 
 |   [GetPartnerProfile](${UserGuideDocPage}controlling-access-in-aws-partner-central.html)  | Grants permission to retrieve public partner profile details in AWS Partner Central |  |   | Read | 
 |   [GetProgramManagementAccount](${UserGuideDocPage}controlling-access-in-aws-partner-central.html)  | Grants permission to retrieve program management account details in AWS Partner Central |  | [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog) | Read | 
-|   [ListBusinessPlans](${UserGuideDocPage}controlling-access-in-aws-partner-central.html)  | Grants permission to list business plans in AWS Partner Central |  |   | List | 
 |   [ListCollaborationChannels](${UserGuideDocPage}controlling-access-in-aws-partner-central.html)  | Grants permission to list collaboration channels in AWS Partner Central |  |   | List | 
 |   [ListPartnerPaths](${UserGuideDocPage}controlling-access-in-aws-partner-central.html)  | Grants permission to list partner paths in AWS Partner Central |  |   | List | 
-|   [PutBusinessPlan](${UserGuideDocPage}controlling-access-in-aws-partner-central.html)  | Grants permission to update business plans in AWS Partner Central |  |   | Write | 
+|   [PutBusinessPlan](${UserGuideDocPage}controlling-access-in-aws-partner-central.html)  | Grants permission to set business plan in AWS Partner Central. This permission is only for partners using legacy AWS Partner Central |  |   | Write | 
 |   [SearchPartnerProfiles](${UserGuideDocPage}controlling-access-in-aws-partner-central.html)  | Grants permission to search public partner profiles in AWS Partner Central |  |   | List | 
 |   [UseSession](${UserGuideDocPage}controlling-access-in-aws-partner-central.html)  | Grants permission to use Partner Central Agents sessions in AWS Partner Central |  | [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog) | Write | 
 
@@ -1749,11 +1916,13 @@ The following resource types are defined by this service and can be used in the 
 |  [Benefit](https://docs.aws.amazon.com/partner-central/latest/APIReference/using-the-benefits-api.html)  | arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/benefit/${Identifier} |   | 
 |  [BenefitAllocation](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-benefit-allocations.html)  | arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/benefit-allocation/${Identifier} |   | 
 |  [BenefitApplication](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-benefit-applications.html)  | arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/benefit-application/${Identifier} | [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_) | 
+|  [BusinessPlan](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-business-plans.html)  | arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/business-plan/${Identifier} | [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_) | 
 |  [ChannelHandshake](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-channel-management.html)  | arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/channel-handshake/${Identifier} | [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_) | 
 |  [Connection](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-account-connections.html)  | arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/connection/${Identifier} |   | 
 |  [ConnectionInvitation](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-account-connections.html)  | arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/connection-invitation/${Identifier} |   | 
 |  [ConnectionPreferences](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-account-connections.html)  | arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/connection-preferences |   | 
 |  [Dashboard](https://docs.aws.amazon.com/partner-central/latest/getting-started/partner-analytics.html)  | arn:${Partition}:partnercentral::${Account}:catalog/${Catalog}/ReportingData/${TableId}/Dashboard/${DashboardId} |   | 
+|  [Dataset](https://docs.aws.amazon.com/partner-central/latest/getting-started/partner-analytics.html)  | arn:${Partition}:partnercentral::${Account}:catalog/${Catalog}/ReportingData/${Domain}/Dataset/${DatasetName} |   | 
 |  [Engagement](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-multi-partner-opportunities.html)  | arn:${Partition}:partnercentral:${Region}::catalog/${Catalog}/engagement/${Identifier} |   | 
 |  [MarketplaceRevenueShare](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-marketplace-revenue-share.html)  | arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/marketplace-revenue-share/${MarketplaceProductId} | [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_) | 
 |  [Opportunity](https://docs.aws.amazon.com/partner-central/latest/APIReference/working-with-your-opportunities.html)  | arn:${Partition}:partnercentral:${Region}:${Account}:catalog/${Catalog}/opportunity/${Identifier} | [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_) | 
@@ -1782,6 +1951,9 @@ AWS Partner Central defines the following condition keys that can be used in the
 |   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the tags that are passed in the request | String | 
 |   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the tags associated with the resource | String | 
 |   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the tag keys that are passed in the request | ArrayOfString | 
+|   [partnercentral:AllowAwsEngagement](https://docs.aws.amazon.com/partner-central/latest/getting-started/controlling-access-in-aws-partner-central.html#condition-keys-for-aws-partner-central)  | Filters access by whether the partner allows AWS to make changes to their business plans | String | 
+|   [partnercentral:BusinessPlanItemStage](https://docs.aws.amazon.com/partner-central/latest/getting-started/controlling-access-in-aws-partner-central.html#condition-keys-for-aws-partner-central)  | Filters access by the stage of a business plan item | String | 
+|   [partnercentral:BusinessPlanItemType](https://docs.aws.amazon.com/partner-central/latest/getting-started/controlling-access-in-aws-partner-central.html#condition-keys-for-aws-partner-central)  | Filters access by the type of a business plan item | String | 
 |   [partnercentral:Catalog](https://docs.aws.amazon.com/partner-central/latest/getting-started/controlling-access-in-aws-partner-central.html#condition-keys-for-aws-partner-central)  | Filters access by a specific Catalog | String | 
 |   [partnercentral:ChannelHandshakeType](https://docs.aws.amazon.com/partner-central/latest/getting-started/controlling-access-in-aws-partner-central.html#condition-keys-for-aws-partner-central)  | Filters access by channel handshake types | String | 
 |   [partnercentral:FulfillmentTypes](https://docs.aws.amazon.com/partner-central/latest/getting-started/controlling-access-in-aws-partner-central.html#condition-keys-for-aws-partner-central)  | Filters access by benefit fulfillment types | ArrayOfString | 

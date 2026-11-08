@@ -47,6 +47,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   CancelBulkOperation  **
+  - **SDK client:** dynamodb
+  - **IAM action:**  [dynamodb:CancelBulkOperation](#list_dynamodb-action-CancelBulkOperation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   CreateBackup  **
   - **SDK client:** dynamodb
   - **IAM action:**  [dynamodb:CreateBackup](#list_dynamodb-action-CreateBackup) 
@@ -105,6 +112,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   DescribeBackup  **
   - **SDK client:** dynamodb
   - **IAM action:**  [dynamodb:DescribeBackup](#list_dynamodb-action-DescribeBackup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeBulkOperation  **
+  - **SDK client:** dynamodb
+  - **IAM action:**  [dynamodb:DescribeBulkOperation](#list_dynamodb-action-DescribeBulkOperation) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -251,6 +265,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   ListBulkOperations  **
+  - **SDK client:** dynamodb
+  - **IAM action:**  [dynamodb:ListBulkOperations](#list_dynamodb-action-ListBulkOperations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListContributorInsights  **
   - **SDK client:** dynamodb
   - **IAM action:**  [dynamodb:ListContributorInsights](#list_dynamodb-action-ListContributorInsights) 
@@ -339,6 +360,11 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **SDK client:** dynamodb
   - **IAM action:**  [dynamodb:ReadDataForReplication](#list_dynamodb-action-ReadDataForReplication)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
   - **IAM action:**  [dynamodb:Scan](#list_dynamodb-action-Scan)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+
+- **   StartBulkPutItems  **
+  - **SDK client:** dynamodb
+  - **IAM action:**  [dynamodb:BulkPutItems](#list_dynamodb-action-BulkPutItems)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [dynamodb:StartBulkOperation](#list_dynamodb-action-StartBulkOperation)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
 - **   TagResource  **
   - **SDK client:** dynamodb
@@ -485,6 +511,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_dynamodb-aws_ResourceTag___TagKey_)<br />[dynamodb:Attributes](#list_dynamodb-dynamodb_Attributes)<br />[dynamodb:LeadingKeys](#list_dynamodb-dynamodb_LeadingKeys)<br />[dynamodb:ReturnConsumedCapacity](#list_dynamodb-dynamodb_ReturnConsumedCapacity)
   - **Access level:** Write
 
+- **   [BulkPutItems](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_StartBulkPutItems.html)  **
+  - **Description:** Grants permission to write items into a table as part of a bulk put items operation
+  - **Resource types (\*required):** [table\*](#list_dynamodb-resource-table)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_dynamodb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CancelBulkOperation](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CancelBulkOperation.html)  **
+  - **Description:** Grants permission to cancel an in-progress bulk operation
+  - **Resource types (\*required):** [bulk-operation\*](#list_dynamodb-resource-bulk-operation)
+  - **Condition keys:**  
+  - **Access level:** Write
+
 - **   [ConditionCheckItem](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ConditionCheck.html)  **
   - **Description:** Grants permission to the ConditionCheckItem operation checks the existence of a set of attributes for the item with the given primary key
   - **Resource types (\*required):** [table\*](#list_dynamodb-resource-table)
@@ -536,6 +574,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DescribeBackup](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeBackup.html)  **
   - **Description:** Grants permission to describe an existing backup of a table
   - **Resource types (\*required):** [backup\*](#list_dynamodb-resource-backup)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeBulkOperation](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeBulkOperation.html)  **
+  - **Description:** Grants permission to describe an existing bulk operation
+  - **Resource types (\*required):** [bulk-operation\*](#list_dynamodb-resource-bulk-operation)
   - **Condition keys:**  
   - **Access level:** Read
 
@@ -671,6 +715,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** List
 
+- **   [ListBulkOperations](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ListBulkOperations.html)  **
+  - **Description:** Grants permission to list bulk operations associated with the account and endpoint
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
 - **   [ListContributorInsights](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ListContributorInsights.html)  **
   - **Description:** Grants permission to list the ContributorInsightsSummary for all tables and global secondary indexes associated with the current account and endpoint
   - **Resource types (\*required):** 
@@ -778,6 +828,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [index\*](#list_dynamodb-resource-index) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_dynamodb-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [table\*](#list_dynamodb-resource-table) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_dynamodb-aws_ResourceTag___TagKey_)
   - **Access level:** Read
+
+- **   [StartBulkOperation](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_StartBulkPutItems.html)  **
+  - **Description:** Grants permission to start a bulk operation that writes items from an Amazon S3 source into an existing DynamoDB table
+  - **Resource types (\*required):** [bulk-operation\*](#list_dynamodb-resource-bulk-operation)
+  - **Condition keys:**  
+  - **Access level:** Write
 
 - **   [TagResource](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TagResource.html)  **
   - **Description:** Grants permission to associate a set of tags with an Amazon DynamoDB resource
@@ -975,6 +1031,7 @@ The following resource types are defined by this service and can be used in the 
 | Resource types | ARN | Condition keys | 
 | --- | --- | --- | 
 |  [backup](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/backuprestore_HowItWorks.html)  | arn:${Partition}:dynamodb:${Region}:${Account}:table/${TableName}/backup/${BackupName} |   | 
+|  [bulk-operation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/BulkPutItems.HowItWorks.html)  | arn:${Partition}:dynamodb:${Region}:${Account}:bulk-operation/${BulkOperationId} |   | 
 |  [export](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.HowItWorks.html)  | arn:${Partition}:dynamodb:${Region}:${Account}:table/${TableName}/export/${ExportName} |   | 
 |  [global-table](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_HowItWorks.html)  | arn:${Partition}:dynamodb::${Account}:global-table/${GlobalTableName} |   | 
 |  [import](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataImport.HowItWorks.html)  | arn:${Partition}:dynamodb:${Region}:${Account}:table/${TableName}/import/${ImportName} |   | 

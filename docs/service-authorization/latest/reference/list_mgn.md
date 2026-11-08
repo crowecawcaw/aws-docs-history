@@ -638,6 +638,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
   - **Access level:** Write
 
+- **   [CreateRemoteSourceAction](https://docs.aws.amazon.com/mgn/latest/APIReference/API_CreateRemoteSourceAction.html)  **
+  - **Description:** Grants permission to create a remote source action
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
+  - **Access level:** Write
+
 - **   [CreateReplicationConfigurationTemplate](https://docs.aws.amazon.com/mgn/latest/APIReference/API_CreateReplicationConfigurationTemplate.html)  **
   - **Description:** Grants permission to create replication configuration template
   - **Resource types (\*required):** 
@@ -677,6 +683,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DeleteNetworkMigrationDefinition](https://docs.aws.amazon.com/mgn/latest/APIReference/API_DeleteNetworkMigrationDefinition.html)  **
   - **Description:** Grants permission to delete a network migration definition
   - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteRemoteSourceAction](https://docs.aws.amazon.com/mgn/latest/APIReference/API_DeleteRemoteSourceAction.html)  **
+  - **Description:** Grants permission to delete a remote source action
+  - **Resource types (\*required):** [RemoteSourceActionResource\*](#list_mgn-resource-RemoteSourceActionResource)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -772,6 +784,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [GetLaunchConfiguration](https://docs.aws.amazon.com/mgn/latest/APIReference/API_GetLaunchConfiguration.html)  **
   - **Description:** Grants permission to get launch configuration
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetLaunchConfigurationDefaults](https://docs.aws.amazon.com/mgn/latest/APIReference/API_GetLaunchConfigurationDefaults.html)  **
+  - **Description:** Grants permission to get launch configuration defaults
   - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
   - **Access level:** Read
@@ -908,6 +926,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
   - **Access level:** List
 
+- **   [ListNetworkMigrationInsights](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListNetworkMigrationInsights.html)  **
+  - **Description:** Grants permission to list network migration insights
+  - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
 - **   [ListNetworkMigrationMapperSegmentConstructs](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListNetworkMigrationMapperSegmentConstructs.html)  **
   - **Description:** Grants permission to list network migration mapper segment constructs
   - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
@@ -930,6 +954,30 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to list network migration mappings
   - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListRemoteSourceActionInvocationResults](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListRemoteSourceActionInvocationResults.html)  **
+  - **Description:** Grants permission to list the remote source action invocation results of a source server
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListRemoteSourceActionInvocations](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListRemoteSourceActionInvocations.html)  **
+  - **Description:** Grants permission to list the invocations of a remote source action job
+  - **Resource types (\*required):** [RemoteSourceActionJobResource\*](#list_mgn-resource-RemoteSourceActionJobResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListRemoteSourceActionJobs](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListRemoteSourceActionJobs.html)  **
+  - **Description:** Grants permission to list remote source action jobs
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListRemoteSourceActions](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListRemoteSourceActions.html)  **
+  - **Description:** Grants permission to list remote source actions
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
   - **Access level:** List
 
 - **   [ListSourceServerActions](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListSourceServerActions.html)  **
@@ -1064,6 +1112,13 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [StartRemoteSourceActionJob](https://docs.aws.amazon.com/mgn/latest/APIReference/API_StartRemoteSourceActionJob.html)  **
+  - **Description:** Grants permission to start a remote source action job
+  - **Resource types (\*required):** [ConnectorResource\*](#list_mgn-resource-ConnectorResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
+  - **Resource types (\*required):** [RemoteSourceActionResource\*](#list_mgn-resource-RemoteSourceActionResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
+  - **Access level:** Write
+
 - **   [StartReplication](https://docs.aws.amazon.com/mgn/latest/APIReference/API_StartReplication.html)  **
   - **Description:** Grants permission to start replication
   - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
@@ -1090,6 +1145,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [ImportResource](#list_mgn-resource-ImportResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)<br />[mgn:CreateAction](#list_mgn-mgn_CreateAction)
   - **Resource types (\*required):** [JobResource](#list_mgn-resource-JobResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)<br />[mgn:CreateAction](#list_mgn-mgn_CreateAction)
   - **Resource types (\*required):** [LaunchConfigurationTemplateResource](#list_mgn-resource-LaunchConfigurationTemplateResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)<br />[mgn:CreateAction](#list_mgn-mgn_CreateAction)
+  - **Resource types (\*required):** [RemoteSourceActionJobResource](#list_mgn-resource-RemoteSourceActionJobResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)<br />[mgn:CreateAction](#list_mgn-mgn_CreateAction)
+  - **Resource types (\*required):** [RemoteSourceActionResource](#list_mgn-resource-RemoteSourceActionResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)<br />[mgn:CreateAction](#list_mgn-mgn_CreateAction)
   - **Resource types (\*required):** [ReplicationConfigurationTemplateResource](#list_mgn-resource-ReplicationConfigurationTemplateResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)<br />[mgn:CreateAction](#list_mgn-mgn_CreateAction)
   - **Resource types (\*required):** [SourceServerResource](#list_mgn-resource-SourceServerResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)<br />[mgn:CreateAction](#list_mgn-mgn_CreateAction)
   - **Resource types (\*required):** [VcenterClientResource](#list_mgn-resource-VcenterClientResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)<br />[mgn:CreateAction](#list_mgn-mgn_CreateAction)
@@ -1120,6 +1177,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [ConnectorResource](#list_mgn-resource-ConnectorResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
   - **Resource types (\*required):** [JobResource](#list_mgn-resource-JobResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
   - **Resource types (\*required):** [LaunchConfigurationTemplateResource](#list_mgn-resource-LaunchConfigurationTemplateResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
+  - **Resource types (\*required):** [RemoteSourceActionJobResource](#list_mgn-resource-RemoteSourceActionJobResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
+  - **Resource types (\*required):** [RemoteSourceActionResource](#list_mgn-resource-RemoteSourceActionResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
   - **Resource types (\*required):** [ReplicationConfigurationTemplateResource](#list_mgn-resource-ReplicationConfigurationTemplateResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
   - **Resource types (\*required):** [SourceServerResource](#list_mgn-resource-SourceServerResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
   - **Resource types (\*required):** [VcenterClientResource](#list_mgn-resource-VcenterClientResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
@@ -1150,6 +1209,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [UpdateLaunchConfigurationDefaults](https://docs.aws.amazon.com/mgn/latest/APIReference/API_UpdateLaunchConfigurationDefaults.html)  **
+  - **Description:** Grants permission to update launch configuration defaults
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [UpdateLaunchConfigurationTemplate](https://docs.aws.amazon.com/mgn/latest/APIReference/API_UpdateLaunchConfigurationTemplate.html)  **
   - **Description:** Grants permission to update launch configuration
   - **Resource types (\*required):** [LaunchConfigurationTemplateResource\*](#list_mgn-resource-LaunchConfigurationTemplateResource)
@@ -1171,6 +1236,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [UpdateNetworkMigrationMapperSegmentConstruct](https://docs.aws.amazon.com/mgn/latest/APIReference/API_UpdateNetworkMigrationMapperSegmentConstruct.html)  **
   - **Description:** Grants permission to update a network migration mapper segment construct
   - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateRemoteSourceAction](https://docs.aws.amazon.com/mgn/latest/APIReference/API_UpdateRemoteSourceAction.html)  **
+  - **Description:** Grants permission to update a remote source action
+  - **Resource types (\*required):** [RemoteSourceActionResource\*](#list_mgn-resource-RemoteSourceActionResource)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -1442,6 +1513,8 @@ The following resource types are defined by this service and can be used in the 
 |  [JobResource](https://docs.aws.amazon.com/mgn/latest/ug/launching-target-servers.html)  | arn:${Partition}:mgn:${Region}:${Account}:job/${JobID} | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_) | 
 |  [LaunchConfigurationTemplateResource](https://docs.aws.amazon.com/mgn/latest/ug/post-launch-settings.html)  | arn:${Partition}:mgn:${Region}:${Account}:launch-configuration-template/${LaunchConfigurationTemplateID} | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_) | 
 |  [NetworkMigrationDefinitionResource](https://docs.aws.amazon.com/mgn/latest/ug/network-migration-definition.html)  | arn:${Partition}:mgn:${Region}:${Account}:network-migration-definition/${NetworkMigrationDefinitionID} | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_) | 
+|  [RemoteSourceActionJobResource](https://docs.aws.amazon.com/mgn/latest/ug/remote-source-actions.html)  | arn:${Partition}:mgn:${Region}:${Account}:remote-source-action-job/${RemoteSourceActionJobID} | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_) | 
+|  [RemoteSourceActionResource](https://docs.aws.amazon.com/mgn/latest/ug/remote-source-actions.html)  | arn:${Partition}:mgn:${Region}:${Account}:remote-source-action/${RemoteSourceActionID} | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_) | 
 |  [ReplicationConfigurationTemplateResource](https://docs.aws.amazon.com/mgn/latest/ug/replication-settings-template.html)  | arn:${Partition}:mgn:${Region}:${Account}:replication-configuration-template/${ReplicationConfigurationTemplateID} | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_) | 
 |  [SourceServerResource](https://docs.aws.amazon.com/mgn/latest/ug/source-servers.html)  | arn:${Partition}:mgn:${Region}:${Account}:source-server/${SourceServerID} | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_) | 
 |  [VcenterClientResource](https://docs.aws.amazon.com/mgn/latest/ug/agentless-mgn.html)  | arn:${Partition}:mgn:${Region}:${Account}:vcenter-client/${VcenterClientID} | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_) | 

@@ -185,6 +185,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   RestoreDomain  **
+  - **IAM action:**  [route53domains:RestoreDomain](#list_route53domains-action-RestoreDomain) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   RetrieveDomainAuthCode  **
   - **IAM action:**  [route53domains:RetrieveDomainAuthCode](#list_route53domains-action-RetrieveDomainAuthCode) 
   - **Condition key:** 
@@ -271,6 +277,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 |   [RenewDomain](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_RenewDomain.html)  | Grants permission to renew domains for the specified number of years |  |   | Write | 
 |   [ResendContactReachabilityEmail](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ResendContactReachabilityEmail.html)  | Grants permission to resend the confirmation email to the current email address for the registrant contact for operations that require confirmation that the email address for the registrant contact is valid, such as registering a new domain |  |   | Write | 
 |   [ResendOperationAuthorization](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ResendOperationAuthorization.html)  | Grants permission to resend the operation authorization |  |   | Write | 
+|   [RestoreDomain](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_RestoreDomain.html)  | Grants permission to restore domains |  |   | Write | 
 |   [RetrieveDomainAuthCode](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_RetrieveDomainAuthCode.html)  | Grants permission to get the AuthCode for the domain |  |   | Write | 
 |   [TransferDomain](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomain.html)  | Grants permission to transfer a domain from another registrar to Amazon Route 53 |  |   | Write | 
 |   [TransferDomainToAnotherAwsAccount](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html)  | Grants permission to transfer a domain from the current AWS account to another AWS account |  |   | Write | 

@@ -741,6 +741,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetJobUpgradeAnalysis  **
+  - **IAM action:**  [glue:GetJobUpgradeAnalysis](#list_glue-action-GetJobUpgradeAnalysis) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetJobs  **
   - **IAM action:**  [glue:GetJobs](#list_glue-action-GetJobs)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** glue.amazonaws.com / **Access level:** Write
@@ -1247,6 +1253,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [glue:GetUsageProfile](#list_glue-action-GetUsageProfile)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
   - **IAM action:**  [glue:StartJobRun](#list_glue-action-StartJobRun)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
+- **   StartJobUpgradeAnalysis  **
+  - **IAM action:**  [glue:StartJobUpgradeAnalysis](#list_glue-action-StartJobUpgradeAnalysis) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   StartMLEvaluationTaskRun  **
   - **IAM action:**  [glue:StartMLEvaluationTaskRun](#list_glue-action-StartMLEvaluationTaskRun) 
   - **Condition key:** 
@@ -1291,6 +1303,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   StopCrawlerSchedule  **
   - **IAM action:**  [glue:StopCrawlerSchedule](#list_glue-action-StopCrawlerSchedule) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopJobUpgradeAnalysis  **
+  - **IAM action:**  [glue:StopJobUpgradeAnalysis](#list_glue-action-StopJobUpgradeAnalysis) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -1665,8 +1683,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [CreateConnection](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-connections.html#aws-glue-api-catalog-connections-CreateConnection)  **
   - **Description:** Grants permission to create a connection
-  - **Resource types (\*required):** [connectionType](#list_glue-resource-connectionType) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_glue-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_glue-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_glue-aws_TagKeys)<br />[glue:LakeFormationPermissions](#list_glue-glue_LakeFormationPermissions)
-  - **Resource types (\*required):** [rootcatalog\*](#list_glue-resource-rootcatalog) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_glue-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_glue-aws_TagKeys)<br />[glue:LakeFormationPermissions](#list_glue-glue_LakeFormationPermissions)
+  - **Resource types (\*required):** [connectionType](#list_glue-resource-connectionType) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_glue-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_glue-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_glue-aws_TagKeys)<br />[glue:ConnectionType](#list_glue-glue_ConnectionType)<br />[glue:CredentialVendingMode](#list_glue-glue_CredentialVendingMode)<br />[glue:InstanceUrl](#list_glue-glue_InstanceUrl)<br />[glue:LakeFormationPermissions](#list_glue-glue_LakeFormationPermissions)
+  - **Resource types (\*required):** [rootcatalog\*](#list_glue-resource-rootcatalog) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_glue-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_glue-aws_TagKeys)<br />[glue:ConnectionType](#list_glue-glue_ConnectionType)<br />[glue:CredentialVendingMode](#list_glue-glue_CredentialVendingMode)<br />[glue:InstanceUrl](#list_glue-glue_InstanceUrl)<br />[glue:LakeFormationPermissions](#list_glue-glue_LakeFormationPermissions)
   - **Access level:** Write
 
 - **   [CreateCrawler](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-crawling.html#aws-glue-api-crawler-crawling-CreateCrawler)  **
@@ -3299,9 +3317,9 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [UpdateConnection](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-connections.html#aws-glue-api-catalog-connections-UpdateConnection)  **
   - **Description:** Grants permission to update a connection
-  - **Resource types (\*required):** [connection\*](#list_glue-resource-connection) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_glue-aws_ResourceTag___TagKey_)<br />[glue:LakeFormationPermissions](#list_glue-glue_LakeFormationPermissions)
-  - **Resource types (\*required):** [connectionType](#list_glue-resource-connectionType) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_glue-aws_ResourceTag___TagKey_)<br />[glue:LakeFormationPermissions](#list_glue-glue_LakeFormationPermissions)
-  - **Resource types (\*required):** [rootcatalog\*](#list_glue-resource-rootcatalog) / **Condition keys:** [glue:LakeFormationPermissions](#list_glue-glue_LakeFormationPermissions)
+  - **Resource types (\*required):** [connection\*](#list_glue-resource-connection) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_glue-aws_ResourceTag___TagKey_)<br />[glue:ConnectionType](#list_glue-glue_ConnectionType)<br />[glue:CredentialVendingMode](#list_glue-glue_CredentialVendingMode)<br />[glue:InstanceUrl](#list_glue-glue_InstanceUrl)<br />[glue:LakeFormationPermissions](#list_glue-glue_LakeFormationPermissions)
+  - **Resource types (\*required):** [connectionType](#list_glue-resource-connectionType) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_glue-aws_ResourceTag___TagKey_)<br />[glue:ConnectionType](#list_glue-glue_ConnectionType)<br />[glue:CredentialVendingMode](#list_glue-glue_CredentialVendingMode)<br />[glue:InstanceUrl](#list_glue-glue_InstanceUrl)<br />[glue:LakeFormationPermissions](#list_glue-glue_LakeFormationPermissions)
+  - **Resource types (\*required):** [rootcatalog\*](#list_glue-resource-rootcatalog) / **Condition keys:** [glue:ConnectionType](#list_glue-glue_ConnectionType)<br />[glue:CredentialVendingMode](#list_glue-glue_CredentialVendingMode)<br />[glue:InstanceUrl](#list_glue-glue_InstanceUrl)<br />[glue:LakeFormationPermissions](#list_glue-glue_LakeFormationPermissions)
   - **Access level:** Write
 
 - **   [UpdateCrawler](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-crawling.html#aws-glue-api-crawler-crawling-UpdateCrawler)  **
@@ -3547,9 +3565,12 @@ AWS Glue defines the following condition keys that can be used in the `Condition
 |   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the presence of tag key-value pairs in the request | String | 
 |   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by tag key-value pairs attached to the resource | String | 
 |   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the presence of tag keys in the request | ArrayOfString | 
+|   [glue:ConnectionType](https://docs.aws.amazon.com/glue/latest/dg/using-identity-based-policies.html#glue-identity-based-policy-condition-keys)  | Filters access by the connection type specified in the request | String | 
 |   [glue:CredentialIssuingService](https://docs.aws.amazon.com/glue/latest/dg/using-identity-based-policies.html#glue-identity-based-policy-condition-keys)  | Filters access by the service from which the credentials of the request is issued | String | 
+|   [glue:CredentialVendingMode](https://docs.aws.amazon.com/glue/latest/dg/using-identity-based-policies.html#glue-identity-based-policy-condition-keys)  | Filters access by the credential vending mode connection property specified in the request | String | 
 |   [glue:EnabledForRedshiftAutoDiscovery](https://docs.aws.amazon.com/glue/latest/dg/using-identity-based-policies.html#glue-identity-based-policy-condition-keys)  | Filters access by the presence of the key configured for role's identity-based policy | Bool | 
 |   [glue:FederatedAuthorizationSource](https://docs.aws.amazon.com/glue/latest/dg/using-identity-based-policies.html#glue-identity-based-policy-condition-keys)  | Filters access by whether the resource belongs to federated authorization | String | 
+|   [glue:InstanceUrl](https://docs.aws.amazon.com/glue/latest/dg/using-identity-based-policies.html#glue-identity-based-policy-condition-keys)  | Filters access by the URL and INSTANCE\_URL connection property specified in the request | String | 
 |   [glue:LakeFormationPermissions](https://docs.aws.amazon.com/glue/latest/dg/using-identity-based-policies.html#glue-identity-based-policy-condition-keys)  | Filters access by whether Lake Formation permission checks will be performed for a given caller and the Glue resource | String | 
 |   [glue:RoleAssumedBy](https://docs.aws.amazon.com/glue/latest/dg/using-identity-based-policies.html#glue-identity-based-policy-condition-keys)  | Filters access by the service from which the credentials of the request is obtained by assuming the customer role | String | 
 |   [glue:SecurityGroupIds](https://docs.aws.amazon.com/glue/latest/dg/using-identity-based-policies.html#glue-identity-based-policy-condition-keys)  | Filters access by the ID of security groups configured for the Glue job | ArrayOfString | 

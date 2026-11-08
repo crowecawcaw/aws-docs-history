@@ -126,6 +126,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [lightsail:TagResource](#list_lightsail-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
 - **   CreateDistribution  **
+  - **IAM action:**  [lightsail:AttachCertificateToDistribution](#list_lightsail-action-AttachCertificateToDistribution)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [lightsail:CreateDistribution](#list_lightsail-action-CreateDistribution)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [lightsail:TagResource](#list_lightsail-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 

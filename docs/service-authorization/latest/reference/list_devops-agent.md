@@ -403,6 +403,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Read
 
+- **   [GetChat](https://docs.aws.amazon.com/devopsagent/latest/APIReference/what-is.html)  **
+  - **Description:** Grants permission to get a chat
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [GetKnowledgeItem](https://docs.aws.amazon.com/devopsagent/latest/APIReference/what-is.html)  **
   - **Description:** Grants permission to get a knowledge item
   - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
@@ -668,6 +674,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to update a task
   - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
   - **Condition keys:** [aidevops:SourceAgentSpaceArn](#list_devops-agent-aidevops_SourceAgentSpaceArn)<br />[aidevops:TargetAgentSpaceArn](#list_devops-agent-aidevops_TargetAgentSpaceArn)<br />[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateChat](https://docs.aws.amazon.com/devopsagent/latest/APIReference/what-is.html)  **
+  - **Description:** Grants permission to update a chat
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [UpdateGoal](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_UpdateGoal.html)  **
