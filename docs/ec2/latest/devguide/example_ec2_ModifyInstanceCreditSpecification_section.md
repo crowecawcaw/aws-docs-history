@@ -14,7 +14,7 @@ The following `modify-instance-credit-specification` example modifies the credit
 
 ```
 aws ec2 modify-instance-credit-specification \
-    --instance-credit-specification {{"InstanceId=i-1234567890abcdef0,CpuCredits=unlimited"}}
+    --instance-credit-specifications {{"InstanceId=i-1234567890abcdef0,CpuCredits=unlimited"}}
 ```
 Output:  
 

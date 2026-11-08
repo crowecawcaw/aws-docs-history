@@ -14,7 +14,7 @@ The following `describe-vpc-classic-link` example lists the ClassicLink status o
 
 ```
 aws ec2 describe-vpc-classic-link \
-    --vpc-id {{vpc-88888888}}
+    --vpc-ids {{vpc-88888888}}
 ```
 Output:  
 
@@ -38,7 +38,7 @@ The following `describe-vpc-classic-link` example lists only VPCs that are enabl
 
 ```
 aws ec2 describe-vpc-classic-link \
-    --filter {{"Name=is-classic-link-enabled,Values=true"}}
+    --filters {{"Name=is-classic-link-enabled,Values=true"}}
 ```
 +  For API details, see [DescribeVpcClassicLink](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-vpc-classic-link.html) in *AWS CLI Command Reference*. 
 

@@ -14,7 +14,7 @@ The following `release-hosts` example releases a Dedicated host from your accoun
 
 ```
 aws ec2 release-hosts \
-    --host-id=h-0029d6e3cacf1b3da
+    --host-ids=h-0029d6e3cacf1b3da
 ```
 Output:  
 
