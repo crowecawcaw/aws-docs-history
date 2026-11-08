@@ -69,6 +69,9 @@ You can view and scroll through log data on a stream-by-stream basis as sent to 
 By default, log data is stored in CloudWatch Logs indefinitely. However, you can configure how long to store log data in a log group. Any data older than the current retention setting is deleted. You can change the log retention for each log group at any time.
 
 **Note**  
+An account-level retention policy overrides the retention setting of the log group. For more information, see [Set log data retention for your account with account-level retention policies](#account-level-retention-policies).
+
+**Note**  
 CloudWatch Logs doesn’t immediately delete log events when they reach their retention setting. It typically takes up to 72 hours after that before log events are deleted, but in rare situations might take longer.  
 This means that if you change a log group to have a longer retention setting when it contains log events that are past the expiration date, but haven’t been actually deleted, those log events will take up to 72 hours to be deleted after the new retention date is reached. To make sure that log data is deleted permanently, keep a log group at its lower retention setting until 72 hours has passed after the end of the previous retention period, or you have confirmed that the older log events are deleted.   
 When log events reach their retention setting they are marked for deletion. After they are marked for deletion, they do not add to your archival storage costs anymore, even if they are not actually deleted until later. These log events marked for deletion are also not included when you use an API to retrieve the `storedBytes` value to see how many bytes a log group is storing.
@@ -84,6 +87,73 @@ When log events reach their retention setting they are marked for deletion. Afte
 1. In the **Retention** column for that log group, choose the current retention setting, such as **Never Expire**.
 
 1. In **Retention setting**, for **Expire events after**, choose a log retention value, and then choose **Save**.
+
+## Set log data retention for your account with account-level retention policies
+<a name="account-level-retention-policies"></a>
+
+Use the steps in this section to create a retention policy that applies to all log groups in the account, or to log groups that have log group names that start with the same string (prefix). You can have as many as 20 account-level retention policies in a Region. An account-level retention policy overrides the retention setting of the log group.
+
+A retention policy sets the retention period for the log groups that it applies to, and CloudWatch Logs deletes log events that are older than that retention period. A policy must specify the following two values.
++ The retention period, in days. Valid values are 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, and 3653. To retain log events indefinitely, specify `NEVER_EXPIRE`. Account-level retention policies require a minimum retention period of 30 days.
++ The enforcement mode. Specify `RETROACTIVE` to apply the policy to every log group that matches the prefix, including log groups that existed before you created the policy. Specify `NEW_ONLY` to apply the policy only to log groups that are created after you create the policy.
+
+To scope a policy to a subset of log groups, specify a log group name prefix. Retention policies support log group name prefixes only. If you do not specify a prefix, the policy applies to all log groups in the account.
+
+Retention policies can apply to overlapping sets of log groups. When more than one policy applies to a log group, the policy with the longest retention period is used, and a policy that specifies `NEVER_EXPIRE` is treated as the longest retention period. This lets you set a baseline retention period for the account. You can then apply longer retention periods to specific log groups, or exempt specific log groups from expiring at all.
+
+**Warning**  
+An account-level retention policy replaces the retention period set on a log group, including when the log group's own retention period is longer. For example, suppose a log group is set to retain log events for 10 years. If you create a retention policy that sets a 90-day retention period for that log group, CloudWatch Logs deletes the log events in that log group that are older than 90 days. Use a dry run to see which log groups would have a shorter retention period before you create or update a policy.
+
+A dry run does not create, update, or delete the policy. It returns the number of log groups that would have a longer, a shorter, or an unchanged retention period. It also returns the 20 log groups in the scope of the policy that store the most data.
+
+A dry run requires the same permissions as the operation that it previews.
+
+**Note**  
+A retention policy takes effect 24 hours after you create it. If you update a policy, the new retention period takes effect 24 hours after the update, and the previous retention period stays in effect until then.
+
+For more information about the API for account-level retention policies, see [PutAccountPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.html) in the *Amazon CloudWatch Logs API Reference*.
+
+### Permissions required for account-level retention policies
+<a name="account-level-retention-policies-permissions"></a>
+
+
+| Operation | IAM permissions needed | 
+| --- | --- | 
+| Create or update a retention policy | `logs:PutAccountPolicy` and `logs:PutRetentionPolicy` | 
+| Delete a retention policy | `logs:DeleteAccountPolicy` and `logs:DeleteRetentionPolicy` | 
+| View retention policies | `logs:DescribeAccountPolicies` | 
+
+To preview an operation with a dry run, you need the same permissions as the operation itself.
+
+### Manage account-level retention policies with the AWS CLI
+<a name="account-level-retention-policies-cli"></a>
+
+**To create or update a retention policy**
++ Enter a command similar to the following. To preview the impact of the policy without creating it, add `--dry-run`.
+
+  ```
+  aws logs put-account-policy \
+      --policy-name LambdaRetentionPolicy \
+      --policy-type RETENTION_POLICY \
+      --policy-document '{"retentionInDays": 90, "enforcementMode": "RETROACTIVE"}' \
+      --selection-criteria 'LogGroupNamePrefix="/aws/lambda"'
+  ```
+
+**To view retention policies**
++ Enter the following command.
+
+  ```
+  aws logs describe-account-policies --policy-type RETENTION_POLICY
+  ```
+
+**To delete a retention policy**
++ Enter the following command. To preview the impact of deleting the policy, add `--dry-run`.
+
+  ```
+  aws logs delete-account-policy \
+      --policy-name LambdaRetentionPolicy \
+      --policy-type RETENTION_POLICY
+  ```
 
 ## Protecting log groups from deletion
 <a name="protecting-log-groups-from-deletion-overview"></a>

@@ -3,7 +3,7 @@
 # Real-time processing of log data with subscriptions
 <a name="Subscriptions"></a>
 
-You can use subscriptions to get access to a real-time feed of log events from CloudWatch Logs and have it delivered to other services such as an Amazon Kinesis stream, an Amazon Data Firehose stream, or AWS Lambda for custom processing, analysis, or loading to other systems. When log events are sent to the receiving service, they are base64 encoded and compressed with the gzip format.
+You can use subscriptions to get access to a real-time feed of log events from CloudWatch Logs and have it delivered to other services such as an Amazon Kinesis stream, an Amazon Data Firehose stream, or AWS Lambda for custom processing, analysis, or loading to other systems. When log events are sent to the receiving service, they are compressed with the gzip format. AWS Lambda receives the data base64 encoded in the `awslogs.data` field. Amazon Kinesis Data Streams records contain the gzip bytes; the AWS CLI and AWS Lambda event sources display them base64 encoded.
 
 You can also use CloudWatch Logs centralization to replicate log data from multiple accounts and regions into a central location. For more information, see [Cross-account cross-Region log centralization](CloudWatchLogs_Centralization.md).
 

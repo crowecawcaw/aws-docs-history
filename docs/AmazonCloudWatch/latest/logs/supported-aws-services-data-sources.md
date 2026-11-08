@@ -48,6 +48,7 @@ The following table lists the AWS services that are automatically categorized by
 | amazon\_route53 | hosted\_zones | 
 | amazon\_route53 | profiles\_resolver\_query | 
 | amazon\_route53 | resolver\_query | 
+| amazon\_s3 | server\_access | 
 | amazon\_sagemaker | workteam\_activity | 
 | amazon\_ses | ingress\_endpoints | 
 | amazon\_ses | rule\_sets | 
@@ -61,6 +62,9 @@ The following table lists the AWS services that are automatically categorized by
 | amazon\_workmail | personal\_access | 
 | amazon\_workmail | workmail\_access | 
 | amazon\_workmail | workmail\_availability | 
+| aws\_alb | access | 
+| aws\_alb | connection | 
+| aws\_alb | health\_check | 
 | aws\_b2b\_data\_interchange | execution | 
 | aws\_backup | data\_access | 
 | aws\_backup | hypervisor | 
