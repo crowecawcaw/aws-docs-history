@@ -1,6 +1,6 @@
 
 
-# Aurora MySQL 8.4.7, May 21, 2026
+# Aurora MySQL 8.4.7
 <a name="AuroraMySQL.Updates.847"></a><a name="8.4.7"></a>
 
 **Version:** 8.4.7
@@ -17,13 +17,21 @@ For troubleshooting information, see [Troubleshooting for Aurora MySQL in-place 
 
 If you have any questions or concerns, AWS Support is available on the community forums and through [AWS Support](https://aws.amazon.com/support). For more information, see [Maintaining an Aurora DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html) in the *Amazon Aurora User Guide*.
 
-## New features
+For more information about patch releases and how to apply them, see [About patch releases](AuroraMySQL.Updates.84Updates.md#AuroraMySQL.Updates.84Updates.PatchReleases).
+
+**Topics**
++ [Aurora MySQL 8.4.7, May 21, 2026](#AuroraMySQL.Updates.847.GA)
+
+## Aurora MySQL 8.4.7, May 21, 2026
+<a name="AuroraMySQL.Updates.847.GA"></a>
+
+### New features
 <a name="AuroraMySQL.Updates.847.NewFeatures"></a>
 + Added support for password management capabilities in Aurora MySQL 8.4, configurable using the cluster parameter group settings. For a full description of MySQL password management capabilities and configuration options, refer to the [MySQL 8.4 Reference Manual, Section 8.2.15 – Password Management](https://dev.mysql.com/doc/refman/8.4/en/password-management.html).
 + Added support for the `validate_password` component for enforcing password strength policies, enabled via the `aurora_enable_validate_password_component` parameter and configured through the cluster parameter group.
 + Introduced automatic memory management for Aurora MySQL 8.4 with the new `aurora_enable_memory_management` parameter. When set to `ON` (the default), Aurora automatically manages memory recovery actions to prevent out-of-memory (OOM) database restarts, and the `aurora_oom_response` parameter is ignored. Set `aurora_enable_memory_management` to `OFF` to control recovery actions manually through `aurora_oom_response`. For more information, see [Amazon Aurora MySQL out-of-memory issues](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQLOOM.html) in the *Amazon Aurora User Guide*.
 
-## Improvements
+### Improvements
 <a name="AuroraMySQL.Updates.847.Improvements"></a>
 
 Below are the improvements made compared to Aurora MySQL 3.12.0, see [Aurora MySQL 3.12.0 Release Notes](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraMySQLReleaseNotes/AuroraMySQL.Updates.3120.html).
@@ -51,7 +59,7 @@ Below are the improvements made compared to Aurora MySQL 3.12.0, see [Aurora MyS
 + Fixed an issue which can, in some cases, cause delayed instance availability during zero-downtime patching or zero-downtime restart operations.
 + Fixed issue which could cause engine restart when a spatial GIS query uses a Z-order spatial index on a column declared with an explicit SRID annotation.
 
-## Integration of MySQL Community Edition bug fixes
+### Integration of MySQL Community Edition bug fixes
 <a name="AuroraMySQL.Updates.847.Patches"></a>
 
 This version is based on MySQL 8.4.7. For more information, see [MySQL 8.4 Release Notes](https://dev.mysql.com/doc/relnotes/mysql/8.4/en/).

@@ -1,6 +1,6 @@
 
 
-# Aurora MySQL 8.4.8, September 3, 2026
+# Aurora MySQL 8.4.8
 <a name="AuroraMySQL.Updates.848"></a><a name="8.4.8"></a>
 
 **Version:** 8.4.8
@@ -17,19 +17,27 @@ For troubleshooting information, see [Troubleshooting for Aurora MySQL in-place 
 
 If you have any questions or concerns, AWS Support is available on the community forums and through [AWS Support](https://aws.amazon.com/support). For more information, see [Maintaining an Aurora DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html) in the *Amazon Aurora User Guide*.
 
-## New features
+For more information about patch releases and how to apply them, see [About patch releases](AuroraMySQL.Updates.84Updates.md#AuroraMySQL.Updates.84Updates.PatchReleases).
+
+**Topics**
++ [Aurora MySQL 8.4.8, September 3, 2026](#AuroraMySQL.Updates.848.GA)
+
+## Aurora MySQL 8.4.8, September 3, 2026
+<a name="AuroraMySQL.Updates.848.GA"></a>
+
+### New features
 <a name="AuroraMySQL.Updates.848.NewFeatures"></a>
 + Added support for multi-source binary log (binlog) replication. This feature enables an Aurora MySQL DB cluster to replicate data from multiple MySQL-compatible source databases at the same time. Each source connection is managed through a dedicated replication channel with its own receiver thread, applier threads, and relay log. You can configure and manage channels using new per-channel stored procedures. For more information, see [Using multi-source replication with Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Replication.MultiSource.html) in the *Amazon Aurora User Guide*.
 + Added support for delayed binary log (binlog) replication, where an Aurora MySQL DB cluster acting as a binlog replica can be configured to wait a specified number of seconds before applying transactions received from the source. Delayed replication can be used to protect against accidental data modifications such as unintended `DROP TABLE` or `DELETE` statements, giving you a recovery window to identify and correct errors before they propagate to the replica. For more information, see [Configuring the replication delay interval](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Replication.Delayed.html) in the *Amazon Aurora User Guide*.
 + Introduced the `aurora_transaction_timeout` parameter. This parameter sets the maximum duration, in seconds, for an InnoDB transaction. You can use this parameter to help prevent long-running transactions (active or idle) from blocking InnoDB purge, which can lead to performance issues. For more information, see [Aurora MySQL transaction timeout](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.TransactionTimeout.html) in the *Amazon Aurora User Guide*.
-+ Added support for post-quantum hybrid key exchange (X25519MLKEM768 and SecP256r1MLKEM768) for TLS 1.3 connections. Clients that support post-quantum key exchange negotiate a quantum-resistant shared secret automatically. To confirm which group the current session negotiated, query the `Aurora_ssl_named_group` status variable. For example: `SHOW STATUS LIKE 'Aurora_ssl_named_group';`.
++ Added support for post-quantum hybrid key exchange (X25519MLKEM768 and SecP256r1MLKEM768) for TLS 1.3 connections. Clients that support post-quantum key exchange negotiate a quantum-resistant shared secret automatically. To confirm which group the current session negotiated, query the `Aurora_ssl_named_group` status variable, as shown in the following example: `SHOW STATUS LIKE 'Aurora_ssl_named_group';`.
 
-## Improvements
+### Improvements
 <a name="AuroraMySQL.Updates.848.Improvements"></a>
 
 Below are the improvements made compared to Aurora MySQL 8.4.7, see [Aurora MySQL 8.4.7 Release Notes](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraMySQLReleaseNotes/AuroraMySQL.Updates.847.html).
 
-### Security fixes
+#### Security fixes
 <a name="AuroraMySQL.Updates.848.SecurityFixes"></a>
 + Fixed an issue where the Advanced Audit log recorded an incorrect user and host for SQL statements executed inside a SQL SECURITY DEFINER routine (stored procedure, function, or trigger). These records showed the routine's definer user and host (for example, `'user'@'%'`) instead of the SQL client that invoked the routine. After this fix, the records show the user and host of the invoking SQL client.
 + Fixed an issue where queries run through prepared statements could generate duplicate entries in the Advanced Audit log.
@@ -62,7 +70,7 @@ This release includes fixes for the following medium severity CVEs:
 This release includes fixes for the following low severity CVEs:
 + [CVE-2026-60190](https://www.cve.org/CVERecord?id=CVE-2026-60190)
 
-### Availability improvements
+#### Availability improvements
 <a name="AuroraMySQL.Updates.848.AvailabilityImprovements"></a>
 + Fixed an issue which can cause a database instance restart when executing `ALTER TABLE ... REORGANIZE PARTITION`, `DROP PARTITION`, or `ADD PARTITION` while concurrent operations (such as performance schema queries, full-text search optimization, or statistics collection) are accessing the same table.
 + Fixed an issue which can cause a database instance restart when queries on `performance_schema.data_lock_waits` or `performance_schema.data_locks` run concurrently with `ALTER TABLE ... REORGANIZE PARTITION` on tables that have columns added using `ALGORITHM=INSTANT`.
@@ -76,7 +84,7 @@ This release includes fixes for the following low severity CVEs:
 + Fixed a bug that could make the replica briefly disconnect and reconnect to the writer, causing a temporary spike in replication lag (`AuroraReplicaLag`).
 + Fixed an issue in the Aurora Storage Daemon that in rare cases could result in an unexpected database restart.
 
-### General improvements
+#### General improvements
 <a name="AuroraMySQL.Updates.848.GeneralImprovements"></a>
 + Fixed an issue where, with write forwarding enabled, a reader session with `aurora_replica_read_consistency` set to `global` could fail to read the latest committed changes.
 + Fixed an issue which could cause engine restart when a spatial GIS query uses a Z-order spatial index on a column declared with an explicit SRID annotation.
@@ -91,11 +99,11 @@ This release includes fixes for the following low severity CVEs:
 + Fixed a performance issue where the optimizer picks a suboptimal query execution plan with prepared statements using `IN` and parameterized values.
 + Fixed an issue that can cause queries using hash joins to return incorrect results when parallel query is enabled and the memory required for a hash join exceeds the limit.
 
-### Upgrades and migrations
+#### Upgrades and migrations
 <a name="AuroraMySQL.Updates.848.UpgradesMigration"></a>
 + Fixed an issue that could cause database cluster clone operations to take an extended time to complete.
 
-## Integration of MySQL Community Edition bug fixes
+### Integration of MySQL Community Edition bug fixes
 <a name="AuroraMySQL.Updates.848.Patches"></a>
 
 This version is based on MySQL 8.4.8. For more information, see [MySQL 8.4 Release Notes](https://dev.mysql.com/doc/relnotes/mysql/8.4/en/) on the MySQL website.
