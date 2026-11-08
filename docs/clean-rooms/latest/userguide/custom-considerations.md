@@ -31,6 +31,22 @@ Note the following limitations:
 + Minimum aggregation thresholds and comparison controls do not currently work with [differential privacy](custom-diff-privacy.md).
 + The minimum aggregation threshold is not enforced on COUNT, COUNT(DISTINCT), or APPROX\_COUNT\_DISTINCT functions over a single table with no grouping or join.
 
+## Controls that apply only to SQL queries
+<a name="custom-sql-only-controls"></a>
+
+The following controls apply only to SQL queries. AWS Clean Rooms doesn't enforce them on PySpark jobs, because a job runs custom code that AWS Clean Rooms can't check against these controls.
++ `differentialPrivacy`
++ `disallowedOutputColumns`
++ `additionalAnalyses`
++ `aggregationThresholds`
++ `comparisonControls`
+
+How AWS Clean Rooms handles these controls depends on what the rule allows:
++ If the rule allows only jobs (`ANY_JOB` without `ANY_QUERY`, or only PySpark analysis templates), you can't set these controls. Creating or updating the analysis rule fails with a validation error.
++ If the rule allows both SQL queries and jobs, AWS Clean Rooms enforces the controls on SQL queries. `StartProtectedJob` rejects any job that references the table.
+
+To use these controls on SQL queries and also allow PySpark jobs on the same data, create a separate configured table for jobs, with a custom analysis rule that doesn't set these controls.
+
 ## Differencing attacks
 <a name="custom-differencing-attacks"></a>
 

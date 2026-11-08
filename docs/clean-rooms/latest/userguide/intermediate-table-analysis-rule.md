@@ -54,3 +54,6 @@ The following table describes the validation rules for multi-party intermediate 
    Review the **Columns available for analysis** table, which shows the column name, type, and whether each column is allowed in query output.
 
 1. Choose **Configure analysis rule**.
+
+**Note**  
+Some analysis rule controls apply only to SQL queries, including disallowed output columns, differential privacy, and additional analyses. A PySpark job that references a table with any of these controls fails to start. For more information, see [Controls that apply only to SQL queries](custom-considerations.md#custom-sql-only-controls).

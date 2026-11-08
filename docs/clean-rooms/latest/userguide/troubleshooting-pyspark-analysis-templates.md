@@ -10,6 +10,7 @@ For more information about PySpark limitations, see [PySpark limitations in AWS 
 **Topics**
 + [Troubleshooting your code](#troubleshoot-your-code)
 + [Analysis template job doesn't start](#troubleshooting_analysis_template_job_fails_to_start)
++ [Job is rejected because a table uses SQL-only controls](#job-rejected-sql-only-controls)
 + [Analysis template job starts but fails during processing](#analysis-template-job-failes-to-run)
 + [Virtual environment setup fails](#virtual-environment-setup-fails)
 
@@ -97,6 +98,19 @@ Analysis template jobs can fail immediately at startup due to three main configu
 + Set up a dedicated virtual environment with Python 3.9 or 3.11 for all analysis templates. 
 + Test your analysis template locally using the template validation tool before submitting jobs. 
 + Implement CI/CD checks to verify script naming and entrypoint function requirements.
+
+## Job is rejected because a table uses SQL-only controls
+<a name="job-rejected-sql-only-controls"></a>
+
+### Common causes
+<a name="job-rejected-sql-only-controls-cause"></a>
+
+A table that the job references has a custom analysis rule that sets a control that applies only to SQL queries, such as minimum aggregation thresholds or disallowed output columns.
+
+### Resolution
+<a name="job-rejected-sql-only-controls-resolution"></a>
+
+The table owner must create a separate configured table for jobs that doesn't set these controls, or remove the controls from the rule. For more information, see [Controls that apply only to SQL queries](custom-considerations.md#custom-sql-only-controls).
 
 ## Analysis template job starts but fails during processing
 <a name="analysis-template-job-failes-to-run"></a>

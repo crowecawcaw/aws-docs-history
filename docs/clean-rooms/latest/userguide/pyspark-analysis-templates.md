@@ -34,6 +34,7 @@ Consider the following limitations before you use PySpark in AWS Clean Rooms.
 **Limitations**
 + Only DataFrame outputs are supported
 + Single Spark session per job execution
++ Some custom analysis rule controls apply only to SQL queries: minimum aggregation thresholds, comparison controls, disallowed output columns, differential privacy, and additional analyses. AWS Clean Rooms doesn't enforce them on PySpark jobs. Instead, `StartProtectedJob` rejects a job if any configured table or intermediate table that it references sets one of these controls. For more information, see [Controls that apply only to SQL queries](custom-considerations.md#custom-sql-only-controls).
 
 **Unsupported features**
 + **Data management**
