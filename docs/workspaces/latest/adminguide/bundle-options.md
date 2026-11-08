@@ -16,6 +16,8 @@ GraphicsPro bundle reaches end-of-life on October 31, 2025. We recommend migrati
 The Graphics bundle will no longer be supported after November 30, 2023. We recommend switching to a supported GPU enabled bundle for WorkSpaces using the Graphics bundle.
 Graphics and GraphicsPro bundles aren't currently available in the Asia Pacific (Mumbai) Region.
 Plus applications bundles with Office 2016 or Office 2019 will no longer be supported after October 14, 2025. We recommend migrating your WorkSpaces bundles with those Office versions to use Office 2021 or Office 2024. For more information, see [Manage applications in WorkSpaces Personal](manage-applications).
+*Memory integrity*, also known as *hypervisor-protected code integrity (HVCI)* or *hypervisor enforced code integrity*, isn't supported. Before you turn on Credential Guard, you must ensure this feature is disabled. For more information, see [Disable memory integrity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/credential-guard.html#disable-memory-integrity).  
+Enabling the feature may lead to performance or stability issues. We recommend disabling memory integrity in your Windows image. Credential Guard can remain enabled once memory integrity is disabled.
 
 The following are the bundles that WorkSpaces offers:
 
@@ -140,7 +142,7 @@ This bundle is not recommended for 3D rendering, photo-realistic design, game st
 ## Graphics G7 bundles
 <a name="graphicsg7"></a>
 
-The Graphics G7 WorkSpace bundle is powered by NVIDIA RTX PRO 4500 Blackwell Server Edition GPUs. It delivers high GPU performance for graphics and AI inference workloads. Graphics G7 is available for WorkSpaces Personal (using the Amazon DCV protocol) and WorkSpaces Core (using Bring Your Own Protocol (BYOP)). It supports Windows Server 2022, Windows Server 2025, and Windows 11. For more information, see [Amazon EC2 G7 instances](https://aws.amazon.com/ec2/instance-types/g7/).
+Graphics G7 is an Amazon WorkSpaces bundle that provides high graphics processing unit (GPU) performance for graphics and AI inference workloads. NVIDIA RTX PRO 4500 Blackwell Server Edition GPUs power the Graphics G7 bundle. On Windows, Graphics G7 is available for WorkSpaces Personal (using the Amazon DCV protocol) and WorkSpaces Core (using Bring Your Own Protocol (BYOP)), and supports Windows Server 2022, Windows Server 2025, and Windows 11. On Ubuntu Linux (22.04 and 26.04), Graphics G7 is available for WorkSpaces Personal using the Amazon DCV protocol. For more information, see [Amazon EC2 G7 instances](https://aws.amazon.com/ec2/instance-types/g7/).
 
 The Graphics G7 WorkSpace bundle is well-suited for the following use cases:
 + Graphic design
@@ -149,6 +151,8 @@ The Graphics G7 WorkSpace bundle is well-suited for the following use cases:
 + Video transcoding
 + Game streaming
 + Machine learning (ML) model training and AI inference
+
+Graphics WorkSpaces on Ubuntu Linux include graphics driver resiliency, which restores the GPU driver automatically. If an operating system update breaks the GPU driver, you don't need to take any action. The WorkSpace detects the problem the next time it starts and reinstalls the driver.
 
 **Note**  
 Graphics G7 is available in US East (N. Virginia), US East (Ohio), US West (Oregon), and Europe (Frankfurt).

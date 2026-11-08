@@ -25,12 +25,15 @@ WorkSpaces supports several different operating systems (OS), streaming protocol
 | Windows 10 | Bring Your Own License (BYOL) | DCV, PCoIP, BYOP | Value, Standard, Performance, Power, PowerPro, GraphicsPro, Graphics G4dn | [In support](https://learn.microsoft.com/en-us/windows/release-health/release-information) | 
 | Windows 11 | Bring Your Own License (BYOL) | DCV, BYOP | Standard, Performance, Power, PowerPro, GeneralPurpose, Graphics G4dn, Graphics G6, Graphics G7 | [In support](https://learn.microsoft.com/en-us/windows/release-health/windows11-release-information) | 
 | Amazon Linux 2 (deprecated) | Included | DCV, PCoIP | Value, Standard, Performance, Power, PowerPro | [June 30, 2026 (end-of-life)](https://docs.aws.amazon.com/workspaces/latest/adminguide/manage_linux_workspace.html) | 
-| Ubuntu 22.04 LTS | Included | DCV | Value, Standard, Performance, Power, PowerPro, Graphics G4dn | [June, 2032](https://ubuntu.com/about/release-cycle) | 
+| Ubuntu 22.04 LTS | Included | DCV | Value, Standard, Performance, Power, PowerPro, Graphics G4dn, Graphics G7 | [June, 2032](https://ubuntu.com/about/release-cycle) | 
 | Ubuntu 24.04 LTS | Included | DCV | Standard, Performance, Power, PowerPro | [June, 2034](https://ubuntu.com/about/release-cycle) | 
+| Ubuntu 26.04 LTS | Included | DCV | Standard, Performance, Power, PowerPro, Graphics G7 | [June, 2036](https://ubuntu.com/about/release-cycle) | 
 | Rocky Linux 8 | Included | DCV | Value, Standard, Performance, Power, PowerPro | [May 31, 2029](https://ciq.com/services/long-term-support/) | 
 | Rocky Linux 9 | Included | DCV | Standard, Performance, Power, PowerPro | [May 31, 2032](https://ciq.com/services/long-term-support/) | 
+| Rocky Linux 10 | Included | DCV | Standard, Performance, Power, PowerPro | [May 31, 2035](https://ciq.com/services/long-term-support/) | 
 | Red Hat Enterprise Linux 8 | Included | DCV | Value, Standard, Performance, Power, PowerPro | [May 31, 2029](https://access.redhat.com/support/policy/updates/errata) | 
 | Red Hat Enterprise Linux 9 | Included | DCV | Standard, Performance, Power, PowerPro | [May 31, 2032](https://access.redhat.com/support/policy/updates/errata) | 
+| Red Hat Enterprise Linux 10 | Included | DCV | Standard, Performance, Power, PowerPro | [May 31, 2035](https://access.redhat.com/support/policy/updates/errata) | 
 
 **Note**  
 Operating system versions that are no longer supported by the vendor are not guaranteed to work and are not supported by AWS Support.

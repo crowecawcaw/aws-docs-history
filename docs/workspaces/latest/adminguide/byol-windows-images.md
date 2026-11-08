@@ -9,7 +9,9 @@ To stay compliant with Microsoft licensing terms, AWS runs your BYOL WorkSpaces 
 
 **Important**  
 Image creation is not supported on Windows 11 systems that have been upgraded from one version of Windows 11 to a newer version of Windows 11 (a Windows feature/version upgrade). For example, a Windows 11 23H2 system which was upgraded to 24H2 cannot be used to create an image. However, Windows cumulative or security updates are supported by the WorkSpaces image-creation process.   
-If your account is already enabled for BYOL, you do not need to provision new dedicated infrastructure to run WorkSpaces Applications fleets powered by Windows 11. The same dedicated hardware that supports your existing WorkSpaces Personal or Pools BYOL workloads can be used for WorkSpaces Applications. Simply import your Windows 11 BYOL image into WorkSpaces Applications and create a fleet from it. To learn more, see [Bring Your Own Windows Desktop Licenses for WorkSpaces Applications](https://docs.aws.amazon.com/appstream2/latest/developerguide/byol-windows-images.html).
+If your account is already enabled for BYOL, you do not need to provision new dedicated infrastructure to run WorkSpaces Applications fleets powered by Windows 11. The same dedicated hardware that supports your existing WorkSpaces Personal or Pools BYOL workloads can be used for WorkSpaces Applications. Simply import your Windows 11 BYOL image into WorkSpaces Applications and create a fleet from it. To learn more, see [Bring Your Own Windows Desktop Licenses for WorkSpaces Applications](https://docs.aws.amazon.com/appstream2/latest/developerguide/byol-windows-images.html).  
+*Memory integrity*, also known as *hypervisor-protected code integrity (HVCI)* or *hypervisor enforced code integrity*, isn't supported. Before you turn on Credential Guard, you must ensure this feature is disabled. For more information, see [Disable memory integrity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/credential-guard.html#disable-memory-integrity).  
+Enabling the feature may lead to performance or stability issues. We recommend disabling memory integrity in your Windows image. Credential Guard can remain enabled once memory integrity is disabled.
 
 **Topics**
 + [Using Bring Your Own Windows desktop licenses in WorkSpaces](#byol-process)
@@ -91,10 +93,12 @@ Your VM must run one of the following Windows versions with the x64 architecture
 + Windows 10 Enterprise LTSC 2019 (1809)
 + Windows 10 Enterprise LTSC 2021 (21H2)
 + Windows 11 Enterprise LTSC 2024 (24H2)
-+ Windows 11 Enterprise 22H2 (October 2022 release)
-+ Windows 11 Enterprise 23H2 (October 2023 release)
 + Windows 11 Enterprise 24H2 (October 2024 release)
 + Windows 11 Enterprise 25H2 (September 2025 release)
++ Windows 11 Enterprise 26H2 (September 2026 release)
+
+**Note**  
+Windows 11 Enterprise 26H2 isn't supported on Graphics.g4dn, GraphicsPro.g4dn, Graphics.g6, GraphicsPro.g6, Graphics.g7, or GraphicsPro.g7 bundles.
 
  You will need a Windows virtual machine image or Windows ISO image file that uses a supported Windows OS version:
 +  Download an Enterprise edition ISO image by signing into the [ Microsoft 365 admin center](https://admin.microsoft.com/adminportal/home#/subscriptions/vlnew). Sign in to your subscription on the [ Visual Studio Subscriptions portal](https://my.visualstudio.com/downloads) for available downloads. Do not use an ISO file downloaded from the [ public Windows 11 download website](https://www.microsoft.com/en-us/software-download/windows11) which does not provide an Enterprise edition ISO.
@@ -271,6 +275,8 @@ Perform these steps to import your image and create a WorkSpaces BYOL image:
    + **Image Name** – Unique identifier for your image.
    + **Compute type** – Specify if this image should use non-graphics/base hardware or Graphics hardware
    + **OS version** – Choose the Windows operating system version of the image
+**Note**  
+Windows 11 Enterprise 26H2 isn't supported on Graphics.g4dn, GraphicsPro.g4dn, Graphics.g6, GraphicsPro.g6, Graphics.g7, or GraphicsPro.g7 bundles.
    + **Semantic version** – Define a semantic version for the image, which will be stored in EC2 Image Builder. For more information, see [Semantic versioning in Image Builder](https://docs.aws.amazon.com/imagebuilder/latest/userguide/ibhow-semantic-versioning.html) in the *EC2 Image Builder User Guide*
 
 **Note**  

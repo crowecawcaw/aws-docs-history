@@ -41,6 +41,7 @@ A Microsoft Entra ID personal WorkSpaces directory contains all the information 
   + Windows 11 Enterprise 22H2 (October 2022 release)
   + Windows 11 Enterprise 24H2 (October 2024 release)
   + Windows 11 Enterprise 25H2 (September 2025 release)
+  + Windows 11 Enterprise 26H2 (September 2026 release)
 + Bring Your Own License (BYOL) is enabled for your AWS account and you have a valid Windows 10 or 11 BYOL image imported in your account. For more information, see [Bring Your Own Windows desktop licenses in WorkSpaces](byol-windows-images.md).
 + Microsoft Entra ID directories only support Windows 10 or 11 BYOL personal WorkSpaces.
 + Microsoft Entra ID directories support only DCV protocol.

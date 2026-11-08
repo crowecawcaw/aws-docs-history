@@ -197,7 +197,7 @@ To check the current state, use the `DescribeWorkspaces` API action and inspect 
 
 ## Known limitations
 <a name="nested-virt-known-limitations"></a>
-+ **AutoStop mode with Windows Server 2025 and Windows 11 24H2/25H2** — WorkSpaces configured with AutoStop running mode that have nested virtualization enabled on Windows Server 2025 or Windows 11 24H2/25H2 perform a full reboot instead of hibernating when the WorkSpace times out. This results in longer resume times and loss of the user's prior session, including any unsaved work. If you require fast resume and/or session persistence, use AlwaysOn running mode for these WorkSpaces.
++ **AutoStop mode with Windows Server 2025 and Windows 11 24H2/25H2/26H2** — WorkSpaces configured with AutoStop running mode that have nested virtualization enabled on Windows Server 2025 or Windows 11 24H2/25H2/26H2 perform a full reboot instead of hibernating when the WorkSpace times out. This results in longer resume times and loss of the user's prior session, including any unsaved work. If you require fast resume and/or session persistence, use AlwaysOn running mode for these WorkSpaces.
 + **GPU-based bundles** — Nested virtualization is not supported on GPU WorkSpaces.
 + **Unsupported operating systems** — Nested virtualization is not supported on WorkSpaces running Windows Server 2016, Windows 10, or Amazon Linux 2.
 + **Standby WorkSpaces** — Nested virtualization is not supported on Standby WorkSpaces.

@@ -4,9 +4,9 @@
 <a name="manage-linux-workspaces"></a>
 
 Amazon WorkSpaces supports the following Linux operating systems for WorkSpaces Personal:
-+ Ubuntu 22.04 LTS and Ubuntu 24.04 LTS
-+ Red Hat Enterprise Linux 8 and Red Hat Enterprise Linux 9
-+ Rocky Linux 8 and Rocky Linux 9
++ Ubuntu 22.04 LTS, Ubuntu 24.04 LTS, and Ubuntu 26.04 LTS
++ Red Hat Enterprise Linux 8, Red Hat Enterprise Linux 9, and Red Hat Enterprise Linux 10
++ Rocky Linux 8, Rocky Linux 9, and Rocky Linux 10
 
 All Linux WorkSpaces use DCV for streaming and SSSD for Active Directory integration. They share the same configuration model and management procedures described on this page.
 

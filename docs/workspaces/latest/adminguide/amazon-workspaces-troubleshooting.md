@@ -807,7 +807,7 @@ This is expected behavior. A reboot is required to enable nested virtualization 
 Verify that the **Nested Virtualization** field shows `Enabled` in the **Summary** section of the Amazon WorkSpaces console, or run the AWS CLI `describe-workspaces` command and confirm that `NestedVirtualizationEnabled` is set to `true`. Also confirm that your WorkSpace is using the DCV (WSP) protocol.
 
 **My AutoStop WorkSpace performs a full reboot instead of hibernating**  
-This is a known limitation on WorkSpaces running Windows Server 2025, Windows 11 24H2, or Windows 11 25H2 with nested virtualization enabled. When the AutoStop timeout is reached, the WorkSpace performs a full reboot instead of hibernating, and in-memory data is not preserved. If you require hibernation behavior, use an AlwaysOn WorkSpace instead. To disable nested virtualization, choose **Actions**, **Disable Nested Virtualization**, or use the AWS CLI `modify-workspace-properties` command with `NestedVirtualizationEnabled` set to `false`.
+This is a known limitation on WorkSpaces running Windows Server 2025, Windows 11 24H2, Windows 11 25H2, or Windows 11 26H2 with nested virtualization enabled. When the AutoStop timeout is reached, the WorkSpace performs a full reboot instead of hibernating, and in-memory data is not preserved. If you require hibernation behavior, use an AlwaysOn WorkSpace instead. To disable nested virtualization, choose **Actions**, **Disable Nested Virtualization**, or use the AWS CLI `modify-workspace-properties` command with `NestedVirtualizationEnabled` set to `false`.
 
 ### I receive ThrottlingException errors to some of my API calls
 <a name="throttled-api-calls"></a>

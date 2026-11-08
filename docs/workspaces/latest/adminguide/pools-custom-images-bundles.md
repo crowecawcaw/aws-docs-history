@@ -7,6 +7,10 @@ Before selecting a bundle to use with WorkSpaces Pool, ensure the bundle you wan
 
 The following public bundles can be used with WorkSpaces Pool. For information about bundles in WorkSpaces, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Value, Standard, Performance, Power, PowerPro
 
+**Important**  
+*Memory integrity*, also known as *hypervisor-protected code integrity (HVCI)* or *hypervisor enforced code integrity*, isn't supported. Before you turn on Credential Guard, you must ensure this feature is disabled. For more information, see [Disable memory integrity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/credential-guard.html#disable-memory-integrity).  
+Enabling the feature may lead to performance or stability issues. We recommend disabling memory integrity in your Windows image. Credential Guard can remain enabled once memory integrity is disabled.
+
 ## Value bundle
 <a name="value"></a>
 

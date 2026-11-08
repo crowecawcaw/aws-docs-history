@@ -40,7 +40,7 @@ For more information about how to check your WorkSpace client version and host a
 + If you need to use Ubuntu WorkSpaces.
 + If you need to use Windows 11 BYOL WorkSpaces.
 + If you need to use GPU-enabled WorkSpaces bundles with Windows.
-+ If you need to use Windows GPU-based bundles (Graphics G7, Graphics.g6, Graphics.g4dn, and GraphicsPro.g4dn) or Ubuntu GPU-based bundles (Graphics.g4dn and GraphicsPro.g4dn).
++ If you need to use Windows GPU-based bundles (Graphics G7, Graphics.g6, Graphics.g4dn, and GraphicsPro.g4dn) or Ubuntu GPU bundles.
 + If you need your users to authenticate in-session with WebAuthn authenticators such as YubiKey or Windows Hello.
 + If you need nested virtualization to run hypervisors such as Hyper-V or KVM inside your WorkSpace (for example, for Docker Desktop or WSL2).
 
