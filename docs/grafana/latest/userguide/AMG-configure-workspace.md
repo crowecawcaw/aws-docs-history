@@ -39,7 +39,7 @@ The same options are available to you when you first create your workspace.
 Classic dashboard alerts have been removed in Grafana version 12. In version 12 workspaces, Grafana alerting is always enabled and the toggle is no longer available. For more information, see [Migrating classic dashboard alerts to Grafana alerting](v10-alerting-use-grafana-alerts.md).
    + **Plugin management**
 
-     To turn on plugin management, select the check box to **Turn plugin management on**. Turning plugin management on allows admins in your Amazon Managed Grafana workspace to install, update, or remove [plugins](grafana-plugins.md) using the Grafana plugin catalog. This option is only available for workspaces that support Grafana version 9 or newer.
+     To turn on plugin management, select the check box to **Turn plugin management on**. Turning plugin management on allows admins in your Amazon Managed Grafana workspace to install, update, or remove [plugins](grafana-plugins.md) using the Grafana plugin catalog.
    + **IP Address type**
 
      Choose **IPv4 only** or **Dual-stack mode**. Your selection determines the addressing protocols that resources use to communicate with your workspace. Choose dual-stack mode when you have resources that must communicate with your workspace over IPv6. Dual-stack mode is available only for workspaces that support Grafana version 10 or later.
@@ -92,8 +92,6 @@ The configuration currently supports the following options. These turn Grafana a
   --configuration '{"plugins": {"pluginAdminEnabled": true }}'
   ```
 
-  This option is only available in workspaces that support Grafana version 9 or newer.
-
 ------
 #### [ Amazon Managed Grafana API ]
 
@@ -120,7 +118,5 @@ The configuration currently supports the following options. These turn Grafana a
   ```
   "plugins": "{\"pluginAdminEnabled\": true }"
   ```
-
-  This option is only available in workspaces that support Grafana version 9 or newer.
 
 ------

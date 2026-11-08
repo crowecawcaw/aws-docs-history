@@ -22,6 +22,7 @@ The following features were added in Grafana version 13.
 + **Import a dashboard from the UI** – You can import an existing dashboard into a Git Sync connected repository directly from the Grafana interface, so the dashboard is stored as code and kept in sync without editing repository files by hand.
 + **Sync to the repository root** – Git Sync can synchronize dashboards and folders to the root of a repository, without requiring a parent folder. You can manage resources as code at the top level of the repository.
 + **Verified commits** – Git Sync can sign the commits it creates with a configured signing key, so your Git provider marks them as verified. GPG, SSH, and S/MIME signing keys are supported.
++ **Git Sync limits** – Each workspace can connect up to 10 Git Sync repositories. There is no limit on the number of dashboards and folders that each repository can synchronize, and each file can be up to 5 MiB. Git Sync supports GitHub, GitHub Enterprise, GitLab, Bitbucket, and generic Git repositories.
 
 **Dashboards and visualizations**
 + **Dynamic dashboards** – Dynamic dashboards are generally available and enabled by default. Every new and existing dashboard uses the new layout engine, editing experience, and dashboard structure. Existing dashboards are migrated to the new schema automatically the first time you open them.
