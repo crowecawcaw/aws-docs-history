@@ -23,7 +23,7 @@ After you enable fast snapshot restore for a snapshot, it enters the `optimizing
 
 1. In the navigation pane, choose **Snapshots**.
 
-1. Select the snapshot, and choose **Actions**, **Manage fast snapshot restore**.
+1. Select the snapshot, and choose **Actions**, **Snapshot settings**, **Manage fast snapshot restore**.
 
 1. The **Fast snapshot restore settings** section lists all of the Availability Zones in which you can enable fast snapshot restore for the selected snapshot. The **Current status** volume indicates whether fast snapshot restore is current enabled or disabled for each zone.
 

@@ -41,7 +41,7 @@ You can share a snapshot publicly or with specific AWS accounts.
 
 1. In the navigation pane, choose **Snapshots**.
 
-1. Select the snapshot to share, and then choose **Actions**, **Modify permissions**.
+1. Select the snapshot to share, and then choose **Actions**, **Snapshot settings**, **Modify permissions**.
 
 1. Specify the snapshot's permissions. *Current setting* indicates the snapshot's current sharing permissions.
    + To share the snapshot publicly with all AWS accounts, choose **Public**.
