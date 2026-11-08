@@ -26,15 +26,6 @@ In addition to the following IAM permissions, the AutomationAssumeRole must have
 <a name="automation-awssupport-troubleshooteksnetwork-permissions"></a>
 
 The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
-
-This runbook runs the `AWSSupport-SetupK8sApiProxyForEKS` and `AWSSupport-CollectEKSLinuxNodeStatistics` child runbooks under the same role. Your `AutomationAssumeRole` must allow the following actions for the parent and child runbooks:
-+ `cloudformation:CreateStack`
-+ `cloudformation:DeleteStack`
-+ `cloudformation:DescribeStackResources`
-+ `cloudformation:DescribeStacks`
-+ `cloudformation:UpdateStack`
-+ `ec2:CreateNetworkInterface`
-+ `ec2:DeleteNetworkInterface`
 + `ec2:DescribeInstances`
 + `ec2:DescribeNetworkInterfaces`
 + `ec2:DescribeRegions`
@@ -45,51 +36,15 @@ This runbook runs the `AWSSupport-SetupK8sApiProxyForEKS` and `AWSSupport-Collec
 + `ec2:DescribeVpcs`
 + `eks:DescribeCluster`
 + `eks:DescribeFargateProfile`
-+ `iam:AttachRolePolicy`
-+ `iam:CreateRole`
-+ `iam:DeleteRole`
-+ `iam:DeleteRolePolicy`
-+ `iam:DetachRolePolicy`
-+ `iam:GetRole`
-+ `iam:PassRole`
-+ `iam:PutRolePolicy`
-+ `iam:TagRole`
-+ `iam:UntagRole`
-+ `lambda:CreateFunction`
-+ `lambda:DeleteFunction`
-+ `lambda:GetFunction`
-+ `lambda:InvokeFunction`
-+ `lambda:ListTags`
-+ `lambda:TagResource`
-+ `lambda:UntagResource`
-+ `lambda:UpdateFunctionCode`
-+ `lambda:UpdateFunctionConfiguration`
-+ `logs:CreateLogGroup`
-+ `logs:CreateLogStream`
-+ `logs:DeleteLogGroup`
-+ `logs:DescribeLogGroups`
-+ `logs:DescribeLogStreams`
-+ `logs:ListTagsForResource`
-+ `logs:PutLogEvents`
-+ `logs:PutRetentionPolicy`
-+ `logs:TagResource`
-+ `logs:UntagResource`
 + `s3:GetBucketLocation`
 + `s3:GetObject`
-+ `s3:PutObject`
 + `ssm:DescribeAutomationExecutions`
 + `ssm:DescribeAutomationStepExecutions`
 + `ssm:DescribeDocument`
-+ `ssm:DescribeInstanceInformation`
 + `ssm:GetAutomationExecution`
-+ `ssm:GetCommandInvocation`
 + `ssm:GetDocument`
-+ `ssm:ListCommands`
-+ `ssm:SendCommand`
 + `ssm:StartAutomationExecution`
 + `sts:GetCallerIdentity`
-+ `tag:GetResources`
-+ `tag:TagResources`
 
 The following example policy shows the least-privilege permissions required for the `AutomationAssumeRole`. Replace `REGION`, `ACCOUNTID`, `SOURCE_CLUSTER_NAME`, `DESTINATION_CLUSTER_NAME`, and `S3_BUCKET_NAME` with your own values:
 
@@ -159,32 +114,9 @@ The following example policy shows the least-privilege permissions required for 
             ]
         },
         {
-            "Sid": "SSMRunCommandOnNodes",
-            "Effect": "Allow",
-            "Action": [
-                "ssm:SendCommand",
-                "ssm:GetCommandInvocation"
-            ],
-            "Resource": [
-                "arn:aws:ec2:{{REGION}}:{{ACCOUNTID}}:instance/*",
-                "arn:aws:ssm:{{REGION}}:*:document/AWS-RunShellScript"
-            ],
-            "Condition": {
-                "StringEquals": {
-                    "aws:ResourceTag/eks:cluster-name": [
-                        "{{SOURCE_CLUSTER_NAME}}",
-                        "{{DESTINATION_CLUSTER_NAME}}"
-                    ]
-                }
-            }
-        },
-        {
             "Sid": "S3TroubleshootingAssets",
             "Effect": "Allow",
-            "Action": [
-                "s3:GetObject",
-                "s3:PutObject"
-            ],
+            "Action": "s3:GetObject",
             "Resource": "arn:aws:s3:::{{S3_BUCKET_NAME}}/AWSSupport-CollectEKSLinuxNodeStatistics/*"
         },
         {
@@ -192,77 +124,6 @@ The following example policy shows the least-privilege permissions required for 
             "Effect": "Allow",
             "Action": "s3:GetBucketLocation",
             "Resource": "arn:aws:s3:::{{S3_BUCKET_NAME}}"
-        },
-        {
-            "Sid": "LambdaK8sProxyManagement",
-            "Effect": "Allow",
-            "Action": [
-                "lambda:CreateFunction",
-                "lambda:DeleteFunction",
-                "lambda:GetFunction",
-                "lambda:InvokeFunction",
-                "lambda:UpdateFunctionCode",
-                "lambda:UpdateFunctionConfiguration"
-            ],
-            "Resource": "arn:aws:lambda:{{REGION}}:{{ACCOUNTID}}:function:Automation-K8sProxy-*"
-        },
-        {
-            "Sid": "CloudFormationK8sProxyStack",
-            "Effect": "Allow",
-            "Action": [
-                "cloudformation:CreateStack",
-                "cloudformation:DeleteStack",
-                "cloudformation:DescribeStacks",
-                "cloudformation:DescribeStackResources"
-            ],
-            "Resource": "arn:aws:cloudformation:{{REGION}}:{{ACCOUNTID}}:stack/AWSSupport-SetupK8sApiProxyForEKS-*/*"
-        },
-        {
-            "Sid": "IAMForK8sProxyLambdaRole",
-            "Effect": "Allow",
-            "Action": [
-                "iam:CreateRole",
-                "iam:DeleteRole",
-                "iam:GetRole",
-                "iam:AttachRolePolicy",
-                "iam:DetachRolePolicy",
-                "iam:PutRolePolicy",
-                "iam:DeleteRolePolicy"
-            ],
-            "Resource": "arn:aws:iam::{{ACCOUNTID}}:role/Automation-K8sProxy-Role-*"
-        },
-        {
-            "Sid": "IAMPassRoleToLambda",
-            "Effect": "Allow",
-            "Action": "iam:PassRole",
-            "Resource": "arn:aws:iam::{{ACCOUNTID}}:role/Automation-K8sProxy-Role-*",
-            "Condition": {
-                "StringEquals": {
-                    "iam:PassedToService": "lambda.amazonaws.com"
-                }
-            }
-        },
-        {
-            "Sid": "CloudWatchLogsForK8sProxy",
-            "Effect": "Allow",
-            "Action": [
-                "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-                "logs:DeleteLogGroup"
-            ],
-            "Resource": "arn:aws:logs:{{REGION}}:{{ACCOUNTID}}:log-group:/aws/lambda/Automation-K8sProxy-*"
-        },
-        {
-            "Sid": "ResourceTaggingForStackLookup",
-            "Effect": "Allow",
-            "Action": "tag:GetResources",
-            "Resource": "*",
-            "Condition": {
-                "StringEquals": {
-                    "aws:RequestedRegion": "{{REGION}}"
-                }
-            }
         },
         {
             "Sid": "STSCallerIdentity",
@@ -274,227 +135,9 @@ The following example policy shows the least-privilege permissions required for 
 }
 ```
 
-In addition to the preceding example policy, which provides permissions for `AWSSupport-TroubleshootEKSNetwork` only, you need additional policies for the child runbook executions of `AWSSupport-SetupK8sApiProxyForEKS` and `AWSSupport-CollectEKSLinuxNodeStatistics`. The following example policies apply to these documents:
-
-Permissions required for `AWSSupport-SetupK8sApiProxyForEKS`:
-
-```
-{
-    "Version":"2012-10-17",                   
-    "Statement": [
-        {
-            "Action": [
-                "tag:GetResources",
-                "tag:TagResources",
-                "ec2:CreateNetworkInterface",
-                "ec2:DescribeNetworkInterfaces",
-                "ec2:DescribeRouteTables",
-                "ec2:DescribeSecurityGroups",
-                "ec2:DescribeSubnets",
-                "ec2:DescribeVpcs",
-                "ec2:DeleteNetworkInterface",
-                "eks:DescribeCluster",
-                "iam:GetRole",
-                "cloudformation:DescribeStacks",
-                "logs:DescribeLogGroups",
-                "logs:DescribeLogStreams",
-                "lambda:GetFunction",
-                "lambda:ListTags",
-                "logs:ListTagsForResource"
-            ],
-            "Resource": "*",
-            "Effect": "Allow",
-            "Sid": "AllowActionsWithoutConditions"
-        },
-        {
-            "Condition": {
-                "StringEquals": {
-                    "aws:RequestTag/AWSSupport-SetupK8sApiProxyForEKS": "true"
-                }
-            },
-            "Action": "iam:CreateRole",
-            "Resource": [
-                "arn:aws:iam::{{ACCOUNTID}}:role/Automation-K8sProxy*"
-            ],
-            "Effect": "Allow",
-            "Sid": "AllowCreateRoleWithRequiredTag"
-        },
-        {
-            "Condition": {
-                "StringEquals": {
-                    "aws:ResourceTag/AWSSupport-SetupK8sApiProxyForEKS": "true"
-                }
-            },
-            "Action": [
-                "iam:DeleteRole",
-                "iam:TagRole",
-                "iam:UntagRole"
-            ],
-            "Resource": [
-                "arn:aws:iam::{{ACCOUNTID}}:role/Automation-K8sProxy*"
-            ],
-            "Effect": "Allow",
-            "Sid": "IAMActions"
-        },
-        {
-            "Condition": {
-                "StringEquals": {
-                    "aws:ResourceTag/AWSSupport-SetupK8sApiProxyForEKS": "true"
-                },
-                "StringLike": {
-                    "iam:PolicyARN": [
-                        "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-                        "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
-                    ]
-                }
-            },
-            "Action": [
-                "iam:AttachRolePolicy",
-                "iam:DetachRolePolicy"
-            ],
-            "Resource": [
-                "arn:aws:iam::{{ACCOUNTID}}:role/Automation-K8sProxy*"
-            ],
-            "Effect": "Allow",
-            "Sid": "AttachRolePolicy"
-        },
-        {
-            "Condition": {
-                "StringEquals": {
-                    "aws:ResourceTag/AWSSupport-SetupK8sApiProxyForEKS": "true"
-                }
-            },
-            "Action": [
-                "lambda:CreateFunction",
-                "lambda:DeleteFunction",
-                "lambda:TagResource",
-                "lambda:UntagResource",
-                "lambda:UpdateFunctionCode"
-            ],
-            "Resource": "arn:aws:lambda:{{REGION}}:{{ACCOUNTID}}:function:Automation-K8sProxy*",
-            "Effect": "Allow",
-            "Sid": "LambdaActions"
-        },
-        {
-            "Condition": {
-                "StringEquals": {
-                    "aws:ResourceTag/AWSSupport-SetupK8sApiProxyForEKS": "true"
-                }
-            },
-            "Action": [
-                "cloudformation:CreateStack",
-                "cloudformation:DeleteStack",
-                "cloudformation:UpdateStack"
-            ],
-            "Resource": "arn:aws:cloudformation:{{REGION}}:{{ACCOUNTID}}:stack/AWSSupport-SetupK8sApiProxyForEKS*",
-            "Effect": "Allow",
-            "Sid": "CloudFormationActions"
-        },
-        {
-            "Condition": {
-                "StringEquals": {
-                    "aws:ResourceTag/AWSSupport-SetupK8sApiProxyForEKS": "true"
-                }
-            },
-            "Action": [
-                "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-                "logs:PutRetentionPolicy",
-                "logs:TagResource",
-                "logs:UntagResource"
-            ],
-            "Resource": [
-                "arn:aws:logs:{{REGION}}:{{ACCOUNTID}}:log-group:/aws/lambda/Automation-K8sProxy*",
-                "arn:aws:logs:{{REGION}}:{{ACCOUNTID}}:log-group:/aws/lambda/Automation-K8sProxy*:*"
-            ],
-            "Effect": "Allow",
-            "Sid": "LogsActions"
-        },
-        {
-            "Condition": {
-                "StringLikeIfExists": {
-                    "iam:PassedToService": "lambda.amazonaws.com"
-                }
-            },
-            "Action": [
-                "iam:PassRole"
-            ],
-            "Resource": [
-                "arn:aws:iam::{{ACCOUNTID}}:role/Automation-K8sProxy-Role*"
-            ],
-            "Effect": "Allow",
-            "Sid": "PassRoleToLambda"
-        }
-    ]
-}
-```
-
-Permissions required for `AWSSupport-CollectEKSLinuxNodeStatistics`:
-
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetAccountPublicAccessBlock"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetBucketPublicAccessBlock",
-                "s3:GetBucketAcl",
-                "s3:GetBucketPolicyStatus",
-                "s3:GetBucketLocation",
-                "s3:GetEncryptionConfiguration"
-            ],
-            "Resource": "arn:aws:s3:::{{S3_BUCKET_NAME}}"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:PutObject"
-            ],
-            "Resource": "arn:aws:s3:::{{S3_BUCKET_NAME}}/*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "ssm:DescribeInstanceInformation"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "ssm:SendCommand"
-            ],
-            "Resource": [
-                "arn:aws:ssm:*:*:document/AWS-RunShellScript",
-                "arn:aws:ec2:*:{{ACCOUNTID}}:instance/*"
-            ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "ssm:GetCommandInvocation"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "ec2:DescribeInstances"
-            ],
-            "Resource": "*"
-        }
-    ]
-}
-```
+This runbook also runs two child runbooks under the same `AutomationAssumeRole`, so that role must also have their permissions:
++ [`AWSSupport-SetupK8sApiProxyForEKS`](automation-awssupport-setupk8sapiproxyforeks.md). This runbook doesn't pass a `LambdaRoleArn` to it, so the child runbook always creates the Lambda execution role, and the role must also have the additional permissions for that case.
++ [`AWSSupport-CollectEKSLinuxNodeStatistics`](automation-awssupport-collectekslinuxnodestatistics.md).
 
 ## Instructions
 <a name="automation-awssupport-troubleshooteksnetwork-instructions"></a>

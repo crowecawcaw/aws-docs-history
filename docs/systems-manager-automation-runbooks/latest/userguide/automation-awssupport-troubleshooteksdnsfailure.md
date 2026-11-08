@@ -76,7 +76,6 @@ The `AutomationAssumeRole` parameter requires the following actions to use the r
 + `cloudformation:CreateStack`
 + `cloudformation:DescribeStacks`
 + `cloudformation:DeleteStack`
-+ `lambda:InvokeFunction`
 + `s3:GetBucketPublicAccessBlock`
 + `s3:GetBucketAcl`
 + `s3:PutObject`
@@ -85,6 +84,8 @@ The `AutomationAssumeRole` parameter requires the following actions to use the r
 + `ssm:GetCommandInvocation`
 + `ssm:StartAutomationExecution`
 + `ssm:GetAutomationExecution`
+
+Because this runbook runs a child runbook under the same `AutomationAssumeRole`, that role must also have the permissions listed in [`AWSSupport-SetupK8sApiProxyForEKS`](automation-awssupport-setupk8sapiproxyforeks.md). If you don't specify `LambdaRoleArn`, the role must also have the additional statements described there for when the automation creates the Lambda execution role.
 
  **Document Steps** 
 

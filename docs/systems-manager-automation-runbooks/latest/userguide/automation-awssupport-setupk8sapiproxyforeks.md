@@ -67,215 +67,216 @@ Linux
 
  **Required IAM Permissions** 
 
-The `AutomationAssumeRole` parameter requires the following permissions given ` LambdaRoleArn` is not passed:
-+  `cloudformation:CreateStack` 
-+  `cloudformation:DescribeStacks` 
-+  `cloudformation:DeleteStack` 
-+  `cloudformation:UpdateStack` 
-+  `ec2:CreateNetworkInterface` 
-+  `ec2:DescribeNetworkInterfaces` 
-+  `ec2:DescribeRouteTables` 
-+  `ec2:DescribeSecurityGroups` 
-+  `ec2:DescribeSubnets` 
-+  `ec2:DescribeVpcs` 
-+  `ec2:DeleteNetworkInterface` 
-+  `eks:DescribeCluster` 
-+  `lambda:CreateFunction` 
-+  `lambda:DeleteFunction` 
-+  `lambda:ListTags` 
-+  `lambda:GetFunction` 
-+  `lambda:ListTags` 
-+  `lambda:TagResource` 
-+  `lambda:UntagResource` 
-+  `lambda:UpdateFunctionCode` 
-+  `logs:CreateLogGroup` 
-+  `logs:PutRetentionPolicy` 
-+  `logs:TagResource` 
-+  `logs:UntagResource` 
-+  `logs:DescribeLogGroups` 
-+  `logs:DescribeLogStreams` 
-+  `logs:ListTagsForResource` 
-+  `iam:CreateRole` 
-+  `iam:AttachRolePolicy` 
-+  `iam:DetachRolePolicy` 
-+  `iam:PassRole` 
-+  `iam:GetRole` 
-+  `iam:DeleteRole` 
-+  `iam:TagRole` 
-+  `iam:UntagRole` 
-+  `tag:GetResources` 
-+  `tag:TagResources` 
+This runbook runs under the `AutomationAssumeRole` of the runbook that calls it, so that role must have the following permissions in addition to its own. The policy assumes that you specify an existing role in `LambdaRoleArn`, so it grants no IAM write actions.
 
-When `LambdaRoleArn` is provided, the automation does not need to create the role and the following permissions can be excluded:
-+  `iam:CreateRole` 
-+  `iam:DeleteRole` 
-+  `iam:TagRole` 
-+  `iam:UntagRole` 
-+  `iam:AttachRolePolicy` 
-+  `iam:DetachRolePolicy` 
+The role that you pass in `LambdaRoleArn` is the proxy function's execution role. It must trust `lambda.amazonaws.com` and have the `AWSLambdaBasicExecutionRole` managed policy. For a cluster with a private endpoint, it must also have the `AWSLambdaVPCAccessExecutionRole` managed policy.
 
-Below is an example policy demonstrating permissions required for ` AutomationAssumeRole` when `LambdaRoleArn` is not passed:
+Don't grant the execution role other permissions. Anyone with this policy can update and invoke the proxy function, and the function runs with the permissions of that role.
 
-------
-#### [ JSON ]
-
-****  
+The `UnscopedActions` statement uses `"Resource": "*"` because those actions don't support resource-level permissions. In the following policy, replace these values:
++ {{REGION}} and {{ACCOUNTID}} – The AWS Region and account ID where the cluster runs.
++ {{CLUSTER\_NAME}} – The name of the cluster. If the calling runbook targets more than one cluster, add an entry for each one.
++ {{AUTOMATION\_ROLE\_NAME}} – The name of the role that you pass in `AutomationAssumeRole`.
++ {{LAMBDA\_ROLE\_NAME}} – The name of the role that you pass in `LambdaRoleArn`.
 
 ```
 {
-    "Version":"2012-10-17",		 	 	 
+    "Version": "2012-10-17",
     "Statement": [
         {
+            "Sid": "UnscopedActions",
+            "Effect": "Allow",
             "Action": [
-                "tag:GetResources",
-                "tag:TagResources",
-                "ec2:CreateNetworkInterface",
                 "ec2:DescribeNetworkInterfaces",
                 "ec2:DescribeRouteTables",
                 "ec2:DescribeSecurityGroups",
                 "ec2:DescribeSubnets",
                 "ec2:DescribeVpcs",
-                "ec2:DeleteNetworkInterface",
-                "eks:DescribeCluster",
-                "iam:GetRole",
-                "cloudformation:DescribeStacks",
                 "logs:DescribeLogGroups",
-                "logs:DescribeLogStreams",
-                "lambda:GetFunction",
-                "lambda:ListTags",
-                "logs:ListTagsForResource"
+                "ssm:DescribeAutomationExecutions",
+                "tag:GetResources",
+                "tag:TagResources"
             ],
-            "Resource": "*",
-            "Effect": "Allow",
-            "Sid": "AllowActionsWithoutConditions"
+            "Resource": "*"
         },
         {
-            "Condition": {
-                "StringEquals": {
-                    "aws:RequestTag/AWSSupport-SetupK8sApiProxyForEKS": "true"
-                }
-            },
-            "Action": "iam:CreateRole",
+            "Sid": "ReadCluster",
+            "Effect": "Allow",
+            "Action": "eks:DescribeCluster",
+            "Resource": "arn:aws:eks:{{REGION}}:{{ACCOUNTID}}:cluster/{{CLUSTER_NAME}}"
+        },
+        {
+            "Sid": "RunProxyRunbook",
+            "Effect": "Allow",
+            "Action": "ssm:StartAutomationExecution",
             "Resource": [
-                "arn:aws:iam::{{111122223333}}:role/Automation-K8sProxy*"
-            ],
-            "Effect": "Allow",
-            "Sid": "AllowCreateRoleWithRequiredTag"
+                "arn:aws:ssm:{{REGION}}:{{ACCOUNTID}}:automation-definition/AWSSupport-SetupK8sApiProxyForEKS:*",
+                "arn:aws:ssm:{{REGION}}:{{ACCOUNTID}}:automation-execution/*"
+            ]
         },
         {
+            "Sid": "ReadProxyRunbookExecution",
+            "Effect": "Allow",
+            "Action": "ssm:GetAutomationExecution",
+            "Resource": "arn:aws:ssm:{{REGION}}:{{ACCOUNTID}}:automation-execution/*"
+        },
+        {
+            "Sid": "PassAutomationRoleToProxyRunbook",
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": "arn:aws:iam::{{ACCOUNTID}}:role/{{AUTOMATION_ROLE_NAME}}",
             "Condition": {
                 "StringEquals": {
-                    "aws:ResourceTag/AWSSupport-SetupK8sApiProxyForEKS": "true"
+                    "iam:PassedToService": "ssm.amazonaws.com"
                 }
-            },
+            }
+        },
+        {
+            "Sid": "ProxyStack",
+            "Effect": "Allow",
             "Action": [
-                "iam:DeleteRole",
-                "iam:TagRole",
-                "iam:UntagRole"
+                "cloudformation:CreateStack",
+                "cloudformation:DescribeStacks",
+                "cloudformation:UpdateStack",
+                "cloudformation:DeleteStack"
             ],
-            "Resource": [
-                "arn:aws:iam::{{111122223333}}:role/Automation-K8sProxy*"
-            ],
-            "Effect": "Allow",
-            "Sid": "IAMActions"
+            "Resource": "arn:aws:cloudformation:{{REGION}}:{{ACCOUNTID}}:stack/AWSSupport-SetupK8sApiProxyForEKS-*/*"
         },
         {
-            "Condition": {
-                "StringEquals": {
-                    "aws:ResourceTag/AWSSupport-SetupK8sApiProxyForEKS": "true"
-                },
-                "StringLike": {
-                    "iam:PolicyARN": [
-                        "arn:aws:iam::{{111122223333}}:policy/service-role/AWSLambdaBasicExecutionRole",
-                        "arn:aws:iam::{{111122223333}}:policy/service-role/AWSLambdaVPCAccessExecutionRole"
-                    ]
-                }
-            },
-            "Action": [
-                "iam:AttachRolePolicy",
-                "iam:DetachRolePolicy"
-            ],
-            "Resource": [
-                "arn:aws:iam::{{111122223333}}:role/Automation-K8sProxy*"
-            ],
+            "Sid": "ProxyFunction",
             "Effect": "Allow",
-            "Sid": "AttachRolePolicy"
-        },
-        {
-            "Condition": {
-                "StringEquals": {
-                    "aws:ResourceTag/AWSSupport-SetupK8sApiProxyForEKS": "true"
-                }
-            },
             "Action": [
                 "lambda:CreateFunction",
                 "lambda:DeleteFunction",
+                "lambda:GetFunction",
+                "lambda:InvokeFunction",
+                "lambda:ListTags",
                 "lambda:TagResource",
                 "lambda:UntagResource",
                 "lambda:UpdateFunctionCode"
             ],
-            "Resource": "arn:aws:lambda:{{us-east-1}}:{{111122223333}}:function:Automation-K8sProxy*",
-            "Effect": "Allow",
-            "Sid": "LambdaActions"
+            "Resource": "arn:aws:lambda:{{REGION}}:{{ACCOUNTID}}:function:Automation-K8sProxy-*"
         },
         {
-            "Condition": {
-                "StringEquals": {
-                    "aws:ResourceTag/AWSSupport-SetupK8sApiProxyForEKS": "true"
-                }
-            },
-            "Action": [
-                "cloudformation:CreateStack",
-                "cloudformation:DeleteStack",
-                "cloudformation:UpdateStack"
-            ],
-            "Resource": "arn:aws:cloudformation:{{us-east-1}}:{{111122223333}}:stack/AWSSupport-SetupK8sApiProxyForEKS*",
+            "Sid": "ProxyLogGroup",
             "Effect": "Allow",
-            "Sid": "CloudFormationActions"
-        },
-        {
-            "Condition": {
-                "StringEquals": {
-                    "aws:ResourceTag/AWSSupport-SetupK8sApiProxyForEKS": "true"
-                }
-            },
             "Action": [
                 "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
+                "logs:DescribeLogStreams",
+                "logs:ListTagsForResource",
                 "logs:PutRetentionPolicy",
                 "logs:TagResource",
                 "logs:UntagResource"
             ],
             "Resource": [
-                "arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-group:/aws/lambda/Automation-K8sProxy*",
-                "arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-group:/aws/lambda/Automation-K8sProxy*:*"
-            ],
-            "Effect": "Allow",
-            "Sid": "LogsActions"
+                "arn:aws:logs:{{REGION}}:{{ACCOUNTID}}:log-group:/aws/lambda/Automation-K8sProxy-*",
+                "arn:aws:logs:{{REGION}}:{{ACCOUNTID}}:log-group:/aws/lambda/Automation-K8sProxy-*:*"
+            ]
         },
         {
-            "Condition": {
-                "StringLikeIfExists": {
-                    "iam:PassedToService": "lambda.amazonaws.com"
-                }
-            },
+            "Sid": "ProxyNetworkInterfaces",
+            "Effect": "Allow",
             "Action": [
-                "iam:PassRole"
+                "ec2:CreateNetworkInterface",
+                "ec2:DeleteNetworkInterface"
             ],
             "Resource": [
-                "arn:aws:iam::{{111122223333}}:role/Automation-K8sProxy-Role*"
-            ],
+                "arn:aws:ec2:{{REGION}}:{{ACCOUNTID}}:network-interface/*",
+                "arn:aws:ec2:{{REGION}}:{{ACCOUNTID}}:subnet/*",
+                "arn:aws:ec2:{{REGION}}:{{ACCOUNTID}}:security-group/*"
+            ]
+        },
+        {
+            "Sid": "PassLambdaRole",
             "Effect": "Allow",
-            "Sid": "PassRoleToLambda"
+            "Action": "iam:PassRole",
+            "Resource": "arn:aws:iam::{{ACCOUNTID}}:role/{{LAMBDA_ROLE_NAME}}",
+            "Condition": {
+                "StringEquals": {
+                    "iam:PassedToService": "lambda.amazonaws.com"
+                }
+            }
         }
     ]
 }
 ```
 
-------
+The `ProxyNetworkInterfaces` statement is needed only for a cluster with a private endpoint, where the proxy function runs in the cluster's VPC.
 
- In case the `LambdaRoleArn` is passed, please ensure that it has [ AWSLambdaBasicExecutionRole ](https://console.aws.amazon.com/iam/home?region=us-east-1#/policies/details/arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2Fservice-role%2FAWSLambdaBasicExecutionRole) policy attached to it for public cluster and additionally, [ AWSLambdaVPCAccessExecutionRole ](https://console.aws.amazon.com/iam/home?region=us-east-1#/policies/details/arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2Fservice-role%2FAWSLambdaVPCAccessExecutionRole) for private clusters. 
+If `LambdaRoleArn` is empty, or the calling runbook doesn't pass it, the automation creates the execution role itself. In that case, leave out the `PassLambdaRole` statement from the preceding policy and add the following statements.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "CreateProxyLambdaRole",
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateRole",
+                "iam:TagRole"
+            ],
+            "Resource": "arn:aws:iam::{{ACCOUNTID}}:role/Automation-K8sProxy-Role-*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:RequestTag/AWSSupport-SetupK8sApiProxyForEKS": "true"
+                }
+            }
+        },
+        {
+            "Sid": "ManageProxyLambdaRole",
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetRole",
+                "iam:TagRole",
+                "iam:UntagRole",
+                "iam:DeleteRole"
+            ],
+            "Resource": "arn:aws:iam::{{ACCOUNTID}}:role/Automation-K8sProxy-Role-*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:ResourceTag/AWSSupport-SetupK8sApiProxyForEKS": "true"
+                }
+            }
+        },
+        {
+            "Sid": "AttachLambdaManagedPoliciesOnly",
+            "Effect": "Allow",
+            "Action": [
+                "iam:AttachRolePolicy",
+                "iam:DetachRolePolicy"
+            ],
+            "Resource": "arn:aws:iam::{{ACCOUNTID}}:role/Automation-K8sProxy-Role-*",
+            "Condition": {
+                "ArnEquals": {
+                    "iam:PolicyARN": [
+                        "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+                        "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "PassProxyLambdaRole",
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": "arn:aws:iam::{{ACCOUNTID}}:role/Automation-K8sProxy-Role-*",
+            "Condition": {
+                "StringEquals": {
+                    "iam:PassedToService": "lambda.amazonaws.com"
+                }
+            }
+        }
+    ]
+}
+```
+
+The following list describes the value to replace in this policy and how each statement limits what the automation can do to the role that it creates:
++ {{ACCOUNTID}} – Your AWS account ID.
++ `CreateProxyLambdaRole` – Allows creating roles named `Automation-K8sProxy-Role-*` only when the request includes the `AWSSupport-SetupK8sApiProxyForEKS` tag set to `true`, which the `aws:RequestTag/AWSSupport-SetupK8sApiProxyForEKS` condition key checks. The automation adds this tag to every resource that it creates.
++ `ManageProxyLambdaRole` – Allows reading, tagging, and deleting only the roles that already carry that tag, which the `aws:ResourceTag/AWSSupport-SetupK8sApiProxyForEKS` condition key checks. The automation updates a reference-count tag on the CloudFormation stack, which is propagated to the role.
++ `AttachLambdaManagedPoliciesOnly` – The `iam:PolicyARN` condition allows attaching only `AWSLambdaBasicExecutionRole` and `AWSLambdaVPCAccessExecutionRole`. The policy grants no `iam:PutRolePolicy`, so the role can't be given any other permissions.
++ `PassProxyLambdaRole` – Allows passing those roles only to Lambda. This replaces the `PassLambdaRole` statement.
 
  **Resources Created** 
 

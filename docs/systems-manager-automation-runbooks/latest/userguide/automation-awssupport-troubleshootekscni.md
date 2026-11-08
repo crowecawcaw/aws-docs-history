@@ -103,8 +103,6 @@ The `AutomationAssumeRole` must be mapped in the Amazon EKS cluster's access con
 + `ec2:DescribeRouteTables`
 + `ec2:DescribeVpcs`
 + `ec2:DescribeSecurityGroups`
-+ `ec2:CreateNetworkInterface`
-+ `ec2:DeleteNetworkInterface`
 
 **IAM permissions**
 + `iam:GetRole`
@@ -116,26 +114,6 @@ The `AutomationAssumeRole` must be mapped in the Amazon EKS cluster's access con
 + `iam:SimulatePrincipalPolicy`
 + `iam:ListOpenIDConnectProviders`
 + `iam:GetOpenIDConnectProvider`
-+ `iam:PassRole`
-+ `iam:CreateRole`
-+ `iam:TagRole`
-+ `iam:AttachRolePolicy`
-+ `iam:DetachRolePolicy`
-+ `iam:DeleteRole`
-
-**Lambda permissions**
-+ `lambda:CreateFunction`
-+ `lambda:InvokeFunction`
-+ `lambda:DeleteFunction`
-+ `lambda:UpdateFunctionCode`
-+ `lambda:GetFunction`
-+ `lambda:TagResource`
-
-**Amazon CloudWatch Logs permissions**
-+ `logs:CreateLogGroup`
-+ `logs:TagResource`
-+ `logs:DeleteLogGroup`
-+ `logs:PutRetentionPolicy`
 
 **AWS Systems Manager permissions**
 + `ssm:StartAutomationExecution`
@@ -145,15 +123,6 @@ The `AutomationAssumeRole` must be mapped in the Amazon EKS cluster's access con
 + `ssm:DescribeAutomationExecutions`
 + `ssm:DescribeAutomationStepExecutions`
 + `ssm:DescribeInstanceInformation`
-
-**Resource tagging permissions**
-+ `tag:GetResources`
-+ `tag:TagResources`
-
-**AWS CloudFormation permissions**
-+ `cloudformation:DescribeStacks`
-+ `cloudformation:CreateStack`
-+ `cloudformation:DeleteStack`
 
 **Amazon S3 permissions (required only when `S3BucketName` parameter is provided)**
 + `s3:ListBucket`
@@ -165,7 +134,9 @@ The `AutomationAssumeRole` must be mapped in the Amazon EKS cluster's access con
 + `s3:GetBucketLocation`
 + `s3:PutObject`
 
-To run this runbook, the `AutomationAssumeRole` or your IAM user requires the following actions. The following example shows a least-privilege IAM policy that scopes permissions to specific resource patterns used by the automation:
+Because this runbook runs a child runbook under the same `AutomationAssumeRole`, that role must also have the permissions listed in [`AWSSupport-SetupK8sApiProxyForEKS`](automation-awssupport-setupk8sapiproxyforeks.md). If you don't specify `LambdaRoleArn`, the role must also have the additional statements described there for when the automation creates the Lambda execution role.
+
+The following example shows a least-privilege IAM policy for the actions that this runbook calls directly:
 
 ```
 {
@@ -208,19 +179,6 @@ To run this runbook, the `AutomationAssumeRole` or your IAM user requires the fo
             }
         },
         {
-            "Sid": "EC2NetworkInterfaceForLambdaVPC",
-            "Effect": "Allow",
-            "Action": [
-                "ec2:CreateNetworkInterface",
-                "ec2:DeleteNetworkInterface"
-            ],
-            "Resource": [
-                "arn:aws:ec2:{{REGION}}:{{ACCOUNTID}}:network-interface/*",
-                "arn:aws:ec2:{{REGION}}:{{ACCOUNTID}}:subnet/{{SUBNET_ID}}",
-                "arn:aws:ec2:{{REGION}}:{{ACCOUNTID}}:security-group/{{CLUSTER_SECURITY_GROUP_ID}}"
-            ]
-        },
-        {
             "Sid": "IAMReadOnly",
             "Effect": "Allow",
             "Action": [
@@ -239,62 +197,6 @@ To run this runbook, the `AutomationAssumeRole` or your IAM user requires the fo
                 "arn:aws:iam::{{ACCOUNTID}}:instance-profile/*",
                 "arn:aws:iam::{{ACCOUNTID}}:policy/*",
                 "arn:aws:iam::{{ACCOUNTID}}:oidc-provider/*"
-            ]
-        },
-        {
-            "Sid": "IAMRoleManagementForLambda",
-            "Effect": "Allow",
-            "Action": [
-                "iam:CreateRole",
-                "iam:TagRole",
-                "iam:AttachRolePolicy",
-                "iam:DetachRolePolicy",
-                "iam:DeleteRole"
-            ],
-            "Resource": "arn:aws:iam::{{ACCOUNTID}}:role/Automation-K8sProxy-Role-*"
-        },
-        {
-            "Sid": "PassRoleToLambdaOnly",
-            "Effect": "Allow",
-            "Action": "iam:PassRole",
-            "Resource": "arn:aws:iam::{{ACCOUNTID}}:role/Automation-K8sProxy-Role-*",
-            "Condition": {
-                "StringEquals": {
-                    "iam:PassedToService": "lambda.amazonaws.com"
-                }
-            }
-        },
-        {
-            "Sid": "LambdaManagement",
-            "Effect": "Allow",
-            "Action": [
-                "lambda:CreateFunction",
-                "lambda:InvokeFunction",
-                "lambda:DeleteFunction",
-                "lambda:UpdateFunctionCode",
-                "lambda:GetFunction",
-                "lambda:TagResource"
-            ],
-            "Resource": "arn:aws:lambda:{{REGION}}:{{ACCOUNTID}}:function:AWSSupport-SetupK8sApiProxy-*"
-        },
-        {
-            "Sid": "CloudWatchLogs",
-            "Effect": "Allow",
-            "Action": [
-                "logs:CreateLogGroup",
-                "logs:TagResource",
-                "logs:DeleteLogGroup",
-                "logs:PutRetentionPolicy"
-            ],
-            "Resource": "arn:aws:logs:{{REGION}}:{{ACCOUNTID}}:log-group:/aws/lambda/AWSSupport-SetupK8sApiProxy-*"
-        },
-        {
-            "Sid": "SSMAutomationScopedToChildDoc",
-            "Effect": "Allow",
-            "Action": "ssm:StartAutomationExecution",
-            "Resource": [
-                "arn:aws:ssm:{{REGION}}:{{ACCOUNTID}}:automation-definition/AWSSupport-SetupK8sApiProxyForEKS:*",
-                "arn:aws:ssm:{{REGION}}:{{ACCOUNTID}}:automation-execution/*"
             ]
         },
         {
@@ -323,30 +225,6 @@ To run this runbook, the `AutomationAssumeRole` or your IAM user requires the fo
             "Sid": "SSMDescribeInstances",
             "Effect": "Allow",
             "Action": "ssm:DescribeInstanceInformation",
-            "Resource": "*",
-            "Condition": {
-                "StringEquals": {
-                    "aws:RequestedRegion": "{{REGION}}"
-                }
-            }
-        },
-        {
-            "Sid": "CloudFormation",
-            "Effect": "Allow",
-            "Action": [
-                "cloudformation:DescribeStacks",
-                "cloudformation:CreateStack",
-                "cloudformation:DeleteStack"
-            ],
-            "Resource": "arn:aws:cloudformation:{{REGION}}:{{ACCOUNTID}}:stack/AWSSupport-SetupK8sApiProxyForEKS-*/*"
-        },
-        {
-            "Sid": "ResourceTagging",
-            "Effect": "Allow",
-            "Action": [
-                "tag:GetResources",
-                "tag:TagResources"
-            ],
             "Resource": "*",
             "Condition": {
                 "StringEquals": {

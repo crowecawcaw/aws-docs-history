@@ -108,14 +108,9 @@ Follow these steps to configure the automation:
      + This permission is optional if you don't specify `S3BucketName`
      + The Amazon S3 bucket must be private and in the same AWS region where you execute the SSM automation.
 
-------
-#### [ JSON ]
-
-****  
-
    ```
    {
-       "Version":"2012-10-17",		 	 	 
+       "Version": "2012-10-17",
        "Statement": [
            {
                "Sid": "OptionalRestrictPutObjects",
@@ -124,7 +119,7 @@ Follow these steps to configure the automation:
                    "s3:PutObject"
                ],
                "Resource": [
-                   "arn:aws:s3:::{{amzn-s3-demo-bucket}}/*"
+                   "arn:aws:s3:::{{S3_BUCKET}}/*"
                ]
            },
            {
@@ -156,87 +151,12 @@ Follow these steps to configure the automation:
                    "ssm:StartAutomationExecution"
                ],
                "Resource": "*"
-           },
-           {
-               "Sid": "SetupK8sApiProxyForEKSActions",
-               "Effect": "Allow",
-               "Action": [
-                   "cloudformation:CreateStack",
-                   "cloudformation:DeleteStack",
-                   "cloudformation:DescribeStacks",
-                   "cloudformation:UpdateStack",
-                   "ec2:CreateNetworkInterface",
-                   "ec2:DeleteNetworkInterface",
-                   "ec2:DescribeNetworkInterfaces",
-                   "ec2:DescribeRouteTables",
-                   "ec2:DescribeSecurityGroups",
-                   "ec2:DescribeSubnets",
-                   "ec2:DescribeVpcs",
-                   "eks:DescribeCluster",
-                   "iam:CreateRole",
-                   "iam:DeleteRole",
-                   "iam:GetRole",
-                   "iam:TagRole",
-                   "iam:UntagRole",
-                   "lambda:CreateFunction",
-                   "lambda:DeleteFunction",
-                   "lambda:GetFunction",
-                   "lambda:InvokeFunction",
-                   "lambda:ListTags",
-                   "lambda:TagResource",
-                   "lambda:UntagResource",
-                   "lambda:UpdateFunctionCode",
-                   "logs:CreateLogGroup",
-                   "logs:CreateLogStream",
-                   "logs:DescribeLogGroups",
-                   "logs:DescribeLogStreams",
-                   "logs:ListTagsForResource",
-                   "logs:PutLogEvents",
-                   "logs:PutRetentionPolicy",
-                   "logs:TagResource",
-                   "logs:UntagResource",
-                   "ssm:DescribeAutomationExecutions",
-                   "tag:GetResources",
-                   "tag:TagResources"
-               ],
-               "Resource": "*"
-           },
-           {
-               "Sid": "PassRoleToAutomation",
-               "Effect": "Allow",
-               "Action": "iam:PassRole",
-               "Resource": [
-                   "arn:aws:iam::*:role/TroubleshootEbsCsiDriversForEks-SSM-Role",
-                   "arn:aws:iam::*:role/Automation-K8sProxy-Role-*"
-               ],
-               "Condition": {
-                   "StringLikeIfExists": {
-                       "iam:PassedToService": [
-                           "lambda.amazonaws.com",
-                           "ssm.amazonaws.com"
-                       ]
-                   }
-               }
-           },
-           {
-               "Sid": "AttachRolePolicy",
-               "Effect": "Allow",
-               "Action": [
-                   "iam:AttachRolePolicy",
-                   "iam:DetachRolePolicy"
-               ],
-               "Resource": "*",
-               "Condition": {
-                   "StringLikeIfExists": {
-                       "iam:ResourceTag/AWSSupport-SetupK8sApiProxyForEKS": "true"
-                   }
-               }
            }
        ]
    }
    ```
 
-------
+1. Because this runbook runs a child runbook under the same role, also attach the policy from [`AWSSupport-SetupK8sApiProxyForEKS`](automation-awssupport-setupk8sapiproxyforeks.md). If you don't specify `LambdaRoleArn`, the role must also have the additional statements described there for when the automation creates the Lambda execution role.
 
 1. Grant the required permissions for Amazon EKS cluster RBAC (Role-Based Access Control). The recommended approach is to create an Access Entry in your Amazon EKS cluster.
 

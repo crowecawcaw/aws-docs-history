@@ -50,47 +50,22 @@ Amazon
 **Required IAM permissions**
 
 The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
-+ `cloudformation:CreateStack`
-+ `cloudformation:DeleteStack`
-+ `cloudformation:DescribeStacks`
-+ `cloudformation:UpdateStack`
-+ `ec2:CreateNetworkInterface`
-+ `ec2:DeleteNetworkInterface`
 + `ec2:DescribeInstances`
 + `ec2:DescribeNetworkInterfaces`
 + `ec2:DescribeRouteTables`
 + `ec2:DescribeSecurityGroups`
 + `ec2:DescribeSubnets`
-+ `ec2:DescribeVpcs`
 + `eks:DescribeCluster`
 + `eks:ListAssociatedAccessPolicies`
 + `elasticloadbalancing:DescribeAccountLimits`
 + `elasticloadbalancing:DescribeLoadBalancers`
 + `iam:GetRole`
 + `iam:ListOpenIDConnectProviders`
-+ `iam:PassRole`
-+ `lambda:CreateFunction`
-+ `lambda:DeleteFunction`
-+ `lambda:GetFunction`
-+ `lambda:InvokeFunction`
-+ `lambda:ListTags`
-+ `lambda:TagResource`
-+ `lambda:UntagResource`
-+ `lambda:UpdateFunctionCode`
-+ `logs:CreateLogGroup`
-+ `logs:CreateLogStream`
-+ `logs:DescribeLogGroups`
-+ `logs:DescribeLogStreams`
-+ `logs:ListTagsForResource`
-+ `logs:PutLogEvents`
-+ `logs:PutRetentionPolicy`
-+ `logs:TagResource`
-+ `logs:UntagResource`
 + `ssm:DescribeAutomationExecutions`
 + `ssm:GetAutomationExecution`
 + `ssm:StartAutomationExecution`
-+ `tag:GetResources`
-+ `tag:TagResources`
+
+Because this runbook runs a child runbook under the same `AutomationAssumeRole`, that role must also have the permissions listed in [`AWSSupport-SetupK8sApiProxyForEKS`](automation-awssupport-setupk8sapiproxyforeks.md).
 
  **Instructions** 
 
@@ -115,7 +90,7 @@ Create a SSM automation role `TroubleshootEKSALBController-SSM-Role` in your acc
                ]
            }
    ```
-Attach the following IAM policy to grant the required permissions:  
+Attach the following IAM policy to grant the permissions for this runbook:  
 
    ```
    {
@@ -140,63 +115,10 @@ Attach the following IAM policy to grant the required permissions:
                        "ec2:DescribeSecurityGroups"
                    ],
                    "Resource": "*"
-               },
-               {
-                   "Sid": "SetupK8sApiProxyForEKSActions",
-                   "Effect": "Allow",
-                   "Action": [
-                       "cloudformation:CreateStack",
-                       "cloudformation:DeleteStack",
-                       "cloudformation:DescribeStacks",
-                       "cloudformation:UpdateStack",
-                       "ec2:CreateNetworkInterface",
-                       "ec2:DeleteNetworkInterface",
-                       "ec2:DescribeNetworkInterfaces",
-                       "ec2:DescribeRouteTables",
-                       "ec2:DescribeSecurityGroups",
-                       "ec2:DescribeSubnets",
-                       "ec2:DescribeVpcs",
-                       "eks:DescribeCluster",
-                       "iam:GetRole",
-                       "lambda:CreateFunction",
-                       "lambda:DeleteFunction",
-                       "lambda:GetFunction",
-                       "lambda:InvokeFunction",
-                       "lambda:ListTags",
-                       "lambda:TagResource",
-                       "lambda:UntagResource",
-                       "lambda:UpdateFunctionCode",
-                       "logs:CreateLogGroup",
-                       "logs:CreateLogStream",
-                       "logs:DescribeLogGroups",
-                       "logs:DescribeLogStreams",
-                       "logs:ListTagsForResource",
-                       "logs:PutLogEvents",
-                       "logs:PutRetentionPolicy",
-                       "logs:TagResource",
-                       "logs:UntagResource",
-                       "ssm:DescribeAutomationExecutions",
-                       "tag:GetResources",
-                       "tag:TagResources"
-                   ],
-                   "Resource": "*"
-               },
-               {
-                   "Sid": "PassRoleToAutomation",
-                   "Effect": "Allow",
-                   "Action": "iam:PassRole",
-                   "Resource": "*",
-                   "Condition": {
-                       "StringLikeIfExists": {
-                           "iam:PassedToService": [
-                               "lambda.amazonaws.com",
-                               "ssm.amazonaws.com"
-                           ]
-                       }
-                   }
                }]
            }
    ```
+Attach the policy for the child runbook from [`AWSSupport-SetupK8sApiProxyForEKS`](automation-awssupport-setupk8sapiproxyforeks.md).
 Configure access entry for your Amazon EKS cluster. This is a mandatory requirement for the automation. For steps to configure authentication mode for access entries, see [Setting up access entries](https://docs.aws.amazon.com/eks/latest/userguide/setting-up-access-entries.html).  
 In the Amazon EKS console, navigate to your cluster and follow these steps:  
 Under **Access** section, verify your authentication configuration is set to either `API` or `API_AND_CONFIG_MAP`.
