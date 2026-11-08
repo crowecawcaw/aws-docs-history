@@ -4,13 +4,13 @@
 <a name="supported_kubernetes_version"></a>
 
 AWS Batch on Amazon EKS currently supports the following Kubernetes versions:
++ `1.37`
 + `1.36`
 + `1.35`
 + `1.34`
 + `1.33`
 + `1.32`
 + `1.31`
-+ `1.30`
 
 You might see an error message that resembles the following when you use the `CreateComputeEnvironment` API operation or `UpdateComputeEnvironment`API operation to create or update a compute environment. This issue occurs if you specify an unsupported Kubernetes version in `EC2Configuration`.
 

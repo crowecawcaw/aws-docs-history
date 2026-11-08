@@ -70,7 +70,7 @@ To view the JSON for the policy, see [AWSBatchServiceRole](https://docs.aws.amaz
 ## AWS managed policy: **AWSBatchFullAccess**
 <a name="security-iam-awsmanpol-BatchFullAccess"></a>
 
-The **AWSBatchFullAccess** policy grants AWS Batch actions full access to AWS Batch resources. It also grants describe and list action access for Amazon EC2, Amazon ECS, Amazon EKS, CloudWatch, and IAM services. This is so that IAM identities, either users or roles, can view AWS Batch managed resources that were created on their behalf. Last, this policy also allows for selected IAM roles to be passed to those services.
+The **AWSBatchFullAccess** policy grants AWS Batch actions full access to AWS Batch resources. It also grants describe and list action access for Amazon EC2, Amazon ECS, Amazon EKS, CloudWatch, and IAM services. This is so that IAM identities, either users or roles, can view AWS Batch managed resources that were created on their behalf. This policy also allows for selected IAM roles to be passed to those services. Last, this policy allows AWS Batch to create, describe, and delete an Amazon EKS access entry for the AWS Batch service-linked role (`AWSServiceRoleForBatch`), and to associate the `AWSBatchClusterPolicy` access policy with it at cluster scope. For more information, see [Amazon EKS access entry authentication](eks-access-entries.md).
 
 You can attach **AWSBatchFullAccess** to your IAM entities. AWS Batch also attaches this policy to a service role that allows AWS Batch to perform actions on your behalf.
 
@@ -88,6 +88,7 @@ View details about updates to AWS managed policies for AWS Batch since this serv
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| [AWSBatchFullAccess](#security-iam-awsmanpol-BatchFullAccess) policy updated | Added the `eks:CreateAccessEntry`, `eks:DescribeAccessEntry`, `eks:DeleteAccessEntry`, and `eks:AssociateAccessPolicy` permissions so that AWS Batch can manage an Amazon EKS access entry for the AWS Batch service-linked role. | November 4, 2026 | 
 | [AWSBatchServiceRole](#security-iam-awsmanpol-AWSBatchServiceRolePolicy) policy updated | Added the `ecs:UpdateCluster` permission so that AWS Batch can update Amazon ECS cluster configurations. | August 25, 2026 | 
 | [BatchServiceRolePolicy](#security-iam-awsmanpol-BatchServiceRolePolicy) policy updated | Updated to add Amazon ECS capacity provider permissions, cluster update permissions, and tagging permissions for capacity provider resources. | August 5, 2026 | 
 | [ AWSBatchServiceRolePolicyForSageMaker](#security-iam-awsmanpol-sagemaker-service-role-policy) policy updated | Updated to add `sagemaker:DeleteTrainingJob` permission to allow AWS Batch to delete SageMaker AI training jobs. | April 16, 2026 | 

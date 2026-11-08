@@ -27,13 +27,13 @@ reason=CLIENT_ERROR - ... EKS Cluster version [{{2.yy}}] is unsupported
 To resolve this issue, specify a supported Kubernetes version when you use an API operation to create or update a compute environment.
 
 AWS Batch on Amazon EKS currently supports the following Kubernetes versions:
++ `1.37`
 + `1.36`
 + `1.35`
 + `1.34`
 + `1.33`
 + `1.32`
 + `1.31`
-+ `1.30`
 
 ## Instance profile doesn't exist
 <a name="instance_profile_not_exist"></a>

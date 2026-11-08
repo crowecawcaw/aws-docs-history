@@ -16,13 +16,13 @@ $ aws batch update-compute-environment \
     --compute-resources 'updateToLatestImageVersion=true'
 ```
 
-AWS Batch doesn't automatically upgrade the Kubernetes version. Run the following command to update the Kubernetes version of your compute environment to {{1.36}}.
+AWS Batch doesn't automatically upgrade the Kubernetes version. Run the following command to update the Kubernetes version of your compute environment to {{1.37}}.
 
 ```
 $ aws batch update-compute-environment \
     --compute-environment {{<compute-environment-name>}} \
     --compute-resources \
-      'ec2Configuration=[{imageType=EKS_AL2023,imageKubernetesVersion={{1.36}}}]'
+      'ec2Configuration=[{imageType=EKS_AL2023,imageKubernetesVersion={{1.37}}}]'
 ```
 
 When updating to a more recent AMI or the Kubernetes version, you can specify whether to terminate jobs when they're updated (`terminateJobsOnUpdate`) and how long to wait for before an instance is replaced if running jobs don't finish (`jobExecutionTimeoutMinutes`.) For more information, see [Update a compute environment in AWS Batch](updating-compute-environments.md) and the infrastructure update policy ([UpdatePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_UpdatePolicy.html)) set in the [UpdateComputeEnvironment](https://docs.aws.amazon.com/batch/latest/APIReference/API_UpdateComputeEnvironment.html) API operation.

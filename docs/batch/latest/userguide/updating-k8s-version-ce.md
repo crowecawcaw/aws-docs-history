@@ -11,5 +11,5 @@ To upgrade the Kubernetes version of a compute environment, use the [UpdateCompu
 $ aws batch update-compute-environment \
     --compute-environment {{<compute-environment-name>}} \
     --compute-resources \
-      'ec2Configuration=[{imageType=EKS_AL2023,imageKubernetesVersion={{1.36}}}]'
+      'ec2Configuration=[{imageType=EKS_AL2023,imageKubernetesVersion={{1.37}}}]'
 ```
