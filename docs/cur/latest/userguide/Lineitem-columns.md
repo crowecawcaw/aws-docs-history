@@ -62,6 +62,9 @@ For size-flexible RIs, the description corresponds to the RI the benefit was app
 
 The description for a usage line item with an RI discount contains the pricing plan covered by the line item.
 
+**Important**  
+This description is human-readable text intended for display, and its contents can change over time. Don't rely on the exact wording or format of this field in programmatic workflows. If your extract, transform, and load (ETL) jobs parse this field (for example, by using regular expressions), design them to tolerate changes to the description so that updates don't break your processing.
+
 ### lineItem/LineItemType
 <a name="Lineitem-details-L-LineItemType"></a>
 
