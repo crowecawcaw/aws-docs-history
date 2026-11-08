@@ -44,7 +44,7 @@ Validate technical skills in implementing data pipelines and data stores on AWS.
 [AWS Certified Developer - Associate (DVA-C02)](../developer-associate-02.html)  
 Validate technical skills in developing and maintaining applications on AWS. This exam is intended for individuals who perform a developer role and validates proficiency in developing, deploying, and debugging cloud-based applications.  
 **Note:**  
-This exam is being updated. Registration for the updated version of the exam (DVA-C03) opens December 1, 2026. The last day to take the current version of the exam (DVA-C02) is November 30, 2026.
+This exam is being updated. Registration for the updated version of the exam (DVA-C03) opened on October 27, 2026. The last day to take the current version of the exam (DVA-C02) is November 30, 2026.
 
 [AWS Certified Developer - Associate (DVA-C03)](../developer-associate-03.html)  
 Validate technical skills in developing and maintaining applications on AWS, including using AI-assisted development tools. This exam is intended for individuals who perform a developer role and validates proficiency in developing, deploying, and debugging cloud-based applications.
