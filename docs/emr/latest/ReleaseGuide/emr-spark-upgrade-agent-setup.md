@@ -14,12 +14,12 @@ Before we begin our setup process for integration with Kiro CLI, make sure you h
 +  [ Install Python 3.10\+ ](https://www.python.org/downloads/release/python-3100/) 
 +  [ Install the `uv` package manager ](https://docs.astral.sh/uv/getting-started/installation/) for [ MCP Proxy for AWS](https://github.com/aws/mcp-proxy-for-aws?tab=readme-ov-file) 
 +  [ Install Kiro CLI ](https://kiro.dev/docs/cli/) 
-+ AWS local credentials configured (via [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html), environment variables, or IAM roles) - for local operations such uploading upgraded job artifacts for EMR validation job execution.
++ AWS local credentials configured (via [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html), environment variables, or IAM roles) - for local operations such as uploading upgraded job artifacts for EMR validation job execution.
 
 ## Setup Resources
 <a name="spark-upgrade-agent-setup-resources"></a>
 
-You can use an CloudFormation template to setup the resource for the MCP server. These templates are samples that you should modify to meet your requirements. The template creates the following resources for the upgrade process:
+You can use a CloudFormation template to set up the resource for the MCP server. These templates are samples that you should modify to meet your requirements. The template creates the following resources for the upgrade process:
 + IAM role which has permissions to call MCP Server and required permissions for upgrade process for the underlying EMR platform.
 + Amazon S3 staging bucket used to upload upgrade artifacts and optional KMS key for Amazon S3 encryption.
 

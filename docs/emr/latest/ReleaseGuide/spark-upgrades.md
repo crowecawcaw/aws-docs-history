@@ -33,7 +33,7 @@ The AI assistant will orchestrate the upgrade using specialized tools provided b
 
 1. **Observability**: The agent tracks upgrade progress using EMR observability tools and allows users to view upgrade analyses and status at any time.
 
-Please refer to [Using Spark Upgrade Tools](emr-spark-upgrade-agent-tools.md) for a list of major tools for each steps.
+Please refer to [Using Spark Upgrade Tools](emr-spark-upgrade-agent-tools.md) for a list of major tools for each step.
 
 **Topics**
 + [Introduction](#emr-spark-upgrade-agent-intro)
@@ -42,7 +42,7 @@ Please refer to [Using Spark Upgrade Tools](emr-spark-upgrade-agent-tools.md) fo
 + [Using the Upgrade Agent](emr-spark-upgrade-agent-using.md)
 + [Features and Capabilities](emr-spark-upgrade-agent-features.md)
 + [Troubleshooting and Q&A](emr-spark-upgrade-agent-troubleshooting.md)
-+ [Spark Upgrade Agent Workflow In Details](emr-spark-upgrade-agent-workflow-details.md)
++ [Spark Upgrade Agent Workflow in Detail](emr-spark-upgrade-agent-workflow-details.md)
 + [Enable Data Quality Validation](emr-spark-upgrade-agent-data-quality-validation.md)
 + [Prompt Examples for the Spark Upgrade Agent](emr-spark-upgrade-agent-prompt-examples.md)
 + [Creating target EMR Cluster/EMR-S application from existing ones](emr-spark-upgrade-agent-target-cluster.md)

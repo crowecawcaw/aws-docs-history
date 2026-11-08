@@ -1,6 +1,6 @@
 
 
-# Spark Upgrade Agent Workflow In Details
+# Spark Upgrade Agent Workflow in Detail
 <a name="emr-spark-upgrade-agent-workflow-details"></a>
 
 To initiate the upgrade process, you will need the Spark application code cloned to your developer environment (locally or EC2 or [ Amazon SageMaker Unified Studio IDE Spaces](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/userguide/create-space.html)), preferably with Git version control initialized. Additionally, an EMR cluster running the target Spark version must be provisioned and accessible. Finally, a designated Amazon S3 bucket path should be configured to store deployment artifacts and upgrade summary throughout the upgrade process.
@@ -33,7 +33,7 @@ At this point, the agent will orchestrate the upgrade using specialized tools (f
 
 1. **Compile and Build**: The agent will make iterative changes to fix build errors until the application compiles and builds successfully.
 
-1. **Run unit and Integration Tests**: If the project has tests, the agent will run the tests after a successful build. If any tests fail, the agent will modify the source code iteratively until the tests pass before proceeding to EMR validation.
+1. **Run Unit and Integration Tests**: If the project has tests, the agent will run the tests after a successful build. If any tests fail, the agent will modify the source code iteratively until the tests pass before proceeding to EMR validation.
 
 1. **Runtime Fixes and Validation**: The agent will validate the application on the target EMR cluster and iteratively fix any runtime errors until validation is successful. Upon completion, you'll see a summary of all changes made for compatibility.
 

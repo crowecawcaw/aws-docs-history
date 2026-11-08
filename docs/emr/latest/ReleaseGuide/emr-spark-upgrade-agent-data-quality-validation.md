@@ -33,4 +33,4 @@ The workflow follows the same steps as the standard upgrade process with these a
 ## Data Quality Validation: Scope and Limitations
 <a name="emr-spark-upgrade-agent-data-quality-scope"></a>
 
-Data Quality Validation supports EMR-EC2 step using spark-submit command with Spark version >= 3.0 and the EMR cluster cannot have StepConcurrencyLevel > 1. The Data Quality Validation evaluates statistics at the Spark query plan's data sink nodes (Data source/Transforms's metadata are not captured) and covers common Spark write operations including file writes, database inserts, table creation, and various data source outputs.
+Data Quality Validation supports EMR-EC2 step using spark-submit command with Spark version >= 3.0 and the EMR cluster cannot have StepConcurrencyLevel > 1. The Data Quality Validation evaluates statistics at the Spark query plan's data sink nodes (Data source/Transform's metadata are not captured) and covers common Spark write operations including file writes, database inserts, table creation, and various data source outputs.

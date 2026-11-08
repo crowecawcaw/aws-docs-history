@@ -19,7 +19,7 @@
 ## What We Upgrade
 <a name="emr-spark-upgrade-agent-what-we-upgrade"></a>
 
-The upgrade agent provide comprehensive Spark application upgrades:
+The upgrade agent provides comprehensive Spark application upgrades:
 + **Build Configuration**: Automatically updates dependency management files (pom.xml, requirements.txt, etc.)
 + **Source Code**: Fixes API compatibility issues and deprecated method usage
 + **Test Code**: Ensures unit and integration tests work with the target Spark version

@@ -6,7 +6,7 @@
 ## Supported Deployment Modes
 <a name="emr-spark-upgrade-agent-deployment-modes"></a>
 
-Apache Spark Upgrade Agent for Amazon EMR support the following two deployment mode for the end-to-end Spark application upgrade experience including build file upgrade, script/dependency upgrade, local test and validation with target EMR cluster or EMR Serverless application, and data quality validation.
+Apache Spark Upgrade Agent for Amazon EMR supports the following two deployment modes for the end-to-end Spark application upgrade experience including build file upgrade, script/dependency upgrade, local test and validation with target EMR cluster or EMR Serverless application, and data quality validation.
 + EMR on EC2
 + EMR Serverless
 
@@ -23,7 +23,7 @@ On Amazon SageMaker Unified Studio VS Code Editor Spaces, you can configure the 
 ![Apache Spark Upgrade Agent](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/SparkUpgradeVSCodeEditor.png)
 
 
-A demonstration of the EMR on EC2 upgrade experience with SMUS VS code editor. It starts with a simple prompt to ask to the Agent start the Spark Upgrade process.
+A demonstration of the EMR on EC2 upgrade experience with SMUS VS code editor. It starts with a simple prompt asking the Agent to start the Spark Upgrade process.
 
 ```
 Upgrade my Spark application <local-project-path> from EMR version 6.0.0 to 7.12.0.   
@@ -54,7 +54,7 @@ A demonstration of the EMR Serverless upgrade experience with Kiro CLI. You can 
 
 ```
 Upgrade my Spark application <local-project-path> from EMR version 6.0.0 to 7.12.0.   
-Use EMR-Serverless Applicaion <application-id> and execution role <your EMR Serverless job execution role> to run the validation and s3 paths   
+Use EMR-Serverless Application <application-id> and execution role <your EMR Serverless job execution role> to run the validation and s3 paths   
 s3://<please fill in your staging bucket path> to store updated application artifacts.
 ```
 
@@ -67,7 +67,7 @@ s3://<please fill in your staging bucket path> to store updated application arti
 The [configuration](emr-spark-upgrade-agent-setup.md#spark-upgrade-agent-setup-resources) can also be used in other IDEs to connect to the Managed MCP server:
 + **Integration With Cline** - To use the MCP Server with Cline, modify the `cline_mcp_settings.json` and add the configuration above. Consult [Cline's documentation](https://docs.cline.bot/mcp/configuring-mcp-servers) for more information on how to manage MCP configuration.
 + **Integration With Claude Code** To use the MCP Server with Claude Code, modify the configuration file to include the MCP configuration. The file path varies depending on your operating system. Refer to [https://code.claude.com/docs/en/mcp](https://code.claude.com/docs/en/mcp) for detailed setup.
-+ **Integration With GitHub Copilot** - To use the MCP server with GitHub Copilot, follow the instruction in [ https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp/extend-copilot-chat-with-mcp](https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp/extend-copilot-chat-with-mcp) to modify the corresponding configuration file and follow the instructions per each IDE to activate the setup.
++ **Integration With GitHub Copilot** - To use the MCP server with GitHub Copilot, follow the instructions in [ https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp/extend-copilot-chat-with-mcp](https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp/extend-copilot-chat-with-mcp) to modify the corresponding configuration file and follow the instructions per each IDE to activate the setup.
 
 ## Setup EMR Cluster or EMR Serverless Application for the Target Version
 <a name="emr-spark-upgrade-agent-setup-target"></a>

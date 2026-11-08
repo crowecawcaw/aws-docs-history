@@ -10,24 +10,24 @@ The error message from the upgrade process is available in different ways for di
 
 **Topics**
 + [Error: SMUS Managed MCP server failed to load](#spark-upgrade-agent-mcp-server-failed)
-+ [Observation : Slow Tool Loading](#spark-upgrade-agent-slow-tool-loading)
++ [Observation: Slow Tool Loading](#spark-upgrade-agent-slow-tool-loading)
 + [Error: Tool Invocation Failed with Throttling Error](#spark-upgrade-agent-throttling-error)
 + [Error: Tool Responds With User Error](#spark-upgrade-agent-user-error)
 + [Error: Tool Responds With Internal Error](#spark-upgrade-agent-internal-error)
 
 ### Error: SMUS Managed MCP server failed to load
 <a name="spark-upgrade-agent-mcp-server-failed"></a>
-+  Verify your MCP configuration are properly configured. 
++  Verify your MCP configuration is properly configured. 
 + **Validate JSON syntax**:
   + Ensure your JSON is valid with no syntax errors
   + Check for missing commas, quotes, or brackets
 + Verify your local AWS credentials and verify the policy for the MCP IAM role are properly configured.
 + Run /mcp to verify MCP server availability for `Kiro-CLI` case
 
-### Observation : Slow Tool Loading
+### Observation: Slow Tool Loading
 <a name="spark-upgrade-agent-slow-tool-loading"></a>
 + Tools may take a few seconds to be loaded on first attempt of launching the server.
-+ If tools don't appear, try restarting the chat,
++ If tools don't appear, try restarting the chat.
 + Run `/tools` command to verify tool availability.
 + Run `/mcp` if the server is launched without error.
 
@@ -45,7 +45,7 @@ If you hit your service limit, please wait for a few seconds to issue a tool inv
 ### Error: Tool Responds With Internal Error
 <a name="spark-upgrade-agent-internal-error"></a>
 + If you see `The service is handling high-volume requests` please retry the tool invocation in a few seconds.
-+ If you see `INTERNAL SERVICE EXCEPTION` please document the analysis id, tool name, any error message available from the mcp log or tool response and optional sanitized conversation history and reach out to the AWS support.
++ If you see `INTERNAL SERVICE EXCEPTION` please document the analysis id, tool name, any error message available from the mcp log or tool response and optional sanitized conversation history and reach out to AWS Support.
 
 ## Q&A
 <a name="spark-upgrade-agent-qa"></a>

@@ -34,10 +34,10 @@ Describe the analysis with analysis id <analysis id>.
 Help me to update the generated upgrade plan to skip the local test step.
 ```
 
-## 4. Override the default configuration for a upgrade validation job execution
+## 4. Override the default configuration for an upgrade validation job execution
 <a name="emr-spark-upgrade-agent-override-config"></a>
 
 ```
-For submitting my EMR Severless validaiton job. I would like to use S3 logging instead  
+For submitting my EMR Serverless validation job. I would like to use S3 logging instead  
 of CW logging, and use this S3 path <S3 path prefix>.
 ```
