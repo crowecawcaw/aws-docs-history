@@ -272,6 +272,12 @@ For agreements where the manufacturer isn't the proposer, the following rules ap
 ## Requesting a bulk refund
 <a name="bulk-refund-process"></a>
 
+For refund requests involving 20 or more invoices or accounts, use the Billing Adjustments API instead of a support case. `BatchCreateBillingAdjustmentRequest` creates billing adjustment requests for up to 5 invoices per request. To process more invoices, submit multiple requests. For more information, see [Using the AWS Marketplace APIs](#scaba-apis).
+
+For step-by-step instructions and a sample tool that validates invoices and submits adjustments in bulk, see the [Bulk Billing Refund and Adjustment workshop](https://catalog.workshops.aws/mpseller/en-US/manage-refunds-and-cancellations-with-api/bulk-billing-refund-and-adjustment).
+
+If you can't complete your request through the API, for example because you don't have access to the seller account or you aren't the proposer of the agreement, submit a support case as described in [Requesting a refund or cancellation through AWS Support](#legacy-refund-process).
+
 You can also process billing adjustments programmatically using the Billing Adjustments API (`BatchCreateBillingAdjustmentRequest`), regardless of the number of invoices. See [Using the AWS Marketplace APIs](#scaba-apis).
 
 The following steps explain how to create refund requests involving 20\+ invoices or 20\+ accounts using a support case. This process streamlines large-scale refund requests and ensures that you provide the necessary information.

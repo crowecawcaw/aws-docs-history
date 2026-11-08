@@ -58,9 +58,12 @@ For more information about filtering, see [Filtering data in Quick](https://docs
 | Subscriber company name | The name of the account that subscribed to the product. | 
 | Subscriber AWS account ID | The ID of the account that subscribed to the product. | 
 | Subscriber country | The two-character country code associated with the account subscribed to the product. | 
-| Reseller company name | The name of the reseller account authorized to sell a product manufacturer's product. | 
-| Reseller AWS account ID | The ID of the account that purchased a product or service at wholesale from an ISV to resell to a customer. | 
-| Resale authorization ID | The ID of the account that purchased a product or service at wholesale from an ISV to resell to a customer. | 
+| Reseller company name | The name of the reseller account authorized to sell a product manufacturer's product. For distribution transactions, this field is not applicable. The value appears in Distributor company name in the granular data. | 
+| Reseller AWS account ID | The ID of the account that purchased a product or service at wholesale from an ISV to resell to a customer. For distribution transactions, this field is not applicable. The value appears in Distributor AWS account ID in the granular data. | 
+| Resale authorization ID | The unique identifier for a registered resale opportunity. For distribution transactions, this field is not applicable. The value appears in Distribution authorization ID in the granular data. | 
+| Distributor company name | The name of the distributor account, for distribution transactions. | 
+| Distributor AWS account ID | The ID of the distributor account, for distribution transactions. | 
+| Distribution authorization ID | The unique identifier for the distribution authorization that the ISV granted the distributor, for distribution transactions. | 
 | CPPO flag | A yes/no flag indicating whether an agreement was made using a channel partner private offer. If yes, the seller of record is the channel partner. If no, the seller of record is the product manufacturer (independent software vendor). | 
 
 ## Section 2: Filters
@@ -143,11 +146,17 @@ For more information about filtering, see [Exporting data from visuals](https://
 | Payer state or region | The billing address state associated with the account that paid for the product. | 
 | Payer country | The billing address country associated with the account that paid for the product. | 
 | Payer postal code | The billing address postal code associated with the account that paid for the product. | 
-| Reseller company name | The name of the account that purchased a product or service at wholesale cost from an ISV to resell to a customer. | 
-| Reseller AWS account ID | The ID of the account that purchased a product or service at wholesale cost from an ISV to resell to a customer. | 
-| Resale authorization ID | The unique identifier for a registered resale opportunity. | 
-| Resale authorization name | The unique name for a registered resale opportunity. | 
-| Resale authorization description | The description for a registered resale opportunity. | 
+| Reseller company name | The name of the account that purchased a product or service at wholesale cost from an ISV to resell to a customer. For distribution transactions, this field is not applicable. The value appears in Distributor company name in the granular data. | 
+| Distributor company name | The name of the distributor account that resold the product, in a distribution transaction. If the name isn't available, this field shows Not available. For all other transactions, this field is not applicable. | 
+| Reseller AWS account ID | The ID of the account that purchased a product or service at wholesale cost from an ISV to resell to a customer. For distribution transactions, this field is not applicable. The value appears in Distributor AWS account ID in the granular data. | 
+| Distributor AWS account ID | The ID of the distributor account that resold the product, in a distribution transaction. For all other transactions, this field is not applicable. | 
+| Resale authorization ID | The unique identifier for a registered resale opportunity. For distribution transactions, this field is not applicable. The value appears in Distribution authorization ID in the granular data. | 
+| Distribution authorization ID | The unique identifier for the distribution authorization that the ISV granted the distributor, in a distribution transaction. For all other transactions, this field is not applicable. | 
+| Resale authorization name | The unique name for a registered resale opportunity. For distribution transactions, this field is not applicable. The value appears in Distribution authorization name in the granular data. | 
+| Distribution authorization name | The name of the distribution authorization, in a distribution transaction. For all other transactions, this field is not applicable. | 
+| Resale authorization description | The description for a registered resale opportunity. For distribution transactions, this field is not applicable. The value appears in Distribution authorization description in the granular data. | 
+| Distribution authorization description | The description of the distribution authorization, in a distribution transaction. If the authorization has no description, or for all other transactions, this field is not applicable. | 
 | CPPO flag | A yes/no flag indicating whether an agreement was made using a channel partner private offer. If yes, the seller of record is the channel partner. If no, the seller of record is the product manufacturer (ISV). | 
+| Distribution flag | A yes/no flag indicating whether the transaction is a distribution transaction, in which a distributor resold the independent software vendor's (ISV's) product. If yes, the Distribution and Distributor fields identify the distribution authorization and the distributor. | 
 | ISV company name | The name of the product or service owner. | 
 | ISV AWS account ID |  The identifier of the product or service owner. | 

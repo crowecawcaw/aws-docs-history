@@ -6,7 +6,8 @@
 As a seller, you can use Amazon EventBridge to receive notifications for events in AWS Marketplace. For example, you can receive an *event* from AWS Marketplace when an offer is created. The *event* contains details like the ID, expiration date, and product details. EventBridge is an event bus service that you can use to connect your applications with data from a variety of sources. For more information, see the [*Amazon EventBridge User Guide*](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html). The following sections provide detailed information about events under the Marketplace Catalog service in the EventBridge console.
 
 **Topics**
-+ [Events for new offers](#events-offerreleased)
++ [Events for offers](#events-offerreleased)
++ [Events for selling authorizations](#events-sellingauthorizations)
 + [Events for change sets](#events-changesets)
 + [Events for security summary report](#events-security-report)
 + [Events for disbursements](#events-for-disbursements)
@@ -20,11 +21,14 @@ This topic
 
 | Action by seller | Event received | Related topic | 
 | --- | --- | --- | 
-| Independent software vendor (ISV) creates an offer and makes it available for purchase | Offer Released | [Events for new offers](#events-offerreleased) | 
-| ISV's product is used by a channel partner to create an offer | Offer Released | [Events for new offers](#events-offerreleased) | 
-| Channel partner creates an offer | Offer Released | [Events for new offers](#events-offerreleased) | 
-| ISV creates a new offer set | OfferSet Released | [Events for new offers](#events-offerreleased) | 
-| Channel partner creates a new offer set | OfferSet Released | [Events for new offers](#events-offerreleased) | 
+| Independent software vendor (ISV) creates an offer and makes it available for purchase | Offer Released | [Events for offers](#events-offerreleased) | 
+| Another seller creates an offer from a selling authorization that the ISV issued | Offer Released | [Events for offers](#events-offerreleased) | 
+| A seller creates an offer from a selling authorization that it received | Offer Released | [Events for offers](#events-offerreleased) | 
+| ISV creates a new offer set | OfferSet Released | [Events for offers](#events-offerreleased) | 
+| Channel partner creates a new offer set | OfferSet Released | [Events for offers](#events-offerreleased) | 
+| A seller publishes a selling authorization | Resale Authorization Released | [Events for selling authorizations](#events-sellingauthorizations) | 
+| The recipient of an ISV's selling authorization uses it to publish a selling authorization to another partner | Resale Authorization Released | [Events for selling authorizations](#events-sellingauthorizations) | 
+| A selling authorization is restricted and can no longer be used to create selling authorizations or offers | Resale Authorization Restricted | [Events for selling authorizations](#events-sellingauthorizations) | 
 | Change set succeeds | Change Set Succeeded | [Events for change sets](#events-changesets) | 
 | Change set fails | Change Set Failed | [Events for change sets](#events-changesets) | 
 | Change set is cancelled | Change Set Cancelled | [Events for change sets](#events-changesets) | 
@@ -50,10 +54,10 @@ This topic
 | Billing adjustment for an agreement where the ISV isn't the proposer is processed | Purchase Agreement Billing Adjustment Completed - Manufacturer | [Events for billing adjustments](#events-for-billing-adjustments) | 
 | Billing adjustment fails validation | Purchase Agreement Billing Adjustment Failed - Proposer | [Events for billing adjustments](#events-for-billing-adjustments) | 
 
-## Events for new offers
+## Events for offers
 <a name="events-offerreleased"></a>
 
-When sellers create an offer and make it available for purchase, they can receive an event with the following detail type: `Offer Released`. 
+When an offer is published, the proposer receives an event with the following detail type: `Offer Released`. If the manufacturer isn't the proposer, the manufacturer also receives the event.
 
 **Note**  
 For information on creating EventBridge rules, see [Amazon EventBridge rules](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rules.html) in the *Amazon EventBridge User Guide*.
@@ -102,7 +106,7 @@ The following is an example event body for a new offer created by an ISV.
 }
 ```
 
-The following is an example event body for when an ISV's product is used by a channel partner to create an offer.
+When another seller creates an offer from a selling authorization that the manufacturer issued, the manufacturer's event includes an `issuedAuthorization` object that describes that selling authorization. The following JSON example shows the event body that the manufacturer receives:
 
 ```
 {
@@ -139,12 +143,26 @@ The following is an example event body for when an ISV's product is used by a ch
       "name": "Seller Account Name"
     },
     "targetedBuyerAccountIds": ["999988887777", "111122223333"],
+    "issuedAuthorization": {
+      "resaleAuthorization": {
+        "id": "resaleauthz-1a2b3c4d5e6f7",
+        "arn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ResaleAuthorization/resaleauthz-1a2b3c4d5e6f7",
+        "name": "Example selling authorization",
+        "issuer": {
+          "accountId": "123456789012",
+          "name": "Manufacturer Account Name"
+        },
+        "recipient": {
+          "accountId": "987654321098",
+          "name": "Seller Account Name"
+        }
+      }
     }
   }
 }
 ```
 
-The following is an example event body for when a channel partner creates an offer.
+When the proposer creates an offer from a selling authorization that it received, the proposer's event includes a `receivedAuthorization` object that describes that selling authorization. The following JSON example shows the event body that the proposer receives:
 
 ```
 {
@@ -181,12 +199,28 @@ The following is an example event body for when a channel partner creates an off
       "name": "Seller Account Name"
     },
     "targetedBuyerAccountIds": ["999988887777", "111122223333"],
+    "receivedAuthorization": {
+      "resaleAuthorization": {
+        "id": "resaleauthz-1a2b3c4d5e6f7",
+        "arn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ResaleAuthorization/resaleauthz-1a2b3c4d5e6f7",
+        "name": "Example selling authorization",
+        "issuer": {
+          "accountId": "123456789012",
+          "name": "Manufacturer Account Name"
+        },
+        "recipient": {
+          "accountId": "987654321098",
+          "name": "Seller Account Name"
+        }
+      }
     }
   }
 }
 ```
 
-The following is an example event body for a new offer set published by a partners (ISV or Channel partner).
+The `issuedAuthorization` and `receivedAuthorization` objects each contain a `resaleAuthorization` object with the selling authorization's `id`, `arn`, and `name`, and the AWS account ID and name of its `issuer` and `recipient`. If the selling authorization reached the proposer through another partner, the manufacturer's `issuedAuthorization` describes the selling authorization that the manufacturer issued to that partner, and the proposer's `receivedAuthorization` describes the selling authorization that the proposer received from that partner. 
+
+The following is an example event body for a new offer set published by a seller.
 
 ```
 {
@@ -218,6 +252,157 @@ The following is an example event body for a new offer set published by a partne
       },
       ...
     ]
+  }
+}
+```
+
+## Events for selling authorizations
+<a name="events-sellingauthorizations"></a>
+
+When a selling authorization is published, the issuer and the recipient of the selling authorization receive an event with the following detail type: `Resale Authorization Released`. When a selling authorization is restricted, they receive an event with the detail type `Resale Authorization Restricted`. The source for these events is `aws.marketplacecatalog`.
+
+The `resaleAuthorization` object describes the published selling authorization: its `id`, `arn`, and `name`, and the AWS account ID and name of its `issuer` and `recipient`.
+
+The following JSON example shows the event body that the issuer and the recipient receive when a manufacturer publishes a selling authorization:
+
+```
+{
+  "version": "0",
+  "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+  "detail-type": "Resale Authorization Released",
+  "source": "aws.marketplacecatalog",
+  "account": "<issuer's or recipient's account id>",
+  "time": "2023-08-26T00:00:00Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ResaleAuthorization/resaleauthz-1a2b3c4d5e6f7"
+  ],
+  "detail": {
+    "requestId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+    "catalog": "AWSMarketplace",
+    "resaleAuthorization": {
+      "id": "resaleauthz-1a2b3c4d5e6f7",
+      "arn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ResaleAuthorization/resaleauthz-1a2b3c4d5e6f7",
+      "name": "Example selling authorization",
+      "issuer": {
+        "accountId": "123456789012",
+        "name": "Manufacturer Account Name"
+      },
+      "recipient": {
+        "accountId": "987654321098",
+        "name": "Partner Account Name"
+      }
+    },
+    "product": {
+      "id": "bbbbaaaa-abcd-1111-abcd-666666666666",
+      "arn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/SaaSProduct/bbbbaaaa-abcd-1111-abcd-666666666666",
+      "title": "Product-1"
+    },
+    "manufacturer": {
+      "accountId": "123456789012",
+      "name": "Manufacturer Account Name"
+    }
+  }
+}
+```
+
+When the recipient of a manufacturer's selling authorization uses it to publish a selling authorization to another partner, the manufacturer also receives a `Resale Authorization Released` event. In that event, `resaleAuthorization` describes the new selling authorization, and `issuedAuthorization` describes the selling authorization that the manufacturer issued. The following JSON example shows the event body that the manufacturer receives:
+
+```
+{
+  "version": "0",
+  "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+  "detail-type": "Resale Authorization Released",
+  "source": "aws.marketplacecatalog",
+  "account": "<manufacturer's account id>",
+  "time": "2023-08-26T00:00:00Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:aws-marketplace:us-east-1:987654321098:AWSMarketplace/ResaleAuthorization/resaleauthz-yaxjqxiskysxa"
+  ],
+  "detail": {
+    "requestId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+    "catalog": "AWSMarketplace",
+    "resaleAuthorization": {
+      "id": "resaleauthz-yaxjqxiskysxa",
+      "arn": "arn:aws:aws-marketplace:us-east-1:987654321098:AWSMarketplace/ResaleAuthorization/resaleauthz-yaxjqxiskysxa",
+      "name": "Example partner selling authorization",
+      "issuer": {
+        "accountId": "987654321098",
+        "name": "Partner Account Name"
+      },
+      "recipient": {
+        "accountId": "444455556666",
+        "name": "Seller Account Name"
+      }
+    },
+    "issuedAuthorization": {
+      "resaleAuthorization": {
+        "id": "resaleauthz-1a2b3c4d5e6f7",
+        "arn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ResaleAuthorization/resaleauthz-1a2b3c4d5e6f7",
+        "name": "Example selling authorization",
+        "issuer": {
+          "accountId": "123456789012",
+          "name": "Manufacturer Account Name"
+        },
+        "recipient": {
+          "accountId": "987654321098",
+          "name": "Partner Account Name"
+        }
+      }
+    },
+    "product": {
+      "id": "bbbbaaaa-abcd-1111-abcd-666666666666",
+      "arn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/SaaSProduct/bbbbaaaa-abcd-1111-abcd-666666666666",
+      "title": "Product-1"
+    },
+    "manufacturer": {
+      "accountId": "123456789012",
+      "name": "Manufacturer Account Name"
+    }
+  }
+}
+```
+
+When a selling authorization is restricted, the issuer and the recipient of the selling authorization receive an event with the following detail type: `Resale Authorization Restricted`. A restricted selling authorization can no longer be used to create selling authorizations or offers. The `resaleAuthorization` object describes the restricted selling authorization, with the same fields as in the `Resale Authorization Released` event. The following JSON example shows the event body that the issuer and the recipient receive:
+
+```
+{
+  "version": "0",
+  "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE66666",
+  "detail-type": "Resale Authorization Restricted",
+  "source": "aws.marketplacecatalog",
+  "account": "<issuer's or recipient's account id>",
+  "time": "2023-08-26T00:00:00Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ResaleAuthorization/resaleauthz-1a2b3c4d5e6f7"
+  ],
+  "detail": {
+    "requestId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE77777",
+    "catalog": "AWSMarketplace",
+    "resaleAuthorization": {
+      "id": "resaleauthz-1a2b3c4d5e6f7",
+      "arn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ResaleAuthorization/resaleauthz-1a2b3c4d5e6f7",
+      "name": "Example selling authorization",
+      "issuer": {
+        "accountId": "123456789012",
+        "name": "Manufacturer Account Name"
+      },
+      "recipient": {
+        "accountId": "987654321098",
+        "name": "Partner Account Name"
+      }
+    },
+    "product": {
+      "id": "bbbbaaaa-abcd-1111-abcd-666666666666",
+      "arn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/SaaSProduct/bbbbaaaa-abcd-1111-abcd-666666666666",
+      "title": "Product-1"
+    },
+    "manufacturer": {
+      "accountId": "123456789012",
+      "name": "Manufacturer Account Name"
+    }
   }
 }
 ```

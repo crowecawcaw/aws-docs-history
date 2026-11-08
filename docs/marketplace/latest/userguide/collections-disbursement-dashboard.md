@@ -54,10 +54,13 @@ For more information about filtering, see [Filtering data on Quick](https://docs
 | Disbursement status | A status associated with an invoice to confirm that AWS has disbursed no funds, partial or all funds to your bank account. Possible statuses are: Disbursed, Partially disbursed, Failed, Not disbursed. | 
 | Payer AWS account ID | The ID of the account that the charges are billed to. | 
 | Payer company name | The business name of the account that the charges are billed to. | 
-| Reseller company | The business name of the reseller account authorized to sell a software manufacturer's product. | 
-| Reseller AWS account ID | The ID of the account that purchased a product or service at wholesale from an ISV to resell to a customer. | 
-| Resale authorization ID | The unique identifier for a registered opportunity. | 
-| Resale authorization name | The unique name for a registered opportunity. | 
+| Reseller company | The business name of the reseller account authorized to sell a software manufacturer's product. For distribution transactions, this field is not applicable. The value appears in Distributor company name in the granular data. | 
+| Reseller AWS account ID | The ID of the account that purchased a product or service at wholesale from an ISV to resell to a customer. For distribution transactions, this field is not applicable. The value appears in Distributor AWS account ID in the granular data. | 
+| Resale authorization ID | The unique identifier for a registered opportunity. For distribution transactions, this field is not applicable. The value appears in Distribution authorization ID in the granular data. | 
+| Resale authorization name | The unique name for a registered opportunity. For distribution transactions, this field is not applicable. The value appears in Distribution authorization name in the granular data. | 
+| Distributor company name | The name of the distributor account, for distribution transactions. | 
+| Distributor AWS account ID | The ID of the distributor account, for distribution transactions. | 
+| Distribution authorization ID | The unique identifier for the distribution authorization that the ISV granted the distributor, for distribution transactions. | 
 | Subscriber country | The two-character country code associated with the account subscribed to the product. | 
 | Subscriber state or region | The billing address state or region associated with the account subscribed to the product. | 
 | Transaction reference ID | A unique identifier for the transaction that helps you correlate transactions across AWS Marketplace legacy reports. | 
@@ -164,11 +167,16 @@ For information about how to export and download data from a Quick table, see [E
 | Currency | The currency of the transaction. For example, if the transaction is in US dollars, the entry is USD. | 
 | Transaction reference ID | A unique identifier that represents the transaction, which you can use to correlate transactions across AWS Marketplace reports. | 
 | AWS seller of record | An identifier of the business entity which facilitated the transaction. Possible values are as follows:+  AWS\_INC: The identifier for AWS, Inc. (based in the United States) <br />+  AWS\_EUROPE: The identifier for AWS EMEA SARL (based in Luxembourg) <br />+  AWS Australia Pty Ltd (AWS Australia) <br />+  AWS Japan G.K. <br />+  AWS\_KOREA <br />+  AWS\_SBL: The identifier for Amazon AWS Serviços Brasil Ltda. (based in Brazil)  | 
-| Resale authorization ID | The unique identifier for a registered opportunity. | 
-| Resale authorization name | The unique name for a registered opportunity. | 
-| Resale authorization description | The ISV-defined description for a registered opportunity. | 
-| Reseller company name | The name of the account that purchased a product or service at wholesale cost from an ISV to resell to a customer. | 
-| Reseller AWS account ID | The ID of the account that purchased a product or service at wholesale cost from an ISV to resell to a customer.  | 
+| Resale authorization ID | The unique identifier for a registered opportunity. For distribution transactions, this field is not applicable. The value appears in Distribution authorization ID in the granular data. | 
+| Distribution authorization ID | The unique identifier for the distribution authorization that the ISV granted the distributor, in a distribution transaction. For all other transactions, this field is not applicable. | 
+| Resale authorization name | The unique name for a registered opportunity. For distribution transactions, this field is not applicable. The value appears in Distribution authorization name in the granular data. | 
+| Distribution authorization name | The name of the distribution authorization, in a distribution transaction. For all other transactions, this field is not applicable. | 
+| Resale authorization description | The ISV-defined description for a registered opportunity. For distribution transactions, this field is not applicable. The value appears in Distribution authorization description in the granular data. | 
+| Distribution authorization description | The description of the distribution authorization, in a distribution transaction. If the authorization has no description, or for all other transactions, this field is not applicable. | 
+| Reseller company name | The name of the account that purchased a product or service at wholesale cost from an ISV to resell to a customer. For distribution transactions, this field is not applicable. The value appears in Distributor company name in the granular data. | 
+| Distributor company name | The name of the distributor account that resold the product, in a distribution transaction. If the name isn't available, this field shows Not available. For all other transactions, this field is not applicable. | 
+| Reseller AWS account ID | The ID of the account that purchased a product or service at wholesale cost from an ISV to resell to a customer. For distribution transactions, this field is not applicable. The value appears in Distributor AWS account ID in the granular data. | 
+| Distributor AWS account ID | The ID of the distributor account that resold the product, in a distribution transaction. For all other transactions, this field is not applicable. | 
 | Payer company name | The name of the account that the charges are billed to. | 
 | Payer AWS account ID | The ID of the account that the charges are billed to. | 
 | Payer email domain | The email domain that is associated with the account that the charges are billed to. For example, if the email address is liu-jie@example.com, the entry is example.com. | 

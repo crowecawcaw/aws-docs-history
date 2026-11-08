@@ -42,12 +42,17 @@ When an AWS Marketplace Channel Partner creates an offer set that includes an IS
 
 | Email | Event | Recipient | Title | Fields | 
 | --- | --- | --- | --- | --- | 
-| Offer Published CP Notification CPPO | Publication of AWS Marketplace Channel Partner private offer. | Channel partner | AWS Marketplace Channel Partner private offer published | Customer AWS account ID, ISV name, ISV AWS Account ID, Product name, Product ID, Offer ID, Opportunity ID, Offer published date, Offer expiration date | 
-| Offer Published ISV Notification CPPO | Publication of AWS Marketplace Channel Partner private offer. | ISV | AWS Marketplace Channel Partner private offer published | Customer AWS account IDs, Channel partner, Channel partner AWS account ID, Product name, Product ID, Offer name, Offer ID, Opportunity ID, Offer published date, Offer expiration date, Wholesale price | 
+| Offer Published: offer created from a received selling authorization | The proposer publishes an offer from a selling authorization that it received. | Proposer | Offer Published | Customer company name, Customer AWS account ID, Product name, Product ID, Manufacturer name, Manufacturer AWS account ID, Offer name, Offer ID, Offer published date, Offer expiration date, Received selling authorization ID, Received selling authorization name, Issuer name, and Issuer AWS account ID | 
+| Offer Published: manufacturer isn't the proposer | Another seller publishes an offer from a selling authorization that the manufacturer issued. | Manufacturer (if different from Proposer) | Offer Published | Customer company name, Customer AWS account ID, Product name, Product ID, Manufacturer name, Manufacturer AWS account ID, Offer name, Offer ID, Offer published date, Offer expiration date, Issued selling authorization ID, Issued selling authorization name, Recipient name, and Recipient AWS account ID | 
 | OfferPubISVNotificationSCPO-1.0 | Seller publishes an AWS Marketplace Channel Partner private offer. | ISV or AWS Marketplace Channel Partner | Private offer published | Customer AWS Account IDs, Product Name, Product ID, Offer Name, Offer ID, Offer Published Date, Offer Expiration Date, Total Contract Value | 
 | Reseller Opportunity Expired | AWS Marketplace Channel Partner selling authorization expires. | AWS Marketplace Channel Partner | Offers: View expired selling authorization | ISV, Product Name, Product ID | 
 | Reseller Opportunity Revoked | ISV revokes AWS Marketplace Channel Partner selling authorization. | AWS Marketplace Channel Partner | Offers: View deactivated selling authorization | ISV, Product Name, Product ID | 
 | Reseller Opportunity Created | ISV creates a selling authorization or opportunity for the AWS Marketplace Channel Partner. | AWS Marketplace Channel Partner | Offers: Create private offer for new selling authorization | ISV, Product Name, Product ID, Selling authorization duration | 
+| Selling Authorization Published: issuer | A seller publishes a selling authorization. | Issuer of the selling authorization | Selling Authorization Published | Product name, Product ID, Manufacturer name, Manufacturer AWS account ID, Authorization ID, Authorization name, Authorization expiration date (if set), Recipient name, and Recipient AWS account ID | 
+| Selling Authorization Published: recipient | A seller publishes a selling authorization. | Recipient of the selling authorization | Selling Authorization Published | Product name, Product ID, Manufacturer name, Manufacturer AWS account ID, Authorization ID, Authorization name, Authorization expiration date (if set), Issuer name, and Issuer AWS account ID | 
+| Selling Authorization Published: downstream authorization | The recipient of the ISV's selling authorization uses it to publish a selling authorization to another partner. | Manufacturer | Selling Authorization Published | Product name, Product ID, Manufacturer name, Manufacturer AWS account ID, Published authorization ID, Published authorization name, Published authorization expiration date (if set), ID and name of the selling authorization issued by you, Recipient name, and Recipient AWS account ID | 
+| Selling Authorization Restricted: issuer | A selling authorization is restricted and can no longer be used to create selling authorizations or offers. | Issuer of the selling authorization | Selling Authorization Restricted | Product name, Product ID, Manufacturer name, Manufacturer AWS account ID, Authorization ID, Authorization name, Recipient name, and Recipient AWS account ID | 
+| Selling Authorization Restricted: recipient | A selling authorization is restricted and can no longer be used to create selling authorizations or offers. | Recipient of the selling authorization | Selling Authorization Restricted | Product name, Product ID, Manufacturer name, Manufacturer AWS account ID, Authorization ID, Authorization name, Issuer name, and Issuer AWS account ID | 
 | Offer Set Published | Seller publishes an offer set. | ISV or AWS Marketplace Channel Partner | Offer Set Published | Offer set ID, Offer set name, Offer ID(s), Offer name(s) | 
 
 ### Agreements
@@ -189,8 +194,19 @@ The following table shows descriptions of the fields referred to in the [Offers 
 | Wholesale price | The wholesale cost from an ISV to resell a product to the AWS Marketplace Channel Partner. | 
 | Proposer name | Name of the account that created the offer that the buyer accepted. | 
 | Proposer AWS account ID | ID of the AWS account that created the offer that the buyer accepted. | 
-| Issued selling authorization ID | ID of the selling authorization that the ISV issued for the product in the agreement. | 
+| Issued selling authorization ID | ID of the selling authorization that the ISV issued for the product. | 
 | Recipient AWS account ID | ID of the AWS account that the ISV issued the selling authorization to. | 
+| Manufacturer name | Name of the manufacturer of the product. | 
+| Manufacturer AWS account ID | ID of the manufacturer's AWS account. | 
+| Issued selling authorization name | Name of the selling authorization that you issued for the product. | 
+| Received selling authorization ID | ID of the selling authorization that you received for the product. | 
+| Received selling authorization name | Name of the selling authorization that you received for the product. | 
+| Issuer name | Name of the account that issued the selling authorization. | 
+| Issuer AWS account ID | ID of the AWS account that issued the selling authorization. | 
+| Recipient name | Name of the account that received the selling authorization. | 
+| Authorization ID, Authorization name | ID and name of the selling authorization that was published or restricted. | 
+| Authorization expiration date | The date the published selling authorization expires. Included only when the selling authorization has an expiration date. | 
+| Published authorization ID, Published authorization name, Published authorization expiration date | ID, name, and expiration date of the selling authorization that the recipient of your selling authorization published to another partner. The expiration date is included only when that selling authorization has one. | 
 | Wholesale contract value | The wholesale cost of the agreement, with its currency code. In ISV emails, this is the cost under the selling authorization that the ISV issued. In proposer emails, this is the cost under the selling authorization that the proposer received. | 
 | Purchase agreement contract value | The estimated cost of the agreement to the buyer, with its currency code. | 
 | Currency code | The offer pricing currency associated with the estimated cost of the agreement. | 

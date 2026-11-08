@@ -91,6 +91,7 @@ Agree to the AWS Brazil 2P Distribution Program seller terms and create a distri
   + Buyer installment plan (if applicable)
   + Authorization availability
   + Buyer account ID
++ After AWS Brazil receives your distribution authorization, it creates the private offer within 3 business days. The private offer uses the same expiration date you set in the distribution authorization. To give the customer enough time to review and accept the offer, set an expiration date well beyond 3 business days from when you submit the authorization.
 
 You can also create the distribution authorization to AWS Brazil through the [AWS Marketplace Catalog API](https://docs.aws.amazon.com/marketplace/latest/developerguide/work-with-resale-authorizations.html).
 

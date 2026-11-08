@@ -40,10 +40,13 @@ For more information about filtering, see [Filtering data on Quick](https://docs
 | ISV company name | The business name of the product or service owner. | 
 | Legacy product ID | The legacy unique identifier for the software product. | 
 | Product title | The title of the product. | 
-| Resale authorization ID | The ID of the resale authorization provided by the ISV to the channel partner. | 
-| Resale authorization name | The name of the resale authorization provided by the ISV to the channel partner. | 
-| Reseller AWS account ID | The ID of the account that purchased a product or service at wholesale from an ISV to resell to a customer. | 
-| Reseller company name | The business name of the reseller account authorized to sell a software manufacturer's product. | 
+| Resale authorization ID | The ID of the resale authorization provided by the ISV to the channel partner. For distribution transactions, this field is not applicable. The value appears in Distribution authorization ID in the granular data. | 
+| Resale authorization name | The name of the resale authorization provided by the ISV to the channel partner. For distribution transactions, this field is not applicable. The value appears in Distribution authorization name in the granular data. | 
+| Reseller AWS account ID | The ID of the account that purchased a product or service at wholesale from an ISV to resell to a customer. For distribution transactions, this field is not applicable. The value appears in Distributor AWS account ID in the granular data. | 
+| Reseller company name | The business name of the reseller account authorized to sell a software manufacturer's product. For distribution transactions, this field is not applicable. The value appears in Distributor company name in the granular data. | 
+| Distributor company name | The name of the distributor account, for distribution transactions. | 
+| Distributor AWS account ID | The ID of the distributor account, for distribution transactions. | 
+| Distribution authorization ID | The unique identifier for the distribution authorization that the ISV granted the distributor, for distribution transactions. | 
 | Subscriber country | The two-character country code associated with the account subscribed to the product. | 
 | Subscriber state or region | The billing address state or region associated with the account subscribed to the product. | 
 | Subscriber city | The billing address city associated with the account subscribed to the product. | 
@@ -108,12 +111,18 @@ For more information about how to export and download data from a Quick table, s
 | Agreement Term Types |  The types of terms associated with and accepted by the acceptor during agreement creation. | 
 | Estimated agreement value | The estimated cost of the agreement otherwise known as "Total contract value" OR "Purchase amount". This applies to the following Product types: SaaS, Professional Services, and Server, and Contract or Annual pricing types. | 
 | Currency code | The offer pricing currency associated with the estimated cost of the agreement. | 
-| Reseller company name | The name of the account that purchased a product or service at wholesale cost from an ISV to resell to a customer. | 
-| Reseller AWS account ID | The ID of the account that purchased a product or service at wholesale cost from an ISV to resell to a customer. | 
-| Resale authorization ID | The unique identifier for a registered opportunity. | 
-| Resale authorization name | The unique name for a registered opportunity. | 
-| Resale authorization description | The ISV-defined description for a registered opportunity. | 
+| Reseller company name | The name of the account that purchased a product or service at wholesale cost from an ISV to resell to a customer. For distribution transactions, this field is not applicable. The value appears in Distributor company name in the granular data. | 
+| Distributor company name | The name of the distributor account that resold the product, in a distribution transaction. If the name isn't available, this field shows Not available. For all other transactions, this field is not applicable. | 
+| Reseller AWS account ID | The ID of the account that purchased a product or service at wholesale cost from an ISV to resell to a customer. For distribution transactions, this field is not applicable. The value appears in Distributor AWS account ID in the granular data. | 
+| Distributor AWS account ID | The ID of the distributor account that resold the product, in a distribution transaction. For all other transactions, this field is not applicable. | 
+| Resale authorization ID | The unique identifier for a registered opportunity. For distribution transactions, this field is not applicable. The value appears in Distribution authorization ID in the granular data. | 
+| Distribution authorization ID | The unique identifier for the distribution authorization that the ISV granted the distributor, in a distribution transaction. For all other transactions, this field is not applicable. | 
+| Resale authorization name | The unique name for a registered opportunity. For distribution transactions, this field is not applicable. The value appears in Distribution authorization name in the granular data. | 
+| Distribution authorization name | The name of the distribution authorization, in a distribution transaction. For all other transactions, this field is not applicable. | 
+| Resale authorization description | The ISV-defined description for a registered opportunity. For distribution transactions, this field is not applicable. The value appears in Distribution authorization description in the granular data. | 
+| Distribution authorization description | The description of the distribution authorization, in a distribution transaction. If the authorization has no description, or for all other transactions, this field is not applicable. | 
 | CPPO flag | Calculated field in Quick. | 
+| Distribution flag | A yes/no flag indicating whether the transaction is a distribution transaction, in which a distributor resold the independent software vendor's (ISV's) product. If yes, the Distribution and Distributor fields identify the distribution authorization and the distributor. | 
 | Agreement intent | Populates if the current agreement was a renewal or upgrade of a previous agreement that’s provided in the previous agreement\_id column. Possible values include:+  **Upgrade:** For private offers, upgrade is a broad term for any modification (upgrade, downgrade, amend, expand, renew). For public offers, an upgrade is a specific agreement to change terms (use a different offer) resulting in a new agreement, and the specific agreement is archived. <br />+  **Renew:** For public offers only. When a renewal agreement has start date as the specific agreement's end date and the offer ID hasn't changed but the agreement ID changed. For example, agreement A has become agreement B. <br />+  **Auto-renew:** For public offers only. When a new agreement is created when current agreement ends. The buyer has **auto-renew** turned on. <br />+  **New:** The buyer has accepted the terms (using the offer) and subscribed to a new agreement.  | 
 | Previous agreement ID | Agreement reference if this agreement was renewed or upgraded. | 
 | Next agreement ID | Agreement ID of the next agreement if the current agreement was renewed or upgraded. | 

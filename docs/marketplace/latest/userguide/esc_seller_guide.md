@@ -129,28 +129,51 @@ Sellers who have registered as an AWS Marketplace in the AWS ESC seller and have
 
 Please refer to [SaaS-based products](https://docs.aws.amazon.com/marketplace/latest/userguide/saas-products.html) and [diff doc](https://docs.aws.eu/esc/latest/userguide/marketplace.html) for further reference.
 
-### AMI-based products
+### AMI-based products (including AMI-CFT)
 <a name="ami-products-esc"></a>
 
-Amazon Machine Images with various pricing options: Free, Paid hourly or hourly annual.
+AMI-based products include Amazon Machine Images (AMIs) and AMIs with an AWS CloudFormation template (AMI-CFT). AMI-based products support the following pricing options: Free, paid hourly, and hourly annual.
 
-Sellers who have registered as an AWS Marketplace in the AWS ESC seller and have created an AWS ESC account (see [Multi-Catalog for Marketplace sellers](https://docs.aws.amazon.com/marketplace/latest/userguide/multi_catalog.html) for more information), can start listing their AMI products.
+Sellers who have registered as AWS Marketplace sellers in the AWS ESC and have created an AWS ESC account (see [Multi-Catalog for Marketplace sellers](https://docs.aws.amazon.com/marketplace/latest/userguide/multi_catalog.html) for more information) can start listing their AMI products. To list an AMI-based product, complete the following steps:
 
-1. List your product in AWS Partner Central under Build - Server Products
+1. List your product in AWS Partner Central under **Build - Server Products**.
 
-1. Select the "aws-eusc" catalog before creating
+1. Select the `aws-eusc` catalog before you create your product listing.
 
-1. Complete the 9-step wizard to generate your product ID/code
+1. Complete the 9-step wizard to generate your product ID and product code.
 
-1. Pricing in EUR - public listings must use EUR; while private offers may use EUR or USD
+1. Set pricing in EUR. Public listings must use EUR, and private offers can use EUR or USD.
 
-1. Test end-to-end in the ESC console: subscribe to and launch your product in the ESC partition to validate all use cases. Modify if needed using either the ESC or commercial partition
+1. Test end-to-end in the ESC console. Subscribe to and launch your product in the ESC partition to validate all use cases. If needed, modify your product in either the ESC partition or the commercial partition.
 
-1. Go public: If you created any test versions, make sure to restrict them first, and then set product visibility to Public with EUR pricing
+1. Go public. If you created any test versions, restrict them first. Then set the product visibility to **Public** with EUR pricing.
 
-1. Submit for AWS Marketplace Seller Operations team review
+1. Submit your product for review by the AWS Marketplace Seller Operations team.
 
-Please refer to [AMI-based products](https://docs.aws.amazon.com/marketplace/latest/userguide/ami-products.html) and [diff doc](https://docs.aws.eu/esc/latest/userguide/marketplace.html) for further reference.
+For more information, see [AMI-based products](https://docs.aws.amazon.com/marketplace/latest/userguide/ami-products.html) and [AWS Marketplace in the AWS European Sovereign Cloud](https://docs.aws.eu/esc/latest/userguide/marketplace.html).
+
+### Container products
+<a name="container-products-esc"></a>
+
+Container products are software packaged as container images that buyers deploy on AWS container services such as Amazon ECS and Amazon EKS. Container products support the following pricing options: Free, hourly, hourly annual, usage-based, Bring Your Own License (BYOL), and monthly.
+
+Sellers who have registered as AWS Marketplace sellers in the AWS ESC and have created an AWS ESC account (see [Multi-Catalog for Marketplace sellers](https://docs.aws.amazon.com/marketplace/latest/userguide/multi_catalog.html) for more information) can start listing their container products. To list a container product, complete the following steps:
+
+1. List your product in AWS Partner Central under **Build - Server Products**.
+
+1. Select the `aws-eusc` catalog before you create your product listing.
+
+1. Complete the 9-step wizard to generate your product ID and product code.
+
+1. Set pricing in EUR. Public listings must use EUR, and private offers can use EUR or USD.
+
+1. Test end-to-end in the ESC console. Subscribe to and launch your product in the ESC partition to validate all use cases. If needed, modify your product in either the ESC partition or the commercial partition.
+
+1. Go public. If you created any test versions, restrict them first. Then set the product visibility to **Public** with EUR pricing.
+
+1. Submit your product for review by the AWS Marketplace Seller Operations team.
+
+For more information, see [Container-based products](https://docs.aws.amazon.com/marketplace/latest/userguide/container-based-products.html).
 
 Additional product types may be supported in the future. Check AWS Marketplace for current product type availability in ESC.
 
