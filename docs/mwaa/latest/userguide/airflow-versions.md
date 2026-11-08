@@ -34,7 +34,7 @@ Effective December 30, 2025, Amazon MWAA will end support for Apache Airflow ver
 Beginning with Apache Airflow v2.2.2, Amazon MWAA supports installing Python requirements, provider packages, and custom plugins directly on the Apache Airflow webserver.
  Beginning with Apache Airflow v2.7.2, your requirements file must include a `--constraint` statement. If you don't provide a constraint, Amazon MWAA will specify one for you to ensure the packages listed in your requirements are compatible with the version of Apache Airflow you're using.   
 For more information about setting up constraints in your requirements file, refer to [Installing Python dependencies](working-dags-dependencies.md#working-dags-dependencies-syntax-create).
-Amazon MWAA does not currently support [multi-team mode](https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#multi-team). Enabling this feature is incompatible with Amazon MWAA authentication, the `CeleryExecutor`, and environment-level secrets management.
+Starting with Apache Airflow 3.3.1, Amazon MWAA supports multi-team environments. For more information, see [Multi-team environments](multi-team-environments.md).
 
 
 | Apache Airflow version | Apache Airflow release date | Amazon MWAA availability date | Apache Airflow constraints | Python version | 

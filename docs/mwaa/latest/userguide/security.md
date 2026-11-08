@@ -15,6 +15,7 @@ This documentation helps you understand how to apply the shared responsibility m
 + [Shared responsibility model](shared-responsibility.md)
 + [Data Protection](data-protection.md)
 + [AWS Identity and Access Management](security-iam.md)
++ [IAM Identity Center integration](identity-center-integration.md)
 + [Compliance Validation](compliance-validation.md)
 + [Resilience](disaster-recovery-resiliency.md)
 + [Infrastructure Security](infrastructure-security.md)

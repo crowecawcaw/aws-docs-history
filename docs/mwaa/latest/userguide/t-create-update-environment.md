@@ -44,6 +44,12 @@ The topics on this page contain errors you can encounter when creating and updat
   + [I tried changing the environment class but the update failed](#t-rollback-billing-failure)
 + [Access environment](#troubleshooting-access-environment)
   + [I can't access the Apache Airflow UI](#t-no-access-airflow-ui)
++ [Multi-team environments](#troubleshooting-multi-team)
+  + [I see "Teams require Identity Center to be configured" when I add teams](#t-multi-team-iic-required)
+  + [I get an error that a team name is invalid or already in use](#t-multi-team-invalid-name)
+  + [I get an error that DAG folders overlap](#t-multi-team-overlap)
+  + [I can't disable IAM Identity Center integration](#t-multi-team-disable-iic)
+  + [Users can't see a team's DAGs](#t-multi-team-no-access)
 
 ## Environment errors
 <a name="troubleshooting-environment-errors"></a>
@@ -388,3 +394,41 @@ We recommend the following steps:
 1. Check user permissions. You might not have been granted access to a permissions policy that you can use to access the Apache Airflow UI. To learn more, refer to [Accessing an Amazon MWAA environment](access-policies.md).
 
 1. Check network access. This might be because you selected the **Private network** access mode. If the URL of your Apache Airflow UI is in the following format `387fbcn-8dh4-9hfj-0dnd-834jhdfb-vpce.c10.us-west-2.airflow.amazonaws.com`, it means that you're using *private routing* for your Apache Airflow webserver. You can either update the Apache Airflow access mode to the **Public network** access mode, or create a mechanism to access the VPC endpoint for your Apache Airflow *Web server*. To learn more, refer to [Managing access to service-specific Amazon VPC endpoints on Amazon MWAA](vpc-vpe-access.md).
+
+## Multi-team environments
+<a name="troubleshooting-multi-team"></a>
+
+The following topics describe the errors you might receive when you configure teams in a multi-team environment. For team name and DAG folder rules, see [Multi-team environments](multi-team-environments.md).
+
+### I see "Teams require Identity Center to be configured" when I add teams
+<a name="t-multi-team-iic-required"></a>
+
+The Amazon MWAA console shows the following message when IAM Identity Center integration isn't enabled: `Teams require Identity Center to be configured. Enable Identity Center above before adding teams.`
+
+Enable IAM Identity Center integration on the same page, and then add the teams. For more information, see [Using IAM Identity Center with Amazon Managed Workflows for Apache Airflow](identity-center-integration.md).
+
+### I get an error that a team name is invalid or already in use
+<a name="t-multi-team-invalid-name"></a>
+
+Team names must be unique within the environment, be 3 to 50 characters long, start with a letter or number, and contain only letters, numbers, hyphens (`-`), and underscores (`_`). Choose a name that meets these requirements and matches the display name of an IAM Identity Center group.
+
+### I get an error that DAG folders overlap
+<a name="t-multi-team-overlap"></a>
+
+A team folder can't be inside the global DAG folder or another team's folder, and the global folder can't be inside a team folder. For example, if the global DAG folder is `s3://amzn-s3-demo-bucket/dags/`, use `s3://amzn-s3-demo-bucket/teams/team-a/` for a team instead of `s3://amzn-s3-demo-bucket/dags/team-a/`.
+
+### I can't disable IAM Identity Center integration
+<a name="t-multi-team-disable-iic"></a>
+
+After you enable IAM Identity Center integration on an environment, you can't disable it, even if you remove all teams. To stop using IAM Identity Center, create a new environment without it. For more information, see [Known limitations](identity-center-integration.md#iic-integration-limitations).
+
+### Users can't see a team's DAGs
+<a name="t-multi-team-no-access"></a>
+
+A user can see a team's DAGs only if they belong to the team's IAM Identity Center group and their Permission Set policy allows the access. We recommend the following steps:
+
+1. Check that an IAM Identity Center group exists whose display name exactly matches the team name. Matching is case-sensitive, so a team named `data-engineering` doesn't match a group named `Data-Engineering`. If no group matches, the team has no members.
+
+1. Check that the user is a member of that IAM Identity Center group.
+
+1. Check the user's Permission Set policy. If it uses the `airflow:TeamNames` condition key, use the `ForAnyValue:StringEquals` operator and include the team name. For examples, see [Using IAM Identity Center with Amazon Managed Workflows for Apache Airflow](identity-center-integration.md).

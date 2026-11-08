@@ -40,3 +40,13 @@ To complete the following steps, you will need the following:
    ```
 
 1. [Create an EventBridge rule that runs on a schedule](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html), with the Lambda function you created in the previous step as the rule's target. Configure your schedule using a cron or rate expression to run at regular intervals.
+
+## Security best practices for multi-team environments
+<a name="security-bp-multi-team"></a>
+
+Follow these practices when you use a multi-team environment:
++ **Use separate environments for strict isolation** – Teams in a multi-team environment share compute, plugins, and Python dependencies. If teams need isolation beyond separate DAG folders and access control, use separate environments.
++ **Review team membership regularly** – Team membership comes from IAM Identity Center groups. Review group memberships regularly, and remove users who change roles or leave your organization.
++ **Use separate Amazon S3 buckets for sensitive data** – If teams work with data of different sensitivity, consider using separate Amazon S3 buckets with their own access controls instead of relying only on team DAG folders.
+
+For more information, see [Multi-team environments](multi-team-environments.md).

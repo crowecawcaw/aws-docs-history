@@ -9,6 +9,7 @@ Amazon MWAA lets you access your Apache Airflow environment using multiple metho
 + [Prerequisites](#access-airflow-ui-prereqs)
 + [Open the Apache Airflow UI](#access-airflow-ui-onconsole)
 + [Log in to Apache Airflow](#airflow-access-and-login)
++ [Log in using IAM Identity Center](#airflow-access-idc-login)
 + [Create a Apache Airflow webserver access token](call-mwaa-apis-web.md)
 + [Setting up a custom domain for the Apache Airflow webserver](configuring-custom-domain.md)
 + [Creating an Apache Airflow CLI token](call-mwaa-apis-cli.md)
@@ -52,3 +53,10 @@ You need [Apache Airflow UI access policy: AmazonMWAAWebServerAccess](access-pol
 1. Choose an environment.
 
 1. Choose **Open Airflow UI**.
+
+## Log in using IAM Identity Center
+<a name="airflow-access-idc-login"></a>
+
+If your environment has IAM Identity Center integration enabled on Apache Airflow 3.3.1 or later, use the IAM Identity Center device code flow to log in. Amazon MWAA redirects you to a device authorization page where you authenticate with your corporate identity provider in a separate browser tab, then enter a one-time code to complete sign-in.
+
+For instructions on signing in using IAM Identity Center, see [Using IAM Identity Center with Amazon Managed Workflows for Apache Airflow](identity-center-integration.md).

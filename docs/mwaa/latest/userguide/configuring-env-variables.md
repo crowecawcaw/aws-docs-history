@@ -241,7 +241,7 @@ The following Apache Airflow configuration options are not available in Amazon M
 
 | Airflow configuration option | Apache Airflow version | Default value | Reason | 
 | --- | --- | --- | --- | 
-| core.multi\_team | 3.2 | False | Amazon MWAA does not currently support [multi-team mode](https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#multi-team). Enabling this feature is incompatible with Amazon MWAA authentication, the CeleryExecutor, and environment-level secrets management. | 
+| core.multi\_team | 3.2 | False | Amazon MWAA sets this option when you add teams. You can't set it directly. See [Multi-team environments](multi-team-environments.md). | 
 | triggerer.queues\_enabled | 3.2 | False | Amazon MWAA does not support [triggerer queue assignment](https://airflow.apache.org/docs/apache-airflow/stable/authoring-and-scheduling/deferring.html#controlling-triggerer-host-assignment-per-trigger). Enabling this option causes deferred tasks to hang indefinitely. | 
 
 ## Examples and sample code

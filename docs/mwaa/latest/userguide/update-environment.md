@@ -11,6 +11,10 @@ Amazon MWAA environment updates apply the latest changes and security patches. Y
 **Contents**
 + [Before you begin](#update-environment-before)
 + [Worker replacement strategy](#worker-replacement-strategy)
++ [How environment updates work](#update-environment-process)
+  + [Forced updates](#update-environment-process-forced)
+  + [Graceful updates](#update-environment-process-graceful)
+  + [If an update fails](#update-environment-process-failed)
 + [Update environment resources](#update-environment-resources)
 + [Update an environment](#update-environment-start)
   + [Step one: Specify details](#update-environment-start-details)
@@ -43,6 +47,41 @@ If you perform an update while your environment is in `MAINTENANCE` status, the 
 **Important**  
 `WorkerReplacementStrategy` defaults to `FORCED` and resets on every environment update—it does not carry over from a previous update.  
 To continue using `GRACEFUL`, you must explicitly set `WorkerReplacementStrategy=GRACEFUL` each time you update your environment.
+
+## How environment updates work
+<a name="update-environment-process"></a>
+
+Your environment stays available while Amazon MWAA applies an update, and its status shows as `UPDATING`. During the update, the Apache Airflow UI might be unavailable for a short time while Amazon MWAA replaces your webservers.
+
+How your workers and running tasks behave depends on the worker replacement strategy that you choose.
+
+### Forced updates
+<a name="update-environment-process-forced"></a>
+
+When you use the `FORCED` worker replacement strategy, Amazon MWAA immediately stops your active workers and replaces them with workers that use your updated environment configuration.
+
+When Amazon MWAA replaces a worker, it stops every task running on that worker. Those tasks fail and run again only if you've configured retries for them. To reduce the impact on your workflows, schedule forced updates when few or no tasks are running. You can also set task retries, for example with the `core.default_task_retries` Apache Airflow configuration option.
+
+### Graceful updates
+<a name="update-environment-process-graceful"></a>
+
+When you use the `GRACEFUL` worker replacement strategy, Amazon MWAA provisions new workers with your updated configuration and sends new tasks to them. Existing workers stop accepting new tasks but get up to 12 hours to finish tasks that started before the update.
+
+Amazon MWAA replaces each existing worker after its tasks finish or the 12-hour limit passes, whichever comes first. Amazon MWAA stops any tasks that are still running after 12 hours.
+
+### If an update fails
+<a name="update-environment-process-failed"></a>
+
+If the new workers with the updated configuration don't become healthy, Amazon MWAA stops the update and sets your environment's status to `UPDATE_FAILED`. New workers are provisioned with the last known stable configuration, so your workflows continue without the changes you requested.
+
+If you have not configured versioning for your Amazon S3 bucket, or Amazon MWAA is not able to revert to the last stable configuration, your environment is moved to `UNAVAILABLE`. Your workflows will not continue until you upload new stable configurations to Amazon S3 and update your environment to use them.
+
+To find out why the update failed, check your environment's CloudWatch Logs. For more information about troubleshooting, see [Troubleshooting Amazon Managed Workflows for Apache Airflow](troubleshooting.md).
+
+For more information, see the following:
++ [Worker replacement strategy](#worker-replacement-strategy)
++ [Update environment resources](#update-environment-resources)
++ [Using Apache Airflow configuration options on Amazon MWAA](configuring-env-variables.md)
 
 ## Update environment resources
 <a name="update-environment-resources"></a>

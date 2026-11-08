@@ -7,9 +7,12 @@ The Amazon Managed Workflows for Apache Airflow console contains built-in option
 
 **Topics**
 + [Configuring the Amazon MWAA environment class](environment-class.md)
++ [Cost allocation tags in Amazon MWAA](cost-allocation-tags.md)
 + [Configuring Amazon MWAA worker automatic scaling](mwaa-autoscaling.md)
 + [Configuring Amazon MWAA webserver automatic scaling](mwaa-web-server-autoscaling.md)
 + [Using Apache Airflow configuration options on Amazon MWAA](configuring-env-variables.md)
 + [Update an Amazon MWAA environment](update-environment.md)
++ [Multi-team environments](multi-team-environments.md)
++ [Managing teams](managing-teams.md)
 + [Changing the Apache Airflow version](upgrading-environment.md)
 + [Using a startup script with Amazon MWAA](using-startup-script.md)

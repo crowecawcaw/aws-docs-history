@@ -13,6 +13,7 @@ Directed Acyclic Graphs (DAGs) are defined within a Python file that defines the
 + [Uploading DAG code to Amazon S3](#configuring-dag-folder-uploading)
 + [Specifying the path to your DAGs folder on the Amazon MWAA console (the first time)](#configuring-dag-folder-mwaaconsole)
 + [Accessing changes on your Apache Airflow UI](#configuring-dag-folder-mwaaconsole-view)
++ [DAG folders in multi-team environments](#working-dags-multi-team)
 + [What's next?](#configuring-dag-folder-next-up)
 
 ## Prerequisites
@@ -144,6 +145,11 @@ You need [Apache Airflow UI access policy: AmazonMWAAWebServerAccess](access-pol
 1. Choose an environment.
 
 1. Choose **Open Airflow UI**.
+
+## DAG folders in multi-team environments
+<a name="working-dags-multi-team"></a>
+
+In a multi-team environment, the DAG folder that you configure for the environment is the global DAG folder, and all users can see its DAGs. Each team also has its own DAG folder, and only members of that team can see its DAGs. DAG folders can't overlap. For the folder rules and examples, see [Multi-team environments](multi-team-environments.md).
 
 ## What's next?
 <a name="configuring-dag-folder-next-up"></a>

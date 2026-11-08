@@ -14,6 +14,7 @@ This topic provides a basic overview of how Amazon MWAA uses AWS Identity and Ac
 + [Allowing users to access their own permissions](#security_iam_id-based-policy-examples-view-own-permissions)
 + [Troubleshooting Amazon Managed Workflows for Apache Airflow identity and access](security_iam_troubleshoot.md)
 + [How Amazon MWAA works with IAM](security_iam_service-with-iam.md)
++ [IAM Identity Center integration](#security-iam-idc-integration)
 
 ## Audience
 <a name="security_iam_audience"></a>
@@ -134,3 +135,8 @@ This example shows how you might create a policy that allows IAM users to view t
     ]
 }
 ```
+
+## IAM Identity Center integration
+<a name="security-iam-idc-integration"></a>
+
+As an alternative to the IAM-based access model described in this section, you can use IAM Identity Center to authenticate users through your corporate identity provider and manage authorization centrally through Permission Sets. For more information, see [Using IAM Identity Center with Amazon Managed Workflows for Apache Airflow](identity-center-integration.md).

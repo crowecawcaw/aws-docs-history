@@ -24,6 +24,7 @@ To access a list of endpoints for Amazon MWAA, refer to [Amazon Managed Workflow
 | Environments | The maximum number of Amazon MWAA environments per account per Region. | 10 | Yes | 
 | Workers per environment | The maximum number of workers per Amazon MWAA environment. | 25 | Yes | 
 | Webservers per environment | The maximum number of webservers per Amazon MWAA environment. | 5 | Yes | 
+| Teams per environment | The maximum number of teams per Amazon MWAA environment. | 20 | No | 
 
 ## Increasing quotas
 <a name="quotas-increase"></a>

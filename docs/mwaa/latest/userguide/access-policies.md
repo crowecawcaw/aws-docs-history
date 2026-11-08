@@ -23,6 +23,7 @@ We recommend using temporary credentials and configuring federated identities wi
 + [Apache Airflow CLI policy: AmazonMWAAAirflowCliAccess](#cli-access)
 + [Creating a JSON policy](#access-policy-iam-console-create)
 + [Example use case to attach policies to a developer group](#access-policy-use-case)
++ [IAM Identity Center Permission Set policy examples](#iic-permission-set-policy-examples)
 + [What's next?](#access-policy-next-up)
 
 ## How it works
@@ -49,6 +50,9 @@ To provide access, add permissions to your users, groups, or roles:
 + IAM users:
   + Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html) in the *IAM User Guide*.
   + (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html#users_change_permissions-add-console) in the *IAM User Guide*.
+
+**IAM Identity Center integration**  
+If your organization uses IAM Identity Center, you can configure Amazon MWAA to authenticate users through your corporate identity provider and authorize access using Permission Sets instead of attaching policies directly to IAM users or roles. For more information, see [Using IAM Identity Center with Amazon Managed Workflows for Apache Airflow](identity-center-integration.md).
 
 ## Full console access policy: AmazonMWAAFullConsoleAccess
 <a name="console-full-access"></a>
@@ -766,6 +770,105 @@ Let's say you're using a group in IAM named `AirflowDevelopmentGroup` to apply p
 1. Select the **AirflowDevelopmentGroup**.
 
 1. Choose **Add to Groups**.
+
+## IAM Identity Center Permission Set policy examples
+<a name="iic-permission-set-policy-examples"></a>
+
+When IAM Identity Center integration is enabled on an Amazon MWAA environment, you control Apache Airflow access by attaching IAM policies to IAM Identity Center Permission Sets, not directly to IAM users or roles. The following examples show only the `airflow:AccessAirflowResource` statement. Each Permission Set policy must also include the required `identitystore` lookup statement. For details, see [Configuring access with Permission Sets](identity-center-integration.md#iic-integration-permission-sets).
+
+**Example Grant full Apache Airflow access**  <a name="iic-pse-full-access"></a>
+
+```
+{
+  "Effect": "Allow",
+  "Action": "airflow:AccessAirflowResource",
+  "Resource": "arn:aws:airflow:{{us-east-1}}:{{123456789012}}:environment/{{my-env}}"
+}
+```
+
+**Example Restrict to DAG read access**  <a name="iic-pse-dag-read"></a>
+Always include both `GET` and `LIST`. The DAG list page uses `ResourceAction=LIST`; home page dashboard widgets use `ResourceAction=GET` with no DAG ID. A policy that grants only `GET` or only `LIST` causes 403 errors on the home page or shows zero DAGs on the list page respectively.  
+
+```
+{
+  "Effect": "Allow",
+  "Action": "airflow:AccessAirflowResource",
+  "Resource": "arn:aws:airflow:{{us-east-1}}:{{123456789012}}:environment/{{my-env}}",
+  "Condition": {
+    "StringEquals": {
+      "airflow:ResourceType": "DAG",
+      "airflow:ResourceAction": ["GET", "LIST"]
+    }
+  }
+}
+```
+
+**Example Restrict to a specific DAG**  <a name="iic-pse-specific-dag"></a>
+Use two separate statements. The first allows `GET` and `LIST` without a `ResourceId` — this is required for the DAG list page (`LIST`) and for home page dashboard widgets (`GET` with no DAG ID). The second allows all actions on the specific DAG. Do not combine `ResourceId` with `LIST` in the same `StringEquals` block — `LIST` calls do not supply a `ResourceId`, so the condition never matches.  
+
+```
+{
+  "Effect": "Allow",
+  "Action": "airflow:AccessAirflowResource",
+  "Resource": "arn:aws:airflow:{{us-east-1}}:{{123456789012}}:environment/{{my-env}}",
+  "Condition": {
+    "StringEquals": {
+      "airflow:ResourceType": "DAG",
+      "airflow:ResourceAction": ["GET", "LIST"]
+    }
+  }
+},
+{
+  "Effect": "Allow",
+  "Action": "airflow:AccessAirflowResource",
+  "Resource": "arn:aws:airflow:{{us-east-1}}:{{123456789012}}:environment/{{my-env}}",
+  "Condition": {
+    "StringEquals": {
+      "airflow:ResourceType": "DAG",
+      "airflow:ResourceId": "{{my_etl_dag}}"
+    }
+  }
+}
+```
+
+**Example Restrict by team using `airflow:TeamNames`**  <a name="iic-pse-team-names"></a>
+Use `ForAnyValue:StringEquals` for `airflow:TeamNames`. The single-value `StringEquals` operator does not match when a user belongs to more than one team.  
+
+```
+{
+  "Effect": "Allow",
+  "Action": "airflow:AccessAirflowResource",
+  "Resource": "arn:aws:airflow:{{us-east-1}}:{{123456789012}}:environment/{{my-env}}",
+  "Condition": {
+    "ForAnyValue:StringEquals": {
+      "airflow:TeamNames": ["{{platform-team}}", "{{data-eng}}"]
+    }
+  }
+}
+```
+
+**Note**  
+If the environment has teams, Apache Airflow isolates each team's resources automatically, and you don't need `airflow:TeamNames` conditions. A user can access a team's resources only if they belong to the IAM Identity Center group that matches the team name and their Permission Set policy allows the access. A policy can't give a user access to a team they don't belong to. To give a user access to a team, add the user to that team's IAM Identity Center group.
+
+**Example Restrict access to members of an IAM Identity Center group**  <a name="access-policies-multi-team-single"></a>
+With this policy, a user can access resources only when they belong to the `analytics` IAM Identity Center group. Use this approach for finer-grained control in an environment without teams.  
+
+```
+{
+  "Effect": "Allow",
+  "Action": "airflow:AccessAirflowResource",
+  "Resource": "arn:aws:airflow:{{us-east-1}}:{{123456789012}}:environment/{{my-env}}",
+  "Condition": {
+    "ForAnyValue:StringEquals": {
+      "airflow:TeamNames": ["{{analytics}}"]
+    }
+  }
+}
+```
+
+For more information about multi-team environments, see [Multi-team environments](multi-team-environments.md).
+
+For the full IAM Identity Center integration guide including prerequisites, setup steps, login procedure, and troubleshooting, see [Using IAM Identity Center with Amazon Managed Workflows for Apache Airflow](identity-center-integration.md).
 
 ## What's next?
 <a name="access-policy-next-up"></a>
