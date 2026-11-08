@@ -142,6 +142,7 @@ With this policy, you can manage incentive benefits, funding, and claims in AWS 
 + View funding wallets
 + Access Guides and Amazon Q (Partner Assistant)
 + Access Partner Central support
++ Create and manage program applications
 
  To view the permissions for this policy, see [PartnerCentralIncentiveBenefitManagement](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/PartnerCentralIncentiveBenefitManagement.html) in the *AWS Managed Policy Reference*.
 
