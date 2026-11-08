@@ -378,6 +378,83 @@ Hex encoding example:
 ## Revocation
 <a name="revocation"></a>
 
-Certificate revocation is supported through the use of imported certificate revocation lists (CRLs). Currently, certification revocation is only supported by the API and CLI. You can import a CRL that is generated from your CA using [`ImportCrl`](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_ImportCrl.html) API or [`import-crl`](https://docs.aws.amazon.com/cli/latest/reference/rolesanywhere/import-crl.html) CLI command. Certificates used for authentication will be checked for their revocation status. 
+A certificate authority (CA) can *revoke* a certificate when it is compromised or is no longer trusted, even though the certificate has not yet expired. With IAM Roles Anywhere, you can check whether the certificate that a workload uses to authenticate has been revoked and, if it has, prevent credentials from being issued for it. You have two ways to check revocation status:
++ **Import certificate revocation lists (CRLs) yourself.** You upload the CRLs that your CA generates, and IAM Roles Anywhere checks authenticating certificates against them.
++ **Turn on automatic revocation checking.** With this option, you don't need any per-certificate setup. Automatic revocation checking reads the CRL distribution point URLs in your certificates, downloads the CRLs, and checks revocation status for you.
 
- Callbacks to CRL Distribution Points (CDPs) or Online Certificate Status Protocol (OCSP) endpoints are not supported. 
+You can use either approach on its own, or both together. When you use both, a certificate that appears on either list is treated as revoked.
+
+You can't use the Online Certificate Status Protocol (OCSP) to check revocation status with IAM Roles Anywhere.
+
+**Topics**
++ [Imported certificate revocation lists](#imported-crls)
++ [Automatic revocation checking with CRL distribution points](#crl-distribution-point-revocation)
+
+### Imported certificate revocation lists
+<a name="imported-crls"></a>
+
+You can import a CRL that is generated from your CA using the [ImportCrl](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_ImportCrl.html) API or the [import-crl](https://docs.aws.amazon.com/cli/latest/reference/rolesanywhere/import-crl.html) CLI command. IAM Roles Anywhere then checks the certificates used for authentication against the CRLs that you imported. IAM Roles Anywhere uses an imported CRL only for certificates that are issued by the same CA that issued and signed the CRL. You can't use indirect CRLs, which are issued by a different entity. You can import CRLs only through the API and CLI.
+
+**Important**  
+IAM Roles Anywhere does not check the expiration date of a CRL that you import. IAM Roles Anywhere continues to use an imported CRL for revocation checks even after the CRL's `nextUpdate` date has passed. To make sure that revocation checks reflect the current state of your CA, re-import your CRL whenever your CA publishes an updated version.
+
+### Automatic revocation checking with CRL distribution points
+<a name="crl-distribution-point-revocation"></a>
+
+Many certificate authorities add one or more URLs to every certificate they issue. Each URL points to the CA's current CRL. These URLs are called *CRL distribution points (CDPs)*. When automatic revocation checking is turned on, IAM Roles Anywhere reads the distribution point URLs directly from the certificates presented during authentication, downloads the matching CRLs, and checks whether a certificate has been revoked. Because the distribution points are read from the certificate, you don't import or register them.
+
+**Note**  
+Because IAM Roles Anywhere discovers these distribution points automatically from your certificates, they are not created as resources in your account. You can't view or manage individual distribution points.
+
+**Turn on automatic revocation checking**
+
+Automatic revocation checking is controlled by a setting on the trust anchor, named `crlDpRevocationEnabled`. This setting is turned off (`false`) by default, so no automatic revocation checking happens until you turn it on. To use automatic revocation checking, set `crlDpRevocationEnabled` to `true` on the trust anchor that authenticates your certificates. The setting applies to every request that authenticates against that trust anchor.
+
+**Which distribution points are checked**
+
+IAM Roles Anywhere ignores the following distribution points. Ignoring them doesn't cause a request to be denied.
++ URLs that don't use the HTTP or HTTPS scheme, such as LDAP URLs.
++ Distribution points that include a CRL issuer field. For more information, see [Indirect CRLs](#indirect-crls).
++ HTTP or HTTPS URLs beyond the first five in a certificate. IAM Roles Anywhere checks at most five distribution point URLs for each certificate.
+
+IAM Roles Anywhere checks every other distribution point URL in the certificate.
+
+**Requirements for the distribution points that are checked**
+
+Each distribution point that IAM Roles Anywhere checks must meet all of the following requirements:
++ The URL is no longer than 2,048 characters.
++ The URL uses the default port for its scheme: port 80 for HTTP or port 443 for HTTPS.
++ The URL's host name resolves to public IP addresses and is reachable from the internet.
++ The URL returns the CRL directly. IAM Roles Anywhere does not follow redirects.
++ The URL responds promptly.
++ The URL returns a single CRL that is at most 1 MB in size.
+
+If a distribution point that IAM Roles Anywhere checks doesn't meet these requirements and IAM Roles Anywhere doesn't have a valid CRL from an earlier download, IAM Roles Anywhere can't confirm revocation status, and the `CreateSession` request is denied.
+
+**What happens during CreateSession**
+
+When automatic revocation checking is turned on for a trust anchor, each time a workload calls `CreateSession` with a certificate, IAM Roles Anywhere does the following for each certificate in the chain, for each distribution point that it checks:
++ Obtains the current CRL for the distribution point.
++ Confirms that the CRL was issued and signed by the CA that issued the certificate, and that the CRL has not passed its `nextUpdate` date.
++ Checks whether the certificate appears on that list. If the certificate has been revoked, IAM Roles Anywhere denies the request and does not issue credentials.
+
+If IAM Roles Anywhere can't obtain a valid CRL for any distribution point that it checks, the `CreateSession` request is denied. This behavior makes sure that credentials are not issued when revocation status can't be confirmed.
+
+**Note**  
+The first time IAM Roles Anywhere encounters a distribution point URL, it downloads the CRL during the `CreateSession` request, which can add latency to that request.
+
+<a name="indirect-crls"></a>**Indirect CRLs**
+
+An *indirect certificate revocation list (CRL)* is a CRL that is issued by an entity other than the CA that issued the certificate. A certificate signals an indirect CRL by including a CRL issuer (`cRLIssuer`) field in its distribution point. Automatic revocation checking supports only CRLs that are issued and signed by the same CA that issued the certificate.
++ IAM Roles Anywhere skips any distribution point that includes a CRL issuer field.
++ If a distribution point does not include a CRL issuer field but the CRL it returns is issued or signed by a different entity than the certificate's CA, IAM Roles Anywhere can't confirm revocation status and denies the request.
+
+**How IAM Roles Anywhere keeps CRLs up to date**
+
+IAM Roles Anywhere periodically refreshes the CRLs it obtains from your distribution points. After your CA publishes an updated CRL, it can take up to 30 minutes for IAM Roles Anywhere to use it for revocation checks.
+
+IAM Roles Anywhere honors the `nextUpdate` date in each CRL. As long as a CRL is still within its `nextUpdate` date, IAM Roles Anywhere continues to use it even if a later refresh fails, so a temporary problem reaching your distribution point does not immediately fail revocation checks. Once a CRL has passed its `nextUpdate` date, IAM Roles Anywhere no longer uses it: if IAM Roles Anywhere can't obtain a current CRL to replace it, the revocation status can't be confirmed and the `CreateSession` request is denied. A CRL that does not specify a `nextUpdate` date is not treated as expired. Make sure your CA publishes an updated CRL at each distribution point before the previous CRL reaches its `nextUpdate` date.
+
+**AWS Private CA trust anchors**
+
+If you use AWS Private Certificate Authority (AWS Private CA) to issue your certificates, AWS Private CA publishes each CRL in an Amazon S3 bucket. Make sure that the CRL location in your AWS Private CA configuration meets the requirements for the distribution points that are checked, including being publicly accessible from the internet. For more information, see [Planning a certificate revocation list (CRL)](https://docs.aws.amazon.com/privateca/latest/userguide/crl-planning.html) in the *AWS Private CA User Guide*.
