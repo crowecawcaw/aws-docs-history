@@ -395,6 +395,7 @@ To maintain existing behavior, you must explicitly set `bluesam.openWarmUp=true`
 | --- | --- | --- | --- | --- | 
 | `blockSizeDefault` | number | 32760 | The default block size to be used for BDW bytes. |  | 
 | `blu4iv.dataaccess.useOldDaoDesign` | boolean | false | A global flag that determines if the application is to use the old DAO architecture or the new. This is dependent on whether the DAO's were generated using old or new design. |  | 
+| `blu4iv.logging.terminalIdMdc` | boolean | false | When set to `true`, adds the terminal ID of a terminal dialog to the logging context (MDC key `terminalId`) of both the HTTP request thread and the worker thread running its program, so log lines of a terminal session can be correlated. To print it, add `%X{terminalId}` to your logback pattern. Only `true` enables it; any other value leaves it disabled and is reported at startup as `BA-H0001`. The default is `false`. |  | 
 | `blu4iv.userspace.batchThreshold` | int | 1 | Specifies the number of update or set operations on a userspace after which the userspace is persisted in an external data repository. | 5.75.0 | 
 | `blu4iv.userspace.pageSize` | int | 4096 | Specifies the page size which is used to allocate storage for user spaces. The size of the user space at any given time is always a multiple of this number specified. | 4.10.0 | 
 | `blu4iv.userspace.redis.*` | Supported Redis properties |  | Specifies configuration properties for the user spaces redis store, see [Available Redis cache properties in AWS Transform for mainframe Runtime](ba-runtime-redis-configuration.md). | 4.10.0 | 
@@ -808,9 +809,58 @@ The following table describes the key-value parameters for this application.
 
 | Key | Type | Default value | Description | 
 | --- | --- | --- | --- | 
-| `aim.sockets.socketConfigurations` | list | None | Configures Application Integration Module (AIM) socket connections. Each entry is a socket server configuration or a socket client configuration.<br />Socket server entry keys: `remote` (connection name), `smqn` (Structured Message Queue Name (SMQN) queue name), `port` (socket port).<br />Socket client entry keys: `remote` (remote server name), `targetName` (target server name), `smqn` (SMQN queue name), `port` (local port), `targetPort` (target port), `targetHost` (target IP). | 
-| `datasource.gs21Ds` \+ -`driver-class-name` \+ -`url` \+ -`username` \+ -`password` \+ -`type` | Standard Spring datasource with subkeys | None | Stores the connection information for the GS21 database. We recommend using AWS Secrets Manager for database credentials. For more information, see [Client database](ba-runtime-config-app-secrets.md#client-database). | 
-| `taskExecutor` \+ -`corePoolSize` \+ -`maxPoolSize` \+ -`queueCapacity` \+ -`allowCoreThreadTimeOut` | Spring thread pool executor configuration | None | Configures the thread pool executor that spawns AIM processes (such as SMQNs, socket handlers, and message reply handlers). | 
+| `datasource.gs21Ds` \+ -`driver-class-name` \+ -`url` \+ -`username` \+ -`password` \+ -`type` | Standard Spring datasource with subkeys | None | Contains the connection information for the GS21 database, which stores the GS21 resource definitions (tables `MENUGEN`, `MENUGEN_KEYS` and `SECGEN`). If the application server defines the JNDI resource `jdbc/gs21`, the application uses it instead of these keys. Alternately, use of AWS secrets is strongly encouraged, as explained in [Client database](ba-runtime-config-app-secrets.md#client-database). | 
+| `gs21.resource-definitions.store-type` | string | `jpa` | Storage type of the GS21 resource definitions. `jpa` is the only supported value. With any other value, the GS21 database is not configured and the application does not start. | 
+| `spring.jpa.database-platform` | string | None | Hibernate dialect used for the GS21 database, for example `org.hibernate.dialect.PostgreSQLDialect`. If this key is not set, the application logs a warning at startup. | 
+| `spring.jpa.properties` \+ -`hibernate.hbm2ddl.auto` \+ -`hibernate.hbm2ddl.import_files` \+ -`hibernate.hbm2ddl.import_files_sql_extractor` | string | None | Hibernate schema generation options applied to the GS21 database. No other `spring.jpa.properties` key is applied to the GS21 database. | 
+| `aim.sockets.socketConfigurations` | list | empty list | Configures Application Integration Module (AIM) socket connections. Each entry is either a socket server or a socket client. An entry is a socket client when `targetHost`, `targetPort` and `targetName` are all set. Otherwise, it is a socket server, even if one or two of these keys are set. The keys of an entry are described in the following rows. A socket server listens on all network interfaces of the host and has no TLS or authentication: any client that can reach the port can send messages to the AIM program. Restrict access to the port with security groups or firewall rules. | 
+| `aim.sockets.socketConfigurations[n].smqn` | string | None | Required. SMQN name of the AIM program that receives the messages of the connection. A socket server starts listening when this program first reads its messages. | 
+| `aim.sockets.socketConfigurations[n].port` | integer | None | Required. Socket server: TCP port on which the application listens. The port accepts one connection at a time. When a connection ends or fails, the application stops listening for 30 seconds before it accepts a new connection. Socket client: identifier of the connection only. The application does not open this port, and the operating system chooses the local port of the outgoing connection. Use a different value for each socket client. | 
+| `aim.sockets.socketConfigurations[n].remote` | string | None | Required. Socket server: name of the connection, which the program receives in DESTINATION-1 of each message from this socket. Socket client: name of the remote server, which the program puts in DESTINATION-1 of its connection request. Use a different value for each socket client. | 
+| `aim.sockets.socketConfigurations[n].targetName` | string | None | Socket client only. Name of the target server, which the program receives in DESTINATION-1 of the messages and confirmations for this connection. | 
+| `aim.sockets.socketConfigurations[n].targetHost` | string | None | Socket client only. Host name or IP address of the target server. | 
+| `aim.sockets.socketConfigurations[n].targetPort` | integer | None | Socket client only. TCP port of the target server. The application connects when the program sends its connection request, not at startup. It does not reconnect automatically. | 
+| `aim.sockets.socketConfigurations[n].messageFraming` | `LENGTH_PREFIXED`, `FIXED`, or `PREFIX` | `LENGTH_PREFIXED` | Socket server only. Defines how the application splits the received data into messages. `LENGTH_PREFIXED`: each message starts with a 4-byte little-endian binary length, which includes these 4 bytes. `FIXED`: each message is `fixedMessageSize` bytes long. `PREFIX`: each message starts with a text prefix listed in `prefixSizes`, which gives the total message length. The program receives each complete message, including its length or prefix. Data written by the program is sent as is, without framing or character conversion. | 
+| `aim.sockets.socketConfigurations[n].fixedMessageSize` | integer | None | Socket server only. Required when `messageFraming` is `FIXED`. Size in bytes of each received message. Must be greater than 0. | 
+| `aim.sockets.socketConfigurations[n].prefixSizes` | map of string to integer | None | Socket server only. Required when `messageFraming` is `PREFIX`. Maps each message prefix to the total message length in bytes, prefix included, for example `EFTS00Z: 45`. All prefixes must have the same length and use only single-byte characters. Each length must be greater than or equal to the prefix length. When a message starts with a prefix that is not listed, the application closes the connection. | 
+| `aim.sockets.socketConfigurations[n].encoding` | string | GS21 character set | Socket server only. Character set used to decode the message prefix when `messageFraming` is `PREFIX`. It does not convert the message content. An unknown character set name stops the application at startup. Omit this key to use the GS21 character set. | 
+| `taskExecutor` \+ -`corePoolSize` \+ -`maxPoolSize` \+ -`queueCapacity` \+ -`allowCoreThreadTimeOut` | integer, integer, integer, boolean | `200`, `500`, `10`, `false` | Spring thread pool executor of the AIM controller. It runs the AIM programs, the AIM queue readers, the socket listeners, and one thread for each socket conversation that waits for a reply from the program. Most of these tasks keep their thread for a long time. When `corePoolSize` threads are busy, new tasks wait in a queue of `queueCapacity` entries. Extra threads, up to `maxPoolSize`, start only when the queue is full, and the application rejects further tasks. Write these keys in camelCase, exactly as shown. | 
+| `spring.task.scheduling.pool.size` | integer | `1` | Standard Spring Boot key. Number of threads that run AIM `POST TIME` timers, the programs started for `ACSQ` destinations, and ACS broadcasts. With the default value, these tasks run one at a time. | 
+| `gapwalk-application.security` | string | `disabled` | The `application-gs21.yml` file packaged in this application sets this key to `disabled`. With this value, and when `gapwalk-application.security.identity` is not set, the HTTP endpoints of this application accept requests without authentication. Set it to `enabled` and configure an identity provider before you expose the application. | 
+
+The following example configures a socket server that receives fixed-size messages, a socket server that uses message prefixes, and a socket client.
+
+```
+aim:
+  sockets:
+    socketConfigurations:
+      # Socket server: listens on port 5006
+      - remote: PARTNER1
+        smqn: SMQNSRV1
+        port: 5006
+        messageFraming: FIXED
+        fixedMessageSize: 258
+      # Socket server: message length given by the first 7 characters
+      - remote: PARTNER2
+        smqn: SMQNSRV2
+        port: 5027
+        messageFraming: PREFIX
+        prefixSizes:
+          EFTS00Z: 45
+      # Socket client: connects to the target host on port 7001 when the
+      # program sends a connection request with DESTINATION-1 = PARTNER3
+      - remote: PARTNER3
+        targetName: PARTNER3
+        smqn: SMQNCLI1
+        port: 6001
+        targetHost: remote-host
+        targetPort: 7001
+taskExecutor:
+  corePoolSize: 200
+  maxPoolSize: 500
+  queueCapacity: 10
+  allowCoreThreadTimeOut: false
+```
 
 ## Available properties for the client application
 <a name="ba-runtime-key-value-client"></a>

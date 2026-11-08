@@ -22,3 +22,4 @@ SQL error codes, prefixed with `BA-S`.
 | BA-S0008 | Error | SQL Error: Error while persisting indexes on table. |  | 
 | BA-S0009 | Error | SQL Error: Failed to load existing keys for deduplication from table '%s'. Reason: %s. Deduplication check cannot proceed. The load operation will be aborted. |  | 
 | BA-S0010 | Error | Deduplication aborted for table '%s': existing row count (%d) exceeds maxDedupKeys limit (%d). Increase the maxDedupKeys limit or disable checkDuplicatesOnAppend. |  | 
+| BA-S0011 | Error | SQL Error: The length %d of input host string variable %s is negative. Correct the program to ensure that the lengths of all host string variables are not negative. |  | 

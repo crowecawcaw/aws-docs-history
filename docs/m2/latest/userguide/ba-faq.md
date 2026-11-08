@@ -123,6 +123,20 @@
    common.loader="${catalina.base}/lib","${catalina.base}/lib/*.jar","${catalina.home}/lib","${catalina.home}/lib/*.jar","${catalina.home}/shared","${catalina.home}/shared/*.jar"
    ```
 
+   The `gapwalk-custom-kanji-charset` jar is an exception: it must be loaded at JVM startup through the tomcat `setenv.sh` script. For more information, see [Custom kanji charsets library](ba-shared-architecture.md#ba-shared-architecture-components-libraries-kanji-charset).
+
+1. **How does AWS Transform for mainframe Runtime handle double-byte charsets?**
+
+   Mixed single-byte and double-byte EBCDIC data uses shift-out (SO) and shift-in (SI) control bytes, as in the IBM `cp930` charset. The SO byte (0x0E) starts a double-byte sequence, and the SI byte (0x0F) returns to single-byte mode.
+
+   In legacy programs, an alphanumeric data item (PIC X) can be redefined by a national or DBCS data item (PIC N). In some cases, the program moves this data as alphanumeric even though it contains double-byte values.
+
+   The standard `cp930` charset doesn't define a mapping for every possible single-byte value, so these alphanumeric moves can lose data: bytes that have no mapping aren't preserved.
+
+   The `CUSTOM930` charset defines a value for every possible single-byte value, which avoids this data loss. The Fujitsu `JEF` and `JEF-PU` charsets follow the same idea. `JEF-PU` maps characters to Unicode private use area characters instead of the corresponding standard Unicode characters. In `JEF` and `JEF-PU`, the shift codes are 0x28 and 0x29 instead of 0x0E and 0x0F: 0x28 starts a double-byte sequence and 0x29 ends it.
+
+   The `CUSTOM930`, `JEF`, and `JEF-PU` charsets are provided by the `gapwalk-custom-kanji-charset` jar, which must be loaded at tomcat startup. For more information, see [Custom kanji charsets library](ba-shared-architecture.md#ba-shared-architecture-components-libraries-kanji-charset). To set the encoding used by your application, see the `encoding` property in [Available properties for the main application](ba-runtime-key-value.md#ba-runtime-key-value-main).
+
 1. **How does AWS Transform for mainframe Runtime handle statelessness and session management?**
 
    AWS Transform for mainframe Runtime implements statelessness and session management through multiple mechanisms. For HTTP sessions, it uses cookie-based identification with external cache storage for user context. Sessions can be stored in various datastores including Amazon ElastiCache, Redis cluster, or in-memory maps. The statelessness design ensures that most non-transient states are stored externally in a common 'single source of truth', enabling high availability and horizontal scaling. This approach, combined with load balancing and shared sessions, allows distribution of user-facing dialog across multiple nodes.

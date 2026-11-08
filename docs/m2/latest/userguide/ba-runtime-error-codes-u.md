@@ -51,7 +51,9 @@ Utility pgm error codes, prefixed with `BA-U`.
 | BA-U3019 | Error | Unsupported column name. Check the table definition. |  | 
 | BA-U3020 | Error | DFSIGDCB option: Unable to update LRECL of the SYSREC file. Consider using type FileSystemFileConfiguration, or remove DFSIGDCB option. |  | 
 | BA-U3021 | Error | Splitting unload into chunks is not supported with the current database type. Use one of the supported databases: PostgreSQL or Oracle. |  | 
+| BA-U3022 | Error | Missing record size for %s when running %s program. |  | 
 | BA-U4001 | Error | IDCAMS parsing error. The SYSIN content contains invalid syntax or unsupported commands. Review the SYSIN content for syntax errors or typos. Check the error message for details about what failed to parse. |  | 
+| BA-U4020 | Error | IDCAMS: File or dataset '%s' does not exist. Verify that the file or dataset exists and is accessible. Check the file path or dataset name for typos. |  | 
 | BA-U5001 | Error | Invalid POSITION option when calling DSNUTILB LOAD utility. Use a valid POSITION option. |  | 
 | BA-U5002 | Error | Invalid NULLIF option when calling DSNUTILB LOAD utility. Check that the specified NULLIF option is valid and contact support if it should be supported. |  | 
 | BA-U5003 | Error | Invalid column definition when calling DSNUTILB LOAD utility. Check the syntax and contact support if it should be supported. |  | 
@@ -66,6 +68,8 @@ Utility pgm error codes, prefixed with `BA-U`.
 | BA-U5012 | Error | DSNUTILB STATISTICS: SQL execution failed. Check the database connection and verify the target table exists. |  | 
 | BA-U5013 | Warn | DSNUTILB STATISTICS: no specific targets resolved — skipping ANALYZE. Verify the preceding REORG command has a valid target or LISTDEF context. |  | 
 | BA-U5014 | Warn | DSNUTILB STATISTICS: no database support configured — skipping execution. This occurs in test mode only. No action required. |  | 
+| BA-U5015 | Error | DSNUTILB DISCARD: WHEN keyword present but the condition could not be parsed: %s The DISCARD was aborted to avoid deleting the whole table. Fix the WHEN condition syntax in the control card |  | 
+| BA-U5016 | Warn | DSNUTILB DISCARD: COPYDDN dataset %s could not be resolved — skipping the discard copy Declare a TEMPLATE or a DD statement for the COPYDDN dataset so the discarded rows can be copied before deletion |  | 
 | BA-U6001 | Error | ICETOOLS COUNT FROM BluesamFileConfiguration failed: %s. check BluesamFileConfiguration |  | 
 | BA-U6002 | Error | ICETOOLS COUNT Output DD not found: %s. check output DD |  | 
 | BA-U6003 | Error | ICETOOLS COUNT Failed to write to dataset: %s. check the dataset writer |  | 

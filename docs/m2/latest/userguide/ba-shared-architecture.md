@@ -33,6 +33,20 @@ The following sections detail the role of both of these components.
 
 The AWS Transform for mainframe libraries are a set of jar files stored in a `shared/` subfolder added to the standard tomcat classpath, so as to make them available to all modernized Java programs. Their goal is to provide features that are neither natively nor easily available in the Java programming environment, but typical of legacy development environments. Those features are exposed in a way that is as familiar as possible to Java developers (getters/setters, class-based, fluent APIs). An important example is the **Data Simplifier** library, which provides legacy memory layout and manipulation constructs (encountered in COBOL, PL1 or RPG languages) to Java programs. Those jars are a core dependency of the modernized Java code generated from legacy programs. For more information about the Data Simplifier, see [What are data simplifiers in AWS Transform for mainframe](ba-shared-data.md).
 
+### Custom kanji charsets library
+<a name="ba-shared-architecture-components-libraries-kanji-charset"></a>
+
+The `gapwalk-custom-kanji-charset` jar provides the custom charsets `CUSTOM930`, `JEF` and `JEF-PU`. Unlike the other AWS Transform for mainframe libraries, this jar must be loaded at JVM startup by tomcat, by adding it to the JVM classpath in the `$CATALINA_BASE/bin/setenv.sh` script. Placing it in the `shared/` folder is not enough, because Java charset providers (`java.nio.charset.spi.CharsetProvider` implementations) are discovered through the system class loader, not through the tomcat `common.loader`.
+
+Set the `-DnoICU=true` system property, for instance in `CATALINA_OPTS` or `JAVA_OPTS`. Without this property, you must also add the `icu4j` and `icu4j-charset` jars to the same startup classpath.
+
+The following `setenv.sh` example adds the jar to the startup classpath and sets the `noICU` property. In the `CLASSPATH` value, {{/path/to/gapwalk-custom-kanji-charset-<version>.jar}} is the full path to the jar on your server; replace it with the actual directory and file name, including the version number of your runtime release:
+
+```
+CLASSPATH="{{/path/to/gapwalk-custom-kanji-charset-<version>.jar}}"
+CATALINA_OPTS="$CATALINA_OPTS -DnoICU=true"
+```
+
 ### Web application
 <a name="ba-shared-architecture-components-webapp"></a>
 

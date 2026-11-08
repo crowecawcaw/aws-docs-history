@@ -30,3 +30,4 @@ Blusam error codes, prefixed with `BA-B`.
 | BA-B2012 | Error | Error while reading records by ids from cache for dataset %s: %s. Verify the cache (Redis/Ehcache) is accessible and operational. |  | 
 | BA-B2013 | Error | Dataset %s is not a Large KSDS. Verify the listcat JSON has isLargeKSDS set to true and the dataset was created with Large KSDS metadata. |  | 
 | BA-B2014 | Error | Error building indexes for dataset %s. Check database connectivity and disk space. Retry the loading operation. |  | 
+| BA-B2015 | Warn | Could not read the page criteria of index table %s, listing its cached pages instead: %s Check database connectivity. Listing the cached pages scans the cache keyspace and is slower. |  | 
