@@ -26,12 +26,12 @@ Delete all resources within the workspace before deleting the workspace itself. 
 
 1. Use `DescribeBulkImportJob` to check job status when needed.
 
-## Step 3: Delete pipeline executions, pipelines, and tasks
+## Step 3: Cancel pipeline executions, and delete pipelines and tasks
 <a name="sd-deletion-step3"></a>
 
 1. Call `ListPipelineExecutions` to identify pipeline executions in the workspace.
 
-1. Delete each pipeline execution by calling `DeletePipelineExecution`.
+1. For every in-progress pipeline execution, call `CancelPipelineExecution`, and wait for it to reach a terminal state.
 
 1. Call `ListPipelines`, and delete each pipeline by calling `DeletePipeline`.
 
