@@ -5,7 +5,7 @@
 
 When you start a run, you specify the resources that HealthOmics allocates for the run. The following settings are available:
 
-1. **Output location** – Specify an Amazon S3 URI where the output files from the run are stored. If you run a high volume of workflows concurrently, use separate Amazon S3 output URIs for each workflow to avoid bucket throttling.
+1. **Output location** – Specify an Amazon S3 URI where the output files from the run are stored. If you run a high volume of workflows concurrently, use separate Amazon S3 output URIs for each workflow to avoid bucket throttling. By default, HealthOmics writes the outputs under prefixes that it adds within the output location, such as the run ID. To write the outputs directly to the output location, without these prefixes, set the output URI prefix mode. For more information, see [HealthOmics run outputs](workflows-run-outputs.md).
 
    The following rules apply to `outputUri`:
    + `outputUri` (`--output-uri`) is required and must be a valid Amazon S3 URI. Maximum 750 characters.
@@ -74,9 +74,10 @@ Provide the following settings:
 | 7 | Run storage capacity | Conditional | For static storage only. Specify the amount in GiB. | 
 | 8 | Select S3 output destination | Required | The Amazon S3 location where run outputs are delivered. Format: s3://bucket/prefix/object. | 
 | 9 | Output bucket owner's account ID | Optional | If your account doesn't own the output bucket, enter the bucket owner's AWS account ID. | 
-| 10 | Run metadata retention mode | Optional | Choose Retain run metadata (default) or Remove oldest automatically. RETAIN is the default value; in this mode HealthOmics doesn't delete the run metadata. If you choose REMOVE, HealthOmics permanently deletes the oldest run metadata when the run count reaches the maximum. For more information, see [Run retention mode for HealthOmics runs](run-retention.md). | 
-| 11 | Network access | Optional | Choose Restricted (default) or Virtual Private Cloud (VPC). For more information, see [VPC networking](#start-run-vpc-networking). | 
-| 12 | Service role | Required | Choose an existing service role or create a new one. HealthOmics requires permissions for Amazon S3 and KMS. For more information, see [Service roles for AWS HealthOmics](permissions-service.md). | 
+| 10 | Output URI prefix mode | Optional | Choose Service defined (default) to write the outputs under prefixes that HealthOmics adds to your output URI, such as the run ID, or None, with overwrite to write the outputs without any HealthOmics added prefixes. With None, with overwrite, if your run writes an output to an object key that already exists in your output location, HealthOmics overwrites the existing object. For more information, see [HealthOmics run outputs](workflows-run-outputs.md). | 
+| 11 | Run metadata retention mode | Optional | Choose Retain run metadata (default) or Remove oldest automatically. RETAIN is the default value; in this mode HealthOmics doesn't delete the run metadata. If you choose REMOVE, HealthOmics permanently deletes the oldest run metadata when the run count reaches the maximum. For more information, see [Run retention mode for HealthOmics runs](run-retention.md). | 
+| 12 | Network access | Optional | Choose Restricted (default) or Virtual Private Cloud (VPC). For more information, see [VPC networking](#start-run-vpc-networking). | 
+| 13 | Service role | Required | Choose an existing service role or create a new one. HealthOmics requires permissions for Amazon S3 and KMS. For more information, see [Service roles for AWS HealthOmics](permissions-service.md). | 
 
 Choose **Next** to proceed to Step 2.
 
@@ -236,18 +237,19 @@ Engine settings apply only to Nextflow workflows. If you specify engine settings
 
 | \# | Key | Valid values | Behavior | Version support | 
 | --- | --- | --- | --- | --- | 
-| 1 | engineVersion | "22.04.0" (or "22.04"), "23.10.0" (or "23.10"), "24.10.8" (or "24.10"), "25.10.0" (or "25.10"), "26.04.0" (or "26.04") | Pins the Nextflow version for the run. Overrides the version detected from nextflow.config. Both full and short version formats are accepted. | All Nextflow versions | 
+| 1 | engineVersion | "22.04.0" (or "22.04"), "23.10.0" (or "23.10"), "24.10.8" (or "24.10"), "25.10.0" (or "25.10"), "26.04.0" (or "26.04"), "26.10.0" (or "26.10") | Pins the Nextflow version for the run. Overrides the version detected from nextflow.config. Both full and short version formats are accepted. | All Nextflow versions | 
 | 2 | syntaxVersion | "v1" (Legacy parser), "v2" (Strict syntax parser) | Selects the syntax parser. | v26.04 and later. Earlier versions support only "v1". | 
 | 3 | outputFormat | "json", "text", "none" | Sets the engine stdout/stderr summary format. | v26.04 and later (ignored on earlier versions). | 
 | 4 | agentMode | "true", "false" | Controls Nextflow agent mode. | v26.04 and later (ignored on earlier versions). | 
 | 5 | profile | Comma-separated profile names, for example "test,docker" | Activates Nextflow profiles. For more information, see [Nextflow profiles](#start-run-nextflow-profiles). | All Nextflow versions | 
+| 6 | engineConfig | An Amazon S3 URI to a Nextflow configuration file, for example "s3://amzn-s3-demo-bucket/my-nextflow.config" | Specifies a Nextflow configuration that overrides the configuration in the workflow definition where values conflict. Not supported for Ready2Run workflows or shared workflows. For more information, see [Specify Nextflow configuration at runtime](#start-run-engine-config). | All Nextflow versions | 
 
 ### Nextflow engine version pinning
 <a name="start-run-engine-version-pinning"></a>
 
 You can select a specific Nextflow engine version to run your workflow, enabling controlled migration across engine versions. The run-time version override ensures that even when a workflow definition specifies a version through its config or profile, the engine version that you specify at run time takes precedence. This enables you to test the same workflow across multiple engine versions without modifying the workflow source code.
 
-Supported versions: 22.04.0 (or 22.04), 23.10.0 (or 23.10), 24.10.8 (or 24.10), 25.10.0 (or 25.10), and 26.04.0 (or 26.04). Both full and short version formats are accepted.
+Supported versions: 22.04.0 (or 22.04), 23.10.0 (or 23.10), 24.10.8 (or 24.10), 25.10.0 (or 25.10), 26.04.0 (or 26.04), and 26.10.0 (or 26.10). Both full and short version formats are accepted.
 
 **API and CLI**
 
@@ -264,6 +266,44 @@ aws omics start-run \
 **Console**
 
 In [Step 2: Add parameter values](#start-run-console-step2), select the version from the **Engine version** dropdown in the Nextflow engine settings section.
+
+### Specify Nextflow configuration at runtime
+<a name="start-run-engine-config"></a>
+
+You can specify a Nextflow configuration file stored in Amazon S3 at run time for HealthOmics to apply to your run. Where its values conflict with the configuration in the workflow definition, the configuration that you specify takes precedence. You can then change run configuration without modifying the workflow definition.
+
+You specify the runtime Nextflow configuration using the `engineConfig` parameter in `engineSettings` of **StartRun**. The configuration file specified in `engineConfig` must meet the following requirements:
++ The Amazon S3 URI must point to a `.config` file, whether you provide it through the API, CLI, or console.
++ The configuration file doesn't support the `includeConfig` directive.
+
+**Note**  
+HealthOmics rejects the run request in the following cases:  
+The workflow definition declares a parameter as required and doesn't set a default value for it, and the runtime configuration sets a value for that parameter.
+The workflow definition doesn't declare a parameter, the runtime configuration references that parameter, and you pass that parameter in **StartRun** using `--parameters`. HealthOmics rejects the request only when all three of these conditions are true together.
+
+**API and CLI**
+
+Use the `engineConfig` key in `--engine-settings`. Set the value to an Amazon S3 URI that points to your Nextflow configuration file:
+
+```
+aws omics start-run \
+    --workflow-id {{workflow id}} \
+    --role-arn arn:aws:iam::123456789012:role/OmicsRole \
+    --output-uri s3://amzn-s3-demo-bucket/output \
+    --engine-settings '{"engineConfig":"s3://amzn-s3-demo-bucket/my-nextflow.config"}'
+```
+
+**Note**  
+The IAM service role that you pass in `--role-arn` must have permission to read the configuration object in Amazon S3.
+
+For an example configuration file, see [Specify Nextflow configuration at runtime](workflow-definition-nextflow.md#nextflow-runtime-config) in [Nextflow workflow definition specifics](workflow-definition-nextflow.md).
+
+**Console**
+
+In [Step 2: Add parameter values](#start-run-console-step2), the **Runtime configuration** field, which corresponds to the `engineConfig` key, is the first field in the Nextflow engine settings section. Enter the Amazon S3 URI of the configuration file, or choose **Browse S3** to select the object from Amazon S3. To open the configuration file, choose **View**.
+
+**Note**  
+HealthOmics doesn't support Nextflow configuration overrides for Ready2Run workflows or shared workflows.
 
 ### Nextflow profiles
 <a name="start-run-nextflow-profiles"></a>

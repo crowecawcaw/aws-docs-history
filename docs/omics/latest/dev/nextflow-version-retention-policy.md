@@ -15,7 +15,8 @@ HealthOmics supports multiple stable releases of the Nextflow engine. Each relea
 | v23.10 | DSL 2 | October 2024 | Scheduled for deprecation on November 30, 2027 | 
 | v24.10 | DSL 2 | August 2025 | Supported through at least November 2027 | 
 | v25.10 | DSL 2 | April 2026 | Supported through at least October 2028 | 
-| v26.04 | DSL 2 | June 2026 | Latest, supported through at least April 2029 | 
+| v26.04 | DSL 2 | June 2026 | Supported through at least April 2029 | 
+| v26.10 | DSL 2 | November 2026 | Latest, supported through at least October 2029 | 
 
 HealthOmics doesn't support the monthly "edge" releases. HealthOmics supports released features in each version, but not preview features.
 
@@ -110,7 +111,7 @@ No customer notification or retirement process applies to patch upgrades. You al
 
 Because Nextflow bundles the specification language and engine into one application, DSL version support is tied directly to engine version support:
 + **DSL 1** – Supported exclusively on v22.04. When v22.04 is retired, DSL 1 support ends. You must migrate to DSL 2.
-+ **DSL 2 – Legacy Parser (Syntax V1)** – Supported on v22.04 through v26.04. On v26.04, the legacy parser requires explicit opt-in through `engineSettings.syntaxVersion = v1`.
++ **DSL 2 – Legacy Parser (Syntax V1)** – Supported on v22.04 through v26.10. On v26.04 and later, the legacy parser requires explicit opt-in through `engineSettings.syntaxVersion = v1`.
 + **DSL 2 – Strict Parser (Syntax V2)** – Default on v26.04 and all future versions.
 
 ## Testing before upgrading
@@ -120,7 +121,8 @@ Before upgrading to a newer Nextflow version, we recommend that you:
 + You can use HealthOmics MCP servers to upgrade and validate your workflows against a newer version, including checking for breaking changes and version compatibility. You can use the MCP servers through [Kiro CLI](https://docs.aws.amazon.com/kiro/latest/userguide/what-is.html), Claude Code, or any other MCP-compatible agentic endpoint.
 + Use the `engineSettings.engineVersion` parameter in `StartRun` to test workflows against a newer version without changing your workflow definition. For more information, see [Specify Nextflow engine settings](starting-a-run.md#start-run-api-engine-settings).
 + Review the [Nextflow migration guides](https://www.nextflow.io/docs/latest/migrations/index.html) for breaking changes between versions.
-+ For workflows moving from v25.10 or earlier to v26.04, test compatibility with the Strict Parser (V2) or explicitly set `syntaxVersion` to `v1`.
++ For workflows moving from v25.10 or earlier to v26.04 or later, test compatibility with the Strict Parser (V2) or explicitly set `syntaxVersion` to `v1`.
++ Moving to v26.10 causes a one-time call-cache miss for tasks that use `eval` outputs. For more information, see [Nextflow v26.10 release notes](nextflow-version-release-notes.md#nextflow-v26-10-release-notes).
 + For workflows on DSL 1 (v22.04), follow the [Migrating from DSL 1](https://nextflow.io/docs/latest/dsl1.html) guide before upgrading.
 
 ## Nextflow plugin versions
@@ -136,6 +138,7 @@ HealthOmics pre-installs a curated set of Nextflow plugins for each supported en
 | v24.10 | nf-schema@2.3.0 | 
 | v25.10 | nf-schema@2.6.1, nf-core-utils@0.4.0, nf-prov@1.7.0, nf-fgbio@1.0.1 | 
 | v26.04 | nf-schema@2.7.2, nf-core-utils@0.4.0, nf-prov@1.7.0, nf-fgbio@1.0.1 | 
+| v26.10 | nf-schema@2.7.2, nf-core-utils@0.4.0, nf-prov@1.7.0, nf-fgbio@1.0.1 | 
 
 **Note**  
 For Nextflow v24.10 and higher, nf-schema replaces the deprecated nf-validation plugin. You can use nf-validation only on v23.10.

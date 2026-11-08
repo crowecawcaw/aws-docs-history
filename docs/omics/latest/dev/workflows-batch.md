@@ -473,6 +473,8 @@ Parameters from `defaultRunSetting` are merged with the run-specific parameters 
 | inlineSettings entry | {"inputUri": "s3://bucket/sample.fastq", "version": "v2"} | 
 | Merged result | {"referenceUri": "s3://bucket/ref.fasta", "inputUri": "s3://bucket/sample.fastq", "version": "v2"} | 
 
+The `engineConfig` key in `engineSettings` merges like other keys: the Amazon S3 URI in `inlineSettings[].engineSettings` overrides the Amazon S3 URI in `defaultRunSetting.engineSettings`. Because the entire URI is replaced, HealthOmics uses the supplied configuration file in full and doesn't combine the default and per-run configuration files. For more information, see [Specify Nextflow configuration at runtime](starting-a-run.md#start-run-engine-config) in [Start a run in HealthOmics](starting-a-run.md).
+
 The same merging behavior applies to `runTags`. Tags specified in the per-run configuration override tags with the same key from `defaultRunSetting.runTags`, and new keys are added.
 
 **Tag merging example:**
@@ -900,6 +902,7 @@ The following event pattern matches when any batch reaches a terminal state:
 + **Single filter per list call** — **ListRunsInBatch** and **ListBatch** support only one filter per API call.
 + **Re-run not supported** — The `runId` (re-run) field is not supported in **StartRunBatch**. Each batch submission always creates new runs.
 + **Ready2Run workflows** — Batch runs are not supported with Ready2Run workflows.
++ **Output URI prefix mode not supported** — `StartRunBatch` doesn't accept `outputUriPrefixMode`. Runs in a batch use `SERVICE_DEFINED` and write their outputs under the prefixes that HealthOmics adds. To write outputs directly to the output location, start each run with `StartRun`. For more information, see [HealthOmics run outputs](workflows-run-outputs.md).
 + **Inline configuration limit** — Inline configurations (`inlineSettings`) support up to 100 entries. For larger batches, use `s3UriSettings`. This limit is not adjustable.
 + **S3 configuration file** — The S3 configuration file must be a JSON array of run setting objects. The maximum file size is 6 GB, supporting up to 100,000 run configurations.
 + **S3 file immutability** — Do not modify the S3 configuration file after submitting the batch. HealthOmics validates the file's entity tag (ETag) during submission and fails the batch if the file has changed.

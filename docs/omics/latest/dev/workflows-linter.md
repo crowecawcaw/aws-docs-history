@@ -34,6 +34,9 @@ HealthOmics runs the Nextflow inbuilt strict DSL2 linter (nf-lang/v2) automatica
 + Nextflow v24.10
 + Nextflow v25.10
 + Nextflow v26.04
++ Nextflow v26.10
+
+If your workflow declares Nextflow v26.10 in `manifest.nextflowVersion` (for example `'26.10.0'` or `'>=26.10'`), HealthOmics lints it with the v26.10 linter when you create the workflow. Setting `engineSettings.engineVersion` at run time doesn't change the linter. If your scripts enable static typing (`nextflow.enable.types = true`), the linter also reports type errors. Type errors don't block workflow creation.
 
 **Note**  
 The built-in linter applies only to DSL2 workflows. DSL1 workflows are not linted.
@@ -41,7 +44,7 @@ The built-in linter applies only to DSL2 workflows. DSL1 workflows are not linte
 The Nextflow linter operates in non-blocking mode. Findings don't prevent the workflow from becoming ACTIVE. You can review findings at any time without interrupting your workflow creation process.
 
 **Note**  
-The built-in Nextflow linter validates your workflow definition syntax at creation time. It is distinct from the strict syntax *parser* available for Nextflow v26.04, which is controlled by `engineSettings.syntaxVersion` and affects runtime behavior. The linter runs at creation time across all DSL2 versions, regardless of which parser the workflow uses at runtime.
+The built-in Nextflow linter validates your workflow definition syntax at creation time. It is distinct from the strict syntax *parser* available for Nextflow v26.04 and later, which is controlled by `engineSettings.syntaxVersion` and affects runtime behavior. The linter runs at creation time across all DSL2 versions, regardless of which parser the workflow uses at runtime.
 
 #### To retrieve Nextflow lint output
 <a name="workflows-linter-nextflow-retrieve"></a>
@@ -88,7 +91,7 @@ The following example shows the JSON output from the Nextflow linter:
 <a name="workflows-linter-nextflow-fields"></a>
 
 The JSON output contains the following fields:
-+ `advisory` – Explains version-specific applicability of the findings. On Nextflow v22.04, v23.10, and v24.10 (legacy grammar), findings are advisory only. On Nextflow v25.10 and v26.04, findings reflect strict mode syntax requirements.
++ `advisory` – Explains version-specific applicability of the findings. On Nextflow v22.04, v23.10, and v24.10 (legacy grammar), findings are advisory only. On Nextflow v25.10, v26.04, and v26.10, findings reflect strict mode syntax requirements.
 + `summary` – Contains aggregate counts of errors and warnings across all files in the workflow.
 + `errors` – An array of error objects. Each error contains `filename`, `startLine`, `startColumn`, and `message`.
 + `warnings` – An array of warning objects. Each warning contains the same fields as error objects.

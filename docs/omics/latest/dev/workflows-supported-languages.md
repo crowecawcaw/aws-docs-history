@@ -13,7 +13,7 @@ The following table summarizes the supported workflow languages, versions, and k
 
 | Engine | Supported versions | DSL / Spec versions | Key characteristics | 
 | --- | --- | --- | --- | 
-| Nextflow | v22.04, v23.10, v24.10, v25.10, v26.04 | DSL 1 (v22.04 only), DSL 2 | Groovy-based dataflow language with channel-driven parallelism. Widely adopted in genomics through the nf-core community. Supports plugins (nf-schema, nf-prov, nf-fgbio, nf-core-utils). | 
+| Nextflow | v22.04, v23.10, v24.10, v25.10, v26.04, v26.10 | DSL 1 (v22.04 only), DSL 2 | Groovy-based dataflow language with channel-driven parallelism. Widely adopted in genomics through the nf-core community. Supports plugins (nf-schema, nf-prov, nf-fgbio, nf-core-utils). | 
 | WDL | — | Language spec 1.0, 1.1, development | Task-oriented language with explicit input/output typing. Two engine modes: WDL (strict spec compliance) and WDL lenient (Cromwell-compatible with implicit type casting). | 
 | CWL | — | Language spec 1.0, 1.1, 1.2 | Standards-based, YAML-defined workflow language maintained by the Common Workflow Language community. Portable across multiple execution platforms. | 
 

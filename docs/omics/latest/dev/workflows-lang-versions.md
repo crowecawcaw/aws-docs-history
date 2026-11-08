@@ -34,7 +34,7 @@ You can specify the language version in the CWL workflow definition file. For mo
 ## Nextflow version support
 <a name="workflows-lang-versions-nextflow"></a>
 
-HealthOmics supports five Nextflow stable versions. Nextflow typically releases a stable version every six months. HealthOmics doesn't support the monthly “edge” releases.
+HealthOmics supports six Nextflow stable versions. Nextflow typically releases a stable version every six months. HealthOmics doesn't support the monthly “edge” releases.
 
 HealthOmics supports released features in each version, but not preview features.
 
@@ -47,12 +47,13 @@ HealthOmics supports the following Nextflow versions:
 + Nextflow v24.10.8 DSL 2
 + Nextflow v25.10.0 DSL 2
 + Nextflow v26.04.0 DSL 2
++ Nextflow v26.10.0 DSL 2
 
 **Note**  
-Nextflow v26.04.0 uses the strict (v2) syntax parser by default. To use the legacy parser, set `engineSettings.syntaxVersion` to `v1` when starting a run. For Nextflow v25.10.0 and earlier, HealthOmics does not support strict syntax mode and the only allowed value is `v1`.  
-Separately, HealthOmics runs the built-in Nextflow strict linter during workflow creation. The linter applies to all DSL2 versions (v22.04, v23.10, v24.10, v25.10, and v26.04). DSL1 workflows are not linted. Lint findings appear in the `statusMessage` field of the `GetWorkflow` response. For more information, see [Workflow linters in HealthOmics](workflows-linter.md).
+Nextflow v26.04.0 and later use the strict (v2) syntax parser by default. To use the legacy parser, set `engineSettings.syntaxVersion` to `v1` when starting a run. Workflows that use static typing (`nextflow.enable.types = true`) require the strict parser. For Nextflow v25.10.0 and earlier, HealthOmics does not support strict syntax mode and the only allowed value is `v1`.  
+Separately, HealthOmics runs the built-in Nextflow strict linter during workflow creation. The linter applies to all DSL2 versions (v22.04, v23.10, v24.10, v25.10, v26.04, and v26.10). DSL1 workflows are not linted. Lint findings appear in the `statusMessage` field of the `GetWorkflow` response. For more information, see [Workflow linters in HealthOmics](workflows-linter.md).
 
-To migrate your workflow to the latest supported version (v26.04.0), follow the [Nextflow upgrade guide](https://nextflow.io/docs/latest/migrations/26-04.html).
+To migrate your workflow to the latest supported version (v26.10.0), follow the [Nextflow upgrade guide](https://docs.seqera.io/nextflow/migrations/26-10).
 
 There are some breaking changes when migrating to Nextflow v24, v25, or v26. Follow the [Nextflow migration guide](https://www.nextflow.io/docs/latest/migrations/index.html).
 
@@ -99,7 +100,7 @@ You can specify a Nextflow version or a range of versions using the following sy
 HealthOmics processes the Nextflow version information as follows: 
 + If you use **=** to specify an exact version that HealthOmics supports, HealthOmics uses that version. 
 + If you use **\!** to specify an exact version or a range of versions that are not supported, HealthOmics raises an exception and fails the run. Consider using this option if you want to be strict with version requests and fail quickly if the request includes unsupported versions.
-+ If you specify a range of versions, HealthOmics uses the highest-preference version in that range. The preference order from highest to lowest is v23.10.0, v22.04.0, v24.10.8, v25.10.0, and v26.04.0. For example:
++ If you specify a range of versions, HealthOmics uses the highest-preference version in that range. The preference order from highest to lowest is v23.10.0, v22.04.0, v24.10.8, v25.10.0, v26.04.0, and v26.10.0. For example:
   + If the range covers v25.10.0 and v26.04.0, HealthOmics chooses v25.10.0.
   + If the range covers v24.10.8 and v25.10.0, HealthOmics chooses v24.10.8.
 + If there is no requested version, or if the requested versions aren't valid or can’t be parsed for any reason:

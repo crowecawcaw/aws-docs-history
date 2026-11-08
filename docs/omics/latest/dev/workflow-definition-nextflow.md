@@ -14,6 +14,7 @@ For more information about linting a Nextflow definition before you create the w
 + [Specify storage URIs](#storage-uris-nextflow)
 + [Nextflow directives](#workflow-nexflow-directives)
 + [Use Nextflow profiles](#nextflow-profiles)
++ [Specify Nextflow configuration at runtime](#nextflow-runtime-config)
 + [Export workflow-level content](#exporting-workflow-content-nextflow)
 + [Export task content](#exporting-task-content-nextflow)
 + [Generate Nextflow execution reports](#nextflow-execution-reports)
@@ -29,13 +30,13 @@ Summary of HealthOmics support for plugins:
 v22.04 – no support for plugins
 v23.10 – supports `nf-schema` and `nf-validation`
 v24.10 – supports `nf-schema`
-v25.10, v26.04 – supports `nf-schema`, `nf-core-utils`, `nf-fgbio`, and `nf-prov`
+v25.10, v26.04, v26.10 – supports `nf-schema`, `nf-core-utils`, `nf-fgbio`, and `nf-prov`
 
 HealthOmics provides the following support for Nextflow plugins:
 + For Nextflow v23.10, HealthOmics pre-installs the nf-validation@1.1.1 plugin. 
 + For Nextflow v23.10 and v24.10, HealthOmics pre-installs the nf-schema@2.3.0 plugin.
 + For Nextflow v25.10, HealthOmics pre-installs the nf-schema@2.6.1, nf-core-utils@0.4.0, nf-prov@1.7.0, and nf-fgbio@1.0.1 plugins.
-+ For Nextflow v26.04, HealthOmics pre-installs the nf-schema@2.7.2, nf-core-utils@0.4.0, nf-prov@1.7.0, and nf-fgbio@1.0.1 plugins.
++ For Nextflow v26.04 and v26.10, HealthOmics pre-installs the nf-schema@2.7.2, nf-core-utils@0.4.0, nf-prov@1.7.0, and nf-fgbio@1.0.1 plugins.
 + You cannot retrieve additional plugins during a workflow run. HealthOmics ignores any other plugin versions that you specify in the `nextflow.config` file.
 + For Nextflow v24 and higher, `nf-schema` is the new version of the deprecated `nf-validation` plugin. For more information, see [ nf-schema](https://github.com/nextflow-io/nf-schema) in the Nextflow GitHub repository.
 
@@ -350,6 +351,39 @@ Note the following:
 + If you don't specify a profile, the run uses the `standard` profile if it's defined under profiles in the workflow definition. Otherwise, the run uses the default (top-level) configuration.
 + When using profiles, we recommend pinning the Nextflow version in your workflow definition using `manifest.nextflowVersion` to ensure consistent profile application behavior across runs.
 
+## Specify Nextflow configuration at runtime
+<a name="nextflow-runtime-config"></a>
+
+You can specify a Nextflow configuration file stored in Amazon S3 and apply it at run time with the `engineConfig` engine setting. The configuration overrides the configuration in the workflow definition, so you can change run configuration without modifying the workflow definition.
+
+The following example configuration enables the Nextflow execution report for a run without modifying the workflow definition:
+
+```
+report {
+    enabled = true
+    file = '/mnt/workflow/output/report.html'
+    overwrite = true
+}
+```
+
+For more information about the execution report and the other built-in reports, see [Generate Nextflow execution reports](#nextflow-execution-reports).
+
+To supply the configuration file at run time, specify its Amazon S3 URI with the `engineConfig` engine setting. For more information, see [Specify Nextflow configuration at runtime](starting-a-run.md#start-run-engine-config) in [Start a run in HealthOmics](starting-a-run.md). The following AWS CLI command starts a run with an engine configuration file:
+
+```
+aws omics start-run \
+  --workflow-id {{workflow-id}} \
+  --role-arn {{role-arn}} \
+  --output-uri s3://{{bucket}}/{{prefix}}/ \
+  --engine-settings '{"engineConfig": "s3://amzn-s3-demo-bucket/my-nextflow.config"}'
+```
+
+When you specify multiple profiles (for example, `"test,docker"`), profiles defined in the runtime configuration file take precedence over profiles declared in `nextflow.config`.
+
+How profile order is resolved within the same file depends on your Nextflow version:
++ **Nextflow v26.04 and later with the strict syntax parser (v2)** – The order specified on the command line breaks ties between profiles defined in the same file.
++ **Nextflow versions earlier than v26.04** – Nextflow applies profiles in the order they are defined in the configuration file. Runtime configuration file profiles still take precedence over `nextflow.config` profiles.
+
 ## Export workflow-level content
 <a name="exporting-workflow-content-nextflow"></a>
 
@@ -504,6 +538,8 @@ dag {
 
 HealthOmics exports files written under `/mnt/workflow/output/` to the `output/` prefix in your run's Amazon S3 output location. For more information about this export path, see [Export workflow-level content](#exporting-workflow-content-nextflow). Reports written outside `/mnt/workflow/output/` are not exported to your run's Amazon S3 output location.
 
+**Nextflow v26.10 and later.** You can also place the `report`, `timeline`, `trace`, and `dag` files with the scope's `directory` option, for example `report.directory = 'pipeline_info'`. The `directory` value must be a relative path. Nextflow writes the files under the workflow's `outputDir`, and HealthOmics exports them with the run outputs. If you also set `file`, use a file name only. Reports that set only a relative `file` path, without `directory`, are not exported. File names include a timestamp unless you set `file`.
+
 **Task containers must include `ps`**  
 When the `report`, `timeline`, or `trace` report is enabled, Nextflow collects per-task metrics by invoking `ps` inside each task container. The container image that you specify with the `container` directive must include the `ps` command. On most Linux distributions, install it with the `procps` (Debian/Ubuntu) or `procps-ng` (Amazon Linux, Red Hat, Fedora) package. If a process does not declare a `container` directive, HealthOmics runs the task in a default container that already includes `ps`.
 
@@ -513,7 +549,7 @@ The `dag` report supports several output formats, selected by the extension of `
 ## Specify the Nextflow syntax version
 <a name="nextflow-syntax-version"></a>
 
-Nextflow v26.04.0 uses the strict (v2) syntax parser by default. This is a breaking change for workflows written using the legacy (v1) syntax, which is the default in Nextflow v25.10.0 and earlier. For information about the v2 syntax, see [Strict syntax](https://docs.seqera.io/nextflow/strict-syntax) in the Seqera Nextflow documentation.
+Nextflow v26.04.0 and later use the strict (v2) syntax parser by default. This is a breaking change for workflows written using the legacy (v1) syntax, which is the default in Nextflow v25.10.0 and earlier. For information about the v2 syntax, see [Strict syntax](https://docs.seqera.io/nextflow/strict-syntax) in the Seqera Nextflow documentation.
 
 To run a workflow authored against the legacy (v1) parser, set `engineSettings.syntaxVersion` to `v1` in the **StartRun** request:
 
@@ -530,12 +566,12 @@ For Nextflow v25.10.0 and earlier, HealthOmics does not support the v2 parser.
 ## Automatic syntax validation during workflow creation
 <a name="nextflow-automatic-validation"></a>
 
-HealthOmics automatically runs the Nextflow built-in strict DSL2 linter (nf-lang/v2) when you create or update a Nextflow DSL2 workflow. This linter runs during `CreateWorkflow` and `CreateWorkflowVersion`. It applies to all supported DSL2 versions (v22.04, v23.10, v24.10, v25.10, and v26.04). DSL1 workflows are not linted.
+HealthOmics automatically runs the Nextflow built-in strict DSL2 linter (nf-lang/v2) when you create or update a Nextflow DSL2 workflow. This linter runs during `CreateWorkflow` and `CreateWorkflowVersion`. It applies to all supported DSL2 versions (v22.04, v23.10, v24.10, v25.10, v26.04, and v26.10). DSL1 workflows are not linted.
 
 The linter operates in non-blocking mode. Lint findings don't prevent the workflow from becoming ACTIVE. Findings appear as structured JSON in the `statusMessage` field of the `GetWorkflow` response.
 
 **Note**  
-The built-in linter validates your workflow definition syntax at creation time. It is distinct from the strict syntax *parser* available for Nextflow v26.04, which is controlled by `engineSettings.syntaxVersion` and affects runtime behavior. The linter checks syntax across all DSL2 versions at creation time, regardless of which parser the workflow uses at runtime. On Nextflow v22.04, v23.10, and v24.10 (legacy grammar), findings are advisory. On Nextflow v25.10 and v26.04, findings reflect strict mode syntax requirements.
+The built-in linter validates your workflow definition syntax at creation time. It is distinct from the strict syntax *parser* available for Nextflow v26.04 and later, which is controlled by `engineSettings.syntaxVersion` and affects runtime behavior. The linter checks syntax across all DSL2 versions at creation time, regardless of which parser the workflow uses at runtime. On Nextflow v22.04, v23.10, and v24.10 (legacy grammar), findings are advisory. On Nextflow v25.10, v26.04, and v26.10, findings reflect strict mode syntax requirements. For workflows that declare Nextflow v26.10 in `manifest.nextflowVersion`, validation uses the v26.10 linter, which also reports static type errors for scripts that enable static typing.
 
 For more information about the lint output format and how to address findings, see [Workflow linters in HealthOmics](workflows-linter.md).
 

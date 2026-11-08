@@ -91,7 +91,7 @@ The following example shows the response for a completed run of a private WDL wo
 ### Example response for a Nextflow run with engine settings
 <a name="get-run-engine-settings-example"></a>
 
-For Nextflow runs that were started with engine settings, the **GetRun** response includes an `engineSettings` map that reflects the values applied to the run. The following example shows a run that was started with a pinned engine version and two profiles.
+For Nextflow runs that were started with engine settings, the **GetRun** response includes an `engineSettings` map that reflects the values applied to the run. The following example shows a run that was started with a pinned engine version, two profiles, and a configuration override.
 
 ```
 {
@@ -107,7 +107,8 @@ For Nextflow runs that were started with engine settings, the **GetRun** respons
     "outputUri": "s3://amzn-s3-demo-bucket/output",
     "engineSettings": {
         "engineVersion": "26.04",
-        "profile": "test,docker"
+        "profile": "test,docker",
+        "engineConfig": "s3://amzn-s3-demo-bucket/my-nextflow.config"
     },
     "creationTime": "2024-09-10T16:44:22.262471+00:00",
     "startTime": "2024-09-10T16:56:12.504000+00:00",
