@@ -80,9 +80,9 @@ java -version
 Expected output for 21.0.13:   
 
 ```
-openjdk version "21.0.13" 2026-10-26 LTS
-OpenJDK Runtime Environment Corretto-21.0.13.0.11 (build 21.0.13+0-LTS)
-OpenJDK 64-Bit Server VM Corretto-21.0.13.0.11 (build 21.0.13+0-LTS, mixed mode, sharing)
+openjdk version "21.0.13" 2026-10-20 LTS
+OpenJDK Runtime Environment Corretto-21.0.13.0.11 (build 21.0.13+11-LTS)
+OpenJDK 64-Bit Server VM Corretto-21.0.13.0.11 (build 21.0.13+11-LTS, mixed mode, sharing)
 ```
 
  If you see a version string that doesn't mention `Corretto`, run the following command to change the default `java` or `javac` providers. 
@@ -176,9 +176,9 @@ java -version
 Expected output for 21.0.13:   
 
 ```
-openjdk version "21.0.13" 2026-10-26 LTS
-OpenJDK Runtime Environment Corretto-21.0.13.0.11 (build 21.0.13+0-LTS)
-OpenJDK 64-Bit Server VM Corretto-21.0.13.0.11 (build 21.0.13+0-LTS, mixed mode, sharing)
+openjdk version "21.0.13" 2026-10-20 LTS
+OpenJDK Runtime Environment Corretto-21.0.13.0.11 (build 21.0.13+11-LTS)
+OpenJDK 64-Bit Server VM Corretto-21.0.13.0.11 (build 21.0.13+11-LTS, mixed mode, sharing)
 ```
 
  If you see a version string that doesn't mention `Corretto`, run the following command to change the default `java` or `javac` providers. 
