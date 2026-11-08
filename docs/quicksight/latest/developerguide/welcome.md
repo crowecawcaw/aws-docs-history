@@ -25,7 +25,7 @@ To get started with AWS, you need an AWS account. There are two ways to sign up 
 ## Are you a first-time Amazon Quick Sight user?
 <a name="first-time-user"></a>
 
-If you are a first-time user of Amazon Quick Sight, we recommend that you begin by reading the following sections in the *Amazon Quick Suite User Guide*:
-+ [How Amazon Quick Suite Works](https://docs.aws.amazon.com/quicksuite/latest/userguide/how-quicksuite-works.html) 
-+ [Getting Started with Quick Suite](https://docs.aws.amazon.com/quicksuite/latest/userguide/getting-started.html)
-+ [AWS Security in Quick Suite](https://docs.aws.amazon.com/quicksuite/latest/userguide/security.html)
+If you are a first-time user of Amazon Quick Sight, we recommend that you begin by reading the following sections in the *Amazon Quick User Guide*:
++ [How Amazon Quick works](https://docs.aws.amazon.com/quick/latest/userguide/how-quicksuite-works.html) 
++ [Getting started with Amazon Quick](https://docs.aws.amazon.com/quick/latest/userguide/getting-started.html)
++ [AWS security in Quick](https://docs.aws.amazon.com/quick/latest/userguide/security.html)
