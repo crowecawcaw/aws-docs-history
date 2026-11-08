@@ -30,7 +30,7 @@ The base image contains the Amazon EMR runtime and connectors that are used to a
 docker pull public.ecr.aws/emr-on-eks/spark/{{emr-7.13.0:latest}}
 ```
 
-If you would like to retrieve the base image for a Amazon EMR 6.9.0 or earlier releases, or if you prefer to retrieve from Amazon ECR registry accounts in each Region, use the following steps:
+If you would like to retrieve the base image for an Amazon EMR 6.9.0 or earlier release, or if you prefer to retrieve from Amazon ECR registry accounts in each Region, use the following steps:
 
 1. Choose a base image URI. The image URI follows this format, `{{ECR-registry-account}}.dkr.ecr.{{Region}}.amazonaws.com/spark/{{container-image-tag}}`, as the following example demonstrates.
 

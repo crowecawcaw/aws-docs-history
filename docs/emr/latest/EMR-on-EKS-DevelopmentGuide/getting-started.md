@@ -165,7 +165,7 @@ Take the following steps to run a simple Spark application on Amazon EMR on EKS.
    SELECT count(*) FROM demo.amazonreview WHERE star_rating = 3;
    ```
 
-   The output for this job will available in the driver’s stdout logs in S3 or CloudWatch, depending on the `monitoringConfiguration` that is configured.
+   The output for this job will be available in the driver’s stdout logs in S3 or CloudWatch, depending on the `monitoringConfiguration` that is configured.
 
 1. You can also create a JSON file with specified parameters for your job run. Then run the start-job-run command with a path to the JSON file. For more information, see Submit a job run. For more details about configuring job run parameters, see Options for configuring a job run. 
 

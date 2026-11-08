@@ -27,7 +27,7 @@ For more information on security with Amazon EMR on EKS, see [Amazon EMR on EKS 
 
 [Using EBS volumes:](https://aws.github.io/aws-emr-containers-best-practices/storage/docs/spark/ebs/): how to use static and dynamic provisioning for jobs that need EBS volumes.
 
-[Using Amazon FSx for Lustre volumes:](https://aws.github.io/aws-emr-containers-best-practices/storage/docs/spark/fsx-lustre/) how to use static and dynamic provisioning for jobs that need Amazon FSx for Luster volumes.
+[Using Amazon FSx for Lustre volumes:](https://aws.github.io/aws-emr-containers-best-practices/storage/docs/spark/fsx-lustre/) how to use static and dynamic provisioning for jobs that need Amazon FSx for Lustre volumes.
 
 [Using Instance store volumes:](https://aws.github.io/aws-emr-containers-best-practices/storage/docs/spark/instance-store/) how to use instance store volumes for job processing.
 
