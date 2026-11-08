@@ -19,12 +19,6 @@ For more information, see [Identity and access management in AWS Artifact](secur
 
 1. On the AWS Artifact navigation pane, choose **Agreements**.
 
-1. Choose the **Account agreements** tab.
-
-1. Open the AWS Artifact console at [https://console.aws.amazon.com/artifact/](https://console.aws.amazon.com/artifact/). 
-
-1. In the navigation pane, choose **Agreements**.
-
 1. On the **Agreements** page, do either of the following:
    + To accept an agreement only for your account, choose the **Account agreements** tab.
    + To accept an agreement on behalf of your organization, choose the **Organization agreements** tab.
