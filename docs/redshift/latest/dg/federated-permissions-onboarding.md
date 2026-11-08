@@ -176,7 +176,7 @@ If your Redshift Cluster or Redshift Serverless Namespace is already associated 
 + When a Redshift IdC Application of type Lakehouse from the same AWS IAM Identity Center instance is provided
   + The Redshift IdC Application ARN in your catalog will be changed to the ARN of the Redshift IdC Application of type Lakehouse. The updated catalog can be checked by querying the svv\_identity\_providers. For more information about the svv\_identity\_providers, see [svv\_identity\_providers](https://docs.aws.amazon.com/redshift/latest/dg/r_SVV_IDENTITY_PROVIDERS.html).
   + AWS IAM Identity Center federated users who previously had access to the Redshift cluster, must be explicitly granted CONNECT privileges by the Admins to access the cluster. For more information about granting CONNECT privileges, see [Connect privileges](federated-permissions-prereqs.md#federated-permissions-prereqs-connect).
-  + After registering with AWS Glue Data Catalog, your existing AWS IAM Identity Center federated identities and their owned resources remain unchanged. The namespace associations for these federated identities are also preserved.
+  + After registering with Amazon Redshift federated permissions, your existing AWS IAM Identity Center federated identities and their owned resources remain unchanged. The namespace associations for these federated identities are also preserved.
 
 ### Enable AWS IAM Identity Center identity propagation for Amazon Redshift provisioned clusters
 <a name="federated-permissions-onboarding-propagation-cluster"></a>

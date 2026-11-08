@@ -5,7 +5,7 @@
 # SYS\_RESTORE\_STATE
 <a name="SYS_RESTORE_STATE"></a>
 
-Use SYS\_RESTORE\_STATE to monitor the migration progress of each table during a classic resize. This is specifically applicable when the target node type is RG or RA3. For more information about classic resize to RG or RA3 nodes, see [Classic resize](https://docs.aws.amazon.com/redshift/latest/mgmt/managing-cluster-operations.html#classic-resize-faster).
+Use SYS\_RESTORE\_STATE to monitor the migration progress of each table during a classic resize. For more information about classic resize, see [Classic resize](https://docs.aws.amazon.com/redshift/latest/mgmt/managing-cluster-operations.html#classic-resize-faster).
 
 SYS\_RESTORE\_STATE is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 

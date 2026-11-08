@@ -17,7 +17,7 @@ STV\_NODE\_STORAGE\_CAPACITY is visible only to superusers. For more information
 | --- | --- | --- | 
 | node  | integer  | The node number.  | 
 | used  | integer  | The number of 1 MB disk blocks currently in use on the node. For RG and RA3 node types, used blocks include both locally cached blocks and blocks persisted in Amazon S3.  | 
-| capacity  | integer  | The total storage capacity provisioned for the node in 1 MB blocks. The capacity includes space that is reserved by Amazon Redshift on DC2 node types for internal use. The capacity is larger than the nominal node capacity, which is the amount of node space available for user data. For RG and RA3 node types, this capacity is the same as the total managed storage quota for the cluster. For more information about capacity by node type, see [Node type details](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#working-with-clusters-overview) in the Amazon Redshift Management Guide.  | 
+| capacity  | integer  | The total storage capacity provisioned for the node in 1 MB blocks. This capacity is the same as the total managed storage quota for the cluster. For more information about capacity by node type, see [Node type details](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#working-with-clusters-overview) in the Amazon Redshift Management Guide.  | 
 
 ## Sample queries
 <a name="r_STV_NODE_STORAGE_CAPACITY-sample-query"></a>
@@ -25,7 +25,7 @@ STV\_NODE\_STORAGE\_CAPACITY is visible only to superusers. For more information
 **Note**  
 The results of the following examples vary based on the node specifications of your cluster. Add column `capacity` to your SQL SELECT to retrieve the capacity of your cluster. 
 
-The following query returns used space and total capacity in 1 MB disk blocks. This example ran on a two-node dc2.8xlarge cluster. 
+The following query returns used space and total capacity in 1 MB disk blocks. This example ran on a two-node rg.12xlarge cluster.
 
 ```
 select node, used from stv_node_storage_capacity order by node;
@@ -34,23 +34,6 @@ select node, used from stv_node_storage_capacity order by node;
 This query returns the following sample output. 
 
 ```
- 
- node | used  
-------+-------
-    0 | 30597 
-    1 | 27089
-```
-
-The following query returns used space and total capacity in 1 MB disk blocks. This example ran on a two-node ra3.16xlarge cluster. 
-
-```
-select node, used from stv_node_storage_capacity order by node;
-```
-
-This query returns the following sample output. 
-
-```
- 
  node | used  
 ------+-------
     0 | 30591 

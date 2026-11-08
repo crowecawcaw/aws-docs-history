@@ -24,12 +24,12 @@ The following are some things to look for in SVL\_S3QUERY\_SUMMARY:
 ## Note about RG provisioned clusters
 <a name="c-spectrum-metrics-rg-note"></a>
 
-On RG provisioned clusters, Redshift Spectrum queries run on the cluster's own compute rather than on the dedicated Spectrum fleet used by RA3 and DC2 provisioned clusters. **[SVL\_S3QUERY](r_SVL_S3QUERY.md)** and **[SVL\_S3QUERY\_SUMMARY](r_SVL_S3QUERY_SUMMARY.md)** continue to be populated on RG clusters. The following columns have different semantics or are deprecated.
+On RG provisioned clusters, Redshift Spectrum queries run on the cluster's own compute rather than on the dedicated Spectrum fleet used by RA3 provisioned clusters. **[SVL\_S3QUERY](r_SVL_S3QUERY.md)** and **[SVL\_S3QUERY\_SUMMARY](r_SVL_S3QUERY_SUMMARY.md)** continue to be populated on RG clusters. The following columns have different semantics or are deprecated.
 
 ### Columns populated with different semantics on RG provisioned clusters
 <a name="c-spectrum-metrics-rg-different-semantics"></a>
 
-On RA3 and DC2 provisioned clusters, these columns describe rows, bytes, and work units moving between the cluster and the Spectrum fleet. On RG provisioned clusters, they describe the equivalent work performed by the cluster's native reader:
+On RA3 provisioned clusters, these columns describe rows, bytes, and work units moving between the cluster and the Spectrum fleet. On RG provisioned clusters, they describe the equivalent work performed by the cluster's native reader:
 + **s3\_scanned\_rows** — rows read directly from Amazon S3 by the cluster's native reader (pre-filter).
 + **s3\_scanned\_bytes** — total scan-range size in bytes processed by the cluster's native reader.
 + **s3query\_returned\_rows** — rows produced after filter pushdown by the cluster's native reader.

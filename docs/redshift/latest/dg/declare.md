@@ -70,9 +70,6 @@ The following table shows the maximum cumulative result set size for each cluste
 |  ra3.large multiple nodes  | 240,000 | 
 |  ra3.large single node  | 8,000 | 
 | Amazon Redshift Serverless | 150,000 | 
-|  dc2.8xlarge multiple nodes  | 3,200,000 | 
-|  dc2.large multiple nodes  | 192,000 | 
-|  dc2.large single node  | 8,000 | 
 
 To view the active cursor configuration for a cluster, query the [STV\_CURSOR\_CONFIGURATION](r_STV_CURSOR_CONFIGURATION.md) system table as a superuser. To view the state of active cursors, query the [STV\_ACTIVE\_CURSORS](r_STV_ACTIVE_CURSORS.md) system table. Only the rows for a user's own cursors are visible to the user, but a superuser can view all cursors.
 

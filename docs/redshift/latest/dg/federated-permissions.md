@@ -13,7 +13,7 @@ You define permissions on database objects using familiar Redshift SQL commands,
 
 ## Key concepts
 <a name="federated-permissions-concepts"></a>
-+ **Redshift warehouse with federated permissions**: The producer warehouse that is registered with Data Catalog and where data and Redshift permissions are stored.
++ **Redshift warehouse with federated permissions**: The producer warehouse that is registered with Amazon Redshift multi-warehouse and where data and Redshift permissions are stored.
 + **Consuming Redshift warehouse**: Any warehouse that queries data from remote warehouse. Consuming warehouse can optionally be enabled for Redshift federated permissions.
 + **Global identity**: IAM and IAM Identity Center provides global identity across all warehouses enabled for Redshift federated permissions. Users authenticate once through their existing identity provider and receive consistent access based on their global identity, regardless of which warehouse they connect to.
 + **Auto-mounting**: All warehouses enabled for Redshift federated permissions are automatically visible in all warehouses within your account. This auto-mounting capability enables catalog and database discovery for cross-warehouse analytics.
@@ -50,7 +50,7 @@ You define permissions on database objects using familiar Redshift SQL commands,
 ## Use Cases
 <a name="federated-permissions-use-cases"></a>
 
-**Workload isolation with unified governance**
+**Workload isolation with Amazon Redshift federated permissions**
 
 Separate compute resources for different workloads (ETL, analytics, reporting) while maintaining consistent security policies across all warehouses.
 
@@ -60,7 +60,7 @@ Enable multiple teams to access shared data from their own warehouses with appro
 
 **Data mesh architecture**
 
-Implement a data mesh approach where multiple independent compute resources operate on shared data with unified governance.
+Implement a data mesh approach where multiple independent compute resources operate on shared data with Amazon Redshift federated permissions.
 
 **Cost optimization**
 

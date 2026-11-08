@@ -9,7 +9,7 @@ You can create materialized views that store their data as Apache Iceberg tables
 
 Iceberg materialized views combine Amazon Redshift's query optimization and incremental refresh capabilities with Iceberg's open table format. You can create, refresh, and drop Iceberg materialized views using the same SQL commands as standard materialized views, with the addition of the `USING ICEBERG` clause during creation.
 
-Iceberg materialized views are supported on Redshift Serverless and provisioned clusters with RG instance types. RA3 and DC2 instance types are not supported.
+Iceberg materialized views are supported on Redshift Serverless and provisioned clusters with RG instance types. RA3 instance types are not supported.
 
 For information about SQL commands used to create and manage Iceberg materialized views, see the following command topics:
 + [CREATE MATERIALIZED VIEW](materialized-view-create-sql-command.md)
@@ -186,7 +186,7 @@ Additional limitations:
 + Automatic query rewriting to use materialized views is not supported for Iceberg materialized views.
 + Automated materialized views are not supported for Iceberg materialized views.
 + Autorefresh is not supported for Iceberg materialized views. You must refresh them manually using [REFRESH MATERIALIZED VIEW](materialized-view-refresh-sql-command.md).
-+ Iceberg materialized views are supported only on Redshift Serverless and provisioned clusters with RG instance types. RA3 and DC2 instance types are not supported.
++ Iceberg materialized views are supported only on Redshift Serverless and provisioned clusters with RG instance types. RA3 instance types are not supported.
 + Fine-grained access control (FGAC) is not supported on Iceberg materialized views.
 + CASCADE refresh is not supported for Iceberg materialized views.
 + Iceberg materialized views cannot be created or refreshed when `enable_case_sensitive_identifier` is set to `true`.

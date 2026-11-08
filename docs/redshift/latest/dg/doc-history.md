@@ -20,6 +20,7 @@ For more information about new features, including a list of fixes and the assoc
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Dense compute (DC2) node types are no longer available](#doc-history) | Removed dense compute (DC2) node type references from the Amazon Redshift documentation. DC2 node types are no longer available. | November 2, 2026 | 
 | [Support for Amazon DynamoDB zero-ETL integration with Amazon Redshift](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/RedshiftforDynamoDB-zero-etl.html) | You can now create zero-ETL integrations between DynamoDB and Amazon Redshift to enable near real-time analytics on DynamoDB data without traditional ETL processes. | December 1, 2024 | 
 | [Support for Amazon Aurora zero-ETL integrations with Amazon Redshift data filtering](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) | You can now apply data filters to Amazon Aurora zero-ETL integrations to selectively replicate specific data to Amazon Redshift. | June 1, 2024 | 
 | [Support for Multi-AZ deployment for Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/managing-cluster-multi-az.html) | Amazon Redshift now supports Multi-AZ deployments for RA3 clusters, providing high availability by deploying compute resources across two Availability Zones to continue operating during unexpected events in an AZ. | March 1, 2024 | 

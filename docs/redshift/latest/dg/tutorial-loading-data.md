@@ -60,7 +60,7 @@ Make sure that you have the necessary permissions to perform the cluster operati
 1. On the navigation menu, choose **Clusters**, then choose **Create cluster**. The **Create cluster** page appears. 
 
 1. On the **Create cluster** page enter parameters for your cluster. Choose your own values for the parameters, except change the following values:
-   + Choose **dc2.large** for the node type.
+   + Choose **rg.large** for the node type.
    + Choose **4** for the **Number of nodes**.
    + In the **Cluster permissions** section, choose an IAM role from **Available IAM roles**. This role should be one that you previously created and that has access to Amazon S3. Then choose **Associate IAM role** to add it to the list of **Associated IAM roles** for the cluster.
 

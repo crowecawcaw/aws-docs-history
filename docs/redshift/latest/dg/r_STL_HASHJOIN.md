@@ -37,6 +37,8 @@ STL\_HASHJOIN only contains queries run on main provisioned clusters. It doesn't
 | hash\_step  | integer | The step number of the corresponding hash step. | 
 | checksum | bigint | This information is for internal use only. | 
 | distribution  | integer | This information is for internal use only. | 
+| probe\_input\_rows | bigint | This information is for internal use only. | 
+| build\_input\_rows | bigint | This information is for internal use only. | 
 
 ## Sample queries
 <a name="r_STL_HASHJOIN-sample-queries"></a>

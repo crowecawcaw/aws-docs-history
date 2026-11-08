@@ -26,6 +26,7 @@ Consider the following when using `ALTER TABLE` statements:
 + `ALTER TABLE` statements currently only support Iceberg v2 or v3 tables.
 + All `ALTER TABLE` statements are metadata-only operations.
 + `ALTER TABLE` statements don't support tables with complex type columns.
++ `ALTER TABLE` statements on Iceberg tables can't run inside a transaction block. Run them as standalone statements. For more information, see [Transaction semantics](https://docs.aws.amazon.com/redshift/latest/dg/iceberg-writes-transaction-semantics.html).
 
 **Contents**
 + [Upgrading to Iceberg v3](#iceberg-alter-table-upgrade-v3)

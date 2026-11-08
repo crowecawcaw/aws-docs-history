@@ -26,6 +26,9 @@ For example, suppose that a user attempts to run two concurrent transactions, T1
 +  Non-repeatable reads ‐ A non-repeatable read occurs when a single transaction reads the same row twice but gets different data each time. For example, suppose transaction 1 reads a row. Transaction 2 updates or deletes that row and commits the update or delete. If T1 rereads the row, it retrieves different row values or discovers that the row has been deleted. 
 +  Phantoms – A phantom is a row that matches the search criteria but is not initially seen. For example, suppose transaction 1 reads a set of rows that satisfies its search criteria. Transaction 2 generates a new row in an UPDATE or INSERT statement that matches the search criteria for T1. If T1 reruns its search statement, it gets a different set of rows. 
 
+**Note**  
+The isolation levels described on this page apply to tables stored in Redshift managed storage. They don't apply to Apache Iceberg tables. For the isolation guarantees of transactions on Iceberg tables, see [Transaction semantics](https://docs.aws.amazon.com/redshift/latest/dg/iceberg-writes-transaction-semantics.html).
+
 ## SNAPSHOT and SERIALIZABLE isolation
 <a name="c_serial_isolation-snapshot_and_serializable"></a>
 

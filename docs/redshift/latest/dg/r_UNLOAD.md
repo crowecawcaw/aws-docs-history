@@ -208,7 +208,7 @@ Specifies the maximum size of files that UNLOAD creates in Amazon S3. Specify a 
 
 ROWGROUPSIZE [AS] size [ MB \| GB ]   <a name="unload-rowgroupsize"></a>
 Specifies the size of row groups. Choosing a larger size can reduce the number of row groups, reducing the amount of network communication. Specify an integer value between 32 MB and 128 MB. The AS keyword is optional. The default unit is MB.  
-If ROWGROUPSIZE isn't specified, the default size is 32 MB. To use this parameter, the storage format must be Parquet and the node type must be ra3.4xlarge, ra3.16xlarge, rg.4xlarge, rg.12xlarge, or dc2.8xlarge.
+If ROWGROUPSIZE isn't specified, the default size is 32 MB. To use this parameter, the storage format must be Parquet and the node type must be ra3.4xlarge, ra3.16xlarge, rg.4xlarge or rg.12xlarge.
 
 REGION [AS] '*aws-region*'  <a name="unload-region"></a>
 Specifies the AWS Region where the target Amazon S3 bucket is located. REGION is required for UNLOAD to an Amazon S3 bucket that isn't in the same AWS Region as the Amazon Redshift database.   

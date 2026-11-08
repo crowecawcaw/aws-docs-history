@@ -8,7 +8,7 @@
 This topic describes details for using Redshift Spectrum to efficiently read from Amazon S3.
 
 **Note**  
-Amazon Redshift DC2 and RA3 instances use Redshift Spectrum to run data lake queries on a dedicated server fleet outside of the cluster. Amazon Redshift RG instances and Amazon Redshift Serverless include an integrated data lake query engine that runs on the cluster's own compute resources. For information, see [Querying your data lake](https://docs.aws.amazon.com/redshift/latest/gsg/data-lake.html).
+Amazon Redshift RA3 instances use Redshift Spectrum to run data lake queries on a dedicated server fleet outside of the cluster. Amazon Redshift RG instances and Amazon Redshift Serverless include an integrated data lake query engine that runs on the cluster's own compute resources. For information, see [Querying your data lake](https://docs.aws.amazon.com/redshift/latest/gsg/data-lake.html).
 
 Amazon Redshift Spectrum resides on dedicated Amazon Redshift servers that are independent of your cluster. Amazon Redshift pushes many compute-intensive tasks, such as predicate filtering and aggregation, down to the Redshift Spectrum layer. Thus, Redshift Spectrum queries use much less of your cluster's processing capacity than other queries. Redshift Spectrum also scales intelligently. Based on the demands of your queries, Redshift Spectrum can potentially use thousands of instances to take advantage of massively parallel processing.
 

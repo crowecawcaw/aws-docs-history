@@ -11,7 +11,7 @@ The stack creates an external schema, referencing your Aurora PostgreSQL instanc
 
 If instead you want to get started with federated queries by running SQL statements to set up an external schema, without using CloudFormation, see [Getting started with using federated queries to PostgreSQL](getting-started-federated.md).
 
-Before running the CloudFormation stack for federated queries, make sure that you have an Amazon Aurora PostgreSQL-Compatible Edition serverless database with the Data API turned on. You can turn on the Data API in the database properties. If you can't find the setting, double-check that you are running a serverless instance of Aurora PostgreSQL. Also make sure that you have a Amazon Redshift cluster that uses RG or RA3 nodes. We recommend that both the Redshift cluster and serverless Aurora PostgreSQL instance are in the same virtual private cloud (VPC) and subnet group. This way, you can add the security group for the Amazon Redshift cluster to the inbound rules of the security group for your Aurora PostgreSQL database instance.
+Before running the CloudFormation stack for federated queries, make sure that you have an Amazon Aurora PostgreSQL-Compatible Edition serverless database with the Data API turned on. You can turn on the Data API in the database properties. If you can't find the setting, double-check that you are running a serverless instance of Aurora PostgreSQL. We recommend that both the Redshift cluster and serverless Aurora PostgreSQL instance are in the same virtual private cloud (VPC) and subnet group. This way, you can add the security group for the Amazon Redshift cluster to the inbound rules of the security group for your Aurora PostgreSQL database instance.
 
 For more information about getting started setting up an Amazon Redshift cluster, see [Get started with Amazon Redshift provisioned data warehouses](https://docs.aws.amazon.com/redshift/latest/gsg/new-user.html). For more information about setting up resources with CloudFormation, see [What is AWS CloudFormation?](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html). For more information about setting up an Aurora DB cluster database, see [Creating an Aurora DB cluster Serverless v1 DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.create.html).
 
@@ -31,7 +31,7 @@ Use the following procedure to launch your CloudFormation stack for Amazon Redsh
 1. Choose **Next** to enter the stack details.
 
 1. Under **Parameters**, for the cluster, enter the following:
-   + The Amazon Redshift cluster name, for example **ra3-consumer-cluster**
+   + The Amazon Redshift cluster name, for example **rg-consumer-cluster**
    + A specific database name, for example **dev**
    + The name of a database user, for example **consumeruser**
 
@@ -52,7 +52,6 @@ Choose **Create stack**. CloudFormation provisions the template resources, which
 If an error occurs while the stack is created, do the following:
 + View the CloudFormation **Events** tab for information that can help you resolve the error.
 + Make sure that you entered the correct name, database name, and database user name for the Redshift cluster. Also check the parameters for the Aurora PostgreSQL instance.
-+ Make sure that your cluster has RG or RA3 nodes.
 + Make sure that your database and Redshift cluster are in the same subnet and security group.
 
 ## Querying data from the external schema

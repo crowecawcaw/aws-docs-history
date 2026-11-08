@@ -12,7 +12,7 @@ You must be a `superuser` or have the [sys:secadmin](https://docs.aws.amazon.com
 ## Prerequisites
 <a name="federated-permissions-end-examples-prereqs"></a>
 
-The examples assume that the below "IAMR:role\_name" roles are already present in the account, if not please create them. Moreover, the Redshift data warehouse is registered with AWS Glue Data Catalog with name "catalog\_name" and has a database of "db\_name".
+The examples assume that the below "IAMR:role\_name" roles are already present in the account, if not please create them. Moreover, the producer warehouse is registered with Amazon Redshift federated permissions with name "catalog\_name" and has a database of "db\_name".
 
 ## On catalog instance grant sys:secadmin Role to corresponding IAM Role
 <a name="federated-permissions-end-examples-catalog-grant"></a>

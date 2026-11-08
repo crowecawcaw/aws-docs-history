@@ -21,7 +21,15 @@ The following are considerations when working with datashare reads and writes in
 + *Multi-statement queries and transactions* – Multi-statement queries outside of a transaction block aren't currently supported. As a result, if you are using a query editor like dbeaver and you have multiple write queries, you need to wrap your queries in an explicit BEGIN...END transaction statement.
 
   When multi-command statements are used outside of transactions, if the first command is a write to a producer database, subsequent write commands in the statement are only allowed to that producer database. If the first command is a read, subsequent write commands are only allowed to the used database, if set, otherwise to the local database. Note that the writes in a transaction are only supported to a single database.
-+ *Consumer sizing* – Consumer clusters must have at least 64 slices or more to perform writes using data sharing. 
++ *Consumer sizing* – Consumer sizing requirements for datashare writes depend on the producer and consumer deployment types:
+  + *Provisioned consumer writing to provisioned producer* – The consumer cluster must have at least 2 compute nodes and be large enough to accommodate all of the producer's data slices. Each consumer compute node can accept up to 64 producer data slices. The producer's total slice count must not exceed 64 times the number of consumer compute nodes. For more information about determining the number of data slices for your node type, see [About clusters and nodes](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes) in the *Amazon Redshift Management Guide*.
+
+    A classic resize changes the number of data slices. If the resulting configuration doesn't meet the sizing requirements described earlier, the classic resize can fail. For more information, see [Resizing clusters](https://docs.aws.amazon.com/redshift/latest/mgmt/managing-cluster-operations.html#classic-resize-faster) in the *Amazon Redshift Management Guide*.
+
+    For example, consider a producer with 200 data slices (50 ra3.4xlarge nodes with 4 slices each). The consumer cluster must have at least 4 compute nodes. Three nodes cover only 192 slices (64 × 3), while 4 nodes cover 256 slices (64 × 4).
+  + *Serverless consumer writing to serverless producer* – No consumer sizing restrictions apply.
+  + *Provisioned consumer writing to serverless producer* – The consumer cluster must have at least 2 compute nodes.
+  + *Serverless consumer writing to provisioned producer* – Some producer and consumer size combinations aren't supported. For sizing guidance, create a support case in the [AWS Support Center](https://console.aws.amazon.com/support/home#/case/create).
 + *Views and materialized views* – You can't create, update, or alter views or materialized views on a datashare database.
 + *Security* – You can't attach or remove security policies such as column-level (CLS), row-level (RLS) and dynamic data masking (DDM) to datashare objects.
 + *Manageability* – Consumers warehouses can't add datashare objects or views referencing datashare objects to another datashare. Consumers also can't modify or drop an existing datashare.
