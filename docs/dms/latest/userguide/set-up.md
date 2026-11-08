@@ -26,11 +26,16 @@ You need an Amazon S3 bucket with versioning enabled to store assessment reports
 **AWS Secrets Manager**  
 Create JSON secrets in AWS Secrets Manager that contain `username` and `password` key-value pairs for your source and target databases, for example named `sc-source-secret` and `sc-target-secret`. Your secrets must be in the same AWS Region as your migration project. If you already have secrets that meet these requirements, you can reuse them. For instructions on creating secrets, see [Create an AWS Secrets Manager secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_secret.html) in the *AWS Secrets Manager User Guide*.
 
+**Note**  
+The AWS Secrets Manager secret and IAM role are optional for a migration project that uses an offline source or a virtual target. These data providers have **Virtual Mode** turned on and do not connect to a database. For more information, see [Virtual mode for offline source and virtual target](virtual-data-provider.md).
+
 ## Create IAM roles and policies
 <a name="set-up-iam"></a><a name="set-up-iam-policies"></a><a name="set-up-iam-roles"></a>
 
 To use DMS Schema Conversion, create the following five IAM roles. Each role must use a trust policy that allows the AWS DMS service to assume the role.
 
+
+**IAM roles for DMS Schema Conversion**  
 
 | Role name | Permissions policy | 
 | --- | --- | 

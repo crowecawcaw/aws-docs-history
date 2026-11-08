@@ -26,3 +26,6 @@ Now you can create a migration project. In the migration project, you specify yo
 1. For **IAM role**, choose **sc-target-secret-role**.
 
 1. Choose **Create migration project**.
+
+**Note**  
+If your source or target data provider has **Virtual Mode** turned on, the **Secret ID** and **IAM role** are optional for that data provider. Provide them only if you want to. If you do choose a **Secret ID** for a data provider in **Virtual Mode**, it must meet the requirements in [Create Secrets Manager secrets](set-up.md#set-up-secrets). For more information, see [Virtual mode for offline source and virtual target](virtual-data-provider.md).

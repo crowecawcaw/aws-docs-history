@@ -5,6 +5,10 @@
 
 You can use Oracle databases as a migration source in DMS Schema Conversion.
 
+DMS Schema Conversion supports the following modes for Oracle as a migration source:
++ **Online mode** – Use this mode to read metadata directly from your source database. To use online mode, you need network connectivity and the appropriate database privileges.
++ **Offline mode** – Use this mode to convert schemas from exported script files stored in an Amazon S3 bucket, without requiring a connection to your source database. In offline mode, the conversion results depend on the completeness and quality of the scripts that you provide. To use offline mode, turn on **Virtual Mode** when you create the data provider. For more information, see [Virtual mode for offline source and virtual target](virtual-data-provider.md).
+
 To connect to your Oracle database, use the Oracle System ID (SID). To find the Oracle SID, submit the following query to your Oracle database:
 
 ```

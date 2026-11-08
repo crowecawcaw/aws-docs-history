@@ -197,7 +197,8 @@ A task settings JSON file can look like the following.
     "RecordFailureDelayLimitInMinutes": 1,
     "SkipLobColumns": false,
     "ValidationPartialLobSize": 0,
-    "ValidationQueryCdcDelaySeconds": 0
+    "ValidationQueryCdcDelaySeconds": 0,
+    "ValidationQueryWaitTimeout": 300
   }
 }
 ```

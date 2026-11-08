@@ -23,7 +23,7 @@ Next, you create data providers that describe your source and target databases. 
 1. To use this data provider for Schema Conversion without connecting to a database, turn on **Virtual Mode**.
 
    There are two use cases where **Virtual Mode** applies:
-   + Offline source – Convert schemas from exported script files without connecting to the source database. Offline source is currently available for Microsoft SQL Server.
+   + Offline source – Convert schemas from exported script files without connecting to the source database. Offline source is currently available for Microsoft SQL Server and Oracle.
    + Virtual target – Convert schemas without provisioning target infrastructure. Available for all supported target databases.
 
    When **Virtual Mode** is on, the console automatically sets connection information using defaults.
@@ -66,19 +66,20 @@ Replace the following:
 
 **Create an offline source**
 
-To create an offline source data provider, use the [create-data-provider](https://docs.aws.amazon.com/cli/latest/reference/dms/create-data-provider.html) command with the `--virtual` flag and the S3 settings in the engine configuration.
+To create an offline source data provider, use the [create-data-provider](https://docs.aws.amazon.com/cli/latest/reference/dms/create-data-provider.html) command with the `--virtual` flag and the S3 settings in the engine configuration. Offline source supports `sqlserver` and `oracle` engines. For the engine-specific settings object, use `MicrosoftSqlServerSettings` or `OracleSettings`.
 
 ```
 aws dms create-data-provider \
     --data-provider-name {{my-offline-source}} \
-    --engine sqlserver \
-    --settings '{"MicrosoftSqlServerSettings":
-                    {"ServerName": "{{my-source-server}}",
-                     "Port": 1433,
-                     "DatabaseName": "{{MyDatabase}}",
-                     "SslMode": "none",
-                     "S3Path": "s3://{{amzn-s3-demo-bucket}}/{{my-prefix}}",
-                     "S3AccessRoleArn": "arn:aws:iam::{{111122223333}}:role/{{my-s3-read-role}}"}}' \
+    --engine {{engine-type}} \
+    --settings '{{{"EngineSettings"}}:{
+        "ServerName":"{{my-source-server}}",
+        "Port":{{port}},
+        "DatabaseName":"{{database-name}}",
+        "SslMode":"none",
+        "S3Path":"s3://{{amzn-s3-demo-bucket}}/{{my-prefix}}",
+        "S3AccessRoleArn":"arn:aws:iam::{{111122223333}}:role/{{my-s3-read-role}}"
+    }}' \
     --virtual
 ```
 
@@ -89,8 +90,9 @@ The following table describes each setting. All settings are required for an off
 
 | Setting | Required | Description | 
 | --- | --- | --- | 
+| EngineSettings | Yes | The engine-specific settings object. Allowed values for offline source: MicrosoftSqlServerSettings, OracleSettings. | 
 | ServerName | Yes | An identifier for this data provider. Used as server-name in selection rules. Does not need to be a real hostname. | 
-| Port | Yes | Standard port for the engine (1433 for SQL Server). No connection is made. | 
+| Port | Yes | Standard port for the engine (1433 for SQL Server, 1521 for Oracle). No connection is made. | 
 | DatabaseName | Yes | A database name value. No connection is made. | 
 | SslMode | Yes | Use none. No connection is made. | 
 | S3Path | Yes | S3 URI prefix containing your exported DDL scripts (for example, s3://amzn-s3-demo-bucket/my-prefix). | 
@@ -131,3 +133,6 @@ The following table describes each setting.
 For more information about virtual mode, see [Virtual target](virtual-data-provider.md#virtual-target-data-provider).
 
 ------
+
+**Note**  
+The AWS Secrets Manager secret and IAM role are optional for a data provider in **Virtual Mode** when you later use it in a migration project. If you choose to provide a secret, it must meet the requirements in [Create Secrets Manager secrets](set-up.md#set-up-secrets).

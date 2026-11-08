@@ -279,6 +279,29 @@ DETAILS         [[{'MYREAL': '+1.10106036e-01'}, {'MYREAL': '+1.10106044e-01'}],
 
 You can look at the `DETAILS` field to determine which columns don’t match. Since you have the primary key of the failed record, you can query the source and target endpoints to see what part of the record does not match.
 
+### Error: Validation aborted: source query exceeded ValidationQueryWaitTimeout
+<a name="CHAP_Validating.Troubleshooting.QueryWaitTimeout"></a>
+
+In AWS DMS version 3.6.1 and later, if a source or target validation query stops returning rows for longer than the `ValidationQueryWaitTimeout` task setting (default 300 seconds), AWS DMS stops validating that table. The validation state of the table changes to *Table error*.
+
+The task log shows the following error. The error text says *source*, but it also appears when the target query times out.
+
+```
+Validation aborted: source query exceeded ValidationQueryWaitTimeout
+```
+
+Replication of the table continues, and AWS DMS continues to validate the other tables. AWS DMS doesn't record validation results for a partition whose query timed out, so the timeout doesn't cause false `MISSING_TARGET` or `MISSING_SOURCE` failures.
+
+To resolve this issue, do the following:
+
+1. Find out why the validation query is slow on the source or target database. Common causes are locking, a missing index on the key columns, and a row-level security policy.
+
+1. Increase `ValidationQueryWaitTimeout` in the `ValidationSettings` of the task. A value of 600–900 seconds is a good start. If the table stops again, increase the value further. For more information about this setting, see [Data validation task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.DataValidation.md).
+
+1. Revalidate the table. For more information about revalidating a table, see [Revalidating tables during a task](#CHAP_Validating.Revalidating).
+
+This behavior doesn't apply to tasks with an Amazon S3 target.
+
 ### `awsdms_validation_failures_v2` control table
 <a name="CHAP_DataResync.Troubleshooting.v2table"></a>
 

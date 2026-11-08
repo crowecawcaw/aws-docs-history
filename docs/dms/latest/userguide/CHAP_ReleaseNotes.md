@@ -128,11 +128,18 @@ AWS DMS version 3.6.1 includes the following resolved issues:
 | Task log rotation defaults update | Enabled log rotation by default and capped rollover at 1000 MB, preventing task logs from growing without bound and consuming disk space. | 
 | SQL Server CDC setup crash issue | Fixed an issue for Microsoft SQL Server sources where change data capture (CDC) article setup stopped the task because of a null pointer dereference. | 
 | Amazon DocumentDB and MongoDB change stream crash issue | Fixed an issue for Amazon DocumentDB and MongoDB sources where change stream capture stopped the task. | 
-| Wide character data handling issue | Fixed an issue where wide character (WSTR) values were not built correctly into SQL literals, which wrote incorrect character data to the target. | 
+| Wide character data handling issue | Fixed an issue for Oracle targets that use a non-Unicode database character set, where wide character (WSTR) values were not built correctly into SQL literals, which wrote incorrect character data to the target. | 
 | Sorter crash during filtering issue | Fixed an issue where the sorter stopped the task when a swap file handle was evicted from cache during a filter operation. | 
 | Amazon S3 target orphaned file cleanup issue | Fixed an issue for Amazon S3 targets where orphaned change data capture (CDC) files were not removed after upload. | 
 | Amazon Redshift load timeout default update | Increased the default Amazon Redshift load timeout from 20 minutes to 24 hours, preventing the ODBC statement timeout from cancelling long-running COPY (full-load) operations. | 
 | Oracle partition query ordering update | Added deterministic ordering to the Oracle partitioning query for more reliable parallel full load. | 
+| Amazon DocumentDB and MongoDB task log noise issue | Fixed an issue for Amazon DocumentDB and MongoDB sources where change data capture (CDC) wrote excessive warning messages to the task log, which made real errors harder to find. The task log is now quieter during normal operation. | 
+| Amazon S3 target empty directory cleanup issue | Fixed an issue for Amazon S3 targets where empty date-partitioned directories were left on the replication instance during change data capture (CDC) and consumed storage over time. Empty directories are now removed automatically. | 
+| Data validation crash issue | Fixed an issue where data validation stopped the task with a crash, observed on memory-constrained replication instances. Data validation now completes without crashing in this case. | 
+| Amazon S3 Parquet source memory issue | Fixed issues for Amazon S3 sources that use Parquet where memory use grew during ongoing replication until the replication instance ran out of memory. Memory use is now stable. | 
+| MongoDB socketTimeoutMS connection attribute issue | Fixed an issue for MongoDB sources where the socketTimeoutMS extra connection attribute was ignored when entered with the uppercase spelling shown in the MongoDB documentation, so the socket timeout stayed at the default of 300 seconds. The documented spelling is now applied. | 
+| Microsoft SQL Server CDC data handling issue | Fixed an issue for Microsoft SQL Server sources where change data capture (CDC) wrote incorrect character or binary values for certain columns, or stopped the task for tables that have no primary key or unique index. These tables now replicate correctly. | 
+| IBM Db2 source validation issue | Fixed an issue for IBM Db2 sources where data validation failed on DECIMAL primary key columns that contain values with trailing zeros. These columns now validate correctly. | 
 
 ## AWS Database Migration Service 3.6.0 release notes
 <a name="CHAP_ReleaseNotes.DMS360"></a>
@@ -255,7 +262,7 @@ AWS DMS version 3.5.4 includes the following resolved issues:
 | S3 validation Athena database conflict issue | Fixed race condition when multiple tasks share S3 endpoints by isolating Athena databases per task. | 
 | PostgreSQL target bulk-load security hardening | Improved the security of the PostgreSQL target bulk-load path. AWS DMS now runs the load utility directly rather than through a command shell, and validates connection-script and object-identifier inputs before use. | 
 | Amazon S3 source storage growth issue | Fixed an issue for Amazon S3 sources where storage usage grew unexpectedly. | 
-| Amazon S3 Parquet reader memory issue | Fixed an issue for Amazon S3 sources where the Parquet reader accumulated memory over time. | 
+| Amazon S3 Parquet source memory issue | Fixed issues for Amazon S3 sources that use Parquet where memory use grew during ongoing replication until the replication instance ran out of memory. Memory use is now stable. | 
 | Oracle partition query ordering update | Added deterministic ordering to the Oracle partitioning query for more reliable parallel full load. | 
 | Db2 LUW source capture crash issue | Fixed an issue for Db2 LUW sources where the source-capture logging path could cause the task to stop unexpectedly. | 
 | PostgreSQL large LOB handling issue | Fixed an issue for PostgreSQL targets where uploading a LOB value larger than 1 GB was not handled gracefully. | 
@@ -291,10 +298,19 @@ AWS DMS version 3.5.4 includes the following resolved issues:
 | Task log rotation defaults update | Enabled log rotation by default and capped rollover at 1000 MB, preventing task logs from growing without bound and consuming disk space. | 
 | SQL Server CDC setup crash issue | Fixed an issue for Microsoft SQL Server sources where change data capture (CDC) article setup stopped the task because of a null pointer dereference. | 
 | Amazon DocumentDB and MongoDB change stream crash issue | Fixed an issue for Amazon DocumentDB and MongoDB sources where change stream capture stopped the task. | 
-| Wide character data handling issue | Fixed an issue where wide character (WSTR) values were not built correctly into SQL literals, which wrote incorrect character data to the target. | 
 | Sorter crash during filtering issue | Fixed an issue where the sorter stopped the task when a swap file handle was evicted from cache during a filter operation. | 
 | Amazon S3 target orphaned file cleanup issue | Fixed an issue for Amazon S3 targets where orphaned change data capture (CDC) files were not removed after upload. | 
 | Amazon Redshift load timeout default update | Increased the default Amazon Redshift load timeout from 20 minutes to 24 hours, preventing the ODBC statement timeout from cancelling long-running COPY (full-load) operations. | 
+| Amazon DocumentDB and MongoDB task log noise issue | Fixed an issue for Amazon DocumentDB and MongoDB sources where change data capture (CDC) wrote excessive warning messages to the task log, which made real errors harder to find. The task log is now quieter during normal operation. | 
+| Amazon S3 target empty directory cleanup issue | Fixed an issue for Amazon S3 targets where empty date-partitioned directories were left on the replication instance during change data capture (CDC) and consumed storage over time. Empty directories are now removed automatically. | 
+| Data validation crash issue | Fixed an issue where data validation stopped the task with a crash, observed on memory-constrained replication instances. Data validation now completes without crashing in this case. | 
+| MongoDB socketTimeoutMS connection attribute issue | Fixed an issue for MongoDB sources where the socketTimeoutMS extra connection attribute was ignored when entered with the uppercase spelling shown in the MongoDB documentation, so the socket timeout stayed at the default of 300 seconds. The documented spelling is now applied. | 
+| Microsoft SQL Server CDC data handling issue | Fixed an issue for Microsoft SQL Server sources where change data capture (CDC) wrote incorrect character or binary values for certain columns, or stopped the task for tables that have no primary key or unique index. These tables now replicate correctly. | 
+| IBM Db2 source validation issue | Fixed an issue for IBM Db2 sources where data validation failed on DECIMAL primary key columns that contain values with trailing zeros. These columns now validate correctly. | 
+| PostgreSQL SSL connection crash issue | Fixed an issue for PostgreSQL endpoints on DMS 3.5.4 replication instances where the replication process crashed and restarted when the endpoint used an SSL connection. SSL connections are now stable. | 
+| Amazon DocumentDB empty field name issue | Fixed an issue for Amazon DocumentDB targets where a migration stopped with an Empty field name error when source rows contained null or empty string values. These values are now applied correctly. | 
+| Amazon Redshift full-load crash issue | Fixed an issue for Amazon Redshift targets on DMS 3.5.4 where a full-load task stopped with a crash. Full-load tasks now complete. | 
+| Amazon Redshift Zero-ETL full-load crash issue | Fixed an issue for Amazon Redshift Zero-ETL targets on DMS 3.5.4 where a full-load task stopped with a crash when a table produced more than one data file. | 
 
 ## AWS Database Migration Service 3.5.3 release notes
 <a name="CHAP_ReleaseNotes.DMS353"></a>
