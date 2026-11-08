@@ -127,6 +127,18 @@ The following local preference BGP community tags are supported:
 + `7224:7200`—Medium preference 
 + `7224:7300`—High preference
 
+**Note**  
+Configure these tags as standard BGP communities. Direct Connect doesn't evaluate extended BGP communities, such as route targets, for route preference, and might remove them when it receives the route. If you apply a tag as an extended community, Direct Connect doesn't return an error.
+
 Local preference BGP community tags are mutually exclusive. To load balance traffic across multiple Direct Connect connections (active/active) homed to the same or different AWS Regions, apply the same community tag; for example, `7224:7200` (medium preference) across the prefixes for the connections. If one of the connections fails, traffic will be then load balance using ECMP across the remaining active connections regardless of their home Region associations . To support failover across multiple Direct Connect connections (active/passive), apply a community tag with a higher preference to the prefixes for the primary or active virtual interface and a lower preference to the prefixes for the backup or passive virtual interface. For example, set the BGP community tags for your primary or active virtual interfaces to `7224:7300` (high preference) and `7224:7100` (low preference) for your passive virtual interfaces.
 
 Local preference BGP community tags are evaluated before any AS\_PATH attribute, and are evaluated in order from lowest to highest preference (where highest preference is preferred).
+
+### AS\_PATH loop prevention
+<a name="as-path-loop-prevention"></a>
+
+Direct Connect applies standard eBGP loop prevention to the routes that you advertise over private and transit virtual interfaces. If the AS\_PATH of a route contains the Direct Connect ASN `7224` two or more times, Direct Connect treats the route as a loop and doesn't install it.
+
+This usually happens when your network re-advertises routes that it learned over one virtual interface to AWS over another virtual interface. This produces an AS\_PATH like `65300 7224 7224 16509 14618`.
+
+To avoid this, filter routes that you learned from AWS out of the routes that you advertise to AWS.
