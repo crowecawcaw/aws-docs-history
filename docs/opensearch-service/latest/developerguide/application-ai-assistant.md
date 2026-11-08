@@ -1,6 +1,6 @@
 
 
-# Agentic AI in Amazon OpenSearch Service
+# AI Assistant in Amazon OpenSearch Service
 <a name="application-ai-assistant"></a>
 
 OpenSearch UI includes a suite of agentic AI capabilities designed to simplify operational analytics and accelerate incident investigations for your engineering and support teams.
@@ -35,7 +35,7 @@ This permission inheritance model ensures that enabling AI features does not cre
 ## Enabling and disabling agentic AI features
 <a name="application-ai-assistant-enable-disable"></a>
 
-The agentic AI features are automatically enabled for new OpenSearch UI applications, and for existing applications unless you have explicitly disabled AI features in any of your OpenSearch domains.
+Amazon OpenSearch Service automatically enables the agentic AI features for new OpenSearch UI applications, and for existing applications unless you have explicitly disabled AI features in any of your OpenSearch domains.
 
 To enable or disable the AI features, you can use either the AWS Management Console or the API:
 + **Console** – Navigate to the details page of the OpenSearch UI application and update the AI features from there.  

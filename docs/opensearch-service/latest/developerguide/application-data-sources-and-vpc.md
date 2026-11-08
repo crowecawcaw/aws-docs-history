@@ -8,6 +8,7 @@ Use the procedures in this section to manage data source associations and to con
 **Topics**
 + [Associating a data source with an OpenSearch UI application](#application-data-source-association)
 + [Managing access to domains in a VPC](#application-manage-vpc-access)
++ [Verifying VPC endpoint access and security groups](#application-manage-vpc-access-verify)
 + [Configuring access to OpenSearch Serverless collections in a VPC](#application-configure-vpc-access-serverless-connections)
 
 ## Associating a data source with an OpenSearch UI application
@@ -35,6 +36,72 @@ If you are not finding the data sources you are looking for, contact your admini
 After you have associated a data source with the application, the **Launch Application** button is enabled on the application detail page. You can choose **Launch Application** to open the **Welcome to OpenSearch** page, where you can create and manage workspaces.
 
 For information about working with workspaces, see [Using Amazon OpenSearch Service workspaces](application-workspaces.md).
+
+### Associating a data source with the AWS CLI
+<a name="application-data-source-association-cli"></a>
+
+Use the `update-application` command to associate one or more data sources. Replace the {{placeholder values}} with your own information.
+
+```
+aws opensearch update-application \
+    --id {{application-id}} \
+    --region {{region}} \
+    --data-sources '[
+      {
+        "dataSourceArn": "arn:aws:es:{{region}}:{{account-id}}:domain/{{domain-name}}",
+        "dataSourceDescription": "Production logs domain"
+      },
+      {
+        "dataSourceArn": "arn:aws:aoss:{{region}}:{{account-id}}:collection/{{collection-id}}",
+        "dataSourceDescription": "Search collection"
+      }
+    ]'
+```
+
+To confirm the association, run `aws opensearch get-application --id {{application-id}}`. The response includes a `dataSources` array that lists the currently associated sources.
+
+**Important**  
+The `--data-sources` parameter replaces the entire list rather than adding to it. To remove one data source, run the command again with every data source that you want to keep. Passing an empty array removes all data sources from the application.
+
+### Supported data source types
+<a name="application-data-source-types"></a>
+
+
+**Data source types and how they are associated**  
+
+| Data source type | ARN format | How it is associated | 
+| --- | --- | --- | 
+| OpenSearch managed domain | arn:aws:es:{{region}}:{{account-id}}:domain/{{domain-name}} | Console or AWS CLI | 
+| OpenSearch Serverless collection | arn:aws:aoss:{{region}}:{{account-id}}:collection/{{collection-id}} | Console or AWS CLI | 
+| Amazon S3 through direct query | Configured through an AWS Glue connection | Within OpenSearch UI | 
+| Amazon CloudWatch Logs | Configured as a direct query source | Within OpenSearch UI | 
+| Amazon Security Lake | Configured as a direct query source | Within OpenSearch UI | 
+
+You associate domains and collections at the application level, with the console or the AWS CLI. You configure direct query sources from within OpenSearch UI after the application is running, not through the `update-application` command.
+
+### Configuring a direct query data source
+<a name="application-data-source-direct-query"></a>
+
+With a direct query source, you can query data in place, without ingesting it into OpenSearch. Before you begin, confirm the following prerequisites:
++ For Amazon S3 sources, an AWS Glue database and table that catalog the data.
++ An IAM role that grants OpenSearch permission to read from the source.
++ A domain associated with the application that runs OpenSearch version 2.13 or later.
+
+**To configure a direct query data source**
+
+1. Launch your OpenSearch UI application.
+
+1. In the left navigation pane, choose **Data sources**.
+
+1. Choose **Create data source connection**.
+
+1. Choose the source type: Amazon S3, Amazon CloudWatch Logs, or Amazon Security Lake.
+
+1. Provide the connection details, such as the AWS Glue database and the IAM role.
+
+1. Test the connection, and then save it.
+
+For more information about direct queries, see [Working with Amazon OpenSearch Service direct queries](direct-query.md).
 
 ## Managing access to domains in a VPC
 <a name="application-manage-vpc-access"></a>
@@ -73,6 +140,9 @@ aws opensearch authorize-vpc-endpoint-access \
  --region {{region-id}}
 ```
 
+**Important**  
+Revoking the authorization disconnects OpenSearch UI from the domain. Any workspace that uses the domain as a data source loses connectivity. Revoke it only when you intend to disconnect the domain.
+
 **To revoke a VPC domain association using the console**
 
 When an association is no longer needed, the VPC domain owner can revoke access using the following procedure.
@@ -94,6 +164,31 @@ aws opensearch revoke-vpc-endpoint-access \
     --service application.opensearchservice.amazonaws.com \
     --region {{region-id}}
 ```
+
+## Verifying VPC endpoint access and security groups
+<a name="application-manage-vpc-access-verify"></a>
+
+To confirm that the authorization is in place, run the following command. The response includes `application.opensearchservice.amazonaws.com` in the list of authorized services.
+
+```
+aws opensearch list-vpc-endpoint-access \
+    --domain-name {{domain-name}} \
+    --region {{region}}
+```
+
+The security group attached to a VPC domain must also allow the traffic. OpenSearch UI communicates over HTTPS on port 443, so you do not need to open port 9200 or any other port.
+
+
+**Security group rules for a VPC domain**  
+
+| Direction | Port | Source or destination | Purpose | 
+| --- | --- | --- | --- | 
+| Inbound | TCP 443 | The VPC CIDR block | HTTPS from the VPC endpoint | 
+| Inbound | TCP 443 | The security group itself | Communication between the endpoint and the domain | 
+| Outbound | All | As required by your configuration | Allows responses | 
+
+**Note**  
+This configuration affects only the connection between OpenSearch UI and your data sources. The OpenSearch UI application URL itself is reachable without being inside the VPC, and is protected by the authentication method that you configured. To restrict which networks can reach the application, see [Network access to OpenSearch UI](application-networking.md).
 
 ## Configuring access to OpenSearch Serverless collections in a VPC
 <a name="application-configure-vpc-access-serverless-connections"></a>

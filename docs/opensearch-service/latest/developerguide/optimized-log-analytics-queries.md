@@ -22,8 +22,8 @@ The following PPL commands are supported on the Optimized engine:
 | Order | sort, reverse | 
 | Limit | head | 
 | Top-N | top, rare | 
-| Compute | eval | 
-| Aggregate | stats, eventstats, addtotals, addcoltotals | 
+| Compute and expand | eval, convert, expand, mvexpand | 
+| Aggregate | stats, eventstats, addtotals, addcoltotals, trendline | 
 | Dedup | dedup | 
 | Rename | rename | 
 | Text | replace | 
@@ -34,6 +34,11 @@ The following PPL commands are supported on the Optimized engine:
 | Join | join, streamstats, lookup | 
 | Combine | append, appendcol, appendpipe, multisearch, union | 
 | Subquery | in subquery, scalar subquery | 
+
+Use `expand` for arrays of objects and `mvexpand` for multi-value scalar fields.
+
+**Note**  
+The `convert`, `expand`, `mvexpand`, and `trendline` commands, along with nested-field and multi-value support, require OpenSearch 3.7.
 
 ### Supported PPL functions
 <a name="optimized-log-analytics-ppl-functions"></a>
@@ -47,7 +52,9 @@ The Optimized engine supports functions across the following families:
 + Aggregate: `count`, `sum`, `avg`, `min`, `max`, `percentile`, `stddev_pop`, `distinct_count`, and more
 + Relevance and full-text: `match`, `match_phrase`, `multi_match`, `query_string`
 + JSON: `json_object`, `json_extract`, `json_keys`, `json_array`
-+ Collection and array: `array`, `array_length`, `mvjoin`, `split`, `mvzip`, `mvdedup`
++ Collection: `array`, `array_length`, `mvjoin`, `split`, `mvzip`, `mvdedup`
++ Crypto: `md5`, `sha1`, `sha2`, `crc32`
++ IP: `cidrmatch`
 
 ### The search command
 <a name="optimized-log-analytics-ppl-search"></a>
@@ -66,8 +73,20 @@ The `search` command has partial support on the Optimized engine. It works for t
 | Date field comparison or range | Not supported. Use where instead. | 
 | Wildcard patterns | Not supported | 
 
+The `search` command covers free-text terms, phrases, string equality, and string `IN` conditions. Pair it with the `where` command for numeric, date, and IP conditions. The following table shows the recommended query form for each requirement.
+
+
+| Requirement | Query form | 
+| --- | --- | 
+| Full-text term or phrase search | source=logs "connection refused" | 
+| Exact string predicate | where service.name = 'checkout' | 
+| Numeric or date range | where status\_code >= 500 | 
+| Wildcard pattern | where host.name like 'api-%' | 
+| Scalar list expansion | mvexpand tags | 
+| Object-list expansion | expand events | 
+
 **Tip**  
-Use the `where` command instead of inline `search` filters for non-text fields. The `where` command executes through the native analytics engine for acceleration, while `search` filters on numeric, date, or IP fields return zero rows.  
+Use the `where` command instead of inline `search` filters for non-text fields. The `where` command executes through the native analytics engine for acceleration, whereas `search` filters on numeric, date, or IP fields return zero rows.  
 
 ```
 // Instead of: search source=logs Age > 50
@@ -80,20 +99,47 @@ search source=logs | where Age > 50
 
 The following PPL commands are not supported on the Optimized engine:
 
-`convert`, `expand`, `flatten`, `mvexpand`, `mvcombine`, `nomv`, `graphlookup`, `trendline`, `describe`, `explain`
+`flatten`, `mvcombine`, `nomv`, `graphlookup`, `describe`, `explain`
 
 Higher-order array functions (`transform`, `mvmap`, `reduce`, `forall`, `exists`, `filter`) are not supported.
 
-### Example
+### Examples
 <a name="optimized-log-analytics-ppl-example"></a>
 
-The following PPL query combines full-text search with aggregation in a single statement:
+The following PPL query combines full-text search with aggregation in a single statement to count errors by host and status:
 
 ```
 search source=logs "connection refused"
 | where status_code = 503
-| stats count() by host, status_code
-| sort - count
+| stats count() as hits by host, status_code
+| sort - hits
+```
+
+The following query keeps predicates correlated to one nested event, so values from different events do not combine:
+
+```
+source=otel-spans
+| where events.name = 'exception'
+  and events.attributes.exception.type = 'TimeoutException'
+| stats count() as spans by service.name
+```
+
+The following query uses `expand` to produce one row per element in a nested event list:
+
+```
+source=otel-spans
+| expand events
+| fields span_id, events.time, events.name
+| sort events.time
+```
+
+The following query uses `mvexpand` to produce one row per value in a multi-value scalar field:
+
+```
+source=otel-logs
+| mvexpand tags
+| stats count() as logs by tags
+| sort - logs
 ```
 
 **Tip**  
@@ -102,7 +148,7 @@ For distributed grouped top-N queries, you can tune the accuracy and performance
 ## SQL support
 <a name="optimized-log-analytics-sql"></a>
 
-You can use SQL on the Optimized engine through the REST API, JDBC/ODBC drivers, and Query Workbench. Use SQL for BI tools such as Grafana, Tableau, and Amazon QuickSight. For complete SQL syntax, see the [OpenSearch SQL reference](https://docs.opensearch.org/latest/search-plugins/sql/sql/index/) on the OpenSearch website.
+You can use SQL on the Optimized engine through the REST API, JDBC/ODBC drivers, and Query Workbench. Use SQL for business intelligence (BI) tools such as Grafana, Tableau, and Amazon QuickSight. For complete SQL syntax, see the [OpenSearch SQL reference](https://docs.opensearch.org/latest/search-plugins/sql/sql/index/) on the OpenSearch website.
 
 ### Supported SQL statements
 <a name="optimized-log-analytics-sql-statements"></a>
@@ -118,7 +164,7 @@ The Optimized engine supports the following SQL statement categories:
 + `LIKE` and `REGEXP`
 + `JOIN` (`INNER`, `LEFT`, `RIGHT`, `CROSS`)
 + Subqueries (in `WHERE`, `FROM`, and `EXISTS`)
-+ `UNION ALL`
++ `UNION ALL` and `UNION` (distinct)
 + `EXPLAIN`
 + `SHOW` and `DESCRIBE`
 
@@ -137,7 +183,7 @@ The Optimized engine supports functions across the following families:
 | Type conversion | CAST (INT, DOUBLE, STRING, DATE), TYPEOF | 
 | Aggregate | COUNT, SUM, AVG, MIN, MAX, COUNT(DISTINCT), STDDEV\_POP, STDDEV\_SAMP, VAR\_POP, VAR\_SAMP, PERCENTILE, PERCENTILE\_APPROX | 
 | Relevance and full-text | MATCH, MATCH\_PHRASE, MULTI\_MATCH, QUERY\_STRING, SIMPLE\_QUERY\_STRING, MATCH\_BOOL\_PREFIX, MATCH\_PHRASE\_PREFIX, WILDCARD\_QUERY | 
-| Window | ROW\_NUMBER | 
+| Window | ROW\_NUMBER, RANK, DENSE\_RANK | 
 
 ### Unsupported SQL features
 <a name="optimized-log-analytics-sql-gaps"></a>
@@ -147,11 +193,8 @@ The following SQL features are not supported on the Optimized engine:
 
 | Feature | Workaround | 
 | --- | --- | 
-| UNION (distinct) | Use UNION ALL instead | 
 | MINUS | No workaround available | 
 | Filtered aggregate (FILTER (WHERE ...)) | Use SUM(CASE WHEN ... THEN ... END) instead | 
-| RANK window function | No workaround available | 
-| DENSE\_RANK window function | No workaround available | 
 
 ### Example
 <a name="optimized-log-analytics-sql-example"></a>

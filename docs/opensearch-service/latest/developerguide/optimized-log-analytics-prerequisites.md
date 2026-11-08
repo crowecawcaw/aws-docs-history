@@ -11,7 +11,7 @@ Before you create a domain with the Optimized engine, review the following requi
 
 | Requirement | Value | 
 | --- | --- | 
-| OpenSearch version | 3.5 or above | 
+| OpenSearch version | 3.5 or later | 
 | Hot-tier instances | OpenSearch Optimized Instances only (OR1, OR2, or OM2) | 
 | Warm-tier instances | OI2 only | 
 | Authentication | IAM authentication and IAM Identity Center. IAM Identity Center supports SAML and username/password sign-in. The Optimized engine does not support Amazon Cognito. | 
@@ -46,28 +46,34 @@ The following Amazon OpenSearch Service features are supported on Optimized doma
 + GP3 EBS volumes
 + Alerting (with PPL – per-query and per-bucket monitors)
 + Anomaly Detection (with PPL)
++ Nested fields (requires OpenSearch 3.7)
++ Delete operations (requires OpenSearch 3.7)
++ APM (Application Performance Monitoring) (requires OpenSearch 3.7)
++ Agent Traces (requires OpenSearch 3.7)
 
 ## Supported field types
 <a name="optimized-log-analytics-field-types"></a>
 
-The Optimized engine supports the following field types in index mappings:
-+ `half_float`
-+ `float`
-+ `double`
-+ `byte`
-+ `short`
-+ `integer`
-+ `long`
-+ `unsigned_long`
-+ `scaled_float`
-+ `date`
-+ `date_nanos`
-+ `boolean`
-+ `text`
-+ `keyword`
-+ `ip`
-+ `match_only_text`
-+ `binary`
+The Optimized engine supports the following field type families in index mappings. Every supported field type is stored as its own Parquet column, so filters, aggregations, and sorts read only the columns a query needs.
+
+
+| Family | Types | Typical use | 
+| --- | --- | --- | 
+| Numeric | byte, short, integer, long, unsigned\_long, half\_float, float, double, scaled\_float | Counts, durations, status codes, and measurements | 
+| Temporal | date, date\_nanos | Log and span timestamps | 
+| Boolean | boolean | Flags | 
+| String | keyword, text, match\_only\_text | Exact dimensions and root-level full-text fields | 
+| Network | ip | Host and client addresses | 
+| Binary | binary | Encoded payloads | 
+| Scalar lists | Any scalar type with multi\_value: true | Tags, addresses, and repeated IDs | 
+| Correlated object lists | nested (requires OpenSearch 3.7) | Events, links, packages, and resources whose fields belong to one element | 
+| Semi-structured | flat\_object | Open-ended attribute bags | 
+| Containers | object | A single structured object | 
+
+Numeric, date, IP, and boolean fields use the columnar query path and default to `index: false` on Optimized domains. Leave `index` unset (or set it to `false`) and filter these fields with the `where` command.
+
+**Note**  
+Types designed for search-centric workloads, including `token_count`, geospatial types, vectors, completion fields, percolators, joins, and range field types, are available only on the General Purpose engine.
 
 ## Unsupported features
 <a name="optimized-log-analytics-limitations"></a>
@@ -98,11 +104,7 @@ The following features are not supported on Optimized domains. If your workload 
 + Point in Time (PIT)
 + Learning to Rank
 + Geo queries and GeoPoint fields
-+ Nested fields
 + Highlighting
-+ Delete operations
-+ APM (Application Performance Monitoring)
-+ Agent Traces
 + Search result pagination
 + Document-level (percolate) alerting monitors
 + Painless scripting
@@ -129,7 +131,7 @@ You configure the Optimized engine during domain creation in the Amazon OpenSear
 
 1. Under **Compare engines or change selection**, verify that the **Optimized** engine mode is selected.
 
-1. For **Version**, choose OpenSearch 3.5 or above.
+1. For **Version**, choose OpenSearch 3.5 or later.
 
 1. For instance type, choose an OpenSearch Optimized Instance (OR1, OR2, or OM2).
 

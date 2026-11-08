@@ -5,6 +5,9 @@
 
 Amazon OpenSearch Service optimized for log analytics is a new engine option that combines columnar analytical storage with full-text search in a single managed service. With the Optimized engine, you get significantly better price-performance for log analytics workloads. You also retain full-text search for incident investigation.
 
+**Availability**  
+The base Optimized engine requires OpenSearch 3.5 or later. The latest Optimized engine capabilities, including nested fields, multi-value arrays, delete operations, APM (Application Performance Monitoring), Agent Traces, and the expanded Piped Processing Language (PPL) and SQL support described in these topics, require OpenSearch 3.7. We recommend upgrading to OpenSearch 3.7 to access the full set of features and improvements.
+
 ## Overview
 <a name="optimized-log-analytics-overview"></a>
 
@@ -25,12 +28,37 @@ The following table compares the two engine modes.
 | General Purpose | Search-heavy and mixed workloads with frequent updates (e-commerce, content discovery, application search) | 
 | Optimized (Recommended for log analytics) | Append-only logs and log analytics at multi-terabyte scale | 
 
+### Supported service capabilities
+<a name="optimized-log-analytics-capabilities"></a>
+
+The following table summarizes the service capabilities available on Optimized domains with OpenSearch 3.7.
+
+
+| Area | Capabilities | 
+| --- | --- | 
+| Ingestion | OpenSearch Ingestion and Data Prepper, delete operations, nested fields, and multi-value arrays | 
+| Security | Fine-grained access control, encryption in transit and at rest, audit logs, VPC access and endpoints, dual-stack, and custom endpoints | 
+| Resilience | Multi-AZ with Standby, Blue/Green deployments, and automatic snapshots | 
+| Capacity | Warm tier with OI2 instances, dedicated coordinator nodes, GP3 EBS volumes, and Reserved Instances | 
+| Operations | ISM, off-peak maintenance, notifications, CloudWatch monitoring, tags, and CloudFormation | 
+| Observability | Alerting with PPL, Anomaly Detection with PPL, APM, and Agent Traces | 
+
 ## When to use each engine mode
 <a name="optimized-log-analytics-when"></a>
 
 Use the Optimized engine when your workload is dominated by aggregations, filters, and trend analysis over logs, and you also need full-text search during incidents. Examples include application, infrastructure, and security log analytics at multi-terabyte-per-day scale.
 
 Use the General Purpose engine when your workload depends on relevance ranking, nested-object queries, Painless scripting, geo queries, vector/semantic search, or frequent in-place document updates. Examples include e-commerce search, content discovery, and application search.
+
+The following table maps common workload needs to the recommended engine mode. The engines complement each other: choose the Optimized engine for analytics over machine data and the General Purpose engine for search-centric experiences.
+
+
+| Workload need | Recommended engine | 
+| --- | --- | 
+| Log, trace, and finding analytics with PPL or SQL | Optimized | 
+| Full-text search over root-level messages plus analytics | Optimized | 
+| Relevance-ranked application search, DSL-first applications, vector or geospatial search | General Purpose | 
+| OpenSearch Dashboards and search-oriented plugins | General Purpose | 
 
 ## How it works
 <a name="optimized-log-analytics-architecture"></a>

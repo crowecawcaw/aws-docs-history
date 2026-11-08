@@ -14,7 +14,11 @@ In OpenSearch Serverless, the primary resource is a collection. You can use the 
 ## Permissions required
 <a name="collection-tag-permissions"></a>
 
-OpenSearch Serverless uses the following AWS Identity and Access Management Access Analyzer (IAM) permissions for tagging collections:
+OpenSearch Serverless uses the following AWS Identity and Access Management (IAM) permissions for tagging collections:
 + `aoss:TagResource`
 + `aoss:ListTagsForResource`
 + `aoss:UntagResource`
+
+AWS CloudFormation and AWS Cloud Control API call `aoss:ListTagsForResource` whenever they read a collection, such as when you create, update, or import a collection, detect drift, or call `GetResource`. If the IAM principal that performs the operation doesn't have this permission, the operation fails with an `AccessDenied` error. Deleting or listing collections doesn't require it.
+
+When CloudFormation adds, changes, or removes tags, including tags that it propagates from the stack, the principal needs `aoss:TagResource` or `aoss:UntagResource`. CloudFormation updates tags in place, without replacing the collection. For more information, see [AWS::OpenSearchServerless::Collection](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-opensearchserverless-collection.html) in the *CloudFormation Template Reference Guide*.

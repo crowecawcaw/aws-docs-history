@@ -13,6 +13,7 @@ You manage these settings from the **Settings and setup** section of the navigat
 + [Restricting who can change global settings](#application-settings-admin-control)
 + [Setting your personal preferences](#application-settings-user)
 + [Managing workspace settings](#application-settings-workspace)
++ [Application configuration keys](#application-settings-app-configs)
 
 ## Settings scopes and precedence
 <a name="application-settings-scopes"></a>
@@ -95,3 +96,19 @@ To manage workspace settings, you must have the **Admin** access level for the w
 1. Locate the setting you want to change, and then enter or select a new value. The value applies to all of the workspace members.
 
 1. (Optional) To stop using the workspace value and go back to inheriting the application value, choose **Use Application value**.
+
+## Application configuration keys
+<a name="application-settings-app-configs"></a>
+
+The `--app-configs` parameter on the `create-application` and `update-application` commands accepts key-value pairs for application-level settings.
+
+
+**Application configuration keys**  
+
+| Key | Value | Purpose | 
+| --- | --- | --- | 
+| opensearchDashboards.dashboardAdmin.users | An IAM ARN, an AWS IAM Identity Center user ID, or \* | Sets the dashboard administrator users | 
+| opensearchDashboards.dashboardAdmin.groups | An IAM role ARN, or an AWS IAM Identity Center group ID | Sets the dashboard administrator groups | 
+
+**Important**  
+The `--app-configs` parameter replaces the entire configuration rather than adding to it. Before you update it, run `get-application` and note the keys in the `appConfigs` array, then include every key that you want to keep. For more information about managing application administrators with the AWS CLI, see [Managing OpenSearch UI administrators using the AWS CLI](application-getting-started.md#managing-application-administrators-cli).

@@ -18,7 +18,7 @@ On the Optimized engine, Parquet columnar storage handles sorting and aggregatio
 ## Prefer match queries over wildcard queries
 <a name="optimized-log-analytics-bp-match"></a>
 
-Use `match` or `match_phrase` for text search instead of `like` (wildcard) patterns. Match queries leverage the Lucene inverted index efficiently, although wildcard queries are more resource-intensive and might result in slower response times.
+Use `match` or `match_phrase` for text search instead of `like` (wildcard) patterns. Match queries use the Lucene inverted index efficiently, although wildcard queries are more resource-intensive and might result in slower response times.
 
 ## Size coordinator nodes appropriately
 <a name="optimized-log-analytics-bp-coordinator"></a>
@@ -163,33 +163,26 @@ You set Parquet encoding, compression, bloom filter, and index sort settings at 
 ## Tune accuracy for distributed top-N queries
 <a name="optimized-log-analytics-bp-topn"></a>
 
-Distributed grouped top-N queries (those that group by a key, sort by an aggregate, and limit the output) use oversampling to balance accuracy and performance. Each shard returns only its local top slice to the coordinator rather than shuffling every group.
-
-You can control this trade-off with the `analytics.shard_bucket_oversampling_factor` cluster setting:
+Distributed grouped top-N queries (those that group by a key, sort by an aggregate, and limit the output) use the `analytics.shard_bucket_oversampling_factor` cluster setting to trade exactness for lower exchange cost. Each shard returns a slice of candidate groups to the coordinator rather than exchanging every group.
 
 
-| Property | Value | 
-| --- | --- | 
-| Type | Float | 
-| Default | 1.5 | 
-| Dynamic | Yes (cluster setting) | 
-
-Each shard returns `ceil(N × factor) + N` groups, where N is the `head` limit. The approximation can only undercount a group, never overcount it. A group is dropped from a shard when its rows fall below that shard's local cutoff.
-
-
-| Value | Accuracy | Cost | 
+| Value | Behavior | Use when | 
 | --- | --- | --- | 
-| 0.0 | Exact | Highest. Every group is shuffled. Very high-cardinality group-bys might hit the circuit breaker. | 
-| Low (for example, 5) | Approximate | Lowest latency and memory. | 
-| High (for example, 100) | Near-exact | More data shuffled. Converges to exact as the factor grows. | 
+| 0.0 (default) | Exact. Every group is exchanged. | Exact group membership and aggregate values are required. | 
+| Positive, for example 1.5 | Approximate. Fewer candidates are exchanged. | Lower latency and memory justify an accuracy trade-off. | 
+| Larger positive value | More candidates. Generally closer to exact. | A smaller factor is not accurate enough on representative data. | 
 
-Raise the factor when grouped top-N results undercount. The value needed scales with how skewed the key's distribution is and how deep the `head` limit goes. Set to `0` to disable oversampling and return exact results.
+The default value `0.0` returns exact results and exchanges every group. A positive value is approximate and cheaper, because each shard exchanges fewer candidates; a larger positive value exchanges more candidates and is generally closer to exact.
 
-Example:
+For head N from a given offset, each shard returns `ceil((offset + N) × factor) + max(offset + N, 10)` candidates. With a positive factor, both the selected groups and the aggregate values can differ from exact results. Test with representative skew, and use `0` whenever exactness is required.
+
+The setting is dynamic. The following example sets a positive factor at the cluster level:
 
 ```
 PUT _cluster/settings
 {
-  "transient": { "analytics.shard_bucket_oversampling_factor": 5.0 }
+  "transient": {
+    "analytics.shard_bucket_oversampling_factor": 1.5
+  }
 }
 ```

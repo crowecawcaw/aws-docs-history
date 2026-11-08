@@ -8,13 +8,15 @@ If you have existing dashboards, visualizations, index patterns, and other saved
 Benefits of migrating to OpenSearch UI:
 + **High availability** – OpenSearch UI is hosted in the AWS Cloud and remains available during domain upgrades and maintenance, while OpenSearch Dashboards is hosted within the domain and will be temporarily unavailable.
 + **Multiple Data Source** – OpenSearch UI can provide a consolidated single pane of glass across multiple data sources, including OpenSearch domains, serverless collections, and data connections with Amazon S3 and Amazon CloudWatch; while each OpenSearch Dashboards can only work with one domain or collection.
-+ Additional features such as AI Assistant and Workspaces are available on OpenSearch UI. Learn more: [Using OpenSearch UI in Amazon OpenSearch Service](application.md).
++ **Additional features** – AI Assistant and Workspaces are available on OpenSearch UI. For more information about OpenSearch UI, see [Using OpenSearch UI in Amazon OpenSearch Service](application.md).
 
 **Topics**
 + [Migration overview](#application-migrate-saved-objects-overview)
 + [Prerequisites](#application-migrate-saved-objects-prerequisites)
 + [Step 1: Export saved objects from OpenSearch Dashboards](#application-migrate-saved-objects-export)
 + [Step 2: Import saved objects into OpenSearch UI](#application-migrate-saved-objects-import)
++ [Using the in-app migration tool](#application-migration-in-app)
++ [Migration scenarios for OpenSearch UI](application-migration-scenarios.md)
 
 ## Migration overview
 <a name="application-migrate-saved-objects-overview"></a>
@@ -37,7 +39,7 @@ The migration process consists of the following high-level steps:
 Before the migration, verify the following prerequisites:
 + You have the necessary IAM permissions required to call the Amazon OpenSearch Service and OpenSearch APIs. For more information, see [Required permissions for creating Amazon OpenSearch Service applications](application-getting-started.md#application-prerequisite-permissions).
 + You can access the domain or collection and the OpenSearch Dashboards that you want to migrate.
-+ You have create an OpenSearch UI application. For information about creating an application and workspace, see [Getting started with the OpenSearch user interface in Amazon OpenSearch Service](application-getting-started.md).
++ You have created an OpenSearch UI application. For information about creating an application and workspace, see [Getting started with the OpenSearch user interface in Amazon OpenSearch Service](application-getting-started.md).
 + You have associated the same domain or collection to the OpenSearch UI application. For information about associating data sources, see [Managing data source associations and Virtual Private Cloud access permissions](application-data-sources-and-vpc.md).
 
 **Note**  
@@ -193,3 +195,43 @@ curl -X POST \
 
 **Note**  
 These examples use curl's built-in `--aws-sigv4` option (available in curl 7.75 or later) to sign the requests. Set your AWS credentials as environment variables before running the commands: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `AWS_SESSION_TOKEN` (if using temporary credentials).
+
+## Using the in-app migration tool
+<a name="application-migration-in-app"></a>
+
+Use the in-app migration tool when you want to bring the saved objects of an existing domain into a workspace without exporting and importing files yourself. With OpenSearch UI, you can copy saved objects from an associated data source into a workspace, so that you don't need to export and import them manually. The migration copies objects into OpenSearch UI; it never deletes or modifies anything in the source.
+
+To open the tool, choose **Migrate dashboards from data sources** on the OpenSearch UI home page, or choose **Dashboards Management** and then **Migrate to OpenSearch UI**. That page lists the data sources that you can migrate from, and a history of previous migrations with links to the workspaces they created.
+
+The migration scans the data source for saved objects, organized by tenant, creates or updates a workspace as the target, and imports the objects into it, linked to the correct data source. It runs on the server. Depending on the number of saved objects, the migration might take several minutes to finish.
+
+The following table lists what the migration includes and what it leaves on the domain.
+
+
+**What the migration includes**  
+
+| Included | Not included | 
+| --- | --- | 
+| Dashboards | Data source configurations | 
+| Visualizations, including VisBuilder and TSVB | Application settings | 
+| Index patterns | Alerting monitors | 
+| Saved searches | Index State Management policies | 
+| Saved queries | Security configurations | 
+| Shortened URLs | Notebooks | 
+
+The excluded items remain on the domain. After you associate the domain as a data source, you reach them through OpenSearch UI without migrating them.
+
+The following limits apply:
++ You can migrate up to 10,000 saved objects in a single migration.
++ You can run only one migration for a data source at a time.
++ A migration is idempotent. Repeating it with the same parameters returns the existing result.
+
+After a migration, open the target workspace and confirm that the dashboards render, that index patterns are associated with the correct data source, and that saved searches return the results you expect. For more information about the steps for each kind of source, see [Migration scenarios for OpenSearch UI](application-migration-scenarios.md).
+
+**Topics**
++ [Migration overview](#application-migrate-saved-objects-overview)
++ [Prerequisites](#application-migrate-saved-objects-prerequisites)
++ [Step 1: Export saved objects from OpenSearch Dashboards](#application-migrate-saved-objects-export)
++ [Step 2: Import saved objects into OpenSearch UI](#application-migrate-saved-objects-import)
++ [Using the in-app migration tool](#application-migration-in-app)
++ [Migration scenarios for OpenSearch UI](application-migration-scenarios.md)

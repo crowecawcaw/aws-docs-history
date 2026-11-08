@@ -41,3 +41,31 @@ Amazon OpenSearch Service provides five workspace types, each with different fea
 + The **Search** workspace is designed for quickly finding and exploring relevant information across your organization's data sources.
 + The **Essentials** workspace is designed for OpenSearch Serverless as a data source, and enables analyzing data to derive insights, identify patterns and trends, and make data-driven decisions quickly. You can find and explore relevant information across your organization's data sources in an **Essentials** workspace.
 + The **Analytics** (all features) workspace is designed for multi-purpose use cases and supports all the features available in OpenSearch Service UI (Dashboards).
+
+## How privacy and collaborator permissions interact
+<a name="application-workspaces-permission-interactions"></a>
+
+The privacy setting of a workspace acts as a floor: it sets the minimum permission level for every user of the application. A collaborator permission can grant more access, but never less than the privacy setting allows.
+
+
+**Effective permission for common combinations**  
+
+| Combination | Effective permission | 
+| --- | --- | 
+| Privacy is Anyone can view, and the collaborator has read and write | Read and write. The collaborator permission applies | 
+| Privacy is Anyone can edit, and the collaborator has read only | Read and write. The privacy setting raises the permission | 
+| Privacy is Private to collaborators, and the user is not a collaborator | No access | 
+
+The user who creates a workspace becomes a workspace administrator, who can update the workspace settings, add and remove collaborators, change collaborator permissions, and delete the workspace. A workspace administrator is not the same as an application administrator: an application administrator can manage every workspace in the application, while a workspace administrator manages only that workspace. For more information about application administrators, see [Managing application administrators](application-getting-started.md#managing-application-administrators).
+
+## Best practices for workspaces
+<a name="application-workspaces-best-practices"></a>
+
+Create a workspace for each team or use case  
+Use a separate workspace rather than sharing one. For example, keep production monitoring, security investigations, shared dashboards, and experimentation in separate workspaces.
+
+Apply least privilege  
+Start with **Private to collaborators** and add people as they need access. Grant read only by default, grant read and write only to contributors, and reserve the admin permission for workspace owners.
+
+Review collaborator access periodically  
+Review access particularly for workspaces that hold sensitive data, workspaces that use the **Anyone can edit** privacy setting, and collaborators who have changed teams.

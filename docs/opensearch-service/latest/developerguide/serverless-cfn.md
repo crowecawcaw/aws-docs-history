@@ -5,6 +5,9 @@
 
 You can use CloudFormation to create Amazon OpenSearch Serverless resources such as collections, security policies, and VPC endpoints. For the comprehensive OpenSearch Serverless CloudFormation reference, see [Amazon OpenSearch Serverless](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_OpenSearchServerless.html) in the *CloudFormation User Guide*.
 
+**Note**  
+To read collections and change their tags, CloudFormation needs the OpenSearch Serverless tagging permissions. Grant them to the principal that CloudFormation uses: your credentials, or the stack's service role if you specify one. Drift detection always uses your own credentials. For information about the permissions and the operations that need them, see [Permissions required for tagging collections](tag-collection.md#collection-tag-permissions).
+
 The following sample CloudFormation template creates a simple data access policy, network policy, and security policy, as well as a matching collection. It's a good way to get up and running quickly with Amazon OpenSearch Serverless and provision the necessary elements to create and use a collection.
 
 **Important**  
