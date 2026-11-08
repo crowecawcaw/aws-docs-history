@@ -3,7 +3,45 @@
 # Identity Store events
 <a name="events-ref-identitystore"></a>
 
-Identity Store sends service events to EventBridge via AWS CloudTrail.
+Identity Store sends service events directly to EventBridge, as well as via AWS CloudTrail.
+
+## Identity Store service events
+<a name="events-ref-identitystore-events"></a>
+
+Identity Store sends the following events directly to EventBridge when users, groups, group memberships, or identity stores are created, updated, or deleted: 
++ User Created
++ User Updated
++ User Deleted
++ Group Created
++ Group Updated
++ Group Deleted
++ GroupMembership Created
++ GroupMembership Deleted
++ IdentityStore Created
++ IdentityStore Updated
++ IdentityStore Deleted
+
+*Delivery type*: [ Best effort ](event-delivery-level.md) 
+
+To match against all events from this service, create an event pattern that matches against the following event attribute:
++ `source`: aws.identitystore
+
+```
+{
+  "source": ["aws.identitystore"]
+}
+```
+
+To match against specific events, include a `detail-type` attribute specifying an array of event names to match. For example:
+
+```
+{
+  "source": ["aws.identitystore"],
+  "detail-type": ["User Deleted", "GroupMembership Created"]
+}
+```
+
+For more information, see [Creating event patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html#eb-create-pattern) in the *Amazon EventBridge User Guide*.
 
 ## Identity Store events delivered via AWS CloudTrail
 <a name="event-ref-identitystore-events-via-CT"></a>
