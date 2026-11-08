@@ -9,7 +9,7 @@ You can send data in your pipe to a specific target. You can configure the follo
 + [Batch job queue](#pipes-targets-specifics-batch)
 + [CloudWatch log group](#pipes-targets-specifics-cwl)
 + [ECS task](#pipes-targets-specifics-ecs-task)
-+ [Event bus in the same account and Region](#pipes-targets-specifics-eventbridge)
++ [Event bus in the same account and Region](#pipes-targets-specifics-eventbridge) (a Custom Event Bus isn't supported)
 + Firehose delivery stream
 + Kinesis stream
 + [Lambda function (SYNC or ASYNC)](#pipes-targets-specifics-lambda-stepfunctions)
@@ -123,3 +123,5 @@ Considerations when specifying a Timestream for LiveAnalytics table as a pipe ta
 <a name="pipes-targets-specifics-eventbridge"></a>
 
 When you configure an EventBridge event bus as a pipe target, the payload from your pipe is automatically placed in the `detail` section of the EventBridge event. Use [`PipeTargetEventBridgeEventBusParameters`](https://docs.aws.amazon.com/eventbridge/latest/pipes-reference/API_PipeTargetEventBridgeEventBusParameters.html) to configure the event's `source` and `detail-type` fields. Both fields support dynamic JSON path syntax to extract values from your event payload. For example, set `Source` to `$.body.source` or `DetailType` to `$.data.eventType`. You can also use input transformers to modify the event structure before it's placed in the `detail` field. For more information, see [Amazon EventBridge Pipes input transformation](eb-pipes-input-transformation.md).
+
+A pipe can't use a Custom Event Bus as a target. EventBridge rejects the ARN of a Custom Event Bus (it contains `event-busv2`) with an `Invalid pipe target ARN` validation error.

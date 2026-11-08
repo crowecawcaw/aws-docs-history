@@ -14,7 +14,7 @@ To call an HTTP endpoint, set `TargetArn` either to an API Gateway execute-api A
 | PathParameterValues | Values for path variables in the endpoint, in order | 
 | HeaderParameters | HTTP headers to add | 
 | QueryStringParameters | Query string parameters to add | 
-| InvocationTimeoutSeconds | How long EventBridge waits for the response, 1 to 30 seconds, default 30 | 
+| InvocationTimeoutSeconds | How long EventBridge waits for the response, 1 to 30 seconds, default 30; supported for API Gateway targets only, not for API destinations | 
 
 ## Delivery role
 <a name="eb-custom-bus-target-http-role"></a>

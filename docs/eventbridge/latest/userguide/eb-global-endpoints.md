@@ -8,7 +8,10 @@ You can improve your application's availability with Amazon EventBridge global e
 When you use global endpoints, you can enable [event replication](#eb-ge-event-replication). Event replication sends all custom events to the event buses in the primary and secondary Regions using managed rules.
 
 **Note**  
-If you're using custom buses, you'll need a custom bus in each Region with the same name and in the same account for failover to work properly.
+If you're using custom buses, you'll need a custom bus in each Region with the same name and in the same account for failover to work properly.  
+Global endpoints reject an `event-busv2` ARN, which is the ARN of a Custom Event Bus. `CreateEndpoint` accepts only ARNs that contain `event-bus/`.
+
+Before you choose a primary and secondary Region, check that global endpoints are available in both. For more information, see [Amazon EventBridge feature availability by AWS Region](feature-availability.md).
 
 ## Recovery Time & Recovery Point Objectives
 <a name="eb-ge-rpo-rto"></a>

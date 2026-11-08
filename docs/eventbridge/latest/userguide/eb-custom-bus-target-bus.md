@@ -3,7 +3,7 @@
 # Event bus target: bus to bus
 <a name="eb-custom-bus-target-bus"></a>
 
-To forward events to another event bus, set `TargetArn` to that bus's ARN. The destination can be another Custom Event Bus or a Custom Event Bus - Classic, in your account or another account, in the same Region or a different one. No parameter block is needed. A Custom Event Bus - Classic rule can likewise name a Custom Event Bus as its target, so events can move in either direction during a migration.
+To forward events to another event bus, set `TargetArn` to that bus's ARN. The destination can be another Custom Event Bus or a Custom Event Bus - Classic, in the same Region or a different one. The destination bus must be in the same account as the subscriber. No parameter block is needed. A Custom Event Bus - Classic rule can likewise name a Custom Event Bus as its target, so events can move in either direction during a migration.
 
 ## Parameters
 <a name="eb-custom-bus-target-bus-parameters"></a>
@@ -13,7 +13,7 @@ This target has no parameters; the payload is the whole request.
 ## Delivery role
 <a name="eb-custom-bus-target-bus-role"></a>
 
-The role needs `events:PutEvents` on the destination bus for events that carry a `PutEvents` envelope, and `events:PutRawEvents` for events published with `PutRawEvents`. EventBridge chooses the action per event and you cannot override it, so grant both when the source bus carries both kinds. A destination bus in another account must also allow your role in its resource policy or through an AWS RAM share; see [Sharing a Custom Event Bus with other accounts](eb-custom-bus-sharing.md).
+The role needs `events:PutEvents` on the destination bus for events that carry a `PutEvents` envelope, and `events:PutRawEvents` for events published with `PutRawEvents`. EventBridge chooses the action per event and you cannot override it, so grant both when the source bus carries both kinds. EventBridge rejects a subscriber whose target is in another account, including a bus that is shared with you through AWS RAM. To deliver events to another account, share the source bus with that account so that it can create its own subscriber on the bus; see [Sharing a Custom Event Bus with other accounts](eb-custom-bus-sharing.md).
 
 ## Batching and payload
 <a name="eb-custom-bus-target-bus-batching"></a>

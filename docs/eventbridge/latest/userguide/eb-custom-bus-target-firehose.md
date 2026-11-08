@@ -3,7 +3,7 @@
 # Amazon Data Firehose stream target
 <a name="eb-custom-bus-target-firehose"></a>
 
-To deliver to an Amazon Data Firehose stream, set `TargetArn` to the stream ARN and add an empty `FirehoseParameters` block, `"FirehoseParameters": {}`, so that EventBridge knows the target type you intend.
+To deliver to an Amazon Data Firehose stream, set `TargetArn` to the stream ARN. A Firehose target takes no parameter block; EventBridge infers the target type from the ARN.
 
 ## Parameters
 <a name="eb-custom-bus-target-firehose-parameters"></a>

@@ -41,7 +41,7 @@ EventBridge checks the syntax of an expression when you create the subscriber an
 | Step Functions state machine | StepFunctionsParameters | 
 | Amazon SNS topic | SnsParameters | 
 | HTTP endpoint or API destination | HttpParameters | 
-| Firehose stream | FirehoseParameters | 
+| Firehose stream | None | 
 
 An Custom Event Bus or a Custom Event Bus - Classic can also be the target: set the bus ARN as `TargetArn`. For a FIFO target such as an Amazon SQS FIFO queue, set the target's own deduplication identifier in the parameter block, for example `SqsParameters.MessageDeduplicationId`, to a per-message value derived from the event with a JSONata expression. A constant makes the target discard every message after the first.
 
