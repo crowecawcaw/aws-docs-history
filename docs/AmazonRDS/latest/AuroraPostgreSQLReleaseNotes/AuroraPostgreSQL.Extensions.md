@@ -406,7 +406,7 @@ The following table shows the PostgreSQL extension versions that are currently s
 | [pg\_trgm](http://www.postgresql.org/docs/12/pgtrgm.html) | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 
 | [pg\_visibility](https://www.postgresql.org/docs/12/pgvisibility.html) | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 
 | [pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md) | 1.7.1 | 1.7.1 | 1.7.1 | 1.7.1 | 1.7.1 | 1.7.1 | 1.7.0 | 1.7.0 | 1.7.0 | 1.7.0 | 1.7.0 | 1.7.0 | 1.7.0 | 1.7.0 | 1.7.0 | 
-| [pgcrypto](http://www.postgresql.org/docs/12/pgcrypto.html) | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 
+| [pgcrypto](https://www.postgresql.org/docs/15/pgcrypto.html) | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 
 | [pglogical](https://github.com/2ndQuadrant/pglogical) | 2.4.8 | 2.4.6 | 2.4.6 | 2.4.5 | 2.4.5 | 2.4.5 | 2.4.3 | 2.4.3 | 2.4.3 | 2.4.3 | 2.4.3 | 2.4.3 | 2.4.3 | 2.4.2 | 2.4.2 | 
 | pglogical\_origin | 1.0.0 | 1.0.0 | 1.0.0 | 1.0.0 | 1.0.0 | 1.0.0 | 1.0.0 | 1.0.0 | 1.0.0 | 1.0.0 | 1.0.0 | 1.0.0 | 1.0.0 | 1.0.0 | 1.0.0 | 
 | [pgrouting](http://docs.pgrouting.org/2.3/en/doc/index.html) | 3.6.3 | 3.6.3 | 3.6.3 | 3.6.3 | 3.6.3 | 3.6.3 | 3.6.3 | 3.6.2 | 3.6.2 | 3.6.2 | 3.4.1 | 3.4.1 | 3.4.1 | 3.4.1 | 3.4.1 | 

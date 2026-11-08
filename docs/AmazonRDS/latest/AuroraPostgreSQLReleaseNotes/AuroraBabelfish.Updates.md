@@ -418,7 +418,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.6. For mo
 + Handling for CHAR()/NCHAR() function to return NULL instead of errors when values are out of range.
 + Handling for NCHAR() function to accept inputs that can be converted to integers.
 + Fixed PATINDEX() function to correctly finds patterns at the end of text and handles wildcard searches accurately.
-+ Enabled index usage for Accent Sensitive / Insensitive collation for LIKE operator when the pattern is EXACT or PREFIX or INFIX match with following conditions:
++ Enabled index usage for Accent Sensitive / Insensitive collation for LIKE operator when the pattern is EXACT or PREFIX match with following conditions:
   + For Accent Sensitive collation, user needs to create index from TSQL endpoint : CREATE INDEX <index\_name> ON <table\_name>(<column\_name>)
   + For Accent Insensitive collation, user needs to create index from PSQL endpoint: CREATE INDEX <index\_name> ON <schema\_name>.<table\_name>(sys.remove\_accents\_internal\_using\_cache(<column\_name>))
 + Fixed an issue where TRY\_CAST and TRY\_CONVERT was incorrectly rounding decimal values when casting to integer types, instead of truncating the fractional part.
@@ -872,7 +872,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.10. For m
 + Handling for CHAR()/NCHAR() function to return NULL instead of errors when values are out of range.
 + Handling for NCHAR() function to accept inputs that can be converted to integers.
 + Fixed PATINDEX() function to correctly finds patterns at the end of text and handles wildcard searches accurately.
-+ To use Index for Accent Sensitive collation for LIKE operator when the pattern is EXACT or PREFIX or INFIX match, user needs to create index from TSQL endpoint : CREATE INDEX <index\_name> ON <table\_name>(<column\_name>). To use Index for Accent Insensitive collation for LIKE operator when the pattern is EXACT or PREFIX or INFIX match, user needs to create index from PSQL endpoint: CREATE INDEX <index\_name> ON <schema\_name>.<table\_name>(sys.remove\_accents\_internal\_using\_cache(<column\_name>)).
++ To use Index for Accent Sensitive collation for LIKE operator when the pattern is EXACT or PREFIX match, user needs to create index from TSQL endpoint : CREATE INDEX <index\_name> ON <table\_name>(<column\_name>). To use Index for Accent Insensitive collation for LIKE operator when the pattern is EXACT or PREFIX match, user needs to create index from PSQL endpoint: CREATE INDEX <index\_name> ON <schema\_name>.<table\_name>(sys.remove\_accents\_internal\_using\_cache(<column\_name>)).
 + Fixed an issue where TRY\_CAST and TRY\_CONVERT was incorrectly rounding decimal values when casting to integer types, instead of truncating the fractional part.
 + Fixed precision and scale for arithmetic operations between money/smallmoney and numeric and for money/smallmoney in union operators.
 + Fixed precision and scale handling for case expressions and nested case expressions when with numeric and smallmoney/money branches.
