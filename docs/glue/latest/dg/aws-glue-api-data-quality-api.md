@@ -12,6 +12,7 @@ The Data Quality API describes the data quality data types, and includes the API
 + [DataQualityTargetTable structure](#aws-glue-api-data-quality-api-DataQualityTargetTable)
 + [DataQualityRulesetEvaluationRunDescription structure](#aws-glue-api-data-quality-api-DataQualityRulesetEvaluationRunDescription)
 + [DataQualityRulesetEvaluationRunFilter structure](#aws-glue-api-data-quality-api-DataQualityRulesetEvaluationRunFilter)
++ [DataQualityRulesetEvaluationRun structure](#aws-glue-api-data-quality-api-DataQualityRulesetEvaluationRun)
 + [DataQualityEvaluationRunAdditionalRunOptions structure](#aws-glue-api-data-quality-api-DataQualityEvaluationRunAdditionalRunOptions)
 + [DataQualityRuleRecommendationRunDescription structure](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunDescription)
 + [DataQualityRuleRecommendationRunFilter structure](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunFilter)
@@ -138,6 +139,56 @@ The filter criteria.
 
   Filter results by the name of the ruleset.
 
+## DataQualityRulesetEvaluationRun structure
+<a name="aws-glue-api-data-quality-api-DataQualityRulesetEvaluationRun"></a>
+
+The details of a data quality ruleset evaluation run.
+
+**Fields**
++ `RunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  The unique run identifier associated with this run.
++ `Role` – UTF-8 string.
+
+  An IAM role supplied to encrypt the results of the run.
++ `NumberOfWorkers` – Number (integer).
+
+  The number of `G.1X` workers to be used in the run. The default is 5.
++ `Timeout` – Number (integer), at least 1.
+
+  The timeout for a run in minutes. This is the maximum time that a run can consume resources before it is terminated and enters `TIMEOUT` status. The default is 2,880 minutes (48 hours).
++ `Status` – UTF-8 string (valid values: `RUNNING` \| `FINISHED` \| `FAILED` \| `PENDING_EXECUTION` \| `TIMED_OUT` \| `CANCELING` \| `CANCELED` \| `RECEIVED_BY_TASKRUNNER`).
+
+  The status for this run.
++ `ErrorString` – UTF-8 string.
+
+  The error strings that are associated with the run.
++ `StartedOn` – Timestamp.
+
+  The date and time when this run started.
++ `LastModifiedOn` – Timestamp.
+
+  A timestamp. The last point in time when this run was modified.
++ `CompletedOn` – Timestamp.
+
+  The date and time when this run was completed.
++ `ExecutionTime` – Number (integer).
+
+  The amount of time (in seconds) that the run consumed resources.
++ `RulesetNames` – An array of UTF-8 strings, not less than 1 or more than 10 strings.
+
+  A list of ruleset names for the run.
++ `ResultIds` – An array of UTF-8 strings, not less than 1 or more than 10 strings.
+
+  A list of result IDs for the data quality results for the run.
++ `AdditionalDataSources` – A map array of key-value pairs.
+
+  Each key is a UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  Each value is a A [DataSource](#aws-glue-api-data-quality-api-DataSource) object.
+
+  A map of reference strings to additional data sources you can specify for an evaluation run.
+
 ## DataQualityEvaluationRunAdditionalRunOptions structure
 <a name="aws-glue-api-data-quality-api-DataQualityEvaluationRunAdditionalRunOptions"></a>
 
@@ -196,6 +247,11 @@ Describes the result of a data quality rule recommendation run.
 + `CreatedRulesetName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
   The name of the ruleset that was created by the recommendation run.
++ `RecommendationMode` – UTF-8 string (valid values: `BASIC` \| `ADVANCED`).
+
+  The mode that AWS Glue Data Quality uses to recommend rules.
+
+  The default is `BASIC`.
 
 ## DataQualityRuleRecommendationRunFilter structure
 <a name="aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunFilter"></a>
@@ -254,13 +310,13 @@ Describes a data quality result.
   The unique run ID for the ruleset evaluation for this data quality result.
 + `RuleResults` – An array of [DataQualityRuleResult](#aws-glue-api-data-quality-api-DataQualityRuleResult) objects, not more than 2000 structures.
 
-  A list of `DataQualityRuleResult` objects representing the results for each rule. 
+  A list of `DataQualityRuleResult` objects representing the results for each rule.
 + `AnalyzerResults` – An array of [DataQualityAnalyzerResult](#aws-glue-api-data-quality-api-DataQualityAnalyzerResult) objects, not more than 2000 structures.
 
-  A list of `DataQualityAnalyzerResult` objects representing the results for each analyzer. 
+  A list of `DataQualityAnalyzerResult` objects representing the results for each analyzer.
 + `Observations` – An array of [DataQualityObservation](#aws-glue-api-data-quality-api-DataQualityObservation) objects, not more than 50 structures.
 
-  A list of `DataQualityObservation` objects representing the observations generated after evaluating the rules and analyzers. 
+  A list of `DataQualityObservation` objects representing the anomaly detection observations generated after evaluating the rules and analyzers.
 + `AggregatedMetrics` – A [DataQualityAggregatedMetrics](#aws-glue-api-data-quality-api-DataQualityAggregatedMetrics) object.
 
    A summary of `DataQualityAggregatedMetrics` objects showing the total counts of processed rows and rules, including their pass/fail statistics based on row-level results. 
@@ -797,6 +853,7 @@ The configuration for writing distribution results.
 + [CancelDataQualityRulesetEvaluationRun action (Python: cancel\_data\_quality\_ruleset\_evaluation\_run)](#aws-glue-api-data-quality-api-CancelDataQualityRulesetEvaluationRun)
 + [GetDataQualityRulesetEvaluationRun action (Python: get\_data\_quality\_ruleset\_evaluation\_run)](#aws-glue-api-data-quality-api-GetDataQualityRulesetEvaluationRun)
 + [ListDataQualityRulesetEvaluationRuns action (Python: list\_data\_quality\_ruleset\_evaluation\_runs)](#aws-glue-api-data-quality-api-ListDataQualityRulesetEvaluationRuns)
++ [BatchGetDataQualityRulesetEvaluationRun action (Python: batch\_get\_data\_quality\_ruleset\_evaluation\_run)](#aws-glue-api-data-quality-api-BatchGetDataQualityRulesetEvaluationRun)
 + [StartDataQualityRuleRecommendationRun action (Python: start\_data\_quality\_rule\_recommendation\_run)](#aws-glue-api-data-quality-api-StartDataQualityRuleRecommendationRun)
 + [CancelDataQualityRuleRecommendationRun action (Python: cancel\_data\_quality\_rule\_recommendation\_run)](#aws-glue-api-data-quality-api-CancelDataQualityRuleRecommendationRun)
 + [GetDataQualityRuleRecommendationRun action (Python: get\_data\_quality\_rule\_recommendation\_run)](#aws-glue-api-data-quality-api-GetDataQualityRuleRecommendationRun)
@@ -984,6 +1041,29 @@ Lists all the runs meeting the filter criteria, where a ruleset is evaluated aga
 + `OperationTimeoutException`
 + `InternalServiceException`
 
+## BatchGetDataQualityRulesetEvaluationRun action (Python: batch\_get\_data\_quality\_ruleset\_evaluation\_run)
+<a name="aws-glue-api-data-quality-api-BatchGetDataQualityRulesetEvaluationRun"></a>
+
+Retrieves the details of multiple evaluation runs in a single request.
+
+**Request**
++ `RunIds` – *Required:* An array of UTF-8 strings, not less than 1 or more than 100 strings.
+
+  A list of unique run identifiers for the evaluation runs to retrieve.
+
+**Response**
++ `Runs` – An array of [DataQualityRulesetEvaluationRun](#aws-glue-api-data-quality-api-DataQualityRulesetEvaluationRun) objects.
+
+  A list of evaluation run details for the requested run IDs.
++ `RunsNotFound` – An array of UTF-8 strings, not less than 1 or more than 100 strings.
+
+  A list of run IDs that were not found.
+
+**Errors**
++ `InvalidInputException`
++ `OperationTimeoutException`
++ `InternalServiceException`
+
 ## StartDataQualityRuleRecommendationRun action (Python: start\_data\_quality\_rule\_recommendation\_run)
 <a name="aws-glue-api-data-quality-api-StartDataQualityRuleRecommendationRun"></a>
 
@@ -999,7 +1079,9 @@ The request of the Data Quality rule recommendation request.
   The data source (AWS Glue table) associated with this run.
 + `Role` – *Required:* UTF-8 string.
 
-  An IAM role supplied to encrypt the results of the run.
+  The IAM role that AWS Glue assumes to access resources for the run.
+
+  For more information, see [Configure IAM permissions for AWS Glue Data Quality](https://docs.aws.amazon.com/glue/latest/dg/data-quality-authorization.html).
 + `NumberOfWorkers` – Number (integer).
 
   The number of `G.1X` workers to be used in the run. The default is 5.
@@ -1018,6 +1100,11 @@ The request of the Data Quality rule recommendation request.
 + `AdditionalRunOptions` – A [DataQualityRuleRecommendationRunAdditionalRunOptions](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions) object.
 
   Additional run options you can specify for a recommendation run.
++ `RecommendationMode` – UTF-8 string (valid values: `BASIC` \| `ADVANCED`).
+
+  The mode that AWS Glue Data Quality uses to recommend rules.
+
+  The default is `BASIC`.
 
 **Response**
 + `RunId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
@@ -1070,7 +1157,7 @@ The response for the Data Quality rule recommendation run.
   The data source (an AWS Glue table) associated with this run.
 + `Role` – UTF-8 string.
 
-  An IAM role supplied to encrypt the results of the run.
+  The IAM role that AWS Glue assumes to access resources for the run.
 + `NumberOfWorkers` – Number (integer).
 
   The number of `G.1X` workers to be used in the run. The default is 5.
@@ -1107,6 +1194,11 @@ The response for the Data Quality rule recommendation run.
 + `AdditionalRunOptions` – A [DataQualityRuleRecommendationRunAdditionalRunOptions](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions) object.
 
   Additional run options you can specify for a recommendation run.
++ `RecommendationMode` – UTF-8 string (valid values: `BASIC` \| `ADVANCED`).
+
+  The mode that AWS Glue Data Quality uses to recommend rules.
+
+  The default is `BASIC`.
 
 **Errors**
 + `EntityNotFoundException`
@@ -1198,13 +1290,13 @@ The response for the data quality result.
   The unique run ID associated with the ruleset evaluation.
 + `RuleResults` – An array of [DataQualityRuleResult](#aws-glue-api-data-quality-api-DataQualityRuleResult) objects, not more than 2000 structures.
 
-  A list of `DataQualityRuleResult` objects representing the results for each rule. 
+  A list of `DataQualityRuleResult` objects representing the results for each rule.
 + `AnalyzerResults` – An array of [DataQualityAnalyzerResult](#aws-glue-api-data-quality-api-DataQualityAnalyzerResult) objects, not more than 2000 structures.
 
-  A list of `DataQualityAnalyzerResult` objects representing the results for each analyzer. 
+  A list of `DataQualityAnalyzerResult` objects representing the results for each analyzer.
 + `Observations` – An array of [DataQualityObservation](#aws-glue-api-data-quality-api-DataQualityObservation) objects, not more than 50 structures.
 
-  A list of `DataQualityObservation` objects representing the observations generated after evaluating the rules and analyzers. 
+  A list of `DataQualityObservation` objects representing the anomaly detection observations generated after evaluating the rules and analyzers.
 + `AggregatedMetrics` – A [DataQualityAggregatedMetrics](#aws-glue-api-data-quality-api-DataQualityAggregatedMetrics) object.
 
    A summary of `DataQualityAggregatedMetrics` objects showing the total counts of processed rows and rules, including their pass/fail statistics based on row-level results. 
@@ -1609,13 +1701,13 @@ The response for the data quality result.
   The unique run ID associated with the ruleset evaluation.
 + `RuleResults` – An array of [DataQualityRuleResult](#aws-glue-api-data-quality-api-DataQualityRuleResult) objects, not more than 2000 structures.
 
-  A list of `DataQualityRuleResult` objects representing the results for each rule. 
+  A list of `DataQualityRuleResult` objects representing the results for each rule.
 + `AnalyzerResults` – An array of [DataQualityAnalyzerResult](#aws-glue-api-data-quality-api-DataQualityAnalyzerResult) objects, not more than 2000 structures.
 
-  A list of `DataQualityAnalyzerResult` objects representing the results for each analyzer. 
+  A list of `DataQualityAnalyzerResult` objects representing the results for each analyzer.
 + `Observations` – An array of [DataQualityObservation](#aws-glue-api-data-quality-api-DataQualityObservation) objects, not more than 50 structures.
 
-  A list of `DataQualityObservation` objects representing the observations generated after evaluating the rules and analyzers. 
+  A list of `DataQualityObservation` objects representing the anomaly detection observations generated after evaluating the rules and analyzers.
 + `AggregatedMetrics` – A [DataQualityAggregatedMetrics](#aws-glue-api-data-quality-api-DataQualityAggregatedMetrics) object.
 
    A summary of `DataQualityAggregatedMetrics` objects showing the total counts of processed rows and rules, including their pass/fail statistics based on row-level results. 
@@ -1631,7 +1723,9 @@ The request of the Data Quality rule recommendation request.
   The data source (AWS Glue table) associated with this run.
 + `Role` – *Required:* UTF-8 string.
 
-  An IAM role supplied to encrypt the results of the run.
+  The IAM role that AWS Glue assumes to access resources for the run.
+
+  For more information, see [Configure IAM permissions for AWS Glue Data Quality](https://docs.aws.amazon.com/glue/latest/dg/data-quality-authorization.html).
 + `NumberOfWorkers` – Number (integer).
 
   The number of `G.1X` workers to be used in the run. The default is 5.
@@ -1650,6 +1744,11 @@ The request of the Data Quality rule recommendation request.
 + `AdditionalRunOptions` – A [DataQualityRuleRecommendationRunAdditionalRunOptions](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions) object.
 
   Additional run options you can specify for a recommendation run.
++ `RecommendationMode` – UTF-8 string (valid values: `BASIC` \| `ADVANCED`).
+
+  The mode that AWS Glue Data Quality uses to recommend rules.
+
+  The default is `BASIC`.
 
 ## GetDataQualityRuleRecommendationRunResponse structure
 <a name="aws-glue-api-data-quality-api-GetDataQualityRuleRecommendationRunResponse"></a>
@@ -1665,7 +1764,7 @@ The response for the Data Quality rule recommendation run.
   The data source (an AWS Glue table) associated with this run.
 + `Role` – UTF-8 string.
 
-  An IAM role supplied to encrypt the results of the run.
+  The IAM role that AWS Glue assumes to access resources for the run.
 + `NumberOfWorkers` – Number (integer).
 
   The number of `G.1X` workers to be used in the run. The default is 5.
@@ -1702,6 +1801,11 @@ The response for the Data Quality rule recommendation run.
 + `AdditionalRunOptions` – A [DataQualityRuleRecommendationRunAdditionalRunOptions](#aws-glue-api-data-quality-api-DataQualityRuleRecommendationRunAdditionalRunOptions) object.
 
   Additional run options you can specify for a recommendation run.
++ `RecommendationMode` – UTF-8 string (valid values: `BASIC` \| `ADVANCED`).
+
+  The mode that AWS Glue Data Quality uses to recommend rules.
+
+  The default is `BASIC`.
 
 ## BatchPutDataQualityStatisticAnnotation action (Python: batch\_put\_data\_quality\_statistic\_annotation)
 <a name="aws-glue-api-data-quality-api-BatchPutDataQualityStatisticAnnotation"></a>
