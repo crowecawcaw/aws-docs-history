@@ -5,6 +5,37 @@
 
 This document contains all Amazon IVS Low-Latency Streaming release notes, latest first, organized by date of release.
 
+## November 4, 2026
+<a name="nov04-26-broadcast-mobile-ll"></a>
+
+### Amazon IVS Broadcast SDK: Android 1.48.1, iOS 1.48.1
+<a name="nov04-26-broadcast-mobile-ll-1481"></a>
+
+
+| Platform | Downloads and Changes | 
+| --- | --- | 
+| [Android Broadcast SDK 1.48.1](broadcast-android.md) | **Reference documentation:** [https://aws.github.io/amazon-ivs-broadcast-docs/1.48.1/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.48.1/android/)+  Fixes two rare ANRs that could happen during initialization or during teardown when using an `ImagePreviewView`.  | 
+| [iOS Broadcast SDK 1.48.1](broadcast-ios.md) | **Download for low-latency streaming: ** [https://broadcast.live-video.net/1.48.1/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.48.1/AmazonIVSBroadcast.xcframework.zip)<br />**Reference documentation:** [https://aws.github.io/amazon-ivs-broadcast-docs/1.48.1/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.48.1/ios/)+  There were no changes to the low-latency SDK in this release.  | 
+
+#### Broadcast SDK Size: Android
+<a name="broadcast-1481-ll-sdk-size-android"></a>
+
+
+| Architecture | Compressed Size | Uncompressed Size | 
+| --- | --- | --- | 
+| arm64-v8a | 2.021 MB | 5.436 MB | 
+| armeabi-v7a | 1.773 MB | 3.764 MB | 
+| x86\_64 | 2.108 MB | 5.777 MB | 
+| x86 | 2.131 MB | 5.566 MB | 
+
+#### Broadcast SDK Size: iOS
+<a name="broadcast-1481-ll-sdk-size-ios"></a>
+
+
+| Architecture | Compressed Size | Uncompressed Size | 
+| --- | --- | --- | 
+| arm64 | 1.027 MB | 2.248 MB | 
+
 ## October 29, 2026
 <a name="oct29-26-player-web-ll"></a>
 

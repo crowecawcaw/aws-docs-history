@@ -8,8 +8,6 @@ This document lists resources to help support your use of Amazon IVS low-latency
 ## Demos and Other Resources
 <a name="ivs-resources"></a>
 
-[https://ivs.rocks/](https://ivs.rocks/) is a dedicated site to browse published content (demos, code samples, blog posts), estimate cost, and experience IVS through live demos. For demos and code samples, see [https://ivs.rocks/examples](https://ivs.rocks/examples).
-
 The [Amazon IVS page on the DEV Community site](https://dev.to/t/amazonivs) has a wealth of demos and blog posts. For example, [Getting Started with Amazon Interactive Video Service](https://dev.to/recursivecodes/series/19342) is a series of articles about using IVS, for beginners. The articles give step-by-step walkthroughs of IVS APIs with interactive demos embedded in the posts. All the demos can be run directly in the posts themselves via an embedded CodePen.
 
 The [AWS Blogs](https://aws.amazon.com/blogs) site has many IVS blog postings on a variety of topics. Filter for IVS by selecting **Product or solution** > **Media Services** > **Amazon Interactive Video Service** on the right side of the page.
@@ -37,15 +35,6 @@ Integrating Amazon IVS with Datadog allows you to monitor live-stream playback a
 By leveraging the IVS Player SDK's events and state updates, key metrics can be calculated and sent to Datadog on a recurring basis to create playback analytics. This integration allows for the capture of crucial playback metrics, providing insights into live-stream viewers’ quality of experience (QoE) . The process involves using IVS Player events to derive essential data points, which are then transmitted to Datadog for analysis and visualization using the Datadog Real User Monitoring (RUM) SDK.
 
 To integrate the IVS Player SDK with Datadog to monitor playback analytics, see [Unlocking Live Streaming Analytics: Amazon IVS and Datadog Integration](https://community.aws/content/2mM5zgmCBSPj5WMvx6pDDq0bSd8/unlocking-live-streaming-analytics-amazon-ivs-and-datadog-integration-part-1).
-
-#### Bitmovin
-<a name="ivs-partner-solutions-analytics-bitmovin"></a>
-
-[Bitmovin’s](https://partners.amazonaws.com/partners/001E000001AmSIVIA3/Bitmovin) Analytics is a fully managed service with [analytics collectors](https://developer.bitmovin.com/playback/docs/setup-analytics#collectors) built for the IVS Player. Analytics enables you to track and monitor playback health across devices, understand viewer demographics, monitor quality of playback experience, and quickly identify any issues affecting viewers.
-
-With actionable data collected across all your channels, Bitmovin’s Analytics aids in increasing viewer engagement and retention through metric dashboards for Audience, Quality of Experience (QoE), and Top Errors. This gives you access to about 40 metrics with 30 filters and breakdowns. Also, 200 dimensions and filters are available through Bitmovin’s API and data exports.
-
-To integrate Bitmovin’s Analytics with the IVS Player SDK, see the following Getting Started guides: [Android](https://developer.bitmovin.com/playback/docs/setup-analytics-android) and [iOS](https://developer.bitmovin.com/playback/docs/setup-analytics-ios).
 
 ### Interactivity
 <a name="ivs-partner-solutions-interactivity"></a>
