@@ -22,7 +22,8 @@ The following table summarizes support for each application. Select an applicati
 | --- | --- | --- | --- | --- | 
 | [Adobe After Effects](adobe-after-effects.md) | 2024 - 2026 | Windows, macOS | Windows | No | 
 | [Autodesk 3ds Max](autodesk-3ds-max.md) | 2024 - 2027 | Windows | No | Yes | 
-| [Autodesk Arnold for Cinema 4D](maxon-cinema-4d.md) | 4.8.4.1 | Windows, macOS | Windows, Linux | Yes | 
+| Autodesk Arnold | 7.3 - 7.4 | No | Linux | Yes | 
+| [Autodesk Arnold for Cinema 4D](maxon-cinema-4d.md) | 4.8.4.1 - 4.9.5 | Windows, macOS | Windows, Linux | Yes | 
 | [Autodesk Arnold for Maya](autodesk-maya.md) | 7.1 - 7.5 | Windows, macOS, Linux | Linux | Yes | 
 | [Autodesk Maya](autodesk-maya.md) | 2023 - 2027 | Windows, macOS, Linux | Linux | Yes | 
 | [Autodesk VRED](autodesk-vred.md) | 2025 - 2026 | Windows | Linux | No | 

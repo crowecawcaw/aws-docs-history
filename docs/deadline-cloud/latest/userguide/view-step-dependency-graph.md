@@ -10,6 +10,8 @@ Jobs with dependencies are created by workflows that submit dependent steps, suc
 ![The Steps panel in graph view, with five step nodes connected by dependency arrows that flow from left to right.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/monitor/step-dependency-graph.png)
 
 
+To try the graph with sample data, open a [demo job with 15 dependent steps](https://_demo.us-east-1.deadlinecloud.amazonaws.com/us-west-2/farms/farm-94d29d9475dd814529b87a52f20ff9cb/queues/queue-8df336a45cbed661f57da93efa5b14db?jobId=job-a5c83b373ae2e998fde352d175838e02&demo=moonrise), and then choose **Graph**.
+
 **To view the step dependency graph**
 
 1. Select a job from the **Jobs** list.

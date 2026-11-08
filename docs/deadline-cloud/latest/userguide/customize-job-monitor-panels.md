@@ -7,8 +7,11 @@ The **Job monitor** page is built from panels. The **Jobs**, **Steps**, and **Ta
 
 The monitor saves your arrangement in your browser and restores it the next time you open the job monitor.
 
+To try adding and moving panels with sample data, open the [demo job monitor](https://_demo.us-east-1.deadlinecloud.amazonaws.com/us-west-2/farms/farm-94d29d9475dd814529b87a52f20ff9cb/queues/queue-8df336a45cbed661f57da93efa5b14db?jobId=job-fd8b065107a2688ea8519a63f944f5f0&stepId=step-7ef06ab55a605912f88e1c7345f78c30&taskId=task-7ef06ab55a605912f88e1c7345f78c30-0&demo=moonrise).
+
 The following panels are available to add:
 + **Logs** shows the Amazon CloudWatch logs for the selected task, so that you can read them without leaving the job monitor. For more information, see [View session and worker logs in Deadline Cloud](view-logs.md).
++ **Task outputs** shows the output files of the selected task and previews them, including 3D meshes and point clouds. For more information, see [Preview task outputs in the job monitor](preview-task-outputs.md).
 
 **To add a panel**
 
@@ -18,7 +21,7 @@ The following panels are available to add:
 ![The job monitor showing the Jobs, Steps, and Tasks panels, with an outlined Add panel tile at the end of the page.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/monitor/job-monitor-add-panel-tile.png)
 
 1. In **Add a panel**, choose the panel that you want. The panel is added after the last panel on the page.  
-![The Add a panel dialog box listing the Logs panel with a thumbnail and a description of what the panel shows.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/monitor/job-monitor-add-panel-modal.png)
+![The Add a panel dialog box listing the Logs panel and the Task outputs panel, each with a thumbnail and a description of what the panel shows.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/monitor/job-monitor-add-panel-modal.png)
 
 The **Add panel** tile appears only when panels remain to add. After the page shows every available panel, the tile no longer appears.
 

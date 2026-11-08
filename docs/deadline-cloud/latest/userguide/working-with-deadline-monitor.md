@@ -21,7 +21,10 @@ You can use the Deadline Cloud monitor to download the results to the location o
 
 The Deadline Cloud monitor also helps you monitor usage and manage costs. For more information, see [Manage costs and usage for Deadline Cloud farms](manage-costs.md).
 
+To explore the monitor with sample data before you set up a farm, see [Explore the Deadline Cloud monitor in demo mode](monitor-demo-mode.md).
+
 **Topics**
++ [Explore the Deadline Cloud monitor in demo mode](monitor-demo-mode.md)
 + [Monitors and farms in multiple Regions](monitors-additional-regions.md)
 + [Share the Deadline Cloud monitor URL](share-monitor-url.md)
 + [Open the Deadline Cloud monitor](open-deadline-cloud-monitor.md)
@@ -34,6 +37,7 @@ The Deadline Cloud monitor also helps you monitor usage and manage costs. For mo
 + [View a step in Deadline Cloud](view-a-step.md)
 + [View a task in Deadline Cloud](view-a-task.md)
 + [View session and worker logs in Deadline Cloud](view-logs.md)
++ [Preview task outputs in the job monitor](preview-task-outputs.md)
 + [View worker details in the worker dashboard](view-worker-dashboard.md)
 + [Download finished output in Deadline Cloud](download-finished-output.md)
 + [View output download status in Deadline Cloud](auto-downloads-status.md)

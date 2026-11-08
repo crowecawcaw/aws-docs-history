@@ -8,6 +8,8 @@ With the Deadline Cloud usage explorer, you can see real-time metrics on the act
 ![The usage explorer showing filter controls, a donut chart of total cost, and a stacked bar chart of daily costs per queue.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/monitor/usage-explorer.png)
 
 
+To try the usage explorer with sample data, open the [demo usage explorer](https://_demo.us-east-1.deadlinecloud.amazonaws.com/us-west-2/farms/farm-94d29d9475dd814529b87a52f20ff9cb/usage?filterBy=QUEUES&groupBy=JOB_ID&units=COST&interval=DAILY&range=last-7-days&demo=moonrise).
+
 The following sections show you the steps for accessing and using the Deadline Cloud usage explorer.
 
 **Topics**

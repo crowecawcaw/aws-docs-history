@@ -7,6 +7,8 @@ Use the job attachments browser in the Deadline Cloud monitor to see the file st
 
 The attachments browser displays both input files (submitted with the job) and output files (produced by workers during processing). You can filter the view to show only inputs, only outputs, or all files together.
 
+To try the attachments browser with sample data, open the [demo job attachments](https://_demo.us-east-1.deadlinecloud.amazonaws.com/us-west-2/farms/farm-94d29d9475dd814529b87a52f20ff9cb/queues/queue-b5fb7c92ae42326d3851bab4b0568d97/jobs/job-1cf313e2991e74375006ea6092c5a2ed/attachments?demo=moonrise).
+
 ## Opening the attachments browser
 <a name="browse-job-attachments-open"></a>
 
@@ -66,6 +68,17 @@ For supported file types, the attachments browser can display an inline preview 
 
 The following file types support inline preview:
 + Images: PNG, JPG, JPEG, GIF, BMP, WebP, SVG, ICO
-+ Text: TXT, LOG, JSON, XML, YAML, YML, CSV, MD, INI, CFG, CONF, SH, BAT, PY, JS, TS, TSX, JSX, HTML, CSS, TOML
++ Text: TXT, XML, MD, INI, CFG, CONF, SH, BAT, PY, JS, TS, TSX, JSX, HTML, CSS, TOML
++ Tables: CSV, TSV, JSONL, NDJSON, Parquet
++ Data files: JSON, YAML, YML
++ Logs: LOG
 + Video: MP4, WebM, OGG
 + Audio: MP3, WAV, OGG, FLAC, AAC, WebM
++ 3D meshes and point clouds: GLB, glTF, OBJ, STL, PLY, PCD
++ 3D scenes: USD, USDA, USDC, USDZ
+
+For what the table, data, and log viewers show, see [Viewing data and log files](preview-task-outputs.md#preview-task-outputs-data).
+
+In the full-screen preview of a 3D file, a toolbar has the same view buttons and settings. A panel next to the view shows the properties of the file and, when the file has more than one object, its scene graph. To hide or show this panel, choose **Hide properties panel** or **Show properties panel**. For more information, see [Viewing 3D meshes and point clouds](preview-task-outputs.md#preview-task-outputs-3d) and [Viewing the properties of a mesh or point cloud](preview-task-outputs.md#preview-task-outputs-properties).
+
+For a USD, USDA, USDC, or USDZ file, the full-screen preview lists details of the scene, such as its up axis, its units, and its prim hierarchy.

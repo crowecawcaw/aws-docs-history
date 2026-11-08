@@ -7,6 +7,8 @@ To create a farm in AWS Deadline Cloud, you can use either the [Deadline Cloud c
 
 To create a farm and use the Deadline Cloud monitor, set up your account for Deadline Cloud. You only need to set up the Deadline Cloud monitor infrastructure once per account. From your farm, you can manage your project, including user access to your farm and its resources.
 
+To see the Deadline Cloud monitor with sample data before you set anything up, see [Explore the Deadline Cloud monitor in demo mode](monitor-demo-mode.md).
+
 To create a farm with minimal resources to accept jobs, select **Quickstart** in the console home page. **[Set up the Deadline Cloud monitor](monitor-onboarding.md)** walks you through those steps. These farms start with a queue and a fleet that are automatically associated. This approach is a convenient way to create sandbox style farms to experiment in.
 
 **Topics**

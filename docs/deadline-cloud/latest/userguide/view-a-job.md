@@ -9,6 +9,8 @@ The **Job monitor** page in the Deadline Cloud monitor provides you with the fol
 
 Choose a job from the list to view a list of steps for the job, and then choose a step from the list of steps to view the tasks for the job. After you choose an item, you can use the **Actions** menu for that item to view details.
 
+To try the job monitor with sample data, open the [demo job monitor](https://_demo.us-east-1.deadlinecloud.amazonaws.com/us-west-2/farms/farm-94d29d9475dd814529b87a52f20ff9cb/queues/queue-8df336a45cbed661f57da93efa5b14db?jobId=job-fd8b065107a2688ea8519a63f944f5f0&stepId=step-7ef06ab55a605912f88e1c7345f78c30&taskId=task-7ef06ab55a605912f88e1c7345f78c30-0&demo=moonrise).
+
 **To view job details**
 
 1. Follow the steps to view a queue in [View queue and fleet details in Deadline Cloud](view-queue-and-fleet.md).

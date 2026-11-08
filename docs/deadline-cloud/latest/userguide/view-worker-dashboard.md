@@ -11,6 +11,8 @@ The *worker dashboard* provides details for the worker that processes a task. Yo
 + A graph of the disk speed over time.
 + The worker log for the task.
 
+To see the dashboard with sample data, open the [demo worker dashboard](https://_demo.us-east-1.deadlinecloud.amazonaws.com/us-west-2/farms/farm-94d29d9475dd814529b87a52f20ff9cb/fleets/fleet-afc07d45402990ec316ba3ef6303b87e/worker-ae78d60a474f13d12952b21419b63ac3?demo=moonrise).
+
 **To view the worker dashboard from a task**
 
 1. Follow the steps in [View and manage job details in Deadline Cloud](view-a-job.md) to view a list of jobs.

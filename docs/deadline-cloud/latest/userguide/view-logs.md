@@ -14,6 +14,8 @@ Logs provide you with detailed information about the status and processing of ta
 
 You can download session and worker logs so that you can examine them offline.
 
+To see a session log with sample data, open the [demo task logs](https://_demo.us-east-1.deadlinecloud.amazonaws.com/us-west-2/farms/farm-94d29d9475dd814529b87a52f20ff9cb/queues/queue-8df336a45cbed661f57da93efa5b14db/logs?jobId=job-fd8b065107a2688ea8519a63f944f5f0&stepId=step-7ef06ab55a605912f88e1c7345f78c30&taskId=task-7ef06ab55a605912f88e1c7345f78c30-0&demo=moonrise).
+
 You can read a task's logs in two places. **View logs** opens the logs on their own page. The **Logs** panel shows the logs for the task that you select on the **Job monitor** page, so you can move between tasks without leaving the job, step, and task lists. The panel isn't shown until you add it. For more information, see [Customize the panels in the job monitor](customize-job-monitor-panels.md).
 
 **To view task logs in the job monitor**

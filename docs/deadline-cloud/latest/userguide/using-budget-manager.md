@@ -10,6 +10,8 @@ Budgets use the same cost estimates as the usage explorer. Before you set a budg
 ![The budget manager showing active budgets with status, resource, remaining percentage, and remaining amount.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/monitor/budget-manager.png)
 
 
+To try the budget manager with sample data, open the [demo budget manager](https://_demo.us-east-1.deadlinecloud.amazonaws.com/us-west-2/farms/farm-94d29d9475dd814529b87a52f20ff9cb/budget?demo=moonrise).
+
 The following sections provide you with the steps for using the Deadline Cloud budget manager.
 
 **Topics**

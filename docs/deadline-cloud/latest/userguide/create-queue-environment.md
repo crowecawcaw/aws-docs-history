@@ -7,7 +7,7 @@
 
 A queue environment is a set of environment variables and commands that set up fleet workers. You can use queue environments to provide software applications, environment variables, and other resources to jobs in the queue.
 
-When you create a queue, you have the option of creating a default conda queue environment. This environment provides service-managed fleets access to packages for partner DCC applications and renderers. The default environment For more information, see [Default conda queue environment](#conda-queue-environment).
+When you create a queue, you have the option of creating a default conda queue environment. This environment provides service-managed fleets access to packages for partner DCC applications and renderers. For more information, see [Default conda queue environment](#conda-queue-environment).
 
 You can add queue environments using the console, or by editing the json or YAML template directly. This procedure describes how to create an environment with the console.
 
@@ -36,8 +36,12 @@ Conda provides packages from *channels*. A channel is a location where packages 
 
 ------
 #### [ Linux ]
++ Autodesk Arnold
+  + `arnold=2025`
+  + `arnold=2026`
 + Autodesk Arnold for Cinema 4D
   + `cinema4d-c4dtoa=2025`
+  + `cinema4d-c4dtoa=2026`
 + Autodesk Arnold for Maya
   + `maya-mtoa=2024.5.3`
   + `maya-mtoa=2025.5.4`

@@ -5,6 +5,8 @@
 
 The Deadline Cloud monitor displays farms from all AWS Regions where AWS Deadline Cloud (Deadline Cloud) is available. When you open the monitor, you see farms in the same Region as the monitor and farms in other Regions that do not use a customer managed key. In most cases, a single monitor is all you need, even if you have farms in multiple Regions.
 
+To see how the monitor lists farms from two Regions, open the [demo farm list](https://_demo.us-east-1.deadlinecloud.amazonaws.com/?demo=moonrise).
+
 ## Managing users across Regions
 <a name="monitors-add-users-cross-region"></a>
 

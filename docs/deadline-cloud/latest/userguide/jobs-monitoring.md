@@ -14,6 +14,8 @@ To monitor a specific job, select the farm and queue containing the job, then se
 ![The job monitor for a queue showing a jobs table with progress, status, duration, and priority, and step and task panels.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/monitor/queue-jobs.png)
 
 
+To see jobs in different states with sample data, open the [demo job monitor](https://_demo.us-east-1.deadlinecloud.amazonaws.com/us-west-2/farms/farm-94d29d9475dd814529b87a52f20ff9cb/queues/queue-8df336a45cbed661f57da93efa5b14db?demo=moonrise).
+
 Open the context menu for a job, step, or task. You can:
 + Change the status
 + Suspend and resume the item

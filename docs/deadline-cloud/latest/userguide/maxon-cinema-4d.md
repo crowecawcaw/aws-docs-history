@@ -45,7 +45,7 @@ The following table lists all conda packages applicable to Cinema 4D available t
 | Windows, Linux | cinema4d | 2025 | Includes Standard, Physical and Redshift renderers | 
 | Windows, Linux | cinema4d | 2026 | Includes Standard, Physical and Redshift renderers | 
 | Windows, Linux | cinema4d-c4dtoa | 2025 | Cinema4D to Arnold | 
-| Windows | cinema4d-c4dtoa | 2026 | Cinema4D to Arnold | 
+| Windows, Linux | cinema4d-c4dtoa | 2026 | Cinema4D to Arnold | 
 | Windows, Linux | cinema4d-openjd |  | Includes the Cinema 4D Adaptor | 
 
 **Note**  
@@ -590,6 +590,7 @@ If you create a conda package for a different version of Cinema 4D, you should e
 | Red Giant | 2025.x | No | No | Yes | 
 | V-Ray | 7.x | Yes | No | Yes | 
 | Insydium X-Particles | 2024.x | Yes | No | N/A | 
+| C4DtoArnold | 4.9.5 | Yes | Yes | Yes | 
 | C4DtoArnold | 4.8.4.1 | Yes | Yes | Yes | 
 
 \*Included in the base Cinema 4D package recipe

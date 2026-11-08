@@ -7,6 +7,8 @@ You can use the Deadline Cloud monitor to view the configuration of the queues a
 
 You must have `VIEWING` permission to view queue and fleet details. If the details don't display, contact your administrator to get the correct permissions.
 
+To try these pages with sample data, open the [queue list](https://_demo.us-east-1.deadlinecloud.amazonaws.com/us-west-2/farms/farm-94d29d9475dd814529b87a52f20ff9cb?demo=moonrise) or the [fleet list](https://_demo.us-east-1.deadlinecloud.amazonaws.com/us-west-2/farms/farm-94d29d9475dd814529b87a52f20ff9cb?tabId=fleets&demo=moonrise) of the demo farm.
+
 **To view queue details**
 
 1. [Open the Deadline Cloud monitor](open-deadline-cloud-monitor.md). 

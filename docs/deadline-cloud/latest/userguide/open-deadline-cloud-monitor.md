@@ -56,7 +56,7 @@ When you use the console, you must be able to sign in to AWS using an AWS Identi
    If you access Deadline Cloud with IAM credentials instead of a monitor URL, you can sign in with the AWS Management Console or with an existing AWS profile. For more information, see [Sign in to the desktop monitor with the AWS Management Console or an AWS profile](monitor-sign-in-aws-credentials.md).
 
 ## Change your language settings
-<a name="w2aac13c25c15"></a>
+<a name="w2aac13c30c15"></a>
 
 After you create and open your Deadline Cloud monitor, you can change your language settings. By default, the monitor language is set to your system's language settings.
 
