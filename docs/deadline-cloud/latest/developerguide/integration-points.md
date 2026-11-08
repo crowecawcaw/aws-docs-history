@@ -28,6 +28,7 @@ The following table summarizes the integration points. Choose one based on the a
 | Queue environments | Worker | Queue property | When a session enters or exits, for every job in the queue | Project-level configuration: non-admin software installs, shared environment variables, license or daemon setup | 
 | Job environments | Worker | Job bundle or job template | Before and after a job | Per-job setup and teardown | 
 | Step environments | Worker | Job bundle or step template | Before and after a step | Per-step setup and teardown | 
+| Wrap actions | Worker | Queue, job, or step environment (`WRAP_ACTIONS` extension) | In place of each task's run action, and of each inner environment's enter and exit actions | Per-task logic, such as running each task in a container or copying each task's outputs to Amazon S3 | 
 | Dependent steps | Worker | Job bundle or step template (`dependsOn`) | After an earlier step in the same job succeeds | Post-render work that needs the output files locally, such as encoding frames into a movie or generating thumbnails | 
 | Amazon EventBridge (EventBridge) events | AWS Cloud | Your AWS account (rule and target) | On a job, step, task, fleet, or budget state change | Production tracking, notifications, cloud automation, chaining jobs across queues | 
 | Amazon CloudWatch (CloudWatch) metrics and alarms | AWS Cloud | Your AWS account | Continuously, against a threshold | Conditions that have no event, such as license availability (`LicensesInUse`) and fleet capacity | 
@@ -45,17 +46,20 @@ For more information, see [Submission hooks](submission-hooks.md).
 The following integration points run on the rendering host. They are nested from the broadest scope to the narrowest:
 + **Host configuration scripts** run one time when a worker starts, with administrator privileges. Host configuration scripts are specific to service-managed fleets (SMFs). On a customer-managed fleet (CMF), you bake your own image instead. Use host configuration scripts for network setup and administrator-level software installs.
 + **Queue, job, and step environments** each define `onEnter` and `onExit` actions. The actions run when the worker's session enters a scope and, in reverse order, when the session exits the scope. Queue environments are a good place for project-level configuration that applies to every job in a queue, such as shared software, environment variables, and license or daemon setup. Job and step environments narrow the scope to a single job or step.
++ **Wrap actions** are the `onWrapTaskRun`, `onWrapEnvEnter`, and `onWrapEnvExit` actions of an environment that uses the Open Job Description `WRAP_ACTIONS` extension. While the environment is active, `onWrapTaskRun` runs in place of every task's `onRun` action and receives the original command, so your code runs before and after each task. The default Docker queue environment uses wrap actions to run tasks in a container.
 + **Dependent steps** add a second step that uses `dependsOn` to depend on the render step. For example, you can render and then encode a movie, or render and then generate thumbnails. The step stays in the same job, so the outputs are already local. Dependent steps require a custom submitter or a hand-written job bundle. Job-to-job dependencies are not native. To chain separate jobs, use events in the cloud, as described in the following section.
 
 **Note**  
-Environments are session-scoped, not per-task. An `onExit` action runs at session teardown, not after every task. If you are migrating a Deadline 10 post-task callback, use a dependent step instead of an environment `onExit` action.
+Environment `onEnter` and `onExit` actions are session-scoped. An `onExit` action runs at session teardown, not after every task. If you are migrating a Deadline 10 pre-task or post-task callback, use `onWrapTaskRun` to run logic on the worker around each task, or a dependent step to process a step's outputs after all of its tasks finish.
 
 For more information, see the following:
 + [Run host configuration scripts with administrator privileges](smf-admin.md)
 + [Create a queue environment](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/create-queue-environment.html)
 + [Provide applications for your jobs](provide-applications.md)
 + [Step dependencies](build-jobs-scheduling.md#jobs-scheduling-dependencies)
++ [Docker queue environment overview](containers-queue-environment.md)
 + [Open Job Description template schemas](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas) on the GitHub website, for `onEnter` and `onExit` scoping
++ [Environment wrap actions RFC](https://github.com/OpenJobDescription/openjd-specifications/blob/mainline/rfcs/0008-environment-wrap-actions.md) on the GitHub website
 
 ## Respond to events in the cloud
 <a name="integration-points-cloud"></a>
@@ -79,6 +83,7 @@ For more information, see the following:
 Use the following guidance to choose an integration point for a common need:
 + To change a job before it's submitted, use a submitter hook.
 + To run logic on the render host around the work, use a host configuration script or a queue, job, or step environment. Choose the broadest scope that fits, and use a queue environment for project-level configuration.
++ To run logic on the worker before and after every task, use wrap actions.
 + To process job outputs while they're still local, use a dependent step.
 + To react to job outcomes without consuming farm capacity, use an EventBridge rule with a Lambda function.
 + For conditions that have no event, such as license or capacity limits, use a CloudWatch alarm.
