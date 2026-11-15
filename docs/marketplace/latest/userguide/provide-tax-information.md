@@ -12,7 +12,7 @@ The tax information you need to provide depends on your country or region and th
 + **US-based sellers** – If you're based in the United States, you need to provide a completed W-9 form, which includes your Taxpayer Identification Number (TIN).
 + **Non-US sellers** – If you're based outside the United States, you need to provide a completed W-8 form (typically W-8BEN for individuals or W-8BEN-E for entities). This does not apply to sellers in India.
 + **VAT/GST registration** – If you're required to collect Value-Added Tax (VAT) or Goods and Services Tax (GST) in your jurisdiction, you need to provide your VAT/GST registration number.
-+ **Professional services providers** – If you plan to sell professional services on AWS Marketplace, you must complete the Tax Questionnaire for DAC7 in addition to the standard tax forms.
++ **Professional services providers** – If you plan to sell professional services on AWS Marketplace, you must complete the Tax Questionnaire for DAC7 and, if you are resident in Canada, the Tax Questionnaire for Canada Digital Platform Reporting in addition to the standard tax forms.
 
 **Sellers in India**  
 Sellers in India don't need to complete the W-8 form or DAC7 as they can only sell to buyers in India. If you're changing your location to outside India, you need to complete W-9 or W-8 forms (as applicable) and DAC7. For detailed information about India-specific tax requirements, see [Getting started as a seller in India](getting-started-seller-india.md).

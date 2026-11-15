@@ -30,7 +30,17 @@ This FAQ answers commonly asked questions about VAT on AWS Marketplace Deemed Su
 + [How and when will I receive the VAT disbursement?](#faq-receive-disbursement)
 + [How can I track the status of my VAT payment?](#faq-track-status)
 + **Refunds and Credit Notes**
-+ [What happens if a Buyer requests a refund after I have received the VAT disbursement?](#faq-refund-credit-note)
++ [When do I need to submit a credit note for a refund?](#faq-refund-when-credit-note)
++ [What happens if a Buyer is refunded after I have already received the VAT disbursement?](#faq-refund-credit-note)
++ [Where can I find refunds and submit a credit note?](#faq-refund-find-submit)
++ [How can I identify a refund?](#faq-refund-identify)
++ [How soon will a refund appear in AWS Partner Central?](#faq-refund-timing)
++ [Does submitting a credit note trigger VAT recovery?](#faq-refund-recovery-trigger)
++ [What will I see when AWS recovers the VAT?](#faq-refund-recovery-view)
++ [Can I include multiple refunds on one credit note?](#faq-refund-consolidate)
++ [Should I submit a PDF or an XML credit note?](#faq-refund-format)
++ [How can I check whether my credit note was accepted?](#faq-refund-status)
++ [What should I enter in the Type of Document field?](#faq-refund-document-type)
 + **Self-Billing**
 + [Can AWS generate a VAT invoice for Deemed Supplies on my behalf?](#faq-self-billing)
 + **Reporting and Reconciliation**
@@ -273,7 +283,7 @@ Your VAT invoice must contain all the fields listed below. Invoices that do not 
 
 1. **AWS EMEA Branch VAT Number** — The local VAT identification number of the AWS EMEA SARL branch.
 
-1. **Type of Document** — Specify whether the document is an Invoice or a Credit Note.
+1. **Type of Document** — Specify whether the document is an Invoice or a Credit Note. For accepted credit-note terms, see [What should I enter in the Type of Document field?](#faq-refund-document-type).
 
 1. **Supplier Name** — Your legal entity name as registered with your local tax authority.
 
@@ -339,12 +349,117 @@ You can track the status of all your VAT invoices in the Tax Information tab of 
 + **ACCEPTED:** Invoice received and validated, awaiting payment from the Buyer.
 + **REJECTED:** Invoice failed validation. Check the rejection reason and re-upload a corrected invoice.
 
-## What happens if a Buyer requests a refund after I have received the VAT disbursement?
+## When do I need to submit a credit note for a refund?
+<a name="faq-refund-when-credit-note"></a>
+
+If a Buyer receives a refund for a transaction where AWS previously disbursed EU, Norway, or UK VAT to you, AWS might recover the associated VAT from your seller balance. You might also need to provide a credit note for the refunded transaction.
+
+You need to submit a credit note when AWS previously disbursed VAT to you for the original transaction and that transaction is later refunded. If AWS has not disbursed VAT to you for the original transaction, you can't submit a credit note under this refund process solely because a refund appears in AWS Partner Central. You will still see the original sale and the corresponding refund as separate line items. If VAT is later disbursed to you for the original sale, the applicable refund and credit-note requirements then apply.
+
+## What happens if a Buyer is refunded after I have already received the VAT disbursement?
 <a name="faq-refund-credit-note"></a>
 
-If a Buyer is issued a refund for a transaction on which you have already received a VAT disbursement, you will be required to return the VAT amount to AWS. You must issue a credit note to the corresponding AWS EMEA branch. The credit note must reference the original invoice number and follow the same format as the original VAT invoice, with the Type of Document field set to "Credit Note".
+If AWS previously disbursed VAT to you for the original transaction, AWS recovers the applicable VAT after the refund conditions are met. You must also provide a credit note for the refunded transaction. You can submit the credit note directly through AWS Partner Central. This process applies to eligible AWS Marketplace transactions, including Channel Partner Private Offer (CPPO) transactions. Your credit note must:
++ Use the applicable document format for the transaction. For more information about document formats, see [Should I submit a PDF or an XML credit note?](#faq-refund-format).
++ Include a reference to the original Seller invoice ID that you uploaded to receive VAT for the original transaction. You can find it in the **Seller invoice ID** column of the **VAT on deemed supply submissions** table.
++ Include a recognized credit-note value in the Type of Document field. For more information about accepted values, see [What should I enter in the Type of Document field?](#faq-refund-document-type).
 
-To submit a Credit Note, please Contact Us through AWS Partner Central.
+## Where can I find refunds and submit a credit note?
+<a name="faq-refund-find-submit"></a>
+
+In AWS Partner Central, choose **Settings**, choose the **Tax information** tab, and scroll down to the **VAT on deemed supply** section. Refunds appear in the eligible line items table. To submit a credit note:
+
+1. Select the refund line item or line items that the credit note covers.
+
+1. Choose **Apply VAT disbursement**.
+
+1. Upload your credit note in the required PDF or XML format. The maximum file size is 10 MB.
+
+1. Review the submission details.
+
+1. Choose **Submit VAT on deemed supply disbursement** and complete the confirmation.
+
+At the confirmation step, enter the total amount exactly as displayed, including the "-" sign where applicable.
+
+By default, the table displays transactions from the previous 14 days. If you do not see an expected refund, expand the date range and confirm that it includes the transaction.
+
+## How can I identify a refund?
+<a name="faq-refund-identify"></a>
+
+A refund appears as a separate line item from the original sale. Refund line items display negative values for the Net amount, VAT amount, and Line item total. For example, you might see:
++ The original sale and a separate negative line item for a partial refund.
++ The original sale and an equal negative line item when the transaction is fully refunded.
+
+The Line item status has a different meaning for refunds:
++ For a sale, **Paid** means the Buyer has paid AWS.
++ For a refund, **Paid** means the Buyer's refund has been credited.
+
+**Note**  
+A **Paid** status on the refund does not necessarily mean that AWS has already recovered the VAT from your seller balance.
+
+## How soon will a refund appear in AWS Partner Central?
+<a name="faq-refund-timing"></a>
+
+A refund can take up to 72 hours after the Buyer refund is generated to appear in the eligible line items table. A refund might appear while its status is still **Unpaid**. If you do not see an expected refund after 72 hours, confirm that your selected date range includes the transaction before reporting it as missing.
+
+## Does submitting a credit note trigger VAT recovery?
+<a name="faq-refund-recovery-trigger"></a>
+
+No. Creating, submitting, or having a credit note accepted does not, by itself, trigger VAT recovery. VAT is recovered after both of the following have occurred:
+
+1. AWS has accepted the VAT invoice for the original sale.
+
+1. The Buyer's refund has been credited and the refund line item shows **Paid**.
+
+## What will I see when AWS recovers the VAT?
+<a name="faq-refund-recovery-view"></a>
+
+If AWS previously disbursed VAT to you for the original transaction and that transaction is later refunded, AWS deducts the applicable VAT amount from your seller balance after the recovery conditions are met. You will see the recovery as a deduction from your balance rather than as a separate charge or invoice.
+
+To review the financial adjustment, use the Collections and Disbursements dashboard in Insights. Use the **VAT on deemed supply** section to view eligible line items and track the status of your submitted documents.
+
+## Can I include multiple refunds on one credit note?
+<a name="faq-refund-consolidate"></a>
+
+Yes. You can include multiple eligible refunds on one credit note when they can be consolidated. After you select the first refund, AWS Partner Central shows which additional refund line items can be included in the same submission. Refunds that cannot be combined must be submitted separately.
++ Reference the Seller invoice ID of every VAT invoice involved when your credit note covers refunds from more than one original sale.
++ Select up to 100 eligible line items in one submission.
++ Match the total VAT amount on your credit note to the total VAT amount shown for the refund line items that you selected.
++ Submit sales and refunds separately. A single document cannot contain both sale and refund line items.
+
+## Should I submit a PDF or an XML credit note?
+<a name="faq-refund-format"></a>
+
+Use the document format required for the applicable country and transaction. Submit XML where electronic invoicing is required. Submit PDF where electronic invoicing is not required. For more information about the countries that require XML, see [Do I need to submit an e-invoice instead of a PDF?](#faq-e-invoicing).
+
+For PDF credit notes, the amounts must be negative, consistent with how the refund amounts appear in AWS Partner Central. If your country requires a specific electronic-invoicing format, follow that format's requirements. For example, in Italy, an electronic credit note submitted using the FatturaPA format requires positive amounts.
+
+## How can I check whether my credit note was accepted?
+<a name="faq-refund-status"></a>
+
+You can track your credit-note submissions in the **VAT on deemed supply submissions** table. Each submission shows one of the following statuses:
++ **Pending** – AWS received the document and is reviewing it.
++ **Accepted** – AWS successfully validated the document.
++ **Rejected** – The document did not pass validation and must be corrected before you resubmit it.
+
+After you submit a credit note, AWS Partner Central removes the corresponding refund line items from the eligible line items table. If the credit note is rejected, those line items become available again so that you can correct the document and submit a new credit note. Common reasons for rejection include:
++ The AWS VAT entity information on your credit note does not match the transaction.
++ The VAT amount does not match the amount shown for the selected refund line items.
++ Your legal entity name does not match your registered legal entity name.
++ Required information is missing from the document.
+
+Use the VAT amount displayed for the refund line items when preparing your credit note. Recalculating the amount independently might result in a different value because VAT rounding can vary by country.
+
+## What should I enter in the Type of Document field?
+<a name="faq-refund-document-type"></a>
+
+Enter a recognized credit-note document type in the Type of Document field. You can use the applicable credit-note term for your language. Supported examples include:
++ Credit Note
++ Credit Memo
++ Nota de Crédito
++ Gutschrift
+
+Matching is not case-sensitive. If your local-language credit-note term is not recognized, use Credit Note in English.
 
 ## Can AWS generate a VAT invoice for Deemed Supplies on my behalf?
 <a name="faq-self-billing"></a>

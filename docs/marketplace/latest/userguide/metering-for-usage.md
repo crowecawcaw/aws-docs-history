@@ -7,6 +7,8 @@ For software as a service (SaaS) subscriptions, you meter for all usage, and the
 
 When your application meters usage for a customer, your application is providing AWS with a quantity of usage accrued. Your application meters for the pricing dimensions that you defined when you created your product, such as gigabytes transferred or hosts scanned in a given hour. For example, if you charge based on the amount of data sent into your application, you can measure the amount of data and send a corresponding metering record once an hour. AWS calculates a customer’s bill using the metering data along with the prices that you provided when you created your product.
 
+To report fractional usage, set `QuantityAsDecimal` instead of `Quantity` in each usage record. `QuantityAsDecimal` is a string with up to 10 digits before the decimal point and up to 6 digits after it, for example `17.42`. For more information, see [UsageRecord](https://docs.aws.amazon.com/marketplacemetering/latest/APIReference/API_UsageRecord.html) in the *AWS Marketplace Metering Service API Reference*.
+
 For products that support Concurrent Agreements, metering operates at the license level rather than the product level. Each usage record must include a `LicenseArn` to identify which specific agreement the usage applies to. The `LicenseArn` is obtained from the `ResolveCustomer` API response during SaaS registration. This enables buyers to maintain multiple active agreements for the same product, with usage tracked and billed separately per agreement.
 
 **Note**  
@@ -41,7 +43,7 @@ If you use an AI coding agent, it can follow AWS-authored guidance for this inte
 +  We require sellers to use batching by using the `BatchMeterUsage` operation. 
 +  We deduplicate metering requests on the hour. 
   + For non-Concurrent Agreements products: Requests are deduplicated per product/customer/hour/dimension. For Concurrent Agreements products: Requests are deduplicated per license/customer/hour/dimension.
-  + You can always retry any request, but if you meter for a different quantity, the original quantity is billed. For Concurrent Agreements products: retrying with the same `LicenseArn` is safe and follows standard deduplication rules. However, switching between `ProductCode` and `LicenseArn` for the same usage window will cause duplicate billing.
+  + You can always retry any request, but if you meter for a different quantity, the original quantity is billed. Quantities are compared by value: `17`, `17.0`, and `17.00` are the same quantity, whether you send it in `Quantity` or `QuantityAsDecimal`. For Concurrent Agreements products: retrying with the same `LicenseArn` is safe and follows standard deduplication rules. However, switching between `ProductCode` and `LicenseArn` for the same usage window will cause duplicate billing.
   +  If you send multiple requests for the same customer/dimension/hour, the records are not aggregated. 
 + Sellers can send metering records with a timestamp up to 24 hours in the past if the customer is subscribed to your product. If the customer unsubscribes, sellers have to send the metering records within 1 hour of the customer unsubscribing. 
 
@@ -97,7 +99,9 @@ Validations include:
 + Characters allowed for the tag key and value – a-zA-Z0-9\+ -=.\_:\\/@
 + Maximum tags across `UsageAllocation` list – 5
 + Two `UsageAllocations` can't have the same tags (that is, the same combination of tag keys and values). If that's the case, they must use the same `UsageAllocation`.
-+ The sum of `AllocatedUsageQuantity` of `UsageAllocation` must equal the `UsageQuantity`, which is the aggregate usage.
++ The sum of the allocated quantities of the `UsageAllocations` must equal the `BatchMeterUsage` usage record's quantity (`Quantity` or `QuantityAsDecimal`), which is the aggregate usage.
++ Each `UsageAllocation` must specify exactly one of `AllocatedUsageQuantity` or `AllocatedUsageQuantityAsDecimal`.
++ Allocations must use the same type of quantity as the `BatchMeterUsage` usage record: `AllocatedUsageQuantity` with `Quantity`, or `AllocatedUsageQuantityAsDecimal` with `QuantityAsDecimal`.
 + The maximum payload size can't be more than 1 MB. This includes input attribute keys (for example, `UsageRecords`, `AllocatedUsageQuantity`, tags).
 **Note**  
 To make sure that you aren't breaching the payload limit, create a sample request object with a maximum size based on the business requirement, convert the object into a JSON string, and obtain the size in bytes. Make sure that a single API call won't breach the 1 MB limit. For example. if a request with 1 `UsageRecord` has a maximum size of 200 KB, don't send more than 5 `UsageRecords` as part of the request (200KB \* 5 = 1MB).

@@ -119,7 +119,9 @@ Validations include:
 + Characters allowed for the tag key and value – a-zA-Z0-9\+ -=.\_:\\/@
 + Maximum tags across `UsageAllocation` list – 5
 + Two `UsageAllocations` can't have the same tags (that is, the same combination of tag keys and values). If that's the case, they must use the same `UsageAllocation`.
-+ The sum of `AllocatedUsageQuantity` of `UsageAllocation` must equal the `UsageQuantity`, which is the aggregate usage.
++ The sum of the allocated quantities of the `UsageAllocations` must equal the `MeterUsage` request's usage quantity (`UsageQuantity` or `UsageQuantityAsDecimal`), which is the aggregate usage.
++ Each `UsageAllocation` must specify exactly one of `AllocatedUsageQuantity` or `AllocatedUsageQuantityAsDecimal`.
++ Allocations must use the same type of quantity as the `MeterUsage` request: `AllocatedUsageQuantity` with `UsageQuantity`, or `AllocatedUsageQuantityAsDecimal` with `UsageQuantityAsDecimal`.
 
 ### Buyer experience
 <a name="container-vendor-metered-tag-buyer"></a>

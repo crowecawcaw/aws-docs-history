@@ -66,7 +66,11 @@ For information on offer types, see the response from [DescribeEntity API](https
 **Note**  
  For [DescribeEntity API](https://docs.aws.amazon.com/marketplace/latest/APIReference/work-with-private-offers.html#describe-entity), if you find an AWS account in the account targeting facet of targeting rule for that offer, it is a private offer. If there is not an AWS account in the account targeting facet of targeting rule for that offer, it is a public offer.
 
-The `isFreeTrialTermPresent` property indicates if the buyer's subscription is a free trial. The JSON value of this property is not a *boolean* datatype. Instead, the value is converted to a *string* datatype. For more information, see [ SaaS free trials.](https://docs.aws.amazon.com/marketplace/latest/userguide/saas-free-trials.html)
+The `isFreeTrialTermPresent` property indicates whether the buyer's subscription includes a free trial term. The JSON value of this property is not a *boolean* datatype. Instead, the value is converted to a *string* datatype. The value stays `"true"` after the free trial converts to a paid subscription. To check whether the free trial is still active, call `DescribeAgreement` and read `freeTrialSummary.trialEndTime`. For more information, see [ SaaS free trials.](https://docs.aws.amazon.com/marketplace/latest/userguide/saas-free-trials.html)
+
+The `isFreeTrialTermPresent` property is absent when the subscription has no free trial term.
+
+Amazon SNS doesn't send a message when a free trial converts to a paid subscription. To receive a conversion event, use Amazon EventBridge. For more information, see [Managing SaaS subscription events with Amazon EventBridge](saas-eventbridge-integration.md).
 
 The {{<action-name>}} will vary depending on the notification. Possible actions are:
 + `subscribe-success` – The `subscribe-success` message signals when the seller can begin sending metering records. If an [agreement-based offer](https://docs.aws.amazon.com/marketplace/latest/userguide/private-offers-upgrades-and-renewals.html#private-offers-upgrades-and-renewals-process) is accepted by the buyer, this message is sent again with the new `offer-identifier`.

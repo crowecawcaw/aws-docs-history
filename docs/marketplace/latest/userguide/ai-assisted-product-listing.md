@@ -30,7 +30,7 @@ You can access AI-assisted product listing in two locations:
 1. Sign in to AWS Partner Central or AWS Marketplace Management Portal (AMMP).
 
 1. Open the AWS Partner Assistant chat window:
-   + In AWS Partner Central, choose the **Amazon Q** chat button in the dashboard header.
+   + In AWS Partner Central, choose the **AWS assistant** chat button in the dashboard header.
    + In AMMP, choose the **AI sparkle** icon on any product creation, update, or detail page.
    + If you are a newly registered seller, you can also access this chat through the **Create your first listing** tile.
 

@@ -350,6 +350,42 @@ response = marketplaceClient.batch_meter_usage(
 )
 ```
 
+To report fractional usage, use `QuantityAsDecimal` and `AllocatedUsageQuantityAsDecimal` instead of `Quantity` and `AllocatedUsageQuantity`. Both are strings with up to 10 digits before the decimal point and up to 6 digits after it. Don't mix whole-number and decimal quantities in the same usage record.
+
+The following Python example sends a usage record with a fractional quantity that is split across two usage allocations:
+
+```
+# Import AWS Python SDK
+import boto3
+from datetime import datetime, timezone
+
+usageRecords = [
+    {
+        "Timestamp": datetime.now(timezone.utc).replace(minute=0, second=0, microsecond=0),
+        "CustomerAWSAccountId": "111122223333",
+        "Dimension": "Dimension1",
+        "LicenseArn": "arn:aws:license-manager::123456789012:license:l-exampleLicense12345",
+        "QuantityAsDecimal": "10.5",
+        "UsageAllocations": [
+            {
+                "AllocatedUsageQuantityAsDecimal": "6.25",
+                "Tags": [{"Key": "user", "Value": "john"}]
+            },
+            {
+                "AllocatedUsageQuantityAsDecimal": "4.25",
+                "Tags": [{"Key": "user", "Value": "jane"}]
+            },
+        ]
+    }
+]
+
+marketplaceClient = boto3.client('meteringmarketplace', region_name='us-east-1')
+
+response = marketplaceClient.batch_meter_usage(
+    UsageRecords=usageRecords
+)
+```
+
 For more information about `BatchMeterUsage`, see [BatchMeterUsage](https://docs.aws.amazon.com/marketplacemetering/latest/APIReference/API_BatchMeterUsage.html) in the *AWS Marketplace Metering Service API Reference*.
 
 ### Example response

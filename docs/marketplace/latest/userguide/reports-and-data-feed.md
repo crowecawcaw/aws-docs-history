@@ -5,7 +5,7 @@
 
 As an AWS Marketplace seller, you can use the following tools for collecting and analyzing information about your product sales:
 + [Data feeds](data-feeds.md) that provide additional customer information that you can use to identify customer information for transactions listed in the reports.
-+ [Dashboards](dashboards.md) powered by [Amazon Quick](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) with charts, graphs, and insights that help you to access and analyze financial data.
++ [Dashboards](dashboards.md) powered by [AWS Quick](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) with charts, graphs, and insights that help you to access and analyze financial data.
 
 AWS Marketplace provides as much data as possible in reports, data feeds, and dashboards while adhering to the following:
 + Amazon standards and tenets for protecting customer data.
@@ -20,3 +20,4 @@ For more information about reports, datafeeds, and dashboards in AWS Marketplace
 + [Seller delivery data feeds in AWS Marketplace](data-feed-service.md)
 + [Supplementary reports](supplementary-reports.md)
 + [Seller dashboards](dashboards.md)
++ [Granting agents access to seller reporting data](agent-reporting-data-access.md)

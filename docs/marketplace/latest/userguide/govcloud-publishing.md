@@ -5,7 +5,7 @@
 
 AWS Marketplace supports product listing in the AWS GovCloud (US) Regions. You can publish AMI-based and SaaS-based products in AWS GovCloud (US) to make them available to government agencies and customers with regulated workloads. This section describes the requirements and steps for publishing your product in AWS GovCloud (US).
 
-## Requirements
+## Requirements for publishing in AWS GovCloud (US)
 <a name="govcloud-publishing-requirements"></a>
 
 Before you can publish a product in AWS GovCloud (US), you must meet the following requirements:

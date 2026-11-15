@@ -197,7 +197,7 @@ For detailed product preparation guidance, see the [Preparing your product for A
 ## Private Offers in AWS Marketplace in the AWS ESC
 <a name="private-offers-esc"></a>
 
-The ESC currently supports the following private offer types with upfront payment only:
+The ESC currently supports the following private offer types with flexible payment scheduler (FPS) and upfront payment:
 + **Direct Private Offers**: Create customized offers directly with buyers, including custom pricing, payment terms, and contract duration
 + **Channel Partner Private Offers (CPPO)**: Extend private offers through authorized channel partners who resell your products to end customers
 
@@ -208,20 +208,34 @@ While core private offer capabilities are available, some advanced features may 
 
 You can create private offers for ESC customers using the same private offer workflow as the commercial Marketplace.
 
-1. Select **AWS Marketplace — European Sovereign Cloud (aws-eusc)** from the catalog dropdown
+#### For Direct Private Offers
+<a name="direct-private-offers-esc"></a>
 
-1. Navigate to **Offers** and choose **Create private offer**
+1. Go to [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home?region=us-east-1).
 
-1. Select your ESC product and complete the private offer details
+1. Select **Private offers** from the left-hand panel.
+
+1. Select **European Sovereign Cloud (aws-eusc)** from the **Catalog** drop-down menu.
+
+1. Choose **Create private offer**.
+
+1. Select your ESC product and complete the private offer details.
+
+1. Choose either **Contract pricing with installment plan**, which is the flexible payment scheduler (FPS), or **Contract pricing with upfront payment**.
 
 1. Set the currency. Private offers for ESC products default to EUR, but private offers can also use USD.
 
-1. Extend the offer to your ESC customer's AWS account ID. The customer's account must be in the ESC partition
+1. Extend the offer to your ESC customer's AWS account ID. The customer's account must be in the ESC partition.
 
 **Note**  
 Public offers must use EUR.
 
 Before creating ESC private offers, confirm that EUR is configured in your disbursement preferences and that your bank account can accept EUR disbursements. For more information, see [Multi-currency pricing for private offers](https://docs.aws.amazon.com/marketplace/latest/userguide/multi-currency-pricing.html) in the [Product pricing](https://docs.aws.amazon.com/marketplace/latest/userguide/pricing.html) section of this guide.
+
+#### For CPPO
+<a name="cppo-esc"></a>
+
+To create a selling authorization for a Channel Partner, follow the same procedure as in the commercial Marketplace. See [Create a selling authorization](https://docs.aws.amazon.com/marketplace/latest/userguide/channel-partner-isv-info.html#create-selling-authorization). The only difference is that you select **European Sovereign Cloud (aws-eusc)** from the **Catalog** drop-down menu in [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home?region=us-east-1).
 
 **Note**  
 For Channel Partner Private Offers (CPPOs), both the ISV and the Channel Partner must be individually registered in the AWS Marketplace in the AWS ESC to transact within the same partition. Verify that both parties have completed ESC catalog registration before creating or accepting a CPPO. If either party is not yet registered, complete ESC registration first.

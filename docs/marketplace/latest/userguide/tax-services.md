@@ -75,9 +75,31 @@ The following only applies to you if you are a VAT-registered business in Korea 
 ## Switzerland: Tax Collection
 <a name="tax-services-switzerland"></a>
 
-If your customer is located in Switzerland and you have informed us of your Swiss Value Added Tax ("VAT") registration, then AWS will (1) calculate Swiss VAT as of the subscription date, (2) add that amount to the listing price, and (3) collect then remit this tax to you. It is your obligation to report and remit any VAT to the Swiss Federal Tax Administration. Customers may request a VAT invoice (or Credit Note if applicable) from you as the seller of record. In this case, you may issue a VAT invoice directly to your customers.
+If your customer is located in Switzerland, the AWS contracting party facilitating your Transaction is Amazon Web Services EMEA SARL and you have informed us of your Swiss Value Added Tax ("VAT") registration, then AWS will (1) calculate Swiss VAT as of the subscription date, (2) add that amount to the listing price, and (3) collect then remit this tax to you. It is your obligation to report and remit any VAT to the Swiss Federal Tax Administration. Customers may request a VAT invoice (or Credit Note if applicable) from you as the seller of record. In this case, you may issue a VAT invoice directly to your customers.
 
 If you have not informed us of your Swiss VAT registration, then AWS will not add VAT on your sales to Swiss customers. It is your obligation to determine whether or not to collect, report, and remit VAT to the Swiss Federal Tax Administration.
+
+As a non-Switzerland-based seller, you can add a supplemental tax registration for Switzerland so that AWS can collect Swiss value-added tax (VAT) on your sales to buyers in Switzerland when the AWS contracting party facilitating your Transaction is Amazon Web Services EMEA SARL. To add a secondary Swiss VAT ID, use the following procedure. This procedure is optional.<a name="tax-services-switzerland.procedure"></a>
+
+**To add a Supplemental Tax Registration (Swiss VAT ID)**
+
+1. Sign in to **AWS Partner Central**.
+
+1. Go to **Tax and invoices**.
+
+1. Choose the **Tax Information** tab.
+
+1. Scroll to the **Supplemental tax registrations - optional** section.
+
+1. Choose **Add supplemental tax information**.
+
+1. Complete the tax registration form with your **Tax registration number**, **Business name**, and **Address**.
+
+1. Choose **Request verification**. Wait for the verification process to complete. When verification finishes, the new supplemental tax registration appears in the list with a **Verified** status.
+**Note**  
+Verification might take a few minutes, but it is typically near-immediate.
+
+After verification, the process is complete. When you sell to a buyer in Switzerland, AWS manages tax collection and includes it on the AWS Marketplace invoice.
 
 ## Singapore: Tax Collection and Tax Invoicing
 <a name="tax-services-singapore"></a>

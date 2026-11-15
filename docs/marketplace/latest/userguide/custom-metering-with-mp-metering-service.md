@@ -54,7 +54,7 @@ Your software can use the AWS SDK to call the AWS Marketplace Metering Service, 
    + `timestamp` – Timestamp of the hour being recorded (in UTC). 
    + `productCode` – Product code assigned to the software. 
    + `dimension` – Dimension (or dimensions) assigned to the software. 
-   + `quantity` – Consumption value for the hour. 
+   + `quantity` – Consumption value for the hour. To report fractional usage, send it in `UsageQuantityAsDecimal` instead of `UsageQuantity`, as a string with up to 10 digits before the decimal point and up to 6 digits after it (for example, `17.42`).
    + `allocations` – (Optional) You may provide allocations for the usage across properties that you track. These allocations must add up to the total consumption in the record. To the buyer, these display as potential cost allocation tags in their billing tools (such as the AWS Billing and Cost Management console). The buyer must activate the tags in their account to track their cost using these tags.
 
 In addition, your software must call an in-Region AWS Marketplace Metering Service endpoint. Your product must have a correct Regional endpoint set up, so `us-east-1` sends records to a `us-east-1` endpoint, and `us-west-2` sends records to a `us-west-2` endpoint. Making in-Region calls provides buyers with a more stable experience and prevents situations in which an unrelated Region’s availability could impact software running in another Region. 

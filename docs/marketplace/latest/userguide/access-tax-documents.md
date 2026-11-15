@@ -11,7 +11,7 @@ You can access your tax documents, such as 1099 forms, from AWS Partner Central.
 
 1. Go to the **Payment information** section.
 
-1. Select the relevant tax forms (1099K or DAC7).
+1. Select the relevant tax forms (1099K, Canada Digital Platform Reporting, or DAC7).
 
 1. If your tax forms are available, you can download them from the **Tax dashboard** page.
 

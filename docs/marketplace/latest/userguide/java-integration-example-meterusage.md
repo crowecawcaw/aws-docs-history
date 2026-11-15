@@ -24,6 +24,7 @@ For complete details, see [`MeterUsage` Java examples](#meterusage-java-example)
        "ProductCode" : "string", // (required)
        "UsageDimension" : "string", // (required)
        "UsageQuantity":  int, // (optional) Default is 0. Acceptable value from [0, 2147483647 (INT_MAX)]
+       "UsageQuantityAsDecimal": "string", // (optional) Use instead of UsageQuantity to report fractional usage. Up to 10 digits before and 6 after the decimal point, for example "17.42". Don't set both.
        "Timestamp": Date, // (required) Timestamp in UTC. Value can be one hour in the past.
        "UsageAllocations": List<UsageAllocation> // (optional) UsageAllocations across 1 or more tags.
    }
@@ -109,6 +110,49 @@ public class MeterUsage {
     }
 }
 ```
+
+To report fractional usage, for example `2.5` hours, send the quantity in `UsageQuantityAsDecimal` instead of `UsageQuantity`. Don't set both. The following code example uses the AWS SDK for Java 2.x.
+
+```
+import software.amazon.awssdk.services.marketplacemetering.MarketplaceMeteringClient;
+import software.amazon.awssdk.services.marketplacemetering.model.MarketplaceMeteringException;
+import software.amazon.awssdk.services.marketplacemetering.model.MeterUsageRequest;
+import software.amazon.awssdk.services.marketplacemetering.model.MeterUsageResponse;
+
+import java.time.Instant;
+
+public class MeterUsageDecimal {
+
+    private static final String PRODUCT_CODE = ".......";
+
+    private final MarketplaceMeteringClient marketplaceMeteringClient = MarketplaceMeteringClient.create();
+
+    /**
+     * Submits a metering record with a fractional quantity.
+     *
+     * @param quantity - Consumption value for the hour as a string, for example "2.5". Up to 10 digits
+     *                 before the decimal point and up to 6 digits after it.
+     */
+    public void callMeterUsageWithDecimalQuantity(String dimension, String quantity, Instant timestamp) {
+        MeterUsageRequest meterUsageRequest = MeterUsageRequest.builder()
+                .productCode(PRODUCT_CODE)
+                .usageDimension(dimension)
+                .usageQuantityAsDecimal(quantity)
+                .timestamp(timestamp)
+                .build();
+        MeterUsageResponse meterUsageResponse;
+        try {
+            meterUsageResponse = marketplaceMeteringClient.meterUsage(meterUsageRequest);
+        } catch (MarketplaceMeteringException e) {
+            System.err.println("MeterUsage failed: " + e.awsErrorDetails().errorCode() + " - " + e.getMessage());
+            throw e;
+        }
+    }
+}
+```
+
+**Note**  
+To split a fractional quantity across `UsageAllocations`, set `AllocatedUsageQuantityAsDecimal` on each allocation instead of `AllocatedUsageQuantity`. The following `UsageAllocations` example uses whole-number quantities.
 
 The following code example calls the `MeterUsage` operation with `UsageAllocations`.
 

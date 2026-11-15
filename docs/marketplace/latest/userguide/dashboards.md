@@ -3,7 +3,7 @@
 # Seller dashboards
 <a name="dashboards"></a>
 
-AWS Marketplace provides dashboards powered by [Amazon Quick](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) with charts, graphs, and insights that help you access and analyze financial, sales, and marketing data. The seller dashboards include:
+AWS Marketplace provides dashboards powered by [AWS Quick](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) with charts, graphs, and insights that help you access and analyze financial, sales, and marketing data. The seller dashboards include:
 
 **[Dashboards for finance operations](finance-operations.md)**
 + [Billed revenue dashboard](billed-revenue-dashboard.md) – Provides information about billed revenue for accounting and other financial reporting purposes.

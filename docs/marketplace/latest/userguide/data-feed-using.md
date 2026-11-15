@@ -28,6 +28,6 @@ The following procedure assumes that you've already configured your environment 
 
 1. From the [Quick console](http://quicksight.aws.amazon.com), [create an analysis](https://docs.aws.amazon.com/quick/latest/userguide/creating-an-analysis.html) and then [create a visual](https://docs.aws.amazon.com/quick/latest/userguide/creating-a-visual.html) of the data.
 
-   For more information about Quick, see the [*Amazon Quick User Guide*](https://docs.aws.amazon.com/quick/latest/userguide/welcome.html).
+   For more information about Quick, see the [*AWS Quick User Guide*](https://docs.aws.amazon.com/quick/latest/userguide/welcome.html).
 
 For a detailed example of one way to use AWS services to collect and analyze data in data feeds, see [Using Seller Data Feed Delivery Service, Amazon Athena, and Quick to create seller reports](https://aws.amazon.com/blogs/awsmarketplace/using-seller-data-feed-delivery-service-amazon-athena-and-amazon-quicksight-to-create-seller-reports/) at the AWS Marketplace Blog.

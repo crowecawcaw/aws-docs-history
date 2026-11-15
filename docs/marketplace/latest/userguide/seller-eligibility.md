@@ -44,7 +44,7 @@ Different types of sellers may have additional specific requirements:
 Must meet the AWS Data Exchange eligibility requirements. For more information, see the [AWS Data Exchange User Guide](https://docs.aws.amazon.com/data-exchange/latest/userguide/providing-data-sets.html).
 
 **Professional services providers**  
-Must complete the Tax Questionnaire for DAC7.
+Must complete the Tax Questionnaire for DAC7 and, if you are resident in Canada, the Tax Questionnaire for Canada Digital Platform Reporting.
 
 **BYOL product providers**  
 Often require additional seller registration requirements beyond standard paid product requirements.
