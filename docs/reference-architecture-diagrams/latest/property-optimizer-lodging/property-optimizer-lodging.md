@@ -5,12 +5,12 @@
 
 Publication date: **April 16, 2020 ([Diagram history](#propopt-history))**
 
-With this architecture, you can forecast lodging demand and optimize property performance. Use airline schedules, shopping data, and booking information as inputs. Generate regional and property-level forecasts with artificial intelligence and machine learning (AI/ML). The solution uses [Amazon Forecast](https://docs.aws.amazon.com/forecast/latest/dg/) for ML-based forecasting, [AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/) for data processing, and [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html) for visualization.
+With this architecture, you can forecast lodging demand and optimize property performance. Use airline schedules, shopping data, and booking information as inputs. Generate regional and property-level forecasts with artificial intelligence and machine learning (AI/ML). The solution uses [Amazon Forecast](https://docs.aws.amazon.com/forecast/latest/dg/) for ML-based forecasting, [AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/) for data processing, and [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html) for visualization.
 
 ## Property optimizer diagram
 <a name="propopt-diagram"></a>
 
-![How to forecast lodging demand by using Amazon Forecast, AWS Glue, and Amazon Quick Sight.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/property-optimizer-lodging/images/property-optimizer-lodging.png)
+![How to forecast lodging demand by using Amazon Forecast, AWS Glue, and AWS Quick Sight.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/property-optimizer-lodging/images/property-optimizer-lodging.png)
 
 
 The following steps describe the data pipeline and forecasting components for this architecture:
@@ -29,7 +29,7 @@ The following steps describe the data pipeline and forecasting components for th
 
 1. Combine lodging and flight data to create accurate forecasts. Use Forecast to create AI/ML-based forecasting from historical recovery data.
 
-1. Visualize reports by using on-demand [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/) and Amazon Quick Sight. For standardized recovery reports, use [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/) to create data marts.
+1. Visualize reports by using on-demand [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/) and AWS Quick Sight. For standardized recovery reports, use [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/) to create data marts.
 
 1. (Optional) Build a configuration dashboard with microservices. Use [Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/), [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/), and [Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/) to collect configuration changes and create what-if analyses.
 
