@@ -93,7 +93,7 @@ You must create a bucket policy on the destination bucket to grant permissions t
 
 After you configure storage class analysis reports, you start getting the exported report daily after 24 hours. After that, Amazon S3 continues monitoring and providing daily exports. 
 
-You can open the CSV file in a spreadsheet application or import the file into other applications like [Amazon Quick](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html). For information on using Amazon S3 objects with Amazon Quick, see the [Amazon Quick User Guide](https://docs.aws.amazon.com/quicksight/latest/user/create-a-data-set-s3.html).
+You can open the CSV file in a spreadsheet application or import the file into other applications like [AWS Quick](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html). For information on using Amazon S3 objects with AWS Quick, see the [AWS Quick User Guide](https://docs.aws.amazon.com/quicksight/latest/user/create-a-data-set-s3.html).
 
 Data in the exported file is sorted by date within object age group as shown in following examples. If the storage class is STANDARD the row also contains data for the columns `ObjectAgeForSIATransition` and `RecommendedObjectAgeForSIATransition`.
 

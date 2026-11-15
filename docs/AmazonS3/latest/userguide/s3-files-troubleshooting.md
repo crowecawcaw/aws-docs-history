@@ -154,7 +154,7 @@ Files in the lost and found directory remain there indefinitely and count toward
 
 The `PendingExports` CloudWatch metric is growing, indicating that your workload is generating changes faster than S3 Files can synchronize them to S3.
 
-This means that your workload may be exceeding the synchronization rate. S3 Files exports up to 800 files per second per file system. Consider reducing the rate of file modifications or distributing work across multiple file systems. Monitor the `PendingExports` metric over time. If it stabilizes or decreases, S3 Files is catching up. If it continues to grow, contact AWS Support.
+This means that your workload may be exceeding the synchronization rate. S3 Files exports up to 3,500 files per second per file system. Consider reducing the rate of file modifications or distributing work across multiple file systems. Monitor the `PendingExports` metric over time. If it stabilizes or decreases, S3 Files is catching up. If it continues to grow, contact AWS Support.
 
 ## File system status is MISCONFIGURED
 <a name="s3-files-troubleshooting-misconfigured"></a>

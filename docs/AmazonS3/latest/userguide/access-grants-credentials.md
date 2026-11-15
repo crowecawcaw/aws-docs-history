@@ -37,6 +37,9 @@ The following table details the effect of the `privilege` parameter on two grant
 **Duration**  
 The `durationSeconds` parameter sets the temporary credential's duration, in seconds. The default value is `3600` seconds (1 hour), but the requester (the grantee) can specify a range from `900` seconds (15 minutes) up to `43200` seconds (12 hours). If the grantee requests a value higher than this maximum, the request fails. 
 
+**Instance scope**  
+The `instanceScope` parameter sets the scope of S3 Access Grants instances that S3 Access Grants searches for a grant that matches the `target` parameter. The default value is `SELF`, but the requester can set `instanceScope` to `ALL`. With `SELF`, the AWS account ID you pass in the request must be the account that owns the data, and S3 Access Grants returns credentials for the matching grant in that account's instance. If instances from other accounts are shared with you through AWS Resource Access Manager (AWS RAM), you can set `instanceScope` to `ALL`. S3 Access Grants then finds the account that owns the bucket in `target` and returns credentials for the matching grant in that account's instance. With `ALL`, the account ID in the request can be your own account ID. In both cases, the response includes the `MatchedInstanceArn` field, which identifies the instance that contains the matching grant. With `SELF`, this is the instance of the account ID in the request. With `ALL`, it's the instance where the grant matched, which can belong to another account.
+
 **Note**  
 In your request for a temporary token, if the location is an object, set the value of the `targetType` parameter in your request to `Object`. This parameter is required only if the location is an object and the privilege level is `Minimal`. If the location is a bucket or a prefix, you don't need to specify this parameter.
 

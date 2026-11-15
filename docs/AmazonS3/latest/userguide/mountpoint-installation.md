@@ -7,7 +7,7 @@ You can download and install prebuilt packages of Mountpoint for Amazon S3 by us
 
 **Topics**
 + [Amazon Linux 2023 (AL2023)](#mountpoint-install-al2023)
-+ [Other RPM-based distributions (Amazon Linux 2, Fedora, CentOS, RHEL)](#mountpoint-install-rpm)
++ [Other RPM-based distributions (Fedora, CentOS, RHEL)](#mountpoint-install-rpm)
 + [DEB-based distributions (Debian, Ubuntu)](#mountpoint.install.deb)
 + [Other Linux distributions](#mountpoint-install-other)
 + [Verifying the signature of the Mountpoint for Amazon S3 package](#mountpoint-install-verify)
@@ -35,7 +35,7 @@ Mountpoint is available directly in the Amazon Linux 2023 repository since AL202
    mount-s3 1.21.0+1.amzn2023
    ```
 
-## Other RPM-based distributions (Amazon Linux 2, Fedora, CentOS, RHEL)
+## Other RPM-based distributions (Fedora, CentOS, RHEL)
 <a name="mountpoint-install-rpm"></a>
 
 1. Copy the following download URL for your architecture.

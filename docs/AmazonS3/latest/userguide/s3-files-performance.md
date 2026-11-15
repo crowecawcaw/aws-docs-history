@@ -52,16 +52,16 @@ The first time you access a directory, S3 Files imports metadata for all files i
 
 S3 Files synchronizes changes between your file system and S3 bucket in the background.
 
-**Importing changes from S3** – When another application adds or modifies an object in your S3 bucket, S3 Files reflects the change in your file system typically within seconds. S3 Files processes up to 2,400 object changes per second per file system, with import data throughput of up to 700 megabytes per second.
+**Importing changes from S3** – When another application adds or modifies an object in your S3 bucket, S3 Files reflects the change in your file system typically within seconds. S3 Files processes up to 4,500 object changes per second per file system, with import data throughput of up to 700 megabytes per second.
 
-**Exporting changes to S3** – When you write a file through the file system, S3 Files batches your changes for approximately 60 seconds to consolidate rapid successive writes into a single S3 object version, reducing your S3 request and storage version costs. After the batching window, S3 Files copies the file to your S3 bucket. S3 Files exports up to 800 files per second per file system, with export data throughput of up to 2,700 megabytes per second.
+**Exporting changes to S3** – When you write a file through the file system, S3 Files batches your changes for approximately 60 seconds to consolidate rapid successive writes into a single S3 object version, reducing your S3 request and storage version costs. After the batching window, S3 Files copies the file to your S3 bucket. S3 Files exports up to 3,500 files per second per file system, with export data throughput of up to 2,700 megabytes per second.
 
 
 | Operation metric | Value | Unit | 
 | --- | --- | --- | 
-| Import from S3 bucket IOPS | 2,400 | objects per second per file system | 
+| Import from S3 bucket IOPS | 4,500 | objects per second per file system | 
 | Import from S3 bucket throughput | 700 | megabytes per second | 
-| Export to S3 bucket IOPS | 800 | files per second per file system | 
+| Export to S3 bucket IOPS | 3,500 | files per second per file system | 
 | Export to S3 bucket throughput | 2,700 | megabytes per second | 
 
 Amazon S3 uses a flat storage structure where objects are identified by their key names. While S3 Files lets you organize your data in directories, S3 has no native concept of directories. What appears as a directory in your file system is a common prefix shared by the keys of the objects within the S3 bucket. Additionally, S3 objects are immutable and do not support atomic renames. As a result, when you rename or move a file, S3 Files must write the data to a new object with the updated key and delete the original. When you rename or move a directory, S3 Files must repeat this process for every object that shares that prefix. Therefore, when you rename or move a directory containing tens of millions of files, your S3 request costs and the synchronization time increase significantly. A directory rename of 100,000 files takes a few minutes to fully reflect in the S3 bucket, though the rename is instant on the file system. For more information, see [Understanding the impact of rename and move operations](s3-files-synchronization.md#s3-files-sync-rename-move).

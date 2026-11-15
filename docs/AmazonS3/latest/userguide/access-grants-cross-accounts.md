@@ -8,7 +8,7 @@ With S3 Access Grants, you can grant Amazon S3 data access to the following:
 + IAM identities in other AWS accounts
 + Directory users or groups in your AWS IAM Identity Center instance
 
-First, configure cross-account access for the other account. This includes granting access to your S3 Access Grants instance by using a resource policy. Then, grant access to your S3 data (buckets, prefixes, or objects) by using grants. 
+First, configure cross-account access for the other account. This includes granting access to your S3 Access Grants instance, either by sharing it through AWS Resource Access Manager (AWS RAM) or by using a resource policy. Then, grant access to your S3 data (buckets, prefixes, or objects) by using grants. 
 
 After you configure cross-account access, the other account can request temporary access credentials to your Amazon S3 data from S3 Access Grants. The following image shows the user flow for cross-account S3 access through S3 Access Grants:
 
@@ -365,4 +365,5 @@ aws s3control create-access-grant \
 
 After configuring cross-account access, the user or role in the second account can do the following: 
 + Calls `ListAccessGrantsInstances` to list the S3 Access Grants instances shared with it through AWS RAM. For more information, see [Get the details of an S3 Access Grants instance](access-grants-instance-view.md).
-+ Requests temporary credentials from S3 Access Grants. For more information on how to make these requests, see [Request access to Amazon S3 data through S3 Access Grants](access-grants-credentials.md).
++ Calls `ListCallerAccessGrants` with `instanceScope` set to `ALL` to list the grants it has access to across its own instance and all instances shared with it through AWS RAM. For more information, see [List the caller's access grants](access-grants-list-grants.md).
++ Requests temporary credentials from S3 Access Grants. With `instanceScope` set to `ALL` on `GetDataAccess`, it can request credentials for a path in any instance shared with it. The account ID in the request no longer needs to be the account that owns the data. For more information on how to make these requests, see [Request access to Amazon S3 data through S3 Access Grants](access-grants-credentials.md).

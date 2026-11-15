@@ -7,10 +7,7 @@ In Amazon S3, keys can be listed by prefix. You can choose a common prefix for t
 
 Amazon S3 exposes a list operation that lets you enumerate the keys contained in a bucket. Keys are selected for listing by bucket and prefix. For example, consider a bucket named "`dictionary`" that contains a key for every English word. You might make a call to list all the keys in that bucket that start with the letter "q". List results are always returned in UTF-8 binary order. 
 
- Both the SOAP and REST list operations return an XML document that contains the names of matching keys and information about the object identified by each key. 
-
-**Note**  
- SOAP APIs for Amazon S3 are not available for new customers, and are approaching End of Life (EOL) on August 31, 2025. We recommend that you use either the REST API or the AWS SDKs. 
+ The list operations return an XML document that contains the names of matching keys and information about the object identified by each key. 
 
 Groups of keys that share a prefix terminated by a special delimiter can be rolled up by that common prefix for the purposes of listing. This enables applications to organize and browse their keys hierarchically, much like how you would organize your files into directories in a file system. 
 

@@ -27,10 +27,7 @@ Object tags are key-value pairs that you can use to categorize, organize, and co
 ### User-defined metadata
 <a name="UserMetadata"></a>
 
-When uploading an object, you can also assign metadata to the object. You provide this optional information as a name-value (key-value) pair when you send a `PUT` or `POST` request to create the object. When you upload objects using the REST API, the optional user-defined metadata names must begin with `x-amz-meta-` to distinguish them from other HTTP headers. When you retrieve the object using the REST API, this prefix is returned. When you upload objects using the SOAP API, the prefix is not required. When you retrieve the object using the SOAP API, the prefix is removed, regardless of which API you used to upload the object. 
-
-**Note**  
- SOAP APIs for Amazon S3 are not available for new customers, and are approaching End of Life (EOL) on August 31, 2025. We recommend that you use either the REST API or the AWS SDKs. 
+When uploading an object, you can also assign metadata to the object. You provide this optional information as a name-value (key-value) pair when you send a `PUT` or `POST` request to create the object. When you upload objects using the REST API, the optional user-defined metadata names must begin with `x-amz-meta-` to distinguish them from other HTTP headers. When you retrieve the object using the REST API, this prefix is returned.
 
 When metadata is retrieved through the REST API, Amazon S3 combines headers that have the same name (ignoring case) into a comma-delimited list. If some metadata contains unprintable characters, it is not returned. Instead, the `x-amz-missing-meta` header is returned with a value of the number of unprintable metadata entries. The `HeadObject` action retrieves metadata from an object without returning the object itself. This operation is useful if you're only interested in an object's metadata. To use `HEAD`, you must have `READ` access to the object. For more information, see [HeadObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadObject.html) in the * Amazon Simple Storage Service API Reference*.
 
@@ -38,7 +35,7 @@ User-defined metadata is a set of key-value pairs. Amazon S3 stores user-defined
 
 Amazon S3 allows arbitrary Unicode characters in your metadata values.
 
-To avoid issues related to the presentation of these metadata values, you should conform to using US-ASCII characters when using REST and UTF-8 when using SOAP or browser-based uploads through `POST`.
+To avoid issues related to the presentation of these metadata values, you should conform to using US-ASCII characters when using REST and UTF-8 when using browser-based uploads through `POST`.
 
 When using non-US-ASCII characters in your metadata values, the provided Unicode string is examined for non-US-ASCII characters. Values of such headers are character decoded as per [RFC 2047](https://datatracker.ietf.org/doc/html/rfc2047) before storing and encoded as per [RFC 2047](https://datatracker.ietf.org/doc/html/rfc2047) to make them mail-safe before returning. If the string contains only US-ASCII characters, it is presented as is.
 
@@ -74,7 +71,7 @@ S3 Metadata accelerates data discovery by automatically capturing metadata for t
 
 By default, S3 Metadata provides [system-defined object metadata](#SysMetadata), such as an object's creation time and storage class, and custom metadata, such as tags, [user-defined metadata](#UserMetadata), and annotations. S3 Metadata also provides event metadata, such as when an object is updated or deleted, and the AWS account that made the request.
 
-Metadata tables are stored in S3 table buckets, which provide storage that's optimized for tabular data. To query your metadata, you can integrate your table bucket with AWS analytics services, such as Amazon Athena, Amazon Redshift, and Amazon Quick. 
+Metadata tables are stored in S3 table buckets, which provide storage that's optimized for tabular data. To query your metadata, you can integrate your table bucket with AWS analytics services, such as Amazon Athena, Amazon Redshift, and AWS Quick. 
 
 For more information about S3 Metadata, see [Discovering your data with S3 Metadata tables](metadata-tables-overview.md).
 

@@ -40,23 +40,18 @@ S3 does not support delivery of CloudTrail logs to the requester or the bucket o
 ## CloudTrail tracking with Amazon S3 SOAP API calls
 <a name="cloudtrail-s3-soap"></a>
 
-CloudTrail tracks Amazon S3 SOAP API calls. Amazon S3 SOAP support over HTTP is deprecated, but it is still available over HTTPS. For more information about Amazon S3 SOAP support, see [Appendix: SOAP API](https://docs.aws.amazon.com/AmazonS3/latest/API/APISoap.html) in the *Amazon S3 API Reference*. 
-
-**Important**  
-Newer Amazon S3 features are not supported for SOAP. We recommend that you use either the REST API or the AWS SDKs.
-
- The following table shows Amazon S3 SOAP actions tracked by CloudTrail logging. 
+SOAP API support is discontinued. CloudTrail logs from before SOAP API support was discontinued can include Amazon S3 SOAP API calls. The following table shows the CloudTrail event name for each Amazon S3 SOAP action. 
 
 
 | SOAP API name | API event name used in CloudTrail log | 
 | --- | --- | 
-| [ListAllMyBuckets](https://docs.aws.amazon.com/AmazonS3/latest/API/SOAPListAllMyBuckets.html) | ListBuckets | 
-| [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/SOAPCreateBucket.html) | CreateBucket | 
-| [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/SOAPDeleteBucket.html) | DeleteBucket | 
-| [GetBucketAccessControlPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/SOAPGetBucketAccessControlPolicy.html) | GetBucketAcl | 
-| [SetBucketAccessControlPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/SOAPSetBucketAccessControlPolicy.html) | PutBucketAcl | 
-| [GetBucketLoggingStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/SOAPGetBucketLoggingStatus.html) | GetBucketLogging | 
-| [SetBucketLoggingStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/SOAPSetBucketLoggingStatus.html) | PutBucketLogging | 
+| ListAllMyBuckets | ListBuckets | 
+| CreateBucket | CreateBucket | 
+| DeleteBucket | DeleteBucket | 
+| GetBucketAccessControlPolicy | GetBucketAcl | 
+| SetBucketAccessControlPolicy | PutBucketAcl | 
+| GetBucketLoggingStatus | GetBucketLogging | 
+| SetBucketLoggingStatus | PutBucketLogging | 
 
  For more information about CloudTrail and Amazon S3, see the following topics: 
 

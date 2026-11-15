@@ -48,6 +48,7 @@ If you have logging enabled on your bucket, Amazon S3 server access logs report 
 | Operation log | Description | 
 | --- | --- | 
 | `S3.EXPIRE.OBJECT` | Amazon S3 permanently deletes the object because of the lifecycle `Expiration` action. | 
+| `S3.EXPIRE.RESTORE` | Amazon S3 permanently deletes the temporary copy of a restored object because the copy has reached its expiration date. | 
 | `S3.CREATE.DELETEMARKER` | Amazon S3 logically deletes the current version by adding a delete marker in a versioning-enabled bucket. | 
 | `S3.TRANSITION_SIA.OBJECT` | Amazon S3 transitions the object to the S3 Standard-IA storage class. | 
 | `S3.TRANSITION_ZIA.OBJECT` | Amazon S3 transitions the object to the S3 One Zone-IA storage class. | 

@@ -17,7 +17,6 @@ When you're using virtual-hosted–style general purpose buckets with SSL, the S
 + [Examples](#VirtualHostingExamples)
 + [Customizing Amazon S3 URLs with CNAME records](#VirtualHostingCustomURLs)
 + [How to associate a hostname with an Amazon S3 bucket](#VirtualHostingCustomURLsHowTo)
-+ [Limitations](#VirtualHostingLimitations)
 + [Backward compatibility](#VirtualHostingBackwardsCompatibility)
 
 ## Path-style requests
@@ -95,7 +94,7 @@ The request with HTTP 1.0 and omitting the `Host` header is as follows:
 1. GET /example.com/homepage.html HTTP/1.0
 ```
 
-For information about DNS-compatible names, see [Limitations](#VirtualHostingLimitations). For more information about keys, see [Keys](Welcome.md#BasicsKeys).
+For information about DNS-compatible names, see [General purpose bucket naming rules](bucketnamingrules.md). For more information about keys, see [Keys](Welcome.md#BasicsKeys).
 
 **Example – Virtual-hosted–style URLs and requests**  
 This example uses the following:  
@@ -186,11 +185,6 @@ For the same reason, we recommend that you change or remove the corresponding CN
 For request-routing reasons, the CNAME DNS record must be defined exactly as shown in the preceding example. Otherwise, it might appear to operate correctly, but it will eventually result in unpredictable behavior.
 
    The procedure for configuring CNAME DNS records depends on your DNS server or DNS provider. For specific information, see your server documentation or contact your provider.
-
-## Limitations
-<a name="VirtualHostingLimitations"></a>
-
- SOAP APIs for Amazon S3 are not available for new customers, and are approaching End of Life (EOL) on August 31, 2025. We recommend that you use either the REST API or the AWS SDKs. 
 
 ## Backward compatibility
 <a name="VirtualHostingBackwardsCompatibility"></a>

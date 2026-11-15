@@ -32,7 +32,6 @@ If the requester restores objects by using the [RestoreObject](https://docs.aws.
 
 Requester Pays buckets do not support the following:
 + Anonymous requests
-+ SOAP requests
 + Using a Requester Pays bucket as the target bucket for end-user logging, or vice versa. However, you can turn on end-user logging on a Requester Pays bucket where the target bucket is not a Requester Pays bucket. 
 
 ## How Requester Pays charges work
@@ -40,7 +39,6 @@ Requester Pays buckets do not support the following:
 
 The charge for successful Requester Pays requests is straightforward: The requester pays for the data transfer and the request, and the bucket owner pays for the data storage. However, the bucket owner is charged for the request under the following conditions:
 + The request returns an `AccessDenied` (HTTP `403 Forbidden`) error and the request is initiated inside the bucket owner's individual AWS account or AWS organization.
-+ The request is a SOAP request.
 
 For more information about Requester Pays, see the following topics.
 

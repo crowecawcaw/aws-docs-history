@@ -5,6 +5,8 @@
 
 S3 data owners can use S3 Access Grants to create access grants for AWS Identity and Access Management (IAM) identities or for AWS IAM Identity Center corporate directory identities. IAM identies and IAM Identity Center directory identities can in turn use the `ListCallerAccessGrants` API to list all of the Amazon S3 buckets, prefixes, and objects they can access, as defined by their S3 Access Grants. Use this API to discover all of the S3 data an IAM or directory identity can access through S3 Access Grants. 
 
+By default, `ListCallerAccessGrants` returns grants from the S3 Access Grants instance in the AWS account ID you provide. To list grants across your own instance and every instance shared with you through AWS Resource Access Manager (AWS RAM), set the `instanceScope` parameter to `ALL`. Each returned grant includes the `AccessGrantsInstanceArn` of the instance it belongs to, so you can tell which account owns it. 
+
 You can use this feature to build applications that show the data that is accessible to specific end-users. For example, the AWS Storage Browser for S3, an open source UI component that customers use to access S3 buckets, uses this feature to present end-users with the data that they have access to in Amazon S3, based on their S3 Access Grants. Another example is when building an application for browsing, uploading, or downloading data in Amazon S3, you can use this feature to build a tree structure in your application that an end-user could then browse. 
 
 **Note**  
@@ -79,6 +81,38 @@ Response:
 			"Permission": "READ",
 			"GrantScope": "s3://{{amzn-s3-demo-bucket}}/{{prefix1/}}*",
 			"ApplicationArn": "arn:aws:sso::{{111122223333}}:application/ssoins-ssoins-{{1234567890abcdef/apl-abcd1234a1b2c3d}}"
+		}
+	]
+}
+```
+
+**Example List a caller's access grants across all shared instances**  
+You can list all the grants you have access to across the instances shared with you by setting the `instanceScope` parameter to `ALL`.  
+Request:  
+
+```
+aws s3control list-caller-access-grants \
+--account-id {{111122223333}} \
+--instance-scope ALL \
+--region {{us-east-2}} \
+--max-results 5
+```
+Response (grants returned from two different accounts' instances):  
+
+```
+{
+	"CallerAccessGrantsList": [
+		{
+			"Permission": "READWRITE",
+			"GrantScope": "s3://{{amzn-s3-demo-bucket}}/{{prefix1/}}*",
+			"ApplicationArn": "NA",
+			"AccessGrantsInstanceArn": "arn:aws:s3:{{us-east-2}}:{{111122223333}}:access-grants/default"
+		},
+		{
+			"Permission": "READ",
+			"GrantScope": "s3://{{amzn-s3-demo-other-bucket}}/{{reports/}}*",
+			"ApplicationArn": "NA",
+			"AccessGrantsInstanceArn": "arn:aws:s3:{{us-east-2}}:{{444455556666}}:access-grants/default"
 		}
 	]
 }

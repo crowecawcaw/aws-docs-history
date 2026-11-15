@@ -33,7 +33,7 @@ Remember when using these examples:
   + [Finding all objects that have a specific annotation](#metadata-tables-example-query-annotation-find)
   + [Joining the annotation table with the inventory table](#metadata-tables-example-query-annotation-join)
 + [Joining custom metadata with S3 metadata tables](metadata-tables-join-custom-metadata.md)
-+ [Visualizing metadata table data with Amazon Quick](metadata-tables-quicksight-dashboards.md)
++ [Visualizing metadata table data with AWS Quick](metadata-tables-quicksight-dashboards.md)
 
 ## Journal table example queries
 <a name="metadata-tables-example-queries-journal-tables"></a>

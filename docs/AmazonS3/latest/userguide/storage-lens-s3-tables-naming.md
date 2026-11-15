@@ -39,7 +39,7 @@ Namespaces organize tables within the catalog. For S3 Storage Lens, the namespac
 ### Standard namespace format
 <a name="storage-lens-s3-tables-naming-namespace-standard"></a>
 
-For Storage Lens configuration IDs without dots (`.`): 
+For Storage Lens configuration IDs without uppercase letters: 
 
 ```
 lens_<configuration-id>_exp
@@ -51,22 +51,22 @@ lens_<configuration-id>_exp
 lens_my-lens-config_exp
 ```
 
-### Namespace format with dot character or uppercase letters handling
+### Namespace format for uppercase letters
 <a name="storage-lens-s3-tables-naming-namespace-dots"></a>
 
-Storage Lens configuration IDs can contain dots (`.`) or uppercase letters (`A-Z`), but S3 Tables namespaces only support lowercase letters, numbers, hyphens (`-`), and underscores (`_`). When your configuration ID contains dots, they are converted to hyphens, uppercase letters are converted to lower case letters, and a hash suffix is added for uniqueness:
+Storage Lens configuration IDs can contain uppercase letters (`A-Z`), but S3 Tables namespaces only support lowercase letters, numbers, hyphens (`-`), and underscores (`_`). When your configuration ID contains uppercase letters, they are converted to lowercase letters, and a hash suffix is added for uniqueness:
 
 ```
-lens_<configuration-id-with-dots-or-uppercase-replaced>_exp_<7-char-hash>
+lens_<lowercase-configuration-id>_exp_<7-char-hash>
 ```
 
- **Example:** If your configuration ID is `my.LENS.config`, the namespace will be:
+ **Example:** If your configuration ID is `my-LENS-config`, the namespace will be:
 
 ```
-lens_my-lens-config_exp_a1b2c3d
+lens_my-lens-config_exp_6525c97
 ```
 
-Where `a1b2c3d` is the first 7 characters of the SHA-1 hash of the original configuration ID.
+Where `6525c97` is the first 7 characters of the SHA-1 hash of the original configuration ID.
 
 ## Complete examples
 <a name="storage-lens-s3-tables-naming-examples"></a>
@@ -77,11 +77,11 @@ For a Storage Lens configuration with ID `production-metrics`:
 +  **Namespace:** `lens_production-metrics_exp` 
 +  **Full Path:** `s3tablescatalog/aws-s3/lens_production-metrics_exp/<table-name>` 
 
-For a Storage Lens configuration with ID `prod.us.east.metrics`: 
+For a Storage Lens configuration with ID `prod-US-east-metrics`: 
 +  **Table Bucket:** `aws-s3` 
 +  **Catalog:** `s3tablescatalog/aws-s3` 
-+  **Namespace:** `lens_prod-us-east-metrics_exp_f8e9a1b` (with hash)
-+  **Full Path:** `s3tablescatalog/aws-s3/lens_prod-us-east-metrics_exp_f8e9a1b/<table-name>` 
++  **Namespace:** `lens_prod-us-east-metrics_exp_870e72d` (with hash)
++  **Full Path:** `s3tablescatalog/aws-s3/lens_prod-us-east-metrics_exp_870e72d/<table-name>` 
 
 ## Table types
 <a name="storage-lens-s3-tables-naming-types"></a>

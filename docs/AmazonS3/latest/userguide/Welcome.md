@@ -302,7 +302,7 @@ The REST API uses standard HTTP headers and status codes, so that standard brows
 If you make direct REST API calls in your application, you must write the code to compute the signature and add it to the request. For more information about how to make requests to Amazon S3, see [Making requests ](https://docs.aws.amazon.com/AmazonS3/latest/API/MakingRequests.html) in the *Amazon S3 API Reference*.
 
 **Note**  
-SOAP API support over HTTP is deprecated, but it is still available over HTTPS. Newer Amazon S3 features are not supported for SOAP. We recommend that you use either the REST API or the AWS SDKs.
+As announced on May 5, 2025, SOAP API support is discontinued. Requests that use the SOAP API return an HTTP `400 Bad Request` error. Use the REST API or the AWS SDKs instead.
 
 ## Paying for Amazon S3
 <a name="PayingforStorage"></a>
