@@ -182,7 +182,7 @@ If you are currently leveraging an OIDC provider for Terraform in the AFT manage
 
  **Step 7: Manage the Terraform state file** 
 
- A Terraform state file is generated when you deploy AFT. This artifact describes the state of the resources that Terraform created. If you plan to update the AFT version, make sure to preseve the Terraform state file, or set up a Terraform backend using Amazon S3 and DynamoDB. The AFT module doesn't manage a backend Terraform state. 
+ A Terraform state file is generated when you deploy AFT. This artifact describes the state of the resources that Terraform created. If you plan to update the AFT version, make sure to preserve the Terraform state file, or set up a Terraform backend using Amazon S3 and DynamoDB. The AFT module doesn't manage a backend Terraform state. 
 
 **Note**  
  You're responsible for protecting the Terraform state file. Some input variables might contain sensitive values, such as a private `ssh` key or Terraform token. Depending on your deployment method, these values can be viewable as plain text in the Terraform state file. For more information, see [Sensitive data in State](https://www.terraform.io/docs/language/state/sensitive-data.html) on the HashiCorp website. 

@@ -20,10 +20,12 @@ The sample configuration package filename begins with an underscore (\_) so that
 
 If you have an existing AWS CodeCommit Git repository, you can change the storage location of the configuration package from the Amazon S3 bucket to an AWS CodeCommit Git repository. To do so, select the `CodeCommit` option in the CloudFormation parameter.
 
+You can also use a GitHub repository as the configuration source. To do so, set the AWS CodePipeline Source parameter to `GitHub (via Code Connection)` and provide your Code Connection ARN when you launch the stack. For step-by-step instructions, see [Set up GitHub as the configuration source](cfct-github-configuration-source.md).
+
 **To zip, or not to zip?**  
 When you're using the default S3 bucket, be sure that the configuration package is available as a `.zip` file. If you're using the AWS CodeCommit repository, be sure to place the configuration package in the repository without zipping the files. For information about creating and storing the configuration package in AWS CodeCommit, see [CfCT customization guide](cfct-customizations-dev-guide.md).
 
-You can use the sample configuration package to create your own custom configuration source. When you are ready to deploy your custom configurations, manually upload the configuration package, either to the Amazon S3 bucket or to the AWS CodeCommit repository. The pipeline begins automatically when you upload the configuration file.
+You can use the sample configuration package to create your own custom configuration source. When you are ready to deploy your custom configurations, manually upload the configuration package to the Amazon S3 bucket, or commit it to your AWS CodeCommit or GitHub repository. The pipeline begins automatically when you upload the configuration file.
 
 ### Choose your pipeline configuration approval parameters
 <a name="deploy-pipeline-config-parameters"></a>

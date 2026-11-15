@@ -80,6 +80,63 @@ Below is the complete structure of the manifest file with all available configur
 + KMS key ARNs must be valid AWS KMS key ARNs.
 + Retention days must be at least 1.
 
+### Example: Using a custom logging bucket
+<a name="lz-api-custom-logging-bucket"></a>
+
+To send logs to an existing Amazon S3 bucket instead of a bucket that AWS Control Tower creates and manages, replace the `loggingBucket` and `accessLoggingBucket` objects with a `customLoggingBucket` object in the `centralizedLogging` integration, the `config` integration, or both. The `bucketArn` identifies the bucket, and the `bucketAccountId` identifies the account that owns it. The `kmsKeyArn` fields identify the AWS KMS keys used for encryption. The following example uses a custom logging bucket for both integrations:
+
+```
+{
+    "accessManagement": {
+        "enabled": true
+    },
+    "backup": {
+        "enabled": true,
+        "configurations": {
+            "backupAdmin": {
+                "accountId": {{"444455556666"}}
+            },
+            "centralBackup": {
+                "accountId": {{"555555555555"}}
+            },
+            "kmsKeyArn": {{"arn:aws:kms:region:account-id:key/key-id"}}
+        }
+    },
+    "centralizedLogging": {
+        "accountId": {{"111122223333"}},
+        "enabled": true,
+        "configurations": {
+            "customLoggingBucket": {
+                "bucketArn": {{"arn:aws:s3:::amzn-s3-demo-logging-bucket"}},
+                "bucketAccountId": {{"111122223333"}}
+            },
+            "kmsKeyArn": {{"arn:aws:kms:region:account-id:key/key-id"}}
+        }
+    },
+    "config": {
+        "accountId": {{"777788889999"}},
+        "enabled": true,
+        "configurations": {
+            "customLoggingBucket": {
+                "bucketArn": {{"arn:aws:s3:::amzn-s3-demo-config-bucket"}},
+                "bucketAccountId": {{"111122223333"}}
+            },
+            "kmsKeyArn": {{"arn:aws:kms:region:account-id:key/key-id"}}
+        }
+    },
+    "governedRegions": [
+        "us-east-1",
+        "us-west-2"
+    ],
+    "securityRoles": {
+        "enabled": true,
+        "accountId": {{"777788889999"}}
+    }
+}
+```
+
+You can't use `customLoggingBucket` together with `loggingBucket` or `accessLoggingBucket` in the same integration. For more information, see [Bring your own Amazon S3 bucket for log delivery](custom-logging-bucket.md).
+
 ## Using the CreateLandingZone API
 <a name="w2aac15c17c17b7"></a>
 

@@ -20,6 +20,7 @@ If the source and destination OUs in AWS Control Tower have different configurat
 <a name="w2aac44c24c18c15"></a>
 + You must be running AWS Control Tower landing zone version 3.1 or later.
 + Opt into the AWS Control Tower auto-enrollment capability through the landing zone **Settings** page in the console, or through the AWS Control Tower landing zone APIs, by setting the value of the `RemediationTypes` parameter to `Inheritance Drift`. When you have opted in, AWS Control Tower reacts to `move account` events for AWS Organizations, and it remediates inheritance drift for the moved accounts immediately, on your behalf.
++ If your home Region is an opt-in Region, you must enable it for each account before you move the account into a registered OU. Otherwise, AWS Control Tower doesn't automatically enroll the account. For details, see [Considerations for activating AWS opt-in Regions](opt-in-region-considerations.md).
 
 ## Required permissions
 <a name="w2aac44c24c18c17"></a>

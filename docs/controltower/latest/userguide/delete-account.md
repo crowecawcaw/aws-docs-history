@@ -8,6 +8,8 @@ Accounts created in Account Factory are AWS accounts. For information about clos
 **Note**  
  Closing an AWS account is not the same as unenrolling an account from AWS Control Tower—these are separate actions. You must unenroll the account before you close it.
 
+After you close an account, you can't use its root user email address to provision another account in Account Factory, even after the 90-day post-closure period ends. If you want to keep using that email address, change the root user email address of the account before you close it. For more information, see [Account Factory can't create an account because an account with that email already exists](troubleshooting.md#account-factory-email-already-exists).
+
 ## Close an AWS Control Tower member account through AWS Organizations
 <a name="close-account-with-orgs-api"></a>
 

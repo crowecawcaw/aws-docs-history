@@ -30,7 +30,7 @@ AFT creates a separate account, called the *AFT management account*, to deploy A
 
 You can enable several feature options, based on best practices:
 + Creating an organization-level CloudTrail for logging data events
-+ Deleting the AWS default VPC for accounts
++ Deleting the AWS default VPC in the AFT management account
 + Enrolling provisioned accounts into the AWS Enterprise Support plan
 
 **Note**  

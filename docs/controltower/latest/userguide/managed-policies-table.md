@@ -5,6 +5,16 @@
 
 AWS addresses many common use cases by providing standalone IAM policies that are created and administered by AWS. Managed policies grant necessary permissions for common use cases so you can avoid having to investigate what permissions are needed. For more information, see [AWS Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*. 
 
+AWS Control Tower uses the following AWS managed policies:
++ [AWSControlTowerServiceRolePolicy](access-control-managing-permissions.md#AWSControlTowerServiceRolePolicy) – Attached to the `AWSControlTowerAdmin` role. Grants permissions to create and manage AWS Control Tower resources, such as CloudFormation stack sets and stack instances, AWS CloudTrail log files, the configuration aggregator, and the AWS Organizations accounts and organizational units (OUs) that AWS Control Tower governs.
++ [AWSControlTowerIdentityCenterManagementPolicy](access-control-managing-permissions.md#AWSControlTowerIdentityCenterManagementPolicy) – Attached to the `AWSControlTowerAdmin` role when you select IAM Identity Center as your identity provider. Grants permissions to configure IAM Identity Center resources in enrolled member accounts.
++ [AWSControlTowerCloudTrailRolePolicy](access-control-managing-permissions.md#AWSControlTowerCloudTrailRolePolicy) – Attached to the `AWSControlTowerCloudTrailRole` role. Grants CloudTrail the permissions to publish audit logs to Amazon CloudWatch Logs on behalf of AWS Control Tower.
++ [AWSControlTowerAccountServiceRolePolicy](access-control-managing-permissions.md#account-service-role-policy) – Attached to the `AWSServiceRoleForAWSControlTower` service-linked role. Allows AWS Control Tower to call AWS services that provide automated account configuration and centralized governance on your behalf, including AWS Security Hub CSPM findings forwarding.
+
+Each linked section describes the policy and links to its JSON policy document in the *AWS Managed Policy Reference Guide*.
+
+The following table summarizes the updates to these managed policies.
+
 
 | Change | Description | Date | 
 | --- | --- | --- | 

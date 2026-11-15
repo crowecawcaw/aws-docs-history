@@ -7,10 +7,12 @@ If you encounter issues while using AWS Control Tower, you can use the following
 
 **Topics**
 + [Landing Zone Launch Failed](#setup-failed)
++ [Landing zone setup fails in a restricted Region](#setup-restricted-region)
 + [Landing Zone Update Failed with KMS Error](#lz-update-failed)
 + [Unable to Update Landing Zone](#unable-to-update-landing-zone)
 + [Landing zone not up to date error](#landing-zone-not-up-to-date)
 + [New Account Provisioning Failed](#account-provisioning-failed)
++ [Account Factory can't create an account because an account with that email already exists](#account-factory-email-already-exists)
 + [Failed to Enroll an Existing Account](#enrollment-failed)
 + [Unable to Update an Account Factory Account](#unable-to-update-account)
 + [Failure Error that Mentions AWS Config](#aws-config-error)
@@ -49,6 +51,130 @@ Be sure to enable all of your required AWS Security Token Service [ (STS) endpoi
 1. Return to the AWS Control Tower page.
 
 1. Select **Set up landing zone** again.
+
+To view a list of AWS Regions that AWS Control Tower supports, see [How AWS Regions Work With AWS Control Tower](region-how.md).
+
+## Landing zone setup fails in a restricted Region
+<a name="setup-restricted-region"></a>
+
+If you [activated advanced AWS features](https://docs.aws.amazon.com/accounts/latest/reference/activate-advanced-features.html) on an organization that was created through the new AWS experience, landing zone setup can fail within a few minutes, in some AWS Regions. The failure is caused by an AWS managed Region restriction service control policy (SCP) that is applied to your organization. It is not caused by a problem with your AWS Control Tower configuration.
+
+In the management account, the CloudFormation StackSet that deploys the `AWSControlTowerExecution` role into member accounts fails. Setup stops with an explicit-deny CloudFormation error message similar to the following:
+
+```
+is not authorized to perform: cloudformation:CreateStack ... with an explicit deny in a service control policy
+```
+
+**Cause**: After you activate advanced AWS features, an AWS managed Region restriction SCP is attached to the root of your organization. This SCP restricts the AWS Regions your organization can use, based on the Region that was selected for your account during sign-up (the `selected-region` value in the policy). The policy uses a `NotAction` allowlist that permits only a limited set of actions outside that selected Region. It applies a broader, but still partial, allowlist in `us-east-1` and `us-west-2`.
+
+The CloudFormation actions that AWS Control Tower uses to bootstrap the `AWSControlTowerExecution` role through service-managed StackSets are not in that allowlist for `us-east-1` or `us-west-2`. As a result, the member-account stack operation is denied and setup fails. For more information about the policy, see [Managed policies for your organization](https://docs.aws.amazon.com/accounts/latest/reference/scps-and-rcps-for-projects.html).
+
+AWS Control Tower deploys resources into every Region it governs, which includes your home Region and any additional governed Regions that you select. The Region restriction SCP must permit AWS Control Tower's actions in **each** of these Regions. If the SCP restricts any one of them, setup fails. Apply the appropriate option in the following section to every Region that you want AWS Control Tower to govern.
+
+**Action to take**  
+For each AWS Region that you want AWS Control Tower to govern (your home Region and any additional governed Regions), make sure the Region meets one of the following conditions:
++ **The Region is your account's selected Region (and is not `us-east-1` or `us-west-2`)** – This Region is not restricted by the Region restriction SCP, so AWS Control Tower governs it with no policy change required. Choose your AWS Control Tower home Region based on your data residency and governance requirements.
++ **The Region is not `us-east-1` or `us-west-2`** – Add the Region to the `RegionFloor` statement of the Region restriction SCP. This removes the restriction for that Region. For more information, see [Managed policies for your organization](https://docs.aws.amazon.com/accounts/latest/reference/scps-and-rcps-for-projects.html).
++ **The Region is `us-east-1` or `us-west-2`** – These Regions remain partially restricted even when selected. Edit the Region restriction SCP to allow the CloudFormation actions that AWS Control Tower uses to bootstrap member accounts, as described in the following steps.
+
+**Important**  
+The following changes allow AWS Control Tower to complete setup, but they also broaden the actions that the SCP permits. For example, allowing `cloudformation:CreateStack` permits that action for any principal and use case, not only AWS Control Tower. Review and understand the effect of these changes on your organization's guardrails before you apply them.
+
+To allow AWS Control Tower setup in `us-east-1` or `us-west-2`, make the following changes to the Region restriction SCP:
+
+1. In the `UsEast1Partitional` statement, add `cloudformation:CreateStack` and `cloudformation:DeleteStack` to the `NotAction` list, and add a `StringNotLike` condition on `aws:PrincipalArn` to the `Condition` so that AWS Control Tower's own roles are exempt. The following example shows the statement with both changes applied (the `NotAction` list is abbreviated):
+
+   ```
+   {
+     "Sid": "UsEast1Partitional",
+     "Effect": "Deny",
+     "NotAction": [
+       ...
+       "cloudformation:CreateStack",
+       "cloudformation:DeleteStack",
+       ...
+     ],
+     "Resource": "*",
+     "Condition": {
+       "StringEquals": {
+         "aws:RequestedRegion": "us-east-1"
+       },
+       "StringNotLike": {
+         "aws:PrincipalArn": [
+           "arn:*:iam::*:role/AWSControlTower*",
+           "arn:*:iam::*:role/aws-controltower*"
+         ]
+       }
+     }
+   }
+   ```
+
+1. Apply the same two changes to the `UsWest2Partitional` statement, which uses `"aws:RequestedRegion": "us-west-2"`:
+
+   ```
+   {
+     "Sid": "UsWest2Partitional",
+     "Effect": "Deny",
+     "NotAction": [
+       ...
+       "cloudformation:CreateStack",
+       "cloudformation:DeleteStack",
+       ...
+     ],
+     "Resource": "*",
+     "Condition": {
+       "StringEquals": {
+         "aws:RequestedRegion": "us-west-2"
+       },
+       "StringNotLike": {
+         "aws:PrincipalArn": [
+           "arn:*:iam::*:role/AWSControlTower*",
+           "arn:*:iam::*:role/aws-controltower*"
+         ]
+       }
+     }
+   }
+   ```
+
+1. In the `RegionFloor` statement, add only the `StringNotLike` condition to exempt AWS Control Tower's roles. Do not add the CloudFormation actions to this statement. The following example shows the `RegionFloor` statement with the condition applied:
+
+   ```
+   {
+     "Sid": "RegionFloor",
+     "Effect": "Deny",
+     "NotAction": [
+       ...
+     ],
+     "Resource": "*",
+     "Condition": {
+       "StringNotEquals": {
+         "aws:RequestedRegion": [
+           "unspecified",
+           "us-east-1",
+           "selected-region",
+           "us-west-2"
+         ]
+       },
+       "StringNotLike": {
+         "aws:PrincipalArn": [
+           "arn:*:iam::*:role/AWSControlTower*",
+           "arn:*:iam::*:role/aws-controltower*"
+         ]
+       }
+     }
+   }
+   ```
+
+After you resolve the Region restriction, setup can also fail with the following error message:
+
+```
+AWS Control Tower cannot set up the landing zone because Permission Sets are not enabled on the IAM Identity Center instance.
+```
+
+This error occurs because the new AWS experience creates your IAM Identity Center instance with multi-account permissions turned off. To resolve it, open the IAM Identity Center console, choose **Settings**, choose the **Management** tab, and turn on **Multi-account permissions**. Then return to the AWS Control Tower console and choose **Retry**.
+
+**Note**  
+The Region restriction SCP is applied to your organization when you activate advanced AWS features. After that, you can edit it like any other service control policy in your organization. After you make the preceding changes, AWS Control Tower setup proceeds. If setup continues to fail after you make these changes, confirm that every Region you want AWS Control Tower to govern (your home Region and any additional governed Regions) meets one of the preceding conditions, and then contact [AWS Support](https://aws.amazon.com/premiumsupport/).
 
 To view a list of AWS Regions that AWS Control Tower supports, see [How AWS Regions Work With AWS Control Tower](region-how.md).
 
@@ -144,6 +270,31 @@ Try again to provision your account, without specifying any of those options. Fo
 + Look for CloudFormation StackSets operations that are still running.
 
 If your account provisioning takes longer than one hour, it's best to terminate the provisioning process and try again.
+
+If provisioning fails with a message that an AWS account with the email address already exists, see [Account Factory can't create an account because an account with that email already exists](#account-factory-email-already-exists).
+
+## Account Factory can't create an account because an account with that email already exists
+<a name="account-factory-email-already-exists"></a>
+
+When you provision an account in Account Factory, AWS Control Tower calls the AWS Organizations `CreateAccount` API operation to create the AWS account. If AWS Organizations reports that the email address is already in use, AWS Control Tower returns the following message:
+
+```
+AWS Control Tower cannot create an account using email {{user@example.com}} because an AWS account with that email already exists, but it is not part of your AWS Control Tower organization.
+```
+
+The root user email address of an AWS account must be unique across all AWS accounts. This message has two possible causes.
+
+An active AWS account already uses this email address  
+**Possible cause**  
+An AWS account whose root user email address is this email address exists, and it is not a member of the organization that AWS Control Tower governs. For example, it is a standalone account or a member of a different organization.  
+**Steps to follow**  
+To govern that account with AWS Control Tower, invite it into your organization and then enroll it. For more information, see [About enrolling existing accounts](enroll-account.md). To create a new account instead, use an email address that is not the root user email address of any AWS account.
+
+This email address belonged to an AWS account that has been closed  
+**Possible cause**  
+The email address was the root user email address of an AWS account at the time that account was closed. You can't use that email address as the root user email address of another AWS account. This restriction remains in effect after the 90-day post-closure period ends and the account is permanently closed. After the account is permanently closed, signing in with the email address reports that no AWS account exists for it, but the email address is still not available for a new account.  
+**Steps to follow**  
+Provision the account with a different email address. The email address of a closed account can't be released for reuse. If you plan to close an account and want to keep using its email address, change the root user email address of that account before you close it. For more information, see [Close an AWS account](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-closing.html) in the *AWS Account Management Reference Guide*.
 
 ## Failed to Enroll an Existing Account
 <a name="enrollment-failed"></a>
