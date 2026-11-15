@@ -26,7 +26,7 @@
 
 1.  AWS IoT Core, AWS IoT SiteWise, and AWS IoT Greengrass provide the system for managing IoT devices. AWS RoboMaker provides the environment to build, test, and deploy robotics applications. 
 
-1.  Amazon SageMaker AI provides AI/ML for measuring throughput and optimization recommendations. AWS Step Functions and Amazon EventBridge coordinate event driven process flows. AWS Lambda holds programming logic. Amazon Quick presents dashboards and metrics. 
+1.  Amazon SageMaker AI provides AI/ML for measuring throughput and optimization recommendations. AWS Step Functions and Amazon EventBridge coordinate event driven process flows. AWS Lambda holds programming logic. AWS Quick presents dashboards and metrics. 
 
 ## Architecture objectives
 <a name="architecture-objectives-4"></a>
