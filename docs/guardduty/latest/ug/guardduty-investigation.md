@@ -19,7 +19,7 @@ GuardDuty Investigation is available in the following 10 commercial AWS Regions 
 <a name="guardduty-investigation-analysis-types"></a>
 
 GuardDuty Investigation supports the following three types of analysis:
-+ **Finding analysis** – Analyzes specific GuardDuty findings, when you specify the finding ID (32-character hexadecimal). For preview, GuardDuty Investigation supports all Extended Threat Detection (XTD) findings and select findings from the foundational, S3, and Runtime plans.
++ **Finding analysis** – Analyzes specific GuardDuty findings, when you specify the finding ID (32-character hexadecimal).
 + **Account analysis** – Analyzes the threat posture of an AWS account, when you provide the 12-digit AWS account ID.
 + **Organization analysis** – Analyzes your organization's threat posture.
 
@@ -80,6 +80,7 @@ Before you can use GuardDuty Investigation, make sure that the following prerequ
   + `guardduty:CreateInvestigation` – Required to create a new investigation.
   + `guardduty:GetInvestigation` – Required to retrieve investigation results.
   + `guardduty:ListInvestigations` – Required to list investigations for a detector.
+  + `guardduty:ListInvestigationRecords` – Required to list the records of an investigation.
 
 The following example IAM policy grants permission to use all GuardDuty Investigation actions:
 
@@ -92,13 +93,16 @@ The following example IAM policy grants permission to use all GuardDuty Investig
             "Action": [
                 "guardduty:CreateInvestigation",
                 "guardduty:GetInvestigation",
-                "guardduty:ListInvestigations"
+                "guardduty:ListInvestigations",
+                "guardduty:ListInvestigationRecords"
             ],
-            "Resource": "arn:aws:guardduty:us-west-2:123456789012:detector/2cb3d4e5f6a7b8c9d0e1f2a3b4c5d6e7"
+            "Resource": "arn:aws:guardduty:{{us-east-1}}:{{123456789012}}:detector/{{2cb3d4e5f6a7b8c9d0e1f2a3b4c5d6e7}}"
         }
     ]
 }
 ```
+
+In the preceding policy, replace {{us-east-1}} with your AWS Region, {{123456789012}} with your AWS account ID, and {{2cb3d4e5f6a7b8c9d0e1f2a3b4c5d6e7}} with your detector ID.
 
 ### Access model for administrator and member accounts
 <a name="guardduty-investigation-access-model"></a>
@@ -363,5 +367,121 @@ Example output:
 ```
 
 If the response includes a `NextToken` value, pass it in a subsequent request to retrieve the next page of results. You can retrieve up to 50 results per page.
+
+------
+
+## Listing investigation records
+<a name="guardduty-investigation-records"></a>
+
+An investigation record is one step in the reasoning that GuardDuty followed during an investigation. GetInvestigation returns the results of an investigation, such as the status, risk level, confidence, and summary. For more information, see [Viewing investigation results](#guardduty-investigation-get). The records show how GuardDuty reached those results. They show the data that it retrieved, the observations that it made about your environment, and the analysis that it performed. Use the records to audit or explain the conclusion of an investigation.
+
+ListInvestigationRecords returns records in the order that GuardDuty created them, oldest first. The response includes the investigation `Status` (`RUNNING`, `COMPLETED`, or `FAILED`). Records are available only when the investigation status is `COMPLETED`. If the investigation status is `RUNNING` or `FAILED`, the response contains an empty list of records.
+
+The following table describes the record types.
+
+
+**Investigation record types**  
+
+| Record type | Description | 
+| --- | --- | 
+| UPDATE | A progress milestone, such as the request that started the investigation or a response from GuardDuty. | 
+| FETCH | Data that GuardDuty retrieved for the investigation, such as a finding, a detector configuration, or a list of your member accounts. The record includes what GuardDuty requested and what it received. | 
+| OBSERVATION | A fact that GuardDuty noted about your environment. Examples include the affected resource, the activity on that resource, and your detection coverage. | 
+| ANALYSIS | An assessment that GuardDuty derived from the data. Examples include a threat assessment, a comparison against normal behavior, and a process lineage. | 
+| METADATA | Operational details about the investigation itself, such as how long the investigation took. | 
+
+Each record includes a `Title` and can include a plain-text `Narrative` that explains the step. A narrative can span several paragraphs. A record can also include a `SupportingData` structure that contains the structured details for the step. `UPDATE` records never include `SupportingData`, and records of other types don't always include it.
+
+Choose your preferred access method to list investigation records.
+
+------
+#### [ Console ]
+
+1. Open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/).
+
+1. In the navigation pane, choose **Investigations**.
+
+1. On the **Investigations** page, choose an investigation to open its details page.
+
+1. On the details page, review the records on the investigation timeline. Each record shows its title and narrative.
+
+------
+#### [ API/CLI ]
+
+Run the ListInvestigationRecords API operation to list the records for an investigation.
+
+To find the `detectorId` for your account and current Region, see the **Settings** page in the [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/) console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
+
+The following AWS CLI command lists up to 20 records for an investigation:
+
+```
+aws guardduty list-investigation-records \
+    --detector-id {{12abc34d567e8fa901bc2d34EXAMPLE}} \
+    --investigation-id {{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}} \
+    --max-results 20
+```
+
+In the preceding command, replace {{detector-id}} and {{investigation-id}} with your own values.
+
+To return only specific record types, use the `--record-types` parameter. The following example returns only `OBSERVATION` and `ANALYSIS` records:
+
+```
+aws guardduty list-investigation-records \
+    --detector-id {{12abc34d567e8fa901bc2d34EXAMPLE}} \
+    --investigation-id {{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}} \
+    --record-types OBSERVATION ANALYSIS
+```
+
+In the preceding command, replace {{detector-id}} and {{investigation-id}} with your own values.
+
+The following example output shows two of the records that the command returns:
+
+```
+{
+    "InvestigationId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "Status": "COMPLETED",
+    "Records": [
+        {
+            "RecordId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+            "Type": "OBSERVATION",
+            "Title": "Detection coverage for this finding",
+            "Narrative": "CloudTrail management events, which this finding type relies on, are enabled. Runtime Monitoring is disabled.",
+            "CreatedAt": "2024-01-15T11:52:00.123456+00:00",
+            "SupportingData": {
+                "Observation": {
+                    "ObservationType": "DETECTION_COVERAGE",
+                    "DetectionCoverage": {
+                        "ProtectionPlans": [
+                            {
+                                "Name": "CLOUD_TRAIL",
+                                "Status": "ENABLED"
+                            },
+                            {
+                                "Name": "RUNTIME_MONITORING",
+                                "Status": "DISABLED"
+                            }
+                        ],
+                        "FoundationalDataSources": [
+                            "CLOUD_TRAIL",
+                            "DNS_LOGS",
+                            "FLOW_LOGS"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "RecordId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+            "Type": "ANALYSIS",
+            "Title": "Threat assessment",
+            "Narrative": "The instance credentials were used from an external address shortly after the instance was launched.",
+            "CreatedAt": "2024-01-15T11:53:00.654321+00:00"
+        }
+    ],
+    "NextToken": "AAEXAMPLEnextTokenValue"
+}
+```
+
+If the response includes a `NextToken` value, pass it in a subsequent request to retrieve the next page of results. Each page can contain up to 50 records.
 
 ------

@@ -275,6 +275,9 @@ Before completing these steps, make sure you have attached the respective polici
 
 1. Choose **Save**.
 
+**Note**  
+Newly created or edited publishing destinations might take a few minutes to apply to incoming findings.
+
 ## Step 5 – Setting frequency to export updated active findings
 <a name="guardduty_exportfindings-frequency"></a>
 
