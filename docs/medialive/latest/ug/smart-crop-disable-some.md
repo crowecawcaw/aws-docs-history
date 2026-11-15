@@ -31,7 +31,7 @@ Use `update-channel` to make changes in the JSON for the MediaLive channel.
 See [Setting up Elemental Inference features for the first time](smart-crop-procedure-cli-create.md) for an example of the JSON as it appears *before *you make these changes.
 
 **Note**  
-Don't touch the `feedArn` parameter in the `InferenceSettings` section of the JSON.
+Don't touch the `FeedArn` parameter in the `InferenceSettings` section of the JSON.
 
 ## Make changes in Elemental Inference
 <a name="smart-crop-disable-some-inference"></a>
@@ -42,8 +42,8 @@ Make changes in Elemental Inference as described in the following table.
 |  Action  |  Action  | 
 | --- | --- | 
 | Disable event clipping | Use `UpdateFeed` to change the status parameter of the `OutputConfig` that is of type `ClippingConfig`. Change the status from `ENABLED` to `DISABLED`. | 
-| Disable smart crop in all video outputs | Use UpdateFeed to change the status parameter of the OutputConfig that is of type CropConfig. Change the status from ENABLED to DISABLED.  | 
-| Disable smart crop in some video outputs | There are no changes to make. Leave the status of CropConfig as ENABLED. | 
+| Disable smart crop in all video outputs | Use UpdateFeed to change the status parameter of the OutputConfig that is of type CroppingConfig. Change the status from ENABLED to DISABLED.  | 
+| Disable smart crop in some video outputs | There are no changes to make. Leave the status of CroppingConfig as ENABLED. | 
 | Disable Smart Subtitles | Use UpdateFeed to change the status parameter of the OutputConfig that is of type SubtitlingConfig. Change the status from ENABLED to DISABLED. | 
 | Disable contextual metadata enrichment | Use UpdateFeed to change the status parameter of the OutputConfig that is of type ContextualMetadataConfig. Change the status from ENABLED to DISABLED. | 
 
@@ -51,7 +51,7 @@ Make changes in Elemental Inference as described in the following table.
 <a name="smart-crop-disable-result-partial"></a>
 
 Disabling some features changes the behavior of MediaLive and Elemental Inference as follows:
-+ MediaLive continues to send the source video to Elemental Inference because there is still a `feedArn` parameter in the channel.
++ MediaLive continues to send the source video to Elemental Inference because there is still a `FeedArn` parameter in the channel.
 + Elemental Inference continues to produce metadata for outputs that are enabled (which means that corresponding feature is enabled). But it stops producing metadata for outputs that are disabled.
 
   When an output is disabled, the following rules apply: 

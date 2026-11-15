@@ -14,6 +14,9 @@ The routine for maintenance is the following:
 + When a channel needs maintenance, you receive notification in the Health Dashboard and by email. For more information, see [Managing maintenance notifications](maintenance-setup-notifications.md).
 + When you receive a notification, you should decide if you want to adjust the timing of the maintenance. There are several ways to adjust the timing. See [Options for handling maintenance](setting-maintenance.md#set-maintenance-change-options).
 
+**Emergency maintenance**  
+You control the timing of routine maintenance. However, if there is an emergency operational issue that affects AWS or your channel, MediaLive might stop and start your channel outside of your maintenance window to apply an urgent update. When this happens, MediaLive will notify you in advance through the AWS Health Dashboard, whenever possible.
+
 **Topics**
 + [Viewing maintenance information](viewing-maintenance.md)
 + [Managing maintenance notifications](maintenance-setup-notifications.md)

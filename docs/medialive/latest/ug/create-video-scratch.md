@@ -17,6 +17,7 @@ You can create a video encode by entering values in all the appropriate fields. 
 
 **Topics**
 + [Width and height (resolution)](#video-encode-resolution)
++ [Scaling behavior](#video-encode-scaling)
 + [Rate control](#video-encode-ratecontrol-fields)
 + [Framerate](#video-encode-framerate)
 + [Codec details](#video-encode-codec-details)
@@ -28,6 +29,11 @@ You can create a video encode by entering values in all the appropriate fields. 
 <a name="video-encode-resolution"></a>
 
 For information about the **Width** and **Height** fields (which define the video resolution), choose the **Info** link for each field. The frame rate affects the output charges for this channel. For more information about charges, see [the MediaLive price list](https://aws.amazon.com/medialive/pricing/).
+
+## Scaling behavior
+<a name="video-encode-scaling"></a>
+
+The **Scaling behavior** field (in **Scaling settings**) controls how MediaLive fits the source video into the output resolution. For details about each value, choose the **Info** link for the field. To have MediaLive use Elemental Inference to crop the video so that it follows the action, choose **SMART\_CROP**. For more information, see [Smart cropping video using Elemental Inference](elemental-inference-smart-crop.md).
 
 ## Rate control
 <a name="video-encode-ratecontrol-fields"></a>

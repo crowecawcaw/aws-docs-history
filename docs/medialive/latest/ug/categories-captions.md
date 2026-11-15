@@ -17,7 +17,7 @@ Captions are grouped into five categories, based on how the captions are include
 | RTMP CaptionInfo | Object-style | 
 | SCTE-20\+Embedded | Embedded | 
 | SCTE-27 | Object-style | 
-| Smart Subtitles | Sidecar | 
+| Smart Subtitles | Sidecar<br />Burn-in | 
 | SMPTE-TT | Stream | 
 | Teletext  | Object-style | 
 | TTML | Sidecar | 

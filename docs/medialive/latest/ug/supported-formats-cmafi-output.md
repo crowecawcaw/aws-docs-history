@@ -8,7 +8,7 @@ In this table, look up your input container and captions type. Then read across 
 + MediaPackage output with a CMAF Ingest container
 
 **Note**  
-You can also produce subtitles without a caption source in your input. Enable the Smart Subtitles feature, which uses AWS Elemental Inference to generate TTML or WebVTT subtitles from the audio. For more information, see [Smart Subtitles using Elemental Inference](elemental-inference-automatic-subtitling.md).
+You can also produce subtitles without a caption source in your input. Enable the Smart Subtitles feature, which uses AWS Elemental Inference to generate TTML or WebVTT subtitles, or burned-in subtitles, from the audio. For more information, see [Smart Subtitles using Elemental Inference](elemental-inference-automatic-subtitling.md).
 
 
 
@@ -43,5 +43,5 @@ You can also produce subtitles without a caption source in your input. Enable th
 
 - **All input containers(Smart Subtitles generates subtitles from the source audio, not from captions in the source.)**
   - **Source caption input:** Smart Subtitles
-  - **Supported output captions:** TTML<br />WebVTT
+  - **Supported output captions:** Burn-inTTML<br />WebVTT
 

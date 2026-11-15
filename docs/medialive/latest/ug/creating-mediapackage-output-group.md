@@ -62,6 +62,8 @@ You can create MediaPackage output groups for two different MediaPackage version
 
 1. (Optional) In the **MediaPackage settings** section, for **Name**, enter a name for the output group.
 
+1. If the outputs contain embedded captions, in the **MediaPackage settings** section, expand **MediaPackage V2 settings** and set up the caption fields. For more information, see [MediaPackage v2 destinations](set-up-the-hls-manifest.md#set-up-the-hls-manifest-emp-v2).
+
 1. If your plan includes more than one output in this output group, then in **MediaPackage outputs**, choose **Add output** to add the appropriate number of outputs.
 
 1. Choose the first **Settings** link to view the sections for the first output. The section contains fields for the [output streams](hls-streams-section.md) (the video, audio, and captions). CMAF Ingest outputs only allow a single stream type per output.

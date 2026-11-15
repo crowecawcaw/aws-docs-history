@@ -14,6 +14,8 @@ You must set up all MediaLive users with permissions to use the wizard to perfor
 + Create and update the MediaLiveAccessRole trusted entity. The first user to create a MediaLive channel creates the trusted entity. Then each time MediaLive releases a new feature that requires new permissions, a user must press a button that automatically updates the trusted entity. 
 + Use the wizard to attach the MediaLiveAccessRole trusted entity to a channel. Every time a user creates a channel, they must attach this trusted entity to the channel.
 
+When you create or update the `MediaLiveAccessRole` role from the MediaLive console, its inline policy grants the `elemental-inference:GetMetadata` and `elemental-inference:PutMedia` actions that the [Elemental Inference features](elemental-inference.md) require. Choosing an existing role in the **Use existing role** field doesn't update that role. If you created the role before MediaLive added support for Elemental Inference, update it as described in the previous list. If you use a custom role, add these actions to it. For a sample policy, see [Access requirements for the trusted entity](trusted-entity-requirements.md).
+
 You must give all users the access described in the following table. All the actions are in the IAM service. Include all these actions in the policy (or in one of the policies) that you create for the users.
 
 

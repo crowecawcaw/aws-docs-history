@@ -77,3 +77,24 @@ Each row in the column describes a task or set of related tasks that the MediaLi
   - **Tasks:** Creating a password parameter on the MediaLive console. / **Type of access required:** MediaLive doesn't need IAM access for this task. Only the users need access. / **Suggested actions or policy:** 
   - **Tasks:** Using a password parameter in the channel configuration. See [Requirements for AWS Systems Manager password parameters](requirements-for-EC2.md). / **Type of access required:** When the channel is running.MediaLive must have read access to the AWS Systems Manager Parameter Store. / **Suggested actions or policy:** The managed policy AmazonSSMRead OnlyAccess
 
+
+
+**Sample policy for Elemental Inference**
+
+The following sample policy grants the trusted entity the permissions that MediaLive needs to deliver source media to Elemental Inference and to read the metadata that Elemental Inference produces. If the channels use any Elemental Inference features, add this statement to a policy that you attach to the trusted entity role, or attach it as a separate policy.
+
+```
+{
+  "Version": "2012-10-17", 		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "elemental-inference:GetMetadata",
+        "elemental-inference:PutMedia"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```

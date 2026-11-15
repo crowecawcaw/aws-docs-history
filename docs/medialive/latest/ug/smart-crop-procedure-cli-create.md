@@ -10,7 +10,7 @@ You must set up a fully-configured feed: resource - feed - output or outputs, wh
 1. **In Elemental Inference**, use `create-feed` to create a new feed. Follow these guidelines:
    + Give the feed a memorable name. You might want to give it the same name or similar name to the MediaLive channel. 
 
-     Note that if you previously set up Elemental Inference features using the MediaLive console, you will see these feeds when you use `list-feeds`. These feeds will always have a name that is identical to the channel name.
+     Feeds that you set up for a channel through the MediaLive console also appear in `list-feeds`. Each feed has the name that it was given when it was created, which is often based on the channel name.
    + Include outputs as described in the following table.
 
 
@@ -20,7 +20,7 @@ You must set up a fully-configured feed: resource - feed - output or outputs, wh
 </thead>
 <tbody>
   <tr><td>Event clipping</td><td>Create one output of type <code>ClippingConfig</code> </td></tr>
-  <tr><td>Smart crop</td><td>Don't include any outputs in the feed. MediaLive will create an output to use. It won't use any output that you create, but any feed you create will count towards one or more the <a href="https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/elemental-inference/quotas">quotas</a> for Elemental Inference.</td></tr>
+  <tr><td>Smart crop</td><td>Optional. To configure the smart crop output yourself (for example, to add graphic composition), create one output whose <code>outputConfig</code> is <code>cropping</code>. A feed can have only one cropping output. If the feed has a cropping output, MediaLive uses it and doesn't change its configuration. If the feed doesn't have one, MediaLive creates it when you create or update the channel.<br />Each feed that you create counts toward one or more of the <a href="https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/elemental-inference/quotas">quotas</a> for Elemental Inference.</td></tr>
   <tr><td>Smart Subtitles</td><td>Create one output of type <code>SubtitlingConfig</code>. Configure the <code>language</code> parameter with the language code of the source audio (for example, <code>eng</code>). Optionally configure <code>profanityFilter</code> (<code>DISABLED</code>, <code>CENSOR</code>, or <code>DROP</code>).</td></tr>
   <tr><td>Contextual metadata enrichment</td><td>Create one output of type <code>ContextualMetadataConfig</code>.</td></tr>
 </tbody>
@@ -33,7 +33,7 @@ You must set up a fully-configured feed: resource - feed - output or outputs, wh
 
 1. **In MediaLive**, use `create-channel` or `update-channel` to create a channel or edit an existing channel. 
    + At the top level of the JSON, add an `InferenceSettings` section and include:
-     + `feedArn`: The ARN of the feed that you created. Include this line only once, even if you are enabling more than one Elemental Inference feature.
+     + `FeedArn`: The ARN of the feed that you created. Include this line only once, even if you are enabling more than one Elemental Inference feature.
    + Make changes for each feature, as described in the following table.
 
 
@@ -44,7 +44,7 @@ You must set up a fully-configured feed: resource - feed - output or outputs, wh
 <tbody>
   <tr><td>Event clipping</td><td>There are no further changes to make.</td></tr>
   <tr><td>Smart crop</td><td>In the JSON for each video encode (video description section) where you want to enable Elemental Inference features, include these parameters:<ul><li> <code>Width</code> and <code>Height</code>: The resolution for this video encode. </li><li> <code>ScalingBehavior</code>: Set to <code>SMART_CROP</code>.  </li></ul></td></tr>
-  <tr><td>Smart Subtitles</td><td>In each input attachment's <code>CaptionSelectors</code> array, add a caption selector with <code>SmartSubtitleSourceSettings</code>:<ul><li> <code>Name</code>: A name for the selector (for example, <code>SmartSubtitlesSelector1</code>). </li><li> <code>LanguageCode</code>: The language code (for example, <code>eng</code>). </li><li> <code>SelectorSettings</code>: Include <code>SmartSubtitleSourceSettings</code> with the following fields: <ul><li> <code>InferenceFeedOutput</code>: The name of the subtitling output from the feed (for example, <code>medialive-subtitling-output-0</code>). </li><li> <code>CaptionSynchronizationMode</code> (optional): Set to <code>VIDEO_ALIGNED_CAPTIONS</code> (default) to delay video for caption synchronization, or <code>NO_VIDEO_DELAY</code> to avoid video delay. </li></ul> </li></ul><br />Then add a <code>CaptionDescription</code> in <code>EncoderSettings</code> that references this selector and sets the destination to TTML (for MediaPackage V2, CMAF Ingest, or Microsoft Smooth output groups) or WebVTT (for HLS or MediaPackage output groups). Add a captions-only output in the appropriate output group for the subtitle sidecar.</td></tr>
+  <tr><td>Smart Subtitles</td><td>In each input attachment's <code>CaptionSelectors</code> array, add a caption selector with <code>SmartSubtitleSourceSettings</code>:<ul><li> <code>Name</code>: A name for the selector (for example, <code>SmartSubtitlesSelector1</code>). </li><li> <code>LanguageCode</code>: The language code (for example, <code>eng</code>). </li><li> <code>SelectorSettings</code>: Include <code>SmartSubtitleSourceSettings</code> with the following fields: <ul><li> <code>InferenceFeedOutput</code>: The name of the subtitling output from the feed (for example, <code>medialive-subtitling-output-0</code>). </li><li> <code>CaptionSynchronizationMode</code> (optional): Set to <code>VIDEO_ALIGNED_CAPTIONS</code> (default) to delay video for caption synchronization, or <code>NO_VIDEO_DELAY</code> to avoid video delay. </li></ul> </li></ul><br />Then add a <code>CaptionDescription</code> in <code>EncoderSettings</code> that references this selector and sets the destination to TTML (for MediaPackage V2, CMAF Ingest, or Microsoft Smooth output groups) or WebVTT (for HLS, MediaPackage, MediaPackage V2, or CMAF Ingest output groups). Add a captions-only output in the appropriate output group for the subtitle sidecar. To burn in the subtitles instead, set the caption description's destination to <code>BurnInDestinationSettings</code> in each video output that should show the subtitles, with no captions-only output.</td></tr>
   <tr><td>Contextual metadata enrichment</td><td>In the <code>InferenceSettings</code> section, add <code>EnrichmentMethods</code> with the value <code>["SCTE35_ELEMENTAL_INFERENCE_QUERY_PARAMS"]</code>. No other changes are needed. MediaLive automatically enriches SCTE-35 cue-out markers on all outputs that support SCTE-35 passthrough.</td></tr>
 </tbody>
 </table>
@@ -175,7 +175,7 @@ You must set up a fully-configured feed: resource - feed - output or outputs, wh
    The `AudioFeedInputs` array in `InferenceSettings` associates a specific audio selector from the input attachment with the feed. If the input attachment has no audio selectors, you can omit `AudioFeedInputs` and MediaLive uses the default audio from the input.
 
 1. When you save the channel, MediaLive updates the Elemental Inference feed as follows:
-   + It creates a crop output in the feed. 
+   + If you set up smart crop and the feed doesn't already have a cropping output, it creates one.
    + It associates the channel (the resource) with the feed.
 
    You now have a usable feed: resource - feed - output.
@@ -192,7 +192,7 @@ You must set up a fully-configured feed: resource - feed - output or outputs, wh
 <tbody>
   <tr><td>Event clipping</td><td>MediaLive doesn't retrieve metadata. You need to set up your own solution to retrieve the event clipping metadata and create event clips.</td></tr>
   <tr><td>Smart crop</td><td>MediaLive retrieves the smart crop metadata from Elemental Inference. This metadata describes the region of interest in each video frame. In each video output where Elemental Inference features is set up, MediaLive crops the video to the new region of interest. MediaLive then continues with regular processing to encode the video. </td></tr>
-  <tr><td>Smart Subtitles</td><td>MediaLive retrieves the subtitle metadata from Elemental Inference and converts it to WebVTT or TTML format. MediaLive outputs the subtitles as a sidecar in the configured HLS, MediaPackage, MediaPackage V2, CMAF Ingest, or Microsoft Smooth output.</td></tr>
+  <tr><td>Smart Subtitles</td><td>MediaLive retrieves the subtitle metadata from Elemental Inference and converts it to WebVTT or TTML format. MediaLive outputs the subtitles as a sidecar in the configured HLS, MediaPackage, MediaPackage V2, CMAF Ingest, or Microsoft Smooth output. If you configured burn-in instead, MediaLive burns the subtitles into each video output where you added the burn-in caption description.</td></tr>
   <tr><td>Contextual metadata enrichment</td><td>MediaLive enriches outgoing SCTE-35 cue-out markers with Elemental Inference query parameters. Downstream consumers parse these parameters to query Elemental Inference at ad-decision time.</td></tr>
 </tbody>
 </table>
@@ -208,6 +208,6 @@ The following table summarizes the key differences in this division of labor. In
 |  Feature  |  Actions you perform in Elemental Inference  | Actions your perform in MediaLive | 
 | --- | --- | --- | 
 | Event clipping | You create a feed for the channel (if there isn't one already), and you attach a clipping output.  | You make sure that the feed ARN is specified.  | 
-| Smart crop | You create a feed for the channel (if there isn't one already), but you don't attach a smart crop output. | You make sure that the feed ARN is specified. And you configure the video outputs in the channel to work with smart crop. MediaLive is the actor that creates the smart crop output in Elemental Inference. | 
-| Smart Subtitles | You create a feed for the channel (if there isn't one already), and you attach a subtitling output with the language configuration. | You make sure that the feed ARN is specified. You add SmartSubtitleSourceSettings caption selectors to input attachments, create caption descriptions referencing those selectors, and add a captions-only output (TTML for MediaPackage V2, CMAF Ingest, or Microsoft Smooth; or WebVTT for HLS or MediaPackage). | 
+| Smart crop | You create a feed for the channel (if there isn't one already). Adding a cropping output to the feed is optional. | You make sure that the feed ARN is specified. And you configure the video outputs in the channel to work with smart crop. If the feed doesn't have a cropping output, MediaLive creates one in Elemental Inference. | 
+| Smart Subtitles | You create a feed for the channel (if there isn't one already), and you attach a subtitling output with the language configuration. | You make sure that the feed ARN is specified. You add SmartSubtitleSourceSettings caption selectors to input attachments, create caption descriptions referencing those selectors, and add a captions-only output (TTML for MediaPackage V2, CMAF Ingest, or Microsoft Smooth, or WebVTT for HLS, MediaPackage, MediaPackage V2, or CMAF Ingest). To burn in the subtitles instead, add the burn-in caption description (BurnInDestinationSettings) to each video output that should show the subtitles, with no captions-only output. | 
 | Contextual metadata enrichment | You create a feed for the channel (if there isn't one already), and you attach a contextual metadata output. | Verify that the feed ARN is specified. Add SCTE35\_ELEMENTAL\_INFERENCE\_QUERY\_PARAMS to EnrichmentMethods in InferenceSettings. | 

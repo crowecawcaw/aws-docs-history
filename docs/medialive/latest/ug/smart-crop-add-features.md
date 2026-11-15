@@ -19,16 +19,16 @@ If you want to disable features rather than add them, see [Disabling some Elemen
   <tr><th>Feature to add</th><th>Action</th></tr>
 </thead>
 <tbody>
-  <tr><td>Event clipping</td><td>There are no changes to make in the channel. But you must make a note of the value in <code>feedArn</code> in <code>InferenceSettings</code>.</td></tr>
+  <tr><td>Event clipping</td><td>There are no changes to make in the channel. But you must make a note of the value in <code>FeedArn</code> in <code>InferenceSettings</code>.</td></tr>
   <tr><td>Smart crop</td><td>You can add smart crop for the first time or you can set up more video encodes for smart crop. In both cases, insert <code>Width</code>, <code>Height</code>, and <code>ScalingBehavior</code> in the applicable video encodes (video descriptions), as described and illustrated in <a href="smart-crop-procedure-cli-create.md">Setting up Elemental Inference features for the first time</a>.</td></tr>
-  <tr><td>Smart Subtitles</td><td>Add <code>SmartSubtitleSourceSettings</code> caption selectors to input attachments, create caption descriptions referencing those selectors with a TTML or WebVTT destination, and add a captions-only output, as described in <a href="smart-crop-procedure-cli-create.md">Setting up Elemental Inference features for the first time</a>.</td></tr>
+  <tr><td>Smart Subtitles</td><td>Add <code>SmartSubtitleSourceSettings</code> caption selectors to input attachments, create caption descriptions with a TTML, WebVTT, or burn-in destination, and add a captions-only output for TTML or WebVTT, or add the burn-in caption description to each video output that should show the subtitles, as described in <a href="smart-crop-procedure-cli-create.md">Setting up Elemental Inference features for the first time</a>.</td></tr>
   <tr><td>Contextual metadata enrichment</td><td>Add <code>SCTE35_ELEMENTAL_INFERENCE_QUERY_PARAMS</code> to the <code>EnrichmentMethods</code> array in <code>InferenceSettings</code>.</td></tr>
 </tbody>
 </table>
 
 
 1. When you save the channel, MediaLive performs the following actions:
-   + If you are adding smart crop for the first time, MediaLive updates the feed in Elemental Inference to create a crop output in the feed.
+   + If you are adding smart crop for the first time and the feed doesn't have a cropping output, MediaLive updates the feed in Elemental Inference to create one.
 
 1. **In the Elemental Inference**, use `update-feed` to update the feed. Make changes as described in the following table.
 
@@ -39,7 +39,7 @@ If you want to disable features rather than add them, see [Disabling some Elemen
 </thead>
 <tbody>
   <tr><td>Add event clipping</td><td>Create one output of type <code>ClippingConfig</code>.</td></tr>
-  <tr><td>Add smart crop for the first time</td><td>There are no changes to make. Don't include an output in the feed. MediaLive won't use any feed you create, but any feed you create will count towards one or more Elemental Inference quotas.</td></tr>
+  <tr><td>Add smart crop for the first time</td><td>There are no changes to make. Optionally, to configure the smart crop output yourself, add one output whose <code>outputConfig</code> is <code>cropping</code>. MediaLive uses an existing cropping output and creates one only if the feed doesn't have one.</td></tr>
   <tr><td>Extend smart crop to more channel outputs</td><td>There are no changes to make.</td></tr>
   <tr><td>Add Smart Subtitles</td><td>Use <code>update-feed</code> to add one output of type <code>SubtitlingConfig</code> with the appropriate <code>language</code> setting. Or if a subtitling output already exists, there are no changes to make.</td></tr>
   <tr><td>Add contextual metadata enrichment</td><td>Use <code>update-feed</code> to add one output of type <code>ContextualMetadataConfig</code>. Or if a contextual metadata output already exists, there are no changes to make.</td></tr>

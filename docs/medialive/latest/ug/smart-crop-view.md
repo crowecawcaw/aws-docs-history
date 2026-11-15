@@ -20,7 +20,7 @@ The ID is identical to the last portion of the ARN of the feed. If you are inter
 
 These statuses are listed in lifetime order, from **CREATING** to **ARCHIVED**. Note the following:
 + A newly created feed typically transitions immediately from **CREATING** to **AVAILABLE** to **ACTIVE**. **ACTIVE** means that the feed is associated with the channel.
-+ When MediaLive deletes a feed, its status changes to **DELETED**, then after a short period, it changes to **ARCHIVED**. There is no way to change the status of a feed that is **DELETED** or **ARCHIVED**. If you re-enable Elemental Inference features in a channel, MediaLive will create a new feed that has a new ID.
++ When you remove the feed from the channel or delete the channel, MediaLive disassociates the feed, and Elemental Inference changes the feed's status to **ARCHIVED**. You can then delete the feed in Elemental Inference. There is no way to change the status of a feed that is **ARCHIVED** or **DELETED**. To use Elemental Inference features in the channel again, create a new feed in Elemental Inference and select it in the channel. The new feed has a new ID.
 
 **Feature panels**
 
@@ -32,7 +32,7 @@ One panel appears for each Elemental Inference that you have enabled in the chan
 ## Viewing the setup on the Elemental Inference console
 <a name="smart-crop-inference-view"></a>
 
-To view information for a feed on the Elemental Inference console, see [ Creating an Elemental Inference workflow](https://docs.aws.amazon.com/elemental-inference/latest/userguide/monitoring-inference-via-console) in the *AWS Elemental Inference user guide*.
+To view information for a feed on the Elemental Inference console, see [ Monitoring AWS Elemental Inference on the console](https://docs.aws.amazon.com/elemental-inference/latest/userguide/monitoring-inference-via-console) in the *AWS Elemental Inference user guide*.
 
 ## Viewing the setup using the Elemental Inference CLI
 <a name="smart-crop-inference-view-cli"></a>

@@ -8,14 +8,17 @@ Create all the nodes for one cluster. Create them after you've created the clust
 **Important**  
 You won't be able to modify the network after you've added nodes to any cluster associated with the network.
 
-To create a node, you create a node registration script then run the script on each node hardware unit. You then run the script on each hardware unit. 
+To create nodes, create a node registration script, then run the script on each node hardware unit.
 
 ## Prepare the node hardware
 <a name="emla-setup-cl-nodes-hardware"></a>
 
 You should have already obtained the hardware for the MediaLive Anywhere nodes. 
 
-Install the RHEL 9.5 operating system on each node. RHEL 9.5 is the only supported version.
+Install Red Hat Enterprise Linux (RHEL) 9.6 on each node and enable Extended Update Support (EUS). EUS is the supported way to keep a node on RHEL 9.6 and receiving security updates. You can't use RHEL 9.7 or later with MediaLive Anywhere. The node registration script stops with an error on those versions.
+
+**Note**  
+To enable EUS, before you apply any updates, lock the node to release 9.6 (`subscription-manager release --set=9.6`) and switch the BaseOS and AppStream repositories to their EUS versions. For instructions, see [Extended Update Support](https://access.redhat.com/articles/rhel-eus) on the Red Hat website.
 
 ## Create the node registration script
 <a name="emla-setup-cl-nodes-add"></a>

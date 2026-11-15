@@ -46,3 +46,8 @@ You can insert SCTE 35 messages in TS outputs using the [channel schedule](x-act
 The main use case for this feature is to add SCTE 35 messages to the output, when the input doesn't already include SCTE 35 messages. 
 
 For more information, see [Inserting SCTE 35 messages using the schedule](setup-scte35-insertion.md).
+
+## Contextual metadata enrichment
+<a name="scte35-enrichment-option"></a>
+
+You can set up a channel to add Elemental Inference query parameters to the SCTE 35 cue-out messages in its outputs. Downstream systems, such as ad decision systems, can use these parameters to query Elemental Inference for contextual metadata about the content. For more information, see [Contextual metadata enrichment](elemental-inference-cm-enrichment.md). For the format of the added descriptors, see [AWSE SCTE-35 format](awse-scte35-format.md).

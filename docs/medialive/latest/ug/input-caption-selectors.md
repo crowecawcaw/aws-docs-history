@@ -20,3 +20,5 @@ For each captions item that you want to extract or include, choose the **Add cap
 1. In **Selector Settings**, select the format of the captions asset to extract. Then complete the fields that apply to that format.
 
 For more information about setting up an input for captions, see [Including captions in a channel](captions.md), specifically [Create captions selectors in the inputs](identify-captions-in-the-input.md).
+
+To generate subtitles from the source audio instead of extracting captions from the input, use the Smart Subtitles feature. For more information, see [Smart Subtitles using Elemental Inference](elemental-inference-automatic-subtitling.md).

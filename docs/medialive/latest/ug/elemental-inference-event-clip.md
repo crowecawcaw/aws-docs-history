@@ -31,4 +31,4 @@ Currently, MediaLive supports event clipping with video for soccer games and bas
 ## Viewing the setup on the Elemental Inference console
 <a name="event-clip-inference-view"></a>
 
-To view information for a feed on the Elemental Inference console, see [ Creating an Elemental Inference workflow](https://docs.aws.amazon.com/elemental-inference/latest/userguide/monitoring-inference-via-console) in the *AWS Elemental Inference user guide*.
+To view information for a feed on the Elemental Inference console, see [ Monitoring AWS Elemental Inference on the console](https://docs.aws.amazon.com/elemental-inference/latest/userguide/monitoring-inference-via-console) in the *AWS Elemental Inference user guide*.

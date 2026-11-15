@@ -31,9 +31,11 @@ Follow these steps to enable Smart Subtitles in a channel using the MediaLive co
 
    1. Remove any video and audio encodes from this output so that it contains only captions.
 
-   1. Add a captions description and set the destination format to **TTML** (for MediaPackage V2, CMAF Ingest, or Microsoft Smooth output groups) or **WebVTT** (for HLS or MediaPackage output groups).
+   1. Add a captions description and set the destination format to **TTML** (for MediaPackage V2, CMAF Ingest, or Microsoft Smooth output groups) or **WebVTT** (for HLS, MediaPackage, MediaPackage V2, or CMAF Ingest output groups).
 
    1. For **Caption selector name**, select the Smart Subtitles caption selector you created earlier.
+
+   To burn the subtitles into the video instead, don't create a captions-only output. In each video output that should show the subtitles, add a captions description, set the destination format to **Burn-in**, and for **Caption selector name** select the Smart Subtitles caption selector.
 
 **Note**  
 Before configuring Smart Subtitles, you must have an Elemental Inference feed with a subtitling output. You can create the feed in one of the following ways:  

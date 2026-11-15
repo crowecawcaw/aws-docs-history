@@ -42,5 +42,5 @@ In this table, look up your input container and captions type. Then read across 
 
 - **All input containers(Smart Subtitles generates subtitles from the source audio, not from captions in the source.)**
   - **Source caption input:** Smart Subtitles
-  - **Supported output captions:** None
+  - **Supported output captions:** Burn-in
 
