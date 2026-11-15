@@ -5,6 +5,9 @@
 
 You can change the custom domains used by your Amazon Lightsail distribution to another domain or set of domains. To do so, you must first create a new SSL/TLS certificate for the domains that you want to use with your distribution. For more information, see [Create SSL/TLS certificates for your distribution](amazon-lightsail-create-a-distribution-certificate.md). After the new certificate is validated, you swap the old certificate for the new one, thereby changing the custom domains for your distribution.
 
+**Note**  
+If your distribution uses a Lightsail web address and you want to use a custom domain instead, detach the web address, and then enable custom domains. For instructions, see [Switch between a web address and a custom domain](amazon-lightsail-enabling-distribution-custom-domains.md#switch-web-address-custom-domain).
+
 For more information about distributions, see [Create a distribution](amazon-lightsail-creating-content-delivery-network-distribution.md).
 
 ## Change custom domains for your distribution
@@ -18,7 +21,7 @@ Complete the following procedure to change the custom domains for your distribut
 
 1. Choose the name of the distribution for which you want to change the custom domains.
 
-1. Choose the **Custom domains** tab on your distribution's management page.
+1. Choose the **Domains** tab on your distribution's management page, and then choose **Custom domain**.
 
 1. Detach the SSL/TLS certificate that is currently attached to the distribution.
 

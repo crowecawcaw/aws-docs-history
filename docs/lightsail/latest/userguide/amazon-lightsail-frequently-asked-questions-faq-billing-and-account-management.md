@@ -42,7 +42,7 @@ Lightsail managed databases come in 4 plan sizes and start at $15 USD per month 
 ## Can I try Lightsail managed databases for free?
 <a name="can-i-try-lightsail-databases-for-free"></a>
 
-Yes\! New Lightsail customers get 1 month of the $15 USD Lightsail plan free.
+Yes. As part of the AWS Free Tier, you can get started with Amazon Lightsail for free. Check out the [AWS Free Tier FAQs](https://aws.amazon.com/free/free-tier-faqs/) to learn more.
 
 ## What does Lightsail block storage cost?
 <a name="what-does-lightsail-block-storage-cost"></a>
@@ -57,7 +57,7 @@ Lightsail load balancers cost $18 USD per month.
 ## What does certificate management cost?
 <a name="w2aac95c15c23"></a>
 
-Lightsail certificates and certificate management are free with use of a Lightsail load balancer.
+Lightsail certificates and certificate management are free.
 
 ## What do Lightsail static IPv4 addresses cost?
 <a name="what-do-lightsail-static-ips-cost"></a>
@@ -67,12 +67,23 @@ There are no costs associated with Static IP addresses when they are attached to
 ## What do Lightsail domains cost?
 <a name="what-do-lightsail-domains-cost"></a>
 
-The prices listed in the linked .pdf file apply for new domain name registrations, renewals of existing domain name registrations as of December 22 2021. All prices include a DNS zone and privacy protection. For information about the cost of registering domains, see [Amazon Route 53 Pricing for Domain Registration](https://d32ze2gidvkk54.cloudfront.net/Amazon_Route_53_Domain_Registration_Pricing_20140731.pdf), and [Domain registration](amazon-lightsail-domain-registration.md).
+The prices listed in the linked .pdf file apply for new domain name registrations, renewals of existing domain name registrations as of December 22 2021. All prices include a DNS zone and privacy protection. For information about the cost of registering domains, see [Amazon Route 53 Pricing for Domain Registration](https://d32ze2gidvkk54.cloudfront.net/Amazon_Route_53_Domain_Registration_Pricing_20140731.pdf), and [Registered domains](amazon-lightsail-domain-registration.md).
 
 ## What does Lightsail DNS management cost?
 <a name="what-does-lightsail-dns-management-cost"></a>
 
-DNS management is free within Lightsail. You can create up to 6 DNS zones and as many records as you want for each DNS zone. You also get a monthly allowance of 3 million DNS queries per month to your zones. Beyond your first 3 million queries in a month, you are charged $0.40 USD per 1 million DNS queries.
+DNS management is free within Lightsail. You can create up to 6 DNS zones and as many records as you want for each DNS zone. You also get a monthly allowance of 3 million DNS queries per month to your zones and your Lightsail web addresses. Beyond your first 3 million queries in a month, you are charged USD $0.40 per 1 million DNS queries. If your account belongs to an organization in AWS Organizations, the allowance is shared by all the accounts in the organization.
+
+## What do Lightsail web addresses cost?
+<a name="what-do-lightsail-web-addresses-cost"></a>
+
+A Lightsail web address has no charge while it's attached to a distribution. Each month, you get 24 hours of free unattached web address time. After that, we charge USD $1 per month for each unattached web address. Unattached time beyond the free hours is billed at USD $0.00134 per hour.
++ The 24 free hours are shared by all the unattached web addresses in your account. If your account belongs to an organization in AWS Organizations, the 24 free hours are shared by all the accounts in the organization.
++ Charges are prorated for partial hours.
++ A child web address is charged like any other web address while it isn't attached.
++ You aren't charged for implicit web addresses, web addresses that failed to create, or deleted web addresses.
+
+DNS queries to your web addresses, attached or not, count toward your monthly allowance of 3 million DNS queries, which is shared across your organization if you use AWS Organizations. Beyond the allowance, you're charged USD $0.40 per 1 million DNS queries. For more information, see [What does Lightsail DNS management cost?](#what-does-lightsail-dns-management-cost).
 
 ## What do Lightsail snapshots cost?
 <a name="what-do-lightsail-snapshots-cost"></a>

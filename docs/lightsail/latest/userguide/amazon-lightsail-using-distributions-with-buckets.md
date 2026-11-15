@@ -103,11 +103,14 @@ The permissions of your bucket must be set to **Individual objects can be made p
 
 When you create your distribution, it is configured with a default domain that is similar to `123abc.cloudfront.net`. You can specify that default domain as the source of your media files when you configure the WP Offload Media Lite plugin. But we highly recommend that you enable a custom domain for your distribution. The custom domain that you enable for your distribution should be a subdomain of the domain that you're using with your WordPress website. For example, if you're using `mycustomdomain.com` with your WordPress website, then you might choose to use the custom domain `media.mycustomdomain.com` with your distribution. Using the same domain and subdomain combination between your WordPress website and your distribution helps improve the search engine optimization score of your website.
 
+**Did you know?**  
+ You can give your Lightsail distribution an HTTPS web address, such as `mysite.amazonlightsail.com`, without registering a domain. Web addresses are free while they are attached, and Lightsail manages their DNS records and SSL/TLS certificates, including renewals. For more information, see [ Lightsail web addresses ](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-web-addresses.html) . 
+
 Complete the following steps to configure a custom domain for your distribution:
 
 1. Create a Lightsail SSL/TLS certificate for your domain to use it with your distribution. Lightsail distributions require HTTPS, so you must request an SSL/TLS certificate for your domain before you can use it with your distribution. For more information, see [Create SSL/TLS certificates for your distribution](amazon-lightsail-create-a-distribution-certificate.md).
 
-1. Enable custom domains for your distribution to use your domain with your distribution. Enabling custom domains requires that you specify the Lightsail SSL/TLS certificate that you created for your domain. This adds your domain to your distribution and enables HTTPS. For more information, see [Enable custom domains for your distribution](amazon-lightsail-enabling-distribution-custom-domains.md).
+1. Enable custom domains for your distribution to use your domain with your distribution. Enabling custom domains requires that you specify the Lightsail SSL/TLS certificate that you created for your domain. This adds your domain to your distribution and enables HTTPS. For more information, see [Enable custom domains for your distribution](amazon-lightsail-enabling-distribution-custom-domains.md#enable-distribution-custom-domains).
 
 1. Add an alias record to your domain's DNS. After you add the alias record, users who visit your domain are routed through your distribution. For more information, see [Point your domain to a distribution](amazon-lightsail-point-domain-to-distribution.md).
 

@@ -26,7 +26,7 @@ The Lightsail console allows for folder creation by creating a zero-byte object 
 You can use any UTF-8 character in an object key name. However, using certain characters in key names can cause problems with some applications and protocols. The following guidelines help you maximize compliance with DNS, web-safe characters, XML parsers, and other APIs.
 
 ### Safe characters
-<a name="w2aac59c37b7b5"></a>
+<a name="w2aac59c39b7b5"></a>
 
 The following character sets are generally safe for use in key names.
 + Alphanumeric characters

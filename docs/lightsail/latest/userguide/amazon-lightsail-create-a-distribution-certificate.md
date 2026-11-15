@@ -5,6 +5,9 @@
 
 You can create Amazon Lightsail TLS/SSL certificates for your Lightsail distributions. When you create a certificate, you specify the primary and alternate domain names for the certificate. When you enable custom domains for your distribution, and choose the certificate, those domains are added as the custom domains of your distribution. After you update the DNS record of your domains to point to your distribution, your distribution accepts the traffic and serves your content using HTTPS. There is a quota for the number of certificates that you can create. For more information, see [Lightsail service quotas](https://docs.aws.amazon.com/general/latest/gr/lightsail.html#limits_lightsail).
 
+**Did you know?**  
+ You can give your Lightsail distribution an HTTPS web address, such as `mysite.amazonlightsail.com`, without registering a domain. Web addresses are free while they are attached, and Lightsail manages their DNS records and SSL/TLS certificates, including renewals. For more information, see [ Lightsail web addresses ](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-web-addresses.html) . 
+
 For more information about SSL/TLS certificates, see [SSL/TLS certificates](understanding-tls-ssl-certificates-in-lightsail-https.md).
 
 **Important**  
@@ -26,7 +29,7 @@ Complete the following procedure to create an SSL/TLS certificate for your distr
 
 1. Choose the name of the distribution for which want to create a certificate.
 
-1. Choose the **Custom domains** tab on your distribution's management page.
+1. Choose the **Domains** tab on your distribution's management page, and then choose **Custom domain**.
 
 1. Scroll down to the **Attached certificates** section of the page.
 

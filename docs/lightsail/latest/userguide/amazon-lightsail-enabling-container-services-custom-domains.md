@@ -20,6 +20,7 @@ If you choose a Lightsail container service as the origin of your distribution, 
 
 The following limits apply to container service custom domains:
 + You can use up to 4 custom domains with each of your Lightsail container services, and you cannot use the same domains on more than one service.
++ If you attach a Lightsail web address to a distribution whose origin is your container service, Lightsail adds the web address to the domains of your container service (shown as custom domains in the console), and it counts toward the 4. Don't remove it while it's attached. For more information, see [Add the default domain of a distribution to a Lightsail container service](amazon-lightsail-adding-distribution-default-domain-to-container-service.md).
 + If you use a Lightsail DNS zone to manage the DNS of your domain, then you can route traffic for the apex of your domain (e.g., `example.com`) and for subdomains (e.g., `www.example.com`) to your container services.
 
 ## Prerequisites

@@ -42,8 +42,8 @@ You can create an instance by using the [Lightsail console](https://lightsail.aw
 1. Choose your instance plan.
 
    Choose whether your instance uses dual-stack (IPv4 and IPv6), or IPv6-only networking. Some Lightsail blueprints don't support IPv6-only networking at this time. To see which blueprints support IPv6-only networking see [Review the Lightsail instance blueprint offerings](compare-options-choose-lightsail-instance-image.md).
-
-   You can try the $5 USD Lightsail plan free for one month (up to 750 hours). We will credit one free month to your account. Learn more on our [Lightsail pricing page](https://aws.amazon.com/lightsail/pricing).
+**Note**  
+As part of the AWS Free Tier, you can get started with Amazon Lightsail for free. For more information, see the [AWS Free Tier FAQs](https://aws.amazon.com/free/free-tier-faqs/).
 
 1. Enter a name for your instance.
 

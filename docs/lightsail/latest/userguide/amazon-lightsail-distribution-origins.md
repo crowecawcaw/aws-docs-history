@@ -3,7 +3,7 @@
 # Understand distribution origins in Amazon Lightsail
 <a name="amazon-lightsail-distribution-origins"></a>
 
-<a name="distribution-origin-resource"></a>An *origin* is the definitive source of content for your distribution. When you create your distribution, you choose the Lightsail instance, container service, bucket, or load balancer (with one or more instances attached to it) that hosts the content of your website or web application. This section explains the origin settings you configure for a distribution and links to related origin tasks.
+An *origin* is the definitive source of content for your distribution. When you create your distribution, you choose the Lightsail instance, container service, bucket, or load balancer (with one or more instances attached to it) that hosts the content of your website or web application. This section explains the origin settings you configure for a distribution and links to related origin tasks.
 
 You can choose only one origin per distribution. You can change the origin at any time after you create your distribution. For more information, see [Change the origin of your distribution](amazon-lightsail-changing-distribution-origin.md). Depending on the type of origin resource you choose, your distribution communicates with it using **IPv4-only**, **Dual-stack**, or **IPv6-only**. For more information, see [Origin IP address type](#distribution-origin-ip-address-type).
 

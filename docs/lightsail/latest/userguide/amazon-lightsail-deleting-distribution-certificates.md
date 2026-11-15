@@ -24,7 +24,7 @@ Complete the following procedure to delete an SSL/TLS certificate for your distr
 
 1. Choose the name of the distribution from which you want to delete the SSL/TLS certificate. If the certificate is not currently in use, then you can choose any distribution because all of your certificates are listed in every distribution.
 
-1. Choose the **Custom domains** tab on your distribution's management page.
+1. Choose the **Domains** tab on your distribution's management page, and then choose **Custom domain**.
 
 1. In the **Certificates** section of the page, choose the ellipsis icon (⋮) for the certificate that you want to delete, and choose **Delete**.
 

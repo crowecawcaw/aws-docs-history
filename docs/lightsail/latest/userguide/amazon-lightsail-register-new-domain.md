@@ -5,6 +5,9 @@
 
 You can register new domains using Amazon Lightsail. Lightsail domains are registered through Amazon Route 53, a highly available and scalable DNS web service. If you have domains that are registered with other providers, you can transfer DNS management of those domains to Lightsail. You can also point those domains to your Lightsail resources. 
 
+**Did you know?**  
+ You can give your Lightsail distribution an HTTPS web address, such as `mysite.amazonlightsail.com`, without registering a domain. Web addresses are free while they are attached, and Lightsail manages their DNS records and SSL/TLS certificates, including renewals. For more information, see [ Lightsail web addresses ](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-web-addresses.html) . 
+
 Choose one of the following procedures to register a new domain with Lightsail:
 + For registering a new domain, see [Register a new domain by using Lightsail](#register-new-domain-using-lightsail).
 + For an existing domain, see [Create a DNS zone to manage your domain’s DNS records](lightsail-how-to-create-dns-entry.md).

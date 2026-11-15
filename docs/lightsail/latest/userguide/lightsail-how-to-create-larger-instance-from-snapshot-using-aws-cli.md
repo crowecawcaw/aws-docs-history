@@ -156,7 +156,7 @@ You cannot resize to a smaller bundle from a snapshot. If you want to create a s
    }
    ```
 
-1. Locate the **bundleId** value of the bundle you want. For more information, see [Lightsail Pricing](https://amazonlightsail.com/pricing/).
+1. Locate the **bundleId** value of the bundle you want. For more information, see [Lightsail Pricing](https://aws.amazon.com/lightsail/pricing/).
 
 ## Step 3: Write your AWS CLI command and create your new instance
 <a name="create-larger-instance-from-snapshot-create-your-cli-command"></a>

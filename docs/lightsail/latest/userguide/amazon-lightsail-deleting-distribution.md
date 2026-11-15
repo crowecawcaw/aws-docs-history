@@ -5,6 +5,9 @@
 
 You can delete your Amazon Lightsail distribution at any time if you're no longer using it.
 
+**Important**  
+You can't delete a distribution while a Lightsail web address is attached to it. Detach the web address first. For instructions, see [Detach a web address from your distribution](amazon-lightsail-distribution-web-address.md#distribution-web-address-detach).
+
 ## Delete your distribution
 <a name="deleting-distribution"></a>
 

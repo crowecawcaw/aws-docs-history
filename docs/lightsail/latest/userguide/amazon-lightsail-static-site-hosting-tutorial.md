@@ -29,7 +29,7 @@ You can use an AI assistant of your choice to generate your static site content�
 + [Step 2: Upload your website files to the bucket](#static-site-upload-files)
 + [Step 3: Create a distribution with your bucket as the origin](#static-site-create-distribution)
 + [Step 4: Add a custom error response](#static-site-add-error-response)
-+ [Step 5: (Optional) Configure a custom domain](#static-site-custom-domain)
++ [Step 5: (Optional) Set up a domain](#static-site-custom-domain)
 + [Troubleshooting](#static-site-troubleshooting)
 + [Next steps and related resources](#static-site-next-steps)
 
@@ -105,6 +105,8 @@ The USD $2.50 distribution bundle includes 50 GB of outbound data transfer per m
 
 1. Enter a name for your distribution.
 
+1. (Optional) Under **Add-ons**, select **Add a web address**, and then enter a name for a Lightsail web address, such as `mysite`. Your site is then also available at `https://mysite.amazonlightsail.com`. For more information, see [Step 5: (Optional) Set up a domain](#static-site-custom-domain).
+
 1. Choose **Create distribution**.
 
 Lightsail creates your distribution after a few moments.
@@ -120,7 +122,7 @@ After your distribution status changes to **Deployed**, your static site is live
 ![The Lightsail distribution page showing the Deployed status and default domain URL.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-static-site-deployed.png)
 
 
-Navigate to your distribution's management page to find your site's URL. The **Default domain** (for example, `abc123.cloudfront.net`) is the address where your static site is now accessible. Open this URL in your browser to view your site.
+Navigate to your distribution's management page to find your site's URL. The **Default domain** (for example, `abc123.cloudfront.net`) is the address where your static site is now accessible. Open this URL in your browser to view your site. If you added a web address, your site is also available at your web address after the web address is attached. The **Web address** field at the top of your distribution's management page shows it.
 
 ## Step 4: Add a custom error response
 <a name="static-site-add-error-response"></a>
@@ -136,14 +138,22 @@ When you enable private origin access, your bucket returns HTTP 403 (Forbidden) 
 1. Add an error response for HTTP error code **403**. Specify the response page path to the object that you want to serve (for example, `/404.html`), and set the response code to **404**.  
 ![The Custom error responses section of the distribution's details tab with an error response added for HTTP error code 403.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-static-site-custom-error-responses.png)
 
-## Step 5: (Optional) Configure a custom domain
+## Step 5: (Optional) Set up a domain
 <a name="static-site-custom-domain"></a>
+
+To give your site an address that's easier to remember than the default domain of your distribution, use one of the following options.
+
+**Use a Lightsail web address**
+
+Lightsail web addresses are names that end in `amazonlightsail.com`, such as `mysite.amazonlightsail.com`. Lightsail creates the DNS records and the SSL/TLS certificate for you, so you don't need to register a domain or create a certificate. If you didn't add a web address in Step 3, attach one to your distribution. For instructions, see [Attach a Lightsail web address to your distribution](amazon-lightsail-distribution-web-address.md).
+
+**Use a custom domain**
 
 To use your own domain (for example, `www.example.com`) instead of the default domain of your distribution:
 
 1. **Create an SSL/TLS certificate** for your domain. For more information, see [Create SSL/TLS certificates for your distribution](amazon-lightsail-create-a-distribution-certificate.md).
 
-1. **Enable custom domains** on your distribution. For more information, see [Enable custom domains for your distribution](amazon-lightsail-enabling-distribution-custom-domains.md).
+1. **Enable custom domains** on your distribution. For more information, see [Enable custom domains for your distribution](amazon-lightsail-enabling-distribution-custom-domains.md#enable-distribution-custom-domains).
 
 1. **Add a DNS alias record** pointing your domain to your distribution. For more information, see [Point your domain to a distribution](amazon-lightsail-point-domain-to-distribution.md).
 
@@ -170,7 +180,8 @@ Caching causes this. Your Lightsail distribution caches content at its edge loca
 
 ## Next steps and related resources
 <a name="static-site-next-steps"></a>
-+ [Enable custom domains for your distribution](amazon-lightsail-enabling-distribution-custom-domains.md) – Use your own domain name with your static site.
++ [Lightsail web addresses](amazon-lightsail-web-addresses.md) – Give your static site an HTTPS web address without registering a domain.
++ [Enable custom domains for your distribution](amazon-lightsail-enabling-distribution-custom-domains.md#enable-distribution-custom-domains) – Use your own domain name with your static site.
 + [Monitor your distribution metrics](amazon-lightsail-viewing-distribution-health-metrics.md) – Track requests, data transfer, and error rates.
 + [Enable object versioning on your bucket](amazon-lightsail-managing-bucket-object-versioning.md) – Protect against accidental overwrites during deployments.
 + [Delete your distribution](amazon-lightsail-deleting-distribution.md) – Remove your distribution when you no longer need it.

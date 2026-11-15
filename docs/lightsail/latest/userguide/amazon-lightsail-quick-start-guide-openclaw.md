@@ -102,6 +102,8 @@ The setup script performs the following actions: creates an IAM role specificall
 
 Once this step is complete, navigate to **Chat** in the OpenClaw dashboard to start using your AI assistant.
 
+If you send a message in **Chat** and Chat shows **Unable to finish this reply** instead of a response, the instance can't reach Amazon Bedrock. For more information, see [Troubleshoot Amazon Bedrock access for OpenClaw](#amazon-lightsail-openclaw-troubleshooting).
+
 **Note:** Your Lightsail OpenClaw instance uses Anthropic Claude Sonnet 4.6 by default. If this is your first time using Anthropic models in Amazon Bedrock, you'll need to complete the First Time Use (FTU) form to gain access. [Learn more on how to access Anthropic models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html).
 
 ## Step 4: Connect a messaging channel (optional)
@@ -188,6 +190,77 @@ After completing the setup, we recommend creating a snapshot of your OpenClaw in
 
 **Did you know?**  
  Lightsail stores seven daily snapshots and automatically replaces the oldest with the newest when you enable automatic snapshots for your instance. For more information, see [ Configure automatic snapshots for Lightsail instances and disks ](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots.html) . 
+
+## Troubleshoot Amazon Bedrock access for OpenClaw
+<a name="amazon-lightsail-openclaw-troubleshooting"></a>
+
+**Chat shows "Unable to finish this reply" when I send a message**
+
+You send a message in **Chat** in the OpenClaw dashboard, and instead of a response, Chat shows **Unable to finish this reply** with the message `OpenClaw couldn't finish this reply`.
+
+OpenClaw instances created from the blueprint with OpenClaw version 2026.9.6 configure Amazon Bedrock under the provider name `bedrock`. However, OpenClaw only recognizes the Amazon Bedrock provider as `amazon-bedrock`. To check the OpenClaw version on your instance, run `openclaw --version`.
+
+**To update the Amazon Bedrock provider configuration**
+
+1. Connect to your OpenClaw instance using browser-based SSH from the Lightsail console.
+
+1. Run the following commands. They back up your OpenClaw configuration, update the Amazon Bedrock provider settings, validate the configuration, and restart the OpenClaw gateway. If your configuration already uses the `amazon-bedrock` provider, the commands leave it unchanged.
+
+   ```
+   cp -n ~/.openclaw/openclaw.json ~/.openclaw/openclaw.json.bak
+   sed -i \
+     -e 's/"bedrock": {/"amazon-bedrock": {/' \
+     -e '/"apiKey": "dummy-key-will-use-iam",/d' \
+     -e 's/"authHeader": false/"auth": "aws-sdk"/' \
+     -e 's#"bedrock/global\.anthropic#"amazon-bedrock/global.anthropic#' \
+     ~/.openclaw/openclaw.json
+   openclaw config validate
+   systemctl --user restart openclaw-gateway
+   ```
+
+   The `sed` command makes the following changes to `~/.openclaw/openclaw.json`:
+   + Renames the provider from `bedrock` to `amazon-bedrock`.
+   + Removes the placeholder `apiKey` value.
+   + Replaces `"authHeader": false` with `"auth": "aws-sdk"`, so OpenClaw uses the AWS credentials of the instance role.
+   + Changes the default model to `amazon-bedrock/global.anthropic.claude-sonnet-4-6`.
+
+   The `openclaw config validate` command should report that the configuration is valid. If it does not, restore the previous configuration with `cp ~/.openclaw/openclaw.json.bak ~/.openclaw/openclaw.json`.
+
+1. Send a message in **Chat** again to confirm that OpenClaw responds.
+
+If OpenClaw still doesn't respond, see [I get an AccessDenied error for sts:AssumeRole when I send a message in Chat](#amazon-lightsail-openclaw-assume-role-denied).
+
+**I get an AccessDenied error for sts:AssumeRole when I send a message in Chat**
+
+You run the setup script in Step 3, then send a message in **Chat**, and Chat shows **Unable to finish this reply**. To check whether your instance can assume its role, connect to the instance using SSH and run the following AWS CLI command. Replace {{region}} with the AWS Region of your instance.
+
+```
+AWS_PROFILE=assumed aws bedrock list-inference-profiles --region {{region}}
+```
+
+If the instance cannot assume its role, the command returns an error similar to the following:
+
+```
+User: arn:aws:sts::{{lightsail-account-id}}:assumed-role/AmazonLightsailInstance/{{instance-id}} is not authorized to perform: sts:AssumeRole on resource: arn:aws:iam::{{account-id}}:role/LightsailRoleFor-{{instance-id}}
+```
+
+This happens when your AWS account was created with the new AWS experience. For more information, see [Sign up for AWS (new)](https://docs.aws.amazon.com/accounts/latest/reference/sign-in-new.html) in the *AWS Account Management Reference Guide*.
+
+On these accounts, AWS manages a resource control policy (RCP) that denies `sts:AssumeRole` to principals outside your organization. As a result, your instance cannot assume the `LightsailRoleFor-{{instance-id}}` role created by the setup script. For more information, see [Managed policies for your organization](https://docs.aws.amazon.com/accounts/latest/reference/scps-and-rcps-for-projects.html) in the *AWS Account Management Reference Guide*.
+
+**To let your OpenClaw instance assume its role**
+
+You complete the first two steps in AWS Settings and in the AWS Organizations console of your organization's management account. Your OpenClaw instance stays in its project account. Activating advanced features doesn't move it, so you switch back to that project account for the remaining steps.
+
+1. Activate advanced AWS features for your account. Activation cannot be reversed, so review what changes before you activate. For more information, see [Activate advanced AWS features](https://docs.aws.amazon.com/accounts/latest/reference/activate-advanced-features.html) in the *AWS Account Management Reference Guide*.
+
+1. Remove the AWS managed resource control policy that denies `sts:AssumeRole` to principals outside your organization. For more information, see [Remove organization policies](https://docs.aws.amazon.com/accounts/latest/reference/remove-org-policies.html) in the *AWS Account Management Reference Guide*.
+
+1. Switch to the project that contains your OpenClaw instance. In AWS Settings, choose the project, and then choose **Create and manage cloud infrastructure**. The project name in the upper right of the AWS Management Console shows which project you are in. For more information, see [Switch between projects](https://docs.aws.amazon.com/accounts/latest/reference/switch-projects.html) in the *AWS Account Management Reference Guide*.
+
+1. If your instance runs OpenClaw version 2026.9.6, also follow the steps in [Chat shows "Unable to finish this reply" when I send a message](#amazon-lightsail-openclaw-unable-to-finish-reply) to update the Amazon Bedrock provider configuration.
+
+1. Send a message in **Chat** again to confirm that OpenClaw responds.
 
 ## Frequently asked questions (FAQ)
 <a name="amazon-lightsail-openclaw-faq"></a>

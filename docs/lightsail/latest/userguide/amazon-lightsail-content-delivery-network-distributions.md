@@ -40,7 +40,7 @@ A Content Delivery Network (CDN) resolves this situation by caching your website
 A Lightsail distribution speeds up the delivery of your content (for example, website pages, images, style sheets, JavaScript, and so on) to viewers *worldwide*. By using a distribution, you can take advantage of the AWS backbone network and edge servers to give your viewers a fast, safe, and reliable experience when they visit your website.
 
 **Improve your site’s security**  
-Strengthen your website and increase its performance by taking advantage of TLS termination, which reduces the load on your origin by offloading the cryptographic processing to your distribution. You can use your registered domain name together with a Lightsail SSL/TLS certificate to enable Hypertext Transfer Protocol Secure (HTTPS) for your distribution. Your users establish an encrypted HTTPS connection to your distribution, while your distribution pulls content from your origin using HTTP. You can also enable the Web Application Firewall (WAF) for your distribution to help protect your origin from common web threats and security vulnerabilities.
+Strengthen your website and increase its performance by taking advantage of TLS termination, which reduces the load on your origin by offloading the cryptographic processing to your distribution. You can attach a Lightsail web address or use a custom domain to reach your distribution over Hypertext Transfer Protocol Secure (HTTPS). Your users establish an encrypted HTTPS connection to your distribution, while your distribution pulls content from your origin using HTTP. You can also enable the Web Application Firewall (WAF) for your distribution to help protect your origin from common web threats and security vulnerabilities.
 
 **Application optimization**  
 Easily optimize your distributions for a variety of applications, including WordPress and static websites. Using a distribution to cache and serve your content also reduces the load on your origin, because most requests are served by your distribution and not your instance, container service, load balancer, or bucket.
@@ -72,13 +72,17 @@ These are the general steps to follow to serve your website or web application u
 
 1. (Optional) If your distribution's origin is a WordPress instance, you must edit the WordPress configuration file in your instance to make your WordPress website work with your distribution. For more information, see [Configure your WordPress instance to work with your distribution](amazon-lightsail-configure-wordpress-for-distribution.md).
 
-1. **(Optional) Create a Lightsail DNS zone to manage your domain's DNS in the Lightsail console.** This allows you to easily map your domain to your Lightsail resources. For more information, see [Create a DNS zone to manage your domain’s DNS records](lightsail-how-to-create-dns-entry.md). Alternately, you can continue hosting your domain's DNS where it's currently being hosted.
+1. **Give your distribution a domain that's easy to remember.** Choose one of the following:
+   + **Attach a Lightsail web address.** Lightsail web addresses are names that end in `amazonlightsail.com`. Lightsail creates the DNS records and the SSL/TLS certificate for you. For more information, see [Attach a Lightsail web address to your distribution](amazon-lightsail-distribution-web-address.md).
+   + **Use a custom domain.** Complete the following steps:
 
-1. **Create a Lightsail SSL/TLS certificate for your domain to use it with your distribution.** Lightsail distributions require HTTPS, so you must request an SSL/TLS certificate for your domain before you can use it with your distribution. For more information, see [Create SSL/TLS certificates for your distribution](amazon-lightsail-create-a-distribution-certificate.md).
+     1. **(Optional) Create a Lightsail DNS zone to manage your domain's DNS in the Lightsail console.** This allows you to easily map your domain to your Lightsail resources. For more information, see [Create a DNS zone to manage your domain's DNS records](lightsail-how-to-create-dns-entry.md). Alternately, you can continue hosting your domain's DNS where it's currently being hosted.
 
-1. **Enable custom domains for your distribution to use your registered domain names with your distributions.** Enabling custom domains requires that you specify the Lightsail SSL/TLS certificate that you created for your domains. This adds your domains to your distribution and enables HTTPS. For more information, see [Enable custom domains for your distribution](amazon-lightsail-enabling-distribution-custom-domains.md).
+     1. **Create a Lightsail SSL/TLS certificate for your domain to use it with your distribution.** Lightsail distributions require HTTPS, so you must request an SSL/TLS certificate for your domain before you can use it with your distribution. For more information, see [Create SSL/TLS certificates for your distribution](amazon-lightsail-create-a-distribution-certificate.md).
 
-1. **Add an alias record to your domain's DNS to begin routing traffic for your domain to your distribution.** After you add the alias record, users who visit your domain are routed through your distribution. For more information, see [Point your domain to a distribution](amazon-lightsail-point-domain-to-distribution.md).
+     1. **Enable custom domains for your distribution to use your registered domain names with your distributions.** Enabling custom domains requires that you specify the Lightsail SSL/TLS certificate that you created for your domains. This adds your domains to your distribution and enables HTTPS. For more information, see [Enable custom domains for your distribution](amazon-lightsail-enabling-distribution-custom-domains.md#enable-distribution-custom-domains).
+
+     1. **Add an alias record to your domain's DNS to begin routing traffic for your domain to your distribution.** After you add the alias record, users who visit your domain are routed through your distribution. For more information, see [Point your domain to a distribution](amazon-lightsail-point-domain-to-distribution.md).
 
 1. **(Optional) Enable the Web Application Firewall (WAF) for your distribution.** For more information, see [Protect your distribution with the Web Application Firewall (WAF)](amazon-lightsail-distribution-waf.md).
 
@@ -97,9 +101,17 @@ This section contains the following topics to help you create, configure, and ma
 + [Distribution plans](amazon-lightsail-distribution-plans.md)
   + [Change your distribution plan](amazon-lighstail-changing-distribution-plan.md)
 + [Change the default cache behavior of your distribution](amazon-lightsail-changing-default-cache-behavior.md)
-+ [Enable custom domains for your distribution](amazon-lightsail-enabling-distribution-custom-domains.md)
+  + [Reset cache](amazon-lightsail-resetting-distribution-cache.md)
++ [Distribution domains](amazon-lightsail-enabling-distribution-custom-domains.md)
+  + [Attach a web address](amazon-lightsail-distribution-web-address.md)
+  + [Point your domain to a distribution](amazon-lightsail-point-domain-to-distribution.md)
+  + [Change custom domain](amazon-lightsail-changing-distribution-custom-domains.md)
+  + [Disable distribution custom domains](amazon-lightsail-disabling-distribution-custom-domains.md)
+  + [Add distribution domain to container service](amazon-lightsail-adding-distribution-default-domain-to-container-service.md)
 + [Understand distribution security controls](amazon-lightsail-distribution-security.md)
   + [Protect your distribution with WAF](amazon-lightsail-distribution-waf.md)
++ [Distribution metrics](amazon-lightsail-viewing-distribution-health-metrics.md)
+  + [Create distribution alarms](amazon-lightsail-adding-distribution-health-metric-alarms.md)
 + [Delete your distribution](amazon-lightsail-deleting-distribution.md)
 
 ## Edge locations and IP address ranges

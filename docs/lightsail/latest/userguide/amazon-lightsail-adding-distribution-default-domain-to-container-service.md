@@ -52,3 +52,10 @@ If you added a custom domain to your container service, then you will need to sp
      ```
      aws lightsail update-container-service --service-name {{ContainerServiceName}} --public-domain-names '{"{{example-com}}": ["{{example.com}}"],"_": ["{{example123.cloudfront.net}}"]}'
      ```
+
+## Web addresses on distributions with a container service origin
+<a name="web-address-container-service-domains"></a>
+
+If you attach a Lightsail web address to a distribution whose origin is a container service, Lightsail also adds the web address to the domains of your container service (shown as custom domains in the console), and removes it when you detach the web address. The web address counts toward the 4 domains that you can use with a container service.
+
+Don't remove the web address from your container service while it's attached to your distribution. Otherwise, traffic for the web address can't reach your container service. For instructions to attach a web address, see [Attach a Lightsail web address to your distribution](amazon-lightsail-distribution-web-address.md).

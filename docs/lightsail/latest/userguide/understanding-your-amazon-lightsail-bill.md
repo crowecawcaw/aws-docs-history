@@ -39,10 +39,11 @@ For the following usage types that specify a **Region** code, see the [Region co
 + **Amazon Lightsail RelationalDatabase:{Size}GB:** The standard database plans used (in hours). The **{Size}** defines the memory specification of the database plan used. For example, if **4GB** of memory is specified, then the billed hours for the $60 USD/month standard database plan is displayed.
 + **Amazon Lightsail RelationalDatabase:{Size}GB (high availability):** The high availability database plans used (in hours). The **{Size}** defines the memory specification of the database plan used. For example, if **4GB** of memory is specified, then the billed hours for the $120 USD/month high availability database plan is displayed.
 + **Amazon Lightsail Region-DiskUsage:** The amount of block storage disk used (in gigabytes per month).
-+ **Amazon Lightsail DNS-Queries:** The number (count) of DNS queries for the month.
++ **Amazon Lightsail DNS-Queries:** The number (count) of DNS queries for the month, including queries to your Lightsail web addresses.
 + **Amazon Lightsail Load Balancer:** The amount of load balancers used (in hours).
 + **Amazon Lightsail Region-SnapshotUsage:** The amount of stored snapshot data (in gigabytes per month).
 + **Amazon Lightsail Region-UnusedStaticIP:** The amount of un-attached static IPs (in hours).
++ **Amazon Lightsail USE1-UnattachedSubdomainUsage:** The amount of time that your Lightsail web addresses weren't attached to a distribution (in hours). Web addresses are billed in the US East (N. Virginia) Region, so this usage type always starts with USE1.
 + **Amazon Lightsail Region-TotalDataXfer-In-Bytes:** The total amount of data transferred in (in gigabytes).
 + **Amazon Lightsail Region-TotalDataXfer-Out-Bytes:** The total amount of data transferred out (in gigabytes).
 + **Amazon Lightsail Region-DataXfer-Out-Overage-Bytes:** The amount of data transferred out to the internet or public IPs that is over the allowance of the instance or database plan(s) used (in gigabytes).

@@ -7,6 +7,9 @@ Your website needs a name, such as `example.com`. With Amazon Lightsail you can 
 
 Use the **Domains & DNS** tab in the Amazon Lightsail console to register and manage domain names. Lightsail uses Amazon Route 53, a highly available and scalable Domain Name System (DNS) web service, to register domains for you. After your domain is registered, you can assign it to your Lightsail resources or manage DNS records for it. For general information about DNS, see [DNS](understanding-dns-in-amazon-lightsail.md).
 
+**Did you know?**  
+ You can give your Lightsail distribution an HTTPS web address, such as `mysite.amazonlightsail.com`, without registering a domain. Web addresses are free while they are attached, and Lightsail manages their DNS records and SSL/TLS certificates, including renewals. For more information, see [ Lightsail web addresses ](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-web-addresses.html) . 
+
 For more information about domain registration in Amazon Lightsail, continue reading.
 
 **Contents**
@@ -32,7 +35,7 @@ Amazon Registrar and Gandi hide different information by default. Amazon Registr
 
 For more information about how to register a domain name, see [Register a new domain](amazon-lightsail-register-new-domain.md).
 
-After you register a domain using Lightsail, Route 53 makes itself the DNS service for your domain by assigning a set of name servers to your domain. A name server is a server that helps translate domain names into IP addresses. .
+After you register a domain using Lightsail, Route 53 makes itself the DNS service for your domain by assigning a set of name servers to your domain. A name server is a server that helps translate domain names into IP addresses.
 
 Lightsail automatically does the following to make itself the DNS service for the domain:
 + Creates a [Lightsail DNS zone](understanding-dns-in-amazon-lightsail.md) that has the same name as your domain.

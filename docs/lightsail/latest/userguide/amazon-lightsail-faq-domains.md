@@ -1,12 +1,15 @@
 
 
-# Domains
+# Registered domains and DNS
 <a name="amazon-lightsail-faq-domains"></a>
 
 ## What can I do with Lightsail domains?
 <a name="what-can-i-do-with-lightsail-domains"></a>
 
 Lightsail domains allow you to register and manage domains for your website or application. If you have domains that are registered with other providers, you can transfer management of those domains to Lightsail. You can also point those domains to your Lightsail resources.
+
+**Note**  
+If you don't need your own domain, you can attach a Lightsail web address, such as `mysite.amazonlightsail.com`, to your distribution instead. For more information, see [Lightsail web addresses](amazon-lightsail-web-addresses.md).
 
 ## What top-level domains (TLDs) can I use?
 <a name="what-top-level-domains-can-i-use"></a>
@@ -21,7 +24,7 @@ You can transfer DNS management of a domain that you registered using another DN
 ## How do I get started with domain registration in Lightsail?
 <a name="how-do-i-get-started-domain-registration"></a>
 
-After logging in to Lightsail, you can use the [Lightsail console](https://lightsail.aws.amazon.com/) to create and manage domains. For more information, see [Domain registration](amazon-lightsail-domain-registration.md).
+After logging in to Lightsail, you can use the [Lightsail console](https://lightsail.aws.amazon.com/) to create and manage domains. For more information, see [Registered domains](amazon-lightsail-domain-registration.md).
 
 ## When should I register a domain in Lightsail versus Route 53?
 <a name="when-should-i-register-domain-in-lightsail-r53"></a>

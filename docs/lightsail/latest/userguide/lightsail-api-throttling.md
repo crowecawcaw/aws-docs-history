@@ -40,12 +40,13 @@ The following table lists the token bucket sizes and refill rates for each API a
 |  +  StaticIp mutating actions <br />+  Contact method mutating actions <br />+  `SetIpAddressType` <br />+  Create or delete certificate actions <br />+  Copy or export snapshot actions <br />+  `DeleteKnownHostKeys` <br />+  `UpdateInstanceMetadataOptions`   | 1 | 1 | 
 |  +  All Bucket mutating actions except `DeleteBucket` <br />+  `DeleteRelationalDatabase`   | 5 | 2 | 
 |  +  All Container mutating actions except `DeleteContainerImage` <br />+  `CreateCloudFormationStack` <br />+  `ResetDistributionCache` <br />+  `TestAlarm`   | 1 | 0.5 | 
-|  +  `AttachCertificateToDistribution` <br />+  `CreateDistribution` <br />+  `DeleteBucket` <br />+  `DeleteDistribution` <br />+  `DetachCertificateFromDistribution` <br />+  `UpdateDistribution`   | 2 | 0.2 | 
+|  +  `AttachCertificateToDistribution` <br />+  `CreateDistribution` <br />+  `CreateSubdomain` <br />+  `DeleteBucket` <br />+  `DeleteDistribution` <br />+  `DeleteSubdomain` <br />+  `DetachCertificateFromDistribution` <br />+  `UpdateDistribution` <br />+  `UpdateSubdomainAssociation`   | 2 | 0.2 | 
 |  +  `DeleteAutoSnapshot` <br />+  `DeleteContainerImage` <br />+  `DisableAddOn` <br />+  `EnableAddOn` <br />+  `GetAlarms` <br />+  `GetAutoSnapshots` <br />+  `GetContactMethods` <br />+  `GetContainerLog` <br />+  `IsVpcPeered`   | 5 | 1 | 
 |  +  `TagResource` <br />+  `UntagResource`   | 40 | 10 | 
 |  +  `CreateRelationalDatabaseSnapshot` <br />+  `GetRelationalDatabase` <br />+  `GetRelationalDatabaseEvents` <br />+  `GetRelationalDatabaseSnapshot` <br />+  `GetRelationalDatabaseSnapshots` <br />+  `GetRelationalDatabases`   | 20 | 4 | 
 |  +  `GetBucketMetricData` <br />+  `GetContainerServiceMetricData` <br />+  `GetDistributionBundles` <br />+  `GetDistributionLatestCacheReset` <br />+  `GetDistributionMetricData` <br />+  `GetDistributions` <br />+  `UpdateDistributionBundle`   | 7 | 5 | 
 |  +  `AttachInstancesToLoadBalancer` <br />+  `DetachInstancesFromLoadBalancer`   | 10 | 2 | 
+| `CheckSubdomainAvailability` | 10 | 2 | 
 | `CreateGUISessionAccessDetails` | 20 | 20 | 
 | `CreateLoadBalancer` | 3 | 1 | 
 | `CreateRelationalDatabaseFromSnapshot` | 15 | 1 | 
@@ -61,6 +62,7 @@ The following table lists the token bucket sizes and refill rates for each API a
 | `GetRelationalDatabaseLogStreams` | 20 | 3 | 
 | `GetRelationalDatabaseParameters` | 20 | 3 | 
 | `GetSetupHistory` | 5 | 5 | 
+| `GetSubdomains` | 10 | 5 | 
 | `PutAlarm` | 3 | 1 | 
 | `RebootRelationalDatabase` | 20 | 3 | 
 | `RegisterContainerImage` | 5 | 1 | 

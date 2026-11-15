@@ -39,6 +39,7 @@ For more information, see [Name server](https://en.wikipedia.org/wiki/Name_serve
 
 **Subdomain**  
 A subdomain is anything in the domain hierarchy, other than the root domain, that is part of the larger domain. For example, `blog` is the subdomain part of the `blog.example.com` subdomain.  
+A Lightsail web address, such as `mysite.amazonlightsail.com`, isn't a subdomain of a domain that you registered, even though the Lightsail API calls web addresses *subdomains*. For more information, see [Lightsail web addresses](amazon-lightsail-web-addresses.md).  
 For more information, see [Subdomain](https://en.wikipedia.org/wiki/Subdomain) on *Wikipedia*.
 
 **Time to live (TTL)**  

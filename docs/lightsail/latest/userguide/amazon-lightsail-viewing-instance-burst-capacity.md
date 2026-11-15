@@ -14,7 +14,7 @@ Amazon Lightsail instances provide a baseline amount of CPU performance, but als
 With the following topics, you will learn how to monitor these metrics to maximize the availability of your instance.
 
 **Topics**
-+ [CPU performance](baseline-cpu-performance.md)
++ [Baseline CPU performance](baseline-cpu-performance.md)
 + [Burst capacity accrual](cpu-burst-capacity-accrual.md)
 + [Identify instance bursts](identifying-instance-burst.md)
 + [Monitor burst capacity](monitoring-cpu-burst-capacity.md)

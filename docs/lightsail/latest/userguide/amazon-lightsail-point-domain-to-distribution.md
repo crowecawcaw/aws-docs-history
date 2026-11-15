@@ -5,6 +5,9 @@
 
 You must point your registered domain names to your Amazon Lightsail distribution after you enabled custom domains for your distribution. You do this by adding an alias record to the DNS zone of each of the domains specified on the certificate that you're using with your distribution. All of the records that you add should point to the default domain (e.g., `123456abcdef.cloudfront.net`) of your distribution.
 
+**Did you know?**  
+ You can give your Lightsail distribution an HTTPS web address, such as `mysite.amazonlightsail.com`, without registering a domain. Web addresses are free while they are attached, and Lightsail manages their DNS records and SSL/TLS certificates, including renewals. For more information, see [ Lightsail web addresses ](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-web-addresses.html) . 
+
 In this guide, we provide you with the procedure to point your domains to your distribution using a Lightsail DNS zone. The procedure to point your domains to your distribution using a different DNS hosting provider, like Domain.com or GoDaddy, may be similar. For more information about Lightsail DNS zones, see [DNS](understanding-dns-in-amazon-lightsail.md).
 
 For more information about distributions, see [Create a distribution](amazon-lightsail-creating-content-delivery-network-distribution.md).
@@ -17,7 +20,7 @@ For more information about distributions, see [Create a distribution](amazon-lig
 ## Step 1: Complete the prerequisite
 <a name="point-domain-to-distribution-prerequisite"></a>
 
-Before you get started, you should enable custom domains for your Lightsail distribution. For more information, see [Enable custom domains for your distribution](amazon-lightsail-enabling-distribution-custom-domains.md).
+Before you get started, you should enable custom domains for your Lightsail distribution. For more information, see [Enable custom domains for your distribution](amazon-lightsail-enabling-distribution-custom-domains.md#enable-distribution-custom-domains).
 
 ## Step 2: Get the default domain of your distribution
 <a name="get-distribution-default-domain-name"></a>

@@ -14,7 +14,7 @@ See the following topics for more information about instances:
 + [Blueprints](compare-options-choose-lightsail-instance-image.md)
 + [Bundles](amazon-lightsail-bundles.md)
 + [Instance firewalls](understanding-firewall-and-port-mappings-in-amazon-lightsail.md)
-+ [Burst capacity and performance](amazon-lightsail-viewing-instance-burst-capacity.md)
++ [Monitor performance](amazon-lightsail-viewing-instance-health-metrics.md)
 + [Instance management](managing-your-instance-using-lightsail.md)
 + [Delete instances](delete-an-amazon-lightsail-instance.md)
 + [SSH and connecting to instances](understanding-ssh-in-amazon-lightsail.md)

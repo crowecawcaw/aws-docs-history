@@ -39,6 +39,9 @@ With Lightsail Object storage buckets, you can store and retrieve objects, at an
 **CDN distributions**  
 Lightsail enables content delivery network (CDN) distributions, which are built on the same infrastructure as Amazon CloudFront. You can easily distribute your content to a global audience by setting up proxy servers across the world, so that your users can access your website geographically closer to them, thus reducing latency. [Learn more](amazon-lightsail-content-delivery-network-distributions.md)
 
+**Web addresses**  
+You can give your Lightsail distribution an HTTPS web address, such as `mysite.amazonlightsail.com`, without registering a domain. Web addresses are free while they are attached, and Lightsail manages their DNS records and SSL/TLS certificates, including renewals. [Learn more](amazon-lightsail-web-addresses.md)
+
 **Access to AWS services**  
 Lightsail uses a focused set of features like instances, managed databases and load balancers to make it easier to get started. But that doesn't mean you're limited to those options –you can integrate your Lightsail project with some of the 90\+ other services in AWS through Amazon VPC peering. [Learn more](using-lightsail-with-other-aws-services.md)
 

@@ -48,6 +48,7 @@ The following resources can be tagged using the [Lightsail API](https://docs.aws
 + Key pairs
 + Load balancer TLS certificates (TLS certificates created using Lightsail)
 + Load balancers
++ Subdomains (web addresses)
 
 **Important**  
 Snapshots created using the Lightsail API, AWS CLI, or SDKs do not automatically inherit tags from the source resource. Instead, you must manually specify the tags from the source resource using the `tags` parameter.

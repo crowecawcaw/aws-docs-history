@@ -48,7 +48,7 @@ You can get started with enabling custom domains and HTTPS on your distribution 
 + [Create SSL/TLS certificates for your distribution](amazon-lightsail-create-a-distribution-certificate.md)
 + [Validate SSL/TLS certificates for your distribution](amazon-lightsail-validating-a-distribution-certificate.md)
 + [View SSL/TLS certificates for your distribution](amazon-lightsail-viewing-distribution-certificates.md)
-+ [Enable custom domains for your distribution](amazon-lightsail-enabling-distribution-custom-domains.md)
++ [Enable custom domains for your distribution](amazon-lightsail-enabling-distribution-custom-domains.md#enable-distribution-custom-domains)
 + [Point your domain to a distribution](amazon-lightsail-point-domain-to-distribution.md)
 
 For more information about distributions, see [Content delivery network distributions](amazon-lightsail-content-delivery-network-distributions.md).

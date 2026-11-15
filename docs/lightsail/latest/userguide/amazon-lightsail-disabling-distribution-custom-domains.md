@@ -3,7 +3,10 @@
 # Disable custom domains for Lightsail distributions
 <a name="amazon-lightsail-disabling-distribution-custom-domains"></a>
 
-Disable custom domains for your Amazon Lightsail distribution to stop using your registered domain names with your distribution. After you disable custom domains, your distribution accepts traffic only for the default domain that is associated with your distribution when you first create it (e.g., `123456abcdef.cloudfront.net`), and traffic for the previously associated custom domains will see a 403 error.
+Disable custom domains for your Amazon Lightsail distribution to stop using your registered domain names with your distribution. After you disable custom domains, your distribution accepts traffic only for the default domain that is associated with your distribution when you first create it (e.g., `d111111abcdef8.cloudfront.net`), and traffic for the previously associated custom domains will see a 403 error.
+
+**Note**  
+If your distribution uses a Lightsail web address instead of a custom domain, detach the web address. For instructions, see [Detach a web address from your distribution](amazon-lightsail-distribution-web-address.md#distribution-web-address-detach).
 
 For more information about distributions, see [Content delivery network distributions](amazon-lightsail-content-delivery-network-distributions.md).
 
@@ -18,9 +21,9 @@ Complete the following procedure to disable custom domains for your distribution
 
 1. Choose the name of the distribution for which want to disable custom domains.
 
-1. Choose the **Custom domains** tab on your distribution's management page.
+1. Choose the **Domains** tab on your distribution's management page, and then choose **Custom domain**.
 
-   The **Custom domains** page displays the SSL/TLS certificates currently attached to your distribution, if any.
+   The tab displays the SSL/TLS certificates currently attached to your distribution, if any.
 
 1. Choose one of the following options:
 
@@ -30,4 +33,4 @@ Complete the following procedure to disable custom domains for your distribution
 
    Your request to disable custom domains is submitted, and the status of your distribution is changed to **In progress**. After a while, the status of your distribution changes to **Enabled**.
 
-After you disable custom domains, your distribution accepts traffic only for the default domain that is associated with your distribution when you first create it (e.g., `123456abcdef.cloudfront.net`), and traffic for the previously associated custom domains will see a 403 error. You should update the DNS records of the domains so that traffic for those domains is directed to another resource.
+After you disable custom domains, your distribution accepts traffic only for the default domain that is associated with your distribution when you first create it (e.g., `d111111abcdef8.cloudfront.net`), and traffic for the previously associated custom domains will see a 403 error. You should update the DNS records of the domains so that traffic for those domains is directed to another resource.

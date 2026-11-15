@@ -27,10 +27,10 @@ Complete the following procedure to view your distribution SSL/TLS certificates.
 
    You can view all of your certificates regardless of the distribution you choose.
 
-1. Choose the **Custom domains** tab on your distribution's management page.
+1. Choose the **Domains** tab on your distribution's management page, and then choose **Custom domain**.
 
 1. Scroll down to the **Attached certificates** section of the page.
 
    All of your distribution certificates are listed under the **Attached certificates** section of the page. Expand **Validation details** to view your certificate's important dates, encryption details, identification, and validation records. Your certificates are valid for 13 months from the date you created them, after which time Lightsail attempts to automatically revalidate them. Don't delete the CNAME records that you added to your domain because they are required when your certificate is re-validated on the **Valid until** date listed.
 
-   After you have a valid SSL/TLS certificate to use with your distribution, you should enable custom domains so that you can use the domain names of the certificate on your distribution. For more information, see [Enable custom domains for your distribution](amazon-lightsail-enabling-distribution-custom-domains.md).
+   After you have a valid SSL/TLS certificate to use with your distribution, you should enable custom domains so that you can use the domain names of the certificate on your distribution. For more information, see [Enable custom domains for your distribution](amazon-lightsail-enabling-distribution-custom-domains.md#enable-distribution-custom-domains).

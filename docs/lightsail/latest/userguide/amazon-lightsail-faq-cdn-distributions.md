@@ -38,6 +38,9 @@ Yes. Lightsail distributions makes it easy to create, verify, and attach certifi
 
 A certificate is only required if you wish to use your custom domain name with your distribution. All Lightsail distributions are created with a unique Amazon CloudFront domain name that is HTTPS-enabled. However, if you wish to use your custom domain with your distribution, then you need to attach a certificate for your custom domain to your distribution.
 
+**Note**  
+If you attach a Lightsail web address to your distribution, you don't need a certificate. Lightsail manages the certificate for your web address. For more information, see [Attach a Lightsail web address to your distribution](amazon-lightsail-distribution-web-address.md).
+
 ## Is there a limit to the number of certificates I can create?
 <a name="certificate-creation-limit"></a>
 

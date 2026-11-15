@@ -12,7 +12,7 @@ If your instance uses the WordPress blueprint packaged by Lightsail, see [WordPr
 
 In this guide, we show you how to configure your WordPress instance to work with an Amazon Lightsail distribution.
 
-All Lightsail distributions have HTTPS enabled by default for their default domain (for example, `123456abcdef.cloudfront.net`). The configuration of your distribution determines whether the connection between your distribution and your instance is encrypted.
+All Lightsail distributions have HTTPS enabled by default for their default domain (for example, `d111111abcdef8.cloudfront.net`). The configuration of your distribution determines whether the connection between your distribution and your instance is encrypted.
 + **Your WordPress website uses HTTP only** – If your website uses HTTP only as the origin of your distribution, and it is not configured to use HTTPS, you can configure your distribution to terminate SSL/TLS and forward all content requests to your instance using an unencrypted connection.
 + **Your WordPress website uses HTTPS** – If your website uses HTTPS as the origin of your distribution, you can configure your distribution to forward all content requests to your instance using an encrypted connection. This configuration is known as end-to-end encryption.
 
@@ -38,9 +38,11 @@ Complete the following steps to configure a Lightsail distribution for your Word
 
 1. (Optional) To configure end-to-end encryption, change the origin protocol policy to **HTTPS only**. For more information, see [Origin protocol policy](amazon-lightsail-changing-distribution-origin.md#changing-distribution-origin-protocol-policy). This requires your WordPress instance to serve HTTPS. For instructions, see [Enable HTTPS on your WordPress instance](amazon-lightsail-enabling-https-on-wordpress-bitnami.md).
 
+1. (Optional) To use a Lightsail web address instead of a custom domain, under **Add-ons**, select **Add a web address**, and then enter a name for your web address. If you add a web address, skip the steps after you create the distribution in this procedure, and skip the [Update DNS records](#update-dns-records-wordpress-bitnami) section.
+
 1. Configure the remaining options and then choose **Create distribution**.
 
-1. On the **Custom domains** tab, choose **Create certificate**. Enter a unique name for the certificate, enter the names of your domain and subdomains, and then choose **Create certificate**.
+1. On the **Domains** tab, choose **Custom domain**, and then choose **Create certificate**. Enter a unique name for the certificate, enter the names of your domain and subdomains, and then choose **Create certificate**.
 
 1. Choose **Attach certificate**.
 
@@ -128,6 +130,8 @@ We recommend that you create a snapshot of your WordPress instance before gettin
      }
      ```
 
+     In the code, replace `DOMAIN` with the domain name of your website, such as `www.example.com`, or with your Lightsail web address, such as `mysite.amazonlightsail.com`.
+
 1. Press the **Esc** key to exit insert mode in Vim, then type `:wq!` and press **Enter** to save your edits (write) and quit Vim.
 
 1. Enter the following command to restart the Apache service on your instance.
@@ -162,7 +166,7 @@ Here are some articles to help you manage distributions in Lightsail:
 + [Change the caching behavior of your distribution](amazon-lightsail-changing-default-cache-behavior.md)
 + [Reset the cache of your distribution](amazon-lightsail-resetting-distribution-cache.md)
 + [Change the plan of your distribution](amazon-lighstail-changing-distribution-plan.md)
-+ [Enable custom domains for your distribution](amazon-lightsail-enabling-distribution-custom-domains.md)
++ [Enable custom domains for your distribution](amazon-lightsail-enabling-distribution-custom-domains.md#enable-distribution-custom-domains)
 + [Point your domains to your distribution](amazon-lightsail-point-domain-to-distribution.md)
 + [Change custom domains for your distribution](amazon-lightsail-changing-distribution-custom-domains.md)
 + [Disable custom domains for your distributions](amazon-lightsail-disabling-distribution-custom-domains.md)

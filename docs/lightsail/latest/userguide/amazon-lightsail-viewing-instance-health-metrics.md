@@ -83,6 +83,7 @@ There are a few additional tasks that you can perform for your instance metrics:
 + [CPU utilization sustainable and burstable zones](#cpu-utilization-zones)
 + [View instance metrics in the Lightsail console](#viewing-instance-metrics-console)
 + [Next steps](#next-steps-viewing-instance-metrics)
-+ [Create instance alarms](amazon-lightsail-adding-instance-health-metric-alarms.md)
++ [CPU performance](amazon-lightsail-viewing-instance-burst-capacity.md)
 + [System disk performance](amazon-lightsail-viewing-instance-disk-performance-metrics.md)
 + [Instance status checks](amazon-lightsail-viewing-instance-status-checks.md)
++ [Create instance alarms](amazon-lightsail-adding-instance-health-metric-alarms.md)
