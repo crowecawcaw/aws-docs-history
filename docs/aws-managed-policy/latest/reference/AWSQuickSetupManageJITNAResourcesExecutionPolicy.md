@@ -16,13 +16,13 @@ You can attach `AWSQuickSetupManageJITNAResourcesExecutionPolicy` to your users,
 <a name="AWSQuickSetupManageJITNAResourcesExecutionPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: April 17, 2025, 21:37 UTC 
-+ **Edited time:** February 12, 2026, 17:57 UTC
++ **Edited time:** November 12, 2026, 17:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSQuickSetupManageJITNAResourcesExecutionPolicy`
 
 ## Policy version
 <a name="AWSQuickSetupManageJITNAResourcesExecutionPolicy-version"></a>
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -71,7 +71,7 @@ The policy's default version is the version that defines the permissions for the
       "Resource" : "arn:aws:iam::*:role/SSM-JustInTimeAccessTokenRole",
       "Condition" : {
         "ArnEquals" : {
-          "iam:PolicyARN" : "arn:aws:iam::*:policy/AWSSystemsManagerJustInTimeAccessTokenPolicy"
+          "iam:PolicyARN" : "arn:aws:iam::aws:policy/AWSSystemsManagerJustInTimeAccessTokenPolicy"
         }
       }
     },

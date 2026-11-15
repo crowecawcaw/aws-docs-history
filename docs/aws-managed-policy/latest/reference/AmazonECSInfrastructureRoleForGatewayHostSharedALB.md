@@ -16,13 +16,13 @@ You can attach `AmazonECSInfrastructureRoleForGatewayHostSharedALB` to your user
 <a name="AmazonECSInfrastructureRoleForGatewayHostSharedALB-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: September 25, 2026, 21:17 UTC 
-+ **Edited time:** September 25, 2026, 21:17 UTC
++ **Edited time:** November 09, 2026, 15:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AmazonECSInfrastructureRoleForGatewayHostSharedALB`
 
 ## Policy version
 <a name="AmazonECSInfrastructureRoleForGatewayHostSharedALB-version"></a>
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -52,6 +52,7 @@ The policy's default version is the version that defines the permissions for the
         "elasticloadbalancing:CreateLoadBalancer",
         "elasticloadbalancing:CreateRule",
         "elasticloadbalancing:CreateTargetGroup",
+        "elasticloadbalancing:ModifyTargetGroupAttributes",
         "elasticloadbalancing:ModifyListener",
         "elasticloadbalancing:ModifyLoadBalancerAttributes",
         "elasticloadbalancing:ModifyRule",

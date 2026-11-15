@@ -16,13 +16,13 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AWSPCSServiceRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: August 27, 2024, 16:01 UTC 
-+ **Edited time:** September 30, 2026, 18:07 UTC
++ **Edited time:** November 10, 2026, 09:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AWSPCSServiceRolePolicy`
 
 ## Policy version
 <a name="AWSPCSServiceRolePolicy-version"></a>
 
-**Policy version:** v10 (default)
+**Policy version:** v11 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -89,7 +89,9 @@ The policy's default version is the version that defines the permissions for the
         "ec2:DescribeImages",
         "ec2:DescribeImageAttribute",
         "ec2:DescribeCapacityReservations",
-        "ec2:DescribeTags"
+        "ec2:DescribeTags",
+        "ec2:DescribeInstanceTopology",
+        "ec2:DescribeCapacityReservationTopology"
       ],
       "Resource" : "*"
     },

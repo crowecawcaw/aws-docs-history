@@ -16,13 +16,13 @@ You can attach `AWSTransformServerMigrationAgentPolicy` to your users, groups, a
 <a name="AWSTransformServerMigrationAgentPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 06, 2026, 15:27 UTC 
-+ **Edited time:** October 11, 2026, 08:47 UTC
++ **Edited time:** November 12, 2026, 06:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSTransformServerMigrationAgentPolicy`
 
 ## Policy version
 <a name="AWSTransformServerMigrationAgentPolicy-version"></a>
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -33,6 +33,24 @@ The policy's default version is the version that defines the permissions for the
 {
   "Version" : "2012-10-17",
   "Statement" : [
+    {
+      "Sid" : "CloudWatchViaMgnOperationsReadOnly",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudwatch:GetMetricData"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : [
+            "mgn.amazonaws.com"
+          ]
+        },
+        "StringEquals" : {
+          "aws:RequestedRegion" : "${aws:PrincipalTag/TargetRegion}"
+        }
+      }
+    },
     {
       "Sid" : "Ec2LaunchTemplateOperationsWrite",
       "Effect" : "Allow",
@@ -57,6 +75,7 @@ The policy's default version is the version that defines the permissions for the
         "ec2:DescribeVpcs",
         "ec2:DescribeSubnets",
         "ec2:DescribeInstanceTypes",
+        "ec2:DescribeInstanceTypeOfferings",
         "ec2:DescribeSecurityGroups",
         "ec2:DescribeLaunchTemplateVersions"
       ],
@@ -239,6 +258,26 @@ The policy's default version is the version that defines the permissions for the
       }
     },
     {
+      "Sid" : "Ec2ViaMgnCreateSecurityGroupOnAmsVpc",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:CreateSecurityGroup"
+      ],
+      "Resource" : "arn:aws:ec2:*:*:vpc/*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : [
+            "mgn.amazonaws.com"
+          ]
+        },
+        "StringEquals" : {
+          "aws:RequestedRegion" : "${aws:PrincipalTag/TargetRegion}",
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
+          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
+        }
+      }
+    },
+    {
       "Sid" : "Ec2ViaMgnRunInstancesOnAmsSubnet",
       "Effect" : "Allow",
       "Action" : [
@@ -395,6 +434,36 @@ The policy's default version is the version that defines the permissions for the
           "aws:ResourceTag/ATWorkspace" : "${aws:PrincipalTag/WorkspaceId}",
           "aws:ResourceTag/CreatedBy" : "AWSTransform",
           "ec2:Owner" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "ElbOperationsReadOnly",
+      "Effect" : "Allow",
+      "Action" : [
+        "elasticloadbalancing:DescribeTags",
+        "elasticloadbalancing:DescribeTargetGroups",
+        "elasticloadbalancing:DescribeTargetHealth"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:RequestedRegion" : "${aws:PrincipalTag/TargetRegion}"
+        }
+      }
+    },
+    {
+      "Sid" : "ElbTargetGroupRegisterTargetsWithResourceTag",
+      "Effect" : "Allow",
+      "Action" : [
+        "elasticloadbalancing:RegisterTargets"
+      ],
+      "Resource" : "arn:aws:elasticloadbalancing:*:*:targetgroup/*/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:RequestedRegion" : "${aws:PrincipalTag/TargetRegion}",
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
+          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
         }
       }
     },
@@ -558,6 +627,7 @@ The policy's default version is the version that defines the permissions for the
       "Effect" : "Allow",
       "Action" : [
         "mgn:CreateApplication",
+        "mgn:CreateRemoteSourceAction",
         "mgn:CreateWave"
       ],
       "Resource" : "*",
@@ -613,7 +683,9 @@ The policy's default version is the version that defines the permissions for the
       ],
       "Resource" : [
         "arn:aws:mgn:*:*:export/*",
-        "arn:aws:mgn:*:*:import/*"
+        "arn:aws:mgn:*:*:import/*",
+        "arn:aws:mgn:*:*:remote-source-action-job/*",
+        "arn:aws:mgn:*:*:remote-source-action/*"
       ],
       "Condition" : {
         "StringEquals" : {
@@ -623,7 +695,9 @@ The policy's default version is the version that defines the permissions for the
           "aws:ResourceAccount" : "${aws:PrincipalAccount}",
           "mgn:CreateAction" : [
             "StartExport",
-            "StartImport"
+            "StartImport",
+            "StartRemoteSourceActionJob",
+            "CreateRemoteSourceAction"
           ]
         }
       }
@@ -634,12 +708,14 @@ The policy's default version is the version that defines the permissions for the
       "Action" : [
         "mgn:DescribeJobLogItems",
         "mgn:ListExportErrors",
-        "mgn:ListImportErrors"
+        "mgn:ListImportErrors",
+        "mgn:ListRemoteSourceActionInvocations"
       ],
       "Resource" : [
         "arn:aws:mgn:*:*:export/*",
         "arn:aws:mgn:*:*:import/*",
-        "arn:aws:mgn:*:*:job/*"
+        "arn:aws:mgn:*:*:job/*",
+        "arn:aws:mgn:*:*:remote-source-action-job/*"
       ],
       "Condition" : {
         "StringEquals" : {
@@ -672,12 +748,79 @@ The policy's default version is the version that defines the permissions for the
       }
     },
     {
+      "Sid" : "MgnRemoteSourceActionCrossAccountOperationsWithResourceTag",
+      "Effect" : "Allow",
+      "Action" : [
+        "mgn:StartRemoteSourceActionJob"
+      ],
+      "Resource" : [
+        "arn:aws:mgn:*:*:remote-source-action/*",
+        "arn:aws:mgn:*:*:source-server/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:RequestedRegion" : "${aws:PrincipalTag/TargetRegion}",
+          "aws:ResourceOrgID" : "${aws:PrincipalOrgID}",
+          "aws:ResourceTag/ATWorkspace" : "${aws:PrincipalTag/WorkspaceId}",
+          "aws:ResourceTag/CreatedBy" : "AWSTransform"
+        }
+      }
+    },
+    {
+      "Sid" : "MgnRemoteSourceActionJobCreateWithRequestTag",
+      "Effect" : "Allow",
+      "Action" : "mgn:StartRemoteSourceActionJob",
+      "Resource" : "arn:aws:mgn:*:*:remote-source-action-job/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:RequestTag/ATWorkspace" : "${aws:PrincipalTag/WorkspaceId}",
+          "aws:RequestTag/CreatedBy" : "AWSTransform",
+          "aws:RequestedRegion" : "${aws:PrincipalTag/TargetRegion}",
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "MgnRemoteSourceActionConnectorOperationsWithResourceTag",
+      "Effect" : "Allow",
+      "Action" : [
+        "mgn:StartRemoteSourceActionJob"
+      ],
+      "Resource" : "arn:aws:mgn:*:*:connector/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:RequestedRegion" : "${aws:PrincipalTag/TargetRegion}",
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
+          "aws:ResourceTag/ATWorkspace" : "${aws:PrincipalTag/WorkspaceId}",
+          "aws:ResourceTag/CreatedFor" : "AWSTransform"
+        }
+      }
+    },
+    {
+      "Sid" : "MgnRemoteSourceActionOperationsWithResourceTag",
+      "Effect" : "Allow",
+      "Action" : [
+        "mgn:DeleteRemoteSourceAction",
+        "mgn:UpdateRemoteSourceAction"
+      ],
+      "Resource" : "arn:aws:mgn:*:*:remote-source-action/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:RequestedRegion" : "${aws:PrincipalTag/TargetRegion}",
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
+          "aws:ResourceTag/ATWorkspace" : "${aws:PrincipalTag/WorkspaceId}",
+          "aws:ResourceTag/CreatedBy" : "AWSTransform"
+        }
+      }
+    },
+    {
       "Sid" : "MgnSourceServerLifecycleOperations",
       "Effect" : "Allow",
       "Action" : [
         "mgn:ChangeServerLifecycleState",
         "mgn:FinalizeCutover",
         "mgn:GetReplicationConfiguration",
+        "mgn:ListRemoteSourceActionInvocationResults",
         "mgn:ListSourceServerActions",
         "mgn:ListTagsForResource",
         "mgn:MarkAsArchived",
@@ -686,13 +829,17 @@ The policy's default version is the version that defines the permissions for the
         "mgn:RemoveSourceServerAction",
         "mgn:ResumeReplication",
         "mgn:StartCutover",
+        "mgn:StartRemoteSourceActionJob",
         "mgn:StartReplication",
         "mgn:StartTest",
         "mgn:StopReplication",
         "mgn:UpdateReplicationConfiguration",
         "mgn:UpdateSourceServer"
       ],
-      "Resource" : "arn:aws:mgn:*:*:source-server/*",
+      "Resource" : [
+        "arn:aws:mgn:*:*:source-server/*",
+        "arn:aws:mgn:*:*:remote-source-action/*"
+      ],
       "Condition" : {
         "StringEquals" : {
           "aws:RequestedRegion" : "${aws:PrincipalTag/TargetRegion}",
@@ -736,6 +883,19 @@ The policy's default version is the version that defines the permissions for the
         "s3:GetObject"
       ],
       "Resource" : "arn:aws:s3:::aws-application-migration-service-*/latest/source-automation-client/linux/ssaf-client/ssaf_client.sig"
+    },
+    {
+      "Sid" : "S3OutpostsOperationsReadOnly",
+      "Effect" : "Allow",
+      "Action" : [
+        "s3-outposts:ListOutpostsWithS3"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:RequestedRegion" : "${aws:PrincipalTag/TargetRegion}"
+        }
+      }
     },
     {
       "Sid" : "S3TargetBucketOperationsServerMigration",
@@ -800,11 +960,14 @@ The policy's default version is the version that defines the permissions for the
         "mgn:DescribeSourceServers",
         "mgn:DescribeVcenterClients",
         "mgn:GetLaunchConfiguration",
+        "mgn:GetLaunchConfigurationDefaults",
         "mgn:ListApplications",
         "mgn:ListConnectors",
         "mgn:ListExports",
         "mgn:ListImportFileEnrichments",
         "mgn:ListImports",
+        "mgn:ListRemoteSourceActionJobs",
+        "mgn:ListRemoteSourceActions",
         "mgn:ListTemplateActions",
         "mgn:ListWaves"
       ],
@@ -828,6 +991,7 @@ The policy's default version is the version that defines the permissions for the
         "mgn:TerminateTargetInstances",
         "mgn:UpdateApplication",
         "mgn:UpdateLaunchConfiguration",
+        "mgn:UpdateLaunchConfigurationDefaults",
         "mgn:UpdateWave"
       ],
       "Resource" : "*",

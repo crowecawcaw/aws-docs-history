@@ -16,13 +16,13 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="NetworkSecurityManagerServiceRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: August 18, 2026, 18:27 UTC 
-+ **Edited time:** November 05, 2026, 19:47 UTC
++ **Edited time:** November 12, 2026, 22:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/NetworkSecurityManagerServiceRolePolicy`
 
 ## Policy version
 <a name="NetworkSecurityManagerServiceRolePolicy-version"></a>
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -225,6 +225,19 @@ The policy's default version is the version that defines the permissions for the
       "Effect" : "Allow",
       "Action" : "wafv2:GetWebACLForResource",
       "Resource" : "arn:aws:wafv2:*:*:*/webacl/*"
+    },
+    {
+      "Sid" : "Wafv2GetConnectedAccount",
+      "Effect" : "Allow",
+      "Action" : [
+        "payments:GetConnectedAccount"
+      ],
+      "Resource" : "arn:aws:payments:*:*:connectedaccount/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
     },
     {
       "Sid" : "CloudFrontListDistributions",

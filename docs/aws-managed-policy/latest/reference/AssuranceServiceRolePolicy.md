@@ -16,13 +16,13 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AssuranceServiceRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: August 26, 2026, 21:07 UTC 
-+ **Edited time:** October 30, 2026, 19:57 UTC
++ **Edited time:** November 09, 2026, 20:07 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AssuranceServiceRolePolicy`
 
 ## Policy version
 <a name="AssuranceServiceRolePolicy-version"></a>
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -1667,6 +1667,16 @@ The policy's default version is the version that defines the permissions for the
       }
     },
     {
+      "Sid" : "ReadAwsManagedPolicies",
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:GetPolicy",
+        "iam:GetPolicyVersion",
+        "iam:ListEntitiesForPolicy"
+      ],
+      "Resource" : "arn:*:iam::aws:policy/*"
+    },
+    {
       "Sid" : "ApiGatewayRead",
       "Effect" : "Allow",
       "Action" : [
@@ -1766,28 +1776,18 @@ The policy's default version is the version that defines the permissions for the
         "assurance:ListComments",
         "assurance:ListConnectionItems",
         "assurance:ListControlGroups",
+        "assurance:ListControlResources",
         "assurance:ListControls",
         "assurance:ListDiscoveredResources",
         "assurance:ListEnabledFrameworks",
         "assurance:ListEvidence",
         "assurance:ListEvidenceAnnotations",
         "assurance:ListProjects",
-        "assurance:ListResourcesForControl",
         "assurance:ListTasks",
         "assurance:PutEvidence",
-        "assurance:StartResourceDiscovery",
         "assurance:UpdateAnnotation",
         "assurance:UpdateAssessment",
         "assurance:UpdateTask"
-      ],
-      "Resource" : "arn:aws:assurance:*:*:environment/*"
-    },
-    {
-      "Sid" : "AssuranceLegacyOperations",
-      "Effect" : "Allow",
-      "Action" : [
-        "assurance:DownloadEvidence",
-        "assurance:UploadEvidence"
       ],
       "Resource" : "arn:aws:assurance:*:*:environment/*"
     }

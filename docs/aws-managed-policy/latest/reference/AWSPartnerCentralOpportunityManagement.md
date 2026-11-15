@@ -16,13 +16,13 @@ You can attach `AWSPartnerCentralOpportunityManagement` to your users, groups, a
 <a name="AWSPartnerCentralOpportunityManagement-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: November 14, 2024, 19:09 UTC 
-+ **Edited time:** November 06, 2026, 02:27 UTC
++ **Edited time:** November 10, 2026, 03:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSPartnerCentralOpportunityManagement`
 
 ## Policy version
 <a name="AWSPartnerCentralOpportunityManagement-version"></a>
 
-**Policy version:** v12 (default)
+**Policy version:** v13 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -52,6 +52,7 @@ The policy's default version is the version that defines the permissions for the
         "partnercentral:GetEngagement",
         "partnercentral:GetEngagementInvitation",
         "partnercentral:GetOpportunity",
+        "partnercentral:GetOpportunityBulkJobReportUrl",
         "partnercentral:GetProspectingFromEngagementTask",
         "partnercentral:GetResourceSnapshot",
         "partnercentral:GetResourceSnapshotJob",
@@ -62,15 +63,18 @@ The policy's default version is the version that defines the permissions for the
         "partnercentral:ListEngagementResourceAssociations",
         "partnercentral:ListEngagements",
         "partnercentral:ListOpportunities",
-        "partnercentral:SearchOpportunities",
+        "partnercentral:ListOpportunityBulkJobs",
+        "partnercentral:ListOpportunityBulkJobResults",
         "partnercentral:ListOpportunityFromEngagementTasks",
         "partnercentral:ListProspectingFromEngagementTasks",
         "partnercentral:ListResourceSnapshotJobs",
         "partnercentral:ListResourceSnapshots",
         "partnercentral:ListSolutions",
         "partnercentral:RejectEngagementInvitation",
+        "partnercentral:SearchOpportunities",
         "partnercentral:StartEngagementByAcceptingInvitationTask",
         "partnercentral:StartEngagementFromOpportunityTask",
+        "partnercentral:StartOpportunityBulkJob",
         "partnercentral:StartOpportunityFromEngagementTask",
         "partnercentral:StartProspectingFromEngagementTask",
         "partnercentral:StartResourceSnapshotJob",

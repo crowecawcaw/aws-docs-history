@@ -16,13 +16,13 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AWSElasticBeanstalkServiceRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: September 13, 2017, 23:46 UTC 
-+ **Edited time:** August 18, 2026, 17:17 UTC
++ **Edited time:** November 12, 2026, 20:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AWSElasticBeanstalkServiceRolePolicy`
 
 ## Policy version
 <a name="AWSElasticBeanstalkServiceRolePolicy-version"></a>
 
-**Policy version:** v8 (default)
+**Policy version:** v9 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -207,6 +207,19 @@ The policy's default version is the version that defines the permissions for the
             "pods.eks.amazonaws.com",
             "elasticbeanstalk.amazonaws.com"
           ]
+        }
+      }
+    },
+    {
+      "Sid" : "EBIamSimulateRolePermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:SimulatePrincipalPolicy"
+      ],
+      "Resource" : "arn:aws:iam::*:role/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },

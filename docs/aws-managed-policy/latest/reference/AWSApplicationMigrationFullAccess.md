@@ -16,13 +16,13 @@ You can attach `AWSApplicationMigrationFullAccess` to your users, groups, and ro
 <a name="AWSApplicationMigrationFullAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: April 07, 2021, 06:56 UTC 
-+ **Edited time:** August 03, 2026, 10:57 UTC
++ **Edited time:** November 09, 2026, 08:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSApplicationMigrationFullAccess`
 
 ## Policy version
 <a name="AWSApplicationMigrationFullAccess-version"></a>
 
-**Policy version:** v14 (default)
+**Policy version:** v15 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -377,6 +377,45 @@ The policy's default version is the version that defines the permissions for the
         "Null" : {
           "aws:RequestTag/AWSApplicationMigrationServiceManaged" : "false"
         },
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : [
+            "mgn.amazonaws.com"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "SsmViaMgnSendCommandToConnector",
+      "Effect" : "Allow",
+      "Action" : "ssm:SendCommand",
+      "Resource" : "arn:aws:ssm:*:*:managed-instance/*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : [
+            "mgn.amazonaws.com"
+          ]
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "S3OutpostsReadPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "s3-outposts:ListOutpostsWithS3"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "CloudWatchDescribeOperations",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudwatch:GetMetricData"
+      ],
+      "Resource" : "*",
+      "Condition" : {
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : [
             "mgn.amazonaws.com"

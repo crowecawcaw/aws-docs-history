@@ -16,13 +16,13 @@ You can attach `ROSAControlPlaneOperatorPolicy` to your users, groups, and roles
 <a name="ROSAControlPlaneOperatorPolicy-details"></a>
 + **Type**: Service role policy 
 + **Creation time**: April 24, 2023, 23:02 UTC 
-+ **Edited time:** July 28, 2026, 23:12 UTC
++ **Edited time:** November 13, 2026, 23:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/service-role/ROSAControlPlaneOperatorPolicy`
 
 ## Policy version
 <a name="ROSAControlPlaneOperatorPolicy-version"></a>
 
-**Policy version:** v7 (default)
+**Policy version:** v8 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -41,7 +41,8 @@ The policy's default version is the version that defines the permissions for the
         "ec2:DescribeVpcs",
         "ec2:DescribeSecurityGroups",
         "ec2:DescribeSubnets",
-        "route53:ListHostedZones"
+        "route53:ListHostedZones",
+        "route53:GetHostedZone"
       ],
       "Resource" : "*"
     },
@@ -125,10 +126,31 @@ The policy's default version is the version that defines the permissions for the
       "Condition" : {
         "ForAllValues:StringLike" : {
           "route53:ChangeResourceRecordSetsNormalizedRecordNames" : [
-            "*.hypershift.local"
+            "*.hypershift.local",
+            "*.openshiftapps.com",
+            "*.devshift.org",
+            "*.openshiftusgov.com",
+            "*.devshiftusgov.com"
           ]
         }
       }
+    },
+    {
+      "Sid" : "ManageHostedZones",
+      "Effect" : "Allow",
+      "Action" : [
+        "route53:CreateHostedZone",
+        "route53:DeleteHostedZone"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "TagHostedZones",
+      "Effect" : "Allow",
+      "Action" : [
+        "route53:ChangeTagsForResource"
+      ],
+      "Resource" : "arn:aws:route53:::hostedzone/*"
     },
     {
       "Sid" : "VPCEndpointWithCondition",

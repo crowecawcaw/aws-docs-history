@@ -16,13 +16,13 @@ You can attach `AWSApplicationMigrationReadOnlyAccess` to your users, groups, an
 <a name="AWSApplicationMigrationReadOnlyAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: April 07, 2021, 07:15 UTC 
-+ **Edited time:** July 01, 2026, 14:57 UTC
++ **Edited time:** November 09, 2026, 08:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSApplicationMigrationReadOnlyAccess`
 
 ## Policy version
 <a name="AWSApplicationMigrationReadOnlyAccess-version"></a>
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -51,7 +51,12 @@ The policy's default version is the version that defines the permissions for the
         "mgn:ListExports",
         "mgn:ListImports",
         "mgn:ListImportErrors",
-        "mgn:ListExportErrors"
+        "mgn:ListExportErrors",
+        "mgn:ListRemoteSourceActions",
+        "mgn:ListRemoteSourceActionJobs",
+        "mgn:ListRemoteSourceActionInvocations",
+        "mgn:ListRemoteSourceActionInvocationResults",
+        "mgn:GetLaunchConfigurationDefaults"
       ],
       "Resource" : "*"
     },

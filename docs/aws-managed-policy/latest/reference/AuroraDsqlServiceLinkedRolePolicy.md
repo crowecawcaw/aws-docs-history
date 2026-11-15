@@ -16,13 +16,13 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AuroraDsqlServiceLinkedRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: December 03, 2024, 15:06 UTC 
-+ **Edited time:** February 12, 2026, 18:01 UTC
++ **Edited time:** November 12, 2026, 00:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AuroraDsqlServiceLinkedRolePolicy`
 
 ## Policy version
 <a name="AuroraDsqlServiceLinkedRolePolicy-version"></a>
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -34,6 +34,7 @@ The policy's default version is the version that defines the permissions for the
   "Version" : "2012-10-17",
   "Statement" : [
     {
+      "Sid" : "AllowCloudwatchMetricsAccess",
       "Effect" : "Allow",
       "Action" : [
         "cloudwatch:PutMetricData"
@@ -45,6 +46,25 @@ The policy's default version is the version that defines the permissions for the
             "AWS/AuroraDSQL",
             "AWS/Usage"
           ],
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AllowCloudwatchLogsAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents",
+        "logs:PutRetentionPolicy"
+      ],
+      "Resource" : [
+        "arn:aws:logs:*:*:log-group:/aws/dsql/normalized-sql-text",
+        "arn:aws:logs:*:*:log-group:/aws/dsql/normalized-sql-text:*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }

@@ -16,13 +16,13 @@ You can attach `SageMakerStudioEMRContainersSystemNamespaceRolePolicy` to your u
 <a name="SageMakerStudioEMRContainersSystemNamespaceRolePolicy-details"></a>
 + **Type**: Service role policy 
 + **Creation time**: October 23, 2025, 18:34 UTC 
-+ **Edited time:** February 12, 2026, 18:01 UTC
++ **Edited time:** November 13, 2026, 21:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/service-role/SageMakerStudioEMRContainersSystemNamespaceRolePolicy`
 
 ## Policy version
 <a name="SageMakerStudioEMRContainersSystemNamespaceRolePolicy-version"></a>
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -89,6 +89,34 @@ The policy's default version is the version that defines the permissions for the
         },
         "StringEquals" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}"
+        }
+      }
+    },
+    {
+      "Sid" : "AssumeTaggedExecutionRole",
+      "Effect" : "Allow",
+      "Action" : [
+        "sts:AssumeRole",
+        "sts:TagSession",
+        "sts:SetContext"
+      ],
+      "Resource" : "arn:aws:iam::*:role/${aws:PrincipalTag/AmazonDataZoneExecutionRolePath}",
+      "Condition" : {
+        "ForAllValues:StringEquals" : {
+          "aws:TagKeys" : [
+            "LakeFormationAuthorizedCaller"
+          ]
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        },
+        "StringEqualsIfExists" : {
+          "aws:RequestTag/LakeFormationAuthorizedCaller" : "EMR on EKS Engine"
+        },
+        "ForAllValues:ArnEquals" : {
+          "sts:RequestContextProviders" : [
+            "arn:aws:iam::aws:contextProvider/IdentityCenter"
+          ]
         }
       }
     }

@@ -16,13 +16,13 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AWSSecurityHubV2ServiceRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: June 10, 2025, 17:37 UTC 
-+ **Edited time:** June 27, 2026, 00:42 UTC
++ **Edited time:** November 09, 2026, 20:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AWSSecurityHubV2ServiceRolePolicy`
 
 ## Policy version
 <a name="AWSSecurityHubV2ServiceRolePolicy-version"></a>
 
-**Policy version:** v8 (default)
+**Policy version:** v9 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -75,7 +75,8 @@ The policy's default version is the version that defines the permissions for the
         "securityhub:EnableSecurityHubV2",
         "securityhub:DescribeSecurityHubV2",
         "securityhub:EnableSecurityHubFeatureV2",
-        "securityhub:DisableSecurityHubFeatureV2"
+        "securityhub:DisableSecurityHubFeatureV2",
+        "securityhub:UpdateSecurityHubV2"
       ],
       "Resource" : "arn:aws:securityhub:*:*:hubv2/*",
       "Condition" : {
@@ -140,7 +141,8 @@ The policy's default version is the version that defines the permissions for the
       "Sid" : "SecurityHubV2ServiceRoleLambdaAndConfigMetricPermissions",
       "Effect" : "Allow",
       "Action" : [
-        "cloudwatch:GetMetricData"
+        "cloudwatch:GetMetricData",
+        "cloudwatch:ListMetrics"
       ],
       "Resource" : "*"
     },

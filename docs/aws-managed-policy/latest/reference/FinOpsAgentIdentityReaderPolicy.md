@@ -16,13 +16,13 @@ You can attach `FinOpsAgentIdentityReaderPolicy` to your users, groups, and role
 <a name="FinOpsAgentIdentityReaderPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: October 29, 2026, 17:17 UTC 
-+ **Edited time:** October 29, 2026, 17:17 UTC
++ **Edited time:** November 09, 2026, 18:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/FinOpsAgentIdentityReaderPolicy`
 
 ## Policy version
 <a name="FinOpsAgentIdentityReaderPolicy-version"></a>
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -44,7 +44,8 @@ The policy's default version is the version that defines the permissions for the
       "Resource" : [
         "arn:aws:identitystore::*:identitystore/*",
         "arn:aws:identitystore:::user/*",
-        "arn:aws:identitystore:::group/*"
+        "arn:aws:identitystore:::group/*",
+        "arn:aws:identitystore:::membership/*"
       ]
     }
   ]

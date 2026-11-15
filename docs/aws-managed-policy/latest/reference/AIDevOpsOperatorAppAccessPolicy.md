@@ -16,13 +16,13 @@ You can attach `AIDevOpsOperatorAppAccessPolicy` to your users, groups, and role
 <a name="AIDevOpsOperatorAppAccessPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: March 26, 2026, 03:42 UTC 
-+ **Edited time:** November 05, 2026, 01:07 UTC
++ **Edited time:** November 11, 2026, 18:07 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AIDevOpsOperatorAppAccessPolicy`
 
 ## Policy version
 <a name="AIDevOpsOperatorAppAccessPolicy-version"></a>
 
-**Policy version:** v12 (default)
+**Policy version:** v13 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -60,11 +60,15 @@ The policy's default version is the version that defines the permissions for the
         "aidevops:GetAssociation",
         "aidevops:GetBacklogTask",
         "aidevops:GetChat",
+        "aidevops:GetKnowledgeGraph",
         "aidevops:GetKnowledgeItem",
+        "aidevops:GetPlan",
         "aidevops:GetRecommendation",
         "aidevops:GetTrigger",
         "aidevops:InitiateChatForCase",
         "aidevops:ListAccessTokens",
+        "aidevops:ListAgentSpaceMetrics",
+        "aidevops:ListAssetChanges",
         "aidevops:ListAssetFiles",
         "aidevops:ListAssets",
         "aidevops:ListAssetTypes",
@@ -85,6 +89,7 @@ The policy's default version is the version that defines the permissions for the
         "aidevops:RotateAccessToken",
         "aidevops:SearchAssets",
         "aidevops:SendMessage",
+        "aidevops:StopPlan",
         "aidevops:UpdateApprovalAction",
         "aidevops:UpdateAsset",
         "aidevops:UpdateAssetFile",

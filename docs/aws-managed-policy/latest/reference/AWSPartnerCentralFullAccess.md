@@ -16,13 +16,13 @@ You can attach `AWSPartnerCentralFullAccess` to your users, groups, and roles.
 <a name="AWSPartnerCentralFullAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: November 18, 2024, 23:33 UTC 
-+ **Edited time:** November 05, 2026, 23:37 UTC
++ **Edited time:** November 10, 2026, 08:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSPartnerCentralFullAccess`
 
 ## Policy version
 <a name="AWSPartnerCentralFullAccess-version"></a>
 
-**Policy version:** v16 (default)
+**Policy version:** v17 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -278,6 +278,18 @@ The policy's default version is the version that defines the permissions for the
           "iam:AWSServiceName" : "partnercentral-account.amazonaws.com"
         }
       }
+    },
+    {
+      "Sid" : "SellerReportingDataAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:GetSellerReportingData"
+      ],
+      "Resource" : [
+        "arn:aws:aws-marketplace::*:AWSMarketplace/ReportingData/BillingEvent_V1/Dataset/BilledRevenue_V1",
+        "arn:aws:aws-marketplace::*:AWSMarketplace/ReportingData/Solution_V1/Dataset/Solution_V1",
+        "arn:aws:aws-marketplace::*:AWSMarketplace/ReportingData/Marketing_V1/Dataset/CaseStudy_V1"
+      ]
     }
   ]
 }

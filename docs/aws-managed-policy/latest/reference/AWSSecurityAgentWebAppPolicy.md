@@ -16,13 +16,13 @@ You can attach `AWSSecurityAgentWebAppPolicy` to your users, groups, and roles.
 <a name="AWSSecurityAgentWebAppPolicy-details"></a>
 + **Type**: Service role policy 
 + **Creation time**: February 05, 2026, 23:19 UTC 
-+ **Edited time:** October 12, 2026, 16:17 UTC
++ **Edited time:** November 14, 2026, 02:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/service-role/AWSSecurityAgentWebAppPolicy`
 
 ## Policy version
 <a name="AWSSecurityAgentWebAppPolicy-version"></a>
 
-**Policy version:** v10 (default)
+**Policy version:** v11 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -167,7 +167,8 @@ The policy's default version is the version that defines the permissions for the
         "securityagent:UpdateFinding",
         "securityagent:UpdatePentest",
         "securityagent:UpdateThreat",
-        "securityagent:UpdateThreatModel"
+        "securityagent:UpdateThreatModel",
+        "securityagent:ResumePentestJob"
       ],
       "Resource" : "arn:aws:securityagent:*:*:agent-space*",
       "Condition" : {

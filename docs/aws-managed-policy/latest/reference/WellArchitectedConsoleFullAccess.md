@@ -16,13 +16,13 @@ You can attach `WellArchitectedConsoleFullAccess` to your users, groups, and rol
 <a name="WellArchitectedConsoleFullAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: November 29, 2018, 18:19 UTC 
-+ **Edited time:** October 29, 2026, 22:37 UTC
++ **Edited time:** November 13, 2026, 19:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/WellArchitectedConsoleFullAccess`
 
 ## Policy version
 <a name="WellArchitectedConsoleFullAccess-version"></a>
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -101,20 +101,30 @@ The policy's default version is the version that defines the permissions for the
     },
     {
       "Effect" : "Allow",
-      "Action" : [
-        "iam:CreateRole",
-        "iam:AttachRolePolicy"
-      ],
+      "Action" : "iam:CreateRole",
       "Resource" : "arn:aws:iam::*:role/service-role/*"
     },
     {
       "Effect" : "Allow",
-      "Action" : [
-        "iam:CreatePolicy",
-        "iam:CreatePolicyVersion",
-        "iam:DeletePolicyVersion"
-      ],
-      "Resource" : "arn:aws:iam::*:policy/service-role/*"
+      "Action" : "iam:AttachRolePolicy",
+      "Resource" : "arn:aws:iam::*:role/service-role/*",
+      "Condition" : {
+        "ArnLike" : {
+          "iam:PolicyARN" : [
+            "arn:aws:iam::aws:policy/WellArchitectedAgentResourceScanning",
+            "arn:aws:iam::*:policy/service-role/WAAgentExecutionRolePolicy*",
+            "arn:aws:iam::*:policy/service-role/WAAgentExecutionPolicy*"
+          ]
+        }
+      }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : "iam:CreatePolicy",
+      "Resource" : [
+        "arn:aws:iam::*:policy/service-role/WAAgentExecutionRolePolicy*",
+        "arn:aws:iam::*:policy/service-role/WAAgentExecutionPolicy*"
+      ]
     },
     {
       "Effect" : "Allow",

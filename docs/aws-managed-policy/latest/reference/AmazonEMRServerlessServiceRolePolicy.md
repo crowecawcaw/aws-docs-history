@@ -16,13 +16,13 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AmazonEMRServerlessServiceRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: May 20, 2022, 23:15 UTC 
-+ **Edited time:** January 25, 2024, 18:21 UTC
++ **Edited time:** November 09, 2026, 22:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AmazonEMRServerlessServiceRolePolicy`
 
 ## Policy version
 <a name="AmazonEMRServerlessServiceRolePolicy-version"></a>
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -38,7 +38,9 @@ The policy's default version is the version that defines the permissions for the
       "Effect" : "Allow",
       "Action" : [
         "ec2:CreateNetworkInterface",
+        "ec2:CreateNetworkInterfacePermission",
         "ec2:DeleteNetworkInterface",
+        "ec2:DeleteNetworkInterfacePermission",
         "ec2:DescribeNetworkInterfaces",
         "ec2:DescribeSecurityGroups",
         "ec2:DescribeSubnets",

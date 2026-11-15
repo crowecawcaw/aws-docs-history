@@ -16,13 +16,13 @@ You can attach `AmazonVPCNetworkAccessAnalyzerFullAccessPolicy` to your users, g
 <a name="AmazonVPCNetworkAccessAnalyzerFullAccessPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: June 15, 2023, 22:56 UTC 
-+ **Edited time:** August 14, 2026, 17:17 UTC
++ **Edited time:** November 13, 2026, 18:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AmazonVPCNetworkAccessAnalyzerFullAccessPolicy`
 
 ## Policy version
 <a name="AmazonVPCNetworkAccessAnalyzerFullAccessPolicy-version"></a>
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -75,6 +75,7 @@ The policy's default version is the version that defines the permissions for the
         "ec2:DescribeTransitGatewayPolicyTables",
         "ec2:GetTransitGatewayPolicyTableEntries",
         "ec2:GetTransitGatewayPolicyTableAssociations",
+        "ec2:GetTransitGatewayAttachmentNatConfiguration",
         "ec2:DescribeTransitGateways",
         "ec2:DescribeTransitGatewayVpcAttachments",
         "ec2:DescribeVpcEndpoints",

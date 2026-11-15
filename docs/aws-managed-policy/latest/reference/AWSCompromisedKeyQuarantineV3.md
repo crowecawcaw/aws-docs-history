@@ -16,13 +16,13 @@ You can attach `AWSCompromisedKeyQuarantineV3` to your users, groups, and roles.
 <a name="AWSCompromisedKeyQuarantineV3-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 21, 2024, 17:36 UTC 
-+ **Edited time:** March 16, 2026, 16:27 UTC
++ **Edited time:** November 09, 2026, 21:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSCompromisedKeyQuarantineV3`
 
 ## Policy version
 <a name="AWSCompromisedKeyQuarantineV3-version"></a>
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -69,6 +69,9 @@ The policy's default version is the version that defines the permissions for the
         "iam:DeleteRole",
         "iam:DeleteAccessKey",
         "iam:ListUsers",
+        "iam:CreateServiceSpecificCredential",
+        "iam:ResetServiceSpecificCredential",
+        "iam:UpdateServiceSpecificCredential",
         "lambda:AddLayerVersionPermission",
         "lambda:AddPermission",
         "lambda:CreateFunction",
@@ -116,6 +119,18 @@ The policy's default version is the version that defines the permissions for the
         "bedrock:CreateFoundationModelAgreement",
         "bedrock:PutFoundationModelEntitlement",
         "bedrock:InvokeModel",
+        "bedrock:CallWithBearerToken",
+        "bedrock-mantle:CallWithBearerToken",
+        "bedrock-mantle:Create*",
+        "bedrock-mantle:Delete*",
+        "bedrock-mantle:Update*",
+        "bedrock-mantle:Put*",
+        "bedrock-mantle:Cancel*",
+        "bedrock-mantle:ArchiveProject",
+        "bedrock-mantle:Associate*",
+        "bedrock-mantle:TagResource",
+        "bedrock-mantle:UntagResource",
+        "bedrock-mantle:Disassociate*",
         "sagemaker:CreateEndpointConfig",
         "sagemaker:CreateProcessingJob",
         "ses:GetSendQuota",

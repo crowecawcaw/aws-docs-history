@@ -16,13 +16,13 @@ You can attach `SageMakerStudioProjectRoleMachineLearningPolicy` to your users, 
 <a name="SageMakerStudioProjectRoleMachineLearningPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: November 20, 2024, 21:55 UTC 
-+ **Edited time:** October 29, 2026, 22:27 UTC
++ **Edited time:** November 13, 2026, 20:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/SageMakerStudioProjectRoleMachineLearningPolicy`
 
 ## Policy version
 <a name="SageMakerStudioProjectRoleMachineLearningPolicy-version"></a>
 
-**Policy version:** v47 (default)
+**Policy version:** v48 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -657,7 +657,9 @@ The policy's default version is the version that defines the permissions for the
         "bedrock-agentcore:GetWorkloadAccessToken",
         "bedrock-agentcore:GetWorkloadAccessTokenForJWT",
         "bedrock-agentcore:ListTagsForResource",
-        "bedrock-agentcore:GetConfigurationBundleVersion"
+        "bedrock-agentcore:GetConfigurationBundleVersion",
+        "bedrock-agentcore:*ApiKeyCredentialProvider",
+        "bedrock-agentcore:GetResourceApiKey"
       ],
       "Resource" : "*",
       "Condition" : {
@@ -679,7 +681,8 @@ The policy's default version is the version that defines the permissions for the
         "bedrock-agentcore:ListMemories",
         "bedrock-agentcore:GetEvaluator",
         "bedrock-agentcore:ListCodeInterpreterSessions",
-        "bedrock-agentcore:ListBrowserSessions"
+        "bedrock-agentcore:ListBrowserSessions",
+        "bedrock-agentcore:ListApiKeyCredentialProviders"
       ],
       "Resource" : "*"
     },
@@ -690,11 +693,13 @@ The policy's default version is the version that defines the permissions for the
         "bedrock-agentcore:*CodeInterpreterSession",
         "bedrock-agentcore:InvokeCodeInterpreter",
         "bedrock-agentcore:*BrowserSession",
-        "bedrock-agentcore:ConnectBrowserAutomationStream"
+        "bedrock-agentcore:ConnectBrowserAutomationStream",
+        "bedrock-agentcore:InvokeWebSearch"
       ],
       "Resource" : [
         "arn:*:bedrock-agentcore:*:aws:code-interpreter/*",
-        "arn:*:bedrock-agentcore:*:aws:browser/*"
+        "arn:*:bedrock-agentcore:*:aws:browser/*",
+        "arn:*:bedrock-agentcore:*:aws:tool/web-search.v1"
       ]
     },
     {
@@ -1366,6 +1371,40 @@ The policy's default version is the version that defines the permissions for the
       }
     },
     {
+      "Sid" : "IdCKmsDecrypt",
+      "Effect" : "Allow",
+      "Action" : "kms:Decrypt",
+      "Resource" : "*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "kms:EncryptionContextKeys" : [
+            "aws:sso:instance-arn",
+            "aws:identitystore:identitystore-arn"
+          ]
+        },
+        "StringLike" : {
+          "kms:ViaService" : [
+            "sso.*.amazonaws.com",
+            "identitystore.*.amazonaws.com"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "IdCKmsDescribe",
+      "Effect" : "Allow",
+      "Action" : "kms:DescribeKey",
+      "Resource" : "*",
+      "Condition" : {
+        "StringLike" : {
+          "kms:ViaService" : [
+            "sso.*.amazonaws.com",
+            "identitystore.*.amazonaws.com"
+          ]
+        }
+      }
+    },
+    {
       "Sid" : "CreateSLR",
       "Effect" : "Allow",
       "Action" : "iam:CreateServiceLinkedRole",
@@ -1375,7 +1414,8 @@ The policy's default version is the version that defines the permissions for the
         "arn:aws:iam::*:role/aws-service-role/runtime-identity.bedrock-agentcore.amazonaws.com/AWSServiceRoleForBedrockAgentCoreRuntimeIdentity",
         "arn:aws:iam::*:role/aws-service-role/network.bedrock-agentcore.amazonaws.com/AWSServiceRoleForBedrockAgentCoreNetwork",
         "arn:aws:iam::*:role/aws-service-role/bedrock-agentcore.amazonaws.com/AWSServiceRoleForBedrockAgentCoreGatewayNetwork",
-        "arn:aws:iam::*:role/aws-service-role/identity-network.bedrock-agentcore.amazonaws.com/AWSServiceRoleForBedrockAgentCoreIdentity"
+        "arn:aws:iam::*:role/aws-service-role/identity-network.bedrock-agentcore.amazonaws.com/AWSServiceRoleForBedrockAgentCoreIdentity",
+        "arn:aws:iam::*:role/aws-service-role/agent-registry.amazonaws.com/AWSServiceRoleForAgentRegistry"
       ]
     },
     {
@@ -1388,6 +1428,7 @@ The policy's default version is the version that defines the permissions for the
         "datazone:CreateListingChangeSet",
         "datazone:CreateSubscriptionRequest",
         "datazone:RevokeSubscription",
+        "datazone:UpdateAssetOwner",
         "datazone:List*",
         "datazone:Search*",
         "datazone:*Message*",
@@ -1434,9 +1475,16 @@ The policy's default version is the version that defines the permissions for the
       "Effect" : "Allow",
       "Action" : [
         "bedrock-agentcore:CreateWorkloadIdentity",
-        "bedrock-agentcore:DeleteWorkloadIdentity"
+        "bedrock-agentcore:DeleteWorkloadIdentity",
+        "bedrock-agentcore:GetResourceApiKey",
+        "bedrock-agentcore:*TokenVault",
+        "bedrock-agentcore:*ApiKeyCredentialProvider",
+        "bedrock-agentcore:ListTagsForResource"
       ],
-      "Resource" : "arn:*:bedrock-agentcore:*:*:workload-identity-directory/default",
+      "Resource" : [
+        "arn:*:bedrock-agentcore:*:*:workload-identity-directory/default",
+        "arn:*:bedrock-agentcore:*:*:token-vault/default"
+      ],
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
@@ -1454,6 +1502,22 @@ The policy's default version is the version that defines the permissions for the
         },
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "ACApiKeySecret",
+      "Effect" : "Allow",
+      "Action" : [
+        "secretsmanager:CreateSecret",
+        "secretsmanager:PutSecretValue",
+        "secretsmanager:DeleteSecret",
+        "secretsmanager:GetSecretValue"
+      ],
+      "Resource" : "arn:aws:secretsmanager:*:*:secret:bedrock-agentcore-identity!*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "bedrock-agentcore.amazonaws.com"
         }
       }
     },
@@ -1518,13 +1582,58 @@ The policy's default version is the version that defines the permissions for the
       }
     },
     {
+      "Sid" : "ARConsumerPublisher",
+      "Effect" : "Allow",
+      "Action" : [
+        "agent-registry:List*",
+        "agent-registry:GetRegistry",
+        "agent-registry:GetRegistryRecord",
+        "agent-registry:GetDiscoverableRegistryRecord",
+        "agent-registry:SearchDiscoverableRegistryRecords"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "ARPublisher",
+      "Effect" : "Allow",
+      "Action" : [
+        "agent-registry:UpdateRegistryRecord",
+        "agent-registry:UpdateRegistryRecordStatus",
+        "agent-registry:DeleteRegistryRecord",
+        "agent-registry:SubmitRegistryRecordForApproval",
+        "agent-registry:TagResource"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}"
+        }
+      }
+    },
+    {
+      "Sid" : "ARCreate",
+      "Effect" : "Allow",
+      "Action" : "agent-registry:CreateRegistryRecord",
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:RequestTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}"
+        }
+      }
+    },
+    {
       "Sid" : "SSOReadOnlyPermissions",
       "Effect" : "Allow",
       "Action" : [
         "identitystore:DescribeUser",
         "identitystore:DescribeGroup",
         "sso:DescribeInstance",
-        "sso:DescribeApplication"
+        "sso:DescribeApplication",
+        "sso-directory:DescribeUser",
+        "sso-directory:DescribeGroup",
+        "identitystore:GetUserId",
+        "identitystore:GetGroupId",
+        "sso:ListInstances"
       ],
       "Resource" : "*",
       "Condition" : {

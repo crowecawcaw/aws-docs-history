@@ -16,13 +16,13 @@ You can attach `AWSPartnerCentralChannelManagement` to your users, groups, and r
 <a name="AWSPartnerCentralChannelManagement-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: November 19, 2025, 16:34 UTC 
-+ **Edited time:** February 14, 2026, 00:57 UTC
++ **Edited time:** November 13, 2026, 17:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSPartnerCentralChannelManagement`
 
 ## Policy version
 <a name="AWSPartnerCentralChannelManagement-version"></a>
 
-**Policy version:** v7 (default)
+**Policy version:** v8 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -124,6 +124,25 @@ The policy's default version is the version that defines the permissions for the
       "Action" : [
         "partnercentral:ListPartners",
         "partnercentral:GetPartner"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "partnercentral:Catalog" : [
+            "AWS",
+            "Sandbox"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "PartnerCentralContentAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "partnercentral:GetPartnerCentralContentDocument",
+        "partnercentral:GetPartnerCentralContentMetadata",
+        "partnercentral:ListPartnerCentralContent",
+        "partnercentral:SearchPartnerCentralContent"
       ],
       "Resource" : "*",
       "Condition" : {

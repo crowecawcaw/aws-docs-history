@@ -16,13 +16,13 @@ You can attach `CloudWatchOmniSpaceAccessPolicy` to your users, groups, and role
 <a name="CloudWatchOmniSpaceAccessPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: September 22, 2026, 01:47 UTC 
-+ **Edited time:** October 14, 2026, 22:17 UTC
++ **Edited time:** November 11, 2026, 01:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/CloudWatchOmniSpaceAccessPolicy`
 
 ## Policy version
 <a name="CloudWatchOmniSpaceAccessPolicy-version"></a>
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -95,7 +95,8 @@ The policy's default version is the version that defines the permissions for the
         "cloudwatch:PutIntelligenceConfiguration",
         "cloudwatch:TagResource",
         "cloudwatch:UntagResource",
-        "cloudwatch:ListTagsForResource"
+        "cloudwatch:ListTagsForResource",
+        "cloudwatch:GetSpaceDataAccess"
       ],
       "Resource" : "*",
       "Condition" : {

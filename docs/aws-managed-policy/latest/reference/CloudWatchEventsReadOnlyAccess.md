@@ -16,13 +16,13 @@ You can attach `CloudWatchEventsReadOnlyAccess` to your users, groups, and roles
 <a name="CloudWatchEventsReadOnlyAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: January 14, 2016, 18:27 UTC 
-+ **Edited time:** December 01, 2022, 16:29 UTC
++ **Edited time:** November 12, 2026, 17:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/CloudWatchEventsReadOnlyAccess`
 
 ## Policy version
 <a name="CloudWatchEventsReadOnlyAccess-version"></a>
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -55,6 +55,11 @@ The policy's default version is the version that defines the permissions for the
         "events:ListApiDestinations",
         "events:DescribeEndpoint",
         "events:ListEndpoints",
+        "events:DescribeSubscriber",
+        "events:ListSubscribers",
+        "events:GetResourcePolicy",
+        "events:ListResourcePolicies",
+        "events:ListTagsForResource",
         "schemas:DescribeCodeBinding",
         "schemas:DescribeDiscoverer",
         "schemas:DescribeRegistry",

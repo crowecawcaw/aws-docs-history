@@ -16,13 +16,13 @@ You can attach `SageMakerStudioEMRInstanceRolePolicy` to your users, groups, and
 <a name="SageMakerStudioEMRInstanceRolePolicy-details"></a>
 + **Type**: Service role policy 
 + **Creation time**: February 27, 2025, 00:22 UTC 
-+ **Edited time:** June 01, 2026, 23:27 UTC
++ **Edited time:** November 13, 2026, 21:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/service-role/SageMakerStudioEMRInstanceRolePolicy`
 
 ## Policy version
 <a name="SageMakerStudioEMRInstanceRolePolicy-version"></a>
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -164,6 +164,28 @@ The policy's default version is the version that defines the permissions for the
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AssumeTaggedExecutionRole",
+      "Effect" : "Allow",
+      "Action" : [
+        "sts:AssumeRole",
+        "sts:TagSession"
+      ],
+      "Resource" : "arn:aws:iam::*:role/${aws:PrincipalTag/AmazonDataZoneExecutionRolePath}",
+      "Condition" : {
+        "ForAllValues:StringEquals" : {
+          "aws:TagKeys" : [
+            "LakeFormationAuthorizedCaller"
+          ]
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        },
+        "StringEqualsIfExists" : {
+          "aws:RequestTag/LakeFormationAuthorizedCaller" : "Amazon EMR"
         }
       }
     }

@@ -16,13 +16,13 @@ You can attach `AWSApplicationMigrationSSMAccess` to your users, groups, and rol
 <a name="AWSApplicationMigrationSSMAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: November 27, 2022, 09:29 UTC 
-+ **Edited time:** February 12, 2026, 18:00 UTC
++ **Edited time:** November 09, 2026, 08:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSApplicationMigrationSSMAccess`
 
 ## Policy version
 <a name="AWSApplicationMigrationSSMAccess-version"></a>
 
-**Policy version:** v5 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -103,6 +103,22 @@ The policy's default version is the version that defines the permissions for the
         "ssm:GetDocument"
       ],
       "Resource" : "arn:aws:ssm:*:*:document/*"
+    },
+    {
+      "Sid" : "SsmViaMgnSendCommandToConnector",
+      "Effect" : "Allow",
+      "Action" : "ssm:SendCommand",
+      "Resource" : "arn:aws:ssm:*:*:managed-instance/*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : [
+            "mgn.amazonaws.com"
+          ]
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
     }
   ]
 }

@@ -16,13 +16,13 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AWSReachabilityAnalyzerServiceRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: November 23, 2022, 17:12 UTC 
-+ **Edited time:** August 14, 2026, 17:17 UTC
++ **Edited time:** November 13, 2026, 18:07 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AWSReachabilityAnalyzerServiceRolePolicy`
 
 ## Policy version
 <a name="AWSReachabilityAnalyzerServiceRolePolicy-version"></a>
 
-**Policy version:** v5 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -67,6 +67,7 @@ The policy's default version is the version that defines the permissions for the
         "ec2:DescribeTransitGatewayPolicyTables",
         "ec2:GetTransitGatewayPolicyTableEntries",
         "ec2:GetTransitGatewayPolicyTableAssociations",
+        "ec2:GetTransitGatewayAttachmentNatConfiguration",
         "ec2:DescribeVpcEndpointServiceConfigurations",
         "ec2:DescribeAddresses",
         "ec2:DescribeVpcEndpoints",

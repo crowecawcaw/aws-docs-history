@@ -16,13 +16,13 @@ You can attach `SageMakerStudioProjectProvisioningRolePolicy` to your users, gro
 <a name="SageMakerStudioProjectProvisioningRolePolicy-details"></a>
 + **Type**: Service role policy 
 + **Creation time**: November 20, 2024, 21:58 UTC 
-+ **Edited time:** October 12, 2026, 16:17 UTC
++ **Edited time:** November 13, 2026, 20:07 UTC
 + **ARN**: `arn:aws:iam::aws:policy/service-role/SageMakerStudioProjectProvisioningRolePolicy`
 
 ## Policy version
 <a name="SageMakerStudioProjectProvisioningRolePolicy-version"></a>
 
-**Policy version:** v84 (default)
+**Policy version:** v85 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -104,14 +104,14 @@ The policy's default version is the version that defines the permissions for the
         "cloudformation:ValidateTemplate",
         "codecommit:ListRepositories",
         "eks:DescribeCluster",
-        "elasticmapreduce:CreateSecurityConfiguration",
-        "elasticmapreduce:DeleteSecurityConfiguration",
-        "elasticmapreduce:DescribeSecurityConfiguration",
+        "elasticmapreduce:*SecurityConfiguration",
         "glue:DescribeConnectionType",
         "glue:ListConnectionTypes",
         "glue:*GlueIdentityCenterConfiguration",
         "iam:ListPolicies",
         "logs:DescribeLogGroups",
+        "ram:GetResourceShare*",
+        "ram:ListResources",
         "redshift-data:DescribeStatement",
         "redshift-data:GetStatementResult",
         "redshift-serverless:ListNamespaces",
@@ -284,25 +284,6 @@ The policy's default version is the version that defines the permissions for the
         "arn:aws:iam::*:role/BedrockStudio*",
         "arn:aws:iam::*:role/AmazonBedrockConsumptionRole*",
         "arn:aws:iam::*:role/AmazonBedrockEvaluation*"
-      ],
-      "Condition" : {
-        "Null" : {
-          "aws:ResourceTag/AmazonDataZoneProject" : "false"
-        },
-        "StringEquals" : {
-          "iam:PermissionsBoundary" : "arn:aws:iam::aws:policy/SageMakerStudioProjectUserRolePermissionsBoundary"
-        }
-      }
-    },
-    {
-      "Sid" : "IamDzMng",
-      "Effect" : "Allow",
-      "Action" : [
-        "iam:DeleteRolePolicy",
-        "iam:PutRolePolicy"
-      ],
-      "Resource" : [
-        "arn:aws:iam::*:role/datazone*"
       ],
       "Condition" : {
         "Null" : {
@@ -698,7 +679,11 @@ The policy's default version is the version that defines the permissions for the
       "Effect" : "Allow",
       "Action" : "iam:PassRole",
       "Resource" : [
-        "arn:aws:iam::*:role/datazone_usr_role_*"
+        "arn:aws:iam::*:role/datazone_usr_role_*",
+        "arn:aws:iam::*:role/service-role/AmazonSageMakerAdminIAMExecutionRole*",
+        "arn:aws:iam::*:role/service-role/AmazonSageMakerUserIAMExecutionRole*",
+        "arn:aws:iam::*:role/AmazonSageMakerAdminIAMExecutionRole*",
+        "arn:aws:iam::*:role/AmazonSageMakerUserIAMExecutionRole*"
       ],
       "Condition" : {
         "StringEquals" : {
@@ -706,7 +691,8 @@ The policy's default version is the version that defines the permissions for the
             "datazone.amazonaws.com",
             "sagemaker.amazonaws.com",
             "redshift-serverless.amazonaws.com",
-            "bedrock.amazonaws.com"
+            "bedrock.amazonaws.com",
+            "pods.eks.amazonaws.com"
           ]
         }
       }
@@ -804,7 +790,8 @@ The policy's default version is the version that defines the permissions for the
       "Effect" : "Allow",
       "Action" : [
         "glue:CreateDatabase",
-        "glue:GetDatabase"
+        "glue:GetDatabase",
+        "glue:GetDatabases"
       ],
       "Resource" : [
         "arn:aws:glue:*:*:database/default",
@@ -838,7 +825,8 @@ The policy's default version is the version that defines the permissions for the
       "Sid" : "GlueDbTag",
       "Effect" : "Allow",
       "Action" : [
-        "glue:GetDatabase"
+        "glue:GetDatabase",
+        "glue:GetDatabases"
       ],
       "Resource" : [
         "arn:aws:glue:*:*:database/*",
@@ -886,25 +874,12 @@ The policy's default version is the version that defines the permissions for the
       }
     },
     {
-      "Sid" : "GlueConnTag",
-      "Effect" : "Allow",
-      "Action" : "glue:GetConnection",
-      "Resource" : [
-        "arn:aws:glue:*:*:catalog",
-        "arn:aws:glue:*:*:connection/datazone-glue-network-connection-*"
-      ],
-      "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        }
-      }
-    },
-    {
       "Sid" : "GlueConnMng",
       "Effect" : "Allow",
       "Action" : [
         "glue:CreateConnection",
-        "glue:DeleteConnection"
+        "glue:DeleteConnection",
+        "glue:GetConnection"
       ],
       "Resource" : [
         "arn:aws:glue:*:*:connection/datazone-glue-network-connection-*",
@@ -1021,7 +996,8 @@ The policy's default version is the version that defines the permissions for the
       "Effect" : "Allow",
       "Action" : [
         "glue:DeleteConnection",
-        "glue:UpdateConnection"
+        "glue:UpdateConnection",
+        "glue:GetDataCatalogEncryptionSettings"
       ],
       "Resource" : [
         "arn:aws:glue:*:*:catalog"
@@ -1050,17 +1026,6 @@ The policy's default version is the version that defines the permissions for the
           "kms:ViaService" : [
             "glue.*.amazonaws.com"
           ]
-        }
-      }
-    },
-    {
-      "Sid" : "GetDataCatalogEncSett",
-      "Effect" : "Allow",
-      "Action" : "glue:GetDataCatalogEncryptionSettings",
-      "Resource" : "arn:aws:glue:*:*:catalog",
-      "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },
@@ -1309,6 +1274,26 @@ The policy's default version is the version that defines the permissions for the
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}",
           "lakeformation:EnabledOnlyForMetaDataAccess" : "true"
+        }
+      }
+    },
+    {
+      "Sid" : "S3TablesProvision",
+      "Effect" : "Allow",
+      "Action" : [
+        "s3tables:GetTableBucket",
+        "s3tables:CreateTableBucket",
+        "s3tables:DeleteTableBucket",
+        "s3tables:ListNamespaces",
+        "s3tables:GetNamespace",
+        "s3tables:CreateNamespace",
+        "s3tables:DeleteNamespace",
+        "s3tables:TagResource"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "Null" : {
+          "aws:ResourceTag/AmazonDataZoneProject" : "false"
         }
       }
     },
@@ -1671,22 +1656,6 @@ The policy's default version is the version that defines the permissions for the
           "aws:ResourceTag/AmazonDataZoneProject" : "false",
           "aws:TagKeys" : "false"
         },
-        "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
-        }
-      }
-    },
-    {
-      "Sid" : "TagRSS",
-      "Effect" : "Allow",
-      "Action" : [
-        "redshift-serverless:ListTagsForResource"
-      ],
-      "Resource" : [
-        "arn:aws:redshift-serverless:*:*:namespace/*",
-        "arn:aws:redshift-serverless:*:*:workgroup/*"
-      ],
-      "Condition" : {
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
@@ -2676,15 +2645,6 @@ The policy's default version is the version that defines the permissions for the
       }
     },
     {
-      "Sid" : "EmrInstanceCleanup",
-      "Effect" : "Allow",
-      "Action" : [
-        "iam:RemoveRoleFromInstanceProfile",
-        "iam:DeleteInstanceProfile"
-      ],
-      "Resource" : "arn:aws:iam::*:instance-profile/datazone_emr_ec2_instance_profile_*"
-    },
-    {
       "Sid" : "Scheduler",
       "Effect" : "Allow",
       "Action" : [
@@ -2976,18 +2936,75 @@ The policy's default version is the version that defines the permissions for the
         "sso:PutApplicationAssignmentConfiguration",
         "sso:PutApplicationAuthenticationMethod",
         "sso:PutApplicationGrant",
-        "sso:PutApplicationSessionConfiguration"
+        "sso:PutApplicationSessionConfiguration",
+        "sso-directory:DescribeUser",
+        "sso-directory:DescribeGroup",
+        "identitystore:GetUserId",
+        "identitystore:GetGroupId",
+        "identitystore:DescribeUser",
+        "identitystore:DescribeGroup"
       ],
       "Resource" : "*",
       "Condition" : {
         "ForAnyValue:StringLike" : {
           "aws:CalledVia" : [
+            "athena.amazonaws.com",
             "elasticmapreduce.amazonaws.com",
             "emr-containers.amazonaws.com",
             "glue.amazonaws.com",
             "lakeformation.amazonaws.com",
             "ops.emr-serverless.amazonaws.com"
           ]
+        }
+      }
+    },
+    {
+      "Sid" : "RamShare",
+      "Effect" : "Allow",
+      "Action" : [
+        "ram:AcceptResourceShareInvitation",
+        "ram:DeleteResourceShare",
+        "ram:TagResource"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringLike" : {
+          "ram:ResourceShareName" : "DataZone*"
+        }
+      }
+    },
+    {
+      "Sid" : "RamCreate",
+      "Effect" : "Allow",
+      "Action" : [
+        "ram:AssociateResourceShare",
+        "ram:CreateResourceShare"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEqualsIfExists" : {
+          "ram:RequestedResourceType" : [
+            "glue:Catalog",
+            "glue:Database",
+            "glue:Table"
+          ]
+        },
+        "StringLike" : {
+          "ram:ResourceShareName" : "DataZone*"
+        }
+      }
+    },
+    {
+      "Sid" : "GlueRamRP",
+      "Effect" : "Allow",
+      "Action" : [
+        "glue:DeleteResourcePolicy",
+        "glue:PutResourcePolicy"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "ram.amazonaws.com"
         }
       }
     },
@@ -3004,7 +3021,8 @@ The policy's default version is the version that defines the permissions for the
         "emr-containers:DescribeSecurityConfiguration",
         "emr-containers:DescribeVirtualCluster",
         "emr-containers:DescribeManagedEndpoint",
-        "emr-containers:TagResource"
+        "emr-containers:TagResource",
+        "emr-containers:UntagResource"
       ],
       "Resource" : "*",
       "Condition" : {

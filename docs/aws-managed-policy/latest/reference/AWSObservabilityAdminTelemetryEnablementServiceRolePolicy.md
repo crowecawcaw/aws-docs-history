@@ -16,13 +16,13 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AWSObservabilityAdminTelemetryEnablementServiceRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: August 01, 2025, 18:04 UTC 
-+ **Edited time:** October 05, 2026, 22:17 UTC
++ **Edited time:** November 13, 2026, 21:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AWSObservabilityAdminTelemetryEnablementServiceRolePolicy`
 
 ## Policy version
 <a name="AWSObservabilityAdminTelemetryEnablementServiceRolePolicy-version"></a>
 
-**Policy version:** v16 (default)
+**Policy version:** v17 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -45,7 +45,9 @@ The policy's default version is the version that defines the permissions for the
         "ec2:MonitorInstances",
         "logs:DescribeDeliverySources",
         "logs:DescribeDeliveries",
-        "logs:DescribeDeliveryDestinations"
+        "logs:DescribeDeliveryDestinations",
+        "ec2:DescribeTags",
+        "autoscaling:DescribeTags"
       ],
       "Resource" : "*",
       "Condition" : {
@@ -448,7 +450,7 @@ The policy's default version is the version that defines the permissions for the
       }
     },
     {
-      "Sid" : "TelemetryOperationsForRoute53LogDelivery",
+      "Sid" : "TelemetryOperationsForCreateLogDelivery",
       "Effect" : "Allow",
       "Action" : [
         "logs:CreateLogDelivery"
@@ -473,6 +475,20 @@ The policy's default version is the version that defines the permissions for the
           "iam:AWSServiceName" : [
             "config.amazonaws.com"
           ]
+        }
+      }
+    },
+    {
+      "Sid" : "IAMOperationsForVPCFlowLogsServiceLinkedRole",
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:CreateServiceLinkedRole"
+      ],
+      "Resource" : "arn:*:iam::*:role/aws-service-role/vpc-flow-logs.amazonaws.com/AWSServiceRoleForVPCFlowLogs",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
+          "iam:AWSServiceName" : "vpc-flow-logs.amazonaws.com"
         }
       }
     },

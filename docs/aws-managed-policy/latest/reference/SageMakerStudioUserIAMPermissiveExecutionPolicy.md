@@ -16,13 +16,13 @@ You can attach `SageMakerStudioUserIAMPermissiveExecutionPolicy` to your users, 
 <a name="SageMakerStudioUserIAMPermissiveExecutionPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 18, 2025, 17:19 UTC 
-+ **Edited time:** October 29, 2026, 22:37 UTC
++ **Edited time:** November 14, 2026, 00:07 UTC
 + **ARN**: `arn:aws:iam::aws:policy/SageMakerStudioUserIAMPermissiveExecutionPolicy`
 
 ## Policy version
 <a name="SageMakerStudioUserIAMPermissiveExecutionPolicy-version"></a>
 
-**Policy version:** v27 (default)
+**Policy version:** v28 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -63,10 +63,12 @@ The policy's default version is the version that defines the permissions for the
         "athena:*",
         "bedrock:*",
         "bedrock-agentcore:*",
+        "agent-registry:*",
         "codewhisperer:*",
         "sagemaker-unified-studio-mcp:*",
         "elasticmapreduce:*",
         "emr-containers:*",
+        "eks:*",
         "q:*",
         "sagemaker:*",
         "sagemaker-mlflow:*",
@@ -75,7 +77,8 @@ The policy's default version is the version that defines the permissions for the
         "emr-serverless:*",
         "airflow-serverless:*",
         "airflow:*",
-        "application-autoscaling:*"
+        "application-autoscaling:*",
+        "pricing:GetProducts"
       ],
       "Resource" : "*"
     },
@@ -91,7 +94,6 @@ The policy's default version is the version that defines the permissions for the
         "athena:TerminateSession",
         "emr-serverless:*Session*",
         "emr-serverless:*Dashboard*",
-        "emr-containers:*ManagedEndpoint*",
         "elasticmapreduce:*Session*",
         "glue:CancelStatement",
         "glue:CreateSession",
@@ -106,7 +108,6 @@ The policy's default version is the version that defines the permissions for the
       "Resource" : [
         "arn:aws:athena:*:*:workgroup/*/session/*",
         "arn:aws:emr-serverless:*:*:/applications/*/sessions/*",
-        "arn:aws:emr-containers:*:*:/virtualclusters/*/endpoints/*",
         "arn:aws:elasticmapreduce:*:*:cluster/*/session/*",
         "arn:aws:glue:*:*:session/*"
       ],
@@ -124,7 +125,6 @@ The policy's default version is the version that defines the permissions for the
         "athena:TagResource",
         "athena:UntagResource",
         "emr-serverless:*Resource",
-        "emr-containers:*Resource",
         "elasticmapreduce:AddTags",
         "elasticmapreduce:RemoveTags",
         "glue:TagResource",
@@ -133,11 +133,28 @@ The policy's default version is the version that defines the permissions for the
       "Resource" : [
         "arn:aws:athena:*:*:workgroup/*/session/*",
         "arn:aws:emr-serverless:*:*:/applications/*/sessions/*",
-        "arn:aws:emr-containers:*:*:/virtualclusters/*/endpoints/*",
         "arn:aws:elasticmapreduce:*:*:cluster/*/session/*",
         "arn:aws:glue:*:*:session/*"
       ],
       "Condition" : {
+        "StringNotEquals" : {
+          "aws:ResourceTag/AmazonDataZoneSessionOwner" : "${aws:SourceIdentity}"
+        }
+      }
+    },
+    {
+      "Sid" : "DenyForeignEmrOnEksSessions",
+      "Effect" : "Deny",
+      "Action" : [
+        "emr-containers:GetManagedEndpointSessionCredentials",
+        "emr-containers:DeleteManagedEndpoint",
+        "emr-containers:*Resource"
+      ],
+      "Resource" : "arn:aws:emr-containers:*:*:/virtualclusters/*/endpoints/*",
+      "Condition" : {
+        "Null" : {
+          "aws:ResourceTag/AmazonDataZoneSessionOwner" : "false"
+        },
         "StringNotEquals" : {
           "aws:ResourceTag/AmazonDataZoneSessionOwner" : "${aws:SourceIdentity}"
         }
@@ -158,6 +175,7 @@ The policy's default version is the version that defines the permissions for the
         "datazone:CreateConnection",
         "datazone:CreateEnvironment",
         "datazone:CreateListingChangeSet",
+        "datazone:CreateNotificationPreference",
         "datazone:CreateProject",
         "datazone:CreateProjectMembership",
         "datazone:CreateSubscriptionGrant",
@@ -184,8 +202,24 @@ The policy's default version is the version that defines the permissions for the
         "datazone:SearchGroupProfiles",
         "datazone:StartMetadataGenerationRun",
         "datazone:UpdateAssetFilter",
+        "datazone:UpdateAssetOwner",
+        "datazone:CreateDataProduct",
+        "datazone:CreateDataProductRevision",
+        "datazone:DeleteDataProduct",
+        "datazone:CreateGlossary",
+        "datazone:UpdateGlossary",
+        "datazone:DeleteGlossary",
+        "datazone:CreateGlossaryTerm",
+        "datazone:UpdateGlossaryTerm",
+        "datazone:DeleteGlossaryTerm",
+        "datazone:AssociateGovernedTerms",
+        "datazone:DisassociateGovernedTerms",
+        "datazone:CreateFormType",
+        "datazone:DeleteFormType",
+        "datazone:StartDataSourceRun",
         "datazone:UpdateConnection",
         "datazone:UpdateEnvironment",
+        "datazone:UpdateNotificationPreference",
         "datazone:UpdateProject",
         "datazone:UpdateSubscriptionRequest",
         "datazone:*Notebook*",
@@ -245,6 +279,7 @@ The policy's default version is the version that defines the permissions for the
       "Effect" : "Allow",
       "Action" : "iam:CreateServiceLinkedRole",
       "Resource" : [
+        "arn:aws:iam::*:role/aws-service-role/emr-containers.amazonaws.com/AWSServiceRoleForAmazonEMRContainers",
         "arn:aws:iam::*:role/aws-service-role/neptune-graph.amazonaws.com/AWSServiceRoleForNeptuneGraph",
         "arn:aws:iam::*:role/aws-service-role/redshift.amazonaws.com/AWSServiceRoleForRedshift",
         "arn:aws:iam::*:role/aws-service-role/sagemaker.amazonaws.com/AWSServiceRoleForAmazonSageMakerNotebooks",
@@ -257,8 +292,48 @@ The policy's default version is the version that defines the permissions for the
         "arn:aws:iam::*:role/aws-service-role/runtime-identity.bedrock-agentcore.amazonaws.com/AWSServiceRoleForBedrockAgentCoreRuntimeIdentity",
         "arn:aws:iam::*:role/aws-service-role/network.bedrock-agentcore.amazonaws.com/AWSServiceRoleForBedrockAgentCoreNetwork",
         "arn:aws:iam::*:role/aws-service-role/bedrock-agentcore.amazonaws.com/AWSServiceRoleForBedrockAgentCoreGatewayNetwork",
-        "arn:aws:iam::*:role/aws-service-role/identity-network.bedrock-agentcore.amazonaws.com/AWSServiceRoleForBedrockAgentCoreIdentity"
+        "arn:aws:iam::*:role/aws-service-role/identity-network.bedrock-agentcore.amazonaws.com/AWSServiceRoleForBedrockAgentCoreIdentity",
+        "arn:aws:iam::*:role/aws-service-role/agent-registry.amazonaws.com/AWSServiceRoleForAgentRegistry"
       ]
+    },
+    {
+      "Sid" : "CreateRole",
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:CreateRole",
+        "iam:TagRole",
+        "iam:UpdateAssumeRolePolicy"
+      ],
+      "Resource" : "arn:aws:iam::*:role/datazone_emr_containers_system_namespace_role_*"
+    },
+    {
+      "Sid" : "AttachPolicy",
+      "Effect" : "Allow",
+      "Action" : "iam:AttachRolePolicy",
+      "Resource" : "arn:aws:iam::*:role/datazone_emr_containers_system_namespace_role_*",
+      "Condition" : {
+        "ArnEquals" : {
+          "iam:PolicyARN" : "arn:aws:iam::aws:policy/service-role/SageMakerStudioEMRContainersSystemNamespaceRolePolicy"
+        }
+      }
+    },
+    {
+      "Sid" : "ManageViaEmrContainers",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:AuthorizeSecurityGroupEgress",
+        "ec2:AuthorizeSecurityGroupIngress",
+        "ec2:CreateSecurityGroup",
+        "ec2:DeleteSecurityGroup",
+        "ec2:RevokeSecurityGroupEgress",
+        "ec2:RevokeSecurityGroupIngress"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "emr-containers.amazonaws.com"
+        }
+      }
     },
     {
       "Sid" : "TagSession",
@@ -332,6 +407,7 @@ The policy's default version is the version that defines the permissions for the
         "lakeformation:BatchRevokePermissions",
         "lakeformation:DescribeResource",
         "lakeformation:GetDataAccess",
+        "lakeformation:GetDataLakeSettings",
         "lakeformation:GrantPermissions",
         "lakeformation:ListResources",
         "lakeformation:ListPermissions",
@@ -387,6 +463,22 @@ The policy's default version is the version that defines the permissions for the
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceTag/for-use-with-all-datazone-projects" : "true"
+        }
+      }
+    },
+    {
+      "Sid" : "ACApiKeySecret",
+      "Effect" : "Allow",
+      "Action" : [
+        "secretsmanager:CreateSecret",
+        "secretsmanager:PutSecretValue",
+        "secretsmanager:DeleteSecret",
+        "secretsmanager:GetSecretValue"
+      ],
+      "Resource" : "arn:aws:secretsmanager:*:*:secret:bedrock-agentcore-identity!*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "bedrock-agentcore.amazonaws.com"
         }
       }
     },
@@ -512,7 +604,7 @@ The policy's default version is the version that defines the permissions for the
       }
     },
     {
-      "Sid" : "SageMakerKms",
+      "Sid" : "KmsWithEncrypt",
       "Effect" : "Allow",
       "Action" : [
         "kms:Decrypt",
@@ -528,20 +620,35 @@ The policy's default version is the version that defines the permissions for the
           "kms:EncryptionContextKeys" : "false"
         },
         "StringLike" : {
-          "kms:ViaService" : "sagemaker.*.amazonaws.com"
+          "kms:ViaService" : [
+            "sagemaker.*.amazonaws.com",
+            "s3.*.amazonaws.com",
+            "secretsmanager.*.amazonaws.com",
+            "redshift.*.amazonaws.com",
+            "emr-serverless.*.amazonaws.com",
+            "sso.*.amazonaws.com",
+            "identitystore.*.amazonaws.com"
+          ]
         }
       }
     },
     {
-      "Sid" : "SageMakerCreateGrant",
+      "Sid" : "KmsManagement",
       "Effect" : "Allow",
       "Action" : [
-        "kms:CreateGrant"
+        "kms:CreateGrant",
+        "kms:GetPublicKey",
+        "kms:RevokeGrant"
       ],
       "Resource" : "*",
       "Condition" : {
         "StringLike" : {
-          "kms:ViaService" : "sagemaker.*.amazonaws.com"
+          "kms:ViaService" : [
+            "sagemaker.*.amazonaws.com",
+            "emr-serverless.*.amazonaws.com",
+            "s3.*.amazonaws.com",
+            "redshift.*.amazonaws.com"
+          ]
         }
       }
     },
@@ -687,6 +794,12 @@ The policy's default version is the version that defines the permissions for the
       "Resource" : "*"
     },
     {
+      "Sid" : "RamShareCreate",
+      "Effect" : "Allow",
+      "Action" : "ram:CreateResourceShare",
+      "Resource" : "*"
+    },
+    {
       "Sid" : "SSOInstanceReadOnlyPermissions",
       "Effect" : "Allow",
       "Action" : [
@@ -708,13 +821,14 @@ The policy's default version is the version that defines the permissions for the
       "Effect" : "Allow",
       "Action" : [
         "identitystore:DescribeUser",
-        "identitystore:DescribeGroup"
+        "identitystore:DescribeGroup",
+        "sso-directory:DescribeUser",
+        "sso-directory:DescribeGroup",
+        "identitystore:GetUserId",
+        "identitystore:GetGroupId",
+        "sso:ListInstances"
       ],
-      "Resource" : [
-        "arn:aws:identitystore::*:identitystore/*",
-        "arn:aws:identitystore:::user/*",
-        "arn:aws:identitystore:::group/*"
-      ],
+      "Resource" : "*",
       "Condition" : {
         "Bool" : {
           "aws:ViaAWSService" : "true"

@@ -16,13 +16,13 @@ You can attach `AWSCompromisedKeyQuarantineV4` to your users, groups, and roles.
 <a name="AWSCompromisedKeyQuarantineV4-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: November 06, 2026, 00:37 UTC 
-+ **Edited time:** November 06, 2026, 00:37 UTC
++ **Edited time:** November 09, 2026, 22:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSCompromisedKeyQuarantineV4`
 
 ## Policy version
 <a name="AWSCompromisedKeyQuarantineV4-version"></a>
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -69,6 +69,7 @@ The policy's default version is the version that defines the permissions for the
         "iam:DeleteRole",
         "iam:DeleteAccessKey",
         "iam:ListUsers",
+        "iam:UpdateServiceSpecificCredential",
         "lambda:AddLayerVersionPermission",
         "lambda:AddPermission",
         "lambda:CreateFunction",
@@ -189,7 +190,16 @@ The policy's default version is the version that defines the permissions for the
         "apprunner:UntagResource",
         "sagemaker:CreateTrainingJob",
         "sagemaker:CreateEndpoint",
-        "bedrock-mantle:CreateInference",
+        "bedrock-mantle:Create*",
+        "bedrock-mantle:Delete*",
+        "bedrock-mantle:Update*",
+        "bedrock-mantle:Put*",
+        "bedrock-mantle:Cancel*",
+        "bedrock-mantle:Associate*",
+        "bedrock-mantle:Disassociate*",
+        "bedrock-mantle:ArchiveProject",
+        "bedrock-mantle:TagResource",
+        "bedrock-mantle:UntagResource",
         "aws-marketplace:Subscribe",
         "aws-marketplace:AcceptAgreementApprovalRequest",
         "apprunner:DeleteService",

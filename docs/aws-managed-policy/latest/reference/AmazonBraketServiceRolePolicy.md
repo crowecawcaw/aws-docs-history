@@ -16,13 +16,13 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AmazonBraketServiceRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: August 04, 2020, 17:12 UTC 
-+ **Edited time:** July 06, 2026, 18:42 UTC
++ **Edited time:** November 13, 2026, 19:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AmazonBraketServiceRolePolicy`
 
 ## Policy version
 <a name="AmazonBraketServiceRolePolicy-version"></a>
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -73,7 +73,10 @@ The policy's default version is the version that defines the permissions for the
         "logs:CreateLogGroup",
         "logs:DescribeLogGroups"
       ],
-      "Resource" : "arn:aws:logs:*:*:log-group:/aws/braket:*",
+      "Resource" : [
+        "arn:aws:logs:*:*:log-group:/aws/braket:*",
+        "arn:aws:logs:*:*:log-group:/aws/braket"
+      ],
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"

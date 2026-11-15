@@ -16,13 +16,13 @@ You can attach `AWSApplicationMigrationNetworkMigrationMultiAccount` to your use
 <a name="AWSApplicationMigrationNetworkMigrationMultiAccount-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: November 10, 2025, 09:04 UTC 
-+ **Edited time:** September 15, 2026, 13:17 UTC
++ **Edited time:** November 10, 2026, 08:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSApplicationMigrationNetworkMigrationMultiAccount`
 
 ## Policy version
 <a name="AWSApplicationMigrationNetworkMigrationMultiAccount-version"></a>
 
-**Policy version:** v7 (default)
+**Policy version:** v8 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -1134,6 +1134,203 @@ The policy's default version is the version that defines the permissions for the
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
+        }
+      }
+    },
+    {
+      "Sid" : "Ec2ViaCfnSecurityGroupsForVpcRead",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:GetSecurityGroupsForVpc"
+      ],
+      "Resource" : "arn:aws:ec2:*:*:vpc/*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : [
+            "cloudformation.amazonaws.com"
+          ]
+        },
+        "StringEquals" : {
+          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
+        }
+      }
+    },
+    {
+      "Sid" : "ElbViaCfnListenerCreateOnLoadBalancer",
+      "Effect" : "Allow",
+      "Action" : [
+        "elasticloadbalancing:CreateListener"
+      ],
+      "Resource" : [
+        "arn:aws:elasticloadbalancing:*:*:loadbalancer/app/*",
+        "arn:aws:elasticloadbalancing:*:*:loadbalancer/net/*"
+      ],
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : [
+            "cloudformation.amazonaws.com"
+          ],
+          "elasticloadbalancing:ListenerProtocol" : [
+            "HTTP",
+            "TCP",
+            "TCP_UDP",
+            "UDP"
+          ]
+        },
+        "StringEquals" : {
+          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
+        }
+      }
+    },
+    {
+      "Sid" : "ElbViaCfnListenerOperationsWrite",
+      "Effect" : "Allow",
+      "Action" : [
+        "elasticloadbalancing:DeleteListener",
+        "elasticloadbalancing:ModifyListenerAttributes"
+      ],
+      "Resource" : [
+        "arn:aws:elasticloadbalancing:*:*:listener/app/*",
+        "arn:aws:elasticloadbalancing:*:*:listener/net/*"
+      ],
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : [
+            "cloudformation.amazonaws.com"
+          ]
+        },
+        "StringEquals" : {
+          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
+        }
+      }
+    },
+    {
+      "Sid" : "ElbViaCfnLoadBalancerAndTargetGroupOperationsWrite",
+      "Effect" : "Allow",
+      "Action" : [
+        "elasticloadbalancing:DeleteLoadBalancer",
+        "elasticloadbalancing:DeleteTargetGroup",
+        "elasticloadbalancing:ModifyLoadBalancerAttributes",
+        "elasticloadbalancing:ModifyTargetGroupAttributes"
+      ],
+      "Resource" : [
+        "arn:aws:elasticloadbalancing:*:*:loadbalancer/app/*",
+        "arn:aws:elasticloadbalancing:*:*:loadbalancer/net/*",
+        "arn:aws:elasticloadbalancing:*:*:targetgroup/*"
+      ],
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : [
+            "cloudformation.amazonaws.com"
+          ]
+        },
+        "StringEquals" : {
+          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
+        }
+      }
+    },
+    {
+      "Sid" : "ElbViaCfnLoadBalancerCreateWithRequestTag",
+      "Effect" : "Allow",
+      "Action" : [
+        "elasticloadbalancing:CreateLoadBalancer"
+      ],
+      "Resource" : [
+        "arn:aws:elasticloadbalancing:*:*:loadbalancer/app/*",
+        "arn:aws:elasticloadbalancing:*:*:loadbalancer/net/*"
+      ],
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : [
+            "cloudformation.amazonaws.com"
+          ]
+        },
+        "StringEquals" : {
+          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService",
+          "elasticloadbalancing:Scheme" : "internal"
+        }
+      }
+    },
+    {
+      "Sid" : "ElbViaCfnOperationsReadOnly",
+      "Effect" : "Allow",
+      "Action" : [
+        "elasticloadbalancing:DescribeCapacityReservation",
+        "elasticloadbalancing:DescribeListenerAttributes",
+        "elasticloadbalancing:DescribeListeners",
+        "elasticloadbalancing:DescribeLoadBalancerAttributes",
+        "elasticloadbalancing:DescribeLoadBalancers",
+        "elasticloadbalancing:DescribeTags",
+        "elasticloadbalancing:DescribeTargetGroupAttributes",
+        "elasticloadbalancing:DescribeTargetGroups",
+        "elasticloadbalancing:DescribeTargetHealth"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : [
+            "cloudformation.amazonaws.com"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "ElbViaCfnTagOnCreate",
+      "Effect" : "Allow",
+      "Action" : [
+        "elasticloadbalancing:AddTags"
+      ],
+      "Resource" : [
+        "arn:aws:elasticloadbalancing:*:*:listener/app/*",
+        "arn:aws:elasticloadbalancing:*:*:listener/net/*",
+        "arn:aws:elasticloadbalancing:*:*:loadbalancer/app/*",
+        "arn:aws:elasticloadbalancing:*:*:loadbalancer/net/*",
+        "arn:aws:elasticloadbalancing:*:*:targetgroup/*"
+      ],
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : [
+            "cloudformation.amazonaws.com"
+          ]
+        },
+        "StringEquals" : {
+          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService",
+          "elasticloadbalancing:CreateAction" : [
+            "CreateListener",
+            "CreateLoadBalancer",
+            "CreateTargetGroup"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "ElbViaCfnTargetGroupCreateWithRequestTag",
+      "Effect" : "Allow",
+      "Action" : [
+        "elasticloadbalancing:CreateTargetGroup"
+      ],
+      "Resource" : "arn:aws:elasticloadbalancing:*:*:targetgroup/*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : [
+            "cloudformation.amazonaws.com"
+          ]
+        },
+        "StringEquals" : {
+          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService"
+        }
+      }
+    },
+    {
+      "Sid" : "IamElbServiceLinkedRoleCreate",
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:CreateServiceLinkedRole"
+      ],
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing",
+      "Condition" : {
+        "StringEquals" : {
+          "iam:AWSServiceName" : "elasticloadbalancing.amazonaws.com"
         }
       }
     }
