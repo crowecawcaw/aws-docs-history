@@ -7,7 +7,7 @@
 <a name="General-Notes"></a>
 + [Review the AWS Replication Agent installation requirements.](installation-requirements.md)
 + For `arm64` support, see [AWS Graviton source servers](#arm64-source-servers).
-+ Linux kernel versions up to 7.1 are supported.
++ Linux kernel versions up to 7.3 are supported. Kernel versions 7.2 and 7.3 require AWS Elastic Disaster Recovery Agent version 6.42.29 or later.
 + For source machines configured with LVM, on RHEL/Oracle version less than or equal to 9.4, please make sure to update the lvm package to `lvm2-2.03.23-1.el9` or later.
 + AWS Elastic Disaster Recovery does not support 32 bit versions of Linux.
 + Hard reboots, disk changes, and crashes trigger a rescan. Graceful reboots do not trigger a rescan in the following versions:

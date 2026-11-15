@@ -10,6 +10,7 @@
 
 | Client Version | Details | Release date | 
 | --- | --- | --- | 
+| 6.42.29 |  +  Updates the bundled OpenSSL to version 3.5.9 to address security vulnerabilities CVE-2026-84782, CVE-2026-75806, CVE-2026-75805, CVE-2026-35189, CVE-2026-54872, and CVE-2026-77696.   | 9 November 2026 | 
 | 6.42.25 |  +  Removed support for specifying a custom S3 endpoint. The Failback Client now resolves Amazon S3 using the DNS configuration of the server that you are failing back to.   | 9 October 2026 | 
 | 6.21.0 |  +  Miscellaneous security enhancements.   | 15 July 2024 | 
 | 5.21.0 |  +  Fixed issue preventing custom DRS Endpoints from being used during failback.   | 13 January 2024 | 

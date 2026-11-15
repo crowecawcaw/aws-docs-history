@@ -43,7 +43,7 @@ Ensure that your Linux source server meets the following installation requiremen
   +  If `/boot` is a separate partition, ensure that it has a minimum of 50 MB free space needed for the installation. To check the available disk space on the /boot directory run the `df -h /boot` command.
 + The active bootloader software is GRUB 1 or 2. 
 + Secure Boot is not supported in Linux.
-+ Machines that boot off a disk configured with GPT partitioning must have the package 'grub2-pc-modules' installed
++ If a Linux source server boots with Unified Extensible Firmware Interface (UEFI), install the legacy Basic Input/Output System (BIOS) GRUB modules on it: `grub2-pc-modules` on Red Hat Enterprise Linux and related distributions, or `grub-pc-bin` on Ubuntu and Debian. Don't install `grub-pc`, which removes the UEFI GRUB package. Elastic Disaster Recovery recovers these servers with UEFI and uses the modules only if it recovers a server with BIOS instead. To check whether a server boots with UEFI, run `ls /sys/firmware/efi`. The directory exists only on servers that boot with UEFI.
 + When performing a failback for a Linux server, you must boot the Failback Client with the same boot mode (BIOS or UEFI) as the recovery instance that you are failing back from. The Failback Client supports `x86_64` servers only. For `arm64` source servers, fail back within AWS. See [Performing a failback with Elastic Disaster Recovery](failback-performing-main.md).
 + Ensure that /tmp is mounted as read\+write. 
 + Boot disks that span multiple physical disks are not supported.
