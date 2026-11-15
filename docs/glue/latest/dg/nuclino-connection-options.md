@@ -1,0 +1,10 @@
+
+
+# Nuclino connection options
+<a name="nuclino-connection-options"></a>
+
+The following are connection options for Nuclino:
++ `ENTITY_NAME` – (Required) Used for Read. The name of the Nuclino object to read.
++ `SELECTED_FIELDS` – Default: empty (SELECT \*). Used for Read. The columns you want to select for the object.
+
+Server-side (pushed-down) filtering is not supported for Nuclino. The connector reads all records of an entity; apply any filtering in your AWS Glue ETL job.

@@ -359,3 +359,5 @@ The API uses the following regular expressions to define what is valid content f
 + Custom string pattern \#76 – "`^[a-zA-Z][a-zA-Z0-9_]*$`"
 + Custom string pattern \#77 – "`^[A-Z]\w*$`"
 + Custom string pattern \#78 – "`^(?![\.:])([\w.]+(::))?[A-Z]\w*$`"
++ Custom string pattern \#79 – "`^((\w+\.)+\w+|auto)$`"
++ Custom string pattern \#80 – "`ja-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}`"

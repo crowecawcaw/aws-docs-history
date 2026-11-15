@@ -13,7 +13,7 @@
 +  redshift-data:ListTables 
 
 ## Adding an Amazon Redshift target node
-<a name="w2aac25c29c13c15b5"></a>
+<a name="w2aac25c29c17c15b5"></a>
 
 **To create a a Amazon Redshift target node:**
 

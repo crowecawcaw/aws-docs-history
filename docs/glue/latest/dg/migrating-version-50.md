@@ -77,7 +77,7 @@ Note the following breaking changes:
 + The AWS Glue job run insights `job-insights-rule-driver` has been deprecated. The `job-insights-rca-driver` log stream is now located in the error log group.
 + Athena-based custom/marketplace connectors are not supported.
 + Adobe Marketo Engage, Facebook Ads, Google Ads, Google Analytics 4, Google Sheets, Hubspot, Instagram Ads, Intercom, Jira Cloud, Oracle NetSuite, Salesforce, Salesforce Marketing Cloud, Salesforce Marketing Cloud Account Engagement, SAP OData, ServiceNow, Slack, Snapchat Ads, Stripe, Zendesk and Zoho CRM connectors are not supported.
-+ Custom log4j properties are not supported in AWS Glue 5.0.
++ With `--extra-files`, you can provide a file named `log4j2.properties` that is used instead of the default Log4j configuration for driver and executor processes. AWS Glue does not merge the custom and default configurations. Executor logging cannot use custom Log4j appenders, layouts, or filters implemented in JAR files supplied with `--extra-jars`.
 
 ### Major enhancements from Spark 3.3.0 to Spark 3.5.4
 <a name="migrating-version-50-features-spark"></a>

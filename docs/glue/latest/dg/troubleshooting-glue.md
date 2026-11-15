@@ -13,7 +13,7 @@
 **Topics**
 + [Gathering AWS Glue troubleshooting information](troubleshooting-contact-support.md)
 + [Troubleshooting Glue common setup errors](glue-troubleshooting-errors.md)
-+ [Generating help with Q](generating-help-with-q.md)
++ [Generating help with AWS assistant](generating-help-with-q.md)
 + [Crawler errors when the crawler is using Lake Formation permissions](error-crawler-config-lf.md)
 + [Troubleshooting AWS Glue for Ray errors from logs](troubleshooting-ray.md)
 + [AWS Glue machine learning exceptions](exceptions-machine-learning.md)

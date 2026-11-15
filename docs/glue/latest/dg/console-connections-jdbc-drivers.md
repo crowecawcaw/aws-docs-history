@@ -6,7 +6,7 @@
  You can use your own JDBC driver when using a JDBC connection. When the default driver utilized by the AWS Glue crawler is unable to connect to a database, you can use your own JDBC Driver. For example, if you want to use SHA-256 with your Postgres database, and older postgres drivers do not support this, you can use your own JDBC driver. 
 
 ## Supported datasources
-<a name="w2aac25c29d135b5"></a>
+<a name="w2aac25c29d337b5"></a>
 
 
 | Supported datasources | Unsupported datasources | 
@@ -21,7 +21,7 @@
  \*Supported if the native JDBC driver is being used. Not all driver features can be leveraged. 
 
 ## Adding a JDBC driver to a JDBC connection
-<a name="w2aac25c29d135b9"></a>
+<a name="w2aac25c29d337b9"></a>
 
 **Note**  
  If you choose to bring in your own JDBC driver versions, AWS Glue crawlers will consume resources in AWS Glue jobs and Amazon S3 buckets to ensure your provided driver are run in your environment. The additional usage of resources will be reflected in your account. The cost for AWS Glue crawlers and jobs is under the AWS Glue category in billing. Additionally, providing your own JDBC driver does not mean that the crawler is able to leverage all of the driver's features. 

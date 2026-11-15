@@ -19,7 +19,7 @@
 
  AWS Lambda is a serverless computing service that lets you run code without provisioning or managing servers. Because AWS Lambda has lower startup times and more flexible options for compute capacity, you can benefit from these advantages. For managing extra Python libraries, AWS Glue Python Shell jobs use PIP-based installation. However, for AWS Lambda, you need to choose one of the following options: a zip archive, a container image, or Lambda Layers. 
 
- On the other hand, AWS Lambda's maximum timeout is 900 seconds (15 minutes). If the job duration of your existing AWS Glue Python Shell job workload is more than that, or if your workload has a spiky pattern that may cause longer job durations, then we recommend exploring other options instead of AWS Lambda. 
+ AWS Lambda supports both short and long-running workloads. Use Lambda functions for short jobs and [Lambda MicroVMs](https://docs.aws.amazon.com/lambda/latest/dg/lambda-microvms-guide.html) for long-running jobs. 
 
 ## Migrating workload to Amazon ECS/Fargate
 <a name="pyshell-migration-to-ecs-aws-fargate"></a>

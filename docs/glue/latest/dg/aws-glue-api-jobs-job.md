@@ -14,6 +14,7 @@ The Jobs API describes the data types and API related to creating, updating, del
 + [ConnectionsList structure](#aws-glue-api-jobs-job-ConnectionsList)
 + [JobUpdate structure](#aws-glue-api-jobs-job-JobUpdate)
 + [SourceControlDetails structure](#aws-glue-api-jobs-job-SourceControlDetails)
++ [AutoUpgradeMetadata structure](#aws-glue-api-jobs-job-AutoUpgradeMetadata)
 
 ## Job structure
 <a name="aws-glue-api-jobs-job-Job"></a>
@@ -119,7 +120,7 @@ Specifies a job definition.
   The value that can be allocated for `MaxCapacity` depends on whether you are running a Python shell job, an Apache Spark ETL job, or an Apache Spark streaming ETL job:
   + When you specify a Python shell job (`JobCommand.Name`="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.
   + When you specify an Apache Spark ETL job (`JobCommand.Name`="glueetl") or Apache Spark streaming ETL job (`JobCommand.Name`="gluestreaming"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
-+ `WorkerType` – UTF-8 string (valid values: `Standard=""` \| `G.1X=""` \| `G.2X=""` \| `G.025X=""` \| `G.4X=""` \| `G.8X=""` \| `Z.2X=""`).
++ `WorkerType` – UTF-8 string (valid values: `Standard=""` \| `G.1X=""` \| `G.2X=""` \| `G.4X=""` \| `G.8X=""` \| `G.025X=""` \| `Z.2X=""` \| `G.12X=""` \| `G.16X=""` \| `R.1X=""` \| `R.2X=""` \| `R.4X=""` \| `R.8X=""`).
 
   The type of predefined worker that is allocated when a job runs.
 
@@ -134,10 +135,12 @@ Specifies a job definition.
   + G.16X: 16 DPU (64 vCPUs, 256 GB memory, 1024GB disk)
 
   R Worker Types (Memory-optimized workers):
-  + R.1X: 1 M-DPU (4 vCPUs, 32 GB memory)
-  + R.2X: 2 M-DPU (8 vCPUs, 64 GB memory)
-  + R.4X: 4 M-DPU (16 vCPUs, 128 GB memory)
-  + R.8X: 8 M-DPU (32 vCPUs, 256 GB memory)
+  + R.1X: 1 M-DPU (4 vCPUs, 32 GB memory, 94GB disk)
+  + R.2X: 2 M-DPU (8 vCPUs, 64 GB memory, 138GB disk)
+  + R.4X: 4 M-DPU (16 vCPUs, 128 GB memory, 256GB disk)
+  + R.8X: 8 M-DPU (32 vCPUs, 256 GB memory, 512GB disk)
+
+  The `G.12X`, `G.16X`, and `R.1X` through `R.8X` worker types are available only for AWS Glue version 4.0 or later Spark ETL jobs in select AWS Regions. For the supported Regions, see [Configuring job properties for Spark jobs](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
 + `NumberOfWorkers` – Number (integer).
 
   The number of workers of a defined `workerType` that are allocated when a job runs.
@@ -150,7 +153,7 @@ Specifies a job definition.
 + `Running` – Boolean.
 
   This field is reserved for future use.
-+ `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #45](aws-glue-api-common.md#regex_45).
++ `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #79](aws-glue-api-common.md#regex_79).
 
   In Spark jobs, `GlueVersion` determines the versions of Apache Spark and Python that AWS Glue available in a job. The Python version indicates the version supported for jobs of type Spark. 
 
@@ -158,7 +161,9 @@ Specifies a job definition.
 
   For more information about the available AWS Glue versions and corresponding Spark and Python versions, see [Glue version](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
 
-  Jobs that are created without specifying a Glue version default to Glue 5.1.
+  Jobs that are created without specifying a Glue version default to Glue 6.0.
+
+  Set `GlueVersion` to `auto` to turn on automatic version upgrades for the job. For more information, see [Automatic version upgrades for AWS Glue jobs](https://docs.aws.amazon.com/glue/latest/dg/auto-version-upgrades.html) in the developer guide. For the job requirements, see [Before you start](https://docs.aws.amazon.com/glue/latest/dg/auto-version-upgrades.html#auto-version-upgrades-before-you-start).
 + `CodeGenConfigurationNodes` – A map array of key-value pairs.
 
   Each key is a UTF-8 string, matching the [Custom string pattern #65](aws-glue-api-common.md#regex_65).
@@ -184,6 +189,9 @@ Specifies a job definition.
 + `ProfileName` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
   The name of an AWS Glue usage profile associated with the job.
++ `AutoUpgradeMetadata` – An [AutoUpgradeMetadata](#aws-glue-api-jobs-job-AutoUpgradeMetadata) object.
+
+  The auto-upgrade assessment information for a job configured with `GlueVersion=auto`. This field is null when the job is not configured to auto.
 
 ## ExecutionProperty structure
 <a name="aws-glue-api-jobs-job-ExecutionProperty"></a>
@@ -327,9 +335,11 @@ Specifies information used to update an existing job definition. The previous jo
   The value that can be allocated for `MaxCapacity` depends on whether you are running a Python shell job, an Apache Spark ETL job, or an Apache Spark streaming ETL job:
   + When you specify a Python shell job (`JobCommand.Name`="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.
   + When you specify an Apache Spark ETL job (`JobCommand.Name`="glueetl") or Apache Spark streaming ETL job (`JobCommand.Name`="gluestreaming"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
-+ `WorkerType` – UTF-8 string (valid values: `Standard=""` \| `G.1X=""` \| `G.2X=""` \| `G.025X=""` \| `G.4X=""` \| `G.8X=""` \| `Z.2X=""`).
++ `WorkerType` – UTF-8 string (valid values: `Standard=""` \| `G.1X=""` \| `G.2X=""` \| `G.4X=""` \| `G.8X=""` \| `G.025X=""` \| `Z.2X=""` \| `G.12X=""` \| `G.16X=""` \| `R.1X=""` \| `R.2X=""` \| `R.4X=""` \| `R.8X=""`).
 
-  The type of predefined worker that is allocated when a job runs. Accepts a value of G.1X, G.2X, G.4X, G.8X or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs. For more information, see [Defining job properties for Spark jobs ](https://docs.aws.amazon.com/glue/latest/dg/add-job.html#create-job)
+  The type of predefined worker that is allocated when a job runs. Accepts a value of G.025X, G.1X, G.2X, G.4X, G.8X, G.12X, G.16X, R.1X, R.2X, R.4X, or R.8X for Spark jobs. Accepts the value Z.2X for Ray jobs. For more information, see [Defining job properties for Spark jobs ](https://docs.aws.amazon.com/glue/latest/dg/add-job.html#create-job)
+
+  The `G.12X`, `G.16X`, and `R.1X` through `R.8X` worker types are available only for AWS Glue version 4.0 or later Spark ETL jobs in select AWS Regions. For the supported Regions, see [Configuring job properties for Spark jobs](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
 + `NumberOfWorkers` – Number (integer).
 
   The number of workers of a defined `workerType` that are allocated when a job runs.
@@ -339,7 +349,7 @@ Specifies information used to update an existing job definition. The previous jo
 + `NotificationProperty` – A [NotificationProperty](aws-glue-api-jobs-runs.md#aws-glue-api-jobs-runs-NotificationProperty) object.
 
   Specifies the configuration properties of a job notification.
-+ `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #45](aws-glue-api-common.md#regex_45).
++ `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #79](aws-glue-api-common.md#regex_79).
 
   In Spark jobs, `GlueVersion` determines the versions of Apache Spark and Python that AWS Glue available in a job. The Python version indicates the version supported for jobs of type Spark. 
 
@@ -348,6 +358,8 @@ Specifies information used to update an existing job definition. The previous jo
   For more information about the available AWS Glue versions and corresponding Spark and Python versions, see [Glue version](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
 
   If not provided in the update request, the Glue version retains the value from the existing job definition.
+
+  Set `GlueVersion` to `auto` to turn on automatic version upgrades for the job. For more information, see [Automatic version upgrades for AWS Glue jobs](https://docs.aws.amazon.com/glue/latest/dg/auto-version-upgrades.html) in the developer guide. For the job requirements, see [Before you start](https://docs.aws.amazon.com/glue/latest/dg/auto-version-upgrades.html#auto-version-upgrades-before-you-start).
 + `CodeGenConfigurationNodes` – A map array of key-value pairs.
 
   Each key is a UTF-8 string, matching the [Custom string pattern #65](aws-glue-api-common.md#regex_65).
@@ -407,6 +419,25 @@ The details for a source control configuration for a job, allowing synchronizati
 + `AuthToken` – UTF-8 string, not less than 1 or more than 512 bytes long.
 
   The value of an authorization token.
+
+## AutoUpgradeMetadata structure
+<a name="aws-glue-api-jobs-job-AutoUpgradeMetadata"></a>
+
+The auto-upgrade assessment information for a job configured with `GlueVersion=auto`.
+
+**Fields**
++ `TargetVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #79](aws-glue-api-common.md#regex_79).
+
+  The target AWS Glue runtime version the job is being upgraded to.
++ `SourceVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #79](aws-glue-api-common.md#regex_79).
+
+  The source AWS Glue runtime version the job was running before auto-version was enabled.
++ `Status` – UTF-8 string (valid values: `OBSERVING` \| `UPGRADING` \| `UPGRADE_SUCCEEDED` \| `UPGRADE_FAILED` \| `STOPPED` \| `WAITING_FOR_CONSENT`).
+
+  The current auto-upgrade lifecycle status (OBSERVING, UPGRADING, UPGRADE\_SUCCEEDED, UPGRADE\_FAILED, STOPPED, WAITING\_FOR\_CONSENT).
++ `AnalysisId` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  The unique identifier of the auto-upgrade assessment analysis.
 
 ## Operations
 <a name="aws-glue-api-jobs-job-actions"></a>
@@ -527,7 +558,7 @@ Creates a new job definition.
 + `NotificationProperty` – A [NotificationProperty](aws-glue-api-jobs-runs.md#aws-glue-api-jobs-runs-NotificationProperty) object.
 
   Specifies configuration properties of a job notification.
-+ `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #45](aws-glue-api-common.md#regex_45).
++ `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #79](aws-glue-api-common.md#regex_79).
 
   In Spark jobs, `GlueVersion` determines the versions of Apache Spark and Python that AWS Glue available in a job. The Python version indicates the version supported for jobs of type Spark. 
 
@@ -535,18 +566,26 @@ Creates a new job definition.
 
   For more information about the available AWS Glue versions and corresponding Spark and Python versions, see [Glue version](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
 
-  Jobs that are created without specifying a Glue version default to Glue 5.1.
+  Jobs that are created without specifying a Glue version default to Glue 6.0.
+
+  Set `GlueVersion` to `auto` to turn on automatic version upgrades for the job. For more information, see [Automatic version upgrades for AWS Glue jobs](https://docs.aws.amazon.com/glue/latest/dg/auto-version-upgrades.html) in the developer guide. For the job requirements, see [Before you start](https://docs.aws.amazon.com/glue/latest/dg/auto-version-upgrades.html#auto-version-upgrades-before-you-start).
 + `NumberOfWorkers` – Number (integer).
 
   The number of workers of a defined `workerType` that are allocated when a job runs.
-+ `WorkerType` – UTF-8 string (valid values: `Standard=""` \| `G.1X=""` \| `G.2X=""` \| `G.025X=""` \| `G.4X=""` \| `G.8X=""` \| `Z.2X=""`).
++ `WorkerType` – UTF-8 string (valid values: `Standard=""` \| `G.1X=""` \| `G.2X=""` \| `G.4X=""` \| `G.8X=""` \| `G.025X=""` \| `Z.2X=""` \| `G.12X=""` \| `G.16X=""` \| `R.1X=""` \| `R.2X=""` \| `R.4X=""` \| `R.8X=""`).
 
-  The type of predefined worker that is allocated when a job runs. Accepts a value of G.1X, G.2X, G.4X, G.8X or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.
+  The type of predefined worker that is allocated when a job runs. Accepts a value of G.025X, G.1X, G.2X, G.4X, G.8X, G.12X, G.16X, R.1X, R.2X, R.4X, or R.8X for Spark jobs. Accepts the value Z.2X for Ray jobs.
+  + For the `G.025X` worker type, each worker maps to 0.25 DPU (2 vCPUs, 4 GB of memory) with 84GB disk, and provides 1 executor per worker. We recommend this worker type for low volume streaming jobs. This worker type is only available for AWS Glue version 3.0 or later streaming jobs.
   + For the `G.1X` worker type, each worker maps to 1 DPU (4 vCPUs, 16 GB of memory) with 94GB disk, and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.
   + For the `G.2X` worker type, each worker maps to 2 DPU (8 vCPUs, 32 GB of memory) with 138GB disk, and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.
-  + For the `G.4X` worker type, each worker maps to 4 DPU (16 vCPUs, 64 GB of memory) with 256GB disk, and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for AWS Glue version 3.0 or later Spark ETL jobs in the following AWS Regions: US East (Ohio), US East (N. Virginia), US West (N. California), US West (Oregon), Asia Pacific (Mumbai), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt), Europe (Ireland), Europe (London), Europe (Spain), Europe (Stockholm), and South America (São Paulo).
-  + For the `G.8X` worker type, each worker maps to 8 DPU (32 vCPUs, 128 GB of memory) with 512GB disk, and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for AWS Glue version 3.0 or later Spark ETL jobs, in the same AWS Regions as supported for the `G.4X` worker type.
-  + For the `G.025X` worker type, each worker maps to 0.25 DPU (2 vCPUs, 4 GB of memory) with 84GB disk, and provides 1 executor per worker. We recommend this worker type for low volume streaming jobs. This worker type is only available for AWS Glue version 3.0 or later streaming jobs.
+  + For the `G.4X` worker type, each worker maps to 4 DPU (16 vCPUs, 64 GB of memory) with 256GB disk, and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for AWS Glue version 3.0 or later Spark ETL jobs in select AWS Regions. For the supported Regions, see [Configuring job properties for Spark jobs](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
+  + For the `G.8X` worker type, each worker maps to 8 DPU (32 vCPUs, 128 GB of memory) with 512GB disk, and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for AWS Glue version 3.0 or later Spark ETL jobs in select AWS Regions. For the supported Regions, see [Configuring job properties for Spark jobs](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
+  + For the `G.12X` worker type, each worker maps to 12 DPU (48 vCPUs, 192 GB of memory) with 768GB disk, and provides 1 executor per worker. We recommend this worker type for jobs with very large workloads. This worker type is available only for AWS Glue version 4.0 or later Spark ETL jobs in select AWS Regions. For the supported Regions, see [Configuring job properties for Spark jobs](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
+  + For the `G.16X` worker type, each worker maps to 16 DPU (64 vCPUs, 256 GB of memory) with 1024GB disk, and provides 1 executor per worker. We recommend this worker type for jobs with very large workloads. This worker type is available only for AWS Glue version 4.0 or later Spark ETL jobs in select AWS Regions. For the supported Regions, see [Configuring job properties for Spark jobs](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
+  + For the `R.1X` worker type, each worker maps to 1 M-DPU (4 vCPUs, 32 GB of memory) with 94GB disk, and provides 1 executor per worker. We recommend this worker type for memory-intensive workloads. This worker type is available only for AWS Glue version 4.0 or later Spark ETL jobs in select AWS Regions. For the supported Regions, see [Configuring job properties for Spark jobs](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
+  + For the `R.2X` worker type, each worker maps to 2 M-DPU (8 vCPUs, 64 GB of memory) with 138GB disk, and provides 1 executor per worker. We recommend this worker type for memory-intensive workloads. This worker type is available only for AWS Glue version 4.0 or later Spark ETL jobs in select AWS Regions. For the supported Regions, see [Configuring job properties for Spark jobs](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
+  + For the `R.4X` worker type, each worker maps to 4 M-DPU (16 vCPUs, 128 GB of memory) with 256GB disk, and provides 1 executor per worker. We recommend this worker type for memory-intensive workloads. This worker type is available only for AWS Glue version 4.0 or later Spark ETL jobs in select AWS Regions. For the supported Regions, see [Configuring job properties for Spark jobs](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
+  + For the `R.8X` worker type, each worker maps to 8 M-DPU (32 vCPUs, 256 GB of memory) with 512GB disk, and provides 1 executor per worker. We recommend this worker type for memory-intensive workloads. This worker type is available only for AWS Glue version 4.0 or later Spark ETL jobs in select AWS Regions. For the supported Regions, see [Configuring job properties for Spark jobs](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
   + For the `Z.2X` worker type, each worker maps to 2 M-DPU (8vCPUs, 64 GB of memory) with 128 GB disk, and provides up to 8 Ray workers based on the autoscaler.
 + `CodeGenConfigurationNodes` – A map array of key-value pairs.
 

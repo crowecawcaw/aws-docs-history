@@ -13,6 +13,7 @@ The interactive sessions API describes the AWS Glue API related to using AWS Glu
 + [StatementOutput structure](#aws-glue-api-interactive-sessions-StatementOutput)
 + [StatementOutputData structure](#aws-glue-api-interactive-sessions-StatementOutputData)
 + [ConnectionsList structure](#aws-glue-api-interactive-sessions-ConnectionsList)
++ [SessionEndpoint structure](#aws-glue-api-interactive-sessions-SessionEndpoint)
 
 ## Session structure
 <a name="aws-glue-api-interactive-sessions-Session"></a>
@@ -72,9 +73,11 @@ The period in which a remote Spark runtime environment is running.
 + `NumberOfWorkers` – Number (integer).
 
   The number of workers of a defined `WorkerType` to use for the session.
-+ `WorkerType` – UTF-8 string (valid values: `Standard=""` \| `G.1X=""` \| `G.2X=""` \| `G.025X=""` \| `G.4X=""` \| `G.8X=""` \| `Z.2X=""`).
++ `WorkerType` – UTF-8 string (valid values: `Standard=""` \| `G.1X=""` \| `G.2X=""` \| `G.4X=""` \| `G.8X=""` \| `G.025X=""` \| `Z.2X=""` \| `G.12X=""` \| `G.16X=""` \| `R.1X=""` \| `R.2X=""` \| `R.4X=""` \| `R.8X=""`).
 
-  The type of predefined worker that is allocated when a session runs. Accepts a value of `G.1X`, `G.2X`, `G.4X`, or `G.8X` for Spark sessions. Accepts the value `Z.2X` for Ray sessions.
+  The type of predefined worker that is allocated when a session runs. Accepts a value of `G.1X`, `G.2X`, `G.4X`, `G.8X`, `G.12X`, `G.16X`, `R.1X`, `R.2X`, `R.4X`, or `R.8X` for Spark sessions. Accepts the value `Z.2X` for Ray sessions.
+
+  The `G.12X`, `G.16X`, and `R.1X` through `R.8X` worker types are available only for AWS Glue version 4.0 or later Spark ETL jobs in select AWS Regions. For the supported Regions, see [Configuring job properties for Spark jobs](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
 + `CompletedOn` – Timestamp.
 
   The date and time that this session is completed.
@@ -180,6 +183,22 @@ Specifies the connections used by a job.
 
   A list of connections used by the job.
 
+## SessionEndpoint structure
+<a name="aws-glue-api-interactive-sessions-SessionEndpoint"></a>
+
+Contains the Spark Connect endpoint details for an interactive session, including the URL and authentication credentials.
+
+**Fields**
++ `Url` – *Required:* UTF-8 string, not more than 2048 bytes long, matching the [Custom string pattern #56](aws-glue-api-common.md#regex_56).
+
+  The Spark Connect endpoint URL for the session.
++ `AuthToken` – *Required:* UTF-8 string, not more than 16384 bytes long.
+
+  The authentication token to include in requests to the Spark Connect endpoint.
++ `AuthTokenExpirationTime` – *Required:* Timestamp.
+
+  The time at which the authentication token expires.
+
 ## Operations
 <a name="aws-glue-api-interactive-sessions-actions"></a>
 + [CreateSession action (Python: create\_session)](#aws-glue-api-interactive-sessions-CreateSession)
@@ -195,6 +214,9 @@ Specifies the connections used by a job.
 + [UpdateGlueIdentityCenterConfiguration action (Python: update\_glue\_identity\_center\_configuration)](#aws-glue-api-interactive-sessions-UpdateGlueIdentityCenterConfiguration)
 + [CreateGlueIdentityCenterConfiguration action (Python: create\_glue\_identity\_center\_configuration)](#aws-glue-api-interactive-sessions-CreateGlueIdentityCenterConfiguration)
 + [DeleteGlueIdentityCenterConfiguration action (Python: delete\_glue\_identity\_center\_configuration)](#aws-glue-api-interactive-sessions-DeleteGlueIdentityCenterConfiguration)
++ [GetSessionEndpoint action (Python: get\_session\_endpoint)](#aws-glue-api-interactive-sessions-GetSessionEndpoint)
++ [GetSystemLogsForSession action (Python: get\_system\_logs\_for\_session)](#aws-glue-api-interactive-sessions-GetSystemLogsForSession)
++ [GetDashboardUrl action (Python: get\_dashboard\_url)](#aws-glue-api-interactive-sessions-GetDashboardUrl)
 
 ## CreateSession action (Python: create\_session)
 <a name="aws-glue-api-interactive-sessions-CreateSession"></a>
@@ -238,13 +260,19 @@ Request to create a new session.
 + `NumberOfWorkers` – Number (integer).
 
   The number of workers of a defined `WorkerType` to use for the session. 
-+ `WorkerType` – UTF-8 string (valid values: `Standard=""` \| `G.1X=""` \| `G.2X=""` \| `G.025X=""` \| `G.4X=""` \| `G.8X=""` \| `Z.2X=""`).
++ `WorkerType` – UTF-8 string (valid values: `Standard=""` \| `G.1X=""` \| `G.2X=""` \| `G.4X=""` \| `G.8X=""` \| `G.025X=""` \| `Z.2X=""` \| `G.12X=""` \| `G.16X=""` \| `R.1X=""` \| `R.2X=""` \| `R.4X=""` \| `R.8X=""`).
 
-  The type of predefined worker that is allocated when a job runs. Accepts a value of G.1X, G.2X, G.4X, or G.8X for Spark jobs. Accepts the value Z.2X for Ray notebooks.
+  The type of predefined worker that is allocated when a job runs. Accepts a value of G.1X, G.2X, G.4X, G.8X, G.12X, G.16X, R.1X, R.2X, R.4X, or R.8X for Spark jobs. Accepts the value Z.2X for Ray notebooks.
   + For the `G.1X` worker type, each worker maps to 1 DPU (4 vCPUs, 16 GB of memory) with 94GB disk, and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.
   + For the `G.2X` worker type, each worker maps to 2 DPU (8 vCPUs, 32 GB of memory) with 138GB disk, and provides 1 executor per worker. We recommend this worker type for workloads such as data transforms, joins, and queries, to offers a scalable and cost effective way to run most jobs.
-  + For the `G.4X` worker type, each worker maps to 4 DPU (16 vCPUs, 64 GB of memory) with 256GB disk, and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for AWS Glue version 3.0 or later Spark ETL jobs in the following AWS Regions: US East (Ohio), US East (N. Virginia), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt), Europe (Ireland), and Europe (Stockholm).
-  + For the `G.8X` worker type, each worker maps to 8 DPU (32 vCPUs, 128 GB of memory) with 512GB disk, and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for AWS Glue version 3.0 or later Spark ETL jobs, in the same AWS Regions as supported for the `G.4X` worker type.
+  + For the `G.4X` worker type, each worker maps to 4 DPU (16 vCPUs, 64 GB of memory) with 256GB disk, and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for AWS Glue version 3.0 or later Spark ETL jobs in select AWS Regions. For the supported Regions, see [Configuring job properties for Spark jobs](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
+  + For the `G.8X` worker type, each worker maps to 8 DPU (32 vCPUs, 128 GB of memory) with 512GB disk, and provides 1 executor per worker. We recommend this worker type for jobs whose workloads contain your most demanding transforms, aggregations, joins, and queries. This worker type is available only for AWS Glue version 3.0 or later Spark ETL jobs in select AWS Regions. For the supported Regions, see [Configuring job properties for Spark jobs](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
+  + For the `G.12X` worker type, each worker maps to 12 DPU (48 vCPUs, 192 GB of memory) with 768GB disk, and provides 1 executor per worker. We recommend this worker type for jobs with very large workloads. This worker type is available only for AWS Glue version 4.0 or later Spark ETL jobs in select AWS Regions. For the supported Regions, see [Configuring job properties for Spark jobs](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
+  + For the `G.16X` worker type, each worker maps to 16 DPU (64 vCPUs, 256 GB of memory) with 1024GB disk, and provides 1 executor per worker. We recommend this worker type for jobs with very large workloads. This worker type is available only for AWS Glue version 4.0 or later Spark ETL jobs in select AWS Regions. For the supported Regions, see [Configuring job properties for Spark jobs](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
+  + For the `R.1X` worker type, each worker maps to 1 M-DPU (4 vCPUs, 32 GB of memory) with 94GB disk, and provides 1 executor per worker. We recommend this worker type for memory-intensive workloads. This worker type is available only for AWS Glue version 4.0 or later Spark ETL jobs in select AWS Regions. For the supported Regions, see [Configuring job properties for Spark jobs](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
+  + For the `R.2X` worker type, each worker maps to 2 M-DPU (8 vCPUs, 64 GB of memory) with 138GB disk, and provides 1 executor per worker. We recommend this worker type for memory-intensive workloads. This worker type is available only for AWS Glue version 4.0 or later Spark ETL jobs in select AWS Regions. For the supported Regions, see [Configuring job properties for Spark jobs](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
+  + For the `R.4X` worker type, each worker maps to 4 M-DPU (16 vCPUs, 128 GB of memory) with 256GB disk, and provides 1 executor per worker. We recommend this worker type for memory-intensive workloads. This worker type is available only for AWS Glue version 4.0 or later Spark ETL jobs in select AWS Regions. For the supported Regions, see [Configuring job properties for Spark jobs](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
+  + For the `R.8X` worker type, each worker maps to 8 M-DPU (32 vCPUs, 256 GB of memory) with 512GB disk, and provides 1 executor per worker. We recommend this worker type for memory-intensive workloads. This worker type is available only for AWS Glue version 4.0 or later Spark ETL jobs in select AWS Regions. For the supported Regions, see [Configuring job properties for Spark jobs](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) in the developer guide.
   + For the `Z.2X` worker type, each worker maps to 2 M-DPU (8vCPUs, 64 GB of memory) with 128 GB disk, and provides up to 8 Ray workers based on the autoscaler.
 + `SecurityConfiguration` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
 
@@ -638,3 +666,88 @@ Deletes the existing AWS Glue Identity Center configuration, removing the integr
 + `OperationTimeoutException`
 + `AccessDeniedException`
 + `ConcurrentModificationException`
+
+## GetSessionEndpoint action (Python: get\_session\_endpoint)
+<a name="aws-glue-api-interactive-sessions-GetSessionEndpoint"></a>
+
+Returns the Spark Connect endpoint URL and authentication token for an interactive session.
+
+**Example Get Spark Connect endpoint for a session**  
+
+```
+aws glue get-session-endpoint --session-id ses-1234567890abcdef0
+```
+
+**Request**
++ `SessionId` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  The unique identifier of the interactive session.
+
+**Response**
++ `SparkConnect` – *Required:* A [SessionEndpoint](#aws-glue-api-interactive-sessions-SessionEndpoint) object.
+
+  The Spark Connect endpoint details for the session.
+
+**Errors**
++ `AccessDeniedException`
++ `EntityNotFoundException`
++ `InternalServiceException`
++ `OperationTimeoutException`
++ `InvalidInputException`
++ `OperationNotSupportedException`
++ `IllegalSessionStateException`
+
+## GetSystemLogsForSession action (Python: get\_system\_logs\_for\_session)
+<a name="aws-glue-api-interactive-sessions-GetSystemLogsForSession"></a>
+
+Retrieves the system logs for an interactive session.
+
+**Request**
++ `Id` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  The ID of the session.
+
+**Response**
++ `SystemLogsUrl` – UTF-8 string, not more than 40000 bytes long.
+
+  The URL to download the system logs for the session.
+
+**Errors**
++ `AccessDeniedException`
++ `InternalServiceException`
++ `EntityNotFoundException`
++ `InvalidInputException`
+
+## GetDashboardUrl action (Python: get\_dashboard\_url)
+<a name="aws-glue-api-interactive-sessions-GetDashboardUrl"></a>
+
+Retrieves the URL for the Spark monitoring dashboard for a Glue resource.
+
+**Example Get Spark UI dashboard URL for a session**  
+
+```
+aws glue get-dashboard-url --resource-id ses-1234567890abcdef0 --resource-type SESSION
+```
+
+**Request**
++ `ResourceId` – *Required:* UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine).
+
+  The unique identifier of the resource for which to retrieve the dashboard URL.
++ `ResourceType` – *Required:* UTF-8 string (valid values: `JOB=""` \| `SESSION=""`).
+
+  The type of the resource. Valid values are `SESSION` and `JOB`.
++ `RequestOrigin` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the [Custom string pattern #52](aws-glue-api-common.md#regex_52).
+
+  The origin of the request. 
+
+**Response**
++ `Url` – *Required:* UTF-8 string, not more than 40000 bytes long.
+
+  The URL for the Spark monitoring dashboard.
+
+**Errors**
++ `InvalidInputException`
++ `EntityNotFoundException`
++ `AccessDeniedException`
++ `OperationNotSupportedException`
++ `InternalServiceException`
