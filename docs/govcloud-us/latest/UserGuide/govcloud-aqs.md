@@ -10,7 +10,7 @@ With the supported Amazon Quick capabilities in AWS GovCloud (US), you can explo
 ## Region availability
 <a name="region-availability"></a>
 
- Amazon Quick is available in the following AWS GovCloud (US) Regions:
+Amazon Quick is available in the following AWS GovCloud (US) Regions:
 +  AWS GovCloud (US-East) 
 +  AWS GovCloud (US-West) 
 
@@ -18,8 +18,8 @@ With the supported Amazon Quick capabilities in AWS GovCloud (US), you can explo
 <a name="feature-diffs"></a>
 
 The following differences apply to Amazon Quick:
-+  Amazon Quick Automate is not available.
-+  Amazon Quick Flows is not available.
++ Amazon Quick Automate is not available.
++ Amazon Quick Flows is not available.
 + Quick Agents is not available.
 + Quick Integrations and Extensions is not available.
 + Quick Sight - Agentic experiences is not available.
@@ -32,7 +32,6 @@ The following differences apply to Amazon Quick:
 + Email-based user provisioning is not available.
 + Geospatial visualizations are not available.
 +  Amazon SageMaker AI integration is not available.
-+ Amazon Quick and interface VPC endpoints (AWS PrivateLink) are not available.
 + The mobile app is not available for AWS GovCloud (US-East).
 + Amazon Quick in AWS GovCloud (US) supports user authorization for federated users only. Amazon Quick directly supports authentication through AWS Identity and Access Management (IAM), AWS IAM Identity Center (IAM Identity Center), and AWS Directory Service for Microsoft Active Directory. For more information, see [Identity federation in AWS](https://aws.amazon.com/identity/federation/).
 + If you’re an Amazon Quick administrator, make sure to allow-list the following domains within your organization’s network: awsapps.com and amazonaws-us-gov.com for native Amazon Quick and Active Directory users; amazonaws-us-gov.com for IAM users.

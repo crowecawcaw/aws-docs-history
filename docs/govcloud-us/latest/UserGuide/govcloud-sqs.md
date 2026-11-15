@@ -6,16 +6,14 @@
 Amazon Simple Queue Service (Amazon SQS) is a fully managed message queuing service that makes it easy to decouple and scale microservices, distributed systems, and serverless applications. Amazon SQS moves data between distributed application components and helps you decouple these components.
 
 ## Region availability
-<a name="_region_availability"></a>
+<a name="region-availability"></a>
 
-This service is available in the following AWS GovCloud (US) Regions:
-+  AWS GovCloud (US-West) 
+Amazon Simple Queue Service (SQS) is available in the following AWS GovCloud (US) Regions:
 +  AWS GovCloud (US-East) 
++  AWS GovCloud (US-West) 
 
-## How Amazon Simple Queue Service differs
-<a name="govcloud-sqs-diffs"></a>
-
-The following differences apply to Amazon Simple Queue Service:
+## How Amazon Simple Queue Service (SQS) differs
+<a name="feature-diffs"></a>
 + IPv6 is not available.
 
 ## Documentation

@@ -17,6 +17,7 @@ Amazon Managed Streaming for Apache Kafka (MSK) is available in the following AW
 
 The following differences apply to Amazon Managed Streaming for Apache Kafka (MSK):
 + MSK Serverless is not available.
++ PrivateLink Support is not available in AWS GovCloud (US-West).
 +  Firehose isn’t available as a destination for broker logs.
 
 ## Documentation

@@ -6,16 +6,21 @@
 AWS Outposts is a fully managed service that extends AWS infrastructure, services, APIs, and tools to customer premises. By providing local access to AWS managed infrastructure, AWS Outposts enables customers to build and run applications on premises using the same programming interfaces as in AWS Regions, while using local compute and storage resources for lower latency and local data processing needs. Both AWS Outposts racks and servers are available in the AWS GovCloud (US) Region.
 
 ## Region availability
-<a name="_region_availability"></a>
+<a name="region-availability"></a>
 
-This service is available in the following AWS GovCloud (US) Regions:
-+  AWS GovCloud (US-West) 
+ AWS Outposts is available in the following AWS GovCloud (US) Regions:
 +  AWS GovCloud (US-East) 
++  AWS GovCloud (US-West) 
 
 ## How AWS Outposts differs
-<a name="govcloud-op-diffs"></a>
+<a name="feature-diffs"></a>
 
 The following differences apply to AWS Outposts:
++ EBS on Outposts is not available.
++ EKS Local Clusters on Outposts is not available.
++ ELB/ALB on Outposts is not available.
++ IoT Greengrass on Outposts is not available.
++ Route 53 Resolver on Outposts is not available.
 +  Application Load Balancer is not available.
 +  Amazon RDS is not available.
 +  Amazon EMR is not available.

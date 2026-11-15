@@ -6,15 +6,13 @@
 Amazon Lex is an AWS service for building conversational interfaces for applications using voice and text. With Amazon Lex, the same conversational engine that powers Amazon Alexa is now available to any developer, enabling you to build sophisticated, natural language chatbots into your new and existing applications. Amazon Lex provides the deep functionality and flexibility of natural language understanding (NLU) and automatic speech recognition (ASR) so you can build highly engaging user experiences with lifelike, conversational interactions, and create new categories of products.
 
 ## Region availability
-<a name="_region_availability"></a>
+<a name="region-availability"></a>
 
-This service is available in the following AWS GovCloud (US) Regions:
+ Amazon Lex is available in the following AWS GovCloud (US) Regions:
 +  AWS GovCloud (US-West) 
 
 ## How Amazon Lex differs
-<a name="govcloud-lex-diffs"></a>
-
-The following differences apply to Amazon Lex:
+<a name="feature-diffs"></a>
 + Amazon Lex V2 and Amazon Lex V1 are available in AWS GovCloud (US).
 + Amazon Lex does not support channels, which enable bots to integrate with messaging platforms such as Facebook, Slack, and Twilio.
 + The Amazon Lex console does not show utterances or missed utterances. The GetUtterancesView API action is not available.

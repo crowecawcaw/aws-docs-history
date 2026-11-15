@@ -8,16 +8,14 @@
  Amazon MQ works with your existing applications and services without the need to manage, operate, or maintain your own messaging system.
 
 ## Region availability
-<a name="_region_availability"></a>
+<a name="region-availability"></a>
 
-This service is available in the following AWS GovCloud (US) Regions:
-+  AWS GovCloud (US-West) 
+ Amazon MQ is available in the following AWS GovCloud (US) Regions:
 +  AWS GovCloud (US-East) 
++  AWS GovCloud (US-West) 
 
 ## How Amazon MQ differs
-<a name="govcloud-mq-diffs"></a>
-
-The following differences apply to Amazon MQ:
+<a name="feature-diffs"></a>
 + The AWS Free Tier is not available in GovCloud, meaning users cannot access the free resources offered in commercial Regions.
 +  Amazon MQ in GovCloud Regions does not support cross-Region data replication.
 + The instance types supported by Amazon MQ in GovCloud differ from those in commercial Regions. Users should consult the Amazon MQ pricing page for the specific instance types available in their Region.

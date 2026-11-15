@@ -5,10 +5,15 @@
 
 AWS Parallel Computing Service (AWS PCS) is a managed service that makes it easier to run and scale high performance computing (HPC) workloads, and build scientific and engineering models on AWS using Slurm. Use AWS PCS to build compute clusters that integrate best in class AWS compute, storage, networking, and visualization. Run simulations or build scientific and engineering models. Streamline and simplify your cluster operations using built-in management and observability capabilities. Empower your users to focus on research and innovation by enabling them to run their applications and jobs in a familiar environment.
 
-## How AWS PCS differs
-<a name="_how_aws_pcs_differs"></a>
+## Region availability
+<a name="region-availability"></a>
 
-The following differences apply to AWS PCS:
+ AWS Parallel Computing Service (PCS) is available in the following AWS GovCloud (US) Regions:
++  AWS GovCloud (US-East) 
++  AWS GovCloud (US-West) 
+
+## How AWS Parallel Computing Service (PCS) differs
+<a name="feature-diffs"></a>
 +  Amazon EC2 interruptible Capacity Reservations are not available.
 
 ## Documentation

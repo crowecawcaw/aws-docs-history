@@ -16,6 +16,7 @@ Amazon EC2 Image Builder is available in the following AWS GovCloud (US) Regions
 <a name="feature-diffs"></a>
 +  Image Builder doesn’t support macOS images.
 + The following Image Builder features are not available:
+  + Console AI features (Create with AI and Troubleshoot with AI), powered by AWS DevOps Agent
   + Image lifecycle policies
   +  AWS Marketplace Software components
 
