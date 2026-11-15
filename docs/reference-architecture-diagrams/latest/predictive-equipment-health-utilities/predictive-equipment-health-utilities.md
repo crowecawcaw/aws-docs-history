@@ -29,7 +29,7 @@ The following steps describe the data flow and analytics pipeline for this archi
 
 1. Use curated data from the data lake with AWS AI/ML services (such as SageMaker AI and Forecast) or third-party ML services for predictive health analysis and assessment. Consume results through asset owner applications or third-party asset management tools.
 
-1. Produce detailed business intelligence (BI) reporting through [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html) and third-party solutions (GIS, asset management, and Tableau).
+1. Produce detailed business intelligence (BI) reporting through [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html) and third-party solutions (GIS, asset management, and Tableau).
 
 1. Secure all communication with AWS Security, Identity, and Compliance services. Ensure that data is fully traceable, authenticated, and encrypted.
 
