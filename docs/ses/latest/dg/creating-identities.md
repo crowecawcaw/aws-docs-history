@@ -20,7 +20,7 @@ To help clarify the verification inheritance and email sending capabilities disc
 
 *\*Advanced sending includes using the email address with configuration sets, policy authorizations for delegate sending, and configurations that override the domain settings.*
 
-To send email from the same domain or email address in more than one AWS Region, you must create and verify a separate identity for each Region. You can verify as many as 10,000 identities in each Region.
+To send email from the same domain or email address in more than one AWS Region, you must create and verify a separate identity for each Region.
 
 **When you create and verify domain and email address identities, consider the following:**
 + You can send email from any subdomain or email address of the verified domain without having to verify each one individually. For example, if you create and verify an identity for example.com, you don't need to create separate identities for a.example.com, a.b.example.com, user@example.com, user@a.example.com, and so on. 
@@ -36,7 +36,6 @@ To send email from the same domain or email address in more than one AWS Region,
 + You can add labels to verified email addresses without performing additional verification steps. To add a label to an email address, add a plus sign (\+) between the account name and the "at" sign (@), followed by a text label. For example, if you already verified sender@example.com, you can use sender\+myLabel@example.com as the "From" or "Return-Path" address for your emails. You can use this feature to implement Variable Envelope Return Path (VERP). Then you can use VERP to detect and remove undeliverable email addresses from your mailing lists.
 + Domain names are case-insensitive. If you verify example.com, you can send from EXAMPLE.com also.
 + Email addresses *are* case sensitive. If you verify sender@EXAMPLE.com, you can't send email from sender@example.com unless you verify sender@example.com as well.
-+ In each AWS Region, you can verify as many as 10,000 identities (domains and email addresses, in any combination).
 
 **Tip**  
 If you're a first time user of SES, you can use the [Get started wizard](setting-up.md#quick-start-verify-email-addresses) to create and verify your first identity (email address or domain).
@@ -273,15 +272,21 @@ Now that you’ve created your email address identity, you must complete the ver
 ## Verifying an email address identity
 <a name="just-verify-email-proc"></a>
 
-After you’ve created your email address identity, you must complete the verification process.
+You must verify an email address identity before you can use it to send email with Amazon SES. Verification confirms that you own the email address.
 
 If you haven't created an email address identity, see [Creating an email address identity](#verify-email-addresses-procedure).
 
 **To verify an email address identity**
 
-1. Check the inbox of the email address used to create your identity and look for an email from no-reply-aws@amazon.com. 
+1. Check the inbox of the email address that you used to create your identity.
+
+1. Look for a verification email from `no-reply-aws@amazon.com` or `no-reply-aws@verification.amazonses.com`.
+**Note**  
+The sender address depends on the AWS Region where you created the identity.
 
 1. Open the email and click the link to complete the verification process for the email address. After it's complete, the **Identity status** updates to **Verified**. 
+
+If you don't receive the verification email within five minutes, see [Troubleshooting email address verification](#verify-email-addresses-troubleshooting).
 
 ### Troubleshooting email address verification
 <a name="verify-email-addresses-troubleshooting"></a>
@@ -290,7 +295,8 @@ If you don't receive the verification email within five minutes of creating your
 + Make sure you entered the email address correctly.
 + Make sure the email address that you're attempting to verify can receive email. You can test this by using another email address to send a test email to the address that you want to verify.
 + Check your junk mail folder.
-+ The link in the verification email expires after 24 hours. To send a new verification email, choose **Resend** at the top of the identity details page.
++ If you filter incoming email, allow messages from `no-reply-aws@amazon.com` and `no-reply-aws@verification.amazonses.com`.
++ The link in the verification email expires after 24 hours. To send a new verification email, choose **Resend** on the identity details page.
 
 ## Create and verify an identity and assign a default configuration set at the same time
 <a name="default-config-set-at-create-api"></a>

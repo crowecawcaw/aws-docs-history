@@ -44,7 +44,7 @@ Messages larger than 10MB are subject to bandwidth throttling, and depending on 
 | --- | --- | --- | 
 | Maximum number of tenants | 10,000 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ses/quotas/L-E7F21B4C) | 
 | Maximum number of recipients per message | 50 recipients per message. A recipient is any "To", "CC", or "BCC" address.  | No. | 
-| Maximum number of identities that you can verify | 10,000 identities per AWS Region. An *identity* is a domain or email address that you use to send email through SES.  | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ses/quotas/L-5C01A92C) | 
+| Maximum number of identities | 10,000 identities per AWS Region. An *identity* is a domain or email address that you use to send email through SES.  | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ses/quotas/L-5C01A92C) | 
 | Maximum number of dedicated IP pools (inclusive of both managed and standard IP pools) | 50 | No | 
 
 ### Quotas related to event publishing
