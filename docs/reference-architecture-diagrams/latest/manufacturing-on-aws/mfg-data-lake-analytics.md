@@ -22,4 +22,4 @@ The data lake and analytics diagram shows how to process, analyze, and derive in
 
 1. Use [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/) for structured data warehousing and analytics.
 
-1. Use [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) with [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/) and Amazon Redshift for business intelligence (BI) dashboards.
+1. Use [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) with [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/) and Amazon Redshift for business intelligence (BI) dashboards.
