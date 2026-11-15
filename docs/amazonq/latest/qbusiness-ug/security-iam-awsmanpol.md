@@ -130,7 +130,7 @@ This policy includes the following permissions.
 ## AWS managed policy: QBusinessQuicksightPluginPolicy
 <a name="security-iam-awsmanpol-amazonq-quicksight-policy"></a>
 
-Amazon Q Business uses a `QBusinessQuicksightPluginPolicy` to enable an Amazon Q Business application to access Amazon Quick topics and dashboards for the Amazon Q Business Quick plugin. When you configure the plugin, you specify a service role that has `PredictQAResults` permissions for Quick topics and dashboards. You can use the following `QBusinessQuicksightPluginPolicy` policy to grant these permissions. 
+Amazon Q Business uses a `QBusinessQuicksightPluginPolicy` to enable an Amazon Q Business application to access AWS Quick topics and dashboards for the Amazon Q Business Quick plugin. When you configure the plugin, you specify a service role that has `PredictQAResults` permissions for Quick topics and dashboards. You can use the following `QBusinessQuicksightPluginPolicy` policy to grant these permissions. 
 
 **Note**  
 To grant the necessary permissions, the trust policy of the role must grant Quick assume role permissions. For more information see [Using the Quick plugin to get insights from structured data](quicksight-plugin.md). 
@@ -177,5 +177,5 @@ View details about updates to AWS managed policies for Amazon Q Business since t
 
 | Change | Description | Date | 
 | --- | --- | --- | 
-| AWS managed policy: QBusinessQuicksightPluginPolicy | Added AWS managed policy QBusinessQuicksightPluginPolicy to access Amazon Quick resources for the QuickSight plugin. | December 3, 2024 | 
+| AWS managed policy: QBusinessQuicksightPluginPolicy | Added AWS managed policy QBusinessQuicksightPluginPolicy to access AWS Quick resources for the QuickSight plugin. | December 3, 2024 | 
 | Amazon Q Business started tracking changes | Amazon Q Business started tracking changes for its AWS managed policies. | April 30, 2024 | 

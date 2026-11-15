@@ -2,7 +2,7 @@
 
 Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
-# Getting data insights from Amazon Quick answers
+# Getting data insights from AWS Quick answers
 <a name="quicksight-plugin-getting-data-insights"></a>
 
 After you complete [Configuring the plugin](quicksight-plugin-configuring-application.md), end users automatically start getting insights from Quick as they submit queries. Unlike other plugins in Amazon Q Business, you don't have to enable Quick insights for end users.

@@ -10,7 +10,7 @@ After you configure your application environment, you can optionally choose to a
 Amazon Q Business offers plugins to enhance your application's functionality. Plugins help streamline tasks and boost productivity by integrating external services into the Amazon Q Business chat interface.
 
 Amazon Q Business supports two types of plugins: built-in plugins and custom plugins.
-+ **Fully integrated plugins** – The Quick plugin is fully integrated with Amazon Q Business, and won't appear in the list of plugins in the web experience. This plugin gives an Amazon Q Business application access to insights and external databases through Amazon Quick. For more information, see [Using the Quick plugin to get insights from structured data](quicksight-plugin.md). 
++ **Fully integrated plugins** – The Quick plugin is fully integrated with Amazon Q Business, and won't appear in the list of plugins in the web experience. This plugin gives an Amazon Q Business application access to insights and external databases through AWS Quick. For more information, see [Using the Quick plugin to get insights from structured data](quicksight-plugin.md). 
 + **Built-in plugins** – These plugins are pre-made for popular services like Jira, Salesforce, ServiceNow, and Zendesk. They allow users to perform tasks in these services directly from their Amazon Q Business chat. For example, an IT representative can create a ServiceNow incident without leaving the chat.
 + **Custom plugins** – These plugins let you connect Amazon Q Business with any third-party application. Users can then use natural language to access real-time data or perform actions in these applications.
 
