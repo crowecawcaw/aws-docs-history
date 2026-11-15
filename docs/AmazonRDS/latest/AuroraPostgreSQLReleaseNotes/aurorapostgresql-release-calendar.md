@@ -45,10 +45,10 @@ You can also view information about support dates for major engine versions by u
 | PostgreSQL 11 | 18 October 2018 | November 2023 | Aurora PostgreSQL 3. Applies to PostgreSQL 11.12 and older versions only. For version 11.13 and higher versions, the Aurora version is the same as the {{major}}.{{minor}} version of the PostgreSQL community version, with a third digit in the {{patch}} location. | Aurora PostgreSQL 11.9 | 26 November 2019 | 29 February 2024 | 1 April 2024 | 1 April 2026 | 31 March 2027 | Aurora PostgreSQL 11.9 and 11.21 | 
 | PostgreSQL 12 | 14 November 2019 | November 2024 | Aurora PostgreSQL 4. Applies to PostgreSQL 12.7 and older versions only. For version 12.8 and higher versions, the Aurora version is the same as the {{major}}.{{minor}} version of the PostgreSQL community version, with a third digit in the {{patch}} location. | Aurora PostgreSQL 12.9 | 23 December 2020 | 28 February 2025 | 1 March 2025 | 1 March 2027 | 29 February 2028 | Aurora PostgreSQL 12.9 and 12.22 | 
 | PostgreSQL 13 | 24 September 2020 | November 2025 | Aurora PostgreSQL 13. For version 13.3 and higher versions, the Aurora version is the same as the {{major}}.{{minor}} version of the PostgreSQL community version, with a third digit in the {{patch}} location when patches to Aurora are released. | Aurora PostgreSQL 13.9 | 26 August 2021 | 28 February 2026 | 1 March 2026 | 1 March 2028 | 28 February 2029 | Aurora PostgreSQL 13.9 and 13.23 | 
-| PostgreSQL 14 | 30 September 2021 | November 2026 | Aurora PostgreSQL 14.3 and higher. The Aurora version is the same as the {{major}}.{{minor}} version of the PostgreSQL community version, with a third digit in the {{patch}} location when patches to Aurora are released. | Aurora PostgreSQL 14.6 | 24 February 2022 | 28 February 2027 | 1 March 2027 | 1 March 2029 | 28 February 2030 | To be determined | 
-| PostgreSQL 15 | 13 October 2022 | November 2027 | Aurora PostgreSQL 15.2 and higher. The Aurora version is the same as the {{major}}.{{minor}} version of the PostgreSQL community version, with a third digit in the {{patch}} location when patches to Aurora are released. | Aurora PostgreSQL 15.10 | 8 February 2023 | 29 February 2028 | 1 March 2028 | 1 March 2030 | 28 February 2031 | To be determined | 
-| PostgreSQL 16 | 14 September 2023 | 9 November 2028 | Aurora PostgreSQL 16.1 and higher. The Aurora version is the same as the {{major}}.{{minor}} version of the PostgreSQL community version, with a third digit in the {{patch}} location when patches to Aurora are released. | Aurora PostgreSQL16.8 | 31 January 2024 | 28 February 2029 | 1 March 2029 | 1 March 2031 | 28 February 2032 | To be determined | 
-| PostgreSQL 17 | 26 September 2024 | November 2029 | Aurora PostgreSQL 17.4 and higher. The Aurora version is the same as the {{major}}.{{minor}} version of the PostgreSQL community version, with a third digit in the {{patch}} location when patches to Aurora are released. | Aurora PostgreSQL17.7 | 1 May 2025 | 28 February 2030 | 1 March 2030 | 1 March 2032 | 28 February 2033 | To be determined | 
+| PostgreSQL 14 | 30 September 2021 | November 2026 | Aurora PostgreSQL 14.3 and higher. The Aurora version is the same as the {{major}}.{{minor}} version of the PostgreSQL community version, with a third digit in the {{patch}} location when patches to Aurora are released. | Aurora PostgreSQL 14.6 | 24 February 2022 | 28 February 2027 | 1 March 2027 | 1 March 2029 | 28 February 2030 | Aurora PostgreSQL 14.6. Other eligible minor versions are to be determined. | 
+| PostgreSQL 15 | 13 October 2022 | November 2027 | Aurora PostgreSQL 15.2 and higher. The Aurora version is the same as the {{major}}.{{minor}} version of the PostgreSQL community version, with a third digit in the {{patch}} location when patches to Aurora are released. | Aurora PostgreSQL 15.10 | 8 February 2023 | 29 February 2028 | 1 March 2028 | 1 March 2030 | 28 February 2031 | Aurora PostgreSQL 15.10. Other eligible minor versions are to be determined. | 
+| PostgreSQL 16 | 14 September 2023 | 9 November 2028 | Aurora PostgreSQL 16.1 and higher. The Aurora version is the same as the {{major}}.{{minor}} version of the PostgreSQL community version, with a third digit in the {{patch}} location when patches to Aurora are released. | Aurora PostgreSQL 16.8 | 31 January 2024 | 28 February 2029 | 1 March 2029 | 1 March 2031 | 28 February 2032 | Aurora PostgreSQL 16.8. Other eligible minor versions are to be determined. | 
+| PostgreSQL 17 | 26 September 2024 | November 2029 | Aurora PostgreSQL 17.4 and higher. The Aurora version is the same as the {{major}}.{{minor}} version of the PostgreSQL community version, with a third digit in the {{patch}} location when patches to Aurora are released. | Aurora PostgreSQL 17.7 | 1 May 2025 | 28 February 2030 | 1 March 2030 | 1 March 2032 | 28 February 2033 | Aurora PostgreSQL 17.7. Other eligible minor versions are to be determined. | 
 | PostgreSQL 18 | 26 February 2026 | November 2030 | Aurora PostgreSQL 18.3 and higher. The Aurora version is the same as the {{major}}.{{minor}} version of the PostgreSQL community version, with a third digit in the {{patch}} location when patches to Aurora are released. | – | 11 June 2026 | 28 February 2031 | 1 March 2031 | 1 March 2033 | 28 February 2034 | To be determined | 
 
 **Note**  
@@ -80,7 +80,7 @@ Dates with only a month and a year are approximate, and will be updated with an 
   <tr><td>17.11</td><td>13 August 2026</td><td>29 September 2026</td><td>28 February 2028</td><td></td><td></td><td></td></tr>
   <tr><td>17.10</td><td>May 2026</td><td>21 August 2026</td><td>31 December 2027</td><td></td><td></td><td></td></tr>
   <tr><td>17.9</td><td>26 February 2026</td><td>6 April 2026</td><td>30 September 2027</td><td></td><td></td><td></td></tr>
-  <tr><td>17.7 (LTS)</td><td>13 November 2025</td><td>18 December 2025</td><td>28 February 2030</td><td></td><td></td><td></td></tr>
+  <tr><td>17.7 (LTS)*</td><td>13 November 2025</td><td>18 December 2025</td><td>28 February 2030</td><td></td><td></td><td></td></tr>
   <tr><td>17.6</td><td>14 August 2025</td><td>25 November 2025</td><td>30 April 2027</td><td></td><td></td><td></td></tr>
   <tr><td>17.5</td><td>8 May 2025</td><td>30 June 2025</td><td>31 December 2026</td><td></td><td></td><td></td></tr>
   <tr><td>17.4</td><td>20 February 2025</td><td>1 May 2025</td><td>30 November 2026</td><td></td><td></td><td></td></tr>
@@ -91,7 +91,7 @@ Dates with only a month and a year are approximate, and will be updated with an 
   <tr><td>16.11</td><td>13 November 2025</td><td>18 December 2025</td><td>31 May 2027</td><td></td><td></td><td></td></tr>
   <tr><td>16.10</td><td>14 August 2025</td><td>25 November 2025</td><td>30 April 2027</td><td></td><td></td><td></td></tr>
   <tr><td>16.9</td><td>8 May 2025</td><td>30 June 2025</td><td>31 December 2026</td><td></td><td></td><td></td></tr>
-  <tr><td>16.8 (LTS)</td><td>20 February 2025</td><td>8 April 2025</td><td>28 February 2029</td><td></td><td></td><td></td></tr>
+  <tr><td>16.8 (LTS)*</td><td>20 February 2025</td><td>8 April 2025</td><td>28 February 2029</td><td></td><td></td><td></td></tr>
   <tr><td colspan="4"><b>15</b></td><td></td><td></td><td></td></tr>
   <tr><td>15.19</td><td>13 August 2026</td><td>29 September 2026</td><td>28 February 2028</td><td></td><td></td><td></td></tr>
   <tr><td>15.18</td><td>May 2026</td><td>21 August 2026</td><td>31 December 2027</td><td></td><td></td><td></td></tr>
@@ -100,7 +100,7 @@ Dates with only a month and a year are approximate, and will be updated with an 
   <tr><td>15.14</td><td>14 August 2025</td><td>25 November 2025</td><td>30 April 2027</td><td></td><td></td><td></td></tr>
   <tr><td>15.13</td><td>8 May 2025</td><td>30 June 2025</td><td>31 December 2026</td><td></td><td></td><td></td></tr>
   <tr><td>15.12</td><td>20 February 2025</td><td>8 April 2025</td><td>30 November 2026</td><td></td><td></td><td></td></tr>
-  <tr><td>15.10 (LTS)</td><td>21 November 2024</td><td>13 December 2024</td><td>29 February 2028</td><td></td><td></td><td></td></tr>
+  <tr><td>15.10 (LTS)*</td><td>21 November 2024</td><td>13 December 2024</td><td>29 February 2028</td><td></td><td></td><td></td></tr>
   <tr><td colspan="4"><b>14</b></td><td></td><td></td><td></td></tr>
   <tr><td>14.24</td><td>13 August 2026</td><td>29 September 2026</td><td>28 February 2027</td><td></td><td></td><td></td></tr>
   <tr><td>14.23</td><td>May 2026</td><td>21 August 2026</td><td>28 February 2027</td><td></td><td></td><td></td></tr>
@@ -109,7 +109,7 @@ Dates with only a month and a year are approximate, and will be updated with an 
   <tr><td>14.19</td><td>14 August 2025</td><td>25 November 2025</td><td>28 February 2027</td><td></td><td></td><td></td></tr>
   <tr><td>14.18</td><td>8 May 2025</td><td>30 June 2025</td><td>31 December 2026</td><td></td><td></td><td></td></tr>
   <tr><td>14.17</td><td>20 February 2025</td><td>8 April 2025</td><td>30 November 2026</td><td></td><td></td><td></td></tr>
-  <tr><td>14.6 (LTS)</td><td>10 November 2022</td><td>23 January 2023</td><td>28 February 2027</td><td></td><td></td><td></td></tr>
+  <tr><td>14.6 (LTS)*</td><td>10 November 2022</td><td>23 January 2023</td><td>28 February 2027</td><td></td><td></td><td></td></tr>
   <tr><td colspan="4"><b>13</b></td><td></td><td></td><td></td></tr>
   <tr><td>13.23*</td><td>13 November 2025</td><td>18 December 2025</td><td>28 February 2026</td><td></td><td></td><td></td></tr>
   <tr><td>13.9 (LTS)*</td><td>10 November 2022</td><td>23 January 2023</td><td>28 February 2026</td><td></td><td></td><td></td></tr>

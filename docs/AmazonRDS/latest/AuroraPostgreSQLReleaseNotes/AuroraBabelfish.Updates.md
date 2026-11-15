@@ -90,6 +90,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 18.4. For mo
 + Fixed an issue that could cause a database reboot when dropping a temporary table from within a nested stored procedure.
 + Fixed an issue where creating a function or procedure in a schema created from the PostgreSQL endpoint could cause a database reboot.
 
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
+
 **Additional improvements and enhancements**
 + Improved memory handling in FOR XML query processing.
 + Fixed an issue where sp\_execute returned an error when invoked with named parameters.
@@ -105,12 +111,18 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 18.4. For mo
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 18.3. For more information about the improvements in Aurora PostgreSQL 18.3, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 6.0 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
 
-#### Aurora Babelfish release 6.0.3, Aug 20, 2026
-<a name="AuroraBabelfish.Updates.601"></a>
+#### Aurora Babelfish release 6.0.2, Aug 20, 2026
+<a name="AuroraBabelfish.Updates.602"></a>
 
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 + Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
+
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
 
 **Additional improvements and enhancements**
 + Fixed an issue where go-sqlcmd client driver failed to return query results.
@@ -231,6 +243,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.10. For m
 + Fixed an issue that could cause a database reboot when dropping a temporary table from within a nested stored procedure.
 + Fixed an issue where creating a function or procedure in a schema created from the PostgreSQL endpoint could cause a database reboot.
 
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
+
 **Additional improvements and enhancements**
 + Improved memory handling in FOR XML query processing.
 + Fixed an issue where sp\_execute returned an error when invoked with named parameters.
@@ -252,6 +270,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.9. For mo
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 + Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
+
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
 
 **Additional improvements and enhancements**
 + Fixed an issue where go-sqlcmd client driver failed to return query results.
@@ -313,6 +337,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.7. For mo
 
 **High Priority stability enhancements**
 + Fixed an issue in nested procedure calls that caused temp table cleanup failures and parser errors.
+
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
 
 #### Aurora Babelfish release 5.4.1, January 16, 2026
 <a name="AuroraBabelfish.Updates.541"></a>
@@ -386,6 +416,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.6. For mo
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 + Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
 + Fixed an issue where executing queries from PostgreSQL endpoint in Active Directory Authentication enabled instances may lead to a reboot.
+
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
 
 #### Aurora Babelfish release 5.3.1, November 25, 2025
 <a name="AuroraBabelfish.Updates.531"></a>
@@ -465,6 +501,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.5. For mo
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 + Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
+
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
 
 #### Aurora Babelfish release 5.2.2, January 15, 2026
 <a name="AuroraBabelfish.Updates.522"></a>
@@ -551,6 +593,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.4. For mo
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 + Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
+
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
 
 #### Aurora Babelfish release 5.1.3, February 02, 2026
 <a name="AuroraBabelfish.Updates.513"></a>
@@ -692,6 +740,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.14. For m
 + Fixed an issue where queries with local variables could return inconsistent results when using generic query plans.
 + Fixed an issue where creating a function or procedure in a schema created from the PostgreSQL endpoint could cause a database reboot.
 
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
+
 **Additional improvements and enhancements**
 + Improved memory handling in FOR XML query processing.
 + Fixed an issue where sp\_execute returned an error when invoked with named parameters.
@@ -711,6 +765,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.13. For m
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 + Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
+
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
 
 #### Aurora Babelfish release 4.9.0, April 6, 2026
 <a name="AuroraBabelfish.Updates.490"></a>
@@ -766,6 +826,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.11. For m
 
 **High Priority stability enhancements**
 + Fixed an issue in nested procedure calls that caused temp table cleanup failures and parser errors.
+
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
 
 #### Aurora Babelfish release 4.8.1, January 16, 2026
 <a name="AuroraBabelfish.Updates.481"></a>
@@ -841,6 +907,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.10. For m
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 + Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
 + Fixed an issue where executing queries from PostgreSQL endpoint in Active Directory Authentication enabled instances may lead to a reboot.
+
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
 
 #### Aurora Babelfish release 4.7.1, November 25, 2025
 <a name="AuroraBabelfish.Updates.471"></a>
@@ -924,6 +996,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.9. For mo
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 + Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
+
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
 
 #### Aurora Babelfish release 4.6.2, January 15, 2026
 <a name="AuroraBabelfish.Updates.462"></a>
@@ -1017,6 +1095,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.8. For mo
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 + Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
+
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
 
 #### Aurora Babelfish release 4.5.3, February 02, 2026
 <a name="AuroraBabelfish.Updates.453"></a>
@@ -1540,6 +1624,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.18. For m
 **Critical enhancements**
 + Fixed an issue that could cause crash in SPI\_finish after Out Of Memory error.
 
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
+
 ### Babelfish for Aurora PostgreSQL 3.13
 <a name="AuroraBabelfish.Updates.313X"></a>
 
@@ -1551,6 +1641,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.17. For m
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 + Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
+
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
 
 #### Aurora Babelfish release 3.13.0, April 6, 2026
 <a name="AuroraBabelfish.Updates.3130"></a>
@@ -1572,6 +1668,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.15. For m
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 + Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
+
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
 
 #### Aurora Babelfish release 3.12.1, January 16, 2026
 <a name="AuroraBabelfish.Updates.3121"></a>
@@ -1608,6 +1710,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.14. For m
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 + Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
 
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
+
 #### Aurora Babelfish release 3.11.0, November 25, 2025
 <a name="AuroraBabelfish.Updates.3110"></a>
 
@@ -1641,6 +1749,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.13. For m
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 + Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
+
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
 
 #### Aurora Babelfish release 3.10.1, August 08, 2025
 <a name="AuroraBabelfish.Updates.3101"></a>
@@ -1690,6 +1804,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.12. For m
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 + Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
+
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
 
 #### Aurora Babelfish release 3.9.2, October 09, 2025
 <a name="AuroraBabelfish.Updates.392"></a>
@@ -1766,6 +1886,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.10. For m
 
 **High Priority stability enhancements**
 + Babelfish will now restrict GRANT/REVOKE on any Babelfish created role via PG port.
+
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
 
 #### Aurora Babelfish release 3.8.3, November 13, 2025
 <a name="AuroraBabelfish.Updates.383"></a>
@@ -2477,6 +2603,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.23. For m
 **Critical enhancements**
 + Fixed an issue that could cause crash in SPI\_finish after Out Of Memory error.
 
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
+
 ### Babelfish for Aurora PostgreSQL 2.16
 <a name="AuroraBabelfish.Updates.216X"></a>
 
@@ -2488,6 +2620,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.22. For m
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 + Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
+
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
 
 #### Aurora Babelfish release 2.16.0, April 6, 2026
 <a name="AuroraBabelfish.Updates.2160"></a>
@@ -2510,6 +2648,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.20. For m
 **High Priority stability enhancements**
 + Fixed an issue where an `UPDATE` statement with `OUTPUT` clause may skip rows when there are concurrent updates on the same row.
 
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
+
 ### Babelfish for Aurora PostgreSQL 2.14
 <a name="AuroraBabelfish.Updates.214X"></a>
 
@@ -2525,6 +2669,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.19. For m
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 + Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
+
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
 
 #### Aurora Babelfish release 2.14.0, November 25, 2025
 <a name="AuroraBabelfish.Updates.2140"></a>
@@ -2551,6 +2701,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.18. For m
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 + Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
 
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
+
 #### Aurora Babelfish release 2.13.1, August 08, 2025
 <a name="AuroraBabelfish.Updates.2131"></a>
 
@@ -2574,6 +2730,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.17. For m
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 + Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
+
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
 
 #### Aurora Babelfish release 2.12.2, October 09, 2025
 <a name="AuroraBabelfish.Updates.2122"></a>
@@ -3035,10 +3197,20 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.7. For mo
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.6. For more information about the improvements in Aurora PostgreSQL 14.6, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 2.3 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
 
 **Topics**
++ [Aurora Babelfish release 2.3.5, August 7, 2026](#AuroraBabelfish.Updates.235)
 + [Aurora Babelfish release 2.3.4, November 18, 2024](#AuroraBabelfish.Updates.234)
 + [Aurora Babelfish release 2.3.3, September 13, 2023](#AuroraBabelfish.Updates.233)
 + [Aurora Babelfish release 2.3.2, March 3, 2023](#AuroraBabelfish.Updates.232)
 + [Aurora Babelfish release 2.3.0, January 20, 2023](#AuroraBabelfish.Updates.230)
+
+#### Aurora Babelfish release 2.3.5, August 7, 2026
+<a name="AuroraBabelfish.Updates.235"></a>
+
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
 
 #### Aurora Babelfish release 2.3.4, November 18, 2024
 <a name="AuroraBabelfish.Updates.234"></a>
@@ -3294,6 +3466,7 @@ Babelfish DB clusters running on Aurora PostgreSQL 13.7 or older versions can't 
 <a name="aurorababelfish-versions-version1x"></a>
 
 **Topics**
++ [Babelfish for Aurora PostgreSQL 1.17](#AuroraBabelfish.Updates.117X)
 + [Babelfish for Aurora PostgreSQL 1.5](#AuroraBabelfish.Updates.15X)
 + [Babelfish for Aurora PostgreSQL 1.4 (Deprecated)](#AuroraBabelfish.Updates.14X)
 + [Babelfish for Aurora PostgreSQL 1.3 (Deprecated)](#AuroraBabelfish.Updates.13X)
@@ -3301,13 +3474,40 @@ Babelfish DB clusters running on Aurora PostgreSQL 13.7 or older versions can't 
 + [Babelfish for Aurora PostgreSQL 1.1 (Deprecated)](#AuroraBabelfish.Updates.11X)
 + [Babelfish for Aurora PostgreSQL 1.0 (Deprecated)](#AuroraBabelfish.Updates.10X)
 
+### Babelfish for Aurora PostgreSQL 1.17
+<a name="AuroraBabelfish.Updates.117X"></a>
+
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 13.23. For more information about the improvements in Aurora PostgreSQL 13.23, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
+
+**Topics**
++ [Aurora Babelfish release 1.17.2, May 29, 2026](#AuroraBabelfish.Updates.1172)
+
+#### Aurora Babelfish release 1.17.2, May 29, 2026
+<a name="AuroraBabelfish.Updates.1172"></a>
+
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
+
 ### Babelfish for Aurora PostgreSQL 1.5
 <a name="AuroraBabelfish.Updates.15X"></a>
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 13.9. For more information about the improvements in Aurora PostgreSQL 13.9, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 1.5 adds a new feature and an enhancement. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
 
 **Topics**
++ [Aurora Babelfish release 1.5.5, August 7, 2026](#AuroraBabelfish.Updates.155)
 + [Aurora Babelfish release 1.5.0, January 20, 2023](#AuroraBabelfish.Updates.150)
+
+#### Aurora Babelfish release 1.5.5, August 7, 2026
+<a name="AuroraBabelfish.Updates.155"></a>
+
+**Security enhancements**
++ Addressed the following CVEs:
+  + [CVE-2026-119922](https://nvd.nist.gov/vuln/detail/CVE-2026-119922)
+  + [CVE-2026-119923](https://nvd.nist.gov/vuln/detail/CVE-2026-119923)
+  + [CVE-2026-119924](https://nvd.nist.gov/vuln/detail/CVE-2026-119924)
 
 #### Aurora Babelfish release 1.5.0, January 20, 2023
 <a name="AuroraBabelfish.Updates.150"></a>
