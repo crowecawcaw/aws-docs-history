@@ -26,12 +26,14 @@ The columns you want to include in the result set. You can select columns from e
  *FROM table1*   
 The first (left) table in the JOIN operation.
 
- *[JOIN \| INNER JOIN \| LEFT [OUTER] JOIN \| RIGHT [OUTER] JOIN \| FULL [OUTER] JOIN] table2: *   
+ *[JOIN \| INNER JOIN \| LEFT [OUTER] JOIN \| RIGHT [OUTER] JOIN \| FULL [OUTER] JOIN \| [LEFT] SEMI JOIN \| [LEFT] ANTI JOIN] table2: *   
 The type of JOIN to be performed. JOIN or INNER JOIN returns only the rows with matching values in both tables.   
 LEFT [OUTER] JOIN returns all rows from the left table, with matching rows from the right table.   
 RIGHT [OUTER] JOIN returns all rows from the right table, with matching rows from the left table.   
 FULL [OUTER] JOIN returns all rows from both tables, regardless of whether there is a match or not.   
-CROSS JOIN creates a Cartesian product of the rows from the two tables.
+CROSS JOIN creates a Cartesian product of the rows from the two tables.  
+[LEFT] SEMI JOIN returns the rows from the left table that have a matching row in the right table. It returns only the columns of the left table.  
+[LEFT] ANTI JOIN returns the rows from the left table that have no matching row in the right table. It returns only the columns of the left table.
 
  *ON table1.column = table2.column*   
 The join condition, which specifies how the rows in the two tables are matched. The join condition can be based on one or more columns.

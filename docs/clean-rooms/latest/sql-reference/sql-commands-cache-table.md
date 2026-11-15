@@ -15,8 +15,8 @@ The syntax, arguments, and some examples come from the [Apache Spark SQL Referen
 
 The CACHE TABLE command supports three syntax patterns:
 
-**Disallowed output columns query constraint and CACHE TABLE**  
-The [disallowed output columns constraint](https://docs.aws.amazon.com/clean-rooms/latest/userguide/disallowed-columns.html) in the custom analysis rule is enforced on cached tables. A cached table cannot reference a disallowed output column in its SELECT clause. To use a column with a disallowed output column constraint in a subsequent part of your query, convert the cached table to a common table expression (CTE).
+**Disallowed output columns and CACHE TABLE**  
+A CACHE TABLE statement can reference columns listed in the `disallowedOutputColumns` control of a custom analysis rule, but those columns can't appear in the final projection of the query. For more information about the `disallowedOutputColumns` control, see [Disallowed output columns](https://docs.aws.amazon.com/clean-rooms/latest/userguide/disallowed-output-columns.html) in the *AWS Clean Rooms User Guide*.
 
 With AS (without parentheses): Creates and caches a new table based on the query results. 
 

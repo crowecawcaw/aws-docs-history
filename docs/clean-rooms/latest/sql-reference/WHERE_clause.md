@@ -57,22 +57,22 @@ The following query uses a combination of different WHERE clause restrictions, i
 select eventname, starttime, pricepaid/qtysold as costperticket, qtysold
 from sales, event
 where sales.eventid = event.eventid
-and eventname='Hannah Montana'
+and eventname='Mary Major'
 and date_part(quarter, starttime) in(1,2)
 and date_part(year, starttime) = 2008
 order by 3 desc, 4, 2, 1 limit 10;
 
-eventname    |      starttime      |   costperticket   | qtysold
-----------------+---------------------+-------------------+---------
-Hannah Montana | 2008-06-07 14:00:00 |     1706.00000000 |       2
-Hannah Montana | 2008-05-01 19:00:00 |     1658.00000000 |       2
-Hannah Montana | 2008-06-07 14:00:00 |     1479.00000000 |       1
-Hannah Montana | 2008-06-07 14:00:00 |     1479.00000000 |       3
-Hannah Montana | 2008-06-07 14:00:00 |     1163.00000000 |       1
-Hannah Montana | 2008-06-07 14:00:00 |     1163.00000000 |       2
-Hannah Montana | 2008-06-07 14:00:00 |     1163.00000000 |       4
-Hannah Montana | 2008-05-01 19:00:00 |      497.00000000 |       1
-Hannah Montana | 2008-05-01 19:00:00 |      497.00000000 |       2
-Hannah Montana | 2008-05-01 19:00:00 |      497.00000000 |       4
+ eventname  |      starttime      | costperticket | qtysold
+------------+---------------------+---------------+---------
+ Mary Major | 2008-06-07 14:00:00 | 1706.00000000 |       2
+ Mary Major | 2008-05-01 19:00:00 | 1658.00000000 |       2
+ Mary Major | 2008-06-07 14:00:00 | 1479.00000000 |       1
+ Mary Major | 2008-06-07 14:00:00 | 1479.00000000 |       3
+ Mary Major | 2008-06-07 14:00:00 | 1163.00000000 |       1
+ Mary Major | 2008-06-07 14:00:00 | 1163.00000000 |       2
+ Mary Major | 2008-06-07 14:00:00 | 1163.00000000 |       4
+ Mary Major | 2008-05-01 19:00:00 |  497.00000000 |       1
+ Mary Major | 2008-05-01 19:00:00 |  497.00000000 |       2
+ Mary Major | 2008-05-01 19:00:00 |  497.00000000 |       4
 (10 rows)
 ```

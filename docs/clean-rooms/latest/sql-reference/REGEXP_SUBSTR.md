@@ -53,12 +53,12 @@ SELECT email, regexp_substr(email,'@[^.]*')
 FROM users
 ORDER BY userid LIMIT 4;
 
-                     email                     |      regexp_substr
------------------------------------------------+--------------------------
- Etiam.laoreet.libero@sodalesMaurisblandit.edu | @sodalesMaurisblandit
- Suspendisse.tristique@nonnisiAenean.edu       | @nonnisiAenean
- amet.faucibus.ut@condimentumegetvolutpat.ca   | @condimentumegetvolutpat
- sed@lacusUtnec.ca                             | @lacusUtnec
+           email           | regexp_substr
+---------------------------+---------------
+ diego_ramirez@example.edu | @example
+ martha_rivera@example.org | @example
+ mary_major@example.com    | @example
+ richard_roe@example.ca    | @example
 ```
 
 The following example returns the portion of the input corresponding to the first occurrence of the string `FOX`, using case-insensitive matching.

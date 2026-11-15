@@ -54,12 +54,12 @@ SELECT email, regexp_instr(email, '@[^.]*')
 FROM users
 ORDER BY userid LIMIT 4;
 
-                     email                     | regexp_instr
------------------------------------------------+--------------
- Etiam.laoreet.libero@example.com |           21
- Suspendisse.tristique@nonnisiAenean.edu       |           22
- amet.faucibus.ut@condimentumegetvolutpat.ca   |           17
- sed@lacusUtnec.ca                             |            4
+           email           | regexp_instr
+---------------------------+--------------
+ diego_ramirez@example.edu |           14
+ martha_rivera@example.org |           14
+ mary_major@example.com    |           11
+ richard_roe@example.ca    |           12
 ```
 
 The following example searches for variants of the word `Center` and returns the starting position of the first match.

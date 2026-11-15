@@ -63,6 +63,8 @@ Specify one of the following types of join:
 + RIGHT [OUTER] JOIN 
 + FULL [OUTER] JOIN 
 + CROSS JOIN 
++ [LEFT] SEMI JOIN 
++ [LEFT] ANTI JOIN 
 Cross-joins are unqualified joins; they return the Cartesian product of the two tables.   
 Inner and outer joins are qualified joins. They are qualified either implicitly (in natural joins); with the ON or USING syntax in the FROM clause; or with a WHERE clause condition.   
 An inner join returns matching rows only, based on the join condition or list of joining columns. An outer join returns all of the rows that the equivalent inner join would return plus non-matching rows from the "left" table, "right" table, or both tables. The left table is the first-listed table, and the right table is the second-listed table. The non-matching rows contain NULL values to fill the gaps in the output columns. 

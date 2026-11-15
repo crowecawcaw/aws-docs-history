@@ -255,6 +255,43 @@ LEFT SEMI JOIN orders
 ON customers.customer_id = orders.customer_id;
 ```
 
+A LEFT SEMI JOIN returns only the columns of the left table, so the query can't reference the columns of the right table after the join.
+
+For the forms of LEFT SEMI JOIN and LEFT ANTI JOIN that AWS Clean Rooms doesn't support, see [Unsupported join types](#semi-anti-join-limitations).
+
+For more information about the restrictions that apply when a custom analysis rule uses minimum aggregation thresholds, see [LEFT SEMI JOIN and LEFT ANTI JOIN](https://docs.aws.amazon.com/clean-rooms/latest/userguide/custom-min-agg-thresholds.html#custom-min-agg-semi-anti-joins) in the *AWS Clean Rooms User Guide*.
+
+## [ LEFT ] ANTI
+<a name="anti-join"></a>
+
+Returns the values from the left table reference that have no match with the right table reference. It's also referred to as a *left anti join*.
+
+The ANTI JOIN is a useful operation when you want to find the rows in one table that don't have a match in another table. 
+
+**Syntax:**
+
+```
+SELECT column1, column2, ..., columnn
+FROM table1
+LEFT ANTI JOIN table2
+ON table1.column = table2.column;
+```
+
+The following query will return all the customers who haven't placed any orders.
+
+```
+SELECT customers.customer_id, customers.name
+FROM customers
+LEFT ANTI JOIN orders
+ON customers.customer_id = orders.customer_id;
+```
+
+A LEFT ANTI JOIN returns only the columns of the left table, so the query can't reference the columns of the right table after the join.
+
+For the forms of LEFT SEMI JOIN and LEFT ANTI JOIN that AWS Clean Rooms doesn't support, see [Unsupported join types](#semi-anti-join-limitations).
+
+For more information about the restrictions that apply when a custom analysis rule uses minimum aggregation thresholds, see [LEFT SEMI JOIN and LEFT ANTI JOIN](https://docs.aws.amazon.com/clean-rooms/latest/userguide/custom-min-agg-thresholds.html#custom-min-agg-semi-anti-joins) in the *AWS Clean Rooms User Guide*.
+
 ## CROSS JOIN
 <a name="cross-join"></a>
 
@@ -311,32 +348,6 @@ sales_listid | listing_listid
 5            | 5
 ```
 
-## ANTI JOIN
-<a name="anti-join"></a>
-
-Returns the values from the left table reference that have no match with the right table reference. It's also referred to as a *left anti join*.
-
-The ANTI JOIN is a useful operation when you want to find the rows in one table that don't have a match in another table. 
-
-**Syntax:**
-
-```
-SELECT column1, column2, ..., columnn
-FROM table1
-LEFT ANTI JOIN table2
-ON table1.column = table2.column;
-```
-
-The following query will return all the customers who haven't placed any orders.
-
-```
-SELECT customers.customer_id, customers.name
-FROM customers
-LEFT ANTI JOIN orders
-ON customers.customer_id = orders.customer_id
-WHERE orders.order_id IS NULL;
-```
-
 ## NATURAL
 <a name="natural-join"></a>
 
@@ -382,3 +393,50 @@ listid | sellerid  | eventid | dateid | numtickets
 118    | 6079      | 1611    | 1862   | 9
 163    | 24880     | 8253    | 1888   | 14
 ```
+
+## Unsupported join types
+<a name="semi-anti-join-limitations"></a>
+
+AWS Clean Rooms doesn't support the following with a LEFT SEMI JOIN or LEFT ANTI JOIN:
++ NATURAL LEFT SEMI JOIN and NATURAL LEFT ANTI JOIN. Specify the join condition with ON instead.
+
+  ```
+  -- Not supported
+  SELECT a.campaign FROM ad_exposures a NATURAL LEFT SEMI JOIN purchases p;
+  -- Supported
+  SELECT a.campaign FROM ad_exposures a LEFT SEMI JOIN purchases p ON a.user_id = p.user_id;
+  ```
++ A parenthesized join as the right side. Use a subquery instead.
+
+  ```
+  -- Not supported
+  SELECT a.campaign
+  FROM ad_exposures a
+  LEFT SEMI JOIN (purchases p JOIN stores s ON p.store_id = s.store_id)
+    ON a.user_id = p.user_id;
+  -- Supported
+  SELECT a.campaign
+  FROM ad_exposures a
+  LEFT SEMI JOIN (
+    SELECT p.user_id FROM purchases p JOIN stores s ON p.store_id = s.store_id
+  ) ps
+    ON a.user_id = ps.user_id;
+  ```
++ A subquery in the ON condition. Filter the right table in a subquery before the join instead.
+
+  ```
+  -- Not supported
+  SELECT a.campaign
+  FROM ad_exposures a
+  LEFT SEMI JOIN purchases p
+    ON a.user_id = p.user_id
+    AND p.store_id IN (SELECT store_id FROM stores WHERE region = 'west');
+  -- Supported
+  SELECT a.campaign
+  FROM ad_exposures a
+  LEFT SEMI JOIN (
+    SELECT user_id FROM purchases
+    WHERE store_id IN (SELECT store_id FROM stores WHERE region = 'west')
+  ) p
+    ON a.user_id = p.user_id;
+  ```

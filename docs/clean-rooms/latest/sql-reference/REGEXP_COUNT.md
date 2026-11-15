@@ -54,12 +54,12 @@ The following example counts the number of times the top-level domain name is ei
 SELECT email, regexp_count(email,'@[^.]*\\.(org|edu)')FROM users
 ORDER BY userid LIMIT 4;
 
-                     email                     | regexp_count
------------------------------------------------+--------------
- Etiam.laoreet.libero@sodalesMaurisblandit.edu |            1
- Suspendisse.tristique@nonnisiAenean.edu       |            1
- amet.faucibus.ut@condimentumegetvolutpat.ca   |            0
- sed@lacusUtnec.ca                             |            0
+           email           | regexp_count
+---------------------------+--------------
+ diego_ramirez@example.edu |            1
+ martha_rivera@example.org |            1
+ mary_major@example.com    |            0
+ richard_roe@example.ca    |            0
 ```
 
 The following example counts the occurrences of the string `FOX`, using case-insensitive matching.

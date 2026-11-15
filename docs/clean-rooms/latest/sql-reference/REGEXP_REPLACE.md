@@ -52,27 +52,27 @@ SELECT email, regexp_replace(email, '@.*\\.(org|gov|com|edu|ca)$')
 FROM users
 ORDER BY userid LIMIT 4;
 
-              email                            | regexp_replace 
------------------------------------------------+----------------  
- Etiam.laoreet.libero@sodalesMaurisblandit.edu | Etiam.laoreet.libero
- Suspendisse.tristique@nonnisiAenean.edu       | Suspendisse.tristique
- amet.faucibus.ut@condimentumegetvolutpat.ca   | amet.faucibus.ut
- sed@lacusUtnec.ca                             | sed
+           email           | regexp_replace
+---------------------------+----------------
+ diego_ramirez@example.edu | diego_ramirez
+ martha_rivera@example.org | martha_rivera
+ mary_major@example.com    | mary_major
+ richard_roe@example.ca    | richard_roe
 ```
 
-The following example replaces the domain names of email addresses with this value: `internal.company.com`.
+The following example replaces the domain names of email addresses with this value: `internal.example.com`.
 
 ```
 SELECT email, regexp_replace(email, '@.*\\.[[:alpha:]]{2,3}',
-'@internal.company.com') FROM users
+'@internal.example.com') FROM users
 ORDER BY userid LIMIT 4;
 
-                     email                     |               regexp_replace
------------------------------------------------+--------------------------------------------
- Etiam.laoreet.libero@sodalesMaurisblandit.edu | Etiam.laoreet.libero@internal.company.com
- Suspendisse.tristique@nonnisiAenean.edu       | Suspendisse.tristique@internal.company.com
- amet.faucibus.ut@condimentumegetvolutpat.ca   | amet.faucibus.ut@internal.company.com
- sed@lacusUtnec.ca                             | sed@internal.company.com
+           email           |           regexp_replace
+---------------------------+------------------------------------
+ diego_ramirez@example.edu | diego_ramirez@internal.example.com
+ martha_rivera@example.org | martha_rivera@internal.example.com
+ mary_major@example.com    | mary_major@internal.example.com
+ richard_roe@example.ca    | richard_roe@internal.example.com
 ```
 
 The following example replaces all occurrences of the string `FOX` within the value `quick brown fox`, using case-insensitive matching.

@@ -14,3 +14,4 @@ Nested data types contains tags that reference distinct entities within the data
 + [MAP type](map_type.md)
 + [STRUCT type](struct_type.md)
 + [Examples of nested data types](s_nested-data-type-examples.md)
++ [Querying nested data](query-nested-data.md)

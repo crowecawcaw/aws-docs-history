@@ -52,18 +52,18 @@ The following example replaces the at sign (@) with a period for all values in a
 select email, translate(email, '@', '.') as obfuscated_email
 from users limit 10;
 
-email                                           obfuscated_email
--------------------------------------------------------------------------------------------
-Etiam.laoreet.libero@sodalesMaurisblandit.edu   Etiam.laoreet.libero.sodalesMaurisblandit.edu
-amet.faucibus.ut@condimentumegetvolutpat.ca     amet.faucibus.ut.condimentumegetvolutpat.ca
-turpis@accumsanlaoreet.org	                turpis.accumsanlaoreet.org
-ullamcorper.nisl@Cras.edu	                ullamcorper.nisl.Cras.edu
-arcu.Curabitur@senectusetnetus.com              arcu.Curabitur.senectusetnetus.com
-ac@velit.ca	                                ac.velit.ca
-Aliquam.vulputate.ullamcorper@amalesuada.org    Aliquam.vulputate.ullamcorper.amalesuada.org
-vel.est@velitegestas.edu                        vel.est.velitegestas.edu
-dolor.nonummy@ipsumdolorsit.ca                  dolor.nonummy.ipsumdolorsit.ca
-et@Nunclaoreet.ca                               et.Nunclaoreet.ca
+email                         obfuscated_email
+-----------------------------------------------------------
+diego_ramirez@example.edu     diego_ramirez.example.edu
+martha_rivera@example.org     martha_rivera.example.org
+mary_major@example.com        mary_major.example.com
+richard_roe@example.ca        richard_roe.example.ca
+shirley_rodriguez@example.net shirley_rodriguez.example.net
+alejandro_rosalez@example.org alejandro_rosalez.example.org
+jane_doe@example.com          jane_doe.example.com
+john_stiles@example.edu       john_stiles.example.edu
+pat_candella@example.gov      pat_candella.example.gov
+akua_mansa@example.ca         akua_mansa.example.ca
 ```
 
  The following example replaces spaces with underscores and strips out periods for all values in a column: 

@@ -58,30 +58,20 @@ select nvl2(column1, '2345', 1234);
 The following example modifies some sample data, then evaluates two fields to provide appropriate contact information for users: 
 
 ```
-update users set email = null where firstname = 'Aphrodite' and lastname = 'Acevedo';
+update users set email = null where firstname = 'Diego' and lastname = 'Ramirez';
 
 select (firstname + ' ' + lastname) as name, 
 nvl2(email, email, phone) AS contact_info
 from users 
 where state = 'WA'
-and lastname  like 'A%'
+and lastname  like 'R%'
 order by lastname, firstname;
 
-name			     contact_info	
+name                 contact_info
 --------------------+-------------------------------------------
-Aphrodite Acevedo	(555) 555-0100
-Caldwell Acevedo 	Nunc.sollicitudin@example.ca
-Quinn Adams		   vel@example.com
-Kamal Aguilar		 quis@example.com
-Samson Alexander	 hendrerit.neque@example.com
-Hall Alford		   ac.mattis@example.com
-Lane Allen		    et.netus@example.com
-Xander Allison	   ac.facilisis.facilisis@example.com
-Amaya Alvarado	   dui.nec.tempus@example.com
-Vera Alvarez		  at.arcu.Vestibulum@example.com
-Yetta Anthony		 enim.sit@example.com
-Violet Arnold		 ad.litora@example.comm
-August Ashley		 consectetuer.euismod@example.com
-Karyn Austin		  ipsum.primis.in@example.com
-Lucas Ayers		   at@example.com
+Diego Ramirez        (206) 555-0100
+Martha Rivera        martha_rivera@example.com
+Shirley Rodriguez    shirley_rodriguez@example.com
+Richard Roe          richard_roe@example.com
+Alejandro Rosalez    alejandro_rosalez@example.com
 ```
