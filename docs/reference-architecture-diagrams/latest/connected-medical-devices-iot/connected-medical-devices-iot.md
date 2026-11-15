@@ -27,7 +27,7 @@ The following steps describe the data flow and device management for this archit
 
 1. Upload data files generated from medical procedures directly to Amazon S3. Link files with device metadata in DynamoDB.
 
-1. Use [AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/) for extract, transform, and load (ETL) processing. Query data with [Athena](https://docs.aws.amazon.com/athena/latest/ug/) and visualize insights with [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html).
+1. Use [AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/) for extract, transform, and load (ETL) processing. Query data with [Athena](https://docs.aws.amazon.com/athena/latest/ug/) and visualize insights with [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html).
 
 1. Use [Amazon SageMaker AI](https://docs.aws.amazon.com/sagemaker/latest/dg/) to train machine learning (ML) models and deploy them to the edge for inferencing on AWS IoT Greengrass.
 
