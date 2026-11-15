@@ -1,6 +1,6 @@
 
 
-# Deployment topologies
+# Same-account and split-account deployment topologies
 <a name="bca-topologies"></a>
 
 ## Same-account cross-region (current staging)
@@ -18,7 +18,7 @@ Cross-region Athena queries at session initialization incur a small latency over
 ## Split-account (production pattern)
 <a name="bca-splitaccount-topology"></a>
 
-In a production customer deployment, AVX and ADP run in separate AWS accounts. The account boundary is the primary governance control: ADP owns its data lake, Glue catalog, and Knowledge Base; AVX holds no copy of the data. Cross-account access is granted on a least-privilege basis (per-database Lake Formation shares, per-KB resource policy) and is fully auditable via CloudTrail data-event logs in the ADP account.
+In a production customer deployment, AVX and ADP run in separate AWS accounts. The account boundary is the primary governance control: ADP owns its data lake, Glue catalog, and Knowledge Base; AVX holds no copy of the data. Cross-account access is granted on a least-privilege basis (per-database Lake Formation shares, per-KB resource policy) and is fully auditable through CloudTrail data-event logs in the ADP account.
 
 The split-account configuration is activated by setting `adpAccountId` to the ADP account ID in the AVX stack and `cvxAccountId` to the AVX account ID in the ADP stack. No code changes are required relative to the same-account staging configuration.
 

@@ -1,6 +1,6 @@
 
 
-# Cost Considerations
+# Cost Considerations for AVX
 <a name="overview-cost-intro"></a>
 
 AVX costs are driven primarily by three components:

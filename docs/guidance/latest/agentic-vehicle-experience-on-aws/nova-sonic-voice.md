@@ -25,7 +25,7 @@ sonic_model = BidiNovaSonicModel(
             "output_rate": 24000,          # 24 kHz mono PCM output
         }
     },
-    client_config={"region": "us-east-1"},  # Nova 2 Sonic v2 region
+    client_config={"region": "<nova-sonic-region>"},  # a Region where Nova 2 Sonic is available
 )
 
 agent = BidiAgent(

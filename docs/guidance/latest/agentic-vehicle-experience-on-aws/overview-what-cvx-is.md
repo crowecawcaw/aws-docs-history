@@ -1,6 +1,6 @@
 
 
-# What AVX Is
+# AVX as the Channel Layer for Automotive Data on AWS
 <a name="overview-what-cvx-is"></a>
 
 AVX is the channel layer in a three-layer automotive data portfolio on AWS:

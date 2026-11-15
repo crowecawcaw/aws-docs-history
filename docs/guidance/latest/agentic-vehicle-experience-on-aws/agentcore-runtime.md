@@ -73,8 +73,8 @@ agentcore configure -e agents/supervisor/agentcore_app.py
 agentcore deploy --auto-update-on-conflict \
   --env CMS_STAGE=staging \
   --env VSA_STAGE=staging \
-  --env AWS_REGION=us-west-2 \
-  --env NOVA_SONIC_REGION=us-east-1
+  --env AWS_REGION=<region> \
+  --env NOVA_SONIC_REGION=<nova-sonic-region>
 ```
 
 The `--auto-update-on-conflict` flag updates an existing runtime in place (idempotent by runtime name). Environment variables injected via `--env` are available to the handler as `os.environ` values. The CDK stack (`vsa-staging-core`) provisions the execution role and supporting infrastructure; the AgentCore runtime itself is provisioned by the CLI outside CDK.

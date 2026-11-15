@@ -1,9 +1,9 @@
 
 
-# About This Guide
+# How This Implementation Guide Is Organized
 <a name="overview-about-this-guide"></a>
 
-This guide is prescriptive. It explains how to build a agentic vehicle experience on AWS using AVX’s architecture and patterns and how to extend, customize, and operate it for a production customer-engagement workload.
+This guide is prescriptive. It explains how to build an agentic vehicle experience on AWS using AVX’s architecture and patterns and how to extend, customize, and operate it for a production customer-engagement workload.
 
 The guide is organized as follows:
 +  **Guidance Overview** (this chapter) — What AVX is, the customer-journey vision, an illustrative end-to-end scenario, features, personas, and cost introduction.

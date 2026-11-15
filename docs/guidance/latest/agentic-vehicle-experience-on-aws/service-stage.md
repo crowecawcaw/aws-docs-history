@@ -145,13 +145,15 @@ Agent 3 (Ownership Cost and Coverage Advocate) runs as a companion for coverage-
 
  **Example card workflows.** 
 
+The following table shows example card workflows for Service-stage Findings.
+
 
 | Finding kind | Agent | Trigger | Card headline (subject) | CTA (recommended\_action) | 
 | --- | --- | --- | --- | --- | 
 |  `health.tires`  | Agent 2 | Tire pressure low, or wear approaching limit (ADP tire-health prediction) | "Tire Pressure Low (Front Left)" | "Find Nearby Service" / "Dismiss" | 
 |  `health.brakes`  | Agent 2 | Brake interval approaching; DTC indicating brake system; EV rotor-corrosion threshold (corrosion from regen underuse) | "Brake Inspection Due in 3,000 km" | "Book Service" | 
 |  `health.battery`  | Agent 2 | Battery state-of-health deviation from model (ADP battery prediction) | "Battery Health Check Recommended" | "Book Service" | 
-|  `dtc_diagnosis`  | Agent 2 | Persistent P1 DTC in live state (e.g., P0171 System Too Lean) | "Engine Issue: P0171 System Too Lean" | "Learn More" / "Book Service" | 
+|  `dtc_diagnosis`  | Agent 2 | Persistent P1 DTC in live state (for example, P0171 System Too Lean) | "Engine Issue: P0171 System Too Lean" | "Learn More" / "Book Service" | 
 |  `maintenance_interval_due`  | Agent 2 | Oil-change or service interval reached (ADP Vehicle Lifecycle maintenance schedule \+ CMS mileage tracking) | "Scheduled Maintenance Due: 75,000-Mile Service" | "Book Service" | 
 |  `coverage.recall_open`  | Agent 3 | New recall released for the vehicle’s VIN (ADP Recall data product) | "Recall: Seatbelt Inflator — Schedule Remedy" | "Schedule Remedy" → `initiate_recall_remedy` action | 
 |  `coverage.warranty_gap`  | Agent 3 | Warranty expiration date within 30 days, or mileage threshold within 1,000 miles | "Powertrain Warranty Expires Soon" | "Review Coverage" → chat transfer to Tier 1 | 
@@ -178,14 +180,14 @@ Agent 3 (Ownership Cost and Coverage Advocate) runs as a companion for coverage-
 
  **Consent and customer control.** 
 
-Cards are delivered proactively, but actions are not. If a Finding’s `recommended_action` has `customer_consent_required: true`, the action does not execute until the customer explicitly taps the button. For example:
+Cards are delivered proactively, but actions are not. If a Finding’s `recommended_action` has `customer_consent_required: true`, the action does not execute until the customer explicitly taps the button. The following examples show how consent applies to three kinds of Finding:
 + A tire-pressure-low Finding delivers a card with "Find Nearby Service" button. Tapping it creates a `schedule_appointment` action routed to the DMS, with customer consent implicit in the button tap.
 + A warranty-expiration Finding delivers a card with "Review Coverage" button. Tapping it creates an action that transfers the customer to a Tier 1 chat agent for coverage questions — not a transactional action.
 + A maintenance-interval Finding with tenant policy "only notify, do not auto-book" delivers a card with no CTA button; the card is informational only.
 
  **Staleness and freshness signals.** 
 
-Every card displays the Finding’s `computed_at` timestamp, so the customer knows the Finding is fresh (e.g., "as of today at 2 pm") or stale (e.g., "from yesterday morning; re-check for updates"). This transparency is a requirement of the Finding contract — Tier 2 agents must not suppress staleness.
+Every card displays the Finding’s `computed_at` timestamp, so the customer knows the Finding is fresh (for example, "as of today at 2 pm") or stale (for example, "from yesterday morning; re-check for updates"). This transparency is a requirement of the Finding contract — Tier 2 agents must not suppress staleness.
 
  **Card lifecycle and archival.** 
 

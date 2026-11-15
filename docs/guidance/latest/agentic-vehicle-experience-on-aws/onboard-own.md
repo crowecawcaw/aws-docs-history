@@ -33,7 +33,7 @@ On every subsequent session, the session-init flow re-hydrates the LTM automatic
 Proactive engagement at the Onboard / Own stage is driven by two Tier 2 agents — Agent 1 and Agent 4 — that write Findings to `vsa-{stage}-avx-findings` on schedules and events. The outreach broker (`vsa-{stage}-avx-broker`) reads the Findings stream and decides which channel to use for delivery; neither agent calls a channel API directly.
 
  **Agent 1 — Energy and Charging Advocate.** Agent 1 runs daily per VIN and on charging-session-end events. It reads ADP charging history, energy-usage data (battery state of health), telemetry range, ambient temperature, and tariff feeds, and writes three Finding kinds:
-+  `energy.range_context` — distinguishes seasonal range variation from a hardware fault. For example: an owner’s Meridian Windrose range reduction in winter is within the normal temperature curve, not battery degradation. Range advisories carry `severity: informational`.
++  `energy.range_context` — distinguishes seasonal range variation from a hardware fault. For example, the Finding can explain that an owner’s Meridian Windrose range reduction in winter is within the normal temperature curve and is not battery degradation. Range advisories carry `severity: informational`.
 +  `energy.battery_context` — battery state-of-health check-ins that flag a deviation from the degradation model. These carry `severity: routine` or `severity: attention` and route to the `chat` or `dms` executor based on the finding.
 +  `energy.charging_plan` — tariff-aware charging schedule recommendations.
 

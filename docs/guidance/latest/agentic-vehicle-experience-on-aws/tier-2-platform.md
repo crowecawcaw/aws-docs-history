@@ -3,9 +3,9 @@
 # Tier 2 platform — autonomous agent-reasoning layer
 <a name="tier-2-platform"></a>
 
-Tier 2 agents run as Lambda functions triggered by EventBridge Scheduler (daily, per-VIN or per-fleet), EventBridge event rules (DMS repair-order status, warranty verdict change, recall publication, ADP prediction arrival), or an Amazon SQS queue (a product engineer’s investigation request). Each agent reads the data platform at source, reasons with Claude Sonnet 4.6, and writes a Finding to DynamoDB. Tier 1 tools read those Findings in a single DynamoDB call.
+Tier 2 agents run as Lambda functions triggered by EventBridge Scheduler (daily, per-VIN or per-fleet), EventBridge event rules (DMS repair-order status, warranty verdict change, recall publication, ADP prediction arrival), or an Amazon SQS queue (a product engineer’s investigation request). Each agent reads the data platform at source and writes a Finding to DynamoDB, calling Claude Sonnet 4.6 where it needs judgment ([Fleet Intelligence agents](fi-agents.md) lists which Fleet Intelligence agents do). Tier 1 tools read those Findings in a single DynamoDB call.
 
-![Tier 2 autonomous agents architecture in five zones: EventBridge Scheduler, EventBridge event rules and Amazon SQS start agent runs, and Amazon Athena reads ADP and DMS tables at source; AWS Lambda runs four flywheel agents and five fleet agents that call Claude Sonnet 4.6 on Amazon Bedrock with Bedrock Guardrails, with run records and missed-run and cost alarms; Findings are written to the avx-findings DynamoDB table, where the outreach broker applies consent, quiet hours and caps and sends an Amazon SNS push hook to the app cards and portal queues; an owner, fleet operator or product engineer approves through Amazon API Gateway, or an auto-approval rule approves a vehicle move, and each Action passes guardrails G1 to G5 in registry.dispatch(); eight executors call the DMS, CMS and ADP APIs, and DMS repair-order status events from Amazon EventBridge advance each Action.](https://docs.aws.amazon.com/guidance/latest/agentic-vehicle-experience-on-aws/images/avx-tier2-architecture.png)
+![Tier 2 autonomous agents architecture in five zones: EventBridge Scheduler, EventBridge event rules and Amazon SQS start agent runs, and Amazon Athena reads ADP and DMS tables at source; AWS Lambda runs four flywheel agents and five fleet agents, which call Claude Sonnet 4.6 on Amazon Bedrock with Bedrock Guardrails where they use a model, with run records and missed-run and cost alarms; Findings are written to the avx-findings DynamoDB table, where the outreach broker applies consent, quiet hours and caps and sends an Amazon SNS push hook to the app cards and portal queues; an owner, fleet operator or product engineer approves through Amazon API Gateway, or an auto-approval rule approves a vehicle move, and each Action passes guardrails G1 to G5 in registry.dispatch(); eight executors call the DMS, CMS and ADP APIs, and DMS repair-order status events from Amazon EventBridge advance each Action.](https://docs.aws.amazon.com/guidance/latest/agentic-vehicle-experience-on-aws/images/avx-tier2-architecture.png)
 
 
 ## Why Tier 2 is necessary
@@ -13,7 +13,7 @@ Tier 2 agents run as Lambda functions triggered by EventBridge Scheduler (daily,
 
 A voice-session tool call has a \~1 second budget (Nova Sonic’s post-tool TTS window). Querying vehicle health history, running statistical analysis, and composing narration exceeds that budget by orders of magnitude. Tier 2 moves that work outside the conversation: scheduled, with full history, producing a result that Tier 1 reads fast.
 
- **Example: "How is my battery?"** 
+The following example shows how the two tiers answer the question "How is my battery?":
 + Tier 2 agent (overnight): reads 6 months of battery state-of-health data from the ADP `battery_soh` product, fits a degradation curve, and compares the result to the vehicle’s tenure and to similar vehicles. Writes a Finding: `computed_at: 2026-07-14T02:15:00Z`, `confidence: high`, `headline: "Battery health is within normal range for this vehicle’s age and usage"`, `evidence: [{kind: "soh_trend", value: "99%_after_6mo"}]`, `tokens_used: 8750`.
 + Tier 1 agent (during a voice turn, <1 sec): reads that Finding from DynamoDB in \~15 ms. Narrates: "Your battery is in good shape — 99% health after six months." Surfaces `computed_at`: "We ran this check last night at 2 AM." No re-computation.
 
@@ -26,7 +26,7 @@ The agent registry is pluggable. Each agent module provides:
 + A read stack — cross-account Athena queries against ADP curated products, DMS tables, or both
 + A Strands agent factory (`make_strands_agent_fn`)
 
-The runner, Finding table, artifact contract, executor dispatch, broker, and observability stack are shared across all agents. To add an agent, register a module; no changes to the substrate are required.
+The runner, Finding table, artifact contract, executor dispatch, broker, and observability stack are shared across all agents. To add an owner-facing agent, register a module; the Fleet Intelligence agents are runner components (see [Fleet Intelligence agents](fi-agents.md)). No changes to the substrate are required.
 
 Tier 2 reads the data platform at source — cross-account Athena on ADP curated products and DMS tables. It does not read AgentCore Memory; Tier 2 runs have no session context.
 

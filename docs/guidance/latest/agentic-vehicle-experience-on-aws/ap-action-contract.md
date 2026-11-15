@@ -34,6 +34,6 @@ An Action represents what an owner has done with a Finding: approved it (dispatc
 
 1.  **Progress** — For deferred targets such as a DMS repair order, incoming status events project forward: `in_progress` → `completed`. A repair order DMS closes from `Draft`, `InProgress` or `AwaitingParts` projects to `cancelled`, with the sentence "DMS closed the repair order before the work was done."
 
-1.  **Terminal failure** — A target that refuses the work sets `declined`. Exhausted retries or a malformed request set `failed`, which fires the dual escalation described in [The Executor Pattern](ap-executor-pattern.md).
+1.  **Terminal failure** — A target that refuses the work sets `declined`. Exhausted retries or a malformed request set `failed`, which fires escalation (see the failure model below).
 
 1.  **Dismissal** — The owner taps Dismiss before approving. The route transitions a synthetic Action to `dismissed`, writes feedback to the demotion table, and closes the card.

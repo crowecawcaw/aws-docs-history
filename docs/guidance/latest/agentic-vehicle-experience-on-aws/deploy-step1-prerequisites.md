@@ -47,7 +47,7 @@ After `make sync-data` completes, note the Bedrock Knowledge Base ID from the AD
 ```
 aws cloudformation describe-stacks \
   --stack-name adp-<stage>-vehicle-knowledge-base \
-  --region us-east-1 \
+  --region <region> \
   --query 'Stacks[0].Outputs[?contains(OutputKey, `KnowledgeBase`)].OutputValue' \
   --output text
 ```

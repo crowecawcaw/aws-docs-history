@@ -1,6 +1,6 @@
 
 
-# Cost Model
+# AVX Cost Drivers and Monthly Estimates
 <a name="plan-cost"></a>
 
 ## Overview

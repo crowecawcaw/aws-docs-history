@@ -6,6 +6,8 @@
 ## Module layout
 <a name="ca-module-layout"></a>
 
+The app source is organized into the following module groups:
+
 
 | Group | Responsibility | 
 | --- | --- | 

@@ -30,7 +30,7 @@ tool    tools           (fleet_manager)        (warranty_agent,
 ## Supervisor agent
 <a name="supervisor-agent"></a>
 
-The supervisor is a Strands `BidiAgent` (voice) or `Agent` (text) running Claude Sonnet 4.6 via the `us.anthropic.claude-sonnet-4-6` cross-region inference profile. Its responsibilities:
+The supervisor is a Strands `BidiAgent` (voice) or `Agent` (text) running Claude Sonnet 4.6 through the `us.anthropic.claude-sonnet-4-6` cross-region inference profile. Its responsibilities:
 + Authenticate the caller and resolve the vehicle (VIN) and tenant at session start.
 + Call the Triage tool on every session to classify criticality before any other action.
 + Select and invoke specialist tools based on classification and customer intent.
@@ -64,7 +64,7 @@ The `fleet_manager` persona accesses fleet-aggregate data through two tools that
 | --- | --- | --- | 
 |  `fleet_lifecycle`  | Fleet vehicle lifecycle summary — vehicles approaching end-of-life, compliance status, and service-due counts | CMS Fleet Intelligence API `GET /api/v1/fleet-intelligence/lifecycle`  | 
 |  `fleet_cost_outliers`  | Cost-per-mile outliers — the fleet’s mean cost per mile, the outlier threshold (a multiple of the mean), and each outlier’s cost per mile, total cost and miles, highest first | CMS Fleet Intelligence API `GET /api/v1/fleet-intelligence/cpm/outliers`  | 
-|  `fleet_recommendation`  | Answers "why did you recommend this?" for one Action Queue item: the Finding’s headline, detail and evidence, the recommended action, the decision Action and the queue status. For a recall or a stop-driving fault it returns `safety_text`, which the assistant reads word for word. No model call and no ADP query; it checks the caller’s fleet standing as the queue does | AVX `vsa-{stage}-avx-findings` and `vsa-{stage}-avx-actions`  | 
+|  `fleet_recommendation`  | Answers "why did you recommend this?" for one Action Queue item: the Finding’s headline, detail and evidence, the recommended action, the decision Action and the queue status. For a recall item it also returns `safety_text`, the catalog’s safety text, which the assistant reads word for word before anything else. No model call and no ADP query; it checks the caller’s fleet standing as the queue does | AVX `vsa-{stage}-avx-findings` and `vsa-{stage}-avx-actions`  | 
 
 The `fleet_manager` persona is text-only (non-bidi). The lifecycle read takes approximately 2.6 seconds on staging, which exceeds Nova Sonic’s \~1 second tool budget, so the persona is explicitly excluded from the bidirectional voice runtime.
 
