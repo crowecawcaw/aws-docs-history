@@ -10,7 +10,7 @@ With this architecture, you can transform your retail customer service channel b
 ## Retail contact center diagram
 <a name="rcc-diagram"></a>
 
-![Amazon Connect Customer routing customer calls through IVR, Amazon AppFlow CRM integration, Amazon Kinesis streaming, and Amazon Quick Sight analytics.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/retail-contact-center/images/retail-contact-center.png)
+![Amazon Connect Customer routing customer calls through IVR, Amazon AppFlow CRM integration, Amazon Kinesis streaming, and AWS Quick Sight analytics.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/retail-contact-center/images/retail-contact-center.png)
 
 
 The following steps describe the architecture:
@@ -29,7 +29,7 @@ The following steps describe the architecture:
 
 1. Connect Customer stores call metadata such as call lengths, wait times, and agent activity. Connect Customer streams this data through Amazon Kinesis for near real-time processing.
 
-1. Data stored in Amazon S3 is ingested into [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/) and visualized on a dashboard by using [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html).
+1. Data stored in Amazon S3 is ingested into [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/) and visualized on a dashboard by using [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html).
 
 1. Connect Customer integrates with external systems. Retailers connect to their data lake, customer data platform, or order management systems to answer common enquiries.
 
