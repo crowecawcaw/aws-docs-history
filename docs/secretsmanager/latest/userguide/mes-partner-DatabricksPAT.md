@@ -4,7 +4,7 @@
 <a name="mes-partner-DatabricksPAT"></a>
 
 ## Secret Value Fields
-<a name="w2aac27c13c19b3"></a>
+<a name="w2aac29c13c21b3"></a>
 
 The following are the fields that must be contained in the Secrets Manager secret:
 
@@ -30,7 +30,7 @@ comment
 (Optional) The comment shown beside the token in the Databricks token list. The maximum length is 255 characters.
 
 ## Secret Metadata Fields
-<a name="w2aac27c13c19b5"></a>
+<a name="w2aac29c13c21b5"></a>
 
 The following are the metadata fields for Databricks Personal Access Token:
 
@@ -49,7 +49,7 @@ tokenLifetimeDays
 A workspace administrator can set a maximum token lifetime that is lower than the value you choose here. If the workspace maximum is lower, token creation fails and rotation cannot complete. Check the workspace setting before you choose a value.
 
 ## Usage Flow
-<a name="w2aac27c13c19b7"></a>
+<a name="w2aac29c13c21b7"></a>
 
 This rotation type supports two modes. In self-rotation, the token rotates itself. In assisted rotation, a second token of the same type rotates it. In both cases the replacement token inherits the scopes of the token it replaces. Rotation fails instead of creating a token with different privileges when Secrets Manager cannot read those scopes.
 

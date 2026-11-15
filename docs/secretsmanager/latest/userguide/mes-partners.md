@@ -16,6 +16,7 @@ The following topics include a description of each of the metadata fields requir
 
 | Integration Partner | Secret type | 
 | --- | --- | 
+| Auth0 | [Auth0OAuthClientSecret](mes-partner-Auth0OAuthClientSecret.md) | 
 | BigID | [BigIDClientSecret](mes-partner-BigId.md) | 
 | Cisco | [CiscoSecurityPlatformApiKey](mes-partner-CiscoSecurityPlatformApiKey.md) | 
 | Confluent Cloud | [ConfluentCloudApiKey](mes-partner-ConfluentCloudApiKey.md) | 
@@ -29,7 +30,10 @@ The following topics include a description of each of the metadata fields requir
 | MongoDB Atlas | [MongoDBAtlasServiceAccount](mes-partner-MongoDBAtlasServiceAccount.md) | 
 | MongoDB Atlas | [MongoDBAtlasDatabaseUser](mes-partner-MongoDBAtlasDatabaseUser.md) | 
 | Netskope | [NetskopeApiToken](mes-partner-NetskopeApiToken.md) | 
+| Okta | [OktaAdminJwtKey](mes-partner-OktaAdminJwtKey.md) | 
+| Okta | [OktaOAuthClientSecret](mes-partner-OktaOAuthClientSecret.md) | 
 | Paddle | [PaddleApiKey](mes-partner-PaddleApiKey.md) | 
+| Palo Alto Networks | [PaloAltoApiKey](mes-partner-PaloAltoApiKey.md) | 
 | Salesforce | [SalesforceClientSecret](mes-partner-salesforce.md) | 
 | Snowflake | [SnowflakeKeyPairAuthentication](mes-partner-Snowflake.md) | 
 | Snowflake | [SnowflakePat](mes-partner-SnowflakePat.md) | 
@@ -37,3 +41,4 @@ The following topics include a description of each of the metadata fields requir
 | Twilio | [TwilioApiKey](mes-partner-TwilioApiKey.md) | 
 | Twilio | [TwilioAuthToken](mes-partner-TwilioAuthToken.md) | 
 | Twilio | [TwilioMainApiKey](mes-partner-TwilioMainApiKey.md) | 
+| Versa Networks | [VersaTokenRequestSecret](mes-partner-VersaTokenRequestSecret.md) | 

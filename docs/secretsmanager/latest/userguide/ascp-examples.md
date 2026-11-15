@@ -7,7 +7,7 @@
 <a name="ascp-auth-access-examples"></a>
 
 ### Example: IAM policy allowing Amazon EKS Pod Identity service (pods.eks.amazonaws.com) to assume the role and tag the session:
-<a name="w2aac21c17c18b5b3"></a>
+<a name="w2aac23c17c20b5b3"></a>
 
 ------
 #### [ JSON ]
@@ -40,7 +40,7 @@
 You use YAML to describe which secrets to mount in Amazon EKS using the ASCP. For examples, see [SecretProviderClass usage](#ascp-scenarios-secretproviderclass).
 
 ### SecretProviderClass YAML structure
-<a name="w2aac21c17c18c25b5"></a>
+<a name="w2aac23c17c20c25b5"></a>
 
 ```
 apiVersion: secrets-store.csi.x-k8s.io/v1
@@ -115,7 +115,7 @@ The name or full ARN of the failover secret. If you use an ARN, the Region in th
 (Optional) The alias for the version. The default is the most recent version AWSCURRENT. For more information, see [Secret versions](whats-in-a-secret.md#term_version). 
 
 ### Create a basic SecretProviderClass configuration to mount secrets in your Amazon EKS Pods.
-<a name="w2aac21c17c18c25c11"></a>
+<a name="w2aac23c17c20c25c11"></a>
 
 ------
 #### [ Pod Identity ]

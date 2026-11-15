@@ -16,6 +16,7 @@ Secrets Manager does not use the KMS key to encrypt the secret value directly. I
 + [Key policy of the AWS managed key (`aws/secretsmanager`)](#security-encryption-policies)
 + [Secrets Manager encryption context](#security-encryption-encryption-context)
 + [Monitor Secrets Manager interaction with AWS KMS](#security-encryption-logs)
++ [AWS KMS keys for cross-account replication](#security-encryption-cross-account)
 
 ## Choosing a AWS KMS key
 <a name="security-encryption-choose-key"></a>
@@ -69,10 +70,11 @@ When Secrets Manager uses a KMS key in cryptographic operations, it acts on beha
 + [PutSecretValue](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_PutSecretValue.html)
 + [UpdateSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_UpdateSecret.html)
 + [ReplicateSecretToRegions](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ReplicateSecretToRegions.html)
++ [AssociateCrossAccountReplica](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_AssociateCrossAccountReplica.html)
 
 To allow the KMS key to be used only for requests that originate in Secrets Manager, in the permissions policy, you can use the [kms:ViaService condition key](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-via-service) with the `secretsmanager.{{<Region>}}.amazonaws.com` value.
 
-You can also use the keys or values in the [encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/services-secrets-manager.html#asm-encryption-context) as a condition for using the KMS key for cryptographic operations. For example, you can use a [string condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html#Conditions_String) in an IAM or key policy document, or use a [grant constraint](https://docs.aws.amazon.com/kms/latest/APIReference/API_GrantConstraints.html) in a grant. KMS key grant propagation can take up to five minutes. For more information, see [CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html).
+You can also use the keys or values in the [encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/services-secrets-manager.html#asm-encryption-context) as a condition for using the KMS key for cryptographic operations. For example, you can use a [string condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html#Conditions_String) in an IAM or key policy document, or use a [grant constraint](https://docs.aws.amazon.com/kms/latest/APIReference/API_GrantConstraints.html) in a grant. AWS KMS key grant propagation can take up to five minutes. For more information, see [CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html).
 
 ## How Secrets Manager uses your KMS key
 <a name="security-encryption-using-cmk"></a>
@@ -83,7 +85,7 @@ Secrets Manager calls the following AWS KMS operations with your KMS key.
 Secrets Manager calls the AWS KMS [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) operation in response to the following Secrets Manager operations.  
 + [CreateSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html) – If the new secret includes a secret value, Secrets Manager requests a new data key to encrypt it. 
 + [PutSecretValue](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_PutSecretValue.html) – Secrets Manager requests a new data key to encrypt the specified secret value.
-+ [ReplicateSecretToRegions](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ReplicateSecretToRegions.html) – To encrypt the replicated secret, Secrets Manager requests a data key for the KMS key in the replica Region.
++ [ReplicateSecretToRegions](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ReplicateSecretToRegions.html) – To encrypt the replicated secret, Secrets Manager requests a data key for the AWS KMS key in the replica Region.
 + [UpdateSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_UpdateSecret.html) – If you change the secret value or the KMS key, Secrets Manager requests a new data key to encrypt the new secret value.
 The [RotateSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_RotateSecret.html) operation does not call `GenerateDataKey`, because it does not change the secret value. However, if `RotateSecret` invokes a Lambda rotation function that changes the secret value, its call to the `PutSecretValue` operation triggers a `GenerateDataKey` request.
 
@@ -91,14 +93,16 @@ The [RotateSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireferenc
 Secrets Manager calls the [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) operation in response to the following Secrets Manager operations.   
 + [GetSecretValue](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetSecretValue.html) and [BatchGetSecretValue](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_BatchGetSecretValue.html) – Secrets Manager decrypts the secret value before returning it to the caller. To decrypt an encrypted secret value, Secrets Manager calls the AWS KMS [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) operation to decrypt the encrypted data key in the secret. Then, it uses the plaintext data key to decrypt the encrypted secret value. For batch commands, Secrets Manager can reuse the decrypted key, so not all calls result in a `Decrypt` request.
 + [PutSecretValue](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_PutSecretValue.html) and [UpdateSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_UpdateSecret.html) – Most `PutSecretValue` and `UpdateSecret` requests do not trigger a `Decrypt` operation. However, when a `PutSecretValue` or `UpdateSecret` request attempts to change the secret value in an existing version of a secret, Secrets Manager decrypts the existing secret value and compares it to the secret value in the request to confirm that they are the same. This action ensures the that Secrets Manager operations are idempotent. To decrypt an encrypted secret value, Secrets Manager calls the AWS KMS [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) operation to decrypt the encrypted data key in the secret. Then, it uses the plaintext data key to decrypt the encrypted secret value.
-+ [ReplicateSecretToRegions](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ReplicateSecretToRegions.html) – Secrets Manager first decrypts the secret value in the primary Region before re-encrypting the secret value with the KMS key in the replica Region.
++ [ReplicateSecretToRegions](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ReplicateSecretToRegions.html) – Secrets Manager first decrypts the secret value in the primary Region before re-encrypting the secret value with the AWS KMS key in the replica Region.
++ [AssociateCrossAccountReplica](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_AssociateCrossAccountReplica.html) – Secrets Manager performs a dry-run decrypt call with the primary secret's KMS key. This call confirms that the caller has permissions to use the key. During replication, Secrets Manager will decrypt the primary secret version's data key before re-encrypting the plaintext data key with the replica secret's KMS key.
 
 **Encrypt**  
 Secrets Manager calls the [Encrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html) operation in response to the following Secrets Manager operations:  
 + [UpdateSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_UpdateSecret.html) – If you change the KMS key, Secrets Manager re-encrypts the data key that protects the `AWSCURRENT`, `AWSPREVIOUS`, and `AWSPENDING` secret versions with the new key.
++ [AssociateCrossAccountReplica](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_AssociateCrossAccountReplica.html) – Secrets Manager performs a dry-run encrypt call with the replica secret's KMS key. This call confirms that the primary account caller has permission to use the replica secret's KMS key for cross-account replication. During replication, Secrets Manager will decrypt the primary secret version's data key before re-encrypting the plaintext data key with the replica secret's KMS key.
 
 **DescribeKey**  
-Secrets Manager calls the [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html) operation to determine whether to list the KMS key when you create or edit a secret in the Secrets Manager console. 
+Secrets Manager calls the [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html) operation to determine whether to list the AWS KMS key when you create or edit a secret in the Secrets Manager console. 
 
 **Validating access to the KMS key**  
 When you establish or change the KMS key that is associated with secret, Secrets Manager calls the `GenerateDataKey` and `Decrypt` operations with the specified KMS key. These calls confirm that the caller has permission to use the KMS key for these operation. Secrets Manager discards the results of these operations; it does not use them in any cryptographic operation.  
@@ -353,7 +357,7 @@ The event that records the `Decrypt` operation is similar to the following examp
 ```
 
 **Encrypt**  
-When you change the KMS key associated with a secret, Secrets Manager sends an [Encrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html) request to AWS KMS to re-encrypt the `AWSCURRENT`, `AWSPREVIOUS`, and `AWSPENDING` secret versions with the new key. When you replicate a secret to another Region, Secrets Manager also sends an [Encrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html) request to AWS KMS.  
+When you change the AWS KMS key associated with a secret, Secrets Manager sends an [Encrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html) request to AWS KMS to re-encrypt the `AWSCURRENT`, `AWSPREVIOUS`, and `AWSPENDING` secret versions with the new key. When you replicate a secret to another Region, Secrets Manager also sends an [Encrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html) request to AWS KMS.  
 The event that records the `Encrypt` operation is similar to the following example event. The user is the principal in your AWS account who is accessing the table.   
 
 ```
@@ -404,3 +408,12 @@ The event that records the `Encrypt` operation is similar to the following examp
     "eventCategory": "Management"
 }
 ```
+
+## AWS KMS keys for cross-account replication
+<a name="security-encryption-cross-account"></a>
+
+When you replicate a secret to another AWS account, you must encrypt the replica secret with a customer managed KMS key in the replica account. The replica secret cannot use the AWS managed key `aws/secretsmanager`, because AWS managed keys do not support cross-account access. For more information about cross-account replication, see [Cross-account replication](cross-account-replicate-secrets.md).
+
+To let Secrets Manager re-encrypt the secret value under the replica key, you update the *key policy* of the replica KMS key so that it authorizes the primary account to call `kms:Encrypt`. Secrets Manager decrypts the secret value with the primary secret's key and re-encrypts it with the replica key.
+
+Optionally, scope the replica key policy with the [SecretARN encryption context](#security-encryption-encryption-context) so that the primary account can use the replica key only for the replica secret. The encryption context value is the ARN of the replica secret. For an example key policy statement, see [Create a replica secret](cross-account-replicate-create.md).

@@ -12,10 +12,10 @@ To set up rotation using the AWS CLI, if you are rotating a database secret, you
 **Topics**
 + [Prerequisite for database secrets: Choose a rotation strategy](#rotate-secrets_turn-on-cli_step1)
 + [Step 1: Write the rotation function code](#rotate-secrets_turn-on-cli_write)
-+ [Step 2: Create the Lambda function](#w2aac23c11c25c15)
-+ [Step 3: Set up network access](#w2aac23c11c25c17)
-+ [Step 4: Configure the secret for rotation](#w2aac23c11c25c19)
-+ [Next steps](#w2aac23c11c25c21)
++ [Step 2: Create the Lambda function](#w2aac25c11c25c15)
++ [Step 3: Set up network access](#w2aac25c11c25c17)
++ [Step 4: Configure the secret for rotation](#w2aac25c11c25c19)
++ [Next steps](#w2aac25c11c25c21)
 
 ## Prerequisite for database secrets: Choose a rotation strategy
 <a name="rotate-secrets_turn-on-cli_step1"></a>
@@ -23,12 +23,12 @@ To set up rotation using the AWS CLI, if you are rotating a database secret, you
 For information about the strategies offered by Secrets Manager, see [Lambda function rotation strategies](rotation-strategy.md).
 
 ### Option 1: Single user strategy
-<a name="w2aac23c11c25c11b5"></a>
+<a name="w2aac25c11c25c11b5"></a>
 
 If you choose the *single user strategy*, you can continue with Step 1. 
 
 ### Option 2: Alternating users strategy
-<a name="w2aac23c11c25c11b7"></a>
+<a name="w2aac25c11c25c11b7"></a>
 
 If you choose the *alternating users strategy*, you must:
 + [Create a secret](create_secret.md#create_secret_cli) and store database superuser credentials in it. You need a secret with superuser credentials because alternating users rotation clones the first user, and most users do not have that permission. 
@@ -52,7 +52,7 @@ Secrets Manager provides templates for Amazon RDS, Amazon Aurora, Amazon Redshif
 1. Save the file in a ZIP file {{my-function.zip}} along with any required dependencies.
 
 ## Step 2: Create the Lambda function
-<a name="w2aac23c11c25c15"></a>
+<a name="w2aac25c11c25c15"></a>
 
 In this step, you create the Lambda function using the ZIP file you created in Step 1. You also set the [Lambda execution role](https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html), which is the role that Lambda assumes when the function is invoked.
 
@@ -93,12 +93,12 @@ In this step, you create the Lambda function using the ZIP file you created in S
    ```
 
 ## Step 3: Set up network access
-<a name="w2aac23c11c25c17"></a>
+<a name="w2aac25c11c25c17"></a>
 
 For more information, see [Network access for AWS Lambda rotation function](rotation-function-network-access.md).
 
 ## Step 4: Configure the secret for rotation
-<a name="w2aac23c11c25c19"></a>
+<a name="w2aac25c11c25c19"></a>
 
 To turn on automatic rotation for your secret, call [`rotate-secret`](https://docs.aws.amazon.com/cli/latest/reference/secretsmanager/rotate-secret.html). You can set a rotation schedule with a `cron()` or `rate()` schedule expression, and you can set a rotation window duration. For more information, see [Rotation schedules](rotate-secrets_schedule.md).
 
@@ -110,6 +110,6 @@ aws secretsmanager rotate-secret \
 ```
 
 ## Next steps
-<a name="w2aac23c11c25c21"></a>
+<a name="w2aac25c11c25c21"></a>
 
 See [Troubleshoot AWS Secrets Manager rotation](troubleshoot_rotation.md).

@@ -4,7 +4,7 @@
 <a name="mes-partner-TwilioAuthToken"></a>
 
 ## Secret Value Fields
-<a name="w2aac27c13c51b3"></a>
+<a name="w2aac29c13c59b3"></a>
 
 The following are the fields that must be contained in the Secrets Manager secret:
 
@@ -26,7 +26,7 @@ validationUrl
 (Optional) A read-only Twilio API URL that Secrets Manager calls to confirm the promoted token works. The URL must use HTTPS and a `twilio.com` host. Secrets Manager derives a default endpoint when you omit this field.
 
 ## Secret Metadata Fields
-<a name="w2aac27c13c51b5"></a>
+<a name="w2aac29c13c59b5"></a>
 
 The following are the metadata fields for Twilio Auth Token:
 
@@ -41,7 +41,7 @@ propagationDelaySeconds
 The delay extends the window in which AWSCURRENT names the previous token. If your applications do not use Twilio Functions, set this field to 0 to shorten that window.
 
 ## Usage Flow
-<a name="w2aac27c13c51b7"></a>
+<a name="w2aac29c13c59b7"></a>
 
 This rotation type self-rotates. Secrets Manager authenticates with the current primary Auth Token of the account, so no separate administrator credential is needed and the rotation metadata has no required fields.
 

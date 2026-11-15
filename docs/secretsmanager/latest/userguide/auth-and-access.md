@@ -18,6 +18,7 @@ Secrets Manager uses [AWS Identity and Access Management (IAM)](https://docs.aws
 + [AWS managed policy for AWS Secrets Manager](reference_available-policies.md)
 + [Determine who has permissions to your AWS Secrets Manager secrets](determine-acccess_examine-iam-policies.md)
 + [Access AWS Secrets Manager secrets from a different account](auth-and-access_examples_cross.md)
++ [Permissions for cross-account replication](auth-and-access_cross-account-replication.md)
 + [Access secrets from an on-premises environment](auth-and-access-on-prem.md)
 
 ## Permissions reference for AWS Secrets Manager

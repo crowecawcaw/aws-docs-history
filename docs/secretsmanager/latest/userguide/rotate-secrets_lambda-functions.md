@@ -24,13 +24,13 @@ Setting the provisioned concurrency parameter to a value lower than 10 can cause
 <a name="rotate-secrets_lambda-functions-code"></a>
 
 **Topics**
-+ [`createSecret`: Create a new version of the secret](#w2aac23c11c29c11b5)
-+ [**setSecret**: Change the credentials in the database or service](#w2aac23c11c29c11b7)
-+ [**testSecret**: Test the new secret version](#w2aac23c11c29c11b9)
-+ [**finishSecret**: Finish the rotation](#w2aac23c11c29c11c11)
++ [`createSecret`: Create a new version of the secret](#w2aac25c11c29c11b5)
++ [**setSecret**: Change the credentials in the database or service](#w2aac25c11c29c11b7)
++ [**testSecret**: Test the new secret version](#w2aac25c11c29c11b9)
++ [**finishSecret**: Finish the rotation](#w2aac25c11c29c11c11)
 
 ### `createSecret`: Create a new version of the secret
-<a name="w2aac23c11c29c11b5"></a>
+<a name="w2aac25c11c29c11b5"></a>
 
 The method `createSecret` first checks if a secret exists by calling [`get_secret_value`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/secretsmanager.html#SecretsManager.Client.get_secret_value) with the passed-in `ClientRequestToken`. If there's no secret, it creates a new secret with [`create_secret`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/secretsmanager.html#SecretsManager.Client.create_secret) and the token as the `VersionId`. Then it generates a new secret value with [`get_random_password`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/secretsmanager.html#SecretsManager.Client.get_random_password). Next it calls [`put_secret_value`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/secretsmanager.html#SecretsManager.Client.put_secret_value) to store it with the staging label `AWSPENDING`. Storing the new secret value in `AWSPENDING` helps ensure idempotency. If rotation fails for any reason, you can refer to that secret value in subsequent calls. See [How do I make my Lambda function idempotent](https://aws.amazon.com/premiumsupport/knowledge-center/lambda-function-idempotent/).
 
@@ -40,7 +40,7 @@ The method `createSecret` first checks if a secret exists by calling [`get_secre
 + For Amazon RDS MySQL, in alternating users rotation, Secrets Manager creates a cloned user with a name no longer than 16 characters. You can modify the rotation function to allow longer usernames. MySQL version 5.7 and higher supports usernames up to 32 characters, however Secrets Manager appends "\_clone" (six characters) to the end of the username, so you must keep the username to a maximum of 26 characters.
 
 ### **setSecret**: Change the credentials in the database or service
-<a name="w2aac23c11c29c11b7"></a>
+<a name="w2aac25c11c29c11b7"></a>
 
 The method `setSecret` changes the credential in the database or service to match the new secret value in the `AWSPENDING` version of the secret. 
 
@@ -53,12 +53,12 @@ The method `setSecret` changes the credential in the database or service to matc
 + In rare cases, you might want to customize an existing rotation function for a database. For example, with alternating users rotation, Secrets Manager creates the cloned user by copying the [runtime configuration parameters](https://www.postgresql.org/docs/8.0/runtime-config.html) of the first user. If you want to include more attributes, or change which ones are granted to the cloned user, you need to update the code in the `set_secret` function. 
 
 ### **testSecret**: Test the new secret version
-<a name="w2aac23c11c29c11b9"></a>
+<a name="w2aac25c11c29c11b9"></a>
 
 Next, the Lambda rotation function tests the `AWSPENDING` version of the secret by using it to access the database or service. Rotation functions based on [Rotation function templates](reference_available-rotation-templates.md) test the new secret by using read access. 
 
 ### **finishSecret**: Finish the rotation
-<a name="w2aac23c11c29c11c11"></a>
+<a name="w2aac25c11c29c11c11"></a>
 
 Finally, the Lambda rotation function moves the label `AWSCURRENT` from the previous secret version to this version. Secrets Manager adds the `AWSPREVIOUS` staging label to the previous version, so that you retain the last known good version of the secret. 
 
