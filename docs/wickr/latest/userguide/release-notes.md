@@ -7,6 +7,14 @@ This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is 
 
 To help you keep track of the ongoing updates and improvements to Wickr, we publish release notices that describe recent changes.
 
+## October 2026
+<a name="october-2026-updates"></a>
++ Enhancements
+  + **Navigation panel** – On desktop, menu items are now available from a navigation panel on the left side of the app, replacing the main menu.
+  + **Drafts** – On desktop, a new Drafts section makes it easy to find and resume messages that you started but haven't sent.
+  + **Liquid Glass design** – On iOS, Wickr now supports the Liquid Glass design.
+  + **Performance and bug fixes** – This release includes performance improvements and bug fixes.
+
 ## August 2026
 <a name="august-2026-updates"></a>
 + Enhancements
