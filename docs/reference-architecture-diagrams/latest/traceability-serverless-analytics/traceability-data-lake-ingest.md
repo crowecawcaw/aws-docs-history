@@ -27,7 +27,7 @@ The following steps describe the architecture:
 
 1. The data lands in an aggregated bucket ready for analytics. This is the last trace in the data lake ingestion flow. With traces emitting from all key checkpoints, you can diagnose data lake processing lifecycle issues.
 
-1. Diverse analytics tools such as [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html), Amazon Redshift, and [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/what-is.html) enable you to visualize the data from the data lake built on Amazon S3.
+1. Diverse analytics tools such as [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html), Amazon Redshift, and [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/what-is.html) enable you to visualize the data from the data lake built on Amazon S3.
 
 ## Further reading
 <a name="further-reading-1"></a>

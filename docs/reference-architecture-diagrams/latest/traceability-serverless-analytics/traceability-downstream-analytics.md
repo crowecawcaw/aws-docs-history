@@ -8,7 +8,7 @@ This architecture shows how to monitor data processing pipelines within the data
 ## Data Lake Ingest and Processing with Downstream Analytics
 <a name="diagram2"></a>
 
-![Architecture diagram showing data lake downstream analytics using Amazon CloudWatch, Amazon Kinesis Data Streams, Amazon Kinesis Data Analytics, and Amazon Quick Sight.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/traceability-serverless-analytics/images/traceability-serverless-analytics-2.png)
+![Architecture diagram showing data lake downstream analytics using Amazon CloudWatch, Amazon Kinesis Data Streams, Amazon Kinesis Data Analytics, and AWS Quick Sight.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/traceability-serverless-analytics/images/traceability-serverless-analytics-2.png)
 
 
 The following steps describe the architecture:
@@ -29,7 +29,7 @@ The following steps describe the architecture:
 
 1. Based on the processed data from Kinesis Data Analytics, the Lambda function can send real-time alerts using [Amazon Simple Notification Service](https://docs.aws.amazon.com/sns/latest/dg/welcome.html).
 
-1. [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) dashboards visualize trends such as number of successful pipelines, error rate, error type distribution, and more.
+1. [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) dashboards visualize trends such as number of successful pipelines, error rate, error type distribution, and more.
 
 ## Further reading
 <a name="further-reading-2"></a>
