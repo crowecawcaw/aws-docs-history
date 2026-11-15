@@ -9,10 +9,34 @@ For Docker platform versions that were current earlier than September 25, 2017, 
 
 See the [Supported platforms](platforms-supported.md) page for information on the latest version of each platform supported by Elastic Beanstalk. Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/). 
 
-## November 4, 2026 – present
+## November 13, 2026 – present
+<a name="platform-history-2026-11-13"></a>
+
+The following Elastic Beanstalk platform versions for Single Container Docker have been current since November 13, 2026:
+
+
+
+|  Platform Version and *Solution Stack Name*   |  AMI  |  ECS Agent  |  Docker  |  Docker Compose  |  Proxy Server  | 
+| --- | --- | --- | --- | --- | --- | 
+|  ** Docker AL2023 version 4.14.3** <br /> * 64bit Amazon Linux 2023 v4.14.3 running Docker *  | 2023.12.20261112 |  | 25.0.18 | 5.7.1 | nginx 1.30.6 | 
+|  ** ECS AL2023 version 4.8.3** <br /> * 64bit Amazon Linux 2023 v4.8.3 running ECS *  | 2023.12.20261112 | 1.108.2 | 25.0.18 |  |  | 
+
+## November 12, 2026 – November 12, 2026
+<a name="platform-history-2026-11-12"></a>
+
+The following Elastic Beanstalk platform versions for Single Container Docker were current between November 12, 2026 and November 12, 2026:
+
+
+
+|  Platform Version and *Solution Stack Name*   |  AMI  |  ECS Agent  |  Docker  |  Docker Compose  |  Proxy Server  | 
+| --- | --- | --- | --- | --- | --- | 
+|  ** Docker AL2023 version 4.14.2** <br /> * 64bit Amazon Linux 2023 v4.14.2 running Docker *  | 2023.12.20261109 |  | 25.0.18 | 5.7.1 | nginx 1.30.6 | 
+|  ** ECS AL2023 version 4.8.2** <br /> * 64bit Amazon Linux 2023 v4.8.2 running ECS *  | 2023.12.20261109 | 1.108.2 | 25.0.18 |  |  | 
+
+## November 4, 2026 – November 11, 2026
 <a name="platform-history-2026-11-04"></a>
 
-The following Elastic Beanstalk platform versions for Single Container Docker have been current since November 4, 2026:
+The following Elastic Beanstalk platform versions for Single Container Docker were current between November 4, 2026 and November 11, 2026:
 
 
 

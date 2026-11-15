@@ -7,10 +7,38 @@ This page lists the current and previous versions of AWS Elastic Beanstalk's PHP
 
 See the [Supported platforms](platforms-supported.md) page for information on the latest version of each platform supported by Elastic Beanstalk. Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/). 
 
-## November 4, 2026 – present
+## November 13, 2026 – present
+<a name="platform-history-2026-11-13"></a>
+
+The following Elastic Beanstalk platform versions for PHP have been current since November 13, 2026:
+
+
+
+|  Platform Version and *Solution Stack Name*   |  AMI  |  Language  |  Package Manager  |  Proxy Server  | 
+| --- | --- | --- | --- | --- | 
+|  ** PHP 8.5 AL2023 version 4.14.3** <br /> * 64bit Amazon Linux 2023 v4.14.3 running PHP 8.5 *  | 2023.12.20261112 | PHP 8.5.12 | Composer 2.11.2, PIE 1.5.5 | nginx 1.30.6 (default), Apache 2.4.71 | 
+|  ** PHP 8.4 AL2023 version 4.14.3** <br /> * 64bit Amazon Linux 2023 v4.14.3 running PHP 8.4 *  | 2023.12.20261112 | PHP 8.4.27 | Composer 2.11.2, PIE 1.5.5 | nginx 1.30.6 (default), Apache 2.4.71 | 
+|  ** PHP 8.3 AL2023 version 4.14.3** <br /> * 64bit Amazon Linux 2023 v4.14.3 running PHP 8.3 *  | 2023.12.20261112 | PHP 8.3.36 | Composer 2.11.2, PIE 1.5.5 | nginx 1.30.6 (default), Apache 2.4.71 | 
+|  ** PHP 8.2 AL2023 version 4.14.3** <br /> * 64bit Amazon Linux 2023 v4.14.3 running PHP 8.2 *  | 2023.12.20261112 | PHP 8.2.35 | Composer 2.11.2, PIE 1.5.5 | nginx 1.30.6 (default), Apache 2.4.71 | 
+
+## November 12, 2026 – November 12, 2026
+<a name="platform-history-2026-11-12"></a>
+
+The following Elastic Beanstalk platform versions for PHP were current between November 12, 2026 and November 12, 2026:
+
+
+
+|  Platform Version and *Solution Stack Name*   |  AMI  |  Language  |  Package Manager  |  Proxy Server  | 
+| --- | --- | --- | --- | --- | 
+|  ** PHP 8.5 AL2023 version 4.14.2** <br /> * 64bit Amazon Linux 2023 v4.14.2 running PHP 8.5 *  | 2023.12.20261109 | PHP 8.5.12 | Composer 2.11.2, PIE 1.5.5 | nginx 1.30.6 (default), Apache 2.4.69 | 
+|  ** PHP 8.4 AL2023 version 4.14.2** <br /> * 64bit Amazon Linux 2023 v4.14.2 running PHP 8.4 *  | 2023.12.20261109 | PHP 8.4.27 | Composer 2.11.2, PIE 1.5.5 | nginx 1.30.6 (default), Apache 2.4.69 | 
+|  ** PHP 8.3 AL2023 version 4.14.2** <br /> * 64bit Amazon Linux 2023 v4.14.2 running PHP 8.3 *  | 2023.12.20261109 | PHP 8.3.36 | Composer 2.11.2, PIE 1.5.5 | nginx 1.30.6 (default), Apache 2.4.69 | 
+|  ** PHP 8.2 AL2023 version 4.14.2** <br /> * 64bit Amazon Linux 2023 v4.14.2 running PHP 8.2 *  | 2023.12.20261109 | PHP 8.2.35 | Composer 2.11.2, PIE 1.5.5 | nginx 1.30.6 (default), Apache 2.4.69 | 
+
+## November 4, 2026 – November 11, 2026
 <a name="platform-history-2026-11-04"></a>
 
-The following Elastic Beanstalk platform versions for PHP have been current since November 4, 2026:
+The following Elastic Beanstalk platform versions for PHP were current between November 4, 2026 and November 11, 2026:
 
 
 

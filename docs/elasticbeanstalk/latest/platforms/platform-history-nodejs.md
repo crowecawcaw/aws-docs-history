@@ -7,10 +7,36 @@ This page lists the current and previous versions of AWS Elastic Beanstalk's Nod
 
 See the [Supported platforms](platforms-supported.md) page for information on the latest version of each platform supported by Elastic Beanstalk. Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/). 
 
-## November 4, 2026 – present
+## November 13, 2026 – present
+<a name="platform-history-2026-11-13"></a>
+
+The following Elastic Beanstalk platform versions for Node.js have been current since November 13, 2026:
+
+
+
+|  Platform Version and *Solution Stack Name*   |  AMI  |  Node.js versions (npm versions)  |  Proxy Server  |  Git  |  AWS X-Ray  | 
+| --- | --- | --- | --- | --- | --- | 
+|  ** Node.js 26 AL2023 version 6.12.3** <br /> * 64bit Amazon Linux 2023 v6.12.3 running Node.js 26 *  | 2023.12.20261112 | 26.13.1 (11.20.0)<br /> Default version: v26.13.1 | nginx 1.30.6 (default), Apache 2.4.71 | 2.50.1 | 3.7.1 | 
+|  ** Node.js 24 AL2023 version 6.12.3** <br /> * 64bit Amazon Linux 2023 v6.12.3 running Node.js 24 *  | 2023.12.20261112 | 24.22.3 (11.19.1)<br /> Default version: v24.22.3 | nginx 1.30.6 (default), Apache 2.4.71 | 2.50.1 | 3.7.1 | 
+|  ** Node.js 22 AL2023 version 6.12.3** <br /> * 64bit Amazon Linux 2023 v6.12.3 running Node.js 22 *  | 2023.12.20261112 | 22.23.5 (10.9.9)<br /> Default version: v22.23.5 | nginx 1.30.6 (default), Apache 2.4.71 | 2.50.1 | 3.7.1 | 
+
+## November 12, 2026 – November 12, 2026
+<a name="platform-history-2026-11-12"></a>
+
+The following Elastic Beanstalk platform versions for Node.js were current between November 12, 2026 and November 12, 2026:
+
+
+
+|  Platform Version and *Solution Stack Name*   |  AMI  |  Node.js versions (npm versions)  |  Proxy Server  |  Git  |  AWS X-Ray  | 
+| --- | --- | --- | --- | --- | --- | 
+|  ** Node.js 26 AL2023 version 6.12.2** <br /> * 64bit Amazon Linux 2023 v6.12.2 running Node.js 26 *  | 2023.12.20261109 | 26.13.1 (11.20.0)<br /> Default version: v26.13.1 | nginx 1.30.6 (default), Apache 2.4.69 | 2.50.1 | 3.7.1 | 
+|  ** Node.js 24 AL2023 version 6.12.2** <br /> * 64bit Amazon Linux 2023 v6.12.2 running Node.js 24 *  | 2023.12.20261109 | 24.22.3 (11.19.1)<br /> Default version: v24.22.3 | nginx 1.30.6 (default), Apache 2.4.69 | 2.50.1 | 3.7.1 | 
+|  ** Node.js 22 AL2023 version 6.12.2** <br /> * 64bit Amazon Linux 2023 v6.12.2 running Node.js 22 *  | 2023.12.20261109 | 22.23.5 (10.9.9)<br /> Default version: v22.23.5 | nginx 1.30.6 (default), Apache 2.4.69 | 2.50.1 | 3.7.1 | 
+
+## November 4, 2026 – November 11, 2026
 <a name="platform-history-2026-11-04"></a>
 
-The following Elastic Beanstalk platform versions for Node.js have been current since November 4, 2026:
+The following Elastic Beanstalk platform versions for Node.js were current between November 4, 2026 and November 11, 2026:
 
 
 
