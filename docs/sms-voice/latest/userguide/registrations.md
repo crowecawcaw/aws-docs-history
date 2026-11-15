@@ -17,6 +17,8 @@ We recommend that you complete all registrations, even if it is *optional*, as r
 The following registration forms can be filled out and submitted through the AWS End User Messaging SMS console.
 + **Australia sender ID registration** – Register a sender ID in Australia. For more information on completing the registration, see [Australia sender ID registration](registrations-australia.md).
 + **Belarus sender ID registration** – Register a sender ID in Belarus. For more information on completing the registration, see [Belarus sender ID registration](registrations-belarus.md).
++ **China sender ID registration** – Register a sender ID in China. For more information on completing the registration, see [China sender ID registration](registrations-china.md).
++ **China short code registration** – Register a short code in China. For more information on completing the registration, see [China short code registration](registrations-china-short-code.md).
 + **Egypt sender ID registration** – Register a sender ID in Egypt. For more information on completing the registration, see [Egypt sender ID registration](registrations-egypt.md).
 + **Finland sender ID registration** – Register a sender ID in Finland. For more information on completing the registration, see [Finland sender ID registration](registrations-finland.md).
 + **India sender ID registration** – Register a sender ID for use in India. For more information on completing the registration for see [India sender ID registration](registrations-sms-senderid-india.md).
