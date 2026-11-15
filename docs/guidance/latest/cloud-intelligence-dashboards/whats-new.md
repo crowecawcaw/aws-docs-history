@@ -21,7 +21,7 @@ The highlights below cover notable releases from the past year, most recent firs
 ## DROID Dashboard v1.0.0: new dashboard for Amazon RDS and Amazon Aurora (November 3, 2026)
 <a name="whats-new-droid-100"></a>
 
-A new dashboard, Database Resilience, Operations, and Insights (DROID), gives you a single view of your Amazon RDS and Amazon Aurora fleet across accounts and Regions.
+A new dashboard, Data Resilience, Operations, and Insights (DROID), gives you a single view of your Amazon RDS and Amazon Aurora fleet across accounts and Regions.
 +  **Inventory** — instances and clusters by account, Region, engine, instance class, and processor (Graviton or x86), with filters for collection date, account, Region, engine, and tags.
 +  **Version and maintenance** — current engine versions compared with the latest available, standard and extended support end dates, and pending maintenance actions.
 +  **Security and resiliency** — encryption, Multi-AZ, deletion protection, storage autoscaling, and certificate expiration.
@@ -306,7 +306,7 @@ View the [changelog entry](https://github.com/aws-solutions-library-samples/clou
 
 New guidance for integrating Cloud Intelligence Dashboards with Amazon Quick agentic AI capabilities. Instead of navigating multiple dashboards, you can ask natural-language questions and get data-driven insights across FinOps, cost efficiency, security, performance, and operational excellence. You can also automate routine tasks with Amazon Quick Flows.
 
-See [Generative AI Assistant with Cloud Intelligence Dashboards](generative-ai.md).
+See [Generative AI with CID](generative-ai.md).
 
 ## CUDOS Dashboard v5.7.0: Security tab, unused commitments, Amazon Quick (November 25, 2025)
 <a name="whats-new-cudos-570"></a>

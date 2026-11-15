@@ -93,6 +93,7 @@ At any moment, please contact your AWS or Partner Account Team to discuss how yo
 +  [AWS End User Computing (EUC) Dashboard Guide: Optimizing WorkSpaces Personal and WorkSpaces Applications with Cloud Intelligence Dashboards](https://aws.amazon.com/blogs/desktop-and-application-streaming/aws-end-user-computing-euc-dashboard-guide-optimizing-workspaces-and-workspaces-applications-with-cloud-intelligence-dashboards/) 
 +  [Which AI tool for which FinOps Use Case?](https://aws.amazon.com/blogs/aws-cloud-financial-management/which-ai-tool-for-which-finops-use-case/) 
 +  [Amazon Bedrock cost attribution with Amazon Athena and CUDOS](https://aws.amazon.com/blogs/machine-learning/part-2-amazon-bedrock-cost-attribution-with-amazon-athena-and-cudos/) 
++  [Assess and track your Amazon Redshift RA3 to RG modernization with CUDOS](https://aws.amazon.com/blogs/big-data/assess-and-track-your-amazon-redshift-ra3-to-rg-modernization-with-cudos/) 
 
 ## Costs
 <a name="costs"></a>
