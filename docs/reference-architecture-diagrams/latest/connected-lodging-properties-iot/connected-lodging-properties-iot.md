@@ -29,7 +29,7 @@ The following steps describe the architecture:
 
 1. Use SageMaker AI to build, train, and deploy inference models. (Optional) Deploy edge models on AWS IoT Greengrass Core.
 
-1. Use [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/), [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/), and [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html) for analytics. (Optional) Build data marts in Amazon Redshift for heavily used analytics.
+1. Use [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/), [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/), and [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html) for analytics. (Optional) Build data marts in Amazon Redshift for heavily used analytics.
 
 1. Use social distancing and queue depth management solutions for compliance and enhanced guest experience.
 
