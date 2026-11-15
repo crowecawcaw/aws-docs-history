@@ -36,7 +36,7 @@ Each case that is created is connected to a customer profile from your Connect C
 ## How to create a template
 <a name="how-to-create-template"></a>
 
-1. Log in to the Connect Customer admin website with an **Admin** account, or an account assigned to a security profile that has permissions to create templates. For a list of required permissions, see [Security profile permissions for Connect Customer Cases](assign-security-profile-cases.md).
+1. Log in to the Connect Customer admin website with an **Admin** account, or an account assigned to a security profile that has permissions to create templates. For a list of required permissions, see [Security profile permissions for Cases](assign-security-profile-cases.md).
 
 1. Verify the quota for case templates and request an increase if needed. For more information, see [Connect Customer Cases service quotas](amazon-connect-service-limits.md#cases-quotas).
 

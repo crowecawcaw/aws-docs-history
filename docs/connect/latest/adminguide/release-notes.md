@@ -6,38 +6,61 @@
 ## Version summary
 <a name="version-summary"></a>
 
-The following table summarizes the differences between Connect Customer Client Application versions. Version 3.0.5 is cumulative: it includes the capabilities introduced in 3.0.2 and the corrections delivered in 3.0.3, 3.0.4, and 3.0.5.
+The following table summarizes the differences between Connect Customer Client Application versions. Version 3.0.6 is cumulative: it includes the capabilities introduced in 3.0.2 and the corrections delivered in 3.0.3, 3.0.4, 3.0.5, and 3.0.6.
 
 
 | Version | Release date | Download | Summary | 
 | --- | --- | --- | --- | 
-| 3.0.5 | October 21, 2026 | [Download v3.0.5](https://d4yqf2f7seiym.cloudfront.net/builds/AmazonConnectClientWin-v3.0.5.zip) | Improves rule-based redaction accuracy, screen recording reliability, and installer upgrades. | 
+| 3.0.6 | November 6, 2026 | [Download v3.0.6](https://d4yqf2f7seiym.cloudfront.net/builds/AmazonConnectClientWin-v3.0.6.zip) | Improves rule-based redaction accuracy for browser windows during page loads and navigation. | 
+| 3.0.5 | October 21, 2026 | - | Improves rule-based redaction accuracy, screen recording reliability, and installer upgrades. | 
 | 3.0.4 | August 13, 2026 | - | Fixes an Amazon.Connect.Client.Messaging.NativeHost.exe crash during full browser shutdown and the resulting Windows Event Viewer errors. | 
 | 3.0.3 | July 30, 2026 | - | Improves redaction completion at contact end, window-monitoring cleanup, and support for international characters in window titles. | 
 | 3.0.2 | June 1, 2026 | - | Adds optional [rule-based screen recording redaction](rule-based-redaction-screen-recording.md) and supporting browser and Windows monitoring components. | 
 | 2.0.3 | June 13, 2025 | [Download v2.0.3](https://d4yqf2f7seiym.cloudfront.net/builds/AmazonConnectClientWin-v2.0.3.zip) | Provides standard agent screen recording. It does not include rule-based redaction for screen recordings. | 
 
-## Release notes for v3.0.5
-<a name="release-notes-3-0-5"></a>
+## Release notes for v3.0.6
+<a name="release-notes-3-0-6"></a>
 
 ### Features
 <a name="release-notes-features"></a>
 
-No new features in this release. Version 3.0.5 is a fix release that improves rule-based screen recording redaction, screen recording reliability, and the installer.
+No new features in this release. Version 3.0.6 is a fix release that improves rule-based screen recording redaction.
 
 ### New components
 <a name="release-notes-new-components"></a>
 
 No new components in this release.
 
-### Fixes in 3.0.5
+### Fixes in 3.0.6
 <a name="release-notes-fixes"></a>
++ Reduced brief over-redaction of browser windows during page loads and navigation when rule-based screen recording redaction is enabled.
+
+### System prerequisites
+<a name="release-notes-prerequisites"></a>
+
+No additional prerequisites need to be installed on the agent's workstation for this release.
+
+## Release notes for v3.0.5
+<a name="release-notes-3-0-5"></a>
+
+### Features
+<a name="release-notes-3-0-5-features"></a>
+
+No new features in this release. Version 3.0.5 is a fix release that improves rule-based screen recording redaction, screen recording reliability, and the installer.
+
+### New components
+<a name="release-notes-3-0-5-new-components"></a>
+
+No new components in this release.
+
+### Fixes in 3.0.5
+<a name="release-notes-3-0-5-fixes"></a>
 + Improved the accuracy and responsiveness of rule-based screen recording redaction, especially for browser windows.
 + Improved the reliability of starting new screen recordings.
 + Improved installer upgrades and error reporting.
 
 ### System prerequisites
-<a name="release-notes-prerequisites"></a>
+<a name="release-notes-3-0-5-prerequisites"></a>
 
 No additional prerequisites need to be installed on the agent's workstation for this release.
 

@@ -14,6 +14,9 @@ For information about how agents search for quick responses, see [Search for qui
 **Tip**  
 Even though quick responses use the agent assist APIs, quick responses don't lead to additional billing. You only pay for the chat message price or email price. For more information, see [Connect Customer Pricing](https://aws.amazon.com/connect/pricing/).
 
+**Note**  
+Quick responses support replication with Connect Customer Global Resiliency. For more information, see [Global Resiliency for quick responses](global-resiliency-quick-responses.md).
+
 **Topics**
 + [Assign permissions to manage quick responses in Connect Customer](quick-response-permissions.md)
 + [Set up a Connect Customer knowledge base to store quick responses](setup-knowledgebase.md)

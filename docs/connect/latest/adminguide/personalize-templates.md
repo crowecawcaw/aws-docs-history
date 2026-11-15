@@ -52,6 +52,12 @@ You can add message attributes to a new template you create or to an existing te
 ![Email template editor showing recommendation attributes in the Attribute finder and personalized product recommendations.](https://docs.aws.amazon.com/connect/latest/adminguide/images/RecommendationAttributesInTemplate.png)
 
        For more information about configuring recommendations in campaigns, see [Create an outbound campaign using event triggers](how-to-create-campaigns-using-event-triggers.md).
+     + **Calculated attributes**: Values derived from a customer's profile data, such as most frequent channel or number of recent calls, defined in Connect Customer Customer Profiles. Each calculated attribute is referenced by its name.
+       + **Default calculated attributes**: Use underscore-prefixed names, for example `{{Attributes.Customer.CalculatedAttributes._most_frequent_channel}}`. For more information about default calculated attributes and their names, see [Default calculated attributes in Connect Customer Customer Profiles](customerprofiles-default-calculated-attributes.md).
+       + **Custom calculated attributes**: Use the name defined in Connect Customer Customer Profiles. For names that contain spaces, use the bracket form, for example `{{Attributes.Customer.CalculatedAttributes.[Average Ticket Size]}}`.
+   + **Case attributes**: You can reference Connect Customer Cases field values in a message template. Fields are referenced by their field identifier.
+     + **System fields**: Use readable slugs, for example `{{Attributes.Case.title}}`, `{{Attributes.Case.status}}`, and `{{Attributes.Case.reference_number}}`. For more information about system field IDs, see the Field ID column in [System case fields](case-fields.md#system-case-fields).
+     + **Custom fields**: Use a UUID identifier, for example `{{Attributes.Case.12345678-aaaa-bbbb-cccc-123456789012}}`. For information about finding a custom field's UUID, see [Find the custom field ID](cases-block.md#get-case-properties-find-uuid).
 
 1. When you choose an attribute in the Attribute finder, it is automatically placed in your message. You can copy and paste the attribute to another location.
 

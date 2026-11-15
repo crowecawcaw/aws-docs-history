@@ -35,7 +35,8 @@ Outbound telephony charges occur when using a desk phone to answer inbound calls
    + In **After call work (ACW) timeout**, type how many seconds agents have for after contact work, such as entering notes about the contact. This needs to be typed separately for each individual channel.
      + Minimum setting is 1 second.
      + Maximum setting is 2,000,000 seconds (24 days).
-     + Enter **0** if you don't want to allocate a specific amount of ACW time. It essentially means an indefinite amount of time. When the conversation ends, ACW starts; the agent must choose **Close contact** to end ACW.
+       + For the chat channel, the maximum for a specific duration is 5,400 seconds (90 minutes). If you enter a higher value for chat, ACW ends after 90 minutes.
+     + For all channels, including chat, enter **0** if you don't want to allocate a specific amount of ACW time. It essentially means an indefinite amount of time. When the conversation ends, ACW starts; the agent must choose **Close contact** to end ACW.
      + The following image shows the **Contact Handling** section of the **User Management** page. Each channel has a separate **Auto-accept** and **ACW timeout** setting.
        + Note -To configure auto-accept or ACW timeouts for Outbound Campaigns calls or customer-first callbacks, use the "Voice" settings.
        +   

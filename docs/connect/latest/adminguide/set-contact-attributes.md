@@ -10,6 +10,9 @@ This topic defines the flow block for storing key-value pairs as contact attribu
 
 Stores key-value pairs as contact attributes. You set a value that is later referenced in a flow.
 
+**Note**  
+Persisted flow attributes are only available in [Amazon Connect Customer](https://docs.aws.amazon.com/connect/latest/adminguide/enable-nextgeneration-amazonconnect.html) instances.
+
 For example, create a personalized greeting for customers routed to a queue based on the type of customer account. You could also define an attribute for a company name or line of business to include in the text to speech strings said to a customer. 
 
 The **Set contact attributes** block is useful, for example, for copying attributes retrieved from external sources to user-defined attributes.
@@ -48,17 +51,23 @@ You can choose to set attributes on:
 + **Related contact**: The attributes are associated with a new contact that contains a copy of the original contact properties.
 
   In the contact record, this is the **RelatedContactId**.
-+ **Flow**: The attributes are restricted to the flow in which they are configured. 
-
-  Flow attributes are useful in situations where you don't want to persist the data throughout the contact, such as when you need to use sensitive information like the customer's credit card number to do a Lambda data dip.
-  + Flow attributes are temporary variables stored locally and only used in the flow. They aren't visible anywhere outside the flow, not even when the contact is transferred to another flow. 
-  + They can be up to 64 KB.
++ **Flow**: The attributes are available to flows on the current contact. Choose one of the following namespaces: **Flow attributes** or **Persisted flow attributes**. Both namespaces are private to your flows:
   + They aren't passed to a Lambda unless they are explicitly configured as parameters: in the **Invoke AWS Lambda function** block, choose **Add a parameter**. 
-  + They aren't passed to modules. You can set a flow attribute within a module, but it won't be passed out of the module.
   + They don't appear in the contact record. 
   + They don't appear to the agent in the CCP.
   + The `GetContactAttributes` API can't expose them.
-  + If you have logging enabled on the flow, the key and value appear in the Cloudwatch log.
+  + If you have logging enabled on the flow, the key and value appear in the CloudWatch log.
+
+  **Flow attributes**: The attributes are restricted to the flow in which they are configured. Flow attributes are useful in situations where you don't want to persist the data throughout the contact, such as when you need to use sensitive information like the customer's credit card number to do a Lambda data dip.
+  + Flow attributes are temporary variables stored locally and only used in the flow. They aren't visible anywhere outside the flow, not even when the contact is transferred to another flow. 
+  + They can be up to 64 KB.
+  + They aren't passed to modules. You can set a flow attribute within a module, but it won't be passed out of the module.
+
+  **Persisted flow attributes**: The attributes are available in all flows that run on the contact. Persisted flow attributes are useful in situations where you want to persist the data throughout the contact but don't want it in the contact record or visible to the agent, such as when you verify the customer in the inbound flow and need the verification result later in the customer queue flow. Persisted flow attributes are only available in [Amazon Connect Customer](https://docs.aws.amazon.com/connect/latest/adminguide/enable-nextgeneration-amazonconnect.html) instances.
+  + They're available to every flow that runs on the contact for the lifetime of the contact, including flows that you transfer to by using the [Transfer to flow](transfer-to-flow.md) block, and flows of a different type. For example, a persisted flow attribute that you set in an inbound flow is available in the customer queue flow.
+  + They're passed to modules. A persisted flow attribute that you set within a module is available to the flow that invoked the module after the module returns.
+  + They aren't carried over to a new contact. For example, when the contact is transferred to an agent, or when a callback or a task is created from the contact, the new contact starts without persisted flow attributes.
+  + They can be up to 128 KB in total per contact.
 
 ## How to reference attributes
 <a name="set-contact-attributes-how-to-reference"></a>
@@ -84,6 +93,7 @@ You can choose to set attributes on:
 Attributes can be up to 32 KB, which is the maximum size of the contact record attributes section. When the attributes for a contact exceed 32 KB, the contact is routed down the **Error** branch. As a mitigation, consider the following options:
 + Remove unnecessary attributes by setting their values to empty.
 + If the attributes are only used in one flow and don't need to be referred to outside of that flow (for example, by a Lambda or another flow), then use flow attributes. Flow-scoped attributes support up to 64 KB.
++ If the attributes are needed by other flows on the same contact but don't need to appear in the contact record or to the agent, use persisted flow attributes. Persisted flow attributes can be up to 128 KB in total per contact. If setting persisted flow attributes would exceed 128 KB, the contact is routed down the **Error** branch and the existing persisted flow attributes don't change.
 
 ## Configuration tips
 <a name="set-contact-attributes-tips"></a>
@@ -111,6 +121,11 @@ The following image shows an example of what this block looks like when it is co
 
 ![A configured set contact attributes block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-contact-attributes-configured.png)
 
+
+When you set persisted flow attributes, the contact is routed down the **Error** branch if:
++ the persisted flow attributes on the contact would exceed 128 KB,
++ the instance isn't an Amazon Connect Customer instance, or
++ Connect Customer can't save the persisted flow attributes.
 
 ## Sample flows
 <a name="set-contact-attributes-samples"></a>

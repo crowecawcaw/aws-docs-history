@@ -9,7 +9,7 @@
 You can save valuable time with generative AI-powered post-contact summaries that provide essential information from customer conversations in a structured, concise, and easy to read format. You can quickly review the summaries and understand the context instead of reading through transcripts and monitoring calls. 
 
 You can access generative AI-powered post-contact summaries multiple ways:
-+ **Agents** can access post-contact summaries for voice and email contacts on the Contact Control Panel (CCP). They can use the summaries to quickly complete their After Contact Work (ACW). To learn about the agent's experience, see [View post-contact summaries on the CCP](#summaries-on-agentws).
++ **Agents** can access post-contact summaries for voice, chat, and email contacts on the Contact Control Panel (CCP). They can use the summaries to quickly complete their After Contact Work (ACW). To learn about the agent's experience, see [View post-contact summaries on the CCP](#summaries-on-agentws).
 + **Managers and supervisors** can access summaries for voice, chat, and email contacts on the Connect Customer admin website, on the **Contact details** and the **Contact search** pages. They can use the summaries to quickly understand the issues and outcomes for the contacts they are reviewing. To learn about the managers experience, see [View post-contact summaries on the Connect Customer admin website](#summaries-on-website).
 + **Developers** can directly ingest the summaries from the [APIs](contact-lens-api.md) into third-party systems. They can also [integrate with Amazon Kinesis Data Streams](contact-analysis-segment-streams.md) for streaming. This latter option is useful when you have higher loads and you want to avoid having the TPS throttled.
 
@@ -50,6 +50,26 @@ You can access generative AI-powered post-contact summaries multiple ways:
    + **Analytics and Optimization - Contact transcripts (redacted) - Access** or **Contact transcripts (unredacted) - Access** (least privilege is **redacted**, which we recommend)
    + **Analytics and Optimization - View my contacts ** or **Contact Search **
    + **Analytics and Optimization - conversational analytics - View**
+
+Post-contact summaries help agents complete ACW for chat contacts faster, because they can review the key points of the conversation without rereading the full transcript. Use the following procedure to make post-contact summaries available on the agent's CCP for chat contacts.
+
+**To enable post-contact summaries on the agent's CCP for chat contacts**
+
+1. Open the Connect Customer console and enable conversational analytics for your instance. For instructions on enabling conversational analytics, see [Enable conversational analytics for your Connect Customer instance](enable-analytics.md#enable-cl).
+
+1. Add a [Set recording and analytics behavior](set-recording-behavior.md) block to your chat flow.
+
+1. Under **Analytics**, select **Enable conversational analytics** and **Enable chat analytics**. For instructions on enabling chat analytics, see [Enable chat analytics](enable-analytics.md#enable-chatanalytics).
+
+1. Under **Generative AI capabilities**, select **Post-contact summary**.
+
+1. In the agent's security profile, assign the following permissions:
+   + **Analytics and Optimization - View my contacts**
+   + **Analytics and Optimization - conversational analytics - conversational analytics - View**
+   + **Analytics and Optimization - conversational analytics - post-contact summary - View**
+   + **Recordings and Transcripts - Contact transcripts (redacted) - Access** or **Contact transcripts (unredacted) - Access** (least privilege is **redacted**, which we recommend)
+
+After you complete these steps, agents who have these permissions see a post-contact summary on the CCP when a chat contact enters ACW.
 
 **To enable post-contact summaries on Connect Customer admin website**
 
@@ -106,6 +126,8 @@ To help you perform After Contact Work (ACW), a generative AI-powered post-conta
 1. While the agent is browsing, a message appears that the summary is available. If the agent clicks the banner, the CCP scrolls to the top of the page when the summary is displayed.
 
 1. The banner disappears after the agent clicks on it.
+
+For chat contacts, the summary appears as an **Insights** message at the bottom of the transcript when the chat enters ACW. If the agent chooses the **Summary available** notification, the chat panel scrolls to the summary.
 
 **Note**  
 Generative AI-powered post-contact summaries support voice, chat, and email contacts on the CCP. 

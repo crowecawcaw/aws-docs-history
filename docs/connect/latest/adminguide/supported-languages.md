@@ -24,21 +24,21 @@ The following table lists the languages supported by AI features in Connect Cust
 
 | Language | Language code | Amazon Connect AI Agents | Amazon Connect agentic voice | Automated performance evaluations† | Post-call analytics | Real-time call analytics | Email and Chat analytics | Post-contact summaries | Information extraction | Sentiment analysis | Redaction | Pattern match rules | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
-| Afrikaans (South Africa) | af\_ZA | ✓\* |  |  | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
-| Arabic (Gulf) | ar\_AE | ✓\* | ✓\* |  | ✓\* | ✓\* | ✓\* |  |  | ✓\* |  | ✓\* | 
-| Arabic (Modern Standard) | ar\_SA | ✓\* | ✓\* |  | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
-| Armenia (Armenia) | hy\_AM | ✓\* |  |  |  |  |  |  |  |  |  |  | 
-| Bengali (Bangladesh) | bn\_IN | ✓\* | ✓\* |  | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
-| Bosnian (Bosnia) | bs\_BA |  |  |  | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
-| Bulgarian (Bulgaria) | bg\_BG | ✓\* | ✓\* |  | ✓\* |  | ✓\* |  |  |  |  |  | 
-| Catalan (Spain) | ca\_ES | ✓\* |  |  | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
-| Chinese - Cantonese (Hong Kong) | zh\_HK | ✓\* |  |  |  |  | ✓\* | ✓ | ✓ |  |  |  | 
+| Afrikaans (South Africa) | af\_ZA | ✓\* |  | ✓ | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
+| Arabic (Gulf) | ar\_AE | ✓\* | ✓\* | ✓ | ✓\* | ✓\* | ✓\* |  |  | ✓\* |  | ✓\* | 
+| Arabic (Modern Standard) | ar\_SA | ✓\* | ✓\* | ✓ | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
+| Armenia (Armenia) | hy\_AM | ✓\* |  | ✓ |  |  |  |  |  |  |  |  | 
+| Bengali (Bangladesh) | bn\_IN | ✓\* | ✓\* | ✓ | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
+| Bosnian (Bosnia) | bs\_BA |  |  | ✓ | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
+| Bulgarian (Bulgaria) | bg\_BG | ✓\* | ✓\* | ✓ | ✓\* |  | ✓\* |  |  |  |  |  | 
+| Catalan (Spain) | ca\_ES | ✓\* |  | ✓ | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
+| Chinese - Cantonese (Hong Kong) | zh\_HK | ✓\* |  | ✓ |  |  | ✓\* | ✓ | ✓ |  |  |  | 
 | Chinese - Simplified (China) | zh\_CN | ✓\* | ✓\* | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |  | ✓ | 
-| Croatian (Croatia) | hr\_HR | ✓\* | ✓\* |  | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
-| Czech (Czech Republic) | cs\_CZ | ✓\* | ✓\* |  | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
-| Danish (Denmark) | da\_DK | ✓\* | ✓\* |  | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓ | 
-| Dutch (Belgium) | nl\_BE | ✓\* | ✓\* |  |  |  |  |  |  |  |  |  | 
-| Dutch (Netherlands) | nl\_NL | ✓\* | ✓\* |  | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
+| Croatian (Croatia) | hr\_HR | ✓\* | ✓\* | ✓ | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
+| Czech (Czech Republic) | cs\_CZ | ✓\* | ✓\* | ✓ | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
+| Danish (Denmark) | da\_DK | ✓\* | ✓\* | ✓ | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓ | 
+| Dutch (Belgium) | nl\_BE | ✓\* | ✓\* | ✓ |  |  |  |  |  |  |  |  | 
+| Dutch (Netherlands) | nl\_NL | ✓\* | ✓\* | ✓ | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
 | English (Australia) | en\_AU | ✓\* | ✓\* | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | English (India) | en\_IN | ✓\* | ✓\* | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | English (Ireland) | en\_IE | ✓\* | ✓\* | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
@@ -49,62 +49,62 @@ The following table lists the languages supported by AI features in Connect Cust
 | English (United Kingdom) | en\_GB | ✓\* | ✓\* | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | English (US) | en\_US | ✓\* | ✓\* | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | English (Wales) | en\_WL | ✓\* |  | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
-| Estonian (Estonia) | et\_ET | ✓\* |  |  | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
-| Farsi (Iran) | fa\_IR | ✓\* |  |  | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
-| Finnish (Finland) | fi\_FI | ✓\* | ✓\* |  | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
+| Estonian (Estonia) | et\_ET | ✓\* |  | ✓ | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
+| Farsi (Iran) | fa\_IR | ✓\* |  | ✓ | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
+| Finnish (Finland) | fi\_FI | ✓\* | ✓\* | ✓ | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
 | French (Belgium) | fr\_BE | ✓\* | ✓\* | ✓ |  |  |  |  |  |  |  |  | 
 | French (Canada) | fr\_CA | ✓\* | ✓\* | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | French (France) | fr\_FR | ✓\* | ✓\* | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
-| Gaelic (Ireland) | ga\_IE | ✓\* |  |  |  |  |  |  |  |  |  |  | 
-| Galician (Spain) | gl\_ES |  |  |  | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
+| Gaelic (Ireland) | ga\_IE | ✓\* |  | ✓ |  |  |  |  |  |  |  |  | 
+| Galician (Spain) | gl\_ES |  |  | ✓ | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
 | German (Austria) | de\_AT | ✓\* |  | ✓ |  |  |  |  |  |  |  |  | 
 | German (Germany) | de\_DE | ✓\* | ✓\* | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | German (Switzerland) | de\_CH | ✓\* | ✓\* | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |  | ✓ | 
-| Greek (Greece) | el\_GR | ✓\* | ✓\* |  | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
-| Hebrew (Israel) | he\_IL | ✓\* | ✓\* |  | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
-| Hindi (India) | hi\_IN | ✓\* | ✓\* |  | ✓ | ✓ | ✓ |  |  | ✓ |  | ✓ | 
-| Hmong (General) | hmg | ✓\* |  |  |  |  |  |  |  |  |  |  | 
-| Hungarian (Hungary) | hu\_HU | ✓\* | ✓\* |  | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
-| Icelandic (Iceland) | is\_IS | ✓\* |  |  |  |  |  |  |  |  |  |  | 
-| Indonesian (Indonesia) | id\_ID | ✓\* | ✓\* |  | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
+| Greek (Greece) | el\_GR | ✓\* | ✓\* | ✓ | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
+| Hebrew (Israel) | he\_IL | ✓\* | ✓\* | ✓ | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
+| Hindi (India) | hi\_IN | ✓\* | ✓\* | ✓ | ✓ | ✓ | ✓ |  |  | ✓ |  | ✓ | 
+| Hmong (General) | hmg | ✓\* |  | ✓ |  |  |  |  |  |  |  |  | 
+| Hungarian (Hungary) | hu\_HU | ✓\* | ✓\* | ✓ | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
+| Icelandic (Iceland) | is\_IS | ✓\* |  | ✓ |  |  |  |  |  |  |  |  | 
+| Indonesian (Indonesia) | id\_ID | ✓\* | ✓\* | ✓ | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
 | Italian (Italy) | it\_IT | ✓\* | ✓\* | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | Japanese (Japan) | ja\_JP | ✓\* | ✓\* | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |  | ✓ | 
-| Khmer (Cambodia) | km\_KH | ✓\* |  |  |  |  |  |  |  |  |  |  | 
-| Kannada (India) | kn\_IN | ✓\* | ✓\* |  | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
+| Khmer (Cambodia) | km\_KH | ✓\* |  | ✓ |  |  |  |  |  |  |  |  | 
+| Kannada (India) | kn\_IN | ✓\* | ✓\* | ✓ | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
 | Korean (South Korea) | ko\_KR | ✓\* | ✓\* | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |  | ✓ | 
-| Lao (Laos) | lo\_LA | ✓\* |  |  |  |  |  |  |  |  |  |  | 
-| Latvian (Latvia) | lv\_LV | ✓\* |  |  | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
-| Lithuanian (Lithuania) | lt\_LT | ✓\* |  |  | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
-| Macedonian (North Macedonia) | mk\_MK |  |  |  | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
+| Lao (Laos) | lo\_LA | ✓\* |  | ✓ |  |  |  |  |  |  |  |  | 
+| Latvian (Latvia) | lv\_LV | ✓\* |  | ✓ | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
+| Lithuanian (Lithuania) | lt\_LT | ✓\* |  | ✓ | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
+| Macedonian (North Macedonia) | mk\_MK |  |  | ✓ | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
 | Malay (Malaysia) | ms\_MY | ✓\* | ✓\* | ✓ | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
-| Malayalam (India) | ml\_IN |  |  |  | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
-| Marathi (India) | mr\_IN | ✓\* | ✓\* |  | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
-| Norwegian (Norway) | no\_NO | ✓\* | ✓\* |  | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
-| Polish (Poland) | pl\_PL | ✓\* | ✓\* |  | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
+| Malayalam (India) | ml\_IN |  |  | ✓ | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
+| Marathi (India) | mr\_IN | ✓\* | ✓\* | ✓ | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
+| Norwegian (Norway) | no\_NO | ✓\* | ✓\* | ✓ | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
+| Polish (Poland) | pl\_PL | ✓\* | ✓\* | ✓ | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
 | Portuguese (Brazil) | pt\_BR | ✓\* | ✓\* | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | Portuguese (Portugal) | pt\_PT | ✓\* | ✓\* | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
-| Romanian (Romania) | ro\_RO | ✓\* | ✓\* |  | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
-| Russian (Russian) | ru\_RU | ✓\* | ✓\* |  | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
-| Serbian (Serbia) | sr\_RS | ✓\* |  |  | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
-| Sinhala (Sri Lanka) | si\_LK |  |  |  | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
-| Slovak (Slovakia) | sk\_SK | ✓\* | ✓\* |  | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
-| Slovenian (Slovenia) | sl\_SI | ✓\* |  |  | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
-| Somali (Somalia) | so\_SO |  |  |  | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
+| Romanian (Romania) | ro\_RO | ✓\* | ✓\* | ✓ | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
+| Russian (Russian) | ru\_RU | ✓\* | ✓\* | ✓ | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
+| Serbian (Serbia) | sr\_RS | ✓\* |  | ✓ | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
+| Sinhala (Sri Lanka) | si\_LK |  |  | ✓ | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
+| Slovak (Slovakia) | sk\_SK | ✓\* | ✓\* | ✓ | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
+| Slovenian (Slovenia) | sl\_SI | ✓\* |  | ✓ | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
+| Somali (Somalia) | so\_SO |  |  | ✓ | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
 | Spanish (Mexico) | es\_MX | ✓\* |  | ✓ |  |  |  |  |  |  |  |  | 
 | Spanish (Spain) | es\_ES | ✓\* | ✓\* | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | Spanish (US) | es\_US | ✓\* | ✓\* | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
-| Sundanese (Indonesia) | su\_ID | ✓\* |  |  | ✓\* |  | ✓\* |  |  |  |  |  | 
-| Swedish (Sweden) | sv\_SE | ✓\* | ✓\* |  | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
-| Tagalog/Filipino (Philippines) | tl\_PH | ✓\* | ✓\* |  | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
-| Tamil (India) | ta\_IN | ✓\* | ✓\* |  | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
-| Telugu (India) | te\_IN | ✓\* | ✓\* |  | ✓\* |  | ✓\* |  |  |  |  |  | 
-| Thai (Thailand) | th\_TH | ✓\* | ✓\* |  | ✓\* | ✓\* | ✓\* |  |  |  |  |  | 
-| Turkish (Turkey) | tr\_TR | ✓\* | ✓\* |  | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
-| Ukrainian (Ukraine) | uk\_UA | ✓\* | ✓\* |  | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
-| Vietnamese (Vietnam) | vi\_VN | ✓\* | ✓\* |  | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
-| Welsh (United Kingdom) | cy\_UK | ✓\* |  |  |  |  |  |  |  |  |  |  | 
-| Xhosa (South Africa) | xh\_UK | ✓\* |  |  |  |  |  |  |  |  |  |  | 
-| Zulu (South Africa) | zu\_ZA | ✓\* |  |  | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
+| Sundanese (Indonesia) | su\_ID | ✓\* |  | ✓ | ✓\* |  | ✓\* |  |  |  |  |  | 
+| Swedish (Sweden) | sv\_SE | ✓\* | ✓\* | ✓ | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
+| Tagalog/Filipino (Philippines) | tl\_PH | ✓\* | ✓\* | ✓ | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
+| Tamil (India) | ta\_IN | ✓\* | ✓\* | ✓ | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
+| Telugu (India) | te\_IN | ✓\* | ✓\* | ✓ | ✓\* |  | ✓\* |  |  |  |  |  | 
+| Thai (Thailand) | th\_TH | ✓\* | ✓\* | ✓ | ✓\* | ✓\* | ✓\* |  |  |  |  |  | 
+| Turkish (Turkey) | tr\_TR | ✓\* | ✓\* | ✓ | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
+| Ukrainian (Ukraine) | uk\_UA | ✓\* | ✓\* | ✓ | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
+| Vietnamese (Vietnam) | vi\_VN | ✓\* | ✓\* | ✓ | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
+| Welsh (United Kingdom) | cy\_UK | ✓\* |  | ✓ |  |  |  |  |  |  |  |  | 
+| Xhosa (South Africa) | xh\_UK | ✓\* |  | ✓ |  |  |  |  |  |  |  |  | 
+| Zulu (South Africa) | zu\_ZA | ✓\* |  | ✓ | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
 + \* Not available in instances in the Africa (Cape Town) AWS Region and AWS GovCloud (US-West).
 + \*\* Redaction support is only for post-call analytics and chat analytics. It is not supported for real-time call analytics.
 + † You can manually complete performance evaluations in any language. Automated performance evaluations filled using generative AI is not available in instances in the following AWS Regions: Africa (Cape Town), Asia Pacific (Mumbai), Asia Pacific (Seoul) and AWS GovCloud (US-West).

@@ -1,6 +1,6 @@
 
 
-# Security profile permissions for Connect Customer Cases
+# Security profile permissions for Cases
 <a name="assign-security-profile-cases"></a>
 
 This topic describes the security profiles permissions that are required to access and use Connect Customer Cases. For a list of Cases permissions and their API name, see [List of security profile permissions in Connect Customer](security-profile-list.md).
@@ -41,6 +41,8 @@ To be able to assign case ownership to users or queues, agents need permissions 
   + **Edit case**: Allows the user to edit cases, which includes editing case data (for example, update case status), add comments, and associate contacts to cases.
   + **Create case**: Allows the user to create new cases, and associate contacts to cases.
   + **Delete case**: Allows the user to delete any case in the domain.
++ **Cases bulk action**: Manage who can perform actions on multiple cases at once in the agent workspace.
+  + **Edit bulk cases**: Allows the user to select multiple cases in the Cases search view and assign them, update their status, or add a comment to them in a single action, for up to 100 cases.
 + **My Cases**: Manage if the user can delete cases that they created.
   + **Delete case**: Allows the user to delete cases that they created.
 + **Case Fields**: Manage who can configure case fields by using the Connect Customer admin website.
@@ -69,8 +71,12 @@ To be able to assign case ownership to users or queues, agents need permissions 
   + **Delete Case Contact**: Allows the user to remove contact associations that they created.
 + **Cases Export**: Manage who can export cases from the agent workspace.
   + **Export** (`Cases.Export`): Allows the user to select cases in the case search view and download them as a CSV file. Enabling this permission automatically grants **View case** if it is not already granted.
++ **Cases Merge**: Manage who can merge cases in the agent workspace.
+  + **Merge** (`Cases.Merge`): Allows the user to merge a case into another case. The merged case is closed and linked to the case it was merged into. You can't undo a merge. This permission doesn't require **Edit case**. Enabling this permission automatically grants **View case** if it is not already granted.
 + **Case Files**: Manage who can remove files attached to cases.
   + **Delete Case File**: Allows the user to delete any file attached to a case.
++ **Linked Cases**: Manage who can remove links between cases.
+  + **Delete** (`CaseLinkedCases.Delete`): Allows the user to unlink any linked case from the **Linked Cases** tab of a case.
 
 When users have permissions to **View Case Fields** and **View Case Templates**, they will see the **Case fields** and **Case templates** options in their left navigation menu, as shown in the following image: 
 

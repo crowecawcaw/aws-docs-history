@@ -193,7 +193,7 @@ This topic lists the AWS Regions where Connect Customer features are available.
 | US East (N. Virginia) | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Recording, Streaming | 
 | US West (Oregon) | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Recording, Streaming | 
 | Africa (Cape Town) | - | Yes | - | Yes | Yes | Yes | Yes | Yes | - | Yes | - | Recording | 
-| Asia Pacific (Seoul) | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | - | Yes | Yes | Recording | 
+| Asia Pacific (Seoul) | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Recording | 
 | Asia Pacific (Singapore) | - | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Recording | 
 | Asia Pacific (Sydney) | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Recording, Streaming | 
 | Asia Pacific (Tokyo) | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Recording, Streaming | 

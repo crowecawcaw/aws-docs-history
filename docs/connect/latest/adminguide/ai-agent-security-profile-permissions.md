@@ -27,7 +27,7 @@ The security profile permissions for built-in tools mirror those used for employ
 | --- | --- | 
 | Cases (Create, Update, Search) | Cases - View/Edit in Agent Applications | 
 | Customer Profiles | Customer Profiles - View in Agent Applications | 
-| Knowledge Base (Retrieve) | Connect assistant - View Access | 
+| Knowledge Base (Retrieve) | Connect assistant - View | 
 | Tasks (StartTaskContact) | Tasks - Create in Agent Applications | 
 
 To assign an AI agent one or multiple security profiles, go to the AI agent edit page in your Connect website and you will find a dropdown where you can pick the security profiles to assign the AI agent and hit save to confirm the changes.
@@ -58,7 +58,7 @@ For human agents using AI Agent assistance in the agent workspace, assign this p
 
 | Permission | Location | 
 | --- | --- | 
-| Connect assistant - View Access | Agent Applications | 
+| Connect assistant - View | Agent Applications | 
 
 **Shared Permissions**  
 When using AI Agents for Agent Assistance, the human agent's security profile must include the same permissions as the AI Agent's configured tools. The AI Agent operates within the context of the human agent's session, so tool invocations are authorized against the combination of the AI agent and human agent's permissions.  
@@ -98,7 +98,7 @@ For agents who will use AI assistance:
 
 1. In the security profile, expand **Agent Applications**
 
-1. Enable **Connect assistant - View Access**
+1. Enable **Connect assistant - View**
 
 ### Step 3: Configure Administrator Permissions
 <a name="step-3-configure-administrator-permissions"></a>

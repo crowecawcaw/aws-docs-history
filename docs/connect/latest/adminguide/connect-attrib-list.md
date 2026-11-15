@@ -25,7 +25,8 @@ The JSONPath reference for each attribute is provided so you can [create dynamic
 + [External tool attributes](#external-tool-attributes)
 + [User-defined attributes](#user-defined-attributes)
 + [Flow attributes](#flow-attributes)
-+ [Loop Attributes](#w2aac18c56b9c43)
++ [Persisted flow attributes](#persisted-flow-attributes)
++ [Loop Attributes](#w2aac18c56b9c45)
 + [Flow modules attributes](#flow-modules-attributes)
 + [Data Table attributes](#data-table-attributes)
 + [Apple Messages for Business attributes](#apple-messages-for-business-attributes)
@@ -343,15 +344,42 @@ Flow attributes are useful in situations where you don't want to persist the dat
 + They don't appear in the contact record. 
 + They don't appear to the agent in the CCP.
 + The `GetContactAttributes` API can't expose them.
-+ If you have logging enabled on the flow, the key and value appear in the Cloudwatch log.
++ If you have logging enabled on the flow, the key and value appear in the CloudWatch log.
++ To keep values for other flows on the same contact, use [persisted flow attributes](#persisted-flow-attributes).
 
 
 | Attribute | Description | Type | JSONPath Reference | 
 | --- | --- | --- | --- | 
-| Any name you choose | A flow attribute has two parts:+  Destination key: this is any name you choose for the key. However, the **$** and **.** (period) characters are not allowed because they are both used in defining the attribute paths in JSONPath. <br />+  Value: this is can be any value you choose.  | Flow | $.FlowAttributes.*name\_of\_your\_destination\_key* | 
+| Any name you choose | A flow attribute has two parts:+  Destination key: this is any name you choose for the key. However, the **$** and **.** (period) characters are not allowed because they are both used in defining the attribute paths in JSONPath. <br />+  Value: this can be any value you choose.  | Flow | $.FlowAttributes.*name\_of\_your\_destination\_key* | 
+
+## Persisted flow attributes
+<a name="persisted-flow-attributes"></a>
+
+Persisted flow attributes are like [flow attributes](#flow-attributes), however, they are stored with the current contact instead of the flow. Like flow attributes, they're private to your flows: they don't appear in the contact record or to the agent, and they're passed to a Lambda only when you add them as parameters. Persisted flow attributes are only available in [Amazon Connect Customer](https://docs.aws.amazon.com/connect/latest/adminguide/enable-nextgeneration-amazonconnect.html) instances.
+
+Persisted flow attributes are useful in situations where you want to persist the data throughout the contact but don't want it in the contact record or visible to the agent, such as when you verify the customer in the inbound flow and need the verification result later in the customer queue flow.
++ Persisted flow attributes are stored with the current contact for the lifetime of the contact. They're visible to every flow that runs on the contact, including when the contact is transferred to another flow and in flows of a different type. For example, a persisted flow attribute that you set in an inbound flow is available in the customer queue flow.
++ They aren't carried over to a new contact, such as when the contact is transferred to an agent, or when a callback or a task is created from the contact.
++ They can be up to 128 KB in total per contact.
++ They aren't passed to a Lambda unless they are explicitly configured as parameters: in the **Invoke AWS Lambda function** block, choose **Add a parameter**.
++ They're passed to modules. A persisted flow attribute that you set within a module is available to the flow that invoked the module after the module returns.
++ They don't appear in the contact record.
++ They don't appear to the agent in the CCP.
++ The `GetContactAttributes` API can't expose them.
++ If you have logging enabled on the flow, the key and value appear in the CloudWatch log.
+
+**Important**  
+Persisted flow attributes are hidden from the contact record and the agent, but not from flow logs. If flow logging is enabled, the key and value of each persisted flow attribute are written to CloudWatch Logs. Don't store sensitive values, such as verification results, in persisted flow attributes on flows that have logging enabled. Alternatively, use a [Set logging behavior](set-logging-behavior.md) block to turn off logging before the blocks that set them.
+
+
+| Attribute | Description | Type | JSONPath Reference | 
+| --- | --- | --- | --- | 
+| Any name you choose | A persisted flow attribute has two parts:+  Destination key: this is any name you choose for the key. However, the **$** and **.** (period) characters are not allowed because they are both used in defining the attribute paths in JSONPath. <br />+  Value: this can be any value you choose.  | Persisted flow | $.PersistedFlowAttributes.*name\_of\_your\_destination\_key* | 
+
+To create persisted flow attributes, use the [Set contact attributes](set-contact-attributes.md) block with **Flow** as the target and **Persisted flow attributes** as the namespace.
 
 ## Loop Attributes
-<a name="w2aac18c56b9c43"></a>
+<a name="w2aac18c56b9c45"></a>
 
 The following table lists the attributes that are available with the Loop block if a LoopName is specified in the Loop block.
 

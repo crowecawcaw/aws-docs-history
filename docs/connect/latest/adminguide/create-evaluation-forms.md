@@ -384,8 +384,10 @@ When you choose **Specific version**, choose a version from the dropdown list. E
 
 Versions that have reached end of life appear dimmed and cannot be selected for a new form version.
 
-**Agent evaluation model versions** — available for agent evaluation forms when your account is enrolled in cross-Region inference.
+The following agent evaluation model versions are available for agent evaluation forms when your account is enrolled in cross-Region inference.
 
+
+**Agent evaluation model versions**  
 
 | Version | State | What changed | 
 | --- | --- | --- | 
@@ -393,8 +395,10 @@ Versions that have reached end of life appear dimmed and cannot be selected for 
 | AGENT\_EVALUATION\_2026-04-16 | Latest | Reduces the rate of automated evaluations that fail to generate a suggested answer, so more questions receive an automated suggestion. | 
 | AGENT\_EVALUATION\_2025-12-03 | Active | The first version with the model upgrade. | 
 
-**In-Region model versions for agent evaluations** — available only to customers that have opted out from using cross-Region inference for Connect Customer generative AI capabilities. These model versions are offered in the Europe (London) and Asia Pacific (Singapore) Regions.
+The following in-Region model versions for agent evaluations are available only to customers that have disabled cross-Region inference for Connect Customer generative AI capabilities. These model versions are offered in the Europe (London) and Asia Pacific (Singapore) Regions.
 
+
+**In-Region model versions for agent evaluations**  
 
 | Version | State | What changed | 
 | --- | --- | --- | 
@@ -402,8 +406,21 @@ Versions that have reached end of life appear dimmed and cannot be selected for 
 | AGENT\_EVALUATION\_IN\_REGION\_2026-10-07 | Active | Reduces the rate of automated evaluations that fail to generate a suggested answer, so more questions receive an automated suggestion and fewer are left unanswered. | 
 | AGENT\_EVALUATION\_IN\_REGION\_2026-10-06 | Active | The first in-Region version. Introduces agent evaluation on an in-Region model so accounts not enrolled in cross-Region inference can use Gen AI automated evaluations. | 
 
-**Automated interaction (self-service) evaluation model versions** — available for automated interaction evaluation forms when your account is enrolled in cross-Region inference.
+In the Canada (Central) Region, in-Region model versions for agent evaluations are available to customers that have disabled cross-Region inference for Connect Customer generative AI capabilities. The two **Preview** versions use an upgraded generative AI model that processes your data only within Canada. If you choose **Preview**, your form uses the most recent Preview version (`AGENT_EVALUATION_IN_REGION_2026-11-07`). To use the other Preview version, choose **Specific version** and select `AGENT_EVALUATION_IN_REGION_2026-11-06`. The following table lists the in-Region model versions available in Canada (Central).
 
+
+**In-Region model versions for agent evaluations in Canada (Central)**  
+
+| Version | State | What changed | 
+| --- | --- | --- | 
+| AGENT\_EVALUATION\_IN\_REGION\_2026-11-07 | Preview | Upgraded model that processes data within Canada. Adjusts how strictly the model scores answers, so that automated suggestions are less strict where earlier versions were too harsh. | 
+| AGENT\_EVALUATION\_IN\_REGION\_2026-11-06 | Preview | Upgraded model that processes data within Canada. | 
+| AGENT\_EVALUATION\_IN\_REGION\_2025-11-12 | Latest | The current in-Region version in Canada (Central). This version is scheduled to reach end of life on November 27, 2026. | 
+
+The following automated interaction (self-service) evaluation model versions are available for automated interaction evaluation forms when your account is enrolled in cross-Region inference.
+
+
+**Automated interaction (self-service) evaluation model versions**  
 
 | Version | State | What changed | 
 | --- | --- | --- | 

@@ -41,3 +41,5 @@ We recommend reviewing these topics to help you get started.
 + [Associate a contact with a case](associatecontactandcase.md) 
 + [Create a task from a case](create-task-from-case.md) 
 + [Export cases to CSV](case-bulk-export.md)
++ [Merge cases](case-merge.md)
++ [Link related cases](cm-linked-cases.md)

@@ -100,6 +100,8 @@ After conversational analytics is enabled for your instance, you can add [Set re
 ## Enable chat analytics
 <a name="enable-chatanalytics"></a>
 
+You can enable conversational analytics for chat contacts to get both real-time and post-chat analytics. Post-contact summaries help agents review the key points of a chat without rereading the full transcript. When you also select **Post-contact summary** under **Generative AI capabilities**, agents can view a generative AI-powered post-contact summary on the CCP during After Contact Work (ACW). For more information about post-contact summaries, see [View generative AI-powered post-contact summaries](view-generative-ai-contact-summaries.md).
+
 1. In the [Set recording and analytics behavior](set-recording-behavior.md) block, under **Analytics**, choose **Enable conversational analytics**, and **Enable chat analytics**.
 **Note**  
 By choosing this option you will receive both real-time and post-chat analytics.

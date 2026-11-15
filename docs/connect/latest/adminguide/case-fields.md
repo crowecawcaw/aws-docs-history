@@ -14,7 +14,7 @@ There are two types of case fields:
 ## How to create case fields
 <a name="how-to-create-case-fields"></a>
 
-1. Log in to the Connect Customer admin website with an **Admin** account, or an account assigned to a security profile that has permissions to create fields. For a list of required permissions, see [Security profile permissions for Connect Customer Cases](assign-security-profile-cases.md).
+1. Log in to the Connect Customer admin website with an **Admin** account, or an account assigned to a security profile that has permissions to create fields. For a list of required permissions, see [Security profile permissions for Cases](assign-security-profile-cases.md).
 
 1. Verify the quota for case fields and request an increase if needed. For more information, see [Connect Customer Cases service quotas](amazon-connect-service-limits.md#cases-quotas).
 

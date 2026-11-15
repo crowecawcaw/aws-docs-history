@@ -13,7 +13,7 @@ If your instance uses Connect Customer Global Resiliency, set up your Amazon Eve
 
 You can integrate with other AWS services to get analytical or monitoring insights of agent screen recordings:
 + Query with [Amazon CloudWatch Log Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html)
-+ Get near real-time alerts in an [Amazon Quick](https://aws.amazon.com/quicksight/) dashboard
++ Get near real-time alerts in an [AWS Quick](https://aws.amazon.com/quicksight/) dashboard
 + Create aggregated reports outside of Connect Customer
 + Connect your other customized data pipeline solutions with Amazon EventBridge
 

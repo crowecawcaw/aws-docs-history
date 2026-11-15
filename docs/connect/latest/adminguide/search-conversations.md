@@ -136,6 +136,11 @@ The following image shows a search for contacts where the agent's average respon
 ## Search a contact category
 <a name="contact-category-search"></a>
 
+A contact category has the same name as the rule that creates it.
+
+**Note**  
+You see a contact category in the **Contact categories** dropdown and on the **Contact details** page only if you have access to the rule that creates it. If your security profile uses tag-based access control on rules, you see only the categories from rules that have tags you can access. For more information, see [Granular access controls on rules](rules-tag-based-access-control.md).
+
 1. On the **Contact search** page, choose **Add filter**, **Contact category**.
 
 1. In the **Contact categories** box, use the dropdown box to list all the current categories that are available for you to search. Or, if you start typing, the input is used to match existing categories and to filter those that don't match.

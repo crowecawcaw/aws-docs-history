@@ -14,3 +14,4 @@ With Connect Customer Global Resiliency, you can provide a global experience for
 + [Update agent distribution in your Connect Customer agent workspace across AWS Regions](update-agents-across-regions.md)
 + [Set up the Connect Customer agent workspace to support agents shifting across AWS Regions](setup-agentworkspace-switchover.md)
 + [Tips for avoiding issues when shifting agents in your Connect Customer instance across Regions](possible-issues-shifting-regions.md)
++ [Update integrations (3p apps) across Linked AWS regions](update-integrations-across-regions.md)

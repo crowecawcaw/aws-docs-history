@@ -351,6 +351,7 @@ The following table lists legacy permissions. You can not access these permissio
 | Cases - Create | Cases.Create | [Create cases in the agent workspace](create-cases.md).  | 
 | Cases - View | Cases.View | View cases in the agent workspace. | 
 | Cases - Edit | Cases.Edit | Edit cases in the agent workspace. | 
+| Cases - Merge | Cases.Merge | Merge a case into another case in the agent workspace. | 
 | Case Fields - Create | CaseFields.Create | [Create case fields](case-fields.md).  | 
 | Case Fields - View | CaseFields.View | View case fields. | 
 | Case Fields - Edit | CaseFields.Edit | Edit case fields. | 
@@ -370,6 +371,7 @@ The following table lists legacy permissions. You can not access these permissio
 | Case Contacts - Delete | CaseContacts.Delete | Remove any contact associated with a case. | 
 | My Case Contacts - Delete | MyCaseContacts.Delete | Remove contact associations the user created. | 
 | Case Files - Delete | CaseFiles.Delete | Delete any file attached to a case. | 
+| Linked Cases - Delete | CaseLinkedCases.Delete | Unlink any linked case from a case. | 
 
 ## Outbound Campaigns
 <a name="campaigns-permissions-list"></a>

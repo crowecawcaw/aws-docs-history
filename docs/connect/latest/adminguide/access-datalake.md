@@ -48,7 +48,8 @@ If you are unable to access the scheduling tables by using Option 1, try using O
      "agent_queue_statistic_record",
      "agent_statistic_record",
      "contact_evaluation_record",
-     "evaluation_review_record"
+     "evaluation_review_record",
+     "coaching_session_record"
    ],
    "TargetAccountId": your_account_ID
    }

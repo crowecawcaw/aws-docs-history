@@ -6,7 +6,7 @@
 After you enable Connect Customer Cases, you need to take steps to make the functionality available through the agent workspace. This topic explains your options.
 
 **Tip**  
-Make sure your agents have **Cases** permissions in their security profile so they can access Cases. For more information, see [Security profile permissions for Connect Customer Cases](assign-security-profile-cases.md).
+Make sure your agents have **Cases** permissions in their security profile so they can access Cases. For more information, see [Security profile permissions for Cases](assign-security-profile-cases.md).
 
 ## Option 1: Use Cases with the CCP out-of-the-box
 <a name="cases-access-out-of-the-box"></a>

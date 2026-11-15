@@ -15,3 +15,12 @@ You can customize Connect Customer agentic assistance to meet your business need
 + Embed the Connect Customer Assistant application into your existing employee workspace or CRM system.
 
 Connect agentic assistance is available in the agent workspace and via API for integration into custom agent applications. For more information, see [AI agents API](https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Q_Connect.html).
+
+**Topics**
++ [Access agent assist in the agent workspace](access-connect-assistant-in-workspace.md)
++ [Use interactive responses in agent assist](agent-assist-interactive-responses.md)
++ [Integrate agent assist with step-by-step guides](integrate-guides-with-ai-agents.md)
++ [Recommend third-party applications in agent assist](agent-assist-recommend-3p-apps.md)
++ [Use generative AI-powered case summarization](use-generative-ai-case-summarization.md)
++ [Use AI-generated note taking](ai-generated-note-taking.md)
++ [Use generative AI-powered email conversation overviews and suggested responses](use-generative-ai-email.md)

@@ -1,6 +1,6 @@
 
 
-# Use Connect Customer AI agent self-service
+# Use AI agent self-service
 <a name="ai-agent-self-service"></a>
 
 Connect Customer enables AI agents with self-service use cases to directly engage with end customers over voice and chat channels. These AI agents can solve customer issues autonomously by answering questions and taking actions on behalf of customers. When necessary, an AI agent seamlessly escalates to a human agent, adding a human in the loop to ensure optimal customer outcomes.

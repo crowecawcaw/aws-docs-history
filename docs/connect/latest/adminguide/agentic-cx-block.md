@@ -98,7 +98,7 @@ Pass key-value pairs to the Agentic CX application as context variables. These v
 + **Value** — Enter a value manually or set dynamically using a contact attribute.
 
 **Note**  
-Maximum of 10 context variables per block.
+Maximum of 50 context variables per block.
 
 ## Configuration tips
 <a name="agentic-cx-block-tips"></a>

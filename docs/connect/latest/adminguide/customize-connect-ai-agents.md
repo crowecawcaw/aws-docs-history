@@ -26,7 +26,9 @@ You can edit or create each of these components independently of each other. How
 **Topics**
 + [Default AI prompts and AI agents](default-ai-system.md)
 + [Create AI prompts in Connect Customer](create-ai-prompts.md)
++ [Prompt engineering best practices for AI agents](agentic-self-service-prompt-best-practices.md)
 + [Create AI guardrails for AI agents](create-ai-guardrails.md)
 + [Create AI agents in Connect Customer](create-ai-agents.md)
 + [Set languages](ai-agent-configure-language-support.md)
 + [Add customer data to an AI agent session](ai-agent-session.md)
++ [Upgrade models for AI prompts and AI agents](upgrade-models-ai-prompts-agents.md)

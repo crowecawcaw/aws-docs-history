@@ -23,6 +23,9 @@ Assign users the following security profile permissions so that they can open th
 ## Ask your first question
 <a name="manager-assist-ask-first-question"></a>
 
+**Note**  
+When the manager assist widget loads, it generates a message and surfaces key insights on performance.
+
 **To ask a question**
 
 1. In the Connect Customer admin website, choose the assistant icon in the right panel.  

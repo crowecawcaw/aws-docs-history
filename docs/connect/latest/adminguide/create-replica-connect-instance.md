@@ -68,6 +68,9 @@ The `replicaAlias` attribute in the [ReplicateInstance](https://docs.aws.amazon.
 [ReplicateInstance](https://docs.aws.amazon.com/connect/latest/APIReference/API_ReplicateInstance.html) mirrors the following Connect Customer resources across AWS Regions. 
 
 **Important**  
+To enable bi-directional instance attribute and [integration](3p-apps.md) (3p apps) replication for your ACGR instance created before November 5, 2026, contact [AWS Support](https://console.aws.amazon.com/support/home).
+
+**Important**  
 The service quotas for these resources are automatically matched across AWS Regions *before* the resources are mirrored across Regions. To increase any other quota in the replica instance, submit a request.
 + Agent proficiencies
 + Flows
@@ -78,6 +81,7 @@ The service quotas for these resources are automatically matched across AWS Regi
 + Security profiles
 + Hours of operation
 + Quick connects
++ [Quick responses and the knowledge base that stores them](global-resiliency-quick-responses.md)
 + Predefined attributes
 + Prompts (not including those stored in S3)
 + User hierarchies (groups and levels)
@@ -92,14 +96,18 @@ The service quotas for these resources are automatically matched across AWS Regi
 + Test Cases
 + Notifications
 + Instance attributes
-
-  Supported instance attributes are `INBOUND_CALLS`, `OUTBOUND_CALLS`, `EARLY_MEDIA`, `CONTACT_LENS`, `AUTO_RESOLVE_BEST_VOICES`, `MULTI_PARTY_CONFERENCE`, `ENHANCED_CONTACT_MONITORING`, `ENHANCED_CHAT_MONITORING`, `MULTI_PARTY_CHAT_CONFERENCE`, `MESSAGE_STREAMING`, `FORECASTING_PLANNING_SCHEDULING`, `AUTOMATED_INTERACTION_LOG`, and `MAX_PACKAGE`.
+  + Supported instance attributes are `INBOUND_CALLS`, `OUTBOUND_CALLS`, `EARLY_MEDIA`, `CONTACT_LENS`, `AUTO_RESOLVE_BEST_VOICES`, `MULTI_PARTY_CONFERENCE`, `ENHANCED_CONTACT_MONITORING`, `ENHANCED_CHAT_MONITORING`, `MULTI_PARTY_CHAT_CONFERENCE`, `MESSAGE_STREAMING`, `FORECASTING_PLANNING_SCHEDULING`, `AUTOMATED_INTERACTION_LOG`, and `MAX_PACKAGE`.
++ Integrations
+  + Supported application types are `STANDARD`, `SERVICE`, and `MCP_SERVER`.
++ Integration associations
+  + Supported integration types are `APPLICATION`, `WISDOM_ASSISTANT`, `WISDOM_KNOWLEDGE_BASE`, and `WISDOM_QUICK_RESPONSES`.
 
 **Important notes about specific resources**  
 **Saved reports**: While saved reports are replicated, the schedules associated with saved reports are *not* replicated.
 **Views**: Only Views in a *published* state are replicated. Views in a draft state are *not* replicated.
 **Data tables**: When you replicate an instance, Connect Customer updates the Region code of a literal Amazon Resource Name (ARN) for an Connect Customer or Connect Customer agent assist resource to the local Region. This applies whether the ARN is stored as a plain data table value or appears within a supported expression (for example, `=HOOP()` or `=XLOOKUP()`).
 **Instance attributes**: To onboard to instance attribute replication, match the configuration in your replica and reach out to AWS Support.
+**Integrations**: Only integrations that are associated with a replicated instance through an integration association are replicated. For Connect Customer Global Resiliency instances created on or after November 5, 2026, integrations and their security profile permissions are replicated by default. For instances created before that date, contact AWS Support. For more information, see [Update integrations (3p apps) across Linked AWS regions](update-integrations-across-regions.md).
 
 [ReplicateInstance](https://docs.aws.amazon.com/connect/latest/APIReference/API_ReplicateInstance.html) also replicates the following associations across AWS Regions:
 + Phone number to flow

@@ -16,6 +16,7 @@ Each data lake table uses a designated timestamp field for age calculations. The
 | --- | --- | 
 | agent\_queue\_statistic\_record | interval\_end\_time | 
 | agent\_statistic\_record | interval\_end\_time | 
+| coaching\_session\_record | session\_created\_timestamp | 
 | contact\_evaluation\_record | evaluation\_submitted\_timestamp | 
 | contact\_flow\_events | start\_timestamp | 
 | contact\_lens\_conversational\_analytics | disconnect\_timestamp | 

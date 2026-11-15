@@ -5,6 +5,30 @@
 
 We recommend subscribing to the RSS feed so updates to these notes are delivered to your Inbox. Choose the **RSS** link (under the topic title **Release notes**), and then copy the URL (it ends with `doc-history.xml.rss`) into your RSS reader. For example, you can subscribe to an RSS feed in Outlook.
 
+## November 2026 Updates
+<a name="nov26-release-notes"></a>
+
+### Amazon Connect Customer agent assist now supports interactive responses
+<a name="nov26-agent-assist-interactive-responses"></a>
+
+Amazon Connect Customer agent assist now responds with interactive components, including cards, carousels, buttons, and input fields. The AI agent analyzes conversation context in real time, recommends actions, retrieves information, and executes tasks on behalf of contact center agents using MCP tools in Connect Customer and from third-party services. Interactive responses let agents review information, provide details, select options, and confirm actions without having to type a manual request to the AI agent for each action. The AI agent can also recommend step-by-step guides, cases, customer profiles, and third-party applications, which agents can open with the click of a button.
+
+To learn more and get started, see [agent assist](agentic-assistance.md).
+
+### Amazon Connect Customer rules can now end associated email contacts from a case
+<a name="nov26-end-associated-emails"></a>
+
+You can now create a rule that ends the email contacts associated with a case when the case is updated, in addition to associated tasks.
+
+For more information, see [Create a rule that ends associated email contacts from a case](contact-lens-rules-ends-email-contacts.md).
+
+### Connect Customer now supports batch actions on up to 100 cases at once
+<a name="nov26-batch-actions-cases"></a>
+
+Cases in Connect Customer now lets agents and supervisors assign, comment on, and update the status of up to 100 cases at once, so teams spend less time on repetitive case updates. When one issue affects many customers, such as a shipping delay or a service outage, teams no longer need to update each case one at a time. Agents and supervisors with the appropriate permissions can select the related cases and change the assignee, add a comment, or close them in a single action. Developers can also use batch APIs to make the same updates programmatically.
+
+For more information, see [Batch actions on Cases](batch-actions-cases.md).
+
 ## October 2026 Updates
 <a name="oct26-release-notes"></a>
 
@@ -1203,7 +1227,7 @@ Connect Customer provides agents with generative AI-powered email conversation o
 
 For example, a customer emails about a refund request. Connect Customer Connect automatically provides key details about the customer's purchase history on the agent workspace, recommends a refund resolution step-by-step guide, and generates an email response to help resolve the contact quickly.
 
-For more information, see [Use generative AI-powered email conversation overviews and suggested responses](use-generative-ai-email.md). Also see the [CreateSession](https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_CreateSession.html) API for updates to support this feature, updates to data types such as [DataDetails](https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_DataDetails.html), and new data types such as [EmailGenerativeAnswerAIAgentConfiguration](https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_EmailGenerativeAnswerAIAgentConfiguration.html).
+For more information, see [Use AI-powered email conversation overviews and suggested responses](use-generative-ai-email.md). Also see the [CreateSession](https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_CreateSession.html) API for updates to support this feature, updates to data types such as [DataDetails](https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_DataDetails.html), and new data types such as [EmailGenerativeAnswerAIAgentConfiguration](https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_EmailGenerativeAnswerAIAgentConfiguration.html).
 
 ### Connect Customer makes it easier to get customer input on outbound calls
 <a name="outboundcalls-oct25"></a>
@@ -2165,7 +2189,7 @@ To gain visibility into the real-time recommendations that agent assist provides
 #### Forecasting data in Connect Customer Analytics data lake
 <a name="forecasting-data-oct24"></a>
 
-You can use published forecast (short-term and long-term) data in the data lake. This makes it easier for you to generate reports and insights from this data. For example, you can build dashboards that compare forecasts against actuals or view this data in conjunction with other data sets such as sales forecasts. You can also automate ingestion of this data in business intelligence tools. To generate these reports and insights, you can use Amazon Athena with Amazon Quick or another business intelligence tool of your choice. 
+You can use published forecast (short-term and long-term) data in the data lake. This makes it easier for you to generate reports and insights from this data. For example, you can build dashboards that compare forecasts against actuals or view this data in conjunction with other data sets such as sales forecasts. You can also automate ingestion of this data in business intelligence tools. To generate these reports and insights, you can use Amazon Athena with AWS Quick or another business intelligence tool of your choice. 
 
 For more information about the content of the forecasting tables in the data lake, see [Forecasting data in the Connect Customer analytics data lake](data-lake-forecasting-data.md).
 
@@ -2226,7 +2250,7 @@ With this launch, conversational analytics conversational analytics provides tra
 #### View the Intraday forecast performance dashboard
 <a name="intraday-august24"></a>
 
-Use the Intraday forecast performance dashboard to view forecasts that are updated every 15 minutes for queues that have a minimum of 5000 unique contacts per week, per queue-channel for last 4 weeks. For more information, see [Intraday forecast performance dashboard](intraday-forecast-performance-dashboard.md). 
+Use the Intraday forecast performance dashboard to view forecasts that are updated every 15 minutes for queues that have a minimum of 2000 unique contacts per week, per queue-channel for last 5 weeks. For more information, see [Intraday forecast performance dashboard](intraday-forecast-performance-dashboard.md). 
 
 #### View an audit trail for changes to an agent performance evaluation
 <a name="agent-audit-august24"></a>

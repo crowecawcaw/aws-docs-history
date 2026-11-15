@@ -8,7 +8,7 @@ When you search for cases in the agent workspace, you can select one or more cas
 ## Prerequisites
 <a name="case-bulk-export-prerequisites"></a>
 
-To export cases, the agent's security profile must include the **Cases** - **Export** permission. Without this permission, the **Export** button is not displayed in the case search view. Enabling **Export** automatically grants the **View** permission for Cases if it is not already granted. For information about configuring security profiles, see [Security profile permissions for Connect Customer Cases](assign-security-profile-cases.md).
+To export cases, the agent's security profile must include the **Cases** - **Export** permission. Without this permission, the **Export** button is not displayed in the case search view. Enabling **Export** automatically grants the **View** permission for Cases if it is not already granted. For information about configuring security profiles, see [Security profile permissions for Cases](assign-security-profile-cases.md).
 
 ## How to export cases
 <a name="case-bulk-export-how-to"></a>
