@@ -94,6 +94,9 @@ A token-revocation identifier associated with your user's refresh token. Amazon 
 **`token_use`**  
 The intended purpose of the token. In an access token, its value is `access`.
 
+**`sid`**  
+The ID of the token session that this token belongs to. Amazon Cognito adds this claim only when you enable session tracking for your user pool. The value stays the same when tokens are refreshed or rotated within the same session, and it matches the `SessionId` value of the token session that `ListUserSessions` and `AdminListUserSessions` return. For more information, see [Managing user sessions](managing-user-sessions.md).
+
 **`scope`**  
 A list of OAuth 2.0 scopes issued to the signed-in user. Scopes define the access that the token provides to external APIs, user self-service operations, and user data on the `userInfo` endpoint. A token from the [Token endpoint](token-endpoint.md) can contain any scopes that your app client supports. A token from Amazon Cognito API sign-in only contains the scope `aws.cognito.signin.user.admin`.
 
@@ -124,6 +127,7 @@ Because M2M authorization involves no user and issues no refresh token, an M2M a
 + The `username` and `cognito:groups` claims, which identify an authenticated user and their group membership.
 + The `device_key` claim, which identifies a remembered user device.
 + The `origin_jti` claim, which links a token to a revocable refresh token that M2M authorization doesn't issue.
++ The `sid` claim, because machine-to-machine tokens aren't tracked as sessions.
 
 ## Access token signature
 <a name="user-pool-access-token-signature"></a>

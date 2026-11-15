@@ -33,6 +33,8 @@ You can create an identity pool through the Amazon Cognito console, or you can u
    1. If you chose **Authenticated access**, select one or more **Identity types** that you want to set as the source of authenticated identities in your identity pool. If you configure a **Custom developer provider**, you can't modify or delete it after you create your identity pool.
 
 1. In **Configure permissions**, choose a default IAM role for authenticated or guest users in your identity pool.
+**Role manager replaces role options**  
+If your account has role manager enabled, Amazon Cognito attaches the role for you. Role manager replaces the **Create a new IAM role** and **Use an existing IAM role** options with **Customize**. To use a different role, choose that option. For more information, see [IAM role creation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the *AWS Identity and Access Management User Guide*.
 
    1. Choose to **Create a new IAM role** if you want Amazon Cognito to create a new role for you with basic permissions and a trust relationship with your identity pool. Enter an **IAM role name** to identify your new role, for example `myidentitypool_authenticatedrole`. Select **View policy document** to review the permissions that Amazon Cognito assigns to your new IAM role.
 

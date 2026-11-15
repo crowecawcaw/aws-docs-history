@@ -58,6 +58,7 @@ Amazon Cognito logs the following requests to your managed login services as eve
 | SAML2Response\_POST, Beta\_SAML2Response\_POST | A user submits an IdP SAML assertion to your /saml2/idpresponse endpoint. | 
 | Login\_OIDC\_SAML\_POST | A user enters a username at your [Login endpoint](login-endpoint.md) and matches with an [IdP identifier](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-integrating-3rd-party-saml-providers.html). | 
 | Token\_POST, Beta\_Token\_POST | A user submits an authorization code to your [Token endpoint](token-endpoint.md). | 
+| Register\_POST | An application submits a request to the [dynamic client registration](cognito-user-pools-dynamic-client-registration.md) endpoint, /oauth2/register, including requests that Amazon Cognito rejects. When a request passes basic validation, the additionalEventData element records the submitted client metadata and the registration mode. When registration succeeds, it also records the ID of the new app client. Requests that your web ACL blocks don't produce an event. | 
 | Signup\_GET, Signup\_POST | A user submits sign-up information to your /signup endpoint. | 
 | Confirm\_GET, Confirm\_POST | A user submits a confirmation code in the hosted UI. | 
 | ResendCode\_POST | A user submits a request to resend a confirmation code in the hosted UI. | 

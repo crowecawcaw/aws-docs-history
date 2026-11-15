@@ -95,14 +95,17 @@ One or more key-value pairs that you can provide as custom input to the Lambda f
 
 In the response, specify the custom text to use in messages to your users. For the string constraints that Amazon Cognito applies to these parameters, see [MessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_MessageTemplateType.html).
 
+**Note**  
+To send custom email messages and subject lines from this trigger, configure your user pool to send email with Amazon Simple Email Service. With this configuration, the `EmailSendingAccount` attribute of your user pool is `DEVELOPER`. For more information, see [Amazon SES email configuration](user-pool-email.md#user-pool-email-developer).
+
 **smsMessage**  
 The custom SMS message to be sent to your users. Must include the `codeParameter` value that you received in the request.
 
 **emailMessage**  
-The custom email message to send to your users. You can use HTML formatting in the `emailMessage` parameter. Must include the `codeParameter` value that you received in the request as the variable `{####}`. Amazon Cognito can use the `emailMessage` parameter only if the `EmailSendingAccount` attribute of the user pool is `DEVELOPER`. If the `EmailSendingAccount` attribute of the user pool isn't `DEVELOPER` and an `emailMessage` parameter is returned, Amazon Cognito generates a 400 error code `com.amazonaws.cognito.identity.idp.model.InvalidLambdaResponseException`. When you choose Amazon Simple Email Service (Amazon SES) to send email messages, the `EmailSendingAccount` attribute of a user pool is `DEVELOPER`. Otherwise, the value is `COGNITO_DEFAULT`.
+The custom email message to send to your users. You can use HTML formatting in the `emailMessage` parameter. Must include the `codeParameter` value that you received in the request as the variable `{####}`. Use this parameter when the `EmailSendingAccount` attribute of your user pool is `DEVELOPER`.
 
 **emailSubject**  
-The subject line for the custom message. You can only use the `emailSubject` parameter if the EmailSendingAccount attribute of the user pool is `DEVELOPER`. If the `EmailSendingAccount` attribute of the user pool isn't `DEVELOPER` and Amazon Cognito returns an `emailSubject` parameter, Amazon Cognito generates a 400 error code `com.amazonaws.cognito.identity.idp.model.InvalidLambdaResponseException`. The `EmailSendingAccount` attribute of a user pool is `DEVELOPER` when you choose to use Amazon Simple Email Service (Amazon SES) to send email messages. Otherwise, the value is `COGNITO_DEFAULT`.
+The subject line for the custom message. Use this parameter when the `EmailSendingAccount` attribute of your user pool is `DEVELOPER`.
 
 ## Custom message for sign-up example
 <a name="aws-lambda-triggers-custom-message-example"></a>

@@ -98,6 +98,7 @@ See [create-user-pool](https://docs.aws.amazon.com/cli/latest/reference/cognito-
 | Customize access token scopes and claims at runtime | Use a Lambda trigger to extend the authorization capabilities of user pool access tokens | Essentials \+ Plus | 
 | Passwordless sign-in with one-time codes | Permit users to receive a one-time password by email or SMS as their first authentication factor | Essentials \+ Plus | 
 | Passkey sign-in with hardware or software FIDO2 authenticators | Permit users to use a cryptographic key stored on a FIDO2 authenticator as their first authentication factor | Essentials \+ Plus | 
+| Session management | Track, list, and revoke users' active sessions across devices and apps, and set a limit on active sessions for each user | Essentials \+ Plus | 
 | Sign-up and sign-in | Perform authentication operations and let new users register for an account in your application. | Lite \+ Essentials \+ Plus | 
 | User groups | Create logical groupings of users and assign default IAM roles for identity pool operations. | Lite \+ Essentials \+ Plus | 
 | Sign-in with social, SAML, and OIDC providers | Provide users with the options to sign in directly or with their preferred provider. | Lite \+ Essentials \+ Plus | 

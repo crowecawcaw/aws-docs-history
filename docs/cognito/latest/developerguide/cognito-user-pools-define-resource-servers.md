@@ -153,7 +153,7 @@ Because they are designed for human-interactive authentication with the user poo
 
 When creating a resource server, you must provide a resource server name and a resource server identifier. For each scope you create in the resource server, you must provide the scope name and description.
 + **Resource server name**: A friendly name for the resource server, such as `Solar system object tracker` or `Photo API`.
-+ **Resource server identifier**: A unique identifier for the resource server. The identifier is any name that you want to associate with your API, for example `solar-system-data`. You can configure longer identifiers like `https://solar-system-data-api.example.com` as a more direct reference to API URI paths, but longer strings increase the size of access tokens.
++ **Resource server identifier**: A unique identifier for the resource server. The identifier is a name that you choose to associate with your API, for example `solar-system-data`. You can configure longer identifiers like `https://solar-system-data-api.example.com` as a more direct reference to API URI paths, but longer strings increase the size of access tokens. You can't create an identifier that is `aws.cognito` or that begins with `aws.cognito/`. Amazon Cognito reserves these identifiers for AWS use and matches them without regard to case. Identifiers that begin with `aws.cognito.`, like `aws.cognito.myapi`, aren't reserved.
 + **Scope name**: The value that you want in your `scope` claims. For example, `sunproximity.read`.
 + **Description**: A friendly description of the scope. For example, `Check current proximity to sun`.
 
@@ -204,6 +204,9 @@ Use the following commands to specify resource server settings for your user poo
 **To create a resource server**
 + AWS CLI: `aws cognito-idp create-resource-server`
 + AWS API: [CreateResourceServer](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateResourceServer.html)
+
+**Reserved resource server identifiers**  
+Amazon Cognito reserves the resource server identifier `aws.cognito` for AWS use. Amazon Cognito also reserves any identifier that begins with `aws.cognito/`. Amazon Cognito matches these identifiers without regard to case. If you request one in a `CreateResourceServer` operation, Amazon Cognito returns an `InvalidParameterException` error. Identifiers that begin with `aws.cognito.` aren't reserved.
 
 **To get information about your resource server settings**
 + AWS CLI: `aws cognito-idp describe-resource-server`

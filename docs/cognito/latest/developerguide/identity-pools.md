@@ -115,6 +115,8 @@ For each identity type, there is an assigned role. This role has a policy attach
 1. Locate **Guest access** or **Authenticated access**. In an identity pool that isn't currently configured for that access type, **Status** is **Inactive**. Select **Edit**.
 
 1. Choose a default IAM role for guest or authenticated users in your identity pool.
+**Role manager replaces role options**  
+If your account has role manager enabled, Amazon Cognito attaches the role for you. Role manager replaces the **Create a new IAM role** and **Use an existing IAM role** options with **Customize**. To use a different role, choose that option. For more information, see [IAM role creation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the *AWS Identity and Access Management User Guide*.
 
    1. Choose to **Create a new IAM role** if you want Amazon Cognito to create a new role for you with basic permissions and a trust relationship with your identity pool. Enter an **IAM role name** to identify your new role, for example `myidentitypool_authenticatedrole`. Select **View policy document** to review the permissions that Amazon Cognito assigns to your new IAM role.
 
@@ -145,6 +147,8 @@ Changing the linked IdP application ID in your identity pool prevents existing u
 1. To change the application ID, choose **Edit** in **Identity provider information**.
 
 1. To change the role that Amazon Cognito requests when it issues credentials to users who have authenticated with this provider, choose **Edit** in **Role settings**.
+**Role manager replaces role options**  
+If your account has role manager enabled, Amazon Cognito attaches the role for you. Role manager replaces the **Create a new IAM role** and **Use an existing IAM role** options with **Customize**. To use a different role, choose that option. For more information, see [IAM role creation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the *AWS Identity and Access Management User Guide*.
 
    1. You can assign users from that IdP the **Default role** that you set up when you configured your **Authenticated role**, or you can **Choose role with rules**. With a Amazon Cognito user pool IdP, you can also **Choose role with preferred\_role in tokens**. For more information about the `cognito:preferred_role` claim, see [Assigning precedence values to groups](cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups).
 

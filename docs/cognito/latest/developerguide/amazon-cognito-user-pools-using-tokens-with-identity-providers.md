@@ -32,6 +32,8 @@ Additional costs apply to access token customization with version 2 events. For 
 + [Parse user pool tokens safely](user-pool-parse-tokens-safely.md)
 + [Refresh tokens](amazon-cognito-user-pools-using-the-refresh-token.md)
 + [Ending user sessions with token revocation](token-revocation.md)
++ [Managing user sessions](managing-user-sessions.md)
 + [Verifying JSON web tokens](amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md)
 + [Managing user pool token expiration and caching](amazon-cognito-user-pools-using-tokens-caching-tokens.md)
 + [Scopes, M2M, and resource servers](cognito-user-pools-define-resource-servers.md)
++ [Exchanging tokens for downstream services](cognito-user-pools-token-exchange.md)

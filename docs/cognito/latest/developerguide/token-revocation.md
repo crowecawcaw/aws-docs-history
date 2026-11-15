@@ -17,6 +17,9 @@ The [revoke endpoint](revocation-endpoint.md) revokes a given refresh token and 
 **AdminUserGlobalSignOut operation**  
 [AdminUserGlobalSignOut](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUserGlobalSignOut.html) is a server-side operation that an administrator authorizes with IAM credentials. This operation revokes all of the target user's refresh, ID, and access tokens.
 
+**Note**  
+When you enable session tracking for your user pool, `GlobalSignOut` and `AdminUserGlobalSignOut` also revoke all of the user's token sessions and SSO sessions, in addition to the user's refresh tokens. For more information, see [Managing user sessions](managing-user-sessions.md).
+
 **Things to know about revoking tokens**
 + Your request to revoke a refresh token must include the client ID that was used to obtain the token.
 + User pool JWTs are self-contained with a signature and expiration time that was assigned when the token was created. Revoked tokens can't be used with any Amazon Cognito API calls that require a token. However, revoked tokens will still be valid if they are verified using any JWT library that verifies the signature and expiration of the token.
@@ -45,13 +48,17 @@ To configure token revocation in the Amazon Cognito console, select an app clien
 
 You can revoke a refresh token using a [RevokeToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html) API request, for example with the `[aws cognito-idp revoke-token](https://docs.aws.amazon.com/cli/latest/reference/cognito-idp/revoke-token.html)` CLI command. You can also revoke tokens using the [Revoke endpoint](revocation-endpoint.md). This endpoint is available after you add a domain to your user pool. You can use the revocation endpoint on either an Amazon Cognito hosted domain or your own custom domain.
 
+**Note**  
+When you enable session tracking for your user pool, `RevokeToken` also deletes the token session record that is associated with the refresh token. This operation accepts an optional `RevokeAssociatedSessions` parameter with a value of `NONE` or `LINKED`. When you specify `LINKED`, Amazon Cognito also revokes the parent SSO session that the token session came through. For more information, see [Managing user sessions](managing-user-sessions.md).
+
 The following is the body of an example `RevokeToken` API request.
 
 ```
 {
    "ClientId": "{{1example23456789}}",
    "ClientSecret": "{{abcdef123456789ghijklexample}}",
-   "Token": "{{eyJjdHkiOiJKV1QiEXAMPLE}}"
+   "Token": "{{eyJjdHkiOiJKV1QiEXAMPLE}}",
+   "RevokeAssociatedSessions": "NONE"
 }
 ```
 

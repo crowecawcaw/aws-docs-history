@@ -32,6 +32,9 @@ Required.
 (Optional) The app client ID for the token that you want to revoke.  
 Required if the client is public and doesn't have a secret.
 
+**`revoke_associated_sessions`**  
+(Optional) Whether to also revoke the single sign-on (SSO) session that the refresh token was created through. Valid values are `LINKED` and `NONE`. The default is `NONE`. `LINKED` also revokes the SSO session that the token came from. For more information, see [Managing user sessions](managing-user-sessions.md).
+
 ## Revocation request examples
 <a name="revoke-sample-request"></a>
 
@@ -55,6 +58,19 @@ Accept: application/json
 Content-Type: application/x-www-form-urlencoded
 Authorization: Basic {{czZCaGRSa3F0MzpnWDFmQmF0M2JW}}
 token={{2YotnFZFEjr1zCsicMWpAA}}
+```
+
+The following example revokes a refresh token and also revokes the SSO session that the token was created through:
+
+```
+POST /oauth2/revoke HTTP/1.1
+Host: mydomain.auth.us-east-1.amazoncognito.com
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+
+token=2YotnFZFEjr1zCsicMWpAA&
+client_id=1example23456789&
+revoke_associated_sessions=LINKED
 ```
 
 ## Revocation error response

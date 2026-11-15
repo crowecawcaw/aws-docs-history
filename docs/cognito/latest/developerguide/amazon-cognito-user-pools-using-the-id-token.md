@@ -115,6 +115,9 @@ An array of objects. Each object describes one third-party identity provider pro
 **`token_use`**  
 The intended purpose of the token. In an ID token, its value is `id`.
 
+**`sid`**  
+The ID of the token session that this token belongs to. Amazon Cognito adds this claim only when you enable session tracking for your user pool. The value stays the same when tokens are refreshed or rotated within the same session, and it matches the `SessionId` value of the token session that `ListUserSessions` and `AdminListUserSessions` return. For more information, see [Managing user sessions](managing-user-sessions.md).
+
 **`auth_time`**  
 A number. The authentication time, in Unix time format, when your user completed authentication.
 

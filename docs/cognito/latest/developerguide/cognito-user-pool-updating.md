@@ -11,6 +11,9 @@ The API operations [ UpdateUserPool](https://docs.aws.amazon.com/cognito-user-id
 
 Additionally, some settings are locked in after you create your user pool or app client, and you can't change them unless you create a new resource.
 
+**Effective time of user pool changes**  
+After you change your user pool configuration, it can take up to 70 seconds for the change to apply to all requests to your user pool. This applies to changes that you make in the Amazon Cognito console and with API operations like [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html), [SetUserPoolMfaConfig](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html), and [AddCustomAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AddCustomAttributes.html).
+
 **Topics**
 + [Settings you can't change](#cognito-user-pool-updating-fixed-settings)
 + [SMS configuration](#cognito-user-pool-updating-sms)

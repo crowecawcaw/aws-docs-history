@@ -70,6 +70,8 @@ Use the following procedure to create a new group.
    + **Description** - Enter details about what this new group will be used for.
    + **Precedence** - Amazon Cognito evaluates and applies all group permissions for a given user based on which groups that they belong to has a lower precedence value. The group with the lower precedence is chosen and its associated IAM role is applied. For more information, see [Assigning precedence values to groups](#assigning-precedence-values-to-groups).
    + **IAM role** - You can assign an IAM role to your group when you need to control permissions to your resources. If you are integrating a user pool with an identity pool, the **IAM role** setting determines which role is assigned in the user's ID token if the identity pool is configured to choose the role from the token. For more information, see [Assigning IAM roles to groups](#assigning-iam-roles-to-groups).
+**Role manager replaces role options**  
+If your account has role manager enabled, Amazon Cognito attaches the role for you. Role manager replaces the **Create a new IAM role** and **Use an existing IAM role** options with **Customize**. To use a different role, choose that option. For more information, see [IAM role creation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the *AWS Identity and Access Management User Guide*.
    + **Add users to this group** - Add existing users as members of this group after it is created.
 
 1. Choose **Create** to confirm.

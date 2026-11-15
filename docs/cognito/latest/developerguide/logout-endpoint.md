@@ -5,6 +5,8 @@
 
 The `/logout` endpoint is a redirection endpoint. It signs out the user and redirects either to an authorized sign-out URL for your app client, or to the `/login` endpoint. The available parameters in a GET request to the `/logout` endpoint are tailored to Amazon Cognito managed login use cases.
 
+When session tracking is turned on for the user pool, the `/logout` endpoint also removes the user's single sign-on (SSO) session from the server, in addition to clearing the browser cookie. After sign-out, that SSO session no longer appears in `ListUserSessions` or `AdminListUserSessions`. This doesn't revoke any tokens that were created from the SSO session; those remain valid until they expire or are revoked. For more information, see [Managing user sessions](managing-user-sessions.md).
+
 The logout endpoint is a front-end web application for interactive user sessions with your customers. Your app must invoke this and other managed login endpoints in your users' browsers.
 
 To redirect your user to managed login to sign in again, add a `redirect_uri` parameter to your request. A `logout` request with a `redirect_uri` parameter must also include parameters for your subsequent request to the [Login endpoint](login-endpoint.md), like `client_id`, `response_type`, and `scope`.

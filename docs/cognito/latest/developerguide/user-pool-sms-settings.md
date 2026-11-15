@@ -123,6 +123,9 @@ When you send an SMS message from your user pool, Amazon Cognito assumes an IAM 
 
 In the Amazon Cognito console, you can set an **IAM role selection** from the **Authentication methods** menu of your user pool, under **SMS** or make this selection during the user pool creation wizard.
 
+**Role manager replaces role options**  
+If your account has role manager enabled, Amazon Cognito attaches the role for you. Role manager replaces the **Create a new IAM role** and **Use an existing IAM role** options with **Customize**. To use a different role, choose that option. For more information, see [IAM role creation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the *AWS Identity and Access Management User Guide*.
+
 The following example IAM role trust policy grants Amazon Cognito user pools a limited ability to assume the role. Amazon Cognito can only assume the role when it meets the following conditions:
 + The assume-role operation is on behalf of the user pool in the `aws:SourceArn` condition.
 + The assume-role operation is on behalf of a user pool in the AWS account set by the `aws:SourceAccount` condition.

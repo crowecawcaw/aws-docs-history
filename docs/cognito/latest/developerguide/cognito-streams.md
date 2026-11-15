@@ -25,9 +25,11 @@ From the [console home page](https://console.aws.amazon.com/cognito/home):
 
 1. In the **Stream name** dropdown menu, select the name of an existing Kinesis stream. Alternatively, click **Create stream** to create one, entering a stream name and the number of shards. To learn about shards and for help on estimating the number of shards needed for your stream, see the [Kinesis Developer Guide](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html).
 
-1. In the **Publish role** dropdown menu, select the IAM role that grants Amazon Cognito permission to publish your stream. Click **Create role** to create or modify the roles associated with your identity pool in the [AWS IAM Console](https://console.aws.amazon.com/iam/home).
+1. In the **Publish role** dropdown menu, select the IAM role that grants Amazon Cognito permission to publish your stream. Choose **Create role** to create or modify the roles associated with your identity pool in the [AWS IAM Console](https://console.aws.amazon.com/iam/home).
+**Role manager replaces role options**  
+If your account has role manager enabled, Amazon Cognito attaches the role for you. Role manager replaces the **Create a new IAM role** and **Use an existing IAM role** options with **Customize**. To use a different role, choose that option. For more information, see [IAM role creation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the *AWS Identity and Access Management User Guide*.
 
-1. In the **Stream status** dropdown menu, select **Enabled** to enable the stream updates. Click **Save Changes**.
+1. In the **Stream status** dropdown menu, select **Enabled** to enable the stream updates. Choose **Save Changes**.
 
 After you've successfully configured Amazon Cognito streams, all subsequent updates to datasets in this identity pool are sent to the stream.
 

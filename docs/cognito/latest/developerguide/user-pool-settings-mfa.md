@@ -128,8 +128,8 @@ The configuration of your user pool influences the MFA methods that users can ch
 <a name="user-pool-settings-mfa-preferences-configure"></a>
 
 You can configure MFA preferences for users in a self-service model with access-token authorization, or in an administrator-managed model with administrative API operations. These operations enable or disable MFA methods and set one of multiple methods as the preferred option. After your user has set an MFA preference, Amazon Cognito prompts them at sign-in to provide a code from their preferred MFA method. Users who have not set a preference receive a prompt to choose a preferred method in a `SELECT_MFA_TYPE` challenge.
-+ In a user self-service model or public application, [SetUserMfaPreference](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserMFAPreference.html), authorized with a signed-in user’s access token, sets MFA configuration.
-+ In an administrator-managed or confidential application, [AdminSetUserPreference](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserMFAPreference.html), authorized with administrative AWS credentials, sets MFA configuration.
++ In a user self-service model or public application, [SetUserMFAPreference](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserMFAPreference.html), authorized with a signed-in user’s access token, sets MFA configuration.
++ In an administrator-managed or confidential application, [AdminSetUserMFAPreference](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserMFAPreference.html), authorized with administrative AWS credentials, sets MFA configuration.
 
 You can also set user MFA preferences from the **Users** menu of the Amazon Cognito console. For more information about the public and confidential authentication models in the Amazon Cognito user pools API, see [Understanding API, OIDC, and managed login pages authentication](authentication-flows-public-server-side.md#user-pools-API-operations).
 

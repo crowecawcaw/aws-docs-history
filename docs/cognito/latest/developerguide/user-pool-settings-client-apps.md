@@ -127,6 +127,8 @@ Client credentials grants add costs to your AWS bill. For more information, see 
 ## Creating an app client
 <a name="cognito-user-pools-app-idp-settings-console-create"></a>
 
+Applications can also register their own app clients with dynamic client registration. For more information, see [Dynamic client registration](cognito-user-pools-dynamic-client-registration.md).
+
 ------
 #### [ AWS Management Console ]
 

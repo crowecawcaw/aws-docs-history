@@ -317,6 +317,8 @@ The following procedure describes how to import the users from the CSV file.
 1. On the **Create import job** page, enter a **Job name**.
 
 1. Choose to **Create a new IAM role** or to **Use an existing IAM role**.
+**Role manager replaces role options**  
+If your account has role manager enabled, Amazon Cognito attaches the role for you. Role manager replaces the **Create a new IAM role** and **Use an existing IAM role** options with **Customize**. To use a different role, choose that option. For more information, see [IAM role creation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the *AWS Identity and Access Management User Guide*.
 
    1. If you chose **Create a new IAM role**, enter a name for your new role. Amazon Cognito automatically creates a role with the correct permissions and trust relationship. The IAM principal that creates the import job must have permissions to create IAM roles.
 
