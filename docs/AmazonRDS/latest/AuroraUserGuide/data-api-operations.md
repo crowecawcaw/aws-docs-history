@@ -67,7 +67,7 @@ RDS Data API supports following Aurora PostgreSQL scalar types:
 + `UUID`
 + `VECTOR`
 
-RDS Data API supports the following Aurora PostgreSQL array types:
+RDS Data API supports the following Aurora PostgreSQL array types in query results. These array types apply only to values returned when you read array columns from a result set. You can't pass arrays as input parameters: Supplying an `arrayValue` in a `SqlParameter` for `ExecuteStatement` or `BatchExecuteStatement` returns `ValidationException: Array parameters are not supported`. To pass an array as input, provide a Aurora PostgreSQL array literal as a `stringValue` and cast it in SQL (for example, `:myparam::text[]`).
 + `BOOL[]`, `BIT[]`
 + `DATE[]`
 + `DECIMAL[]`, `NUMERIC[]`

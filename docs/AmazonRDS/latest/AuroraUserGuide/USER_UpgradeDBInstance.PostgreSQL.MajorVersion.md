@@ -225,9 +225,9 @@ Before upgrading your production Aurora PostgreSQL DB clusters to a new major ve
 
    In the command output, the `datistemplate` value for template1 and template0 databases should be `t`.
 
-1. Drop logical replication slots. 
+1. Handle logical replication slots. 
 
-   The upgrade process can't proceed if the Aurora PostgreSQL DB cluster is using any logical replication slots. Logical replication slots are typically used for short-term data migration tasks, such as migrating data using AWS DMS or for replicating tables from the database to data lakes, BI tools, or other targets. Before upgrading, make sure that you know the purpose of any logical replication slots that exist, and confirm that it's okay to delete them. You can check for logical replication slots using the following query:
+   For source versions earlier than 17, the upgrade process can't proceed if the Aurora PostgreSQL DB cluster is using any logical replication slots. Logical replication slots are typically used for short-term data migration tasks, such as migrating data using AWS DMS or for replicating tables from the database to data lakes, BI tools, or other targets. Before upgrading, make sure that you know the purpose of any logical replication slots that exist, and confirm that it's okay to delete them. You can check for logical replication slots using the following query:
 
    ```
    SELECT * FROM pg_replication_slots;
@@ -239,7 +239,9 @@ Before upgrading your production Aurora PostgreSQL DB clusters to a new major ve
    SELECT pg_drop_replication_slot({{slot_name}});
    ```
 
-   Logical replication scenarios that use the `pglogical` extension also need to have slots dropped from the publisher node for a successful major version upgrade on that node. However, you can restart the replication process from the subscriber node after the upgrade. For more information, see [Reestablishing logical replication after a major upgrade](Appendix.PostgreSQL.CommonDBATasks.pglogical.recover-replication-after-upgrade.md).
+   For source version 17 and later, logical replication slots can be retained through the upgrade. Before you start the upgrade, disable the subscriptions and make sure that all transactions and logical decoding messages have been consumed from each slot. If a slot still holds unconsumed changes, the upgrade fails after the DB cluster has been taken offline, and the DB cluster returns to the source version. The DB cluster parameter group for the target version must set `rds.logical_replication` to `1`. For more information, see [Upgrade](https://www.postgresql.org/docs/current/logical-replication-upgrade.html) on the PostgreSQL website.
+
+   Logical replication scenarios that use the `pglogical` extension follow the same rules for the publisher node. However, you can restart the replication process from the subscriber node after the upgrade. For more information, see [Reestablishing logical replication after a major upgrade](Appendix.PostgreSQL.CommonDBATasks.pglogical.recover-replication-after-upgrade.md).
 
 1. Perform a backup.
 

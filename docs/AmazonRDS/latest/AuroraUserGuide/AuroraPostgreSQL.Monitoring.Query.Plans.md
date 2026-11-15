@@ -5,7 +5,7 @@
 
 You can monitor query execution plans in your Aurora PostgreSQL DB instance to detect the execution plans contributing to current database load and to track performance statistics of execution plans over time using the `aurora_compute_plan_id` parameter. Whenever a query executes, the execution plan used by the query is assigned an identifier and the same identifier is used by subsequent executions of the same plan.
 
-The `aurora_compute_plan_id` is turned `OFF` by default in DB parameter group from Aurora PostgreSQL versions 14.10, 15.5, and higher versions. To assign a plan identifier, set `aurora_compute_plan_id` to `ON` in the parameter group.
+The `aurora_compute_plan_id` is turned `OFF` by default in DB parameter group from Aurora PostgreSQL versions 14.10, 15.5, and higher versions. To assign a plan identifier, set `aurora_compute_plan_id` to `ON` in the parameter group. To track query execution plans, `pg_stat_statements` must also be in the `shared_preload_libraries` parameter of your DB parameter group. `shared_preload_libraries` includes `pg_stat_statements` by default, so verify that `pg_stat_statements` hasn't been removed.
 
 This plan identifier is used in several utilities that serve a different purpose.
 

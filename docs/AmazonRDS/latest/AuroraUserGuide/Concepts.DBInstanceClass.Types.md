@@ -26,6 +26,8 @@ The memory-optimized X family supports the following instance classes:
   You can modify a DB instance to use one of the DB instance classes powered by AWS Graviton2 processors. To do so, complete the same steps as with any other DB instance modification.
 
 The memory-optimized R family supports the following instance class types:
++ **db.r9g** – Instance classes powered by AWS Graviton5 processors. These instance classes are ideal for running memory-intensive workloads. They are powered by the AWS Nitro System, a combination of dedicated hardware and lightweight hypervisor.
++ You can modify a DB instance to use one of the DB instance classes powered by AWS Graviton5 processors. To do so, complete the same steps as with any other DB instance modification.
 + **db.r8g** – Instance classes powered by AWS Graviton4 processors. These instance classes are ideal for running memory-intensive workloads. These instances offer larger instance sizes with up to 3x more vCPUs and memory than the seventh-generation AWS Graviton3-based db.r7g instances. They are powered by the AWS Nitro System, a combination of dedicated hardware and lightweight hypervisor.
 + You can modify a DB instance to use one of the DB instance classes powered by AWS Graviton4 processors. To do so, complete the same steps as with any other DB instance modification.
 + **db.r8i** – Instance classes powered by Intel Xeon 6 processors. These instance classes are ideal for running memory-intensive workloads that benefit from high-performance local storage, including in-memory databases, real-time big data analytics, large in-memory caches, scientific computing applications requiring scratch space, and data processing applications needing high-speed local storage.

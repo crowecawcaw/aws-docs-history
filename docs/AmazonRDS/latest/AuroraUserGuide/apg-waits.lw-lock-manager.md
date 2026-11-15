@@ -45,7 +45,7 @@ In this example, a table named `purchases` stores five years of data, partitione
 
 1. The database creates a lock entry for each partition. If partition indexes are part of the optimizer access path, the database creates a lock entry for them, too.
 
-1. When the number of requested locks entries for the same backend process is higher than 16, which is the value of `FP_LOCK_SLOTS_PER_BACKEND`, the lock manager uses the non–fast path lock method.
+1. When the number of requested lock entries for the same backend process exceeds the number of fast-path slots available to that backend, the lock manager uses the non–fast path lock method. In PostgreSQL 17 and earlier, this limit is fixed at 16 (the value of `FP_LOCK_SLOTS_PER_BACKEND`). Beginning with PostgreSQL 18, the number of fast-path slots per backend is no longer fixed. Instead, it scales with the `max_locks_per_transaction` parameter, so a backend can keep many more relation locks on the fast path.
 
 Modern applications might have hundreds of sessions. If concurrent sessions are querying the parent without proper partition pruning, the database might create hundreds or even thousands of non–fast path locks. Typically, when this concurrency is higher than the number of vCPUs, the `LWLock:lock_manager` wait event appears.
 
@@ -97,7 +97,7 @@ Your database might contain unused or rarely used indexes. If so, consider delet
 ### Tune your queries for fast path locking
 <a name="apg-waits.lw-lock-manager.actions.tuning"></a>
 
-To find out whether your queries use fast path locking, query the `fastpath` column in the `pg_locks` table. If your queries aren't using fast path locking, try to reduce number of relations per query to fewer than 16.
+To find out whether your queries use fast path locking, query the `fastpath` column in the `pg_locks` table. In PostgreSQL 17 and earlier, each backend has a fixed set of 16 fast-path slots. If your queries aren't using fast path locking, try to reduce the number of relations per query to fewer than 16. Beginning with PostgreSQL 18, the number of fast-path slots per backend scales with the `max_locks_per_transaction` parameter, so you can increase `max_locks_per_transaction` to let more of a query's relation locks use the fast path. However, raising `max_locks_per_transaction` increases shared memory usage.
 
 ### Tune for other wait events
 <a name="apg-waits.lw-lock-manager.actions.other-waits"></a>

@@ -72,3 +72,6 @@ The following limitations and considerations apply when using IAM authentication
 + IAM authentication for replication connections is only available for Aurora PostgreSQL versions 11 and higher.
 + The publisher must support IAM authentication for replication connections.
 + The IAM authentication token expires after 15 minutes by default. You might need to refresh long-running replication connections before the token expires.
+
+**Note**  
+Aurora PostgreSQL doesn't support Kerberos authentication for logical replication connections. Use standard (password-based) or IAM authentication instead.

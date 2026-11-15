@@ -17,15 +17,14 @@ For detailed information about using Aurora PostgreSQL to build generative AI ap
 <a name="AuroraPostgreSQL.VectorDB.Prereq"></a>
 
 Familiarize yourself with the following prerequisites to use Aurora PostgreSQL cluster as a Knowledge Base for Amazon Bedrock. At a high level, you need to configure the following services for use with Bedrock:
-+ Amazon Aurora PostgreSQL DB cluster created in any of the following versions:
-  + 16.1 and all higher versions
-  + 15.4 and higher versions
-  + 14.9 and higher versions
-  + 13.12 and higher versions
-  + 12.16 and higher versions
++ An Amazon Aurora PostgreSQL DB cluster that supports `pgvector` 0.5.0 or higher. The following Aurora PostgreSQL versions include `pgvector` 0.5.0 or higher:
+  + All versions of Aurora PostgreSQL 16 and later major versions
+  + Aurora PostgreSQL 15: 15.4 and higher versions
+  + Aurora PostgreSQL 14: 14.9 and higher versions
+  + Aurora PostgreSQL 13: 13.12 and higher versions
 **Note**  
 You must enable the `pgvector` extension in your target database and use version 0.5.0 or higher. For more information, see [pgvector v0.5.0 with HNSW indexing](https://aws.amazon.com/about-aws/whats-new/2023/10/amazon-aurora-postgresql-pgvector-v0-5-0-hnsw-indexing/). 
-+ RDS Data API
++ RDS Data API enabled on the DB cluster. For more information about the supported AWS Regions and Aurora PostgreSQL versions, see [Supported Regions and Aurora DB engines for RDS Data API](Concepts.Aurora_Fea_Regions_DB-eng.Feature.Data_API.md).
 + A user managed in AWS Secrets Manager. For more information, see [Password management with Amazon Aurora and AWS Secrets Manager](rds-secrets-manager.md).
 
 ## Preparing Aurora PostgreSQL to be used as a Knowledge Base for Amazon Bedrock

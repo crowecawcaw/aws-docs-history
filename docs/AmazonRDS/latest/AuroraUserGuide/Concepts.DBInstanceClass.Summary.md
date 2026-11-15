@@ -83,6 +83,21 @@ The following tables show the compute, memory, storage, and bandwidth specificat
 | db.r8a.xlarge | 4 | — | 32 | EBS-optimized only | Up to 10,000 | Up to 12.5 | 
 | db.r8a.large | 2 | — | 16 | EBS-optimized only | Up to 10,000 | Up to 12.5 | 
 
+**db.r9g – memory-optimized instance classes powered by AWS Graviton5 processors**
+
+
+| Instance class | vCPU | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| db.r9g.48xlarge | 192 | — | 1536 | EBS-optimized only | 72,000 | 100 | 
+| db.r9g.24xlarge | 96 | — | 768 | EBS-optimized only | 36,000 | 50 | 
+| db.r9g.16xlarge | 64 | — | 512 | EBS-optimized only | 24,000 | 34 | 
+| db.r9g.12xlarge | 48 | — | 384 | EBS-optimized only | 18,000 | 25 | 
+| db.r9g.8xlarge | 32 | — | 256 | EBS-optimized only | 12,000 | 17 | 
+| db.r9g.4xlarge | 16 | — | 128 | EBS-optimized only | Up to 12,000 | Up to 17 | 
+| db.r9g.2xlarge | 8 | — | 64 | EBS-optimized only | Up to 12,000 | Up to 17 | 
+| db.r9g.xlarge | 4 | — | 32 | EBS-optimized only | Up to 12,000 | Up to 15 | 
+| db.r9g.large | 2 | — | 16 | EBS-optimized only | Up to 12,000 | Up to 15 | 
+
 **db.r8g – memory-optimized instance classes powered by AWS Graviton4 processors**
 
 

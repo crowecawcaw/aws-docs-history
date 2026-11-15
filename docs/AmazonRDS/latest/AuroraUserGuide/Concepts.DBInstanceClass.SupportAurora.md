@@ -90,6 +90,27 @@ The following tables show the supported DB instance classes for the Amazon Auror
 </table>
 
 
+**db.r9g – memory-optimized instance classes powered by AWS Graviton5 processors**  
+
+
+<table>
+<thead>
+  <tr><th>Instance class</th><th>Aurora MySQL</th><th>Aurora PostgreSQL</th></tr>
+</thead>
+<tbody>
+  <tr><td>db.r9g.48xlarge</td><td>3.08.0 through 3.08.2, 3.09.0, 3.10.0 through 3.10.6, 3.11.1, 3.12.0, 3.13.0, 3.14.0, 8.4.7, 8.4.8, 8.4.10</td><td>14.17 through 14.20, 14.22 through 14.24, 15.10, 15.12 through 15.15, 15.17 through 15.19, 16.8 through 16.11, 16.13 through 16.15, 17.4 through 17.7, 17.9 through 17.11, 18.3, 18.4, 18.6</td></tr>
+  <tr><td>db.r9g.24xlarge</td><td>3.08.0 through 3.08.2, 3.09.0, 3.10.0 through 3.10.6, 3.11.1, 3.12.0, 3.13.0, 3.14.0, 8.4.7, 8.4.8, 8.4.10</td><td>14.17 through 14.20, 14.22 through 14.24, 15.10, 15.12 through 15.15, 15.17 through 15.19, 16.8 through 16.11, 16.13 through 16.15, 17.4 through 17.7, 17.9 through 17.11, 18.3, 18.4, 18.6</td></tr>
+  <tr><td>db.r9g.16xlarge</td><td>3.08.0 through 3.08.2, 3.09.0, 3.10.0 through 3.10.6, 3.11.1, 3.12.0, 3.13.0, 3.14.0, 8.4.7, 8.4.8, 8.4.10</td><td>14.17 through 14.20, 14.22 through 14.24, 15.10, 15.12 through 15.15, 15.17 through 15.19, 16.8 through 16.11, 16.13 through 16.15, 17.4 through 17.7, 17.9 through 17.11, 18.3, 18.4, 18.6</td></tr>
+  <tr><td>db.r9g.12xlarge</td><td>3.08.0 through 3.08.2, 3.09.0, 3.10.0 through 3.10.6, 3.11.1, 3.12.0, 3.13.0, 3.14.0, 8.4.7, 8.4.8, 8.4.10</td><td>14.17 through 14.20, 14.22 through 14.24, 15.10, 15.12 through 15.15, 15.17 through 15.19, 16.8 through 16.11, 16.13 through 16.15, 17.4 through 17.7, 17.9 through 17.11, 18.3, 18.4, 18.6</td></tr>
+  <tr><td>db.r9g.8xlarge</td><td>3.08.0 through 3.08.2, 3.09.0, 3.10.0 through 3.10.6, 3.11.1, 3.12.0, 3.13.0, 3.14.0, 8.4.7, 8.4.8, 8.4.10</td><td>14.17 through 14.20, 14.22 through 14.24, 15.10, 15.12 through 15.15, 15.17 through 15.19, 16.8 through 16.11, 16.13 through 16.15, 17.4 through 17.7, 17.9 through 17.11, 18.3, 18.4, 18.6</td></tr>
+  <tr><td>db.r9g.4xlarge</td><td>3.08.0 through 3.08.2, 3.09.0, 3.10.0 through 3.10.6, 3.11.1, 3.12.0, 3.13.0, 3.14.0, 8.4.7, 8.4.8, 8.4.10</td><td>14.17 through 14.20, 14.22 through 14.24, 15.10, 15.12 through 15.15, 15.17 through 15.19, 16.8 through 16.11, 16.13 through 16.15, 17.4 through 17.7, 17.9 through 17.11, 18.3, 18.4, 18.6</td></tr>
+  <tr><td>db.r9g.2xlarge</td><td>3.08.0 through 3.08.2, 3.09.0, 3.10.0 through 3.10.6, 3.11.1, 3.12.0, 3.13.0, 3.14.0, 8.4.7, 8.4.8, 8.4.10</td><td>14.17 through 14.20, 14.22 through 14.24, 15.10, 15.12 through 15.15, 15.17 through 15.19, 16.8 through 16.11, 16.13 through 16.15, 17.4 through 17.7, 17.9 through 17.11, 18.3, 18.4, 18.6</td></tr>
+  <tr><td>db.r9g.xlarge</td><td>3.08.0 through 3.08.2, 3.09.0, 3.10.0 through 3.10.6, 3.11.1, 3.12.0, 3.13.0, 3.14.0, 8.4.7, 8.4.8, 8.4.10</td><td>14.17 through 14.20, 14.22 through 14.24, 15.10, 15.12 through 15.15, 15.17 through 15.19, 16.8 through 16.11, 16.13 through 16.15, 17.4 through 17.7, 17.9 through 17.11, 18.3, 18.4, 18.6</td></tr>
+  <tr><td>db.r9g.large</td><td>3.08.0 through 3.08.2, 3.09.0, 3.10.0 through 3.10.6, 3.11.1, 3.12.0, 3.13.0, 3.14.0, 8.4.7, 8.4.8, 8.4.10</td><td>14.17 through 14.20, 14.22 through 14.24, 15.10, 15.12 through 15.15, 15.17 through 15.19, 16.8 through 16.11, 16.13 through 16.15, 17.4 through 17.7, 17.9 through 17.11, 18.3, 18.4, 18.6</td></tr>
+</tbody>
+</table>
+
+
 **db.r8g – memory-optimized instance classes powered by AWS Graviton4 processors**  
 
 

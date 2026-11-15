@@ -155,12 +155,12 @@ You can't refresh zero-ETL integrations with an Amazon SageMaker lakehouse. Inst
 ### Aurora PostgreSQL
 <a name="zero-etl.data-type-mapping-postgres"></a>
 
-Zero-ETL integrations for Aurora PostgreSQL don't support custom data types or data types created by extensions.
+Zero-ETL integrations for Aurora PostgreSQL don't support custom data types or data types created by extensions. This includes enum types that you create with `CREATE TYPE ... AS ENUM`, and arrays of such types. If a table contains a column with an unsupported data type, Amazon Redshift doesn't replicate the table, and the table state is `Failed`. To replicate the rest of your data, exclude the table by using a data filter. For more information, see [Data filtering for Aurora zero-ETL integrations](zero-etl.filtering.md).
 
 
 | Aurora PostgreSQL data type | Amazon Redshift data type | Description | Limitations | 
 | --- | --- | --- | --- | 
-| array | SUPER | Semistructured data or documents as values | None | 
+| array | SUPER | Semistructured data or documents as values | Arrays of unsupported data types, such as enum types, aren't supported | 
 | bigint | BIGINT | Signed eight-byte integer | None | 
 | bigserial | BIGINT | Signed eight-byte integer | None | 
 | bit varying(n) | VARBYTE(n) | Variable-length binary value up to 16,777,216 bytes | None | 

@@ -3,7 +3,7 @@
 # Managing logical replication slots for Aurora PostgreSQL
 <a name="Appendix.PostgreSQL.CommonDBATasks.pglogical.handle-slots"></a>
 
-Before you can perform a major version upgrade on an Aurora PostgreSQL DB cluster's writer instance that's serving as a publisher node in a logical replication scenario, you must drop the replication slots on the instance. The major version upgrade pre-check process notifies you that the upgrade can't proceed until the slots are dropped.
+For source versions earlier than 17, before you can perform a major version upgrade on an Aurora PostgreSQL DB cluster's writer instance that's serving as a publisher node in a logical replication scenario, you must drop the replication slots on the instance. The major version upgrade pre-check process notifies you that the upgrade can't proceed until the slots are dropped. For source version 17 and later, you can keep the slots. For more information, see [Reestablishing logical replication after a major upgrade](Appendix.PostgreSQL.CommonDBATasks.pglogical.recover-replication-after-upgrade.md).
 
 To identify replication slots that were created using the `pglogical` extension, log in to each database and get the name of the nodes. When you query the subscriber node, you get both the publisher and the subscriber nodes in the output, as shown in this example. 
 
