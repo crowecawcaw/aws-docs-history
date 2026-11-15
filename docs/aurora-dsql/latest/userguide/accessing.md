@@ -61,6 +61,13 @@ Aurora DSQL automatically manages the following aspects of your database, so you
 + **Logging parameters** – Aurora DSQL manages logging internally, including `log_statement` and `client_min_messages`.
 + **Transaction parameters** – Aurora DSQL uses a fixed `REPEATABLE READ` isolation level for all transactions. If your driver requires specifying an isolation level, use `BEGIN ISOLATION LEVEL REPEATABLE READ`.
 
+### System-level parameters
+<a name="accessing-system-parameters"></a>
+
+ With `ALTER SYSTEM`, you can set or reset the subset of configuration parameters that Aurora DSQL supports at the system level. `SET` changes a parameter for the current session, while `ALTER SYSTEM` persists a supported parameter at the system level. For more information, see [ALTER SYSTEM](alter-system-syntax-support.html). 
+
+ Because peered clusters present a single logical database, a setting at the system level applies to connections through any cluster endpoint in the cluster group. Transactions already in progress continue using the settings that were in effect when they started. Subsequent transactions use the new setting after Aurora DSQL propagates the change. 
+
 ## Access Aurora DSQL using SQL clients
 <a name="accessing-sql-clients"></a>
 

@@ -31,8 +31,8 @@ Use `DELETE FROM table_name` instead of `TRUNCATE`.
 **Alternative:** For complete table recreation, use `DROP TABLE` followed by `CREATE TABLE`.
 
 **System configuration**  
-Aurora DSQL is fully managed, so configuration is handled automatically based on workload patterns. Use the AWS Management Console or API to manage cluster settings.  
-**Benefit:** No need for database tuning or parameter management.
+Aurora DSQL is fully managed, so it handles infrastructure configuration automatically based on workload patterns. With `ALTER SYSTEM`, you can set or reset the subset of configuration parameters that Aurora DSQL supports at the system level. System-level settings apply to the logical database that the cluster group represents.  
+**Benefit:** Aurora DSQL applies supported system-level parameter changes automatically. For more information, see [ALTER SYSTEM](alter-system-syntax-support.md).
 
 ### Schema design patterns
 <a name="dsql-schema-design-patterns"></a>

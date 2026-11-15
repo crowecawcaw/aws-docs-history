@@ -21,3 +21,4 @@ This section provides detailed information about supported SQL commands, focusin
 + [`SET CONSTRAINTS`](set-constraints-syntax-support.md)
 + [`CREATE FUNCTION`](create-function-syntax-support.md)
 + [`ALTER FUNCTION`](alter-function-syntax-support.md)
++ [`ALTER SYSTEM`](alter-system-syntax-support.md)

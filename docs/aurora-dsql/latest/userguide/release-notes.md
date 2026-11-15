@@ -8,6 +8,12 @@ This page describes new features, service launches, and important updates for Au
 ## 2026
 <a name="release-notes-2026"></a>
 
+### November 2026
+<a name="release-notes-2026-11"></a>
+
+November 13, 2026  
+🐘 *PostgreSQL Compatibility* — ** `ALTER SYSTEM`** — Aurora DSQL now supports setting a subset of parameters at the system level. For more information, see [ALTER SYSTEM](alter-system-syntax-support.html).
+
 ### October 2026
 <a name="release-notes-2026-10"></a>
 

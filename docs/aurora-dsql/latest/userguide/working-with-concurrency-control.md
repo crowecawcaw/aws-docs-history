@@ -7,6 +7,11 @@ Concurrency allows multiple sessions to access and modify data simultaneously wi
 
 A key advantage of Aurora DSQL is its lock-free architecture, which eliminates common database performance bottlenecks. Aurora DSQL prevents slow transactions from blocking other operations and eliminates the risk of deadlocks. This approach makes Aurora DSQL particularly valuable for high-throughput applications where performance and scalability are critical. 
 
+## Transaction snapshots
+<a name="dsql-transaction-snapshots"></a>
+
+For explicit transactions, Aurora DSQL takes a snapshot when it processes `BEGIN` or `START TRANSACTION`. This differs from PostgreSQL, where a `REPEATABLE READ` transaction takes its snapshot when the first statement that requires one runs.
+
 ## Concurrency control responses
 <a name="dsql-transaction-conflicts"></a>
 

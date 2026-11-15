@@ -311,17 +311,23 @@ All Aurora DSQL clusters are encrypted at rest. By default, clusters use an AWS 
 
 1. Sign in to the AWS Management Console and open the Aurora DSQL console at [https://console.aws.amazon.com/dsql/](https://console.aws.amazon.com/dsql/).
 
-1. In the navigation pane on the left side of the console, choose **Clusters**.
-
-1. Choose **Create Cluster** on the top right and select **Single-Region**.
-
-1. In the **Cluster encryption settings**, choose one of the following options.
-   + Accept the default settings to encrypt with an AWS owned key at no additional cost.
-   + Select **Customize encryption settings (advanced)** to specify a custom KMS key. Then, search for or enter the ID or alias of your KMS key. Alternatively, choose **Create an AWS KMS key** to create a new key in the AWS KMS Console.
+1. In the navigation pane, choose **Clusters**.
 
 1. Choose **Create cluster**.
 
-To confirm the encryption type for your cluster, navigate to the **Clusters** page and select the ID of the cluster to view the cluster details. Review the **Cluster settings** tab the **Cluster KMS key** setting shows **Aurora DSQL default key** for clusters that use AWS owned keys or the key ID for other encryption types.
+1. In **Cluster topology**, choose **Single Region**.
+
+1. In **Cluster configuration**, choose **Advanced configuration**.
+
+1. In **Cluster settings**, under **Cluster encryption**, choose one of the following options:
+   + Accept the default settings to encrypt with an AWS owned key at no additional cost.
+   + Select **Customize encryption settings (advanced)** to specify a custom KMS key. Then, search for or enter the ID or alias of your KMS key. Alternatively, choose **Create an AWS KMS key** to create a new key in the AWS KMS console.
+
+1. Choose **Create cluster**.
+
+For a multi-Region cluster, in **Cluster topology**, choose **2 active Regions \+ Witness**. Then, in **Encryption key**, choose the encryption settings for each Region.
+
+To confirm the encryption type, on the cluster details page, choose the **Cluster settings** tab. Under **Encryption**, **Cluster KMS key** shows **Aurora DSQL default key** for clusters that use AWS owned keys, or the key ID for other encryption types.
 
 **Note**  
 If you select to own and manage your own key, make sure you set the KMS key policy appropriately. For examples and more information, see [Key policy for a customer managed key](#key-policy-customer-managed-key).

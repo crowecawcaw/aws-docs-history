@@ -14,11 +14,11 @@ You can attach resource-based policies when creating a new cluster to ensure acc
 
 1. Choose **Create cluster**.
 
-1. Configure your cluster name, tags, and multi-region settings as needed.
+1. In **Cluster topology**, choose **Single Region** or **2 active Regions \+ Witness**.
 
-1. In the **Cluster settings** section, locate the **Resource-based policy** option.
+1. In **Cluster configuration**, choose **Advanced configuration**.
 
-1. Turn on **Add resource-based policy**.
+1. Select **Add resource-based policy**. For a single-Region cluster, it's in **Cluster settings**. For a multi-Region cluster, it's in **Resource-based policy - optional**, with one setting for each Region.
 
 1. Enter your policy document in the JSON editor. For example, to block public internet access:
 
