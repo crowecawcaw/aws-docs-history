@@ -20,6 +20,8 @@ To associate a Route 53 Profile to a VPC, follow the guidance in this topic. Cho
 
 1. On the **Associate VPCs** page you can select up to 10 VPCs you have previously created. If you want to associate more than 10 VPCs, use the APIs. For more information, see [AssociateProfile](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_AssociateProfile.html).
 
+1. (Optional) In the **Review profile prioritization** table, set the **Priority** for the new association, and change the priority of the Profiles that are already associated to the VPC if needed. To change a priority, choose the **Edit priority** (pencil) icon in the **Priority** column, enter a value from 100 to 9900, and then choose **Submit edit**. A lower value means a higher priority, and each Profile associated to a VPC must have a unique priority. For more information, see [How Route 53 Profile settings are prioritized](profiles.md#profiles-priority).
+
 1. Choose **Associate**
 
 1. The association progress is displayed in the **Status** column on the **VPCs** page.
@@ -27,7 +29,7 @@ To associate a Route 53 Profile to a VPC, follow the guidance in this topic. Cho
 ------
 #### [ CLI ]
 
-You can list the Profiles by running a AWS CLI command like the following and using your own values for `name`, `profile-id`, and `resource-id`:
+To associate a Profile to a VPC, use the [associate-profile](https://docs.aws.amazon.com/cli/latest/reference/route53profiles/associate-profile.html) AWS CLI command. For example, the following command associates Profile `rp-4987774726example` to VPC `vpc-0af3b96b3example`. Use your own values for `name`, `profile-id`, and `resource-id`.
 
 `aws route53profiles associate-profile --name test-association --profile-id rp-4987774726example --resource-id vpc-0af3b96b3example`
 
@@ -35,20 +37,21 @@ The following is an example output after you run the command:
 
 ```
 {
-    "ProfileResourceAssociation": {
-        "CreationTime": 1710851216.613,
-        "Id": "rpr-001913120a7example",
-        "ModificationTime": 1710851216.613,
-        "Name": "test-resource-association",
+    "ProfileAssociation": {
+        "CreationTime": 1709338817.148,
+        "Id": "rpassoc-489ce212fexample",
+        "ModificationTime": 1709338817.148,
+        "Name": "test-association",
         "OwnerId": "123456789012",
         "ProfileId": "rp-4987774726example",
-        "ResourceArn": "arn:aws:route53resolver:us-east-1:123456789012:firewall-rule-group/rslvr-frg-cfe7f72example",
-        "ResourceProperties": "{\"priority\":102}",
-        "ResourceType": "FIREWALL_RULE_GROUP",
-        "Status": "UPDATING",
-        "StatusMessage": "Updating the Profile to DNS Firewall rule group association"
+        "ResourceId": "vpc-0af3b96b3example",
+        "Priority": 100,
+        "Status": "CREATING",
+        "StatusMessage": "Creating Profile Association"
     }
 }
 ```
+
+To set the order in which VPC Resolver evaluates the Profiles associated to the VPC, add the `--priority` parameter with a value from 100 to 9900. A lower value means a higher priority. If the VPC has no other Profile associations, you can omit `--priority`, and the association gets priority 100. If the VPC already has a Profile association, `--priority` is required and must be different from the priority of every other Profile association for the VPC.
 
 ------

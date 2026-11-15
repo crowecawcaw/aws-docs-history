@@ -30,3 +30,4 @@ Amazon Route 53 doesn't charge for the records that you add to a hosted zone. F
 + [Editing records](resource-record-sets-editing.md)
 + [Deleting records](resource-record-sets-deleting.md)
 + [Listing records](resource-record-sets-listing.md)
++ [Protecting records from changes](rrset-protection.md)

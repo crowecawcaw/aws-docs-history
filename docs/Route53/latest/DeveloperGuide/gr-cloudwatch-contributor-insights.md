@@ -17,7 +17,7 @@ You can access both Contributor Insights and Logs Insights from the **Analytics*
 
 1. For **Rule type**, choose **Sample rule**. Then choose **Select sample rule**, and choose one of the Route 53 Global Resolver Logs sample rules.
 **Note**  
-Include the global resolver ID in the rule name so that you can identify which global resolver the rule applies to.
+Include the resource ID in the rule name so that you can identify which resource the rule applies to. The resource ID can be a DNS view ID, Amazon VPC ID, account ID, and so on.
 
 1. Selecting one of the sample rules populates all the required fields on the CloudWatch rule page.
 

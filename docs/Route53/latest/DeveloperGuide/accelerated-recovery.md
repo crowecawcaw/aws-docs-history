@@ -61,8 +61,12 @@ There are a few more things to know about the accelerated recovery feature:
 
 1. Hosted zones with accelerated recovery can't be deleted. You must turn off accelerated recovery before you can delete the hosted zone.
 
+1. Record set protections stay in effect when you turn accelerated recovery on or off. While you turn accelerated recovery on or off, requests to create or delete protections can fail with a `Throttling` error. Retry after a short wait. For more information about record set protections and accelerated recovery, see [Record set protections and accelerated recovery](rrset-protection.md#rrset-protection-accelerated-recovery).
+
 1. During failover, these API methods will still work for public hosted zones with accelerated recovery. All other Route 53 API methods won't work until failback.
    + `ChangeResourceRecordSets`
+   + `CreateResourceRecordSetProtections`
+   + `DeleteResourceRecordSetProtections`
    + `GetChange`
    + `GetGeoLocation`
    + `GetHostedZone`
@@ -73,6 +77,7 @@ There are a few more things to know about the accelerated recovery feature:
    + `ListGeoLocations`
    + `ListHostedZones`
    + `ListHostedZonesByName`
+   + `ListResourceRecordSetProtections`
    + `ListResourceRecordSets`
    + `ListReusableDelegationSets`
 

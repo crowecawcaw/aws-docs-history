@@ -23,6 +23,8 @@ For an ongoing record of events in your AWS account, including events for Route�
 
 All Route 53 actions are logged by CloudTrail and are documented in the [Amazon Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/). For example, calls to the `CreateHostedZone`, `CreateHealthCheck`, and `RegisterDomain` actions generate entries in the CloudTrail log files. 
 
+CloudTrail logs `CreateResourceRecordSetProtections` and `DeleteResourceRecordSetProtections` as management write events, and `ListResourceRecordSetProtections` as a management read event.
+
 Every event or log entry contains information about who generated the request. The identity information helps you determine the following: 
 + Whether the request was made with root or IAM user credentials.
 + Whether the request was made with temporary security credentials for a role or federated user.

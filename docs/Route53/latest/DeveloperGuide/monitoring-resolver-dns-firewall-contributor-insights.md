@@ -19,7 +19,7 @@ You can access both Contributor Insights and Logs Insights from the **Analytics*
 
 1. For **Rule type**, choose **Sample rule**. Then choose **Select sample rule** and choose one of the Route 53 DNS Firewall Logs sample rules.
 **Note**  
-Include the firewall rule group ID in the rule name so that you can identify which rule group the rule applies to.
+Include the resource ID in the rule name so that you can identify which resource the rule applies to. For example, use a Amazon VPC ID or an account ID.
 
 1. After you select a sample rule, CloudWatch populates all the required fields on the rule page.
 

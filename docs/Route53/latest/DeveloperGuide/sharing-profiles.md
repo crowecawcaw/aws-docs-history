@@ -126,12 +126,16 @@ You must create a custom managed permission which includes the `route53profiles:
 
  Default permission for consumers of a shared Profile is read-only. With read-only permission they can see the associated resources and associate it to VPCs, but can't manage the resource associations.
 
+When a consumer associates a shared Profile to one of its VPCs, the consumer account sets the priority of that association, and only the consumer account can change it. The Profile owner can't change the priority of the association. For more information, see [Updating the priority of a Route 53 Profile association with a VPC](profiles-vpc-update-priority.md).
+
 An owner can also create customer managed permissions on the AWS RAM console. For more information, see [Creating and using customer managed permissions](https://docs.aws.amazon.com/ram/latest/userguide/create-customer-managed-permissions.html) in the *AWS RAM User Guide*.
 
 ## Billing and metering
 <a name="sharing-billing"></a>
 
 Route 53 Profiles are billed based on the number of VPC associations. The Profile owner is responsible for the bill for the VPC associations by the customer.
+
+Each association between a Profile and a VPC counts separately. For example, a VPC that is associated to two Profiles counts as two associations.
 
 ## Instance quotas
 <a name="sharing-quotas"></a>

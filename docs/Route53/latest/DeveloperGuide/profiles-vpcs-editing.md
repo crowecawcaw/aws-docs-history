@@ -38,26 +38,13 @@ The following is an example output after you run the command:
     "ProfileAssociations": [
         {
             "CreationTime": 1709338817.148,
-            "Id": "rpassoc-489ce212fexample",{
-    "ProfileAssociations": [
-        {
-            "CreationTime": 1709338817.148,
             "Id": "rpassoc-489ce212fexample",
             "ModificationTime": 1709338974.772,
             "Name": "test-association",
             "OwnerId": "123456789012",
             "ProfileId": "rp-4987774726example",
             "ResourceId": "vpc-0af3b96b3example",
-            "Status": "COMPLETE",
-            "StatusMessage": "Created Profile Association"
-        }
-    ]
-}
-            "ModificationTime": 1709338974.772,
-            "Name": "test-association",
-            "OwnerId": "123456789012",
-            "ProfileId": "rp-4987774726example",
-            "ResourceId": "vpc-0af3b96b3example",
+            "Priority": 100,
             "Status": "COMPLETE",
             "StatusMessage": "Created Profile Association"
         }
@@ -72,17 +59,19 @@ You can get information about a particular VPS the Profile is associated to by r
 The following is an example output after you run the command:
 
 ```
-   "ProfileAssociation": {
+{
+    "ProfileAssociation": {
         "CreationTime": 1709338817.148,
-        "Id": "rrpassoc-489ce212fexample",
+        "Id": "rpassoc-489ce212fexample",
         "ModificationTime": 1709338974.772,
         "Name": "test-association",
         "OwnerId": "123456789012",
         "ProfileId": "rp-4987774726example",
         "ResourceId": "vpc-0af3b96b3example",
+        "Priority": 100,
         "Status": "COMPLETE",
         "StatusMessage": "Created Profile Association"
-    }   ]
+    }
 }
 ```
 
@@ -117,14 +106,15 @@ Choose a tab to dissociate a Route 53 Profile from a VPC by using the Route 53 
 ------
 #### [ CLI ]
 
-You can dissociate a Profile from a VPC by running an AWS CLI command like the following and using your own value for `profile-id` and `--resource-id`:
+To disassociate a Profile from a VPC, use the [disassociate-profile](https://docs.aws.amazon.com/cli/latest/reference/route53profiles/disassociate-profile.html) AWS CLI command. For example, the following command disassociates Profile `rp-4987774726example` from VPC `vpc-0af3b96b3example`. Use your own values for `profile-id` and `resource-id`.
 
 `aws route53profiles disassociate-profile --profile-id rp-4987774726example --resource-id vpc-0af3b96b3example`
 
-he following is an example output after you run the command:
+The following is an example output after you run the command:
 
 ```
-"ProfileAssociation": {
+{
+    "ProfileAssociation": {
         "CreationTime": 1710851336.527,
         "Id": "rpassoc-489ce212fexample",
         "ModificationTime": 1710851401.362,
@@ -132,9 +122,11 @@ he following is an example output after you run the command:
         "OwnerId": "123456789012",
         "ProfileId": "rp-4987774726example",
         "ResourceId": "vpc-0af3b96b3example",
+        "Priority": 100,
         "Status": "DELETING",
         "StatusMessage": "Deleting Profile Association"
     }
+}
 ```
 
 ------

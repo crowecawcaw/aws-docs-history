@@ -87,6 +87,9 @@ Resource record sets
 + [ChangeResourceRecordSets](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html)
 + [GetChange](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html)
 + [ListResourceRecordSets](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListResourceRecordSets.html)
++ [CreateResourceRecordSetProtections](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateResourceRecordSetProtections.html)
++ [DeleteResourceRecordSetProtections](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteResourceRecordSetProtections.html)
++ [ListResourceRecordSetProtections](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListResourceRecordSetProtections.html)
 + [GetGeoLocation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html)
 + [ListGeoLocations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListGeoLocations.html)  
 Public DNS query logs  
@@ -205,7 +208,8 @@ Profile VPC associations
 + [AssociateProfile](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_AssociateProfile.html)
 + [DisassociateProfile](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_DisassociateProfile.html)
 + [GetProfileAssociation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_GetProfileAssociation.html)
-+ [ListProfileAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_ListProfileAssociations.html)  
++ [ListProfileAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_ListProfileAssociations.html)
++ [UpdateProfileAssociation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_UpdateProfileAssociation.html)  
 Profile resource associations  
 + [AssociateResourceToProfile](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_AssociateResourceToProfile.html)
 + [DisassociateResourceFromProfile](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_DisassociateResourceFromProfile.html)
