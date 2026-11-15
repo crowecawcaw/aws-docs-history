@@ -60,7 +60,7 @@ You can get started by creating an AWS Glue managed catalog using the `glue:Crea
 ![The catalog permissions page with principal type and grant options.](https://docs.aws.amazon.com/sagemaker-lakehouse-architecture/latest/userguide/images/add-catalog-permissions.png)
    +  In the **Principals** section, choose a principal type and then specify principals to grant permissions. 
      + **IAM users and roles** – Choose one or more users or roles from the IAM users and roles list.
-     + **SAML users and groups** – For SAML and Amazon Quick users and groups, enter one or more Amazon Resource Names (ARNs) for users or groups federated through SAML, or ARNs for Amazon Quick users or groups. Press **Enter** after each ARN.
+     + **SAML users and groups** – For SAML and AWS Quick users and groups, enter one or more Amazon Resource Names (ARNs) for users or groups federated through SAML, or ARNs for AWS Quick users or groups. Press **Enter** after each ARN.
      + **External accounts ** – Select this option if you want to share the catalog with external accounts, organizations or IAM roles. 
 
        For information about how to construct the ARNs, see AWS CLI grant and revoke AWS CLI commands. 
