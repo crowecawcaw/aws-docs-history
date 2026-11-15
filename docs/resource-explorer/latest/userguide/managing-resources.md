@@ -8,7 +8,7 @@ The Resource Explorer console supports resource quick-actions and integrations w
 ## Resource Explorer console integrations with other AWS services
 <a name="arex_console_quickactions"></a>
 
-**Amazon Q Developer Ask Amazon Q** — When you select one or more resources, choosing **Actions**, **Help me with this resource** opens a chat panel where you can ask Amazon Q for more information about those resources. For example, you can ask for details about a specific resource or list resources based on criteria such as AWS Region or state. To learn more, review [ Chatting about your resources](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/chat-actions.html) in the *Amazon Q Developer User Guide*. 
+**Ask AWS assistant** — When you select one or more resources, choosing **Actions**, **Help me with this Resource** opens a chat panel where you can ask the AWS assistant for more information about those resources. For example, you can ask for details about a specific resource or list resources based on criteria such as AWS Region or state. To learn more, review [ Chatting about your resources](https://docs.aws.amazon.com/assistant/latest/userguide/resources.html) in the *AWS assistant User Guide*. 
 
 ## Resource Actions in the Resource Explorer console
 <a name="arex_console_quickactions"></a>

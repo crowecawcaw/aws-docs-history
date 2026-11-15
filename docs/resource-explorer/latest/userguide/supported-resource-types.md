@@ -223,7 +223,7 @@ As of July 9, 2024, Resource Explorer no longer supports the following resource 
 + [AWS Outposts](#services-outposts)
 + [Amazon Personalize](#services-personalize)
 + [AWS Private Certificate Authority](#services-acm-pca)
-+ [Amazon Quick](#services-quicksight)
++ [AWS Quick](#services-quicksight)
 + [Amazon Redshift](#services-redshift)
 + [Amazon Rekognition](#services-rekognition)
 + [Amazon Relational Database Service (Amazon RDS)](#services-rds)
@@ -1150,7 +1150,7 @@ As of July 9, 2024, Resource Explorer no longer supports the following resource 
 <a name="services-acm-pca"></a>
 + `acm-pca:certificate-authority`
 
-### Amazon Quick
+### AWS Quick
 <a name="services-quicksight"></a>
 + `quicksight:dataset`
 + `quicksight:datasource`
