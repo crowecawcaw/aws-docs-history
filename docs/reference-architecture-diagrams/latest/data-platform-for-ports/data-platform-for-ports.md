@@ -23,7 +23,7 @@ The following steps describe the data ingestion and analytics components for thi
 
 1. Use SageMaker AI and [Amazon Rekognition](https://docs.aws.amazon.com/rekognition/latest/dg/) for predictive and prescriptive analytics. Reduce operational costs through equipment usage optimization, route and fuel optimization, and maintenance planning.
 
-1. Turn data into actionable knowledge with [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/) and [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html). Disseminate alerts with [Amazon Pinpoint](https://docs.aws.amazon.com/pinpoint/latest/userguide/). Share key metrics with partners through [Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/).
+1. Turn data into actionable knowledge with [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/) and [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html). Disseminate alerts with [Amazon Pinpoint](https://docs.aws.amazon.com/pinpoint/latest/userguide/). Share key metrics with partners through [Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/).
 
 ## Further reading
 <a name="ports-further-reading"></a>
