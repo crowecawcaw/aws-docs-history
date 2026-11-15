@@ -44,7 +44,36 @@ retrieve
 testConnection
 translateDocument
 isAuthorized
+batchIsAuthorized
 invokeModel
+testMapping
+testParsing
+testState
+previewPrivacyImpact
+detectProfileObjectType
+requestSenderId
+checkNoPublicAccess
+checkDocumentAccess
+exportAutomatedReasoningPolicyVersion
+generateQuery
+countTokens
+autocomplete
+geocode
+reverseGeocode
+suggest
+calculateIsolines
+calculateRouteMatrix
+calculateRoutes
+optimizeWaypoints
+snapToRoads
+importPublicKey
+forecastGeofenceEvents
+translateKeyMaterial
+carrierLookup
+batchLookupUserUname
+introspectOAuth2TokenWithIAM
+checkIngestedDocumentAcl
+exportDictionaryEntries
 ```
 
  For example, the service ARN for the [`GetQueueUrl`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_GetQueueUrl.html) API action would be the following: `arn:aws:scheduler:::aws-sdk:sqs:getQueueURL`. Since the API action starts with the `get` prefix, EventBridge Scheduler does not support this target. Similairly, the Amazon MQ action [`ListBrokers`](https://docs.aws.amazon.com/amazon-mq/latest/api-reference/brokers.html#ListBrokers) is not supported as a target because the operation begins with the prefix `list`. 

@@ -165,4 +165,4 @@ $ aws scheduler create-schedule --schedule-expression "cron(30 8 * * ? *)" --nam
 
  Consider a scenario where you create a schedule using the following cron expression in **America/Los\_Angeles**: `cron(30 2 * * ? *)`. This schedule runs every day at 2:30 a.m. in the specified time zone. 
 +  **Spring-forward** – When time shifts forward in the Spring from 1:59 a.m. to 3:00 a.m., EventBridge Scheduler skips the schedule invocation on that day, and resumes running the schedule normally the following day. 
-+  **Fall-back** – When time shifts backwards in the Fall from 2:59 a.m. to 2:00 a.m., EventBridge Scheduler runs the schedule only once at 2:30 a.m. before the shift occurs, but does not repeat the schedule invocation again at 2:30 a.m. after the time shift. 
++  **Fall-back** – When time shifts backwards in the Fall from 2:59 a.m. to 2:00 a.m., 2:30 a.m. occurs twice. EventBridge Scheduler skips the first 2:30 a.m., before the shift, and runs the schedule only once, at the second 2:30 a.m., after the shift. 

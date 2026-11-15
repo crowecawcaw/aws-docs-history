@@ -16,6 +16,8 @@
   + Parameters: [`EventBridgeParameters`](https://docs.aws.amazon.com/scheduler/latest/APIReference/API_EventBridgeParameters.html)
 **Important**  
 EventBridge Scheduler does not support cross-Region delivery when using EventBridge `PutEvents` as a templated target. You can use this target to send events to an event bus in a different AWS account only if the event bus is in the same AWS Region as the schedule. To send events to an event bus in a different Region, create a schedule in the Region where the target event bus is located.
++ **EventBridge Custom event bus (eventsv2)** – [PutEvents](https://docs.aws.amazon.com/eventbridgev2/latest/APIReference/API_PutEvents.html) or [PutRawEvents](https://docs.aws.amazon.com/eventbridgev2/latest/APIReference/API_PutRawEvents.html)
+  + Parameters: [`EventBridgePutEventsV2Parameters`](https://docs.aws.amazon.com/scheduler/latest/APIReference/API_EventBridgePutEventsV2Parameters.html) or [`EventBridgePutRawEventsParameters`](https://docs.aws.amazon.com/scheduler/latest/APIReference/API_EventBridgePutRawEventsParameters.html)
 + **Amazon Inspector** – [`StartAssessmentRun`](https://docs.aws.amazon.com/inspector/v1/APIReference/API_StartAssessmentRun.html)
 + **Kinesis** – [`PutRecord`](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html)
   + Parameters: [`KinesisParameters`](https://docs.aws.amazon.com/scheduler/latest/APIReference/API_KinesisParameters.html)
