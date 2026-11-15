@@ -27,7 +27,7 @@ This reference architecture shows how you can onboard flight data collection for
 
 1. Anonymized data is offered to third-party developers on a subscription basis with [AWS Data Exchange](https://docs.aws.amazon.com/data-exchange/latest/userguide/). 
 
-1. Fleet–wide analytics is performed by the Engine Health Management team by querying processed flight data using [Amazon Quick](https://docs.aws.amazon.com/quick/latest/userguide/) and Athena. 
+1. Fleet–wide analytics is performed by the Engine Health Management team by querying processed flight data using [AWS Quick](https://docs.aws.amazon.com/quick/latest/userguide/) and Athena. 
 
 ## Further reading
 <a name="connected-aircraft-solution-architecture-further-reading"></a>
