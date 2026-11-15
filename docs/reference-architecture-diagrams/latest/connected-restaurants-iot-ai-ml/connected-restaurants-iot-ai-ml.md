@@ -31,7 +31,7 @@ The following steps describe the architecture:
 
 1. Use AWS Glue jobs and Amazon EMR to transform or enrich the data.
 
-1. Use [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/), [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/), and [Amazon Quick Sight](https://docs.aws.amazon.com/quick/latest/userguide/what-is.html) for analytics. (Optional) Build data marts in Amazon Redshift for heavily used analytics. For one-time needs, use Athena or Amazon Redshift Spectrum for direct analysis on the data lake.
+1. Use [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/), [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/), and [AWS Quick Sight](https://docs.aws.amazon.com/quick/latest/userguide/what-is.html) for analytics. (Optional) Build data marts in Amazon Redshift for heavily used analytics. For one-time needs, use Athena or Amazon Redshift Spectrum for direct analysis on the data lake.
 
 1. Use [Amazon SageMaker AI](https://docs.aws.amazon.com/sagemaker/latest/dg/) to build, train, and deploy inference models. (Optional) Deploy edge models on AWS IoT Greengrass Core. Use the Facilitate Social Distancing and Queue Depth Management solutions for compliance and enhanced customer experience.
 
