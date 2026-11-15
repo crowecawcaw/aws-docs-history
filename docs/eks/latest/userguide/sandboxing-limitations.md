@@ -1,0 +1,44 @@
+
+
+ **Help improve this page** 
+
+To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
+
+# Considerations
+<a name="sandboxing-limitations"></a>
+
+Running a pod inside a Nitro Sandbox changes the behavior of some Kubernetes features compared to running directly on the node’s shared kernel. Pods that do not use the affected features are unaffected.
+
+
+| Limitation | Description | Workaround | 
+| --- | --- | --- | 
+| User namespaces (`hostUsers: false`) | Not supported on `isolated-sandbox` nodes. kubelet does not start these pods because the `isolated-sandbox` runtime does not advertise user namespace support. | Remove `hostUsers: false` from the pod spec. The Nitro Sandbox already provides a hardware-level boundary that makes user namespaces less necessary. | 
+| Host network (`hostNetwork: true`) | Pods that set `hostNetwork: true` fail to start. The Nitro Sandbox has its own isolated network stack and cannot share the parent instance’s network namespace. | Remove `hostNetwork: true` from the pod spec. | 
+| Host PID and IPC (`hostPID: true`, `hostIPC: true`) | These settings start but scope to the sandbox’s namespaces rather than the parent instance’s. A container with `hostPID: true` sees only processes inside its own sandbox. | Design workloads that do not require observing processes on the parent instance. | 
+| Shared EBS volumes | A single EBS volume cannot be shared by more than one pod. Each pod runs in its own Nitro Sandbox and a block device can only be attached to one sandbox at a time. | Use `ReadWriteOncePod` access mode. Use Amazon EFS for shared storage across pods. | 
+| EBS volume expansion while running | Increasing storage on a PVC while a pod is running is not supported. The pod continues to see the original capacity. | Scale the workload down, expand the volume, and scale back up. | 
+| In-place resource resize | In-place CPU and memory resize is not supported. The Nitro Sandbox’s CPU and memory are allocated at boot and cannot be changed. | Delete and recreate the pod with new resource requests. | 
+| IMDS paths | Only `placement/region`, `placement/availability-zone`, `placement/availability-zone-id`, `services/domain`, and `services/partition` are available. All other IMDS paths return 404. | Use EKS Pod Identity for AWS credentials. IAM credentials are not available through IMDS. | 
+| Per-pod outbound connection limit | Default: 4096 simultaneous outbound connections per IP family. Adjust with the `sandbox.amazonaws.com/conntrack-limit` annotation (range: 64–65536). | Adjust the annotation or add connection pooling, lower idle timeouts, or shard the workload. | 
+| Per-pod DNS query rate limit | Default: 100 queries per second. Maximum: 512. Set to `"disabled"` for no limit. `"0"` fails the pod. | Adjust `sandbox.amazonaws.com/dns-packets-per-second` or add a DNS cache sidecar. | 
+| Partially encrypted images | Images that mix encrypted and plaintext layers are not supported. The image pull fails. | Re-encrypt the image ensuring all layers are encrypted. | 
+| Pod density | Two separate caps apply. First, the total vCPUs allocated across all sandboxes on a node cannot exceed 5 times the node’s vCPU count. On a 4-vCPU instance: 20 sandboxes x 1 vCPU, 10 sandboxes x 2 vCPUs, or 5 sandboxes x 4 vCPUs (or a mix). Second, the number of sandboxes on a node cannot exceed 5 times the node’s vCPU count, and on CPU-overcommit instance types this maximum count is halved. | Right-size vCPU and memory requests. Memory limits are typically the binding constraint before vCPU oversubscription. | 
+| CPU on SMT instances | On instance types with two threads per physical core (most Intel and SMT-enabled AMD instances), core scheduling keeps two different sandboxes from running on the sibling threads of one core at the same time. Compute available to sandboxed pods is bounded by physical cores, roughly half the advertised vCPUs. Graviton instances have one thread per core and are not affected. Check `DefaultThreadsPerCore` in the output of `DescribeInstanceTypes`. | Request CPU in multiples of two vCPUs on SMT instances so each sandbox owns whole cores, or use an instance type with one thread per core. | 
+| Usable memory | Each unique container image in a pod reserves 16 MiB of the fixed `RuntimeClass` memory overhead. Pods that request more than 1 GiB see usable memory about 1–2% below `resources.requests.memory`, because the Linux kernel running inside the Nitro Sandbox uses that share for its own bookkeeping (page tables and kernel data structures). | Add headroom to `resources.requests.memory` for pods with many distinct images or large memory requests. | 
+|  `kubectl port-forward` to loopback-only servers |  `kubectl port-forward` can’t reach a server that listens only on `127.0.0.1` or `::1` inside the pod. The forward is established, but connections close without returning data. Port-forward traffic is delivered to the pod IP rather than to the loopback interface inside the Nitro Sandbox, so only servers that listen on the pod IP or on all interfaces are reachable. | Bind the server to all interfaces (`0.0.0.0` or `::`), or use `kubectl exec` to reach it from inside the pod. | 
+| GPU and device passthrough | GPU and other device passthrough are not supported at launch. The Nitro Sandbox runs on Firecracker, which does not support passing host devices into the guest. | Run pods that require GPUs or passthrough devices without a sandbox runtime class. | 
+|  `emptyDir` and ephemeral storage usage | Ephemeral storage usage for `emptyDir` volumes and the container writable layer reports as zero. The data lives inside the Nitro Sandbox, so kubelet on the node cannot measure it. | Set `ephemeral-storage` requests and limits, or use an `emptyDir` with `medium: Memory` and a `sizeLimit`. | 
+| CPU pinning (CPU Manager `static` policy) | Pinning pods to specific host CPUs with the kubelet CPU Manager `static` policy has no effect, because host CPU IDs are not meaningful inside the sandbox. | Rely on pod CPU requests and limits, which still apply to the sandbox. | 
+
+Nitro Sandboxes on Amazon EKS build on the Amazon EC2 Nitro Sandboxes primitive. Some constraints come from that primitive and apply to any workload, such as supported instance types, the maximum number of attached devices, and the absence of GPU passthrough, snapshot and restore, and live migration. For the full list, see [Considerations and limitations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-ec2-nitro-sandboxes.html#nitro-sandboxes-considerations) in the *Amazon EC2 User Guide*.
+
+## Auto Mode sandbox provisioning constraints
+<a name="sandboxing-limitations-automode-provisioning"></a>
+
+When Auto Mode cannot provision a Nitro Sandbox node, sandbox pods stay in the `Pending` state. Auto Mode does not provision a Nitro Sandbox node in the following cases:
++ The NodeClass uses FIPS AMIs.
++ The instance type’s matching AMI is a GPU or Neuron variant.
++ The instance type is a multi-NUMA instance type, or an instance type that has not yet been measured and validated.
+
+**Temporary instance type restriction**  
+At launch, the `r5a`, `r5ad`, and `m5ad` instance types are not available for Nitro Sandboxes on EKS Auto Mode, pending a Nitro fix. This restriction is temporary and we expect to remove it in a future update.

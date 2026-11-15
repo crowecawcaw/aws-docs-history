@@ -1,0 +1,68 @@
+
+
+ **Help improve this page** 
+
+To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
+
+# Storage with Nitro Sandboxes
+<a name="sandboxing-storage"></a>
+
+Pods running in Nitro Sandboxes support several storage options through standard Kubernetes CSI drivers.
+
+## Amazon EBS volumes
+<a name="sandboxing-storage-ebs"></a>
+
+EKS Auto Mode uses the `ebs.csi.eks.amazonaws.com` provisioner for EBS volumes. Create a StorageClass that references this provisioner:
+
+```
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: auto-ebs-sc
+provisioner: ebs.csi.eks.amazonaws.com
+volumeBindingMode: WaitForFirstConsumer
+parameters:
+  type: gp3
+  encrypted: "true"
+```
+
+EBS volumes are attached to the Nitro Sandbox as raw block devices. Both volume modes are supported:
++  `volumeMode: Filesystem` — The volume is formatted and mounted inside the Nitro Sandbox. The pod accesses it as a regular filesystem mount.
++  `volumeMode: Block` — The raw block device is exposed inside the Nitro Sandbox. The pod accesses it as a device path.
+
+Use `accessModes: [ReadWriteOncePod]` for EBS volumes with Nitro Sandboxes. A single EBS volume cannot be shared between multiple pods: each pod runs in its own Nitro Sandbox and a block device can only be attached to one sandbox at a time.
+
+**EBS volume expansion not supported**  
+Expanding an EBS volume while a pod is running is not supported. Scale the workload down, expand the volume, and scale the workload back up so the Nitro Sandbox attaches the volume at its new size.
+
+## Amazon EFS
+<a name="sandboxing-storage-efs"></a>
+
+Amazon EFS provides shared read-write persistent storage across pods. It mounts through the EFS CSI driver (`efs.csi.aws.com`). Install the `aws-efs-csi-driver` EKS add-on, version 3.5.0 or later, on your cluster before creating EFS volumes.
+
+The NFS mount is performed inside the Nitro Sandbox and TLS is terminated there, so the parent instance does not sit on the data path.
+
+IAM requirements depend on the mount type:
++ EFS access-point mounts without the `iam` mount option: No IAM credentials required. The guest authenticates to EFS using the filesystem ID and access point ID in its client certificate.
++ EFS mounts with the `iam` mount option: The runtime authenticates with a SigV4 signature using AWS credentials resolved from the EFS CSI Node DaemonSet’s service account through EKS Pod Identity, falling back to the parent EC2 instance role when the DaemonSet has no Pod Identity association. The workload pod’s own service account is not used for the mount.
+
+**EFS not available with network isolation**  
+EFS volumes are not available when `sandbox.amazonaws.com/network-isolated` is set to `"true"` because the Nitro Sandbox has no network access.
+
+## Tmpfs-backed CSI drivers
+<a name="sandboxing-storage-tmpfs"></a>
+
+CSI drivers that populate a host tmpfs (rather than attaching a block device) work with Nitro Sandboxes. The contents are delivered into the sandbox and refreshed automatically when the driver rotates them on the host. The Secrets Store CSI Driver and the cert-manager CSI driver are two examples.
+
+**Tmpfs volumes visible to the parent instance**  
+Tmpfs-backed CSI volumes are visible to the parent instance. The CSI driver fetches the content on the host and the runtime mirrors it into the sandbox. If your threat model requires that secrets remain inaccessible to the parent instance, store them encrypted in AWS Secrets Manager and decrypt inside your application using a KMS key gated by `kms:RecipientAttestation:PCR<PCR_ID>` conditions.
+
+## emptyDir and ConfigMap/Secret volumes
+<a name="sandboxing-storage-standard"></a>
+
+Standard Kubernetes volume types (`emptyDir`, `configMap`, `secret`, `projected`, `downwardAPI`) work without changes. Their contents are delivered into the Nitro Sandbox at pod startup and refreshed when the source changes on the parent instance.
+
+## Ephemeral scratch storage
+<a name="sandboxing-storage-ephemeral"></a>
+
+A Nitro Sandbox’s ephemeral scratch space — the overlay (ephemeral scratch) disk that backs the container writable layer and `emptyDir` volumes — comes from the node’s local instance store. This storage is ephemeral and is not persisted: its contents are lost when the sandbox stops.

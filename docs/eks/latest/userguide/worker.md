@@ -9,6 +9,9 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 A cluster contains one or more Amazon EC2 nodes that Pods are scheduled on. Amazon EKS nodes run in your AWS account and connect to the control plane of your cluster through the cluster API server endpoint. You’re billed for them based on Amazon EC2 prices. For more information, see [Amazon EC2 pricing](https://aws.amazon.com/ec2/pricing/).
 
+**Nitro Sandboxes on self-managed nodes**  
+To run isolated or confidential pods with Nitro Sandboxes on self-managed nodes, build a compatible AMI that includes the Nitro Sandbox runtime, and use instance types that support Nitro Enclaves. For how to download the binaries and build the AMI, see [Download and verify the runtime binaries](sandboxing-download-binaries.md) and [Create and update a Nitro Sandbox AMI](sandboxing-ami-create-update.md).
+
 A cluster can contain several node groups. Each node group contains one or more nodes that are deployed in an [Amazon EC2 Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html). The instance type of the nodes within the group can vary, such as when using [attribute-based instance type selection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) with [Karpenter](https://karpenter.sh/). All instances in a node group must use the [Amazon EKS node IAM role](create-node-role.md).
 
 Amazon EKS provides specialized Amazon Machine Images (AMIs) that are called Amazon EKS optimized AMIs. The AMIs are configured to work with Amazon EKS. Their components include `containerd`, `kubelet`, and the AWS IAM Authenticator. The AMIs also contain a specialized [bootstrap script](https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2/runtime/bootstrap.sh) that allows it to discover and connect to your cluster’s control plane automatically.

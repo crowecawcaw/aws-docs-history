@@ -11,6 +11,9 @@ The [Amazon VPC CNI plugin for Kubernetes](https://github.com/aws/amazon-vpc-cni
 
 If you plan to use an alternate CNI plugin on Amazon EC2 nodes, we recommend that you obtain commercial support for the plugin or have the in-house expertise to troubleshoot and contribute fixes to the CNI plugin project.
 
+**Alternate CNI plugins and Nitro Sandboxes**  
+Alternate CNI plugins and service meshes, such as Cilium, Calico, and Istio, are not validated for isolated and confidential pods that run in Nitro Sandboxes at launch. For Nitro Sandboxes, use the Amazon VPC CNI plugin. For more information, see [Sandboxing on Amazon EKS with isolated and confidential pods](sandboxing.md).
+
 Amazon EKS maintains relationships with a network of partners that offer support for alternate compatible CNI plugins. For details about the versions, qualifications, and testing performed, see the following partner documentation.
 
 

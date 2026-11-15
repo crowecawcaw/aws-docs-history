@@ -15,6 +15,34 @@ To receive notifications of all source file changes to this specific documentati
 https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/automode/auto-change.adoc.atom
 ```
 
+## November 9, 2026
+<a name="_november_9_2026"></a>
+
+ **Feature**: Amazon EKS Auto Mode now supports Nitro Sandboxes, which run isolated and confidential pods inside hardware-isolated virtual machines on the AWS Nitro System. Auto Mode includes Nitro Sandbox support with no additional configuration. You do not build or manage an AMI. Set `runtimeClassName` to `isolated-sandbox` or `confidential-sandbox` on the pod. Auto Mode then provisions a node on a supported instance type with Nitro Enclaves enabled and runs the pod in a Nitro Sandbox.
++ Isolated pods (`isolated-sandbox`): Protect the node and other pods from a compromised workload. The parent instance is trusted.
++ Confidential pods (`confidential-sandbox`): Protect workload data from the node operator or a compromised parent instance. A Cedar policy pins container admission, and you gate AWS KMS access on attestation.
++ Additional protections: Nitro Sandboxes provide per-pod policy enforcement, encrypted container images, and image signature verification with AWS Signer.
+
+Nitro Sandboxes with EKS Auto Mode requires Kubernetes version 1.36 or later.
+
+Nitro Sandboxes is available in all commercial AWS Regions.
+
+For more information, see [Sandboxing on Amazon EKS with isolated and confidential pods](sandboxing.md).
+
+ **Feature**: Amazon EKS Auto Mode now supports Dynamic Resource Allocation (DRA) for NVIDIA GPUs and Elastic Fabric Adapter (EFA) network devices. You define the device attributes your workloads need with `ResourceClaim` or `ResourceClaimTemplate` objects, and EKS Auto Mode dynamically scales Amazon EC2 instances to match.
++ Built-in drivers: The NVIDIA DRA driver and the EFA DRA driver (DRANET) are included in the EKS Auto Mode node runtime. You don’t install, configure, or upgrade them.
++ Attribute-based and topology-aware allocation: Select devices by model, architecture, or other attributes, and constrain a GPU and an EFA device to the same PCIe root for distributed training and inference.
++ Device sharing: Multiple Pods can share a device by referencing the same `ResourceClaim`.
++ Automatic exclusivity: EKS Auto Mode prevents workloads that use DRA and workloads that use device plugins for the same device type from running on the same node, which mitigates the risk of silent device oversubscription during migrations. Each node is a DRA node or a device plugin node per device type for its whole lifetime.
++ Optional explicit device manager selection: Set `eks.amazonaws.com/device-manager-nvidia` or `eks.amazonaws.com/device-manager-efa` to `dra` or `device-plugin` on a `NodePool` to choose the device manager explicitly. This is required for static capacity provisioning. With dynamic capacity provisioning, EKS Auto Mode infers the device manager from your workloads, so the label is optional.
++ Instance types for EFA: Dynamic capacity provisioning for EFA DRA claims supports instance types with NVIDIA GPUs. Support for EFA-enabled instance types without GPUs, such as `hpc7a` or `c6in`, is coming soon. For more information, see [aws/karpenter-provider-aws\#9879](https://github.com/aws/karpenter-provider-aws/pull/9879) on GitHub.
+
+GPU sharing through DRA, including time-slicing and MIG, is not available in EKS Auto Mode.
+
+DRA with EKS Auto Mode requires Kubernetes version 1.36 or later.
+
+For more information, see [Using DRA with EKS Auto Mode](device-management.md#dra-auto-mode) and [Deploy an accelerated workload with Dynamic Resource Allocation](auto-accelerated.md#auto-accelerated-dra).
+
 ## October 26, 2026
 <a name="_october_26_2026"></a>
 
@@ -219,7 +247,7 @@ Specifically, ensure your policy includes:
 ## September 29, 2025
 <a name="_september_29_2025"></a>
 
-DRA is not currently supported by EKS Auto Mode.
+DRA is not supported by EKS Auto Mode. (Superseded: EKS Auto Mode added DRA support for NVIDIA GPUs and EFA devices on November 9, 2026. For more information, see [Using DRA with EKS Auto Mode](device-management.md#dra-auto-mode).)
 
 ## September 10, 2025
 <a name="_september_10_2025"></a>

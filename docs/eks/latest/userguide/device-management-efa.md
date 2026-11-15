@@ -16,14 +16,16 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 | Feature | EFA DRA driver | EFA device plugin | 
 | --- | --- | --- | 
 | Minimum Kubernetes version | 1.34 | All EKS-supported Kubernetes versions | 
-| EKS Compute | Karpenter, managed node groups, self-managed nodes | EKS Auto Mode, Karpenter, managed node groups, self-managed nodes | 
+| EKS Compute | EKS Auto Mode (Kubernetes 1.36 and later), Karpenter, managed node groups, self-managed nodes | EKS Auto Mode, Karpenter, managed node groups, self-managed nodes | 
 | EKS-optimized AMIs | AL2023, Bottlerocket | AL2023, Bottlerocket | 
 | Device advertisement | Rich attributes via `ResourceSlice` objects including device type, topology, and PCIe locality | Integer count of `vpc.amazonaws.com/efa` extended resources | 
 | GPU-EFA affinity | DRA-native topology-awareness | Automatic topology-awareness (EKS-optimized AL2023 AMIs only) | 
 | Neuron-EFA affinity | DRA-native topology-awareness | Automatic topology-awareness (EKS-optimized AL2023 AMIs only) | 
-| Device sharing | Multiple Pods can share the same EFA device through shared `ResourceClaim` references | Not supported. Each EFA device is exclusively allocated to one Pod. | 
+| Device sharing | Not supported. Each EFA device is exclusively allocated to one Pod. For more information, see [EFA device sharing between Pods is not supported](#efa-dra-share). | Not supported. Each EFA device is exclusively allocated to one Pod. | 
 
-We recommend using DRA drivers for new deployments with Kubernetes versions 1.34 and later on Karpenter, EKS managed node groups, or self-managed nodes. Karpenter supports DRA with both dynamic and static capacity provisioning as of Karpenter version 1.15, though dynamic provisioning requires enabling Karpenter feature gates. For more information, see [Using DRA with Karpenter](device-management.md#dra-karpenter). DRA is not currently supported with EKS Auto Mode. With the EFA DRA driver, you can configure topology-aware allocation that pairs EFA interfaces with their topologically-local GPUs or Neuron devices, and share devices between Pods.
+We recommend using DRA drivers for new deployments with Kubernetes versions 1.34 and later. With the EFA DRA driver, you can configure topology-aware allocation that pairs EFA interfaces with their topologically-local GPUs or Neuron devices.
+
+EKS Auto Mode includes the EFA DRA driver in the node runtime on Kubernetes version 1.36 and later, so you do not install or manage it. For more information, see [Using DRA with EKS Auto Mode](device-management.md#dra-auto-mode). With Karpenter, EKS managed node groups, or self-managed nodes, you install the EFA DRA driver yourself. Karpenter supports DRA with both dynamic and static capacity provisioning as of Karpenter version 1.15. Dynamic provisioning requires enabling Karpenter feature gates. For more information, see [Using DRA with Karpenter](device-management.md#dra-karpenter).
 
 With EFA, High Performance Computing (HPC) applications using the Message Passing Interface (MPI) and machine learning applications using the NVIDIA Collective Communications Library (NCCL) can scale to thousands of CPUs or GPUs, which gives you the application performance of an on-premises HPC cluster with the elasticity of the AWS Cloud. Using EFA with Pods running on Amazon EKS can reduce the time to complete large-scale distributed training workloads without adding instances to your cluster. For more information about EFA, see [Elastic Fabric Adapter](https://aws.amazon.com/hpc/efa/).
 
@@ -33,8 +35,8 @@ With EFA, High Performance Computing (HPC) applications using the Message Passin
 An *Elastic Fabric Adapter (EFA)* is a network interface that combines the capabilities of an Elastic Network Adapter (ENA) and an OS-bypass interface, powered by the AWS Scalable Reliable Datagram (SRD) protocol. The OS-bypass interface lets applications communicate directly with the hardware for low-latency transport, while the ENA capabilities carry normal IP traffic.
 
 Amazon EC2 offers two interface types for EFA:
-+  ** `efa` ** — Provides both the ENA and OS-bypass capabilities on one interface. The interface receives an IP address from your subnet.
-+  ** `efa-only` ** — Provides only the OS-bypass capability. The interface does not receive an IP address and communication is limited to interfaces within the same Availability Zone.
++  ** `efa` **: Provides both the ENA and OS-bypass capabilities on one interface. The interface receives an IP address from your subnet.
++  ** `efa-only` **: Provides only the OS-bypass capability. The interface does not receive an IP address and communication is limited to interfaces within the same Availability Zone.
 
  **We recommend `efa-only` interfaces for all interfaces except the primary network interface.** Distributed training and HPC traffic uses the OS-bypass path, not the IP path, so the IP addresses that `efa` interfaces consume go unused. On an instance such as `p5.48xlarge` or `p6-b200.48xlarge` with dozens of network interfaces, those unused addresses can exhaust a subnet’s available IP space. For more information, see [Conserving IP address allocation](#eks-efa-conserve-ip).
 
@@ -73,8 +75,18 @@ us-west-2a    us-west-2c    us-west-2b
 
 Your VPC must have subnets with available IP addresses in one of the Availability Zones returned. Because `efa-only` interfaces communicate only within an Availability Zone, place the nodes of a single distributed job in one Availability Zone.
 
-**Important**  
-EFA requires hugepages. Amazon EC2 instances with the EFA driver installed pre-allocate 5128 pages of 2 MiB, which you request as `hugepages-2Mi` resources in your workload specifications. The examples in this topic request hugepages alongside EFA devices. For more information about configuring hugepages on EKS nodes, see [Configure hugepages in Amazon EKS clusters](ml-hugepages.md), and for the Kubernetes resource model, see [Manage HugePages](https://kubernetes.io/docs/tasks/manage-hugepages/scheduling-hugepages/) in the Kubernetes documentation.
+**EFA requires hugepages**  
+EFA requires hugepages. The EFA installer, which is included in the EKS-optimized AL2023 accelerated AMIs and the Bottlerocket AMIs, reserves 2 MiB hugepages when a node boots. You request them as `hugepages-2Mi` resources in your workload specifications, and the examples in this topic request hugepages alongside EFA devices.  
+Note the following about this reservation:  
+ **It requires an EFA device, not just the EFA software.** The reservation runs only on instances that have an EFA device attached. An accelerated node that has the EFA installer but no EFA interface reserves no hugepages, and a Pod that requests `hugepages-2Mi` on such a node stays in the `Pending` state.
+ **The amount scales with the size of the instance.** The reservation covers the packet pools that the libfabric EFA provider creates for each endpoint, so it grows with the number of vCPUs. A `c5n.18xlarge` reserves roughly 15 GiB and a `p5.48xlarge` roughly 41 GiB. Do not assume a fixed amount.
+ **It only ever increases the reservation.** If a node already has more 2 MiB hugepages reserved, for example from node user data, the EFA installer leaves that reservation in place.
+To see what a node actually reserved, check its capacity:  
+
+```
+kubectl get nodes -o custom-columns='NAME:.metadata.name,2Mi:.status.capacity.hugepages-2Mi'
+```
+Size your Pod requests against what your nodes report, rather than against a fixed figure. For more information about configuring hugepages on EKS nodes, see [Configure hugepages in Amazon EKS clusters](ml-hugepages.md), and for the Kubernetes resource model, see [Manage HugePages](https://kubernetes.io/docs/tasks/manage-hugepages/scheduling-hugepages/) in the Kubernetes documentation.
 
 ## Creating EKS nodes with EFA interfaces
 <a name="eks-efa-nodes"></a>
@@ -85,6 +97,13 @@ When using [`eksctl`](install-kubectl.md#eksctl-install-update) for provisioning
 
 The following examples show how to configure `NodeClass` and launch templates with EFA interfaces. This is useful to customize the interfaces used for EFA vs standard IP-based traffic. For information on the number of EFA interfaces supported by each instance type and how to configure them for maximum network bandwidth, see [Maximize network bandwidth for EFA-enabled instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa-acc-inst-types.html) in the *Amazon EC2 User Guide*.
 
+**Dynamic capacity provisioning assumes all EFA interfaces are attached**  
+When EKS Auto Mode or Karpenter uses dynamic capacity provisioning to launch a node for an EFA DRA claim, it chooses the instance type before the node exists, by evaluating the claim against device metadata for each candidate instance type. That metadata assumes the node is configured with an EFA interface on every EFA-capable network card the instance type supports, and it is what PCIe alignment constraints are evaluated against.  
+If a node is launched with fewer EFA interfaces than its instance type supports, EKS Auto Mode and Karpenter overestimate the EFA devices the node will offer, and can launch a node that cannot satisfy the claim. For EFA DRA workloads that use dynamic capacity provisioning, leave the network interface configuration unset and let EKS Auto Mode or Karpenter attach an EFA interface on every EFA-capable network card for you.  
+Note the following about the device metadata:  
+ **It covers instance types with NVIDIA GPUs.** EKS Auto Mode and Karpenter don’t yet have EFA DRA device metadata for EFA-enabled instance types without GPUs, such as `hpc7a` or `c6in`. As a result, dynamic capacity provisioning can’t launch them for an EFA DRA claim. Support for these instance types is coming soon. For more information, see [aws/karpenter-provider-aws\#9879](https://github.com/aws/karpenter-provider-aws/pull/9879) on GitHub. Until then, use static capacity provisioning, EKS managed node groups, self-managed nodes, or the EFA device plugin for them.
+This assumption does not apply to static capacity provisioning, EKS managed node groups, or self-managed nodes. On those, the nodes exist before any claim is evaluated and the EFA DRA driver publishes `ResourceSlice` objects for the interfaces that are actually attached.
+
 ## EKS Auto Mode
 <a name="eks-efa-auto-mode"></a>
 
@@ -93,6 +112,24 @@ In EKS Auto Mode, you configure EFA network interfaces using the `advancedNetwor
 When `networkInterfaces` is configured, instances launched by the `NodePool` referencing the `NodeClass` use this configuration regardless of whether Pods request `vpc.amazonaws.com/efa` resources. EKS Auto Mode does not attach additional IPs, prefixes, or ENIs after instance launch for nodes with static network interface configuration — only the interfaces and IPs configured at launch are available to Pods.
 
 This feature can be used with [static capacity node pools](auto-static-capacity.md) to maintain pre-warmed, EFA-ready nodes for distributed training and inference workloads.
+
+**EFA nodes need a subnet with a route to the internet**  
+Run EFA workloads on private subnets with a NAT gateway, or on subnets with the AWS PrivateLink endpoints your workloads need. Do not rely on a public subnet that assigns public IP addresses.  
+Amazon EC2 does not assign a public IP address to an instance whose launch specifies more than one network interface. An EFA-enabled node is launched with several interfaces, whether EKS Auto Mode attaches them for you or you configure more than one entry in `advancedNetworking.networkInterfaces`. Such a node receives no public IP address, even in a subnet that has `MapPublicIpOnLaunch` enabled. The node still joins the cluster over the Amazon EKS private endpoint, so it reports `Ready`, but it has no route to the internet. Image pulls then fail with a timeout and your Pods stay in the `ImagePullBackOff` or `ErrImagePull` state.  
+This applies to EFA workloads that use DRA and to EFA workloads that request the `vpc.amazonaws.com/efa` extended resource, because it depends only on how many network interfaces the node is launched with. It does not affect nodes that are launched with a single network interface, which do receive a public IP address.
+
+**Combining a custom interface layout with topology-aligned allocation**  
+Don’t use dynamic capacity provisioning, static network interface configuration, and topology-aligned GPU and EFA allocation together. The behavior of this combination is undefined.  
+EKS Auto Mode still launches a node, but the Pod can then fail to schedule onto it and remain in the `Pending` state. You don’t get an error when the node is provisioned. This happens because the device metadata that EKS Auto Mode evaluates the claim against assumes an EFA interface on every EFA-capable network card. An interface list that configures fewer than that makes EKS Auto Mode overestimate the topologically-aligned devices the node will offer.  
+Static network interface configuration is intended for static capacity provisioning. If you need a custom interface layout together with topology-aligned allocation, use [static capacity node pools](auto-static-capacity.md). For more information, see [Using DRA with EKS Auto Mode](device-management.md#dra-auto-mode).
+
+When you do not configure `networkInterfaces` and a Pod claims EFA devices through DRA, EKS Auto Mode attaches the EFA interfaces for you. EKS Auto Mode includes the EFA DRA driver in the node runtime on Kubernetes version 1.36 and later, so you do not install the driver described in [Install the EFA DRA driver (DRANET)](#efa-dra-driver). You do need to create the EFA `DeviceClass` yourself, because EKS Auto Mode runs the driver from the node runtime rather than from the Helm chart that would otherwise create it. For the definition to apply, see [DeviceClass objects on EKS Auto Mode](device-management.md#dra-auto-mode-deviceclass).
+
+The interfaces that EKS Auto Mode attaches for you are `efa` interfaces, so each one receives a private IP address from your subnet. Size your subnets for one private IP address per EFA-capable network card on every node you expect to launch this way.
+
+To use the `efa-only` interfaces recommended in [Conserving IP address allocation](#eks-efa-conserve-ip) instead, configure `advancedNetworking.networkInterfaces` on the `NodeClass` and choose the interfaces attached at launch yourself, as described earlier in this section. The combination to avoid is dynamic capacity provisioning together with a custom interface list and topology-aligned GPU and EFA allocation.
+
+You don’t select DRA rather than the EFA device plugin for a `NodePool`. With dynamic capacity provisioning, EKS Auto Mode infers which of the two a node uses from the workloads it launches the node for. To pin every node a `NodePool` launches to one of them, which static capacity provisioning requires, set the `eks.amazonaws.com/device-manager-efa` label to `dra` or `device-plugin` on the `NodePool` template. For more information, see [Using DRA with EKS Auto Mode](device-management.md#dra-auto-mode).
 
 ### Example EKS Auto Mode NodeClass with EFA-only interfaces for P5
 <a name="eks-efa-auto-mode-example"></a>
@@ -143,8 +180,10 @@ When using Karpenter without specifying `networkInterfaces` in your `NodeClass`,
 
 The `networkInterfaces` configuration for `EC2NodeClass` was added in Karpenter v1.11. The following example shows an `EC2NodeClass` configured for a P6-B200 instance with 1 ENA interface and 8 EFA-only interfaces.
 
-**Important**  
-Do not combine `spec.networkInterfaces` with Karpenter dynamic capacity provisioning for EFA DRA workloads. Karpenter does not support that combination and the result is undefined behavior. If you use the EFA DRA driver and need a custom interface layout such as the `efa-only` configuration below, use Karpenter static capacity provisioning, EKS managed node groups, or self-managed nodes. For more information, see [Using DRA with Karpenter](device-management.md#dra-karpenter).
+**Combining a custom interface layout with topology-aligned allocation**  
+Don’t use Karpenter dynamic capacity provisioning, static network interface configuration, and topology-aligned GPU and EFA allocation together. The behavior of this combination is undefined.  
+Karpenter still launches a node, but the Pod can then fail to schedule onto it and remain in the `Pending` state. You don’t get an error when the node is provisioned. This happens because the device metadata that Karpenter evaluates the claim against assumes an EFA interface on every EFA-capable network card. A `spec.networkInterfaces` list that configures fewer than that makes Karpenter overestimate the topologically-aligned devices the node will offer.  
+Static network interface configuration is intended for static capacity provisioning. If you use the EFA DRA driver and need a custom interface layout such as the `efa-only` configuration below, use Karpenter static capacity provisioning, EKS managed node groups, or self-managed nodes. For more information, see [Using DRA with Karpenter](device-management.md#dra-karpenter).
 
 ### Example Karpenter EC2NodeClass with EFA-only interfaces for P6-B200
 <a name="eks-efa-karpenter-example"></a>
@@ -289,6 +328,9 @@ The EFA DRA driver is built in the upstream [DRANET](https://github.com/kubernet
 
 The EFA DRA driver advertises EFA devices as `ResourceSlice` objects with the driver name `dra.net` and the `DeviceClass` name `efa.networking.k8s.aws`. The EFA DRA driver runs as a DaemonSet on each node and automatically discovers EFA devices.
 
+**EKS Auto Mode includes this driver**  
+Skip this section if you use EKS Auto Mode. EKS Auto Mode includes the EFA DRA driver in the node runtime on Kubernetes version 1.36 and later. You do need to create the `DeviceClass` object, as described in [Create the EFA DeviceClass](#efa-dra-deviceclass). For more information, see [Using DRA with EKS Auto Mode](device-management.md#dra-auto-mode).
+
 ### Prerequisites
 <a name="_prerequisites"></a>
 + An Amazon EKS cluster running Kubernetes version 1.34 or later with static capacity provisioned by Karpenter, EKS managed node groups, or self-managed node groups.
@@ -387,6 +429,45 @@ Do not install the EFA DRA driver on nodes where the EFA device plugin is runnin
        resourceClaimTemplateName: single-efa-claim
    ```
 
+## Create the EFA DeviceClass
+<a name="efa-dra-deviceclass"></a>
+
+A `DeviceClass` names a category of devices and defines the expression that selects them. Every `ResourceClaim` and `ResourceClaimTemplate` references one by name, so the EFA `DeviceClass` must exist before an EFA claim can be allocated. A claim that references a `DeviceClass` that does not exist is never allocated, and the Pod stays in the `Pending` state.
+
+When you install the EFA DRA driver with Helm, as described in [Install the EFA DRA driver (DRANET)](#efa-dra-driver), the chart creates this object for you and there is nothing more to do. EKS Auto Mode runs the driver from the node runtime rather than from a Helm chart, so on EKS Auto Mode you create it yourself.
+
+```
+cat <<EOF | kubectl apply -f -
+apiVersion: resource.k8s.io/v1
+kind: DeviceClass
+metadata:
+  name: efa.networking.k8s.aws
+spec:
+  selectors:
+  - cel:
+      expression: |
+        device.driver == "dra.net" &&
+        device.attributes["dra.net"].pciDevice == 'Elastic Fabric Adapter (EFA)'
+EOF
+```
+
+The EFA DRA driver advertises every network interface on the node, not only EFA devices, so the selector filters to EFA devices. Without that filter, a claim could be allocated a network interface that is not an EFA device.
+
+Confirm that it exists.
+
+```
+kubectl get deviceclass
+```
+
+An example output is as follows.
+
+```
+NAME                     AGE
+efa.networking.k8s.aws   5s
+```
+
+This definition matches the one the driver’s Helm chart installs, so the same claims work on EKS Auto Mode and on clusters where you manage the driver yourself. For more information about DRA on EKS Auto Mode, see [Using DRA with EKS Auto Mode](device-management.md#dra-auto-mode).
+
 ## Topology-aware EFA and GPU/Neuron device allocation
 <a name="efa-dra-topology-aware"></a>
 
@@ -467,66 +548,63 @@ spec:
         matchAttribute: "resource.kubernetes.io/pcieRoot"
 ```
 
-## Share EFA devices between multiple Pods
+### Request an aligned claim from a Pod
+<a name="_request_an_aligned_claim_from_a_pod"></a>
+
+A `ResourceClaimTemplate` only describes the devices to allocate. To use it, reference it from your Pod specification. List the template under `resourceClaims` with a name that is local to the Pod, then reference that local name from each container’s `resources.claims` so the container receives the allocated devices. Kubernetes generates a separate `ResourceClaim` for each Pod, so each Pod gets its own aligned set of EFA interfaces and GPUs.
+
+The following example references the `aligned-efa-nvidia` template from the first example in this section, which allocates one EFA interface aligned with one NVIDIA GPU on the same PCIe root.
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: training-worker
+spec:
+  containers:
+  - name: worker
+    image: {{my-training-image}}
+    resources:
+      claims:
+      - name: aligned-devices
+      limits:
+        hugepages-2Mi: 5120Mi
+      requests:
+        hugepages-2Mi: 5120Mi
+  resourceClaims:
+  - name: aligned-devices
+    resourceClaimTemplateName: aligned-efa-nvidia
+  tolerations:
+  - key: nvidia.com/gpu
+    operator: Exists
+    effect: NoSchedule
+```
+
+Note the following about this specification:
++  ** `resourceClaims` ** names the template to use. The `name` field (`aligned-devices`) is an identifier local to this Pod, not the name of a cluster object. The `resourceClaimTemplateName` field is the name of the `ResourceClaimTemplate` object.
++  ** `resources.claims` ** gives the container access to the devices from that claim. A container that omits this does not receive the devices, even though the Pod holds the claim. If a Pod has several containers, list the claim in each container that needs the devices.
++  ** `hugepages-2Mi` ** is required because EFA transfers use hugepages. Adjust the amount to match your workload and the hugepages your nodes reserve, which depends on instance size. For more information, see [Choosing an EFA-enabled instance type](#eks-efa-instance-types) and [Configure hugepages in Amazon EKS clusters](ml-hugepages.md).
++  **The toleration** is needed only if your GPU nodes carry a taint such as `nvidia.com/gpu`. Adjust or remove it to match your `NodePool`.
++  **No extended resources are requested.** Do not add `vpc.amazonaws.com/efa` or `nvidia.com/gpu` to `resources.limits`. Those are device plugin resources, and requesting them makes the Pod a device plugin Pod rather than a DRA Pod. For more information, see [Manage hardware devices on Amazon EKS](device-management.md).
+
+To use one of the other templates in this section, change `resourceClaimTemplateName` to that template’s name. For a Neuron-aligned claim, replace the GPU toleration with the taint your Neuron nodes use.
+
+Give each Pod its own EFA devices. EFA devices cannot be shared between Pods. For more information, see [EFA device sharing between Pods is not supported](#efa-dra-share).
+
+## EFA device sharing between Pods is not supported
 <a name="efa-dra-share"></a>
 
-The EFA DRA driver supports sharing EFA devices between multiple Pods by using a `ResourceClaim`. Unlike a `ResourceClaimTemplate`, which generates a separate claim for each Pod, a `ResourceClaim` is a named object that you create independently and reference from multiple Pods. All Pods that reference the same `ResourceClaim` share access to the same allocated EFA devices and are scheduled to the same node where those devices are available.
+An EFA device is allocated to one Pod at a time. Unlike NVIDIA GPUs, which several Pods can share through a `ResourceClaim` that each of them references, EFA devices do not support this pattern. Use a `ResourceClaimTemplate`, which generates a separate claim and a separate set of devices for each Pod, as shown in [Topology-aware EFA and GPU/Neuron device allocation](#efa-dra-topology-aware).
 
-To share EFA devices between Pods, create a `ResourceClaim` that requests the EFA devices, then reference that claim by name in each Pod’s `resourceClaims` field using `resourceClaimName`. The `ResourceClaim` must exist in the cluster before the Pods that reference it are created. If a referenced `ResourceClaim` does not exist, the Pods remain in a pending state until the claim is created.
+This is a property of the EFA DRA driver rather than a limitation of DRA. The driver prepares a claim for one Pod only, and rejects a claim that is reserved for more than one Pod before it attaches any device.
 
-The following example creates a `ResourceClaim` that requests 4 EFA devices, and two Pods that share access to those devices.
+If you create a `ResourceClaim` and reference it from several Pods with `resourceClaimName`, Kubernetes allows the reference and schedules every Pod onto the node where the devices were allocated. The driver then fails to prepare the claim and the kubelet reports a `FailedPrepareDynamicResources` event with the message `driver only supports one pod per claim`. Every Pod that references the claim stays in the `ContainerCreating` state, and none of them receive the devices. If you then reduce the Pods that reference the claim to one, the remaining Pod starts on the next retry.
 
-1. Create the `ResourceClaim`.
+A `ResourceClaim` referenced by a single Pod is allocated and prepared normally. Use a `ResourceClaimTemplate` instead when each Pod needs its own devices, so that a second Pod cannot reference a claim that is already in use.
 
-   ```
-   apiVersion: resource.k8s.io/v1
-   kind: ResourceClaim
-   metadata:
-     name: shared-efa
-   spec:
-     devices:
-       requests:
-       - name: efa
-         exactly:
-           deviceClassName: efa.networking.k8s.aws
-           count: 4
-   ```
+Processes that need to share one EFA device must run in the same Pod. The driver prepares the claim once for the Pod, so list the claim in each container’s `resources.claims` and every container receives the same devices.
 
-1. Reference the `ResourceClaim` by name in each Pod that needs access to the EFA devices. Each Pod uses `resourceClaimName` to reference the existing claim instead of `resourceClaimTemplateName`.
-
-   ```
-   apiVersion: v1
-   kind: Pod
-   metadata:
-     name: training-worker
-   spec:
-     containers:
-     - name: worker
-       image: my-training-image
-       resources:
-         claims:
-         - name: efa-devices
-     resourceClaims:
-     - name: efa-devices
-       resourceClaimName: shared-efa
-   ---
-   apiVersion: v1
-   kind: Pod
-   metadata:
-     name: training-monitor
-   spec:
-     containers:
-     - name: monitor
-       image: my-monitor-image
-       resources:
-         claims:
-         - name: efa-devices
-     resourceClaims:
-     - name: efa-devices
-       resourceClaimName: shared-efa
-   ```
-
-Both Pods reference the same `shared-efa` `ResourceClaim` and are scheduled to the node where those EFA devices are allocated. The `ResourceClaim` lifecycle is independent of the Pods — it persists until you delete it, even if all Pods referencing it are removed.
+Sharing an RDMA device such as an EFA device between Pods is tracked upstream in [dranet issue 63](https://github.com/kubernetes-sigs/dranet/issues/63).
 
 ## Install the EFA Kubernetes device plugin
 <a name="eks-efa-device-plugin"></a>

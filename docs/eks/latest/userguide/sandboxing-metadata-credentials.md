@@ -1,0 +1,64 @@
+
+
+ **Help improve this page** 
+
+To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
+
+# Pod Identity and credentials
+<a name="sandboxing-metadata-credentials"></a>
+
+Pods running in a Nitro Sandbox cannot reach the parent instance’s network services directly. The sandbox provides local surrogates for instance metadata and Pod Identity credentials so that workloads behave the same as pods running on a standard node.
+
+## Instance metadata (IMDS)
+<a name="sandboxing-imds"></a>
+
+The Nitro Sandbox runs an IMDSv2-only metadata service at `169.254.169.254`. Workloads that use the AWS SDKs or query IMDS directly for region and placement information work without changes. The metadata service provides only the following paths; all other paths return a 404 response:
+
+
+| Path | Description | 
+| --- | --- | 
+|  `placement/region`  | The AWS Region the instance is running in (for example, `us-west-2`). | 
+|  `placement/availability-zone`  | The Availability Zone (for example, `us-west-2a`). | 
+|  `placement/availability-zone-id`  | The stable Availability Zone ID (for example, `usw2-az1`). | 
+|  `services/domain`  | The service domain for the partition (for example, `amazonaws.com`). | 
+|  `services/partition`  | The AWS partition (for example, `aws`). | 
+
+The metadata service requires IMDSv2 session tokens. Use `PUT /latest/api/token` with a `X-aws-ec2-metadata-token-ttl-seconds` header to obtain a token, then pass it as `X-aws-ec2-metadata-token` on subsequent requests. IMDSv1 (tokenless) requests are rejected.
+
+**IMDS unavailable with network isolation**  
+The metadata service is not available when `sandbox.amazonaws.com/network-isolated` is set to `"true"`. The Nitro Sandbox has no network access in that configuration and does not start the metadata surrogate.
+
+ AWS SDKs and the `ec2-metadata` CLI tool use IMDSv2 by default and work without changes.
+
+## Pod Identity
+<a name="sandboxing-pod-identity"></a>
+
+Pods in Nitro Sandboxes access AWS credentials through EKS Pod Identity the same way as pods on standard nodes. The credential endpoint (`169.254.170.23:80`) is available inside the sandbox and returns temporary credentials for the IAM role associated with the pod’s service account.
+
+If you attach a Cedar policy to the pod, generate it with `--with-pod-identity`, in both isolated and confidential mode. The EKS Pod Identity webhook injects the token volume after `eks-nitro-sandbox-genpolicy` (included in the signed runtime binaries; see [Download and verify the runtime binaries](sandboxing-download-binaries.md)) reads your manifest, so the tool cannot detect it. Without the flag, the pod starts but the token file is absent, and AWS SDK calls fail because they cannot read the file named by `AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE`. Isolated pods without a policy need no additional configuration.
+
+**Pod Identity unavailable with network isolation**  
+Pod Identity credentials are not available when `sandbox.amazonaws.com/network-isolated` is set to `"true"`. Workloads that need AWS credentials cannot use this annotation.
+
+## IAM roles for service accounts (IRSA)
+<a name="sandboxing-irsa"></a>
+
+Pods in Nitro Sandboxes can also obtain AWS credentials through IRSA. IRSA is an alternative to Pod Identity for your workload’s own AWS calls. Features where the Nitro Sandbox calls AWS on the pod’s behalf, encrypted image decryption and image signature verification, use EKS Pod Identity only.
+
+**IRSA requires the --with-irsa flag**  
+IRSA requires the `--with-irsa` flag when you generate a Cedar policy, in both isolated and confidential mode. The webhook injects the volume after `eks-nitro-sandbox-genpolicy` reads your manifest, so the tool cannot detect it automatically.
+
+Without the flag, the policy has no permit allowing the token to be written into the sandbox. The pod still starts, but the token file is absent and every AWS SDK call fails with a missing credentials error:
+
+```
+aws: [ERROR]: [Errno 2] No such file or directory: '/var/run/secrets/eks.amazonaws.com/serviceaccount/token'
+```
+
+The `--with-irsa` flag is needed in both isolated and confidential mode. Note that `--with-sa-token` does not cover IRSA: that flag applies only to the standard Kubernetes service account token at `/var/run/secrets/kubernetes.io/serviceaccount`, which is a different token with a different audience.
+
+## Policy control for credentials
+<a name="sandboxing-credential-policy"></a>
+
+In both modes, the Cedar policy controls whether the IMDS surrogate is available inside the sandbox. The built-in profiles permit it. To deny it, pass `--deny-imds` or set `imds: deny` in a custom profile. See [Run a pod in confidential mode](sandboxing-confidential-setup.md).
+
+The Pod Identity credential endpoint is not controlled by a Cedar action. Whether the workload receives its Pod Identity token is controlled by the `--with-pod-identity` flag at policy generation time. For IRSA, credential delivery is controlled the same way by the `--with-irsa` flag.

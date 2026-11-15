@@ -7,6 +7,9 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 # Simplify node lifecycle with managed node groups
 <a name="managed-node-groups"></a>
 
+**Nitro Sandboxes on managed node groups**  
+To run isolated or confidential pods with Nitro Sandboxes on managed node groups, use a custom AMI that includes the Nitro Sandbox runtime, and use instance types that support Nitro Enclaves. For how to build a compatible AMI, see [Create and update a Nitro Sandbox AMI](sandboxing-ami-create-update.md).
+
 Amazon EKS managed node groups automate the provisioning and lifecycle management of nodes (Amazon EC2 instances) for Amazon EKS Kubernetes clusters.
 
 With Amazon EKS managed node groups, you don’t need to separately provision or register the Amazon EC2 instances that provide compute capacity to run your Kubernetes applications. You can create, automatically update, or terminate nodes for your cluster with a single operation. Node updates and terminations automatically drain nodes to ensure that your applications stay available.

@@ -11,7 +11,9 @@ Time-slicing lets multiple Pods share a single physical NVIDIA GPU. The Kubernet
 
 On Amazon EKS, you can manage time-slicing with either the [NVIDIA DRA driver](device-management-nvidia-dra-device-plugin.md#eks-nvidia-dra-driver) or the [NVIDIA device plugin](device-management-nvidia-dra-device-plugin.md#eks-nvidia-device-plugin).
 
-Time-slicing is supported with Karpenter using either dynamic or static capacity provisioning. Dynamic provisioning requires Karpenter version 1.15 or later with the `DRANVIDIAGPU` feature gate, and Kubernetes version 1.36 or later for Karpenter to simulate time-sliced GPUs. For more information, see [Using DRA with Karpenter](device-management.md#dra-karpenter). Time-slicing is not currently available in EKS Auto Mode.
+Time-slicing is supported with Karpenter using either dynamic or static capacity provisioning, as well as with EKS managed node groups and self-managed nodes. Dynamic provisioning requires Karpenter version 1.15 or later with the `DRANVIDIAGPU` feature gate, and Kubernetes version 1.36 or later for Karpenter to simulate time-sliced GPUs. For more information, see [Using DRA with Karpenter](device-management.md#dra-karpenter).
+
+Time-slicing is not available in EKS Auto Mode. Although EKS Auto Mode includes the NVIDIA DRA driver, it does not enable the alpha driver capabilities that GPU sharing depends on, and it does not expose the configuration of the NVIDIA device plugin it manages. EKS Auto Mode support follows the graduation of these capabilities to beta in the upstream NVIDIA DRA driver. To share a whole GPU across Pods on EKS Auto Mode without time-slicing, have several Pods reference the same `ResourceClaim`. For more information, see [Using DRA with EKS Auto Mode](device-management.md#dra-auto-mode).
 
 Time-slicing is a good fit when:
 + GPU utilization is consistently low, for example latency-sensitive inference services that idle between requests.
@@ -39,14 +41,14 @@ Review the following considerations before you use time-slicing in production.
 ### NVIDIA DRA driver considerations
 <a name="_nvidia_dra_driver_considerations"></a>
 +  **Alpha feature:** Time-slicing through the DRA driver requires the `TimeSlicingSettings` feature gate, which is an alpha feature disabled by default. For more information, see [Use GPU time-slicing with the NVIDIA DRA driver](#eks-time-slicing-dra).
-+  **User-mediated sharing only:** Pods share a GPU only by referencing the same `ResourceClaim` or `ResourceClaimTemplate`, which is namespace-scoped, so sharing cannot cross namespaces. System-mediated sharing is a proposed future capability.
++  **Two sharing models:** With *user-mediated* sharing, Pods share a GPU only by referencing the same `ResourceClaim` or `ResourceClaimTemplate`, which is namespace-scoped, so sharing cannot cross namespaces. With *system-mediated* sharing, the driver divides each GPU into a fixed number of shares and Kubernetes consumable capacity enforces the limit across independent claims and namespaces. Both models are alpha in the NVIDIA DRA driver. For more information, see [Use GPU time-slicing with the NVIDIA DRA driver](#eks-time-slicing-dra) and [Use system-mediated GPU time-slicing with Karpenter](#eks-time-slicing-karpenter-consumable-capacity).
 +  **Disable the built-in device plugin on Bottlerocket:** The DRA driver cannot run alongside the NVIDIA device plugin on the same node. On Bottlerocket, disable the built-in device plugin, which requires Bottlerocket version 1.63.0 or later. For more information, see [Install the NVIDIA DRA driver](device-management-nvidia-dra-device-plugin.md#eks-nvidia-dra-driver).
-+  **Compute support:** The NVIDIA DRA driver is supported with Karpenter, EKS managed node groups, or self-managed nodes, and is not supported with EKS Auto Mode. Karpenter supports DRA with both dynamic and static capacity provisioning as of Karpenter version 1.15. For more information, see [Using DRA with Karpenter](device-management.md#dra-karpenter).
++  **Compute support:** Time-slicing through the NVIDIA DRA driver is supported with Karpenter, EKS managed node groups, and self-managed nodes. It is not available in EKS Auto Mode, which does not enable the alpha driver capabilities that GPU sharing requires. Karpenter supports DRA with both dynamic and static capacity provisioning as of Karpenter version 1.15. Dynamic provisioning requires enabling Karpenter feature gates. For more information, see [Using DRA with Karpenter](device-management.md#dra-karpenter).
 
 ### NVIDIA device plugin considerations
 <a name="_nvidia_device_plugin_considerations"></a>
 +  **Best-effort compute sharing with slots:** The device plugin advertises a fixed number of slots per GPU. If a single Pod requests more than one slot, it does not receive additional compute. Enable the `fail-requests-greater-than-one` option to reject Pods that request more than one slot.
-+  **Provisioning with Karpenter:** Karpenter counts each `nvidia.com/gpu` request as a physical GPU even when time-slicing is enabled on the GPU. For more information, see [Karpenter issue \#2140](https://github.com/kubernetes-sigs/karpenter/issues/2140) on GitHub.
++  **Provisioning with Karpenter:** Karpenter counts each `nvidia.com/gpu` request as a physical GPU even when time-slicing is enabled on the GPU. For more information, see [Karpenter issue \#2140](https://github.com/kubernetes-sigs/karpenter/issues/2140) on GitHub. To have Karpenter account for shared GPUs when it chooses an instance type, use system-mediated time-slicing through the DRA driver instead. For more information, see [Use system-mediated GPU time-slicing with Karpenter](#eks-time-slicing-karpenter-consumable-capacity).
 +  **No support on EKS Auto Mode:** EKS Auto Mode manages the NVIDIA device plugin and does not expose its configuration. Because time-slicing requires device plugin configuration, you cannot apply a time-slicing configuration on EKS Auto Mode nodes.
 +  **Time-slicing configuration changes:** The NVIDIA device plugin does not monitor the time-slicing `ConfigMap` for changes. Restart the device plugin after you update the configuration.
 
@@ -101,7 +103,7 @@ With the NVIDIA DRA driver, Pods share a GPU by referencing a common `ResourceCl
 
 The NVIDIA DRA driver currently implements *user-mediated* time-slicing: a GPU is shared only among the Pods and containers that you explicitly point at the same claim. Because a `ResourceClaim` and a `ResourceClaimTemplate` are namespace-scoped, the Pods that share a GPU this way must be in the same namespace. To share a GPU across containers in a single Pod, have each container reference the same request name in the claim. Containers that reference different request names each receive a separate GPU. Create a separate `ResourceClaimTemplate` for each time-slice interval you need, and one in each namespace where you want to share GPUs.
 
- *System-mediated* time-slicing is when the driver shares a GPU across independent claims (including across namespaces) based on criteria the system defines rather than a claim you configure. For more information about system-mediated time-slicing, see [System-mediated time-slicing of GPUs (issue \#659)](https://github.com/kubernetes-sigs/dra-driver-nvidia-gpu/issues/659) and [pull request \#1257](https://github.com/kubernetes-sigs/dra-driver-nvidia-gpu/pull/1257) on GitHub.
+ *System-mediated* time-slicing is when the driver shares a GPU across independent claims, including claims in different namespaces, rather than only among the Pods you point at one claim. The driver divides each GPU into a fixed number of shares, and Kubernetes consumable capacity tracks and enforces the limit. If you use Karpenter with dynamic capacity provisioning, system-mediated time-slicing also lets Karpenter account for shared GPUs when it chooses an instance type, so it launches a new node only when the existing GPUs run out of shares. For more information, see [Use system-mediated GPU time-slicing with Karpenter](#eks-time-slicing-karpenter-consumable-capacity).
 
 **Important**  
 Time-slicing through the DRA driver requires the `TimeSlicingSettings` feature gate, which is an alpha feature disabled by default. If you request the `TimeSlicing` sharing strategy without enabling this feature gate, the driver fails to prepare the device and the Pod stays in `ContainerCreating` with a `FailedPrepareDynamicResources` event that reports `error validating GPU config: unknown GPU sharing strategy: TimeSlicing`. Turn on the feature gate only if you accept the risks of using an alpha capability.
@@ -183,19 +185,149 @@ Time-slicing through the DRA driver requires the `TimeSlicingSettings` feature g
    GPU 0: NVIDIA L4 (UUID: GPU-b41973ee-5d0a-cde8-6287-12b53f861f02)
    ```
 
+## Use system-mediated GPU time-slicing with Karpenter
+<a name="eks-time-slicing-karpenter-consumable-capacity"></a>
+
+ *System-mediated* time-slicing divides each GPU into a fixed number of shares, or carves it up by memory, and lets independent `ResourceClaim` objects consume those shares. Unlike [user-mediated time-slicing](#eks-time-slicing-dra), Pods do not have to reference a common claim and do not have to be in the same namespace. Kubernetes [consumable capacity](https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation/) tracks the shares and enforces the limit.
+
+This model also tells Karpenter how many claims fit on each GPU. Karpenter packs claims onto the GPUs of the nodes it plans and launches a new node only when the existing GPUs run out of shares, rather than treating every claim as a whole GPU.
+
+**System-mediated time-slicing is alpha**  
+System-mediated time-slicing is alpha. It requires the alpha `ConsumableShares` feature gate in the NVIDIA DRA driver and the alpha `DRANVIDIAGPU` feature gate in Karpenter. Turn these on only if you accept the risks of using alpha capabilities.
+
+### Prerequisites
+<a name="_prerequisites_2"></a>
++ An Amazon EKS cluster running Kubernetes version 1.36 or later, where DRA consumable capacity is enabled by default.
++ Karpenter version 1.15 or later with the `DRANVIDIAGPU` feature gate enabled. For more information, see [Using DRA with Karpenter](device-management.md#dra-karpenter).
++ Nodes with NVIDIA GPU instance types using the EKS-optimized AL2023 NVIDIA AMI, or Bottlerocket with the built-in NVIDIA device plugin disabled.
++  `kubectl` configured to communicate with your cluster, see [Install or update `kubectl`](install-kubectl.md#kubectl-install-update) for more information.
+
+### Procedure
+<a name="_procedure_2"></a>
+
+1. Install the NVIDIA DRA driver as described in [Install the NVIDIA DRA driver](device-management-nvidia-dra-device-plugin.md#eks-nvidia-dra-driver), adding the `ConsumableShares` feature gate and the number of shares per GPU. This is a cluster-wide driver setting. The following example configures four shares per GPU.
+
+   ```
+   --set featureGates.ConsumableShares=true \
+   --set consumableShares=4
+   ```
+
+1. Tell Karpenter the same sharing mode with the `karpenter.k8s.aws/nvidia-consumable-capacity` annotation on your `EC2NodeClass`. Karpenter cannot read the driver’s configuration, so this value **must** match the driver’s `consumableShares` setting.
+
+   ```
+   apiVersion: karpenter.k8s.aws/v1
+   kind: EC2NodeClass
+   metadata:
+     name: gpu-shared
+     annotations:
+       karpenter.k8s.aws/nvidia-consumable-capacity: "4"
+   spec:
+     # ...
+   ```
+
+   The annotation accepts the following values.
+
+
+<table>
+<thead>
+  <tr><th>Value</th><th>How Karpenter models each GPU</th></tr>
+</thead>
+<tbody>
+  <tr><td>Absent or <code>disabled</code> </td><td>Not shareable. Each GPU serves one claim.</td></tr>
+  <tr><td>A positive integer, such as <code>4</code> </td><td>Shareable with that many shares. A claim consumes one share by default, and its memory request defaults to <code>0</code>.</td></tr>
+  <tr><td> <code>memory</code> </td><td>Shareable by memory. A claim that does not request memory takes the GPU’s full memory.</td></tr>
+  <tr><td> <code>unlimited</code> </td><td>Shareable without a limit. A claim’s memory request defaults to <code>0</code>.</td></tr>
+</tbody>
+</table>
+
+
+1. Create a `ResourceClaimTemplate`. A plain whole-GPU request consumes the default of one share. To request more than one share, or to request memory in `memory` mode, set the capacity explicitly.
+
+   ```
+   cat <<EOF | kubectl apply -f -
+   apiVersion: resource.k8s.io/v1
+   kind: ResourceClaimTemplate
+   metadata:
+     name: gpu-share
+   spec:
+     spec:
+       devices:
+         requests:
+         - name: gpu
+           exactly:
+             deviceClassName: gpu.nvidia.com
+             capacity:
+               requests:
+                 shares: "1"
+   EOF
+   ```
+
+1. Deploy a workload that references the template. Each Pod gets its own generated `ResourceClaim`. With four shares per GPU, the following eight replicas occupy two GPUs.
+
+   ```
+   cat <<EOF | kubectl apply -f -
+   apiVersion: apps/v1
+   kind: Deployment
+   metadata:
+     name: gpu-share-demo
+   spec:
+     replicas: 8
+     selector:
+       matchLabels:
+         app: gpu-share-demo
+     template:
+       metadata:
+         labels:
+           app: gpu-share-demo
+       spec:
+         tolerations:
+           - key: nvidia.com/gpu
+             operator: Exists
+             effect: NoSchedule
+         containers:
+           - name: cuda
+             image: nvidia/cuda:12.6.0-base-ubuntu22.04
+             command: ["bash", "-c", "nvidia-smi --query-gpu=uuid --format=csv,noheader; sleep infinity"]
+             resources:
+               claims:
+               - name: gpu
+         resourceClaims:
+           - name: gpu
+             resourceClaimTemplateName: gpu-share
+   EOF
+   ```
+
+1. Delete the workload when you are finished, so that the GPU nodes it provisioned are released. The `ResourceClaimTemplate` can stay in place for future workloads.
+
+   ```
+   kubectl delete deployment gpu-share-demo
+   kubectl delete resourceclaimtemplate gpu-share
+   ```
+
+### Considerations
+<a name="_considerations"></a>
++  **The annotation must match the driver**: If the annotation claims more shares than the driver provides, Karpenter over-packs. Pods schedule onto a node that cannot serve them and stay `Pending`. Karpenter cannot detect this.
++  **Validation errors**: An invalid annotation value sets `ValidationSucceeded=False` on the `EC2NodeClass` with the reason `NVIDIAConsumableCapacityInvalid`. Enabling sharing while the `DRANVIDIAGPU` feature gate is off sets `ValidationSucceeded=False` with the reason `DRADisabled`. In both cases, Karpenter does not launch nodes for that `EC2NodeClass`. An absent or `disabled` value never blocks provisioning.
++  **Sharing affects scheduling only**: Shares and memory requests govern how many claims the scheduler places on a GPU. They do not cap what a container actually consumes on the GPU, so the general time-slicing considerations about memory and compute isolation still apply. For more information, see [Considerations](#eks-time-slicing-considerations).
++  **Cluster-wide driver setting**: `consumableShares` applies to every GPU the driver manages in the cluster. To run different sharing modes side by side, you need separate clusters until the NVIDIA DRA driver supports per-node and per-GPU share configuration. For more information, see [NVIDIA DRA driver issue \#1284](https://github.com/kubernetes-sigs/dra-driver-nvidia-gpu/issues/1284) on GitHub.
++  **Not available in EKS Auto Mode**: EKS Auto Mode does not enable the alpha NVIDIA DRA driver capabilities that system-mediated time-slicing requires.
++  **Time-slice intervals are separate**: The `interval` setting described in [Configuration options](#eks-time-slicing-configuration-options) belongs to user-mediated time-slicing and the `TimeSlicingSettings` feature gate. It does not apply to consumable shares.
+
+For the current annotation values and supported instance types, see [Utilizing GPUs and EFAs with Dynamic Resource Allocation](https://karpenter.sh/docs/tasks/dra/) in the Karpenter documentation.
+
 ## Use GPU time-slicing on Bottlerocket nodes with the NVIDIA device plugin
 <a name="eks-time-slicing-device-plugin-bottlerocket"></a>
 
 On Bottlerocket, the EKS-optimized accelerated AMI includes the NVIDIA device plugin. You enable time-slicing through the `settings.kubelet-device-plugins.nvidia` settings, which Bottlerocket renders into the device plugin configuration when the node boots.
 
 ### Prerequisites
-<a name="_prerequisites_2"></a>
+<a name="_prerequisites_3"></a>
 + An Amazon EKS cluster. The following procedure provisions NVIDIA GPU nodes with the EKS-optimized Bottlerocket NVIDIA AMI.
 + Karpenter installed and configured in your cluster, because the following procedure uses a Karpenter `EC2NodeClass` to supply the time-slicing settings in the Bottlerocket node user data. For more information, see the [Getting Started with Karpenter](https://karpenter.sh/docs/getting-started/getting-started-with-karpenter/) on the Karpenter website.
 +  `kubectl` configured to communicate with your cluster, see [Install or update `kubectl`](install-kubectl.md#kubectl-install-update) for more information.
 
 ### Procedure
-<a name="_procedure_2"></a>
+<a name="_procedure_3"></a>
 
 Add the time-slicing settings to the Bottlerocket user data for your GPU nodes. The following example configures four slots per GPU. The way you supply user data depends on how you provision nodes. The following example shows a Karpenter `EC2NodeClass`.
 
@@ -235,13 +367,13 @@ When nodes provisioned with these settings join the cluster, the device plugin a
 On AL2023, you install the NVIDIA device plugin as described in [Install the NVIDIA Kubernetes device plugin](device-management-nvidia-dra-device-plugin.md#eks-nvidia-device-plugin), and supply the time-slicing configuration in a `ConfigMap`.
 
 ### Prerequisites
-<a name="_prerequisites_3"></a>
+<a name="_prerequisites_4"></a>
 + An Amazon EKS cluster with nodes that use NVIDIA GPU instance types and the EKS-optimized AL2023 NVIDIA AMI.
 + Helm installed in your command-line environment, see the [Setup Helm instructions](helm.md) for more information.
 +  `kubectl` configured to communicate with your cluster, see [Install or update `kubectl`](install-kubectl.md#kubectl-install-update) for more information.
 
 ### Procedure
-<a name="_procedure_3"></a>
+<a name="_procedure_4"></a>
 
 1. Create the time-slicing `ConfigMap` in the `nvidia` namespace, where you installed the device plugin in [Install the NVIDIA Kubernetes device plugin](device-management-nvidia-dra-device-plugin.md#eks-nvidia-device-plugin). This example configures four slots per GPU.
 

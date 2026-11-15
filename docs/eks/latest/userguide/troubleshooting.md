@@ -9,6 +9,9 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 This chapter covers some common errors that you may see while using Amazon EKS and how to work around them. If you need to troubleshoot specific Amazon EKS areas, see the separate [Troubleshooting IAM](security-iam-troubleshoot.md), [Troubleshoot Amazon EKS Connector issues](troubleshooting-connector.md), and [Troubleshooting for ADOT using EKS Add-Ons](https://aws-otel.github.io/docs/getting-started/adot-eks-add-on/troubleshooting) topics.
 
+**Troubleshooting Nitro Sandboxes**  
+For issues specific to isolated and confidential pods that run in Nitro Sandboxes, such as pods that stay pending or attestation failures, see [Sandboxing on Amazon EKS with isolated and confidential pods](sandboxing.md).
+
 For other troubleshooting information, see [Knowledge Center content about Amazon Elastic Kubernetes Service](https://repost.aws/tags/knowledge-center/TA4IvCeWI1TE66q4jEj4Z9zg/amazon-elastic-kubernetes-service) on * AWS re:Post*.
 
 ## Insufficient capacity

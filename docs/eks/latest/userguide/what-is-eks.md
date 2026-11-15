@@ -64,6 +64,9 @@ EKS Auto Mode automatically creates storage classes using [EBS volumes](create-s
  **Security**   
 The shared responsibility model is employed as it relates to [Security in Amazon EKS](security.md). For more information, see [Security best practices](security-best-practices.md), [Infrastructure security](infrastructure-security.md), and [Kubernetes security](security-k8s.md).
 
+ **Hardware-enforced pod isolation**   
+With Nitro Sandboxes, you can run isolated and confidential pods. Each pod runs inside its own hardware-isolated virtual machine on the AWS Nitro System, instead of sharing the node’s Linux kernel. This provides a hardware trust boundary around each pod for multi-tenant isolation, untrusted code execution, and regulated workloads. For more information, see [Sandboxing on Amazon EKS with isolated and confidential pods](sandboxing.md).
+
  **Monitoring tools**   
 Use the [observability dashboard](observability-dashboard.md) to monitor Amazon EKS clusters. Monitoring tools include [Prometheus](prometheus.md), [CloudWatch](cloudwatch.md), [CloudTrail](logging-using-cloudtrail.md), and [ADOT Operator](opentelemetry.md). For more information on dashboards, metrics servers, and other tools, see [EKS cluster costs](cost-monitoring.md) and [Kubernetes Metrics Server](metrics-server.md).
 

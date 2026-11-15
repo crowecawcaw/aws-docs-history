@@ -9,6 +9,9 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 Amazon CloudWatch is a monitoring service that collects metrics and logs from your cloud resources. CloudWatch provides some basic Amazon EKS metrics for free when using a new cluster that is version `1.28` and above. However, when using the CloudWatch Observability Operator as an Amazon EKS add-on, you can gain enhanced observability features.
 
+**CloudWatch and Nitro Sandboxes**  
+The Amazon CloudWatch Observability agent can collect container logs and metrics from isolated and confidential pods that run in Nitro Sandboxes. Logs and metrics surface through the standard kubelet location, which the agent reads. Host-level agents that inspect processes or cgroups directly, such as the Amazon GuardDuty agent, cannot see inside a sandbox. For what you can observe, see [Observability](sandboxing-observability.md).
+
 ## Basic metrics in Amazon CloudWatch
 <a name="cloudwatch-basic-metrics"></a>
 

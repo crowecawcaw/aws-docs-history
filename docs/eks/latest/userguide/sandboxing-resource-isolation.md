@@ -1,0 +1,64 @@
+
+
+ **Help improve this page** 
+
+To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
+
+# Resource isolation and throttling
+<a name="sandboxing-resource-isolation"></a>
+
+Throttle annotations cap the host resources a single sandbox can consume. When absent, built-in defaults apply. All annotations use the `sandbox.amazonaws.com/` prefix and are set on the pod (or pod template metadata for workload controllers).
+
+## Value format
+<a name="sandboxing-throttle-format"></a>
+
+All throttle annotation values are decimal integers with an optional suffix, wrapped in a YAML string (annotations are always strings in Kubernetes). Bandwidth values are in bps.
++ SI (powers of 1000): `k`, `M`, `G`, `T`. For example, `100M` is 100 Mbps.
++ IEC (powers of 1024): `Ki`, `Mi`, `Gi`, `Ti`. For example, `1Gi` is approximately 1 Gbps.
+
+An unrecognized value is logged and replaced with the built-in default. A value of `0` is the exception: on every throttle annotation, a value that resolves to a rate of zero fails the pod rather than being treated as unlimited. Use `"disabled"` to turn a throttle off.
+
+## Available annotations
+<a name="sandboxing-throttle-annotations"></a>
+
+
+| Annotation | Default | Description | 
+| --- | --- | --- | 
+|  `sandbox.amazonaws.com/ingress-bandwidth`  |  `100M`  | Inbound network bandwidth (100 Mbps). | 
+|  `sandbox.amazonaws.com/egress-bandwidth`  |  `100M`  | Outbound network bandwidth (100 Mbps). | 
+|  `sandbox.amazonaws.com/ingress-packets-per-second`  |  `1500`  | Inbound packet rate. | 
+|  `sandbox.amazonaws.com/egress-packets-per-second`  |  `1500`  | Outbound packet rate. | 
+|  `sandbox.amazonaws.com/dns-packets-per-second`  |  `100`  | DNS query rate to the VPC resolver. Values above 512 are clamped to 512. Set to `"disabled"` for no limit. `"0"` fails the pod. | 
+|  `sandbox.amazonaws.com/overlay-disk-bandwidth`  |  `400M`  | Overlay (ephemeral scratch) disk throughput (equivalent to 50 MBps). | 
+|  `sandbox.amazonaws.com/overlay-disk-iops`  |  `1500`  | Overlay disk I/O operations per second. | 
+|  `sandbox.amazonaws.com/rootfs-disk-bandwidth`  |  `disabled`  | Root filesystem disk throughput. Unlimited by default (read-only, needed for boot). | 
+|  `sandbox.amazonaws.com/rootfs-disk-iops`  |  `disabled`  | Root filesystem disk IOPS. Unlimited by default. | 
+|  `sandbox.amazonaws.com/log-bandwidth`  |  `2M`  | Container log streaming throughput (2 Mbps, equivalent to 250 KBps). | 
+|  `sandbox.amazonaws.com/conntrack-limit`  |  `4096`  | Connections the pod may hold in the node’s connection-tracking table, per address family. Values are clamped into `64`–`65536`. This limit protects the node from a single pod and cannot be turned off: both `0` and `disabled` fail the pod. | 
+
+**Raise network limits before benchmarking**  
+The default network limits cap request-heavy services: inbound and outbound bandwidth default to 100 Mbps, and the inbound and outbound packet rate defaults to 1500 packets per second. Before you benchmark a workload, raise both the bandwidth and the packet-rate annotations, or disable the limits. Raising only one has no effect, because bandwidth and packet rate are enforced by independent token buckets. For more information, see [Raising network bandwidth](#sandboxing-raise-bandwidth).
+
+## Raising network bandwidth
+<a name="sandboxing-raise-bandwidth"></a>
+
+Bandwidth and packet rate are enforced by independent token buckets. You must raise both to see higher throughput. EKS nodes typically use a 9001-byte MTU (VPC jumbo frames). At the default packet rate of 1500 packets/second, the maximum throughput is approximately 102 Mbps.
+
+To raise the effective network cap to about 1 Gbps:
+
+```
+metadata:
+  annotations:
+    sandbox.amazonaws.com/ingress-bandwidth: "1G"
+    sandbox.amazonaws.com/egress-bandwidth: "1G"
+    sandbox.amazonaws.com/ingress-packets-per-second: "15000"
+    sandbox.amazonaws.com/egress-packets-per-second: "15000"
+```
+
+**Annotations are read once**  
+Annotations are read once when the pod is created. Changing an annotation on a running pod has no effect. Delete and recreate the pod for the new value to take effect.
+
+## Measuring throughput
+<a name="sandboxing-measure-throughput"></a>
+
+The token bucket starts full on Nitro Sandbox boot and refills to full after any idle gap of one second or more. To measure the sustained rate, use one continuous transfer large enough that the initial burst is a small fraction of the total, or drain the bucket with a throwaway transfer immediately after pod start, then start the real measurement with no pause.

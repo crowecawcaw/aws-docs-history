@@ -1,0 +1,112 @@
+
+
+ **Help improve this page** 
+
+To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
+
+# Sandboxing on Amazon EKS with isolated and confidential pods
+<a name="sandboxing"></a>
+
+In a standard Amazon EKS cluster, pods on the same node share a Linux kernel. A container escape or kernel vulnerability can expose one workload to another. Isolated and confidential pods address this by running each pod inside its own Nitro Sandbox, a dedicated hardware-isolated environment backed by the AWS Nitro System. Each sandbox runs as a first-level guest with direct hardware-assisted virtualization, not through emulation or nested virtualization. The Nitro hypervisor enforces memory and CPU isolation between sandboxes, providing a hardware trust boundary around every pod.
+
+Isolated and confidential pods are opt-in. You select the feature per pod by setting `runtimeClassName` to `isolated-sandbox` or `confidential-sandbox` in the pod spec. Pods without this setting continue to use the default container runtime.
+
+Isolated and confidential pods are available in all commercial AWS Regions. They require a cluster that runs Kubernetes version 1.36 or later.
+
+Isolated and confidential pods run only on supported Amazon EC2 instance types. For the list of instance types that support Nitro Sandboxes, see [supported instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-ec2-nitro-sandboxes.html#nitro-sandboxes-considerations) in the *Amazon EC2 User Guide*.
+
+To read more about the Nitro Sandboxes primitive on Amazon EC2, see [Nitro Sandboxes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-ec2-nitro-sandboxes.html) in the *Amazon EC2 User Guide*.
+
+**Topics**
++ [How it works](#sandboxing-how-it-works)
++ [Key features](#sandboxing-key-features)
++ [Concepts](#sandboxing-concepts)
++ [Modes](#sandboxing-modes)
++ [Removing network access](#sandboxing-network-isolated-overview)
++ [Shared responsibility](#sandboxing-shared-responsibility)
++ [Get started with sandboxes](sandboxing-getting-started.md)
++ [Configure sandboxes](sandboxing-configure.md)
++ [Sandboxes reference](sandboxing-reference.md)
+
+## How it works
+<a name="sandboxing-how-it-works"></a>
+
+The following diagram shows the components that run on the parent instance and inside the Nitro Sandbox, and how they communicate.
+
+ **Nitro Sandbox components on the parent instance and inside the sandbox** 
+
+![Diagram of a Nitro Sandbox. On the parent EC2 instance, kubelet calls containerd, which calls the sandbox-shim, which drives a Firecracker process with virtio-vsock, virtio-blk, and virtio-net devices over the parent kernel. Inside the Nitro Sandbox, the eks-sandbox-agent uses its own containerd to run the workload over the guest kernel. Device Memory Buffers (DMBs) form the device data path between them, the Nitro Hypervisor sits beneath both and carries sandbox lifecycle and runtime notifications.](https://docs.aws.amazon.com/eks/latest/userguide/images/sandboxing-how-it-works.png)
+
+
+The parent instance runs a shim process (`containerd-shim-nitro-sandbox-v2`) that launches the pod’s Nitro Sandbox, which is a lightweight virtual machine (a Firecracker microVM), and communicates with it over virtio devices. Inside the Nitro Sandbox, an agent process (`nitro-sandbox-agent`) manages containers through its own `containerd` instance. The Nitro hypervisor manages sandbox lifecycle, while runtime notifications between the parent instance kernel and the sandbox kernel coordinate Nitro Sandbox operation.
+
+When kubelet schedules a pod that uses the `isolated-sandbox` or `confidential-sandbox` runtime class, the following happens:
+
+1. The pod spec sets `runtimeClassName` to `isolated-sandbox` or `confidential-sandbox`.
+
+1. A Nitro Sandbox is created for the pod.
+
+1. A policy is evaluated that controls what the pod is allowed to do, including which container images are allowed to load, which containers can run, whether `exec` and logs are permitted, and what mounts are allowed.
+
+1. The container images are loaded into the sandbox.
+
+1. Containers start inside the sandbox, isolated from the parent instance and from other pods.
+
+## Key features
+<a name="sandboxing-key-features"></a>
+
+ **Nitro Sandbox isolation**   
+Each pod runs in its own Nitro Sandbox. The AWS Nitro hypervisor enforces memory and CPU isolation between sandboxes on the same parent instance. A compromised container cannot access memory or storage belonging to another pod, and the parent instance cannot observe the CPU or memory state of the sandbox. This isolation is a security boundary, not a performance reservation: a sandbox does not get dedicated physical cores. vCPUs are time-shared across the sandboxes on a node, and total sandbox vCPU allocation can oversubscribe the node’s vCPUs. For density and sizing, see [Considerations](sandboxing-limitations.md).
+
+ **Policy enforcement**   
+Every pod has a Cedar policy that controls container admission, `exec` access, log streaming, and other runtime operations. The Nitro Sandbox enforces the policy from inside the guest, so it applies even when the parent instance is untrusted. The sandbox enforces the policy in both isolated and confidential mode, with or without attestation. The pod policy is measured into an attestation register, so a compromised parent instance cannot silently substitute a different policy without changing the attestation. Attestation adds external verification that the expected policy is in force, which confidential workloads use to gate AWS KMS access. See [Security model and parent instance trust assumptions](sandboxing-security-model.md).
+
+ **Encrypted container images**   
+Container image layers can be encrypted following the OCI image encryption specification. Encrypted layers are decrypted inside the Nitro Sandbox using AWS KMS. The parent instance transfers the encrypted blobs but never accesses the plaintext image contents. See [Encrypted container images](sandboxing-encrypted-images.md).
+
+ **Image signature verification**   
+Container images can be signed with AWS Signer. The Nitro Sandbox verifies the image’s AWS Signer signature (in the Notation format) and checks revocation status before allowing a container to start. The Cedar policy controls which signing profiles are trusted.
+
+ **Attestation**   
+Attestation lets you prove that a Nitro Sandbox is running exactly the code and policy you expect before releasing secrets to it. The Nitro Sandbox includes a Nitro Secure Module (NSM) whose platform configuration registers (PCRs) measure the system image and the workload policy. You write KMS key policies with `kms:RecipientAttestation:PCR<PCR_ID>` conditions that gate decryption on specific PCR values. When the sandbox calls `kms:Decrypt`, KMS validates the attestation document and releases the key only if the measurements match.  
+**Verify attestation before releasing secrets**  
+Without a KMS key policy (or equivalent external verifier) that checks PCR values, the attestation measurement is recorded but never verified, and the confidentiality guarantees of confidential mode are incomplete. Always configure `kms:RecipientAttestation:PCR<PCR_ID>` conditions on any KMS key that protects confidential data.
+
+ **Shared persistent storage**   
+Pods can mount Amazon EFS volumes through the EFS CSI driver (`efs.csi.aws.com`) for shared read-write persistent storage across pods. The Nitro Sandbox performs the NFS mount itself, terminating TLS to the mount target inside the guest. Pods can also use Amazon EBS volumes through the EBS CSI driver for single-pod block storage. For all storage options, see [Storage with Nitro Sandboxes](sandboxing-storage.md).
+
+## Concepts
+<a name="sandboxing-concepts"></a>
+
+
+| Term | Description | 
+| --- | --- | 
+| Nitro Sandbox | A dedicated hardware-isolated environment with its own Linux kernel, created by the AWS Nitro hypervisor. Each pod that opts in runs inside its own Nitro Sandbox. The sandbox shares no kernel or memory mappings with the parent instance or other sandboxes. | 
+| Runtime class | A Kubernetes `RuntimeClass` object that tells kubelet which container runtime to use for a pod. Isolated pods use the `isolated-sandbox` runtime class; confidential pods use the `confidential-sandbox` runtime class. | 
+| Cedar policy | A declarative policy written in the Cedar language that controls what a pod is allowed to do. Policies are generated from the pod spec using `eks-nitro-sandbox-genpolicy` (included in the signed runtime binaries; see [Download and verify the runtime binaries](sandboxing-download-binaries.md)) and attached to the pod as an annotation. | 
+| Policy envelope | The serialized form of the Cedar policy that is stored in a pod annotation and delivered to both the shim on the parent instance and the agent in the guest. | 
+| Isolated pod | A pod with `runtimeClassName: isolated-sandbox`. The parent instance is trusted. Use this to protect the node and other pods from a compromised container. | 
+| Confidential pod | A pod with `runtimeClassName: confidential-sandbox`. The parent instance is untrusted. Use this to protect workload data from the node operator or a compromised parent instance. | 
+
+## Modes
+<a name="sandboxing-modes"></a>
+
+ **Isolated mode**   
+The parent instance is trusted and the guest is untrusted. The goal is to protect the node and other pods from a compromised workload. The parent instance retains full observability and control: `exec`, `stdin`, logs, stats, and process listing are all permitted. The policy does not pin container admission fields, so any valid container spec is accepted. The overlay filesystem is unencrypted to allow faster pod startup. The service account token is not replicated into the sandbox. IMDS, NTP, and Pod Identity credentials are allowed so workloads that depend on placement metadata or AWS credentials work without policy customization.
+
+ **Confidential mode**   
+The parent instance is untrusted and the guest is the trust boundary. The goal is to protect the workload’s data from the node operator or a compromised parent instance. The policy pins every admission field (image digests, args, environment variables, mounts, capabilities, and security settings). `Exec`, `stdin`, and process listing are denied so the parent instance cannot introspect the guest. IMDS and the service account token are allowed because the guest needs AWS credentials and region metadata to call AWS KMS for encrypted images.
+
+The runtime class is the authoritative selector: the system derives the isolation mode from `runtimeClassName` and ignores any mode annotation the pod spec sets. You can also create custom profiles that mix and match settings from these modes. For more information, see [Run a pod in confidential mode](sandboxing-confidential-setup.md).
+
+## Removing network access
+<a name="sandboxing-network-isolated-overview"></a>
+
+To run untrusted or generated code that must not communicate over the network, set `sandbox.amazonaws.com/network-isolated: "true"` on the pod. The Nitro Sandbox boots with no network device — no TAP, no virtio-net, no DNS, no NTP, no IMDS, and no Pod Identity credentials. Because the device is absent rather than filtered, the pod has no network device in either direction. The vsock channel inside the guest can still reach guest-bound ports, which bypasses the absent network device, so this is not absolute isolation. For more information, see [Network isolation](sandboxing-network-isolation.md).
+
+ `kubectl port-forward` does not work, and kubelet HTTP or TCP probes cannot succeed. Use exec probes for pods with this annotation. Logs, `exec`, `stdin`, and stats continue to work over the vsock channel. For details, see [Network isolation](sandboxing-network-isolation.md).
+
+## Shared responsibility
+<a name="sandboxing-shared-responsibility"></a>
+
+With isolated and confidential pods, AWS is responsible for the Nitro hypervisor, the Nitro Sandbox boundary, and the guest system image. Customers are responsible for their container images, Cedar policies, AWS KMS key policies, and application code.

@@ -21,6 +21,12 @@ This topic provides an overview of the available options and describes what to c
 + Version `2.12.3` or later or version `1.27.160` or later of the AWS Command Line Interface (AWS CLI) installed and configured on your device or AWS CloudShell. To check your current version, use `aws --version | cut -d / -f2 | cut -d ' ' -f1`. Package managers such as `yum`, `apt-get`, or Homebrew for macOS are often several versions behind the latest version of the AWS CLI. To install the latest version, see [Installing](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) and [Quick configuration with aws configure](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-config) in the * AWS Command Line Interface User Guide*. The AWS CLI version that is installed in AWS CloudShell might also be several versions behind the latest version. To update it, see [Installing AWS CLI to your home directory](https://docs.aws.amazon.com/cloudshell/latest/userguide/vm-specs.html#install-cli-software) in the * AWS CloudShell User Guide*.
 + An [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#iam-term-principal) with permissions to `create` and `describe` an Amazon EKS cluster. For more information, see [Create a local Kubernetes cluster on an Outpost](security-iam-id-based-policy-examples.md#policy-create-local-cluster) and [List or describe all clusters](security-iam-id-based-policy-examples.md#policy-example2).
 
+**Requirements for Nitro Sandboxes**  
+To run isolated and confidential pods with Nitro Sandboxes on the cluster:  
+Use a supported Kubernetes version (1.36 or later, limited to the two latest versions). If you create the cluster with `eksctl`, pass `--version` to select 1.36 or later, because `eksctl` uses an older default version.
+Run them on instance types that support Nitro Enclaves.
+For more information, see [Sandboxing on Amazon EKS with isolated and confidential pods](sandboxing.md).
+
 ## Step 1: Create cluster IAM role
 <a name="_step_1_create_cluster_iam_role"></a>
 

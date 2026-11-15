@@ -19,6 +19,9 @@ Your Amazon EKS cluster can schedule Pods on any combination of [EKS Auto Mode m
 **Note**  
 Excluding hybrid nodes, nodes must be in the same VPC as the subnets you selected when you created the cluster. However, the nodes don’t have to be in the same subnets.
 
+**Hardware-enforced pod isolation**  
+On nodes in the AWS Cloud, you can run selected pods inside hardware-isolated virtual machines with Nitro Sandboxes, instead of standard containers that share the node’s kernel. Nitro Sandboxes works with EKS Auto Mode and with managed or self-managed nodes that use a compatible AMI, on instance types that support Nitro Enclaves. It is available in AWS Regions, but not in the AWS GovCloud (US) Regions or the China Regions. For more information, see [Sandboxing on Amazon EKS with isolated and confidential pods](sandboxing.md).
+
 ## Compare compute options
 <a name="_compare_compute_options"></a>
 

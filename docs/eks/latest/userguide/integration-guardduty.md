@@ -11,6 +11,9 @@ Amazon GuardDuty is a threat detection service that helps protect your accounts,
 
 Among other features, GuardDuty offers the following two features that detect potential threats to your EKS clusters: *EKS Protection* and *Runtime Monitoring*.
 
+**GuardDuty and Nitro Sandboxes**  
+The GuardDuty agent cannot monitor activity inside isolated or confidential pods that run in Nitro Sandboxes. The sandbox isolates the pod from the node. GuardDuty continues to monitor standard pods on the same node. For what you can observe, see [Observability](sandboxing-observability.md).
+
 **Note**  
  **New:** Amazon EKS Auto Mode integrates with GuardDuty.
 

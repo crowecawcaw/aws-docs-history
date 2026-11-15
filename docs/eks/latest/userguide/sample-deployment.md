@@ -9,6 +9,9 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 In this topic, you deploy a sample application to your cluster on Linux nodes.
 
+**Deploying a sample sandboxed application**  
+To deploy a sample application as an isolated or confidential pod in a Nitro Sandbox, add the Nitro Sandbox `RuntimeClass` to the pod spec. For a walkthrough, see [Get started with sandboxes](sandboxing-getting-started.md).
+
 ## Prerequisites
 <a name="_prerequisites"></a>
 + An existing Kubernetes cluster with at least one node. If you don’t have an existing Amazon EKS cluster, you can deploy one using one of the guides in [Get started with Amazon EKS](getting-started.md).

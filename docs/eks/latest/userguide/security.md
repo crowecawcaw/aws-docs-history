@@ -27,6 +27,9 @@ This documentation helps you understand how to apply the shared responsibility m
 **Note**  
 Linux containers are made up of control groups (cgroups) and namespaces that help limit what a container can access, but all containers share the same Linux kernel as the host Amazon EC2 instance. Running a container as the root user (UID 0) or granting a container access to host resources or namespaces such as the host network or host PID namespace are strongly discouraged, because doing so reduces the effectiveness of the isolation that containers provide.
 
+**Hardware-enforced isolation with Nitro Sandboxes**  
+When a workload needs stronger isolation than shared-kernel containers provide, you can run selected pods inside hardware-isolated virtual machines with Nitro Sandboxes. This isolates the pod from the node’s kernel and from other pods on the node. For more information, see [Sandboxing on Amazon EKS with isolated and confidential pods](sandboxing.md).
+
 **Topics**
 + [Secure Amazon EKS clusters with best practices](security-best-practices.md)
 + [Analyze vulnerabilities in Amazon EKS](configuration-vulnerability-analysis.md)

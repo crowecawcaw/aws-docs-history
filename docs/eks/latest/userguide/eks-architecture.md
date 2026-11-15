@@ -51,6 +51,8 @@ In addition to the control plane, an Amazon EKS cluster has a set of worker mach
  **Amazon EKS Hybrid Nodes**   
 With [Amazon EKS Hybrid Nodes](hybrid-nodes-overview.md), you can use your on-premises and edge infrastructure as nodes in Amazon EKS clusters. Amazon EKS Hybrid Nodes unifies Kubernetes management across environments and offloads Kubernetes control plane management to AWS for your on-premises and edge applications.
 
+Regardless of the node type, pods on a node run in standard containers that share the node’s Linux kernel by default. With Nitro Sandboxes, you can instead run selected pods inside their own hardware-isolated virtual machine on the AWS Nitro System. This provides a hardware trust boundary between pods on the same node. You opt in per pod by setting a runtime class. For more information, see [Sandboxing on Amazon EKS with isolated and confidential pods](sandboxing.md).
+
 ## EKS Capabilities
 <a name="eks-capabilities"></a>
 

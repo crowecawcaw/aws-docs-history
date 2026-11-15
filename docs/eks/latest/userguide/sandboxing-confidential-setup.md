@@ -1,0 +1,205 @@
+
+
+ **Help improve this page** 
+
+To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
+
+# Run a pod in confidential mode
+<a name="sandboxing-confidential-setup"></a>
+
+Confidential mode requires a Cedar policy. The policy pins every container admission field and controls which operations the parent instance can perform. Isolated mode does not require a Cedar policy. Without one, the sandbox applies a permissive built-in default that allows all containers and operations.
+
+## Step 1: Generate a Cedar policy
+<a name="sandboxing-confidential-generate"></a>
+
+Use `eks-nitro-sandbox-genpolicy`, which is included in the signed runtime binaries (see [Download and verify the runtime binaries](sandboxing-download-binaries.md)), to generate a policy from your Kubernetes manifest:
+
+```
+eks-nitro-sandbox-genpolicy --profile confidential manifest.yaml
+```
+
+The command prints a base64-encoded policy to stdout and prints the predicted PCR17 value. Use the PCR17 value to configure KMS attestation conditions before deploying, without needing a running sandbox.
+
+## Step 2: Attach the policy to your pod
+<a name="sandboxing-confidential-attach"></a>
+
+Add the generated policy to `manifest.yaml` as the `sandbox.amazonaws.com/policy` annotation. Replace `<base64 policy>` with the base64-encoded policy from Step 1. The following example shows the annotation on a pod that uses the `confidential-sandbox` runtime class:
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-app
+  annotations:
+    sandbox.amazonaws.com/policy: "<base64 policy>"
+spec:
+  runtimeClassName: confidential-sandbox
+  containers:
+  - name: main
+    image: public.ecr.aws/amazonlinux/amazonlinux:2023
+    command: ["sleep", "3600"]
+    resources:
+      limits:
+        cpu: "1"
+        memory: 512Mi
+```
+
+**Generate the policy from the pod’s final spec**  
+A confidential policy pins the container admission fields (image digest, args, environment variables, mounts, and more), so it must be generated from the exact pod spec that runs. Generate it as the last step, after any admission or mutating webhooks (for example, sidecar injectors or policy controllers) have modified the spec. A policy generated from a spec that is later mutated no longer matches, and the pod is denied.  
+Regenerate the policy, and update the `PCR17` condition on your KMS key policy, whenever the pod spec changes in any way that the policy pins, including a new image digest. Build this regeneration step into the CI/CD pipeline that produces your pod manifests.
+
+## Step 3: Deploy
+<a name="sandboxing-confidential-deploy"></a>
+
+Apply the manifest that now carries the policy annotation:
+
+```
+kubectl apply -f manifest.yaml
+```
+
+## Cedar policy profiles
+<a name="sandboxing-cedar-profiles"></a>
+
+A profile controls what the generated policy permits and denies. The following built-in profiles are available:
+
+
+| Aspect | isolated | confidential | 
+| --- | --- | --- | 
+| Trust boundary | Host (parent instance trusted) | Guest (parent instance untrusted) | 
+| Container admission pinning | No | Yes — image digests, args, env vars, mounts, capabilities, security settings | 
+| Exec | Allowed | Denied | 
+| Logs | Allowed | Allowed | 
+| Stdin | Allowed | Denied | 
+| IMDS | Allowed | Allowed | 
+| Pod Identity | Allowed | Allowed | 
+| Overlay encryption | No | Yes | 
+
+## Customizing the generated policy
+<a name="sandboxing-customize-policy"></a>
+
+CLI flags override profile defaults:
+
+
+| Flag | Effect | 
+| --- | --- | 
+|  `--deny-exec`  | Deny all exec commands | 
+|  `--allow-exec-all-for-container <name>`  | Allow exec for a specific container (use with `--deny-exec`) | 
+|  `--allow-exec-command-for-container <name>=<cmd>`  | Allow only specific exec commands for a container | 
+|  `--deny-logs`  | Deny all log reads | 
+|  `--allow-logs-container <name>`  | Allow logs for a specific container (use with `--deny-logs`) | 
+|  `--with-sa-token`  | Force inclusion of the Kubernetes service account token | 
+|  `--with-pod-identity`  | Include Pod Identity volumes injected by the EKS webhook | 
+|  `--with-irsa`  | Include the IRSA web identity token volume (required in both modes) | 
+|  `--allow-additional-env`  | Tolerate extra environment variables injected by kubelet at runtime | 
+|  `--require-any-signer <ARN>`  | Require at least one signing profile ARN (OR logic) | 
+|  `--require-all-signers <ARN>`  | Require all signing profile ARNs (AND logic, may be repeated) | 
+|  `--skip-image-ref-container <name>`  | Drop the image digest pin for a container and trust the signature instead (requires a signer flag) | 
+|  `--image-architecture <amd64\|arm64>`  | Pin a single architecture of a multi-architecture image, so only nodes of that architecture can run it | 
+|  `--skip-image-fetch`  | Skip all registry access for an offline run; leaves image-derived fields (args, working directory, user) unpinned | 
+|  `--disable-layer-pull`  | Fetch the image config but skip pulling layers; leaves a non-numeric (named) user unpinned | 
+|  `--allow-unpinned-identity-for-container <name>`  | Omit the uid, gid, and supplemental group constraints for the named container, so the policy permits any identity for it (repeatable) | 
+
+## Hardening hints
+<a name="sandboxing-hardening-hints"></a>
+
+ `eks-nitro-sandbox-genpolicy` writes HARDEN comments into the generated policy where a pod spec change would enable tighter pinning:
+
+
+| Pod spec change | What the policy can then pin | 
+| --- | --- | 
+|  `securityContext.readOnlyRootFilesystem: true`  | A read-only root filesystem | 
+|  `securityContext.allowPrivilegeEscalation: false`  |  `no_new_privileges` in the OCI spec | 
+|  `securityContext.runAsNonRoot: true`  | A non-root user | 
+|  `securityContext.capabilities.drop: ["ALL"]`  | An empty capability set | 
+|  `securityContext.supplementalGroupsPolicy: Strict`  | An exact supplementary group set | 
+|  `hostPID: false`, `hostIPC: false`  | PID and IPC namespace isolation | 
+
+## Custom profiles
+<a name="sandboxing-custom-profiles"></a>
+
+For use cases that don’t fit a built-in profile, create a custom profile YAML file:
+
+```
+# my-profile.yaml
+admission:
+  pin_image: true
+  pin_capabilities: true
+  pin_security: true
+runtime:
+  exec: allow
+  logs: allow
+  stdin: deny
+  imds: allow
+```
+
+Pass the file path to `--profile`:
+
+```
+eks-nitro-sandbox-genpolicy --profile ./my-profile.yaml manifest.yaml
+```
+
+Omitted fields use defaults: admission fields default to `false` (nothing pinned). Runtime actions default to `deny` for `exec`, `stdin`, `stats`, and `mount_host_image`, and to `allow` for the rest; `sa_token` defaults to `infer` (it reads the pod spec’s `automountServiceAccountToken`).
+
+## Image signature verification
+<a name="sandboxing-image-signature-verification"></a>
+
+By default, a confidential policy pins each container image by its digest, so only that exact image can start. A digest pin is exact but brittle: every time you rebuild the image, its digest changes, so you must regenerate the policy and update the `PCR17` condition on your KMS key policy.
+
+As an alternative, you can require that an image carries a trusted AWS Signer signature. The agent verifies the Notation signature inside the Nitro Sandbox before a container starts. If verification fails or the image is unsigned, the agent denies container creation. Because trust comes from the signature rather than a fixed digest, you can drop the digest pin and let the image evolve.
+
+Generate the policy with one or more signer flags. Use `--require-any-signer` when a signature from any one of several profiles is sufficient (OR logic), or `--require-all-signers` when the image must be signed by every listed profile (AND logic). Give each flag a profile-level AWS Signer signing profile ARN:
+
+```
+eks-nitro-sandbox-genpolicy --profile confidential \
+  --require-any-signer arn:aws:signer:region-code:111122223333:/signing-profiles/my-profile \
+  manifest.yaml
+```
+
+To let the image evolve without regenerating the policy, also pass `--skip-image-ref-container` to drop the digest pin for that container and rely on the signature alone:
+
+```
+eks-nitro-sandbox-genpolicy --profile confidential \
+  --require-any-signer arn:aws:signer:region-code:111122223333:/signing-profiles/my-profile \
+  --skip-image-ref-container my-container-name \
+  manifest.yaml
+```
+
+### Required IAM permissions
+<a name="sandboxing-signer-iam"></a>
+
+For image signature verification, the pod’s IAM role (through EKS Pod Identity) must have the following AWS Signer permissions:
+
+
+| Action | Purpose | 
+| --- | --- | 
+|  `signer:GetRevocationStatus`  | Check whether an individual signing job or certificate has been revoked. | 
+|  `signer:GetSigningProfile`  | Check whether the signing profile has been revoked. Signatures from a revoked profile are rejected. | 
+
+Both actions are required. If either call fails or returns a permission error, signature verification fails closed and the agent denies container creation.
+
+**Network isolation and signature verification**  
+Signature verification requires network access from the Nitro Sandbox to the AWS Signer endpoint. Pods that set `sandbox.amazonaws.com/network-isolated` to `"true"` cannot use image signature verification, because Pod Identity credentials and the Signer endpoint are both unreachable. For more information, see [Network isolation](sandboxing-network-isolation.md).
+
+## Configure KMS key policies for attestation
+<a name="sandboxing-kms-attestation"></a>
+
+In confidential mode, configure AWS KMS key policies with `kms:RecipientAttestation:PCR<PCR_ID>` conditions to gate decryption on specific PCR values. PCR0 measures the system image; PCR17 measures the Cedar policy hash. A modified policy produces a different PCR17 value, so KMS refuses to release keys gated on the original value.
+
+Pin the Cedar policy with a `kms:RecipientAttestation:PCR17` condition set to the predicted PCR17 value from Step 1. Also add a `kms:RecipientAttestation:PCR8:ServiceName` condition set to `eks.amazonaws.com`.
+
+PCR8 is the measurement of the certificate that signed the guest image (the EIF). The Nitro Secure Module includes PCR8 in the attestation document it signs and presents to AWS KMS, so KMS can trust the value. The `:ServiceName` selector tells KMS to compare the service identity recorded in that signing certificate rather than the raw PCR8 hash. Setting it to `eks.amazonaws.com` therefore attests that the guest image was signed by the EKS Nitro Sandbox service. It is preferred over pinning a raw PCR8 value because it keeps matching when AWS rotates the signing certificate, which changes the raw PCR8 hash but not the service identity.
+
+Gating on PCR17 alone is not sufficient: without the PCR8 condition, a policy with the same hash could be presented from a guest image that AWS did not sign. The following key policy condition block requires both:
+
+```
+"Condition": {
+  "StringEqualsIgnoreCase": {
+    "kms:RecipientAttestation:PCR17": "5dafcce823381ecda1f1f8f16fc9e1992e2b9c1f78efd09bb75713026e07d57600f3fff0d785fd52e236e6ce9d2ae025",
+    "kms:RecipientAttestation:PCR8:ServiceName": "eks.amazonaws.com"
+  }
+}
+```
+
+**Verify attestation before releasing secrets**  
+Without `kms:RecipientAttestation:PCR<PCR_ID>` conditions on your KMS key policies, the attestation measurement is recorded but never verified.  
+Confidential mode provides process isolation from the parent instance, but does not protect secrets unless those secrets are released only after attestation verification by KMS or an equivalent external service.

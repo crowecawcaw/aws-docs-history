@@ -38,3 +38,12 @@ Create custom Kubernetes APIs that compose multiple resources into higher-level 
 
  **Securing applications and ensuring compliance**   
 Implement strong security practices and maintain compliance with Amazon EKS, which integrates with AWS security services such as [AWS Identity and Access Management](https://aws.amazon.com/iam/) (IAM), [Amazon Virtual Private Cloud](https://aws.amazon.com/vpc/) (Amazon VPC), and [AWS Key Management Service](https://aws.amazon.com/kms/) (AWS KMS). This ensures data privacy and protection as per industry standards.
+
+ **Isolating multi-tenant workloads**   
+With Nitro Sandboxes, you can run pods from different tenants on the same node. Each pod runs inside its own hardware-isolated virtual machine, so a compromised workload cannot reach the node or other tenants' pods. For more information, see [Sandboxing on Amazon EKS with isolated and confidential pods](sandboxing.md).
+
+ **Running untrusted or agentic AI code**   
+Use Nitro Sandboxes to run untrusted, generated, or agentic AI code inside a hardware-isolated sandbox. You can also remove network access so that the code cannot reach the node, other pods, or the network. For more information, see [Network isolation](sandboxing-network-isolation.md).
+
+ **Running regulated and confidential workloads**   
+Use confidential pods with Nitro Sandboxes to protect sensitive workload data from the node operator or a compromised parent instance. Attestation gates access to AWS KMS keys. For more information, see [Security model and parent instance trust assumptions](sandboxing-security-model.md).

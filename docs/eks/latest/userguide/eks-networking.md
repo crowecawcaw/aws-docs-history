@@ -9,6 +9,9 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 Your Amazon EKS cluster is created in a VPC. Pod networking is provided by the Amazon VPC Container Network Interface (CNI) plugin for nodes that run on AWS infrastructure. If you are running nodes on your own infrastructure, see [Configure CNI for hybrid nodes](hybrid-nodes-cni.md). This chapter includes the following topics for learning more about networking for your cluster.
 
+**Networking with Nitro Sandboxes**  
+For isolated and confidential pods that run in Nitro Sandboxes, the Amazon VPC CNI plugin is validated at launch. Alternate CNI plugins and service meshes are not validated for Nitro Sandboxes at launch. For more information, see [Sandboxing on Amazon EKS with isolated and confidential pods](sandboxing.md).
+
 **Topics**
 + [Add an existing VPC Subnet to an Amazon EKS cluster from the management console](#add-existing-subnet)
 + [View Amazon EKS networking requirements for VPC and subnets](network-reqs.md)

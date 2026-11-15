@@ -7,6 +7,8 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 # Learn how EKS Pod Identity grants pods access to AWS services
 <a name="pod-identities"></a>
 
+EKS Pod Identity works unchanged with isolated and confidential pods that run in Nitro Sandboxes. The credential endpoint is available inside the sandbox, and your existing Pod Identity associations apply the same way as for standard pods. No additional configuration is required. For more information, see [Pod Identity and credentials](sandboxing-metadata-credentials.md).
+
 Applications in a Pod’s containers can use an AWS SDK or the AWS CLI to make API requests to AWS services using AWS Identity and Access Management (IAM) permissions. Applications must sign their AWS API requests with AWS credentials.
 
  *EKS Pod Identities* provide the ability to manage credentials for your applications, similar to the way that Amazon EC2 instance profiles provide credentials to Amazon EC2 instances. Instead of creating and distributing your AWS credentials to the containers or using the Amazon EC2 instance’s role, you associate an IAM role with a Kubernetes service account and configure your Pods to use the service account.

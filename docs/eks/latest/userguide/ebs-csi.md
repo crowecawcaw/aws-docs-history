@@ -12,6 +12,9 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 The [Amazon Elastic Block Store (Amazon EBS) Container Storage Interface (CSI) driver](https://github.com/kubernetes-sigs/aws-ebs-csi-driver/) manages the lifecycle of Amazon EBS volumes as storage for the Kubernetes Volumes that you create. The Amazon EBS CSI driver makes Amazon EBS volumes for these types of Kubernetes volumes: generic [ephemeral volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/) and [persistent volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).
 
+**Amazon EBS with Nitro Sandboxes**  
+Isolated and confidential pods that run in Nitro Sandboxes can use Amazon EBS volumes through the Amazon EBS CSI driver. For storage behavior specific to Nitro Sandboxes, see [Storage with Nitro Sandboxes](sandboxing-storage.md).
+
 ## Considerations
 <a name="ebs-csi-considerations"></a>
 + You do not need to install the Amazon EBS CSI controller on EKS Auto Mode clusters.

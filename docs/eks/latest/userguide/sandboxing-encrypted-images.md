@@ -1,0 +1,116 @@
+
+
+ **Help improve this page** 
+
+To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
+
+# Encrypted container images
+<a name="sandboxing-encrypted-images"></a>
+
+Container image layers are visible to the parent instance unless encrypted. Encrypted images follow the OCI image encryption specification. Only layers are encrypted. The manifest and image config remain in plaintext so that registries and container runtimes can inspect them. When a pod uses an encrypted image, the parent instance transfers the encrypted layer blobs into the Nitro Sandbox. The sandbox unwraps the symmetric key by using AWS KMS and decrypts each layer before unpacking it.
+
+**Encrypt every layer**  
+Every layer of the image must be encrypted. Isolated and confidential pods do not support an image that mixes encrypted and plaintext layers. The image pull fails with an error naming the unencrypted layers, and `eks-nitro-sandbox-genpolicy` (included in the signed runtime binaries; see [Download and verify the runtime binaries](sandboxing-download-binaries.md)) fails to generate a policy for such an image. Encrypt the whole image as described in this section.
+
+## Prerequisites
+<a name="sandboxing-encrypted-prerequisites"></a>
++ An AWS KMS symmetric key for encrypting image layers.
++ Install `skopeo` — an open source tool for copying container images between registries.
++ The `nitro-sandbox-keyprovider` binary installed on your build machine.
++ An ocicrypt keyprovider configuration file at `/etc/ocicrypt.json`:
+
+  ```
+  {
+    "key-providers": {
+      "awskms": {
+        "cmd": {
+          "path": "/usr/local/bin/nitro-sandbox-keyprovider",
+          "args": []
+        }
+      }
+    }
+  }
+  ```
++ The pod’s IAM role (through EKS Pod Identity) must have `kms:Decrypt` permission on the KMS key. IRSA credentials are not used for image decryption.
+
+## Encrypt an image
+<a name="sandboxing-encrypt-image"></a>
+
+Use `skopeo` to copy an image from a source registry to a destination registry, encrypting layers in transit:
+
+```
+OCICRYPT_KEYPROVIDER_CONFIG=/etc/ocicrypt.json \
+  skopeo copy \
+    --encryption-key provider:awskms:arn:aws:kms:region-code:111122223333:key/mrk-example \
+    docker://registry.example.com/myimage:latest \
+    docker://registry.example.com/myimage:encrypted
+```
+
+**Use a full KMS key ARN**  
+ `--encryption-key provider:awskms:…​` must be given a full KMS key ARN (` arn:aws:kms:<region>:<account>:key/<id>`). Bare key IDs and aliases are rejected because the recorded ARN must unambiguously identify the key. `nitro-sandbox-keyprovider` uses the region from the ARN for the KMS Encrypt call and writes the full ARN into the encrypted image so the guest can pick the correct regional endpoint.
+
+## Generate a policy for an encrypted image
+<a name="sandboxing-encrypted-genpolicy"></a>
+
+Generate a Cedar policy the same way as for unencrypted images. Pass `--with-pod-identity` so the sandbox receives the Pod Identity token it uses to call AWS KMS:
+
+```
+eks-nitro-sandbox-genpolicy --with-pod-identity manifest.yaml
+```
+
+ `genpolicy` detects encrypted layers from the manifest and adjusts the generated policy accordingly.
+
+## uid/gid resolution limitation
+<a name="sandboxing-encrypted-uid-gid"></a>
+
+**USER directive must resolve to a numeric uid/gid**  
+Using a non-numeric USER directive (for example, `USER appuser`) in an encrypted image causes policy generation to fail unless the pod spec sets `securityContext.runAsUser` and `runAsGroup`.
+
+ `eks-nitro-sandbox-genpolicy` cannot resolve the user name to a numeric uid/gid because it cannot read `/etc/passwd` from encrypted layers.
+
+Set `securityContext.runAsUser` and `runAsGroup` in the pod spec to the correct numeric values, or use a numeric USER directive in the image.
+
+To pin groups exactly even with an encrypted image, set `securityContext.supplementalGroupsPolicy: Strict` in the pod spec. Strict tells the runtime to ignore the image’s `/etc/group` and attach only the groups the pod spec names.
+
+Recommended workaround — set `securityContext` in the pod spec:
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-app
+  annotations:
+    sandbox.amazonaws.com/policy: "<base64 policy>"
+spec:
+  runtimeClassName: isolated-sandbox
+  securityContext:
+    runAsUser: 1000
+    runAsGroup: 1000
+  containers:
+  - name: main
+    image: registry.example.com/myimage:encrypted
+```
+
+## Deploy a pod with an encrypted image
+<a name="sandboxing-encrypted-deploy"></a>
+
+1. Generate the policy and attach it to the pod as the `sandbox.amazonaws.com/policy` annotation.
+
+1. Ensure the pod’s IAM role has `kms:Decrypt` permission on the KMS key used to encrypt the image.
+
+1. Apply the manifest:
+
+   ```
+   kubectl apply -f manifest.yaml
+   ```
+
+The Nitro Sandbox calls `kms:Decrypt` through EKS Pod Identity to unwrap the layer encryption key, then decrypts and unpacks each layer inside the sandbox.
+
+## Image identity in operator tooling
+<a name="sandboxing-encrypted-image-identity"></a>
+
+For an encrypted image, the digest that `kubectl` and `crictl` report is a synthetic value derived by the runtime, not the digest published by the registry. The runtime decrypts and unpacks the layers inside the sandbox rather than on the parent instance, so it gives the image a distinct identity to keep the placeholder state it leaves on the parent instance from colliding with that of an ordinary image.
+
+As a result, the following operator-visible fields are synthetic for an encrypted image. They do not match the digest returned by `aws ecr describe-images`, `skopeo inspect`, or your image signer:
++  `.status.containerStatuses[].imageID` on the pod
++ the `Id` and `RepoDigests` fields returned by `crictl inspecti` and `crictl images --digests` 

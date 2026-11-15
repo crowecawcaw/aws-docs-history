@@ -29,6 +29,13 @@ You can use Amazon EKS with compute in AWS Regions, AWS Local Zones, and AWS Wav
 | Kubernetes data plane |  +  Amazon EKS Auto Mode <br />+  Amazon EKS Managed Node Groups <br />+  Amazon EC2 self-managed nodes <br />+   AWS Fargate   |  +  Amazon EKS Managed Node Groups (Local Zones only) <br />+  Amazon EC2 self-managed nodes   | 
 | Kubernetes data plane location |  AWS Regions |  AWS Local or Wavelength Zones | 
 
+### Hardware-enforced pod isolation with Amazon EKS
+<a name="deployment-pod-isolation"></a>
+
+When you run Amazon EKS in the cloud, you can run selected pods inside hardware-isolated virtual machines with Nitro Sandboxes. Nitro Sandboxes works on top of either EKS Auto Mode or managed and self-managed node groups. EKS Auto Mode includes Nitro Sandbox support with no additional configuration. For managed node groups or self-managed nodes, you build a compatible AMI.
+
+Nitro Sandboxes is available in AWS Regions. It is not available in the AWS GovCloud (US) Regions or the China Regions. For more information, see [Sandboxing on Amazon EKS with isolated and confidential pods](sandboxing.md).
+
 ## Amazon EKS in your data center or edge environments
 <a name="dc-or-edge-deployment-options"></a>
 

@@ -30,3 +30,13 @@ Karpenter is open-source software which AWS customers are responsible for instal
 
  **Cluster Autoscaler**   
 The Kubernetes Cluster Autoscaler automatically adjusts the number of nodes in your cluster when pods fail or are rescheduled onto other nodes. The Cluster Autoscaler uses Auto Scaling groups. For more information, see [Cluster Autoscaler on AWS](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md).
+
+## Autoscaling with Nitro Sandboxes
+<a name="_autoscaling_with_nitro_sandboxes"></a>
+
+When you run isolated or confidential pods with Nitro Sandboxes, provisioning works with both EKS Auto Mode and Karpenter. When a pod sets `runtimeClassName` to `isolated-sandbox` or `confidential-sandbox`, the RuntimeClass automatically counts the pod against the node’s `eks.amazonaws.com/nitro-sandbox` slots through its overhead. You do not request this resource in your pod spec. The autoscaler then provisions a Nitro Enclaves-enabled node of a supported instance type. Keep the following in mind when you size and scale sandbox capacity:
++  **Sandbox density.** Two separate caps apply. The total vCPUs allocated across all sandboxes on a node cannot exceed 5 times the node’s vCPU count, and the number of sandboxes on a node cannot exceed 5 times the node’s vCPU count. On CPU-overcommit instance types, this maximum count is halved. The node’s maximum pods still applies. A node fits more single-vCPU sandboxes than large multi-vCPU sandboxes. For example, a 4-vCPU node has a 20-vCPU sandbox budget.
++  **Memory overhead.** Each sandbox pod carries a fixed RuntimeClass memory overhead that the scheduler adds to the pod’s own memory request: 256 MiB for `isolated-sandbox` and 512 MiB for `confidential-sandbox`. Size pods with this overhead included, and expect fewer sandbox pods per node than the raw memory of the instance type suggests.
++  **Instance types.** The autoscaler selects from instance types that support Nitro Enclaves.
+
+For more information, see [Sandboxing on Amazon EKS with isolated and confidential pods](sandboxing.md).

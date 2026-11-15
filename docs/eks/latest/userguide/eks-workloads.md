@@ -15,3 +15,6 @@ Your workloads are deployed in containers, which are deployed in Pods in Kuberne
 + Create an [Application Load Balancer](alb-ingress.md) to balance application traffic across Pods. The application load balancer routes traffic at Layer 7 of the OSI model.
 + If you’re new to Kubernetes, this topic helps you [Deploy a sample application](sample-deployment.md).
 + You can [restrict IP addresses that can be assigned to a service](restrict-service-external-ip.md) with `externalIPs`.
+
+**Running pods in Nitro Sandboxes**  
+To run a workload as an isolated or confidential pod in a Nitro Sandbox, reference the Nitro Sandbox `RuntimeClass` in the pod spec. For more information, see [Sandboxing on Amazon EKS with isolated and confidential pods](sandboxing.md).

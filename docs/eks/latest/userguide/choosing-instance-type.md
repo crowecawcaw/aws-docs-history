@@ -13,6 +13,9 @@ Amazon EC2 provides a wide selection of instance types for worker nodes. Each in
 + Accelerated Amazon EKS AMIs don’t support the `a`, `c`, `hpc`, `m`, and `t` families.
 + For Arm-based instances, Amazon Linux 2023 (AL2023) only supports instance types that use Graviton2 or later processors. AL2023 doesn’t support `A1` instances.
 
+**Instance types for Nitro Sandboxes**  
+To run isolated or confidential pods with Nitro Sandboxes, choose a supported instance type. Nitro Sandboxes run on a subset of the instance types that support Nitro Enclaves. For the list of supported instance types, see [supported instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-ec2-nitro-sandboxes.html#nitro-sandboxes-considerations) in the *Amazon EC2 User Guide*. For more information about Nitro Sandboxes, see [Sandboxing on Amazon EKS with isolated and confidential pods](sandboxing.md).
+
 When choosing between instance types that are supported by Amazon EKS, consider the following capabilities of each type.
 
  **Number of instances in a node group**   

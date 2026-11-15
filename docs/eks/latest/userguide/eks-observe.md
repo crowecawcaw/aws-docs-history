@@ -11,6 +11,9 @@ You can observe your data in Amazon EKS using many available monitoring or loggi
 
 After selecting **Clusters** in the left navigation pane of the Amazon EKS console, you can view cluster health and details by choosing your cluster’s name and choosing **Cluster monitoring** in the left navigation pane. To view details about any existing Kubernetes resources that are deployed to your cluster, see [View Kubernetes resources in the AWS Management Console](view-kubernetes-resources.md).
 
+**Monitoring Nitro Sandboxes**  
+The Amazon CloudWatch Observability agent can collect logs and metrics from isolated and confidential pods that run in Nitro Sandboxes. Container logs and metrics surface through the standard kubelet location. The Amazon GuardDuty agent, whose runtime monitoring inspects host processes and cgroups, cannot observe activity inside a sandbox. For what you can observe, see [Observability](sandboxing-observability.md).
+
 Monitoring is an important part of maintaining the reliability, availability, and performance of Amazon EKS and your AWS solutions. We recommend that you collect monitoring data from all of the parts of your AWS solution. That way, you can more easily debug a multi-point failure if one occurs. Before you start monitoring Amazon EKS, make sure that your monitoring plan addresses the following questions.
 + What are your goals? Do you need real-time notifications if your clusters scale dramatically?
 + What resources need to be observed?
