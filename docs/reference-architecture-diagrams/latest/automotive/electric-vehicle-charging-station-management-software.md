@@ -1,0 +1,86 @@
+
+
+# Electric Vehicle Charging Station Management System
+<a name="electric-vehicle-charging-station-management-software"></a>
+
+Publication date: **June 4, 2024 ([Diagram history](diagram-history.md))**
+
+## Container-based Electric Vehicle Charging Station Management System diagram
+<a name="electric-vehicle-charging-station-management-software-option-1"></a>
+
+Container-based microservices architecture utilizing familiar technologies and concepts, most suitable for organizations embarking on containerization. Whether you're planning a development from scratch or the modernization of existing product, this architecture provides a scalable, reliable, and cost-efficient solution for the critical electric vehicle (EV) infrastructure.
+
+![Reference architecture diagram showing a container-based microservices architecture utilizing familiar technologies and concepts, most suitable for organizations embarking on containerization.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/automotive/images/electric-vehicle-charging-station-management-software-option-1.png)
+
+
+1.  Charging stations (electric vehicle supply equipment, or EVSE) are connected to [Amazon Elastic Container Service](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/) (Amazon ECS) on [AWS Fargate](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/) behind [Network Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/). [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/) routes outbound open charge point protocol (OCPP) messages to EVSEs and [Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/) keeps active connections. 
+
+1.  [Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/) serves static EVSE management web application from an [Amazon Simple Storage Service](https://docs.aws.amazon.com/AmazonS3/latest/userguide/) (Amazon S3) bucket. [Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/) exposes the backend REST API for the web application. [Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/) stores the Charging Point Operator's user identities. 
+
+1.  DynamoDB stores the registry of EVSE with credentials in encrypted form. [AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/) (ACM) manages EVSE certificates for authentication. 
+
+1.  Management microservice delivers EVSE metrics to and from [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/). Amazon S3 is used to store EVSE logs, cold metrics, and firmware files. 
+
+1.  DynamoDB stores the configuration of charging sites, balancing algorithms, and power grid capacity. 
+
+1.  Amazon Quantum Ledger Database (Amazon QLDB) stores immutable and cryptographically verifiable log of charging transactions. 
+
+1.  [Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/) exposes the internal APIs of the microservices, routes requests, and balances between multiple tasks on Amazon ECS. 
+
+## Serverless Electric Vehicle Charging Station Management System diagram
+<a name="electric-vehicle-charging-station-management-software-option-2"></a>
+
+Event-driven serverless architecture most suitable for organizations with existing know-how in serverless technologies and mature DevOps culture. It provides a high degree of scalability, fault isolation, and minimal running costs when not in use. 
+
+![Reference architecture diagram showing an event-driven serverless architecture most suitable for organizations with existing know-how in serverless technologies and mature DevOps culture. It provides a high degree of scalability, fault isolation, and minimal running costs when not in use.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/automotive/images/electric-vehicle-charging-station-management-software-option-2.png)
+
+
+1.  EVSEs are connected to Amazon ECS on Fargate behind Network Load Balancer. Lambda routes outbound OCPP messages to EVSEs and DynamoDB keeps active connections. 
+
+1.  CloudFront serves static EVSE management web application from an Amazon S3 bucket. API Gateway exposes the backend REST API for the web application. Amazon Cognito stores the charging point operator's user identities. 
+
+1.  DynamoDB stores the registry of EVSE with credentials in encrypted form. ACM manages EVSE certificates for authentication. 
+
+1.  Lambda functions deliver EVSE metrics to and from CloudWatch. Amazon S3 used to store EVSE logs, cold metrics, and firmware files. 
+
+1.  The configuration of charging sites, balancing algorithms, and power grid capacity stored in DynamoDB. 
+
+1.  [AWS Step Functions](https://docs.aws.amazon.com/step-functions/latest/dg/) orchestrates the transaction management workflows. Amazon QLDB stores immutable and cryptographically verifiable log of charging transactions. 
+
+1.  [Amazon Simple Notification Service](https://docs.aws.amazon.com/sns/latest/dg/) (Amazon SNS) first in, first out (FIFO) topics transport messages to and from EVSEs. Messages are fanned out to [Amazon Simple Queue Service](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/) (Amazon SQS) queues before being processed by Lambda functions. 
+
+1.  Application Load Balancer routes requests to the internal APIs of Lambda-based microservices. 
+
+## Electric Vehicle Charging Station Management System with AWS IoT diagram
+<a name="electric-vehicle-charging-station-management-software-iot"></a>
+
+This reference architecture demonstrates how to build a highly scalable, low-latency electric vehicle (EV) charge point operator system based on the EV industry standard, Open Charge Point Protocol (OCPP), using services such as [AWS IoT Core](https://docs.aws.amazon.com/iot/latest/developerguide/) and AWS Lambda.
+
+![Reference architecture diagram showing how to build a highly scalable, low-latency electric vehicle (EV) charge point operator system based on the EV industry standard, Open Charge Point Protocol (OCPP), using AWS services like AWS IoT Core and AWS Lambda.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/automotive/images/electric-vehicle-charging-station-management-software-iot.png)
+
+
+1.  An EV charge point is deployed in the field, either as a domestic charge point or as a fast charging one. It is fitted with both sensors and actuators (to stop and start charging) and can connect to the internet. 
+
+1.  The EV charge point is provisioned as an [AWS IoT](https://docs.aws.amazon.com/iot/latest/developerguide/) thing using an [AWS Private Certificate Authority](https://docs.aws.amazon.com/privateca/latest/userguide/) (AWS Private CA) x509 certificate, along with the relevant AWS IoT policy, using just-in-time provisioning (JITP) with AWS Lambda. 
+
+1.  The EV charge point connects to AWS using the MQTT protocol through AWS IoT Core, acting as the entry point to every message sent from and to the cloud. AWS IoT rules are initiated and sent to relevant AWS services and applications. 
+
+1.  Following security best practices and guidance, the EV charge point certificate is rotated on a regular basis, leveraging [AWS IoT Device Defender](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/) to identify certificates close to expiration, Amazon Simple Notification Service (Amazon SNS) and Lambda to handle the new certificate generation and rotation. 
+
+1.  AWS IoT rules and actions store telemetry data coming from the EV charge point through AWS IoT Core in a dedicated storage service such as [Amazon Timestream](https://docs.aws.amazon.com/timestream/latest/developerguide/) or Amazon Simple Storage Service (Amazon S3) for further analysis and fleet management. 
+
+1.  An AWS IoT device shadow can make a charge point state available to the application layer and other services whether the device is connected to AWS IoT Core or not, implementing the preferred mechanism for IoT device remote commands. 
+
+1.  Use [AWS IoT Device Management](https://docs.aws.amazon.com/iot/latest/developerguide/) to implement over-the-air (OTA) update management through IoT jobs, allowing the EV charge point to download its new firmware from Amazon S3. 
+
+1.  Get security alerts from AWS IoT Device Defender and analyze IoT logs in Amazon CloudWatch. Use AWS IoT fleet indexing to manage state, connectivity, and device violations and to organize, investigate, and troubleshoot your fleet of devices. 
+
+1.  Build your business logic applications serving different user personas from fleet management operators to utilities, mobility solution providers or vehicle OEMs. Use AWS services such as [Amazon SageMaker AI](https://docs.aws.amazon.com/sagemaker/latest/dg/) for energy demand forecasting or EV routing algorithms, [AWS Quick Sight](https://docs.aws.amazon.com/quick/latest/userguide/) to build fleet management dashboards, or Amazon API Gateway to provide API access to your data to third parties, partners, and customers. 
+
+## Further reading
+<a name="electric-vehicle-charging-station-management-software-further-reading"></a>
+
+ For additional information, refer to 
++ [AWS Architecture Icons](https://aws.amazon.com/architecture/icons)
++ [AWS Architecture Center](https://aws.amazon.com/architecture)
++  [AWS Well-Architected](https://aws.amazon.com/architecture/well-architected) 
