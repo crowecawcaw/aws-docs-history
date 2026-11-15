@@ -207,6 +207,31 @@ The following example allows the `GetTaxComplianceProfile` action on a specific 
 }
 ```
 
+AWS Marketplace authorizes the `StartTaxComplianceProfileChangeTask` action against two resources. These are the change task that the call creates and the tax compliance profile that the change task creates or updates. Grant the action on both resources. If you grant it on only one of them, every call fails with an `AccessDenied` error.
+
+The change task ARN always ends with a wildcard, because AWS Marketplace generates a new change task identifier for each call. For the profile, use the `tax-compliance-profile/*` wildcard. This covers both creating a profile and updating one. The following example allows the `StartTaxComplianceProfileChangeTask` action on any tax compliance profile in the account.
+
+```
+{
+  "Version": "2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "aws-marketplace:StartTaxComplianceProfileChangeTask"
+      ],
+      "Resource": [
+        "arn:aws:aws-marketplace:us-east-1:{{123456789012}}:tax-compliance-profile-change-task/*",
+        "arn:aws:aws-marketplace:us-east-1:{{123456789012}}:tax-compliance-profile/*"
+      ]
+    }
+  ]
+}
+```
+
+**Note**  
+You can also use the ARN of a specific profile, such as `tax-compliance-profile/{{tcp-a1b2c3d4e5f6g}}`. With that ARN you can update that profile, but you cannot create a new one. A profile that you are creating has no identifier yet, so AWS Marketplace authorizes the call against the `tax-compliance-profile/*` wildcard.
+
 ## Allowing actions with specific aws:ResourceTag condition key
 <a name="compliance-allowing-actions-with-resource-tag"></a>
 
@@ -299,6 +324,31 @@ Similarly, the following IAM policy allows the `GetTaxComplianceProfile` action 
   ]
 }
 ```
+
+For the `StartTaxComplianceProfileChangeTask` action, `aws:ResourceTag` evaluates the tags on the tax compliance profile that the change task updates. The following IAM policy allows that action on a profile that has a tag key of `Department` and tag value of `Tax`.
+
+```
+{
+  "Version": "2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "aws-marketplace:StartTaxComplianceProfileChangeTask"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:ResourceTag/Department": "Tax"
+        }
+      }
+    }
+  ]
+}
+```
+
+**Note**  
+This condition matches only when you update an existing profile. A profile that you are creating has no tags yet, so you cannot use this policy to create a profile. To control tags when you create a profile, use the `aws:RequestTag` and `aws:TagKeys` condition keys instead. For more information, see [Requiring tags when starting tax compliance profile change tasks](#compliance-requiring-tags-when-starting-tcp-tasks).
 
 ## Managing tags on resources
 <a name="compliance-managing-tags-on-resources"></a>
@@ -468,7 +518,7 @@ You can enforce tagging when invoice submission tasks are created by using the `
 ## Requiring tags when starting tax compliance profile change tasks
 <a name="compliance-requiring-tags-when-starting-tcp-tasks"></a>
 
-You can enforce tagging when tax compliance profile change tasks are created by using the `aws:RequestTag` and `aws:TagKeys` condition keys with the `StartTaxComplianceProfileChangeTask` action.
+You can enforce tagging when you create tax compliance profile change tasks by using the `aws:RequestTag` and `aws:TagKeys` condition keys with the `StartTaxComplianceProfileChangeTask` action.
 
 ```
 {
@@ -494,6 +544,9 @@ You can enforce tagging when tax compliance profile change tasks are created by 
   ]
 }
 ```
+
+**Note**  
+You can set tags only when you create a profile. If you specify tags together with a profile identifier, the request fails with a validation error. To change the tags on an existing profile, use the `TagResource` and `UntagResource` actions.
 
 ## Verification evidence operations
 <a name="compliance-verification-verification-evidence-operations"></a>

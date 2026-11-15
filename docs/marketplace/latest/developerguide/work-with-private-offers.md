@@ -1089,7 +1089,6 @@ The following errors are specific to `UpdatePricingTerms` actions in the AWS Mar
 | INCOMPATIBLE\_PRODUCT | [x] isn't supported in an offer for the product. | 
 | INCOMPATIBLE\_PRODUCT | Provided payment and pricing terms are incompatible. | 
 | INCOMPATIBLE\_PRODUCT | Use existing, available dimensions in the product in [x]. | 
-| INCOMPATIBLE\_PRODUCT | FreeTrialPricingTerm as the offer's only pricing term isn't supported for the product. | 
 | INCOMPATIBLE\_PRODUCT | The following terms aren't supported for the product: [x,y,z]. | 
 | INCOMPATIBLE\_PRODUCT | Replacement offers are only supported for contract pricing model. | 
 | INCOMPATIBLE\_PRODUCT | Provide pricing term(s) that are compatible with the product dimensions. Incompatible pricing terms: [x,y,z]. | 
@@ -1115,6 +1114,7 @@ The following errors are specific to `UpdatePricingTerms` actions in the AWS Mar
 | INCOMPATIBLE\_TERMS  | FixedUpfrontPricingTerm isn't supported when MarkupPercentage is greater than zero (0). | 
 | INCOMPATIBLE\_TERMS  | The requested change can't be performed after the offer is released. | 
 | INCOMPATIBLE\_TERMS  | The requested change can't be performed after the offer is expired. | 
+| INCOMPATIBLE\_TERMS | FreeTrialPricingTerm as the offer's only pricing term isn't supported for the product. | 
 | INVALID\_AGREEMENT\_DURATION | Provide duration between [x] and [y] months. | 
 | INVALID\_AGREEMENT\_DURATION | Ensure duration granularity is at the day level for metered dimensions. | 
 | INVALID\_CURRENCY\_CODE | Provide a supported CurrencyCode. | 
@@ -1248,6 +1248,7 @@ The following errors are specific to `UpdateAvailability` actions in the AWS Mar
 | INVALID\_AVAILABILITY\_END\_DATE | AvailabilityEndDate isn't supported for public offers. | 
 | INVALID\_AVAILABILITY\_END\_DATE | Provide a future AvailabilityEndDate. | 
 | INVALID\_AVAILABILITY\_END\_DATE | Provide an AvailabilityEndDate that is before AgreementEndDate. | 
+| INVALID\_AVAILABILITY\_END\_DATE | The requested change can't be performed after the offer is expired. | 
 | MISSING\_AVAILABILITY\_END\_DATE | Provide an AvailabilityEndDate that is before the agreement's end date. | 
 
 ## Define the expiration date of agreements created using the offer
