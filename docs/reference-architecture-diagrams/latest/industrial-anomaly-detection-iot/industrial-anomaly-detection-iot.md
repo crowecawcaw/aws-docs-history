@@ -31,7 +31,7 @@ The following steps describe the architecture:
 
 1. No-code dashboards through AWS IoT SiteWise Monitor assess real-time and historical performance.
 
-1. [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) evaluates history of anomalies and fleet performance.
+1. [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) evaluates history of anomalies and fleet performance.
 
 ## Further reading
 <a name="iad-further-reading"></a>
