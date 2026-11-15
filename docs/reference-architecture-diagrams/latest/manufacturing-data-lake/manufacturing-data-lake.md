@@ -33,7 +33,7 @@ The following steps describe the architecture:
 
 1. Use AWS AppSync to build a GraphQL endpoint with Lambda resolvers. This endpoint provides a flexible API for consuming applications.
 
-1. Build visualizations with [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) by using [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/) and Amazon Redshift.
+1. Build visualizations with [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) by using [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/) and Amazon Redshift.
 
 ## Further reading
 <a name="mdl-further-reading"></a>
