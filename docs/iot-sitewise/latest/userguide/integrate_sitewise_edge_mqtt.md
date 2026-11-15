@@ -647,7 +647,7 @@ Consider upgrading to Amazon Managed Grafana when you're ready to scale your sol
 
 You have completed the tutorial. In this procedure, you configured AWS IoT SiteWise Edge to integrate third-party device data using an MQTT-enabled, V3 gateway. This setup allows you to collect, process, and visualize industrial equipment data at the edge, reducing latency and operational costs. By using the wind farm demo, you collected and processed operational metrics like CPU and memory usage data through your MQTT-enabled, V3 gateway.
 
-To enhance your IoT solution, consider exploring advanced features like anomaly detection by leveraging [Detect anomalies with Lookout for Equipment](anomaly-detection.md), or integrating with other AWS services like [Amazon Quick](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) in the *Amazon Quick User Guide* for advanced analytics.
+To enhance your IoT solution, consider exploring advanced features like anomaly detection by leveraging [Detect anomalies with Lookout for Equipment](anomaly-detection.md), or integrating with other AWS services like [AWS Quick](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) in the *AWS Quick User Guide* for advanced analytics.
 
 ## Step 11: Clean up resources after the tutorial
 <a name="tutorial-clean-up-resources"></a>
