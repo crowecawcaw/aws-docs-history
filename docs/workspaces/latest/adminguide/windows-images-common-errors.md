@@ -208,7 +208,7 @@ The `D:` Drive is a restricted drive letter for WorkSpaces. Please ensure that `
 ## BYOL import is incompatible with memory integrity.
 <a name="MemoryIntegrityIncompatibility-collapsed"></a>
 
-Memory Integrity is not supported when Credential Guard is enabled on the Windows operating system of a WorkSpace. Memory Integrity was detected with UEFILock which cannot be disabled during image import. Please import an image with UEFILock disabled, see [Disable Credential Guard](https://learn.microsoft.com/en-us/windows/security/identity-protection/credential-guard/configure?tabs=intune#disable-credential-guard).
+Memory integrity (HVCI) is not supported on WorkSpaces, whether or not it is UEFI-locked. Disable memory integrity on the image before you import it. For more information, see [Disable memory integrity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/credential-guard.html#disable-memory-integrity).
 
 ## BYOL Import requires Bitlocker state to be disabled.
 <a name="DisableBitlocker-collapsed"></a>

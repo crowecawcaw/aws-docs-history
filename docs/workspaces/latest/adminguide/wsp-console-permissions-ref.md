@@ -15,6 +15,9 @@ Some Amazon WorkSpaces APIs can only be called through the AWS Management Consol
 + workspaces:ListTroubleshootingRecommendations
 + workspaces:InvokeOnboardingAgent
 + workspaces:Personalization
++ workspaces:ListWorkspaceProactiveRecommendations
++ workspaces:GetWorkspaceProactiveRecommendation
++ workspaces:ListWorkspaceProactiveRecommendationResources
 
 ## WorkSpaces Console operations and required permissions for actions
 <a name="wsp-console-operations"></a>
@@ -39,3 +42,4 @@ This table lists the WorkSpaces Console features that rely on the APIs that are 
 | [Select an organizational unit for WorkSpaces Personal](https://docs.aws.amazon.com/workspaces/latest/adminguide/select-ou.html) | workspaces:DirectoryAccessManagement<br />ds:DescribeDirectories<br />ec2:DescribeSubnets<br />ec2:DescribeSecurityGroups<br />workspaces:DescribeAccount<br />workspaces:DescribeWorkspaceDirectories<br />workspaces:DescribeTags<br />workspaces:DescribeClientProperties<br />workspaces:DescribeConnectClientAddins<br />workspaces:ModifyWorkspaceCreationProperties | 
 | [Enable your account for BYOL](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html) – To confirm understanding of the requirements to use BYOL WorkSpaces | workspaces:DescribeConsent<br />workspaces:UpdateConsent<br />workspaces:DescribeAccount<br />workspaces:ListAccountLinks<br />workspaces:DescribeWorkspaceBundles<br />workspaces:DescribeWorkspaceDirectories | 
 | [Amazon WorkSpaces Advisor - Troubleshooting](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-advisor.html) | workspaces:InvokeTroubleshootingInvestigation<br />workspaces:GetTroubleshootingRecommendation<br />workspaces:ListTroubleshootingRecommendations | 
+| [Amazon WorkSpaces Advisor - Fleet health](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-advisor.html) | workspaces:ListWorkspaceProactiveRecommendations<br />workspaces:GetWorkspaceProactiveRecommendation<br />workspaces:ListWorkspaceProactiveRecommendationResources | 

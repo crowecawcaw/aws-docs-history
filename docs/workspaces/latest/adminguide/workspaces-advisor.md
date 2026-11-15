@@ -10,7 +10,7 @@ With WorkSpaces Advisor, you can:
 + Investigate a WorkSpace and receive the issues most relevant to what you described
 + Review supporting telemetry data, including Amazon CloudWatch metrics, for each issue
 + Take recommended remediation actions
-+ Chat with WorkSpaces Advisor for follow-up questions through Amazon Q Developer
++ Chat with WorkSpaces Advisor for follow-up questions through the AWS assistant
 + Create a support case pre-populated with investigation context
 
 WorkSpaces Advisor is available in all AWS Regions that support Amazon WorkSpaces Personal at no additional cost.
@@ -66,11 +66,11 @@ WorkSpaces Advisor accesses the following data to perform investigations:
 
 1. Review the risk and impact information for the recommended action, then choose the action to initiate it.
 
-### Get additional help with Amazon Q Developer
+### Get additional help with AWS assistant
 <a name="workspaces-advisor-additional-help"></a>
 + **Chat with WorkSpaces Advisor** — Choose **Chat with WorkSpaces Advisor** on the issue details page to ask follow-up questions through AWS Console chat. The chat session automatically includes the full context of the issue.
 + **Create a support case** — Choose **Create support case** to contact AWS Support. The support case is pre-populated with the investigation context.
-+ In both cases you will need [permissions to use Amazon Q Developer](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_permissions.html) in the console. For more information about using Amazon Q Developer, see [Chatting with Amazon Q Developer about AWS](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/chat-with-q.html).
++ In both cases you will need [permissions to use AWS assistant](https://docs.aws.amazon.com/assistant/latest/userguide/getting-started.html#permissions-overview) in the console. For more information about using the AWS assistant, see [Using AWS assistant](https://docs.aws.amazon.com/assistant/latest/userguide/using-assistant.html).
 
 ## Required permissions
 <a name="workspaces-advisor-permissions"></a>

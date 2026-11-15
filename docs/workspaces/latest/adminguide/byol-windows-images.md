@@ -51,6 +51,7 @@ For the best video conferencing experience we recommend using Power (4 vCPU, 16 
 **Note**  
 As you adopt the WorkSpaces service, the available management interface IP address ranges frequently change. To determine which ranges are currently available, run the [ list-available-management-cidr-ranges](https://docs.aws.amazon.com/cli/latest/reference/workspaces/list-available-management-cidr-ranges.html) AWS Command Line Interface (AWS CLI) command.
 In addition to the /16 CIDR block that you select, the 54.239.224.0/20 IP address range is used for management interface traffic in all AWS Regions.
++ Memory integrity (HVCI) must be disabled on the image and must not be enabled afterward by Group Policy or Intune. For more information, see [Disable memory integrity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/credential-guard.html#disable-memory-integrity).
 
 #### S3 Access
 <a name="s3_access_requirements"></a>
