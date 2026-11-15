@@ -2156,7 +2156,7 @@ A sequence of messages or jobs that are held in temporary storage awaiting trans
 A web address that uniquely identifies a queue.
 
 **Quick**<a name="quicksight-gloss"></a>  
-Amazon Quick is a fast, cloud-powered business analytics service that you can use to build visualizations, perform analysis, and quickly get business insights from your data.    
+AWS Quick is a fast, cloud-powered business analytics service that you can use to build visualizations, perform analysis, and quickly get business insights from your data.    
 See also [https://aws.amazon.com/quicksight/](https://aws.amazon.com/quicksight/).
 
 **quota**<a name="quota"></a>  
@@ -2669,7 +2669,7 @@ An email address that's set up by an anti-[spam](#spam) entity. This email addre
 Sender Policy Framework. A standard for authenticating email. 
 
 **SPICE**<a name="spice"></a>  
-A robust in-memory engine that is part of [Amazon Quick](#quicksight-gloss). Engineered for the cloud, SPICE (Super-fast, Parallel, In-memory Calculation Engine) uses a combination of storage and in-memory technologies. It uses these to get faster results from interactive queries and advanced calculations on large datasets. SPICE automatically replicates data for high availability. SPICE makes it possible for Amazon Quick to support hundreds of thousands of simultaneous analyses across a variety of data sources.
+A robust in-memory engine that is part of [AWS Quick](#quicksight-gloss). Engineered for the cloud, SPICE (Super-fast, Parallel, In-memory Calculation Engine) uses a combination of storage and in-memory technologies. It uses these to get faster results from interactive queries and advanced calculations on large datasets. SPICE automatically replicates data for high availability. SPICE makes it possible for AWS Quick to support hundreds of thousands of simultaneous analyses across a variety of data sources.
 
 **Spot Instance**<a name="SpotInstance"></a>  
  A type of [EC2 instance](#ec2instance) that you can bid on to use unused [Amazon EC2](#ec2) capacity.
