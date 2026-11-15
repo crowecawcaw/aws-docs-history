@@ -12,7 +12,7 @@
  For machine images, Amazon Inspector can scan for operating system and programming language package vulnerabilities. For the operating systems that Amazon Inspector supports for machine image scanning, see [Supported operating systems: machine image scanning](#supported-os-ami). Amazon Inspector does not scan for toolchain vulnerabilities. The version of the programming language compiler used to build the application introduces these vulnerabilities. 
 +  Container images stored in Amazon Elastic Container Registry (Amazon ECR) repositories 
 **Note**  
- For ECR container images, Amazon Inspector can scan for operating system and programming language package vulnerabilities. Amazon Inspector also supports hardened images provided by Chainguard, Echo, Docker, and Red Hat. Amazon Inspector does not scan for toolchain vulnerabilities in Rust——the version of the programming language compiler used to build the application introduces these vulnerabilities. 
+ For ECR container images, Amazon Inspector can scan for operating system and programming language package vulnerabilities. Amazon Inspector also supports scanning hardened container images. For more information, see [Supported hardened container images](#supported-os-ecr-hardened). Amazon Inspector does not scan for toolchain vulnerabilities in Rust——the version of the programming language compiler used to build the application introduces these vulnerabilities. 
 +  AWS Lambda functions 
 **Note**  
  For Lambda functions, Amazon Inspector can scan for programming language package vulnerabilities and code vulnerabilities. Amazon Inspector does not scan for toolchain vulnerabilities. The version of the programming language compiler used to build the application introduces these vulnerabilities. 
@@ -118,6 +118,8 @@ Ubuntu
 
  Linux operating system detections are supported only for the default package manager repository (rpm and dpkg). Detections don't include third-party applications, extended support repositories, or optional repositories (application streams) unless otherwise specified below. 
 
+ The snapshots that back the machine image must use a supported file system format: `ext3`, `ext4`, `ntfs`, or `xfs`. For more information about supported file system formats, see [Eligible machine images](scanning-machine-images.md#machine-image-eligible). 
+
 **Note**  
  Amazon Inspector doesn't support machine image scanning for macOS. Amazon Inspector reports a scan status of `UNSUPPORTED_OS` for a machine image that runs an operating system that isn't listed in the following table, and for a machine image whose snapshots use a configuration that Amazon Inspector can't read, such as Logical Volume Manager (LVM). 
 
@@ -177,13 +179,11 @@ Ubuntu
 | Amazon Linux 2023 (AL2023) | AL2023 | CVE Errata | Fixed | Yes | Yes | 
 | Azure Linux | 3 | CVE Errata | Fixed | Yes | Yes | 
 | BusyBox | – | MITRE CVE | Fixed | Yes | Yes | 
-| Chainguard | – | OSV | Fixed | Yes | Yes | 
 | Debian Server (Bookworm) | 12 | DSA CVE | Fixed, Open | Yes | Yes | 
 | Debian Server (Trixie) | 13 | DSA CVE | Fixed, Open | Yes | Yes | 
-| Echo | 2 | CVE Errata | Fixed | Yes | Yes | 
 | Fedora | 43 | CVE Errata | Fixed | Yes | Yes | 
 | Fedora | 44 | CVE Errata | Fixed | Yes | Yes | 
-| Hummingbird OS | – | RHEL VEX CVE | Fixed | Yes | No | 
+| Fedora | 45 | CVE Errata | Fixed | Yes | No | 
 | Oracle Linux | 8 | CVE Errata | Fixed | Yes | Yes | 
 | Oracle Linux | 9 | CVE Errata | Fixed | Yes | Yes | 
 | Oracle Linux | 10 | CVE Errata | Fixed | Yes | Yes | 
@@ -205,6 +205,19 @@ Ubuntu
 | Windows Server | 2019 | MSKB | Fixed | Yes | No | 
 | Windows Server | 2022 | MSKB | Fixed | Yes | No | 
 | Windows Server | 2025 | MSKB | Fixed | Yes | No | 
+
+#### Supported hardened container images
+<a name="supported-os-ecr-hardened"></a>
+
+ The following table lists the hardened container images that Amazon Inspector supports for Amazon ECR scanning. 
+
+
+| Operating system | Version | Advisory source | Advisory status | Basic scanning | Enhanced scanning | 
+| --- | --- | --- | --- | --- | --- | 
+| Chainguard | – | OSV | Fixed | Yes | Yes | 
+| CleanStart | – | OSV | Fixed | Yes | No | 
+| Echo | 2 | CVE Errata | Fixed | Yes | Yes | 
+| Hummingbird OS | – | RHEL VEX CVE | Fixed | Yes | No | 
 | Wolfi | – | OSV | Fixed | Yes | Yes | 
 
 ### Supported operating systems: CIS scanning
