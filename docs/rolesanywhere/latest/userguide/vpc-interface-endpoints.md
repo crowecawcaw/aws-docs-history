@@ -73,6 +73,8 @@ arn:aws:rolesanywhere:{{region}}:{{account-id}}:trust-anchor/{{trust-anchor-id}}
 
 You can use wildcards to allow access to multiple trust anchors, or specify individual trust anchor ARNs for more restrictive access control.
 
+Specify a trust anchor by its canonical ARN, which contains the trust anchor ID. A statement that names a trust anchor's canonical ARN also applies when the `CreateSession` request names that trust anchor by its alias ARN. A statement that names an alias ARN doesn't apply to the trust anchor. For more information, see [Aliases and IAM policies](resource-aliases.md#resource-aliases-iam).
+
 **VPC endpoint policy for CreateSession with a specific trust anchor**  
 The following is an example of an endpoint policy for `CreateSession` that restricts access to a specific trust anchor. When attached to an endpoint, this policy grants access to the `CreateSession` action only for the specified trust anchor.
 

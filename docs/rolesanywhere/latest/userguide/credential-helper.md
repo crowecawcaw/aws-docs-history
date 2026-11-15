@@ -327,7 +327,7 @@ Windows only: Specifies a system certificate store other than "MY" (the default)
 Boolean flag to use the latest expiring certificate when multiple certificates match a certificate selector. This can be useful when you have multiple valid certificates and want to use the one with the longest remaining validity period.
 
 `--profile-arn` (string)  
-Profile to pull policies, attribute mappings and other data from.
+Profile to pull policies, attribute mappings and other data from. Specify the profile ARN or the profile's alias ARN. For more information, see [Use alias ARNs with the credential helper](resource-aliases.md#resource-aliases-use-credential-helper).
 
 `--role-arn` (string)  
 Target role to assume.
@@ -336,7 +336,7 @@ Target role to assume.
 Duration, in seconds, for the resulting session (corresponds to the `durationSeconds` parameter in the `CreateSession` request). This is optional and can range from 900 seconds (15 minutes) up to 43200 seconds (12 hours). Please see the `Expiration` subsection of the [Credentials Object](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/authentication-create-session.html#credentials-object) section for more details on how this value is used in determining the expiration of the vended session.
 
 `--trust-anchor-arn` (string)  
-Trust anchor to use for authentication.
+Trust anchor to use for authentication. Specify the trust anchor ARN or the trust anchor's alias ARN. For more information, see [Use alias ARNs with the credential helper](resource-aliases.md#resource-aliases-use-credential-helper).
 
 `--with-proxy`  
 To use the tool with a proxy. This is a boolean flag. Note that you will have to set the `HTTPS_PROXY` environment variable with the address of the proxy server.

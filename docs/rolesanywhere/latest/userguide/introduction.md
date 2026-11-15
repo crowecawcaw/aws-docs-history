@@ -24,6 +24,9 @@ Learn the basic terms and concepts used in IAM Roles Anywhere.
 + **Profiles**
 
   To specify which roles IAM Roles Anywhere assumes and what your workloads can do with the temporary credentials, you create a profile. In a profile, you can define IAM session policies, which can be managed or inline, to limit the permissions created for a session. A profile can have many IAM roles, but only one session policy. Any session returned by a CreateSession call that references the profile will have its permissions limited by the session policy.
++ **Aliases**
+
+  You can give a trust anchor, profile, or certificate revocation list (CRL) an *alias*, a readable name that gives the resource a second ARN called its alias ARN. You can use the alias ARN in place of the resource ID or ARN in many operations, for example in your credential helper configuration. For more information, see [Resource aliases](resource-aliases.md).
 
 **Note**  
 All IAM Roles Anywhere resources are regional and they must be created in the same account and region to be used together.

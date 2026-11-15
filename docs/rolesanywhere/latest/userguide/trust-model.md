@@ -270,6 +270,9 @@ This same behavior applies to any certificate field that contains multiple value
 
  In general, it is strongly recommended that you use the [aws:SourceArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourceaccount) or the [aws:SourceAccount](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn) global condition keys or the [sts:SourceIdentity](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_sourceidentity) condition key in your role trust policies. This combination of conditions implements least privilege permissions and prevents IAM Roles Anywhere from acting as a potential [confused deputy](https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html). When a client obtains temporary security credentials from IAM Roles Anywhere, the `aws:SourceArn` and `aws:SourceAccount` will be set based on the ARN of the trust anchor specified in the call to `CreateSession`.
 
+**Note**  
+In your role trust policies, always specify the trust anchor's canonical ARN, the ARN that contains the trust anchor ID, and not its alias ARN. IAM Roles Anywhere sets `aws:SourceArn` to the canonical ARN even when the `CreateSession` request specifies the trust anchor by its alias ARN, so a condition on an alias ARN never matches. For more information, see [Resource aliases](resource-aliases.md).
+
  To use the `aws:SourceArn` and `aws:SourceAccount` global condition keys, set the value to the Amazon Resource Name (ARN) or account of the trust anchor that you expect to use for authentication. As an example, consider the following role trust policy. 
 
 ------
@@ -394,6 +397,8 @@ You can't use the Online Certificate Status Protocol (OCSP) to check revocation 
 <a name="imported-crls"></a>
 
 You can import a CRL that is generated from your CA using the [ImportCrl](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_ImportCrl.html) API or the [import-crl](https://docs.aws.amazon.com/cli/latest/reference/rolesanywhere/import-crl.html) CLI command. IAM Roles Anywhere then checks the certificates used for authentication against the CRLs that you imported. IAM Roles Anywhere uses an imported CRL only for certificates that are issued by the same CA that issued and signed the CRL. You can't use indirect CRLs, which are issued by a different entity. You can import CRLs only through the API and CLI.
+
+You can give an imported CRL an alias and then refer to it by its alias ARN. For more information, see [Resource aliases](resource-aliases.md).
 
 **Important**  
 IAM Roles Anywhere does not check the expiration date of a CRL that you import. IAM Roles Anywhere continues to use an imported CRL for revocation checks even after the CRL's `nextUpdate` date has passed. To make sure that revocation checks reflect the current state of your CA, re-import your CRL whenever your CA publishes an updated version.

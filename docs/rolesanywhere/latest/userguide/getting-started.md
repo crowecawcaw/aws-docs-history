@@ -36,6 +36,8 @@ Certificates issued from public CAs cannot be used as trust anchors.
 
 1. In **Trust anchor name**, enter a name for the trust anchor. 
 
+1. (Optional) In **Alias**, enter an alias for the trust anchor. You can use the trust anchor's alias ARN in place of its ARN, for example in your credential helper configuration. For more information, see [Resource aliases](resource-aliases.md).
+
 1. For **Certificate authority (CA) source**, do one of the following: 
    + To use an AWS Private CA resource, choose **AWS Private CA**. In the **AWS Private CA** table, choose the AWS Private CA resource. 
    + To use another CA, choose **External certificate bundle**. In **External certificate bundle**, paste your CA certificate body. The certificate must be in Privacy Enhanced Mail (PEM) format.
@@ -110,6 +112,8 @@ Without a `Condition` statement present in a role trust policy, any valid certif
 1. Choose **Create a profile**. 
 
 1. In **Profile name**, enter a name for the profile. 
+
+1. (Optional) In **Alias**, enter an alias for the profile. For more information, see [Resource aliases](resource-aliases.md).
 
 1. Under **Role**, choose the role you updated the trust policy for. 
 

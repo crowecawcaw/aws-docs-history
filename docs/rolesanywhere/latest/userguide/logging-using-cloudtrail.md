@@ -20,6 +20,8 @@ For an ongoing record of events in your AWS account, including events for IAM Ro
 
 All IAM Roles Anywhere actions are logged by CloudTrail and are documented in the [IAM Roles Anywhere API Reference](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/Welcome.html). For example, calls to the `CreateTrustAnchor`, `ListProfiles`, and `CreateSession` operations generate entries in the CloudTrail log files. In addition, the userIdentity element's Role Session Name property is the hex-encoded serial number of the certificate the session was created with and can be used to track a session back to it.
 
+If you assign aliases to trust anchors, profiles, or certificate revocation lists (CRLs), the alias names and alias ARNs appear in the CloudTrail events for the operations that set or change them. For more information, see [Aliases in CloudTrail logs](resource-aliases.md#resource-aliases-cloudtrail).
+
 Every event or log entry contains information about who generated the request. The identity information helps you determine the following:
 + Whether the request was made with root or AWS Identity and Access Management (IAM) user credentials.
 + Whether the request was made with temporary security credentials for a role or federated user.
