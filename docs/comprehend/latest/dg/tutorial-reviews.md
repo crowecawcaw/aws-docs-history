@@ -3,7 +3,7 @@
 # Tutorial: Analyzing insights from customer reviews with Amazon Comprehend
 <a name="tutorial-reviews"></a>
 
-This tutorial explains how to use Amazon Comprehend with [Amazon Simple Storage Service](https://aws.amazon.com/s3/), [AWS Glue](https://aws.amazon.com/glue/), [Amazon Athena](https://aws.amazon.com/athena/), and [Amazon Quick](https://aws.amazon.com/quicksight/) to gain valuable insights into your documents. Amazon Comprehend can extract sentiment (the mood of a document) and entities (names of people, organizations, events, dates, products, places, quantities, and titles) from unstructured text.
+This tutorial explains how to use Amazon Comprehend with [Amazon Simple Storage Service](https://aws.amazon.com/s3/), [AWS Glue](https://aws.amazon.com/glue/), [Amazon Athena](https://aws.amazon.com/athena/), and [AWS Quick](https://aws.amazon.com/quicksight/) to gain valuable insights into your documents. Amazon Comprehend can extract sentiment (the mood of a document) and entities (names of people, organizations, events, dates, products, places, quantities, and titles) from unstructured text.
 
 For example, you can get actionable insights from customer reviews. In this tutorial, you analyze a sample dataset of customer reviews about a novel. You use Amazon Comprehend sentiment analysis to determine whether customers feel positive or negative about the novel. You also use Amazon Comprehend entities analysis to discover mentions of important entities, such as related novels or authors. After following this tutorial, you might discover that over 50% of the reviews are positive. You might also discover that customers are comparing authors and expressing interest in other classic novels.
 
@@ -12,7 +12,7 @@ In this tutorial, you accomplish the following:
 + Use [Amazon Comprehend](https://aws.amazon.com/comprehend/) to analyze the sentiment and entities in the review documents.
 + Use an [AWS Glue](https://aws.amazon.com/glue/) crawler to store the results of the analysis in a database. AWS Glue is an extract, transform, and load (ETL) service that lets you catalog and clean your data for analytics.
 + Run [Amazon Athena](https://aws.amazon.com/athena/) queries to clean your data. Amazon Athena is a serverless interactive query service.
-+ Create visualizations with your data in [Amazon Quick](https://aws.amazon.com/quicksight/). Quick is a serverless business intelligence tool for extracting insights from your data.
++ Create visualizations with your data in [AWS Quick](https://aws.amazon.com/quicksight/). Quick is a serverless business intelligence tool for extracting insights from your data.
 
 The following diagram shows the workflow.
 
