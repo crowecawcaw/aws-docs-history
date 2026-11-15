@@ -24,7 +24,7 @@ The dashboard settings page enables you to:
 
 **Modifying dashboard time settings**
 
-Adjust dashboard time settings when you want to change the dashboard timezone, the local browser time, and specify auto-refresh time intervals.
+Adjust dashboard time settings when you want to change the dashboard time zone, the local browser time, and specify auto-refresh time intervals.
 
 **To modify dashboard time settings**
 

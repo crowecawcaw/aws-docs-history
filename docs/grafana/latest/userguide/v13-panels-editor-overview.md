@@ -70,7 +70,7 @@ This section describes the areas of the Grafana panel editor.
   + **Table view** – Convert any visualization to a table so you can see the data. Table views are helpful for troubleshooting. This view only contains the raw data. It does not include transformations you might have applied to the data or the formatting options available in the [Table](v13-panels-table.md) visualization.
   + **Fill** – The visualization preview fills the available space. If you change the width of the side pane or height of the bottom pane the visualization changes to fill the available space.
   + **Actual** – The visualization preview will have the exact size as the size on the dashboard. If not enough space is available, the visualization will scale down preserving the aspect ratio.
-  + **Time range controls** – **Default** is either the browser local timezone or the timezone selected at a higher level.
+  + **Time range controls** – **Default** is either the browser local time zone or the time zone selected at a higher level.
 + Data section – The data section contains tabs where you enter queries, transform your data, and create alert rules (if applicable).
   + **Query tab** – Select your data source and enter queries here. For more information, see [Query and transform data](v13-panels-query-xform.md). When you initially create a dashboard, you are prompted to select a data source. You can update the data source or the query in this tab.
   + **Transform tab** – Apply data transformations. For more information, see [Query and transform data](v13-panels-query-xform.md).

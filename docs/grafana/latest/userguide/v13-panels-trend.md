@@ -14,7 +14,7 @@ Trend visualizations should be used for datasets that have a sequential, numeric
 Trend visualizations support all visual styles and options available in the [time series visualization](v13-panels-time-series.md) with the following exceptions:
 + No annotations or time regions
 + No shared cursor (or crosshair)
-+ No multi-timezone x axis
++ No support for multiple time zones on the x axis
 + No ability to change the dashboard time range via drag-selection
 
 **X Field selection**

@@ -68,7 +68,7 @@ The following describes each field in the dashboard JSON.
 | `title` | current title of dashboard | 
 | `tags` | tags associated with dashboard, an array of strings | 
 | `style` | theme of dashboard, such as `dark` or `light` | 
-| `timezone` | timezone of dashboard, such as `utc` or `browser` | 
+| `timezone` | time zone of dashboard, such as `utc` or `browser` | 
 | `editable` | whether a dashboard is editable or not | 
 | `graphTooltip` | 0 for no shared crosshair or tooltip (default), 1 for shared crosshair, 2 for shared crosshair and shared tooltip | 
 | `time` | time range for dashboard, such as `last 6 hours` or `last 7 days` | 

@@ -30,7 +30,7 @@ In the Contact points tab, you can see a list of your notification templates.
 
 1. Write the content of the template in the content field.
 
-   For example:
+   The following template syntax shows how to display the number of firing and resolved alerts:
 
    ```
    {{ if .Alerts.Firing -}}
