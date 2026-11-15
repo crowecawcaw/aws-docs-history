@@ -46,6 +46,8 @@ In the [Amazon GameLift Servers console](https://console.aws.amazon.com/gamelift
 
 1. Skip the optional **Event notification settings** section. Event notifications are required for queues that process a high volume of placement requests. For queues that process low volumes, such as for development or testing purposes, you can track the status of placement requests by polling with[DescribeGameSessionPlacement](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_DescribeGameSessionPlacement.html). For more details, see [Set up event notification for game session placement](queue-notification.md). You can update a queue's event notification settings at any time. 
 
+1. (Optional) Enable game session placement insight logging to capture detailed logs about how Amazon GameLift Servers processes game session placement requests. For more information, see [Game session placement insights](queues-placement-insights.md).
+
 1. Choose **Create** to generate a new queue with minimal customization.
 
 ------

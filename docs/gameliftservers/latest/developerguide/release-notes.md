@@ -105,6 +105,18 @@ Amazon GameLift Servers SDKs and plugins are open source. See [Get Amazon GameLi
 
 The following release notes are in chronological order, with the latest updates listed first. Amazon GameLift Servers was first released in 2016. For release notes dated earlier than those listed here, see the release date links in [SDK versions](#release-notes-history).
 
+### November 10, 2026: Amazon GameLift Servers adds game session placement insights
+<a name="release-notes-11102026"></a>
+
+Amazon GameLift Servers can now deliver detailed logs about how it processes each game session placement request through a game session queue. The logs show how Amazon GameLift Servers applied the queue's priority configuration, along with player latency and cost data, to each game session placement request. Use game session placement insights to diagnose why game session placements succeed, fail, or time out.
+
+To turn on game session placement insight logging, set the log configuration of a game session queue when you create or update the queue. You can deliver logs to Amazon CloudWatch Logs, Amazon S3, and Amazon Data Firehose.
+
+****Learn more:****
++ [Game session placement insights](queues-placement-insights.md), *Amazon GameLift Servers Developer Guide*
++ [CreateGameSessionQueue](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_CreateGameSessionQueue.html), *Amazon GameLift Servers API Reference*
++ [UpdateGameSessionQueue](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_UpdateGameSessionQueue.html), *Amazon GameLift Servers API Reference*
+
 ### October 22, 2026: C\# server SDK for Amazon GameLift Servers now supports .NET 10
 <a name="release-notes-10222026"></a>
 + [C\# server SDK](https://github.com/amazon-gamelift/amazon-gamelift-servers-csharp-server-sdk) on the GitHub website, version 5.5.2
