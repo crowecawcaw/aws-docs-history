@@ -1,27 +1,27 @@
 
 
-# Security for cost management capabilities in Amazon Q Developer
+# Security for cost management capabilities in AWS assistant
 <a name="ce-q-security"></a>
 
-The following provides an overview of permissions and data protection for the cost management capabilities in Amazon Q Developer.
+The following provides an overview of permissions and data protection for the cost management capabilities in the AWS assistant.
 
 ## Permissions overview
 <a name="q-permissions-overview"></a>
 
-To use the cost management capabilities in Amazon Q Developer, you need three sets of Identity and Access Management (IAM) permissions:
+To use the cost management capabilities in the AWS assistant, you need three sets of Identity and Access Management (IAM) permissions:
 
-1. **Amazon Q permissions**: Permissions to chat with Amazon Q in the console (such as `q:StartConversation` and q:SendMessage)
+1. **AWS assistant permissions**: Permissions to chat with the AWS assistant in the console (such as `q:StartConversation` and q:SendMessage)
 
 1. **Service permissions**: Permissions to access the underlying Billing and Cost Management services that provide cost data
 
-1. **PassRequest permission**: The `q:PassRequest` permission that allows Amazon Q to call AWS APIs on your behalf
+1. **PassRequest permission**: The `q:PassRequest` permission that allows the AWS assistant to call AWS APIs on your behalf
 
-The quickest way for an administrator to grant users access to Amazon Q Developer is to use the `AmazonQFullAccess` managed policy.
+The quickest way for an administrator to grant users access to the AWS assistant is to use the `AmazonQFullAccess` managed policy.
 
 ## Permissions for cost management capabilities
 <a name="q-cost-management-permissions"></a>
 
-The following IAM policy statement grants users access to all cost management capabilities in Amazon Q Developer:
+The following IAM policy statement grants users access to all cost management capabilities in the AWS assistant:
 
 ```
 {
@@ -130,9 +130,9 @@ You can scope down this policy to grant access to only specific cost management 
 ## q:PassRequest permission
 <a name="q-pass-request-permissions"></a>
 
-`q:PassRequest` is an Amazon Q Developer permission that allows Amazon Q Developer to call AWS APIs on your behalf. When you add the `q:PassRequest` permission to an IAM identity, Amazon Q Developer gains permission to call any API that the IAM identity has permission to call. For example, if an IAM role has the `ce:GetCostAndUsage` permission and the `q:PassRequest` permission, Amazon Q Developer can call the GetCostAndUsage API when a user assuming that IAM role asks Amazon Q Developer to retrieve cost and usage data from Cost Explorer.
+`q:PassRequest` is an AWS assistant permission that allows the AWS assistant to call AWS APIs on your behalf. When you add the `q:PassRequest` permission to an IAM identity, the AWS assistant gains permission to call any API that the IAM identity has permission to call. For example, if an IAM role has the `ce:GetCostAndUsage` permission and the `q:PassRequest` permission, the AWS assistant can call the GetCostAndUsage API when a user assuming that IAM role asks the AWS assistant to retrieve cost and usage data from Cost Explorer.
 
-You can also allow IAM principals to access Cost Explorer and to use Amazon Q Developer, but restrict them from using the cost analysis or cost optimization capabilities in Amazon Q Developer, by using the `aws:CalledVia` [global condition key](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-calledvia). The following IAM policy provides an example of using this condition key:
+You can also allow IAM principals to access Cost Explorer and to use the AWS assistant, but restrict them from using the cost analysis or cost optimization capabilities in the AWS assistant, by using the `aws:CalledVia` [global condition key](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-calledvia). The following IAM policy provides an example of using this condition key:
 
 ```
 {
@@ -180,12 +180,12 @@ You can also allow IAM principals to access Cost Explorer and to use Amazon Q De
 ## Multi-account access
 <a name="q-multi-account-access"></a>
 
-For users of AWS Organizations, management account administrators can restrict member account users' access to Cost Explorer and Cost Optimization Hub data (including access to discounts, credits, and refunds) using the Cost Management preferences in the AWS Billing and Cost Management console. These preferences apply to Amazon Q Developer in the same way that they apply to the management console, SDK, and CLI. Amazon Q Developer respects the existing preferences of customers.
+For users of AWS Organizations, management account administrators can restrict member account users' access to Cost Explorer and Cost Optimization Hub data (including access to discounts, credits, and refunds) using the Cost Management preferences in the AWS Billing and Cost Management console. These preferences apply to the AWS assistant in the same way that they apply to the management console, SDK, and CLI. The AWS assistant respects the existing preferences of customers.
 
 ## Cross-region calls
 <a name="q-cross-region-calls"></a>
 
-Data from the Cost Optimization Hub and Cost Explorer services is hosted in the US East (N. Virginia) Region. Data from AWS Compute Optimizer is hosted in the AWS Region where the underlying resources, such as EC2 instances, are located. Data served from the AWS Price List APIs is hosted in us-east-1, eu-central-1, and ap-south-1 (note that AWS Price List APIs do not serve any customer-specific data). Cost management requests in Amazon Q Developer may require cross-region calls. For more information, see [Cross-region processing in Amazon Q Developer](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/cross-region-processing.html) in the *Amazon Q Developer User Guide*.
+Data from the Cost Optimization Hub and Cost Explorer services is hosted in the US East (N. Virginia) Region. Data from AWS Compute Optimizer is hosted in the AWS Region where the underlying resources, such as EC2 instances, are located. Data served from the AWS Price List APIs is hosted in us-east-1, eu-central-1, and ap-south-1 (note that AWS Price List APIs do not serve any customer-specific data). Cost management requests in the AWS assistant may require cross-region calls. For more information, see [Cross-Region processing in AWS assistant](https://docs.aws.amazon.com/assistant/latest/userguide/cross-region-processing.html#cross-region-calls) in the *AWS assistant User Guide*.
 
 ## Data protection
 <a name="ce-q-data-protection"></a>

@@ -1,9 +1,9 @@
 
 
-# Investigating anomaly root causes with Amazon Q Developer
+# Investigating anomaly root causes with AWS assistant
 <a name="investigating-ad"></a>
 
-You can use Amazon Q Developer to investigate the root cause of a detected cost anomaly. When you investigate an anomaly, Amazon Q Developer analyzes your cost data and CloudTrail events to identify what changed, when, where, who triggered the change, and why it happened.
+You can use the AWS assistant to investigate the root cause of a detected cost anomaly. When you investigate an anomaly, the AWS assistant analyzes your cost data and CloudTrail events to identify what changed, when, where, who triggered the change, and why it happened.
 
 Cost investigation is available at no additional charge for customers using AWS Cost Anomaly Detection. Investigation might incur standard charges for the underlying services it uses on your behalf, such as CloudWatch Logs Insights queries on your CloudTrail data. For details, see [CloudWatch Logs pricing](https://aws.amazon.com/cloudwatch/pricing/).
 
@@ -19,7 +19,7 @@ Cost investigation is available at no additional charge for customers using AWS 
 ## How cost investigation works
 <a name="investigating-ad-how-it-works"></a>
 
-When you investigate an anomaly, Amazon Q Developer performs the following analysis:
+When you investigate an anomaly, the AWS assistant performs the following analysis:
 
 1. **Identifies what changed** in your cost data by breaking the anomaly down into its largest contributing dimensions (service, account, region, usage type).
 
@@ -35,13 +35,13 @@ The investigation output adapts to the anomaly. A simple anomaly with one root c
 <a name="investigating-ad-prerequisites"></a>
 
 To use cost investigation, you need the following:
-+ **Amazon Q Developer access.** Users must have Amazon Q Developer permissions (`q:StartConversation`, `q:SendMessage`) and the `q:PassRequest` permission. The quickest way to grant access is to use the `AmazonQFullAccess` managed policy. For detailed permission configurations, see [Security for cost management capabilities in Amazon Q Developer](https://docs.aws.amazon.com/cost-management/latest/userguide/ce-q-security.html).
++ **AWS assistant access.** Users must have AWS assistant permissions (`q:StartConversation`, `q:SendMessage`) and the `q:PassRequest` permission. The quickest way to grant access is to use the `AmazonQFullAccess` managed policy. For detailed permission configurations, see [Security for cost management capabilities in AWS assistant](https://docs.aws.amazon.com/cost-management/latest/userguide/ce-q-security.html).
 + **(Recommended) An organization-wide CloudTrail trail with management events logging enabled and CloudWatch Logs delivery.** For cross-account investigation, the capability discovers your organization trail automatically and queries CloudWatch Logs Insights to find events across all member accounts. If no organization trail is configured, the investigation completes with the cost data available and tells you what to enable for a fuller answer. For information about creating an organization trail, see [Creating a trail for an organization](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-trail-organization.html) in the *AWS CloudTrail User Guide*.
 
 ## Investigating an anomaly
 <a name="investigating-ad-investigating"></a>
 
-You can start an investigation from the following locations: the Cost Anomaly Detection console or an Amazon Q Developer conversation.
+You can start an investigation from the following locations: the Cost Anomaly Detection console or an AWS assistant conversation.
 
 ### From the Cost Anomaly Detection console
 <a name="investigating-ad-from-cad-console"></a>
@@ -54,14 +54,14 @@ You can start an investigation from the following locations: the Cost Anomaly De
 
 1. Select an anomaly to view its details.
 
-1. Choose **Investigate with Amazon Q Developer**.
+1. Choose **Investigate with AWS assistant**.
 
-Amazon Q Developer opens and begins the investigation automatically. Results typically appear within minutes.
+The AWS assistant opens and begins the investigation automatically. Results typically appear within minutes.
 
-### From an Amazon Q Developer conversation
+### From an AWS assistant conversation
 <a name="investigating-ad-from-q-conversation"></a>
 
-When you ask Amazon Q Developer a question about your AWS costs that is best answered by an investigation, Amazon Q Developer might invoke the investigation capability automatically as part of the conversation.
+When you ask the AWS assistant a question about your AWS costs that is best answered by an investigation, the AWS assistant might invoke the investigation capability automatically as part of the conversation.
 
 ## Understanding investigation results
 <a name="investigating-ad-results"></a>
@@ -81,12 +81,12 @@ Not every cost change maps to a single API call. Pricing-only changes (such as S
 ## Continuing the investigation
 <a name="investigating-ad-continuing"></a>
 
-After the initial analysis, you can ask follow-up questions in the same Amazon Q Developer conversation to drill deeper or change direction. For example:
+After the initial analysis, you can ask follow-up questions in the same AWS assistant conversation to drill deeper or change direction. For example:
 + "Break down the cost increase by service and region."
 + "Is the cost concentrated in a single account or spread across the organization?"
 + "How does this anomaly compare to recent cost changes in this account?"
 
-Amazon Q Developer maintains the conversation context, so each follow-up builds on the prior analysis.
+The AWS assistant maintains the conversation context, so each follow-up builds on the prior analysis.
 
 ## Cross-account investigation
 <a name="investigating-ad-cross-account"></a>

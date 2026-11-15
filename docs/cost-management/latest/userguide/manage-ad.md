@@ -31,4 +31,4 @@ Cost Anomaly Detection does not monitor third-party products and services availa
 + [Using EventBridge with Cost Anomaly Detection](cad-eventbridge.md)
 + [Using AWS User Notifications with Cost Anomaly Detection](cad-user-notifications.md)
 + [Opting out of Cost Anomaly Detection](opting-out-cad.md)
-+ [Investigating anomaly root causes with Amazon Q Developer](investigating-ad.md)
++ [Investigating anomaly root causes with AWS assistant](investigating-ad.md)

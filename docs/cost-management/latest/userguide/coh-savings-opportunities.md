@@ -3,7 +3,7 @@
 # Viewing your savings opportunities
 <a name="coh-savings-opportunities"></a>
 
-You can view details about your recommended actions on the **Savings opportunities** page. Use filters to refine the list of savings opportunities, and learn more about each recommendation by using a split-view panel. For deeper analysis of any recommendation, select it and choose **Analyze with Amazon Q**.
+You can view details about your recommended actions on the **Savings opportunities** page. Use filters to refine the list of savings opportunities, and learn more about each recommendation by using a split-view panel. For deeper analysis of any recommendation, select it and choose **Analyze with AWS assistant**.
 
 You can also group related recommendations. Cost Optimization Hub identifies recommended actions that interact with each other, and it reduces estimated aggregated savings based on the degree of overlap.
 

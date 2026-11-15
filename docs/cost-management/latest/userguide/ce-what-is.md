@@ -3,7 +3,7 @@
 # Analyzing your costs and usage with AWS Cost Explorer
 <a name="ce-what-is"></a>
 
-AWS Cost Explorer is a tool that enables you to view and analyze your costs and usage. You can explore your usage and costs using the main graph, the Cost Explorer cost and usage reports, or the Cost Explorer RI reports. You can also ask questions about your costs using suggested prompts or the **Ask question** button to ask in your own words, and receive detailed insights in **Amazon Q Developer** while Cost Explorer automatically updates its charts, tables, and report parameters including filters, groupings, and dates to reflect the analysis. For a deeper dive, choose **Analyze with Amazon Q** on any cost report to receive comprehensive explanations covering your cost trends, top drivers, and anomalies based on your exact filters and time period. You can view data for up to the last 13 months, forecast how much you're likely to spend for the next 18 months, and get recommendations for what Reserved Instances to purchase. You can use Cost Explorer to identify areas that need further inquiry and see trends that you can use to understand your costs.
+AWS Cost Explorer is a tool that enables you to view and analyze your costs and usage. You can explore your usage and costs using the main graph, the Cost Explorer cost and usage reports, or the Cost Explorer RI reports. You can also ask questions about your costs using suggested prompts or the **Ask question** button to ask in your own words, and receive detailed insights in **AWS assistant** while Cost Explorer automatically updates its charts, tables, and report parameters including filters, groupings, and dates to reflect the analysis. For a deeper dive, choose **Analyze with AWS assistant** on any cost report to receive comprehensive explanations covering your cost trends, top drivers, and anomalies based on your exact filters and time period. You can view data for up to the last 13 months, forecast how much you're likely to spend for the next 18 months, and get recommendations for what Reserved Instances to purchase. You can use Cost Explorer to identify areas that need further inquiry and see trends that you can use to understand your costs.
 
 You can view your costs and usage using the Cost Explorer user interface free of charge. You can also access your data programmatically using the Cost Explorer API. Each paginated API request incurs a charge of $0.01. You can't disable Cost Explorer after you enable it.
 
@@ -17,7 +17,7 @@ Cost Explorer uses the same dataset that is used to generate the AWS Cost and Us
 + [Enabling Cost Explorer](ce-enable.md)
 + [Getting started with Cost Explorer](ce-getting-started.md)
 + [Exploring your data using Cost Explorer](ce-exploring-data.md)
-+ [Asking questions about your costs using Amazon Q Developer](ce-nlq.md)
++ [Asking questions about your costs using AWS assistant](ce-nlq.md)
 + [Comparing your costs between time periods](ce-cost-comparison.md)
 + [Exploring more data for advanced cost analysis](ce-advanced-cost-analysis.md)
 + [Using the AWS Cost Explorer API](ce-api.md)

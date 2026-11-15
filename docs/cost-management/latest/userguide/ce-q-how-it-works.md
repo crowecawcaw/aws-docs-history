@@ -1,38 +1,38 @@
 
 
-# How the cost management capabilities in Amazon Q Developer work
+# How the cost management capabilities in AWS assistant work
 <a name="ce-q-how-it-works"></a>
 
 ## Agentic architecture
 <a name="q-agentic-architecture"></a>
 
-Amazon Q Developer uses an agentic architecture to analyze your AWS costs. When you ask a question, Q creates a plan for how to answer it, gathers data from multiple sources, performs calculations, and dynamically updates its plan based on what it learns at each step. This approach allows Q to handle complex, open-ended questions that do not have predefined workflows.
+The AWS assistant uses an agentic architecture to analyze your AWS costs. When you ask a question, the AWS assistant creates a plan for how to answer it, gathers data from multiple sources, performs calculations, and dynamically updates its plan based on what it learns at each step. This approach allows the AWS assistant to handle complex, open-ended questions that do not have predefined workflows.
 
-To answer your question, Amazon Q Developer can perform the following steps.
+To answer your question, the AWS assistant can perform the following steps.
 
-1. **Forms a plan**: When you ask a question, Q analyzes your request and creates an initial plan for how to gather the necessary information.
+1. **Forms a plan**: When you ask a question, the AWS assistant analyzes your request and creates an initial plan for how to gather the necessary information.
 
-1. **Gathers data**: Q retrieves data from the appropriate Billing and Cost Management APIs based on your question. For complex questions, Q may call multiple APIs in series or in parallel.
+1. **Gathers data**: The AWS assistant retrieves data from the appropriate Billing and Cost Management APIs based on your question. For complex questions, the AWS assistant may call multiple APIs in series or in parallel.
 
-1. **Performs calculations**: Q can perform calculations ranging from simple period-over-period changes to complex unit economic metrics like cost per vCPU-hour or cost per GB-month of storage.
+1. **Performs calculations**: The AWS assistant can perform calculations ranging from simple period-over-period changes to complex unit economic metrics like cost per vCPU-hour or cost per GB-month of storage.
 
-1. **Updates the plan**: As Q reviews the results from each API call or calculation, it updates its plan based on what it learns. For example, if Q discovers that EC2 costs increased significantly, it might decide to investigate whether any Savings Plans expired.
+1. **Updates the plan**: As the AWS assistant reviews the results from each API call or calculation, it updates its plan based on what it learns. For example, if the AWS assistant discovers that EC2 costs increased significantly, it might decide to investigate whether any Savings Plans expired.
 
-1. **Continues until complete**: Q continues gathering data and refining its analysis until it has enough information to provide a comprehensive answer to your question.
+1. **Continues until complete**: The AWS assistant continues gathering data and refining its analysis until it has enough information to provide a comprehensive answer to your question.
 
-Throughout this process, Q displays the details of each API call it makes and each calculation it performs, so you can see exactly how it arrived at its answer.
+Throughout this process, the AWS assistant displays the details of each API call it makes and each calculation it performs, so you can see exactly how it arrived at its answer.
 
-If you request it, Q can create a chart of your Billing and Cost Management data. To create a chart, Q gathers data from the relevant APIs, performs any necessary calculations, formats the data to populate the chart, then renders the chart. Charts generated in Amazon Q Developer reflect a snapshot of your billing data at the time you requested the chart, and do not update as additional charges are incurred.
+If you request it, the AWS assistant can create a chart of your Billing and Cost Management data. To create a chart, the AWS assistant gathers data from the relevant APIs, performs any necessary calculations, formats the data to populate the chart, then renders the chart. Charts generated in the AWS assistant reflect a snapshot of your billing data at the time you requested the chart, and do not update as additional charges are incurred.
 
 ## Data sources and API integrations
 <a name="q-data-sources"></a>
 
-Amazon Q Developer retrieves cost data from 38 APIs across seven Billing and Cost Management services. This broad integration allows Q to answer questions that span multiple data sources without requiring you to switch between different tools or console pages.
+The AWS assistant retrieves cost data from 38 APIs across seven Billing and Cost Management services. This broad integration allows the AWS assistant to answer questions that span multiple data sources without requiring you to switch between different tools or console pages.
 
 ### Cost Explorer
 <a name="q-cost-explorer-apis"></a>
 
-Amazon Q Developer uses Cost Explorer APIs to retrieve your historical and forecasted cost and usage data:
+The AWS assistant uses Cost Explorer APIs to retrieve your historical and forecasted cost and usage data:
 + **GetCostAndUsage**: Retrieves cost and usage data aggregated by time period and dimension
 + **GetCostAndUsageWithResources**: Retrieves resource-level cost data with hourly granularity
 + **GetCostForecast**: Retrieves forecasted costs for a specified time period
@@ -55,7 +55,7 @@ Amazon Q Developer uses Cost Explorer APIs to retrieve your historical and forec
 ### Cost Optimization Hub
 <a name="q-coh-apis"></a>
 
-Amazon Q Developer uses Cost Optimization Hub APIs to retrieve personalized cost optimization recommendations:
+The AWS assistant uses Cost Optimization Hub APIs to retrieve personalized cost optimization recommendations:
 + **GetRecommendation**: Retrieves details for a specific recommendation
 + **ListRecommendations**: Retrieves a list of recommendations with filtering options
 + **ListRecommendationSummaries**: Retrieves summary information about recommendations
@@ -63,7 +63,7 @@ Amazon Q Developer uses Cost Optimization Hub APIs to retrieve personalized cost
 ### AWS Compute Optimizer
 <a name="q-compute-optimizer-apis"></a>
 
-Amazon Q Developer uses Compute Optimizer APIs to retrieve resource optimization recommendations:
+The AWS assistant uses Compute Optimizer APIs to retrieve resource optimization recommendations:
 + **GetAutoScalingGroupRecommendations**: Retrieves rightsizing recommendations for Auto Scaling groups
 + **GetEBSVolumeRecommendations**: Retrieves recommendations for EBS volumes
 + **GetEC2InstanceRecommendations**: Retrieves rightsizing recommendations for EC2 instances
@@ -77,13 +77,13 @@ Amazon Q Developer uses Compute Optimizer APIs to retrieve resource optimization
 ### AWS Budgets
 <a name="q-budgets-apis"></a>
 
-Amazon Q Developer uses the Budgets API to retrieve information about your budget configurations and status:
+The AWS assistant uses the Budgets API to retrieve information about your budget configurations and status:
 + **DescribeBudgets**: Retrieves budget details including thresholds and actual spending
 
 ### Free Tier
 <a name="q-freetier-apis"></a>
 
-Amazon Q Developer uses Free Tier APIs to retrieve information about your free tier usage:
+The AWS assistant uses Free Tier APIs to retrieve information about your free tier usage:
 + **GetFreeTierUsage**: Retrieves your current free tier usage
 + **GetAccountPlanState**: Retrieves information about your current account type and free tier eligibility
 + **ListAccountActivities**: Retrieves a list of account activities you can take to earn additional free tier credits
@@ -92,7 +92,7 @@ Amazon Q Developer uses Free Tier APIs to retrieve information about your free t
 ### AWS Price List
 <a name="q-pricing-apis"></a>
 
-Amazon Q Developer uses Price List APIs to retrieve public pricing information for AWS services:
+The AWS assistant uses Price List APIs to retrieve public pricing information for AWS services:
 + **DescribeServices**: Retrieves a list of available AWS services
 + **GetAttributeValues**: Retrieves valid values for product attributes
 + **GetProducts**: Retrieves pricing information for specific products
@@ -100,12 +100,12 @@ Amazon Q Developer uses Price List APIs to retrieve public pricing information f
 ## Calculation engine
 <a name="q-calculation-engine"></a>
 
-Amazon Q Developer includes a flexible calculation engine that allows it to perform a wide range of calculations on your cost data. This capability enables it to provide deeper insights than simple data retrieval alone.
+The AWS assistant includes a flexible calculation engine that allows it to perform a wide range of calculations on your cost data. This capability enables it to provide deeper insights than simple data retrieval alone.
 
 ### Types of calculations
 <a name="q-calculation-types"></a>
 
-Q can perform calculations including:
+The AWS assistant can perform calculations including:
 + **Period-over-period changes**: Calculate the difference in costs between two time periods, both in absolute terms and as a percentage change.
 + **Unit economics**: Calculate metrics like cost per vCPU-hour, cost per GB-month of storage, or cost per API request.
 + **Effective rates**: Calculate the effective cost per unit after applying discounts from Savings Plans or Reserved Instances.
@@ -115,27 +115,27 @@ Q can perform calculations including:
 ## API transparency
 <a name="q-api-transparency"></a>
 
-With each response, Amazon Q Developer provides full transparency into how it retrieved and processed your data. This transparency helps you understand exactly what Q did to answer your question and allows you to verify the results or provide more specific instructions in follow-up questions.
+With each response, the AWS assistant provides full transparency into how it retrieved and processed your data. This transparency helps you understand exactly what the AWS assistant did to answer your question and allows you to verify the results or provide more specific instructions in follow-up questions.
 
-### What Amazon Q Developer displays
+### What AWS assistant displays
 <a name="q-what-q-displays"></a>
 
-For each response, Q shows you:
-+ **API calls made**: Q displays the name of each API it called to retrieve data.
-+ **Parameters used**: Q shows the exact parameters it used for each API call, including time ranges, filters, grouping dimensions, and any other relevant parameters.
-+ **Console deep-links**: Where applicable, Q provides links to matching views in the AWS Management Console. These links allow you to verify the data Q retrieved or explore the data further using the console's visualization and filtering capabilities.
+For each response, the AWS assistant shows you:
++ **API calls made**: The AWS assistant displays the name of each API it called to retrieve data.
++ **Parameters used**: The AWS assistant shows the exact parameters it used for each API call, including time ranges, filters, grouping dimensions, and any other relevant parameters.
++ **Console deep-links**: Where applicable, the AWS assistant provides links to matching views in the AWS Management Console. These links allow you to verify the data the AWS assistant retrieved or explore the data further using the console's visualization and filtering capabilities.
 
 ### Using transparency to refine your questions
 <a name="q-using-transparency"></a>
 
-The transparency that Q provides allows you to guide its behavior more effectively. For example:
-+ If Q retrieved data for the wrong time period, you can specify the exact dates you want in a follow-up question.
-+ If Q grouped costs by one tag key but you wanted them grouped by another, you can ask Q to regroup the data.
+The transparency that the AWS assistant provides allows you to guide its behavior more effectively. For example:
++ If the AWS assistant retrieved data for the wrong time period, you can specify the exact dates you want in a follow-up question.
++ If the AWS assistant grouped costs by one tag key but you wanted them grouped by another, you can ask the AWS assistant to regroup the data.
 
 ## Limitations
 <a name="q-limitations"></a>
 
-Amazon Q Developer has the following limitations:
-+ **Pricing data**: The pricing and cost estimation capabilities only provide public pricing data from the AWS Price List APIs. Customer-specific discounts are not reflected in pricing estimates. Amazon Q Developer does not integrate with the AWS Pricing Calculator, so it cannot create or save workload estimates that reflect customer-specific discounts or pricing.
-+ **Savings Plans analysis**: Amazon Q Developer can provide Savings Plans recommendations and analyze your historical Savings Plans coverage and utilization. Q does not integrate with Savings Plans Purchase Analyzer, so it cannot model the impact of a specific Savings Plans purchase on savings, coverage, or utilization.
-+ **Mutating actions**: Amazon Q Developer can retrieve and analyze cost data, but cannot take mutating actions on your behalf, such as creating or modifying budgets, purchasing Savings Plans or Reserved Instances, or modifying Cost Management preferences.
+The AWS assistant has the following limitations:
++ **Pricing data**: The pricing and cost estimation capabilities only provide public pricing data from the AWS Price List APIs. Customer-specific discounts are not reflected in pricing estimates. The AWS assistant does not integrate with the AWS Pricing Calculator, so it cannot create or save workload estimates that reflect customer-specific discounts or pricing.
++ **Savings Plans analysis**: The AWS assistant can provide Savings Plans recommendations and analyze your historical Savings Plans coverage and utilization. The AWS assistant does not integrate with Savings Plans Purchase Analyzer, so it cannot model the impact of a specific Savings Plans purchase on savings, coverage, or utilization.
++ **Mutating actions**: The AWS assistant can retrieve and analyze cost data, but cannot take mutating actions on your behalf, such as creating or modifying budgets, purchasing Savings Plans or Reserved Instances, or modifying Cost Management preferences.

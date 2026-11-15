@@ -41,6 +41,6 @@ Because you're using our new AWS experience, we provide a streamlined version of
 + [Explore your data in the AWS Billing and Cost Management console](bcm-lite-ce-exploring-data.md)
 + [Filter your data in the AWS Billing and Cost Management console](bcm-lite-ce-filter-data.md)
 + [Download the cost data CSV file in the AWS Billing and Cost Management console](bcm-lite-ce-download-csv.md)
-+ [Ask questions about your costs using Amazon Q Developer in the AWS Billing and Cost Management console](bcm-lite-ce-amazon-q.md)
++ [Ask questions about your costs using AWS assistant in the AWS Billing and Cost Management console](bcm-lite-ce-amazon-q.md)
 + [Cost comparisons in the AWS Billing and Cost Management console](bcm-lite-ce-cost-comparisons.md)
 + [Troubleshoot Cost Explorer in the AWS Billing and Cost Management console](bcm-lite-ce-troubleshooting.md)

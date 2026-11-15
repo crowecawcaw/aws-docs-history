@@ -61,7 +61,7 @@ Follow these steps when creating a new budget or adding a recipient to an existi
 
 Verified recipients begin receiving budget notifications on the next scheduled evaluation.
 
-## Troubleshooting
+## Troubleshooting email recipient verification
 <a name="budgets-email-recipients-troubleshoot"></a>
 
 **The recipient did not receive the verification email**  
