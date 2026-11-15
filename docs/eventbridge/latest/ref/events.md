@@ -285,7 +285,7 @@ The availability of AWS services, and the events each service sends, may differ 
 | [Amazon Q Subscriptions](events-ref-user-subscriptions.md) | aws.user-subscriptions | user-subscriptions.amazonaws.com | 
 | [Amazon Q in Connect](events-ref-qconnect.md) | aws.qconnect | qconnect.amazonaws.com | 
 | [Amazon QLDB](events-ref-qldb.md) | aws.qldb | qldb.amazonaws.com | 
-| [Amazon Quick](events-ref-quicksight.md) | aws.quicksight | quicksight.amazonaws.com | 
+| [AWS Quick](events-ref-quicksight.md) | aws.quicksight | quicksight.amazonaws.com | 
 | [Amazon RDS Data API](events-ref-rdsdata.md) | aws.rdsdata | rdsdata.amazonaws.com | 
 | [Amazon RDS Data API](events-ref-rdsdataapi.md) | aws.rdsdataapi | rdsdataapi.amazonaws.com | 
 | [Amazon CloudWatch RUM](events-ref-rum.md) | aws.rum | rum.amazonaws.com | 
