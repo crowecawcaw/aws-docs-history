@@ -11,7 +11,7 @@ On the **EC2 Auto Scaling groups recommendations** page you can view the recomme
 <a name="asg-view-process"></a>
 
 ### Accessing EC2 Auto Scaling group recommendations page
-<a name="asg-view-recommendations"></a>
+<a name="asg-viewing-recommendations"></a>
 
 **To access the EC2 Auto Scaling group recommendations page**
 
@@ -46,5 +46,5 @@ If you're signed in to a management account of an organization and trusted acces
 1. You can perform the following actions on the details page:
    + To view the price and performance impact of running your workload on AWS Graviton-based instances, choose **Graviton (aws-arm64)** in the **CPU architecture preference** dropdown. Otherwise, the **Current** (default) option displays recommendations that are based on the same CPU vendor and architecture as the current instance.
    + Activate the enhanced infrastructure metrics paid feature to extend the metrics analysis look-back period for the Auto Scaling group you're viewing up to three months (compared to the 14-day default). For more information, see [Enhanced infrastructure metrics](enhanced-infrastructure-metrics.md).
-   + The utilization metric graphs for your current instance are displayed at the bottom of the page. The solid blue line is the utilization of current instances in the Auto Scaling group.
+   + The utilization metric graphs for your current instance are displayed at the bottom of the page. The solid blue line (labeled **Current**) is the utilization of current instances in the Auto Scaling group.
    + To change the time range of the graphs, choose **Time Range**, and then choose **Last 24 hours**, **Last 3 days**, **Last week**, or **Last 2 weeks**. If you activate the [enhanced infrastructure metrics recommendation preference](enhanced-infrastructure-metrics.md), you can also choose **Last 3 months**. Choosing a shorter time range displays the data points at a higher granularity, which provides a higher level of detail.

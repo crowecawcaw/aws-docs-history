@@ -3,7 +3,7 @@
 # Creating automation rules with CloudFormation
 <a name="creating-automation-rules-with-cloudformation"></a>
 
-AWS Compute Optimizer integrates with AWS CloudFormation, enabling you to define and deploy automation rules with infrastructure-as-code. You can create a template that describes the automation rules you want, and CloudFormation provisions and configures those rules for you. When you use CloudFormation, you can reuse your template to set up your automation rules consistently and repeatedly across multiple AWS accounts.
+AWS Compute Optimizer integrates with AWS CloudFormation, enabling you to define and deploy automation rules with infrastructure as code. You can create a template that describes the automation rules you want, and CloudFormation provisions and configures those rules for you. When you use CloudFormation, you can reuse your template to set up your automation rules consistently and repeatedly across multiple AWS accounts.
 
 ## Compute Optimizer and CloudFormation templates
 <a name="cfn-automation-rules-templates"></a>
@@ -18,7 +18,7 @@ You can create CloudFormation templates for the following types of automation ru
 
 For more information, including examples of JSON and YAML templates for automation rules, see [AWS::ComputeOptimizer::AutomationRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-computeoptimizer-automationrule.html) in the *AWS CloudFormation User Guide*.
 
-## Learn more about CloudFormation
+## Additional CloudFormation resources for automation rules
 <a name="cfn-automation-rules-learn-more"></a>
 
 To learn more about CloudFormation, see the following resources:

@@ -283,6 +283,8 @@ To view the permissions for this policy, see [ComputeOptimizerAutomationServiceR
 View details about updates to AWS managed policies for Compute Optimizer since this service began tracking these changes. For automatic alerts about changes to this page, subscribe to the RSS feed for this guide.
 
 
+**AWS managed policy updates for Compute Optimizer**  
+
 | Change | Description | Date | 
 | --- | --- | --- | 
 | Added new `ComputeOptimizerAutomationServiceRolePolicy` managed policy | Added a new `ComputeOptimizerAutomationServiceRolePolicy` service-linked role policy. | November 19, 2025 | 

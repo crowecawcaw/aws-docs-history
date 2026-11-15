@@ -22,7 +22,7 @@ When you create an organization rule in the management account and apply it to m
 
 1. Choose **Create Automation rule**.
 
-1. If you are creating a rule in the management account or delegated administrator, you can choose the **rule type**, the **member accounts** you want to apply the rule, and whether to apply the rule **before** or **after member account rules**. You can only select member accounts with Automation enabled and organization rules allowed can be selected for the rule to apply.
+1. If you are creating a rule in the management account or delegated administrator, you can choose the **rule type**, the **member accounts** you want to apply the rule, and whether to apply the rule **before** or **after member account rules**. You can select only member accounts that have Automation enabled and that allow organization rules.
 
 1. Choose the **action types** you want this rule to implement.
 
@@ -32,7 +32,7 @@ When you create an organization rule in the management account and apply it to m
    + **If exists** – Select this to also match recommended actions where the attribute field is absent. For more information, see [Rule criteria](automation-rules.md#automation-rules-criteria).
    + **Ignore case** – Select this for case-insensitive matching. Available only when the operator is `Equals` or `Does not equal` and the attribute uses free-form input (Resource ARN, Resource tags).
 **Important**  
-If you don't specify rule criteria, Compute Optimizer applies all recommended action types across the accounts in your rule scope, including recommended actions in all AWS Regions where Compute Optimizer Automation is available. 
+If you don't specify rule criteria, Compute Optimizer applies all recommended action types to the accounts in your rule scope. This includes recommended actions in all AWS Regions where Compute Optimizer Automation is available.
 
 1. (Optional) Choose **Refresh matching actions** to get a preview of the recommended actions that match your rule criteria.
 

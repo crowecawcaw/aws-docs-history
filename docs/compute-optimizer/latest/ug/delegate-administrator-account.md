@@ -3,20 +3,29 @@
 # Delegating an administrator account
 <a name="delegate-administrator-account"></a>
 
-You can delegate a member account in your organization as an administrator for Compute Optimizer. A delegated administrator can access and manage Compute Optimizer recommendations. A delegated administrator can also set recommendation preferences for your entire organization without the need to access the management account. The management account controls the delegated administrator option for its organization. Each organization can only have one delegated administrator for Compute Optimizer at a time.
+With AWS Compute Optimizer, you can make one member account in your organization the delegated administrator. This account can view and manage Compute Optimizer recommendations for the whole organization. It can do this without signing in to the management account.
 
-The delegated administrator can get and export recommendations, set recommendation preferences, set member account opt-in status, and get projected utilization metrics.
+The management account chooses the delegated administrator. Each organization can have only one delegated administrator for Compute Optimizer at a time.
+
+As the delegated administrator, you can do the following:
++ Get and export recommendations.
++ Set recommendation preferences.
++ Set the opt-in status of member accounts.
++ Get projected utilization metrics.
 
 **Note**  
-You can limit your delegated administrator’s access to Compute Optimizer actions by setting up appropriate IAM permissions in your IAM policy. For more information, see [Policies and permissions in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html).
+Keep the following in mind about delegated administrator access:  
+You can limit your delegated administrator's access to Compute Optimizer actions. To do this, set up IAM permissions in your IAM policy. For more information, see [Policies and permissions in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html).
 If you're the delegated administrator and you want to view org-level recommendations, see [ Policies to grant access to Compute Optimizer for a management account of an organization](https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html#organization-account-access).
 
 ## Procedure
 <a name="da-process"></a>
 
-Use the following procedures to register, update, or deregister an account as a delegated administrator. You can do this using the Compute Optimizer console or the AWS CLI.
+Before you begin, make sure that you're signed in to the management account of your organization and that you have the IAM permissions required to manage delegated administrators. Only the management account can register or deregister a delegated administrator.
 
-### Registering or updating a delegated administrator
+Use the following procedures to register, update, or remove a delegated administrator. You can use the Compute Optimizer console or the AWS CLI.
+
+### Registering or updating a delegated administrator in Compute Optimizer
 <a name="register-da"></a>
 
 ------
@@ -53,7 +62,7 @@ Use the following procedures to register, update, or deregister an account as a 
 
 ------
 
-### Deregistering a delegated administrator
+### Deregistering a delegated administrator in Compute Optimizer
 <a name="deregister-da"></a>
 
 ------

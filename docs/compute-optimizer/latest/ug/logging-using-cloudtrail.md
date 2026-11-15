@@ -28,7 +28,7 @@ CloudTrail Lake event data stores and queries incur costs. When you create an ev
 
 [Management events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html#logging-management-events) provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
 
-AWS Compute Optimizer Automation logs all Compute Optimizer Automation control plane operations as management events. For a list of the AWS Compute Optimizer Automation control plane operations that Compute Optimizer Automation logs to CloudTrail, see the [AWS Compute Optimizer Automation API Reference](https://docs.aws.amazon.com/Provide API url).
+AWS Compute Optimizer Automation logs all Compute Optimizer Automation control plane operations as management events. For a list of the AWS Compute Optimizer Automation control plane operations that Compute Optimizer Automation logs to CloudTrail, see the [AWS Compute Optimizer Automation API Reference](https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/Welcome.html).
 
 ## Compute Optimizer Automation event examples
 <a name="cloudtrail-event-examples"></a>
@@ -309,11 +309,7 @@ The following example shows a CloudTrail event that demonstrates the `GetAutomat
             }        
         }    
     },    
-"eventTime": "2025-11-06T04:24:01Z",    
-    "eventSource": "aco-automation.amazonaws.com",    
-    "eventName": "GetAutomationRule",    
-    "awsRegion": "us-east-1",    
-        "eventTime": "2025-11-06T04:24:01Z",    
+    "eventTime": "2025-11-06T04:24:01Z",    
     "eventSource": "aco-automation.amazonaws.com",    
     "eventName": "GetAutomationRule",    
     "awsRegion": "us-east-1",    
@@ -471,8 +467,8 @@ The following example shows a CloudTrail event that demonstrates the `ListAutoma
     "eventID": "07mi3003-0ll4-264n-7jmn-kin5i69k1jij",
     "readOnly": true,
     "eventType": "AwsApiCall",
-    "managementEvent": true, Note: Please be mindful when interacting with displayed links.
-"recipientAccountId": "111122223333",
+    "managementEvent": true,
+    "recipientAccountId": "111122223333",
     "eventCategory": "Management",
     "requestParameters": {        
         "ruleType": "OrganizationRule",        
@@ -1094,9 +1090,6 @@ The following example shows a CloudTrail event that demonstrates the `CreateAuto
         },        
         "clientToken": "12345abc-12ab-1234-123a-EXAMPLEeb16b"    
     },    
-    "responseElements": {        
-        "ruleArn": "arn:aws:compute-optimizer:us-east-1:111122223333:automation-rule/123AbcdEfGHi1jkL"    
-    },
     "tlsDetails": {
         "tlsVersion": "TLSv1.3",
         "cipherSuite": "TLSAES128GCMSHA256",
@@ -1273,7 +1266,7 @@ The following example shows a CloudTrail event that demonstrates the `UntagResou
         "principalId": "abcdef01234567890;:john-doe",        
         "arn": "arn:aws:sts::111122223333:assumed-role/Admin/john-doe",        
         "accountId": "111122223333",        
-        "accessKeyId": "{{ACCESS KEY ID}}"        
+        "accessKeyId": "{{ACCESS KEY ID}}",        
         "sessionContext": {            
             "sessionIssuer": {                
                 "type": "Role",                
@@ -1381,7 +1374,7 @@ The following example shows a CloudTrail event that demonstrates the `StartAutom
         "principalId": "abcdef01234567890;:john-doe",        
         "arn": "arn:aws:sts::111122223333:assumed-role/Admin/john-doe",        
         "accountId": "111122223333",        
-        "accessKeyId": "{{ACCESS KEY ID}}"        
+        "accessKeyId": "{{ACCESS KEY ID}}",        
         "sessionContext": {            
             "sessionIssuer": {                
                 "type": "Role",                
@@ -1413,10 +1406,9 @@ The following example shows a CloudTrail event that demonstrates the `StartAutom
         "recommendedActionId": "aa112223333a4444"    
     },    
     "responseElements": {        
-            "recommendedActionId": "aa112223333a4444",            
-            "eventId": "a12cb3d4e5f67g0h",            
-            "status": "READY"        
-        }
+        "recommendedActionId": "aa112223333a4444",            
+        "eventId": "a12cb3d4e5f67g0h",            
+        "status": "READY"        
     },
     "tlsDetails": {
         "tlsVersion": "TLSv1.3",

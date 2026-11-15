@@ -30,8 +30,8 @@ Make sure your IAM identity has appropriate permissions to opt in to AWS Compute
 1. On the **Account setup** page, review the **Getting started** and **Setting up your account** sections.
 
 1. The following options are displayed if the account that you're signed in to is the management account of your organization. Choose one before continuing to the next step.
-   + **Only this account** - Choose this option to opt in only the account that you’re currently signed in to. If you choose this option, Compute Optimizer analyzes resources that are in the individual account, and generates optimization recommendations for those resources.
-   + **All accounts within this organization** - Choose this option to opt in the account you’re currently signed in to, and all of its member accounts. If you choose this option, Compute Optimizer analyzes resources that are in all accounts in the organization, and generates optimization recommendations for those resources.
+   + **Only this account** - Choose this option to opt in only the account that you're currently signed in to. If you choose this option, Compute Optimizer analyzes resources that are in the individual account, and generates optimization recommendations for those resources.
+   + **All accounts within this organization** - Choose this option to opt in the account you're currently signed in to, and all of its member accounts. If you choose this option, Compute Optimizer analyzes resources that are in all accounts in the organization, and generates optimization recommendations for those resources.
 **Note**  
 If you add any new member accounts to your organization after you opt in, Compute Optimizer automatically opts in those accounts.
 
@@ -69,7 +69,7 @@ After you opt in to Compute Optimizer using the previous command, the service be
 
 ## Next steps
 <a name="next-steps-opt-in"></a>
-+ Make sure that your AWS resources meet the necessary requirements for Compute Optimizer to generate your receommendations. And allow for at least 24 hours for your optimization recommendations to be generated. be generated. For more information, see [Resource requirements](requirements.md).
++ Make sure that your AWS resources meet the necessary requirements for Compute Optimizer to generate your recommendations. And allow for at least 24 hours for your optimization recommendations to be generated. For more information, see [Resource requirements](requirements.md).
 + View the findings and recommendations in the dashboard and recommendation pages of the Compute Optimizer console. For more information, see [Using the AWS Compute Optimizer dashboard](viewing-dashboard.md) and [Viewing resource recommendations](viewing-recommendations.md).
 + Consider extending the lookback period from the 14-day default period to 93 days by activating the enhanced infrastructure metrics feature. For more information, see [Enhanced infrastructure metrics](enhanced-infrastructure-metrics.md).
 + Using the management account of your organization, you can delegate a member account as an administrator for Compute Optimizer. For more information, see [Delegating an administrator account](delegate-administrator-account.md).

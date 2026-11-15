@@ -9,7 +9,11 @@ The analysis can take up to 24 hours to complete. When the analysis is complete,
 
 **Note**  
 To generate recommendations for Amazon EC2 instances, EC2 Auto Scaling groups, Amazon EBS volumes, Lambda functions, and commercial software licenses, Compute Optimizer uses the maximum utilization point within each five-minute time interval over the lookback period. For ECS services on Fargate recommendations, Compute Optimizer uses the maximum utilization point within each one-minute time interval.
-AWS might use your utilization data to help improve the overall quality of Compute Optimizer's recommendations. To stop AWS using your utilization data, contact [AWS Support](https://console.aws.amazon.com/support).
+We might use your utilization data to help improve the overall quality of Compute Optimizer's recommendations. To stop us from using your utilization data, contact [AWS Support](https://console.aws.amazon.com/support).
+
+The specific metrics that Compute Optimizer analyzes depend on the resource type. For more information about the function metrics that Compute Optimizer analyzes, see [Lambda function metrics](lambda-metrics-analyzed.md).
+
+For more information about the database metrics that Compute Optimizer analyzes, see [Aurora and RDS database metrics](rds-metrics-analyzed.md).
 
 **Topics**
 + [EC2 instance metrics](ec2-metrics-analyzed.md)

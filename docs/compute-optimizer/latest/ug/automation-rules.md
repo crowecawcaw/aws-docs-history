@@ -5,6 +5,8 @@
 
 Automation rules automatically implement recommended actions based on your defined criteria and schedule. Automation rules are global resources that manage automated actions across all AWS Regions where Compute Optimizer Automation is available. You can create, update, and delete automation rules from any AWS Region where Compute Optimizer Automation is available.
 
+You can also create automation rules with CloudFormation. For more information, see [Creating automation rules with CloudFormation](creating-automation-rules-with-cloudformation.md). For more information about viewing your rules, see [Viewing automation rules](automation-rules-view.md). To review the actions that your rules implement, see [View automation events](automation-events-view-details.md).
+
 ## Rule type
 <a name="automation-rules-type"></a>
 
@@ -13,18 +15,20 @@ There are two types of rules:
 + Organization rules: Rules that centrally apply recommended actions across member accounts. 
 
 **Note**  
-Only the management account or delegated administrator can create organization rules. You can only select member accounts with Automation enabled and organization rules allowed can be selected for the rule to apply. Member accounts can view the details of organization rules that apply to their account but cannot edit them. Organization rules can be configured to apply before or after member account rules.
+Only the management account or delegated administrator can create organization rules. You can select only member accounts that have Automation enabled and that allow organization rules. Member accounts can view the details of organization rules that apply to their account but cannot edit them. Organization rules can be configured to apply before or after member account rules.
 
 ## Rule criteria
 <a name="automation-rules-criteria"></a>
 
-When configuring a rule, choose the recommended action types you want your rule to implement, such as snapshot and delete unattached Amazon EBS volumes and upgrade Amazon EBS volume type. Refine your selection using criteria such as AWS Region and Resource Tags. Then preview the current matching recommended actions to validate your criteria.
+When configuring a rule, choose the recommended action types you want your rule to implement, such as snapshot and delete unattached Amazon Elastic Block Store (Amazon EBS) volumes and upgrade Amazon EBS volume type. Refine your selection using criteria such as AWS Region and Resource Tags. Then preview the current matching recommended actions to validate your criteria.
 
 **Important**  
-If you don't specify rule criteria, Compute Optimizer applies all the selected recommended actions types in the accounts you select in your rule scope, including recommended actions in all AWS Regions where Compute Optimizer Automation is available. 
+If you don't specify rule criteria, Compute Optimizer applies all the selected recommended action types to the accounts in your rule scope. This includes recommended actions in all AWS Regions where Compute Optimizer Automation is available.
 
 The following recommended action attributes and comparison operators are supported for automation rules:
 
+
+**Recommended action attributes and supported operators**  
 
 | Attribute | Operator | Field type | 
 | --- | --- | --- | 
@@ -45,13 +49,15 @@ You can specify up to 20 conditions per attribute and 20 values per condition. F
 Use comparison operators in rule criteria to match recommended action attributes against the values you specify.
 
 **Important**  
-If the attribute that you specify in your rule criteria is not present on the recommended action, the values do not match, the condition is false, and the recommended action is excluded from the rule. This logic applies to all comparison operators except the `...IfExists` operators, which evaluate to true when the attribute is not present. The `...IfExists` operators test whether the attribute is present (exists) on the recommended action.
+If the attribute that you specify in your rule criteria is not present on the recommended action, the values do not match, the condition is false, and the recommended action is excluded from the rule. This logic applies to all comparison operators except those with the `IfExists` suffix, which evaluate to true when the attribute is not present. Operators with the `IfExists` suffix test whether the attribute is present (exists) on the recommended action.
 
 #### String condition operators
 <a name="automation-rules-string-operators"></a>
 
 String condition operators let you define rule criteria that compare a recommended action attribute to a string you specify.
 
+
+**String condition operators**  
 
 | Condition operator | Description | 
 | --- | --- | 
@@ -71,6 +77,8 @@ Using `*` alone as a value with `StringLike` matches any value that is present. 
 Numeric condition operators let you define rule criteria that compare a recommended action attribute to an integer or decimal number.
 
 
+**Numeric condition operators**  
+
 | Condition operator | Description | 
 | --- | --- | 
 | `NumericEquals` | Exact numeric matching. | 
@@ -87,7 +95,7 @@ For example, you can use `NumericGreaterThanEquals` with the **Lookback period**
 
 Append `IfExists` to any comparison operator (for example, `StringLikeIfExists`) to change how a condition is evaluated when the attribute you specify is **absent** from a recommended action:
 + With a base operator, an absent attribute evaluates to **false**, and the recommended action is **excluded** from the rule.
-+ With the `...IfExists` variant, an absent attribute evaluates to **true**, and the recommended action is **included**.
++ With the `IfExists` variant, an absent attribute evaluates to **true**, and the recommended action is **included**.
 
 `IfExists` is helpful when you want to exclude a specific group of resources from a rule but still include the resources that don't carry the tag you're filtering on. For example, you might want to include everything except the resources owned by one team. A base `StringNotEquals` on `team` = `TeamA` excludes TeamA's resources, but it also excludes every resource that doesn't carry the `team` tag at all — leaving out resources you intended to include. Add `IfExists` to keep those untagged resources in scope:
 + **StringNotEquals** matches only resources that have the `team` tag set to a value other than `TeamA`. Untagged resources are excluded.
@@ -106,12 +114,16 @@ The following rule criteria uses `StringEquals` on the **AWS Region** attribute 
 Criteria configuration:
 
 
+**Region criteria: configuration**  
+
 | Attribute | Operator | Values | 
 | --- | --- | --- | 
 | AWS Region | `StringEquals` | `us-east-1`, `us-west-2` | 
 
 Evaluation:
 
+
+**Region criteria: evaluation**  
 
 | Attribute value | Result | 
 | --- | --- | 
@@ -127,12 +139,16 @@ The following rule criteria uses `NumericGreaterThanEquals` on the **Lookback pe
 Criteria configuration:
 
 
+**Lookback period criteria: configuration**  
+
 | Attribute | Operator | Values | 
 | --- | --- | --- | 
 | Lookback period (days) | `NumericGreaterThanEquals` | `32` | 
 
 Evaluation:
 
+
+**Lookback period criteria: evaluation**  
 
 | Attribute value | Result | 
 | --- | --- | 
@@ -149,12 +165,16 @@ The following rule criteria uses `StringNotEqualsIfExists` on the **Resource tag
 Criteria configuration:
 
 
+**Team exclusion criteria: configuration**  
+
 | Attribute | Operator | Tag key | Values | 
 | --- | --- | --- | --- | 
 | Resource tags | `StringNotEqualsIfExists` | `team` | `TeamA` | 
 
 Evaluation:
 
+
+**Team exclusion criteria: evaluation**  
 
 | Recommended action state | Result | Explanation | 
 | --- | --- | --- | 
@@ -172,12 +192,16 @@ The following rule criteria uses `StringNotLikeIfExists` on the **Resource tags*
 Criteria configuration:
 
 
+**Opt-out tag criteria: configuration**  
+
 | Attribute | Operator | Tag key | Values | 
 | --- | --- | --- | --- | 
 | Resource tags | `StringNotLikeIfExists` | `automation-opt-out` | `*` | 
 
 Evaluation:
 
+
+**Opt-out tag criteria: evaluation**  
 
 | Recommended action state | Result | Explanation | 
 | --- | --- | --- | 
@@ -200,12 +224,16 @@ The following rule criteria uses `StringNotLikeIfExists` on the **Resource tags*
 Criteria configuration:
 
 
+**CloudFormation exclusion criteria: configuration**  
+
 | Attribute | Operator | Tag key | Values | 
 | --- | --- | --- | --- | 
 | Resource tags | `StringNotLikeIfExists` | `aws:cloudformation:stack-id` | `*` | 
 
 Evaluation:
 
+
+**CloudFormation exclusion criteria: evaluation**  
 
 | Recommended action state | Result | Explanation | 
 | --- | --- | --- | 
@@ -236,6 +264,8 @@ This rule includes a recommended action only when all three conditions are met s
 Criteria configuration:
 
 
+**Combined criteria: configuration**  
+
 | Attribute | Operator | Values | 
 | --- | --- | --- | 
 | AWS Region | `StringEquals` | `us-east-1`, `us-west-2` | 
@@ -250,21 +280,18 @@ Set a schedule for when your rule runs by specifying the frequency (daily, weekl
 ## Rule order
 <a name="automation-rules-order"></a>
 
-By default, rules are created with rule order 1 (highest priority) within their rule group. For example, when a management account creates an organization rule configured to apply after member account rules, it receives a rule order of 1, the highest priority among all rules in that group. Rule group and rule order determine which rule applies when a recommended action in an account matches multiple rules. Compute Optimizer assigns the action to the active rule with the lowest rule order value (highest priority), regardless of when that rule is scheduled to run.
+By default, rules are created with rule order 1 (highest priority) within their rule group. For example, a management account might create an organization rule configured to apply after member account rules. That rule receives a rule order of 1, the highest priority among all rules in that group. Rule group and rule order determine which rule applies when a recommended action in an account matches multiple rules. Compute Optimizer assigns the action to the active rule with the lowest rule order (highest priority), regardless of when that rule is scheduled to run.
 
 For example, if a recommended action matches all of the rules in the following table, Compute Optimizer assigns it to Rule-C and implements it according to Rule-C's schedule.
 
 
+**Rule order example**  
 
-- ** Organization rules evaluated before member account rules **
-  - **Rule order:** 1 / **Rule name:** Rule-A / **Status:** Inactive / **Schedule:** Weekly on Mondays from 12:00 to 13:00 UTC
-  - **Rule order:** 2 / **Rule name:** Rule-B / **Status:** Inactive / **Schedule:** Daily from 12:00 to 13:00 UTC
-
-- ** Member account rules **
-  - **Rule order:** 1 / **Rule name:** Rule-C / **Status:** Active / **Schedule:** Monthly on 15th from 12:00 to 13:00 UTC
-  - **Rule order:** 2 / **Rule name:** Rule-D / **Status:** Inactive / **Schedule:** Monthly on 15th from 12:00 to 13:00 UTC
-
-- ** Organization rules after before member account rules **
-  - **Rule order:** 1 / **Rule name:** Rule-E / **Status:** Inactive / **Schedule:** Weekly on Mondays from 12:00 to 13:00 UTC
-  - **Rule order:** 2 / **Rule name:** Rule-F / **Status:** Active / **Schedule:** Daily from 12:00 to 13:00 UTC
-
+| Rule group | Rule order | Rule name | Status | Schedule | 
+| --- | --- | --- | --- | --- | 
+| Organization rules evaluated before member account rules | 1 | Rule-A | Inactive | Weekly on Mondays from 12:00 to 13:00 UTC | 
+| Organization rules evaluated before member account rules | 2 | Rule-B | Inactive | Daily from 12:00 to 13:00 UTC | 
+| Member account rules | 1 | Rule-C | Active | Monthly on 15th from 12:00 to 13:00 UTC | 
+| Member account rules | 2 | Rule-D | Inactive | Monthly on 15th from 12:00 to 13:00 UTC | 
+| Organization rules evaluated after member account rules | 1 | Rule-E | Inactive | Weekly on Mondays from 12:00 to 13:00 UTC | 
+| Organization rules evaluated after member account rules | 2 | Rule-F | Active | Daily from 12:00 to 13:00 UTC | 

@@ -11,7 +11,7 @@ Use the **EC2 instances recommendations** page to review all of your current ins
 <a name="ec2-view-process"></a>
 
 ### Accessing EC2 instance recommendations page
-<a name="w2aac23c11c37b7b3b1"></a>
+<a name="w2aac23c13c37b7b3b1"></a>
 
 **To access the EC2 instances recommendations page**
 

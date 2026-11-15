@@ -3,7 +3,7 @@
 # Setting your rightsizing recommendation preferences
 <a name="rightsizing-preferences-process"></a>
 
-This section provides you with instructions on how to set your rightsizing recommendation preferences in AWS Compute Optimizer.
+Use rightsizing recommendation preferences to tailor AWS Compute Optimizer recommendations to your workloads. This section shows you how to set these preferences.
 
 ## Procedure
 <a name="rightsizing-preferences-procedure"></a>
@@ -17,10 +17,10 @@ This section provides you with instructions on how to set your rightsizing recom
 ### Step 1: Set preference level (Organizations only)
 <a name="rightsizing-preference-level"></a>
 
-If you're the account manager or the delegated administrator of your organization, you can choose all the accounts in an organization or specific accounts to which you want to apply rightsizing recommendation preferences. 
+This step is for the account manager or the delegated administrator of your organization. You can apply rightsizing recommendation preferences to all the accounts in your organization or to specific accounts.
 
 **Note**  
-If you’re an individual AWS account holder, skip to [Step2: Regional scope](https://docs.aws.amazon.com/compute-optimizer/latest/ug/rightsizing-preferences.html#rightsizing-preferences-regions).<a name="rightsizing-step-1"></a>
+If you're an individual AWS account holder, skip to [Step 2: Set regional scope](#rightsizing-preferences-regions).<a name="rightsizing-step-1"></a>
 
 **To set the preference level for your rightsizing recommendation preferences**
 
@@ -30,9 +30,15 @@ If you’re an individual AWS account holder, skip to [Step2: Regional scope](ht
 
 1. Choose the resource type you want from the **Resource type** dropdown menu.
 
-1. In your chosen resource section, choose the ** All opted-in accounts** dropdown menu.
-   + To opt in all member accounts, choose **All opted-in accounts** from the Preference level dropdown. 
-   + To opt in an individual member account, choose **Choose account** from the Preference level dropdown. In the prompt that appears, select the account you want to opt in for rightsizing preferences. Then, choose **Set account level**.  
+1. In your chosen resource section, open the **Preference level** dropdown menu, and then do one of the following:
+   + To opt in all member accounts, choose **All opted-in accounts** from the **Preference level** dropdown.
+   + To opt in an individual member account, do the following:
+
+     1. Choose **Choose account** from the **Preference level** dropdown.
+
+     1. In the prompt that appears, select the account you want to opt in for rightsizing preferences.
+
+     1. Choose **Set account level**.  
 ![Choose the account for rightsizing recommendation preferences](https://docs.aws.amazon.com/compute-optimizer/latest/ug/images/rightsizing-preference-level.png)
 
 ### Step 2: Set regional scope
@@ -62,7 +68,7 @@ Use the following procedure to specify your preferred instance types and sizes f
 
 **To set the instances you want in your recommendation output**
 
-1. Follow the steps outlined in [Step2: Regional scope](https://docs.aws.amazon.com/compute-optimizer/latest/ug/rightsizing-preferences.html#rightsizing-preferences-regions).
+1. Follow the steps in [Step 2: Set regional scope](#rightsizing-preferences-regions).
 
 1. On the **Preferred EC2 instances** page, choose either **Any instance type** (default) or **Limit to specific instance types and sizes** based on your requirements.
 
@@ -75,7 +81,7 @@ Use the following procedure to specify your preferred instance types and sizes f
 
    1. Choose the edit icon on the instance type you want.
 
-   1. Select **X** on the instance sizes that you don’t want.
+   1. Select **X** on the instance sizes that you don't want.
 
    1. Select **✔** to confirm your selections.
 
@@ -87,11 +93,11 @@ Use the following procedure to specify your preferred instance types and sizes f
 ### Step 4: Specify lookback period and metrics
 <a name="rightsizing-preferences-lookback-metrics-process"></a>
 
-Use the following procedure to specify the lookback period, and the CPU and memory utilization preferences you want Compute Optimizer to use when generating your custom recommendations.<a name="rightsizing-step-4"></a>
+Use the following procedure to specify the lookback period. You also set the CPU and memory utilization preferences that Compute Optimizer uses for your custom recommendations.<a name="rightsizing-step-4"></a>
 
 **To set the lookback period, and CPU and memory preferences**
 
-1. Follow the steps outlined in [Step 4: Preferred EC2 instances](https://docs.aws.amazon.com/compute-optimizer/latest/ug/rightsizing-preferences.html#preferred-resources-steps).
+1. Follow the steps in [Step 3: Specify preferred EC2 instances](#rightsizing-preferences-preferred-resources-process).
 
 1. On the **Lookback period and metrics** page, choose a lookback period option based on your requirements.
    + If you want to use the 93-day lookback period (paid feature), you need to enable the enhanced infrastructure metrics preference. To do this, choose **Enable enhanced infrastructure metrics**. Then, in the prompt that appears, choose **Enable enhanced infrastructure metrics**.
@@ -106,4 +112,4 @@ Use the following procedure to specify the lookback period, and the CPU and memo
 
 1. On the **Review and save** page, review all the preferences you have set. Then, choose **Save preferences**.
 
-Within 24 hours your new recommendations start to appear with the rightsizing preferences that you set.
+Your new recommendations start to appear within 24 hours. They use the rightsizing preferences that you set.

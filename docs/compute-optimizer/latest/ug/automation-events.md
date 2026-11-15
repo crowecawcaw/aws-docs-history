@@ -13,6 +13,8 @@ This Automation events table displays automation events implemented by Compute O
 
 Select an automation event ID to view Event details and step history. The step history table provides a chronological record of operations performed during the automation event. Each step shows the specific action taken to modify your resource, along with its own step status, start time, and completion time.
 
+For more information about viewing your automation rules, see [Viewing automation rules](automation-rules-view.md). For more information about viewing automation event details, see [View automation events](automation-events-view-details.md).
+
 ## Rollback
 <a name="automation-events-rollback"></a>
 

@@ -13,6 +13,8 @@ These preferences give you greater transparency into how your recommendations ar
 
 You can be the account manager or the delegated administrator of an AWS Organization. In that case, you can choose the account or organization that the preferences apply to. If you're an individual AWS account holder (not within an organization), the preferences you set apply only to your recommendations.
 
+Rightsizing recommendation preferences are one of several recommendation preferences that you can activate. For more information about the other preferences, see [Compute Optimizer recommendation preferences](viewing-recommendation-preferences.md).
+
 **Note**  
 The rightsizing preferences for CPU and memory utilization are available only for Amazon EC2 instances.
 For Amazon RDS DB instances, Amazon EBS volumes, and Amazon ECS services, you can specify only lookback period preferences.

@@ -26,6 +26,8 @@ By default, all export files include the following columns:
 <a name="recommendations-file-ec2"></a>
 
 
+**Amazon EC2 instance recommendation fields**  
+
 | API field name | Description | 
 | --- | --- | 
 | AccountId | The account ID that the current instance was created under.<br />This field is displayed as the **Account ID** column in the EC2 instances recommendations and instance details pages of the Compute Optimizer console. This field is labeled **Account ID** on the Export recommendations page of the Compute Optimizer console, and as **accountId** in the export CSV file. | 
@@ -86,6 +88,8 @@ By default, all export files include the following columns:
 ### Auto Scaling group recommendation fields
 <a name="recommendations-file-asg"></a>
 
+
+**Auto Scaling group recommendation fields**  
 
 | API field name | Description | 
 | --- | --- | 
@@ -148,6 +152,8 @@ By default, all export files include the following columns:
 <a name="recommendations-file-ebs"></a>
 
 
+**Amazon EBS volume recommendation fields**  
+
 | API field name | Description | 
 | --- | --- | 
 | AccountId | The AWS account ID that the current EBS volume was created under.<br />This field is displayed as the **Account ID** column in the Amazon EBS volumes recommendations and volume details pages of the Compute Optimizer console. This field is labeled **Account ID** on the Export recommendations page of the Compute Optimizer console, and as **accountId** in the export CSV file. | 
@@ -185,6 +191,8 @@ By default, all export files include the following columns:
 <a name="recommendations-file-lambda"></a>
 
 
+**Lambda function recommendation fields**  
+
 | API field name | Description | 
 | --- | --- | 
 | AccountId | The AWS account ID in which the current Lambda function was created.<br />This field is displayed as the **Account ID** column in the Lambda functions recommendations and function details pages of the Compute Optimizer console. This field is labeled **Account ID** on the Export recommendations page of the Compute Optimizer console, and as **accountId** in the export CSV file. | 
@@ -217,6 +225,8 @@ By default, all export files include the following columns:
 ### Recommendation fields for Amazon ECS services on Fargate
 <a name="recommendations-file-ecs"></a>
 
+
+**Recommendation fields for Amazon ECS services on Fargate**  
 
 | API field name | Description | 
 | --- | --- | 

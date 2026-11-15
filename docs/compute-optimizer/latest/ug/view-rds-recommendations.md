@@ -4,6 +4,8 @@
 <a name="view-rds-recommendations"></a>
 
 Compute Optimizer generates DB instances, RDS DB instance storage, and Aurora DB cluster storage recommendations for RDS for MySQL, RDS for PostgreSQL, Amazon Aurora databases. These recommendations are displayed on the **Recommendations for Aurora and RDS databases** and **Aurora and RDS databases details** pages of the Compute Optimizer console. Both of these pages are divided into two separate tabs: **Instance** and **Storage**.
+
+For more information about the metrics that Compute Optimizer analyzes for these databases, see [Aurora and RDS database metrics](rds-metrics-analyzed.md).
 + **Recommendations for Aurora and RDS databases** page
 
   **Instance**
@@ -51,6 +53,8 @@ The **Finding** column on the **Recommendations for Aurora and RDS databases** p
 The following findings classifications apply to DB instances.
 
 
+**DB instance finding classifications**  
+
 | Classification | Description | 
 | --- | --- | 
 | Under-provisioned | When Compute Optimizer detects that there isn't enough CPU, memory, network bandwidth, EBS IOPS, or EBS throughput, an RDS DB instance is considered under-provisioned. Compute Optimizer displays finding reasons, such as **CPU under-provisioned**, **Memory under-provisioned**, **EBS IOPS under-provisioned**, and **Network bandwidth under-provisioned**. An under-provisioned RDS DB instance might result in poor application performance. | 
@@ -62,6 +66,8 @@ The following findings classifications apply to DB instances.
 
 The following findings classifications apply to RDS DB storage.
 
+
+**Amazon RDS DB instance storage finding classifications**  
 
 | Classification | Description | 
 | --- | --- | 
@@ -76,6 +82,8 @@ For more information about under and over-provisioned RDS DB instances, see [Fin
 
 The following findings classifications apply to Aurora DB clusters.
 
+
+**Aurora DB cluster finding classifications**  
 
 | Classification | Description | 
 | --- | --- | 
@@ -96,6 +104,8 @@ The **Finding reasons** column on the **Recommendations for RDS DB instances** a
 
 The following finding reasons apply to RDS DB instances:
 
+
+**Amazon RDS DB instance finding reasons**  
 
 | Finding reason | Description | 
 | --- | --- | 
@@ -120,6 +130,8 @@ The following finding reasons apply to RDS DB instances:
 The following finding reasons apply to RDS DB instance storage.
 
 
+**Amazon RDS DB instance storage finding reasons**  
+
 | Finding reason | Description | 
 | --- | --- | 
 | EBS volume allocated storage under-provisioned | The amount EBS volume allocated storage space attached to the DB instance doesn't meet the performance requirements of your workload and there is an alternative volume type that provides better allocated storage performance. This is identified by analyzing the `VolumeReadOps` and `VolumeWriteOps` metrics of EBS volumes attached to the current instance during the lookback period. | 
@@ -133,6 +145,8 @@ The following finding reasons apply to RDS DB instance storage.
 
 The following finding reasons apply to Aurora DB clusters.
 
+
+**Aurora DB cluster finding reasons**  
 
 | Classification | Description | 
 | --- | --- | 
@@ -204,13 +218,15 @@ The **Amazon RDS database details** page displays utilization metric graphs for 
 
 You can change the graphs to display data for the last 24 hours, three days, one week, or two weeks. You can also change the statistic of the graphs between average and maximum.
 
-The following comparison graphs are displayed on the **Aurora and RDS database details** page.
+The following comparison graphs are displayed on the **Aurora and RDS database details** page. For more information about these metrics, see [Aurora and RDS database metrics](rds-metrics-analyzed.md).
 
 ------
 #### [ RDS DB instances ]
 
 The following graphs are displayed for RDS DB instances:
 
+
+**Amazon RDS DB instance comparison graphs**  
 
 | Graph name | Description | 
 | --- | --- | 
@@ -237,6 +253,8 @@ The **DB Load**, **Swap in (KB)**, and **Swap out (KB)** metrics are only availa
 
 The following graphs are displayed for Aurora DB instances:
 
+
+**Aurora DB instance comparison graphs**  
 
 | Graph name | Description | 
 | --- | --- | 
@@ -268,6 +286,8 @@ The **DB Load** graph is only available if you enabled Performance Insights for 
 
 The following graphs are displayed for Aurora DB clusters:
 
+
+**Aurora DB cluster comparison graphs**  
 
 | Graph name | Description | 
 | --- | --- | 

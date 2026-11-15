@@ -3,7 +3,7 @@
 # Viewing commercial software license recommendations
 <a name="view-license-recommendations"></a>
 
-AWS Compute Optimizer generates license recommendations for commercial software that run on Amazon EC2. The Compute Optimizer console displays these recommendations on the following pages.
+AWS Compute Optimizer generates license recommendations for commercial software that runs on Amazon EC2. The Compute Optimizer console displays these recommendations on the following pages.
 
 The **Recommendations for commercial software licenses** page lists the following information for each of your EC2 instances with licenses.
 + Finding classifications
@@ -13,14 +13,14 @@ The **Recommendations for commercial software licenses** page lists the followin
 + On-Demand prices
 + BYOL hourly license prices
 
-The recommendations from Compute Optimizer are listed next to each of your EC2 instances with commercial software licenses. The information that's provided includes recommended saving opportunities, EC2 instance On-Demand prices, and hourly bring your own license (BYOL) prices. This information can help you decide if you should down-size your license edition. For more information about how to view your license recommendations for commercial software, see [Accessing commercial software license recommendations and details](license-view-recommendations.md).
+Compute Optimizer lists its recommendations next to each of your EC2 instances with commercial software licenses. The list includes saving opportunities, EC2 instance On-Demand prices, and hourly bring your own license (BYOL) prices. Use this information to decide if you should down-size your license edition. To learn how to view your license recommendations for commercial software, see [Accessing commercial software license recommendations and details](license-view-recommendations.md).
 
 **Note**  
 Compute Optimizer refreshes the recommendations daily, and they can take up to 24 hours to generate. Compute Optimizer requires 24 hours of metrics in the past 14 days to generate license recommendations. For more information, see [Commercial software license requirements](requirements.md#requirements-license).
 
 The **License details** page provides the following information for your license recommendation:
 + Your current license settings and Compute Optimizer's recommended license configurations. Use the table to compare your current license configurations, such as edition, model, and number of instance cores, with Compute Optimizer recommendations.
-+ Use the utilization graphs to access the utilization of the current license during the analysis period.
++ Use the utilization graphs to see how much you used the current license during the analysis period.
 
 For more information about how to view the details for your license recommendation, see [Accessing commercial software license details page](license-view-recommendations.md#license-viewing-details).
 
@@ -70,17 +70,17 @@ The following finding reasons apply to Microsoft SQL server license recommendati
 ## Estimated monthly savings and savings opportunity
 <a name="license-savings-calculation"></a>
 
-The **Estimated monthly savings (On-Demand)** column lists the approximate monthly cost savings after you downgrade your license edition based on Compute Optimizer's recommendations. To calculate this, Compute Optimizer multiplies the savings per hour by the estimated monthly running hours.
+The **Estimated monthly savings (On-Demand)** column lists the approximate monthly cost savings if you follow Compute Optimizer's recommendation and downgrade your license edition. Compute Optimizer multiplies the savings per hour by the estimated monthly running hours.
 
 The **Savings opportunity (%)** column lists the percentage difference between your current Microsoft SQL server license and Compute Optimizer's recommended license. The Bring Your Own License (BYOL) savings calculation is based on the license price. The License Included savings calculation is based on the On-Demand pricing.
 
 **Important**  
-Savings opportunity data requires that you opt in to Cost Explorer, as well as activate **Receive Amazon EC2 resource recommendations** in the Cost Explorer preferences page. That creates a connection between Cost Explorer and Compute Optimizer. With this connection, Cost Explorer generates savings estimates considering the price of existing resources, the price of recommended resources, and historical usage data. Estimated monthly savings reflects the projected dollar savings associated with each of the recommendations generated. For more information, see [Enabling Cost Explorer](https://docs.aws.amazon.com/cost-management/latest/userguide/ce-enable.html) and [Optimizing your cost with Rightsizing Recommendations](https://docs.aws.amazon.com/cost-management/latest/userguide/ce-rightsizing.html) in the *Cost Management User Guide*.
+To get savings opportunity data, opt in to Cost Explorer. Then turn on **Receive Amazon EC2 resource recommendations** in the Cost Explorer preferences page. This connects Cost Explorer and Compute Optimizer. Cost Explorer then uses the price of your current resources, the price of recommended resources, and your past usage to estimate savings. Estimated monthly savings shows the expected dollar savings for each recommendation. For more information, see [Enabling Cost Explorer](https://docs.aws.amazon.com/cost-management/latest/userguide/ce-enable.html) and [Optimizing your cost with Rightsizing Recommendations](https://docs.aws.amazon.com/cost-management/latest/userguide/ce-rightsizing.html) in the *Cost Management User Guide*.
 
 ## Inferred workload types
 <a name="license-inferred-workload-types"></a>
 
-The **Inferred workload types** column on the **EC2 instances recommendations** page lists the applications that might be running on the instance as inferred by Compute Optimizer. This column does this by analyzing the attributes of your instances. These attributes include the instance name, tags, and configuration. Compute Optimizer can currently infer if your instances are running Amazon EMR, Apache Cassandra, Apache Hadoop, Memcached, NGINX, PostgreSQL, Redis, Kafka, or SQLServer. By inferring the applications that run on your instances, Compute Optimizer can identify the effort to migrate your workloads from x86-based instance types to Arm-based AWS Graviton instances types. For more information, see [Migration effort](view-ec2-recommendations.md#ec2-migration-effort) in the next section of this guide.
+The **Inferred workload types** column on the **EC2 instances recommendations** page lists the applications that might be running on the instance as inferred by Compute Optimizer. Compute Optimizer makes this guess from the attributes of your instances, such as the instance name, tags, and configuration. Compute Optimizer can currently infer if your instances are running Amazon EMR, Apache Cassandra, Apache Hadoop, Memcached, NGINX, PostgreSQL, Redis, Kafka, or SQLServer. Compute Optimizer uses this to estimate the effort to move your workloads. It compares x86-based instance types with Arm-based AWS Graviton instance types. For more information, see [Migration effort](view-ec2-recommendations.md#ec2-migration-effort) in the next section of this guide.
 
 **Note**  
 You can't infer the SQLServer application in the Middle East (Bahrain), Africa (Cape Town), Asia Pacific (Hong Kong), Europe (Milan), and Asia Pacific (Jakarta) Regions.
@@ -105,6 +105,6 @@ On the **License details** page, compare the configurations of your current lice
 ## Utilization graphs
 <a name="license-utilization-graphs"></a>
 
-The **License details** page displays current resource utilization of the current commercial software license. The graph only displays the number of Enterprise edition features that were used data over the analysis period. 
+The **License details** page displays current resource utilization of the current commercial software license. The graph shows only the number of Enterprise edition features that you used during the analysis period.
 
 You can change the graphs to display data for the last 24 hours, three days, one week, or two weeks.

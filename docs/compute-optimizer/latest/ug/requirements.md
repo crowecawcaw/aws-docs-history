@@ -97,6 +97,8 @@ To generate recommendations for your Aurora DB clusters, Compute Optimizer requi
 + The Aurora DB cluster has not used Aurora Parallel Query over the lookback period.
 + The Aurora DB cluster has not changed storage configuration in the last 30 days.
 
+For more information about the metrics analyzed, see [Aurora and RDS database metrics](rds-metrics-analyzed.md).
+
 ## Additional resources
 <a name="requirements-resources"></a>
 + [AWS resources supported by Compute Optimizer](supported-resources.md)

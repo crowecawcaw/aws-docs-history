@@ -3,7 +3,7 @@
 # Savings estimation mode
 <a name="savings-estimation-mode"></a>
 
-The savings estimation mode preference allows Compute Optimizer to analyze specific pricing discounts when generating the estimated cost savings of rightsizing recommendations. Compute Optimizer offers the savings estimation mode for the following pricing discounts per AWS resource:
+With savings estimation mode, Compute Optimizer analyzes your specific pricing discounts when it estimates the cost savings of rightsizing recommendations. This gives you more accurate savings estimates that reflect your actual pricing. Compute Optimizer offers the savings estimation mode for the following pricing discounts per AWS resource:
 + Amazon EC2 and EC2 Auto Scaling group instances — Savings Plans and Reserved Instances pricing discounts.
 + AWS Lambda functions and Amazon ECS services — Saving Plans pricing discounts.
 + Amazon EBS volumes — other specific pricing discounts.
@@ -12,7 +12,7 @@ The savings estimation mode preference allows Compute Optimizer to analyze speci
 **Note**  
 The savings estimation mode preference is only available for accounts within AWS Organizations that enable Cost Optimization Hub in AWS Cost Explorer. For more information, see [Cost Optimization Hub](https://docs.aws.amazon.com/cost-management/latest/userguide/cost-optimization-hub.html) in the *AWS Cost Management User Guide*.
 
-**Important**  
+**Billing Transfer limitation**  
 When you use Billing Transfer as a bill source account, the `AfterDiscounts` functionality is disabled and you can't enable it. Bill source accounts must validate rightsizing recommendations against their Reserved Instance and Savings Plans inventory to consider any unused commitment before making optimization decisions.
 
 ## Default behavior
@@ -24,6 +24,8 @@ When a management account opts in to Cost Optimization Hub, all member accounts 
 
 The following table describes the default behavior when no explicit savings estimation mode preference is set.
 
+
+**Default savings estimation mode by account type**  
 
 | Account type | Default savings estimation mode | 
 | --- | --- | 
@@ -48,3 +50,5 @@ If the savings estimation mode preference isn't activated and the account doesn'
 <a name="sem-next-steps"></a>
 
 For instructions on how to activate or deactivate the savings estimation mode preference for member accounts, see [Activating savings estimation mode](activate-savings-estimation-mode.md).
+
+Savings estimation mode is one of several recommendation preferences that you can activate. For more information about the other preferences, see [Compute Optimizer recommendation preferences](viewing-recommendation-preferences.md).

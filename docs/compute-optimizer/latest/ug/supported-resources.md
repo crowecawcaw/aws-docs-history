@@ -12,12 +12,16 @@ AWS Compute Optimizer generates recommendations for the following AWS resources:
 + **Amazon EC2 Auto Scaling groups **
 
   Compute Optimizer generates recommendations for EC2 Auto Scaling groups. For more information, see [Supported Amazon EC2 Auto Scaling groups](#supported-asg).
+
+  For instructions on accessing these recommendations, see [Accessing EC2 Auto Scaling group recommendations and details](asg-view-recommendations.md).
 + **Amazon Elastic Block Store (Amazon EBS) volumes**
 
   Compute Optimizer generates recommendations for various EBS volume types. For more information about the specific EBS volume types that Compute Optimizer supports, see [Supported Amazon EBS volume types](#supported-ebs-volumes).
 + **AWS Lambda functions**
 
   Compute Optimizer generates memory size recommendations for Lambda functions that meet specific requirements. For more information, see [Lambda function requirements](requirements.md#requirements-lambda-functions).
+
+  For more information about the metrics that Compute Optimizer analyzes for these functions, see [Lambda function metrics](lambda-metrics-analyzed.md).
 + **Amazon Elastic Container Service (Amazon ECS) services on AWS Fargate**
 
   Compute Optimizer generates recommendations for Amazon ECS services on Fargate that meet specific requirements. For more information, see [Requirements for Amazon ECS services on Fargate](requirements.md#requirements-ecs-fargate).
@@ -27,6 +31,8 @@ AWS Compute Optimizer generates recommendations for the following AWS resources:
 + **Amazon Aurora and Amazon Relational Database Service (Amazon RDS) databases**
 
   Compute Optimizer generates Aurora and RDS DB instances, RDS DB instance storage, and Aurora DB cluster recommendations for RDS for MySQL, RDS for PostgreSQL, and Amazon Aurora databases. For more information about the specific Amazon RDS resources supported by Compute Optimizer, see [Supported Amazon Aurora and RDS databases](#supported-rds).
+
+  For more information about the metrics that Compute Optimizer analyzes for these databases, see [Aurora and RDS database metrics](rds-metrics-analyzed.md).
 + **NAT gateway**
 
   Compute Optimizer generates idle recommendations for NAT gateways. For more information, see [Viewing idle resource recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/view-idle-recommendations.html).
@@ -137,7 +143,7 @@ Compute Optimizer also generates recommendations to move your data out from prev
 ## Supported Amazon Aurora and RDS databases
 <a name="supported-rds"></a>
 
-The following sections outline the Amazon Aurora and RDS resources supported by Compute Optimizer.
+The following sections outline the Amazon Aurora and RDS resources supported by Compute Optimizer. For the metrics that Compute Optimizer analyzes for these resources, see [Aurora and RDS database metrics](rds-metrics-analyzed.md).
 
 ### Database engines
 <a name="supported-rds-database"></a>

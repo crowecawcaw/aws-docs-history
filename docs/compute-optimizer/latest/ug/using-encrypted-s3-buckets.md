@@ -3,12 +3,12 @@
 # Using encrypted S3 buckets for your recommendations export
 <a name="using-encrypted-s3-buckets"></a>
 
-For the destination of your Compute Optimizer recommendations exports, you can specify S3 buckets that are encrypted with either Amazon S3 customer managed keys or AWS Key Management Service (KMS) keys.
+For the destination of your Compute Optimizer recommendations exports, you can specify S3 buckets that are encrypted with either Amazon S3 customer managed keys or AWS Key Management Service (AWS KMS) keys. Using your own AWS KMS key gives you more control over who can decrypt your exported recommendations.
 
 ## Prerequisites
 <a name="encrypted-s3-buckets-prerequisites"></a>
 
-To use an S3 bucket with AWS KMS encryption enabled, you must create a symmetric KMS key. Symmetric KMS keys are the only KMS keys that Amazon S3 supports. For instructions, see [Creating keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS KMS Developer Guide*.
+To use an S3 bucket with AWS KMS encryption enabled, you must create a symmetric KMS key. Symmetric KMS keys are the only KMS keys that Amazon S3 supports. For instructions on creating a symmetric KMS key, see [Creating keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS Key Management Service Developer Guide*.
 
 After you create the KMS key, apply it to the S3 bucket that you plan to use for your recommendations export. For more information, see [Enabling Amazon S3 default bucket encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-bucket-encryption.html) in the *Amazon Simple Storage Service User Guide*.
 

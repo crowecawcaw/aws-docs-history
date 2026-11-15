@@ -3,19 +3,19 @@
 # Getting started with AWS Compute Optimizer
 <a name="getting-started"></a>
 
-When you access the AWS Compute Optimizer console for the first time, you're asked to opt in using the account that you’re signed in with. Before you can use the service, you must opt in or out. In addition, you can also opt in or opt out using the Compute Optimizer API, AWS Command Line Interface (AWS CLI), or SDKs.
+When you first open the AWS Compute Optimizer console, you must opt in with the account that you're signed in with. You must opt in or out before you can use the service. You can also opt in or out with the Compute Optimizer API, the AWS Command Line Interface (AWS CLI), or the AWS SDKs.
 
-By opting in, you're authorizing Compute Optimizer to analyze the specifications and utilization metrics of your AWS resources. Examples include EC2 instances and EC2 Auto Scaling groups.
+When you opt in, you let Compute Optimizer analyze the specifications and utilization metrics of your AWS resources. Examples include EC2 instances and EC2 Auto Scaling groups.
 
 **Note**  
-To improve the recommendation quality of Compute Optimizer, Amazon Web Services might use your CloudWatch metrics and configuration data. This includes up to three months (93 days) of metrics analysis when you activate the enhanced infrastructure metrics feature. Contact [AWS Support](https://console.aws.amazon.com/support) to request that AWS stop using your CloudWatch metrics and configuration data to improve the recommendation quality of Compute Optimizer.
+We might use your CloudWatch metrics and configuration data to improve Compute Optimizer recommendations. If you turn on enhanced infrastructure metrics, this includes up to three months (93 days) of metrics. To ask us to stop using this data, contact [AWS Support](https://console.aws.amazon.com/support).
 
 ## Required permissions
 <a name="required-permissions"></a>
 
-You must have the appropriate permissions to opt in to Compute Optimizer, to view its recommendations, and to opt out. For more information, see [Identity and Access Management for AWS Compute Optimizer](security-iam.md).
+You need the right permissions to opt in to Compute Optimizer, view its recommendations, and opt out. For more information, see [Identity and Access Management for AWS Compute Optimizer](security-iam.md).
 
-When you opt in, Compute Optimizer automatically creates a Service-Linked Role in your account to access its data. For more information, see [Using service-linked roles for AWS Compute Optimizer](using-service-linked-roles.md).
+When you opt in, Compute Optimizer creates a service-linked role in your account. It uses this role to access its data. For more information, see [Using service-linked roles for AWS Compute Optimizer](using-service-linked-roles.md).
 
 ## Accounts supported by Compute Optimizer
 <a name="supported-accounts"></a>
@@ -23,21 +23,23 @@ When you opt in, Compute Optimizer automatically creates a Service-Linked Role i
 The following AWS account types can opt in to Compute Optimizer:
 + **Standalone AWS account**
 
-  A standalone AWS account that doesn't have AWS Organizations enabled. If you opt in to Compute Optimizer while signed in to a standalone account, Compute Optimizer analyzes the resources in the account and generates optimization recommendations for those resources.
+  A standalone AWS account doesn't have AWS Organizations turned on. If you opt in with a standalone account, Compute Optimizer analyzes the resources in that account. It then makes recommendations for those resources.
 + **Member account of an organization**
 
-  An AWS account that's a member of an organization. If you opt in to Compute Optimizer while signed in to a member account of an organization, Compute Optimizer only analyzes the resources in the member account and generates optimization recommendations for those resources.
+  A member account belongs to an organization. If you opt in with a member account, Compute Optimizer analyzes only the resources in that account. It then makes recommendations for those resources.
 + **Management account of an organization**
 
-  An AWS account that administers an organization. If you opt in to Compute Optimizer while signed in to a management account of an organization, Compute Optimizer gives you the option to opt in the management account only, or the management account and all member accounts of the organization.
+  A management account runs an organization. If you opt in with a management account, you can choose what to opt in. You can opt in only the management account. Or you can opt in the management account and all member accounts.
 **Important**  
-To opt in all member accounts for an organization, make sure that the organization has all features enabled. For more information, see [Enabling All Features in Your Organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html) in the *AWS Organizations User Guide*.  
-When you opt in using your organization's management account and include all member accounts within the organization, trusted access for Compute Optimizer is enabled in your organization account. For more information, see [Trusted access for AWS Organizations](security-iam.md#trusted-service-access).
+To opt in all member accounts, turn on all features for the organization. For more information, see [Enabling All Features in Your Organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html) in the *AWS Organizations User Guide*.  
+If you opt in with the management account and include all member accounts, Compute Optimizer turns on trusted access in your organization account. For more information, see [Trusted access for AWS Organizations](security-iam.md#trusted-service-access).
 
 ## Next steps
 <a name="next-steps-getting-started"></a>
 
-For instructions on how to opt in your account, or the accounts within your organization, to AWS Compute Optimizer, see [Opting in to AWS Compute Optimizer](account-opt-in.md).
+To opt in your account or your organization's accounts to AWS Compute Optimizer, see [Opting in to AWS Compute Optimizer](account-opt-in.md).
+
+After you opt in, you can view optimization recommendations for your resources. For more information, see [Viewing resource recommendations](viewing-recommendations.md).
 
 ## Additional resources
 <a name="getting-started-resources"></a>
