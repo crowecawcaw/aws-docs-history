@@ -31,7 +31,7 @@ The following steps describe the data flow and ML inference pipeline for this ar
 
 1. Persist the prediction results to the Redis Enterprise Cloud database. (Optional) Store results with transactional details to a time-series database for data visualizations by using [Amazon Managed Service for Grafana](https://docs.aws.amazon.com/grafana/latest/userguide/).
 
-1. (Optional) Pass prediction results through Amazon Data Firehose to persist data to an Amazon S3 bucket. Use [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html) to consume this data for visualizations and analytics.
+1. (Optional) Pass prediction results through Amazon Data Firehose to persist data to an Amazon S3 bucket. Use [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html) to consume this data for visualizations and analytics.
 
 ## Further reading
 <a name="fraud-redis-further-reading"></a>
