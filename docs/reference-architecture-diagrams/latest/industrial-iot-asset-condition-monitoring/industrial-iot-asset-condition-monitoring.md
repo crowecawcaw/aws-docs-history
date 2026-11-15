@@ -23,7 +23,7 @@ The following steps describe the architecture:
 
 1. In AWS IoT Analytics, set up a channel, pipeline, and data store to collect and process device telemetry.
 
-1. Derive insights with [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) on AWS IoT Analytics.
+1. Derive insights with [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) on AWS IoT Analytics.
 
 1. Use AWS IoT SiteWise to model assets that represent on-premises devices, equipment, and processes.
 
