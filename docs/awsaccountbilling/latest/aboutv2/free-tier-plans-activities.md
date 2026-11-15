@@ -3,7 +3,7 @@
 # Earning additional credits
 <a name="free-tier-plans-activities"></a>
 
-If you are a new AWS customer, you can earn an additional USD $100 in credits regardless of your account plan by completing activities. These activities assist your learning of AWS services. You can find the activities in the **Explore AWS** widget on your [AWS Console Home dashboard](https://console.aws.amazon.com/).
+If you are a new AWS customer on the **Free account plan** or the **Paid account plan**, you can earn credits by completing activities. Each activity earns USD $20 in credits, and you can choose the activities that best fit your use case. The maximum you can earn from activities is USD $100. You can still complete all of the activities to explore and learn AWS services, but you don't receive credits after you reach USD $100. You can find the activities in the **Explore AWS** widget on your [AWS Console Home dashboard](https://console.aws.amazon.com/).
 
 **Topics**
 + [Launch an instance using Amazon EC2](#free-tier-plans-activities-ec2)
@@ -11,6 +11,7 @@ If you are a new AWS customer, you can earn an additional USD $100 in credits re
 + [Set up a cost budget using AWS Budgets](#free-tier-plans-activities-budgets)
 + [Create a web app using AWS Lambda](#free-tier-plans-activities-lambda)
 + [Create an Amazon RDS database](#free-tier-plans-activities-rds)
++ [Create a table using Amazon DynamoDB](#free-tier-plans-activities-ddb)
 
 ## Launch an instance using Amazon EC2
 <a name="free-tier-plans-activities-ec2"></a>
@@ -58,3 +59,13 @@ To learn more about Amazon RDS, see [Amazon Relational Database Service Document
 
 **Note**  
 This activity incurs AWS service charges that are deducted from your AWS Free Tier credits. To see your potential costs, see the service pricing page on [Amazon RDS pricing](https://aws.amazon.com/rds/pricing/).
+
+## Create a table using Amazon DynamoDB
+<a name="free-tier-plans-activities-ddb"></a>
+
+Amazon DynamoDB is a serverless, fully managed NoSQL database service that delivers single-digit millisecond performance at any scale. DynamoDB offers zero infrastructure management, instant scaling, pay-per-request billing, and no cold starts, upgrades, or maintenance windows. In this activity, you create a DynamoDB table and explore basic configuration options. You learn the essential settings you need to set up and manage your database.
+
+To learn more about DynamoDB, see [Amazon DynamoDB Documentation](https://docs.aws.amazon.com/dynamodb/).
+
+**Note**  
+This activity incurs AWS service charges that are deducted from your AWS Free Tier credits. To see your potential costs, see the service pricing page on [DynamoDB pricing](https://aws.amazon.com/dynamodb/pricing/).

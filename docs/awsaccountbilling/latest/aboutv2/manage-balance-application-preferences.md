@@ -3,9 +3,9 @@
 # Managing balance application preferences
 <a name="manage-balance-application-preferences"></a>
 
-Use **Balance application preferences** to configure how your unapplied credit memos are automatically applied to outstanding invoices. You can access these settings from the **Payment preferences** page in the AWS Billing and Cost Management console.
+Use **Balance application preferences** to configure how your unapplied credit memos are automatically applied to your invoices and whether unapplied cash from overpayments is applied to future invoices when they are issued. You can access these settings on the **Payment preferences** page in the AWS Billing and Cost Management console.
 
-By default, credit memos are applied to the original invoice first, then to future invoices. You can change this preference at any time to match your organization's internal payment processes.
+By default, credit memos are applied to the original invoice first, then to future invoices, and unapplied cash is applied to your next eligible future invoice. You can change these preferences at any time to match your organization's internal payment processes.
 
 ## Prerequisites
 <a name="balance-app-prefs-prerequisites"></a>
@@ -14,7 +14,7 @@ Balance application preferences are available to AWS accounts that meet the foll
 + The account pays through **electronic funds transfer (EFT)**
 
 **Note**  
-This feature is not available to accounts that pay by credit card or similar payment methods. If you don't see the **Balance application preferences** tab, your account might not be eligible due to other account restrictions.  
+This feature is not available to accounts that pay by credit card or similar payment methods. If you don't see the **Balance application preferences** tab, your account might not be eligible because of other account restrictions.  
 Before balance application preferences were available, AWS defaulted to applying credit memos to the original invoice only. When a credit memo is applied to an invoice, you still receive a complete credit memo and invoice for each application.
 
 ## Understanding credit memo application preferences
@@ -27,7 +27,7 @@ When AWS issues a credit memo for your account, the credit memo can be applied t
 | --- | --- | 
 | Apply to original invoice first, then future invoices (Recommended – current default) | The credit memo is applied to the invoice it was issued against, if the invoice is still open. Any remaining or unapplied amount is applied to the next eligible future invoices as they are issued. | 
 | Apply to original invoice first, then oldest invoices | The credit memo is applied to the invoice it was issued against, if the invoice is still open. Any remaining or unapplied amount is applied to your oldest outstanding invoices. | 
-| Apply to original invoice only (Previous default) | The credit memo is applied to the invoice it was issued against, if the invoice is still open. If the invoice is no longer open, the credit memo remains unapplied. Prior to the additional preferences, the default behavior was to apply the credit memo to the original invoice if it is open. | 
+| Apply to original invoice only (Previous default) | The credit memo is applied to the invoice it was issued against, if the invoice is still open. If the invoice is no longer open, the credit memo remains unapplied. Before the additional preferences, the default behavior was to apply the credit memo to the original invoice if it is open. | 
 | Apply to future invoices | The credit memo is held and applied to the next eligible future invoices as they are issued. | 
 | Apply to oldest invoices | The credit memo is applied to your oldest outstanding invoices. | 
 
@@ -35,10 +35,26 @@ When AWS issues a credit memo for your account, the credit memo can be applied t
 Credit memo application preferences apply to credit memos only. They do not affect AWS promotional credits. For information about promotional credits, see [Applying AWS credits](useconsolidatedbilling-credits.md).  
 Additionally, credit memos issued for AWS Marketplace purchases must be applied to the original invoice and cannot be redirected to other invoices. Credit memos can only be applied to invoices belonging to the same seller of record and currency as the credit memo.
 
-## Changing your credit memo application preference
-<a name="balance-app-prefs-changing"></a><a name="change-credit-memo-preference-procedure"></a>
+## Understanding unapplied cash application preferences
+<a name="balance-app-prefs-understanding-unapplied-cash"></a>
 
-**To change your credit memo application preference**
+When your account has unapplied cash, for example, from an overpayment, AWS can automatically apply it to your future invoices when they are issued, based on your selected preference. Unapplied cash isn't applied to invoices that are already open. The following table describes the available options.
+
+
+| Preference | Description | 
+| --- | --- | 
+| Apply to future invoices (Default) | Unapplied cash is held and applied to the next eligible future invoices as they are issued. | 
+| Do not automatically apply unapplied cash | Unapplied cash remains on your account and isn't automatically applied. To have the balance applied, contact AWS Support. | 
+
+**Note**  
+Unapplied cash from a payment for an invoice belonging to one seller of record can't be applied to invoices from a different seller of record or currency.
+
+## Change your balance application preferences
+<a name="balance-app-prefs-changing"></a>
+
+Use the following procedure to change how your unapplied credit memos are automatically applied to your invoices and whether unapplied cash is applied to future invoices when they are issued.<a name="change-credit-memo-preference-procedure"></a>
+
+**To change your balance application preferences**
 
 1. Open the AWS Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/).
 
@@ -48,7 +64,9 @@ Additionally, credit memos issued for AWS Marketplace purchases must be applied 
 
 1. Under **Credit memo application strategy**, select your preferred application method.
 
-1. Choose **Save preferences**.
+1. Under **Unapplied cash application preference**, select your preferred application method.
+
+1. Choose **Save changes**.
 
 Your updated preference takes effect immediately and applies to all future credit memo applications. Credit memos that have already been applied are not affected by preference changes.
 
@@ -72,4 +90,4 @@ When a credit memo is applied based on your preference:
 + **Multiple invoices** – If your preference involves multiple invoices (for example, oldest invoices), the credit memo is applied starting with the oldest invoice until the credit memo is fully consumed.
 
 **Note**  
-If you select "Apply to original invoice only" and the original invoice is already closed, the credit memo remains unapplied in your account. You can view unapplied credit memos on the **Unapplied funds** tab of the **Payments** page.
+If you select **Apply to original invoice only** and the original invoice is already closed, the credit memo remains unapplied in your account. You can view unapplied credit memos on the **Unapplied funds** tab of the **Payments** page.
