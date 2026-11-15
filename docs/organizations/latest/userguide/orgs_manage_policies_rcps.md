@@ -33,32 +33,47 @@ RCPs don't affect resources in the management account. They only affect resource
 <a name="rcp-supported-services"></a>
 
 RCPs apply to actions for the following AWS services:
++ [Amazon AppFlow](https://docs.aws.amazon.com/appflow) `(prefix:appflow)`
++ [Amazon AppIntegrations](https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_AppIntegrations_Service.html) `(prefix:app-integrations)`
 + [Amazon AppStream](https://docs.aws.amazon.com/appstream2) `(prefix:appstream)`
 + [Amazon Aurora DSQL](https://docs.aws.amazon.com/aurora-dsql) `(prefix:dsql)`
 + [Amazon Cloud Directory](https://docs.aws.amazon.com/clouddirectory) `(prefix:clouddirectory)`
 + [Amazon CloudFront](https://docs.aws.amazon.com/cloudfront) `(prefix:cloudfront)`
 + [Amazon CloudSearch](https://docs.aws.amazon.com/cloudsearch) `(prefix:cloudsearch)`
++ [Amazon CloudWatch](https://docs.aws.amazon.com/cloudwatch) `(prefix:cloudwatch)`
++ [Amazon CloudWatch Internet Monitor](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-InternetMonitor.html) `(prefix:internetmonitor)`
 + [Amazon CloudWatch Logs](https://docs.aws.amazon.com/cloudwatch) `(prefix:logs)`
 + [Network Synthetic Monitor](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/what-is-network-monitor.html) `(prefix:networkmonitor)`
++ [Amazon CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM.html) `(prefix:rum)`
 + [Amazon Cognito](https://docs.aws.amazon.com/cognito) `(prefix:cognito-identity)`
 + [Amazon Cognito User Pools](https://docs.aws.amazon.com/cognito) `(prefix:cognito-idp)`
 + [Amazon Comprehend](https://docs.aws.amazon.com/comprehend) `(prefix:comprehend)`
 + [Amazon Comprehend Medical](https://docs.aws.amazon.com/comprehend-medical) `(prefix:comprehendmedical)`
 + [Amazon Data Firehose](https://docs.aws.amazon.com/firehose) `(prefix:firehose)`
++ [Amazon DevOps Guru](https://docs.aws.amazon.com/devops-guru) `(prefix:devops-guru)`
 + [Amazon DynamoDB](https://docs.aws.amazon.com/dynamodb) `(prefix:dynamodb)`
 + [DynamoDB Accelerator](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.html) `(prefix:dax)`
 + [Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling) `(prefix:autoscaling)`
++ [Amazon Elastic Block Store](https://docs.aws.amazon.com/ebs) `(prefix:ebs)`
 + [Amazon Elastic Container Registry](https://docs.aws.amazon.com/ecr) `(prefix:ecr)`
 + [Amazon Elastic Container Registry Public](https://docs.aws.amazon.com/AmazonECR/latest/public) `(prefix:ecr-public)`
-+ [Amazon GameLift Servers](https://docs.aws.amazon.com/gamelift) `(prefix:gamelift)`
++ [Amazon Elastic File System](https://docs.aws.amazon.com/efs) `(prefix:elasticfilesystem)`
++ [Amazon EventBridge Schemas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-schema.html) `(prefix:schemas)`
++ [Amazon GameLift Servers](https://docs.aws.amazon.com/gameliftservers) `(prefix:gamelift)`
 + [Amazon Inspector Scan](https://docs.aws.amazon.com/inspector) `(prefix:inspector-scan)`
 + [Amazon Kendra](https://docs.aws.amazon.com/kendra) `(prefix:kendra)`
 + [Amazon Kinesis Video Streams](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video) `(prefix:kinesisvideo)`
++ [Amazon Lex V2](https://docs.aws.amazon.com/lexv2/latest/dg/what-is.html) `(prefix:lexv2-runtime)`
++ [Amazon Macie](https://docs.aws.amazon.com/macie) `(prefix:macie2)`
++ [Amazon Managed Blockchain](https://docs.aws.amazon.com/managed-blockchain) `(prefix:managedblockchain)`
++ [Amazon Managed Grafana](https://docs.aws.amazon.com/grafana) `(prefix:grafana)`
 + [Amazon MemoryDB](https://docs.aws.amazon.com/memorydb) `(prefix:memorydb)`
 + [Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service) `(prefix:aoss)`
 + [Amazon Personalize](https://docs.aws.amazon.com/personalize) `(prefix:personalize)`
 + [Amazon Polly](https://docs.aws.amazon.com/polly) `(prefix:polly)`
 + [Amazon S3](https://docs.aws.amazon.com/s3) `(prefix:s3)`
++ [Amazon Security Lake](https://docs.aws.amazon.com/security-lake) `(prefix:securitylake)`
++ [Amazon Simple Notification Service](https://docs.aws.amazon.com/sns) `(prefix:sns)`
 + [Amazon Simple Workflow Service](https://docs.aws.amazon.com/amazonswf/latest/developerguide) `(prefix:swf)`
 + [Amazon SQS](https://docs.aws.amazon.com/sqs) `(prefix:sqs)`
 + [Amazon Textract](https://docs.aws.amazon.com/textract) `(prefix:textract)`
@@ -66,9 +81,13 @@ RCPs apply to actions for the following AWS services:
 + [Amazon Transcribe](https://docs.aws.amazon.com/transcribe) `(prefix:transcribe)`
 + [Amazon Translate](https://docs.aws.amazon.com/translate) `(prefix:translate)`
 + [Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces) `(prefix:workspaces)`
++ [AWS Amplify](https://docs.aws.amazon.com/amplify) `(prefix:amplify)`
 + [AWS AppConfig](https://docs.aws.amazon.com/appconfig) `(prefix:appconfig)`
++ [Application Auto Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html) `(prefix:application-autoscaling)`
++ [AWS Audit Manager](https://docs.aws.amazon.com/audit-manager) `(prefix:auditmanager)`
 + [AWS Auto Scaling](https://docs.aws.amazon.com/autoscaling/plans/userguide) `(prefix:autoscaling-plans)`
 + [AWS Budgets](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) `(prefix:budgets)`
++ [AWS Clean Rooms](https://docs.aws.amazon.com/clean-rooms) `(prefix:cleanrooms)`
 + [AWS Cloud Map](https://docs.aws.amazon.com/cloud-map) `(prefix:servicediscovery)`
 + [AWS CloudTrail Data Service](https://docs.aws.amazon.com/awscloudtraildata/latest/APIReference) `(prefix:cloudtrail-data)`
 + [AWS CodeArtifact](https://docs.aws.amazon.com/codeartifact) `(prefix:codeartifact)`
@@ -83,13 +102,17 @@ RCPs apply to actions for the following AWS services:
 + [AWS Health](https://docs.aws.amazon.com/health) `(prefix:health)`
 + [IAM Roles Anywhere](https://docs.aws.amazon.com/rolesanywhere/latest/userguide) `(prefix:rolesanywhere)`
 + [AWS Key Management Service](https://docs.aws.amazon.com/kms) `(prefix:kms)`
++ [AWS Migration Hub Refactor Spaces](https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/what-is-mhub-refactor-spaces.html) `(prefix:refactor-spaces)`
 + [Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service) `(prefix:opensearch)`
 + [AWS Pricing Calculator](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html) `(prefix:pricing)`
 + [AWS Private CA Connector for Active Directory](https://docs.aws.amazon.com/privateca/latest/userguide/connector-for-ad) `(prefix:pca-connector-ad)`
++ [AWS Resilience Hub](https://docs.aws.amazon.com/resilience-hub) `(prefix:resiliencehub)`
 + [AWS Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide) `(prefix:resource-groups)`
 + [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager) `(prefix:secretsmanager)`
++ [AWS Systems Manager Incident Manager](https://docs.aws.amazon.com/systems-manager) `(prefix:ssm-incidents)`
 + [AWS Security Token Service](https://docs.aws.amazon.com/iam/#sts) `(prefix:sts)`
 + [AWS Sign-In](https://docs.aws.amazon.com/signin) `(prefix:signin)`
++ [AWS Signer](https://docs.aws.amazon.com/signer) `(prefix:signer)`
 + [AWS Support](https://docs.aws.amazon.com/aws-support) `(prefix:support)`
 + [AWS Transfer Family](https://docs.aws.amazon.com/transfer) `(prefix:transfer)`
 + [AWS User Notifications](https://docs.aws.amazon.com/notifications) `(prefix:notifications)`

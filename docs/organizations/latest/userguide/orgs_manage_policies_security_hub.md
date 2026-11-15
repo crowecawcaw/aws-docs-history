@@ -11,7 +11,7 @@ Security Hub policies are fully integrated with AWS Organizations, allowing mana
 <a name="security-hub-policies-features"></a>
 
 Security Hub policies provide a comprehensive set of capabilities that help you manage and enforce security configurations across your AWS organization. These features streamline security management while ensuring consistent control over your multi-account environment.
-+ Centrally [enable Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/security-hub-adv-getting-started-enable.html#security-hub-adv-getting-started-enable-org-account) across accounts and Regions in your organization
++ Centrally [enable Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-v2-enable.html) across accounts and Regions in your organization
 + Create security policies that define your security configuration across accounts and OUs
 + Automatically apply security configurations to new accounts when they join your organization
 + Ensure consistent security settings across your organization

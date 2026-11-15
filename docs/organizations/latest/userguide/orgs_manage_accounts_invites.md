@@ -50,7 +50,7 @@ AWS Organizations creates a service-linked role called `AWSServiceRoleForOrganiz
 For invited member accounts, AWS Organizations doesn't automatically create the IAM role [`OrganizationAccountAccessRole`](orgs_manage_accounts_access-cross-account-role.md). This role grants users in the management account administrative access to the member account. If you want to enable that level of administrative control to an invited account, you can manually add the role. For more information, see [Creating OrganizationAccountAccessRole for an invited account with AWS Organizations](orgs_manage_accounts_create-cross-account-role.md).
 
 **Note**  
-When you create an account in your organization instead of inviting an existing account to join, AWS Organizations automatically creates the IAM role `OrganizationAccountAccessRole`by default.
+When you create an account in your organization instead of inviting an existing account to join, AWS Organizations automatically creates the IAM role `OrganizationAccountAccessRole` by default.
 
 **Policies attached to the root or OU that contain the account immediately apply**
 

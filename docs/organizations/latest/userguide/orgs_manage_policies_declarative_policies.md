@@ -46,6 +46,7 @@ If a declarative policy is [detached](https://docs.aws.amazon.com/organizations/
 + [Chat applications policies](orgs_manage_policies_chatbot.md)
 + [AI services opt-out policies](orgs_manage_policies_ai-opt-out.md)
 + [Security Hub policies](orgs_manage_policies_security_hub.md)
++ [Security Hub CSPM policies](orgs_manage_policies_security_hub_cspm.md)
 + [Amazon Bedrock policies](orgs_manage_policies_bedrock.md)
 + [Amazon Inspector policies](orgs_manage_policies_inspector.md)
 + [Upgrade rollout policies](orgs_manage_policies_upgrade_rollout.md)

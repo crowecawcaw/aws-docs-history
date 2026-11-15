@@ -17,6 +17,7 @@ This topic describes how to create policies with AWS Organizations. A *policy* d
 + [Create an AI services opt-out policy](#create-ai-opt-out-policy-procedure)
 + [Create a upgrade rollout policy](#create-upgrade-rollout-policy-procedure)
 + [Create a Security Hub policy](#create-security-hub-policy-procedure)
++ [Create a Security Hub CSPM policy](#create-security-hub-cspm-policy-procedure)
 
 ## Create a service control policy (SCP)
 <a name="create-an-scp"></a>
@@ -963,6 +964,90 @@ You can use one of the following to create a Security Hub policy:
               "AwsManaged": false
           },
           "Content": "{\n  \"securityhub\": {\n    \"enable_in_regions\": {\n      \"@@assign\":[\n        \"ALL_SUPPORTED\"\n      ]\n    },\n    \"disable_in_regions\": {\n      \"@@assign\":[\n        \"us-east-1\"\n      ]\n    }\n  }\n}\n"
+      }
+  }
+  ```
++ AWS SDKs: [CreatePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreatePolicy.html)
+
+------
+
+## Create a Security Hub CSPM policy
+<a name="create-security-hub-cspm-policy-procedure"></a>
+
+**Minimum permissions**  
+To create a Security Hub CSPM policy, you need permission to run the following action:  
+`organizations:CreatePolicy`
+
+------
+#### [ AWS Management Console ]
+
+**To create a Security Hub CSPM policy**
+
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2). You must sign in as an IAM user, assume an IAM role, or sign in as the root user ([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)) in the organization’s management account.
+
+1. On the **[Security Hub CSPM policies](https://console.aws.amazon.com/organizations/v2/home/policies/securityhub-cspm-policy)** page, choose **Create policy**. 
+
+1. On the [**Create new Security Hub CSPM policy** page](https://console.aws.amazon.com/organizations/v2/home/policies/securityhub-cspm-policy/create), enter a **Policy name** and an optional **Policy description**.
+
+1. (Optional) You can add one or more tags to the policy by choosing **Add tag** and then entering a key and an optional value. Leaving the value blank sets it to an empty string; it isn't `null`. You can attach up to 50 tags to a policy. For more information, see [Tagging AWS Organizations resources](orgs_tagging.md).
+
+1. Enter or paste the policy text in the JSON code box. For information about the Security Hub CSPM policy syntax, see [Security Hub CSPM policy syntax and examples](orgs_manage_policies_security_hub_cspm_syntax.md). For example policies that you can use as a starting point, see [Security Hub CSPM policy examples](orgs_manage_policies_security_hub_cspm_syntax.md#security-hub-cspm-policy-examples).
+
+1. When you're finished editing your policy, choose **Create policy** at the lower-right corner of the page.
+
+------
+#### [ AWS CLI & AWS SDKs ]
+
+**To create an Security Hub CSPM policy**  
+You can use one of the following to create a Security Hub CSPM policy:
++ AWS CLI: [create-policy](https://docs.aws.amazon.com/cli/latest/reference/organizations/create-policy.html)
+
+  **Example: Create a policy that enables Security Hub CSPM in all supported Regions but disables all standards and controls**
+
+  The following example assumes that you have a file named `testPolicy_enableAllSupportedRegions.json` with the JSON policy text in it. It uses that file to create a new Security Hub CSPM policy.
+
+  ```
+  $ aws organizations create-policy \
+      --content file://./testPolicy_enableAllSupportedRegions.json \
+      --name "testPolicy_enableAllSupportedRegions" \
+      --description "Test policy to enable Security Hub CSPM in ALL_SUPPORTED Regions" \
+      --type SECURITYHUB_CSPM_POLICY
+  {
+      "Policy": {
+          "PolicySummary": {
+              "Id": "p-66ev7hgcvj",
+              "Arn": "arn:aws:organizations::123456789012:policy/o-aa111bb222/securityhub_cspm_policy/p-66ev7hgcvj",
+              "Name": "testPolicy_enableAllSupportedRegions",
+              "Description": "Test policy to enable Security Hub CSPM in ALL_SUPPORTED Regions",
+              "Type": "SECURITYHUB_CSPM_POLICY",
+              "AwsManaged": false
+          },
+          "Content": "{\n  \"securityhub_cspm\": {\n    \"cspm_enablement\": {\n      \"enable_in_regions\": { \"@@assign\": [\"ALL_SUPPORTED\"] },\n      \"disable_in_regions\": { \"@@assign\": [] }\n    },\n    \"cspm_standards_controls\": {\n      \"default\": {\n        \"controls_configuration\": {\n          \"default_control_association_status\": { \"@@assign\": \"ENABLED\" }\n        }\n      }\n    }\n  }\n}\n"
+      }
+  }
+  ```
+
+  **Example: Create a policy that enables Security Hub CSPM in all supported Regions and enables the AWS Foundational Security Best Practices standard and all of its controls**
+
+  The following example assumes that you have a file named `testPolicy_enableAllSupportedRegions_FSBP.json` with the JSON policy text in it. It uses that file to create a new Security Hub CSPM policy.
+
+  ```
+  $ aws organizations create-policy \
+      --content file://./testPolicy_enableAllSupportedRegions_FSBP.json \
+      --name "testPolicy_enableAllSupportedRegions_FSBP" \
+      --description "Test policy to enable Security Hub CSPM in ALL_SUPPORTED Regions and enable the AWS Foundational Security Best Practices standard" \
+      --type SECURITYHUB_CSPM_POLICY
+  {
+      "Policy": {
+          "PolicySummary": {
+              "Id": "p-66217dwpos",
+              "Arn": "arn:aws:organizations::123456789012:policy/o-aa111bb222/securityhub_cspm_policy/p-66217dwpos",
+              "Name": "testPolicy_enableAllSupportedRegions_FSBP",
+              "Description": "Test policy to enable Security Hub CSPM in ALL_SUPPORTED Regions and enable the AWS Foundational Security Best Practices standard",
+              "Type": "SECURITYHUB_CSPM_POLICY",
+              "AwsManaged": false
+          },
+          "Content": "{\n  \"securityhub_cspm\": {\n    \"cspm_enablement\": {\n      \"enable_in_regions\": { \"@@assign\": [\"ALL_SUPPORTED\"] },\n      \"disable_in_regions\": { \"@@assign\": [] }\n    },\n    \"cspm_standards_controls\": {\n      \"default\": {\n        \"enabled_standards\": {\n          \"@@assign\": [\n            \"aws-foundational-security-best-practices/v/1.0.0\"\n          ]\n        },\n        \"controls_configuration\": {\n          \"default_control_association_status\": { \"@@assign\": \"ENABLED\" }\n        }\n      }\n    }\n  }\n}\n"
       }
   }
   ```

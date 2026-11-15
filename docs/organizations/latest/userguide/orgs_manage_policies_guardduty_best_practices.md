@@ -36,7 +36,7 @@ Educate account owners that GuardDuty enablement is now driven by the organizati
 
 After attaching or modifying a policy, run `DescribeEffectivePolicy` for representative accounts and Regions to confirm the enablement resolves as intended. Because a Regional block fully replaces the default, this is the reliable way to catch a Region that unexpectedly dropped a feature. Monitor for new accounts joining the organization and confirm they inherit the intended GuardDuty enablement automatically. Review policy attachment scopes periodically, at least quarterly and after any organizational change, to ensure coverage stays aligned with your structure and security requirements.
 
-## Troubleshooting strategies
+## Troubleshooting Amazon GuardDuty policies
 <a name="guardduty-troubleshooting-strategies"></a>
 
 Use the following strategies when troubleshooting GuardDuty policies:

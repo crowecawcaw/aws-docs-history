@@ -3,9 +3,18 @@
 # Creating OrganizationAccountAccessRole for an invited account with AWS Organizations
 <a name="orgs_manage_accounts_create-cross-account-role"></a>
 
-By default, if you create a member account as part of your organization, AWS automatically creates a role in the account that grants administrator permissions to IAM users in the management account who can assume the role. By default, that role is named `OrganizationAccountAccessRole`. For more information, see [Accessing a member account that has OrganizationAccountAccessRole with AWS Organizations](orgs_manage_accounts_access-cross-account-role.md).
+By default, if you create a member account in your organization by using the AWS Organizations console, the AWS CLI, or the `CreateAccount` API operation, AWS Organizations automatically creates a role in the account. This role grants administrator permissions to IAM users in the management account who can assume the role. By default, that role is named `OrganizationAccountAccessRole`. You can specify a different name when you create the account. For more information, see [Accessing a member account that has OrganizationAccountAccessRole with AWS Organizations](orgs_manage_accounts_access-cross-account-role.md).
 
 However, member accounts that you *invite* to join your organization ***do not*** automatically get an administrator role created. You have to do this manually, as shown in the following procedure. This essentially duplicates the role automatically set up for created accounts. We recommend that you use the same name, `OrganizationAccountAccessRole`, for your manually created roles for consistency and ease of remembering.
+
+Like invited accounts, project accounts, which you created as projects in AWS Settings, don't get `OrganizationAccountAccessRole` automatically. Project accounts don't have the role, even after you activate advanced features. To create the role in a project account, use the same procedure that you use for invited accounts. For more information about project accounts, see [Project accounts after you activate advanced features](https://docs.aws.amazon.com/accounts/latest/reference/activate-advanced-features.html#activate-advanced-features-project-accounts) in the *AWS Account Management Reference Guide*.
+
+Project accounts contain an AWS managed role named `AccountFullAccessRole`. Only an AWS service can assume this role, so you can't use it to switch roles from the management account into the member account.
+
+An AWS managed service control policy (SCP) prevents you from deleting or changing `AccountFullAccessRole`. This SCP stays attached to the root of your organization after you activate advanced features. For more information, see [Service control policies for projects](https://docs.aws.amazon.com/accounts/latest/reference/scps-and-rcps-for-projects.html#scps-for-projects) in the *AWS Account Management Reference Guide*.
+
+**Important**  
+If you edit or remove this SCP so that you can delete `AccountFullAccessRole`, first create `OrganizationAccountAccessRole` and confirm that you can use it. Otherwise, you might lose administrative access to the account.
 
 ------
 #### [ AWS Management Console ]

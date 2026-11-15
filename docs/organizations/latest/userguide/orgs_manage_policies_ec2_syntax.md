@@ -41,6 +41,7 @@ The following are the AWS services and attributes that EC2 policies support. In 
 + Instance Metadata
 + Snapshot Block Public Access
 + VPC Encryption Controls
++ Networking Flexible Cost Allocation
 
 ------
 #### [ VPC Block Public Access ]
@@ -433,6 +434,8 @@ The following are the available fields for this attribute:
   + `egress_only_internet_gateway`
   + `elastic_file_system`
   + `virtual_private_gateway`
+  + `global_accelerator`
+  + `api_gateway_v2`
 
 **Considerations**  
 
@@ -451,5 +454,118 @@ The following are the available fields for this attribute:
 + **Stage enforcement with exclusions.** Use per-Region `exclusions` for resources that do not support encryption in transit (for example, IGW, NAT gateway, Amazon VPC Lattice).
 + **Understand precedence.** Org mode and exclusions override account and VPC settings; plan rollouts top-down.
 + **Plan for peering.** Delete VPC peering exclusions before attempting to move enforce-mode VPCs back to monitor.
+
+------
+#### [ Networking Flexible Cost Allocation ]
+
+**Policy effect**
+
+Controls how the networking costs of NAT gateways, EC2 instances, and VPC peering connections are allocated for the accounts in scope. For each network resource type that you configure in the policy, the EC2 policy creates and manages a networking flexible cost allocation policy and an account scope association in each account in scope. When an account is in scope, the networking flexible cost allocation policies and associations that the account created itself do not take effect. For more information, see [Networking flexible cost allocation](https://docs.aws.amazon.com/vpc/latest/userguide/networking-flex-cost-allocation.html) in the *Amazon VPC User Guide*.
+
+**Policy contents**
+
+```
+{
+  "ec2_attributes": {
+    "networking_flex_cost_allocation": {
+      "natgw": {
+        "show_back_status": {
+          "@@assign": "enabled"
+        },
+        "description": {
+          "@@assign": "NAT gateway cost allocation by VPC"
+        },
+        "reporting_granularity": {
+          "@@assign": ["vpc"]
+        },
+        "dimensions": {
+          "@@assign": ["data-transfer", "data-processing"]
+        }
+      },
+      "ec2": {
+        "show_back_status": {
+          "@@assign": "enabled"
+        },
+        "description": {
+          "@@assign": "EC2 instance cost allocation by source CIDR"
+        },
+        "reporting_granularity": {
+          "@@assign": ["cidr"]
+        },
+        "dimensions": {
+          "@@assign": ["data-transfer"]
+        },
+        "cidr_prefixes_type": {
+          "@@assign": "source_prefixes"
+        },
+        "cidr_source_range_specifications": {
+          "10.0.0.0/16": {
+            "cidr_label": {
+              "@@assign": "infra-team"
+            }
+          },
+          "10.1.0.0/16": {
+            "cidr_label": {
+              "@@assign": "app-team"
+            }
+          }
+        }
+      },
+      "pcx": {
+        "show_back_status": {
+          "@@assign": "enabled"
+        },
+        "description": {
+          "@@assign": "VPC peering cost allocation by peering connection"
+        },
+        "reporting_granularity": {
+          "@@assign": ["peering-id"]
+        },
+        "dimensions": {
+          "@@assign": ["data-transfer"]
+        }
+      }
+    }
+  }
+}
+```
+
+The following are the available fields for this attribute:
++ `"natgw"`, `"ec2"`, `"pcx"` (optional; include at least one): The network resource type that the block configures: NAT gateways (natgw), EC2 instances (ec2), or VPC peering connections (pcx). Each block becomes one networking flexible cost allocation policy of that type in each account in scope. Each block supports the following fields:
+  + `"show_back_status"` (required):
+    + `"enabled"`: Showback is enabled for the networking flexible cost allocation policy (ShowBackEnabled is true).
+    + `"disabled"`: Showback is disabled for the networking flexible cost allocation policy (ShowBackEnabled is false).
+  + `"description"` (required): The description of the networking flexible cost allocation policy. Length: 1-255 characters. Must start with a letter or a number. Valid characters: letters (A-Z, a-z), numbers (0-9), spaces, and `_ . , : ; ! ? ' " ( ) - /`. Changing only the description updates the existing policy version and does not create a new version.
+  + `"reporting_granularity"` (required): A list currently supporting exactly one value, the level at which costs are allocated.
+    + `"eni"`: By network interface.
+    + `"ec2"`: By EC2 instance.
+    + `"subnet"`: By subnet.
+    + `"vpc"`: By VPC.
+    + `"account"`: By AWS account.
+    + `"peering-id"`: By VPC peering connection. Supported only in the pcx block.
+    + `"cidr"`: By the CIDR ranges and labels that you specify. Requires cidr\_prefixes\_type and the matching range specifications.
+  + `"dimensions"` (required): A list of the cost dimensions to allocate.
+    + `"data-transfer"`: Data transfer charges. Supported in all blocks.
+    + `"data-processing"`: Data processing charges. Supported only in the natgw block.
+
+    The natgw block accepts one or both values. The ec2 and pcx blocks accept exactly one value, data-transfer.
+  + `"cidr_prefixes_type"` (required when reporting\_granularity is cidr; not allowed otherwise):
+    + `"source_prefixes"`: Traffic is matched to a CIDR range by its source IP address. Requires cidr\_source\_range\_specifications.
+    + `"destination_prefixes"`: Traffic is matched to a CIDR range by its destination IP address. Requires cidr\_destination\_range\_specifications.
+  + `"cidr_source_range_specifications"` (required when cidr\_prefixes\_type is source\_prefixes; not allowed otherwise): A map of 1-100 CIDR ranges to labels. Each key is an IPv4 or IPv6 CIDR block in canonical form, for example `10.0.0.0/16` or `2001:db8::/32`, with no host bits set and no leading zeros. Each range supports the following field:
+    + `"cidr_label"` (required): The label that costs for traffic matching the range are allocated to. Length: 1-64 characters. Must start with a letter or a number. Valid characters: letters (A-Z, a-z), numbers (0-9), underscores (`_`), and hyphens (`-`).
+  + `"cidr_destination_range_specifications"` (required when cidr\_prefixes\_type is destination\_prefixes; not allowed otherwise): A map of 1-100 CIDR ranges to labels, with the same format as cidr\_source\_range\_specifications.
+
+**Considerations**
++ If you use this attribute in an EC2 policy, accounts in scope cannot use the following operations. They fail with the `DeclarativePolicyViolation` error code:
+  + `CreateNetworkingFlexCostAllocationPolicy`
+  + `ModifyNetworkingFlexCostAllocationPolicy`
+  + `DeleteNetworkingFlexCostAllocationPolicies`
+  + `AssociateNetworkingFlexCostAllocationPolicy`
+  + `DisassociateNetworkingFlexCostAllocationPolicy`
++ Accounts in scope can still use `DescribeNetworkingFlexCostAllocationPolicies`, `DescribeNetworkingFlexCostAllocationPolicyAssociations`, and `GetNetworkingFlexCostAllocationPolicyVersions`. Policies and associations created by the EC2 policy are returned with `ManagedBy` set to `declarative-policy`.
++ In the EC2 policy, cidr\_prefixes\_type values use underscores (`source_prefixes`, `destination_prefixes`). The networking flexible cost allocation APIs return the same values with hyphens (`source-prefixes`, `destination-prefixes`).
++ Because policy inheritance combines fields from multiple EC2 policies, an account's effective policy can contain `cidr_source_range_specifications` or `cidr_destination_range_specifications` for a network resource type. This can occur even though reporting\_granularity is not cidr and cidr\_prefixes\_type is not present. In this case, the networking flexible cost allocation policy managed by the EC2 policy uses the reporting\_granularity value and ignores the CIDR range specifications.
++ CIDR range keys are compared exactly as written, so the EC2 policy treats keys that differ only in format as different ranges, for example `2001:DB8::/32` and `2001:db8::/32`. Networking flexible cost allocation then normalizes each range before it stores it: IPv6 hexadecimal digits are not case sensitive, a leading `+` in an IPv6 group is accepted, leading zeros in an IPv6 group are removed, and the longest run of zero groups is shortened to `::`. For example, `2001:0DB8::/32` and `2001:+db8::/32` are both stored as `2001:db8::/32`. If two or more ranges in the same block normalize to the same range, only one of them is kept, with its label, and the others are ignored. To control which label applies, specify each range only once.
 
 ------

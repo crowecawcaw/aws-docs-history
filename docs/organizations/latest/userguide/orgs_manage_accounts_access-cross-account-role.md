@@ -3,9 +3,9 @@
 # Accessing a member account that has OrganizationAccountAccessRole with AWS Organizations
 <a name="orgs_manage_accounts_access-cross-account-role"></a>
 
-When you create a member account using the AWS Organizations console, AWS Organizations *automatically* creates an IAM role named `OrganizationAccountAccessRole` in the account. This role has full administrative permissions in the member account. The scope of access for this role includes all principals in the management account, such that the role is configured to grant that access to the organization's management account.
+When you create a member account by using the AWS Organizations console, the AWS CLI, or the `CreateAccount` API operation, AWS Organizations *automatically* creates an IAM role in the account. By default, this role is named `OrganizationAccountAccessRole`. You can specify a different name when you create the account. This role has full administrative permissions in the member account. The scope of access for this role includes all principals in the management account, such that the role is configured to grant that access to the organization's management account.
 
-You can create an identical role for an invited member account by following the steps in [Creating OrganizationAccountAccessRole for an invited account with AWS Organizations](orgs_manage_accounts_create-cross-account-role.md).
+AWS Organizations doesn't automatically create this role in invited member accounts or in project accounts, which you created as projects in AWS Settings. You can create an identical role in these accounts by following the steps in [Creating OrganizationAccountAccessRole for an invited account with AWS Organizations](orgs_manage_accounts_create-cross-account-role.md).
 
 To use this role to access the member account, you must sign in as a user from the management account that has permissions to assume the role. To configure these permissions, perform the following procedure. We recommend that you grant permissions to groups instead of users for ease of maintenance.
 

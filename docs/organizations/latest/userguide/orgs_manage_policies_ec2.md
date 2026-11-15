@@ -29,6 +29,9 @@ Do not include *personally identifiable information (PII)* or other sensitive in
 
 The *account status report* allows you to review the current status of all attributes supported by EC2 policies for the accounts in scope. You can choose the accounts and organizational units (OUs) to include in the report scope, or choose an entire organization by selecting the root.
 
+**Note**  
+The account status report does not support the Networking Flexible Cost Allocation attribute.
+
 This report helps you assess readiness by providing a Region breakdown and if the current state of an attribute is *uniform across accounts* (through the `numberOfMatchedAccounts`) or *inconsistent* (through the `numberOfUnmatchedAccounts`). You can also see the *most frequent value*, which is the configuration value that is most frequently observed for the attribute.
 
 In Figure 1, there is a generated account status report, which shows uniformity across accounts for the following attributes: VPC Block Public Access and Image Block Public Access. This means that, for each attribute, all the accounts in scope have the same configuration for that attribute.
@@ -60,6 +63,7 @@ The following table displays the attributes supported for Amazon EC2 related ser
 - **Amazon VPC**
   - **Attribute:** VPC Block Public Access / **Policy effect:** Controls if resources in Amazon VPCs and subnets can reach the internet through internet gateways (IGWs). / **Policy contents:** [View policy](orgs_manage_policies_ec2_syntax.md#ec2-policy-vpc-block-public-access) / **More information:** For more information, see [Block public access to VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html) in the Amazon VPC User Guide.
   - **Attribute:** VPC Encryption Controls / **Policy effect:** Controls whether Amazon VPC encryption controls are enabled and its mode (off, monitor, enforce), enforcing encryption in transit within and between VPCs in a Region. / **Policy contents:** [View policy](orgs_manage_policies_ec2_syntax.md#ec2-policy-vpc-encryption-settings) / **More information:** For more information, see [VPC Encryption Controls](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the Amazon VPC User Guide.
+  - **Attribute:** Networking Flexible Cost Allocation / **Policy effect:** Controls how the networking costs of NAT gateways, EC2 instances, and VPC peering connections are allocated for the accounts in scope. / **Policy contents:** [View policy](orgs_manage_policies_ec2_syntax.md#ec2-policy-networking-flex-cost-allocation) / **More information:** For more information, see [Networking flexible cost allocation](https://docs.aws.amazon.com/vpc/latest/userguide/networking-flex-cost-allocation.html) in the Amazon VPC User Guide.
 
 - **Amazon EC2**
   - **Attribute:** Serial Console Access / **Policy effect:** Controls if the EC2 serial console is accessible. / **Policy contents:** [View policy](orgs_manage_policies_ec2_syntax.md#ec2-policy-ec2-serial-console-access) / **More information:** For more information, see [Configure access to the EC2 Serial Console](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html) in the Amazon Elastic Compute Cloud User Guide.

@@ -8,6 +8,8 @@ When you create an account in your organization, in addition to the root user, A
 **Note**  
 This automatic role creation applies to member accounts that you create directly through AWS Organizations. Accounts that are provisioned by other methods, such as AWS Control Tower or Account Factory for Terraform (AFT), might create a role with a different name. Check the documentation for the method that you use to provision accounts to determine the role name.
 
+AWS Organizations doesn't automatically create `OrganizationAccountAccessRole` in accounts that you invite to join your organization. Like invited accounts, project accounts, which you created as projects in AWS Settings, don't get this role automatically. You can create the role manually. For more information, see [Creating OrganizationAccountAccessRole for an invited account with AWS Organizations](orgs_manage_accounts_create-cross-account-role.md).
+
 To access the accounts in your organization, you must use one of the following methods:
 
 **Minimum permissions**  
@@ -43,7 +45,7 @@ For more information, see [Multi-account permissions](https://docs.aws.amazon.co
 ------
 #### [ Using the IAM role OrganizationAccountAccessRole ]
 
-If you create an account by using the tools provided as part of AWS Organizations, you can access the account by using the preconfigured role named `OrganizationAccountAccessRole` that exists in all new accounts that you create this way. For more information, see [Accessing a member account that has OrganizationAccountAccessRole with AWS Organizations](orgs_manage_accounts_access-cross-account-role.md).
+If you create an account by using the tools provided as part of AWS Organizations, you can access the account by using the preconfigured role that AWS Organizations creates in the account. By default, this role is named `OrganizationAccountAccessRole`. You can specify a different name when you create the account. For more information, see [Accessing a member account that has OrganizationAccountAccessRole with AWS Organizations](orgs_manage_accounts_access-cross-account-role.md).
 
 If you invite an existing account to join your organization and the account accepts the invitation, you can then choose to create an IAM role that allows the management account to access the invited member account. This role is intended to be identical to the role automatically added to an account that is created with AWS Organizations.
 

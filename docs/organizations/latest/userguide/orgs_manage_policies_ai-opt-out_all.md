@@ -67,7 +67,7 @@ The following is a list of AWS services supported by the AI services opt-out pol
 + [Amazon Lex V2](https://docs.aws.amazon.com/lex)
 + [Amazon Polly](https://docs.aws.amazon.com/polly)
 + [Amazon Q Developer](https://docs.aws.amazon.com/amazonq)
-+ [Amazon Quick](https://docs.aws.amazon.com/quicksight)
++ [AWS Quick](https://docs.aws.amazon.com/quicksight)
 + [Amazon Rekognition](https://docs.aws.amazon.com/rekognition)
 + [Scenario Discovery](https://docs.aws.amazon.com/iot-sitewise)
 + [Amazon Security Lake](https://docs.aws.amazon.com/security-lake/)
