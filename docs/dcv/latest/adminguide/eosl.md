@@ -11,6 +11,9 @@ After the EOSL date, no further support or maintenance is provided. We will also
 
 Backward compatibility is preserved, applying the same EOSL rules. This means that an Amazon DCV client can connect to a Amazon DCV Server and a DCV Client/Viewer can connect to an Amazon DCV Server, if both the server and client are supported
 
+**Note**  
+Amazon DCV does not support operating systems that have reached end of life. Contact your vendor regarding your operating system.
+
 **Topics**
 + [EOSL timeline](#dates)
 + [EOSL paths for customers](#paths)
