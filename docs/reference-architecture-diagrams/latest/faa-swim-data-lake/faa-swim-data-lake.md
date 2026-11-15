@@ -7,7 +7,7 @@ Publication date: **March 10, 2021 ([Diagram history](#faa-swim-history))**
 
 The Federal Aviation Administration (FAA) System Wide Information Management (SWIM) Data Lake provides real-time delivery of aeronautical flight and weather information. This helps airline companies optimize their operations.
 
-This architecture processes SWIM data through a series of [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/) functions and [Amazon Kinesis](https://docs.aws.amazon.com/kinesis/latest/dev/) Data Streams. It transforms, enriches, and analyzes flight data. You can then visualize the results with Amazon Quick Sight or consume them through custom applications.
+This architecture processes SWIM data through a series of [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/) functions and [Amazon Kinesis](https://docs.aws.amazon.com/kinesis/latest/dev/) Data Streams. It transforms, enriches, and analyzes flight data. You can then visualize the results with AWS Quick Sight or consume them through custom applications.
 
 ## FAA SWIM data lake diagram
 <a name="faa-swim-diagram"></a>
