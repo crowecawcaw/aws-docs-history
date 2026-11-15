@@ -8,7 +8,7 @@ Preparing data tables can take place before or after you have joined a collabora
 
 As a member in the collaboration, you must prepare your data tables before they can be queried in AWS Clean Rooms by the collaboration member who can query.
 
-The data tables that you use for queries in AWS Clean Rooms are commonly the same types of data tables that you use for other applications. For example, the same types of datasets are used with Amazon Athena, Amazon EMR, Amazon Redshift Spectrum, and Amazon Quick. 
+The data tables that you use for queries in AWS Clean Rooms are commonly the same types of data tables that you use for other applications. For example, the same types of datasets are used with Amazon Athena, Amazon EMR, Amazon Redshift Spectrum, and AWS Quick. 
 
 You can query the data in its original format directly from any of the following data sources:
 + Amazon Simple Storage Service (Amazon S3) 

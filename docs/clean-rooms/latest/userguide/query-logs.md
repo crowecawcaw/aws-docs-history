@@ -39,7 +39,7 @@ The following table describes the fields included in analysis logs.
 | `jobValidationErrors` | A job runs | The job errors at job validation. | 
 | `jobRunners` | A job runs | The members designated to run jobs. | 
 | `status` | An analysis finishes | The execution status of the analysis. | 
-| `errorCode` | An analysis finishes | The error code when an analysis failed to execute properly. | 
+| `errorCode` | An analysis finishes | The error code when an analysis failed to execute properly. For the list of error codes, see [Error codes for protected queries and jobs in AWS Clean Rooms](error-codes.md). | 
 | `errorMessage` | An analysis finishes | The error message when an analysis failed to execute properly. | 
 | `memberSchemaMapping` | Always delivered | A mapping of member accounts to their schema information. | 
 | `memberDisplayNames` | Always delivered | A mapping of member accounts to their display names. | 

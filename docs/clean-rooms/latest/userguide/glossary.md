@@ -30,7 +30,7 @@ A collaboration-specific, pre-approved query that can be reused.
 
 Supported formats: SQL code or Python code for Spark.
 
-If using SQL, the analysis template can contain parameters wherever a literal value could typically appear in a SQL query. For more information about supported parameter types, see [Data types](https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/c_Supported_data_types.html) in the *AWS Clean Rooms SQL Reference*.
+If using SQL, the analysis template can contain parameters wherever a literal value could typically appear in a SQL query. For more information about supported parameter types, see [Data types](https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/s_Supported_data_types.html) in the *AWS Clean Rooms SQL Reference*.
 
 Analysis templates only work with the [custom analysis rule](analysis-rules-custom.md).
 

@@ -20,6 +20,39 @@ With the ID mapping table analysis rule, AWS Clean Rooms enforces an overlap on 
   + table RIGHT JOIN id\_mapping\_table
 
   This prevents exposure of mapping records that don't have corresponding matches in your dataset. Allowing such operations could potentially reveal sensitive information about other collaboration members' data mappings.
+
+  You can't use a LEFT SEMI JOIN or LEFT ANTI JOIN in the following ways:
+  + With a protected column of the ID mapping table in its ON condition.
+  + In the same FROM clause as the ID mapping table, either with the ID mapping table as one side of the LEFT SEMI JOIN or LEFT ANTI JOIN, or with the ID mapping table in another join.
+
+  A protected column is an ID mapping table column that, by default, you can use only in JOIN statements. For example, the following queries aren't supported:
+
+  ```
+  -- Not supported: the ID mapping table is joined in the same FROM clause
+  SELECT provider.data_col
+  FROM provider
+  JOIN idMappingTable idmt ON provider.id = idmt.sourceId
+  LEFT SEMI JOIN consumer ON consumer.id = idmt.targetId;
+  
+  -- Not supported: the ID mapping table is one side of the LEFT SEMI JOIN
+  SELECT provider.data_col
+  FROM provider
+  LEFT SEMI JOIN idMappingTable idmt ON provider.id = idmt.sourceId;
+  ```
+
+  To use a LEFT SEMI JOIN or LEFT ANTI JOIN with mapped IDs, join your table to the ID mapping table in a subquery or common table expression (CTE) that respects the overlap and returns only unprotected columns. Then use the result in the LEFT SEMI JOIN or LEFT ANTI JOIN. For example:
+
+  ```
+  WITH matched AS (
+    SELECT provider.id, provider.data_col
+    FROM provider
+    JOIN idMappingTable idmt ON provider.id = idmt.sourceId
+    JOIN consumer ON consumer.id = idmt.targetId
+  )
+  SELECT matched.data_col
+  FROM matched
+  LEFT SEMI JOIN purchases ON purchases.provider_id = matched.id;
+  ```
 + Use the mapping table columns in JOIN statements. 
 
   You can’t use the mapping table columns in the following statements: SELECT, WHERE, HAVING, GROUP BY, or ORDER BY (unless protections are modified on the source ID namespace association or the target ID namespace association).
@@ -149,6 +182,7 @@ For ID mapping table query structure and syntax, be aware of the following:
 + It uses a source and target ID namespace association inside the collaboration. 
 + The ID mapping table is configured by default to provide default protections for the column that comes from the ID namepsace. You can modify this configuration so that the column that comes from the ID namespace (either `sourceID` or `targetID`) can be allowed anywhere in the query. For more information, see [ID namespaces in AWS Clean Rooms](working-with-id-namespaces.md).
 + The ID mapping table analysis rule inherits the SQL restrictions of the other analysis rules in the collaboration.
++ You can't use a LEFT SEMI JOIN or LEFT ANTI JOIN with the ID mapping table in some ways. For more information, see "Use the overlap of the ID mapping table in JOIN statements" earlier in this topic.
 
 ## ID mapping table analysis rule query controls
 <a name="parameters-id-mapping-query-controls"></a>

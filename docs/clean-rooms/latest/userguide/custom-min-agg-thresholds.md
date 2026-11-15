@@ -7,9 +7,12 @@ Data aggregation is a privacy-enhancing technique that helps enforce anonymizati
 
 **Topics**
 + [Aggregation thresholds](#custom-min-agg-aggregation-thresholds)
++ [Qualifying aggregate functions](#custom-min-agg-qualifying-functions)
 + [Overriding the minimum aggregation threshold for specific output columns](#custom-min-agg-output-override)
 + [Allowing nested expressions in aggregate functions](#custom-min-agg-nested-expressions)
++ [Using MIN, MAX, and percentile functions](#custom-min-agg-value-selecting)
 + [Configuring minimum aggregation thresholds in the console](#custom-min-agg-console)
++ [LEFT SEMI JOIN and LEFT ANTI JOIN](#custom-min-agg-semi-anti-joins)
 + [Considerations and limitations](#custom-min-agg-considerations)
 
 ## Aggregation thresholds
@@ -32,6 +35,22 @@ The following example sets the minimum aggregation threshold to 100 with `user_i
   ]
 }
 ```
+
+## Qualifying aggregate functions
+<a name="custom-min-agg-qualifying-functions"></a>
+
+When minimum aggregation thresholds apply, your query must include at least one qualifying aggregation. A SELECT that aggregates data is a qualifying aggregation only if every aggregate function in that SELECT is a qualifying aggregate function. If your query has no qualifying aggregation, it fails with the error `Data must be aggregated before being included in the query output`.
+
+The following table lists which aggregate functions are qualifying aggregate functions.
+
+
+| Aggregate functions | Qualifying aggregate function | 
+| --- |--- |
+| AVG, COUNT, COUNT DISTINCT, APPROX\_COUNT\_DISTINCT, SUM, STDDEV / STDDEV\_SAMP, STDDEV\_POP, VAR\_SAMP / VARIANCE, VAR\_POP, SKEWNESS | Yes | 
+| MIN, MAX, PERCENTILE, APPROX\_PERCENTILE, MEDIAN | Only if the function's value doesn't reach an output column. For more information, see [Using MIN, MAX, and percentile functions](#custom-min-agg-value-selecting). | 
+| COLLECT\_LIST, COLLECT\_SET | No | 
+
+For the aggregate functions and other SQL constructs that you can use when minimum aggregation thresholds apply, see [SQL capabilities for minimum aggregation and comparison controls](custom-sql-capabilities.md).
 
 ## Overriding the minimum aggregation threshold for specific output columns
 <a name="custom-min-agg-output-override"></a>
@@ -92,6 +111,60 @@ The following is a complete `aggregationThresholds` example:
     }
   ]
 }
+```
+
+## Using MIN, MAX, and percentile functions
+<a name="custom-min-agg-value-selecting"></a>
+
+MIN, MAX, PERCENTILE, APPROX\_PERCENTILE, and MEDIAN return a single value taken from one input row. When minimum aggregation thresholds apply, they're qualifying aggregate functions only if that value can't reach an output column. For the full list of qualifying aggregate functions, see [Qualifying aggregate functions](#custom-min-agg-qualifying-functions).
+
+The value reaches an output column if you return it directly, transform it (for example, with CAST, COALESCE, CONCAT, or arithmetic), or return it as a result branch of an IF or CASE expression. In that case, the SELECT isn't a qualifying aggregation, even if it also uses qualifying aggregate functions.
+
+You can't run the following SQL queries:
+
+```
+-- Blocked: each SELECT returns a MIN or MAX value. Other aggregate functions,
+-- such as SUM or COUNT, in the same SELECT don't make it qualify.
+SELECT campaign_id, MIN(price) AS cheapest, SUM(spend) AS total_spend
+FROM sales
+GROUP BY campaign_id
+
+SELECT campaign_id, CAST(MAX(event_time) AS STRING) AS latest_event, COUNT(*) AS events
+FROM events
+GROUP BY campaign_id
+
+SELECT campaign_id, IF(SUM(spend) > 0, MAX(amount), 0) AS top_amount
+FROM sales
+GROUP BY campaign_id
+```
+
+If you use the value only in a comparison, in the condition of an IF or CASE expression, in a HAVING clause, or in a join condition, it doesn't reach the output and these functions qualify. You can run the following SQL queries:
+
+```
+-- Allowed: you use the MAX value only in a comparison or a HAVING clause,
+-- so it never reaches the output.
+SELECT campaign_id, MAX(age) > 21 AS has_adult
+FROM users
+GROUP BY campaign_id
+
+SELECT campaign_id, SUM(spend) AS total_spend
+FROM sales
+GROUP BY campaign_id
+HAVING MAX(spend) > 1000
+```
+
+You can also compute MIN or MAX in a subquery or common table expression (CTE), and then aggregate the result in an outer SELECT that uses only qualifying aggregate functions. The inner SELECT isn't a qualifying aggregation, but the outer SELECT is, so you can run the query:
+
+```
+-- Allowed: the outer SELECT uses only SUM, so it's a qualifying aggregation.
+WITH per_household AS (
+  SELECT campaign_id, household_id, MAX(spend) AS max_spend
+  FROM sales
+  GROUP BY campaign_id, household_id
+)
+SELECT campaign_id, SUM(max_spend) AS total_max_spend
+FROM per_household
+GROUP BY campaign_id
 ```
 
 ## Configuring minimum aggregation thresholds in the console
@@ -156,6 +229,53 @@ You configure minimum aggregation thresholds as part of adding a custom analysis
 1. Choose **Configure analysis rule**.
 
 1. Associate the configured table to a collaboration. For more information, see [Step 2: Associate a configured table](associate-configured-table.md#associate-config-table).
+
+## LEFT SEMI JOIN and LEFT ANTI JOIN
+<a name="custom-min-agg-semi-anti-joins"></a>
+
+A LEFT SEMI JOIN returns the rows of the left table that have a match in the right table. AWS Clean Rooms applies minimum aggregation thresholds to the right table of a LEFT SEMI JOIN, as it does for an INNER JOIN.
+
+To get the results you expect, use only equality conditions between columns in the ON condition, and filter the right table in a subquery. If the ON condition contains other comparisons, such as a range comparison, OR, or a condition on the right table, the threshold can remove more rows than expected. A query that doesn't aggregate its results can also be rejected.
+
+```
+-- Can return fewer rows than expected
+SELECT s.region, COUNT(*) AS stores
+FROM stores s
+LEFT SEMI JOIN partner_purchases p
+  ON s.region = p.region AND p.amount > 5
+GROUP BY s.region;
+
+-- Recommended: filter the right table first
+SELECT s.region, COUNT(*) AS stores
+FROM stores s
+LEFT SEMI JOIN (SELECT region FROM partner_purchases WHERE amount > 5) p
+  ON s.region = p.region
+GROUP BY s.region;
+```
+
+AWS Clean Rooms rejects a LEFT ANTI JOIN when its right side uses a column that is protected by a minimum aggregation threshold. This includes a column that the right side uses in the ON condition, in a filter, join, expression, grouping, or ordering, and a table that only filters the right side, for example through a LEFT SEMI JOIN or an IN subquery. A LEFT ANTI JOIN returns the rows of the left table that have no match in the right table, so no data subject from the right table contributes to the result. A minimum aggregation threshold can't protect the right table in this case, because the result reveals which values are absent from it.
+
+The following query is rejected because the right side of the LEFT ANTI JOIN uses `user_id` from `partner_purchases`, which is protected by a minimum aggregation threshold:
+
+```
+-- Rejected: partner_purchases.user_id is protected by a minimum aggregation threshold
+SELECT a.campaign, COUNT(*) AS non_converters
+FROM ad_exposures a
+LEFT ANTI JOIN partner_purchases p
+  ON a.user_id = p.user_id
+GROUP BY a.campaign;
+```
+
+The query fails with the following error:
+
+```
+LEFT ANTI JOIN isn't supported when the right side of the join uses columns protected by an aggregation threshold: 'user_id'. Remove the LEFT ANTI JOIN, or remove these columns, or the tables they come from, from its right side.
+```
+
+A LEFT ANTI JOIN is allowed in the following cases:
++ The right side uses only columns whose minimum aggregation threshold is overridden to `0`. For more information, see [Overriding the minimum aggregation threshold for specific output columns](#custom-min-agg-output-override).
++ The right side doesn't use any protected column.
++ Only the left table is protected by a minimum aggregation threshold. The threshold of the left table applies to the result.
 
 ## Considerations and limitations
 <a name="custom-min-agg-considerations"></a>

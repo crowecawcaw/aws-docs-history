@@ -41,5 +41,4 @@ After you complete these steps, the member who can query can start running queri
 <a name="dp-considerations"></a>
 
 When using differential privacy in AWS Clean Rooms, consider the following:
-+ The member who can receive results can't use differential privacy. They will configure a custom analysis rule with differential privacy turned off for their configured tables.
 + The member who can query can't join tables from two or more data providers when both have differential privacy turned on.

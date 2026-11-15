@@ -18,3 +18,7 @@ Additionally, the model author can set a filter pattern in the privacy configura
 **Custom defined metrics**
 
 When you configure a model algorithm (either via the console or the `CreateConfiguredModelAlgorithm` API), the model author can provide specific metric names and regex statements to search for in the output logs. These can be viewed as the job progresses via CloudWatch Metrics in the `/aws/cleanroomsml/TrainedModels` namespace. When associating a configured model algorithm, the model author can set an optional noise level in the metrics privacy configuration to avoid outputting raw data while still providing visibility into custom metric trends. If a noise level is set, the metrics are published at the end of the job rather than in real time.
+
+**Note**  
+The noise level helps obscure raw values in custom metrics. It isn't designed to provide a formal privacy guarantee, such as differential privacy. Don't rely on the noise level alone to protect sensitive data. Use it together with other privacy controls, such as limiting which members can receive metrics.  
+The model author sets the noise level when they associate the configured model algorithm. Training data providers can review the association's privacy configuration, including the noise level, before they allow the association to use their configured table. For more information, see [Associating the configured model algorithm in AWS Clean Rooms ML](https://docs.aws.amazon.com/clean-rooms/latest/userguide/associate-model-algorithm.html).

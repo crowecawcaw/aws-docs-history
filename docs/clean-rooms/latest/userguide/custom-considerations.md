@@ -28,8 +28,10 @@ To help you and your partners maintain the controls you need, AWS Clean Rooms ma
 Note the following limitations:
 + Data aggregation enforced by minimum aggregation thresholds on its own does not address other potential exfiltration risks such as differencing attacks. For more information, see [Differencing attacks](#custom-differencing-attacks).
 + The SQL surface for queries using minimum aggregation thresholds is restricted. For a complete list of supported and unsupported SQL constructs, see [SQL capabilities for minimum aggregation and comparison controls](custom-sql-capabilities.md).
++ When minimum aggregation thresholds apply, your query must include a qualifying aggregation, and not every supported aggregate function is a qualifying aggregate function. For example, COLLECT\_LIST never qualifies, and MIN and MAX qualify only if their value doesn't reach an output column. For more information, see [Qualifying aggregate functions](custom-min-agg-thresholds.md#custom-min-agg-qualifying-functions).
 + Minimum aggregation thresholds and comparison controls do not currently work with [differential privacy](custom-diff-privacy.md).
 + The minimum aggregation threshold is not enforced on COUNT, COUNT(DISTINCT), or APPROX\_COUNT\_DISTINCT functions over a single table with no grouping or join.
++ A LEFT ANTI JOIN is rejected when its right side uses a column that is protected by a minimum aggregation threshold. For more information, see [LEFT SEMI JOIN and LEFT ANTI JOIN](custom-min-agg-thresholds.md#custom-min-agg-semi-anti-joins).
 
 ## Controls that apply only to SQL queries
 <a name="custom-sql-only-controls"></a>

@@ -5,14 +5,11 @@
 
 The disallowed output columns configuration is a control in the AWS Clean Rooms custom analysis rule that enables you to define the list of columns (if any) that you don’t allow to be projected in the query result. The columns referenced in this list are considered “disallowed output columns”. This means that any reference to such column through transformation, aliasing, or other means may not be present in the final SELECT (projection) of the query.
 
-While the capability prohibits columns from being directly projected in the output, it doesn't fully prevent underlying values from being indirectly inferred through other mechanisms. These columns can still be used in a projection clause (such as in a subquery or a Common Table Expression (CTE)), as long as they aren't referenced in the very final projection.
+While the capability prohibits columns from being directly projected in the output, it doesn't fully prevent underlying values from being indirectly inferred through other mechanisms. These columns can still be used in a projection clause (such as in a subquery, a Common Table Expression (CTE), or a CACHE TABLE statement), as long as they aren't referenced in the very final projection.
 
 The disallowed output columns configuration gives you the flexibility to apply and codify control on your table in combination with analysis template level reviews based on use cases and corresponding privacy requirements.
 
 For more information on how to set this configuration, see [Adding a custom analysis rule to a table (guided flow)](add-analysis-rule.md#add-custom-analysis-rule-wizard).
-
-**Disallowed output columns query constraint and CACHE TABLE**  
-The [disallowed output columns constraint](https://docs.aws.amazon.com/clean-rooms/latest/userguide/disallowed-columns.html) in the custom analysis rule is enforced on cached tables. A cached table cannot reference a disallowed output column in its SELECT clause. To use a column with a disallowed output column constraint in a subsequent part of your query, convert the cached table to a common table expression (CTE).
 
 **Examples**
 
@@ -94,8 +91,8 @@ If Member B runs the following query, it succeeds because columns that are part 
 
 ```
 SELECT
-  u.name, 
-  p.gender, 
+  u.email,
+  p.gender,
   p.age
 FROM 
   users AS u
@@ -119,19 +116,33 @@ ORDER BY
   u.name
 ```
 
-Additionally, the disallowed output columns from *users* can be used in intermediate projections such as subqueries and CTEs, such as:
+Additionally, the disallowed output columns from *users* can be used in intermediate projections such as subqueries, CTEs, and CACHE TABLE statements. For example, the following query succeeds because *age* is projected in the CTE and the subquery but not in the final projection:
 
 ```
-WTIH cte AS (
- SELECT 
-   u.gender, 
-   u.id,
-   u.first_name
+WITH cte AS (
+ SELECT
+   u.age,
+   u.gender,
+   u.email
  FROM
    users AS u
 )
-SELECT 
-  first_name 
+SELECT
+  gender,
+  email
 FROM
-  (SELECT cte.gender, cte.id, cte.first_name FROM cte)
+  (SELECT cte.age, cte.gender, cte.email FROM cte)
+```
+
+The following query also succeeds because *age* is projected in the cached table but not in the final projection:
+
+```
+CACHE TABLE cached_users AS
+  SELECT age, gender, email FROM users;
+
+SELECT
+  gender,
+  email
+FROM
+  cached_users
 ```

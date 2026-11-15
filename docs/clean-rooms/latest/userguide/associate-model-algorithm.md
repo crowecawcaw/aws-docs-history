@@ -62,6 +62,8 @@ After the model algorithm is associated, it can't be edited. To make changes, yo
 1. (Optional) If you want to configure trained model metrics, under **Trained model metrics configuration**, select a **Noise level** from the dropdown list.
 
    You can choose **None**, **Low**, **Medium** and **High**.
+**Note**  
+For more information about the noise level, see [Receiving model logs and metrics](https://docs.aws.amazon.com/clean-rooms/latest/userguide/custom-model-logs.html).
 
 1. (Optional) If you want to set the maximum artifacts size, under **Artifacts configuration**, enter the **Max artifacts size value**. The value must be between 0.01 and 10.
 
@@ -153,7 +155,7 @@ acr_ml_client.create_configured_model_algorithm_association(
 )
 ```
 
-After the configured model algorithm is associated to the collaboration, training data providers must add a collaboration analysis rule to their table. This rule allows the configured model algorithm association to access their configured table. All contributing training data providers must run the following code:
+After the configured model algorithm is associated to the collaboration, training data providers must add a collaboration analysis rule to their table. This rule allows the configured model algorithm association to access their configured table. Before adding the rule, training data providers should review the association's privacy configuration, including the metrics noise level that the model author set. For more information, see [Receiving model logs and metrics](https://docs.aws.amazon.com/clean-rooms/latest/userguide/custom-model-logs.html). All contributing training data providers must run the following code:
 
 ```
 import boto3 
