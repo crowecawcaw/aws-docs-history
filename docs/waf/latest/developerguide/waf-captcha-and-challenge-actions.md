@@ -23,20 +23,29 @@ AWS WAF applies the CAPTCHA or Challenge action to a web request as follows:
   + **Challenge** – AWS WAF includes the following in the response:
     + The header `x-amzn-waf-action` with a value of `challenge`.
 **Note**  
-For Javascript applications running in the client browser, this header is only available within the application's domain. The header isn't available for cross-domain retrieval. For details, see the section that follows.
+JavaScript applications running in the client browser can read this header, including for cross-origin (cross-domain) requests. This is possible because AWS WAF includes cross-origin resource sharing (CORS) headers in the response. For details, see the section that follows.
     + The HTTP status code `202 Request Accepted`.
     + If the request contains an `Accept` header with a value of `text/html`, the response includes a JavaScript page interstitial with a challenge script.
   + **CAPTCHA** – AWS WAF includes the following in the response:
     + The header `x-amzn-waf-action` with a value of `captcha`.
 **Note**  
-For Javascript applications running in the client browser, this header is only available within the application's domain. The header isn't available for cross-domain retrieval. For details, see the section that follows.
+JavaScript applications running in the client browser can read this header, including for cross-origin (cross-domain) requests. This is possible because AWS WAF includes cross-origin resource sharing (CORS) headers in the response. For details, see the section that follows.
     + The HTTP status code `405 Method Not Allowed`.
     + If the request contains an `Accept` header with a value of `text/html`, the response includes a JavaScript page interstitial with a CAPTCHA script. 
 
 To configure the timing of token expiration at the protection pack (web ACL) or rule level, see [Setting timestamp expiration and token immunity times in AWS WAF](waf-tokens-immunity-times.md).
 
-**Headers are unavailable to JavaScript applications that run in the client browser**  
-When AWS WAF responds to a client request with a CAPTCHA or challenge response, it doesn't include cross-origin resource sharing (CORS) headers. CORS headers are a set of access control headers that tell the client web browser which domains, HTTP methods, and HTTP headers can be used by JavaScript applications. Without CORS headers, JavaScript applications running in a client browser are not granted access to HTTP headers and so are unable to read the `x-amzn-waf-action` header that's provided in the CAPTCHA and Challenge responses. 
+**CORS headers in CAPTCHA and Challenge responses**  
+AWS WAF includes cross-origin resource sharing (CORS) headers in its CAPTCHA and challenge responses. CORS headers are a set of access control headers. They tell the client browser which domains, HTTP methods, and HTTP headers JavaScript applications can use. AWS WAF sets the following CORS headers in the response:
+
+```
+access-control-allow-origin: *
+access-control-allow-methods: OPTIONS,GET,POST
+access-control-max-age: 86400
+access-control-expose-headers: x-amzn-waf-action
+```
+
+Because `access-control-expose-headers` includes the `x-amzn-waf-action` header, JavaScript applications in the client browser can read it from the CAPTCHA and Challenge responses, including for cross-origin requests.
 
 **What the challenge and CAPTCHA interstitials do**  
 When a challenge interstitial runs, after the client responds successfully, if it doesn't already have a token, the interstitial initializes one for it. Then it updates the token with the challenge solve timestamp.

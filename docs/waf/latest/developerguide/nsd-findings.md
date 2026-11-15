@@ -49,7 +49,7 @@ When a network analysis completes, network security director provides detailed r
 
 When an account is selected the account and topology explorer panel widget opens to display the resources and findings within that account. Filter the table within to find specific resources or findings or remove filters to see a summary of resources types and finding types.
 
-AWS Shield network security director assigns severity levels to each finding from the most recent network analysis. Resources can be assigned **None**, **Informational**, **Low**, **Medium**, **High**, or **Critical**. This severity level represents the severity level of the most severe finding identified on a resource. For example, if your latest network analysis determines that your Amazon Amazon EC2 instance has one Medium severity finding and two Low severity findings, that resource is assigned a Medium composite finding severity level.
+AWS Shield network security director assigns severity levels to each finding from the most recent network analysis. Resources can be assigned **None**, **Informational**, **Low**, **Medium**, **High**, or **Critical**. This severity level represents the severity level of the most severe finding identified on a resource. For example, if your latest network analysis determines that your Amazon EC2 instance has one Medium severity finding and two Low severity findings, that resource is assigned a Medium composite finding severity level.
 
 The **Findings overview** widget inside the **Account and topology explorer panel widget**, which can be accessed by removing any resource or finding type filters, provides two ways to understand the findings that network security director found in your resources:
 + From **Highest severity resources**, you can quickly understand which severity level is the most severe across all your networking resources. You can also see a list of how many of your resources are affected and the number of resources assigned each severity level by network security director.
@@ -91,4 +91,4 @@ A resource can have multiple findings identified by network security director. E
 + Expand the **Remediation recommendations** for the finding to learn more about it.
 + Follow the steps suggested by network security director or choose the documentation link included to learn more.
 
-After reviewing and implementing the remediation recommendations for your affected resources, you may want to get additional insights about your overall security configuration. Continue to [Analyze network security with AWS assistant](nsd-security-insights.md) to learn how to use Amazon Q Developer for further analysis.
+After reviewing and implementing the remediation recommendations for your affected resources, you may want to get additional insights about your overall security configuration. Continue to [Analyze network security with AWS assistant](nsd-security-insights.md) to learn how to use the AWS assistant for further analysis.
