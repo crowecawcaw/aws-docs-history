@@ -8,3 +8,5 @@ As a managed service, AWS IAM Identity Center is protected by AWS global network
 You use AWS published API calls to access IAM Identity Center through the network. Clients must support the following:
 + Transport Layer Security (TLS). We require TLS 1.2 and recommend TLS 1.3.
 + Cipher suites with perfect forward secrecy (PFS) such as DHE (Ephemeral Diffie-Hellman) or ECDHE (Elliptic Curve Ephemeral Diffie-Hellman). Most modern systems such as Java 7 and later support these modes.
+
+For information about restricting network access to IAM Identity Center using VPC endpoints and network controls, see [AWS PrivateLink for IAM Identity Center](vpc-interface-endpoints.md).

@@ -22,7 +22,7 @@ For information about configuring user interactive session duration, see [Config
 ### Application sessions
 <a name="application-sessions-concept"></a>
 
-Application sessions are the authenticated connections between users and AWS managed applications (such as Kiro or Amazon Quick) that IAM Identity Center establishes through single sign-on.
+Application sessions are the authenticated connections between users and AWS managed applications (such as Kiro or AWS Quick) that IAM Identity Center establishes through single sign-on.
 
 By default, application sessions have a one hour lifetime, but they're automatically refreshed as long as the underlying user interactive session remains valid. This refresh mechanism provides a seamless experience for users while maintaining security controls. When a user interactive session ends, either through user sign-out or administrator action, the application sessions will end at their next refresh attempt, typically within 30 minutes.
 

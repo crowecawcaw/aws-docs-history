@@ -12,6 +12,7 @@ Set up how your workforce users authenticate and access AWS resources through IA
 **Topics**
 + [Understanding authentication sessions in IAM Identity Center](authconcept.md)
 + [Configure the session duration in IAM Identity Center](configure-user-session.md)
++ [Require user re-authentication](require-user-reauthentication.md)
 + [Disable user access to AWS accounts and applications in IAM Identity Center](disableuser.md)
 + [Deny user access with Service Control Policies](authconcept-revoke-access.md)
 + [Managing access for users in the Identity Center directory](managing-workforce-access-identity-center-directory.md)

@@ -7,7 +7,7 @@ The AWS access portal connects your workforce to AWS accounts and cloud applicat
 
 The AWS access portal provides single sign-on access to:
 + AWS accounts in your organization.
-+ AWS managed applications such as Amazon Quick and Kiro.
++ AWS managed applications such as AWS Quick and Kiro.
 + Cloud applications like Office 365, Concur, Salesforce, and others.
 
 When users sign in to the portal, they find the AWS accounts and applications they're authorized to access without additional sign-in.

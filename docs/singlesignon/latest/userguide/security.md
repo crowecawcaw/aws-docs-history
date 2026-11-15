@@ -20,3 +20,4 @@ This documentation helps you understand how to apply the shared responsibility m
 + [Compliance validation for IAM Identity Center](compliance-validation.md)
 + [Resilience in IAM Identity Center](disaster-recovery-resiliency.md)
 + [Infrastructure security in IAM Identity Center](infrastructure-security.md)
++ [AWS PrivateLink for IAM Identity Center](vpc-interface-endpoints.md)

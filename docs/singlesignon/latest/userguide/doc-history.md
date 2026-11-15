@@ -4,10 +4,11 @@
 <a name="doc-history"></a>
 
 The following table describes important additions to the AWS IAM Identity Center documentation. We also update the documentation frequently to address the feedback that you send us.
-+ **Latest major documentation update: **October 21, 2025
++ **Latest major documentation update: **November 13, 2026
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Interface VPC endpoints and network controls](https://docs.aws.amazon.com/singlesignon/latest/userguide/vpc-interface-endpoints.html) | AWS IAM Identity Center now supports AWS PrivateLink. You can create interface VPC endpoints to privately access Identity Center APIs, workforce sign-in, and the AWS access portal without traversing the public internet. You can also configure network controls to require that sign-in and application authorization requests originate from your VPC endpoints. | November 13, 2026 | 
 | [Multi-Region support extended to additional Regions](https://docs.aws.amazon.com/singlesignon/latest/userguide/multi-region-iam-identity-center.html) | Multi-Region support is now available in additional AWS Regions. This includes opt-in Regions (Regions that are disabled by default), AWS GovCloud (US), and the China Regions. To confirm which Regions support multi-Region, see [AWS Capabilities by Region](https://builder.aws.com/build/capabilities/explore). | September 30, 2026 | 
 | [One-click multi-Region instance creation](https://docs.aws.amazon.com/singlesignon/latest/userguide/enable-identity-center.html) | When enabling a new organization instance in supported Regions, you can choose between Single-Region, Multi-Region, or Custom instance configurations. The Multi-Region option enables multi-Region resilience in one click by automatically creating a customer managed KMS key and replicating your instance to an additional Region. | August 6, 2026 | 
 | [Multi-account permissions are now optional for new instances](https://docs.aws.amazon.com/singlesignon/latest/userguide/enable-identity-center.html) | When creating an organization instance, you can now choose whether to enable multi-account permissions. By default, multi-account permissions are enabled. You can enable multi-account permissions later from instance settings or by using the UpdateInstance API. | August 4, 2026 | 

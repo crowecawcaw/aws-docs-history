@@ -204,6 +204,32 @@ Additionally, you can troubleshoot external identity provider sign-in failures f
 
 You can also inspect `CredentialVerification` events with `additionalEventData.CredentialType` set to `EXTERNAL_IDP`. A value of `Failure` in `serviceEventDetails.CredentialVerification` indicates that verification failed. For event descriptions and examples, see [Understanding IAM Identity Center sign-in events](understanding-sign-in-events.md).
 
+## Users are not prompted to re-authenticate after you require re-authentication
+<a name="issue-force-reauthentication"></a>
+
+Use this section if users aren't prompted to re-authenticate after you set user re-authentication to **Required**.
+
+When this setting is **Required** for your external *Identity Provider (IdP)*, IAM Identity Center sends `ForceAuthn="true"` in the SAML `AuthnRequest` each time it sends a user to that IdP to sign in. Work through the following checks.
+
+Check the user's session and where the sign-in started:
++ The user still had a valid IAM Identity Center session – A user with a valid IAM Identity Center session isn't prompted. End the user's IAM Identity Center session, or wait for it to expire, and then have the user sign in again. For more information, see [View and end active sessions for your workforce users](end-active-sessions.md).
++ The sign-in started at your IdP rather than at the AWS access portal – IdP-initiated sign-ins don't include `ForceAuthn`, because IAM Identity Center doesn't create the request. Have the user start from your AWS access portal URL (for example, `https://d-xxxxxxxxxx.awsapps.com/start`).
++ The user reached an existing IAM role session – After a user assumes an IAM role through a permission set, that role session runs independently for up to 12 hours, and this setting doesn't affect it. For more information, see [Understanding authentication sessions in IAM Identity Center](authconcept.md).
+
+Check what IAM Identity Center sent and how your IdP handled it:
++ To check if IAM Identity Center sent `ForceAuthn="true"` in the `SAMLRequest`, capture a sign-in from your AWS access portal URL with a browser extension such as SAML-tracer. If you use your browser's developer tools instead, decode the `SAMLRequest` first.
+
+  If the `SAMLRequest` contains `ForceAuthn="true"`, IAM Identity Center is working as expected, and the cause is your IdP's configuration or its support for `ForceAuthn`.
++ Your external IdP is not honoring `ForceAuthn` – IAM Identity Center sends the attribute, but the IdP decides whether to act on it. Check your IdP's configuration for the IAM Identity Center application and its sign-in logs for the attempt. Some IdPs can suppress forced re-authentication, and some treat a recent authentication as satisfying the request. Work with your IdP vendor to enable this feature.
+
+The following IdPs have known `ForceAuthn` behavior:
++ Okta – By default, Okta doesn't apply `ForceAuthn` to the AWS IAM Identity Center application. In the application's **Sign On** settings, clear **Disable Force Authentication**. If a user refreshes the page during sign-in, Okta can skip `ForceAuthn`. To require authentication for every sign-in to the application, add an authentication policy rule that sets the re-authentication frequency to **Every sign-in attempt**. This rule applies to both service provider (SP)-initiated and identity provider (IdP)-initiated sign-ins.
+
+  For instructions on these settings, see [Add an app sign-in policy rule](https://help.okta.com/oie/en-us/content/topics/identity-engine/policies/add-app-sign-on-policy-rule.htm) and [Change the authentication frequency](https://help.okta.com/oie/en-us/content/topics/security/healthinsight/change-reauthentication.htm) in the Okta documentation.
++ Google Workspace – Google Workspace doesn't currently support `ForceAuthn` in the AWS IAM Identity Center application. IAM Identity Center sends `ForceAuthn`, but Google Workspace signs the user in without asking for credentials. Work with your IdP vendor to enable this feature.
+
+If none of these checks resolve the issue, contact AWS Support and attach a HAR file of the sign-in attempt. For instructions on creating a HAR file, see [How do I create HAR files and console logs from my browser for an AWS Support case?](https://repost.aws/knowledge-center/support-case-browser-har-file) on AWS re:Post.
+
 ## Error 'Attributes for access control failed to enable'
 <a name="issue9"></a>
 

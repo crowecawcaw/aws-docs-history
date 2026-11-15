@@ -3,7 +3,7 @@
 # What is IAM Identity Center?
 <a name="what-is"></a>
 
-AWS IAM Identity Center is the AWS solution for connecting your workforce users to AWS managed applications such as Kiro and Amazon Quick, and other AWS resources. You can connect your existing identity provider and synchronize users and groups from your directory, or create and manage your users directly in IAM Identity Center. You can then use IAM Identity Center for either or both of the following:
+AWS IAM Identity Center is the AWS solution for connecting your workforce users to AWS managed applications such as Kiro and AWS Quick, and other AWS resources. You can connect your existing identity provider and synchronize users and groups from your directory, or create and manage your users directly in IAM Identity Center. You can then use IAM Identity Center for either or both of the following:
 + User access to applications
 + User access to AWS accounts
 
@@ -20,7 +20,7 @@ IAM Identity Center streamlines and simplifies workforce user access to applicat
 [AWS managed applications](awsapps.md) such as Kiro and Amazon Redshift integrate with IAM Identity Center. IAM Identity Center provides AWS managed applications with a common view of users and groups.
 
 **Trusted identity propagation across applications **  
-With trusted identity propagation, AWS managed applications such as Amazon Quick can securely share a user’s identity with other AWS managed applications such as Amazon Redshift and authorize access to AWS resources based on the user’s identity. You can more easily audit user activity because CloudTrail events are logged based on the user and the actions the user initiated. This makes it easier to understand who accessed what. For information about supported use cases, including end-to-end configuration guidance, see [Trusted identity propagation use cases](trustedidentitypropagation-integrations.md).
+With trusted identity propagation, AWS managed applications such as AWS Quick can securely share a user’s identity with other AWS managed applications such as Amazon Redshift and authorize access to AWS resources based on the user’s identity. You can more easily audit user activity because CloudTrail events are logged based on the user and the actions the user initiated. This makes it easier to understand who accessed what. For information about supported use cases, including end-to-end configuration guidance, see [Trusted identity propagation use cases](trustedidentitypropagation-integrations.md).
 
 **One point of federation to simplify user access to AWS**  
 By providing one point of federation, IAM Identity Center reduces the administrative effort required to use multiple AWS managed applications and AWS accounts. With IAM Identity Center, you only federate once, and you have only one certificate to manage when using a [`SAML 2.0`](https://wiki.oasis-open.org/security) identity provider. IAM Identity Center provides AWS managed applications with a common view of users and groups for trusted identity propagation use cases, or when users share access to AWS resources with other people.  
