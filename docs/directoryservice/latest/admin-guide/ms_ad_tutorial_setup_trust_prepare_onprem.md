@@ -15,7 +15,7 @@ You must configure your self-managed firewall so that the following ports are op
 + TCP/UDP 88 - Kerberos authentication
 + TCP/UDP 389 - Lightweight Directory Access Protocol (LDAP)
 + TCP 445 - Server Message Block (SMB)
-+ TCP 9389 - Active Directory Web Services (ADWS) (*Optional* - This port needs to be open if you want to use your NetBIOS name instead of your full domain name for authentication with AWS applications like Amazon WorkDocs or Amazon Quick.)
++ TCP 9389 - Active Directory Web Services (ADWS) (*Optional* - This port needs to be open if you want to use your NetBIOS name instead of your full domain name for authentication with AWS applications like Amazon WorkDocs or AWS Quick.)
 
 **Note**  
 SMBv1 is no longer supported.  

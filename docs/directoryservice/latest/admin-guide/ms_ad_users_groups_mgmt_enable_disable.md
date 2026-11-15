@@ -8,7 +8,7 @@ To use user and group management or AWS Directory Service Data, it must be enabl
 **Important**  
  You can only enable this feature from the Primary AWS Region for your directory. For more information, see [Primary vs additional Regions](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/multi-region-global-primary-additional.html).
  For a list of regions that support AWS Directory Service Data, see [Supported AWS Regions for Directory Service Data](regions.md#regions_directory_service_data).
-Access controls for AWS Directory Service Data are different than access controls for AWS services like Amazon WorkSpaces, Amazon Quick, and Amazon WorkMail. For more information, see [AWS application authorization with Directory Service Data](ad_manage_apps_services_authorization.md#ad_manage_apps_services_authorization_ADSD).
+Access controls for AWS Directory Service Data are different than access controls for AWS services like Amazon WorkSpaces, AWS Quick, and Amazon WorkMail. For more information, see [AWS application authorization with Directory Service Data](ad_manage_apps_services_authorization.md#ad_manage_apps_services_authorization_ADSD).
 
 ## Enabling AWS Directory Service Data
 <a name="ms_ad_user_group_mgmt_enable"></a>

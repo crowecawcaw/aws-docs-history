@@ -31,7 +31,7 @@ AWS Managed Microsoft AD does not support trust with [Single Label Domains](http
 
 If you are creating a trust relationship with your self-managed directory, you must first connect your self-managed network to the Amazon VPC containing your AWS Managed Microsoft AD. The firewall for your self-managed and AWS Managed Microsoft AD networks must have the network ports open that are listed in [Windows Server 2008 and later versions ](https://docs.microsoft.com/en-us/troubleshoot/windows-server/identity/config-firewall-for-ad-domains-and-trusts#windows-server-2008-and-later-versions) in Microsoft documentation.
 
-To use your NetBIOS name instead of your full domain name for authentication with your AWS applictions like Amazon WorkDocs or Amazon Quick, you must allow port 9389. For more information about Active Directory ports and protocols, see [Service overview and network port requirements for Windows](https://learn.microsoft.com/en-US/troubleshoot/windows-server/networking/service-overview-and-network-port-requirements#system-services-ports) in Microsoft documentation.
+To use your NetBIOS name instead of your full domain name for authentication with your AWS applictions like Amazon WorkDocs or AWS Quick, you must allow port 9389. For more information about Active Directory ports and protocols, see [Service overview and network port requirements for Windows](https://learn.microsoft.com/en-US/troubleshoot/windows-server/networking/service-overview-and-network-port-requirements#system-services-ports) in Microsoft documentation.
 
 These are the minimum ports that are needed to be able to connect to your directory. Your specific configuration may require additional ports be open.
 

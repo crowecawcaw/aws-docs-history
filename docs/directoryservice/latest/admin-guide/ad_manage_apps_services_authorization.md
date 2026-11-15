@@ -30,7 +30,7 @@ For more information about Directory Service API permissions, see [Directory Ser
 
  For AWS Managed Microsoft AD directories, the Directory Service Data (ds-data) API provides programmatic access to user and group management tasks. The authorization model of AWS applications is separate from the access controls of Directory Service Data, which means that access policies for Directory Service Data actions don't effect the authorization for AWS applications. Denying access to a directory in ds-data will not interrupt the AWS Application integration or use-cases of AWS applications. 
 
- When writing access policies for AWS Managed Microsoft AD directories that authorize AWS applications, be aware that user and group functionality might be available by calling either an authorized AWS Application or Directory Service Data API. Amazon WorkDocs, Amazon WorkMail, Amazon WorkSpaces, Amazon Quick, and Amazon Chime all provide user and group management actions in their APIs. Control access to this AWS application functionality with IAM policies. 
+ When writing access policies for AWS Managed Microsoft AD directories that authorize AWS applications, be aware that user and group functionality might be available by calling either an authorized AWS Application or Directory Service Data API. Amazon WorkDocs, Amazon WorkMail, Amazon WorkSpaces, AWS Quick, and Amazon Chime all provide user and group management actions in their APIs. Control access to this AWS application functionality with IAM policies. 
 
 **Examples**  
  The following snippets show the incorrect and correct ways to deny `DeleteUser` functionality when AWS applications, such as WorkDocs and Amazon WorkMail, are authorized on the directory. 
