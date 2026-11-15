@@ -12,6 +12,7 @@
 | single field | Yes | Yes | Yes | Yes | Yes | 
 | compound | Yes | Yes | Yes | Yes | Yes | 
 | multi-key | Yes | Yes | Yes | Yes | Yes | 
+| wildcard | No | No | No | No | No | 
 
 Use the sparse option to skip indexing documents missing the indexed field(s), reducing the index size and saving space in memory. Because the index size is smaller, the queries that use it are more efficient. For a query to utilize a sparse index, you must use the $exists clause on the indexed fields. If you omit the $exists clause, Amazon DocumentDB will not use the sparse index.
 

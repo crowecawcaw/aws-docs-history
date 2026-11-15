@@ -5,6 +5,67 @@
 
 You can use Transport Layer Security (TLS) to encrypt the connection between your application and an Amazon DocumentDB cluster. By default, encryption in transit is enabled for newly created Amazon DocumentDB clusters. It can optionally be disabled when the cluster is created, or at a later time. When encryption in transit is enabled, secure connections using TLS are required to connect to the cluster. For more information connecting to Amazon DocumentDB using TLS, see [Connecting programmatically to Amazon DocumentDB](connect_programmatically.md).
 
+## Amazon DocumentDB post-quantum key exchange
+<a name="security.encryption.ssl.pq"></a>
+
+With Amazon DocumentDB 8.0.3 and later, you can use hybrid post-quantum key exchange for TLS 1.3 connections on instance-based clusters. Post-quantum key exchange helps protect your data in transit. It protects against attackers who record encrypted traffic now and decrypt it later with a quantum computer.
+
+Hybrid post-quantum key exchange combines the Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM) with a classical elliptic curve key exchange. Your cluster supports the following hybrid key exchange groups, from most to least preferred:
++ `X25519MLKEM768`
++ `SecP256r1MLKEM768`
++ `SecP384r1MLKEM1024`
+
+Your cluster uses post-quantum key exchange by default for all `tls` parameter values except `disabled`. You don't need to change your cluster configuration. The supported TLS versions, cipher suites, and certificates don't change. Engine versions earlier than 8.0.3 use only classical key exchange. To use post-quantum key exchange, upgrade your cluster to Amazon DocumentDB 8.0.3 or later.
+
+A connection uses post-quantum key exchange only when the client uses TLS 1.3 and its TLS library supports ML-KEM. Other connections use classical key exchange. The following list shows the minimum requirements for each language or driver:
+
+**C, C\+\+, PHP, and Ruby**  
+A driver that is linked with OpenSSL 3.5 or later
+
+**Go**  
+Go 1.24 or later
+
+**Java**  
+Java Development Kit (JDK) 27 or later, or the Bouncy Castle Java Secure Socket Extension (JSSE) provider
+
+**.NET**  
+.NET on Linux with OpenSSL 3.5 or later
+
+**Node.js**  
+Node.js 24.5 or later
+
+**Python**  
+Python that is built with OpenSSL 3.5 or later
+
+**Rust**  
+The `mongodb` crate with the `rustls-tls-aws-lc` feature
+
+A *key share* is the public key that a client sends for a key exchange group. If a client supports ML-KEM but doesn't send an ML-KEM key share, the cluster sends a `HelloRetryRequest` message that asks the client to retry with an ML-KEM key share. The connection then uses post-quantum key exchange, but the handshake takes one extra round trip, so it takes about as long as a TLS 1.2 handshake. To avoid the retry, configure your client to prefer an ML-KEM group, so that it sends an ML-KEM key share in its first message.
+
+**Important**  
+A TLS ClientHello message that offers ML-KEM is about 1.2–1.5 KB, which is larger than a classical ClientHello message. The message can span more than one network packet. Some older firewalls and TLS-inspecting proxies reset these connections. If a client fails after the upgrade but connects with only classical key exchange groups, a firewall or proxy is the likely cause. To fix a connection that fails for this reason, do one of the following:  
+Update your firewall or proxy to support larger ClientHello messages.
+Configure the client to offer only classical key exchange groups.
+If you can't change the firewall, proxy, or client, contact Support.
+
+To monitor post-quantum key exchange, use the `TLSHandshakesPostQuantum` and `TLSHandshakesClassical` Amazon CloudWatch metrics. For more information about these metrics, see [Amazon DocumentDB metrics](cloud_watch.md#cloud_watch-metrics_list).
+
+To check the key exchange of one connection, you need to have OpenSSL 3.5 or later and the Amazon DocumentDB certificate authority (CA) bundle. For instructions on downloading the CA bundle, see [Connecting with TLS enabled](connect_programmatically.md#connect_programmatically-tls_enabled).
+
+The following OpenSSL command shows how to connect to your cluster and offer only the `X25519MLKEM768` group. Replace `{{sample-cluster.node.aa-example-1.docdb.amazonaws.com}}` with your cluster endpoint, and run the command in the directory that contains `global-bundle.pem`:
+
+```
+openssl s_client -connect {{sample-cluster.node.aa-example-1.docdb.amazonaws.com}}:27017 \
+  -groups X25519MLKEM768 \
+  -CAfile global-bundle.pem
+```
+
+If the connection uses post-quantum key exchange, the output includes the following line:
+
+```
+Negotiated TLS1.3 group: X25519MLKEM768
+```
+
 ## Managing Amazon DocumentDB cluster TLS settings
 <a name="security.encryption.ssl.managing"></a>
 

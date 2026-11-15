@@ -37,6 +37,7 @@ Amazon DocumentDB supports the following operations for change streams:
 + Resuming a change stream from a timestamp using `startAtOperation` (applicable to Amazon DocumentDB 4.0\+)
 + DDL event notification for `createCollection` using the `showExpandedEvents` parameter (applicable to Amazon DocumentDB 8.0 starting with engine version 8.0.2).
 + DDL event notification for `createIndexes` using the `showExpandedEvents` parameter (applicable to Amazon DocumentDB 8.0 starting with engine version 8.0.2).
++ DDL event notification for `dropIndexes` using the `showExpandedEvents` parameter (applicable to Amazon DocumentDB 8.0 starting with engine version 8.0.3).
 
 ## Expanded events
 <a name="change_streams-expanded_events"></a>
@@ -44,7 +45,7 @@ Amazon DocumentDB supports the following operations for change streams:
 **Note**  
 Expanded events are available in Amazon DocumentDB 8.0 starting with engine version 8.0.2.
 
-Change streams support data definition language (DDL) event notifications, `createCollection` and `createIndexes`. To include expanded events, open a change stream cursor with the `showExpandedEvents` option.
+Change streams support data definition language (DDL) event notifications for `createCollection` and `createIndexes` starting with engine version 8.0.2, and `dropIndexes` starting with engine version 8.0.3. To include expanded events, open a change stream cursor with the `showExpandedEvents` option.
 
 For example:
 

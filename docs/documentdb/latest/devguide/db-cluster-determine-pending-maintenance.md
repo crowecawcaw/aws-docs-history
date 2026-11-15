@@ -82,3 +82,6 @@ The following maintenance action types apply to Amazon DocumentDB clusters:
 +  `os-upgrade` — Update the operating systems of all the DB instances in the Amazon DocumentDB cluster, using rolling upgrades. 
 
    For more information, see [Amazon DocumentDB operating system updates](db-instance-maintain.md#os-system-updates). 
++  `serverless-platform-version-update` — Update the platform version of all the serverless instances in the Amazon DocumentDB cluster, using rolling upgrades. 
+
+   For more information, see [Checking and upgrading the platform version of a serverless cluster](docdb-serverless-managing.md#docdb-serverless-platform-version). 

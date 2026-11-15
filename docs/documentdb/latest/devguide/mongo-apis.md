@@ -905,7 +905,7 @@ The `cursor.min()` and `cursor.max()` methods require a `hint` that names the in
 | Multikey Index | Yes | Yes | Yes | Yes | Yes | 
 | Single Field Index | Yes | Yes | Yes | Yes | Yes | 
 | Text Index | No | No | Yes | Yes | No | 
-| Wildcard | No | No | No | No | No | 
+| Wildcard | No | No | No | Yes (8.0.3\+) | No | 
 
 ### Index properties
 <a name="mongo-apis-index-properties"></a>

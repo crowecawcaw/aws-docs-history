@@ -11,6 +11,7 @@
 | --- | --- | --- | --- | --- | --- | 
 | single field | Yes | Yes | Yes | Yes | Yes | 
 | multi-key | Yes | Yes | Yes | Yes | Yes | 
+| wildcard | No | No | No | No | No | 
 
 Use the expireAfterSeconds option to create a time to live (TTL) index. TTL indexes enable you to delete documents based on their age based on the timeout condition for each document. When a document reaches the specified TTL age, it is deleted from the collection.
 

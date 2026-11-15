@@ -224,9 +224,13 @@ When a `$lookup` pipeline uses `let`, the following stages can reference the `"$
 + `$lookup` (nested)
 + `$graphLookup`
 
+**Note**  
+New from version 8.0.3.  
+When a `$facet` or `$unionWith` stage appears in the correlated `$lookup` pipeline, the stages inside its sub-pipeline can also reference these variables.
+
 Stages that do not evaluate variable expressions, such as `$sort`, `$skip`, `$limit`, `$count`, `$sample`, `$unwind`, and `$unset`, can also be used in the pipeline but cannot reference the variables.
 
-The following stages are not supported in a `$lookup` pipeline that uses `let`: `$facet`, `$redact`, `$replaceRoot`, `$replaceWith`, `$geoNear`, `$setWindowFields`, `$fill`, and `$match` with `$text`.
+The following stages are not supported in a `$lookup` pipeline that uses `let`: `$redact`, `$replaceRoot`, `$replaceWith`, `$geoNear`, `$setWindowFields`, `$fill`, and `$match` with `$text`.
 
 **Restrictions**
 + The `pipeline` cannot include the `$out` or `$merge` stages.

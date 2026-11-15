@@ -12,7 +12,7 @@ The `$changeStream` aggregation stage opens a change stream cursor to monitor re
 + `resumeAfter`: Optional. Resume token to continue from a specific point in the change stream.
 + `startAtOperationTime`: Optional. Timestamp to start the change stream from.
 + `allChangesForCluster`: Optional. Boolean value. When `true`, watches all changes across the cluster (for admin database). When `false` (default), watches only the specified collection.
-+ `showExpandedEvents`: Optional. Boolean value. When `true`, includes expanded data definition language (DDL) event notifications, such as `createCollection` and `createIndexes`, in the change stream. When `false` (default), these events are not returned. Available in Amazon DocumentDB 8.0 starting with engine version 8.0.2.
++ `showExpandedEvents` – Optional. Specifies whether expanded data definition language (DDL) event notifications, including `createCollection`, `createIndexes`, and `dropIndexes` events, are included in the change stream. The default is `false`. The `createCollection` and `createIndexes` events are available in Amazon DocumentDB 8.0 starting with engine version 8.0.2. The `dropIndexes` event is available starting with engine version 8.0.3.
 
 ## Example (MongoDB Shell)
 <a name="changeStream-examples"></a>

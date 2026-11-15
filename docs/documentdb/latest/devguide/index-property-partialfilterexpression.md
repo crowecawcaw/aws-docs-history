@@ -13,6 +13,7 @@
 | compound | No | No | Yes | Yes | No | 
 | multi-key | No | No | Yes | Yes | No | 
 | geospatial | No | No | No | No | No | 
+| wildcard | No | No | No | Yes | No | 
 
 Use the partialFilterExpression option to create a partial index that only includes documents that meet a specified filter condition. This allows you to create more efficient indexes by indexing only a subset of documents in a collection, rather than indexing all documents, reducing the index size and saving space in memory. Because the index size is smaller, the queries that use it are more efficient. Amazon DocumentDB will use the partial index in the following scenarios:
 + The query predicate exactly matches the partial index filter expression.
@@ -146,6 +147,37 @@ This index will be used when finding products tagged with printer that have a ma
 ```
 db.collection.find({
   "tags": "printer",
+  "manufacturer": {
+    $eq: "The Manufacturer"
+  }
+})
+```
+
+wildcard
+
+Create a partial wildcard index on all fields under supplier for products that have a manufacturer of The Manufacturer:
+
+```
+db.collection.createIndex(
+  {
+    "supplier.$**": 1
+  },
+  {
+    "name": "supplier_the_manufacturer",
+    "partialFilterExpression": {
+      "manufacturer": {
+        $eq: "The Manufacturer"
+      }
+    }
+  }
+)
+```
+
+This index will be used when finding products by supplier ID that have a manufacturer of The Manufacturer:
+
+```
+db.collection.find({
+  "supplier.supplierId": "SUP4",
   "manufacturer": {
     $eq: "The Manufacturer"
   }

@@ -33,6 +33,8 @@ DocumentDB serverless is supported only on newer patch versions of 5.0.0. Ensure
 
 Before adding any Amazon DocumentDB serverless instances to an Amazon DocumentDB cluster, the cluster must also have the `ServerlessV2ScalingConfiguration` parameter set. This defines the capacity range of DocumentDB serverless instances in the cluster. For more information on scaling configuration, see [Amazon DocumentDB serverless scaling configuration](docdb-serverless-scaling-config.md).
 
+The available scaling range for a cluster is influenced by both its engine version and its platform version. For the capacity ranges of the DocumentDB serverless platform versions, see [Amazon DocumentDB serverless scaling capacity](docdb-serverless-how-it-works.md#docdb-serverless-scaling-capacity).
+
 ### Minimum scaling capacity range settings for certain Amazon DocumentDB features
 <a name="w2aac51c15b3b9"></a>
 

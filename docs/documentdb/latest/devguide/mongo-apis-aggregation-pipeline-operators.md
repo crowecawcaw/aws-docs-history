@@ -198,6 +198,7 @@ This section provides detailed information about aggregation pipeline operators 
 + [$toUUID](toUUID.md)
 + [$trim](trim.md)
 + [$type](type-aggregation.md)
++ [$unionWith](unionWith.md)
 + [$unset](unset-stage.md)
 + [$unwind](unwind.md)
 + [$vectorSearch](vectorSearch.md)

@@ -7,7 +7,7 @@ Amazon DocumentDB supports the `hidden` index property beginning with Amazon Doc
 
 Hidden indexes are not visible to the query planner and cannot be used to support a query. By hiding an index from the planner, you can evaluate the potential impact of dropping the index without actually dropping it. If the impact is negative, you can unhide the index instead of having to recreate a dropped index.
 
-The `hidden` property is supported on all index types, including single field, compound, multikey, text, geospatial, and vector indexes.
+The `hidden` property is supported on all index types, including single field, compound, multikey, wildcard, text, geospatial, and vector indexes.
 
 ## Behavior
 <a name="index-property-hidden-behavior"></a>

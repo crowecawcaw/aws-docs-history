@@ -201,3 +201,141 @@ aws docdb modify-db-instance \
 ```
 
 ------
+
+## Checking and upgrading the platform version of a serverless cluster
+<a name="docdb-serverless-platform-version"></a>
+
+**Important**  
+After you upgrade to a newer platform version, you can't downgrade to a previous version.
+
+### Checking the platform version for an existing cluster
+<a name="docdb-serverless-platform-version-checking"></a>
+
+------
+#### [ Using the AWS Management Console ]
+
+The platform version is displayed on the **Configuration** tab of the cluster details page and the serverless instance details page.
+
+1. Sign into the [AWS Management Console](https://console.aws.amazon.com/docdb/home?region=us-east-1) and open the Amazon DocumentDB console.
+
+1. In the navigation pane, choose **Clusters**.
+**Tip**  
+If you don't see the navigation pane on the left side of your screen, choose the menu icon (![Menu button.](https://docs.aws.amazon.com/documentdb/latest/devguide/images/docdb-menu-icon.png)) in the upper-left corner of the page.
+
+1. In the list of clusters, choose the name of your serverless cluster.
+
+1. Choose the **Configuration** tab. The **Platform version** field shows the platform version of the cluster.
+
+------
+#### [ Using the AWS CLI ]
+
+You can use the `describe-db-clusters` AWS CLI command to check the platform version for an existing cluster.
+
+In the following example, replace each {{user input placeholder}} with your own information or configuration parameters.
+
+```
+aws docdb describe-db-clusters \
+    --db-cluster-identifier {{sample-cluster}} \
+    --query 'DBClusters[0].ServerlessV2PlatformVersion'
+```
+
+The following is the output of this command:
+
+```
+"4"
+```
+
+------
+
+### Checking the default platform version
+<a name="docdb-serverless-platform-version-default"></a>
+
+You can use the `describe-serverless-v2-platform-versions` AWS CLI command to check the details of a platform version, or to check the default platform version that you get when you create a new cluster.
+
+```
+aws docdb describe-serverless-v2-platform-versions \
+    --engine docdb \
+    --default-only
+```
+
+The following is the output of this command:
+
+```
+{
+    "ServerlessV2PlatformVersions": [
+        {
+            "ServerlessV2PlatformVersion": "4",
+            "ServerlessV2PlatformVersionDescription": "Version 4 offering scaling up to 256 DCUs, and performance improvement up to 35% compared to version 3",
+            "Engine": "docdb",
+            "ServerlessV2FeaturesSupport": {
+                "MinCapacity": 0.5,
+                "MaxCapacity": 256.0
+            },
+            "Status": "enabled",
+            "IsDefault": true
+        }
+    ]
+}
+```
+
+### Checking for pending platform version upgrades
+<a name="docdb-serverless-platform-version-pending"></a>
+
+You can use the `describe-pending-maintenance-actions` AWS CLI command to check whether there are any pending platform version upgrades for your DocumentDB serverless clusters. A pending platform version upgrade appears as the `serverless-platform-version-update` maintenance action.
+
+To check for pending upgrades on a specific cluster, use the `--resource-identifier` parameter to specify the Amazon Resource Name (ARN) of your cluster:
+
+```
+aws docdb describe-pending-maintenance-actions \
+    --resource-identifier arn:aws:rds:{{us-east-1}}:{{111122223333}}:cluster:{{sample-cluster}}
+```
+
+Output from this operation looks something like the following (JSON format).
+
+```
+{
+    "PendingMaintenanceActions": [
+        {
+            "ResourceIdentifier": "arn:aws:rds:us-east-1:111122223333:cluster:sample-cluster",
+            "PendingMaintenanceActionDetails": [
+                {
+                    "Action": "serverless-platform-version-update",
+                    "Description": "Upgrade to platform version 4"
+                }
+            ]
+        }
+    ]
+}
+```
+
+### Scheduling a platform version upgrade
+<a name="docdb-serverless-platform-version-upgrading"></a>
+
+To schedule when a pending platform version upgrade occurs, use the `apply-pending-maintenance-action` AWS CLI command after you identify the pending upgrade.
+
+To schedule a platform version upgrade, specify the following parameters:
++ `--resource-identifier` — The ARN of your DocumentDB serverless cluster.
++ `--apply-action` — Use `serverless-platform-version-update` to specify a platform version upgrade.
++ `--opt-in-type` — Choose when to apply the upgrade. Use one of the following values:
+  + `immediate` — Apply the upgrade immediately.
+  + `next-maintenance` — Apply the upgrade during your next scheduled maintenance window.
+
+**Example**  
+For Linux, macOS, or Unix:  
+
+```
+aws docdb apply-pending-maintenance-action \
+    --resource-identifier arn:aws:rds:{{us-east-1}}:{{111122223333}}:cluster:{{sample-cluster}} \
+    --apply-action serverless-platform-version-update \
+    --opt-in-type immediate
+```
+For Windows:  
+
+```
+aws docdb apply-pending-maintenance-action ^
+    --resource-identifier arn:aws:rds:{{us-east-1}}:{{111122223333}}:cluster:{{sample-cluster}} ^
+    --apply-action serverless-platform-version-update ^
+    --opt-in-type immediate
+```
+
+For more information about maintenance actions, see [Maintaining Amazon DocumentDB](db-instance-maintain.md).

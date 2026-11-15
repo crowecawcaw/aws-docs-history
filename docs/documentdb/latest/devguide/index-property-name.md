@@ -15,6 +15,7 @@
 | text | No | No | Yes | Yes | No | 
 | geospatial | Yes | Yes | Yes | Yes | Yes | 
 | vector | No | No | Yes | Yes | No | 
+| wildcard | No | No | No | Yes | No | 
 
 Use the name option to provide an optional name for the index.
 
@@ -142,4 +143,18 @@ db.runCommand({
     }
   }] 
 })
+```
+
+## Wildcard
+<a name="index-property-name-wildcard"></a>
+
+```
+db.collection.createIndex(
+  {
+    "supplier.$**": 1
+  },
+  {
+    "name": "wildcard_index"
+  }
+)
 ```

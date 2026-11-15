@@ -49,6 +49,20 @@ At any moment in time, each DocumentDB serverless writer or reader has a capacit
 
 DocumentDB serverless is supported on DocumentDB 5.0 and 8.0 with a capacity range of 0.5 - 256 DCUs.
 
+Platform versions in DocumentDB serverless represent improvements in performance, scaling capabilities, or features. Amazon DocumentDB automatically manages platform version assignments at the cluster level. All new clusters launch with the latest platform version available in your AWS Region. When a new platform version becomes available, you can upgrade existing clusters on previous platform versions directly to the latest platform version by applying the pending maintenance action. For more information, see [Checking and upgrading the platform version of a serverless cluster](docdb-serverless-managing.md#docdb-serverless-platform-version). Upgrade to the latest platform version to benefit from all the latest improvements.
+
+The following table shows the DocumentDB serverless platform versions with their DCU ranges and performance.
+
+
+| DocumentDB serverless platform version | DCU range | Performance | 
+| --- | --- | --- | 
+| 3 | 0.5–256 | Baseline performance | 
+| 4 | 0.5–256 | Up to 35% higher throughput compared to platform version 3 | 
+
+Platform version 3 is available in all AWS Regions where DocumentDB serverless is supported. Platform version 4 is available in the following AWS Regions: US East (N. Virginia), US East (Ohio), US West (Oregon), Africa (Cape Town), Asia Pacific (Hong Kong), Asia Pacific (Hyderabad), Asia Pacific (Jakarta), Asia Pacific (Malaysia), Asia Pacific (Mumbai), Asia Pacific (New Zealand), Asia Pacific (Osaka), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Thailand), Asia Pacific (Tokyo), Canada (Central), China (Beijing), China (Ningxia), Europe (Frankfurt), Europe (Ireland), Europe (London), Europe (Milan), Europe (Paris), Europe (Spain), Europe (Stockholm), Europe (Zurich), Mexico (Central), South America (São Paulo), AWS GovCloud (US-East), and AWS GovCloud (US-West).
+
+You can determine the platform version of your cluster on the **Configuration** tab of the AWS Management Console, or through the `ServerlessV2PlatformVersion` field in the `DescribeDBClusters` API response. For more information, see [DBCluster](https://docs.aws.amazon.com/documentdb/latest/APIReference/API_DBCluster.html).
+
 The smallest DocumentDB serverless capacity that you can define is 0.5 DCUs. You can specify a higher number if it's less than or equal to the maximum supported capacity value. Setting the minimum capacity to a small number lets lightly loaded clusters consume minimal compute resources. At the same time, they stay ready to accept connections immediately and scale up when they become busy.
 
 Set the minimum to a value that allows each writer or reader to hold the working set of the application in the buffer pool. That way, the contents of the buffer pool aren't discarded during idle periods. For all the considerations when choosing the scaling capacity range, see [Choosing the scaling capacity range for a DocumentDB serverless cluster](docdb-serverless-scaling-config.md#docdb-serverless-scaling-capacity-choosing).

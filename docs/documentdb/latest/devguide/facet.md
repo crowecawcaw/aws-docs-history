@@ -31,7 +31,10 @@ The `$facet` stage returns a single document. Each output field that you specify
 **Limitations**
 + A `$facet` sub-pipeline cannot include the following stages: `$changeStream`, `$collStats`, `$facet` (nesting is not allowed), `$geoNear`, `$indexStats`, `$listSearchIndexes`, `$merge`, `$out`, `$planCacheStats`, `$search`, `$searchMeta`, and `$vectorSearch`.
 + The document that the `$facet` stage returns must stay within the 16 MB BSON document size limit.
-+ A `$sort` stage that comes before a `$facet` stage cannot determine the order of an order-sensitive accumulator (`$first`, `$last`, `$push`, `$firstN`, `$lastN`, or `$mergeObjects`) in a `$group`, `$bucket`, or `$bucketAuto` stage when that ordering would have to be applied across the `$facet` boundary. This applies whether the grouping stage is inside a `$facet` sub-pipeline or after the `$facet` stage. In this case, Amazon DocumentDB returns an error instead of running the pipeline. To order such an accumulator, place the `$sort` stage inside the `$facet` sub-pipeline, immediately before the grouping stage. Order-insensitive accumulators, such as `$sum`, `$min`, `$max`, and `$count`, are not affected.
++ In versions earlier than 8.0.3, a `$sort` stage that comes before a `$facet` stage cannot determine the order of an order-sensitive accumulator (`$first`, `$last`, `$push`, `$firstN`, `$lastN`, or `$mergeObjects`) in a `$group`, `$bucket`, or `$bucketAuto` stage when that ordering would have to be applied across the `$facet` boundary. This applies whether the grouping stage is inside a `$facet` sub-pipeline or after the `$facet` stage. In this case, Amazon DocumentDB returns an error instead of running the pipeline. To order such an accumulator, place the `$sort` stage inside the `$facet` sub-pipeline, immediately before the grouping stage. Order-insensitive accumulators, such as `$sum`, `$min`, `$max`, and `$count`, are not affected.
+
+**Note**  
+Starting in version 8.0.3, an order-sensitive accumulator (`$first`, `$last`, `$push`, `$firstN`, `$lastN`, or `$mergeObjects`) in a `$group`, `$bucket`, or `$bucketAuto` stage inside a `$facet` sub-pipeline honors the order of a preceding `$sort` stage. Such a stage placed after the `$facet` stage also no longer returns an error.
 
 ## Example (MongoDB Shell)
 <a name="facet-examples"></a>

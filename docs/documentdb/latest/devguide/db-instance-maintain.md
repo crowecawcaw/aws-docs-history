@@ -35,6 +35,7 @@ Applying any engine patch takes the cluster offline briefly. The rest of this to
 The following maintenance actions apply to Amazon DocumentDB clusters:
 +  `system-update` — Upgrade the engine patch for the Amazon DocumentDB cluster. For more information, see [Amazon DocumentDB engine updates](#db-instance-updates-apply). 
 +  `os-upgrade` — Update the operating systems of all the DB instances in the Amazon DocumentDB cluster, using rolling upgrades. For more information, see [Amazon DocumentDB operating system updates](#os-system-updates). 
++  `serverless-platform-version-update` — Update the platform version of all the serverless instances in the Amazon DocumentDB cluster, using rolling upgrades. For more information, see [Checking and upgrading the platform version of a serverless cluster](docdb-serverless-managing.md#docdb-serverless-platform-version). 
 
 The following maintenance actions apply to Amazon DocumentDB instances:
 +  `system-update` — Upgrade the operating system of the Amazon DocumentDB instance. We recommend that you use the cluster-level `os-upgrade` maintenance action instead. For more information, see [Amazon DocumentDB operating system updates](#os-system-updates). 

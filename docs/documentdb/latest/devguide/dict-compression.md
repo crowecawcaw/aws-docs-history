@@ -94,3 +94,92 @@ collStats metrics:
 + size
 
 In addition, it can be useful to keep track of metrics specific to your application, like latency and throughput per query type or API.
+
+### Compressor statistics
+<a name="dict-compression-compressor-stats"></a>
+
+Starting with Amazon DocumentDB 8.0.3, the `collStats` command and the `db.collection.stats()` method return a `compressor_stats` object inside the `compression` field. It reports how much data the compression algorithm has processed for the collection, and works for both Zstd and LZ4.
+
+Use compressor statistics to see how effectively compression reduces the size of the data that you write to a collection. For example, you can use them to compare Zstd and LZ4 on your workload, or to evaluate a change to the compression threshold.
+
+To view compressor statistics for a collection, run the following command:
+
+```
+db.runCommand({ collStats: "myCollection" })
+```
+
+For a collection that uses Zstd, the output includes:
+
+```
+"compression": {
+    "enable": true,
+    "threshold": 128,
+    "algorithm": "zstd",
+    "usingDictionary": true,
+    "compressor_stats": {
+        "input_bytes": 10000000,
+        "output_bytes": 2500000,
+        "compression_operations": 10000,
+        "compression_ratio": 4
+    }
+}
+```
+
+For a collection that uses LZ4, the output doesn't include `usingDictionary`:
+
+```
+"compression": {
+    "enable": true,
+    "threshold": 128,
+    "algorithm": "lz4",
+    "compressor_stats": {
+        "input_bytes": 10000000,
+        "output_bytes": 2500000,
+        "compression_operations": 10000,
+        "compression_ratio": 4
+    }
+}
+```
+
+The following table describes the fields in the `compression` object.
+
+
+| Field | Description | 
+| --- | --- | 
+| enable | Specifies whether compression is enabled for the collection. | 
+| threshold | The minimum document size for compression. The compressor doesn't compress documents smaller than this value. | 
+| algorithm | The compression algorithm used by the collection (zstd or lz4). | 
+| usingDictionary | Specifies whether the collection uses a trained compression dictionary. Returned only for Zstd. | 
+| compressor\_stats.input\_bytes | Total uncompressed size, in bytes, of the data processed by the compressor. | 
+| compressor\_stats.output\_bytes | Total size, in bytes, of the data after compression. | 
+| compressor\_stats.compression\_operations | Number of documents that Amazon DocumentDB attempted to compress. This includes documents that meet the compression threshold but that Amazon DocumentDB stores uncompressed because compression doesn't reduce their size enough. | 
+| compressor\_stats.compression\_ratio | input\_bytes divided by output\_bytes. Higher values mean better compression. If the compressor hasn't processed any documents, the ratio is 1, which indicates no compression. | 
+
+In these examples, compression reduces 10,000 documents totaling 10 MB to 2.5 MB, a 4:1 compression ratio.
+
+#### How compressor statistics accumulate
+<a name="dict-compression-compressor-stats-understanding"></a>
+
+Compressor statistics are cumulative totals of compression operations, and they don't represent the collection's current data size. The following table describes how operations on the collection affect these statistics.
+
+
+| Operation | Counted in statistics? | Details | 
+| --- | --- | --- | 
+| Updating a document | Yes, on every update | If you update a document 10 times, the statistics include it 10 times. | 
+| Deleting a document | Not subtracted | The compressor doesn't subtract deleted documents from input\_bytes or output\_bytes. | 
+| Writing small documents | No | The compressor skips documents smaller than the compression threshold. | 
+| Writing documents before compression is enabled or before the statistics were last reset | Not until updated | The compressor counts these documents when you update them. | 
+| Writing documents while compression is disabled | No | collStats doesn't return compressor\_stats while compression is disabled. Disabling compression doesn't reset the statistics. When you re-enable compression, the compressor adds new values to the previous totals. | 
+
+#### Choosing the right metric
+<a name="dict-compression-compressor-stats-choosing"></a>
+
+Compressor statistics and collection size statistics measure different things, so their ratios usually don't match. `compression_ratio` covers only data that the compressor processed. `size/storageSize` covers the whole collection, including uncompressed documents and page fragmentation.
+
+The following table shows which metric to use, depending on your goal.
+
+
+| Goal | Use | 
+| --- | --- | 
+| See how well recent writes compress, for example after switching from LZ4 to Zstd | compressor\_stats.compression\_ratio | 
+| See the collection's overall storage savings | size/storageSize | 

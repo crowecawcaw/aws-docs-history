@@ -20,7 +20,7 @@ CloudWatch also lets you set alarms so that you can be notified if a metric valu
 To monitor the health and performance of your Amazon DocumentDB cluster and instances, you can view the following metrics in the Amazon DocumentDB console. 
 
 **Note**  
-Metrics in the following tables apply to both instance-based and elastic clusters.
+Unless otherwise noted, metrics in the following tables apply to both instance-based and elastic clusters.
 
 **Topics**
 + [Resource utilization metrics](#resource-utilization)
@@ -56,6 +56,8 @@ Metrics in the following tables apply to both instance-based and elastic cluster
 | LowMemNumOperationsThrottled | The number of requests that are throttled due to low available memory in a 1-minute period. | 
 | SnapshotStorageUsed | The total amount of backup storage in bytes consumed by all snapshots for a given Amazon DocumentDB cluster outside its backup retention window. Included in the total reported by the TotalBackupStorageBilled metric. Computed separately for each Amazon DocumentDB cluster. | 
 | SwapUsage | The amount of swap space used on the instance. | 
+| TLSHandshakesClassical | The number of successful TLS handshakes that didn't use post-quantum key exchange on an instance in a 1-minute period. The sum of TLSHandshakesClassical and TLSHandshakesPostQuantum is the total number of successful TLS handshakes. To calculate the percentage of handshakes that used post-quantum key exchange, divide the TLSHandshakesPostQuantum value by this sum, and then multiply the result by 100. This metric applies to instance-based clusters that run Amazon DocumentDB 8.0.3 or later. | 
+| TLSHandshakesPostQuantum | The number of successful TLS handshakes that used hybrid post-quantum key exchange on an instance in a 1-minute period. This metric applies to instance-based clusters that run Amazon DocumentDB 8.0.3 or later. For more information about post-quantum key exchange, see [Amazon DocumentDB post-quantum key exchange](security.encryption.ssl.md#security.encryption.ssl.pq). | 
 | TotalBackupStorageBilled | The total amount of backup storage in bytes for which you are billed for a given Amazon DocumentDB cluster. Includes the backup storage measured by the BackupRetentionPeriodStorageUsed and SnapshotStorageUsed metrics. Computed separately for each Amazon DocumentDB cluster. | 
 | TransactionsOpen | The number of transactions open on an instance taken at a 1-minute frequency. | 
 | TransactionsOpenMax | The maximum number of transactions open on an instance in a 1-minute period. | 
