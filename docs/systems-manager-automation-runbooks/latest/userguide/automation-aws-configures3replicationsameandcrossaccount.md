@@ -15,7 +15,7 @@ The `AWSSupport-ConfigureS3ReplicationSameAndCrossAccount` automation runbook co
 
 **Important**  
 **This automation does not support buckets with existing replication rules.** The source bucket must not have any existing replication configuration.
-**This automation creates a new IAM role** with appropriate permissions for replication if S3ReplicationRole input is not provided.
+**Create the replication role before you run this automation**, and provide it in the S3ReplicationRole parameter. For the role's permissions and trust policy, see the S3ReplicationRole examples on this page. If S3ReplicationRole isn't provided, the automation tries to create a new IAM role. That requires the AutomationAssumeRole to have permissions to create IAM roles and add inline policies to them, which would let any principal that can assume the AutomationAssumeRole create a role with any trust policy and permissions. The AutomationAssumeRole policies on this page don't include these permissions.
 **This automation does not replicate existing objects.** Amazon S3 replication only applies to objects uploaded/created after the replication configuration is enabled.
 For cross-account replication, you must provide an IAM role in the destination account with appropriate permissions for Amazon S3 operations and AWS KMS operations (if bucket uses AWS KMS encryption).
 This automation uses the `aws:approve` action, which temporarily pauses execution until the designated principals approve the configuration changes. See [Running an automation with approvers](https://docs.aws.amazon.com/systems-manager/latest/userguide/running-automations-require-approvals.html) for more information.
@@ -44,20 +44,13 @@ The `AutomationAssumeRole` parameter requires the following actions to use the r
 + s3:GetReplicationConfiguration
 + s3:PutBucketVersioning
 + s3:PutReplicationConfiguration
-+ iam:ListRoles
 + iam:GetRole
 + iam:GetRolePolicy
 + iam:ListRoleTags
 + iam:ListAttachedRolePolicies
 + iam:ListRolePolicies
 + iam:SimulatePrincipalPolicy
-+ iam:CreateRole
-+ iam:TagRole
 + iam:PassRole
-+ iam:DeleteRole
-+ iam:DeleteRolePolicy
-+ iam:DetachRolePolicy
-+ iam:PutRolePolicy
 + sts:GetCallerIdentity
 + sns:Publish
 + kms:GetKeyPolicy (when buckets use SSE-KMS, same-account replication)
@@ -79,9 +72,9 @@ For cross-account replication, you must provide a CrossAccountReplicationRole in
 + kms:DescribeKey (when cross-account destination bucket use SSE-KMS)
 + kms:PutKeyPolicy (when cross-account destination bucket use SSE-KMS)
 
-**S3ReplicationRole (customer-provided role):**
+**S3ReplicationRole (create before you run the automation):**
 
-If you provide an existing S3ReplicationRole, it must have the following permissions:
+Create an S3ReplicationRole in the source account that Amazon S3 can assume, with the following permissions. For example policies, see the S3ReplicationRole policy and trust policy examples on this page.
 + s3:ListBucket
 + s3:GetBucketLocation
 + s3:GetReplicationConfiguration
@@ -97,6 +90,8 @@ If you provide an existing S3ReplicationRole, it must have the following permiss
 + kms:Encrypt (for SSE-KMS scenarios, destination KMS key)
 + kms:GenerateDataKey (for SSE-KMS scenarios, destination KMS key)
 + kms:ReEncrypt\* (for SSE-KMS scenarios, destination KMS key)
+
+The following AutomationAssumeRole policy examples assume that you provide the S3ReplicationRole that you created. Replace S3\_REPLICATION\_ROLE\_ARN with that role ARN.
 
 Example **AutomationAssumeRole** policy for **same-account replication**:
 
@@ -135,49 +130,13 @@ Example **AutomationAssumeRole** policy for **same-account replication**:
             "Resource": "*"
         },
         {
-            "Sid": "IAMListRolesForCleanup",
-            "Effect": "Allow",
-            "Action": "iam:ListRoles",
-            "Resource": "*"
-        },
-        {
-            "Sid": "IAMCreateAndTagRole",
-            "Effect": "Allow",
-            "Action": [
-                "iam:CreateRole",
-                "iam:TagRole"
-            ],
-            "Resource": "arn:aws:iam::ACCOUNT_ID:role/S3RepRole-*",
-            "Condition": {
-                "StringLike": {
-                    "aws:RequestTag/AWSSupport-ConfigureS3ReplicationSameAndCrossAccount": "*"
-                }
-            }
-        },
-        {
             "Sid": "IAMPassRole",
             "Effect": "Allow",
             "Action": "iam:PassRole",
-            "Resource": "arn:aws:iam::ACCOUNT_ID:role/S3RepRole-*",
+            "Resource": "S3_REPLICATION_ROLE_ARN",
             "Condition": {
                 "StringEquals": {
                     "iam:PassedToService": "s3.amazonaws.com"
-                }
-            }
-        },
-        {
-            "Sid": "TaggedIAMRoleModifyAndDeleteOperations",
-            "Effect": "Allow",
-            "Action": [
-                "iam:DeleteRole",
-                "iam:DeleteRolePolicy",
-                "iam:DetachRolePolicy",
-                "iam:PutRolePolicy"
-            ],
-            "Resource": "arn:aws:iam::ACCOUNT_ID:role/S3RepRole-*",
-            "Condition": {
-                "StringLike": {
-                    "aws:ResourceTag/AWSSupport-ConfigureS3ReplicationSameAndCrossAccount": "*"
                 }
             }
         },
@@ -260,49 +219,13 @@ Example **AutomationAssumeRole** policy for **cross-account replication**:
             "Resource": "*"
         },
         {
-            "Sid": "IAMListRolesForCleanup",
-            "Effect": "Allow",
-            "Action": "iam:ListRoles",
-            "Resource": "*"
-        },
-        {
-            "Sid": "IAMCreateAndTagRole",
-            "Effect": "Allow",
-            "Action": [
-                "iam:CreateRole",
-                "iam:TagRole"
-            ],
-            "Resource": "arn:aws:iam::SOURCE_ACCOUNT_ID:role/S3RepRole-*",
-            "Condition": {
-                "StringLike": {
-                    "aws:RequestTag/AWSSupport-ConfigureS3ReplicationSameAndCrossAccount": "*"
-                }
-            }
-        },
-        {
             "Sid": "IAMPassRole",
             "Effect": "Allow",
             "Action": "iam:PassRole",
-            "Resource": "arn:aws:iam::SOURCE_ACCOUNT_ID:role/S3RepRole-*",
+            "Resource": "S3_REPLICATION_ROLE_ARN",
             "Condition": {
                 "StringEquals": {
                     "iam:PassedToService": "s3.amazonaws.com"
-                }
-            }
-        },
-        {
-            "Sid": "TaggedIAMRoleModifyAndDeleteOperations",
-            "Effect": "Allow",
-            "Action": [
-                "iam:DeleteRole",
-                "iam:DeleteRolePolicy",
-                "iam:DetachRolePolicy",
-                "iam:PutRolePolicy"
-            ],
-            "Resource": "arn:aws:iam::SOURCE_ACCOUNT_ID:role/S3RepRole-*",
-            "Condition": {
-                "StringLike": {
-                    "aws:ResourceTag/AWSSupport-ConfigureS3ReplicationSameAndCrossAccount": "*"
                 }
             }
         },
@@ -503,6 +426,8 @@ Example S3ReplicationRole trust policy:
 
 Follow these steps to configure the automation:
 
+1. Create the S3ReplicationRole in the source account by using the example S3ReplicationRole policy and trust policy. Note the role ARN.
+
 1. Navigate to [`AWSSupport-ConfigureS3ReplicationSameAndCrossAccount`](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-ConfigureS3ReplicationSameAndCrossAccount/description) in Systems Manager under Documents.
 
 1. Select **Execute automation.**
@@ -535,7 +460,7 @@ Follow these steps to configure the automation:
      + Type: `StringList`
      + Allowed Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-iso(-[a-z])?):iam::\\d{12}:(user|role)/[\\w+=,.@\\-/]+$`
    + **S3ReplicationRole (Optional):**
-     + Description: (Optional) The ARN of an existing IAM role to use for Amazon S3 replication operations. This role must have permissions to read from the source bucket and write to the destination bucket, including KMS permissions if buckets use SSE-KMS encryption. If not provided, the automation will create a new role with appropriate permissions.
+     + Description: (Optional) The ARN of an existing IAM role to use for Amazon S3 replication operations. This role must have permissions to read from the source bucket and write to the destination bucket, including KMS permissions if buckets use SSE-KMS encryption. We recommend that you create this role before you run the automation and always provide it. If not provided, the automation creates a new role, which requires the AutomationAssumeRole to have permissions to create IAM roles. The example AutomationAssumeRole policies on this page don't include those permissions.
      + Type: `String`
      + Allowed Pattern: `^$|^arn:(aws|aws-cn|aws-us-gov|aws-iso(-[a-z])?):iam::\\d{12}:role/[\\w+=,.@\\-/]+$`
      + Default: `""`

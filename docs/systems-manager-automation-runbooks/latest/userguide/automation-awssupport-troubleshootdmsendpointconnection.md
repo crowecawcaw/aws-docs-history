@@ -77,7 +77,7 @@ The `AutomationAssumeRole` parameter requires the following actions to use the r
 
  **Optional IAM permissions** 
 
-The following permissions are only required within the `AutomationAssumeRole` if you do not provide a `LambdaRoleArn` parameter and want the automation to create the Lambda execution role for you:
+The following permissions are only required within the `AutomationAssumeRole` if you do not provide a `LambdaRoleArn` parameter and want the automation to create the Lambda execution role for you. The example policy limits them to roles whose names start with `AWSSupport-TroubleshootDMSEndpointConnection-`, and limits `iam:AttachRolePolicy` and `iam:DetachRolePolicy` to the two managed policies the runbook attaches to that role, `AWSLambdaBasicExecutionRole` and `AWSLambdaVPCAccessExecutionRole`:
 + `iam:CreateRole`
 + `iam:DeleteRole`
 + `iam:AttachRolePolicy`
@@ -85,8 +85,13 @@ The following permissions are only required within the `AutomationAssumeRole` if
 + `iam:TagRole`
 + `iam:UntagRole`
 
+If you provide `LambdaRoleArn`, remove the `AllowLambdaRoleCreation` and `AllowLambdaRolePolicyAttachment` statements from the example policy. The role you provide must trust `lambda.amazonaws.com`, and its name must start with `AWSSupport-TroubleshootDMSEndpointConnection-`, because the example policy only allows `iam:PassRole` and `iam:GetRole` on that name.
+
 **Important**  
- In addition to the above mentioned actions, the `AutomationAssumeRole` should have the [ AmazonVPCReachabilityAnalyzerFullAccessPolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonVPCReachabilityAnalyzerFullAccessPolicy.html) as an [ attached managed policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html) so that the [Reachability Analyzer](https://docs.aws.amazon.com/vpc/latest/reachability/what-is-reachability-analyzer.html) tests are performed successfully. 
+ In addition to the above mentioned actions, the `AutomationAssumeRole` should have the [ AmazonVPCReachabilityAnalyzerFullAccessPolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonVPCReachabilityAnalyzerFullAccessPolicy.html) as an [ attached managed policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html) so that the [Reachability Analyzer](https://docs.aws.amazon.com/vpc/latest/reachability/what-is-reachability-analyzer.html) tests are performed successfully. The example policy does not include Amazon EC2 permissions, so the managed policy is also required for the step that creates the Lambda function in your VPC, which needs `ec2:DescribeSecurityGroups`, `ec2:DescribeSubnets`, and `ec2:DescribeVpcs`. 
+
+**Note**  
+The `ValidateResourcePermissions` step checks the cleanup permissions with the IAM policy simulator against all resources (`*`). Because the example policy limits these permissions to the resources the runbook creates, the cleanup report can list `cloudformation:DeleteStack`, `lambda:DeleteFunction`, `iam:DeleteRole`, and `iam:DetachRolePolicy` as missing even though the runbook can delete its own resources. The step does not stop the automation.
 
 Example Policy: 
 
@@ -95,39 +100,49 @@ Example Policy:
             "Version": "2012-10-17"		 	 	 ,
             "Statement": [
                 {
-                    "Sid": "AllowDMSTroubleshootingActions",
+                    "Sid": "AllowDMSTroubleshootingReadActions",
                     "Effect": "Allow",
                     "Action": [
                         "dms:DescribeEndpoints",
                         "dms:DescribeReplicationInstances",
                         "dms:DescribeConnections",
-                        "lambda:GetFunction",
-                        "lambda:ListTags",
-                        "lambda:CreateFunction",
-                        "lambda:DeleteFunction",
-                        "lambda:TagResource",
-                        "lambda:UntagResource",
-                        "lambda:UpdateFunctionCode",
-                        "cloudformation:DescribeStacks",
-                        "cloudformation:DescribeStackEvents",
-                        "cloudformation:CreateStack",
-                        "cloudformation:DeleteStack",
-                        "iam:GetRole",
-                        "iam:SimulatePrincipalPolicy",
-                        "iam:CreateRole",
-                        "iam:DeleteRole",
-                        "iam:TagRole",
-                        "iam:UntagRole"
+                        "iam:SimulatePrincipalPolicy"
                     ],
                     "Resource": "*"
                 },
                 {
-                    "Sid": "AllowDMSLambdaInvocation",
+                    "Sid": "AllowRunbookStack",
                     "Effect": "Allow",
                     "Action": [
-                        "lambda:InvokeFunction"
+                        "cloudformation:CreateStack",
+                        "cloudformation:DeleteStack",
+                        "cloudformation:DescribeStacks",
+                        "cloudformation:DescribeStackEvents"
+                    ],
+                    "Resource": "arn:*:cloudformation:*:*:stack/AWSSupport-TroubleshootDMSEndpointConnection-*/*"
+                },
+                {
+                    "Sid": "AllowRunbookLambdaFunction",
+                    "Effect": "Allow",
+                    "Action": [
+                        "lambda:CreateFunction",
+                        "lambda:DeleteFunction",
+                        "lambda:GetFunction",
+                        "lambda:InvokeFunction",
+                        "lambda:ListTags",
+                        "lambda:TagResource",
+                        "lambda:UntagResource",
+                        "lambda:UpdateFunctionCode"
                     ],
                     "Resource": "arn:*:lambda:*:*:function:AWSSupport-TroubleshootDMSEndpointConnection-*"
+                },
+                {
+                    "Sid": "AllowGetLambdaRole",
+                    "Effect": "Allow",
+                    "Action": [
+                        "iam:GetRole"
+                    ],
+                    "Resource": "arn:*:iam::*:role/AWSSupport-TroubleshootDMSEndpointConnection-*"
                 },
                 {
                     "Sid": "AllowPassRoleToDMSLambda",
@@ -137,22 +152,36 @@ Example Policy:
                     ],
                     "Resource": "arn:*:iam::*:role/AWSSupport-TroubleshootDMSEndpointConnection-*",
                     "Condition": {
-                        "StringLikeIfExists": {
+                        "StringEquals": {
                             "iam:PassedToService": "lambda.amazonaws.com"
                         }
                     }
                 },
                 {
-                    "Sid": "AllowRolePolicyManagement",
+                    "Sid": "AllowLambdaRoleCreation",
+                    "Effect": "Allow",
+                    "Action": [
+                        "iam:CreateRole",
+                        "iam:DeleteRole",
+                        "iam:TagRole",
+                        "iam:UntagRole"
+                    ],
+                    "Resource": "arn:*:iam::*:role/AWSSupport-TroubleshootDMSEndpointConnection-*"
+                },
+                {
+                    "Sid": "AllowLambdaRolePolicyAttachment",
                     "Effect": "Allow",
                     "Action": [
                         "iam:AttachRolePolicy",
                         "iam:DetachRolePolicy"
                     ],
-                    "Resource": "*",
+                    "Resource": "arn:*:iam::*:role/AWSSupport-TroubleshootDMSEndpointConnection-*",
                     "Condition": {
-                        "StringLikeIfExists": {
-                            "iam:ResourceTag/AWSSupport-TroubleshootDMSEndpointConnection": "true"
+                        "ArnLike": {
+                            "iam:PolicyARN": [
+                                "arn:*:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+                                "arn:*:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
+                            ]
                         }
                     }
                 }
