@@ -63,6 +63,7 @@ The following table provides details about updates to AWS managed policies for A
 
 |  **Change**  |  **Description**  |  **Date**  | 
 | --- | --- | --- | 
+|  [ AmazonBraketServiceRolePolicy](#about-amazonbraketservicerolepolicy) - Resource management policy  |  Added the **"arn:aws:logs:\*:\*:log-group:/aws/braket"** log group ARN alongside the **"arn:aws:logs:\*:\*:log-group:/aws/braket:\*"** ARN for CloudWatch Logs actions. This update doesn't remove any existing permissions.  | November 13, 2026 | 
 |  [AmazonBraketFullAccess](#about-amazonbraketfullaccess) - Full access policy for Braket  |  Added Amazon S3 permissions for arbitrarily-named buckets with the **"aws:ResourceAccount": "${aws:PrincipalAccount}"** and **"aws:ResourceTag/AmazonBraket": "true"** condition scope.  | July 6, 2026 | 
 |  [AmazonBraketJobsExecutionPolicy](#about-amazonbraketjobsexecution) - Jobs execution policy  |  Added Amazon S3 permissions for arbitrarily-named buckets with the **"aws:ResourceTag/AmazonBraket": "true"** condition scope.  | July 6, 2026 | 
 |  [ AmazonBraketServiceRolePolicy](#about-amazonbraketservicerolepolicy) - Resource management policy  |  Added Amazon S3 permissions for arbitrarily-named buckets with the **"aws:ResourceAccount": "${aws:PrincipalAccount}"** and **"aws:ResourceTag/AmazonBraket": "true"** condition scope.  | July 6, 2026 | 

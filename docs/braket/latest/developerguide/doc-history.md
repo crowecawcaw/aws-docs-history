@@ -5,12 +5,13 @@
 
 The following table describes the documentation releases for Amazon Braket.
 + **Latest API Reference update:** November 20, 2025
-+ **Latest documentation update:** July 6, 2026
++ **Latest documentation update:** November 13, 2026
 
 
 |  |  |  | 
 | --- |--- |--- |
 |  **Change**  |  **Description**  |  **Date**  | 
+| Updated the [ AmazonBraketServiceRolePolicy](security-iam-aws-managed-policies.md#about-amazonbraketservicerolepolicy) policy | Added the **"arn:aws:logs:\*:\*:log-group:/aws/braket"** log group ARN to the Amazon CloudWatch Logs statement. See [Amazon Braket updates to AWS managed policies](security-iam-aws-managed-policies.md#braket-aws-managed-policy-updates). | November 13, 2026 | 
 | Updated the [ AmazonBraketFullAccess](security-iam-aws-managed-policies.md#about-amazonbraketfullaccess), [ AmazonBraketJobsExecutionPolicy](security-iam-aws-managed-policies.md#about-amazonbraketjobsexecution), and [ AmazonBraketServiceRolePolicy](security-iam-aws-managed-policies.md#about-amazonbraketservicerolepolicy) policies | All three Braket managed policies now allow Amazon S3 access to arbitrarily-named buckets with the **"aws:ResourceTag/AmazonBraket": "true"** condition scope. See [Amazon Braket updates to AWS managed policies](security-iam-aws-managed-policies.md#braket-aws-managed-policy-updates). | July 6, 2026 | 
 | Retired TN1 simulator | Removed the Tensor Network simulator (TN1) from documentation as the device has been retired. | June 23, 2026 | 
 | Updated IonQ gate-count limits | Replaced the 1 million gateshot product limit with per-circuit gate count limits for IonQ devices: 2,000 gates per circuit for on-demand tasks and 5,000 gates per circuit for direct reservations. | June 4, 2026 | 
