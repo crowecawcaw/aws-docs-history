@@ -3,10 +3,12 @@
 # Security groups in AWS PCS
 <a name="working-with_networking_sg"></a>
 
-Security groups in Amazon EC2 act as virtual firewalls to control inbound and outbound traffic to instances. Use a launch template for an AWS PCS compute node group to add or remove security groups to its instances. If your launch template doesn't contain any network interfaces, use `SecurityGroupIds` to provide a list of security groups. If your launch template defines network interfaces, you must use the `Groups` parameter to assign security groups to each network interface. For more information about launch templates, see [Using Amazon EC2 launch templates with AWS PCS](working-with_launch-templates.md).
+Security groups in Amazon EC2 control inbound and outbound traffic to instances. To set the security groups for a compute node group, specify `securityGroupIds` on the compute node group, in its custom launch template, or both. With standard configuration, you must specify `securityGroupIds`. If you specify security groups in both places, AWS PCS uses only the security groups on the compute node group. It doesn't add the security groups in the launch template. For more information, see [Configuring instance settings for compute node groups in AWS PCS](working-with_cng_instance-settings.md).
+
+In a launch template that doesn't define network interfaces, use the launch template `SecurityGroupIds` parameter to provide a list of security groups. If your launch template defines network interfaces, use the `Groups` parameter to assign security groups to each network interface. In this case, you can't specify `securityGroupIds` on the compute node group. For more information about launch templates, see [Using Amazon EC2 launch templates with AWS PCS](working-with_launch-templates.md).
 
 **Note**  
-Changes to the security group configuration in the launch template only affects new instances launched after the compute node group is updated.
+When you change the security groups of a compute node group, AWS PCS replaces its compute nodes after their running jobs finish. This also happens when you update the compute node group to a launch template version that has different security groups. If you edit the rules of a security group that a compute node group uses, the change takes effect immediately on running and future compute nodes. For more information, see [Updating a compute node group in AWS PCS](working-with_cng_update.md).
 
 ## Security group requirements and considerations
 <a name="working-with_networking_sg-requirements"></a>

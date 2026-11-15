@@ -15,6 +15,9 @@ This section describes the minimum IAM permissions required for an IAM identity 
 ## Minimum permissions to use API actions
 <a name="security-min-permissions_api"></a>
 
+**Note**  
+To specify `sshKeyName` in a `CreateComputeNodeGroup` or `UpdateComputeNodeGroup` request, the IAM identity needs permission for `ec2:DescribeKeyPairs`. Without this permission, the request fails with an `AccessDeniedException`.
+
 
 | API action | Minimum permissions | Additional permissions for the console | 
 | --- | --- | --- | 
@@ -22,10 +25,10 @@ This section describes the minimum IAM permissions required for an IAM identity 
 | ListClusters |  <pre>pcs:ListClusters</pre>  |  | 
 | GetCluster |  <pre>pcs:GetCluster</pre>  |  <pre>ec2:DescribeSubnets</pre>  | 
 | DeleteCluster |  <pre>pcs:DeleteCluster</pre>  |  | 
-| CreateComputeNodeGroup |  <pre>ec2:DescribeVpcs,<br />ec2:DescribeSubnets,<br />ec2:DescribeSecurityGroups,<br />ec2:DescribeLaunchTemplates,<br />ec2:DescribeLaunchTemplateVersions,<br />ec2:DescribeInstanceTypes,<br />ec2:DescribeInstanceTypeOfferings,<br />ec2:RunInstances,<br />ec2:CreateFleet,<br />ec2:CreateTags,<br />iam:PassRole,<br />iam:GetInstanceProfile,<br />pcs:CreateComputeNodeGroup</pre>  |  <pre>iam:ListInstanceProfiles,<br />ec2:DescribeImages,<br />pcs:GetCluster</pre>  | 
+| CreateComputeNodeGroup |  <pre>ec2:DescribeVpcs,<br />ec2:DescribeSubnets,<br />ec2:DescribeSecurityGroups,<br />ec2:DescribeLaunchTemplates,<br />ec2:DescribeLaunchTemplateVersions,<br />ec2:DescribeKeyPairs,<br />ec2:DescribeInstanceTypes,<br />ec2:DescribeInstanceTypeOfferings,<br />ec2:RunInstances,<br />ec2:CreateFleet,<br />ec2:CreateTags,<br />iam:PassRole,<br />iam:GetInstanceProfile,<br />pcs:CreateComputeNodeGroup</pre>  |  <pre>iam:ListInstanceProfiles,<br />ec2:DescribeImages,<br />pcs:GetCluster</pre>  | 
 | ListComputerNodeGroups |  <pre>pcs:ListComputeNodeGroups</pre>  |  <pre>pcs:GetCluster</pre>  | 
 | GetComputeNodeGroup |  <pre>pcs:GetComputeNodeGroup</pre>  |  <pre>ec2:DescribeSubnets</pre>  | 
-| UpdateComputeNodeGroup |  <pre>ec2:DescribeVpcs,<br />ec2:DescribeSubnets,<br />ec2:DescribeSecurityGroups,<br />ec2:DescribeLaunchTemplates,<br />ec2:DescribeLaunchTemplateVersions,<br />ec2:DescribeInstanceTypes,<br />ec2:DescribeInstanceTypeOfferings,<br />ec2:RunInstances,<br />ec2:CreateFleet,<br />ec2:CreateTags,<br />iam:PassRole,<br />iam:GetInstanceProfile,<br />pcs:UpdateComputeNodeGroup</pre>  |  <pre>pcs:GetComputeNodeGroup,<br />iam:ListInstanceProfiles,<br />ec2:DescribeImages,<br />pcs:GetCluster</pre>  | 
+| UpdateComputeNodeGroup |  <pre>ec2:DescribeVpcs,<br />ec2:DescribeSubnets,<br />ec2:DescribeSecurityGroups,<br />ec2:DescribeLaunchTemplates,<br />ec2:DescribeLaunchTemplateVersions,<br />ec2:DescribeKeyPairs,<br />ec2:DescribeInstanceTypes,<br />ec2:DescribeInstanceTypeOfferings,<br />ec2:RunInstances,<br />ec2:CreateFleet,<br />ec2:CreateTags,<br />iam:PassRole,<br />iam:GetInstanceProfile,<br />pcs:UpdateComputeNodeGroup</pre>  |  <pre>pcs:GetComputeNodeGroup,<br />iam:ListInstanceProfiles,<br />ec2:DescribeImages,<br />pcs:GetCluster</pre>  | 
 | DeleteComputeNodeGroup |  <pre>pcs:DeleteComputeNodeGroup</pre>  |  | 
 | CreateQueue |  <pre>pcs:CreateQueue</pre>  |  <pre>pcs:ListComputeNodeGroups,<br />pcs:GetCluster</pre>  | 
 | ListQueues |  <pre>pcs:ListQueues</pre>  |  <pre>pcs:GetCluster</pre>  | 
@@ -96,6 +99,7 @@ Users who don't configure and manage the service don't require these permissions
         "ec2:DescribeVpcs",
         "ec2:DescribeLaunchTemplates",
         "ec2:DescribeLaunchTemplateVersions",
+        "ec2:DescribeKeyPairs",
         "ec2:DescribeInstanceTypes",
         "ec2:DescribeInstanceTypeOfferings",
         "ec2:RunInstances",

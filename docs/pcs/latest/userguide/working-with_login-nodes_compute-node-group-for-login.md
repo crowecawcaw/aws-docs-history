@@ -27,7 +27,7 @@ Once your new compute node group reaches ACTIVE status, you can find the EC2 ins
 ## Updating an AWS PCS compute node group for login nodes
 <a name="working-with_login-nodes_compute-node-group-for-login_update"></a>
 
- You can update a login node group using UpdateComputeNodeGroup. As part of the node group update process, running instances will be replaced. Note that this will interrupt any active user sessions or processes on the instance. Running or queued Slurm jobs will be unaffected. For more information, see [Updating an AWS PCS compute node group](working-with_cng_update.md). 
+ You can update a login node group using UpdateComputeNodeGroup. As part of the node group update process, running instances will be replaced. Note that this will interrupt any active user sessions or processes on the instance. Running or queued Slurm jobs will be unaffected. For more information, see [Updating a compute node group in AWS PCS](working-with_cng_update.md). 
 
  You can also edit the launch template used by your compute node group. You must use UpdateComputeNodeGroup to apply the updated launch template to the compute node group. New EC2 instances launched in the compute node group use the updated launch template. For more information, see [Using Amazon EC2 launch templates with AWS PCS](working-with_launch-templates.md).
 

@@ -40,7 +40,7 @@ AWS PCS currently requires a kernel with IPv4 support for local node communicati
 
 1.  Choose the cluster where you will use the custom AMI, then select **Compute node groups**. 
 
-1. Select the node group you wish to configure and choose **Edit**. Under **AMI ID**, search for the name or ID of the custom AMI you want to use. Finish configuring the compute node group, then choose **Update**. New instances launched in the compute node group will use the updated AMI ID. Existing instances will continue to use the old AMI until AWS PCS replaces them. For more information, see [Updating an AWS PCS compute node group](working-with_cng_update.md).
+1. Select the node group you wish to configure and choose **Edit**. Under **AMI ID**, search for the name or ID of the custom AMI you want to use. Finish configuring the compute node group, then choose **Update**. New instances launched in the compute node group will use the updated AMI ID. Existing instances will continue to use the old AMI until AWS PCS replaces them. For more information, see [Updating a compute node group in AWS PCS](working-with_cng_update.md).
 
 1. (Optional) Confirm the AMI supports instance launches. Launch an instance in the compute node group. You can do this by configuring the compute node group to have a single static instance, or you can submit a job to a queue that uses the compute node group.
 

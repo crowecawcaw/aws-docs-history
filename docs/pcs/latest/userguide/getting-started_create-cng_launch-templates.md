@@ -3,7 +3,7 @@
 # Create launch templates for AWS PCS
 <a name="getting-started_create-cng_launch-templates"></a>
 
- When you create a compute node group, you provide an EC2 launch template that AWS PCS uses to configure EC2 instances it launches. The launch template defines settings such as security groups and the SSH key pair for access. File system mounting is handled separately through node lifecycle actions, which you configure when you create the node group (see [Create compute node group for login nodes](getting-started_create-cng_login-nodes.md) and [Create compute node group for jobs](getting-started_create-cng_workers.md)). 
+ When you create a compute node group, you can provide an EC2 launch template that AWS PCS uses to configure EC2 instances it launches. The launch template defines settings such as security groups and the SSH key pair for access. You can also configure these settings directly on a compute node group without a launch template. For more information, see [Configuring instance settings for compute node groups in AWS PCS](working-with_cng_instance-settings.md). File system mounting is handled separately through node lifecycle actions, which you configure when you create the node group (see [Create compute node group for login nodes](getting-started_create-cng_login-nodes.md) and [Create compute node group for jobs](getting-started_create-cng_workers.md)). 
 
  In this step, one CloudFormation template will be used to create two EC2 launch templates. One template will be used to create login nodes, and the other will be used to create compute nodes. The key difference between them is that the login nodes can be configured to allow inbound SSH access. 
 

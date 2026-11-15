@@ -219,7 +219,9 @@ The `status_code` field tells you the state the node entered. The `reason_code` 
 | TERMINATED | EXTERNALLY\_TERMINATED | Instance was terminated outside of PCS; the node was released so it can be replaced | 
 | TERMINATED | REPLACEMENT\_REQUESTED | Instance was terminated because the node was drained for replacement | 
 | TERMINATED | NODE\_GROUP\_DELETION | Instance terminated as part of compute node group deletion | 
+| TERMINATED | NODE\_GROUP\_UPDATE | Instance terminated because a compute node group update removed the node | 
 | TERMINATE\_FAILED | EC2\_OPERATION\_NOT\_PERMITTED | Instance termination failed. Ensure termination protection is not enabled on the instance | 
+| TERMINATE\_FAILED | EC2\_UNAUTHORIZED\_OPERATION | Instance termination failed. Ensure the AWSPCSManaged tag has not been removed from the instance | 
 | TERMINATE\_FAILED | EC2\_ERROR | Instance termination failed | 
 
 ## Example scaling logs

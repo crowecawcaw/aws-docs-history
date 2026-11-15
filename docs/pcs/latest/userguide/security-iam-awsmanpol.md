@@ -48,6 +48,7 @@ View details about updates to AWS managed policies for AWS PCS since this servic
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| [AWSPCSServiceRolePolicy](#security-iam-awsmanpol-service-role-policy)—Update to an existing policy | Added `ec2:DescribeInstanceTopology` and `ec2:DescribeCapacityReservationTopology` permissions to allow AWS PCS to discover the network topology of compute instances and capacity reservations. | November 4, 2026 | 
 | [AWSPCSServiceRolePolicy](#security-iam-awsmanpol-service-role-policy) – Update to an existing policy | AWS PCS added new permissions to support multiple network interfaces for compute instances.<br />Added `ec2:secondary-interface` and `ec2:secondary-subnet` resource types to allow AWS PCS to create and manage these resources. | September 30, 2026 | 
 | [AWSPCSServiceRolePolicy](#security-iam-awsmanpol-service-role-policy) – Update to an existing policy | AWS PCS added new permissions to support Capacity Blocks for predictable compute capacity.<br />Added `ec2:DescribeCapacityReservations` permission to enable AWS PCS to discover and use Capacity Block reservations for compute node groups. | September 11, 2025 | 
 | [AWSPCSComputeNodePolicy](#security-iam-awsmanpol-AWSPCSComputeNodePolicy) – New policy | AWS PCS added a new policy to grant permission to AWS PCS compute nodes to connect to AWS PCS clusters.<br />AWS PCS attaches this policy to an IAM role when you create a compute node group in the AWS PCS console. | June 23, 2025 | 

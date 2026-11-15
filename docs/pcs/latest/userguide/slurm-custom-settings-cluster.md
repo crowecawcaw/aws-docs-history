@@ -28,6 +28,7 @@ AWS PCS disables the HTTP endpoint by default. To enable it, specify `enable_htt
 AWS PCS supports the `REBOOT_ONLY` value, which runs the `HealthCheckProgram` only after a node reboot, on Slurm version 26.05 and later. `REBOOT_ONLY` is mutually exclusive with any other value.
 + [HealthCheckProgram](https://slurm.schedmd.com/slurm.conf.html#OPT_HealthCheckProgram)
 + [JobRequeue](https://slurm.schedmd.com/slurm.conf.html#OPT_JobRequeue)
++ [KillWait](https://slurm.schedmd.com/slurm.conf.html#OPT_KillWait)
 + [LaunchParameters](https://slurm.schedmd.com/slurm.conf.html#OPT_LaunchParameters)
 + [Licenses](https://slurm.schedmd.com/slurm.conf.html#OPT_Licenses)
 + [MaxArraySize](https://slurm.schedmd.com/slurm.conf.html#OPT_MaxArraySize)

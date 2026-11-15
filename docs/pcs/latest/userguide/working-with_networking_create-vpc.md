@@ -28,6 +28,11 @@ Create a VPC by copy and pasting the appropriate URL for the AWS Region where yo
   ```
   https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/review?stackName=hpc-networking&templateURL=https://aws-hpc-recipes.s3.us-east-1.amazonaws.com/main/recipes/net/hpc_large_scale/assets/main.yaml
   ```
++ **US West (N. California) (us-west-1)**
+
+  ```
+  https://console.aws.amazon.com/cloudformation/home?region=us-west-1#/stacks/create/review?stackName=hpc-networking&templateURL=https://aws-hpc-recipes.s3.us-east-1.amazonaws.com/main/recipes/net/hpc_large_scale/assets/main.yaml
+  ```
 + **US West (Oregon) (us-west-2)**
 
   ```

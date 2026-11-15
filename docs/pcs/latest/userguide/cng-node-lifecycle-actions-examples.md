@@ -13,11 +13,11 @@ This example combines scripts across both lifecycle stages with different execut
 ```
 aws pcs create-compute-node-group --region {{region}} \
   --cluster-identifier {{my-cluster}} \
-  --compute-node-group-identifier {{my-cng}} \
+  --compute-node-group-name {{my-cng}} \
   --subnet-ids {{subnet-ExampleID1}} \
   --custom-launch-template id={{lt-ExampleID1}},version='{{1}}' \
-  --iam-instance-profile-arn={{arn:InstanceProfile}} \
-  --scaling-config minInstanceCount={{0}},maxInstanceCount={{10}} \
+  --iam-instance-profile-arn {{arn:InstanceProfile}} \
+  --scaling-configuration minInstanceCount={{0}},maxInstanceCount={{10}} \
   --instance-configs instanceType={{t3.large}} \
   --node-lifecycle-actions '{
     "stages": {
@@ -40,11 +40,11 @@ This example uses critical and optional scripts in the same stage. The first ter
 ```
 aws pcs create-compute-node-group --region {{region}} \
   --cluster-identifier {{my-cluster}} \
-  --compute-node-group-identifier {{my-cng}} \
+  --compute-node-group-name {{my-cng}} \
   --subnet-ids {{subnet-ExampleID1}} \
   --custom-launch-template id={{lt-ExampleID1}},version='{{1}}' \
-  --iam-instance-profile-arn={{arn:InstanceProfile}} \
-  --scaling-config minInstanceCount={{0}},maxInstanceCount={{10}} \
+  --iam-instance-profile-arn {{arn:InstanceProfile}} \
+  --scaling-configuration minInstanceCount={{0}},maxInstanceCount={{10}} \
   --instance-configs instanceType={{t3.large}} \
   --node-lifecycle-actions '{
     "stages": {

@@ -35,7 +35,7 @@ Each AWS PCS compute node group can launch EC2 instances with shared configurati
 
 To find your node group instances, use the commands that follow. Before running the commands, make the following replacements:
 + Replace `{{region-code}}` with the AWS Region of your cluster. Example: `us-east-1`
-+ Replace `{{node-group-id}}` with the **ID** (not the name) of your compute node group. To find the ID of a compute node group, see [Get compute node group details in AWS PCS](working-with_cng_get-details.md).
++ Replace `{{node-group-id}}` with the **ID** (not the name) of your compute node group. To find the ID of a compute node group, see [Getting compute node group details in AWS PCS](working-with_cng_get-details.md).
 + Replace `running` with other instance states such as `pending` or `terminated` to find EC2 instances in other states.
 
 ```

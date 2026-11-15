@@ -13,11 +13,13 @@ This is the operating system in the AWS PCS sample AMIs.
 **Important**  
 Sample AMIs are for demonstration purposes and are not recommended for production workloads. You should create and use a custom AMI for production workloads, even if you intend to use Amazon Linux 2023.
 + **Amazon Linux 2**
++ **RedHat Enterprise Linux 10 (RHEL 10)**
 + 
 
 **RedHat Enterprise Linux 9 (RHEL 9)**  
 The on-demand cost for RHEL any instance type is higher than for other supported operation systems. For more information about pricing, see [On-Demand Pricing](https://aws.amazon.com/ec2/pricing/on-demand) and [How is Red Hat Enterprise Linux on Amazon Elastic Compute Cloud offered and priced?](https://aws.amazon.com/partners/redhat/faqs/#Pricing_and_Billing).
 + **RedHat Enterprise Linux 8 (RHEL 8)**
++ **Rocky Linux 10**
 + 
 
 **Rocky Linux 9**  
@@ -40,3 +42,4 @@ You can use the[ official Rocky Linux 9 AMIs](https://rockylinux.org/cloud-image
 **Ubuntu 22.04**  
 Ubuntu 22.04 requires more secure keys for SSH and doesn't support RSA keys by default. We recommend you generate and use an ED25519 key instead.
 + **Ubuntu 24.04**
++ **Ubuntu 26.04**

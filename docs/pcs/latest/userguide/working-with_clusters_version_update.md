@@ -14,7 +14,7 @@ A scheduler version update involves three operations:
 
 1. **Update the cluster** (`UpdateCluster`) — Moves the controller to the target Slurm major version.
 
-1. **Update compute node groups** (`UpdateComputeNodeGroup`) — Point each compute node group at a new AMI so that new nodes use the target version. For more information, see [Updating an AWS PCS compute node group](working-with_cng_update.md).
+1. **Update compute node groups** (`UpdateComputeNodeGroup`) — Point each compute node group at a new AMI so that new nodes use the target version. For more information, see [Updating a compute node group in AWS PCS](working-with_cng_update.md).
 
 There are two paths you can follow. Choose an option based on whether you can tolerate job interruption.
 

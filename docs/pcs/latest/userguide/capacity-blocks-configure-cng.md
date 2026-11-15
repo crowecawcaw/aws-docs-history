@@ -12,7 +12,7 @@
    + A `CapacityReservationSpecification` with a valid `CapacityReservationId`
    + A valid `InstanceType` that matches the instance type of the Capacity Block you purchased.
 
-1. Create a compute node group that uses the launch template. For more information, see [Creating a compute node group in AWS PCS](working-with_cng_create.md). You can also update an existing compute node group to use the launch template. For more information, see [Updating an AWS PCS compute node group](working-with_cng_update.md).
+1. Create a compute node group that uses the launch template. For more information, see [Creating a compute node group in AWS PCS](working-with_cng_create.md). You can also update an existing compute node group to use the launch template. For more information, see [Updating a compute node group in AWS PCS](working-with_cng_update.md).
 
    When you create or update the compute node group:
    + The IAM identity you use to create or update the compute node group must have the following permissions:

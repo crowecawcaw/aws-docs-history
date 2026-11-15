@@ -10,12 +10,12 @@ Install the agent that configures the instances launched by AWS PCS for use with
 1.  Connect to the instance you launched. For more information, see Connect to your Linux instance. 
 
 1.  (Optional) To ensure that all of your software packages are up to date, perform a quick software update on your instance. This process may take a few minutes. 
-   + **Amazon Linux 2, Amazon Linux 2023, RHEL 9, RHEL 8, Rocky Linux 9, and Rocky Linux 8**
+   + **Amazon Linux 2, Amazon Linux 2023, RHEL 10, RHEL 9, RHEL 8, Rocky Linux 10, Rocky Linux 9, and Rocky Linux 8**
 
      ```
      sudo yum update -y
      ```
-   + **Ubuntu 22.04 and Ubuntu 24.04**
+   + **Ubuntu 22.04, Ubuntu 24.04, and Ubuntu 26.04**
 
      ```
      sudo apt-get update && sudo apt-get upgrade -y
