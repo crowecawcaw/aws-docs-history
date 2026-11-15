@@ -14,6 +14,7 @@ For more information, see [AWS managed policies](https://docs.aws.amazon.com/IAM
 This section lists each of the policies used to manage buyer access to AWS Marketplace. For information about seller policies, see [AWS managed policies for AWS Marketplace sellers](https://docs.aws.amazon.com/marketplace/latest/userguide/security-iam-awsmanpol.html) in the *AWS Marketplace Seller Guide*.
 
 **Topics**
++ [AWS managed policy: AWSMarketplaceAgenticCommerceServiceRolePolicy](#agentic-commerce-slr-manpol)
 + [AWS managed policy: AWSMarketplaceDeploymentServiceRolePolicy](#deployment-service-manpol)
 + [AWS managed policy: AWSMarketplaceDiscoveryFullAccess](#security-iam-awsmanpol-awsmarketplacediscoveryfullaccess)
 + [AWS managed policy: AWSMarketplaceFullAccess](#security-iam-awsmanpol-awsmarketplacefullaccess)
@@ -29,6 +30,15 @@ This section lists each of the policies used to manage buyer access to AWS Marke
 + [AWS managed policy: AWSVendorInsightsAssessorReadOnly](#aws-vi-assessor-read-only)
 + [AWS managed policy: AWSServiceRoleForProcurementInsightsPolicy](#aws-procurement-insights)
 + [AWS Marketplace updates to AWS managed policies](#buyer-security-iam-awsmanpol-updates)
+
+## AWS managed policy: AWSMarketplaceAgenticCommerceServiceRolePolicy
+<a name="agentic-commerce-slr-manpol"></a>
+
+This policy allows AWS Marketplace to process payments for AWS Marketplace products that you make through Amazon Bedrock AgentCore payments. AWS Marketplace reads product and offer details, creates and accepts purchase agreements on your behalf, and records your usage for billing.
+
+This policy is attached to the `AWSServiceRoleForMarketplaceAgenticCommerce` service-linked role. You can't attach the `AWSMarketplaceAgenticCommerceServiceRolePolicy` to your IAM entities. For more information, see [Service-linked role for Amazon Bedrock AgentCore payments](buyer-service-linked-role-agentic-commerce.md).
+
+To view the permissions for this policy, see [AWSMarketplaceAgenticCommerceServiceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSMarketplaceAgenticCommerceServiceRolePolicy.html) in the *AWS Managed Policy Reference*.
 
 ## AWS managed policy: AWSMarketplaceDeploymentServiceRolePolicy
 <a name="deployment-service-manpol"></a>
@@ -242,6 +252,7 @@ In AWS Marketplace Vendor Insights, an assessor is equal to a buyer, and a vendo
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| [AWSMarketplaceAgenticCommerceServiceRolePolicy](#agentic-commerce-slr-manpol) — new policy | AWS Marketplace added a new policy to read product and offer details, create and accept purchase agreements, and meter usage for payments that you make through Amazon Bedrock AgentCore payments. | November 12, 2026 | 
 | [AWSMarketplaceFullAccess](#security-iam-awsmanpol-awsmarketplacefullaccess) — updates to existing policy | AWS Marketplace added permissions to list received licenses, list payment program status, and tag or untag CloudFormation resources during stack creation. | September 11, 2026 | 
 | [AWSMarketplaceManageSubscriptions](#security-iam-awsmanpol-awsmarketplacemanagesubscriptions) — updates to existing policy | AWS Marketplace added Discovery API permissions for searching listings, retrieving product and offer details, and listing purchase and fulfillment options. | May 7, 2026 | 
 | [AWSMarketplaceDiscoveryFullAccess](#security-iam-awsmanpol-awsmarketplacediscoveryfullaccess) — new policy | AWS Marketplace added a new policy that provides full access to the AWS Marketplace Discovery API for searching and retrieving product and pricing information. | May 7, 2026 | 

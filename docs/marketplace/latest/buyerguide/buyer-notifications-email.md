@@ -12,6 +12,7 @@ As a buyer in AWS Marketplace, you automatically receive email notifications whe
 + A seller publishes a new private offer related to a private offer you accepted previously
 + A seller publishes an update to a previously accepted offer
 + An agreement is expiring, sent 180, 120, 90, 60, and 30 days before the agreement end date (contract model). For an auto-renewing agreement, the notification includes the auto-renewal status
++ A SaaS free trial is about to convert to a paid subscription, sent 15 days, 3 days, and 1 day before the conversion date. The 15-day email is sent only for free trials longer than 15 days
 + A seller submits an agreement cancellation request for your review
 + An agreement cancellation request is approved (or auto-approved), denied, or withdrawn
 + A billing adjustment (refund) is processed for one of your agreements

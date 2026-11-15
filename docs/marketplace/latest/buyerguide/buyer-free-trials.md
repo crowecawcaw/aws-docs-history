@@ -37,4 +37,4 @@ If you don't terminate any Amazon SageMaker AI endpoints, batch transform jobs, 
 ## Free trials for SaaS products
 <a name="free-trials-for-saas-products"></a>
 
-Software as a service (SaaS) products in AWS Marketplace have free trials. SaaS free trials don't automatically convert into paid agreements. If you no longer want the free trial, you can let it expire. For more information, see [Subscribing to SaaS free trials](saas-free-trials.md). 
+Some software as a service (SaaS) products in AWS Marketplace have free trials. SaaS subscription (usage-based) free trials convert automatically to a paid subscription when they end. SaaS contract free trials expire. For more information, see [Subscribing to SaaS free trials](saas-free-trials.md).

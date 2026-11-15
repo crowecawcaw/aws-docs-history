@@ -17,6 +17,7 @@ The following table lists the buyer events that AWS Marketplace sends to EventBr
 | Purchase Agreement Amended - Acceptor | Sent when modifications are made to an existing purchase agreement | 
 | Purchase Agreement Ended - Acceptor | Sent when a purchase agreement is cancelled, expired, terminated, renewed, or replaced | 
 | Purchase Agreement Ending - Acceptor | Sent 180, 120, 90, 60, and 30 days before a purchase agreement expires | 
+| Purchase Agreement Free Trial Converting Soon - Acceptor | Sent 15 days, 3 days, and 1 day before a SaaS free trial converts to a paid subscription. The 15-day event is sent only for free trials longer than 15 days | 
 | Purchase Agreement Renewal Terms Finalized - Acceptor | Sent after the seller's adjustment deadline passes, for percentage-range renewals, once the renewal price uplift is finalized (or the default uplift is applied) | 
 | Purchase Agreement Renewal Upcoming - Acceptor | Sent when the renewal decision deadline is reached and the renewal is confirmed to proceed | 
 
@@ -283,6 +284,60 @@ This event includes additional fields not present in other buyer events:
       "id": "offer-abcdef123456",
       "name": "Example Offer Name"
     }
+  }
+}
+```
+
+### Purchase Agreement Free Trial Converting Soon - Acceptor
+<a name="agreement-free-trial-converting-soon-event"></a>
+
+AWS Marketplace sends this event 15 days, 3 days, and 1 day before a SaaS free trial converts to a paid subscription. The 15-day event is sent only for free trials longer than 15 days.
+
+This event includes additional fields not present in other buyer events:
++ `agreement.trialEndTime` - The date and time that the free trial ends and the subscription converts to paid pricing
++ `agreement.endTime` - For agreements with no end date, such as pay-as-you-go agreements, the value is `9999-01-01T00:00:00Z`
++ `isFreeTrialTermPresent` - Indicates that the agreement includes a free trial term. The value is the string `"true"`, not a Boolean
+
+**Event schema:**
+
+```
+{
+  "version": "0",
+  "id": "9f3a1c7e-2b84-4d6f-a190-5e8c7d0b3a26",
+  "detail-type": "Purchase Agreement Free Trial Converting Soon - Acceptor",
+  "source": "aws.agreement-marketplace",
+  "account": "<Buyer Account ID>",
+  "time": "2026-11-20T00:00:00Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:aws-marketplace::aws:agreement:agmt-1tkstx5ebtetokv02241by1c2"
+  ],
+  "detail": {
+    "agreement": {
+      "id": "agmt-1tkstx5ebtetokv02241by1c2",
+      "status": "ACTIVE",
+      "startTime": "2026-11-05T20:00:37.000Z",
+      "endTime": "9999-01-01T00:00:00Z",
+      "trialEndTime": "2026-12-05T20:00:37Z"
+    },
+    "product": {
+      "id": "prod-abc123xyz456",
+      "title": "Example Product Title"
+    },
+    "acceptor": {
+      "accountId": "<Buyer Account ID>"
+    },
+    "proposer": {
+      "accountId": "<Proposer Account ID>",
+      "name": "Example Seller Name"
+    },
+    "offer": {
+      "id": "offer-abcdef123456",
+      "name": "Example Offer Name"
+    },
+    "catalog": "AWSMarketplace",
+    "isFreeTrialTermPresent": "true",
+    "requestId": "7f3e2d1c-a9b8-4f5e-6d7c-1234567890ab"
   }
 }
 ```
