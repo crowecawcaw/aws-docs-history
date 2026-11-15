@@ -1,16 +1,23 @@
 
 
-# Privacy
+# Ad measurement and verification reliability
 <a name="advrel08"></a>
 
+ Ad measurement and verification reliability requires dependable systems to accurately track, validate, and report advertising performance metrics while accounting for fraud, viewability, and data quality issues. This includes implementing redundant verification methods, maintaining data accuracy across multiple solutions, and verifying consistent measurement capabilities even during system failures or data anomalies. 
 
-| ADVREL08: How do you verify privacy while building reliable collaborations between multiple parties in your system? | 
+
+|  ADVREL08: How do you maintain the reliability of your ad measurement and verification systems?  | 
 | --- | 
-|   | 
+| [ADVREL08-BP01 Implement redundant ad verification systems with automated failover mechanisms](advrel08-bp01.md) | 
+| [ADVREL08-BP02 Establish reliable data collection and validation pipelines for measurement accuracy](advrel08-bp02.md) | 
 
- Privacy-enhanced collaboration systems (such systems allow multiple parties to work together on advertising campaigns and data analysis while protecting individual user privacy and sensitive business data) require high reliability to maintain secure and consistent data sharing between parties while verifying data integrity and availability. Implementing reliable practices involves designing resilient architectures, maintaining data consistency, and verifying robust recovery mechanisms while preserving privacy. This includes redundancy in critical components, proper error handling, and maintaining service availability across different Regions. 
+## Capability intent
+<a name="advrel08-capability-intent"></a>
++  Redundant ad verification systems with automated failover support ongoing measurement capability even when individual verification providers are unavailable. 
++  Reliable data collection and validation pipelines maintain measurement accuracy through processing failures, retries, and reconciliation. 
++  Measurement data is protected against loss with at-least-once delivery guarantees and dead-letter queue processing. 
 
-**Topics**
-+ [ADVREL08-BP01 Design resilient architectures with privacy-preserving fault tolerance](advrel08-bp01.md)
-+ [ADVREL08-BP02 Maintain data consistency and availability across collaboration workflows](advrel08-bp02.md)
-+ [ADVREL08-BP03 Implement secure and privacy-preserving recovery mechanisms for collaboration workloads](advrel08-bp03.md)
+## Common issues to watch for
+<a name="advrel08-common-issues-to-watch-for"></a>
++  Single point of failure in third-party verification provider integrations. 
++  Not processing dead-letter queue messages. Measurement data loss goes undetected. 

@@ -1,17 +1,25 @@
 
 
-# Ad measurement and verification
+# Prebid Server resilience
 <a name="advrel09"></a>
 
+ Prebid Server acts as the server-side header bidding orchestrator, sending bid requests to multiple SSPs and DSPs simultaneously. A failure in one adapter should not cascade to other demand partners or halt publisher monetization. Design Prebid Server deployments to maintain auction capability even when individual adapters, Availability Zones, or demand partners become unavailable. 
 
-| ADVREL09: How do you verify reliable ad measurement and verification across digital advertising solutions? | 
+
+|  ADVREL09: How do you keep your Prebid Server implementation available when individual demand partner adapters or auction components fail?  | 
 | --- | 
-|   | 
+| [ADVREL09-BP01 Deploy Prebid Server across multiple Availability Zones with health-checked load balancing](advrel09-bp01.md) | 
+| [ADVREL09-BP02 Implement per-adapter circuit breakers and bulkhead isolation](advrel09-bp02.md) | 
+| [ADVREL09-BP03 Design graceful auction degradation when demand partners become unavailable](advrel09-bp03.md) | 
 
- Ad measurement and verification reliability requires robust systems to accurately track, validate, and report advertising performance metrics while accounting for fraud, viewability, and data quality issues. This includes implementing redundant verification methods, maintaining data accuracy across multiple solutions, and verifying consistent measurement capabilities even during system failures or data anomalies. 
+## Capability intent
+<a name="advrel09-capability-intent"></a>
++  Prebid Server instances are distributed across at least two Availability Zones with active health checks for automatic traffic redistribution. 
++  Per-adapter circuit breakers and bulkhead isolation keep a degraded adapter from starving healthy adapters of resources. 
++  The auction consistently completes within its timeout budget and returns the best available bids even when multiple adapters are unavailable. 
 
- These reliability practices facilitate consistent and accurate ad measurement even during system stress or partial failures, while maintaining data quality and measurement integrity across the advertising solution. 
-
-**Topics**
-+ [ADVREL09-BP01 Implement redundant ad-verification systems with automated failover mechanisms](advrel09-bp01.md)
-+ [ADVREL09-BP02 Establish robust data collection and validation pipelines for measurement accuracy](advrel09-bp02.md)
+## Common issues to watch for
+<a name="advrel09-common-issues-to-watch-for"></a>
++  Health checks that only validate HTTP 200 (container alive) rather than auction engine responsiveness. 
++  Single HTTP connection pool shared across all adapters. One slow adapter can exhaust connections for all others. 
++  No fallback creative when all adapters fail, resulting in empty ad slots. 

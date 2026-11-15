@@ -1,37 +1,63 @@
 
 
-# ADVCOST02-BP04 Use Spot Instances for cost-effective bidding-as-a-service workloads with flexible fault-tolerance mechanisms
+# ADVCOST02-BP04 Use interruptible spare capacity to reduce compute cost for fault-tolerant bidding workloads
 <a name="advcost02-bp04"></a>
 
- For workloads that can be interrupted, Spot Instances can provide high performance for a very low cost per hour. 
+ For workloads that can be interrupted, Spot Instances provide the same performance as On-Demand at 60–90% lower cost. Advertising workloads include many interruptible components (batch bid log processing, audience model training, report generation, and A/B test analytics) where Spot Instances save substantial cost when you pair them with fault-tolerance mechanisms. 
+
+ **Desired outcome:** 
++  Interruptible RTB and analytics workloads run on Spot Instances with interruption handling that helps avoid data loss and minimizes wasted compute. 
++  Auto Scaling groups and batch processing systems automatically manage instance replacement. 
++  Spot Instance diversification across multiple instance types and Availability Zones minimizes interruption risk. 
+
+ **Common anti-patterns:** 
++  Running all RTB compute on On-Demand Instances without evaluating which components are interruption-tolerant. 
++  Using a single Spot Instance type and Availability Zone, so a single capacity reclamation can interrupt the entire fleet at once. 
++  Failing to implement interruption handling (checkpointing, graceful draining). 
++  Using Spot for latency-critical bid response paths where a two-minute interruption notice is insufficient to maintain SLAs. 
+
+ **Benefits of establishing this best practice:** 
++  Compute cost savings of 60–90% for eligible workloads compared to On-Demand pricing. 
++  Access to additional compute capacity for burst processing during high-traffic campaign periods. 
++  Encourages fault-tolerant architecture patterns that improve system resilience. 
+
+ **Level of risk exposed if this best practice is not established:** Medium 
 
 ## Implementation guidance
-<a name="implementation-guidance-62"></a>
+<a name="implementation-guidance"></a>
 
- By using Spot Instances and services like Auto Scaling groups and AWS Batch, you can achieve significant cost savings for your bidding-as-a-service workloads. 
-+  **Spot Instance pricing:** Spot Instances are typically offered at a substantial discount compared to On-Demand Instance prices. The discount can range from 10% to 90%, depending on the instance type, region, and current demand. On average, you can expect to save around 70% on compute costs by using Spot Instances. 
-+  **Auto scaling with Spot Instances:** By configuring your Auto Scaling groups to launch Spot Instances, you can benefit from the cost savings while maintaining the desired level of capacity and availability. Auto Scaling groups automatically replace interrupted Spot Instances, and your workload can continue running without disruption. 
-+  **AWS Batch with Spot Instances:** For batch processing workloads, AWS Batch can use Spot Instances as the compute environment for your jobs. This can lead to significant cost savings, especially for compute-intensive or long-running batch jobs. AWS Batch automatically handles job retries and check-pointing, improving fault tolerance and efficient resource utilization. 
-+  **Cost optimization strategies:** 
-  +  **Instance right-sizing:** Regularly analyze your workload's performance and resource utilization to identify the most cost-effective instance types and sizes. Right-sizing your instances can lead to substantial cost savings without compromising performance. 
-  +  **Spot Instance interruption handling:** Implement efficient strategies to handle Spot Instance interruptions, such as check-pointing long-running jobs or gracefully draining and restarting interrupted instances. This can help minimize wasted compute resources and associated costs. 
-  +  **Spot Instance advisors:** Use AWS Spot Instance advisors or third-party tools to optimize your Spot Instance selection and bidding strategies. These tools can help you identify the most cost-effective Spot Instance pools based on historical pricing data and demand patterns. 
-+  **Cost monitoring and optimization:** Continuously monitor your workload's cost and performance metrics using [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/), [AWS Trusted Advisor](https://aws.amazon.com/premiumsupport/technology/trusted-advisor/), and other monitoring tools. Identify cost optimization opportunities and implement them regularly to maximize your savings. 
+ [Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html) provide EC2 capacity at a 60-90% discount in exchange for the possibility of interruption on two minutes notice. A workload qualifies if it can lose an instance without data loss or user-visible impact. In advertising, this includes batch log processing, audience model training, report generation, creative transcoding, and offline analytics. Real-time bid evaluation paths don't qualify, because two minutes is not enough time to drain active bid connections without missing exchange deadlines. 
 
- By implementing these strategies, you can potentially achieve significant cost savings while maintaining the scalability and performance of your bidding-as-a-service workloads.  
+ Interruption probability varies by instance type, Availability Zone, and time of day. A single instance type in a single Availability Zone might have a 15-20% monthly interruption rate, while a diversified fleet across six instance types and three Availability Zones reduces effective interruption probability to under 5%. EC2 reclaims Spot capacity from the pools with lowest demand first. Diversification spreads your workload across pools so that a reclamation event in one pool affects only a fraction of your fleet. The capacity-optimized [allocation strategy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/allocation-strategies.html) automates this by selecting pools with the deepest available capacity. 
 
- It's important to note that while Spot Instances offer substantial cost savings, they are subject to interruptions based on AWS's capacity requirements. Therefore, it's crucial to implement proper fault tolerance mechanisms and have a strategy to handle instance interruptions to ensure the reliability and availability of your bidding-as-a-service workloads. 
+ Spot Instances require fault tolerance. Without interruption handling, a terminated instance loses all in-progress work. For a batch job that has been processing bid logs for 45 minutes, interruption without checkpointing wastes those 45 minutes of compute. Checkpoint intermediate state to durable storage often enough that any single interruption loses only a small fraction of the total job. 
 
-## Key AWS services
-<a name="key-aws-services-35"></a>
-+  [Amazon Elastic Compute Cloud (EC2)](https://aws.amazon.com/ec2/) 
-+  [AWS Fargate](https://aws.amazon.com/fargate/) 
-+  [AWS Compute Optimizer](https://aws.amazon.com/compute-optimizer/) 
+ The two-minute interruption notice arrives through [instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-instance-termination-notices.html) and [Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/what-is-amazon-eventbridge.html). Applications that poll metadata every five seconds can detect the notice and begin graceful shutdown: flushing buffers, writing checkpoints, deregistering from load balancers, and signaling orchestrators to reschedule remaining work. Applications that ignore the notice terminate mid-operation, which shifts costs from instance hours to reprocessing. 
+
+ Use Spot for interruptible overflow and batch processing, and use Savings Plans or Reserved Instances for the steady-state baseline. Using Spot for baseline capacity creates availability risk when EC2 demand is high and interruption rates spike. Layer the purchase options: committed purchases for the predictable minimum, On-Demand for the gap between that minimum and normal peak, and Spot for batch workloads and burst capacity where interruptions are acceptable. 
+
+### Implementation steps
+<a name="implementation-steps"></a>
+
+1.  **Identify interruptible workload components:** Document which advertising components are interruption-tolerant: batch log processing, audience segmentation, model training, analytics, and report generation. Explicitly exclude real-time bid evaluation and latency-critical services from Spot eligibility. 
+
+1.  **Configure Auto Scaling groups with Spot diversification:** Specify multiple instance types (both AMD and Intel x86, plus Graviton equivalents) and multiple Availability Zones in your Spot fleet or Auto Scaling group configuration. Use the capacity-optimized allocation strategy to select pools with the lowest likelihood of interruption. This diversification significantly reduces the probability of simultaneous interruptions. 
+
+1.  **Implement Spot interruption handling:** Subscribe to the EC2 Spot Instance interruption notice (two minutes before termination) through instance metadata polling or Amazon EventBridge. Use this notice to: checkpoint in-progress batch work to S3, drain active connections gracefully, and deregister from load balancers. For AWS Batch workloads, enable automatic job retries and application-level checkpointing. 
+
+1.  **Measure cost savings and validate interruption rates:** Track Spot Instance utilization, interruption frequency, and job retry rates using AWS Cost Explorer filtered by purchase option. Compare effective cost-per-job between Spot and On-Demand. Use the EC2 Spot Instance Advisor to monitor interruption rate trends and adjust instance type pools if specific types show elevated interruption frequency. 
 
 ## Resources
-<a name="resources-56"></a>
+<a name="resources"></a>
+
+ **Related documents:** 
 +  [Guidance for Building a Real Time Bidder for Advertising on AWS](https://aws.amazon.com/solutions/guidance/building-a-real-time-bidder-for-advertising-on-aws/) 
++  [EC2 Fleet and Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html) 
 +  [Beeswax Uses AWS to Cost-Effectively Process Millions of Bid Requests per Second](https://aws.amazon.com/solutions/case-studies/beeswax-case-study/) 
-+  [AWS Fargate for Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html) 
 +  [EC2 instance rebalance recommendations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/rebalance-recommendations.html) 
-+  [EC2 Fleet and Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Fleets.html) 
++  [AWS Fargate for Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html) 
+
+ **Related services:** 
++  [Amazon EC2 Spot Instances](https://aws.amazon.com/ec2/spot/) 
++  [AWS Batch](https://aws.amazon.com/batch/) 
++  [AWS Fargate](https://aws.amazon.com/fargate/) 

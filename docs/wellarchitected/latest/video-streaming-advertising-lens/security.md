@@ -3,10 +3,12 @@
 # Security
 <a name="security"></a>
 
- The security pillar encompasses the ability to protect data, systems, and assets to take advantage of cloud technologies to improve your security. 
+The security pillar encompasses the ability to protect data, systems, and assets to take advantage of cloud technologies to improve your security.
 
- The security pillar provides an overview of design principles and questions. You can find implementation guidance in the [Security Pillar whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html). 
-
-## Design principles
-<a name="sec-design-principles"></a>
-+  **Protect the advertising pipeline:** Control access to and from your DSP (demand-side platform) using identity management and network access control. Protect data in transit using encryption. 
+## Capabilities
+<a name="sec-capabilities"></a>
++ [Identity and access management](advsec01.md)
++ [Data protection](advsec02.md)
++ [Infrastructure protection](advsec03.md)
++ [Content integrity, brand safety, and ad fraud prevention](advsec04.md)
++ [Privacy and regulatory adherence](advsec05.md)

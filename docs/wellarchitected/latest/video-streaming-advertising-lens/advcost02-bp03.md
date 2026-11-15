@@ -1,38 +1,61 @@
 
 
-# ADVCOST02-BP03 Use provisioned resource allocation for campaigns with predictable capacity, and use dynamic allocation for unexpected capacity
+# ADVCOST02-BP03 Use provisioned resource allocation for campaigns with predictable capacity, and use dynamic allocation for unexpected capacity
 <a name="advcost02-bp03"></a>
 
- Provisioned capacity can provide the lowest cost per hour. However, for unpredictable workloads dynamic allocation can provide a lower overall cost of ownership. 
+ Provisioned and on-demand pricing give advertising workloads different cost profiles. Provisioned capacity reserves dedicated resources at a lower cost for each unit and suits predictable workloads. On-demand and serverless capacity cost more per unit but scale freely, which suits unpredictable workloads. Match each component to a suitable model to avoid both overspending and under-provisioning. 
+
+ **Desired outcome:** 
++  Each component of your RTB architecture uses the capacity model best suited to its traffic pattern. 
++  The combination of provisioned, on-demand, and serverless results in optimized costs without sacrificing performance or availability. 
+
+ **Common anti-patterns:** 
++  Using on-demand capacity for all services by default, which raises costs significantly for components with predictable, sustained traffic patterns. 
++  Over-provisioning capacity to handle peak loads without using auto scaling for burst absorption. 
++  Treating the capacity model as a one-time decision rather than re-evaluating as traffic patterns evolve with new campaigns. 
+
+ **Benefits of establishing this best practice:** 
++  Significant cost reduction by matching pricing models to actual usage patterns across all RTB components. 
++  Improved ability to absorb traffic spikes without over-provisioning for steady-state workloads. 
+
+ **Level of risk exposed if this best practice is not established:** High 
 
 ## Implementation guidance
-<a name="implementation-guidance-61"></a>
+<a name="implementation-guidance"></a>
 
- Provisioned capacity and on-demand capacity are two different pricing models offered by various AWS services, including [Amazon Kinesis Data Streams](https://aws.amazon.com/kinesis/data-streams/), [Amazon DynamoDB](https://aws.amazon.com/dynamodb/), [AWS Lambda](https://aws.amazon.com/lambda/), and [Amazon Athena](https://aws.amazon.com/athena/). The differences between the two models are the following: 
-+  **Provisioned capacity:** With provisioned capacity, you reserve and pay for a specific amount of capacity in advance, regardless of whether you use it or not. 
-  +  This model is suitable for workloads with predictable and consistent traffic patterns or when you have a baseline capacity requirement. 
-  +  By provisioning capacity, you get dedicated resources and can achieve better performance and lower costs compared to on-demand capacity for sustained workloads. 
-  +  Examples: DynamoDB provisioned throughput, Kinesis Data Streams provisioned capacity, Lambda provisioned concurrency, and Athena workgroup capacity. 
-+  **On-demand capacity:** With on-demand capacity, you pay for the resources you consume on a per-use basis without any upfront commitment or reservation. 
-  +  This model is suitable for workloads with unpredictable or bursty traffic patterns, where you don't have a consistent baseline requirement. 
-  +  On-demand capacity provides flexibility and scalability, as you only pay for what you use, but it can be more expensive for sustained workloads compared to provisioned capacity. 
-  +  Examples: DynamoDB on-demand capacity, Kinesis Data Streams on-demand capacity, Lambda on-demand concurrency, and Athena on-demand capacity. 
-+  **[Serverless capacity](https://aws.amazon.com/serverless/):** AWS offers technologies for running code, managing data, and integrating applications, all without managing servers. 
-  +  Serverless technologies feature automatic scaling, built-in high availability, and a pay-for-use billing model to increase agility and optimize costs. 
-  +  These technologies also eliminate infrastructure management tasks like capacity provisioning and patching, so you can focus on writing code that serves your customers. 
-  +  Examples: Amazon Aurora, Amazon Redshift, Amazon Neptune, Amazon OpenSearch Service, and Amazon Elasticache. 
+ Provisioned capacity charges for the reservation whether you consume it or not. On-demand capacity bills only for what you use. 
 
- The choice between provisioned, on-demand, and serverless capacity depends on your workload characteristics, cost considerations, and performance requirements. Some general guidelines for making this choice are the following: 
-+  If you have a predictable and consistent workload with a known baseline capacity requirement, provisioned capacity can provide better performance and cost savings for sustained usage. 
-+  If your workload is highly variable, unpredictable, or bursty, on-demand or serverless capacity can offer more flexibility and scalability, but it may be more expensive for sustained usage. 
-+  For short-term or temporary workloads, on-demand or serverless capacity may be more cost-effective because you don't have to pay for unused provisioned capacity. 
-+  For long-running or mission-critical workloads with consistent traffic, provisioned capacity can provide better performance and cost savings. 
+ Utilization determines the breakeven point between capacity models. Provisioned capacity becomes cheaper than on-demand once sustained utilization exceeds 60 to 70 percent of the provisioned amount. The exact threshold varies by service. 
 
- Analyze your workload patterns, performance requirements, and cost considerations to determine the most suitable capacity model for your use case. Additionally, many AWS services offer auto scaling and capacity management features to help optimize resource allocation and costs based on actual usage patterns. 
+ Advertising workloads can display both patterns, sometimes in the same workload. Bid evaluation fleets and user profile lookups hold steady throughput during business hours across active campaign markets. Campaign launches, seasonal events, and month-end advertiser budget flushes create unpredictable spikes that can exceed baseline by three to five times within minutes. 
+
+ Use a hybrid pattern, a provisioned baseline with on-demand burst, to handle both patterns. [Amazon DynamoDB auto scaling](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AutoScaling.html) adjusts provisioned throughput within defined bounds, but it reacts to sustained load changes over minutes rather than instantaneous spikes. [Amazon Kinesis Data Streams](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) offers both provisioned and on-demand modes, though switching between them requires understanding the resharding delay and its effect on consumer applications. [AWS Lambda provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/provisioned-concurrency.html) avoids cold starts for a fixed cost, which matters for bid evaluation functions where cold start latency exceeds exchange response deadlines. 
+
+ Campaign portfolios shift quarterly, new advertiser verticals bring different traffic shapes, and seasonal patterns differ from year to year. A table set to provisioned during a stable campaign period might need on-demand mode during an unpredictable product launch. When you leave a capacity mode static, cost drifts as real traffic diverges from the original configuration. 
+
+ When the infrastructure team sets capacity modes but the campaign operations team controls traffic patterns, the two teams can fall out of sync. The campaign team launches a high-traffic campaign without notifying the infrastructure team, provisioned capacity falls short, throttling starts, and bids are lost. Establish a feedback loop between the teams that control demand and the teams that control supply. 
+
+### Implementation steps
+<a name="implementation-steps"></a>
+
+1.  **Inventory all AWS services and categorize by traffic pattern:** Classify each service as consistent baseline, predictable peaks, variable or bursty, or short-lived and temporary. Document the classification and use it to guide capacity model selection. 
+
+1.  **Apply provisioned capacity to stable baseline workloads:** Configure DynamoDB provisioned throughput with auto scaling for user profile and frequency cap tables with consistent read/write patterns. Use Kinesis Data Streams provisioned capacity for steady ingestion rates. Configure Lambda provisioned concurrency for latency-sensitive bid evaluation functions that must respond without cold starts. 
+
+1.  **Apply on-demand or serverless capacity to unpredictable workloads:** Switch DynamoDB tables with variable, campaign-driven traffic to on-demand mode. Use Kinesis on-demand mode for fluctuating event volumes during campaign launches. Use Amazon Athena on-demand capacity for ad-hoc analytics queries. 
+
+1.  **Implement a hybrid approach with auto scaling for burst handling:** Configure auto scaling on provisioned DynamoDB capacity with target utilization thresholds. Set minimum provisioned capacity at the predictable baseline and maximum at 150% of expected peak. Use AWS Cost Explorer monthly to compare actual spend against alternative models and adjust configurations as campaign patterns evolve. 
 
 ## Resources
-<a name="resources-55"></a>
-+  [Choose the data stream capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) 
+<a name="resources"></a>
+
+ **Related documents:** 
++  [Choose the data stream capacity mode (Kinesis)](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) 
++  [Serverless on AWS](https://aws.amazon.com/serverless/) 
 +  [Pricing for Provisioned Capacity](https://aws.amazon.com/dynamodb/pricing/provisioned/) 
 +  [Configuring provisioned concurrency for a function](https://docs.aws.amazon.com/lambda/latest/dg/provisioned-concurrency.html) 
-+  [Serverless on AWS](https://aws.amazon.com/serverless/) 
+
+ **Related services:** 
++  [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) 
++  [Amazon Kinesis Data Streams](https://aws.amazon.com/kinesis/data-streams/) 
++  [AWS Lambda](https://aws.amazon.com/lambda/) 

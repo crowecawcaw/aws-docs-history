@@ -3,9 +3,9 @@
 # Contributors
 <a name="contributors"></a>
 
- The following individuals and organizations contributed to this document: 
+ Contributors to this document include: 
 +  Abraham Lobo, Principal Technical Account Manager, Amazon Web Services 
-+ Andrew Korshunenko, Senior Solutions Architect, Amazon Web Services 
++  Andrew Korshunenko, Senior Solutions Architect, Amazon Web Services 
 +  Aydn Bekirov, Principal Technical Account Manager, Amazon Web Services 
 +  Basil Badawiyeh, Senior Enterprise Support Manager, Amazon Web Services 
 +  Ian Coleshill, Principal Solutions Architect, Amazon Web Services 
@@ -26,7 +26,13 @@
 +  Mahmoud Matouk, Principal Security Lead Solutions Architect, Amazon Web Services 
 +  Nataliya Godunok, Cloud Optimization Success Solutions Architect, Amazon Web Services 
 +  Ranjith Krishnamoorthy, Principal Solutions Architect, Amazon Web Services 
-+  Bruce Ross, Lens Lead Solutions Architect Well-Architected, Amazon Web Services 
-+  Stewart Matzek, Sr. Technical Writer Well-Architected, Amazon Web Services 
-+  Madhuri Srinivasan, Sr. Technical Writer Well-Architected, Amazon Web Services 
-+  Matthew Wygant, Sr. TPM Guidance, Amazon Web Services 
++  Bruce Ross, Lens Lead Solutions Architect, Well-Architected, Amazon Web Services 
++  Stewart Matzek, Sr. Technical Writer, Well-Architected, Amazon Web Services 
++  Madhuri Srinivasan, Sr. Technical Writer, Well-Architected, Amazon Web Services 
++  Matthew Wygant, Sr. TPM Guidance, Amazon Web Services 
++  Lavanya Tangutur, Senior Technical Account Manager, Amazon Web Services 
++  Fernando Freitas, Senior Technical Account Manager, Amazon Web Services 
++  Rajat Jain, Technical Account Manager, Amazon Web Services 
++  Kapil Tuteja, Senior Technical Account Manager, Amazon Web Services 
++  Kevin Yu, Principal Support Domain Architect, Amazon Web Services 
++  Mike Torro, Senior Technical Account Manager, Amazon Web Services 

@@ -3,11 +3,14 @@
 # Cost optimization
 <a name="cost-optimization"></a>
 
- The cost optimization pillar includes the ability to run systems to deliver business value at the lowest price point. 
+The cost optimization pillar includes the ability to run systems to deliver business value at the lowest price point.
 
- The cost optimization pillar provides an overview of design principles, best practices, and questions. You can find implementation guidance on implementation in the [Cost Optimization Pillar whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html). 
-
-## Design principles
-<a name="cost-design-principles"></a>
-
- The key to cost optimization for advertising workloads is to maintain profitable campaigns through a comprehensive system that can accurately track campaign costs against value. Optimization efforts should focus on minimizing unnecessary infrastructure costs and providing sufficient but not excessive capacity through intelligent auto scaling mechanisms. Given the large amounts of traffic involved in adverting workloads, even small optimizations can yield considerable cost savings. Implement effective anti-fraud solutions to reduce costs, and process and store data only from valid consumers, customers, and partners. 
+## Capabilities
+<a name="cost-capabilities"></a>
++ [Cost measurement and financial management](advcost01.md)
++ [Cost-effective resources](advcost02.md)
++ [RTB connectivity, traffic, and compute cost](advcost03.md)
++ [Data storage and collaboration cost](advcost04.md)
++ [Agentic AI cost optimization](advcost05.md)
++ [Media delivery and creative cost](advcost06.md)
++ [Converged ad sales system cost reduction](advcost07.md)

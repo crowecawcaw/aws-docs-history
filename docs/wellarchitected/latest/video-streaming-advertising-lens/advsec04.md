@@ -1,28 +1,32 @@
 
 
-# Data protection
+# Content integrity, brand safety, and ad fraud prevention
 <a name="advsec04"></a>
 
+ Advertising decisions depend on claims about the creative, content environment, seller, supply path, and viewer session. This capability establishes evidence for those claims and keeps an approved decision valid from campaign activation through delivery. 
 
-| ADVSEC04: How do you store and protect raw data in your DMP system? | 
+ The scope includes malvertising, brand suitability, supply-chain misrepresentation, creative substitution, and fabricated delivery sessions. It doesn't cover volumetric protection at the infrastructure boundary or the privacy terms governing audience data. 
+
+
+|  ADVSEC04: How do you preserve content integrity and guard against unsafe placement, supply-chain fraud, and delivery manipulation?  | 
 | --- | 
-|   | 
+| [ADVSEC04-BP01 Validate and sanitize ad creative content before campaign activation](advsec04-bp01.md) | 
+| [ADVSEC04-BP02 Create guardrails and controls to maintain brand safety and content moderation within your workload](advsec04-bp02.md) | 
+| [ADVSEC04-BP03 Implement supply chain transparency controls to block ad fraud](advsec04-bp03.md) | 
+| [ADVSEC04-BP04 Secure ad creative delivery and content integrity across converged channels](advsec04-bp04.md) | 
 
- A DMP solution often collects multiple forms of data from customers, advertising solutions, DSPs, and SSPs to transform raw data and provide insights to different portions of a cloud-based advertising workload. Protecting DMPs usually requires robust security measures for the different parts of the pipeline that ingest and transform data. Consider using Amazon S3 as a centralized data store. Amazon S3 is an object storage service that can securely store data for a range of use cases. For data protection, strict S3 bucket policies should be implemented that enforce encryption of data at rest and define strict access controls. 
+## Capability intent
+<a name="advsec04-capability-intent"></a>
++  Evidence from an accountable authority supports creative, content, seller, supply-path, and session claims. 
++  Release, placement, and delivery decisions remain valid when dependencies, relationships, content, or threat indicators change. 
++  Blocking, quarantine, review, revocation, and fraud responses reflect defined risk states rather than informal operator judgment. 
++  Workload controls enforce advertiser and publisher policies consistently across auction, stitching, and delivery boundaries. 
++  Investigation records connect the affected asset or session to the evidence, decision, owner, and exposure window. 
 
- An enhanced layer of protection would be to enforce the use of service-side encryption (SSE) with an AWS KMS-managed key (SSE-KMS) which can assist in protecting the data but also meet potential compliance requirements. SSE-KMS allows you to maintain the ownership of the keys with the ability to revoke access depending on the job requirements to the data. By implementing SSE-KMS you have a defense in depth strategy as the consumer of the data needs access to the data on S3 and permission to use the KMS key to decrypt it. A combination of these features verify data is protected at rest. 
-
-**Topics**
-+ [ADVSEC04-BP01 Implement secure data collaboration with least privileged access and privacy controls](advsec04-bp01.md)
-+ [Key AWS services](#key-aws-services-5)
-+ [Resources](#resources-10)
-
-## Key AWS services
-<a name="key-aws-services-5"></a>
-+  [AWS S3](https://aws.amazon.com/pm/serv-s3/) 
-+  [AWS KMS](https://aws.amazon.com/kms/) 
-
-## Resources
-<a name="resources-10"></a>
-+  [Using server-side encryption with AWS KMS keys (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html) 
-+  [Bucket policies for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-policies.html) 
+## Common issues to watch for
+<a name="advsec04-common-issues-to-watch-for"></a>
++  Approving only the submitted creative file although remote scripts, wrappers, media, or destinations can change its behavior after release. 
++  Classifying content only at campaign setup, which misses content drift and advertiser-specific suitability decisions during delivery. 
++  Treating public seller declarations as the commercial authority, which can preserve stale or unauthorized supply relationships. 
++  Validating only the first or last supply-path participant, which leaves intermediary misrepresentation undetected. 
++  Trusting an approved asset URL or authenticated session without verifying delivered bytes and behavior, which permits substitution and fabricated activity. 
