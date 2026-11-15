@@ -63,4 +63,4 @@ To learn more about the columns in your report, see the [Data dictionary](data-d
 You can download your report from the Amazon S3 console, query the report using Amazon Athena, or upload the report into Amazon Redshift or Quick.
 + For more information about creating an Amazon S3 bucket and using Athena to query your data, see [Querying Cost and Usage Reports using Amazon Athena](cur-query-athena.md).
 + For more information about uploading to Amazon Redshift, see [Loading report data to Amazon Redshift](cur-query-other.md#cur-query-other-rs).
-+ For more information about uploading to Quick, see [Loading report data to Amazon Quick](cur-query-other.md#cur-query-other-qs).
++ For more information about uploading to Quick, see [Loading report data to AWS Quick](cur-query-other.md#cur-query-other-qs).
