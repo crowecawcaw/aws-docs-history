@@ -18,6 +18,7 @@ The following example shows a Cloud WAN global network with three Regions within
 **Topics**
 + [Prerequisites](#direct-connect-cloud-wan-prereq)
 + [Considerations](#direct-connect-cloud-wan-limits)
++ [BGP community support](#bgp-community-support-cloudwan)
 + [Direct Connect gateway associations to a Cloud WAN core network](#associate-cloudwan-with-direct-connect-gateway)
 + [Verify a Direct Connect gateway association](edit-cloudwan-with-direct-connect-gateway.md)
 
@@ -40,6 +41,18 @@ The following limits apply for Direct Connect gateway associations with a Cloud 
 + The ASN of a Direct Connect gateway must be outside of the ASN range configured for the Cloud WAN core network. For example, if you have an ASN range of 64512 - 65534 for the core network, the ASN of the Direct Connect gateway must use an ASN outside of that range. 
 + Cloud WAN might not support specific attachment types using the Direct Connect attachment type for transport. For more information about Direct Connect gateway attachments to a Cloud WAN core network, see [Direct Connect gateway attachments in AWS Cloud WAN](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-create-attachment.html) in the *AWS Cloud WAN User Guide*.
 + CloudWatch Network Monitor supports latency and packet loss metrics when used with a Cloud WAN Direct Connect gateway attachment type. The Network Health Indicator feature is not supported. For more information, see [Using Amazon CloudWatch Network Monitor](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/what-is-network-monitor.html) in the *Amazon CloudWatch User Guide*.
+
+## BGP community support
+<a name="bgp-community-support-cloudwan"></a>
+
+Standard BGP community tags that you advertise over the transit virtual interface are preserved across the Direct Connect gateway to your AWS Cloud WAN core network. You can match on these communities and add or remove them using Cloud WAN Advanced Routing policies. For more information, see [Cloud WAN routing policies](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-routing-policies.html) in the *AWS Cloud WAN User Guide*.
+
+Direct Connect selects a single best path for each prefix before advertising it to the core network. If you advertise the same prefix from more than one location with different communities, only the communities on the best path are preserved.
+
+The following communities are not supported and are removed before the route reaches your core network:
++ Large BGP communities (RFC 8092).
++ Extended communities, such as route targets.
++ Communities whose first value is an ASN reserved by AWS: 7224, 10124, 17493, 9059, or 4001. A standard community is written as ASN:value (for example, 65001:200); use your own ASN in the first position.
 
 ## Direct Connect gateway associations to a Cloud WAN core network
 <a name="associate-cloudwan-with-direct-connect-gateway"></a>
