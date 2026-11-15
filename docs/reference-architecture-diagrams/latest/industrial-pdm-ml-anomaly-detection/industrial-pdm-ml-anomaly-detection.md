@@ -27,7 +27,7 @@ The following steps describe the architecture:
 
 1. Build data queries in [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/) against the [AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/) Data Catalog.
 
-1. Visualize analysis with [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) on the Athena data source.
+1. Visualize analysis with [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) on the Athena data source.
 
 1. Create an anomaly detection application in Amazon Managed Service for Apache Flink.
 
