@@ -68,7 +68,9 @@ When you use the **Include specified cookies** or **Include all cookies except**
 ```
 Cookie: session_ID=abcd1234
 ```
-In this case, you specify the cookie as `session_ID`, not as `session_ID=abcd1234`. However, CloudFront includes the full cookie, including its value, in the cache key and in origin requests.
+In this case, you specify the cookie as `session_ID`, not as `session_ID=abcd1234`. However, CloudFront includes the full cookie, including its value, in the cache key and in origin requests.  
+You can use the asterisk (`*`) as a wildcard in cookie names. It matches 0 or more characters in the cookie name. The wildcard applies to both the **Include specified cookies** and **Include all cookies except** settings.  
+For example, if you specify `userid_*`, CloudFront matches all of the cookies whose names begin with `userid_`, such as `userid_1234` and `userid_5678`. A cookie name can't consist only of asterisks. To include all cookies, use the **All** setting instead.
 
 **Query strings**  
 The URL query strings in viewer requests that CloudFront includes in the cache key and in origin requests. For query strings, you can choose one of the following settings:  
@@ -82,7 +84,7 @@ When you use the **Include specified query strings** or **Include all query stri
 /content/stories/example-story.html?split-pages=false
 ```
 In this case, you specify the query string as `split-pages`, not as `split-pages=false`. However, CloudFront includes the full query string, including its value, in the cache key and in origin requests.  
-For the cache key settings, CloudFront treats the asterisk character (`*`) for the headers, query strings, and cookies as a literal string, not as a wildcard.
+For the header and query string cache key settings, CloudFront treats the asterisk character (`*`) as a literal string, not as a wildcard. For cookies, the asterisk character is a wildcard. For more information about cookies, see [Cookies](#cache-policy-cookies).
 
 **Compression support**  
 These settings enable CloudFront to request and cache objects that are compressed in the Gzip or Brotli compression formats, when the viewer supports it. These settings also allow [CloudFront compression](ServingCompressedFiles.md) to work. Viewers indicate their support for these compression formats with the `Accept-Encoding` HTTP header.  

@@ -39,7 +39,9 @@ The cookies in viewer requests that CloudFront includes in origin requests. For 
 + **All** – All cookies in viewer requests are included in origin requests.
 + **Include the following cookies** – You specify which cookies in viewer requests are included in origin requests.
 + **All cookies except** – You specify which cookies in viewer requests are ***not*** included in origin requests. All other cookies in viewer requests are included.
-When you use the **Include the following cookies** or **All cookies except** setting, you specify cookies by their name only. CloudFront includes the full cookie, including its value, in origin requests.
+When you use the **Include the following cookies** or **All cookies except** setting, you specify cookies by their name only. CloudFront includes the full cookie, including its value, in origin requests.  
+You can use the asterisk (`*`) as a wildcard in cookie names. It matches 0 or more characters in the cookie name.  
+For example, if you specify `userid_*`, CloudFront matches all of the cookies whose names begin with `userid_`, such as `userid_1234` and `userid_5678`. A cookie name can't consist only of asterisks. To include all cookies, use the **All** setting instead.
 
 **Query strings**  
 The URL query strings in viewer requests that CloudFront includes in origin requests. For query strings, you can choose one of the following settings:  
