@@ -6,7 +6,7 @@
 You can set the policy validation mode in Verified Permissions to control whether policy changes are validated against the [schema](schema.md) in your policy store.
 
 **Important**  
-When you turn on policy validation, all attempts to create or update a policy or policy template are validated against the schema in the policy store. Verified Permissions rejects the request attempt if validation fails. For this reason, we recommend leaving validation off while you're developing your application and turning it on for testing and leaving it on while your application is in production.
+When you turn on policy validation, all new attempts to create or update a policy or policy template are validated against the schema in the policy store. Previously created policies do not get re-validated. When policy validation is enabled, Verified Permissions rejects the request attempt if validation fails. For this reason, we recommend leaving validation off while you're developing your application and turning it on for testing and leaving it on while your application is in production.
 
 ------
 #### [ AWS Management Console ]
