@@ -1,13 +1,13 @@
 
 
-# Troubleshoot unsuccessful CloudFormation stack deployments with Amazon Q Developer
+# Troubleshoot unsuccessful CloudFormation stack deployments with AWS assistant
 <a name="cfn-troubleshooting-with-amazon-q"></a>
 
-Amazon Q Developer is a generative artificial intelligence (AI) powered conversational assistant that can help you understand, build, extend, and operate AWS applications. For information about Amazon Q Developer, see the [Amazon Q Developer User Guide](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/what-is.html).
+The AWS assistant is a generative artificial intelligence (AI) powered conversational assistant that can help you understand, build, extend, and operate AWS applications. For information about the AWS assistant, see the [AWS assistant User Guide](https://docs.aws.amazon.com/assistant/latest/userguide/what-is.html).
 
-This document describes how to use Amazon Q Developer to help you troubleshoot unsuccessful CloudFormation deployments. This feature is designed to help you quickly identify and resolve issues encountered during stack deployment.
+This document describes how to use the AWS assistant to help you troubleshoot unsuccessful CloudFormation deployments. This feature is designed to help you quickly identify and resolve issues encountered during stack deployment.
 
- Powered by Amazon Bedrock: Amazon Q is built on Amazon Bedrock and includes [automated abuse detection](https://docs.aws.amazon.com/bedrock/latest/userguide/abuse-detection.html) implemented in Amazon Bedrock to enforce safety, security, and the responsible use of AI. 
+ Powered by Amazon Bedrock: The AWS assistant is built on Amazon Bedrock and includes [automated abuse detection](https://docs.aws.amazon.com/bedrock/latest/userguide/abuse-detection.html) implemented in Amazon Bedrock to enforce safety, security, and the responsible use of AI. 
 
 **Topics**
 + [Features](#cfn-troubleshooting-with-amazon-q-features)
@@ -19,7 +19,7 @@ This document describes how to use Amazon Q Developer to help you troubleshoot u
 ## Features
 <a name="cfn-troubleshooting-with-amazon-q-features"></a>
 
-The troubleshooting stack deployments with Amazon Q Developer solution provides the following features:
+The troubleshooting stack deployments with the AWS assistant solution provides the following features:
 +  **Error analysis** – Provides easy-to-understand analysis of CloudFormation stack deployments errors.
 +  **Resolution suggestions** – Offers step-by-step instructions to resolve identified issues.
 
@@ -28,9 +28,9 @@ The troubleshooting stack deployments with Amazon Q Developer solution provides 
 
 When a CloudFormation stack creation or update fails, an error message is displayed in the AWS Management Console.
 
-You can choose the **Diagnose with Q** button next to the error message.
+You can choose the **Diagnose with AWS assistant** button next to the error message.
 
-Amazon Q Developer analyzes the error and provides an explanation of the issue.
+The AWS assistant analyzes the error and provides an explanation of the issue.
 
 For additional assistance, choose **Help me resolve** to receive detailed resolution steps.
 
@@ -42,7 +42,7 @@ For information about pricing, see [Amazon Q Developer pricing](https://aws.amaz
 ## Regional availability
 <a name="cfn-troubleshooting-with-amazon-q-regions"></a>
 
-Amazon Q Developer is available in most AWS Regions. For a list of all the Regions where Amazon Q Developer is currently available, see [Supported Regions for Amazon Q Developer](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/regions.html) in the *Amazon Q Developer User Guide*.
+The AWS assistant is available in most AWS Regions. For a list of all the Regions where the AWS assistant is currently available, see [Supported AWS Regions for AWS assistant](https://docs.aws.amazon.com/assistant/latest/userguide/regions.html) in the *AWS assistant User Guide*.
 
 ## Limitations
 <a name="cfn-troubleshooting-with-amazon-q-limitations"></a>
