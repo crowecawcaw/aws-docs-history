@@ -7,12 +7,12 @@ Publication date: **June 11, 2021 ([Diagram history](#crew-systems-history))**
 
 You can use AWS to create a highly available, secure, flexible, and cost-effective architecture for airline crew management systems. This architecture connects corporate users to crew applications through multiple networking options.
 
-This architecture uses [Amazon Elastic Kubernetes Service](https://docs.aws.amazon.com/eks/latest/userguide/) for container orchestration. It stores crew data in [Amazon Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/) and provides business intelligence through [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html).
+This architecture uses [Amazon Elastic Kubernetes Service](https://docs.aws.amazon.com/eks/latest/userguide/) for container orchestration. It stores crew data in [Amazon Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/) and provides business intelligence through [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html).
 
 ## Airline crew management systems diagram
 <a name="crew-systems-diagram"></a>
 
-![Architecture for airline crew management using Amazon Elastic Kubernetes Service, Amazon Aurora, and Amazon Quick Sight.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/crew-management-systems/images/crew-management-systems-aws-ra.png)
+![Architecture for airline crew management using Amazon Elastic Kubernetes Service, Amazon Aurora, and AWS Quick Sight.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/crew-management-systems/images/crew-management-systems-aws-ra.png)
 
 
 The following steps describe the architecture:
