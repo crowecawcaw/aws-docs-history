@@ -23,7 +23,7 @@ The following steps describe the deployment topology and connectivity for this a
 
 1. Connect the Outpost to the home AWS Region through a service link for management of the AWS Outposts instance and intra-VPC traffic. Use your existing internet connection or [AWS Direct Connect](https://docs.aws.amazon.com/directconnect/latest/UserGuide/).
 
-1. Connect applications running on AWS Outposts securely to other applications running in the AWS Region, such as a Distributed Energy Resource Management System (DERMS). Use services in the AWS Region such as [Amazon Simple Storage Service](https://docs.aws.amazon.com/AmazonS3/latest/userguide/), [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/), [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html), and [Amazon SageMaker AI](https://docs.aws.amazon.com/sagemaker/latest/dg/) for data analytics and ML use cases.
+1. Connect applications running on AWS Outposts securely to other applications running in the AWS Region, such as a Distributed Energy Resource Management System (DERMS). Use services in the AWS Region such as [Amazon Simple Storage Service](https://docs.aws.amazon.com/AmazonS3/latest/userguide/), [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/), [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html), and [Amazon SageMaker AI](https://docs.aws.amazon.com/sagemaker/latest/dg/) for data analytics and ML use cases.
 
 ## Further reading
 <a name="adms-further-reading"></a>
