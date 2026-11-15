@@ -49,6 +49,9 @@ Choose the link in the **AWS service** column to see the documentation for servi
 - **[AWS AppSync](https://docs.aws.amazon.com/appsync/latest/devguide/using-private-apis.html)**
   - com.amazonaws.{{region}}.appsync-api
 
+- ** [AWS Assurance](https://docs.aws.amazon.com/assurance/latest/userguide/vpc-interface-endpoints.html) **
+  - com.amazonaws.{{region}}.assurance
+
 - ** [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/interface-vpc-endpoint.html) **
   - com.amazonaws.{{region}}.athena
 

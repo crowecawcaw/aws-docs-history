@@ -24,8 +24,16 @@ A resource gateway does not provide load balancing capabilities.
 The following considerations apply to resource gateways:
 + For your resource to be accessible from all [Availability Zones](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/), you should create your resource gateways to span as many Availability Zones as possible.
 + At least one Availability Zone of the VPC endpoint and the resource gateway have to overlap.
-+ A VPC can have a maximum of 100 resource gateways. For more information, see [Quotas for VPC Lattice](https://docs.aws.amazon.com/vpc-lattice/latest/ug/quotas.html).
-+ You can't create a resource gateway in a shared subnet.
++ A VPC has a default quota of 500 resource gateways, which is adjustable. For more information, see [Quotas for VPC Lattice](https://docs.aws.amazon.com/vpc-lattice/latest/ug/quotas.html).
++ The following considerations apply to resource gateways with shared VPC subnets:
+  + The VPC owner, or a participant account that a subnet is shared with, can create a resource gateway in a shared VPC subnet.
+  + Only the account that owns the resource gateway can create a resource configuration for that resource gateway.
+  + The quota for the maximum number of resource gateways per VPC is enforced at the VPC owner account. Only the VPC owner can request an increase to this quota. This quota counts all resource gateways in the VPC, including those that participant accounts create in the VPC's shared subnets.
+  + The VPC owner can't view or modify the resource gateways that participant accounts create, or the resource configurations for those resource gateways.
+  + A participant account must specify at least one security group for its resource gateway, and must own every security group that it specifies. A participant account can't use the VPC's default security group or security groups that are shared with it. Specifying one of these returns a "cannot be found" error.
+  + For a resource gateway that a participant account creates, the IP address and CIDR targets of a resource configuration must be within the subnets that are shared with that participant account. Each CIDR must be within a single shared subnet. IP address and CIDR ranges in on-premises networks, peered VPCs, or subnets that aren't shared with the participant account are rejected. Resources that other accounts own within the shared subnets are supported.
+  + A resource configuration that targets an Amazon RDS database by ARN must reference a database in the resource gateway owner's account.
+  + To reach a resource outside the shared subnets, such as an Amazon RDS database in the VPC owner's account, use a domain-name target. Domain-name targets aren't checked against the shared subnet ranges and work as long as routing allows.
 
 ## Security groups
 <a name="resource-gateway-security-groups"></a>
