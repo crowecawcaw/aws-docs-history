@@ -29,7 +29,7 @@ The following steps describe the data flow and analytics pipeline for this archi
 
 1. Bring metrics collected by the ACS (outside TR-069) into the data lake through [AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/).
 
-1. Visualize data and monitor fleet health by using [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html), [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/), and other tools.
+1. Visualize data and monitor fleet health by using [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html), [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/), and other tools.
 
 1. Use data and insights collected at the data lake to feed external systems. Start actions on the ACS based on findings.
 
