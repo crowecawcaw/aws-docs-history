@@ -289,8 +289,7 @@ This example assumes that your AWS credentials are configured in your environmen
     --region {{us-east-1}} \
     --service neptune-db \
     -X POST \
-    -d "cancelQuery" \
-    -d "queryId={{f43ce17b-db01-4d37-a074-c76d1c26d7a9}}"
+    -d "cancelQuery&queryId={{f43ce17b-db01-4d37-a074-c76d1c26d7a9}}"
   ```
 
 **Note**  

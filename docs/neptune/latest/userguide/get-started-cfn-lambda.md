@@ -68,11 +68,11 @@ You can use an CloudFormation template to create an AWS Lambda function that can
 If you need to make your own changes to the Lambda runtime, you can download a generic one from an Amazon S3 location in your Region:
 
 ```
-https://s3.{{Amazon region}}.amazonaws.com/aws-neptune-customer-samples-{{Amazon region}}/lambda/{{runtime-language}}/lambda_function.zip.
+https://s3.{{Amazon region}}.amazonaws.com/aws-neptune-customer-samples-{{Amazon region}}/lambda/{{runtime-language}}/lambda_function.zip
 ```
 
 For example:
 
 ```
-https://s3.us-west-2.amazonaws.com/aws-neptune-customer-samples-us-west-2/lambda/python36/lambda_function.zip
+https://s3.us-west-2.amazonaws.com/aws-neptune-customer-samples-us-west-2/lambda/python39/lambda_function.zip
 ```

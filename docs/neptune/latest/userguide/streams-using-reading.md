@@ -66,7 +66,7 @@ next_response = client.get_propertygraph_stream(
 #### [ awscurl ]
 
 ```
-awscurl https://{{your-neptune-endpoint}}:{{port}}/propertygraph/stream?limit=10 \
+awscurl 'https://{{your-neptune-endpoint}}:{{port}}/propertygraph/stream?limit=10&iteratorType=TRIM_HORIZON' \
   --region {{us-east-1}} \
   --service neptune-db
 ```
@@ -80,7 +80,7 @@ For more information about using **awscurl** with IAM authentication, see [Using
 #### [ curl ]
 
 ```
-curl https://{{your-neptune-endpoint}}:{{port}}/propertygraph/stream?limit=10
+curl 'https://{{your-neptune-endpoint}}:{{port}}/propertygraph/stream?limit=10&iteratorType=TRIM_HORIZON'
 ```
 
 **Note**  

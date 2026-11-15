@@ -68,7 +68,7 @@ You can use the `dependencies` parameter to queue up a job that must only be run
 
 ## Neptune Loader Request Parameters
 <a name="load-api-reference-load-parameters"></a>
-+ **`source`**   –   An Amazon S3 URI.
++ **`source`**   –   An Amazon S3 URI. **(required)**
 
   The `SOURCE` parameter accepts an Amazon S3 URI that identifies a single file, multiple files, a folder, or multiple folders. Neptune loads every data file in any folder that is specified.
 
@@ -97,7 +97,7 @@ You can use the `dependencies` parameter to queue up a job that must only be run
   s3://bucket-name/ab/c
   s3://bucket-name/ade
   ```
-+ **`format`**   –   The format of the data. For more information about data formats for the Neptune `Loader` command, see [Using the Amazon Neptune bulk loader to ingest data](bulk-load.md).
++ **`format`**   –   The format of the data. For more information about data formats for the Neptune `Loader` command, see [Using the Amazon Neptune bulk loader to ingest data](bulk-load.md). **(required)**
 
 **Allowed values**
   + **`csv`** for the [Gremlin CSV data format](bulk-load-tutorial-format-gremlin.md).
@@ -106,7 +106,7 @@ You can use the `dependencies` parameter to queue up a job that must only be run
   + **`nquads`** for the [N-Quads RDF data format](https://www.w3.org/TR/n-quads/).
   + **`rdfxml`** for the [RDF\\XML RDF data format](https://www.w3.org/TR/rdf-syntax-grammar/).
   + **`turtle`** for the [Turtle RDF data format](https://www.w3.org/TR/turtle/).
-+ **`iamRoleArn`**   –   The Amazon Resource Name (ARN) for an IAM role to be assumed by the Neptune DB instance for access to the S3 bucket. For information about creating a role that has access to Amazon S3 and then associating it with a Neptune cluster, see [Prerequisites: IAM Role and Amazon S3 Access](bulk-load-tutorial-IAM.md).
++ **`iamRoleArn`**   –   The Amazon Resource Name (ARN) for an IAM role to be assumed by the Neptune DB instance for access to the S3 bucket. For information about creating a role that has access to Amazon S3 and then associating it with a Neptune cluster, see [Prerequisites: IAM Role and Amazon S3 Access](bulk-load-tutorial-IAM.md). **(required)**
 
   Starting with [engine release 1.2.1.0.R3](engine-releases-1.2.1.0.R3.md), you can also chain multiple IAM roles if the Neptune DB instance and the Amazon S3 bucket are located in different AWS Accounts. In this case, `iamRoleArn` contains a comma-separated list of role ARNs, as described in [Chaining IAM roles in Amazon Neptune](bulk-load-tutorial-chain-roles.md). For example:
 
@@ -182,7 +182,7 @@ This example assumes that your AWS credentials are configured in your environmen
   ```
 
 ------
-+ **`region`**   –   The `region` parameter must match the AWS Region of the cluster and the S3 bucket.
++ **`region`**   –   The `region` parameter must match the AWS Region of the cluster and the S3 bucket. **(required)**
 
   Amazon Neptune is available in the following Regions:
   + US East (N. Virginia):   `us-east-1`

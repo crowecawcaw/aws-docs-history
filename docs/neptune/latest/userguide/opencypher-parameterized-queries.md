@@ -101,6 +101,12 @@ curl -H "Content-Type: application/opencypher" \
 
 ------
 
+**Note**  
+In these examples, replace {{your-neptune-endpoint}} with your cluster endpoint and {{port}} with the Neptune port (the default is `8182`).  
+The plain `curl` form works only when you disable IAM database authentication on your cluster.  
+When you enable IAM database authentication, Neptune rejects unsigned requests. Sign each request with AWS Signature Version 4. You can use a tool such as the `awscurl` command in the preceding example.  
+For more information about signing requests with AWS Signature Version 4, see [Connecting with IAM authentication](iam-auth-connecting.md).
+
 ## Examples of openCypher parameterized queries using Bolt
 <a name="opencypher-bolt-parameterized-queries"></a>
 

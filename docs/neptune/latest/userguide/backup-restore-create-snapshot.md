@@ -25,3 +25,12 @@ You can create a DB cluster snapshot using the AWS Management Console, the AWS C
 1. Enter the name of the DB cluster snapshot in the **Snapshot name** box. 
 
 1. Choose **Take Snapshot**.
+
+1. To confirm that you created the snapshot, select **Snapshots** on the navigation pane. Your new snapshot appears in the list with a status of **Creating**. When the snapshot is ready, the status changes to **Available**, which indicates that you can restore from it.
+
+## Learn more
+<a name="backup-restore-create-snapshot-learn-more"></a>
+
+For more information about working with DB cluster snapshots, see the following topics:
++ [Restoring from a DB Cluster Snapshot](backup-restore-restore-snapshot.md)
++ [Backing up and restoring an Amazon Neptune DB cluster](backup-restore.md)

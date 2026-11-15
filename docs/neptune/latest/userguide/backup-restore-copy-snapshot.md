@@ -106,7 +106,7 @@ If you are copying the snapshot to a new AWS Region, run the command in the new 
 Use the following parameter descriptions and examples to determine which parameters to use in copying a snapshot with the AWS CLI.
 + `--source-db-cluster-snapshot-identifier`   –   The identifier for the source DB snapshot.
   + If the source snapshot is in the same AWS Region as the copy, specify a valid DB snapshot identifier, like `neptune:instance1-snapshot-20130805`.
-  + If the source snapshot is in a different AWS Region than the copy, specify a valid DB snapshot ARN like `arn:aws:neptune:us-west-2:123456789012:snapshot:instance1-snapshot-20130805`.
+  + If the source snapshot is in a different AWS Region than the copy, specify a valid DB snapshot ARN like `arn:aws:rds:us-west-2:111122223333:cluster-snapshot:instance1-snapshot-20130805`.
   + If you are copying from a shared manual DB snapshot, this parameter must be the Amazon Resource Name (ARN) of the shared DB snapshot.
   + If you are copying an encrypted snapshot, this parameter must be in the ARN format for the source AWS Region, and must match the `SourceDBSnapshotIdentifier` in the `PreSignedUrl` parameter.
 + `--target-db-cluster-snapshot-identifier` –   –   The identifier for the new copy of the encrypted DB snapshot.
@@ -118,7 +118,7 @@ Use the following parameter descriptions and examples to determine which paramet
 + `--region` –   –   The ID of the AWS Region into which you are copying the snapshot. If you copy an encrypted snapshot to a different AWS Region, then you must specify this option.
 
 **Example From Unencrypted, To Same Region**  
-The following code creates a copy of a snapshot, with the new name `mydbsnapshotcopy`, from the `us-east-1` AWS region to the `us-west-2` region.  
+The following code creates a copy of a snapshot, with the new name `mydbsnapshotcopy`, within the same AWS Region.  
 For Linux, OS X, or Unix:  
 
 ```
@@ -140,7 +140,7 @@ For Linux, OS X, or Unix:
 
 ```
 aws neptune copy-db-cluster-snapshot \
-  --source-db-cluster-snapshot-identifier {{arn:aws:neptune:us-east-1:123456789012:snapshot:instance1-snapshot-20130805}} \
+  --source-db-cluster-snapshot-identifier {{arn:aws:rds:us-east-1:123456789012:cluster-snapshot:instance1-snapshot-20130805}} \
   --target-db-cluster-snapshot-identifier {{mydbsnapshotcopy}} \
   --source-region {{us-east-1}} \
   --region {{us-west-2}}
@@ -149,7 +149,7 @@ For Windows:
 
 ```
 aws neptune copy-db-cluster-snapshot ^
-  --source-db-cluster-snapshot-identifier {{arn:aws:neptune:us-east-1:123456789012:snapshot:instance1-snapshot-20130805}} ^
+  --source-db-cluster-snapshot-identifier {{arn:aws:rds:us-east-1:123456789012:cluster-snapshot:instance1-snapshot-20130805}} ^
   --target-db-cluster-snapshot-identifier {{mydbsnapshotcopy}} ^
   --source-region {{us-east-1}} ^
   --region {{us-west-2}}
@@ -161,19 +161,19 @@ For Linux, OS X, or Unix:
 
 ```
 aws neptune copy-db-cluster-snapshot \
-  --source-db-cluster-snapshot-identifier {{arn:aws:neptune:us-west-2:123456789012:snapshot:instance1-snapshot-20161115}} \
+  --source-db-cluster-snapshot-identifier {{arn:aws:rds:us-east-1:123456789012:cluster-snapshot:instance1-snapshot-20161115}} \
   --target-db-cluster-snapshot-identifier {{mydbsnapshotcopy}} \
   --source-region {{us-east-1}} \
-  --region {{us-west-2}}
-  --kms-key-id {{my_us_west_2_key}}
+  --region {{us-west-2}} \
+  --kms-key-id {{my-us-west-2-key}}
 ```
 For Windows:  
 
 ```
 aws neptune copy-db-cluster-snapshot ^
-  --source-db-cluster-snapshot-identifier {{arn:aws:neptune:us-west-2:123456789012:snapshot:instance1-snapshot-20161115}} ^
+  --source-db-cluster-snapshot-identifier {{arn:aws:rds:us-east-1:123456789012:cluster-snapshot:instance1-snapshot-20161115}} ^
   --target-db-cluster-snapshot-identifier {{mydbsnapshotcopy}} ^
   --source-region {{us-east-1}} ^
-  --region {{us-west-2}}
+  --region {{us-west-2}} ^
   --kms-key-id {{my-us-west-2-key}}
 ```

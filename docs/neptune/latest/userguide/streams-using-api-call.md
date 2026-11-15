@@ -7,6 +7,8 @@ You access Neptune Streams using a REST API that sends an HTTP GET request to on
 + For a SPARQL graph DB:   `https://{{Neptune-DNS}}:8182/sparql/stream`.
 + For a Gremlin or openCypher graph DB:   `https://{{Neptune-DNS}}:8182/propertygraph/stream` or `https://{{Neptune-DNS}}:8182/pg/stream`.
 
+These endpoints return change-log data only after you enable Neptune Streams. For more information, see [Enabling Neptune Streams](streams-using-enabling.md).
+
 **Note**  
 The Gremlin stream endpoint (`https://{{Neptune-DNS}}:8182/gremlin/stream`) is deprecated, along with its associated output format (`GREMLIN_JSON`). It is still supported for backward compatibility but may be removed in future releases.
 
@@ -18,6 +20,8 @@ Neptune supports `gzip` compression of the response, provided that the HTTP requ
 + `limit`   –   long, optional. Range: 1–100,000. Default: 10.
 
   Specifies the maximum number of records to return. There is also a size limit of 10 MB on the response that can't be modified and that takes precedence over the number of records specified in the `limit` parameter. The response does include a threshold-breaching record if the 10 MB limit was reached.
+
+  This parameter has no effect when `iteratorType` is `LATEST` because that mode returns at most one record.
 + `iteratorType`   –   String, optional.
 
   This parameter can take one of the following values:

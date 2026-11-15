@@ -3,7 +3,7 @@
 # Amazon Neptune Engine version 1.4.6.0 (2025-09-02)
 <a name="engine-releases-1.4.6.0"></a>
 
-As of 2025-09-02, engine version 1.4.6.0 is being generally deployed. Please note that it takes several days for a new release to become available in every region.
+As of 2025-09-02, AWS deploys engine version 1.4.6.0 to all Regions. It takes several days for a new release to become available in every Region.
 
 **Warning**  
  The 1.4.6.0 engine version includes new network checks for clusters that are using non-RFC 1918 conforming private IP ranges for database VPC without IAM authentication. If you have this VPC and IAM configuration, you will need to update your database VPC to use RFC 1918 private IP ranges and/or enable IAM authentication to avoid errors with queries after upgrading to 1.4.6.0. 

@@ -3,7 +3,7 @@
 # Amazon Neptune Engine Version 1.0.2.1.R6 (2020-04-22)
 <a name="engine-releases-1.0.2.1.R6"></a>
 
-As of 2020-04-22, engine version 1.0.2.1.R6 is being generally deployed. Please note that it takes several days for a new release to become available in every region.
+As of 2020-04-22, AWS deploys engine version 1.0.2.1.R6 to all Regions. It takes several days for a new release to become available in every Region.
 
 ## Defects Fixed in This Engine Release
 <a name="engine-releases-1.0.2.1.R6-defects"></a>

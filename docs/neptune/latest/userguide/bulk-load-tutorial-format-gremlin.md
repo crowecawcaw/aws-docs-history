@@ -33,7 +33,7 @@ All labels are case sensitive.
 
   A label for the vertex. Multiple label values are allowed, separated by semicolons (`;`).
 
-  If `~label` is not present, TinkerPop supplies a label with the value `vertex`, because every vertex must have at least one label.
+  If `~label` is not present or the field is blank, TinkerPop supplies a label with the value `vertex`, because every vertex must have at least one label.
 
 **Edge headers**
 + `~id` - **Required**
@@ -49,7 +49,7 @@ All labels are case sensitive.
 
   A label for the edge. Edges can only have a single label.
 
-  If `~label` is not present, TinkerPop supplies a label with the value `edge`, because every edge must have a label.
+  If `~label` is not present or the field is blank, TinkerPop supplies a label with the value `edge`, because every edge must have a label.
 
 ## Property Column Headers
 <a name="bulk-load-tutorial-format-gremlin-propheaders"></a>
@@ -158,6 +158,8 @@ Java date in ISO-8601 format. Supports the following formats: `yyyy-MM-dd`, `yyy
 **Datetime**  
 Java date in ISO-8601 format. Supports the following formats: `yyyy-MM-dd`, `yyyy-MM-ddTHH:mm`, `yyyy-MM-ddTHH:mm:ss`, `yyyy-MM-ddTHH:mm:ssZ`. The values are converted to epoch time and stored.
 
+The `Date` and `Datetime` types are equivalent. Both accept the same formats and behave the same way, so you can use whichever type name you prefer.
+
 ## Gremlin Row Format
 <a name="bulk-load-tutorial-format-gremlin-rowformat"></a>
 
@@ -174,7 +176,7 @@ Blank fields are allowed for non-required columns (such as user-defined properti
 Additionally, `~id` values must be unique for all edges in every edge file. Multiple edge rows with identical `~id` values are applied to the single edge in the graph. Empty string (`""`) is a valid id, and the edge is created with an empty string as the id.
 
 **Labels**  
-Labels are case sensitive and cannot be empty. A value of `""` will result in an error.
+Labels are case sensitive. A blank `~label` field gets the default label (`vertex` or `edge`). An empty string (`""`) also gets the default label, unless the load sets `allowEmptyStrings` to `true` in `parserConfiguration` (see [Neptune Loader Request Parameters](load-api-reference-load.md#load-api-reference-load-parameters)). In that case, the load reports an error for the row.
 
 **String Values**  
 Quotation marks are optional. Commas, newline, and carriage return characters are automatically escaped if they are included in a string surrounded by double quotation marks (`"`). Empty string values `("")` are interpreted as an empty string value for the field; not as a blank field.

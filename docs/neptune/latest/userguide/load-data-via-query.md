@@ -28,13 +28,13 @@ For complete documentation, see [neptune.read()](access-graph-opencypher-21-exte
 ## SPARQL: LOAD and UNLOAD
 <a name="sparql-load-unload"></a>
 
-SPARQL `LOAD` operations import RDF data from a URI into a named graph. `UNLOAD` exports data from a graph to Amazon S3.
+SPARQL `LOAD` operations import RDF data from a URI into a named graph. `UNLOAD` is the counterpart operation: it removes the data that a remote source file contains from a named graph.
 
 ```
 LOAD <s3://bucket/data.ttl> INTO GRAPH <http://example.org/graph>
 ```
 
-For complete documentation, see [Using SPARQL UPDATE LOAD to import data into Neptune](sparql-api-reference-update-load.md).
+For more information about each operation, see [Using SPARQL UPDATE LOAD to import data into Neptune](sparql-api-reference-update-load.md) and [Using SPARQL UPDATE UNLOAD to delete data from Neptune](sparql-api-reference-unload.md).
 
 ## Gremlin: io() step
 <a name="gremlin-io-step"></a>

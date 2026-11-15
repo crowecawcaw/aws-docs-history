@@ -57,6 +57,8 @@ The output looks similar to the following:
 ╰────────╯
 ```
 
+The CREATE query returns an empty result (`[]`) because it has no RETURN clause. The two nodes and the relationship are still created. The following query confirms that they exist.
+
 **To find nodes**  
 Run the following query to return all person names in alphabetical order:
 

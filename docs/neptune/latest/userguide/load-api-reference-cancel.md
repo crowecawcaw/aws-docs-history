@@ -47,7 +47,7 @@ When an error occurs, a JSON object is returned in the `BODY` of the response. T
 <a name="load-api-reference-cancel-parameters-errors-messages"></a>
 
 The following are possible error messages from the cancel API with a description of the error.
-+ `The load with id = {{load_id}} does not exist or not active` (HTTP 404)   –   The load was not found. Check the value of `id` parameter.
++ `The load with id = {{load_id}} does not exist or not active` (HTTP 400)   –   Neptune cannot find the specified load. Check the value of the `id` parameter.
 + `Load cancellation is not permitted on a read replica instance.` (HTTP 405)   –   Loading is a write operation. Retry load on the read/write cluster endpoint. 
 
 ## Cancel Job Examples

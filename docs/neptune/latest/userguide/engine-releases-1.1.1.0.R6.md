@@ -3,7 +3,7 @@
 # Amazon Neptune Engine Version 1.1.1.0.R6 (2022-09-23)
 <a name="engine-releases-1.1.1.0.R6"></a>
 
-As of 2022-09-23, engine version 1.1.1.0.R6 is being generally deployed. Please note that it takes several days for a new release to become available in every region.
+As of 2022-09-23, AWS deploys engine version 1.1.1.0.R6 to all Regions. It takes several days for a new release to become available in every Region.
 
 **Important**  
 **Upgrading to this engine release from a version earlier than `1.1.0.0` also triggers an operating-system upgrade on all the instances in your DB cluster. Because active write requests that occur during the operating-system upgrade will not be processed, you must pause all write workloads to the cluster being upgraded, including bulk data loads, before starting the upgrade.**  

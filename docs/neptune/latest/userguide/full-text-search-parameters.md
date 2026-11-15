@@ -73,7 +73,7 @@ If you set `maxResults` to a value higher than the OpenSearch `index.max_result_
     ```
         .withSideEffect('Neptune#fts.sortBy', 'name.value')
     ```
-  + `score`   –   Sort by match score (the default).
+  + `score`   –   Sort by match score. This is the default when you sort results without specifying a `sortBy` field.
 
     If the `sortOrder` parameter is present but `sortBy` is not present, the results are sorted by `score` in the order specified by `sortOrder`.
   + `id`   –   Sort by ID, which means the SPARQL subject URI or the Gremlin vertex or edge ID.

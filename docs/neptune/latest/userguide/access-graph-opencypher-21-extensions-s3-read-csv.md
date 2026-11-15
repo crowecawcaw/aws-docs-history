@@ -3,6 +3,8 @@
 # Query examples using CSV
 <a name="access-graph-opencypher-21-extensions-s3-read-csv"></a>
 
+In the following examples, the `source` value must be the Amazon S3 URI of a single object, such as `s3://amzn-s3-demo-bucket/people.csv`. Neptune reads the object using the IAM credentials of the caller. Before you run these queries, give those credentials permission to read the bucket. For more information, see [Managing permissions for neptune.read()](access-graph-opencypher-21-extensions-s3-read-permissions.md).
+
 In this example, the query returns the number of rows in a given CSV file:
 
 ```

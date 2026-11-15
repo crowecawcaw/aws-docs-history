@@ -12,7 +12,7 @@ Before you begin, you must have the following:
 + A Neptune DB instance.
 
   For information about launching a Neptune DB instance, see [Creating an Amazon Neptune cluster](get-started-create-cluster.md).
-+ An Amazon Simple Storage Service (Amazon S3) bucket to put the data files in.
++ An Amazon Simple Storage Service (Amazon S3) bucket to put the data files in. The bucket must be in the same AWS Region as your Neptune DB instance.
 
   You can use an existing bucket. If you don't have an S3 bucket, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingABucket.html) in the *[Amazon S3 Getting Started Guide](https://docs.aws.amazon.com/AmazonS3/latest/userguide/)*.
 + Graph data to load, in one of the formats supported by the Neptune loader:
@@ -32,7 +32,7 @@ The Neptune `Load` API needs read access to the data files only. The IAM policy 
 ### Creating an Amazon S3 VPC Endpoint
 <a name="bulk-load-prereqs-s3"></a>
 
-The Neptune loader requires a VPC endpoint for Amazon S3.
+The Neptune loader requires a Gateway VPC endpoint for Amazon S3.
 
 **To set up access for Amazon S3**
 
@@ -42,7 +42,9 @@ The Neptune loader requires a VPC endpoint for Amazon S3.
 
 1. Choose **Create Endpoint**.
 
-1. Choose the **Service Name** `com.amazonaws.{{region}}.s3`.
+1. For **Type**, choose **Gateway**, and then choose the **Service Name** `com.amazonaws.{{region}}.s3`.
+**Note**  
+Amazon S3 offers both **Gateway** and **Interface** endpoints under this service name. The Neptune loader requires the **Gateway** type.
 **Note**  
 If the Region here is incorrect, make sure that the console Region is correct.
 

@@ -3,7 +3,7 @@
 # Amazon Neptune Engine version 1.4.1.0 (2024-11-21)
 <a name="engine-releases-1.4.1.0"></a>
 
-As of 2024-11-21, engine version 1.4.1.0 is being generally deployed. Please note that it takes several days for a new release to become available in every region.
+As of 2024-11-21, AWS deploys engine version 1.4.1.0 to all Regions. It takes several days for a new release to become available in every Region.
 
 **Warning**  
  The query plan cache is temporarily unsupported for the use case of executing parameterized queries involving numeric parameter values, due to a bug in handling duplicate usages of a numeric type parameter in the query. For example:   

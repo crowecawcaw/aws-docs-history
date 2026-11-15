@@ -17,18 +17,18 @@ The following AWS CLI commands create a new DB cluster parameter group and set i
    ```
    aws neptune create-db-cluster-parameter-group \
      --db-cluster-parameter-group-name {{(name of the new DB cluster parameter group)}} \
-     --db-parameter-group-family neptune1
+     --db-parameter-group-family {{(the parameter group family that matches your engine version, such as neptune1.3)}} \
      --description "{{(description of your machine learning project)}}" \
      --region {{(AWS region, such as us-east-1)}}
    ```
 
-1. Create a `neptune_ml_iam_role` DB cluster parameter set to the ARN of the `SageMakerExcecutionIAMRole` for your DB cluster to use while calling SageMaker AI for creating jobs and getting prediction from hosted ML models:
+1. Create a `neptune_ml_iam_role` DB cluster parameter set to the ARN of the `NeptuneSageMakerIAMRole` for your DB cluster to use while calling SageMaker AI for creating jobs and getting prediction from hosted ML models:
 
    ```
    aws neptune modify-db-cluster-parameter-group \
      --db-cluster-parameter-group-name {{(name of the new DB cluster parameter group)}} \
      --parameters "ParameterName=neptune_ml_iam_role, \
-                   ParameterValue={{ARN of the SageMakerExcecutionIAMRole}}, \
+                   ParameterValue={{ARN of the NeptuneSageMakerIAMRole}}, \
                    Description=NeptuneMLRole, \
                    ApplyMethod=pending-reboot" \
      --region {{(AWS region, such as us-east-1)}}
@@ -36,7 +36,7 @@ The following AWS CLI commands create a new DB cluster parameter group and set i
 
    Setting this parameter allows Neptune to access SageMaker AI without you having to pass in the role with every call.
 
-   For information about how to create the `SageMakerExcecutionIAMRole`, see [Create a custom NeptuneSageMakerIAMRole role](machine-learning-manual-setup.md#ml-manual-setup-sm-role).
+   For information about how to create the `NeptuneSageMakerIAMRole`, see [Create a custom NeptuneSageMakerIAMRole role](machine-learning-manual-setup.md#ml-manual-setup-sm-role).
 
 1. Finally, use `describe-db-cluster-parameters` to check that all the parameters in the new DB cluster parameter group are set as you want them to be:
 
@@ -54,7 +54,7 @@ Now you can attach the new DB cluster parameter group that you just created to a
 ```
 aws neptune modify-db-cluster \
   --db-cluster-identifier {{(the name of your existing DB cluster)}} \
-  --apply-immediately
+  --apply-immediately \
   --db-cluster-parameter-group-name {{(name of your new DB cluster parameter group)}} \
   --region {{(AWS region, such as us-east-1)}}
 ```
@@ -62,8 +62,8 @@ aws neptune modify-db-cluster \
 To make all the parameters effective, you can then reboot the DB cluster:
 
 ```
-aws neptune reboot-db-instance
-  --db-instance-identifier (name of the primary instance of your DB cluster) \
+aws neptune reboot-db-instance \
+  --db-instance-identifier {{(name of the primary instance of your DB cluster)}} \
   --profile {{(name of your AWS profile to use)}} \
   --region {{(AWS region, such as us-east-1)}}
 ```
@@ -71,22 +71,24 @@ aws neptune reboot-db-instance
 Or, if you're creating a new DB cluster to use with Neptune ML, you can use the following command to create the cluster with the new parameter group attached, and then create a new primary (writer) instance:
 
 ```
-cluster-name={{(the name of the new DB cluster)}}
-aws neptune create-db-cluster
-  --db-cluster-identifier ${cluster-name}
-  --engine graphdb \
-  --engine-version 1.0.4.1 \
+cluster_name={{(the name of the new DB cluster)}}
+aws neptune create-db-cluster \
+  --db-cluster-identifier ${cluster_name} \
+  --engine neptune \
+  --engine-version {{(a currently supported Neptune engine version)}} \
   --db-cluster-parameter-group-name {{(name of your new DB cluster parameter group)}} \
   --db-subnet-group-name {{(name of the subnet to use)}} \
   --region {{(AWS region, such as us-east-1)}}
 
-aws neptune create-db-instance
-  --db-cluster-identifier ${cluster-name}
-  --db-instance-identifier ${cluster-name}-i \
-  --db-instance-class {{(the instance class to use, such as db.r5.xlarge)}}
-  --engine graphdb \
+aws neptune create-db-instance \
+  --db-cluster-identifier ${cluster_name} \
+  --db-instance-identifier ${cluster_name}-i \
+  --db-instance-class {{(the instance class to use, such as db.r5.xlarge)}} \
+  --engine neptune \
   --region {{(AWS region, such as us-east-1)}}
 ```
+
+Specify an engine version and a parameter group family that match, because a DB cluster can only use a parameter group family that supports its engine version.
 
 ## Attach the `NeptuneSageMakerIAMRole` to your DB cluster so that it can access SageMaker AI and Amazon S3 resources
 <a name="machine-learning-enabling-attach-neptune-sagemaker-role"></a>
@@ -94,9 +96,9 @@ aws neptune create-db-instance
 Finally, follow the instructions in [Create a custom NeptuneSageMakerIAMRole role](machine-learning-manual-setup.md#ml-manual-setup-sm-role) to create an IAM role that will allow your DB cluster to communicate with SageMaker AI and Amazon S3. Then, use the following command to attach the `NeptuneSageMakerIAMRole` role you created to your DB cluster:
 
 ```
-aws neptune add-role-to-db-cluster
-  --db-cluster-identifier ${cluster-name}
-  --role-arn arn:aws:iam::{{(the ARN number of the role's ARN)}}:role/NeptuneMLRole \
+aws neptune add-role-to-db-cluster \
+  --db-cluster-identifier ${cluster_name} \
+  --role-arn arn:aws:iam::{{(the ARN number of the role's ARN)}}:role/NeptuneSageMakerIAMRole \
   --region {{(AWS region, such as us-east-1)}}
 ```
 
@@ -112,24 +114,24 @@ If you haven't used the quick-start CloudFormation template, which creates these
 This one creates the `sagemaker.runtime` endpoint:
 
 ```
-aws ec2 create-vpc-endpoint
-  --vpc-id {{(the ID of your Neptune DB cluster's VPC)}}
-  --vpc-endpoint-type Interface
-  --service-name com.amazonaws.{{(AWS region, like us-east-1)}}.sagemaker.runtime
-  --subnet-ids {{(the subnet ID or IDs that you want to use)}}
-  --security-group-ids {{(the security group for the endpoint network interface, or omit to use the default)}}
+aws ec2 create-vpc-endpoint \
+  --vpc-id {{(the ID of your Neptune DB cluster's VPC)}} \
+  --vpc-endpoint-type Interface \
+  --service-name com.amazonaws.{{(AWS region, like us-east-1)}}.sagemaker.runtime \
+  --subnet-ids {{(the subnet ID or IDs that you want to use)}} \
+  --security-group-ids {{(the security group for the endpoint network interface, or omit to use the default)}} \
   --private-dns-enabled
 ```
 
 And this one creates the `sagemaker.api` endpoint:
 
 ```
-aws ec2 create-vpc-endpoint
-  --vpc-id {{(the ID of your Neptune DB cluster's VPC)}}
-  --vpc-endpoint-type Interface
-  --service-name com.amazonaws.{{(AWS region, like us-east-1)}}.sagemaker.api
-  --subnet-ids {{(the subnet ID or IDs that you want to use)}}
-  --security-group-ids {{(the security group for the endpoint network interface, or omit to use the default)}}
+aws ec2 create-vpc-endpoint \
+  --vpc-id {{(the ID of your Neptune DB cluster's VPC)}} \
+  --vpc-endpoint-type Interface \
+  --service-name com.amazonaws.{{(AWS region, like us-east-1)}}.sagemaker.api \
+  --subnet-ids {{(the subnet ID or IDs that you want to use)}} \
+  --security-group-ids {{(the security group for the endpoint network interface, or omit to use the default)}} \
   --private-dns-enabled
 ```
 

@@ -74,6 +74,7 @@ awscurl https://{{your-neptune-endpoint}}:{{port}}/gremlin/explain \
   --region {{us-east-1}} \
   --service neptune-db \
   -X POST \
+  -H "Accept: application/json" \
   -d '{"gremlin":"g.V().limit(1)"}'
 ```
 

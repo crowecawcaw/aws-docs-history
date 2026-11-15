@@ -40,7 +40,7 @@ Integrations such as the full-text-search integration with ElasticSearch are als
    curl -X POST \
      -H 'Content-Type: application/x-www-form-urlencoded' \
          https://{{your_writer_instance_endpoint}}:8182/system \
-     -d 'action=initiateDatabaseReset '
+     -d 'action=initiateDatabaseReset'
    ```
 
    The `initiateDatabaseReset` request returns the reset token in its JSON response, like this:

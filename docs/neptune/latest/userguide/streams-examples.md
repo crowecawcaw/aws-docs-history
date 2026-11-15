@@ -222,13 +222,19 @@ curl -sH \
 { [191 bytes data]
 Connection #0 to host localhost left intact
 {
-  "lastEventId": "1:1",
+  "lastEventId": {
+    "commitNum": 1,
+    "opNum": 1
+  },
   "lastTrxTimestamp": 1558942160603,
   "format": "PG_JSON",
   "records": [
     {
       "commitTimestamp": 1558942160603,
-      "eventId": "1:1",
+      "eventId": {
+        "commitNum": 1,
+        "opNum": 1
+      },
       "data": {
         "id": "v1",
         "type": "vl",

@@ -312,10 +312,16 @@ public class NeptuneAuthToken extends InternalAuthToken {
 
 The Python class below lets you make openCypher queries in Python using Bolt with IAM authentication:
 
+This example requires the Neo4j Python driver (version 5.x) and the AWS SDK for Python (Boto3), which provides the botocore signing helpers. Install both into your Python environment:
+
+```
+pip install neo4j boto3
+```
+
 ```
 import json
 
-from neo4j import Auth
+from neo4j import Auth, GraphDatabase
 from botocore.awsrequest import AWSRequest
 from botocore.credentials import Credentials
 from botocore.auth import (
@@ -364,6 +370,19 @@ You use this class to create a driver as follows:
   authToken = NeptuneAuthToken(creds, REGION, URL)
   driver = GraphDatabase.driver(URL, auth=authToken, encrypted=True)
 ```
+
+You supply three values to this example:
+
+`creds`  
+The `creds` value is your AWS credentials as a botocore `Credentials` object. You can obtain it from a Boto3 session with `boto3.Session().get_credentials()`.
+
+`REGION`  
+The `REGION` value is the AWS Region of your cluster, such as `us-east-1`.
+
+`URL`  
+The `URL` value is your cluster Bolt endpoint, in the form `bolt://{{your-cluster-endpoint}}:8182`. The example uses the same URL to sign the request and to create the driver, and you must set `encrypted=True`.
+
+The `_host_from_url` function is an internal botocore helper that sets the `Host` header.
 
 ## A Node.js example using IAM authentication and Bolt
 <a name="access-graph-opencypher-bolt-nodejs-iam-auth"></a>
