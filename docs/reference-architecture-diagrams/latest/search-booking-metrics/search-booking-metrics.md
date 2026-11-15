@@ -5,7 +5,7 @@
 
 Publication date: **October 15, 2020 ([Diagram history](#sbm-history))**
 
-With this architecture, you can build a content delivery network (CDN) platform for customer-facing websites to gather traffic data in real time. Understand search and purchase patterns through enriched analytics data. The solution presents real-time data in [Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/) and historical and aggregated data in [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html).
+With this architecture, you can build a content delivery network (CDN) platform for customer-facing websites to gather traffic data in real time. Understand search and purchase patterns through enriched analytics data. The solution presents real-time data in [Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/) and historical and aggregated data in [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html).
 
 ## Search and booking metrics diagram
 <a name="sbm-diagram"></a>
@@ -27,7 +27,7 @@ The following steps describe the architecture:
 
 1. As new purchases happen, the cookie header or session ID value and purchase information flow to the data lake and Amazon OpenSearch Service cluster.
 
-1. Data analysts visualize historical and aggregated data through Amazon Quick Sight. They view real-time data in Amazon OpenSearch Service.
+1. Data analysts visualize historical and aggregated data through AWS Quick Sight. They view real-time data in Amazon OpenSearch Service.
 
 ## Further reading
 <a name="sbm-further-reading"></a>
