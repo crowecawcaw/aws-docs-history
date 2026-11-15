@@ -3,7 +3,7 @@
 # IVS Costs \| Low-Latency Streaming
 <a name="costs"></a>
 
-There are separate costs for Amazon IVS live video and Amazon S3 storage related to the auto-record-to-S3 feature. 
+There are separate costs for Amazon Interactive Video Service (Amazon IVS) live video and Amazon S3 storage related to the auto-record-to-S3 feature. 
 
 ## Live Video
 <a name="costs-live-video"></a>
@@ -22,8 +22,8 @@ For help selecting the right channel type for your use case, use the "Help me ch
 
 For video output, you pay an hourly rate for video delivered to viewers. Rates vary by resolution and "billing region" (where the video is delivered from). There are several tiers of video-output costs based on usage, including a free tier.
 
-A useful interactive tool is the [IVS Cost Estimator](https://ivs.rocks/calculator). You can plug in values for channel type, resolution, hours streamed, number of viewers, and billing region. When estimating costs, note the following rules of thumb:
-+ Viewers come and go, and on average, 50% of a stream is "delivered." The Cost Estimator includes a selector for "Average viewer watch duration." This defaults to 50%. Expect viewership for paid events to be higher; even in this case, though, it’s likely that not all ticket-holders will view at the same time.
+For more information about estimating costs, see [AWS Pricing Calculator](https://calculator.aws/) on the AWS website. For Amazon IVS, you enter monthly input hours and output (viewer) hours by resolution and billing region. When estimating costs, note the following rules of thumb:
++ Viewers come and go, so on average, viewers watch only 50% of a stream's duration. Expect viewership for paid events to be higher. Even in this case, though, it’s likely that not all ticket-holders will view at the same time.
 + Some viewers watch at a lower resolution than the source resolution of the broadcast. This is especially true for high-resolution streams: some viewers will watch at lower resolutions, which are less expensive. This is due to various viewer constraints, including bandwidth, network conditions, ISP, and hardware.
 + Timing matters. For instance, if your stream competes with school, work, or vacation, this can affect your audience size.
 + It is very hard to build a live audience from non-live users. Of course, there are exceptions; bringing in external talent (like influencers with their own following) can increase audience size.

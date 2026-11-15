@@ -5,6 +5,37 @@
 
 This document contains all Amazon IVS Low-Latency Streaming release notes, latest first, organized by date of release.
 
+## November 9, 2026
+<a name="nov09-26-player-mobile-ll"></a>
+
+### IVS Player SDK: Android 1.58.1, iOS 1.58.1
+<a name="nov09-26-player-mobile-ll-1581"></a>
+
+
+| Platform | Downloads and Changes | 
+| --- | --- | 
+| [Android player 1.58.1](player-android.md) | **Reference documentation: **[https://aws.github.io/amazon-ivs-player-docs/1.58.1/android/](https://aws.github.io/amazon-ivs-player-docs/1.58.1/android/)+  Bug fixes and stability improvements.  | 
+| [iOS player 1.58.1](player-ios.md) | **Download: **[https://player.live-video.net/1.58.1/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.58.1/AmazonIVSPlayer.xcframework.zip)<br />**Reference documentation: **[https://aws.github.io/amazon-ivs-player-docs/1.58.1/ios/](https://aws.github.io/amazon-ivs-player-docs/1.58.1/ios/)+  Bug fixes and stability improvements. <br />+  Fixed a crash on iOS 15 when an app enumerates Objective-C classes.  | 
+
+#### Mobile SDK Size: Android
+<a name="player-mobile-1581-sdk-size-android"></a>
+
+
+| Architecture | Compressed Size | Uncompressed Size | 
+| --- | --- | --- | 
+| arm64-v8a | 1.637 MB | 4.214 MB | 
+| armeabi-v7a | 1.455 MB | 2.992 MB | 
+| x86\_64 | 1.641 MB | 4.298 MB | 
+| x86 | 1.705 MB | 4.304 MB | 
+
+#### Mobile SDK Size: iOS
+<a name="player-mobile-1581-sdk-size-ios"></a>
+
+
+| Architecture | Compressed Size | Uncompressed Size | 
+| --- | --- | --- | 
+| arm64 | 0.855 MB | 1.852 MB | 
+
 ## November 4, 2026
 <a name="nov04-26-broadcast-mobile-ll"></a>
 

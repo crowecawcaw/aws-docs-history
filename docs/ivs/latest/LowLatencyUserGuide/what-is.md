@@ -16,8 +16,6 @@ Amazon IVS supports streaming via several ingest protocols:
 + RTMPS, the secure version of RTMP, running over TLS.
 + SRT (Secure Reliable Transport), a relatively new, open-source protocol. SRT is designed to improve streaming over unreliable networks and protect against jitter, packet loss, and network bandwidth fluctuations.
 
-In addition to the product documentation here, see [https://ivs.rocks/](https://ivs.rocks/), a dedicated site to browse published content (demos, code samples, blog posts), estimate cost, and experience Amazon IVS through live demos.
-
 ## Latency
 <a name="what-is-latency"></a>
 

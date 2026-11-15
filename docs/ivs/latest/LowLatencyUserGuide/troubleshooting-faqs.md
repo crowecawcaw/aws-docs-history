@@ -306,4 +306,4 @@ To verify your AWS account, contact AWS Account Support — with the error messa
 ### Can I estimate the cost of IVS usage?
 <a name="misc-ivs-usage-cost"></a>
 
-While the exact cost of IVS usage cannot be determined before a stream session, a rough cost estimator is at: [https://ivs.rocks/calculator](https://ivs.rocks/calculator). Additional pricing information is at: [https://aws.amazon.com/ivs/pricing/](https://aws.amazon.com/ivs/pricing/).
+While the exact cost of IVS usage cannot be determined before a stream session, a rough estimate is available on the [AWS Pricing Calculator website](https://calculator.aws/). Additional pricing information is at: [https://aws.amazon.com/ivs/pricing/](https://aws.amazon.com/ivs/pricing/).
