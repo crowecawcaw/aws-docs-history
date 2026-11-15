@@ -23,7 +23,7 @@ The following steps describe the data pipeline and ML workflow for this architec
 
 1. Send real-time push notifications when SageMaker AI detects possible vessel delays. Use a [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/) function with SageMaker AI endpoint integration and Amazon Kinesis to raise alarms.
 
-1. Import predictions to enrich your [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/) data warehouse. Visualize reports by using [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html) to discover trends and implement corrective actions.
+1. Import predictions to enrich your [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/) data warehouse. Visualize reports by using [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html) to discover trends and implement corrective actions.
 
 ## Further reading
 <a name="vessel-further-reading"></a>
