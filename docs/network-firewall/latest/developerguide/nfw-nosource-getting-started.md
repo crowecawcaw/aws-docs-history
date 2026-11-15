@@ -28,13 +28,15 @@ Firewall policies define the traffic filtering behavior for a firewall. Create a
 
 1. Choose **Create firewall policy**.
 
+1. For **Policy version**, select **Classic**. No-source-preservation mode requires a Classic Network Firewall policy. For information about the policy types, see [AWS Network Firewall firewall policy versions](firewall-policy-versions.md).
+
 1. Enter a name for the firewall policy.
 
-1. Choose **Next** to go to the Add rule groups page.
+1. Choose **Next** to go to the **Traffic inspection** page. For this tutorial, leave its settings unset and choose **Next** to go to the **Add rule groups** page.
 
 1. In the Stateful rule groups section, choose **Add rule groups**, then select your stateful rule group. Choose **Add rule groups**.
 
-1. Choose **Next** then **Next** again to proceed to the Review and create page.
+1. Choose **Next** to go to the **Network and encryption** page, then choose **Next** again to go to the **Review and create** page.
 
 1. Choose **Create firewall policy**.
 
@@ -51,28 +53,28 @@ Create the firewall in no-source-preservation mode using the AWS Management Cons
 
 1. Choose **Create firewall**.
 
-1. For **Name**, enter the name that you want to use to identify this firewall. You cannot change the name of a firewall after you create it.
+1. On the **Describe firewall** page, for **Name**, enter the name that you want to use to identify this firewall. You cannot change the name of a firewall after you create it. Choose **Next**.
 
-1. For **Deployment mode**, select **No source preservation**.
+1. On the **Deployment mode** page, select **No source preservation**.
 
-1. For **NAT Gateway**, select an existing NAT gateway from the dropdown. The console displays the NAT gateway's subnet and Availability Zone. If you do not have a NAT gateway, create one first.
+1. For **NAT Gateway**, select an existing NAT gateway from the dropdown list. The console displays the selected NAT gateway's VPC, subnet, and Availability Zone. If you don't have a NAT gateway, choose **Create NAT gateway** to create one in the Amazon VPC console, and then refresh the list.
 
-1. For **VPC endpoint subnet**, select a VPC and subnet for the firewall endpoint. You can only create the endpoint in the Availability Zone that your NAT gateway resides in. The endpoint subnet must be different from the NAT gateway subnet. The console only shows options for the subnets where you are allowed to create the endpoint.
+1. For **VPC endpoint subnet**, select a VPC and a subnet for the firewall endpoint. The subnet must be in the same Availability Zone as the NAT gateway, and it can't be the NAT gateway's own subnet. To add more subnets, choose **Add subnet**; all subnets must be in the same VPC. You must specify at least one subnet.
 
-1. (Optional) Configure advanced settings: delete protection, traffic analysis mode (enabled by default), customer managed KMS key, explicit proxy listener ports (defaults to HTTP/3128 and HTTPS/8443), logging configuration (Alert, Flow, TLS), and firewall monitoring dashboard.
+1. (Optional) On the **Configure advanced settings** page, configure settings such as delete protection, traffic analysis mode, a customer managed key, **Explicit proxy listeners**, logging configuration (Alert, Flow, and TLS logs), and the firewall monitoring dashboard. Under **Explicit proxy listeners**, you can set an **HTTP port** and an **HTTPS port**. If you leave a port blank, the firewall uses the default port—3128 for HTTP and 8443 for HTTPS.
 
-1. For **Associated firewall policy**, choose **Associate an existing firewall policy**, then select the firewall policy that you created in Step 2.
+1. On the **Associate firewall policy** page, select **Associate an existing firewall policy**, then select the firewall policy that you created in Step 2.
 
-1. (Optional) Add tags.
+1. (Optional) On the **Add tags** page, add any tags that you want.
 
-1. Review and choose **Create firewall**.
+1. On the **Review and create** page, review the firewall configuration, and then choose **Create firewall**.
 
 Your new firewall is listed in the **Firewalls** page.
 
 ## Step 4: Verify the firewall and configure workloads
 <a name="nfw-nosource-step4-verify"></a>
 
-After creation, the firewall details page displays the deployment mode, the attached NAT gateway ID, and the status. Once the status transitions from PROVISIONING to READY, the proxy FQDN (`DnsName`) appears in the **Endpoints and identity** section.
+After creation, the firewall details page displays the deployment mode, the attached NAT gateway ID, and the status. After the status transitions from PROVISIONING to READY, the proxy FQDN (`DnsName`) appears in the **Endpoints and identity** section.
 
 Point your application's proxy environment variables to the firewall's `DnsName` on the configured listener port. No route table changes are required – applications connect to the firewall through VPC endpoints using the proxy's FQDN.
 

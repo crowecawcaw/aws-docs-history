@@ -23,6 +23,6 @@ Operations that successfully completed.
 **Failed**  
 Operations that could not be completed.  
 **Completed with errors**  
-Operations that experienced a timeout issue or an issue that prevented completion across all hosts. These operations may have flows missing from the results.
+Operations that experienced a timeout issue or an issue that prevented completion across all hosts. These operations might have flows missing from the results.
 
 1. Choose any completed operation to view the summary of results.

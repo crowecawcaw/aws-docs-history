@@ -25,19 +25,19 @@ You can't change the name after you create the TLS inspection configuration.
 
 1. Choose **Next** to go to the TLS inspection configuration's **Define scope** page.
 
-1. In the **Scope configuration** pane, choose the protocol, source, source port range, destination, and destination port range of the traffic that you want Network Firewall to decrypt. Network Firewall uses the associated certificates to decrypt the SSL/TLS traffic that matches the scope configuration. After Network Firewall decrypts the traffic, the service inspects the traffic according to your firewall policy's stateful rules.
+1. In the **Scope configuration** pane, select the protocol, source, source port range, destination, and destination port range of the traffic that you want Network Firewall to decrypt. Network Firewall uses the associated certificates to decrypt the SSL/TLS traffic that matches the scope configuration. After Network Firewall decrypts the traffic, the service inspects the traffic according to your firewall policy's stateful rules.
 
    Network Firewall also automatically configures a reverse scope, ensuring that the service inspects the traffic in both directions.
 
-   1. For **Protocol**, choose the protocol to decrypt. Network Firewall currently supports TCP.
+   1. For **Protocol**, select the protocol to decrypt. Network Firewall currently supports TCP.
 
-   1. For **Source IP**, choose the source IP addresses and ranges to decrypt. You can decrypt by **Custom** IP addresses or by **Any IPv4 address**.
+   1. For **Source IP**, select the source IP addresses and ranges to decrypt. You can decrypt by **Custom** IP addresses or by **Any IPv4 address**.
 
-   1. For **Source port**, choose the source ports and source port ranges to decrypt. You can decrypt by **Custom** port ranges or by **Any port**.
+   1. For **Source port**, select the source ports and source port ranges to decrypt. You can decrypt by **Custom** port ranges or by **Any port**.
 
-   1. For **Destination IP**, choose the destination IP addresses and ranges to decrypt. You can decrypt by **Custom** IP addresses or by **Any IPv4 address**.
+   1. For **Destination IP**, select the destination IP addresses and ranges to decrypt. You can decrypt by **Custom** IP addresses or by **Any IPv4 address**.
 
-   1. For **Destination port**, choose the destination ports and destination port ranges to decrypt. You can decrypt by **Custom** port ranges or by **Any port**.
+   1. For **Destination port**, select the destination ports and destination port ranges to decrypt. You can decrypt by **Custom** port ranges or by **Any port**.
 
    1. Choose **Add scope configuration**. To add more scope configurations, adjust the settings in the **scope configuration** pane, then select **Add scope configuration**.
 
@@ -45,7 +45,7 @@ You can't change the name after you create the TLS inspection configuration.
 
 1. (Optional) On the **Advanced settings** page, under **Customer managed key**, you can change the key that Network Firewall uses to decrypt and encrypt the TLS inspection configuration, to protect against unauthorized access. By default, Network Firewall uses AWS owned keys. If you want to use your own keys, you can configure customer managed keys from the AWS Key Management Service and provide them to Network Firewall. For information about customer managed keys, see [Encryption at rest with AWS Key Management Service](kms-encryption-at-rest.md). 
 
-1. (Optional) In the **Certificate revocation status** section, choose whether Network Firewall should check if the certificate that's presented by the server in the TLS connection has a revoked status. To enable this option, you must first associate a certificate authority (CA) certificate for outbound inspection in the **Associate SSL/TLS certificates** step. You can also configure the actions that Network Firewall takes on outbound traffic if the certificate is revoked or has an unknown status.
+1. (Optional) In the **Certificate revocation status** section, select whether Network Firewall should check the certificate that's presented by the server in the TLS connection for a revoked status. To enable this option, you must first associate a certificate authority (CA) certificate for outbound inspection in the **Associate SSL/TLS certificates** step. You can also configure the actions that Network Firewall takes on outbound traffic if the certificate is revoked or has an unknown status.
 
 1. Choose **Next**.
 
@@ -59,6 +59,6 @@ You can't change the name after you create the TLS inspection configuration.
 
 Your new TLS inspection configuration is added to the list in the Network Firewall TLS inspection configurations page.
 
-If you've configured the inspection for certificate revocation checks on outbound traffic, you can log failures for these checks by enabling TLS logging. For information, see [Logging network traffic](firewall-logging.md).
+If you've configured the inspection for certificate revocation checks on outbound traffic, you can log failures for these checks by turning on TLS logging. For information, see [Logging network traffic](firewall-logging.md).
 
 To use your TLS inspection configuration in a firewall policy, follow the procedures at [Managing your firewall policy](firewall-policy-managing.md).

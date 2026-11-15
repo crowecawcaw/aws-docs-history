@@ -4,7 +4,7 @@
 <a name="firewall-high-level-steps"></a>
 
 To install and use an AWS Network Firewall firewall in your Amazon Virtual Private Cloud VPC, you configure the firewall components and your VPC's subnets and route tables in the following high-level steps. 
-+ **Configure the primary VPC subnets for your firewall endpoints** – In the primary VPC where you'll use the firewall, in each Availability Zone where you want a firewall endpoint, create a subnet specifically for use by Network Firewall. A firewall endpoint can't protect applications that run in the same subnet, so reserve these subnets for exclusive use by the firewall. The subnets that you use for your primary firewall endpoints must belong to a single AWS Region and must be in different Availability Zones within the Region. 
++ **Configure the primary VPC subnets for your firewall endpoints** – In the primary VPC where you use the firewall, in each Availability Zone where you want a firewall endpoint, create a subnet specifically for use by Network Firewall. A firewall endpoint can't protect applications that run in the same subnet, so reserve these subnets for exclusive use by the firewall. The subnets that you use for your primary firewall endpoints must belong to a single AWS Region and must be in different Availability Zones within the Region. 
 
   Network Firewall is available in the Regions listed at [AWS service endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html). 
 

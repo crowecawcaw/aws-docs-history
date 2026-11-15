@@ -10,9 +10,9 @@ Network Firewall provides the following features in the **Monitoring** section o
 
 | Monitoring feature | Description | Data source | Enabled by default? | 
 | --- | --- | --- | --- | 
-| Firewall requests | Provides a graph of the number of packets monitored by the firewall.+  Stateless engine passed and dropped packets <br />+  Stateful engine passed, dropped, and rejected packets <br />+  Stream exception policy packets  | Stateless and stateful engine traffic. | Yes | 
-| Firewall monitoring dashboard | Provides real-time analysis of flow and alert logs through multiple visualization options, including:+  PrivateLink endpoint graphs, showing top candidates for PrivateLink Endpoints <br />+  Enhanced filtering and sorting capabilities by IP addresses and protocols <br />+  Detailed flow and alert log metrics  | Amazon S3 and CloudWatch logs. | No. Must be enabled in your firewall's advanced settings. | 
-| Traffic analysis mode and reports | Provides retroactive analysis and report generation. | HTTP or HTTPS traffic observed over the last 30 days, starting from when you enable **Traffic analysis mode** on your firewall. | No. Must be enabled in your firewall's advanced settings. | 
+| Firewall requests | Provides a graph of the number of packets monitored by the firewall. The metrics shown depend on whether the firewall uses a Classic Network Firewall policy or a Next Generation policy. For information about the policy types, see [AWS Network Firewall firewall policy versions](firewall-policy-versions.md).<br />For a firewall that uses a Classic Network Firewall policy, the graph splits packet metrics by the stateless and stateful engines:+  Stateless engine passed and dropped packets <br />+  Stateful engine passed, dropped, and rejected packets <br />+  Stream exception policy packets <br />For a firewall that uses a Next Generation policy, the graph splits packet metrics by the firewall engine (`Engine=Firewall`) and the IPS engine (`Engine=IPS`) instead of by the stateless and stateful engines. For information about these per-engine metrics, see [Next Generation policy metrics](monitoring-cloudwatch.md#metrics-policy-v2).+  Firewall engine passed and dropped packets, including a dedicated breakdown for the `FirewallDefaultActionApplied` metric (packets to which the firewall engine's default action was applied) <br />+  IPS engine passed, dropped, and rejected packets <br />+  In the Packet Analysis view, `ReceivedBytes` and `ReceivedPackets` at both the system level (`Engine=System`) and the firewall engine level (`Engine=Firewall`)  | For a Classic Network Firewall policy, stateless and stateful engine traffic. For a Next Generation policy, firewall engine, IPS engine, and system traffic. | Yes | 
+| Firewall monitoring dashboard | Provides real-time analysis of flow and alert logs through multiple visualization options, including:+  PrivateLink endpoint graphs, showing top candidates for PrivateLink Endpoints <br />+  Enhanced filtering and sorting capabilities by IP addresses and protocols <br />+  Detailed flow and alert log metrics  | Amazon S3 and CloudWatch logs. | No. Must be turned on in your firewall's advanced settings. | 
+| Traffic analysis mode and reports | Provides retroactive analysis and report generation. | HTTP or HTTPS traffic observed over the last 30 days, starting from when you enable **Traffic analysis mode** on your firewall. | No. Must be turned on in your firewall's advanced settings. | 
 
 **Access Monitoring in the Network Firewall console**  
 Follow these steps to access the monitoring and observability features for your firewall:
@@ -25,7 +25,7 @@ Follow these steps to access the monitoring and observability features for your 
 
 1. In the firewall's details page, choose the **Monitoring** tab.
 
-Review the topics in this guide to learn about the monitoring options you can enable using the Network Firewall console.
+Review the topics in this guide to learn about the monitoring options you can turn on using the AWS Network Firewall console.
 
 **Topics**
 + [Firewall monitoring in the Network Firewall console](nwfw-detailed-monitoring.md)

@@ -9,17 +9,20 @@ An *IP set reference* is a Network Firewall rule group variable that references 
 
 Network Firewall currently supports the following AWS resources as IP set references:
 + **Amazon VPC prefix lists**. For information about referencing Amazon VPC prefix lists in your rule groups, see the following section [Referencing Amazon VPC prefix lists](#rule-groups-referencing-prefix-lists).
-+ **Resource groups**. For information about referencing resource groups in your rule groups, see following section [Referencing resource groups](#rule-groups-referencing-resource-groups).
++ **Resource groups**. For information about referencing resource groups in your rule groups, see the following section [Referencing resource groups](#rule-groups-referencing-resource-groups).
++ **Address lists**.
++ **Container associations**. A container association tracks the IP addresses of running containers in your Amazon Elastic Container Service and Amazon Elastic Kubernetes Service clusters. For more information, see [Container associations](container-associations.md).
 
 For an example of a rule that uses an IP set reference, see [Stateful rules examples: IP set reference](suricata-examples.md#suricata-example-rule-with-ip-set-reference).
 
-For more information about adding IP sets to your Suricata compatible rule groups via the console, see the [Creating a stateful rule group](rule-group-stateful-creating.md) procedure.
+For more information about adding IP sets to your Suricata-compatible rule groups through the console, see the [Creating a stateful rule group](rule-group-stateful-creating.md) procedure.
 
 ## Limits for IP set references
 <a name="rule-groups-ip-set-reference-limits"></a>
 
 The following limits apply to IP set references:
 + Maximum of five IP set references per rule group. You can use IP set references in addition to IP set variables or port variables in a rule group. Only IP set references count against this limit.
++ Maximum of 30 container association references per rule group. A rule group's references are either all IP set references—such as prefix lists, resource groups, and address lists—or all container associations. You can't mix the two types in the same rule group.
 + Maximum of 1,000,000 CIDRs - You can use a maximum of 1,000,000 CIDRs in all of the IP set references used in a single firewall. If you exceed this limit, then Network Firewall includes only the first 1,000,000 CIDRs from your referenced IP set resources. Network Firewall calculates CIDRs differently for prefix lists and resource groups:
   + Prefix lists – Network Firewall takes an aggregated account of the CIDRs in each referenced IP set.
   + Resource groups – Network Firewall calculates the number of IP addresses associated with all of the resources in the group, such as all of the IP addresses associated with an Amazon EC2 instance, both public and private.

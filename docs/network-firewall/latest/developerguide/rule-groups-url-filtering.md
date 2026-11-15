@@ -1,17 +1,17 @@
 
 
-# URL and Domain Category Filtering in Suricata compatible AWS Network Firewall rule groups
+# URL and domain category filtering in Suricata compatible AWS Network Firewall rule groups
 <a name="rule-groups-url-filtering"></a>
 
-URL and Domain Category filtering enables you to filter network traffic based on predefined content categories. You can use this feature with **Suricata compatible rule strings** and **standard Network Firewall stateful rule groups**.
+With URL and domain category filtering, you can filter network traffic based on predefined content categories. You can use this feature with **Suricata compatible rule strings** and **standard Network Firewall stateful rule groups**.
 
 Network Firewall provides two filtering keywords: 
 + `aws_url_category` - Evaluates complete URLs and domains in HTTP/HTTPS traffic
 + `aws_domain_category` - Evaluates only domain information from TLS SNI or HTTP host headers
 
-To use URL and Domain Category filtering, you provide either the `aws_url_category` or `aws_domain_category` keyword followed by the category you want to filter for, for example `aws_url_category:Malicious;` You can specify multiple categories per rule. For additional examples, see [Stateful rules examples: URL/Domain Category filter](suricata-examples.md#suricata-example-rule-with-url-filter). 
+To use URL and domain category filtering, you provide either the `aws_url_category` or `aws_domain_category` keyword followed by the category you want to filter for, for example `aws_url_category:Malicious;` You can specify multiple categories per rule. For additional examples, see [Stateful rules examples: URL/domain category filter](suricata-examples.md#suricata-example-rule-with-url-filter). 
 
-**How URL and Domain Category filtering works**  
+**How URL and domain category filtering works**  
 
 
 **aws\_url\_category keyword**
@@ -38,7 +38,7 @@ To use URL and Domain Category filtering, you provide either the `aws_url_catego
   + Server Name Indication (SNI) field from TLS handshake
   + Host field from HTTP request headers
 
-**Supported Categories**  
+**Supported categories**  
 
 
 ```
@@ -99,8 +99,8 @@ To use URL and Domain Category filtering, you provide either the `aws_url_catego
 
 + [TLS inspection](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-configurations.html) must be enabled on your firewall to perform URL category filtering on HTTPS traffic
 + Without TLS inspection, only domain-level filtering is possible for encrypted traffic
-+ A single URL may map to multiple categories
++ A single URL might map to multiple categories
 + Category database is automatically maintained and updated
 + You can specify multiple categories in a single rule
-+ You cannot combine URL/Domain category filtering keywords (`aws_url_category, aws_domain_category`) with geographic IP filtering (`geoip`) in the same rule. You must create separate rules if you want to filter traffic using both geographic IP filter and URL /Domain Category filter.
-+ Using URL/Domain category filtering may increase traffic latency due to the additional category lookups performed for each connection matching the rule protocol and IP specifications.
++ You cannot combine URL/domain category filtering keywords (`aws_url_category, aws_domain_category`) with geographic IP filtering (`geoip`) in the same rule. You must create separate rules if you want to filter traffic using both geographic IP filter and URL/domain category filter.
++ Using URL/Domain category filtering might increase traffic latency due to the additional category lookups performed for each connection matching the rule protocol and IP specifications.

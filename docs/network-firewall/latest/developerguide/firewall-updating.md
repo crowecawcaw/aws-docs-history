@@ -8,7 +8,7 @@ To make changes to your firewall settings through the console, use the following
 After you create a firewall, you can update the firewall settings or view reports on firewall traffic from within the console. To view your firewall settings and reports through the console, use the following procedure:
 
 **Warning**  
-If your firewall update changes any stateful engine option, including the rule evaluation order type, stream exception policy, or flow timeouts (such as TCP idle timeout), or enables, disables, or changes the DNS Firewall rule group ID of resolved IP validation, it may require a restart of the stateful engine in order to apply the changes. When this occurs, existing connections will be treated according to your stream exception policy configuration. For more information about stateful engine options, see [Firewall policy settings in AWS Network Firewall](firewall-policy-settings.md). 
+If your firewall update changes any stateful engine option, including the rule evaluation order type, stream exception policy, or flow timeouts (such as TCP idle timeout), or enables, disables, or changes the DNS Firewall rule group ID of resolved IP validation, it might require a restart of the stateful engine to apply the changes. When this occurs, existing connections are treated according to your stream exception policy configuration. For more information about stateful engine options, see [Firewall policy settings in AWS Network Firewall](firewall-policy-settings.md). 
 
 Updating a firewall affects all endpoints for the firewall, both those defined inside the firewall and those defined as VPC endpoint associations.
 
@@ -22,7 +22,7 @@ Updating a firewall affects all endpoints for the firewall, both those defined i
 
 1. Choose the tab **Firewall details**, then, in each section where you want to make changes, choose **Edit** and follow the console guidance to make your changes. 
    + In the **Details** section, you can change the firewall description. The name is fixed after creation.
-   + In the **Traffic analysis mode** section, you can enable or disable traffic analysis, which lets you generate reports on HTTP or HTTPS traffic from the last 30 days. Enabling and disabling **Traffic analysis mode** does not impact traffic flow or automatically trigger report creation.
+   + In the **Traffic analysis mode** section, you can enable or disable traffic analysis, which you can use to generate reports on HTTP or HTTPS traffic from the last 30 days. Enabling and disabling **Traffic analysis mode** does not impact traffic flow or automatically trigger report creation.
 **Important**  
 Network Firewall only starts collecting traffic analysis metrics when you enable **Traffic analysis mode** on your firewall. Traffic observed before you enable **Traffic analysis mode** is not included in reporting. 
    + In the **Associated policy and VPC** section, you can add and remove Availability Zones and subnets and you can associate a different firewall policy. The VPC is fixed after creation. 
@@ -30,9 +30,7 @@ Network Firewall only starts collecting traffic analysis metrics when you enable
    + In the **Firewall tags** section, you can change the tags assigned to the AWS firewall resource. For information about tagging, see [Tagging AWS Network Firewall resources](tagging.md).
 
 1. Choose the **Monitoring** tab, then follow the console guidance to use the available reporting capabilities. 
-   + In the **Firewall requests** section, you can view a chart of dropped, passed, and received stateless and stateful packets monitored by the firewall within a customizable time frame.
-   + In the **Reports** section, if you have enabled traffic analysis mode, you can generate an HTTP or HTTPS report or view the status of reports you already created. For information on these reports, see See [Reporting on network traffic in Network Firewall](reporting.md) for more information on report generation. 
-**Note**  
-Enabling traffic analysis mode does not automatically generate a report when you finish creating your firewall. See [Reporting on network traffic in Network Firewall](reporting.md) for more information on report generation. 
+   + In the **Firewall requests** section, you can view a chart of dropped, passed, and received stateless and stateful packets monitored by the firewall within a customizable time frame. For a firewall that uses a Next Generation policy, the chart splits these packet metrics by the firewall engine and the IPS engine instead of by the stateless and stateful engines. For more information, see [Next Generation policy metrics](monitoring-cloudwatch.md#metrics-policy-v2).
+   + In the **Reports** section, if you have enabled traffic analysis mode, you can generate an HTTP or HTTPS report or view the status of reports you already created. Enabling traffic analysis mode does not automatically generate a report when you finish creating your firewall. For more information about these reports, see [Reporting on network traffic in Network Firewall](reporting.md). 
 
 1. Choose **Save** to save your changes and return to the firewall's detail page.

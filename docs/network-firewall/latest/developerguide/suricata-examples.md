@@ -201,7 +201,7 @@ The variable `EXTERNAL_NET` is a Suricata standard variable that represents the 
 **Note**  
 Before using any example rule, test and adapt it to your needs.
 
-To reference a prefix list in your rule group, specify a IP set variable name and associate it with the prefix list's Amazon Resource Name (ARN). Then, specify the variable in one or more of your rules, prefacing the variable with `@`, such as `@IP_Set_Variable`. The variable represents the IPv4 prefix list that you are referencing. For more information about using IP set references, see [Referencing Amazon VPC prefix lists](rule-groups-ip-set-references.md#rule-groups-referencing-prefix-lists).
+To reference a prefix list in your rule group, specify an IP set variable name and associate it with the prefix list's Amazon Resource Name (ARN). Then, specify the variable in one or more of your rules, prefacing the variable with `@`, such as `@IP_Set_Variable`. The variable represents the IPv4 prefix list that you are referencing. For more information about using IP set references, see [Referencing Amazon VPC prefix lists](rule-groups-ip-set-references.md#rule-groups-referencing-prefix-lists).
 
 The following example shows a Suricata compatible rule that uses an IP set reference variable `@BETA` as the source port in `RulesString`. To use an IP set reference in your rule, you must use an `@` in front of the IP set variable name, such as `@My_IP_set_variable_name`.
 
@@ -291,13 +291,13 @@ The following shows an example standard stateful rule group that drops traffic u
  }
 ```
 
-## Stateful rules examples: URL/Domain Category filter
+## Stateful rules examples: URL/domain category filter
 <a name="suricata-example-rule-with-url-filter"></a>
 
 **Note**  
 Before using any example rule, test and adapt it to your needs.
 
-For information about URL and Domain Category filtering in Network Firewall, see [URL and Domain Category Filtering in Suricata compatible AWS Network Firewall rule groups](rule-groups-url-filtering.md).
+For information about URL and domain category filtering in Network Firewall, see [URL and domain category filtering in Suricata compatible AWS Network Firewall rule groups](rule-groups-url-filtering.md).
 
 aws\_url\_category evaluates complete URLs (with TLS inspection) and domains, while aws\_domain\_category evaluates only domain information from TLS SNI or HTTP host headers.
 
@@ -397,7 +397,7 @@ The following shows an example standard stateful rule group that drops traffic t
 }
 ```
 
-## Stateful rules examples: manage rule evaluation order
+## Stateful rules examples: managing rule evaluation order
 <a name="suricata-example-rule-ordering"></a>
 
 **Note**  

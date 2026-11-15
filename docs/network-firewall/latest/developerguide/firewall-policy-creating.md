@@ -15,7 +15,9 @@ If you want to use TLS inspection, you need to first create a TLS inspection con
 
 1. Choose **Create firewall policy**.
 
-1. On the **Policy details** page, provide the following information:
+1. On the **Firewall policy details** page, provide the following information:
+
+   1. For **Policy version**, select **Classic**. The **Next Generation** version is recommended and selected by default; to create a Next Generation policy instead, see [Creating a Next Generation policy in AWS Network Firewall](firewall-policy-v2-creating.md). If you change the version after entering settings, the console prompts you to confirm and clears the version-specific settings.
 
    1. Enter a **Name** to identify this firewall policy.
 **Note**  
@@ -23,12 +25,12 @@ You can't change the name after you create the firewall policy.
 
    1. (Optional) Enter a **Description** for the policy to help you identify it among your other resources.
 
-   1. **Enable Active Threat Defense - optional** gives you visibility into threat activity and indicator groups, types, and threat names you are protected against. You can add the appropriate Active Threat Defense rule groups to your firewall policy to block these threats. See the [AWS active threat defense for AWS Network Firewall](aws-managed-rule-groups-atd.md) for more details.
+   1. **Enable Active Threat Defense** gives you visibility into threat activity and indicator groups, types, and threat names you are protected against. You can add the appropriate Active Threat Defense rule groups to your firewall policy to block these threats. See the [AWS active threat defense for AWS Network Firewall](aws-managed-rule-groups-atd.md) for more details.
 
-   1. For **Stream exception policy**, choose how Network Firewall handles traffic when a network connection breaks midstream. Network connections can break due to disruptions in external networks or within the firewall itself. Choose from the following options:
-      + **Drop** - Network Firewall fails closed and drops all subsequent traffic going to the firewall. This is the default behavior.
-      + **Continue** - Network Firewall continues to apply rules to the subsequent traffic without context from traffic before the break. This impacts the behavior of rules that depend on this context. For example, if you have a stateful rule to drop httptraffic, Network Firewall won't match the traffic for this rule because the service won't have the context from session initialization defining the application layer protocol as HTTP. However, this behavior is rule dependent—a TCP-layer rule using a `flow:stateless` rule would still match, as would the `aws:drop_strict` default action.
-      + **Reject** - Network Firewall fails closed and drops all subsequent traffic going to the firewall. Network Firewall also sends a TCP reject packet back to your client so that the client can immediately establish a new session. Network Firewall will have context about the new session and will apply rules to the subsequent traffic.
+   1. For **Stream exception policy**, select how Network Firewall handles traffic when a network connection breaks midstream. Network connections can break due to disruptions in external networks or within the firewall itself. Select from the following options:
+      + **Reject** – Network Firewall fails closed and drops all subsequent traffic going to the firewall. Network Firewall also sends a TCP reject packet back to your client so that the client can immediately establish a new session. Network Firewall has context about the new session and applies rules to the subsequent traffic. The console pre-selects this option.
+      + **Drop** – Network Firewall fails closed and drops all subsequent traffic going to the firewall.
+      + **Continue** – Network Firewall continues to apply rules to the subsequent traffic without context from traffic before the break. This impacts the behavior of rules that depend on this context. For example, if you have a stateful rule to drop HTTP traffic, Network Firewall won't match the traffic for this rule because the service won't have the context from session initialization defining the application layer protocol as HTTP. However, this behavior is rule dependent—a TCP-layer rule using a `flow:stateless` rule would still match, as would the `aws:drop_strict` default action.
 
    1. (Optional) Under **Tags**, enter a key and optional value for any tag that you want added to this firewall policy. Tags help you organize and manage your AWS resources. For more information about tagging your resources, see [Tagging AWS Network Firewall resources](tagging.md).
 
@@ -36,27 +38,27 @@ You can't change the name after you create the firewall policy.
 
 1. (Optional) On the **Traffic inspection** page, configure the following settings:
 
-   1. Under **TLS inspection**, choose **Add TLS inspection configuration** to turn on decryption and re-encryption of incoming SSL/TLS traffic for the firewalls associated with this policy. You can't add or remove a TLS inspection configuration after firewall policy creation. For information about TLS inspection configurations, see [Inspecting SSL/TLS traffic with TLS inspection configurations in AWS Network Firewall](tls-inspection-configurations.md).
+   1. (Optional) Under **Route 53 Resolved IP validation**, select **Enable Route 53 Resolved IP validation** to validate destination IP addresses against the IP addresses that Amazon Route 53 Resolver resolved. Then select an **Action** (**Reject**, **Drop**, or **Alert**), a **DNS Firewall rule group**, and a **DNS expiry exception policy** (**Reject**, **Drop**, or **Continue**). Optionally, enter **Source IP ranges** and **Bypass destination validation IP ranges**.
 
-   1. (Optional) Under **Idle Timeouts**, toggle the **Customize TCP idle timeout settings** option. This lets you define the number of seconds a TCP connection can remain idle before Network Firewall drops the traffic. For information about the idle timeout setting, see [Firewall policy settings in AWS Network Firewall](firewall-policy-settings.md).
+   1. Under **TLS inspection configurations**, choose **Add TLS inspection configuration** to turn on decryption and re-encryption of incoming SSL/TLS traffic for the firewalls associated with this policy. You can't add or remove a TLS inspection configuration after firewall policy creation. For information about TLS inspection configurations, see [Inspecting SSL/TLS traffic with TLS inspection configurations in AWS Network Firewall](tls-inspection-configurations.md).
+
+   1. (Optional) Under **Idle timeouts**, toggle the **Customize TCP idle timeout settings** option. Use this option to define the number of seconds a TCP connection can remain idle before Network Firewall drops the traffic. For information about the idle timeout setting, see [Firewall policy settings in AWS Network Firewall](firewall-policy-settings.md).
 
 1. Choose **Next**.
 
 1. (Optional) On the **Add rule groups** page, add rule groups to your firewall policy:
 
-   1. To add stateless rule groups, in the **Stateless rule groups** section, choose **Add rule groups**, then select the check boxes for the rule groups that you want to add and choose **Add rule groups**.
+   1. In the **Stateful rule evaluation order and default actions** section, for the rule evaluation order, select one of the following:
+      + Select **Strict order** (recommended) to provide your rules in the order that you want them to be evaluated. You can then select one or more default actions for packets that don't match any rules.
+      + Select **Action order** to have the stateful rules engine determine the evaluation order of your rules. The default action for this rule order is **Pass**, followed by **Drop**, **Reject**, and **Alert** actions. This option was previously named **Default** order.
 
-   1. If your firewall policy has multiple stateless rule groups, in the **Stateless rule group** section, update the processing order as needed. Network Firewall processes stateless rule groups by order of priority, starting from the lowest. To move a rule group in the list, select the check box next to its name and then move it up or down. For more information, see [How AWS Network Firewall filters network traffic](firewall-policy-processing.md).
+      You can't change the rule evaluation order after you add a stateful rule group to the policy. For more information about stateful default actions, see [Action order](suricata-rule-evaluation-order.md#suricata-default-rule-evaluation-order).
 
-   1. To choose the actions to take on packets that don't match any stateless rules, in the **Stateless default actions** section, first choose how to treat fragmented packets. You can choose **Use the same actions for all packets** or **Use different actions for full packets and fragmented packets**. You can then choose **Pass**, **Drop**, or **Forward to stateful rule groups** for all packets, or choose individually for full and fragmented packets. You also have the option to enable a custom action that lets you publish custom Amazon CloudWatch metrics to monitor the usage of stateless rules in your rule group.
+   1. To add stateful rule groups, in the **Stateful rule group** section, choose **Add stateful rule groups**, select the check boxes for the rule groups that you want to add, and then choose **Add rule groups**. If you use strict order, select a rule group and choose **Move up** or **Move down** to set its evaluation priority.
 
-   1. To choose the way that your stateful rules are ordered for evaluation, and the actions to take on packets that don't match any stateful rules, in the **Stateful rule evaluation order and default action** section, first choose a rule evaluation order:
-      + Choose **Strict order** (recommended) to provide your rules in the order that you want them to be evaluated. You can then choose one or more default actions for packets that don't match any rules.
-      + Choose **Action order** to have the stateful rules engine determine the evaluation order of your rules. The default action for this rule order is **Pass**, followed by **Drop**, **Reject**, and **Alert** actions. This option was previously named **Default** order.
+   1. In the **Stateless default actions** section, under **Fragmented packets**, select **Use the same actions for all packets** or **Use different actions for full packets and fragmented packets**. Then, for **Rule action**, select **Forward to stateful rule groups**, **Pass**, or **Drop**. Optionally, under **Publish metrics**, select **Enable** and enter an action name and dimension value to publish custom Amazon CloudWatch metrics.
 
-      For more information about stateful default actions for rule groups, see [Action order](suricata-rule-evaluation-order.md#suricata-default-rule-evaluation-order).
-
-   1. To add stateful rule groups, in the **Stateful rule groups** section, choose **Add rule groups**, then select the check boxes for the rule groups that you want to add and choose **Add rule groups**.
+   1. To add stateless rule groups, in the **Stateless rule group** section, choose **Add stateless rule groups**, select the check boxes for the rule groups that you want to add, and then choose **Add rule groups**. Network Firewall processes stateless rule groups by order of priority, starting from the lowest; to reorder, select a rule group and move it up or down. For more information, see [How AWS Network Firewall filters network traffic](firewall-policy-processing.md).
 
 1. Choose **Next**.
 

@@ -3,7 +3,7 @@
 # Sending AWS Network Firewall logs to Amazon Simple Storage Service
 <a name="logging-s3"></a>
 
-To send your firewall logs to Amazon S3, you need to set up an Amazon S3 bucket as the destination for the logs. In your bucket configuration for the firewall, you can optionally include a prefix, to immediately follow the bucket name. When you enable logging to Amazon S3 in Network Firewall, you provide the bucket name and, if you are using one, the prefix. For information about creating your logging bucket, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingABucket.html) in the *Amazon Simple Storage Service User Guide*.
+To send your firewall logs to Amazon S3, you need to set up an Amazon S3 bucket as the destination for the logs. In your bucket configuration for the firewall, you can optionally include a prefix, to immediately follow the bucket name. When you turn on logging to Amazon S3 in Network Firewall, you provide the bucket name and, if you are using one, the prefix. For information about creating your logging bucket, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingABucket.html) in the *Amazon Simple Storage Service User Guide*.
 
 **Note**  
 Network Firewall supports encryption with Amazon S3 buckets for key type Amazon S3 key (SSE-S3) and for AWS Key Management Service (SSE-KMS) AWS KMS keys. Network Firewall doesn't support encryption for AWS Key Management Service keys that are managed by AWS.
@@ -12,12 +12,12 @@ Network Firewall supports encryption with Amazon S3 buckets for key type Amazon 
 For information about the fees associated with sending logs to Amazon S3, see [Pricing for AWS Network Firewall logging](firewall-logging-pricing.md).
 
 **Important**  
-If you enable detailed monitoring for a firewall that sends alert or flow logs to Amazon S3, Network Firewall uses Amazon Athena to create tables as required in your account. These tables process log data and are used exclusively for populating firewall monitoring dashboards and are managed by the Network Firewall console. For more information on how Amazon S3 integrates with Amazon Athena, see [https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-inventory-athena-query.html](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-inventory-athena-query.html). 
+If you turn on detailed monitoring for a firewall that sends alert or flow logs to Amazon S3, Network Firewall uses Amazon Athena to create tables as required in your account. These tables process log data and are used exclusively for populating firewall monitoring dashboards and are managed by the Network Firewall console. For more information on how Amazon S3 integrates with Amazon Athena, see [https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-inventory-athena-query.html](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-inventory-athena-query.html). 
 
 **Important**  
 To use the firewall monitoring dashboard functionality with S3 logging destinations:  
 The Amazon S3 bucket storing the logs must be in the same region as the firewall. This is required for Amazon Athena to process the logs, as cross-region processing is not supported.
-If you specify a prefix for your S3 bucket, ensure it does not begin with a forward slash (`/`). Prefixes starting with (`/`) are not compatible with Amazon Athena processing and will prevent the dashboard from functioning correctly.
+If you specify a prefix for your S3 bucket, ensure it does not begin with a forward slash (`/`). Prefixes starting with (`/`) are not compatible with Amazon Athena processing and prevent the dashboard from functioning correctly.
 
 Network Firewall collects log records, consolidates them into log files, and then publishes the log files to the Amazon S3 bucket at 5-minute intervals. Each log file contains log records for the network traffic recorded in the previous five minutes.
 
@@ -40,12 +40,12 @@ Similarly, the log file name is determined by the flow log's ID, Region, and the
 In the specification of the folder and file name, the following apply:
 + The log type is either `alert`, `flow`, or `tls`.
 + The timestamp uses the `YYYYMMDDTHHmmZ` format. 
-+ If you don't provide a specification for the S3 bucket prefix, the log file bucket folder structure will be similar to the following:
++ If you don't provide a specification for the S3 bucket prefix, the log file bucket folder structure is similar to the following:
 
   ```
   {{s3-bucket-name}}/AWSLogs/{{aws-account-id}}
   ```
-+ If you specify slash (`/`) for the S3 bucket prefix, or provide a prefix that begins with a slash, the log file bucket folder structure will contain a double slash (`//`), like the following for a prefix set to a single slash:
++ If you specify slash (`/`) for the S3 bucket prefix, or provide a prefix that begins with a slash, the log file bucket folder structure contains a double slash (`//`), like the following for a prefix set to a single slash:
 
   ```
   {{s3-bucket-name}}//AWSLogs/{{aws-account-id}}
@@ -202,7 +202,7 @@ For example, the following bucket policy allows AWS accounts `111122223333` and 
 In addition to your existing Amazon S3 permissions, you must have the following permissions for flow or alert log metrics to populate the firewall monitoring dashboard.
 
 **Important**  
-When you enable firewall monitoring for a firewall that sends logs to Amazon S3, Network Firewall uses Amazon Athena to create tables and metadata files (including CSV files) in your S3 bucket. To optimize storage costs, we recommend periodically cleaning up these metadata files when they are no longer needed.
+When you turn on firewall monitoring for a firewall that sends logs to Amazon S3, Network Firewall uses Amazon Athena to create tables and metadata files (including CSV files) in your S3 bucket. To optimize storage costs, periodically clean up these metadata files when they are no longer needed.
 
 If you haven't already verified that your account has the baseline logging permissions, go do that now. For more information, see [Permissions to configure AWS Network Firewall logging](firewall-logging-permissions.md).
 
@@ -243,7 +243,7 @@ Additional fees are incurred when Network Firewall uses Amazon Athena to query A
         }
 ```
 
-If you're using CloudWatch Logs as a logging destination, you'll need additional permissions. For more information, see [Permissions to publish logs to CloudWatch Logs](logging-cw-logs.md#logging-cw-logs-permissions).
+If you're using CloudWatch Logs as a logging destination, you need additional permissions. For more information, see [Permissions to publish logs to CloudWatch Logs](logging-cw-logs.md#logging-cw-logs-permissions).
 
 The following view shows both standard Amazon S3 permissions and the additional Athena permissions needed for detailed monitoring.
 

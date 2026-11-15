@@ -22,7 +22,7 @@ A domain list rule group has the following general settings.
   + For `Reject`, traffic matching the domain specifications is blocked and a TCP reset packet is sent back to the source. This option is only available for TCP traffic.
   + For `Alert`, traffic matching the domain specifications generates an alert in the firewall's logs (when logging is enabled). Then, traffic either passes, is rejected, or drops based on other rules in the firewall policy.
 **For firewall policies that use default action ordering**  
-We recommend that you avoid combining `Reject` or `Alert` domain list rule groups with `Allow` domain list rule groups. When this combination of rule groups is defined in a firewall policy that uses default action ordering, the default drop rule added by the `Allow` rule group will take effect before the `Reject` and `Alert` rules.
+Avoid combining `Reject` or `Alert` domain list rule groups with `Allow` domain list rule groups. When this combination of rule groups is defined in a firewall policy that uses default action ordering, the default drop rule added by the `Allow` rule group will take effect before the `Reject` and `Alert` rules.
 
   For more information about actions, see [Defining rule actions in AWS Network Firewall](rule-action.md).
 + **(Optional) `HOME_NET` rule group variable** – Used to expand the local network definition beyond the CIDR range of the VPC where you deploy Network Firewall. For additional information about this setting, see [Domain list inspection for traffic from outside the deployment VPC](#stateful-rule-groups-domain-names-home-net).

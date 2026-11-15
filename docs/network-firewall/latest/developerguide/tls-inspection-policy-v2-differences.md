@@ -1,0 +1,14 @@
+
+
+# How TLS inspection differs from a Classic policy
+<a name="tls-inspection-policy-v2-differences"></a>
+
+You attach a TLS inspection configuration to a Next Generation policy the same way you attach it to a Classic policy, and most of TLS inspection behaves identically in both. The following is the same in both policy types:
++ How a TLS inspection configuration attaches to the policy, and its scopes, certificates, CA certificate, and certificate revocation actions.
++ Every TLS-layer connection reset in [How TLS inspection resets connections](tls-inspection-connection-resets.md), and every revocation **Drop** or **Reject** in [Checking certificate revocation status](tls-inspection-certificate-requirements.md#tls-inspection-check-certificate-revocation-status). The TLS proxy performs these the same way regardless of policy type.
+
+The following is specific to a Next Generation policy:
++ **Session holding is always on.** A Next Generation policy always holds the session and has no customer setting to turn it off. In the console, the **Enable session holding** option is selected and read-only. For a Classic policy, session holding is controlled by the policy's **Enable session holding** setting (the `EnableTLSSessionHolding` firewall policy field) and is off by default. For more information, see [Using session holding with TLS inspection in AWS Network Firewall](session-holding-tls.md).
++ **TLS rules don't match decrypted HTTP traffic.** A firewall rule that matches `tls.sni` allows a connection past the TLS handshake stage, but it doesn't match the decrypted HTTP request inside the connection. To act on decrypted traffic, use HTTP keywords such as `http.host`. This is why you author both a TLS rule and an HTTP rule for each allowed domain. For more information, see [Authoring a TLS rule and an HTTP rule for each allowed domain](tls-inspection-policy-v2-two-rules.md).
++ **A transport or 5-tuple accept rule doesn't exempt an inspected flow.** An accept rule at the connection stage, such as `accept:flow tcp:all`, doesn't turn off TLS or HTTP hook evaluation for an inspected connection. The firewall still evaluates the SNI and the decrypted request. For an inspected domain, you therefore author two rules: a TLS/SNI rule at the `client_hello` hook and an HTTP rule for the decrypted request. For more information, see [How rules are evaluated for TLS-inspected traffic](tls-inspection-policy-v2-tls-gate.md) and [Authoring a TLS rule and an HTTP rule for each allowed domain](tls-inspection-policy-v2-two-rules.md).
++ **Monitor mode affects only rule and default-action enforcement.** Monitor mode is a Next Generation policy concept. It never changes the TLS proxy, so the resets and revocation actions above still take effect in monitor mode. For more information, see [TLS inspection in monitor mode](tls-inspection-policy-v2-monitor-mode.md).

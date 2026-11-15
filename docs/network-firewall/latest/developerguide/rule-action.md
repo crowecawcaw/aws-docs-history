@@ -24,7 +24,7 @@ After you define a named custom action, you can use it by name in the same conte
 
 The actions that you specify for your stateful rules help determine the order in which the Suricata stateful rules engine processes them. Network Firewall supports the Suricata rule actions pass, drop, reject, and alert. By default, the engine processes rules in the order of pass action, drop action, reject action, and then finally alert action. Within each action, you can set a priority to indicate processing order. For more information, see [Managing evaluation order for Suricata compatible rules in AWS Network Firewall](suricata-rule-evaluation-order.md). 
 
-Stateful rules can send alerts to the firewall's logs, if you have logging configured. To see the alerts, you must enable logging for the firewalls that use the rules. Logging incurs additional costs. For more information, see [Logging network traffic from AWS Network Firewall](firewall-logging.md). 
+Stateful rules can send alerts to the firewall's logs, if you have logging configured. To see the alerts, you must turn on logging for the firewalls that use the rules. Logging incurs additional costs. For more information, see [Logging network traffic from AWS Network Firewall](firewall-logging.md). 
 
 The options for stateful action settings vary by rule type. 
 
@@ -33,7 +33,7 @@ You specify one of the following action options for both the rules that you prov
 + **Pass** – Discontinue inspection of the matching packet and permit it to go to its intended destination. Rules with pass action are evaluated before rules with other action settings. 
 + **Drop** or **Alert**– Evaluate the packet against all rules with drop or alert action settings. If the firewall has alert logging configured, send a message to the firewall's alert logs for each matching rule. The first log entry for the packet will be for the first rule that matched the packet. 
 
-  After all rules have been evaluated, handle the packet according to the the action setting in the first rule that matched the packet. If the first rule has a drop action, block the packet. If it has an alert action, continue evaluation.
+  After all rules have been evaluated, handle the packet according to the action setting in the first rule that matched the packet. If the first rule has a drop action, block the packet. If it has an alert action, continue evaluation.
 + **Reject** – Drop traffic that matches the conditions of the stateful rule and send a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. `Reject` is available only for TCP traffic. This option doesn't support FTP and IMAP protocols.
 
 **Note**  

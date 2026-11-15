@@ -5,6 +5,8 @@
 
 You can direct HTTP and HTTPS traffic from your workloads to the firewall's proxy listener. The firewall receives HTTP CONNECT requests, evaluates the requested domain against your security rules, and establishes connections to allowed destinations on behalf of the client.
 
+This applies only to Classic Network Firewall policies. Next Generation policies don't support no-source-preservation mode.
+
 ## Setting proxy environment variables
 <a name="nfw-nosource-env-vars"></a>
 
@@ -32,7 +34,7 @@ export no_proxy="169.254.169.254,localhost"
 
 When you create a VPC endpoint association, Network Firewall automatically creates private hosted zones in the associated VPCs. These hosted zones resolve the firewall's hostname to the local VPC endpoint IP address.
 
-You do not need to configure DNS manually. Resolution is handled automatically.
+You do not need to configure DNS manually. Network Firewall handles resolution automatically.
 
 ## HTTP and HTTPS listeners
 <a name="nfw-nosource-listeners"></a>

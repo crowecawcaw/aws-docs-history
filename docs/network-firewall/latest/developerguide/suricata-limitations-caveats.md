@@ -3,7 +3,7 @@
 # Limitations and caveats for stateful rules in AWS Network Firewall
 <a name="suricata-limitations-caveats"></a>
 
-AWS Network Firewall stateful rules are Suricata compatible. Most Suricata rules work without modification with Network Firewall. Your use of Suricata rules with Network Firewall has the restrictions and caveats listed in this section. 
+AWS Network Firewall stateful rules are Suricata compatible. Most Suricata rules work without modification with Network Firewall. Your use of Suricata rules with Network Firewall has the restrictions and caveats listed in this section. The restrictions and caveats in this section apply to Classic Network Firewall stateful rules and to the IPS rules in a Next Generation policy, which use the same Suricata compatible stateful syntax. For the additional limitations that apply to the firewall rules in a Next Generation policy, see [Limitations and caveats for firewall rules in a Next Generation policy](nwfw-v2-firewall-engine-limitations.md). 
 
 ## Suricata features that Network Firewall doesn't support
 <a name="suricata-not-supported"></a>
@@ -23,7 +23,7 @@ The following Suricata features are not supported by Network Firewall:
 + IKEv2 protocol.
 + IP-in-IP protocol.
 + HTTP/2 overloading.
-+ Application drop established (bidirectional) and Application drop established (server-directed only) default rules are incompatible with a session-holding configuration. You can read more at [Managing evaluation order for Suricata compatible rules in AWS Network Firewall.](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html)
++ Application drop established (bidirectional) and Application drop established (server-directed only) default rules are incompatible with a session-holding configuration. For more information, see [Managing evaluation order for Suricata compatible rules in AWS Network Firewall](suricata-rule-evaluation-order.md).
 
 ## Suricata features that Network Firewall supports with caveats
 <a name="suricata-supported-with-caveats"></a>
@@ -40,13 +40,13 @@ The following Suricata features have caveats for use with Network Firewall:
 + To create a rule that requires a variable, you must specify the variable in the rule group. Without the required variables, the rule group isn't valid. For an example of a rule group that's configured with variables, see [Stateful rules examples: rule variables](suricata-examples.md#suricata-example-rule-with-variables).
 + In payload keywords, the `pcre` keyword is only allowed with `content`, `tls.sni`, `http.host`, and `dns.query` keywords.
 + The `priority` keyword is not supported for rule groups that evaluate rules using strict evaluation order.
-+ When you use a stateful rule with a layer 3 or 4 protocol such as IP or TCP, and you don't include any flow state context, for example `"flow:not_established"`, then Suricata treats this rule as an IP-only rule. Suricata only evaluates IP-only rules for the first packet in each direction of the flow. For example, Suricata will process the following rule as an IP-only rule:
++ When you use a stateful rule with a layer 3 or 4 protocol such as IP or TCP, and you don't include any flow state context, for example `"flow:not_established"`, then Suricata treats this rule as an IP-only rule. Suricata only evaluates IP-only rules for the first packet in each direction of the flow. For example, Suricata processes the following rule as an IP-only rule:
 
   ```
   pass tcp $HOME_NET any -> [10.0.0.0/8] $HTTPS_PORTS (sid: 44444; rev:2;)
   ```
 
-  However, if the destination IP contains a `!`, then Suricata treats this as per the protocol specified in the rule. Suricata will process the following rule as a TCP rule.
+  However, if the destination IP contains a `!`, then Suricata treats this as per the protocol specified in the rule. Suricata processes the following rule as a TCP rule.
 
   ```
   pass tcp $HOME_NET any -> [!10.0.0.0/16] $HTTPS_PORTS (sid: 44444; rev:2;)

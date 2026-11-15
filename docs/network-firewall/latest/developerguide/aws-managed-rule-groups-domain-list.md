@@ -5,9 +5,11 @@
 
 This section describes the AWS managed rule groups that inspect domain and IP information for Network Firewall. You see these in the console in the list of AWS managed rule groups, or when you add rule groups to your firewall policy. Through the API, you can retrieve the list of AWS managed rule groups by calling [ListRuleGroups](https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_ListRuleGroups.html).
 
-Domain and IP rule groups block HTTP/HTTPS traffic to domains identified as low-reputation, or that are known or suspected to be associated with malware or botnets. Choose one or more of these rule groups to establish domain list protection for your resources.
+Domain and IP rule groups block HTTP/HTTPS traffic to domains identified as low-reputation, or that are known or suspected to be associated with malware or botnets. Select one or more of these rule groups to establish domain list protection for your resources.
 
 Each rule name in the table below is appended by either `StrictOrder` or `ActionOrder`. A firewall policy's *rule evaluation order* determines whether you can add `StrictOrder` or `ActionOrder` managed rule groups to the policy. For example, you can only add a rule group appended with `StrictOrder` if the policy uses strict order for its rule evaluation order. In the console, Network Firewall automatically filters the managed rule groups available for you to add to your policy. For information about rule evaluation order, see [Managing evaluation order for Suricata compatible rules in AWS Network Firewall](suricata-rule-evaluation-order.md).
+
+This choice applies to Classic Network Firewall policies, whose rule evaluation order is strict order or action order. In a Next Generation policy, these AWS managed rule groups are IPS-typed copies of the Classic managed rule groups, with the same names and rules but a different ARN type. You reference them in the policy's *IPS engine* section using the IPS-typed ARN form `arn:aws:network-firewall:{{region}}:aws-managed:ips-rulegroup/{{Name}}`, where the IPS engine evaluates them using action order, so you add the `ActionOrder` variant. For more information, see [AWS Network Firewall firewall policy versions](firewall-policy-versions.md) and [Working with IPS rule groups in AWS Network Firewall](ips-rule-groups.md).
 
 
 | Rule name | Description and label | 

@@ -3,12 +3,12 @@
 # Reporting on network traffic in Network Firewall
 <a name="reporting"></a>
 
-AWS Network Firewall lets you generate reports on HTTP or HTTPS traffic observed over the last 30 days in any firewall, starting from the point in time when you enable **Traffic analysis mode** in a firewall. Network Firewall only starts collecting traffic analysis metrics when you enable **Traffic analysis mode** on your firewall. 
+With AWS Network Firewall, you can generate reports on HTTP or HTTPS traffic observed over the last 30 days in any firewall, starting from the point in time when you turn on **Traffic analysis mode** in a firewall. Network Firewall only starts collecting traffic analysis metrics when you turn on **Traffic analysis mode** on your firewall. 
 
 **Tip**  
-If you enable **Traffic analysis mode**, then immediately generate a report, the report will only contain metrics from when you enabled that setting. For the most comprehensive analysis, we recommend you wait 30 days after you enable **Traffic analysis mode** before you generate a report.
+If you turn on **Traffic analysis mode**, then immediately generate a report, the report contains only metrics from when you enabled that setting. For the most comprehensive analysis, wait 30 days after you turn on **Traffic analysis mode** before you generate a report.
 
- Before you can generate a traffic analysis report, you must enable **Traffic analysis mode** when you create or update a firewall. For more information on firewall configuration, see [Managing a firewall and firewall endpoints in AWS Network Firewall](firewall-managing.md). 
+ Before you can generate a traffic analysis report, you must turn on **Traffic analysis mode** when you create or update a firewall. For more information on firewall configuration, see [Managing a firewall and firewall endpoints in AWS Network Firewall](firewall-managing.md). 
 
 **Note**  
 You can generate up to one report per traffic type, per 30 day period. For example, when you successfully create an HTTP traffic report, you cannot create another HTTP traffic report until 30 days pass. Alternatively, if you generate a report that combines metrics on both HTTP and HTTPS traffic, you cannot create another report for either traffic type until 30 days pass. Network Firewall automatically deletes the report after 30 days.
@@ -34,7 +34,7 @@ Consider the following in your use of traffic analysis reports:
 <a name="generating-reports"></a>
 
 **Before you generate a report**  
-If you haven't enabled **Traffic analysis mode** on your firewall, do that now. For more information, see [Managing a firewall and firewall endpoints in AWS Network Firewall](firewall-managing.md).
+If you haven't turned on **Traffic analysis mode** on your firewall, do that now. For more information, see [Managing a firewall and firewall endpoints in AWS Network Firewall](firewall-managing.md).
 
 **Important**  
 Network Firewall only starts collecting traffic analysis metrics when you enable **Traffic analysis mode** on your firewall. Traffic observed before you enable **Traffic analysis mode** is not included in reporting. 

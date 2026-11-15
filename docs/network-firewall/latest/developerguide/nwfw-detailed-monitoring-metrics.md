@@ -5,6 +5,8 @@
 
 The firewall monitoring dashboard provides multiple options for viewing key metrics about your firewall. 
 
+For a firewall that uses a Next Generation policy, the dashboard splits these packet metrics by inspection engine—the firewall engine and the IPS engine—instead of by the stateless and stateful engines. For the Next Generation policy metrics, see [Next Generation policy metrics](monitoring-cloudwatch.md#metrics-policy-v2).
+
 Availability of graphs and other visualizations in the dashboard depend on your logging configuration. If you have not reviewed the [prerequisites](nwfw-detailed-monitoring.md#nwfw-detailed-monitoring-prerequisites), do that now.
 
  The following table describes the available visualizations and metrics for each log type:
@@ -30,5 +32,5 @@ Availability of graphs and other visualizations in the dashboard depend on your 
 | Alert logs | Top HTTP User-Agents | Most common HTTP User-Agent strings observed. | 
 | Alert logs | Top alerted TLS SNI | Most frequent Server Name Indication values observed in TLS traffic. | 
 | Alert logs | Top dropped/rejected TLS SNI | Most frequently dropped and rejected Server Name Indication values observed in TLS traffic. | 
-| Alert logs | Top Rule Group Hits | Most frequently triggered stateful rules by rule group or policy and signature. | 
+| Alert logs | Top Rule Group Hits | Most frequently triggered rules by rule group (or policy) and signature, covering Classic stateful rule groups as well as the firewall and IPS rule groups in Next Generation policies. | 
 | Alert logs | Container association | Most frequent container associations observed in alert logs. | 

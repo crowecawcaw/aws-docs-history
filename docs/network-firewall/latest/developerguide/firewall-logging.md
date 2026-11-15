@@ -11,16 +11,17 @@ Metrics provide some higher-level information for both stateless and stateful en
 
 You can record the following types of logs from your Network Firewall stateful engine. 
 + Flow logs are standard network traffic flow logs.
-+ Alert logs report traffic that matches your stateful rules that have an action that sends an alert. A stateful rule sends alerts for the rule actions `DROP`, `ALERT`, and `REJECT`. For more information, see [Actions for stateful rules](rule-action.md#rule-action-stateful). 
++ Alert logs report traffic that matches your stateful rules that have an action that sends an alert. A stateful rule sends alerts for the rule actions `DROP`, `ALERT`, and `REJECT`. In a Next Generation policy, a firewall engine `drop` or `reject` rule sends an alert only when you add the `alert` keyword to the rule—either chained to the action (`drop:flow,alert`) or as a rule option. For more information, see [Actions for stateful rules](rule-action.md#rule-action-stateful). 
 + TLS logs report events that are related to TLS inspection. These logs require the firewall to be configured for TLS inspection. For information, see [Inspecting SSL/TLS traffic with TLS inspection configurations in AWS Network Firewall](tls-inspection-configurations.md).
 
-You can use the same or different logging destination for each log type. You enable logging for a firewall after you create it. For information about how to do this, see [Updating a AWS Network Firewall logging configuration](firewall-update-logging-configuration.md). 
+You can use the same or different logging destination for each log type. You turn on logging for a firewall after you create it. For information about how to do this, see [Updating a AWS Network Firewall logging configuration](firewall-update-logging-configuration.md). 
 
 **Topics**
 + [Contents of a AWS Network Firewall log](firewall-logging-contents.md)
 + [Timing of AWS Network Firewall log delivery](firewall-logging-timing.md)
 + [Permissions to configure AWS Network Firewall logging](firewall-logging-permissions.md)
 + [Pricing for AWS Network Firewall logging](firewall-logging-pricing.md)
++ [Logging for a Next Generation policy in AWS Network Firewall](logging-policy-v2.md)
 + [AWS Network Firewall logging destinations](firewall-logging-destinations.md)
 + [Logging in AWS Network Firewall with server-side encryption and customer-provided keys](firewall-logging-encrypt-kms.md)
 + [Updating a AWS Network Firewall logging configuration](firewall-update-logging-configuration.md)

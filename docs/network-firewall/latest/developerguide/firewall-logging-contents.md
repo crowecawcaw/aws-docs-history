@@ -3,8 +3,6 @@
 # Contents of a AWS Network Firewall log
 <a name="firewall-logging-contents"></a>
 
-
-
 The Network Firewall logs contain the following information: 
 + **firewall\_name** – The name of the firewall that's associated with the log entry.
 + **availability\_zone** – The Availability Zone of the firewall endpoint that generated the log entry.
@@ -25,8 +23,13 @@ The Network Firewall logs contain the following information:
     + TLS errors, with the custom field `"tls_error":` containing the error details. Currently, this category includes Server Name Indication (SNI) mismatches and SNI naming errors. Typically these errors are caused by problems with customer traffic or with the customer's client or server. For example, errors caused when the client hello SNI is NULL or doesn't match the subject name in the server certificate. 
     + Revocation check errors, with the custom field `"revocation_check":` containing the check failure details. These report outbound traffic that fails the server certificate revocation check during TLS inspection. This requires the firewall to be configured with TLS inspection for outbound traffic, and for the TLS inspection to be configured to check the certificate revocation status. The logs include the revocation check status, the action taken, and the SNI that the revocation check was for. For information about configuring certificate revocation checking, see [Using SSL/TLS certificates with TLS inspection configurations in AWS Network Firewall](tls-inspection-certificate-requirements.md). 
   + **aws\_metadata** – The AWS-specific metadata associated with the alert event.
-    + **resource\_arn** – The Amazon Resource Name (ARN) of the rule group or firewall policy that generated the alert.
+    + **resource\_arn** – The Amazon Resource Name (ARN) of the rule group or firewall policy that generated the alert. For a Next Generation policy, the resource type in the ARN identifies the source: `firewall-rulegroup/` for a firewall rule group, `ips-rulegroup/` for an IPS rule group, and `firewall-policy-v2/` for the policy itself. The policy ARN (`firewall-policy-v2/`) is carried when the event isn't attributable to one of your own rule groups, such as when the firewall engine's default action is applied.
   + **alert.metadata.container\_association** – The container association linked to the alert. This field appears when the traffic involves a container workload.
+  + **Next Generation policy alert fields** – An alert event from a Next Generation policy includes the following additional fields. For example entries that use them, see [Logging for a Next Generation policy in AWS Network Firewall](logging-policy-v2.md).
+    + **engine** – In the `alert` object, the inspection engine that produced the event: `fw` for the firewall engine (access control) or `td` for the IPS engine (threat detection).
+    + **firewall.hook** – The connection-state hook that the packet was evaluated at, such as `packet:filter`.
+    + **firewall.policy** – The policy that the firewall engine applied at the hook, such as `drop:flow,alert` or `accept:hook,alert`.
+    + **verdict.action** – The action that Network Firewall took for the packet, such as `drop` or `accept`.
 
   For detailed information about these Suricata events, see [EVE JSON Output](https://docs.suricata.io/en/suricata-8.0.3/output/eve/eve-json-output.html?highlight=EVE) in the [Suricata User Guide](https://docs.suricata.io/en/suricata-8.0.3/index.html). 
 
@@ -198,3 +201,5 @@ The following listing shows an example TLS log entry for a failed certificate re
     }
 }
 ```
+
+For example log entries from a Next Generation policy, and for how to tell firewall engine events from IPS engine events in your logs, see [Logging for a Next Generation policy in AWS Network Firewall](logging-policy-v2.md).

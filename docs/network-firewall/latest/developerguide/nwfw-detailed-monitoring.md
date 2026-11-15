@@ -3,7 +3,7 @@
 # Firewall monitoring in the Network Firewall console
 <a name="nwfw-detailed-monitoring"></a>
 
-Firewall monitoring provides comprehensive visibility into your firewall's flow logs and alert logs. After you enable detailed monitoring, you can access these dashboards directly from the **Monitoring** tab in the firewall details page, without leaving the Network Firewall console.
+Firewall monitoring provides comprehensive visibility into your firewall's flow logs and alert logs. After you turn on detailed monitoring, you can access these dashboards directly from the **Monitoring** tab in the firewall details page, without leaving the Network Firewall console.
 
 ## Prerequisites
 <a name="nwfw-detailed-monitoring-prerequisites"></a>
@@ -16,7 +16,7 @@ Before you can use firewall monitoring, review the following prerequisites based
 + Ensure you have the necessary permissions to access monitoring features. For more information, see [(Optional) Permissions to access CloudWatch log metrics in Network Firewall](logging-cw-logs.md#cw-permissions-for-nwfw-dashboard) or [(Optional) Permissions to access Amazon S3 log metrics in Network Firewall using Amazon Athena](logging-s3.md#logging-s3-athena).
 
 **Note**  
-CloudWatch and Amazon S3 logs may incur additional charges. For information, see [Pricing for AWS Network Firewall logging](firewall-logging-pricing.md).
+CloudWatch and Amazon S3 logs might incur additional charges. For information, see [Pricing for AWS Network Firewall logging](firewall-logging-pricing.md).
 
 For best practices on using the firewall monitoring dashboard, see [Working with the firewall monitoring dashboard](nwfw-using-dashboard.md).
 
@@ -30,10 +30,10 @@ If your firewall sends logs to Amazon S3, ensure the following:
 
 ------
 
-## Enable firewall monitoring
+## Turning on firewall monitoring
 <a name="nwfw-detailed-monitoring-access"></a>
 
-You can enable firewall monitoring in any of the following ways:
+You can turn on firewall monitoring in any of the following ways:
 + During firewall creation, using the logging configuration widget in the **Configure advanced settings** workflow. For more information, see [Creating a firewall in AWS Network Firewall](creating-firewall.md).
 + From the **Edit Logging Configuration** page of an existing firewall For more information, see [Updating a firewall in AWS Network Firewall](firewall-updating.md).
 + Directly from the **Monitoring** tab in the firewall details page
@@ -43,7 +43,7 @@ You can enable firewall monitoring in any of the following ways:
 
 When you modify or move an Amazon S3 bucket or CloudWatch log group that is queried to populate the firewall monitoring dashboard, the metrics populated in the dashboard can become inaccurate.
 
-When you enable detailed monitoring for a firewall that sends logs to Amazon S3:
+When you turn on detailed monitoring for a firewall that sends logs to Amazon S3:
 + Network Firewall creates Amazon Athena tables in your account to process the log data.
 + These tables are used exclusively for populating detailed monitoring dashboards and are managed by the Network Firewall console.
 + Network Firewall creates Amazon Athena metadata files (including CSV files) in your S3 bucket. These metadata files are downloadable records of the metrics that populate the firewall monitoring dashboard.

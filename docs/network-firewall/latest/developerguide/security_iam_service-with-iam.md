@@ -104,6 +104,24 @@ You can specify multiple actions using wildcards (\*). For example, to specify a
 
 To view examples of Network Firewall identity-based policies, see [Identity-based policy examples for AWS Network Firewall](security_iam_id-based-policy-examples.md).
 
+Network Firewall provides a distinct set of policy actions for working with Next Generation policies, in addition to the actions for Classic Network Firewall policies. These include `CreateFirewallPolicyV2`, `UpdateFirewallPolicyV2`, `DeleteFirewallPolicyV2`, `DescribeFirewallPolicyV2`, and `ListFirewallPoliciesV2`. To grant a principal permission to work with Next Generation policies, include these actions in your policy. For more information about Next Generation policies, see [Next Generation policies](firewall-policies-v2.md).
+
+**Note**  
+The rule groups that you use in a Next Generation policy—firewall rule groups and IPS rule groups—use the same rule group policy actions as Classic Network Firewall rule groups, such as `CreateRuleGroup`, `UpdateRuleGroup`, `DescribeRuleGroup`, `DeleteRuleGroup`, and `ListRuleGroups`. There are no separate policy actions for the firewall engine and IPS rule group types.
+
+When you grant least-privilege permissions for Next Generation policies, some actions authorize additional actions on the resources that they reference:
++ `CreateFirewallPolicyV2` and `UpdateFirewallPolicyV2` also authorize `network-firewall:ListRuleGroups` on each referenced `firewall-rulegroup/` and `ips-rulegroup/` ARN, and `network-firewall:ListTLSInspectionConfigurations` on the TLS inspection configuration ARN.
++ Passing `Tags` when you create a policy requires `network-firewall:TagResource` on the new `firewall-policy-v2/` ARN.
++ Attaching a Next Generation policy to a firewall requires `network-firewall:AssociateFirewallPolicy` on the `firewall-policy-v2/` resource. An IAM policy that is scoped only to Classic `firewall-policy/*` resources doesn't grant this permission.
+
+To scope these permissions, use the following ARN formats:
+
+```
+arn:aws:network-firewall:{{region}}:{{account-id}}:firewall-policy-v2/{{name}}
+arn:aws:network-firewall:{{region}}:{{account-id}}:firewall-rulegroup/{{name}}
+arn:aws:network-firewall:{{region}}:{{account-id}}:ips-rulegroup/{{name}}
+```
+
 ## Policy resources for Network Firewall
 <a name="security_iam_service-with-iam-id-based-policies-resources"></a>
 

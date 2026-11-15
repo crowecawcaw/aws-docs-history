@@ -9,6 +9,11 @@ AWS Network Firewall currently supports the `AttackInfrastructure` active threat
 
 Each rule group name in the table below is appended by either `StrictOrder` or `ActionOrder`. A firewall policy's *rule evaluation order* determines whether you can add `StrictOrder` or `ActionOrder` managed rule groups to the policy. For example, you can only add a rule group appended with `StrictOrder` if the policy uses strict order for its rule evaluation order. 
 
+This choice applies to Classic Network Firewall policies, whose rule evaluation order is strict order or action order. In a Next Generation policy, the AWS managed rule groups are IPS-typed copies of the Classic managed rule groups. They have the same names and rules but a different Amazon Resource Name (ARN) type. You reference them in the policy's *IPS engine* section, where the IPS engine evaluates them using action order, so you add the `ActionOrder` variant. For more information, see [AWS Network Firewall firewall policy versions](firewall-policy-versions.md) and [Working with IPS rule groups in AWS Network Firewall](ips-rule-groups.md).
+
+**Note**  
+When you reference a managed rule group through the API or AWS CLI (for example, in an `IpsRuleGroupEntry` for a Next Generation policy), use the IPS-typed ARN, which has the form `arn:aws:network-firewall:{{region}}:aws-managed:ips-rulegroup/{{Name}}`. This differs from the Classic managed rule group ARN, which has the form `arn:aws:network-firewall:{{region}}:aws-managed:stateful-rulegroup/{{Name}}`.
+
 **Note**  
 In the console, Network Firewall automatically filters the managed rule groups available for you to add to your policy. For information about rule evaluation order, see [Managing evaluation order for Suricata compatible rules in AWS Network Firewall](suricata-rule-evaluation-order.md).
 
@@ -20,7 +25,7 @@ In the console, Network Firewall automatically filters the managed rule groups a
 **Important**  
 Network Firewall active threat defense managed rule groups have rule capacity limits that differ from the rule capacity limits that apply to other rule groups.
 
-## Get started with active threat defense
+## Getting started with active threat defense
 <a name="atd-next-steps"></a>
 
 To start using the active threat defense, complete the following tasks:
@@ -29,13 +34,13 @@ To start using the active threat defense, complete the following tasks:
 **Tip**  
 After you add the rule group to your policy, you don't need to take any action to receive updates. AWS automatically updates the rules based on the latest threat intelligence.
 
-1. Configure your firewall policy to use either strict order or action order evaluation. This determines which version of the rule group you can add. For more information, see [Managing evaluation order for Suricata compatible rules in AWS Network Firewall](suricata-rule-evaluation-order.md).
+1. Add the rule group variant that matches your policy type. In a *Classic Network Firewall* policy, set the policy's rule evaluation order and add the matching `StrictOrder` or `ActionOrder` rule group. In a *Next Generation* policy, the active threat defense managed rule group is an IPS-typed managed rule group that you reference in the policy's IPS engine section, where the IPS engine evaluates it using action order, so add the `ActionOrder` variant. In the console, choosing **Enable Active Threat Defense** adds this rule group for you. Through the API or AWS CLI, reference it using the IPS-typed ARN `arn:aws:network-firewall:{{region}}:aws-managed:ips-rulegroup/AttackInfrastructureActionOrder`. For more information, see [AWS Network Firewall firewall policy versions](firewall-policy-versions.md) and [Managing evaluation order for Suricata compatible rules in AWS Network Firewall](suricata-rule-evaluation-order.md).
 
 1. Optionally monitor your firewall's activity using CloudWatch Logs. For information about monitoring Network Firewall, see [AWS Network Firewall metrics in Amazon CloudWatch](monitoring-cloudwatch.md).
 
 To learn more about active threat defense managed rule groups, review the topics in this guide:
 
 **Topics**
-+ [Get started with active threat defense](#atd-next-steps)
++ [Getting started with active threat defense](#atd-next-steps)
 + [Understanding active threat defense managed rule group indicators](atd-indicators.md)
 + [Deep threat inspection for active threat defense managed rule groups](atd-deep-threat-inspection.md)

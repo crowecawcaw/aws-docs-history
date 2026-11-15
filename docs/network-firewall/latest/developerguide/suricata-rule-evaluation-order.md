@@ -5,7 +5,7 @@
 
 You can configure and manage the evaluation order of the rules in your Suricata compatible stateful rule groups. 
 
-All of your stateful rule groups are provided to the rule engine as Suricata compatible strings. Suricata can evaluate stateful rule groups by using the default rule group ordering method, or you can set an exact order using the *strict* ordering method. We recommend that you use strict order because it lets you specify the exact order that you'd like the stateful engine to evaluation your rules. The settings for your rule groups must match the settings for the firewall policy that they belong to.
+All of your stateful rule groups are provided to the rule engine as Suricata compatible strings. Suricata can evaluate stateful rule groups by using the default rule group ordering method, or you can set an exact order using the *strict* ordering method. Strict order is recommended because you can specify the exact order in which the stateful engine evaluates your rules. The settings for your rule groups must match the settings for the firewall policy that they belong to.
 
 ## Action order
 <a name="suricata-default-rule-evaluation-order"></a>
@@ -28,7 +28,7 @@ If a packet within a flow matches a rule containing `pass` action, then Suricata
 
    For more information about the action specification, see [Suricata.yaml: Action-order](https://docs.suricata.io/en/suricata-8.0.3/configuration/suricata-yaml.html?highlight=action+order#action-order) in the [Suricata User Guide](https://docs.suricata.io/en/suricata-8.0.3/index.html).
 
-1. The Suricata `priority` keyword. Within a specific action group, you can use the priority setting to indicate the processing order. By default, Suricata processes from the lowest numbered priority setting on up. The `priority` keyword has a mandatory numeric value ranging from 1 to 65535. Note that the `priority` keyword is only valid using the default action order.
+1. The Suricata `priority` keyword. Within a specific action group, you can use the priority setting to indicate the processing order. By default, Suricata processes from the lowest numbered priority setting on up. The `priority` keyword has a mandatory numeric value ranging from 1 to 65535. The `priority` keyword is only valid using the default action order.
 
    For more information about priority, see [Suricata.yaml: Action-order](https://docs.suricata.io/en/suricata-8.0.3/rules/meta.html?highlight=priority#priority) in the [Suricata User Guide](https://docs.suricata.io/en/suricata-8.0.3/index.html).
 
@@ -36,7 +36,7 @@ For example, Suricata evaluates all `pass` rules before evaluating any `drop`, `
 
 The protocol layer does not impact the rule evaluation order by default. If you want to avoid matching against lower-level protocol packets before higher-level application protocols can be identified, consider using the `flow` keyword in your rules. This is needed because, for example, a TCP rule might match on the first packet of a TCP handshake before the stateful engine can identify the application protocol. For information about the `flow` keyword, see [Flow Keywords](https://docs.suricata.io/en/suricata-8.0.3/rules/flow-keywords.html).
 
-For examples of default rule order management, see [Stateful rules examples: manage rule evaluation order](suricata-examples.md#suricata-example-rule-ordering).
+For examples of default rule order management, see [Stateful rules examples: managing rule evaluation order](suricata-examples.md#suricata-example-rule-ordering).
 
 For additional information about evaluation order for stateful rules, see the following topics in the [Suricata User Guide](https://docs.suricata.io/en/suricata-8.0.3/):
 + [Suricata.yaml: Action-order](https://docs.suricata.io/en/suricata-8.0.3/configuration/suricata-yaml.html?highlight=action%20order#action-order)
@@ -55,7 +55,7 @@ When configuring these actions, consider the following caveats:
 
 1. Some combinations of actions are invalid. If either **Drop established** or **Alert established** is selected, you cannot select **Application drop established (bidirectional)**, **Application alert established (bidirectional)**, **Application drop established (server-directed only)**, or **Application alert established (server-directed only)**, and vice versa.
 
-1. When you choose **Strict** for your rule order, you can choose one or more **Default actions**. Note that this does not refer to default action rule ordering, but rather, to the default actions that Network Firewall takes when following your strict, or exact, rule ordering.
+1. When you choose **Strict** for your rule order, you can choose one or more **Default actions**. This does not refer to default action rule ordering, but rather, to the default actions that Network Firewall takes when following your strict, or exact, rule ordering.
 
 The default actions are as follows:
 
@@ -68,7 +68,7 @@ If you have rules that match application layer data, such as those that evaluate
 + **Drop all** – Drops all packets.
 + **Drop established** – Drops only the packets that are in established connections from client to server. This allows the layer 3 and 4 connection establishment packets that are needed for the upper-layer connections to be established, while dropping the packets for connections that are already established. This allows application-layer *pass* rules to be written in a default-deny setup without the need to write additional rules to allow the lower-layer handshaking parts of the underlying protocols. Packets from established connections from the server to the client are passed to allow return traffic from established connections back to the client.
 
-  Choose this option when using strict order for your own domain list rule groups because Network Firewall requires an established connection in order to evaluate whether to pass or drop the packets for domain lists.
+  Choose this option when using strict order for your own domain list rule groups because Network Firewall requires an established connection to evaluate whether to pass or drop the packets for domain lists.
 
   For other protocols, such as UDP, Network Firewall considers the connection established only after seeing traffic from both sides of the connection. For connectionless protocols, such as UDP and ICMP, the `drop` established action drops all packets. You must write specific rules to allow these packets as needed.
 + **Application drop established (bidirectional)** – Drops server-initiated banner packets and packets in established connections. It also provides enhanced support for segmented application layer traffic through the following behaviors:

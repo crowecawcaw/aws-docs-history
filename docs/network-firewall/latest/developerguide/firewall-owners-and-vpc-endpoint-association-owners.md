@@ -26,7 +26,7 @@ For more information, see [Managing a firewall and firewall endpoints in AWS Net
 ## Example ownership scenarios
 <a name="ownership-scenarios"></a>
 
-Review the following examples to understand how different ownership scenarios may affect firewall and VPC endpoint association management. These scenarios show common use cases but do not provide an exhaustive list of capabilities for either firewall owners or VPC endpoint association owners. For a comprehensive list of capabilities, refer to the previous table.
+Review the following examples to understand how different ownership scenarios might affect firewall and VPC endpoint association management. These scenarios show common use cases but do not provide an exhaustive list of capabilities for either firewall owners or VPC endpoint association owners. For a comprehensive list of capabilities, refer to the previous table.
 
 ### Scenario: Single account ownership
 <a name="single-owner-scenario"></a>

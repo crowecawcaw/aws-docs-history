@@ -11,7 +11,7 @@ Network Firewall integrates with AWS Certificate Manager (ACM) to make it easy t
 The following are general requirements for the certificates that are used for TLS inspection.
 
 **Certificate chain order**  
-Imported SSL/TLS certificates require all of the intermediate certificates in the certificate chain that's in the **.pem** file, beginning with the certificate authority (CA) that signed the certificate that you are importing. Typically, you'll find a file on the CA website that lists intermediate and root certificates in the proper chained order. Here's an example:
+Imported SSL/TLS certificates require all of the intermediate certificates in the certificate chain that's in the **.pem** file, beginning with the certificate authority (CA) that signed the certificate that you are importing. Typically, you can find a file on the CA website that lists intermediate and root certificates in the proper chained order. The following is an example:
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -58,7 +58,7 @@ For more information about working with certificates in ACM, see [Importing cert
 The following requirements are specific to CA certificates that are used for outbound SSL/TLS inspection.
 
 **Supported certificates**  
-You can use CA certificates that are imported into ACM for outbound inspection—including private certificates—but you can't generate intermediate CA certificates using ACM. However, we don't support TLS traffic to or from destination servers that use a server certificate signed by a private CA. In other words, we do certificate verification of downstream server certificates to allow TLS traffic where server certificates are signed by public well-known roots contained on the [Mozilla Included CA Certificate List ](https://wiki.mozilla.org/CA/Included_Certificates). We also don't support certificates issued by AWS Private Certificate Authority.
+You can use CA certificates that are imported into ACM for outbound inspection—including private certificates—but you can't generate intermediate CA certificates using ACM. However, Network Firewall doesn't support TLS traffic to or from destination servers that use a server certificate signed by a private CA. In other words, Network Firewall does certificate verification of downstream server certificates to allow TLS traffic where server certificates are signed by public well-known roots contained on the [Mozilla Included CA Certificate List ](https://wiki.mozilla.org/CA/Included_Certificates). Network Firewall also doesn't support certificates issued by AWS Private Certificate Authority.
 
 **Revoked certificates**  
 For outbound TLS, you can enable certificate revocation checks, which allows Network Firewall to check revocation status with Online Certificate Status Protocol (OCSP) and Certificate Revocation List (CRL) on behalf of clients. For more information see [Checking certificate revocation status](#tls-inspection-check-certificate-revocation-status).
@@ -66,7 +66,9 @@ For outbound TLS, you can enable certificate revocation checks, which allows Net
 ## Checking certificate revocation status
 <a name="tls-inspection-check-certificate-revocation-status"></a>
 
-For outbound inspection, Network Firewall can check if the server or intermediate certificate that the server presents in the TLS connection has a revoked or unknown status. When you enable this option, Network Firewall checks the revocation status using the Online Certificate Status Protocol (OCSP) and Certificate Revocation List (CRL) endpoints. These endpoints are specified in the certificate authority (CA) certificate that's downloaded from the server in the SSL/TLS connection. Network Firewall caches the CRL and OCSP responses.
+For outbound inspection, Network Firewall can check whether the server or intermediate certificate that the server presents in the TLS connection has a revoked or unknown status. When you enable this option, Network Firewall checks the revocation status using the Online Certificate Status Protocol (OCSP) and Certificate Revocation List (CRL) endpoints. These endpoints are specified in the certificate authority (CA) certificate that's downloaded from the server in the SSL/TLS connection. Network Firewall caches the CRL and OCSP responses.
+
+Revocation checking applies to outbound inspection only, and relies on the certificate authority (CA) certificate that you configure for outbound inspection. Inbound server-certificate traffic is never revocation-checked.
 
 If the certificate has a revoked or unknown status, Network Firewall handles the outbound traffic based on the actions that you set when you configure the revocation status checks.
 
@@ -76,16 +78,19 @@ When the certificate has a revoked or unknown status, you can choose from the fo
 + **Drop** – Network Firewall closes the connection and drops subsequent packets for that connection.
 + **Reject** – Network Firewall sends a TCP reject packet back to your client. The service closes the connection and drops subsequent packets for that connection. This option is available only for TCP traffic.
 
+**Note**  
+For a Next Generation policy, certificate revocation checking still applies when the policy is in monitor mode. If you set the action for a revoked or unknown status to any value other than **Pass**—that is, **Drop** or **Reject**—the firewall can still drop or reject those connections in monitor mode, even though monitor mode otherwise doesn't block traffic. To keep monitor mode from blocking any traffic, set this action to **Pass**. For more information, see [Policy mode: enforce and monitor](firewall-policy-v2-policy-mode.md).
+
 Keep the following considerations in mind when turning on certificate revocation check:
 
 **Caching**  
 Network Firewall caches the revocation check status to serve responses faster than the CRL and OCSP servers can. The cache duration depends on the revocation check status, which improves the accuracy of the certificate revocation status checks.
 
 **Latency**  
-When you turn on certificate revocation checking for outbound TLS inspection, expect additional latency when you initially connect to a new domain over a firewall instance. This is specific to outbound TLS inspection only. We recommend that you conduct your own testing using your rulesets to ensure that the service meets your performance expectations.
+When you turn on certificate revocation checking for outbound TLS inspection, expect additional latency when you initially connect to a new domain over a firewall instance. This is specific to outbound TLS inspection only. Conduct your own testing using your rulesets to ensure that the service meets your performance expectations.
 
 **Logging**  
-You can get logs for certificate revocation check failures. To do this, configure TLS logging for your firewall's stateful engine. For additional information, see [Logging for TLS inspection in AWS Network Firewall](tls-inspection-logging.md). For information about enabling logging, see [Logging network traffic from AWS Network Firewall](firewall-logging.md). 
+You can get logs for certificate revocation check failures. To do this, configure TLS logging for your firewall's stateful engine. The revocation status and the action taken appear in the `revocation_check` field of the TLS log, not in the alert log. For additional information, see [Logging for TLS inspection in AWS Network Firewall](tls-inspection-logging.md). For information about enabling logging, see [Logging network traffic from AWS Network Firewall](firewall-logging.md). 
 
 **Unsupported features**  
 Revocation status checking doesn't include support for the following:

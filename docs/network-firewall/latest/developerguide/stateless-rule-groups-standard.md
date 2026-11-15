@@ -19,11 +19,11 @@ A stateless rule has the following general settings.
 **Match settings**  
 A stateless rule has the following match settings. These specify what the Network Firewall stateless rules engine looks for in a packet. To be a match, a packet must satisfy all of the match settings in the rule. 
 + **Protocol** – Valid settings include `ALL` and specific protocol settings, like `UDP` and `TCP`. You can choose more than one specific setting.
-+ **Source IP** – Source IP addresses and ranges. If specified, a packet must come from a source address that's included in this list in order to match.
-+ **Source port range** – Source ports and port ranges. If specified, a packet must have a source port that's included in this list in order to match.
-+ **Destination IP** – Destination IP addresses and ranges. If specified, a packet must have a destination address that's included in this list in order to match.
-+ **Destination port range** – Destination ports and port ranges. If specified, a packet must have a destination port that's included in this list in order to match.
-+ **Optional TCP flags** – Optional, standard TCP flag settings, which indicate which flags to inspect and the values to inspect for. Each flag can be either enabled or disabled. You indicate the flags that you want to inspect in a masks setting, and then you indicate which of those flags must be enabled in the flags setting in order to match. The flags that you specify in the masks setting and don't specify in the flags setting must be unset in order to match. 
++ **Source IP** – Source IP addresses and ranges. If specified, a packet must come from a source address that's included in this list to match.
++ **Source port range** – Source ports and port ranges. If specified, a packet must have a source port that's included in this list to match.
++ **Destination IP** – Destination IP addresses and ranges. If specified, a packet must have a destination address that's included in this list to match.
++ **Destination port range** – Destination ports and port ranges. If specified, a packet must have a destination port that's included in this list to match.
++ **Optional TCP flags** – Optional, standard TCP flag settings, which indicate which flags to inspect and the values to inspect for. Each flag can be either enabled or disabled. You indicate the flags that you want to inspect in a masks setting, and then you indicate which of those flags must be enabled in the flags setting to match. The flags that you specify in the masks setting and don't specify in the flags setting must be unset to match. 
 
 **Example**  
 To create a very simple stateless rule group that passes all traffic from two CIDR blocks, you could provide the following stateless rule settings in a single rule: 

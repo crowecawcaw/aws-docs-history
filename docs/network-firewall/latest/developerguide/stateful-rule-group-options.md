@@ -18,4 +18,4 @@ The sections that follow provide details for each of these options.
 + [Stateful domain list rule groups in AWS Network Firewall](stateful-rule-groups-domain-names.md)
 + [IP set references in Suricata compatible AWS Network Firewall rule groups](rule-groups-ip-set-references.md)
 + [Geographic IP filtering in Suricata compatible AWS Network Firewall rule groups](rule-groups-geo-ip-filtering.md)
-+ [URL and Domain Category Filtering in Suricata compatible AWS Network Firewall rule groups](rule-groups-url-filtering.md)
++ [URL and domain category filtering in Suricata compatible AWS Network Firewall rule groups](rule-groups-url-filtering.md)

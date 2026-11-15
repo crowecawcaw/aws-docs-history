@@ -3,14 +3,16 @@
 # Transit gateway-attached firewalls in Network Firewall
 <a name="tgw-firewall"></a>
 
-The AWS Network Firewall integration with AWS Transit Gateway lets you create and centrally manage firewall protective coverage without needing to provision multiple firewall endpoints.
+With the AWS Network Firewall integration with AWS Transit Gateway, you can create and centrally manage firewall protective coverage without provisioning multiple firewall endpoints.
 
-Firewall owners can attach a Network Firewall directly to a transit gateway as a transit gateway attachment either within their own account or shared from a different account. For more information, see [Create a transit gateway-attached firewall](create-tgw-firewall.md).
+Firewall owners can attach a Network Firewall directly to a transit gateway as a transit gateway attachment either within their own account or shared from a different account. For more information, see [Creating a transit gateway-attached firewall](create-tgw-firewall.md).
+
+A transit gateway-attached firewall can use either a Classic Network Firewall policy or a Next Generation policy. A Next Generation policy is recommended for new firewalls. For more information, see [Next Generation policies](firewall-policies-v2.md).
 
 ## Key concepts
 <a name="tgw-firewall-concepts"></a>
 
-Review the following concepts before you continue. Note that these definitions are in the context of the Network Firewall integration with AWS Transit Gateway.
+Review the following concepts before you continue. These definitions are in the context of the Network Firewall integration with AWS Transit Gateway.
 
 **Transit Gateway**  
 A transit gateway works across AWS accounts, and you can use AWS RAM to share your transit gateway with other accounts. When a transit gateway is shared, recipients can use it to create a *transit gateway attachment*.
@@ -32,5 +34,5 @@ These roles can be in the same account or in different accounts.
 **Topics**
 + [Key concepts](#tgw-firewall-concepts)
 + [Considerations for transit gateway-attached firewalls](tgw-firewall-considerations.md)
-+ [Create a transit gateway-attached firewall from a shared transit gateway](create-tgw-firewall.md)
++ [Creating a transit gateway-attached firewall from a shared transit gateway](create-tgw-firewall.md)
 + [Working with transit gateway-attached firewalls](working-with-tgw-firewalls.md)

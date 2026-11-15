@@ -13,11 +13,11 @@ A stateful basic rule has the following general settings.
 
 **Match settings**  
 A basic stateful rule has the following match settings. These specify what the Network Firewall stateful rules engine looks for in a packet. To be a match, a packet must satisfy all of the match settings in the rule. 
-+ **Protocol** – Transport protocol. Choose the protocol that you want to inspect. For all protocols, you can use `IP`, because all traffic on AWS and on the internet is IP.
-+ **Source IP** – Source IP addresses and ranges. If specified, a packet must come from a source address that's included in this list in order to match.
-+ **Source port** – Source ports and port ranges. If specified, a packet must have a source port that's included in this list in order to match.
-+ **Destination IP** – Destination IP addresses and ranges. If specified, a packet must have a destination address that's included in this list in order to match.
-+ **Destination port** – Destination ports and port ranges. If specified, a packet must have a destination port that's included in this list in order to match.
++ **Protocol** – Transport protocol. Select the protocol that you want to inspect. For all protocols, you can use `IP`, because all traffic on AWS and on the internet is IP.
++ **Source IP** – Source IP addresses and ranges. If specified, a packet must come from a source address that's included in this list to match.
++ **Source port** – Source ports and port ranges. If specified, a packet must have a source port that's included in this list to match.
++ **Destination IP** – Destination IP addresses and ranges. If specified, a packet must have a destination address that's included in this list to match.
++ **Destination port** – Destination ports and port ranges. If specified, a packet must have a destination port that's included in this list to match.
 + **Traffic direction** – Direction of traffic flow. Valid settings are `Any` and `Forward`. `Forward` matches packets whose origination matches the rule's source settings and whose destination matches the rule's destination settings. `Any` matches the forward match, and also matches packets whose origination matches the rule's destination settings, and whose destination matches the rule's source settings.
 + **Rule options** – Define the specifics of the rule, in keyword, settings pairs. 
 **Note**  

@@ -6,7 +6,7 @@
 Network Firewall provides full visibility into the threat signature rule content of its AWS managed rules. This enables you to choose between using the rule group as-is in your firewall policy or copying the rule group's rules into your own rule group and customizing them for your specific needs. 
 
 **Important**  
-Copied rules don't automatically inherit rule updates that AWS makes to managed rule group rules. We recommend that you subscribe to Amazon SNS topics for updates made to the originating rule group. For more information, see [Notifications for threat signature rule group updates](using-managed-rule-groups-sns.md). You're responsible for validating rule changes and making sure that your own rules are up-to-date.
+Copied rules don't automatically inherit rule updates that AWS makes to managed rule group rules. Subscribe to Amazon SNS topics for updates made to the originating rule group. For more information, see [Notifications for threat signature rule group updates](using-managed-rule-groups-sns.md). You're responsible for validating rule changes and making sure that your own rules are up-to-date.
 
 To copy a managed threat signature rule group's rules, create a local copy of the rule group rules, make your modifications, then create your own rule group. The following procedure explains how to copy a threat signature rule group's rules, and then create your own rule group.
 
@@ -23,7 +23,7 @@ To copy a managed threat signature rule group's rules, create a local copy of th
 
 1. Choose **Duplicate rule group** to copy the rules into your own rule group. You can modify the rule group details, and then choose **Create rule group**.
 
-   Alternatively, you can choose **Copy** to copy the rules to your clipboard. You can then modify them in a text editor, or create a new rule group and paste the rules into your own stateful rule group. For information about how to create your own stateful rule group, see [Creating a stateful rule group](rule-group-stateful-creating.md).
+   Alternatively, you can choose **Copy** to copy the rules to your clipboard. You can then modify them in a text editor, or create a new rule group and paste the rules into your own rule group. For a Classic Network Firewall policy, paste the rules into a stateful rule group; see [Creating a stateful rule group](rule-group-stateful-creating.md). For a Next Generation policy, paste the rules into an IPS rule group, which uses the same Suricata compatible syntax; see [Working with IPS rule groups in AWS Network Firewall](ips-rule-groups.md) and [Creating a rule group for a Next Generation policy](rule-groups-v2-creating.md).
 
 ------
 #### [ CLI ]

@@ -10,7 +10,9 @@ Pricing for using TLS inspection configurations is based on the amount of traffi
 **Topics**
 + [Considerations when working with TLS inspection configurations in AWS Network Firewall](tls-inspection-considerations.md)
 + [Logging for TLS inspection in AWS Network Firewall](tls-inspection-logging.md)
++ [How TLS inspection resets connections](tls-inspection-connection-resets.md)
 + [Using SSL/TLS certificates with TLS inspection configurations in AWS Network Firewall](tls-inspection-certificate-requirements.md)
 + [TLS inspection configuration settings in AWS Network Firewall](tls-inspection-settings.md)
 + [Using session holding with TLS inspection in AWS Network Firewall](session-holding-tls.md)
++ [TLS inspection with a Next Generation policy in AWS Network Firewall](tls-inspection-policy-v2.md)
 + [Managing your TLS inspection configuration in Network Firewall](managing-tls-configuration.md)

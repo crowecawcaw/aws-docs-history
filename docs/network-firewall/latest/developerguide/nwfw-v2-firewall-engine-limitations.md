@@ -1,0 +1,13 @@
+
+
+# Limitations and caveats for firewall rules in a Next Generation policy
+<a name="nwfw-v2-firewall-engine-limitations"></a>
+
+The IPS engine in a Next Generation policy uses the same Suricata compatible stateful rules as a Classic Network Firewall policy, so the limitations and caveats earlier in this section apply to IPS rules as well. The *firewall engine* in a Next Generation policy uses Suricata compatible firewall-mode rules, which have the following additional limitations. For the full reference on which actions, scopes, hooks, and keywords you can combine in a firewall rule, see [Valid combinations and constraints for firewall rules](firewall-rule-constraints.md).
++ **The `config` action isn't supported.** A firewall rule's primary action must be `accept`, `drop`, `reject`, `rejectdst`, or `rejectboth`. The Suricata firewall-mode `config` action isn't supported.
++ **`pass` and `alert` aren't primary actions.** A firewall rule can't use `pass` or `alert` as its primary action. `pass` is available only as a secondary action that bypasses the IPS engine, and `alert` only as a modifier that adds logging.
++ **An explicit action scope is required.** Every firewall rule must specify an action scope, such as `accept:flow` or `drop:packet`. The valid scopes depend on the action and the hook. For details, see [Actions and scopes](firewall-rule-constraints-action-scope.md).
++ **A keyword is valid only at its own hook.** A protocol matching keyword is valid only at the single hook where its data becomes available, not at any hook and not at every later hook. For example, `tls.sni` is valid only at `tls:client_hello`, and `http.host` only at `http1:request_headers`. For details, see [Matching a keyword at the right hook](firewall-rule-constraints-keyword-hook.md).
++ **Payload-matching keywords aren't valid on a packet hook.** The keywords `content`, `pcre`, `byte_test`, `byte_jump`, and `isdataat` are valid only at an application-layer hook, where they bind to a protocol buffer. They aren't valid at a packet hook such as `tcp:all`. For details, see [Payload matching and packet hooks](firewall-rule-constraints-packet-payload.md).
++ **The HTTP/1.1 rule-header token is `http1`, not `http`.** A rule string that uses `http:{{hook}}` is rejected. In a modeled rule, the protocol `HTTP` is the alias for `http1`.
++ **A modeled firewall rule compiles to a one-directional rule.** A modeled rule always compiles to the forward (`->`) form; you express inbound compared with outbound through the source and destination, not a separate direction field. Bidirectional (`<>`) rule strings aren't accepted for a modeled rule.

@@ -26,7 +26,7 @@ To analyze your network traffic using the dashboard:
    + Use the time range selector to specify the period you want to analyze
 
 **Note**  
-Changes to the time range will affect query costs. The scope selector (10/50/100 results) does not affect the cost of queries.
+Changes to the time range affect query costs. The scope selector (10/50/100 results) does not affect the cost of queries.
 
 ## Best practices
 <a name="detailed-monitoring-best-practices"></a>
@@ -36,10 +36,10 @@ Review the following following best practices to optimize your use of the firewa
 + Use the time range selector or custom time range option to compare recent data against historical trends.
 + Avoid incurring extra charges by limiting the amount of times you update page data. When the dashboard updates page data, Network Firewall queries your configured logging destinations to pull the latest metrics. Each query incurs an additional charge.
 
-  The dashboard will query your logging destinations when:
+  The dashboard queries your logging destinations when:
   + You make scope adjustments with the time range selectors.
   + You start a new browser session and navigate to **Monitoring** from Firewall Details.
 
-  Note that refreshing your browser window or navigating away from and back to the dashboard will clear any displayed data, requiring new queries to restore the view.
+  Refreshing your browser window or navigating away from and back to the dashboard clears any displayed data, requiring new queries to restore the view.
 **Note**  
-Network Firewall queries logging destinations separately to fetch log data. If your firewall sends logs to both CloudWatch and Amazon S3, any update to the dashboard page data will result in separate queries.
+Network Firewall queries logging destinations separately to fetch log data. If your firewall sends logs to both CloudWatch and Amazon S3, any update to the dashboard page data results in separate queries.

@@ -5,6 +5,9 @@
 
 Use the information here to help you diagnose common issues that you might encounter when working with rules in Network Firewall.
 
+**Note**  
+The topics in this section describe the stateful rules engine used by Classic Network Firewall policies, where rules evaluate traffic by 5-tuple and Suricata compatible pass, drop, reject, and alert actions. Next Generation policies don't use this model—they inspect traffic with a firewall engine for access control and an IPS engine for threat detection and prevention. For more information, see [Next Generation policies in AWS Network Firewall](firewall-policies-v2.md).
+
 ## Rules with the `HOME_NET` variable are not working as expected with managed rule groups
 <a name="troubleshoot-rules-home-net"></a>
 
@@ -19,14 +22,14 @@ You have to ensure that your firewall rules are not wide open to allow unintende
 In this example, Network Firewall allows TCP traffic from `HOME_NET` to `EXTERNAL_NET`. However, this rule also allows inbound traffic from `EXTERNAL_NET` to `HOME_NET` because `<>` means "any direction."
 
 ```
-pass tcp $HOME_NET any <> $EXTERNAL_NET any. (msg:“sid1”; sid:1;)
+pass tcp $HOME_NET any <> $EXTERNAL_NET any (msg:"sid1"; sid:1;)
 ```
 
 **Example 2 - Do not use**  
 In this example traffic from `HOME_NET` is allowed to initiate TCP connections to `EXTERNAL_NET`, but since the rule is missing the `flow:to_server` keyword, there are scenarios where this rule will also allow `EXTERNAL_NET` to initiate connections to `HOME_NET`.
 
 ```
-pass tcp $HOME_NET any -> $EXTERNAL_NET any (msg:“sid1”; sid:1;)
+pass tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"sid1"; sid:1;)
 ```
 
 You should write rules such that only trusted traffic is allowed through the firewall, and only in the direction you intend.
@@ -35,7 +38,7 @@ You should write rules such that only trusted traffic is allowed through the fir
 If combined with the Network Firewall stateful default action **Drop established**, this rule ensures that traffic initiated by clients in `HOME_NET` to servers in `EXTERNAL_NET` is allowed, but clients in `EXTERNAL_NET` cannot initiate a connection to servers in `HOME_NET`.
 
 ```
-pass tcp $HOME_NET any -> $EXTERNAL_NET 22 (msg:“sid1”; flow:to_server; sid:1;)
+pass tcp $HOME_NET any -> $EXTERNAL_NET 22 (msg:"sid1"; flow:to_server; sid:1;)
 ```
 
 ## I'm using strict ordering, but stateful rules near the bottom of my ruleset appear to be handling traffic before rules near the top of my ruleset

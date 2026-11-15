@@ -11,7 +11,7 @@ Use the information here to help you diagnose common issues that you might encou
 Network Firewall only logs traffic for the rule action drop, alert, reject, or pass with an `alert` modifier keyword. Rules with a pass action that do not use the `alert` modifier keyword silently allow the traffic in a way that any proceeding rules will not alert on that traffic. If you want to log all traffic for troubleshooting purposes, add the `alert` modifier keyword to your pass rules. When your pass rules include the `alert` modifier keyword, they will create an alert log for any traffic that matches applicable rules. For example, to log allowed traffic to https://checkip.amazonaws.com, add the `alert` modifier keyword to a pass rule:
 
 ```
-pass tls $HOME_NET any -> $EXTERNAL_NET any (ssl_state:client_hello; tls.sni; content:“checkip.amazonaws.com"; startswith; nocase; endswith; msg:"matching TLS allowlisted FQDNs"; flow:to_server; alert; sid:222222; rev:1;)
+pass tls $HOME_NET any -> $EXTERNAL_NET any (ssl_state:client_hello; tls.sni; content:"checkip.amazonaws.com"; startswith; nocase; endswith; msg:"matching TLS allowlisted FQDNs"; flow:to_server; alert; sid:222222; rev:1;)
 ```
 
 For more information about rule actions, see [Defining rule actions](rule-action.md).
@@ -37,3 +37,12 @@ If your firewall policy is correctly configured, then it's possible that your tr
   + TLS inspection only creates a log record when the check returns a status of `REVOKED` or `UNKNOWN`. 
 
   If you don't have traffic of this type, or if the certificates for this type of traffic are all passing the revocation checks, Network Firewall won't log anything into your TLS logs for revocation checks. 
+
+## Identifying which engine generated an alert in a Next Generation policy
+<a name="troubleshoot-logging-v2-engine-field"></a>
+
+A Next Generation policy has two engines that can generate alerts: the firewall engine and the IPS engine. In the alert logs for a Next Generation policy, each alert log entry for a rule match includes an `engine` field that identifies which engine produced the alert. Use this field to tell firewall engine alerts and IPS engine alerts apart when you review your logs. The field has one of the following values:
++ `fw` – The alert came from the *firewall engine* (access control).
++ `td` – The alert came from the *IPS engine* (threat detection).
+
+For example, when you validate a policy in monitor mode, you can filter the alert logs on `engine` to separate the access-control actions your firewall rules would apply from the threat-detection alerts your IPS rules generate. The `engine` field applies to Next Generation policies. For more information about policy modes, see [Policy mode: enforce and monitor](firewall-policy-v2-policy-mode.md).

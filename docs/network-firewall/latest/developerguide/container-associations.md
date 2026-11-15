@@ -7,6 +7,9 @@ AWS Network Firewall container associations collect the IP addresses of running 
 
 Container associations subscribe to container lifecycle events (task start and stop for Amazon ECS, pod start and stop for Amazon EKS) to learn which IPs are currently active. They have no direct interaction with cluster traffic or networking. Your Network Firewall endpoints in your VPC inspect all traffic, using the resolved IP set to evaluate rules.
 
+**Note**  
+Container associations work with both Classic Network Firewall and Next Generation policies. Rule groups used by either policy version can reference the dynamic IP set that a container association maintains. In a Next Generation policy, firewall rule groups don't support container association references—like other IP set references—but IPS rule groups do. For information about Next Generation policies, see [Next Generation policies](firewall-policies-v2.md).
+
 ## How container associations work
 <a name="container-associations-how-it-works"></a>
 
@@ -25,7 +28,7 @@ As containers start and stop, Network Firewall updates the IP set automatically.
 
 Container associations support two container types:
 + **Amazon ECS** – Monitors Amazon Elastic Container Service clusters. Network Firewall creates an Managed Rule in your account to receive Amazon ECS task state change events.
-+ **Amazon EKS** – Monitors Amazon Elastic Kubernetes Service clusters. Network Firewall subscribes to pod lifecycle events through the Amazon EKS Pulse Event Service.
++ **Amazon EKS** – Monitors the Amazon Elastic Kubernetes Service clusters. Network Firewall subscribes, through Amazon EKS, to pod lifecycle events for those clusters to keep your firewall rules up to date.
 
 You set the container type at creation and cannot change it afterward.
 
@@ -42,8 +45,8 @@ Each container association can have up to 5 monitoring configurations. A monitor
 Container associations have the following networking requirements and limitations:
 + **Disable SNAT (Amazon EKS)** – For Amazon EKS pods, disable source NAT (SNAT) so that the firewall sees the pod's original IP address. If SNAT is enabled, traffic arrives at the firewall with the node IP, not the pod IP, and rules referencing the container association do not match.
 + **Network mode (Amazon ECS)** – Network Firewall supports only `awsvpc` network mode for Amazon ECS tasks. It does not support bridge or host network modes.
-+ **Fargate and attribute filters (Amazon ECS)** – Attribute filters for Amazon ECS container associations only match containers running on Amazon EC2 launch type (container instances). Fargate tasks do not have container instance attributes and are not filtered. To get IPs from Fargate tasks, do not attach any attributes to the container association.
-+ **IPSet reference exclusivity** – A rule group's IPSet references are either all regular IPSets (prefix lists, static IP sets) or all container associations. You cannot mix both types in the same rule group. Attempting to reference both types returns an `InvalidRequestException`.
++ **Fargate and attribute filters (Amazon ECS)** – Attribute filters for Amazon ECS container associations only match containers running on Amazon EC2 launch type (container instances). Fargate tasks do not have container instance attributes, so Network Firewall does not filter them. To get IPs from Fargate tasks, do not attach any attributes to the container association.
++ **IPSet reference exclusivity and limits** – An IP set reference in a rule group can point to an Amazon Virtual Private Cloud managed prefix list, a resource group, an address list, or a container association. A rule group's IP set references are either all regular IP set references (prefix lists, resource groups, address lists, and other static IP sets) or all container associations. You cannot mix both types in the same rule group. A rule group can reference up to 5 regular IP set references or up to 30 container associations. Attempting to reference both types returns an `InvalidRequestException`.
 
 ## Prerequisites for container associations
 <a name="container-associations-prerequisites"></a>

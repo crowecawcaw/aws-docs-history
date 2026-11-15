@@ -18,15 +18,15 @@ Firewall logging is only available for traffic that you forward to the stateful 
 
 1. Choose the tab **Firewall details**, then in the **Logging** section, choose **Edit**. 
 
-1. Adjust the **Log type** selections as needed. To disable logging for a firewall, deselect all options.
+1. Adjust the **Log type** selections as needed. To turn off logging for a firewall, deselect all options.
    + **Flow** – Sends logs for all network traffic that the stateless engine forwards to the stateful rules engine.
    + **Alert** – Sends logs for traffic that matches any stateful rule whose action is set to `Alert`, `Drop`, or `Reject`. For more information about stateful rules and rule groups, see [Managing your own rule groups in AWS Network Firewall](rule-groups.md). 
    + **TLS** – Sends logs for events related to TLS inspection. Network Firewall currently logs failures in certificate revocation checks for outbound traffic and TLS errors. 
 
      These logs require the firewall to be configured for TLS inspection. For more information, see [Inspecting SSL/TLS traffic with TLS inspection configurations in AWS Network Firewall](tls-inspection-configurations.md). 
 
-1. For each selected log type, choose the destination type, then provide the information for the logging destination that you prepared following the guidance in [Firewall logging destinations](firewall-logging-destinations.md). 
+1. For each selected log type, select the destination type, then provide the information for the logging destination that you prepared following the guidance in [Firewall logging destinations](firewall-logging-destinations.md). 
 
-   In order to change the destination for an existing **Log type**, you must first disable logging for the policy. Then, edit the policy and specify the new destination(s) for the **Log type**.
+   To change the destination for an existing **Log type**, you must first turn off logging for the policy. Then, edit the policy and specify one or more new destinations for the **Log type**.
 
 1. Choose **Save** to save your changes and return to the firewall's detail page.
