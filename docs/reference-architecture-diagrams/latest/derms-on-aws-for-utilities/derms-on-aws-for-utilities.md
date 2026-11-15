@@ -25,7 +25,7 @@ The following steps describe the data flow and analytics pipeline for this archi
 
 1. Automate extract, transform, and load (ETL) processes such as transformation and deduplication with [AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/). Use Amazon S3 as low-cost storage for raw and curated data, with archival copies for retention and compliance. Your data lake serves as the single source of truth for downstream analytics and ML work. Use AWS Glue to automate data schema discovery and metadata tagging to create a searchable metadata catalog.
 
-1. Query petabytes of structured and semi-structured data across your data warehouse and data lake by using standard SQL with [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/). Create and publish interactive dashboards with [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html). Access dashboards from any device or embed them into your applications and websites.
+1. Query petabytes of structured and semi-structured data across your data warehouse and data lake by using standard SQL with [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/). Create and publish interactive dashboards with [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html). Access dashboards from any device or embed them into your applications and websites.
 
 1. Use pre-trained AI models, such as Forecast, to detect grid anomalies, forecast energy usage, and predict equipment failures. Build, train, and deploy your own ML model with SageMaker AI.
 
