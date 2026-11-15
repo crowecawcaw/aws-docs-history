@@ -38,7 +38,7 @@ The following steps describe the data flow and ingestion pipeline for this archi
 
 1. Set up and govern a regulated landing zone by using [AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/). This supports Good Automated Manufacturing Practice (GAMP) guidance from the International Society for Pharmaceutical Engineering (ISPE).
 
-1. Use [AWS Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/) and the [AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/) Data Catalog to govern and catalog data in the lake. Query data with [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/) and visualize insights with [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html).
+1. Use [AWS Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/) and the [AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/) Data Catalog to govern and catalog data in the lake. Query data with [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/) and visualize insights with [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html).
 
 ## Further reading
 <a name="emerson-further-reading"></a>
