@@ -26,12 +26,20 @@ The following diagram shows how a client accesses a resource through the resourc
 
 The following considerations apply to resource gateways:
 + For your resource to be accessible from all [Availability Zones](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/), you should create your resource gateways to span as many Availability Zones as possible.
-+ At least one Availability Zone of the VPC endpoint and the resource gateway have to overlap.
-+ A VPC can have a maximum of 100 resource gateways. For more information, see [Quotas for VPC Lattice](https://docs.aws.amazon.com/vpc-lattice/latest/ug/quotas.html).
++ At least one Availability Zone of the VPC endpoint and the resource gateway must overlap.
++ By default, a VPC can have up to 500 resource gateways. This quota is adjustable. For more information, see [Quotas for VPC Lattice](https://docs.aws.amazon.com/vpc-lattice/latest/ug/quotas.html).
 + VPC Lattice might add new ENIs to your resource gateway.
 + Resource gateways with shared VPC subnets:
-  + A resource gateway can only be deployed into a shared VPC subnet by the account that owns the VPC.
-  + A resource configuration for a resource gateway can only be created by the account that owns the resource gateway.
+  + The VPC owner, or a participant account that a subnet is shared with, can create a resource gateway in a shared VPC subnet.
+  + A participant account must specify at least one security group when it creates a resource gateway. Every security group that the participant account specifies must be owned by that participant account. The participant account can't use the VPC's default security group or security groups that are shared with it. These security groups return a "cannot be found" error.
+  + The following restrictions apply to the targets of a resource configuration for a resource gateway that a participant account creates:
+    + IP address and CIDR targets must be within the subnets that are shared with the participant account, and each CIDR block must fit within a single subnet. VPC Lattice rejects IP ranges from on-premises networks, peered VPCs, or subnets that are not shared with the participant account.
+    + Resources that other accounts own within those shared subnets can be targets.
+    + A resource configuration that specifies an Amazon RDS database target by ARN must reference a database in the resource gateway owner's account.
+    + To reach a resource outside the shared subnets, such as an Amazon RDS database that the VPC owner owns, use a domain name target. Domain name targets are not subject to the subnet range check, as long as routing allows the connection.
+  + Only the account that owns the resource gateway can create a resource configuration for that resource gateway.
+  + The VPC owner can't view or modify the resource gateways or resource configurations that participant accounts create.
+  + The quota for the maximum number of resource gateways per VPC is enforced at the VPC owner account. This quota counts all resource gateways in the VPC, including those that participant accounts create in the VPC's shared subnets. Only the VPC owner can request an increase to this quota.
 
 ## Security groups
 <a name="resource-gateway-security-groups"></a>
@@ -52,7 +60,7 @@ For traffic to flow from a resource gateway to a resource, you must create outbo
 
 A resource gateway can have IPv4, IPv6 or dual-stack addresses. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource, as described here:
 + **IPv4** – Assign IPv4 addresses to your resource gateway network interfaces. This option is supported only if all selected subnets have IPv4 address ranges, and the resource also has an IPv4 address. When you use this option, you can configure the number of IPv4 addresses per resource gateway ENI.
-+ **IPv6** – Assign IPv6 addresses to your resource gateway network interfaces. This option is supported only if all selected subnets are IPv6 only subnets, and the resource also has an IPv6 address. When you use this option, IPv6 addresses are assigned automatically and don’t need to be managed. 
++ **IPv6** – Assign IPv6 addresses to your resource gateway network interfaces. This option is supported only if all selected subnets are IPv6-only subnets, and the resource also has an IPv6 address. When you use this option, IPv6 addresses are assigned automatically and don't need to be managed. 
 + **Dualstack** – Assign both IPv4 and IPv6 addresses to your resource gateway network interfaces. This option is supported only if all selected subnets have both IPv4 and IPv6 address ranges, and the resource either has an IPv4 or IPv6 address. When you use this option, you can configure the number of IPv4 addresses per resource gateway ENI.
 
 The IP address type of the resource gateway is independent of the IP address type of the client or the VPC endpoint through which the resource is accessed. 

@@ -3,7 +3,7 @@
 # Resource configurations for VPC resources
 <a name="resource-configuration"></a>
 
-A resource configuration represents an individual resource, a group of resources, or a list of CIDR ranges that you want to make accessible to clients in other VPCs and accounts. By defining a resource configuration, you can allow private, secure, unidirectional network connectivity to resources in your VPC from clients in other VPCs and accounts. A resource configuration is associated with a resource gateway through which it receives traffic. For a resource to be accessed from another VPC, it needs to have a resource configuration.
+A resource configuration represents an individual resource, a group of resources, or a list of Classless Inter-Domain Routing (CIDR) ranges that you want to make accessible to clients in other VPCs and accounts. By defining a resource configuration, you can allow private, secure, unidirectional network connectivity to resources in your VPC from clients in other VPCs and accounts. A resource configuration is associated with a resource gateway through which it receives traffic. For a resource to be accessed from another VPC, it needs to have a resource configuration.
 
 **Topics**
 + [Types of resource configurations](#resource-configuration-types)
@@ -41,9 +41,12 @@ The following image shows a single, child, and group resource configuration:
 ## Protocol
 <a name="resource-configuration-protocol"></a>
 
-When you create a resource configuration you can define the protocols that the resource will support. Currently, only the TCP protocol is supported.
+When you create a resource configuration you can define the protocol that the resource will support. The default protocol is TCP.
 
-For CIDR resource configurations, the protocol has to be `TCP_UDP`: only TCP is supported for application traffic, UDP is supported only for DNS queries.
+For CIDR resource configurations, specify `TCP_UDP` so that you can send DNS queries over UDP. All other traffic must use TCP. Other resource configuration types support only TCP.
+
+**Note**  
+The `TCP_UDP` protocol applies only to CIDR resource configurations, which you access through a tunnel endpoint. CIDR resource configurations can't be associated with a service network, so `TCP_UDP` doesn't apply to service network endpoints or to resource endpoints. Traffic through those endpoints uses TCP.
 
 ## Resource gateway
 <a name="resource-gateway"></a>
