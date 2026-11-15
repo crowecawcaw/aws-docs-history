@@ -5,12 +5,12 @@
 
 Publication date: **September 28, 2022 ([Diagram history](#hpc-re-history))**
 
-With this architecture, you can ingest data from on-premises renewable energy assets such as weather stations, wind turbines, and solar panels. You can also run high performance computing (HPC) and artificial intelligence/machine learning (AI/ML) workloads on that data. The solution uses [AWS IoT Core](https://docs.aws.amazon.com/iot/latest/developerguide/) for device connectivity, [AWS ParallelCluster](https://docs.aws.amazon.com/parallelcluster/latest/ug/) for HPC infrastructure, and [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html) for dashboarding.
+With this architecture, you can ingest data from on-premises renewable energy assets such as weather stations, wind turbines, and solar panels. You can also run high performance computing (HPC) and artificial intelligence/machine learning (AI/ML) workloads on that data. The solution uses [AWS IoT Core](https://docs.aws.amazon.com/iot/latest/developerguide/) for device connectivity, [AWS ParallelCluster](https://docs.aws.amazon.com/parallelcluster/latest/ug/) for HPC infrastructure, and [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html) for dashboarding.
 
 ## HPC simulation workload diagram
 <a name="hpc-re-diagram"></a>
 
-![Reference architecture diagram showing how to run HPC simulation workloads for renewable energy data by using AWS IoT Core, AWS ParallelCluster, and Amazon Quick Sight.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/hpc-simulation-renewable-energy/images/hpc-simulation-renewable-energy.png)
+![Reference architecture diagram showing how to run HPC simulation workloads for renewable energy data by using AWS IoT Core, AWS ParallelCluster, and AWS Quick Sight.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/hpc-simulation-renewable-energy/images/hpc-simulation-renewable-energy.png)
 
 
 The following steps describe the data ingestion, compute, and visualization pipeline for this architecture:
@@ -27,7 +27,7 @@ The following steps describe the data ingestion, compute, and visualization pipe
 
 1. Use [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/) for data preparation and task building views of report data.
 
-1. Use Amazon Quick Sight to query and build visualizations to discover insights into your data. Use an [AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/) Crawler to discover schemas and store them in the AWS Glue Data Catalog. Classify schemas for common file formats such as JSON and CSV.
+1. Use AWS Quick Sight to query and build visualizations to discover insights into your data. Use an [AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/) Crawler to discover schemas and store them in the AWS Glue Data Catalog. Classify schemas for common file formats such as JSON and CSV.
 
 ## Further reading
 <a name="hpc-re-further-reading"></a>
