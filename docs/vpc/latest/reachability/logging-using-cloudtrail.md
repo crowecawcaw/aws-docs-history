@@ -23,7 +23,7 @@ For an ongoing record of events in your AWS account, including events for Reacha
 
 For Reachability Analyzer, you can use CloudTrail to log two types of events:
 + **Reachability Analyzer API calls** — All API calls used to create, read/describe, update, delete, and list (CRUDL) Reachability Analyzer resources are logged by CloudTrail and are documented in the [Amazon EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/). In this scenario, `ec2.amazonaws.com` is the event source.
-+ **AWS Network Manager Chat API calls** — CloudTrail also records all Network Manager Chat API calls as events. The Network Manager Chat API provides an interface and methods with which users can interact and have conversations with Reachability Analyzer through Amazon Q. Calls to the following API methods generate entries in the CloudTrail log files:
++ **AWS Network Manager Chat API calls** — CloudTrail also records all Network Manager Chat API calls as events. The Network Manager Chat API provides an interface and methods with which users can interact and have conversations with Reachability Analyzer through the AWS assistant. Calls to the following API methods generate entries in the CloudTrail log files:
   + `CreateConversation`
   + `ListConversations`
   + `DeleteConversation`

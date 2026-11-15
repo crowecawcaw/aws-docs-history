@@ -76,7 +76,7 @@ Network interfaces with source/destination check enabled reject inbound traffic 
 The traffic is blocked by a matching Network Firewall firewall rule.
 
 **GATEWAY\_REJECTS\_SPOOFED\_TRAFFIC**  
-Gateways reject traffic with spoofed addresses from the VPC.
+Gateways reject traffic with spoofed addresses from the VPC or with addresses from outside the VPC.
 
 **GWLB\_DESTINATION\_PORT\_RESTRICTION**  
 Traffic between a Gateway Load Balancer and its targets must use port 6081 as the destination port. To analyze connectivity through a Gateway Load Balancer, specify port 6081 in the path definition.
