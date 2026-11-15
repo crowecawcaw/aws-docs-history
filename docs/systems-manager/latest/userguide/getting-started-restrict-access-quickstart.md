@@ -23,6 +23,9 @@ These policies provide end users the ability to start a session to a particular 
 
 In the following sample policies, replace each {{example resource placeholder}} with your own information. 
 
+**Note**  
+These policies allow users to resume and end only their own sessions by using the `aws:ssmmessages:session-id` resource tag that Session Manager adds to every session. If you prefer to scope access by the session ARN instead of a condition key, see [Method 2: Grant permissions by using the session ARN](getting-started-restrict-access-examples.md#restrict-access-example-user-sessions-username).
+
 Choose from the following tabs to view the sample policy for the range of session access you want to provide.
 
 ------

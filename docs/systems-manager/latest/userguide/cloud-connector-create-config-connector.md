@@ -1,9 +1,9 @@
 
 
-# Step 1: Create an AWS Config connector
+# Step 1: Create an AWS Config connector (optional)
 <a name="cloud-connector-create-config-connector"></a>
 
-The AWS Config connector sets up the credential exchange between AWS and Azure and enables AWS Config to record Azure resource state. You must create this before creating the Systems Manager Cloud Connector.
+The AWS Config connector sets up the credential exchange between AWS and Azure and enables AWS Config to record Azure resource state. If you want AWS Config to record the connector's Azure resources, create the AWS Config connector before you create the Systems Manager Cloud Connector. Otherwise, skip this step. For more information, see [AWS Config recording for Cloud Connectors](cloud-connector-config-recording.md).
 
 **Note**  
 The AWS Config connector automatically creates a service-linked role for federation. You do not need to create a separate IAM role for this step.

@@ -8,7 +8,7 @@ A Systems Manager *Cloud Connector* is a resource that establishes a connection 
 This section includes the following topics.
 + [Create a Cloud Connector (AWS Management Console)](cloud-connector-create-console.md)
 + [Prerequisites](cloud-connector-prerequisites.md)
-+ [Step 1: Create an AWS Config connector](cloud-connector-create-config-connector.md)
++ [Step 1: Create an AWS Config connector (optional)](cloud-connector-create-config-connector.md)
 + [Step 2: Create a Systems Manager Cloud Connector](cloud-connector-create-ssm-connector.md)
 + [Manage Cloud Connectors](cloud-connector-manage.md)
 + [Enable VM onboarding](cloud-connector-enable-vm-onboarding.md)
@@ -24,10 +24,11 @@ Creating a Cloud Connector for Azure involves two main steps:
 
 1. Create a Systems Manager Cloud Connector, which registers the Azure tenant and subscription targets with Systems Manager.
 
+The first step is optional. If you don't want AWS Config to record the connector's Azure resources, create only the Systems Manager Cloud Connector. For more information, see [AWS Config recording for Cloud Connectors](cloud-connector-config-recording.md).
+
 You can create a Cloud Connector in one of two ways. We recommend that you use the AWS Management Console (the wizard generates a setup script that configures the Azure side for you). You can also use the AWS CLI, where you run the Azure setup commands and the create commands yourself.
 
 **Note**  
-Cloud Connectors support Microsoft Azure at launch. Google Cloud Platform support is planned for a future release.
 Systems Manager supports up to 10 Cloud Connectors per AWS account. Each Cloud Connector supports up to 75 Azure subscription targets. All Cloud Connectors in a single AWS account must target the same Azure tenant.
 
 For details about the IAM roles that Systems Manager creates on your behalf during the connector setup wizard, including their trust policies and permissions policies, see [IAM roles created by the Systems Manager console](cloud-connector-console-iam-roles.md).

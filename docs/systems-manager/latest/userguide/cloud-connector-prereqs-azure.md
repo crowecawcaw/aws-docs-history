@@ -7,6 +7,8 @@ Complete the following steps in your Azure environment. You need the following v
 + **Issuer URL** — The AWS OIDC issuer URL from the previous section.
 + **Subject** — The ARN of the Systems Manager Azure federation role, for example: `arn:aws:iam::{{ACCOUNT_ID}}:role/service-role/SSM-AzureRole-{{connector-name}}`
 
+Steps 6 through 11 set up AWS Config recording. If you create the Cloud Connector without AWS Config recording, skip them. For more information, see [AWS Config recording for Cloud Connectors](cloud-connector-config-recording.md).
+
 **To set up the Azure side of the federation**
 
 1. 
@@ -263,6 +265,6 @@ Complete the following steps in your Azure environment. You need the following v
 After completing the Azure setup, note the following values. You need them when creating the Cloud Connector:
 + **Tenant ID** — Your Azure AD directory (tenant) ID.
 + **SSM Application (Client) ID** — The application ID of the Systems Manager Azure AD app (Step 1).
-+ **Config Application (Client) ID** — The application ID of the AWS Config Azure AD app (Step 6).
++ **Config Application (Client) ID** — The application ID of the AWS Config Azure AD app (Step 6). Only if you record with AWS Config.
 + **Subscription IDs** — The Azure subscriptions you want to manage.
-+ **Event Hub namespace hostname** — The fully qualified hostname of the Event Hub namespace (for example, `{{EVENT_HUB_NAMESPACE}}.servicebus.windows.net`).
++ **Event Hub namespace hostname** — The fully qualified hostname of the Event Hub namespace (for example, `{{EVENT_HUB_NAMESPACE}}.servicebus.windows.net`). Only if you record with AWS Config.

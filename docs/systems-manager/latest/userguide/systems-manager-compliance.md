@@ -11,7 +11,7 @@ Compliance offers the following additional benefits and features:
 + View compliance history and change tracking for Patch Manager patching data and State Manager associations by using AWS Config.
 + Customize Compliance to create your own compliance types based on your IT or business requirements.
 + Remediate issues by using Run Command, another tool in AWS Systems Manager, State Manager, or Amazon EventBridge.
-+ Port data to Amazon Athena and Amazon Quick to generate fleet-wide reports.
++ Port data to Amazon Athena and AWS Quick to generate fleet-wide reports.
 
 **EventBridge support**  
 This Systems Manager tool is supported as an *event* type in Amazon EventBridge rules. For information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md) and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md).

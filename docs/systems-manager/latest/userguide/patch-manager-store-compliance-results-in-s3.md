@@ -7,7 +7,7 @@ You can use the AWS Systems Manager console to generate patch compliance reports
 
 Reports can be generated for a single managed node or for all managed nodes in your selected AWS account and AWS Region. For a single node, a report contains comprehensive details, including the IDs of patches related to a node being noncompliant. For a report on all managed nodes, only summary information and counts of noncompliant nodes' patches are provided.
 
-After a report is generated, you can use a tool like Amazon Quick to import and analyze the data. Quick is a business intelligence (BI) service you can use to explore and interpret information in an interactive visual environment. For more information, see the [Amazon Quick User Guide](https://docs.aws.amazon.com/quicksuite/latest/userguide/what-is.html).
+After a report is generated, you can use a tool like AWS Quick to import and analyze the data. Quick is a business intelligence (BI) service you can use to explore and interpret information in an interactive visual environment. For more information, see the [AWS Quick User Guide](https://docs.aws.amazon.com/quicksuite/latest/userguide/what-is.html).
 
 **Note**  
 When you create a custom patch baseline, you can specify a compliance severity level for patches approved by that patch baseline, such as `Critical` or `High`. If the patch state of any approved patch is reported as `Missing`, then the patch baseline's overall reported compliance severity is the severity level you specified.

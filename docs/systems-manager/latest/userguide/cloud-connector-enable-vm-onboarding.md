@@ -9,6 +9,8 @@ Systems Manager onboards Azure VMs through an event-driven process. When a new V
 
 The association also runs on a periodic 48-hour schedule as a safety net. This ensures that any VMs missed due to lost events or transient failures are eventually discovered and onboarded.
 
+If the Cloud Connector doesn't record with AWS Config, Systems Manager doesn't receive these change events. The association's scheduled runs onboard new VMs instead.
+
 For each Azure VM to onboard, the Automation performs the following steps:
 
 1. Creates a Systems Manager hybrid activation for the VM.

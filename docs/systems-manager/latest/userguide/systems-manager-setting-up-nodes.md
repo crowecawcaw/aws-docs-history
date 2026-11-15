@@ -14,6 +14,8 @@ If you already use other AWS services, you have completed some of these steps. H
 + [Managing EC2 instances with Systems Manager](systems-manager-setting-up-ec2.md)
 + [Managing nodes in hybrid and multicloud environments with Systems Manager](systems-manager-hybrid-multicloud.md)
 + [Set up a Cloud Connector for Microsoft Azure in Systems Manager](systems-manager-cloud-connector.md)
++ [Set up a Cloud Connector for Google Cloud Platform in Systems Manager](systems-manager-cloud-connector-gcp.md)
++ [AWS Config recording for Cloud Connectors](cloud-connector-config-recording.md)
 + [Managing edge devices with Systems Manager](systems-manager-setting-up-edge-devices.md)
 + [Creating an AWS Organizations delegated administrator for Systems Manager](setting_up_delegated_admin.md)
 + [General setup for AWS Systems Manager](#setting_up_prerequisites)

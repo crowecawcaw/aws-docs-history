@@ -5,14 +5,14 @@
 
 The following walkthrough describes how to create a resource data sync configuration for AWS Systems Manager Inventory by using the AWS Command Line Interface (AWS CLI). A resource data sync automatically ports inventory data from all of your managed nodes to a central Amazon Simple Storage Service (Amazon S3) bucket. The sync automatically updates the data in the central Amazon S3 bucket whenever new inventory data is discovered. 
 
-This walkthrough also describes how to use Amazon Athena and Amazon Quick to query and analyze the aggregated data. For information about creating a resource data sync by using Systems Manager in the AWS Management Console, see [Walkthrough: Using resource data sync to aggregate inventory data](#inventory-resource-data-sync). For information about querying inventory from multiple AWS Regions and accounts by using Systems Manager in the AWS Management Console, see [Querying inventory data from multiple Regions and accounts](systems-manager-inventory-query.md).
+This walkthrough also describes how to use Amazon Athena and AWS Quick to query and analyze the aggregated data. For information about creating a resource data sync by using Systems Manager in the AWS Management Console, see [Walkthrough: Using resource data sync to aggregate inventory data](#inventory-resource-data-sync). For information about querying inventory from multiple AWS Regions and accounts by using Systems Manager in the AWS Management Console, see [Querying inventory data from multiple Regions and accounts](systems-manager-inventory-query.md).
 
 **Note**  
 This walkthrough includes information about how to encrypt the sync by using AWS Key Management Service (AWS KMS). Inventory doesn't collect any user-specific, proprietary, or sensitive data so encryption is optional. For more information about AWS KMS, see [AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/).
 
 **Before you begin**  
 Review or complete the following tasks before you begin the walkthrough in this section:
-+ Collect inventory data from your managed nodes. For the purpose of the Amazon Athena and Amazon Quick sections in this walkthrough, we recommend that you collect Application data. For more information about how to collect inventory data, see [Configuring inventory collection](inventory-collection.md) or [Using the AWS CLI to configure inventory data collection](inventory-collection-cli.md).
++ Collect inventory data from your managed nodes. For the purpose of the Amazon Athena and AWS Quick sections in this walkthrough, we recommend that you collect Application data. For more information about how to collect inventory data, see [Configuring inventory collection](inventory-collection.md) or [Using the AWS CLI to configure inventory data collection](inventory-collection-cli.md).
 + (Optional) If the inventory data is stored in an Amazon Simple Storage Service (Amazon S3) bucket that uses AWS Key Management Service (AWS KMS) encryption, you must also configure your IAM account and the `Amazon-GlueServiceRoleForSSM` service role for AWS KMS encryption. If you don't configure your IAM account and this role, Systems Manager displays `Cannot load Glue tables` when you choose the **Detailed View** tab in the console. For more information, see [(Optional) Configure permissions for viewing AWS KMS encrypted data](systems-manager-inventory-query.md#systems-manager-inventory-query-kms).
 + (Optional) If you want to encrypt the resource data sync by using AWS KMS, then you must either create a new key that includes the following policy, or you must update an existing key and add this policy to it.
 
@@ -416,16 +416,16 @@ If you create resource data syncs from additional AWS Regions or AWS accounts, t
    MSCK REPAIR TABLE ssminventory.AWS_PatchSummary
    ```
 
-**Working with the Data in Amazon Quick**
+**Working with the Data in AWS Quick**
 
-The following section provides an overview with links for building a visualization in Amazon Quick.
+The following section provides an overview with links for building a visualization in AWS Quick.
 
-**To build a visualization in Amazon Quick**
+**To build a visualization in AWS Quick**
 
-1. Sign up for [Amazon Quick](https://quicksight.aws/) and then log in to the Quick console.
+1. Sign up for [AWS Quick](https://quicksight.aws/) and then log in to the Quick console.
 
-1. Create a data set from the `AWS_Application` table and any other tables you created. For more information, see [Creating a dataset using Amazon Athena data](https://docs.aws.amazon.com/quicksuite/latest/userguide/create-a-data-set-athena.html) in the *Amazon Quick User Guide*.
+1. Create a data set from the `AWS_Application` table and any other tables you created. For more information, see [Creating a dataset using Amazon Athena data](https://docs.aws.amazon.com/quicksuite/latest/userguide/create-a-data-set-athena.html) in the *AWS Quick User Guide*.
 
-1. Join tables. For example, you could join the `instanceid` column from `AWS_InstanceInformation` because it matches the `resourceid` column in other inventory tables. For more information about joining tables, see [Joining data](https://docs.aws.amazon.com/quicksuite/latest/userguide/joining-data.html) in the *Amazon Quick User Guide*.
+1. Join tables. For example, you could join the `instanceid` column from `AWS_InstanceInformation` because it matches the `resourceid` column in other inventory tables. For more information about joining tables, see [Joining data](https://docs.aws.amazon.com/quicksuite/latest/userguide/joining-data.html) in the *AWS Quick User Guide*.
 
-1. Build a visualization. For more information, see [Analyses and reports: Visualizing data in Amazon Quick Sight](https://docs.aws.amazon.com/quicksuite/latest/userguide/working-with-visuals.html) in the *Amazon Quick User Guide*.
+1. Build a visualization. For more information, see [Analyses and reports: Visualizing data in Amazon Quick Sight](https://docs.aws.amazon.com/quicksuite/latest/userguide/working-with-visuals.html) in the *AWS Quick User Guide*.

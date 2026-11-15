@@ -3,11 +3,11 @@
 # Step 2: Create a Systems Manager Cloud Connector
 <a name="cloud-connector-create-ssm-connector"></a>
 
-After the AWS Config connector is set up, create the Systems Manager Cloud Connector. The Systems Manager Cloud Connector stores the Azure tenant and subscription configuration and links it to the AWS Config connector.
+Create the Systems Manager Cloud Connector. The Systems Manager Cloud Connector stores the Azure tenant and subscription configuration. If you created an AWS Config connector in Step 1, the Systems Manager Cloud Connector also links the configuration to it.
 
 **To create a Systems Manager Cloud Connector**
 
-1. Run the following command. Replace the placeholder values with your Azure tenant ID, the Systems Manager application (client) ID, subscription IDs, the Systems Manager Azure federation role ARN, and the AWS Config connector ARN from Step 1.
+1. Run the following command. Replace the placeholder values with your Azure tenant ID, the Systems Manager application (client) ID, subscription IDs, the Systems Manager Azure federation role ARN, and the AWS Config connector ARN from Step 1. To create the connector without AWS Config recording, omit `--config-connector-arn`. You can't add, change, or remove the AWS Config connector ARN after you create the Cloud Connector.
 **Create the federation role before you run this command**  
 Before you run this command, the Systems Manager Azure federation role that `--role-arn` identifies must already exist. Its trust policy must also allow the Systems Manager service principal (`ssm.amazonaws.com`) to assume it. The AWS CLI and API do not create this role for you. If either requirement is not met, the command fails. The error message is `ValidationException: Nonexistent role or missing ssm service principal in trust policy`. Create the role first with the trust and permissions policies in [Azure federation role](cloud-connector-azure-federation-role.md). Use the same role name and ARN that you used for the federated identity credential subject in [Azure prerequisites](cloud-connector-prereqs-azure.md).
 
