@@ -55,7 +55,7 @@ After your data is populated in the Amazon S3 table bucket, you can delete your 
 ## Analytics
 <a name="migrate-variant-store-analytics"></a>
 
-For data analytics, continue to use AWS analytics services, such as [Amazon Athena](https://docs.aws.amazon.com/athena), [Amazon EMR](https://docs.aws.amazon.com/emr), [Amazon Redshift](https://docs.aws.amazon.com/redshift), or [Amazon Quick](https://docs.aws.amazon.com/quicksight).
+For data analytics, continue to use AWS analytics services, such as [Amazon Athena](https://docs.aws.amazon.com/athena), [Amazon EMR](https://docs.aws.amazon.com/emr), [Amazon Redshift](https://docs.aws.amazon.com/redshift), or [AWS Quick](https://docs.aws.amazon.com/quicksight).
 
 ## AWS Partners
 <a name="migrate-variant-store-partners"></a>

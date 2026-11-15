@@ -128,6 +128,7 @@ The following topics can help you troubleshoot issues that you encounter with ca
 + [Why isn’t my run saving to the cache?](#troubleshooting-did-run-cache)
 + [Why isn’t a task using the cache entry?](#troubleshooting-did-run-cache)
 + [Why is the call caching for a task disabled?](#troubleshooting-task-cache-disabled)
++ [Why is the cache export much larger or slower than expected?](#troubleshooting-cache-export-size)
 
 ### Why isn’t my run saving to the cache?
 <a name="troubleshooting-did-run-cache"></a>
@@ -156,6 +157,21 @@ Check if the task is configured to opt out of caching using workflow engine feat
 + For WDL workflows: Check if the task has volatile set to `true` in the meta section
 + For Nextflow workflows: Check if the task has cache directive set to `false`
 + For CWL workflows: Check if the task has enableReuse set to `false` for the WorkReuse feature
+
+### Why is the cache export much larger or slower than expected?
+<a name="troubleshooting-cache-export-size"></a>
+
+If the export phase takes much longer than the run's tasks, or the run cache in Amazon S3 grows much larger than your input and output data, check whether any task in the workflow declares one of its inputs as an output. The run cache stores a complete copy of every declared output for every cached task, so a shared input that is passed through task outputs is stored once per task. For example, a 3 GiB reference re-declared as an output by 500 tasks adds about 1.5 TiB to the run cache.
+
+To resolve this issue:
+
+1. Remove the input from the task's output declarations, so the task outputs only the files it creates.
+
+1. Connect downstream tasks to the workflow input directly, instead of to the upstream task's outputs.
+
+1. Delete the duplicate copies from the run cache Amazon S3 location to stop ongoing storage charges. Deleting cache entries doesn't cause subsequent runs to fail; HealthOmics recomputes any task without a matching entry.
+
+For examples of this pattern and the recommended alternative in each workflow language, see [Engine-specific caching features](workflow-cache-per-engine.md).
 
 ## Troubleshooting data stores
 <a name="error-datastores"></a>

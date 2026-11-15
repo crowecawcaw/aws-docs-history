@@ -64,6 +64,7 @@ When you turn on call caching for a run, you may notice the following impacts on
 + During the first run, HealthOmics saves the cache data for tasks in the run. You may experience longer export times for this run, because call caching increases the amount of export data.
 + In subsequent runs, when resuming a run from cache, it may shorten the number of processing steps and reduce your run time.
 +  If you also choose to declare intermediate files as outputs, then your export times might be even longer since this data can be more verbose. 
++ If any task declares one of its inputs as an output, each cached task stores its own copy of that file. For a large shared file, such as a reference genome, this multiplies the export time, the cache storage cost, and the resume time by the number of tasks. Declare only the files that a task creates as its outputs. For examples in each workflow language, see [Engine-specific caching features](workflow-cache-per-engine.md).
 
 ## Cache data retention and invalidation events
 <a name="workflow-cache-data"></a>
