@@ -290,7 +290,7 @@ The resources file only contains entries if a check result exists at the resourc
 
 For the resources file, you can use common software such as Microsoft Excel to open the .csv file format. You can use the .csv file for one-time analysis of all checks across all accounts in your organization. If you want to use your report with an application, you can download the report as a .json file instead. 
 
-The .json file format provides more flexibility than the .csv file format for advanced use cases such as aggregation and advanced analytics with multiple datasets. For example, you can use a SQL interface with an AWS service such as Amazon Athena to run queries on your reports. You can also use Amazon Quick to create dashboards and visualize your data. For more information, see [Using other AWS services to view Trusted Advisor reports](use-other-aws-services-with-trusted-advisor-reports.md).
+The .json file format provides more flexibility than the .csv file format for advanced use cases such as aggregation and advanced analytics with multiple datasets. For example, you can use a SQL interface with an AWS service such as Amazon Athena to run queries on your reports. You can also use AWS Quick to create dashboards and visualize your data. For more information, see [Using other AWS services to view Trusted Advisor reports](use-other-aws-services-with-trusted-advisor-reports.md).
 
 ## Disable organizational view
 <a name="disable-organizational-view"></a>

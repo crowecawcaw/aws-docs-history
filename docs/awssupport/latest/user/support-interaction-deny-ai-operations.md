@@ -3,7 +3,7 @@
 # Denying AI-enhanced troubleshooting operations
 <a name="support-interaction-deny-ai-operations"></a>
 
-You can explicitly deny AI-enhanced troubleshooting operations by removing the following operations from your custom managed policy. Denying these operations prevents users from accessing the AI-powered interaction workflow and Amazon Q conversations in Support Center.
+You can explicitly deny AI-enhanced troubleshooting operations by removing the following operations from your custom managed policy. Denying these operations prevents users from accessing the AI-powered interaction workflow and AWS assistant conversations in Support Center.
 
 **Support interaction operations**
 
@@ -14,10 +14,10 @@ The following operations enable the interaction-based workflow in Support Center
 + `support:StartInteraction`
 + `support:UpdateInteraction`
 
-**Amazon Q Developer conversation operations**
+**AWS assistant conversation operations**
 
-The following operations enable Amazon Q conversations in Support Center:
-+ `q:StartConversation` – Start a new conversation with Amazon Q.
+The following operations enable AWS assistant conversations in Support Center:
++ `q:StartConversation` – Start a new conversation with the AWS assistant.
 + `q:SendMessage` – Send messages within a conversation.
 + `q:GetConversation` – Retrieve conversation details. This action is required for console access.
 + `q:ListConversations` – List available conversations. This action is required for console access and Support Center integration.

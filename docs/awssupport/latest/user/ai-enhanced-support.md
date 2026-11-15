@@ -13,13 +13,13 @@ AI-enhanced troubleshooting in the Support Center Console is supported in the fo
 **Note**  
 If you operate in an AWS Region that doesn't support AI-enhanced capabilities in the Support Center Console then you will use the legacy method of case management. For more information, see [Legacy experience: Creating support cases and case management](case-management-legacy.md).
 
-When you access the Support Center Console, you can enter your issue description in natural language, import relevant Amazon Q conversations, receive generative AI troubleshooting guidance, and choose to create a support case with pre-populated fields, if needed.
+When you access the Support Center Console, you can enter your issue description in natural language, import relevant AWS assistant conversations, receive generative AI troubleshooting guidance, and choose to create a support case with pre-populated fields, if needed.
 
 You can provide contextual information about your environment and issue to receive personalized solutions throughout the troubleshooting process.
 
 AI-enhanced troubleshooting in the AWS Support console provides the following key benefits:
 + **Faster issue resolution:** Get immediate responses and relevant solutions as soon as you describe your problem.
-+ **Context preservation:** Import your previous Amazon Q conversations to maintain troubleshooting context.
++ **Context preservation:** Import your previous AWS assistant conversations to maintain troubleshooting context.
 + **Streamlined case creation:** Use natural language to describe issues instead of navigating multiple form fields.
 + **Intelligent follow-up:** Receive relevant follow-up questions based on your specific AWS environment.
 + **AI-powered guidance for account, billing, and technical issues:** AI-enhanced troubleshooting provides contextual recommendations across all supported issue types. For account and billing questions, AI-enhanced troubleshooting surfaces relevant responses, walks you through common resolutions, and helps you navigate account settings. For technical issues, it analyzes your environment context, asks targeted follow-up questions, and delivers step-by-step troubleshooting guidance informed by AWS best practices, helping you resolve issues without creating a support case.

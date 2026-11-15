@@ -81,7 +81,7 @@ This policy includes the following permissions.
 + `mobiletargeting` – Allow principals to troubleshoot technical support cases related to Amazon Pinpoint.
 + `pipes` – Allow principals to troubleshoot technical support cases related to Amazon EventBridge Pipes.
 + `polly` – Allow principals to troubleshoot technical support cases related to Amazon Polly.
-+ `quicksight` – Allow principals to troubleshoot technical support cases related to Amazon Quick.
++ `quicksight` – Allow principals to troubleshoot technical support cases related to AWS Quick.
 + `rds` – Allow principals to troubleshoot technical support cases related to Amazon Relational Database Service. This includes technical support categories such as: Relational Database Service (Aurora - MySQL-Compat), Relational Database Service (Aurora - PostgreSQL-c), Relational Database Service (PostgreSQL), Relational Database Service (SQL Server), Relational Database Service (MySQL) and Relational Database Service (Oracle).
 + `redshift` – Allow principals to troubleshoot technical support cases related to Amazon Redshift.
 + `redshift-data` – Allow principals to troubleshoot technical support cases related to Amazon Redshift Data API.

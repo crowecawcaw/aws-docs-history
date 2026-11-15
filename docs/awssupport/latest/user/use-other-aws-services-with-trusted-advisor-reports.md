@@ -13,7 +13,7 @@ For information and examples for visualizing your report data, see the [View AWS
 Before you start this tutorial, you must meet the following requirements:
 + Sign in as an AWS Identity and Access Management (IAM) user with administrator permissions.
 + Use the US East (N. Virginia) AWS Region to quickly set up your AWS services and resources. 
-+ Create an Quick account. For more information, see [Getting Started with Data Analysis in Quick](https://docs.aws.amazon.com/quicksight/latest/user/getting-started.html) in the *Amazon Quick User Guide*.
++ Create an Quick account. For more information, see [Getting Started with Data Analysis in Quick](https://docs.aws.amazon.com/quicksight/latest/user/getting-started.html) in the *AWS Quick User Guide*.
 
 ## Upload the report to Amazon S3
 <a name="setting-up-s3"></a>
@@ -132,7 +132,7 @@ You must use the US East (N. Virginia) Region.
 1. Choose **New analysis**, **New dataset**, and then choose **Athena**.
 
 1. In the **New Athena data source** dialog box, enter a data source name such as **AthenaTA**, and then choose **Create data source**.  
-![Screenshot of a new data source in the Amazon Quick console.](https://docs.aws.amazon.com/awssupport/latest/user/images/organizational-view-athena-data-source.png)
+![Screenshot of a new data source in the AWS Quick console.](https://docs.aws.amazon.com/awssupport/latest/user/images/organizational-view-athena-data-source.png)
 
 1. In the **Choose your table** dialog box, choose the **athenatacfn** table, choose **folder1**, and then choose **Select**.  
 ![Screenshot of choosing your Athena table in the Quick console.](https://docs.aws.amazon.com/awssupport/latest/user/images/quicksight-choose-athena-table.png)
@@ -140,7 +140,7 @@ You must use the US East (N. Virginia) Region.
 1. In the **Finish data set creation** dialog box, choose **Directly query your data**, and then choose **Visualize**.  
 ![Screenshot of creating a data set in the Quick console.](https://docs.aws.amazon.com/awssupport/latest/user/images/quick-sight-visualize-data.png)
 
-You can now create a dashboard in Quick. For more information, see [Working with Dashboards](https://docs.aws.amazon.com/quicksight/latest/user/working-with-dashboards.html) in the *Amazon Quick User Guide*.
+You can now create a dashboard in Quick. For more information, see [Working with Dashboards](https://docs.aws.amazon.com/quicksight/latest/user/working-with-dashboards.html) in the *AWS Quick User Guide*.
 
 **Example : Quick dashboard**  
 The following example dashboard shows information about the Trusted Advisor checks, such as the following:  
@@ -150,11 +150,11 @@ The following example dashboard shows information about the Trusted Advisor chec
 + Check statuses
 + Number of entries in the report for each account
 
-![Screenshot of visualizing report data in Amazon Quick.](https://docs.aws.amazon.com/awssupport/latest/user/images/quick-sight-visualize-data-example-2.png)
+![Screenshot of visualizing report data in AWS Quick.](https://docs.aws.amazon.com/awssupport/latest/user/images/quick-sight-visualize-data-example-2.png)
 
 
 **Note**  
-If you have permission errors while creating your dashboard, make sure that Quick can use Athena. For more information, see [I Can't Connect to Amazon Athena](https://docs.aws.amazon.com/quicksight/latest/user/troubleshoot-connect-athena.html) in the *Amazon Quick User Guide*.
+If you have permission errors while creating your dashboard, make sure that Quick can use Athena. For more information, see [I Can't Connect to Amazon Athena](https://docs.aws.amazon.com/quicksight/latest/user/troubleshoot-connect-athena.html) in the *AWS Quick User Guide*.
 
 For more information and examples for visualizing your report data, see the [View AWS Trusted Advisor recommendations at scale with AWS Organizations](https://aws.amazon.com/blogs/mt/organizational-view-for-trusted-advisor/) in the *AWS Management & Governance Blog*.
 
