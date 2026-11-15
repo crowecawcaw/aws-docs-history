@@ -31,7 +31,7 @@ The following steps describe the architecture:
 
 1. Create a Jupyter Notebook for the data set to build a PdM ML model. Use [Amazon SageMaker AI](https://docs.aws.amazon.com/sagemaker/latest/dg/) for model training and deployment.
 
-1. Visualize analysis with [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) on the AWS IoT Analytics data source.
+1. Visualize analysis with [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) on the AWS IoT Analytics data source.
 
 ## Further reading
 <a name="pdm-further-reading"></a>
