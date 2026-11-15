@@ -20,7 +20,7 @@ Information can be logged to a private, customer-controlled data store for reten
 <a name="wickr-feature-overview"></a>
 
 **Enhanced security and privacy**  
-Wickr uses 256-bit Advanced Encryption Standard (AES) end-to-end encryption for every feature. Communications are encrypted locally on user devices, and remain undecipherable in transit to anyone other than sender and receiver. Every message, call, and file is encrypted with a new random key, and no one but intended recipients (not even AWS) can decrypt them. Whether they are sharing sensitive and regulated data, discussing legal or HR matters, or even conducting tactical military operations, customers use Wickr to communicate when security and privacy are paramount.
+Wickr uses 256-bit Advanced Encryption Standard (AES) end-to-end encryption for every feature. Communications are encrypted locally on user devices, and remain undecipherable in transit to anyone other than sender and receiver. Every message, call, and file is encrypted with a new random key, and no one but intended recipients (not even AWS) can decrypt them. If an organization turns on [data retention](data-retention.md), a copy of each message and file is retained and accessible to personnel authorized by the organization. Whether they are sharing sensitive and regulated data, discussing legal or HR matters, or even conducting tactical military operations, customers use Wickr to communicate when security and privacy are paramount.
 
 **Data retention**  
 Flexible administrative features are designed not only to safeguard sensitive information, but to retain data as required for compliance obligations, legal hold, and auditing purposes. Messages and files can be archived in a secure, customer-controlled data store.

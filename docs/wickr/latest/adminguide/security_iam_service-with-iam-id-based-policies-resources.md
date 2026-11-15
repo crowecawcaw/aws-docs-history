@@ -5,7 +5,7 @@ This guide documents the new AWS Wickr administration console, released on March
 # Policy resources for Wickr
 <a name="security_iam_service-with-iam-id-based-policies-resources"></a>
 
-**Supports policy resources:** No 
+**Supports policy resources:** Yes
 
 Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform **actions** on what **resources**, and under what **conditions**.
 
@@ -17,8 +17,16 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 
 To see a list of Wickr resource types and their ARNs, see [Resources Defined by AWS Wickr](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awswickr.html#awswickr-resources-for-iam-policies) in the *Service Authorization Reference*. To learn with which actions you can specify the ARN of each resource, see [Actions Defined by AWS Wickr](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awswickr.html#awswickr-actions-as-permissions).
 
+Wickr supports resource-level permissions for network resources. A network ARN uses the following format:
 
+```
+arn:{{partition}}:wickr:{{region}}:{{account-id}}:network/{{network-id}}
+```
 
+For example:
 
+```
+arn:aws:wickr:us-east-1:123456789012:network/12345678
+```
 
-To view examples of Wickr identity-based policies, see [Identity-based policy examples for AWS Wickr](security_iam_id-based-policy-examples.md).
+For actions that support resource-level permissions, specify the network ARN in the `Resource` element of your policy. If an action doesn't list the network resource type in [Actions Defined by AWS Wickr](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awswickr.html#awswickr-actions-as-permissions), specify all resources using `"Resource": "*"`.

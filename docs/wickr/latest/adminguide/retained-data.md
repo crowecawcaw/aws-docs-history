@@ -100,12 +100,15 @@ print(content)
 
 Use this procedure to permanently remove retained content for one room, group, or one-on-one conversation for one UTC day. You identify the content by exact UTC date and exact `vgroupid`, and then delete only the object keys that you reviewed.
 
+Retained content can exist in two buckets. The encrypted retention bucket holds the retained messages. The decrypted bucket holds a plaintext copy of the content each time you run on-demand decryption for a particular date and conversation. To fully remove the content, clean up the encrypted retention bucket first, and then remove the decrypted copies.
+
 **Permanent deletion of stored content**  
-This action permanently removes all retained messages, associated retained files, username markers, and every stored content version for the selected group or conversation for that UTC day—not only a selected message. You can't undo this action.
+This action permanently removes all retained messages, associated retained files, username markers, and every stored content version for the selected group or conversation for that UTC day—not only a selected message. You can't undo this action. Cleaning up only the encrypted retention bucket leaves any decrypted copies in place.
 
 **Prerequisites**  
 Use an administrator role with AWS Identity and Access Management (IAM) permissions to list and delete objects and object versions in the encrypted retention bucket. The required actions include `s3:ListBucket`, `s3:ListBucketVersions`, `s3:DeleteObject`, and `s3:DeleteObjectVersion`. Confirm that you have these permissions before you begin.  
 Apply least-privilege permissions. Scope `s3:ListBucket` and `s3:ListBucketVersions` to the encrypted retention bucket. Scope `s3:DeleteObject` and `s3:DeleteObjectVersion` to the exact `wickr-drs-encrypted/YYYY/MM/DD/<vgroupid>/` object prefix in that bucket.  
+To remove decrypted copies, you also need `s3:ListBucket` and `s3:ListBucketVersions` on the decrypted bucket, and `s3:DeleteObject` on the `wickr-drs-decrypted/*/YYYY/MM/DD/<vgroupid>/*` object path in that bucket.  
 Before you begin, identify your Wickr network ID, the exact `vgroupid`, and each applicable UTC date. For more information about the object path, see [Amazon S3 bucket structure](#bucket-structure).
 
 **To identify the stored content**
@@ -175,7 +178,7 @@ prefix=wickr-drs-encrypted/{{YYYY/MM/DD}}/{{<vgroupid>}}/
    done < keys_to_delete.txt
    ```
 
-1. Verify that no stored content versions remain for the reviewed keys. The command prints no rows when the cleanup is complete.
+1. Run the following AWS CLI command to verify that no stored content versions remain for the reviewed keys. The command prints no rows when the cleanup is complete:
 
    ```
    while IFS= read -r object_key; do
@@ -185,7 +188,77 @@ prefix=wickr-drs-encrypted/{{YYYY/MM/DD}}/{{<vgroupid>}}/
            --prefix "$object_key" \
            --query "Versions[?Key=='$object_key'].[Key,VersionId]" \
            --output text
-   done < keys_to_delete.txt
+   done < keys_to_delete.txt | grep -v '^None$'
    ```
 
 1. Repeat the applicable steps for each UTC date that you need to clean up.
+
+**Remove decrypted copies**:
+
+Each on-demand decryption run writes its output under its own `wickr-drs-decrypted/<requested-date-time>/` prefix, so the same date and conversation can appear under several runs. Output from a run that didn't complete can also remain under a `tmp/` folder in the run prefix. The following commands find every decrypted object for the date and `vgroupid`, across all runs. For more information about the object path, see [Reading decrypted files](#decrypted-files).
+
+The decrypted bucket that the data retention template creates doesn't have versioning enabled, so deleting an object removes it. If you enabled versioning on this bucket, use the version-aware commands from the previous procedure instead.
+
+Replace `<your-decrypted-bucket>` with the name of the decrypted bucket, which is your encrypted retention bucket name followed by `-decrypted`. Use the same UTC date and `vgroupid` as in the previous procedures:
+
+```
+decrypted_bucket={{<your-decrypted-bucket>}}
+date_path={{YYYY/MM/DD}}
+vgroupid={{<vgroupid>}}
+```
+
+**To remove decrypted copies**
+
+1. Run the following AWS CLI command to list the decrypted objects for the date and conversation:
+
+   ```
+   aws s3api list-objects-v2 \
+       --bucket "$decrypted_bucket" \
+       --prefix wickr-drs-decrypted/ \
+       --query 'Contents[].Key' \
+       --output text | tr '\t' '\n' |
+       grep -v '^None$' |
+       grep -F "/$date_path/$vgroupid/" |
+       sort -u > decrypted_candidate_keys.txt
+   
+   cat decrypted_candidate_keys.txt
+   ```
+
+1. Review `decrypted_candidate_keys.txt` and confirm that every key belongs to the conversation and UTC date that you intend to clean up.
+
+1. Copy the list to `decrypted_keys_to_delete.txt`. Remove any key that you don't want to delete:
+
+   ```
+   cp decrypted_candidate_keys.txt decrypted_keys_to_delete.txt
+   # Edit decrypted_keys_to_delete.txt before continuing.
+   cat decrypted_keys_to_delete.txt
+   ```
+
+1. Delete each reviewed key:
+
+   ```
+   while IFS= read -r object_key; do
+       [ -z "$object_key" ] && continue
+       if ! aws s3api delete-object \
+           --bucket "$decrypted_bucket" \
+           --key "$object_key"; then
+           echo "Failed to delete $object_key" >&2
+       fi
+   done < decrypted_keys_to_delete.txt
+   ```
+
+1. Run the following AWS CLI command to verify that no decrypted objects or object versions remain for the reviewed keys. The command prints no rows when the cleanup is complete:
+
+   ```
+   while IFS= read -r object_key; do
+       [ -z "$object_key" ] && continue
+       aws s3api list-object-versions \
+           --bucket "$decrypted_bucket" \
+           --prefix "$object_key" \
+           --query "Versions[?Key=='$object_key'].[Key,VersionId]" \
+           --output text
+   done < decrypted_keys_to_delete.txt | grep -v '^None$'
+   ```
+
+**Note**  
+This procedure doesn't remove copies of decrypted content that were downloaded or exported outside these buckets, such as to an eDiscovery or archiving system. Remove those copies according to your organization's procedures.

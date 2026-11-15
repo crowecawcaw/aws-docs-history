@@ -68,7 +68,7 @@ Before enabling serverless data retention, ensure you have the following:
 + [Architecture Overview](architecture.md)
 + [Access retained data](retained-data.md)
 + [Monitoring and management](monitor-manage.md)
-+ [Expected costs](expected-costs.md)
++ [Expected costs for serverless data retention](expected-costs.md)
 + [Migration from docker method](migration-process.md)
 + [Security considerations](considerations-security.md)
 + [Best practices](best-practices.md)

@@ -46,8 +46,7 @@ You can also create an IAM policy to allow users to access specific API actions.
                 "wickr:ListUsers",
                 "wickr:GetNetworkSettings",
                 "wickr:GetNetwork",
-                "wickr:GetUser",
-                "wickr:ListTagsForResource"
+                "wickr:GetUser"
             ],
             "Resource": "*"
         }
@@ -58,4 +57,5 @@ You can also create an IAM policy to allow users to access specific API actions.
 **Topics**
 + [Policy best practices](security_iam_service-with-iam-policy-best-practices.md)
 + [Using the AWS Management Console for Wickr](security_iam_id-based-policy-examples-console.md)
++ [Control access to Wickr networks based on tags](security_iam_id-based-policy-examples-resource-tags.md)
 + [Allow users to view their own permissions](security_iam_id-based-policy-examples-view-own-permissions.md)

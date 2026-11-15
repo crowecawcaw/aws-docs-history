@@ -19,10 +19,10 @@ Before you use IAM to manage access to Wickr, learn what IAM features are availa
 | [Identity-based policies](security_iam_service-with-iam-id-based-policies.md) |  Yes | 
 | [Resource-based policies](security_iam_service-with-iam-resource-based-policies.md) |  No  | 
 | [Policy actions](security_iam_service-with-iam-id-based-policies-actions.md) |  Yes | 
-| [Policy resources](security_iam_service-with-iam-id-based-policies-resources.md) |  No  | 
-| [Policy condition keys](security_iam_service-with-iam-id-based-policies-conditionkeys.md) |  No  | 
+| [Policy resources](security_iam_service-with-iam-id-based-policies-resources.md) |  Yes | 
+| [Policy condition keys](security_iam_service-with-iam-id-based-policies-conditionkeys.md) |  Yes | 
 | [ACLs](security_iam_service-with-iam-acls.md) |  No  | 
-| [ABAC (tags in policies)](security_iam_service-with-iam-tags.md) |  No  | 
+| [ABAC (tags in policies)](security_iam_service-with-iam-tags.md) |  Yes | 
 | [Temporary credentials](#security_iam_service-with-iam-roles-tempcreds) |  No  | 
 | [Principal permissions](security_iam_service-with-iam-principal-permissions.md) |  No  | 
 | [Service roles](security_iam_service-with-iam-roles-service.md) |  No  | 

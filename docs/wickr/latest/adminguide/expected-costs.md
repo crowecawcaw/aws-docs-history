@@ -2,7 +2,7 @@
 
 This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
-# Expected costs
+# Expected costs for serverless data retention
 <a name="expected-costs"></a>
 
 Review this section before you enable large-scale decryption to anticipate costs. You pay for the AWS resources that the template creates in your account, and for the AWS KMS requests made with your keys. The Wickr-managed processing components run in the service account and are not billed to your account. The figures in this section are estimates based on the behavior of the current template version. Actual costs depend on your message volume, attachment sizes, how often you decrypt, and your Region. For current prices, see [AWS KMS pricing](https://aws.amazon.com/kms/pricing/), [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/), [Step Functions pricing](https://aws.amazon.com/step-functions/pricing/), [Lambda pricing](https://aws.amazon.com/lambda/pricing/), and [CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/).

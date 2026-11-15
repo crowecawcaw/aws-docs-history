@@ -7,10 +7,23 @@ This guide documents the new AWS Wickr administration console, released on March
 
 To help you keep track of the ongoing updates and improvements to Wickr, we publish release notices that describe recent changes.
 
+## October 2026
+<a name="october-2026-updates"></a>
++ **Client enhancements** – This release includes enhancements to the Wickr desktop and mobile clients. For more information, see [Release notes](https://docs.aws.amazon.com/wickr/latest/userguide/release-notes.html) in the *Wickr User Guide*.
+
+## September 2026
+<a name="september-2026-updates"></a>
++ **VPC endpoint policies** – You can now attach VPC endpoint policies to Wickr Admin and Wickr Messaging VPC endpoints to control which actions, resources, and networks are accessible through a VPC endpoint. For more information, see [VPC endpoint policies for AWS Wickr](https://docs.aws.amazon.com/wickr/latest/adminguide/vpce-policy.html).
++ **Messaging and Calling AWS PrivateLink endpoints** – Messaging and Calling AWS PrivateLink endpoints are now available in the US East (N. Virginia) Region. Clients and bots must be on version 6.74 or later. For more information, see [AWS PrivateLink for AWS Wickr](https://docs.aws.amazon.com/wickr/latest/adminguide/privatelink-overview.html).
+
 ## August 2026
 <a name="august-2026-updates"></a>
 + **Non-SSO device sync** - Users with password-based (non-SSO) accounts can now transfer their account and message history when signing in on a new device. The sync flow supports QR code scanning and manual code entry across desktop and mobile platforms. Previously, device sync was only available for SSO-configured accounts.
 + **Need Help link** - A help link is now available on the sign-in and registration screens across all platforms, making it easier for users to access support resources during onboarding.
+
+## July 2026
+<a name="july-2026-updates"></a>
++ **Serverless data retention** – If you have a Premium plan, you can now opt in to serverless data retention. This cloud-native alternative to the container-based data retention bot provides managed infrastructure, automatic scaling, and monitoring. Serverless data retention is available in select AWS Regions. For more information, see [Serverless data retention for AWS Wickr](https://docs.aws.amazon.com/wickr/latest/adminguide/serverless-method.html).
 
 ## June 2026
 <a name="june-2026-updates"></a>
