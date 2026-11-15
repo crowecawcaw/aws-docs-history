@@ -1,9 +1,9 @@
 
 
-# TELCOOPS02-BP03 Predict and mitigate deployment risks by adapting least disruptive deployment strategy for telecommunication workloads
+# TELCOOPS02-BP03 Predict and mitigate deployment risks by adopting the least disruptive deployment strategy for telecommunication workloads
 <a name="telcoops02-bp03"></a>
 
- Implement risk-aware deployment strategies that minimize service disruption in telecommunications environments through predictive analysis, parallel testing, and proactive capacity management. This approach combines advanced analytics, infrastructure redundancy, and staged deployment methodologies to verify seamless service delivery while implementing necessary changes and updates to the network infrastructure. 
+ Implement risk-aware deployment strategies that minimize service disruption in telecommunications environments through predictive analysis, parallel testing, and proactive capacity management. This approach combines advanced analytics, infrastructure redundancy, and staged deployment methodologies to deliver seamless service delivery while implementing necessary changes and updates to the network infrastructure. 
 
  **Desired outcome:** 
 +  Minimized service disruption during deployments. 
@@ -25,25 +25,24 @@
  **Level of risk exposed if this best practice is not established:** High 
 
 ## Implementation guidance
-<a name="implementation-guidance-5"></a>
+<a name="implementation-guidance"></a>
 
- Design and implement deployment strategies that minimize service disruption while maintaining successful changes in telecommunication environments. Establish a comprehensive risk assessment framework that evaluates potential impacts before deployments, including dependencies, customer impact, and resource requirements. Create deployment patterns that utilize blue-green deployments, canary releases, or rolling updates to minimize service interruption while maintaining the ability to quickly rollback changes. Implement automated validation and testing procedures throughout the deployment pipeline to catch potential issues early and verify service quality is maintained during and after deployments. 
+ Design and implement deployment strategies that minimize service disruption while maintaining successful changes in telecommunication environments. Establish a comprehensive risk assessment framework that evaluates potential impacts before deployments, including dependencies, customer impact, and resource requirements. Create deployment patterns that use blue-green deployments, canary releases, or rolling updates to minimize service interruption while maintaining the ability to quickly roll back changes. Implement automated validation and testing procedures throughout the deployment pipeline to catch potential issues early and verify service quality is maintained during and after deployments. 
 
 ### Implementation steps
-<a name="implementation-steps-5"></a>
-+  Use AWS Systems Manager Change Manager for change risk evaluation and AWS Config for pre-deployment checks. 
+<a name="implementation-steps"></a>
++  Evaluate change risk through your IT service management (ITSM) change process, and use AWS Config rules for pre-deployment checks. 
 +  Implement AWS CodeDeploy for blue-green deployments and AWS CloudFormation for infrastructure deployment with rollback capabilities. 
 +  Deploy AWS CodePipeline for automated testing workflows and AWS Fault Injection Service for controlled failure testing. 
 +  Configure Amazon CloudWatch for deployment monitoring and AWS X-Ray for deployment impact tracing. 
 +  Use AWS Systems Manager Automation for standardized deployment procedures and Service Catalog for approved deployment patterns. 
 
 ## Resources
-<a name="resources-5"></a>
+<a name="resources"></a>
 
  **Key AWS services:** 
 +  [AWS CodeDeploy](https://aws.amazon.com/codedeploy/) 
 +  [AWS CloudFormation](https://aws.amazon.com/cloudformation/) 
 +  [AWS Systems Manager](https://aws.amazon.com/systems-manager/) 
 +  [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/) 
-+  [AWS App Runner](https://aws.amazon.com/apprunner/) 
 +  [AWS Fault Injection Service](https://aws.amazon.com/fis/) 

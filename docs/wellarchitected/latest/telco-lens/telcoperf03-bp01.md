@@ -24,11 +24,11 @@
  **Level of risk exposed if this best practice is not established:** High 
 
 ## Implementation guidance
-<a name="implementation-guidance-37"></a>
+<a name="implementation-guidance"></a>
 
  Separating the network infrastructure for control plane and user plane functions (CUPS) is a critical best practice for optimizing the performance and scalability of telco workloads. This architectural approach recognizes the distinct requirements and characteristics of these two fundamental components of telco networks. 
 
- The control plane infrastructure should be designed with high availability and security features to handle the signaling traffic and control-related functions effectively. This includes maintaining robust failover mechanisms, efficient load balancing, and advanced security measures to protect the critical control plane elements. 
+ The control plane infrastructure should be designed with high availability and security features to handle the signaling traffic and control-related functions effectively. This includes maintaining resilient failover mechanisms, efficient load balancing, and advanced security measures to protect the critical control plane elements. 
 
  In contrast, the user plane infrastructure must be optimized for high throughput and low latency to manage the subscriber data and user traffic efficiently. This may involve the use of specialized hardware acceleration solutions, such as SmartNICs and FPGAs, to offload intensive packet processing tasks and improve overall network performance. 
 
@@ -37,15 +37,15 @@
  When deploying this best practice, telco operators should consider the overall network architecture, the expected traffic patterns, and the specific performance and scaling requirements of the control and user plane functions. This may involve the use of services like AWS Wavelength or AWS Local Zones to strategically place the user plane components closer to the end users for reduced latency. 
 
 ### Implementation steps
-<a name="implementation-steps-35"></a>
+<a name="implementation-steps"></a>
 +  Create separate VPCs within your AWS environment to host the control plane and user plane components, configuring appropriate subnets, routing tables, and security groups for each. 
 +  Establish secure communication between the control plane and user plane VPCs using AWS PrivateLink, AWS Transit Gateway, or Site-to-Site VPN connections. 
-+  Configure AWS Direct Connect or AWS Outposts to provide dedicated, high-bandwidth network connectivity for the user plane infrastructure, optimizing for low-latency and high-throughput. 
++  Configure AWS Direct Connect or AWS Outposts to provide dedicated, high-bandwidth network connectivity for the user plane infrastructure, optimizing for low latency and high throughput. 
 +  Use AWS Network Load Balancer to distribute traffic across the user plane components, and AWS Application Load Balancer to manage the control signaling traffic for the Control Plane. 
 +  Implement Amazon CloudWatch and AWS CloudTrail to monitor the performance, security, and health of the separated control plane and user plane network infrastructure. 
 
 ## Resources
-<a name="resources-36"></a>
+<a name="resources"></a>
 
  **Key AWS services:** 
 +  [Amazon VPC](https://aws.amazon.com/vpc/) 

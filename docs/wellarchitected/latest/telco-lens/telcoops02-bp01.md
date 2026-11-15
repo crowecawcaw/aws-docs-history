@@ -1,6 +1,6 @@
 
 
-# TELCOOPS02-BP01 Telecommunication resources, operations and projects have identified owners
+# TELCOOPS02-BP01 Telecommunication resources, operations, and projects have identified owners
 <a name="telcoops02-bp01"></a>
 
  Establish clear ownership and accountability frameworks for telecommunications assets, operations, and projects through formal assignment of responsibilities to specific individuals or teams. This includes mapping ownership of applications, VNFs, solutions, and infrastructure components while documenting their business value proposition and justification for ownership allocation. Clear ownership structures enable efficient decision-making, streamlined problem resolution, and effective resource management across the telecommunications environment. 
@@ -25,12 +25,12 @@
  **Level of risk exposed if this best practice is not established:** High 
 
 ## Implementation guidance
-<a name="implementation-guidance-3"></a>
+<a name="implementation-guidance"></a>
 
  Establish a comprehensive resource ownership model that clearly defines responsibilities for telecommunications assets, operations, and projects. Implement a centralized resource management system that tracks ownership details, including primary and secondary owners, escalation paths, and relevant stakeholders. Create detailed RACI (responsible, accountable, consulted, informed) matrices for each major resource category to verify clear understanding of roles and decision-making authority. Develop standardized handover procedures and documentation requirements to maintain continuity during ownership transitions or organizational changes. 
 
 ### Implementation steps
-<a name="implementation-steps-3"></a>
+<a name="implementation-steps"></a>
 +  Implement AWS Resource Groups and Tag Editor to define and manage resource ownership tags, and integrate with AWS Organizations for hierarchical resource management. 
 +  Use AWS Config to maintain resource inventory and relationships and AWS Systems Manager Resource Groups for logical grouping of resources by ownership. 
 +  Deploy Service Catalog for standardized resource provisioning with predefined ownership tags and AWS CloudFormation for automated resource creation with ownership metadata. 
@@ -38,7 +38,7 @@
 +  Use AWS Systems Manager OpsCenter for ownership-related operations management and AWS Resource Access Manager for controlled resource sharing. 
 
 ## Resources
-<a name="resources-3"></a>
+<a name="resources"></a>
 
  **Key AWS services:** 
 +  [Resource Groups and Tagging for AWS](https://aws.amazon.com/blogs/aws/resource-groups-and-tagging/) 

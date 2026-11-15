@@ -1,18 +1,18 @@
 
 
-# TELCOCOST04-BP01 Choose the appropriate type of storage for network functions backups, metrics, KPIs and the event records to reduce costs
+# TELCOCOST04-BP01 Choose the appropriate type of storage for network function backups, metrics, KPIs, and event records to reduce costs
 <a name="telcocost04-bp01"></a>
 
- Telecom companies generate and store massive amounts of data to support their business and customer operations. However, data is accessed or needed at various frequencies. By aligning storage choices with data access needs and lifecycles, Telecoms can significantly reduce their storage costs. For actively accessed data that needs high performance, flash storage or cache are good options despite their higher costs. For medium-term data that is accessed occasionally, lower-cost options like object storage, SAN or NAS storage are suitable. For long-term archive data with infrequent access, cold storage options like tape or cloud archival storage are the most cost-efficient. 
+ Telecom companies generate and store massive amounts of data to support their business and customer operations. However, data is accessed or needed at various frequencies. By aligning storage choices with data access needs and lifecycles, telecoms can significantly reduce their storage costs. For actively accessed data that needs high performance, flash storage or cache is a good option despite its higher costs. For medium-term data that is accessed occasionally, lower-cost options like object storage, SAN, or NAS storage are suitable. For long-term archive data with infrequent access, cold storage options like tape or cloud archival storage are the most cost-efficient. 
 
  **Desired outcome:** 
 +  Align storage choices with the access patterns and retention requirements of different data types. 
-+  Achieve cost savings by utilizing the most cost-effective storage options for each data category. 
++  Achieve cost savings by using the most cost-effective storage options for each data category. 
 +  Verify appropriate performance and durability characteristics for the various data workloads. 
 
  **Common anti-patterns:** 
 +  One-size-fits-all storage approach, with the same storage solution used for each data type. 
-+  Overreliance on high-cost storage options for data that does not require frequent access. 
++  Overreliance on high-cost storage options for data that doesn't require frequent access. 
 +  Lack of visibility and control over storage usage and costs across the organization. 
 
  **Benefits of establishing this best practice:** 
@@ -24,14 +24,14 @@
  **Level of risk exposed if this best practice is not established:** High 
 
 ## Implementation guidance
-<a name="implementation-guidance-47"></a>
+<a name="implementation-guidance"></a>
 
  Telecom companies generate and store large volumes of data to support their business and customer operations. However, data is accessed or needed at different frequencies. By aligning storage choices with data access needs and lifecycles, telecoms can significantly reduce their storage costs. 
 
- For actively accessed data that needs high performance, flash storage or cache are good options despite their higher costs. For medium-term data that is accessed occasionally, lower-cost options like object storage, SAN, or NAS storage are suitable. For long-term archive data with infrequent access, cold storage options like tape or cloud archival storage are the most cost-efficient. 
+ For actively accessed data that needs high performance, flash storage or cache is a good option despite its higher costs. For medium-term data that is accessed occasionally, lower-cost options like object storage, SAN, or NAS storage are suitable. For long-term archive data with infrequent access, cold storage options like tape or cloud archival storage are the most cost-efficient. 
 
 ### Implementation steps
-<a name="implementation-steps-45"></a>
+<a name="implementation-steps"></a>
 +  Categorize your data based on access frequency, performance requirements, and retention needs (for example, active, medium-term, and long-term archive). 
 +  For active data that requires high performance, use Amazon EBS Provisioned IOPS SSD volumes or Amazon EFS. 
 +  For medium-term data that is accessed occasionally, use Amazon S3 Intelligent-Tiering or Amazon EFS. 
@@ -40,7 +40,7 @@
 +  Monitor storage usage and costs and adjust your storage tiering strategy as needed to optimize costs. 
 
 ## Resources
-<a name="resources-46"></a>
+<a name="resources"></a>
 
  **Key AWS services:** 
 +  [Amazon EBS](https://aws.amazon.com/ebs/) 

@@ -7,7 +7,7 @@
 
  **Desired outcome:** 
 +  Categorize telco data (for example, IVR recordings and call logs) based on access patterns, regulatory requirements, and business value. 
-+  Implement automated data lifecycle management to transition data between different storage tiers, balancing performance, and cost-effectiveness. 
++  Implement automated data lifecycle management to transition data between different storage tiers, balancing performance and cost-effectiveness. 
 +  Maintain optimal system performance for frequently accessed data while managing long-term storage costs efficiently. 
 
  **Common anti-patterns:** 
@@ -18,14 +18,14 @@
  **Benefits of establishing this best practice:** 
 +  Reduced storage costs by moving less frequently accessed data to more economical storage solutions. 
 +  Improved system performance and responsiveness for applications that rely on real-time access to telco data. 
-+  Adherence with industry regulations and internal data retention policies through automated data lifecycle management. 
++  Adherence to industry regulations and internal data retention policies through automated data lifecycle management. 
 +  Enhanced operational efficiency by automating the movement and management of telco data across storage tiers. 
 +  Better utilization of storage resources through rightsizing and optimizing the storage footprint. 
 
  **Level of risk exposed if this best practice is not established:** Medium 
 
 ## Implementation guidance
-<a name="implementation-guidance-42"></a>
+<a name="implementation-guidance"></a>
 
  Implementing effective data lifecycle management for Interactive Voice Response (IVR) systems and call logs is crucial in telecommunications environments. This strategy involves categorizing data based on access patterns, regulatory requirements, and business value, then moving it through different storage tiers to balance performance and cost-effectiveness. 
 
@@ -35,16 +35,22 @@
 
  Additionally, telco operators should integrate the data lifecycle management processes with their broader data management and analytics workflows. This allows the insights gained from analyzing telco data to inform the optimization of the storage strategy and the categorization of data into appropriate tiers. 
 
+ Because the data in scope — IVR recordings, call logs, and billing records — commonly includes CPNI, PII, and lawful-intercept-regulated content, pair the lifecycle policies with the S3 data-protection controls those types require: SSE-KMS encryption with customer-managed CMKs, S3 Block Public Access, bucket policies enforcing aws:SecureTransport, S3 Object Lock sized to the applicable lawful-intercept or CPNI retention requirement, and CloudTrail S3 data events for audit of audio-content access. The Framework's SEC06, SEC07, SEC08, and SEC09 carry the base guidance on data classification, data at rest, and data in transit. 
+
 ### Implementation steps
-<a name="implementation-steps-40"></a>
-+  Use Amazon S3 to store the different types of telco data (for example, IVR recordings, call logs and billing records), categorizing them into appropriate S3 buckets based on access patterns, regulatory requirements, and business value. 
+<a name="implementation-steps"></a>
++  Use Amazon S3 to store the different types of telco data (for example, IVR recordings, call logs, and billing records), categorizing them into appropriate S3 buckets based on access patterns, regulatory requirements, and business value. 
 +  Configure S3 Lifecycle policies to automatically transition data between S3 storage classes, such as moving older data from S3 Standard to Amazon Glacier or S3 Glacier Deep Archive, based on the defined data retention policies. 
++  Enable SSE-KMS with customer-managed CMKs on IVR, call-log, and billing-record buckets so audio-content and CPNI/PII at rest is protected by keys the operator controls. 
++  Enable S3 Block Public Access at the bucket and account level, and attach a bucket policy that denies requests where aws:SecureTransport is false, so these buckets are never reachable without TLS. 
++  Enable S3 Object Lock on CDR, call-log, and lawful-intercept buckets in the mode and retention appropriate to the applicable regulator's requirement. 
++  Enable CloudTrail S3 data events on these buckets so audio-content and record access is auditable. 
 +  Integrate Amazon EFS and Amazon EBS to provide high-performance file storage and block storage for the frequently accessed telco data, complementing the long-term archival capabilities of S3. 
 +  Use AWS Storage Gateway to seamlessly connect your on-premises telco infrastructure with the appropriate AWS storage services, enabling a hybrid storage architecture that optimizes for performance and cost. 
 +  Implement Amazon CloudWatch and AWS CloudTrail to monitor the data lifecycle management processes, triggering alerts and automated actions for deviations from the defined policies. 
 
 ## Resources
-<a name="resources-41"></a>
+<a name="resources"></a>
 
  **Key AWS services:** 
 +  [Amazon S3 (including Amazon Glacier and S3 Glacier Deep Archive)](https://aws.amazon.com/s3/) 

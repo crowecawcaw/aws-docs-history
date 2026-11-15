@@ -3,7 +3,7 @@
 # TELCOOPS01-BP01 Promote cross-functional collaboration across internal and external stakeholders
 <a name="telcoops01-bp01"></a>
 
- Involve key stakeholders, including business, development, and operations teams, to determine where to focus efforts on external and internal goals. Identify long-term and short-term goals which assist to prioritize tasks with added efficiency. Encourage collaboration between different teams, such as network engineers, cloud architects, ISV architects and security experts, to verify efficient communication and knowledge sharing across the organization. 
+ Involve key stakeholders, including business, development, and operations teams, to determine where to focus efforts on external and internal goals. Identify long-term and short-term goals that help prioritize tasks with added efficiency. Encourage collaboration between different teams, such as network engineers, cloud architects, ISV architects, and security experts, to enable efficient communication and knowledge sharing across the organization. 
 
  **Desired outcome:** 
 +  Established cross-functional teams with clear roles and responsibilities. 
@@ -30,10 +30,10 @@
 
 ### Implementation steps
 <a name="implementation-steps"></a>
-+  Use AWS Organizations to create organizational units (OUs) that reflect team structures, and AWS IAM Identity Center for centralized access management and role-based permissions. 
++  Use AWS Organizations to create organizational units (OUs) that reflect team structures, and IAM Identity Center for centralized access management and role-based permissions. 
 +  Implement AWS Systems Manager OpsCenter for centralized operations management and integrate collaboration tools through Amazon EventBridge for automated notifications. 
 +  Use Service Catalog to standardize approved services and configurations across teams, with AWS tags for resource tracking and ownership. 
-+  Deploy AWS Systems Manager Change Manager for standardized change processes and Amazon CloudWatch for automated operational dashboards. 
++  Use AWS Systems Manager Automation runbooks for standardized change processes, with change approvals managed in your IT service management (ITSM) tooling, and Amazon CloudWatch for automated operational dashboards. 
 +  Use AWS Systems Manager Automation for process standardization and AWS Config for resource monitoring. 
 
 ## Resources

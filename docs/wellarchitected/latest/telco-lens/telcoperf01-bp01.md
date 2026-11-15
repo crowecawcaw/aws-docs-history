@@ -1,50 +1,50 @@
 
 
-# TELCOPERF01-BP01 Use Edge locations to deploy latency sensitive telco network workloads such as RAN and user-plane nodes
+# TELCOPERF01-BP01 Deploy latency-sensitive RAN and user-plane workloads on Outposts colocated with radio infrastructure
 <a name="telcoperf01-bp01"></a>
 
- Deploying latency-sensitive telco network workloads like Radio Access Network (RAN) and user plane nodes in edge locations is recommended. Placing these components closer to the end users at the edge of the network minimizes latency and improves performance for real-time, latency-critical applications and services. 
+ Radio Access Network (RAN) Distributed Unit (DU) and user-plane functions have latency budgets to the radio that no remote cloud location can meet over a transport network. These workloads must run on compute physically colocated with or adjacent to the radio infrastructure. This best practice places them on AWS Outposts at cell sites and aggregation points where the budgets are achievable. 
 
  **Desired outcome:** 
-+  Place latency-sensitive telco workloads like Radio Access Network (RAN) and user plane nodes closer to end users at the network edge. 
-+  Minimize latency and improve performance for real-time, latency-critical telco applications and services. 
-+  Enhance the overall user experience by providing faster response times. 
++  RAN DU workloads run on AWS Outposts in or adjacent to the cell sites, central offices, or aggregation points where fronthaul or midhaul terminates. 
++  User-plane functions are placed to minimize the data-plane path between the gNB and the internet or enterprise breakout point. 
++  Placement decisions are driven by measured latency budgets from 3GPP specifications, not by generic proximity heuristics. 
 
  **Common anti-patterns:** 
-+  Deploying telco workloads in centralized data centers without considering proximity to end users. 
-+  Failing to use edge computing capabilities to offload latency-sensitive tasks. 
-+  Neglecting to optimize network infrastructure for low-latency requirements. 
++  Deploying RAN workloads to edge locations that are not physically colocated with the radio, adding unacceptable transport latency. 
++  Treating all edge workloads identically without distinguishing RAN's sub-millisecond fronthaul budget from application edge's tens-of-milliseconds tolerance. 
++  Not measuring actual round-trip latency between compute and radio units before committing to a location. 
++  Assuming a workload that met its budget in a lab will meet it under production load without margin. 
 
  **Benefits of establishing this best practice:** 
-+  Reduced latency for critical telco services like voice, video, and real-time data processing. 
-+  Improved quality of experience (QoE) for end users by providing faster response times. 
-+  Ability to scale edge resources independently to handle localized traffic spikes. 
-+  Enhanced resilience through distributed architecture and reduced single points of failure. 
-+  Reduced bandwidth consumption and costs by processing data closer to the source. 
++  Fronthaul latency budgets are met through physical colocation, keeping the deployment 3GPP-compliant. 
++  Outposts in operator facilities provide dedicated compute with consistent latency, unlike shared edge locations. 
++  The deployment model matches how operators already manage their physical infrastructure footprint. 
++  User-plane path length is minimized, improving subscriber data-plane performance. 
 
  **Level of risk exposed if this best practice is not established:** High 
 
 ## Implementation guidance
-<a name="implementation-guidance-33"></a>
+<a name="implementation-guidance"></a>
 
- Deploying latency-sensitive telco network workloads like Radio Access Network (RAN) and user-plane nodes in edge locations is a crucial strategy for optimizing network performance and improving user experience. By placing these components closer to the end users at the edge of the network, telco operators can minimize latency and verify that critical services like voice, video, and real-time data processing are delivered with low latency and high responsiveness. 
+ The latency requirements for RAN workloads come from the functional split between the Central Unit (CU), Distributed Unit (DU), and Radio Unit (RU), and they are absolute rather than negotiable. For the common 7.2x split, the fronthaul interface between DU and RU carries a one-way latency budget on the order of 100 to 250 microseconds. No location reached over a transport network can meet that budget, because the speed of light over the intervening distance already exceeds it. This is why the problem is one of physical colocation, not of choosing the closest cloud location. 
 
- Edge computing solutions like AWS Wavelength and AWS Local Zones provide the infrastructure to host these latency-sensitive telco workloads close to the end users. By leveraging these services, telco operators can offload compute-intensive tasks to the edge, reducing the need to backhaul traffic to centralized data centers and maintaining that end users experience the best possible service. 
+ AWS Outposts resolve this by placing AWS compute inside operator cell sites, central offices, or aggregation hubs, so the DU workload runs on local compute within the latency envelope while still reaching the parent AWS Region for control-plane operations and management. The distinction that guides placement is the budget of each interface: user-plane functions have more relaxed budgets (a few milliseconds to the gNB) and can sometimes run in a Region if the measured N3 latency fits, in which case the Region is preferable for its elasticity and operational simplicity. Derive placement from documented per-interface budgets rather than a blanket edge decision, because different functions land in different places. 
 
- When implementing this best practice, telco operators should carefully assess the specific latency requirements of their services and the geographic distribution of their customer base. This will inform the selection of appropriate edge locations and the workloads that should be deployed at the edge versus in centralized data centers. 
+ A frequent and costly confusion is to reach for edge services designed for a different purpose. AWS Wavelength Zones, for instance, exist to give mobile application developers low latency to end-user devices over the carrier network; they are not built to host the network infrastructure itself and don't meet fronthaul budgets. Choose infrastructure by what it actually guarantees, and validate the choice by measuring real round-trip latency under load before production. 
 
 ### Implementation steps
-<a name="implementation-steps-31"></a>
-+  Identify the telco workloads and services that have the most stringent latency requirements, such as RAN and user-plane functions. 
-+  Analyze the geographic distribution of your customer base and the locations where these latency-sensitive services are consumed. 
-+  Evaluate the availability of AWS Wavelength Zones and AWS Local Zones that can host these workloads closer to the end users. 
-+  Use Amazon EC2 instances in the selected AWS Wavelength Zones or AWS Local Zones to deploy the identified latency-sensitive telco workloads, verifying they are optimized for low-latency performance. 
-+  Configure AWS Auto Scaling to automatically scale the EC2 instances hosting the latency-sensitive workloads based on traffic patterns and resource utilization. 
-+  Use Amazon CloudWatch to monitor the performance of the edge-deployed workloads and trigger auto scaling or relocation of resources as needed to maintain optimal user experience. 
+<a name="implementation-steps"></a>
++  Map latency budgets to placement requirements: document the one-way latency budget for each interface (fronthaul, midhaul, backhaul, N3, N6) from your functional split and 3GPP specifications, and convert them to maximum physical distances for your transport technology. 
++  Identify facilities that meet the budgets by surveying cell sites, central offices, and aggregation points where AWS Outposts can be deployed within the required latency envelope of the radio. 
++  Deploy Outposts sized for DU workloads, selecting configurations matching DU compute needs (cores, memory, accelerators) and accounting for real-time processing requirements. 
++  Place user-plane functions by measured N3 latency, deploying UPFs on Outposts, AWS Local Zones, or the Region based on measured latency to the gNB, preferring the Region where its budget is met. 
++  Validate latency end to end before production by measuring actual round-trip latency between compute and radio units under load, confirming results fall within 3GPP budgets with margin for traffic variation. 
 
 ## Resources
-<a name="resources-32"></a>
+<a name="resources"></a>
 
  **Key AWS services:** 
-+  [AWS Wavelength](https://aws.amazon.com/wavelength/) 
++  [AWS Outposts](https://aws.amazon.com/outposts/) 
 +  [AWS Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) 
++  [Amazon EC2](https://aws.amazon.com/ec2/) 

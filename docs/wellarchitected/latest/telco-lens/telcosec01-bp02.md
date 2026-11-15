@@ -1,60 +1,59 @@
 
 
-# TELCOSEC01-BP02 Encrypt data at-rest and sensitive traffic (control plane, data plane) using secure VPNs and custom encryption keys
+# TELCOSEC01-BP02 Implement encryption for control-plane signaling and classify data-plane traffic by regulatory encryption requirements
 <a name="telcosec01-bp02"></a>
 
- Due to regulatory requirements, the CSPs often need to apply additional encryption to traffic that is not already secured by the underlying transport or application protocols. Both control plane traffic, such as Diameter signaling, and data plane traffic, like voice or RTP, require the use of encrypted virtual private networks (VPNs), most commonly IPsec. It is crucial for CSPs to evaluate their regulatory landscape and establish a framework to identify and label the traffic and data that needs to be encrypted in transit as well as at rest, using customer-owned encryption keys. 
-
- The data in-use is protected by the underlying CPU architecture and features like AMD SEV-SNP, Intel TME, and Graviton Memory Encryption. However, these security measures come with additional costs and limitations, such as restrictions on packets per second (PPS) per flow (number of IPsec tunnels), PPS per instance (lack of equal-cost multi-path routing after reaching the largest single-slot capacity), complexity, and vendor dependencies. 
+ Not all telco traffic needs the same encryption treatment. Control-plane signaling often requires transport encryption by regulation, while data-plane subscriber traffic is usually already encrypted end to end by the application and 3GPP layers. Adding blanket VPN encryption on top of already-encrypted, high-bandwidth data-plane flows imposes packet-per-second limits and cost without a compliance benefit. 
 
  **Desired outcome:** 
-+  Verify sensitive telco network traffic, including control plane and data plane, is encrypted using secure VPN protocols like IPsec. 
-+  Implement a comprehensive data encryption strategy to protect data in transit and at rest using customer-managed encryption keys. 
-+  Fulfill regulatory requirements for data protection and secure communications in the telco industry. 
-+  Maintain the confidentiality and integrity of critical telco network data and signaling traffic, even when traversing the public cloud infrastructure. 
-+  Provide visibility and control over the encryption keys and algorithms used to secure the telco workloads. 
++  Traffic flows are classified by regulatory encryption requirement, distinguishing control-plane signaling that mandates transport encryption from data-plane traffic already covered by application-layer encryption. 
++  Control-plane interfaces between network functions use IPsec or mutual TLS where regulations require encrypted signaling transport. 
++  It is documented which flows require additional transport encryption and which are already compliant through existing application-layer or 3GPP-defined mechanisms. 
 
- **Level of risk exposed if this best practice is not established:** High 
+ **Common anti-patterns:** 
++  Encrypting all traffic, including GTP-U data plane, with IPsec without confirming a regulatory requirement, which hits per-flow PPS limits and adds cost. 
++  Not distinguishing 3GPP-mandated encryption from operator-chosen additional encryption, so effort goes where it adds no compliance value. 
++  Applying blanket "encrypt everything" policies without understanding the throughput impact on high-bandwidth data-plane interfaces. 
++  Treating data-at-rest encryption as covered by transport encryption, leaving persistent stores unprotected. 
+
+ **Benefits of establishing this best practice:** 
++  Encryption effort is directed by regulatory requirement, so compliance is met without wasted overhead. 
++  Data-plane throughput and packet-per-second headroom are preserved by not double-encrypting already-protected traffic. 
++  Cost is controlled because encryption resources are applied where they are needed rather than uniformly. 
++  Clear per-interface encryption decisions produce an auditable record of why each flow is or isn't additionally encrypted. 
+
+ **Level of risk exposed if this best practice is not established:** Medium 
 
 ## Implementation guidance
-<a name="implementation-guidance-14"></a>
+<a name="implementation-guidance"></a>
 
- Implement a secure, encrypted communication framework for control and data plane traffic comply with industry standards and regulations. Leverage built-in features for key management, high availability, and automatic failover. Utilize a centralized key management service to generate, manage, and rotate encryption keys for securing data in-transit and at-rest across various systems and services. Verify comprehensive auditing and monitoring of encryption and key management activities to maintain adherence and provide detailed reporting. 
+ 3GPP already specifies encryption at several layers, so stacking transport encryption on top consumes resources without adding security. NAS-level encryption helps protect traffic between the user equipment and the core, 3GPP specifies IPsec on certain interfaces such as N2 and N3 in some deployments, and application-layer TLS helps protect service traffic. Understand what is already encrypted and by which mechanism, then apply transport encryption only where encryption is missing and a regulation requires it. 
+
+ Classify most interfaces with the following three questions: 
+
+1.  Does a regulation mandate transport-layer encryption for this traffic? 
+
+1.  Does 3GPP already specify encryption for this interface? 
+
+1.  Is the traffic already encrypted by application-layer protocols such as TLS or DTLS? 
+
+ Control-plane signaling between network functions (such as N2, N4, and the service-based interfaces) usually warrants IPsec or mutual TLS under operator policy, and sometimes regulation. Because these interfaces carry relatively low bandwidth, the PPS cost of encrypting them is manageable. Inventory data-plane flows per interface before deciding on encryption. Classify every data-plane flow on N3, N6, or N9 by whether it is already encrypted at the application layer (HTTPS, QUIC, TLS, DTLS) or carried in cleartext. Common unencrypted classes include plaintext HTTP, unencrypted DNS, SIP without TLS, and legacy IoT protocols such as unencrypted MQTT or CoAP. Where the inventory shows the traffic is predominantly application-encrypted, wrapping it in IPsec doubles the overhead for no gain. Where a non-trivial unencrypted mix crosses a less-trusted boundary, transport encryption is the correct choice regardless of throughput cost. Some operators still encrypt N3 for defense in depth. Make encryption decisions deliberately, with understood performance tradeoffs. 
+
+ Performance considerations make this decision about both security and cost. Encryption on a high-PPS data-plane interface can push an instance into its packet-per-second ceiling and degrade service performance. 
 
 ### Implementation steps
-<a name="implementation-steps-14"></a>
-+  Implement VPN-based encryption for control and data plane traffic: 
-  +  Configure AWS managed VPN solutions, such as Site-to-Site VPN, to establish secure IPsec tunnels for control and data plane communications. 
-  +  Use the built-in features of these services for automatic key management, tunnel failover, and high availability. 
-  +  Verify the VPN configurations comply with industry standards and regulations for secure network communications. 
-+  Encrypt data in-transit using custom keys: 
-  +  Use AWS Key Management Service to generate and manage the encryption keys used to secure data in-transit. 
-  +  Integrate KMS with other AWS services, such as Amazon S3, Amazon EBS, and Amazon RDS, to transparently encrypt data flowing through these services. 
-  +  Implement a key rotation strategy to maintain the cryptographic strength of the encryption keys over time. 
-+  Encrypt data at rest using custom keys: 
-  +  Configure AWS services handling telco data, such as Amazon S3, Amazon EBS, and Amazon RDS, to use customer-managed encryption keys from KMS. 
-  +  Verify that sensitive telco data, including logs, metrics, and configuration files, is encrypted at rest using the custom encryption keys. 
-  +  Use KMS key policies to control access and usage of the encryption keys, aligned with the principle of least privilege. 
-+  Implement key management and rotation: 
-  +  Establish key management processes and procedures for the creation, distribution, and rotation of the customer-managed encryption keys. 
-  +  Automate key rotation using AWS Lambda functions or AWS Systems Manager, verifying that keys are updated on a regular basis. 
-  +  Integrate the key management processes with the overall security operations and incident response procedures. 
-+  Maintain audit trails: 
-  +  Use AWS CloudTrail to create comprehensive audit trails of key management and data encryption activities. 
-  +  Configure AWS Config to continuously monitor the configuration of the encryption services and report on deviations from the desired state. 
-  +  Integrate the encryption and key management data with the organization's security information and event management (SIEM) system for advanced analytics and reporting. 
+<a name="implementation-steps"></a>
++  Classify every interface by encryption need: assess each interface (N1 through N6, service-based, and roaming) against regulatory requirement, 3GPP-specified encryption, existing application-layer encryption, and operator policy, and record the result. On data-plane interfaces, flag any traffic class carried in cleartext — plaintext HTTP, unencrypted DNS, SIP without TLS, MQTT, CoAP — so the per-interface decision reflects the actual flow mix rather than an assumption. 
++  Encrypt control-plane interfaces where required: apply IPsec or mutual TLS on the control-plane interfaces that need it, provisioning certificates through AWS Certificate Manager and sizing instances for PPS headroom. 
++  Document data-plane decisions: for each data-plane interface, record whether transport encryption is applied and, where it is, the performance impact and the reason, so the choice is auditable. 
++  Encrypt data at rest: apply data-at-rest encryption with AWS KMS customer-managed keys for all persistent stores holding telco data. 
++  Monitor encryption overhead: track IPsec tunnel throughput, PPS usage, and added latency in Amazon CloudWatch, and alert when encrypted interfaces approach instance PPS limits. 
 
 ## Resources
-<a name="resources-15"></a>
+<a name="resources"></a>
 
  **Key AWS services:** 
-+  [Site-to-Site VPN](https://aws.amazon.com/vpn/) 
-+  [AWS Direct Connect](https://aws.amazon.com/directconnect/) 
-+  [AWS Key Management Service (KMS)](https://aws.amazon.com/kms/) 
-+  [Amazon S3](https://aws.amazon.com/s3/) 
-+  [Amazon EBS](https://aws.amazon.com/ebs/) 
-+  [Amazon RDS](https://aws.amazon.com/rds/) 
-+  [AWS CloudTrail](https://aws.amazon.com/cloudtrail/) 
-+  [AWS Config](https://aws.amazon.com/config/) 
-+  [AWS Lambda](https://aws.amazon.com/lambda/) 
-+  [AWS Systems Manager](https://aws.amazon.com/systems-manager/) 
++  [AWS Key Management Service](https://aws.amazon.com/kms/) 
++  [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/) 
++  [Amazon VPC](https://aws.amazon.com/vpc/) 
++  [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/) 

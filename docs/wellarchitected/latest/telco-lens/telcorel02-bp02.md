@@ -14,30 +14,30 @@
  **Level of risk exposed if this best practice is not established:** Low 
 
 ## Implementation guidance
-<a name="implementation-guidance-24"></a>
+<a name="implementation-guidance"></a>
 
- A full mesh connectivity design between the control plane and user plane components is recommended for a highly available Telcom network. Implementing diverse routing paths and continuously monitoring the status of these connectivity routes are key steps. Defining clear failover triggers and thresholds, along with automated recovery procedures, allows the network to quickly respond to and recover from failures. Thorough documentation of these processes, including integration with incident management and troubleshooting guides, further enhances the reliability of the overall system. Comprehensive monitoring and observability solutions provide the necessary visibility into the network's performance and health, enabling proactive identification and mitigation of potential issues. 
+ A full mesh connectivity design between the control plane and user plane components is recommended for a highly available telecom network. Implementing diverse routing paths and continuously monitoring the status of these connectivity routes are key steps. Defining clear failover triggers and thresholds, along with automated recovery procedures, allows the network to quickly respond to and recover from failures. Thorough documentation of these processes, including integration with incident management and troubleshooting guides, further enhances the reliability of the overall system. Comprehensive monitoring and observability solutions provide the necessary visibility into the network's performance and health, enabling proactive identification and mitigation of potential issues. 
 
 ### Implementation steps
-<a name="implementation-steps-22"></a>
+<a name="implementation-steps"></a>
 +  Design mesh topology: 
-  +  Use AWS Transit Gateway to enable connectivity between your control and user plane network functions in a star topology, enabling each control plane node to be able to manage the user plane node, when needed. 
-  +  Verify capacity planning and failure domain considerations using Amazon CloudWatch and AWS Auto Scaling. 
++  Use AWS Transit Gateway to enable connectivity between your control and user plane network functions in a star topology, enabling each control plane node to be able to manage the user plane node, when needed. 
++  Verify capacity planning and failure domain considerations using Amazon CloudWatch and Amazon Auto Scaling. 
 +  Implement connectivity paths: 
-  +  Deploy control plane and user plane instances across multiple AWS Availability Zones and Regions where possible. 
-  +  Configure diverse routing paths using AWS VPC routing tables and AWS Transit Gateway routing policies. 
-  +  Leverage AWS Direct Connect for physical path separation and high-performance connectivity with the on-premises systems including Access Network (RAN) functions. 
++  Deploy control plane and user plane instances across multiple AWS Availability Zones and Regions where possible. 
++  Configure diverse routing paths using Amazon VPC routing tables and AWS Transit Gateway routing policies. 
++  Use AWS Direct Connect for physical path separation and high-performance connectivity with the on-premises systems, including Radio Access Network (RAN) functions. 
 +  Configure routing policies: 
-  +  Implement routing policies using AWS Transit Gateway route tables and AWS Lambda-based custom routing logic to recover services in case of a control plane node failure. 
++  Implement routing policies using AWS Transit Gateway route tables and AWS Lambda-based custom routing logic to recover services in case of a control plane node failure. 
 +  Define failover triggers: 
-  +  Use Amazon CloudWatch alarms and metrics to define the conditions and thresholds for triggering automated failover processes. 
-  +  Provide manual override capabilities through AWS Lambda functions or Amazon API Gateway. 
++  Use Amazon CloudWatch alarms and metrics to define the conditions and thresholds for triggering automated failover processes. 
++  Provide manual override capabilities through AWS Lambda functions or Amazon API Gateway. 
 +  Document procedures: 
-  +  Store the detailed failover and recovery procedures in AWS Systems Manager for secure access and versioning. 
-  +  Integrate the documentation with your incident management processes and provide troubleshooting guides and escalation procedures. 
++  Store the detailed failover and recovery procedures in AWS Systems Manager for secure access and versioning. 
++  Integrate the documentation with your incident management processes and provide troubleshooting guides and escalation procedures. 
 
 ## Resources
-<a name="resources-telcorel02-bp02"></a>
+<a name="resources"></a>
 
  **Key AWS services:** 
 +  [AWS Transit Gateway](https://aws.amazon.com/transit-gateway/) 

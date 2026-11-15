@@ -25,12 +25,12 @@
  **Level of risk exposed if this best practice is not established:** High 
 
 ## Implementation guidance
-<a name="implementation-guidance-2"></a>
+<a name="implementation-guidance"></a>
 
  Develop a structured risk assessment framework that considers both technical and business impacts of architectural decisions in telecommunications environments. Implement a systematic approach to threat modeling that includes regular security assessments, vulnerability scanning, and penetration testing to identify potential risks early in the development cycle. Create a decision-making framework that weighs multiple factors including performance requirements, security implications, operational overhead, and cost considerations to verify balanced outcomes. Establish regular review cycles to reassess previous decisions and adjust strategies based on changing threat landscapes and business requirements. 
 
 ### Implementation steps
-<a name="implementation-steps-2"></a>
+<a name="implementation-steps"></a>
 +  Create a standardized methodology for evaluating risks, threats, and opportunities across telecommunication workloads. 
 +  Conduct comprehensive threat modeling and vulnerability assessments with documented mitigation strategies. 
 +  Establish quantifiable metrics for evaluating potential benefits and ROI of architectural decisions and operational changes. 
@@ -38,7 +38,7 @@
 +  Establish regular review cycles to assess the effectiveness of decisions and adjust strategies based on outcomes. 
 
 ## Resources
-<a name="resources-2"></a>
+<a name="resources"></a>
 
  **Related services:** 
 +  [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/) 

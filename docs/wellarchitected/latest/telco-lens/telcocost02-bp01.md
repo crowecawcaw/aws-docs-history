@@ -3,7 +3,7 @@
 # TELCOCOST02-BP01 Implement dynamic CNF sizing and scaling strategies based on actual subscriber demands and usage patterns
 <a name="telcocost02-bp01"></a>
 
- In traditional on-premises environments, CNF infrastructure is typically sized for peak capacity expected over the hardware lifetime. To optimize costs in cloud environments, organizations should implement dynamic sizing strategies that align infrastructure capacity with actual subscriber demands. This includes utilizing cloud-based auto scaling capabilities, implementing rightsizing based on usage patterns, and designing CNF architectures that support horizontal scaling. The approach should balance performance requirements with cost efficiency while maintaining the ability to handle growth in subscriber demand through elastic infrastructure scaling. 
+ In traditional on-premises environments, CNF infrastructure is typically sized for peak capacity expected over the hardware lifetime. To optimize costs in cloud environments, organizations should implement dynamic sizing strategies that align infrastructure capacity with actual subscriber demands. This includes using cloud-based auto scaling capabilities, implementing right-sizing based on usage patterns, and designing CNF architectures that support horizontal scaling. The approach should balance performance requirements with cost efficiency while maintaining the ability to handle growth in subscriber demand through elastic infrastructure scaling. 
 
  **Desired outcome:** 
 +  Optimize the cost of your cloud-based network functions (CNFs) by right-sizing resources based on actual usage. 
@@ -24,23 +24,23 @@
  **Level of risk exposed if this best practice is not established:** High 
 
 ## Implementation guidance
-<a name="implementation-guidance-44"></a>
+<a name="implementation-guidance"></a>
 
  Implementing dynamic sizing and scaling strategies for your cloud-based Network Functions (CNFs) is crucial for optimizing costs in a cloud-based telco environment. Unlike traditional on-premises deployments, the cloud provides the opportunity to right-size your CNF resources based on actual subscriber demands and usage patterns, rather than provisioning peak capacity. 
 
- By using cloud-based auto scaling capabilities, you can dynamically adjust the resources allocated to your CNFs, verifying performance requirements are met while minimizing over-provisioning and associated costs. This approach allows you to scale resources up and down in response to changes in subscriber demand, improving cost-efficiency without compromising the user experience. 
+ By using cloud-based auto scaling capabilities, you can dynamically adjust the resources allocated to your CNFs, verifying performance requirements are met while minimizing over-provisioning and associated costs. This approach allows you to scale resources up and down in response to changes in subscriber demand, improving cost efficiency without degrading the user experience. 
 
 ### Implementation steps
-<a name="implementation-steps-42"></a>
+<a name="implementation-steps"></a>
 +  Profile the performance and resource utilization characteristics of your cloud-based network functions (CNFs). 
-+  Use AWS Auto Scaling to automatically scale CNF resources up and down based on real-time metrics like CPU, memory, and network utilization. 
-+  Configure Amazon CloudWatch alarms to trigger auto scaling actions when thresholds are breached. 
++  Use Amazon Auto Scaling to automatically scale CNF resources up and down based on real-time metrics like CPU, memory, and network utilization. 
++  Configure Amazon CloudWatch alarms to trigger auto scaling actions when thresholds are exceeded. 
 +  Use Amazon EC2 Auto Scaling groups with a dynamic target tracking scaling policy to maintain optimal performance at the lowest cost. 
 +  Analyze historical usage patterns and seasonality to set appropriate scaling thresholds and policies. 
-+  Continuously monitor and refine your autoscaling configurations to verify they adapt to changing traffic patterns. 
++  Continuously monitor and refine your auto scaling configurations to verify they adapt to changing traffic patterns. 
 
 ## Resources
-<a name="resources-43"></a>
+<a name="resources"></a>
 
  **Key AWS services:** 
 +  [AWS Auto Scaling](https://aws.amazon.com/autoscaling/) 

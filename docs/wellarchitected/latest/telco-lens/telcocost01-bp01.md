@@ -1,9 +1,9 @@
 
 
-# TELCOCOST01-BP01 Implement attribution of cost to each telco domain hosted on the AWS (access, core, edge, OSS, and BSS)
+# TELCOCOST01-BP01 Implement attribution of cost to each telco domain hosted on AWS (access, core, edge, OSS, and BSS)
 <a name="telcocost01-bp01"></a>
 
- Telcos with workloads running on AWS can take advantage of AWS' detailed cost and usage reporting to attribute costs to each of their domains (like access, core, edge, OSS, and BSS). By tagging resources appropriately, costs can be allocated to each domain. 
+ Telcos with workloads running on AWS can use AWS's detailed cost and usage reporting to attribute costs to each of their domains (like access, core, edge, OSS, and BSS). By tagging resources appropriately, costs can be allocated to each domain. 
 
  **Desired outcome:** 
 +  Gain visibility into the cost breakdown of your telco workload across different domains. 
@@ -18,18 +18,18 @@
  **Benefits of establishing this best practice:** 
 +  Enables data-driven cost optimization decisions. 
 +  Improves cross-team collaboration and accountability for cost management. 
-+  Facilitates chargeback or show back models for internal cost allocation. 
++  Facilitates chargeback or showback models for internal cost allocation. 
 +  Supports regulatory adherence and auditing requirements. 
 
  **Level of risk exposed if this best practice is not established:** High 
 
 ## Implementation guidance
-<a name="implementation-guidance-43"></a>
+<a name="implementation-guidance"></a>
 
  Accurately attributing costs to different telco domains is essential for effective cost optimization. By using AWS's detailed cost and usage reporting capabilities, you can gain visibility into the specific costs associated with each of your telco domains. This information can assist you to identify areas of high spending and make informed decisions to optimize costs. 
 
 ### Implementation steps
-<a name="implementation-steps-41"></a>
+<a name="implementation-steps"></a>
 +  Verify you have enabled detailed billing and cost allocation reports in your AWS account. 
 +  Create AWS Cost and Usage tags for your resources to categorize costs by domain. 
 +  Apply the appropriate tags to your AWS resources, such as EC2 instances, S3 buckets, and Lambda functions. 
@@ -38,7 +38,7 @@
 +  Regularly review the cost allocation reports and optimize costs in high-spend domains. 
 
 ## Resources
-<a name="resources-42"></a>
+<a name="resources"></a>
 
  **Key AWS services:** 
 +  [AWS Cost and Usage Reports](https://aws.amazon.com/aws-cost-management/aws-cost-and-usage-reporting/) 

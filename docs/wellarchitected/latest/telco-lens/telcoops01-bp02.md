@@ -3,7 +3,7 @@
 # TELCOOPS01-BP02 Evaluate your governance and regulatory requirements
 <a name="telcoops01-bp02"></a>
 
- Systematically assess and verify telco governance frameworks, regulatory mandates, and security requirements across network operations. This includes evaluating legal intercept capabilities, security controls, and industry-specific regulations while maintaining documentation of assessment activities and findings. Regular evaluation verifies continued alignment with evolving regulatory landscapes and identify gaps that require remediation. 
+ Systematically assess and verify telco governance frameworks, regulatory mandates, and security requirements across network operations. This includes evaluating legal intercept capabilities, security controls, and industry-specific regulations while maintaining documentation of assessment activities and findings. Regular evaluation verifies continued alignment with evolving regulatory landscapes and identifies gaps that require remediation. 
 
  **Desired outcome:** 
 +  Comprehensive understanding of regulatory requirements. 
@@ -25,24 +25,23 @@
  **Level of risk exposed if this best practice is not established:** High 
 
 ## Implementation guidance
-<a name="implementation-guidance-1"></a>
+<a name="implementation-guidance"></a>
 
- Establish a comprehensive governance framework that addresses both industry-specific regulations and organizational policies. Create a systematic approach for identifying, documenting, and tracking regulatory requirements using a centralized management system that maintains status and upcoming changes. Implement regular assessment cycles that include both internal audits and external validations to verify continued adherance with telecommunications regulations and standards. Develop a robust documentation system that maintains evidence of activities, including regular testing of controls, training records, and audit trails for regulatory reporting. 
+ Establish a comprehensive governance framework that addresses both industry-specific regulations and organizational policies. Create a systematic approach for identifying, documenting, and tracking regulatory requirements using a centralized management system that maintains status and upcoming changes. Implement regular assessment cycles that include both internal audits and external validations to verify continued adherence to telecommunications regulations and standards. Develop a reliable documentation system that maintains evidence of activities, including regular testing of controls, training records, and audit trails for regulatory reporting. 
 
 ### Implementation steps
-<a name="implementation-steps-1"></a>
-+  Deploy AWS Audit Manager to evaluate adherence with regulatory standards and AWS Config to assess resource configurations against rules. 
+<a name="implementation-steps"></a>
++  Deploy AWS Config conformance packs to evaluate adherence to regulatory standards and AWS Config rules to assess resource configurations. 
 +  Implement AWS Control Tower for multi-account governance and AWS Organizations for policy management through Service Control Policies (SCPs). 
 +  Configure AWS Security Hub CSPM for centralized security monitoring and AWS CloudTrail for comprehensive API activity logging. 
-+  Use AWS Systems Manager Documents to create standardized procedures and AWS IAM Access Analyzer for continuous permission validation. 
++  Use AWS Systems Manager Documents to create standardized procedures and AWS IAM Access Analyzer to continually validate permissions. 
 +  Deploy Amazon EventBridge for automated checks and AWS Config Rules for ongoing configuration assessment. 
 
 ## Resources
-<a name="resources-1"></a>
+<a name="resources"></a>
 
  **Key AWS services:** 
 +  [AWS Config](https://aws.amazon.com/config/) 
-+  [AWS Audit Manager](https://aws.amazon.com/audit-manager/) 
 +  [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/) 
 +  [AWS Control Tower](https://aws.amazon.com/controltower/) 
 +  [AWS CloudTrail](https://aws.amazon.com/cloudtrail/) 

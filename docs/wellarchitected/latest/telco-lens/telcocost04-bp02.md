@@ -1,9 +1,9 @@
 
 
-# TELCOCOST04-BP02 Use ETSI ENI based architectures to implement intelligent network slicing
+# TELCOCOST04-BP02 Use ETSI ENI-based architectures to implement intelligent network slicing
 <a name="telcocost04-bp02"></a>
 
- The European Telecommunications Standards Institute (ETSI) Experiential Networked Intelligence (ENI) is an architectural framework that defines standards for cognitive network management and implementation of 5G use cases based on environmental context and user requirements. It allows Telcos to take advantage of cloud-based technologies like network slicing, service mesh, and microservices to build more agile and automated networks. 
+ The European Telecommunications Standards Institute (ETSI) Experiential Networked Intelligence (ENI) is an architectural framework that defines standards for cognitive network management and implementation of 5G use cases based on environmental context and user requirements. It allows telcos to use cloud-based technologies like network slicing, service mesh, and microservices to build more agile and automated networks. 
 
  **Desired outcome:** 
 +  Improve network resource utilization and efficiency through dynamic, context-aware network slicing. 
@@ -24,25 +24,24 @@
  **Level of risk exposed if this best practice is not established:** Medium 
 
 ## Implementation guidance
-<a name="implementation-guidance-48"></a>
+<a name="implementation-guidance"></a>
 
  The European Telecommunications Standards Institute (ETSI) Experiential Networked Intelligence (ENI) architecture provides a framework for implementing intelligent, context-aware network slicing. By using the key components of the ENI architecture, such as the policy management function and the context awareness function, telecoms can build cloud-based, microservices-based network slicing solutions that dynamically allocate resources based on user and application needs. 
 
  This approach enables telecoms to improve network resource utilization and cost-effectiveness by right-sizing network capacity to match actual demands, rather than provisioning for peak requirements. Additionally, the context-aware nature of the ENI architecture allows the network to automatically adapt to changing conditions, user behavior, and application requirements, enhancing the overall customer experience. 
 
 ### Implementation steps
-<a name="implementation-steps-46"></a>
+<a name="implementation-steps"></a>
 +  Familiarize yourself with the ETSI ENI architecture and its key components, such as the Policy Management Function (PMF) and the Context Awareness Function (CAF). 
 +  Design your network slicing architecture using the ETSI ENI principles, including the use of microservices, service mesh, and cloud-based technologies. 
-+  Use AWS services like Amazon EKS, AWS App Mesh, and AWS Lambda to implement the ENI-based network slicing components. 
++  Use AWS services like Amazon EKS and AWS Lambda to implement the ENI-based network slicing components. 
 +  Develop policies and rules within the PMF to dynamically allocate network resources based on user and application requirements. 
 +  Use the CAF to gather contextual information about network conditions, user behavior, and application demands to drive intelligent resource allocation. 
 +  Continuously monitor the performance and cost-effectiveness of your ENI-based network slicing implementation and adjust as needed. 
 
 ## Resources
-<a name="resources-47"></a>
+<a name="resources"></a>
 
  **Key AWS services:** 
 +  [Amazon EKS](https://aws.amazon.com/pm/eks/) 
-+  [AWS App Mesh](https://aws.amazon.com/app-mesh/) 
 +  [AWS Lambda](https://aws.amazon.com/lambda/) 
