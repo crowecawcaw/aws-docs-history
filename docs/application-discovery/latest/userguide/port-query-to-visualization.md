@@ -5,11 +5,11 @@ AWS Application Discovery Service is no longer open to new customers. Alternativ
 # Visualizing Amazon Athena data
 <a name="port-query-to-visualization"></a>
 
-To visualize your data, a query can be ported to a visualization program such as Amazon Quick or other open-source visualization tools such as Cytoscape, yEd, or Gelphi. Use these tools to render network diagrams, summary charts, and other graphical representations. When this method is used, you connect to Athena through the visualization program so that it can access your collected data as a source to produce the visualization.
+To visualize your data, a query can be ported to a visualization program such as AWS Quick or other open-source visualization tools such as Cytoscape, yEd, or Gelphi. Use these tools to render network diagrams, summary charts, and other graphical representations. When this method is used, you connect to Athena through the visualization program so that it can access your collected data as a source to produce the visualization.
 
 **To visualize your Amazon Athena data using Quick**
 
-1. Sign in to [Amazon Quick](https://aws.amazon.com/quicksight/).
+1. Sign in to [AWS Quick](https://aws.amazon.com/quicksight/).
 
 1. Choose **Connect to another data source or upload a file**.
 
