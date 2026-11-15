@@ -737,9 +737,21 @@ Type: String to string map
 Value Length Constraints: Minimum length of 1. Maximum length of 256.  
 Required: No  
 `securityContext`  
-The security context for a job. For more information, see [Configure a security context for a pod or container](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) in the *Kubernetes documentation*.  
+Specifies privilege and access control settings for a container, such as user and group IDs and Linux capabilities. If you specify the same setting at both levels, the container-level value overrides the value in the pod security context. For more information, see [Configure a security context for a pod or container](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) in the *Kubernetes documentation*.  
 Type: [EksContainerSecurityContext](https://docs.aws.amazon.com/batch/latest/APIReference/API_EksContainerSecurityContext.html) object  
 Required: No    
+`capabilities`  
+The Linux capabilities to add to or remove from the container's default capability set. Specify capability names without the `CAP_` prefix.  
+Type: [EksContainerLinuxCapabilities](https://docs.aws.amazon.com/batch/latest/APIReference/API_EksContainerLinuxCapabilities.html) object  
+Required: No    
+`add`  
+The Linux capabilities to add. You can specify up to 64 values.  
+Type: Array of strings  
+Required: No  
+`drop`  
+The Linux capabilities to remove. You can specify up to 64 values.  
+Type: Array of strings  
+Required: No  
 `privileged`  
 When this parameter is `true`, the container is given elevated permissions on the host container instance. The level of permissions is similar to the `root` user permissions. The default value is `false`. This parameter maps to `privileged` policy in the [Privileged pod security policies](https://kubernetes.io/docs/concepts/security/pod-security-policy/#privileged) in the *Kubernetes documentation*.  
 Type: Boolean  
@@ -749,17 +761,32 @@ When this parameter is `true`, the container is given read-only access to its ro
 Type: Boolean  
 Required: No  
 `runAsGroup`  
-When this parameter is specified, the container is run as the specified group ID (`gid`). If this parameter isn't specified, the default is the group that's specified in the image metadata. This parameter maps to `RunAsGroup` and `MustRunAs` policy in the [Users and groups pod security policies](https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups) in the *Kubernetes documentation*.  
+When you specify this parameter, the container runs as the specified group ID (GID). If you don't specify this parameter, the default is the group that's specified in the image metadata. This parameter supports values from `0` through `2147483647` and maps to `RunAsGroup` and `MustRunAs` policy in the [Users and groups pod security policies](https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups) in the *Kubernetes documentation*.  
 Type: Long  
 Required: No  
 `runAsNonRoot`  
-When this parameter is specified, the container is run as a user with a `uid` other than 0. If this parameter isn't specified, so such rule is enforced. This parameter maps to `RunAsUser` and `MustRunAsNonRoot` policy in the [Users and groups pod security policies](https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups) in the *Kubernetes documentation*.  
-Type: Long  
+Set this parameter to `true` to require the container to run as a user with a user ID (UID) other than `0`. If you don't specify this parameter, no such rule is enforced. This parameter maps to `RunAsUser` and `MustRunAsNonRoot` policy in the [Users and groups pod security policies](https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups) in the *Kubernetes documentation*.  
+Type: Boolean  
 Required: No  
 `runAsUser`  
-When this parameter is specified, the container is run as the specified user ID (`uid`). If this parameter isn't specified, the default is the user that's specified in the image metadata. This parameter maps to `RunAsUser` and `MustRanAs` policy in the [Users and groups pod security policies](https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups) in the *Kubernetes documentation*.  
+When you specify this parameter, the container runs as the specified user ID (UID). If you don't specify this parameter, the default is the user that's specified in the image metadata. This parameter supports values from `0` through `2147483647` and maps to `RunAsUser` and `MustRunAs` policy in the [Users and groups pod security policies](https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups) in the *Kubernetes documentation*.  
 Type: Long  
 Required: No  
+`seccompProfile`  
+The seccomp profile for the container. This value overrides the profile in the pod security context. If you don't specify a container profile, the container uses the pod profile when one is specified.  
+Type: [EksSeccompProfile](https://docs.aws.amazon.com/batch/latest/APIReference/API_EksSeccompProfile.html) object  
+Required: No    
+`type`  
+The seccomp profile type. The following values are valid:  
++ `RuntimeDefault` - Uses the default profile from the container runtime.
++ `Localhost` - Uses the profile that's specified by `localhostProfile`.
++ `Unconfined` - Applies no seccomp filtering.
+Type: String  
+Required: Yes  
+`localhostProfile`  
+The relative path to a profile on each eligible worker node. Specify this value only when `type` is `Localhost`. Install the profile on every node where the job can run.  
+Type: String  
+Required: Yes, when `type` is `Localhost`  
 `volumeMounts`  
 The volume mounts for a container for an Amazon EKS job. For more information about volumes and volume mounts in Kubernetes, see [Volumes](https://kubernetes.io/docs/concepts/storage/volumes/) in the *Kubernetes documentation*.  
 Type: Array of [EksContainerVolumeMount](https://docs.aws.amazon.com/batch/latest/APIReference/API_EksContainerVolumeMount.html) objects  
@@ -785,6 +812,45 @@ Required: No
 Indicates if the pod uses the hosts' network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections. For more information, see [Host namespaces](https://kubernetes.io/docs/concepts/security/pod-security-policy/#host-namespaces) and [Pod networking](https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking) in the *Kubernetes documentation*.  
 Type: Boolean  
 Required: No  
+`initContainers`  
+The init containers for the Amazon EKS pod. Init containers support the same container security-context properties as application containers, including `capabilities` and `seccompProfile`.  
+Type: Array of [EksContainer](https://docs.aws.amazon.com/batch/latest/APIReference/API_EksContainer.html) objects  
+Required: No  
+`securityContext`  
+Specifies privilege and access control settings for the pod. These values apply to all containers in the pod unless overridden at the container level. For more information, see [Configure a security context for a pod or container](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) in the *Kubernetes documentation*.  
+Type: [EksPodSecurityContext](https://docs.aws.amazon.com/batch/latest/APIReference/API_EksPodSecurityContext.html) object  
+Required: No    
+`fsGroup`  
+The group ID applied to supported volumes and used for volume ownership. Supported values are `0` through `2147483647`. If this parameter isn't specified, no file-system group is applied.  
+Type: Long  
+Required: No  
+`runAsGroup`  
+The default group ID for containers in the pod. A container-level `runAsGroup` value overrides this value. Supported values are `0` through `2147483647`. If this parameter isn't specified, the pod doesn't set a default group ID.  
+Type: Long  
+Required: No  
+`runAsNonRoot`  
+Specifies whether containers in the pod must run as a non-root user. A container-level `runAsNonRoot` value overrides this value. If this parameter isn't specified, the pod doesn't enforce a default non-root requirement.  
+Type: Boolean  
+Required: No  
+`runAsUser`  
+The default user ID for containers in the pod. A container-level `runAsUser` value overrides this value. Supported values are `0` through `2147483647`. If this parameter isn't specified, the pod doesn't set a default user ID.  
+Type: Long  
+Required: No  
+`seccompProfile`  
+The default seccomp profile for containers in the pod. A container-level profile overrides this value.  
+Type: [EksSeccompProfile](https://docs.aws.amazon.com/batch/latest/APIReference/API_EksSeccompProfile.html) object  
+Required: No    
+`type`  
+The seccomp profile type. The following values are valid:  
++ `RuntimeDefault` - Uses the default profile from the container runtime.
++ `Localhost` - Uses the profile that's specified by `localhostProfile`.
++ `Unconfined` - Applies no seccomp filtering.
+Type: String  
+Required: Yes  
+`localhostProfile`  
+The relative path to a profile on each eligible worker node. Specify this value only when `type` is `Localhost`. Install the profile on every node where the job can run.  
+Type: String  
+Required: Yes, when `type` is `Localhost`  
 `serviceAccountName`  
 The name of the service account that's used to run the pod. For more information, see [Kubernetes service accounts](https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html) and [Configure a Kubernetes service account to assume an IAM role](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) in the *Amazon EKS User Guide* and [Configure service accounts for pods](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) in the *Kubernetes documentation*.  
 Type: String  
@@ -798,8 +864,8 @@ Specifies the configuration of a Kubernetes `emptyDir` volume. An `emptyDir` vol
 Type: [EksEmptyDir](https://docs.aws.amazon.com/batch/latest/APIReference/API_EksEmptyDir.html) object  
 Required: No    
 medium  
-The medium to store the volume. The default value is an empty string, which uses the storage of the node.    
-""  
+The medium to store the volume. The default value is null, which uses the storage of the node.    
+null  
 **(Default)** Use the disk storage of the node.  
 "Memory"  
 Use the `tmpfs` volume that's backed by the RAM of the node. Contents of the volume are lost when the node reboots, and any storage on the volume counts against the container's memory limit.
