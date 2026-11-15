@@ -33,7 +33,7 @@ The following steps describe the architecture:
 
 1. Create a web portal with AWS IoT SiteWise Monitor to visualize factory data in near real time.
 
-1. Derive insights with [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) on AWS IoT Analytics.
+1. Derive insights with [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) on AWS IoT Analytics.
 
 ## Further reading
 <a name="pq-further-reading"></a>
