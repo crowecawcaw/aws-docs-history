@@ -10,7 +10,7 @@ From those services, you can then store, analyze, and visualize the data using a
 + [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/)
 + [Amazon OpenSearch Service (Amazon ES)](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/)
 + [Managed Service for Apache Flink](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/)
-+ [Amazon Quick](https://docs.aws.amazon.com/quick/latest/userguide/)
++ [AWS Quick](https://docs.aws.amazon.com/quick/latest/userguide/)
 + [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/)
 + [Kibana](https://aws.amazon.com/elasticsearch-service/kibana/)
 
