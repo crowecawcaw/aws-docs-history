@@ -43,7 +43,7 @@ This serverless architecture collects events from games, analyzes them in real-t
 
 **Visualizing batch data:**
 
-1. Query data on an ad hoc basis by using Amazon Athena. Visualize the data to get business insights by using Amazon Quick Sight.
+1. Query data on an ad hoc basis by using Amazon Athena. Visualize the data to get business insights by using AWS Quick Sight.
 
 ## Further reading
 <a name="analytics-further-reading"></a>
