@@ -55,8 +55,8 @@ Following, you can find a list of client errors that are specific to Quick Sight
 
 | Error code | Description | 
 | --- | --- | 
-| AccessDeniedException | You don't have access to this. The provided credentials can't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service and that your policies have the correct permissions. Also, make sure that you are using the correct access keys. | 
-| DomainNotWhiteListedException | The domain specified isn't on the allow list. Make sure that all domains for embedded dashboards are added to the approved list by an Amazon Quick Sight administrator. | 
+| AccessDeniedException | You don't have access to this. The provided credentials can't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the AWS Quick Sight service and that your policies have the correct permissions. Also, make sure that you are using the correct access keys. | 
+| DomainNotWhiteListedException | The domain specified isn't on the allow list. Make sure that all domains for embedded dashboards are added to the approved list by an AWS Quick Sight administrator. | 
 | IdentityTypeNotSupportedException | The identity type specified isn't supported. Supported identity types include: IAM and QUICKSIGHT. | 
 | InvalidNextTokenException | The NextToken value isn't valid. | 
 | InvalidParameterValueException | One or more parameters doesn't have a valid value. | 
@@ -66,7 +66,7 @@ Following, you can find a list of client errors that are specific to Quick Sight
 | ResourceNotFoundException | One or more resources couldn't be found. | 
 | SessionLifetimeInMinutesInvalidException | The number of minutes specified for the lifetime of a session is invalid. The session lifetime must be 15–600 minutes. | 
 | ThrottlingException | Access is throttled. | 
-| UnsupportedUserEditionException | Indicates that you are calling an operation on an Amazon Quick Sight subscription where the edition doesn't include support for that operation. Amazon Quick Sight currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition. | 
+| UnsupportedUserEditionException | Indicates that you are calling an operation on an AWS Quick Sight subscription where the edition doesn't include support for that operation. AWS Quick Sight currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition. | 
 
 ### Common causes of client errors
 <a name="resource-errors-common-causes"></a>

@@ -21,4 +21,4 @@ aws quicksight describe-iam-policy-assignment
 
 ------
 
-For more information about the `DescribeIAMPolicyAssignment` API operation, see [DescribeIAMPolicyAssignment](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeIAMPolicyAssignment.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `DescribeIAMPolicyAssignment` API operation, see [DescribeIAMPolicyAssignment](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeIAMPolicyAssignment.html) in the *AWS Quick Sight API Reference*.

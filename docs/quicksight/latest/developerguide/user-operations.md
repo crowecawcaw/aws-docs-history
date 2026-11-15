@@ -3,7 +3,7 @@
 # User operations
 <a name="user-operations"></a>
 
-With user API operations, you can perform actions on Amazon Quick Sight account users. For more information, see the following API operations.
+With user API operations, you can perform actions on AWS Quick Sight account users. For more information, see the following API operations.
 
 **Topics**
 + [DeleteUser](delete-user.md)

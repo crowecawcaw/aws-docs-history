@@ -18,7 +18,7 @@ Before you can call the Quick Sight API operations, make sure that you have the 
 If you’re not sure what the necessary permission is, you can attempt to make a call. The client then tells you what the missing permission is. You can use asterisk (`*`) in the Resource field of your permission policy instead of specifying explicit resources. However, we recommend that you restrict each permission as much as possible. You can restrict user access by specifying or excluding resources in the policy, using their Quick Sight Amazon Resource Name (ARN) identifier. 
 
 For more information, see the following:
-+ [IAM Policy Examples](https://docs.aws.amazon.com/quicksight/latest/user/iam-policy-examples.html) in the *Amazon Quick Sight User Guide*
++ [IAM Policy Examples](https://docs.aws.amazon.com/quicksight/latest/user/iam-policy-examples.html) in the *AWS Quick Sight User Guide*
 + [Actions, Resources, and Condition Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoninspector.html) in the *IAM User Guide*
 + [IAM JSON Policy Elements](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html) in the *IAM User Guide*
 

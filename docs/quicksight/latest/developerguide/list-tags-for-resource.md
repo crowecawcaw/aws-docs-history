@@ -17,4 +17,4 @@ aws quicksight list-tags-for-resource
 
 ------
 
-For more information about the `ListTagsForResource` API operation, see [ListTagsForResource](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ListTagsForResource.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `ListTagsForResource` API operation, see [ListTagsForResource](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ListTagsForResource.html) in the *AWS Quick Sight API Reference*.

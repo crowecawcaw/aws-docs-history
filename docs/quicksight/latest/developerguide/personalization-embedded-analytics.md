@@ -3,7 +3,7 @@
 # Personalization
 <a name="personalization-embedded-analytics"></a>
 
-Amazon Quick Sight enhances user experience with state persistence to provide a seamless transition across sessions with the maintenance of the current dashboard state. This feature allows for uninterrupted workflows and a consistent analytics experience. Furthermore, users can optimize their productivity with bookmarks to save and revisit specific views of their dashboard.
+AWS Quick Sight enhances user experience with state persistence to provide a seamless transition across sessions with the maintenance of the current dashboard state. This feature allows for uninterrupted workflows and a consistent analytics experience. Furthermore, users can optimize their productivity with bookmarks to save and revisit specific views of their dashboard.
 
 Personalization features including state persistence and bookmarks are only available for registered users. To integrate these capabilities into embedded analytics, developers can leverage the Quick Sight APIs. This API-driven approach allows developers to customize personalization features within embedded analytics. The Quick Sight APIs provide developers with the tools they need to create a tailored and efficient user experience to meet their business needs.
 

@@ -18,4 +18,4 @@ aws quicksight untag-resource
 
 ------
 
-For more information about the `UntagResource` API operation, see [UntagResource](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UntagResource.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `UntagResource` API operation, see [UntagResource](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UntagResource.html) in the *AWS Quick Sight API Reference*.

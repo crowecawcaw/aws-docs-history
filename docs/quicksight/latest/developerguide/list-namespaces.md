@@ -17,4 +17,4 @@ aws quicksight list-namespaces
 
 ------
 
-For more information about the `ListNamespaces` API operation, see [ListNamespaces](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ListNamespaces.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `ListNamespaces` API operation, see [ListNamespaces](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ListNamespaces.html) in the *AWS Quick Sight API Reference*.

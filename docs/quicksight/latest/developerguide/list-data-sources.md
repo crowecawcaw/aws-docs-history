@@ -17,4 +17,4 @@ aws quicksight list-data-sources
 
 ------
 
-For more information about the `ListDataSources` API operation, see [ListDataSources](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ListDataSources.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `ListDataSources` API operation, see [ListDataSources](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ListDataSources.html) in the *AWS Quick Sight API Reference*.

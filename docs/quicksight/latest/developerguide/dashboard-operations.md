@@ -3,7 +3,7 @@
 # Dashboard operations
 <a name="dashboard-operations"></a>
 
-With dashboard API operations, you can perform actions on Amazon Quick Sight dashboards. For more information, see the following API operations.
+With dashboard API operations, you can perform actions on AWS Quick Sight dashboards. For more information, see the following API operations.
 
 **Topics**
 + [Dashboard permissions](dashboard-permissions.md)

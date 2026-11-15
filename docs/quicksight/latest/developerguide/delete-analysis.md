@@ -3,7 +3,7 @@
 # DeleteAnalysis
 <a name="delete-analysis"></a>
 
-Use the `DeleteAnalysis` API operation to delete an analysis from Amazon Quick Sight for a specified user. To use this operation, you need the ID of the analysis that you want to delete. The analysis ID is part of the analysis URL in Quick Sight. You can also use the `ListAnalyses` API operation to get the ID.
+Use the `DeleteAnalysis` API operation to delete an analysis from AWS Quick Sight for a specified user. To use this operation, you need the ID of the analysis that you want to delete. The analysis ID is part of the analysis URL in Quick Sight. You can also use the `ListAnalyses` API operation to get the ID.
 
 Following is an example AWS CLI command for this operation.
 
@@ -18,4 +18,4 @@ aws quicksight delete-analysis
 
 ------
 
-For more information about the `DeleteAnalysis` API operation, see [DeleteAnalysis](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DeleteAnalysis.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `DeleteAnalysis` API operation, see [DeleteAnalysis](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DeleteAnalysis.html) in the *AWS Quick Sight API Reference*.

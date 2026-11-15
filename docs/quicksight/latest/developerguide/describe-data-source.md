@@ -18,4 +18,4 @@ aws quicksight describe-data-source
 
 ------
 
-For more information about the `DescribeDataSource` API operation, see [DescribeDataSource](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeDataSource.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `DescribeDataSource` API operation, see [DescribeDataSource](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeDataSource.html) in the *AWS Quick Sight API Reference*.

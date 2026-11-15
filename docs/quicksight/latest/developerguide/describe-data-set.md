@@ -18,4 +18,4 @@ aws quicksight describe-data-set
 
 ------
 
-For more information about the `DescribeDataSet` API operation, see [DescribeDataSet](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeDataSet.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `DescribeDataSet` API operation, see [DescribeDataSet](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeDataSet.html) in the *AWS Quick Sight API Reference*.

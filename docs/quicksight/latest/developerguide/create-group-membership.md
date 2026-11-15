@@ -3,7 +3,7 @@
 # CreateGroupMembership
 <a name="create-group-membership"></a>
 
-Use the `CreateGroupMembership` API operation to add an Amazon Quick Sight user to a Quick Sight group. You can find users in a certain group by calling the `ListGroups` API operation, and then the `ListGroupMemberships` API operation on the group of your choice.
+Use the `CreateGroupMembership` API operation to add an AWS Quick Sight user to a Quick Sight group. You can find users in a certain group by calling the `ListGroups` API operation, and then the `ListGroupMemberships` API operation on the group of your choice.
 
 Following is an example AWS CLI command for this operation. In the following examples, the member {{`USERNAME`}} is added to the group {{`GROUPNAME`}}.
 
@@ -27,4 +27,4 @@ aws quicksight create-group-membership
 
 ------
 
-For more information about the `CreateGroupMembership` API operation, see [CreateGroupMembership](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateGroupMembership.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `CreateGroupMembership` API operation, see [CreateGroupMembership](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateGroupMembership.html) in the *AWS Quick Sight API Reference*.

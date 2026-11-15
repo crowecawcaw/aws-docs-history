@@ -29,4 +29,4 @@ aws quicksight create-dashbord
 
 If your Region has already been configured with the CLI, it does not need to be included in an argument.
 
-For more information about the `CreateDashboard` API operation, see [CreateDashboard](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDashboard.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `CreateDashboard` API operation, see [CreateDashboard](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDashboard.html) in the *AWS Quick Sight API Reference*.

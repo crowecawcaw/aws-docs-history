@@ -3,7 +3,7 @@
 # TagResource
 <a name="tag-resource"></a>
 
-Use the `TagResource` API operation to assign one or more tags (key-value pairs) to the specified Amazon Quick Sight resource. 
+Use the `TagResource` API operation to assign one or more tags (key-value pairs) to the specified AWS Quick Sight resource. 
 
 Following is an example AWS CLI command for this operation. To find a resource's Amazon Resource Name (ARN), use the `List` operation for the resource, for example `ListDashboards`.
 
@@ -18,4 +18,4 @@ aws quicksight tag-resource
 
 ------
 
-For more information about the `TagResource` API operation, see [TagResource](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_TagResource.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `TagResource` API operation, see [TagResource](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_TagResource.html) in the *AWS Quick Sight API Reference*.

@@ -18,4 +18,4 @@ aws quicksight describe-analysis-permissions
 
 ------
 
-For more information about the `DescribeAnalysisPermissions` API operation, see [DescribeAnalysisPermissions](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAnalysisPermissions.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `DescribeAnalysisPermissions` API operation, see [DescribeAnalysisPermissions](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAnalysisPermissions.html) in the *AWS Quick Sight API Reference*.

@@ -18,4 +18,4 @@ aws quicksight describe-data-set-permissions
 
 ------
 
-For more information about the `DescribeDataSetPermissions` API operation, see [DescribeDataSetPermissions](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeDataSetPermissions.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `DescribeDataSetPermissions` API operation, see [DescribeDataSetPermissions](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeDataSetPermissions.html) in the *AWS Quick Sight API Reference*.

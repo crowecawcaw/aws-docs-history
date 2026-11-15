@@ -26,4 +26,4 @@ aws quicksight update-dashboard-published-version
 
 ------
 
-For more information about the `UpdateDashboardPublishedVersion` API operation, see [UpdateDashboardPublishedVersion](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateDashboardPublishedVersion.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `UpdateDashboardPublishedVersion` API operation, see [UpdateDashboardPublishedVersion](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateDashboardPublishedVersion.html) in the *AWS Quick Sight API Reference*.

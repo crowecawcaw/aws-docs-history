@@ -20,4 +20,4 @@ Find a namespace by running the `ListNamespaces` operation.
 
 ------
 
-For more information about the `DeleteNamespace` API operation, see [DeleteNamespace](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DeleteNamespace.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `DeleteNamespace` API operation, see [DeleteNamespace](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DeleteNamespace.html) in the *AWS Quick Sight API Reference*.

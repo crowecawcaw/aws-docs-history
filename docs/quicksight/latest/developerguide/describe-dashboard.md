@@ -18,4 +18,4 @@ aws quicksight describe-dashboard
 
 ------
 
-For more information about the `DescribeDashboard` API operation, see [DescribeDashboard](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeDashboard.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `DescribeDashboard` API operation, see [DescribeDashboard](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeDashboard.html) in the *AWS Quick Sight API Reference*.

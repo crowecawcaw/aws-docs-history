@@ -27,4 +27,4 @@ aws quicksight update-group
 
 ------
 
-For more information about the `UpdateGroup` API operation, see [UpdateGroup](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateGroup.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `UpdateGroup` API operation, see [UpdateGroup](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateGroup.html) in the *AWS Quick Sight API Reference*.

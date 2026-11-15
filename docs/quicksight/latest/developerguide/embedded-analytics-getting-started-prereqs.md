@@ -10,4 +10,4 @@ Before you get started, familiarize yourself with the list of technologies Quick
 + Many web applications use [CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) to add security on what can be loaded within the application. Make sure you have the ability to allowlist Quick Sight domains in your CSP.
 + Make sure you are using one of our [supported browsers](https://docs.aws.amazon.com/quicksight/latest/user/supported-browsers.html).
 
-After you confirm that your application is compatible with Quick Sight embedding, complete the steps listed in [Getting started with Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/getting-started.html). 
+After you confirm that your application is compatible with Quick Sight embedding, complete the steps listed in [Getting started with AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/getting-started.html). 

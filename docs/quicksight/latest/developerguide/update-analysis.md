@@ -3,7 +3,7 @@
 # UpdateAnalysis
 <a name="update-analysis"></a>
 
-Use the `UpdateAnalysis` API operation to update an analysis in Amazon Quick Sight. To use this operation, you need the ID of the analysis that you want to update. The analysis ID is part of the analysis URL in Quick Sight. You can also use the `ListAnalyses` API operation to get the ID.
+Use the `UpdateAnalysis` API operation to update an analysis in AWS Quick Sight. To use this operation, you need the ID of the analysis that you want to update. The analysis ID is part of the analysis URL in Quick Sight. You can also use the `ListAnalyses` API operation to get the ID.
 
 Following is an example AWS CLI command for this operation.
 
@@ -32,4 +32,4 @@ aws quicksight update-analysis
 
 If your Region has already been configured with the CLI, it does not need to be included in an argument.
 
-For more information about the `UpdateAnalysis` API operation, see [UpdateAnalysis](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateAnalysis.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `UpdateAnalysis` API operation, see [UpdateAnalysis](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateAnalysis.html) in the *AWS Quick Sight API Reference*.

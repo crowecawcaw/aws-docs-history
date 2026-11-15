@@ -22,4 +22,4 @@ aws quicksight search-groups
 
 ------
 
-For more information about the `SearchGroups` API operation, see [SearchGroups](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_SearchGroups.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `SearchGroups` API operation, see [SearchGroups](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_SearchGroups.html) in the *AWS Quick Sight API Reference*.

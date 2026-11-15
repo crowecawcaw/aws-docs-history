@@ -18,4 +18,4 @@ aws quicksight describe-data-source-permissions
 
 ------
 
-For more information about the `DescribeDataSourcePermissions` API operation, see [DescribeDataSourcePermissions](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeDataSourcePermissions.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `DescribeDataSourcePermissions` API operation, see [DescribeDataSourcePermissions](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeDataSourcePermissions.html) in the *AWS Quick Sight API Reference*.

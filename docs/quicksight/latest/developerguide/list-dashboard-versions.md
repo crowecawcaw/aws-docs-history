@@ -20,4 +20,4 @@ aws quicksight list-dashboard-versions
 
 ------
 
-For more information about the `ListDashboardVersions` API operation, see [ListDashboardVersions](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ListDashboardVersions.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `ListDashboardVersions` API operation, see [ListDashboardVersions](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ListDashboardVersions.html) in the *AWS Quick Sight API Reference*.

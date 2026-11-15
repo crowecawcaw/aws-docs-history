@@ -18,4 +18,4 @@ aws quicksight delete-data-set
 
 ------
 
-For more information about the `DeleteDataSet` API operation, see [DeleteDataSet](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DeleteDataSet.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `DeleteDataSet` API operation, see [DeleteDataSet](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DeleteDataSet.html) in the *AWS Quick Sight API Reference*.

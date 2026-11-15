@@ -23,4 +23,4 @@ aws quicksight describe-group-membership
 
 ------
 
-For more information about the `ListGroups` API operation, see [DescribeGroupMembership](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeGroupMembership.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `ListGroups` API operation, see [DescribeGroupMembership](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeGroupMembership.html) in the *AWS Quick Sight API Reference*.

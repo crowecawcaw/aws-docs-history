@@ -25,4 +25,4 @@ aws quicksight create-data-source
 
 ------
 
-For more information about the `CreateDataSource` API operation, see [CreateDataSource](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `CreateDataSource` API operation, see [CreateDataSource](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html) in the *AWS Quick Sight API Reference*.

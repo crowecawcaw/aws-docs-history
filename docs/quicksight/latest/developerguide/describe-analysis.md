@@ -18,4 +18,4 @@ aws quicksight describe-analysis
 
 ------
 
-For more information about the `DescribeAnalysis` API operation, see [DescribeAnalysis](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAnalysis.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `DescribeAnalysis` API operation, see [DescribeAnalysis](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAnalysis.html) in the *AWS Quick Sight API Reference*.

@@ -17,7 +17,7 @@ Before you set up an interface VPC endpoint for Quick, make sure that you review
 The following considerations apply to VPC endpoint restrictions in Quick:
 + Quick supports data sources from AWS services including Amazon S3, Amazon Redshift, and Athena. Quick needs access to the resources from your AWS accounts to retrieve this data. If you want traffic to other AWS services to be routed through the VPC endpoint, you need to create VPC endpoint connections for each service that your Quick account is configured to. For more information about connecting to a VPC connection with Quick, see [Connecting to a VPC with Quick](https://docs.aws.amazon.com/quicksight/latest/user/working-with-aws-vpc.html).
 + IP and VPC endpoint rules precede all other rules in Quick. If you have embedded dashboards or visuals that are visible to the public (anyone on the internet) and restrict traffic to the Quick website through a VPC endpoint, public dashboards can only be shared through the VPC endpoint. For more information on public embedding, see [Turning on public access to visuals and dashboards with a 1-click embed code](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-1-click-public.html).
-+ Quick Website VPC endpoints are not available in the China Regions and AWS GovCloud (US).
++ Quick Website VPC endpoints are not available in the China Regions.
 
 ## Creating an interface VPC endpoint for Quick Website
 <a name="vpc-endpoint-create"></a>

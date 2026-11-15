@@ -31,4 +31,4 @@ aws quicksight update-data-set-permissions
 
 If your Region has already been configured with the CLI, it does not need to be included in an argument.
 
-For more information about the `UpdateDataSetPermissions` API operation, see [UpdateDataSetPermissions](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateDataSetPermissions.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `UpdateDataSetPermissions` API operation, see [UpdateDataSetPermissions](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateDataSetPermissions.html) in the *AWS Quick Sight API Reference*.

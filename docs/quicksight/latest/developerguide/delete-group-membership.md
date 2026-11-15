@@ -20,4 +20,4 @@ aws quicksight delete-group-membership
 
 ------
 
-For more information about the `DeleteGroupMembership` API operation, see [DeleteGroupMembership](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DeleteGroupMembership.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `DeleteGroupMembership` API operation, see [DeleteGroupMembership](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DeleteGroupMembership.html) in the *AWS Quick Sight API Reference*.

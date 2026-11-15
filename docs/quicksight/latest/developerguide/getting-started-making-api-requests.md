@@ -3,7 +3,7 @@
 # Make Quick Sight API requests
 <a name="getting-started-making-api-requests"></a>
 
-You can use API operations for Amazon Quick Sight and AWS SDKs to access Quick Sight from your preferred programming language. Quick Sight API operations provide:
+You can use API operations for AWS Quick Sight and AWS SDKs to access Quick Sight from your preferred programming language. Quick Sight API operations provide:
 + User, group, and namespace management
 + Data management (data sources, datasets, and SPICE ingestion)
 + Dashboard, analysis, template, and theme management

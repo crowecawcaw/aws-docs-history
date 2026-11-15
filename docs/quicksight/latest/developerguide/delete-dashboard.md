@@ -20,4 +20,4 @@ aws quicksight delete-dashboard
 
 ------
 
-For more information about the `DeleteDashboard` API operation, see [DeleteDashboard](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DeleteDashboard.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `DeleteDashboard` API operation, see [DeleteDashboard](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DeleteDashboard.html) in the *AWS Quick Sight API Reference*.

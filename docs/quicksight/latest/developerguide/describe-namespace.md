@@ -16,4 +16,4 @@ aws quicksight describe-namespace
 
 ------
 
-For more information about the `DescribeNamespace` API operation, see [DescribeNamespace](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeNamespace.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `DescribeNamespace` API operation, see [DescribeNamespace](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeNamespace.html) in the *AWS Quick Sight API Reference*.

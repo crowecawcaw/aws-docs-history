@@ -33,7 +33,7 @@ The list below describes 9 ways embedded analytics can be used to transform your
 
 1. **Supports highly advanced analytics**
 
-   You can unlock a multitude of advanced features powered by Amazon Quick Sight for your embedded analytics, with new features being released by Quick Sight frequently. 
+   You can unlock a multitude of advanced features powered by AWS Quick Sight for your embedded analytics, with new features being released by Quick Sight frequently. 
 
 1. **Discover, scale, and securely share valuable business insights at a rapid pace**
 

@@ -22,4 +22,4 @@ aws quicksight list-iam-policy-assignments-for-user
 
 ------
 
-For more information about the `ListIAMPolicyAssignmentsForUser` API operation, see [ListIAMPolicyAssignmentsForUser](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ListIAMPolicyAssignmentsForUser.html) in the *Amazon Quick Sight API Reference*.
+For more information about the `ListIAMPolicyAssignmentsForUser` API operation, see [ListIAMPolicyAssignmentsForUser](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ListIAMPolicyAssignmentsForUser.html) in the *AWS Quick Sight API Reference*.
