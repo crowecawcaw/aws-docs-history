@@ -19,7 +19,7 @@ The following example VPC endpoint policy specifies that the IAM user `MyUser` i
     "Effect": "Allow",
     "Resource": "arn:aws:sns:us-east-2:123456789012:MyTopic",
     "Principal": {
-      "AWS": "arn:aws:iam:123456789012:user/MyUser"
+      "AWS": "arn:aws:iam::123456789012:user/MyUser"
     }
   }]
 }

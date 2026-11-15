@@ -4,7 +4,7 @@
 <a name="sns-prerequisites-for-mobile-push-notifications"></a>
 
 To begin using Amazon SNS mobile push notifications, you'll need the following:
-+ A set of credentials for connecting to one of the supported push notification services: ADM, APNs, Baidu, FCM, MPNS, or WNS.
++ A set of credentials for connecting to one of the supported push notification services: ADM, APNs, Baidu, FCM, or WNS.
 + A device token or registration ID for the mobile app and device.
 + Amazon SNS configured to send push notification messages to the mobile endpoints.
 + A mobile app that is registered and configured to use one of the supported push notification services.

@@ -84,11 +84,6 @@ The following table lists the reserved message attributes for mobile push notifi
   - AWS.SNS.MOBILE.MACOS\_SANDBOX.TTL
   - AWS.SNS.MOBILE.MACOS.TTL
 
-- ** MPNS **
-  - AWS.SNS.MOBILE.MPNS.NotificationClass
-  - AWS.SNS.MOBILE.MPNS.TTL
-  - `AWS.SNS.MOBILE.MPNS.Type`
-
 - **WNS**
   - AWS.SNS.MOBILE.WNS.CachePolicy
   - AWS.SNS.MOBILE.WNS.Group

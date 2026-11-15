@@ -40,6 +40,8 @@ Support for sender IDs varies by country.
 **Note**  
 The Amazon S3 bucket policy must grant write access to Amazon SNS.
 
+1. (Optional) To log the delivery status of your SMS messages to CloudWatch Logs, expand the **Message delivery status logging** section, and then set a **Success sample rate** and provide an IAM role that grants Amazon SNS write access to CloudWatch Logs. For more information, see [Viewing CloudWatch Logs](sms_stats_cloudwatch.md#sns-viewing-cloudwatch-logs).
+
 1. Choose **Save changes**.
 
 ## Setting preferences (AWS SDKs)
@@ -240,46 +242,55 @@ try {
 ## Setting SMS messaging preferences for country-specific delivery
 <a name="sms_preferences_country_specific"></a>
 
-You can manage and control your SMS traffic by sending messages only to specific destination countries. This ensures that your messages are sent only to approved countries, avoiding unwanted SMS charges. The following instructions use the Amazon Pinpoint Protect configuration to specify the countries you want to allow or block.
+You can control your SMS traffic by sending messages only to specific destination countries. This approach ensures that your messages reach only approved countries and helps you avoid unwanted SMS charges. To do this, you create a protect configuration in AWS End User Messaging SMS that defines per-country send rules for SMS.
 
-1. Open the AWS SMS console at [https://console.aws.amazon.com/sms-voice/](https://console.aws.amazon.com/sms-voice/).
+**Note**  
+To apply a protect configuration to the SMS messages that you send through Amazon SNS, you must associate the protect configuration as the *account default*. The account default applies at the account level and also affects SMS messages sent through Amazon Cognito and AWS End User Messaging SMS. You can have only one account default protect configuration at a time.
 
-1. In the navigation pane, under **Overview**, in the **Quick start** section, choose **Create a protect configuration**.
+1. Open the [AWS End User Messaging SMS console](https://console.aws.amazon.com/sms-voice/).
 
-1. Under **Protect configuration details**, enter a **business-friendly name** for your protect configuration (for example, Allow-Only-AU).
+1. In the navigation pane, under **Protect**, choose **Protect configuration**, and then choose **Create protect configuration**.
 
-1. Under **SMS country rules**, select the **Region/Country** checkbox to block sending messages to all supported countries.
+1. For **Protect configuration name**, enter a descriptive name (for example, Allow-Only-AU).
 
-1. Deselect the checkboxes for the countries where you want to send messages. For example, to allow messages only to Australia, deselect the checkbox for **Australia**.
+1. On the **SMS country rules** tab, select the check box for each country that you want to allow, and then choose **Allow**. For example, to allow SMS messages only to Australia, select **Australia** and then choose **Allow**.
+**Note**  
+By default, all destination countries are set to **Block**. Select only the countries that you want to allow.
 
-1. In the **Protect configuration associations** section, under **Association type**, select **Account default**. This will make sure the AWS End User Messaging SMS Protect configuration affects all messages sent through Amazon SNS, [Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html), and the Amazon Pinpoint [`SendMessages`](https://docs.aws.amazon.com/pinpoint/latest/developerguide/send-messages-sms.html) API call.
+1. In the **Status change confirmation** dialog box, review your changes and choose **Confirm**.
 
-1. Choose **Create protect configuration** to save your settings.
+1. In the **Protect configuration associations** section, for **Association type**, choose **Account default** so that the protect configuration applies to all SMS messages sent through Amazon SNS.
 
-   The following confirmation message is displayed:
+1. Choose **Create protect configuration**.
+
+   The following confirmation message appears:
 
    ```
    Success Protect configuration protect-abc0123456789 has been created.
    ```
 
-1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home).
+When you set country rules in a protect configuration, you can apply one of the following modes to each destination country. You can apply a different mode to individual countries.
 
-1. [**Publish a message**](sns-publishing.md) to one of the blocked countries, such as India.
+**Allow**  
+Send messages to the destination country.
 
-   The message will not be delivered. You can verify this in the delivery failure logs using [CloudWatch](sms_stats_cloudwatch.md). Search for log group **sns/region/AccountID/DirectPublishToPhoneNumber/Failure** for a response similar to the following example:
+**Block**  
+Block all messages to the destination country.
 
-   ```
-   {
-   "notification": {
-   "messageId": "bd59a509-XXXX-XXXX-82f8-fbdb8cb68217",
-   "timestamp": "YYYY-MM-DD XX:XX:XX.XXXX“
-   },
-   "delivery": {
-   "destination": "+91XXXXXXXXXX",
-   "smsType": "Transactional",
-   "providerResponse": "Cannot deliver message to the specified destination country",
-   "dwellTimeMs": 85
-   },
-   "status": "FAILURE"
-   }
-   ```
+**Monitor**  
+Send messages, but include the SMS protect blocking recommendation in metrics and events.
+
+**Filter**  
+Send messages, but block traffic suspected of being artificially inflated traffic (AIT).
+
+**Note**  
+The **Monitor** and **Filter** modes incur additional charges for artificially inflated traffic (AIT) risk evaluation.
+
+After you associate the protect configuration as the account default, AWS End User Messaging SMS applies the protect configuration's country rules to the SMS messages that you publish through Amazon SNS. To see which messages are allowed or blocked, open the Amazon SNS console. In the navigation pane, choose **Mobile**, and then **Text messaging (SMS)**. This opens the **Mobile text messaging (SMS)** page, where you can do the following:
++ **Configure delivery status logging** – In the **Text messaging preferences** section, provide an IAM role that grants Amazon SNS write access to CloudWatch Logs. For detailed steps, see [Viewing CloudWatch Logs](sms_stats_cloudwatch.md#sns-viewing-cloudwatch-logs). Depending on the destination phone number's carrier, it can take up to 72 hours for delivery logs to appear in the Amazon SNS console.
++ **View delivery status logs** – In the **Delivery status logs** section, each message shows a **Status** and a **Provider response**. For a destination that the protect configuration blocks, the status is **FAILURE** and the provider response is `Destination country blocked by SMS protect configuration.`
++ **View delivery statistics** – In the **Delivery statistics** section, blocked messages are counted under **Failed**.
+
+The same delivery events are also written to CloudWatch Logs in the log group `sns/region/AccountID/DirectPublishToPhoneNumber/Failure`.
+
+For more information, see [Using protect configurations](https://docs.aws.amazon.com/sms-voice/latest/userguide/protect-configuration.html), [Change country rules](https://docs.aws.amazon.com/sms-voice/latest/userguide/protect-configuration-edit-countries.html), and [Country rule modes](https://docs.aws.amazon.com/sms-voice/latest/userguide/filter-and-monitor-messages.html) in the *AWS End User Messaging SMS User Guide*.

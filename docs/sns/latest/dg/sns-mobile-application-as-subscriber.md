@@ -29,7 +29,6 @@ You send push notification messages to both mobile devices and desktops using on
 + Apple Push Notification Service (APNs) for both iOS and Mac OS X
 + Baidu Cloud Push (Baidu)
 + Firebase Cloud Messaging (FCM)
-+ Microsoft Push Notification Service for Windows Phone (MPNS)
 + Windows Push Notification Services (WNS)
 
 Push notification services, such as APNs and FCM, maintain a connection with each app and associated mobile device registered to use their service. When an app and mobile device register, the push notification service returns a device token. Amazon SNS uses the device token to create a mobile endpoint, to which it can send direct push notification messages.
