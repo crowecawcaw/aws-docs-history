@@ -27,11 +27,11 @@ After you create an AWS Transfer Family server, you can edit the server configur
    + For the identity provider, you can now change between any identity provider types (service-managed, AWS Directory Service, or custom identity provider). For details about changing identity provider types and the required information for each transition, see [Edit identity provider configuration](configuring-servers-edit-custom-idp.md).
    + To change the endpoint type or custom hostname, see [Edit the server endpoint](#edit-endpoint-configuration).
    + To add an agreement, you need to first add AS2 as a protocol to your server. For details, see [Edit the file transfer protocols](#edit-protocols).
-   + To manage host keys for your server, see [Manage host keys for your SFTP-enabled server](configuring-servers-change-host-key.md).
+   + To manage host keys for your server, see [Managing host keys for your SFTP-enabled server](configuring-servers-change-host-key.md).
    + Under **Additional details**, you can edit the following information:
      + To change the logging role, see [Edit your logging configuration](#edit-CloudWatch-logging).
      + To change the security policy, see [Edit the security policy](#edit-cryptographic-algorithm).
-     + To change the server host key, see [Manage host keys for your SFTP-enabled server](configuring-servers-change-host-key.md).
+     + To change the server host key, see [Managing host keys for your SFTP-enabled server](configuring-servers-change-host-key.md).
      + To change the managed workflow for your server, see [Change the managed workflow for your server](#configuring-servers-change-workflow).
      + To edit the display banners for your server, see [Change the display banners for your server](#configuring-servers-change-banner).
    + Under Additional configuration, you can edit the following information:

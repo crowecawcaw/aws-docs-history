@@ -35,7 +35,7 @@ The following table contains details for log entry fields for Transfer Family SF
 | ssh-public-key-type | Type of public key: Transfer Family supports RSA-, ECDSA-, and ED25519-formatted keys | ssh-ed25519 | 
 | resource-arn | A system-assigned, unique identifier for a specific resource (for example, a server) | arn:aws:transfer:ap-northeast-1:12346789012:server/s-1234567890akeu2js2 | 
 | role | The IAM role of the user | arn:aws:iam::0293883675:role/testuser-role | 
-| session-id | A system-assigned, unique identifier for a single session | 9ca9a0e1cec6ad9d | 
+| session-id | A system-assigned, unique identifier for a single session. For SFTP, a session is one SSH connection. All SFTP channels that run over that connection share the same session-id. | 9ca9a0e1cec6ad9d | 
 | source-ip | Client IP address | 18.323.0.129 | 
 | user | The end user's username | myname192 | 
 | user-policy | The permissions specified for the end user: this field is populated if the user's policy is a session policy. | The JSON code for the session policy that is being used | 

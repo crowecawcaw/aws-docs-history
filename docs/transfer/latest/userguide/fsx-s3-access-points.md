@@ -41,7 +41,7 @@ This integration enables you to:
 + Use FSx features such as snapshots, backups, and data tiering
 
 **Important**  
-Some file operations are not supported when using FSx file systems with Transfer Family, including rename and append operations. For upload operations, file sizes are limited to 5 GB. For a complete list of limitations, see [Access point compatibility](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/access-points-for-fsxn-object-api-support.html).
+Some file operations are not supported when using FSx file systems with Transfer Family, including rename and append operations. For a complete list of limitations, see [Access point compatibility](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/access-points-for-fsxn-object-api-support.html).
 
 ## Prerequisites
 <a name="fsx-prerequisites"></a>
@@ -488,7 +488,7 @@ For more information, see [Configuring file transfer clients](#configuring-file-
 
 If file uploads fail:
 
-1. Verify the file size is under 5 GB.
+1. Verify the file size is within the FSx upload limit. For more information, see [Access point compatibility](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/access-points-for-fsxn-object-api-support.html).
 
 1. Check that the FSx volume has sufficient available storage.
 

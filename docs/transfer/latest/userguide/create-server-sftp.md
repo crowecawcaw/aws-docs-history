@@ -70,7 +70,7 @@ FIPS-enabled endpoints are only available in North American AWS Regions. For ava
 
    1. For **Cryptographic algorithm options**, choose a security policy that contains the cryptographic algorithms enabled for use by your server. Our latest security policy is the default: for details, see [Security policies for AWS Transfer Family servers](security-policies.md).
 
-   1. For **Server Host Key**, choose where Transfer Family stores your host key material. Choose **AWS Secrets Manager** (the default) or **Service managed**. For more information about storage types, see [Store SFTP server host keys in AWS Secrets Manager](server-host-key-storage.md).
+   1. For **Server Host Key**, choose where Transfer Family stores your host key material. Choose **AWS Secrets Manager** (the default) or **Service managed**. For more information about storage types, see [Storing SFTP server host keys in AWS Secrets Manager](server-host-key-storage.md).
 
       Providing host key material is optional. If you don't enter an RSA, ED25519, or ECDSA private key, Transfer Family generates a host key for you. To identify your server when clients connect to it over SFTP, you can enter your own private key. You can also add a description to differentiate among multiple host keys.
 

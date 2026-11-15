@@ -132,7 +132,7 @@ The unique ID for the Transfer Family server.
 `username`  <a name="sftp-server-username"></a>
 The user that is performing the transfer.  
 `session-id`  <a name="sftp-server-session-id"></a>
-The unique identifier for the transfer session.  
+The unique identifier for the transfer session. For SFTP, a session is one SSH connection. All SFTP channels that run over that connection share the same `session-id`.  
 `start-timestamp`  <a name="sftp-server-start-timestamp"></a>
 For successful transfers, the timestamp for when file processing begins.
 

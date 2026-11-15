@@ -1,6 +1,6 @@
 
 
-# Manage host keys for your SFTP-enabled server
+# Managing host keys for your SFTP-enabled server
 <a name="configuring-servers-change-host-key"></a>
 
 Server host keys are private keys used by the Transfer Family server to provide a unique identity to the caller, and to guarantee that it is the correct server. That guarantee is enforced by the presence of the correct public key in the caller's `known_hosts` file. (The `known_hosts` file is a standard feature used by most SSH clients to store the public keys for the servers that you've connected to.) You can retrieve the public key that corresponds to your server host key by running `ssh-keyscan` for your server.
@@ -14,7 +14,7 @@ AWS Transfer Family supports multiple host keys of different types (RSA, ECDSA, 
 
 To prevent your users from being prompted to verify the authenticity of your SFTP-enabled server again, import the host key for your on-premises server to the SFTP-enabled server. Doing this also prevents your users from getting a warning about a potential man-in-the-middle attack.
 
-You can also rotate host keys periodically, as an additional security measure. For details, see [Rotate the server host keys](server-host-key-rotate.md).
+You can also rotate host keys periodically, as an additional security measure. For details, see [Rotating the server host keys](server-host-key-rotate.md).
 
 **Note**  
 Server host keys are used by servers that support the SFTP protocol.
@@ -23,7 +23,7 @@ AWS Transfer Family supports two host key storage types, which control where Tra
 + Service managed (`SERVICE_MANAGED`) – Transfer Family stores and manages the host key material for you. This is the default storage type when you create a server by using the AWS CLI or the AWS API, and it requires no extra configuration.
 + AWS Secrets Manager (`SECRETS_MANAGER`) – Transfer Family stores the host key in a secret in Secrets Manager that you can encrypt with your own AWS KMS key. This is the default storage type when you create a server in the AWS Transfer Family console.
 
-For details about AWS Secrets Manager storage, see [Store SFTP server host keys in AWS Secrets Manager](server-host-key-storage.md).
+For details about AWS Secrets Manager storage, see [Storing SFTP server host keys in AWS Secrets Manager](server-host-key-storage.md).
 
 ## When to import host keys
 <a name="host-key-import-use-cases"></a>
@@ -35,8 +35,8 @@ While AWS Transfer Family can generate host keys automatically, there are severa
 + *Algorithm control* - You want greater client compatibility by providing more Host Key Algorithms, or you want to control which algorithms clients can use by only offering keys compatible with specific algorithms.
 
 The following topics provide detailed procedures for managing server host keys:
-+ [Add an additional server host key](server-host-key-add.md) - Add additional host keys to your server
-+ [Store SFTP server host keys in AWS Secrets Manager](server-host-key-storage.md) - Store host keys in AWS Secrets Manager
-+ [Delete a server host key](server-host-key-delete.md) - Remove host keys from your server
-+ [Rotate the server host keys](server-host-key-rotate.md) - Rotate host keys for enhanced security
++ [Adding an additional server host key](server-host-key-add.md) - Add additional host keys to your server
++ [Storing SFTP server host keys in AWS Secrets Manager](server-host-key-storage.md) - Store host keys in AWS Secrets Manager
++ [Deleting a server host key](server-host-key-delete.md) - Remove host keys from your server
++ [Rotating the server host keys](server-host-key-rotate.md) - Rotate host keys for enhanced security
 + [Additional server host key information](server-host-key-other.md) - View and manage host key details

@@ -9,17 +9,14 @@ A service-linked role makes setting up Transfer Family easier because you don't 
 
 You can delete a service-linked role only after first deleting its related resources. This protects your Transfer Family resources because you can't inadvertently remove permission to access the resources.
 
-For information about other services that support service-linked roles, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) and look for the services that have *Yes* in the *Service-linked role* column. Choose a **Yes** with a link to view the service-linked role documentation for that service.
+For information about other services that support service-linked roles, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) and look for the services that have **Yes** in the **Service-linked role** column. Choose a **Yes** with a link to view the service-linked role documentation for that service.
 
 ## Service-linked role permissions for AWS Transfer Family
 <a name="slr-permissions"></a>
 
-AWS Transfer Family uses the service-linked role named **AWSServiceRoleForTransfer** – Allows Transfer Family to integrate with other AWS services on your behalf.
+AWS Transfer Family uses the AWSServiceRoleForTransfer service-linked role. It allows Transfer Family to integrate with other AWS services on your behalf. The `transfer.amazonaws.com` service can assume this role.
 
-The AWSServiceRoleForTransfer service-linked role trusts the following services to assume the role:
-+ `transfer.amazonaws.com`
-
-The role permissions policy named `AWSTransferServiceRolePolicy` allows Transfer Family to complete the following actions on the specified resources:
+The `AWSTransferServiceRolePolicy` role permissions policy allows Transfer Family to complete the following actions on the specified resources:
 + `secretsmanager:BatchGetSecretValue` and `secretsmanager:ListSecrets` on secrets in the same AWS account as the calling principal – Lets Transfer Family discover and read the host key secrets that it manages in AWS Secrets Manager.
 + `secretsmanager:DescribeSecret` and `secretsmanager:GetSecretValue` on Transfer Family managed secrets (secrets with an ARN that matches `arn:*:secretsmanager:*:*:secret:transfer!*` and the `aws:secretsmanager:owningService` tag value `transfer`) – Lets Transfer Family retrieve SFTP host key material to serve to incoming connections.
 + `secretsmanager:DeleteSecret` on Transfer Family managed secrets (the same `transfer!` ARN and tag scope) – Lets Transfer Family clean up orphaned secrets that are no longer associated with a Transfer Family host key resource.
@@ -47,15 +44,11 @@ AWS Transfer Family does not allow you to edit the AWSServiceRoleForTransfer ser
 
 If you no longer need to use a feature or service that requires a service-linked role, we recommend that you delete that role. That way you don't have an unused entity that is not actively monitored or maintained. However, you must clean up the resources for your service-linked role before you can manually delete it.
 
-To delete the Transfer Family resources used by the AWSServiceRoleForTransfer role, complete the following steps.
+**To delete the AWSServiceRoleForTransfer service-linked role**
 
-1. Delete the host keys that use AWS Secrets Manager storage from your Transfer Family servers, or delete the servers that use them. Removing these resources also removes the AWS Secrets Manager secrets that the service-linked role manages. For more information, see [Delete a server host key](server-host-key-delete.md).
+1. Delete the host keys that use AWS Secrets Manager storage from your Transfer Family servers, or delete the servers that use them. Removing these resources also removes the AWS Secrets Manager secrets that the service-linked role manages. For more information, see [Deleting a server host key](server-host-key-delete.md).
 
-1. After the resources are cleaned up, use IAM to delete the service-linked role, as described in the following section.
-
-**To manually delete the service-linked role using IAM**
-
-Use the IAM console, the IAM CLI, or the IAM API to delete the AWSServiceRoleForTransfer service-linked role. For more information, see [Deleting a service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role) in the *IAM User Guide*.
+1. Use the IAM console, the IAM CLI, or the IAM API to delete the AWSServiceRoleForTransfer service-linked role. For more information, see [Deleting a service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role) in the *IAM User Guide*.
 
 ## Supported Regions for AWS Transfer Family service-linked roles
 <a name="slr-regions"></a>

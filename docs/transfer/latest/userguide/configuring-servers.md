@@ -13,7 +13,7 @@ In this section, you can find information on how to view a list of your servers,
 + [IPv6 support for Transfer Family servers](ipv6-support.md)
 + [Edit server details](edit-server-config.md)
 + [Edit identity provider configuration](configuring-servers-edit-custom-idp.md)
-+ [Manage host keys for your SFTP-enabled server](configuring-servers-change-host-key.md)
++ [Managing host keys for your SFTP-enabled server](configuring-servers-change-host-key.md)
 + [Monitoring usage in the console](monitor-usage-transfer-console.md)
 
 ## View a list of servers
