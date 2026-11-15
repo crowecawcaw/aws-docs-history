@@ -89,8 +89,8 @@ If auditors need to see the compliance state of a resource over a specific time 
   ```
 + **Output:** Returns a detailed JSON object of configuration changes, including compliance status at the time of each change.
 
-Amazon Athena and Amazon Quick (Recommended for filtered queries across multiple resources)  
-Customers can use Amazon Athena to build and run SQL-based queries against resource configuration data recorded by AWS Config. Customers can also import the data into Amazon Quick to create analyses and dashboards. For more information, see [Visualizing AWS Config data using Amazon Athena and Amazon Quick](https://aws.amazon.com/blogs/mt/visualizing-aws-config-data-using-amazon-athena-and-amazon-quicksight/).
+Amazon Athena and AWS Quick (Recommended for filtered queries across multiple resources)  
+Customers can use Amazon Athena to build and run SQL-based queries against resource configuration data recorded by AWS Config. Customers can also import the data into AWS Quick to create analyses and dashboards. For more information, see [Visualizing AWS Config data using Amazon Athena and AWS Quick](https://aws.amazon.com/blogs/mt/visualizing-aws-config-data-using-amazon-athena-and-amazon-quicksight/).
 
 ## Comparing compliance solutions
 <a name="audit-manager-availability-change-comparing-solutions"></a>
