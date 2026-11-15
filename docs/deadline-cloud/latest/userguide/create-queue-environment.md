@@ -76,6 +76,7 @@ Conda provides packages from *channels*. A channel is a location where packages 
 + Maxon Cinema 4D
   + `cinema4d=2025`
   + `cinema4d=2026`
+  + `cinema4d=2027`
   + `cinema4d-openjd`
 + Maxon Redshift for Maya
   + `maya-redshift=2025.4`
@@ -103,6 +104,7 @@ Conda provides packages from *channels*. A channel is a location where packages 
   + `cinema4d=2024`
   + `cinema4d=2025`
   + `cinema4d=2026`
+  + `cinema4d=2027`
   + `cinema4d-openjd`
 + Unreal Engine
   + `unrealengine=5.4`

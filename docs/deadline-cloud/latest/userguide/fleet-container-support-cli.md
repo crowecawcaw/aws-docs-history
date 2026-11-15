@@ -20,7 +20,7 @@ Before you begin, configure the AWS CLI with permission to create Deadline Cloud
    ```
    FARM_ID={{farm-0123456789abcdef0123456789abcdef}}
    QUEUE_ID={{queue-0123456789abcdef0123456789abcdef}}
-   FLEET_ROLE_ARN={{arn:aws:iam::123456789012:role/DeadlineFleetRole}}
+   FLEET_ROLE_ARN={{arn:aws:iam::111122223333:role/DeadlineFleetRole}}
    MAX_WORKERS={{10}}
    
    QUEUE_ROLE_ARN=$(aws deadline get-queue \

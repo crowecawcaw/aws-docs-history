@@ -15,6 +15,7 @@ To bring a new artist, team, or vendor onto your farm, start with [Onboard users
 + [How permissions work in Deadline Cloud](permissions-overview.md)
 + [Onboard users to your farm](onboarding.md)
 + [Understanding your identity source](understanding-identity-source.md)
++ [Using an IAM Identity Center instance in another AWS account](identity-center-other-account.md)
 + [Create and manage users with IAM Identity Center directory](manage-monitor-users_users.md)
 + [Manage users with an external identity provider](manage-users-external-idp.md)
 + [Restricting which users can access the monitor](restrict-user-management-visibility.md)

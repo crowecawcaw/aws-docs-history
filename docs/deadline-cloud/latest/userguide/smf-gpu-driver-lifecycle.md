@@ -3,7 +3,7 @@
 # GPU driver lifecycle
 <a name="smf-gpu-driver-lifecycle"></a>
 
-Deadline Cloud supports NVIDIA Long-Term Support (LTS) branch drivers for service-managed fleets. Deadline Cloud plans to continue supporting LTS branches as NVIDIA releases them. For more information about the NVIDIA vGPU software lifecycle, see the [NVIDIA vGPU Software Lifecycle Policy](https://docs.nvidia.com/vgpu/news/vgpu-software-lifecycle-policy/) on the NVIDIA website.
+Deadline Cloud supports NVIDIA vGPU software branches for service-managed fleets, including Long-Term Support (LTS) and Production branches. Production branches receive support for one year, while LTS branches receive support for three years. For the longest support window, pin `grid:r580` (LTS). The `latest` runtime resolves to `grid:r595` for all supported accelerators. For more information about the NVIDIA vGPU software lifecycle, see the [NVIDIA vGPU Software Lifecycle Policy](https://docs.nvidia.com/vgpu/news/vgpu-software-lifecycle-policy/) on the NVIDIA website.
 
 When NVIDIA reaches end-of-life for a driver branch, Deadline Cloud deprecates that driver and eventually removes it. If you use a pinned driver version, migrate your fleets to `latest` or to a newer supported driver before the removal date.
 
@@ -14,4 +14,5 @@ The following table shows the current driver support status.
 
 | Runtime driver | NVIDIA vGPU software | Branch type | Status | NVIDIA end-of-life | 
 | --- | --- | --- | --- | --- | 
+| grid:r595 | vGPU 20 | Production | Active | March 2027 | 
 | grid:r580 | vGPU 19 | Long-Term Support | Active | July 2028 | 

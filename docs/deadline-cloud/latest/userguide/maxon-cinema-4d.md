@@ -44,6 +44,7 @@ The following table lists all conda packages applicable to Cinema 4D available t
 | Windows | cinema4d | 2024 | Includes Standard, Physical and Redshift renderers | 
 | Windows, Linux | cinema4d | 2025 | Includes Standard, Physical and Redshift renderers | 
 | Windows, Linux | cinema4d | 2026 | Includes Standard, Physical and Redshift renderers | 
+| Windows, Linux | cinema4d | 2027 | Includes Standard, Physical and Redshift renderers | 
 | Windows, Linux | cinema4d-c4dtoa | 2025 | Cinema4D to Arnold | 
 | Windows, Linux | cinema4d-c4dtoa | 2026 | Cinema4D to Arnold | 
 | Windows, Linux | cinema4d-openjd |  | Includes the Cinema 4D Adaptor | 

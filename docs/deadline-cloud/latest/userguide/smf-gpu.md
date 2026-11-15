@@ -21,14 +21,15 @@ You decide whether your fleet will use GPU accelerators when you specify the wor
 Instance capabilities are also how you guarantee the amount of memory each worker has. A step's `amount.worker.memory` host requirement selects compatible fleets and doesn't launch larger instances. For more information about how host requirements and fleet configuration interact, see [Host requirements and fleet capabilities](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/host-requirements-overview.html) in the *Deadline Cloud Developer Guide*.
 
 The available GPU accelerators are:
-+ `T4` - NVIDIA T4 Tensor Core GPU
-+ `A10G` - NVIDIA A10G Tensor Core GPU
-+ `L4` - NVIDIA L4 Tensor Core GPU
-+ `L40s` - NVIDIA L40S Tensor Core GPU
-+ `RTX PRO Server 6000` - NVIDIA RTX PRO 6000 Blackwell Server Edition GPU
++ `T4` – NVIDIA T4 Tensor Core GPU
++ `A10G` – NVIDIA A10G Tensor Core GPU
++ `L4` – NVIDIA L4 Tensor Core GPU
++ `L40S` – NVIDIA L40S Tensor Core GPU
++ `RTX PRO Server 6000` – NVIDIA RTX PRO 6000 Blackwell Server Edition GPU
 
 You can choose from the following runtime drivers:
-+ `Latest` - Use the latest runtime available for the chip. If you specify `latest` and a new version of the runtime is released, the new version of the runtime is used.
-+ `grid:r580` - [NVIDIA vGPU software 19](https://docs.nvidia.com/vgpu/19.0/index.html) on the NVIDIA website (Long-Term Support).
++ `Latest` – Use the latest runtime available for the chip. If you specify `latest` and a new version of the runtime is released, the new version of the runtime is used.
++ `grid:r595` – For more information about NVIDIA vGPU software 20, see [NVIDIA vGPU software 20](https://docs.nvidia.com/vgpu/20.0/index.html) on the NVIDIA website (Production Branch).
++ `grid:r580` – For more information about NVIDIA vGPU software 19, see [NVIDIA vGPU software 19](https://docs.nvidia.com/vgpu/19.0/index.html) on the NVIDIA website (Long-Term Support).
 
 Deadline Cloud uses `latest` as the default runtime driver for all accelerators. If you specify a runtime driver for some accelerators, you must specify one for all of them. Mixing explicit values with blank values returns an error.

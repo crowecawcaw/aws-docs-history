@@ -38,14 +38,17 @@ The following table lists all conda packages applicable to Maya available to Ser
 | Linux | maya | 2024 | Includes Maya Software renderer | 
 | Linux | maya | 2025 | Includes Maya Software renderer | 
 | Linux | maya | 2026 | Includes Maya Software renderer | 
+| Linux | maya | 2027 | Includes Maya Software renderer | 
 | Linux | maya-mtoa | 2024.5.3 | Arnold for Maya 2024 | 
 | Linux | maya-mtoa | 2025.5.4 | Arnold for Maya 2025 | 
 | Linux | maya-mtoa | 2026.5.5 | Arnold for Maya 2026 | 
+| Linux | maya-mtoa | 2027.5.6 | Arnold for Maya 2027 | 
 | Linux | maya-openjd |  | Includes the Maya Adaptor | 
-| Linux | maya-redshift | 2025.4 | Redshift for Maya 2025 | 
-| Linux | maya-redshift | 2026.2.1 | Redshift for Maya 2026 | 
+| Linux | maya-redshift | 2025.4.2 | Redshift 2025 for Maya 2025-2026 | 
+| Linux | maya-redshift | 2026.8.1 | Redshift 2026 for Maya 2025-2027 | 
 | Linux | maya-vray | 2025.7 | V-Ray for Maya 2025 | 
 | Linux | maya-vray | 2026.7 | V-Ray for Maya 2026 | 
+| Linux | maya-vray | 2027.7 | V-Ray for Maya 2027 | 
 
 ## Getting started
 <a name="maya-getting-started"></a>
@@ -190,9 +193,9 @@ The following table lists renderer plugins provided as conda packages. For custo
 
 | Plugin | Plugin Versions | Conda Recipe Provided | SMF Conda Package Provided | Usage-based Licensing Support | 
 | --- | --- | --- | --- | --- | 
-| Arnold (MtoA) | 2024.5.3, 2025.5.4, 2026.5.5 | Yes | Yes | Yes | 
-| V-Ray | 2025.7, 2026.7 | Yes | Yes | Yes | 
-| Redshift | 2025.4, 2026.2.1 | Yes | Yes | Yes | 
+| Arnold (MtoA) | 2024.5.3, 2025.5.4, 2026.5.5, 2027.5.6 | Yes | Yes | Yes | 
+| V-Ray | 2025.7, 2026.7, 2027.7 | Yes | Yes | Yes | 
+| Redshift | 2025.4.2, 2026.8.1 | Yes | Yes | Yes | 
 
 ### Arnold for Maya (MtoA)
 <a name="maya-arnold"></a>
