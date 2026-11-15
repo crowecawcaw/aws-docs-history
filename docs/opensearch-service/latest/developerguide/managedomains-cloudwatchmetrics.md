@@ -25,6 +25,7 @@ OpenSearch Service publishes the following metrics to CloudWatch:
 + [Cross-cluster replication metrics](#managedomains-cloudwatchmetrics-replication)
 + [Learning to Rank metrics](#managedomains-cloudwatchmetrics-learning-to-rank)
 + [Piped Processing Language metrics](#managedomains-cloudwatchmetrics-ppl)
++ [Clone-based upgrade metrics](#managedomains-cloudwatchmetrics-clone-upgrade)
 
 ## Viewing metrics in CloudWatch
 <a name="managedomains-viewmetrics"></a>
@@ -574,3 +575,24 @@ Amazon OpenSearch Service provides the following metrics for [Piped Processing L
 | PPLFailedRequestCountByCusErr | The number of requests to the `_ppl` API that failed due to a client issue. For example, a request might return HTTP status code 400 due to an `IndexNotFoundException`. | 
 | PPLFailedRequestCountBySysErr | The number of requests to the `_ppl` API that failed due to a server problem or feature limitation. For example, a request might return HTTP status code 503 due to a `VerificationException`. | 
 | PPLRequestCount | The number of requests to the `_ppl` API.  | 
+
+## Clone-based upgrade metrics
+<a name="managedomains-cloudwatchmetrics-clone-upgrade"></a>
+
+During a [clone-based upgrade](version-migration.md#how-clone-based-works), OpenSearch Service publishes metrics for the cloned cluster to Amazon CloudWatch, in the same namespace and with the same dimensions, units, and statistics as your domain's metrics. The cloned cluster publishes the same metrics as the primary cluster, and each metric name has the prefix `Clone.`. For example:
++ `Clone.ClusterStatus.green`
++ `Clone.ClusterStatus.yellow`
++ `Clone.ClusterStatus.red`
++ `Clone.CPUUtilization`
++ `Clone.JVMMemoryPressure`
++ `Clone.SearchRate`
++ `Clone.SearchLatency`
++ `Clone.SysMemoryUtilization`
++ `Clone.FreeStorageSpace`
++ `Clone.SearchableDocuments`
++ `Clone.IndexingRate`
++ `Clone.IndexingLatency`
+
+Monitor these metrics in CloudWatch to compare how your workload performs on the primary cluster (the earlier version) and the cloned cluster (the target version) before you decide to cut over. For more information, see [Validating, cutting over, and rolling back during a clone-based upgrade](clone-based-upgrade.md).
+
+OpenSearch Service stops publishing metrics with the `Clone.` prefix when you cut over or cancel the upgrade. At cutover, the cloned cluster is promoted, and its nodes publish the metrics under the names without the prefix. Metrics that were already published remain in CloudWatch.

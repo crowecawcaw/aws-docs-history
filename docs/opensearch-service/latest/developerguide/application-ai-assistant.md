@@ -5,7 +5,7 @@
 
 OpenSearch UI includes a suite of agentic AI capabilities designed to simplify operational analytics and accelerate incident investigations for your engineering and support teams.
 
-On every page of your OpenSearch UI application, choose the **Ask AI** button to open Agentic Chat. Agentic Chat understands the context of the page you're viewing, uses agentic tools to analyze the underlying data, updates queries to display results in Discover, and answers your questions with clarity and accuracy. When a complex root cause analysis requires a deeper investigation, you can trigger the Investigation Agent to autonomously plan, execute, and reflect through a multi-step workflow, delivering structured hypotheses backed by data evidence. Powering both agentic capabilities is Agentic Memory, a memory layer that retains context within your conversation or investigation, so that you can continue to ask follow up questions with the same, consistent context across different web sessions.
+On every page of your OpenSearch UI application, choose the **Ask AI** button to open Agentic Chat. Agentic Chat understands the context of the page you're viewing, uses agentic tools to analyze the underlying data, updates queries to display results in Discover, and answers your questions with clarity and accuracy. When a complex root cause analysis requires a deeper investigation, you can trigger the Investigation Agent to autonomously plan, execute, and reflect through a multi-step workflow, delivering structured hypotheses backed by data evidence. Powering both agentic capabilities is AI Assistant Memory, a memory layer that retains context within your conversation or investigation, so that you can continue to ask follow up questions with the same, consistent context across different web sessions.
 
 ![The Discover page in OpenSearch UI showing Agentic Chat generating a PPL query from the natural language input "find all requests with latency greater than 10 seconds," with the Ask AI panel displaying the query explanation and a Start Investigation button.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/agentic-chat-discover-ppl.png)
 
@@ -14,7 +14,7 @@ On every page of your OpenSearch UI application, choose the **Ask AI** button to
 <a name="application-ai-assistant-key-capabilities"></a>
 + **Agentic Chat** – Embedded in the Ask AI feature on every page of OpenSearch UI, Agentic Chat understands your current context and calls tools to analyze data to best answer your questions. On Discover, enter natural language in the chat interface to generate and iterate Piped Processing Language (PPL) queries, so you don't need to be an expert in PPL to get actionable insights. You can also start conversations directly from visualizations, where Agentic Chat can identify anomalies in your graphs, correlate with the underlying data, and generate analysis. When a complex root cause analysis is needed, use the `/investigate` slash command to launch the Investigation Agent based on the ongoing conversation or with new instructions.
 + **Investigation Agent** – A goal-driven deep research agent that you activate by typing `/investigate` in chat or by choosing the **Start Investigation** button on feature pages. Enter an investigation goal such as "find the root cause of this latency spike." The Investigation Agent autonomously plans using your data and the stated goal, executes queries and analysis, and reflects through a multi-step workflow. When the investigation completes, typically within a few minutes, it generates structured hypotheses ranked by likelihood, each backed by data evidence. It provides full transparency into every step of its reasoning, so that you can verify and trust the results.
-+ **Agentic Memory** – A service-managed memory layer that retains context within your conversation or investigation, so that you can continue to ask questions or investigate within a consistent context. Agentic Memory enables both Agentic Chat and the Investigation Agent to maintain continuity throughout a session.
++ **AI Assistant Memory** – A service-managed memory layer that retains context within your conversation or investigation, so that you can continue to ask questions or investigate within a consistent context. AI Assistant Memory enables both Agentic Chat and the Investigation Agent to maintain continuity throughout a session.
 
 ## Pricing and usage limits
 <a name="application-ai-assistant-pricing"></a>
@@ -42,6 +42,8 @@ To enable or disable the AI features, you can use either the AWS Management Cons
 ![The Manage AI Assistant features page in the console showing the Enable Chatbot and Agentic investigation feature checkbox and the Update button.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/agentic-ai-manage-features.png)
 + **API** – Use the [RegisterCapability](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_RegisterCapability.html) API to enable the AI features, or use the [DeregisterCapability](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeregisterCapability.html) API to disable them.
 
+If your OpenSearch UI application uses a customer managed key, your key policy must allow OpenSearch UI to create an AWS KMS grant for AI Assistant Memory. Otherwise, enabling the AI features fails with a `KMS_KEY_INSUFFICIENT_PERMISSION` error. For more information, see [Enabling customer managed key encryption for AI Assistant Memory](application-encryption-cmk.md#application-encryption-cmk-agentic-memory).
+
 ## Region availability
 <a name="application-ai-assistant-regions"></a>
 
@@ -65,4 +67,4 @@ The agentic AI features are available in the following AWS Regions:
 + [Agentic Chat in Amazon OpenSearch Service](application-agentic-chat.md)
 + [Investigation Agent in Amazon OpenSearch Service](application-investigation-agent.md)
 + [Search Relevance Agent in Amazon OpenSearch Service](application-search-relevance-agent.md)
-+ [Agentic Memory in Amazon OpenSearch Service](application-agentic-memory.md)
++ [AI Assistant Memory in Amazon OpenSearch Service](application-agentic-memory.md)

@@ -199,15 +199,142 @@ func getCredentialProvider(accessKey, secretAccessKey, token string) aws.Credent
 ## Java
 <a name="serverless-java"></a>
 
-The following sample code uses the [opensearch-java](https://search.maven.org/artifact/org.opensearch.client/opensearch-java) client for Java to establish a secure connection to the specified OpenSearch Serverless collection and create a single index. You must provide values for `region` and `host`.
+The following sample code uses the [AWS OpenSearch Java client](https://github.com/aws/opensearch-java-aws) on the GitHub website (`software.amazon.opensearch:opensearch-java`) to establish a secure connection to the specified OpenSearch Serverless collection and create a single index. In each sample, replace the example collection endpoint and signing Region with your own values.
 
-The important difference compared to OpenSearch Service *domains* is the service name (`aoss` instead of `es`).
+The client includes `software.amazon.opensearch.client.aoss.OpenSearchClient` for OpenSearch Serverless collections. Its `OpenSearchClient.create` factory method signs requests with Signature Version 4 for the `aoss` service. If you pass `null` for the transport options, the client uses the default credentials provider chain of the AWS SDK for Java 2.x.
+
+The AWS SDK dependencies of the client are optional, so you must declare `software.amazon.awssdk:sdk-core`, `software.amazon.awssdk:auth`, `software.amazon.awssdk:http-auth-aws`, and an HTTP client such as `software.amazon.awssdk:url-connection-client` in your project. The client requires AWS SDK for Java 2.x version 2.25.69 or later. The following example shows the Maven dependencies:
 
 ```
-// import OpenSearchClient to establish connection to OpenSearch Serverless collection
+<dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>software.amazon.awssdk</groupId>
+      <artifactId>bom</artifactId>
+      <version>{{aws-sdk-version}}</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+  </dependencies>
+</dependencyManagement>
+
+<dependencies>
+  <dependency>
+    <groupId>software.amazon.opensearch</groupId>
+    <artifactId>opensearch-java</artifactId>
+    <version>0.1.0</version>
+  </dependency>
+  <dependency>
+    <groupId>software.amazon.awssdk</groupId>
+    <artifactId>sdk-core</artifactId>
+  </dependency>
+  <dependency>
+    <groupId>software.amazon.awssdk</groupId>
+    <artifactId>auth</artifactId>
+  </dependency>
+  <dependency>
+    <groupId>software.amazon.awssdk</groupId>
+    <artifactId>http-auth-aws</artifactId>
+  </dependency>
+  <dependency>
+    <groupId>software.amazon.awssdk</groupId>
+    <artifactId>url-connection-client</artifactId>
+  </dependency>
+</dependencies>
+```
+
+```
+import software.amazon.awssdk.http.SdkHttpClient;
+import software.amazon.awssdk.http.urlconnection.UrlConnectionHttpClient;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.opensearch.client.aoss.OpenSearchClient;
+import software.amazon.opensearch.client.aoss.indices.CreateIndexResponse;
+import software.amazon.opensearch.client.aoss.indices.DeleteIndexResponse;
+
+try (SdkHttpClient httpClient = UrlConnectionHttpClient.builder().build()) {
+    OpenSearchClient client = OpenSearchClient.create(
+        httpClient,
+        "my-collection-id.us-west-2.aoss.amazonaws.com", // Serverless collection endpoint.
+        Region.US_WEST_2,                                // Signing Region.
+        null                                             // Default credentials provider chain.
+    );
+
+    String index = "sample-index";
+
+    // Create an index.
+    CreateIndexResponse createIndexResponse = client.indices().create(c -> c.index(index));
+    System.out.println("Create index response: " + createIndexResponse.acknowledged());
+
+    // Delete the index.
+    DeleteIndexResponse deleteIndexResponse = client.indices().delete(d -> d.index(index));
+    System.out.println("Delete index response: " + deleteIndexResponse.acknowledged());
+}
+```
+
+The following sample code establishes a secure connection and indexes a document into a collection.
+
+```
+import java.util.HashMap;
+import java.util.Map;
+import software.amazon.awssdk.http.SdkHttpClient;
+import software.amazon.awssdk.http.urlconnection.UrlConnectionHttpClient;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.opensearch.client.aoss.OpenSearchClient;
+import software.amazon.opensearch.client.aoss.core.IndexResponse;
+
+try (SdkHttpClient httpClient = UrlConnectionHttpClient.builder().build()) {
+    OpenSearchClient client = OpenSearchClient.create(
+        httpClient, "my-collection-id.us-west-2.aoss.amazonaws.com", Region.US_WEST_2, null);
+
+    // Index a document.
+    Map<String, Object> document = new HashMap<>();
+    document.put("title", "The Green Mile");
+    document.put("director", "Frank Darabont");
+    document.put("year", "1999");
+
+    IndexResponse indexResponse = client.index(i -> i.index("books-index").document(document));
+    System.out.println("Index response: " + indexResponse.result());
+}
+```
+
+The following sample code establishes a secure connection, and then searches the `books-index` index that the previous sample writes to. Newly indexed documents can take a short time to become searchable, so the search might not return a document immediately after you index it.
+
+```
+import java.util.Map;
+import software.amazon.awssdk.http.SdkHttpClient;
+import software.amazon.awssdk.http.urlconnection.UrlConnectionHttpClient;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.opensearch.client.aoss.OpenSearchClient;
+import software.amazon.opensearch.client.aoss.core.SearchResponse;
+
+try (SdkHttpClient httpClient = UrlConnectionHttpClient.builder().build()) {
+    OpenSearchClient client = OpenSearchClient.create(
+        httpClient, "my-collection-id.us-west-2.aoss.amazonaws.com", Region.US_WEST_2, null);
+
+    SearchResponse<Map> response = client.search(s -> s
+        .index("books-index")
+        .query(q -> q.matchAll(m -> m)),
+        Map.class);
+
+    response.hits().hits().forEach(hit -> System.out.println(hit.source()));
+}
+```
+
+If you use the open-source [opensearch-java](https://search.maven.org/artifact/org.opensearch.client/opensearch-java) client, pass `aoss` as the signing service name to `AwsSdk2Transport`. The following sample code establishes a secure connection to the specified OpenSearch Serverless collection and creates a single index. In each sample, replace the example collection endpoint and signing Region with your own values.
+
+```
 import org.opensearch.client.opensearch.OpenSearchClient;
+import org.opensearch.client.opensearch.indices.CreateIndexRequest;
+import org.opensearch.client.opensearch.indices.CreateIndexResponse;
+import org.opensearch.client.opensearch.indices.DeleteIndexRequest;
+import org.opensearch.client.opensearch.indices.DeleteIndexResponse;
+import org.opensearch.client.transport.aws.AwsSdk2Transport;
+import org.opensearch.client.transport.aws.AwsSdk2TransportOptions;
 import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
 import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
+import software.amazon.awssdk.http.SdkHttpClient;
+import software.amazon.awssdk.http.apache.ApacheHttpClient;
+import software.amazon.awssdk.regions.Region;
 
 // Configure credential provider
 AwsCredentialsProvider credentialsProvider = DefaultCredentialsProvider.create();
@@ -217,7 +344,7 @@ SdkHttpClient httpClient = ApacheHttpClient.builder().build();
 OpenSearchClient client = new OpenSearchClient(
     new AwsSdk2Transport(
         httpClient,
-        "...us-west-2.aoss.amazonaws.com", // serverless collection endpoint
+        "my-collection-id.us-west-2.aoss.amazonaws.com", // serverless collection endpoint
         "aoss", // signing service name
         Region.US_WEST_2, // signing service region
         AwsSdk2TransportOptions.builder().setCredentials(credentialsProvider).build()
@@ -239,53 +366,30 @@ System.out.println("Delete index reponse: " + deleteIndexResponse);
 httpClient.close();
 ```
 
-The following sample code again establishes a secure connection, and then searches an index.
-
-```
-import org.opensearch.client.opensearch.OpenSearchClient;
-
-SdkHttpClient httpClient = ApacheHttpClient.builder().build();
-
-OpenSearchClient client = new OpenSearchClient(
-    new AwsSdk2Transport(
-        httpClient,
-        "...us-west-2.aoss.amazonaws.com", // serverless collection endpoint
-        "aoss", // signing service name
-        Region.US_WEST_2, // signing service region
-        AwsSdk2TransportOptions.builder().setCredentials(credentialsProvider).build()
-    )
-);
-
-Response response = client.generic()
-    .execute(
-        Requests.builder()
-            .endpoint("/" + "users" + "/_search?typed_keys=true")
-            .method("GET")
-            .json("{"
-                + "    \"query\": {"
-                + "        \"match_all\": {}"
-                + "    }"
-                + "}")
-            .build());
-
-httpClient.close();
-```
-
 The following sample code establishes a secure connection and indexes a document into a collection.
 
 ```
+import java.util.HashMap;
+import java.util.Map;
 import org.opensearch.client.opensearch.OpenSearchClient;
 import org.opensearch.client.opensearch.core.IndexRequest;
 import org.opensearch.client.opensearch.core.IndexResponse;
-import java.util.HashMap;
-import java.util.Map;
+import org.opensearch.client.transport.aws.AwsSdk2Transport;
+import org.opensearch.client.transport.aws.AwsSdk2TransportOptions;
+import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
+import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
+import software.amazon.awssdk.http.SdkHttpClient;
+import software.amazon.awssdk.http.apache.ApacheHttpClient;
+import software.amazon.awssdk.regions.Region;
+
+AwsCredentialsProvider credentialsProvider = DefaultCredentialsProvider.create();
 
 SdkHttpClient httpClient = ApacheHttpClient.builder().build();
 
 OpenSearchClient client = new OpenSearchClient(
     new AwsSdk2Transport(
         httpClient,
-        "...us-west-2.aoss.amazonaws.com", // serverless collection endpoint
+        "my-collection-id.us-west-2.aoss.amazonaws.com", // serverless collection endpoint
         "aoss", // signing service name
         Region.US_WEST_2, // signing service region
         AwsSdk2TransportOptions.builder().setCredentials(credentialsProvider).build()
@@ -305,6 +409,49 @@ IndexRequest<Map<String, Object>> indexRequest = IndexRequest.of(i -> i
 
 IndexResponse indexResponse = client.index(indexRequest);
 System.out.println("Index response: " + indexResponse.result());
+
+httpClient.close();
+```
+
+The following sample code again establishes a secure connection, and then searches the `books-index` index that the previous sample writes to. Newly indexed documents can take a short time to become searchable, so the search might not return a document immediately after you index it.
+
+```
+import org.opensearch.client.opensearch.OpenSearchClient;
+import org.opensearch.client.opensearch.generic.Requests;
+import org.opensearch.client.opensearch.generic.Response;
+import org.opensearch.client.transport.aws.AwsSdk2Transport;
+import org.opensearch.client.transport.aws.AwsSdk2TransportOptions;
+import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
+import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
+import software.amazon.awssdk.http.SdkHttpClient;
+import software.amazon.awssdk.http.apache.ApacheHttpClient;
+import software.amazon.awssdk.regions.Region;
+
+AwsCredentialsProvider credentialsProvider = DefaultCredentialsProvider.create();
+
+SdkHttpClient httpClient = ApacheHttpClient.builder().build();
+
+OpenSearchClient client = new OpenSearchClient(
+    new AwsSdk2Transport(
+        httpClient,
+        "my-collection-id.us-west-2.aoss.amazonaws.com", // serverless collection endpoint
+        "aoss", // signing service name
+        Region.US_WEST_2, // signing service region
+        AwsSdk2TransportOptions.builder().setCredentials(credentialsProvider).build()
+    )
+);
+
+Response response = client.generic()
+    .execute(
+        Requests.builder()
+            .endpoint("/" + "books-index" + "/_search?typed_keys=true")
+            .method("GET")
+            .json("{"
+                + "    \"query\": {"
+                + "        \"match_all\": {}"
+                + "    }"
+                + "}")
+            .build());
 
 httpClient.close();
 ```

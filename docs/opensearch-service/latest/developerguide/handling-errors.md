@@ -329,6 +329,8 @@ Because you can't modify this setting due to the managed nature of Amazon OpenSe
 
 [In-place upgrades](version-migration.md) are irreversible, but if you contact [AWS Support](https://aws.amazon.com/premiumsupport/), they can help you restore the automatic, pre-upgrade snapshot on a new domain. For example, if you upgrade a domain from Elasticsearch 5.6 to 6.4, AWS Support can help you restore the pre-upgrade snapshot on a new Elasticsearch 5.6 domain. If you took a manual snapshot of the original domain, you can [perform that step yourself](managedomains-snapshots.md).
 
+Clone-based upgrades are different. You can cancel a clone-based upgrade any time before cutover, and you can roll back during the retention period you set after cutover. If you cut over without a retention period, OpenSearch Service deletes the primary cluster, and you must restore a snapshot on a new domain to return to the earlier version. For more information, see [Validating, cutting over, and rolling back during a clone-based upgrade](clone-based-upgrade.md).
+
 ## Need summary of domains for all AWS Regions
 <a name="troubleshooting-domain-summary"></a>
 

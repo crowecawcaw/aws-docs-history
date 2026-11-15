@@ -90,8 +90,9 @@ OpenSearch Service regularly adds support for community-maintained versions of O
 
 OpenSearch Service simultaneously upgrades both OpenSearch and OpenSearch Dashboards (or Elasticsearch and Kibana if your domain is running a legacy engine). If the cluster has dedicated master nodes, upgrades complete without downtime. Otherwise, the cluster might be unresponsive for several seconds post-upgrade while it elects a master node. OpenSearch Dashboards might be unavailable during some or all of the upgrade.
 
-There are two ways to upgrade a domain:
+There are three ways to upgrade a domain:
 + [In-place upgrade](starting-upgrades.md) – This option is easier because you keep the same cluster.
++ [Clone-based upgrade](clone-based-upgrade.md) – This option lets you validate the upgraded domain before you cut over, and roll back if needed.
 + [Snapshot/restore upgrade](snapshot-based-migration.md) – This option is good for testing new versions on a new cluster or migrating between clusters.
 
 Regardless of which upgrade process you use, we recommend that you maintain a domain that is solely for development and testing, and upgrade it to the new version *before* you upgrade your production domain. Choose **Development and testing** for the deployment type when you're creating the test domain. Make sure to upgrade all clients to compatible versions immediately following the domain upgrade.

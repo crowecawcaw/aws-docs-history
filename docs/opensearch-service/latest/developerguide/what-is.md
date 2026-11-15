@@ -210,7 +210,7 @@ AWS Lambda is a compute service that lets you run code without provisioning or m
 [Amazon DynamoDB](https://docs.aws.amazon.com/dynamodb/)  
 Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. To learn more about streaming data to OpenSearch Service, see [Loading streaming data from Amazon DynamoDB](integrations-dynamodb.md).
 
-[Amazon Quick](https://docs.aws.amazon.com/quicksight/)  
+[AWS Quick](https://docs.aws.amazon.com/quicksight/)  
 You can visualize data from OpenSearch Service using Quick dashboards. For more information, see [Using Amazon OpenSearch Service with Quick](https://docs.aws.amazon.com/quicksight/latest/user/connecting-to-es.html) in the *Quick User Guide*.
 
 **Note**  

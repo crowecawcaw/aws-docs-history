@@ -27,10 +27,9 @@ For more information about ML APIs, see [ML APIs](https://docs.opensearch.org/la
 The following ML features are not supported on Amazon OpenSearch Serverless:
 + Agents and tools
 + Local models
-+ The ML Inference processor within Search and Ingest Pipelines
-  + ML Inference Ingest Processor
-  + ML Inference Search Response Processor
-  + ML Inference Search Request Processor
+
+**Note**  
+The `ml_inference` processor is supported in ingest pipelines and search pipelines on vector search collections in NextGen collection groups. For more information, see [ML inference pipelines in Amazon OpenSearch Serverless](serverless-ml-inference.md).
 
 For more information about these features, see the following documentation on the *OpenSearch Documentation* website:
 + [Machine learning](https://docs.opensearch.org/latest/ml-commons-plugin)

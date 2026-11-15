@@ -26,6 +26,7 @@ The following processors support neural search and semantic enrichment workflows
 + `text_embedding` – Generates dense vector embeddings from text fields for semantic search. For more information, see [Text embedding processor](https://docs.opensearch.org/latest/ingest-pipelines/processors/text-embedding/) on the *OpenSearch Documentation* website.
 + `text_image_embedding` – Generates combined vector embeddings from text and image fields for multimodal search. For more information, see [Text image embedding processor](https://docs.opensearch.org/latest/ingest-pipelines/processors/text-image-embedding/) on the *OpenSearch Documentation* website.
 + `sparse_encoding` – Generates sparse vector representations from text fields for neural sparse search. For more information, see [Sparse encoding processor](https://docs.opensearch.org/latest/ingest-pipelines/processors/sparse-encoding/) on the *OpenSearch Documentation* website.
++ `ml_inference` – Invokes a configured machine learning model with custom input and output field mapping. This general-purpose processor works with any configured model and can run in both ingest and search pipelines. For more information, see [ML inference pipelines in Amazon OpenSearch Serverless](serverless-ml-inference.md).
 
 The following processors perform general-purpose transformations on document fields.
 

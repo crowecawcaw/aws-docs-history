@@ -6,12 +6,74 @@
 **Note**  
 OpenSearch and Elasticsearch version upgrades differ from service software updates. For information on updating the service software for your OpenSearch Service domain, see [Service software updates in Amazon OpenSearch Service](service-software.md).
 
-Amazon OpenSearch Service offers in-place upgrades for domains that run OpenSearch 1.0 or later, or Elasticsearch 5.1 or later. If you use services like Amazon Data Firehose or Amazon CloudWatch Logs to stream data to OpenSearch Service, check that these services support the newer version of OpenSearch before migrating.
+Amazon OpenSearch Service offers two ways to upgrade a domain: an in-place upgrade and a clone-based upgrade. If you use services like Amazon Data Firehose or Amazon CloudWatch Logs to stream data to OpenSearch Service, check that these services support the newer version of OpenSearch before migrating.
+
+## Upgrade methods and terms
+<a name="upgrade-methods-terms"></a>
+
+An **in-place upgrade** upgrades the existing cluster of your domain to the new version. It runs as a blue/green deployment. You can't pause, cancel, or roll back an in-place upgrade. It is available for domains that run OpenSearch 1.0 or later, or Elasticsearch 5.1 or later.
+
+A **clone-based upgrade** creates a cloned cluster of your domain on the target version and keeps it in sync with your data while your domain keeps serving traffic from the primary cluster. It is a blue/green deployment in which the cloned cluster is the green environment, kept isolated so that you can validate it before you cut over. You validate the cloned cluster, and then cut over to it when you're ready. You can cancel before cutover and roll back after it. A clone-based upgrade is available for domains that run Elasticsearch 7.10 or OpenSearch 1.1 or later in all AWS Commercial Regions where Amazon OpenSearch Service is available, except Asia Pacific (New Zealand), Asia Pacific (Taipei), Asia Pacific (Thailand), and Mexico (Central). For a complete list of Regions, see the [AWS Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/).
+
+The following terms describe a clone-based upgrade.
+
+Primary cluster  
+The cluster that your domain runs on when the upgrade starts, on the earlier version. It keeps serving traffic until you cut over. After cutover, OpenSearch Service keeps it only for the retention period you set, so that you can roll back.
+
+Cloned cluster  
+The new cluster that OpenSearch Service creates on the target version. It receives a copy of your data and stays in sync with the primary cluster.
+
+Validate  
+Test the cloned cluster with your own read requests before you cut over. You can validate reads only.
+
+Cutover  
+The step that moves your domain's traffic from the primary cluster to the cloned cluster. Writes are blocked during cutover.
+
+Cancel  
+Stop the upgrade before cutover. OpenSearch Service deletes the cloned cluster, and your domain stays as it was.
+
+Roll back  
+Return to the primary cluster after cutover, during the retention period.
+
+Retention period  
+How long OpenSearch Service keeps the primary cluster after cutover so that you can roll back. The period starts when cutover completes. If you don't set a retention period, OpenSearch Service deletes the primary cluster immediately after cutover.
+
+## Choose an upgrade method
+<a name="upgrade-methods"></a>
+
+The following table compares the two types of upgrade.
+
+
+|  | In-place upgrade | Clone-based upgrade | 
+| --- | --- | --- | 
+| How it works | Upgrades the existing cluster. It runs as a blue/green deployment. | A blue/green deployment in which the cloned cluster is the green environment. It is created on the target version, kept in sync with your data, and kept isolated so that you can validate it. You decide when to cut over. | 
+| Available for | OpenSearch 1.0 or later, or Elasticsearch 5.1 or later. | Elasticsearch 7.10 or OpenSearch 1.1 or later. | 
+| Try the upgraded version before it takes effect | No. The pre-upgrade checks run, but the upgraded cluster takes over as soon as the upgrade completes. | Yes. Try the cloned cluster with your own requests while your domain keeps serving traffic. | 
+| Cancel an upgrade | No. | Yes. You can cancel any time before cutover. | 
+| Roll back | No. To return to the earlier version, restore a snapshot on a new domain. | Yes. After cutover, you can roll back during the retention period you set. | 
+| Writes during the upgrade | Write performance can degrade during the upgrade. | Writes to the primary cluster aren't affected while the upgrade runs. Writes are blocked until cutover completes. | 
+
+For information about charges, see [Charges for upgrades](#upgrade-charges).
+
+## Before you upgrade
+<a name="before-you-upgrade"></a>
+
+Before you start either type of upgrade:
+
+1. [Take a manual snapshot](managedomains-snapshots.md) of your domain. This snapshot serves as a backup that you can [restore on a new domain](managedomains-snapshot-restore.md) if you want to return to using the prior OpenSearch version.
+
+1. Check [Supported upgrade paths](#supported-upgrade-paths) for your current and target versions. A clone-based upgrade is available only for domains that run Elasticsearch 7.10 or OpenSearch 1.1 or later.
+
+1. Run the pre-upgrade check to find issues that could block the upgrade. The same checks run for both types of upgrade. For more information, see [Troubleshooting validation failures](#upgrade-validation).
+
+1. If your domains use managed disaster recovery, upgrade the secondary domain first and the primary domain last. Before a clone-based upgrade, remove the replication relationship. For more information, see [Upgrade domains that use DR](disaster-recovery.md#disaster-recovery-upgrade).
 
 ## Supported upgrade paths
 <a name="supported-upgrade-paths"></a>
 
 Currently, OpenSearch Service supports the following upgrade paths:
+
+Every path in the following table is available for an in-place upgrade.
 
 
 | From version | To version | 
@@ -25,13 +87,63 @@ Currently, OpenSearch Service supports the following upgrade paths:
 | Elasticsearch 5.6 | Elasticsearch 6.*x* Indexes created in version 6.*x* no longer support multiple mapping types. Indexes created in version 5.*x* still support multiple mapping types when restored into a 6.*x* cluster. Check that your client code creates only a single mapping type per index. <br />To minimize downtime during the upgrade from Elasticsearch 5.6 to 6.*x*, OpenSearch Service reindexes the `.kibana` index to `.kibana-6`, deletes `.kibana`, creates an alias named `.kibana`, and maps the new index to the new alias.  | 
 | Elasticsearch 5.x | Elasticsearch 5.x | 
 
-The upgrade process consists of three steps:
+A clone-based upgrade is available for the following upgrade paths:
++ Elasticsearch 7.10 to OpenSearch 1.3
++ OpenSearch 1.1 to 1.3
++ OpenSearch 1.3 to 2.19
++ OpenSearch 2.*x* to 2.19
++ OpenSearch 2.19 to 3.*x*
+
+For other upgrade paths, use an in-place upgrade.
+
+## How an in-place upgrade works
+<a name="how-in-place-works"></a>
+
+An in-place upgrade consists of three steps:
 
 1. **Pre-upgrade checks** – OpenSearch Service checks for issues that can block an upgrade and doesn't proceed to the next step unless these checks succeed.
 
 1. **Snapshot** – OpenSearch Service takes a snapshot of the OpenSearch or Elasticsearch cluster and doesn't proceed to the next step unless the snapshot succeeds. If the upgrade fails, OpenSearch Service uses this snapshot to restore the cluster to its original state. For more information see [Can't downgrade after upgrade](handling-errors.md#troubleshooting-upgrade-snapshot).
 
 1. **Upgrade** – OpenSearch Service starts the upgrade, which can take from 15 minutes to several hours to complete. OpenSearch Dashboards might be unavailable during some or all of the upgrade.
+
+## How a clone-based upgrade works
+<a name="how-clone-based-works"></a>
+
+A clone-based upgrade consists of the following steps:
+
+1. **Pre-upgrade checks** – OpenSearch Service runs the same checks as for an in-place upgrade and doesn't proceed unless they succeed.
+
+1. **Snapshot** – OpenSearch Service takes a snapshot of your domain and doesn't proceed unless the snapshot succeeds.
+
+1. **Cloned cluster creation** – OpenSearch Service creates a cloned cluster of your domain on the target version and copies your data to it. Your domain keeps serving reads and writes from the primary cluster, and the cloned cluster stays in sync with your data.
+
+1. **Validation** – When the cloned cluster is ready, the upgrade waits for you. Validate the cloned cluster, and optionally send a share of read traffic to it.
+
+1. **Cutover** – When you cut over, OpenSearch Service blocks writes until cutover completes. During that time, the cloned cluster catches up, and then OpenSearch Service moves traffic to it. Your domain endpoint doesn't change.
+
+1. **Retention period (optional)** – OpenSearch Service keeps the primary cluster for the retention period you set, so you can roll back. The period starts when cutover completes. If you don't set a retention period, OpenSearch Service deletes the primary cluster immediately after cutover.
+
+You can cancel the upgrade any time before cutover. OpenSearch Service then deletes the cloned cluster, and your domain stays as it was. For information about validating, cutting over, canceling, and rolling back, see [Validating, cutting over, and rolling back during a clone-based upgrade](clone-based-upgrade.md).
+
+## Limitations of a clone-based upgrade
+<a name="clone-based-limitations"></a>
+
+A clone-based upgrade has the following limitations:
++ Your domain must run Elasticsearch 7.10 or OpenSearch 1.1 or later. If your domain runs an earlier version, use an in-place upgrade to reach a supported version first.
++ Domains that use OpenSearch Optimized instances (OR1 or OR2) aren't supported.
++ Domains that use UltraWarm instances aren't supported.
++ Domains that use cross-cluster replication aren't supported.
++ If your domain uses managed disaster recovery, remove the replication relationship before you start a clone-based upgrade, and set up disaster recovery again afterward. For more information, see [Upgrade domains that use DR](disaster-recovery.md#disaster-recovery-upgrade).
++ Domains with custom or third-party plugin packages associated aren't supported.
++ Domains that use SAML authentication for OpenSearch Dashboards aren't supported.
++ Domains that use Amazon Cognito authentication for OpenSearch Dashboards aren't supported.
++ You can't change the domain's configuration during the upgrade.
+
+## Charges for upgrades
+<a name="upgrade-charges"></a>
+
+An in-place upgrade does not incur additional charges. In case of a clone-based upgrade, standard pricing will apply for the clone's instances and storage, like any other nodes in your domain. You are charged for both the primary cluster and the clone while you validate the clone. If you keep the primary cluster for rollback, you are charged for both until the retention period ends.
 
 ## Troubleshooting validation failures
 <a name="upgrade-validation"></a>
@@ -41,7 +153,7 @@ When you initiate an OpenSearch or Elasticsearch version upgrade, OpenSearch Ser
 ## Troubleshooting an upgrade
 <a name="upgrade-failures"></a>
 
-In-place upgrades require healthy domains. Your domain might be ineligible for an upgrade or fail to upgrade for a wide variety of reasons. The following table shows the most common issues.
+Upgrades require healthy domains. Your domain might be ineligible for an upgrade or fail to upgrade for a wide variety of reasons. The following table shows the most common issues.
 
 
 | Issue | Description | 

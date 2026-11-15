@@ -29,6 +29,7 @@ The customer managed key must be in the same AWS Region as the OpenSearch UI app
 
 **Topics**
 + [Prerequisites for using customer managed keys](#application-encryption-cmk-prerequisites)
++ [Enabling customer managed key encryption for AI Assistant Memory](#application-encryption-cmk-agentic-memory)
 + [Creating an application with customer managed key encryption using the console](#application-encryption-cmk-create-console)
 + [Creating an application with customer managed key encryption using the AWS CLI](#application-encryption-cmk-create-cli)
 + [Monitoring customer managed key usage](#application-encryption-cmk-monitoring)
@@ -62,6 +63,28 @@ The key policy for your customer managed key must grant OpenSearch UI permission
             "Resource": "*"
         },
         {
+            "Sid": "AllowOpenSearchUIToCreateGrantForAIAssistantMemory",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": [
+                    "application.opensearchservice.amazonaws.com"
+                ]
+            },
+            "Action": "kms:CreateGrant",
+            "Resource": "*",
+            "Condition": {
+                "Bool": {
+                    "kms:GrantIsForAWSResource": "true"
+                },
+                "ForAllValues:StringEquals": {
+                    "kms:GrantOperations": [
+                        "Decrypt",
+                        "GenerateDataKey"
+                    ]
+                }
+            }
+        },
+        {
             "Sid": "AllowKeyAdministration",
             "Effect": "Allow",
             "Principal": {
@@ -74,11 +97,62 @@ The key policy for your customer managed key must grant OpenSearch UI permission
 }
 ```
 
-The policy includes two statements:
+The policy includes three statements:
 + The first statement allows OpenSearch UI to use the key for encryption operations.
-+ The second statement allows users in your AWS account to administer the key. This includes permissions to update the key policy, enable or disable the key, and schedule the key for deletion. You can further restrict these permissions by replacing the root principal with specific IAM users or roles.
++ The second statement allows OpenSearch UI to create an AWS KMS grant on the key so that it can encrypt AI Assistant Memory data for the agentic AI features. For more information, see [Enabling customer managed key encryption for AI Assistant Memory](#application-encryption-cmk-agentic-memory).
++ The third statement allows users in your AWS account to administer the key. This includes permissions to update the key policy, enable or disable the key, and schedule the key for deletion. You can further restrict these permissions by replacing the root principal with specific IAM users or roles.
 
 For more information about key policies, see [Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS KMS Developer Guide*.
+
+## Enabling customer managed key encryption for AI Assistant Memory
+<a name="application-encryption-cmk-agentic-memory"></a>
+
+If you use a customer managed key to encrypt your OpenSearch UI application, your key policy must also allow OpenSearch UI to create an AWS KMS grant for AI Assistant Memory. The key policy in [Prerequisites for using customer managed keys](#application-encryption-cmk-prerequisites) includes this permission in the `AllowOpenSearchUIToCreateGrantForAIAssistantMemory` statement. This section explains why the statement is required and how to recover an application that you created without it.
+
+AI Assistant Memory is a service-managed memory layer that powers Agentic Chat and the Investigation Agent in OpenSearch UI. It saves your past conversations so that ongoing conversations can persist across feature pages. For more information, see [AI Assistant Memory in Amazon OpenSearch Service](application-agentic-memory.md).
+
+Amazon OpenSearch Service enables the agentic AI features by default for new OpenSearch UI applications. You can turn them off by using the console or the API. For more information, see [Enabling and disabling agentic AI features](application-ai-assistant.md#application-ai-assistant-enable-disable). When the features are enabled, OpenSearch UI creates a collection in a service-managed Amazon OpenSearch Serverless account to store the memory data.
+
+To encrypt the memory data with your customer managed key, OpenSearch UI must create an AWS KMS grant on your key. The `AllowOpenSearchUIToUseKey` statement grants permissions only for metadata encryption. It doesn't include the `kms:CreateGrant` permission that AI Assistant Memory requires.
+
+**Note**  
+If your key policy doesn't include the grant permission, creating the application succeeds, but registering the AI Assistant Memory capability fails with a `KMS_KEY_INSUFFICIENT_PERMISSION` error. Add the following statement before you create the application.
+
+If your key policy already contains the other two statements shown in [Prerequisites for using customer managed keys](#application-encryption-cmk-prerequisites), add the following statement to the `Statement` array:
+
+```
+{
+    "Sid": "AllowOpenSearchUIToCreateGrantForAIAssistantMemory",
+    "Effect": "Allow",
+    "Principal": {
+        "Service": [
+            "application.opensearchservice.amazonaws.com"
+        ]
+    },
+    "Action": "kms:CreateGrant",
+    "Resource": "*",
+    "Condition": {
+        "Bool": {
+            "kms:GrantIsForAWSResource": "true"
+        },
+        "ForAllValues:StringEquals": {
+            "kms:GrantOperations": [
+                "Decrypt",
+                "GenerateDataKey"
+            ]
+        }
+    }
+}
+```
+
+This statement uses the following conditions:
++ `kms:GrantIsForAWSResource` allows the grant only when an AWS service creates it on your behalf, not when a principal creates one directly.
++ `kms:GrantOperations` limits the grant to the `Decrypt` and `GenerateDataKey` operations that AI Assistant Memory requires.
+
+**Important**  
+Add this as a separate statement in your key policy. Don't merge it into the existing `AllowOpenSearchUIToUseKey` statement. If you combine them, the `kms:GrantIsForAWSResource` condition applies to the `kms:Encrypt`, `kms:Decrypt`, `kms:GenerateDataKey`, and `kms:DescribeKey` actions and breaks metadata encryption.
+
+If you already created an application and the AI Assistant Memory capability failed to register, you don't need to create a new application. Add the statement to your key policy, and then call the [DeregisterCapability](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeregisterCapability.html) API followed by the [RegisterCapability](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_RegisterCapability.html) API on the existing application. The capability status changes from `create_failed` to `active`. This differs from changing the key itself, which requires a new application, as described in [Updating encryption settings](#application-encryption-cmk-update).
 
 ## Creating an application with customer managed key encryption using the console
 <a name="application-encryption-cmk-create-console"></a>

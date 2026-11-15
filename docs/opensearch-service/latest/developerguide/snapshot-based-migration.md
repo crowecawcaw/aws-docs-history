@@ -3,7 +3,9 @@
 # Using a snapshot to migrate data
 <a name="snapshot-based-migration"></a>
 
-In-place upgrades are the easier, faster, and more reliable way to upgrade a domain to a later OpenSearch or Elasticsearch version. Snapshots are a good option if you need to migrate from a pre-5.1 version of Elasticsearch or want to migrate to an entirely new cluster.
+In-place and clone-based upgrades are the easier and more reliable ways to upgrade a domain to a later OpenSearch or Elasticsearch version. Snapshots are a good option if you need to migrate from a pre-5.1 version of Elasticsearch or want to migrate to an entirely new cluster.
+
+If you cut over in a clone-based upgrade without a retention period, OpenSearch Service deletes the primary cluster. To return to the earlier version, restore a snapshot on a new domain.
 
 The following table shows how to use snapshots to migrate data to a domain that uses a different OpenSearch or Elasticsearch version. For more information about taking and restoring snapshots, see [Creating index snapshots in Amazon OpenSearch Service](managedomains-snapshots.md).
 
