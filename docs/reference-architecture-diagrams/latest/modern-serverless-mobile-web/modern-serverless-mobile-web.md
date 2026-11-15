@@ -53,7 +53,7 @@ The following steps describe the architecture:
 
 1. The unstructured data from Amazon ECS on AWS Fargate is sent to [Amazon Kinesis Data Firehose](https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html) in near real time towards the data lake in Amazon Simple Storage Service.
 
-1. [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) creates and publishes interactive business intelligence dashboards using [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/what-is.html) as the data source.
+1. [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) creates and publishes interactive business intelligence dashboards using [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/what-is.html) as the data source.
 
 1. [AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/what-is-glue.html) ETL connects to data stored in [Amazon Simple Storage Service](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) using the AWS Glue Data Catalog to store metadata such as table and column names.
 
