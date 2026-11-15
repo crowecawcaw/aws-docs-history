@@ -34,7 +34,7 @@ This parameter is available only in AWS SAM CLI version 0.30.0 and later. Speci
 `--architecture, -a {{[ x86_64 | arm64 ]}}`  <a name="sam-cli-command-reference-sam-init-options-architecture"></a>
 The instruction set architecture for your application's Lambda Event Functions. Specify one of `x86_64` or `arm64`.
 
-`--base-image {{[ amazon/dotnet8-base | amazon/dotnet6-base | amazon/java25-base | amazon/java21-base | amazon/java17-base | amazon/java17.al2023-base | amazon/java11-base | amazon/java11.al2023-base | amazon/java8.al2023-base | amazon/nodejs24.x-base | amazon/nodejs22.x-base | amazon/nodejs20.x-base | amazon/nodejs18.x-base | amazon/nodejs16.x-base | amazon/python3.14-base | amazon/python3.13-base | amazon/python3.12-base | amazon/python3.11-base | amazon/python3.10-base | amazon/python3.9-base | amazon/python3.8-base | amazon/ruby4.0-base | amazon/ruby3.4-base | amazon/ruby3.3-base | amazon/ruby3.2-base ]}}`  <a name="sam-cli-command-reference-sam-init-options-base-image"></a>
+`--base-image {{[ amazon/dotnet8-base | amazon/dotnet6-base | amazon/java25-base | amazon/java21-base | amazon/java17-base | amazon/java17.al2023-base | amazon/java11-base | amazon/java11.al2023-base | amazon/java8.al2023-base | amazon/nodejs26.x-base | amazon/nodejs24.x-base | amazon/nodejs22.x-base | amazon/nodejs20.x-base | amazon/nodejs18.x-base | amazon/nodejs16.x-base | amazon/python3.15-base | amazon/python3.14-base | amazon/python3.13-base | amazon/python3.12-base | amazon/python3.11-base | amazon/python3.10-base | amazon/python3.9-base | amazon/python3.8-base | amazon/ruby4.0-base | amazon/ruby3.4-base | amazon/ruby3.3-base | amazon/ruby3.2-base ]}}`  <a name="sam-cli-command-reference-sam-init-options-base-image"></a>
 The base image of your application. This option applies only when the package type is `Image`.  
 This parameter is required if `--no-interactive` is specified, `--package-type` is specified as `Image`, and `--location` is not specified.
 
@@ -85,7 +85,7 @@ The location where the initialized application is output.
 `--package-type {{[ Zip | Image ]}}`  <a name="sam-cli-command-reference-sam-init-options-package-type"></a>
 The package type of the example application. `Zip` creates a .zip file archive, and `Image` creates a container image.
 
-`--runtime, -r {{[ dotnet8 | dotnet6 | java25 | java21 | java17 | java17.al2023 | java11 | java11.al2023 | java8.al2023 | nodejs24.x | nodejs22.x | nodejs20.x | nodejs18.x | nodejs16.x | python3.14 | python3.13 | python3.12 | python3.11 | python3.10 | python3.9 | python3.8 | ruby4.0 | ruby3.4 | ruby3.3 | ruby3.2 ]}}`  <a name="sam-cli-command-reference-sam-init-options-runtime"></a>
+`--runtime, -r {{[ dotnet8 | dotnet6 | java25 | java21 | java17 | java17.al2023 | java11 | java11.al2023 | java8.al2023 | nodejs26.x | nodejs24.x | nodejs22.x | nodejs20.x | nodejs18.x | nodejs16.x | python3.15 | python3.14 | python3.13 | python3.12 | python3.11 | python3.10 | python3.9 | python3.8 | ruby4.0 | ruby3.4 | ruby3.3 | ruby3.2 ]}}`  <a name="sam-cli-command-reference-sam-init-options-runtime"></a>
 The Lambda runtime of your application. This option applies only when the package type is `Zip`.  
 This parameter is required if `--no-interactive` is specified, `--package-type` is specified as `Zip`, and `--location` is not specified.
 

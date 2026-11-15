@@ -11,7 +11,7 @@ The object describing the properties of a provisioned throughput.
 To declare this entity in your AWS Serverless Application Model (AWS SAM) template, use the following syntax.
 
 ### YAML
-<a name="w2aac13c22c53c19b5b5"></a>
+<a name="w2aac13c22c53c21b5b5"></a>
 
 ```
   [ReadCapacityUnits](#sam-simpletable-provisionedthroughputobject-readcapacityunits): {{Integer}}

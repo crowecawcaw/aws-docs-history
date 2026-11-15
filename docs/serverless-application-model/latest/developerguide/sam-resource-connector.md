@@ -126,7 +126,6 @@ The following example uses embedded connectors to define a source resource with 
 
 ```
 Transform: AWS::Serverless-2016-10-31
-Transform: AWS::Serverless-2016-10-31
 ...
 Resources:
   MyApi:

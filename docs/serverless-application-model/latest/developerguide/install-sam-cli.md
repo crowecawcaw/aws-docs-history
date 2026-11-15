@@ -11,7 +11,6 @@ For information on managing a currently installed version of the AWS SAM CLI, i
 Complete all [prerequisites](prerequisites.md) in the previous section before moving forward. This includes:  
 Signing up for an AWS account.
 Setting up secure access to AWS.
-Creating an access key ID and secret access key.
 Installing the AWS CLI.
 Configuring AWS credentials.
 

@@ -9,6 +9,8 @@ Event Function is the documentation name for the original Lambda function type, 
 
 The [AWS::Serverless::Function](#sam-resource-function) resource also supports the `Metadata` resource attribute, so you can instruct AWS SAM to build custom runtimes that your application requires. For more information about building custom runtimes, see [Building Lambda Event Functions with custom runtimes in AWS SAM](building-custom-runtimes.md).
 
+This resource also supports the `Connectors` resource `Attribute`. For more information, see [Managing resource permissions with AWS SAM connectors](managing-permissions-connectors.md).
+
 **Note**  
 When you deploy to AWS CloudFormation, AWS SAM transforms your AWS SAM resources into CloudFormation resources. For more information, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md).
 

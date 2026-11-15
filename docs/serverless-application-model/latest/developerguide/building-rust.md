@@ -94,14 +94,14 @@ Which runtime would you like to use?
         2 - dotnet6
         3 - go (provided.al2)
         ...
-        18 - python3.11
-        19 - python3.10
-        20 - ruby4.0
-        21 - ruby3.3
-        22 - ruby3.2
-        23 - rust (provided.al2)
-        24 - rust (provided.al2023)
-Runtime: {{24}}
+        19 - python3.11
+        20 - python3.10
+        21 - ruby4.0
+        22 - ruby3.3
+        23 - ruby3.2
+        24 - rust (provided.al2)
+        25 - rust (provided.al2023)
+Runtime: {{25}}
 
 Based on your selections, the only Package type available is Zip.
 We will proceed to selecting the Package type as Zip.

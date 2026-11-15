@@ -7,6 +7,8 @@ Creates an AWS Step Functions state machine, which you can use to orchestrate AW
 
 For more information about Step Functions, see the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html).
 
+This resource also supports the `Connectors` resource `Attribute`. For more information, see [Managing resource permissions with AWS SAM connectors](managing-permissions-connectors.md).
+
 **Note**  
 When you deploy to AWS CloudFormation, AWS SAM transforms your AWS SAM resources into CloudFormation resources. For more information, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md).
 

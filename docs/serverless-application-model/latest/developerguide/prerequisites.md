@@ -6,7 +6,7 @@
 Complete the following prerequisites before installing and using the AWS Serverless Application Model Command Line Interface (AWS SAM CLI).
 
 To use the AWS SAM CLI, you need the following:
-+ An AWS account, AWS Identity and Access Management (IAM) credentials, and an IAM access key pair.
++ An AWS account and AWS Identity and Access Management (IAM) credentials.
 + The AWS Command Line Interface (AWS CLI) to configure AWS credentials.
 
 **Topics**
@@ -31,8 +31,19 @@ To install the AWS CLI, see [ Installing or updating the latest version of the A
 ## Step 2: Use the AWS CLI to configure AWS credentials
 <a name="prerequisites-configure-credentials"></a>
 
+To configure credentials with your console sign-in, you need AWS CLI version 2.32.0 or later. The AWS CLI signs you in through your browser and creates temporary credentials, so you don't need an access key. For more information, see [Login for AWS local development using console credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sign-in.html) in the *AWS Command Line Interface User Guide*.
+
+**To configure credentials with your console sign-in**
++ At the command line, run the following AWS CLI command.
+
+  ```
+  $ aws login
+  ```
+
 **To configure credentials with IAM Identity Center**
 + To configure credentials with IAM Identity Center, see [Configure your profile with the AWS configure sso wizard](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html#cli-configure-sso-configure).
+
+We recommend that you use temporary credentials, such as console sign-in or IAM Identity Center. To configure credentials with an IAM user access key, store it in a profile with the `aws configure` command.
 
 **To configure credentials with the AWS CLI**
 

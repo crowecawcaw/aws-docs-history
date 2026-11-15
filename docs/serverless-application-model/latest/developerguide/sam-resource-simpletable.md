@@ -7,6 +7,8 @@ Creates a DynamoDB table with a single attribute primary key. It is useful when 
 
 For more advanced features, use an [AWS::DynamoDB::Table](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html) resource in CloudFormation. These resouces can be used in AWS SAM. They are comprehensive and provide further customization, including [key schema](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-keyschema.html) and [resource policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-resourcepolicy.html) customization.
 
+This resource also supports the `Connectors` resource `Attribute`. For more information, see [Managing resource permissions with AWS SAM connectors](managing-permissions-connectors.md).
+
 **Note**  
 When you deploy to AWS CloudFormation, AWS SAM transforms your AWS SAM resources into CloudFormation resources. For more information, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md).
 

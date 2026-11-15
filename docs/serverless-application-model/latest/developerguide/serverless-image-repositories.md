@@ -38,11 +38,13 @@ Amazon ECR Public replaced DockerHub starting with the AWS SAM CLI version 1.22
 | .NET 8 | [public.ecr.aws/sam/build-dotnet8](https://gallery.ecr.aws/sam/build-dotnet8) | 
 | .NET 7 | [public.ecr.aws/sam/build-dotnet7](https://gallery.ecr.aws/sam/build-dotnet7) | 
 | .NET 6 | [public.ecr.aws/sam/build-dotnet6](https://gallery.ecr.aws/sam/build-dotnet6) | 
+| Node.js 26 | [public.ecr.aws/sam/build-nodejs26.x](https://gallery.ecr.aws/sam/build-nodejs26.x) | 
 | Node.js 24 | [public.ecr.aws/sam/build-nodejs24.x](https://gallery.ecr.aws/sam/build-nodejs24.x) | 
 | Node.js 22 | [public.ecr.aws/sam/build-nodejs22.x](https://gallery.ecr.aws/sam/build-nodejs22.x) | 
 | Node.js 20 | [public.ecr.aws/sam/build-nodejs20.x](https://gallery.ecr.aws/sam/build-nodejs20.x) | 
 | Node.js 18 | [public.ecr.aws/sam/build-nodejs18.x](https://gallery.ecr.aws/sam/build-nodejs18.x) | 
 | Node.js 16 | [public.ecr.aws/sam/build-nodejs16.x](https://gallery.ecr.aws/sam/build-nodejs16.x) | 
+| Python 3.15 | [public.ecr.aws/sam/build-python3.15](https://gallery.ecr.aws/sam/build-python3.15) | 
 | Python 3.14 | [public.ecr.aws/sam/build-python3.14](https://gallery.ecr.aws/sam/build-python3.14) | 
 | Python 3.13 | [public.ecr.aws/sam/build-python3.13](https://gallery.ecr.aws/sam/build-python3.13) | 
 | Python 3.12 | [public.ecr.aws/sam/build-python3.12](https://gallery.ecr.aws/sam/build-python3.12) | 

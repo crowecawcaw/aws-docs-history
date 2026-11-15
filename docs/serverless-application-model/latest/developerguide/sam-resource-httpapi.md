@@ -11,6 +11,8 @@ For more information about using CloudFormation hooks, see [Registering hooks](h
 
 For more information about using IAM policies, see [Require that API routes have authorization](https://docs.aws.amazon.com/apigateway/latest/developerguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-require-authorization) in the *API Gateway Developer Guide*.
 
+This resource also supports the `Connectors` resource `Attribute`. For more information, see [Managing resource permissions with AWS SAM connectors](managing-permissions-connectors.md).
+
 **Note**  
 When you deploy to AWS CloudFormation, AWS SAM transforms your AWS SAM resources into CloudFormation resources. For more information, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md).
 
