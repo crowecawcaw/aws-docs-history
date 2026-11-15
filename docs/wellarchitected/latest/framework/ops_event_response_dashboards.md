@@ -25,14 +25,14 @@
 ## Implementation guidance
 <a name="implementation-guidance"></a>
 
- Dashboards effectively communicate the status of your system and business metrics and can be tailored to the needs of different audience groups. Tools like Amazon CloudWatch dashboards and Amazon Quick help you create interactive, real-time dashboards for system monitoring and business intelligence. 
+ Dashboards effectively communicate the status of your system and business metrics and can be tailored to the needs of different audience groups. Tools like Amazon CloudWatch dashboards and AWS Quick help you create interactive, real-time dashboards for system monitoring and business intelligence. 
 
 ### Implementation steps
 <a name="implementation-steps"></a>
 
 1.  **Identify stakeholder needs:** Determine the specific information needs of different audience groups, such as technical teams, leadership, and customers. 
 
-1.  ** Choose the right tools:** Select appropriate tools like [Amazon CloudWatch dashboards](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html) for system monitoring and [Amazon Quick](https://aws.amazon.com/quicksight/) for interactive business intelligence. [AWS Health](https://docs.aws.amazon.com/health/latest/ug/what-is-aws-health.html) provides a ready-to-use experience in the [AWS Health Dashboard](https://health.aws.amazon.com/health/home), or you can use Health events in Amazon EventBridge or through the AWS Health API to augment your own dashboards. 
+1.  ** Choose the right tools:** Select appropriate tools like [Amazon CloudWatch dashboards](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html) for system monitoring and [AWS Quick](https://aws.amazon.com/quicksight/) for interactive business intelligence. [AWS Health](https://docs.aws.amazon.com/health/latest/ug/what-is-aws-health.html) provides a ready-to-use experience in the [AWS Health Dashboard](https://health.aws.amazon.com/health/home), or you can use Health events in Amazon EventBridge or through the AWS Health API to augment your own dashboards. 
 
 1.  **Design effective dashboards:** 
    +  Design dashboards to clearly present relevant metrics and KPIs, ensuring they are understandable and actionable. 

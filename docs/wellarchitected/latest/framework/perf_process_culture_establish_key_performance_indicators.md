@@ -30,7 +30,7 @@
 +  **Identify metrics:** Identify metrics that are aligned with your workload objectives and can help you measure performance and business goals. Establish KPIs based on these metrics. Example metrics are measurements like average response time or number of concurrent users. 
 + **Define and document KPIs:** Use industry best practices and your workload objectives to set targets for your workload KPI. Use this information to set KPI thresholds for severity or alarm level. Identify and document the risk and impact of a KPI is not met. 
 + **Implement monitoring:** Use monitoring tools such as [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/) or [AWS Config](https://aws.amazon.com/config/) to collect metrics and measure KPIs. 
-+ **Visually communicate KPIs:** Use dashboard tools like [Amazon Quick](https://aws.amazon.com/pm/quicksight/) to visualize and communicate KPIs with stakeholders. 
++ **Visually communicate KPIs:** Use dashboard tools like [AWS Quick](https://aws.amazon.com/pm/quicksight/) to visualize and communicate KPIs with stakeholders. 
 + **Analyze and optimize:** Regularly review and analyze KPIs to identify areas of your workload that need to be improved. Work with stakeholders to implement these improvements. 
 + **Revisit and refine:** Regularly review metrics and KPIs to assess their effectiveness, especially when business goals or workload performance change. 
 
