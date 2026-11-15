@@ -9,4 +9,4 @@ As with other AWS products, there are no contracts or minimum commitments for us
 
 For detailed pricing information, see [AWS Elemental Inference pricing](https://aws.amazon.com/elemental-inference/pricing/).
 
-If you use the Elemental Inference playground to preview smart cropping, each job incurs AWS Elemental MediaConvert charges in addition to Elemental Inference charges. You're charged only when a job completes successfully. For MediaConvert pricing, see [AWS Elemental MediaConvert pricing](https://aws.amazon.com/mediaconvert/pricing/). For more information about the playground, see [Using the Elemental Inference playground](playground.md).
+If you use the Elemental Inference playground, each job or preview incurs AWS Elemental MediaConvert charges in addition to Elemental Inference charges. For MediaConvert pricing, see [AWS Elemental MediaConvert pricing](https://aws.amazon.com/mediaconvert/pricing/). For more information about the playground, see [Using the Elemental Inference playground](playground.md).

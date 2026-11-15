@@ -3,16 +3,17 @@
 # Using the Elemental Inference playground
 <a name="playground"></a>
 
-The Elemental Inference playground lets you preview smart cropping on a recorded MP4 video file in Amazon S3, without setting up a live feed. Use it to see how smart cropping reframes your content before you build a live workflow.
+Use the Elemental Inference playground to try Elemental Inference on an MP4 video file in Amazon S3, without setting up a live feed. Choose one of two kinds of jobs:
++ **Smart Cropping** – AWS Elemental MediaConvert writes a 1080x1920 portrait MP4 (H.264 video, stereo AAC audio) to your Amazon S3 folder. Choose this to get a cropped video file.
++ **All features** – The console runs smart cropping, event clipping, smart subtitles, and contextual metadata on a clip of 5 seconds to 5 minutes, and shows each feature's results as the clip plays. Choose this to see what each feature returns for your content. It doesn't write a cropped video, and your browser tab must stay open until it finishes. For more information, see [Previewing all features](playground-preview.md).
 
-When you submit a playground job, it runs as an AWS Elemental MediaConvert job in your account. During the job, MediaConvert creates an Elemental Inference feed to analyze the video, and then deletes the feed when the job ends. MediaConvert writes the reframed output – a 1080x1920 portrait MP4 with H.264 video and stereo AAC audio – to the Amazon S3 location that you choose.
-
-Smart cropping in the playground is the same feature described in the AWS Elemental MediaConvert documentation. For how smart cropping works and the list of AWS Regions where it is available, see [Smart Cropping with Elemental Inference](https://docs.aws.amazon.com/mediaconvert/latest/ug/smart-cropping-with-elemental-inference.html) in the AWS Elemental MediaConvert User Guide.
+For how smart cropping works and the AWS Regions where it's available, see [Smart Cropping with Elemental Inference](https://docs.aws.amazon.com/mediaconvert/latest/ug/smart-cropping-with-elemental-inference.html) in the AWS Elemental MediaConvert User Guide.
 
 **Topics**
 + [How the playground works](playground-how-it-works.md)
 + [Permissions](playground-permissions.md)
-+ [Creating a playground job](playground-create-job.md)
++ [Creating a Smart Cropping job](playground-create-job.md)
++ [Previewing all features](playground-preview.md)
 + [Viewing job results](playground-job-details.md)
 + [Pricing](playground-pricing.md)
 + [Troubleshooting](playground-troubleshooting.md)

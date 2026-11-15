@@ -3,15 +3,10 @@
 # How the playground works
 <a name="playground-how-it-works"></a>
 
-The playground uses two resources in your account:
-+ An IAM service role named `ElementalInferencePlaygroundServiceRole`. You create this role from the **Create job** page before your first job. The role applies to every AWS Region.
-+ The first time you submit a job in an AWS Region, the console creates a dedicated MediaConvert queue named `ElementalInferencePlaygroundQueue`. This queue allows a maximum of one concurrent feed. As a result, playground jobs run one at a time and use no more than one feed from your Elemental Inference quota.
+The playground runs every job in your own AWS account. Both kinds of jobs use two resources there, and the console sets up both for you:
++ An IAM service role named `ElementalInferencePlaygroundServiceRole`. You create it once, from the **Create job** page, and it applies to every AWS Region. For more information, see [Permissions](playground-permissions.md).
++ An MediaConvert queue named `ElementalInferencePlaygroundQueue`. The console creates it the first time that you run a job in a Region. The queue lets its jobs use only one Elemental Inference feed at a time, so Smart Cropping jobs run one at a time and use at most one feed from your Elemental Inference quota. Don't delete this queue. The playground lists its jobs from it.
 
-We recommend that you don't delete this queue, so that your job history remains available.
+A Smart Cropping job uses a feed that MediaConvert creates and deletes. A preview creates its own temporary feed in your account, streams the clip to it from your browser, and deletes it when the preview ends.
 
-After these resources exist, each job that you submit does the following:
-+ The console submits an MediaConvert job.
-+ MediaConvert briefly creates and then deletes an Elemental Inference feed to analyze the video.
-+ MediaConvert writes the reframed output to your Amazon S3 location.
-
-Jobs appear in the **Playground Jobs** table with a status of **Queued**, **Processing**, **Complete**, **Canceled**, or **Error**.
+A preview saves its clip segments and results in a folder named `ei-preview-{{run-id}}/` in your output location, so that you can reopen it later without running it again.

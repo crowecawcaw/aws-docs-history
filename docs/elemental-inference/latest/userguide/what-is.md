@@ -3,11 +3,13 @@
 # What Is Elemental Inference?
 <a name="what-is"></a>
 
-AWS Elemental Inference is a real-time service that lets you easily apply machine learning models to video, audio, and image content for automated analysis, classification, and insights generation. Features include smart crop, event clipping, smart subtitles, and contextual metadata. Smart subtitles uses automatic speech recognition (ASR) to generate TTML subtitles from audio in your source media. Contextual metadata uses AI to classify video content at the shot level and at the scene level. These classifications enable contextual ad targeting.
+AWS Elemental Inference is a real-time service that applies machine learning models to your video, audio, and image content. You can use Elemental Inference to analyze and classify your content, and to generate insights from it. Elemental Inference has the following features:
++ **Smart crop** – Identifies the regions of interest in your video frames.
++ **Event clipping** – Detects notable events in your content, so that you can extract them as clips.
++ **Smart subtitles** – Uses automatic speech recognition (ASR) to generate Timed Text Markup Language (TTML) subtitles from the audio in your source media.
++ **Contextual metadata** – Classifies your video content at the shot level and at the scene level. You can use these classifications to target ads to the content that a viewer is watching. For more information about contextual metadata, see [Querying contextual metadata](query-metadata-query.md#query-metadata-contextual).
 
-You can also add your own analysis to a feed by using a function, which runs a prompt that you write against an Amazon Bedrock model that you choose, or reshapes metadata that Elemental Inference has already produced. A function runs alongside the other features on a feed and publishes its result with their metadata. Elemental Inference invokes the model in your own AWS account. For more information, see [Using functions in Elemental Inference](functions.md).
-
-To preview smart cropping on a recorded video without setting up a live feed, use the Elemental Inference playground. For more information, see [Using the Elemental Inference playground](playground.md).
+To preview smart cropping on its own, or together with event clipping, smart subtitles, and contextual metadata, on a recorded video without setting up a live feed, use the Elemental Inference playground. For more information about the playground, see [Using the Elemental Inference playground](playground.md).
 
 **Topics**
 + [Accessing Elemental Inference](what-is-accessing.md)

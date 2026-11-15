@@ -7,7 +7,6 @@ Elemental Inference validates a feed policy when you attach it, and rejects the 
 + The policy must include the `Version` and `Statement` elements.
 + Each statement must include the `Sid`, `Effect`, `Principal`, `Action`, and `Resource` elements. The `Sid` value must be unique within the policy.
 + The only supported action is `elemental-inference:GetMetadata`.
-+ The `Principal` element cannot be a wildcard (`*`).
 + The policy cannot use the `NotAction`, `NotPrincipal`, or `NotResource` elements, and cannot specify a principal group.
 + The policy document can be at most 2,048 characters.
 
