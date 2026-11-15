@@ -19,8 +19,8 @@ When you need to update your AWS Elemental MediaPackage CDN authorization creden
 
 **Emergency rotation details**  
 In emergency situations where you need to immediately invalidate a secret, do one of the following:
-+ Update the endpoint configuration to remove the compromised secret ARN and replace it with a new secret ARN.
++ Update the endpoint configuration to remove the compromised secret ARN and replace it with a new secret ARN. After 5 minutes, MediaPackage will no longer accept the compromised secret value.
 + Alternatively, rotate the secret twice in quick succession. After 5 minutes, MediaPackage will no longer accept the old secret values since the incoming header value would not match either the current or previous secret.
 
 **Note**  
-MediaPackage caches secret values for 5 minutes. During this period, both the old and new secret values may be valid for authorization.
+MediaPackage caches CDN authorization settings, including secret values and the secret ARNs configured on the endpoint, for up to 5 minutes. After you rotate a secret value, replace a secret ARN, or remove CDN authorization from an endpoint, it can take up to 5 minutes for the change to take effect. During this period, MediaPackage might still accept the previous secret value.

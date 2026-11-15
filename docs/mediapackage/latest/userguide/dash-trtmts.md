@@ -38,3 +38,4 @@ MediaPackage can modify how some of these elements are presented in the output m
 + Separate the manifest into multiple periods, to permit ad breaks. See [Multi-period DASH in AWS Elemental MediaPackage](multi-period.md).
 + Reduce the length of the manifest to make processing and playback more efficient. See [DASH manifest compactness](compacted.md).
 + Compress repeating audio segment durations using Segment Duration Patternization (SDP). See [DASH audio timeline pattern](dash-audio-timeline-pattern.md).
++ Control whether the `bandwidth` attribute of video representations reports the average or the peak bitrate. See [DASH bandwidth reporting](dash-bandwidth-reporting.md).

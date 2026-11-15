@@ -5,13 +5,13 @@
 
 The following outlines the general flow of live content in MediaPackage:
 
-1. An upstream encoder (such as AWS Elemental MediaLive) sends an HLS live stream using AWS Signature Version 4 to authorize request to your origin and your IAM channel policy. If you're using input redundancy, the encoder sends two identical HLS live streams to MediaPackage, one to each ingest domain on the channel. MediaPackage uses the stream from one ingest URL as the source content. If MediaPackage stops receiving content on the active ingest URL, it automatically switches to the other ingest URL for source content. Additionally, AWS scales resources up and down to handle the incoming traffic.
+1. An upstream encoder (such as AWS Elemental MediaLive) sends an HLS or CMAF live stream using AWS Signature Version 4 to authorize request to your origin and your IAM channel policy. If you're using input redundancy, the encoder sends two identical live streams to MediaPackage, one to each ingest domain on the channel. MediaPackage uses the stream from one ingest URL as the source content. If MediaPackage stops receiving content on the active ingest URL, it automatically switches to the other ingest URL for source content. Additionally, AWS scales resources up and down to handle the incoming traffic.
 
    For more information, see [Live input redundancy AWS Elemental MediaPackage processing flow](what-is-flow-ir.md).
 **Note**  
 To permit support for features like time-shifted viewing, MediaPackage stores all received content for a limited time. This stored content is only available for playback if it falls within the **startover window** that's defined on the endpoint. Stored content isn't available for playback if it's outside the startover window, or if you haven't defined a window on the endpoint. For more information, see [Time-shifted viewing with AWS Elemental MediaPackage](time-shifted.md).
 
-1. A downstream device requests content from MediaPackage through the endpoint egress domain. A downstream device is either a video player or a CDN. The egress domain is associated with a channel group and an endpoint for a specific streaming format (either TS or CMAF).
+1. A downstream device requests content from MediaPackage through the endpoint egress domain. A downstream device is either a video player or a CDN. The egress domain is associated with a channel group and an endpoint for a specific container type (`TS`, `CMAF`, or `ISM`). Depending on its container type, an endpoint can serve HLS, low-latency HLS, DASH, or Microsoft Smooth Streaming (MSS) manifests.
 
 1. When MediaPackage receives the playback request from the downstream device, it dynamically packages the stream according to the settings that you specified on the origin endpoint. Packaging can include adding encryption and configuring audio, video, and subtitles or captions track outputs.
 

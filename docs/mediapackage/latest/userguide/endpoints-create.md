@@ -346,6 +346,12 @@ If the outputs from this endpoint will be compliant with DVB-DASH, you must adhe
 
    For more information about audio timeline patterns, see [DASH audio timeline pattern](dash-audio-timeline-pattern.md).
 
+1. For **Bandwidth reporting mode**, choose how MediaPackage calculates the `bandwidth` attribute of video representations in the DASH manifest:
+   + **Average** – Reports the average bitrate of the source video track. This is the default setting.
+   + **Max** – Reports the peak bitrate of the video stream. The peak value doesn't include audio.
+
+   For more information about bandwidth reporting, see [DASH bandwidth reporting](dash-bandwidth-reporting.md).
+
 1. For **Profiles**, optionally choose if the output is compliant with DVB-DASH. Review the DVB-DASH requirements to ensure the endpoint is compliant with this profile:
    + The channel must use CMAF input
    + The endpoint must not use **UTC Direct** for UTC timing mode

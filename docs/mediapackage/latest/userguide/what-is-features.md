@@ -26,7 +26,7 @@ MediaPackage supports rendition groups for incoming and outgoing HLS content. Fo
 
 **Input Redundancy**  
 Input redundancy is available with only live workflows in MediaPackage.  
-MediaPackage creates two ingest URLs on every channel group so that you can create input redundancy by sending two identical streams to the same channel. For information about how input redundancy works, see [Live input redundancy AWS Elemental MediaPackage processing flow](what-is-flow-ir.md).
+MediaPackage creates two ingest URLs on every channel so that you can create input redundancy by sending two identical streams to the same channel. For information about how input redundancy works, see [Live input redundancy AWS Elemental MediaPackage processing flow](what-is-flow-ir.md).
 
 **Low-latency streaming**  
 MediaPackage supports Apple low-latency HLS, which is a technology aimed at reducing the delay between the time content is captured and the time it is displayed on the viewer's screen. The goal is to achieve minimal end-to-end delay (or "glass-to-glass" delay) by using techniques such as parallel delivery and reduced buffering. This technology enables a more seamless and immersive real-time viewing experience for users, particularly in applications such as live video streaming, teleconferencing, and online gaming.
@@ -40,5 +40,5 @@ Time-shift viewing is available with only live workflows in MediaPackage.
 MediaPackage supports playback of a stream at a time earlier than the current time. Start-over, catch-up TV, and time delay are all supported. For more information about setting up time-shift capabilities, see [Time-shifted viewing with AWS Elemental MediaPackage](time-shifted.md).
 
 **Video**  
-MediaPackage supports the input H.264 video codec and passes it through to the output stream. CMAF endpoints in MediaPackage also support H.265/HEVC and HDR-10, following the Apple specification to applicable playback devices.  
+MediaPackage passes your encoder's video through to the output stream without transcoding, so the codecs you can deliver are the ones your encoder sends. MediaPackage supports H.264 (AVC), H.265 (HEVC) with HDR-10 or Dolby Vision Profile 8.1, and AV1. AV1 is supported only on CMAF endpoints. If a TS endpoint is on a channel that carries AV1, the AV1 tracks don't appear in its output. For codec support by endpoint and manifest type, see [Supported inputs and outputs](supported-inputs.md).  
 MediaPackage requires at least one video track to be present in the stream configuration from the encoder. The service doesn't support audio-only ingest.

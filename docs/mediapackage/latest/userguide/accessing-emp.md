@@ -14,7 +14,7 @@ You can access MediaPackage using any of the following methods.
   ```
   aws mediapackagev2
   ```
-+ **MediaPackage API** - For information about API actions and about how to make API requests, see the [AWS Elemental MediaConnect API Reference](https://docs.aws.amazon.com/mediaconnect/latest/api/). 
++ **MediaPackage API** - For information about API actions and about how to make API requests, see the [AWS Elemental MediaPackage V2 Live API Reference](https://docs.aws.amazon.com/mediapackage/latest/APIReference/Welcome.html).
 
   ```
   https://mediapackagev2.{{region}}.amazonaws.com 
