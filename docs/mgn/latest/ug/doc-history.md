@@ -11,6 +11,8 @@ For additional details regarding new features and major updates, [see the MGN re
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Added support for source disks up to 64 TiB | MGN now supports source disks up to 64 TiB. Added the disk size each staging disk type supports and guidance on replicating large disks. Added troubleshooting for a staging disk type that is too small for the disk and for data replication that takes a long time. For more information, see [Disk size by staging disk type](ebs-storage.md#staging-disk-size). | November 12, 2026 | 
+| Terminology glossary added | Added a glossary of core AWS Transform MGN terms, with a short definition and a link to more information for each term. For more information, see [Terminology](what-is-mgn.md#mgn-terminology). | November 10, 2026 | 
 | AWS Transform MGN now supports Ubuntu 26.04 LTS | Added Ubuntu 26.04 LTS to the list of supported Linux operating systems. | November 4, 2026 | 
 | Update support matrix with new OS | Added Debian 13 to the list of supported Linux operating systems. | October 29, 2026 | 
 | Quick start guide reorganized | Reorganized the quick start guide into a single checklist page that summarizes each step of the migration and links to the detailed instructions. For more information, see [Quick start guide for AWS Transform MGN](quick-start-guide-gs.md). | October 28, 2026 | 
@@ -24,8 +26,8 @@ For additional details regarding new features and major updates, [see the MGN re
 | Added Oracle Linux 9.6 support | Added Oracle Linux 9.6 to the list of supported Linux operating systems. | August 23, 2026 | 
 | Added Amazon Linux 2023 with kernel 6.18 support | Added Amazon Linux 2023 with kernel 6.18 to the list of supported Linux operating systems. | August 5, 2026 | 
 | Added RHEL, Rocky Linux, and AlmaLinux 9.8 support | Added RHEL 9.8, Rocky Linux 9.8, and AlmaLinux 9.8 to the list of supported Linux operating systems. | July 12, 2026 | 
-| Added Windows 11 to the no-rescan upon reboot supported OS list | Added Windows 11 to the [no-rescan upon reboot](Agent-Related-FAQ.md#agent-no-rescan) supported OS list. | June 18, 2026 | 
-| Updated no-rescan supported OS list | Added Windows Server 2025, CentOS Stream 9, and CentOS Stream 10 to the [no-rescan upon reboot](Agent-Related-FAQ.md#agent-no-rescan) supported OS list. | June 17, 2026 | 
+| Added Windows 11 to the no-rescan upon reboot supported OS list | Added Windows 11 to the [no-rescan upon reboot](Replication-Related-FAQ.md#agent-no-rescan) supported OS list. | June 18, 2026 | 
+| Updated no-rescan supported OS list | Added Windows Server 2025, CentOS Stream 9, and CentOS Stream 10 to the [no-rescan upon reboot](Replication-Related-FAQ.md#agent-no-rescan) supported OS list. | June 17, 2026 | 
 | Added Oracle Linux 10.1 support | Added Oracle Linux 10.1 to the list of supported Linux operating systems. | June 16, 2026 | 
 | Added FSx for ONTAP as a target storage type (Public Preview) | You can now choose FSx for ONTAP as the target storage type for migrated workloads (Public Preview). Added [FSx for ONTAP configuration](fsx-ontap.md) and [Troubleshooting FSx for ONTAP issues](fsx-ontap-troubleshooting.md). | June 16, 2026 | 
 | Updated support matrix with new OS | Added Windows 11 to the list of supported Windows operating systems. | June 10, 2026 | 

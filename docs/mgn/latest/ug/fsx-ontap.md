@@ -11,7 +11,7 @@ This page provides step-by-step instructions for configuring Amazon FSx for NetA
 FSx for ONTAP as a target storage type is available in all AWS Regions where both MGN and FSx for ONTAP are available. This storage type is not available in Local Zones. For supported regions, see [MGN supported regions](https://docs.aws.amazon.com/mgn/latest/ug/what-is-mgn.html#supported-regions) and [FSx for ONTAP availability by Region](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/available-aws-regions.html).
 
 **Important**  
-Do not rename or modify MGN-managed FSx for ONTAP resources (LUNs, igroups, snapshots). Changes to these resources disrupt migration and require restarting the migration from the beginning.
+Do not rename or modify MGN-managed FSx for ONTAP resources, such as logical unit numbers (LUNs), igroups, and snapshots. Changes to these resources disrupt migration and require restarting the migration from the beginning.
 
 ### Known limitations
 <a name="fsx-ontap-known-limitations"></a>
@@ -28,8 +28,8 @@ Do not rename or modify MGN-managed FSx for ONTAP resources (LUNs, igroups, snap
 
 Before integrating FSx for ONTAP with MGN, ensure the following:
 + **MGN Setup**: MGN initialized in your AWS account with agent-based replication.
-**Important**  
-If you initialized MGN before FSx for ONTAP support was available, you must reinitialize the service to create the required AWS managed roles. In the MGN console, navigate to **Settings → Replication template** and choose **Reinitialize Service Permissions**. For details on these roles and their managed policies, see [AWS Transform MGN managed policies](security-iam-awsmanpol.md).
+
+  If you initialized MGN before FSx for ONTAP support was available, reinitialize the service to create the required AWS managed roles. In the MGN console, navigate to **Settings → Replication template** and choose **Reinitialize Service Permissions**. For information about these roles and their managed policies, see [AWS Transform MGN managed policies](security-iam-awsmanpol.md).
 + **VPC Configuration**: FSx for ONTAP and MGN instances must be in the same AWS account and Region. They can use the same VPC or different VPCs in which both the source and target are routable. IPv4 connectivity is required. As a best practice, use a Multi-AZ FSx for ONTAP file system when your applications require resiliency across Availability Zones. Deploy your target EC2 instances in the same AZ as the file system's preferred file server to minimize latency. If your applications do not require cross-AZ resiliency, you can use a Single-AZ FSx for ONTAP file system. Deploy your target EC2 instances in the same AZ as the file system to minimize latencies and avoid cross-AZ data transfer charges.
 + **OS package repository access**: MGN automatically installs iSCSI initiator and multipath packages on replication servers and launched instances. Ensure that both the staging area subnet and the launch subnet have outbound access to OS package repositories (for example, through a NAT gateway or internet gateway). For the full list of required URLs, see [Network requirements for FSx for ONTAP](preparing-environments.md#fsx-ontap-network-requirements).
 
@@ -47,7 +47,6 @@ Because `FSx-ONTAP-SG` references `MGN-Instances-SG` as the source in its inboun
 
 Create this security group in the VPC where MGN will launch target instances.
 
-**Important**  
 If you use different VPCs for replication and launch, create two security groups with distinct names for clarity. For example, use `MGN-Replication-SG` (in the staging VPC) and `MGN-Launch-SG` (in the launch VPC).
 
 **Steps to create**
@@ -155,22 +154,28 @@ MGN can work with an existing FSx for ONTAP file system or a new one. If you do 
 
 1. Wait for the file system to reach **Available** status (approximately 30-45 minutes).
 
-**Important for MGN integration**  
-**For Multi-AZ deployments**: you must specify an Endpoint IPv4 address range (not unallocated or floating) that is outside your VPC CIDR. Use the "Enter an IPv4 address range" option and provide a specific range within RFC 1918 private address space (for example, `192.168.1.0/24`). This is required for MGN integration to ensure consistent endpoint addressing.
-**Storage capacity**: MGN uses FSx for ONTAP storage for replication, conversion, and cutover. These processes require temporary storage on the file system. Ensure that sufficient space is available on the FSx for ONTAP file system and increase capacity if needed. As a guideline, provision 3x the size of the planned migration data. The 3x factor accounts for three concurrent storage consumers during migration: the replicated data, the converted volumes used for launch, and the original volumes pending deletion. Volume deletion in FSx for ONTAP is a background operation, so freed capacity is not available immediately after deletion, so headroom must be provisioned upfront. As a best practice, keep the file system at or below 80% SSD capacity utilization throughout the migration. For second-generation file systems ([Single-AZ 2 and Multi-AZ 2](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/high-availability-AZ.html) deployment types), you can decrease storage capacity after migration is complete. For more information, see [Managing storage capacity and provisioned IOPS](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/storage-capacity-and-IOPS.html).
-**Throughput capacity**: Higher throughput capacity reduces migration time. Throughput is selected from supported values and is a billable dimension. To size throughput for migration, sum the average read throughput and write throughput across all source servers being migrated to the file system, add 15% headroom, and round up to the next supported value. Plan your throughput capacity before starting migration, as changes take time to take effect. You can reduce throughput after migration is complete. For more information, see [Managing throughput capacity](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-throughput-capacity.html) and [FSx for ONTAP performance](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/performance.html).
+For instructions on creating and configuring FSx for ONTAP file systems, see [Creating FSx for ONTAP file systems](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/creating-file-systems.html).
 
-**Disable Autonomous Ransomware Protection (ARP)**  
-If ONTAP ARP is enabled on the file system, disable it before migration. ARP can prevent MGN from deleting replication volumes on Finalize cutover/Disconnect from service migration stage. For more information, see [Enabling Autonomous Ransomware Protection](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/enable-ARP.html).
+### File system settings for MGN
+<a name="fsx-ontap-mgn-filesystem-settings"></a>
 
-For detailed instructions on creating and configuring FSx for ONTAP file systems, see [Creating FSx for ONTAP file systems](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/creating-file-systems.html).
+Configure the following file system settings for MGN integration.
++ **For Multi-AZ deployments**: you must specify an Endpoint IPv4 address range (not unallocated or floating) that is outside your VPC CIDR. Use the "Enter an IPv4 address range" option and provide a specific range within RFC 1918 private address space (for example, `192.168.1.0/24`). This is required for MGN integration to ensure consistent endpoint addressing.
++ **Storage capacity**: Migration can require up to three times the total provisioned capacity of all source disks that you migrate. The maximum applies when all of the following consumers exist at the same time:
+  + Replication volumes for source servers that are still migrating
+  + Target FlexClone volumes that MGN uses for launch
+  + Volumes that are pending deletion. FSx for ONTAP frees their capacity in the background rather than immediately.
+
+  To avoid running out of capacity during migration, we recommend that you set the file system's SSD storage capacity to 3x the total provisioned capacity of your source disks before you start. You need this capacity only while the migration runs. On second-generation file systems ([Single-AZ 2 and Multi-AZ 2](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/high-availability-AZ.html)), you can decrease storage capacity after the migration is complete. To stay at or below 80% SSD capacity utilization, divide the result by 0.8. For example, for 10 TiB of source disks, set 30 TiB, or set 37.5 TiB to stay at or below 80% utilization. For more information about storage capacity, see [Managing storage capacity and provisioned IOPS](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/storage-capacity-and-IOPS.html).
++ **Throughput capacity**: Higher throughput capacity reduces migration time. Throughput is selected from supported values and is a billable dimension. To size throughput for migration, sum the average read throughput and write throughput across all source servers being migrated to the file system, add 15% headroom, and round up to the next supported value. Plan your throughput capacity before starting migration, as changes take time to take effect. You can reduce throughput after migration is complete. For more information, see [Managing throughput capacity](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-throughput-capacity.html) and [FSx for ONTAP performance](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/performance.html).
++ **Autonomous Ransomware Protection (ARP)**: If ONTAP ARP is enabled on the file system, disable it before migration. Otherwise, ARP can prevent MGN from deleting replication volumes. This happens during the Finalize cutover and Disconnect from service migration stages. For more information about ARP, see [Enabling Autonomous Ransomware Protection](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/enable-ARP.html).
++ **Maintenance window**: FSx for ONTAP maintenance can interrupt replication and test and cutover launches. Before you start the migration, move the maintenance window outside your migration timeline. If the migration takes longer than 14 days, schedule the window for a time when you don't plan any launches. For more information, see [Optimizing performance with FSx for ONTAP maintenance windows](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/maintenance-windows.html).
 
 ## Step 3: Configure certificate-based authentication
 <a name="fsx-ontap-step3-certificate-auth"></a>
 
 **Certificate-based authentication is required for MGN to access the ONTAP REST API.** MGN handles TLS validation internally using AWS Certificate Authorities.
 
-**Note**  
 MGN does not use CHAP for iSCSI. iSCSI access is controlled via security groups, and MGN authenticates to the ONTAP management API using client certificates as described in this section.
 
 ### Create client certificate for API authentication
@@ -187,8 +192,7 @@ Generate a client certificate that FSx for ONTAP will require and MGN will use t
 | AWS Private Certificate Authority | Production (Recommended) | [AWS Private Certificate Authority](https://docs.aws.amazon.com/privateca/latest/userguide/PcaWelcome.html) | 
 | External Certificate Authority | Production (Enterprise PKI) | Use your organization's CA process | 
 
-**Note**  
-The private key must be in PKCS\#8 format (`-----BEGIN PRIVATE KEY-----`). If your key starts with `-----BEGIN RSA PRIVATE KEY-----` (PKCS\#1), convert it:  
+The private key must be in PKCS\#8 format (`-----BEGIN PRIVATE KEY-----`). If your key starts with `-----BEGIN RSA PRIVATE KEY-----` (PKCS\#1), use the following OpenSSL commands to convert it:
 
 ```
 [~]$ openssl pkcs8 -topk8 -inform PEM -outform PEM -nocrypt \
@@ -270,9 +274,11 @@ Store the client certificate and private key in AWS Secrets Manager (Secrets Man
 
 **Required secret format:**
 
-MGN expects the secret to contain exactly two keys:
+MGN expects the secret to contain exactly two keys, with these exact names:
 + `cert`: The client certificate content (`fsx-mgn-client.crt`)
 + `key`: The private key content (`fsx-mgn-client.key`)
+
+Don't use other key names, such as `certificate` or `private_key`, and don't add other keys, such as `username`.
 
 **Store using AWS Console:**
 
@@ -293,11 +299,6 @@ MGN expects the secret to contain exactly two keys:
 1. Choose **Next** → **Store**.
 
 1. **Copy the Secret ARN**. You need this for MGN configuration.
-
-**Important**  
-Use `cert` (not `certificate`).
-Use `key` (not `private_key`).
-Do NOT include a `username` field.
 
 **Example Secret ARN:**
 
@@ -335,8 +336,7 @@ Changing the storage provider for a source server that is already replicating te
 
 1. Choose **Save changes**.
 
-**Note**  
-Migration Acceleration Program (MAP) 2.0 tags are applied to the FSx for ONTAP file system but not to individual FSx for ONTAP volumes.
+Migration Acceleration Program (MAP) 2.0 tags apply to the FSx for ONTAP file system but not to individual FSx for ONTAP volumes.
 
 ## Step 6: Configure launch template and launch settings
 <a name="fsx-ontap-step6-launch-settings"></a>

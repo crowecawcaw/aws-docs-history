@@ -5,6 +5,7 @@
 
 ## November 2026
 <a name="release-notes-nov-2026"></a>
++ MGN now supports source disks up to 64 TiB, up from 16 TiB. A disk larger than 16 TiB must use a General Purpose SSD (gp3) or Provisioned IOPS SSD (io2) staging disk. For more information, see [Disk size by staging disk type](ebs-storage.md#staging-disk-size) and [Replicating large disks](ebs-storage.md#large-disks).
 + Added support for the following operating systems:
   + Ubuntu 26.04 LTS
 
@@ -57,7 +58,7 @@ Added support for the following operating systems:
   + Windows 11
   + Oracle Linux 9.7 and 10.1
   + CentOS Stream 10
-+ Added no-rescan upon reboot support for Windows Server 2025, Windows 11, CentOS Stream 9, and CentOS Stream 10. For more information, see [Supported operating systems for no-rescan upon reboot](Agent-Related-FAQ.md#agent-no-rescan).
++ Added no-rescan upon reboot support for Windows Server 2025, Windows 11, CentOS Stream 9, and CentOS Stream 10. For more information, see [Supported operating systems for no-rescan upon reboot](Replication-Related-FAQ.md#agent-no-rescan).
 + You can now update the user-provided ID for a source server. For more information, see [Edit server](add-server-server-page.md#server-edit-main).
 + You can now delete a source server from the service. For more information, see [Actions menu](add-server-server-page.md#server-actions-main).
 
@@ -251,7 +252,7 @@ Added support for the following operating systems:
 + Introduced support for Wave management. [Learn more about Waves](waves.md). 
 + Added support for additional launch template options. [Learn more](launch-template.md). 
 + Added support for post-launch custom actions. [Learn more](post-launch-settings.md#post-launch-settings-custom-actions-add). 
-+ Added support for no rescan upon reboot for specific operating systems. [Learn more about the no-rescan feature](Agent-Related-FAQ.md#agent-no-rescan). 
++ Added support for no rescan upon reboot for specific operating systems. [Learn more about the no-rescan feature](Replication-Related-FAQ.md#agent-no-rescan). 
 + The service onboarding process has been simplified. All initial templates: replication template, launch template, and post-launch template are initialized with defaults. The templates can be modified from the Settings page. [Learn more](settings.md). 
 + Added support for SUSE 11 operating system.
 +  [AWS managed policy updates](security-iam-awsmanpol.md) – added one new policy and updated two existing policies. For details see [ AWS MGN updates for AWS managed policies ](https://docs.aws.amazon.com/mgn/latest/ug/security-iam-awsmanpol.html#security-iam-awsmanpol-updates). 

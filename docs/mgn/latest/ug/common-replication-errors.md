@@ -19,6 +19,7 @@ This section describes common replication errors, possible explanations, and pot
 + [Replication stuck at Attach Staging Disks](#common-stuck-attach-staging-disks)
 + [Failed to pair the replication agent with replication server](#common-pair-replication-agent-server)
 + [Stalled replication when replicating a source volume smaller than 1MiB](#stalled-replication-for-source-disk-under-1MiB)
++ [Data replication takes a long time](#common-slow-data-replication)
 + [Unknown data replication error](#common-unknown-data-replication-error)
 
 ## Agent not seen
@@ -105,6 +106,8 @@ This error message (Failed to create staging disks) may indicate that your AWS a
 
 Check your CloudTrail logs for any errors in the CreateVolume API call. Then ensure that you have the required IAM permissions attached to the specified IAM role. If the issue persists, also check your KMS Key Policy for any statements that may prevent MGN from using the selected KMS key.
 
+This error can also mean that the staging disk type cannot hold the disk. In that case, the replication status of the server shows the reason from Amazon EC2, for example: `Volume of 61440GiB is too large for volume type gp2; maximum is 16384GiB`. This happens when a disk is larger than 16 TiB but its staging disk type stops at 16 TiB (gp2, io1, st1, or sc1), whether you chose that type or AUTO did. It can also happen later, if a disk grows past 16 TiB after the agent is installed. To fix it, change the staging disk type of the disk to gp3 or io2. If the disk is on AUTO, you can instead choose the **Faster, General Purpose SSD (gp3)** option as the [Amazon EBS volume type](ebs-storage.md#ebs-volume-type) for large disks. For the size that each type supports, see [Disk size by staging disk type](ebs-storage.md#staging-disk-size).
+
 ## Replication stuck at Attach Staging Disks
 <a name="common-stuck-attach-staging-disks"></a>
 
@@ -126,6 +129,21 @@ This error message (Failed to pair replication agent with replication server) ma
 <a name="stalled-replication-for-source-disk-under-1MiB"></a>
 
 Replication is stalled which point to a common network, however in this edge case it indicates you are trying to replicate a disk on source server which is smaller than 1MiB. This is not supported. To mitigate, a. [Reinstall](https://docs.aws.amazon.com/mgn/latest/ug/reinstalling-agent.html) the agent with manually identifying disks to replication, and not include the disk with size under 1MiB. b. Expand the volume and reinstall the agent.
+
+## Data replication takes a long time
+<a name="common-slow-data-replication"></a>
+
+The initial sync or a rescan of a source server takes a long time.
+
+**Cause:** The initial sync and a rescan read and write every block of the source disks, regardless of how much of each disk is in use, so they take longer the larger the disks are. Their speed depends on the replication server instance type and on the throughput of the Amazon EBS staging disks or of the FSx for ONTAP file system.
+
+**Resolution:**
++ Choose a replication server instance type with more bandwidth, such as c6in.xlarge or larger, in the replication template or in the replication settings of the source server. For more information, see [Replication server instance type](replication-server-settings.md#instance-type).
++ Set the Amazon EBS staging disks to General Purpose SSD (gp3) and increase their throughput. For more information, see [Change staging disk type](ebs-storage.md#staging-disk).
++ If the source server stages on FSx for ONTAP, increase the throughput capacity of the file system. For more information, see [Step 2: Create FSx for ONTAP file system](fsx-ontap.md#fsx-ontap-step2-create-filesystem).
++ If replication is still slow, [verify the network bandwidth](Replication-Related-FAQ.md#perform-connectivity-bandwidth-test) between the source server and the replication server.
+
+For more information, see [Replicating large disks](ebs-storage.md#large-disks).
 
 ## Unknown data replication error
 <a name="common-unknown-data-replication-error"></a>

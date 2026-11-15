@@ -24,7 +24,11 @@ These are universal requirements for both Linux and Windows source servers:
 + Root directory – Verify that your source server has at least 2 GB of free disk space on the root directory (/) . 
 + Verify that your source server has at least 300 MB of free RAM to run the AWS Replication Agent. 
 + MGN only supports operating systems built for the x86 system architecture. 
-+ MGN supports replication of volumes up to a maximum size of 16 TB. MGN does not currently support migration of servers that have larger volume sizes. Agent installation will fail with an appropriate error message if the installer detects a volume that is larger than this limit.
++ MGN supports replication of disks up to 64 TiB each. If the installer detects a disk larger than 64 TiB, the agent installation fails with an error message. To migrate the other disks of such a server, leave the larger disk out with the installer's `--devices` parameter.
+
+  For a disk larger than 16 TiB, you must use a General Purpose SSD (gp3) or Provisioned IOPS SSD (io2) staging disk. Throughput Optimized HDD (st1), the default for large disks, and General Purpose SSD (gp2) support disks up to 16 TiB. For the size that each type supports, see [Disk size by staging disk type](ebs-storage.md#staging-disk-size). For how to speed up the initial sync of a large disk, see [Replicating large disks](ebs-storage.md#large-disks).
+
+  When you launch a test or cutover instance into a subnet in a Local Zone, MGN creates the launched volumes as General Purpose SSD (gp2), which supports disks up to 16 TiB. A server with a disk larger than 16 TiB can't be launched into a Local Zone.
 
 ## Linux installation requirements
 <a name="linux-requirements"></a>

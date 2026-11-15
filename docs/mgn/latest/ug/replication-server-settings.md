@@ -44,6 +44,8 @@ Choose the **Replication server instance type**. This determines the instance ty
 
 The best practice is to not change the default replication server instance type unless there is a business need for doing so. By default, AWS Transform MGN uses the **t3.small** instance type. This is the most cost effective instance type and should work well for most common workloads. You can change the replication server instance type to speed up the initial sync of data from your source servers to AWS. Changing the instance type will likely lead to increased compute costs. 
 
+For disks of several TiB, the instance type often decides how long the initial sync takes. For guidance, see [Replicating large disks](ebs-storage.md#large-disks).
+
 You can choose the **Replication server instance** type from the drop-down menu, which contains all available types. Recommended and commonly used instance types are displayed first. You can also search for a specific instance type in the search box.
 
 You can change the replication server instance type for servers that are replicating too slowly or servers that are constantly busy or experience frequent spikes. These are the most common instance type changes: 

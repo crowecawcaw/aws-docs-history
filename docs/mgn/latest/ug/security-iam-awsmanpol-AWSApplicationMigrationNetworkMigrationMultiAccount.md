@@ -9,6 +9,8 @@ This identity-based policy enables AWS Transform MGN to create, modify, and mana
 
 1. **Network Resource Management:** Creating and managing VPCs, subnets, route tables, and network ACLs; configuring Transit Gateways and their attachments; managing security groups and their rules; setting up NAT Gateways and Internet Gateways; handling network interfaces and elastic IPs
 
+1. **Load Balancing:** Creating and managing internal Application Load Balancers and Network Load Balancers, their listeners, and their target groups
+
 1. **CloudFormation Operations:** Creating and managing stacks with prefix [Nmd\*]; describing stack resources and events; updating and deleting stacks
 
 1. **Resource Sharing:** Managing RAM (Resource Access Manager) resource shares; sharing Transit Gateways across accounts within the same organization

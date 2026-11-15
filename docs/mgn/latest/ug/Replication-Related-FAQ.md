@@ -9,7 +9,8 @@ This section contains answers to questions about data replication.
 + [What is Continuous, Block level data replication?](#what-is-continuous-block-replication)
 + [What are the Replication initiation Steps?](#what-are-replication-initiation-steps)
 + [What do Lag and Backlog mean during replication?](#What-Lag-Backlog-Mean)
-+ [How long does a rescan take?](#How-Long-Rescan)
++ [What is a rescan and how long does it take?](#How-Long-Rescan)
++ [Which Windows and Linux OSs support no-rescan upon reboot?](#agent-no-rescan)
 + [Is the replicated data encrypted?](#Is-Replication-Encrypted)
 + [Does AWS Transform MGN compress data during replication?](#Does-Data-Compress)
 + [Are migrations performed by AWS Transform MGN crash consistent?](#Is-Replication-Crash-Consistent)
@@ -33,7 +34,7 @@ This section contains answers to questions about data replication.
 ## What is Continuous, Block level data replication?
 <a name="what-is-continuous-block-replication"></a>
 
-During continuous block-level replication, the replication agent continuously monitors disk input/output (IO) activity on the protected disks. It then replicates all WRITE operations, which involve modifying or adding data, to the Replication Server, ensuring that the data is duplicated and kept up-to-date on the replication server.
+During continuous block-level replication, the replication agent continuously monitors disk input/output (IO) activity on the protected disks. It then replicates all WRITE operations, which involve modifying or adding data, to the Replication Server, ensuring that the data is duplicated and kept up-to-date on the replication server. For more information about the agent, see [What does the AWS Replication Agent do?](Agent-Related-FAQ.md#What-Agent-Do)
 
 ## What are the Replication initiation Steps?
 <a name="what-are-replication-initiation-steps"></a>
@@ -59,10 +60,46 @@ During replication you might see a server falls out of Continuous Data Protectio
 + **Backlog** – The amount of data that was written to the disk and still needs to be replicated to reach CDP mode.
 + **ETA** – The estimated time remaining to return to CDP.
 
-## How long does a rescan take?
+## What is a rescan and how long does it take?
 <a name="How-Long-Rescan"></a>
 
+A rescan is when the AWS Replication Agent reads all the blocks on all the replicated disks of a source server again. It's similar to the initial sync, but faster, because only changed blocks are copied. A rescan starts automatically after events such as hard reboots, disk changes, and crashes. You can't start a rescan manually. For the operating systems that don't rescan after a reboot, see [Which Windows and Linux OSs support no-rescan upon reboot?](#agent-no-rescan)
+
 The rescan time varies depending on the size of the source disks. The time depends on the performance of the disks (linear read), the staging area disk performance, and the rate of write operations on the source server (which are sent in parallel with the rescan). A rescan is progressing normally as long as its completion percentage continues to advance.
+
+## Which Windows and Linux OSs support no-rescan upon reboot?
+<a name="agent-no-rescan"></a>
+
+When you shut down a supported Linux or Windows source server (from the OS menu or CLI) and then restart it, MGN resumes replication without a rescan.
+
+A rescan means that the agent on the source server rereads all blocks on all replicated disks and transmits blocks that are different from the previously replicated data. A rescan is similar to the initial sync but is faster because only blocks that are different need to be transmitted.
+
+Rescans can still happen following a hard reboot, crashes, or when you add or remove disks to or from the source server.
+
+ Supported OSs include:
+
+**Windows**
++ Windows Server 2012
++ Windows Server 2012 R2
++ Windows Server 2016
++ Windows Server 2019
++ Windows Server 2022
++ Windows Server 2025
++ Windows 11
+
+**Linux**
++  CentOS 7–8, Stream 9, Stream 10 
++  Oracle 7–8 
++  RHEL 7–9.8, 10, 10.1, 10.2 
++  Rocky Linux 8–9.8, 10, 10.1, 10.2 
++  SLES 12 and 15 
++  Debian 9–13 
++  Ubuntu 16, 18, 20, 22, and 26 
++  Amazon Linux 2 and 2023 
++  AlmaLinux 9.6, 9.7, 9.8, 10, 10.1, 10.2 
+
+**Note**  
+For Linux, no-rescan on reboot is supported only on environments that use initramfs.
 
 ## Is the replicated data encrypted?
 <a name="Is-Replication-Encrypted"></a>
@@ -194,6 +231,8 @@ AWS Transform MGN uses TCP Port 1500 for replication between the Source Agents a
 <a name="Can-Control-Bandwidth-Used-For-Replication"></a>
 
 AWS Transform MGN recommends that you do not limit the bandwidth used for replication. If business requirements call for replication to use less bandwidth, you can use the throttling feature to temporarily limit the bandwidth. Throttling causes lag, which recovers automatically after you remove the throttling.
+
+The AWS Replication Agent opens up to five connections and attempts to maximize available bandwidth. To turn on throttling in the AWS Transform MGN console, select a specific server and choose the **Replication settings** tab, or change the **Replication template**. Changes to the replication template affect only newly added servers.
 
 ## How can I perform an SSL connectivity and bandwidth test?
 <a name="perform-connectivity-bandwidth-test"></a>

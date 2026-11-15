@@ -73,6 +73,68 @@ AWS Transform MGN regional support includes [AWS Local Zones](https://docs.aws.a
 **Important**  
 MGN supports IPv6 in the regions where Amazon EC2 dual-stack endpoints are present. For the list of EC2 dual-stack endpoints, see [Dual-stack (IPv4 and IPv6) endpoints](https://docs.aws.amazon.com/ec2/latest/devguide/ec2-endpoints.html#ipv6) in the *Amazon EC2 Developer Guide*.
 
+## Terminology
+<a name="mgn-terminology"></a>
+
+The following terms are used throughout this guide. Italics indicate a term that is defined elsewhere in this list.
+
+Application  
+A group of *source servers* that you associate with each other, such as a cluster of servers with dependencies between them. You can monitor the migration status of an application and perform bulk operations on its servers. For more information, see [Associate a Group of Servers with an Application](applications.md).
+
+AWS Replication Agent  
+Software that you install on each *source server* to add it to MGN. The agent performs an initial block-level read of the server's volumes, and then captures writes and replicates block-level changes to the *replication server*. For more information, see [Installing the AWS Replication Agent](agent-installation.md).
+
+Conversion server  
+A server that MGN launches and manages automatically as part of a launch job. It converts the disks of your *source server* to boot and run on AWS. For more information, see [What does the AWS Transform MGN Machine Conversion Server do?](AWS-Related-FAQ.md#What-Conversion-Server-Do)
+
+Cutover instance  
+The instance in AWS that your *source server* migrates to. Each new cutover instance reflects the most up-to-date state of the source server, but it doesn't receive changes that occur on the source server after it launches. For more information, see [Launching cutover instances](launch-cutover.md).
+
+Data replication status  
+The current state of data replication for a *source server*, such as **Initial sync**, **Healthy**, **Lagging**, or **Stalled**. For more information, see [Understand data replication status](source-server-migration-metrics.md#source-server-migration-metrics-status).
+
+Finalize cutover  
+The action you take after you confirm that a *cutover instance* works as expected. Finalizing the cutover stops data replication, discards all replicated data, terminates the AWS resources used for data replication, and uninstalls the *AWS Replication Agent* from the *source server*. For more information, see [Finalize cutover](server-post-migration.md#server-post-migration-finalize-cutover).
+
+Initial sync  
+The initial copying of data from a *source server* to AWS, which begins automatically after you install the *AWS Replication Agent*. The server remains in the **Not ready** lifecycle state until the initial sync completes. For more information, see [Server undergoing initial sync](migration-dashboard.md#initiation).
+
+Launch settings  
+The settings that determine how a *test instance* or *cutover instance* is launched for a specific *source server*. They include the general launch settings and the EC2 launch template. For more information, see [Launch settings](launch-settings.md).
+
+Launch template  
+The account-level template that controls how MGN launches instances in AWS. Its settings are the default *launch settings* for each newly added *source server*. For more information, see [Launch template](launch-template.md).
+
+MGN connector  
+An automation server installed in your environment that lets you run commands on multiple *source servers*, such as verifying installation prerequisites and installing the *AWS Replication Agent*. MGN connectors help with large-scale migrations across multiple operating systems and data centers. For more information, see [MGN Connectors](mgn-connector.md).
+
+Migration lifecycle  
+The stage that a *source server* has reached in its migration, from **Not ready** through **Ready for testing**, **Test in progress**, **Ready for cutover**, and **Cutover in progress**, to **Cutover complete**. For more information, see [Understand the migration lifecycle metric](source-server-migration-metrics.md#source-server-migration-metrics-lifecycle).
+
+Post-launch actions  
+Actions that MGN performs after a server is launched in AWS, such as disaster recovery configuration, operating system conversion, and license and subscription changes. You control them through the post-launch template, which you must first activate at the account level. For more information, see [Post-launch template](post-launch-settings.md).
+
+Replication server  
+A lightweight Amazon EC2 instance that replicates data between your *source servers* and AWS. MGN launches and terminates replication servers automatically in the *staging area subnet*. For more information, see [Replication template reference](replication-server-settings.md).
+
+Replication template  
+The account-level template that determines how data is replicated from your *source servers* to AWS. It includes settings such as the replication server instance type, target storage type, and security groups. For more information, see [Replication template](replication-settings-template.md).
+
+Rescan  
+An automatic re-read of all the blocks on the replicated disks of a *source server*. For more information, see [What is a rescan and how long does it take?](Replication-Related-FAQ.md#How-Long-Rescan)
+
+Source server  
+A physical, virtual, or cloud server that you migrate to AWS. You add a source server to MGN by installing the *AWS Replication Agent* on it. For more information, see [Source Servers in AWS Transform MGN](source-servers.md).
+
+Staging area subnet  
+The subnet that MGN uses as a staging area for data replicated from your *source servers*, and in which your *replication servers* are launched. You specify it in the *replication template*, and you can override it for specific source servers. For more information, see [Staging area subnet](replication-server-settings.md#subnet).
+
+Test instance  
+An instance that you launch in AWS to verify that a *source server* functions properly before cutover. Each new test deletes any previously launched test instance and launches a new one that reflects the most up-to-date state of the source server. For more information, see [Launching test instances](launching-test-servers.md).
+
+Wave  
+A logical group of *source servers* and *applications* that describes your migration plan over time. You can monitor a wave's migration status and perform bulk operations on its applications. For more information, see [Group Source Servers and Applications in Waves](waves.md).
+
 ## MGN technical training materials
 <a name="mgn-training"></a>
 

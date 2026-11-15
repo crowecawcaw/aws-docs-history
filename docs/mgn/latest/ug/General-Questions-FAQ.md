@@ -85,9 +85,9 @@ Yes. AWS Transform MGN allows you to [perform an OS upgrade](predefined-post-lau
 
  DRS can be used for migration, as the DRS and MGN services use shared technology for performing block level replication. Both MGN and DRS have a replication agent, for replicating servers into a staging area in AWS. MGN supports launching test and cutover instances from the staging area. DRS supports launching recovery instances from the staging area. The technology used by both of these services for launching instances in AWS is very similar. DRS also has the capability to failback to the source environment, after the source environment has recovered. This capability does not exist in MGN. 
 
- Note that you cannot install the DRS and MGN agents on the same server at the same time. If you already installed the MGN agent on a server, and want to use DRS for migration, you must uninstall the MGN agent before installing the DRS agent. 
+ You can't install the DRS and MGN agents on the same server at the same time. If you already installed the MGN agent on a server and want to use DRS for migration, uninstall the MGN agent before you install the DRS agent. 
 
- Note that there are costs associated with using the DRS service. For DRS pricing information see [AWS Elastic Disaster Recovery pricing](https://aws.amazon.com/disaster-recovery/pricing/). 
+ Using DRS incurs costs. For DRS pricing information, see [AWS Elastic Disaster Recovery pricing](https://aws.amazon.com/disaster-recovery/pricing/). 
 
 ## Does AWS Transform MGN support migration to AWS Local Zones?
 <a name="can-migrate-to-local-zone"></a>

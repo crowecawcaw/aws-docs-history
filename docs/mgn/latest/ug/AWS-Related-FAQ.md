@@ -14,6 +14,7 @@ This section contains answers to questions about launching test and cutover inst
 + [Why are my Windows server disks read-only after launching the test or cutover instance?](#Why-Windows-Server-Disks-Read-Only)
 + [How do I change the server AMI on AWS after Migration?](#How-Change-Server-AMI)
 + [Can I prevent AWS Transform MGN from cleaning up test instance resources in AWS?](#Can-Prevent-Clean-Up-Target-Resources)
++ [Does AWS Transform MGN delete the resources of a failed test or cutover launch?](#Does-MGN-Delete-Failed-Launch-Resources)
 + [Why do I observe EBS volume performance issues while using test or cutover instances?](#EBS-performance-hit-after-instance-launch)
 + [Which Amazon EBS attributes can I use to optimize EBS volume hydration when launching instances?](#EBS-Volume-Hydration-Attributes)
 + [What are the Amazon EBS volume limits for AWS Transform MGN?](#ebs-limits-faq)
@@ -76,6 +77,11 @@ After AWS Transform MGN launches the machine, you can switch the AMI. Launch a n
 By default, AWS Transform MGN removes any resources created during the test process either when requested by the user or when a new Test instance is launched.
 
 To prevent this in AWS, you can [activate Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html) for the test or cutover instance, and the resources are not removed upon a new instance launch.
+
+## Does AWS Transform MGN delete the resources of a failed test or cutover launch?
+<a name="Does-MGN-Delete-Failed-Launch-Resources"></a>
+
+Yes, in most cases. When a launch fails, AWS Transform MGN deletes the resources that it created for that launch. Under some conditions, unattached Amazon EBS volumes from the failed launch can remain in your account, and you incur charges for them until you delete them. Terminating launched instances, disconnecting, archiving, or deleting the source server doesn't remove them. AWS Transform MGN doesn't use these volumes again, so they're safe to delete manually at any time, including after the migration.
 
 ## Why do I observe EBS volume performance issues while using test or cutover instances?
 <a name="EBS-performance-hit-after-instance-launch"></a>
