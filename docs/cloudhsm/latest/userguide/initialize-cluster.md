@@ -140,6 +140,9 @@ Go to: [Create an intermediate certificate authority (ICA) chain](#certificate-c
 ### Create a single self-signed certificate
 <a name="self-signed-certificate"></a>
 
+**Important**  
+A single trust anchor certificate cannot exceed 8 KB (8,192 bytes).
+
 The trusted hardware that you use to create the private key for your production cluster should also provide a software tool to generate a self-signed certificate using that key. The following example uses OpenSSL and the private key that you created in the previous step to create a self-signed root CA signing certificate. The certificate is valid for 10 years (3652 days). Read the on-screen instructions and follow the prompts. 
 
 ```
@@ -165,6 +168,9 @@ This command creates a certificate file named `customerRootCA.crt`. Put this cer
 
 #### Sign the cluster CSR with your self-signed Root CA
 <a name="sign-csr-sign-cluster-csr-with-root-ca"></a>
+
+**Important**  
+A single signed certificate cannot exceed 8 KB (8,192 bytes).
 
 The trusted hardware that you use to create your private key for your production cluster should also provide a tool to sign the CSR using that key. The following example uses OpenSSL to sign the cluster's CSR. The example command below signs the CSR with the self-signed `customerRootCA.crt`
 
@@ -200,7 +206,7 @@ The following examples will walk you through creating a certificate chain of len
 To initialize your cluster with a certificate chain, your chain must meet the following requirements:   
 The chain must be ordered, starting with the Intermediate CA that signs the cluster CSR. In this order, the first ICA should have an issuer that matches the subject of the next ICA in the chain, and so forth.
 Only the Root CA should be self-signed, meaning its issuer and subject should be identical.
-The chain must consist of no more than 4 certificates (including the Root CA at the end), and the total size of the chain must not exceed 16 kb (kilobytes).
+The chain must consist of no more than 4 certificates (including the Root CA at the end), and the total size of the chain must not exceed 16 KB (16,384 bytes).
 All Certificate Authorities (CAs) should conform to the [RFC 5280](https://datatracker.ietf.org/doc/html/rfc5280) guidelines.
 
 This section provides examples for creating an intermediate certificate authority chain using two different approaches: OpenSSL for local certificate generation, and AWS Private Certificate Authority (PCA) for managed certificate services. Choose the approach that best fits your environment and security requirements.
