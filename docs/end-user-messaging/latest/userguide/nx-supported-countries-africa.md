@@ -15,7 +15,7 @@ AWS End User Messaging supports 54 countries and regions in Africa. The followin
 | Botswana | BW | No | No | Yes | No | Yes | No | No | No | Yes | 
 | Burkina Faso | BF | No | No | Yes | No | Yes | No | Yes | No | Yes | 
 | Burundi | BI | No | No | Yes | No | Yes | No | No | No | Yes | 
-| Cameroon | CM | Yes | No | Registration required | Yes | Yes | No | No | No | Yes | 
+| Cameroon | CM | Yes | No | Yes | Yes | Yes | No | No | No | Yes | 
 | Cape Verde | CV | No | No | Yes | No | Yes | No | No | No | Yes | 
 | Central African Republic | CF | No | No | Yes | No | Yes | No | No | No | Yes | 
 | Chad | TD | No | No | Yes | No | No | No | No | No | Yes | 
@@ -25,10 +25,10 @@ AWS End User Messaging supports 54 countries and regions in Africa. The followin
 | Egypt | EG | Yes | No | Registration required | Yes | Yes | No | No | No | Yes | 
 | Equatorial Guinea | GQ | No | No | Yes | No | No | No | No | No | Yes | 
 | Eritrea | ER | No | No | Yes | No | Yes | No | No | No | Yes | 
-| Ethiopia | ET | No | No | Registration required | No | No | No | No | No | Yes | 
+| Ethiopia | ET | No | No | Yes | No | No | No | No | No | Yes | 
 | Gabon | GA | No | No | Yes | No | Yes | No | No | No | Yes | 
 | Gambia | GM | No | No | Yes | No | Yes | No | No | No | Yes | 
-| Ghana | GH | No | Yes | Registration required | Yes | Yes | No | No | No | Yes | 
+| Ghana | GH | No | Yes | Yes | Yes | Yes | No | No | No | Yes | 
 | Guinea | GN | No | No | Yes | No | Yes | No | No | No | Yes | 
 | Guinea-Bissau | GW | No | No | Yes | N/A | No | No | No | No | Yes | 
 | Ivory Coast | CI | No | No | Yes | No | Yes | No | No | No | Yes | 
@@ -42,11 +42,11 @@ AWS End User Messaging supports 54 countries and regions in Africa. The followin
 | Mauritania | MR | No | No | Yes | No | Yes | No | No | No | Yes | 
 | Mauritius | MU | No | Yes | Yes | Yes | Yes | No | No | No | Yes | 
 | Mayotte | YT | No | No | Yes | No | No | No | No | No | Yes | 
-| Morocco | MA | Yes | No | Registration required | Yes | Yes | No | No | No | Yes | 
+| Morocco | MA | Yes | No | Yes | Yes | Yes | No | No | No | Yes | 
 | Mozambique | MZ | No | No | No | No | Yes | No | No | No | Yes | 
 | Namibia | NA | Yes | No | Yes | Yes | Yes | No | No | No | Yes | 
 | Niger | NE | No | No | Yes | No | Yes | No | No | No | Yes | 
-| Nigeria | NG | Yes | No | Registration required | Yes | Yes | No | No | No | Yes | 
+| Nigeria | NG | Yes | No | Yes | Yes | Yes | No | No | No | Yes | 
 | Republic of the Congo | CG | No | No | No | No | No | No | No | No | Yes | 
 | Reunion | RE | No | No | Yes | No | Yes | No | No | No | Yes | 
 | Rwanda | RW | No | No | Yes | No | Yes | No | No | No | Yes | 
@@ -56,9 +56,9 @@ AWS End User Messaging supports 54 countries and regions in Africa. The followin
 | Sierra Leone | SL | No | No | Yes | No | Yes | No | No | No | Yes | 
 | Somalia | SO | No | No | Yes | No | Yes | No | No | No | Yes | 
 | South Africa | ZA | Yes | Yes | No | Yes | Yes | No | Yes | No | Yes | 
-| South Sudan | SS | No | No | Registration required | No | No | No | No | No | Yes | 
+| South Sudan | SS | No | No | Yes | No | No | No | No | No | Yes | 
 | Eswatini | SZ | Yes | No | Yes | Yes | No | No | No | No | Yes | 
-| Tanzania | TZ | No | Yes | Registration required | Yes | No | No | No | No | Yes | 
+| Tanzania | TZ | No | Yes | Yes | Yes | No | No | No | No | Yes | 
 | Togo | TG | No | No | Yes | No | No | No | No | No | Yes | 
 | Tunisia | TN | No | No | Yes | No | Yes | No | No | No | Yes | 
 | Uganda | UG | No | No | Yes | No | Yes | No | No | No | Yes | 
@@ -160,13 +160,6 @@ AWS End User Messaging supports 54 countries and regions in Africa. The followin
 | RCS | Not supported | — | 
 | Voice | Not supported | — | 
 | WhatsApp | Supported | — | 
-
-
-**Registration forms for Cameroon**  
-
-| Number type | Registration form | 
-| --- | --- | 
-| Sender ID | Cameroon sender ID registration | 
 
 ## Cape Verde
 <a name="nx-country-cv"></a>
@@ -335,13 +328,6 @@ AWS End User Messaging supports 54 countries and regions in Africa. The followin
 | Voice | Not supported | — | 
 | WhatsApp | Supported | — | 
 
-
-**Registration forms for Ethiopia**  
-
-| Number type | Registration form | 
-| --- | --- | 
-| Sender ID | Ethiopia sender ID registration | 
-
 ## Gabon
 <a name="nx-country-ga"></a>
 
@@ -389,13 +375,6 @@ AWS End User Messaging supports 54 countries and regions in Africa. The followin
 | RCS | Not supported | — | 
 | Voice | Not supported | — | 
 | WhatsApp | Supported | — | 
-
-
-**Registration forms for Ghana**  
-
-| Number type | Registration form | 
-| --- | --- | 
-| Sender ID | Ghana sender ID registration | 
 
 ## Guinea
 <a name="nx-country-gn"></a>
@@ -628,13 +607,6 @@ AWS End User Messaging supports 54 countries and regions in Africa. The followin
 | Voice | Not supported | — | 
 | WhatsApp | Supported | — | 
 
-
-**Registration forms for Morocco**  
-
-| Number type | Registration form | 
-| --- | --- | 
-| Sender ID | Morocco sender ID registration | 
-
 ## Mozambique
 <a name="nx-country-mz"></a>
 
@@ -698,13 +670,6 @@ AWS End User Messaging supports 54 countries and regions in Africa. The followin
 | RCS | Not supported | — | 
 | Voice | Not supported | — | 
 | WhatsApp | Supported | — | 
-
-
-**Registration forms for Nigeria**  
-
-| Number type | Registration form | 
-| --- | --- | 
-| Sender ID | Nigeria sender ID registration | 
 
 ## Republic of the Congo
 <a name="nx-country-cg"></a>
@@ -866,13 +831,6 @@ AWS End User Messaging supports 54 countries and regions in Africa. The followin
 | Voice | Not supported | — | 
 | WhatsApp | Supported | — | 
 
-
-**Registration forms for South Sudan**  
-
-| Number type | Registration form | 
-| --- | --- | 
-| Sender ID | South Sudan sender ID registration | 
-
 ## Swaziland
 <a name="nx-country-sz"></a>
 
@@ -904,13 +862,6 @@ AWS End User Messaging supports 54 countries and regions in Africa. The followin
 | RCS | Not supported | — | 
 | Voice | Not supported | — | 
 | WhatsApp | Supported | — | 
-
-
-**Registration forms for Tanzania**  
-
-| Number type | Registration form | 
-| --- | --- | 
-| Sender ID | Tanzania sender ID registration | 
 
 ## Togo
 <a name="nx-country-tg"></a>

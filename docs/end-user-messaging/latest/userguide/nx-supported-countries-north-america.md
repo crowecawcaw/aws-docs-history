@@ -31,7 +31,7 @@ AWS End User Messaging supports 34 countries and regions in North America. The f
 | Honduras | HN | No | Yes | Yes | Yes | Yes | No | No | No | Yes | 
 | Jamaica | JM | No | No | Yes | No | Yes | No | Yes | No | Yes | 
 | Martinique | MQ | No | No | Yes | No | No | No | No | No | Yes | 
-| Mexico | MX | Yes | No | Registration required | Yes | Yes | No | Yes | Yes | Yes | 
+| Mexico | MX | Yes | No | Yes | Yes | Yes | No | Yes | Yes | Yes | 
 | Montserrat | MS | No | No | Yes | No | No | No | No | No | Yes | 
 | Nicaragua | NI | No | No | No | No | Yes | No | Yes | No | Yes | 
 | Panama | PA | Yes | No | Yes | Yes | Yes | No | No | No | Yes | 
@@ -395,13 +395,6 @@ AWS End User Messaging supports 34 countries and regions in North America. The f
 | RCS | RCS agent | — | 
 | Voice | Voice number | — | 
 | WhatsApp | Supported | — | 
-
-
-**Registration forms for Mexico**  
-
-| Number type | Registration form | 
-| --- | --- | 
-| Sender ID | Mexico sender ID registration | 
 
 ## Montserrat
 <a name="nx-country-ms"></a>

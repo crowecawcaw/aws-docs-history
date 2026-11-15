@@ -16,10 +16,10 @@ AWS End User Messaging supports 51 countries and regions in Europe. The followin
 | Belarus | BY | No | No | Registration required | No | Yes | No | No | No | Yes | 
 | Belgium | BE | Yes | Yes | No | Yes | Yes | No | No | No | Yes | 
 | Bosnia and Herzegovina | BA | No | No | Yes | No | Yes | No | No | No | Yes | 
-| Bulgaria | BG | Yes | No | Registration required | Yes | Yes | No | Yes | No | Yes | 
+| Bulgaria | BG | Yes | No | Yes | Yes | Yes | No | Yes | No | Yes | 
 | Croatia | HR | Yes | No | Yes | Yes | Yes | No | Yes | No | Yes | 
 | Cyprus | CY | No | No | Yes | No | Yes | No | Yes | No | Yes | 
-| Czechia | CZ | No | Yes | Registration required | Yes | Yes | No | No | Yes | Yes | 
+| Czechia | CZ | No | Yes | Yes | Yes | Yes | No | No | Yes | Yes | 
 | Denmark | DK | No | Yes | Yes | Yes | Yes | No | No | Yes | Yes | 
 | Estonia | EE | No | Yes | Yes | Yes | Yes | No | No | No | Yes | 
 | Faroe Islands | FO | No | No | Yes | No | Yes | No | No | No | Yes | 
@@ -49,7 +49,7 @@ AWS End User Messaging supports 51 countries and regions in Europe. The followin
 | Norway | NO | No | Yes | Yes | Yes | Yes | No | No | Yes | Yes | 
 | Poland | PL | No | Yes | Yes | Yes | Yes | No | Yes | Yes | Yes | 
 | Portugal | PT | Yes | Yes | Yes | Yes | Yes | No | No | No | Yes | 
-| Romania | RO | Yes | Yes | Registration required | Yes | Yes | No | Yes | No | Yes | 
+| Romania | RO | Yes | Yes | Yes | Yes | Yes | No | Yes | No | Yes | 
 | Russia | RU | Yes | No | Registration required | Yes | No | No | No | No | Yes | 
 | San Marino | SM | No | No | Yes | No | No | No | No | No | Yes | 
 | Serbia | RS | Yes | No | Yes | Yes | Yes | No | No | No | Yes | 
@@ -189,13 +189,6 @@ AWS End User Messaging supports 51 countries and regions in Europe. The followin
 | Voice | Voice number | — | 
 | WhatsApp | Supported | — | 
 
-
-**Registration forms for Bulgaria**  
-
-| Number type | Registration form | 
-| --- | --- | 
-| Sender ID | Bulgaria sender ID registration | 
-
 ## Croatia
 <a name="nx-country-hr"></a>
 
@@ -243,13 +236,6 @@ AWS End User Messaging supports 51 countries and regions in Europe. The followin
 | RCS | RCS agent | — | 
 | Voice | Not supported | — | 
 | WhatsApp | Supported | — | 
-
-
-**Registration forms for Czechia**  
-
-| Number type | Registration form | 
-| --- | --- | 
-| Sender ID | Czechia sender ID registration | 
 
 ## Denmark
 <a name="nx-country-dk"></a>
@@ -810,13 +796,6 @@ AWS End User Messaging supports 51 countries and regions in Europe. The followin
 | RCS | Not supported | — | 
 | Voice | Voice number | — | 
 | WhatsApp | Supported | — | 
-
-
-**Registration forms for Romania**  
-
-| Number type | Registration form | 
-| --- | --- | 
-| Sender ID | Romania sender ID registration | 
 
 ## Russia
 <a name="nx-country-ru"></a>

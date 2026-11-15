@@ -14,10 +14,10 @@ AWS End User Messaging supports 46 countries and regions in Asia. The following 
 | Armenia | AM | No | No | Yes | No | Yes | No | No | No | Yes | 
 | Azerbaijan | AZ | No | No | Yes | No | Yes | No | No | No | Yes | 
 | Bahrain | BH | No | No | Yes | No | Yes | No | Yes | No | Yes | 
-| Bangladesh | BD | No | No | Registration required | No | Yes | No | No | No | Yes | 
+| Bangladesh | BD | No | No | Yes | No | Yes | No | No | No | Yes | 
 | Bhutan | BT | No | No | Yes | No | Yes | No | No | No | Yes | 
 | Brunei | BN | No | No | Yes | No | Yes | No | No | No | Yes | 
-| Cambodia | KH | No | No | Registration required | No | Yes | No | Yes | No | Yes | 
+| Cambodia | KH | No | No | Yes | No | Yes | No | Yes | No | Yes | 
 | China | CN | Yes | No | No | Yes | No | No | No | No | No | 
 | Georgia | GE | No | No | Yes | No | Yes | No | No | No | Yes | 
 | Hong Kong | HK | No | Yes | Yes | Yes | Yes | No | No | No | Yes | 
@@ -31,7 +31,7 @@ AWS End User Messaging supports 46 countries and regions in Asia. The following 
 | Kuwait | KW | No | Yes | Registration required | Yes | Yes | No | No | No | Yes | 
 | Kyrgyzstan | KG | No | No | Yes | No | Yes | No | No | No | Yes | 
 | Laos | LA | No | No | Yes | No | Yes | No | No | No | Yes | 
-| Lebanon | LB | No | No | Registration required | No | Yes | No | No | No | Yes | 
+| Lebanon | LB | No | No | Yes | No | Yes | No | No | No | Yes | 
 | Macau | MO | No | No | Yes | No | Yes | No | No | No | Yes | 
 | Malaysia | MY | Yes | No | No | Yes | Yes | No | No | No | Yes | 
 | Maldives | MV | No | No | Yes | No | Yes | No | No | No | Yes | 
@@ -47,7 +47,7 @@ AWS End User Messaging supports 46 countries and regions in Asia. The following 
 | Singapore | SG | Yes | Yes | Registration required | Yes | Yes | No | No | Yes | Yes | 
 | South Korea | KR | No | No | No | No | Yes | No | No | No | Yes | 
 | Sri Lanka | LK | Yes | Yes | Registration required | Yes | Yes | No | No | No | Yes | 
-| Taiwan | TW | No | Yes | Registration required | Yes | Yes | No | Yes | No | Yes | 
+| Taiwan | TW | No | Yes | No | Yes | Yes | No | Yes | No | Yes | 
 | Tajikistan | TJ | No | No | Yes | No | Yes | No | Yes | No | Yes | 
 | Thailand | TH | No | Yes | Registration required | Yes | Yes | No | Yes | No | Yes | 
 | Timor-Leste | TL | No | No | Yes | No | Yes | No | No | No | Yes | 
@@ -137,13 +137,6 @@ AWS End User Messaging supports 46 countries and regions in Asia. The following 
 | Voice | Not supported | — | 
 | WhatsApp | Supported | — | 
 
-
-**Registration forms for Bangladesh**  
-
-| Number type | Registration form | 
-| --- | --- | 
-| Sender ID | Bangladesh sender ID registration | 
-
 ## Bhutan
 <a name="nx-country-bt"></a>
 
@@ -191,13 +184,6 @@ AWS End User Messaging supports 46 countries and regions in Asia. The following 
 | RCS | Not supported | — | 
 | Voice | Voice number | — | 
 | WhatsApp | Supported | — | 
-
-
-**Registration forms for Cambodia**  
-
-| Number type | Registration form | 
-| --- | --- | 
-| Sender ID | Cambodia sender ID registration | 
 
 ## China
 <a name="nx-country-cn"></a>
@@ -471,13 +457,6 @@ AWS End User Messaging supports 46 countries and regions in Asia. The following 
 | RCS | Not supported | — | 
 | Voice | Not supported | — | 
 | WhatsApp | Supported | — | 
-
-
-**Registration forms for Lebanon**  
-
-| Number type | Registration form | 
-| --- | --- | 
-| Sender ID | Lebanon sender ID registration | 
 
 ## Macau
 <a name="nx-country-mo"></a>
@@ -771,18 +750,11 @@ AWS End User Messaging supports 46 countries and regions in Asia. The following 
 
 | Channel | Number types | International sending | 
 | --- | --- | --- | 
-| SMS | LC, Sender ID | Yes | 
+| SMS | LC | Yes | 
 | MMS | Not supported | — | 
 | RCS | Not supported | — | 
 | Voice | Voice number | — | 
 | WhatsApp | Supported | — | 
-
-
-**Registration forms for Taiwan**  
-
-| Number type | Registration form | 
-| --- | --- | 
-| Sender ID | Taiwan sender ID registration | 
 
 ## Tajikistan
 <a name="nx-country-tj"></a>
