@@ -25,7 +25,7 @@ The following steps describe the architecture:
 
 1. The [AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/what-is-glue.html) Data Catalog contains a logical database that organizes tables for the data in Amazon S3.
 
-1. [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/what-is.html) uses these table definitions to query the data stored in Amazon S3 and return the information to an [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) dashboard.
+1. [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/what-is.html) uses these table definitions to query the data stored in Amazon S3 and return the information to an [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) dashboard.
 
 ## Further reading
 <a name="further-reading"></a>
