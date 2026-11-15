@@ -14,8 +14,37 @@ Learn about the Amazon RDS Extended Support updates below.
 <a name="postgresql-version1323ES"></a>
 
 **Topics**
++ [Amazon RDS Extended Support version 13.23-RDS.20260819](#postgresql-versions-version13.23-rds.20260819)
 + [Amazon RDS Extended Support version 13.23-RDS.20260514](#postgresql-versions-version13.23-rds.20260514)
 + [Amazon RDS Extended Support version 13.23-RDS.20260224](#postgresql-versions-version13.23-rds.20260224)
+
+### Amazon RDS Extended Support version 13.23-RDS.20260819
+<a name="postgresql-versions-version13.23-rds.20260819"></a>
+
+RDS Extended Support version 13.23-RDS.20260819 is now available.
+
+**CVEs fixed:**
++ [CVE-2026-6464](https://nvd.nist.gov/vuln/detail/CVE-2026-6464) 
++ [CVE-2026-6470](https://nvd.nist.gov/vuln/detail/CVE-2026-6470) 
++ [CVE-2026-14662](https://nvd.nist.gov/vuln/detail/CVE-2026-14662) 
++ [CVE-2026-14663](https://nvd.nist.gov/vuln/detail/CVE-2026-14663) 
++ [CVE-2026-14664](https://nvd.nist.gov/vuln/detail/CVE-2026-14664) 
++ [CVE-2026-14666](https://nvd.nist.gov/vuln/detail/CVE-2026-14666) 
++ [CVE-2026-14668](https://nvd.nist.gov/vuln/detail/CVE-2026-14668) 
++ [CVE-2026-14669](https://nvd.nist.gov/vuln/detail/CVE-2026-14669) 
++ [CVE-2026-14670](https://nvd.nist.gov/vuln/detail/CVE-2026-14670) 
++ [CVE-2026-14671](https://nvd.nist.gov/vuln/detail/CVE-2026-14671) 
++ [CVE-2026-14673](https://nvd.nist.gov/vuln/detail/CVE-2026-14673) 
++ [CVE-2026-14677](https://nvd.nist.gov/vuln/detail/CVE-2026-14677) 
++ [CVE-2026-14678](https://nvd.nist.gov/vuln/detail/CVE-2026-14678) 
++ [CVE-2026-14679](https://nvd.nist.gov/vuln/detail/CVE-2026-14679) 
++ [CVE-2026-14680](https://nvd.nist.gov/vuln/detail/CVE-2026-14680) 
++ [CVE-2026-15742](https://nvd.nist.gov/vuln/detail/CVE-2026-15742) 
++ [CVE-2026-16239](https://nvd.nist.gov/vuln/detail/CVE-2026-16239) 
++ [CVE-2026-16241](https://nvd.nist.gov/vuln/detail/CVE-2026-16241) 
++ [CVE-2026-18024](https://nvd.nist.gov/vuln/detail/CVE-2026-18024) 
++ [CVE-2026-18408](https://nvd.nist.gov/vuln/detail/CVE-2026-18408) 
++ [CVE-2026-19385](https://nvd.nist.gov/vuln/detail/CVE-2026-19385) 
 
 ### Amazon RDS Extended Support version 13.23-RDS.20260514
 <a name="postgresql-versions-version13.23-rds.20260514"></a>
@@ -50,12 +79,42 @@ RDS Extended Support version 13.23-RDS.20260224 is now available.
 <a name="postgresql-version1222ES"></a>
 
 **Topics**
++ [Amazon RDS Extended Support version 12.22-RDS.20260820](#postgresql-versions-version12.22-rds.20260820)
 + [Amazon RDS Extended Support version 12.22-RDS.20260514](#postgresql-versions-version12.22-rds.20260514)
 + [Amazon RDS Extended Support version 12.22-RDS.20260224](#postgresql-versions-version12.22-rds.20260224)
 + [Amazon RDS Extended Support version 12.22-RDS.20251114](#postgresql-versions-version12.22-rds.20251114)
 + [Amazon RDS Extended Support version 12.22-RDS.20250814](#postgresql-versions-version12.22-rds.20250814)
 + [Amazon RDS Extended Support version 12.22-RDS.20250508](#postgresql-versions-version12.22-rds.20250508)
 + [Amazon RDS Extended Support version 12.22-RDS.20250220](#postgresql-versions-version12.22-rds.20250220)
+
+### Amazon RDS Extended Support version 12.22-RDS.20260820
+<a name="postgresql-versions-version12.22-rds.20260820"></a>
+
+RDS Extended Support version 12.22-RDS.20260820 is now available.
+
+**CVEs fixed:**
++ [CVE-2026-6464](https://nvd.nist.gov/vuln/detail/CVE-2026-6464) 
++ [CVE-2026-6470](https://nvd.nist.gov/vuln/detail/CVE-2026-6470) 
++ [CVE-2026-6471](https://nvd.nist.gov/vuln/detail/CVE-2026-6471) 
++ [CVE-2026-14662](https://nvd.nist.gov/vuln/detail/CVE-2026-14662) 
++ [CVE-2026-14663](https://nvd.nist.gov/vuln/detail/CVE-2026-14663) 
++ [CVE-2026-14664](https://nvd.nist.gov/vuln/detail/CVE-2026-14664) 
++ [CVE-2026-14666](https://nvd.nist.gov/vuln/detail/CVE-2026-14666) 
++ [CVE-2026-14668](https://nvd.nist.gov/vuln/detail/CVE-2026-14668) 
++ [CVE-2026-14669](https://nvd.nist.gov/vuln/detail/CVE-2026-14669) 
++ [CVE-2026-14670](https://nvd.nist.gov/vuln/detail/CVE-2026-14670) 
++ [CVE-2026-14671](https://nvd.nist.gov/vuln/detail/CVE-2026-14671) 
++ [CVE-2026-14673](https://nvd.nist.gov/vuln/detail/CVE-2026-14673) 
++ [CVE-2026-14677](https://nvd.nist.gov/vuln/detail/CVE-2026-14677) 
++ [CVE-2026-14678](https://nvd.nist.gov/vuln/detail/CVE-2026-14678) 
++ [CVE-2026-14679](https://nvd.nist.gov/vuln/detail/CVE-2026-14679) 
++ [CVE-2026-14680](https://nvd.nist.gov/vuln/detail/CVE-2026-14680) 
++ [CVE-2026-15742](https://nvd.nist.gov/vuln/detail/CVE-2026-15742) 
++ [CVE-2026-16239](https://nvd.nist.gov/vuln/detail/CVE-2026-16239) 
++ [CVE-2026-16241](https://nvd.nist.gov/vuln/detail/CVE-2026-16241) 
++ [CVE-2026-18024](https://nvd.nist.gov/vuln/detail/CVE-2026-18024) 
++ [CVE-2026-18408](https://nvd.nist.gov/vuln/detail/CVE-2026-18408) 
++ [CVE-2026-19385](https://nvd.nist.gov/vuln/detail/CVE-2026-19385) 
 
 ### Amazon RDS Extended Support version 12.22-RDS.20260514
 <a name="postgresql-versions-version12.22-rds.20260514"></a>
@@ -129,6 +188,7 @@ RDS Extended Supportt version 12.22-RDS.20250220 is now available.
 <a name="postgresql-version1122ES"></a>
 
 **Topics**
++ [Amazon RDS Extended Support version 11.22-RDS.20260822](#postgresql-versions-version11.22-rds.20260822)
 + [Amazon RDS Extended Support version 11.22-RDS.20260514](#postgresql-versions-version11.22-rds.20260514)
 + [Amazon RDS Extended Support version 11.22-RDS.20260224](#postgresql-versions-version11.22-rds.20260224)
 + [Amazon RDS Extended Support version 11.22-RDS.20251114](#postgresql-versions-version11.22-rds.20251114)
@@ -139,6 +199,33 @@ RDS Extended Supportt version 12.22-RDS.20250220 is now available.
 + [Amazon RDS Extended Support version 11.22-RDS.20240808](#postgresql-versions-version11.22-rds.20240808)
 + [Amazon RDS Extended Support version 11.22-RDS.20240509](#postgresql-versions-version11.22-rds.20240509)
 + [Amazon RDS Extended Support version 11.22-RDS.20240418](#postgresql-versions-version11.22-rds.20240418)
+
+### Amazon RDS Extended Support version 11.22-RDS.20260822
+<a name="postgresql-versions-version11.22-rds.20260822"></a>
+
+RDS Extended Support version 11.22-RDS.20260822 is now available.
+
+**CVEs fixed:**
++ [CVE-2026-6464](https://nvd.nist.gov/vuln/detail/CVE-2026-6464) 
++ [CVE-2026-6470](https://nvd.nist.gov/vuln/detail/CVE-2026-6470) 
++ [CVE-2026-6471](https://nvd.nist.gov/vuln/detail/CVE-2026-6471) 
++ [CVE-2026-14662](https://nvd.nist.gov/vuln/detail/CVE-2026-14662) 
++ [CVE-2026-14663](https://nvd.nist.gov/vuln/detail/CVE-2026-14663) 
++ [CVE-2026-14664](https://nvd.nist.gov/vuln/detail/CVE-2026-14664) 
++ [CVE-2026-14666](https://nvd.nist.gov/vuln/detail/CVE-2026-14666) 
++ [CVE-2026-14669](https://nvd.nist.gov/vuln/detail/CVE-2026-14669) 
++ [CVE-2026-14670](https://nvd.nist.gov/vuln/detail/CVE-2026-14670) 
++ [CVE-2026-14671](https://nvd.nist.gov/vuln/detail/CVE-2026-14671) 
++ [CVE-2026-14673](https://nvd.nist.gov/vuln/detail/CVE-2026-14673) 
++ [CVE-2026-14677](https://nvd.nist.gov/vuln/detail/CVE-2026-14677) 
++ [CVE-2026-14678](https://nvd.nist.gov/vuln/detail/CVE-2026-14678) 
++ [CVE-2026-14679](https://nvd.nist.gov/vuln/detail/CVE-2026-14679) 
++ [CVE-2026-14680](https://nvd.nist.gov/vuln/detail/CVE-2026-14680) 
++ [CVE-2026-15742](https://nvd.nist.gov/vuln/detail/CVE-2026-15742) 
++ [CVE-2026-16239](https://nvd.nist.gov/vuln/detail/CVE-2026-16239) 
++ [CVE-2026-18024](https://nvd.nist.gov/vuln/detail/CVE-2026-18024) 
++ [CVE-2026-18408](https://nvd.nist.gov/vuln/detail/CVE-2026-18408) 
++ [CVE-2026-19385](https://nvd.nist.gov/vuln/detail/CVE-2026-19385) 
 
 ### Amazon RDS Extended Support version 11.22-RDS.20260514
 <a name="postgresql-versions-version11.22-rds.20260514"></a>
