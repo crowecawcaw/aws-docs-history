@@ -24,6 +24,7 @@ This guide contains code samples, including DAGs and custom plugins, that you ca
 + [Using Amazon MWAA with Amazon EKS](mwaa-eks-example.md)
 + [Connecting to Amazon ECS using the `ECSOperator`](samples-ecs-operator.md)
 + [Using dbt with Amazon MWAA](samples-dbt.md)
++ [Using DuckDB with Amazon MWAA](samples-duckdb.md)
 + [AWS blogs and tutorials](#samples-blogs-tutorials)
 
 ## AWS blogs and tutorials

@@ -5,6 +5,9 @@
 
 In a multi-team environment, several teams share a single Amazon Managed Workflows for Apache Airflow environment. Each team has its own DAG folder in Amazon S3, and IAM Identity Center groups control which teams a user can access. Amazon MWAA multi-team environments are based on the Apache Airflow multi-team feature. For more information, see [Multi-Team](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/multi-team.html) on the Apache Airflow website.
 
+**Important**  
+Amazon MWAA multi-team support is based on the Apache Airflow multi-team feature. This Apache Airflow feature is experimental and in preview as of Apache Airflow version 3.3.1. The feature is not complete, and its behavior and APIs can change in breaking ways, or be removed, between releases without notice. We recommend that you use multi-team environments with caution and that you don't rely on them for production-critical workloads. For more information, see [Experimental features](https://airflow.apache.org/docs/apache-airflow/stable/installation/supported-versions.html#experimental-features) on the Apache Airflow website.
+
 **Contents**
 + [Prerequisites](#multi-team-prerequisites)
 + [Key concepts](#multi-team-concepts)
@@ -94,6 +97,7 @@ Use separate Amazon MWAA environments when teams need any of the following:
 <a name="multi-team-limitations"></a>
 
 Multi-team environments have the following limitations:
++ **Experimental feature** – Multi-team support is based on an Apache Airflow experimental feature that is in preview and still evolving. Some functionality is incomplete, and behavior can change without notice in future releases. Use multi-team environments with caution.
 + **Shared compute** – All teams share the same DAG processor and workers. Teams are isolated only by DAG folder and access control. A team's workload can affect the performance of other teams.
 + **Shared metadata database** – All teams share the same SQL database instance containing Airflow metadata. A team's workload disproportionally loading the database can affect the performance of other teams.
 + **Shared plugins and Python dependencies** – All teams use the same plugins and the same `requirements.txt` file.

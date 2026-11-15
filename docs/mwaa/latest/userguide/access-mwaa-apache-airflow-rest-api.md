@@ -36,6 +36,9 @@ By using `InvokeRestApi`, you can access the Apache Airflow REST API using AWS c
 **Important**  
 The response payload size cannot exceed 6 MB. Your `RestApi` fails if this limit is exceeded.
 
+**`InvokeRestApi` limitations in Amazon MWAA environments with IAM Identity Center**  
+If your environment has IAM Identity Center integration enabled, refer to [Known limitations](identity-center-integration.md#iic-integration-limitations) before you use `InvokeRestApi`.
+
 Use the following examples to make API calls to the Apache Airflow REST API and start a new DAG run:
 
 **Topics**

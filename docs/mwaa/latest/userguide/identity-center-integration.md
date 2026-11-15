@@ -370,6 +370,11 @@ To fully sign out of IAM Identity Center, log out from the IAM Identity Center a
 + **One-way enablement.** Once IAM Identity Center integration is enabled on an environment, it cannot be disabled. Use the parallel-environment approach described in [Recommended: create a new environment](#iic-integration-enabling-new-env) for a safe migration path.
 + **Apache Airflow 3.3.1 or later required.** IAM Identity Center integration is not available on earlier Apache Airflow versions. The console version gate enforces this.
 + **Role selection for multi-Permission-Set users.** Users with more than one Permission Set assigned in IAM Identity Center must select a role during login. To eliminate this step, assign a single dedicated Permission Set per user for Amazon MWAA access.
++ **`InvokeRestApi` is not supported.** On environments with IAM Identity Center integration enabled, calls to the Amazon MWAA `InvokeRestApi` operation return an error. This affects programmatic access to the Apache Airflow REST API through the AWS CLI or AWS SDKs, such as scripts and CI/CD pipelines that start DAG runs, check DAG run status, or retrieve task logs.
+
+  You can still perform these actions through the Apache Airflow UI. If your workflows depend on programmatic access to the Apache Airflow REST API, keep those workflows on an environment without IAM Identity Center integration enabled.
+
+  IAM Identity Center integration cannot be disabled after you enable it. Evaluate this limitation before you enable IAM Identity Center on an existing environment.
 
 ## Troubleshooting
 <a name="iic-integration-troubleshooting"></a>
