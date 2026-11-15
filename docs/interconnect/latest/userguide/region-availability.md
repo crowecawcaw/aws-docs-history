@@ -11,17 +11,22 @@
 ### Lumen
 <a name="lumen"></a>
 
-Available in us-east-1 (N. Virginia) through the New York City (NYC) metro. You can also connect from anywhere in the continental United States through the Lumen connectivity fabric.
+Available in US East (N. Virginia) through the New York and Northern Virginia metros. You can connect from anywhere in the continental United States through the Lumen connectivity fabric.
 
 ### AT&T (Gated Preview)
 <a name="att-gated-preview"></a>
 
-Available in us-west-2 (Oregon) through the Seattle metro.
+Available in US West (Oregon) through the Seattle metro.
 
 ### Megaport (Preview)
 <a name="megaport-preview"></a>
 
-Available in us-west-1 (N. California) and us-east-1 (N. Virginia) through the San Jose and Northern Virginia metros.
+Available in US West (N. California) and US East (N. Virginia) through the San Jose and Northern Virginia metros.
+
+### Equinix (Preview)
+<a name="equinix-preview"></a>
+
+Available in US West (N. California) and US East (N. Virginia) through the San Jose and Northern Virginia metros.
 
 ## AWS Interconnect – multicloud
 <a name="multicloud-availability"></a>
