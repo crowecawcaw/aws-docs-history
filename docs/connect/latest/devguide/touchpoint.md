@@ -14,6 +14,8 @@ npm i @amazon-connect-touchpoint/web
 **Important**  
 Touchpoint is open source on GitHub at [https://github.com/amazon-connect/touchpoint](https://github.com/amazon-connect/touchpoint). The full SDK reference — every configuration option, type, and modality component — is generated from source and lives in the repository's [docs/](https://github.com/amazon-connect/touchpoint/tree/main/docs) directory.
 
+Touchpoint is also available as native SDKs for iOS and Android. For the iOS SDK, see [Touchpoint SDK for iOS](touchpoint-ios.md). For the Android SDK, see [Touchpoint SDK for Android](touchpoint-android.md).
+
 **Topics**
 + [What Touchpoint provides](#touchpoint-what-provides)
 + [Prerequisites](#touchpoint-prerequisites)
