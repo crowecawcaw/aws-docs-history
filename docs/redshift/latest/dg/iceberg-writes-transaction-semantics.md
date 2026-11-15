@@ -102,6 +102,8 @@ A transaction on Iceberg tables gives you the following guarantees:
 + **Read your own writes**: Reads of the Iceberg table that a transaction writes include the transaction's uncommitted changes, as long as the transaction uses the same name for the table.
 + **Repeatable reads**: The first statement that reads or writes an Iceberg table in a transaction fixes the version of that table for the rest of the transaction. Later reads of the table in the same transaction don't see changes that other sessions commit in the meantime.
 
+Time travel queries are an exception to **Read your own writes**. A time travel query reads a committed snapshot of the table, so it doesn't include the transaction's uncommitted changes, even when the transaction writes to that table. For more information, see [Time travel queries on Iceberg tables in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/iceberg-time-travel.html).
+
 Amazon Redshift fixes the version of each Iceberg table when the transaction first reads or writes that table, not when the transaction begins. If a transaction first accesses an Iceberg table later in the transaction, that read can include changes that other sessions committed after the transaction started.
 
 Reads of RMS tables in the same transaction use the Amazon Redshift transaction snapshot, so they might not reflect the same point in time as reads of Iceberg tables. For more information, see [Isolation levels in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/c_serial_isolation.html).

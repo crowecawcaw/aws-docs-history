@@ -29,6 +29,8 @@ When you create an Iceberg materialized view, Amazon Redshift does the following
 
 When you refresh an Iceberg materialized view, Amazon Redshift compares the current source table Iceberg snapshots against the snapshots recorded at the last refresh. If changes are detected, Amazon Redshift either computes and applies only the changed data (incremental refresh) or performs a full recomputation.
 
+Because an Iceberg materialized view is stored as a standard Iceberg table, you can query it as it was at an earlier point in time, such as before its last refresh. For more information, see [Time travel queries on Iceberg tables in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/iceberg-time-travel.html).
+
 ## Source table requirements
 <a name="materialized-view-iceberg-source-requirements"></a>
 
@@ -171,6 +173,7 @@ You can't define an Iceberg materialized view that references or includes any of
 + Uppercase identifiers in table names, column names, or aliases
 + Source tables in a different AWS Region or account
 + AWS Lake Formation filtered (fine-grained access control) tables
++ Time travel (`AS OF TIMESTAMP`) clauses
 
 The following SQL constructs are allowed in the materialized view definition but force full refresh instead of incremental refresh:
 + DISTINCT

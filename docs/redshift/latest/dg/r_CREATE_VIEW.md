@@ -150,6 +150,11 @@ show view sales_vw;
 
 Note that the late-binding view as shown in the DDL statement for the standard view is defined when the standard view is created, and won’t update with any changes you make to the late-binding view afterward.
 
+### Views and time travel queries
+<a name="r_CREATE_VIEW_time-travel"></a>
+
+You can't use a time travel (`AS OF TIMESTAMP`) clause anywhere in the query that defines a standard view or a late-binding view. You also can't apply an `AS OF TIMESTAMP` clause to a standard view or a late-binding view when you query it. To read Apache Iceberg tables at an earlier point in time, apply the `AS OF TIMESTAMP` clause to the Iceberg tables directly in your query. For more information, see [Time travel queries on Iceberg tables in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/iceberg-time-travel.html).
+
 ## Examples
 <a name="r_CREATE_VIEW-examples"></a>
 

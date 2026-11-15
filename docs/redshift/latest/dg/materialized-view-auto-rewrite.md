@@ -10,7 +10,9 @@ You can use automatic query rewriting of materialized views in Amazon Redshift t
 ## Usage notes
 <a name="mv_auto-rewrite_usage"></a>
 
-To check if automatic rewriting of queries is used for a query, you can inspect the query plan or STL\_EXPLAIN. The following shows a SELECT statement and the EXPLAIN output of the original query plan.
+To see whether Amazon Redshift used a materialized view to rewrite a query, or why it rejected the rewrite, query [SYS\_MV\_AQMV\_HISTORY](SYS_MV_AQMV_HISTORY.md). The view lists some, but not necessarily all, materialized views that match the query. For example, a matching materialized view might not appear if it is stale or if automatic query rewriting times out before Amazon Redshift evaluates it.
+
+To inspect the rewritten query plan, use `EXPLAIN` or `STL_EXPLAIN`. A successful rewrite includes a scan of the materialized view. The following examples compare the original query plan with a successfully rewritten plan.
 
 ```
 SELECT catgroup, SUM(qtysold) AS sold
@@ -66,7 +68,8 @@ Following are limitations for using automatic query rewriting of materialized vi
   + Any aggregate functions with DISTINCT
   + Any window functions
   + SELECT DISTINCT or HAVING clauses
-  + External or shared tables
+  + Shared tables
+  + External tables, except Apache Iceberg tables
   + Other materialized views
 + Automatic query rewriting rewrites SELECT queries that refer to user-defined Amazon Redshift tables. Amazon Redshift doesn't rewrite the following queries:
   + CREATE TABLE AS statements

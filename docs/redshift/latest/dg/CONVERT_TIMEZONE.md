@@ -48,7 +48,7 @@ To view a current and complete list of time zone names, run the following comman
 select pg_timezone_names();
 ```
 
-Each row contains a comma-separated string with the time zone name, abbreviation, UTC offset, and indicator if the time zone observes daylight saving time (`t` or `f`). For example, the following snippet shows two resulting rows. The first row is the time zone `Antarctica/South Pole`, abbreviation `NZDT`, with `13:00:00` offset from UTC, and `f` to indicate it doesn't observe daylight saving time. The second row is the time zone `Europe/Paris`, abbreviation `CET`, with `01:00:00` offset from UTC, and `f` to indicate it observes daylight saving time.
+Each row contains a comma-separated string with the time zone name, the time zone abbreviation, the Coordinated Universal Time (UTC) offset, and an indicator of whether the time zone is currently observing daylight saving time (`t` or `f`). The abbreviation, offset, and indicator are calculated for the current date and time, so they can change depending on when you run the command. For example, the following snippet shows two resulting rows from a command run in January. The first row is the time zone `Antarctica/South_Pole`, abbreviation `NZDT`, with a `13:00:00` offset from UTC, and `t` to indicate it is currently observing daylight saving time. The second row is the time zone `Europe/Paris`, abbreviation `CET`, with a `01:00:00` offset from UTC, and `f` to indicate it is not currently observing daylight saving time. If you run the same command in July, `Europe/Paris` returns `CEST`, `02:00:00`, and `t`.
 
 ```
 pg_timezone_names

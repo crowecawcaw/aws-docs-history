@@ -144,6 +144,7 @@ You can't define a materialized view that references or includes any of the foll
 + You don't have to manually run [ANALYZE](r_ANALYZE.md) on materialized views. This happens currently only by using AUTO ANALYZE. For more information, see [Analyzing tables](t_Analyzing_tables.md).
 + RLS-protected or DDM-protected tables. 
 + Materialized view creation from remote datasharing clusters does not support references on other materialized views, Spectrum tables, tables defined in a different Redshift cluster and UDFs. These are supported for materialized view creation from the local (producer) cluster. 
++ Time travel (`AS OF TIMESTAMP`) clauses. To save a table's data as it was at a point in time, use `CREATE TABLE AS` with a time travel query instead. For more information, see [Time travel queries on Iceberg tables in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/iceberg-time-travel.html).
 
 For Iceberg materialized views created with USING ICEBERG, the following additional limitations apply:
 + Source tables must be in Apache Iceberg format.

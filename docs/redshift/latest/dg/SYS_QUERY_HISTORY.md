@@ -26,6 +26,10 @@ LEFT JOIN
     sys_transaction_history th ON qh.transaction_id = th.transaction_id;
 ```
 
+**Important**  
+The `query_id` column in the SYS monitoring views and the `query` column in STL\_QUERY are not the same identifier, and you can't use them as a join key between the two view families. The SYS views record each query you submit as a single row in its original form, while the provisioned-only views record queries at the child-query level, so a single query you submit can appear as multiple rows with different `query` values.  
+For more information, see [Improving query identifier tracking using the SYS monitoring views](cm_chap_system-tables.md#sys_view_migration-query-id).
+
 ## Table columns
 <a name="SYS_QUERY_HISTORY-table-columns"></a>
 

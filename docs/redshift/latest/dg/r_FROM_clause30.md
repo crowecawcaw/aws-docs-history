@@ -27,6 +27,7 @@ where *table\_reference* is one of the following:
 ```
 with_subquery_table_name [ table_alias ]
 table_name [ * ] [ table_alias ]
+table_name AS OF TIMESTAMP { 'timestamp_literal' | ( timestamp_expression ) } [ table_alias ]
 ( subquery ) [ table_alias ]
 table_reference [ NATURAL ] join_type table_reference
    [ ON join_condition | USING ( join_column [, ...] ) ]
@@ -63,6 +64,9 @@ A table defined by a subquery in the [WITH clause](r_WITH_clause.md).
 
  *table\_name*   
 Name of a table or view. 
+
+AS OF TIMESTAMP  
+Reads an Apache Iceberg table as it was at the specified point in time. You can use this clause only on Iceberg tables. Specify the point in time as a timestamp literal or as an expression in parentheses. For more information, see [Time travel queries on Iceberg tables in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/iceberg-time-travel.html).
 
  *alias*   
 Temporary alternative name for a table or view. An alias must be supplied for a table derived from a subquery. In other table references, aliases are optional. The AS keyword is always optional. Table aliases provide a convenient shortcut for identifying tables in other parts of a query, such as the WHERE clause. For example:   

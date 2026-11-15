@@ -14,6 +14,10 @@ STL\_QUERY is visible to all users. Superusers can see all rows; regular users c
 
 Some or all of the data in this table can also be found in the SYS monitoring view [SYS\_QUERY\_HISTORY](SYS_QUERY_HISTORY.md). The data in the SYS monitoring view is formatted to be easier to use and understand. We recommend that you use the SYS monitoring view for your queries.
 
+**Important**  
+The `query` column in this view and the `query_id` column in SYS\_QUERY\_HISTORY are not the same identifier, and you can't use them as a join key between the two view families. The provisioned-only views record queries at the child-query level, so a single query you submit can appear as multiple rows with different `query` values, while the SYS monitoring views record each query as a single row in its original form.  
+For more information, see [Improving query identifier tracking using the SYS monitoring views](cm_chap_system-tables.md#sys_view_migration-query-id).
+
 Note that when your query text length is over 4000 characters, STL\_QUERY only displays truncated data. To get the full query text, you can use UNION on the query text across rows. 
 
 **Note**  
