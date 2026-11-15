@@ -31,4 +31,4 @@ Your AWS account has the following quotas related to AWS Transform.
 | Custom transformations | Custom transformation definitions | 1,000 | Yes | The maximum number of custom transformation definitions | 
 |  | Custom transformation definition size  | 10 MB | No | The maximum total size of all files included in the transformation definition, including document references. | 
 |  | Custom transformation monthly CLI conversation requests  | 10,000,000 | Yes | The maximum number of custom transformation conversation requests made in the CLI allowed in a calendar month | 
-| Assessment | Server count limit for each assessment | Each assessment: 30,000 servers | No | The maximum number of servers in a single assessment job | 
+| Assessment | Server count limit for each assessment | Each assessment: 30,000 servers | No | The maximum number of servers in a single assessment | 

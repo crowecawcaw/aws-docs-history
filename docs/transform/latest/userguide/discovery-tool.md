@@ -1,9 +1,15 @@
 
 
-# Discovery tool
+# AWS Transform discovery tool
 <a name="discovery-tool"></a>
 
 The AWS Transform discovery tool helps you automatically discover server inventory in your organization to prepare for migration. The tool supports VMware vCenter, Microsoft Hyper-V, and imported servers. To use the discovery tool, you configure one or more discovery sources, let the tool run, and then review the results in the **Discovered inventory** pane. 
+
+The discovery tool itself runs on Linux. You can deploy it in either of the following ways:
++ **As a virtual machine appliance** – Use a prebuilt appliance image. Deploy the Open Virtualization Appliance (OVA) on VMware vCenter. Deploy the Virtual Hard Disk (VHD) on Microsoft Hyper-V. Both appliances run Amazon Linux 2023. For more information, see [Deploy on VMware](discovery-tool-deploy-vmware.md) and [Deploy on Hyper-V](discovery-tool-deploy-hyperv.md).
++ **On an existing Linux server** – Install the discovery tool with the standalone Linux installer on a supported Linux distribution. For more information, see [Deploy on Linux](discovery-tool-deploy-linux.md).
+
+Although the discovery tool runs on Linux, it collects data from both Windows and Linux servers. It connects to Windows servers through Windows Remote Management (WinRM), and to Linux servers through Secure Shell (SSH).
 
 After you configure a discovery source, the discovery tool begins collecting information. The time that the discovery tool needs to completely analyze your network depends on the size of your environment. For a directional migration business case, you can use the Migration Portfolio Assessment (MPA) files that the tool generates after server collection completes.
 

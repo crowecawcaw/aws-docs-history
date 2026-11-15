@@ -77,13 +77,15 @@ The discovery tool uses two mechanisms to assign credentials to servers during *
   + If a working credential is found, the collection round for the server is successful. The discovery tool remembers it and tries it first next time.
   + If no working credential is found, the collection round for the server has failed.
     + Network module: the server uses a backoff schedule, starting next collection round in 3 min, 30 min, 2 hours, and 6 hours following each failure (similar to exponential backoff).
-    + SQL Server collection: The discovery tool does not retry. It makes one attempt per server each day.
+    + SQL Server collection: The discovery tool does not retry within a round. It makes one scheduled attempt per server each day. It also attempts collection immediately when you save SQL Server credentials, change server assignments, or import servers from a CSV file.
 
 **Impacts/Risks**:
 
 Only use auto-connect when you are sure that risks are mitigated in your system:
 
 **Risk 1**: With auto-connect configured on multiple wrong credentials, automatically trying them against servers could trigger account lockouts for production environments where lockout policies are configured. For example, a data center can set its VMs to lock down after 3 failed SSH login attempts. In this case, if auto-connect is configured for 3 wrong SSH credentials, legitimate account lockouts would happen. If lockouts happen across multiple systems, critical business processes could be impacted, potentially causing cascading failures in dependent systems. In addition, Security Operations Centers could experience alert storms from mass authentication failure events, creating false positive security incidents that drain resources and may mask real attacks.
+
+The same risk applies to SQL Server logins. The discovery tool tries an auto-connect SQL Server credential against every Windows server, and every server whose operating system is unknown, that has no SQL Server credential assigned.
 
 **Risk 2**: Actor with access to the discovery tool (knows discovery tool password) can brute force OS credentials on all servers, by configuring a large number of test credentials and use auto-connect to find the successful ones.
 
@@ -99,9 +101,9 @@ Follow these guidelines:
 
 When you import servers by using a CSV file, consider the following security implications:
 + The CSV file might contain hostnames or IP addresses of internal servers. Treat it as sensitive data.
-+ The `os_credential_name` and `oracle_credential_name` columns reference preconfigured credentials by friendly name. The CSV does not contain secrets.
++ The `os_credential_name`, `oracle_credential_name`, and `sql_server_credential_name` columns reference preconfigured credentials by friendly name. The CSV does not contain secrets.
 + All-or-nothing validation: if any row in the CSV is invalid, the entire upload is rejected. This prevents partial imports that could create a confusing state.
-+ Imported servers are immediately visible in the inventory and eligible for collection. Ensure that OS and Oracle credentials are correctly scoped before you import.
++ Imported servers are immediately visible in the inventory and eligible for collection. Make sure that OS, Oracle, and SQL Server credentials are correctly scoped before you import.
 
 ## Revoking Access Considerations
 <a name="revoking-access-security"></a>
@@ -110,4 +112,5 @@ When you revoke access, deletion is scoped to the specific source:
 + Revoking vCenter access deletes only vCenter data. It does not affect Hyper-V or imported server data.
 + Revoking Hyper-V access deletes only Hyper-V data. It does not affect VMware or imported server data.
 + Deleting imported servers removes them from inventory, but downstream collection data (network, database, OS metrics) is retained.
++ Removing SQL Server credentials deletes only the SQL Server database credentials. Collected SQL Server data is retained.
 + To remove all source-specific inventory data, you must revoke or delete each source independently. Downstream collection data (network, database, OS metrics) is retained even after all sources are revoked.

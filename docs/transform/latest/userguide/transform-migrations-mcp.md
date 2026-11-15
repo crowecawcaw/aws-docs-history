@@ -102,9 +102,9 @@ With the MCP server connected, you drive your migration by talking to the AI ass
 
 1. **Create and start a migration job.** Ask the assistant to create a migration job. The assistant discovers the available agents and starts the job. For information about the migration job types and the steps that each includes, see [Job types](vmware-jobs.md#vmware-job-types).
 
-1. **Run discovery.** Upload your on-premises server inventory so AWS Transform can parse, de-duplicate, and validate it. For the supported discovery data sources and formats, see [Discover source data](transform-vmware-discover-source-data.md).
+1. **Run discovery.** Upload your on-premises server inventory so AWS Transform can parse, de-duplicate, and validate it. For the supported discovery data sources and formats, see [Discovery](transform-vmware-discover-source-data.md).
 
-1. **Build the migration plan.** Work with the assistant to scope and analyze your inventory, group servers into applications, generate move groups, and build migration waves. You can ask questions about your environment and iterate on the plan at any time. For more information, see [Build migration plan](transform-vmware-review-groupings-and-waves.md).
+1. **Build the migration plan.** Work with the assistant to scope and analyze your inventory, group servers into applications, generate move groups, and build migration waves. You can ask questions about your environment and iterate on the plan at any time. For more information, see [Migration planning](transform-vmware-review-groupings-and-waves.md).
 
 1. **Connect your target account.** Create a connector and have an administrator of the target AWS account approve it so AWS Transform can deploy infrastructure, migrate networks, and rehost servers. For more information, see [Connect target AWS accounts and regions](transform-vmware-connect-target-account.md).
 

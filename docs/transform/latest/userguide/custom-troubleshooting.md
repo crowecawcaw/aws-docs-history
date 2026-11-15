@@ -143,6 +143,74 @@ If you cannot resume a conversation:
 + Check the conversation ID is correct
 + Ensure you have network connectivity
 
+## Continuing a transformation campaign using the CLI
+<a name="custom-continue-campaign-cli"></a>
+
+If you started a transformation in the AWS Transform web application, AWS Transform created a campaign for it. You can continue to run and track that campaign using the AWS Transform command line interface (CLI). Use the following procedure when you want to transform more repositories in an existing campaign, or check the progress of its repositories, without using the web application. For AWS managed transformations (transformation names that start with `AWS/`) in non-interactive mode, you need to provide `additionalPlanContext` in the `--configuration` option to specify the target of the transformation, such as the target language version.
+
+Before you begin, your AWS credentials need to be for the same AWS account where you created the campaign, and you need to set the same AWS Region. In the following example, replace {{aa-example-1}} with the Region where you created the campaign.
+
+```
+export AWS_REGION={{aa-example-1}}
+```
+
+**To continue a campaign using the CLI**
+
+1. Run the following command to list the campaigns in your account, and then find the campaign that you want to continue. The campaign name is the job ID of the transformation that you started in the web application.
+
+   ```
+   atx custom campaign list
+   ```
+
+   To also view the description of each campaign, add `--json` to the command.
+
+1. (Optional) Run the following commands to view the campaign details and the repositories that are already in the campaign. Replace {{campaign-name}} with the name of your campaign.
+
+   ```
+   atx custom campaign get --name {{campaign-name}}
+   atx custom campaign list-repos --name {{campaign-name}}
+   ```
+
+1. Run the following command to transform a repository and record the result in the campaign.
+
+   ```
+   atx custom def exec \
+       --code-repository-path {{path-to-repo}} \
+       --non-interactive \
+       --trust-all-tools \
+       --campaign {{campaign-name}} \
+       --repo-name {{repo-name}} \
+       --add-repo \
+       --configuration "additionalPlanContext={{target-details}}"
+   ```
+
+   Replace the following values:
+   + {{path-to-repo}} – The local path to the code repository that you want to transform.
+   + {{campaign-name}} – The name of the campaign that you want to continue.
+   + {{repo-name}} – The name of the repository in the campaign. The `--add-repo` option adds the repository to the campaign if it isn't already in the campaign.
+   + {{target-details}} – The target of the transformation, for example `The target Java version to upgrade to is Java 21`.
+
+   To run the transformation interactively instead, omit `--non-interactive` and `--trust-all-tools`. If the command returns an error, review the error message, verify the `--configuration` value and the repository path, and then run the command again. For common errors, see the troubleshooting list that follows this procedure.
+
+1. Run the following command to track the progress of the repositories in the campaign. A repository shows `TRANSFORMING` while the transformation runs and `VALIDATED` after it completes.
+
+   ```
+   atx custom campaign list-repos --name {{campaign-name}}
+   ```
+
+When the transformation completes successfully, the repository shows `VALIDATED` in the campaign.
+
+You can also manage campaigns using the following commands:
++ To add repositories to a campaign without running a transformation, run `atx custom campaign add-repos --name {{campaign-name}} --repos {{repo-a,repo-b}}`.
++ To create a new campaign, run `atx custom campaign create --name {{campaign-name}} --transformation-name {{transformation-name}} --description "{{description}}"`.
++ To close a campaign when you finish, run `atx custom campaign update-status --name {{campaign-name}} --status CLOSED`.
+
+If you encounter the following errors while you work with campaigns, use these solutions:
++ **Campaign '{{campaign-name}}' not found.** – This error usually occurs when the CLI uses credentials or a Region that differ from the ones that you used to create the campaign. Campaigns are stored per AWS account and Region. Verify that your credentials and the `AWS_REGION` value match the account and Region where you created the campaign.
++ **Could not resolve the AWS Transform endpoint** – This error occurs when the value of `AWS_REGION` is a Region that AWS Transform custom doesn't support. Set `AWS_REGION` to the Region where you created the campaign.
++ **Running this transformation in non-interactive mode requires the --configuration (or -g) input provided with the "additionalPlanContext" section populated.** – This error occurs when you run an AWS managed transformation in non-interactive mode without a target. Add `--configuration "additionalPlanContext={{target-details}}"` to the command, or run the command without `--non-interactive`.
++ **No repositories found for this campaign.** – This message appears when the transformation command stopped before it added the repository to the campaign. Review the error message that the transformation command returned, fix the issue, and then run the command again with `--add-repo`.
+
 ## Getting Support
 <a name="custom-getting-support"></a>
 

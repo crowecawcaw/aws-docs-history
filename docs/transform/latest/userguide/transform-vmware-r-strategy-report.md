@@ -16,7 +16,7 @@ Recommendations roll up from individual servers to applications and across your 
 
 To generate a migration strategy (7Rs) report:
 
-1. Complete the *Discover on-premises data* step and group your servers into applications. Both are required so that AWS Transform can provide per-server and per-application recommendations.
+1. Upload your inventory and group your servers into applications. Both are required so that AWS Transform can provide per-server and per-application recommendations.
 
 1. In the migration planning chat, ask AWS Transform for a migration strategy (7Rs) report. For example, *Generate an R-strategy report*. After application grouping completes, AWS Transform also offers to generate the report for you.
 

@@ -1,11 +1,11 @@
 
 
-# Build migration plan
+# Migration planning
 <a name="transform-vmware-review-groupings-and-waves"></a>
 
-The Migration planning job step within AWS Transform for migrations is a collaborative chat-based experience for planning large migrations. AWS Transform agents apply AWS Prescriptive Guidance to guide customers from analysis of on-premises data to finalized migration wave plans.
+Migration planning within AWS Transform for migrations is a collaborative chat-based experience for planning large migrations. AWS Transform agents apply AWS Prescriptive Guidance to guide customers from analysis of on-premises data to finalized migration wave plans.
 
-After the Discover on-premises data job completes successfully, AWS Transform uses the discovery data to group applications into migration waves. AWS Transform guides you through steps to analyze and scope your servers, group them into applications, generate move groups, and build migration waves.
+After you upload your inventory, AWS Transform uses the discovery data to group applications into migration waves. AWS Transform guides you through steps to analyze and scope your servers, group them into applications, generate move groups, and build migration waves.
 
 AWS Transform supports iterative planning throughout the process:
 + You can ask questions to better understand how AWS Transform analyzed your installed software, for example, server dependencies and network architecture.

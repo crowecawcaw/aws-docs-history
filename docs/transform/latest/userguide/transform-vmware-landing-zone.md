@@ -157,7 +157,6 @@ AWS Transform asks questions to understand your workload requirements. You can s
 Based on your answers and migration planning data, AWS Transform proposes an OU and account structure under the Workloads OU. The proposal includes the reasoning behind each design decision.
 
 AWS Transform follows these design principles:
-+ All servers in a migration wave go to the same account — waves cannot be split across accounts. This is a rehost limitation during wave execution.
 + If you request isolated environments, AWS Transform creates Workloads/Production and Workloads/Non-Production sub-OUs.
 + If applicable frameworks are identified, AWS Transform creates Workloads/Regulated and Workloads/Standard sub-OUs.
 + If multiple business units require different governance, AWS Transform creates business-unit-specific OUs under Workloads.

@@ -305,12 +305,11 @@ AWS Transform limits how many remote jobs run at the same time in an AWS account
 | Analysis type | Concurrent jobs | 
 | --- | --- | 
 | `security` | 5 | 
-| `tech-debt-quick` | 128 | 
-| `tech-debt-comprehensive`, `agentic-readiness`, `modernization-readiness`, `graviton-readiness`, and `custom` analysis, and remediation other than security remediation | 30, shared across all of these | 
+| `tech-debt-quick`, `tech-debt-comprehensive`, `agentic-readiness`, `modernization-readiness`, `graviton-readiness`, and `custom` analysis, and remediation other than security remediation | 30, shared across all of these | 
 | Security remediation | 128 | 
 
 **Note**  
-The types in the third row share a single pool of 30 jobs. Running a comprehensive tech-debt analysis and a custom remediation at the same time gives you 30 jobs in total, not 60.
+The types in the second row share a single pool of 30 jobs. Running a comprehensive tech-debt analysis and a custom remediation at the same time gives you 30 jobs in total, not 60.
 
 #### Minimum subnet size
 <a name="ct-remote-sizing-table"></a>
@@ -323,9 +322,8 @@ The addresses each subnet needs are the peak concurrent jobs, plus one or more f
 | Analysis type | Peak concurrent jobs | Minimum subnet size | 
 | --- | --- | --- | 
 | `security` | 5 | `/27` | 
-| `tech-debt-comprehensive`, `agentic-readiness`, `modernization-readiness`, `graviton-readiness`, `custom` | 30 | `/26` | 
-| `tech-debt-quick` | Up to 128 | `/24` | 
-| Every type running at its limit at once | 291 | `/23` | 
+| `tech-debt-quick`, `tech-debt-comprehensive`, `agentic-readiness`, `modernization-readiness`, `graviton-readiness`, `custom` | 30 | `/26` | 
+| Every type running at its limit at once | 163 | `/24` | 
 
 The minimums above include headroom for interface endpoints and for the addresses AWS reserves. Size up if other workloads share the subnet. A `/25` is not enough for 128 concurrent jobs: it provides 128 addresses but only 123 usable ones.
 

@@ -236,14 +236,18 @@ For Hyper-V failover clusters, you can add multiple hosts in the same cluster. T
 
 1. Navigate to the **Import servers** page from the Discovery tool homepage.
 
-1. Prepare a CSV file with the following columns: `hostname_or_ip` (required), `os_credential_name` (optional), and `oracle_credential_name` (optional).
+1. Prepare a CSV file with the following columns: `hostname_or_ip`, `os_credential_name`, `oracle_credential_name`, and optionally `sql_server_credential_name`. The header row must include the first three columns, in any order. Column names are case-sensitive. In any row, you can leave every column except `hostname_or_ip` empty.
    + The `hostname_or_ip` value must be a valid IPv4 address or a fully qualified domain name (FQDN).
    + The `os_credential_name` value, if provided, must match the friendly name of an OS credential that you already configured (SSH, WinRM, or SNMP). Leave empty for servers where you have not yet configured an OS credential.
    + The `oracle_credential_name` value, if provided, must match the friendly name of an Oracle credential that you already configured.
+   + The `sql_server_credential_name` value, if provided, must match the friendly name of a SQL Server credential that you already configured. You can omit this column from the file. If any row includes a SQL Server credential name, the header row must include `sql_server_credential_name`. For more information about SQL Server access, see [Configure SQL Server database access](#discovery-tool-sql-server-access).
 
 1. Upload the CSV file. The tool validates all rows and rejects the file if any row is invalid.
 
-After a successful import, the tool automatically begins database, network and OS metrics collection for the imported servers, if OS credentials are configured. If you upload another CSV file, existing records are updated without creating duplicates and new records are merged into the inventory.
+After a successful import:
++ The tool begins database, network, and OS metrics collection for the imported servers, using the credentials named in the file or your auto-connect credentials.
++ If a server has a SQL Server credential but no OS credential, the tool still attempts SQL Server collection for it.
++ If you upload another CSV file, the tool updates existing records without creating duplicates and merges new records into the inventory.
 
 ## Import a self-signed certificate authority into the discovery tool (Optional)
 <a name="security-certificate-authority"></a>
@@ -467,8 +471,10 @@ Configure SQL Server database credentials to collect additional information dire
 **Prerequisites**
 + The SQL Server instance must be configured for SQL Server authentication (mixed-mode authentication). The discovery tool uses SQL authentication only. Windows domain logins are not supported.
 + The discovery tool appliance must have TCP access to the SQL Server port (default 1433) on each target server. Named instances on dynamic ports are not supported — the discovery tool connects by port number only.
-+ Only Windows servers are attempted. Linux servers are skipped and report "OS not supported" even when a SQL Server credential is assigned.
++ The discovery tool attempts only Windows servers, and servers whose operating system is unknown (for example, an imported server with no OS credential). It skips servers that it has identified as Linux. For those servers, it reports **OS not supported** even when a SQL Server credential is assigned. The discovery tool identifies a server as Linux when VMware or Hyper-V reports a guest operating system that isn't Windows, when you import it with an SSH or SNMP credential in `os_credential_name`, or when an SSH or SNMP credential connects to it.
 + SQL Server connections in this release are unencrypted. Servers with "Force Encryption" enabled cannot be collected using database credentials.
++ You can configure up to 50 SQL Server credentials.
++ If an instance belongs to more than one Always On availability group, the discovery tool reports one group, preferring a group where the instance is the primary replica.
 
 **Required SQL Server grants**
 
@@ -498,11 +504,11 @@ GRANT VIEW ANY DATABASE TO atx_discovery;
    + **Port** – The SQL Server port (default 1433).
    + **Username** – The SQL Server login name.
    + **Password** – The SQL Server login password.
-   + **Auto-connect** – Turn on to try the credential against all Windows servers in your inventory. Turn off to assign the credential to specific servers manually.
+   + **Auto-connect** – Turn on to try the credential against all Windows servers, and servers whose operating system is unknown, that have no SQL Server credential assigned. Turn off to assign the credential to specific servers manually.
 
 1. To add more credentials, choose **Add SQL Server credential** again.
 
-1. Choose **Save and collect**. The discovery tool immediately starts a full SQL Server collection round for all Windows servers in your inventory.
+1. Choose **Save and collect**. The discovery tool immediately starts a full SQL Server collection round for all Windows servers, and servers whose operating system is unknown, in your inventory.
 
 You can monitor the collection result for each server on the **Discovered inventory** page.
 
@@ -526,7 +532,7 @@ The discovery tool has no release location in the AWS GovCloud (US) Regions. If 
 
 **Prerequisites**
 + Outbound HTTPS access to the discovery tool's release location, `s3.us-east-1.amazonaws.com/atx.discovery.collector.bundle/releases/latest/`. If outbound traffic is restricted, allow this location. Because the discovery tool uses path-style Amazon S3 URLs, a filter that matches only on host name cannot scope below `s3.us-east-1.amazonaws.com`; use a filter that matches on the full URL path to limit access to this location. Path-based filtering requires a firewall that performs TLS inspection; because the discovery tool validates the server certificate against the appliance's trust store, that firewall's certificate authority must be trusted on the appliance, or self-update fails with a TLS error. No proxy configuration is supported.
-+ The appliance runs version 1.0.2810 or later, and it was originally deployed with version 1.0.2325 or later. If your appliance was originally deployed with an earlier version, use the manual update method. For more information, see [Minimum version for each update method](#discovery-tool-updating-min-version).
++ The appliance runs version 1.0.2810 or later, and it was originally deployed with version 1.0.2335 or later. If your appliance was originally deployed with an earlier version, use the manual update method. For more information, see [Minimum version for each update method](#discovery-tool-updating-min-version).
 + Sufficient free disk space. The discovery tool checks available space before starting and refuses the update with an "insufficient space" error if there is not enough room for the installer, a database snapshot, and a safety margin. Free up disk space if you see this error.
 
 **Enabling self-update**
@@ -708,7 +714,7 @@ This step permanently deletes the current application, service files, and data d
 Use this method if you do not have operating system access to the VM, or if you prefer to deploy a new VM. The new VM starts with an empty database. Your existing data and configuration are not carried over.
 
 **Note**  
-To keep the data and configuration that you already collected, update the discovery tool on your existing VM instead of deploying a new VM. For more information, see [Updating in place with the Linux installer](#discovery-tool-updating-in-place). If your current version is earlier than 1.0.2325, first contact AWS Support with your current discovery tool version to confirm whether you can update in place from that version.
+To keep the data and configuration that you already collected, update the discovery tool on your existing VM instead of deploying a new VM. For more information, see [Updating in place with the Linux installer](#discovery-tool-updating-in-place). If your current version is earlier than 1.0.2335, first contact AWS Support with your current discovery tool version to confirm whether you can update in place from that version.
 
 **To redeploy the discovery tool from a new image**
 
@@ -729,8 +735,8 @@ Not every version of the discovery tool can update in place to every newer versi
 | Update method | Minimum version to update from | Notes | 
 | --- | --- | --- | 
 | Redeploy from a new image | 1.0.0 | Always available. The new VM starts with an empty database. | 
-| Manual update (in place) | 1.0.2325 | Updating in place from a version older than 1.0.2325 can cause problems. Depending on your starting version, it can silently stop scheduled collection for one or more modules, or cause the discovery tool to fail to start. If you are on a version earlier than 1.0.2325 and want to keep your collected data and configuration, contact AWS Support with your current discovery tool version to ask whether you can update in place from that version. Otherwise, redeploy from a new image. The new VM starts with an empty database. | 
-| Self-update | 1.0.2810 | Self-update is available in version 1.0.2810 and later, on appliances originally deployed with version 1.0.2325 or later. For example, an appliance deployed with 1.0.2325 and then updated manually to 1.0.2810 can use self-update. Appliances originally deployed with an earlier version update manually or redeploy. | 
+| Manual update (in place) | 1.0.2335 | Updating in place from a version older than 1.0.2335 can cause problems. Depending on your starting version, it can silently stop scheduled collection for one or more modules, or cause the discovery tool to fail to start. If you are on a version earlier than 1.0.2335 and want to keep your collected data and configuration, contact AWS Support with your current discovery tool version to ask whether you can update in place from that version. Otherwise, redeploy from a new image. The new VM starts with an empty database. | 
+| Self-update | 1.0.2810 | Self-update is available in version 1.0.2810 and later, on appliances originally deployed with version 1.0.2335 or later. For example, an appliance deployed with 1.0.2335 and then updated manually to 1.0.2810 can use self-update. Appliances originally deployed with an earlier version update manually or redeploy. | 
 
 ## Revoking access
 <a name="discovery-tool-revoking"></a>
@@ -739,3 +745,4 @@ You can revoke access for each discovery source independently. When you revoke a
 + **Revoking vCenter access** – Deletes vCenter credentials and VMware-collected data. Does not delete Hyper-V data, imported server data, or OS credentials.
 + **Revoking Hyper-V access** – Deletes Hyper-V credentials and Hyper-V-collected data only.
 + **Deleting imported servers** – Removes imported servers from inventory. Downstream collection data (network, database) that was collected from those servers is retained.
++ **Removing SQL Server credentials** – Deletes the SQL Server database credentials only. Collected SQL Server data is retained, and Windows-level SQL Server collection continues. Servers that were assigned a removed credential fall back to auto-connect credentials, then to Windows-level collection.

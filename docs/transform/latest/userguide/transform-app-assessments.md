@@ -36,7 +36,7 @@ Migration assessments follow a structured workflow that guides you from initial 
 
 **To complete a migration assessment**
 
-1. Create a migration assessment job in your AWS Transform workspace.
+1. Create a migration job in your AWS Transform workspace. For information about the job types, see [Job types](vmware-jobs.md#vmware-job-types).
 
 1. Upload your on-premises inventory data.
 
