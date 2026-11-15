@@ -398,7 +398,7 @@ Intrinsic functions are used in any section of the provisioning template except 
 
 `Fn::Join`  
 Appends a set of values into a single value, separated by the specified delimiter. If a delimiter is an empty string, the values are concatenated with no delimiter.  
-`Fn::Join` is not supported for [Policy resources](#policy-resources).
+In a provisioning template, `Fn::Join` isn't supported inside an [AWS IoT Core policy](iot-policies.md) document.
 
 `Fn::Select`  
 Returns a single object from a list of objects by index.  
