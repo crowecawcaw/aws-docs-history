@@ -13,4 +13,4 @@ You can get support by choosing the question mark icon in the navigation bar. Fr
 **Note**  
 This can also be done by choosing **Feedback** in the console footer. The title of the modal that opens shows which console you're currently leaving feedback for
 
-You can also get help anytime in the console, get connected with a live agent, and ask any question about AWS by chatting with AWS Q. For more information, see [Chatting with Amazon Q Developer in AWS Console Home](ask-q.md).
+You can also get help anytime in the console, get connected with a live agent, and ask any question about AWS by chatting with AWS Q. For more information, see [Chatting with AWS assistant in AWS Console Home](ask-q.md).

@@ -13,7 +13,7 @@ The AWS Management Console only provides access to account, organization, servic
 [Using the AWS Billing and Cost Management home page](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/view-billing-dashboard.html) in the *AWS Billing User Guide*.
 
 **Tip**  
-You can also get more information about any of these topics by asking Amazon Q. For more information, see [Chat with Amazon Q Developer](ask-q.md).
+You can also get more information about any of these topics by asking the AWS assistant. For more information, see [Chat with AWS assistant](ask-q.md).
 
 **Topics**
 + [Accessing account information in the AWS Management Console](ainfo.md)

@@ -22,7 +22,7 @@ Important features of the AWS Management Console include the following:
 + **Access all AWS event notifications** – You can use the AWS Management Console to access notifications from AWS User Notifications and AWS Health.
 + **Customize AWS Console Home** – You can completely customize your AWS Console Home experience by using widgets.
 + **Create and manage AWS applications** – Manage and monitor the cost, health, security posture, and performance of your applications using myApplications in AWS Console Home.
-+ **Chat with Amazon Q** – You can get generative artificial intelligence (AI) assistant powered answers to your AWS service questions directly from the console. You can also get connected with a live agent for additional support.
++ **Chat with AWS assistant** – You can get generative artificial intelligence (AI) assistant powered answers to your AWS service questions directly from the console. You can also get connected with a live agent for additional support.
 + **Control AWS account access in your network** – You can use AWS Management Console Private Access to limit access to the AWS Management Console to a specified set of known AWS accounts when the traffic originates from within your network.
 
 ## Accessing the AWS Management Console

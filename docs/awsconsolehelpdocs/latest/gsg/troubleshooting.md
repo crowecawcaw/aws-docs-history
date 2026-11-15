@@ -5,7 +5,7 @@
 
 Consult this section to find solutions to common problems with the AWS Management Console.
 
-You can also diagnose and troubleshoot common errors for some AWS services using Amazon Q Developer. For more information, see [Diagnose common errors in the console with Amazon Q Developer](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/diagnose-console-errors.html) in the *Amazon Q Developer User Guide*.
+You can also diagnose and troubleshoot common errors for some AWS services using the AWS assistant. For more information, see [Diagnosing console errors with AWS assistant](https://docs.aws.amazon.com/assistant/latest/userguide/diagnose-errors.html) in the *AWS assistant User Guide*.
 
 **Topics**
 + [The page isn't loading properly](#page-not-loading)

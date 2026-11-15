@@ -13,7 +13,7 @@ The DNS configuration depends on your network setup. The following sections desc
 If you use a dedicated environment such as an Amazon EC2 instance or Amazon WorkSpaces inside a VPC without internet access, DNS resolution is handled automatically by the default VPC DNS resolver. When you create VPC endpoints for AWS Sign-In, AWS Management Console, and console static content with private DNS enabled, the VPC resolver directs traffic to the correct endpoints without additional configuration.
 
 In this scenario, the following limitations apply:
-+ The AWS Management Console relies on some dependencies that are hosted only in US East (N. Virginia). If you configure a different Region, some features such as Amazon Q Developer might not be available.
++ The AWS Management Console relies on some dependencies that are hosted only in US East (N. Virginia). If you configure a different Region, some features such as the AWS assistant might not be available.
 + If you do not configure VPC endpoints for all AWS services that you use, requests to services without endpoints will fail.
 + Some service consoles make cross-Region calls. These calls will fail if you have not configured VPC peering and VPC endpoints in the target Region.
 

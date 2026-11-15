@@ -44,7 +44,7 @@ This `AWSManagementConsoleBasicUserAccess` is grouped into the following sets of
 + `cloudshell` – Allows principals full access to AWS CloudShell capabilities, including environment creation, session management, and command execution.
 + `ec2` – Allows principals to describe Regions enabled for the account in [Unified Navigation](unified-navigation.md).
 + `notifications` – Allows principals to obtain events from AWS User Notifications.
-+ `q` – Allows principals to chat with Amazon Q Developer.
++ `q` – Allows principals to chat with the AWS assistant.
 + `resource-explorer-2` – Allows principals to search and discover AWS resources using [Unified Search](using-search.md).
 + `uxc` – Allows principals to read AWS User Experience Customization settings.
 + `action-recommendations` – Allows principals to receive contextual action recommendations.
@@ -79,7 +79,7 @@ This `AWSManagementConsoleAdministratorAccess` is grouped into the following set
 + `cloudshell` – Allows principals full access to AWS CloudShell capabilities, including environment creation, session management, and command execution.
 + `ec2` – Allows principals to describe Regions enabled for the account in [Unified Navigation](unified-navigation.md).
 + `notifications` – Allows principals to access and update notification configurations, events, and feature opt-in status.
-+ `q` – Allows principals to chat with Amazon Q Developer for AI-assisted support.
++ `q` – Allows principals to chat with the AWS assistant for AI-assisted support.
 + `resource-explorer-2` – Allows principals to search and discover AWS resources using [Unified Search](using-search.md).
 + `uxc` – Allows principals full access to AWS User Experience Customization settings.
 + `action-recommendations` – Allows principals to receive contextual action recommendations.
