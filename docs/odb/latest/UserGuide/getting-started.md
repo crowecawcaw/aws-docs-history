@@ -91,7 +91,7 @@ You can use Oracle Database@AWS in the following AWS Regions:
 | --- | --- | --- | 
 | Asia Pacific (Tokyo) | ap-northeast-1 | apne1-az1, apne1-az4 | 
 | Asia Pacific (Seoul) | ap-northeast-2 | apne2-az1, apne2-az2 | 
-| Asia Pacific (Osaka) | ap-northeast-3 | apne3-az2 | 
+| Asia Pacific (Osaka) | ap-northeast-3 | apne3-az2, apne3-az3 | 
 | Asia Pacific (Mumbai) | ap-south-1 | aps1-az2, aps1-az3 | 
 | Asia Pacific (Hyderabad) | ap-south-2 | aps2-az1, aps2-az3 | 
 | Asia Pacific (Singapore) | ap-southeast-1 | apse1-az1 | 

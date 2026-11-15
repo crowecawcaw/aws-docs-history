@@ -118,7 +118,7 @@ When you create an ODB network, you specify information such as the following:
 <tbody>
   <tr><td>Asia Pacific (Tokyo)</td><td><code>ap-northeast-1</code></td><td><code>apne1-az1</code>, <code>apne1-az4</code></td></tr>
   <tr><td>Asia Pacific (Seoul)</td><td><code>ap-northeast-2</code></td><td><code>apne2-az1</code>, <code>apne2-az2</code></td></tr>
-  <tr><td>Asia Pacific (Osaka)</td><td><code>ap-northeast-3</code></td><td><code>apne3-az2</code></td></tr>
+  <tr><td>Asia Pacific (Osaka)</td><td><code>ap-northeast-3</code></td><td><code>apne3-az2</code>, <code>apne3-az3</code></td></tr>
   <tr><td>Asia Pacific (Mumbai)</td><td><code>ap-south-1</code></td><td><code>aps1-az2</code>, <code>aps1-az3</code></td></tr>
   <tr><td>Asia Pacific (Hyderabad)</td><td><code>ap-south-2</code></td><td><code>aps2-az1</code>, <code>aps2-az3</code></td></tr>
   <tr><td>Asia Pacific (Singapore)</td><td><code>ap-southeast-1</code></td><td><code>apse1-az1</code></td></tr>
