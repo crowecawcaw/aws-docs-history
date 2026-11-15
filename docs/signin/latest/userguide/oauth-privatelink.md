@@ -10,6 +10,9 @@ Use VPC endpoints for AWS Sign-In OAuth when you need:
 + Network-level access controls for OAuth authorization using VPC endpoint policies.
 + OAuth authorization in network-isolated environments without public internet access.
 
+**Note**  
+This page covers VPC endpoint policies for the `signin:*` action namespace, used by IAM sign-in (root, IAM user, and federated OAuth sign-in). The `signin` and `signin-v2` VPC endpoints described here are shared with IAM Identity Center sign-in, which uses the `sso:*` action namespace on the same endpoint. For IAM Identity Center-specific VPC endpoint and network control guidance, see [AWS PrivateLink for Access Portal](iam-id-center-privatelink.md).
+
 ## Configuring VPC endpoints for accessing Sign-In OAuth APIs
 <a name="oauth-privatelink-configuring"></a>
 

@@ -3,7 +3,7 @@
 # Edit your AWS Builder ID profile
 <a name="edit-details-builder-id"></a>
 
-You can change your profile information at any time. You can edit the **Email address** and **Name** that you used to create an AWS Builder ID, as well as your **Nickname**. When using third-party logins like Google or Apple, only **Name** and **Nickname** are editable.
+You can change your profile information at any time. You can edit the **Email address** and **Name** that you used to create an AWS Builder ID, as well as your **Nickname** and **Language**. When using third-party logins like Google or Apple, only **Name**, **Nickname**, and **Language** are editable.
 
 Your **Name** is how you’re referred to in tools and services while interacting with others. Your **Nickname** indicates how you want to be known by AWS, friends, and other people you collaborate with closely.
 
@@ -16,9 +16,9 @@ Tools and services that use AWS Builder ID direct you to create and use your AWS
 
 1. Choose **My details**.
 
-1. On the **My details** page, choose the **Edit** button next to **Profile**.
+1. On the **My details** page, choose the **Edit** button next to **Profile information**.
 
-1. On the **Edit profile** page, make any desired changes to your **Name** and **Nickname**.
+1. On the **Edit profile** page, make any desired changes to your **Name**, **Nickname**, and **Language**.
 
 1. Choose **Save changes**. A green confirmation message appears at the top of the page to let you know that you updated your profile.
 
@@ -38,6 +38,30 @@ Changing your name and nickname with one of our other sign in partners does not 
 1. Choose **Verify email**. A dialog box appears.
 
 1. In the **Verify email** dialog box, after you receive the code in your email, enter the code in **Verification code**. Choose **Verify**.
+
+## Setting preferred language
+<a name="language-builder-id"></a>
+
+You can choose the language that you prefer to use with your AWS Builder ID. You set your language once, on your AWS Builder ID profile, and it applies to the AWS applications and services that you access with your AWS Builder ID.
+
+If you haven't chosen a language, **Language** shows a dash (-) on the **My details** page and **Not Set** on the **Edit profile** page. In this case, your experience doesn't change and pages continue to use the browser's language setting.
+
+**Note**  
+AWS applications and services that support this preferred language setting will use it to determine the language you see in their pages. Other applications and services might continue to appear in another language until they support this setting.
+
+**To set your preferred language**
+
+1. Sign in to your AWS Builder ID profile at [https://profile.aws.amazon.com](https://profile.aws.amazon.com).
+
+1. In the navigation pane, choose **My details**.
+
+1. On the **My details** page, choose the **Edit** button next to **Profile information**.
+
+1. On the **Edit profile** page, for **Language**, select your preferred language.
+
+1. Choose **Save changes**.
+
+After you save your changes, your selected language appears under **Language** on the **My details** page.
 
 ## Add or change your recovery email
 <a name="recovery-email-builder-id"></a>

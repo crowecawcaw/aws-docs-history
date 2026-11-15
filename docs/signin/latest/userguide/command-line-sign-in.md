@@ -50,7 +50,7 @@ If you are accessing AWS services programmatically by using AWS Tools for PowerS
 ## Login with IAM Identity Center credentials
 <a name="command-line-sign-in-sso"></a>
 
-The AWS access portal makes it easy for IAM Identity Center users to select an AWS account and get temporary security credentials for the AWS CLI. For more information about how to get these credentials, see [Region availability for AWS Builder ID](https://docs.aws.amazon.com/signin/latest/userguide/sign-in-aws_builder_id.html#regions-aws_builder_id). You can also configure the AWS CLI directly to authenticate users with IAM Identity Center.
+The AWS access portal makes it easy for IAM Identity Center users to select an AWS account and get temporary security credentials for the AWS CLI. For more information about how to get these credentials, see [Getting IAM Identity Center user credentials for the AWS CLI or AWS SDKs](https://docs.aws.amazon.com/singlesignon/latest/userguide/howtogetcredentials.html) in the *IAM Identity Center User Guide*. You can also configure the AWS CLI directly to authenticate users with IAM Identity Center.
 
 **To login with IAM Identity Center credentials**
 
@@ -63,6 +63,8 @@ The AWS access portal makes it easy for IAM Identity Center users to select an A
    ```
    $ aws sso login --profile {{my-profile}}
    ```
+
+If your organization requires private network connectivity for IAM Identity Center sign-in, see [AWS PrivateLink for Access Portal](iam-id-center-privatelink.md).
 
 ## Additional information
 <a name="command-line-sign-in-more-info"></a>

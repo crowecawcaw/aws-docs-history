@@ -4,10 +4,11 @@
 <a name="signin-doc-history"></a>
 
 The following table describes important additions to the AWS Sign-In documentation. We also update the documentation frequently to address the feedback that you send us.
-+ **Latest major documentation update: **August 17, 2026
++ **Latest major documentation update: **November 10, 2026
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Set a preferred language for your AWS Builder ID](https://docs.aws.amazon.com/signin/latest/userguide/edit-details-builder-id.html#language-builder-id) | You can now choose a preferred language on your AWS Builder ID profile. You set your language once, and it applies to the AWS applications and services that you access with your AWS Builder ID as they add support for it. | November 10, 2026 | 
 | [AWS Builder ID now supports multi-factor authentication for third-party logins](https://docs.aws.amazon.com/signin/latest/userguide/mfa-builder-id.html) | You can now register multi-factor authentication (MFA) devices for your AWS Builder ID even when you sign in with a third-party login. Supported third-party logins include Google, Apple, GitHub, and Amazon. Previously, if you used a third-party login, you could add a second verification factor only through your identity provider. With MFA, you get an additional layer of security when you sign in. This helps protect your AWS Builder ID even if your third-party login credentials are compromised. This feature is available in all AWS Regions where AWS Builder ID is available. | August 31, 2026 | 
 | [Sign in with a login you already own](https://docs.aws.amazon.com/signin/latest/userguide/sign-in-project.html) | Started the release of our new AWS sign in experience. Sign up for AWS (new) supports using a login you already own. We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet. | August 17, 2026 | 
 | [Account recovery for AWS Builder ID](https://docs.aws.amazon.com/signin/latest/userguide/recover-builder-id.html) | Added [Recover access to your AWS Builder ID](https://docs.aws.amazon.com/signin/latest/userguide/recover-builder-id.html), describing self-service recovery for a forgotten password, a lost MFA device, and a third-party login you can no longer access. Added a recovery email that you can set up from the **Security** page. | August 17, 2026 | 

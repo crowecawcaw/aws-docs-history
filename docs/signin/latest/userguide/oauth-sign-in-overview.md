@@ -89,6 +89,17 @@ The token exchange grant issues only access tokens (no refresh tokens). Request 
 
 For a walkthrough of connecting an external integration partner using token exchange, see [Configure OAuth access to AWS Glue Iceberg REST Catalog](configure-oauth-glue-iceberg-rest.md).
 
+## Sign-in session management
+<a name="oauth-sign-in-session-mgmt-intro"></a>
+
+A sign-in session represents how long a principal remains authenticated through AWS Sign-In before needing to authenticate again. You can configure its duration on an IAM role or IAM user, up to 90 days.
+
+During a sign-in session, AWS Sign-In issues short-lived OAuth access tokens (up to one hour) and automatically refreshes them using a rotating refresh token. Configuring a longer sign-in session does not create long-lived AWS credentials.
+
+Sign-in session duration is supported for the AWS CLI, the AWS MCP Server, and other OAuth-enabled applications. It does not apply to AWS Management Console sessions, which continue to follow their existing session duration limits.
+
+For more information, see [Sign-in session management](oauth-sign-in-session-management.md).
+
 ## Security model
 <a name="oauth-sign-in-security-model"></a>
 
