@@ -21,7 +21,7 @@ The following steps describe the domain architecture:
 
 1. Data sources are managed by the business domain. Producers use organization-level blueprints for security, governance, and open standards. Producers build the operational data store by using [Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/) and DynamoDB Accelerator (DAX) for consistent single-digit-millisecond latency.
 
-1. Consumer domains process data sets from multiple producer domains based on business needs. Build data marts in [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/) and analytics in [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html).
+1. Consumer domains process data sets from multiple producer domains based on business needs. Build data marts in [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/) and analytics in [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html).
 
 1. Manage metadata through multiple services. Use [AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/) for data cataloging. Store data lineage in [Amazon Neptune](https://docs.aws.amazon.com/neptune/latest/userguide/). Store data contracts in DynamoDB.
 
