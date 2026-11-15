@@ -37,7 +37,7 @@ deadline bundle submit \
     --yes \
     --name {{Demo}} \
      -p BlenderSceneFile={{location of scene file}} \
-     -p OutputDir={{file pathe for job output}} \
+     -p OutputDir={{file path for job output}} \
       blender_render/
 ```
 

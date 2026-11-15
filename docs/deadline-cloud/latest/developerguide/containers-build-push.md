@@ -19,7 +19,7 @@ Install Docker and AWS CLI on your workstation. Create an Amazon ECR private rep
 
    ```
    REGION={{us-west-2}}
-   ACCOUNT_ID={{123456789012}}
+   ACCOUNT_ID={{111122223333}}
    REPOSITORY={{portable-job}}
    IMAGE_TAG={{1.0.0}}
    REGISTRY="${ACCOUNT_ID}.dkr.ecr.${REGION}.amazonaws.com"
