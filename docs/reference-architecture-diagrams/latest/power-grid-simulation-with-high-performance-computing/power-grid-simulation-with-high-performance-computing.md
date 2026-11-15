@@ -17,7 +17,7 @@ Publication date: **August 10, 2023 ([Diagram history](#diagram-history))**
 
 1.  Install HPC Pack on the head node and compute node to form a Windows-based cluster. Use target tracking scaling policies with the right metrics—for example, number of queued jobs and online nodes—to dynamically scale the **Amazon EC2 Auto Scaling** group for compute nodes. The launched instances should be protected from being terminated before they process a certain number of jobs to reduce average waiting time due to initialization. Compute-optimized instances are recommended for the compute node (for example, c6id). 
 
-1.  Use **AWS Glue** to perform the Extract, Transform, Load (ETL) task on data saved in **Amazon Simple Storage Service** (Amazon S3). Analyze the data with **Amazon Athena** through interactive Structured Query Language (SQL) queries. Connect the results with **Amazon Quick Sight** for Business Intelligence (BI) reporting and actionable insights delivery. Use **Amazon SageMaker AI** to identify power grid operation patterns and detect anomalies. 
+1.  Use **AWS Glue** to perform the Extract, Transform, Load (ETL) task on data saved in **Amazon Simple Storage Service** (Amazon S3). Analyze the data with **Amazon Athena** through interactive Structured Query Language (SQL) queries. Connect the results with **AWS Quick Sight** for Business Intelligence (BI) reporting and actionable insights delivery. Use **Amazon SageMaker AI** to identify power grid operation patterns and detect anomalies. 
 
 1.  Use **AWS Directory Service** to run Microsoft Active Directory (AD) for the cluster and allow access to the head node. Use **AWS Secrets Manager** to store sensitive information such as AD credentials for the provisioned directory. 
 
