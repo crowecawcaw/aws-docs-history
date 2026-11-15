@@ -102,5 +102,5 @@ This query returns:
 
 For additional examples of geospatial queries, see the following blog posts:
 + [Extend geospatial queries in Amazon Athena with UDFs and AWS Lambda](https://aws.amazon.com/blogs/big-data/extend-geospatial-queries-in-amazon-athena-with-udfs-and-aws-lambda/) 
-+ [Visualize over 200 years of global climate data using Amazon Athena and Amazon Quick](https://aws.amazon.com/blogs/big-data/visualize-over-200-years-of-global-climate-data-using-amazon-athena-and-amazon-quicksight/).
++ [Visualize over 200 years of global climate data using Amazon Athena and AWS Quick](https://aws.amazon.com/blogs/big-data/visualize-over-200-years-of-global-climate-data-using-amazon-athena-and-amazon-quicksight/).
 + [Querying OpenStreetMap with Amazon Athena](https://aws.amazon.com/blogs/big-data/querying-openstreetmap-with-amazon-athena/)

@@ -25,6 +25,13 @@ Describes Amazon Athena features, improvements, and bug fixes by release date.
 
 Amazon Athena now offers system tables, starting with the query\_executions table, which automatically captures query execution data and makes it available for observability, usage analysis, and audit use cases. When you enable system tables, usage data becomes available within minutes of query completion across your workgroups. For more information about Athena system tables, see [Use Athena system tables](athena-system-tables.md).
 
+### November 03, 2026
+<a name="release-note-2026-11-03"></a>
+
+Published on November 03, 2026
+
+Amazon Athena now offers a connector for Workday Live Data Query that you can use to run SQL queries on the current data in your Workday tenant, without copying or moving that data. AWS manages the connector for you, and you can register it with AWS Glue Data Catalog as a federated catalog and apply fine-grained access controls through AWS Lake Formation. For more information, see [Amazon Athena Workday Live Data Query connector](connectors-workday-ldq.md).
+
 ### October 28, 2026
 <a name="release-note-2026-10-28"></a>
 

@@ -14,7 +14,7 @@ You can use Athena to query data from the AWS services listed in this section. T
 + [Amazon EMR Studio](#integ-ate-emr-studio)
 + [AWS Glue Data Catalog](#integ-ate-gc)
 + [AWS Identity and Access Management (IAM)](#integ-ate-iam)
-+ [Amazon Quick](#integ-ate-qs)
++ [AWS Quick](#integ-ate-qs)
 + [Amazon S3 Inventory](#integ-ate-s3)
 + [AWS Step Functions](#integ-ate-sf)
 + [AWS Systems Manager Inventory](#integ-ate-sys)
@@ -82,9 +82,9 @@ Athena integrates with the AWS Glue Data Catalog, which offers a persistent meta
 Reference topic: [Actions for Amazon Athena](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonathena.html)  
 You can use Athena API actions in IAM permission policies. For more information, see [Actions for Amazon Athena](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonathena.html) and [Identity and access management in Athena](security-iam-athena.md).
 
-**Amazon Quick**  
+**AWS Quick**  
 Reference topic: [Connect to Amazon Athena with ODBC and JDBC drivers](athena-bi-tools-jdbc-odbc.md)  
-Athena integrates with Amazon Quick for easy data visualization. You can use Athena to generate reports or to explore data with business intelligence tools or SQL clients connected with a JDBC or an ODBC driver. For more information about Quick, see [What is Amazon Quick](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) in the *Amazon Quick User Guide*. For information about using JDBC and ODBC drivers with Athena, see [Connecting to Amazon Athena with ODBC and JDBC Drivers](athena-bi-tools-jdbc-odbc.md).
+Athena integrates with AWS Quick for easy data visualization. You can use Athena to generate reports or to explore data with business intelligence tools or SQL clients connected with a JDBC or an ODBC driver. For more information about Quick, see [What is AWS Quick](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) in the *AWS Quick User Guide*. For information about using JDBC and ODBC drivers with Athena, see [Connecting to Amazon Athena with ODBC and JDBC Drivers](athena-bi-tools-jdbc-odbc.md).
 
 **Amazon S3 Inventory**  
 Reference topic: [Querying inventory with Athena](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html#storage-inventory-athena-query) in the *Amazon Simple Storage Service User Guide*  
@@ -98,7 +98,7 @@ The following video demonstrates how to use Amazon Athena and AWS Step Functions
 
 [![AWS Videos](https://img.youtube.com/vi/rRr3QfIMTBo/0.jpg)](https://www.youtube.com/watch?v=rRr3QfIMTBo)
 
-For an example that uses Step Functions and Amazon EventBridge to orchestrate AWS Glue DataBrew, Athena, and Amazon Quick, see [Orchestrating an AWS Glue DataBrew job and Amazon Athena query with AWS Step Functions](https://aws.amazon.com/blogs/big-data/orchestrating-an-aws-glue-databrew-job-and-amazon-athena-query-with-aws-step-functions/) in the AWS Big Data Blog.
+For an example that uses Step Functions and Amazon EventBridge to orchestrate AWS Glue DataBrew, Athena, and AWS Quick, see [Orchestrating an AWS Glue DataBrew job and Amazon Athena query with AWS Step Functions](https://aws.amazon.com/blogs/big-data/orchestrating-an-aws-glue-databrew-job-and-amazon-athena-query-with-aws-step-functions/) in the AWS Big Data Blog.
 
 **AWS Systems Manager Inventory**  
 Reference topic: [Querying inventory data from multiple regions and accounts](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-inventory-query.html) in the *AWS Systems Manager User Guide*  

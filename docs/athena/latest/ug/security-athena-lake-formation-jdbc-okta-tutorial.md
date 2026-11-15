@@ -428,7 +428,7 @@ In this step, you use the Lake Formation console to grant permissions on a table
 
 1. In the **Grant permissions** dialog, enter the following information:
 
-   1. Under **SAML and Amazon Quick users and groups**, enter the Okta SAML user ARN in the following format:
+   1. Under **SAML and AWS Quick users and groups**, enter the Okta SAML user ARN in the following format:
 
       ```
       arn:aws:iam::{{<account-id>}}:saml-provider/AthenaLakeFormationOkta:user/{{<athena-okta-user>}}@{{<anycompany.com>}}       
@@ -453,7 +453,7 @@ Now you perform similar steps for the Okta group.
 
 1. In the **Grant permissions** dialog, enter the following information:
 
-   1. Under **SAML and Amazon Quick users and groups**, enter the Okta SAML group ARN in the following format:
+   1. Under **SAML and AWS Quick users and groups**, enter the Okta SAML group ARN in the following format:
 
       ```
       arn:aws:iam::{{<account-id>}}:saml-provider/AthenaLakeFormationOkta:group/lf-business-analyst
@@ -663,7 +663,7 @@ Now you return to the Lake Formation console to configure table permissions for 
 1. Choose **Actions**, **Grant**.
 
 1. In the **Grant Permissions** dialog, enter the following information:
-   + For **SAML and Amazon Quick users and groups**, enter the Okta SAML lf-developer group ARN in the following format:
+   + For **SAML and AWS Quick users and groups**, enter the Okta SAML lf-developer group ARN in the following format:
    + For **Columns**, **Choose filter type**, choose **Include columns**.
    + Choose the **trip\_type** column.
    + For **Table permissions**, choose **SELECT**.

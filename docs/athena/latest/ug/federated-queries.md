@@ -73,6 +73,7 @@ The following table shows the connector types that each data source supports. Ce
   <tr><td><a href="connectors-teradata.md">Teradata</a></td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
   <tr><td><a href="connectors-tpcds.md">TPC-DS</a></td><td></td><td>Yes</td><td>Yes</td></tr>
   <tr><td><a href="connectors-vertica.md">Vertica</a></td><td></td><td>Yes</td><td>Yes</td></tr>
+  <tr><td><a href="connectors-workday-ldq.md">Workday Live Data Query</a></td><td>Yes</td><td></td><td></td></tr>
 </tbody>
 </table>
 

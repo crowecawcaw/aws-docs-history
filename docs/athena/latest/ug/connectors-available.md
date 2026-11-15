@@ -123,6 +123,7 @@ Be aware of the following limitations when using case resolver modes:
 + [Timestream](connectors-timestream.md)
 + [TPC-DS](connectors-tpcds.md)
 + [Vertica](connectors-vertica.md)
++ [Workday Live Data Query](connectors-workday-ldq.md)
 
 **Note**  
 The [AthenaJdbcConnector](https://serverlessrepo.aws.amazon.com/applications/us-east-1/292517598671/AthenaJdbcConnector) (latest version 2022.4.1) has been deprecated. Instead, use a database-specific connector like those for [MySQL](connectors-mysql.md), [Redshift](connectors-redshift.md), or [PostgreSQL](connectors-postgresql.md).
