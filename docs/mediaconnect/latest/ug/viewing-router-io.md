@@ -105,7 +105,7 @@ Follow these steps to view the router I/Os that are available in your AWS accoun
   <tr><td>Monitoring</td><td>Live status information for the output, including health metrics and alerts.</td></tr>
   <tr><td>Metrics</td><td>Performance data for this output.</td></tr>
   <tr><td>Assigned input</td><td>The current status of the input that this output is taking.</td></tr>
-  <tr><td>Configuration</td><td>Your output's settings, network details, and tags.</td></tr>
+  <tr><td>Configuration</td><td>Your output's settings, network details, processors, and tags.</td></tr>
   <tr><td>Tags</td><td>The tags that are currently assigned to this output.</td></tr>
 </tbody>
 </table>

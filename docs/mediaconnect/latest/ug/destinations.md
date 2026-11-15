@@ -15,6 +15,7 @@ Some protocols require additional ports for error correction. For outputs that u
 | CDI | Ports for each media stream | The ports that you specify for each media stream. These are the only ports needed for the output. | 
 | NDI® | VPC and discovery server configuration | The ports that you specify for each media stream. If you don't specify a custom port, MediaConnect uses the default NDI discovery protocol (TCP-5959) to announce NDI sources on your network. | 
 | RIST | IP address, port, and port\+1 | The port that you specify, plus one additional port. The service automatically reserves a port that is \+1 from the port that you specified.<br />For example, if you specify port 3000 for this output, the service also reserves port 3001. | 
+| RTMP Push | Destination address, port, application name, and stream name | The port that you specify. This is the only port needed for the output. | 
 | RTP | IP address and port | The port that you specify. This is the only port needed for the output. | 
 | RTP-FEC | IP address, port, port\+2, and port\+4 | The port that you specify, plus two additional ports. The service automatically reserves ports that are \+2 and \+4 from the port that you specified.<br />For example, if you specify port 2000 for this output, the service also reserves ports 2002 and 2004 for error correction. | 
 | SRT listener | CIDR allow list and port | The port that you specify. This is the only port needed for the output. | 

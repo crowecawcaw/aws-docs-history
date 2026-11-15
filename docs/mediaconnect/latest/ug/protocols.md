@@ -11,6 +11,7 @@ AWS Elemental MediaConnect supports different protocols for incoming (source) an
 For transport stream flows, which transport compressed content that is muxed (audio, video, and ancillary data are combined) into a single stream, you can use the following protocols:
 + **Network Device Interface (NDI****®****)** uses SpeedHQ compression to deliver high-quality, low-latency video transmission over IP networks. This protocol is optimized for professional video workflows and supports up to 1080p60 video quality. 
 + **Reliable Internet Stream Transport (RIST) (Simple profile only)** is a highly available, low-latency protocol that is suitable for long-distance applications. MediaConnect doesn't support encryption for sources or outputs that use the RIST protocol.
++ **Real-Time Messaging Protocol (RTMP) Push** receives content that a sender pushes to MediaConnect, and sends content to receivers that accept RTMP. Outputs can use RTMPS (RTMP over TLS) to encrypt the connection.
 + **Real-Time Transport Protocol (RTP)** has wide applicability and takes less bandwidth than RTP-FEC. MediaConnect doesn't support encryption for sources or outputs that use the RTP protocol.
 + **Real-Time Transport Protocol with Forward Error Correction (RTP-FEC)** has wide applicability and forward error correction (FEC) to self-heal any corruption and packet loss. Using this protocol takes more bandwidth than RTP without FEC. AWS Elemental MediaConnect doesn't support encryption for sources or outputs that use the RTP-FEC protocol.
 + **Secure Reliable Transport (SRT)** is a highly available, low-latency protocol that is suitable for long-distance applications.
@@ -40,6 +41,7 @@ The following table describes what protocols can be used for sources, outputs, o
 | --- | --- | --- | 
 | NDI-SpeedHQ | Yes | Yes | 
 | RIST | Yes | Yes | 
+| RTMP Push | Yes | Yes | 
 | RTP | Yes | Yes | 
 | RTP-FEC | Yes | Yes | 
 | SRT listener | Yes | Yes | 

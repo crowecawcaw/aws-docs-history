@@ -19,7 +19,12 @@ For instructions on how to create or update a router input, see [Creating a rout
 
 In merge mode, a router input accepts two identical, simultaneous video streams on the same IP address but different ports. MediaConnect merges the content of the two streams at the network packet level, allowing a graceful recovery from any single-source loss. For example: if the router input is using source A and packet 123 is missing, MediaConnect pulls in packet 123 from source B and continues using source A. 
 
-To create a merge router input, you specify the router input type as **Merge** and provide a protocol configuration for each source. The two sources must be binary identical, which means that they need to have originated from the same encoder. Additionally, if the sources use RTP protocol, they must have RTP headers with aligned sequence numbers and they must also comply with the SMPTE ST 2022-7 standard. 
+To create a merge router input, you specify the router input type as **Merge** and provide a protocol configuration for each source. The two sources must be binary identical, which means that they need to have originated from the same encoder. 
+
+**Note**  
+Some protocols have additional requirements for merge:  
+If the sources use RTP protocol, they must have RTP headers with aligned sequence numbers and they must also comply with the SMPTE ST 2022-7 standard.
+If the sources use SRT protocol, your sender must send both streams using SRT connection bonding in broadcast mode.
 
 When configuring a merge router input, you can also set a recovery window. This is the size of the buffer (delay) that you want MediaConnect to maintain. A larger recovery window means a longer delay in transmitting the stream, but more room for error correction. A smaller recovery window means a shorter delay, but less room for error correction.
 
@@ -34,6 +39,7 @@ The following table describes which source protocols support failover and merge 
 | Protocol | Does this protocol support source failover? | How many sources can be added? | Supported failover modes | 
 | --- | --- | --- | --- | 
 | RIST | Yes | 2 | Merge or failover | 
+| RTMP Push | Yes | 2 | Failover only | 
 | RTP | Yes | 2 | Merge or failover | 
-| SRT listener | Yes | 2 | Failover only | 
-| SRT caller | Yes | 2 | Failover only | 
+| SRT caller | Yes | 2 | Merge or failover | 
+| SRT listener | Yes | 2 | Merge or failover | 

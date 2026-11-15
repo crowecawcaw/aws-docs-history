@@ -5,7 +5,7 @@
 
 You can protect your data using tools that are provided by AWS. AWS Elemental MediaConnect can decrypt your incoming video (flow source or router input) and encrypt your outgoing video (flow outputs, router outputs and entitlements). 
 
- You have three options for encrypting content in transit: 
+ You have four options for encrypting content in transit: 
 + **Static key encryption:** You can use this option to encrypt flow sources, flow outputs, router I/O and entitlements. You store your encryption key in AWS Secrets Manager, and then you give MediaConnect permission to obtain the encryption key from Secrets Manager. 
 
   Advantages: You have full control over storage of the encryption key for your account. The key is stored in AWS Secrets Manager, where you can access it any time.
@@ -21,9 +21,14 @@ You can protect your data using tools that are provided by AWS. AWS Elemental Me
   Advantages: Uses AES with key lengths of 128, 192 or 256 bits. You have full control over the storage of the encryption password. The password is stored in AWS Secrets Manager, where you can access it any time. 
 
   Challenges: Only usable with SRT protocols. 
++  **Real-Time Messaging Protocol Secure (RTMPS) encryption:** You can use this option to encrypt flow outputs and router outputs that use the RTMP Push protocol. RTMPS sends RTMP over Transport Layer Security (TLS). MediaConnect uses public certificate-based TLS encryption. 
+
+  Advantages: You don't need to store, manage, or share an encryption key.
+
+  Challenges: Only usable with RTMP Push outputs. Flow sources and router inputs that use RTMP Push don't support RTMPS. The destination address must be a domain name.
 
 **Note**  
-Encryption is supported for entitlements, flow sources and outputs that use the Zixi or SRT protocols, and for router I/O that use the SRT protocol. 
+Encryption is supported for entitlements, flow sources and outputs that use the Zixi or SRT protocols, for router I/O that use the SRT protocol, and for flow outputs and router outputs that use the RTMP Push protocol. 
 
 **Topics**
 + [Static key encryption in AWS Elemental MediaConnect](encryption-static-key.md)

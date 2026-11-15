@@ -139,7 +139,7 @@ As you plan your router implementation, keep these points in mind.
 
 | Feature | Description | 
 | --- | --- | 
-| Supported protocols | The MediaConnect router supports multiple protocols to enable compatibility across hybrid workflows. <br />The following protocols are currently supported: SRT, RTP, RTP-FEC, RIST.  | 
+| Supported protocols | The MediaConnect router supports multiple protocols to enable compatibility across hybrid workflows. <br />The following protocols are currently supported: SRT, RTP, RTP-FEC, RIST, RTMP Push. | 
 | Internal routing | The MediaConnect router internally handles data delivery between router inputs and router outputs independent of the protocols used between the source and router inputs, or the router outputs and destination.<br />For instance, you only need to configure router input protocol ARQ latency based on the distance between the source and the router input, not the distance to your final destinations. After your content reaches the router input, MediaConnect manages all subsequent delivery, including transfers across Regions.<br />Similarly, you only need to configure router output protocol ARQ latency based on the distance between the router output and the destination. | 
 | Fault tolerance | The routing service provides tolerance to failures at the EC2, AZ, and Regional levels by automatically migrating and restoring I/O state. | 
 | Unified Region management | You can manage your router resources across multiple AWS Regions from a single console. | 
@@ -147,7 +147,7 @@ As you plan your router implementation, keep these points in mind.
 | Router network interface capacity | You can create up to five router network interfaces in each AWS Region.<br />Each public router network interface can have up to 10 address ranges.<br />For VPC interfaces, you can associate up to 5 security groups. | 
 | Router input capacity | You can create up to 20 router inputs in each AWS Region.<br />You can connect one input to up to 10 outputs simultaneously.<br />Each input supports up to 500 Mbps. | 
 | Router output capacity | You can create up to 20 router outputs in each AWS Region.<br />Each output supports up to 500 Mbps. | 
-| Source failover and merge | The MediaConnect router supports both automatic failover between redundant sources and merged content from two senders. <br />Supported protocols: +  Failover: RTP, RIST, SRT-listener, SRT-caller <br />+  Merge: RTP, RIST <br />Both sources must:+  Use the same protocol configuration <br />+  Use the same network configuration (VPC or public) <br />+  Use different port numbers <br />Merge inputs include configurable merge window timing.<br />Converting between failover and merge types requires recreating the input. | 
+| Source failover and merge | The MediaConnect router supports both automatic failover between redundant sources and merged content from two senders. <br />Supported protocols: +  Failover: RIST, RTMP Push, RTP, SRT-caller, SRT-listener <br />+  Merge: RIST, RTP, SRT-caller, SRT-listener <br />Both sources must:+  Use the same protocol configuration <br />+  Use the same network configuration (VPC or public) <br />+  For RTMP Push, use a different combination of application name and stream name. Both sources use port 1935. <br />+  For RIST, RTP, SRT-caller, and SRT-listener, use different port numbers. <br />Merge inputs include configurable merge window timing.<br />Converting between failover and merge types requires recreating the input. | 
 | MediaLive integration | The MediaConnect router supports routing to or from MediaLive. You can send content from router outputs to MediaLive inputs, or receive content from MediaLive channel outputs into router inputs. For more details, see [Integrating router I/Os with MediaLive](integrate-eml-with-router.md). | 
 | Flow integration | The MediaConnect router supports routing to or from MediaConnect flows. <br />For more details on flow integration considerations, see [Integrating router I/Os with MediaConnect flows](integrate-flow-with-router.md). | 
 | Maintenance schedule updates | Unlike flows, router resources must be in standby mode before you can make any maintenance schedule changes. Once a router I/O is started, the schedule remains fixed until the next restart. For more information, see [Maintenance in MediaConnect](maintenance.md). | 
@@ -173,6 +173,7 @@ You can learn how to set up and use the router in the following pages of this gu
   + [Integrating router I/Os with MediaConnect flows](integrate-flow-with-router.md)
   + [Integrating router I/Os with MediaLive](integrate-eml-with-router.md)
   + [Source failover and merge for router inputs in MediaConnect](router-input-failover.md)
+  + [Switching modes in MediaConnect](switching-modes.md)
 + [Managing routes in MediaConnect](assigning-route.md)
   + [Using the router control panel view in MediaConnect](using-router-control-panel.md)
   + [Using the router matrix view in MediaConnect](using-router-matrix-editor.md)

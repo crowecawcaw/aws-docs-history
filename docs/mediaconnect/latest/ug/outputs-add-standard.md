@@ -44,6 +44,33 @@ The RIST protocol requires one additional port for error correction. To accommod
    1. For **Smoothing latency**, specify the additional delay that you want to use with output smoothing. We recommend that you specify a value of 0 ms to disable smoothing. However, if the receiver can't process the stream properly, specify a value between 100 and 1,000 ms. This way, AWS Elemental MediaConnect attempts to correct jitter from the flow source. If you keep this field blank, the service uses the default value of 0 ms.
 
 ------
+#### [ RTMP Push ]
+
+   1. For **Protocol**, choose **RTMP Push**.
+
+   1. Choose how to enter the destination:
+      + Choose **Enter a URL** to paste a complete RTMP or RTMPS URL. MediaConnect fills in the scheme, destination address, port, and application name from the URL. Use the format `rtmp(s)://{{Address}}[:{{Port}}]/{{ApplicationName}}`. If you omit the port, MediaConnect uses the default (1935 for RTMP, 443 for RTMPS).
+      + Choose **Enter fields separately** to specify each field individually:
+
+        1. **Scheme** - Select **RTMP**, or **RTMPS** to encrypt the connection with TLS.
+
+        1. **Destination address** - Enter where you're sending the content. For RTMP, this can be an IP address or a domain name. For RTMPS, you must specify a domain name.
+
+        1. **Port** - Specify the port to use. For RTMP, use a port from 1024 to 65535. For RTMPS, use 443 or a port from 1024 to 65535.
+
+        1. **Application name** - Enter the application name that your destination expects.
+
+   1. **Stream name** - Enter the stream name that your destination expects.
+
+   1. **TLS encryption type** - If you chose **RTMPS**, keep this set to **Public**. MediaConnect supports public certificate-based TLS encryption only.
+
+**Note**  
+RTMP Push has the following requirements and limitations:  
+The application name and stream name can each be up to 1,024 characters, can contain only printable ASCII characters, can't begin or end with a space, and can't contain double quotation marks or backslashes.
+The content must use the H.264 or H.265 video codec and the AAC, AC3, or MP3 audio codec.
+For RTMPS, MediaConnect supports public certificate-based TLS encryption only.
+
+------
 #### [ RTP or RTP-FEC ]
 
    1. For **Protocol**, choose **RTP** or **RTP-FEC**. 
@@ -65,7 +92,7 @@ The RTP-FEC protocol requires two additional ports for error correction. To acco
 
    1. For **Minimum latency**, specify the minimum size of the buffer (delay) that you want the service to maintain. A higher latency value means a longer delay in transmitting the stream, but more room for error correction. A lower latency value means a shorter delay, but less room for error correction. You can choose a value from 10–15,000 ms. If you keep this field blank, MediaConnect uses the default value of 2,000 ms.
 
-      The SRT protocol uses a **minimum latency** configuration on each side of the connection. The larger of these two values is used as the *recovery latency*. If the transmitted bitrate, multiplied by the recovery latency, is higher than the *receiver buffer*, the buffer will overflow and the stream can fail with a `Buffer Overflow Error`. On the SRT receiver side, the receiver buffer is configured by the SRTO\_RCVBUF value. The size of the receiver buffer is limited by the *flow control window size* (SRTO\_FC) value. On the MediaConnect side, the receiver buffer is calculated as the **maximum bitrate** value multiplied by the **minimum latency** value. For more information about the SRT buffer, see [the SRT Configuration Guidelines.](https://github.com/Haivision/srt/blob/master/docs/API/configuration-guidelines.md)
+      The SRT protocol uses a **minimum latency** configuration on each side of the connection. The larger of these two values is used as the *recovery latency*. If the transmitted bitrate, multiplied by the recovery latency, is higher than the *receiver buffer*, the buffer will overflow and the stream can fail with a `Buffer Overflow Error`. On the SRT receiver side, the receiver buffer is configured by the SRTO\_RCVBUF value. The size of the receiver buffer is limited by the *flow control window size* (SRTO\_FC) value. On the MediaConnect side, the receiver buffer is calculated as the **maximum bitrate** value multiplied by the **minimum latency** value.
 
        
 
@@ -94,7 +121,7 @@ To specify an additional CIDR block, choose **Add**. You can specify up to three
 
    1. For **Minimum latency**, specify the minimum size of the buffer (delay) that you want the service to maintain. A higher latency value means a longer delay in transmitting the stream, but more room for error correction. A lower latency value means a shorter delay, but less room for error correction. You can choose a value from 10–15,000 ms. If you keep this field blank, MediaConnect uses the default value of 2,000 ms. 
 
-      The SRT protocol uses a **minimum latency** configuration on each side of the connection. The larger of these two values is used as the *recovery latency*. If the transmitted bitrate, multiplied by the recovery latency, is higher than the *receiver buffer*, the buffer will overflow and the stream can fail with a `Buffer Overflow Error`. On the SRT receiver side, the receiver buffer is configured by the SRTO\_RCVBUF value. The size of the receiver buffer is limited by the *flow control window size* (SRTO\_FC) value. On the MediaConnect side, the receiver buffer is calculated as the **maximum bitrate** value multiplied by the **minimum latency** value. For more information about the SRT buffer, see [the SRT Configuration Guidelines.](https://github.com/Haivision/srt/blob/master/docs/API/configuration-guidelines.md)
+      The SRT protocol uses a **minimum latency** configuration on each side of the connection. The larger of these two values is used as the *recovery latency*. If the transmitted bitrate, multiplied by the recovery latency, is higher than the *receiver buffer*, the buffer will overflow and the stream can fail with a `Buffer Overflow Error`. On the SRT receiver side, the receiver buffer is configured by the SRTO\_RCVBUF value. The size of the receiver buffer is limited by the *flow control window size* (SRTO\_FC) value. On the MediaConnect side, the receiver buffer is calculated as the **maximum bitrate** value multiplied by the **minimum latency** value.
 
    1. For **Destination IP address**, enter the IP address or domain of the output's destination.
 

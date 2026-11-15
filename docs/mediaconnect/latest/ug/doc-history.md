@@ -7,6 +7,10 @@ The following table describes the documentation for this release of AWS Elementa
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [RTMP Push protocol for router inputs and flows](using-mediaconnect-router.md) | Router inputs and flow sources can now receive content using the RTMP Push protocol. Flow outputs can now send content using the RTMP Push protocol, including RTMPS (RTMP over TLS). | November 12, 2026 | 
+| [MediaConnect processors](using-mediaconnect-processors.md) | You can now use processors to transform streams in MediaConnect, starting with PID remapping on router outputs. | November 12, 2026 | 
+| [Key frame switching for router outputs](using-mediaconnect-router.md) | Router outputs can now wait for a key frame on the new router input before they switch. This reduces errors at your downstream decoder after a route change. | November 12, 2026 | 
+| [SRT merge mode](router-input-failover.md) | You can now use merge mode with SRT listener and SRT caller sources on flows and router inputs. | November 11, 2026 | 
 | [MediaConnect endpoints](working-with-endpoints.md) | You can now register endpoints that represent the sources and destinations in your media workflows, connect them, and share them with other AWS accounts. | October 26, 2026 | 
 | [High-bitrate router tiers](using-mediaconnect-router.md) | Router inputs and outputs now support 250 Mbps and 500 Mbps high-bitrate tiers for TR-07 (JPEG XS) workflows. | October 9, 2026 | 
 | [AWS Elemental Inference support](monitor-with-workflow-monitor.md#monitor-with-workflow-monitor-supported-services) | With workflow monitor, you can now discover AWS Elemental Inference (Elemental Inference) feeds and add them to signal maps. You can also create Amazon CloudWatch alarm templates that monitor Elemental Inference feed metrics. | October 8, 2026 | 

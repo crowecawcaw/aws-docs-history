@@ -59,10 +59,40 @@ NDI source metadata is available for flows only. The **streams** section contain
 | Channels | The number of channels in the audio stream. | 
 | Sample rate | The sample rate of the audio stream, in hertz (Hz). | 
 
+## RTMP Push media streams
+<a name="source-metadata-fields-rtmp"></a>
+
+RTMP Push source metadata is available for both flows and router inputs.
+
+The following fields describe the source's RTMP stream.
+
+Application name  
+The application name of the RTMP stream.
+
+Stream name  
+The stream name of the RTMP stream.
+
+The **streams** section contains information about the individual media streams in the RTMP Push source. This section contains the following fields:
+
+
+| Field | Details | 
+| --- | --- | 
+| Stream type | The type of content that the stream contains. This value can be video, audio, data, or unknown. | 
+| Codec | The codec of the stream. | 
+| Stream ID | A unique identifier for the media stream. | 
+| Scan mode | The method used to display video frames, such as progressive or interlace. | 
+| Frame rate | The frame rate of the video stream, in frames per second (fps). | 
+| Frame resolution | The resolution of the video stream. In the console, this field displays the frame width followed by the frame height, such as 1920 x 1080. In the API/CLI response, the frame width and frame height are separate values. | 
+| Color | The color signaling of the video stream: colorimetry, transfer characteristics, and matrix coefficients. For information about the possible values, see [Video color information](#source-metadata-fields-color). | 
+| Channels | The number of channels in the audio stream. | 
+| Sample rate | The sample rate of the audio stream, in hertz (Hz). | 
+| Sample size | The sample size of the audio stream, in bits. | 
+| Language | The language of the audio stream. | 
+
 ## Video color information
 <a name="source-metadata-fields-color"></a>
 
-Each video stream contains a nested color section, for both transport stream and NDI sources. Each value corresponds to a code point defined in [Recommendation ITU-T H.273](https://www.itu.int/rec/T-REC-H.273) on the International Telecommunication Union (ITU) website. Each field appears only when the stream signals one of the values listed for that field.
+Each video stream contains a nested color section, for transport stream, NDI, and RTMP Push sources. Each value corresponds to a code point defined in [Recommendation ITU-T H.273](https://www.itu.int/rec/T-REC-H.273) on the International Telecommunication Union (ITU) website. Each field appears only when the stream signals one of the values listed for that field.
 
 
 | Field | Details | 

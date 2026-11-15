@@ -4,8 +4,11 @@
 <a name="source-failover"></a>
 
 Source failover is a setup that involves two redundant sources for a transport stream flow. This redundancy helps to minimize disruption to your video stream. To use source failover, you specify two sources for the flow, then choose one of two options for the failover mode: *Merge* or *Failover*. 
-+ Merge mode combines the sources into a single stream, allowing a graceful recovery from any single-source loss. If you set the failover mode to *Merge*, you can set the recovery window, which is the size of the buffer (delay) that you want MediaConnect to maintain. A larger recovery window means a longer delay in transmitting the stream, but more room for error correction. A smaller recovery window means a shorter delay, but less room for error correction. Sources used this way need to be *binary identical*, which means that they need to have originated from the same encoder. MediaConnect must also receive content from the two sources at the same time. Additionally, if the sources use RTP protocol, they must have RTP headers with aligned sequence numbers and they must also comply with the SMPTE ST 2022-7 standard. 
++ Merge mode combines the sources into a single stream, allowing a graceful recovery from any single-source loss. If you set the failover mode to *Merge*, you can set the recovery window, which is the size of the buffer (delay) that you want MediaConnect to maintain. A larger recovery window means a longer delay in transmitting the stream, but more room for error correction. A smaller recovery window means a shorter delay, but less room for error correction. Sources used this way need to be *binary identical*, which means that they need to have originated from the same encoder. MediaConnect must also receive content from the two sources at the same time. 
 **Note**  
+Some protocols have additional requirements for merge:  
+If the sources use RTP protocol, they must have RTP headers with aligned sequence numbers and they must also comply with the SMPTE ST 2022-7 standard.
+If the sources use SRT protocol, your sender must send both streams using SRT connection bonding in broadcast mode.
 SMPTE ST 2022-7 is a standard developed by the Society of Motion Picture and Television Engineers (SMPTE) group. The ST 2022-7 standard defines a method that replaces missing packets with packets in an identical, redundant stream. This type of failover requires a small latency buffer in your workflow to allow time for MediaConnect to recover packets from the two streams.
 + Failover mode allows switching between a primary and a backup stream. This switching facilitates an easy transition to a more reliable stream. If you set the failover mode to *Failover*, you can specify a source as the primary source. The second source serves as the backup. If you don’t specify a primary source, MediaConnect treats both sources with equal priority, and switches to the available source as needed. 
 
@@ -25,10 +28,11 @@ The following table describes which source protocols support failover.
 | Protocol | Does this protocol support source failover? | How many sources can be added? | Supported failover modes | 
 | --- | --- | --- | --- | 
 | RIST | Yes | 2 | Merge or failover | 
+| RTMP Push | Yes | 2 | Failover only | 
 | RTP | Yes | 2 | Merge or failover | 
 | RTP-FEC | Yes | 2 | Merge or failover | 
-| SRT listener | Yes | 2 | Failover only | 
-| SRT caller | Yes | 2 | Failover only | 
+| SRT caller | Yes | 2 | Merge or failover | 
+| SRT listener | Yes | 2 | Merge or failover | 
 | Zixi pull | No | None - Zixi pull cannot be used as a source. | Source failover is not supported | 
 | Zixi push | Yes | 2 | Merge or failover | 
 | Zixi push for AWS Elemental Link UHD | Yes | 2 | Failover only | 

@@ -25,3 +25,4 @@ This chapter shows you everything you need to know about working with router I/O
 + [Integrating router I/Os with MediaConnect flows](integrate-flow-with-router.md)
 + [Integrating router I/Os with MediaLive](integrate-eml-with-router.md)
 + [Source failover and merge for router inputs in MediaConnect](router-input-failover.md)
++ [Switching modes in MediaConnect](switching-modes.md)

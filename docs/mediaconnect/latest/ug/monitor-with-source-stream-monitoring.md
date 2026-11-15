@@ -20,3 +20,4 @@ Source metadata support depends on the source protocol and whether the source is
 | --- | --- | --- | 
 | Transport stream | Supported | Supported | 
 | NDI® | Supported | Not supported | 
+| RTMP Push | Supported | Supported | 

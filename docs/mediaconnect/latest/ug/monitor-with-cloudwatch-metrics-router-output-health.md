@@ -12,6 +12,7 @@ For information about flow metrics, see [Metrics to monitor flow health](monitor
 + [Router output metrics for MediaConnect flow connections](#monitor-with-cloudwatch-metrics-router-output-flow)
 + [Router output metrics for MediaLive connections](#monitor-with-cloudwatch-metrics-router-output-medialive)
 + [Route metrics](#monitor-with-cloudwatch-metrics-router-output-route)
++ [Router output metrics for PID remapping](#monitor-with-cloudwatch-metrics-router-output-pid-remapping)
 
 ## Standard output metrics
 <a name="monitor-with-cloudwatch-metrics-router-output"></a>
@@ -28,10 +29,10 @@ The following table lists router standard output metrics that AWS Elemental Medi
 | RouterOutputDisconnections | The number of times that the output status changed from connected to disconnected.<br />Units: Count<br />Valid dimensions:+  RouterOutputName, RouterOutputID, AvailabilityZone <br />+  RouterOutputARN <br />+  AvailabilityZone <br />Protocols: SRT, RTMP | 
 | RouterOutputFECPackets | The number of forward error correction packets sent by the output.<br />Units: Count<br />Valid dimensions:+  RouterOutputName, RouterOutputID, AvailabilityZone <br />+  RouterOutputARN <br />+  AvailabilityZone <br />Protocols: RTP/FEC | 
 | RouterOutputLatency | The latency of the output stream.<br />Units: Milliseconds<br />Valid dimensions:+  RouterOutputName, RouterOutputID, AvailabilityZone <br />+  RouterOutputARN <br />+  AvailabilityZone <br />Protocols: SRT | 
-| RouterOutputRejections | The number of times the connection was rejected by the peer.<br />Units: Count<br />Valid dimensions:+  RouterOutputName, RouterOutputID, AvailabilityZone <br />+  RouterOutputARN <br />+  AvailabilityZone <br />Protocols: SRT | 
+| RouterOutputRejections | The number of times the connection was rejected by the peer.<br />Units: Count<br />Valid dimensions:+  RouterOutputName, RouterOutputID, AvailabilityZone <br />+  RouterOutputARN <br />+  AvailabilityZone <br />Protocols: SRT, RTMP | 
 | RouterOutputResentPackets | The number of packets that were retransmitted to the output destination. <br />Units: Count<br />Valid dimensions:+  RouterOutputName, RouterOutputID, AvailabilityZone <br />+  RouterOutputARN <br />+  AvailabilityZone <br />Protocols: RIST, SRT | 
 | RouterOutputRoundTripTime | The amount of time it takes for the output to send a signal and receive an acknowledgment.<br />Units: Milliseconds<br />Valid dimensions:+  RouterOutputName, RouterOutputID, AvailabilityZone <br />+  RouterOutputARN <br />+  AvailabilityZone <br />Protocols: RIST, SRT | 
-| RouterOutputTotalPackets | The total number of packets sent by the output.<br />Units: Count<br />Valid dimensions:+  RouterOutputName, RouterOutputID, AvailabilityZone <br />+  RouterOutputARN <br />+  AvailabilityZone <br />Protocols: All | 
+| RouterOutputTotalPackets | The total number of packets sent by the output.<br />Units: Count<br />Valid dimensions:+  RouterOutputName, RouterOutputID, AvailabilityZone <br />+  RouterOutputARN <br />+  AvailabilityZone <br />Protocols: RIST, RTP, RTP/FEC, SRT | 
 | RouterOutputVideoFrames | The number of video frames sent by the output.<br />Units: Count<br />Valid dimensions:+  RouterOutputName, RouterOutputID, AvailabilityZone <br />+  RouterOutputARN <br />+  AvailabilityZone <br />Protocols: RTMP | 
 
 When a router output uses MediaConnect endpoints, the metrics in this table are also published with each of the following dimension combinations:
@@ -81,3 +82,19 @@ These metrics track the connection between a router input and a router output. M
 
 **Note**  
 When the router output is running but not connected to a router input, the RouterInputName, RouterInputID and RouterInputAvailabilityZone dimensions display as `<unrouted>`. 
+
+## Router output metrics for PID remapping
+<a name="monitor-with-cloudwatch-metrics-router-output-pid-remapping"></a>
+
+When a router output uses Packet ID (PID) remapping, MediaConnect sends the following metrics to CloudWatch.
+
+
+| Metric | Description | 
+| --- | --- | 
+| RouterOutputDefaultActionPids | The current number of PIDs that PID remapping handles with the default action, because no rule matches them. These PIDs are also counted in the mapped, nulled, dropped, or failed PID metrics.<br />Units: Count<br />Valid dimensions:+  RouterOutputName, RouterOutputID, AvailabilityZone <br />+  RouterOutputARN <br />+  AvailabilityZone <br />Protocols: RIST, RTP, RTP/FEC, SRT | 
+| RouterOutputDroppedPids | The current number of PIDs that PID remapping drops.<br />Units: Count<br />Valid dimensions:+  RouterOutputName, RouterOutputID, AvailabilityZone <br />+  RouterOutputARN <br />+  AvailabilityZone <br />Protocols: RIST, RTP, RTP/FEC, SRT | 
+| RouterOutputMappedPids | The current number of PIDs that PID remapping keeps in the output, on their input PID or on a new PID.<br />Units: Count<br />Valid dimensions:+  RouterOutputName, RouterOutputID, AvailabilityZone <br />+  RouterOutputARN <br />+  AvailabilityZone <br />Protocols: RIST, RTP, RTP/FEC, SRT | 
+| RouterOutputNulledPids | The current number of PIDs whose packets PID remapping replaces with null packets.<br />Units: Count<br />Valid dimensions:+  RouterOutputName, RouterOutputID, AvailabilityZone <br />+  RouterOutputARN <br />+  AvailabilityZone <br />Protocols: RIST, RTP, RTP/FEC, SRT | 
+| RouterOutputPidMappingActive | Whether MediaConnect is applying PID remapping to the output. A value of 1 means that MediaConnect is applying the mapping. A value of 0 means that PID remapping is configured but MediaConnect isn't applying a mapping. For example, MediaConnect hasn't yet received a complete program from the input, or the input has more than one program.<br />Units: None<br />Valid dimensions:+  RouterOutputName, RouterOutputID, AvailabilityZone <br />+  RouterOutputARN <br />+  AvailabilityZone <br />Protocols: RIST, RTP, RTP/FEC, SRT | 
+| RouterOutputPidMappingFailures | The current number of PIDs whose PID remapping action failed, for example because the target PID is already in use or the range is full. MediaConnect drops these streams.<br />Units: Count<br />Valid dimensions:+  RouterOutputName, RouterOutputID, AvailabilityZone <br />+  RouterOutputARN <br />+  AvailabilityZone <br />Protocols: RIST, RTP, RTP/FEC, SRT | 
+| RouterOutputUnknownPids | The current number of PIDs in the input that the Program Map Table (PMT) doesn't list.<br />Units: Count<br />Valid dimensions:+  RouterOutputName, RouterOutputID, AvailabilityZone <br />+  RouterOutputARN <br />+  AvailabilityZone <br />Protocols: RIST, RTP, RTP/FEC, SRT | 
