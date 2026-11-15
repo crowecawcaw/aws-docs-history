@@ -5,7 +5,7 @@
 
 Publication date: **March 4, 2024 ([Diagram history](#ipm-diagram-history))**
 
-With this architecture, you can create a predictive maintenance (PdM) ML model by using [AWS IoT SiteWise](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/) and [AWS IoT Analytics](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/internet-of-things-services.html#aws-iot-analytics) with [Amazon Simple Notification Service](https://docs.aws.amazon.com/sns/latest/dg/) (Amazon SNS) anomaly detection notifications. This solution uses [AWS IoT Greengrass](https://docs.aws.amazon.com/greengrass/v2/developerguide/), [AWS IoT Core](https://docs.aws.amazon.com/iot/latest/developerguide/), [Amazon Elastic Container Registry](https://docs.aws.amazon.com/AmazonECR/latest/userguide/), and [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html).
+With this architecture, you can create a predictive maintenance (PdM) ML model by using [AWS IoT SiteWise](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/) and [AWS IoT Analytics](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/internet-of-things-services.html#aws-iot-analytics) with [Amazon Simple Notification Service](https://docs.aws.amazon.com/sns/latest/dg/) (Amazon SNS) anomaly detection notifications. This solution uses [AWS IoT Greengrass](https://docs.aws.amazon.com/greengrass/v2/developerguide/), [AWS IoT Core](https://docs.aws.amazon.com/iot/latest/developerguide/), [Amazon Elastic Container Registry](https://docs.aws.amazon.com/AmazonECR/latest/userguide/), and [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html).
 
 ## Industrial PdM ML Modbus architecture diagram
 <a name="ipm-diagram"></a>
