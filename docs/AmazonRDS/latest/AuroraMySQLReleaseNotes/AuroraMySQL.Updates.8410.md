@@ -50,6 +50,7 @@ Below are the improvements made compared to Aurora MySQL 8.4.8, see [Aurora MySQ
 + Added a new CloudWatch metric, `FTSCacheMemoryUsed`, to allow users to identify the total memory used by the InnoDB Full-Text Search (FTS) cache across all tables on a DB instance. For more information, see [Amazon CloudWatch metrics for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.html) in the *Amazon Aurora User Guide*.
 + Enabled support for higher `max_connections` limit, increased the highest allowed value from 16000 to 50000.
 + Added `RETURNING` clause support for single-table `DELETE` statements. You can now return values from deleted rows directly in the `DELETE` statement, eliminating the need for a separate `SELECT` query. Because `RETURNING` is now a reserved keyword, identifiers named `returning` must be quoted with backticks.
++ Upgraded the time zone definitions to the IANA 2026c version.
 
 #### Upgrades and migrations
 <a name="AuroraMySQL.Updates.8410.UpgradesMigration"></a>

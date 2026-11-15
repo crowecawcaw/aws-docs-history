@@ -20,7 +20,46 @@ If you have any questions or concerns, AWS Support is available on the community
 For more information about patch releases and how to apply them, see [About patch releases](AuroraMySQL.Updates.84Updates.md#AuroraMySQL.Updates.84Updates.PatchReleases).
 
 **Topics**
++ [Aurora MySQL 8.4.7.1, November 9, 2026](#AuroraMySQL.Updates.8471)
 + [Aurora MySQL 8.4.7, May 21, 2026](#AuroraMySQL.Updates.847.GA)
+
+## Aurora MySQL 8.4.7.1, November 9, 2026
+<a name="AuroraMySQL.Updates.8471"></a><a name="8.4.7.1"></a>
+
+Starting with this patch, `@@aurora_version` returns a four-part version number (for example, `8.4.7.1`) instead of three parts (`8.4.7`). If your applications or scripts parse this value, update them to handle four parts.
+
+### Security fixes
+<a name="AuroraMySQL.Updates.8471.SecurityFixes"></a>
+
+This release includes fixes for the following high severity CVEs. Each CVE ID links to its record on the CVE website:
++ [CVE-2026-46863](https://www.cve.org/CVERecord?id=CVE-2026-46863)
++ [CVE-2026-60163](https://www.cve.org/CVERecord?id=CVE-2026-60163)
++ [CVE-2026-61094](https://www.cve.org/CVERecord?id=CVE-2026-61094)
+
+This release includes fixes for the following medium severity CVEs. Each CVE ID links to its record on the CVE website:
++ [CVE-2026-47023](https://www.cve.org/CVERecord?id=CVE-2026-47023)
++ [CVE-2026-60184](https://www.cve.org/CVERecord?id=CVE-2026-60184)
++ [CVE-2026-60185](https://www.cve.org/CVERecord?id=CVE-2026-60185)
++ [CVE-2026-60186](https://www.cve.org/CVERecord?id=CVE-2026-60186)
++ [CVE-2026-60187](https://www.cve.org/CVERecord?id=CVE-2026-60187)
++ [CVE-2026-60188](https://www.cve.org/CVERecord?id=CVE-2026-60188)
++ [CVE-2026-60189](https://www.cve.org/CVERecord?id=CVE-2026-60189)
++ [CVE-2026-60191](https://www.cve.org/CVERecord?id=CVE-2026-60191)
++ [CVE-2026-60331](https://www.cve.org/CVERecord?id=CVE-2026-60331)
++ [CVE-2026-60332](https://www.cve.org/CVERecord?id=CVE-2026-60332)
++ [CVE-2026-60585](https://www.cve.org/CVERecord?id=CVE-2026-60585)
++ [CVE-2026-60747](https://www.cve.org/CVERecord?id=CVE-2026-60747)
+
+This release includes fixes for the following low severity CVEs. Each CVE ID links to its record on the CVE website:
++ [CVE-2026-60190](https://www.cve.org/CVERecord?id=CVE-2026-60190)
+
+### Availability improvements
+<a name="AuroraMySQL.Updates.8471.AvailabilityImprovements"></a>
++ Fixed an issue in the Aurora Storage Daemon that in rare cases could result in an unexpected database restart.
+
+### General improvements
+<a name="AuroraMySQL.Updates.8471.GeneralImprovements"></a>
++ Fixed an issue where in some cases connection state is not preserved following a zero-downtime upgrade, which could result in unexpected behavior.
 
 ## Aurora MySQL 8.4.7, May 21, 2026
 <a name="AuroraMySQL.Updates.847.GA"></a>
