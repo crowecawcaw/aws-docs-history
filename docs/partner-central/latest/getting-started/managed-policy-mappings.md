@@ -9,7 +9,7 @@
 Each persona represents a distinct role within your partner organization with specific access needs to AWS Partner Central features. Match your users to these personas to assign the appropriate managed policy that grants necessary permissions while maintaining security best practices.
 
 **Important**  
-All managed policies below grant users access to Amazon Q, an AI-powered assistant providing real-time support and guidance within AWS Partner Central. For more information on Amazon Q, see [here](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/what-is.html).
+All managed policies below grant users access to the AWS assistant, an AI-powered assistant providing real-time support and guidance within AWS Partner Central. For more information on the AWS assistant, see [What is AWS assistant?](https://docs.aws.amazon.com/assistant/latest/userguide/what-is.html) in the *AWS assistant User Guide*.
 
 ## Common AWS Partner Central User Personas
 <a name="common-personas"></a>

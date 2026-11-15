@@ -11,6 +11,7 @@ Partner analytics pages without sufficient data will not work as expected. Users
 For more information, see [Navigating AWS Partner Central](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/using-search.html). You can reference the [AWS managed policies for AWS Partner Central users](https://docs.aws.amazon.com/partner-central/latest/getting-started/managed-policies.html) documentation to review access policies for the dashboards.
 
 **Topics**
++ [Granting agents access to partner reporting data](agent-reporting-data-access.md)
 + [Partner Analytics Dashboard](partner-analytics.md)
 + [Seller Insights Dashboard](seller-insights.md)
 + [Partner Analytics and Seller Insights Frequently Asked Questions (FAQs)](partner-analytics-faq.md)

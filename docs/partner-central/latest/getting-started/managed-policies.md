@@ -24,6 +24,8 @@ The AWS managed policies described in this section manage AWS Partner Central us
 + [AWS managed policy: `AWSPartnerProServeToolsIndividualContributor`](#security-iam-awsmanpol-AWSPartnerProServeToolsIndividualContributor)
 + [AWS managed policy: `AWSPartnerCentralRevenueAttributionManagement`](#security-iam-awsmanpol-AWSPartnerCentralRevenueAttributionManagement)
 + [AWS managed policy: `AWSRevenueAttributionManagement`](#security-iam-awsmanpol-AWSRevenueAttributionManagement)
++ [AWS managed policy: `AWSPartnerCentralBusinessPlanManagement`](#security-iam-awsmanpol-AWSPartnerCentralBusinessPlanManagement)
++ [AWS managed policy: `AWSPartnerCentralAccountManagementServiceRolePolicy`](#security-iam-awsmanpol-AWSPartnerCentralAccountManagementServiceRolePolicy)
 + [AWS Partner Central updates to AWS managed policies](#security-iam-awsmanpol-updates)
 
 ## AWS managed policy: `AWSPartnerCentralFullAccess`
@@ -44,7 +46,7 @@ With this policy, you can access all AWS Partner Central features and related se
 + Search for and request connections with other AWS Partners
 + Create and manage Partner Business plans
 + Access Partner Scorecard and Partner Analytics
-+ Access Badge Manager, Guides, and Amazon Q (Partner Assistant)
++ Access Badge Manager, Guides, and the AWS assistant (Partner Assistant)
 + Create and manage program applications
 + Access Partner Central and Marketplace support
 
@@ -72,7 +74,7 @@ With this policy, you can manage opportunities and leads in AWS Partner Central.
 + Create, edit, and submit opportunities
 + Accept and manage leads
 + Accept and manage multi-partner opportunities
-+ Access Partner Scorecard, Guides, and Amazon Q (Partner Assistant)
++ Access Partner Scorecard, Guides, and the AWS assistant (Partner Assistant)
 + Access Partner Central support
 
  To view the permissions for this policy, see [AWSPartnerCentralOpportunityManagement](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSPartnerCentralOpportunityManagement.html) in the *AWS Managed Policy Reference*.
@@ -104,7 +106,7 @@ With this policy, you can manage channel programs and partner relationships in A
 + View and manage channel relationships
 + Manage channel handshakes
 + View and manage distribution engagement requests
-+ Access Guides and Amazon Q (Partner Assistant)
++ Access Guides and the AWS assistant (Partner Assistant)
 + Access Partner Central support
 
  To view the permissions for this policy, see [AWSPartnerCentralChannelManagement](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSPartnerCentralChannelManagement.html) in the *AWS Managed Policy Reference*.
@@ -126,7 +128,7 @@ You can attach the `AWSPartnerCentralMarketingManagement` policy to your IAM ide
 With this policy, you can manage marketing activities and promotional content in AWS Partner Central. This policy allows the following operations:
 + Access and manage Marketing Central campaigns and content
 + Create and manage case studies
-+ Access Badge Manager, Guides, and Amazon Q (Partner Assistant)
++ Access Badge Manager, Guides, and the AWS assistant (Partner Assistant)
 + Access Partner Central support
 
  To view the permissions for this policy, see [AWSPartnerCentralMarketingManagement](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSPartnerCentralMarketingManagement.html) in the *AWS Managed Policy Reference*.
@@ -140,7 +142,7 @@ With this policy, you can manage incentive benefits, funding, and claims in AWS 
 + Create and manage fund requests and claims
 + View historical fund requests
 + View funding wallets
-+ Access Guides and Amazon Q (Partner Assistant)
++ Access Guides and the AWS assistant (Partner Assistant)
 + Access Partner Central support
 + Create and manage program applications
 
@@ -216,6 +218,40 @@ This policy grants access to the following capabilities:
 
  To view the permissions for this policy, see [AWSRevenueAttributionManagement](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSRevenueAttributionManagement.html) in the *AWS Managed Policy Reference*.
 
+## AWS managed policy: `AWSPartnerCentralBusinessPlanManagement`
+<a name="security-iam-awsmanpol-AWSPartnerCentralBusinessPlanManagement"></a>
+
+You can attach the `AWSPartnerCentralBusinessPlanManagement` policy to your IAM identities.
+
+This policy provides full access to business plans in AWS Partner Central, including the reporting data behind business plan metrics. You can attach it on its own or with other AWS Partner Central managed policies.
+
+This policy grants access to the following capabilities:
++ Create, view, update, submit, and cancel business plans in the AWS and Sandbox catalogs
++ Create, view, update, and delete business plan items, and link them to opportunities or campaigns
++ Upload, import, view, and delete business plan attachments
++ Tag and untag business plans
++ Turn AWS collaboration on or off
++ View the AWS Partner Central and AWS Marketplace reporting data that business plan metrics use
+
+This policy doesn't grant permission to create the business plan service-linked role. For more information, see [Managing service-linked roles for business plans](using-roles-for-partner-central-account.md).
+
+ To view the permissions for this policy, see [AWSPartnerCentralBusinessPlanManagement](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSPartnerCentralBusinessPlanManagement.html) in the *AWS Managed Policy Reference*.
+
+## AWS managed policy: `AWSPartnerCentralAccountManagementServiceRolePolicy`
+<a name="security-iam-awsmanpol-AWSPartnerCentralAccountManagementServiceRolePolicy"></a>
+
+You can't attach `AWSPartnerCentralAccountManagementServiceRolePolicy` to your AWS Identity and Access Management (IAM) entities. The `AWSServiceRoleForPartnerCentralAccount` service-linked role uses this policy. Your AWS partner development team uses this role to update your business plans after you turn on AWS collaboration. For more information, see [Managing service-linked roles for business plans](using-roles-for-partner-central-account.md).
+
+This policy grants access to the following capabilities:
++ Create, update, and cancel business plans
++ Create, update, and delete business plan items
++ Start and cancel business plan submission tasks
++ Import and delete business plan attachments
+
+These actions apply only to business plans in the same AWS account as the role, and only while you have AWS collaboration turned on (`partnercentral:AllowAwsEngagement` is `ENABLED`). The policy grants no read actions.
+
+ To view the permissions for this policy, see [AWSPartnerCentralAccountManagementServiceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSPartnerCentralAccountManagementServiceRolePolicy.html) in the *AWS Managed Policy Reference*.
+
 ## AWS Partner Central updates to AWS managed policies
 <a name="security-iam-awsmanpol-updates"></a>
 
@@ -224,6 +260,8 @@ View details about updates to AWS managed policies for AWS Partner Central since
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| [AWSPartnerCentralBusinessPlanManagement](#security-iam-awsmanpol-AWSPartnerCentralBusinessPlanManagement)—New policy | AWS Partner Central added a new policy that provides full access to business plans, including the reporting data behind business plan metrics. | November 10, 2026 | 
+| [AWSPartnerCentralAccountManagementServiceRolePolicy](#security-iam-awsmanpol-AWSPartnerCentralAccountManagementServiceRolePolicy) — New policy | AWS Partner Central now includes a new policy for the AWSServiceRoleForPartnerCentralAccount service-linked role. After you turn on AWS collaboration, your AWS partner development team can create and update your business plans. | October 30, 2026 | 
 | [AWSPartnerCentralRevenueAttributionManagement](#security-iam-awsmanpol-AWSPartnerCentralRevenueAttributionManagement) — New policy | AWS Partner Central added a new policy to provide necessary access for revenue attribution management activities for partners. | June 30, 2026 | 
 | [AWSRevenueAttributionManagement](#security-iam-awsmanpol-AWSRevenueAttributionManagement) — New policy | AWS Partner Central added a new policy to provide necessary access for revenue attribution management activities for customers. | June 30, 2026 | 
 | [AWSPartnerCentralOpportunityManagement](#security-iam-awsmanpol-AWSPartnerCentralOpportunityManagement) — Update to an existing policy | AWS Partner Central updated a policy to add prospecting actions access. | June 16, 2026 | 

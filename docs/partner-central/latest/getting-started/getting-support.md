@@ -3,12 +3,12 @@
 # Getting support
 <a name="getting-support"></a>
 
-## Ask questions to Amazon Q
+## Ask questions to AWS assistant
 <a name="ask-questions-amazon-q"></a>
 
-Amazon Q (Q) is an AI-powered assistant that provides real-time, personalized support to through natural language to search across Partner Central and Marketplace knowledge sources and return concise summaries and recommendations. Support is available by selecting the Q logo and launching the chat window in the console, selecting Ask Amazon Q in the top search bar, or Diagnose with Q when an error is returned on widgets, features, and pages throughout the console.
+The AWS assistant is an AI-powered assistant that provides real-time, personalized support through natural language to search across Partner Central and Marketplace knowledge sources and return concise summaries and recommendations. Support is available by selecting the AWS assistant logo and launching the chat window in the console, selecting Ask AWS assistant in the top search bar, or Diagnose with AWS assistant when an error is returned on widgets, features, and pages throughout the console.
 
-If Amazon Q does not respond with the information you need, you can create a case with support by selecting [Partner Central Support](https://partnercentral.awspartner.com/partnercentral2/s/support) from left navigation menu.
+If the AWS assistant does not respond with the information you need, you can create a case with support by selecting [Partner Central Support](https://partnercentral.awspartner.com/partnercentral2/s/support) from left navigation menu.
 
 ## Support
 <a name="support-partner"></a>

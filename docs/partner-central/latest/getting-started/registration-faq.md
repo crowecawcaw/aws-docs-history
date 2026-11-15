@@ -86,3 +86,27 @@ If you are currently on the AWS Free Tier, log into the AWS Management Console a
 This error means your company already has a AWS Partner Central account. Your company hasn't yet migrated that account to the new Partner Central in the AWS Management Console. You don't need to create a new account.
 
 To resolve this error, return to [legacy Partner Central](https://partnercentral.awspartner.com/partnercentral2/s/login), sign in as an existing AWS Partner, and complete the migration.
+
+## Why was my registration rejected?
+<a name="faq-why-rejected"></a>
+
+Our system looks for an exact match for your business's name, tax or registration ID, and country (or jurisdiction) of incorporation. It checks these against the records held by the relevant government authority. Most rejections come down to a small mismatch in one of those fields. If you have access to your business registration documents, we strongly recommend reviewing them as you follow the process.
+
+## What are the most common causes of a registration rejection?
+<a name="faq-rejection-causes"></a>
+
+The two most common causes of a rejection are:
++ **Business name not matching exactly with the name on the tax or registration record.** Common pitfalls include:
+  + Punctuation (commas, periods, hyphens)
+  + Abbreviations (Inc., LLC, Ltd., Corp.)
+  + Spacing and capitalization
+  + Special characters
+  + Rebranding or name changes (use the original name registered at the time of incorporation)
++ **Incorrect Tax ID or Registration Number.** Only legally registered businesses can join the AWS Partner Network, so please supply a valid identifier recognized by the country your company is incorporated in. Options to try:
+  + Corporate Tax ID (EIN in the US, VAT in the EU, GST in other countries)
+  + State Tax ID for your registered state, if the EIN does not work
+  + Business Registration Number from your national or local business registry
+  + Alternative business identifiers if the other options do not match
+
+**Important**  
+The specific identifier required varies by country. Please use the number that appears on your official business registration documents from the governmental authority you report to (national, state, or local depending on location).
