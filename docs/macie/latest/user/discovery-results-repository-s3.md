@@ -47,7 +47,7 @@ Macie stores your sensitive data discovery results for 90 days. You can’t acce
 After you configure Macie to store your sensitive data discovery results in an S3 bucket, the bucket can serve as a definitive, long-term repository for the results. You can then optionally access and query the results in that repository. 
 
 **Tips**  
-For a detailed, instructional example of how you might query and use sensitive data discovery results to analyze and report potential data security risks, see the following blog post on the *AWS Security Blog*: [How to query and visualize Macie sensitive data discovery results with Amazon Athena and Amazon Quick](https://aws.amazon.com/blogs/security/how-to-query-and-visualize-macie-sensitive-data-discovery-results-with-athena-and-quicksight/).  
+For a detailed, instructional example of how you might query and use sensitive data discovery results to analyze and report potential data security risks, see the following blog post on the *AWS Security Blog*: [How to query and visualize Macie sensitive data discovery results with Amazon Athena and AWS Quick](https://aws.amazon.com/blogs/security/how-to-query-and-visualize-macie-sensitive-data-discovery-results-with-athena-and-quicksight/).  
 For samples of Amazon Athena queries that you can use to analyze sensitive data discovery results, visit the [Amazon Macie Results Analytics repository](https://github.com/aws-samples/amazon-macie-results-analytics) on GitHub. This repository also provides instructions for configuring Athena to retrieve and decrypt your results, and scripts for creating tables for the results.
 
 ## Step 1: Verify your permissions

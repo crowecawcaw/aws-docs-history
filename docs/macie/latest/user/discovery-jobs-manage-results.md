@@ -46,7 +46,7 @@ After you configure the settings, Macie writes your sensitive data discovery res
 Sensitive data findings and sensitive data discovery results both adhere to standardized schemas. This can help you optionally query, monitor, and process them by using other applications, services, and systems.
 
 **Tips**  
-For a detailed, instructional example of how you might query and use sensitive data discovery results to analyze and report potential data security risks, see the following blog post on the *AWS Security Blog*: [How to query and visualize Macie sensitive data discovery results with Amazon Athena and Amazon Quick](https://aws.amazon.com/blogs/security/how-to-query-and-visualize-macie-sensitive-data-discovery-results-with-athena-and-quicksight/).  
+For a detailed, instructional example of how you might query and use sensitive data discovery results to analyze and report potential data security risks, see the following blog post on the *AWS Security Blog*: [How to query and visualize Macie sensitive data discovery results with Amazon Athena and AWS Quick](https://aws.amazon.com/blogs/security/how-to-query-and-visualize-macie-sensitive-data-discovery-results-with-athena-and-quicksight/).  
 For samples of Amazon Athena queries that you can use to analyze sensitive data discovery results, visit the [Amazon Macie Results Analytics repository](https://github.com/aws-samples/amazon-macie-results-analytics) on GitHub. This repository also provides instructions for configuring Athena to retrieve and decrypt your results, and scripts for creating tables for the results.
 
 ## Reviewing statistics and results for a sensitive data discovery job
