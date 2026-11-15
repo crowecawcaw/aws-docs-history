@@ -35,7 +35,7 @@ We recommend customers upgrade to an Amazon Linux 2023-based runtime as soon as 
 | --- | --- | --- | --- | --- | --- | 
 | Node.js 26 | `nodejs26.x` | Amazon Linux 2023 |  Not scheduled  |  Not scheduled  |  Not scheduled  | 
 | Node.js 24 | `nodejs24.x` | Amazon Linux 2023 |  Apr 30, 2028  |  Jun 1, 2028  |  Jul 1, 2028  | 
-| Node.js 22 | `nodejs22.x` | Amazon Linux 2023 |  Apr 30, 2027  |  Jul 29, 2027  |  Aug 31, 2027  | 
+| Node.js 22 | `nodejs22.x` | Amazon Linux 2023 |  May 30, 2027  |  Jul 29, 2027  |  Aug 31, 2027  | 
 | Python 3.15 | `python3.15` | Amazon Linux 2023 |  Not scheduled  |  Not scheduled  |  Not scheduled  | 
 | Python 3.14 | `python3.14` | Amazon Linux 2023 |  Jun 30, 2029  |  Jul 31, 2029  |  Aug 31, 2029  | 
 | Python 3.13 | `python3.13` | Amazon Linux 2023 |  Jun 30, 2029  |  Jul 31, 2029  |  Aug 31, 2029  | 
@@ -50,8 +50,6 @@ We recommend customers upgrade to an Amazon Linux 2023-based runtime as soon as 
 | Java 11 | `java11` | Amazon Linux 2 |  Jun 30, 2027  |  Jul 29, 2027  |  Aug 31, 2027  | 
 | Java 8 | `java8.al2` | Amazon Linux 2 |  Jun 30, 2027  |  Jul 29, 2027  |  Aug 31, 2027  | 
 | .NET 10 | `dotnet10` | Amazon Linux 2023 |  Nov 14, 2028  |  Dec 14, 2028  |  Jan 15, 2029  | 
-| .NET 9 (container only) | `dotnet9` | Amazon Linux 2023 |  Nov 10, 2026  |  Not scheduled  |  Not scheduled  | 
-| .NET 8 | `dotnet8` | Amazon Linux 2023 |  Nov 10, 2026  |  Jul 29, 2027  |  Aug 31, 2027  | 
 | Ruby 4.0 | `ruby4.0` | Amazon Linux 2023 |  Mar 31, 2029  |  Apr 30, 2029  |  May 31, 2029  | 
 | Ruby 3.4 | `ruby3.4` | Amazon Linux 2023 |  Mar 31, 2028  |  Apr 30, 2028  |  May 31, 2028  | 
 | Ruby 3.3 | `ruby3.3` | Amazon Linux 2023 |  Mar 31, 2027  |  Jul 29, 2027  |  Aug 31, 2027  | 
@@ -167,6 +165,8 @@ The following runtimes have reached end of support:
 
 | Name | Identifier | Operating system | Deprecation date | Block function create | Block function update | 
 | --- | --- | --- | --- | --- | --- | 
+| .NET 8 |  dotnet8  | Amazon Linux 2023 |  Nov 10, 2026  |  Jul 29, 2027  |  Aug 31, 2027  | 
+| .NET 9 (container only) |  dotnet9  | Amazon Linux 2023 |  Nov 10, 2026  |  N/A  |  N/A  | 
 | Python 3.10 |  python3.10  | Amazon Linux 2 |  Oct 31, 2026  |  Jul 29, 2027  |  Aug 31, 2027  | 
 | OS-only Runtime |  provided.al2  | Amazon Linux 2 |  Jul 31, 2026  |  Jul 29, 2027  |  Aug 31, 2027  | 
 | Node.js 20 |  nodejs20.x  | Amazon Linux 2023 |  Apr 30, 2026  |  Jul 29, 2027  |  Aug 31, 2027  | 

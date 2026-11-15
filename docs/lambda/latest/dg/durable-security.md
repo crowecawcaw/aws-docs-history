@@ -92,7 +92,7 @@ Alternatively, you can use the AWS managed policy `AWSLambdaBasicDurableExecutio
 ### Permissions for managing durable executions
 <a name="durable-manage-permissions"></a>
 
-Lambda authorizes the `lambda:GetDurableExecution`, `lambda:GetDurableExecutionHistory`, and `lambda:StopDurableExecution` actions against the durable execution ARN.
+Lambda authorizes the `lambda:GetDurableExecution`, `lambda:GetDurableExecutionHistory`, `lambda:StopDurableExecution`, and `lambda:DeleteDurableExecution` actions against the durable execution ARN. Grant `lambda:DeleteDurableExecution` only to principals that are allowed to permanently remove execution data.
 
 To list the durable executions of a function, use `lambda:ListDurableExecutionsByFunction`. Lambda authorizes this action against the function ARN from the request. The following rules apply to ARN matching:
 + A policy that grants the unqualified function ARN matches only requests that use the unqualified function name.
@@ -112,7 +112,8 @@ To match requests made with either form of the function name, include both the u
             "Action": [
                 "lambda:GetDurableExecution",
                 "lambda:GetDurableExecutionHistory",
-                "lambda:StopDurableExecution"
+                "lambda:StopDurableExecution",
+                "lambda:DeleteDurableExecution"
             ],
             "Resource": "arn:aws:lambda:us-east-1:123456789012:function:myDurableFunction:*"
         },
@@ -180,11 +181,16 @@ Your function's execution role needs `kms:Encrypt` and `kms:Decrypt` permissions
 ## CloudTrail logging
 <a name="durable-cloudtrail-logging"></a>
 
-Lambda logs checkpoint operations as data events in AWS CloudTrail. You can use CloudTrail to audit when checkpoints are created, track execution state changes, and monitor access to durable execution data.
+Lambda logs the following durable execution operations as data events in AWS CloudTrail. You can use CloudTrail to audit when checkpoints are created, track execution state changes, and monitor access to and deletion of durable execution data.
 
-Checkpoint operations appear in CloudTrail logs with the following event names:
+Durable execution operations appear in CloudTrail logs with the following event names:
 + `CheckpointDurableExecution` - Logged when a step completes and creates a checkpoint
 + `GetDurableExecutionState` - Logged when Lambda retrieves execution state during replay
++ `SendDurableExecutionCallbackSuccess`, `SendDurableExecutionCallbackFailure`, and `SendDurableExecutionCallbackHeartbeat` - Logged when an external system completes a callback or sends a heartbeat for it
++ `StopDurableExecution` - Logged when a running execution is stopped
++ `DeleteDurableExecution` - Logged when an execution and its data are deleted
+
+`GetDurableExecution`, `GetDurableExecutionHistory`, and `ListDurableExecutionsByFunction` are logged as management events.
 
 To enable data event logging for durable functions, configure a CloudTrail trail to log Lambda data events. For more information, see [Logging data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) in the CloudTrail User Guide.
 

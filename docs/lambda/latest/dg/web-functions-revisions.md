@@ -175,7 +175,7 @@ Each revision's deployment package can be up to 512 MB (unzipped). Because you p
 
 All configuration is set per-revision and is immutable after creation. To change any setting, create a new revision with the updated values. The following settings control execution behavior.
 
-For the request timeout and environment variable settings, see [Request timeout](web-functions-revisions-timeout.md) and [Environment variables](web-functions-revisions-env-vars.md) in [Configuring Lambda Web Functions](web-functions-configuration.md).
+For the request timeout and environment variable settings, see [Request timeout](web-functions-configuration.md#web-functions-revisions-timeout) and [Environment variables](web-functions-configuration.md#web-functions-revisions-env-vars) in [Configuring Lambda Web Functions](web-functions-configuration.md).
 
 ### Concurrency per environment
 <a name="web-functions-revisions-concurrency"></a>

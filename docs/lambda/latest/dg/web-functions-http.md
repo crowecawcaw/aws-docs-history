@@ -22,37 +22,25 @@ Lambda removes the following headers before it forwards a request:
 + `X-HTTP-Method-Override`, `X-HTTP-Method`, and `X-Method-Override`
 + Headers whose names begin with `lambda-web-`, and headers named in the `Connection` header
 
-Lambda validates or changes the following headers.
-
-
-| Header | Behavior | 
-| --- | --- | 
-| Host | Must be the Web Function endpoint domain name (for example, bcdfghjklmnpqrst.b7t.lambda-web.us-east-1.on.aws), in lowercase and without a port. Lambda routes on this value and returns HTTP 404 if it doesn't match an endpoint, or HTTP 400 if the header is missing. Your application receives the endpoint domain name. | 
-| X-Forwarded-For | Lambda appends the IP address of the connecting client as the last value. Earlier values come from the client and aren't validated. When a Amazon CloudFront distribution is in front of the endpoint, the last value is a CloudFront address. | 
+Lambda validates or changes the following headers:
++ `Host` – Must be the Web Function endpoint domain name (for example, `bcdfghjklmnpqrst.b7t.lambda-web.us-east-1.on.aws`), in lowercase and without a port. Lambda routes on this value and returns HTTP 404 if it doesn't match an endpoint, or HTTP 400 if the header is missing. Your application receives the endpoint domain name.
++ `X-Forwarded-For` – Lambda appends the IP address of the connecting client as the last value. Earlier values come from the client and aren't validated. When a Amazon CloudFront distribution is in front of the endpoint, the last value is a CloudFront address.
 
 Lambda forwards `X-Forwarded-Host` from the client without validation. Don't use it to build redirects, absolute URLs, or host-based authorization unless a front door that you control sets it.
 
-Lambda adds the following headers.
-
-
-| Header | Description | 
-| --- | --- | 
-| lambda-web-request-id | The identifier that Lambda assigns to the request. | 
-| lambda-web-endpoint-name | The name of the endpoint that received the request. | 
+Lambda adds the following headers:
++ `lambda-web-request-id` – The identifier that Lambda assigns to the request.
++ `lambda-web-endpoint-name` – The name of the endpoint that received the request.
 
 For endpoints that use IAM authorization, Lambda validates the signed request and removes the `Authorization` header before forwarding it. For more information, see [Using the `IamAuth` authentication type](web-functions-endpoint-access-control.md#web-functions-endpoint-access-control-iam).
 
 ## Response headers
 <a name="web-functions-http-response-headers"></a>
 
-Lambda removes connection-scoped headers and HTTP trailers from your application's response. Depending on the result of the request, Lambda can add the following headers.
-
-
-| Header | Description | 
-| --- | --- | 
-| lambda-web-request-id | The request identifier. Use it to correlate a response with application and system logs. | 
-| lambda-web-logstream | The Amazon CloudWatch Logs log stream that contains logs for the execution environment that handled the request. | 
-| lambda-web-error-type | The error type, in the format <Prefix>.<ErrorReason> (for example, Platform.EndpointRequestThrottle or Runtime.RequestTimeout). Lambda omits this header for internal service errors and authorization failures. For the list of values, see [Web Function error types](web-functions-troubleshooting.md#web-functions-troubleshooting-error-types). | 
+Lambda removes connection-scoped headers and HTTP trailers from your application's response. Depending on the result of the request, Lambda can add the following headers:
++ `lambda-web-request-id` – The request identifier. Use it to correlate a response with application and system logs.
++ `lambda-web-logstream` – The Amazon CloudWatch Logs log stream that contains logs for the execution environment that handled the request.
++ `lambda-web-error-type` – The error type, in the format `<Prefix>.<ErrorReason>` (for example, `Platform.EndpointRequestThrottle` or `Runtime.RequestTimeout`). Lambda omits this header for internal service errors and authorization failures. For the list of values, see [Web Function error types](web-functions-troubleshooting.md#web-functions-troubleshooting-error-types).
 
 ## Header limits
 <a name="web-functions-http-header-limits"></a>

@@ -8,8 +8,10 @@ Start with the resource state, the HTTP response, and the logs for the request. 
 **Note**  
 Before you run the diagnostic commands in this topic, make sure that you have AWS CLI access and permission to call the Lambda Web Function `get-*` operations.
 
-## Collect diagnostic information
+## Collecting diagnostic information
 <a name="web-functions-troubleshooting-first-steps"></a>
+
+**To collect diagnostic information**
 
 1. Get the Web Function, revision, and endpoint. Record each `state`, `stateReason`, `updateStatus`, and `updateStatusReason` value.
 
@@ -43,6 +45,8 @@ Before you run the diagnostic commands in this topic, make sure that you have AW
 ## Deployment and startup issues
 <a name="web-functions-troubleshooting-deployment"></a>
 
+The following table lists common deployment and startup symptoms, what to check, and how to resolve them.
+
 
 | Symptom | What to check | Resolution | 
 | --- | --- | --- | 
@@ -56,6 +60,8 @@ To avoid repeat deployment failures, validate configuration and startup in a tes
 
 ## CLI and package errors
 <a name="web-functions-troubleshooting-cli-package"></a>
+
+The following table lists common CLI and package errors, their causes, and how to resolve them.
 
 
 | Error or symptom | Cause | Resolution | 
@@ -73,6 +79,8 @@ To avoid repeat deployment failures, validate configuration and startup in a tes
 
 ## HTTP request failures
 <a name="web-functions-troubleshooting-http"></a>
+
+The following table lists HTTP response codes, their common causes, and how to resolve them.
 
 
 | Response | Common cause | Resolution | 
@@ -120,51 +128,43 @@ To stay within the limits, move bulk state out of headers and into the request b
 ## Web Function error types
 <a name="web-functions-troubleshooting-error-types"></a>
 
-When a request to a Web Function endpoint fails, Lambda returns a `lambda-web-error-type` response header that identifies what went wrong. The value uses the format `<Prefix>.<ErrorReason>`: the prefix tells you where the error occurred, and the reason specifies the cause.
-
-
-| Prefix | Where the error occurred | 
-| --- | --- | 
-| Platform. | Lambda's platform layer, which routes and validates requests, checks permissions, and enforces limits. | 
-| Runtime. | The managed runtime that loads and runs your function. | 
-| Application. | Your function code. | 
+When a request to a Web Function endpoint fails, Lambda returns a `lambda-web-error-type` response header that identifies what went wrong. The value uses the format `<Prefix>.<ErrorReason>`: the prefix tells you where the error occurred, and the reason specifies the cause:
++ `Platform.` – Lambda's platform layer, which routes and validates requests, checks permissions, and enforces limits.
++ `Runtime.` – The managed runtime that loads and runs your function.
++ `Application.` – Your function code.
 
 For example, `Runtime.RequestTimeout` means the managed runtime reported that your function did not respond within its configured timeout, and `Application.InitCodeError` means your own initialization code threw an error.
 
-Lambda includes the `lambda-web-error-type` header when the error was caused by the request itself or by your function, its configuration, or its code. Lambda omits the header for internal service errors and for authorization failures, so that no detail is revealed to an unauthorized caller. A value indicates a problem on the path between the Lambda platform and your function. On the request path, the error identifies where the request failed. On the response path, use the value together with your application telemetry to understand what happened.
-
-
-| Error type | Description | 
-| --- | --- | 
-| Platform.MalformedRequest | Lambda could not parse the request, or the request line or method was not accepted. | 
-| Platform.MissingHostHeader | The request did not include a Host header, so Lambda could not resolve the target endpoint. | 
-| Platform.InvalidEndpoint | The Host header did not resolve to a valid, existing endpoint. | 
-| Platform.HeaderTooLarge | The request's header section exceeded the Lambda header size limit. | 
-| Platform.DisallowedHeader | The request contained a header that Lambda does not accept. Lambda returns HTTP 400. | 
-| Platform.UnsupportedHttpVersion | The request used an HTTP version other than HTTP/1.1, which Web Functions require. | 
-| Platform.CannotAssumeRole | Lambda could not assume your function's execution role. | 
-| Platform.KMSDecryptionError | Lambda could not use the configured AWS KMS key to decrypt your environment variables or other data required to initialize your function. | 
-| Platform.InvalidNetworkConfiguration | A VPC networking resource that your function depends on is invalid. To find the cause, see [Networking and connectivity issues](#web-functions-troubleshooting-networking). | 
-| Platform.RevisionNotActive | The function revision targeted by the request is not in the Active state. The revision may still be activating or may have failed to activate. Check the revision's state; if activation is still in progress, retry after a short delay. | 
-| Platform.EndpointNotActive | The endpoint is not in the Active state. The endpoint may still be provisioning or may be otherwise unavailable. Check the endpoint's state; if it is still being created, retry after a short delay. | 
-| Platform.EndpointDisabled | The endpoint's rateLimit is 0, so Lambda rejects all requests with HTTP 503. Set rateLimit to a nonzero value to resume traffic. | 
-| Platform.AccountDisabled | Web Function invocations are disabled for the account. Lambda returns HTTP 403. Contact AWS Support. | 
-| Platform.AccountRequestThrottle | The account-level request rate quota was exceeded. | 
-| Platform.EndpointRequestThrottle | The endpoint's request rate quota was exceeded. | 
-| Platform.AccountActiveVCPUArm64Throttle | The account's active vCPU quota was reached. | 
-| Platform.EndpointMaxEnvThrottle | The endpoint's maximum environments limit was reached. | 
-| Platform.EndpointConcurrentInitThrottle | Too many execution environments were initializing at the same time for the endpoint. Retry with exponential backoff. | 
-| Runtime.RequestTimeout | Your function did not return a response within its configured timeout. | 
-| Runtime.OutOfMemory | Your function exceeded its memory limit and the process was stopped. | 
-| Runtime.Unreachable | The runtime process crashed, exited, or refused the connection. | 
-| Runtime.Exit | The runtime process exited between requests. | 
-| Runtime.ExitError | The runtime process exited with an error. | 
-| Runtime.InvalidResponse | The runtime's response headers exceeded the read buffer. | 
-| Runtime.OriginRequestError | The application process failed while handling a request. Check the application logs for details. | 
-| Runtime.ImportCodeError | The runtime could not import or resolve your entry point, for example a missing module or a bad path. | 
-| Runtime.InitTimeout | Your function exceeded the init timeout while provisioning sandbox. | 
-| Application.InitCodeError | Your initialization code threw an error before the function began serving requests. | 
-| Application.TimeoutListenError | Your initialization code did not start listening on the port before the initialization deadline. | 
+Lambda includes the `lambda-web-error-type` header when the error was caused by the request itself or by your function, its configuration, or its code. Lambda omits the header for internal service errors and for authorization failures, so that no detail is revealed to an unauthorized caller. A value indicates a problem on the path between the Lambda platform and your function. On the request path, the error identifies where the request failed. On the response path, use the value together with your application telemetry to understand what happened:
++ `Platform.MalformedRequest` – Lambda could not parse the request, or the request line or method was not accepted.
++ `Platform.MissingHostHeader` – The request did not include a Host header, so Lambda could not resolve the target endpoint.
++ `Platform.InvalidEndpoint` – The Host header did not resolve to a valid, existing endpoint.
++ `Platform.HeaderTooLarge` – The request's header section exceeded the Lambda header size limit.
++ `Platform.DisallowedHeader` – The request contained a header that Lambda does not accept. Lambda returns HTTP 400.
++ `Platform.UnsupportedHttpVersion` – The request used an HTTP version other than HTTP/1.1, which Web Functions require.
++ `Platform.CannotAssumeRole` – Lambda could not assume your function's execution role.
++ `Platform.KMSDecryptionError` – Lambda could not use the configured AWS KMS key to decrypt your environment variables or other data required to initialize your function.
++ `Platform.InvalidNetworkConfiguration` – A VPC networking resource that your function depends on is invalid. To find the cause, see [Networking and connectivity issues](#web-functions-troubleshooting-networking).
++ `Platform.RevisionNotActive` – The function revision targeted by the request is not in the Active state. The revision might still be activating or might have failed to activate. Check the revision's state. If activation is still in progress, retry after a short delay.
++ `Platform.EndpointNotActive` – The endpoint is not in the Active state. The endpoint might still be provisioning or might be otherwise unavailable. Check the endpoint's state. If it is still being created, retry after a short delay.
++ `Platform.EndpointDisabled` – The endpoint's `rateLimit` is 0, so Lambda rejects all requests with HTTP 503. Set `rateLimit` to a nonzero value to resume traffic.
++ `Platform.AccountDisabled` – Web Function invocations are disabled for the account. Lambda returns HTTP 403. Contact AWS Support.
++ `Platform.AccountRequestThrottle` – The account-level request rate quota was exceeded.
++ `Platform.EndpointRequestThrottle` – The endpoint's request rate quota was exceeded.
++ `Platform.AccountActiveVCPUArm64Throttle` – The account's active vCPU quota was reached.
++ `Platform.EndpointMaxEnvThrottle` – The endpoint's maximum environments limit was reached.
++ `Platform.EndpointConcurrentInitThrottle` – Too many execution environments were initializing at the same time for the endpoint. Retry with exponential backoff.
++ `Runtime.RequestTimeout` – Your function did not return a response within its configured timeout.
++ `Runtime.OutOfMemory` – Your function exceeded its memory limit and the process was stopped.
++ `Runtime.Unreachable` – The runtime process crashed, exited, or refused the connection.
++ `Runtime.Exit` – The runtime process exited between requests.
++ `Runtime.ExitError` – The runtime process exited with an error.
++ `Runtime.InvalidResponse` – The runtime's response headers exceeded the read buffer.
++ `Runtime.OriginRequestError` – The application process failed while handling a request. Check the application logs for details.
++ `Runtime.ImportCodeError` – The runtime could not import or resolve your entry point, for example a missing module or a bad path.
++ `Runtime.InitTimeout` – Your function exceeded the init timeout while provisioning sandbox.
++ `Application.InitCodeError` – Your initialization code threw an error before the function began serving requests.
++ `Application.TimeoutListenError` – Your initialization code did not start listening on the port before the initialization deadline.
 
 For the throttling metrics that identify which limit applied (for the `Platform.AccountRequestThrottle`, `Platform.EndpointRequestThrottle`, `Platform.AccountActiveVCPUArm64Throttle`, and `Platform.EndpointMaxEnvThrottle` error types), see [Regional usage and throttling metrics](web-functions-monitoring-metrics.md#web-functions-monitoring-metrics-usage).
 
@@ -182,10 +182,10 @@ If no application logs appear at all, the execution role might lack Amazon Cloud
 <a name="web-functions-troubleshooting-storage-encryption"></a>
 
 Missing or inaccessible Amazon S3 object version  
-Confirm that the bucket still has versioning enabled, the exact object version exists, and both the caller and Lambda service principal have the required read permissions. If an active revision loses access to its pinned object version, create a new revision that references an available version. For details, see [Deploying Web Function code from Amazon S3](web-functions-code-s3.md).
+Confirm that the bucket still has versioning enabled, the exact object version exists, and both the caller and Lambda service principal have the required read permissions. If an active revision loses access to its pinned object version, create a new revision that references an available version. For more information, see [Deploying Web Function code from Amazon S3](web-functions-code-s3.md).
 
 AWS KMS access failure  
-Check the caller permissions, key policy, encryption context, key state, and the Lambda service principal's `kms:Decrypt` permission. For `MultiRegion` and `PerRegion` endpoints, verify that a replica of the multi-Region AWS KMS key exists and is usable in every target Region. For details, see [Encryption at rest for Web Functions](web-functions-encryption.md).
+Check the caller permissions, key policy, encryption context, key state, and the Lambda service principal's `kms:Decrypt` permission. For `MultiRegion` and `PerRegion` endpoints, verify that a replica of the multi-Region AWS KMS key exists and is usable in every target Region. For more information, see [Encryption at rest for Web Functions](web-functions-encryption.md).
 
 ## Issues with `MultiRegion` and `PerRegion` endpoints
 <a name="web-functions-troubleshooting-multi-region"></a>
@@ -199,7 +199,9 @@ For a `MultiRegion` endpoint, latency-based routing (which directs requests to t
 
 Most connectivity problems come from a serving revision that has no connector reference or references an older connector version, or from connector subnets, security groups, or routes that block the traffic.
 
-Use the following sequence to isolate a connectivity problem:
+This procedure helps you isolate the cause of a networking or connectivity problem with a Web Function.
+
+**To isolate a connectivity problem**
 
 1. Run `get-web-function-endpoint`. Check the automatic deployment mode and confirm which revision or revisions receive traffic.
 
@@ -213,20 +215,16 @@ Use the following sequence to isolate a connectivity problem:
 
 1. Review VPC Flow Logs on the connector subnets.
 
-Common symptoms include the following.
-
-
-| Symptom | Check | 
-| --- | --- | 
-| Public internet works, but VPC resources don't | The serving revision has no connector reference. | 
-| VPC access works for some requests | The endpoint is routing to two revisions with different connector configurations. | 
-| A connector update has no effect | The serving revision references an older connector version. | 
-| Public access stops after adding a connector | The connector subnets don't have the required NAT or IPv6 route. | 
-| One VPC destination times out | The destination security group, route table, or network ACL blocks the connection. | 
-| Flow Logs contain no matching records | Traffic didn't enter the VPC. Recheck the serving revision and connector reference. | 
-| Private names fail but direct IP connections work | Check VPC DNS attributes and private hosted zone associations. | 
-| IPv4 works but IPv6 fails | Check for a DualStack connector version, IPv6 routes, and IPv6 security rules. | 
-| The serving revision is Active but the function cannot reach private VPC resources | The serving revision does not set an egress network connector (egressNetworkConnectorArn). Read the field with get-web-function-revision; if it is empty, create a revision that sets egressNetworkConnectorArn. For details, see [Configuring networking for AWS Lambda Web Functions](web-functions-networking.md). | 
+Common symptoms include the following:
++ **Public internet works, but VPC resources don't** – The serving revision has no connector reference.
++ **VPC access works for some requests** – The endpoint is routing to two revisions with different connector configurations.
++ **A connector update has no effect** – The serving revision references an older connector version.
++ **Public access stops after adding a connector** – The connector subnets don't have the required NAT or IPv6 route.
++ **One VPC destination times out** – The destination security group, route table, or network ACL blocks the connection.
++ **Flow Logs contain no matching records** – Traffic didn't enter the VPC. Recheck the serving revision and connector reference.
++ **Private names fail but direct IP connections work** – Check VPC DNS attributes and private hosted zone associations.
++ **IPv4 works but IPv6 fails** – Check for a `DualStack` connector version, IPv6 routes, and IPv6 security rules.
++ **The serving revision is `Active` but the function cannot reach private VPC resources** – The serving revision does not set an egress network connector (`egressNetworkConnectorArn`). Read the field with `get-web-function-revision`; if it is empty, create a revision that sets `egressNetworkConnectorArn`. For more information, see [Configuring networking for AWS Lambda Web Functions](web-functions-networking.md).
 
 There is no interactive access to a Web Function execution environment. Use application logs, endpoint response headers, resource state fields, CloudWatch metrics, and VPC Flow Logs to diagnose failures.
 

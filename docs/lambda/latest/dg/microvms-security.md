@@ -27,7 +27,7 @@ Lifecycle hooks execute under the role associated with their phase. Build-time h
 ### Trust policies
 <a name="microvms-security-trust-policies"></a>
 
-Both roles require a trust policy that allows the Lambda service principal `lambda.amazonaws.com` to perform `sts:AssumeRole` and `sts:TagSession`.
+Both roles require a trust policy that allows the Lambda service principal `lambda.amazonaws.com` to perform `sts:AssumeRole`.
 
 ## Authentication tokens
 <a name="microvms-security-auth-tokens"></a>

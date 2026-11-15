@@ -3,7 +3,7 @@
 # Lambda Web Function runtimes
 <a name="web-functions-runtimes"></a>
 
-Lambda Web Functions run your HTTP server code using managed runtimes. Your application must start an HTTP server that listens on the host and port specified by the `AWS_LAMBDA_HTTP_ENDPOINT` environment variable. Lambda Web Functions currently support Node.js. By default, the runtime loads `index.js` at the root of the deployment package. To use a different entry file, set the `AWS_LAMBDA_NODEJS_ENTRYPOINT` environment variable. For details, see [Environment variables](web-functions-revisions-env-vars.md).
+Lambda Web Functions run your HTTP server code using managed runtimes. Your application must start an HTTP server that listens on the host and port specified by the `AWS_LAMBDA_HTTP_ENDPOINT` environment variable. Lambda Web Functions currently support Node.js. By default, the runtime loads `index.js` at the root of the deployment package. To use a different entry file, set the `AWS_LAMBDA_NODEJS_ENTRYPOINT` environment variable. For details, see [Environment variables](web-functions-configuration.md#web-functions-revisions-env-vars).
 
 ## Supported Node.js versions
 <a name="web-functions-runtimes-versions"></a>
@@ -40,7 +40,7 @@ You can use any Node.js web framework that starts an HTTP server. Popular framew
 + Fastify
 + Koa
 
-You don't need the AWS Lambda Web Adapter or another event-to-HTTP adapter. Your application handles HTTP requests directly using the framework's standard routing and middleware. Some frameworks, such as Next.js in standalone mode, read their own environment variables for the listen address. For these frameworks, use an `index.js` entry file that sets those variables from `AWS_LAMBDA_HTTP_ENDPOINT` before it starts the server. For details, see [Environment variables](web-functions-revisions-env-vars.md). For a complete application, see [Minimal Express application](web-functions-samples.md#web-functions-samples-express).
+You don't need the AWS Lambda Web Adapter or another event-to-HTTP adapter. Your application handles HTTP requests directly using the framework's standard routing and middleware. Some frameworks, such as Next.js in standalone mode, read their own environment variables for the listen address. For these frameworks, use an `index.js` entry file that sets those variables from `AWS_LAMBDA_HTTP_ENDPOINT` before it starts the server. For details, see [Environment variables](web-functions-configuration.md#web-functions-revisions-env-vars). For a complete application, see [Minimal Express application](web-functions-samples.md#web-functions-samples-express).
 
 ## Node.js execution model
 <a name="web-functions-runtimes-execution-model"></a>

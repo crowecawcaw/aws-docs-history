@@ -293,6 +293,16 @@ When you update a function to remove its VPC configuration, Lambda requires up t
 
 Lambda relies on permissions in the function [ execution role](lambda-intro-execution-role.md) to delete the Hyperplane ENI. If you delete the execution role before Lambda deletes the Hyperplane ENI, Lambda won't be able to delete the Hyperplane ENI. You can manually perform the deletion.
 
+If Lambda can't clean up a Hyperplane ENI that is no longer needed, for example because you deleted the function's execution role before you removed the function's VPC configuration, the network interface becomes an orphaned ENI (also called a stuck ENI). Lambda no longer manages an orphaned ENI, and its interface type changes away from `lambda` (to `interface`). After the interface type is no longer `lambda`, you can delete the ENI manually. You can distinguish a normal Hyperplane ENI from an orphaned one using the following characteristics.
+
+A Lambda Hyperplane ENI has the following characteristics:
++ The description starts with `AWS Lambda VPC ENI-`.
++ The interface type is `lambda`.
+
+An orphaned (or stuck) Lambda Hyperplane ENI has the following characteristics:
++ The description starts with `AWS Lambda VPC ENI-`.
++ The interface type is `interface`.
+
 ## Using IAM condition keys for VPC settings
 <a name="vpc-conditions"></a>
 

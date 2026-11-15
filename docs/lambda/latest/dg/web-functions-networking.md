@@ -26,15 +26,19 @@ You can use egress network connectors only with `HomeRegion` endpoints. Lambda r
 
 When revision weights split traffic between revisions with different connector configurations, requests use different network paths. When you diagnose intermittent connectivity, check the endpoint's auto-deployment mode and revision weights first. For how they route requests to revisions, see [Deployment patterns](web-functions-deployment.md).
 
-### Add an HTTP front door in front of an endpoint
+### Adding an HTTP front door in front of an endpoint
 <a name="web-functions-networking-front-door"></a>
 
 A front door is a service that receives client requests and forwards them to your endpoint. It adds capabilities such as a custom domain, caching, or web application firewall protection. Web Function endpoints do not support custom domain names or direct AWS WAF association. Use Amazon CloudFront in front of the endpoint when you need a custom domain, edge caching, HTTP/2 or HTTP/3 between the viewer and the edge, response compression, or AWS WAF controls.
 
 The following diagram shows a production front door. A client connects to a CloudFront custom domain protected by AWS WAF. CloudFront sends the request to a protected Web Function endpoint, which routes it to an execution environment. Without an egress network connector, the application can call public AWS service or internet endpoints. It can't reach resources that have only private VPC addresses. To reach those resources, see [Connecting a Web Function to your VPC](#web-functions-networking-vpc). With `IamAuth`, CloudFront signs each origin request, and Lambda authorizes the request before invoking your function. Lambda preserves the viewer's original `Authorization` header and forwards it to your function. The Lambda-provided domain accepts only signed requests from principals with permission to invoke it, and rejects unsigned direct requests, such as a browser calling the domain directly. To ensure the endpoint accepts calls only from your distribution, add a resource-based policy that grants invoke permission to the CloudFront service principal and scopes it to your distribution's Amazon Resource Name (ARN) with a source ARN condition. With `ApplicationManaged`, the endpoint is public, and direct requests bypass CloudFront and AWS WAF.
 
+The following diagram shows this front-door pattern, in which viewers reach the Web Function through a CloudFront distribution that signs origin requests, and Lambda rejects unsigned direct requests to the endpoint domain:
+
 ![Viewers connect to a CloudFront distribution with your custom domain, protected by AWS WAF. CloudFront signs origin requests to a Web Function endpoint that uses IamAuth. Unsigned direct requests to the Lambda-provided domain are rejected.](https://docs.aws.amazon.com/lambda/latest/dg/images/web-functions-production-front-door.png)
 
+
+**To add an HTTP front door in front of an endpoint**
 
 1. Configure the Web Function domain as an HTTPS custom origin.
 
@@ -52,6 +56,8 @@ For the CloudFront authorization procedure, see [CloudFront integration](web-fun
 <a name="web-functions-networking-cors"></a>
 
 Lambda does not add Cross-Origin Resource Sharing (CORS) headers for Web Functions. Your application or front door must handle preflight and actual requests.
+
+Follow these practices:
 + Return the allowed origin instead of reflecting every `Origin` value.
 + Allow only the methods and request headers that the application uses.
 + When browsers send credentials, use an explicit origin and return `Access-Control-Allow-Credentials: true`. Do not combine credentials with a wildcard origin.
@@ -70,7 +76,7 @@ For the complete header and method contract, see [HTTP requests and responses](w
 ## Outbound connectivity
 <a name="web-functions-networking-outbound"></a>
 
-You choose the outbound network path for each revision.
+You choose the outbound network path for each revision:
 + Without an egress network connector – The revision reaches public `IPv4` destinations directly without traversing your VPC. The source address is Lambda-managed, isn't stable, and isn't suitable for an allow list. The revision has no route to private resources in your VPC.
 + With an egress network connector – The revision sends outbound traffic through elastic network interfaces in the connector's subnets. Your VPC route tables, security groups, and network access control lists (ACLs) apply. Use this option to reach private VPC resources, on-premises networks connected through Direct Connect or VPN, or destinations that require traffic from your address space.
 
@@ -120,79 +126,85 @@ The connector's operator role and the revision's execution role serve different 
 ### Operator role permissions
 <a name="web-functions-networking-vpc-operator-role"></a>
 
-Lambda assumes the connector's operator role to manage the connector's network interfaces. The role's trust policy must allow the Lambda service principal, `lambda.amazonaws.com`, to assume it:
+Lambda assumes the connector's operator role to manage the connector's network interfaces.
 
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "lambda.amazonaws.com"
-      },
-      "Action": "sts:AssumeRole"
-    }
-  ]
-}
-```
+**To configure the operator role permissions**
 
-Attach a permissions policy like the following to the connector's operator role. This policy allows Lambda to create and tag the connector's network interfaces:
+1. Create the operator role with a trust policy that allows the Lambda service principal, `lambda.amazonaws.com`, to assume it:
 
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "CreateENI",
-      "Effect": "Allow",
-      "Action": "ec2:CreateNetworkInterface",
-      "Resource": [
-        "arn:aws:ec2:*:*:network-interface/*",
-        "arn:aws:ec2:*:*:subnet/*",
-        "arn:aws:ec2:*:*:security-group/*"
-      ]
-    },
-    {
-      "Sid": "TagENI",
-      "Effect": "Allow",
-      "Action": "ec2:CreateTags",
-      "Resource": "arn:aws:ec2:*:*:network-interface/*",
-      "Condition": {
-        "StringEquals": {
-          "ec2:ManagedResourceOperator": "network-connectors.lambda.amazonaws.com"
-        }
-      }
-    }
-  ]
-}
-```
+   ```
+   {
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Principal": {
+           "Service": "lambda.amazonaws.com"
+         },
+         "Action": "sts:AssumeRole"
+       }
+     ]
+   }
+   ```
+
+1. Attach a permissions policy to the operator role that allows Lambda to create and tag the connector's network interfaces:
+
+   ```
+   {
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Sid": "CreateENI",
+         "Effect": "Allow",
+         "Action": "ec2:CreateNetworkInterface",
+         "Resource": [
+           "arn:aws:ec2:*:*:network-interface/*",
+           "arn:aws:ec2:*:*:subnet/*",
+           "arn:aws:ec2:*:*:security-group/*"
+         ]
+       },
+       {
+         "Sid": "TagENI",
+         "Effect": "Allow",
+         "Action": "ec2:CreateTags",
+         "Resource": "arn:aws:ec2:*:*:network-interface/*",
+         "Condition": {
+           "StringEquals": {
+             "ec2:ManagedResourceOperator": "network-connectors.lambda.amazonaws.com"
+           }
+         }
+       }
+     ]
+   }
+   ```
 
 ### Create a connector
 <a name="web-functions-networking-vpc-create-connector"></a>
 
-The following AWS CLI command creates an `IPv4` connector for Web Functions. Replace the connector name, subnet IDs, security group ID, and operator role ARN with your own values.
-
-```
-aws lambda-core create-network-connector \
-  --name my-connector \
-  --configuration '{
-    "VpcEgressConfiguration": {
-      "SubnetIds": [
-        "subnet-0ab1c2d3e4f5a6b78",
-        "subnet-1bc2d3e4f5a6b7c89"
-      ],
-      "SecurityGroupIds": ["sg-0123456789abcdef0"],
-      "NetworkProtocol": "IPv4",
-      "AssociatedComputeResourceTypes": ["WebFunction"]
-    }
-  }' \
-  --operator-role arn:aws:iam::123456789012:role/NetworkConnectorOperatorRole
-```
-
 A connector supports one compute resource type. A connector for Web Functions doesn't support another Lambda compute type, and its compute resource type is immutable.
 
-Lambda creates the connector asynchronously. Use `get-network-connector` to wait until its `State` is `ACTIVE`, and note the current version number.
+**To create a connector**
+
+1. Create an `IPv4` connector for Web Functions with the following AWS CLI command. Replace the connector name, subnet IDs, security group ID, and operator role ARN with your own values:
+
+   ```
+   aws lambda-core create-network-connector \
+     --name {{my-connector}} \
+     --configuration '{
+       "VpcEgressConfiguration": {
+         "SubnetIds": [
+           "{{subnet-0ab1c2d3e4f5a6b78}}",
+           "{{subnet-1bc2d3e4f5a6b7c89}}"
+         ],
+         "SecurityGroupIds": ["{{sg-0123456789abcdef0}}"],
+         "NetworkProtocol": "IPv4",
+         "AssociatedComputeResourceTypes": ["WebFunction"]
+       }
+     }' \
+     --operator-role arn:aws:iam::{{111122223333}}:role/{{NetworkConnectorOperatorRole}}
+   ```
+
+1. Wait for the connector to become active. Lambda creates it asynchronously, so use `get-network-connector` until its `State` is `ACTIVE`, and note the current version number.
 
 ### Reference the connector from a revision
 <a name="web-functions-networking-vpc-reference-revision"></a>
@@ -200,28 +212,34 @@ Lambda creates the connector asynchronously. Use `get-network-connector` to wait
 Set `serviceConfig.egressNetworkConnectorArn` when you create the Web Function's first revision or a later revision. Use a version-qualified ARN:
 
 ```
-arn:aws:lambda:us-east-1:123456789012:network-connector:nc-0a1b2c3d4e5f6a7b8:4
+arn:aws:lambda:{{us-east-1}}:{{111122223333}}:network-connector:{{nc-0a1b2c3d4e5f6a7b8}}:{{4}}
 ```
 
-The following AWS CLI command creates a revision that references connector version 4. Replace the function name, execution role ARN, connector ARN, and Region with your own values.
+A revision doesn't accept an unqualified ARN, connector name, or connector ID.
 
-```
-aws lambda-web create-web-function-revision \
-  --function-name my-web-function \
-  --build-config file://build-config.json \
-  --service-config '{
-    "executionRoleArn": "arn:aws:iam::123456789012:role/WebFunctionExecutionRole",
-    "timeoutSeconds": 30,
-    "egressNetworkConnectorArn": "arn:aws:lambda:us-east-1:123456789012:network-connector:nc-0a1b2c3d4e5f6a7b8:4"
-  }' \
-  --region us-east-1
-```
+**To reference the connector from a revision**
 
-An unqualified ARN, connector name, or connector ID isn't accepted on a revision. After creating the revision:
-+ Wait until the revision's state is `Active`.
-+ Read the revision and confirm that `egressNetworkConnectorArn` contains the expected connector version.
-+ Confirm that the endpoint routes traffic to the revision. A `HomeRegion` endpoint in `LatestRevision` mode picks up the latest active revision automatically. For an endpoint in `Disabled` mode, update its revision weights.
-+ Test a VPC destination and confirm the traffic with VPC Flow Logs.
+1. Create a revision that references the connector. The following AWS CLI command references connector version 4. Replace the function name, execution role ARN, connector ARN, and Region with your own values:
+
+   ```
+   aws lambda-web create-web-function-revision \
+     --function-name {{my-web-function}} \
+     --build-config file://build-config.json \
+     --service-config '{
+       "executionRoleArn": "arn:aws:iam::{{111122223333}}:role/{{WebFunctionExecutionRole}}",
+       "timeoutSeconds": 30,
+       "egressNetworkConnectorArn": "arn:aws:lambda:{{us-east-1}}:{{111122223333}}:network-connector:{{nc-0a1b2c3d4e5f6a7b8}}:{{4}}"
+     }' \
+     --region {{us-east-1}}
+   ```
+
+1. Wait until the revision's state is `Active`.
+
+1. Read the revision and confirm that `egressNetworkConnectorArn` contains the expected connector version.
+
+1. Confirm that the endpoint routes traffic to the revision. A `HomeRegion` endpoint in `LatestRevision` mode picks up the latest active revision automatically. For an endpoint in `Disabled` mode, update its revision weights.
+
+1. Test a VPC destination and confirm the traffic with VPC Flow Logs.
 
 The endpoint's automatic deployment mode determines whether creating an active revision updates routing automatically. In all modes, confirm which revision is serving before testing its connector.
 
@@ -230,18 +248,29 @@ The endpoint's automatic deployment mode determines whether creating an active r
 
 Updating a connector publishes a new version. Existing revisions remain pinned to the version in their connector ARN.
 
-To roll out a connector change:
-+ Update the connector with `update-network-connector`. The connector must be `ACTIVE`. Provide the complete `VpcEgressConfiguration`, including every subnet ID and security group ID that you want to keep, because the update replaces the existing configuration.
-+ Wait for the connector's `LastUpdateStatus` to become `Successful`.
-+ Get the new connector version.
-+ Create a revision that references the new version-qualified ARN.
-+ For a `HomeRegion` endpoint in `LatestRevision` mode, confirm that it picked up the new active revision. For an endpoint in `Disabled` mode, shift traffic by updating its revision weights.
+**To update the connector**
+
+1. Update the connector with `update-network-connector`. The connector must be `ACTIVE`. Provide the complete `VpcEgressConfiguration`, including every subnet ID and security group ID that you want to keep, because the update replaces the existing configuration.
+
+1. Wait for the connector's `LastUpdateStatus` to become `Successful`.
+
+1. Get the new connector version.
+
+1. Create a revision that references the new version-qualified ARN.
+
+1. For a `HomeRegion` endpoint in `LatestRevision` mode, confirm that it picked up the new active revision. For an endpoint in `Disabled` mode, shift traffic by updating its revision weights.
 
 Updating the connector without creating a revision that references its new version doesn't change the network configuration of running Web Functions.
 
-To remove VPC connectivity, create a revision without `egressNetworkConnectorArn`. A `HomeRegion` endpoint in `LatestRevision` mode picks it up when it becomes active. For an endpoint in `Disabled` mode, shift traffic by updating its revision weights. The new revision uses Lambda-managed public `IPv4` egress and no longer has private VPC access.
+**To remove VPC connectivity**
 
-**Note**  
+1. Create a revision without `egressNetworkConnectorArn`.
+
+1. Shift traffic to the new revision. A `HomeRegion` endpoint in `LatestRevision` mode picks it up when the revision becomes active. For an endpoint in `Disabled` mode, shift traffic by updating its revision weights.
+
+The new revision uses Lambda-managed public `IPv4` egress and no longer has private VPC access.
+
+**Important**  
 Before deleting an egress network connector, shift endpoint traffic away from every Web Function revision that references any version of the connector, and then delete those revisions. Deleting a connector while an active revision still references it interrupts network connectivity for both existing and new execution environments serving that revision.
 
 ## IPv6 support

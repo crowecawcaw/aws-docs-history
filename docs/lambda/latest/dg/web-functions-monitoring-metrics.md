@@ -34,7 +34,7 @@ To estimate a server error rate, divide `HTTPResponseStatusClass5XX` by `Execute
 
 Request metrics in the home Region aggregate traffic from every Region that the endpoint serves, so one alarm in the home Region covers the whole endpoint. Build alarms and dashboards on the home Region values. Don't rely on these metrics in other Regions; see [Telemetry in each Region](web-functions-monitoring.md#web-functions-monitoring-replica-telemetry).
 
-Lambda emits request metrics when a request completes. For a long-running request, the data point can appear up to the request timeout after the request started, so errors from long requests can reach your alarms late. For the request timeout, see [Request timeout](web-functions-revisions-timeout.md).
+Lambda emits request metrics when a request completes. For a long-running request, the data point can appear up to the request timeout after the request started, so errors from long requests can reach your alarms late. For the request timeout, see [Request timeout](web-functions-configuration.md#web-functions-revisions-timeout).
 
 ## Execution environment metrics
 <a name="web-functions-monitoring-metrics-environment"></a>

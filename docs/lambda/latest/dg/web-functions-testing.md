@@ -32,8 +32,10 @@ Send requests with your normal HTTP client and verify status codes, response bod
 
 Run concurrent requests during local integration tests. Check for global request state, shared mutable caches, duplicate initialization, file name collisions, and event-loop blocking.
 
-## Test the deployment package
+## Testing the deployment package
 <a name="web-functions-testing-package"></a>
+
+**To test the deployment package**
 
 1. Install dependencies from the committed lock file and create the archive using the same commands as the deployment pipeline.
 
@@ -53,8 +55,10 @@ docker run --rm --platform linux/arm64 \
     npm ci --omit=dev
 ```
 
-## Test in an isolated cloud environment
+## Testing in an isolated cloud environment
 <a name="web-functions-testing-cloud"></a>
+
+**To test in an isolated cloud environment**
 
 1. Upload the tested archive to a versioned Amazon S3 bucket and create a revision that references the resulting object version.
 
@@ -68,6 +72,8 @@ docker run --rm --platform linux/arm64 \
 
 ## Test authorization and exposure
 <a name="web-functions-testing-security"></a>
+
+Verify the endpoint's authorization and exposure with the following tests:
 + For `IamAuth`, verify that unsigned requests fail, permitted principals succeed, denied principals fail, and cross-account access requires both identity and resource policies.
 + For `ApplicationManaged`, test missing, expired, malformed, and insufficient application credentials. Test authorization separately from authentication.
 + Test browser preflight requests, allowed and denied origins, credentialed requests, and security headers when browsers call the endpoint.
@@ -75,8 +81,10 @@ docker run --rm --platform linux/arm64 \
 
 ## Test concurrency, scaling, and throttling
 <a name="web-functions-testing-load"></a>
+
+Verify concurrency, scaling, and throttling behavior with the following tests:
 + Increase load gradually while recording latency, 4xx and 5xx responses, throttles, active environments, and downstream utilization.
-+ Test the configured `rateLimit`, `maxEnvironments`, and `maxConcurrencyPerEnvironment` independently. Use the `lambda-web-error-type` response header (`Platform.EndpointRequestThrottle`, `Platform.AccountRequestThrottle`, `Platform.EndpointMaxEnvThrottle`, `Platform.AccountActiveVCPUArm64Throttle`, or `Platform.EndpointConcurrentInitThrottle`) to confirm which limit produced each HTTP 429 response. Record HTTP 503 responses that have no `lambda-web-error-type` header separately. These responses can indicate temporary load shedding or an internal error. For details, see [Web Function error types](web-functions-troubleshooting.md#web-functions-troubleshooting-error-types).
++ Test the configured `rateLimit`, `maxEnvironments`, and `maxConcurrencyPerEnvironment` independently. Use the `lambda-web-error-type` response header (`Platform.EndpointRequestThrottle`, `Platform.AccountRequestThrottle`, `Platform.EndpointMaxEnvThrottle`, `Platform.AccountActiveVCPUArm64Throttle`, or `Platform.EndpointConcurrentInitThrottle`) to confirm which limit produced each HTTP 429 response. Record HTTP 503 responses that have no `lambda-web-error-type` header separately. These responses can indicate temporary load shedding or an internal error. For more information, see [Web Function error types](web-functions-troubleshooting.md#web-functions-troubleshooting-error-types).
 + Test traffic bursts and cold starts, not only steady-state throughput.
 + Use unique test data and idempotency keys. Do not retry non-idempotent requests automatically during a load test.
 + Set explicit traffic, duration, and cost limits before starting a load test. Coordinate tests that can affect shared account quotas or downstream systems.

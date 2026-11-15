@@ -24,9 +24,9 @@ If you choose the `IamAuth` authentication type, callers must sign each request 
 
 If the caller is in the same AWS account as the Web Function, they can be granted `lambda:InvokeWebFunctionEndpoint` through either an identity-based policy or the function's resource-based policy. If the caller is in a different account, they need both an identity-based policy granting the action and a resource-based policy on the function that allows them.
 
-Resource-based policies are attached to the Web Function, but each statement can scope the `Resource` to a specific endpoint ARN. The following resource-based policy allows the `InvokeRole` role in account `222233334444` to invoke the `prod` endpoint of `my-function`:
+Resource-based policies are attached to the Web Function, but each statement can scope the `Resource` to a specific endpoint ARN. The following resource-based policy allows the `InvokeRole` role in account `444455556666` to invoke the `prod` endpoint of `my-function`.
 
-**Example Cross-account resource-based policy**  
+**Example – Cross-account resource-based policy**  
 
 ```
 {
@@ -35,10 +35,10 @@ Resource-based policies are attached to the Web Function, but each statement can
         {
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::222233334444:role/InvokeRole"
+                "AWS": "arn:aws:iam::{{444455556666}}:role/InvokeRole"
             },
             "Action": "lambda:InvokeWebFunctionEndpoint",
-            "Resource": "arn:aws:lambda:us-east-1:111122223333:web-function/my-function/endpoint/prod"
+            "Resource": "arn:aws:lambda:us-east-1:{{111122223333}}:web-function/my-function/endpoint/prod"
         }
     ]
 }
@@ -48,7 +48,7 @@ To attach the resource-based policy, use `put-resource-policy` with the function
 
 ```
 aws lambda-web put-resource-policy \
-    --resource-arn "arn:aws:lambda:us-east-1:111122223333:web-function/my-function" \
+    --resource-arn "arn:aws:lambda:us-east-1:{{111122223333}}:web-function/my-function" \
     --policy file://policy.json \
     --region us-east-1
 ```
@@ -70,9 +70,9 @@ Replace the Region, account ID, and function name with your own values. Keep `en
 
 A caller needs `lambda:InvokeWebFunctionEndpoint` to invoke an endpoint. For a caller in the same account as the Web Function, granting this action in the caller's identity-based policy is sufficient. No resource-based policy is required. For a caller in a different account, this identity-based policy is required in addition to a resource-based policy on the function that allows them.
 
-Attach the following policy to the IAM role or user that will invoke the endpoint:
+Attach the following policy to the IAM role or user that will invoke the endpoint.
 
-**Example Identity-based policy to invoke an endpoint**  
+**Example – Identity-based policy to invoke an endpoint**  
 
 ```
 {
@@ -81,7 +81,7 @@ Attach the following policy to the IAM role or user that will invoke the endpoin
         {
             "Effect": "Allow",
             "Action": "lambda:InvokeWebFunctionEndpoint",
-            "Resource": "arn:aws:lambda:us-east-1:111122223333:web-function/my-function/endpoint/prod"
+            "Resource": "arn:aws:lambda:us-east-1:{{111122223333}}:web-function/my-function/endpoint/prod"
         }
     ]
 }
@@ -115,9 +115,9 @@ This requires the endpoint's authentication type to be `IamAuth`. Create the ori
 **Note**  
 Lambda doesn't authenticate requests to an `ApplicationManaged` endpoint or evaluate the Web Function's resource-based policy for them. Such an endpoint stays publicly reachable at its own domain, even behind CloudFront.
 
-To allow CloudFront to invoke the endpoint, attach a resource-based policy to the Web Function that grants the CloudFront service principal (`cloudfront.amazonaws.com`) the `lambda:InvokeWebFunctionEndpoint` action. Use an `aws:SourceArn` condition to allow only your specific distribution:
+To allow CloudFront to invoke the endpoint, attach a resource-based policy to the Web Function that grants the CloudFront service principal (`cloudfront.amazonaws.com`) the `lambda:InvokeWebFunctionEndpoint` action. Use an `aws:SourceArn` condition to allow only your specific distribution.
 
-**Example Resource-based policy for CloudFront OAC**  
+**Example – Resource-based policy for CloudFront OAC**  
 
 ```
 {
@@ -130,10 +130,10 @@ To allow CloudFront to invoke the endpoint, attach a resource-based policy to th
                 "Service": "cloudfront.amazonaws.com"
             },
             "Action": "lambda:InvokeWebFunctionEndpoint",
-            "Resource": "arn:aws:lambda:us-east-1:111122223333:web-function/my-function/endpoint/prod",
+            "Resource": "arn:aws:lambda:us-east-1:{{111122223333}}:web-function/my-function/endpoint/prod",
             "Condition": {
                 "StringEquals": {
-                    "aws:SourceArn": "arn:aws:cloudfront::111122223333:distribution/<distribution-id>"
+                    "aws:SourceArn": "arn:aws:cloudfront::{{111122223333}}:distribution/<distribution-id>"
                 }
             }
         }
@@ -169,14 +169,14 @@ Lambda supports the following IAM actions for managing endpoints:
 + `lambda:ListWebFunctionEndpoints` – List the endpoints of a Web Function.
 + `lambda:DeleteWebFunctionEndpoint` – Delete an endpoint.
 
-To allow or deny an action based on an authentication type, use a condition key. `lambda:Request/WebFunctionAuthType` applies to `CreateWebFunction`, `CreateWebFunctionEndpoint`, and `UpdateWebFunctionEndpoint`. `lambda:Resource/WebFunctionAuthType` applies to `InvokeWebFunctionEndpoint` (on `IamAuth` endpoints), `UpdateWebFunctionEndpoint`, `GetWebFunctionEndpoint`, and `DeleteWebFunctionEndpoint`. For details, see [Condition keys](#web-functions-endpoint-access-control-condition-keys).
+To allow or deny an action based on an authentication type, use a condition key. `lambda:Request/WebFunctionAuthType` applies to `CreateWebFunction`, `CreateWebFunctionEndpoint`, and `UpdateWebFunctionEndpoint`. `lambda:Resource/WebFunctionAuthType` applies to `InvokeWebFunctionEndpoint` (on `IamAuth` endpoints), `UpdateWebFunctionEndpoint`, `GetWebFunctionEndpoint`, and `DeleteWebFunctionEndpoint`. For more information, see [Condition keys](#web-functions-endpoint-access-control-condition-keys).
 
 ### Restricting public endpoints in an organization
 <a name="web-functions-endpoint-access-control-scp"></a>
 
-If you administer an AWS Organization and want to prevent developers from creating public endpoints, use a service control policy (SCP) that denies creating or updating endpoints with the `ApplicationManaged` authentication type. Use the `lambda:Request/WebFunctionAuthType` condition key, which reflects the authentication type in the request:
+If you administer an AWS Organization and want to prevent developers from creating public endpoints, use a service control policy (SCP) that denies creating or updating endpoints with the `ApplicationManaged` authentication type. Use the `lambda:Request/WebFunctionAuthType` condition key, which reflects the authentication type in the request.
 
-**Example SCP denying public endpoints**  
+**Example – SCP denying public endpoints**  
 
 ```
 {
@@ -210,7 +210,7 @@ For fine-grained access control, Lambda supports the following condition context
 + `lambda:Resource/WebFunctionAuthType` – The authentication type currently configured on an endpoint, with the values `IamAuth` and `ApplicationManaged`. Available during `InvokeWebFunctionEndpoint`, `UpdateWebFunctionEndpoint`, `DeleteWebFunctionEndpoint`, and `GetWebFunctionEndpoint`. For `InvokeWebFunctionEndpoint`, Lambda evaluates the key only on `IamAuth` endpoints, because requests to `ApplicationManaged` endpoints aren't authorized with IAM.
 + `aws:ResourceTag/${TagKey}` – Filters access by the tags on the Web Function. Endpoints and revisions inherit the parent function's tags, so you can use ABAC to control invoke access.
 
-**Example Allow invoke only on endpoints of a tagged function**  
+**Example – Allow invoke only on endpoints of a tagged function**  
 
 ```
 {
@@ -219,7 +219,7 @@ For fine-grained access control, Lambda supports the following condition context
         {
             "Effect": "Allow",
             "Action": "lambda:InvokeWebFunctionEndpoint",
-            "Resource": "arn:aws:lambda:us-east-1:111122223333:web-function/*/endpoint/prod",
+            "Resource": "arn:aws:lambda:us-east-1:{{111122223333}}:web-function/*/endpoint/prod",
             "Condition": {
                 "StringEquals": {
                     "aws:ResourceTag/Environment": "Production"

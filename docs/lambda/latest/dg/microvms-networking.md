@@ -9,7 +9,7 @@ You configure network access for your AWS Lambda MicroVMs by associating Network
 <a name="microvms-networking-overview"></a>
 
 Each MicroVM can have independent ingress (inbound) and egress (outbound) network configurations:
-+ **Ingress network connectors** enable inbound connectivity. Clients connect to a service-managed HTTPS endpoint, and Lambda forwards traffic to ports you configure within the MicroVM. Ingress connectors are AWS-managed – you reference them by ARN when running a MicroVM.
++ **Ingress network connectors** enable inbound connectivity. Clients connect to a service-managed HTTPS endpoint, and Lambda forwards traffic to ports you configure within the MicroVM. Ingress connectors are AWS managed – you reference them by ARN when running a MicroVM.
 + **Egress network connectors** enable outbound traffic. By default, MicroVMs have public internet access. You can create a customer-managed VPC egress connector to route outbound traffic through your VPC instead.
 
 A single connector can be reused across many MicroVMs – this is the intended usage pattern.
@@ -30,6 +30,22 @@ The following protocols are supported on the inbound endpoint:
 
 **Note**  
 Traffic between your client and the MicroVM endpoint is always encrypted with TLS. Your application can serve requests over either HTTP or HTTPS internally.
+
+### Ingress connectors
+<a name="microvms-networking-ingress-connectors"></a>
+
+Ingress connectors control which inbound connectivity features a MicroVM uses. You specify connectors when calling `run-microvm` using the `--ingress-network-connectors` parameter.
+
+The following table describes the available ingress connectors.
+
+
+| Connector | Description | 
+| --- | --- | 
+| HTTP\_INGRESS | With HTTP\_INGRESS, you can send authenticated HTTP traffic to the MicroVM through its dedicated HTTPS endpoint. You generate authentication tokens using create-microvm-auth-token and scope them to specific ports with the allowedPorts parameter. | 
+| SHELL\_INGRESS | With SHELL\_INGRESS, you can access the MicroVM through a shell. You generate shell authentication tokens using create-microvm-shell-auth-token. Shell access is intended for development and troubleshooting. Don't attach SHELL\_INGRESS to production MicroVMs. | 
+| NO\_INGRESS | With NO\_INGRESS, the MicroVM has no inbound connectivity. Specify NO\_INGRESS when you don't need inbound connectivity to your MicroVM. Lambda calls your MicroVM's lifecycle hooks, so they continue to function when you use NO\_INGRESS. | 
+
+You can combine some connectors, such as `HTTP_INGRESS` and `SHELL_INGRESS`, to get additional ingress connectivity capabilities.
 
 ### Port routing
 <a name="microvms-networking-port-routing"></a>
@@ -52,6 +68,9 @@ All requests to a MicroVM endpoint require a valid authentication token in the `
 + A specific MicroVM (identified by ID).
 + A set of allowed ports (single port, range, or all ports).
 + An expiration time (configured at token creation).
+
+**Note**  
+Lambda routes inbound requests based on their port and does not filter them by URL path. For this reason, a caller that holds a valid authentication token to the port used for lifecycle hooks can send requests to the URL paths for lifecycle hooks (for example, path `/aws/lambda-microvms/runtime/v1/run` on port 9000). During development, you can invoke hooks directly to validate and troubleshoot your application's behavior. For production workloads, we recommend that you host hooks on a dedicated port. You can then scope the tokens you issue to callers using the `allowedPorts` field.
 
 The following example creates a token and uses it to send an authenticated request:
 
@@ -92,16 +111,16 @@ The `X-aws-proxy-*` header namespace is reserved by Lambda for request metadata,
 ### Request/response bandwidth
 <a name="microvms-networking-bandwidth"></a>
 
-Each Lambda MicroVM has an ingress bandwidth that scales with its size at 2 MB/s per vCPU, with a burst allowance of 10 MB/s per vCPU for up to 5 seconds. This bandwidth applies to all traffic through the MicroVM endpoint, both inbound requests and outbound responses.
+Each Lambda MicroVM has an ingress bandwidth that scales with its size at 2 MB/s per vCPU, with a burst allowance of 10 MB per vCPU. This bandwidth applies to all traffic through the MicroVM endpoint, both inbound requests and outbound responses.
 
 
-| MicroVM size (baseline) | Sustained bandwidth | Burst bandwidth (up to 5 s) | 
+| MicroVM size (baseline) | Sustained bandwidth | Burst bandwidth | 
 | --- | --- | --- | 
-| 0.5 GB, 0.25 vCPU | 0.5 MB/s | 2.5 MB/s | 
-| 1 GB, 0.5 vCPU | 1 MB/s | 5 MB/s | 
-| 2 GB, 1 vCPU | 2 MB/s | 10 MB/s | 
-| 4 GB, 2 vCPU | 4 MB/s | 20 MB/s | 
-| 8 GB, 4 vCPU | 8 MB/s | 40 MB/s | 
+| 0.5 GB, 0.25 vCPU | 0.5 MB/s | 2.5 MB | 
+| 1 GB, 0.5 vCPU | 1 MB/s | 5 MB | 
+| 2 GB, 1 vCPU | 2 MB/s | 10 MB | 
+| 4 GB, 2 vCPU | 4 MB/s | 20 MB | 
+| 8 GB, 4 vCPU | 8 MB/s | 40 MB | 
 
 If you experience increased request latency due to network saturation, either reduce your request concurrency or payload size, or select a larger MicroVM size to increase the available bandwidth.
 

@@ -12,7 +12,7 @@ Lambda supports the following Node.js runtimes.<a name="nodejs-supported-runtime
 | --- | --- | --- | --- | --- | --- | 
 | Node.js 26 | `nodejs26.x` | Amazon Linux 2023 |  Not scheduled  |  Not scheduled  |  Not scheduled  | 
 | Node.js 24 | `nodejs24.x` | Amazon Linux 2023 |  Apr 30, 2028  |  Jun 1, 2028  |  Jul 1, 2028  | 
-| Node.js 22 | `nodejs22.x` | Amazon Linux 2023 |  Apr 30, 2027  |  Jul 29, 2027  |  Aug 31, 2027  | 
+| Node.js 22 | `nodejs22.x` | Amazon Linux 2023 |  May 30, 2027  |  Jul 29, 2027  |  Aug 31, 2027  | 
 
 **To create a Node.js Event Function**
 

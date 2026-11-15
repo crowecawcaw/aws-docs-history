@@ -5,7 +5,7 @@
 
 Lambda publishes system log events for your capacity provider and for the function versions, Amazon EC2 instances, and execution environments that it manages. This topic describes the format of each log entry, the metadata fields that log entries can contain, and the events that Lambda publishes.
 
-For more information about configuring the system log level, see [Log-level filtering for capacity provider system logs](lambda-managed-instances-monitoring-log-levels.md).
+For more information about configuring the system log level, see [Log-level filtering for capacity provider system logs](lambda-managed-instances-monitoring-log-levels.md). For how to query and correlate these logs, see [Using capacity provider system logs](lambda-managed-instances-monitoring-system-logs-usage.md).
 
 ## Log entry format
 <a name="lambda-managed-instances-log-format-json-structure"></a>
@@ -130,7 +130,7 @@ All `Autoscaling` events include the `capacityProviderArn` metadata field. Event
 | Scale-out blocked: function's maximum execution environments reached. | WARN | Lambda attempted to scale out, but the function version already has its maximum number of execution environments. |  + `action` (`scaleOut`)<br />+ `maxExecutionEnvironments`<br />+ `executionEnvironmentCount`  | 
 | Scale-in blocked: function's minimum execution environments reached. | WARN | Demand fell below the function version's minimum number of execution environments, so Lambda didn't scale in further. |  + `action` (`scaleIn`)<br />+ `minExecutionEnvironments`<br />+ `executionEnvironmentCount`  | 
 | Scale-out blocked: capacity provider's maximum vCPU reached. | WARN | Lambda attempted to scale out, but the capacity provider has reached its maximum vCPU limit. This event applies to the whole capacity provider and doesn't include function fields. |  + `action` (`scaleOut`)<br />+ `currentVCPU`<br />+ `vCPULimit`  | 
-| No configured instance type can satisfy function resource requirements. Please add an instance type that satisfies the required resources to the allowed instance type list. | WARN | Lambda attempted to scale out, but the function version requires more resources than the capacity provider's instance type provides. |  + `action` (`scaleOut`)<br />+ `instanceTypes`<br />+ `incompatibleResources`<br />+ `requiredVCPU`<br />+ `requiredMemoryMiB`  | 
+| No configured instance type can satisfy function resource requirements. Please add an instance type that satisfies the required resources to the allowed instance type list. | WARN | Lambda attempted to scale out, but the function version requires more resources than the capacity provider's instance type provides. |  + `action` (`scaleOut`)<br />+ `instanceTypes`<br />+ `incompatibleResources`<br />+ `requiredVCPU`<br />+ `requiredMemoryMiB`<br />+ `requiredAcceleratorMemorySize` (GPU capacity providers only)  | 
 | Workers scaling to zero: no active functions remain. | INFO | All function versions were removed from the capacity provider, so Lambda is scaling its instances to zero. This event applies to the whole capacity provider and doesn't include function fields or action. | None | 
 
 The following example shows a scale-out event triggered by CPU utilization:
@@ -250,7 +250,7 @@ The following table describes every field that can appear in the `metadata` obje
 | functionName | String | The name of the function. | 
 | functionVersion | String | The function version, for example 1 for a numbered version or $LATEST.PUBLISHED. | 
 | functionVersionArn | String | The ARN of the function version. | 
-| incompatibleResources | Array of strings | The function resource requirements that the capacity provider's instance type can't satisfy: vcpu, memory, or both. | 
+| incompatibleResources | Array of strings | The function resource requirements that the capacity provider's instance type can't satisfy: vcpu, memory, or acceleratorMemory. | 
 | initConfiguredTimeoutMs | Number | The function's configured initialization timeout, in milliseconds. | 
 | initElapsedTimeMs | Number | The time that the execution environment spent initializing before it exceeded the timeout, in milliseconds. | 
 | instanceId | String | The Amazon EC2 instance ID associated with the event. For ExecutionEnvironmentLifecycle events, this is the instance that hosts the execution environment. | 
@@ -266,6 +266,7 @@ The following table describes every field that can appear in the `metadata` obje
 | previousMaxExecutionEnvironments | Number | The maximum number of execution environments before the scaling configuration update. | 
 | previousMinExecutionEnvironments | Number | The minimum number of execution environments before the scaling configuration update. | 
 | reasonCode | String | The reason that an execution environment failed. For possible values, see [Execution environment failure reason codes](#lambda-managed-instances-system-log-events-reason-codes). | 
+| requiredAcceleratorMemorySize | Number | The accelerator memory, in MiB, that the function version requires for each execution environment. This field is included only for capacity providers with GPU instance types. | 
 | requiredMemoryMiB | Number | The memory, in MiB, that the function version requires for each execution environment. | 
 | requiredVCPU | Number | The number of vCPUs that the function version requires for each execution environment. This value can be fractional, for example 0.5. | 
 | resources | Array of strings | The resources that drove a scaling decision: cpu, concurrency, or both. | 

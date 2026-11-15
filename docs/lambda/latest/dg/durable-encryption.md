@@ -57,7 +57,7 @@ The policy grants the following capabilities:
 + **Allow the function execution role to decrypt durable execution data**. Grants the execution role `kms:Decrypt` to read state and progress the execution.
 + **Allow the function author to describe this key**. Grants `kms:DescribeKey` so Lambda can validate that the key is symmetric and enabled during `CreateFunction` or `UpdateFunctionConfiguration`.
 + **Allow the function author to validate this key for a specific function**. Grants `kms:GenerateDataKey` and `kms:Decrypt` so Lambda can validate key permissions and access with the function's encryption context during `CreateFunction` or `UpdateFunctionConfiguration`. This confirms the key policy accepts calls for this specific function before the function is created or updated.
-+ **Allow durable execution operators**. Grants operators `kms:Decrypt` for calls to `GetDurableExecution`, `GetDurableExecutionHistory` with `IncludeExecutionData=true`, `GetDurableExecutionState`, `StopDurableExecution`, and the callback APIs.
++ **Allow durable execution operators**. Grants operators `kms:Decrypt` for calls to `GetDurableExecution`, `GetDurableExecutionHistory` with `IncludeExecutionData=true`, `GetDurableExecutionState`, `StopDurableExecution`, and the callback APIs. `DeleteDurableExecution` doesn't use the key, so it doesn't need a statement in the key policy.
 
 As a best practice, use separate principals for the execution role, function author, and durable execution operator so each identity has only the capabilities it needs.
 

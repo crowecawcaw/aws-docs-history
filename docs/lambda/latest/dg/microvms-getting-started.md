@@ -22,7 +22,7 @@ Create the IAM role with the following trust policy. This allows the Lambda serv
   "Statement": [{
     "Effect": "Allow",
     "Principal": { "Service": "lambda.amazonaws.com" },
-    "Action": ["sts:AssumeRole", "sts:TagSession"]
+    "Action": "sts:AssumeRole"
   }]
 }
 ```

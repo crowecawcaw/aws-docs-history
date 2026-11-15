@@ -188,6 +188,13 @@ aws lambda stop-durable-execution \
   --durable-execution-arn {{arn:aws:lambda:us-east-1:123456789012:function:myDurableFunction:my-function-version/durable-execution/my-execution-name/my-execution-id}}
 ```
 
+To delete a durable execution that has reached a terminal state, together with its data, run the following command:
+
+```
+aws lambda delete-durable-execution \
+  --durable-execution-arn {{arn:aws:lambda:us-east-1:123456789012:function:myDurableFunction:my-function-version/durable-execution/my-execution-name/my-execution-id}}
+```
+
 ## Update function code
 <a name="durable-cli-update-function"></a>
 

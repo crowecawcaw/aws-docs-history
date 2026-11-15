@@ -70,6 +70,7 @@
       "MinExecutionEnvironments": 100
     }'
   ```
++ **Check the `Autoscaling` system logs:** If throttles continue after the scale-up period, check whether Lambda started to scale out, or whether a limit stopped it. For more information, see [Function doesn't scale beyond a limit](#lambda-managed-instances-ts-scaling-limits).
 
 ### Slow scale-down
 <a name="lambda-managed-instances-ts-slow-scale-down"></a>
@@ -81,6 +82,45 @@
 **Solution:**
 
 This is expected behavior. Lambda scales down instances conservatively to ensure stability. Monitor your CloudWatch metrics to track the number of running instances.
+
+To see when scale-down started and how long it took, check the capacity provider system logs:
++ `Scale-in triggered` events show when Lambda started to scale in.
++ `Terminating` and `Terminated` events show when each instance started and finished terminating.
+
+For how to query these events, see [Autoscaling logs](lambda-managed-instances-monitoring-system-logs-usage.md#lambda-managed-instances-system-logs-usage-autoscaling) and [InstanceLifecycle logs](lambda-managed-instances-monitoring-system-logs-usage.md#lambda-managed-instances-system-logs-usage-instance-lifecycle).
+
+### Function doesn't scale beyond a limit
+<a name="lambda-managed-instances-ts-scaling-limits"></a>
+
+**Problem:** The number of execution environments for a function version stops growing under load, or doesn't shrink when traffic drops, or never reaches the configured minimum.
+
+**Cause:** A configured limit is preventing Lambda from scaling. The limit can be on the function version (minimum or maximum execution environments) or on the capacity provider (maximum vCPUs or allowed instance types).
+
+**Solution:**
+
+Check the `Autoscaling` warnings in the capacity provider system logs. Each warning names the limit that blocked scaling. For how to find these events, see [Autoscaling logs](lambda-managed-instances-monitoring-system-logs-usage.md#lambda-managed-instances-system-logs-usage-autoscaling). Then follow the guidance for the warning that you see:
++ `Scale-out blocked: function's maximum execution environments reached.` Increase the function version's maximum execution environments. In the following example, replace {{my-function}} and the qualifier with your function name and version, and set the minimum and maximum that you need:
+
+  ```
+  aws lambda put-function-scaling-config \
+    --function-name my-function \
+    --qualifier 1 \
+    --function-scaling-config '{
+      "MinExecutionEnvironments": 3,
+      "MaxExecutionEnvironments": 50
+    }'
+  ```
++ `Scale-in blocked: function's minimum execution environments reached.` This is expected when traffic is low. To run fewer execution environments, lower the minimum.
++ `Scale-out blocked: capacity provider's maximum vCPU reached.` Increase `MaxVCpuCount` on the capacity provider, or move some functions to another capacity provider. In the following example, replace {{my-capacity-provider}} with the name of your capacity provider and {{800}} with the maximum number of vCPUs that you need:
+
+  ```
+  aws lambda update-capacity-provider \
+    --capacity-provider-name my-capacity-provider \
+    --capacity-provider-scaling-config ScalingMode=Auto,MaxVCpuCount=800
+  ```
++ `No configured instance type can satisfy function resource requirements.` Add a larger instance type to the capacity provider's allowed instance types, remove the instance type restriction, or reduce the function's memory or vCPU configuration.
+
+For more information about scaling controls, see [Scaling Lambda Managed Instances](lambda-managed-instances-scaling.md).
 
 ## Concurrency issues
 <a name="lambda-managed-instances-ts-concurrency"></a>
@@ -186,13 +226,64 @@ For detailed guidance, see the [Python runtime for Lambda Managed Instances](lam
 ### Function version fails to become ACTIVE
 <a name="lambda-managed-instances-ts-function-not-active"></a>
 
-**Problem:** Your function version remains in a pending state after publishing.
+**Problem:** Your function version remains in a pending state after publishing, or its state becomes Failed.
 
-**Cause:** Lambda is launching Managed Instances and starting execution environments. This process takes time, especially for the first function version on a new capacity provider.
+**Cause:** Lambda is launching Managed Instances and starting execution environments. This process takes time, especially for the first function version on a new capacity provider. If Lambda can't create the execution environments, activation fails.
 
 **Solution:**
 
 Wait for Lambda to complete the initialization process. Lambda launches three instances by default for AZ resiliency and starts three execution environments before marking your function version ACTIVE. This typically takes several minutes.
+
+If the function version stays pending or fails, check the `FunctionLifecycle` events in the capacity provider system logs. The `Function version activation failed.` event includes the reason in `stateReasonCode`. For how to find these events, see [FunctionLifecycle logs](lambda-managed-instances-monitoring-system-logs-usage.md#lambda-managed-instances-system-logs-usage-function-lifecycle). Then use the reason code to find the cause:
++ If the reason code starts with `FunctionError.`, the execution environments failed to initialize. See [Execution environments fail to initialize](#lambda-managed-instances-ts-ee-failures).
++ If the reason code points to a capacity provider setting, such as an AWS KMS key, subnet, or security group, the event also includes that setting. Fix the setting, and then update the capacity provider. For details, see [Capacity provider settings in failure events](lambda-managed-instances-monitoring-system-log-events.md#lambda-managed-instances-system-log-events-cp-config-fields).
++ If the reason code points to capacity, check whether Lambda could launch instances. See [Instances fail to launch or are replaced](#lambda-managed-instances-ts-instance-launch-failures) and [Function doesn't scale beyond a limit](#lambda-managed-instances-ts-scaling-limits).
+
+### Function scaling configuration update fails
+<a name="lambda-managed-instances-ts-scaling-config-update-fails"></a>
+
+**Problem:** An update to a function version's scaling configuration, such as a new minimum number of execution environments, fails.
+
+**Cause:** Lambda couldn't reach the new configuration. For example, the capacity provider doesn't allow enough vCPUs for the new minimum.
+
+**Solution:**
+
+Check the `FunctionLifecycle` events in the capacity provider system logs. The `Function scaling configuration update failed.` event includes the reason in `lastUpdateStatusReasonCode`. For how to find these events, see [FunctionLifecycle logs](lambda-managed-instances-monitoring-system-logs-usage.md#lambda-managed-instances-system-logs-usage-function-lifecycle). Use the reason code the same way as for activation failures. See [Function version fails to become ACTIVE](#lambda-managed-instances-ts-function-not-active).
+
+If the reason code is `CapacityProviderScalingLimitExceeded`, the new minimum needs more vCPUs than the capacity provider's `MaxVCpuCount` allows. Increase `MaxVCpuCount`, or lower the minimum. For more information, see [Function doesn't scale beyond a limit](#lambda-managed-instances-ts-scaling-limits).
+
+### Execution environments fail to initialize
+<a name="lambda-managed-instances-ts-ee-failures"></a>
+
+**Problem:** Execution environments fail or are replaced repeatedly, and the function version doesn't reach its minimum number of execution environments.
+
+**Cause:** The function code, a Lambda extension, the container image, or the execution role prevents the execution environment from initializing, or initialization takes longer than the function's initialization timeout.
+
+**Solution:**
+
+1. Check the `ExecutionEnvironmentLifecycle` errors in the capacity provider system logs. `Execution environment failed.` events include the reason in `reasonCode`. For how to find these events, see [ExecutionEnvironmentLifecycle logs](lambda-managed-instances-monitoring-system-logs-usage.md#lambda-managed-instances-system-logs-usage-ee-lifecycle). For what each reason code means, see [Execution environment failure reason codes](lambda-managed-instances-monitoring-system-log-events.md#lambda-managed-instances-system-log-events-reason-codes).
+
+1. Open the function's own log stream for a failed execution environment. The log stream name is in the event's `cloudWatchLogStreamName` field. The function logs usually contain the error or stack trace from initialization.
+
+1. Fix the cause, and then publish a new function version.
+
+### Instances fail to launch or are replaced
+<a name="lambda-managed-instances-ts-instance-launch-failures"></a>
+
+**Problem:** Lambda can't launch enough Amazon EC2 instances for your capacity provider, or Lambda terminates and replaces instances unexpectedly.
+
+**Cause:** Amazon EC2 rejected the launch request, for example because of an account quota, a lack of capacity in an Availability Zone, a subnet without free IP addresses, or a network configuration error. Instances that fail health checks are replaced.
+
+**Solution:**
+
+Check the `InstanceLifecycle` errors in the capacity provider system logs. Each `Failed to launch` event includes the Amazon EC2 error message and the Amazon EC2 error code in `errorCode`. For how to find these events and follow one launch attempt, see [InstanceLifecycle logs](lambda-managed-instances-monitoring-system-logs-usage.md#lambda-managed-instances-system-logs-usage-instance-lifecycle). Then fix the cause, based on `errorCode`. For example:
++ `InsufficientInstanceCapacity`: Amazon EC2 doesn't have enough capacity for the instance type in that Availability Zone. Lambda retries in other Availability Zones and with other instance types. To give Lambda more options, use subnets in more Availability Zones. Avoid restricting the allowed instance types.
++ `VcpuLimitExceeded`: Your account has reached its Amazon EC2 vCPU quota for the instance family. Request a quota increase. For more information, see [Lambda Managed Instances quotas](lambda-managed-instances-quotas.md).
++ `InsufficientFreeAddressesInSubnet`: The subnet has no free IP addresses. Add subnets with more free addresses to the capacity provider.
++ `InvalidSubnetID.NotFound` or `InvalidGroup.NotFound`: A subnet or security group in the capacity provider configuration doesn't exist. Update the capacity provider with valid IDs.
++ `RequestLimitExceeded`: Amazon EC2 throttled the request. Lambda retries automatically. If the error persists, check for other workloads that call the Amazon EC2 API at a high rate in the same account and Region.
+
+If you see `Health check failed for {{instance-id}}: Instance will be replaced.`, Lambda replaces the instance automatically. If this happens repeatedly, contact Support.
 
 ### Cannot delete capacity provider
 <a name="lambda-managed-instances-ts-cannot-delete"></a>
@@ -219,6 +310,7 @@ Wait for Lambda to complete the initialization process. Lambda launches three in
 + **Verify capacity provider configuration:** Confirm that your capacity provider is in the ACTIVE state using the `GetCapacityProvider` API.
 + **Review VPC configuration:** Ensure the subnets and security groups specified in your capacity provider are correctly configured and accessible.
 + **Check AWS CloudTrail logs:** Review CloudTrail logs for detailed error information about the failed operation.
++ **Check capacity provider system logs:** If the function version fails to become ACTIVE after you publish it, the system logs show the reason. For more information, see [Function version fails to become ACTIVE](#lambda-managed-instances-ts-function-not-active).
 
 ## Monitoring and observability issues
 <a name="lambda-managed-instances-ts-monitoring"></a>

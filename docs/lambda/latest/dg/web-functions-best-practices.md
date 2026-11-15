@@ -3,6 +3,8 @@
 # Best practices for Lambda Web Functions
 <a name="web-functions-best-practices"></a>
 
+Follow these best practices to build secure, reliable, observable, and cost-aware applications with AWS Lambda Web Functions.
+
 ## Secure every endpoint
 <a name="web-functions-best-practices-security"></a>
 
@@ -15,6 +17,8 @@ Every endpoint is reachable from the internet, so how you authenticate callers, 
 
 ## Retain immutable deployment artifacts
 <a name="web-functions-best-practices-artifacts"></a>
+
+Keep your deployment artifacts immutable and recoverable with the following practices:
 + Enable versioning on the code bucket and record the object version ID for every deployment.
 + Do not overwrite or delete object versions used by active or rollback revisions. Keep Lambda service-principal access for as long as a revision references the object.
 + Build deployment packages in a repeatable pipeline. Install production dependencies from a lock file, exclude development files, and test the exact archive before upload.
@@ -23,6 +27,8 @@ Every endpoint is reachable from the internet, so how you authenticate callers, 
 
 ## Design for concurrent requests
 <a name="web-functions-best-practices-runtime"></a>
+
+Design your application to handle concurrent requests safely:
 + Keep request-specific data in request scope. Do not store credentials, customer data, response objects, or mutable per-request state in global variables.
 + Use asynchronous I/O. Synchronous CPU or file-system work blocks the Node.js event loop and delays every in-flight request in the environment.
 + Use `worker_threads` for CPU-intensive work that should use multiple vCPUs, or lower `maxConcurrencyPerEnvironment` to reduce contention.
@@ -33,6 +39,8 @@ Every endpoint is reachable from the internet, so how you authenticate callers, 
 
 ## Keep startup predictable
 <a name="web-functions-best-practices-startup"></a>
+
+Keep server startup fast and predictable with the following practices:
 + Start the HTTP server promptly and listen on the exact value of `AWS_LAMBDA_HTTP_ENDPOINT`.
 + Keep the package small and remove unused production dependencies.
 + Initialize only the resources needed before the server can accept traffic. Perform optional work lazily, but prevent concurrent requests from duplicating expensive initialization.
@@ -40,6 +48,8 @@ Every endpoint is reachable from the internet, so how you authenticate callers, 
 
 ## Set limits from measured behavior
 <a name="web-functions-best-practices-scaling"></a>
+
+Set concurrency and rate limits from measured behavior:
 + Load test with the same application dependencies and downstream services used in production. Increase concurrency until latency, CPU consumption, memory, or downstream capacity becomes the binding constraint.
 + Use `maxConcurrencyPerEnvironment` to bound per-process contention, `maxEnvironments` to bound horizontal scale, and `rateLimit` to protect downstream dependencies from request bursts.
 + Check applied account and Regional limits before performance tests and launches. Endpoint configuration cannot create capacity beyond an account limit.
@@ -47,13 +57,17 @@ Every endpoint is reachable from the internet, so how you authenticate callers, 
 
 ## Deploy with explicit verification and rollback
 <a name="web-functions-best-practices-deployment"></a>
+
+Make deployments safe to verify and roll back with the following practices:
 + Use manual revision weights for production endpoints. Keep automatic latest revision deployment for development environments where immediate rollout is acceptable.
 + Wait until the new revision is `Active` and the endpoint update is complete before you evaluate it. For `MultiRegion` and `PerRegion` endpoints, verify the update status in every Region.
 + Use application logs or custom metrics that include the revision identifier during canary deployments. Service-vended metrics do not include a revision dimension.
-+ Before you shift traffic, define the metrics that a new revision must meet and how long you observe them (bake criteria), and the thresholds that trigger a rollback. Preserve the previous revision's code object version, key access, and configuration until the rollback window ends. Lambda automatically deletes the oldest revisions that no endpoint routes to when a Web Function exceeds its revision limit, so keep the rollback revision on an endpoint (for example, a test endpoint) or be ready to recreate it from the same object version. For details, see [Revision limits and automatic cleanup](web-functions-revisions.md#web-functions-revisions-limits).
++ Before you shift traffic, define the metrics that a new revision must meet and how long you observe them (bake criteria), and the thresholds that trigger a rollback. Preserve the previous revision's code object version, key access, and configuration until the rollback window ends. Lambda automatically deletes the oldest revisions that no endpoint routes to when a Web Function exceeds its revision limit, so keep the rollback revision on an endpoint (for example, a test endpoint) or be ready to recreate it from the same object version. For more information, see [Revision limits and automatic cleanup](web-functions-revisions.md#web-functions-revisions-limits).
 
 ## Build an operational baseline
 <a name="web-functions-best-practices-observability"></a>
+
+Establish an operational baseline with the following practices:
 + Emit structured application logs with request ID, revision ID, route, status code, duration, and the identifiers needed to diagnose downstream failures. Do not log credentials, tokens, or sensitive request bodies.
 + Alarm on 5xx responses and throttles, and monitor executed requests, active environments, and account capacity. Configure sparse error metrics to treat missing data appropriately.
 + Use the response request ID and log-stream headers to correlate client failures with logs. Enable DEBUG system logs only while you need the additional events.
@@ -61,6 +75,8 @@ Every endpoint is reachable from the internet, so how you authenticate callers, 
 
 ## Operate MultiRegion and PerRegion endpoints as distributed systems
 <a name="web-functions-best-practices-multi-region"></a>
+
+Operate multi-Region endpoints as distributed systems with the following practices:
 + Make application data, secrets, keys, and downstream dependencies available in every Region that can receive traffic.
 + Test partial deployment failures and Regional dependency failures. Do not assume that all Regions run the same revision until every Regional update reports success.
 + After every endpoint update, check `updateStatus` for each entry in `regionalEndpoints`. Replication can fail in some Regions while it succeeds in others. As a result, an update can be partly applied. Retry or roll back before you treat the deployment as complete.

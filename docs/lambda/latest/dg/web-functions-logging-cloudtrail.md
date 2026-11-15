@@ -22,16 +22,12 @@ The following table shows the data event type for Web Functions.
 | Lambda Web Function | AWS::Lambda::WebFunction | InvokeWebFunctionEndpoint | 
 
 CloudTrail records the following key identifiers for a Web Function invocation:
-
-
-| Identifier | Value | 
-| --- | --- | 
-| eventSource | lambda.amazonaws.com | 
-| eventName | InvokeWebFunctionEndpoint. This is the value to filter on. | 
-| IAM action | lambda:InvokeWebFunctionEndpoint | 
-| readOnly | false, because an invocation runs your function code. | 
-| resources.type | AWS::Lambda::WebFunction | 
-| resources.ARN | The function ARN, not the endpoint ARN. Trail selectors therefore work at the function level. | 
++ `eventSource` – `lambda.amazonaws.com`
++ `eventName` – `InvokeWebFunctionEndpoint`. This is the value to filter on.
++ **IAM action** – `lambda:InvokeWebFunctionEndpoint`
++ `readOnly` – `false`, because an invocation runs your function code.
++ `resources.type` – `AWS::Lambda::WebFunction`
++ `resources.ARN` – The function ARN, not the endpoint ARN. Trail selectors therefore work at the function level.
 
 The following advanced event selector logs invocations for a single Web Function only.
 
@@ -42,7 +38,7 @@ The following advanced event selector logs invocations for a single Web Function
         "FieldSelectors": [
             { "Field": "eventCategory", "Equals": ["Data"] },
             { "Field": "resources.type", "Equals": ["AWS::Lambda::WebFunction"] },
-            { "Field": "resources.ARN", "Equals": ["arn:aws:lambda:us-east-1:111122223333:web-function/hello-world"] }
+            { "Field": "resources.ARN", "Equals": ["arn:aws:lambda:us-east-1:{{111122223333}}:web-function/hello-world"] }
         ]
     }
 ]
@@ -72,7 +68,7 @@ To turn on data events on a trail, use the following procedure.
          {
            "Field": "resources.ARN",
            "Equals": [
-             "arn:aws:lambda:us-east-1:111122223333:web-function/my-web-app"
+             "arn:aws:lambda:us-east-1:{{111122223333}}:web-function/my-web-app"
            ]
          }
        ]
@@ -88,7 +84,7 @@ To turn on data events on a trail, use the following procedure.
        --advanced-event-selectors file://web-function-data-events.json
    ```
 **Important**  
-`put-event-selectors` replaces the trail’s existing event selectors. If the trail already records other events, include their selectors in the same file.
+`put-event-selectors` replaces the trail's existing event selectors. If the trail already records other events, include their selectors in the same file.
 
 1. Invoke the endpoint with a test request.
 
@@ -99,35 +95,31 @@ To record data events in a CloudTrail Lake event data store instead, add the sam
 ## Fields in an InvokeWebFunctionEndpoint event
 <a name="web-functions-cloudtrail-event-fields"></a>
 
-The following table describes the fields in an `InvokeWebFunctionEndpoint` event.
-
-
-| Field | Notes | 
-| --- | --- | 
-| eventVersion | The version of the event format. | 
-| eventSource | Always lambda.amazonaws.com. | 
-| eventName | Always InvokeWebFunctionEndpoint. | 
-| eventCategory | Always Data. | 
-| eventType | The event type, for example AwsApiCall. | 
-| readOnly | Always false, because an invocation runs your function code. | 
-| managementEvent | Always false. | 
-| eventTime | The date and time, in UTC, that Lambda recorded the event. For a successful invocation, Lambda records the event when your function starts its response, so eventTime can be later than the time the request arrived. | 
-| sourceIPAddress | The IP address that the request was made from. | 
-| userAgent | The agent the caller used to make the request. Present when the caller sends a User-Agent header. | 
-| requestParameters | Contains endpointArn, the ARN of the invoked endpoint. The request payload is not logged. | 
-| responseElements | Always null. | 
-| resources | Contains one entry with the accountId, type, and ARN of the function. | 
-| additionalEventData | Contains functionRevisionArn, the ARN of the revision that served the request. This field is present on every event, including denials. | 
-| tlsDetails | The TLS version, cipher suite, and host header of the request. | 
-| userIdentity | The identity of the caller. For details, see the following list. | 
-| sharedEventID | Present when CloudTrail delivers the same event to more than one AWS account. | 
-| errorCode, errorMessage | Present only on an error event. | 
-| requestID, eventID, recipientAccountId, awsRegion | Standard CloudTrail fields that identify the request, the event, the recipient AWS account, and the AWS Region. | 
+The following list describes the fields in an `InvokeWebFunctionEndpoint` event:
++ `eventVersion` – The version of the event format.
++ `eventSource` – Always `lambda.amazonaws.com`.
++ `eventName` – Always `InvokeWebFunctionEndpoint`.
++ `eventCategory` – Always `Data`.
++ `eventType` – The event type, for example `AwsApiCall`.
++ `readOnly` – Always `false`, because an invocation runs your function code.
++ `managementEvent` – Always `false`.
++ `eventTime` – The date and time, in UTC, that Lambda recorded the event. For a successful invocation, Lambda records the event when your function starts its response, so `eventTime` can be later than the time the request arrived.
++ `sourceIPAddress` – The IP address that the request was made from.
++ `userAgent` – The agent the caller used to make the request. Present when the caller sends a `User-Agent` header.
++ `requestParameters` – Contains `endpointArn`, the ARN of the invoked endpoint. The request payload is not logged.
++ `responseElements` – Always `null`.
++ `resources` – Contains one entry with the `accountId`, `type`, and `ARN` of the function.
++ `additionalEventData` – Contains `functionRevisionArn`, the ARN of the revision that served the request. This field is present on every event, including denials.
++ `tlsDetails` – The TLS version, cipher suite, and host header of the request.
++ `userIdentity` – The identity of the caller. For details, see the following list.
++ `sharedEventID` – Present when CloudTrail delivers the same event to more than one AWS account.
++ `errorCode`, `errorMessage` – Present only on an error event.
++ `requestID`, `eventID`, `recipientAccountId`, `awsRegion` – Standard CloudTrail fields that identify the request, the event, the recipient AWS account, and the AWS Region.
 
 Web Function events use the following ARN shapes:
-+ Function (`resources[].ARN`) – `arn:aws:lambda:us-east-1:123456789012:web-function/my-fn`
-+ Endpoint (`requestParameters.endpointArn`) – `arn:aws:lambda:us-east-1:123456789012:web-function/my-fn/endpoint/my-endpoint`
-+ Revision (`additionalEventData.functionRevisionArn`) – `arn:aws:lambda:us-east-1:123456789012:web-function/my-fn/revision/rev-a1b2c`
++ Function (`resources[].ARN`) – `arn:aws:lambda:us-east-1:111122223333:web-function/my-fn`
++ Endpoint (`requestParameters.endpointArn`) – `arn:aws:lambda:us-east-1:111122223333:web-function/my-fn/endpoint/my-endpoint`
++ Revision (`additionalEventData.functionRevisionArn`) – `arn:aws:lambda:us-east-1:111122223333:web-function/my-fn/revision/rev-a1b2c`
 
 The `userIdentity` field depends on how the caller authenticated:
 + Unauthenticated invocations are recorded with `userIdentity` type `Unknown`.
@@ -169,25 +161,25 @@ The following example shows a successful invocation by an unauthenticated caller
             "sourceIPAddress": "203.0.113.42",
             "userAgent": "curl/8.4.0",
             "requestParameters": {
-                "endpointArn": "arn:aws:lambda:us-east-1:123456789012:web-function/my-fn/endpoint/my-endpoint"
+                "endpointArn": "arn:aws:lambda:us-east-1:111122223333:web-function/my-fn/endpoint/my-endpoint"
             },
             "responseElements": null,
             "additionalEventData": {
-                "functionRevisionArn": "arn:aws:lambda:us-east-1:123456789012:web-function/my-fn/revision/rev-a1b2c"
+                "functionRevisionArn": "arn:aws:lambda:us-east-1:111122223333:web-function/my-fn/revision/rev-a1b2c"
             },
             "requestID": "b1f8a4c2-7e3d-4a19-9f6b-2c5d8e0a1234",
             "eventID": "d4c3b2a1-5f6e-7a8b-9c0d-1e2f3a4b5c6d",
             "readOnly": false,
             "resources": [
                 {
-                    "accountId": "123456789012",
+                    "accountId": "111122223333",
                     "type": "AWS::Lambda::WebFunction",
-                    "ARN": "arn:aws:lambda:us-east-1:123456789012:web-function/my-fn"
+                    "ARN": "arn:aws:lambda:us-east-1:111122223333:web-function/my-fn"
                 }
             ],
             "eventType": "AwsApiCall",
             "managementEvent": false,
-            "recipientAccountId": "123456789012",
+            "recipientAccountId": "111122223333",
             "eventCategory": "Data",
             "tlsDetails": {
                 "tlsVersion": "TLSv1.3",
@@ -214,14 +206,14 @@ Error events carry `errorCode` and `errorMessage`. The following example shows a
             "userIdentity": {
                 "type": "AssumedRole",
                 "principalId": "ARO01EXAMPLEID:session-name",
-                "arn": "arn:aws:sts::123456789012:assumed-role/app-invoke-role/session-name",
-                "accountId": "123456789012",
+                "arn": "arn:aws:sts::111122223333:assumed-role/app-invoke-role/session-name",
+                "accountId": "111122223333",
                 "sessionContext": {
                     "sessionIssuer": {
                         "type": "Role",
                         "principalId": "ARO01EXAMPLEID",
-                        "arn": "arn:aws:iam::123456789012:role/app-invoke-role",
-                        "accountId": "123456789012",
+                        "arn": "arn:aws:iam::111122223333:role/app-invoke-role",
+                        "accountId": "111122223333",
                         "userName": "app-invoke-role"
                     },
                     "attributes": {
@@ -239,25 +231,25 @@ Error events carry `errorCode` and `errorMessage`. The following example shows a
             "errorCode": "AccessDenied",
             "errorMessage": "User is not authorized to perform: lambda:InvokeWebFunctionEndpoint",
             "requestParameters": {
-                "endpointArn": "arn:aws:lambda:us-east-1:123456789012:web-function/my-fn/endpoint/my-endpoint"
+                "endpointArn": "arn:aws:lambda:us-east-1:111122223333:web-function/my-fn/endpoint/my-endpoint"
             },
             "responseElements": null,
             "additionalEventData": {
-                "functionRevisionArn": "arn:aws:lambda:us-east-1:123456789012:web-function/my-fn/revision/rev-a1b2c"
+                "functionRevisionArn": "arn:aws:lambda:us-east-1:111122223333:web-function/my-fn/revision/rev-a1b2c"
             },
             "requestID": "c2e9b5d3-8f4e-4b2a-a07c-3d6e9f1b2345",
             "eventID": "e5d4c3b2-6a7f-8b9c-0d1e-2f3a4b5c6d7e",
             "readOnly": false,
             "resources": [
                 {
-                    "accountId": "123456789012",
+                    "accountId": "111122223333",
                     "type": "AWS::Lambda::WebFunction",
-                    "ARN": "arn:aws:lambda:us-east-1:123456789012:web-function/my-fn"
+                    "ARN": "arn:aws:lambda:us-east-1:111122223333:web-function/my-fn"
                 }
             ],
             "eventType": "AwsApiCall",
             "managementEvent": false,
-            "recipientAccountId": "123456789012",
+            "recipientAccountId": "111122223333",
             "eventCategory": "Data",
             "tlsDetails": {
                 "tlsVersion": "TLSv1.3",
@@ -274,17 +266,13 @@ Error events carry `errorCode` and `errorMessage`. The following example shows a
 
 CloudTrail records Web Function management events by default. You can view the last 90 days of management events in the CloudTrail **Event history** without creating a trail. To keep them longer, create a trail or CloudTrail Lake event data store. For more information, see [Logging management events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html) in the *AWS CloudTrail User Guide*.
 
-CloudTrail records the following Web Function operations as management events. The `eventName` field of each event is the same as the operation name.
-
-
-| Resource or task | Operations | 
-| --- | --- | 
-| Web Functions | CreateWebFunction, GetWebFunction, ListWebFunctions, DeleteWebFunction | 
-| Revisions | CreateWebFunctionRevision, GetWebFunctionRevision, ListWebFunctionRevisions, DeleteWebFunctionRevision | 
-| Endpoints | CreateWebFunctionEndpoint, GetWebFunctionEndpoint, ListWebFunctionEndpoints, UpdateWebFunctionEndpoint, DeleteWebFunctionEndpoint | 
-| Account settings | GetWebAccountSettings | 
-| Resource policies | PutResourcePolicy, GetResourcePolicy, DeleteResourcePolicy | 
-| Tags | TagResource, UntagResource, ListTags | 
+CloudTrail records the following Web Function operations as management events. The `eventName` field of each event is the same as the operation name:
++ **Web Functions** – `CreateWebFunction`, `GetWebFunction`, `ListWebFunctions`, `DeleteWebFunction`
++ **Revisions** – `CreateWebFunctionRevision`, `GetWebFunctionRevision`, `ListWebFunctionRevisions`, `DeleteWebFunctionRevision`
++ **Endpoints** – `CreateWebFunctionEndpoint`, `GetWebFunctionEndpoint`, `ListWebFunctionEndpoints`, `UpdateWebFunctionEndpoint`, `DeleteWebFunctionEndpoint`
++ **Account settings** – `GetWebAccountSettings`
++ **Resource policies** – `PutResourcePolicy`, `GetResourcePolicy`, `DeleteResourcePolicy`
++ **Tags** – `TagResource`, `UntagResource`, `ListTags`
 
 Web Function invocation is a data-plane operation. CloudTrail logs it only as a data event, as described in [Web Function data events in CloudTrail](#web-functions-cloudtrail-data-events).
 

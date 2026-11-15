@@ -36,8 +36,8 @@ The only required parameter is `--image-identifier` (which must be the ARN of th
 | --maximum-duration-in-seconds | The maximum total lifespan of the MicroVM, including both running and suspended time. Lambda terminates the MicroVM when this duration is exceeded. Range: 1–28,800 seconds (8 hours). | 
 | --run-hook-payload | A string payload (max 16 KB) delivered to the /run lifecycle hook when the MicroVM starts. | 
 | --logging | Logging configuration. Customize the CloudWatch log group and stream, or disable logging entirely. | 
-| --ingress-network-connectors | The ARN(s) of ingress connectors that enable inbound HTTPS connectivity. | 
-| --egress-network-connectors | The ARN(s) of egress connectors for outbound connectivity (internet or VPC). | 
+| --ingress-network-connectors | The ARNs of ingress connectors for inbound connectivity. | 
+| --egress-network-connectors | The ARNs of egress connectors for outbound connectivity (internet or VPC). | 
 
 **Note**  
 To disable ingress connectivity, use the Lambda-provided `NO_INGRESS` connector. For more details about network connectors, see [Networking](microvms-networking.md).
@@ -226,6 +226,10 @@ console.log(await response.text());
 Lifecycle hooks let you run custom logic at key points in the MicroVM lifecycle – when it starts, suspends, resumes, or terminates. Use hooks to initialize per-tenant state, flush data before suspend, refresh credentials on resume, or clean up resources before termination.
 
 Each hook is an HTTP endpoint your application exposes. Lambda sends a POST request to the hook at the appropriate lifecycle event. Hooks listen on the path `/aws/lambda-microvms/runtime/v1/<hook-name>` on the port you configure.
+
+**Note**  
+Lambda routes inbound requests based on their port and does not filter them by URL path. For this reason, a caller that holds a valid authentication token to the port used for lifecycle hooks can send requests to the URL paths for lifecycle hooks (for example, path `/aws/lambda-microvms/runtime/v1/run` on port 9000). During development, you can invoke hooks directly to validate and troubleshoot your application's behavior.  
+For production workloads, host lifecycle hooks on a dedicated port separate from your application port. Issue authentication tokens that exclude the hook port from `allowedPorts`. This separation ensures that application callers cannot reach hook endpoints.
 
 Your MicroVM begins receiving external traffic after the `/run` hook returns HTTP 200. Until then, the endpoint does not forward requests to your application.
 

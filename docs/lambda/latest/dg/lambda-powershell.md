@@ -20,8 +20,6 @@ Lambda provides the following runtimes for .NET languages:
 | Name | Identifier | Operating system | Deprecation date | Block function create | Block function update | 
 | --- | --- | --- | --- | --- | --- | 
 | .NET 10 | `dotnet10` | Amazon Linux 2023 |  Nov 14, 2028  |  Dec 14, 2028  |  Jan 15, 2029  | 
-| .NET 9 (container only) | `dotnet9` | Amazon Linux 2023 |  Nov 10, 2026  |  Not scheduled  |  Not scheduled  | 
-| .NET 8 | `dotnet8` | Amazon Linux 2023 |  Nov 10, 2026  |  Jul 29, 2027  |  Aug 31, 2027  | 
 
 **Topics**
 + [Setting Up a PowerShell Development Environment](powershell-devenv.md)

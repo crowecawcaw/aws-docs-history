@@ -182,7 +182,7 @@ aws lambda-microvms list-microvms \
 
 Log session and MicroVM IDs together so you can trace a run end to end. Keep credentials and raw webhook bodies out of logs.
 
-## Troubleshooting
+## Troubleshooting the OpenAI Agents API sandbox
 <a name="microvms-integrations-openai-agents-api-troubleshooting"></a>
 
 

@@ -5,15 +5,11 @@
 
 Every sample uses `index.js` as the entry file and listens on the host and port from `AWS_LAMBDA_HTTP_ENDPOINT`. Package the application with its production dependencies and deploy it from a versioned Amazon S3 object.
 
-The following table lists each sample and what you can learn from it.
-
-
-| Sample | Use it to learn | 
-| --- | --- | 
-| [Minimal Express application](#web-functions-samples-express) | Start an HTTP server with Express. | 
-| [Hono API and static files](#web-functions-samples-hono) | Serve API routes and static files with Hono. | 
-| [Server-sent events](#web-functions-samples-streaming) | Stream server-sent events and stop work when the client disconnects. | 
-| [Multi-Region verification route](#web-functions-samples-region) | Return the serving Region when validating multi-Region routing. | 
+The following samples are available.
++ [Minimal Express application](#web-functions-samples-express) – Start an HTTP server with Express.
++ [Hono API and static files](#web-functions-samples-hono) – Serve API routes and static files with Hono.
++ [Server-sent events](#web-functions-samples-streaming) – Stream server-sent events and stop work when the client disconnects.
++ [Multi-Region verification route](#web-functions-samples-region) – Return the serving Region when validating multi-Region routing.
 
 ## Minimal Express application
 <a name="web-functions-samples-express"></a>
@@ -116,6 +112,8 @@ Call the route from the client locations that matter to your application. For a 
 
 ## Package and deploy a sample
 <a name="web-functions-samples-deploy"></a>
+
+Package a sample and upload it to Amazon S3 with the following commands:
 
 ```
 npm ci --omit=dev

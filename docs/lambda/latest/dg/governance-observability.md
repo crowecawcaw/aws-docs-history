@@ -5,7 +5,7 @@
 
 AWS Config is a useful tool to find and fix non-compliant AWS Serverless resources. Every change you make to your serverless resources is recorded in AWS Config. Additionally, with AWS Config, you can store configuration snapshot data on S3.
 
-You can use Amazon Athena and Amazon Quick to make dashboards and see AWS Config data. In [Detect non-compliant Lambda deployments and configurations with AWS Config](governance-config-detection.md), we discussed how we can visualize a certain configuration like Lambda layers. This topic expands on these concepts.
+You can use Amazon Athena and AWS Quick to make dashboards and see AWS Config data. In [Detect non-compliant Lambda deployments and configurations with AWS Config](governance-config-detection.md), we discussed how we can visualize a certain configuration like Lambda layers. This topic expands on these concepts.
 
 ## Visibility into Lambda configurations
 <a name="governance-observability-configuration"></a>
@@ -44,7 +44,7 @@ WITH unnested AS (
     unnested
 ```
 
-You can use the query to build an Quick dashboard and visualize the data. To aggregate AWS resource configuration data, create tables in Athena, and build Quick dashboards on the data from Athena, see [Visualizing AWS Config data using Athena and Amazon Quick](https://aws.amazon.com/blogs/mt/visualizing-aws-config-data-using-amazon-athena-and-amazon-quicksight/) on the AWS Cloud Operations and Management blog. Notably, this query also retrieves tag information for the functions. This allows for deeper insights into your workloads and environments, especially if you employ custom tags.
+You can use the query to build an Quick dashboard and visualize the data. To aggregate AWS resource configuration data, create tables in Athena, and build Quick dashboards on the data from Athena, see [Visualizing AWS Config data using Athena and AWS Quick](https://aws.amazon.com/blogs/mt/visualizing-aws-config-data-using-amazon-athena-and-amazon-quicksight/) on the AWS Cloud Operations and Management blog. Notably, this query also retrieves tag information for the functions. This allows for deeper insights into your workloads and environments, especially if you employ custom tags.
 
  ![Query results in Quick dashboard.](https://docs.aws.amazon.com/lambda/latest/dg/images/governance-observability-1.png) 
 

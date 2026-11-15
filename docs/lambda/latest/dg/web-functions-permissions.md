@@ -134,7 +134,7 @@ The policy attachment and its statements use different resource ARNs:
 
 For an IAM principal in the same account, either the principal's identity-based policy or the Web Function's resource-based policy can grant permission. For an IAM principal in another account, both policies must grant permission. This applies to both invoke and management actions.
 
-To allow or deny actions based on the tags of a Web Function, use attribute-based access control (ABAC). For the supported condition keys, see [Tagging Web Functions](web-functions-configuration-tags.md).
+To allow or deny actions based on the tags of a Web Function, use attribute-based access control (ABAC). For the supported condition keys, see [Tagging Web Functions](web-functions-configuration.md#web-functions-configuration-tags).
 
 **Note**  
 Web Functions don't support `AddPermission`, `RemovePermission`, or `GetPolicy`. Manage the policy with `PutResourcePolicy`, `GetResourcePolicy`, and `DeleteResourcePolicy`.

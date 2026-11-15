@@ -40,7 +40,7 @@ Let's understand the rule syntax and structure:
 ## Phase 2: Visualize and design
 <a name="governance-config-detective-visualize"></a>
 
-AWS Config gathers configuration data and stores that data in Amazon Simple Storage Service (Amazon S3) buckets. You can use [Amazon Athena](https://aws.amazon.com/athena/) to query this data directly from your S3 buckets. With Athena, you can aggregate this data at the organizational level, generating a holistic view of your resource configurations across all your accounts. To set up aggregation of resource configuration data, see [Visualizing AWS Config data using Athena and Amazon Quick](https://aws.amazon.com/blogs/mt/visualizing-aws-config-data-using-amazon-athena-and-amazon-quicksight/) on the AWS Cloud Operations and Management blog.
+AWS Config gathers configuration data and stores that data in Amazon Simple Storage Service (Amazon S3) buckets. You can use [Amazon Athena](https://aws.amazon.com/athena/) to query this data directly from your S3 buckets. With Athena, you can aggregate this data at the organizational level, generating a holistic view of your resource configurations across all your accounts. To set up aggregation of resource configuration data, see [Visualizing AWS Config data using Athena and AWS Quick](https://aws.amazon.com/blogs/mt/visualizing-aws-config-data-using-amazon-athena-and-amazon-quicksight/) on the AWS Cloud Operations and Management blog.
 
 The following is a sample Athena query to identify all Lambda functions using a particular layer ARN:
 
@@ -78,7 +78,7 @@ Here are results from the query:
 
  ![Query results in Athena console.](https://docs.aws.amazon.com/lambda/latest/dg/images/governance-config-detective-2.png) 
 
-With the AWS Config data aggregated across the organization, you can then create a dashboard using [Amazon Quick](https://aws.amazon.com/quicksight/). By importing your Athena results into Quick, you can visualize how well your Lambda functions adhere to the layer version rule. This dashboard can highlight compliant and non-compliant resources, which helps you to determine your enforcement policy, as outlined in the [next section](#governance-config-detective-implement). The following image is an example dashboard that reports on the distribution of layer versions applied to functions within the organization.
+With the AWS Config data aggregated across the organization, you can then create a dashboard using [AWS Quick](https://aws.amazon.com/quicksight/). By importing your Athena results into Quick, you can visualize how well your Lambda functions adhere to the layer version rule. This dashboard can highlight compliant and non-compliant resources, which helps you to determine your enforcement policy, as outlined in the [next section](#governance-config-detective-implement). The following image is an example dashboard that reports on the distribution of layer versions applied to functions within the organization.
 
  ![Example Quick dashboard shows distribution of layer versions in Lambda functions.](https://docs.aws.amazon.com/lambda/latest/dg/images/governance-config-detective-3.png) 
 
