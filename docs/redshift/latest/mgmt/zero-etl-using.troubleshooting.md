@@ -52,7 +52,7 @@ To resolve this issue, go to the **Table statistics** tab on the integration det
 If you don't see one or more tables reflected in Amazon Redshift, you can run the following command to resynchronize them. Replace {{dbname}} with the name of your Amazon Redshift database. And, replace {{table1}} and {{table2}} with the names of the tables to be synchronized.
 
 ```
-ALTER DATABASE {{dbname}} INTEGRATION REFRESH TABLES {{table1}}, {{table2}};
+ALTER DATABASE {{dbname}} INTEGRATION REFRESH TABLE {{table1}}, {{table2}};
 ```
 
 For more information, see see [ALTER DATABASE](https://docs.aws.amazon.com/redshift/latest/dg/r_ALTER_DATABASE.html) in the *Amazon Redshift Database Developer Guide*.
@@ -169,7 +169,7 @@ To resolve this issue, go to the **Table statistics** tab on the integration det
 If you don't see one or more tables reflected in Amazon Redshift, you can run the following command to resynchronize them. Replace {{dbname}} with the name of your Amazon Redshift database. And, replace {{table1}} and {{table2}} with the names of the tables to be synchronized.
 
 ```
-ALTER DATABASE {{dbname}} INTEGRATION REFRESH TABLES {{table1}}, {{table2}};
+ALTER DATABASE {{dbname}} INTEGRATION REFRESH TABLE {{table1}}, {{table2}};
 ```
 
 For more information, see see [ALTER DATABASE](https://docs.aws.amazon.com/redshift/latest/dg/r_ALTER_DATABASE.html) in the *Amazon Redshift Database Developer Guide*.
@@ -281,7 +281,7 @@ To resolve this issue, go to the **Table statistics** tab on the integration det
 If you don't see one or more tables reflected in Amazon Redshift, you can run the following command to resynchronize them. Replace {{dbname}} with the name of your Amazon Redshift database. And, replace {{table1}} and {{table2}} with the names of the tables to be synchronized.
 
 ```
-ALTER DATABASE {{dbname}} INTEGRATION REFRESH TABLES {{table1}}, {{table2}};
+ALTER DATABASE {{dbname}} INTEGRATION REFRESH TABLE {{table1}}, {{table2}};
 ```
 
 For more information, see see [ALTER DATABASE](https://docs.aws.amazon.com/redshift/latest/dg/r_ALTER_DATABASE.html) in the *Amazon Redshift Database Developer Guide*.
@@ -463,7 +463,7 @@ In the destination database, one or more of the tables don't have a primary key 
 To resolve this issue, go to the **Table statistics** tab on the integration details page or use SVV\_INTEGRATION\_TABLE\_STATE to view the failed tables. You can add primary keys to the tables and Amazon Redshift will resynchronize the tables. You can run the following command to resynchronize them. Replace {{dbname}} with the name of your Amazon Redshift database. And, replace {{table1}} and {{table2}} with the names of the tables to be synchronized.
 
 ```
-ALTER DATABASE {{dbname}} INTEGRATION REFRESH TABLES {{table1}}, {{table2}};
+ALTER DATABASE {{dbname}} INTEGRATION REFRESH TABLE {{table1}}, {{table2}};
 ```
 
 For more information, see [ALTER DATABASE](https://docs.aws.amazon.com/redshift/latest/dg/r_ALTER_DATABASE.html) in the *Amazon Redshift Database Developer Guide*.

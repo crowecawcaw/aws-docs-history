@@ -157,7 +157,7 @@ Your database administrator configures new Redshift resources to work in alignme
 
 Note that when a new data warehouse is created, the IAM role specified for AWS IAM Identity Center integration is automatically attached to the provisioned cluster or Amazon Redshift Serverless workgroup. After you finish entering the required cluster metadata and create the resource, you can check the status for AWS IAM Identity Center integration in the properties. If your group names in AWS IAM Identity Center have spaces, it's required to use quotes in SQL when you create the matching role.
 
-After you enable the Redshift database and create roles, you are ready to connect to the database with Amazon Redshift query editor v2 or Amazon Quick. The details are explained further in sections that follow.
+After you enable the Redshift database and create roles, you are ready to connect to the database with Amazon Redshift query editor v2 or AWS Quick. The details are explained further in sections that follow.
 
 ### Setting up the default `RedshiftIdcApplication` using the API
 <a name="redshift-iam-access-control-idp-connect-admin-config-api"></a>

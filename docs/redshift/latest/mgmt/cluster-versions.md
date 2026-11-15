@@ -17,6 +17,7 @@ SELECT version();
 Critical updates that affect Amazon Redshift behavior are introduced as Amazon Redshift evolves. To keep up with these changes, take actions, and avoid potential disruptions to your workloads, see [Behavior changes in Amazon Redshift](behavior-changes.md).
 
 **Topics**
++ [Amazon Redshift patch 207](#cluster-version-207)
 + [Amazon Redshift patch 206](#cluster-version-206)
 + [Amazon Redshift patch 205](#cluster-version-205)
 + [Amazon Redshift patch 204](#cluster-version-204)
@@ -56,6 +57,30 @@ Critical updates that affect Amazon Redshift behavior are introduced as Amazon R
 + [Amazon Redshift patch 170](#cluster-version-170)
 + [Amazon Redshift patch 169](#cluster-version-169)
 + [Amazon Redshift patch 168](#cluster-version-168)
+
+## Amazon Redshift patch 207
+<a name="cluster-version-207"></a>
+
+Cluster versions in this patch:
++ 1.0.539508 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released November 10, 2026
++ 1.0.539507 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released November 6, 2026
+
+### New features and improvements in this patch
+<a name="cluster-version-2026-11-06-features"></a>
++ Added a `result_cache_query_uuid` column to `SYS_QUERY_HISTORY` that records the `query_uuid` of the query whose cached result was reused.
++ Added an `external_user_id` column to `SYS_USERLOG` that records the IAM or IAM Identity Center identity that ran the user management statement.
++ Added support for time travel queries on Apache Iceberg tables. You can now query an Iceberg table as it was at an earlier point in time by adding an `AS OF TIMESTAMP` clause after the table name. For more information, see [Time travel queries on Iceberg tables in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/iceberg-time-travel.html) in the *Amazon Redshift Database Developer Guide*.
++ Improved scalability for data sharing consumers, so queries on shared data scales to larger workloads.
++ Fixed an issue where `ALTER TABLE APPEND` targeting a system catalog table could block other queries before returning a permission error.
++ Improved the reliability of zero-ETL integrations when a table's status text contains multibyte UTF-8 characters.
++ Auto-Copy ingestion is now more resilient under sustained memory pressure: ingestion automatically pauses while a node is under memory pressure and resumes once it clears, and each pause is reported in the system view `SYS_COPY_JOB_INFO`.
++ Improved the reliability of queries that read nested and complex-type columns, such as variant columns, from Amazon S3, preventing these scans from failing unexpectedly.
++ Fixed an issue where querying a table concurrently with `ALTER TABLE APPEND` could fail.
++ Fixed an issue where query text recorded in `STL_QUERY`, `STL_QUERYTEXT`, `SYS_QUERY_TEXT`, and `SYS_QUERY_HISTORY` could be partially masked when a statement contained an identifier that resembled sensitive data, such as `device_token`.
++ Fixed a rare issue where larger provisioned clusters and serverless workgroups could experience an unexpected node restart while collecting internal monitoring data.
++ Fixed an issue where a query on the `PG_GET_LATE_BINDING_VIEW_COLS()` function could cause an unexpected node restart when the `schemaname`, `tablename`, or `columnname` output column was declared as `TEXT`. The query now returns a descriptive error.
++ Fixed an issue where IAM Identity Center sign-ins to an auto-paused Amazon Redshift Serverless workgroup failed after the Identity Center identity store was updated.
++ Fixed an issue where calling a stored procedure through a datashare returned an internal error when the procedure had more than 32 input and output parameters combined.
 
 ## Amazon Redshift patch 206
 <a name="cluster-version-206"></a>
@@ -102,6 +127,7 @@ Cluster versions in this patch:
 <a name="cluster-version-205"></a>
 
 Cluster versions in this patch:
++ 1.0.538816 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released November 10, 2026
 + 1.0.501809 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released October 19, 2026
 + 1.0.477953 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released October 6, 2026
 + 1.0.434008 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released September 16, 2026

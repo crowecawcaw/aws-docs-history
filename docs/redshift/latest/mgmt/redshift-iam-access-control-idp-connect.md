@@ -9,7 +9,7 @@ You can manage user and group access to Amazon Redshift data warehouses through 
 
 [Trusted identity propagation](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overview.html) is an AWS IAM Identity Center feature that administrators of connected AWS services can use to grant and audit access to service data. Access to this data is based on user attributes such as group associations. Setting up trusted identity propagation requires collaboration between the administrators of connected AWS services and the IAM Identity Center administrators. For more information, see [Prerequisites and considerations](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overall-prerequisites.html).
 
-To illustrate one end-to-end case, you can use an Amazon Quick dashboard or Amazon Redshift query editor v2 to access Redshift. Access in this case is based on AWS IAM Identity Center groups. Redshift can determine who a user is and their group memberships. AWS IAM Identity Center also makes it possible to connect and manage identities through a third-party identity provider (IdP) like Okta or PingOne.
+To illustrate one end-to-end case, you can use an AWS Quick dashboard or Amazon Redshift query editor v2 to access Redshift. Access in this case is based on AWS IAM Identity Center groups. Redshift can determine who a user is and their group memberships. AWS IAM Identity Center also makes it possible to connect and manage identities through a third-party identity provider (IdP) like Okta or PingOne.
 
 After your administrator sets up the connection between Redshift and AWS IAM Identity Center, they can configure fine-grained access based on identity-provider groups to authorize user access to data.
 
@@ -20,7 +20,7 @@ When you delete a user from an AWS IAM Identity Center or a connected identity p
 <a name="redshift-iam-access-control-idp-connect-benefits"></a>
 
 Using AWS IAM Identity Center with Redshift can benefit your organization in the following ways:
-+  Dashboard authors in Amazon Quick can connect to Redshift data sources without having to re-enter passwords or requiring an administrator to set up IAM roles with complex permissions. 
++  Dashboard authors in AWS Quick can connect to Redshift data sources without having to re-enter passwords or requiring an administrator to set up IAM roles with complex permissions. 
 +  AWS IAM Identity Center provides a central location for your workforce users in AWS. You can create users and groups directly in AWS IAM Identity Center or connect existing users and groups that you manage in a standards-based identity provider like Okta, PingOne, or Microsoft Entra ID (Azure AD). AWS IAM Identity Center directs authentication to your chosen source of truth for users and groups, and it maintains a directory of users and groups for access by Redshift. For more information, see [Manage your identity source](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source.html) and [Supported identity providers](https://docs.aws.amazon.com/singlesignon/latest/userguide/supported-idps.html) in the *AWS IAM Identity Center User Guide*. 
 + You can share one AWS IAM Identity Center instance with multiple Redshift clusters and workgroups with a simple auto-discovery and connect capability. This makes it fast to add clusters without the extra effort of configuring the AWS IAM Identity Center connection for each, and it ensures that all clusters and workgroups have a consistent view of users, their attributes, and groups. Note that your organization's AWS IAM Identity Center instance must be in the same region as any Redshift datashares you're connecting to.
 + Because user identities are known and logged along with data access, it's easier for you to meet compliance regulations through auditing user access in AWS CloudTrail.
@@ -32,7 +32,7 @@ The following are personas that are key to connecting analytics applications to 
 + **Application administrator** – Creates an application and configures which services it will enable identity-token exchanges with. This administrator also specifies which users or groups have access to the application.
 + **Data administrator** – Configures fine-grained access to data. Users and groups in AWS IAM Identity Center can map to specific permissions.
 
-## Connecting to Amazon Redshift with AWS IAM Identity Center through Amazon Quick
+## Connecting to Amazon Redshift with AWS IAM Identity Center through AWS Quick
 <a name="redshift-iam-access-control-idp-connect-qs"></a>
 
 The following shows how to use Quick to authenticate with Redshift when it's connected to and access is managed through AWS IAM Identity Center: [Authorizing connections from Quick to Amazon Redshift clusters](https://docs.aws.amazon.com/quick/latest/userguide/enabling-access-redshift.html). These steps apply to Amazon Redshift Serverless too.
