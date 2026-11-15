@@ -88,9 +88,6 @@ The following example shows the lifecycle policy syntax for a policy that transi
 }
 ```
 
-**Important**  
-The `sinceImagePulled` count type must be used with the `transition` action. It cannot be used with the `expire` action. To delete images based on pull activity, first transition them to archive storage using `sinceImagePulled`, then use `sinceImageTransitioned` with an `expire` action to delete them. Images must be in archive storage for a minimum of 90 days before deletion.
-
 ## Filtering on archive transition time
 <a name="lifecycle_policy_example_transitioned"></a>
 
