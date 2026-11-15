@@ -8,7 +8,7 @@ AWS AppFabric provides several security features to consider as you develop and 
 ## Monitor for application without admin access
 <a name="monitor-application-without-admin-access"></a>
 
-With the read-only AWS Identity and Access Management (IAM) permission, anyone can integrate AppFabric with Amazon Quick and other security information and event management (SIEM) tools, such as Splunk. To monitor application security, data is delivered to an Amazon Simple Storage Service (Amazon S3) bucket or an Amazon Data Firehose delivery stream.
+With the read-only AWS Identity and Access Management (IAM) permission, anyone can integrate AppFabric with AWS Quick and other security information and event management (SIEM) tools, such as Splunk. To monitor application security, data is delivered to an Amazon Simple Storage Service (Amazon S3) bucket or an Amazon Data Firehose delivery stream.
 
 ## Monitor for AppFabric events
 <a name="monitor-appfabric-events"></a>

@@ -11,7 +11,7 @@ AWS AppFabric for security supports integration with the following security tool
 + [Logz.io](logz-io.md)
 + [Netskope](netskope.md)
 + [NetWitness](netwitness.md)
-+ [Amazon Quick](quicksight.md)
++ [AWS Quick](quicksight.md)
 + [Rapid7](rapid7.md)
 + [Amazon Security Lake](security-lake.md)
 + [Singularity Cloud](singularity-cloud-security.md)

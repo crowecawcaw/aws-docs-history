@@ -1,9 +1,9 @@
 
 
-# Amazon Quick
+# AWS Quick
 <a name="quicksight"></a>
 
-Amazon Quick powers data-driven organizations with unified business intelligence (BI) at hyperscale. With Quick, all users can meet varying analytic needs from the same source of truth through modern interactive dashboards, paginated reports, embedded analytics, and natural language queries. You can analyze AWS AppFabric audit log data in Quick, by choosing your Amazon Simple Storage Service (Amazon S3) bucket where your AppFabric for security logs are stored as your source.
+AWS Quick powers data-driven organizations with unified business intelligence (BI) at hyperscale. With Quick, all users can meet varying analytic needs from the same source of truth through modern interactive dashboards, paginated reports, embedded analytics, and natural language queries. You can analyze AWS AppFabric audit log data in Quick, by choosing your Amazon Simple Storage Service (Amazon S3) bucket where your AppFabric for security logs are stored as your source.
 
 ## AppFabric audit log ingestion considerations
 <a name="quicksight-audit-log-ingestion"></a>
