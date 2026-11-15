@@ -39,7 +39,7 @@ This architecture shows how to build a data escrow environment. You can securely
 
 1. Amazon S3 data exports to Amazon Redshift or queries directly with or Amazon Redshift Spectrum.
 
-1. Amazon Quick Sight accesses the tables created in or Amazon Redshift Spectrum.
+1. AWS Quick Sight accesses the tables created in or Amazon Redshift Spectrum.
 
 1. Analysts access dashboards and insights.
 
