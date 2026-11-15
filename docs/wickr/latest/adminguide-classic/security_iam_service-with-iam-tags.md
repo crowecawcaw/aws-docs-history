@@ -5,7 +5,7 @@ This guide documents the classic version of the AWS Wickr administration console
 # ABAC with Wickr
 <a name="security_iam_service-with-iam-tags"></a>
 
-**Supports ABAC (tags in policies):** No 
+**Supports ABAC (tags in policies):** Yes
 
 Attribute-based access control (ABAC) is an authorization strategy that defines permissions based on attributes called tags. You can attach tags to IAM entities and AWS resources, then design ABAC policies to allow operations when the principal's tag matches the tag on the resource.
 

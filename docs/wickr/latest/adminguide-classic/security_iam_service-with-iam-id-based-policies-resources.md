@@ -5,7 +5,7 @@ This guide documents the classic version of the AWS Wickr administration console
 # Policy resources for Wickr
 <a name="security_iam_service-with-iam-id-based-policies-resources"></a>
 
-**Supports policy resources:** No 
+**Supports policy resources:** Yes
 
 Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform **actions** on what **resources**, and under what **conditions**.
 
