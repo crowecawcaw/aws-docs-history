@@ -29,7 +29,7 @@ The following steps describe the data ingestion and analytics pipeline for this 
 
 1. Analyze data in Amazon S3 by using standard SQL with [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/) as a serverless interactive query service.
 
-1. Build dashboards with [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html) to help planners drill down from planning to execution to real-time shipment status.
+1. Build dashboards with [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html) to help planners drill down from planning to execution to real-time shipment status.
 
 1. Use [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/) as a cloud data warehouse.
 
