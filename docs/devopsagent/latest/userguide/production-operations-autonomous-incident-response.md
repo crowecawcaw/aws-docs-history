@@ -161,7 +161,7 @@ Investigation and mitigation run as a single automated flow. This eliminates the
 
 After an investigation completes, you can provide feedback on the root cause analysis. This feedback improves future investigation accuracy and enables reporting across your Agent Space.
 
-When you mark an investigation incorrect and give the actual root cause, AWS DevOps Agent creates a memory in the [reflections](about-aws-devops-agent-devops-agent-memories.md) memory store, so future investigations of the alarm can avoid the same mistake.
+When you mark an investigation incorrect and give the actual root cause, AWS DevOps Agent creates a memory in the [reflections](about-aws-devops-agent-devops-agent-memories.md#reflections) memory store, so future investigations of the alarm can avoid the same mistake.
 
 ### How to provide feedback
 <a name="how-to-provide-feedback"></a>

@@ -55,10 +55,10 @@ In this architecture:
 ## Configuring firewall rules for private connections
 <a name="configuring-firewall-rules-for-private-connections"></a>
 
-With private connections, traffic from AWS DevOps Agent to your privately-hosted tool originates from the Resource Gateway ENIs in the subnets you specified during private connection creation. This is different from publicly-hosted tool connections, which use the static IP addresses listed on the [Security](aws-devops-agent-security.md) page.
+With private connections, traffic from AWS DevOps Agent to your privately-hosted tool originates from the Resource Gateway ENIs in the subnets you specified during private connection creation. This is different from publicly-hosted tool connections, which use the static IP addresses listed on the [Security](aws-devops-agent-security.md#network-connectivity) page.
 
 **Important**  
-** The static IP addresses published on the [Security](aws-devops-agent-security.md) page do ** not ** apply to private connections. Do not use those IPs in your firewall rules for privately-hosted tools.
+** The static IP addresses published on the [Security](aws-devops-agent-security.md#network-connectivity) page do ** not ** apply to private connections. Do not use those IPs in your firewall rules for privately-hosted tools.
 
 To allow AWS DevOps Agent traffic to reach your privately-hosted tool:
 
@@ -213,11 +213,11 @@ In the AWS DevOps Agent console, private connections can be linked to a capabili
 ![Connect to endpoint using a private connection checkbox selected.](https://docs.aws.amazon.com/devopsagent/latest/userguide/images/a2a7ffb70ffe.png)
 
 
-1. Open the AWS DevOps Agent console and navigate to your Agent Space.
+1. Open the AWS DevOps Agent console.
 
-1. In the **Capability Providers** section, choose **Registration**.
+1. In the navigation pane, choose **Capability Providers**, and then choose the **Registration** tab.
 
-1. Select **Register** for the capability type you want to use with the private connection.
+1. In the **Available** section, choose **Register** on the card for the capability type you want to use with the private connection.
 
 1. On the registration details view, enter the Endpoint URL you want to connect to using the private connection (for example, `https://mcp.internal.example.com`).
 
@@ -241,7 +241,7 @@ The two values don't have to be identical, so a hostname that resolves only insi
 + Set the connection's DNS resolution to **In VPC**, and use the hostname for both the host address and the endpoint URL.
 + Set the host address to the target's private IP address, and keep the hostname in the endpoint URL.
 
-You choose the DNS resolution mode when you create the connection, so decide which option you want first. For information about the symptoms that a mismatch between these two values produces, see [A DNS host address doesn't resolve, or traffic reaches the wrong place](configuring-integrations-and-knowledge-troubleshooting-private-connections.md).
+You choose the DNS resolution mode when you create the connection, so decide which option you want first. For information about the symptoms that a mismatch between these two values produces, see [A DNS host address doesn't resolve, or traffic reaches the wrong place](configuring-integrations-and-knowledge-troubleshooting-private-connections.md#a-dns-host-address-doesnt-resolve-or-traffic-reaches-the-wrong-place).
 
 #### Routing the endpoint and the OAuth token exchange through different private connections
 <a name="routing-the-endpoint-and-the-oauth-token-exchange-through-different-private-connections"></a>

@@ -28,15 +28,12 @@ Follow these steps to register Microsoft Teams, associate a channel, and verify 
 
 1. In the left navigation panel, choose **Capability Providers**.
 
-1. In the **Communication** section, check whether Microsoft Teams is already registered. If it is, skip to [Step 5](#step-5-create-the-microsoft-teams-association).
-
-![The Communication section on the Capability Providers page showing Microsoft Teams with the Register button.](https://docs.aws.amazon.com/devopsagent/latest/userguide/images/teams-step1-capability-providers.png)
-
+1. Check whether a **Microsoft Teams** card appears in the **Currently registered** section. If it does, Microsoft Teams is already registered, and you can skip to [Step 5](#step-5-create-the-microsoft-teams-association).
 
 ### Step 2: Register Microsoft Teams
 <a name="step-2-register-microsoft-teams"></a>
 
-1. In the **Communication** section, find **Microsoft Teams** and choose **Register**. You can also start from an Agent Space: on the **Capabilities** tab, in the **Communications** section, choose **Add**, then choose **Register** next to **Microsoft Teams**.
+1. In the **Available** section, find the **Microsoft Teams** card and choose **Register**. You can also start from an Agent Space: on the **Capabilities** tab, in the **Communications** section, choose **Add**, then choose **Register** next to **Microsoft Teams**.
 
 1. A new page opens titled **Register Microsoft Teams with DevOps Agent**. It shows two steps that you must complete in order.
 
@@ -80,7 +77,7 @@ Review the permissions and choose **Accept**.
 **Note**  
 ** Completing both steps saves the registration. Choose ** Add ** to return to the console.
 
-Confirm that Microsoft Teams appears as **Registered** in the **Communication** section of the **Capability Providers** page.
+Confirm that a **Microsoft Teams** card appears in the **Currently registered** section of the **Capability Providers** page.
 
 ### Step 5: Create the Microsoft Teams association
 <a name="step-5-create-the-microsoft-teams-association"></a>
@@ -212,7 +209,7 @@ To stop receiving notifications in a Microsoft Teams channel:
 
 1. Under **Communications**, select the Microsoft Teams association and choose **Remove**.
 
-Removing a channel association does not unregister Microsoft Teams from AWS DevOps Agent. To fully deregister Microsoft Teams, remove all associations first, then choose **Deregister** for Microsoft Teams in the **Communication** section of the **Capability Providers** page.
+Removing a channel association does not unregister Microsoft Teams from AWS DevOps Agent. To fully deregister Microsoft Teams, remove all associations first, then go to the **Capability Providers** page. Under **Currently registered**, choose **View all** on the **Microsoft Teams** card. In **Registrations**, select the registration, and then choose **Deregister** from the **Actions** menu.
 
 ## Troubleshooting Microsoft Teams communication
 <a name="troubleshooting-microsoft-teams-communication"></a>
@@ -221,7 +218,7 @@ If AWS DevOps Agent does not send notifications to your Microsoft Teams channel,
 + Microsoft Teams is registered with AWS DevOps Agent, the association exists, and the AWS DevOps Agent app is added to the team. For a private or shared channel, the app is also added to the channel itself. You can create the association and add the app in either order.
 + The channel in the association link matches the channel where the app is added.
 + Both authorization steps (administrator consent and bot account) completed successfully during registration.
-+ Microsoft Teams appears as **Registered** in the **Communication** section of the **Capability Providers** page.
++ A **Microsoft Teams** card appears in the **Currently registered** section of the **Capability Providers** page.
 + The Communications section shows the correct Microsoft Teams association for the Agent Space.
 
 

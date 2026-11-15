@@ -4,8 +4,8 @@
 <a name="connecting-to-ticketing-and-chat-connecting-slack"></a>
 
 You can connect AWS DevOps Agent to Slack in two ways:
-+ **One-way notifications** — AWS DevOps Agent posts incident response findings, root cause analyses, and mitigation plans to public or private Slack channels that you select.
-+ **Bidirectional communication** — AWS DevOps Agent also receives and responds to messages in a private Slack channel. Mention the app to start a conversation. AWS DevOps Agent replies in a thread.
++ **One-way notifications** – AWS DevOps Agent posts incident response findings, root cause analyses, and mitigation plans to public or private Slack channels that you select.
++ **Bidirectional communication** – AWS DevOps Agent also receives and responds to messages in a private Slack channel. Mention the app to start a conversation. AWS DevOps Agent replies in a thread. You can also move an investigation into its own Slack code channel. For more information, see [Using Slack code channels](connecting-to-ticketing-and-chat-using-slack-code-channels.html).
 
 You can enable bidirectional communication only in private Slack channels. Public channels support one-way notifications only.
 
@@ -192,6 +192,8 @@ Mention the app in each message, including replies within the thread. Replace `<
 @AWS DevOps Agent - <Region> Tell me more about the Lambda errors
 ```
 
+**Note** In a Slack code channel for an investigation, you don't need to mention the app.
+
 Use separate top-level messages to start separate conversations. AWS DevOps Agent can help with tasks supported by your Agent Space, including:
 + Starting, viewing, and guiding investigations into incidents and operational issues
 + Exploring AWS resources, metrics, logs, and topology
@@ -222,6 +224,48 @@ You can share one Slack workspace across multiple AWS accounts. This works even 
 
 You can register the same Slack workspace with more than one Agent Space or AWS account. Each registration is independent. Registering a workspace again does not overwrite an existing registration.
 
+## Updating Slack permissions for an existing workspace
+<a name="updating-slack-permissions-for-an-existing-workspace"></a>
+
+Update your workspace's Slack permissions so that you can open Slack code channels for investigations. The update doesn't change your channel associations or Agent Spaces.
+
+Slack code channels need two Slack permissions. With `code_channels:manage`, AWS DevOps Agent can create and manage code channels. With `groups:history`, it can read messages in the private channels that it's in. If you connected your Slack workspace before code channels were available, make sure to update its permissions.
+
+If your Slack workspace requires app approval, a Slack admin must approve the new permissions before the update can complete.
+
+**To start the update in the AWS DevOps Agent console**
+
+1. Open the [AWS DevOps Agent console](https://console.aws.amazon.com/devops-agent/), and in the navigation pane, choose **Capability Providers**.
+
+1. In the **Slack** section, select the workspace. Then, on the **Actions** menu, choose **Update**.
+
+1. On the **Update Slack permissions for workspace** page, choose **Update**. Slack opens its authorization page.
+
+**To allow the new permissions in Slack**
+
+1. On the Slack authorization page, confirm that the **Workspace** dropdown shows the workspace that you registered, and choose **Allow**. If you allow the update in a different workspace, Slack declines it.
+
+When the update completes, the console returns you to the **Capability Providers** page and shows a green banner that reads **Slack updated successfully.** If the console shows **Slack permissions were not updated**, verify that you chose the registered workspace and that a Slack admin approved the app, and then update the permissions again.
+
+On the **Actions** menu for a Slack workspace, **Update** reauthorizes AWS DevOps Agent in the workspace with the new permissions, and **Deregister** removes the workspace registration. The following image shows the **Actions** menu for the AnyCompany workspace on the **Capability Providers** page.
+
+![Actions menu open for a Slack workspace on the Capability Providers page.](https://docs.aws.amazon.com/devopsagent/latest/userguide/images/slack-update-permissions-1-actions.png)
+
+
+The **Update Slack permissions for workspace** page names the workspace that you're updating. It explains that choosing **Update** opens the Slack authorization page, that choosing **Cancel** in Slack makes no changes, and that Slack declines the update if it opens a different workspace. The following image shows the **Update Slack permissions for workspace** page.
+
+![The Update Slack permissions for workspace page in the AWS DevOps Agent console.](https://docs.aws.amazon.com/devopsagent/latest/userguide/images/slack-update-permissions-2-update-page.png)
+
+
+On the Slack authorization page, review the requested permissions, and then choose **Allow**. The list includes the permission to manage code channels. The following image shows the authorization page for the AnyCompany workspace. Under the heading "Actions AWS DevOps Agent - US East (N. Virginia) can take", the page lists these permissions:
++ **View messages that directly mention @AWS DevOps Agent - US East (N. Virginia) in conversations that the app is in**
++ **Send messages as @AWS DevOps Agent - US East (N. Virginia)**
++ **Send messages to channels @AWS DevOps Agent - US East (N. Virginia) isn't a member of**
++ **Allows AWS DevOps Agent - US East (N. Virginia) to manage code channels**
+
+![The requested permissions and Allow on the Slack authorization page.](https://docs.aws.amazon.com/devopsagent/latest/userguide/images/slack-update-permissions-3-authorize.png)
+
+
 ## Managing channel associations
 <a name="managing-channel-associations"></a>
 
@@ -246,6 +290,8 @@ If AWS DevOps Agent does not respond to a message in a bidirectional channel, ve
 
 If the workspace is not available when you create an association, confirm that you registered Slack in the same AWS account and Region as your Agent Space.
 
+For information about problems with code channels, see [Troubleshooting code channels](connecting-to-ticketing-and-chat-using-slack-code-channels.html#troubleshooting-code-channels).
+
 **Important** Avoid uninstalling the AWS DevOps Agent app from the Slack workspace. Uninstalling the app might prevent it from being reinstalled. To stop using a channel, remove the channel association in the AWS DevOps Agent console instead.
 
 ## Providing feedback through Slack
@@ -266,6 +312,8 @@ We use large language models to generate investigation findings, root-cause anal
 <a name="data-handling-and-privacy"></a>
 
 We retain data associated with your Agent Space for as long as necessary to provide the service. This data includes investigation journals, chat messages, and operational data. You can delete your Agent Space at any time to remove all associated data.
+
+Deleting an Agent Space also removes the records that AWS DevOps Agent keeps for the code channels in that Agent Space. The Slack channels themselves stay in your workspace.
 
 To request access to or deletion of your data, delete the Agent Space through the AWS Management Console or contact [AWS Support](https://aws.amazon.com/contact-us/).
 

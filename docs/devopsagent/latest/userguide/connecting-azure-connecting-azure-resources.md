@@ -30,7 +30,7 @@ The Admin Consent method uses a consent-based flow with the AWS DevOps Agent man
 
 1. Go to the **Capability Providers** page
 
-1. Locate the **Azure Cloud** section and choose **Register**
+1. In the **Available** section, find the **Azure Cloud** card and choose **Register**
 
 1. Select the **Admin Consent** registration method
 
@@ -69,7 +69,7 @@ The App Registration method uses your own Entra application with federated ident
 
 1. In the AWS DevOps Agent console, go to the **Capability Providers** page
 
-1. Locate the **Azure Cloud** section and choose **Register**
+1. In the **Available** section, find the **Azure Cloud** card and choose **Register**
 
 1. Select the **App Registration** method
 
@@ -264,4 +264,4 @@ You can associate multiple subscriptions with the same Agent Space, including su
 <a name="managing-azure-resources-connections"></a>
 + **Viewing connected subscriptions** – In the **Capabilities** tab, the **Secondary sources** section lists all connected Azure subscriptions.
 + **Removing a subscription** – To disconnect a subscription from an Agent Space, select it in the **Secondary sources** list and choose **Remove**. This does not affect the account-level registration.
-+ **Removing the registration** – To remove the Azure Cloud registration entirely, go to the **Capability Providers** page and delete the registration. All Agent Space associations must be removed first.
++ **Removing the registration** – To remove the Azure Cloud registration entirely, first remove all of its Agent Space associations. Then go to the **Capability Providers** page, and under **Currently registered**, choose **View all** on the **Azure Cloud** card. In **Registrations**, choose **Admin consent** or **App registration (OIDC)**, select the registration, and then choose **Deregister** from the **Actions** menu. An app registration is shared by Azure Cloud and Azure DevOps, so deregistering it removes access for both.

@@ -19,7 +19,7 @@ Before configuring webhook access, ensure you have:
 AWS DevOps Agent supports the following types of webhooks:
 + **Integration-specific webhooks** – Automatically generated when you configure third-party integrations like Dynatrace, Splunk, Datadog, New Relic, ServiceNow, or Slack. These webhooks are associated with the specific integration and use authentication methods determined by the integration type
 + **Generic webhooks** – Created manually to trigger investigations from any source that a specific integration does not cover. In the AWS DevOps Agent console, create a generic webhook from the **Agent Space Webhook** table on the **Capabilities** tab of your Agent Space. Choose an authentication method: **HMAC** or **API key** (bearer token).
-+ **Grafana alert webhooks** – Grafana can send alert notifications directly to AWS DevOps Agent through webhook contact points. For setup instructions including a custom notification template, see [Connecting Grafana](connecting-telemetry-sources-connecting-grafana.md).
++ **Grafana alert webhooks** – Grafana can send alert notifications directly to AWS DevOps Agent through webhook contact points. For setup instructions including a custom notification template, see [Connecting Grafana](connecting-telemetry-sources-connecting-grafana.md#configuring-grafana-alert-webhooks).
 
 Each Agent Space can have one HMAC webhook and one API key webhook. When you add a webhook, the console offers only the authentication types that are not in use. If you choose a type that is in use, the console shows the message "This Agent Space already has a webhook with this authentication type."
 

@@ -3,9 +3,9 @@
 # Set up a Sandbox
 <a name="configuring-integrations-and-knowledge-sandbox"></a>
 
-Sandbox is a preview feature that gives AWS DevOps Agent a secure, isolated Linux environment where it can write and run code during investigations. Some problems are faster and more reliable to solve with code than through reasoning alone. With Sandbox, the agent complements its reasoning with computation—for example, to analyze a large log file, calculate statistics across a set of metrics, or parse and correlate data from multiple sources during an investigation.
+AWS DevOps Agent Sandbox (Sandbox) is a preview feature that gives AWS DevOps Agent a secure, isolated Linux environment where it can write and run code during investigations and chat conversations. Some problems are faster and more reliable to solve with code than through reasoning alone. With Sandbox, the agent complements its reasoning with computation—for example, to analyze a large log file, calculate statistics across a set of metrics, or parse and correlate data from multiple sources during an investigation or chat conversation.
 
-Each sandbox is ephemeral and scoped to a single investigation, so the code the agent runs stays isolated from your other resources. You control the environment's outbound network access and the packages that come pre-installed. By default, the sandbox restricts outbound network access: until you add an entry to the networking allowlist, it can reach only AWS service endpoints.
+Each sandbox is ephemeral and scoped to a single investigation or chat conversation, so the code the agent runs stays isolated from your other resources. You control the environment's outbound network access and the packages that come pre-installed. By default, the sandbox restricts outbound network access: until you add an entry to the networking allowlist, it can reach only AWS service endpoints.
 
 **Note**  
 ** Sandbox is available in preview and is subject to change.
@@ -16,14 +16,14 @@ During preview, Sandbox is available only in the following AWS Regions:
 + Asia Pacific (Tokyo) `ap-northeast-1`
 + Europe (Ireland) `eu-west-1`
 
-For more information, see [Feature availability by Region](about-aws-devops-agent-supported-regions.md).
+For more information, see [Feature availability by Region](about-aws-devops-agent-supported-regions.md#feature-availability-by-region).
 
 ## How Sandbox works
 <a name="how-sandbox-works"></a>
 
-When Sandbox is configured for an Agent Space, AWS DevOps Agent automatically provisions a fresh Linux environment while it works on an investigation. In this environment, the agent can run shell commands and read and write files, then read the results back into its analysis. The environment lasts only for the duration of that investigation, and no two investigations share one.
+When Sandbox is configured for an Agent Space, AWS DevOps Agent automatically provisions a fresh Linux environment while it works on an investigation or chat conversation. In this environment, the agent can run shell commands and read and write files, then read the results back into its analysis. The environment lasts only for the duration of that investigation or chat conversation, and no two investigations or chat conversations share one.
 
-The environment comes with pre-configured AWS profiles for the AWS accounts connected to your Agent Space. The agent can use these profiles to make AWS CLI and boto3 (AWS SDK for Python) calls to those accounts, scoped to the same permissions the agent already has. This lets the agent query and correlate AWS resources programmatically with code during an investigation.
+The environment comes with pre-configured AWS profiles for the AWS accounts connected to your Agent Space. The agent can use these profiles to make AWS CLI and boto3 (AWS SDK for Python) calls to those accounts, scoped to the same permissions the agent already has. This lets the agent query and correlate AWS resources programmatically with code during an investigation or chat conversation.
 
 The agent can also make HTTP requests from the sandbox—using command line tools or Python and Node.js libraries—to any host and path permitted by your networking policy.
 
@@ -32,12 +32,12 @@ Two settings control what the environment can do:
 + **Packages** – The `pip` and `npm` packages that are pre-installed in the environment. The agent's code can import them without fetching them at runtime.
 
 **Note**  
-** During preview, the agent uses Sandbox only during investigations. Support for chat, custom agents, and other DevOps Agent capabilities is coming soon.
+** During preview, the agent uses Sandbox during investigations and chat conversations. Support for custom agents and other DevOps Agent capabilities is coming soon.
 
 ### Sandbox environment isolation
 <a name="sandbox-environment-isolation"></a>
 
-AWS DevOps Agent runs each sandbox in an isolated Lambda MicroVM. Each MicroVM is scoped to a single investigation and is discarded when the investigation ends. When the agent makes AWS CLI or SDK calls from the sandbox, it routes those calls through a proxy. That proxy limits the calls to read-only operations, so sandbox code cannot modify or delete your AWS resources.
+AWS DevOps Agent runs each sandbox in an isolated Lambda MicroVM. Each MicroVM is scoped to a single investigation or chat conversation and is discarded when the investigation or chat conversation ends. When the agent makes AWS CLI or SDK calls from the sandbox, it routes those calls through a proxy. That proxy limits the calls to read-only operations, so sandbox code cannot modify or delete your AWS resources.
 
 ### Skills in the sandbox
 <a name="skills-in-the-sandbox"></a>
@@ -113,7 +113,7 @@ To remove a package, choose **Remove** next to it.
 ## Remove Sandbox
 <a name="remove-sandbox"></a>
 
-To opt out, remove the Sandbox configuration: select your Agent Space, go to the **Capabilities** tab, and in the **Sandbox** section, choose **Remove**. After you remove the configuration, the agent no longer provisions sandbox environments for new investigations.
+To opt out, remove the Sandbox configuration: select your Agent Space, go to the **Capabilities** tab, and in the **Sandbox** section, choose **Remove**. After you remove the configuration, the agent no longer provisions sandbox environments for new investigations or chat conversations.
 
 ## Sandbox configuration limits
 <a name="sandbox-configuration-limits"></a>
@@ -132,7 +132,7 @@ The following limits apply to each Sandbox configuration during preview.
 ## Security considerations
 <a name="security-considerations"></a>
 
-AWS DevOps Agent isolates each investigation in its own sandbox environment, so code and data from one investigation are never shared with another. AWS DevOps Agent inspects and filters all traffic leaving the sandbox so that only safe, permitted requests reach their destinations. It permits requests to AWS service endpoints and to hosts that match your networking allowlist, and denies all other requests.
+AWS DevOps Agent isolates each investigation or chat conversation in its own sandbox environment, so code and data from one investigation or chat conversation are never shared with another. AWS DevOps Agent inspects and filters all traffic leaving the sandbox so that only safe, permitted requests reach their destinations. It permits requests to AWS service endpoints and to hosts that match your networking allowlist, and denies all other requests.
 
 The agent generates and runs code in the sandbox. Keep the following in mind when you configure it:
 + **Keep the allowlist minimal.** With an empty allowlist, the sandbox reaches only AWS service endpoints. Add allowlist entries only for the specific hosts, methods, and paths the agent needs.

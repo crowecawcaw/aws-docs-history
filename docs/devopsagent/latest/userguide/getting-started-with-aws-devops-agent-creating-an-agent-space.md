@@ -26,7 +26,7 @@ In the **Agent Space details** section, provide:
 
 1. (Optional) In the **Description** field, add details about the Agent Space's purpose
 
-1. (Optional) From the **Agent response language** dropdown, select the language the agent uses when generating responses, findings, and investigation output. Options include: Bahasa Indonesian, Chinese (Simplified/PRC), Chinese (Traditional/Taiwan), English (UK), French (France), German (Germany), Italian (Italy), Japanese (Japan), Korean (Korea), Portuguese (Brazil), Spanish (Latin America), Turkish (Turkey), Arabic (Saudi Arabia), Thai (Thailand), and Vietnamese (Vietnam). If no language is selected, the agent responds in the language of the input. This setting is also used to determine the language for AWS Support cases created through the [Ask for human support](production-operations-autonomous-incident-response.md) feature.
+1. (Optional) From the **Agent response language** dropdown, select the language the agent uses when generating responses, findings, and investigation output. Options include: Bahasa Indonesian, Chinese (Simplified/PRC), Chinese (Traditional/Taiwan), English (UK), French (France), German (Germany), Italian (Italy), Japanese (Japan), Korean (Korea), Portuguese (Brazil), Spanish (Latin America), Turkish (Turkey), Arabic (Saudi Arabia), Thai (Thailand), and Vietnamese (Vietnam). If no language is selected, the agent responds in the language of the input. This setting is also used to determine the language for AWS Support cases created through the [Ask for human support](production-operations-autonomous-incident-response.md#ask-for-human-support) feature.
 
 ### Configuring primary account access
 <a name="configuring-primary-account-access"></a>

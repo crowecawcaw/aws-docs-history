@@ -555,7 +555,7 @@ aws cloudformation delete-stack \
 
 After you have deployed your AWS DevOps Agent by using AWS CloudFormation:
 + To connect additional integrations, see [Configuring integrations and knowledge](configuring-integrations-and-knowledge.md).
-+ If you register a third-party integration, get its webhook URL and secret by rotating the webhook in the console. AWS CloudFormation does not return the webhook secret as a stack output, because it is sensitive. For instructions on managing webhook credentials, see [Managing webhook credentials](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md).
++ If you register a third-party integration, get its webhook URL and secret by rotating the webhook in the console. AWS CloudFormation does not return the webhook secret as a stack output, because it is sensitive. For instructions on managing webhook credentials, see [Managing webhook credentials](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md#managing-webhook-credentials).
 + To learn about agent skills and capabilities, see [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills.md).
 + For more information about managing skills, custom agents, and other assets as infrastructure as code, see [Managing assets](about-aws-devops-agent-managing-assets.md).
 + To understand the operator web app, see [What is a DevOps Agent Web App?](about-aws-devops-agent-what-is-a-devops-agent-web-app.md).

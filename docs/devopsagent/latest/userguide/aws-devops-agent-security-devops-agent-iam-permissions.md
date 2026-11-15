@@ -83,6 +83,8 @@ Chat requires the following IAM permissions to function:
 + **aidevops:ListChats** – Allows users to list and access chat conversation history.
 + **aidevops:CreateChat** – Allows users to create new chat conversations.
 + **aidevops:SendMessage** – Allows users to submit queries and receive streaming responses.
++ **aidevops:GetChat** – Allows users to retrieve a chat conversation and its metadata, including the current title and archive status.
++ **aidevops:UpdateChat** – Allows users to rename or archive a chat conversation. This permission is required for both rename and archive actions in the web app.
 
 ## Topology and discovery actions
 <a name="topology-and-discovery-actions"></a>
@@ -216,6 +218,8 @@ This policy grants access to investigation and prevention features without admin
         "aidevops:ListChats",
         "aidevops:CreateChat",
         "aidevops:SendMessage",
+        "aidevops:GetChat",
+        "aidevops:UpdateChat",
         "aidevops:ListGoals",
         "aidevops:CreateAsset",
         "aidevops:CreateAssetFile",
@@ -285,6 +289,7 @@ The `AWSServiceRoleForAIDevOps` service-linked role trusts the `aidevops.amazona
 
 The role uses the managed policy `AWSServiceRoleForAIDevOpsPolicy` with the following permissions:
 + `cloudwatch:PutMetricData` – Publish usage metrics to the `AWS/AIDevOps` CloudWatch namespace. Scoped by a `cloudwatch:namespace` condition to only allow the `AWS/AIDevOps` namespace.
++ `cloudwatch:GetMetricData` – Read usage metrics from the `AWS/AIDevOps` CloudWatch namespace. This read-only action applies to all resources because the CloudWatch API does not support resource-level permissions or the `cloudwatch:namespace` condition for `GetMetricData`.
 + `vpc-lattice:CreateResourceGateway` – Create VPC Lattice resource gateways for private connections. Scoped by an `aws:RequestTag/AWSAIDevOpsManaged` condition so the service can only create resource gateways that carry the `AWSAIDevOpsManaged` tag.
 + `vpc-lattice:TagResource` – Tag VPC Lattice resource gateways. Scoped by an `aws:RequestTag/AWSAIDevOpsManaged` condition.
 + `vpc-lattice:DeleteResourceGateway` – Delete VPC Lattice resource gateways. Scoped by an `aws:ResourceTag/AWSAIDevOpsManaged` condition so the service can only delete resource gateways it created.
@@ -478,6 +483,7 @@ Provides access to use the AWS DevOps operator web app for an Agent Space.
         "aidevops:GetAssetFile",
         "aidevops:GetAssociation",
         "aidevops:GetBacklogTask",
+        "aidevops:GetChat",
         "aidevops:GetKnowledgeItem",
         "aidevops:GetRecommendation",
         "aidevops:GetTrigger",
@@ -507,6 +513,7 @@ Provides access to use the AWS DevOps operator web app for an Agent Space.
         "aidevops:UpdateAsset",
         "aidevops:UpdateAssetFile",
         "aidevops:UpdateBacklogTask",
+        "aidevops:UpdateChat",
         "aidevops:UpdateGoal",
         "aidevops:UpdateKnowledgeItem",
         "aidevops:UpdateRecommendation",

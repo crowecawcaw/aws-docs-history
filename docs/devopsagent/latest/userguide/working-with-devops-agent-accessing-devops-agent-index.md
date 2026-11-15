@@ -42,4 +42,4 @@ Webhooks allow external systems to automatically trigger AWS DevOps Agent invest
 
 AWS DevOps Agent provides APIs for programmatic access to agent capabilities. You can create and manage Agent Spaces, trigger investigations, and retrieve findings. For more information, see the [AWS DevOps Agent API Reference](https://docs.aws.amazon.com/devopsagent/latest/APIReference/).
 
-For more information about the regional service endpoints to use for API requests, see [Service endpoints](about-aws-devops-agent-supported-regions.md) in [Supported Regions](about-aws-devops-agent-supported-regions.md).
+For more information about the regional service endpoints to use for API requests, see [Service endpoints](about-aws-devops-agent-supported-regions.md#service-endpoints) in [Supported Regions](about-aws-devops-agent-supported-regions.md).

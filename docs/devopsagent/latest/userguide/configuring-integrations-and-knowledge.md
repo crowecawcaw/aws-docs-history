@@ -10,6 +10,7 @@ The following capabilities help you maximize your DevOps Agent's effectiveness:
 + **Azure Integration** - Connect Azure subscriptions and Azure DevOps organizations to investigate Azure resources and correlate Azure DevOps deployments with incidents
 + **CI/CD Pipeline Integration** - Connect GitHub and GitLab pipelines to correlate deployments with incidents and track code changes during investigations
 + **MCP Server Connections** - Extend investigation capabilities by connecting external observability tools and custom monitoring systems through Model Context Protocol
++ **Partner-managed connectors** - Connect to an MCP server that a partner hosts by using the connector that the partner publishes, and install the skills that the partner recommends. For more information about partner-managed connectors, see [Using partner-managed connectors](configuring-integrations-and-knowledge-using-partner-managed-connectors.md).
 + **Multi-Account AWS Access** - Configure secondary AWS accounts to investigate resources across your entire organization during incident response
 + **Telemetry Source Integration** - Connect monitoring platforms like Datadog, Dynatrace, Grafana, New Relic, and Splunk for comprehensive observability data access
 + **Ticketing and Chat Integration** - Connect ServiceNow, PagerDuty, and Slack to automate incident response workflows and enable team collaboration

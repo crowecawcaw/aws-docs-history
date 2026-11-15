@@ -36,7 +36,7 @@ The first step is to create in ServiceNow an OAuth application client that AWS D
 ### Connect your ServiceNow OAuth client to AWS DevOps Agent
 <a name="connect-your-servicenow-oauth-client-to-aws-devops-agent"></a>
 
-1. You can start this process in two places. First, by navigating to the **Capability Providers** page and finding **ServiceNow** under **Communication**, then choosing **Register**. Alternatively you can select any DevOps Agent Space you may have created and navigate to Capabilities → Communications → Add → ServiceNow and choose Register.
+1. You can start this process in two places. First, by navigating to the **Capability Providers** page and finding the **ServiceNow** card in the **Available** section, then choosing **Register**. Alternatively you can select any DevOps Agent Space you may have created and navigate to Capabilities → Communications → Add → ServiceNow and choose Register.
 
 1. Next, authorize DevOps Agent to access your ServiceNow instance using the OAuth application client you just created.
 
@@ -52,7 +52,7 @@ You will not see this information again
 ![Webhook Configuration panel showing connected status and webhook URL.](https://docs.aws.amazon.com/devopsagent/latest/userguide/images/80d0a319f87e.png)
 
 
-**Note:** AWS DevOps Agent shows the webhook secret one time. If you lose it, rotate the webhook to generate a new secret. The webhook URL does not change. For instructions on managing webhook credentials, see [Managing webhook credentials](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md).
+**Note:** AWS DevOps Agent shows the webhook secret one time. If you lose it, rotate the webhook to generate a new secret. The webhook URL does not change. For instructions on managing webhook credentials, see [Managing webhook credentials](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md#managing-webhook-credentials).
 
 ### Configure your ServiceNow Business Rule
 <a name="configure-your-servicenow-business-rule"></a>

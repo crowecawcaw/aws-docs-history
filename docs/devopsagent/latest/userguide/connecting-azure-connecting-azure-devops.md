@@ -33,7 +33,7 @@ The Admin Consent method uses a consent-based flow with the AWS DevOps Agent man
 
 1. Go to the **Capability Providers** page
 
-1. Locate the **Azure DevOps** section and choose **Register**
+1. In the **Available** section, find the **Azure DevOps** card and choose **Register**
 
 1. Enter your **Azure DevOps organization name** when prompted
 
@@ -70,7 +70,7 @@ App Registration is shared between Azure Resources and Azure DevOps. If you have
 
 1. In the AWS DevOps Agent console, go to the **Capability Providers** page
 
-1. Locate the **Azure Cloud** section and choose **Register**
+1. In the **Available** section, find the **Azure Cloud** card and choose **Register**
 
 1. Select the **App Registration** method
 
@@ -153,4 +153,4 @@ A single Agent Space can use projects from multiple registrations. To associate 
 <a name="managing-azure-devops-connections"></a>
 + **Viewing connected projects** – In the **Capabilities** tab, the **Pipelines** section lists all connected Azure DevOps projects.
 + **Removing a project** – To disconnect a project from an Agent Space, select it in the **Pipelines** section and choose **Remove**.
-+ **Removing the registration** – To remove the Azure DevOps registration entirely, go to the **Capability Providers** page and delete the registration. All Agent Space associations must be removed first.
++ **Removing the registration** – To remove the Azure DevOps registration entirely, first remove all of its Agent Space associations. Then go to the **Capability Providers** page, and under **Currently registered**, choose **View all** on the **Azure DevOps** card. In **Registrations**, choose **Admin consent** or **App registration (OIDC)**, select the registration, and then choose **Deregister** from the **Actions** menu. An app registration is shared by Azure Cloud and Azure DevOps, so deregistering it removes access for both.

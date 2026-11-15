@@ -29,7 +29,7 @@ PagerDuty is registered at the AWS account level and shared among all Agent Spac
 
 1. Go to the **Capability Providers** page (accessible from the side navigation)
 
-1. Find **PagerDuty** in the **Available** providers section under **Communication** and choose **Register**
+1. Find the **PagerDuty** card in the **Available** section and choose **Register**. To narrow the list, enter PagerDuty in **Find capability**, or choose **Communication** in the category filter
 
 1. Follow the guided setup on the **Configure access in PagerDuty** page:
 

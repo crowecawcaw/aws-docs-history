@@ -25,7 +25,7 @@ Please use a Full Platform User (not Basic/Core) in New relic to enable New Reli
 
 1. Go to the **Capability Providers** page (accessible from the side navigation)
 
-1. Find **New Relic** in the **Available** providers section under **Telemetry** and choose **Register**
+1. Find the **New Relic** card in the **Available** section and choose **Register**. To narrow the list, enter New Relic in **Find capability**, or choose **Telemetry** in the category filter
 
 1. Follow the instructions to obtain your New Relic API Key
 
@@ -62,7 +62,7 @@ Activate New Relic in a specific Agent space and configure appropriate scoping
 
 1. Copy the Webhook URL and API Key
 
-**Note:** AWS DevOps Agent shows the webhook API key one time. If you lose it, rotate the webhook to generate a new key. The webhook URL does not change. For instructions on managing webhook credentials, see [Managing webhook credentials](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md).
+**Note:** AWS DevOps Agent shows the webhook API key one time. If you lose it, rotate the webhook to generate a new key. The webhook URL does not change. For instructions on managing webhook credentials, see [Managing webhook credentials](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md#managing-webhook-credentials).
 
 A single Agent Space can use more than one New Relic registration. To add another registration, repeat these steps.
 
@@ -84,9 +84,9 @@ If your New Relic credentials expire or need to be rotated, you can update them 
 
 1. Go to the **Capability Providers** page (accessible from the side navigation).
 
-1. Scroll to the **Currently registered** section.
+1. In the **Currently registered** section, on the **New Relic** card, choose **View all**.
 
-1. Select New Relic, then choose **Update** from the **Actions** menu.
+1. In **Registrations**, select the New Relic registration, then choose **Update** from the **Actions** menu.
 
 1. Enter the new credentials, review, and choose **Update**.
 
@@ -111,10 +111,10 @@ The telemetry source is connected at two levels at the agent space level and at 
 ### Step 2: Deregister from account
 <a name="step-2-deregister-from-account"></a>
 
-1. Go to the **Capability Providers** page (accessible from the side navigation)
+1. Go to the **Capability Providers** page (accessible from the side navigation).
 
-1. Scroll to the **Currently registered** section.
+1. In the **Currently registered** section, on the **New Relic** card, choose **View all**.
 
-1. Check the agent space count is zero (if not repeat Step 1 above in your other agent spaces)
+1. In **Registrations**, check the agent space count is zero (if not, repeat Step 1 in your other agent spaces).
 
-1. Select New Relic, then choose **Deregister** from the **Actions** menu.
+1. Select the New Relic registration, then choose **Deregister** from the **Actions** menu.

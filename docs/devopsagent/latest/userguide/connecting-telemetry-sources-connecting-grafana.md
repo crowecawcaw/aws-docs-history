@@ -29,7 +29,7 @@ Grafana is registered at the AWS account level and shared among all Agent Spaces
 
 1. Go to the **Capability Providers** page (accessible from the side navigation)
 
-1. Find **Grafana** in the **Available** providers section under **Telemetry** and choose **Register**
+1. Find the **Grafana** card in the **Available** section and choose **Register**. To narrow the list, enter Grafana in **Find capability**, or choose **Telemetry** in the category filter
 
 1. On the **Configure Grafana** page, enter the following information:
    + **Service Name** (required) – Enter a descriptive name for your Grafana server using alphanumeric characters, hyphens, and underscores only. For example, `my-grafana-server`.
@@ -72,7 +72,7 @@ A single Agent Space can use more than one Grafana registration. To connect anot
 
 You can configure Grafana to automatically trigger AWS DevOps Agent investigations when alerts fire by sending webhooks through Grafana contact points. For details on webhook authentication methods and credential management, see [Invoking DevOps Agent through Webhook](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md).
 
-If you lose the webhook secret, rotate the webhook to generate a new secret. The webhook URL does not change. For instructions on managing webhook credentials, see [Managing webhook credentials](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md).
+If you lose the webhook secret, rotate the webhook to generate a new secret. The webhook URL does not change. For instructions on managing webhook credentials, see [Managing webhook credentials](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md#managing-webhook-credentials).
 
 ### Step 1: Create a custom notification template
 <a name="step-1-create-a-custom-notification-template"></a>
@@ -115,7 +115,7 @@ This template formats Grafana alerts into the webhook payload structure expected
 
 1. Set the **URL** to your AWS DevOps Agent webhook endpoint
 
-1. Under **Optional Webhook settings**, configure the authentication headers based on your webhook type. See [Webhook authentication methods](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md) for details.
+1. Under **Optional Webhook settings**, configure the authentication headers based on your webhook type. See [Webhook authentication methods](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md#webhook-authentication-methods) for details.
 
 1. Set the **Custom Payload** field to use your custom template: `{{ template "devops-agent-payload" . }}`
 
@@ -149,6 +149,6 @@ If you are using [Amazon Managed Grafana](https://aws.amazon.com/grafana/) (AMG)
 
 ## Managing Grafana connections
 <a name="managing-grafana-connections"></a>
-+ **Updating credentials** – If your service account token expires or needs to be updated, you can rotate it without deregistering. On the **Capability Providers** page, select your Grafana registration, choose **Update** from the **Actions** menu, and enter the new token. Your Agent Space associations are preserved.
++ **Updating credentials** – If your service account token expires or needs to be updated, you can rotate it without deregistering. On the **Capability Providers** page, under **Currently registered**, choose **View all** on the **Grafana** card. In **Registrations**, select your Grafana registration, choose **Update** from the **Actions** menu, and enter the new token. Your Agent Space associations are preserved.
 + **Viewing connected instances** – In the AWS DevOps Agent console, select your Agent Space and go to the Capabilities tab to view connected telemetry sources.
 + **Removing Grafana** – To disconnect Grafana from an Agent Space, select it in the Telemetry section and choose **Remove**. To completely remove the registration, remove it from all Agent Spaces first, then deregister from the Capability Providers page.

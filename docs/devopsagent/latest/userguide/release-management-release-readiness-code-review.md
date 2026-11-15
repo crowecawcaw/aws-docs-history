@@ -204,7 +204,7 @@ Repository content can contain malicious instructions that attempt to influence 
 
 To restrict outbound network access during automatic verification testing, use a Release Management environment connected to your own virtual private cloud (VPC). The verification testing environment's traffic then follows the routing and firewall rules in your VPC. For instructions on configuring Release Management environments for private VPC access, see [Step 2: Configure Release Management environments for private VPC access (optional)](#step-2-configure-release-management-environments-for-private-vpc-access-optional). You can also turn off automatic verification testing for a repository.
 
-For more information about how security responsibilities are shared between AWS and you, see [Shared responsibility model](aws-devops-agent-security.md).
+For more information about how security responsibilities are shared between AWS and you, see [Shared responsibility model](aws-devops-agent-security.md#shared-responsibility-model).
 
 ## Reviewing code review results
 <a name="reviewing-code-review-results"></a>

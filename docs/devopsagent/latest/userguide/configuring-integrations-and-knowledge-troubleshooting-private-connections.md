@@ -25,7 +25,7 @@ By default, a private connection resolves the host address using **public DNS** 
 + Test with the IP address instead of the name. Temporarily create a private connection that uses the target's private IP address (or a load balancer IP) for the host address instead of the DNS name. If the connection then reaches your service, the earlier failure was DNS resolution, not the network path or the service itself.
 
 **Resolution**
-+ If your hostname resolves only inside your VPC, set the DNS resolution mode to **In VPC** (`IN_VPC`) when you create the connection. In this mode, the host address is resolved from within your VPC context, so private-only hostnames resolve correctly. See [Create a private connection](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md).
++ If your hostname resolves only inside your VPC, set the DNS resolution mode to **In VPC** (`IN_VPC`) when you create the connection. In this mode, the host address is resolved from within your VPC context, so private-only hostnames resolve correctly. See [Create a private connection](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md#create-a-private-connection).
 + The DNS resolution mode is chosen at creation time and applies to the host address you provide. You can't change how the service-managed resource gateway resolves DNS after creation, so choose the correct mode up front. If you selected the wrong mode, delete the connection and recreate it with the correct mode.
 + If you specify an **IP address** (rather than a DNS name) for the host address, the DNS resolution mode has no effect, and traffic goes directly to that IP.
 + If you can't use `IN_VPC` for your setup, you can instead point the host address at the target's private IP address, or at the DNS name of a load balancer that is publicly resolvable but forwards to a private IP.
@@ -55,7 +55,7 @@ Verify the following, in order:
 
 1. **Your subnets have available IP addresses.** The resource gateway provisions elastic network interfaces (ENIs) in the subnets you specify. If those subnets are exhausted, creation fails. Choose subnets with free address space.
 
-1. **Your subnets are in supported Availability Zones.** Amazon VPC Lattice doesn't support every Availability Zone. Run the following and compare against the unsupported zones listed in [Create a private connection](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md) :
+1. **Your subnets are in supported Availability Zones.** Amazon VPC Lattice doesn't support every Availability Zone. Run the following and compare against the unsupported zones listed in [Create a private connection](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md#create-a-private-connection) :
 
 ``` aws ec2 describe-subnets \ --subnet-ids <your-subnet-ids> \ --query 'Subnets[*].[SubnetId,AvailabilityZoneId]' ```
 
@@ -63,7 +63,7 @@ Verify the following, in order:
 
 1. **No IAM policy or SCP is blocking the service-linked role.** The service-managed resource gateway is created through a [service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html). If your organization has [service control policies (SCPs)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) that restrict Amazon VPC Lattice or Amazon EC2 API actions, ensure they permit the service-linked role to create these resources.
 
-1. **Your account owns the virtual private cloud (VPC).** In service-managed mode, the resource gateway must be in a VPC that your account owns. Creation fails if another account shares the VPC with you through AWS Resource Access Manager (AWS RAM). In this case, the `failureMessage` field shows the message `The subnet with ID subnet-1234567890abcdef0 cannot be found` with your subnet ID. For more information about how to use a shared VPC, see [Creating a private connection for a shared VPC](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md).
+1. **Your account owns the virtual private cloud (VPC).** In service-managed mode, the resource gateway must be in a VPC that your account owns. Creation fails if another account shares the VPC with you through AWS Resource Access Manager (AWS RAM). In this case, the `failureMessage` field shows the message `The subnet with ID subnet-1234567890abcdef0 cannot be found` with your subnet ID. For more information about how to use a shared VPC, see [Creating a private connection for a shared VPC](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md#creating-a-private-connection-for-a-shared-vpc).
 
 If the connection continues to fail after you verify all of these items, contact AWS Support.
 
@@ -106,10 +106,10 @@ A successful request from an Amazon EC2 instance or AWS CloudShell session in yo
 
 ``` aws devops-agent list-private-connections aws vpc-lattice list-resource-gateways ```
 
-If the gateway's VPC has no route to the target, either add one through VPC peering, AWS Transit Gateway, or a virtual private network (VPN) connection, or move the gateway to the target's account using self-managed mode. See [Create a private connection](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md).
+If the gateway's VPC has no route to the target, either add one through VPC peering, AWS Transit Gateway, or a virtual private network (VPN) connection, or move the gateway to the target's account using self-managed mode. See [Create a private connection](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md#create-a-private-connection).
 + **Point DNS at the load balancer, not a task or instance IP.** A frequent cause is a DNS record or host address that resolves to a container task or instance IP on an application port (for example, `8100`) instead of the load balancer that terminates TLS on the port you configured (for example, `443`). Confirm the host address resolves to the endpoint that actually serves HTTPS on the target port.
 + **Confirm the service serves HTTPS on the configured port.** The target must serve HTTPS with a minimum TLS version of 1.2 on a port included in the connection's port ranges.
-+ **Check security group rules in both directions.** Verify that the security group attached to the resource gateway ENIs allows outbound traffic on the target port, and that your service's security group allows inbound traffic on that port. Traffic arrives from Amazon VPC Lattice data plane IPs within your VPC CIDR range. You can use security group referencing (allow the ENI security group as a source) or allow inbound from the VPC CIDR. See [Configuring firewall rules for private connections](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md).
++ **Check security group rules in both directions.** Verify that the security group attached to the resource gateway ENIs allows outbound traffic on the target port, and that your service's security group allows inbound traffic on that port. Traffic arrives from Amazon VPC Lattice data plane IPs within your VPC CIDR range. You can use security group referencing (allow the ENI security group as a source) or allow inbound from the VPC CIDR. See [Configuring firewall rules for private connections](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md#configuring-firewall-rules-for-private-connections).
 + **Verify the full certificate chain for a private CA.** If a private certificate authority issued your service's TLS certificate, provide the full PEM-encoded certificate chain when you create the connection. Place the leaf certificate first, then the intermediates, then the root. If the chain is incomplete, the TLS handshake fails even though the network path is up. For the error messages this produces, see [The provider's TLS certificate isn't trusted](#the-providers-tls-certificate-isnt-trusted).
 + **Confirm the target is running.** Make sure your service is up and accepting connections on the expected port before you complete registration.
 
@@ -143,7 +143,7 @@ openssl s_client -connect <your-host-address>:<port> -showcerts
 If an internal CA signed the certificate, supply the chain on the connection. If a public CA signed it, the chain your service sends is probably incomplete.
 
 **Resolution**
-+ **For a certificate from a private CA, supply the full chain on the private connection.** Set **Certificate public key** in the console, or the `certificate` field in `create-private-connection`, to the full PEM-encoded chain: the leaf certificate first, then all intermediate CA certificates, then the root. See [Create a private connection](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md).
++ **For a certificate from a private CA, supply the full chain on the private connection.** Set **Certificate public key** in the console, or the `certificate` field in `create-private-connection`, to the full PEM-encoded chain: the leaf certificate first, then all intermediate CA certificates, then the root. See [Create a private connection](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md#create-a-private-connection).
 + **For a certificate from a public CA, send the complete chain.** Configure your service to send the leaf certificate plus all intermediate certificates, not the leaf alone.
 + **Replace any expired certificate in the chain.**
 + **Confirm the certificate covers the hostname in your endpoint URL.**
@@ -161,7 +161,7 @@ For OAuth-based capability providers, AWS DevOps Agent calls two endpoints: the 
 
 **Resolution**
 + If both endpoints are reachable through the same path, ensure the private connection's host address can route to both the MCP server or remote agent endpoint and the token exchange endpoint.
-+ If the endpoints require different network paths, use the per-endpoint fields instead of a single `privateConnectionName`. Set `targetUrlPrivateConnectionName` for the MCP server or remote agent endpoint and `exchangeUrlPrivateConnectionName` for the token exchange endpoint. If you set only one, the other endpoint is reached over the public internet, and it does not fall back to the other private connection. You can't combine the per-endpoint names with `privateConnectionName` in the same request. See [Routing the endpoint and the OAuth token exchange through different private connections](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md).
++ If the endpoints require different network paths, use the per-endpoint fields instead of a single `privateConnectionName`. Set `targetUrlPrivateConnectionName` for the MCP server or remote agent endpoint and `exchangeUrlPrivateConnectionName` for the token exchange endpoint. If you set only one, the other endpoint is reached over the public internet, and it does not fall back to the other private connection. You can't combine the per-endpoint names with `privateConnectionName` in the same request. See [Routing the endpoint and the OAuth token exchange through different private connections](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md#routing-the-endpoint-and-the-oauth-token-exchange-through-different-private-connections).
 
 ## A private connection can't be deleted while it's in use
 <a name="a-private-connection-cant-be-deleted-while-its-in-use"></a>
@@ -214,7 +214,7 @@ If you work through the relevant section for your issue and the problem persists
 ## Related topics
 <a name="related-topics"></a>
 + [Connecting to privately hosted tools](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md)
-+ [Configuring firewall rules for private connections](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md)
++ [Configuring firewall rules for private connections](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md#configuring-firewall-rules-for-private-connections)
 + [VPC Endpoints (AWS PrivateLink)](aws-devops-agent-security-vpc-endpoints-aws-privatelink.md)
 + [Connecting MCP Servers](configuring-integrations-and-knowledge-connecting-mcp-servers.md)
 + [AWS DevOps Agent Security](aws-devops-agent-security.md)

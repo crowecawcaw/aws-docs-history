@@ -427,7 +427,7 @@ After you have deployed your AWS DevOps Agent by using the AWS CDK:
 
 1. Consider integrating the AWS CDK deployment into your CI/CD pipelines for automated infrastructure management.
 
-1. If you register a third-party integration, get its webhook URL and secret by rotating the webhook in the console. The AWS CDK deploys through AWS CloudFormation, which does not return the webhook secret as a stack output. For instructions on managing webhook credentials, see [Managing webhook credentials](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md).
+1. If you register a third-party integration, get its webhook URL and secret by rotating the webhook in the console. The AWS CDK deploys through AWS CloudFormation, which does not return the webhook secret as a stack output. For instructions on managing webhook credentials, see [Managing webhook credentials](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md#managing-webhook-credentials).
 
 ## Additional resources
 <a name="additional-resources"></a>

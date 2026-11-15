@@ -174,4 +174,4 @@ Tool call results provide transparency into what the agent did during invocation
 + **Successful tool calls** – The tool returned data that the agent uses to continue its work. For example, `query_cloudwatch_logs` returns log entries, or `use_aws` returns API responses.
 + **Failed tool calls** – The tool returned an error. The agent may retry, try an alternative approach, or report the failure in its output.
 
-You can inspect individual tool calls and their results in the invocation trajectory to understand the agent's behavior, verify it accessed the correct resources, and troubleshoot unexpected results. For more information about viewing trajectories, see [Viewing an invocation trajectory](custom-agents-managing-custom-agents.md).
+You can inspect individual tool calls and their results in the invocation trajectory to understand the agent's behavior, verify it accessed the correct resources, and troubleshoot unexpected results. For more information about viewing trajectories, see [Viewing an invocation trajectory](custom-agents-managing-custom-agents.md#viewing-an-invocation-trajectory).

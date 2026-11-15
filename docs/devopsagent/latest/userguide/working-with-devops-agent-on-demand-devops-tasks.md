@@ -76,6 +76,14 @@ Chat maintains conversation history to enable you to continue previous discussio
 
 **Continuing conversations** – Select any conversation from your history to resume where you left off. Chat maintains the full context of previous messages, enabling you to ask follow-up questions that reference earlier parts of the conversation. When you switch pages while viewing a conversation, the conversation context remains but page-specific context updates based on your current location.
 
+**Renaming conversations** – By default, AWS DevOps Agent generates a title from your first message. Renaming lets you replace it with a descriptive title that appears in the sidebar, the View all chats dialog, and the chat header.
+
+To rename a conversation, choose the menu on the conversation in your chat history and select **Rename**. For example, you might use *Payment service latency Nov 12* or *EKS migration plan*. Because conversations are shared within the Agent Space, the new title is visible to everyone who has access.
+
+**Archiving and unarchiving conversations** – Archiving removes a conversation from your active chat list without deleting anything. An archived conversation is read-only. You cannot send new messages, start new streams, or approve pending actions until someone unarchives it.
+
+To archive a conversation, choose the menu on the conversation and select **Archive**. Archived conversations still open by direct link and are listed under the **Archived** filter in the **View all chats** list. To unarchive, choose the menu on the archived conversation and select **Unarchive**, or choose **Undo** in the toast that appears immediately after you archive. Because conversations are shared within the Agent Space, archiving and unarchiving affect everyone who has access.
+
 Note that conversation history is isolated within each Agent Space. Conversations in one Agent Space are not visible or accessible from other Agent Spaces. This isolation ensures that sensitive information remains compartmentalized according to your organizational boundaries.
 
 ## Starting an investigation from Chat
@@ -294,6 +302,8 @@ Add the following IAM permissions to your existing operator access role:
 + `aidevops:ListChats` – View chat conversation history
 + `aidevops:CreateChat` – Create new chat conversations
 + `aidevops:SendMessage` – Send messages and receive responses
++ `aidevops:GetChat` – Retrieve chat metadata, including the title and archive status
++ `aidevops:UpdateChat` – Rename or archive a chat conversation
 
 Navigate to the AWS IAM console, locate your DevOps Agent operator role, and add these permissions to the role policy. Chat becomes available immediately after the permissions are added.
 

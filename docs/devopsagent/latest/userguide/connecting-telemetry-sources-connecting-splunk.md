@@ -53,7 +53,7 @@ Establish connection to your Splunk remote MCP endpoint with account access cred
 
 1. Go to the **Capability Providers** page (accessible from the side navigation)
 
-1. Find **Splunk** in the **Available** providers section under **Telemetry** and choose **Register**
+1. Find the **Splunk** card in the **Available** section and choose **Register**. To narrow the list, enter Splunk in **Find capability**, or choose **Telemetry** in the category filter
 
 1. Enter your Splunk MCP server details:
    + **Server Name** - Unique identifier (e.g., my-splunk-server)
@@ -90,7 +90,7 @@ Activate Splunk in a specific Agent space and configure appropriate scoping
 
 1. Copy the Webhook URL and API Key
 
-**Note:** AWS DevOps Agent shows the webhook API key one time. If you lose it, rotate the webhook to generate a new key. The webhook URL does not change. For instructions on managing webhook credentials, see [Managing webhook credentials](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md).
+**Note:** AWS DevOps Agent shows the webhook API key one time. If you lose it, rotate the webhook to generate a new key. The webhook URL does not change. For instructions on managing webhook credentials, see [Managing webhook credentials](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md#managing-webhook-credentials).
 
 You can associate more than one Splunk registration with a single Agent Space. To add another registration, repeat the steps in this procedure.
 
@@ -117,9 +117,9 @@ If your Splunk authentication token expires or needs to be rotated, you can upda
 
 1. Go to the **Capability Providers** page (accessible from the side navigation).
 
-1. Scroll to the **Currently registered** section.
+1. In the **Currently registered** section, on the **Splunk** card, choose **View all**.
 
-1. Select Splunk, then choose **Update** from the **Actions** menu.
+1. In **Registrations**, select the Splunk registration, then choose **Update** from the **Actions** menu.
 
 1. Enter the new token value, review, and choose **Update**.
 
@@ -144,10 +144,10 @@ The telemetry source is connected at two levels at the agent space level and at 
 ### Step 2: Deregister from account
 <a name="step-2-deregister-from-account"></a>
 
-1. Go to the **Capability Providers** page (accessible from the side navigation)
+1. Go to the **Capability Providers** page (accessible from the side navigation).
 
-1. Scroll to the **Currently registered** section. 
+1. In the **Currently registered** section, on the **Splunk** card, choose **View all**.
 
-1. Check the agent space count is zero (if not repeat Step 1 above in your other agent spaces) 
+1. In **Registrations**, check the agent space count is zero (if not, repeat Step 1 in your other agent spaces).
 
-1. Select Splunk, then choose **Deregister** from the **Actions** menu.
+1. Select the Splunk registration, then choose **Deregister** from the **Actions** menu.

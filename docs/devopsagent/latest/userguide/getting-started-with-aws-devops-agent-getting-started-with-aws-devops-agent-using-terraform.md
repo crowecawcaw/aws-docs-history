@@ -309,7 +309,7 @@ integration_association_ids = {
 }
 ```
 
-**Note:** Terraform does not return the webhook URL and secret as outputs, because the secret is sensitive. After `terraform apply` completes, rotate the webhook in the console to get the URL and secret. For instructions on managing webhook credentials, see [Managing webhook credentials](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md).
+**Note:** Terraform does not return the webhook URL and secret as outputs, because the secret is sensitive. After `terraform apply` completes, rotate the webhook in the console to get the URL and secret. For instructions on managing webhook credentials, see [Managing webhook credentials](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md#managing-webhook-credentials).
 
 For more information about configuring credentials for each service, see:
 + [Connecting Dynatrace](connecting-telemetry-sources-connecting-dynatrace.md)

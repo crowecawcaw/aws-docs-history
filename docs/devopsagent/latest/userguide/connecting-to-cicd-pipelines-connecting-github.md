@@ -321,7 +321,7 @@ Automated triggers depend on webhook events from the GitHub App. For repositorie
 The Code Review and Automated Testing configuration includes:
 + **Capabilities** — Choose code review and automated testing capabilities for each repository. The section provides two per-repository settings:
   + **Auto trigger change review** — When enabled for a repository, DevOps Agent automatically runs a [Release readiness code reviews](release-management-release-readiness-code-review.md) each time a pull request is opened or updated. Review findings appear as inline comments on the pull request. This is enabled by default for all connected repositories.
-  + **Automatic verification testing** — When enabled for a repository, DevOps Agent builds, runs, and tests your code changes in a managed verification environment during code reviews. This provides functional validation beyond static analysis. For more information, see [Automatic verification testing](release-management-release-readiness-code-review.md). This is enabled by default for all connected repositories.
+  + **Automatic verification testing** — When enabled for a repository, DevOps Agent builds, runs, and tests your code changes in a managed verification environment during code reviews. This provides functional validation beyond static analysis. For more information, see [Automatic verification testing](release-management-release-readiness-code-review.md#automatic-verification-testing). This is enabled by default for all connected repositories.
 + **Repository list** — Shows all repositories you selected during the connection step. Use the search field to filter repositories by name. Each repository has independent checkboxes for both capabilities.
 + **Verification environment** (optional) — In **Advanced settings**, associate each repository with a Release Management environment when automatic verification testing requires access to private resources in your VPC. The environment contains the private connection and runtime role that the verification testing environment uses.
 
@@ -344,7 +344,7 @@ Once configured, any new pull request in a repository with **Auto trigger change
 
 You use a Release Management environment to give automatic verification testing access to private build dependencies and services through your VPC. You can associate one environment with each repository.
 
-Before you begin, create the environment on the **Environments** tab of your Agent Space. For instructions, see [Step 2: Configure Release Management environments for private VPC access (optional)](release-management-release-readiness-code-review.md).
+Before you begin, create the environment on the **Environments** tab of your Agent Space. For instructions, see [Step 2: Configure Release Management environments for private VPC access (optional)](release-management-release-readiness-code-review.md#step-2-configure-release-management-environments-for-private-vpc-access-optional).
 
 To associate an environment:
 
@@ -441,7 +441,7 @@ If you selected **Read-only** during registration, the GitHub App requests only 
 + **Updating repository access** – To change which repositories the GitHub App can access, go to your GitHub account or organization settings. For GitHub Enterprise Server or GitHub Enterprise Cloud with data residency, go to your instance settings. Then navigate to installed GitHub Apps and modify the AWS DevOps Agent app configuration.
 + **Viewing connected repositories** – In the AWS DevOps Agent console, select your Agent Space and go to the Capabilities tab to view connected repositories in the Pipeline section.
 + **Replacing a personal access token** – You cannot update the token of an existing GitHub registration. To replace a token, deregister the registration from the **Capability Providers** page. Then register GitHub again with the new token, and reconnect the repositories to your Agent Spaces. Revoke the old token in your GitHub settings.
-+ **Removing GitHub connection** – To disconnect GitHub from an Agent Space, choose the connection in the Pipeline section, then choose **Remove**. To remove the GitHub registration from your account, navigate to the **Capability Providers** page, locate your registration within the **GitHub** section, and choose **Deregister**.
++ **Removing GitHub connection** – To disconnect GitHub from an Agent Space, choose the connection in the Pipeline section, then choose **Remove**. To remove the GitHub registration from your account, navigate to the **Capability Providers** page. Under **Currently registered**, choose **View all** on the **GitHub** card. In **Registrations**, select your registration, and then choose **Deregister** from the **Actions** menu.
 
 To fully remove the GitHub integration, do the following:
 + To uninstall the GitHub App, go to your GitHub account or organization settings.

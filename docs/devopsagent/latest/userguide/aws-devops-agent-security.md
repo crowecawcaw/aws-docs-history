@@ -39,6 +39,7 @@ AWS DevOps Agent will securely route your inference requests to available comput
 + Inference requests originating in the United States will be processed within the United States.
 + Inference requests originating in Australia will be processed within Australia.
 + Inference requests originating within Japan will be processed within Japan.
++ Inference requests originating in Canada will be processed within Canada.
 + If an inference request originates in an area not listed, it will be processed by default within the United States.
 + DevOps Agent and Bedrock are not impacted by customer policies in Service Control Policies (SCPs) or Control Tower that restrict customer content to specific regions
 + Bedrock may use regions other than the originating region within your geography to perform stateless inference to optimize performance and availability
@@ -95,7 +96,7 @@ AWS DevOps Agent encrypts all customer data:
 
 Data is stored in the region where your Agent Space is created, while inference processing may occur within your geography as described in the preceding Amazon Bedrock usage section.
 
-When you delete an Agent Space, you lose access to its data immediately. AWS DevOps Agent then permanently deletes the data from all its systems within 30 days. For more information about the deletion timeline, see [How AWS DevOps Agent deletes your data](deleting-an-agent-space.md).
+When you delete an Agent Space, you lose access to its data immediately. AWS DevOps Agent then permanently deletes the data from all its systems within 30 days. For more information about the deletion timeline, see [How AWS DevOps Agent deletes your data](deleting-an-agent-space.md#how-aws-devops-agent-deletes-your-data).
 
 ### Personal identifiable information (PII)
 <a name="personal-identifiable-information-pii"></a>
@@ -123,7 +124,7 @@ All AWS DevOps Agent API calls are automatically captured by AWS CloudTrail with
 + Who made the request
 + When it was made
 
-For MCP and A2A remote server connections, you can review `AuthenticateAccessToken` events that AWS DevOps Agent records in CloudTrail each time it authenticates an access token, including failed authentications. For more information about event fields and correlating authentications with downstream actions, see [Traceability](connecting-to-devops-agent-remote-servers-authentication-and-security.md) in *Authentication and security*.
+For MCP and A2A remote server connections, you can review `AuthenticateAccessToken` events that AWS DevOps Agent records in CloudTrail each time it authenticates an access token, including failed authentications. For more information about event fields and correlating authentications with downstream actions, see [Traceability](connecting-to-devops-agent-remote-servers-authentication-and-security.md#traceability) in *Authentication and security*.
 
 **Note**  
 For management and data events, only request parameters that are defined by the AWS DevOps Agent API are eligible for redaction. Any additional fields that you include in a request that are not part of the API are recorded in CloudTrail exactly as you sent them and are not redacted. Do not include passwords or other sensitive information in fields that are not part of the API.
@@ -131,7 +132,7 @@ For management and data events, only request parameters that are defined by the 
 ## Prompt injection protection
 <a name="prompt-injection-protection"></a>
 
-A prompt injection attack occurs when an attacker embeds malicious instructions into external data, such as a webpage or document, that a generative AI system will later process. AWS DevOps Agent natively consumes many data sources as part of its normal operations, including logs, resource tags, and other operational data. AWS DevOps Agent protects against prompt injection attacks through the safeguards below, but it is important to ensure all connected data sources and user access to those data sources are trusted. See [Shared responsibility model](#aws-devops-agent-security) section for more.
+A prompt injection attack occurs when an attacker embeds malicious instructions into external data, such as a webpage or document, that a generative AI system will later process. AWS DevOps Agent natively consumes many data sources as part of its normal operations, including logs, resource tags, and other operational data. AWS DevOps Agent protects against prompt injection attacks through the safeguards below, but it is important to ensure all connected data sources and user access to those data sources are trusted. See [Shared responsibility model](#shared-responsibility-model) section for more.
 
 Prompt injection safeguards:
 + **Limited write capabilities** – The tools available to the agent are not able to mutate resources, with the exception of opening tickets and support cases. This prevents malicious instructions from modifying your infrastructure or applications.
@@ -140,7 +141,7 @@ Prompt injection safeguards:
 + **Immutable audit trail** – The agent journal logs every reasoning step and action taken. Journal entries cannot be modified by the agent once recorded, preventing prompt injection attacks from hiding malicious actions.
 
 While AWS DevOps Agent provides multiple layers of protection against prompt injection attacks, certain configurations can increase risk:
-+ **Custom MCP server tools** – The bring-your-own MCP feature allows you to introduce custom tools to the agent, which can present additional opportunities for prompt injection. Custom tools may not have the same security controls as native AWS DevOps Agent tools, and malicious instructions could potentially use these tools in unintended ways. See [Shared responsibility model](#aws-devops-agent-security) section for more.
++ **Custom MCP server tools** – The bring-your-own MCP feature allows you to introduce custom tools to the agent, which can present additional opportunities for prompt injection. Custom tools may not have the same security controls as native AWS DevOps Agent tools, and malicious instructions could potentially use these tools in unintended ways. See [Shared responsibility model](#shared-responsibility-model) section for more.
 + **Authorized user attacks** – Users who are authorized to operate within the AWS account boundary or connected tools have a higher chance of attempting an attack against the agent. These users may have the ability to modify data sources that the agent consumes, such as logs or resource tags, making it easier to embed malicious instructions that the agent will process.
 
 To mitigate these risks:
@@ -185,7 +186,8 @@ AWS DevOps Agent supports several integration types, each with its own security 
 + **Native bidirectional integrations** – Built-in integrations that can send data to the agent and receive updates from the agent. This uses the vendor’s authentication methods
 + **MCP servers** – Remote Model Context Protocol servers that use OAuth 2.0 authentication flows and API keys to securely communicate with external systems.
 + **Webhook triggers** – Investigation triggers from remote services such as tickets or observability systems. Webhooks use either Hash-based Message Authentication Code (HMAC) signatures or an API key (bearer token) for security.
-+ **Outbound communication** – Integrations like Slack, Microsoft Teams, and ticketing systems receive updates from the agent. Slack also supports bidirectional communication in private channels, where you can mention the app to start and continue conversations with the agent. For more information, see [Connecting Slack](connecting-to-ticketing-and-chat-connecting-slack.html) and [Connecting Microsoft Teams](connecting-to-ticketing-and-chat-connecting-microsoft-teams.html).
++ **Outbound communication** – The agent sends updates to integrations such as Slack, Microsoft Teams, and ticketing systems. In private Slack channels, mention the app to start and continue bidirectional conversations with the agent. For instructions on connecting Slack and Microsoft Teams, see [Connecting Slack](connecting-to-ticketing-and-chat-connecting-slack.html) and [Connecting Microsoft Teams](connecting-to-ticketing-and-chat-connecting-microsoft-teams.html).
++ **Slack code channels** – In a private Slack code channel for an investigation, the agent answers every message without a mention. For more information, see [Using Slack code channels](connecting-to-ticketing-and-chat-using-slack-code-channels.html).
 
 ### Registration providers
 <a name="registration-providers"></a>
@@ -348,7 +350,7 @@ Customers are responsible for:
 + Ensure all connected data sources have trusted data that is unlikely to be used to attempt prompt injection attacks
 + Ensuring bring-your-own MCP server integrations operate securely
 + Connecting only trusted repositories for release readiness code reviews
-+ Only referencing trusted and related code repositories in READMEs, pull and merge request comments, issues, and AGENTS.md files. For more information, see [Repository content and external references](release-management-release-readiness-code-review.md).
++ Only referencing trusted and related code repositories in READMEs, pull and merge request comments, issues, and AGENTS.md files. For more information, see [Repository content and external references](release-management-release-readiness-code-review.md#repository-content-and-external-references).
 + Ensuring IAM roles assigned to the agent are properly scoped
 + Redacting PII data before storing in observability logs and other agent data sources
 + Following the recommended practice of granting only read-only permissions to connected data sources, including bring-your-own MCP servers

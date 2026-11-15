@@ -54,3 +54,5 @@ To learn about bring-your-own integrations, see the following
 
 For provider-maintained integrations, see the following:
 + [Honeycomb integration with AWS DevOps Agent](https://docs.honeycomb.io/integrations/aws-devops-agent) on the Honeycomb website
+
+If a partner publishes a connector for its MCP server, see [Using partner-managed connectors](configuring-integrations-and-knowledge-using-partner-managed-connectors.md).

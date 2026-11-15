@@ -25,7 +25,7 @@ Before connecting a remote agent, ensure your agent meets these requirements:
 
 When connecting remote agents to AWS DevOps Agent, consider these security aspects:
 + **Read-only agents** – Remote agents should be designed for investigation and data gathering only. Ensure that remote agents do not perform write operations or modifications to production systems.
-+ **Prompt injection risks** – Remote agents can introduce additional risk of prompt injection attacks. See [Prompt injection protection: AWS DevOps Agent Security](aws-devops-agent-security.md) for more information.
++ **Prompt injection risks** – Remote agents can introduce additional risk of prompt injection attacks. See [Prompt injection protection: AWS DevOps Agent Security](aws-devops-agent-security.md#prompt-injection-protection) for more information.
 
 See [AWS DevOps Agent Security](aws-devops-agent-security.md) for more information on prompt injection and the shared responsibility model.
 
@@ -109,9 +109,9 @@ AWS DevOps Agent will now be able to delegate investigation subtasks to your rem
 
 **Viewing connected agents** – To see all remote agents connected to your Agent Space, select your Agent Space, go to the **Capabilities** tab, and check the **Remote Agents** section.
 
-**Removing remote agent connections** – To disconnect a remote agent from an Agent Space, select the agent in the **Remote Agents** section and choose **Remove**. To completely delete a remote agent registration, remove it from all Agent Spaces first, then navigate to **Capability Providers**, select the remote agent, and choose **Deregister** from the **Actions** menu.
+**Removing remote agent connections** – To disconnect a remote agent from an Agent Space, select the agent in the **Remote Agents** section and choose **Remove**. To completely delete a remote agent registration, remove it from all Agent Spaces first, then navigate to **Capability Providers**. Under **Currently registered**, choose **View all** on the **Remote Agent** card. In **Registrations**, select the remote agent, and choose **Deregister** from the **Actions** menu.
 
-**Updating authentication credentials** – If your authentication credentials need to be updated, you need to re-register your remote agent. Navigate to the **Capability Providers** page in the AWS DevOps Agent console, locate your remote agent, remove any active associations, and choose **Deregister** from the **Actions** menu. Next, register your remote agent with the new authentication credentials and re-create any necessary associations with your Agent Space.
+**Updating authentication credentials** – If your authentication credentials need to be updated, you need to re-register your remote agent. Remove any active associations of your remote agent. Then navigate to the **Capability Providers** page in the AWS DevOps Agent console, choose **View all** on the **Remote Agent** card under **Currently registered**, select your remote agent in **Registrations**, and choose **Deregister** from the **Actions** menu. Next, register your remote agent with the new authentication credentials and re-create any necessary associations with your Agent Space.
 
 ## Related topics
 <a name="related-topics"></a>

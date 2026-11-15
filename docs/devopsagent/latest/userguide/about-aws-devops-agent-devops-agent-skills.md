@@ -11,7 +11,7 @@ AWS DevOps Agent Skills are modular instruction sets that extend the agent's cap
 Skills are self-contained directories containing Markdown instructions that provide specialized capabilities to AWS DevOps Agent. AWS DevOps Agent supports a subset of the [Agent Skills specification](https://agentskills.io/) —an open standard for packaging agent instructions and resources—supporting only non-executable documents: Markdown instructions, PDFs, images, and data files.
 
 **Note**  
-** When you enable Sandbox (preview), a skill can also include executable code that the agent runs in the sandbox environment. For more information, see [Set up a Sandbox](configuring-integrations-and-knowledge-sandbox.md).
+** When you enable Sandbox (preview), a skill can also include executable code that the agent runs in the sandbox environment. For more information, see [Set up a Sandbox](configuring-integrations-and-knowledge-sandbox.md#skills-in-the-sandbox).
 
 Every skill requires a SKILL.md file containing instructions you want to provide for your AWS DevOps Agent. In addition to the required SKILL.md file, skills can include:
 + **Investigation workflows** for specific scenarios or infrastructure types.
@@ -344,6 +344,8 @@ You can also sync from the skills list view by choosing **Sync** on the imported
 
 The [AWS DevOps Agent Tools repository](https://github.com/aws/tools-for-devops-agent) on the GitHub website contains community-contributed skills, custom agents, and MCP servers you can use as-is or as a starting point for writing your own. The repository is maintained by the AWS DevOps Agent service team. All contributions go through the same security review bar before being added, so you get rapid delivery of new capabilities with the assurance that each tool meets AWS quality standards. To browse what's available, see the [community skills gallery](https://aws.github.io/tools-for-devops-agent/skills/) on the GitHub website.
 
+Some partner-managed connectors recommend skills from this repository, which you can install when you add the connector to an Agent Space. For more information, see [Recommended skills](configuring-integrations-and-knowledge-using-partner-managed-connectors.html#recommended-skills).
+
 Available skills include:
 + AWS Health event investigation
 + AWS Support case analysis
@@ -359,7 +361,7 @@ To use a community skill:
 
 Each skill includes a README with prerequisites and usage instructions.
 
-The repository also includes community custom agents and deployable MCP servers. For details, see [Community custom agents](custom-agents-creating-a-custom-agent.md) and [Community MCP servers](configuring-integrations-and-knowledge-connecting-mcp-servers.md).
+The repository also includes community custom agents and deployable MCP servers. For details, see [Community custom agents](custom-agents-creating-a-custom-agent.md#community-custom-agents) and [Community MCP servers](configuring-integrations-and-knowledge-connecting-mcp-servers.md#community-mcp-servers).
 
 ## Managing Skills
 <a name="managing-skills"></a>
@@ -372,7 +374,7 @@ AWS DevOps Agent provides comprehensive skill management capabilities through th
 
 **Selecting agents for a skill** – Configure which agent types can use each skill when creating or editing it. In the Agent Type dropdown, select one or more agent types using the checkboxes: **Generic** (default — applies to all agent types), **On-demand** (conversational queries), **Incident Triage** (initial incident assessment), **Incident RCA** (root cause analysis), **Incident Mitigation** (automated incident response), **Evaluation** (proactive recommendations), or **Release testing** (automated UI and API testing). Generic is selected by default and makes the skill available to all agent types. Skills targeted to specific agents reduce context consumption and improve agent focus.
 
-**Activating and deactivating skills** – Temporarily disable skills without deleting them using the Active/Inactive toggle. Open the skill detail view and toggle the switch to "Inactive" to prevent the agent from loading it for new investigations while preserving all content and configurations. In-progress investigations continue using the skill. Toggle back to "Active" to make the skill immediately available again. To activate or deactivate skills programmatically, see [Activating and deactivating skills](about-aws-devops-agent-managing-assets.md) on the Managing Assets page.
+**Activating and deactivating skills** – Temporarily disable skills without deleting them using the Active/Inactive toggle. Open the skill detail view and toggle the switch to "Inactive" to prevent the agent from loading it for new investigations while preserving all content and configurations. In-progress investigations continue using the skill. Toggle back to "Active" to make the skill immediately available again. To activate or deactivate skills programmatically, see [Activating and deactivating skills](about-aws-devops-agent-managing-assets.md#activating-and-deactivating-skills) on the Managing Assets page.
 
 **Updating skills** – Modify existing skills based on how they were created. For skills created in the UI, choose "Edit" in the skill detail view, modify the name, description, or instructions, and choose "Save" to update. For skills uploaded as zip files, modify the files locally, create a new zip file, and upload a new version.
 

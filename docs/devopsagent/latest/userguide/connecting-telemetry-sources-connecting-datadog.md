@@ -132,7 +132,7 @@ Activate DataDog in a specific Agent space and configure appropriate scoping
 
 1. Copy the Webhook URL and API Key (shown once at save; the API Key can't be viewed later — if you lose it, regenerate it from the webhook details on the Capabilities tab, which invalidates the previous key)
 
-**Note:** For instructions on retrieving or rotating webhook credentials, see [Managing webhook credentials](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md).
+**Note:** For instructions on retrieving or rotating webhook credentials, see [Managing webhook credentials](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md#managing-webhook-credentials).
 
 A single Agent Space can use more than one Datadog registration. To add another registration, repeat these steps.
 
@@ -255,7 +255,9 @@ To update the credentials of a Datadog registration:
 
 1. Open the [Capability Providers page](https://console.aws.amazon.com/devops-agent/home#/services) in the AWS DevOps Agent console.
 
-1. On the **Capability Providers** page, select the Datadog registration that you want to update.
+1. Under **Currently registered**, find the **Datadog** card, and then choose **View all**.
+
+1. In **Registrations**, select the Datadog registration that you want to update.
 
 1. Choose **Actions**.
 
@@ -295,10 +297,10 @@ The telemetry source is connected at two levels at the agent space level and at 
 ### Step 2: Deregister from account
 <a name="step-2-deregister-from-account"></a>
 
-1. Go to the **Capability Providers** page (accessible from the side navigation)
+1. Go to the **Capability Providers** page (accessible from the side navigation).
 
-1. Scroll to the **Currently registered** section.
+1. In the **Currently registered** section, on the **Datadog** card, choose **View all**.
 
-1. Check the agent space count is zero (if not repeat Step 1 above in your other agent spaces)
+1. In **Registrations**, check the agent space count is zero (if not, repeat Step 1 in your other agent spaces).
 
-1. Select Datadog, then choose **Deregister** from the **Actions** menu.
+1. Select the Datadog registration, then choose **Deregister** from the **Actions** menu.
