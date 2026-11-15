@@ -11,7 +11,7 @@ Remove a GitHub integration when you no longer need AWS Security Agent to access
 Before removing a GitHub integration, ensure you have:
 + Checked which Agent Spaces have repositories connected from this integration
 + Understood the impact: Removing this integration will break repository connections for code review, penetration testing context, and penetration test remediation across all Agent Spaces using repositories from this integration
-+ GitHub organization admin access or user account owner access to uninstall the GitHub App
++ The `Owner` role in the GitHub organization, or ownership of the GitHub user account. You need this role to uninstall the GitHub App.
 
 ## Step 1: Uninstall the AWS Security Agent GitHub App from GitHub
 <a name="remove-github-step-1"></a>

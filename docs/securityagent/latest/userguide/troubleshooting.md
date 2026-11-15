@@ -39,8 +39,10 @@ You can verify whether you are a `Member` or an `Owner` of the GitHub organizati
 
 1. Find the organization you wish to install AWS Security Agent into from the list of organizations, it will specify whether you are a `Member` or an `Owner` next to the organization name.
 
+To verify the installation, AWS Security Agent lists the apps installed on the organization. It uses the GitHub account that authorized the app. GitHub allows only organization owners to list installed apps. Registration fails for a member even after an owner approves the member’s installation request.
+
 Possible solutions:
-+ Have an owner approve your installation request BEFORE you try to create the integration
++ Have an organization owner complete the whole integration process: install the app, authorize it, and register it in the AWS Console
 + Have an owner update your role in the GitHub organization from a `Member` to an `Owner` and restart the integration process again
 
 ## Agent cannot connect to endpoint during a penetration test

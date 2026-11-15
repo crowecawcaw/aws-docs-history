@@ -29,9 +29,12 @@ You create and run **full code reviews** — which scan a repository’s entire 
 <a name="connect-github-prerequisites"></a>
 
 Before you begin, ensure you have:
-+ GitHub organization access or GitHub user account owner access. For detailed app permissions, see [Authorize and register the AWS Security Agent GitHub App](#connect-github-app-permissions).
++ A GitHub account that has the `Owner` role in the GitHub organization you want to connect, or that owns the GitHub user account you want to connect. The repository `Admin` role and the GitHub App manager role aren’t sufficient. For detailed app permissions, see [Authorize and register the AWS Security Agent GitHub App](#connect-github-app-permissions).
 + Permissions to configure integrations for your Agent Space in the AWS Management Console
 + Understanding of which repositories you want to connect for code review, threat modeling, and penetration testing
+
+**Important**  
+A GitHub organization owner must authorize the AWS Security Agent GitHub App and register the connection in the AWS Management Console. You don’t need to be the owner who installed the app. During registration, AWS Security Agent uses the authorizing account to list the apps installed on the organization. In GitHub, only organization owners can do that. If a member authorizes the app, registration fails with an access denied error. This happens even when an owner already installed the app or approved the member’s request. If your organization enforces Security Assertion Markup Language (SAML) single sign-on, the owner’s GitHub account must also be authorized for single sign-on in the organization. For more information, see [Troubleshooting](troubleshooting.md).
 
 **Important**  
 Multiple AWS accounts can connect to the same GitHub organization or user account. Each account gets an independent integration. However, only one account can enable **Code review comments** or **Code remediation** per repository. If a second account tries to enable these features for a repository already owned by another account, it receives the error "Code review comments or code remediation is already enabled for this repository by another account."
@@ -74,7 +77,7 @@ Complete all steps in this process without closing your browser or navigating aw
 
 1. Choose **Install and authorize**.
 
-   You are redirected to GitHub to complete the authorization. Ensure you’re logged into GitHub with an account that has admin access to the organization or user account you want to connect.
+   You are redirected to GitHub to complete the authorization. Ensure you’re logged into GitHub with an account that is an owner of the organization, or that owns the user account, you want to connect.
 
 1. In GitHub, select the account or organization where you want to install the AWS Security Agent GitHub App.
 
