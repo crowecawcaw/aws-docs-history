@@ -10,7 +10,7 @@ With this architecture, you can understand prior demand trends and anticipate fu
 ## Demand forecasting diagram
 <a name="df-diagram"></a>
 
-![Data flowing from Amazon.com Selling Partner API through Lambda and Amazon Simple Queue Service into Amazon Simple Storage Service, with AWS Glue for processing, Amazon Forecast for predictions managed by AWS Step Functions, and Amazon Quick Sight for visualization.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/demand-forecasting-retail/images/demand-forecasting-retail.png)
+![Data flowing from Amazon.com Selling Partner API through Lambda and Amazon Simple Queue Service into Amazon Simple Storage Service, with AWS Glue for processing, Amazon Forecast for predictions managed by AWS Step Functions, and AWS Quick Sight for visualization.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/demand-forecasting-retail/images/demand-forecasting-retail.png)
 
 
 The following steps describe the architecture:
@@ -35,7 +35,7 @@ The following steps describe the architecture:
 
 1. EventBridge triggers a recurring [Amazon Forecast](https://docs.aws.amazon.com/forecast/latest/dg/) routine. [AWS Step Functions](https://docs.aws.amazon.com/step-functions/latest/dg/) manages the workflow that sources demand history to generate future predictions.
 
-1. Amazon S3 data is syndicated to consuming applications. [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html) and [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/) provide business intelligence and SQL capabilities.
+1. Amazon S3 data is syndicated to consuming applications. [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html) and [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/) provide business intelligence and SQL capabilities.
 
 ## Further reading
 <a name="df-further-reading"></a>
