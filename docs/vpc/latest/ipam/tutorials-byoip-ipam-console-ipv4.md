@@ -3,7 +3,7 @@
 # Bring your own IPv4 CIDR to IPAM using both the AWS Management Console and the AWS CLI
 <a name="tutorials-byoip-ipam-console-ipv4"></a>
 
-Follow these steps to bring an IPv4 CIDR to IPAM and allocate an Elastic IP address (EIP) using both the AWS Management Console and the AWS CLI.
+Follow these steps to bring an IPv4 CIDR to IPAM and allocate an Elastic IP address using both the AWS Management Console and the AWS CLI.
 
 **Important**  
 This tutorial assumes you have already completed the steps in the following sections:  
@@ -138,12 +138,12 @@ Ensure that this CIDR has been provisioned before you continue. You can see the 
 ## Step 4: Advertise the CIDR
 <a name="tutorials-byoip-ipam-ipv4-console-adv"></a>
 
-The steps in this section must be done by the IPAM account. Once you associate the Elastic IP address (EIP) with an instance or Elastic Load Balancer, you can then start advertising the CIDR you brought to AWS that is in pool that has the **Service EC2 (EIP/VPC)** configured. In this tutorial, that's your Regional pool. By default the CIDR is not advertised, which means it's not publicly accessible over the internet.
+The steps in this section must be done by the IPAM account. Once you associate the Elastic IP address with an instance or Elastic Load Balancer, you can then start advertising the CIDR you brought to AWS that is in pool that has the **Service EC2 (EIP/VPC)** configured. In this tutorial, that's your Regional pool. By default the CIDR is not advertised, which means it's not publicly accessible over the internet.
 
 This step must be done by the IPAM account.
 
 **Note**  
-The advertisement status doesn't not restrict your ability to allocate Elastic IP addresses. Even if your BYOIPv4 CIDR is not advertised, you can still can create EIPs from the IPAM pool.
+The advertisement status doesn't not restrict your ability to allocate Elastic IP addresses. Even if your BYOIPv4 CIDR is not advertised, you can still can create Elastic IP addresses from the IPAM pool.
 
 **To advertise the CIDR**
 
@@ -322,12 +322,12 @@ As a result, the BYOIP CIDR is no longer advertised and the value in the **Adver
 **Step 2: Disassociate the Elastic IP address**
 
 This step must be done by the member account. If you are using the AWS CLI, use the `--profile member-account` option.
-+ Complete the steps in [Disassociate an Elastic IP address](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-associating-different) in the *Amazon EC2 User Guide* to disassociate the EIP. When you open EC2 in the AWS Management console, the AWS Region you disassociate the EIP in must match the `Locale` option you chose when you created the pool that will be used for the BYOIP CIDR. In this tutorial, that pool is the Regional pool.
++ Complete the steps in [Disassociate an Elastic IP address](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-associating-different) in the *Amazon EC2 User Guide* to disassociate the Elastic IP address. When you open EC2 in the AWS Management console, the AWS Region you disassociate the Elastic IP address in must match the `Locale` option you chose when you created the pool that will be used for the BYOIP CIDR. In this tutorial, that pool is the Regional pool.
 
 **Step 3: Release the Elastic IP address**
 
 This step must be done by the member account. If you are using the AWS CLI, use the `--profile member-account` option.
-+ Complete the steps in [Release an Elastic IP address](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-releasing) in the *Amazon EC2 User Guide* to release an Elastic IP address (EIP) from the public IPv4 pool. When you open EC2 in the AWS Management console, the AWS Region you allocate the EIP in must match the `Locale` option you chose when you created the pool that will be used for the BYOIP CIDR.
++ Complete the steps in [Release an Elastic IP address](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-releasing) in the *Amazon EC2 User Guide* to release an Elastic IP address from the public IPv4 pool. When you open EC2 in the AWS Management console, the AWS Region you allocate the Elastic IP address in must match the `Locale` option you chose when you created the pool that will be used for the BYOIP CIDR.
 
 **Step 4: Delete any RAM shares and disable RAM integration with AWS Organizations**
 
@@ -446,7 +446,7 @@ Once you create the public IPv4 pool, to view the public IPv4 pool allocated in 
 ### Step 3: Allocate an Elastic IP address from the public IPv4 pool
 <a name="tutorials-byoip-ipam-ipv4-console-alt-eip"></a>
 
-Complete the steps in [Allocate an Elastic IP address](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-eips.html#using-instance-addressing-eips-allocating) in the *Amazon EC2 User Guide* to allocate an EIP from the public IPv4 pool. When you open EC2 in the AWS Management console, the AWS Region you allocate the EIP in must match the `Locale` option you chose when you created the pool that will be used for the BYOIP CIDR.
+Complete the steps in [Allocate an Elastic IP address](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-eips.html#using-instance-addressing-eips-allocating) in the *Amazon EC2 User Guide* to allocate an Elastic IP address from the public IPv4 pool. When you open EC2 in the AWS Management console, the AWS Region you allocate the Elastic IP address in must match the `Locale` option you chose when you created the pool that will be used for the BYOIP CIDR.
 
 This step must be done by the member account. If you are using the AWS CLI, use the `--profile member-account` option.
 

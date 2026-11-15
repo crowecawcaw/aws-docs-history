@@ -3,7 +3,7 @@
 # Bring your own public IPv4 CIDR to IPAM using only the AWS CLI
 <a name="tutorials-byoip-ipam-ipv4"></a>
 
-Follow these steps to bring an IPv4 CIDR to IPAM and allocate an Elastic IP address (EIP) with the CIDR using only the AWS CLI.
+Follow these steps to bring an IPv4 CIDR to IPAM and allocate an Elastic IP address with the CIDR using only the AWS CLI.
 
 **Important**  
 This tutorial assumes you have already completed the steps in the following sections:  
@@ -324,12 +324,12 @@ This step must be done by the IPAM account.
 ## Step 7: Advertise the CIDR
 <a name="tutorials-byoip-ipam-ipv4-11"></a>
 
-The steps in this section must be done by the IPAM account. Once you associate the Elastic IP address (EIP) with an instance or Elastic Load Balancer, you can then start advertising the CIDR you brought to AWS that is in pool that has `--aws-service ec2` defined. In this tutorial, that's your Regional pool. By default the CIDR is not advertised, which means it's not publicly accessible over the internet. When you run the command in this section, the value for `--region` must match the `--locale` option you entered when you created the pool that will be used for the BYOIP CIDR.
+The steps in this section must be done by the IPAM account. Once you associate the Elastic IP address with an instance or Elastic Load Balancer, you can then start advertising the CIDR you brought to AWS that is in pool that has `--aws-service ec2` defined. In this tutorial, that's your Regional pool. By default the CIDR is not advertised, which means it's not publicly accessible over the internet. When you run the command in this section, the value for `--region` must match the `--locale` option you entered when you created the pool that will be used for the BYOIP CIDR.
 
 This step must be done by the IPAM account.
 
 **Note**  
-The advertisement status doesn't not restrict your ability to allocate Elastic IP addresses. Even if your BYOIPv4 CIDR is not advertised, you can still can create EIPs from the IPAM pool.
+The advertisement status doesn't not restrict your ability to allocate Elastic IP addresses. Even if your BYOIPv4 CIDR is not advertised, you can still can create Elastic IP addresses from the IPAM pool.
 
 **Start advertising the CIDR using the AWS CLI**
 + Run the following command to advertise the CIDR.
@@ -487,7 +487,7 @@ Follow the steps in this section to clean up the resources you've provisioned an
 
 **Clean up using the AWS CLI**
 
-1. View the EIP allocation managed in IPAM.
+1. View the Elastic IP address allocation managed in IPAM.
 
    This step must be done by the IPAM account.
 
@@ -540,7 +540,7 @@ Follow the steps in this section to clean up the resources you've provisioned an
 
    You will not see any output when you run this command.
 
-1. View the EIP allocation is no longer managed in IPAM. It can take some time for IPAM to discover that the Elastic IP address has been removed. You cannot continue to clean up and deprovision the IPAM pool CIDR until you see that the allocation has been removed from IPAM. When you run the command in this section, the value for `--region` must include the `--locale` option you entered when you created the pool that will be used for the BYOIP CIDR.
+1. View the Elastic IP address allocation is no longer managed in IPAM. It can take some time for IPAM to discover that the Elastic IP address has been removed. You cannot continue to clean up and deprovision the IPAM pool CIDR until you see that the allocation has been removed from IPAM. When you run the command in this section, the value for `--region` must include the `--locale` option you entered when you created the pool that will be used for the BYOIP CIDR.
 
    This step must be done by the IPAM account.
 
@@ -810,13 +810,13 @@ This step must be done by the member account.
 ### Step 3: Create an Elastic IP address from the public IPv4 pool
 <a name="tutorials-byoip-ipam-ipv4-10"></a>
 
-Create an Elastic IP address (EIP) from the public IPv4 pool. When you run the commands in this section, the value for `--region` must match the `--locale` option you entered when you created the pool that will be used for the BYOIP CIDR.
+Create an Elastic IP address from the public IPv4 pool. When you run the commands in this section, the value for `--region` must match the `--locale` option you entered when you created the pool that will be used for the BYOIP CIDR.
 
 This step must be done by the member account.
 
-**To create an EIP from the public IPv4 pool using the AWS CLI**
+**To create an Elastic IP address from the public IPv4 pool using the AWS CLI**
 
-1. Run the following command to create the EIP.
+1. Run the following command to create the Elastic IP address.
 
    ```
    aws ec2 allocate-address  --region us-west-2 --public-ipv4-pool ipv4pool-ec2-0019eed22a684e0b2 --profile member-account
@@ -834,7 +834,7 @@ This step must be done by the member account.
    }
    ```
 
-1. Run the following command to view the EIP allocation managed in IPAM.
+1. Run the following command to view the Elastic IP address allocation managed in IPAM.
 
    This step must be done by the IPAM account.
 

@@ -89,7 +89,7 @@ The public IPv4 pool metric name and description is listed below.
 
 | Metric name | Description | 
 | --- | --- | 
-| PublicIPv4PoolIPUsage | The number of EIPs from the public IPv4 Pool divided by total IPs in the pool. | 
+| PublicIPv4PoolIPUsage | The number of Elastic IP addresses from the public IPv4 Pool divided by total IPs in the pool. | 
 
 The dimensions you can use to filter the public IPv4 pool metrics are listed below.
 

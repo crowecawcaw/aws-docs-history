@@ -65,7 +65,7 @@ Public IP insights shows you all public IPv4 addresses used by services across R
   + **Resource discovery ID**: ID of the resource discovery that has discovered this public IPv4 address.
   + **Service resource**: Resource ARN or ID.
 
-If an Elastic IP address is allocated to your account but is not associated with a network interface, a banner appears informing you that you have unassociated EIPs in your account and you should release them.
+If an Elastic IP address is allocated to your account but is not associated with a network interface, a banner appears informing you that you have unassociated Elastic IP addresses in your account and you should release them.
 
 **Important**  
 Public IP insights was recently updated. If you see an error related to not having permissions to call GetIpamDiscoveredPublicAddresses, the managed permission attached to a resource discovery that was shared with you needs to be updated. Contact the person who created the resource discovery and ask them to update the managed permission `AWSRAMPermissionIpamResourceDiscovery` to the default version. For more information, see [Update a resource share](https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing-update.html) in the *AWS RAM User Guide *.
