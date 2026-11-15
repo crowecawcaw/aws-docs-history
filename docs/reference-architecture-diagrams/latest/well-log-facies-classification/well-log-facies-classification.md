@@ -23,7 +23,7 @@ The following steps describe the architecture:
 
 1. Use Amazon S3 buckets to store all data and results for ML models.
 
-1. Use [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) to generate dashboards for end users. Quick uses the predictions from ML models stored in Amazon S3 through [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/what-is.html).
+1. Use [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) to generate dashboards for end users. Quick uses the predictions from ML models stored in Amazon S3 through [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/what-is.html).
 
 1. Geoscientists can download the ML-classified facies at each well log depth from the Amazon S3 bucket. They can integrate the results with their geoscientific workflow to improve business decisions.
 
