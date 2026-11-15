@@ -12,7 +12,7 @@ For more information about this approach, see [Detect sentiment from customer re
 ## Sentiment analysis diagram
 <a name="sentiment-diagram"></a>
 
-![Architecture diagram showing consumer review data flowing from ecommerce sites through Amazon Data Firehose to Amazon Simple Storage Service, processed by AWS Lambda with Amazon Comprehend for sentiment analysis, and visualized in Amazon Quick Sight.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/consumer-review-sentiment-analysis-cpg/images/consumer-review-sentiment-analysis-cpg.png)
+![Architecture diagram showing consumer review data flowing from ecommerce sites through Amazon Data Firehose to Amazon Simple Storage Service, processed by AWS Lambda with Amazon Comprehend for sentiment analysis, and visualized in AWS Quick Sight.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/consumer-review-sentiment-analysis-cpg/images/consumer-review-sentiment-analysis-cpg.png)
 
 
 The following steps describe the architecture:
@@ -27,7 +27,7 @@ The following steps describe the architecture:
 
 1. The [AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/) Data Catalog contains a logical database that organizes tables for the data in Amazon S3.
 
-1. [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/) uses these table definitions to query data in Amazon S3. Results display in an [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html) dashboard.
+1. [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/) uses these table definitions to query data in Amazon S3. Results display in an [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html) dashboard.
 
 ## Further reading
 <a name="sentiment-further-reading"></a>
