@@ -11,4 +11,4 @@ To help locate task reports in your S3 bucket, use these examples:
 
 Because task reports are in JSON format, you have several options for viewing your reports:
 + View a report by using [Amazon S3 Select](https://docs.aws.amazon.com/AmazonS3/latest/userguide/selecting-content-from-objects.html).
-+ Visualize reports by using AWS services such as AWS Glue, Amazon Athena, and Amazon Quick. For more information about visualizing your task reports, see the [AWS Storage Blog](https://aws.amazon.com/blogs/storage/derive-insights-from-aws-datasync-task-reports-using-aws-glue-amazon-athena-and-amazon-quicksight/).
++ Visualize reports by using AWS services such as AWS Glue, Amazon Athena, and AWS Quick. For more information about visualizing your task reports, see the [AWS Storage Blog](https://aws.amazon.com/blogs/storage/derive-insights-from-aws-datasync-task-reports-using-aws-glue-amazon-athena-and-amazon-quicksight/).

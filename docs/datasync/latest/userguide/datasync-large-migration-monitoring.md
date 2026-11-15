@@ -15,7 +15,7 @@ You can create custom CloudWatch dashboards with metrics from your DataSync task
 
 If you’re transferring millions of files or objects, considering using task reports. Task reports provide detailed information about what DataSync attempts to transfer, skip, verify, and delete during a task execution. For more information, see [Monitoring your data transfers with task reports](task-reports.md).
 
-You can also visualize your task reports by using AWS services such as AWS Glue, Amazon Athena, and Amazon Quick. For more information, see the [AWS Storage Blog](https://aws.amazon.com/blogs/storage/derive-insights-from-aws-datasync-task-reports-using-aws-glue-amazon-athena-and-amazon-quicksight/).
+You can also visualize your task reports by using AWS services such as AWS Glue, Amazon Athena, and AWS Quick. For more information, see the [AWS Storage Blog](https://aws.amazon.com/blogs/storage/derive-insights-from-aws-datasync-task-reports-using-aws-glue-amazon-athena-and-amazon-quicksight/).
 
 ## Monitoring your transfers with CloudWatch Logs
 <a name="datasync-migration-monitoring-cloudwatch-logs"></a>
