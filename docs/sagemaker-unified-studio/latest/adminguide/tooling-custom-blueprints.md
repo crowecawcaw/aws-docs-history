@@ -439,10 +439,10 @@ Resources:
 
 Outputs:
   S3BucketArn:
-    Value: !Sub '${ProjectBucket.Arn}/'
+    Value: !Sub '${ProjectBucket.Arn}/${datazoneScopeName}'
     Export: { Name: !Sub 's3BucketArn-${datazoneEnvironmentProjectId}-${datazoneScopeName}' }
   S3BucketPath:
-    Value: !Sub 's3://${ProjectBucket}/shared'
+    Value: !Sub 's3://${ProjectBucket}/${datazoneScopeName}'
     Export: { Name: !Sub 's3BucketPath-${datazoneEnvironmentProjectId}-${datazoneScopeName}' }
 ```
 

@@ -11,6 +11,9 @@ You assign project-level designations when you add members to a project or by ed
 **Important**  
 Admin project membership takes precedence over project designations. If a user is a member of the `admin-project-{{accountID}}`, those permissions override the designation that is assigned to them in another project. For example, a user who belongs to the admin project but has a read-only designation in a separate project can still perform privileged actions in that project, such as deleting project members.
 
+**Note**  
+When you assign a designation to a member, that designation's layout customization, if one is configured, determines which items the member sees in the left navigation pane of the Amazon SageMaker Unified Studio portal. If the designation has no layout customization, the member sees the full default left navigation pane.
+
 ## To assign designations from the Amazon SageMaker Unified Studio portal (Identity Center-based domains)
 <a name="assign-designations-portal"></a>
 

@@ -5,6 +5,8 @@
 
 You can create designations to define custom permission sets for project members in your Amazon SageMaker Unified Studio domain. After you create a designation, you can assign it to project members to control which actions they can perform within the project.
 
+When you create a designation, you can also configure a layout customization (optional step). A layout customization controls which items appear in the left navigation pane of the Amazon SageMaker Unified Studio portal for members who have the designation.
+
 ## Prerequisites
 <a name="create-designation-prerequisites"></a>
 
@@ -29,10 +31,17 @@ Before you create a designation, review the following requirements:
 
 1. In the visual permission selector, select the permissions to include in the designation. Permissions are grouped by categories such as Catalog, Project, Subscriptions, Connections, Notebooks, and Data Agent.
 
+1. (Optional) Configure a layout customization for the designation. A layout customization controls which items appear in the left navigation pane of the Amazon SageMaker Unified Studio portal for members who have this designation. Navigation items are grouped into categories such as Main, Data analytics, AI/ML, Generative AI, IDEs, Manage, and Metadata entities. Select the navigation items to show, and clear the ones to hide. If you skip this step, members who have the designation see the full default left navigation pane, including any new navigation links that are later added to the portal.
+
 1. Choose **Create**.
 
-![Create designation page in Amazon SageMaker Unified Studio](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/adminguide/images/designations/Designations-Create.png)
+The following image shows the create designation page, including the optional layout customization step where you choose which navigation items appear for members who have the designation.
 
+![The create designation page in Amazon SageMaker Unified Studio, including the optional layout customization step](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/adminguide/images/designations/designation-create-v2.png)
+
+
+**Note**  
+The API and AWS CLI don't support layout customizations.
 
 ## To duplicate an existing designation
 <a name="duplicate-designation"></a>
