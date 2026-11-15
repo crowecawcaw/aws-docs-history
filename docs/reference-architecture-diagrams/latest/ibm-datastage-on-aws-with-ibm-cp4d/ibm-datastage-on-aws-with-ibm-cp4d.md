@@ -23,7 +23,7 @@ This architecture shows how to build a modern, cloud-native, secure data integra
 
 1. IBM CP4D runs as a container workload running on OpenShift. **ROSA** is a fully managed OpenShift implementation on **AWS**. Red Hat site reliability engineering (SRE) teams manage the OpenShift clusters, allowing customers to focus on other critical business aspects. 
 
-1. Marketing and finance users access the data from data marts and build visualization and dashboards using tools like IBM Cognos Analytics and **Amazon Quick Sight**. 
+1. Marketing and finance users access the data from data marts and build visualization and dashboards using tools like IBM Cognos Analytics and **AWS Quick Sight**. 
 
 1. Users can create self-service data access and business and compliance reports. Data from data marts helps users self-serve analytics with scale and performance. 
 
