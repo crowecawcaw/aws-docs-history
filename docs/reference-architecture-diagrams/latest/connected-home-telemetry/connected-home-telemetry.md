@@ -23,13 +23,13 @@ This reference architecture diagram shows how to measure and collect data from s
 1. Client applications can retrieve and visualize data:
    + **3a.** Client applications can make an API call to retrieve data through Amazon API Gateway.
    + **3b.** AWS IoT Events can trigger [Amazon Simple Notification Service](https://docs.aws.amazon.com/sns/latest/dg/welcome.html) actions in case certain changes occur in the data (for example, temperature exceeds 25 degrees).
-   + **3c.** You can import data from AWS IoT Analytics into [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) for visualization and further insights.
+   + **3c.** You can import data from AWS IoT Analytics into [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) for visualization and further insights.
 
 1. Notifications and data retrieval:
    + **4a.** [Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) invokes an [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) function with logic to retrieve data requested by the client applications from DynamoDB.
 
 1. Visualization and alerts:
-   + **5a.** Client applications can visualize the data in Amazon Quick Sight.
+   + **5a.** Client applications can visualize the data in AWS Quick Sight.
 
 ## Further reading
 <a name="further-reading"></a>
