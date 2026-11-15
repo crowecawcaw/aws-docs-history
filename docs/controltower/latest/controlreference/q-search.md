@@ -1,17 +1,17 @@
 
 
-# Search for controls with Amazon Q
+# Search for controls with AWS assistant
 <a name="q-search"></a>
 
-When you are logged into the AWS management console, Amazon Q can help you find the controls that you need to manage your AWS Control Tower environment. You can type prompts to Q, and find sumarized information about specific types or use cases for controls, such as these examples:
+When you are logged into the AWS management console, the AWS assistant can help you find the controls that you need to manage your AWS Control Tower environment. You can type prompts to the AWS assistant, and find sumarized information about specific types or use cases for controls, such as these examples:
 + What are the Digital Sovereignty controls?
 + What controls in AWS Control Tower monitor S3?
 + I have an AWS service running that uses Amazon ECS to host it, which controls from AWS Control Tower should I enable?
 + What are preventive controls in AWS Control Tower?
 
-Any time you'd like a paraphrase of information from the documentation, and a list of links for further reading, you can *ask Q*.
+Any time you'd like a paraphrase of information from the documentation, and a list of links for further reading, you can *ask AWS assistant*.
 
-Amazon Q is more proficient at summarizing information from the documentation than at giving complete lists of controls. The lists of controls you may receive are helpful starting points. Amazon Q also provides tips for security and best practices.
+The AWS assistant is more proficient at summarizing information from the documentation than at giving complete lists of controls. The lists of controls you may receive are helpful starting points. The AWS assistant also provides tips for security and best practices.
 
 **Here's an example answer to the last example prompt.**  
 *What are preventive controls in AWS Control Tower?*  

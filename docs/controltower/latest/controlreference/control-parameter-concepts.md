@@ -29,13 +29,16 @@ For example, some control policies include inline templating variables, such as 
 
 
 
-**A control may support any of the following four configuration parameters:**
+**A control may support any of the following five configuration parameters:**
 + **ExemptedPrincipalArns**: A list of AWS IAM principal ARNs that are exempted from this control.
   + This parameter allows you to exempt IAM Principals from this control by way of an **ArnNotLikeIfExists** condition key operator and **aws:PrincipalArn** condition key that is applied to the control policy by AWS Control Tower when you enable the control. The **ExemptedPrincipalArns** parameter allows you to use the wildcard character (\*) in the IAM principal ARNs that you specify. You can use the wildcard character to exempt all IAM principals in an AWS account, or exempt a common principal across multiple AWS accounts.
   +  When you use the wildcard character to exempt principals, be sure that you follow the principal of least privilege: include only those IAM principal ARNs that you require to be exempt from a control. Otherwise, if your exemptions are too broad, the control may not come into effect when you intend it to. 
 + **AllowedRegions**: List of AWS Regions exempted from the control.
 + **ExemptedActions**: List of AWS IAM actions exempted from the control.
 + **ExemptedResourceArns**: List of resource ARNs exempted from the control.
++ **ExemptAssumeRoot**: A parameter that lets you choose whether to exempt requests made with `AssumeRoot` from this control, for this OU.
+  + For member accounts, the `AssumeRoot` property is included in requests initiated by IAM centralized root access. This parameter applies only to the `AWS-GR_RESTRICT_ROOT_USER` control.
+  + If you add the parameter when enabling the control, the `AssumeRoot` exemption is allowed. If you omit the parameter, the `AssumeRoot` exemption is not permitted. The parameter does not accept `False` as a value.
 
 For more details about configuring controls with parameters, see [`ControlParameter`](https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ControlParameter.html) in the *AWS Control Tower API Reference*.
 

@@ -23,7 +23,7 @@ The Control Catalog was formerly called the Controls Library. We have renamed it
 + [Optional controls](optional-controls.md)
 + [Strongly recommended controls](strongly-recommended-controls.md)
 + [Elective controls](elective-controls.md)
-+ [Search for controls with Amazon Q](q-search.md)
++ [Search for controls with AWS assistant](q-search.md)
 
 **Note**  
 The four mandatory controls with `"Sid": "GRCLOUDTRAILENABLED"` are identical by design. The sample code is correct.
