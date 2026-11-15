@@ -30,7 +30,7 @@ The following are prerequisites for using EFA-enabled file systems:
 **To create your EFA-enabled file system:**
 + Use an EFA-enabled security group. For more information, see [EFA-enabled security groups](limit-access-security-groups.md#efa-security-groups).
 + Use the same Availability Zone and /16 CIDR as your EFA-enabled client instances within your Amazon VPC.
-+ On Intelligent-Tiering file systems, EFA is only supported with a throughput capacity of 4,000 MBps or increments of 4,000 MBps.
++ On Intelligent-Tiering file systems, EFA requires a throughput capacity of 4000 MBps or an increment of 4000 MBps, and isn't supported at 1000 MBps or 2000 MBps.
 
 **To access your file system using Elastic Fabric Adapter (EFA):**
 + Use Nitro v4 (or higher) EC2 instances that support EFA, excluding the trn2 instance family. See [Supported instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html#efa-instance-types) in the *Amazon EC2 User Guide*.

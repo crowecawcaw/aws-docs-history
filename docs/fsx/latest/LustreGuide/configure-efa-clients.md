@@ -14,6 +14,8 @@ EFA is supported on Lustre clients listed below. For more information, see [Inst
 
 EFA is supported on Nitro v4 (or higher) EC2 instances that support EFA, excluding the trn2 instance family. See [Supported instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html#efa-instance-types) in the *Amazon EC2 User Guide*.
 
+The client must be in the same Availability Zone as your FSx for Lustre file system, and the client's subnet and the file system's subnet must be in the same `/16` Classless Inter-Domain Routing (CIDR) range. Their IPv4 addresses must share the same first two octets. For example, a client in subnet `10.24.34.0/24` can use EFA with a file system in subnet `10.24.56.0/24`, but not with one in `10.25.34.0/24`.
+
 **Topics**
 + [Step 1: Configure an EFA-enabled security group](#configure-efa-security-group)
 + [Step 2: Install required drivers](#install-required-drivers)

@@ -21,9 +21,11 @@ Data from the in-memory cache on file systems using the Intelligent-Tiering stor
 The following table shows the performance that FSx for Lustre Intelligent-Tiering file systems are designed for.
 
 
-| Provisioned throughput capacity (MBps) | **Network throughput (MBps)** |  **Network IOPS** |  **In-memory cache storage (GB)** |  **Maximum SSD cache disk throughput (MBps)** | **Maximum SSD cache disk IOPS** | 
+| Provisioned throughput capacity (MBps) |  **Baseline network throughput (MBps)** |  **Network IOPS** |  **In-memory cache storage (GB)** |  **Maximum SSD cache disk throughput (MBps)** |  **Maximum SSD cache disk IOPS** | 
 | --- |--- |--- |--- |--- |--- |
-| **** | **Baseline** | **Burst** | **** | **** | **** | **Baseline** | **Burst** | 
-| --- |--- |--- |--- |--- |--- |--- |--- |
-| Every 4000 | 12500 | ‐ | Hundreds of thousands | 76.8 | 4000 | 160000 | ‐ | 
-| --- |--- |--- |--- |--- |--- |--- |--- |
+| 1000 | 3125 | Hundreds of thousands | 19.2 | 1000 | 40000 | 
+| --- |--- |--- |--- |--- |--- |
+| 2000 | 6250 | Hundreds of thousands | 38.4 | 2000 | 80000 | 
+| --- |--- |--- |--- |--- |--- |
+| Every 4000 | 12500 | Hundreds of thousands | 76.8 | 4000 | 160000 | 
+| --- |--- |--- |--- |--- |--- |

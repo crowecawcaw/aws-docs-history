@@ -59,7 +59,7 @@ Your file system may experience a very brief period of unavailability during the
 <a name="update-int-throughput-cli"></a>
 + To modify a file system's throughput capacity, use the [update-file-system](https://docs.aws.amazon.com/cli/latest/reference/fsx/update-file-system.html) CLI command (or the equivalent [UpdateFileSystem](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html) API operation). Set the following parameters:
   + Set `--file-system-id` to the ID of the file system that you are updating.
-  + If your data read cache is configured in proportional to throughput capacity mode, set `--lustre-configuration ThroughputCapacity` to a throughput level of increments of `4000` MBps, up to a maximum of `2000000` MBps.
+  + If your data read cache is configured in proportional to throughput capacity mode, set `--lustre-configuration ThroughputCapacity` to `1000`, `2000`, or increments of `4000` MBps, up to a maximum of `2000000` MBps.
 
     If your data read cache is configured in user-provisioned mode, you also need to use the `--lustre-configuration DataReadCacheConfiguration` property to specify the data read cache. You need to maintain the same cache storage per server ratio and specify the new SizeGiB, or the request will be rejected.
 

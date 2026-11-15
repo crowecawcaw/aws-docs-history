@@ -17,6 +17,10 @@ In Automatic (proportional to throughput capacity) mode, Amazon FSx automaticall
 | --- |--- |--- |
 | **** | **** | **minimum (GiB)** | **maximum (GiB)** | 
 | --- |--- |--- |--- |
+| 1000 | 5000 | 8 | 32768 | 
+| --- |--- |--- |--- |
+| 2000 | 10000 | 16 | 65536 | 
+| --- |--- |--- |--- |
 | Every 4000 | 20000 | 32 | 131072 | 
 | --- |--- |--- |--- |
 

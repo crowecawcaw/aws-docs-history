@@ -29,9 +29,7 @@ When you create the file system, you choose a metadata configuration mode:
 + Choose Automatic mode if you want Amazon FSx to provision and scale Metadata IOPS for you. For SSD file systems, the number is based on storage capacity. For Intelligent-Tiering file systems, it is based on throughput capacity.
 + Choose User-provisioned mode if you want to specify the number of Metadata IOPS to provision for your file system.
 
-Valid Metadata IOPS values are as follows:
-+ For SSD file systems, valid Metadata IOPS values are 1500, 3000, 6000, and multiples of 12000 up to a maximum of 192000.
-+ For Intelligent-Tiering file systems, valid Metadata IOPS values are 6000, 12000, and multiples of 12000 up to a maximum of 192000.
+For both SSD and Intelligent-Tiering file systems, valid Metadata IOPS values are 1500, 3000, 6000, 12000, and multiples of 12000 up to a maximum of 192000.
 
 **Note**  
 Intelligent-Tiering file systems created before November 5, 2026, support only User-provisioned mode, with valid Metadata IOPS values of 6000 and 12000. A file system restored from a backup inherits the supported metadata modes, Metadata IOPS values, and minimum Metadata IOPS requirement of the file system the backup was created from.

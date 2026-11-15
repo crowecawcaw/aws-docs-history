@@ -67,13 +67,13 @@ For Intelligent-Tiering file systems, Automatic mode provisions Metadata IOPS ba
 
 | File system throughput capacity | Metadata IOPS provisioned in Automatic mode | 
 | --- | --- | 
+| 1000 MBps | 1500 | 
+| 2000 MBps | 3000 | 
 | 4000–8000 MBps | 6000 | 
 | 12000–44000 MBps | 12000 | 
 | ≥48000 MBps | 12000 IOPS per 24000 MBps | 
 
-In User-provisioned mode, you can optionally choose to specify the number of metadata IOPS to provision. Valid values are as follows:
-+ For SSD file systems, valid values are `1500`, `3000`, `6000`, `12000`, and multiples of `12000` up to a maximum of `192000`.
-+ For Intelligent-Tiering file systems, valid values are `6000`, `12000`, and multiples of `12000` up to a maximum of `192000`.
+In User-provisioned mode, you can optionally choose to specify the number of metadata IOPS to provision. For both SSD and Intelligent-Tiering file systems, valid Metadata IOPS values are `1500`, `3000`, `6000`, `12000`, and multiples of `12000` up to a maximum of `192000`. You can't provision fewer Metadata IOPS than Automatic mode provisions for your file system.
 
 For information about how to configure Metadata IOPS, see [Managing metadata performance](managing-metadata-performance.md).
 

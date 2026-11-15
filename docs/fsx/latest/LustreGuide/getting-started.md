@@ -70,9 +70,7 @@ You create your file system in the Amazon FSx console. Note that all FSx for Lus
 
 1. For the metadata configuration, choose one of the following options to provision the number of Metadata IOPS for your file system:
    + Choose **Automatic** if you want Amazon FSx for Lustre to provision and scale Metadata IOPS for you. For the SSD storage class, the number is based on your file system's storage capacity. For Intelligent-Tiering, it is based on throughput capacity.
-   + Choose **User-provisioned** if you want to specify the number of Metadata IOPS to provision for your file system with SSD or Intelligent-Tiering storage class. Valid values are as follows:
-     + For SSD file systems, valid values are `1500`, `3000`, `6000`, `12000`, and multiples of `12000` up to a maximum of `192000`.
-     + For Intelligent-Tiering file systems, valid values are `6000`, `12000`, and multiples of `12000` up to a maximum of `192000`.
+   + Choose **User-provisioned** if you want to specify the number of Metadata IOPS to provision for your file system with SSD or Intelligent-Tiering storage class. Valid Metadata IOPS values are `1500`, `3000`, `6000`, `12000`, and multiples of `12000` up to a maximum of `192000`. You can't provision fewer Metadata IOPS than Automatic mode provisions for your file system.
 
    For more information about Metadata IOPS, see [Lustre metadata performance configuration](managing-metadata-performance.md#metadata-configuration).
 
