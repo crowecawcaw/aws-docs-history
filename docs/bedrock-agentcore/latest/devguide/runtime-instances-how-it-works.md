@@ -89,6 +89,7 @@ The following table compares the **microVMs** and **Instances** compute types to
 | Supported artifacts | Container image and Amazon S3 source | Container image and Amazon S3 source | 
 | GPU access | Not supported | Choose a supported GPU instance type; drivers are provisioned for you | 
 | Pricing | Consumption-based, billed by AgentCore | EC2 instances run in your account; use your Savings Plans and ODCRs | 
+| Lifecycle hooks | Supported on platform version V2. For more information, see [Configure lifecycle hooks for AgentCore Runtime](runtime-lifecycle-hooks.md). | Not supported | 
 | Models and frameworks | Any | Any | 
 
 ## Use GPU instance types

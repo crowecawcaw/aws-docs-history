@@ -32,6 +32,9 @@ This troubleshooting topic helps you identify and resolve common issues when wor
 + [My S3 Files or EFS mount times out](#troubleshoot-byo-storage-mount-timeout)
 + [I get "Permission Denied" when writing to my mounted filesystem](#troubleshoot-byo-storage-write-permission-denied)
 + [My container fails to start with HTTP 424 error on high-layer images](#troubleshoot-runtime-overlay-mount-failure)
++ [The container image needs more build disk than this runtime has](#troubleshoot-runtime-insufficient-build-disk)
++ [ServiceQuotaExceededException: maxImageSizeMb limit exceeded](#troubleshoot-runtime-image-size-limit)
++ [My agent runtime is in CREATE\_FAILED or UPDATE\_FAILED because of a lifecycle hook](#troubleshoot-runtime-lifecycle-hooks)
 + [My capacity provider is in state CREATE\_FAILED](#troubleshoot-instances-capacity-provider-create-failed)
 + [My agents on Instances do not have access to their credentials](#troubleshoot-instances-credentials-access)
 + [Best practices](#best-practices)
@@ -591,6 +594,80 @@ Omit `s3files:ClientWrite` or `elasticfilesystem:ClientWrite` if your agent only
 docker inspect <image> | jq '.[0].RootFS.Layers | length'
 ```
 +  **Squash layers:** Use `docker build --squash` or a tool like `docker-squash` to flatten your image layers.
+
+## The container image needs more build disk than this runtime has
+<a name="troubleshoot-runtime-insufficient-build-disk"></a>
+
+ **When this occurs:** After you create or update an agent runtime on platform version V2, AgentCore Runtime sets the agent runtime status to `CREATE_FAILED` or `UPDATE_FAILED` and reports this failure reason.
+
+ **Why this happens:** The build disk must hold both the compressed and the uncompressed container image. The build disk size is determined by the `minimumMemoryInMiB` in your resource configuration. If your image does not fit, the build fails before your agent starts.
+
+ **Solution:** 
+
+1. Check the compressed size of your container image in Amazon ECR.
+
+1. Set a [resource configuration](runtime-how-it-works.md#runtime-v2-resource-configurations) with the recommended `minimumMemoryInMiB` for that size, or reduce your container image size.
+
+The following table shows the recommended `minimumMemoryInMiB` value for each compressed image size.
+
+
+| Container image size (compressed) | Recommended `minimumMemoryInMiB`  | 
+| --- | --- | 
+| Up to 2 GB | 1024 or higher | 
+| 2–4 GB | 4096 or higher | 
+| 4–10 GB | 8192 | 
+
+## ServiceQuotaExceededException: maxImageSizeMb limit exceeded
+<a name="troubleshoot-runtime-image-size-limit"></a>
+
+ **When this occurs:** `CreateAgentRuntime` or `UpdateAgentRuntime` returns a `ServiceQuotaExceededException` with the message `maxImageSizeMb limit exceeded`.
+
+ **Why this happens:** Your compressed container image is larger than the maximum image size for the platform version: 2 GB on platform version V1, and 10 GB on platform version V2.
+
+ **Solution:** 
+
+1. Reduce your container image size so that the compressed image is below the limit for your platform version, and the compressed and uncompressed images together fit on the build disk.
+
+1. To use an image larger than 2 GB, set `platformVersion` to `V2` and set a [resource configuration](runtime-how-it-works.md#runtime-v2-resource-configurations) in your `CreateAgentRuntime` or `UpdateAgentRuntime` request.
+
+## My agent runtime is in CREATE\_FAILED or UPDATE\_FAILED because of a lifecycle hook
+<a name="troubleshoot-runtime-lifecycle-hooks"></a>
+
+ **When this occurs:** After you create or update a V2 runtime that has a build warmup lifecycle hook, the runtime enters `CREATE_FAILED` or `UPDATE_FAILED`, and `GetAgentRuntime` returns one of the following `failureReason` values:
+
+```
+A lifecycle hook failed. Check your runtime's logs for which hook failed and why. For troubleshooting, see https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-troubleshooting.html
+```
+
+```
+A lifecycle hook didn't finish within its timeoutSeconds. Check your runtime's logs for which hook timed out. For troubleshooting, see https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-troubleshooting.html
+```
+
+ **Why this happens:** A warmup call returned a status code other than `2xx`, AgentCore Runtime couldn’t connect to the hook, or the `memory` and `disk` calls didn’t finish within the 120 seconds that they share. In the second message, `timeoutSeconds` refers to this 120-second warmup time limit, which you can’t change. For more information, see [Build warmup hook](runtime-lifecycle-hooks.md#runtime-lifecycle-hooks-warmup).
+
+ **Find the failed call:** Open your runtime’s log group, `/aws/bedrock-agentcore/runtimes/<agentRuntimeId>-DEFAULT`, and look in the log streams whose names start with `build-logs-`. Each warmup line starts with `[LIFECYCLE-HOOK <epoch-milliseconds>]`, followed by `[LIFECYCLE]` for progress or `[ERROR]` for failures. A line can appear more than once for one create or update. For example:
+
+```
+[LIFECYCLE-HOOK 1718030400000] [LIFECYCLE] warmup hook (memory) started with 120.0 s of the 120 s warmup budget left
+```
+
+The following table describes the lines. The examples below leave out the `[LIFECYCLE-HOOK <epoch-milliseconds>]` prefix.
+
+
+| Line | Example | What it means | 
+| --- | --- | --- | 
+|  `started`  |  `[LIFECYCLE] warmup hook (memory) started with 120.0 s of the 120 s warmup budget left`  | AgentCore Runtime sent the call. The line shows the time left for this call and any call after it. | 
+|  `succeeded`  |  `[LIFECYCLE] warmup hook (memory) succeeded in 50.0 s (70.0 s of the 120 s warmup budget left)`  | Your handler returned `2xx`. The line shows how long the call took and the time left for the `disk` call. | 
+|  `timed out`  |  `[ERROR] warmup hook (disk) timed out after 70.0 s (memory used 50.0 s and disk 70.0 s of the 120 s warmup budget)`  | The two calls didn’t finish within 120 seconds. The line shows how much of the time each call used. | 
+|  `failed`, with a status code |  `[ERROR] warmup hook (memory) failed: POST /warmup on port 8080 returned 500 after 3.2 s`  | Your handler returned a status code other than `2xx`. | 
+|  `failed`, with a connection error |  `[ERROR] warmup hook (memory) failed: POST /warmup on port 8080: connection refused`  | AgentCore Runtime couldn’t connect to the hook. The text after the colon is the connection error. | 
+|  `stopped`  |  `[LIFECYCLE] warmup hook (memory) stopped after 3.2 s: the runtime is shutting down`  | AgentCore Runtime stopped the call because the runtime is shutting down. | 
+
+ **Solution:** Fix the cause that the log lines show, then update the runtime again:
++  **Make both calls fit in 120 seconds.** If a call timed out, use the split in the `timed out` line to see which call used the time. Move expensive work to the `memory` call, and keep the `disk` call to the files that one session reads when it starts.
++  **Return `2xx`.** If a call failed with a status code, check your application logs for the error in your warmup handler. Return `2xx` only after the work succeeds.
++  **Listen on the hook port before `/ping` passes.** If a call failed with a connection error, make sure that a server listens on `0.0.0.0` at the hook port, and that it’s listening by the time your agent passes `/ping`. If the hook uses a port other than your serving port, start that server before `/ping` reports healthy. Check that the hook’s `path` and `port` in `GetAgentRuntime` match your server.
++  **Keep `/ping` responsive.** Don’t block your server’s only thread in the warmup handler. Run the warmup work in a separate thread or process so that your server keeps answering `/ping`.
 
 ## My capacity provider is in state CREATE\_FAILED
 <a name="troubleshoot-instances-capacity-provider-create-failed"></a>

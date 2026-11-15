@@ -3,19 +3,34 @@
 # Tools
 <a name="harness-tools"></a>
 
-Tools are declarative. You list what the agent can call; AgentCore handles invocation, credentials, and results. The harness supports five tool types, plus the built-in filesystem and shell tools.
-+  **MCP servers:** Connect to any remote [Model Context Protocol](https://modelcontextprotocol.io) endpoint by URL. No Gateway required for simple cases.
+Tools are declarative. You list what the agent can call; AgentCore handles invocation, credentials, and results. The harness supports five tool types and managed built-in tools.
++  ** [Model Context Protocol](https://modelcontextprotocol.io) (MCP) servers:** Connect to any remote MCP endpoint by URL. To authenticate, send request headers, or have the harness sign each request with Signature Version 4 (SigV4) using the harness execution role.
 +  ** [AgentCore Gateway](gateway.md):** Governed connectivity to APIs and MCP servers with inbound/outbound auth, access control, and [policy enforcement](policy.md). Reference a gateway ARN and every tool configured on that gateway becomes available. Use Gateway when you need a managed, policy-backed tool surface.
 +  ** [AgentCore Browser](browser-tool.md):** Managed web browsing and automation.
 +  ** [AgentCore Code Interpreter](code-interpreter-tool.md):** Sandboxed Python/JavaScript/TypeScript code execution for data analysis and computation.
 +  **Inline functions:** Tool schemas that execute on the client side, not on the harness VM. The harness pauses when the tool is called and returns the call to your code, which decides what to do and sends a result back. This is the pattern for human-in-the-loop approvals and custom integrations.
 
-Default tools `shell` and `file_operations` are available in every session unless you restrict them with `allowedTools`. `shell` executes bash commands; `file_operations` supports viewing, creating, and editing files.
+When `allowedTools` is omitted or set to `["*"]`, the harness uses the current recommended built-in tool set.
 
-The `allowedTools` parameter controls which tools the agent can use. If omitted, all tools are allowed.
+**Wildcard tool access**  
+ `allowedTools: ["*"]` permits every configured tool that resolves successfully and every tool in the current recommended built-in set, including `shell` and filesystem tools that can read, create, or modify files (`read`, `write`, and `edit`). The recommended set can gain new tools as the harness improves. Use the wildcard only when the agent should be allowed to use every such tool. To keep a fixed, least-privilege tool surface, list individual selectors.
+
+
+| Selector | Capability | 
+| --- | --- | 
+|  `shell`  | Runs shell commands in the harness filesystem. Use it for command-line tools and scripts. | 
+|  `read`, `write`, `edit`  | Separately permit viewing a file, creating or replacing a file, and making targeted changes to an existing file. | 
+|  `file_operations`  | Compatibility selector that grants `read`, `write`, and `edit`. The model uses the separate filesystem tools. | 
+|  `todo_write`  | Lets the agent record and update a task plan. It is useful for tracking multi-step work. | 
+|  `retrieve_context`  | Moves each tool result larger than approximately 1,500 tokens out of the agent’s context and leaves a shorter preview in its place. The agent can use `retrieve_context` to retrieve the full result. | 
+|  `subagent`  | Lets the agent delegate a self-contained task to a fresh child agent and receive its result. The child is not a separately configured harness. The child gets the agent’s built-in, MCP server, and Gateway tools other than `subagent`, or a subset of them that the agent chooses when it delegates. When `retrieve_context` is permitted, the child always gets `retrieve_context` and its previews, even if the agent leaves it out of the subset. Browser, Code Interpreter, and inline functions stay with the parent agent. The child shares the invocation’s limits and your tool-call lifecycle hooks. | 
+|  `web_fetch`  | Retrieves content from a URL for the agent to inspect. | 
+
+The `allowedTools` parameter controls which tools the agent can use. Use a plain selector such as `read`, a built-in selector such as `@builtin/read`, or `@builtin` for all built-in tools.
 
 **Token overhead from tool definitions**  
-Tool definitions count toward model input tokens even when the agent doesn’t call the tools. Together, the default `shell` and `file_operations` definitions add approximately 900 input tokens to each model request. The exact count varies by model and can change as tool definitions evolve. Because an invocation can make multiple model requests, this overhead can occur more than once per invocation. Use `allowedTools` to expose only the tools needed for a request and reduce token usage.
+Tool definitions count toward model input tokens even when the agent doesn’t call the tools. The current recommended built-in tool set adds approximately 3,000 input tokens to each model request. The exact overhead varies by model and can change as built-in tool definitions evolve.  
+For supported Amazon Bedrock models using `converse_stream`, the harness automatically includes the system prompt, tool definitions, and conversation history in prompt caching. After the cache is populated, repeated model calls with an unchanged effective tool set can reuse the cached tool-definition tokens. Cache reads use the model’s lower cache-read price instead of its regular input-token price; creating or refreshing the entry uses the model’s cache-write price. Prompt caching does not remove the tool definitions from the model context. Use `allowedTools` to expose only the tools needed for a request and reduce context usage. See [Automatic prompt caching](harness-models.md#harness-prompt-caching) for model support, cache behavior, and pricing details.
 
 Supported patterns:
 
@@ -24,7 +39,7 @@ Supported patterns:
 | --- | --- | --- | 
 |  `*`  |  `"*"`  | All tools | 
 | Plain name |  `"shell"`  | Builtin by name | 
-| Builtin glob |  `"file_*"`  |  `file_operations`, `file_read`  | 
+| Builtin glob |  `"file_*"`  |  `file_operations`  | 
 |  `@builtin`  |  `"@builtin"`  | All builtin tools | 
 |  `@builtin/name`  |  `"@builtin/shell"`  | Specific builtin | 
 |  `@server`  |  `"@git"`  | All tools from an MCP server | 
@@ -37,6 +52,11 @@ Supported patterns:
 
 ## Add tools
 <a name="_add_tools"></a>
+
+**Remote MCP security**  
+Remote MCP connections originate inside the harness session microVM. MCP URLs can point to public or private endpoints that the runtime can reach.
+
+Before you invoke the harness for less-trusted application users, validate or replace caller-supplied tool configurations, including MCP URLs and headers. Scope the execution role and AgentCore Identity access to the resources and credentials the harness needs. For more information, see [Trust boundary and input validation](harness-security.md#harness-trust-boundary) and [MicroVM Metadata Service (MMDS)](security-credentials-management.md#mmds).
 
 **Example**  
 Pass `tools` at create, update, or invoke time:  
@@ -67,6 +87,18 @@ tools = [
         "config": {"remoteMcp": {
             "url": "https://mcp.exa.ai/mcp",
             "headers": {"x-api-key": "${arn:aws:bedrock-agentcore:us-west-2:123456789012:token-vault/default/apikeycredentialprovider/my-exa-key}"}
+        }},
+    },
+    # MCP server that requires IAM authentication. The harness signs each request
+    # with SigV4 using the harness execution role. Set service to the signing name
+    # of the endpoint, for example lambda for a Lambda function URL. If you omit
+    # region, the harness Region is used.
+    {
+        "type": "remote_mcp",
+        "name": "my-iam-mcp",
+        "config": {"remoteMcp": {
+            "url": "https://<url-id>.lambda-url.us-west-2.on.aws/mcp",
+            "outboundAuth": {"awsIam": {"service": "lambda"}}
         }},
     },
     # For managed credential rotation and OAuth-protected tools, put your MCP server
@@ -130,6 +162,7 @@ agentcore add harness \
   --tools '[
     {"type":"remote_mcp","name":"exa","config":{"remoteMcp":{"url":"https://mcp.exa.ai/mcp"}}},
     {"type":"remote_mcp","name":"exa-secure","config":{"remoteMcp":{"url":"https://mcp.exa.ai/mcp","headers":{"x-api-key":"${arn:aws:bedrock-agentcore:us-west-2:123456789012:token-vault/default/apikeycredentialprovider/my-exa-key}"}}}},
+    {"type":"remote_mcp","name":"my-iam-mcp","config":{"remoteMcp":{"url":"https://<url-id>.lambda-url.us-west-2.on.aws/mcp","outboundAuth":{"awsIam":{"service":"lambda"}}}}},
     {"type":"agentcore_browser","name":"browser"},
     {"type":"agentcore_code_interpreter","name":"code-interpreter"},
     {"type":"agentcore_gateway","name":"my-gateway","config":{"agentCoreGateway":{"gatewayArn":"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/my-gateway","outboundAuth":{"awsIam":{}}}}},

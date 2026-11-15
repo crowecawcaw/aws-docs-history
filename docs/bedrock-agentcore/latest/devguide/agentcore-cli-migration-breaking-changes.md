@@ -152,7 +152,7 @@ Use `agentcore migrate` to convert an existing project’s Harness configuration
 
 AgentCore CLI v1 doesn’t have a command to add an individual tool to a harness. Edit the complete `tools` collection in `app/<harness-name>/harness.yaml`, including any existing tools you want to keep.
 
-For example:
+The following `harness.yaml` example defines a code interpreter tool and a remote MCP tool:
 
 ```
 tools:
@@ -174,7 +174,7 @@ tools:
 
 AgentCore CLI v1 doesn’t have a command to add an individual skill to a harness. Edit the complete `skills` collection in `app/<harness-name>/harness.yaml`, including any existing skills you want to keep.
 
-For example:
+The following `harness.yaml` example defines two skills, one from a local path and one from an Amazon S3 location:
 
 ```
 skills:

@@ -117,7 +117,7 @@ To enhance observability, AgentCore provides structured spans that provide visib
 
 | Operation name | Span attributes | Description | 
 | --- | --- | --- | 
-| InvokeAgentRuntime | aws.operation.name, aws.resource.arn, aws.request\_id, aws.agent.id, aws.endpoint.name, aws.account.id, session.id, latency\_ms, error\_type, aws.resource.type, aws.xray.origin, aws.region | Invokes the agent runtime. | 
+| InvokeAgentRuntime | aws.operation.name, aws.resource.arn, aws.request\_id, aws.agent.id, aws.endpoint.name, aws.account.id, session.id, latency\_ms, error\_type, aws.resource.type, aws.xray.origin, aws.region, aws.agentcore.runtime.version | Invokes the agent runtime. | 
 + aws.operation.name - the operation name (InvokeAgentRuntime)
 + aws.resource.arn - the Amazon resource name for the agent runtime
 + aws.request\_id - request ID for the invocation
@@ -130,6 +130,9 @@ To enhance observability, AgentCore provides structured spans that provide visib
 + aws.resource.type - the CFN resource type
 + aws.xray.origin - the CFN resource type used by x-ray to identify the service
 + aws.region - the region the customer resource exists in
++ aws.agentcore.runtime.version - the runtime version that served the request (starting November 16, 2026)
+
+Starting November 16, 2026, the span also carries the OpenTelemetry resource attributes you set on your agent runtime with `OTEL_RESOURCE_ATTRIBUTES` and `OTEL_SERVICE_NAME`, merged with the attributes AgentCore Runtime sets. For more information, see [Add custom resource attributes to your agent’s telemetry](observability-configure.md#observability-configure-resource-attributes).
 
 ## Application log data
 <a name="observability-runtime-application-log-data"></a>
@@ -141,6 +144,8 @@ AgentCore provides structured Application logs that help you gain visibility int
 | --- | --- | --- | 
 | APPLICATION\_LOGS | timestamp, resource\_arn, event\_timestamp, account\_id, request\_id, session\_id, trace\_id, span\_id, service\_name, operation, request\_payload | Application logs for InvokeRuntimeOperation with tracing fields and the request payload | 
 + request\_payload - the request payload of the agent invocation
+
+Starting November 16, 2026, the log record’s resource carries the same merged attributes as the span, so `service_name` shows your service name if you set one.
 
 ## Error types
 <a name="observability-runtime-metrics-errors"></a>

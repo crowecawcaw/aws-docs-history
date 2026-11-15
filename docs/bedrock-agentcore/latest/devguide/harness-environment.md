@@ -76,7 +76,7 @@ Include the following programs in your image:
 + Include `base64`, `cat`, `dirname`, `env`, `ls`, `mkdir`, and `rm`. The file tools use them to read and write files.
 + Include `tar` when you configure Git, Amazon S3, or AWS skills. The harness uses it to copy these skills into the container.
 
-When you configure Git, Amazon S3, or AWS skills, give the container user write access to `/tmp`. The harness copies these skills into `/tmp` before the agent starts.
+Give the container user write access to `/tmp`. The harness copies Git, Amazon S3, and AWS skills into `/tmp` before the agent starts, and stores offloaded tool results there. Without write access, large tool results stay in the conversation in full.
 
 Most general-purpose base images include these programs, but some minimal images don’t. For example, `amazonlinux:2023` and `amazonlinux:2` don’t include `tar`. Alpine and BusyBox images don’t include `/bin/bash`. To install `tar` on Amazon Linux, add `RUN dnf install -y tar` to your Dockerfile.
 

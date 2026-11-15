@@ -59,6 +59,9 @@ The proxy doesn’t forward the session endpoint hostname. Your application rece
 
 Start your application servers and bind them to `0.0.0.0` on their configured ports. Adding a port to `allowedPorts` doesn’t start or configure a server.
 
+**Note**  
+If your runtime has lifecycle hooks, requests to a hook’s route return HTTP `403`, and Runtime drops hook headers from session endpoint requests. For more information, see [HTTP actions](runtime-lifecycle-hooks.md#runtime-lifecycle-hooks-http-actions).
+
 The agent server must also satisfy the [Runtime service contract](runtime-service-contract.md).
 
 ## Configure allowed ports
@@ -322,7 +325,7 @@ Use the header to distinguish a platform error from an application response with
 | --- | --- | --- | 
 |  `400`  |  `MalformedRequest` or `ProtocolError`  | Check the URL, request format, and transport settings. | 
 |  `401`  |  `AuthenticationRequired`  | Supply valid credentials for the runtime’s configured authentication mode. | 
-|  `403`  |  `AccessDenied`  | Check SigV4 signing or other authorization requirements and verify that the selected port is in `allowedPorts`. Authentication failures can also return `403`. | 
+|  `403`  |  `AccessDenied`  | Check SigV4 signing or other authorization requirements and verify that the selected port is in `allowedPorts`. Authentication failures can also return `403`. Requests to a lifecycle hook’s route also return `403`. | 
 |  `404`  |  `SessionNotFound`  | Verify that you’re using a returned session endpoint URL and that the session still exists. | 
 |  `409`  |  `SessionConflict`  | A session operation is in progress. Retry with bounded backoff when the application request is safe to retry. | 
 |  `424`  |  `RuntimeClientError`  | The application didn’t become ready or respond within the timeout. Check application startup, readiness, and response times. | 

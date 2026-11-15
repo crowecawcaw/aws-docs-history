@@ -14,7 +14,7 @@ Private connectivity is established using [Amazon VPC Lattice](https://docs.aws.
 + [Option 1: Managed VPC resources](#lattice-vpc-egress-managed-lattice)
 + [Option 2: Self-managed Lattice resources](#lattice-vpc-egress-self-managed-lattice)
 + [Route traffic through an intermediate domain](#lattice-vpc-egress-routing-domain)
-+ [Workaround for private certificates: ALB](#lattice-vpc-egress-private-certs)
++ [Working around private certificates with an ALB](#lattice-vpc-egress-private-certs)
 + [Service-linked role for VPC egress](#lattice-vpc-egress-slr)
 + [Target status and troubleshooting](#lattice-vpc-egress-target-status)
 + [Limitations and considerations](#lattice-vpc-egress-limitations)
@@ -375,13 +375,14 @@ The following example shows how to create a gateway target for a private API Gat
 **Note**  
 The `routingDomain` field is only available for the `managedVpcResource` option. For self-managed Lattice, configure the routing domain directly in your resource configuration when you create it.
 
-## Workaround for private certificates: ALB
+## Working around private certificates with an ALB
 <a name="lattice-vpc-egress-private-certs"></a>
 
-**Gateway now supports private certificate authorities directly**  
-AgentCore Gateway can now trust a private certificate authority directly, without an ALB. For most targets, use that approach instead. For more information, see [Connect to targets that use a private certificate authority](gateway-vpc-egress.md#gateway-private-certificate).
+**Note**  
+AgentCore Gateway can now trust a private certificate authority directly, without an ALB. For most targets, use that approach instead. For more information, see [Connect to targets that use a private certificate authority](gateway-vpc-egress.md#gateway-private-certificate).  
+AgentCore Identity also supports private CA certificates for outbound custom OAuth providers that connect to private identity providers. For more information, see [Connect to identity providers that use a private certificate authority](identity-private-idp.md#identity-private-certificate).
 
-VPC egress requires your target endpoint to have a publicly trusted TLS certificate. If your private resource uses a certificate issued by a private certificate authority (CA), the recommended workaround is to place an internal Application Load Balancer (ALB) in front of your resource.
+If you cannot configure private CA trust directly, you can place an internal Application Load Balancer (ALB) with a publicly trusted TLS certificate in front of your private resource.
 
 The following steps describe the traffic flow:
 

@@ -92,10 +92,15 @@ Consistent cold starts
 V2 keeps cold-start latency consistent regardless of concurrency or image size, because each instance restores a prepared snapshot instead of initializing your environment. This matters most for large container images, which are otherwise slow to load on each cold start.
 
 Lower cost for always-on or bursty agents  
-V2 charges based on what your agent actively uses. AgentCore Runtime reclaims memory as your agent releases it, and reduces platform overhead.
+By default, V2 charges based on what your agent actively uses. AgentCore Runtime reclaims memory as your agent releases it, and reduces platform overhead. You can also set a committed baseline, which is billed at a lower rate. For more information, see [Resource configurations](#runtime-v2-resource-configurations).
+
+Larger container images  
+With V2, you can use container images up to 10 GB (compressed), compared to 2 GB on V1. For images larger than 2 GB, set a larger `minimumMemoryInMiB`. For more information, see [build disk requirements](runtime-troubleshooting.md#troubleshoot-runtime-insufficient-build-disk).
 
 **Note**  
 Restoring from a snapshot changes how you structure your agent code. To learn how to optimize your agent and get the most out of platform version V2, see [Optimize your agent for AgentCore Runtime V2](runtime-v2-optimize.md).
+
+V2 also supports lifecycle hooks, such as a build warmup hook that AgentCore Runtime calls while it prepares your agent, so that your agent can prepare memory and disk before sessions start. For more information, see [Configure lifecycle hooks for AgentCore Runtime](runtime-lifecycle-hooks.md).
 
 ### Supported Regions
 <a name="runtime-platform-versions-regions"></a>
@@ -104,13 +109,22 @@ V2 is available in the following AWS Regions:
 + US East (N. Virginia), `us-east-1` 
 + US East (Ohio), `us-east-2` 
 + US West (Oregon), `us-west-2` 
++ Canada (Central), `ca-central-1` 
 + Europe (Frankfurt), `eu-central-1` 
 + Europe (Ireland), `eu-west-1` 
++ Europe (London), `eu-west-2` 
++ Europe (Milan), `eu-south-1` 
++ Europe (Paris), `eu-west-3` 
++ Europe (Spain), `eu-south-2` 
 + Europe (Stockholm), `eu-north-1` 
++ Asia Pacific (Malaysia), `ap-southeast-5` 
 + Asia Pacific (Mumbai), `ap-south-1` 
++ Asia Pacific (Seoul), `ap-northeast-2` 
 + Asia Pacific (Singapore), `ap-southeast-1` 
 + Asia Pacific (Sydney), `ap-southeast-2` 
++ Asia Pacific (Thailand), `ap-southeast-7` 
 + Asia Pacific (Tokyo), `ap-northeast-1` 
++ South America (São Paulo), `sa-east-1` 
 
 ### Enable V2
 <a name="runtime-enable-v2"></a>
@@ -189,7 +203,7 @@ Create and update take minutes
 On V1, a runtime reaches `READY` in seconds. On V2, preparing the snapshot adds a one-time cost, and create and update run for several minutes before the runtime reaches `READY`.
 
 Your container must report healthy within 120 seconds  
-AgentCore Runtime takes the snapshot on the first healthy `/ping` response. Report health from `/ping` only after initialization completes, so that the snapshot captures a fully initialized agent. If the runtime does not report healthy within 120 seconds of startup, creation fails with a health check error.
+AgentCore Runtime takes the snapshot on the first healthy `/ping` response, or, if you configure a build warmup hook, after the hook’s `memory` call. Report health from `/ping` only after initialization completes, or do the initialization in the warmup hook, so that the snapshot captures a fully initialized agent. If the runtime does not report healthy within 120 seconds of startup, creation fails with a health check error. For more information, see [Configure lifecycle hooks for AgentCore Runtime](runtime-lifecycle-hooks.md).
 
 Poll for a terminal status  
 The `create` and `update` operations return while the runtime is still `CREATING` or `UPDATING`. If you call `update` or `delete` before the runtime reaches a terminal state, the operation returns `ConflictException`. Poll `get_agent_runtime` until the status is `READY` or ends in `FAILED`, and allow several minutes for a V2 runtime to reach `READY`.  
@@ -218,6 +232,113 @@ When you update a runtime, AgentCore Runtime hosts the new version on the defaul
 
 Deleted  
 AgentCore Runtime deletes a snapshot when no endpoint points to it. This occurs when you update a runtime, remove an endpoint’s reference to a version, or delete the runtime or a runtime endpoint. Deletion can take up to 8 hours, which is the maximum session lifetime, because sessions that are already running on the snapshot continue until they end.
+
+### Resource configurations
+<a name="runtime-v2-resource-configurations"></a>
+
+On platform version V2, you choose how each agent runtime allocates and bills resources. Each session uses the default allocation of 2 vCPU and 8 GB of memory, and you pay only for the resources that your agent actively uses. Sessions can’t burst above the default allocation. Alternatively, you can set a resource configuration on the agent runtime. Every session of that agent runtime then gets a committed baseline of vCPU and memory, and can burst up to 4 times the baseline during peak activity.
+
+#### How billing works
+<a name="runtime-v2-resource-billing"></a>
+
+Consumption-based pricing (default)  
+If you don’t set a resource configuration, each session uses the default allocation of 2 vCPU and 8 GB of memory. You pay for the vCPU and memory that your agent actively uses, billed per second, at the consumption rate. Existing agent runtimes that don’t have a resource configuration continue to use consumption-based pricing. You don’t need to make any changes.
+
+Committed baseline  
+If you set a resource configuration, you pay for the baseline until the session is terminated. When your agent uses more than the baseline, you pay for the additional usage, billed per second. Both the baseline and the usage above it are billed at the committed baseline rate.
+
+For example, suppose that your agent typically uses about 4 GB of memory and occasionally needs 6 GB. With a baseline of 4 GB of memory and 1 vCPU, you pay for both the 4 GB of memory and the 1 vCPU for the duration of each session, even when your agent uses less. When your agent uses 6 GB of memory, you also pay for the additional 2 GB for those seconds only. If your agent uses more than 1 vCPU, you pay for the additional vCPU in the same way.
+
+For rates, see [AgentCore pricing](https://aws.amazon.com/bedrock/agentcore/pricing/) on the AWS website.
+
+#### Choose a billing model
+<a name="runtime-v2-resource-choose"></a>
+
+A committed baseline is billed at a lower rate than consumption-based pricing, and works well when you know your agent’s typical resource usage. It also gives you the following benefits:
++  **Size for typical usage, not for peaks** – Choose a smaller baseline that covers what your agent uses most of the time. When your agent needs more, such as when it processes a large file or runs a compute-heavy tool, it supports bursts up to 4 times the baseline. You pay for the additional usage only for the seconds that your agent uses it.
++  **A lower cost for memory-intensive agents** – Agents that keep memory in use for the whole session, such as agents that hold an in-memory index or cache, pay the lower rate for all of that memory.
++  **Larger sessions** – Sessions can burst up to 8 vCPU and 32 GB of memory.
+
+Consumption-based pricing is a good starting point when you don’t yet know your agent’s resource needs, or when your agent is idle for most of each session.
+
+To choose a baseline, start with consumption-based pricing and monitor the `CPUUsed-vCPUHours` and `MemoryUsed-GBHours` metrics. Then choose the size whose baseline matches your agent’s typical usage. For more information about these metrics, see [AgentCore generated runtime observability data](observability-runtime-metrics.md).
+
+#### Available resource configurations
+<a name="runtime-v2-baseline-peak-sizes"></a>
+
+
+|  `minimumMemoryInMiB`  | Baseline | Peak | Disk | 
+| --- | --- | --- | --- | 
+|  `1024`  | 1 GB memory, 0.25 vCPU | 4 GB memory, 1 vCPU | 10 GB | 
+|  `2048`  | 2 GB memory, 0.5 vCPU | 8 GB memory, 2 vCPU | 10 GB | 
+|  `4096`  | 4 GB memory, 1 vCPU | 16 GB memory, 4 vCPU | 16 GB | 
+|  `8192`  | 8 GB memory, 2 vCPU | 32 GB memory, 8 vCPU | 32 GB | 
+
+#### Set a resource configuration
+<a name="runtime-v2-set-resource-configurations"></a>
+
+To set a resource configuration, include `resourceConfigurations` with one entry when you create or update a V2 agent runtime. You set the baseline in memory with `minimumMemoryInMiB`. vCPU is proportional to memory: 1 vCPU for every 4 GB.
+
+**Example**  
+
+```
+aws bedrock-agentcore-control create-agent-runtime \
+  --agent-runtime-name "my-agent" \
+  --role-arn "arn:aws:iam::111122223333:role/AgentExecutionRole" \
+  --agent-runtime-artifact '{
+    "containerConfiguration": {
+      "containerUri": "111122223333.dkr.ecr.us-west-2.amazonaws.com/my-agent:latest"
+    }
+  }' \
+  --network-configuration '{"networkMode": "PUBLIC"}' \
+  --platform-version V2 \
+  --resource-configurations '[{"minimumMemoryInMiB": 4096}]'
+```
+
+```
+import boto3
+
+client = boto3.client("bedrock-agentcore-control", region_name="us-west-2")
+
+client.create_agent_runtime(
+    agentRuntimeName="my-agent",
+    roleArn="arn:aws:iam::111122223333:role/AgentExecutionRole",
+    agentRuntimeArtifact={
+        "containerConfiguration": {
+            "containerUri": "111122223333.dkr.ecr.us-west-2.amazonaws.com/my-agent:latest"
+        }
+    },
+    networkConfiguration={"networkMode": "PUBLIC"},
+    platformVersion="V2",
+    resourceConfigurations=[{"minimumMemoryInMiB": 4096}],
+)
+```
+
+#### Change or remove a resource configuration
+<a name="runtime-v2-change-resource-configurations"></a>
+
+When you update an agent runtime, AgentCore Runtime replaces the resource configuration with the value in your request:
++ To keep the current size, include the same `resourceConfigurations` value in each update, including updates that change only your container image.
++ To change the size, specify the new size.
++ To use default consumption-based pricing, omit `resourceConfigurations`.
+
+Changes apply to new sessions. Sessions that are already running keep their resource configuration until they end.
+
+The following example updates the container image and keeps the current size.
+
+```
+client.update_agent_runtime(
+    agentRuntimeId="my-agent-ABCDE12345",
+    roleArn="arn:aws:iam::111122223333:role/AgentExecutionRole",
+    agentRuntimeArtifact={
+        "containerConfiguration": {
+            "containerUri": "111122223333.dkr.ecr.us-west-2.amazonaws.com/my-agent:v2"
+        }
+    },
+    networkConfiguration={"networkMode": "PUBLIC"},
+    resourceConfigurations=[{"minimumMemoryInMiB": 4096}],
+)
+```
 
 ## Authentication and security
 <a name="runtime-auth-security"></a>

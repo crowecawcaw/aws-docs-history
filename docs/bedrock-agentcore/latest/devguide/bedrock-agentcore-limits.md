@@ -14,6 +14,7 @@ To request a quota increase, contact AWS support.
 + [AgentCore Identity Service Quotas](#identity-service-limits)
 + [AgentCore Gateway Service Quotas](#gateway-endpoints-quotas)
 + [AgentCore Browser Service Quotas](#browser-service-limits)
++ [AgentCore Web Search Service Quotas](#web-search-service-limits)
 + [AgentCore Code Interpreter Service Quotas](#code-interpreter-service-limits)
 + [AgentCore Evaluations Service Quotas](#evaluation-service-limits)
 + [AgentCore Batch Evaluation Service Quotas](#optimization-batch-evaluation-limits)
@@ -48,10 +49,10 @@ The following table describes the resource allocation limits for AgentCore Runti
 | Total agents per account | 1,000 | Yes | Can be increased via Service Quotas | 
 | Versions per agent | 1,000 | Yes | Can be increased via Service Quotas | 
 | Endpoints (aliases) per agent | 10 | Yes | Can be increased via Service Quotas | 
-| Maximum size for a Docker image in an AgentCore Runtime | 2 GB | No |  | 
+| Maximum size for a Docker image in an AgentCore Runtime | 2 GB on platform version V1, and 10 GB on platform version V2 | No | Compressed image size. For images larger than 2 GB on V2, see [build disk requirements](runtime-troubleshooting.md#troubleshoot-runtime-insufficient-build-disk). | 
 | Maximum size for a direct code deployment package (compressed) | 250 MB | No | ZIP file size limit for direct code deployment | 
 | Maximum size for a direct code deployment package (uncompressed) | 750 MB | No | Unzipped package size limit for direct code deployment | 
-| Maximum hardware allocation per session | 2vCPU/8GB | No | The maximum memory/CPU usage and allocation per Runtime session | 
+| Maximum hardware allocation per session | 2 vCPU/8 GB (default), up to 8 vCPU/32 GB with resource configurations | No | Resource configurations apply to platform version V2. With a resource configuration, a session can burst up to the peak of its size. For more information, see [Resource configurations](runtime-how-it-works.md#runtime-v2-resource-configurations). | 
 | Maximum total size of environment variables per agent | 4 KB | No | Applies to agents on platform versions V1 and V2, for both container and direct code deployments | 
 | Capacity providers per account | 1,000 | No | Applies to the Instances compute type in your account. Counts all capacity providers that you have not deleted, including those being created or deleted. | 
 | Agents per capacity provider session | 20 | No | Applies to the Instances compute type. The maximum number of agents that you can run on a single capacity provider session. | 
@@ -80,7 +81,7 @@ The following table describes the invocation limits for AgentCore Runtime. You c
 | Streaming maximum duration | 60 mins | No | Maximum time for streaming connections (Response streaming, WebSocket connections) | 
 | Asynchronous job maximum duration | 8 hours (microVMs), 14 days (Instances) | No | Maximum execution time for asynchronous jobs. On microVMs, a job can run for up to 8 hours. On Instances, a job can run until its agent reaches the runtime `maxLifetime`, up to 14 days. For more information, see [Configure lifecycle settings](runtime-lifecycle-settings.md). | 
 | WebSocket frame size | 64 KB | No | Maximum size for individual WebSocket frames | 
-| Concurrent connections per session | 250 | No | Applies to agents on platform version V2 with the default allocation of 2 vCPU per session. Includes concurrent requests, WebSocket connections, and server-sent event (SSE) streams. | 
+| Concurrent connections per session | 150, plus 50 per vCPU | No | Applies to platform version V2. Includes concurrent requests, WebSocket connections, and server-sent event (SSE) streams. Without a resource configuration, a session with 2 vCPU supports up to 250 concurrent connections. With a resource configuration, the limit is based on the peak vCPU of the size: up to 200 connections for a `minimumMemoryInMiB` of 1024 (1 vCPU peak), 250 for 2048 (2 vCPU peak), 350 for 4096 (4 vCPU peak), and 550 for 8192 (8 vCPU peak). | 
 
 For more information about service quotas and how to request increases, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) in the *Service Quotas User Guide*.
 
@@ -385,6 +386,16 @@ The following table describes the rate limits for the Browser tool APIs after wh
 | GetBrowserProfile API rate | 30 TPS | Yes | Transactions per second per account | 
 | ListBrowserProfiles API rate | 30 TPS | Yes | Transactions per second per account | 
 | DeleteBrowserProfile API rate | 5 TPS | Yes | Transactions per second per account | 
+
+## AgentCore Web Search Service Quotas
+<a name="web-search-service-limits"></a>
+
+The following table describes the rate limit for [AgentCore Web Search](web-search-api.md) after which you will be throttled. The quota applies to each account in each Region.
+
+
+| Limit | Value | Adjustable | Notes | 
+| --- | --- | --- | --- | 
+| InvokeWebSearch API rate | 10 TPS | Yes | Transactions per second per account | 
 
 ## AgentCore Code Interpreter Service Quotas
 <a name="code-interpreter-service-limits"></a>

@@ -28,7 +28,7 @@ Poll `get-harness` until `"status": "READY"`. Note the `arn` in the response.
 aws bedrock-agentcore-control get-harness \
   --harness-id "MyHarness-XyZ1234567"
 ```
-Invoke from Python. If you don’t specify a model, the harness defaults to Anthropic Claude Sonnet 4.6 on Amazon Bedrock:  
+Invoke from Python. If you don’t specify a model, the harness uses the current AgentCore recommended model for your partition. In commercial AWS Regions, the current default is Anthropic Claude Opus 5 on Amazon Bedrock (`global.anthropic.claude-opus-5`):  
 
 ```
 import boto3
@@ -183,7 +183,7 @@ For additional details, see the API Reference:
 +  `contentBlockDelta` - incremental content (`text`, `toolUse` input, `toolResult` content, `reasoningContent`)
 +  `contentBlockStop` - end of a content block
 +  `messageStop` - end of the message (includes `stopReason`)
-+  `metadata` - token usage and latency metrics
++  `metadata` - token usage and latency metrics, including prompt-cache read and write token counts when the model reports them
 +  `hookEvent` - a configured lifecycle hook fired. Lambda hook events include the applied decision and optional reason. See [Lifecycle hooks](harness-lifecycle-hooks.md).
 +  `runtimeClientError` - error during execution
 
@@ -196,3 +196,6 @@ The `stopReason` in `messageStop` indicates why the current streamed message end
 +  `timeout_exceeded` - the `timeoutSeconds` limit was hit
 +  `max_output_tokens_exceeded` - the `maxTokens` budget was exhausted
 +  `hook_stopped` - a `deny` decision from a `before_invocation` or `after_tool_call` Lambda hook stopped the invocation
+
+**Managed defaults can change**  
+When you omit a setting or use a managed wildcard such as `allowedTools: [""] `, the harness uses the current AgentCore recommended behavior. These managed defaults can evolve as the harness improves. To keep behavior fixed, explicitly configure the relevant settings—for example, set `model` and `systemPrompt`, and list individual `allowedTools` selectors instead of using `["`.

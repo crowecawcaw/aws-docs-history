@@ -31,7 +31,7 @@ Naming a specific action therefore means knowing the gateway ARN, which you only
 
  `*` means different things in different parts of a policy, and it is not accepted everywhere.
 
- **Not in an action name.** Cedar has no wildcard for action names, so `AgentCore::Action::"InsuranceAPI___get*"` is not valid. List the actions with `action in [ …​ ]`, or scope the policy to the whole target with `action in AgentCore::Action::"{{TargetName}}"`, which also picks up tools added to that target later. For more information, see [Multiple actions](policy-scope.md#policy-action-wildcards).
+ **Not in an action name.** Cedar has no wildcard for action names, so `AgentCore::Action::"InsuranceAPI___get*"` is not valid. List the actions with `action in [ …​ ]`, or scope the policy to the whole target with `action in AgentCore::Action::"{{TargetName}}"`. For more information, see [Multiple actions](policy-scope.md#policy-action-wildcards).
 
  **Not in a resource.** A bare `resource` is rejected. Use a specific gateway ARN or the type test `resource is AgentCore::Gateway`, as described in the previous section.
 
@@ -53,7 +53,7 @@ Anchor the pattern where you can: `auto*` matches values beginning with `auto`, 
 
 Grouping related read operations with `action in [ …​ ]` avoids one policy per tool. Each action is named explicitly because action names take no wildcard — see [Where wildcards work](#example-policies-action-resource-wildcards).
 
- **We recommend scoping to the target when you want the whole tool set.** Writing `action in AgentCore::Action::"{{TargetName}}"` covers every tool the target exposes, including tools added later, so the policy does not need editing each time the target gains a tool. The trade-off is that a target-scoped policy cannot carry a condition on tool input, because the input differs per tool. For more information, see [Multiple actions](policy-scope.md#policy-action-wildcards).
+ **We recommend scoping to the target when you want the whole tool set.** Writing `action in AgentCore::Action::"{{TargetName}}"` covers every tool the target exposes. The trade-off is that a target-scoped policy cannot carry a condition on tool input, because the input differs per tool. For more information, see [Multiple actions](policy-scope.md#policy-action-wildcards).
 
 ```
 permit(

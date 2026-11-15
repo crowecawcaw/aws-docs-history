@@ -407,6 +407,8 @@ The `BedrockModelInvocation` sample statement above allows invocation of all fou
 
 For production workloads, scope `Resource` values down to the specific ARNs your harness needs rather than using `"*"`.
 
+Tool selection is a separate security boundary from IAM permissions. `allowedTools: ["*"]` permits every configured tool that resolves successfully and every tool in the current recommended built-in set, including shell and filesystem tools. For least-privilege tool access, list only the individual selectors the agent needs. See [Tools](harness-tools.md).
+
 ### Additional permissions for optional features
 <a name="_additional_permissions_for_optional_features"></a>
 
@@ -623,6 +625,43 @@ Add this policy when your harness uses a gateway configured with SigV4 inbound a
       "Effect": "Allow",
       "Action": "bedrock-agentcore:InvokeGateway",
       "Resource": "arn:aws:bedrock-agentcore:<region>:<accountId>:gateway/<gatewayId>"
+    }
+  ]
+}
+```
+
+#### Remote MCP servers with IAM authentication
+<a name="harness-remote-mcp-iam-policy"></a>
+
+Add a policy when a `remote_mcp` tool uses `outboundAuth` with `awsIam`. The harness signs requests to the MCP server with SigV4 using the execution role, so the execution role needs permission to call that endpoint. The actions depend on the service that hosts the MCP server, which is the `service` value you set in `awsIam`.
+
+For example, add this policy when the MCP server is an AWS Lambda function URL that uses `AWS_IAM` authentication (`"service": "lambda"`). Callers of these URLs need both `lambda:InvokeFunctionUrl` and `lambda:InvokeFunction`. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) in the * AWS Lambda Developer Guide*.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "RemoteMcpLambdaFunctionUrl",
+      "Effect": "Allow",
+      "Action": "lambda:InvokeFunctionUrl",
+      "Resource": "arn:aws:lambda:<region>:<accountId>:function:<functionName>",
+      "Condition": {
+        "StringEquals": {
+          "lambda:FunctionUrlAuthType": "AWS_IAM"
+        }
+      }
+    },
+    {
+      "Sid": "RemoteMcpLambdaInvokeViaUrl",
+      "Effect": "Allow",
+      "Action": "lambda:InvokeFunction",
+      "Resource": "arn:aws:lambda:<region>:<accountId>:function:<functionName>",
+      "Condition": {
+        "Bool": {
+          "lambda:InvokedViaFunctionUrl": "true"
+        }
+      }
     }
   ]
 }

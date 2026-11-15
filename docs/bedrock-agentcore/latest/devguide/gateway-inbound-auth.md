@@ -72,6 +72,7 @@ You can use the AgentCore CLI to configure a gateway with an existing JWT identi
 + [Configure a JWT authorizer](#gateway-inbound-auth-jwt-default)
 + [Set up a JWT manually](#gateway-inbound-auth-jwt-manual)
 + [Scope advertisement in authentication challenges](#gateway-inbound-auth-jwt-scope-advertisement)
++ [Advertise a custom domain for gateways behind a proxy](#gateway-inbound-auth-jwt-domain-override)
 + [Use a private (VPC-hosted) identity provider](#gateway-inbound-auth-jwt-private-idp)
 
 ### Configure a JWT authorizer
@@ -123,6 +124,79 @@ The gateway returns the following responses depending on the error:
 +  **403 Forbidden** – The token is valid but does not contain the required scopes. The `WWW-Authenticate` header includes `error="insufficient_scope"`, `scope`, and `resource_metadata` parameters.
 
 The `scope` value contains the space-delimited scopes configured as **Allowed scopes** in the gateway’s [CustomJWTAuthorizerConfiguration](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CustomJWTAuthorizerConfiguration.html). The `resource_metadata` value points to the gateway’s [OAuth Protected Resource Metadata](https://datatracker.ietf.org/doc/html/rfc9728) document at `/.well-known/oauth-protected-resource`, which clients can fetch to discover the authorization server and supported scopes.
+
+### Advertise a custom domain for gateways behind a proxy
+<a name="gateway-inbound-auth-jwt-domain-override"></a>
+
+With a proxy in front of your gateway, you can provide a custom domain or edge security. For example, you might use Amazon CloudFront. The public URL that clients call then differs from the AWS managed gateway URL. Clients might call `https://mcp.example.com/mcp`, while the AWS managed URL is `https://gateway-id.gateway.bedrock-agentcore.region.amazonaws.com/mcp`.
+
+By default, your gateway advertises its AWS managed hostname in its OAuth Protected Resource Metadata and in `WWW-Authenticate` authentication challenges. Clients that call through a proxy then see a different hostname than the one they called, so OAuth discovery or token validation might fail. To advertise the public domain instead, configure the `domainOverride` setting. This setting applies to `CUSTOM_JWT` gateways.
+
+ **The domainOverride setting** 
+
+You provide `domainOverride` when you create or update a gateway with `CreateGateway` or `UpdateGateway`, and `GetGateway` returns it. It is a top-level gateway configuration field, a sibling of the authorizer configuration.
+
+The setting contains the following values:
+
+ `default`   
+(Required) The public domain that the gateway advertises. If you have one public domain, set only this value.
+
+ `alternateDomains`   
+(Optional) A list of up to 10 additional public domains that the gateway can advertise. If you have more than one public domain, add the others here.
+
+The following rules apply to the values:
++ The `default` domain must not also appear in `alternateDomains`.
++ Use hostnames only. Do not include a scheme, path, or credentials.
+
+The following example configures a default public domain and one alternate domain:
+
+```
+{
+  "domainOverride": {
+    "default": "mcp.example.com",
+    "alternateDomains": [
+      "mcp-eu.example.com"
+    ]
+  }
+}
+```
+
+For the complete request syntax, see [CreateGateway](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateGateway.html) in the *Amazon Bedrock AgentCore Control API Reference*.
+
+ **Identify the public domain for each request** 
+
+The proxy forwards requests to the AWS managed gateway hostname for routing. The gateway therefore cannot infer which public URL the client used. Your proxy identifies the public domain for each request by setting the `x-amzn-bedrock-agentcore-gateway-domain` request header to the public hostname.
+
+The gateway resolves the domain to advertise in the following order:
+
+1. If the `x-amzn-bedrock-agentcore-gateway-domain` header is present and exactly matches `default` or an entry in `alternateDomains`, the gateway uses that value.
+
+1. If the header is absent, the gateway uses `default`.
+
+1. If the header is present but matches neither `default` nor an entry in `alternateDomains`, the gateway returns a 4xx response. The gateway does not accept or silently ignore the value.
+
+After it selects the domain, the gateway builds its endpoint URLs as before. It uses HTTPS and appends `/mcp` for the MCP resource, with the selected public hostname. In this example, the header is `x-amzn-bedrock-agentcore-gateway-domain: mcp.example.com`. The gateway advertises the public OAuth resource `https://mcp.example.com/mcp`. It points clients to the OAuth metadata location `https://mcp.example.com/.well-known/oauth-protected-resource`. The domain cannot include a custom path. The MCP endpoint path is the default `/mcp`.
+
+Your proxy should send the header only for requests that arrive on an alternate domain. The header selects an owner-approved domain from the configured values. It does not authorize an arbitrary value. Your proxy must also continue to forward requests to the AWS managed gateway hostname. The `domainOverride` setting and the header change only the URLs that the gateway advertises, not request routing.
+
+**Overwrite the caller-supplied domain header**  
+Your proxy must set the `x-amzn-bedrock-agentcore-gateway-domain` header itself and remove any copy of it that the client sent, before it forwards the request. Otherwise, a client could set the header and choose which of your configured domains the gateway advertises for the request.
+
+ **Backward compatibility** 
+
+The `domainOverride` setting is optional. When you do not configure it, the gateway keeps its current AWS managed hostname behavior, so existing gateways are unchanged. A configured `domainOverride` does not require every request to carry the header. Without the header, the gateway uses `default`.
+
+ **Remove or change the setting** 
+
+ `UpdateGateway` uses full-replacement semantics:
+
+1. To remove all overrides, send an update request without `domainOverride`.
+
+1. To change the default, or to add or remove an alternate domain, send the complete replacement `domainOverride` with the new `default` and `alternateDomains`.
+
+ **Identity provider configuration** 
+
+Configuring `domainOverride` changes only what the gateway advertises to OAuth clients. It does not change how the gateway validates tokens. Identity providers differ in whether they use the requested resource URL as the token audience. Make sure that your identity provider accepts the advertised resource URL and issues a token for it. That token works only if its claims, such as its audience, match the gateway’s allowed audience or allowed clients configuration, so confirm that the configuration accepts them.
 
 ### Use a private (VPC-hosted) identity provider
 <a name="gateway-inbound-auth-jwt-private-idp"></a>

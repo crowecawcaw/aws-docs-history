@@ -60,6 +60,8 @@ Managed memory is fully managed by the harness:
   + Use `UpdateHarness` to switch to BYO (`agentCoreMemoryConfiguration`) or disabled.
   + Pass `deleteManagedMemory=false` on deletion to disassociate instead - `DeleteHarness` cascade-deletes the managed memory by default.
 
+Managed memory uses the AgentCore Memory [built-in strategies](built-in-strategies.md) that you select. AgentCore Memory handles extraction and consolidation for these strategies, including the choice of model. You can’t set a model on managed memory, and extraction and consolidation don’t use the harness model. To choose the model for extraction and consolidation, use BYO memory instead. For more information, see [Control which models a harness uses](#harness-memory-fixed-models).
+
 ### Available strategies
 <a name="_available_strategies"></a>
 
@@ -72,9 +74,13 @@ Managed memory is fully managed by the harness:
 |  `EPISODIC`  | Records significant events and experiences as discrete episodes. | 
 
 ## Add existing memory (BYO)
-<a name="_add_existing_memory_byo"></a>
+<a name="harness-memory-byo"></a>
 
-If you need configuration that managed memory does not provide, such as custom namespace templates or one memory shared by multiple harnesses, attach an existing [AgentCore Memory](memory.md) instance instead. Managed memory already accepts `encryptionKeyArn` for a customer-managed KMS key. You cannot change the key after creation.
+For configuration that managed memory doesn’t provide, attach an existing [AgentCore Memory](memory.md) instance instead. For example, you might need custom namespace templates. You might also need one memory shared by multiple harnesses, or a specific model for long-term memory extraction.
+
+To choose the model for extraction and consolidation, configure the memory with a [built-in with overrides strategy](memory-custom-strategy.md) that sets `modelId` on every step that the strategy runs. For the configuration format, see [Configure a custom strategy](long-term-configuring-custom-strategies.md).
+
+Managed memory already accepts `encryptionKeyArn` for a customer managed key in AWS Key Management Service (AWS KMS). You cannot change the key after creation.
 
 **Example**  
 Create a memory instance:  
@@ -113,7 +119,7 @@ agentcore deploy
 A by-name reference also accepts `retrievalConfig`, and `agentcore export harness` can wire it into the exported agent. A reference by ARN supports neither.
 
 ## Disable memory
-<a name="_disable_memory"></a>
+<a name="harness-memory-disable"></a>
 
 To disable memory entirely:
 
@@ -158,12 +164,14 @@ aws bedrock-agentcore-control update-harness \
 If you update your BYO Memory instance’s strategies (add or remove) after attaching it to a harness, call `UpdateHarness` to refresh the retrieval configuration. For managed memory, strategy changes through `UpdateHarness` refresh the configuration automatically.
 
 ## Context truncation
-<a name="_context_truncation"></a>
+<a name="harness-context-truncation"></a>
 
-When conversation history grows beyond the model’s context window, the harness applies a truncation strategy. Configure this on the harness or override per invocation.
-+  ** `sliding_window` ** (default) - keeps the most recent N messages. Simple and predictable.
-+  ** `summarization` ** - compresses older messages into a summary, preserving more context in fewer tokens.
-+  ** `none` ** - no truncation. Use only if you manage context size yourself.
+When conversation history grows beyond the model’s context window, the harness applies a truncation strategy. Configure truncation on the harness with `CreateHarness` or `UpdateHarness`.
++ The `sliding_window` strategy keeps the most recent N messages. It is simple and predictable.
++ The `summarization` strategy, the current default, compresses older messages into a summary, so you preserve more context in fewer tokens.
++ The `none` strategy doesn’t truncate the conversation history, so use it only if you manage context size yourself.
+
+The following AWS CLI `update-harness` command sets the `sliding_window` strategy and its settings on the harness. Replace {{MyHarness-UuFdkQoXSL}} with your harness ID.
 
 ```
 aws bedrock-agentcore-control update-harness \
@@ -171,7 +179,52 @@ aws bedrock-agentcore-control update-harness \
   --truncation '{"strategy": "sliding_window", "config": {"slidingWindow": {"messagesCount": 30}}}'
 ```
 
+If you don’t configure truncation on the harness, the harness uses the current service default strategy and settings. If you set a strategy without its settings, the harness uses the current default settings for that strategy. These defaults can change.
+
+Currently, the `summarization` truncation strategy generates the summary with the harness model, or with the per-invocation model override if you pass one. This behavior can change. You can’t set a separate model for summarization. The `summarization` truncation strategy is separate from the `SUMMARIZATION` long-term memory strategy.
+
 Learn more: [AgentCore Memory](memory.md), [create a memory store](memory-create-a-memory-store.md), [long-term memory strategies](long-term-configuring-built-in-strategies.md).
+
+## Control which models a harness uses
+<a name="harness-memory-fixed-models"></a>
+
+To choose the models that the harness and its long-term memory use, complete the following steps. The `summarization` truncation strategy currently uses the harness model, so these steps also determine the model for summaries.
+
+1. Attach BYO memory in which every strategy is a built-in with overrides strategy that sets `modelId` on every step that the strategy runs. For these strategies, AgentCore Memory uses a memory execution role to call Amazon Bedrock in your AWS account, so the calls count against your Amazon Bedrock quotas and are charged to your account. For more information, see [Amazon Bedrock capacity for built-in with overrides strategies](bedrock-capacity.md).
+
+1. Set `model` on the harness, and don’t pass a per-invocation model override.
+
+1. Set `truncation` on the harness with both the strategy and its settings.
+
+**Note**  
+Step 1 requires BYO memory because you can’t set a model on managed memory. To attach BYO memory, see [Add existing memory (BYO)](#harness-memory-byo). Instead of step 1, you can disable memory. For more information, see [Disable memory](#harness-memory-disable).  
+If no model is configured, the harness uses the current service default, which can change. Omitting `model` on an update keeps the existing configuration.  
+Step 3 decides whether the harness generates summaries at all. Only the `summarization` truncation strategy generates summaries, and it currently uses the harness model from step 2.
+
+The following AWS CLI `update-harness` command completes steps 2 and 3 by setting the harness model and the `summarization` truncation strategy with its settings:
+
+```
+aws bedrock-agentcore-control update-harness \
+  --harness-id "MyHarness-UuFdkQoXSL" \
+  --model '{
+    "bedrockModelConfig": {
+      "modelId": "global.anthropic.claude-sonnet-4-6"
+    }
+  }' \
+  --truncation '{
+    "strategy": "summarization",
+    "config": {
+      "summarization": {
+        "summaryRatio": 0.3,
+        "preserveRecentMessages": 10
+      }
+    }
+  }'
+```
+
+Replace {{MyHarness-UuFdkQoXSL}} with your harness ID, and replace {{global.anthropic.claude-sonnet-4-6}} with the model ID that you want to use.
+
+For information about how updates affect harness versions and endpoints, see [AgentCore harness versioning and endpoints](harness-versioning.md). `GetHarness` returns effective values, including service defaults, so its response doesn’t show whether a value is one that you set or a service default.
 
 ## Related topics
 <a name="_related_topics"></a>

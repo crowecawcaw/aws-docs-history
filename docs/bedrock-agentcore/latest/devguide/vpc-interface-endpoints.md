@@ -31,6 +31,7 @@ The following table shows AWS PrivateLink support status for each AgentCore prim
 | Gateway | Supported | Supported | 
 | Evaluations and Optimizations | Supported | Supported | 
 | Policy | Supported | Supported | 
+| Web Search | Supported | Not applicable | 
 
 For a list of AWS Regions in which AgentCore interface endpoints are available, see [Supported AWS Regions](agentcore-regions.md).
 
@@ -45,7 +46,7 @@ The data plane APIs support both AWS Signature Version 4 (SigV4) headers for aut
 You can create an interface endpoint for AgentCore using either the Amazon VPC console or the AWS Command Line Interface (AWS CLI). For more information, see [Create an interface endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html#create-interface-endpoint-aws) in the * AWS PrivateLink Guide*.
 
 Create an interface endpoint for AgentCore using the following service name format:
-+ All data plane primitives (Runtime, Built-in Tools, Memory, Identity): `com.amazonaws.region.bedrock-agentcore` 
++ All data plane primitives (Runtime, Built-in Tools, Memory, Identity, Web Search): `com.amazonaws.region.bedrock-agentcore` 
 + For AgentCore Gateway: `com.amazonaws.region.bedrock-agentcore.gateway` 
 + For control plane operations (Runtime and Memory management): `com.amazonaws.region.bedrock-agentcore-control` 
 

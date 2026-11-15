@@ -97,6 +97,18 @@ Custom providers enable you to connect to any OAuth2-compatible resource server 
 
       1. (Optional) For **Domain overrides**, enter additional domains that should be routed through the private endpoint. Use this when your identity provider endpoints (such as token or authorization endpoints) are hosted on different domains than the primary IdP domain configured in your resource configuration.
 
+1. (Optional) To connect to a private identity provider that uses a TLS certificate issued by a private certificate authority (CA), configure **Root certificate authority**. First configure a private endpoint as described in the preceding step. For more information about certificate requirements and permissions, see [Connect to identity providers that use a private certificate authority](identity-private-idp.md#identity-private-certificate).
+
+   1. Under **Root certificate authority**, choose **Add root certificate**.
+
+   1. For **Certificate source**, select one of the following options:
+
+      1.  **Amazon S3** – For **S3 URI**, enter the URI of the object containing your PEM-encoded CA certificate, for example `s3://amzn-s3-demo-bucket/ca/root-ca.pem`. For **Bucket owner account ID**, optionally enter the 12-digit account ID that owns the bucket. If omitted, it defaults to your account. Store the certificate object in the same AWS Region as the OAuth provider.
+
+      1.  ** AWS Secrets Manager** – For **Secrets Manager secret**, choose the secret containing your PEM-encoded CA certificate. Use a plaintext string secret in the same AWS Region as the OAuth provider. AgentCore Identity does not support key/value (JSON) and binary secrets.
+
+   1. Choose **Apply** to add the certificate configuration.
+
 1. Choose **Add OAuth Client**.
 
 For a detailed comparison of managed vs self-managed Lattice modes, see [Supported VPC egress modes](vpc-egress-private-endpoints.md#lattice-vpc-egress-compare-modes).

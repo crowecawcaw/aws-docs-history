@@ -3,9 +3,12 @@
 # Cross region inference
 <a name="evaluations-cross-region-inference"></a>
 
+**Important**  
+Starting December 14, 2026, for requests originating in South America (São Paulo) (sa-east-1), AgentCore Evaluations and AgentCore Optimizations, including Insights, may securely transmit data to any commercial AWS Region for processing.
+
 AgentCore Evaluations will automatically select the optimal region within your geography to process your inference requests. This maximizes available compute resources, model availability, and delivers the best customer experience. Your data will remain stored only in the region where the request originated, however, input prompts and output results may be processed outside that region. All data will be transmitted encrypted across AWS's secure network.
 
-For AgentCore Evaluations, inference requests originating in Asia Pacific (Hyderabad) (ap-south-2), Asia Pacific (Malaysia) (ap-southeast-5), Asia Pacific (Seoul) (ap-northeast-2), and Asia Pacific (Thailand) (ap-southeast-7) use global cross-region inference and will be securely routed to all available compute resources across all global commercial AWS Regions. For more information, see [Global cross-region inference for AgentCore Evaluations](cross-region-inference.md#cross-region-inference-evaluations-global).
+For AgentCore Evaluations, inference requests originating in Asia Pacific (Hyderabad) (ap-south-2), Asia Pacific (Malaysia) (ap-southeast-5), Asia Pacific (Mumbai) (ap-south-1), Asia Pacific (Seoul) (ap-northeast-2), Asia Pacific (Singapore) (ap-southeast-1), and Asia Pacific (Thailand) (ap-southeast-7) use global cross-region inference and will be securely routed to all available compute resources across all global commercial AWS Regions. Starting December 14, 2026, inference requests originating in South America (São Paulo) (sa-east-1) also use global cross-region inference and will be securely routed to all available compute resources across all global commercial AWS Regions. For more information, see [Global cross-region inference for AgentCore Evaluations](cross-region-inference.md#cross-region-inference-evaluations-global).
 
 If your use case requires avoiding [cross region inference](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) , you can create [Custom evaluators](custom-evaluators.md) that operate without CRIS. Custom evaluators provide the flexibility to:
 + Replicate the functionality of built-in evaluators without using CRIS

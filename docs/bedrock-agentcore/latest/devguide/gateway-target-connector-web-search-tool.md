@@ -11,6 +11,8 @@ Web Search Tool on Amazon Bedrock AgentCore eliminates that complexity. It is a 
 
 If your agent needs a finished answer with citations instead of ranked results, use [Web Answer](gateway-target-connector-web-answer-tool.md).
 
+To search the web directly from your code without a gateway, use [AgentCore Web Search](web-search-api.md). Its `InvokeWebSearch` API takes the search text in the `searchQuery` field. The MCP tool that this connector exposes takes it in the `query` field.
+
 The following sections walk through the key capabilities, the architecture of the purpose-built web index, privacy guarantees, use cases, and how to set up Web Search Tool.
 
 **Topics**

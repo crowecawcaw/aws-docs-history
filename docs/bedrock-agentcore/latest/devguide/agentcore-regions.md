@@ -10,7 +10,7 @@ The following table shows which features are supported in each AWS Region:
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
 | AgentCore harness | ✓ Yes | ✓ Yes | No | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | No | ✓ Yes | No | ✓ Yes | No | ✓ Yes | No | ✓ Yes | ✓ Yes | No | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | 
 | AgentCore Runtime microVMs | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | 
-| AgentCore Runtime Instances | ✓ Yes | ✓ Yes | No | ✓ Yes | ✓ Yes | ✓ Yes | No | No | No | No | No | No | ✓ Yes | No | ✓ Yes | ✓ Yes | No | ✓ Yes | No | No | No | No | 
+| AgentCore Runtime Instances | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | No | ✓ Yes | No | ✓ Yes | No | ✓ Yes | No | ✓ Yes | ✓ Yes | No | ✓ Yes | ✓ Yes | ✓ Yes | No | No | 
 | AgentCore Memory | ✓ Yes | ✓ Yes | No | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | No | ✓ Yes | No | ✓ Yes | No | ✓ Yes | No | ✓ Yes | ✓ Yes | No | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | 
 | AgentCore Gateway | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | 
 | AgentCore Identity | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | 
@@ -22,4 +22,5 @@ The following table shows which features are supported in each AWS Region:
 | AgentCore optimization | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | No | 
 |  AWS Agent Registry | ✓ Yes | ✓ Yes | No | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | No | No | No | No | No | No | No | No | ✓ Yes | No | ✓ Yes | No | ✓ Yes | No | ✓ Yes | 
 | Web Search Tool | ✓ Yes | ✓ Yes | No | ✓ Yes | No | ✓ Yes | No | No | No | No | No | No | No | No | No | ✓ Yes | No | ✓ Yes | No | No | No | ✓ Yes | 
+| Web Search API | ✓ Yes | ✓ Yes | No | ✓ Yes | No | ✓ Yes | No | No | No | No | No | No | No | No | No | ✓ Yes | No | ✓ Yes | No | No | No | No | 
 | Web Answer | ✓ Yes | No | No | No | No | No | No | No | No | No | No | No | No | No | No | No | No | No | No | No | No | No | 

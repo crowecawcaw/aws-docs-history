@@ -8,12 +8,89 @@ We recommend subscribing to the RSS feed so updates to these notes are delivered
 ## November 2026
 <a name="_november_2026"></a>
 
+### Runtime: Instances now available in six more AWS Regions
+<a name="runtime_instances_now_available_in_six_more_shared_aws_regions"></a>
+
+Amazon Bedrock AgentCore Runtime expands Instances to six more AWS Regions. Instances is the compute type of AgentCore Runtime that runs your agents on Amazon Elastic Compute Cloud (Amazon EC2) instances in your account, for long-running agents and agents that need dedicated compute. You can now use Instances in the following AWS Regions:
++ US West (N. California)
++ Europe (London), Europe (Paris), and Europe (Stockholm)
++ Asia Pacific (Seoul)
++ Canada (Central)
+
+With these Regions, you can run agents on Instances closer to your users, which lowers the latency of each invocation. You can also keep the instances, volumes, and session data of your agents in the Region that your data residency requirements call for. For example, you can run agents in the Europe (Paris) Region to keep their session data in that Region.
+
+To learn more, see [Supported AWS Regions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agentcore-regions.html) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+### Runtime: VPC mode now supports use1-az6 on platform version V2
+<a name="_runtime_vpc_mode_now_supports_use1_az6_on_platform_version_v2_2"></a>
+
+Amazon Bedrock AgentCore Runtime in VPC mode now supports Availability Zone use1-az6 in US East (N. Virginia) for agents on platform version V2. If your VPC subnets are in use1-az6, you can now configure them on V2 agent runtimes.
+
+For more information, see [Supported Availability Zones](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agentcore-vpc.html#agentcore-supported-azs) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+### Harness: IAM authentication with remote MCP servers
+<a name="_harness_iam_authentication_with_remote_mcp_servers_2"></a>
+
+Amazon Bedrock AgentCore Harness now supports AWS Identity and Access Management (IAM) authentication with remote MCP servers. Your agents can now connect to MCP servers protected by AWS IAM, and you control access with the same AWS IAM policies and roles you already use. You don’t need to create, store or rotate separate credentials for each server.
+
+One of these servers is Amazon WorkSpaces for AI agents. It provides an MCP interface that gives agents computer-use tools for clicking, typing, and viewing the screen. Agents use these tools to work within a secure Windows or Linux desktop with built-in monitoring, auditing, and governance. They can use the applications that run your business to complete work that once required a person at a keyboard, including work in applications that have no API.
+
+To learn more, see [Remote MCP servers with IAM authentication](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-security.html#harness-remote-mcp-iam-policy) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+### Runtime: Platform version V2 in nine more Regions
+<a name="_runtime_platform_version_v2_in_nine_more_regions_2"></a>
+
+Amazon Bedrock AgentCore Runtime platform version V2 is now available in Canada (Central), Europe (London), Europe (Milan), Europe (Paris), Europe (Spain), Asia Pacific (Malaysia), Asia Pacific (Seoul), Asia Pacific (Thailand), and South America (São Paulo). V2 starts your agent from a snapshot for consistent cold starts, supports container images up to 10 GB, and lets you choose a committed resource configuration.
+
+For more information, see [Supported Regions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html#runtime-platform-versions-regions) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+### Runtime: Build warmup lifecycle hook for V2 agents
+<a name="_runtime_build_warmup_lifecycle_hook_for_v2_agents_2"></a>
+
+Amazon Bedrock AgentCore Runtime agents on platform version V2 can now configure lifecycle hooks with the `hooksConfiguration` field of `CreateAgentRuntime` and `UpdateAgentRuntime`. The first hook, the build warmup hook, calls your container twice while AgentCore Runtime prepares your agent: a `memory` call to load what every session needs, and a `disk` call to read the files that sessions read when they start. Sessions start faster, especially for agents that load large binaries, heavy Python packages, or a headless browser.
+
+For more information, see [Configure lifecycle hooks for AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-lifecycle-hooks.html) and [Prepare memory and disk with a lifecycle hook](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-v2-optimize.html#runtime-v2-optimize-warmup) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+### Runtime: Container images up to 10 GB for V2 agents
+<a name="_runtime_container_images_up_to_10_gb_for_v2_agents_2"></a>
+
+Amazon Bedrock AgentCore Runtime agents on platform version V2 can now use container images up to 10 GB (compressed), up from 2 GB. With larger images, you can package models, large dependencies, and data with your agent, and V2 keeps cold starts consistent regardless of image size.
+
+For images larger than 2 GB, set a resource configuration with a `minimumMemoryInMiB` that provides enough build disk for your image. Platform version V1 keeps the 2 GB limit. For more information, see [Resource configurations](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html#runtime-v2-resource-configurations) and [Resource allocation limits](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/bedrock-agentcore-limits.html#resource-allocation-limits) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+### Harness: Strands-powered managed defaults and built-in tools
+<a name="_harness_strands_powered_managed_defaults_and_built_in_tools_2"></a>
+
+Amazon Bedrock AgentCore harness now uses Strands Harness to provide an upgraded managed experience. Harnesses that use managed defaults receive the current recommended model. In commercial AWS Regions, that model is Claude Opus 5. Managed defaults also provide task-oriented instructions, conversation summarization when the conversation exceeds the model’s context window, and automatic prompt caching for supported Amazon Bedrock models. Built-in tools support planning, web retrieval, filesystem access, context offloading, and subagent delegation. Explicit model, system prompt, truncation, and `allowedTools` settings continue to take precedence. Managed defaults can evolve. Configure these settings and list individual tool selectors when you need fixed behavior or a fixed capability boundary.
+
+For more information, see [Models and instructions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-models.html) and [Tools](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/harness-tools.html) in the *Amazon Bedrock AgentCore Developer Guide*. === Runtime: Resource configurations for V2 agents
+
+Amazon Bedrock AgentCore Runtime agents on platform version V2 can now use resource configurations to set a committed baseline of vCPU and memory on the agent runtime, from 0.25 vCPU and 1 GB of memory to 2 vCPU and 8 GB of memory. During peak activity, your agent can burst up to 4 times the baseline, up to 8 vCPU and 32 GB of memory per session. You pay for the baseline until the session is terminated and for usage above the baseline per second, both at the committed baseline rate, which is lower than the consumption rate. Agent runtimes without a resource configuration continue to use default consumption-based pricing.
+
+For more information, see [Resource configurations](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html#runtime-v2-resource-configurations) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+### Web Search: Search the web from your code with the InvokeWebSearch API
+<a name="_web_search_search_the_web_from_your_code_with_the_invokewebsearch_api_2"></a>
+
+Amazon Bedrock AgentCore now offers the Web Search API (`InvokeWebSearch`), which lets your applications and agents search the web with the AWS SDKs or the AWS CLI, without setting up a gateway. Use it to bring current information from the web into code that you write yourself, such as an agent loop or a data pipeline. The Web Search API is available in the US East (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Sydney), Asia Pacific (Tokyo), and Europe (Ireland) AWS Regions.
+
+For more information, see [Search the web using Amazon Bedrock AgentCore Web Search](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/web-search-api.html) in the *Amazon Bedrock AgentCore Developer Guide*.
+
 ### Gateway: Get cited web answers with the Web Answer connector
 <a name="_gateway_get_cited_web_answers_with_the_web_answer_connector_2"></a>
 
 Web Answer is a built-in connector for Amazon Bedrock AgentCore Gateway, now generally available in US East (N. Virginia) `us-east-1`. With Web Answer, your agent can ask a natural-language question and get a synthesized answer with citations to current web sources, from one tool call.
 
 For more information, see [Web Answer](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-connector-web-answer-tool.html) in the *Amazon Bedrock AgentCore Developer Guide*.
+
+### Runtime: Support for MCP protocol version 2026-07-28
+<a name="_runtime_support_for_mcp_protocol_version_2026_07_28_2"></a>
+
+Amazon Bedrock AgentCore Runtime now supports Model Context Protocol (MCP) version `2026-07-28` for MCP servers on both the microVMs and Instances compute types. For clients that use this version, error responses use HTTP status codes that align with the MCP specification. AgentCore Runtime also uses the `X-Amzn-Bedrock-AgentCore-Runtime-Session-Id` header to keep requests in the same session.
+
+Clients that use earlier protocol versions are unaffected. For version `2025-11-25` and earlier, both stateful and stateless mode are supported. For more information about MCP support in AgentCore Runtime, see [MCP protocol contract](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-mcp-protocol-contract.html).
+
+To give AgentCore Runtime a reliable health signal, implement the `GET /ping` health endpoint on your MCP server’s serving port. The endpoint reports health independent of the MCP protocol version. Without `GET /ping`, AgentCore Runtime can detect only that a server on version `2026-07-28` has stopped responding. It can also detect errors other than the `ping` rejection, such as server errors.
 
 ### Runtime: Platform version V2 now available in five additional Regions
 <a name="_runtime_platform_version_v2_now_available_in_five_additional_regions_2"></a>
@@ -137,15 +214,6 @@ For more information, see [AgentCore CLI reference](https://docs.aws.amazon.com/
 Amazon Bedrock AgentCore Evaluations now includes the failure analysis evaluator (`Builtin.FailureAnalysis`), which finds failures in your agent sessions, determines the root cause of each failure, and groups the findings across sessions into insights. Each insight includes the root causes behind the pattern and suggested fixes, such as changes to your system prompt or tool definitions. You can run the evaluator alone or together with other evaluators in a batch evaluation, and read the insights in the `insightResults` field of the `GetBatchEvaluation` response.
 
 For more information, see [Insights in batch evaluation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/batch-evaluations-insights.html) and [Insight evaluators](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/insight-evaluators.html).
-
-### Runtime: Support for MCP protocol version 2026-07-28
-<a name="_runtime_support_for_mcp_protocol_version_2026_07_28_2"></a>
-
-Amazon Bedrock AgentCore Runtime now supports Model Context Protocol (MCP) version `2026-07-28` for MCP servers on both the microVMs and Instances compute types. For clients that use this version, error responses use HTTP status codes that align with the MCP specification. AgentCore Runtime also uses the `X-Amzn-Bedrock-AgentCore-Runtime-Session-Id` header to keep requests in the same session.
-
-Clients that use earlier protocol versions are unaffected. For version `2025-11-25` and earlier, both stateful and stateless mode are supported. For more information about MCP support in AgentCore Runtime, see [MCP protocol contract](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-mcp-protocol-contract.html).
-
-To give AgentCore Runtime a reliable health signal, implement the `GET /ping` health endpoint on your MCP server’s serving port. The endpoint reports health independent of the MCP protocol version. Without `GET /ping`, AgentCore Runtime can detect only that a server on version `2026-07-28` has stopped responding. It can also detect errors other than the `ping` rejection, such as server errors.
 
 ### Memory: Time-to-live for long-term memory records
 <a name="_memory_time_to_live_for_long_term_memory_records_2"></a>
@@ -426,7 +494,7 @@ AgentCore Runtime default service quotas have been increased to support higher-s
 ### Web Search Tool is now Generally Available
 <a name="_web_search_tool_is_now_generally_available_2"></a>
 
-Web Search is a fully managed tool that enables agents to ground responses in current, accurate web knowledge while keeping data residency within your secured AWS environment with zero data egress. Built on Amazon’s search infrastructure, it combines a proprietary web index with structured knowledge graph data. The tool is exposed as a built-in connector target on AgentCore gateway using the Model Context Protocol (MCP), returning ranked results with relevant snippets, source URLs, titles, and publication dates optimized for agentic retrieval. See [Web Search documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/web-search.html).
+Web Search Tool on Amazon Bedrock AgentCore is a fully managed tool that lets agents ground responses in current, accurate web knowledge while keeping data residency within your secured AWS environment with zero data egress. Built on Amazon’s search infrastructure, it combines a proprietary web index with structured knowledge graph data. The tool is exposed as a built-in connector target on AgentCore Gateway using the Model Context Protocol (MCP). It returns ranked results with relevant snippets, source URLs, titles, and publication dates optimized for agentic retrieval. For more information about Web Search Tool, see [Web Search Tool](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-connector-web-search-tool.html).
 
 ### AgentCore Policy Now Supports Bedrock Guardrails
 <a name="_agentcore_policy_now_supports_bedrock_guardrails_2"></a>

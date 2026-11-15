@@ -5,7 +5,7 @@
 
 Define a harness once with defaults for model, system prompt, tools, memory, and execution limits. Override any of those on a single invocation when you want to experiment. The harness resource stays unchanged; only that call uses the overrides.
 
-This is the core of the config-based model: **defaults at creation time, overrides at invocation time.** You can test N model/prompt/tool combinations in the time it would take to redeploy once.
+This is the core of the config-based model: **reusable configuration on the harness, overrides at invocation time.** You can test multiple model, prompt, and tool combinations without redeploying.
 
 **Example**  
 Defaults on `create-harness`:  
@@ -44,7 +44,7 @@ cd ResearchAgentProject
 # Add a harness to the project
 agentcore add harness \
   --name researcher \
-  --model '{"provider":"bedrock","modelId":"global.anthropic.claude-sonnet-4-6"}' \
+  --model '{"provider":"bedrock","modelId":"global.anthropic.claude-opus-5"}' \
   --system-prompt "You are a research assistant." \
   --tools '[{"type":"agentcore_browser","name":"browser"}]'
 
@@ -121,9 +121,50 @@ Both flags and wizards reject inline secrets. The CLI flags accept files or stdi
 
 Use models from Amazon Bedrock, OpenAI, Google Gemini, or other providers through LiteLLM, including OpenAI-compatible endpoints. Switch providers between turns of the same session and the conversation continues. Context carries over.
 
-If you create a harness with the API or `agentcore harness create` and omit the model, the service uses `global.anthropic.claude-sonnet-4-6`. If you omit `--model`, `agentcore add harness` writes `global.anthropic.claude-sonnet-5-5` to `harness.yaml`.
+If you create a harness with the API or `agentcore harness create` and omit the model, the harness uses the service default: the current AgentCore recommended model for your partition. In commercial AWS Regions, that model is Anthropic’s Claude Opus 5 on Amazon Bedrock (`global.anthropic.claude-opus-5`). The service default can change. To keep a model fixed, set `model` on the harness.
 
-The CLI’s create/add wizards prefill provider-specific model IDs: `global.anthropic.claude-sonnet-5-5` for Bedrock, `gpt-6.1-sol` for OpenAI, `gemini-3.8-flash` for Gemini, and `bedrock/global.anthropic.claude-sonnet-5-5` for LiteLLM. These are CLI defaults, not a guarantee of model access or a change to the service’s default. You can change the configured model or use the SDK to override it per invocation.
+The AgentCore CLI sets its own model for new projects. If you omit `--model`, `agentcore add harness` writes `global.anthropic.claude-sonnet-5-5` to `harness.yaml`, so that harness uses Claude Sonnet 5.5 instead of the service default. The CLI’s create/add wizards prefill provider-specific model IDs: `global.anthropic.claude-sonnet-5-5` for Bedrock, `gpt-6.1-sol` for OpenAI, `gemini-3.8-flash` for Gemini, and `bedrock/global.anthropic.claude-sonnet-5-5` for LiteLLM. These CLI defaults don’t change the service default or guarantee model access. You can configure a model on the harness or override it per invocation at any time.
+
+### Automatic prompt caching
+<a name="harness-prompt-caching"></a>
+
+For supported Amazon Bedrock models that use the `converse_stream` API format, the harness automatically enables prompt caching for the system prompt, tool definitions, and conversation history. Repeated model calls can reuse eligible prompt prefixes when the system prompt, selected tools, and earlier conversation remain unchanged. On a cache hit, cached input tokens use the model’s cache-read price, which is lower than its regular input-token price. Creating a cache entry uses the model’s cache-write price.
+
+If `bedrockModelConfig.additionalParams` contains an explicit `cachePoint` in `system`, `messages`, or `toolConfig.tools`, the harness passes that configuration through without adding managed cache points. For supported models, cache usage appears in the `metadata` stream event as `cacheReadInputTokens` and `cacheWriteInputTokens` under `usage`.
+
+For model support, cache behavior, and pricing details, see [Prompt caching for faster model inference](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html).
+
+### Default instructions and context management
+<a name="harness-default-instructions"></a>
+
+When you omit `systemPrompt` or `truncation`, the harness uses AgentCore’s current recommended instructions and context-management policy. These managed defaults can change as the harness improves. To keep either setting fixed, configure it explicitly on the harness or invocation.
+
+```
+You are an agent. Keep working until the task is fully resolved before ending your turn. Only stop to ask the user when you are blocked on a decision or information that is genuinely theirs to provide.
+
+# Acting
+ - Once you have enough to act on, act. Do not ask for confirmation of steps you can verify yourself, and do not re-derive facts you have already established.
+ - Explore before you change anything: understand the surrounding context and conventions, then make changes that fit them.
+ - Treat a task as done only when you have verified it, not when it looks plausible. If you cannot verify, say so.
+
+# Tools
+ - Prefer the dedicated tool for a job over improvising with a general one.
+ - Independent tool calls can be issued together in a single turn; run them in parallel rather than serially.
+ - A denied or failed tool call is information: adjust your approach, do not retry it verbatim.
+ - `<system-reminder>` tags in messages and tool results are injected by the harness, not the user.
+
+# Safety
+ - For actions that are hard to reverse or that reach outside the local environment, confirm first unless you have been explicitly told to proceed. Approval in one context does not carry to the next.
+ - Report outcomes faithfully: if something fails, say so with the output; if you skipped a step, say that; when something is done and verified, state it plainly without hedging.
+
+# Context management
+When the conversation grows long, older turns may be summarized and large tool results moved out of the immediate context, with a way to retrieve them. Work as if the full history remains available; you do not need to wrap up early or hand off mid-task.
+```
+
+When you omit `truncation`, the harness summarizes older conversation turns using the current default `summaryRatio` of `0.3` and `preserveRecentMessages` value of `10`. These defaults can change as the harness improves. Configure truncation explicitly when your workload requires a fixed context-management policy. See [Context truncation](harness-memory.md#harness-context-truncation).
+
+### Store third-party API keys
+<a name="_store_third_party_api_keys"></a>
 
 Store third-party API keys in [AgentCore Identity’s](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity.html) token vault as an API key credential provider. The harness pulls the key at invocation time. Your agent code never sees raw credentials.
 

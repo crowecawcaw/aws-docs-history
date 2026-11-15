@@ -8,12 +8,14 @@ The AgentCore Runtime service contract defines the standardized communication pr
 **Topics**
 + [Supported protocols](#supported-protocols)
 + [Compare supported protocols](#protocol-comparison)
++ [Lifecycle hooks](#runtime-lifecycle-hook-endpoints)
 + [Reserved platform ports](#runtime-reserved-ports)
 + [HTTP protocol contract](runtime-http-protocol-contract.md)
 + [MCP protocol contract](runtime-mcp-protocol-contract.md)
 + [A2A protocol contract](runtime-a2a-protocol-contract.md)
 + [AG-UI protocol contract](runtime-agui-protocol-contract.md)
 + [Configure your agent’s serving port and invocation path](runtime-configure-invocation.md)
++ [Configure lifecycle hooks for AgentCore Runtime](runtime-lifecycle-hooks.md)
 
 ## Supported protocols
 <a name="supported-protocols"></a>
@@ -42,6 +44,11 @@ Compare the HTTP, MCP, A2A, and AG-UI protocols to understand the differences an
 You can configure the serving port and the POST path used by `InvokeAgentRuntime`. For configuration details and examples, see [Configure your agent’s serving port and invocation path](runtime-configure-invocation.md).
 
 To access application-defined HTTP methods and paths or additional servers in a session, enable session endpoints with `allowedPorts`. For more information, see [Connect to runtime sessions through a session endpoint](runtime-session-endpoints.md).
+
+## Lifecycle hooks
+<a name="runtime-lifecycle-hook-endpoints"></a>
+
+You can configure lifecycle hooks: endpoints in your container that AgentCore Runtime calls at specific points in your agent runtime’s lifecycle, such as while it prepares your agent. A hook endpoint uses the path and port that you choose, and it works the same way for every protocol. For more information, see [Configure lifecycle hooks for AgentCore Runtime](runtime-lifecycle-hooks.md).
 
 ## Reserved platform ports
 <a name="runtime-reserved-ports"></a>

@@ -40,12 +40,27 @@ def invoke(payload):
 app.run()  # starts listening on 8080; the snapshot is taken after this
 ```
 
-If your agent runs its own HTTP server instead of the AgentCore SDK, report a healthy status from `/ping` only after initialization completes, so that the snapshot captures a fully initialized agent.
+If your agent runs its own HTTP server instead of the AgentCore SDK, the snapshot must capture a fully initialized agent. You can do this in one of two ways:
++ Report a healthy status from `/ping` only after initialization completes.
++ Report a healthy status as soon as your server starts, and do the initialization in a lifecycle hook’s `memory` call. Sessions start with what that call loads. For more information, see [Prepare memory and disk with a lifecycle hook](#runtime-v2-optimize-warmup).
 
 Read only data at startup that is the same for every instance and does not expire. Handle time-sensitive values, such as short-lived credentials, in your handler.
 
 **Note**  
 Do not compute anything at startup that you change without redeploying. For example, a tool catalog fetched from AgentCore Gateway looks like an ideal startup value because it is slow and expensive to load, but caching it at startup freezes your agent’s tool inventory at the time of the snapshot.
+
+## Prepare memory and disk with a lifecycle hook
+<a name="runtime-v2-optimize-warmup"></a>
+
+While AgentCore Runtime prepares your agent, a build warmup lifecycle hook makes two calls to your hook, first `memory` and then `disk`, and tells your handler which call it is. For example, with an HTTP action, both calls go to the path and port that you configure, and the `X-Amzn-Bedrock-AgentCore-Runtime-Warmup-Type` header identifies the call. In the `memory` call, run initialization that needs your server to be running. In the `disk` call, read the files that your agent reads when a session starts, so that new sessions can use them faster. This helps agents whose sessions start by reading large files, such as a large binary, a heavy set of Python packages, or a headless browser.
+
+
+| Warmup type | What it prepares | Use it for | 
+| --- | --- | --- | 
+|  `memory`  | Memory that every session starts with | Initialization that needs your server to run, or that you want to do after `/ping` reports healthy | 
+|  `disk`  | The files that a session reads when it starts | Reading those files, so that new sessions can use them faster | 
+
+The `memory` and `disk` calls share 120 seconds, and the `memory` call runs first. Do the expensive work in the `memory` call, and keep the `disk` call to the files that one session reads when it starts. For how to configure the hook and write its handler, see [Configure lifecycle hooks for AgentCore Runtime](runtime-lifecycle-hooks.md).
 
 ## Keep per-request state fresh
 <a name="_keep_per_request_state_fresh"></a>

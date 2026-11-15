@@ -128,6 +128,79 @@ For AgentCore to deliver spans to the agent’s log group, the following must be
 
 Changing the span destination doesn’t move existing span data. Spans that AgentCore already delivered remain in their original log group.
 
+### Add custom resource attributes to your agent’s telemetry
+<a name="observability-configure-resource-attributes"></a>
+
+**Takes effect November 16, 2026**  
+The behavior described in this section takes effect on November 16, 2026. Until then, setting `OTEL_RESOURCE_ATTRIBUTES` on an agent runtime replaces the attributes AgentCore Runtime adds instead of merging with them, and your attributes don’t appear on the `AgentCore.Runtime.Invoke` span.
+
+AgentCore Runtime adds OpenTelemetry resource attributes to your agent’s telemetry that identify the agent, endpoint, and Region the telemetry came from. You can add your own attributes, such as a deployment stage or team name, with the standard OpenTelemetry environment variables `OTEL_RESOURCE_ATTRIBUTES` and `OTEL_SERVICE_NAME`. Set them as environment variables on your agent runtime.
+
+#### How AgentCore Runtime combines your attributes with its own
+<a name="observability-configure-resource-attributes-merge"></a>
+
+AgentCore Runtime merges your attributes with its own by key:
++ If you set an attribute that AgentCore Runtime also sets, your value is used, except for `cloud.provider`, which AgentCore Runtime always keeps.
++ Attributes that only you set are added.
++ Attributes that only AgentCore Runtime sets are kept.
+
+This behavior is consistent with AWS Lambda, Amazon ECS, and Amazon EKS. AgentCore Runtime applies the merged attributes to your agent’s spans and logs, and to the `AgentCore.Runtime.Invoke` span (operation `InvokeAgentRuntime`) and log that AgentCore Runtime emits for each invocation. The `AgentCore.Runtime.Invoke` span is the first span in each trace, so filtering on one of your attributes returns complete traces.
+
+AgentCore Runtime sets these attributes by default:
+
+
+| Attribute | Default value | 
+| --- | --- | 
+|  `service.name`  |  `<agent-name>.<endpoint-name>`  | 
+|  `service.version`  | The runtime version that served the request (`AgentCore.Runtime.Invoke` span only) | 
+|  `deployment.environment.name`  |  `bedrock-agentcore:default`  | 
+|  `cloud.resource_id`  | The endpoint ARN and endpoint name | 
+|  `cloud.platform`  |  `aws_bedrock_agentcore`  | 
+|  `cloud.provider`  |  `aws` (always kept; you can’t override it) | 
+|  `cloud.region`  | The Region of the agent runtime | 
+|  `aws.log.group.names`  |  `/aws/bedrock-agentcore/runtimes/<agent-id>-<endpoint-name>`  | 
+|  `aws.log.stream.names`  |  `otel-rt-logs`  | 
+
+ **Service name and version.** For `service.name`, `OTEL_SERVICE_NAME` takes precedence over `service.name` in `OTEL_RESOURCE_ATTRIBUTES`, which takes precedence over the AgentCore Runtime default. If you set `service.version`, the `AgentCore.Runtime.Invoke` span uses your value. AgentCore Runtime always records the runtime version that served the request in the `aws.agentcore.runtime.version` span attribute, whatever you set.
+
+ **Example.** If your agent runtime sets:
+
+```
+OTEL_RESOURCE_ATTRIBUTES=deployment.environment.name=prod,team=payments
+OTEL_SERVICE_NAME=checkout-agent
+```
+
+your agent’s spans and the `AgentCore.Runtime.Invoke` span carry `deployment.environment.name=prod`, `team=payments`, and `service.name=checkout-agent`, plus the AgentCore Runtime defaults for every other attribute in the table.
+
+#### Label deployment stages
+<a name="observability-configure-resource-attributes-stages"></a>
+
+Environment variables are part of a runtime version. If you promote a version from one endpoint to another, for example from staging to prod, the version keeps its `deployment.environment.name`. To label stages correctly, use one agent runtime per stage, or create a new version for each stage. To show per-stage runtimes as one agent in your observability tools, set the same `OTEL_SERVICE_NAME` in each.
+
+Stage labels are set by whoever can update the agent runtime’s configuration or the agent’s code. If you use stage labels to control who can see telemetry, restrict who can call `UpdateAgentRuntime` and change agent code for each stage.
+
+#### When changes apply
+<a name="observability-configure-resource-attributes-timing"></a>
+
+After you update the environment variables, the `AgentCore.Runtime.Invoke` span uses the new values on the next invocation. Your agent’s own spans use them in new sessions. Sessions that are already running keep their current values until they end.
+
+#### Turning off AgentCore observability
+<a name="observability-configure-resource-attributes-disable"></a>
+
+If you set `DISABLE_ADOT_OBSERVABILITY=true`, AgentCore Runtime doesn’t add its OpenTelemetry environment variables to your agent and doesn’t apply your attributes to the `AgentCore.Runtime.Invoke` span. Your agent’s OpenTelemetry configuration is entirely your own.
+
+If you keep AgentCore observability turned on and also export telemetry to another OpenTelemetry-compatible tool, that tool receives the merged attributes.
+
+#### Considerations
+<a name="observability-configure-resource-attributes-considerations"></a>
++ Don’t put secrets or sensitive data in `OTEL_RESOURCE_ATTRIBUTES` or `OTEL_SERVICE_NAME`. The values appear in your traces and can be read by anyone with access to the log group that receives your agent’s spans: the agent’s own log group or the shared `aws/spans` log group. For more information, see [Span destination for agents hosted in Amazon Bedrock AgentCore runtime](#observability-configure-unified-traces).
++ Keep `OTEL_RESOURCE_ATTRIBUTES` short. If the merged value exceeds 4,096 bytes, or if `OTEL_RESOURCE_ATTRIBUTES` can’t be parsed, AgentCore Runtime doesn’t merge your attributes for that runtime.
++ On the `AgentCore.Runtime.Invoke` span, AgentCore Runtime applies these rules to your attributes:
+  + Attribute keys can contain only letters, numbers, periods (.), underscores (\_), and hyphens (-). Attributes with other characters in the key aren’t added.
+  + Attributes with an empty value aren’t added.
+  + Values that contain a control character after percent-decoding aren’t added. If `OTEL_SERVICE_NAME` contains one, it’s ignored.
+  + If a key appears more than once, the last value is used.
+
 ## Enabling observability in agent code for AgentCore-hosted agents
 <a name="observability-configure-custom"></a>
 
@@ -572,7 +645,7 @@ The following APIs support custom headers:
 Consider the following best practices when implementing observability for agents in AgentCore:
 + Use consistent session IDs - When possible, reuse the same session ID for related requests to maintain context across interactions.
 + Implement distributed tracing - Use the provided headers to enable end-to-end tracing across your application components.
-+ Add custom attributes - Enhance your traces and metrics with custom attributes that provide additional context for troubleshooting and analysis.
++ Add custom attributes - Enhance your traces and metrics with custom attributes that provide additional context for troubleshooting and analysis. For more information, see [Add custom resource attributes to your agent’s telemetry](#observability-configure-resource-attributes).
 + Monitor resource usage - Pay attention to memory usage metrics to optimize your agent’s performance.
 + Set up alerts - Configure CloudWatch alarms to help notify you of potential issues before they impact your users.
 
@@ -586,3 +659,5 @@ DISABLE_ADOT_OBSERVABILITY=true
 ```
 
 Setting this variable to `true` unsets the AgentCore runtime’s default ADOT environment variables, ensuring that none of the default ADOT configurations are set.
+
+Starting November 16, 2026, setting this variable also means AgentCore Runtime doesn’t add your OpenTelemetry resource attributes to the `AgentCore.Runtime.Invoke` span. If you keep ADOT observability turned on and export to another platform, that platform receives the merged resource attributes. For more information, see [Add custom resource attributes to your agent’s telemetry](#observability-configure-resource-attributes).

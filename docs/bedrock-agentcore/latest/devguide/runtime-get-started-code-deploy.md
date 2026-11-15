@@ -53,7 +53,7 @@ Some of the dimensions of comparison to see how one option differs from the othe
 +  **Deployment Process** : Direct code deployment deploys agents using ZIP files instead of containers, lending itself to faster development iterations.
 +  **Deployment time** : Although there is not much difference during first deployment of an agent, subsequent updates to the agent are significantly faster with direct code deployment.
 +  **Customization** : Direct code supports for custom dependencies through ZIP-based packaging while maintaining deployment simplicity while container based depends on a Docker file.
-+  **Package size** : Direct code deployment limits the package size to 250MB whereas container based packages can be upto 2GB in size.
++  **Package size** : Direct code deployment limits the package size to 250 MB. Container-based packages can be up to 2 GB (compressed) on platform version V1, or up to 10 GB (compressed) on platform version V2. Images larger than 2 GB need a [resource configuration](runtime-how-it-works.md#runtime-v2-resource-configurations).
 +  **Session creation rate** : The direct code deployment allows for higher session creation of 25 new sessions/second compared to 1.6 new sessions/second with container based deployments.
 
 Our general guidance is

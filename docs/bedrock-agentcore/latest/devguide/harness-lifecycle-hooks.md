@@ -20,6 +20,9 @@ The event type determines when the hook runs, the context sent to the target, an
 |  `after_tool_call`  | The tool name, tool type, tool-use ID, tool result, and an error string when a tool executed by the harness raised an exception. | Keeps the completed tool result, then stops the invocation. The response stream emits a `messageStop` event with `stopReason` set to `hook_stopped`. | 
 |  `after_invocation`  | The invocation stop reason and input and output token counts. | Reports the decision in the response stream. The invocation has already completed, so the hook cannot retract streamed output. | 
 
+**Deprecated `file_operations` tool-call events**  
+The managed built-in tools replace `file_operations` with separate `read`, `write`, and `edit` tools. For a harness created before November 12, 2026 (00:00 UTC) that has `beforeToolCall` or `afterToolCall` hooks, the harness sends two events for each `read`, `write`, or `edit` call until December 12, 2026 (00:00 UTC): one with the new tool name and one deprecated `file_operations` event. The deprecated event has the same `toolUseId`, translates `toolInput` to the `file_operations` schema on `before_tool_call` events, and includes a `deprecation` object with `replacedBy`, `message`, and `removalDate` fields. A Lambda `deny` decision from either event takes effect as described in the preceding table. Update your hook targets to match `read`, `write`, and `edit` before December 12, 2026. After that date, and for harnesses created on or after November 12, 2026, the harness sends only the new events.
+
 ### Use tool-call hooks with inline functions
 <a name="harness-hook-inline-functions"></a>
 
