@@ -7,6 +7,7 @@ The following table describes the documentation releases for Systems Manager for
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [New feature](#doc-history) | Systems Manager for SAP now supports [multi-node (scale-out) SAP HANA deployments](https://docs.aws.amazon.com/ssm-sap/latest/userguide/supported-versions.html). | November 9, 2026 | 
 | [Policy update](#doc-history) | Updated [AWSSSMForSAPServiceLinkedRolePolicy](https://docs.aws.amazon.com/ssm-sap/latest/userguide/slr.html). | August 1, 2025 | 
 | [Minor Changes](#doc-history) | Systems Manager for SAP now supports [SLES for SAP 15 SP6](https://docs.aws.amazon.com/ssm-sap/latest/userguide/supported-versions.html). Other minor documentation corrections. | July 24, 2025 | 
 | [Policy update](#doc-history) | Updated [AWSSSMForSAPServiceLinkedRolePolicy](https://docs.aws.amazon.com/ssm-sap/latest/userguide/slr.html). | July 8, 2025 | 

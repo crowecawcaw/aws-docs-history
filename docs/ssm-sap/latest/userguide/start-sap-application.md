@@ -3,7 +3,7 @@
 # Start SAP application
 <a name="start-sap-application"></a>
 
-You can perform a start operation on a single node or HA (high availability) SAP HANA application or on a single node or distributed setup of an SAP ABAP application which is registered with AWS Systems Manager for SAP.
+You can perform a start operation on a single-node, multi-node (scale-out), or HA (high availability) SAP HANA application, or on a single node or distributed setup of an SAP ABAP application which is registered with AWS Systems Manager for SAP.
 
 When starting an SAP HANA application, the Amazon EC2 instance(s) on which the SAP HANA application will run is started first (if it is not already running), before the application is started. When starting a single node setup of an SAP ABAP application, the HANA database and/or the Amazon EC2 instance on which the SAP ABAP application will run is started first (if it is not already running).
 

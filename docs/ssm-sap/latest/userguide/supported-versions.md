@@ -32,6 +32,7 @@ The following table provides details of the database versions supported by AWS S
 | --- | --- | 
 | SAP HANA Scale-Up (single node) | 2.0 | 
 | SAP HANA Scale-Up (high availability) | 2.0 | 
+| SAP HANA Scale-Out (multi-node) | 2.0 | 
 
 ## SAP applications
 <a name="supported-versions-application"></a>
