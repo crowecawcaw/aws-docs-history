@@ -14,6 +14,8 @@ Send metrics to the CloudWatch OTLP endpoint in your Region:
 https://monitoring.{{region}}.amazonaws.com/v1/metrics
 ```
 
+To send metrics from a VPC without internet access, use an interface VPC endpoint. For more information, see [Using CloudWatch, CloudWatch Synthetics, and CloudWatch Network Monitoring with interface VPC endpoints](cloudwatch-and-interface-VPC.md).
+
 Authentication uses standard AWS SigV4 signing. The service name is `monitoring`. For more information about the endpoint, authentication options, and limits, see [OTLP Endpoints](CloudWatch-OTLPEndpoint.md).
 
 ## Quick start: publish your first metric

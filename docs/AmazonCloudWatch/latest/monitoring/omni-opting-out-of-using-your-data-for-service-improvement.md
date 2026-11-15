@@ -37,7 +37,7 @@ For certain models, Amazon Bedrock retains model inputs and outputs for up to 30
 ### Amazon Bedrock AgentCore
 <a name="omni-opting-out-of-using-your-data-for-service-improvement-braclong"></a>
 
-Amazon Bedrock AgentCore processes content for evaluations that run against an agent runtime. AgentCore states that it "may use and store your content to improve your service experience or performance," and that "such improvements would be for your use of AgentCore and not for other customers." For more information, see [What is Amazon Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) in the *Amazon Bedrock AgentCore Developer Guide*.
+Amazon Bedrock AgentCore processes content for evaluations that run against an agent runtime. For how Amazon Bedrock AgentCore handles your content, see [Data protection in Amazon Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/data-protection.html) in the *Amazon Bedrock AgentCore Developer Guide*.
 
 AgentCore is not covered by the AI services opt-out policy.
 

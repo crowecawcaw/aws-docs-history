@@ -49,7 +49,17 @@ Adding processors leads to mutation of the log events and original (raw) logs ar
 ## Pricing
 <a name="pipeline-pricing"></a>
 
-CloudWatch pipelines is included with CloudWatch Logs at no additional cost. Standard log ingestion rates based on log class (vended or custom) and storage class (Standard or Infrequent Access) still apply. Metering occurs at time of first ingestion into CloudWatch. CloudWatch Logs sources are metered before pipeline processing. Third-party and S3 bucket sources are classified as Custom logs and metered after processing. For pricing details, see [CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/).
+CloudWatch Logs includes log processing with CloudWatch pipelines at no additional cost. Standard CloudWatch Logs charges still apply. CloudWatch Logs bills ingestion at Vended or Custom log rates depending on the data source, and bills storage at Standard or Infrequent Access rates depending on the log group's log class.
+
+When ingestion is metered depends on the pipeline's data source:
++ **[AWS service data sources](data-sources.md#data-sources-aws-services) and logs already in CloudWatch Logs** – CloudWatch Logs meters ingestion when the logs first arrive, before pipeline processing. Charges are based on the original log volume, even if the pipeline enlarges or reduces it.
++ **[Third-party data sources](data-sources.md#data-sources-third-party)** – CloudWatch Logs meters ingestion after pipeline processing and bills it at Vended log rates.
++ **[Amazon S3 custom sources](configuring-custom-s3-bucket-sources.md)** – CloudWatch Logs meters ingestion after pipeline processing and bills it at Custom log rates.
+
+**Note**  
+If a pipeline writes to more than one log group, CloudWatch Logs meters ingestion only once. Pipeline processing does not change how logs are classified for billing.
+
+For more information about CloudWatch Logs ingestion and storage rates, see [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/).
 
 For metrics pipelines, standard CloudWatch OTel metrics ingestion and storage charges apply. There is no additional charge for pipeline processing.
 

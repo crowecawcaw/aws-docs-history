@@ -106,7 +106,7 @@ If role manager is enabled in your account, CloudWatch attaches the role for you
 
    If you selected replica Regions under **Locations**, tags from the primary Region are not replicated to replica Regions. To add tags to a replica canary, navigate to the replica Region and add tags there.
 
-1. (Optional) Under **Active tracing**, choose whether to enable active X-Ray tracing for this canary. Active tracing is only available for Puppeteer and Java runtimes. For more information, see [Canaries and X-Ray tracing](CloudWatch_Synthetics_Canaries_tracing.md).
+1. (Optional) Under **Active tracing**, choose whether to enable active X-Ray tracing for this canary. Active tracing is available only for canaries that use `syn-nodejs-puppeteer-*` or `syn-java-*` runtimes. Firefox browser canaries do not support active tracing. For more information, see [Canaries and X-Ray tracing](CloudWatch_Synthetics_Canaries_tracing.md).
 
 ## Resources that are created for canaries
 <a name="CloudWatch_Synthetics_Canaries_Resources_Created"></a>

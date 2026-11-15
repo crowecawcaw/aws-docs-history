@@ -32,7 +32,7 @@ For example, to allow a principal to manage detailed monitoring for only one res
             "Resource": "*",
             "Condition": {
                 "StringEquals": {
-                    "cloudwatch:ResourceArn": "arn:aws:service:us-east-1:123456789012:resource-type/resource-id"
+                    "cloudwatch:ResourceArn": "arn:aws:service:us-east-1:111122223333:resource-type/resource-id"
                 }
             }
         }
@@ -42,7 +42,7 @@ For example, to allow a principal to manage detailed monitoring for only one res
 
 ------
 
-`cloudwatch:ResourceArn` is evaluated as a string. Use `StringEquals` for an exact match, or `StringLike` with wildcards to match a set of resources. For example, you can use `arn:aws:service:*:123456789012:resource-type/*`. The ARN condition operators, such as `ArnEquals` and `ArnLike`, do not apply to this key.
+`cloudwatch:ResourceArn` is evaluated as a string. Use `StringEquals` for an exact match, or `StringLike` with wildcards to match a set of resources. For example, you can use `arn:aws:service:*:111122223333:resource-type/*`. The ARN condition operators, such as `ArnEquals` and `ArnLike`, do not apply to this key.
 
 The following policy uses `StringLike` with wildcards to allow the principal to manage detailed monitoring for any resource of one type in the account:
 
@@ -64,7 +64,7 @@ The following policy uses `StringLike` with wildcards to allow the principal to 
             "Resource": "*",
             "Condition": {
                 "StringLike": {
-                    "cloudwatch:ResourceArn": "arn:aws:service:*:123456789012:resource-type/*"
+                    "cloudwatch:ResourceArn": "arn:aws:service:*:111122223333:resource-type/*"
                 }
             }
         }

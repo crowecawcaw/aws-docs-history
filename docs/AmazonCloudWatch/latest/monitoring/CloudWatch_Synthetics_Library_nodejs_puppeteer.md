@@ -29,7 +29,29 @@ Synthetics runtime `syn-nodejs-puppeteer-11.0` and later versions support only t
  `continueOnStepFailure/continueOnHttpStepFailure` 
  `stepsReport` 
 
-## syn-nodejs-puppeteer-18.0
+## syn-nodejs-puppeteer-19.0
+<a name="CloudWatch_Synthetics_runtimeversion-nodejs-puppeteer-19.0"></a>
+
+**Major dependencies**:
++ Lambda runtime Node.js 22.x
++ Puppeteer-core version 25.16.0
++ Chromium version 156.0.8078.47
++ Firefox version 158.0.1
+
+ **Changes in syn-nodejs-puppeteer-19.0** 
++ Upgrade `zod` to 4.6.7 to address CVE-2023-54404.
++ Upgrade `axios` to 1.20.0 to address CVE-2026-12143.
+
+For more information, see the following:
++  [Puppeteer changelog](https://pptr.dev/CHANGELOG) on the Puppeteer website 
++  [Puppeteer API reference](https://pptr.dev/api) on the Puppeteer website 
+
+## Previous runtime versions for Node.js and Puppeteer
+<a name="Previousversions-nodejs-puppeteer"></a>
+
+The following earlier runtime versions for Node.js and Puppeteer are still supported. 
+
+### syn-nodejs-puppeteer-18.0
 <a name="CloudWatch_Synthetics_runtimeversion-nodejs-puppeteer-18.0"></a>
 
 **Major dependencies**:
@@ -53,15 +75,6 @@ Synthetics runtime `syn-nodejs-puppeteer-11.0` and later versions support only t
   + CVE-2026-67319
   + CVE-2026-67320
   + CVE-2026-67321
-
-For more information, see the following:
-+  [Puppeteer changelog](https://pptr.dev/CHANGELOG) on the Puppeteer website 
-+  [Puppeteer API reference](https://pptr.dev/api) on the Puppeteer website 
-
-## Previous runtime versions for Node.js and Puppeteer
-<a name="Previousversions-nodejs-puppeteer"></a>
-
-The following earlier runtime versions for Node.js and Puppeteer are still supported. 
 
 ### syn-nodejs-puppeteer-17.0
 <a name="CloudWatch_Synthetics_runtimeversion-nodejs-puppeteer-17.0"></a>

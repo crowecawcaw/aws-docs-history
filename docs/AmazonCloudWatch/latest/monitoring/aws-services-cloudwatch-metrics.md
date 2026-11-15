@@ -142,7 +142,7 @@
 | Amazon Q Apps | `AWS/QApps` | [Monitoring Amazon Q Business and Amazon Q Apps with Amazon CloudWatch ](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/monitoring-cloudwatch.html) | 
 | Amazon Q Business | `AWS/QBusiness` | [Monitoring Amazon Q Business and Amazon Q Apps with Amazon CloudWatch ](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/monitoring-cloudwatch.html) | 
 | Amazon Q Developer | `AWS/Q` | [Monitoring Amazon Q Developer with Amazon CloudWatch ](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/monitoring-cloudwatch.html) | 
-| Amazon Quick | `AWS/QuickSight` | [ Monitoring with Amazon CloudWatch](https://docs.aws.amazon.com/quicksight/latest/user/monitoring-quicksight.html) | 
+| AWS Quick | `AWS/QuickSight` | [ Monitoring with Amazon CloudWatch](https://docs.aws.amazon.com/quicksight/latest/user/monitoring-quicksight.html) | 
 | Amazon Redshift | `AWS/Redshift` | [Amazon Redshift Performance Data](https://docs.aws.amazon.com/redshift/latest/mgmt/metrics-listing.html) | 
 | Amazon Relational Database Service | `AWS/RDS` | [ Monitoring Amazon RDS metrics with Amazon CloudWatch](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/monitoring-cloudwatch.html) | 
 | Amazon Rekognition | `AWS/Rekognition` | [ Monitoring Rekognition with Amazon CloudWatch](https://docs.aws.amazon.com/rekognition/latest/dg/rekognition-monitoring.html) | 

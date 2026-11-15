@@ -59,6 +59,7 @@ To set up CloudWatch Metrics centralization, you need to configure centralizatio
 <a name="metrics-centralization-prerequisites"></a>
 + AWS Organizations must be set up and the source and destination accounts must both belong to the same organization.
 + Trusted access must be enabled for CloudWatch so the management account and the destination account can access the metric data.
++ Choose source Regions and a destination Region that are enabled by default. You can't use [opt-in Regions (Regions that are disabled by default)](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html#optinregion) with metrics centralization.
 
 **Note**  
 It is recommended to enable trusted access through the console, which automatically creates the required service-linked role (SLR). If trusted access is enabled through other methods, the service-linked role will need to be created separately.

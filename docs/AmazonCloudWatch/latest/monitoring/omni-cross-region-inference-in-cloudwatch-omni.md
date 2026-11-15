@@ -33,6 +33,7 @@ The following table shows which Regions can process requests from each space Reg
 | Supported CloudWatch Omni geography | Space Region | Possible inference Regions | 
 | --- | --- | --- | 
 | United States (US) | US East (N. Virginia) | US East (N. Virginia), US East (Ohio), US West (Oregon) | 
+| United States (US) | US East (Ohio) | US East (N. Virginia), US East (Ohio), US West (Oregon) | 
 | United States (US) | US West (Oregon) | US East (N. Virginia), US East (Ohio), US West (Oregon) | 
 | Canada | Canada (Central) | Canada (Central), US East (N. Virginia), US East (Ohio), US West (Oregon) | 
 | Europe (EU) | Europe (Frankfurt) | Europe (Frankfurt), Europe (Ireland), Europe (Milan), Europe (Paris), Europe (Spain), Europe (Stockholm) | 

@@ -27,6 +27,8 @@ You need to configure your OpenTelemetry collector to start sending metrics to C
 + **AWS Signature Version 4 (SigV4)**– The recommended authentication method using short-term credentials. For more information, see [AWS Signature Version 4 for API requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html).
 + **Bearer token (API key)**– For workloads running outside AWS or environments that do not support the AWS SDK. Uses a long-lived API key passed in the `Authorization` header. For more information, see [Setting up bearer token authentication for Metrics](CloudWatch-OTLP-MetricsBearerTokenAuth.md).
 
+**Private connectivity:** You can send OTLP metrics from a VPC without internet access by creating an interface VPC endpoint for `com.amazonaws.{{region}}.monitoring`. With private DNS enabled, the standard metrics endpoint URL resolves to the interface endpoint. For more information, see [Using CloudWatch, CloudWatch Synthetics, and CloudWatch Network Monitoring with interface VPC endpoints](cloudwatch-and-interface-VPC.md).
+
 ## Traces endpoint
 <a name="CloudWatch-TracesEndpoint"></a>
 

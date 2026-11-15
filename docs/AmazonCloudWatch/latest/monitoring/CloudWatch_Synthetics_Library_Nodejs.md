@@ -11,7 +11,30 @@ The naming convention for these runtime versions is `syn-{{language}} -{{majorve
 Starting Synthetics `syn-nodejs-3.1` and later, Synthetics runtime uses the new namespace. Please migrate the canary script to use the new namespace. Legacy namespace will be deprecated in a future release.  
 @amzn/synthetics-core → @aws/synthetics-core
 
-## syn-nodejs-5.3
+## syn-nodejs-5.4
+<a name="CloudWatch_Synthetics_runtimeversion-syn-nodejs-5.4"></a>
+
+**Major dependencies**:
++ AWS Lambda runtime Node.js 22.x
+
+ **Changes in syn-nodejs-5.4** 
++ Upgrade `axios` to 1.20.0 to address CVE-2026-12143.
++ Upgrade `follow-redirects` to 1.16.1 to address the following CVEs:
+  + CVE-2026-111755
+  + CVE-2026-111756
++ Upgrade `brace-expansion` to 5.0.12 to address CVE-2026-102277.
++ Upgrade `fast-uri` in the multi-checks blueprint to 4.2.3 to address the following CVEs:
+  + CVE-2026-110095
+  + CVE-2026-110180
+  + CVE-2026-110306
+  + CVE-2026-110725
+
+## Previous runtime versions for Node.js
+<a name="Previousversions-nodejs"></a>
+
+The following earlier runtime versions for Node.js are still supported. 
+
+### syn-nodejs-5.3
 <a name="CloudWatch_Synthetics_runtimeversion-syn-nodejs-5.3"></a>
 
 **Major dependencies**:
@@ -39,11 +62,6 @@ Starting Synthetics `syn-nodejs-3.1` and later, Synthetics runtime uses the new 
   + CVE-2026-67319
   + CVE-2026-67320
   + CVE-2026-67321
-
-## Previous runtime versions for Node.js
-<a name="Previousversions-nodejs"></a>
-
-The following earlier runtime versions for Node.js are still supported. 
 
 ### syn-nodejs-5.2
 <a name="CloudWatch_Synthetics_runtimeversion-syn-nodejs-5.2"></a>

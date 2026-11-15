@@ -206,3 +206,8 @@ In this example, the CloudWatch agent will collect the following values. All the
 + `mem_buffered`: 129667072 bytes
 + `mem_available_percent`: 56.41%
 + `mem_used_percent`: 36.24% (`mem_used` / `mem_total`) \* 100
+
+## Optimize metrics collection cost
+<a name="metrics-collected-CloudWatch-agent-cost-optimization"></a>
+
+For guidance on reducing the number and cost of metrics the agent publishes, see [Optimize custom metrics cost](create-cloudwatch-agent-configuration-file.md#CloudWatch-Agent-custom-metrics-cost).

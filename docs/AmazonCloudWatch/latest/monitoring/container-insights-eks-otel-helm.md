@@ -239,6 +239,9 @@ You can also use cert-manager with external issuers such as HashiCorp Vault. To 
 
 Upgrade the Helm chart to apply new configuration values or to update to a newer chart version.
 
+**Important**  
+Version 7.0.0 of the chart removes some labels, attributes, and duplicate series from OTel Container Insights metrics. Before you upgrade from a 6.x version, read [Upgrading OTel Container Insights to version 7.0.0](container-insights-eks-otel.md#container-insights-eks-otel-upgrade-v7).
+
 **To upgrade the Helm chart**
 
 1. Update the Helm repository to get the latest chart versions.

@@ -11,6 +11,9 @@ Interface VPC endpoints are powered by AWS PrivateLink, an AWS technology that e
 
 The following steps are for users of Amazon VPC. For more information, see [Getting Started](https://docs.aws.amazon.com/vpc/latest/userguide/GetStarted.html) in the *Amazon VPC User Guide*.
 
+**Note**  
+If you use OpenTelemetry to send telemetry to CloudWatch, each OpenTelemetry Protocol (OTLP) signal uses a different endpoint, and therefore a different interface VPC endpoint. OTLP metrics use the CloudWatch endpoint, `com.amazonaws.{{region}}.monitoring`, which is described on this page. OTLP logs use the CloudWatch Logs endpoint, `com.amazonaws.{{region}}.logs`, and OTLP traces use the X-Ray endpoint, `com.amazonaws.{{region}}.xray`. For the logs interface VPC endpoint, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html). For the traces interface VPC endpoint, see the [X-Ray Developer Guide](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html).
+
 ## CloudWatch VPC endpoints
 <a name="cloudwatch-interface-VPC-availability"></a>
 
@@ -20,6 +23,8 @@ CloudWatch currently supports VPC endpoints, including IPv6-only and dual stack 
 <a name="create-VPC-endpoint-for-CloudWatch"></a>
 
 To start using CloudWatch with your VPC, create an interface VPC endpoint for CloudWatch. The service name to choose is `com.amazonaws.{{region}}.monitoring`. For more information, see [Creating an interface endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html#create-interface-endpoint-aws) in the *Amazon VPC User Guide*.
+
+The `com.amazonaws.{{region}}.monitoring` endpoint also serves the CloudWatch OTLP endpoint for metrics (`/v1/metrics`). If private DNS is enabled on the endpoint, OpenTelemetry SDKs and collectors that send to `https://monitoring.{{region}}.amazonaws.com/v1/metrics` use the interface endpoint automatically, with no configuration changes. If private DNS is not enabled, send to the endpoint-specific DNS name instead, for example `https://vpce-1234567890abcdef0-abcdefgh.monitoring.{{region}}.vpce.amazonaws.com/v1/metrics`, and sign requests with the service name `monitoring`. For more information, see [OTLP Endpoints](CloudWatch-OTLPEndpoint.md).
 
 You do not need to change the settings for CloudWatch. CloudWatch calls other AWS services using either public endpoints or private interface VPC endpoints, whichever are in use. For example, if you create an interface VPC endpoint for CloudWatch, and you already have metrics flowing to CloudWatch from resources located on your VPC, these metrics begin flowing through the interface VPC endpoint by default.
 
@@ -49,6 +54,8 @@ The following is an example of an endpoint policy for CloudWatch. This policy al
   ]
 }
 ```
+
+The `cloudwatch:PutMetricData` action authorizes requests to the OTLP metrics endpoint, so the preceding policy also allows OTLP metric ingestion through the endpoint. OTLP metric requests don't include the `cloudwatch:namespace` condition key. If your endpoint policy restricts `cloudwatch:PutMetricData` with a `cloudwatch:namespace` condition, the endpoint denies OTLP requests.
 
 **To edit the VPC endpoint policy for CloudWatch**
 

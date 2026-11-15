@@ -14,6 +14,7 @@
 + [Sending metrics, logs, and traces to a different account](#CloudWatch-Agent-send-to-different-AWS-account)
 + [Timestamp differences between the CloudWatch agent and the earlier CloudWatch Logs agent](#CloudWatch-Agent-logs-timestamp-differences)
 + [Appending OpenTelemetry collector configuration files](#CloudWatch-Agent-appending-OpenTelemetry-config-files)
++ [Installing the CloudWatch agent on Amazon EKS](#CloudWatch-Agent-install-on-eks)
 
 ## Running the CloudWatch agent as a different user
 <a name="CloudWatch-Agent-run-as-user"></a>
@@ -366,3 +367,12 @@ The following OpenTelemetry components are available for you to configure in you
 The CloudWatch agent only supports writing telemetry to AWS destinations.
 
 For YAML examples that send each signal to the CloudWatch OpenTelemetry Protocol (OTLP) endpoints, see [Configuration examples](CloudWatch-OTLPCloudWatchAgent.md#CloudWatch-OTLPCloudWatchAgent-Examples).
+
+## Installing the CloudWatch agent on Amazon EKS
+<a name="CloudWatch-Agent-install-on-eks"></a>
+
+For Amazon EKS, install the CloudWatch agent using the Amazon CloudWatch Observability EKS add-on, or the equivalent Helm chart. This is the recommended and supported method for Amazon EKS. The add-on deploys and manages the CloudWatch agent and the Fluent Bit log collector for you. For instructions, see [Install the CloudWatch agent with the Amazon CloudWatch Observability EKS add-on or the Helm chart](install-CloudWatch-Observability-EKS-addon.md).
+
+The Amazon CloudWatch Observability EKS add-on runs the agent with `hostNetwork: true` by default, so the default IMDSv2 hop limit of 1 is sufficient on the recommended path.
+
+If you deploy the agent with a custom manifest that does not set `hostNetwork: true`, the agent pod's requests to the instance metadata service traverse an additional network hop. In that case, set the instance's IMDSv2 hop limit to 2, or the agent cannot retrieve credentials. To avoid relying on the instance metadata service, use EKS Pod Identity or IAM roles for service accounts (IRSA) to provide credentials to the agent.

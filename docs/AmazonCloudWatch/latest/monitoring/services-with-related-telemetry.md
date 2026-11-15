@@ -118,8 +118,8 @@ For services that use the [CloudWatch agent](Install-CloudWatch-Agent.md), you m
 | Amazon Managed Service for Prometheus | `AWS::Prometheus::Resource` | Yes | No | 
 | Amazon Q Business |  | No | Yes | 
 | Amazon QLDB | `AWS::QLDB::Ledger` | Yes | No | 
-| Amazon Quick | `AWS::Quicksight::Dashboard` | Yes | No | 
-| Amazon Quick | `AWS::Quicksight::DataSet` | Yes | No | 
+| AWS Quick | `AWS::Quicksight::Dashboard` | Yes | No | 
+| AWS Quick | `AWS::Quicksight::DataSet` | Yes | No | 
 | Amazon Redshift | `AWS::Redshift::Cluster` | Yes | Yes | 
 | Amazon Redshift Serverless | `AWS::RedshiftServerless::Workgroup` | Yes | No | 
 | Amazon Relational Database Service | `AWS::RDS::DBCluster` | Yes | Yes | 

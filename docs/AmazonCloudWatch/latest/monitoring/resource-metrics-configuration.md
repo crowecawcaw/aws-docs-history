@@ -40,14 +40,14 @@ If you attempt to create a ResourceMetricsConfiguration for a resource type that
 
    ```
    aws cloudwatch create-resource-metrics-configuration \
-       --resource-arn {{arn:aws:service:us-east-1:123456789012:resource-type/resource-id}}
+       --resource-arn {{arn:aws:service:us-east-1:111122223333:resource-type/resource-id}}
    ```
 
 1. To collect only specific metrics instead of all available detailed metrics, include the `--metric-selections` parameter.
 
    ```
    aws cloudwatch create-resource-metrics-configuration \
-       --resource-arn {{arn:aws:service:us-east-1:123456789012:resource-type/resource-id}} \
+       --resource-arn {{arn:aws:service:us-east-1:111122223333:resource-type/resource-id}} \
        --metric-selections '[{"IncludeMetrics": ["{{MetricName1}}", "{{MetricName2}}"]}]'
    ```
 
@@ -59,7 +59,7 @@ If you attempt to create a ResourceMetricsConfiguration for a resource type that
     DetailedMonitoring:
       Type: AWS::CloudWatch::ResourceMetricsConfiguration
       Properties:
-        ResourceArn: {{arn:aws:service:us-east-1:123456789012:resource-type/resource-id}}
+        ResourceArn: {{arn:aws:service:us-east-1:111122223333:resource-type/resource-id}}
   ```
 
 ## Checking if detailed monitoring is enabled
@@ -73,7 +73,7 @@ To check whether detailed monitoring is enabled for a specific resource, use the
 
    ```
    aws cloudwatch get-resource-metrics-configuration \
-       --resource-arn {{arn:aws:service:us-east-1:123456789012:resource-type/resource-id}}
+       --resource-arn {{arn:aws:service:us-east-1:111122223333:resource-type/resource-id}}
    ```
 
 1. If detailed monitoring is enabled, the command returns the configuration details, including any metric selections. If no configuration exists, the command returns an error.
@@ -89,7 +89,7 @@ You can update an existing ResourceMetricsConfiguration to change which metrics 
 
    ```
    aws cloudwatch update-resource-metrics-configuration \
-       --resource-arn {{arn:aws:service:us-east-1:123456789012:resource-type/resource-id}} \
+       --resource-arn {{arn:aws:service:us-east-1:111122223333:resource-type/resource-id}} \
        --metric-selections '[{"IncludeMetrics": ["{{MetricName1}}", "{{MetricName2}}"]}]'
    ```
 
@@ -109,7 +109,7 @@ To disable detailed monitoring for a resource, delete its ResourceMetricsConfigu
 
    ```
    aws cloudwatch delete-resource-metrics-configuration \
-       --resource-arn {{arn:aws:service:us-east-1:123456789012:resource-type/resource-id}}
+       --resource-arn {{arn:aws:service:us-east-1:111122223333:resource-type/resource-id}}
    ```
 
 1. Verify that the configuration was deleted by calling `GetResourceMetricsConfiguration`. The command returns an error if no configuration exists.
@@ -144,7 +144,7 @@ The following example IAM policy grants permissions for all ResourceMetricsConfi
             "Resource": "*",
             "Condition": {
                 "StringEquals": {
-                    "cloudwatch:ResourceArn": "arn:aws:service:us-east-1:123456789012:resource-type/resource-id"
+                    "cloudwatch:ResourceArn": "arn:aws:service:us-east-1:111122223333:resource-type/resource-id"
                 }
             }
         }

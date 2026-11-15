@@ -7,7 +7,7 @@ The tables in this section lists the metrics that you automatically collect with
 
 You can also optionally send extended metrics to CloudWatch. For more information, see [Extended metrics](CloudWatch-RUM-custom-and-extended-metrics.md#CloudWatch-RUM-vended-metrics).
 
-These metrics are published in the metric namespace named `AWS/RUM`. All of the following metrics are published with an `application_name` dimension. The value of this dimension is the name of the app monitor. Some metrics are also published with additional dimensions, as listed in the following table.
+These metrics are published in the metric namespace named `AWS/RUM`. CloudWatch RUM publishes the web and mobile metrics in the following tables with an `application_name` dimension. The value of this dimension is the name of the app monitor. CloudWatch RUM also publishes some metrics with additional dimensions, as listed in the following tables.
 
 The following table describes the web metrics.
 
@@ -66,3 +66,17 @@ You can configure extended metrics for your mobile application to provide additi
 | `WarmAppLaunchSatisfiedTransaction` | Count | The number of warm app launches that completed in less than 2 seconds, providing a satisfactory user experience. | 
 | `WarmAppLaunchToleratedTransaction` | Count | The number of warm app launches that completed between 2 and 8 seconds, providing a tolerable, but not ideal, user experience. | 
 | `WarmLaunchTime` | Milliseconds | Time taken to launch the application from background state.<br />For Android: Time from Application `onCreate` until the first Activity finishes creating.<br />For iOS: Time from `UIApplicationWillEnterForegroundNotification` until `didBecomeActiveNotification`. | 
+
+CloudWatch RUM also publishes request and throttling metrics in the `AWS/RUM` namespace in all Regions where CloudWatch RUM is available. These metrics are account-level metrics. CloudWatch RUM publishes them to the AWS account that calls the API. They don't have the `application_name` dimension. Instead, they have an `Operation` dimension with one of the following values:
++ `PutRumEvents` – Requests from web applications
++ `PutRumOtelEvents` – Requests from mobile applications that use OpenTelemetry
+
+The following table describes the request and throttling metrics.
+
+
+| Metric | Unit | Description | 
+| --- | --- | --- | 
+| `RequestCount` | None | The number of requests that CloudWatch RUM received for the operation. CloudWatch RUM counts requests before applying throttling, so this metric includes throttled requests. To monitor requests per second, use the `Sum` statistic and divide it by the period in seconds. For example, divide by 60 for a 1-minute period. You can use the metric math expression `m1/PERIOD(m1)`. | 
+| `ThrottledRequestCount` | None | The number of requests for the operation that CloudWatch RUM throttled because they exceeded the request rate quota for your account. CloudWatch RUM rejects these requests with a `ThrottlingException`. | 
+
+The most useful statistic for these metrics is `Sum`. To know when you might need a quota increase, create an alarm that goes into ALARM state when `ThrottledRequestCount` is greater than 0. For information about CloudWatch RUM quotas and how to request an increase, see [CloudWatch RUM quotas](cloudwatch_limits.md#CloudWatch-RUM-quotas).

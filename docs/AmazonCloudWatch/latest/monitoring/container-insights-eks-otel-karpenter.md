@@ -78,6 +78,15 @@ The Karpenter pipeline runs independently from other metric pipelines (API serve
 **Note**  
 Karpenter metrics are cluster-scoped.
 
+## Using Karpenter node labels with Container Insights
+<a name="container-insights-eks-otel-karpenter-node-labels"></a>
+
+Karpenter adds labels to each node that it creates. Container Insights adds node labels to its metrics as `k8s.node.label.*` attributes. This applies to all Container Insights metrics from a Karpenter node, not only to the Karpenter metrics on this page.
+
+From version 7.0.0, Container Insights does not send the node labels that Karpenter derives from the instance type, such as the instance family and size. It also does not send the Karpenter node status labels. Use `host.type` for the instance type.
+
+Labels that describe how Karpenter provisioned the node stay, for example the node pool, the capacity type, and the node class.
+
 ## Viewing the Karpenter dashboard
 <a name="container-insights-eks-otel-karpenter-dashboard"></a>
 

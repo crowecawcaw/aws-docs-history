@@ -19,6 +19,9 @@ Metrics, logs, and traces collected by the CloudWatch agent incur charges. For m
 + [Create the CloudWatch agent configuration file with the wizard](create-cloudwatch-agent-configuration-file-wizard.md)
 + [Creating multiple CloudWatch agent configuration files](#CloudWatch-Agent-multiple-config-files)
 + [Manually create or edit the CloudWatch agent configuration file](CloudWatch-Agent-Configuration-File-Details.md)
++ [Log collection patterns and limitations](#CloudWatch-Agent-log-collection-patterns)
++ [Optimize custom metrics cost](#CloudWatch-Agent-custom-metrics-cost)
++ [Configuration changes and restart behavior](#CloudWatch-Agent-config-restart-behavior)
 
 ## Creating multiple CloudWatch agent configuration files
 <a name="CloudWatch-Agent-multiple-config-files"></a>
@@ -114,3 +117,75 @@ The following example configuration files illustrate a use for this feature. The
 Any configuration files appended to the configuration must have different file names from each other and from the initial configuration file. If you use `append-config` with a configuration file with the same file name as a configuration file that the agent is already using, the append command overwrites the information from the first configuration file instead of appending to it. This is true even if the two configuration files with the same file name are on different file paths.
 
 The preceding example shows the use of two configuration files, but there is no limit to the number of configuration files that you can append to the agent configuration. You can also mix the use of configuration files located on servers and configurations located in Parameter Store.
+
+## Log collection patterns and limitations
+<a name="CloudWatch-Agent-log-collection-patterns"></a>
+
+Understanding how the CloudWatch agent selects and tails log files is important for proper configuration:
++ By default, the `file_path` wildcard matches files by modification time, and the agent tails only the newest matching file. To tail every matching file instead, set `publish_multi_logs` to true.
++ If multiple new files appear between poll cycles, earlier ones might be skipped entirely
++ This design targets continuously appended or rotated logs, not batches of discrete complete files
+
+The agent handles log rotation as follows:
++ Without `auto_removal`, the agent does not stop the tailer on the old file; it keeps reading the old file alongside the new one.
++ With `auto_removal`, the agent reads the old file to the end, stops, and then deletes it. `auto_removal` does not work together with `publish_multi_logs`.
+
+For batch file patterns (for example, thousands of discrete files appearing at once), consider using Amazon S3 upload or direct `PutLogEvents` API calls instead of the CloudWatch agent.
+
+## Optimize custom metrics cost
+<a name="CloudWatch-Agent-custom-metrics-cost"></a>
+
+These common sources cause unexpectedly high metric counts:
++ Broad procstat collection. Using `"exe": ".*"` matches every process, creating a separate metric for each process and measurement.
++ Metrics for each filesystem. On instances with many mounts (containers, EBS volumes), each mount generates separate metrics.
++ Per-CPU metrics. Setting `"resources": ["*"]` on CPU with many vCPUs multiplies metrics by core count.
+
+To reduce cost, use the following strategies:
++ Use `aggregation_dimensions` to reduce cardinality (aggregate across instances, volumes, and other resources).
++ Only include measurement values you actually need and will alert on
++ Use `drop_original_metrics` when using aggregation to avoid publishing both aggregated and per-dimension metrics.
+
+## Configuration changes and restart behavior
+<a name="CloudWatch-Agent-config-restart-behavior"></a>
+
+All configuration changes require an agent restart to take effect. Use the fetch-config action.
+
+If your configuration is stored in SSM Parameter Store, reference it with `ssm:`. In the following commands, replace {{parameter-name}} with the name of your Parameter Store parameter.
+
+The following command fetches the configuration from Parameter Store on Linux:
+
+```
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
+    -a fetch-config \
+    -s -m ec2 \
+    -c ssm:{{parameter-name}}
+```
+
+The following command fetches the configuration from Parameter Store on Windows. Run it in PowerShell as an administrator:
+
+```
+& "$Env:ProgramFiles\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent-ctl.ps1" -a fetch-config -m ec2 -s -c ssm:{{parameter-name}}
+```
+
+If the configuration is stored in a local file on the instance, reference it with `file:` and the full path instead.
+
+The following command fetches the configuration from a local file on Linux:
+
+```
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
+    -a fetch-config \
+    -s -m ec2 \
+    -c file:/opt/aws/amazon-cloudwatch-agent/etc/cloudwatch-agent.json
+```
+
+The following command fetches the configuration from a local file on Windows. Run it in PowerShell as an administrator:
+
+```
+& "$Env:ProgramFiles\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent-ctl.ps1" -a fetch-config -m ec2 -s -c file:"$Env:ProgramData\Amazon\AmazonCloudWatchAgent\cloudwatch-agent.json"
+```
+
+The Windows commands use the following elements:
++ `$Env:ProgramFiles` resolves to the program files directory (typically `C:\Program Files`) where the agent control script is installed.
++ `$Env:ProgramData` resolves to the program data directory (typically `C:\ProgramData`). If your configuration file is in a different location, replace the path after `file:` with its full path.
+
+The state file preserves log read offsets across restarts, so the agent does not re-send logs after a restart. The agent sends only the new log lines that are written after the last saved offset.

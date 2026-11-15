@@ -273,7 +273,7 @@ The **AIOpsConsoleAdminPolicy** policy grants full access to all CloudWatch inve
 **Important**  
 These permissions allow users with this policy to pass any IAM role to the `aiops` and `ssm.integrations` services.
 + It allows APIs from services outside CloudWatch investigations, which are required for investigation feature functionality. These include actions to configure Amazon Q Developer in chat applications, AWS KMS, CloudTrail trails, and SSM third-party issue management.
-+ The `q` permissions enable integration with Amazon Q, allowing users to interact with and update CloudWatch investigations reports through Amazon Q's conversational interface.
++ The `q` permissions enable integration with the AWS assistant, allowing users to interact with and update CloudWatch investigations reports through the AWS assistant's conversational interface.
 
 To see the full contents of the policy, see [AIOpsConsoleAdminPolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AIOpsConsoleAdminPolicy.html) in the *AWS Managed Policy Reference Guide*.
 
@@ -286,7 +286,7 @@ This policy only provides access to investigations. You should be sure that IAM 
 + The `aiops` permissions allow access to CloudWatch investigations APIs to create, update, and delete investigations. 
 + The `sso-directory`, `sso`, `identitystore`, and `sts` permissions allow actions needed for IAM Identity Center management which help identity-aware sessions. 
 + The `ssm` permissions are required for SSM Ops Item integration with third-party issue management.
-+ The `q` permissions enable integration with Amazon Q, allowing users to interact with and update CloudWatch investigations reports through Amazon Q's conversational interface.
++ The `q` permissions enable integration with the AWS assistant, allowing users to interact with and update CloudWatch investigations reports through the AWS assistant's conversational interface.
 
 To see the full contents of the policy, see [AIOpsOperatorAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AIOpsOperatorAccess.html) in the *AWS Managed Policy Reference Guide*.
 

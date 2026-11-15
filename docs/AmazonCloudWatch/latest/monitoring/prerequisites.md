@@ -5,6 +5,48 @@
 
 Make sure the following prerequisites are completed before installing the CloudWatch agent for the first time.
 
+## Required IAM permissions
+<a name="CloudWatch-Agent-required-iam-permissions"></a>
+
+The agent requires an AWS Identity and Access Management (IAM) role (for EC2) or user (for on-premises) with the correct permissions. Missing or incomplete permissions often cause the agent to start without publishing metrics or logs.
+
+To grant the required permissions, do the following:
++ Attach `CloudWatchAgentServerPolicy` to the role or user on every instance that runs the agent. This policy grants permission to publish metrics, create and write log groups and streams, and read the Amazon EC2 Systems Manager (SSM) parameters used for agent configuration. The policy grants `ssm:GetParameter` only on parameters whose names begin with `AmazonCloudWatch-`, so store your agent configuration under a parameter name that uses that prefix.
++ For cross-account delivery, add an `sts:AssumeRole` statement that references the target account role. For more information about cross-account delivery, see [Sending metrics, logs, and traces to a different account](CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account).
+
+The following table maps common permission errors to their causes.
+
+
+| Error | Likely cause | 
+| --- | --- | 
+| `AccessDeniedException` on `PutMetricData` or `PutLogEvents` | `CloudWatchAgentServerPolicy` is not attached to the instance role. | 
+| `AccessDeniedException` on `GetParameter` | The Parameter Store parameter name does not begin with `AmazonCloudWatch-`. `CloudWatchAgentServerPolicy` grants `ssm:GetParameter` only on parameters with that prefix. | 
+
+## Network requirements
+<a name="CloudWatch-Agent-network-requirements"></a>
+
+The agent must reach the following endpoints over HTTPS (TCP 443):
++ `monitoring.{{region}}.amazonaws.com`: for publishing metrics
++ `ec2.{{region}}.amazonaws.com`: for EC2 instance tag lookups used by the agent
++ `logs.{{region}}.amazonaws.com`: for publishing logs
+
+If you use AWS Systems Manager (Systems Manager) to install the agent or Parameter Store to hold its configuration, the agent must also reach the following endpoints. These match the SSM endpoints referenced in the installation section.
++ `ssm.{{region}}.amazonaws.com`
++ `ssmmessages.{{region}}.amazonaws.com`
++ `ec2messages.{{region}}.amazonaws.com`
+
+You might also need these endpoints:
++ `s3.{{region}}.amazonaws.com`: to download the agent package and the `AWS-ConfigureAWSPackage` document. Create this as a gateway endpoint, not an interface endpoint.
++ `sts.{{region}}.amazonaws.com`: only if you use `role_arn` to send data to a different account.
+
+In private subnets without a NAT gateway, create a Amazon Virtual Private Cloud (Amazon VPC) endpoint for each of these services. Create interface endpoints for all of the services except Amazon S3, and enable private DNS on each interface endpoint. Create a gateway endpoint for Amazon S3, which routes through a route table and does not use private DNS. To test connectivity before installing, run the following `curl` command:
+
+```
+curl -v https://monitoring.{{region}}.amazonaws.com
+```
+
+For more information about the installation procedure, see [Installing the CloudWatch agent](install-CloudWatch-Agent-on-EC2-Instance.md).
+
 ## IAM roles and users for CloudWatch agent
 <a name="iam-setup"></a>
 

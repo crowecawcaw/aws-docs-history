@@ -86,6 +86,9 @@ The following issues are specific to the OTel Container Insights approach. For g
 | Connection refused on metrics endpoint | Collector cannot reach the kubelet | Verify that hostNetwork: true is set in the pod spec, or confirm that the service account has the required permissions. | 
 | High memory usage | Batch processor queue is too large | Reduce the batch/timeout and batch/send\_batch\_size values in the collector configuration. | 
 | Custom metrics not appearing | Receiver not configured for the application endpoint | Add a Prometheus receiver that targets your application metrics port in the collector configuration. | 
+| After an upgrade to version 7.0.0, pod-level container\_\* values are about half of the earlier values | Version 7.0.0 no longer sends the pod and pause container series | Lower the thresholds of alarms that you set from the earlier values. Otherwise, these alarms can stop going into ALARM. | 
+| After an upgrade to version 7.0.0, a query or alarm on a label or attribute returns no data | Version 7.0.0 removed the label or attribute | Use the replacement in [Upgrading OTel Container Insights to version 7.0.0](container-insights-eks-otel.md#container-insights-eks-otel-upgrade-v7). | 
+| After an upgrade to version 7.0.0, Deployment or namespace series have no cloud.availability\_zone | These series name neither a node nor a pod | Remove the zone filter from the query. | 
 
 ## General diagnostic commands
 <a name="container-insights-eks-troubleshooting-commands"></a>

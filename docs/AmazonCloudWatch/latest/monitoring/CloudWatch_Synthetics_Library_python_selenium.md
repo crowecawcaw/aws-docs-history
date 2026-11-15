@@ -9,7 +9,32 @@ For features and methods supported by Synthetics runtime on Selenium framework, 
 
 The naming convention for these runtime versions is `syn-{{language}} -{{framework}}-{{majorversion}}.{{ minorversion}}`.
 
-## syn-python-selenium-13.0
+## syn-python-selenium-14.0
+<a name="CloudWatch_Synthetics_runtimeversion-syn-python-selenium-14.0"></a>
+
+**Major dependencies**:
++ Python 3.12
++ Selenium 4.32.0
++ Chromium version 153.0.8010.36
+
+ **Changes in syn-python-selenium-14.0** 
++ Upgrade `brotli` to 1.2.1 to address CVE-2026-111497.
++ Upgrade `urllib3` to 2.8.0 to address the following CVEs:
+  + CVE-2026-97687
+  + CVE-2026-97688
+  + CVE-2026-97689
++ Upgrade `certifi` to 2026.10.19 to address GHSA-6q48-6c7w-9gw2.
+
+For more information, see the following:
++  [Selenium changelog](https://www.selenium.dev/blog/) on the Selenium website 
++  [Selenium API documentation](https://www.selenium.dev/selenium/docs/api/py/api.html) on the Selenium website 
+
+## Previous runtime versions for Python and Selenium
+<a name="Previousversions-python-selenium"></a>
+
+The following earlier runtime versions for Python and Selenium are still supported. 
+
+### syn-python-selenium-13.0
 <a name="CloudWatch_Synthetics_runtimeversion-syn-python-selenium-13.0"></a>
 
 **Major dependencies**:
@@ -21,15 +46,6 @@ The naming convention for these runtime versions is `syn-{{language}} -{{framewo
 + Upgrade `Chromium` to 153.0.8010.36 to address the following CVEs:
   + CVE-2026-85046
   + CVE-2026-87491
-
-For more information, see the following:
-+  [Selenium changelog](https://www.selenium.dev/blog/) on the Selenium website 
-+  [Selenium API documentation](https://www.selenium.dev/selenium/docs/api/py/api.html) on the Selenium website 
-
-## Previous runtime versions for Python and Selenium
-<a name="Previousversions-python-selenium"></a>
-
-The following earlier runtime versions for Python and Selenium are still supported. 
 
 ### syn-python-selenium-12.0
 <a name="CloudWatch_Synthetics_runtimeversion-syn-python-selenium-12.0"></a>

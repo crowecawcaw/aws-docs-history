@@ -8,3 +8,6 @@ With Solutions, you can get pre-built observability for third-party Kubernetes t
 **Topics**
 + [Collecting Karpenter metrics with OTel Container Insights](container-insights-eks-otel-karpenter.md)
 + [Collecting KEDA metrics with OTel Container Insights](container-insights-eks-otel-keda.md)
++ [Collecting vLLM metrics with OTel Container Insights](container-insights-eks-otel-vllm.md)
++ [Collecting KServe metrics with OTel Container Insights](container-insights-eks-otel-kserve.md)
++ [Collecting Knative Serving metrics with OTel Container Insights](container-insights-eks-otel-knative.md)

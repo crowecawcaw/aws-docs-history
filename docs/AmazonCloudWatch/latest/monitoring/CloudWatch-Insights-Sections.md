@@ -10,6 +10,7 @@ The topics in this section explain CloudWatch features that can help you gain op
 + [Lambda Insights](Lambda-Insights.md)
 + [CloudWatch Database Insights](Database-Insights.md)
 + [SageMaker AI Insights](SageMaker-Insights.md)
++ [Accelerated Compute Insights](Accelerated-Compute-Insights.md)
 + [ElastiCache Insights](ElastiCache-Insights.md)
 + [Use Contributor Insights to analyze high-cardinality data](ContributorInsights.md)
 + [Detect common application problems with CloudWatch Application Insights](cloudwatch-application-insights.md)

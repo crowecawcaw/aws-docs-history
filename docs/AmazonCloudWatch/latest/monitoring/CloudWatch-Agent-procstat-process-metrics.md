@@ -10,6 +10,7 @@ The `procstat` plugin is not supported for the Fargate launch type in Amazon ECS
 
 **Topics**
 + [Configure the CloudWatch agent for procstat](#CloudWatch-Agent-procstat-configuration)
++ [Windows examples and exe versus pattern matching](#CloudWatch-Agent-procstat-windows-examples)
 + [Metrics collected by procstat](#CloudWatch-Agent-procstat-process-metrics-collected)
 + [Viewing process metrics imported by the CloudWatch agent](#CloudWatch-view-procstat-metrics)
 
@@ -25,7 +26,7 @@ To use the procstat plugin, add a `procstat` section in the `metrics_collected` 
 
 The CloudWatch agent uses only one of these methods, even if you include more than one of the above sections. If you specify more than one section, the CloudWatch agent uses the `pid_file` section if it is present. If not, it uses the `exe` section.
 
-On Linux servers, the strings that you specify in an `exe` or `pattern` section are evaluated as regular expressions. On servers running Windows Server, these strings are evaluated as WMI queries. An example would be `pattern: "%apache%"`. For more information, see [LIKE Operator](https://docs.microsoft.com/en-us/windows/desktop/WmiSdk/like-operator).
+The `exe` string is always evaluated as a regular expression, on both Linux servers and servers running Windows Server. The `pattern` string is evaluated as a regular expression on Linux servers; on servers running Windows Server, `pattern` is evaluated as a WMI LIKE query, such as `pattern: "%apache%"`. For more information about the WMI LIKE syntax, see [LIKE Operator](https://docs.microsoft.com/en-us/windows/desktop/WmiSdk/like-operator).
 
 Whichever method you use, you can include an optional `metrics_collection_interval` parameter, which specifies how often in seconds to collect those metrics. If you omit this parameter, the default value of 60 seconds is used.
 
@@ -128,6 +129,30 @@ The following example `procstat` section monitors all processes with command lin
     }
 }
 ```
+
+## Windows examples and exe versus pattern matching
+<a name="CloudWatch-Agent-procstat-windows-examples"></a>
+
+In Windows Server, the procstat matching behavior differs from Linux. Keep the following differences in mind when configuring process monitoring.
++ The `exe` field matches the process name as an unanchored regular expression. For example, `"exe": "w3wp"` matches every `w3wp.exe` worker process. Do not use `%` as a wildcard in `exe`; `%` is not a regular-expression character.
++ The `pattern` field matches the full command line. Specify it as a WMI LIKE pattern, which the agent converts to an anchored, case-insensitive match. Use `%` as a wildcard for zero or more characters and `_` for a single character. Because the match is anchored, include a leading and trailing `%` to match a substring. For example, `"pattern": "%java%"` matches any command line that contains `java`.
++ If no metrics appear, verify the process name with `Get-Process` and confirm that the agent is running with sufficient privileges to enumerate processes.
+
+The following configuration snippet shows how to monitor the IIS worker processes on Windows Server:
+
+```
+{
+  "metrics": {
+    "metrics_collected": {
+      "procstat": [
+        { "exe": "w3wp", "measurement": ["cpu_usage", "memory_rss", "pid_count"] }
+      ]
+    }
+  }
+}
+```
+
+Because `exe` is matched as a regular expression, `w3wp` matches every `w3wp.exe` worker process. When several processes match, procstat does not add a per-process dimension by default, so CloudWatch aggregates the measurements across all matched processes. Use `pid_count` to see how many processes matched.
 
 ## Metrics collected by procstat
 <a name="CloudWatch-Agent-procstat-process-metrics-collected"></a>

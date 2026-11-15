@@ -9,6 +9,7 @@
 + [Install or update the SSM Agent](#update-SSM-Agent-EC2instance-first)
 + [Verify Systems Manager prerequisites](#install-CloudWatch-Agent-minimum-requirements-first)
 + [Verify internet access](#install-CloudWatch-Agent-internet-access-first)
++ [Verifying VPC endpoint prerequisites for private subnets](#CloudWatch-Agent-vpc-endpoint-prerequisites)
 + [Download the CloudWatch agent package to your first instance](#install-CloudWatch-Agent-EC2-first)
 + [Create and modify the agent configuration file](#CW-Agent-Instance-Create-Configuration-File-first)
 + [Install and start the CloudWatch agent on additional EC2 instances using your agent configuration](#install-CloudWatch-Agent-on-EC2-Instance-fleet)
@@ -38,6 +39,30 @@ The endpoints and ports to configure on your proxy are as follows:
 + If you're using the agent to collect metrics, you must allow list the CloudWatch endpoints for the appropriate Regions. These endpoints are listed in [Amazon CloudWatch](https://docs.aws.amazon.com/general/latest/gr/rande.html#cw_region) in the *Amazon Web Services General Reference*. 
 + If you're using the agent to collect logs, you must allow list the CloudWatch Logs endpoints for the appropriate Regions. These endpoints are listed in [Amazon CloudWatch Logs](https://docs.aws.amazon.com/general/latest/gr/rande.html#cwl_region) in the *Amazon Web Services General Reference*. 
 + If you're using Systems Manager to install the agent or Parameter Store to store your configuration file, you must allow list the Systems Manager endpoints for the appropriate Regions. These endpoints are listed in [AWS Systems Manager](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region) in the *Amazon Web Services General Reference*. 
+
+## Verifying VPC endpoint prerequisites for private subnets
+<a name="CloudWatch-Agent-vpc-endpoint-prerequisites"></a>
+
+For instances without direct internet access (no internet gateway or NAT gateway), you must create VPC endpoints so that the CloudWatch agent and SSM Agent can communicate with AWS services. Create a VPC endpoint for each service that the agent must reach. For more information about these endpoints, see [Network requirements](prerequisites.md#CloudWatch-Agent-network-requirements).
+
+Create the following interface endpoints:
++ `com.amazonaws.{{region}}.monitoring`: for publishing CloudWatch metrics
++ `com.amazonaws.{{region}}.ec2`: for EC2 instance tag lookups used by the agent
++ `com.amazonaws.{{region}}.logs`: for publishing CloudWatch Logs
+
+If you use AWS Systems Manager (Systems Manager) to install the agent or Parameter Store to hold its configuration, also create the following interface endpoints:
++ `com.amazonaws.{{region}}.ssm`: for Systems Manager operations
++ `com.amazonaws.{{region}}.ssmmessages`: for Session Manager and Run Command
++ `com.amazonaws.{{region}}.ec2messages`: for Systems Manager message delivery
+
+To download the agent package, also create a gateway endpoint for `com.amazonaws.{{region}}.s3`.
+
+If you use `role_arn` for cross-account delivery, also create an interface endpoint for `com.amazonaws.{{region}}.sts`.
+
+Configure the interface endpoints as follows. These steps do not apply to the Amazon S3 gateway endpoint, which has no private DNS option and no security group; it routes through a route table instead.
++ Enable private DNS on each interface endpoint so that standard AWS service hostnames resolve to the endpoint's private IP addresses.
++ Make sure the interface endpoint security groups allow inbound TCP 443 from the security groups attached to your agent instances.
++ Verify that the VPC's DNS settings have both `enableDnsSupport` and `enableDnsHostnames` set to true.
 
 ## Download the CloudWatch agent package to your first instance
 <a name="install-CloudWatch-Agent-EC2-first"></a>

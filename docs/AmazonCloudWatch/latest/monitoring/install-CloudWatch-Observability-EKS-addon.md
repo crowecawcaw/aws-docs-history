@@ -1050,6 +1050,8 @@ Use the following information to help troubleshoot problems with the Amazon Clou
 
 For instructions about updating or deleting the Amazon CloudWatch Observability EKS add-on, see [Managing Amazon EKS add-ons](https://docs.aws.amazon.com/eks/latest/userguide/managing-add-ons.html). Use `amazon-cloudwatch-observability` as the name of the add-on. 
 
+Version 7.0.0 of the add-on removes some labels, attributes, and duplicate series from OTel Container Insights metrics. These removals apply to OTel Container Insights only, not to Enhanced Container Insights (Classic). Before you upgrade from a 6.x version, read [Upgrading OTel Container Insights to version 7.0.0](container-insights-eks-otel.md#container-insights-eks-otel-upgrade-v7).
+
 To delete the Helm chart in a cluster, enter the following command.
 
 ```

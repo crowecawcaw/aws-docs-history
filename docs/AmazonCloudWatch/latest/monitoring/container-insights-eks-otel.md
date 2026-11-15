@@ -40,7 +40,7 @@ The following table compares OTel Container Insights with Enhanced Container Ins
 ## Metric sources and receivers
 <a name="container-insights-eks-otel-receivers"></a>
 
-OTel Container Insights collects metrics from open-source receivers and automatically enriches them with OpenTelemetry semantic conventions. Unlike Enhanced Container Insights (Classic), which uses proprietary metric names, OTel Container Insights preserves the original metric names from each source. This makes them compatible with existing PromQL dashboards and community documentation.
+OTel Container Insights collects metrics from open-source receivers and automatically enriches them with OpenTelemetry semantic conventions. Unlike Enhanced Container Insights (Classic), which uses proprietary metric names, OTel Container Insights preserves the original metric names from each source. This makes them compatible with most existing PromQL dashboards and community documentation.
 
 OTel Container Insights collects open-source metrics from multiple receivers using the OpenTelemetry Protocol (OTLP) at 30-second granularity. Metrics use their original source names (for example, `container_cpu_usage_seconds_total` from cAdvisor) rather than CloudWatch-format names, and you can query them with PromQL.
 
@@ -49,7 +49,7 @@ The following table lists the available receivers and their prerequisites.
 
 | Receiver | What it collects | Prerequisites | 
 | --- | --- | --- | 
-| cAdvisor | Container CPU, memory, network, disk/filesystem metrics | Built into kubelet — no additional setup | 
+| cAdvisor | Container CPU, memory, network, disk, and file system metrics. Each container\_\* series measures one application container. The container\_network\_\* series measure the pod. | Built into kubelet — no additional setup | 
 | Prometheus Node Exporter | Node-level CPU, memory, disk, filesystem, network, system, VMStat, netstat/socket metrics | Included in the add-on | 
 | Kube State Metrics | Pod, node, Deployment, DaemonSet, StatefulSet, ReplicaSet, Job, CronJob, Service, Namespace, PV, PVC metrics | Included in the add-on | 
 | Kubernetes API Server | API server and etcd metrics | Available on control plane | 
@@ -64,7 +64,7 @@ Each metric is enriched with up to 150 labels from the following three sources:
 
 1. **OpenTelemetry resource attributes** — Following OTel semantic conventions for Kubernetes, Host, and Cloud
 
-1. **Kubernetes pod and node labels** — All labels from the Kubernetes API, prefixed with `k8s.pod.label.*` and `k8s.node.label.*`
+1. **Kubernetes pod and node labels** — Labels from the Kubernetes API, prefixed with `k8s.pod.label.*` and `k8s.node.label.*`. Container Insights does not send some generated labels.
 
 ## Dual publishing and migration
 <a name="container-insights-eks-otel-dual-publishing"></a>
@@ -99,6 +99,43 @@ aws eks update-addon \
   --addon-name amazon-cloudwatch-observability \
   --configuration-values '{"containerInsights":{"enabled":false},"otelContainerInsights":{"enabled":true}}'
 ```
+
+## Upgrading OTel Container Insights to version 7.0.0
+<a name="container-insights-eks-otel-upgrade-v7"></a>
+
+Version 7.0.0 of the add-on and Helm chart removes duplicate and generated data from OTel Container Insights metrics. This lowers the number of series and the size of each data point, which lowers your ingested volume and cost. Before you upgrade from a 6.x version, update the queries, dashboards, and alarms that use the following items.
++ **Pod-level cAdvisor series** — The pod and pause container series of the `container_*` metrics are no longer sent, except for `container_network_*`. A query that sums a `container_*` metric by pod without a container filter now returns about half of its earlier value. The new value is correct, because the earlier value counted each container twice. To get the new value on 6.x, add `container!=""`, for example `sum by (pod) (rate(container_cpu_usage_seconds_total{container!=""}[5m]))`.
++ **Node exporter scrape metrics** — `node_scrape_collector_duration_seconds` and `node_scrape_collector_success` are no longer sent.
++ **Removed deprecated attributes** — `net.host.name`, `net.host.port`, and `http.scheme` are no longer sent. Use `server.address`, `server.port`, and `url.scheme`, which have the same values.
++ **Resource-level copies of raw labels** — In PromQL, selectors such as `"@resource.pod"` no longer match. Use the data point label, such as `pod`.
++ **Generated node and pod labels** — Labels that repeat the instance type, Region, or zone, and a few Karpenter status labels, are no longer sent. Use `host.type`, `cloud.region`, and `cloud.availability_zone` instead.
++ **Availability Zone** — Kube State Metrics series that name neither a node nor a pod, such as Deployment, namespace, and Service series, no longer have `cloud.availability_zone`. Remove zone filters from queries and alarms on these series.
+
+**Important**  
+Check your alarms before you upgrade. A threshold alarm on a pod-level `container_*` sum can stop going into `ALARM`, because the value drops by about half. An alarm on a removed label or attribute gets no data. Its state then depends on how the alarm treats missing data.
+
+**To upgrade to version 7.0.0**
+
+1. Find your current version. For the add-on, run the following command. Replace {{cluster-name}} with the name of your Amazon EKS cluster.
+
+   ```
+   aws eks describe-addon \
+     --cluster-name {{cluster-name}} \
+     --addon-name amazon-cloudwatch-observability \
+     --query addon.addonVersion --output text
+   ```
+
+   For the Helm chart, run the following command.
+
+   ```
+   helm list -n amazon-cloudwatch
+   ```
+
+1. Update the queries, dashboards, and alarms that use the items in the previous list.
+
+1. Upgrade the add-on or the Helm chart. Amazon EKS does not update the add-on to a new version on its own. To stay on 6.x with the add-on, do not update it, or pass a 6.x version to `--addon-version` when you update it. With Helm, `helm upgrade` without `--version` installs the latest chart. To stay on 6.x, pass `--version 6.7.0`.
+
+1. After the upgrade, make sure that your dashboards show data and that your alarms are in the state that you expect.
 
 ## Getting started
 <a name="container-insights-eks-otel-topics"></a>
