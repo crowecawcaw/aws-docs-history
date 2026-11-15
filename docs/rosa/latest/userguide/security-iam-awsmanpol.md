@@ -241,7 +241,7 @@ This policy grants required permissions to the Control Plane Operator to manage 
 
 This policy includes the following permissions that allow the Control Plane Operator to complete the following tasks:
 +  `ec2` — Create and manage Amazon VPC endpoints.
-+  `route53` — List and change Route 53 record sets and list hosted zones.
++  `route53` — List and change Route 53 record sets and list hosted zones. Create, inspect, tag, and delete hosted zones for managed cluster DNS. Record changes are restricted to Red Hat-managed domain names. The hosted-zone permissions apply to hosted zones throughout your account.
 + Add and remove tags on Red Hat-managed security groups: The Control Plane Operator can tag and untag Red Hat-managed security groups for proper resource lifecycle management and cleanup. The policy prevents the operator from removing the `red-hat-managed` tag, which identifies these resources as Red Hat-managed.
 + Manage VPC endpoints that reference security groups: The Control Plane Operator can modify VPC endpoints that reference security groups. VPC endpoint reconciliation during cluster upgrades requires this permission.
 
@@ -275,6 +275,7 @@ View details about updates to AWS managed policies for ROSA since this service b
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| ROSAControlPlaneOperatorPolicy — Policy updated | With this policy update, you can use the Control Plane Operator to create, inspect, tag, and delete Route 53 hosted zones. The operator can manage records under additional Red Hat-managed domain names for managed cluster DNS. To learn more, see [AWS managed policy: ROSAControlPlaneOperatorPolicy](#security-iam-awsmanpol-rosacontrolplaneoperatorpolicy). | November 12, 2026 | 
 | ROSANodePoolManagementPolicy — Policy updated | With this policy update, you can remove stale tags from worker instances, Amazon EBS volumes, and elastic network interfaces using the NodePool controller. You can also modify instance metadata options on existing worker instances using the controller. You can use both permissions only on resources that carry the `red-hat-managed: "true"` tag. To learn more, see [AWS managed policy: ROSANodePoolManagementPolicy](#security-iam-awsmanpol-rosanodepoolmanagementpolicy). | November 5, 2026 | 
 | ROSAAmazonEBSCSIDriverOperatorPolicy — Policy updated | We updated ROSAAmazonEBSCSIDriverOperatorPolicy to extend the Amazon EBS CSI driver to the release-1.61 feature set. With this update, the Amazon EBS CSI Driver Operator can copy and lock Amazon EBS snapshots and enable fast snapshot restores. It can also use customer-managed AWS KMS keys for encrypted volume operations. To learn more, see [AWS managed policy: ROSAAmazonEBSCSIDriverOperatorPolicy](#security-iam-awsmanpol-rosaamazonebscsidriveroperatorpolicy). | August 18, 2026 | 
 | ROSANodePoolManagementPolicy — Policy updated |  AWS updated ROSANodePoolManagementPolicy so the NodePool controller can describe EC2 instance types and handle spot-instance interruption messages from customer-tagged Amazon SQS queues. These SQS actions apply only to queues that carry the `red-hat: "true"` resource tag. To learn more, see [AWS managed policy: ROSANodePoolManagementPolicy](#security-iam-awsmanpol-rosanodepoolmanagementpolicy). | July 28, 2026 | 
