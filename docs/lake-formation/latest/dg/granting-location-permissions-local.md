@@ -18,7 +18,7 @@ Follow these steps to grant data location permissions to principals in your AWS 
 
 1. In the **Grant permissions** dialog box, ensure that the **My account** tile is selected. Then provide the following information:
    + For **IAM users and roles**, choose one or more principals. 
-   + For **SAML and Amazon Quick users and groups**, enter one or more Amazon Resource Names (ARNs) for users or groups federated through SAML or ARNs for Amazon Quick users or groups.
+   + For **SAML and AWS Quick users and groups**, enter one or more Amazon Resource Names (ARNs) for users or groups federated through SAML or ARNs for AWS Quick users or groups.
 
      Enter one ARN at a time, and press **Enter** after each ARN. For information about how to construct the ARNs, see [Lake Formation grant and revoke AWS CLI commands](lf-permissions-reference.md#perm-command-format).
    + For **Storage locations**, choose **Browse**, and choose an Amazon Simple Storage Service (Amazon S3) storage location. The location must be registered with Lake Formation. Choose **Browse** again to add another location. You can also type the location, but ensure that you precede the location with `s3://`.

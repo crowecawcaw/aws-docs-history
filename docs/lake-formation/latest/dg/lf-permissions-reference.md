@@ -138,7 +138,7 @@ For detailed descriptions of these commands, see [grant-permissions](https://doc
 The value of the `--principal` option is one of the following:
 + Amazon Resource Name (ARN) for an AWS Identity and Access Management (IAM) user or role
 + ARN for a user or group that authenticates through a SAML provider, such as Microsoft Active Directory Federation Service (AD FS)
-+ ARN for an Amazon Quick user or group
++ ARN for an AWS Quick user or group
 + For cross-account permissions, an AWS account ID, an organization ID, or an organizational unit ID
 + For IAM Identity Center user or group, IAM Identity Center user or group ARN.
 
@@ -200,7 +200,7 @@ Examples:
 --principal DataLakePrincipalIdentifier=arn:aws:iam::111122223333:saml-provider/AthenaLakeFormationOkta:group/my-group
 ```
 
-**Principal is an Amazon Quick Enterprise Edition user**  
+**Principal is an AWS Quick Enterprise Edition user**  
 Syntax:  
 
 ```
@@ -213,7 +213,7 @@ Example:
 --principal DataLakePrincipalIdentifier=arn:aws:quicksight:us-east-1:111122223333:user/default/bi_user1
 ```
 
-**Principal is an Amazon Quick Enterprise Edition group**  
+**Principal is an AWS Quick Enterprise Edition group**  
 Syntax:  
 
 ```

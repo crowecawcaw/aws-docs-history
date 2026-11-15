@@ -43,3 +43,4 @@ In vended-credential mode, the external catalog's grants still apply. If you rev
 + [Limitations](#catalog-federation-limitations)
 + [Federate to Snowflake Iceberg Catalog](catalog-federation-snowflake.md)
 + [Federate to Databricks Unity Catalog](catalog-federation-databricks.md)
++ [Federate to Workday Data Connect](catalog-federation-workday.md)

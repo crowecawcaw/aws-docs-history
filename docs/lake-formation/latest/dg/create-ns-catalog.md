@@ -120,7 +120,7 @@ This is a mandatory step.
 
       1.  In the **Principals** section, choose a principal type and then specify principals to grant permissions. 
          + **IAM users and roles** – Choose one or more users or roles from the IAM users and roles list.
-         + ** SAML users and groups** – For SAML and Amazon Quick users and groups, enter one or more Amazon Resource Names (ARNs) for users or groups federated through SAML, or ARNs for Amazon Quick users or groups. Press **Enter** after each ARN.
+         + ** SAML users and groups** – For SAML and AWS Quick users and groups, enter one or more Amazon Resource Names (ARNs) for users or groups federated through SAML, or ARNs for AWS Quick users or groups. Press **Enter** after each ARN.
 
            For information about how to construct the ARNs, see AWS CLI grant and revoke AWS CLI commands. 
          + **External accounts** – For AWS, AWS organization, or IAM Principal enter one or more valid AWS account IDs, organization IDs, organizational unit IDs, or ARN for the IAM user or role. Press Enter after each ID. An organization ID consists of "o-" followed by 10–32 lower-case letters or digits. An organizational unit ID starts with "ou-" followed by 4–32 lowercase letters or digits (the ID of the root that contains the OU). This string is followed by a second "-" dash and 8 to 32 additional lowercase letters or digits. 

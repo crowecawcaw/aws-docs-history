@@ -33,7 +33,7 @@ Choose one or more users or roles from the **IAM users and roles** list.
 **IAM Identity Center**  
 Choose one or more users or groups from the **Users and groups** list. Select **Add** to add more users or groups.  
 **SAML users and groups**  
-For **SAML and Quick users and groups**, enter one or more Amazon Resource Names (ARNs) for users or groups federated through SAML, or ARNs for Amazon Quick users or groups. Press Enter after each ARN.  
+For **SAML and Quick users and groups**, enter one or more Amazon Resource Names (ARNs) for users or groups federated through SAML, or ARNs for AWS Quick users or groups. Press Enter after each ARN.  
 For information about how to construct the ARNs, see [Lake Formation grant and revoke AWS CLI commands](lf-permissions-reference.md#perm-command-format).  
 Lake Formation integration with Quick is supported only for Quick Enterprise Edition.  
 **External accounts**  

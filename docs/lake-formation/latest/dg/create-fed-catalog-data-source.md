@@ -48,7 +48,7 @@ When a user runs a query on federated tables, Lake Formation vends credentials t
 ![The catalog permissions page with principal type and grant options.](https://docs.aws.amazon.com/lake-formation/latest/dg/images/catalog-permissions.png)
    +  In the **Principals** section, choose a principal type and then specify principals to grant permissions. 
      + **IAM users and roles** – Choose one or more users or roles from the IAM users and roles list.
-     + **SAML users and groups** – For SAML and Amazon Quick users and groups, enter one or more Amazon Resource Names (ARNs) for users or groups federated through SAML, or ARNs for Amazon Quick users or groups. Press **Enter** after each ARN. 
+     + **SAML users and groups** – For SAML and AWS Quick users and groups, enter one or more Amazon Resource Names (ARNs) for users or groups federated through SAML, or ARNs for AWS Quick users or groups. Press **Enter** after each ARN. 
    +  In the **Permissions** section, select permissions and grantable permissions.
 
      Under **Catalog permissions**, select one or more permissions to grant.
