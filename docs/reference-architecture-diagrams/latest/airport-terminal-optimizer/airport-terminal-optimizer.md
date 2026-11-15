@@ -10,7 +10,7 @@ With this architecture, you can optimize terminal and gate openings for airports
 ## Airport terminal optimizer diagram
 <a name="terminal-optimizer-diagram"></a>
 
-![Architecture for airport terminal optimization using AWS Glue, Amazon EMR, Amazon Athena, and Amazon Quick Sight.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/airport-terminal-optimizer/images/airport-terminal-optimizer-ra.png)
+![Architecture for airport terminal optimization using AWS Glue, Amazon EMR, Amazon Athena, and AWS Quick Sight.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/airport-terminal-optimizer/images/airport-terminal-optimizer-ra.png)
 
 
 The following steps describe the architecture:
@@ -31,7 +31,7 @@ The following steps describe the architecture:
 
 1. Create optimized terminal and gate assignments from configurations and costs.
 
-1. Visualize results with [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/) and [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html).
+1. Visualize results with [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/) and [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html).
 
 1. (Optional) Build a configuration dashboard with [API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/), [Lambda](https://docs.aws.amazon.com/lambda/latest/dg/), and [DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/) for what-if analyses.
 
