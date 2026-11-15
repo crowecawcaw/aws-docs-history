@@ -14,8 +14,8 @@ Your AWS account has the following quotas related to AWS Continuum.
 
 | Resource | Default | Description | 
 | --- | --- | --- | 
-| Integrations | 10 | The maximum number of integrations, such as GitHub integrations, that you can connect in this account in the current Region. | 
-| Environments | 10 | The maximum number of environments that you can create in this account in the current Region. | 
+| Integrations | 20 | The maximum number of integrations, such as GitHub integrations, that you can connect in this account in the current Region. | 
+| Environments | 50 | The maximum number of environments that you can create in this account in the current Region. | 
 | Repositories per environment | 10 | The maximum number of code repositories that you can add to a single environment across all integrations. | 
 | Collectors | 1 | The maximum number of AWS Continuum collectors that you can create in this account in the current Region. | 
 | Collectors per environment | 100 | The maximum number of AWS Continuum collectors that you can associate with a single environment. | 

@@ -121,9 +121,14 @@ rules:
       - serviceaccounts
     verbs: ["get", "list", "watch"]
 
-  # Workloads.
+  # Workloads, and the objects that link each pod to its workload.
   - apiGroups: ["apps"]
-    resources: ["deployments", "statefulsets", "daemonsets"]
+    resources:
+      - deployments
+      - statefulsets
+      - daemonsets
+      - replicasets
+      - controllerrevisions
     verbs: ["get", "list", "watch"]
   - apiGroups: ["batch"]
     resources: ["jobs"]
@@ -194,10 +199,13 @@ You grant read-only RBAC one time. The AWS Continuum collector never uses `kubec
 ## Verifying access to your cluster
 <a name="cv-onboard-eks-cluster-verify"></a>
 
-From a cluster-admin context, confirm that the reader group can list nodes but cannot list Secrets. The following `kubectl` commands return `yes` for nodes and `no` for Secrets:
+From a cluster-admin context, confirm that the reader group can list nodes and replica sets but cannot list Secrets. The following `kubectl` commands return `yes` for nodes and replica sets, and `no` for Secrets:
 
 ```
 PROMPT> kubectl auth can-i list nodes --as-group=continuum:readers --as=continuum-check
+yes
+
+PROMPT> kubectl auth can-i list replicasets.apps --as-group=continuum:readers --as=continuum-check
 yes
 
 PROMPT> kubectl auth can-i list secrets --as-group=continuum:readers --as=continuum-check
@@ -220,5 +228,5 @@ Use the following table to resolve common issues.
 <a name="cv-onboard-eks-cluster-scope"></a>
 
 The following list describes what the AWS Continuum collector can and cannot see:
-+ The collector reads the following resources: namespaces, nodes, pods, services, workloads (deployments, daemonsets, statefulsets, and jobs), ingresses, network policies, RBAC objects, admission webhooks, and common networking and service mesh CRDs.
++ The collector reads the following resources: namespaces, nodes, pods, services, workloads (deployments, daemonsets, statefulsets, and jobs) and the replica sets and controller revisions that link pods to them, ingresses, network policies, RBAC objects, admission webhooks, and common networking and service mesh CRDs.
 + The collector does not read Secrets and performs no write operations.

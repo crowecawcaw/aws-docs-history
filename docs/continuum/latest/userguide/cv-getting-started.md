@@ -5,7 +5,9 @@
 
 AWS Continuum scans your code sources for security vulnerabilities.
 
-To start using AWS Continuum for code vulnerabilities, use a GitHub or Amazon S3 integration. If you don't have an integration, create one. Then create an environment that uses the integration.
+Before you connect a code source, check that your repositories contain supported source files outside the excluded folders. See [Supported languages and source files](cv-supported-languages.md).
+
+To start using AWS Continuum for code vulnerabilities, use a GitHub, GitLab, or Amazon S3 integration. If you don't have an integration, create one. Then create an environment that uses the integration.
 
 By default, you can add up to 10 code repositories to an environment across all of its integrations. Integrations and environments are subject to additional quotas. For more information about quotas and requesting an increase, see [Quotas for AWS Continuum](quotas.md).
 
@@ -15,8 +17,9 @@ By default, you can add up to 10 code repositories to an environment across all 
 If you already have an integration, continue to [Creating an environment](#cv-getting-started-s3-environment).
 
 Otherwise, choose the procedure for your code source:
-+ For GitHub, follow [Getting started through GitHub](#cv-getting-started-github).
-+ For Amazon S3, follow [Getting started through Amazon S3](#cv-getting-started-s3).
++ For instructions on connecting through GitHub, see [Getting started through GitHub](#cv-getting-started-github).
++ For instructions on connecting through GitLab, see [Getting started through GitLab](#cv-getting-started-gitlab).
++ For instructions on connecting through Amazon S3, see [Getting started through Amazon S3](#cv-getting-started-s3).
 
 ## Getting started through GitHub
 <a name="cv-getting-started-github"></a>
@@ -56,6 +59,37 @@ To install the GitHub app and authorize the integration, continue in the same fo
 1. Return to the AWS Continuum console.
 
 If the console still shows **Waiting for GitHub** after you authorize, choose **Cancel authorization**. Start authorization again.
+
+After you create the integration, the console opens **Create environment**. Continue to [Creating an environment](#cv-getting-started-s3-environment).
+
+## Getting started through GitLab
+<a name="cv-getting-started-gitlab"></a>
+
+To scan code hosted in GitLab, connect a GitLab integration. Then create an environment that uses the integration. AWS Continuum supports GitLab.com and self-managed GitLab instances, and connects to GitLab only over HTTPS.
+
+A GitLab integration authenticates with a GitLab access token. You can use a personal, group, or project access token for a GitLab group or project. AWS Continuum validates the token when you create the integration. If the token can't access the group or project that you specify, AWS Continuum doesn't create the integration.
+
+**Important**  
+AWS Continuum works only with GitLab groups and projects whose visibility is **Private**. Internal and public projects are not supported.  
+Create a dedicated access token for this integration, and don't reuse it with other tools. If the token has the `self_rotate` scope, AWS Continuum rotates it automatically with a 90-day lifetime. Otherwise, replace the token before it expires. For more information about securing GitLab integrations, see [Security for GitLab integrations in AWS Continuum](gitlab-integration-security.md).
+
+To configure a GitLab integration, do the following:
+
+1. Open the AWS Continuum console at [https://console.aws.amazon.com/continuum/](https://console.aws.amazon.com/continuum/).
+
+1. Under **Code vulnerabilities**, choose **Integrations**.
+
+1. Choose **Add integration**.
+
+1. For **Source provider**, select **GitLab**.
+
+1. For **Name**, enter an integration name.
+
+1. For **GitLab instance**, select **GitLab.com** or a self-managed instance. If you select a self-managed instance, enter the instance URL. The URL must use HTTPS.
+
+1. For **Access token**, enter a personal, group, or project access token.
+
+1. For **Group or project**, specify the GitLab group or project to scan.
 
 After you create the integration, the console opens **Create environment**. Continue to [Creating an environment](#cv-getting-started-s3-environment).
 
@@ -251,7 +285,7 @@ If access validation fails, check the required role path. Verify the integration
 
 An environment defines the code sources, scan frequency, and patch delivery settings that AWS Continuum uses to scan your code.
 
-After you create a GitHub or Amazon S3 integration, the console opens **Create environment**.
+After you create a GitHub, GitLab, or Amazon S3 integration, the console opens **Create environment**.
 
 If you already have an integration, use these steps to open **Create environment**:
 
@@ -261,7 +295,7 @@ If you already have an integration, use these steps to open **Create environment
 
 1. Choose **Create environment**.
 
-Keep **Automatically deliver remediation patches** selected to deliver patches to your code source. AWS Continuum uploads patches to your Amazon S3 bucket or opens pull requests in your GitHub repositories.
+Keep **Automatically deliver remediation patches** selected to deliver patches to your code source. AWS Continuum uploads patches to your Amazon S3 bucket, opens pull requests in your GitHub repositories, or opens merge requests in your GitLab projects.
 
 To configure the environment, continue in the same form:
 
@@ -272,6 +306,8 @@ To configure the environment, continue in the same form:
 1. Configure the code source:
 
    1. If you selected a GitHub integration, for **Repositories**, enter the repositories that you want to scan. Enter each repository as `owner/repository`.
+
+   1. If you selected a GitLab integration, for **Repositories**, enter the GitLab projects that you want to scan. Enter each project by its path, such as `group/project` or `group/subgroup/project`.
 
    1. If you selected an Amazon S3 integration, for **Source code base path**, enter the prefix where you uploaded your code. The default is `code/`.
 
