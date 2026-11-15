@@ -3,7 +3,7 @@
 # Using Kiro CLI in CloudShell
 <a name="q-cli-features-in-cloudshell"></a>
 
-With Kiro CLI, you can interact with Kiro from the command line. For more information, see [Core Features of Kiro CLI](https://kiro.dev/docs/cli/#core-features) on the Kiro website.
+With Kiro CLI, you can interact with Kiro from the command line. For more information, see [Kiro CLI](https://kiro.dev/docs/cli/) on the Kiro website.
 
 In CloudShell, you can use Kiro CLI to have natural language conversations, ask questions, and get responses in your terminal. Kiro CLI can also use the pre-installed tools in CloudShell, such as the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html), the [AWS Tools for PowerShell](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-welcome.html), and the [Amazon ECS CLI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI.html). You don't need to remember syntax or search for the right command. For more information, see [Pre-installed software](vm-specs.md#pre-installed-software).
 
@@ -12,33 +12,25 @@ This topic explains how you can use Kiro CLI features in CloudShell.
 ## Using Kiro chat in CloudShell
 <a name="q-chat-in-cloudshell"></a>
 
-Run `kiro-cli` in the CloudShell terminal to start a chat session. You can ask questions in plain language and get answers in the terminal. Answers can include shell commands you can run. For more information, see [Chatting with Kiro in the CLI](https://kiro.dev/docs/cli/chat/) on the Kiro website.
+You can ask questions in plain language and get answers in the terminal. Answers can include shell commands you can run. For more information, see [Chatting with Kiro CLI](https://kiro.dev/docs/cli/chat/) on the Kiro website.
 
-By default, chat uses the terminal UI, which shows code with syntax highlighting and displays tool progress. For more information, see [Terminal UI](https://kiro.dev/docs/cli/terminal-ui/) on the Kiro website.
-
-Start a chat session with the default terminal UI.
+Start a chat session.
 
 ```
 kiro-cli
 ```
 
-Start a chat session with the classic interface for a single session.
+Display the version of Kiro CLI.
 
 ```
-kiro-cli --classic
+kiro-cli --version
 ```
 
-To change the default interface, run one of the following commands. Use `tui` for the terminal UI, or `classic` for the classic interface.
+List the available commands and options.
 
 ```
-kiro-cli settings chat.ui "tui"
+kiro-cli --help
 ```
-
-```
-kiro-cli settings chat.ui "classic"
-```
-
-You can resume a chat session in either interface. For more information about switching interfaces, see [Switching back to classic](https://kiro.dev/docs/cli/terminal-ui/comparison/#switching-back-to-classic), and for a comparison of the two interfaces, see [Terminal UI vs classic](https://kiro.dev/docs/cli/terminal-ui/comparison/) on the Kiro website.
 
 Because CloudShell already has the AWS CLI installed and uses the credentials of the signed-in console user, Kiro CLI can run AWS CLI commands on your behalf to answer questions about your AWS account and resources. Kiro CLI can only perform actions that your permissions allow.
 
@@ -54,7 +46,7 @@ To end a chat session, run `/quit`.
 
 You must sign in before you can use Kiro CLI in CloudShell. The first time you run `kiro-cli`, it starts the sign-in process for you.
 
-Kiro CLI prompts you to finish signing in from a browser. You can sign in with Google, GitHub, AWS Builder ID, AWS IAM Identity Center, or your organization's identity provider. For more information, see [Sign in to Kiro CLI](https://kiro.dev/docs/cli/authentication/#sign-in-to-kiro-cli) on the Kiro website.
+Kiro CLI prompts you to finish signing in from a browser. You can sign in with Google, GitHub, AWS Builder ID, AWS IAM Identity Center, or your organization's identity provider. For more information, see [Sign in to Kiro](https://kiro.dev/docs/getting-started/authentication/#sign-in-to-kiro) on the Kiro website.
 
 **Note**  
 During sign-in, the progress indicator refreshes the display while the sign-in URL is shown, which can make the URL difficult to select. To copy the URL, select it with your pointing device and continue to hold the selection while you press Ctrl\+C or Cmd\+C to copy the URL to your clipboard. Then paste the URL in your browser to complete the sign-in.
@@ -113,7 +105,7 @@ CloudShell includes a pre-installed version of Kiro CLI, which might not be the 
 curl -fsS "https://docs.aws.amazon.com/cloudshell/latest/userguide/samples/kiro-cloudshell-latest.zip" -o "kiro-cloudshell-latest.zip"
 unzip -q -o kiro-cloudshell-latest.zip
 chmod +x kiro-cloudshell-latest.sh
-./kiro-cloudshell-latest.sh --classic
+./kiro-cloudshell-latest.sh
 ```
 
 You can also download [kiro-cloudshell-latest.zip](samples/kiro-cloudshell-latest.zip) directly.
@@ -128,6 +120,6 @@ Update Kiro CLI and then launch it with a list of previous chats to resume.
 
 **Note**  
 The script downloads the latest installer from `https://desktop-release.q.us-east-1.amazonaws.com/latest/kirocli-x86_64-linux.zip`.  
-The script then extracts the archive and runs the bundled installer with `sudo Q_INSTALL_GLOBAL=1 Q_SKIP_SETUP=1 "/tmp/kirocli-update.{{XXXXXX}}/kirocli/install.sh"`.  
+The script then extracts the archive and runs the bundled installer with `sudo KIRO_CLI_INSTALL_GLOBAL=1 KIRO_CLI_NO_MODIFY_PATH=1 "/tmp/kirocli-update.XXXXXX/kirocli/install.sh"`, where `XXXXXX` is a temporary folder name that the script generates.  
 The script puts the latest version in a temporary location. When you restart your CloudShell environment, Kiro CLI resets to the pre-installed version. Run the script again to update. Your data, such as chat history, settings, and sign-in, is saved in your home directory and persists across restarts.  
 For more information about the script, see `kiro-cloudshell-latest-README.md` in the zip file.
