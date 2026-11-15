@@ -15,7 +15,7 @@ A flow log record represents a network flow in your flow log. Each record captur
 CloudWatch Logs charges apply when using flow logs, even when logs are published directly to Amazon S3. For more information, see *Vended Logs* under the *Logs* tab at [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/).
 
 **Tip**  
-Using Amazon Athena and Amazon Quick with your Global Accelerator flow log data can help you troubleshoot reachability issues for your application, identify security vulnerabilities, and get an overview of how users access your application. To learn more, see the following AWS blog post: [ Analyzing and visualizing AWS Global Accelerator flow logs using Amazon Athena and Amazon QuickSight](https://aws.amazon.com/blogs/networking-and-content-delivery/analyzing-and-visualizing-aws-global-accelerator-flow-logs-using-amazon-athena-and-amazon-quicksight/).
+Using Amazon Athena and AWS Quick with your Global Accelerator flow log data can help you troubleshoot reachability issues for your application, identify security vulnerabilities, and get an overview of how users access your application. To learn more, see the following AWS blog post: [ Analyzing and visualizing AWS Global Accelerator flow logs using Amazon Athena and Amazon QuickSight](https://aws.amazon.com/blogs/networking-and-content-delivery/analyzing-and-visualizing-aws-global-accelerator-flow-logs-using-amazon-athena-and-amazon-quicksight/).
 
 **Topics**
 + [Enable flow logs](#monitoring-global-accelerator.flow-logs-publishing-S3.enable)
