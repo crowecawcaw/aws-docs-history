@@ -21,6 +21,7 @@ Each workflow needs an IAM role. This role defines what AWS resources the workfl
 + [Workflow states](#workflows-states)
 + [Convert Python DAG to YAML definition](workflows-migrate.md)
 + [Tag a workflow](workflows-tags.md)
++ [Access the Airflow UI](workflows-airflow-ui.md)
 + [Using environment variables in Amazon MWAA Serverless workflows](workflows-environment-variables.md)
 + [Managing connections and variables](connections.md)
 

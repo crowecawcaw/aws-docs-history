@@ -48,7 +48,7 @@ The following are key features of Amazon MWAA Serverless:
 | Cost model | Pay-per-use: charged only when workflows run |  [Hourly rate](https://aws.amazon.com/managed-workflows-for-apache-airflow/pricing/) for environment, schedulers, web servers, and additional workers  | 
 | Workflow isolation |  Each workflow has its own execution role and access permissions. Tasks each run in isolated compute assuming the workflow's execution role.  |  Each MWAA environment provides the same access to all tasks. Airflow's role-based authentication supports UI-level level isolation within an environment  | 
 | Startup time | Each task provisions its own compute before execution | Environment always running, fast execution of tasks when worker capacity exists | 
-| Workflow definition | YAML workflow definitions using the DAG factory format, supporting AWS operators, Python and Bash operators, operators from provider packages, and custom operators supplied in a code package, with option to convert Python definitions | Python DAG support with AWS and custom operators | 
+| Workflow definition | YAML workflow definitions using the directed acyclic graph (DAG) factory format, supporting AWS operators, Python and Bash operators, operators from provider packages, and custom operators supplied in a code package, with the option to convert Python definitions | Python DAG support with AWS and custom operators | 
 | Airflow UI access | No direct Airflow UI access (monitoring via logs) | Airflow web interface access | 
 
 ### When to use Amazon MWAA Serverless
@@ -61,11 +61,11 @@ Choose Amazon MWAA Serverless when you want to focus on workflow logic rather th
 +  **AWS-native data pipelines**: Workflows primarily using AWS services like S3, Glue, EMR, Redshift, and SageMaker through built-in operators. 
 +  **Simplified operations**: Organizations that want to reduce operational overhead by eliminating Apache Airflow environment management. 
 
-Consider provisioned Amazon MWAA when you need:
-+ Custom Python operators or complex DAG logic
-+ Direct access to the Airflow web interface
-+ Consistently high-volume workloads that benefit from always-on infrastructure
-+ Specific Airflow plugins or configurations not supported in the serverless model
+Consider provisioned Amazon MWAA in the following cases:
++ You author DAGs directly as Python files, such as DAGs with dynamic or complex logic that you can't express in a YAML workflow definition.
++ You need direct access to the Airflow web interface.
++ You run consistently high-volume workloads that benefit from always-on infrastructure.
++ You need specific Airflow plugins or configurations that the serverless model doesn't support.
 
 ## How Amazon MWAA Serverless works
 <a name="mwaas-architecture-overview"></a>

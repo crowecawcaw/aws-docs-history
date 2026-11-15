@@ -3,7 +3,11 @@
 # Apache Airflow Parameter Support
 <a name="supported-airflow-parameters"></a>
 
- Amazon MWAA Serverless leverages Apache Airflow as its workflow orchestration engine and supports YAML workflow definitions that are build using allowlisted [Supported operators](operators.md). To provide the serverless experience using these operators, Amazon MWAA Serverless supports a limited set of [Apache Airflow parameters](https://airflow.apache.org/docs/apache-airflow/3.0.6/core-concepts/params.html). While building your workflow definitions, we recommend you to refer to the follwoing paramter support: 
+ This topic describes which Apache Airflow directed acyclic graph (DAG) and task parameters Amazon MWAA Serverless validates and which it doesn't support. It also compares AWS base operator attributes in Amazon MWAA and Amazon MWAA Serverless. Use this information to build workflow definitions that Amazon MWAA Serverless accepts. 
+
+ Amazon MWAA Serverless uses Apache Airflow as its workflow orchestration engine. It supports YAML workflow definitions that use the AWS operators listed in [Supported operators](operators.md). Workflows can also use Python and Bash operators, operators from Apache Airflow provider packages, and custom operators that you supply in a code package. For more information about running custom code, see [Running custom code with Python, Bash, and custom operators](custom-code-operators.md). 
+
+ With Amazon MWAA Serverless, you can use a limited set of Apache Airflow parameters, which helps provide a serverless experience. For more information about parameters, see [Params](https://airflow.apache.org/docs/apache-airflow/3.0.6/core-concepts/params.html) on the Apache Airflow website. The following topics describe parameter support in Amazon MWAA Serverless. 
 
 **Topics**
 + [DAG level parameters that Amazon MWAA Serverless will validate](#dag-object-attributes-validation)
