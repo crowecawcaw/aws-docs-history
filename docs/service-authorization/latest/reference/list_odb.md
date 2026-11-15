@@ -442,8 +442,26 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   UpdateCloudAutonomousVmCluster  **
+  - **IAM action:**  [odb:UpdateCloudAutonomousVmCluster](#list_odb-action-UpdateCloudAutonomousVmCluster) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   UpdateCloudExadataInfrastructure  **
   - **IAM action:**  [odb:UpdateCloudExadataInfrastructure](#list_odb-action-UpdateCloudExadataInfrastructure) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateCloudExadataInfrastructureStorageCapacity  **
+  - **IAM action:**  [odb:UpdateCloudExadataInfrastructureStorageCapacity](#list_odb-action-UpdateCloudExadataInfrastructureStorageCapacity) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateCloudVmCluster  **
+  - **IAM action:**  [odb:UpdateCloudVmCluster](#list_odb-action-UpdateCloudVmCluster) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -498,6 +516,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to associate an AWS Identity and Access Management (IAM) service role with a specified resource to enable AWS service integration
   - **Resource types (\*required):** [cloud-autonomous-vm-cluster](#list_odb-resource-cloud-autonomous-vm-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [cloud-vm-cluster](#list_odb-resource-cloud-vm-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AssociateVirtualMachinesToCloudVmCluster](https://docs.aws.amazon.com/odb/latest/APIReference/API_AssociateVirtualMachinesToCloudVmCluster.html)  **
+  - **Description:** Grants permission to associate virtual machines to a specified VM cluster
+  - **Resource types (\*required):** [cloud-vm-cluster\*](#list_odb-resource-cloud-vm-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [AssociateVirtualMachinesToExadbVmCluster](https://docs.aws.amazon.com/odb/latest/APIReference/API_AssociateVirtualMachinesToExadbVmCluster.html)  **
@@ -625,6 +649,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to disassociate an AWS Identity and Access Management (IAM) service role from a specified resource to disable AWS service integration
   - **Resource types (\*required):** [cloud-autonomous-vm-cluster](#list_odb-resource-cloud-autonomous-vm-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [cloud-vm-cluster](#list_odb-resource-cloud-vm-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisassociateVirtualMachinesFromCloudVmCluster](https://docs.aws.amazon.com/odb/latest/APIReference/API_DisassociateVirtualMachinesFromCloudVmCluster.html)  **
+  - **Description:** Grants permission to disassociate virtual machines from a specified VM cluster
+  - **Resource types (\*required):** [cloud-vm-cluster\*](#list_odb-resource-cloud-vm-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [DisassociateVirtualMachinesFromExadbVmCluster](https://docs.aws.amazon.com/odb/latest/APIReference/API_DisassociateVirtualMachinesFromExadbVmCluster.html)  **
@@ -963,9 +993,27 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [UpdateCloudAutonomousVmCluster](https://docs.aws.amazon.com/odb/latest/APIReference/API_UpdateCloudAutonomousVmCluster.html)  **
+  - **Description:** Grants permission to update properties of a specified Autonomous VM cluster
+  - **Resource types (\*required):** [cloud-autonomous-vm-cluster\*](#list_odb-resource-cloud-autonomous-vm-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [UpdateCloudExadataInfrastructure](https://docs.aws.amazon.com/odb/latest/APIReference/API_UpdateCloudExadataInfrastructure.html)  **
   - **Description:** Grants permission to update the properties of an Exadata infrastructure resource
   - **Resource types (\*required):** [cloud-exadata-infrastructure\*](#list_odb-resource-cloud-exadata-infrastructure)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateCloudExadataInfrastructureStorageCapacity](https://docs.aws.amazon.com/odb/latest/APIReference/API_UpdateCloudExadataInfrastructureStorageCapacity.html)  **
+  - **Description:** Grants permission to update the storage capacity of an Exadata infrastructure resource
+  - **Resource types (\*required):** [cloud-exadata-infrastructure\*](#list_odb-resource-cloud-exadata-infrastructure)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateCloudVmCluster](https://docs.aws.amazon.com/odb/latest/APIReference/API_UpdateCloudVmCluster.html)  **
+  - **Description:** Grants permission to update properties of a specified VM cluster
+  - **Resource types (\*required):** [cloud-vm-cluster\*](#list_odb-resource-cloud-vm-cluster)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 

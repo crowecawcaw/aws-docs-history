@@ -1282,7 +1282,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [UpdateInstance](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_UpdateInstance.html)  **
   - **Description:** Grants permission to update an identity center instance
   - **Resource types (\*required):** [Instance\*](#list_iam-identity-center-resource-Instance)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-identity-center-aws_ResourceTag___TagKey_)<br />[sso:PrimaryRegion](#list_iam-identity-center-sso_PrimaryRegion)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-identity-center-aws_ResourceTag___TagKey_)<br />[sso:PrimaryRegion](#list_iam-identity-center-sso_PrimaryRegion)<br />[sso:VpceAccessRequired](#list_iam-identity-center-sso_VpceAccessRequired)
   - **Access level:** Write
 
 - **   [UpdateInstanceAccessControlAttributeConfiguration](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_UpdateInstanceAccessControlAttributeConfiguration.html)  **
@@ -1361,3 +1361,4 @@ AWS IAM Identity Center defines the following condition keys that can be used in
 |   [identitycenter:InstanceArn](https://docs.aws.amazon.com/singlesignon/latest/userguide/API_InstanceMetadata.html)  | Filters access by the ARN of the IAM Identity Center instance | ARN | 
 |   [sso:ApplicationAccount](https://docs.aws.amazon.com/singlesignon/latest/userguide/API_Application.html)  | Filters access by the account which creates the application. This condition key is not supported for customer managed SAML applications | String | 
 |   [sso:PrimaryRegion](https://docs.aws.amazon.com/singlesignon/latest/userguide/API_InstanceMetadata.html)  | Filters access by the primary region of the IAM Identity Center instance | String | 
+|   [sso:VpceAccessRequired](https://docs.aws.amazon.com/singlesignon/latest/userguide/API_InstanceMetadata.html)  | Filters access by whether the network configuration that results from the operation requires requests to the IAM Identity Center instance to arrive through a VPC endpoint | Bool | 

@@ -644,6 +644,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [lambda:TagResource](#list_lambda-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** lambda.amazonaws.com / **Access level:** Write
 
+- **   CreateRuntime  **
+  - **SDK client:** lambda-core
+  - **IAM action:**  [lambda:TagResource](#list_lambda-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
 - **   DeleteNetworkConnector  **
   - **SDK client:** lambda-core
   - **IAM action:**  [lambda:DeleteNetworkConnector](#list_lambda-action-DeleteNetworkConnector) 

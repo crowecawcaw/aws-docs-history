@@ -464,9 +464,21 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [cloudformation:RegisterType](#list_cloudformation-action-RegisterType)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** resources.cloudformation.amazonaws.com / **Access level:** Write
 
+- **   RemoveAlias  **
+  - **IAM action:**  [cloudformation:RemoveAlias](#list_cloudformation-action-RemoveAlias) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   RollbackStack  **
   - **IAM action:**  [cloudformation:RollbackStack](#list_cloudformation-action-RollbackStack)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** cloudformation.amazonaws.com / **Access level:** Write
+
+- **   SetAlias  **
+  - **IAM action:**  [cloudformation:SetAlias](#list_cloudformation-action-SetAlias) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   SetStackPolicy  **
   - **IAM action:**  [cloudformation:SetStackPolicy](#list_cloudformation-action-SetStackPolicy) 
@@ -1021,10 +1033,22 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Write
 
+- **   [RemoveAlias](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RemoveAlias.html)  **
+  - **Description:** Grants permission to remove an alias from the stack it is associated with
+  - **Resource types (\*required):** [stack\*](#list_cloudformation-resource-stack)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudformation-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [RollbackStack](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RollbackStack.html)  **
   - **Description:** Grants permission to rollback the stack to the last stable state
   - **Resource types (\*required):** [stack\*](#list_cloudformation-resource-stack)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudformation-aws_ResourceTag___TagKey_)<br />[cloudformation:RoleArn](#list_cloudformation-cloudformation_RoleArn)
+  - **Access level:** Write
+
+- **   [SetAlias](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetAlias.html)  **
+  - **Description:** Grants permission to set an alias for the specified stack
+  - **Resource types (\*required):** [stack\*](#list_cloudformation-resource-stack)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudformation-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [SetStackPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetStackPolicy.html)  **

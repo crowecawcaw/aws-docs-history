@@ -313,37 +313,37 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [wellarchitected:ListAgentContexts](#list_wellarchitected-action-ListAgentContexts) 
   - **Condition key:** 
   - **Possible value(s):** 
-  - **Access level:** Read
+  - **Access level:** List
 
 - **   ListAgentGoals  **
   - **IAM action:**  [wellarchitected:ListAgentGoals](#list_wellarchitected-action-ListAgentGoals) 
   - **Condition key:** 
   - **Possible value(s):** 
-  - **Access level:** Read
+  - **Access level:** List
 
 - **   ListAgentProfiles  **
   - **IAM action:**  [wellarchitected:ListAgentProfiles](#list_wellarchitected-action-ListAgentProfiles) 
   - **Condition key:** 
   - **Possible value(s):** 
-  - **Access level:** Read
+  - **Access level:** List
 
 - **   ListAgentRecommendationGenerations  **
   - **IAM action:**  [wellarchitected:ListAgentRecommendationGenerations](#list_wellarchitected-action-ListAgentRecommendationGenerations) 
   - **Condition key:** 
   - **Possible value(s):** 
-  - **Access level:** Read
+  - **Access level:** List
 
 - **   ListAgentRecommendationItems  **
   - **IAM action:**  [wellarchitected:ListAgentRecommendationItems](#list_wellarchitected-action-ListAgentRecommendationItems) 
   - **Condition key:** 
   - **Possible value(s):** 
-  - **Access level:** Read
+  - **Access level:** List
 
 - **   ListAgentRecommendations  **
   - **IAM action:**  [wellarchitected:ListAgentRecommendations](#list_wellarchitected-action-ListAgentRecommendations) 
   - **Condition key:** 
   - **Possible value(s):** 
-  - **Access level:** Read
+  - **Access level:** List
 
 - **   ListAnswers  **
   - **IAM action:**  [wellarchitected:ListAnswers](#list_wellarchitected-action-ListAnswers) 
@@ -611,6 +611,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [CreateAgentBasicProfile](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_CreateAgentBasicProfile.html)  **
+  - **Description:** Grants permission to create a basic profile for the calling account
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_wellarchitected-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_wellarchitected-aws_TagKeys)
+  - **Access level:** Write
+
 - **   [CreateAgentContext](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_CreateAgentContext.html)  **
   - **Description:** Grants permission to create a context associated with a profile
   - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
@@ -621,6 +627,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to create a goal associated with a profile
   - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateAgentOrganizationalProfile](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_CreateAgentOrganizationalProfile.html)  **
+  - **Description:** Grants permission to create an organizational profile for use with AWS Organizations integration
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_wellarchitected-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_wellarchitected-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateAgentOrganizationalReport](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_CreateAgentOrganizationalReport.html)  **
+  - **Description:** Grants permission to create an organizational report, a point-in-time snapshot of recommendations across all agent profiles in the AWS Organization
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
   - **Access level:** Write
 
 - **   [CreateAgentProfile](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_CreateAgentProfile.html)  **
@@ -695,9 +713,27 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [DeleteAgentOrganizationalReport](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DeleteAgentOrganizationalReport.html)  **
+  - **Description:** Grants permission to delete an organizational report and its associated artifacts
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
 - **   [DeleteAgentProfile](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DeleteAgentProfile.html)  **
   - **Description:** Grants permission to delete an agent profile
   - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAgentProfilePolicy](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DeleteAgentProfilePolicy.html)  **
+  - **Description:** Grants permission to remove the resource-based policy from the specified agent profile
+  - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAgentRecommendationPolicy](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DeleteAgentRecommendationPolicy.html)  **
+  - **Description:** Grants permission to remove the resource-based policy from the specified agent recommendation
+  - **Resource types (\*required):** [agent-recommendation\*](#list_wellarchitected-resource-agent-recommendation)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -779,8 +815,32 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [GetAgentOrganizationalReport](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetAgentOrganizationalReport.html)  **
+  - **Description:** Grants permission to retrieve metadata and current state for a single organizational report
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetAgentOrganizationalReportData](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetAgentOrganizationalReportData.html)  **
+  - **Description:** Grants permission to retrieve the data artifact for a completed organizational report as a short-lived presigned S3 URL
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetAgentPreferences](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetAgentPreferences.html)  **
+  - **Description:** Grants permission to get the caller's complete set of Well-Architected Agent preferences
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
 - **   [GetAgentProfile](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetAgentProfile.html)  **
   - **Description:** Grants permission to get agent profile by profile arn
+  - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAgentProfilePolicy](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetAgentProfilePolicy.html)  **
+  - **Description:** Grants permission to retrieve the resource-based policy attached to the specified agent profile
   - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
   - **Access level:** Read
@@ -794,6 +854,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [GetAgentRecommendationGeneration](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetAgentRecommendationGeneration.html)  **
   - **Description:** Grants permission to get a recommendation generation
   - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAgentRecommendationPolicy](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetAgentRecommendationPolicy.html)  **
+  - **Description:** Grants permission to retrieve the resource-based policy attached to the specified agent recommendation
+  - **Resource types (\*required):** [agent-recommendation\*](#list_wellarchitected-resource-agent-recommendation)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
@@ -891,37 +957,43 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to list contexts associated with a profile by filters on the fields
   - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
-  - **Access level:** Read
+  - **Access level:** List
 
 - **   [ListAgentGoals](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListAgentGoals.html)  **
   - **Description:** Grants permission to list goals associated with a profile by filters on the fields
   - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
-  - **Access level:** Read
+  - **Access level:** List
+
+- **   [ListAgentOrganizationalReports](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListAgentOrganizationalReports.html)  **
+  - **Description:** Grants permission to list organizational reports owned by the caller's account within the AWS Organization
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
 
 - **   [ListAgentProfiles](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListAgentProfiles.html)  **
   - **Description:** Grants permission to list agent profiles
   - **Resource types (\*required):** 
   - **Condition keys:**  
-  - **Access level:** Read
+  - **Access level:** List
 
 - **   [ListAgentRecommendationGenerations](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListAgentRecommendationGenerations.html)  **
   - **Description:** Grants permission to list recommendation generations
   - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
-  - **Access level:** Read
+  - **Access level:** List
 
 - **   [ListAgentRecommendationItems](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListAgentRecommendationItems.html)  **
   - **Description:** Grants permission to list recommendation items associated with a recommendation
   - **Resource types (\*required):** [agent-recommendation\*](#list_wellarchitected-resource-agent-recommendation)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
-  - **Access level:** Read
+  - **Access level:** List
 
 - **   [ListAgentRecommendations](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListAgentRecommendations.html)  **
   - **Description:** Grants permission to list recommendations by profile ARN
   - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
-  - **Access level:** Read
+  - **Access level:** List
 
 - **   [ListAnswers](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListAnswers.html)  **
   - **Description:** Grants permission to list the answers from the specified lens review
@@ -1041,10 +1113,34 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** List
 
+- **   [PutAgentPreferences](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_PutAgentPreferences.html)  **
+  - **Description:** Grants permission to create or replace the caller's Well-Architected Agent preferences
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [PutAgentProfilePolicy](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_PutAgentProfilePolicy.html)  **
+  - **Description:** Grants permission to attach or replace a resource-based policy on the specified agent profile
+  - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [PutAgentRecommendationFeedback](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_PutAgentRecommendationFeedback.html)  **
   - **Description:** Grants permission to put feedback on a recommendation
   - **Resource types (\*required):** [agent-recommendation\*](#list_wellarchitected-resource-agent-recommendation)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutAgentRecommendationPolicy](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_PutAgentRecommendationPolicy.html)  **
+  - **Description:** Grants permission to attach or replace a resource-based policy on the specified agent recommendation
+  - **Resource types (\*required):** [agent-recommendation\*](#list_wellarchitected-resource-agent-recommendation)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [SendAgentOrganizationalReportDataToS3](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_SendAgentOrganizationalReportDataToS3.html)  **
+  - **Description:** Grants permission to write the data artifact for a completed organizational report directly into a caller-owned S3 bucket
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
   - **Access level:** Write
 
 - **   [StartAgentRecommendationGeneration](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_StartAgentRecommendationGeneration.html)  **
@@ -1081,6 +1177,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [UpdateAgentGoal](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpdateAgentGoal.html)  **
   - **Description:** Grants permission to update a goal associated with a profile
+  - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAgentOrganizationalProfile](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpdateAgentOrganizationalProfile.html)  **
+  - **Description:** Grants permission to update an organizational profile
   - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
   - **Access level:** Write

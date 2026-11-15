@@ -943,6 +943,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [image](#list_appstream-resource-image) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appstream-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [UpdateImageBuilder](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_UpdateImageBuilder.html)  **
+  - **Description:** Grants permission to update a specific image builder. An image builder is a virtual machine that is used to create an image
+  - **Resource types (\*required):** [image-builder\*](#list_appstream-resource-image-builder)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appstream-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [UpdateImagePermissions](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_UpdateImagePermissions.html)  **
   - **Description:** Grants permission to add or update permissions for the specified private image
   - **Resource types (\*required):** [image\*](#list_appstream-resource-image)

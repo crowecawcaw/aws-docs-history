@@ -116,6 +116,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [oauth2-resource-service-principal\*](#list_signin-resource-oauth2-resource-service-principal) / **Condition keys:** [signin:OAuthClientId](#list_signin-signin_OAuthClientId)<br />[signin:OAuthRedirectUri](#list_signin-signin_OAuthRedirectUri)
   - **Access level:** Read
 
+- **   [CreateBearerToken](https://docs.aws.amazon.com/signin/latest/APIReference/API_dataplane-signin_CreateBearerToken.html)  **
+  - **Description:** Grants permission to exchange SigV4 credentials for a bearer token that can be used to access supported AWS services
+  - **Resource types (\*required):** [oauth2-resource-service-principal\*](#list_signin-resource-oauth2-resource-service-principal)
+  - **Condition keys:** [signin:OAuthClientId](#list_signin-signin_OAuthClientId)<br />[signin:OAuthGrantType](#list_signin-signin_OAuthGrantType)
+  - **Access level:** Read
+
 - **   [CreateOAuth2PublicClient](https://docs.aws.amazon.com/signin/latest/APIReference/API_dataplane-signin_CreateOAuth2PublicClient.html)  **
   - **Description:** Grants permission to dynamically register an OAuth 2 public client for use with AWS Sign-In
   - **Resource types (\*required):** [oauth2-public-client-registration\*](#list_signin-resource-oauth2-public-client-registration)

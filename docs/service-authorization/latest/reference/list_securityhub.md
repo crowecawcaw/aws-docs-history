@@ -1503,6 +1503,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [UpdateSecurityHubV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateSecurityHubV2.html)  **
+  - **Description:** Grants permission to update a Security Hub V2 resource configuration
+  - **Resource types (\*required):** [hubv2\*](#list_securityhub-resource-hubv2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [UpdateStandardsControl](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateStandardsControl.html)  **
   - **Description:** Grants permission to update Security Hub standards controls
   - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
@@ -1541,6 +1547,12 @@ The following actions are defined by AWS Security Hub but are not directly invoc
   - **Description:** Grants permission to retrieve aggregated statistical data about the findings
   - **Resource types (\*required):** [hub](#list_securityhub-resource-hub) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
   - **Resource types (\*required):** [hubv2](#list_securityhub-resource-hubv2) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetCSPMOrganizationsImportStatus](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetCSPMOrganizationsImportStatus.html)  **
+  - **Description:** Grants permission to retrieve the Security Hub CSPM Organizations Policy import status for an account
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [GetControlFindingSummary](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetControlFindingSummary.html)  **
@@ -1596,6 +1608,12 @@ The following actions are defined by AWS Security Hub but are not directly invoc
   - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
   - **Access level:** Read
+
+- **   [PutCSPMOrganizationsImportStatus](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_PutCSPMOrganizationsImportStatus.html)  **
+  - **Description:** Grants permission to put the Security Hub CSPM Organizations Policy import status for an account
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
 
 - **   [SendFindingEvents](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_SendFindingEvents.html)  **
   - **Description:** Grants permission to use a custom action to send Security Hub findings to Amazon EventBridge

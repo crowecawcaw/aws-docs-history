@@ -1157,6 +1157,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [ResumePentestJob](https://docs.aws.amazon.com/securityagent/API_ResumePentestJob.html)  **
+  - **Description:** Grants permission to resume a stopped or paused penetration test
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [StartCodeRemediation](https://docs.aws.amazon.com/securityagent/API_StartCodeRemediation.html)  **
   - **Description:** Grants permission to start code remediation for the findings
   - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)

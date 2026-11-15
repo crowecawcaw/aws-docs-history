@@ -30,6 +30,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Read
 
+- **   [GetSellerReportingData](https://docs.aws.amazon.com/marketplace/latest/userguide/reports-and-data-feed.html)  **
+  - **Description:** Grants permission to query a seller reporting dataset
+  - **Resource types (\*required):** [SellerDataset\*](#list_marketplace-seller-reporting-resource-SellerDataset)
+  - **Condition keys:**  
+  - **Access level:** Read
+
 
 
 ## Resource types defined by AWS Marketplace Seller Reporting
@@ -42,6 +48,7 @@ The following resource types are defined by this service and can be used in the 
 | Resource types | ARN | Condition keys | 
 | --- | --- | --- | 
 |  [SellerDashboard](https://docs.aws.amazon.com/marketplace/latest/userguide/dashboards.html#reports-accessing)  | arn:${Partition}:aws-marketplace::${Account}:${Catalog}/ReportingData/${FactTable}/Dashboard/${DashboardName} |   | 
+|  [SellerDataset](https://docs.aws.amazon.com/marketplace/latest/userguide/reports-and-data-feed.html)  | arn:${Partition}:aws-marketplace::${Account}:${Catalog}/ReportingData/${FactTable}/Dataset/${DatasetName} |   | 
 
 ## Condition keys for AWS Marketplace Seller Reporting
 <a name="list_marketplace-seller-reporting-policy-keys"></a>

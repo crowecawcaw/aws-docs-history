@@ -64,6 +64,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   CreateSnapshot  **
+  - **IAM action:**  [kinesisanalytics:TagResource](#list_kinesisanalyticsv2-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
 - **   DeleteApplication  **
   - **IAM action:**  [kinesisanalytics:DeleteApplication](#list_kinesisanalyticsv2-action-DeleteApplication) 
   - **Condition key:** 
@@ -133,6 +139,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   DiscoverInputSchema  **
   - **IAM action:**  [kinesisanalytics:DiscoverInputSchema](#list_kinesisanalyticsv2-action-DiscoverInputSchema)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** kinesisanalytics.amazonaws.com / **Access level:** Write
+
+- **   ImportSnapshot  **
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) 
+  - **Condition key:** iam:PassedToService
+  - **Possible value(s):** kinesisanalytics.amazonaws.com
+  - **Access level:** Write
 
 - **   ListApplicationOperations  **
   - **IAM action:**  [kinesisanalytics:ListApplicationOperations](#list_kinesisanalyticsv2-action-ListApplicationOperations) 

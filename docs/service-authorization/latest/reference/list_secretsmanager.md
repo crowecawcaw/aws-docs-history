@@ -14,6 +14,7 @@ References:
 **Topics**
 + [API operations defined by AWS Secrets Manager](#list_secretsmanager-operations)
 + [Actions defined by AWS Secrets Manager](#list_secretsmanager-actions-as-permissions)
++ [Permission-only actions for AWS Secrets Manager](#list_secretsmanager-permission-only-actions)
 + [Resource types defined by AWS Secrets Manager](#list_secretsmanager-resources-for-iam-policies)
 + [Condition keys for AWS Secrets Manager](#list_secretsmanager-policy-keys)
 
@@ -24,6 +25,11 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 
 
+
+- **   AssociateCrossAccountReplica  **
+  - **IAM action:**  [secretsmanager:AssociateCrossAccountReplica](#list_secretsmanager-action-AssociateCrossAccountReplica)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [secretsmanager:GetSecretValue](#list_secretsmanager-action-GetSecretValue)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** secretsmanager.amazonaws.com / **Access level:** Write
 
 - **   BatchGetSecretValue  **
   - **IAM action:**  [secretsmanager:BatchGetSecretValue](#list_secretsmanager-action-BatchGetSecretValue)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
@@ -38,6 +44,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   CreateSecret  **
   - **IAM action:**  [secretsmanager:CreateSecret](#list_secretsmanager-action-CreateSecret)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [secretsmanager:PutResourcePolicy](#list_secretsmanager-action-PutResourcePolicy)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Permissions management, Write
   - **IAM action:**  [secretsmanager:ReplicateSecretToRegions](#list_secretsmanager-action-ReplicateSecretToRegions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [secretsmanager:TagResource](#list_secretsmanager-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
@@ -59,6 +66,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   DisassociateCrossAccountReplica  **
+  - **IAM action:**  [secretsmanager:DisassociateCrossAccountReplica](#list_secretsmanager-action-DisassociateCrossAccountReplica) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   GetRandomPassword  **
   - **IAM action:**  [secretsmanager:GetRandomPassword](#list_secretsmanager-action-GetRandomPassword) 
   - **Condition key:** 
@@ -73,6 +86,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   GetSecretValue  **
   - **IAM action:**  [secretsmanager:GetSecretValue](#list_secretsmanager-action-GetSecretValue) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListResourcePolicies  **
+  - **IAM action:**  [secretsmanager:ListResourcePolicies](#list_secretsmanager-action-ListResourcePolicies) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -124,10 +143,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** secretsmanager.amazonaws.com / **Access level:** Write
 
 - **   StopReplicationToReplica  **
-  - **IAM action:**  [secretsmanager:StopReplicationToReplica](#list_secretsmanager-action-StopReplicationToReplica) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
+  - **IAM action:**  [secretsmanager:DeleteResourcePolicy](#list_secretsmanager-action-DeleteResourcePolicy)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Permissions management, Write
+  - **IAM action:**  [secretsmanager:StopReplicationToReplica](#list_secretsmanager-action-StopReplicationToReplica)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
 - **   TagResource  **
   - **IAM action:**  [secretsmanager:TagResource](#list_secretsmanager-action-TagResource) 
@@ -167,6 +184,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 
 
+- **   [AssociateCrossAccountReplica](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_AssociateCrossAccountReplica.html)  **
+  - **Description:** Grants permission to replicate a cross-account primary secret to a cross-account replica secret
+  - **Resource types (\*required):** [Secret\*](#list_secretsmanager-resource-Secret)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_secretsmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_secretsmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_secretsmanager-aws_TagKeys)<br />[secretsmanager:CrossAccountReplicaARN](#list_secretsmanager-secretsmanager_CrossAccountReplicaARN)<br />[secretsmanager:ReplicaRestriction](#list_secretsmanager-secretsmanager_ReplicaRestriction)<br />[secretsmanager:ReplicationRoleARN](#list_secretsmanager-secretsmanager_ReplicationRoleARN)<br />[secretsmanager:resource/AllowRotationLambdaArn](#list_secretsmanager-secretsmanager_resource_AllowRotationLambdaArn)<br />[secretsmanager:resource/Type](#list_secretsmanager-secretsmanager_resource_Type)<br />[secretsmanager:ResourceTag/tag-key](#list_secretsmanager-secretsmanager_ResourceTag_tag-key)<br />[secretsmanager:SecretId](#list_secretsmanager-secretsmanager_SecretId)<br />[secretsmanager:SecretPrimaryRegion](#list_secretsmanager-secretsmanager_SecretPrimaryRegion)
+  - **Access level:** Write
+
 - **   [BatchGetSecretValue](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_BatchGetSecretValue.html)  **
   - **Description:** Grants permission to retrieve and decrypt a list of secrets
   - **Resource types (\*required):** 
@@ -182,13 +205,13 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [CreateSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html)  **
   - **Description:** Grants permission to create a secret that stores encrypted data that can be queried and rotated
   - **Resource types (\*required):** [Secret\*](#list_secretsmanager-resource-Secret)
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_secretsmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_secretsmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_secretsmanager-aws_TagKeys)<br />[secretsmanager:AddReplicaRegions](#list_secretsmanager-secretsmanager_AddReplicaRegions)<br />[secretsmanager:Description](#list_secretsmanager-secretsmanager_Description)<br />[secretsmanager:ForceOverwriteReplicaSecret](#list_secretsmanager-secretsmanager_ForceOverwriteReplicaSecret)<br />[secretsmanager:KmsKeyArn](#list_secretsmanager-secretsmanager_KmsKeyArn)<br />[secretsmanager:KmsKeyId](#list_secretsmanager-secretsmanager_KmsKeyId)<br />[secretsmanager:Name](#list_secretsmanager-secretsmanager_Name)<br />[secretsmanager:resource/AllowRotationLambdaArn](#list_secretsmanager-secretsmanager_resource_AllowRotationLambdaArn)<br />[secretsmanager:resource/Type](#list_secretsmanager-secretsmanager_resource_Type)<br />[secretsmanager:ResourceTag/tag-key](#list_secretsmanager-secretsmanager_ResourceTag_tag-key)<br />[secretsmanager:Type](#list_secretsmanager-secretsmanager_Type)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_secretsmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_secretsmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_secretsmanager-aws_TagKeys)<br />[secretsmanager:AddReplicaRegions](#list_secretsmanager-secretsmanager_AddReplicaRegions)<br />[secretsmanager:CrossAccountPrimaryARN](#list_secretsmanager-secretsmanager_CrossAccountPrimaryARN)<br />[secretsmanager:Description](#list_secretsmanager-secretsmanager_Description)<br />[secretsmanager:ForceOverwriteReplicaSecret](#list_secretsmanager-secretsmanager_ForceOverwriteReplicaSecret)<br />[secretsmanager:KmsKeyArn](#list_secretsmanager-secretsmanager_KmsKeyArn)<br />[secretsmanager:KmsKeyId](#list_secretsmanager-secretsmanager_KmsKeyId)<br />[secretsmanager:Name](#list_secretsmanager-secretsmanager_Name)<br />[secretsmanager:resource/AllowRotationLambdaArn](#list_secretsmanager-secretsmanager_resource_AllowRotationLambdaArn)<br />[secretsmanager:resource/Type](#list_secretsmanager-secretsmanager_resource_Type)<br />[secretsmanager:ResourceTag/tag-key](#list_secretsmanager-secretsmanager_ResourceTag_tag-key)<br />[secretsmanager:SecretPrimaryRegion](#list_secretsmanager-secretsmanager_SecretPrimaryRegion)<br />[secretsmanager:Type](#list_secretsmanager-secretsmanager_Type)
   - **Access level:** Write
 
 - **   [DeleteResourcePolicy](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_DeleteResourcePolicy.html)  **
   - **Description:** Grants permission to delete the resource policy attached to a secret
   - **Resource types (\*required):** [Secret\*](#list_secretsmanager-resource-Secret)
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_secretsmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_secretsmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_secretsmanager-aws_TagKeys)<br />[secretsmanager:resource/AllowRotationLambdaArn](#list_secretsmanager-secretsmanager_resource_AllowRotationLambdaArn)<br />[secretsmanager:resource/Type](#list_secretsmanager-secretsmanager_resource_Type)<br />[secretsmanager:ResourceTag/tag-key](#list_secretsmanager-secretsmanager_ResourceTag_tag-key)<br />[secretsmanager:SecretId](#list_secretsmanager-secretsmanager_SecretId)<br />[secretsmanager:SecretPrimaryRegion](#list_secretsmanager-secretsmanager_SecretPrimaryRegion)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_secretsmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_secretsmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_secretsmanager-aws_TagKeys)<br />[secretsmanager:PolicyName](#list_secretsmanager-secretsmanager_PolicyName)<br />[secretsmanager:resource/AllowRotationLambdaArn](#list_secretsmanager-secretsmanager_resource_AllowRotationLambdaArn)<br />[secretsmanager:resource/Type](#list_secretsmanager-secretsmanager_resource_Type)<br />[secretsmanager:ResourceTag/tag-key](#list_secretsmanager-secretsmanager_ResourceTag_tag-key)<br />[secretsmanager:SecretId](#list_secretsmanager-secretsmanager_SecretId)<br />[secretsmanager:SecretPrimaryRegion](#list_secretsmanager-secretsmanager_SecretPrimaryRegion)
   - **Access level:** Permissions management, Write
 
 - **   [DeleteSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_DeleteSecret.html)  **
@@ -203,6 +226,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_secretsmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_secretsmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_secretsmanager-aws_TagKeys)<br />[secretsmanager:resource/AllowRotationLambdaArn](#list_secretsmanager-secretsmanager_resource_AllowRotationLambdaArn)<br />[secretsmanager:resource/Type](#list_secretsmanager-secretsmanager_resource_Type)<br />[secretsmanager:ResourceTag/tag-key](#list_secretsmanager-secretsmanager_ResourceTag_tag-key)<br />[secretsmanager:SecretId](#list_secretsmanager-secretsmanager_SecretId)<br />[secretsmanager:SecretPrimaryRegion](#list_secretsmanager-secretsmanager_SecretPrimaryRegion)
   - **Access level:** Read
 
+- **   [DisassociateCrossAccountReplica](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_DisassociateCrossAccountReplica.html)  **
+  - **Description:** Grants permission to stop replication from a cross-account primary secret to a cross-account replica secret
+  - **Resource types (\*required):** [Secret\*](#list_secretsmanager-resource-Secret)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_secretsmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_secretsmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_secretsmanager-aws_TagKeys)<br />[secretsmanager:CrossAccountReplicaARN](#list_secretsmanager-secretsmanager_CrossAccountReplicaARN)<br />[secretsmanager:resource/AllowRotationLambdaArn](#list_secretsmanager-secretsmanager_resource_AllowRotationLambdaArn)<br />[secretsmanager:resource/Type](#list_secretsmanager-secretsmanager_resource_Type)<br />[secretsmanager:ResourceTag/tag-key](#list_secretsmanager-secretsmanager_ResourceTag_tag-key)<br />[secretsmanager:SecretId](#list_secretsmanager-secretsmanager_SecretId)<br />[secretsmanager:SecretPrimaryRegion](#list_secretsmanager-secretsmanager_SecretPrimaryRegion)
+  - **Access level:** Write
+
 - **   [GetRandomPassword](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetRandomPassword.html)  **
   - **Description:** Grants permission to generate a random string for use in password creation
   - **Resource types (\*required):** 
@@ -212,13 +241,19 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [GetResourcePolicy](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetResourcePolicy.html)  **
   - **Description:** Grants permission to get the resource policy attached to a secret
   - **Resource types (\*required):** [Secret\*](#list_secretsmanager-resource-Secret)
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_secretsmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_secretsmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_secretsmanager-aws_TagKeys)<br />[secretsmanager:resource/AllowRotationLambdaArn](#list_secretsmanager-secretsmanager_resource_AllowRotationLambdaArn)<br />[secretsmanager:resource/Type](#list_secretsmanager-secretsmanager_resource_Type)<br />[secretsmanager:ResourceTag/tag-key](#list_secretsmanager-secretsmanager_ResourceTag_tag-key)<br />[secretsmanager:SecretId](#list_secretsmanager-secretsmanager_SecretId)<br />[secretsmanager:SecretPrimaryRegion](#list_secretsmanager-secretsmanager_SecretPrimaryRegion)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_secretsmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_secretsmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_secretsmanager-aws_TagKeys)<br />[secretsmanager:PolicyName](#list_secretsmanager-secretsmanager_PolicyName)<br />[secretsmanager:resource/AllowRotationLambdaArn](#list_secretsmanager-secretsmanager_resource_AllowRotationLambdaArn)<br />[secretsmanager:resource/Type](#list_secretsmanager-secretsmanager_resource_Type)<br />[secretsmanager:ResourceTag/tag-key](#list_secretsmanager-secretsmanager_ResourceTag_tag-key)<br />[secretsmanager:SecretId](#list_secretsmanager-secretsmanager_SecretId)<br />[secretsmanager:SecretPrimaryRegion](#list_secretsmanager-secretsmanager_SecretPrimaryRegion)
   - **Access level:** Read
 
 - **   [GetSecretValue](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetSecretValue.html)  **
   - **Description:** Grants permission to retrieve and decrypt the encrypted data
   - **Resource types (\*required):** [Secret\*](#list_secretsmanager-resource-Secret)
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_secretsmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_secretsmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_secretsmanager-aws_TagKeys)<br />[secretsmanager:resource/AllowRotationLambdaArn](#list_secretsmanager-secretsmanager_resource_AllowRotationLambdaArn)<br />[secretsmanager:resource/Type](#list_secretsmanager-secretsmanager_resource_Type)<br />[secretsmanager:ResourceTag/tag-key](#list_secretsmanager-secretsmanager_ResourceTag_tag-key)<br />[secretsmanager:SecretId](#list_secretsmanager-secretsmanager_SecretId)<br />[secretsmanager:SecretPrimaryRegion](#list_secretsmanager-secretsmanager_SecretPrimaryRegion)<br />[secretsmanager:VersionId](#list_secretsmanager-secretsmanager_VersionId)<br />[secretsmanager:VersionStage](#list_secretsmanager-secretsmanager_VersionStage)
+  - **Access level:** Read
+
+- **   [ListResourcePolicies](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListResourcePolicies.html)  **
+  - **Description:** Grants permission to list the resource polices attached to a secret
+  - **Resource types (\*required):** [Secret\*](#list_secretsmanager-resource-Secret)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_secretsmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_secretsmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_secretsmanager-aws_TagKeys)<br />[secretsmanager:resource/AllowRotationLambdaArn](#list_secretsmanager-secretsmanager_resource_AllowRotationLambdaArn)<br />[secretsmanager:resource/Type](#list_secretsmanager-secretsmanager_resource_Type)<br />[secretsmanager:ResourceTag/tag-key](#list_secretsmanager-secretsmanager_ResourceTag_tag-key)<br />[secretsmanager:SecretId](#list_secretsmanager-secretsmanager_SecretId)<br />[secretsmanager:SecretPrimaryRegion](#list_secretsmanager-secretsmanager_SecretPrimaryRegion)
   - **Access level:** Read
 
 - **   [ListSecretVersionIds](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecretVersionIds.html)  **
@@ -236,7 +271,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [PutResourcePolicy](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_PutResourcePolicy.html)  **
   - **Description:** Grants permission to attach a resource policy to a secret
   - **Resource types (\*required):** [Secret\*](#list_secretsmanager-resource-Secret)
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_secretsmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_secretsmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_secretsmanager-aws_TagKeys)<br />[secretsmanager:BlockPublicPolicy](#list_secretsmanager-secretsmanager_BlockPublicPolicy)<br />[secretsmanager:resource/AllowRotationLambdaArn](#list_secretsmanager-secretsmanager_resource_AllowRotationLambdaArn)<br />[secretsmanager:resource/Type](#list_secretsmanager-secretsmanager_resource_Type)<br />[secretsmanager:ResourceTag/tag-key](#list_secretsmanager-secretsmanager_ResourceTag_tag-key)<br />[secretsmanager:SecretId](#list_secretsmanager-secretsmanager_SecretId)<br />[secretsmanager:SecretPrimaryRegion](#list_secretsmanager-secretsmanager_SecretPrimaryRegion)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_secretsmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_secretsmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_secretsmanager-aws_TagKeys)<br />[secretsmanager:BlockPublicPolicy](#list_secretsmanager-secretsmanager_BlockPublicPolicy)<br />[secretsmanager:PolicyName](#list_secretsmanager-secretsmanager_PolicyName)<br />[secretsmanager:resource/AllowRotationLambdaArn](#list_secretsmanager-secretsmanager_resource_AllowRotationLambdaArn)<br />[secretsmanager:resource/Type](#list_secretsmanager-secretsmanager_resource_Type)<br />[secretsmanager:ResourceTag/tag-key](#list_secretsmanager-secretsmanager_ResourceTag_tag-key)<br />[secretsmanager:SecretId](#list_secretsmanager-secretsmanager_SecretId)<br />[secretsmanager:SecretPrimaryRegion](#list_secretsmanager-secretsmanager_SecretPrimaryRegion)
   - **Access level:** Permissions management, Write
 
 - **   [PutSecretValue](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_PutSecretValue.html)  **
@@ -270,7 +305,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Access level:** Write
 
 - **   [StopReplicationToReplica](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_StopReplicationToReplica.html)  **
-  - **Description:** Grants permission to remove the secret from replication and promote the secret to a regional secret in the replica Region
+  - **Description:** Grants permission to remove the secret from replication and promote the secret to a standalone secret
   - **Resource types (\*required):** [Secret\*](#list_secretsmanager-resource-Secret)
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_secretsmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_secretsmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_secretsmanager-aws_TagKeys)<br />[secretsmanager:resource/AllowRotationLambdaArn](#list_secretsmanager-secretsmanager_resource_AllowRotationLambdaArn)<br />[secretsmanager:resource/Type](#list_secretsmanager-secretsmanager_resource_Type)<br />[secretsmanager:ResourceTag/tag-key](#list_secretsmanager-secretsmanager_ResourceTag_tag-key)<br />[secretsmanager:SecretId](#list_secretsmanager-secretsmanager_SecretId)<br />[secretsmanager:SecretPrimaryRegion](#list_secretsmanager-secretsmanager_SecretPrimaryRegion)
   - **Access level:** Write
@@ -307,6 +342,22 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 
 
+## Permission-only actions for AWS Secrets Manager
+<a name="list_secretsmanager-permission-only-actions"></a>
+
+The following actions are defined by AWS Secrets Manager but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
+
+
+
+
+- **   [AcceptCrossAccountReplication](https://docs.aws.amazon.com/secretsmanager/latest/userguide/cross-account-replication.html)  **
+  - **Description:** Grants permission to accept a cross-account replication request on a replica secret
+  - **Resource types (\*required):** [Secret\*](#list_secretsmanager-resource-Secret)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_secretsmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_secretsmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_secretsmanager-aws_TagKeys)<br />[secretsmanager:CrossAccountReplicaARN](#list_secretsmanager-secretsmanager_CrossAccountReplicaARN)<br />[secretsmanager:ReplicaRestriction](#list_secretsmanager-secretsmanager_ReplicaRestriction)<br />[secretsmanager:ReplicationRoleARN](#list_secretsmanager-secretsmanager_ReplicationRoleARN)<br />[secretsmanager:resource/AllowRotationLambdaArn](#list_secretsmanager-secretsmanager_resource_AllowRotationLambdaArn)<br />[secretsmanager:resource/Type](#list_secretsmanager-secretsmanager_resource_Type)<br />[secretsmanager:ResourceTag/tag-key](#list_secretsmanager-secretsmanager_ResourceTag_tag-key)<br />[secretsmanager:SecretId](#list_secretsmanager-secretsmanager_SecretId)<br />[secretsmanager:SecretPrimaryRegion](#list_secretsmanager-secretsmanager_SecretPrimaryRegion)
+  - **Access level:** Write
+
+
+
 ## Resource types defined by AWS Secrets Manager
 <a name="list_secretsmanager-resources-for-iam-policies"></a>
 
@@ -316,7 +367,7 @@ The following resource types are defined by this service and can be used in the 
 
 | Resource types | ARN | Condition keys | 
 | --- | --- | --- | 
-|  [Secret](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-resources-for-iam-policies)  | arn:${Partition}:secretsmanager:${Region}:${Account}:secret:${SecretId} | [aws:RequestTag/${TagKey}](#list_secretsmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_secretsmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_secretsmanager-aws_TagKeys)<br />[secretsmanager:ResourceTag/tag-key](#list_secretsmanager-secretsmanager_ResourceTag_tag-key)<br />[secretsmanager:resource/AllowRotationLambdaArn](#list_secretsmanager-secretsmanager_resource_AllowRotationLambdaArn)<br />[secretsmanager:resource/Type](#list_secretsmanager-secretsmanager_resource_Type) | 
+|  [Secret](https://docs.aws.amazon.com/service-authorization/latest/reference/list_secretsmanager.html#list_secretsmanager-resources-for-iam-policies)  | arn:${Partition}:secretsmanager:${Region}:${Account}:secret:${SecretId} | [aws:RequestTag/${TagKey}](#list_secretsmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_secretsmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_secretsmanager-aws_TagKeys)<br />[secretsmanager:ResourceTag/tag-key](#list_secretsmanager-secretsmanager_ResourceTag_tag-key)<br />[secretsmanager:SecretPrimaryRegion](#list_secretsmanager-secretsmanager_SecretPrimaryRegion)<br />[secretsmanager:resource/AllowRotationLambdaArn](#list_secretsmanager-secretsmanager_resource_AllowRotationLambdaArn)<br />[secretsmanager:resource/Type](#list_secretsmanager-secretsmanager_resource_Type) | 
 
 ## Condition keys for AWS Secrets Manager
 <a name="list_secretsmanager-policy-keys"></a>
@@ -332,6 +383,8 @@ AWS Secrets Manager defines the following condition keys that can be used in the
 |   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the list of all the tag key names present in the request the user makes to the Secrets Manager service | ArrayOfString | 
 |   [secretsmanager:AddReplicaRegions](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html)  | Filters access by the list of Regions in which to replicate the secret | ArrayOfString | 
 |   [secretsmanager:BlockPublicPolicy](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html)  | Filters access by whether the resource policy blocks broad AWS account access | Bool | 
+|   [secretsmanager:CrossAccountPrimaryARN](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html)  | Filters access by the cross-account primary secret ARN provided in the request when calling against a cross-account replica secret | ARN | 
+|   [secretsmanager:CrossAccountReplicaARN](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html)  | Filters access by the cross-account replica secret ARN provided in the request when calling against a cross-account primary secret | ARN | 
 |   [secretsmanager:Description](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html)  | Filters access by the description text in the request | String | 
 |   [secretsmanager:ExternalSecretRotationRoleArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html)  | Filters access by the managed external secret rotation role ARN in the request | ARN | 
 |   [secretsmanager:ForceDeleteWithoutRecovery](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html)  | Filters access by whether the secret is to be deleted immediately without any recovery window | Bool | 
@@ -340,7 +393,10 @@ AWS Secrets Manager defines the following condition keys that can be used in the
 |   [secretsmanager:KmsKeyId](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html)  | Filters access by the key identifier of the KMS key in the request. Deprecated: Use secretsmanager:KmsKeyArn | String | 
 |   [secretsmanager:ModifyRotationRules](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html)  | Filters access by whether the rotation rules of the secret are to be modified | Bool | 
 |   [secretsmanager:Name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html)  | Filters access by the friendly name of the secret in the request | String | 
+|   [secretsmanager:PolicyName](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html)  | Filters access by the resource policy name in the request | String | 
 |   [secretsmanager:RecoveryWindowInDays](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html)  | Filters access by the number of days that Secrets Manager waits before it can delete the secret | Numeric | 
+|   [secretsmanager:ReplicaRestriction](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html)  | Filters access by the cross-account replica restriction in the request | String | 
+|   [secretsmanager:ReplicationRoleARN](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html)  | Filters access by cross-account replication role ARN in the request | ARN | 
 |   [secretsmanager:ResourceTag/tag-key](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html)  | Filters access by a tag key and value pair | String | 
 |   [secretsmanager:RotateImmediately](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html)  | Filters access by whether the secret is to be rotated immediately | Bool | 
 |   [secretsmanager:RotationLambdaARN](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html)  | Filters access by the ARN of the rotation Lambda function in the request | ARN | 

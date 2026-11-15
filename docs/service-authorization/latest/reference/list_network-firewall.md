@@ -49,12 +49,6 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
-- **   AttachRuleGroupsToProxyConfiguration  **
-  - **IAM action:**  [network-firewall:AttachRuleGroupsToProxyConfiguration](#list_network-firewall-action-AttachRuleGroupsToProxyConfiguration) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
-
 - **   CreateContainerAssociation  **
   - **IAM action:**  [network-firewall:CreateContainerAssociation](#list_network-firewall-action-CreateContainerAssociation)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [network-firewall:TagResource](#list_network-firewall-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
@@ -70,24 +64,11 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [network-firewall:ListTLSInspectionConfigurations](#list_network-firewall-action-ListTLSInspectionConfigurations)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
   - **IAM action:**  [network-firewall:TagResource](#list_network-firewall-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
-- **   CreateProxy  **
-  - **IAM action:**  [network-firewall:CreateProxy](#list_network-firewall-action-CreateProxy)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+- **   CreateFirewallPolicyV2  **
+  - **IAM action:**  [network-firewall:CreateFirewallPolicyV2](#list_network-firewall-action-CreateFirewallPolicyV2)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [network-firewall:ListRuleGroups](#list_network-firewall-action-ListRuleGroups)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [network-firewall:ListTLSInspectionConfigurations](#list_network-firewall-action-ListTLSInspectionConfigurations)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
   - **IAM action:**  [network-firewall:TagResource](#list_network-firewall-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
-
-- **   CreateProxyConfiguration  **
-  - **IAM action:**  [network-firewall:AttachRuleGroupsToProxyConfiguration](#list_network-firewall-action-AttachRuleGroupsToProxyConfiguration)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
-  - **IAM action:**  [network-firewall:CreateProxyConfiguration](#list_network-firewall-action-CreateProxyConfiguration)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
-  - **IAM action:**  [network-firewall:TagResource](#list_network-firewall-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
-
-- **   CreateProxyRuleGroup  **
-  - **IAM action:**  [network-firewall:CreateProxyRuleGroup](#list_network-firewall-action-CreateProxyRuleGroup)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
-  - **IAM action:**  [network-firewall:TagResource](#list_network-firewall-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
-
-- **   CreateProxyRules  **
-  - **IAM action:**  [network-firewall:CreateProxyRules](#list_network-firewall-action-CreateProxyRules) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
 
 - **   CreateRuleGroup  **
   - **IAM action:**  [network-firewall:CreateRuleGroup](#list_network-firewall-action-CreateRuleGroup)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
@@ -120,6 +101,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   DeleteFirewallPolicyV2  **
+  - **IAM action:**  [network-firewall:DeleteFirewallPolicyV2](#list_network-firewall-action-DeleteFirewallPolicyV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   DeleteNetworkFirewallTransitGatewayAttachment  **
   - **IAM action:**  [network-firewall:DeleteNetworkFirewallTransitGatewayAttachment](#list_network-firewall-action-DeleteNetworkFirewallTransitGatewayAttachment) 
   - **Condition key:** 
@@ -128,24 +115,6 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   DeleteProxy  **
   - **IAM action:**  [network-firewall:DeleteProxy](#list_network-firewall-action-DeleteProxy) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
-
-- **   DeleteProxyConfiguration  **
-  - **IAM action:**  [network-firewall:DeleteProxyConfiguration](#list_network-firewall-action-DeleteProxyConfiguration) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
-
-- **   DeleteProxyRuleGroup  **
-  - **IAM action:**  [network-firewall:DeleteProxyRuleGroup](#list_network-firewall-action-DeleteProxyRuleGroup) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
-
-- **   DeleteProxyRules  **
-  - **IAM action:**  [network-firewall:DeleteProxyRules](#list_network-firewall-action-DeleteProxyRules) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -198,6 +167,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   DescribeFirewallPolicyV2  **
+  - **IAM action:**  [network-firewall:DescribeFirewallPolicyV2](#list_network-firewall-action-DescribeFirewallPolicyV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   DescribeFlowOperation  **
   - **IAM action:**  [network-firewall:DescribeFlowOperation](#list_network-firewall-action-DescribeFlowOperation) 
   - **Condition key:** 
@@ -212,24 +187,6 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   DescribeProxy  **
   - **IAM action:**  [network-firewall:DescribeProxy](#list_network-firewall-action-DescribeProxy) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Read
-
-- **   DescribeProxyConfiguration  **
-  - **IAM action:**  [network-firewall:DescribeProxyConfiguration](#list_network-firewall-action-DescribeProxyConfiguration) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Read
-
-- **   DescribeProxyRule  **
-  - **IAM action:**  [network-firewall:DescribeProxyRule](#list_network-firewall-action-DescribeProxyRule) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Read
-
-- **   DescribeProxyRuleGroup  **
-  - **IAM action:**  [network-firewall:DescribeProxyRuleGroup](#list_network-firewall-action-DescribeProxyRuleGroup) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -270,12 +227,6 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
-- **   DetachRuleGroupsFromProxyConfiguration  **
-  - **IAM action:**  [network-firewall:DetachRuleGroupsFromProxyConfiguration](#list_network-firewall-action-DetachRuleGroupsFromProxyConfiguration) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
-
 - **   DisassociateAvailabilityZones  **
   - **IAM action:**  [network-firewall:DisassociateAvailabilityZones](#list_network-firewall-action-DisassociateAvailabilityZones) 
   - **Condition key:** 
@@ -312,6 +263,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   ListFirewallPoliciesV2  **
+  - **IAM action:**  [network-firewall:ListFirewallPoliciesV2](#list_network-firewall-action-ListFirewallPoliciesV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListFirewalls  **
   - **IAM action:**  [network-firewall:ListFirewalls](#list_network-firewall-action-ListFirewalls) 
   - **Condition key:** 
@@ -326,24 +283,6 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   ListFlowOperations  **
   - **IAM action:**  [network-firewall:ListFlowOperations](#list_network-firewall-action-ListFlowOperations) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** List
-
-- **   ListProxies  **
-  - **IAM action:**  [network-firewall:ListProxies](#list_network-firewall-action-ListProxies) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** List
-
-- **   ListProxyConfigurations  **
-  - **IAM action:**  [network-firewall:ListProxyConfigurations](#list_network-firewall-action-ListProxyConfigurations) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** List
-
-- **   ListProxyRuleGroups  **
-  - **IAM action:**  [network-firewall:ListProxyRuleGroups](#list_network-firewall-action-ListProxyRuleGroups) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
@@ -461,38 +400,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   UpdateFirewallPolicyV2  **
+  - **IAM action:**  [network-firewall:ListRuleGroups](#list_network-firewall-action-ListRuleGroups)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [network-firewall:ListTLSInspectionConfigurations](#list_network-firewall-action-ListTLSInspectionConfigurations)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [network-firewall:UpdateFirewallPolicyV2](#list_network-firewall-action-UpdateFirewallPolicyV2)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
 - **   UpdateLoggingConfiguration  **
   - **IAM action:**  [network-firewall:UpdateLoggingConfiguration](#list_network-firewall-action-UpdateLoggingConfiguration) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
-
-- **   UpdateProxy  **
-  - **IAM action:**  [network-firewall:UpdateProxy](#list_network-firewall-action-UpdateProxy) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
-
-- **   UpdateProxyConfiguration  **
-  - **IAM action:**  [network-firewall:UpdateProxyConfiguration](#list_network-firewall-action-UpdateProxyConfiguration) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
-
-- **   UpdateProxyRule  **
-  - **IAM action:**  [network-firewall:UpdateProxyRule](#list_network-firewall-action-UpdateProxyRule) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
-
-- **   UpdateProxyRuleGroupPriorities  **
-  - **IAM action:**  [network-firewall:UpdateProxyRuleGroupPriorities](#list_network-firewall-action-UpdateProxyRuleGroupPriorities) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
-
-- **   UpdateProxyRulePriorities  **
-  - **IAM action:**  [network-firewall:UpdateProxyRulePriorities](#list_network-firewall-action-UpdateProxyRulePriorities) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write

@@ -627,6 +627,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [logs:FilterLogEvents](#list_logs-action-FilterLogEvents)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
   - **IAM action:**  [logs:StartQuery](#list_logs-action-StartQuery)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
   - **IAM action:**  [logs:Unmask](#list_logs-action-Unmask)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** logs.amazonaws.com / **Access level:** Write
 
 - **   StopQuery  **
   - **IAM action:**  [logs:FilterLogEvents](#list_logs-action-FilterLogEvents)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read

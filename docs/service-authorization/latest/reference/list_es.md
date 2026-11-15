@@ -269,6 +269,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [es:StartElasticsearchServiceSoftwareUpdate](#list_es-action-StartElasticsearchServiceSoftwareUpdate)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [es:StartServiceSoftwareUpdate](#list_es-action-StartServiceSoftwareUpdate)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
+- **   UpdateClone  **
+  - **IAM action:**  [es:UpdateClone](#list_es-action-UpdateClone) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   UpdateElasticsearchDomainConfig  **
   - **IAM action:**  [es:UpdateDomainConfig](#list_es-action-UpdateDomainConfig)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [es:UpdateElasticsearchDomainConfig](#list_es-action-UpdateElasticsearchDomainConfig)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
@@ -1056,6 +1062,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [UpdateApplication](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdateApplication.html)  **
   - **Description:** Grants permission to update an OpenSearch Application
   - **Resource types (\*required):** [application\*](#list_es-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateClone](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdateClone.html)  **
+  - **Description:** Grants permission to manage an in-progress cloned blue/green upgrade of an OpenSearch Service domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 

@@ -102,10 +102,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** Write
 
 - **   IssueCertificate  **
-  - **IAM action:**  [acm-pca:IssueCertificate](#list_acm-pca-action-IssueCertificate) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
+  - **IAM action:**  [acm-pca:GetCertificate](#list_acm-pca-action-GetCertificate)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [acm-pca:IssueCertificate](#list_acm-pca-action-IssueCertificate)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
 - **   ListCertificateAuthorities  **
   - **IAM action:**  [acm-pca:ListCertificateAuthorities](#list_acm-pca-action-ListCertificateAuthorities) 

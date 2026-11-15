@@ -409,6 +409,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [GetKnowledgeGraph](https://docs.aws.amazon.com/devopsagent/latest/userguide/aws-devops-agent-security-devops-agent-iam-permissions.html)  **
+  - **Description:** Grants permission to get the knowledge graph of an agentspace
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aidevops:SourceAgentSpaceArn](#list_devops-agent-aidevops_SourceAgentSpaceArn)<br />[aidevops:TargetAgentSpaceArn](#list_devops-agent-aidevops_TargetAgentSpaceArn)<br />[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [GetKnowledgeItem](https://docs.aws.amazon.com/devopsagent/latest/APIReference/what-is.html)  **
   - **Description:** Grants permission to get a knowledge item
   - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
@@ -417,6 +423,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [GetOperatorApp](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetOperatorApp.html)  **
   - **Description:** Grants permission to get operator auth config for any enabled auth flow
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetPlan](https://docs.aws.amazon.com/devopsagent/latest/userguide/aws-devops-agent-security-devops-agent-iam-permissions.html)  **
+  - **Description:** Grants permission to get a mitigation plan
   - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
   - **Access level:** Read
@@ -451,10 +463,22 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
   - **Access level:** List
 
+- **   [ListAgentSpaceMetrics](https://docs.aws.amazon.com/devopsagent/latest/userguide/aws-devops-agent-security-devops-agent-iam-permissions.html)  **
+  - **Description:** Grants permission to list the investigation metrics of an agent space
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [ListAgentSpaces](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListAgentSpaces.html)  **
   - **Description:** Grants permission to list agentspace
   - **Resource types (\*required):** 
   - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListAssetChanges](https://docs.aws.amazon.com/devopsagent/latest/userguide/aws-devops-agent-security-devops-agent-iam-permissions.html)  **
+  - **Description:** Grants permission to list asset changes
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aidevops:SourceAgentSpaceArn](#list_devops-agent-aidevops_SourceAgentSpaceArn)<br />[aidevops:TargetAgentSpaceArn](#list_devops-agent-aidevops_TargetAgentSpaceArn)<br />[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
   - **Access level:** List
 
 - **   [ListAssetFiles](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListAssetFiles.html)  **
@@ -626,6 +650,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aidevops:SourceAgentSpaceArn](#list_devops-agent-aidevops_SourceAgentSpaceArn)<br />[aidevops:TargetAgentSpaceArn](#list_devops-agent-aidevops_TargetAgentSpaceArn)<br />[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [StopPlan](https://docs.aws.amazon.com/devopsagent/latest/userguide/aws-devops-agent-security-devops-agent-iam-permissions.html)  **
+  - **Description:** Grants permission to stop a mitigation plan
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [TagResource](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_TagResource.html)  **
   - **Description:** Grants permission to tag a resource
   - **Resource types (\*required):** [agentspace](#list_devops-agent-resource-agentspace) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_devops-agent-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_devops-agent-aws_TagKeys)
@@ -649,7 +679,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [UpdateApprovalAction](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_UpdateApprovalAction.html)  **
   - **Description:** Grants permission to update an approval action (approve or reject) for an agent tool invocation
   - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Condition keys:** [aidevops:ApprovalTarget](#list_devops-agent-aidevops_ApprovalTarget)<br />[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [UpdateAsset](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_UpdateAsset.html)  **
@@ -762,6 +792,7 @@ AWS DevOps Agent Service defines the following condition keys that can be used i
 
 | Condition keys | Description | Type | 
 | --- | --- | --- | 
+|   [aidevops:ApprovalTarget](https://docs.aws.amazon.com/devopsagent/latest/userguide/)  | Filters access by the approvalTarget parameter in the request. TOOL\_CALL is an approval for a single agent tool call. PLAN is an approval for a mitigation plan stage or its rollback. Defaults to TOOL\_CALL | String | 
 |   [aidevops:ServiceType](https://docs.aws.amazon.com/devopsagent/latest/userguide/)  | Filters access by the type of service in the association, such as github, slack, aws or sourceAws. Set by the service from the association's configuration, not supplied by the caller | String | 
 |   [aidevops:SourceAgentSpaceArn](https://docs.aws.amazon.com/devopsagent/latest/userguide/)  | Filters access by the source AgentSpace ARN on the request. Set by the service from the request context, not supplied by the caller | ARN | 
 |   [aidevops:TargetAgentSpaceArn](https://docs.aws.amazon.com/devopsagent/latest/userguide/)  | Filters access by the target AgentSpace ARN on the request. Set by the service from the request context, not supplied by the caller | ARN | 

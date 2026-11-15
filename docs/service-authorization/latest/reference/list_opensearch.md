@@ -540,6 +540,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   UpdateClone  **
+  - **IAM action:**  [es:UpdateClone](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdateClone.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   UpdateDataSource  **
   - **IAM action:**  [es:UpdateDataSource](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdateDataSource.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** directquery.opensearchservice.amazonaws.com / **Access level:** Write

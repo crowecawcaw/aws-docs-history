@@ -139,6 +139,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetGlueFunctionSessionContext  **
+  - **IAM action:**  [lakeformation:GetDataAccess](#list_lakeformation-action-GetDataAccess) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   GetLFTagExpression  **
   - **IAM action:**  [lakeformation:GetLFTagExpression](#list_lakeformation-action-GetLFTagExpression) 
   - **Condition key:** 
@@ -164,6 +170,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** Read
 
 - **   GetTemporaryDataLocationCredentials  **
+  - **IAM action:**  [lakeformation:GetDataAccess](#list_lakeformation-action-GetDataAccess) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetTemporaryGlueFunctionCredentials  **
   - **IAM action:**  [lakeformation:GetDataAccess](#list_lakeformation-action-GetDataAccess) 
   - **Condition key:** 
   - **Possible value(s):** 

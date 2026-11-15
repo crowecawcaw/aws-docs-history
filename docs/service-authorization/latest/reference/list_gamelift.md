@@ -14,6 +14,7 @@ References:
 **Topics**
 + [API operations defined by Amazon GameLift Servers](#list_gamelift-operations)
 + [Actions defined by Amazon GameLift Servers](#list_gamelift-actions-as-permissions)
++ [Permission-only actions for Amazon GameLift Servers](#list_gamelift-permission-only-actions)
 + [Resource types defined by Amazon GameLift Servers](#list_gamelift-resources-for-iam-policies)
 + [Condition keys for Amazon GameLift Servers](#list_gamelift-policy-keys)
 
@@ -1480,6 +1481,22 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Read
+
+
+
+## Permission-only actions for Amazon GameLift Servers
+<a name="list_gamelift-permission-only-actions"></a>
+
+The following actions are defined by Amazon GameLift Servers but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
+
+
+
+
+- **   [AllowVendedLogDeliveryForResource](https://docs.aws.amazon.com/gameliftservers/latest/apireference/)  **
+  - **Description:** Grants permission to configure vended log delivery for a queue
+  - **Resource types (\*required):** [gameSessionQueue\*](#list_gamelift-resource-gameSessionQueue)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_gamelift-aws_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
 
 
 

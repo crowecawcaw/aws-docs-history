@@ -146,6 +146,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   AdminListUserSessions  **
+  - **IAM action:**  [cognito-idp:AdminListUserSessions](#list_cognito-idp-action-AdminListUserSessions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   AdminRemoveUserFromGroup  **
   - **IAM action:**  [cognito-idp:AdminRemoveUserFromGroup](#list_cognito-idp-action-AdminRemoveUserFromGroup) 
   - **Condition key:** 
@@ -160,6 +166,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   AdminRespondToAuthChallenge  **
   - **IAM action:**  [cognito-idp:AdminRespondToAuthChallenge](#list_cognito-idp-action-AdminRespondToAuthChallenge) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AdminRevokeUserSession  **
+  - **IAM action:**  [cognito-idp:AdminRevokeUserSession](#list_cognito-idp-action-AdminRevokeUserSession) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -509,8 +521,20 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetUserPoolClientSessionConfiguration  **
+  - **IAM action:**  [cognito-idp:GetUserPoolClientSessionConfiguration](#list_cognito-idp-action-GetUserPoolClientSessionConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetUserPoolMfaConfig  **
   - **IAM action:**  [cognito-idp:GetUserPoolMfaConfig](#list_cognito-idp-action-GetUserPoolMfaConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetUserPoolSessionConfiguration  **
+  - **IAM action:**  [cognito-idp:GetUserPoolSessionConfiguration](#list_cognito-idp-action-GetUserPoolSessionConfiguration) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -593,6 +617,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   ListUserSessions  **
+  - **IAM action:**  [cognito-idp:ListUserSessions](#list_cognito-idp-action-ListUserSessions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListUsers  **
   - **IAM action:**  [cognito-idp:ListUsers](#list_cognito-idp-action-ListUsers) 
   - **Condition key:** 
@@ -623,6 +653,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   RevokeUserSession  **
+  - **IAM action:**  [cognito-idp:RevokeUserSession](#list_cognito-idp-action-RevokeUserSession) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   SetLogDeliveryConfiguration  **
   - **IAM action:**  [cognito-idp:SetLogDeliveryConfiguration](#list_cognito-idp-action-SetLogDeliveryConfiguration) 
   - **Condition key:** 
@@ -647,9 +683,21 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   SetUserPoolClientSessionConfiguration  **
+  - **IAM action:**  [cognito-idp:SetUserPoolClientSessionConfiguration](#list_cognito-idp-action-SetUserPoolClientSessionConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   SetUserPoolMfaConfig  **
   - **IAM action:**  [cognito-idp:SetUserPoolMfaConfig](#list_cognito-idp-action-SetUserPoolMfaConfig)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   SetUserPoolSessionConfiguration  **
+  - **IAM action:**  [cognito-idp:SetUserPoolSessionConfiguration](#list_cognito-idp-action-SetUserPoolSessionConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   SetUserSettings  **
   - **IAM action:**  [cognito-idp:SetUserSettings](#list_cognito-idp-action-SetUserSettings) 
@@ -903,6 +951,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [AdminListUserSessions](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminListUserSessions.html)  **
+  - **Description:** Grants permission to list the sessions of any user
+  - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
 - **   [AdminRemoveUserFromGroup](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminRemoveUserFromGroup.html)  **
   - **Description:** Grants permission to remove any user from any group
   - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
@@ -917,6 +971,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [AdminRespondToAuthChallenge](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.html)  **
   - **Description:** Grants permission to respond to an authentication challenge during the authentication of any user
+  - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AdminRevokeUserSession](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminRevokeUserSession.html)  **
+  - **Description:** Grants permission to revoke any session of any user
   - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
   - **Access level:** Write
@@ -1275,8 +1335,20 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Read
 
+- **   [GetUserPoolClientSessionConfiguration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetUserPoolClientSessionConfiguration.html)  **
+  - **Description:** Grants permission to look up the session configuration of user pool clients
+  - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [GetUserPoolMfaConfig](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetUserPoolMfaConfig.html)  **
   - **Description:** Grants permission to look up the MFA configuration of user pools
+  - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetUserPoolSessionConfiguration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetUserPoolSessionConfiguration.html)  **
+  - **Description:** Grants permission to look up the session configuration of user pools
   - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
   - **Access level:** Read
@@ -1359,6 +1431,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** List
 
+- **   [ListUserSessions](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ListUserSessions.html)  **
+  - **Description:** Grants permission to allow a user to list one's own sessions
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
 - **   [ListUsers](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ListUsers.html)  **
   - **Description:** Grants permission to list all user pool users
   - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
@@ -1389,6 +1467,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Write
 
+- **   [RevokeUserSession](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeUserSession.html)  **
+  - **Description:** Grants permission to allow a user to revoke one's own session
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
 - **   [SetLogDeliveryConfiguration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetLogDeliveryConfiguration.html)  **
   - **Description:** Grants permission to set up or modify the detailed activity logging configuration of a user pool
   - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
@@ -1413,8 +1497,20 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Write
 
+- **   [SetUserPoolClientSessionConfiguration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolClientSessionConfiguration.html)  **
+  - **Description:** Grants permission to set the session configuration of user pool clients
+  - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [SetUserPoolMfaConfig](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html)  **
   - **Description:** Grants permission to set user pool MFA configuration
+  - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [SetUserPoolSessionConfiguration](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolSessionConfiguration.html)  **
+  - **Description:** Grants permission to set the session configuration of user pools
   - **Resource types (\*required):** [userpool\*](#list_cognito-idp-resource-userpool)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cognito-idp-aws_ResourceTag___TagKey_)
   - **Access level:** Write

@@ -42,6 +42,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [ContributeKnowledgeItems](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
+  - **Description:** Grants permission to contribute knowledge items to a Transformation Package on AWS Transform custom
+  - **Resource types (\*required):** [package\*](#list_transform-custom-resource-package)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [ConverseStream](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
   - **Description:** Grants permission to invoke ConverseStream on AWS Transform custom
   - **Resource types (\*required):** 
@@ -120,6 +126,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [DeleteResourcePolicy](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
+  - **Description:** Grants permission to delete the resource policy attached to a shareable resource
+  - **Resource types (\*required):** [package\*](#list_transform-custom-resource-package)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
 - **   [DeleteSource](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
   - **Description:** Grants permission to invoke DeleteSource on AWS Transform custom
   - **Resource types (\*required):** [source\*](#list_transform-custom-resource-source)
@@ -183,6 +195,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [GetRepository](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
   - **Description:** Grants permission to invoke GetRepository on AWS Transform custom
   - **Resource types (\*required):** [repository\*](#list_transform-custom-resource-repository)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetResourcePolicy](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
+  - **Description:** Grants permission to retrieve the resource policy attached to a shareable resource
+  - **Resource types (\*required):** [package\*](#list_transform-custom-resource-package)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
@@ -269,6 +287,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [package\*](#list_transform-custom-resource-package)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)
   - **Access level:** Read
+
+- **   [PutResourcePolicy](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
+  - **Description:** Grants permission to attach or replace the resource policy on a shareable resource
+  - **Resource types (\*required):** [package\*](#list_transform-custom-resource-package)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_transform-custom-aws_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
 
 - **   [SendTelemetryEvent](https://docs.aws.amazon.com/transform/latest/userguide/custom.html)  **
   - **Description:** Grants permission to send a CLI telemetry event

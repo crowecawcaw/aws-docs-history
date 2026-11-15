@@ -85,6 +85,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   CreateResourceRecordSetProtections  **
+  - **IAM action:**  [route53:CreateResourceRecordSetProtections](#list_route53-action-CreateResourceRecordSetProtections) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   CreateReusableDelegationSet  **
   - **IAM action:**  [route53:CreateReusableDelegationSet](#list_route53-action-CreateReusableDelegationSet) 
   - **Condition key:** 
@@ -147,6 +153,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   DeleteQueryLoggingConfig  **
   - **IAM action:**  [route53:DeleteQueryLoggingConfig](#list_route53-action-DeleteQueryLoggingConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteResourceRecordSetProtections  **
+  - **IAM action:**  [route53:DeleteResourceRecordSetProtections](#list_route53-action-DeleteResourceRecordSetProtections) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -355,6 +367,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   ListResourceRecordSetProtections  **
+  - **IAM action:**  [route53:ListResourceRecordSetProtections](#list_route53-action-ListResourceRecordSetProtections) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListResourceRecordSets  **
   - **IAM action:**  [route53:ListResourceRecordSets](#list_route53-action-ListResourceRecordSets) 
   - **Condition key:** 
@@ -509,6 +527,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [route53:VPCs](#list_route53-route53_VPCs)
   - **Access level:** Write
 
+- **   [CreateIpGuardrailPolicy](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateIpGuardrailPolicy.html)  **
+  - **Description:** Grants permission to create an IP guardrail policy
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
 - **   [CreateKeySigningKey](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html)  **
   - **Description:** Grants permission to create a new key-signing key associated with a hosted zone
   - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
@@ -517,6 +541,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [CreateQueryLoggingConfig](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html)  **
   - **Description:** Grants permission to create a configuration for DNS query logging
+  - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateResourceRecordSetProtections](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateResourceRecordSetProtections.html)  **
+  - **Description:** Grants permission to create protections that block changes to specified records in a hosted zone
   - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
   - **Condition keys:**  
   - **Access level:** Write
@@ -575,6 +605,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Write
 
+- **   [DeleteIpGuardrailPolicy](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteIpGuardrailPolicy.html)  **
+  - **Description:** Grants permission to delete an IP guardrail policy
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
 - **   [DeleteKeySigningKey](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteKeySigningKey.html)  **
   - **Description:** Grants permission to delete a key-signing key
   - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
@@ -584,6 +620,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DeleteQueryLoggingConfig](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteQueryLoggingConfig.html)  **
   - **Description:** Grants permission to delete a configuration for DNS query logging
   - **Resource types (\*required):** [queryloggingconfig\*](#list_route53-resource-queryloggingconfig)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteResourceRecordSetProtections](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteResourceRecordSetProtections.html)  **
+  - **Description:** Grants permission to delete protections from specified records in a hosted zone
+  - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
   - **Condition keys:**  
   - **Access level:** Write
 
@@ -701,6 +743,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Read
 
+- **   [GetIpGuardrailPolicy](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetIpGuardrailPolicy.html)  **
+  - **Description:** Grants permission to get information about an IP guardrail policy
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
 - **   [GetQueryLoggingConfig](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetQueryLoggingConfig.html)  **
   - **Description:** Grants permission to get information about a specified configuration for DNS query logging
   - **Resource types (\*required):** [queryloggingconfig\*](#list_route53-resource-queryloggingconfig)
@@ -785,9 +833,21 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [route53:VPCs](#list_route53-route53_VPCs)
   - **Access level:** List
 
+- **   [ListIpGuardrailPolicies](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListIpGuardrailPolicies.html)  **
+  - **Description:** Grants permission to list the IP guardrail policies in an organization
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
 - **   [ListQueryLoggingConfigs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListQueryLoggingConfigs.html)  **
   - **Description:** Grants permission to list the configurations for DNS query logging that are associated with the current AWS account or the configuration that is associated with a specified hosted zone
   - **Resource types (\*required):** [hostedzone](#list_route53-resource-hostedzone)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListResourceRecordSetProtections](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListResourceRecordSetProtections.html)  **
+  - **Description:** Grants permission to list the record protections in a specified hosted zone
+  - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
   - **Condition keys:**  
   - **Access level:** List
 
@@ -872,6 +932,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [UpdateHostedZoneFeatures](https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHostedZoneFeatures.html)  **
   - **Description:** Grants permission to update features for a specified hosted zone
   - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateIpGuardrailPolicy](https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateIpGuardrailPolicy.html)  **
+  - **Description:** Grants permission to update the rules of an IP guardrail policy
+  - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Write
 

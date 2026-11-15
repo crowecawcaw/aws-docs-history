@@ -12,9 +12,44 @@ References:
 + View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/continuum/continuum.json) for this service.
 
 **Topics**
++ [API operations defined by AWS Continuum](#list_continuum-operations)
 + [Actions defined by AWS Continuum](#list_continuum-actions-as-permissions)
 + [Resource types defined by AWS Continuum](#list_continuum-resources-for-iam-policies)
 + [Condition keys for AWS Continuum](#list_continuum-policy-keys)
+
+## API operations defined by AWS Continuum
+<a name="list_continuum-operations"></a>
+
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_continuum-actions-as-permissions).
+
+
+
+
+- **   DeleteIntegration  **
+  - **IAM action:**  [continuum:DeleteIntegration](#list_continuum-action-DeleteIntegration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetIntegration  **
+  - **IAM action:**  [continuum:GetIntegration](#list_continuum-action-GetIntegration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListIntegrations  **
+  - **IAM action:**  [continuum:ListIntegrations](#list_continuum-action-ListIntegrations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   StartIntegrationAuthorization  **
+  - **IAM action:**  [continuum:StartIntegrationAuthorization](#list_continuum-action-StartIntegrationAuthorization) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by AWS Continuum
 <a name="list_continuum-actions-as-permissions"></a>

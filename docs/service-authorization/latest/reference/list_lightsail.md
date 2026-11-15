@@ -184,6 +184,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [lightsail:CreateRelationalDatabaseSnapshot](#list_lightsail-action-CreateRelationalDatabaseSnapshot)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [lightsail:TagResource](#list_lightsail-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
+- **   CreateSubdomain  **
+  - **IAM action:**  [lightsail:TagResource](#list_lightsail-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
 - **   DeleteAlarm  **
   - **IAM action:**  [lightsail:DeleteAlarm](#list_lightsail-action-DeleteAlarm) 
   - **Condition key:** 
@@ -955,6 +961,10 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
+
+- **   UpdateSubdomainAssociation  **
+  - **IAM action:**  [lightsail:AttachCertificateToDistribution](#list_lightsail-action-AttachCertificateToDistribution)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [lightsail:DetachCertificateFromDistribution](#list_lightsail-action-DetachCertificateFromDistribution)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
 
 

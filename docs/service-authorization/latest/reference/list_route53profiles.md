@@ -112,6 +112,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Tagging, Write
 
+- **   UpdateProfileAssociation  **
+  - **IAM action:**  [route53profiles:UpdateProfileAssociation](#list_route53profiles-action-UpdateProfileAssociation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   UpdateProfileResourceAssociation  **
   - **IAM action:**  [route53profiles:UpdateProfileResourceAssociation](#list_route53profiles-action-UpdateProfileResourceAssociation) 
   - **Condition key:** 
@@ -217,6 +223,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [profile](#list_route53profiles-resource-profile) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53profiles-aws_TagKeys)
   - **Resource types (\*required):** [profile-association](#list_route53profiles-resource-profile-association) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53profiles-aws_TagKeys)
   - **Access level:** Tagging, Write
+
+- **   [UpdateProfileAssociation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_UpdateProfileAssociation.html)  **
+  - **Description:** Grants permission to update the name or priority of a Profile to VPC association specified by the Profile association ID
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
 
 - **   [UpdateProfileResourceAssociation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_UpdateProfileResourceAssociation.html)  **
   - **Description:** Grants permission to update the Profile resource association name or the resource properties or both, if both name and resource properties are null, the api returns the existing Profile resource association

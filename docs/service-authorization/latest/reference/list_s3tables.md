@@ -129,6 +129,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetTableBucketLogging  **
+  - **IAM action:**  [s3tables:GetTableBucketLogging](#list_s3tables-action-GetTableBucketLogging) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetTableBucketMaintenanceConfiguration  **
   - **IAM action:**  [s3tables:GetTableBucketMaintenanceConfiguration](#list_s3tables-action-GetTableBucketMaintenanceConfiguration) 
   - **Condition key:** 
@@ -257,6 +263,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   PutTableBucketEncryption  **
   - **IAM action:**  [s3tables:PutTableBucketEncryption](#list_s3tables-action-PutTableBucketEncryption) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutTableBucketLogging  **
+  - **IAM action:**  [s3tables:PutTableBucketLogging](#list_s3tables-action-PutTableBucketLogging) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -461,6 +473,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_s3tables-aws_ResourceTag___TagKey_)<br />[s3tables:TableBucketTag/${TagKey}](#list_s3tables-s3tables_TableBucketTag___TagKey_)
   - **Access level:** Read
 
+- **   [GetTableBucketLogging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3Buckets_GetTableBucketLogging.html)  **
+  - **Description:** Grants permission to retrieve the server access logging configuration for a table bucket
+  - **Resource types (\*required):** [TableBucket\*](#list_s3tables-resource-TableBucket)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_s3tables-aws_ResourceTag___TagKey_)<br />[s3tables:TableBucketTag/${TagKey}](#list_s3tables-s3tables_TableBucketTag___TagKey_)
+  - **Access level:** Read
+
 - **   [GetTableBucketMaintenanceConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3Buckets_GetTableBucketMaintenanceConfiguration.html)  **
   - **Description:** Grants permission to retrieve a maintenance configuration on a table bucket
   - **Resource types (\*required):** [TableBucket\*](#list_s3tables-resource-TableBucket)
@@ -591,6 +609,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to put or overwrite encryption configuration on a table bucket
   - **Resource types (\*required):** [TableBucket\*](#list_s3tables-resource-TableBucket)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_s3tables-aws_ResourceTag___TagKey_)<br />[s3tables:KMSKeyArn](#list_s3tables-s3tables_KMSKeyArn)<br />[s3tables:SSEAlgorithm](#list_s3tables-s3tables_SSEAlgorithm)<br />[s3tables:TableBucketTag/${TagKey}](#list_s3tables-s3tables_TableBucketTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutTableBucketLogging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3Buckets_PutTableBucketLogging.html)  **
+  - **Description:** Grants permission to set, update, or remove the server access logging configuration for a table bucket
+  - **Resource types (\*required):** [TableBucket\*](#list_s3tables-resource-TableBucket)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_s3tables-aws_ResourceTag___TagKey_)<br />[s3tables:TableBucketTag/${TagKey}](#list_s3tables-s3tables_TableBucketTag___TagKey_)
   - **Access level:** Write
 
 - **   [PutTableBucketMaintenanceConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3Buckets_PutTableBucketMaintenanceConfiguration.html)  **

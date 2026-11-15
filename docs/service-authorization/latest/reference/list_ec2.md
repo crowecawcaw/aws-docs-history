@@ -415,10 +415,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [ec2:CreateTags](#list_ec2-action-CreateTags)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
 - **   CreateCapacityReservationDateChangeQuote  **
-  - **IAM action:**  [ec2:CreateTags](#list_ec2-action-CreateTags) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Tagging, Write
+  - **IAM action:**  [ec2:CreateCapacityReservationDateChangeQuote](#list_ec2-action-CreateCapacityReservationDateChangeQuote)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [ec2:CreateTags](#list_ec2-action-CreateTags)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
 - **   CreateCapacityReservationFleet  **
   - **IAM action:**  [ec2:CreateCapacityReservationFleet](#list_ec2-action-CreateCapacityReservationFleet)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
@@ -606,6 +604,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [ec2:CreateManagedPrefixList](#list_ec2-action-CreateManagedPrefixList)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [ec2:CreateTags](#list_ec2-action-CreateTags)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
+- **   CreateMetricCategory  **
+  - **IAM action:**  [ec2:CreateTags](#list_ec2-action-CreateTags) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
 - **   CreateNatGateway  **
   - **IAM action:**  [ec2:CreateNatGateway](#list_ec2-action-CreateNatGateway)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [ec2:CreateTags](#list_ec2-action-CreateTags)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
@@ -637,6 +641,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Permissions management, Write
+
+- **   CreateNetworkingFlexCostAllocationPolicy  **
+  - **IAM action:**  [ec2:CreateTags](#list_ec2-action-CreateTags) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
 
 - **   CreatePlacementGroup  **
   - **IAM action:**  [ec2:CreatePlacementGroup](#list_ec2-action-CreatePlacementGroup)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
@@ -896,6 +906,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   DeleteClientVpnEndpoint  **
   - **IAM action:**  [ec2:DeleteClientVpnEndpoint](#list_ec2-action-DeleteClientVpnEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteClientVpnEndpointAuthorizationPolicy  **
+  - **IAM action:**  [ec2:DeleteClientVpnEndpointAuthorizationPolicy](#list_ec2-action-DeleteClientVpnEndpointAuthorizationPolicy) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -1628,6 +1644,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   DescribeCapacityReservationCancellationQuotes  **
   - **IAM action:**  [ec2:DescribeCapacityReservationCancellationQuotes](#list_ec2-action-DescribeCapacityReservationCancellationQuotes) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   DescribeCapacityReservationDateChangeQuotes  **
+  - **IAM action:**  [ec2:DescribeCapacityReservationDateChangeQuotes](#list_ec2-action-DescribeCapacityReservationDateChangeQuotes) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
@@ -3178,6 +3200,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetClientVpnEndpointAuthorizationPolicy  **
+  - **IAM action:**  [ec2:GetClientVpnEndpointAuthorizationPolicy](#list_ec2-action-GetClientVpnEndpointAuthorizationPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetCoipPoolUsage  **
   - **IAM action:**  [ec2:GetCoipPoolUsage](#list_ec2-action-GetCoipPoolUsage) 
   - **Condition key:** 
@@ -3252,6 +3280,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   GetImageBlockPublicAccessState  **
   - **IAM action:**  [ec2:GetImageBlockPublicAccessState](#list_ec2-action-GetImageBlockPublicAccessState) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetImageFindings  **
+  - **IAM action:**  [ec2:GetImageFindings](#list_ec2-action-GetImageFindings) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -3490,6 +3524,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetTransitGatewayAttachmentNatConfiguration  **
+  - **IAM action:**  [ec2:GetTransitGatewayAttachmentNatConfiguration](#list_ec2-action-GetTransitGatewayAttachmentNatConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetTransitGatewayAttachmentPropagations  **
   - **IAM action:**  [ec2:GetTransitGatewayAttachmentPropagations](#list_ec2-action-GetTransitGatewayAttachmentPropagations) 
   - **Condition key:** 
@@ -3672,6 +3712,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   ModifyClientVpnEndpoint  **
   - **IAM action:**  [ec2:ModifyClientVpnEndpoint](#list_ec2-action-ModifyClientVpnEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ModifyClientVpnEndpointAuthorizationPolicy  **
+  - **IAM action:**  [ec2:ModifyClientVpnEndpointAuthorizationPolicy](#list_ec2-action-ModifyClientVpnEndpointAuthorizationPolicy) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -3960,6 +4006,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   ModifyTransitGateway  **
   - **IAM action:**  [ec2:ModifyTransitGateway](#list_ec2-action-ModifyTransitGateway) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ModifyTransitGatewayAttachmentNatConfiguration  **
+  - **IAM action:**  [ec2:ModifyTransitGatewayAttachmentNatConfiguration](#list_ec2-action-ModifyTransitGatewayAttachmentNatConfiguration) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -4852,7 +4904,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [AttachImageWatermark](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AttachImageWatermark.html)  **
   - **Description:** Grants permission to attach a watermark to an Amazon Machine Image (AMI)
   - **Resource types (\*required):** [image\*](#list_ec2-resource-image)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:ImageWatermarkKeys](#list_ec2-ec2_ImageWatermarkKeys)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
   - **Access level:** Write
 
 - **   [AttachInternetGateway](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AttachInternetGateway.html)  **
@@ -4923,7 +4975,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [CancelCapacityReservation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelCapacityReservation.html)  **
   - **Description:** Grants permission to cancel a Capacity Reservation and release the reserved capacity
-  - **Resource types (\*required):** [capacity-reservation\*](#list_ec2-resource-capacity-reservation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:CapacityReservationFleet](#list_ec2-ec2_CapacityReservationFleet)<br />[ec2:Region](#list_ec2-ec2_Region)
+  - **Resource types (\*required):** [capacity-reservation\*](#list_ec2-resource-capacity-reservation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:CapacityReservationFleet](#list_ec2-ec2_CapacityReservationFleet)<br />[ec2:FutureCapacitySpecification](#list_ec2-ec2_FutureCapacitySpecification)<br />[ec2:Region](#list_ec2-ec2_Region)
   - **Resource types (\*required):** [capacity-reservation-cancellation-quote](#list_ec2-resource-capacity-reservation-cancellation-quote) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -5038,8 +5090,14 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [CreateCapacityReservationCancellationQuote](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateCapacityReservationCancellationQuote.html)  **
   - **Description:** Grants permission to generate a cancellation quote for a future-dated Capacity Reservation
-  - **Resource types (\*required):** [capacity-reservation\*](#list_ec2-resource-capacity-reservation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [capacity-reservation\*](#list_ec2-resource-capacity-reservation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:FutureCapacitySpecification](#list_ec2-ec2_FutureCapacitySpecification)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)
   - **Resource types (\*required):** [capacity-reservation-cancellation-quote\*](#list_ec2-resource-capacity-reservation-cancellation-quote) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:Region](#list_ec2-ec2_Region)
+  - **Access level:** Write
+
+- **   [CreateCapacityReservationDateChangeQuote](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateCapacityReservationDateChangeQuote.html)  **
+  - **Description:** Grants permission to generate a quote for changing the start date of a future-dated Capacity Reservation
+  - **Resource types (\*required):** [capacity-reservation\*](#list_ec2-resource-capacity-reservation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:FutureCapacitySpecification](#list_ec2-ec2_FutureCapacitySpecification)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [capacity-reservation-modification-quote\*](#list_ec2-resource-capacity-reservation-modification-quote) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:Region](#list_ec2-ec2_Region)
   - **Access level:** Write
 
 - **   [CreateCapacityReservationFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateCapacityReservationFleet.html)  **
@@ -5154,7 +5212,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [CreateImageUsageReport](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImageUsageReport.html)  **
   - **Description:** Grants permission to create an AMI usage report
-  - **Resource types (\*required):** [image\*](#list_ec2-resource-image) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
+  - **Resource types (\*required):** [image\*](#list_ec2-resource-image) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:ImageWatermarkKeys](#list_ec2-ec2_ImageWatermarkKeys)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
   - **Resource types (\*required):** [image-usage-report\*](#list_ec2-resource-image-usage-report) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:Region](#list_ec2-ec2_Region)
   - **Access level:** Write
 
@@ -5387,7 +5445,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [CreateReplaceRootVolumeTask](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateReplaceRootVolumeTask.html)  **
   - **Description:** Grants permission to create a root volume replacement task
-  - **Resource types (\*required):** [image](#list_ec2-resource-image) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
+  - **Resource types (\*required):** [image](#list_ec2-resource-image) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:ImageWatermarkKeys](#list_ec2-ec2_ImageWatermarkKeys)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
   - **Resource types (\*required):** [instance\*](#list_ec2-resource-instance) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:AvailabilityZone](#list_ec2-ec2_AvailabilityZone)<br />[ec2:AvailabilityZoneId](#list_ec2-ec2_AvailabilityZoneId)<br />[ec2:CpuOptionsAmdSevSnp](#list_ec2-ec2_CpuOptionsAmdSevSnp)<br />[ec2:EbsOptimized](#list_ec2-ec2_EbsOptimized)<br />[ec2:InstanceAutoRecovery](#list_ec2-ec2_InstanceAutoRecovery)<br />[ec2:InstanceBandwidthWeighting](#list_ec2-ec2_InstanceBandwidthWeighting)<br />[ec2:InstanceID](#list_ec2-ec2_InstanceID)<br />[ec2:InstanceMarketType](#list_ec2-ec2_InstanceMarketType)<br />[ec2:InstanceMetadataTags](#list_ec2-ec2_InstanceMetadataTags)<br />[ec2:InstanceProfile](#list_ec2-ec2_InstanceProfile)<br />[ec2:InstanceType](#list_ec2-ec2_InstanceType)<br />[ec2:ManagedResourceOperator](#list_ec2-ec2_ManagedResourceOperator)<br />[ec2:MetadataHttpEndpoint](#list_ec2-ec2_MetadataHttpEndpoint)<br />[ec2:MetadataHttpPutResponseHopLimit](#list_ec2-ec2_MetadataHttpPutResponseHopLimit)<br />[ec2:MetadataHttpTokens](#list_ec2-ec2_MetadataHttpTokens)<br />[ec2:PlacementGroup](#list_ec2-ec2_PlacementGroup)<br />[ec2:ProductCode](#list_ec2-ec2_ProductCode)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)<br />[ec2:Tenancy](#list_ec2-ec2_Tenancy)
   - **Resource types (\*required):** [replace-root-volume-task\*](#list_ec2-resource-replace-root-volume-task) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:Region](#list_ec2-ec2_Region)
   - **Resource types (\*required):** [snapshot](#list_ec2-resource-snapshot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:ParentVolume](#list_ec2-ec2_ParentVolume)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:SnapshotID](#list_ec2-ec2_SnapshotID)<br />[ec2:SnapshotTime](#list_ec2-ec2_SnapshotTime)<br />[ec2:VolumeSize](#list_ec2-ec2_VolumeSize)
@@ -5477,7 +5535,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [CreateStoreImageTask](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html)  **
   - **Description:** Grants permission to store an AMI as a single object in an S3 bucket
   - **Resource types (\*required):** [image\*](#list_ec2-resource-image)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:ImageWatermarkKeys](#list_ec2-ec2_ImageWatermarkKeys)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
   - **Access level:** Write
 
 - **   [CreateSubnet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSubnet.html)  **
@@ -5498,7 +5556,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [application-status-check](#list_ec2-resource-application-status-check) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:CreateAction](#list_ec2-ec2_CreateAction)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)
   - **Resource types (\*required):** [capacity-block](#list_ec2-resource-capacity-block) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:CreateAction](#list_ec2-ec2_CreateAction)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)
   - **Resource types (\*required):** [capacity-manager-data-export](#list_ec2-resource-capacity-manager-data-export) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:CreateAction](#list_ec2-ec2_CreateAction)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [capacity-reservation](#list_ec2-resource-capacity-reservation) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:CreateAction](#list_ec2-ec2_CreateAction)<br />[ec2:Region](#list_ec2-ec2_Region)
+  - **Resource types (\*required):** [capacity-reservation](#list_ec2-resource-capacity-reservation) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:CreateAction](#list_ec2-ec2_CreateAction)<br />[ec2:FutureCapacitySpecification](#list_ec2-ec2_FutureCapacitySpecification)<br />[ec2:Region](#list_ec2-ec2_Region)
   - **Resource types (\*required):** [capacity-reservation-cancellation-quote](#list_ec2-resource-capacity-reservation-cancellation-quote) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:CreateAction](#list_ec2-ec2_CreateAction)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)
   - **Resource types (\*required):** [capacity-reservation-fleet](#list_ec2-resource-capacity-reservation-fleet) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:CreateAction](#list_ec2-ec2_CreateAction)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)
   - **Resource types (\*required):** [carrier-gateway](#list_ec2-resource-carrier-gateway) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:CreateAction](#list_ec2-ec2_CreateAction)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:Tenancy](#list_ec2-ec2_Tenancy)<br />[ec2:Vpc](#list_ec2-ec2_Vpc)
@@ -5516,7 +5574,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [fleet](#list_ec2-resource-fleet) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:CreateAction](#list_ec2-ec2_CreateAction)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)
   - **Resource types (\*required):** [fpga-image](#list_ec2-resource-fpga-image) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:CreateAction](#list_ec2-ec2_CreateAction)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)
   - **Resource types (\*required):** [host-reservation](#list_ec2-resource-host-reservation) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:CreateAction](#list_ec2-ec2_CreateAction)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [image](#list_ec2-resource-image) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:CreateAction](#list_ec2-ec2_CreateAction)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
+  - **Resource types (\*required):** [image](#list_ec2-resource-image) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:CreateAction](#list_ec2-ec2_CreateAction)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:ImageWatermarkKeys](#list_ec2-ec2_ImageWatermarkKeys)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
   - **Resource types (\*required):** [image-usage-report](#list_ec2-resource-image-usage-report) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:CreateAction](#list_ec2-ec2_CreateAction)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)
   - **Resource types (\*required):** [import-image-task](#list_ec2-resource-import-image-task) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:CreateAction](#list_ec2-ec2_CreateAction)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)
   - **Resource types (\*required):** [import-snapshot-task](#list_ec2-resource-import-snapshot-task) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:CreateAction](#list_ec2-ec2_CreateAction)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)
@@ -5784,7 +5842,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [CreateVpcEndpointConnectionNotification](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html)  **
   - **Description:** Grants permission to create a connection notification for a VPC endpoint or VPC endpoint service
   - **Resource types (\*required):** [vpc-endpoint](#list_ec2-resource-vpc-endpoint) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [vpc-endpoint-service](#list_ec2-resource-vpc-endpoint-service) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:VpceMultiRegion](#list_ec2-ec2_VpceMultiRegion)<br />[ec2:VpceServiceRegion](#list_ec2-ec2_VpceServiceRegion)
+  - **Resource types (\*required):** [vpc-endpoint-service](#list_ec2-resource-vpc-endpoint-service) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [CreateVpcEndpointServiceConfiguration](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointServiceConfiguration.html)  **
@@ -5847,6 +5905,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [DeleteClientVpnEndpoint](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteClientVpnEndpoint.html)  **
   - **Description:** Grants permission to delete a Client VPN endpoint
+  - **Resource types (\*required):** [client-vpn-endpoint\*](#list_ec2-resource-client-vpn-endpoint)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ClientRootCertificateChainArn](#list_ec2-ec2_ClientRootCertificateChainArn)<br />[ec2:CloudwatchLogGroupArn](#list_ec2-ec2_CloudwatchLogGroupArn)<br />[ec2:CloudwatchLogStreamArn](#list_ec2-ec2_CloudwatchLogStreamArn)<br />[ec2:DirectoryArn](#list_ec2-ec2_DirectoryArn)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:SamlProviderArn](#list_ec2-ec2_SamlProviderArn)<br />[ec2:ServerCertificateArn](#list_ec2-ec2_ServerCertificateArn)
+  - **Access level:** Write
+
+- **   [DeleteClientVpnEndpointAuthorizationPolicy](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteClientVpnEndpointAuthorizationPolicy.html)  **
+  - **Description:** Grants permission to delete the authorization policy for a Client VPN endpoint
   - **Resource types (\*required):** [client-vpn-endpoint\*](#list_ec2-resource-client-vpn-endpoint)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ClientRootCertificateChainArn](#list_ec2-ec2_ClientRootCertificateChainArn)<br />[ec2:CloudwatchLogGroupArn](#list_ec2-ec2_CloudwatchLogGroupArn)<br />[ec2:CloudwatchLogStreamArn](#list_ec2-ec2_CloudwatchLogStreamArn)<br />[ec2:DirectoryArn](#list_ec2-ec2_DirectoryArn)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:SamlProviderArn](#list_ec2-ec2_SamlProviderArn)<br />[ec2:ServerCertificateArn](#list_ec2-ec2_ServerCertificateArn)
   - **Access level:** Write
@@ -6468,7 +6532,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DeleteVpcEndpointConnectionNotifications](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteVpcEndpointConnectionNotifications.html)  **
   - **Description:** Grants permission to delete one or more VPC endpoint connection notifications
   - **Resource types (\*required):** [vpc-endpoint](#list_ec2-resource-vpc-endpoint) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [vpc-endpoint-service](#list_ec2-resource-vpc-endpoint-service) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:VpceMultiRegion](#list_ec2-ec2_VpceMultiRegion)<br />[ec2:VpceSupportedRegion](#list_ec2-ec2_VpceSupportedRegion)
+  - **Resource types (\*required):** [vpc-endpoint-service](#list_ec2-resource-vpc-endpoint-service) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [DeleteVpcEndpointServiceConfigurations](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteVpcEndpointServiceConfigurations.html)  **
@@ -6540,7 +6604,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DeregisterImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeregisterImage.html)  **
   - **Description:** Grants permission to deregister an Amazon Machine Image (AMI)
   - **Resource types (\*required):** [image\*](#list_ec2-resource-image)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:ImageWatermarkKeys](#list_ec2-ec2_ImageWatermarkKeys)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
   - **Access level:** Write
 
 - **   [DeregisterInstanceEventNotificationAttributes](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeregisterInstanceEventNotificationAttributes.html)  **
@@ -6683,6 +6747,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [DescribeCapacityReservationCancellationQuotes](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCapacityReservationCancellationQuotes.html)  **
   - **Description:** Grants permission to describe one or more Capacity Reservation cancellation quotes
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ec2:Region](#list_ec2-ec2_Region)
+  - **Access level:** List
+
+- **   [DescribeCapacityReservationDateChangeQuotes](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCapacityReservationDateChangeQuotes.html)  **
+  - **Description:** Grants permission to describe one or more Capacity Reservation date change quotes
   - **Resource types (\*required):** 
   - **Condition keys:** [ec2:Region](#list_ec2-ec2_Region)
   - **Access level:** List
@@ -6888,7 +6958,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DescribeImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImageAttribute.html)  **
   - **Description:** Grants permission to describe an attribute of an Amazon Machine Image (AMI)
   - **Resource types (\*required):** [image\*](#list_ec2-resource-image)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:ImageWatermarkKeys](#list_ec2-ec2_ImageWatermarkKeys)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
   - **Access level:** List
 
 - **   [DescribeImageReferences](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImageReferences.html)  **
@@ -7668,7 +7738,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DescribeVpcEndpointServicePermissions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServicePermissions.html)  **
   - **Description:** Grants permission to describe the principals (service consumers) that are permitted to discover your VPC endpoint service
   - **Resource types (\*required):** [vpc-endpoint-service\*](#list_ec2-resource-vpc-endpoint-service)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:VpceMultiRegion](#list_ec2-ec2_VpceMultiRegion)<br />[ec2:VpceSupportedRegion](#list_ec2-ec2_VpceSupportedRegion)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)
   - **Access level:** List
 
 - **   [DescribeVpcEndpointServices](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html)  **
@@ -7722,7 +7792,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DetachImageWatermark](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DetachImageWatermark.html)  **
   - **Description:** Grants permission to detach a watermark from an Amazon Machine Image (AMI)
   - **Resource types (\*required):** [image\*](#list_ec2-resource-image)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:ImageWatermarkKeys](#list_ec2-ec2_ImageWatermarkKeys)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
   - **Access level:** Write
 
 - **   [DetachInternetGateway](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DetachInternetGateway.html)  **
@@ -7806,7 +7876,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DisableImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisableImage.html)  **
   - **Description:** Grants permission to disable an AMI
   - **Resource types (\*required):** [image\*](#list_ec2-resource-image)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:ImageWatermarkKeys](#list_ec2-ec2_ImageWatermarkKeys)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
   - **Access level:** Write
 
 - **   [DisableImageBlockPublicAccess](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisableImageBlockPublicAccess.html)  **
@@ -7818,13 +7888,13 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DisableImageDeprecation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisableImageDeprecation.html)  **
   - **Description:** Grants permission to cancel the deprecation of the specified AMI
   - **Resource types (\*required):** [image\*](#list_ec2-resource-image)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:ImageWatermarkKeys](#list_ec2-ec2_ImageWatermarkKeys)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
   - **Access level:** Write
 
 - **   [DisableImageDeregistrationProtection](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisableImageDeregistrationProtection.html)  **
   - **Description:** Grants permission to disable deregistration protection for an AMI. When deregistration protection is disabled, the AMI can be deregistered
   - **Resource types (\*required):** [image\*](#list_ec2-resource-image)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:ImageWatermarkKeys](#list_ec2-ec2_ImageWatermarkKeys)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
   - **Access level:** Write
 
 - **   [DisableInstanceSqlHaStandbyDetections](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisableInstanceSqlHaStandbyDetections.html)  **
@@ -8046,7 +8116,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [EnableFastLaunch](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableFastLaunch.html)  **
   - **Description:** Grants permission to enable faster launching for Windows AMIs
-  - **Resource types (\*required):** [image\*](#list_ec2-resource-image) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
+  - **Resource types (\*required):** [image\*](#list_ec2-resource-image) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:ImageWatermarkKeys](#list_ec2-ec2_ImageWatermarkKeys)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
   - **Resource types (\*required):** [launch-template](#list_ec2-resource-launch-template) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ManagedResourceOperator](#list_ec2-ec2_ManagedResourceOperator)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -8071,7 +8141,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [EnableImageDeprecation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableImageDeprecation.html)  **
   - **Description:** Grants permission to enable deprecation of the specified AMI at the specified date and time
   - **Resource types (\*required):** [image\*](#list_ec2-resource-image)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:ImageWatermarkKeys](#list_ec2-ec2_ImageWatermarkKeys)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
   - **Access level:** Write
 
 - **   [EnableImageDeregistrationProtection](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableImageDeregistrationProtection.html)  **
@@ -8174,7 +8244,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [ExportImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ExportImage.html)  **
   - **Description:** Grants permission to export an Amazon Machine Image (AMI) to a VM file
   - **Resource types (\*required):** [export-image-task\*](#list_ec2-resource-export-image-task) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:Region](#list_ec2-ec2_Region)
-  - **Resource types (\*required):** [image\*](#list_ec2-resource-image) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
+  - **Resource types (\*required):** [image\*](#list_ec2-resource-image) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:ImageWatermarkKeys](#list_ec2-ec2_ImageWatermarkKeys)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
   - **Access level:** Write
 
 - **   [ExportTransitGatewayRoutes](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ExportTransitGatewayRoutes.html)  **
@@ -8246,7 +8316,13 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [GetCapacityReservationUsage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetCapacityReservationUsage.html)  **
   - **Description:** Grants permission to get usage information about a Capacity Reservation
   - **Resource types (\*required):** [capacity-reservation\*](#list_ec2-resource-capacity-reservation)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:CapacityReservationFleet](#list_ec2-ec2_CapacityReservationFleet)<br />[ec2:Region](#list_ec2-ec2_Region)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:CapacityReservationFleet](#list_ec2-ec2_CapacityReservationFleet)<br />[ec2:FutureCapacitySpecification](#list_ec2-ec2_FutureCapacitySpecification)<br />[ec2:Region](#list_ec2-ec2_Region)
+  - **Access level:** Read
+
+- **   [GetClientVpnEndpointAuthorizationPolicy](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetClientVpnEndpointAuthorizationPolicy.html)  **
+  - **Description:** Grants permission to describe the authorization policy for a Client VPN endpoint
+  - **Resource types (\*required):** [client-vpn-endpoint\*](#list_ec2-resource-client-vpn-endpoint)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ClientRootCertificateChainArn](#list_ec2-ec2_ClientRootCertificateChainArn)<br />[ec2:CloudwatchLogGroupArn](#list_ec2-ec2_CloudwatchLogGroupArn)<br />[ec2:CloudwatchLogStreamArn](#list_ec2-ec2_CloudwatchLogStreamArn)<br />[ec2:DirectoryArn](#list_ec2-ec2_DirectoryArn)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:SamlProviderArn](#list_ec2-ec2_SamlProviderArn)<br />[ec2:ServerCertificateArn](#list_ec2-ec2_ServerCertificateArn)
   - **Access level:** Read
 
 - **   [GetCoipPoolUsage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetCoipPoolUsage.html)  **
@@ -8306,7 +8382,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [GetGroupsForCapacityReservation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetGroupsForCapacityReservation.html)  **
   - **Description:** Grants permission to list the resource groups to which a Capacity Reservation has been added
   - **Resource types (\*required):** [capacity-reservation\*](#list_ec2-resource-capacity-reservation)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:CapacityReservationFleet](#list_ec2-ec2_CapacityReservationFleet)<br />[ec2:Region](#list_ec2-ec2_Region)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:CapacityReservationFleet](#list_ec2-ec2_CapacityReservationFleet)<br />[ec2:FutureCapacitySpecification](#list_ec2-ec2_FutureCapacitySpecification)<br />[ec2:Region](#list_ec2-ec2_Region)
   - **Access level:** List
 
 - **   [GetHostReservationPurchasePreview](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetHostReservationPurchasePreview.html)  **
@@ -8318,13 +8394,19 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [GetImageAncestry](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetImageAncestry.html)  **
   - **Description:** Grants permission to retrieve the ancestry chain of an AMI back to its root AMI
   - **Resource types (\*required):** [image\*](#list_ec2-resource-image)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:ImageWatermarkKeys](#list_ec2-ec2_ImageWatermarkKeys)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
   - **Access level:** Read
 
 - **   [GetImageBlockPublicAccessState](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetImageBlockPublicAccessState.html)  **
   - **Description:** Grants permission to get the current state of block public access for AMIs at the account level in the specified AWS Region
   - **Resource types (\*required):** 
   - **Condition keys:** [ec2:Region](#list_ec2-ec2_Region)
+  - **Access level:** Read
+
+- **   [GetImageFindings](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetImageFindings.html)  **
+  - **Description:** Grants permission to describe the Amazon Inspector vulnerability findings for an Amazon Machine Image (AMI)
+  - **Resource types (\*required):** [image\*](#list_ec2-resource-image)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:ImageWatermarkKeys](#list_ec2-ec2_ImageWatermarkKeys)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
   - **Access level:** Read
 
 - **   [GetInstanceMetadataDefaults](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceMetadataDefaults.html)  **
@@ -8561,6 +8643,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [ec2:Region](#list_ec2-ec2_Region)
   - **Access level:** Read
 
+- **   [GetTransitGatewayAttachmentNatConfiguration](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetTransitGatewayAttachmentNatConfiguration.html)  **
+  - **Description:** Grants permission to describe the NAT configuration for a transit gateway attachment
+  - **Resource types (\*required):** [transit-gateway-attachment\*](#list_ec2-resource-transit-gateway-attachment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [GetTransitGatewayAttachmentPropagations](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetTransitGatewayAttachmentPropagations.html)  **
   - **Description:** Grants permission to list the route tables to which a resource attachment propagates routes
   - **Resource types (\*required):** 
@@ -8741,8 +8829,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [ModifyCapacityReservation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyCapacityReservation.html)  **
   - **Description:** Grants permission to modify a Capacity Reservation's capacity and the conditions under which it is to be released
-  - **Resource types (\*required):** [capacity-reservation\*](#list_ec2-resource-capacity-reservation)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Attribute](#list_ec2-ec2_Attribute)<br />[ec2:Attribute/${AttributeName}](#list_ec2-ec2_Attribute___AttributeName_)<br />[ec2:CapacityReservationFleet](#list_ec2-ec2_CapacityReservationFleet)<br />[ec2:Region](#list_ec2-ec2_Region)
+  - **Resource types (\*required):** [capacity-reservation\*](#list_ec2-resource-capacity-reservation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Attribute](#list_ec2-ec2_Attribute)<br />[ec2:Attribute/${AttributeName}](#list_ec2-ec2_Attribute___AttributeName_)<br />[ec2:CapacityReservationFleet](#list_ec2-ec2_CapacityReservationFleet)<br />[ec2:FutureCapacitySpecification](#list_ec2-ec2_FutureCapacitySpecification)<br />[ec2:Region](#list_ec2-ec2_Region)
+  - **Resource types (\*required):** [capacity-reservation-modification-quote](#list_ec2-resource-capacity-reservation-modification-quote) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [ModifyCapacityReservationFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyCapacityReservationFleet.html)  **
@@ -8757,6 +8845,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [security-group](#list_ec2-resource-security-group) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:SecurityGroupID](#list_ec2-ec2_SecurityGroupID)<br />[ec2:Vpc](#list_ec2-ec2_Vpc)
   - **Resource types (\*required):** [transit-gateway](#list_ec2-resource-transit-gateway) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:transitGatewayId](#list_ec2-ec2_transitGatewayId)
   - **Resource types (\*required):** [vpc](#list_ec2-resource-vpc) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:Tenancy](#list_ec2-ec2_Tenancy)<br />[ec2:VpcID](#list_ec2-ec2_VpcID)
+  - **Access level:** Write
+
+- **   [ModifyClientVpnEndpointAuthorizationPolicy](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyClientVpnEndpointAuthorizationPolicy.html)  **
+  - **Description:** Grants permission to create or update the authorization policy for a Client VPN endpoint
+  - **Resource types (\*required):** [client-vpn-endpoint\*](#list_ec2-resource-client-vpn-endpoint)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Attribute](#list_ec2-ec2_Attribute)<br />[ec2:Attribute/${AttributeName}](#list_ec2-ec2_Attribute___AttributeName_)<br />[ec2:ClientRootCertificateChainArn](#list_ec2-ec2_ClientRootCertificateChainArn)<br />[ec2:CloudwatchLogGroupArn](#list_ec2-ec2_CloudwatchLogGroupArn)<br />[ec2:CloudwatchLogStreamArn](#list_ec2-ec2_CloudwatchLogStreamArn)<br />[ec2:DirectoryArn](#list_ec2-ec2_DirectoryArn)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:SamlProviderArn](#list_ec2-ec2_SamlProviderArn)<br />[ec2:ServerCertificateArn](#list_ec2-ec2_ServerCertificateArn)
   - **Access level:** Write
 
 - **   [ModifyDefaultCreditSpecification](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyDefaultCreditSpecification.html)  **
@@ -8806,7 +8900,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [ModifyImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html)  **
   - **Description:** Grants permission to modify an attribute of an Amazon Machine Image (AMI)
   - **Resource types (\*required):** [image\*](#list_ec2-resource-image)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Attribute](#list_ec2-ec2_Attribute)<br />[ec2:Attribute/${AttributeName}](#list_ec2-ec2_Attribute___AttributeName_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Attribute](#list_ec2-ec2_Attribute)<br />[ec2:Attribute/${AttributeName}](#list_ec2-ec2_Attribute___AttributeName_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:ImageWatermarkKeys](#list_ec2-ec2_ImageWatermarkKeys)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
   - **Access level:** Write
 
 - **   [ModifyInstanceAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html)  **
@@ -8818,7 +8912,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [ModifyInstanceCapacityReservationAttributes](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceCapacityReservationAttributes.html)  **
   - **Description:** Grants permission to modify the Capacity Reservation settings for a stopped instance
-  - **Resource types (\*required):** [capacity-reservation](#list_ec2-resource-capacity-reservation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Region](#list_ec2-ec2_Region)
+  - **Resource types (\*required):** [capacity-reservation](#list_ec2-resource-capacity-reservation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:FutureCapacitySpecification](#list_ec2-ec2_FutureCapacitySpecification)<br />[ec2:Region](#list_ec2-ec2_Region)
   - **Resource types (\*required):** [instance\*](#list_ec2-resource-instance) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Attribute](#list_ec2-ec2_Attribute)<br />[ec2:Attribute/${AttributeName}](#list_ec2-ec2_Attribute___AttributeName_)<br />[ec2:AvailabilityZone](#list_ec2-ec2_AvailabilityZone)<br />[ec2:AvailabilityZoneId](#list_ec2-ec2_AvailabilityZoneId)<br />[ec2:CpuOptionsAmdSevSnp](#list_ec2-ec2_CpuOptionsAmdSevSnp)<br />[ec2:EbsOptimized](#list_ec2-ec2_EbsOptimized)<br />[ec2:InstanceAutoRecovery](#list_ec2-ec2_InstanceAutoRecovery)<br />[ec2:InstanceBandwidthWeighting](#list_ec2-ec2_InstanceBandwidthWeighting)<br />[ec2:InstanceID](#list_ec2-ec2_InstanceID)<br />[ec2:InstanceMarketType](#list_ec2-ec2_InstanceMarketType)<br />[ec2:InstanceMetadataTags](#list_ec2-ec2_InstanceMetadataTags)<br />[ec2:InstanceProfile](#list_ec2-ec2_InstanceProfile)<br />[ec2:InstanceType](#list_ec2-ec2_InstanceType)<br />[ec2:ManagedResourceOperator](#list_ec2-ec2_ManagedResourceOperator)<br />[ec2:MetadataHttpEndpoint](#list_ec2-ec2_MetadataHttpEndpoint)<br />[ec2:MetadataHttpPutResponseHopLimit](#list_ec2-ec2_MetadataHttpPutResponseHopLimit)<br />[ec2:MetadataHttpTokens](#list_ec2-ec2_MetadataHttpTokens)<br />[ec2:PlacementGroup](#list_ec2-ec2_PlacementGroup)<br />[ec2:ProductCode](#list_ec2-ec2_ProductCode)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)<br />[ec2:Tenancy](#list_ec2-ec2_Tenancy)
   - **Access level:** Write
 
@@ -9058,6 +9152,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [transit-gateway-route-table](#list_ec2-resource-transit-gateway-route-table) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:transitGatewayRouteTableId](#list_ec2-ec2_transitGatewayRouteTableId)
   - **Access level:** Write
 
+- **   [ModifyTransitGatewayAttachmentNatConfiguration](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayAttachmentNatConfiguration.html)  **
+  - **Description:** Grants permission to modify the NAT configuration for a transit gateway attachment
+  - **Resource types (\*required):** [transit-gateway-attachment\*](#list_ec2-resource-transit-gateway-attachment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Attribute](#list_ec2-ec2_Attribute)<br />[ec2:Attribute/${AttributeName}](#list_ec2-ec2_Attribute___AttributeName_)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [ModifyTransitGatewayMeteringPolicy](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayMeteringPolicy.html)  **
   - **Description:** Grants permission to modify a transit gateway metering policy
   - **Resource types (\*required):** [transit-gateway-attachment](#list_ec2-resource-transit-gateway-attachment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:transitGatewayAttachmentId](#list_ec2-ec2_transitGatewayAttachmentId)
@@ -9173,7 +9273,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [ModifyVpcEndpointConnectionNotification](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcEndpointConnectionNotification.html)  **
   - **Description:** Grants permission to modify a connection notification for a VPC endpoint or VPC endpoint service
   - **Resource types (\*required):** [vpc-endpoint](#list_ec2-resource-vpc-endpoint) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [vpc-endpoint-service](#list_ec2-resource-vpc-endpoint-service) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:VpceMultiRegion](#list_ec2-ec2_VpceMultiRegion)<br />[ec2:VpceSupportedRegion](#list_ec2-ec2_VpceSupportedRegion)
+  - **Resource types (\*required):** [vpc-endpoint-service](#list_ec2-resource-vpc-endpoint-service) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [ModifyVpcEndpointPayerResponsibility](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcEndpointPayerResponsibility.html)  **
@@ -9513,7 +9613,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [ResetImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ResetImageAttribute.html)  **
   - **Description:** Grants permission to reset an attribute of an Amazon Machine Image (AMI) to its default value
   - **Resource types (\*required):** [image\*](#list_ec2-resource-image)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Attribute](#list_ec2-ec2_Attribute)<br />[ec2:Attribute/${AttributeName}](#list_ec2-ec2_Attribute___AttributeName_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:Attribute](#list_ec2-ec2_Attribute)<br />[ec2:Attribute/${AttributeName}](#list_ec2-ec2_Attribute___AttributeName_)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:ImageWatermarkKeys](#list_ec2-ec2_ImageWatermarkKeys)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType)
   - **Access level:** Write
 
 - **   [ResetInstanceAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ResetInstanceAttribute.html)  **
@@ -9589,7 +9689,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Access level:** Write
 
 - **   [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html)  **
-  - **Description:** Grants permission to launch one or more instances / **Resource types (\*required):** [capacity-reservation](#list_ec2-resource-capacity-reservation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:IsLaunchTemplateResource](#list_ec2-ec2_IsLaunchTemplateResource)<br />[ec2:LaunchTemplate](#list_ec2-ec2_LaunchTemplate)<br />[ec2:Region](#list_ec2-ec2_Region) / **Access level:** Write
+  - **Description:** Grants permission to launch one or more instances / **Resource types (\*required):** [capacity-reservation](#list_ec2-resource-capacity-reservation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:FutureCapacitySpecification](#list_ec2-ec2_FutureCapacitySpecification)<br />[ec2:IsLaunchTemplateResource](#list_ec2-ec2_IsLaunchTemplateResource)<br />[ec2:LaunchTemplate](#list_ec2-ec2_LaunchTemplate)<br />[ec2:Region](#list_ec2-ec2_Region) / **Access level:** Write
   - **Resource types (\*required):** [elastic-gpu](#list_ec2-resource-elastic-gpu) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[ec2:ElasticGpuType](#list_ec2-ec2_ElasticGpuType)<br />[ec2:IsLaunchTemplateResource](#list_ec2-ec2_IsLaunchTemplateResource)<br />[ec2:LaunchTemplate](#list_ec2-ec2_LaunchTemplate)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)
   - **Resource types (\*required):** [elastic-inference](#list_ec2-resource-elastic-inference) / **Condition keys:** [ec2:Region](#list_ec2-ec2_Region)
   - **Resource types (\*required):** [group](#list_ec2-resource-group) / **Condition keys:** [ec2:Region](#list_ec2-ec2_Region)
@@ -9936,9 +10036,10 @@ The following resource types are defined by this service and can be used in the 
 |  [application-status-check](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#EC2_ARN_Format)  | arn:${Partition}:ec2:${Region}:${Account}:application-status-check/${ApplicationStatusCheckId} | [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:Attribute](#list_ec2-ec2_Attribute)<br />[ec2:Attribute/${AttributeName}](#list_ec2-ec2_Attribute___AttributeName_)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_) | 
 |  [capacity-block](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#EC2_ARN_Format)  | arn:${Partition}:ec2:${Region}:${Account}:capacity-block/${CapacityBlockId} | [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:Attribute](#list_ec2-ec2_Attribute)<br />[ec2:Attribute/${AttributeName}](#list_ec2-ec2_Attribute___AttributeName_)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_) | 
 |  [capacity-manager-data-export](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#EC2_ARN_Format)  | arn:${Partition}:ec2:${Region}:${Account}:capacity-manager-data-export/${CapacityManagerDataExportId} | [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:Attribute](#list_ec2-ec2_Attribute)<br />[ec2:Attribute/${AttributeName}](#list_ec2-ec2_Attribute___AttributeName_)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_) | 
-|  [capacity-reservation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html)  | arn:${Partition}:ec2:${Region}:${Account}:capacity-reservation/${CapacityReservationId} | [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:Attribute](#list_ec2-ec2_Attribute)<br />[ec2:Attribute/${AttributeName}](#list_ec2-ec2_Attribute___AttributeName_)<br />[ec2:AvailabilityZone](#list_ec2-ec2_AvailabilityZone)<br />[ec2:AvailabilityZoneId](#list_ec2-ec2_AvailabilityZoneId)<br />[ec2:CapacityReservationFleet](#list_ec2-ec2_CapacityReservationFleet)<br />[ec2:CommitmentDuration](#list_ec2-ec2_CommitmentDuration)<br />[ec2:CreateDate](#list_ec2-ec2_CreateDate)<br />[ec2:DestinationCapacityReservationId](#list_ec2-ec2_DestinationCapacityReservationId)<br />[ec2:EbsOptimized](#list_ec2-ec2_EbsOptimized)<br />[ec2:EndDate](#list_ec2-ec2_EndDate)<br />[ec2:EndDateType](#list_ec2-ec2_EndDateType)<br />[ec2:EphemeralStorage](#list_ec2-ec2_EphemeralStorage)<br />[ec2:InstanceCount](#list_ec2-ec2_InstanceCount)<br />[ec2:InstanceMatchCriteria](#list_ec2-ec2_InstanceMatchCriteria)<br />[ec2:InstancePlatform](#list_ec2-ec2_InstancePlatform)<br />[ec2:InstanceType](#list_ec2-ec2_InstanceType)<br />[ec2:InterruptibleCapacityReservationId](#list_ec2-ec2_InterruptibleCapacityReservationId)<br />[ec2:InterruptionType](#list_ec2-ec2_InterruptionType)<br />[ec2:IsInterruptible](#list_ec2-ec2_IsInterruptible)<br />[ec2:IsLaunchTemplateResource](#list_ec2-ec2_IsLaunchTemplateResource)<br />[ec2:LaunchTemplate](#list_ec2-ec2_LaunchTemplate)<br />[ec2:OutpostArn](#list_ec2-ec2_OutpostArn)<br />[ec2:PlacementGroup](#list_ec2-ec2_PlacementGroup)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:SourceCapacityReservationId](#list_ec2-ec2_SourceCapacityReservationId)<br />[ec2:TargetInstanceCount](#list_ec2-ec2_TargetInstanceCount)<br />[ec2:Tenancy](#list_ec2-ec2_Tenancy) | 
+|  [capacity-reservation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html)  | arn:${Partition}:ec2:${Region}:${Account}:capacity-reservation/${CapacityReservationId} | [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:Attribute](#list_ec2-ec2_Attribute)<br />[ec2:Attribute/${AttributeName}](#list_ec2-ec2_Attribute___AttributeName_)<br />[ec2:AvailabilityZone](#list_ec2-ec2_AvailabilityZone)<br />[ec2:AvailabilityZoneId](#list_ec2-ec2_AvailabilityZoneId)<br />[ec2:CapacityReservationFleet](#list_ec2-ec2_CapacityReservationFleet)<br />[ec2:CommitmentDuration](#list_ec2-ec2_CommitmentDuration)<br />[ec2:CreateDate](#list_ec2-ec2_CreateDate)<br />[ec2:DestinationCapacityReservationId](#list_ec2-ec2_DestinationCapacityReservationId)<br />[ec2:EbsOptimized](#list_ec2-ec2_EbsOptimized)<br />[ec2:EndDate](#list_ec2-ec2_EndDate)<br />[ec2:EndDateType](#list_ec2-ec2_EndDateType)<br />[ec2:EphemeralStorage](#list_ec2-ec2_EphemeralStorage)<br />[ec2:FutureCapacitySpecification](#list_ec2-ec2_FutureCapacitySpecification)<br />[ec2:InstanceCount](#list_ec2-ec2_InstanceCount)<br />[ec2:InstanceMatchCriteria](#list_ec2-ec2_InstanceMatchCriteria)<br />[ec2:InstancePlatform](#list_ec2-ec2_InstancePlatform)<br />[ec2:InstanceType](#list_ec2-ec2_InstanceType)<br />[ec2:InterruptibleCapacityReservationId](#list_ec2-ec2_InterruptibleCapacityReservationId)<br />[ec2:InterruptionType](#list_ec2-ec2_InterruptionType)<br />[ec2:IsInterruptible](#list_ec2-ec2_IsInterruptible)<br />[ec2:IsLaunchTemplateResource](#list_ec2-ec2_IsLaunchTemplateResource)<br />[ec2:LaunchTemplate](#list_ec2-ec2_LaunchTemplate)<br />[ec2:OutpostArn](#list_ec2-ec2_OutpostArn)<br />[ec2:PlacementGroup](#list_ec2-ec2_PlacementGroup)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:SourceCapacityReservationId](#list_ec2-ec2_SourceCapacityReservationId)<br />[ec2:TargetInstanceCount](#list_ec2-ec2_TargetInstanceCount)<br />[ec2:Tenancy](#list_ec2-ec2_Tenancy) | 
 |  [capacity-reservation-cancellation-quote](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#EC2_ARN_Format)  | arn:${Partition}:ec2:${Region}:${Account}:capacity-reservation-cancellation-quote/${CapacityReservationCancellationQuoteId} | [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:Attribute](#list_ec2-ec2_Attribute)<br />[ec2:Attribute/${AttributeName}](#list_ec2-ec2_Attribute___AttributeName_)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_) | 
 |  [capacity-reservation-fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#EC2_ARN_Format)  | arn:${Partition}:ec2:${Region}:${Account}:capacity-reservation-fleet/${CapacityReservationFleetId} | [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:Attribute](#list_ec2-ec2_Attribute)<br />[ec2:Attribute/${AttributeName}](#list_ec2-ec2_Attribute___AttributeName_)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_) | 
+|  [capacity-reservation-modification-quote](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#EC2_ARN_Format)  | arn:${Partition}:ec2:${Region}:${Account}:capacity-reservation-modification-quote/${CapacityReservationModificationQuoteId} | [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:Attribute](#list_ec2-ec2_Attribute)<br />[ec2:Attribute/${AttributeName}](#list_ec2-ec2_Attribute___AttributeName_)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_) | 
 |  [carrier-gateway](https://docs.aws.amazon.com/vpc/latest/userguide/Carrier_Gateway.html)  | arn:${Partition}:ec2:${Region}:${Account}:carrier-gateway/${CarrierGatewayId} | [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:Tenancy](#list_ec2-ec2_Tenancy)<br />[ec2:Vpc](#list_ec2-ec2_Vpc) | 
 |  [certificate](https://docs.aws.amazon.com/acm/latest/userguide/authen-overview.html#acm-resources-operations)  | arn:${Partition}:acm:${Region}:${Account}:certificate/${CertificateId} |   | 
 |  [client-vpn-endpoint](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html)  | arn:${Partition}:ec2:${Region}:${Account}:client-vpn-endpoint/${ClientVpnEndpointId} | [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:Attribute](#list_ec2-ec2_Attribute)<br />[ec2:Attribute/${AttributeName}](#list_ec2-ec2_Attribute___AttributeName_)<br />[ec2:ClientRootCertificateChainArn](#list_ec2-ec2_ClientRootCertificateChainArn)<br />[ec2:CloudwatchLogGroupArn](#list_ec2-ec2_CloudwatchLogGroupArn)<br />[ec2:CloudwatchLogStreamArn](#list_ec2-ec2_CloudwatchLogStreamArn)<br />[ec2:DirectoryArn](#list_ec2-ec2_DirectoryArn)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:SamlProviderArn](#list_ec2-ec2_SamlProviderArn)<br />[ec2:ServerCertificateArn](#list_ec2-ec2_ServerCertificateArn) | 
@@ -9957,7 +10058,7 @@ The following resource types are defined by this service and can be used in the 
 |  [fpga-image](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#EC2_ARN_Format)  | arn:${Partition}:ec2:${Region}:${Account}:fpga-image/${FpgaImageId} | [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:Attribute](#list_ec2-ec2_Attribute)<br />[ec2:Attribute/${AttributeName}](#list_ec2-ec2_Attribute___AttributeName_)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_) | 
 |  [group](https://docs.aws.amazon.com/ARG/latest/userguide/resource-groups.html)  | arn:${Partition}:resource-groups:${Region}:${Account}:group/${GroupName} |   | 
 |  [host-reservation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#EC2_ARN_Format)  | arn:${Partition}:ec2:${Region}:${Account}:host-reservation/${HostReservationId} | [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_) | 
-|  [image](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)  | arn:${Partition}:ec2:${Region}::image/${ImageId} | [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:Attribute](#list_ec2-ec2_Attribute)<br />[ec2:Attribute/${AttributeName}](#list_ec2-ec2_Attribute___AttributeName_)<br />[ec2:BootModeOverride](#list_ec2-ec2_BootModeOverride)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:IsLaunchTemplateResource](#list_ec2-ec2_IsLaunchTemplateResource)<br />[ec2:LaunchTemplate](#list_ec2-ec2_LaunchTemplate)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType) | 
+|  [image](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)  | arn:${Partition}:ec2:${Region}::image/${ImageId} | [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:Attribute](#list_ec2-ec2_Attribute)<br />[ec2:Attribute/${AttributeName}](#list_ec2-ec2_Attribute___AttributeName_)<br />[ec2:BootModeOverride](#list_ec2-ec2_BootModeOverride)<br />[ec2:ImageID](#list_ec2-ec2_ImageID)<br />[ec2:ImageType](#list_ec2-ec2_ImageType)<br />[ec2:ImageWatermarkKeys](#list_ec2-ec2_ImageWatermarkKeys)<br />[ec2:IsLaunchTemplateResource](#list_ec2-ec2_IsLaunchTemplateResource)<br />[ec2:LaunchTemplate](#list_ec2-ec2_LaunchTemplate)<br />[ec2:Owner](#list_ec2-ec2_Owner)<br />[ec2:Public](#list_ec2-ec2_Public)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_)<br />[ec2:RootDeviceType](#list_ec2-ec2_RootDeviceType) | 
 |  [image-usage-report](https://docs.aws.amazon.com/vm-import/latest/userguide/image-usage-report.html)  | arn:${Partition}:ec2:${Region}:${Account}:image-usage-report/${ImageUsageReportId} | [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_) | 
 |  [import-image-task](https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#import-vm-image)  | arn:${Partition}:ec2:${Region}:${Account}:import-image-task/${ImportImageTaskId} | [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_) | 
 |  [import-snapshot-task](https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-import-snapshot.html)  | arn:${Partition}:ec2:${Region}:${Account}:import-snapshot-task/${ImportSnapshotTaskId} | [aws:RequestTag/${TagKey}](#list_ec2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ec2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ec2-aws_TagKeys)<br />[ec2:Region](#list_ec2-ec2_Region)<br />[ec2:ResourceTag/${TagKey}](#list_ec2-ec2_ResourceTag___TagKey_) | 
@@ -10073,7 +10174,7 @@ Amazon EC2 defines the following condition keys that can be used in the `Conditi
 |   [ec2:AutoPlacement](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys)  | Filters access by the Auto Placement properties of a Dedicated Host | String | 
 |   [ec2:AvailabilityZone](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys)  | Filters access by the name of an Availability Zone in an AWS Region | String | 
 |   [ec2:AvailabilityZoneId](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys)  | Filters access by the ID of an Availability Zone in an AWS Region | String | 
-|   [ec2:BootModeOverride](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys)  | Filters access by the boot mode | String | 
+|   [ec2:BootModeOverride](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys)  | Filters access by the boot mode override | String | 
 |   [ec2:CapacityReservationFleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys)  | Filters access by the ARN of the Capacity Reservation Fleet | ARN | 
 |   [ec2:ClientRootCertificateChainArn](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys)  | Filters access by the ARN of the client root certificate chain | ARN | 
 |   [ec2:CloudwatchLogGroupArn](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys)  | Filters access by the ARN of the CloudWatch Logs log group | ARN | 
@@ -10095,11 +10196,13 @@ Amazon EC2 defines the following condition keys that can be used in the `Conditi
 |   [ec2:EphemeralStorage](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys)  | Filters access by whether the instance is enabled for ephemeral storage | Bool | 
 |   [ec2:FisActionId](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html)  | Filters access by the ID of an AWS FIS action | String | 
 |   [ec2:FisTargetArns](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html)  | Filters access by the ARN of an AWS FIS target | ArrayOfARN | 
+|   [ec2:FutureCapacitySpecification](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys)  | Filters access by the ARN of the Future Capacity Specification | ARN | 
 |   [ec2:GatewayType](https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-authentication-access-control.html)  | Filters access by the gateway type for a VPN endpoint on the AWS side of a VPN connection | String | 
 |   [ec2:HostRecovery](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys)  | Filters access by whether host recovery is enabled for a Dedicated Host | String | 
 |   [ec2:IKEVersions](https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-authentication-access-control.html)  | Filters access by the internet key exchange (IKE) versions that are permitted for a VPN tunnel | ArrayOfString | 
 |   [ec2:ImageID](iam-policies-for-amazon-ec2.html#imageId-key)  | Filters access by the ID of an image | String | 
 |   [ec2:ImageType](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys)  | Filters access by the type of image (machine, aki, or ari) | String | 
+|   [ec2:ImageWatermarkKeys](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys)  | Filters access by the watermark keys of an image | ArrayOfString | 
 |   [ec2:InsideTunnelCidr](https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-authentication-access-control.html)  | Filters access by the range of inside IP addresses for a VPN tunnel | String | 
 |   [ec2:InsideTunnelIpv6Cidr](https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-authentication-access-control.html)  | Filters access by a range of inside IPv6 addresses for a VPN tunnel | String | 
 |   [ec2:InstanceAutoRecovery](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-policies-for-amazon-ec2.html#amazon-ec2-keys)  | Filters access by whether the instance type supports auto recovery | String | 

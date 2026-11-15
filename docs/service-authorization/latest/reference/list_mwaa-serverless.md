@@ -25,6 +25,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 
 
+- **   CreateAirflowUiUrl  **
+  - **IAM action:**  [airflow-serverless:CreateAirflowUiUrl](#list_mwaa-serverless-action-CreateAirflowUiUrl) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   CreateWorkflow  **
   - **IAM action:**  [airflow-serverless:CreateWorkflow](#list_mwaa-serverless-action-CreateWorkflow)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [airflow-serverless:TagResource](#list_mwaa-serverless-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
@@ -121,6 +127,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 
 
+
+- **   [CreateAirflowUiUrl](https://docs.aws.amazon.com/mwaa-serverless/latest/APIReference/API_CreateAirflowUiUrl.html)  **
+  - **Description:** Grants permission to create a URL with access to the Airflow UI
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
 
 - **   [CreateWorkflow](https://docs.aws.amazon.com/mwaa-serverless/latest/APIReference/API_CreateWorkflow.html)  **
   - **Description:** Grants permission to create a new workflow

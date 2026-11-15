@@ -428,6 +428,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   ListInvestigationRecords  **
+  - **IAM action:**  [guardduty:ListInvestigationRecords](#list_guardduty-action-ListInvestigationRecords) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   ListInvestigations  **
   - **IAM action:**  [guardduty:ListInvestigations](#list_guardduty-action-ListInvestigations) 
   - **Condition key:** 
@@ -1045,6 +1051,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** List
+
+- **   [ListInvestigationRecords](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListInvestigationRecords.html)  **
+  - **Description:** Grants permission to retrieve the records of a GuardDuty investigation
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
 
 - **   [ListInvestigations](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListInvestigations.html)  **
   - **Description:** Grants permission to retrieve a list of GuardDuty investigations

@@ -14,6 +14,7 @@ References:
 **Topics**
 + [API operations defined by AWS HealthOmics](#list_omics-operations)
 + [Actions defined by AWS HealthOmics](#list_omics-actions-as-permissions)
++ [Permission-only actions for AWS HealthOmics](#list_omics-permission-only-actions)
 + [Resource types defined by AWS HealthOmics](#list_omics-resources-for-iam-policies)
 + [Condition keys for AWS HealthOmics](#list_omics-policy-keys)
 
@@ -1322,6 +1323,22 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [UploadReadSetPart](https://docs.aws.amazon.com/omics/latest/api/API_UploadReadSetPart.html)  **
   - **Description:** Grants permission to upload read set parts
   - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
+
+## Permission-only actions for AWS HealthOmics
+<a name="list_omics-permission-only-actions"></a>
+
+The following actions are defined by AWS HealthOmics but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
+
+
+
+
+- **   [AuthorizeRunProcessing](https://docs.aws.amazon.com/omics/latest/dev/permissions-service.html)  **
+  - **Description:** Grants permission to manage internal service operations required for run and task processing
+  - **Resource types (\*required):** [run\*](#list_omics-resource-run)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 

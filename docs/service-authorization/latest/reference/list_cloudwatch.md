@@ -68,6 +68,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   DeleteMetricDataQueryDefinition  **
+  - **SDK client:** cloudwatch
+  - **IAM action:**  [cloudwatch:DeleteMetricDataQueryDefinition](#list_cloudwatch-action-DeleteMetricDataQueryDefinition) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   DeleteMetricStream  **
   - **SDK client:** cloudwatch
   - **IAM action:**  [cloudwatch:DeleteMetricStream](#list_cloudwatch-action-DeleteMetricStream) 
@@ -180,6 +187,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetMetricDataQueryDefinition  **
+  - **SDK client:** cloudwatch
+  - **IAM action:**  [cloudwatch:GetMetricDataQueryDefinition](#list_cloudwatch-action-GetMetricDataQueryDefinition) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetMetricStatistics  **
   - **SDK client:** cloudwatch
   - **IAM action:**  [cloudwatch:GetMetricStatistics](#list_cloudwatch-action-GetMetricStatistics) 
@@ -235,6 +249,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
+
+- **   ListMetricDataQueryDefinitions  **
+  - **SDK client:** cloudwatch
+  - **IAM action:**  [cloudwatch:ListMetricDataQueryDefinitions](#list_cloudwatch-action-ListMetricDataQueryDefinitions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
 
 - **   ListMetricStreams  **
   - **SDK client:** cloudwatch
@@ -309,6 +330,11 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
+
+- **   PutMetricDataQueryDefinition  **
+  - **SDK client:** cloudwatch
+  - **IAM action:**  [cloudwatch:PutMetricDataQueryDefinition](#list_cloudwatch-action-PutMetricDataQueryDefinition)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [cloudwatch:TagResource](#list_cloudwatch-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
 - **   PutMetricStream  **
   - **SDK client:** cloudwatch
@@ -580,6 +606,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   GetSpaceCredentialsForOrganization  **
   - **SDK client:** cloudwatchomni
   - **IAM action:**  [cloudwatch:GetSpaceCredentialsForOrganization](#list_cloudwatch-action-GetSpaceCredentialsForOrganization) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSpaceDataAccess  **
+  - **SDK client:** cloudwatchomni
+  - **IAM action:**  [cloudwatch:GetSpaceDataAccess](#list_cloudwatch-action-GetSpaceDataAccess) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -970,6 +1003,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
   - **Access level:** Write
 
+- **   [DeleteMetricDataQueryDefinition](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DeleteMetricDataQueryDefinition.html)  **
+  - **Description:** Grants permission to delete a CloudWatch metric data query definition
+  - **Resource types (\*required):** [metric-query-definition\*](#list_cloudwatch-resource-metric-query-definition)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [DeleteMetricStream](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DeleteMetricStream.html)  **
   - **Description:** Grants permission to delete the CloudWatch metric stream that you specify
   - **Resource types (\*required):** [metric-stream\*](#list_cloudwatch-resource-metric-stream)
@@ -1180,6 +1219,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
   - **Access level:** Read
 
+- **   [GetMetricDataQueryDefinition](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricDataQueryDefinition.html)  **
+  - **Description:** Grants permission to retrieve a CloudWatch metric data query definition
+  - **Resource types (\*required):** [metric-query-definition\*](#list_cloudwatch-resource-metric-query-definition)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [GetMetricStatistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html)  **
   - **Description:** Grants permission to retrieve statistics for the specified metric
   - **Resource types (\*required):** 
@@ -1262,6 +1307,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to get space credentials for an organization
   - **Resource types (\*required):** 
   - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetSpaceDataAccess](https://docs.aws.amazon.com/cloudwatch-omni/latest/APIReference/API_GetSpaceDataAccess.html)  **
+  - **Description:** Grants permission to get temporary credentials, limited to the requested actions, for working with data in a space
+  - **Resource types (\*required):** 
+  - **Condition keys:** [cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
   - **Access level:** Read
 
 - **   [GetTelemetryQueryResults](https://docs.aws.amazon.com/cloudwatch-omni/latest/APIReference/API_GetTelemetryQueryResults.html)  **
@@ -1354,6 +1405,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_cloudwatch-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_cloudwatch-aws_TagKeys)<br />[cloudwatch:requestManagedResourceARNs](#list_cloudwatch-cloudwatch_requestManagedResourceARNs)
   - **Access level:** Read
 
+- **   [ListMetricDataQueryDefinitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetricDataQueryDefinitions.html)  **
+  - **Description:** Grants permission to list CloudWatch metric data query definitions
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
 - **   [ListMetricStreams](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetricStreams.html)  **
   - **Description:** Grants permission to return a list of all CloudWatch metric streams in your account
   - **Resource types (\*required):** 
@@ -1414,6 +1471,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [dashboard](#list_cloudwatch-resource-dashboard) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
   - **Resource types (\*required):** [dataset](#list_cloudwatch-resource-dataset) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
   - **Resource types (\*required):** [insight-rule](#list_cloudwatch-resource-insight-rule) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
+  - **Resource types (\*required):** [metric-query-definition](#list_cloudwatch-resource-metric-query-definition) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
   - **Resource types (\*required):** [metric-stream](#list_cloudwatch-resource-metric-stream) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
   - **Resource types (\*required):** [service](#list_cloudwatch-resource-service) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
   - **Resource types (\*required):** [slo](#list_cloudwatch-resource-slo) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
@@ -1425,6 +1483,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** **SCENARIO: **CloudWatch-Dataset / **Resource types (\*required):** [dataset\*](#list_cloudwatch-resource-dataset) / **Condition keys:**  / **Access level:** 
   - **Description:** **SCENARIO: **CloudWatch-MetricStream / **Resource types (\*required):** [metric-stream\*](#list_cloudwatch-resource-metric-stream) / **Condition keys:**  / **Access level:** 
   - **Description:** **SCENARIO: **CloudWatch-Service / **Resource types (\*required):** [service\*](#list_cloudwatch-resource-service) / **Condition keys:**  / **Access level:** 
+  - **Description:** **SCENARIO: **CloudWatch-MetricQueryDefinition / **Resource types (\*required):** [metric-query-definition\*](#list_cloudwatch-resource-metric-query-definition) / **Condition keys:**  / **Access level:** 
 
 - **   [ListTelemetryFields](https://docs.aws.amazon.com/cloudwatch-omni/latest/APIReference/API_ListTelemetryFields.html)  **
   - **Description:** Grants permission to list telemetry fields
@@ -1502,6 +1561,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to publish metric data points to Amazon CloudWatch using CloudWatch and OTLP formats
   - **Resource types (\*required):** [dataset](#list_cloudwatch-resource-dataset)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[cloudwatch:namespace](#list_cloudwatch-cloudwatch_namespace)
+  - **Access level:** Write
+
+- **   [PutMetricDataQueryDefinition](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricDataQueryDefinition.html)  **
+  - **Description:** Grants permission to create or update a CloudWatch metric data query definition
+  - **Resource types (\*required):** [metric-query-definition\*](#list_cloudwatch-resource-metric-query-definition)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_cloudwatch-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_cloudwatch-aws_TagKeys)
   - **Access level:** Write
 
 - **   [PutMetricStream](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricStream.html)  **
@@ -1594,6 +1659,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [dashboard](#list_cloudwatch-resource-dashboard) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_cloudwatch-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_cloudwatch-aws_TagKeys)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
   - **Resource types (\*required):** [dataset](#list_cloudwatch-resource-dataset) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_cloudwatch-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_cloudwatch-aws_TagKeys)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
   - **Resource types (\*required):** [insight-rule](#list_cloudwatch-resource-insight-rule) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_cloudwatch-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_cloudwatch-aws_TagKeys)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
+  - **Resource types (\*required):** [metric-query-definition](#list_cloudwatch-resource-metric-query-definition) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_cloudwatch-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_cloudwatch-aws_TagKeys)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
   - **Resource types (\*required):** [metric-stream](#list_cloudwatch-resource-metric-stream) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_cloudwatch-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_cloudwatch-aws_TagKeys)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
   - **Resource types (\*required):** [service](#list_cloudwatch-resource-service) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_cloudwatch-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_cloudwatch-aws_TagKeys)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
   - **Resource types (\*required):** [slo](#list_cloudwatch-resource-slo) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_cloudwatch-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_cloudwatch-aws_TagKeys)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
@@ -1605,6 +1671,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** **SCENARIO: **CloudWatch-Dataset / **Resource types (\*required):** [dataset\*](#list_cloudwatch-resource-dataset) / **Condition keys:**  / **Access level:** 
   - **Description:** **SCENARIO: **CloudWatch-MetricStream / **Resource types (\*required):** [metric-stream\*](#list_cloudwatch-resource-metric-stream) / **Condition keys:**  / **Access level:** 
   - **Description:** **SCENARIO: **CloudWatch-Service / **Resource types (\*required):** [service\*](#list_cloudwatch-resource-service) / **Condition keys:**  / **Access level:** 
+  - **Description:** **SCENARIO: **CloudWatch-MetricQueryDefinition / **Resource types (\*required):** [metric-query-definition\*](#list_cloudwatch-resource-metric-query-definition) / **Condition keys:**  / **Access level:** 
 
 - **   [UntagResource](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html)  **
   - **Description:** Grants permission to remove a tag from an Amazon CloudWatch resource / **Resource types (\*required):** [alarm](#list_cloudwatch-resource-alarm) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_cloudwatch-aws_TagKeys)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant) / **Access level:** Tagging, Write
@@ -1612,6 +1679,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [dashboard](#list_cloudwatch-resource-dashboard) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_cloudwatch-aws_TagKeys)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
   - **Resource types (\*required):** [dataset](#list_cloudwatch-resource-dataset) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_cloudwatch-aws_TagKeys)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
   - **Resource types (\*required):** [insight-rule](#list_cloudwatch-resource-insight-rule) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_cloudwatch-aws_TagKeys)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
+  - **Resource types (\*required):** [metric-query-definition](#list_cloudwatch-resource-metric-query-definition) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_cloudwatch-aws_TagKeys)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
   - **Resource types (\*required):** [metric-stream](#list_cloudwatch-resource-metric-stream) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_cloudwatch-aws_TagKeys)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
   - **Resource types (\*required):** [service](#list_cloudwatch-resource-service) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_cloudwatch-aws_TagKeys)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
   - **Resource types (\*required):** [slo](#list_cloudwatch-resource-slo) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_cloudwatch-aws_TagKeys)<br />[cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
@@ -1623,6 +1691,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** **SCENARIO: **CloudWatch-Dataset / **Resource types (\*required):** [dataset\*](#list_cloudwatch-resource-dataset) / **Condition keys:**  / **Access level:** 
   - **Description:** **SCENARIO: **CloudWatch-MetricStream / **Resource types (\*required):** [metric-stream\*](#list_cloudwatch-resource-metric-stream) / **Condition keys:**  / **Access level:** 
   - **Description:** **SCENARIO: **CloudWatch-Service / **Resource types (\*required):** [service\*](#list_cloudwatch-resource-service) / **Condition keys:**  / **Access level:** 
+  - **Description:** **SCENARIO: **CloudWatch-MetricQueryDefinition / **Resource types (\*required):** [metric-query-definition\*](#list_cloudwatch-resource-metric-query-definition) / **Condition keys:**  / **Access level:** 
 
 - **   [UpdateAccessProfile](https://docs.aws.amazon.com/cloudwatch-omni/latest/APIReference/API_UpdateAccessProfile.html)  **
   - **Description:** Grants permission to update an access profile
@@ -1812,6 +1881,7 @@ The following resource types are defined by this service and can be used in the 
 |  [ingestion-endpoint](https://docs.aws.amazon.com/cloudwatch-omni/latest/APIReference/Welcome.html)  | arn:${Partition}:cloudwatch:${Region}:${Account}:ingestion-endpoint/${IngestionEndpointName}/${IngestionEndpointId} | [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_) | 
 |  [insight-rule](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.html)  | arn:${Partition}:cloudwatch:${Region}:${Account}:insight-rule/${InsightRuleName} | [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_) | 
 |  [integration](https://docs.aws.amazon.com/cloudwatch-omni/latest/APIReference/Welcome.html)  | arn:${Partition}:cloudwatch:${Region}:${Account}:integration/${IntegrationId} | [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_) | 
+|  [metric-query-definition](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.html)  | arn:${Partition}:cloudwatch:${Region}:${Account}:metric-query-definition/${MetricDataQueryDefinitionId} | [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_) | 
 |  [metric-stream](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.html)  | arn:${Partition}:cloudwatch:${Region}:${Account}:metric-stream/${MetricStreamName} | [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_) | 
 |  [omni-dashboard](https://docs.aws.amazon.com/cloudwatch-omni/latest/APIReference/Welcome.html)  | arn:${Partition}:cloudwatch:${Region}:${Account}:omni-dashboard/${DashboardId} | [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_) | 
 |  [organization-access-grant](https://docs.aws.amazon.com/cloudwatch-omni/latest/APIReference/Welcome.html)  | arn:${Partition}:cloudwatch:${Region}:${Account}:organization-access-grant/${GrantId} | [aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_) | 

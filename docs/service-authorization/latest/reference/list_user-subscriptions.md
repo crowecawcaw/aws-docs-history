@@ -36,6 +36,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 |   [GetAutoTopUpRule](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_permissions.html)  | Grants permission to get a User subscription auto-top-up rule |  |   | Read | 
 |   [GetCurrentPlanDetails](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_permissions.html)  | Grants permission to get the current plan details for a User subscription |  |   | Read | 
 |   [GetEffectiveUsageLimit](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_permissions.html)  | Grants permission to get a User subscription effective usage limit |  |   | Read | 
+|   [GetOverageConfig](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_permissions.html)  | Grants permission to get a User subscription overage configuration |  |   | Read | 
 |   [GetPurchaseSession](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_permissions.html)  | Grants permission to get a User subscription purchase session |  |   | Read | 
 |   [GetUsageLimitHistory](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_permissions.html)  | Grants permission to get User subscription usage limit history |  |   | Read | 
 |   [ListApplicationClaims](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_permissions.html)  | Grants permission to list all User subscription Claims for Application |  |   | List | 
@@ -43,6 +44,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 |   [ListClaims](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_permissions.html)  | Grants permission to list all User subscription Claims |  |   | List | 
 |   [ListEntitlements](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_permissions.html)  | Grants permission to list all User subscription entitlements |  |   | List | 
 |   [ListUsageLimits](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_permissions.html)  | Grants permission to list all User subscription usage limits |  |   | List | 
+|   [ListUsagesAndLimits](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_permissions.html)  | Grants permission to list User subscription usages and limits |  |   | List | 
 |   [ListUserSubscriptions](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_permissions.html)  | Grants permission to list all User subscriptions |  |   | List | 
 |   [SetAutoTopUpRule](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_permissions.html)  | Grants permission to set a User subscription auto-top-up rule |  |   | Write | 
 |   [SetOverageConfig](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_permissions.html)  | Grants permission to set a User subscription overage configuration |  |   | Write | 

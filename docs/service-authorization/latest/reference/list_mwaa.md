@@ -205,11 +205,11 @@ Amazon Managed Workflows for Apache Airflow defines the following condition keys
 
 | Condition keys | Description | Type | 
 | --- | --- | --- | 
-|   [airflow:DagAccessEntity](https://docs.aws.amazon.com/mwaa/latest/userguide/access-policies.html)  | Filters access by the DAG sub-resource being accessed | String | 
-|   [airflow:ResourceAction](https://docs.aws.amazon.com/mwaa/latest/userguide/access-policies.html)  | Filters access by the action being performed on the Airflow resource | String | 
-|   [airflow:ResourceId](https://docs.aws.amazon.com/mwaa/latest/userguide/access-policies.html)  | Filters access by the identifier of the specific Airflow resource, such as a DAG ID or connection ID | String | 
-|   [airflow:ResourceType](https://docs.aws.amazon.com/mwaa/latest/userguide/access-policies.html)  | Filters access by the Airflow resource type specified in the request | String | 
-|   [airflow:TeamNames](https://docs.aws.amazon.com/mwaa/latest/userguide/access-policies.html)  | Filters access by the team names associated with the caller's identity, enabling team-based access control for Airflow resources | ArrayOfString | 
+|   [airflow:DagAccessEntity](https://docs.aws.amazon.com/mwaa/latest/userguide/access-policies.html)  | Filters access by the DAG sub-resource that the caller specifies in the request, such as RUN, CODE, or TASK\_LOGS | String | 
+|   [airflow:ResourceAction](https://docs.aws.amazon.com/mwaa/latest/userguide/access-policies.html)  | Filters access by the action on the Airflow resource that the caller specifies in the request, such as GET, POST, PUT, DELETE, or LIST | String | 
+|   [airflow:ResourceId](https://docs.aws.amazon.com/mwaa/latest/userguide/access-policies.html)  | Filters access by the Airflow resource identifier that the caller specifies in the request, such as a DAG ID or connection ID | String | 
+|   [airflow:ResourceType](https://docs.aws.amazon.com/mwaa/latest/userguide/access-policies.html)  | Filters access by the Airflow resource type that the caller specifies in the request, such as DAG, Connection, Variable, or Pool | String | 
+|   [airflow:TeamNames](https://docs.aws.amazon.com/mwaa/latest/userguide/access-policies.html)  | Filters access by the team names that the caller specifies in the request. AWS does not verify that the caller is a member of these teams | ArrayOfString | 
 |   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the presence of tag key-value pairs in the request | String | 
 |   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by tag key-value pairs attached to the resource | String | 
 |   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by tag keys in the request | ArrayOfString | 
