@@ -104,26 +104,6 @@ The following are examples of temporary request redirection responses.
 14. </Error>
 ```
 
-#### SOAP API temporary redirect response
-<a name="RedirectsTemporaryRedirection-respose-soap-ex2"></a>
-
-**Note**  
- SOAP APIs for Amazon S3 are not available for new customers, and are approaching End of Life (EOL) on August 31, 2025. We recommend that you use either the REST API or the AWS SDKs. 
-
-```
- 1. <soapenv:Body>
- 2.   <soapenv:Fault>
- 3.     <Faultcode>soapenv:Client.TemporaryRedirect</Faultcode>
- 4.     <Faultstring>Please re-send this request to the specified temporary endpoint.
- 5.     Continue to use the original request endpoint for future requests.</Faultstring>
- 6.     <Detail>
- 7.       <Bucket>images</Bucket>
- 8.       <Endpoint>s3-gztb4pa9sq.amazonaws.com</Endpoint>
- 9.     </Detail>
-10.   </soapenv:Fault>
-11. </soapenv:Body>
-```
-
 ## DNS considerations
 <a name="DNSConsiderations"></a>
 

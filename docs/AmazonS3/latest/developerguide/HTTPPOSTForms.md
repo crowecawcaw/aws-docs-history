@@ -11,10 +11,7 @@
 + [Constructing a signature](#HTTPPOSTConstructingPolicySignature)
 + [Redirection](#HTTPPOSTConstructingPolicyRedirection)
 
-When you communicate with Amazon S3, you normally use the REST or SOAP API to perform put, get, delete, and other operations. With POST, users upload data directly to Amazon S3 through their browsers, which cannot process the SOAP API or create a REST `PUT` request.
-
-**Note**  
- SOAP APIs for Amazon S3 are not available for new customers, and are approaching End of Life (EOL) on August 31, 2025. We recommend that you use either the REST API or the AWS SDKs. 
+When you communicate with Amazon S3, you normally use the REST API to perform put, get, delete, and other operations. With POST, users upload data directly to Amazon S3 through their browsers, which cannot create a REST `PUT` request.
 
 To allow users to upload content to Amazon S3 by using their browsers, you use HTML forms. HTML forms consist of a form declaration and form fields. The form declaration contains high-level information about the request. The form fields contain detailed information about the request, as well as the policy that is used to authenticate it and ensure that it meets the conditions that you specify.
 

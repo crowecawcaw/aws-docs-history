@@ -24,10 +24,7 @@ As with any distributed system, S3 has protection mechanisms which detect intent
 ## Isolate errors
 <a name="UsingErrorsIsolate"></a>
 
-**Note**  
- SOAP APIs for Amazon S3 are not available for new customers, and are approaching End of Life (EOL) on August 31, 2025. We recommend that you use either the REST API or the AWS SDKs. 
-
- Amazon S3 provides a set of error codes that are used by both the SOAP and REST API. The SOAP API returns standard Amazon S3 error codes. The REST API is designed to look like a standard HTTP server and interact with existing HTTP clients (e.g., browsers, HTTP client libraries, proxies, caches, and so on). To ensure the HTTP clients handle errors properly, Amazon S3 maps each Amazon S3 error to an HTTP status code. 
+ Amazon S3 provides a set of error codes. The REST API is designed to look like a standard HTTP server and interact with existing HTTP clients (e.g., browsers, HTTP client libraries, proxies, caches, and so on). To ensure the HTTP clients handle errors properly, Amazon S3 maps each Amazon S3 error to an HTTP status code. 
 
  HTTP status codes are less expressive than Amazon S3 error codes and contain less information about the error. For example, the `NoSuchKey` and `NoSuchBucket` Amazon S3 errors both map to the `HTTP 404 Not Found` status code. 
 

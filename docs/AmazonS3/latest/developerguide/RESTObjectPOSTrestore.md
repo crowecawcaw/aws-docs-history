@@ -325,10 +325,10 @@ This operation does not return response elements.
 <a name="RESTObjectPOSTrestore-responses-special-errors"></a>
 
 
-| Error Code | Description | HTTP Status Code | SOAP Fault Code Prefix | 
-| --- | --- | --- | --- | 
-| RestoreAlreadyInProgress | Object restore is already in progress. (This error does not apply to SELECT type requests.) | 409 Conflict | Client | 
-| GlacierExpeditedRetrievalNotAvailable | S3 Glacier storage class expedited retrievals are currently not available. Try again later. (Returned if there is insufficient capacity to process the Expedited request. This error applies only to Expedited retrievals and not to Standard or Bulk retrievals.) | 503 | N/A | 
+| Error Code | Description | HTTP Status Code | 
+| --- | --- | --- | 
+| RestoreAlreadyInProgress | Object restore is already in progress. (This error does not apply to SELECT type requests.) | 409 Conflict | 
+| GlacierExpeditedRetrievalNotAvailable | S3 Glacier storage class expedited retrievals are currently not available. Try again later. (Returned if there is insufficient capacity to process the Expedited request. This error applies only to Expedited retrievals and not to Standard or Bulk retrievals.) | 503 | 
 
 ## Examples
 <a name="RESTObjectPOSTrestore-responses-examples"></a>

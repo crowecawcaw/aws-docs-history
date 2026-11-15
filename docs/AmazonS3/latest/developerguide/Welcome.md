@@ -12,7 +12,7 @@ You can use any toolkit that supports HTTP to use the REST API. You can even use
 The REST API uses the standard HTTP headers and status codes, so that standard browsers and toolkits work as expected. In some areas, we added functionality to HTTP (for example, we added headers to support access control). In these cases, we added the new functionality in a way that matches the style of standard HTTP usage.
 
 **Note**  
-Support for SOAP over HTTP is deprecated, but it is still available over HTTPS. However, new Amazon S3 features will not be supported for SOAP. We recommend that you use either this REST API or the AWS SDKs at the following link:  
+As announced on May 5, 2025, SOAP API support is discontinued. Requests that use the SOAP API return an HTTP `400 Bad Request` error. Use this REST API or the AWS SDKs instead. For more information about the AWS SDKs, see the following link:  
 [https://aws.amazon.com/developer/tools/](https://aws.amazon.com/developer/tools/?nc1=f_dr)
 
 This developer guide includes:

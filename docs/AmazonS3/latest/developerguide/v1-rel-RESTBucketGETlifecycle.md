@@ -82,9 +82,9 @@ This implementation of `GET` returns the following response elements.
 <a name="v1-rel-RESTBucketGETlifecycle-special-errors"></a>
 
 
-| Error Code | Description | HTTP Status Code | SOAP Fault Code Prefix | 
-| --- | --- | --- | --- | 
-| NoSuchLifecycleConfiguration | The lifecycle configuration does not exist.  | 404 Not Found | Client | 
+| Error Code | Description | HTTP Status Code | 
+| --- | --- | --- | 
+| NoSuchLifecycleConfiguration | The lifecycle configuration does not exist.  | 404 Not Found | 
 
 For general information about Amazon S3 errors and a list of error codes, see [Error responses](ErrorResponses.md).
 
