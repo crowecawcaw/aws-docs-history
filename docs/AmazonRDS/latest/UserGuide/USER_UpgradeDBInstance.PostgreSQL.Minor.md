@@ -7,7 +7,7 @@ If you enable the **Auto minor version upgrade** option when creating or modifyi
 
 Amazon RDS also supports upgrade rollout policy to manage automatic minor version upgrades across multiple database resources and AWS accounts. For more information, see [Using AWS Organizations upgrade rollout policy for automatic minor version upgrades](RDS.Maintenance.AMVU.UpgradeRollout.md).
 
-For each RDS for PostgreSQL major version, one minor version is designated by RDS as the automatic upgrade version. After a minor version has been tested and approved by Amazon RDS, the minor version upgrade occurs automatically during your maintenance window. RDS doesn't automatically set newer released minor versions as the automatic upgrade version. Before RDS designates a newer automatic upgrade version, several criteria are considered, such as the following:
+For some RDS for PostgreSQL major versions in some AWS Regions, one minor version is designated by RDS as the automatic upgrade version. After a minor version has been tested and approved by Amazon RDS, the minor version upgrade occurs automatically during your maintenance window. RDS doesn't automatically set newer released minor versions as the automatic upgrade version. Before RDS designates a newer automatic upgrade version, several criteria are considered, such as the following:
 + Known security issues
 + Bugs in the PostgreSQL community version
 + Overall fleet stability since the minor version was released
@@ -79,6 +79,8 @@ Your output is similar to the following.
 ```
 
 In this example, the `AutoUpgrade` value is `True` for PostgreSQL version 16.3. So, the automatic minor upgrade target is PostgreSQL version 16.3, which is highlighted in the output.
+
+If no version in the output has an `AutoUpgrade` value of `True`, RDS hasn't designated an automatic upgrade version for that major version in that AWS Region.
 
 A PostgreSQL database is automatically upgraded during your maintenance window if the following criteria are met:
 + The database has the **Auto minor version upgrade** option enabled.

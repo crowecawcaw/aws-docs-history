@@ -3,9 +3,11 @@
 # Oracle minor version upgrades
 <a name="USER_UpgradeDBInstance.Oracle.Minor"></a>
 
-In RDS for Oracle, a minor version upgrade is an update to a major DB engine version. In RDS, a minor engine version is a Release Update (RU), a Supplemental Patch Bundle (SPB), or an RU with a Monthly Recommended Patch (MRP) applied. For example, if your DB instance runs major version Oracle Database 19c and minor version 19.0.0.0.ru-2025-10.rur-2025-10.r1, you can upgrade your DB engine to minor version 19.0.0.0.ru-2026-01.rur-2026-01.r1. RDS for Oracle doesn't support minor version downgrades.
+In RDS for Oracle, a minor version upgrade updates your DB engine to a later minor version of the same major version. In RDS, a minor engine version is a Release Update (RU), a Supplemental Patch Bundle (SPB), or an RU with a Monthly Recommended Patch (MRP) applied. For example, if your DB instance runs major version Oracle Database 19c and minor version 19.0.0.0.ru-2025-10.rur-2025-10.r1, you can upgrade your DB engine to minor version 19.0.0.0.ru-2026-01.rur-2026-01.r1. RDS for Oracle doesn't support minor version downgrades.
 
 You can upgrade your DB engine to a minor version manually or automatically. To learn how to upgrade manually, see [Manually upgrading the engine version](USER_UpgradeDBInstance.Upgrading.md#USER_UpgradeDBInstance.Upgrading.Manual). To learn how to configure automatic upgrades, see [Automatically upgrading the minor engine version](USER_UpgradeDBInstance.Upgrading.md#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades). Whether you upgrade manually or automatically, a minor version upgrade entails downtime. Consider this downtime when you plan your upgrades.
+
+When Amazon RDS applies a minor version upgrade during the maintenance window, Amazon RDS can prepare resources before the window starts. The preparation helps reduce the time that the maintenance takes. If the preparation doesn't finish, Amazon RDS applies the upgrade without it. For more information, see [Maintenance preparation in RDS for Oracle](maintenance-preparation.md).
 
 Amazon RDS also supports upgrade rollout policy to manage automatic minor version upgrades across multiple database resources and AWS accounts. For more information, see [Using AWS Organizations upgrade rollout policy for automatic minor version upgrades](RDS.Maintenance.AMVU.UpgradeRollout.md).
 
@@ -208,6 +210,8 @@ aws rds apply-pending-maintenance-action \
     --apply-action db-upgrade \
     --opt-in-type immediate
 ```
+
+Amazon RDS doesn't prepare resources for an upgrade that you apply immediately.
 
 To apply the upgrade during your next maintenance window instead of the scheduled apply date:
 

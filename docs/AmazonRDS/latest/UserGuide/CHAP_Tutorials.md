@@ -59,7 +59,7 @@ The following tutorials in other AWS guides show you how to perform common tasks
 + [ Using Data from an Amazon RDS Database to Create an Amazon ML Datasource](https://docs.aws.amazon.com/machine-learning/latest/dg/using-amazon-rds-with-amazon-ml.html) in the *Amazon Machine Learning Developer Guide*
 
   Learn how to create an Amazon Machine Learning (Amazon ML) datasource object from data stored in a MySQL DB instance.
-+ [ Manually Enabling Access to an Amazon RDS Instance in a VPC](https://docs.aws.amazon.com/quicksight/latest/user/rds-vpc-access.html) in the *Amazon Quick User Guide*
++ [ Manually Enabling Access to an Amazon RDS Instance in a VPC](https://docs.aws.amazon.com/quicksight/latest/user/rds-vpc-access.html) in the *AWS Quick User Guide*
 
   Learn how to enable Quick access to an Amazon RDS DB instance in a VPC.
 

@@ -121,6 +121,8 @@ RDS consumes some of the resources on your DB instance while maintenance is bein
 
 If a maintenance event is scheduled for a given week, it's initiated during the 30-minute maintenance window you identify. Most maintenance events also complete during the 30-minute maintenance window, although larger maintenance events may take more than 30 minutes to complete. The maintenance window is paused when the DB instance is stopped.
 
+For RDS for Oracle DB instances, Amazon RDS can prepare resources for minor version upgrades and operating system updates before the maintenance window starts. The preparation starts up to 30 minutes before the window and helps reduce the time that the maintenance takes. During the preparation, the DB instance stays available. If the preparation doesn't finish, Amazon RDS applies the maintenance without it. The maintenance itself starts during the maintenance window. For more information, see [Maintenance preparation in RDS for Oracle](maintenance-preparation.md).
+
 The 30-minute maintenance window is selected at random from an 8-hour block of time per region. If you don't specify a maintenance window when you create the DB instance, RDS assigns a 30-minute maintenance window on a randomly selected day of the week.
 
 The following table shows the time blocks for each AWS Region from which default maintenance windows are assigned.
@@ -338,6 +340,8 @@ To return a list of resources that have at least one pending update, call the Am
 <a name="OS_Updates"></a>
 
 RDS for Db2, RDS for MariaDB, RDS for MySQL, RDS for PostgreSQL, RDS for SQL Server, RDS for Oracle and RDS Custom for SQL Server DB instances occasionally require operating system updates. Amazon RDS upgrades the operating system to a newer version to improve database performance and customers’ overall security posture. Typically, the updates take about 10 minutes. Operating system updates don't change the DB engine version or DB instance class of a DB instance.
+
+For RDS for Oracle DB instances, Amazon RDS can prepare resources for an operating system update that it applies during the maintenance window. The preparation starts up to 30 minutes before the window and helps reduce the time that the maintenance takes. If the preparation doesn't finish, Amazon RDS applies the update without it. For more information, see [Maintenance preparation in RDS for Oracle](maintenance-preparation.md).
 
 Operating system updates can be either optional or mandatory:
 + An **optional update** can be applied at any time. While these updates are optional, we recommend that you apply them periodically to keep your RDS fleet up to date. RDS *does not* apply these updates automatically.

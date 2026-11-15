@@ -40,7 +40,7 @@ If you have privileges to do so, you can also change parameter values by using t
 ## RDS for PostgreSQL DB instance parameter list
 <a name="Appendix.PostgreSQL.CommonDBATasks.Parameters.parameters-list"></a>
 
-The following table lists some (but not all) parameters available in an RDS for PostgreSQL DB instance. To view all available parameters, you use the [describe-db-parameters](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) AWS CLI command. For example, to get the list of all parameters available in the default parameter group for RDS for PostgreSQL version 13, run the following.
+The following table lists some (but not all) parameters available in an RDS for PostgreSQL DB instance. The Apply\_Type column indicates whether a parameter is static or dynamic (whether a reboot is required after a change). It does not indicate whether a parameter is user-modifiable. Some parameters in the following table might not be user-modifiable. To check whether each parameter is modifiable for your engine version, use the methods described earlier on this page. For example, the [describe-db-parameters](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) AWS CLI command returns the IsModifiable value for each parameter. To view all available parameters, use the [describe-db-parameters](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) AWS CLI command. For example, to get the list of all parameters available in the default parameter group for RDS for PostgreSQL version 13, run the following.
 
 ```
 aws rds describe-db-parameters --db-parameter-group-name default.postgres13

@@ -27,6 +27,6 @@ Changing the vCPU count can have implications for the licensing fee cost associa
 <a name="SQLServer.Concepts.General.OptimizeCPU.Limitations"></a>
 
 The following limitations apply when using Optimize CPU:
-+ Optimize CPU supports the following editions: Enterprise, Standard, and Web (License Included), and Enterprise, Standard, and Developer (Bring Your Own Media). Supported instance families include m7i, r7i, m8i, r8i, m8a, r8a, and x2m.
++ Optimize CPU supports the following editions: Enterprise, Standard, and Web (License Included), and Enterprise, Standard, and Developer (Bring Your Own Media). Supported instance families include m7i, r7i, m8i, r8i, m8id, r8id, m8a, r8a, and x2m.
 + The valid number of CPU cores and threads per core depends on the instance class. For the valid values for each instance class, see [DB instance classes that support Optimize CPU](SQLServer.Concepts.General.OptimizeCPU.Support.md).
 + SQL Server requires a minimum number of vCPUs, and that minimum depends on the SQL Server edition. Amazon RDS rejects an Optimize CPU configuration that results in fewer vCPUs than the required minimum. This minimum applies only when you specify processor features. A DB instance that uses the instance class defaults can have fewer vCPUs.

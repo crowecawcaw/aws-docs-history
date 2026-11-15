@@ -3,7 +3,7 @@
 # Upgrading and using the PLV8 extension
 <a name="PostgreSQL.Concepts.General.UpgradingPLv8"></a>
 
-PLV8 is a trusted Javascript language extension for PostgreSQL. You can use it for stored procedures, triggers, and other procedural code that's callable from SQL. This language extension is supported by all current releases of PostgreSQL. 
+PLV8 is a trusted Javascript language extension for PostgreSQL. You can use it for stored procedures, triggers, and other procedural code that's callable from SQL. This language extension is supported by all current releases of PostgreSQL. For more information about PLV8, see [PLV8](https://plv8.github.io/) on the GitHub website.
 
 If you use [PLV8](https://plv8.github.io/) and upgrade PostgreSQL to a new PLV8 version, you immediately take advantage of the new extension. Take the following steps to synchronize your catalog metadata with the new version of PLV8. These steps are optional, but we highly recommend that you complete them to avoid metadata mismatch warnings.
 

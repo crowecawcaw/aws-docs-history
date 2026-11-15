@@ -15,7 +15,9 @@ SQL Server database files and database log files aren't placed on the instance s
 
 When RDS provisions DB instances with one of the following instance classes, the `tempdb` database is automatically placed onto the instance store:
 + db.m5d
++ db.m8id
 + db.r5d
++ db.r8id
 + db.x2iedn
 + db.x2m
 
@@ -23,7 +25,7 @@ To enable the instance store, do one of the following:
 + Create a SQL Server DB instance using one of these instance types. For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md).
 + Modify an existing SQL Server DB instance to use one of them. For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md).
 
-The instance store is available in all AWS Regions where one or more of these instance types are supported. For more information on the `db.m5d`, `db.r5d`, `db.x2iedn`, and `db.x2m` instance classes, see [DB instance classes](Concepts.DBInstanceClass.md). For more information on the instance classes supported by Amazon RDS for SQL Server, see [DB instance class support for Microsoft SQL Server](SQLServer.Concepts.General.InstanceClasses.md).
+The instance store is available in all AWS Regions where one or more of these instance types are supported. For more information on the `db.m5d`, `db.m8id`, `db.r5d`, `db.r8id`, `db.x2iedn`, and `db.x2m` instance classes, see [DB instance classes](Concepts.DBInstanceClass.md). For more information on the instance classes supported by Amazon RDS for SQL Server, see [DB instance class support for Microsoft SQL Server](SQLServer.Concepts.General.InstanceClasses.md).
 
 ## File location and size considerations
 <a name="SQLServer.InstanceStore.Files"></a>

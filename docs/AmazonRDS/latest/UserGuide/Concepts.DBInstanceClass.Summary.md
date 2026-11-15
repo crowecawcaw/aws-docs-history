@@ -96,6 +96,23 @@ The following tables show the compute, memory, storage, and bandwidth specificat
 | db.m8i.xlarge | 4 | — | — | — | 16 | EBS only | Up to 10,000 | Up to 12.5 | 
 | db.m8i.large | 2 | — | — | — | 8 | EBS only | Up to 10,000 | Up to 12.5 | 
 
+**db.m8id – general-purpose instance classes powered by Intel Xeon 6 processors and SSD storage**
+
+
+| Instance class | vCPU | Processor cores | Sockets | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | 
+| db.m8id.96xlarge | 384 | — | — | — | 1,536 | 6 x 3800 NVMe SSD | 80,000 | 100 | 
+| db.m8id.48xlarge | 192 | — | — | — | 768 | 3 x 3800 NVMe SSD | 60,000 | 75 | 
+| db.m8id.32xlarge | 128 | — | — | — | 512 | 2 x 3800 NVMe SSD | 40,000 | 50 | 
+| db.m8id.24xlarge | 96 | — | — | — | 384 | 2 x 2850 NVMe SSD | 30,000 | 40 | 
+| db.m8id.16xlarge | 64 | — | — | — | 256 | 1 x 3800 NVMe SSD | 20,000 | 30 | 
+| db.m8id.12xlarge | 48 | — | — | — | 192 | 1 x 2850 NVMe SSD | 15,000 | 22.5 | 
+| db.m8id.8xlarge | 32 | — | — | — | 128 | 1 x 1900 NVMe SSD | 10,000 | 15 | 
+| db.m8id.4xlarge | 16 | — | — | — | 64 | 1 x 950 NVMe SSD | Up to 10,000 | Up to 15 | 
+| db.m8id.2xlarge | 8 | — | — | — | 32 | 1 x 474 NVMe SSD | Up to 10,000 | Up to 15 | 
+| db.m8id.xlarge | 4 | — | — | — | 16 | 1 x 237 NVMe SSD | Up to 10,000 | Up to 12.5 | 
+| db.m8id.large | 2 | — | — | — | 8 | 1 x 118 NVMe SSD | Up to 10,000 | Up to 12.5 | 
+
 **db.m8a – general-purpose instance classes powered by 5th generation AMD EPYC processors**
 
 
@@ -398,6 +415,21 @@ The following tables show the compute, memory, storage, and bandwidth specificat
 | db.r8gd.xlarge | 4 | — | 32 | 1 x 237 NVMe SSD | Up to 10,000 | Up to 12.5 | 
 | db.r8gd.large | 2 | — | 16 | 1 x 118 NVMe SSD | Up to 10,000 | Up to 12.5 | 
 
+**db.r9g – memory-optimized instance classes with AWS Graviton5 processors**
+
+
+| Instance class | vCPU | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| db.r9g.48xlarge | 192 | — | 1536 | EBS-optimized only | 72,000 | 100 | 
+| db.r9g.24xlarge | 96 | — | 768 | EBS-optimized only | 36,000 | 50 | 
+| db.r9g.16xlarge | 64 | — | 512 | EBS-optimized only | 24,000 | 34 | 
+| db.r9g.12xlarge | 48 | — | 384 | EBS-optimized only | 18,000 | 25 | 
+| db.r9g.8xlarge | 32 | — | 256 | EBS-optimized only | 12,000 | 17 | 
+| db.r9g.4xlarge\* | 16 | — | 128 | EBS-optimized only | Up to 12,000 | Up to 17 | 
+| db.r9g.2xlarge\* | 8 | — | 64 | EBS-optimized only | Up to 12,000 | Up to 17 | 
+| db.r9g.xlarge\* | 4 | — | 32 | EBS-optimized only | Up to 12,000 | Up to 15 | 
+| db.r9g.large\* | 2 | — | 16 | EBS-optimized only | Up to 12,000 | Up to 15 | 
+
 **db.r8g – memory-optimized instance classes with AWS Graviton4 processors**
 
 
@@ -431,6 +463,23 @@ The following tables show the compute, memory, storage, and bandwidth specificat
 | db.r8i.2xlarge | 8 | — | — | — | 64 | EBS only | Up to 10,000 | Up to 15 | 
 | db.r8i.xlarge | 4 | — | — | — | 32 | EBS only | Up to 10,000 | Up to 12.5 | 
 | db.r8i.large | 2 | — | — | — | 16 | EBS only | Up to 10,000 | Up to 12.5 | 
+
+**db.r8id – memory-optimized instance classes powered by Intel Xeon 6 processors and SSD storage**
+
+
+| Instance class | vCPU | Processor cores | Sockets | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | 
+| db.r8id.96xlarge | 384 | — | — | — | 3,072 | 6 x 3800 NVMe SSD | 80,000 | 100 | 
+| db.r8id.48xlarge | 192 | — | — | — | 1,536 | 3 x 3800 NVMe SSD | 60,000 | 75 | 
+| db.r8id.32xlarge | 128 | — | — | — | 1,024 | 2 x 3800 NVMe SSD | 40,000 | 50 | 
+| db.r8id.24xlarge | 96 | — | — | — | 768 | 2 x 2850 NVMe SSD | 30,000 | 40 | 
+| db.r8id.16xlarge | 64 | — | — | — | 512 | 1 x 3800 NVMe SSD | 20,000 | 30 | 
+| db.r8id.12xlarge | 48 | — | — | — | 384 | 1 x 2850 NVMe SSD | 15,000 | 22.5 | 
+| db.r8id.8xlarge | 32 | — | — | — | 256 | 1 x 1900 NVMe SSD | 10,000 | 15 | 
+| db.r8id.4xlarge | 16 | — | — | — | 128 | 1 x 950 NVMe SSD | Up to 10,000 | Up to 15 | 
+| db.r8id.2xlarge | 8 | — | — | — | 64 | 1 x 474 NVMe SSD | Up to 10,000 | Up to 15 | 
+| db.r8id.xlarge | 4 | — | — | — | 32 | 1 x 237 NVMe SSD | Up to 10,000 | Up to 12.5 | 
+| db.r8id.large | 2 | — | — | — | 16 | 1 x 118 NVMe SSD | Up to 10,000 | Up to 12.5 | 
 
 **db.r8a – memory-optimized instance classes powered by 5th generation AMD EPYC processors**
 

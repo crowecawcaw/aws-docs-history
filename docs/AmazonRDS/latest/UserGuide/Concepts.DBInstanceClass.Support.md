@@ -91,6 +91,23 @@ The following tables show the supported databases and database versions for the 
 | db.m8i.metal-96xl | No | No | No | No | BYOL only | No | 
 | db.m8i.metal-48xl | No | No | No | No | BYOL only | No | 
 
+**db.m8id – general-purpose instance classes powered by Intel Xeon 6 processors and SSD storage**
+
+
+| Instance class | Db2 | MariaDB | Microsoft SQL Server | MySQL | Oracle | PostgreSQL | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| db.m8id.96xlarge | No | No | Yes | No | No | No | 
+| db.m8id.48xlarge | No | No | Yes | No | No | No | 
+| db.m8id.32xlarge | No | No | Yes | No | No | No | 
+| db.m8id.24xlarge | No | No | Yes | No | No | No | 
+| db.m8id.16xlarge | No | No | Yes | No | No | No | 
+| db.m8id.12xlarge | No | No | Yes | No | No | No | 
+| db.m8id.8xlarge | No | No | Yes | No | No | No | 
+| db.m8id.4xlarge | No | No | Yes | No | No | No | 
+| db.m8id.2xlarge | No | No | Yes | No | No | No | 
+| db.m8id.xlarge | No | No | Yes | No | No | No | 
+| db.m8id.large | No | No | Yes | No | No | No | 
+
 **db.m8a – general-purpose instance classes powered by 5th Generation AMD EPYC processors**
 
 
@@ -374,6 +391,21 @@ The following tables show the supported databases and database versions for the 
 | db.x1.32xlarge | No | No | Deprecated | No | Deprecated | No | 
 | db.x1.16xlarge | No | No | Deprecated | No | Deprecated | No | 
 
+**db.r9g – memory-optimized instance classes powered by AWS Graviton5 processors**
+
+
+| Instance class | Db2 | MariaDB | Microsoft SQL Server | MySQL | Oracle | PostgreSQL | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| db.r9g.48xlarge | No | MariaDB 10.5.28 and higher, 10.6.22 and higher, 10.11.13 and higher, 11.4.7 and higher, 11.8.3 and higher, 12.3.2 and higher | No | MySQL 8.4.5 and higher | No | PostgreSQL 14.18 and higher, 15.13 and higher, 16.9 and higher, 17.5 and higher, 18.1 and higher | 
+| db.r9g.24xlarge | No | MariaDB 10.5.28 and higher, 10.6.22 and higher, 10.11.13 and higher, 11.4.7 and higher, 11.8.3 and higher, 12.3.2 and higher | No | MySQL 8.4.5 and higher | No | PostgreSQL 14.18 and higher, 15.13 and higher, 16.9 and higher, 17.5 and higher, 18.1 and higher | 
+| db.r9g.16xlarge | No | MariaDB 10.5.28 and higher, 10.6.22 and higher, 10.11.13 and higher, 11.4.7 and higher, 11.8.3 and higher, 12.3.2 and higher | No | MySQL 8.4.5 and higher | No | PostgreSQL 14.18 and higher, 15.13 and higher, 16.9 and higher, 17.5 and higher, 18.1 and higher | 
+| db.r9g.12xlarge | No | MariaDB 10.5.28 and higher, 10.6.22 and higher, 10.11.13 and higher, 11.4.7 and higher, 11.8.3 and higher, 12.3.2 and higher | No | MySQL 8.4.5 and higher | No | PostgreSQL 14.18 and higher, 15.13 and higher, 16.9 and higher, 17.5 and higher, 18.1 and higher | 
+| db.r9g.8xlarge | No | MariaDB 10.5.28 and higher, 10.6.22 and higher, 10.11.13 and higher, 11.4.7 and higher, 11.8.3 and higher, 12.3.2 and higher | No | MySQL 8.4.5 and higher | No | PostgreSQL 14.18 and higher, 15.13 and higher, 16.9 and higher, 17.5 and higher, 18.1 and higher | 
+| db.r9g.4xlarge | No | MariaDB 10.5.28 and higher, 10.6.22 and higher, 10.11.13 and higher, 11.4.7 and higher, 11.8.3 and higher, 12.3.2 and higher | No | MySQL 8.4.5 and higher | No | PostgreSQL 14.18 and higher, 15.13 and higher, 16.9 and higher, 17.5 and higher, 18.1 and higher | 
+| db.r9g.2xlarge | No | MariaDB 10.5.28 and higher, 10.6.22 and higher, 10.11.13 and higher, 11.4.7 and higher, 11.8.3 and higher, 12.3.2 and higher | No | MySQL 8.4.5 and higher | No | PostgreSQL 14.18 and higher, 15.13 and higher, 16.9 and higher, 17.5 and higher, 18.1 and higher | 
+| db.r9g.xlarge | No | MariaDB 10.5.28 and higher, 10.6.22 and higher, 10.11.13 and higher, 11.4.7 and higher, 11.8.3 and higher, 12.3.2 and higher | No | MySQL 8.4.5 and higher | No | PostgreSQL 14.18 and higher, 15.13 and higher, 16.9 and higher, 17.5 and higher, 18.1 and higher | 
+| db.r9g.large | No | MariaDB 10.5.28 and higher, 10.6.22 and higher, 10.11.13 and higher, 11.4.7 and higher, 11.8.3 and higher, 12.3.2 and higher | No | MySQL 8.4.5 and higher | No | PostgreSQL 14.18 and higher, 15.13 and higher, 16.9 and higher, 17.5 and higher, 18.1 and higher | 
+
 **db.r8g – memory-optimized instance classes powered by AWS Graviton4 processors**
 
 
@@ -407,6 +439,23 @@ The following tables show the supported databases and database versions for the 
 | db.r8i.large | No | No | Yes | No | Yes | No | 
 | db.r8i.metal-96xl | No | No | No | No | BYOL only | No | 
 | db.r8i.metal-48xl | No | No | No | No | BYOL only | No | 
+
+**db.r8id – memory-optimized instance classes powered by Intel Xeon 6 processors and SSD storage**
+
+
+| Instance class | Db2 | MariaDB | Microsoft SQL Server | MySQL | Oracle | PostgreSQL | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| db.r8id.96xlarge | No | No | Yes | No | No | No | 
+| db.r8id.48xlarge | No | No | Yes | No | No | No | 
+| db.r8id.32xlarge | No | No | Yes | No | No | No | 
+| db.r8id.24xlarge | No | No | Yes | No | No | No | 
+| db.r8id.16xlarge | No | No | Yes | No | No | No | 
+| db.r8id.12xlarge | No | No | Yes | No | No | No | 
+| db.r8id.8xlarge | No | No | Yes | No | No | No | 
+| db.r8id.4xlarge | No | No | Yes | No | No | No | 
+| db.r8id.2xlarge | No | No | Yes | No | No | No | 
+| db.r8id.xlarge | No | No | Yes | No | No | No | 
+| db.r8id.large | No | No | Yes | No | No | No | 
 
 **db.r8a – memory-optimized instance classes powered by 5th Generation AMD EPYC processors**
 

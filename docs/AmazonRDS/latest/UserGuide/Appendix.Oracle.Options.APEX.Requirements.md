@@ -17,6 +17,7 @@ For Oracle Database 26ai, Amazon RDS supports only Oracle APEX version 24.1.v1 a
 
 | Oracle APEX version | Storage requirements | Supported Oracle Database versions | Notes | 
 | --- | --- | --- | --- | 
+| Oracle APEX version 26.1.v2 | 123 MiB | 26ai, 21c, and 19c (with Release Update 19.0.0.0.ru-2023-01.rur-2023-01.r1 or later) | This version includes patch 39179920: PSE BUNDLE FOR APEX 26.1 (PSES ON TOP OF 26.1.0), PATCH\_VERSION 5. If you need exactly the same APEX images version to install on your EC2 instance, download patch 40272216: 26.1.5 PSE BUNDLE FOR APEX 26.1 (PSES ON TOP OF 26.1.0). | 
 | Oracle APEX version 26.1.v1 | 122 MiB | 26ai, 21c, and 19c (with Release Update 19.0.0.0.ru-2023-01.rur-2023-01.r1 or later) | This version includes patch 39179920: PSE BUNDLE FOR APEX 26.1 (PSES ON TOP OF 26.1.0), PATCH\_VERSION 2. If you need exactly the same APEX images version to install on your EC2 instance, download patch 39743459: 26.1.2 PSE BUNDLE FOR APEX 26.1 (PSES ON TOP OF 26.1.0). | 
 | Oracle APEX version 24.2.v1 | 114 MiB | All | This version includes patch 37885097: PSE BUNDLE FOR APEX 24.2 (PSES ON TOP OF 24.2.0), PATCH\_VERSION 4. | 
 | Oracle APEX version 24.1.v1 | 112 MiB | All | This version includes patch 36695709: PSE BUNDLE FOR APEX 24.1 (PSES ON TOP OF 24.1.0), PATCH\_VERSION 3. If you need exactly the same APEX images version to install on your EC2 instance, download patch 37544819: 24.1.3 PSE BUNDLE FOR APEX 24.1 (PSES ON TOP OF 24.1.0). | 
