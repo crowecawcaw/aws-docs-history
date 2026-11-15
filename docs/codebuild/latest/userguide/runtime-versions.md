@@ -6,25 +6,19 @@
 When you specify a runtime in the [`runtime-versions`](build-spec-ref.md#build-spec.phases.install.runtime-versions) section of your buildspec file, you can specify a specific version, a specific major version and the latest minor version, or the latest version. The following table lists the available runtimes and how to specify them. Not all runtime versions are available on all images. Runtime version selection is also not supported for the custom images. For more information, see [Available runtimes](available-runtimes.md). If you'd like to install and use a custom runtime version instead of the pre-installed runtime versions, see [Custom runtime versions](#custom-runtime).
 
 
-**Ubuntu and Amazon Linux 2 platform runtime versions**  
+**Ubuntu and Amazon Linux platform runtime versions**  
 
 
 - **dotnet**
-  - **Version:** 6.0 / **Specific version:** `dotnet: 6.0` / **Specific major and latest minor version:** `dotnet: 6.x`
   - **Version:** 8.0 / **Specific version:** `dotnet: 8.0` / **Specific major and latest minor version:** `dotnet: 8.x`
   - **Version:** 10.0 / **Specific version:** `dotnet: 10.0` / **Specific major and latest minor version:** `dotnet: 10.x`
   - **Latest version:** `dotnet: latest`
 
 - **golang**
-  - **Version:** 1.20 / **Specific version:** `golang: 1.20`
-  - **Version:** 1.21 / **Specific version:** `golang: 1.21`
-  - **Version:** 1.22 / **Specific version:** `golang: 1.22`
-  - **Version:** 1.23 / **Specific version:** `golang: 1.23`
-  - **Version:** 1.24 / **Specific version:** `golang: 1.24`
-  - **Version:** 1.25 / **Specific version:** `golang: 1.25`
   - **Version:** 1.26 / **Specific version:** `golang: 1.26`
-  - **Specific major and latest minor version:**  `golang: 1.x` 
-  - **Latest version:**  `golang: latest` 
+  - **Version:** 1.27 / **Specific version:** `golang: 1.27`
+  - **Specific major and latest minor version:** `golang: 1.x`
+  - **Latest version:** `golang: latest`
 
 - **java**
   - **Version:** corretto8 / **Specific version:** `java: corretto8` / **Specific major and latest minor version:** `java: corretto8.x`
@@ -35,14 +29,12 @@ When you specify a runtime in the [`runtime-versions`](build-spec-ref.md#build-s
   - **Latest version:** `java: latest`
 
 - **nodejs**
-  - **Version:** 18 / **Specific version:** `nodejs: 18` / **Specific major and latest minor version:** `nodejs: 18.x`
-  - **Version:** 20 / **Specific version:** `nodejs: 20` / **Specific major and latest minor version:** `nodejs: 20.x`
   - **Version:** 22 / **Specific version:** `nodejs: 22` / **Specific major and latest minor version:** `nodejs: 22.x`
   - **Version:** 24 / **Specific version:** `nodejs: 24` / **Specific major and latest minor version:** `nodejs: 24.x`
+  - **Version:** 26 / **Specific version:** `nodejs: 26` / **Specific major and latest minor version:** `nodejs: 26.x`
   - **Latest version:** `nodejs: latest`
 
 - **php**
-  - **Version:** 8.1 / **Specific version:** `php: 8.1`
   - **Version:** 8.2 / **Specific version:** `php: 8.2`
   - **Version:** 8.3 / **Specific version:** `php: 8.3`
   - **Version:** 8.4 / **Specific version:** `php: 8.4`
@@ -57,20 +49,19 @@ When you specify a runtime in the [`runtime-versions`](build-spec-ref.md#build-s
   - **Version:** 3.12 / **Specific version:** `python: 3.12`
   - **Version:** 3.13 / **Specific version:** `python: 3.13`
   - **Version:** 3.14 / **Specific version:** `python: 3.14`
+  - **Version:** 3.15 / **Specific version:** `python: 3.15`
   - **Specific major and latest minor version:** `python: 3.x`
   - **Latest version:** `python: latest`
 
 - **ruby**
-  - **Version:** 3.1 / **Specific version:** `ruby: 3.1` / **Specific major and latest minor version:** `ruby: 3.x`
-  - **Version:** 3.2 / **Specific version:** `ruby: 3.2`
-  - **Version:** 3.3 / **Specific version:** `ruby: 3.3`
+  - **Version:** 3.3 / **Specific version:** `ruby: 3.3` / **Specific major and latest minor version:** `ruby: 3.x`
   - **Version:** 3.4 / **Specific version:** `ruby: 3.4`
   - **Version:** 4.0 / **Specific version:** `ruby: 4.0` / **Specific major and latest minor version:** `ruby: 4.x`
   - **Latest version:** `ruby: latest`
 
 - **rust**
-  - **Version:** 1.94
-  - **Specific version:** `rust: 1.94`
+  - **Version:** 1.99
+  - **Specific version:** `rust: 1.99`
   - **Specific major and latest minor version:** `rust: 1.x`
   - **Latest version:** `rust: latest`
 

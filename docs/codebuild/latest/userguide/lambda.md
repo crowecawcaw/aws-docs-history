@@ -77,3 +77,4 @@ There are some use-cases which AWS Lambda does not support, and if they impact y
 + AWS Lambda doesn't support the environment type `LINUX_GPU_CONTAINER` and isn't supported on Windows Server Core 2019.
 + AWS Lambda doesn't support caching, custom build timeouts, queue timeout, build badges, privileged mode, custom runtime environments, or runtimes longer than 15 minutes.
 + AWS Lambda doesn't support VPC connectivity, a fixed range of CodeBuild source IP addresses, EFS, installing certificates, or SSH access with Session Manager.
++ AWS Lambda doesn't stop a self-hosted GitHub Actions runner build when the workflow job is canceled. The build runs until the 15-minute limit and ends with the status `FAILED` and the `BUILD` phase status `TIMED_OUT`. On the EC2 compute type, CodeBuild stops the build within seconds after the job is canceled.

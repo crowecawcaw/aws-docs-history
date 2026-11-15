@@ -90,13 +90,14 @@ Each `gcc` version is available by using the `gcc-{{major-version}}` alias, such
 ## Windows image runtimes
 <a name="windows-runtimes"></a>
 
-The base image of the Windows Server Core 2019 contains the following runtimes.
+The base images of Windows Server Core 2019 and Windows Server Core 2022 contain the following runtimes.
 
 
 **Windows platform runtimes**  
 
-| Image | dotnet | dotnet sdk | golang | gradle | java | maven | nodejs | php | powershell | python | ruby | 
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
-| Windows Server Core 2019 standard:1.0 | 3.1<br />5.0 | 3.1<br />5.0 | 1.14 | 6.7 | corretto11 | 3.6 | 14.15 | 7.4 | 7.1 | 3.8 | 2.7 | 
-| Windows Server Core 2019 standard:2.0 | 3.1<br />6.0<br />7.0 | 3.1<br />6.0<br />7.0 | 1.18 | 7.6 | corretto11<br />corretto17 | 3.8 | 16.19 | 8.1 | 7.2 | 3.10 | 3.1 | 
-| Windows Server Core 2019 standard:3.0 | 8.0 | 8.0 | 1.21<br />1.22<br />1.23 | 8.12 | corretto8<br />corretto11<br />corretto17<br />corretto21 | 3.9 | 20.18<br />22.13 | 8.3<br />8.4 | 7.4 | 3.10<br />3.11<br />3.12<br />3.13 | 3.2<br />3.3<br />3.4 | 
+| Image | dotnet | dotnet sdk | golang | gradle | java | maven | nodejs | php | powershell | python | ruby | rust | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
+| Windows Server Core 2019 standard:1.0 | 3.1<br />5.0<br />6.0<br />10.0 (default) | 3.1<br />5.0<br />6.0<br />10.0 (default) | 1.14 (default) | 6.7 | corretto11 (default) | 3.6 | 14.15 (default) | 7.4 (default) | 7.1 (default) | 3.8 (default) | 2.7 (default) | — | 
+| Windows Server Core 2019 standard:2.0 | 3.1<br />6.0<br />7.0<br />10.0 (default) | 3.1<br />6.0<br />7.0<br />10.0 (default) | 1.18 (default) | 7.6 | corretto11<br />corretto17 (default) | 3.8 | 16.19 (default) | 8.1 (default) | 7.2 (default) | 3.10 (default) | 3.1 (default) | — | 
+| Windows Server Core 2019 standard:3.0 | 8.0<br />10.0 (default) | 8.0<br />10.0 (default) | 1.26<br />1.27 (default) | 8.14 | corretto8<br />corretto11<br />corretto17<br />corretto21 (default) | 3.9 | 20<br />22<br />24 (default)<br />26 | 8.3 (default)<br />8.4<br />8.5 | 7.6 (default) | 3.11<br />3.12 (default)<br />3.13<br />3.14 | 3.2<br />3.3 (default)<br />3.4 | 1.99 (default) | 
+| Windows Server Core 2022 standard:1.0 | 8.0<br />10.0 (default) | 8.0<br />10.0 (default) | 1.26<br />1.27 (default) | 8.14 | corretto8<br />corretto11<br />corretto17<br />corretto21 (default) | 3.9 | 20<br />22<br />24 (default)<br />26 | 8.3 (default)<br />8.4<br />8.5 | 7.6 (default) | 3.11<br />3.12 (default)<br />3.13<br />3.14 | 3.2<br />3.3 (default)<br />3.4 | 1.99 (default) | 

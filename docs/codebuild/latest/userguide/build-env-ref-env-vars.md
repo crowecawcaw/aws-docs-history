@@ -21,7 +21,7 @@ CODEBUILD\_BUILD\_ID
 The CodeBuild ID of the build (for example, `codebuild-demo-project:b1e6661e-e4f2-4156-9ab9-82a19EXAMPLE`).
 
 CODEBUILD\_BUILD\_IMAGE  
-The CodeBuild build image identifier (for example, `aws/codebuild/standard:2.0`).
+The CodeBuild build image identifier (for example, `aws/codebuild/standard:7.0`).
 
 CODEBUILD\_BUILD\_NUMBER  
 The current build number for the project.

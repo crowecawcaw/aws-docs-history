@@ -22,6 +22,7 @@ Europe (Ireland)
 | Amazon Linux 2 | aws/codebuild/amazonlinux-x86\_64-standard:corretto11 | [al/standard/corretto11](https://github.com/aws/aws-codebuild-docker-images/tree/master/al/x86_64/standard/corretto11) | 
 | Amazon Linux 2 | aws/codebuild/amazonlinux-aarch64-standard:2.0 | [al/aarch64/standard/2.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/al/aarch64/standard/2.0) | 
 | Amazon Linux 2023 | aws/codebuild/amazonlinux-aarch64-standard:3.0 | [al/aarch64/standard/3.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/al/aarch64/standard/3.0) | 
+| Amazon Linux 2023 | aws/codebuild/amazonlinux-aarch64-standard:4.0 | [al/aarch64/standard/4.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/al/aarch64/standard/4.0) | 
 | Ubuntu 20.04 | aws/codebuild/standard:5.0 | [ubuntu/standard/5.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/5.0) | 
 | Ubuntu 22.04 | aws/codebuild/standard:6.0 | [ubuntu/standard/6.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/6.0) | 
 | Ubuntu 22.04 | aws/codebuild/standard:7.0 | [ubuntu/standard/7.0](https://github.com/aws/aws-codebuild-docker-images/tree/master/ubuntu/standard/7.0) | 

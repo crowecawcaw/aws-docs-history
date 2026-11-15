@@ -36,9 +36,6 @@ To create a pipeline that only tests your source code:
      elasticbeanstalk:DescribeEnvironments
      lambda:GetFunctionConfiguration
      lambda:ListFunctions
-     opsworks:DescribeStacks
-     opsworks:DescribeApps
-     opsworks:DescribeLayers
      ```
 
 1. Open the AWS CodePipeline console at [https://console.aws.amazon.com/codesuite/codepipeline/home](https://console.aws.amazon.com/codesuite/codepipeline/home).

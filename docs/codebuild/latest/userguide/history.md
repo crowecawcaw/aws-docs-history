@@ -8,6 +8,9 @@ The following table describes the important changes to the documentation since t
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Updated content: Windows image runtimes](available-runtimes.md) | Updated the Windows runtime versions, added the Windows Server Core 2022 standard:1.0 image, and marked default versions. | November 12, 2026 | 
+| [Updated content: Runtime versions](runtime-versions.md) | Added golang 1.27, nodejs 26, python 3.15, and rust 1.99. Removed versions that are no longer available on the current Ubuntu and Amazon Linux standard images. | November 12, 2026 | 
+| [Updated content: [EC2 compute images](ec2-compute-images.md)](build-env-ref-available.md) | Added the Amazon Linux 2023 AArch64 standard:4.0 compute image. | November 12, 2026 | 
 | [Updated content: Available runtimes for CodeBuild standard images](available-runtimes.md) | Added the Node.js 26 runtime and Rust 1.97 for x86\_64 standard images. | September 22, 2026 | 
 | [Updated content: Available runtimes for CodeBuild standard images](available-runtimes.md) | Added the Amazon Linux 2023 AArch64 standard:4.0 image to the supported runtimes. | September 22, 2026 | 
 | [Updated content: webhook filter regular expression syntax](github-webhook.md) | Clarified that webhook filter patterns use RE2 regular expression syntax and which constructs are unsupported. | August 3, 2026 | 

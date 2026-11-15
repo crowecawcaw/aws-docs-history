@@ -6,7 +6,6 @@
 Use the information in this topic to help you identify, diagnose, and address issues. To learn how to log and monitor CodeBuild builds to troubleshoot issues, see [Logging and monitoring](logging-monitoring.md).
 
 **Topics**
-+ [Apache Maven builds reference artifacts from the wrong repository](#troubleshooting-maven-repos)
 + [Build commands run as root by default](#troubleshooting-root-build-commands)
 + [Builds might fail when file names have non-U.S. English characters](#troubleshooting-utf-8)
 + [Builds might fail when getting parameters from Amazon EC2 Parameter Store](#troubleshooting-parameter-store)
@@ -39,61 +38,6 @@ Use the information in this topic to help you identify, diagnose, and address is
 + [Error: "Your credentials lack one or more required privilege scopes" when creating a CodeBuild project with AWS CodeConnections](#troubleshooting-permission-bitbucket)
 + [Error: "Sorry, no terminal at all requested - can't get input" when building with the Ubuntu install command](#troubleshooting-nvidia-container-toolkit)
 + [Bitbucket builds fail with authentication errors after using Secrets Manager OAuth](#troubleshooting-bitbucket-oauth-sm-rotation)
-
-## Apache Maven builds reference artifacts from the wrong repository
-<a name="troubleshooting-maven-repos"></a>
-
-**Issue:** When you use Maven with an AWS CodeBuild-provided Java build environment, Maven pulls build and plugin dependencies from the secure central Maven repository at [https://repo1.maven.org/maven2](https://repo1.maven.org/maven2). This happens even if your build project's `pom.xml` file explicitly declares other locations to use instead.
-
-**Possible cause:** CodeBuild-provided Java build environments include a file named `settings.xml` that is preinstalled in the build environment's `/root/.m2` directory. This `settings.xml` file contains the following declarations, which instruct Maven to always pull build and plugin dependencies from the secure central Maven repository at [https://repo1.maven.org/maven2](https://repo1.maven.org/maven2).
-
-```
-<settings>
-  <activeProfiles>
-    <activeProfile>securecentral</activeProfile>
-  </activeProfiles>
-  <profiles>
-    <profile>
-      <id>securecentral</id>
-      <repositories>
-        <repository>
-          <id>central</id>
-          <url>https://repo1.maven.org/maven2</url>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-        </repository>
-      </repositories>
-      <pluginRepositories>
-        <pluginRepository>
-          <id>central</id>
-          <url>https://repo1.maven.org/maven2</url>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-        </pluginRepository>
-      </pluginRepositories>
-    </profile>
-  </profiles>
-</settings>
-```
-
-**Recommended solution:** Do the following:
-
-1. Add a `settings.xml` file to your source code.
-
-1. In this `settings.xml` file, use the preceding `settings.xml` format as a guide to declare the repositories you want Maven to pull the build and plugin dependencies from instead.
-
-1. In the `install` phase of your build project, instruct CodeBuild to copy your `settings.xml` file to the build environment's `/root/.m2` directory. For example, consider the following snippet from a `buildspec.yml` file that demonstrates this behavior. 
-
-   ```
-   version 0.2
-   
-   phases:
-     install:
-       commands:
-         - cp ./settings.xml /root/.m2/settings.xml
-   ```
 
 ## Build commands run as root by default
 <a name="troubleshooting-root-build-commands"></a>
