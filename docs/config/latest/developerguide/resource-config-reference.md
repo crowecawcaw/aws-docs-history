@@ -909,13 +909,13 @@ You might continue to see your data for `AWS::OpenSearch::Domain` under the exis
 
 
 
-## Amazon Quick
+## AWS Quick
 <a name="amazonquicksight"></a>
 
 
 
 
-- **Amazon Quick**
+- **AWS Quick**
   - **Resource Type Value:** AWS::QuickSight::Dashboard / **Relationship:** NA / **Related Resource:** NA / **Notes:** 
   - **Resource Type Value:** AWS::QuickSight::DataSet / **Relationship:** NA / **Related Resource:** NA / **Notes:** 
   - **Resource Type Value:** AWS::QuickSight::DataSource / **Relationship:** NA / **Related Resource:** NA / **Notes:** 

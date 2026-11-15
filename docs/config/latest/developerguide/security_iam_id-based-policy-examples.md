@@ -358,6 +358,9 @@ With resource-level permissions, you can allow read access and deny write access
 ## Supported Resource-Level Permissions for Multi-Account Multi-Region Data Aggregation
 <a name="resource-level-permission"></a>
 
+**Important**  
+Aggregator actions that are not in the following list do not support resource-level permissions. If an AWS Config aggregator action does not support resource-level permissions, you can still grant users permission to use it. However, a policy statement that allows the action must use `*` for the `Resource` element. Statements that deny access to specific resource ARNs do not affect the action.
+
 You can use resource-level permissions to control a user's ability to perform specific actions on multi-account multi-region data aggregation. The following AWS Config `Aggregator` APIs support resource level permissions:
 + [BatchGetAggregateResourceConfig](https://docs.aws.amazon.com/config/latest/APIReference/API_BatchGetAggregateResourceConfig.html)
 + [DeleteConfigurationAggregator](https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteConfigurationAggregator.html)

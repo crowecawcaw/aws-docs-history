@@ -12,7 +12,7 @@ The AWSServiceRoleForConfigThirdParty service-linked role trusts the following s
 + `thirdparty.config.amazonaws.com`
 
 The role permissions policy named **AWSConfigThirdPartyServiceRolePolicy** allows AWS Config to complete the following actions on the specified resources:
-+ Action: `sts:GetWebIdentityToken` on all AWS resources, limited to identity token audiences that match `api://AzureADTokenExchange`
++ Action: `sts:GetWebIdentityToken` on all AWS resources, limited to identity token audiences that match `api://AzureADTokenExchange` (for Microsoft Azure) or `https://sts.googleapis.com` (for Google Cloud)
 + Action: `config:PutEvaluations` on all AWS resources
 + Action: `config:GetComplianceDetailsByConfigRule` on all AWS resources
 + Action: `cloudwatch:PutMetricData` on all AWS resources, restricted to the `AWS/Config` namespace
