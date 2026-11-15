@@ -25,7 +25,7 @@ The following steps describe the architecture:
 
 1. From the data collected, you continuously improve the intent extraction and next-best-action models by using SageMaker AI Ground Truth and SageMaker AI.
 
-1. You can perform personalized email campaigns, additional email analytics, and reporting by using [Amazon Pinpoint](https://docs.aws.amazon.com/pinpoint/latest/userguide/welcome.html), [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/what-is.html), and [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html).
+1. You can perform personalized email campaigns, additional email analytics, and reporting by using [Amazon Pinpoint](https://docs.aws.amazon.com/pinpoint/latest/userguide/welcome.html), [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/what-is.html), and [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html).
 
 ## Further reading
 <a name="further-reading"></a>
