@@ -24,6 +24,8 @@ WorkSpaces Applications creates each streaming instance from the fleet's image, 
 | Windows instances | C:\\ProgramData\\NICE\\dcv\\mcp\_server\_redirection\_config.json | 
 | Linux instances | /etc/dcv/mcp\_server\_redirection\_config.json | 
 
+Tool forwarding works the same way on image builders. Add the same configuration file, at the same location, to the image that you launch the image builder from.
+
 **Step 3: Define the MCP servers in the configuration file**
 
 The configuration file is JSON with a single top-level `mcpServers` object. Each key is a unique name that you choose for a server. Each value specifies how to launch that server.
@@ -87,11 +89,27 @@ The IAM action for calling forwarded tools is `CallForwardedTool`. To limit acce
 
 ```
 {
-  "Action": "agentaccess-mcp:*",
+  "Effect": "Allow",
+  "Action": ["agentaccess-mcp:InvokeMcp", "agentaccess-mcp:CallForwardedTool"],
   "Resource": "*",
   "Condition": {
     "ArnLike": {
       "agentaccess-mcp:StackArn": "arn:aws:appstream:{{region}}:{{account-id}}:stack/{{stack-name}}"
+    }
+  }
+}
+```
+
+Image builder sessions use the `ImageBuilderArn` condition key instead of `StackArn`. To allow access only to specific image builders, use the `ImageBuilderArn` condition key:
+
+```
+{
+  "Effect": "Allow",
+  "Action": ["agentaccess-mcp:InvokeMcp", "agentaccess-mcp:CallForwardedTool"],
+  "Resource": "*",
+  "Condition": {
+    "ArnEquals": {
+      "agentaccess-mcp:ImageBuilderArn": "arn:aws:appstream:{{region}}:{{account-id}}:image-builder/{{image-builder-name}}"
     }
   }
 }

@@ -25,3 +25,5 @@ You can use a ready-to-run coding agent, build your own agent with a framework, 
 You bring your own large language model. Agent access does not require a specific one and works with any computer-use model. A computer-use model can operate a computer through vision and actions.
 
 Computer-use models are available from multiple providers, including Anthropic, Google Gemini, and OpenAI. Because you select the model, you can match it to your task, cost, and quality needs.
+
+With WorkSpaces Applications, you can present the desktop tools in the computer use tool schema that your model expects, which increases accuracy and lowers the cost for your agent to perform actions. You select the interface for each request by sending a request header to the MCP server. For more information, see [Computer use interfaces](agent-access-computer-use-interfaces.md).

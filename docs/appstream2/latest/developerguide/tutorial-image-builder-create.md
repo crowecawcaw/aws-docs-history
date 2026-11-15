@@ -8,6 +8,9 @@
 **Important**  
 After you launch an image builder and it is running, your account may incur nominal charges. For more information, see [WorkSpaces Applications Pricing](https://aws.amazon.com/appstream2/pricing/).
 
+**Note**  
+When you create an image builder with the AWS CLI or API, you can enable agent access so that AI agents can connect to the image builder. For more information, see [Enable agent access on an image builder using the AWS CLI](getting-started-agent-access.md#getting-started-agent-access-create-image-builder-cli).
+
 **To launch an image builder**
 
 1. Open the WorkSpaces Applications console at [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home).

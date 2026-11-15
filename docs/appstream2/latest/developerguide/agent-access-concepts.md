@@ -14,6 +14,6 @@ As the agent works, the MCP server records its activity to three monitoring serv
 
 **The MCP interface**: the agent reaches the desktop through a managed MCP server. WorkSpaces Applications gives the agent a set of tools that let it move and click the mouse, type with the keyboard, and view the screen through screenshots. You can forward additional tools through the same MCP server, so the agent can also read PDFs, access files on the desktop, or run shell commands alongside the built-in tools.
 
-**The desktop**: the agent does its work on a WorkSpaces Applications desktop, a secure and ephemeral environment created for the task. The desktop runs from an image that includes the applications the agent needs to use. You set up the desktop before any agent connects to it: you choose the type of compute environment you need, then configure networking, IAM permissions, and the other settings that control access.
+**The desktop**: the agent works on a WorkSpaces Applications desktop, a secure environment that runs from an image with the applications it needs. An agent can do two kinds of work. On a stack's streaming sessions, it works on a desktop that you prepared in advance. On an image builder, it can prepare the desktop itself: install and configure applications, then test them as a standard user before you create the image.
 
 **Monitoring**: you have visibility into everything the agent does. Every tool call is logged in AWS CloudTrail, every screenshot can be stored in Amazon S3, and the time each tool call takes is available in CloudWatch.

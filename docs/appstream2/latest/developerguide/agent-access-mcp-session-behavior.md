@@ -3,12 +3,14 @@
 # Session behavior
 <a name="agent-access-mcp-session-behavior"></a>
 
-When you enable agent access on a stack, you configure how the agent's desktop session behaves, including how the agent sees and controls the desktop, where screenshots and files are stored, the screen layout, and whether people can watch and stop the agent. You set these options at the stack level.
+When you enable agent access on a stack or an image builder, you configure how the agent's desktop session behaves, including how the agent sees and controls the desktop, where screenshots and files are stored, the screen layout, and whether people can watch and stop the agent. You set these options on the stack or on the image builder. Most options work the same way on both. Home folders and application settings persistence apply only to stacks.
+
+If you make changes to agent access configurations on a stack, changes apply to new streaming sessions. On an image builder, you change the configuration while the image builder is stopped, and they apply at the next session. For steps, see [Step 5: Change agent access settings or disable agent access](getting-started-agent-access.md#getting-started-agent-access-update).
 
 ## Computer input and vision
 <a name="agent-access-input-vision"></a>
 
-Agent access gives you two options for computer use. You set them up at the stack level. For other agent options, see [MCP tool forwarding](agent-access-mcp-tool-forwarding-details.md) and [User control mode](#agent-access-user-control-mode).
+Agent access gives you two options for computer use. You set them up on the stack or on the image builder. For other agent options, see [MCP tool forwarding](agent-access-mcp-tool-forwarding-details.md) and [User control mode](#agent-access-user-control-mode).
 + **Computer input**: during a streaming session, agents click buttons, enter text, and scroll on the desktop.
 + **Computer vision**: during a streaming session, agents take screenshots to see the desktop.
 
@@ -31,10 +33,14 @@ You configure the screen resolution and image format for the agent's desktop ses
 ## Home folder storage
 <a name="agent-access-home-folders"></a>
 
+This option applies only to stacks.
+
 You can enable home folders so that agent files are saved to an Amazon S3 bucket in your AWS account. The Amazon WorkSpaces Applications fleet associated with the stack must allow access to Amazon S3 through the internet or an Amazon S3 VPC endpoint. For more information, see [Enable and administer home folders for your users](https://docs.aws.amazon.com/appstream2/latest/developerguide/home-folders.html).
 
 ## Application settings persistence
 <a name="agent-access-app-persistence"></a>
+
+This option applies only to stacks.
 
 You can optionally enable application settings persistence. This setting is available on Windows and is not supported on Linux. When enabled, your agent's application customizations and Windows settings are saved after each streaming session and applied during the next session. These settings are saved to an Amazon S3 bucket in your AWS account. The Amazon WorkSpaces Applications fleet associated with the stack must allow access to Amazon S3 through the internet or an Amazon S3 VPC endpoint. For more information, see [Enable application settings persistence for your users](https://docs.aws.amazon.com/appstream2/latest/developerguide/app-settings-persistence.html).
 
@@ -43,7 +49,9 @@ You can optionally enable application settings persistence. This setting is avai
 
 You can enable user control mode to allow users to observe and interact with agent sessions in real time. When user control mode is enabled, observers connect to the session through their browser using a streaming URL. They see a real-time view of the desktop as the agent interacts with it.
 
-In `VIEW_STOP` mode, a stop button appears at the top of the observer's screen. The observer can use this button to stop the agent if needed. After an agent is stopped, it must start a new session to resume work.
+In `VIEW_STOP` mode, a stop button appears at the top of the observer's screen. The observer can use this button to stop the agent if needed. On a stack, after an agent is stopped, it must start a new session to resume work. On an image builder, agent access returns only after you stop and start the image builder.
+
+On an image builder with agent access enabled, a person who opens the image builder in a browser can only watch the agent. They can't log in or interact with the desktop. To work on the image builder yourself, stop it, disable agent access, and start it again. To disable agent access, use the `AttributesToDelete` parameter with the `AGENT_ACCESS_CONFIG` value.
 
 Set the `UserControlMode` attribute in the `AgentAccessConfig` to one of the following values:
 + `VIEW_ONLY`: users can view and observe agent actions as they happen.

@@ -21,6 +21,11 @@ The instance must be in a **Stopped** state.
 Stop a running image builder. A stopped instance is not billed to your account.   
 The instance must be in a **Running** state.
 
+**Update**  
+Change the description and display name of an image builder by using the `UpdateImageBuilder` API operation or the `aws appstream update-image-builder` AWS CLI command.  
+You can use this operation to enable or disable agent access on an image builder, and to change agent access configuration settings. For more information, see [Step 5: Change agent access settings or disable agent access](getting-started-agent-access.md#getting-started-agent-access-update).  
+The instance must be in a **Stopped** state.
+
 **Manage license included applications **  
 Install or uninstall license included applications.  
 + Select one or more license included applications that you want to install on your image.

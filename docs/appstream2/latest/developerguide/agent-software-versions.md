@@ -12,6 +12,13 @@ The following table describes the latest updates that are available in released 
 
 | Amazon WorkSpaces Applications agent version | Changes | 
 | --- | --- | 
+| 10-25-2026 |  +  Improves streaming session reliability <br />+  General bug fixes and improvements   | 
+| 10-20-2026 |  +  Adds support for printer preference redirection   | 
+| 10-07-2026 |  +  General bug fixes and improvements   | 
+| 10-01-2026 |  +  General bug fixes and improvements   | 
+| 08-31-2026 |  +  Adds support for Graphics NV images <br />+  General bug fixes and improvements   | 
+| 08-04-2026 |  +  Adds support for the Microsoft Smart Card Key Storage Provider (KSP) <br />+  General bug fixes and improvements   | 
+| 07-03-2026 |  +  General bug fixes and improvements   | 
 | 06-29-2026 |  +  Adds support for Google Drive and OneDrive storage connectors on multi-session fleets   | 
 | 06-22-2026 |  +  General bug fixes and improvements   | 
 | 06-14-2026 |  +  Adds support for Agent Access (general availability) <br />+  Improves session logon latency <br />+  Adds a collection of new system resource metrics related to GPU, CPU, memory, and disk <br />+  General bug fixes and improvements   | 

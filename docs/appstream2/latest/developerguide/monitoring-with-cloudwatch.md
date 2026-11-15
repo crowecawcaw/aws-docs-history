@@ -7,7 +7,7 @@ Amazon WorkSpaces Applications sends the following metrics and dimension informa
 
 All of the following metrics except `InsufficientConcurrencyLimitError` apply to Always-On and On-Demand fleets. The only metrics that apply to Elastic fleets are `InUseCapacity` and `InsufficientCapacityError`.
 
-WorkSpaces Applications sends metrics to CloudWatch one time every minute. The `AWS/AppStream` namespace includes the following metrics.
+WorkSpaces Applications sends fleet usage metrics to CloudWatch one time every minute, and instance and session performance metrics one time every 5 minutes. The `AWS/AppStream` namespace includes the following metrics.
 
 **Topics**
 + [Fleet Usage Metrics for Single-session Fleets](appstream-dimensions.md)

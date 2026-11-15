@@ -30,10 +30,11 @@ A customer or employee request kicks off an agent that completes the follow-up w
 <a name="agent-access-use-cases-testing-it"></a>
 
 Agents run test cycles and recurring operational chores that teams otherwise do by hand or skip, reporting results back for review. This work runs against changing software, screens, and conditions. When a screen differs or an unexpected dialog appears, the agent adapts.
-+ Run nightly regression subsets against legacy applications.
-+ Validate image builds and patches.
-+ Perform desktop application-packaging checks.
++ Install, configure, and patch applications on an image builder before you create an image.
++ Create default application settings on an image builder.
++ Test applications and perform application-packaging checks as a standard (non-administrator) user on an image builder.
 + Perform configuration management across desktops and images.
++ Run nightly regression subsets against legacy applications.
 + Run periodic access audits that capture screenshot evidence.
 + Provide remote IT support by working directly on a user's desktop.
 + Complete forms in multiple languages.

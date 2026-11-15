@@ -17,4 +17,6 @@ An agent works with the MCP server in four stages:
 
 Throughout these stages, WorkSpaces Applications handles the connection between the MCP calls and the underlying desktop. The topics in this section describe each stage. To authenticate and open a connection, see [Connecting to the MCP server](agent-access-mcp-server-endpoint.md). For the tools your agent can call, see [Available tools](agent-access-mcp-server-tools.md). To end a session, see [Session cleanup](agent-access-mcp-server-session-cleanup.md).
 
-You enable agent access when you create a stack, using the WorkSpaces Applications console, AWS CLI, or API. Before you connect an agent, review [Prerequisites](agent-access-mcp-prerequisites.md).
+An agent can connect to a streaming session for a stack, or to an image builder. To connect to either, see [Connecting to the MCP server](agent-access-mcp-server-endpoint.md).
+
+You enable agent access when you create a stack (using the WorkSpaces Applications console, AWS CLI, or API) or an image builder (using the AWS CLI or API). Before you connect an agent, review [Prerequisites](agent-access-mcp-prerequisites.md).
