@@ -11,11 +11,11 @@ For more information on Amazon Simple Notification Service (SNS), including info
 Notifications are published to a specified Amazon SNS *topic*. The following are requirements for notifications:
 + Only one topic can be configured for ElastiCache notifications.
 + The AWS account that owns the Amazon SNS topic must be the same account that owns the cluster on which notifications are enabled.
-+ The Amazon SNS topic you are publishing to cannot be encrypted.
++ The Amazon SNS topic must be unencrypted. ElastiCache cannot publish to a topic that is encrypted with the AWS managed key for Amazon SNS or with a customer managed key.
 **Note**  
-It is possible to attach an encrypted (at-rest) Amazon SNS topic to the cluster. However, the status of the topic from the ElastiCache console will show as inactive, which effectively disassociates the topic from the cluster when ElastiCache pushes messages to the topic. 
+You can attach an encrypted topic to a cluster, and its status shows as active. When ElastiCache sends the first notification, it sets the topic status to inactive and does not emit an event.
 + The Amazon SNS topic has to be in the same Region as the ElastiCache cluster.
-+ The Amazon SNS topic's access policy must use the `aws:SourceOwner` condition key. If the policy uses `aws:SourceAccount` (which is now the default for newly created topics), ElastiCache cannot publish to the topic and automatically sets the topic status to *inactive*. For the required policy configuration, see [Managing ElastiCache Amazon SNS notifications](ECEvents.SNS.md).
++ The Amazon SNS topic's access policy must allow ElastiCache to publish to the topic. For the required policy configuration, see [Managing ElastiCache Amazon SNS notifications](ECEvents.SNS.md).
 
 ## ElastiCache Events
 <a name="ElastiCacheSNS.Events"></a>

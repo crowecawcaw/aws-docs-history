@@ -73,7 +73,7 @@ To emit specific metrics, create a configuration with the `--metric-selections` 
 
 ```
 aws cloudwatch create-resource-metrics-configuration \
-    --resource-arn arn:aws:elasticache:us-east-1:123456789012:replicationgroup:my-cluster \
+    --resource-arn arn:aws:elasticache:us-east-1:111122223333:replicationgroup:my-cluster \
     --metric-selections '[{"IncludeMetrics": ["valkey.memory.used", "valkey.commands.processed"]}]'
 ```
 
@@ -81,21 +81,21 @@ If you omit `--metric-selections`, all available metrics are selected. This incl
 
 ```
 aws cloudwatch create-resource-metrics-configuration \
-    --resource-arn arn:aws:elasticache:us-east-1:123456789012:replicationgroup:my-cluster
+    --resource-arn arn:aws:elasticache:us-east-1:111122223333:replicationgroup:my-cluster
 ```
 
 To see which metrics a replication group is currently emitting, retrieve its configuration. If no configuration exists, the command returns an error.
 
 ```
 aws cloudwatch get-resource-metrics-configuration \
-    --resource-arn arn:aws:elasticache:us-east-1:123456789012:replicationgroup:my-cluster
+    --resource-arn arn:aws:elasticache:us-east-1:111122223333:replicationgroup:my-cluster
 ```
 
 To change which metrics are selected, update the configuration.
 
 ```
 aws cloudwatch update-resource-metrics-configuration \
-    --resource-arn arn:aws:elasticache:us-east-1:123456789012:replicationgroup:my-cluster \
+    --resource-arn arn:aws:elasticache:us-east-1:111122223333:replicationgroup:my-cluster \
     --metric-selections '[{"IncludeMetrics": ["valkey.memory.used", "valkey.keyspace.hits"]}]'
 ```
 
@@ -106,7 +106,7 @@ To stop emitting metrics, delete the configuration.
 
 ```
 aws cloudwatch delete-resource-metrics-configuration \
-    --resource-arn arn:aws:elasticache:us-east-1:123456789012:replicationgroup:my-cluster
+    --resource-arn arn:aws:elasticache:us-east-1:111122223333:replicationgroup:my-cluster
 ```
 
 You can also create a configuration with the `AWS::CloudWatch::ResourceMetricsConfiguration` CloudFormation resource type. For more information, see [AWS::CloudWatch::ResourceMetricsConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudwatch-resourcemetricsconfiguration.html) in the *CloudFormation Template Reference Guide*.

@@ -8,7 +8,7 @@ Cutover is the point at which your migration endpoint stops serving from your so
 You choose how the cutover is triggered. Manual cutover is the default.
 
 ## The Start migration dialog box
-<a name="w2aac20c13c39b7"></a>
+<a name="w2aac20c13c41b7"></a>
 
 You start the data sync from the Start migration dialog box in the console. It presents the following:
 + The Cutover mode control, with the values Manual cutover and Auto-cutover. With manual cutover, you call `CompleteMigration` when you are ready. With automatic cutover, ElastiCache completes the cutover for you at the next fully synced window.
@@ -29,14 +29,14 @@ Where:
 + `--clear-target-cache-data` clears data from your target cache before the data sync starts. Add it when you start the data sync again after you stopped it or after an earlier start failed. Clearing the target cannot be undone.
 
 ## Before you cut over
-<a name="w2aac20c13c39b9"></a>
+<a name="w2aac20c13c41b9"></a>
 
 There is no way to poll migration health on demand. Prepare the migration close to the cutover window you have planned. Watch the cache's events between starting the data sync and completing the migration. If the migration is unhealthy when you call `CompleteMigration`, the call is rejected immediately. The events carry the reason.
 
 ## Manual cutover
-<a name="w2aac20c13c39c11"></a>
+<a name="w2aac20c13c41c11"></a>
 
-You decide when to complete the migration. ElastiCache keeps replicating and reports the migration as `syncing` until you act. This gives you time to validate your target cache before you cut over.
+You decide when to complete the migration. ElastiCache keeps replicating and reports the migration as `syncing` until you act. This lets you choose when to switch, for example during a period of low write traffic.
 
 When you are ready, complete the migration:
 
@@ -53,7 +53,7 @@ ElastiCache then waits for the next fully synced window before it cuts over. Hea
 **If a fully synced window is not found, the cutover does not complete.** ElastiCache reports an event on the cache that a suitable window to finalize the migration was not found. Reduce the write traffic on your source and try again. If your target is already in sync with your source, you can instead complete the migration with force.
 
 ## Automatic cutover
-<a name="w2aac20c13c39c13"></a>
+<a name="w2aac20c13c41c13"></a>
 
 ElastiCache completes the cutover for you at the next fully synced window. Opt in when you start the data sync. This is the simpler path when you do not need a validation window before switching.
 
@@ -73,7 +73,7 @@ The following table compares the two cutover modes.
 | Validation window before cutover | You choose when to switch, so you can validate your target first | None, the cutover happens at the next fully synced window | 
 
 ## Stopping the data sync
-<a name="w2aac20c13c39c15"></a>
+<a name="w2aac20c13c41c15"></a>
 
 You can stop the data sync while it is in progress:
 
@@ -86,6 +86,9 @@ Where:
 + `my-cache` is the name of your ElastiCache Serverless cache.
 
 ElastiCache stops replicating and your application continues to be served by your source cache. Nothing about your source cache changes. The migration returns to `ready-to-sync`. If you chose automatic cutover, stopping also cancels the pending cutover, unless the cutover has already begun.
+
+**Important**  
+Billing does not stop when you stop the data sync. `StopMigration` leaves the migration infrastructure provisioned. `CompleteMigration` is the call that ends the migration and its charges.
 
 Stopping has a second use besides abandoning a migration. You might stop the data sync to free capacity on your source cache for a period, then start it again when it suits you.
 
@@ -102,7 +105,7 @@ Check the migration's events before you plan to start the data sync again.
 **Once cutover has begun, stopping no longer applies.** While the migration is in `cutting-over`, `StopMigration` fails with `InvalidServerlessCacheStateFault`. With automatic cutover, ElastiCache accepts a `StopMigration` call made during `syncing`. If cutover begins before the stop takes effect, the cutover continues, and the completion event reports that the stop was ignored.
 
 ## What your application sees at cutover
-<a name="w2aac20c13c39c17"></a>
+<a name="w2aac20c13c41c17"></a>
 
 Cutover is not instantaneous, and it is applied per shard. Your application can see the following while cutover runs:
 
@@ -115,7 +118,7 @@ Cutover is not instantaneous, and it is applied per shard. Your application can 
 | Clients connected directly to your source are disconnected. | ElastiCache ends your source's client connections as part of the cutover. This disconnects anything you have attached straight to your source, such as a monitoring agent or a second application. | Nothing for your application, which keeps using the migration endpoint. | 
 
 ## Force completing a migration
-<a name="w2aac20c13c39c19"></a>
+<a name="w2aac20c13c41c19"></a>
 
 Force completing skips the pre-cutover health check and the cluster-wide convergence check. Each shard still runs the full cutover process and tries to cut over with consistent data.
 
@@ -125,7 +128,7 @@ Use force complete in two cases:
 + Abandoning a migration.
 + Ending a migration that has reported an error, because force complete is then the only way to end it.
 
-If you force complete before the data sync starts, your target has no data. To abandon a migration, first move your application traffic back to your source, and then force complete.
+While the migration is `ready-to-sync`, `CompleteMigration` requires force. If you force complete before the data sync starts, your target has no data. To abandon a migration, first move your application traffic back to your source, and then force complete.
 
 Do not use force complete to finish a healthy migration that is still syncing.
 
@@ -141,16 +144,37 @@ Where:
 + `my-cache` is the name of your ElastiCache Serverless cache.
 
 ## After cutover
-<a name="w2aac20c13c39c21"></a>
+<a name="migration-to-serverless-after-cutover"></a>
 
 Your migration endpoint now serves from your ElastiCache Serverless cache, and your application needs no change. Your source cache is no longer part of the path. You can decommission it on your own schedule after you confirm that your application is healthy on the target.
 
-Before you decommission your source, confirm that your data arrived on your target. Compare the `CurrItems` metric of your target with the number of keys on your source, and read a few keys that your application wrote during the migration. After the migration completes, remove what you set up only for the migration: the inbound rule on your source security group, any test client you started, and the secret and the customer managed key if nothing else uses them.
+Before you decommission your source, confirm that your data arrived on your target.
+
+**To verify your data**
+
+1. Wait a few minutes after the completion event before you compare. Right after completion, `CurrItems` and `DBSIZE` can briefly read higher than the final count.
+
+1. Compare the `CurrItems` metric of your target with the number of keys on your source.
+
+1. Read a few keys that your application wrote during the migration.
+
+**Note**  
+Your target can hold more keys than your source, because after cutover your application writes only to your target.
+
+After the migration completes, remove what you set up only for the migration:
+
+**To clean up**
+
+1. Remove the inbound rule on your source security group.
+
+1. Remove any test client you started.
+
+1. Remove the secret and the customer managed key if nothing else uses them.
 
 Completing the migration ends the migration charges. Your ElastiCache Serverless cache continues to bill at the standard data storage and ECPU rates, as it would at any other time.
 
 ## Related topics
-<a name="w2aac20c13c39c23"></a>
+<a name="w2aac20c13c41c23"></a>
 + [Online migration to ElastiCache Serverless](migration-to-serverless.md)
 + [Prerequisites for online migration to ElastiCache Serverless](migration-to-serverless-prerequisites.md)
 + [Source authentication for online migration to ElastiCache Serverless](migration-to-serverless-auth.md)

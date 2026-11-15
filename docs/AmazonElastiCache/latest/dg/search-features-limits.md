@@ -6,13 +6,18 @@
 ## Search availability
 <a name="search-availability"></a>
 
-ElastiCache Valkey version 9.0 and above provides support for pure non vector, vector, and hybrid workloads including Numeric, Tag (exact-match), Full-text, Vector searches, and Aggregations on node-based clusters in all AWS Regions at no additional cost.
+ElastiCache Valkey version 9.0 and above provides support for pure non vector, vector, and hybrid workloads including Numeric, Tag (exact-match), Full-text, Vector searches, and Aggregations on node-based clusters in all AWS Regions at no additional cost, and on ElastiCache Serverless caches in all AWS Regions, billed through ElastiCache Processing Units (ECPUs) and data stored.
 
 ElastiCache Valkey version 8.2 provides support for Vector Search on node-based clusters in all AWS Regions at no additional cost.
 
 You can also use search on your existing clusters by upgrading from any version of Valkey, or Redis OSS to Valkey versions mentioned above, in a [few clicks with no downtime](VersionManagement.HowTo.md).
 
 Search is currently available on all ElastiCache instance types other than nodes with data tiering. Using search on t3 and t4g instances requires increasing the memory reserve to at least 50% for micro and 30% for small instances. See [this page](redis-memory-management.md) to find out more.
+
+## Valkey Search versions
+<a name="search-versions"></a>
+
+Search on ElastiCache for Valkey 9.0 relies on Valkey Search 1.2 and does not support the FT.HYBRID command. Search on ElastiCache for Valkey 8.2 relies on Valkey Search 1.0 and does not support text, tag, or numeric queries independent of vectors.
 
 ## Parametric restrictions
 <a name="parametric-restrictions"></a>
@@ -22,21 +27,22 @@ The following table shows limits for various search items:
 
 **Search limits**  
 
-| Item | Maximum value (9.0\+) | Maximum value (8.2) | 
-| --- | --- | --- | 
-| Number of dimensions in a vector | 32768 | 32768 | 
-| Number of indexes that can be created | 1000 | 10 | 
-| Number of fields in an index | 1000 | 50 | 
-| FT.SEARCH TIMEOUT clause (milliseconds) | 60000 | 60000 | 
-| Maximum number of prefixes allowed per index | 16 | 16 | 
-| Maximum length of a tag field | 10000 | 10000 | 
-| Maximum length of a numeric field | 256 | 256 | 
-| HNSW M parameter | 2000000 | 2000000 | 
-| HNSW EF\_CONSTRUCTION parameter | 1000000 | 4096 | 
-| HNSW EF\_RUNTIME parameter | 1000000 | 4096 | 
-| Number of terms allowed to be used in a query string in FT.SEARCH/FT.AGGREGATE commands | 1000 | 16 | 
-| Number of text attributes allowed per index | 64 | NA | 
-| Maximum text word expansions in Prefix, Suffix, Fuzzy, and Stem Term Searches | 200 | NA | 
+| Item | Maximum value (Serverless) | Maximum value (node-based 9.0\+) | Maximum value (node-based 8.2) | 
+| --- | --- | --- | --- | 
+| Number of dimensions in a vector | 4096 | 32768 | 32768 | 
+| Number of indexes that can be created | 1000 | 1000 | 10 | 
+| Number of fields in an index | 1000 | 1000 | 50 | 
+| FT.SEARCH TIMEOUT clause (milliseconds) | 60000 | 60000 | 60000 | 
+| Maximum number of prefixes allowed per index | 8 | 16 | 16 | 
+| Maximum length of a tag field | 256 | 10000 | 10000 | 
+| Maximum length of a numeric field | 128 | 256 | 256 | 
+| HNSW M parameter | 32 | 2000000 | 2000000 | 
+| HNSW EF\_CONSTRUCTION parameter | 256 | 1000000 | 4096 | 
+| HNSW EF\_RUNTIME parameter | 512 | 1000000 | 4096 | 
+| Number of terms allowed to be used in a query string in FT.SEARCH/FT.AGGREGATE commands | 1000 | 1000 | 16 | 
+| Number of text attributes allowed per index | 64 | 64 | NA | 
+| Maximum text word expansions in Prefix, Suffix, Fuzzy, and Stem Term Searches | 200 | 200 | NA | 
+| K value in a vector (KNN) query | 512 | 10000 | 128 | 
 
 ## Operational restrictions
 <a name="operational-restrictions"></a>
@@ -54,7 +60,7 @@ In ElastiCache Valkey version 9.0, during scaling events, the write RPS may redu
 ### Snapshot import/export and Live Migration
 <a name="snapshot-import-export"></a>
 
-The RDB files from the one cluster with search indexes can be imported to another ElastiCache Valkey cluster with version 8.2 or higher. The new cluster will rebuild the index content on loading the RDB file. However, the presence of search indexes in an RDB file limits the compatibility of that data with prior versions of Valkey. The format of the search indexes defined by the vector search functionality is only understood by another ElastiCache cluster with Valkey version 8.2 or higher. However, RDB files that do not contain indexes are not restricted in this fashion.
+The RDB files from the one cluster with search indexes can be imported to another ElastiCache Valkey cluster with version 8.2 or higher, or to an ElastiCache Serverless cache with Valkey 9.0 or higher. The new cluster will rebuild the index content on loading the RDB file. However, the presence of search indexes in an RDB file limits the compatibility of that data with prior versions of Valkey. The format of the search indexes defined by the vector search functionality is only understood by another ElastiCache cluster with Valkey version 8.2 or higher. However, RDB files that do not contain indexes are not restricted in this fashion.
 
 ### Out of Memory during backfill
 <a name="out-of-memory-backfill"></a>

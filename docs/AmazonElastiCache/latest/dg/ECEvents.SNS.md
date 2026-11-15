@@ -9,33 +9,8 @@ You can configure ElastiCache to send notifications for important cluster events
 This topic assumes that you've signed up for Amazon SNS and have set up and subscribed to an Amazon SNS topic. For information on how to do this, see the [Amazon Simple Notification Service Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/). 
 By default, the `API modify-replication-group` affects all groups in a Region and not just the current specified group. If you want to configure one specific group in a Region differently than the other groups, you can use the `--notification-topic-arn` option to create a separate topic for that group.
 
-**SNS topic access policy requirement**  
-When you configure an Amazon SNS topic for ElastiCache notifications, the topic's access policy must use the `aws:SourceOwner` condition key, not `aws:SourceAccount`. Newly created Amazon SNS topics default to `aws:SourceAccount` in their access policy, which ElastiCache does not support for event notifications.  
-If your Amazon SNS topic uses `aws:SourceAccount`, ElastiCache cannot publish notifications to the topic and automatically sets the topic status to *inactive*. Global Datastore failovers and other cluster operations can trigger this error.  
-To ensure ElastiCache notifications work correctly, verify your Amazon SNS topic access policy includes the following statement:  
-
-```
-{
-  "Statement": [
-    {
-      "Sid": "AllowElastiCachePublish",
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "*"
-      },
-      "Action": "SNS:Publish",
-      "Resource": "arn:aws:sns:{{region}}:{{account-id}}:{{topic-name}}",
-      "Condition": {
-        "StringEquals": {
-          "AWS:SourceOwner": "{{account-id}}"
-        }
-      }
-    }
-  ]
-}
-```
-If ElastiCache shows your Amazon SNS topic status as *inactive* after a failover or other cluster operation, check the topic's access policy and replace `aws:SourceAccount` with `aws:SourceOwner`. Then re-enable the notification on the cluster with the `ModifyReplicationGroup` API operation or the console.  
-For more information about these condition keys, see [aws:SourceAccount vs aws:SourceOwner](https://docs.aws.amazon.com/sns/latest/dg/sns-access-policy-use-cases.html#source-account-versus-source-owner) in the *Amazon SNS Developer Guide*.
+**Encrypted Amazon SNS topics are not supported**  
+ElastiCache cannot publish to an encrypted Amazon SNS topic, whether the topic uses the AWS managed key for Amazon SNS or a customer managed key. You can attach an encrypted topic to a cluster, and its status shows as active. When ElastiCache sends the first notification, it sets the topic status to inactive and does not emit an event. Use an unencrypted topic.
 
 ## Prerequisites
 <a name="ECEvents.SNS.Prerequisites"></a>
@@ -43,7 +18,7 @@ For more information about these condition keys, see [aws:SourceAccount vs aws:S
 Before you configure Amazon SNS notifications for ElastiCache, verify the following requirements:
 + The Amazon SNS topic must be in the same AWS Region as your ElastiCache cluster.
 + The Amazon SNS topic must be owned by the same AWS account as your ElastiCache cluster.
-+ The Amazon SNS topic must not be encrypted with a customer managed AWS KMS key. ElastiCache does not support publishing notifications to Amazon SNS topics that are encrypted with customer managed AWS KMS keys.
++ The Amazon SNS topic must be unencrypted. ElastiCache cannot publish to a topic that is encrypted with the AWS managed key for Amazon SNS or with a customer managed key.
 + You must have permissions to modify the Amazon SNS topic access policy (`sns:SetTopicAttributes` or equivalent).
 
 ## Granting ElastiCache permission to publish to your Amazon SNS topic
@@ -84,6 +59,8 @@ The following table describes the policy components.
 | Action | sns:Publish | The minimum required permission | 
 | Resource | Topic ARN | The ARN of your specific Amazon SNS topic | 
 | Condition: aws:SourceAccount | Your AWS account ID | Restricts access to requests originating from your specific AWS account | 
+
+The condition can use either `aws:SourceAccount` or `aws:SourceOwner`. The default access policy that Amazon SNS creates for a new topic also works without changes.
 
 ### Granting permission (Console)
 <a name="ECEvents.SNS.Permissions.Console"></a>
@@ -326,10 +303,15 @@ After configuring the Amazon SNS topic policy and adding the topic to your Elast
 
 1. In the Amazon SNS console, verify that the subscription status shows *Confirmed*.
 
+1. To check the topic status, run `describe-cache-clusters` for each node and read `TopicStatus` in `NotificationConfiguration`. The `describe-replication-groups` command does not return it.
+
 ## Troubleshooting Amazon SNS notifications
 <a name="ECEvents.SNS.Troubleshooting"></a>
 
 If you are not receiving Amazon SNS notifications from ElastiCache, check the following:
+
+Topic encryption  
+If the topic status is inactive, check whether the topic is encrypted. ElastiCache sets an encrypted topic to inactive at the first notification. Use an unencrypted topic, and then [turn notifications back on](#ECEvents.SNS.Adding).
 
 Region mismatch  
 Verify that the Amazon SNS topic is in the same AWS Region as your ElastiCache cluster.
@@ -339,9 +321,6 @@ Verify that the Amazon SNS topic is owned by the same AWS account as your Elasti
 
 Incorrect account ID in condition  
 Check that the `aws:SourceAccount` value is your exact 12-digit AWS account ID.
-
-KMS encryption  
-Verify that the Amazon SNS topic is not encrypted with a customer managed AWS KMS key. ElastiCache does not support publishing to topics with customer managed AWS KMS encryption.
 
 Topic ARN mismatch  
 Confirm that the Amazon SNS topic ARN in the policy matches exactly the ARN of the topic attached to your ElastiCache cluster.

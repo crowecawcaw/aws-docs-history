@@ -25,12 +25,15 @@ The `AWS/ElastiCache` namespace includes the following CloudWatch metrics for yo
 
 | Metric | Description | Unit | 
 | --- | --- | --- | 
-| BytesUsedForCache | The total number of bytes used by the data stored in your cache. | Bytes | 
+| BytesUsedForCache | The total number of bytes used by the data stored in your cache, including search indexes. | Bytes | 
 | ElastiCacheProcessingUnits | The total number of ElastiCacheProcessingUnits (ECPUs) consumed by the requests executed on your cache | Count | 
+| SearchNumberOfIndexes | Number of search indexes. | Count | 
+| SearchTotalIndexedDocuments | Total number of keys in all search indexes. | Count | 
+| SearchBytesUsedForCache | The total number of bytes that search indexes add to the data stored in your cache. | Bytes | 
 | SuccessfulReadRequestLatency | Latency of successful read requests. | Microseconds | 
 | SuccessfulWriteRequestLatency | Latency of successful write requests | Microseconds | 
 | TotalCmdsCount | Total count of all commands executed on your cache | Count | 
-| CacheHitRate | Indicates the hit rate of your cache. This is calculated using `cache_hits` and `cache_misses` statistics in the following way: `cache_hits /(cache_hits + cache_misses)`. | Percent | 
+| CacheHitRate | The hit rate of your cache, expressed as a ratio from 0 to 1. This is calculated as `CacheHits / (CacheHits + CacheMisses)` for each one-minute interval. For example, a value of 0.8 means that 80 percent of read-only key lookups were hits.<br />When you use the Average statistic over periods longer than one minute, the result is an average of the per-minute ratios. To get the exact hit rate over a longer period, use CloudWatch metric math: `CacheHits / (CacheHits + CacheMisses)`, with the Sum statistic for both metrics. To view it as a percentage, multiply by 100.<br />On node-based clusters, `CacheHitRate` is reported as a percentage from 0 to 100. If you reuse dashboards or alarms from a node-based cluster, divide their `CacheHitRate` thresholds by 100. | None | 
 | CacheHits | The number of successful read-only key lookups in the cache. | Count | 
 | CacheMisses | The number of unsuccessful read-only key lookups in the cache. | Count | 
 | CurrConnections | The number of client connections to your cache. | Count | 
@@ -70,6 +73,8 @@ ElastiCache also emits the following command level metrics. For each command typ
 | JsonBasedGetCmdsECPUs | ECPUs consumed by JSON read-only commands. | Count | 
 | JsonBasedSetCmds | The total number of JSON write commands. This is derived from the Valkey or Redis OSS commandstats statistic by summing all JSON write commands that act upon JSON keys. | Count | 
 | JsonBasedSetCmdsECPUs | ECPUs consumed by JSON write commands. | Count | 
+| SearchBasedCmds | Total number of search commands. | Count | 
+| SearchBasedCmdsECPUs | ECPUs consumed by search commands. | Count | 
 | KeyBasedCmds | The total number of commands that are key-based. This is derived from the Valkey or Redis OSS commandstats statistic by summing all of the commands that act upon one or more keys across multiple data structures (del, expire, rename, and so on.). | Count | 
 | KeyBasedCmdsECPUs | ECPUs consumed by key-based commands. | Count | 
 | ListBasedCmds | The total number of commands that are list-based. This is derived from the Valkey or Redis OSS commandstats statistic by summing all of the commands that act upon one or more lists (lindex, lrange, lpush, ltrim, and so on). | Count | 

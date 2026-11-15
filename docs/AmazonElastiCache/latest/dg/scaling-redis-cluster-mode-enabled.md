@@ -23,9 +23,9 @@ Conditions under which you might decide to rescale your cluster include the foll
   You can monitor your cluster's use to determine whether or not you can safely scale in using the following metrics: *FreeableMemory*, *SwapUsage*, *BytesUsedForCache*, *CPUUtilization*, *NetworkBytesIn*, *NetworkBytesOut*, *CurrConnections*, and *NewConnections*.
 + **Durability write throughput limit:**
 
-  Durability-enabled clusters support up to 100 MiBps of write throughput per primary node. If your workload approaches this limit, you should scale out by adding shards to distribute write load across more primary nodes.
+  Durability-enabled clusters support up to 100 MBps of write throughput per primary node. If your workload approaches this limit, you should scale out by adding shards to distribute write load across more primary nodes.
 
-  You can detect when throughput saturation is approaching by monitoring the following metrics: *DurabilityLag* and *TrafficManagementActive*.
+  You can detect when throughput saturation is approaching by monitoring the following metrics: *MaxReplicationThroughput*, *DurabilityLag*, and *TrafficManagementActive*.
 
 **Performance Impact of Scaling**  
 When you scale using the offline process, your cluster is offline for a significant portion of the process and thus unable to serve requests. When you scale using the online method, because scaling is a compute-intensive operation, there is some degradation in performance, nevertheless, your cluster continues to serve requests throughout the scaling operation. How much degradation you experience depends upon your normal CPU utilization and your data.

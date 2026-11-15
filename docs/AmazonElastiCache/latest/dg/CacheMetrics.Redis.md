@@ -52,7 +52,7 @@ For complete documentation of the **info** command, see [http://valkey.io/comman
   - **Unit:** Count
 
 - **`CacheHitRate`**
-  - **Description:** Indicates the usage efficiency of the Valkey or Redis OSS instance. If the cache ratio is lower than about 0.8, it means that a significant amount of keys are evicted, expired, or don't exist. This is calculated using cache\_hits and cache\_misses statistics in the following way: cache\_hits /(cache\_hits \+ cache\_misses).
+  - **Description:** Indicates the usage efficiency of the Valkey or Redis OSS instance. If the hit rate is lower than about 80 percent, it means that a significant amount of keys are evicted, expired, or don't exist. This is calculated using cache\_hits and cache\_misses statistics in the following way: 100 \* cache\_hits /(cache\_hits \+ cache\_misses).
   - **Unit:** Percent
 
 - **`ChannelAuthorizationFailures`**
@@ -235,6 +235,10 @@ For complete documentation of the **info** command, see [http://valkey.io/comman
 - **`DurabilityBufferExceededErrorCount`**
   - **Description:** Write commands rejected due to exceeding the 10-second durability window. Only for async writes.
   - **Unit:** Count
+
+- **`MaxReplicationThroughput`**
+  - **Description:** The maximum observed replication throughput, sampled over short intervals and reported once per minute. Only for durability-enabled clusters.
+  - **Unit:** Bytes/Second
 
 
 

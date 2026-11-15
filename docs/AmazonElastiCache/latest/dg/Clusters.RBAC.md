@@ -36,6 +36,8 @@ RBAC is designed to support the introduction of [ACL](https://valkey.io/topics/a
   <tr><td>Users per user group</td><td>100</td></tr>
   <tr><td>Number of users</td><td>1000</td></tr>
   <tr><td>Number of user groups</td><td>100</td></tr>
+  <tr><td>User ID length</td><td>40 characters by default</td></tr>
+  <tr><td>User group ID length</td><td>40 characters by default</td></tr>
 </tbody>
 </table>
 
@@ -134,6 +136,10 @@ These steps are described in detail as follows.
 <a name="Users-management"></a>
 
 The user information for RBAC users is a user ID, user name, and optionally a password and an access string. The access string provides the permission level on keys and commands. The user ID is unique to the user, and the user name is what is passed to the engine. 
+
+A user ID can be up to 40 characters long by default. It must begin with a letter, can contain only ASCII letters, digits, and hyphens, and can't contain two consecutive hyphens. A user group ID follows the same rules.
+
+For an IAM-enabled user, the user name must match the user ID, so the same length limit applies to the user name. For more information, see [Authenticating with IAM in ElastiCache](auth-iam.md).
 
 Make sure that the user permissions you provide make sense with the intended purpose of the user group. For example, if you create a user group called `Administrators`, any user you add to that group should have its access string set to full access to keys and commands. For users in an `e-commerce` user group, you might set their access strings to read-only access.
 
@@ -450,12 +456,13 @@ To add a user group to a replication using the AWS Management Console, do the fo
 #### Assigning User Groups to Replication Groups Using the AWS CLI
 <a name="Users-groups-to-RGs-CLI"></a>
 
- The following AWS CLI operation creates a replication group with encryption in transit (TLS) enabled and the **user-group-ids** parameter with the value `{{my-user-group-id}}`. Replace the subnet group `sng-test` with a subnet group that exists.
+ The following AWS CLI operation creates a replication group that has encryption in transit (TLS) enabled and required, with the **user-group-ids** parameter with the value `{{new-group-1}}`. Replace the subnet group `cache-subnet-group` with a subnet group that exists.
 
 **Key Parameters**
 + **--engine** – Must be `valkey` or `redis`.
 + **--engine-version** – Must be 6.0 or later.
 + **--transit-encryption-enabled** – Required for authentication and for associating a user group.
++ **--transit-encryption-mode** – Must be `required` or omitted for authentication and for associating a user group.
 + **--user-group-ids** – This value provides the ID of the user group, comprised of users with specified access permissions for the cache.
 + **--cache-subnet-group** – Required for associating a user group.
 
@@ -485,7 +492,7 @@ aws elasticache create-replication-group ^
     --cache-subnet-group {{"cache-subnet-group"}}
 ```
 
-The following AWS CLI operation modifies a replication group with encryption in transit (TLS) enabled and the **user-group-ids** parameter with the value `{{my-user-group-id}}`. 
+The following AWS CLI operation modifies a replication group that has encryption in transit (TLS) enabled and required, with the **user-group-ids** parameter with the value `{{new-group-2}}`. 
 
 For Linux, macOS, or Unix:
 

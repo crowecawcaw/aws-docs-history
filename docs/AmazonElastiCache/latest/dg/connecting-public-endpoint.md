@@ -17,7 +17,7 @@ All public endpoint connections require IAM authentication and TLS 1.3. There ar
 + [Option 2: Developer Toolkit for ElastiCache](#connecting-public-endpoint-toolkit)
 + [Option 3: Manual SigV4 signing](#connecting-public-endpoint-sigv4)
 + [Token and session expiration](#connecting-public-endpoint-behavior)
-+ [Troubleshooting](#connecting-public-endpoint-troubleshooting)
++ [Troubleshooting public endpoint connections](#connecting-public-endpoint-troubleshooting)
 
 ## IAM policy for connecting
 <a name="connecting-public-endpoint-iam-policy"></a>
@@ -34,8 +34,8 @@ Create an IAM policy that allows the `elasticache:Connect` action on the ElastiC
             "Effect": "Allow",
             "Action": "elasticache:Connect",
             "Resource": [
-                "arn:aws:elasticache:us-east-1:123456789012:serverlesscache:my-public-cache",
-                "arn:aws:elasticache:us-east-1:123456789012:user:default.iam-user"
+                "arn:aws:elasticache:us-east-1:111122223333:serverlesscache:my-public-cache",
+                "arn:aws:elasticache:us-east-1:111122223333:user:default.iam-user"
             ]
         }
     ]
@@ -196,7 +196,7 @@ Generate the IAM authentication token manually using the AWS SDK. For signing co
 + **Token expiration:** IAM authentication tokens are valid for 15 minutes. GLIDE refreshes the token automatically. If you use the Developer Toolkit or manual signing, generate a new token for each new connection. Token expiration does not affect established connections. If you sign the token with temporary credentials, the token expires when those credentials expire, if that is sooner than 15 minutes.
 + **Session expiration:** Connections expire after 12 hours and reconnect automatically. Revoking an IAM principal's `elasticache:Connect` permission does not immediately disconnect active sessions. To disconnect a user immediately, remove the user from the cache's user group.
 
-## Troubleshooting
+## Troubleshooting public endpoint connections
 <a name="connecting-public-endpoint-troubleshooting"></a>
 
 The following table lists common connection errors, their causes, and how to resolve them.

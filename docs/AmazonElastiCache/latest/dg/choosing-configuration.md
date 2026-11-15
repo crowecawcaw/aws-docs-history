@@ -3,7 +3,12 @@
 # Choosing the appropriate configuration
 <a name="choosing-configuration"></a>
 
-Within the console experience, ElastiCache offers an easy way to choose the right instance type based on the memory and cpu requirements of your search workload.
+## Choosing between Serverless and node-based
+<a name="serverless-or-node-based"></a>
+
+Choose Serverless when your traffic is hard to predict, your index holds tens of millions of vectors or documents, and you want to start quickly without planning capacity. Choose a node-based cluster when you need the lowest latency on hundreds of millions of vectors, sustained high query throughput, or fast bulk loads of large vector indexes. With ElastiCache Serverless, you don't choose an instance type, because Serverless scales memory and compute with your search workload.
+
+For node-based clusters, choose the right instance type based on the memory and cpu requirements of your search workload.
 
 ## Memory consumption
 <a name="memory-consumption"></a>

@@ -38,12 +38,13 @@ To set up a strong token, we recommend that you follow a strict password policy,
 
 You can require that users enter a token (password) on a token-protected Valkey or Redis OSS server. To do this, include the parameter `--auth-token` (API: `AuthToken`) with the correct token when you create your replication group or cluster. Also include it in all subsequent commands to the replication group or cluster.
 
-The following AWS CLI operation creates a replication group with encryption in transit (TLS) enabled and the **AUTH** token `{{This-is-a-sample-token}}`. Replace the subnet group `sng-test` with a subnet group that exists.
+The following AWS CLI operation creates a replication group that has encryption in transit (TLS) enabled and required, with the **AUTH** token `{{This-is-a-sample-token}}`. Replace the subnet group `sng-test` with a subnet group that exists.
 
 **Key parameters**
 + **--engine** – Must be `valkey` or `redis`.
 + **--engine-version** – If engine is Redis OSS, must be 4.0.10 or later.
 + **--transit-encryption-enabled** – Required for authentication and HIPAA eligibility.
++ **--transit-encryption-mode** – Must be `required` or omitted for authentication and HIPAA eligibility.
 + **--auth-token** – Required for authentication when using AUTH tokens. For HIPAA eligibility, authentication is required (either via AUTH token or IAM authentication). This value must be the correct token for this token-protected Valkey or Redis OSS server.
 + **--cache-subnet-group** – Required for HIPAA eligibility.
 
@@ -80,7 +81,7 @@ aws elasticache create-replication-group ^
 ## Modifying the AUTH token on an existing cluster
 <a name="auth-modifyng-token"></a>
 
-To make it easier to update your authentication, you can modify the **AUTH** token used on a cluster. You can make this modification if the engine version is Valkey 7.2 or higher or Redis 5.0.6 or higher. ElastiCache must also have encryption in transit enabled. For more information, see [ElastiCache in-transit encryption (TLS)](in-transit-encryption.md).
+To make it easier to update your authentication, you can modify the **AUTH** token used on a cluster. You can make this modification if the engine version is Valkey 7.2 or higher or Redis 5.0.6 or higher. ElastiCache must also have encryption in transit enabled and transit encryption mode `required`. For more information, see [ElastiCache in-transit encryption (TLS)](in-transit-encryption.md).
 
 Modifying the auth token supports two strategies: ROTATE and SET. The ROTATE strategy adds an additional AUTH token to the server while retaining the previous token. The SET strategy updates the server to support just a single AUTH token. Make these modification calls with the `--apply-immediately` parameter to apply changes immediately.
 
@@ -150,7 +151,7 @@ aws elasticache modify-replication-group ^
 
 To enable authentication on an existing Valkey or Redis OSS server, call the `ModifyReplicationGroup` API operation. Call `ModifyReplicationGroup` with the `--auth-token` parameter as the new token and the `--auth-token-update-strategy` with the value ROTATE. 
 
-After the ROTATE modification is complete, the cluster supports the **AUTH** token specified in the `--auth-token` parameter in addition to supporting connecting without authentication. Once all client applications are updated to authenticate to Valkey or Redis OSS with the AUTH token, use the SET strategy to mark the AUTH token as required. Enabling authentication is only supported on Valkey and Redis OSS servers with encryption in transit (TLS) enabled. 
+After the ROTATE modification is complete, the cluster supports the **AUTH** token specified in the `--auth-token` parameter in addition to supporting connecting without authentication. Once all client applications are updated to authenticate to Valkey or Redis OSS with the AUTH token, use the SET strategy to mark the AUTH token as required. Enabling authentication is only supported on Valkey and Redis OSS servers with encryption in transit (TLS) enabled and required. 
 
 ## Migrating from RBAC to AUTH
 <a name="Migrate-From-RBAC-to-AUTH"></a>

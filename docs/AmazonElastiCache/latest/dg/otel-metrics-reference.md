@@ -47,8 +47,8 @@ Resource attributes identify the account, the location, and the ElastiCache reso
 | cloud.provider | aws | The cloud provider. | 
 | cloud.region | us-east-1 | The AWS Region that the node runs in. | 
 | cloud.availability\_zone\_id | use1-az1 | The ID of the Availability Zone that the node runs in. | 
-| cloud.account.id | 123456789012 | The AWS account ID that owns the replication group. | 
-| cloud.resource\_id | arn:aws:elasticache:us-east-1:123456789012:replicationgroup:my-cluster | The ARN of the replication group. | 
+| cloud.account.id | 111122223333 | The AWS account ID that owns the replication group. | 
+| cloud.resource\_id | arn:aws:elasticache:us-east-1:111122223333:replicationgroup:my-cluster | The ARN of the replication group. | 
 | aws.elasticache.replication\_group.id | my-cluster | The ID of the replication group. | 
 | aws.elasticache.shard.id | my-cluster-0001 | The ID of the shard that contains the node. | 
 | aws.elasticache.node.id | my-cluster-0001-001 | The ID of the node that emitted the datapoint. | 

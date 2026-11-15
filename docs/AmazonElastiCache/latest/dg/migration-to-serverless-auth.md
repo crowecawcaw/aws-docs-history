@@ -10,7 +10,7 @@ Your target cache must also accept the credentials that your application uses on
 If your source cache accepts unauthenticated connections, you can skip the authentication configuration.
 
 ## Storing source credentials
-<a name="w2aac20c13c35b9"></a>
+<a name="w2aac20c13c37b9"></a>
 
 Store your source cache credentials in a Secrets Manager secret. You can use a secret you already manage, or create one for the migration. If you create the secret from the ElastiCache console as part of setting up the migration, ElastiCache configures its access for you.
 
@@ -51,9 +51,18 @@ Where:
 The prepare step validates the secret's format, whether you created the secret or ElastiCache created it for you. An empty secret, a secret that is not valid JSON, a secret with no `password` field, or a user name or password that does not meet the requirements above each fail with a specific message. If your source password does not meet them, change it on your source before you prepare the migration.
 
 ### Granting ElastiCache access to the secret
-<a name="w2aac20c13c35b9c31"></a>
+<a name="w2aac20c13c37b9c31"></a>
 
 ElastiCache reads the secret with its own service credentials, so the secret needs a resource policy. Grant `secretsmanager:GetSecretValue` to the `elasticache.amazonaws.com` service principal.
+
+The following permissions are required:
+
+
+| Who | Permission | Where you grant it | 
+| --- | --- | --- | 
+| The elasticache.amazonaws.com service principal | secretsmanager:GetSecretValue | The secret's resource policy | 
+| The elasticache.amazonaws.com service principal | kms:Decrypt | The key policy | 
+| Your IAM identity | secretsmanager:GetSecretValue, kms:Decrypt, ec2:DescribeSubnets | Your IAM identity's permissions policy | 
 
 The following resource policy grants ElastiCache read access to the secret.
 
@@ -93,7 +102,7 @@ Do not add an `aws:SourceAccount` or `aws:SourceArn` condition to these statemen
 The IAM identity that calls `PrepareMigration` also needs `secretsmanager:GetSecretValue` on the secret, and `kms:Decrypt` on the key that encrypts it. When it calls `PrepareMigration` and `StartMigration`, it also needs `ec2:DescribeSubnets`, because ElastiCache checks the subnets of your target cache with your credentials. ElastiCache first reads the secret with your credentials to confirm that you have access, and then with its own service credentials. If either read is denied, the prepare step fails with the same access denied message, so check both your own permissions and the secret's resource and key policies.
 
 ## Permissions for the migration user
-<a name="w2aac20c13c35c11"></a>
+<a name="migration-to-serverless-auth-permissions"></a>
 
 The credentials you store decide which user ElastiCache connects as. What that user is allowed to do on your source determines whether the migration can finish.
 
@@ -136,7 +145,7 @@ Your application's own users must exist on both your source and your target. Dur
 If your source accepts connections without authentication, keep the default user on your target enabled with no password. A client that does not authenticate gets a `NOAUTH` error from the migration endpoint when the default user on your target is disabled or has a password.
 
 ## Providing the secret when you prepare a migration
-<a name="w2aac20c13c35c15"></a>
+<a name="w2aac20c13c37c15"></a>
 
 Pass the secret ARN in the source authentication configuration:
 
@@ -156,7 +165,7 @@ Where:
 ElastiCache validates connectivity and credentials during the prepare step. If it cannot connect, the prepare step fails. ElastiCache reports a failure event on the cache that names the reason. The migration is rolled back, so the `Migration` object is removed and your cache returns to `available`. Correct the address, the network configuration, or the secret access, then try again.
 
 ## Encryption in transit
-<a name="w2aac20c13c35c17"></a>
+<a name="w2aac20c13c37c17"></a>
 
 If your source cache requires TLS, set `SourceTlsMode` to `verify-ca` in the `SourceTlsConfiguration` parameter when you prepare the migration, and pass your CA certificates in `SourceTlsCertificate`.
 
@@ -166,7 +175,7 @@ To find the cause of that failure, read the events on your target cache. The fai
 
 The prepare step validates the certificate value. It fails if the value is not a valid PEM-encoded X.509 certificate, is longer than 5,000 characters, contains a private key, or holds a certificate that is expired or not yet valid. The 5,000 character limit counts the whole value, including the BEGIN and END lines and the line breaks, so a chain of several certificates can exceed it.
 
-ElastiCache verifies that your source's server certificate chains to a CA certificate you provided. It does not check the host name in the certificate, so your source address can be an IP address or a host name.
+ElastiCache verifies that your source's server certificate chains to a CA certificate you provided. It does not check the host name in the certificate, so your source address can be an IP address or a host name that resolves through public DNS.
 
 ```
 aws elasticache prepare-migration \
@@ -183,7 +192,7 @@ If your source also requires authentication, add the `--source-authentication-co
 If your source accepts unencrypted connections, set `SourceTlsMode` to `none`. Provide a certificate only with `verify-ca`. A certificate with `none`, or with no TLS mode set, fails the prepare step.
 
 ## Related topics
-<a name="w2aac20c13c35c19"></a>
+<a name="w2aac20c13c37c19"></a>
 + [Prerequisites for online migration to ElastiCache Serverless](migration-to-serverless-prerequisites.md)
 + [Online migration to ElastiCache Serverless](migration-to-serverless.md)
 + [Migrate your data to ElastiCache Serverless](migration-to-serverless-procedure.md)

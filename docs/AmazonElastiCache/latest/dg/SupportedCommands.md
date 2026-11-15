@@ -8,7 +8,7 @@
 
 **Supported Valkey and Redis OSS commands**
 
-The following Valkey and Redis OSS commands are supported by serverless caches. In addition to these commands, these [Supported Valkey and Redis OSS commands](json-list-commands.md) are also supported.
+The following Valkey and Redis OSS commands are supported by serverless caches. Serverless caches also support the search commands. In addition to these commands, these [Supported Valkey and Redis OSS commands](json-list-commands.md) are also supported.
 
 For information on Bloom Filter commands see [Bloom filter commands](BloomFilters.md#SupportedCommandsBloom)
 
@@ -264,6 +264,9 @@ For information on Bloom Filter commands see [Bloom filter commands](BloomFilter
   Iterates over the key names in the database.
 
   [Learn more](https://valkey.io/commands/scan/)
+**Note**  
+Frequent or large `SCAN` operations are resource intensive and can increase CPU utilization, which might raise latency for other operations. On serverless caches, heavy `SCAN` usage can slow the scaling (resharding) process, which might cause scaling to take longer than usual.  
+We recommend that you review whether your workload requires frequent full keyspace scans and reduce them where possible. For serverless caches, consider configuring a minimum capacity to maintain headroom.
 + `SORT`
 
   Sorts the elements in a list, a set, or a sorted set, optionally storing the result.

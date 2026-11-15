@@ -40,7 +40,7 @@ The following procedure shows how to change the `cluster-enabled` parameter's va
 If you make changes to the following parameters on a Valkey or Redis OSS (cluster mode enabled) cluster, follow the ensuing steps.  
 activerehashing
 databases
-With Redis OSS, you can reate a manual backup of your cluster. See [Taking manual backups](backups-manual.md).
+Create a manual backup of your cluster. See [Taking manual backups](backups-manual.md).
 Delete the cluster. See [Deleting clusters](Clusters.html#Delete).
 Restore the cluster using the altered parameter group and backup to seed the new cluster. See [Restoring from a backup into a new cache](backups-restoring.md).
 Changes to other parameters do not require this.
