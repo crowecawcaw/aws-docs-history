@@ -17,6 +17,7 @@ A *managed instance* is managed by a service provider, such as Amazon EKS Auto M
 + [Amazon EC2 instance types](instance-types.md)
 + [Amazon EC2 managed instances](amazon-ec2-managed-instances.md)
 + [Use nested virtualization to run hypervisors in Amazon EC2 instances](amazon-ec2-nested-virtualization.md)
++ [Isolate workloads with AWS Nitro Sandboxes](amazon-ec2-nitro-sandboxes.md)
 + [Amazon EC2 billing and purchasing options](instance-purchasing-options.md)
 + [Store instance launch parameters in Amazon EC2 launch templates](ec2-launch-templates.md)
 + [Launch an Amazon EC2 instance](LaunchingAndUsingInstances.md)

@@ -3,7 +3,9 @@
 # CloudWatch metrics that are available for your instances
 <a name="viewing_metrics_with_cloudwatch"></a>
 
-Amazon EC2 sends metrics to Amazon CloudWatch. You can use the AWS Management Console, the AWS CLI, or an API to list the metrics that Amazon EC2 sends to CloudWatch. By default, each data point covers the 5 minutes that follow the start time of activity for the instance. If you've enabled detailed monitoring, each data point covers the next minute of activity from the start time. Note that for the Minimum, Maximum, and Average statistics, the minimum granularity for the metrics that EC2 provides is 1 minute.
+Amazon EC2 sends metrics to Amazon CloudWatch. You can use the AWS Management Console, the AWS CLI, or an API to list the metrics that Amazon EC2 sends to CloudWatch. By default, each data point covers the 5 minutes that follow the start time of activity for the instance. If you've enabled detailed monitoring, each default metric data point covers the next minute of activity from the start time. Metrics selected through metric categories use the period listed in the metric categories table. The `CPUUtilization10Sec` metric uses 10-second periods. Other Amazon EC2 metrics use a minimum period of 1 minute.
+
+Amazon EC2 supports OpenTelemetry (OTel) metrics for optional Detailed Monitoring metrics. OpenTelemetry is an open-source observability framework that provides vendor-agnostic instrumentation for collecting metrics, logs, and traces. For more information, see [OpenTelemetry](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-OpenTelemetry-Sections.html) in the *Amazon CloudWatch User Guide*.
 
 For information about how to view the available metrics using the AWS Management Console or the AWS CLI, see [View available metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/viewing_metrics_with_cloudwatch.html) in the *Amazon CloudWatch User Guide*.
 
@@ -19,6 +21,7 @@ For information about getting the statistics for these metrics, see [Statistics 
 + [Traffic mirroring metrics](#traffic-mirroring-metrics)
 + [Auto Scaling group metrics](#autoscaling-metrics)
 + [Amazon EC2 metric dimensions](#ec2-cloudwatch-dimensions)
++ [Amazon EC2 OpenTelemetry attributes](#ec2-opentelemetry-attributes)
 + [Amazon EC2 usage metrics](#service-quota-metrics)
 
 ## Instance metrics
@@ -30,6 +33,7 @@ The `AWS/EC2` namespace includes the following instance metrics.
 | Metric | Description | Unit | Meaningful statistics | 
 | --- | --- | --- | --- | 
 | CPUUtilization | The percentage of physical CPU time that Amazon EC2 uses to run the EC2 instance, which includes time spent to run both the user code and the Amazon EC2 code.<br />At a very high level, `CPUUtilization` is the sum of guest `CPUUtilization` and hypervisor `CPUUtilization`.<br />Tools in your operating system can show a different percentage than CloudWatch due to factors such as legacy device simulation, configuration of non-legacy devices, interrupt-heavy workloads, live migration, and live update. | Percent |  +  Average <br />+  Minimum <br />+  Maximum   | 
+| CPUUtilization10Sec | The percentage of physical CPU time that Amazon EC2 uses to run the instance, reported in 10-second periods.<br />This metric requires detailed monitoring and a metric category that includes `CPUUtilization10Sec`. | Percent |  + Average<br />+ Minimum<br />+ Maximum  | 
 | DiskReadOps | Completed read operations from all instance store volumes available to the instance in a specified period of time.<br />To calculate the average I/O operations per second (IOPS) for the period, divide the total operations in the period by the number of seconds in that period.<br />If there are no instance store volumes, either the value is 0 or the metric is not reported. | Count |  +  Sum <br />+  Average <br />+  Minimum <br />+  Maximum   | 
 | DiskWriteOps | Completed write operations to all instance store volumes available to the instance in a specified period of time.<br />To calculate the average I/O operations per second (IOPS) for the period, divide the total operations in the period by the number of seconds in that period.<br />If there are no instance store volumes, either the value is 0 or the metric is not reported. | Count |  +  Sum <br />+  Average <br />+  Minimum <br />+  Maximum   | 
 | DiskReadBytes | Bytes read from all instance store volumes available to the instance.<br />This metric is used to determine the volume of the data the application reads from the hard disk of the instance. This can be used to determine the speed of the application.<br />The number reported is the number of bytes received during the period. If you are using basic (5-minute) monitoring, you can divide this number by 300 to find Bytes/second. If you have detailed (1-minute) monitoring, divide it by 60. You can also use the CloudWatch metric math function `DIFF_TIME` to find the bytes per second. For example, if you have graphed `DiskReadBytes` in CloudWatch as `m1`, the metric math formula `m1/(DIFF_TIME(m1))` returns the metric in bytes/second. For more information about `DIFF_TIME` and other metric math functions, see [Use metric math](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html) in the *Amazon CloudWatch User Guide*.<br />If there are no instance store volumes, either the value is 0 or the metric is not reported. | Bytes |  +  Sum <br />+  Average <br />+  Minimum <br />+  Maximum   | 
@@ -45,12 +49,30 @@ The `AWS/EC2` namespace includes the following instance metrics.
 ## Accelerator metrics
 <a name="accelerator-metrics"></a>
 
-The `AWS/EC2` namespace includes the following accelerator metric for your [accelerated computing instances](https://docs.aws.amazon.com/ec2/latest/instancetypes/ac.html). Only supported on a subset of accelerated computing instance types.
+The `AWS/EC2` namespace includes accelerator metrics for supported [accelerated computing instances](https://docs.aws.amazon.com/ec2/latest/instancetypes/ac.html). `GPUPowerUtilization` is available through basic monitoring in 5-minute periods. All other accelerator metrics require detailed monitoring and a metric category that includes the metric.
 
 
-| Metric | Description | Unit | Meaningful statistics | 
-| --- | --- | --- | --- | 
-| GPUPowerUtilization | Active power usage as a percentage of maximum active power. | Percent |  +  Average <br />+  Minimum <br />+  Maximum   | 
+| Metric | Metric type | Description | Unit | Meaningful statistics | Supported instance types | 
+| --- | --- | --- | --- | --- | --- | 
+| GPUPowerUtilization | CloudWatch | Active power usage as a percentage of maximum active power. | None | Average, Minimum, and Maximum | G7e, P5, P5e, P5en, G6, P6e-GB200, P6-B200, and P6-B300 | 
+| GPUUtilization | CloudWatch | The fraction of time the GPU's graphics engine was active. | None | Average, Minimum, and Maximum | P6e-GB200, P6-B200, and P6-B300 | 
+| instance.gpu.utilization | OpenTelemetry | The fraction of time the GPU's graphics engine was active. | None | Average, Minimum, and Maximum | P6e-GB200, P6-B200, and P6-B300 | 
+| GPUStreamingMultiprocessorUtilization | CloudWatch | The percentage of time the GPU's streaming multiprocessors had work executing, averaged across all SMs. | None | Average, Minimum, and Maximum | P6e-GB200, P6-B200, and P6-B300 | 
+| instance.gpu.sm\_utilization | OpenTelemetry | The percentage of time the GPU's streaming multiprocessors had work executing, averaged across all SMs. | None | Average, Minimum, and Maximum | P6e-GB200, P6-B200, and P6-B300 | 
+| GPUMemoryUtilization | CloudWatch | The percentage of accelerator memory that is in use. | None | Average, Minimum, and Maximum | P5, P5e, P5en, P6e-GB200, P6-B200, and P6-B300 | 
+| instance.gpu.memory\_utilization | OpenTelemetry | The percentage of accelerator memory that is in use. | None | Average, Minimum, and Maximum | P5, P5e, P5en, P6e-GB200, P6-B200, and P6-B300 | 
+| GPUContextAccumulatedTime | CloudWatch | The accumulated time that GPU contexts have been active. | Microseconds | Maximum | P5, P5e, P5en, P6e-GB200, P6-B200, and P6-B300 | 
+| instance.gpu.context\_accumulated\_time | OpenTelemetry | The accumulated time that GPU contexts have been active. | Microseconds | Maximum | P5, P5e, P5en, P6e-GB200, P6-B200, and P6-B300 | 
+| GPUTemperaturePercentOfLimit | CloudWatch | The GPU temperature as a percentage of its thermal limit. | None | Average, Minimum, and Maximum | G7e, P5, P5e, P5en, G6, P6e-GB200, P6-B200, and P6-B300 | 
+| instance.gpu.temperature\_percent\_of\_limit | OpenTelemetry | The GPU temperature as a percentage of its thermal limit. | None | Average, Minimum, and Maximum | G7e, P5, P5e, P5en, G6, P6e-GB200, P6-B200, and P6-B300 | 
+| GPUMemoryTemperaturePercentOfLimit | CloudWatch | The GPU memory temperature as a percentage of its thermal limit. | None | Average, Minimum, and Maximum | P5, P5e, P5en, P6-B200, and P6-B300 | 
+| instance.gpu.memory\_temperature\_percent\_of\_limit | OpenTelemetry | The GPU memory temperature as a percentage of its thermal limit. | None | Average, Minimum, and Maximum | P5, P5e, P5en, P6-B200, and P6-B300 | 
+| GPUPCIeUtilization | CloudWatch | The percentage of PCIe bandwidth that is in use. | None | Average, Minimum, and Maximum | P6e-GB200, P6-B200, and P6-B300 | 
+| instance.gpu.pcie\_utilization | OpenTelemetry | The percentage of PCIe bandwidth that is in use. | None | Average, Minimum, and Maximum | P6e-GB200, P6-B200, and P6-B300 | 
+| GPUNVLinkUtilization | CloudWatch | The percentage of NVLink bandwidth that is in use. | None | Average, Minimum, and Maximum | P6e-GB200, P6-B200, and P6-B300 | 
+| instance.gpu.nvlink\_utilization | OpenTelemetry | The percentage of NVLink bandwidth that is in use. | None | Average, Minimum, and Maximum | P6e-GB200, P6-B200, and P6-B300 | 
+
+Accelerator metrics can be unavailable while Amazon EC2 performs maintenance on your instance. Some accelerator metrics depend on the GPU firmware version on the host. An instance running an older version does not report them, or reports them with gaps. On P5, `GPUMemoryUtilization` and `GPUContextAccumulatedTime` require a VBIOS newer than 96.00.74.00.01. On P6-B200, `GPUTemperaturePercentOfLimit` and `GPUMemoryTemperaturePercentOfLimit` require a VBIOS version of 97.00.FA.00.09 or newer. Run `nvidia-smi -q` on the instance to see the VBIOS version on the GPUs.
 
 ## CPU credit metrics
 <a name="cpu-credit-metrics"></a>
@@ -136,9 +158,26 @@ You can use the following dimensions to refine the metrics listed in the previou
 | Dimension | Description | 
 | --- | --- | 
 |  AutoScalingGroupName  | This dimension filters the data you request for all instances in a specified capacity group. An *Auto Scaling group* is a collection of instances you define if you're using Auto Scaling. This dimension is available only for Amazon EC2 metrics when the instances are in such an Auto Scaling group. Available for instances with Detailed or Basic Monitoring enabled. | 
+|  GpuId  | This dimension filters the data you request for a specific GPU, identified by its UUID. It is available on the per-GPU accelerator metrics. Available for instances with Detailed Monitoring enabled. | 
 |  ImageId  | This dimension filters the data you request for all instances running this Amazon EC2 Amazon Machine Image (AMI). Available for instances with Detailed Monitoring enabled. | 
 |  InstanceId  | This dimension filters the data you request for the identified instance only. This helps you pinpoint an exact instance from which to monitor data. | 
 |  InstanceType  | This dimension filters the data you request for all instances running with this specified instance type. This helps you categorize your data by the type of instance running. For example, you might compare data from an m1.small instance and an m1.large instance to determine which has the better business value for your application. Available for instances with Detailed Monitoring enabled. | 
+
+## Amazon EC2 OpenTelemetry attributes
+<a name="ec2-opentelemetry-attributes"></a>
+
+OpenTelemetry metrics carry attributes that identify the resource that emitted the datapoint and the datapoint itself. In Prometheus Query Language (PromQL), resource attributes are prefixed with `@resource.` and datapoint attributes have no prefix. You can filter and aggregate Amazon EC2 OpenTelemetry metrics on the following attributes.
+
+
+| Attribute | Scope | Description | 
+| --- | --- | --- | 
+| cloud.resource\_id | Resource | The Amazon Resource Name (ARN) of the instance that emitted the datapoint. | 
+| aws.ec2.instance.id | Resource | The ID of the instance that emitted the datapoint. Equivalent to the `InstanceId` dimension in CloudWatch Metrics. | 
+| aws.ec2.instance.type | Resource | The instance type. Equivalent to the `InstanceType` dimension in CloudWatch Metrics. | 
+| aws.ec2.instance.image.id | Resource | The ID of the AMI running on the instance. Equivalent to the `ImageId` dimension in CloudWatch Metrics. | 
+| aws.ec2.instance.gpu.id | Datapoint | The UUID of the GPU that emitted the datapoint. Available on the per-GPU accelerator metrics. Equivalent to the `GpuId` dimension in CloudWatch Metrics. | 
+
+The `AutoScalingGroupName` dimension is available in CloudWatch Metrics only, not in OpenTelemetry.
 
 ## Amazon EC2 usage metrics
 <a name="service-quota-metrics"></a>

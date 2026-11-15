@@ -4,8 +4,8 @@
 <a name="your-ec2-ami-usage"></a>
 
 If you share your Amazon Machine Images (AMIs) with other AWS accounts—whether with specific AWS accounts, organizations, organizational units (OUs), or publicly—you can see how these AMIs are used by creating AMI usage reports. The reports provide visibility into:
-+ Which AWS accounts are using your AMIs in EC2 instances or launch templates
-+ How many EC2 instances or launch templates are referencing each AMI
++ The AWS accounts that are using your AMIs in EC2 instances, EC2 launch templates, Image Builder image recipes, or Image Builder container recipes
++ The number of EC2 instances, EC2 launch templates, Image Builder image recipes, or Image Builder container recipes that are referencing each AMI
 
 AMI usage reports help you manage your AMIs more effectively by helping you:
 + Identify the AWS accounts and resource types referencing your AMIs so that you can safely deregister or disable AMIs.
@@ -25,15 +25,17 @@ AMI usage reports help you manage your AMIs more effectively by helping you:
 When you create an AMI usage report, you specify:
 + The AMI to report on.
 + The AWS accounts to check (specific accounts or all accounts).
-+ The resource types to check (EC2 instances, launch templates, or both).
++ The resource types to check (specific resource types or all resource types).
 + For launch templates, the number of versions to check (defaults to the 20 most recent versions).
 
 Amazon EC2 creates a separate report for each AMI. Each report provides:
 + A list of the AWS accounts using the AMI.
-+ A count of the resources referencing the AMI by resource type per account. Note that for launch templates, if an AMI is referenced in multiple versions of a launch template, the count is only 1.
++ A count of the resources referencing the AMI by resource type per account. Note that:
+  + If a launch template references an AMI in multiple versions, then the report counts it only once.
+  + If an Image Builder recipe references an AMI in multiple versions, then the report counts each version.
 
 **Important**  
-When you generate an AMI usage report, it might not contain the most recent activity. Instance activity from the past 24 hours and launch template activity from the past few days might not appear in the report.
+When you generate an AMI usage report, it might not contain the most recent activity. Instance activity from the past 24 hours, launch template activity from the past few days, and Image Builder recipe activity from the past few minutes might not appear in the report.
 
 Amazon EC2 automatically deletes a report 30 days after creation. You can download reports from the EC2 console to retain locally.
 
@@ -194,7 +196,7 @@ You can view all the usage reports you've created for an AMI in the past 30 days
 For each report, you can see the AWS accounts that are using the AMI, and for each account, a count of the resources referencing the AMI by resource type. You can also see when the report creation was initiated. This information is only available when the report is in the **Complete** (console) or `available` (AWS CLI) state.
 
 **Important**  
-When you generate an AMI usage report, it might not contain the most recent activity. Instance activity from the past 24 hours and launch template activity from the past few days might not appear in the report.
+When you generate an AMI usage report, it might not contain the most recent activity. Instance activity from the past 24 hours, launch template activity from the past few days, and Image Builder recipe activity from the past few minutes might not appear in the report.
 
 ------
 #### [ Console ]

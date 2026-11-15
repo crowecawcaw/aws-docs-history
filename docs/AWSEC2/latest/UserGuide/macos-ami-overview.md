@@ -7,13 +7,9 @@ The following information provides details about the packages included by defaul
 
 For information about how to subscribe to macOS AMI notifications, see [Subscribe to macOS AMI notifications](macos-subscribe-notifications.md).
 
-Mac instances can run one of the following operating systems:
-+ macOS Mojave (version 10.14) (x86 Mac instances only)
-+ macOS Catalina (version 10.15) (x86 Mac instances only)
-+ macOS Big Sur (version 11) (x86 and M1 Mac instances)
-+ macOS Monterey (version 12) (x86 and M1 Mac instances)
-+ macOS Ventura (version 13) (all Mac instances, M2 and M2 Pro Mac instances support macOS Ventura version 13.2 or later)
-+ macOS Sonoma (version 14) (all Mac instances)
+EC2 provides macOS AMIs for the following operating systems:
++ macOS Golden Gate (version 27) (Apple silicon Mac instances only)
++ macOS Tahoe (version 26) (Apple silicon Mac instances only)
 + macOS Sequoia (version 15) (all Mac instances)
 **Note**  
 M4 and M4 Pro Mac instances support macOS Sequoia version 15.6 or later.
@@ -64,6 +60,7 @@ The following table describes changes included in the EC2 macOS AMI releases. No
 
 | Release | Changes | 
 | --- | --- | 
+| 2026.11.11 |  +  Updated `awscli` to 2.39.6 <br />+  Updated `ec2-macos-init` to 1.5.17  `ec2-macos-init` 1.5.17 adds `/etc/fstab` entries for the locked FileVault volumes on the host's internal disk, so macOS no longer asks for a FileVault password for those volumes when the instance starts.  <br />+  Updated `ec2-instance-connect` to 2.0.0-6  +  [Security content of macOS Sequoia 15.8.2](https://support.apple.com/en-us/149523) <br />+  Updated Safari to 27.2   [Security content of Safari 27.2](https://support.apple.com/en-us/149527)    +  [Security content of macOS Tahoe 26.7.2](https://support.apple.com/en-us/149522) <br />+  Updated Safari to 27.2   [Security content of Safari 27.2](https://support.apple.com/en-us/149527)   <br />+  Updated Command Line Tools to 27.2  +  [Security content of macOS Golden Gate 27.2](https://support.apple.com/en-us/149521) <br />+  Updated Command Line Tools to 27.2   | 
 | 2026.09.23 |  +  Updated `awscli` to 2.36.48 <br />+  Updated `ec2-macos-init` to 1.5.16 <br />+  Updated `ec2-macos-utils` to 1.0.8 <br />+  Updated Homebrew to 6.0.22  +  [Security content of macOS Sequoia 15.8](https://support.apple.com/en-us/149043) <br />+  Updated Safari to 27.0   [Security content of Safari 27.0](https://support.apple.com/en-us/149039)    +  [Security content of macOS Tahoe 26.7](https://support.apple.com/en-us/149042) <br />+  Updated Safari to 27.0   [Security content of Safari 27.0](https://support.apple.com/en-us/149039)   <br />+  Updated Command Line Tools to 27.0  +  [Security content of macOS Golden Gate 27.0](https://support.apple.com/en-us/149035) <br />+  Updated Command Line Tools to 27.0   | 
 | 2026.09.02 |  +  Updated `awscli` to 2.36.36 <br />+  Updated Homebrew to 6.0.20  +  [Security content of macOS Sonoma 14.8.9](https://support.apple.com/en-us/148172) <br />+  Updated Safari to 26.6.1   [Security content of Safari 26.6.1](https://support.apple.com/en-us/148286)    +  [Security content of macOS Tahoe 26.6.2](https://support.apple.com/en-us/148281)   | 
 | 2026.08.26 |  +  Updated `awscli` to 2.36.27 <br />+  Updated Homebrew to 6.0.18  +  [Security content of macOS Sonoma 14.8.9](https://support.apple.com/en-us/148172) <br />+  Updated Safari to 26.6.1   [Security content of Safari 26.6.1](https://support.apple.com/en-us/148286)    +  [Security content of macOS Sequoia 15.7.9](https://support.apple.com/en-us/148171) <br />+  Updated Safari to 26.6.1   [Security content of Safari 26.6.1](https://support.apple.com/en-us/148286)    +  [Security content of macOS Tahoe 26.6.1](https://support.apple.com/en-us/148170)   | 

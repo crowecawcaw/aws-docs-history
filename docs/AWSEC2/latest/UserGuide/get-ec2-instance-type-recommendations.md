@@ -7,7 +7,7 @@ EC2 instance type finder considers your use case, workload type, CPU manufacture
 
 With so many instance types available, finding the right instance types for your workload can be time-consuming and complex. By using the EC2 instance type finder, you can remain up to date with the latest instance types and achieve the best price-performance for your workloads.
 
-You can get suggestions and guidance for EC2 instance types using the Amazon EC2 console. You can also go directly to Amazon Q to ask for instance type advice. For more information, see the [Amazon Q Developer User Guide](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/what-is.html).
+You can get suggestions and guidance for EC2 instance types using the Amazon EC2 console. You can also go directly to the AWS assistant to ask for instance type advice. For more information, see the [AWS assistant User Guide](https://docs.aws.amazon.com/assistant/latest/userguide/what-is.html).
 
 If you're looking for instance type recommendations for an *existing* workload, use AWS Compute Optimizer. For more information, see [Get EC2 instance recommendations from Compute Optimizer](ec2-instance-recommendations.md).
 
