@@ -21,6 +21,7 @@ Security Hub CSPM offers automation features that help you triage and remediate 
 + [Concepts and terminology in Security Hub CSPM](securityhub-concepts.md)
 + [Enabling Security Hub CSPM](securityhub-settingup.md)
 + [Managing administrator and member accounts in Security Hub CSPM](securityhub-accounts.md)
++ [Understanding central configuration in Security Hub CSPM](central-configuration-intro.md)
 + [Understanding cross-Region aggregation in Security Hub CSPM](finding-aggregation.md)
 + [Understanding security standards in Security Hub CSPM](standards-view-manage.md)
 + [Understanding security controls in Security Hub CSPM](controls-view-manage.md)

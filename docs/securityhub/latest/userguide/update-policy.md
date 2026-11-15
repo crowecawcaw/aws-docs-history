@@ -3,6 +3,9 @@
 # Updating configuration policies
 <a name="update-policy"></a>
 
+**Important**  
+Security Hub CSPM declarative policies are replacing central configuration as the recommended way to manage Security Hub CSPM across an organization. You can't use declarative policies and central configuration in the same organization at the same time. To move your existing configuration without coverage gaps, use the import tool in the Security Hub console. For more information, see [Declarative policies and central configuration in Security Hub CSPM](orgs-policies-and-central-config.md).
+
 After creating a configuration policy, the delegated AWS Security Hub CSPM administrator account can update the policy details and policy associations. When policy details are updated, accounts that are associated with the configuration policy automatically start using the updated policy.
 
 For background information about the benefits of central configuration and how it works, see [Understanding central configuration in Security Hub CSPM](central-configuration-intro.md).

@@ -8,7 +8,7 @@ When new accounts join your organization, they are added to the list on the **Ac
 **Note**  
 Although many AWS Regions are active by default for your AWS account, you must activate certain Regions manually. These Regions are called opt-in Regions in this document. To automatically enable Security Hub CSPM in a new account in an opt-in Region, the account must have that Region activated first. Only the account owner can activate the opt-in Region. For more information about opt-in Regions, see [Specify which AWS Regions your account can use](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html).
 
-This process is different based on whether you use central configuration (recommended) or local configuration.
+If a declarative policy governs an account, Security Hub CSPM is enabled in the account and the account is associated as a member, according to the account's effective policy. This also applies to accounts that join the organization later. For more information, see [How declarative policies work in Security Hub CSPM](orgs-policies-how-they-work.md). For accounts that no declarative policy governs, the process is different based on whether you use central configuration or local configuration.
 
 ## Automatically enabling new organization accounts (central configuration)
 <a name="central-configuration-auto-enable"></a>
@@ -26,7 +26,7 @@ For instructions on creating a configuration policy, see [Creating and associati
 
 When you use local configuration and turn on automatic enablement of default standards, Security Hub CSPM adds *new* organization accounts as members and enables Security Hub CSPM in them in the current Region. Other Regions aren't affected. In addition, turning on automatic enablement doesn't enable Security Hub CSPM in *existing* organization accounts unless they were already added as member accounts.
 
-After turning on automatic enablement, default security standards are enabled for new member accounts in the current Region when they join the organization. The default standards are AWS Foundational Security Best Practices (FSBP) and Center for Internet Security (CIS) AWS Foundations Benchmark v1.2.0. You can't change the default standards. If you want to enable other standards throughout your organization, or enable standards for select accounts and OUs, we recommend using central configuration.
+After turning on automatic enablement, default security standards are enabled for new member accounts in the current Region when they join the organization. The default standards are AWS Foundational Security Best Practices (FSBP) and Center for Internet Security (CIS) AWS Foundations Benchmark v1.2.0. You can't change the default standards. If you want to enable other standards throughout your organization, or enable standards for select accounts and OUs, we recommend using [declarative policies](accounts-orgs-policies.md).
 
 To generate control findings for the default standards (and other enabled standards), accounts in your organization must have AWS Config enabled and configured to record required resources. For more information about AWS Config recording, see [Enabling and configuring AWS Config](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-prereq-config.html).
 

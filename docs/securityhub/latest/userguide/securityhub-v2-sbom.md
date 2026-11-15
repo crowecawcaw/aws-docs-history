@@ -32,7 +32,7 @@
 +  Security Hub is enabled in the AWS account and AWS Region. 
 +  Amazon Inspector is enabled for the compute resource types that you want to inventory, such as Amazon EC2 instances, Amazon ECR container images, or Lambda functions. Security Hub shows software only for the resource types that Amazon Inspector scans. For example, if Amazon Inspector scans Amazon EC2 instances but not Lambda functions, the inventory contains software from your Amazon EC2 instances only. For resources in other cloud providers, Amazon Inspector scanning is set up when you connect the provider to Security Hub. For more information, see [Integrating Security Hub with Microsoft Azure](securityhub-v2-azure.md). 
 
- If Amazon Inspector isn't enabled, the SBOM page shows an **Amazon Inspector is not enabled** message with an **Enable Inspector** button that opens the Security Hub configuration settings. For more information about enabling Amazon Inspector through Security Hub, see [Vulnerability management from Amazon Inspector](securityhub-v2-da-policy.md#securityhub-v2-configuration-catalog-vuln). 
+ If Amazon Inspector isn't enabled, the SBOM page shows an **Amazon Inspector is not enabled** message with an **Enable Inspector** button that opens the Security Hub configuration settings. For more information about enabling Amazon Inspector through Security Hub, see [Security Hub configuration catalog](securityhub-v2-da-policy.md#securityhub-v2-configuration-catalog). 
 
 ## Viewing the SBOM page
 <a name="securityhub-v2-sbom-page"></a>

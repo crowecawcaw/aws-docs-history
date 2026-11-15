@@ -3,6 +3,9 @@
 # Configuring a standard or control in context
 <a name="central-configuration-in-context"></a>
 
+**Important**  
+Security Hub CSPM declarative policies are replacing central configuration as the recommended way to manage Security Hub CSPM across an organization. You can't use declarative policies and central configuration in the same organization at the same time. To move your existing configuration without coverage gaps, use the import tool in the Security Hub console. For more information, see [Declarative policies and central configuration in Security Hub CSPM](orgs-policies-and-central-config.md).
+
 When you use [central configuration](central-configuration-intro.md) in AWS Security Hub CSPM, the delegated Security Hub CSPM administrator can create configuration policies that specify how Security Hub CSPM, security standards, and security controls are configured for an organization. The delegated administrator can associate policies with specific accounts and organizational units (OU). The policies take effect in your home Region and all linked Regions. The delegated administrator can update configuration policies as necessary.
 
 On the Security Hub CSPM console, the delegated administrator can update configuration policies in two ways—from the **Configuration** page, or in context with existing workflows. The latter can be beneficial because, as you view security findings, you can discover which standards and controls are most relevant to your environment and configure them at the same time.

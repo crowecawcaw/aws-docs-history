@@ -3,6 +3,9 @@
 # Disassociating a configuration from its targets
 <a name="disassociate-policy"></a>
 
+**Important**  
+Security Hub CSPM declarative policies are replacing central configuration as the recommended way to manage Security Hub CSPM across an organization. You can't use declarative policies and central configuration in the same organization at the same time. To move your existing configuration without coverage gaps, use the import tool in the Security Hub console. For more information, see [Declarative policies and central configuration in Security Hub CSPM](orgs-policies-and-central-config.md).
+
 From the delegated AWS Security Hub CSPM administrator account, you can disassociate a configuration policy or self-managed configuration from an account, OU, or root. Disassociation retains the policy for future use, but removes existing associations from specific accounts, OUs, or the root.You can disassociate only a directly applied configuration, not an inherited configuration. To change an inherited configuration, you can apply a configuration policy or self-managed behavior to the affected account or OU. You can also apply a new configuration policy, which includes your desired modifications, to the closest parent.
 
 Disassociation *doesn't* delete a configuration policy. The policy is retained in your account, so you can associate it with other targets in your organization. For instructions on deleting a configuration policy, see [Deleting configuration policies](delete-policy.md). When disassociation is complete, an affected target inherits the configuration policy or self-managed behavior of the closest parent. If there's no inheritable configuration, a target retains the settings it had prior to disassociation but becomes self-managed.

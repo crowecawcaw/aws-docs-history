@@ -126,7 +126,9 @@ Security Hub CSPM currently offers the following managed insights:
 **ARN:** `arn:aws:securityhub:::insight/securityhub/default/18`  
 **Grouped by:** Resource ID  
 **Finding filters:**  
-+ Type starts with `Software and Configuration Checks/AWS Security Best Practices/Network Reachability`
++ Type starts with one of the following:
+  + `Software and Configuration Checks/AWS Security Best Practices/Network Reachability`
+  + `Software and Configuration Checks/Network Reachability - `
 + Resource type is `AwsEc2Instance`
 + Record state is `ACTIVE`
 + Workflow status is `NEW` or `NOTIFIED`
@@ -143,10 +145,13 @@ Security Hub CSPM currently offers the following managed insights:
 + Workflow status is `NEW` or `NOTIFIED`
 
 **16. EC2 instances that are open to the Internet**  
+Security Hub CSPM plans to deprecate this managed insight. To continue to get insights about EC2 instances, use insight 14, which provides the same filters.  
 **ARN:** `arn:aws:securityhub:::insight/securityhub/default/21`  
 **Grouped by:** Resource ID  
 **Finding filters:**  
-+ Type starts with `Software and Configuration Checks/AWS Security Best Practices/Network Reachability`
++ Type starts with one of the following:
+  + `Software and Configuration Checks/AWS Security Best Practices/Network Reachability`
+  + `Software and Configuration Checks/Network Reachability - `
 + Resource type is `AwsEc2Instance`
 + Record state is `ACTIVE`
 + Workflow status is `NEW` or `NOTIFIED`

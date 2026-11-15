@@ -25,3 +25,4 @@ The topics in this section explain how to manage member accounts through invitat
 + [Deleting member accounts in Security Hub CSPM](securityhub-delete-member-accounts.md)
 + [Disassociating from a Security Hub CSPM administrator account](securityhub-disassociate-from-admin.md)
 + [Transitioning to Organizations to manage accounts in Security Hub CSPM](accounts-transition-to-orgs.md)
++ [Multi-account enablement script](securityhub-enable-multiaccount-script.md)

@@ -56,22 +56,10 @@ aws securityhub enable-organization-admin-account --admin-account-id 77778888999
 
 For more information about the integration with Organizations, see [Integrating Security Hub CSPM with AWS Organizations](designate-orgs-admin-account.md).
 
-### Central configuration
-<a name="securityhub-central-config"></a>
+### Configuring Security Hub CSPM with declarative policies
+<a name="securityhub-orgs-policies-config"></a>
 
-When you integrate Security Hub CSPM and Organizations, you have the option to use a feature called [central configuration](central-configuration-intro.md) to set up and manage Security Hub CSPM for your organization. We strongly recommend using central configuration because it lets the administrator customize security coverage for the organization. Where appropriate, the delegated administrator can allow a member account to configure its own security coverage settings.
-
-Central configuration lets the delegated administrator configure Security Hub CSPM across accounts, OUs, and AWS Regions. The delegated administrator configures Security Hub CSPM by creating configuration policies. Within a configuration policy, you can specify the following settings:
-+ Whether Security Hub CSPM is enabled or disabled
-+ Which security standards are enabled and disabled
-+ Which security controls are enabled and disabled
-+ Whether to customize parameters for select controls
-
-As the delegated administrator, you can create a single configuration policy for your entire organization or different configuration policies for your various accounts and OUs. For example, test accounts and production accounts can use different configuration policies.
-
-Member accounts and OUs that use a configuration policy are *centrally managed * and can be configured only by the delegated administrator. The delegated administrator can designate specific member accounts and OUs as *self-managed* to give the member the ability to configure its own settings on a Region-by-Region basis.
-
-If you don't use central configuration, you must largely configure Security Hub CSPM separately in each account and Region. This is called [local configuration](local-configuration.md). Under local configuration, the delegated administrator can automatically enable Security Hub CSPM and a limited set of security standards in new organization accounts in the current Region. Local configuration doesn't apply to existing organization accounts or to Regions other than the current Region. Local configuration also doesn't support the use of configuration policies.
+After you designate a delegated administrator, we recommend using Security Hub CSPM declarative policies to enable and configure Security Hub CSPM across the accounts, organizational units (OUs), and AWS Regions in your organization. For prerequisites and instructions, see [Managing accounts with declarative policies in Security Hub CSPM](accounts-orgs-policies.md). For a comparison of the ways to configure Security Hub CSPM in an organization, see [Managing accounts with AWS Organizations](securityhub-accounts.md#securityhub-orgs-account-management-overview).
 
 ## Enabling Security Hub CSPM manually
 <a name="securityhub-manual-setup-overview"></a>
@@ -126,18 +114,6 @@ aws securityhub enable-security-hub --enable-default-standards --tags '{"Departm
 ```
 
 ------
-
-### Multi-account enablement script
-<a name="securityhub-enable-multiaccount-script"></a>
-
-**Note**  
-Instead of this script, we recommend using central configuration to enable and configure Security Hub CSPM across multiple accounts and Regions. 
-
-The [Security Hub CSPM multi-account enablement script in GitHub](https://github.com/awslabs/aws-securityhub-multiaccount-scripts) allows you to enable Security Hub CSPM across accounts and Regions. The script also automates the process of sending invitations to member accounts and enabling AWS Config.
-
-The script automatically enables AWS Config resource recording for all resources, including global resources, in all Regions. It does not limit recording of global resources to a single Region. To conserve costs, we recommend recording global resources in a single Region only. If you use central configuration or cross-Region aggregation, this should be your home Region. For more information, see [Recording resources in AWS Config](securityhub-setup-prereqs.md#config-resource-recording).
-
-There is a corresponding script to disable Security Hub CSPM across accounts and Regions.
 
 ## Next steps: Posture management and integrations
 <a name="securityhub-enable-next-steps"></a>

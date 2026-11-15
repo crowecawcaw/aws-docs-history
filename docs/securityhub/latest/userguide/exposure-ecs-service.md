@@ -25,6 +25,7 @@ A single exposure finding contains issues identified in multiple remediation top
 + [Reachability traits for Amazon ECS services](#ecs-service-reachability)
   + [The Amazon ECS service is reachable over the internet](#internet-reachable)
 + [Vulnerability traits for Amazon ECS services](#vulnerability)
+  + [The Amazon ECS service has a container with software vulnerabilities which are notable](#notable-vulnerability)
   + [The Amazon ECS service has a container with network-exploitable software vulnerabilities with a high likelihood of exploitation](#high-priority-vulnerability)
   + [The Amazon ECS service has a container with software vulnerabilities](#low-priority-vulnerability)
   + [The Amazon ECS service has a container with an End-Of-Life operating system](#end-of-life-operating-system-detected)
@@ -173,6 +174,20 @@ For services that need to accept internet traffic, run your tasks on private sub
 <a name="vulnerability"></a>
 
 Here are vulnerability traits for Amazon ECS and suggested remediation steps.
+
+### The Amazon ECS service has a container with software vulnerabilities which are notable
+<a name="notable-vulnerability"></a>
+
+A *notable vulnerability* is a Common Vulnerabilities and Exposures (CVE) entry that Security Hub tracks on a curated list because of active exploitation in the wild or significant potential impact. Security Hub prioritizes these CVEs regardless of their CVSS score, so a notable vulnerability on this resource represents an immediate security threat. Patch these vulnerabilities first.
+
+The curated list currently includes the following vulnerabilities in the PHP runtime. With either vulnerability, a remote, unauthenticated party can run code on the server through a crafted multipart request. Both affect PHP versions 5.4 through 8.5, regardless of the application code that runs on them:
++ `CVE-2026-109618`: PHP can corrupt its memory state when it runs out of memory as it processes a crafted multipart request.
++ `CVE-2026-109619`: The issue is in the session upload progress feature (`session.upload_progress`), which PHP turns on by default.
+
+PHP versions 8.5.12, 8.4.27, 8.3.36, and 8.2.35 address these issues. PHP 8.1 and earlier have no update, so migrate those workloads to a supported PHP branch. For more information about these issues, see [AWS Security Bulletin 2026-143](https://aws.amazon.com/security/security-bulletins/2026-143-aws/) on the AWS website.
+
+**Remediation: Update affected container images**  
+ Review the **References** section in the **Vulnerability** tab of the trait, and follow the remediation advice in the finding. Update the package version in the ECR container image as suggested by Amazon Inspector. Rebuild the image, push it to ECR, update the task definition to use the new image, and redeploy the service. For more information about Amazon Inspector finding details, see [Viewing details for your Amazon Inspector findings](https://docs.aws.amazon.com/inspector/latest/user/findings-understanding-details.html) in the *Amazon Inspector User Guide*. 
 
 ### The Amazon ECS service has a container with network-exploitable software vulnerabilities with a high likelihood of exploitation
 <a name="high-priority-vulnerability"></a>

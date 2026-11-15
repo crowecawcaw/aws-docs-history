@@ -116,7 +116,7 @@ After you create one or more automation rules, the rules aren't triggered if you
 
 1. If you call `GetFindings`, the `Workflow.Status` field now has a value of `SUPPRESSED`. This is the case because the automation rule was applied, and the rule was the last action taken on the finding.
 
-When you create or edit a rule on the Security Hub CSPM console, the console displays a beta of findings that match the rule criteria. Whereas automation rules evaluate original findings sent by the finding provider, the console beta reflects findings in their final state as they would be shown in a response to the [GetFindings](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetFindings.html) operation (that is, after rule actions or other updates are applied to the finding).
+When you create or edit a rule on the Security Hub CSPM console, the console displays a preview of findings that match the rule criteria. Whereas automation rules evaluate original findings sent by the finding provider, the console preview reflects findings in their final state as they would be shown in a response to the [GetFindings](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetFindings.html) operation (that is, after rule actions or other updates are applied to the finding).
 
 ## How rule order works
 <a name="rule-order"></a>

@@ -3,6 +3,9 @@
 # Understanding central configuration in Security Hub CSPM
 <a name="central-configuration-intro"></a>
 
+**Note**  
+Central configuration is a legacy feature. Security Hub CSPM declarative policies are replacing it as the way to manage Security Hub CSPM across an organization. If your organization currently uses central configuration, you can continue to use the information in this section. For more information about declarative policies, see [Managing accounts with declarative policies in Security Hub CSPM](accounts-orgs-policies.md).
+
 Central configuration is an AWS Security Hub CSPM feature that helps you set up and manage Security Hub CSPM across multiple AWS accounts and AWS Regions. To use central configuration, you must first integrate Security Hub CSPM and AWS Organizations. You can integrate the services by creating an organization and designating a delegated Security Hub CSPM administrator account for the organization.
 
 From the delegated Security Hub CSPM administrator account, you can enable Security Hub CSPM for your organization’s accounts and organizational units (OUs) across Regions. You can also enable, configure, and disable individual security standards and security controls for accounts and OUs across Regions. You can configure these settings in just a few steps from one primary Region, referred to as the *home Region*.
@@ -12,6 +15,10 @@ When you use central configuration, the delegated administrator can choose which
 To configure centrally managed accounts, the delegated administrator uses Security Hub CSPM configuration policies. Configuration policies let the delegated administrator specify whether Security Hub CSPM is enabled or disabled, and which standards and controls are enabled or disabled. They can also be used to customize parameters for certain controls.
 
 Configuration policies take effect in the home Region and all linked Regions. The delegated administrator specifies the organization's home Region and linked Regions before starting to use central configuration. Specifying linked Regions is optional. The delegated administrator can create a single configuration policy for the whole organization, or create multiple configuration policies to configure variable settings for different accounts and OUs.
+
+**Important**  
+Security Hub CSPM declarative policies are the recommended way to manage Security Hub CSPM across an organization. Declarative policies and central configuration are mutually exclusive.  
+When you attach a Security Hub CSPM policy to any target in your organization, even a single account, Security Hub CSPM disables central configuration for the entire organization. If central configuration governed an account and no declarative policy covers that account, the account keeps its current settings and becomes self-managed. To move your existing configuration without coverage gaps, use the import tool in the Security Hub console before you attach any Security Hub CSPM policies. For more information, see [Declarative policies and central configuration in Security Hub CSPM](orgs-policies-and-central-config.md).
 
 **Tip**  
 If you don't use central configuration, you must largely configure Security Hub CSPM separately in each account and Region. This is called *local configuration*. Under local configuration, the delegated administrator can automatically enable Security Hub CSPM and a limited set of security standards in new organization accounts in the current Region. Local configuration doesn't apply to existing organization accounts or to Regions other than the current Region. Local configuration also doesn't support the use of configuration policies.
@@ -42,7 +49,7 @@ Central configuration is most beneficial for AWS environments that include multi
 
 You can use central configuration to configure the Security Hub CSPM service, security standards, and security controls. You can also use it to customize parameters of certain controls. For more information about security standards, see [Understanding security standards in Security Hub CSPM](standards-view-manage.md). For more information about security controls, see [Understanding security controls in Security Hub CSPM](controls-view-manage.md).
 
-
+If you're setting up multi-account management for the first time, we recommend that you use Security Hub CSPM declarative policies instead of central configuration. Declarative policies use AWS Organizations to enable and configure Security Hub CSPM, standards, controls, and control parameters across accounts and Regions. You can't use central configuration and declarative policies in the same organization at the same time. For more information, see [Managing accounts with declarative policies in Security Hub CSPM](accounts-orgs-policies.md).
 
 ## Central configuration terms and concepts
 <a name="central-configuration-concepts"></a>
@@ -50,7 +57,8 @@ You can use central configuration to configure the Security Hub CSPM service, se
 Understanding the following key terms and concepts can help you use Security Hub CSPM central configuration.
 
 **Central configuration**  
-A Security Hub CSPM feature that helps the delegated Security Hub CSPM administrator account for an organization configure the Security Hub CSPM service, security standards, and security controls across multiple accounts and Regions. To configure these settings, the delegated administrator creates and manages Security Hub CSPM configuration policies for centrally managed accounts in their organization. Self-managed accounts can configure their own settings separately in each Region. To use central configuration, you must integrate Security Hub CSPM and AWS Organizations.
+A Security Hub CSPM feature that helps the delegated Security Hub CSPM administrator account for an organization configure the Security Hub CSPM service, security standards, and security controls across multiple accounts and Regions. To configure these settings, the delegated administrator creates and manages Security Hub CSPM configuration policies for centrally managed accounts in their organization. Self-managed accounts can configure their own settings separately in each Region. To use central configuration, you must integrate Security Hub CSPM and AWS Organizations.  
+While any Security Hub CSPM policy is attached to a target in the organization, Security Hub CSPM disables central configuration for the entire organization. While central configuration is disabled, the `DescribeOrganizationConfiguration` operation returns a status of `DISABLED`, with a message that indicates that declarative policies are in use. To enable central configuration again, detach every Security Hub CSPM policy in the organization.
 
 **Home Region**  
 The AWS Region from which the delegated administrator centrally configures Security Hub CSPM, by creating and managing configuration policies. Configuration policies take effect in the home Region and all linked Regions.  
@@ -96,6 +104,7 @@ Security Hub CSPM operations that only the Security Hub CSPM delegated Security 
 + `GetConfigurationPolicyAssociation`
 + `BatchGetConfigurationPolicyAssociations`
 + `ListConfigurationPolicyAssociations`
+While central configuration is disabled because Security Hub CSPM policies are in use, Security Hub CSPM denies requests to `CreateConfigurationPolicy`, `UpdateConfigurationPolicy`, and `StartConfigurationPolicyAssociation`. The delegated administrator can still use the preceding `Get`, `List`, and `BatchGet` operations, `DeleteConfigurationPolicy`, and `StartConfigurationPolicyDisassociation` to review and clean up central configuration resources.
 
 **Account-specific APIs**  
 Security Hub CSPM operations that can be used to enable or disable Security Hub CSPM, standards, and controls on an account-by-account basis. These operations are used in each individual Region.  
@@ -108,7 +117,8 @@ Self-managed accounts can use account-specific operations to configure their own
 + `UpdateStandardsControl`
 To check account status, the owner of a centrally managed account *can* use any `Get` or `Describe` operations of the Security Hub CSPM API.  
 If you use local configuration or manual account management, instead of central configuration, these account-specific operations can be used.  
-Self-managed accounts can also use `*Invitations` and `*Members` operations. However, we recommend that self-managed accounts don't use these operations. Policy associations can fail if a member account has its own members that are part of a different organization than the delegated administrator's.
+Self-managed accounts can also use `*Invitations` and `*Members` operations. However, we recommend that self-managed accounts don't use these operations. Policy associations can fail if a member account has its own members that are part of a different organization than the delegated administrator's.  
+Accounts that a Security Hub CSPM policy governs also can't use these operations in the Regions that the policy governs. For more information, see [How declarative policies work in Security Hub CSPM](orgs-policies-how-they-work.md).
 
 **Organizational unit (OU)**  
 In AWS Organizations and Security Hub CSPM, a container for a group of AWS accounts. An organizational unit (OU) also can contain other OUs, enabling you to create a hierarchy that resembles an upside-down tree, with a parent OU at the top and branches of OUs that reach down, ending in accounts that are the leaves of the tree. An OU can have exactly one parent, and each organization account can be a member of exactly one OU.  
@@ -129,7 +139,8 @@ The delegated administrator account can itself be a self-managed account.The del
 A link between a configuration policy and an account, organizational unit (OU), or root. When a policy association exists, the account, OU, or root uses the settings defined by the configuration policy. An association exists in either of these cases:  
 + When the delegated administrator directly applies a configuration policy to an account, OU, or root
 + When an account or OU inherits a configuration policy from a parent OU or the root
-An association exists until a different configuration is applied or inherited.
+An association exists until a different configuration is applied or inherited.  
+While central configuration is disabled, Security Hub CSPM keeps existing associations but doesn't apply them. The `AssociationStatus` of each association is `DISABLED`. When you enable central configuration again, Security Hub CSPM reapplies these associations. Each association moves from `DISABLED` to `PENDING`, and then to `SUCCESS` or `FAILED`.
 
 **Applied configuration policy**  
 A type of configuration policy association in which the delegated administrator directly applies a configuration policy to target accounts, OUs, or the root. Targets are configured in the way that the configuration policy defines, and only the delegated administrator can change their configuration. If applied to root, the configuration policy affects all accounts and OUs in the organization that don't use a different configuration through application or inheritance from the closest parent.  
@@ -142,3 +153,6 @@ Inheritance can't override an applied configuration. That is, if a configuration
 **Root**  
 In AWS Organizations and Security Hub CSPM, the top-level parent node in an organization. If the delegated administrator applies a configuration policy to root, the policy is associated with all accounts and OUs in the organization unless they use a different policy, through application or inheritance, or are designated as self-managed. If the administrator designates the root as self-managed, all accounts and OUs in the organization are self-managed unless they use a configuration policy through application or inheritance. If the root is self-managed and no configuration policies currently exist, all new accounts in the organization retain their current settings.  
 New accounts that join an organization fall under the root until they are assigned to a specific OU. If a new account isn't assigned to an OU, it inherits the root configuration unless the delegated administrator designates it as a self-managed account.
+
+**Security Hub CSPM declarative policy**  
+An AWS Organizations declarative policy of the `SECURITYHUB_CSPM_POLICY` type that enables and configures Security Hub CSPM, security standards, security controls, and control parameters for the accounts and Regions in its scope. This documentation also calls it a *Security Hub CSPM policy*. The management account, or a delegated administrator that has permission to manage the policy type, attaches these policies to the root, OUs, or accounts. Security Hub CSPM declarative policies are the recommended alternative to central configuration, and the two can't be used in the same organization at the same time. For more information, see [Managing accounts with declarative policies in Security Hub CSPM](accounts-orgs-policies.md).

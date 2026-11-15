@@ -21,6 +21,7 @@ A single exposure finding contains issues identified in multiple remediation top
 + [Reachability traits for Azure Function apps](#azure-functions-reachability)
   + [The Azure Function app allows anonymous HTTP trigger invocation](#publicly-invocable)
 + [Vulnerability traits for Azure Function apps](#vulnerability)
+  + [The Azure Function app has software vulnerabilities which are notable](#notable-vulnerability)
   + [The Azure Function app has network-exploitable software vulnerabilities with a high likelihood of exploitation](#high-priority-vulnerability)
   + [The Azure Function app has software vulnerabilities](#low-priority-vulnerability)
   + [The Azure Function app has malicious software packages](#malicious-package)
@@ -81,6 +82,20 @@ Take one or more of the following actions to address this exposure:
 <a name="vulnerability"></a>
 
 Here are vulnerability traits for Azure Function apps and suggested remediation steps.
+
+### The Azure Function app has software vulnerabilities which are notable
+<a name="notable-vulnerability"></a>
+
+A *notable vulnerability* is a Common Vulnerabilities and Exposures (CVE) entry that Security Hub tracks on a curated list because of active exploitation in the wild or significant potential impact. Security Hub prioritizes these CVEs regardless of their CVSS score, so a notable vulnerability on this resource represents an immediate security threat. Patch these vulnerabilities first.
+
+The curated list currently includes the following vulnerabilities in the PHP runtime. With either vulnerability, a remote, unauthenticated party can run code on the server through a crafted multipart request. Both affect PHP versions 5.4 through 8.5, regardless of the application code that runs on them:
++ `CVE-2026-109618`: PHP can corrupt its memory state when it runs out of memory as it processes a crafted multipart request.
++ `CVE-2026-109619`: The issue is in the session upload progress feature (`session.upload_progress`), which PHP turns on by default.
+
+PHP versions 8.5.12, 8.4.27, 8.3.36, and 8.2.35 address these issues. PHP 8.1 and earlier have no update, so migrate those workloads to a supported PHP branch. For more information about these issues, see [AWS Security Bulletin 2026-143](https://aws.amazon.com/security/security-bulletins/2026-143-aws/) on the AWS website.
+
+**Remediation: Update affected dependencies**  
+ Review the **References** section in the **Vulnerability** tab of the trait, and follow the remediation advice in the finding. Update the vulnerable packages and dependencies to a version that is not affected, and redeploy the app. For more information about monitoring the app for vulnerabilities, see [Microsoft Defender for App Service](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-app-service-introduction) on the Microsoft Learn website. 
 
 ### The Azure Function app has network-exploitable software vulnerabilities with a high likelihood of exploitation
 <a name="high-priority-vulnerability"></a>

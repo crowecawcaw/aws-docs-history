@@ -9,7 +9,7 @@ You can only create one automation rule at a time. To create multiple automation
 
 You must create an automation rule in each Region and account in which you want the rule to apply to findings.
 
-When you create an automation rule in the Security Hub CSPM console, Security Hub CSPM shows you a beta of the findings to which your rule applies. The beta is currently not supported if your rule criteria include a CONTAINS or NOT\_CONTAINS filter. You can choose these filters for map and string field types.
+When you create an automation rule in the Security Hub CSPM console, Security Hub CSPM shows you a preview of the findings to which your rule applies. The preview is currently not supported if your rule criteria include a CONTAINS or NOT\_CONTAINS filter. You can choose these filters for map and string field types.
 
 **Important**  
 AWS recommends that you don't include personally identifying, confidential, or sensitive information in your rule name, description, or other fields.
@@ -34,7 +34,7 @@ Choose your preferred method, and complete the following steps to create a custo
 
 1. For **Criteria**, use the **Key**, **Operator**, and **Value** drop down menus to specify your rule criteria. You must specify at least one rule criterion.
 
-   If supported for your selected criteria, the console shows you a beta of findings that match your criteria.
+   If supported for your selected criteria, the console shows you a preview of findings that match your criteria.
 
 1. For **Automated action**, use the drop down menus to specify which finding fields to update when findings match your rule criteria. You must specify at least one rule action.
 
@@ -114,7 +114,7 @@ Rule templates reflect common use cases for automation rules. Currently, only th
 
 1. (Optional) If necessary for your use case, modify the **Rule**, **Criteria**, and **Automated action** sections. You must specify at least one rule criterion and one rule action.
 
-   If supported for your selected criteria, the console shows you a beta of findings that match your criteria.
+   If supported for your selected criteria, the console shows you a preview of findings that match your criteria.
 
 1. For **Rule status**, choose whether you want the rule to be **Enabled** or **Disabled** after it's created.
 

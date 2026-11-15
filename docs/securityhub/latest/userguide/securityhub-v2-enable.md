@@ -8,11 +8,6 @@
 **Important**  
 When you enable AWS Security Hub, Security Hub uses the data available to it (including findings, configuration data, software inventory, and other data from your AWS environment) to power the capabilities you turn on. As we enhance existing capabilities or add new ones, Security Hub may draw on additional data already within its reach to deliver a better experience, such as more accurately assessing the real-world impact of exposures in your environment, at no additional cost. You can manage your integrations and enabled capabilities at any time. See the [Security Hub documentation](securityhub-v2-data-use.md) for details, or reach out to your AWS account team or AWS Support with any questions.
 
-For a brief demonstration of how to enable Security Hub watch the following video:
-
-[![AWS Videos](https://img.youtube.com/vi/prtnhCfjUpM/0.jpg)](https://www.youtube.com/watch?v=prtnhCfjUpM)
-
-
 ## Enable Security Hub for an AWS Organization
 <a name="securityhub-v2-enable-management-account"></a>
 
@@ -73,7 +68,7 @@ This section includes three steps:
 ### Step 3. Create a policy that enables Security Hub in all member accounts
 <a name="step-3"></a>
 
- After enabling Security Hub in the delegated administrator account for an organization you need to create a policy that defines which services and capabilities are enabled in the organization member accounts. For more information, see [Enabling a configuration with a type of policy](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-v2-da-policy.html#securityhub-v2-configuration-enable-policy). 
+ After enabling Security Hub in the delegated administrator account for an organization you need to create a policy that defines which services and capabilities are enabled in the organization member accounts. For more information, see [Enabling a configuration for Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-v2-da-policy.html#securityhub-v2-configuration-enable-policy). 
 
  After you enable Security Hub, the following resources are created in your account: 
 +  A service-linked role called [AWSServiceRoleForSecurityHubV2](https://docs.aws.amazon.com/securityhub/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awssecurityhubv2servicerolepolicy). 

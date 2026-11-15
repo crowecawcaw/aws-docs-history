@@ -5,6 +5,11 @@
 
 The following section summarizes some restrictions and recommendations to keep in mind when managing member accounts in AWS Security Hub CSPM.
 
+## Using declarative policies
+<a name="admin-recommend-orgs-policies"></a>
+
+For multi-account environments, we recommend integrating Security Hub CSPM with AWS Organizations and using [declarative policies](accounts-orgs-policies.md) to enable and configure Security Hub CSPM. A declarative policy configures Security Hub CSPM, standards, and controls across accounts, organizational units (OUs), and AWS Regions. The policy also applies automatically to accounts that join the organization. For other options, see [Managing accounts with AWS Organizations](securityhub-accounts.md#securityhub-orgs-account-management-overview).
+
 ## Maximum number of member accounts
 <a name="admin-maximum-member-accounts"></a>
 
@@ -27,7 +32,7 @@ For the manual invitation process, accepting a membership invitation is optional
 
 If you integrate Security Hub CSPM with AWS Organizations, the Organizations management account can designate a delegated administrator (DA) account for Security Hub CSPM. The organization management account can't be set as the DA in Organizations. While this is permitted in Security Hub CSPM, we recommend that the Organizations management account should *not* be the DA.
 
-We recommend that you choose the same DA account in all Regions. If you use [central configuration](central-configuration-intro.md), then Security Hub CSPM sets the same DA account in all Regions in which you configure Security Hub CSPM for your organization.
+We recommend that you choose the same DA account in all Regions. If you use [declarative policies](accounts-orgs-policies.md), Security Hub CSPM designates the DA account as the Security Hub CSPM administrator in each Region where a policy enables Security Hub CSPM.
 
 We also recommend that you choose the same DA account across AWS security and compliance services to help you manage security-related issues in a single pane of glass.
 
@@ -37,7 +42,7 @@ We also recommend that you choose the same DA account across AWS security and co
 For member accounts created by invitation, the administrator-member account association is created only in the Region that the invitation is sent from. The administrator account must enable Security Hub CSPM in each Region that you want to use it in. The administrator account then invites each account to become a member account in that Region.
 
 **Note**  
-We recommend using AWS Organizations instead of Security Hub CSPM invitations to manage your member accounts.
+We recommend using AWS Organizations and declarative policies instead of Security Hub CSPM invitations to manage your member accounts.
 
 ## Coordinating administrator accounts across services
 <a name="securityhub-coordinate-admins"></a>

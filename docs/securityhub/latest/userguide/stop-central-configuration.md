@@ -3,7 +3,12 @@
 # Disabling central configuration in Security Hub CSPM
 <a name="stop-central-configuration"></a>
 
+**Important**  
+Security Hub CSPM declarative policies are replacing central configuration as the recommended way to manage Security Hub CSPM across an organization. You can't use declarative policies and central configuration in the same organization at the same time. To move your existing configuration without coverage gaps, use the import tool in the Security Hub console. For more information, see [Declarative policies and central configuration in Security Hub CSPM](orgs-policies-and-central-config.md).
+
 When you disable central configuration in AWS Security Hub CSPM, the delegated administrator loses the ability to configure Security Hub CSPM, security standards, and security controls across multiple AWS accounts, organizational units (OUs), and AWS Regions. Instead, you must configure most settings separately for each account in each Region.
+
+If you plan to move to Security Hub CSPM declarative policies, import your configuration before you disable central configuration. The import tool is available only while central configuration is enabled. For more information, see [Migrating your central configuration policies to AWS Organizations declarative policies by using the import tool](orgs-policies-and-central-config.md#orgs-policies-import-tool).
 
 **Important**  
 Before you can disable central configuration, you must first [disassociate your accounts and OUs](disassociate-policy.md) from their current configuration, whether that's a configuration policy or self-managed behavior.  

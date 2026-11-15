@@ -3,6 +3,9 @@
 # How configuration policies work in Security Hub CSPM
 <a name="configuration-policies-overview"></a>
 
+**Important**  
+Security Hub CSPM declarative policies are replacing central configuration as the recommended way to manage Security Hub CSPM across an organization. You can't use declarative policies and central configuration in the same organization at the same time. To move your existing configuration without coverage gaps, use the import tool in the Security Hub console. For more information, see [Declarative policies and central configuration in Security Hub CSPM](orgs-policies-and-central-config.md).
+
 The delegated AWS Security Hub CSPM administrator can create configuration policies to configure Security Hub CSPM, security standards, and security controls for an organization. After creating a configuration policy, the delegated administrator can associate it with specific accounts, organizational units (OUs), or the root. The policy then takes effect in the specified accounts, OUs, or the root.
 
 For background information about the benefits of central configuration and how it works, see [Understanding central configuration in Security Hub CSPM](central-configuration-intro.md).
@@ -35,6 +38,8 @@ Each configuration policy specifies the following settings:
 + Optionally, [customize parameters](https://docs.aws.amazon.com/securityhub/latest/userguide/custom-control-parameters.html) for select enabled controls across enabled standards.
 
 Central configuration policies don't include AWS Config recorder settings. You must separately enable AWS Config and turn on recording for required resources in order for Security Hub CSPM to generate control findings. For more information, see [Considerations before enabling and configuring AWS Config](securityhub-setup-prereqs.md#securityhub-prereq-config).
+
+If you enable a standard but haven't enabled AWS Config, Security Hub CSPM tries to create service-linked AWS Config rules on a schedule. With central configuration, Security Hub CSPM also tries to create these rules each time you associate a configuration policy with accounts, OUs, or the root. This applies only if the policy enables one or more standards.
 
 If you use central configuration, Security Hub CSPM automatically disables controls that involve global resources in all Regions except the home Region. Other controls that you choose to enable though a configuration policy are enabled in all Regions where they are available. To limit findings for these controls to just one Region, you can update your AWS Config recorder settings and turn off global resource recording in all Regions except the home Region.
 

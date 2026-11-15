@@ -52,8 +52,6 @@ If you enable a standard in Security Hub CSPM but haven't enabled AWS Config, Se
 + 3 days after you enable the standard.
 + 7 days after you enable the standard, and continuously every 7 days thereafter.
 
-If you use central configuration, Security Hub CSPM also tries to create service-linked AWS Config rules each time you associate a configuration policy that enables one or more standards with accounts, organizational units (OUs), or the root.
-
 ### Recording resources in AWS Config
 <a name="config-resource-recording"></a>
 
@@ -66,7 +64,7 @@ If you don't configure AWS Config recording correctly for Security Hub CSPM cont
 You never recorded the resource for a given control, or you disabled recording of a resource before creating that type of resource. In these cases, you receive a `WARNING` finding for the control at issue, even though you might have created resources in scope of the control after you disabled recording. This `WARNING` finding is a default finding that doesn't actually evaluate the configuration state of the resource.
 You disable recording for a resource that's evaluated by a particular control. In this case, Security Hub CSPM retains the control findings that were generated before you disabled recording, even though the control isn't evaluating new or updated resources. Security Hub CSPM also changes the compliance status of the findings to `WARNING`. These retained findings might not accurately reflect a resource's current configuration state.
 
-By default, AWS Config records all supported *Regional resources* that it discovers in the AWS Region in which it is running. To receive all Security Hub CSPM control findings, you must also configure AWS Config to record *global resources*. To conserve costs, we recommend recording global resources in a single Region only. If you use central configuration or cross-Region aggregation, this Region should be your home Region.
+By default, AWS Config records all supported *Regional resources* that it discovers in the AWS Region in which it is running. To receive all Security Hub CSPM control findings, you must also configure AWS Config to record *global resources*. To conserve costs, we recommend recording global resources in a single Region only. If you use cross-Region aggregation, this Region should be your home Region.
 
 In AWS Config, you can choose between *continuous recording* and *daily recording* of changes in resource state. If you choose daily recording, AWS Config delivers resource configuration data at the end of each 24–hour period if there are changes in resource state. If there are no changes, no data is delivered. This can delay the generation of Security Hub CSPM findings for change-triggered controls until a 24–hour period is complete.
 

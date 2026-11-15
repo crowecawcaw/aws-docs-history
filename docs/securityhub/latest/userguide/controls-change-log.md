@@ -10,6 +10,7 @@ This log tracks changes occurring since April 2023. Choose a control to review a
 
 | Date of change | Control ID and title | Description of change | 
 | --- | --- | --- | 
+| November 13, 2026 | [[Lambda.2] Lambda functions should use supported runtimes](lambda-controls.md#lambda-2) | Lambda.2 checks whether the AWS Lambda function settings for runtimes match the expected values set for the supported runtimes in each language. Security Hub CSPM now supports `nodejs26.x` and `python3.15` as parameter values as AWS Lambda has added support for these runtimes. Security Hub CSPM no longer supports `dotnet8` as a parameter value as AWS Lambda no longer supports this runtime. | 
 | November 4, 2026 | [[Lambda.2] Lambda functions should use supported runtimes](lambda-controls.md#lambda-2) | Security Hub CSPM no longer supports `python3.10` as a parameter value for this control. AWS Lambda no longer supports this runtime. | 
 | November 4, 2026 | [[Opensearch.8] Connections to OpenSearch domains should be encrypted using the latest TLS security policy](opensearch-controls.md#opensearch-8) | Security Hub CSPM now supports `Policy-Min-TLS-1-2-RFC9151-FIPS-2024-08` as a parameter value for this control. The control now produces a `PASSED` finding for OpenSearch domains that use this TLS security policy. | 
 | October 29, 2026 | [[ELB.17] Application and Network Load Balancers with listeners should use recommended security policies](elb-controls.md#elb-17) | Security Hub CSPM updated the parameter value for this control to reflect recommended security policies. | 

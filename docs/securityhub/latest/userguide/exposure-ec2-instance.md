@@ -22,6 +22,7 @@ A single exposure finding contains issues identified in multiple remediation top
 + [Reachability traits for EC2 instances](#reachability)
   + [The EC2 instance is reachable over the internet](#internet-reachable)
 + [Vulnerability traits for EC2 instances](#vulnerability)
+  + [The Amazon EC2 instance has software vulnerabilities which are notable](#notable-vulnerability)
   + [EC2 instance has network-exploitable software vulnerabilities with a high likelihood of exploitation](#high-priority-vulnerability)
   + [The Amazon EC2 instance has software vulnerabilities](#low-priority-vulnerability)
   + [The EC2 instance has an End-Of-Life operating system](#end-of-life-operating-system-detected)
@@ -119,6 +120,22 @@ Take one or more of the following actions to address this exposure:
 <a name="vulnerability"></a>
 
 Here are vulnerability traits for EC2 instances and suggested remediation steps.
+
+### The Amazon EC2 instance has software vulnerabilities which are notable
+<a name="notable-vulnerability"></a>
+
+A *notable vulnerability* is a Common Vulnerabilities and Exposures (CVE) entry that Security Hub tracks on a curated list because of active exploitation in the wild or significant potential impact. Security Hub prioritizes these CVEs regardless of their CVSS score, so a notable vulnerability on this resource represents an immediate security threat. Patch these vulnerabilities first.
+
+The curated list currently includes the following vulnerabilities in the PHP runtime. With either vulnerability, a remote, unauthenticated party can run code on the server through a crafted multipart request. Both affect PHP versions 5.4 through 8.5, regardless of the application code that runs on them:
++ `CVE-2026-109618`: PHP can corrupt its memory state when it runs out of memory as it processes a crafted multipart request.
++ `CVE-2026-109619`: The issue is in the session upload progress feature (`session.upload_progress`), which PHP turns on by default.
+
+PHP versions 8.5.12, 8.4.27, 8.3.36, and 8.2.35 address these issues. PHP 8.1 and earlier have no update, so migrate those workloads to a supported PHP branch. For more information about these issues, see [AWS Security Bulletin 2026-143](https://aws.amazon.com/security/security-bulletins/2026-143-aws/) on the AWS website.
+
+**Remediation: Update affected instances**  
+ Review the **References** section in the **Vulnerability** tab of the trait, and follow the remediation advice in the finding. Use Systems Manager Patch Manager to update the affected package on the instance, or update the application to a version that is not affected. If the instance is part of an Auto Scaling group, update the AMI that the group uses so that new instances are not affected. For more information about patching instances in an Auto Scaling group, see [AMI updates patching (using patched AMIs for Auto Scaling groups)](https://docs.aws.amazon.com/managedservices/latest/userguide/patching-method-immutable.html). 
+
+Distribution packages can include the fix under an older version number, so check the package changelog for the CVE IDs. After you update, restart the web server and PHP processes, such as Apache and PHP-FPM, so that the update takes effect.
 
 ### EC2 instance has network-exploitable software vulnerabilities with a high likelihood of exploitation
 <a name="high-priority-vulnerability"></a>

@@ -3,7 +3,12 @@
 # Enabling central configuration in Security Hub CSPM
 <a name="start-central-configuration"></a>
 
+**Important**  
+Security Hub CSPM declarative policies are replacing central configuration as the recommended way to manage Security Hub CSPM across an organization. You can't use declarative policies and central configuration in the same organization at the same time. To move your existing configuration without coverage gaps, use the import tool in the Security Hub console. For more information, see [Declarative policies and central configuration in Security Hub CSPM](orgs-policies-and-central-config.md).
+
 The delegated AWS Security Hub CSPM administrator account can use central configuration to configure Security Hub CSPM, standards, and controls for multiple accounts and organizational units (OUs) across AWS Regions.
+
+If you're setting up multi-account management for the first time, use Security Hub CSPM declarative policies instead of enabling central configuration. For more information, see [Managing accounts with declarative policies in Security Hub CSPM](accounts-orgs-policies.md).
 
 For background information about the benefits of central configuration and how it works, see [Understanding central configuration in Security Hub CSPM](central-configuration-intro.md).
 

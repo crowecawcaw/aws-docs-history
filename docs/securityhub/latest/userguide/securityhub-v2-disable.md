@@ -26,7 +26,7 @@ If you are the delegated administrator for an AWS Organization, you have two opt
 ### Option 1: Disabling Security Hub with detection engines
 <a name="securityhub-v2-disable-with-engines"></a>
 
-You can leverage the **Security Hub (essential and additional capabilities)** deployment and policy from the policy catalog in your delegated administrator account to disable Security Hub along with Amazon Inspector for specific organizational units, accounts, or regions.
+You can use the **Security Hub (essential and add-on capabilities)** deployment and policy from the policy catalog in your delegated administrator account to disable Security Hub along with Amazon Inspector for specific organizational units, accounts, or Regions.
 
 **To disable Security Hub and Amazon Inspector across member accounts using a policy**
 
@@ -34,7 +34,7 @@ You can leverage the **Security Hub (essential and additional capabilities)** de
 
 1. From the navigation pane, choose **Management**, and then choose **Configurations**.
 
-1. Choose **Security Hub (essential and additional capabilities)** from the Configuration catalog.
+1. Choose **Security Hub (essential and add-on capabilities)** from the Configuration catalog.
 
 1. On the **Configure Security Hub** page in the **Details** section, enter a name and description for the policy (for example, "Security Hub Disablement Policy").
 
