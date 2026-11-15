@@ -41,7 +41,7 @@ The following steps describe the data flow and compliance automation for this ar
 
 1. Query log data and convert it into a human-readable format like CSV by using Amazon [Athena](https://docs.aws.amazon.com/athena/latest/ug/) for audit purposes.
 
-1. Visualize AWS CloudTrail logs by using Amazon Quick Sight.
+1. Visualize AWS CloudTrail logs by using AWS Quick Sight.
 
 ## Further reading
 <a name="gxp-further-reading"></a>
