@@ -31,6 +31,17 @@ Supported Regions include:
 
 You can combine Amazon SNS topics from multiple Regions in a single Amazon Q Developer in chat applications configuration.
 
+### Data residency in Amazon Q Developer in chat applications
+<a name="chatbot-data-residency"></a>
+
+Amazon Q Developer in chat applications is a global service. Service resources are stored and replicated across four AWS Regions: US East (Ohio), US West (Oregon), Asia Pacific (Singapore), and Europe (Ireland). Amazon Q Developer in chat applications delivers notifications to chat channels, which can be processed in any of the four supported Regions.
+
+The control plane APIs for Amazon Q Developer in chat applications are available in all four preceding Regions. The AWS Management Console for Amazon Q Developer in chat applications is available only in the US East (Ohio) Region.
+
+To answer natural language questions in your chat channels, Amazon Q Developer in chat applications uses the AWS assistant. For information about how the AWS assistant stores and processes your data, see [Data storage in the AWS assistant](https://docs.aws.amazon.com/assistant/latest/userguide/data-storage.html) and [Cross-Region processing in the AWS assistant](https://docs.aws.amazon.com/assistant/latest/userguide/cross-region-processing.html) in the *AWS assistant User Guide*.
+
+For more information about how Amazon Q Developer in chat applications protects your data, see [Data protection in Amazon Q Developer in chat applications](security.md#per-service-security).
+
 ### Opt-in Regions
 <a name="opt-in-Regions"></a>
 
