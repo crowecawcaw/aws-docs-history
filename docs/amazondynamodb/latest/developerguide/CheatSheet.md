@@ -75,14 +75,18 @@ aws dynamodb create-table ^
 <a name="CheatSheet.BasicActions.WriteItem"></a>
 
 ```
-aws dynamodb put-item \ --table-name Music \ --item file://item.json
+aws dynamodb put-item \
+    --table-name Music \
+    --item file://item.json
 ```
 
 ### Read item from a table
 <a name="CheatSheet.BasicActions.ReadItem"></a>
 
 ```
-aws dynamodb get-item \ --table-name Music \ --item file://item.json
+aws dynamodb get-item \
+    --table-name Music \
+    --key file://key.json
 ```
 
 ### Delete item from a table
@@ -96,8 +100,10 @@ aws dynamodb delete-item --table-name Music --key file://key.json
 <a name="CheatSheet.BasicActions.QueryTable"></a>
 
 ```
-aws dynamodb query --table-name Music 
---key-condition-expression "ArtistName=:Artist and SongName=:Songtitle"
+aws dynamodb query \
+    --table-name Music \
+    --key-condition-expression "Artist = :artist" \
+    --expression-attribute-values '{":artist":{"S":"No One You Know"}}'
 ```
 
 ### Delete a table

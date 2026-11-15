@@ -137,8 +137,8 @@ The following are some examples of document paths. (Refer to the item shown in [
 The maximum depth for a document path is 32. Therefore, the number of dereferences operators in a path cannot exceed this limit.
 
 You can use any attribute name in a document path as long as they meet these requirements:
-+ The first character is `a-z` or `A-Z` and or `0-9`
-+ The second character (if present) is `a-z`, `A-Z`
++ The first character is `a-z` or `A-Z`.
++ The second character (if present) is `a-z`, `A-Z`, or `0-9`.
 
 **Note**  
 If an attribute name does not meet this requirement, you must define an expression attribute name as a placeholder.

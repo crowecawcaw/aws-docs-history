@@ -184,6 +184,6 @@ If DynamoDB returns any unprocessed items, you should retry the batch operation 
 
 **Note**  
 Some AWS SDKs provide higher-level clients that handle unprocessed item retries automatically, so you don't need to implement this retry logic yourself. For example:  
-**Java** – The [DynamoDB Enhanced Client](DynamoDBEnhanced.md) in the AWS SDK for Java v2 and the [DynamoDBMapper](DynamoDBMapper.md) in v1 both automatically retry unprocessed items when performing batch operations.
+**Java** – The [DynamoDBMapper](DynamoDBMapper.md) in the AWS SDK for Java v1 automatically retries unprocessed items for batch reads and writes. In the AWS SDK for Java v2, the [DynamoDB Enhanced Client](DynamoDBEnhanced.md) automatically retries unprocessed keys for `batchGetItem`. For `batchWriteItem`, the Enhanced Client returns unprocessed items in the `BatchWriteResult`, and you must retry them yourself.
 **Python** – The boto3 Table resource `batch_writer` handles unprocessed item retries implicitly for batch write operations. For more information, see [Using the table resource batch\_writer](programming-with-python.md#programming-with-python-batch-writer).
 If you are using a low-level client or an SDK that does not provide this behavior, you must implement the retry logic yourself as described above.

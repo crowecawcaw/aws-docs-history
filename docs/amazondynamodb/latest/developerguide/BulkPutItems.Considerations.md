@@ -126,7 +126,11 @@ An input or output bucket in another AWS Region incurs cross-Region data-transfe
 ## CloudTrail
 <a name="BulkPutItems.Considerations.CloudTrail"></a>
 
-AWS CloudTrail logs the `StartBulkPutItems` call with the event name `StartBulkOperation` and resource type `AWS::DynamoDB::BulkOperation`. Individual item writes are not logged.
+AWS CloudTrail logs the `StartBulkPutItems` call as the management event `StartBulkOperation`, with resource type `AWS::DynamoDB::BulkOperation`.
+
+While a bulk put items operation is running, DynamoDB periodically emits `BulkPutItems` data service events for the target table. These events have an `AWS::DynamoDB::Table` resource and identify the operation in `serviceEventDetails.BulkOperationArn`. To record these events, configure your trail or event data store to log DynamoDB table data events. Data-event logging is not enabled by default.
+
+A single operation can produce multiple `BulkPutItems` data events. DynamoDB does not log the operation's individual item writes as `PutItem` events.
 
 ## DynamoDB Accelerator (DAX)
 <a name="BulkPutItems.Considerations.DAX"></a>

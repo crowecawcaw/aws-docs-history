@@ -200,4 +200,4 @@ Transactional operations provide atomicity, consistency, isolation, and durabili
 ## DynamoDB Transactions vs. the AWSLabs transactions client library
 <a name="transaction-vs-library"></a>
 
-DynamoDB transactions provide a more cost-effective, robust, and performant replacement for the [AWSLabs](https://github.com/awslabs) transactions client library. We suggest that you update your applications to use the native, server-side transaction APIs.
+DynamoDB transactions provide a more cost-effective, robust, and performant replacement for the AWSLabs transactions client library. Update your applications to use the native, server-side transaction APIs. For more information about the client library, see [AWSLabs DynamoDB transactions client library](https://github.com/awslabs/dynamodb-transactions) on the GitHub website.

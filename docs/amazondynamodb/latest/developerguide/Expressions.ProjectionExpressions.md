@@ -27,7 +27,7 @@ DynamoDB has reserved words and special characters. DynamoDB allows you to use t
 
 You'll need to use expression attribute names in place of the actual name if: 
 + The attribute name is on the list of reserved words in DynamoDB.
-+ The attribute name does not meet the requirement that the first character is `a-z` or `A-Z` and that the second character (if present) is `a-Z`, `A-Z`, or `0-9`.
++ The attribute name does not meet the requirement that the first character is `a-z` or `A-Z` and that the second character (if present) is `a-z`, `A-Z`, or `0-9`.
 + The attribute name contains a **\#** (hash) or **:** (colon).
 
 The following AWS CLI example shows how to use a projection expression with a `GetItem` operation. This projection expression retrieves a top-level scalar attribute (`Description`), the first element in a list (`RelatedItems[0]`), and a list nested within a map (`ProductReviews.FiveStar`).
