@@ -31,4 +31,4 @@ The AWS assistant is available at the Free and Pro tiers. For tier requirements,
 The AWS assistant is constantly updating its capabilities so your questions get the most contextually relevant and actionable answers.
 
 **Note**  
-Features vary between the AWS Management Console and the AWS Console Mobile Application. Each topic in this guide says where a feature is available. The AWS assistant name doesn't apply to Amazon Q Developer in the IDE or on the command line, Amazon Q Developer in chat applications, Kiro, Amazon Q Business, Amazon Quick, AWS Transform, or other independently branded products.
+Features vary between the AWS Management Console and the AWS Console Mobile Application. Each topic in this guide says where a feature is available. The AWS assistant name doesn't apply to Amazon Q Developer in the IDE or on the command line, Amazon Q Developer in chat applications, Kiro, Amazon Q Business, AWS Quick, AWS Transform, or other independently branded products.
