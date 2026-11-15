@@ -856,9 +856,9 @@ The following example key policy statement uses the `kms:GrantConstraintType` co
 | --- | --- | --- | --- | --- | 
 | `kms:GrantIsForAWSResource` | Boolean | Single-valued | `CreateGrant`<br />`ListGrants`<br />`RevokeGrant` | Key policies and IAM policies | 
 
-Allows or denies permission for the [CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html), [ListGrants](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListGrants.html), or [RevokeGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html) operations only when an [AWS service integrated with AWS KMS](https://aws.amazon.com/kms/features/#aws-service-integration) calls the operation on the user's behalf. This policy condition doesn't allow the user to call these grant operations directly.
+Allows or denies permission for the [CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html), [ListGrants](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListGrants.html), or [RevokeGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html) operations only when an [AWS service integrated with AWS KMS](https://aws.amazon.com/kms/features/#aws-service-integration) calls the operation on the user's behalf. This condition key only applies for [Forward access sessions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_forward_access_sessions.html).
 
-The following example key policy statement uses the `kms:GrantIsForAWSResource` condition key. It allows AWS services that are integrated with AWS KMS, such as Amazon EBS, to create grants on this KMS key on behalf of the specified principal. 
+The following example key policy statement uses the `kms:GrantIsForAWSResource` condition key. It allows AWS services that are integrated with AWS KMS, such as Amazon EBS, to create grants on this KMS key on behalf of the specified principal. It doesn't allow the specified principal to create grants directly.
 
 ```
 {

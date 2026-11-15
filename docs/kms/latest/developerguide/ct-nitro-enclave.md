@@ -9,10 +9,10 @@ The module ID is the [enclave ID](https://docs.aws.amazon.com/enclaves/latest/us
 
 This section shows an example CloudTrail log entry for each of the supported Nitro enclave requests to AWS KMS.
 
-## Decrypt (for an enclave)
+## Decrypt (for an Enclave)
 <a name="ct-decrypt-enclave"></a>
 
-The following example shows an AWS CloudTrail log entry of a [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) operation for an AWS Nitro enclave.
+The following example shows an AWS CloudTrail log entry of a [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) operation for an AWS Nitro Enclave.
 
 ```
 {
@@ -44,7 +44,9 @@ The following example shows an AWS CloudTrail log entry of a [Decrypt](https://d
             "attestationDocumentEnclavePCR2": "<AttestationDocument.PCR2>",
             "attestationDocumentEnclavePCR3": "<AttestationDocument.PCR3>",
             "attestationDocumentEnclavePCR4": "<AttestationDocument.PCR4>",
-            "attestationDocumentEnclavePCR8": "<AttestationDocument.PCR8>"
+            "attestationDocumentEnclavePCR8": "<AttestationDocument.PCR8>",
+            "attestationDocumentEnclavePCR17": "<AttestationDocument.PCR17>",
+            "attestationDocumentEnclavePCR8ServiceName": "<ServiceName>"
         }
     },
     "requestID": "b4a65126-30d5-4b28-98b9-9153da559963",
@@ -62,10 +64,64 @@ The following example shows an AWS CloudTrail log entry of a [Decrypt](https://d
 }
 ```
 
-## GenerateDataKey (for an enclave)
+## DeriveSharedSecret (for an Enclave)
+<a name="ct-derivesharedsecret-enclave"></a>
+
+The following example shows an AWS CloudTrail log entry of a [DeriveSharedSecret](https://docs.aws.amazon.com/kms/latest/APIReference/API_DeriveSharedSecret.html) operation for an AWS Nitro Enclave.
+
+```
+{
+    "eventVersion": "1.09",
+    "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "EX_PRINCIPAL_ID",
+        "arn": "arn:aws:iam::111122223333:user/Alice",
+        "accountId": "111122223333",
+        "accessKeyId": "EXAMPLE_KEY_ID",
+        "userName": "Alice"
+    },
+    "eventTime": "2024-05-17T19:08:22Z",
+    "eventSource": "kms.amazonaws.com",
+    "eventName": "DeriveSharedSecret",
+    "awsRegion": "us-west-2",
+    "sourceIPAddress": "192.0.2.0",
+    "userAgent": "AWS Internal",
+    "requestParameters": {
+        "keyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
+        "publicKey": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEgUUW8niDuhiKDWYMZtisWdDQ8Kcxg8BOYbgDD5syoIBfdcmZot7A8e39xB7sli9LLEF73GRLFmRRmVHy4esFAw==",
+        "keyAgreementAlgorithm": "ECDH"
+    },
+    "responseElements": null,
+    "additionalEventData": {
+        "recipient": {
+            "attestationDocumentModuleId": "i-123456789abcde123-enc123456789abcde12",
+            "attestationDocumentEnclaveImageDigest": "<AttestationDocument.PCR0>",
+            "attestationDocumentEnclavePCR1": "<AttestationDocument.PCR1>",
+            "attestationDocumentEnclavePCR2": "<AttestationDocument.PCR2>",
+            "attestationDocumentEnclavePCR3": "<AttestationDocument.PCR3>",
+            "attestationDocumentEnclavePCR4": "<AttestationDocument.PCR4>",
+            "attestationDocumentEnclavePCR8": "<AttestationDocument.PCR8>",
+            "attestationDocumentEnclavePCR17": "<AttestationDocument.PCR17>",
+            "attestationDocumentEnclavePCR8ServiceName": "<ServiceName>"
+        }
+    },
+    "requestID": "12345126-30d5-4b28-98b9-9153da559963",
+    "eventID": "abcde202-ba1a-467c-b4ba-f729d45ae521",
+    "readOnly": true,
+    "resources": [{
+        "accountId": "111122223333",
+        "type": "AWS::KMS::Key",
+        "ARN": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+    }],
+    "eventType": "AwsApiCall",
+    "recipientAccountId": "111122223333"
+}
+```
+
+## GenerateDataKey (for an Enclave)
 <a name="ct-generate-data-key-enclave"></a>
 
-The following example shows an AWS CloudTrail log entry of a [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) operation for an AWS Nitro enclave.
+The following example shows an AWS CloudTrail log entry of a [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) operation for an AWS Nitro Enclave.
 
 ```
 {
@@ -97,7 +153,9 @@ The following example shows an AWS CloudTrail log entry of a [GenerateDataKey](h
             "attestationDocumentEnclavePCR2": "<AttestationDocument.PCR2>",
             "attestationDocumentEnclavePCR3": "<AttestationDocument.PCR3>",
             "attestationDocumentEnclavePCR4": "<AttestationDocument.PCR4>",
-            "attestationDocumentEnclavePCR8": "<AttestationDocument.PCR8>"
+            "attestationDocumentEnclavePCR8": "<AttestationDocument.PCR8>",
+            "attestationDocumentEnclavePCR17": "<AttestationDocument.PCR17>",
+            "attestationDocumentEnclavePCR8ServiceName": "<ServiceName>"
         }
     },
     "requestID": "e0eb83e3-63bc-11e4-bc2b-4198b6150d5c",
@@ -112,10 +170,10 @@ The following example shows an AWS CloudTrail log entry of a [GenerateDataKey](h
 }
 ```
 
-## GenerateDataKeyPair (for an enclave)
+## GenerateDataKeyPair (for an Enclave)
 <a name="ct-generatedatakeypair-enclave"></a>
 
-The following example shows an AWS CloudTrail log entry of a [GenerateDataKeyPair](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyPair.html) operation for an AWS Nitro enclave.
+The following example shows an AWS CloudTrail log entry of a [GenerateDataKeyPair](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyPair.html) operation for an AWS Nitro Enclave.
 
 ```
 {
@@ -150,7 +208,9 @@ The following example shows an AWS CloudTrail log entry of a [GenerateDataKeyPai
             "attestationDocumentEnclavePCR2": "<AttestationDocument.PCR2>",
             "attestationDocumentEnclavePCR3": "<AttestationDocument.PCR3>",
             "attestationDocumentEnclavePCR4": "<AttestationDocument.PCR4>",
-            "attestationDocumentEnclavePCR8": "<AttestationDocument.PCR8>"
+            "attestationDocumentEnclavePCR8": "<AttestationDocument.PCR8>",
+            "attestationDocumentEnclavePCR17": "<AttestationDocument.PCR17>",
+            "attestationDocumentEnclavePCR8ServiceName": "<ServiceName>"
         }
     },
     "requestID": "52fb127b-0fe5-42bb-8e5e-f560febde6b0",
@@ -168,10 +228,10 @@ The following example shows an AWS CloudTrail log entry of a [GenerateDataKeyPai
 }
 ```
 
-## GenerateRandom (for an enclave)
+## GenerateRandom (for an Enclave)
 <a name="ct-generate-random-enclave"></a>
 
-The following example shows an AWS CloudTrail log entry of a [GenerateRandom](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateRandom.html) operation for an AWS Nitro enclave.
+The following example shows an AWS CloudTrail log entry of a [GenerateRandom](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateRandom.html) operation for an AWS Nitro Enclave.
 
 ```
 {
@@ -200,7 +260,9 @@ The following example shows an AWS CloudTrail log entry of a [GenerateRandom](ht
             "attestationDocumentEnclavePCR2": "<AttestationDocument.PCR2>",
             "attestationDocumentEnclavePCR3": "<AttestationDocument.PCR3>",
             "attestationDocumentEnclavePCR4": "<AttestationDocument.PCR4>",
-            "attestationDocumentEnclavePCR8": "<AttestationDocument.PCR8>"
+            "attestationDocumentEnclavePCR8": "<AttestationDocument.PCR8>",
+            "attestationDocumentEnclavePCR17": "<AttestationDocument.PCR17>",
+            "attestationDocumentEnclavePCR8ServiceName": "<ServiceName>"
         }
     },
     "requestID": "df1e3de6-63bc-11e4-bc2b-4198b6150d5c",
