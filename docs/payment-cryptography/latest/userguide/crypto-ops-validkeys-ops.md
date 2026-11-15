@@ -136,7 +136,7 @@ Certain combinations, although permitted, may create unusable situations such as
 | MAC Key  | TR31\_M1\_ISO\_9797\_1\_MAC\_KEY |  +   TDES\_2KEY  <br />+   TDES\_3KEY    |  +  { Generate = true }  <br />+  { Generate = true, Verify = true }  <br />+  { Verify = true }  <br />+  { Generate = true }   | 
 | MAC Key (Retail MAC)  | TR31\_M1\_ISO\_9797\_3\_MAC\_KEY |  +   TDES\_2KEY  <br />+   TDES\_3KEY    |  +  { Generate = true }  <br />+  { Generate = true, Verify = true }  <br />+  { Verify = true }  <br />+  { Generate = true }   | 
 | MAC Key (CMAC)  | TR31\_M6\_ISO\_9797\_5\_CMAC\_KEY |  +   TDES\_2KEY  <br />+   TDES\_3KEY  <br />+   AES\_128  <br />+   AES\_192  <br />+   AES\_256    |  +  { Generate = true }  <br />+  { Generate = true, Verify = true }  <br />+  { Verify = true }  <br />+  { Generate = true }   | 
-| MAC Key (HMAC)  | TR31\_M7\_HMAC\_KEY |  +   TDES\_2KEY  <br />+   TDES\_3KEY  <br />+   AES\_128  <br />+   AES\_192  <br />+   AES\_256    |  +  { Generate = true }  <br />+  { Generate = true, Verify = true }  <br />+  { Verify = true }   | 
+| MAC Key (HMAC)  | TR31\_M7\_HMAC\_KEY |  +   TDES\_2KEY  <br />+   TDES\_3KEY  <br />+   AES\_128  <br />+   AES\_192  <br />+   AES\_256  <br />+  HMAC\_SHA224 <br />+  HMAC\_SHA256 <br />+  HMAC\_SHA384 <br />+  HMAC\_SHA512   |  +  { Generate = true }  <br />+  { Generate = true, Verify = true }  <br />+  { Verify = true }   | 
 | MAC Key (AS2805)  | TR31\_M0\_ISO\_16609\_MAC\_KEY |  +   TDES\_2KEY  <br />+   TDES\_3KEY    |  +  { Generate = true }  <br />+  { Generate = true, Verify = true }  <br />+  { Verify = true }   | 
 
 ## GenerateMacEmvPinChange

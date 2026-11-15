@@ -14,7 +14,7 @@ If the value is verified, then response parameter `MacDataVerificationSuccessful
 ## Verify HMAC
 <a name="verify-mac-hmac"></a>
 
-In this example, we will verify a HMAC (Hash-Based Message Authentication Code) for card data authentication using HMAC algorithm `HMAC_SHA256` and HMAC encryption key. The key must have KeyUsage set to `TR31_M7_HMAC_KEY` and KeyModesOfUse `Verify` set to true. 
+In this example, we will verify a HMAC (Hash-Based Message Authentication Code) for card data authentication using an `HMAC_SHA256` key. The key must have KeyUsage set to `TR31_M7_HMAC_KEY` and KeyModesOfUse `Verify` set to true. As when generating, set `Algorithm` to `HMAC` for a key whose algorithm is an HMAC algorithm. 
 
 **Example**  
 
@@ -23,7 +23,7 @@ $ aws payment-cryptography-data verify-mac \
      --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/qnobl5lghrzunce6 \ 
      --message-data "3b343038383439303031303733393431353d32343038323236303030373030303f33" \ 
      --mac ED87F26E961C6D0DDB78DA5038AA2BDDEA0DCE03E5B5E96BDDD494F4A7AA470C \ 
-     --verification-attributes Algorithm=HMAC_SHA256
+     --verification-attributes Algorithm=HMAC
 ```
 
 ```

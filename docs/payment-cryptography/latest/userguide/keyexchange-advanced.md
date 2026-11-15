@@ -8,3 +8,4 @@ This section covers advanced key exchange scenarios and configurations.
 **Topics**
 + [Bring Your Own Certificate Authority (BYOCA)](keyexchange-byoca.md)
 + [Physical Key Exchange](keys-physicalkeyexchange.md)
++ [Key block optional headers](key-block-optional-headers.md)

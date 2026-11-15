@@ -21,7 +21,7 @@
 <a name="keys-import-introduction"></a>
 
 **Note**  
-When importing keys using X9.143, TR-31 or TR-34 key blocks, AWS Payment Cryptography typically retains (but does not utilize) any optional headers. The HM(HMAC hash type) header is used during cryptographic operations. The KP header (KCV of wrapping key) is specific to the import process and is not retained. 
+When importing keys using X9.143, TR-31 or TR-34 key blocks, AWS Payment Cryptography typically retains (but does not utilize) any optional headers. The HM(HMAC hash type) header is used during cryptographic operations. The KP header (KCV of the wrapping key) is informational. AWS Payment Cryptography doesn't validate it on import and doesn't retain it. For more information about optional headers, see [Key block optional headers](key-block-optional-headers.md). 
 
 When exchanging keys with a counterparty, it is typically to first exchange a key exchange key (KEK). This key will then be used to protect subsequent keys. Using electronic formats, the KEK may be exchanged use asymmetric techniques such as TR-34, ECDH or RSA wrap. Subsequent keys will be exchanged using a symmetric key exchange such as TR-31. This KEK will be long lived and may only be updated every few years based on policy and its defined crypto period. 
 

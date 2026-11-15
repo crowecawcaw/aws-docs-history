@@ -30,7 +30,9 @@ CMAC and HMAC algorithms don't require padding. All others require that the data
 ## Generate HMAC
 <a name="generate-mac-hmac"></a>
 
-In this example, we will generate a HMAC (Hash-Based Message Authentication Code) for card data authentication using HMAC algorithm `HMAC_SHA256` and HMAC encryption key. The key must have KeyUsage set to `TR31_M7_HMAC_KEY` and KeyModesOfUse to `Generate`. The hash length (e.g. 256) is defined when the key is created and cannot be modified. 
+In this example, we will generate a HMAC (Hash-Based Message Authentication Code) for card data authentication using an `HMAC_SHA256` key. The key must have KeyUsage set to `TR31_M7_HMAC_KEY` and KeyModesOfUse to `Generate`. The hash length (e.g. 256) is defined when the key is created and cannot be modified. 
+
+Because the key algorithm is an HMAC algorithm, set `Algorithm` to `HMAC`, and the key sets the hash. Use `HMAC_SHA224`, `HMAC_SHA256`, `HMAC_SHA384`, or `HMAC_SHA512` only with a TDES or AES key that has KeyUsage set to `TR31_M7_HMAC_KEY`.
 
 The mac-length parameter has no effect for HMAC. The output MAC is always the full hash output, for example 64 hex characters for `HMAC_SHA256`. To use a shorter MAC, truncate the output in your code.
 
