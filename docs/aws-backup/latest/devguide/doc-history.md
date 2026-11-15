@@ -3,13 +3,14 @@
 # Document history for AWS Backup
 <a name="doc-history"></a>
 + **API version: **November 19, 2025
-+ **Latest documentation update: **October 13, 2026
++ **Latest documentation update: **November 12, 2026
 
 The following table lists all AWS Backup launches since the launch of the service in January 2019 to present. For notifications about updates to this documentation you can subscribe to the RSS feed above.
 
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Logically air-gapped vault support for Amazon EBS cold storage | AWS Backup now supports transitioning EBS backups from warm to cold storage in logically air-gapped vaults. For more information, see [ Logically air-gapped vault](https://docs.aws.amazon.com/aws-backup/latest/devguide/logicallyairgappedvault.html), [ Amazon EBS Archive Tier for cold storage](https://docs.aws.amazon.com/aws-backup/latest/devguide/multi-volume-crash-consistent.html#ebs-archive-tier), and [ Lifecycle and storage tiers](https://docs.aws.amazon.com/aws-backup/latest/devguide/plan-options-and-configuration.html#backup-lifecycle). | November 12, 2026 | 
 | Cross-account backup copy and cross-account management in the AWS European Sovereign Cloud (Germany) Region | AWS Backup now supports cross-account backup copy and cross-account management in the AWS European Sovereign Cloud (Germany) Region. See [Feature availability by AWS Region](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-region). | October 29, 2026 | 
 | Restore testing support for Amazon Redshift | You can now include Amazon Redshift provisioned clusters in a restore testing plan. For more information, see [Restore testing](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing.html) and [Restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html). | October 28, 2026 | 
 | Amazon FSx support in Asia Pacific (New Zealand) | AWS Backup now supports Amazon FSx in Asia Pacific (New Zealand). For more information, see [Supported services by AWS Region](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#supported-services-by-region). | October 13, 2026 | 

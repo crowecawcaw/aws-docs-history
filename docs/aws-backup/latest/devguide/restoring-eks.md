@@ -98,6 +98,196 @@ For Amazon EBS Snapshots you are required to provide an Availability Zone, where
 
 As part of the restore, AWS Backup will remount your Amazon EBS volumes and Amazon S3 buckets to your restored EKS cluster. Amazon EFS filesystems restore to random prefixes and require manual access point creation after restore to remount to your EKS cluster. AWS Backup does not create access points or mount targets on your behalf, refer to guidance here for [ access points](https://docs.aws.amazon.com/efs/latest/ug/create-access-point.html) and [mount targets](https://docs.aws.amazon.com/efs/latest/ug/manage-fs-access-create-delete-mount-targets.html).
 
+## Restore customizations
+<a name="eks-restore-customizations"></a>
+
+AWS Backup can customize your Kubernetes objects during an Amazon EKS restore. You define *resource modifiers*, a set of rules that transform objects before they are restored to the target cluster. These customizations are applied in memory during the restore and do not alter the original backup data.
+
+Resource modifiers are particularly useful when a restored cluster contains references to the source environment that must be updated for the destination, such as container image registry URIs, database endpoints, or storage class names. This is common in cross-Region and cross-account disaster recovery, where the restored objects would otherwise point at resources that do not exist in the destination. You can use resource modifiers for any change you need to make to your objects as they are restored.
+
+### Providing resource modifiers
+<a name="eks-restore-customizations-providing"></a>
+
+1. Create a resource modifiers file in YAML format.
+
+1. Upload the file to an Amazon S3 bucket in the same account and Region from which you start the restore job.
+
+1. Pass the Amazon S3 URI of the file in the `resourceModifiers` restore metadata key when you start the restore job.
+
+AWS Backup reads the file once, when you start the restore job, and uses that copy for the whole restore. Changing or deleting the file after you start the restore job has no effect on that restore.
+
+The principal that calls `StartRestoreJob` must have `s3:GetObject` permission on the resource modifiers file. This is the identity making the API call, not the role you pass in `iam-role-arn`.
+
+The file must be valid UTF-8 YAML, must set `version: v1`, and must not exceed 1 MB. It must not use YAML anchors or aliases, and it must not contain duplicate keys. AWS Backup validates the file when you submit the restore job and rejects the job before it starts if the file is missing, inaccessible, or invalid.
+
+The file must be in an Amazon S3 bucket in the same AWS account and Region as the restore job. If the bucket has a bucket policy, make sure that it does not deny the calling principal. AWS Backup reads the file on your behalf rather than from your network, so a policy that restricts access to a specific VPC endpoint, IP address range, or principal list blocks the read even when your IAM permissions are correct.
+
+The `resourceModifiers` restore metadata key is optional. If you omit it, the restore proceeds with no customer-defined modifications.
+
+### Resource modifiers file schema
+<a name="eks-restore-customizations-schema"></a>
+
+```
+version: v1
+resourceModifierRules:
+  - conditions:
+      groupResource: group/version/resource   # ex: apps/v1/deployments, or v1/pods for core resources
+      resourceNameRegex: string               # ex: my-pod.*
+      namespaces:
+        - namespace1
+        - namespace2
+      labelSelector:
+        matchLabels:
+          foo: bar
+          test: label
+    patches:
+      - operation: replace
+        path: "/spec/storageClassName"
+        value: "new-sc"
+      - operation: remove
+        path: "/metadata/uid"
+```
+
+Each rule consists of conditions, which decide which objects are modified, and patches, which decide what is modified in those objects.
+
+### Conditions
+<a name="eks-restore-customizations-conditions"></a>
+
+Conditions decide which objects a rule applies to. All conditions are optional, but each rule **must specify** at least one. When a rule specifies more than one condition, an object must match all of them.
++ `groupResource` - The Kubernetes group, version, and plural resource name that the patches apply to, in the form `group/version/resource`, or `version/resource` for core resources that have no group. The last segment is the plural resource name reported by the Kubernetes API, such as `deployments` or `pods`, not the object kind. A rule whose `groupResource` does not correspond to a resource in the backup matches no objects, and the restore job completes without applying it.
++ `resourceNameRegex` - A regular expression matched against the object's name, using RE2 syntax. RE2 does not support lookarounds or backreferences. The expression must match the entire name, not part of it, so `my-pod` matches only an object named exactly `my-pod`. To match a family of names, use `my-pod.*`. Omit this condition to match objects with any name.
++ `namespaces` - A list of namespaces that the objects must be in. If omitted or empty, the rule matches objects in all namespaces. This is the namespace name as stored in the backed-up object, not the namespace the object is restored into.
++ `labelSelector` - A set of key and value label pairs. An object matches only if it has all of the specified labels with exactly the specified values. An object with no labels never matches a rule that specifies a label selector.
+
+### Patches
+<a name="eks-restore-customizations-patches"></a>
+
+Patches decide what is modified in the matched objects. Each rule must specify at least one patch. AWS Backup applies each patch as a JSON Patch `add`, `remove`, or `replace` operation, and `path` uses JSON Pointer syntax, including array indexes. Each patch supports the following fields:
++ `operation` - The modification to perform, one of `add`, `remove`, or `replace`.
++ `path` - The JSON Pointer to the field to modify. For example, `/spec/storageClassName` targets the value at `spec.storageClassName`.
++ `value` - The value to apply. Required for `add` and `replace`, and not allowed for `remove`. AWS Backup treats a null value as no value, so it rejects the restore job if an `add` or `replace` patch omits `value` or sets it to null, or if a `remove` patch specifies `value`.
+
+The parent path of a patch must already exist on the object. `add` creates only the final field in the path, so adding `/metadata/labels/team` to an object that has no `labels` map fails.
+
+Unlike a standalone JSON Patch document, which is applied all-or-nothing, AWS Backup continues applying the remaining operations after one of them fails.
+
+**Patching arrays**
+
+To target an element of an array, use its zero-based index in the path. For example, `/spec/template/spec/containers/0/image` is the image of the first container.
++ `add` with an index inserts the value at that position and moves later elements back by one. Use `-` as the index to append to the end of the array, for example `/spec/template/spec/containers/-`.
++ `replace` and `remove` with an index change or delete the element at that position.
+
+The following patches fail at run time:
++ An `add` whose index is greater than the length of the array.
++ A `replace` or `remove` whose index does not exist in the array.
++ A `replace` or `remove` that uses `-` as the index.
+
+Paths do not support wildcards. To change the same field in several array elements, such as the image of every container, specify one patch for each index.
+
+### Order of application
+<a name="eks-restore-customizations-order"></a>
++ You can specify multiple patches for a single rule. Patches are applied in the order listed. If multiple patches target the same `path`, the last one takes effect.
++ You can specify multiple rules in the file. Rules are applied in the order listed. AWS Backup does not give precedence to the most specific match, so place your most specific rule last to give it the final say.
+
+### Modification results and notifications
+<a name="eks-restore-customizations-results"></a>
+
+A patch can fail at run time if the `path` it targets does not exist on the matched object, for example targeting `/spec/containers/3/image` on an object that has only two containers. When a patch fails at run time:
++ Only the failed operation is skipped. Operations listed before it in the same rule stay applied, operations after it are still attempted, and changes made by earlier rules are kept. AWS Backup still attempts to restore the object with whatever modifications succeeded, so if it restores, it can be partially modified rather than unmodified.
++ The modification failure does not change the job status. If any modification failed, the job's status message includes "Some Kubernetes Objects were restored without their requested modifications." Status messages are additive, so this message can appear alongside other messages from the same restore.
+
+A patch that applies successfully can still produce an object that your cluster does not accept, for example by removing a field the object requires or by setting a field to a value of the wrong type. AWS Backup does not check whether a modified object is still valid, so your cluster rejects it during the restore and that object fails to restore. Other objects in the same restore are not affected. Test your resource modifiers with a non-production restore before you rely on them.
+
+To get details about which objects were modified or failed to be modified, subscribe to the following SNS event notifications:
++ `EKS_RESTORE_MODIFICATION_SUCCESS` - One or more rules matched an object and every patch was applied successfully.
++ `EKS_RESTORE_MODIFICATION_FAILED` - A rule matched an object but one of its patches failed to apply at run time. AWS Backup still attempts to restore the object, with whatever other modifications succeeded.
+
+AWS Backup reports these events once per object. For more information, see [ Notification options with AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-notifications.html).
+
+### Example: cross-account, cross-Region restore
+<a name="eks-restore-customizations-example"></a>
+
+The following resource modifiers file is used when restoring from account `111122223333` in `us-east-1` to account `444455556666` in `us-west-2`. It updates the container image and database endpoint of the `payment` Deployment in the `production` namespace, and adds an annotation recording the backup it was restored from. The Deployment must already have an `annotations` map for the third patch to apply.
+
+```
+version: v1
+resourceModifierRules:
+  - conditions:
+      groupResource: apps/v1/deployments
+      namespaces:
+        - production
+      labelSelector:
+        matchLabels:
+          app: payment
+    patches:
+      - operation: replace
+        path: "/spec/template/spec/containers/0/image"
+        value: "444455556666.dkr.ecr.us-west-2.amazonaws.com/payment-service:v2.1.0"
+      - operation: replace
+        path: "/spec/template/spec/containers/0/env/0/value"
+        value: "payment-db.cluster-dst789.us-west-2.rds.amazonaws.com"
+      - operation: add
+        path: "/metadata/annotations/backup.aws.com~1restored-from"
+        value: "arn:aws:backup:us-east-1:111122223333:recovery-point:rp-abc123"
+```
+
+**Note**  
+In JSON Pointer paths, `~1` is the escape sequence for a literal `/` in a key name, so `backup.aws.com~1restored-from` refers to the annotation key `backup.aws.com/restored-from`.
+
+#### The Deployment before and after these rules
+<a name="eks-restore-customizations-example-before-after"></a>
+
+These excerpts show only the fields that the three patches change.
+
+**In the recovery point**
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment
+  namespace: production
+  labels:
+    app: payment
+  annotations:
+    team: payments
+spec:
+  template:
+    spec:
+      containers:
+        - name: payment-service
+          image: 111122223333.dkr.ecr.us-east-1.amazonaws.com/payment-service:v2.1.0
+          env:
+            - name: DB_HOST
+              value: payment-db.cluster-src123.us-east-1.rds.amazonaws.com
+```
+
+**Restored to the cluster**
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment
+  namespace: production
+  labels:
+    app: payment
+  annotations:
+    team: payments
+    backup.aws.com/restored-from: arn:aws:backup:us-east-1:111122223333:recovery-point:rp-abc123
+spec:
+  template:
+    spec:
+      containers:
+        - name: payment-service
+          image: 444455556666.dkr.ecr.us-west-2.amazonaws.com/payment-service:v2.1.0
+          env:
+            - name: DB_HOST
+              value: payment-db.cluster-dst789.us-west-2.rds.amazonaws.com
+```
+
+The first two `replace` patches changed the container image and the database endpoint, and the `add` patch added the `restored-from` annotation to the existing `annotations` map. The recovery point is not changed.
+
 ## Amazon EKS restore procedure
 <a name="eks-restore-backup-section"></a>
 
@@ -185,6 +375,9 @@ Use StartRestoreJob. You can specify the following metadata during Amazon EKS re
   Ex: `["ns-1","ns-2","ns-3","ns-4","ns-5"]`
 + `restoreKubernetesManifestsOnly` - (true/false) If you would like to only restore the Kubernetes manifest files and no persistent storage systems (EBS, S3, EFS, etc.)
 + `nestedRestoreJobs` - Restore Metadata configuration of all of the nested Recovery Points for the PersistentVolume storage systems in the composite Recovery Point. This is a map of RecoveryPointArn: RestoreMetadata of that Recovery Point
++ `resourceModifiers` - The Amazon S3 URI of a YAML file containing resource modifier rules that customize Kubernetes objects during restore. The file must be in an Amazon S3 bucket in the same account and Region as the restore job, must not exceed 1 MB, and the principal that calls `StartRestoreJob` must have `s3:GetObject` permission on it. AWS Backup validates the file when the job is submitted and rejects the job if the file is missing, inaccessible, or invalid. For the file schema and examples, see **Restore customizations**.
+
+  Ex: `"s3://my-backup-bucket/restore-configs/account-modifiers.yaml"`
 
 **Restore to existing cluster**
 
@@ -245,6 +438,7 @@ When a restore job completes, you might see the following status messages. The t
 | --- | --- | --- | 
 | All objects restored successfully | COMPLETED | — | 
 | One or more objects failed to be restored | COMPLETED | "One or more Kubernetes objects failed to restore. To get notified of these failures, enable SNS event notifications." | 
+| One or more resource modifications failed to apply | COMPLETED | "Some Kubernetes Objects were restored without their requested modifications. To get notified of these failures, enable SNS event notifications." | 
 | Restore could not complete | FAILED | (error details) | 
 
 **Skipped objects during restore**

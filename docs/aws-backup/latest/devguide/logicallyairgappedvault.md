@@ -54,6 +54,7 @@ A logically air-gapped vault is a secondary vault that serves as part of a data 
 + The ARN (Amazon Resource Name) of a recovery point stored in a logically air-gapped vault will have `backup` in place of the underlying resource type. For example, if the original ARN begins with `arn:aws:ec2:{{region}}::image/ami-*` , then the ARN of the recovery point in the logically air-gapped vault will be `arn:aws:backup:{{region}}:{{account-id}}:recovery-point:*`.
 
   You can use the CLI command [`list-recovery-points-by-backup-vault`](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListRecoveryPointsByBackupVault.html) to determine the ARN.
++ After an Amazon EBS backup in a logically air-gapped vault transitions to the archive tier, you can't copy it to another vault or AWS Region. **This includes copies from a restore access backup vault through Multi-party approval.** To keep a copy in another account or Region, copy the backup while it is still in warm storage.
 
 ## Compare and contrast with a standard backup vault
 <a name="lag-compare-and-contrast"></a>
@@ -248,6 +249,12 @@ When you create or copy a backup of other resource types (ones [not fully manage
 You can copy a backup (recovery point) from a standard backup vault to a logically air-gapped vault by [creating a new backup plan](creating-a-backup-plan.md) or [updating an existing one](updating-a-backup-plan.md) in the AWS Backup console or through the AWS CLI commands [`create-backup-plan`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/create-backup-plan.html) and [`update-backup-plan`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/update-backup-plan.html). You can also create backups directly in a logically air-gapped vault by using it as a primary target. See [Primary backups to logically air-gapped vaults](lag-vault-primary-backup.md) for more details.
 
 You can copy a backup from one logically air-gapped vault to another logically air-gapped vault on-demand (this type of backup cannot be scheduled in a backup plan). You can copy a backup from a logically air-gapped vault to a standard backup vault as long as the copy is encrypted with a customer managed key.
+
+**Archive Amazon EBS backups in a logically air-gapped vault**
+
+You can transition Amazon EBS backups in a logically air-gapped vault to Amazon EBS Snapshots Archive, a lower-cost storage tier for backups that you rarely access. In a backup rule that runs monthly or less often, add a copy action with a logically air-gapped vault as the destination. In the copy lifecycle, select Archive Amazon EBS snapshots, then set the time in warm storage and the total retention period. If you use a logically air-gapped vault as the primary backup target, select Archive Amazon EBS snapshots in the backup rule lifecycle instead. The backup transitions to the archive tier after it is copied to the vault. The total retention period must be at least 90 days longer than the time in warm storage, and it must fall within the minimum and maximum retention period of the vault.
+
+If the vault is encrypted with a customer managed key, update the key policy before you enable this option. For more information, see [Key policy for CMK encrypted logically air-gapped vault creation](#key-policy-lag-vault-creation).
 
 **On-demand backup copy to a logically air-gapped vault**
 
@@ -663,6 +670,26 @@ To prevent job failures, review your AWS KMS key policy to ensure it includes al
             "kms:GrantIsForAWSResource": "true"  
         }  
     }  
+}
+```
++ When transitioning Amazon EBS Snapshot to cold storage in CMK encrypted logically air-gapped vault, the vault-owning account's SLR must have create grant permission on the CMK key policy.
+
+```
+{  
+    "Sid": "Allow AWS Backup to create grant on the key for snapshot archival",
+    "Effect": "Allow",  
+    "Principal": {  
+        "AWS": "arn:aws:iam::[vault-owning-account-id]:role/aws-service-role/backup.amazonaws.com/AWSServiceRoleForBackup" //[Vault owning account SLR]
+    },  
+    "Action": [  
+        "kms:CreateGrant"
+    ],  
+    "Resource": "*",
+    "Condition": {  
+        "Bool": {  
+          "kms:GrantIsForAWSResource": "true"  
+        }  
+    } 
 }
 ```
 

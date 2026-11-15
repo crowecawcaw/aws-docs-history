@@ -38,7 +38,7 @@ If a resource type does not have a checkmark in the Cross-Region backup or Cross
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
 | Amazon EC2 | ✓ | ✓ | ✓ | ✓ |  |  |  |  | ✓ | ✓ |  |  | ✓ |  | 
 | Amazon S3 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |  | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
-| Amazon EBS | ✓ | ✓ | ✓ | ✓ |  |  | ✓ | ✓ | ✓ | ✓ | ✓ |  | ✓ |  | 
+| Amazon EBS | ✓ | ✓ | ✓ | ✓ |  |  | ✓ | ✓ | ✓ | ✓ 14 | ✓ |  | ✓ |  | 
 | Amazon RDS DB instance (single-AZ and Multi-AZ) 12 | ✓ 3 | ✓ 3 | ✓ 4 | ✓ | ✓ |  |  |  | ✓ |  |  |  |  |  | 
 | Amazon RDS cluster 13 | ✓ 3 | ✓ 3 | ✓ 4 | ✓ |  |  |  |  | ✓ |  |  |  |  |  | 
 | Amazon Aurora | ✓ 3 | ✓ 3 | ✓ | ✓ 6 | ✓ |  |  |  | ✓ | ✓ |  |  |  |  | 
@@ -89,6 +89,8 @@ Some resource types have both continuous backup capability and cross-Region and 
 12 AWS Backup supports continuous backups and point-in-time recovery for all Amazon RDS instances and Aurora that are supported by the native Amazon RDS service. Amazon RDS DB instances include both single-AZ and Multi-AZ instance deployments.
 
 13 AWS Backup does not support continuous backups or point-in-time recovery for Amazon RDS Multi-AZ clusters.
+
+14 Amazon EBS backups in a logically air-gapped vault can transition to the archive tier (Amazon EBS Snapshots Archive).
 
 ## Feature availability by AWS Region
 <a name="features-by-region"></a>

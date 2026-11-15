@@ -54,10 +54,12 @@ AWS Backup for S3 supports two additional events:
 + `S3_BACKUP_OBJECT_FAILED` notifies you of any S3 object that AWS Backup failed to back up during a backup job.
 + `S3_RESTORE_OBJECT_FAILED` notifies you of any S3 object that AWS Backup failed to restore during a restore job.
 
-AWS Backup for EKS supports three additional events:
+AWS Backup for EKS supports five additional events:
 + `EKS_BACKUP_OBJECT_FAILED` notifies you of any EKS objects that AWS Backup failed to back up during a backup job.
 + `EKS_RESTORE_OBJECT_FAILED` notifies you of any EKS objects that AWS Backup failed to restore during a restore job.
 + `EKS_RESTORE_OBJECT_SKIPPED` notifies you of any EKS objects that AWS Backup skipped during a restore job.
++ `EKS_RESTORE_MODIFICATION_SUCCESS` notifies you of any EKS objects that AWS Backup modified during a restore job using your resource modifiers.
++ `EKS_RESTORE_MODIFICATION_FAILED` notifies you of any EKS objects where one of your resource modifiers could not be applied during a restore job.
 
 ### Examples of events
 <a name="sns-completed-backup-events"></a>
@@ -257,6 +259,67 @@ AWS Backup for EKS supports three additional events:
               "reason" : {"Type":"String","Value":"Already exists."},
               "resourceName" : {"Type":"String","Value":"exampleresource"},
               "resourceType" : {"Type":"String","Value":"apiextensions.k8s.io/v1/customresourcedefinitions"},
+              "restoreJobId" : {"Type":"String","Value":"1b2345b2-f22c-4dab-5eb6-bbc7890ed123"}
+            }
+        }
+    }]
+}
+```
+
+**Example: EKS restore modification succeeded**  
+
+```
+{
+    "Records": [{
+        "EventSource": "aws:sns",
+        "EventVersion": "1.0",
+        "EventSubscriptionArn": "arn:aws:sns:...-a3802aa1ed45",
+        "Sns": {
+            "Type": "Notification",
+            "MessageId": "12345678-abcd-123a-def0-abcd1a234567",
+            "TopicArn": "arn:aws:sns:us-west-1:123456789012:backup-2sqs-sns-topic",
+            "Subject": "Notification from AWS Backup",
+            "Message": "A Kubernetes resource was successfully modified by your resource modifiers during restore from your Amazon EKS Backup. Resource: apps/v1/deployments. Resource Name: exampledeployment. Namespace: production. Destination EKS Cluster Name: eks-restore-target-cluster-name. RestoreJob ID: 1b2345b2-f22c-4dab-5eb6-bbc7890ed123",
+            "Timestamp": "2025-05-25T18:46:02.788Z",
+            ...
+            "MessageAttributes" : {
+              "eventType" : {"Type":"String","Value":"EKS_RESTORE_MODIFICATION_SUCCESS"},
+              "clusterName" : {"Type":"String","Value":"eks-restore-target-cluster-name"},
+              "namespace" : {"Type":"String","Value":"production"},
+              "parentRestoreJobId" : {"Type":"String","Value":"12345678-abcd-123a-def0-abcd1a234567"},
+              "resourceName" : {"Type":"String","Value":"exampledeployment"},
+              "resourceType" : {"Type":"String","Value":"apps/v1/deployments"},
+              "restoreJobId" : {"Type":"String","Value":"1b2345b2-f22c-4dab-5eb6-bbc7890ed123"}
+            }
+        }
+    }]
+}
+```
+
+**Example: EKS restore modification failed**  
+
+```
+{
+    "Records": [{
+        "EventSource": "aws:sns",
+        "EventVersion": "1.0",
+        "EventSubscriptionArn": "arn:aws:sns:...-a3802aa1ed45",
+        "Sns": {
+            "Type": "Notification",
+            "MessageId": "12345678-abcd-123a-def0-abcd1a234567",
+            "TopicArn": "arn:aws:sns:us-west-1:123456789012:backup-2sqs-sns-topic",
+            "Subject": "Notification from AWS Backup",
+            "Message": "One of your resource modifiers could not be applied to a Kubernetes resource during restore from your Amazon EKS Backup. The failed modification did not take effect; other requested modifications may have been applied. Resource: apps/v1/deployments. Resource Name: exampledeployment. Namespace: production. Destination EKS Cluster Name: eks-restore-target-cluster-name. RestoreJob ID: 1b2345b2-f22c-4dab-5eb6-bbc7890ed123",
+            "Timestamp": "2025-05-25T18:46:02.788Z",
+            ...
+            "MessageAttributes" : {
+              "eventType" : {"Type":"String","Value":"EKS_RESTORE_MODIFICATION_FAILED"},
+              "clusterName" : {"Type":"String","Value":"eks-restore-target-cluster-name"},
+              "namespace" : {"Type":"String","Value":"production"},
+              "parentRestoreJobId" : {"Type":"String","Value":"12345678-abcd-123a-def0-abcd1a234567"},
+              "reason" : {"Type":"String","Value":"Resource modifier operation replace on path /spec/replicas could not be applied."},
+              "resourceName" : {"Type":"String","Value":"exampledeployment"},
+              "resourceType" : {"Type":"String","Value":"apps/v1/deployments"},
               "restoreJobId" : {"Type":"String","Value":"1b2345b2-f22c-4dab-5eb6-bbc7890ed123"}
             }
         }
