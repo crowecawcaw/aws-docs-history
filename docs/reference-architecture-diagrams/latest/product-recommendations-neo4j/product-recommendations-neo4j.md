@@ -29,7 +29,7 @@ The following steps describe the data pipeline and recommendation engine for thi
 
 1. Create features on Neo4j GDB and GDS. Export graph embeddings to SageMaker AI for training ML models.
 
-1. Explore data and present findings by using [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html) and Neo4j Bloom visualization tools.
+1. Explore data and present findings by using [AWS Quick Sight](https://docs.aws.amazon.com/quicksight/latest/developerguide/welcome.html) and Neo4j Bloom visualization tools.
 
 1. Access Neo4j by using official drivers from Lambda or any application. Use a low-code approach with GraphQL API and the GRANDStack framework through [Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/).
 
