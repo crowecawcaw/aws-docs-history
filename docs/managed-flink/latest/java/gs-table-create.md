@@ -525,6 +525,9 @@ Edit the IAM policy to add permissions to access the Amazon S3 bucket.
 
 1.  Choose **Next** and then choose **Save changes**.
 
+**Note**  
+This tutorial creates an application that uses application snapshots (legacy). Enhanced snapshot mode needs Apache Flink 1.20 or later. This tutorial uses Apache Flink 1.19. Enhanced snapshot mode needs no changes to the policy that you edited in this procedure. In enhanced snapshot mode, the IAM user or role that starts, updates, or stops the application needs more permissions. For more information, see [IAM permissions](snapshots-setup.md#snapshots-setup-iam-permissions).
+
 ### Configure the application
 <a name="gs-table-7-console-configure"></a>
 
@@ -581,6 +584,9 @@ The application is now configured and ready to run.
 1. Choose **Run**.
 
 1. The **Status** in **Application details** transitions from `Ready` to `Starting` and then to `Running` after the application has started. 
+
+**Note**  
+An application in enhanced snapshot mode restores from enhanced snapshots, not from application snapshots (legacy). Enhanced snapshot mode needs Apache Flink 1.20 or later. This tutorial uses Apache Flink 1.19. For more information, see [Restore an application from an enhanced snapshot](snapshots-restore.md).
 
 When the application is in `Running` status, you can open the Flink dashboard. 
 

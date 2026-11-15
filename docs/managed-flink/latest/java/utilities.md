@@ -13,10 +13,12 @@ The following utilities can make using the Managed Service for Apache Flink serv
 <a name="snapshot-manager"></a>
 
  It's a best practice for Flink Applications to regularly initiate savepoints/snapshots to allow for more seamless failure recovery. Snapshot manager automates this task and offers the following benefits:
-+ takes a new snapshot of a running Managed Service for Apache Flink for Apache Flink Application
-+ gets a count of application snapshots
-+ checks if the count is more than the required number of snapshots
-+ deletes older snapshots that are older than the required number
++ Creates an application snapshot (legacy) of a running Managed Service for Apache Flink application.
++ Counts the application snapshots (legacy) of the application.
++ Compares the count with the number of application snapshots (legacy) that you want to keep.
++ Deletes the oldest application snapshots (legacy) that exceed that number.
+
+Snapshot manager uses the application snapshot (legacy) API actions, such as [`CreateApplicationSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_CreateApplicationSnapshot.html). For an application in enhanced snapshot mode, `CreateApplicationSnapshot` returns `InvalidApplicationConfigurationException`, so Snapshot manager does not work. Managed Service for Apache Flink does not delete enhanced snapshots on a schedule. To remove enhanced snapshots that you no longer need, call `DeleteSnapshot`. If your application uses enhanced snapshot mode, manage its snapshots with the enhanced snapshot API actions, such as [`CreateSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_CreateSnapshot.html). For more information, see [Create and manage enhanced snapshots](snapshots-manage.md).
 
 For an example, see [Snapshot manager](https://github.com/aws-samples/amazon-kinesis-data-analytics-snapshot-manager-for-flink).
 

@@ -128,7 +128,7 @@ The following table lists the IAM features you can use with Amazon MSF applicati
 | [ABAC (tags in policies)](#security_iam_service-with-iam-tags) |  Yes | 
 | [Temporary credentials](#security_iam_service-with-iam-roles-tempcreds) |  Yes | 
 | [Cross-service principal permissions](#security_iam_service-with-iam-principal-permissions) |  Yes | 
-| [Service roles](#security_iam_service-with-iam-roles-service) | No | 
+| [Service roles](#security_iam_service-with-iam-roles-service) | Yes | 
 | [Service-linked roles](#security_iam_service-with-iam-roles-service-linked) | No | 
 + For a high-level view of how Managed Service for Apache Flink and other AWS services work with most IAM features, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*.
 + For information about the service-specific resources, actions, and condition context keys that you can use in IAM permission policies, see [Actions, resources, and condition keys for Amazon Kinesis Analytics V2](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonkinesisanalyticsv2.html) in the *Service Authorization Reference*.
@@ -167,6 +167,8 @@ You can also specify multiple actions using wildcards (\*). For example, to spec
 "Action": "kinesisanalytics:Describe*"
 ```
 
+For the policy actions of enhanced snapshots, see [Policy actions for enhanced snapshots](security-iam-snapshots.md#security-iam-snapshots-actions).
+
 To see a complete list of all Amazon MSF API actions that you can specify in the `Action` element of an IAM policy statement, see [Actions defined by Amazon Kinesis Analytics V2](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonkinesisanalyticsv2.html#amazonkinesisanalyticsv2-actions-as-permissions).
 
 To view examples of Amazon MSF identity-based policies, see [Identity-based policy examples](security_iam_id-based-policy-examples.md).
@@ -198,6 +200,8 @@ You can also assign permissions to control a subset of applications using wildca
 "Resouce" : "arn:{{partition}}:kinesisanalytics:{{Region}}:{{account}}:application/{{application-name-prefix*}}
 ```
 
+For the resource ARN of enhanced snapshots, see [Policy resources for enhanced snapshots](security-iam-snapshots.md#security-iam-snapshots-resources).
+
 ### Application lifecycle policy condition keys
 <a name="security_iam_service-with-iam-id-based-policies-conditionkeys"></a>
 
@@ -209,6 +213,8 @@ The `Condition` element specifies when statements execute based on defined crite
 
 You can use condition keys to control permissions to Amazon MSF application lifecycle actions. To see a list of Managed Service for Apache Flink condition keys, see [Condition Keys for Amazon Managed Service for Apache Flink](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awskinesisanalytics.html#awskinesisanalytics-policy-keys) in the *Service Authorization Reference*. To learn with which actions and resources you can use a condition key, see [Actions Defined by Amazon Managed Service for Apache Flink](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awskinesisanalytics.html#awskinesisanalytics-actions-as-permissions).
 
+For the condition keys of enhanced snapshots, see [Policy condition keys for enhanced snapshots](security-iam-snapshots.md#security-iam-snapshots-condition-keys).
+
 ### Attribute-based access control (ABAC) with Managed Service for Apache Flink
 <a name="security_iam_service-with-iam-tags"></a>
 
@@ -219,6 +225,8 @@ Using condition keys, you can implement attribute-based access control (ABAC), w
 ABAC is helpful in environments that are growing rapidly and helps with situations where policy management becomes cumbersome.
 
 To control access based on tags, you provide tag information in the [condition element](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) of a policy using the `aws:ResourceTag/key-name`, `aws:RequestTag/key-name`, or `aws:TagKeys` condition keys. If a service supports all three condition keys for every resource type, then the value is **Yes** for the service. If a service supports all three condition keys for only some resource types, then the value is **Partial**. 
+
+For tags on enhanced snapshots, see [Attribute-based access control for enhanced snapshots](security-iam-snapshots.md#security-iam-snapshots-abac).
 + For more information about ABAC, see [Define permissions based on attributes with ABAC authorization](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_attribute-based-access-control.html).
 + To view a tutorial with the steps for setting up ABAC, see [IAM tutorial: Define permissions to access AWS resources based on tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_attribute-based-access-control.html).
 
@@ -279,6 +287,8 @@ Access control lists (ACLs) control which principals (account members, users, or
 
 **Warning**  
 Changing the permissions for a service role might break Managed Service for Apache Flink functionality. Edit service roles only when Managed Service for Apache Flink provides guidance to do so.
+
+For the application IAM role and the import and export roles that enhanced snapshots use, see [Identity and access management for enhanced snapshots](security-iam-snapshots.md).
 
 ## Service-linked roles for Managed Service for Apache Flink
 <a name="security_iam_service-with-iam-roles-service-linked"></a>

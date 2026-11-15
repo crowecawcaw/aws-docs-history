@@ -15,6 +15,7 @@ AWS Identity and Access Management (IAM) is an AWS service that helps an adminis
 + [Managing access using policies](#security_iam_access-manage)
 + [How Amazon Managed Service for Apache Flink works with IAM](security_iam_service-with-iam.md)
 + [Identity-based policy examples for Amazon Managed Service for Apache Flink](security_iam_id-based-policy-examples.md)
++ [Identity and access management for enhanced snapshots](security-iam-snapshots.md)
 + [Troubleshooting Amazon Managed Service for Apache Flink identity and access](security_iam_troubleshoot.md)
 + [Cross-service confused deputy prevention](iam-cross-service-confused-deputy-prevention.md)
 

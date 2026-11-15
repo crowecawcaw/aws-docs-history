@@ -9,6 +9,8 @@ To learn how to create an IAM identity-based policy by using these example JSON 
 
 For details about actions and resource types defined by Managed Service for Apache Flink, including the format of the ARNs for each of the resource types, see [Actions, Resources, and Condition Keys for Amazon Managed Service for Apache Flink](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awskinesisanalytics.html) in the *Service Authorization Reference*.
 
+For policy examples for enhanced snapshots, see [Identity-based policy examples for enhanced snapshots](security-iam-snapshots.md#security-iam-snapshots-examples).
+
 **Topics**
 + [Policy best practices](#security_iam_service-with-iam-policy-best-practices)
 + [Using the Managed Service for Apache Flink console](#security_iam_id-based-policy-examples-console)

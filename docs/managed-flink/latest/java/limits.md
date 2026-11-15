@@ -22,10 +22,21 @@ When working with Amazon Managed Service for Apache Flink, note the following qu
   With Managed Service for Apache Flink, your AWS account is charged for allocated resources, rather than resources that your application uses. You are charged an hourly rate based on the maximum number of KPUs that are used to run your stream-processing application. A single KPU provides you with 1 vCPU and 4 GiB of memory. For each KPU, the service also provisions 50 GiB of running application storage.
 
    
-+ You can create up to 1,000 Managed Service for Apache Flink snapshots per application. For more information, see [Manage application backups using snapshots](how-snapshots.md).
++ Managed Service for Apache Flink application snapshots (legacy) are subject to a quota. For more information, see [Manage application backups using snapshots](how-snapshots.md).
+
+   
++ For enhanced snapshots, Managed Service for Apache Flink limits the [`CreateSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_CreateSnapshot.html), [`ImportSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_ImportSnapshot.html), and [`ExportSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_ExportSnapshot.html) operations that run at the same time:
+  + Each application can have only one enhanced snapshot creation in progress at a time. The next `CreateSnapshot` request returns `ResourceInUseException`.
+  + Your account can have up to 10 imports and exports combined in progress in each Region.
+  + Each enhanced snapshot can have one export in progress at a time.
+
+  An import or export request over a limit returns `LimitExceededException`. For more information, see [Limits on operations in progress](snapshots-how-it-works.md#snapshots-how-it-works-limits-on-operations-in-progress).
 
    
 + You can assign up to 50 tags per application.
+
+   
++ You can assign up to 50 tags per enhanced snapshot.
 
    
 + The maximum size for an application JAR file is 512 MiB. If you exceed this quota, your application will fail to start.

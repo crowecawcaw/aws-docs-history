@@ -86,5 +86,7 @@ The AWS Streaming Data Solution for Amazon MSK provides CloudFormation templates
 The following end-to-end examples demonstrate advanced Managed Service for Apache Flink solutions and are available on GitHub:
 + [Amazon Managed Service for Apache Flink Flink – Benchmarking Utility](https://github.com/aws-samples/amazon-kinesis-data-analytics-flink-benchmarking-utility)
 + [Snapshot Manager – Amazon Managed Service for Apache Flink for Apache Flink](https://github.com/aws-samples/amazon-kinesis-data-analytics-snapshot-manager-for-flink)
+
+  Snapshot Manager works with application snapshots (legacy). For an application in enhanced snapshot mode, `CreateApplicationSnapshot` returns `InvalidApplicationConfigurationException`, so Snapshot Manager does not work. Managed Service for Apache Flink does not delete enhanced snapshots on a schedule. To remove enhanced snapshots that you no longer need, call `DeleteSnapshot`. If your application uses enhanced snapshot mode, manage its snapshots with the enhanced snapshot API actions, such as [`CreateSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_CreateSnapshot.html). For more information, see [Create and manage enhanced snapshots](snapshots-manage.md).
 + [Streaming ETL with Apache Flink and Amazon Managed Service for Apache Flink](https://github.com/aws-samples/amazon-kinesisanalytics-MyApplicatiostreaming-etl)
 + [Real-time sentiment analysis on customer feedback](https://github.com/aws-samples/real-time-sentiment-flinksql-kdastudio)

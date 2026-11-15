@@ -28,17 +28,24 @@ In Amazon MSF, CMK is a feature where you can encrypt your application's data wi
 + [Supported KMS key types](#supported-kms-key-types)
 + [KMS key permissions](#kms-key-permissions)
 + [KMS encryption context and constraints](#kms-encryption-context-constraints)
-+ [Key rotation policy](#kms-key-rotation-policy)
++ [Key transition](#kms-key-transition)
 + [Least-privileged key policy statements](#kms-least-privilege-policy-examples)
-+ [Example AWS CloudTrail log entries](#kms-cloudtrail-log-entries)
++ [AWS CloudTrail log entries](#kms-cloudtrail-log-entries)
 
 ### What is encrypted with CMKs?
 <a name="what-is-encrypted-cmk"></a>
 
 In an Amazon MSF application, data subject to a Flink checkpoint or snapshot will be encrypted with a CMK you define for that application. Consquently, your CMK will encrypt data stored in either running application storage or durable application storage. The [following sections](manage-cmk-api.md) describe the procedure to set up CMKs for your Amazon MSF applications.
 
-**Key rotation policy**  
-Amazon MSF doesn't manage the key rotation policy for your CMKs. You're responsible for your own key rotation. This is because you create and maintain CMKs. For information about how to use your key rotation policy with CMK in Amazon MSF, see [Key rotation policy](#kms-key-rotation-policy).
+The following rules set the key that encrypts an enhanced snapshot and its exported objects:
++ **Enhanced snapshots**: Managed Service for Apache Flink encrypts each enhanced snapshot with the key that the application uses when Managed Service for Apache Flink creates the enhanced snapshot. This rule applies to snapshots that you create with [`CreateSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_CreateSnapshot.html) and to system snapshots. `CreateSnapshot` always uses the key of the application.
++ **Imported enhanced snapshots**: Managed Service for Apache Flink encrypts the new enhanced snapshot with the key in `DestinationEncryptionConfiguration` of the [`ImportSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_ImportSnapshot.html) request. If you omit `DestinationEncryptionConfiguration`, Managed Service for Apache Flink uses an AWS owned key.
++ **Exported enhanced snapshots**: Managed Service for Apache Flink encrypts the exported Amazon S3 objects with the key in `DestinationEncryptionConfiguration` of the [`ExportSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_ExportSnapshot.html) request. If the key type in `DestinationEncryptionConfiguration` is `AWS_OWNED_KEY`, or if you omit `DestinationEncryptionConfiguration`, Managed Service for Apache Flink specifies no key. Amazon S3 encrypts the exported objects with the default encryption of the destination bucket, which is SSE-S3 or a customer managed key of the bucket. Managed Service for Apache Flink does not encrypt the exported objects with an AWS owned key.
+
+For more information, see [Encryption for imported and exported snapshots](snapshots-import-export.md#snapshots-import-export-encryption-for-imported-and-exported-snapshots).
+
+**Key transition**  
+When you change the CMK of an application to a different key, the operator (API caller) needs permissions for both the previous key and the new key. For more information, see [Key transition](#kms-key-transition).
 
 ### What isn't encrypted with CMKs?
 <a name="what-is-not-encrypted-cmk"></a>
@@ -85,6 +92,19 @@ Grants permission to provision running application storage.
 **[kms:CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html)**  
 Grants permission to access running application storage.
 
+Enhanced snapshot operations need the following AWS KMS permissions when a customer managed key encrypts the data. Managed Service for Apache Flink checks the caller permissions when it validates the request. Managed Service for Apache Flink does not check them for an AWS owned key. The following table lists the AWS KMS permissions for each enhanced snapshot operation.
+
+
+| Operation | Principal | Permissions on the key | 
+| --- | --- | --- | 
+| [`CreateSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_CreateSnapshot.html) | The caller | kms:Decrypt and kms:GenerateDataKey on the key of the application. | 
+| Restore with [`StartApplication`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_StartApplication.html), [`UpdateApplication`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.html), or [`RollbackApplication`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_RollbackApplication.html) | The caller | kms:DescribeKey, kms:Decrypt, and kms:GenerateDataKey on the key that encrypts the enhanced snapshot. | 
+| [`ImportSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_ImportSnapshot.html) and [`ExportSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_ExportSnapshot.html) | The caller | For ExportSnapshot, kms:DescribeKey, kms:Decrypt, and kms:GenerateDataKey on the key of the enhanced snapshot. For ImportSnapshot, kms:Decrypt and kms:GenerateDataKey on the key in DestinationEncryptionConfiguration. | 
+| ImportSnapshot and ExportSnapshot | The IAM role that you pass in the ImportSnapshot or ExportSnapshot request, and the caller | kms:Decrypt, kms:GenerateDataKey, and kms:DescribeKey on the key that encrypts the imported source or exported destination Amazon S3 objects. For the role policies and their conditions, see [IAM role for import and export](security-iam-snapshots.md#security-iam-snapshots-transfer-role). | 
+| ImportSnapshot and ExportSnapshot | kinesisanalytics.amazonaws.com and infrastructure.kinesisanalytics.amazonaws.com | For ImportSnapshot, kinesisanalytics.amazonaws.com needs kms:Decrypt and kms:GenerateDataKey on the key in DestinationEncryptionConfiguration. For ExportSnapshot, both principals need kms:DescribeKey, and kinesisanalytics.amazonaws.com also needs kms:Decrypt and kms:GenerateDataKey, on the key of the enhanced snapshot. For the key policy, see [Key policy for enhanced snapshot import and export](manage-cmk-api.md#create-cmk-kms-key-policy-snapshot-transfer). | 
+
+Grant each principal in the table the permissions in its row to avoid an `AccessDeniedException`. For more information, see [Encryption for imported and exported snapshots](snapshots-import-export.md#snapshots-import-export-encryption-for-imported-and-exported-snapshots).
+
 ### KMS encryption context and constraints
 <a name="kms-encryption-context-constraints"></a>
 
@@ -92,19 +112,21 @@ CMK in Amazon MSF provides encryption context when accessing keys to read or wri
 
 When creating grant to provision encrypted running application storage, Amazon MSF CMK creates grants with constraint type [EncryptionContextSubset](https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints) ensuring that only [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) operation is allowed through `"kms:GrantOperations": "Decrypt"`.
 
-### Key rotation policy
-<a name="kms-key-rotation-policy"></a>
+For enhanced snapshots, the value of `kms:EncryptionContext:aws:kinesisanalytics:arn` depends on the operation:
++ **Create**: For [`CreateSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_CreateSnapshot.html) and system snapshots, the value is the ARN of the application.
++ **Restore**: Allow both the ARN of the application that restores the enhanced snapshot and the source ARN of the enhanced snapshot. The source ARN is the ARN of the application that created the enhanced snapshot, or the snapshot ARN for an imported enhanced snapshot. The same two values apply to `aws:SourceArn`.
++ **Import**: The value is the ARN of the new enhanced snapshot.
++ **Export**: To read the enhanced snapshot, the value is the same as for a restore. To encrypt the exported objects with the customer managed key in `DestinationEncryptionConfiguration`, the value is the ARN of the enhanced snapshot that you export.
 
-Amazon MSF doesn't manage the key rotation policy for your CMKs. You're responsible for your own key rotation because you create and maintain CMKs.
+The key policy must allow each value that your operations use. Keep the ARN of the application that created an enhanced snapshot in the key policy after you delete that application. Without that ARN, you cannot restore or export the enhanced snapshots of that application.
 
-In KMS you use either automatic or manual key rotation to create new cryptographic material for your CMKs. For information about how to rotate your keys, see [Rotate AWS KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) in the *AWS Key Management Service Developer Guide*.
+### Key transition
+<a name="kms-key-transition"></a>
 
-When you rotate keys for CMKs in Amazon MSF, you must make sure that the operator (API caller) has permissions for both the previous and new key.
+A key transition is a change from one CMK to a different CMK. When you change the CMK of an application to a different key, make sure that the operator (API caller) has permissions for both the previous key and the new key.
 
 **Note**  
 An application can start from a snapshot which was encrypted with AOK after it's configured to use CMK. An application can also start from a snapshot which was encrypted with an older CMK. To start an application from a snapshot, the operator (API caller) must have permissions for both the old and new key.
-
-In Amazon MSF, we recommend that you stop and restart your applications using CMK encryption. This ensures the new rotation master key is applied to all data in running application storage and durable application storage. If you don't stop and restart your application, the new key material will only be applied to durable application storage. Running application storage will continue to be encrypted using the previous rotation key material.
 
 If you're changing the AWS KMS key ARN used for CMK you should use [UpdateApplication](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_UpdateApplication.html) in Amazon MSF. This will ensure your Flink application will restart as part of `UpdateApplication` applying the CMK changes.
 
@@ -116,119 +138,9 @@ When you provide an alias or alias ARN, Amazon MSF resolves the alias to key ARN
 
 For information about key policy statements, see [Create a KMS key policy](manage-cmk-api.md#create-cmk-kms-key-policy) and [Application lifecycle operator (API caller) permissions](manage-cmk-api.md#create-cmk-kms-api-caller-permissions).
 
-### Example AWS CloudTrail log entries
+### AWS CloudTrail log entries
 <a name="kms-cloudtrail-log-entries"></a>
 
-When Amazon MSF uses CMKs in AWS KMS, AWS CloudTrail automatically logs all AWS KMS API calls and related details. These logs contain information, such as AWS service making the request, KMS key ARN, API actions performed, and timestamps excluding the encrypted data. These logs provide essential audit trails for compliance, security monitoring, and troubleshooting by showing which services accessed your keys and when.
+When Amazon MSF uses CMKs in AWS KMS, AWS CloudTrail logs the AWS KMS API calls. The log entries show the AWS service that made the request, the KMS key ARN, the API action, and the timestamp. They don't include the encrypted data.
 
-**Example 1: AWS KMS Decrypt API call using an assumed role in Amazon MSF**  
-The following CloudTrail log shows Amazon MSF performing a test [kms:Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) operation on a CMK. Amazon MSF makes this request using an **Operator** role while using the [CreateApplication](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_CreateApplication.html) API. The following log includes essential details, such as the target KMS key ARN, associated Amazon MSF application ({{MyCmkApplication}}), and timestamp of the operation.
-
-```
-{
-    "eventVersion": "1.11",
-    "userIdentity": {
-        "type": "AssumedRole",
-        "principalId": "REDACTED",
-        "arn": "arn:aws:sts::{{123456789012}}:assumed-role/Operator/{{CmkTestingSession}}",
-        "accountId": "{{123456789012}}",
-        "accessKeyId": "REDACTED",
-        "sessionContext": {
-            "sessionIssuer": {
-                "type": "Role",
-                "principalId": "REDACTED",
-                "arn": "arn:aws:iam::{{123456789012}}:role/Operator",
-                "accountId": "{{123456789012}}",
-                "userName": "Operator"
-            },
-            "attributes": {
-                "creationDate": "2025-08-07T13:29:28Z",
-                "mfaAuthenticated": "false"
-            }
-        },
-        "invokedBy": "kinesisanalytics.amazonaws.com"
-    },
-    "eventTime": "2025-08-07T13:45:45Z",
-    "eventSource": "kms.amazonaws.com",
-    "eventName": "Decrypt",
-    "awsRegion": "{{us-east-1}}",
-    "sourceIPAddress": "kinesisanalytics.amazonaws.com",
-    "userAgent": "kinesisanalytics.amazonaws.com",
-    "errorCode": "DryRunOperationException",
-    "errorMessage": "The request would have succeeded, but the DryRun option is set.",
-    "requestParameters": {
-        "encryptionContext": {
-            "aws:kinesisanalytics:arn": "arn:aws:kinesisanalytics:{{us-east-1}}:{{123456789012}}:application/{{MyCmkApplication}}"
-        },
-        "keyId": "arn:aws:kms:{{us-east-1}}:{{123456789012}}:key/{{1234abcd-12ab-34cd-56ef-1234567890ab}}",
-        "encryptionAlgorithm": "SYMMETRIC_DEFAULT",
-        "dryRun": true
-    },
-    "responseElements": null,
-    "additionalEventData": {
-        "keyMaterialId": "REDACTED"
-    },
-    "requestID": "56764d19-1eb1-48f1-8044-594aa7dd05c4",
-    "eventID": "1371b402-f1dc-4c47-8f3a-1004e4803c5a",
-    "readOnly": true,
-    "resources": [
-        {
-            "accountId": "{{123456789012}}",
-            "type": "AWS::KMS::Key",
-            "ARN": "arn:aws:kms:{{us-east-1}}:{{123456789012}}:key/{{1234abcd-12ab-34cd-56ef-1234567890ab}}"
-        }
-    ],
-    "eventType": "AwsApiCall",
-    "managementEvent": true,
-    "recipientAccountId": "{{123456789012}}",
-    "eventCategory": "Management"
-}
-```
-
-**Example 2: AWS KMS Decrypt API call in Amazon MSF with direct service authentication**  
-The following CloudTrail log shows Amazon MSF performing a test [kms:Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) operation on a CMK. Amazon MSF makes this request through direct AWS service-to-service authentication instead of assuming a role. The following log includes essential details, such as the target KMS key ARN, associated Amazon MSF application ({{MyCmkApplication}}), and a shared event ID of the operation.
-
-```
-{
-    "eventVersion": "1.11",
-    "userIdentity": {
-        "type": "AWSService",
-        "invokedBy": "kinesisanalytics.amazonaws.com"
-    },
-    "eventTime": "2025-08-07T13:45:45Z",
-    "eventSource": "kms.amazonaws.com",
-    "eventName": "Decrypt",
-    "awsRegion": "{{us-east-1}}",
-    "sourceIPAddress": "kinesisanalytics.amazonaws.com",
-    "userAgent": "kinesisanalytics.amazonaws.com",
-    "errorCode": "DryRunOperationException",
-    "errorMessage": "The request would have succeeded, but the DryRun option is set.",
-    "requestParameters": {
-        "encryptionAlgorithm": "SYMMETRIC_DEFAULT",
-        "keyId": "arn:aws:kms:{{us-east-1}}:{{123456789012}}:key/{{1234abcd-12ab-34cd-56ef-1234567890ab}}",
-        "encryptionContext": {
-            "aws:kinesisanalytics:arn": "arn:aws:kinesisanalytics:{{us-east-1}}:{{123456789012}}:application/{{MyCmkApplication}}"
-        },
-        "dryRun": true
-    },
-    "responseElements": null,
-    "additionalEventData": {
-        "keyMaterialId": "REDACTED"
-    },
-    "requestID": "5fe45ada-7519-4608-be2f-5a9b8ddd62b2",
-    "eventID": "6206b08f-ce04-3011-9ec2-55951d357b2c",
-    "readOnly": true,
-    "resources": [
-        {
-            "accountId": "{{123456789012}}",
-            "type": "AWS::KMS::Key",
-            "ARN": "arn:aws:kms:{{us-east-1}}:{{123456789012}}:key/{{1234abcd-12ab-34cd-56ef-1234567890ab}}"
-        }
-    ],
-    "eventType": "AwsApiCall",
-    "managementEvent": true,
-    "recipientAccountId": "Application-account-ID",
-    "sharedEventID": "acbe4a39-ced9-4f53-9f3c-21ef7e89dc37",
-    "eventCategory": "Management"
-}
-```
+To find the calls that Amazon MSF makes, look for AWS KMS events where `userIdentity.invokedBy` is `kinesisanalytics.amazonaws.com`. The `aws:kinesisanalytics:arn` value in the encryption context of the event identifies the application or the enhanced snapshot. For more information, see [Logging AWS KMS API calls with AWS CloudTrail](https://docs.aws.amazon.com/kms/latest/developerguide/logging-using-cloudtrail.html) in the *AWS Key Management Service Developer Guide*.

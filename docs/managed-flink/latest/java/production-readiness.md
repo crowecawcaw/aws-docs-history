@@ -18,6 +18,8 @@ It is therefore essential that you run proper load tests for production applicat
 
 When consuming from a data stream, these scenarios can be simulated by producing into the stream for some time. Then start the application and have it consume data from the beginning of time. For example, use a start position of `TRIM_HORIZON` in the case of a Kinesis data stream.
 
+The savepoint question also applies to applications in enhanced snapshot mode. Each enhanced snapshot is an Apache Flink savepoint. Under peak load, call [`CreateSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_CreateSnapshot.html). Then, with `SnapshotsEnabled` set to `true`, update the application to take a system snapshot. Confirm that both enhanced snapshots reach the `READY` status. For more information, see [Create and manage enhanced snapshots](snapshots-manage.md).
+
 ## Define Max parallelism
 <a name="explicit-max-parallelism"></a>
 
@@ -43,5 +45,7 @@ A UUID is used in the operation in which Flink maps a savepoint back to an indiv
 ```
 .map(...).uid("my-map-function")
 ```
+
+Enhanced snapshots also use operator UUIDs to map state back to each operator. To restore an enhanced snapshot into an application, the operator UUIDs of the application must match the UUIDs in the enhanced snapshot. For more information, see [Restore an application from an enhanced snapshot](snapshots-restore.md).
 
 For more information, see [Production Readiness Checklist](https://nightlies.apache.org/flink/flink-docs-release-1.18/docs/ops/production_ready/).

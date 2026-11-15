@@ -18,6 +18,8 @@ Note the following about encrypting data at rest with Amazon MSF:
 + Your application's code is encrypted at rest.
 + Durable application storage is encrypted at rest.
 + Running application storage is encrypted at rest.
++ Managed Service for Apache Flink encrypts enhanced snapshots at rest with an AWS owned key or a customer managed key. An enhanced snapshot that an application creates uses the key of that application. An imported enhanced snapshot uses the key that you set in the [`ImportSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_ImportSnapshot.html) request. If you do not set a key, Managed Service for Apache Flink uses an AWS owned key. For more information, see [How enhanced snapshots work](snapshots-how-it-works.md).
++ Managed Service for Apache Flink encrypts exported enhanced snapshots in your Amazon S3 bucket with the key that you set in the [`ExportSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_ExportSnapshot.html) request. If you set `AWS_OWNED_KEY`, Amazon S3 applies the default encryption of the destination bucket. For more information, see [Encryption for imported and exported snapshots](snapshots-import-export.md#snapshots-import-export-encryption-for-imported-and-exported-snapshots).
 
 ### Encryption in transit
 <a name="encryption-transit"></a>

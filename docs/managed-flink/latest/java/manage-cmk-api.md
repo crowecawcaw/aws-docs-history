@@ -9,6 +9,7 @@ This topic describes how to create, and update your KMS CMKs using Amazon MSF AP
 + [Create and assign KMS keys](#create-assign-cmk-api)
 + [Update an existing application to use CMK](#update-existing-app-use-cmk-api)
 + [Revert from CMK to AWS owned key](#revert-cmk-to-aok-api)
++ [Restore from an enhanced snapshot that uses a different key](#manage-cmk-api-restore-different-key)
 
 ## Create and assign KMS keys
 <a name="create-assign-cmk-api"></a>
@@ -17,6 +18,7 @@ Before you start, create a KMS key. For information about creating a KMS key, se
 
 **Topics**
 + [Create a KMS key policy](#create-cmk-kms-key-policy)
++ [Key policy for enhanced snapshot import and export](#create-cmk-kms-key-policy-snapshot-transfer)
 + [Application lifecycle operator (API caller) permissions](#create-cmk-kms-api-caller-permissions)
 
 ### Create a KMS key policy
@@ -194,10 +196,77 @@ The following key policy statements are large because they are intended to be ex
                     "kms:GrantOperations": "Decrypt"
                 }
             }
+        },
+        {
+            "Sid": "OptionalAllowOperatorToUseKeyForImportedSnapshots",
+            "Effect": "Allow",
+            "Principal": { "AWS": "arn:aws:iam::{{123456789012}}:role/Operator" },
+            "Action": [ "kms:Decrypt", "kms:GenerateDataKey" ],
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "kms:EncryptionContext:aws:kinesisanalytics:arn": "arn:aws:kinesisanalytics:{{us-east-1}}:{{123456789012}}:snapshot/*"
+                },
+                "StringEquals": {
+                    "kms:ViaService": "kinesisanalytics.{{us-east-1}}.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Sid": "OptionalAllowServiceToDescribeKeyForImportedSnapshots",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": [
+                    "kinesisanalytics.amazonaws.com",
+                    "infrastructure.kinesisanalytics.amazonaws.com"
+                ]
+            },
+            "Action": "kms:DescribeKey",
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "aws:SourceArn": "arn:aws:kinesisanalytics:{{us-east-1}}:{{123456789012}}:snapshot/*"
+                },
+                "StringEquals": {
+                    "aws:SourceAccount": "{{123456789012}}"
+                }
+            }
+        },
+        {
+            "Sid": "OptionalAllowServiceToUseKeyForImportedSnapshots",
+            "Effect": "Allow",
+            "Principal": { "Service": "kinesisanalytics.amazonaws.com" },
+            "Action": [ "kms:Decrypt", "kms:GenerateDataKey" ],
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "kms:EncryptionContext:aws:kinesisanalytics:arn": "arn:aws:kinesisanalytics:{{us-east-1}}:{{123456789012}}:snapshot/*"
+                }
+            }
         }
     ]
 }
 ```
+
+The statements whose `Sid` starts with `Optional` are for imported enhanced snapshots. Keep them if you import enhanced snapshots with this key. Otherwise, remove them.
+
+Replace the example values in the `aws:SourceArn`, `aws:SourceAccount`, and `kms:EncryptionContext:aws:kinesisanalytics:arn` conditions with your own values. Use the ARN of your application. For the optional statements, use `arn:aws:kinesisanalytics:{{region}}:{{account-id}}:snapshot/*` or the ARN of a specific enhanced snapshot.
+
+Leave `OptionalAllowServiceToUseKeyForImportedSnapshots` without an `aws:SourceArn` condition. AWS KMS does not always receive `aws:SourceArn` when Managed Service for Apache Flink reads and writes the data of an enhanced snapshot.
+
+### Key policy for enhanced snapshot import and export
+<a name="create-cmk-kms-key-policy-snapshot-transfer"></a>
+
+You can use a separate customer managed key for imported enhanced snapshots. Name the key in the `DestinationEncryptionConfiguration` of the `ImportSnapshot` request. Managed Service for Apache Flink encrypts the new enhanced snapshot with this key. For the key policy, use the policy in [Create a KMS key policy](#create-cmk-kms-key-policy) with the optional statements. `ImportSnapshot` does not use `kms:DescribeKey`. Restore and `ExportSnapshot` use it.
+
+To export an enhanced snapshot, the key that encrypts the enhanced snapshot must allow the following:
++ The caller: `kms:DescribeKey`, `kms:Decrypt`, and `kms:GenerateDataKey`, with `kms:ViaService`.
++ `kinesisanalytics.amazonaws.com` and `infrastructure.kinesisanalytics.amazonaws.com`: `kms:DescribeKey`, with `aws:SourceArn` and `aws:SourceAccount`.
++ `kinesisanalytics.amazonaws.com`: `kms:Decrypt` and `kms:GenerateDataKey`, with the encryption context.
+
+For an enhanced snapshot that an application created, use the ARN of that application in each condition. The application key policy earlier in this section already has these statements. For an imported enhanced snapshot, use the snapshot ARN. The preceding key policy for imported enhanced snapshots already allows it.
+
+The key in the `DestinationEncryptionConfiguration` of an `ExportSnapshot` request encrypts the exported Amazon S3 objects. The export role uses that key, not Managed Service for Apache Flink. For the export role policy, see [Export KMS permissions policy](security-iam-snapshots.md#security-iam-snapshots-transfer-role-export-kms).
 
 ### Application lifecycle operator (API caller) permissions
 <a name="create-cmk-kms-api-caller-permissions"></a>
@@ -302,6 +371,8 @@ In Amazon MSF, you can apply a CMK policy to an existing application that uses A
 
 By default, Amazon MSF uses AOKs to encrypt all your data in ephemeral (running application storage) and durable (durable application storage) storage. This means all data subject to a Flink [checkpoint](how-fault.md) or [snapshot](how-snapshots.md) are encrypted using AOKs by default. When you replace the AOK with a CMK, new checkpoints and snapshots are encrypted with CMK. However, historic snapshots will remain encrypted with the AOK.
 
+For an application in enhanced snapshot mode, each existing enhanced snapshot keeps the key that Managed Service for Apache Flink used to create it. The key change applies only to enhanced snapshots that Managed Service for Apache Flink creates after the update. To restore from an older enhanced snapshot, the caller needs `kms:DescribeKey`, `kms:Decrypt`, and `kms:GenerateDataKey` on the key of that enhanced snapshot. For more information, see [Restore from an enhanced snapshot that uses a different key](#manage-cmk-api-restore-different-key).
+
 **To update an existing application to use CMK**
 
 1. Create a JSON file with the following configuration. 
@@ -366,3 +437,12 @@ The preceding configuration is accepted to update the application for using CMK 
    aws kinesisanalyticsv2 update-application \
        --cli-input-json file://disable-cmk.json
    ```
+
+## Restore from an enhanced snapshot that uses a different key
+<a name="manage-cmk-api-restore-different-key"></a>
+
+An application can restore from an enhanced snapshot that a different key encrypts. The restore uses the key of the enhanced snapshot, not the key of the application. The following rules apply:
++ The caller needs `kms:DescribeKey`, `kms:Decrypt`, and `kms:GenerateDataKey` on the key of the enhanced snapshot. Without this permission, the restore returns `AccessDeniedException`.
++ The policy of the enhanced snapshot key must allow the encryption context of the enhanced snapshot. For the values, see [KMS encryption context and constraints](key-management-flink.md#kms-encryption-context-constraints).
+
+For the restore procedure, see [Restore an application from an enhanced snapshot](snapshots-restore.md).

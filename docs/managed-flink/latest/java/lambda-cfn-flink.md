@@ -83,6 +83,23 @@ StartApplicationLambda:
 
 In the preceding code, Lambda processes incoming CloudFormation events, filters out everything besides `Create` and `Update`, gets the application state and start it if the state is `READY`. To get the application state, you must create the Lambda role, as shown following.
 
+For an application in enhanced snapshot mode, the function can restore from a specific enhanced snapshot. In `run_configuration`, set `ApplicationRestoreType` to `RESTORE_FROM_CUSTOM_SNAPSHOT` and add `SnapshotArn`. Use `SnapshotName` only for an application snapshot (legacy).
+
+In enhanced snapshot mode, grant the role of the Lambda function `kinesisanalytics:RestoreFromSnapshot` on the enhanced snapshot that the restore uses. You need to grant this permission for `RESTORE_FROM_LATEST_SNAPSHOT` and for `RESTORE_FROM_CUSTOM_SNAPSHOT`. If `SnapshotsEnabled` is `true`, also grant the role `kinesisanalytics:CreateSystemSnapshot` on the application.
+
+```
+run_configuration = {
+  'ApplicationRestoreConfiguration': {
+    'ApplicationRestoreType': 'RESTORE_FROM_CUSTOM_SNAPSHOT',
+    'SnapshotArn': 'arn:aws:kinesisanalytics:aa-example-1:111122223333:snapshot/MyApplication-snapshot-1',
+  }
+}
+
+client_kda.start_application(ApplicationName=application_name, RunConfiguration=run_configuration)
+```
+
+For more information, see [Restore an application from an enhanced snapshot](snapshots-restore.md).
+
 ## Create a Lambda role
 <a name="create-lambda-role"></a>
 
@@ -327,6 +344,10 @@ Resources:
 ```
 
 Again, you might want to adjust the roles for Lambda as well as an application itself.
+
+The `SnapshotName` parameter in this template identifies an application snapshot (legacy). For an application in enhanced snapshot mode, a restore by `SnapshotName` returns `InvalidApplicationConfigurationException`. Use `SnapshotArn` instead. For more information, see [Restore an application from an enhanced snapshot](snapshots-restore.md).
+
+To create an enhanced snapshot from a template, use the `AWS::KinesisAnalyticsV2::Snapshot` resource. For more information, see [Manage enhanced snapshots with CloudFormation](snapshots-manage.md#snapshots-manage-cfn). To upgrade a stack-managed application to enhanced snapshot mode, see [Upgrade with CloudFormation](snapshots-upgrade.md#snapshots-upgrade-cfn).
 
 Before creating the stack above, don’t forget to specify your parameters.
 

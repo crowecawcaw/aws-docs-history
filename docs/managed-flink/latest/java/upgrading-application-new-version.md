@@ -18,6 +18,35 @@ You can call the `UpdateApplication` API in multiple ways:
 
 You can perform the upgrade while the application is in `RUNNING` state or while the application is stopped in `READY` state. Amazon Managed Service for Apache Flink validates to verify the compatibility between the original runtime version and the target runtime version. This compatibility check runs when you perform [UpdateApplication](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_UpdateApplication.html) while in `RUNNING` state or at the next [StartApplication](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_StartApplication.html) if you upgrade while in `READY` state. 
 
+In enhanced snapshot mode, you can upgrade a `RUNNING` application from a specific enhanced snapshot. In `RunConfigurationUpdate.ApplicationRestoreConfiguration`, set `ApplicationRestoreType` to `RESTORE_FROM_CUSTOM_SNAPSHOT`. Set `SnapshotArn` to the ARN of a `READY` enhanced snapshot. Do not set `SnapshotName` in the same request. The IAM principal that calls `UpdateApplication` needs the `kinesisanalytics:RestoreFromSnapshot` permission on the enhanced snapshot.
+
+The following JSON request for the `UpdateApplication` API upgrades `MyApplication` to Flink 2.2 from an enhanced snapshot. Replace `MyApplication`, the version ID, the file key, and the `SnapshotArn` value with your own values.
+
+```
+{
+    "ApplicationName": "MyApplication",
+    "CurrentApplicationVersionId": 3,
+    "RuntimeEnvironmentUpdate": "FLINK-2_2",
+    "ApplicationConfigurationUpdate": {
+        "ApplicationCodeConfigurationUpdate": {
+            "CodeContentUpdate": {
+                "S3ContentLocationUpdate": {
+                    "FileKeyUpdate": "my-app-flink-2.2.jar"
+                }
+            }
+        }
+    },
+    "RunConfigurationUpdate": {
+        "ApplicationRestoreConfiguration": {
+            "ApplicationRestoreType": "RESTORE_FROM_CUSTOM_SNAPSHOT",
+            "SnapshotArn": "arn:aws:kinesisanalytics:aa-example-1:111122223333:snapshot/MyApplication-snapshot-1"
+        }
+    }
+}
+```
+
+For a `READY` application, set the restore configuration in the next `StartApplication` request instead. For more information, see [Restore from a specific snapshot](snapshots-restore.md#snapshots-restore-restore-by-snapshot-arn).
+
 ## Upgrade an application in `RUNNING` state
 <a name="upgrading-running"></a>
 
@@ -34,8 +63,10 @@ aws --region us-east-1 kinesisanalyticsv2 update-application \
  '{"ApplicationRestoreType": "RESTORE_FROM_LATEST_SNAPSHOT"}}' \
  --current-application-version-id ${current_application_version}
 ```
-+ If you enabled service snapshots and want to continue the application from the latest snapshot, Amazon Managed Service for Apache Flink verifies that the current `RUNNING` application's runtime is compatible with the selected target runtime.
++ If you enabled snapshots and continue the application from the latest snapshot, Amazon Managed Service for Apache Flink verifies that the runtime of the current `RUNNING` application is compatible with the target runtime.
 + If you have specified a snapshot from which to continue the target runtime, Amazon Managed Service for Apache Flink verifies that the target runtime is compatible with the specified snapshot. If the compatibility check fails, your update request is rejected and your application remains untouched in the `RUNNING` state.
+
+  Managed Service for Apache Flink does not run this check for an enhanced snapshot that you created from Amazon S3 files with `ImportSnapshot`.
 + If you choose to start your application without a snapshot, Amazon Managed Service for Apache Flink doesn't run any compatibility checks.
 + If your upgraded application fails or gets stuck in a transitive `UPDATING` state, follow the instructions in the [Roll back application upgrades](rollback.md) section to return to the healthy state. 
 
@@ -60,6 +91,8 @@ aws --region us-east-1 kinesisanalyticsv2 update-application \
 ```
 + You can update the runtime of your applications in `READY` state to any Flink version. Amazon Managed Service for Apache Flink does not run any checks until you start your application.
 +  Amazon Managed Service for Apache Flink only runs compatibility checks against the snapshot you selected to start the app. These are basic compatibility checks following the [Flink Compatibility Table](https://nightlies.apache.org/flink/flink-docs-master/docs/ops/upgrading/#compatibility-table). They only check the Flink version with which the snapshot was taken and the Flink version you are targeting. If the Flink runtime of the selected snapshot is incompatible with the app's new runtime, the start request might be rejected.
+
+  Managed Service for Apache Flink does not run this check for an enhanced snapshot that you created from Amazon S3 files with `ImportSnapshot`.
 
 **Process flow for ready state applications**
 

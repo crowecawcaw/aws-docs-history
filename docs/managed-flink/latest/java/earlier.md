@@ -16,6 +16,8 @@ You can upgrade your applications statefully using the in-place version upgrades
 
 Version **1.15.2** is supported by Managed Service for Apache Flink, but is no longer supported by the Apache Flink community.
 
+Apache Flink versions earlier than 1.20 do not support enhanced snapshot mode. For more information, see [Prerequisites](snapshots-setup.md#snapshots-setup-prerequisites).
+
 **Topics**
 + [Using the Apache Flink Kinesis Streams connector with previous Apache Flink versions](#how-creating-apps-building-kinesis)
 + [Building applications with Apache Flink 1.8.2](#earlier-buildingapps-1_8)

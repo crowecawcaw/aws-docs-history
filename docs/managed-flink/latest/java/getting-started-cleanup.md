@@ -24,6 +24,9 @@ Use the following procedure to delete the application.
 
 1. From the **Actions** dropdown list, choose **Delete** and then confirm the deletion.
 
+**Note**  
+If your application uses enhanced snapshot mode, deleting the application does not delete its enhanced snapshots. To remove them, call `DeleteSnapshot` for each one. For more information, see [Snapshot lifecycle](snapshots-how-it-works.md#snapshots-how-it-works-snapshot-lifecycle).
+
 ## Delete your Kinesis data streams
 <a name="getting-started-cleanup-stream"></a>
 

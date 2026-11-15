@@ -10,6 +10,14 @@ Amazon Managed Service for Apache Flink provides a number of security features t
 
 When granting permissions, you decide who is getting what permissions to which Managed Service for Apache Flink resources. You enable specific actions that you want to allow on those resources. Therefore you should grant only the permissions that are required to perform a task. Implementing least privilege access is fundamental in reducing security risk and the impact that could result from errors or malicious intent. 
 
+For enhanced snapshots, follow these least privilege practices:
++ Grant `kinesisanalytics:RestoreFromSnapshot`, `kinesisanalytics:DeleteSnapshot`, and `kinesisanalytics:ExportSnapshot` only on the snapshot ARNs that each caller needs. Use a snapshot name prefix with a wildcard, or an `aws:ResourceTag` condition.
++ Grant `kinesisanalytics:CreateSnapshot` and `kinesisanalytics:CreateSystemSnapshot` only on the application ARNs that each caller manages.
++ Allow `iam:PassRole` only on the IAM roles that Managed Service for Apache Flink assumes to import and export enhanced snapshots. Set the condition `iam:PassedToService` to `kinesisanalytics.amazonaws.com`.
++ Limit `aws:SourceArn` to your snapshot ARNs and `aws:SourceAccount` to your account in the trust policy of each snapshot import or export role.
+
+For example policies, see [Identity-based policy examples for enhanced snapshots](security-iam-snapshots.md#security-iam-snapshots-examples). For the import and export role policies, see [IAM role for import and export](security-iam-snapshots.md#security-iam-snapshots-transfer-role).
+
 ## Use IAM roles to access other Amazon services
 <a name="security-best-practices-roles"></a>
 
@@ -25,6 +33,8 @@ For more information, see the following topics in the *IAM User Guide*:
 <a name="security-best-practices-sse"></a>
 
 Data at rest and data in transit is encrypted in Managed Service for Apache Flink, and this encryption cannot be disabled. You should implement server-side encryption in your dependent resources, such as Kinesis data streams, Firehose streams, and Amazon S3 buckets. For more information on implementing server-side encryption in dependent resources, see [Data protection ](data-protection.md).
+
+Use server-side encryption on the Amazon S3 bucket that receives exported enhanced snapshots. In the [`ExportSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_ExportSnapshot.html) request, set `DestinationEncryptionConfiguration` to use a customer managed AWS KMS key. Or set default encryption on the bucket. If you set the key type in `DestinationEncryptionConfiguration` to `AWS_OWNED_KEY`, Amazon S3 encrypts the exported objects with the default encryption of the bucket. For more information about encryption for exported enhanced snapshots, see [Encryption for imported and exported snapshots](snapshots-import-export.md#snapshots-import-export-encryption-for-imported-and-exported-snapshots).
 
 ## Use CloudTrail to monitor API calls
 <a name="security-best-practices-cloudtrail"></a>

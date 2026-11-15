@@ -91,6 +91,9 @@ The following example demonstrates how to use the `AddApplicationCloudWatchLoggi
 }
 ```
 
+**Note**  
+If the application is `RUNNING` in enhanced snapshot mode and `SnapshotsEnabled` is `true`, Managed Service for Apache Flink creates a system snapshot. In that case, the caller of `AddApplicationCloudWatchLoggingOption` needs `kinesisanalytics:CreateSystemSnapshot` on the application ARN. If the application restarts from an enhanced snapshot, the caller also needs `kinesisanalytics:RestoreFromSnapshot` on that snapshot. For more information, see [IAM permissions](snapshots-setup.md#snapshots-setup-iam-permissions).
+
 #### Update an existing CloudWatch log option
 <a name="update_existing"></a>
 
@@ -121,6 +124,9 @@ The following example demonstrates how to use the `DeleteApplicationCloudWatchLo
    "CurrentApplicationVersionId": {{<Version of the application to delete the log option from>}}
 }
 ```
+
+**Note**  
+If the application is `RUNNING` in enhanced snapshot mode and `SnapshotsEnabled` is `true`, Managed Service for Apache Flink creates a system snapshot. In that case, the caller of `DeleteApplicationCloudWatchLoggingOption` needs `kinesisanalytics:CreateSystemSnapshot` on the application ARN. If the application restarts from an enhanced snapshot, the caller also needs `kinesisanalytics:RestoreFromSnapshot` on that snapshot. For more information, see [IAM permissions](snapshots-setup.md#snapshots-setup-iam-permissions).
 
 #### Set the application logging level
 <a name="cloudwatch-level"></a>

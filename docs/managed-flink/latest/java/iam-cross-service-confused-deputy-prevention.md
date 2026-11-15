@@ -17,6 +17,8 @@ The recommended approach to the confused deputy problem is to use the `aws:Sourc
 
 If you don't know the full ARN of the resource or if you are specifying multiple resources, use the `aws:SourceArn` key with wildcard characters (\*) for the unknown portions of the ARN. For example: `arn:aws:kinesisanalytics::111122223333:*`.
 
+For the import and export role of enhanced snapshots, the value of `aws:SourceArn` is the snapshot ARN. For an example trust policy, see [Trust policy](security-iam-snapshots.md#security-iam-snapshots-transfer-role-trust).
+
 Policies of roles that you provide to Managed Service for Apache Flink as well as trust policies of roles generated for you can make use of these keys.
 
 In order to protect against the confused deputy problem, carry out the following steps: 

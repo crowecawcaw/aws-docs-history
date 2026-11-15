@@ -17,6 +17,8 @@ If the application is not progressing and is in a transient state for long, or i
 
 1. Call `RollbackApplication` - this will revert to the previous running version and restore the previous state. 
 
+   In enhanced snapshot mode, the rollback restores a `READY` enhanced snapshot of the application. To roll back successfully, make sure that the application has a `READY` enhanced snapshot that the rollback can use. Without one, the rollback returns `InvalidRequestException`. For more information about how Managed Service for Apache Flink selects the snapshot, see [Roll back an application](snapshots-restore.md#snapshots-restore-rollback).
+
 1. Monitor the rollback operation using the `DescribeApplicationOperation` API.
 
 1. If rollback fails, use the previous system rollback steps.

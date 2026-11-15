@@ -112,6 +112,11 @@ The following example request for the [`UpdateApplication`](https://docs.aws.ama
 }
 ```
 
+### Snapshots during scaling
+<a name="how-scaling-howto-snapshots"></a>
+
+A parallelism change through `UpdateApplication` is an application update. If `SnapshotsEnabled` is `true`, Managed Service for Apache Flink takes a system snapshot for the update. In enhanced snapshot mode, the system snapshot is an enhanced snapshot. For more information, see [System snapshots](snapshots-how-it-works.md#snapshots-how-it-works-system-snapshots).
+
 ## maxParallelism considerations
 <a name="how-scaling-auto-max-parallelism"></a>
 
@@ -124,6 +129,7 @@ As a basic rule, be aware that that if you don't define `maxParallelism` for any
 **Note**  
 The job's maximum parallelism is the upper limit of parallelism for scaling your application retaining the state.   
 If you modify `maxParallelism` of an existing application, the application won't be able to restart from a previous snapshot taken with the old `maxParallelism`. You can only restart the application without snapshot.   
+The `maxParallelism` restore restriction applies to enhanced snapshots and to application snapshots (legacy). Each snapshot of either type is an Apache Flink savepoint. For more information, see [Savepoints](https://nightlies.apache.org/flink/flink-docs-release-1.20/docs/ops/state/savepoints/) in the Apache Flink Documentation.  
 If you plan to scale your application to a parallelism greater that 128, you must explicitly set the `maxParallelism` in your application.
 + Autoscaling logic will prevent scaling a Flink job to a parallelism that will exceed maximum parallelism of the job.
 + If you use a custom autoscaling or scheduled scaling, configure them so that they don't exceed the maximum parallelism of the job.

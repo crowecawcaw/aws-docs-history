@@ -16,6 +16,7 @@ Before beginning your upgrade:
 + Review [State compatibility guide for Flink 2.2 upgrades](state-compatibility.md)
 + Ensure you have a non-production environment for testing
 + Document your current application configuration and dependencies
++ (Optional) Upgrade to enhanced snapshot mode. To upgrade, set `SnapshotModeUpdate` to `ENHANCED_SNAPSHOTS` in an `UpdateApplication` request. Otherwise, your application continues to use application snapshots (legacy). The application must already use Apache Flink 1.20 or later when you send this request. Managed Service for Apache Flink checks the current runtime, not the `RuntimeEnvironmentUpdate` value. If the application uses Apache Flink 1.19 or earlier, upgrade the runtime in a separate `UpdateApplication` request first. After the upgrade to enhanced snapshot mode, the application stays in that mode. For more information about the upgrade to enhanced snapshot mode, see [Upgrade an existing application to enhanced snapshots](snapshots-upgrade.md).
 
 ## Understanding your migration paths
 <a name="upgrade-guide-migration-paths"></a>
@@ -151,6 +152,25 @@ aws kinesisanalyticsv2 describe-application-snapshot \
 
 Wait until `SnapshotStatus` is `READY` before proceeding.
 
+**Take an enhanced snapshot (enhanced snapshot mode)**
+
+The previous commands create an application snapshot (legacy). For an application in enhanced snapshot mode, `CreateApplicationSnapshot` returns `InvalidApplicationConfigurationException`. Call [`CreateSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_CreateSnapshot.html) instead. Run the following AWS CLI command for Amazon Managed Service for Apache Flink. Replace `MyApplication` with the name of your application, and `pre-flink-2.2-upgrade` with a name for the enhanced snapshot.
+
+```
+PROMPT> aws kinesisanalyticsv2 create-snapshot \
+    --application-name MyApplication \
+    --snapshot-name pre-flink-2.2-upgrade
+```
+
+Run the following AWS CLI command, which calls [`DescribeSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DescribeSnapshot.html), until `SnapshotStatus` is `READY`. Copy the `SnapshotArn` value. You need the ARN to restore the application from this enhanced snapshot.
+
+```
+PROMPT> aws kinesisanalyticsv2 describe-snapshot \
+    --snapshot-name pre-flink-2.2-upgrade
+```
+
+For more information about enhanced snapshot creation, see [Create an enhanced snapshot](snapshots-manage.md#snapshots-manage-create-a-snapshot).
+
 ## Phase 4: Upgrade application
 <a name="upgrade-guide-phase-4"></a>
 
@@ -168,6 +188,12 @@ You can call the `UpdateApplication` API in multiple ways:
   + Consult the SDK documentation for the programming language of your choice. See [`UpdateApplication`](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_UpdateApplication.html).
 
 You can perform the upgrade while the application is in `RUNNING` state or while the application is stopped in `READY` state. Amazon Managed Service for Apache Flink validates the compatibility between the original runtime version and the target runtime version. This compatibility check runs when you perform `UpdateApplication` while in `RUNNING` state or at the next `StartApplication` if you upgrade while in `READY` state.
+
+In enhanced snapshot mode, the upgrade needs extra permissions:
++ For an upgrade from the `RUNNING` state, Managed Service for Apache Flink creates a system snapshot if `SnapshotsEnabled` in the application snapshot configuration is `true`. The caller of `UpdateApplication` needs `kinesisanalytics:CreateSystemSnapshot` on the application.
++ For an upgrade from the `READY` state, the caller of `StartApplication` needs `kinesisanalytics:RestoreFromSnapshot` on the enhanced snapshot that the start restores from.
+
+For more information, see [IAM permissions](snapshots-setup.md#snapshots-setup-iam-permissions).
 
 **Upgrade from RUNNING state**
 
@@ -292,6 +318,15 @@ aws kinesisanalyticsv2 rollback-application \
 You cannot restore a Flink 2.2 snapshot on Flink 1.x
 Rollback uses the snapshot taken before the upgrade
 Always take a snapshot before upgrading (Phase 3)
+
+**Rollback in enhanced snapshot mode**
+
+In enhanced snapshot mode, `RollbackApplication` restores from an enhanced snapshot. For a `RUNNING` application, Managed Service for Apache Flink selects the newest `READY` enhanced snapshot from the pre-upgrade application version or an earlier version.
++ Keep a `READY` enhanced snapshot from the version before the upgrade or an earlier version, so that `RollbackApplication` can succeed. Without one, `RollbackApplication` returns `InvalidRequestException`.
++ The IAM principal that calls `RollbackApplication` needs the `kinesisanalytics:RestoreFromSnapshot` permission on the selected enhanced snapshot.
++ Keep the enhanced snapshot from Phase 3 until you finish the validation in Phase 6. A rollback cannot use a deleted enhanced snapshot.
+
+For more information about rollbacks in enhanced snapshot mode, see [Roll back an application](snapshots-restore.md#snapshots-restore-rollback).
 
 ## Next steps
 <a name="upgrade-guide-next-steps"></a>

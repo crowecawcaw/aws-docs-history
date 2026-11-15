@@ -18,6 +18,20 @@ For Apache Flink applications, you are charged a single additional KPU per appli
 
 In streaming mode, Managed Service for Apache Flink automatically scales the number of KPUs required by your stream processing application as the demands of memory and compute fluctuate. You can choose to provision your application with the required number of KPUs. 
 
+## Billing snapshot storage
+<a name="how-pricing-snapshots"></a>
+
+Managed Service for Apache Flink bills snapshot storage as durable application backups, per GB-month. Enhanced snapshots and application snapshots (legacy) have the same rate. For the rate in each AWS Region, see [Amazon Managed Service for Apache Flink Pricing](https://aws.amazon.com/managed-service-apache-flink/pricing/) on the AWS website. In enhanced snapshot mode, Managed Service for Apache Flink also bills the storage of system snapshots.
+
+**Note**  
+Enhanced snapshots remain after you delete the application. You pay for their storage until you delete them.
+
+For more information about the enhanced snapshots that Managed Service for Apache Flink bills, and about when billing starts and stops, see [Billing for enhanced snapshots](snapshots-how-it-works.md#snapshots-how-it-works-billing-for-snapshots).
+
+Managed Service for Apache Flink does not charge to import or export an enhanced snapshot. Amazon S3 charges apply to the bucket that an import reads or an export writes. You pay for the storage of each enhanced snapshot that you import. For more information about import and export, see [Import and export enhanced snapshots](snapshots-import-export.md).
+
+For current prices, see [Amazon Managed Service for Apache Flink Pricing](https://aws.amazon.com/managed-service-apache-flink/pricing/) on the AWS website.
+
 ## AWS Region availability
 <a name="how-pricing-regions"></a>
 
@@ -140,3 +154,19 @@ Kinesis Analytics
     + 0.232 GB-month - USD 0.03
   + $0.11 per Kinesis Processing Unit-hour for Apache Flink applications
     + 4.167 KPU-Hour - USD 0.46
+
+### Pricing imported snapshots
+<a name="pricing-example-4"></a>
+
+This example is hypothetical. Suppose that your Apache Flink application on Managed Service for Apache Flink uses enhanced snapshot mode. The application runs all month with 2 KPUs. You would store 4 enhanced snapshots of 5 GB each for the whole month. You created them before earlier code releases. You would also import a 10 GB Apache Flink savepoint (a state backup that Apache Flink writes) from Amazon S3 as an enhanced snapshot. You would keep the imported enhanced snapshot for the whole month. With the assumed prices that follow, the example monthly Managed Service for Apache Flink charges would be as follows:
+
+**Monthly charges**
+
+For this example, assume that the price in the US East (N. Virginia) Region is USD $0.11 per KPU-hour. Managed Service for Apache Flink allocates 50 GB of running application storage per KPU. Assume that running application storage in the US East (N. Virginia) Region costs USD $0.10 per GB-month. Also assume that Managed Service for Apache Flink bills enhanced snapshot storage in the US East (N. Virginia) Region as durable application backups at USD $0.023 per GB-month. For current prices, see [Amazon Managed Service for Apache Flink Pricing](https://aws.amazon.com/managed-service-apache-flink/pricing/) on the AWS website.
++ Estimated monthly KPU charges: In this example, assume the price is USD $0.11 per KPU-hour; the charges would be 24 hours \* 30 days \* (2 KPUs \+ 1 additional KPU for streaming application) \* USD $0.11/hour = USD $237.60
++ Estimated monthly running application storage charges: In this example, assume the price is USD $0.10 per GB-month; the charges would be 2 KPUs \* 50 GB/KPUs \* USD $0.10/GB-month = USD $10.00
++ Estimated monthly enhanced snapshot storage charges: In this example, assume the price is USD $0.023 per GB-month; the charges would be (4 \* 5 GB \+ 10 GB) \* USD $0.023/GB-month = USD $0.69
++ Import charges: In this example, the charges would be USD $0.00 (no charge to import or export an enhanced snapshot)
++ Estimated total charges: In this example, the total would be USD $237.60 \+ USD $10.00 \+ USD $0.69 = **USD $248.29**
+
+The enhanced snapshots remain after you delete the application. In this example, you would pay USD $0.69 each month for their storage until you delete them.

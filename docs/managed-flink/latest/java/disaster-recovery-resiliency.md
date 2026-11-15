@@ -16,15 +16,23 @@ Managed Service for Apache Flink runs in a serverless mode, and takes care of ho
 
 Managed Service for Apache Flink backs up application state using *Checkpoints* and *Snapshots*:
 + *Checkpoints* are backups of application state that Managed Service for Apache Flink automatically creates periodically and uses to restore from faults.
-+ *Snapshots* are backups of application state that you create and restore from manually.
++ *Snapshots* are backups of application state. You create snapshots manually. Managed Service for Apache Flink creates system snapshots when you update or stop the application. For more information, see [Manage application backups using snapshots](how-snapshots.md).
 
 For more information about checkpoints and snapshots, see [Implement fault tolerance](how-fault.md).
+
+Enhanced snapshots add the following recovery options:
++ You can restore an enhanced snapshot into a different application in the same account and Region.
++ You can export an enhanced snapshot to an Amazon S3 bucket in the same account and Region.
++ You can import a savepoint from an Amazon S3 bucket as a new enhanced snapshot, and then restore an application from that snapshot.
+
+An export writes a savepoint to the bucket. You can restore, import, or export an enhanced snapshot only within the same account and Region. For more information about these operations, see [Restore an application from an enhanced snapshot](snapshots-restore.md) and [Import and export enhanced snapshots](snapshots-import-export.md).
 
 ## Versioning
 <a name="versioning"></a>
 
 Stored versions of application state are versioned as follows:
 + *Checkpoints* are versioned automatically by the service. If the service uses a checkpoint to restart the application, the latest checkpoint will be used. 
-+ *Savepoints* are versioned using the **SnapshotName** parameter of the [CreateApplicationSnapshot](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_CreateApplicationSnapshot.html) action.
++ *Application snapshots (legacy)*: You version these savepoints with the `SnapshotName` parameter of the [`CreateApplicationSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_CreateApplicationSnapshot.html) action.
++ *Enhanced snapshots* are standalone resources with their own ARN. Each enhanced snapshot name is unique in the account and Region. An enhanced snapshot remains after you stop, update, or delete the application that created it. Managed Service for Apache Flink does not expire enhanced snapshots. To remove an enhanced snapshot, call [`DeleteSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DeleteSnapshot.html).
 
 Managed Service for Apache Flink encrypts data stored in checkpoints and savepoints.

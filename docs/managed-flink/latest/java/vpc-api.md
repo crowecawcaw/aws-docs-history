@@ -65,6 +65,9 @@ The following example request code for the `AddApplicationVpcConfiguration` acti
 }
 ```
 
+**Note**  
+If the application is `RUNNING` in enhanced snapshot mode and `SnapshotsEnabled` is `true`, Managed Service for Apache Flink creates a system snapshot. The caller of `AddApplicationVpcConfiguration` needs `kinesisanalytics:CreateSystemSnapshot` on the application ARN. For more information, see [System snapshots](snapshots-how-it-works.md#snapshots-how-it-works-system-snapshots).
+
 ## DeleteApplicationVpcConfiguration
 <a name="vpc-api-del"></a>
 
@@ -79,6 +82,9 @@ The following example request code for the `AddApplicationVpcConfiguration` acti
    "VpcConfigurationId": "1.1"
 }
 ```
+
+**Note**  
+If the application is `RUNNING` in enhanced snapshot mode and `SnapshotsEnabled` is `true`, Managed Service for Apache Flink creates a system snapshot. The caller of `DeleteApplicationVpcConfiguration` needs `kinesisanalytics:CreateSystemSnapshot` on the application ARN. For more information, see [System snapshots](snapshots-how-it-works.md#snapshots-how-it-works-system-snapshots).
 
 ## Update application
 <a name="vpc-api-upd"></a>

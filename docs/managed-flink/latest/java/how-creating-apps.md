@@ -63,12 +63,18 @@ Amazon MSF encrypts your application by default using AWS owned keys. You can al
 **Note**  
 You can change the `RuntimeEnvironment` of an existing application. To learn how, see [Use in-place version upgrades for Apache Flink](how-in-place-version-upgrades.md).
 
+  To choose the snapshot type, set the optional `SnapshotMode` member in `ApplicationConfiguration.ApplicationSnapshotConfiguration`. If you omit `SnapshotMode`, the application uses `APPLICATION_SNAPSHOTS_LEGACY`. To use enhanced snapshots, set `SnapshotMode` to `ENHANCED_SNAPSHOTS`. Enhanced snapshot mode requires Apache Flink version 1.20 or later. For more information, see [Set up enhanced snapshots](snapshots-setup.md).
+
 ## Use customer managed keys
 <a name="how-creating-apps-use-cmk"></a>
 
 In Amazon MSF, customer managed keys (CMKs) is a feature using which you can encrypt your application's data with a key that you create, own, and manage on AWS Key Management Service (AWS KMS). For an Amazon MSF application, this means all data subject to a Flink [checkpoint](how-fault.md) or [snapshot](how-snapshots.md) are encrypted with a CMK you define for that application.
 
 To use CMK with your application, you must first [create your new application](#how-creating-apps-creating), and then apply a CMK. For more information about using CMKs, see [Key management in Amazon Managed Service for Apache Flink](key-management-flink.md).
+
+In enhanced snapshot mode, Managed Service for Apache Flink encrypts each new enhanced snapshot with the key of the application. You cannot choose a different key when you create an enhanced snapshot. For more information, see [Create an enhanced snapshot](snapshots-manage.md#snapshots-manage-create-a-snapshot).
+
+An enhanced snapshot keeps its key after a restore into a different application. When you import an enhanced snapshot and specify a key, Managed Service for Apache Flink uses that key. If you do not specify a key for the import, Managed Service for Apache Flink uses an AWS owned key. For more information, see [Encryption for imported and exported snapshots](snapshots-import-export.md#snapshots-import-export-encryption-for-imported-and-exported-snapshots).
 
 ## Start your Managed Service for Apache Flink application
 <a name="how-creating-apps-starting"></a>
@@ -78,6 +84,8 @@ After you have built your application code, uploaded it to S3, and created your 
 Use one of the following methods to start your application:
 + **Start your Managed Service for Apache Flink application using the AWS console:** You can run your application by choosing **Run** on your application's page in the AWS console.
 + **Start your Managed Service for Apache Flink application using the AWS API:** You can run your application using the [StartApplication](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_StartApplication.html) action. 
+
+To start an application in enhanced snapshot mode from a specific enhanced snapshot, set `ApplicationRestoreType` to `RESTORE_FROM_CUSTOM_SNAPSHOT`. Then set `SnapshotArn` to the ARN of the enhanced snapshot. Both members are in `RunConfiguration.ApplicationRestoreConfiguration`. For more information, see [Restore from a specific snapshot](snapshots-restore.md#snapshots-restore-restore-by-snapshot-arn).
 
 ## Verify your Managed Service for Apache Flink application
 <a name="how-creating-apps-verifying"></a>

@@ -582,6 +582,8 @@ Edit the IAM policy to add permissions to access the Kinesis data streams.
 
 1.  Choose **Next** at the bottom of the page and then choose **Save changes**.
 
+This tutorial creates an application that uses application snapshots (legacy). Enhanced snapshot mode needs no changes to the policy that you edited in this procedure. In enhanced snapshot mode, the IAM user or role that starts, updates, or stops the application needs more permissions. For more information about these permissions, see [IAM permissions](snapshots-setup.md#snapshots-setup-iam-permissions).
+
 ### Configure the application
 <a name="get-started-exercise-7-console-configure"></a>
 
@@ -636,6 +638,9 @@ The application is now configured and ready to run.
 1. On the next page, the Application restore configuration page, choose **Run with latest snapshot** and then choose **Run**. 
 
    The **Status** in **Application details** transitions from `Ready` to `Starting` and then to `Running` when the application has started.
+
+**Note**  
+An application in enhanced snapshot mode restores from enhanced snapshots, not from application snapshots (legacy). For more information, see [Restore an application from an enhanced snapshot](snapshots-restore.md).
 
 When the application is in the `Running` status, you can now open the Flink dashboard. 
 

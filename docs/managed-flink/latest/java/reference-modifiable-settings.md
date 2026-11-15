@@ -140,6 +140,11 @@ Managed Service for Apache Flink enables customers to access the latest Flink [R
 
 `taskmanager.network.memory.buffer-debloat.threshold-percentages:`
 
+## Options for Flink 2.x and later only
+<a name="reference-modifiable-settings-task-manager-options-flink-2x"></a>
+
+`taskmanager.load-balance.mode:`
+
 ## Memory configuration
 <a name="reference-modifiable-settings-memory-configuration"></a>
 

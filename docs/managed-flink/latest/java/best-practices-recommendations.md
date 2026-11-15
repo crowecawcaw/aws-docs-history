@@ -4,6 +4,7 @@
 <a name="best-practices-recommendations"></a>
 + Test the new job/runtime without state on a non-production environment before attempting a production upgrade.
 + Consider testing the stateful upgrade with a non-production application first.
++ Create a snapshot before you upgrade, and wait until its status is `READY`. For an application in enhanced snapshot mode, call [`CreateSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_CreateSnapshot.html). For other applications, call [`CreateApplicationSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_CreateApplicationSnapshot.html). For more information, see [Create an enhanced snapshot](snapshots-manage.md#snapshots-manage-create-a-snapshot).
 + Make sure that your new job graph has a compatible state with the snapshot you will be using to start your upgraded application.
   + Make sure that the types stored in operator states stay the same. If the type has changed, Apache Flink can't restore the operator state.
   + Make sure that the Operator IDs you set using the `uid` method remain the same. Apache Flink has a strong recommendation for assigning unique IDs to operators. For more information, see [Assigning Operator IDs](https://nightlies.apache.org/flink/flink-docs-master/docs/ops/state/savepoints/#assigning-operator-ids) in the Apache Flink documentation.

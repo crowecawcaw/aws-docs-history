@@ -15,6 +15,10 @@ When you initiate an application operation, such as an update or scaling action,
 
 The rollback attempts to restore the application to the previous version that ran successfully, along with the associated application state. If the rollback is successful, your application continues processing data with minimal downtime using the previous version. If the automatic rollback also fails, Amazon Managed Service for Apache Flink transitions the application to the `READY` status, so that you can take further actions, including fixing the error and retrying the operation. 
 
+Whether the application uses enhanced snapshot mode determines which snapshot a system rollback restores:
++ **Enhanced snapshot mode**: Managed Service for Apache Flink restores the newest `READY` enhanced snapshot of the application. When an update starts and `SnapshotsEnabled` is `true`, Managed Service for Apache Flink creates a system snapshot of the previous application version before it applies the update. If that system snapshot is `READY`, it is the newest enhanced snapshot, and the rollback restores it. If the application has no `READY` enhanced snapshot, the rollback fails. For more information, see [Roll back an application](snapshots-restore.md#snapshots-restore-rollback).
++ **Application snapshots (legacy)**: Managed Service for Apache Flink restores the newest `READY` application snapshot (legacy) at or earlier than the previous application version.
+
 You must opt in to use automatic system rollbacks. You can enable it using the console or API for all operations on your application from this point forward. 
 
 The following example request for the `UpdateApplication` action enables system rollbacks for an application:
@@ -40,6 +44,7 @@ The following scenarios illustrate where automatic system rollbacks are benefici
   + If your application is updated to run with incorrect subnets for a VPC application that results in a failure during the Flink job startup. 
 + **Flink version upgrades:** When you upgrade to a new Apache Flink version and the upgraded application encounters a snapshot compatibility issue, system rollback lets you revert to the prior Flink version automatically. 
 + **AutoScaling:** When the application scales up but runs into issues restoring from a savepoint, due to operator mismatch between the snapshot and the Flink job graph.
++ **Upgrade to enhanced snapshot mode:** If the application fails to restart after the upgrade, the system rollback restores the version before the upgrade. The application uses application snapshots (legacy) again. For more information, see [Roll back after the upgrade](snapshots-upgrade.md#snapshots-upgrade-rollback-behavior).
 
 ## Use operation APIs for system rollbacks
 <a name="operation-apis"></a>

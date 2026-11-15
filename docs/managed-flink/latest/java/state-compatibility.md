@@ -118,6 +118,18 @@ aws kinesisanalyticsv2 start-application \
     }'
 ```
 
+**Export and import an enhanced snapshot**
+
+For an application in enhanced snapshot mode, you can export its state to your Amazon S3 bucket. Then you can import the state again as a new enhanced snapshot. Import and export work only within one account and one AWS Region.
+
+1. Export the enhanced snapshot to your Amazon S3 bucket with [`ExportSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_ExportSnapshot.html). The exported files are an Apache Flink savepoint.
+
+1. Import the savepoint files as a new enhanced snapshot with [`ImportSnapshot`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_ImportSnapshot.html). Wait until the status of the new enhanced snapshot is `READY`.
+
+1. Start the application that receives the state with `RESTORE_FROM_CUSTOM_SNAPSHOT` and the `SnapshotArn` of the imported enhanced snapshot. This application must use enhanced snapshot mode. `RESTORE_FROM_LATEST_SNAPSHOT` never selects an imported enhanced snapshot.
+
+An imported enhanced snapshot has no Apache Flink runtime version. When you restore from an imported enhanced snapshot, Managed Service for Apache Flink doesn't check the snapshot's Flink version. The state compatibility rules of the target application's Flink version still apply. For more information, see [Import and export enhanced snapshots](snapshots-import-export.md).
+
 ## Best practices
 <a name="state-compat-best-practices"></a>
 

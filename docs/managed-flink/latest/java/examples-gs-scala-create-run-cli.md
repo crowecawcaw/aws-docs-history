@@ -213,6 +213,22 @@ In this section, you use the [StartApplication](https://docs.aws.amazon.com/mana
    aws kinesisanalyticsv2 start-application --cli-input-json file://start_request.json
    ```
 
+For an application in enhanced snapshot mode, you can also restore from a specific enhanced snapshot. Set `ApplicationRestoreType` to `RESTORE_FROM_CUSTOM_SNAPSHOT` and set `SnapshotArn` to the ARN of the enhanced snapshot. Enhanced snapshot mode requires Apache Flink version 1.20 or later. This option does not apply to the tutorial application, because the tutorial uses Apache Flink 1.19.
+
+```
+{
+    "ApplicationName": "MyApplication",
+    "RunConfiguration": {
+        "ApplicationRestoreConfiguration": {
+            "ApplicationRestoreType": "RESTORE_FROM_CUSTOM_SNAPSHOT",
+            "SnapshotArn": "arn:aws:kinesisanalytics:aa-example-1:111122223333:snapshot/MyApplication-snapshot-1"
+        }
+    }
+}
+```
+
+For more information, see [Restore an application from an enhanced snapshot](snapshots-restore.md).
+
 The application is now running. You can check the Managed Service for Apache Flink metrics on the Amazon CloudWatch console to verify that the application is working.
 
 ## Stop the application

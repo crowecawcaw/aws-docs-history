@@ -7,7 +7,14 @@ Checkpointing is the method that is used for implementing fault tolerance in Ama
 
 For details on checkpointing in Apache Flink applications, see [Checkpoints](https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/ops/state/checkpoints/) in the Apache Flink Documentation.
 
-A *snapshot* is a manually created and managed backup of application state. Snapshots let you restore your application to a previous state by calling [`UpdateApplication`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.html). For more information, see [Manage application backups using snapshots](how-snapshots.md).
+A *snapshot* is a backup of application state. You create snapshots. Managed Service for Apache Flink creates system snapshots for some operations. To restore a stopped application from a snapshot, call [`StartApplication`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_StartApplication.html). To restore a running application from a snapshot, call [`UpdateApplication`](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.html). For more information, see [Manage application backups using snapshots](how-snapshots.md).
+
+Managed Service for Apache Flink uses the following types of backup:
++ **Checkpoints**: If checkpointing is enabled, Managed Service for Apache Flink creates checkpoints automatically for a running application. The application uses the newest checkpoint to recover from a failure.
++ **Enhanced snapshots**: An enhanced snapshot is a backup of application state that has its own ARN. The enhanced snapshot remains after you delete the application. You can restore it into any application in enhanced snapshot mode in the same account and Region.
++ **Application snapshots (legacy)**: An application snapshot is a backup of application state that belongs to the application that created it. Only that application can restore from it.
+
+An application uses one snapshot type at a time. Enhanced snapshots require Apache Flink version 1.20 or later and enhanced snapshot mode. For more information, see [How enhanced snapshots work](snapshots-how-it-works.md).
 
 If checkpointing is enabled for your application, then the service provides fault tolerance by creating and loading backups of application data in the event of unexpected application restarts. These unexpected application restarts could be caused by unexpected job restarts, instance failures, etc. This gives the application the same semantics as failure-free execution during these restarts. 
 
@@ -29,7 +36,7 @@ The default checkpoint behavior is as follows:
 **MinPauseBetweenCheckpoints:** 5000
 If **ConfigurationType** is set to `DEFAULT`, the preceding values will be used, even if they are set to other values using either using the AWS Command Line Interface, or by setting the values in the application code.
 **Note**  
-For Flink 1.15 onward, Managed Service for Apache Flink will use `stop-with-savepoint` during Automatic Snapshot Creation, that is, application update, scaling or stopping. 
+For Apache Flink 1.15 and later, Managed Service for Apache Flink uses `stop-with-savepoint` to create a system snapshot. For the operations that create a system snapshot, see [System snapshots](how-snapshots.md#how-fault-snapshot-update).
 + `MinPauseBetweenCheckpoints` — The minimum time in milliseconds between the end of one checkpoint operation and the start of another. Setting this value prevents the application from checkpointing continuously when a checkpoint operation takes longer than the `CheckpointInterval`.
 
 ## Review checkpointing API examples
