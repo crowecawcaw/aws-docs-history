@@ -10,7 +10,7 @@ Before you can complete internal testing or send evaluations to candidates, comp
 Move Amazon SES out of sandbox mode. See [Move Amazon SES out of sandbox mode](getting-started-create.md#getting-started-ses).
 Set your service quotas to the values you need. Review [Service quotas and endpoints for Amazon Connect Talent](endpoints-quotas.md) and use the values in the tables to request any quota increases before you send evaluations.
 
-1. **Set up your security profile** – The default `TechAdmin` profile does not include permissions for hiring setup or candidate review. If you need full access to all Amazon Connect Talent features during setup, edit the `TechAdmin` profile to enable all permission categories, or create a new security profile with all permissions. For more information, see [Manage security profiles and roles](manage-security-profiles.md).
+1. **Set up your security profile** – The default profile for the administrators you add in the instance creation wizard is **SuperAdmin**, which has full access to all Amazon Connect Talent features. If your instance was created before **SuperAdmin** was available, your administrators have the **TechAdmin** profile and can't access hiring setup or candidate review. To give them full access, edit the **TechAdmin** profile to enable all permission categories, or create a new security profile with all permissions. For more information, see [Manage security profiles and roles](manage-security-profiles.md).
 
 1. **Add users** – Add your recruiting team members and assign each user a security profile that matches their role. You can add users individually or import them in bulk from a CSV file. For more information, see [Manage users](manage-users.md).
 

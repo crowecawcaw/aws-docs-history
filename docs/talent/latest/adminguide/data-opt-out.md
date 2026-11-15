@@ -9,7 +9,7 @@ Only Amazon employees have access to this data. Your trust, privacy, and the sec
 
 For Amazon Connect Talent, the content in scope for this use includes the following:
 + AI-led interview transcripts
-+ Amazon Connect Talent Teammate chat transcripts
++ Amazon Connect Talent chat transcripts
 
 You control this choice with an AI services opt-out policy in AWS Organizations. An AI services opt-out policy applies to the accounts in your organization that you specify. When you opt out, AWS does not use the in-scope content to develop or improve the covered services, and AWS deletes content that is stored for that purpose.
 

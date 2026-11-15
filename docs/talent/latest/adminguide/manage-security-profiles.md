@@ -19,12 +19,14 @@ Amazon Connect Talent provides the following default security profiles:
 | ResearchScientist | Intended for research scientists. By default, can manage the hiring setup and knowledge base, and view candidate results. |  + Hiring setup – All (View, Edit, Create)<br />+ Candidate review – View<br />+ Knowledge – All (View, Edit, Create, Delete)  | 
 | TechAdmin | Intended for technical admins. By default, can manage users, security profiles, integrations, and knowledge. |  + Users – All (View, Edit, Create, Delete)<br />+ Security profiles – All (View, Edit, Create)<br />+ Knowledge – All (View, Edit, Create, Delete)<br />+ Integrations – All (View, Edit, Create, Delete)<br />+ Experience customization – All (View, Edit)  | 
 | ComplianceAdmin | Intended for compliance owners. By default, can manage compliance settings, and view integrations and candidate results. |  + Compliance – All (View, Edit, Create)<br />+ Candidate review – View<br />+ Integrations – View  | 
+| SuperAdmin | Intended for users who need complete, unrestricted access. By default, can view and manage every area of Amazon Connect Talent. |  + Candidate review – All (View, Edit, Create)<br />+ Compliance – All (View, Edit, Create)<br />+ Experience customization – All (View, Edit)<br />+ Hiring setup – All (View, Edit, Create)<br />+ Integrations – All (View, Edit, Create, Delete)<br />+ Knowledge – All (View, Edit, Create, Delete)<br />+ Security profiles – All (View, Edit, Create)<br />+ Users – All (View, Edit, Create, Delete)  | 
 
-The default security profiles are a starting point. A user who can manage security profiles (for example, the `TechAdmin` profile) can adjust the permissions on the default profiles as well as create new ones.
+The default security profiles are a starting point. A user who can manage security profiles (for example, the **TechAdmin** profile) can adjust the permissions on the default profiles as well as create new ones.
 
 **Tip**  
-The default `TechAdmin` profile does not include permissions for hiring setup or candidate review. If you need a single profile with full access to all Amazon Connect Talent features—for example, for the person who sets up and configures the instance—you have two options:  
-**Add permissions to the TechAdmin profile** – Edit the `TechAdmin` profile and enable all permission categories, including hiring setup and candidate review.
+To give a user full access to all Amazon Connect Talent features, such as when you set up and configure the instance, assign the **SuperAdmin** profile. The administrators you add in the instance creation wizard are assigned **SuperAdmin**.  
+If your instance was created before **SuperAdmin** was available, its administrators have the **TechAdmin** profile and can't access hiring setup or candidate review. On these instances, you have two options for full access:  
+**Add permissions to the TechAdmin profile** – Edit the **TechAdmin** profile and enable all permission categories, including hiring setup and candidate review.
 **Create a new profile with all permissions** – Create a new security profile (for example, "Admin") and select all permission categories. Assign this profile to users who need full access.
 
 ## To create a security profile
@@ -71,4 +73,4 @@ A security profile grants permissions across the following categories.
 | Compliance | Manage compliance-related settings such as disclosures and data governance. | 
 
 **Tip**  
-Use the `TechAdmin` profile during initial setup, and then switch to a more restrictive profile for daily use. Create security profiles before you add users to your instance.
+Use the **SuperAdmin** profile during initial setup, and then switch to a more restrictive profile for daily use. Create security profiles before you add users to your instance.

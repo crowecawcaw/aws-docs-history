@@ -46,7 +46,7 @@ The AI-led interview is a set of behavioral questions that Amazon Connect Talent
 ## Assessments
 <a name="talent-assessments-overview"></a>
 
-Assessments measure candidates against a job's competencies. Amazon Connect Talent reports assessment results on a four-level scale: Low, Moderate, High, and Very High. Amazon Connect Talent offers the following assessment types:
+Assessments measure candidates against a job's competencies. Amazon Connect Talent reports assessment results on a five-level scale: Very Low, Low, Moderate, High, and Very High. Amazon Connect Talent offers the following assessment types:
 + **Work approach** – Measures how a candidate approaches their work.
 + **Problem solving** – Measures how a candidate works through problems.
 
