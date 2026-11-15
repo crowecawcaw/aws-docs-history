@@ -6,12 +6,12 @@
 You can create pro forma AWS Cost and Usage Reports (AWS CUR) for each billing group that you create. The pro forma AWS CUR has the same file format, granularity, and columns as the standard AWS CUR, and contains the most comprehensive set of cost and usage data available for a given period of time.
 
 **Note**  
-The split cost allocation data functionality isn't available for billing transfer users. Disable this option when creating your preferences.  
-When you configure the using the Legacy Pages path, the console doesn't display the billing view option. This option is available only through the **Data Exports** to **Legacy CUR** path.
+The split cost allocation data functionality isn't available for billing transfer users. Disable this option when creating your Cost and Usage Reports preferences.  
+When you configure the Cost and Usage Reports using the Legacy Pages path, the console doesn't display the billing view option. This option is available only through the **Data Exports** to **Legacy CUR** path.
 
 You can publish your pro forma AWS CUR to an Amazon Simple Storage Service (Amazon S3) bucket that you own.
 
-AWS updates the report in your bucket once a day in comma-separated values (CSV) or Apache Parquet format. You can view the reports using spreadsheet software such as Microsoft Excel and Apache OpenOffice Calc. You can also access them from an application using the Amazon S3 or Amazon Athena APIs. For more information about the standard AWS CUR, see the [AWS Cost and Usage Reports User Guide](https://docs.aws.amazon.com/cur/latest/userguide/what-is-cur.html).
+AWS updates the report in your bucket at least once a day in comma-separated values (CSV) or Apache Parquet format. You can view the reports using spreadsheet software such as Microsoft Excel and Apache OpenOffice Calc. You can also access them from an application using the Amazon S3 or Amazon Athena APIs. For more information about the standard AWS CUR, see the [AWS Cost and Usage Reports User Guide](https://docs.aws.amazon.com/cur/latest/userguide/what-is-cur.html).
 
 ## Understanding the differences between AWS Billing Conductor AWS CUR and standard AWS CUR
 <a name="bp-standardCUR"></a>
@@ -26,13 +26,13 @@ Use the following steps to generate a pro forma AWS CUR for a billing group.<a n
 
 1. Open the AWS Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/).
 
-1. On the navigation pane, choose **Cost & Usage Reports**.
+1. On the navigation pane, choose **Data Exports**.
 
-1. Choose **Create report**.
+1. Choose **Create**.
 
-1. Choose **Export tytpe**.
+1. For **Export type**, choose **Legacy CUR export**.
 
-1. For **Report name**, enter a name for your report.
+1. For **Export name**, enter a name for your report.
 
 1. For **Billing view**, choose one of the following options:
 
@@ -40,42 +40,31 @@ Use the following steps to generate a pro forma AWS CUR for a billing group.<a n
 
    - When using Billing Conductor with billing transfer, choose **Billing transfer view**
 
-   1. To include pro forma data in your , choose **Showback/Chargeback view** for your billing transfer view
+   1. To include pro forma data in your Cost and Usage Reports, choose **Showback/Chargeback view** for your billing transfer view
 
-1. For **Additional report details**, select **Include resource IDs** to include the IDs of each individual resource in the report.
-
-1. For **Data refresh settings**, select whether you want the AWS Cost and Usage Reports to refresh with any new changes to your cost and usage data after finalizing your bill. When a report refreshes, a new report is uploaded to Amazon S3.
+1. Under **Export content**, for **Additional export content**, select **Include resource IDs** to include the IDs of each individual resource in the report. Don't select **Split cost allocation data**. Reports based on billing group views or billing transfer views don't support it.
 **Note**  
 Billing group Cost and Usage Reports don't include credits, tax, or support charges.
 
-1. Choose **Next**.
+1. Under **Data table delivery options**, for **Time granularity**, choose one of the following:
+   + **Hourly** if you want the line items in the report to be aggregated by the hour.
+   + **Daily** if you want the line items in the report to be aggregated by the day.
+   + **Monthly** if you want the line items in the report to be aggregated by the month.
 
-1. For **S3 bucket**, choose **Configure**.
+1. For **Report versioning**, choose **Create new report version** or **Overwrite existing report**.
 
-1. In the **Configure S3 Bucket** dialog box, do one of the following:
-   + Choose an existing bucket from the dropdown list, and then choose **Next**.
-   + Enter a bucket name and the AWS Region where you want to create a new bucket, and choose **Next**.
+1. For **Report data integration**, choose whether you want to integrate your Cost and Usage Reports with Amazon Athena, Amazon Redshift, or Quick.
 
-1. Select **I have confirmed that this policy is correct**, and choose **Save**.
+1. For **Compression type and file format**, choose a format.
 
-1. For **Report path prefix**, enter the report path prefix that you want prepended to the name of your report. 
+1. Under **Data export storage settings**, for **S3 bucket**, choose **Configure**.
 
-   This step is optional for Amazon Redshift or Quick, but required for Amazon Athena.
+1. In the **Configure S3 bucket** dialog box, select an existing bucket, or choose **Create a bucket** and enter a bucket name and Region. Review the **Bucket policy**, and then choose **Create bucket**.
 
-   If you don't specify a prefix, the default prefix is the name that you specified for the report in step 4 and the date range for the report, in the following format:
+1. For **S3 path prefix**, enter the path prefix that you want prepended to the name of your report.
+
+   If you don't specify a prefix, the default prefix is the name that you specified for the report in step 5 and the date range for the report, in the following format:
 
    `/report-name/date-range/`
 
-1. For **Time granularity**, choose one of the following:
-   + **Hourly** if you want the line items in the report to be aggregated by the hour.
-   + **Daily** if you want the line items in the report to be aggregated by the day.
-
-1. For **Report versioning**, choose whether you want each version of the report to overwrite the previous version of the report or to be delivered in addition to the previous versions.
-
-1. For **Enable report data integration for**, choose whether you want to upload your Cost and Usage Reports to Amazon Athena, Amazon Redshift, or Quick. The report is compressed in the following formats:
-   + **Athena**: parquet compression
-   + **Amazon Redshift or Quick**: .gz compression
-
-1. Choose **Next**.
-
-1. After reviewing the settings for your report, choose **Review and Complete**. 
+1. Choose **Create report**.

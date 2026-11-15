@@ -15,13 +15,13 @@ Use the following information to help you diagnose and fix common issues that yo
 
 If the AWS Management Console tells you that you're not authorized to perform an action, then you must contact your administrator for assistance. Your administrator is the person that provided you with your user name and password.
 
-The following example error occurs when the `mateojackson` IAM user tries to use the console to view details about a {{Billing Conductor}} but does not have `Billing Conductor:{{GetWidget}}` permissions.
+The following example error occurs when the `mateojackson` IAM user tries to use the console to view details about a billing group but does not have `billingconductor:GetBillingGroupCostReport` permissions.
 
 ```
-User: arn:aws:iam::123456789012:user/mateojackson is not authorized to perform: Billing Conductor:{{GetWidget}} on resource: {{my-example-Billing Conductor}}
+User: arn:aws:iam::123456789012:user/mateojackson is not authorized to perform: billingconductor:GetBillingGroupCostReport on resource: {{my-example-billing-group}}
 ```
 
-In this case, Mateo asks his administrator to update his policies to allow him to access the `{{my-example-Billing Conductor}}` resource using the `Billing Conductor:{{GetWidget}}` action.
+In this case, Mateo asks his administrator to update his policies to allow him to access the `{{my-example-billing-group}}` resource using the `billingconductor:GetBillingGroupCostReport` action.
 
 ## I am not authorized to perform iam:PassRole
 <a name="security_iam_troubleshoot-passrole"></a>

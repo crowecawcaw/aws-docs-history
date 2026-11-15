@@ -11,7 +11,7 @@ Billing group managed accounts, or billing group members, can view Reservations 
 
 1. Sign in to the AWS Management Console and open the AWS Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/).
 
-1. In the navigation pane, choose **Savings Plans**, under **Inventory**.
+1. In the navigation pane, under **Savings Plans**, choose **Inventory**.
 
 **To view your Reservations inventory (billing group primary account only)**
 
@@ -22,4 +22,4 @@ Billing group managed accounts, or billing group members, can view Reservations 
 If you're using AWS Organizations, management accounts can view Savings Plans and Reservations inventory.
 
 **Note**  
-For billing group member accounts, Queued Savings Plans are only visible in the **Account inventory** page of the AWS account purchasing the Savings Plans (not in the **Organizations inventory** for primary accounts).
+For billing group member accounts, Queued Savings Plans are only visible in the **Account inventory** page of the AWS account purchasing the Savings Plans (not in the **Organization inventory** for primary accounts).

@@ -44,7 +44,7 @@ If you currently have a CloudTrail logging trail, you can review your automatic 
 
 1. Choose **Create billing group**.
 **Notes**  
-You must select your primary account in step 9. You can't change your primary account after the billing group is created. To assign a new primary account, delete the billing group and regroup your accounts. While a payer account can be included within a billing group, a payer account can't be assigned the role of the primary account.
+You must select your primary account in step 10. You can't change your primary account after the billing group is created. To assign a new primary account, delete the billing group and regroup your accounts. While a payer account can be included within a billing group, a payer account can't be assigned the role of the primary account.
 If the primary account of a billing group leaves your organization and this billing group has automatic account association enabled, it will continue to automatically associate accounts until the end of the month. Then, the billing group will be automatically deleted. You can enable automatic account association for an existing billing group or create another one.
 
 ## Using Billing Conductor with billing transfer
@@ -127,7 +127,7 @@ Use this procedure when the console doesn't create the billing group during bill
 
 1. (Optional) For **Description**, enter a description for the billing group.
 
-1. Choose `Standard` as the **billing group type**.
+1. Choose **Billing transfers** as the **billing group type**.
 
 1. Choose an individual AWS Organizations that's transferring its bills for which you want to create a billing group.
 

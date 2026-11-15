@@ -76,7 +76,7 @@ You can then [create custom line items](create-cli.md) to add credits or fees to
 
 When using Billing Conductor as a standalone service, the payer account can always view the standard AWS bill because they are responsible for paying these charges to AWS. They can also view the pro forma bill for each of their billing groups on the **Bills** page and AWS Cost and Usage Report and Cost Explorer.
 
-When using Billing Conductor with billing transfer, the bill transfer account can always view the standard AWS bill because they are responsible for paying these charges to AWS. They can also view the pro forma bill for each of their billing groups on the Bills page, , and Cost Explorer.
+When using Billing Conductor with billing transfer, the bill transfer account can always view the standard AWS bill because they are responsible for paying these charges to AWS. They can also view the pro forma bill for each of their billing groups on the Bills page, Cost and Usage Reports, and Cost Explorer.
 
 For more information, see [Viewing your billing group details](viewing-abc.md) and [Configuring Cost and Usage Reports by billing group](configuring-abc.md).
 
@@ -91,7 +91,7 @@ The following considerations about Free Tier behavior in pro forma billing apply
 Billing Conductor removes this Free Tier from the pro forma bill. It is exchanged with the first paid offer for the given SKU.
 
 **Always Free Tier**  
-Billing Conductor doesn't remove this Free Tier from the pro forma bill. You can deactivate this Free Tier by applying a tiering pricing rule to your billing group's pricing plan. For more information, see [Pricing rules](create-pricingrule.md)
+Billing Conductor doesn't remove this Free Tier from the pro forma bill. You can deactivate this Free Tier by applying a Free Tier settings pricing rule to your billing group's pricing plan. For more information, see [Pricing rules](create-pricingrule.md)
 
 **Free trials**  
 Billing Conductor removes most free trials from the pro forma data. However, we can't remove the free trial if there is no subsequent pricing tier data that can cover existing usage. 

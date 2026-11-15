@@ -52,21 +52,21 @@ Other restrictions in the following table cannot be increased.
 |  |  | 
 | --- |--- |
 | Number of Cost and Usage Reports per billing group billing view | 10 | 
-| Number of pro forma for bill transfer account | Same as the number of billing transfers allowed for the billing transfer account to manage | 
-| Billing group name |  +  Must be within 128 characters <br />+  Cannot contain a `space` <br />+  Cannot contain special characters   | 
+| Number of pro forma Cost and Usage Reports for bill transfer account | Same as the number of billing transfers allowed for the billing transfer account to manage | 
+| Billing group name |  +  Must be within 128 characters <br />+  Cannot contain a `space` <br />+  Can contain only letters, numbers, and the following characters: `_ + = . - @`   | 
 | Billing group description  | Must be within 1,024 characters | 
-| Pricing plan name |  +  Must be within 128 characters <br />+  Cannot contain a `space` <br />+  Cannot contain special characters   | 
+| Pricing plan name |  +  Must be within 128 characters <br />+  Cannot contain a `space` <br />+  Can contain only letters, numbers, and the following characters: `_ + = . - @`   | 
 | Pricing plan description | Must be within 1,024 characters | 
-| Custom line item name |  +  Must be within 128 characters <br />+  Cannot contain a `space` <br />+  Cannot contain special characters   | 
+| Custom line item name |  +  Must be within 128 characters <br />+  Cannot contain a `space` <br />+  Can contain only letters, numbers, and the following characters: `_ + = . - @`   | 
 
 **Using Billing Conductor with billing transfer**
 
 
 |  |  | 
 | --- |--- |
-| Number of pro forma &CUR; for bill transfer account | 10 | 
-| Billing group name |  +  Must be within 128 characters <br />+  Cannot contain a `space` <br />+  Cannot contain special characters   | 
+| Number of pro forma Cost and Usage Reports for bill transfer account | 10 | 
+| Billing group name |  +  Must be within 128 characters <br />+  Cannot contain a `space` <br />+  Can contain only letters, numbers, and the following characters: `_ + = . - @`   | 
 | Billing group description  | Must be within 1,024 characters | 
-| Pricing plan name |  +  Must be within 128 characters <br />+  Cannot contain a `space` <br />+  Cannot contain special characters   | 
+| Pricing plan name |  +  Must be within 128 characters <br />+  Cannot contain a `space` <br />+  Can contain only letters, numbers, and the following characters: `_ + = . - @`   | 
 | Pricing plan description | Must be within 1,024 characters | 
-| Custom line item name |  +  Must be within 128 characters <br />+  Cannot contain a `space` <br />+  Cannot contain special characters   | 
+| Custom line item name |  +  Must be within 128 characters <br />+  Cannot contain a `space` <br />+  Can contain only letters, numbers, and the following characters: `_ + = . - @`   | 

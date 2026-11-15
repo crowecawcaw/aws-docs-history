@@ -18,7 +18,7 @@ The following Cloud Financial Management services and their features support pro
   <tr><td>Dashboard</td><td>No</td><td>Yes</td><td>Yes</td></tr>
   <tr><td>Billing details</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
   <tr><td>Download CSV</td><td>No</td><td>No</td><td>No</td></tr>
-  <tr><td><b>AWS Cost Explorer</b></td><td>No</td><td>Yes</td><td>Yes</td></tr>
+  <tr><td><b>AWS Cost Explorer</b></td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
   <tr><td>Forecasting</td><td>No</td><td>Yes</td><td>Yes</td></tr>
   <tr><td>Save reports</td><td>No</td><td>Yes</td><td>Yes</td></tr>
   <tr><td>Rightsizing recommendations</td><td>No</td><td>No</td><td>No</td></tr>

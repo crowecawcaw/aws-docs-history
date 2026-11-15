@@ -31,11 +31,13 @@ Use the following steps to create a custom line item that applies either a credi
 
    A discount line item adds a credit. This reduces the amount that's charged to the selected billing group. A markup line item adds a charge. This increases the amount that's charged to the selected billing group. All custom line items are in USD.
 
-1. (Optional) For **Reference values**, choose the values to include in the calculation. By default, the billing group total cost is selected as a resource. This excludes all flat custom line items.
+1. (Optional) For **Reference value**, choose the base values that the percentage charge is calculated against.
 
-   1. (Optional) By default, Savings Plans discounts are included. To exclude them from the calculation, select the **Exclude Savings Plans discounts** check box.
-
-   1. (Optional) If you want a specific service charges to be executed by the custom line item, select **Choose the custom values using filters** and input the service code under **Value** section.
+   1. Select **Billing group cost** to include the billing group cost, which excludes custom line items. Under **Filters**, choose one of the following:
+     + **Total billing group cost including the Savings Plan discounts**
+     + **Total billing group cost excluding the Savings Plan discounts**
+     + **Savings Plans charges only**
+     + **Custom** to filter by a specific service. Choose a **Dimension** and **Operator**, then select a service or enter a service code for **Value**. This option includes Savings Plans discounts.
 
 1. (Optional) Include one of more flat custom line item. Choose each applicable flat custom line item from the table that you want included in the percentage-based calculation.
 **Note**  

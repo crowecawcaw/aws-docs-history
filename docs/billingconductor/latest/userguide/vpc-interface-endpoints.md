@@ -16,8 +16,6 @@ Before you set up an interface endpoint for Billing Conductor, review [Considera
 
 Billing Conductor supports making calls to all of its API actions through the interface endpoint.
 
-VPC endpoint policies are not supported for Billing Conductor. By default, full access to Billing Conductor is allowed through the interface endpoint. Alternatively, you can associate a security group with the endpoint network interfaces to control traffic to Billing Conductor through the interface endpoint.
-
 ## Create an interface endpoint for Billing Conductor
 <a name="vpc-endpoint-create"></a>
 
@@ -26,10 +24,10 @@ You can create an interface endpoint for Billing Conductor using either the Amaz
 Create an interface endpoint for Billing Conductor using the following service name:
 
 ```
-com.amazonaws.{{region}}.service-name
+com.amazonaws.{{region}}.billingconductor
 ```
 
-If you enable private DNS for the interface endpoint, you can make API requests to Billing Conductor using its default Regional DNS name. For example, `service-name.us-east-1.amazonaws.com`.
+If you enable private DNS for the interface endpoint, you can make API requests to Billing Conductor using its default Regional DNS name. For example, `billingconductor.us-east-1.amazonaws.com`.
 
 ## Create an endpoint policy for your interface endpoint
 <a name="vpc-endpoint-policy"></a>

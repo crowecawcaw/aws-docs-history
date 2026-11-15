@@ -39,4 +39,4 @@ The graph and table returns values for the last 13 months of the billing groups 
 You can export your margin analysis table to a downloadable CSV file. Next to your margin analysis table, choose **Download CSV**. Your download will start automatically.
 
 **Note**  
-To download a CSV file with your billing group margin analysis, you must have the `billingconductor:ListBillingGroupCostReport` permission added to your IAM policy.
+To download a CSV file with your billing group margin analysis, you must have the `billingconductor:ListBillingGroupCostReports` permission added to your IAM policy.

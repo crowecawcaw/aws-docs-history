@@ -11,6 +11,6 @@ When accounts join a billing group, their existing budget information will begin
 
 **Note**  
 We recommend linked accounts in billing groups, that previously had budget alerts configured on billable data, to update the threshold to the budget alerts to match the pro forma data view.  
-As a billing transfer user, only bill source accounts can use budgets and budget alerts. If a bill transfer account needs to set up a budget, they must obtain an IAM role in the bill source account.
+If your account is the bill transfer account in a billing transfer, you can create budgets and budget alerts on billing transfer views.
 
 For more information about AWS Budgets, see [Managing your costs with AWS Budgets](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) in the *AWS Cost Management User Guide*.

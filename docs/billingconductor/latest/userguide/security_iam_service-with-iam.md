@@ -24,7 +24,7 @@ Administrators can use AWS JSON policies to specify who has access to what. That
 
 The `Action` element of a JSON policy describes the actions that you can use to allow or deny access in a policy. Include actions in a policy to grant permissions to perform the associated operation.
 
-Policy actions in Billing Conductor use the following prefix before the action: `Billing Conductor:`. For example, to grant someone permission to run an Amazon EC2 instance with the Amazon EC2 `RunInstances` API operation, you include the `ec2:RunInstances` action in their policy. Policy statements must include either an `Action` or `NotAction` element. Billing Conductor defines its own set of actions that describe tasks that you can perform with this service.
+Policy actions in Billing Conductor use the following prefix before the action: `billingconductor:`. For example, to grant someone permission to run an Amazon EC2 instance with the Amazon EC2 `RunInstances` API operation, you include the `ec2:RunInstances` action in their policy. Policy statements must include either an `Action` or `NotAction` element. Billing Conductor defines its own set of actions that describe tasks that you can perform with this service.
 
 To specify multiple actions in a single statement, separate them with commas as follows:
 
@@ -163,7 +163,7 @@ When you create a {{bucket}} resource, Amazon S3 creates a default ACL that gran
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
-<AccessControlPolicy xmlns="http://Billing Conductor.amazonaws.com/doc/2006-03-01/">
+<AccessControlPolicy xmlns="http://billingconductor.amazonaws.com/doc/2006-03-01/">
   <Owner>
     <ID>{{c1daexampleaaf850ea79cf0430f33d72579fd1611c97f7ded193374c0b163b6}}</ID>
     <DisplayName>{{john-doe}}</DisplayName>
@@ -186,7 +186,7 @@ The ID field in the ACL is the AWS account canonical user ID. To learn how to vi
 ## Authorization based on Billing Conductor tags
 <a name="security_iam_service-with-iam-tags"></a>
 
-You can attach tags to Billing Conductor resources or pass tags in a request to Billing Conductor. To control access based on tags, you provide tag information in the [condition element](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) of a policy using the `Billing Conductor:ResourceTag/{{key-name}}`, `aws:RequestTag/{{key-name}}`, or `aws:TagKeys` condition keys.
+You can attach tags to Billing Conductor resources or pass tags in a request to Billing Conductor. To control access based on tags, you provide tag information in the [condition element](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) of a policy using the `aws:ResourceTag/{{key-name}}`, `aws:RequestTag/{{key-name}}`, or `aws:TagKeys` condition keys.
 
 ## Billing Conductor IAM roles
 <a name="security_iam_service-with-iam-roles"></a>

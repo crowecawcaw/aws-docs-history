@@ -6,7 +6,7 @@
 ## Using Billing Conductor as a standalone service
 <a name="ad-hoc-cost-explorer-analysis-standalone"></a>
 
-AWS accounts in Billing Conductor billing groups can analyze, forecast, and report pro forma costs in Cost Explorer. The primary account in a billing group can perform these activities for all accounts within the group. If you're using AWS Organizations, management accounts can't analyze, forecast, or report pro forma costs in Cost Explorer. 
+AWS accounts in Billing Conductor billing groups can analyze, forecast, and report pro forma costs in Cost Explorer. The primary account in a billing group can perform these activities for all accounts within the group. If you're using AWS Organizations, the management account can also see pro forma costs in Cost Explorer by choosing a billing group view.
 
 Billing group managed accounts (billing group members) can see cost and usage data for the billing periods they were members of the billing group, and pro forma data is available. They cannot see historical billable cost and usage data. If you need historical data, the payer account can request a backfill by contacting [Support Center](http://aws.amazon.com/support). The data is presented in a pro forma format, aligned with the billing group settings.
 

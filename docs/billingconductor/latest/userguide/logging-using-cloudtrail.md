@@ -10,7 +10,7 @@ To learn more about CloudTrail, see the [AWS CloudTrail User Guide](https://docs
 ## AWS Billing Conductor CloudTrail events
 <a name="billing-cloudtrail-events"></a>
 
-This section shows a full list of the CloudTrail events related to Billing and Cost Management.
+This section shows a full list of the CloudTrail events related to Billing Conductor.
 
 
 
@@ -32,6 +32,7 @@ This section shows a full list of the CloudTrail events related to Billing and C
 | `DeletePricingRule` | Logs the deletion of a pricing rule. | 
 | `DisassociateAccounts` | Logs the disassociation of accounts from a billing group. | 
 | `DisassociatePricingRules` | Logs the disassociation of pricing rules from a pricing plan. | 
+| `GetBillingGroupCostReport` | Logs the access to the cost report of a billing group. | 
 | `GetBillingTransferPreference` | Logs the retrieval of the auto billing group creation preference for a billing transfer. | 
 | `ListAccountAssociations` | Logs the access to the account ids in the billing group. | 
 | `ListBillingGroupCostReports` | Logs the access to the actual AWS charges for the billing group. | 
@@ -45,6 +46,7 @@ This section shows a full list of the CloudTrail events related to Billing and C
 | `ListResourcesAssociatedToCustomLineItem` | Logs the access to the resources associated to a custom line item. | 
 | `ListTagsForResource` | Logs the access to the tags on a resource. | 
 | `TagResource` | Logs the association of tags on a resource. | 
+| `UntagResource` | Logs the removal of tags from a resource. | 
 | `UpdateBillingGroup` | Logs the update of a billing group. | 
 | `UpdateBillingTransferPreference` | Logs the update of the auto billing group creation preference for a billing transfer. | 
 | `UpdateCustomLineItem` | Logs the update of a custom line item. | 

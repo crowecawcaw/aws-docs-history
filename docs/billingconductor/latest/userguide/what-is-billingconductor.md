@@ -26,9 +26,9 @@ Billing Conductor configurations don't affect customers' existing invoices from 
 
 You can analyze pro forma costs from either a management account of a standalone AWS Organizations or from a bill transfer account that manages multiple AWS Organizations bills.
 + Analyze margins (the difference between pro forma costs and billable costs for the same set of accounts) within Billing Conductor
-+ Use to analyze cost data using either billing group views or billing transfer views
++ Use AWS Cost Explorer to analyze cost data using either billing group views or billing transfer views
 + Analyze cost data by using `Billing Group` views or `Billing Transfer` views on the Bills page
-+ Create a for each `Billing Group` view and `Billing Transfer` view
++ Create a Cost and Usage Report for each `Billing Group` view and `Billing Transfer` view
 + View reservation and Savings Plans coverage and utilization reports that reflect `Billing Group` and `Billing Transfer` views
 
 Billing Conductor managed accounts and AWS Organizations can analyze pro forma costs in AWS Cost Explorer, Cost and Usage Reports, the Billing dashboard, and the billing details page. Managed accounts and AWS Organizations in billing groups can create budgets to monitor their pro forma spend and receive alerts when they exceed, or are forecasted to exceed, their desired pro forma spending limit.
@@ -96,8 +96,8 @@ For more information, see the following topics:
 + [Analyzing your costs with AWS Cost Explorer](https://docs.aws.amazon.com/cost-management/latest/userguide/ce-what-is.html) in the *AWS Cost Management User Guide*
 
 ****AWS Cost and Usage Reports****  
-The AWS Cost and Usage Reports (AWS CUR) contain the most comprehensive set of cost and usage data available. You can use Cost and Usage Reports to publish your AWS billing reports to an Amazon Simple Storage Service (Amazon S3) bucket that you own. You can receive reports that break down your costs by the hour or day, by product or product resource, or by tags that you define yourself.   
-AWS updates the report in your bucket once a day in comma-separated values (CSV) or Apache Parquet format. You can view the reports using spreadsheet software such as Microsoft Excel or Apache OpenOffice Calc. You can also access them from an application using the Amazon S3 or Amazon Athena APIs.   
+The AWS Cost and Usage Reports (AWS CUR) contain the most comprehensive set of cost and usage data available. You can use Cost and Usage Reports to publish your AWS billing reports to an Amazon Simple Storage Service (Amazon S3) bucket that you own. You can receive reports that break down your costs by the hour, day, or month, by product or product resource, or by tags that you define yourself.   
+AWS updates the report in your bucket at least once a day in comma-separated values (CSV) or Apache Parquet format. You can view the reports using spreadsheet software such as Microsoft Excel or Apache OpenOffice Calc. You can also access them from an application using the Amazon S3 or Amazon Athena APIs.   
 AWS Cost and Usage Reports track your AWS usage and provide estimated charges associated with your account. Each report contains line items for each unique combination of AWS products, usage type, and operation that you use in your AWS account.
 
 ****AWS Identity and Access Management (IAM)****  
