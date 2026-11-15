@@ -16,8 +16,6 @@ Use cases:
 + Audio rooms — Invite listeners to join the conversation as guests and foster deeper engagement in your audio rooms.
 + Live video auctions — Turn auctions into interactive video events and maintain their excitement and integrity with real-time latency.
 
-In addition to the product documentation here, see [https://ivs.rocks/](https://ivs.rocks/), a dedicated site to browse published content (demos, code samples, blog posts), estimate cost, and experience Amazon IVS through live demos.
-
 ## Global Solution, Regional Control
 <a name="what-is-aws"></a>
 

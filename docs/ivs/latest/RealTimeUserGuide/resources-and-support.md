@@ -8,8 +8,6 @@ This document lists resources to help support your use of Amazon IVS real-time s
 ## Demos and Other Resources
 <a name="ivs-resources"></a>
 
-[https://ivs.rocks/](https://ivs.rocks/) is a dedicated site to browse published content (demos, code samples, blog posts), estimate cost, and experience IVS through live demos. For demos and code samples, see [https://ivs.rocks/examples](https://ivs.rocks/examples).
-
 The [Amazon IVS page on the DEV Community site](https://dev.to/t/amazonivs) has a wealth of demos and blog posts. For example, [Getting Started with Amazon Interactive Video Service](https://dev.to/recursivecodes/series/19342) is a series of articles about using IVS, for beginners. The articles give step-by-step walkthroughs of IVS APIs with interactive demos embedded in the posts. All the demos can be run directly in the posts themselves via an embedded CodePen.
 
 The [AWS Blogs](https://aws.amazon.com/blogs) site has many IVS blog postings on a variety of topics. Filter for IVS by selecting **Product or solution** > **Media Services** > **Amazon Interactive Video Service** on the right side of the page.
