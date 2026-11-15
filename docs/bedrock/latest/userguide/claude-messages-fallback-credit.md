@@ -15,6 +15,7 @@ The following models issue a fallback credit token when they refuse a request. T
 
 | **Source model (issues the token)** | **Model ID** | **Valid fallback models (redeem the token)** | 
 | --- | --- | --- | 
+| Claude Fable 5.2 | anthropic.claude-fable-5-2 | Claude Opus 5 (anthropic.claude-opus-5), Claude Opus 4.8 (anthropic.claude-opus-4-8) | 
 | Claude Fable 5 | anthropic.claude-fable-5 | Claude Opus 5 (anthropic.claude-opus-5), Claude Opus 4.8 (anthropic.claude-opus-4-8) | 
 | Claude Fable 5.1 | anthropic.claude-fable-5-1 | Claude Opus 5 (anthropic.claude-opus-5), Claude Opus 4.8 (anthropic.claude-opus-4-8) | 
 | Claude Opus 5.5 | anthropic.claude-opus-5-5 | Claude Opus 5 (anthropic.claude-opus-5), Claude Opus 4.8 (anthropic.claude-opus-4-8) | 
@@ -131,7 +132,7 @@ curl -X POST "https://bedrock-mantle.$BEDROCK_REGION.api.aws/anthropic/v1/messag
 | Target model | The retry must use a valid fallback model for the refused model. See [Supported models](#claude-messages-fallback-credit-supported-models). | 
 | Fields that must match | system, messages, tools, tool\_choice, thinking, and cache\_control, plus output\_config, mcp\_servers, context\_management, and container if you use them. Send them as-is. Don't strip thinking or redacted\_thinking blocks from earlier turns. | 
 | Fields that can change | model, max\_tokens, stop\_sequences, stream, metadata, and service\_tier. | 
-| Beta flags | Send the same beta flags on the retry as on the refused request. A flag that is present on only one of the two requests causes a request body ... does not match error, even if the bodies are identical. Don't add or drop flags based on the target model. On models that include the 1M token context window by default, such as Claude Fable 5.1, Claude Fable 5, Claude Opus 5.5, Claude Opus 5, and Claude Opus 4.8, the context-1m-2025-08-07 flag has no effect. Omit it on both requests. | 
+| Beta flags | Send the same beta flags on the retry as on the refused request. A flag that is present on only one of the two requests causes a request body ... does not match error, even if the bodies are identical. Don't add or drop flags based on the target model. On models that include the 1M token context window by default, such as Claude Fable 5.2, Claude Fable 5.1, Claude Fable 5, Claude Opus 5.5, Claude Opus 5, and Claude Opus 4.8, the context-1m-2025-08-07 flag has no effect. Omit it on both requests. | 
 | Retry shape | Choose the retry body based on `fallback_has_prefill_claim`:+ `true` – The refused request body, unchanged, plus one appended `assistant` message whose `content` echoes the refused response's `content`. The fallback model continues the response from where the refused model stopped. Strip trailing whitespace from a final `text` block, and omit any client `tool_use` block that has no matching `tool_result`.<br />+ `false` – The refused request body, unchanged. The fallback model regenerates the response. | 
 
 ## Error handling

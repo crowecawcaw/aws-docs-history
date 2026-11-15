@@ -6,7 +6,7 @@
 ## Overview
 <a name="claude-messages-thinking-block-binding-overview"></a>
 
-On Claude Fable 5.1, Claude Opus 5.5, Claude Sonnet 5.5, and Claude Haiku 5.5, each thinking block is tied to the model and the conversation that produced it. On Claude Mythos 5.1, thinking blocks are tied to the model only; the conversation prefix isn't checked. The API checks that the system prompt, the tool list, and all messages before the block are unchanged when you replay that block in a later request. This protects the integrity of Claude's reasoning: reasoning produced under one set of instructions cannot be replayed under a different set.
+On Claude Fable 5.2, Claude Mythos 5.2, Claude Fable 5.1, Claude Opus 5.5, Claude Sonnet 5.5, and Claude Haiku 5.5, each thinking block is tied to the model and the conversation that produced it. On Claude Mythos 5.1, thinking blocks are tied to the model only; the conversation prefix isn't checked. The API checks that the system prompt, the tool list, and all messages before the block are unchanged when you replay that block in a later request. This protects the integrity of Claude's reasoning: reasoning produced under one set of instructions cannot be replayed under a different set.
 
 If your harness sends conversation history back exactly as it received it, nothing changes for you. If you edit history between requests — injecting per-turn reminders, summarizing older turns, or rebuilding the system prompt — the API rejects the request by default.
 
@@ -16,8 +16,8 @@ If your harness sends conversation history back exactly as it received it, nothi
 | **Check** | **Description** | 
 | --- | --- | 
 | Model | The model reading the block is allowed to read the producer's thinking. A model cannot read another model's thinking unless the two are explicitly compatible. This check applies on any thinking-capable model. A block that fails this check is always dropped as model\_binding\_mismatch, and the request still succeeds. For which models read each other's blocks, see [Model compatibility](#claude-messages-thinking-block-binding-model-compatibility). | 
-| Conversation prefix | The top-level system prompt, tools, and all message content before the block are unchanged from the request that produced it. Claude Fable 5.1, Claude Opus 5.5, Claude Sonnet 5.5, and Claude Haiku 5.5 run this check. By default, a failed check returns a 400 error. Claude Mythos 5.1 doesn't run this check: a block replayed after the prefix changed reaches the model, and prefix\_mismatch\_behavior has no effect. | 
-| Organization | The thinking block was produced by the same AWS account, or an account in the same customer group. A block replayed from a different account — or one minted in a Claude app (claude.ai or Claude Code) — is removed before the model runs; the request still succeeds. Applies on Claude Sonnet 5.5 and Claude Haiku 5.5. | 
+| Conversation prefix | The top-level system prompt, tools, and all message content before the block are unchanged from the request that produced it. Claude Fable 5.2, Claude Mythos 5.2, Claude Fable 5.1, Claude Opus 5.5, Claude Sonnet 5.5, and Claude Haiku 5.5 run this check. By default, a failed check returns a 400 error. Claude Mythos 5.1 doesn't run this check: a block replayed after the prefix changed reaches the model, and prefix\_mismatch\_behavior has no effect. | 
+| Organization | The thinking block was produced by the same AWS account, or an account in the same customer group. A block replayed from a different account — or one minted in a Claude app (claude.ai or Claude Code) — is removed before the model runs; the request still succeeds. Applies on Claude Fable 5.2, Claude Mythos 5.2, Claude Sonnet 5.5, and Claude Haiku 5.5. | 
 
 **Note**  
 A thinking block whose signature has been altered or cannot be decrypted always returns a 400, regardless of these checks or the beta value.
@@ -30,11 +30,13 @@ When you switch models partway through a conversation, the model check decides w
 
 | **Thinking blocks produced by** | **Read by** | **Dropped as `model_binding_mismatch` on** | 
 | --- | --- | --- | 
-| Claude Fable 5.1 | Claude Fable 5.1, Claude Mythos 5.1 | Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5, Claude Opus 5 | 
-| Claude Mythos 5.1 | Claude Mythos 5.1, Claude Fable 5.1 | Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5, Claude Opus 5 | 
-| Claude Opus 5.5 | Claude Opus 5.5, Claude Fable 5.1, Claude Mythos 5.1 | Claude Sonnet 5.5, Claude Haiku 5.5, Claude Opus 5 | 
-| Claude Sonnet 5.5 | Claude Sonnet 5.5, Claude Opus 5.5 | Claude Haiku 5.5, Claude Fable 5.1, Claude Mythos 5.1, Claude Opus 5 | 
-| Claude Haiku 5.5 | Claude Haiku 5.5, Claude Opus 5.5, Claude Sonnet 5.5 | Claude Fable 5.1, Claude Mythos 5.1, Claude Opus 5 | 
+| Claude Fable 5.2 | Claude Fable 5.2, Claude Mythos 5.2 | Claude Fable 5.1, Claude Mythos 5.1, Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5, Claude Opus 5 | 
+| Claude Mythos 5.2 | Claude Fable 5.2, Claude Mythos 5.2 | Claude Fable 5.1, Claude Mythos 5.1, Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5, Claude Opus 5 | 
+| Claude Fable 5.1 | Claude Fable 5.1, Claude Mythos 5.1, Claude Fable 5.2, Claude Mythos 5.2 | Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5, Claude Opus 5 | 
+| Claude Mythos 5.1 | Claude Mythos 5.1, Claude Fable 5.1, Claude Fable 5.2, Claude Mythos 5.2 | Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5, Claude Opus 5 | 
+| Claude Opus 5.5 | Claude Opus 5.5, Claude Fable 5.2, Claude Mythos 5.2, Claude Fable 5.1, Claude Mythos 5.1 | Claude Sonnet 5.5, Claude Haiku 5.5, Claude Opus 5 | 
+| Claude Sonnet 5.5 | Claude Sonnet 5.5, Claude Opus 5.5, Claude Fable 5.2, Claude Mythos 5.2 | Claude Haiku 5.5, Claude Fable 5.1, Claude Mythos 5.1, Claude Opus 5 | 
+| Claude Haiku 5.5 | Claude Haiku 5.5, Claude Opus 5.5, Claude Sonnet 5.5, Claude Fable 5.2, Claude Mythos 5.2 | Claude Fable 5.1, Claude Mythos 5.1, Claude Opus 5 | 
 
 ## The block\_binding request object (beta)
 <a name="claude-messages-thinking-block-binding-request-object"></a>
@@ -90,7 +92,7 @@ This is a top-level array (a sibling of `usage`), present only with the beta val
 ## Organization-locked thinking
 <a name="claude-messages-thinking-block-binding-organization-locked"></a>
 
-On Claude Sonnet 5.5 and Claude Haiku 5.5, each thinking block is also bound to the AWS account (or customer group) that produced it, in addition to the model and conversation-prefix checks. A block replayed from a different account, or one minted in a Claude app (claude.ai or Claude Code), is dropped before the model runs; the request still succeeds and the model does not see that earlier reasoning.
+On Claude Fable 5.2, Claude Mythos 5.2, Claude Sonnet 5.5, and Claude Haiku 5.5, each thinking block is also bound to the AWS account (or customer group) that produced it, in addition to the model and conversation-prefix checks. A block replayed from a different account, or one minted in a Claude app (claude.ai or Claude Code), is dropped before the model runs; the request still succeeds and the model does not see that earlier reasoning.
 
 By default the drop is silent. With the `thinking-binding-controls-2026-08-01` beta, each dropped block is listed in the top-level `input_transformations` array:
 
@@ -104,7 +106,7 @@ By default the drop is silent. With the `thinking-binding-controls-2026-08-01` b
 
 Replaying thinking blocks within the same AWS account (or customer group) is unaffected. Without the `thinking-binding-controls-2026-08-01` beta, the response does not include an `input_transformations` field. In the same-account case with the beta, the field is present as an empty array (`[]`).
 
-This binding applies on Claude Sonnet 5.5 and Claude Haiku 5.5; earlier models are unaffected.
+This binding applies on Claude Fable 5.2, Claude Mythos 5.2, Claude Sonnet 5.5, and Claude Haiku 5.5; earlier models are unaffected.
 
 ## Error responses
 <a name="claude-messages-thinking-block-binding-error-responses"></a>
@@ -121,7 +123,7 @@ When `prefix_mismatch_behavior` is `"error"`, a prefix mismatch returns:
 }
 ```
 
-The last sentence names what changed (for example, the `system` prompt). If the request doesn't include the `thinking-binding-controls-2026-08-01` beta value, the message instead ends with a reminder that `prefix_mismatch_behavior` requires that beta value.
+The last sentence names what changed. For example, when the `system` prompt changed, it reads `The `system` prompt differs from the one this block was created with.` When message content before the block changed, it reads `Content before this block differs from when it was created, first at `messages.0.content.0`.`, with the path of the first changed content block. If the request doesn't include the `thinking-binding-controls-2026-08-01` beta value, the message also includes the sentence `That setting requires the `thinking-binding-controls-2026-08-01` value in the `anthropic-beta` header.` before the last sentence.
 
 This error is permanent for that request — an automatic retry loop will not clear it. When you catch it, either strip all thinking blocks from history and retry, or retry with `prefix_mismatch_behavior: "drop_block"` and the beta header.
 

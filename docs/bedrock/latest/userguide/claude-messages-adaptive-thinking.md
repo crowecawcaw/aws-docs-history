@@ -10,6 +10,8 @@ The following models support adaptive thinking. Each model's card describes its 
 
 | Model | Model ID | 
 | --- | --- | 
+| [Claude Fable 5.2](model-card-anthropic-claude-fable-5-2.md) | `anthropic.claude-fable-5-2` | 
+| [Claude Mythos 5.2](model-card-anthropic-claude-mythos-5-2.md) | `anthropic.claude-mythos-5-2` | 
 | [Claude Haiku 5.5](model-card-anthropic-claude-haiku-5-5.md) | `anthropic.claude-haiku-5-5` | 
 | [Claude Sonnet 5.5](model-card-anthropic-claude-sonnet-5-5.md) | `anthropic.claude-sonnet-5-5` | 
 | [Claude Opus 5.5](model-card-anthropic-claude-opus-5-5.md) | `anthropic.claude-opus-5-5` | 
@@ -40,7 +42,7 @@ The following table shows how each model handles each `thinking.type` value. A 4
 | Claude Opus 5.5 | Adaptive | Adaptive | 400 error | 400 error | 400 error | 
 | Claude Sonnet 5.5 | Adaptive | Adaptive | 400 error | Up-front thinking off at high effort or below | 400 error | 
 | Claude Haiku 5.5 | Adaptive | Adaptive | 400 error | 400 error | Thinking off at high effort or below | 
-| Claude Fable 5.1, Claude Mythos 5.1, Claude Fable 5, Claude Mythos 5 | Adaptive | Adaptive | 400 error | 400 error | 400 error | 
+| Claude Fable 5.2, Claude Mythos 5.2, Claude Fable 5.1, Claude Mythos 5.1, Claude Fable 5, Claude Mythos 5 | Adaptive | Adaptive | 400 error | 400 error | 400 error | 
 | Claude Opus 5 | Adaptive | Adaptive | 400 error | 400 error | Thinking off at high effort or below | 
 | Claude Sonnet 5 | Adaptive | Adaptive | 400 error | 400 error | Thinking off | 
 | Claude Opus 4.8, Claude Opus 4.7 | Thinking off | Adaptive | 400 error | 400 error | Thinking off | 
@@ -172,8 +174,8 @@ You can combine adaptive thinking with the effort parameter to guide how much th
 
 | Effort level | Thinking behavior | 
 | --- | --- | 
-| max | Claude thinks the most readily and at the greatest depth, with no constraint on thinking length. Supported on Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5, Claude Fable 5.1, Claude Mythos 5.1, Claude Fable 5, Claude Mythos 5, Claude Opus 5, Claude Sonnet 5, Claude Opus 4.8, Claude Opus 4.7, Claude Opus 4.6, and Claude Sonnet 4.6. Requests using max on unsupported models return an error. | 
-| xhigh | Claude thinks more readily and at greater depth than at high, suited to long-running agentic work. Supported on Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5, Claude Fable 5.1, Claude Mythos 5.1, Claude Fable 5, Claude Mythos 5, Claude Opus 5, Claude Sonnet 5, Claude Opus 4.8, and Claude Opus 4.7. | 
+| max | Claude thinks the most readily and at the greatest depth, with no constraint on thinking length. Supported on Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5, Claude Fable 5.2, Claude Mythos 5.2, Claude Fable 5.1, Claude Mythos 5.1, Claude Fable 5, Claude Mythos 5, Claude Opus 5, Claude Sonnet 5, Claude Opus 4.8, Claude Opus 4.7, Claude Opus 4.6, and Claude Sonnet 4.6. Requests using max on unsupported models return an error. | 
+| xhigh | Claude thinks more readily and at greater depth than at high, suited to long-running agentic work. Supported on Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5, Claude Fable 5.2, Claude Mythos 5.2, Claude Fable 5.1, Claude Mythos 5.1, Claude Fable 5, Claude Mythos 5, Claude Opus 5, Claude Sonnet 5, Claude Opus 4.8, and Claude Opus 4.7. | 
 | high (default on most models) | Claude thinks on most requests that benefit from it. Provides deep reasoning on complex tasks. | 
 | medium (default on Claude Opus 5.5 and Claude Haiku 5.5) | Claude uses moderate thinking. May skip thinking for simple queries. | 
 | low | Claude minimizes thinking. Skips thinking for simple tasks where speed matters most. | 
@@ -320,7 +322,7 @@ response = bedrock_runtime.converse(
 ## Setting effort per turn (beta)
 <a name="claude-messages-adaptive-thinking-per-turn-effort"></a>
 
-This feature is a Beta Service as defined in the AWS Service Terms. On Claude Haiku 5.5, Claude Sonnet 5.5, Claude Opus 5.5, Claude Fable 5.1, and Claude Mythos 5.1, you can change the effort level partway through a conversation instead of setting it once for the whole request. Insert a system message that carries an `output_config.effort` value at any point in the `messages` array. The new effort level applies to the turns that follow it. The request returns 200 with no change to the response shape.
+This feature is a Beta Service as defined in the AWS Service Terms. On Claude Haiku 5.5, Claude Sonnet 5.5, Claude Opus 5.5, Claude Fable 5.2, Claude Mythos 5.2, Claude Fable 5.1, and Claude Mythos 5.1, you can change the effort level partway through a conversation instead of setting it once for the whole request. Insert a system message that carries an `output_config.effort` value at any point in the `messages` array. The new effort level applies to the turns that follow it. The request returns 200 with no change to the response shape.
 
 To use per-turn effort, include one of the following `anthropic_beta` values: `mid-conversation-output-config-2026-07-01`, `mid-conversation-effort-2026-08-01`, `per-turn-control-2026-07-01`, or `per-message-effort-2026-07-01`.
 

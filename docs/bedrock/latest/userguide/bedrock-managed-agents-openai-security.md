@@ -17,7 +17,7 @@ For temporary credentials, the signing implementation must include the session t
 
 Supply a same-account IAM role ARN in `role_arn` when creating a session. You can use a role created by the examples or an existing role configured for BMA.
 
-The following trust policy allows BMA to assume a role on behalf of the specified account. Replace `123456789012` with your account ID:
+The following trust policy allows BMA to assume a role on behalf of the specified account. Replace `111122223333` with your account ID:
 
 ```
 {
@@ -27,8 +27,8 @@ The following trust policy allows BMA to assume a role on behalf of the specifie
     "Principal": {"Service": "bedrock-mantle.amazonaws.com"},
     "Action": "sts:AssumeRole",
     "Condition": {
-      "StringEquals": {"aws:SourceAccount": "123456789012"},
-      "ArnLike": {"aws:SourceArn": "arn:aws:bedrock-mantle:*:123456789012:*"}
+      "StringEquals": {"aws:SourceAccount": "111122223333"},
+      "ArnLike": {"aws:SourceArn": "arn:aws:bedrock-mantle:*:111122223333:*"}
     }
   }]
 }
@@ -65,7 +65,7 @@ The identity calling `CreateAgentSession` needs `iam:PassRole` on the session ro
 {
   "Effect": "Allow",
   "Action": "iam:PassRole",
-  "Resource": "arn:aws:iam::123456789012:role/BedrockManagedAgentsPreviewInferenceServiceRole",
+  "Resource": "arn:aws:iam::111122223333:role/BedrockManagedAgentsPreviewInferenceServiceRole",
   "Condition": {
     "StringEquals": {"iam:PassedToService": "bedrock-mantle.amazonaws.com"}
   }

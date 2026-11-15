@@ -93,7 +93,7 @@ Enforcement applies when your application passes a verified user identity (the u
 
 Confirm both the allow and the deny direction for each restricted document. A denied user who can retrieve a document is a data leak. An authorized user who gets nothing is over-restriction. Both matter.
 
-## Troubleshooting
+## Troubleshooting ServiceNow ACL awareness
 <a name="kb-managed-ds-servicenow-acl-troubleshooting"></a>
 
 **Note**  

@@ -51,7 +51,7 @@ A model is available to you when your effective mode is at or above the mode tha
 `inherit` is not part of this ordering — it expresses no opinion at its scope and defers to a broader one. See [How your retention mode is determined](#data-retention-resolution).
 
 **Existing `provider_data_share` configurations keep working**  
-If your account or project is already set to `provider_data_share`, you do not need to take any action to continue using models that require `aws_review`, including Claude Fable 5 and Claude Fable 5.1. Because `provider_data_share` is the more permissive setting, it continues to satisfy those models' requirement.  
+If your account or project is already set to `provider_data_share`, you do not need to take any action to continue using models that require `aws_review`, including Claude Fable 5, Claude Fable 5.1, and Claude Fable 5.2. Because `provider_data_share` is the more permissive setting, it continues to satisfy those models' requirement.  
 Moving from `provider_data_share` to `aws_review` is nonetheless worth doing where you can: it states the behavior that actually applies, since content sharing with model providers is not supported today.
 
 **Important**  
@@ -183,7 +183,7 @@ The Bedrock control plane does not expose a per-model retention signal.
 
 Each model declares the retention modes that satisfy its requirement through `allowed_modes`, which lists every mode at or above the minimum the model needs. If your effective mode sits below what the model requires — see [How modes are ordered](#data-retention-mode-ordering) — the model will appear as `status: "unavailable"` in the models list on the bedrock-mantle endpoint, and requests to it on the bedrock-runtime endpoint will fail with a `ValidationException` error.
 
-**Example:** Claude Fable 5 and Claude Fable 5.1 require human review (`allowed_modes: ["aws_review", "provider_data_share"]`). You must explicitly set your data retention mode to `aws_review`, or to the legacy `provider_data_share`, before you can invoke these models. If your effective mode is `none` or `default`, these models will be unavailable.
+**Example:** Claude Fable 5, Claude Fable 5.1, and Claude Fable 5.2 require human review (`allowed_modes: ["aws_review", "provider_data_share"]`). You must explicitly set your data retention mode to `aws_review`, or to the legacy `provider_data_share`, before you can invoke these models. If your effective mode is `none` or `default`, these models will be unavailable.
 
 By setting `aws_review`, you are explicitly instructing us to retain your inputs and outputs so that AWS can perform the human review the model provider requires as a condition of access. Your content is not shared with the model provider. See [Amazon Bedrock abuse detection](abuse-detection.html) and [AWS Service Terms](https://aws.amazon.com/service-terms/).
 
@@ -210,7 +210,7 @@ At launch, there is no console UI for configuring data retention. Customers must
 ### How to opt in for the bedrock-mantle endpoint
 <a name="data-retention-opt-in"></a>
 
-To enable Claude Fable 5 and Claude Fable 5.1 for your account:
+To enable Claude Fable 5, Claude Fable 5.1, and Claude Fable 5.2 for your account:
 
 ```
 curl https://bedrock-mantle.us-east-1.api.aws/v1/data_retention \
@@ -322,7 +322,7 @@ Use this when your organization accepts retention for abuse detection but cannot
 ## What data is retained and for how long
 <a name="data-retention-what-is-retained"></a>
 
-For models requiring `aws_review` (currently Claude Fable 5 and Claude Fable 5.1): user prompts and completions are retained within the AWS boundary for up to 30 days and may be reviewed by AWS to meet the human review requirement the model provider imposes as a condition of access. Your content is not shared with the model provider.
+For models requiring `aws_review` (currently Claude Fable 5, Claude Fable 5.1, and Claude Fable 5.2): user prompts and completions are retained within the AWS boundary for up to 30 days and may be reviewed by AWS to meet the human review requirement the model provider imposes as a condition of access. Your content is not shared with the model provider.
 
 For the legacy `provider_data_share` mode: Amazon Bedrock does not share your content with model providers today, so this mode results in the same handling as `aws_review` — retained within the AWS boundary for up to 30 days, and reviewed by AWS only where the model requires it.
 

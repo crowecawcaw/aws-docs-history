@@ -47,7 +47,7 @@ The following table shows the computer use tool types that each Claude model acc
 
 | **Model** | **Computer tool type** | **Required beta value** | **Client toolsets (no beta value)** | 
 | --- | --- | --- | --- | 
-| Claude Fable 5.1, Claude Fable 5, Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5, Claude Opus 5, Claude Sonnet 5, Claude Opus 4.8 | computer\_20251124 | computer-use-2025-11-24 | computer\_toolset\_20260801, browser\_toolset\_20260801 | 
+| Claude Fable 5.2, Claude Mythos 5.2, Claude Fable 5.1, Claude Mythos 5.1, Claude Fable 5, Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5, Claude Opus 5, Claude Sonnet 5, Claude Opus 4.8 | computer\_20251124 | computer-use-2025-11-24 | computer\_toolset\_20260801, browser\_toolset\_20260801 | 
 | Claude Opus 4.7, Claude Opus 4.6, Claude Sonnet 4.6 | computer\_20251124 | computer-use-2025-11-24 | Not supported | 
 | Claude Opus 4.5 | computer\_20251124 or computer\_20250124 | computer-use-2025-11-24 (with computer\_20251124) or computer-use-2025-01-24 (with computer\_20250124) | Not supported | 
 | Claude Sonnet 4.5, Claude Haiku 4.5, Claude Opus 4.1 | computer\_20250124 | computer-use-2025-01-24 | Not supported | 

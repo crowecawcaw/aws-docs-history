@@ -24,7 +24,7 @@ Use managed agents for tasks that require several steps, such as investigating a
 + [Security and IAM roles](bedrock-managed-agents-openai-security.md)
 + [BMA preview REST API reference](bedrock-managed-agents-openai-api-reference.md)
 + [Preview availability and limitations](bedrock-managed-agents-openai-quotas-limitations.md)
-+ [Troubleshooting](bedrock-managed-agents-openai-troubleshooting.md)
++ [Troubleshooting managed agents by OpenAI](bedrock-managed-agents-openai-troubleshooting.md)
 + [Clean up example resources](bedrock-managed-agents-openai-cleanup.md)
 
 ## How it works

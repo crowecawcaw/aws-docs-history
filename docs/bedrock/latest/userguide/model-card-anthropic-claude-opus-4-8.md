@@ -122,7 +122,7 @@ For more information, see [Compaction](claude-messages-compaction.html).
 
 | **Compaction supported** | **Beta value** | 
 | --- | --- | 
-| Yes | compact-2026-09-04 | 
+| Yes | compact-2026-09-04, compact-2026-01-12 | 
 
 ## Pricing
 <a name="model-card-anthropic-claude-opus-4-8-pricing"></a>
@@ -137,7 +137,7 @@ Use the following model IDs and endpoint URLs to access this model programmatica
 
 | **Endpoint** | **Model ID** | **In-Region endpoint URL** | **Geo inference ID** | **Global inference ID** | 
 | --- | --- | --- | --- | --- | 
-| bedrock-runtime | anthropic.claude-opus-4-8 | N/A | `us.anthropic.claude-opus-4-8`<br />`eu.anthropic.claude-opus-4-8`<br />`jp.anthropic.claude-opus-4-8`<br />`au.anthropic.claude-opus-4-8`<br />`us-gov.anthropic.claude-opus-4-8` | global.anthropic.claude-opus-4-8 | 
+| bedrock-runtime | anthropic.claude-opus-4-8 | N/A | `us.anthropic.claude-opus-4-8`<br />`eu.anthropic.claude-opus-4-8`<br />`jp.anthropic.claude-opus-4-8`<br />`au.anthropic.claude-opus-4-8` | global.anthropic.claude-opus-4-8 | 
 | bedrock-mantle | anthropic.claude-opus-4-8 | https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages | N/A | N/A | 
 
 *For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime endpoint URL will be "https://bedrock-runtime.us-east-1.amazonaws.com" and for bedrock-mantle will be "https://bedrock-mantle.us-east-1.api.aws/anthropic/v1/messages".*
@@ -265,16 +265,6 @@ Geo Inference ID: `au.anthropic.claude-opus-4-8`
 | --- | --- | 
 | ap-southeast-2 (Sydney) | ap-southeast-2 (Sydney), ap-southeast-4 (Melbourne) | 
 | ap-southeast-4 (Melbourne) | ap-southeast-2 (Sydney), ap-southeast-4 (Melbourne) | 
-
-**Geo: US-GOV**
-
-Geo Inference ID: `us-gov.anthropic.claude-opus-4-8`
-
-
-| **Source Region** | **Destination Regions** | 
-| --- | --- | 
-| us-gov-west-1 (GovCloud West) | us-gov-west-1 (GovCloud West), us-gov-east-1 (GovCloud East) | 
-| us-gov-east-1 (GovCloud East) | us-gov-west-1 (GovCloud West), us-gov-east-1 (GovCloud East) | 
 
 ***Global inference details***
 

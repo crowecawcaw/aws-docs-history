@@ -70,7 +70,7 @@ Whenever possible, we recommend using the `bedrock-runtime` endpoint for new app
 
 | **Supported** | **Not Supported** | 
 | --- | --- | 
-|  + ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Response streaming](/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Prompt caching](prompt-caching.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Abuse detection](abuse-detection.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Guardrails](guardrails.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Prompt optimization](prompt-management-optimize.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Knowledge base](knowledge-base.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Model evaluation](evaluation.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Prompt management](prompt-management.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Flows](flows.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Agents](agents.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Structured outputs](structured-output.md)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Watermarking](watermarking.html)  |  + ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Count tokens](count-tokens.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Intelligent prompt routing](prompt-routing.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Implicit Prompt Caching](prompt-caching.html#prompt-caching-implicit)  | 
+|  + ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Response streaming](/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Prompt caching](prompt-caching.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Abuse detection](abuse-detection.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Guardrails](guardrails.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Prompt optimization](prompt-management-optimize.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Knowledge base](knowledge-base.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Model evaluation](evaluation.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Prompt management](prompt-management.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Flows](flows.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Agents](agents.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Computer use](computer-use.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Structured outputs](structured-output.md)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Watermarking](watermarking.html)  |  + ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Count tokens](count-tokens.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Intelligent prompt routing](prompt-routing.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Implicit Prompt Caching](prompt-caching.html#prompt-caching-implicit)  | 
 
 ***Prompt caching using `bedrock-runtime` endpoint***
 
@@ -80,6 +80,37 @@ For more information, see [Prompt caching for faster model inference](prompt-cac
 | **Prompt caching supported** | **Min tokens per cache checkpoint** | **Max cache checkpoints per request** | **Supported TTL** | **Fields that accept prompt cache checkpoint** | 
 | --- | --- | --- | --- | --- | 
 | Yes | 512 | 4 | 5 minutes, 1 hour | system, messages, and tools | 
+
+**Computer use using `bedrock-runtime` endpoint**
+
+For more information, see [Computer use](computer-use.html).
+
+
+| **Tool type** | **Beta header** | 
+| --- | --- | 
+| computer\_20251124 | computer-use-2025-11-24 | 
+
+**Client tools and toolsets using `bedrock-runtime` endpoint**
+
+For more information, see [Tool use](tool-use.html).
+
+
+| **Tool type** | **Beta header** | 
+| --- | --- | 
+| computer\_toolset\_20260801 | None required | 
+| browser\_toolset\_20260801 | None required | 
+| bash\_20250124 | None required | 
+| text\_editor\_20250728 | None required | 
+| memory\_20250818 | None required | 
+
+**Compaction using `bedrock-runtime` endpoint**
+
+For more information, see [Compaction](claude-messages-compaction.html).
+
+
+| **Compaction supported** | **Beta value** | 
+| --- | --- | 
+| Yes | compact-2026-09-04, compact-2026-01-12 | 
 
 ## Pricing
 <a name="model-card-anthropic-claude-mythos-5-1-pricing"></a>
@@ -173,7 +204,7 @@ Geo inference ID: `us.anthropic.claude-mythos-5-1`
 ## Data Retention
 <a name="model-card-anthropic-claude-mythos-5-1-data-retention"></a>
 
-To use this model, you must opt in to provider data sharing by setting your data retention mode to `provider_data_share` via the Data Retention API. For more information, see [Amazon Bedrock abuse detection](abuse-detection.html).
+To use this model, you must set your data retention mode to `aws_review` or `provider_data_share` via the Data Retention API. For more information, see [Amazon Bedrock abuse detection](abuse-detection.html).
 
 ## Quotas and Limits
 <a name="model-card-anthropic-claude-mythos-5-1-quotas"></a>
@@ -241,7 +272,7 @@ client = Anthropic(
 
 response = client.messages.create(
     model="global.anthropic.claude-mythos-5-1",
-    max_tokens=1024,
+    max_tokens=16000,
     messages=[{"role": "user", "content": "Can you explain the features of Amazon Bedrock?"}],
 )
 
@@ -261,7 +292,7 @@ response = client.invoke_model(
     body=json.dumps({
             'anthropic_version': 'bedrock-2023-05-31',
             'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
-            'max_tokens': 1024
+            'max_tokens': 16000
     })
 )
 print(json.loads(response['body'].read()))

@@ -8,6 +8,8 @@ The following Anthropic models are available in Amazon Bedrock:
 
 | **Model** | **Description** | 
 | --- | --- | 
+| [Claude Fable 5.2](model-card-anthropic-claude-fable-5-2.md) | Claude Fable 5.2 is Anthropic's frontier model for technical work, setting a new bar in coding, finance, and the sciences. | 
+| [Claude Mythos 5.2](model-card-anthropic-claude-mythos-5-2.md) | Claude Mythos 5.2 is Anthropic's frontier model for cybersecurity and life sciences research, available through Anthropic's verification programs. | 
 | [Claude Haiku 5.5](model-card-anthropic-claude-haiku-5-5.md) | Claude Haiku 5.5 is the fastest and most efficient model in the Claude 5.5 family, built for high-volume, latency-sensitive work. It's the most capable Haiku model yet, with a clear step up over Claude Haiku 4.5 on coding and agent tasks. | 
 | [Claude Sonnet 5.5](model-card-anthropic-claude-sonnet-5-5.md) | Claude Sonnet 5.5 is a smarter, more efficient Sonnet. It's a clear leap forward from Sonnet 5 on coding and knowledge work, at a much lower cost per task. | 
 | [Claude Opus 5.5](model-card-anthropic-claude-opus-5-5.md) | Claude Opus 5.5 is Anthropic's most capable Opus model. Better at coding, knowledge work, and long-running tasks. It's easier to collaborate with and more cost efficient than ever. | 

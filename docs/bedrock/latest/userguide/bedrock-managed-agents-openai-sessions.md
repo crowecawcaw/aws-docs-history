@@ -118,6 +118,8 @@ Cancellation does not undo side effects from tools that already completed. Monit
 ## Delete a session
 <a name="bedrock-managed-agents-openai-sessions-delete-a-session"></a>
 
+To delete a session, send a `DELETE` request for the session ID:
+
 ```
 python3 bma_client.py DELETE "/openai/v1/agents/sessions/${SESSION_ID}"
 ```

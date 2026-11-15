@@ -166,7 +166,7 @@ response = client.invoke_model(
             'mediaSource': {
                 's3Location': {
                     'uri': 's3://your-bucket/your-video.mp4',
-                    'bucketOwner': '123456789012'
+                    'bucketOwner': '111122223333'
                 }
             },
             'maxOutputTokens': 4096

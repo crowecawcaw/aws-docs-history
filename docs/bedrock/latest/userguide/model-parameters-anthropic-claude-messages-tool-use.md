@@ -925,7 +925,7 @@ Error examples:
 
 **Note**  
 By-reference tool changes (the `tool_reference` and MCP variants described in the following section) require the beta flag `mid-conversation-tool-changes-2026-07-01` in `anthropic_beta`. By-value tool definitions (see [Inline tool definitions (Beta)](#model-parameters-anthropic-claude-mid-conversation-tool-changes-inline-definitions)) additionally require `inline-tools-2026-09-15`. Sending `inline-tools-2026-09-15` also enables the by-reference blocks, so it can be sent alone or alongside `mid-conversation-tool-changes-2026-07-01`.  
-Tool changes are supported on Claude Opus 5.5, Claude Mythos 5.1, Claude Fable 5.1, Claude Opus 5, Claude Mythos 5, Claude Fable 5, and Claude Opus 4.8.  
+Tool changes are supported on Claude Fable 5.2, Claude Mythos 5.2, Claude Opus 5.5, Claude Sonnet 5.5, Claude Mythos 5.1, Claude Fable 5.1, Claude Opus 5, Claude Mythos 5, Claude Fable 5, and Claude Opus 4.8.  
 Claude Sonnet 5, Claude Opus 4.7, Claude Opus 4.6, Claude Sonnet 4.6, and the Claude 4.5 models return a `400`.
 
 Supported models add and remove tools mid-conversation through `tool_addition` and `tool_removal` content blocks on `role: "system"` messages, instead of re-sending the full top-level `tools` array (which would invalidate the prompt cache).
@@ -1101,7 +1101,7 @@ The `tool` field is a discriminated union on `type`:
 ## Forced tool use
 <a name="model-parameters-anthropic-claude-forced-tool-use"></a>
 
-Claude Opus 5.5, Claude Fable 5.1, and Claude Mythos 5.1 do not support forced tool use. A request that sets `tool_choice` to `{"type": "any"}` or `{"type": "tool", "name": "..."}` returns a `400 invalid_request_error`:
+Claude Fable 5.2, Claude Mythos 5.2, Claude Opus 5.5, Claude Fable 5.1, and Claude Mythos 5.1 do not support forced tool use. A request that sets `tool_choice` to `{"type": "any"}` or `{"type": "tool", "name": "..."}` returns a `400 invalid_request_error`:
 
 ```
 tool_choice: type "tool" and "any" are not supported for this model.

@@ -120,7 +120,7 @@ For more information, see [Compaction](claude-messages-compaction.html).
 
 | **Compaction supported** | **Beta value** | 
 | --- | --- | 
-| Yes | compact-2026-09-04 | 
+| Yes | compact-2026-09-04, compact-2026-01-12 | 
 
 **Fallback credit for refused requests (beta)**
 

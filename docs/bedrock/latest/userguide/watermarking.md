@@ -15,6 +15,8 @@ The following table lists the models available in Amazon Bedrock that add a wate
 | --- | --- | --- | --- | --- | 
 | Amazon | Amazon Nova 2.5 Sonic | Speech | On | Contact your AWS account team | 
 | Amazon | Amazon Nova 2 Sonic | Speech | On | Contact your AWS account team | 
+| Anthropic | Claude Fable 5.2 | Text | On | Anthropic watermark detection | 
+| Anthropic | Claude Mythos 5.2 | Text | On | Anthropic watermark detection | 
 | Anthropic | Claude Fable 5.1 | Text | On | Anthropic watermark detection | 
 | Anthropic | Claude Mythos 5.1 | Text | On | Anthropic watermark detection | 
 | Anthropic | Claude Opus 5.5 | Text | On | Anthropic watermark detection | 

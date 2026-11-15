@@ -22,6 +22,8 @@ Complete authentication setup first. See [User-managed setup (3LO)](kb-managed-s
 
 1. Under **Source**, enter your **Site URLs**. Each URL must start with `https://` and point to a site, team site, or personal site (for example, `https://contoso.sharepoint.com/sites/engineering`). You can add up to 100 URLs.
 
+1. Under **Subsites**, **Crawl subsites** is selected by default. To crawl only the sites you entered and skip their subsites, clear **Crawl subsites**.
+
 1. Under **Authentication**, select **User-managed setup (3LO)**, **Microsoft Entra ID App-Only**, or **OAuth 2.0 authentication**. For user-managed setup (3LO), optionally enter a **secret name prefix**. Then choose **Sign in** to sign in to SharePoint and authorize the connection. You do not provide a secret or tenant ID. Amazon Bedrock creates a secret with a system-generated ARN to store the token. For details, see [User-managed setup (3LO)](kb-managed-sharepoint-3lo-setup.md).
 
 1. Select or create an AWS Secrets Manager secret to store your credentials.
@@ -33,6 +35,8 @@ Complete authentication setup first. See [User-managed setup (3LO)](kb-managed-s
 1. (Optional) To enable document-level access control, select **Control document access with ACLs**. This option is available only with Microsoft Entra ID App-Only authentication and cannot be changed after creation. For details, see [Document-level access controls](kb-managed-ds-sharepoint-acl.md).
 
 1. (Optional) Expand **Sync scope** to configure which content to crawl (files, pages).
+
+1. (Optional) Under **Mime types**, add MIME types of files to include or exclude, such as `application/pdf` or `image/*`. If a file matches both an include and an exclude entry, it is excluded.
 
 1. (Optional) Expand **Date based entity syncing** to specify date filters.
 
@@ -80,9 +84,14 @@ The `sharepoint-managed-connector.json` file contains the following:
             "dataEntityConfiguration": {
                 "crawlFiles": true,
                 "crawlPages": true,
+                "crawlSubsites": true,
                 "siteUrls": [
                     "{{https://contoso.sharepoint.com/sites/engineering}}"
                 ]
+            },
+            "filterConfiguration": {
+                "inclusionMimeTypes": ["application/pdf", "text/*"],
+                "exclusionMimeTypes": ["text/csv"]
             }
         }
     }
@@ -90,6 +99,8 @@ The `sharepoint-managed-connector.json` file contains the following:
 ```
 
 The optional `customMetadataFields` field is set within `connectorParameters` for the SharePoint connector. Each entry is a SharePoint column name to extract as filterable document metadata. For the full field description, see [Connector parameters](#kb-managed-config-sharepoint).
+
+The optional `crawlSubsites`, `inclusionMimeTypes`, and `exclusionMimeTypes` fields control which content the connector crawls. This example crawls subsites and includes only PDF and text files, except CSV files. For details, see [Connector parameters](#kb-managed-config-sharepoint).
 
 For an `OAUTH2_APP` data source, set `authType` to `OAUTH2_APP` and omit `certificateS3Path`. For user-managed setup (3LO), set `authType` to `MANAGED_OAUTH2` and omit `certificateS3Path`. You cannot create a 3LO secret through the API: first sign in through the console to create the secret, then set `secretArn` to that secret's ARN. For details, see [User-managed setup (3LO)](kb-managed-sharepoint-3lo-setup.md).
 
@@ -123,6 +134,7 @@ If you omit `aclEnabled`, the default depends on `authType`: `ENTRA_ID_APP_ONLY`
 | siteUrls | Yes | List of SharePoint site URLs to crawl. Each URL is a crawl entry point and must start with https:// and point to a site, team site, or personal site — the path must begin with /sites/, /teams/, or /personal/ followed by the site name (for example, https://contoso.sharepoint.com/sites/engineering). Standard \*.sharepoint.com domains and custom (vanity) domains are both supported. Within each site, the connector crawls files and pages (see crawlFiles and crawlPages); to target specific items, use inclusionItemPaths. | 
 | crawlFiles | No | Whether to crawl files. Defaults to true. | 
 | crawlPages | No | Whether to crawl pages. Defaults to true. | 
+| crawlSubsites | No | Whether to crawl the subsites of the sites in siteUrls. Defaults to true. When false, the connector crawls only the sites in siteUrls, and the next sync removes subsite content from the knowledge base. To keep crawling a subsite, add its URL to siteUrls. | 
 
 
 **filterConfiguration (optional)**  
@@ -132,6 +144,8 @@ If you omit `aclEnabled`, the default depends on `authType`: `ENTRA_ID_APP_ONLY`
 | modifiedDateBefore | No | Only include content modified before this date (ISO 8601). | 
 | modifiedDateAfter | No | Only include content modified after this date (ISO 8601). | 
 | inclusionItemPaths | No | Specific item paths to include. When you provide inclusionItemPaths, the connector crawls those items and does not validate siteUrls. | 
+| inclusionMimeTypes | No | MIME types of files to crawl, up to 100 entries. Each entry is an exact MIME type, such as application/pdf, or a type with a wildcard, such as image/\*. Matching is case-insensitive and uses the MIME type that SharePoint reports for the file. If you omit this field or leave it empty, all files are crawled. Applies to files only; pages are not filtered. | 
+| exclusionMimeTypes | No | MIME types of files to skip, up to 100 entries, in the same format as inclusionMimeTypes. If a file matches both lists, it is excluded. Applies to files only. After you change either list, the next sync removes files that no longer match from the knowledge base, subject to deletion protection. | 
 
 
 **aclEnabled (optional)**  

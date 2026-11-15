@@ -115,6 +115,15 @@ For more information, see [Tool use](tool-use.html).
 | text\_editor\_20250728 | None required | 
 | memory\_20250818 | None required | 
 
+**Compaction using `bedrock-runtime` endpoint**
+
+For more information, see [Compaction](claude-messages-compaction.html).
+
+
+| **Compaction supported** | **Beta value** | 
+| --- | --- | 
+| Yes | compact-2026-09-04, compact-2026-01-12 | 
+
 ## Content Restrictions
 <a name="model-card-anthropic-claude-fable-5-content-restrictions"></a>
 

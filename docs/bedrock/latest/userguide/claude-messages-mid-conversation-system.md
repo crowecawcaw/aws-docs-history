@@ -12,7 +12,7 @@ This is useful in agentic workflows where the model needs to adapt as a task pro
 ## Supported models
 <a name="claude-messages-mid-conversation-system-supported-models"></a>
 
-Mid-conversation system messages are supported on Claude Opus 4.8 and the Claude 5 family (for example, Claude Opus 5, Claude Opus 5.5, Claude Sonnet 5, Claude Fable 5, and Claude Fable 5.1). Sending text system messages does not require a beta header. Including `tool_addition` or `tool_removal` blocks in system-role content requires the mid-conversation tool-changes beta (see [Mid-conversation tool changes (Beta)](model-parameters-anthropic-claude-messages-tool-use.md#model-parameters-anthropic-claude-mid-conversation-tool-changes)). Requests that include `role: "system"` in `messages[]` on unsupported models return a `400 invalid_request_error`.
+Mid-conversation system messages are supported on Claude Opus 4.8 and the Claude 5 family (for example, Claude Opus 5, Claude Opus 5.5, Claude Sonnet 5, Claude Fable 5, Claude Fable 5.1, and Claude Fable 5.2). Sending text system messages does not require a beta header. Including `tool_addition` or `tool_removal` blocks in system-role content requires the mid-conversation tool-changes beta (see [Mid-conversation tool changes (Beta)](model-parameters-anthropic-claude-messages-tool-use.md#model-parameters-anthropic-claude-mid-conversation-tool-changes)). Requests that include `role: "system"` in `messages[]` on unsupported models return a `400 invalid_request_error`.
 
 ## Message fields
 <a name="claude-messages-mid-conversation-system-fields"></a>

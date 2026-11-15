@@ -106,7 +106,7 @@ For more information, see [Compaction](claude-messages-compaction.html).
 
 | **Compaction supported** | **Beta value** | 
 | --- | --- | 
-| Yes | compact-2026-09-04 | 
+| No | N/A | 
 
 ## Pricing
 <a name="model-card-anthropic-claude-haiku-4-5-pricing"></a>

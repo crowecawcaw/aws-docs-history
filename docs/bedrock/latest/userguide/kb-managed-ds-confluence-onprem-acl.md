@@ -57,7 +57,7 @@ You can validate your credentials independently of a retrieve request. Perform e
    + Confirm the configured account has administrator permissions on the Confluence Data Center instance.
    + Using those credentials, call the Confluence user and group REST APIs on your instance and confirm they return your users and groups.
 
-## Troubleshooting
+## Troubleshooting Confluence ACL awareness
 <a name="kb-managed-ds-confluence-onprem-acl-troubleshooting"></a>
 
 **Note**  

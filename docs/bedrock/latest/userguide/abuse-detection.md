@@ -10,8 +10,8 @@ You are responsible for your (and your end users') data input into, and content 
 
 For abuse detection purposes related to the following models, we will store inputs and outputs as follows:
 + For all OpenAI models other than GPT OSS Safeguard 120B, GPT OSS Safeguard 20B, gpt-oss-120b, and gpt-oss-20b, classifier-flagged traffic will be retained for up to 30 days for automated offline abuse detection. Eligible customers may request full ZDR through their AWS account team.
-+ For Anthropic Claude Fable 5 and Claude Fable 5.1, all traffic will be retained for up to 30 days for automated offline abuse detection. Classifier-flagged traffic will be subject to potential human review performed by AWS.
-  + Customers that are eligible for the Enterprise Frontier Safeguards program will receive ZDR through December 31, 2026. After ZDR ends, all traffic will be retained for up to 30 days for automated offline abuse detection. The Enterprise Frontier Safeguards program plans to enable customer-managed encryption keys and bring your own bucket for storage for automated offline abuse detection.
++ For Anthropic Claude Fable 5, Claude Fable 5.1, and Claude Fable 5.2, Amazon Bedrock retains all traffic for up to 30 days for automated offline abuse detection. Classifier-flagged traffic will be subject to potential human review performed by AWS.
+  + If you're eligible for Enterprise Frontier Safeguards (EFS), you can use Claude Fable 5, Claude Fable 5.1, and Claude Fable 5.2 with zero data retention (ZDR) for internal use through at least June 30, 2027. After ZDR ends, all traffic will be retained for up to 30 days for automated offline abuse detection. The EFS program plans to enable customer-managed encryption and storage for automated offline abuse detection.
 
 Retained inputs and outputs are stored and processed by AWS and are not shared with third-party model providers. For more information on data retention and related controls, see [Data retention](data-retention.md). If cross-region inference is enabled for these models, retained inputs and outputs are stored in destination regions (i.e., the region where your inference request is processed).
 

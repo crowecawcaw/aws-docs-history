@@ -94,10 +94,8 @@ The following models are in the Legacy state with an announced EOL date. Migrate
 - **Anthropic**
   - **Model name:** Claude Sonnet 4.5
   - **Model ID:** anthropic.claude-sonnet-4-5-20250929-v1:0
-  - **Regions:** af-south-1, ap-east-2, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-south-2, ap-southeast-1, ap-southeast-2, ap-southeast-3, ap-southeast-4, ap-southeast-5, ap-southeast-6, ap-southeast-7, ca-central-1, ca-west-1, eu-central-1, eu-central-2, eu-north-1, eu-south-1, eu-south-2, eu-west-1, eu-west-2, eu-west-3, il-central-1, mx-central-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2
-  - **Legacy date:** October 8, 2026
-  - **EOL date:** April 8, 2027
-  - **Public extended access start date:** January 8, 2027
+  - **Regions:** af-south-1, ap-east-2, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-south-2, ap-southeast-1, ap-southeast-2, ap-southeast-3, ap-southeast-4, ap-southeast-5, ap-southeast-6, ap-southeast-7, ca-central-1, ca-west-1, eu-central-1, eu-central-2, eu-north-1, eu-south-1, eu-south-2, eu-west-1, eu-west-2, eu-west-3, il-central-1, mx-central-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2 / **Legacy date:** October 8, 2026 / **EOL date:** April 8, 2027 / **Public extended access start date:** January 8, 2027
+  - **Regions:** us-gov-east-1, us-gov-west-1 / **Legacy date:** October 27, 2026 / **EOL date:** April 27, 2027 / **Public extended access start date:** January 27, 2027
 
 - **Anthropic**
   - **Model name:** Claude Opus 4.1
@@ -150,18 +148,14 @@ The following models are in the Legacy state with an announced EOL date. Migrate
 - **Meta**
   - **Model name:** Llama 3 70B Instruct
   - **Model ID:** meta.llama3-70b-instruct-v1:0
-  - **Regions:** ap-south-1, ca-central-1, eu-west-2, us-east-1, us-west-2
-  - **Legacy date:** September 30, 2026
-  - **EOL date:** March 30, 2027
-  - **Public extended access start date:** To be announced
+  - **Regions:** ap-south-1, ca-central-1, eu-west-2, us-east-1, us-west-2 / **Legacy date:** September 30, 2026 / **EOL date:** March 30, 2027 / **Public extended access start date:** To be announced
+  - **Regions:** us-gov-west-1 / **Legacy date:** November 9, 2026 / **EOL date:** May 9, 2027 / **Public extended access start date:** To be announced
 
 - **Meta**
   - **Model name:** Llama 3 8B Instruct
   - **Model ID:** meta.llama3-8b-instruct-v1:0
-  - **Regions:** ap-south-1, ca-central-1, eu-west-2, us-east-1, us-west-2
-  - **Legacy date:** September 30, 2026
-  - **EOL date:** March 30, 2027
-  - **Public extended access start date:** To be announced
+  - **Regions:** ap-south-1, ca-central-1, eu-west-2, us-east-1, us-west-2 / **Legacy date:** September 30, 2026 / **EOL date:** March 30, 2027 / **Public extended access start date:** To be announced
+  - **Regions:** us-gov-west-1 / **Legacy date:** November 9, 2026 / **EOL date:** May 9, 2027 / **Public extended access start date:** To be announced
 
 - **Meta**
   - **Model name:** Llama 3.1 70B Instruct

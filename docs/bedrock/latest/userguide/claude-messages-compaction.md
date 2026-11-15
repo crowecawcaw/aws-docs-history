@@ -21,6 +21,18 @@ The `compact-2026-01-12` mechanism is supported on the following models:
 
 | Model | Model ID | 
 | --- | --- | 
+| Claude Fable 5.2 | `anthropic.claude-fable-5-2` | 
+| Claude Mythos 5.2 | `anthropic.claude-mythos-5-2` | 
+| Claude Haiku 5.5 | `anthropic.claude-haiku-5-5` | 
+| Claude Sonnet 5.5 | `anthropic.claude-sonnet-5-5` | 
+| Claude Opus 5.5 | `anthropic.claude-opus-5-5` | 
+| Claude Fable 5.1 | `anthropic.claude-fable-5-1` | 
+| Claude Mythos 5.1 | `anthropic.claude-mythos-5-1` | 
+| Claude Opus 5 | `anthropic.claude-opus-5` | 
+| Claude Sonnet 5 | `anthropic.claude-sonnet-5` | 
+| Claude Fable 5 | `anthropic.claude-fable-5` | 
+| Claude Opus 4.8 | `anthropic.claude-opus-4-8` | 
+| Claude Opus 4.7 | `anthropic.claude-opus-4-7` | 
 | Claude Sonnet 4.6 | `anthropic.claude-sonnet-4-6` | 
 | Claude Opus 4.6 | `anthropic.claude-opus-4-6-v1` | 
 

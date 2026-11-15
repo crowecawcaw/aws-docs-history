@@ -24,7 +24,7 @@ The supported models are as follows:
 | Claude 3.7 Sonnet | `anthropic.claude-3-7-sonnet-20250219-v1:0` | 
 
 **Note**  
-Claude Fable 5.1, Claude Mythos 5.1, Claude Mythos 5, and Claude Fable 5 do not support extended thinking. Requests with `thinking.type: "enabled"` or `thinking.type: "disabled"` will return a 400 error. These models use adaptive thinking exclusively. See [Adaptive thinking](claude-messages-adaptive-thinking.md) for details.  
+Claude Fable 5.2, Claude Mythos 5.2, Claude Fable 5.1, Claude Mythos 5.1, Claude Mythos 5, and Claude Fable 5 do not support extended thinking. Requests with `thinking.type: "enabled"` or `thinking.type: "disabled"` will return a 400 error. These models use adaptive thinking exclusively. See [Adaptive thinking](claude-messages-adaptive-thinking.md) for details.  
 **Migration from extended thinking:**  
 Replace `{"type": "enabled", "budget_tokens": N}` with `{"type": "adaptive"}` and use `output_config.effort` to control thinking depth.
 Remove `{"type": "disabled"}` — omitting the thinking parameter entirely gives you adaptive thinking by default.
