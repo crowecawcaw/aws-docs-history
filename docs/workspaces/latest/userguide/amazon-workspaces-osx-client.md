@@ -36,7 +36,7 @@ The versions that are currently supported are listed in the following table:
 | 12 (Monterey) and earlier | Not supported | Not supported | 
 | 13 (Ventura) | Supported | Supported | 
 | 14 (Sonoma) | Supported | Supported | 
-| 15 (Sequoia) | Not supported | Supported | 
+| 15 (Sequoia) | Supported | Supported | 
 | 26 (Tahoe) | Supported | Supported | 
 
 ## Setup and installation
