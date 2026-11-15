@@ -13,7 +13,9 @@ If you exceed an API throttling limit, you get the `RequestLimitExceeded` error 
 **Topics**
 + [How throttling is applied](#throttling-how)
 + [Request token limits](#throttling-limits-rate-based)
++ [Filtered describe limits](#throttling-limits-filtered-describe)
 + [Resource token limits](#throttling-limits-cost-based)
++ [Dynamic throttling](#throttling-dynamic)
 + [Monitor API throttling](#throttling-monitor)
 + [Retries and exponential backoff](#api-backoff)
 + [View your current API limits](#throttling-view-limits)
@@ -48,14 +50,14 @@ Some API actions, such as `RunInstances` and `TerminateInstances`, as described 
 
 For example, the resource token bucket size for `RunInstances` is 1000 tokens, and the refill rate is two tokens per second. Therefore, you can immediately launch 1000 instances, using any number of API requests, such as one request for 1000 instances or four requests for 250 instances. After the resource token bucket is empty, you can launch up to two instances every second, using either one request for two instances or two requests for one instance.
 
-For more information, see [Resource token bucket sizes and refill rates](#throttling-limits-cost-based).
+For more information, see [Resource token bucket sizes and refill rates](#throttling-limits-cost-based). For `RunInstances` and `StartInstances`, Amazon EC2 can also raise these limits temporarily. For more information, see [Dynamic throttling for RunInstances and StartInstances](#throttling-dynamic).
 
 ## Request token bucket sizes and refill rates
 <a name="throttling-limits-rate-based"></a>
 
 For request rate limiting purposes, API actions are grouped into the following categories:
 + **Non-mutating actions** — API actions that retrieve data about resources. This category generally includes all `Describe*`, `List*`, `Search*`, and `Get*` API actions, such as `DescribeRouteTables`, `SearchTransitGatewayRoutes`, and `GetIpamPoolCidrs`. These API actions typically have the highest API throttling limits.
-+ **Unfiltered and unpaginated non-mutating actions** — A specific subset of non-mutating API actions that, when requested without specifying either [pagination](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-pagination.html) or a [filter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Filtering.html#Filtering_Resources_CLI), use tokens from a smaller token bucket. It is recommended that you make use of pagination and filtering so that tokens are deducted from the standard (larger) token bucket.
++ **Unfiltered and unpaginated non-mutating actions** — A specific subset of non-mutating API actions that, when requested without specifying either [pagination](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-pagination.html) or a [filter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Filtering.html#Filtering_Resources_CLI), use tokens from a smaller token bucket. Use pagination and filtering so that tokens are deducted from a larger token bucket. Some of these API actions use separate, larger token buckets for requests that specify resource IDs, pagination, or ID filters. For more information, see [Token bucket sizes and refill rates for filtered describe requests](#throttling-limits-filtered-describe).
 + **Mutating actions** — API actions that create, modify, or delete resources. This category generally includes all API actions that are not categorized as *non-mutating actions*, such as `AllocateHosts`, `ModifyHosts`, and `CreateCapacityReservation`. These actions have a lower throttling limit than non-mutating API actions.
 + **Resource-intensive actions** — Mutating API actions that take the most time and consume the most resources to complete. These actions have an even lower throttling limit than *mutating actions*. They are throttled separately from other *mutating actions*.
 + **Console non-mutating actions** — Non-mutating API actions that are requested from the Amazon EC2 console. These API actions are throttled separately from other non-mutating API actions.
@@ -133,11 +135,11 @@ For request rate limiting purposes, API actions are grouped into the following c
 | DescribeCapacityBlockExtensionOfferings | 10 | 0.15 | 
 | DescribeCapacityBlockOfferings | 10 | 0.15 | 
 | DescribeDeclarativePoliciesReports | 5 | 5 | 
-| DescribeHostReservations | 5 | 2 | 
-| DescribeHostReservationOfferings | 5 | 2 | 
+| DescribeHostReservations | 100 | 20 | 
+| DescribeHostReservationOfferings | 100 | 20 | 
 | DescribeIdentityIdFormat | 10 | 10 | 
 | DescribeIdFormat | 10 | 10 | 
-| DescribeInstanceTopology | 1 | 1 | 
+| DescribeInstanceTopology | 5 | 2 | 
 | DescribeMovingAddresses | 1 | 1 | 
 | DescribePrincipalIdFormat | 10 | 10 | 
 | DescribeReservedInstancesOfferings | 10 | 10 | 
@@ -162,11 +164,13 @@ For request rate limiting purposes, API actions are grouped into the following c
 | EnableSnapshotBlockPublicAccess | 1 | 0.1 | 
 | GetAssociatedEnclaveCertificateIamRoles | 10 | 1 | 
 | GetDeclarativePoliciesReportSummary | 5 | 5 | 
-| GetHostReservationPurchasePreview | 5 | 2 | 
+| GetHostReservationPurchasePreview | 50 | 5 | 
+| GetManagedResourceVisibility | 50 | 15 | 
 | ModifyImageAttribute | 100 | 5 | 
 | ModifyInstanceMetadataDefaults | 2 | 2 | 
 | ModifyInstanceMetadataOptions | 100 | 5 | 
 | ModifyLaunchTemplate | 100 | 5 | 
+| ModifyManagedResourceVisibility | 1 | 1 | 
 | ModifyNetworkInterfaceAttribute | 100 | 5 | 
 | ModifySnapshotAttribute | 100 | 5 | 
 | ModifyVerifiedAccessEndpoint | 20 | 4 | 
@@ -182,7 +186,7 @@ For request rate limiting purposes, API actions are grouped into the following c
 | ProvisionByoipCidr | 1 | 0.1 | 
 | PurchaseCapacityBlock | 10 | 0.15 | 
 | PurchaseCapacityBlockExtension | 10 | 0.15 | 
-| PurchaseHostReservation | 5 | 2 | 
+| PurchaseHostReservation | 50 | 5 | 
 | PurchaseReservedInstancesOffering | 5 | 5 | 
 | RejectVpcEndpointConnections | 10 | 1 | 
 | RestoreAddressToClassic | 1 | 1 | 
@@ -194,6 +198,35 @@ For request rate limiting purposes, API actions are grouped into the following c
 | UnassignPrivateIpAddresses | 100 | 5 | 
 | UnassignPrivateNatGatewayAddress | 10 | 1 | 
 | WithdrawByoipCidr | 1 | 0.1 | 
+
+## Token bucket sizes and refill rates for filtered describe requests
+<a name="throttling-limits-filtered-describe"></a>
+
+The following non-mutating API actions use separate, larger token buckets for requests that specify resource IDs, use pagination, or filter on resource ID. When you limit the results of a request in one of these ways, you can make more requests before you are throttled.
++ `DescribeImages`
++ `DescribeInstances`
++ `DescribeInstanceStatus`
++ `DescribeVolumes`
+
+A request uses a filtered describe token bucket if it specifies one of the following. If a request specifies more than one, Amazon EC2 uses the first token bucket in this list that applies.
++ **Single resource ID** — One resource ID in the ID parameter of the request, such as `InstanceId`, `ImageId`, or `VolumeId`.
++ **Multiple resource IDs** — Up to 1,000 resource IDs in the ID parameter of the request.
++ **Pagination** — The `MaxResults` parameter.
++ **ID filter** — A filter on resource ID, with up to 1,000 values and no wildcard characters (`*` or `?`). The ID filters are `image-id` for `DescribeImages`, `instance-id` for `DescribeInstances` and `DescribeInstanceStatus`, and `volume-id` or `attachment.instance-id` for `DescribeVolumes`.
+
+Other requests use the standard token buckets. These include requests that filter only on other attributes, such as tags, and requests that include the `DryRun` parameter.
+
+
+| API action | Request type | Bucket maximum capacity | Bucket refill rate | 
+| --- | --- | --- | --- | 
+| DescribeInstances and DescribeInstanceStatus | Single resource ID | 500 | 500 | 
+| DescribeInstances and DescribeInstanceStatus | Multiple resource IDs | 250 | 250 | 
+| DescribeInstances and DescribeInstanceStatus | Pagination | 100 | 100 | 
+| DescribeInstances and DescribeInstanceStatus | ID filter | 100 | 100 | 
+| DescribeImages and DescribeVolumes | Single resource ID | 100 | 100 | 
+| DescribeImages and DescribeVolumes | Multiple resource IDs | 100 | 100 | 
+| DescribeImages and DescribeVolumes | Pagination | 100 | 100 | 
+| DescribeImages and DescribeVolumes | ID filter | 100 | 100 | 
 
 ## Resource token bucket sizes and refill rates
 <a name="throttling-limits-cost-based"></a>
@@ -207,6 +240,25 @@ The following table lists the resource token bucket sizes and refill rates for A
 | TerminateInstances | 1000 | 20 | 
 | StartInstances | 1000 | 2 | 
 | StopInstances | 1000 | 20 | 
+
+## Dynamic throttling for RunInstances and StartInstances
+<a name="throttling-dynamic"></a>
+
+Amazon EC2 uses dynamic throttling to temporarily raise the request rate and resource rate limits for `RunInstances` and `StartInstances` when the Availability Zone where the instances launch has spare launch capacity.
+
+Dynamic throttling applies to a request only if all the instances in the request are from the general purpose (M), compute optimized (C), or memory optimized (R) instance families. For resource rate limiting, the request must also launch or start 150 instances or fewer. Other requests use your standard limits.
+
+The following table lists the maximum bucket refill rate that dynamic throttling can provide.
+
+
+| Token bucket | Maximum bucket refill rate | 
+| --- | --- | 
+| Request token bucket | 10 times your bucket refill rate, up to 20 requests per second | 
+| Resource token bucket | 10 times your bucket refill rate, up to 150 instances per second | 
+
+For example, with the default limits, dynamic throttling can raise the `RunInstances` request bucket refill rate from 2 up to 20 requests per second, and the resource bucket refill rate from 2 up to 20 instances per second. If your bucket refill rate is already at or above 20 requests per second or 150 instances per second, dynamic throttling doesn't raise it.
+
+The increase isn't guaranteed. It depends on the spare capacity in the Availability Zone, changes continuously, and can drop to zero. To get the largest increase, schedule your launches away from the top of the hour and the half hour. When no increase is available, your standard limits apply. Design your application to work within your standard limits and to handle the `RequestLimitExceeded` error code. The Service Quotas console shows your standard limits, not the increase from dynamic throttling.
 
 ## Monitor API throttling
 <a name="throttling-monitor"></a>
