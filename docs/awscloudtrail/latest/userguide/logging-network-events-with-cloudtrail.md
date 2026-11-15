@@ -33,6 +33,7 @@ You can log network activity events for the following services:
 + AWS Cloud Map
 + AWS Diode Alerting
 + AWS Glue
++ AWS IAM Credential Broker
 + AWS IdentityStore Service
 + AWS Invoicing
 + AWS IoT FleetWise
@@ -140,6 +141,7 @@ The following advanced event selector fields are required to log network activit
   + `comprehend.amazonaws.com`
   + `comprehendmedical.amazonaws.com`
   + `config.amazonaws.com`
+  + `credentialbroker.amazonaws.com`
   + `diode-alerting.amazonaws.com`
   + `ds.amazonaws.com`
   + `dsql.amazonaws.com`
@@ -149,6 +151,7 @@ The following advanced event selector fields are required to log network activit
   + `ecs.amazonaws.com`
   + `elasticfilesystem.amazonaws.com`
   + `elasticloadbalancing.amazonaws.com`
+  + `elb-proxy.amazonaws.com`
   + `end-user-messaging.amazonaws.com`
   + `events.amazonaws.com`
   + `eventsv2.amazonaws.com`

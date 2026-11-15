@@ -112,6 +112,7 @@ For event data stores, you can use only advanced event selectors to include data
 | Amazon OpenSearch Serverless | API activity on `AWS::AOSS::Collection` resources. | AWS::AOSS::Collection | `AWS::AOSS::Collection` | 
 | AWS AppConfig | AWS AppConfig API activity for configuration operations such as calls to StartConfigurationSession and GetLatestConfiguration. For more information, see [AWS AppConfig](https://docs.aws.amazon.com/appconfig/latest/userguide/logging-using-cloudtrail.html#appconfig-data-events-cloudtrail). | AWS AppConfig | `AWS::AppConfig::Configuration` | 
 | CloudWatch Application Signals | API activity on `AWS::ApplicationSignals::InstrumentationConfig` resources. | AWS::ApplicationSignals::InstrumentationConfig | `AWS::ApplicationSignals::InstrumentationConfig` | 
+| AWS App Monetization | AWS App Monetization usage event and entitlement check activity on apps. | App Monetization app | `AWS::AppMonetization::App` | 
 | AWS AppSync | AWS AppSync API activity on AppSync GraphQL APIs. For more information, see [AWS AppSync](https://docs.aws.amazon.com/appsync/latest/devguide/cloudtrail-logging.html#cloudtrail-data-events). | AppSync GraphQL | `AWS::AppSync::GraphQLApi` | 
 | aws assurance | API activity on `AWS::Assurance::Environment` resources. | AWS::Assurance::Environment | `AWS::Assurance::Environment` | 
 | External anthropic workspace | API activity on `AWS::AWSExternalAnthropic::Workspace` resources. | External anthropic workspace | `AWS::AWSExternalAnthropic::Workspace` | 
@@ -137,6 +138,7 @@ For event data stores, you can use only advanced event selectors to include data
 | Amazon Bedrock | Amazon Bedrock API activity on sessions. | Bedrock session | `AWS::Bedrock::Session` | 
 | Amazon Bedrock | Amazon Bedrock Tool API activity. | Bedrock Tool | `AWS::Bedrock::Tool` | 
 | Bedrock-AgentCore ABTest | API activity on `AWS::BedrockAgentCore::ABTest` resources. | Bedrock-AgentCore ABTest | `AWS::BedrockAgentCore::ABTest` | 
+| Amazon Bedrock AgentCore | Agent Insight Stores for Bedrock AgentCore Evaluations. | Agent Insight Store for Bedrock AgentCore Evaluations | `AWS::BedrockAgentCore::AgentInsightStore` | 
 | Amazon Bedrock | Amazon Bedrock APIKey CredentialProvider API activity. | Bedrock-AgentCore APIKey CredentialProvider | `AWS::BedrockAgentCore::APIKeyCredentialProvider` | 
 | BedrockAgentCore batch evaluate | API activity on `AWS::BedrockAgentCore::BatchEvaluate` resources. | BedrockAgentCore batch evaluate | `AWS::BedrockAgentCore::BatchEvaluate` | 
 | Amazon Bedrock | Amazon Bedrock Browser API activity. | Bedrock-AgentCore Browser | `AWS::BedrockAgentCore::Browser` | 
@@ -145,6 +147,7 @@ For event data stores, you can use only advanced event selectors to include data
 | BedrockAgentCore CapacityProvider | API activity on `AWS::BedrockAgentCore::CapacityProvider` resources. | BedrockAgentCore CapacityProvider | `AWS::BedrockAgentCore::CapacityProvider` | 
 | Amazon Bedrock | Amazon Bedrock Code-Interpreter API activity. | Bedrock-AgentCore Code-Interpreter | `AWS::BedrockAgentCore::CodeInterpreter` | 
 | Amazon Bedrock | Amazon Bedrock Code-Interpreter-Custom API activity. | Bedrock-AgentCore Code-Interpreter-Custom | `AWS::BedrockAgentCore::CodeInterpreterCustom` | 
+| Amazon Bedrock AgentCore Evaluations | Dataset for AgentCore Evaluations. | AgentCore Evaluation Dataset | `AWS::BedrockAgentCore::Dataset` | 
 | Amazon Bedrock AgentCore | Bedrock AgentCore API activity on evaluators. | Bedrock-AgentCore Evaluator | `AWS::BedrockAgentCore::Evaluator` | 
 | Amazon Bedrock | Amazon Bedrock Gateway API activity. | Bedrock-AgentCore Gateway | `AWS::BedrockAgentCore::Gateway` | 
 | Amazon Bedrock | Amazon Bedrock Memory API activity. | Bedrock-AgentCore Memory | `AWS::BedrockAgentCore::Memory` | 
@@ -183,6 +186,7 @@ For event data stores, you can use only advanced event selectors to include data
 | Amazon CodeWhisperer | Amazon CodeWhisperer API activity on a customization. | CodeWhisperer customization | `AWS::CodeWhisperer::Customization` | 
 | Amazon CodeWhisperer | Amazon CodeWhisperer API activity on a profile. | CodeWhisperer | `AWS::CodeWhisperer::Profile` | 
 | Amazon Cognito | Amazon Cognito API activity on Amazon Cognito identity pools. For more information, see [Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-info-in-cloudtrail.html#identity-pools-cloudtrail-events). | Cognito Identity Pools | `AWS::Cognito::IdentityPool` | 
+| AWS IAM Credential Broker | Credential provider level events for AWS IAM Credential Broker. | AWS IAM Credential Broker Credential Provider | `AWS::CredentialBroker::CredentialProvider` | 
 | AWS Data Exchange | AWS Data Exchange API activity on assets. | Data Exchange asset | `AWS::DataExchange::Asset` | 
 | AWS Deadline Cloud | Deadline Cloud API activity on fleets. For more information, see [AWS Deadline Cloud](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/logging-using-cloudtrail.html#cloudtrail-data-events). | Deadline Cloud fleet | `AWS::Deadline::Fleet` | 
 | AWS Deadline Cloud | Deadline Cloud API activity on jobs. For more information, see [AWS Deadline Cloud](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/logging-using-cloudtrail.html#cloudtrail-data-events). | Deadline Cloud job | `AWS::Deadline::Job` | 
@@ -233,6 +237,7 @@ For event data stores, you can use only advanced event selectors to include data
 | AWS IoT TwinMaker | IoT TwinMaker API activity on an entity. For more information, see [AWS IoT TwinMaker](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_CreateEntity.html). | IoT TwinMaker entity | `AWS::IoTTwinMaker::Entity` | 
 | AWS IoT TwinMaker | IoT TwinMaker API activity on a workspace. For more information, see [AWS IoT TwinMaker](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_CreateWorkspace.html). | IoT TwinMaker workspace | `AWS::IoTTwinMaker::Workspace` | 
 | Amazon Kendra Intelligent Ranking | Amazon Kendra Intelligent Ranking API activity on rescore execution plans. For more information, see [Amazon Kendra Intelligent Ranking](https://docs.aws.amazon.com/kendra/latest/dg/cloudtrail-intelligent-ranking.html#cloud-trail-intelligent-ranking-log-entry). | Kendra Ranking | `AWS::KendraRanking::ExecutionPlan` | 
+| Kinesis queue | API activity on `AWS::Kinesis::Queue` resources. | Kinesis queue | `AWS::Kinesis::Queue` | 
 | Amazon Kinesis Data Streams | Kinesis Data Streams API activity on streams. For more information, see [Amazon Kinesis Data Streams](https://docs.aws.amazon.com/streams/latest/dev/working-with-streams.html). | Kinesis stream | `AWS::Kinesis::Stream` | 
 | Amazon Kinesis Data Streams | Kinesis Data Streams API activity on stream consumers. For more information, see [Amazon Kinesis Data Streams](https://docs.aws.amazon.com/streams/latest/dev/building-consumers.html). | Kinesis stream consumer | `AWS::Kinesis::StreamConsumer` | 
 | Amazon Data Firehose | Amazon Data Firehose delivery stream API activity. | Amazon Data Firehose | `AWS::KinesisFirehose::DeliveryStream` | 
@@ -254,6 +259,7 @@ For event data stores, you can use only advanced event selectors to include data
 | Amazon Managed Workflows for Apache Airflow | Amazon MWAA API activity on environments. | Managed Apache Airflow | `AWS::MWAA::Environment` | 
 | Amazon Neptune Graph | Data API activities, for example queries, algorithms, or vector search, on a Neptune Graph. | Neptune Graph | `AWS::NeptuneGraph::Graph` | 
 | Amazon CloudWatch Network Flow Monitor | Amazon CloudWatch Network Flow Monitor API activity on monitors. | Network Flow Monitor monitor | `AWS::NetworkFlowMonitor::Monitor` | 
+| Amazon CloudWatch Network Flow Monitor | Amazon CloudWatch Network Flow Monitor API activity on performance monitors. | Network Flow Monitor performance monitor | `AWS::NetworkFlowMonitor::PerformanceMonitor` | 
 | Amazon CloudWatch Network Flow Monitor | Amazon CloudWatch Network Flow Monitor API activity on scopes. | Network Flow Monitor scope | `AWS::NetworkFlowMonitor::Scope` | 
 | Amazon NovaAct | Amazon NovaAct API activity on workflow definitions. | Workflow definition | `AWS::NovaAct::WorkflowDefinition` | 
 | Amazon NovaAct | Amanzon NovaAct API activity on workflow runs. | Workflow run | `AWS::NovaAct::WorkflowRun` | 
@@ -302,6 +308,7 @@ For event data stores, you can use only advanced event selectors to include data
 | Amazon SageMaker AI | Amazon SageMaker AI API activity on experiment trial components. For more information, see [Amazon SageMaker AI](https://docs.aws.amazon.com/sagemaker/latest/dg/experiments-monitoring.html). | SageMaker metrics experiment trial component | `AWS::SageMaker::ExperimentTrialComponent` | 
 | Amazon SageMaker AI | Amazon SageMaker AI API activity on feature stores. | SageMaker Feature Store | `AWS::SageMaker::FeatureGroup` | 
 | SageMaker hub | API activity on `AWS::SageMaker::Hub` resources. | SageMaker hub | `AWS::SageMaker::Hub` | 
+| Amazon SageMaker | SageMaker inference router that routes real-time and asynchronous inference requests across Regions to backing SageMaker endpoints. | SageMaker inference router | `AWS::SageMaker::InferenceRouter` | 
 | SageMaker jobs | API activity on `AWS::SageMaker::Job` resources. | SageMaker jobs | `AWS::SageMaker::Job` | 
 | AWS SageMaker MlflowApp | API activity on `AWS::SageMaker::MlflowApp` resources. | AWS SageMaker MlflowApp | `AWS::SageMaker::MlflowApp` | 
 | Amazon SageMaker AI | Amazon SageMaker AI MLflow API activity. | SageMaker MLflow | `AWS::SageMaker::MlflowTrackingServer` | 
@@ -358,6 +365,7 @@ For event data stores, you can use only advanced event selectors to include data
 | UXC account customization | API activity on `AWS::UXC::AccountCustomization` resources. | UXC account customization | `AWS::UXC::AccountCustomization` | 
 | Amazon Verified Permissions | Amazon Verified Permissions API activity on a policy store. | Amazon Verified Permissions | `AWS::VerifiedPermissions::PolicyStore` | 
 | Well-Architected agent recommendation | API activity on `AWS::WellArchitected::AgentRecommendation` resources. | Well-Architected agent recommendation | `AWS::WellArchitected::AgentRecommendation` | 
+| AWS Workload Telemetry Service | Certificate discovery and automation telemetry that AWS Workload Credentials Provider agents send for an AWS account in a Region. | Workload Telemetry certificate telemetry | `AWS::WorkloadTelemetry::CertificateTelemetry` | 
 | AWS X-Ray | X-Ray API activity on traces. For more information, see [AWS X-Ray](https://docs.aws.amazon.com/xray/latest/devguide/xray-api-cloudtrail.html#cloudtrail-data-events). | X-Ray trace | `AWS::XRay::Trace` | 
 
 To record CloudTrail data events, you must explicitly add each resource type for which you want to collect activity. For more information, see [Creating a trail with the CloudTrail console](cloudtrail-create-a-trail-using-the-console-first-time.md) and [Create an event data store for CloudTrail events with the console](query-event-data-store-cloudtrail.md).

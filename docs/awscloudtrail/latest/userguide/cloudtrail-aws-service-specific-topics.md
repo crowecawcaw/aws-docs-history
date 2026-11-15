@@ -174,7 +174,7 @@ For information about which services log data events, see [Data events](logging-
 | Amazon Q Business | [Logging Amazon Q Business API calls using AWS CloudTrail](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/logging-using-cloudtrail.html) | 11/28/2023 | 
 | Amazon Q Developer | [Logging Amazon Q Developer API calls using AWS CloudTrail](https://docs.aws.amazon.com/amazonq/latest/aws-builder-use-ug/logging-using-cloudtrail.html) | 11/28/2023 | 
 | Amazon Quantum Ledger Database (Amazon QLDB) |  Logging Amazon QLDB API Calls with AWS CloudTrail  | 09/10/2019 | 
-| Amazon Quick | [Logging Operations with CloudTrail](https://docs.aws.amazon.com/quick/latest/userguide/logging-using-cloudtrail.html) | 04/28/2017 | 
+| AWS Quick | [Logging Operations with CloudTrail](https://docs.aws.amazon.com/quick/latest/userguide/logging-using-cloudtrail.html) | 04/28/2017 | 
 | Amazon Relational Database Service (Amazon RDS) | [Logging Amazon RDS API Calls Using AWS CloudTrail](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/logging-using-cloudtrail.html) | 11/13/2013 | 
 | Amazon RDS Performance Insights | [Logging Amazon RDS API Calls Using AWS CloudTrail](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/logging-using-cloudtrail.html)The Amazon RDS Performance Insights API is a subset of the Amazon RDS API. | 06/21/2018 | 
 | Amazon Redshift | [Logging Amazon Redshift API Calls with AWS CloudTrail](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#rs-db-auditing-cloud-trail) | 06/10/2014 | 

@@ -141,7 +141,7 @@ The type of the identity. The following values are possible:
 + `FederatedUser` – The request was made with temporary security credentials obtained from a call to the AWS STS [`GetFederationToken`](https://docs.aws.amazon.com/STS/latest/APIReference/API_GetFederationToken.html) API. The `sessionIssuer` element indicates if the API was called with root or IAM user credentials.
 
   For more information about temporary security credentials, see [Temporary Security Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) in the *IAM User Guide*.
-+ `Directory` – The request was made to a directory service, and the type is unknown. Directory services include the following: Amazon WorkDocs and Amazon Quick.
++ `Directory` – The request was made to a directory service, and the type is unknown. Directory services include the following: Amazon WorkDocs and AWS Quick.
 + `AWSAccount` – The request was made by another AWS account
 + `AWSService` – The request was made by an AWS account that belongs to an AWS service. For example, AWS Elastic Beanstalk assumes an IAM role in your account to call other AWS services on your behalf.
 + `IdentityCenterUser` – The request was made on behalf of an IAM Identity Center user.
