@@ -25,9 +25,12 @@ Amazon Polly supports logging the following actions as events in CloudTrail log 
 + [GetSpeechSynthesisTask](https://docs.aws.amazon.com/polly/latest/APIReference/API_GetSpeechSynthesisTask.html)
 + [ListLexicons](https://docs.aws.amazon.com/polly/latest/APIReference/API_ListLexicons.html)
 + [ListSpeechSynthesisTasks](https://docs.aws.amazon.com/polly/latest/APIReference/API_ListSpeechSynthesisTasks.html)
++ [ListTagsForResource](https://docs.aws.amazon.com/polly/latest/APIReference/API_ListTagsForResource.html)
 + [PutLexicon](https://docs.aws.amazon.com/polly/latest/APIReference/API_PutLexicon.html)
 + [StartSpeechSynthesisTask](https://docs.aws.amazon.com/polly/latest/APIReference/API_StartSpeechSynthesisTask.html)
 + [SynthesizeSpeech](https://docs.aws.amazon.com/polly/latest/APIReference/API_SynthesizeSpeech.html)
++ [TagResource](https://docs.aws.amazon.com/polly/latest/APIReference/API_TagResource.html)
++ [UntagResource](https://docs.aws.amazon.com/polly/latest/APIReference/API_UntagResource.html)
 
 Every event or log entry contains information about who generated the request. The identity information helps you determine the following: 
 + Whether the request was made with root user or AWS Identity and Access Management (IAM) user credentials.

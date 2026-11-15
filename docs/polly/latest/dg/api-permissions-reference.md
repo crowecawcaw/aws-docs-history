@@ -23,8 +23,11 @@ Use the scroll bars to see the rest of the table.
 | [DescribeVoices](API_DescribeVoices.html) | `polly:DescribeVoices` | `*` | 
 | [GetLexicon](API_GetLexicon.html) |  polly:GetLexicon  | `arn:aws:polly:{{region}}:{{account-id}}:lexicon/{{LexiconName}}` | 
 | [ListLexicons](API_ListLexicons.html) | `polly:ListLexicons` | `arn:aws:polly:{{region}}:{{account-id}}:lexicon/*` | 
-| [PutLexicon](API_PutLexicon.html) | `polly:PutLexicon` | `*` | 
-| [SynthesizeSpeech](API_SynthesizeSpeech.html) | `polly:SynthesizeSpeech` | `*` | 
+| [ListTagsForResource](API_ListTagsForResource.html) | `polly:ListTagsForResource` | `arn:aws:polly:{{region}}:{{account-id}}:lexicon/{{LexiconName}}` | 
+| [PutLexicon](API_PutLexicon.html) | `polly:PutLexicon`<br />If the request includes `Tags`, also `polly:TagResource`. | `arn:aws:polly:{{region}}:{{account-id}}:lexicon/{{LexiconName}}` | 
+| [SynthesizeSpeech](API_SynthesizeSpeech.html) | `polly:SynthesizeSpeech` | `*`, or `arn:aws:polly:{{region}}:{{account-id}}:lexicon/{{LexiconName}}` (if lexicons are specified in the request)<br />Authorized against each lexicon in `LexiconNames`. A request without lexicons isn't associated with a lexicon resource, so a statement that is scoped to lexicon ARNs doesn't match it. The same applies to `StartSpeechSynthesisTask` and `StartSpeechSynthesisStream`. | 
+| [TagResource](API_TagResource.html) | `polly:TagResource` | `arn:aws:polly:{{region}}:{{account-id}}:lexicon/{{LexiconName}}` | 
+| [UntagResource](API_UntagResource.html) | `polly:UntagResource` | `arn:aws:polly:{{region}}:{{account-id}}:lexicon/{{LexiconName}}` | 
 
 Amazon Polly supports Identity-based policies for actions at the resource-level. Therefore, the `Resource` value is indicated by the ARN. For example: `arn:aws:polly:{{us-east-2}}:{{account-id}}:lexicon/*` as the `Resource` value specifies permissions on all owned lexicons within the `us-east-2` Region.
 

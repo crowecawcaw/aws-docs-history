@@ -12,6 +12,7 @@ For details about actions and resource types defined by Amazon Polly, including 
 **Topics**
 + [Policy best practices](#security_iam_service-with-iam-policy-best-practices)
 + [Using the Amazon Polly console](#security_iam_id-based-policy-examples-console)
++ [Controlling access to lexicons based on tags](#security_iam_id-based-policy-examples-tags)
 + [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions)
 + [AWS managed (predefined) policies for Amazon Polly](#access-policy-aws-managed-policies)
 + [Amazon Polly updates to AWS managed policies](#security-iam-awsmanpol-updates)
@@ -36,9 +37,134 @@ To access the Amazon Polly console, you must have a minimum set of permissions. 
 
 You don't need to allow minimum console permissions for users that are making calls only to the AWS CLI or the AWS API. Instead, allow access to only the actions that match the API operation that they're trying to perform.
 
-To ensure that users and roles can still use the Amazon Polly console, also attach the Amazon Polly `{{ConsoleAccess}}` or `{{ReadOnly}}` AWS managed policy to the entities. For more information, see [Adding permissions to a user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html#users_change_permissions-add-console) in the *IAM User Guide*.
+To ensure that users and roles can still use the Amazon Polly console, also attach the Amazon Polly `AmazonPollyReadOnlyAccess` or `AmazonPollyFullAccess` AWS managed policy to the entities. For more information, see [Adding permissions to a user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html#users_change_permissions-add-console) in the *IAM User Guide*.
 
-To use the Amazon Polly console, grant permissions to all the Amazon Polly APIs. There are no additional permissions needed. To get full console functionality you can use following policy:.
+To use the Amazon Polly console, grant permissions to all the Amazon Polly APIs. To get full console functionality you can use following policy:
+
+If you grant a more restrictive set of permissions, note the following requirements for working with tags in the console:
++ To view the tags of a lexicon on its details page, you need `polly:ListTagsForResource`. The `AmazonPollyReadOnlyAccess` and `AmazonPollyFullAccess` managed policies include this permission.
++ To add, edit, or remove tags on the lexicon details page, you need `polly:TagResource` and `polly:UntagResource`.
++ To add tags when you upload a lexicon, you need `polly:PutLexicon` and `polly:TagResource`.
+
+## Controlling access to lexicons based on tags
+<a name="security_iam_id-based-policy-examples-tags"></a>
+
+You can use conditions in your identity-based policy to control access to Amazon Polly lexicons based on tags. For more information, see [ABAC with Amazon Polly](security_iam_service-with-iam.md#security_iam_service-with-iam-tags) and [Tagging Amazon Polly resources](tagging.md).
+
+**Example: Require a tag when creating a lexicon**
+
+The following policy allows a user to create lexicons only when the request includes the `team` tag with the value `support`. It allows no other tag keys. A `PutLexicon` request with tags also requires `polly:TagResource`, so the policy grants both actions with the same conditions:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "CreateTaggedLexicons",
+            "Effect": "Allow",
+            "Action": [
+                "polly:PutLexicon",
+                "polly:TagResource"
+            ],
+            "Resource": "arn:aws:polly:*:{{111122223333}}:lexicon/*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:RequestTag/team": "support"
+                },
+                "ForAllValues:StringEquals": {
+                    "aws:TagKeys": ["team"]
+                }
+            }
+        }
+    ]
+}
+```
+
+**Example: Allow using and deleting only lexicons owned by a team**
+
+The following policy allows a user to view and delete only lexicons that have the `team` tag with the value `support`, and to apply only those lexicons in `SynthesizeSpeech` requests.
+
+`SynthesizeSpeech` is authorized against each lexicon in `LexiconNames`. A request without lexicons isn't associated with a lexicon resource, so a statement that allows `polly:SynthesizeSpeech` only on lexicon ARNs denies it. To allow synthesis with or without lexicons while restricting which lexicons can be applied, the policy allows `polly:SynthesizeSpeech` on all resources and denies it for lexicons that don't have the required tag:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ManageTeamLexicons",
+            "Effect": "Allow",
+            "Action": [
+                "polly:GetLexicon",
+                "polly:DeleteLexicon"
+            ],
+            "Resource": "arn:aws:polly:*:{{111122223333}}:lexicon/*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:ResourceTag/team": "support"
+                }
+            }
+        },
+        {
+            "Sid": "AllowSynthesis",
+            "Effect": "Allow",
+            "Action": "polly:SynthesizeSpeech",
+            "Resource": "*"
+        },
+        {
+            "Sid": "DenyOtherTeamsLexicons",
+            "Effect": "Deny",
+            "Action": "polly:SynthesizeSpeech",
+            "Resource": "arn:aws:polly:*:{{111122223333}}:lexicon/*",
+            "Condition": {
+                "StringNotEquals": {
+                    "aws:ResourceTag/team": "support"
+                }
+            }
+        }
+    ]
+}
+```
+
+**Example: Allow managing tags only on lexicons owned by a team**
+
+The following policy allows a user to view, add, and remove tags only on lexicons that have the `team` tag with the value `support`. The user can't change or remove the `team` tag itself:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ManageTagsOnTeamLexicons",
+            "Effect": "Allow",
+            "Action": [
+                "polly:ListTagsForResource",
+                "polly:TagResource",
+                "polly:UntagResource"
+            ],
+            "Resource": "arn:aws:polly:*:{{111122223333}}:lexicon/*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:ResourceTag/team": "support"
+                }
+            }
+        },
+        {
+            "Sid": "ProtectTeamTag",
+            "Effect": "Deny",
+            "Action": [
+                "polly:TagResource",
+                "polly:UntagResource"
+            ],
+            "Resource": "arn:aws:polly:*:{{111122223333}}:lexicon/*",
+            "Condition": {
+                "ForAnyValue:StringEquals": {
+                    "aws:TagKeys": ["team"]
+                }
+            }
+        }
+    ]
+}
+```
 
 ## Allow users to view their own permissions
 <a name="security_iam_id-based-policy-examples-view-own-permissions"></a>
@@ -86,7 +212,7 @@ This example shows how you might create a policy that allows IAM users to view t
 AWS addresses many common use cases by providing standalone IAM policies that are created and administered by AWS. These AWS managed policies grant necessary permissions for common use cases so that you can avoid having to investigate what permissions are needed. For more information, see [AWS Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*. 
 
 The following AWS managed policies, which you can attach to users in your account, are specific to Amazon Polly:
-+ **AmazonPollyReadOnlyAccess** – Grants read-only access to resources, allows listing lexicons, fetching lexicons, listing available voices and synthesizing speech (including, applying lexicons to the synthesized speech).
++ **AmazonPollyReadOnlyAccess** – Grants read-only access to resources, allows listing lexicons, fetching lexicons, listing the tags of lexicons, listing available voices and synthesizing speech (including, applying lexicons to the synthesized speech).
 
   To view more details about the policy, including the latest version of the JSON policy document, see [AmazonPollyReadOnlyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonPollyReadOnlyAccess.html) in the *AWS Managed Policy Reference Guide*.
 + **AmazonPollyFullAccess** – Grants full access to resources and all the supported operations.
@@ -108,6 +234,7 @@ View details about updates to AWS managed policies for Amazon Polly since this s
 
 | Policy | Change | Date | 
 | --- | --- | --- | 
+| AmazonPollyReadOnlyAccess | Updated managed policy - Added permission for polly:ListTagsForResource to support viewing the tags of lexicons. | November 2, 2026 | 
 | AmazonPollyReadOnlyAccess | Updated managed policy - Added permission for polly:StartSpeechSynthesisStream to support bidirectional streaming speech synthesis capabilities. | March 19, 2026 | 
 
 ## Customer-managed policy examples

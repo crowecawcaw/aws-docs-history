@@ -16,7 +16,7 @@ Before you use IAM to manage access to Amazon Polly, learn what IAM features are
 | [Policy resources](#security_iam_service-with-iam-id-based-policies-resources) |  Yes | 
 | [Policy condition keys (service-specific)](#security_iam_service-with-iam-id-based-policies-conditionkeys) |  No  | 
 | [ACLs](#security_iam_service-with-iam-acls) |  No  | 
-| [ABAC (tags in policies)](#security_iam_service-with-iam-tags) |  No  | 
+| [ABAC (tags in policies)](#security_iam_service-with-iam-tags) |  Yes | 
 | [Temporary credentials](#security_iam_service-with-iam-roles-tempcreds) |  Yes | 
 | [Forward access sessions (FAS) for Amazon Polly](#security_iam_service-with-iam-principal-permissions) |  Yes | 
 | [Service roles](#security_iam_service-with-iam-roles-service) |  No  | 
@@ -127,7 +127,7 @@ Access control lists (ACLs) control which principals (account members, users, or
 ## ABAC with Amazon Polly
 <a name="security_iam_service-with-iam-tags"></a>
 
-**Supports ABAC (tags in policies):** No 
+**Supports ABAC (tags in policies):** Yes
 
 Attribute-based access control (ABAC) is an authorization strategy that defines permissions based on attributes called tags. You can attach tags to IAM entities and AWS resources, then design ABAC policies to allow operations when the principal's tag matches the tag on the resource.
 
@@ -136,6 +136,17 @@ To control access based on tags, you provide tag information in the [condition e
 If a service supports all three condition keys for every resource type, then the value is **Yes** for the service. If a service supports all three condition keys for only some resource types, then the value is **Partial**.
 
 For more information about ABAC, see [Define permissions with ABAC authorization](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_attribute-based-access-control.html) in the *IAM User Guide*. To view a tutorial with steps for setting up ABAC, see [Use attribute-based access control (ABAC)](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_attribute-based-access-control.html) in the *IAM User Guide*.
+
+Amazon Polly supports ABAC for lexicons. You can use the following global condition keys in identity-based policies for Amazon Polly actions:
++ `aws:ResourceTag/{{key-name}}` – Controls access based on the tags that are attached to the lexicon. Amazon Polly evaluates this key for `GetLexicon`, `DeleteLexicon`, `TagResource`, `UntagResource`, and `ListTagsForResource`. It also evaluates this key for `SynthesizeSpeech`, `StartSpeechSynthesisTask`, and `StartSpeechSynthesisStream` for each lexicon in `LexiconNames`. When you create a lexicon with `PutLexicon`, the key contains the tags in the request.
++ `aws:RequestTag/{{key-name}}` – Controls which tags can be passed in a `PutLexicon` or `TagResource` request. `UntagResource` specifies tag keys rather than tags, so use `aws:TagKeys` to control it.
++ `aws:TagKeys` – Controls which tag keys can be passed in a `PutLexicon`, `TagResource`, or `UntagResource` request.
+
+When a `PutLexicon` request includes tags, Amazon Polly also checks that the caller has permission for `polly:TagResource`. For more information, see [Permissions for tagging lexicons on creation](tagging.md#tagging-on-create).
+
+For more information about tagging Amazon Polly resources, see [Tagging Amazon Polly resources](tagging.md).
+
+To view example identity-based policies that limit access to a lexicon based on its tags, see [Controlling access to lexicons based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-tags).
 
 ## Using temporary credentials with Amazon Polly
 <a name="security_iam_service-with-iam-roles-tempcreds"></a>

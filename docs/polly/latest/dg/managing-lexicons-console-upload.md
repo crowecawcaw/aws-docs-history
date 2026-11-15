@@ -22,7 +22,11 @@ The following processes describe how to add lexicons that you can use to customi
 
 1. Provide a name for the lexicon and then use **Choose a lexicon file** to find the lexicon to upload. You can only upload PLS files with .pls or .xml extensions.
 
+1. (Optional) Under **Tags**, choose **Add new tag** and enter a key and an optional value for each tag that you want to add to the lexicon. For more information, see [Tagging Amazon Polly resources](tagging.md).
+
 1. Choose **Upload lexicon**. If a lexicon by the same name (whether a .pls or .xml file) already exists, uploading the lexicon overwrites the existing lexicon.
+
+After you upload a lexicon, you can view and manage its tags on the lexicon details page. To open the page, choose the name of the lexicon on the **Lexicons** tab.
 
 ------
 #### [ Console - TTS tab ]<a name="upload-lexicon-tts-tab"></a>
@@ -85,6 +89,8 @@ To test this lexicon, do the following:
    --name w3c \
    --content file://example.pls
    ```
+
+   To tag the lexicon when you create it, add the optional `--tags` option, for example `--tags Project=Alpha`. You need permission for both `polly:PutLexicon` and `polly:TagResource`. For more information, see [Tagging Amazon Polly resources](tagging.md).
 
 1. Run the `synthesize-speech` command to synthesize sample text to an audio stream (`speech.mp3`), and specify the optional `lexicon-name` parameter. 
 
