@@ -33,6 +33,7 @@ To see the JSON source for a specific managed policy, see the [*AWS Managed Poli
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| **AWSElasticBeanstalkServiceRolePolicy** –Updated existing policy | This policy was updated to allow Elastic Beanstalk to check whether the IAM roles that you specify for a Beanstalk Cluster environment have the permissions that the environment needs.<br />For more information, see [Roles that Elastic Beanstalk manages](beanstalk-cluster-permissions.md#beanstalk-cluster-permissions-service-roles). | November 12, 2026 | 
 | **AWSElasticBeanstalkWebTier** –Updated existing policy | This policy was updated to add Amazon Nova and AWS Marketplace permissions for [AI-powered environment analysis](health-ai-analysis.md).<br />For more information, see [Managing Elastic Beanstalk instance profiles](iam-instanceprofile.md). | April 29, 2026 | 
 | **AWSElasticBeanstalkWorkerTier** –Updated existing policy | This policy was updated to add Amazon Nova and AWS Marketplace permissions for [AI-powered environment analysis](health-ai-analysis.md).<br />For more information, see [Managing Elastic Beanstalk instance profiles](iam-instanceprofile.md). | April 29, 2026 | 
 | **AWSElasticBeanstalkMulticontainerDocker** –Updated existing policy | This policy was updated to add Amazon Nova and AWS Marketplace permissions for [AI-powered environment analysis](health-ai-analysis.md).<br />For more information, see [Managing Elastic Beanstalk instance profiles](iam-instanceprofile.md). | April 29, 2026 | 

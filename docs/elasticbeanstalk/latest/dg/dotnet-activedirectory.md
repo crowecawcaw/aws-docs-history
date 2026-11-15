@@ -78,11 +78,56 @@ If you change the environment's configuration to point to a different directory,
 ## Confirming the domain join
 <a name="dotnet-activedirectory-confirm"></a>
 
-To confirm that an instance joined the domain, do either of the following:
+To confirm that an instance joined the domain, do any of the following:
++ Check the instance's status in the **AD domain status** column on the environment's **Health & monitoring** tab. For more information, see [Viewing the domain join status of each instance](#dotnet-activedirectory-status).
 + Verify that a computer object named `EC2-{{XXXXXXXX}}` (the instance's hostname) exists in your directory, under the OU you specified or the default container.
 + Review the instance's deployment log for the line `Active Directory: joined to {{directory-name}}`. For more information, see [Viewing deployment logs for an Elastic Beanstalk environment](environments-deployment-logs.md).
 
 When your environment scales out, Auto Scaling adds instances that also join the domain. To review the deployment log for one of these instances, retrieve it from Amazon S3. For more information, see [Where deployment logs are stored](environments-deployment-logs.md#environments-deployment-logs.instance).
+
+## Viewing the domain join status of each instance
+<a name="dotnet-activedirectory-status"></a>
+
+Starting with Windows Server platform version 2.23.7, released on [October 20, 2026](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/release-2026-10-20-windows.html), each instance records the result of its domain join in your environment's Amazon S3 bucket, at the following path:
+
+```
+s3://elasticbeanstalk-{{region}}-{{account-id}}/resources/environments/logs/instancestatus/{{environment-id}}/{{instance-id}}/ad-join.json
+```
+
+The instance writes this record once, after the domain join and the reboot that follows it. Instances don't write the record if the `EB_DEPLOYMENT_LOG_S3_DISABLED` environment property, which also turns off deployment log uploads, is set to `true` when they launch. For more information, see [Disabling S3 log uploads](environments-deployment-logs.md#environments-deployment-logs.disable).
+
+For environments that set the `DirectoryId` option, the Elastic Beanstalk console shows each instance's status in the **AD domain status** column on the **Health & monitoring** tab. Environments with basic health reporting get a separate **Active Directory domain status** table.
+
+The following image shows the **Enhanced instance health** table with an instance in each of three statuses.
+
+![Enhanced instance health table with AD domain status Pending, Not joined with View details, and Joined to eb-e2e-test.local.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/dotnet-activedirectory-status-column.png)
+
+
+The column shows one of the following statuses:
+
+**Joined to {{domain}}**  
+The instance is a member of the configured domain.
+
+**Not joined**  
+The instance isn't a member of the configured domain. Choose **View details** to see why.
+
+**Check failed**  
+The instance couldn't check its membership, so it might still be joined. To confirm, see [Confirming the domain join](#dotnet-activedirectory-confirm).
+
+**Pending**  
+The instance launched less than 30 minutes ago and hasn't reported yet.
+
+**Unknown**  
+No status is available. Expand the status to see the reason. For causes, see [Troubleshooting](#dotnet-activedirectory-troubleshooting).
+
+**View details** opens a dialog box that compares the domain and computer name that the join targeted with the ones that the instance reports, and shows the end of the join log.
+
+The following image shows the details dialog box for an instance that isn't joined.
+
+![Domain join for i-0308cea6a19054c9c dialog box with Configured and On the instance columns and the Join log.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/dotnet-activedirectory-join-details.png)
+
+
+The column also covers instances that Auto Scaling adds when your environment scales out or replaces an instance. These instances don't emit the `ERROR` event that [Failed domain joins](#dotnet-activedirectory-failures) describes, so the column is where the console shows their join result.
 
 ## Failed domain joins
 <a name="dotnet-activedirectory-failures"></a>
@@ -100,12 +145,18 @@ The instance writes the output of the join process to `C:\cfn\log\eb-ad-join.log
 ## Troubleshooting
 <a name="dotnet-activedirectory-troubleshooting"></a>
 
-If your instances don't join the domain, check the following:
+If your instances don't join the domain, or the **AD domain status** column shows no status, check the following:
 + **Join log** – Read the join output in the instance's deployment log (see [Viewing deployment logs for an Elastic Beanstalk environment](environments-deployment-logs.md)), or in `C:\cfn\log\eb-ad-join.log` on the instance. The log records the specific error that made the join fail.
 + **DNS resolution** – From an instance in the environment's VPC, verify that the directory's DNS name (the `DirectoryName` value) resolves. If it doesn't, associate the VPC with a DHCP options set that points to the directory's DNS servers.
 + **IAM permissions** – Verify that the environment's instance profile allows `ds:CreateComputer` on the directory. Without it, the join fails when it tries to create the computer object.
 + **Organizational unit** – If you set `DirectoryOU`, verify that the OU exists in the directory and that its distinguished name matches the option value exactly. A join into a nonexistent OU fails.
 + **Instance configuration** – The file `C:\cfn\eb-ad.json` on each instance records the `DirectoryId` and `DirectoryName` that the instance launched with. Use it to confirm which directory configuration the instance received.
++ **Join timing** – Each instance runs the join once, at launch. Fixing a prerequisite, such as DNS resolution or IAM permissions, doesn't change instances that already launched. Instances that launch afterward run the join with the fix in place. Changing any option in the `aws:elasticbeanstalk:windows:activedirectory` namespace replaces the instances, and the replacement instances run the join again.
++ **No status record** – The **AD domain status** column shows `No status record. Instances on Windows platform 2.23.7 or later report once at launch.` The instance has no record for one of the following reasons:
+  + The instance runs a platform version earlier than 2.23.7. For more information, see [Updating your Elastic Beanstalk environment's platform version](using-features.platform.upgrade.md).
+  + `EB_DEPLOYMENT_LOG_S3_DISABLED` was set to `true` when the instance launched.
+  + The instance launched before you set the Active Directory options. The rolling update that the option change starts replaces it.
+  + The upload failed. The [instance profile](iam-instanceprofile.md) needs `s3:PutObject` permission on the bucket, and the instance needs network access to Amazon S3. The instance records the upload result in `C:\cfn\log\eb-ad-status.json`, which [bundle logs](using-features.logging.md) include, and doesn't retry a failed upload.
 
 ## Managing computer objects in your directory
 <a name="dotnet-activedirectory-cleanup"></a>

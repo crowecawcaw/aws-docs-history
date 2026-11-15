@@ -7,6 +7,7 @@ The following table describes the important changes to the *AWS Elastic Beanstal
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [AWS managed policy updates for `AWSElasticBeanstalkServiceRolePolicy`](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/security-iam-awsmanpol.html#security-iam-awsmanpol-updates) | Updated permissions in AWS managed policy to allow Elastic Beanstalk to check the permissions of the IAM roles that you specify for a Beanstalk Cluster environment. | November 12, 2026 | 
 | [New topic: Joining instances to an Active Directory domain](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/dotnet-activedirectory.html) | Elastic Beanstalk adds support to automatically join the Windows Server instances in your environment to an AWS Directory Service directory. | August 31, 2026 | 
 | [AWS managed policy updates for `AWSElasticBeanstalkWorkerTier`](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/security-iam-awsmanpol.html#security-iam-awsmanpol-updates) | Updated permissions in AWS managed policy to add Amazon Nova and AWS Marketplace permissions for AI-powered environment analysis. | April 29, 2026 | 
 | [AWS managed policy updates for `AWSElasticBeanstalkWebTier`](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/security-iam-awsmanpol.html#security-iam-awsmanpol-updates) | Updated permissions in AWS managed policy to add Amazon Nova and AWS Marketplace permissions for AI-powered environment analysis. | April 29, 2026 | 
