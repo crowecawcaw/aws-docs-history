@@ -11,7 +11,7 @@ The `$davinci-data-export` operation is an asynchronous FHIR operation that you 
 + *Group-Level Export*: Exports data for members within a specific Group resource
 + *Multiple Export Types*: Supports ATR (Member Attribution), PDex Provider Access, Payer-to-Payer, and Member Access APIs
 + *Comprehensive Profile Support*: Includes US Core, CARIN Blue Button, and PDex profiles
-+ *Flexible Filtering*: Supports filtering by patients, resource types, and time ranges
++ *Flexible Filtering*: Supports filtering by patients, resource types, time ranges, and `_typeFilter` search queries
 + *NDJSON Output*: Provides data in newline-delimited JSON format
 
 ## Operation Endpoint
@@ -36,9 +36,16 @@ POST [base]/Group/[id]/$davinci-data-export
 | \_includeEOB2xWoFinancial | 0..1 | When set to true, includes ExplanationOfBenefit resources that declare a CARIN BB 2.x Financial (non-Basis) profile in the export with financial data stripped. The exported resource conforms to the corresponding Basis profile, but the original resource in the data store is not modified. This parameter has no effect on resources that already declare a Basis profile, as those are always included and have residual financial data removed automatically. Default: false. | 
 | \_security | 0..\* | Filter exported resources by meta.security Coding values. Use the system\|code format (pipe character must be URL-encoded as %7C). When multiple values are provided, resources must match all of them (AND semantics). Use system\| (trailing pipe, no code) to match any code from a given system. | 
 | \_tag | 0..\* | Filter exported resources by meta.tag Coding values. Uses the same system\|code format and AND semantics as \_security. When both \_security and \_tag are specified, resources must match both filters. | 
+| \_typeFilter | 0..\* | FHIR search queries that narrow the resources exported for a type, such as Condition?clinical-status=active. For more information, see [Filtering with `_typeFilter`](reference-fhir-operations-export.md#export-rest-typefilter). | 
 
 **Filter behavior for \_security and \_tag**  
 The `_security` and `_tag` filters apply to all export types, including `hl7.fhir.us.davinci-atr`. These filters also support the following FHIR search modifiers: `:not`, `:missing`, `:text`, `:above`, and `:below`. For example, you can use `_tag:not=archived` or `_security:missing=true`. The operation excludes from the export any resources that do not match the supplied filters.
+
+**Filter behavior for \_typeFilter**  
+The rules, limits, and lenient handling in [Filtering with `_typeFilter`](reference-fhir-operations-export.md#export-rest-typefilter) apply. In addition:  
+*PDex export types* (`hl7.fhir.us.davinci-pdex`, `hl7.fhir.us.davinci-pdex#provider-snapshot`, `hl7.fhir.us.davinci-pdex.p2p`, and `hl7.fhir.us.davinci-pdex.member`): a query can use only the search parameters that the server CapabilityStatements of [PDex 2.1.0](https://hl7.org/fhir/us/davinci-pdex/STU2.1/), US Core 3.1.1, 6.1.0, and 7.0.0, and [CARIN Blue Button 2.1.0](https://hl7.org/fhir/us/carin-bb/STU2.1/) list for the resource type, and that HealthLake supports. A query on a type with no listed parameters, such as `Medication` or `Provenance`, is rejected.
+*ATR*: resources are read by ID, so the limits for resources read by ID apply.
+*Referenced resources*: a referenced resource, such as a provider that a Payer-to-Payer export follows, is filtered by the queries for its own type. HealthLake follows references only from resources that match their filter.
 
 **ExplanationOfBenefit financial data**  
 The following financial data fields are removed from all exported CARIN BB 2.x `ExplanationOfBenefit` resources, regardless of whether the resource declares a Basis or a Financial profile: adjudication amounts, `payment`, `total`, `benefitPeriod`, `benefitBalance`, and item `net` and `unitPrice`. This ensures that financial data is not exported on Da Vinci Provider Access and Payer-to-Payer paths. `ExplanationOfBenefit` resources that declare only a PDex Prior Authorization profile (without a CARIN BB 2.x profile) are exported unchanged and no financial data is removed. If a resource declares both profiles, financial data is stripped.
@@ -232,6 +239,12 @@ GET https://healthlake.{region}.amazonaws.com/datastore/{datastoreId}/r4/Group/e
 GET https://healthlake.{region}.amazonaws.com/datastore/{datastoreId}/r4/Group/example-group/$davinci-data-export?_type=Patient,Coverage,ExplanationOfBenefit,Condition,Procedure,Practitioner,PractitionerRole,Organization,Location&exportType=hl7.fhir.us.davinci-pdex.p2p&_includeEOB2xWoFinancial=true
 ```
 
+*Payer-to-Payer export of active conditions and laboratory observations*
+
+```
+GET https://healthlake.{region}.amazonaws.com/datastore/{datastoreId}/r4/Group/example-group/$davinci-data-export?_type=Patient,Condition,Observation&exportType=hl7.fhir.us.davinci-pdex.p2p&_typeFilter=Condition%3Fclinical-status%3Dactive,Observation%3Fcategory%3Dlaboratory
+```
+
 *Member Access export for a specific patient*
 
 ```
@@ -321,6 +334,8 @@ Parameter Validation Errors
 + The `_type` parameter contains resource types that are not supported for the specified export type
 + The `_type` parameter is missing required resource types (`Group`, `Patient`, `Coverage`) for the `hl7.fhir.us.davinci-atr` export type
 + The `_includeEOB2xWoFinancial` parameter value is not a valid boolean
++ A `_typeFilter` query is invalid for the export type or is for a resource type not in `_type`, and `handling=lenient` isn't set. For more information, see [Filtering with `_typeFilter`](reference-fhir-operations-export.md#export-rest-typefilter)
++ `_typeFilter` is empty or exceeds the query limits
 
 Resource Validation Errors  
 + The specified Group resource does not exist in the data store

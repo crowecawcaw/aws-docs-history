@@ -3,7 +3,7 @@
 # Exporting HealthLake data with FHIR `$export`
 <a name="reference-fhir-operations-export"></a>
 
-You can export data in bulk from your HealthLake data store using the FHIR $export operation. HealthLake supports FHIR `$export` using `POST` and `GET` requests. To make an export request with `POST`, you must have a IAM user, group, or role with the required permissions, specify `$export` as part of the request, and include desired parameters in the request body.
+You can export data in bulk from your HealthLake data store using the FHIR $export operation. HealthLake supports FHIR `$export` using `POST` and `GET` requests. To make an export request with `POST`, you must have an IAM user, group, or role with the required permissions, specify `$export` as part of the request, and include desired parameters in the request body.
 
 **Note**  
 All HealthLake export requests made using FHIR `$export` are returned in `ndjson` format and exported to an Amazon S3 bucket, where each Amazon S3 object contains only a single FHIR resource type.  
@@ -82,6 +82,37 @@ The following examples include special characters which must be encoded prior to
 | \_until | No | Resources types modified on or before the date time stamp. Used in combination with \_since to define a specific time range for export. If a resource type does not have a last updated time they will be excluded from your response. | &\_until=2024-12-31T23%3A59%3A59Z | 
 | \_security | No | Filter exported resources by meta.security Coding values. Use the system\|code format. When multiple values are provided, resources must match all of them (AND semantics). Use system\| (trailing pipe, no code) to match any code from a given system. | &\_security=https://myorg.com/tenant%7Cclinic-A | 
 | \_tag | No | Filter exported resources by meta.tag Coding values. Uses the same system\|code format and AND semantics as \_security. When both \_security and \_tag are specified, resources must match both filters. | &\_tag=https://myorg.com/dept%7Ccardiology | 
+| \_typeFilter | No | One or more FHIR search queries that narrow the resources exported for a type. URL-encode each query and separate queries with a comma. For more information, see [Filtering with `_typeFilter`](#export-rest-typefilter). | &\_typeFilter=Observation%3Fcategory%3Dlaboratory | 
+
+#### Filtering with `_typeFilter`
+<a name="export-rest-typefilter"></a>
+
+HealthLake supports `_typeFilter` as defined in [FHIR Bulk Data Access STU2](https://hl7.org/fhir/uv/bulkdata/STU2/export.html#_typefilter-experimental-query-parameter), including query syntax, encoding, and how queries combine with each other and with other export parameters. The following describes HealthLake-specific behavior.
+
+Example: `&_typeFilter=Observation%3Fcategory%3Dlaboratory,Condition%3Fclinical-status%3Dactive`
+
+**Supported queries**
++ You can use the search parameters, modifiers, and prefixes that HealthLake supports for the resource type. For more information, see [FHIR R4 search parameters for HealthLake](reference-fhir-search-parameters.md).
++ Not supported: search result parameters (such as `_include`, `_revinclude`, `_sort`, `_count`, and `_elements`), chained parameters, `_has`, and resource type modifiers on references (use `subject=Patient/123`, not `subject:Patient=123`).
++ Some resources are read by ID instead of by search, and support a smaller set of queries: all resources in a Member Attribution (ATR) `$davinci-data-export`; `Patient` and `Group` resources in the other `$davinci-data-export` types; and, in Patient-level and Group-level `$export` and in `$davinci-data-export`, the resource types that HealthLake doesn't find through a patient search, such as `Medication` and referenced providers. A system-level `$export` doesn't read resources by ID. For these resources, HealthLake supports token, string, URI, and reference parameters (except those defined with extensions or `resolve()`, reference parameters on canonical elements, and string parameters on markdown elements), date parameters on a single date, dateTime, or instant element (not a Period), `_lastUpdated`, `_profile`, `_tag`, and `_security`, and only the `:not`, `:missing`, and `:exact` modifiers. `_id` and number, quantity, and composite parameters aren't supported for these resources. Values must also be valid: each date value, including `_lastUpdated`, must be a FHIR date, dateTime, or instant with an optional prefix such as `gt`, and `:missing` values and token parameters on boolean elements (such as `active` and `deceased` for `Patient`) must be `true` or `false`.
++ If the request includes `_type`, each query must be for a resource type in `_type`. A query for another resource type returns HTTP 400, or is skipped with lenient handling. Without `_type`, a query for a resource type that the export doesn't include is still validated and has no effect.
+
+HealthLake also accepts a `_typeFilter` value that is URL-encoded as a whole, including the commas between queries. HealthLake ignores empty parameters in a query, as FHIR search does, so a query whose parameters are all empty doesn't filter its resource type. A query with no parameters (`Observation?`) and an empty item in a comma-separated list (`code=a,`) are malformed.
+
+**Limits**
+
+Up to 5 queries per resource type (1 for system-level export), 20 per request, and 2,000 characters in total after decoding. Exceeding a limit, or sending an empty `_typeFilter`, returns HTTP 400. Lenient handling doesn't apply.
+
+**Validation and lenient handling**
+
+
+| When | Default result | With `Prefer: respond-async, handling=lenient` | 
+| --- | --- | --- | 
+| At submission (malformed or unsupported query, or a query for a resource type not in \_type) | HTTP 400 with an OperationOutcome | Query skipped | 
+| Before writing data (a query can't be applied to resources read by ID, such as Patient?birthdate=gtBAD in a $davinci-data-export) | Job fails | Query skipped | 
+| During the export (the search rejects a value for a searched resource type, such as Observation?date=gtBAD) | Job fails; files already written remain | Job fails | 
+
+Each skipped query is reported as a `warning` (code `not-supported`) in the OperationOutcome file listed in the status response's `error` array. If every query for a type is skipped, that type is exported unfiltered. The `request` URL in the status response shows the queries as HealthLake stored them.
 
 ### Step 2: Specify the required header parameters
 <a name="export-rest-request-step-2"></a>
@@ -90,9 +121,11 @@ To make an export request using the FHIR REST API, you must specify the followin
 + Content-Type: `application/fhir+json`
 + Prefer: `respond-async`
 
+Optional: `Prefer: respond-async, handling=lenient`. For more information, see [Filtering with `_typeFilter`](#export-rest-typefilter).
+
 Next, you must specify the required elements in the request body.
 
-### Step 3: Specify a request body the defines the required parameters.
+### Step 3: Specify a request body that defines the required parameters.
 <a name="export-rest-request-step-3"></a>
 
 The export request also requires a body in `JSON` format. The body can include the following parameters.

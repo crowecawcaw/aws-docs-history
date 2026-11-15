@@ -12,6 +12,7 @@
 + [Patching resources at scale with `$bulk-patch`](reference-fhir-operations-bulk-patch.md)
 + [FHIR R4 `$confirm-attribution-list` operation for HealthLake](reference-fhir-operations-confirm-attribution-list.md)
 + [FHIR R4 `$davinci-data-export` operation for HealthLake](reference-fhir-operations-davinci-data-export.md)
++ [Comparing Resources with `$diff`](reference-fhir-operations-diff.md)
 + [Generating Clinical Documents with `$document`](reference-fhir-operations-document.md)
 + [Permanently Removing Resources with `$erase`](reference-fhir-operations-erase.md)
 + [Getting patient data with `Patient/$everything`](reference-fhir-operations-everything.md)
