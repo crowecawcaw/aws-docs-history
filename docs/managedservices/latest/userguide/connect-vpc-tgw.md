@@ -2,7 +2,7 @@
 
 End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
-# Connecting a new VPC to the shared Transit Gateway
+# Connecting a new VPC to the shared transit gateway
 <a name="connect-vpc-tgw"></a>
 
 When you create an account and VPC yourself, you configure Transit Gateway connectivity directly instead of through a managed request. The following AWS Command Line Interface (AWS CLI) procedure reproduces the connectivity that the Create application account (with VPC) change type previously configured. The procedure attaches the VPC, associates it with a route domain, applies your `routable` or `isolated` choice, and adds the routes that preserve shared-services, egress, and on-premises connectivity in both directions. It then points the VPC's subnet route tables at the Transit Gateway and verifies the result.
@@ -10,7 +10,7 @@ When you create an account and VPC yourself, you configure Transit Gateway conne
 ## Which account to use for each step
 <a name="connect-vpc-tgw-accounts"></a>
 
-The AWS Transit Gateway is created in the networking account and shared with your application account through AWS Resource Access Manager (AWS RAM). The work therefore spans two accounts:
+The AWS Transit Gateway is created in the networking account and shared with your application account through AWS Resource Access Manager (AWS RAM). The work therefore spans two accounts.
 
 
 | Task | Account | Why | 
@@ -49,7 +49,7 @@ The procedure uses the following placeholders.
 | `subnet-id-az-a subnet-id-az-b` | One subnet per Availability Zone (AZ) for the attachment elastic network interfaces (ENIs) | `aws ec2 describe-subnets --filters Name=vpc-id,Values=vpc-id` | 
 | `app-cidr` | The VPC CIDR to advertise, for example `10.20.0.0/16` | `aws ec2 describe-vpcs --vpc-ids vpc-id --query 'Vpcs[0].CidrBlock'` | 
 | `attachment-id` | The Transit Gateway VPC attachment ID | Output of Step 1 | 
-| `app-route-domain-name` | The application route domain name (same as `TransitGatewayApplicationRouteTableName`) | The route table's `Name` tag; default `defaultAppRouteDomain` | 
+| `app-route-domain-name` | The application route domain name (same as `TransitGatewayApplicationRouteTableName`) | The route table's `Name` tag (default `defaultAppRouteDomain`) | 
 | `app-route-table-id` | The route table ID for the application route domain | Output of Step 2 | 
 | `onprem-cidr` | An on-premises CIDR range reachable through the Transit Gateway, for example `192.168.0.0/16` (repeat Step 6 for each range) | Your network team | 
 | `onprem-test-ip` | Any single IP address inside `onprem-cidr`, used to test route resolution | Your network team | 
@@ -59,7 +59,7 @@ The procedure uses the following placeholders.
 | `vpc-route-table-id` | A subnet route table ID in your VPC | `aws ec2 describe-route-tables --filters Name=vpc-id,Values=vpc-id` (application account) | 
 | `peer-private-ip` | Private IP of an instance in a peer VPC, for the Step 9 test | From the peer instance | 
 
-## Connect the VPC to the Transit Gateway
+## Connecting the VPC to the Transit Gateway
 <a name="connect-vpc-tgw-procedure"></a>
 
 Run each command with credentials for the account named in each step.

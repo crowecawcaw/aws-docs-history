@@ -16,14 +16,14 @@ This guide helps you understand what is changing during the transition and what 
 + [What changes at a glance](#transition-changes-glance)
 + [EC2 instance access](#transition-ec2-access)
 + [Managing EC2 instance access](transition-managing-ec2-access-accelerate.md)
-+ [AMS Amazon Machine Images (AMIs)](#transition-amis)
++ [AMS Amazon Machine Images](#transition-amis)
 + [Endpoint security](#transition-endpoint-security)
 + [Monitoring and alarms](#transition-monitoring)
 + [Backup management](#transition-backup)
 + [Change management and configuration compliance](#transition-change-mgmt)
 + [Patch management](#transition-patching)
 + [Landing zone governance with AWS Control Tower (optional)](#transition-control-tower)
-+ [Connecting a new VPC to the shared Transit Gateway](connect-vpc-tgw.md)
++ [Connecting a new VPC to the shared transit gateway](connect-vpc-tgw.md)
 + [Timeline and support](#transition-timeline)
 + [Related resources](#transition-related-resources)
 
@@ -95,7 +95,7 @@ After users are provisioned, they connect directly over your existing network pa
 
 For detailed guidance on managing EC2 instance access through the transition, see [Managing EC2 instance access](transition-managing-ec2-access-accelerate.md).
 
-## AMS Amazon Machine Images (AMIs)
+## AMS Amazon Machine Images
 <a name="transition-amis"></a>
 
 In AMS Advanced, AMS produces updated AMIs every month for supported operating systems, pre-configured with management software, security agents, and domain-join scripts. These AMIs are shared to your accounts and used when launching new EC2 instances through the change management system.
@@ -116,7 +116,7 @@ As part of the transition, AMS removes the Trend Micro agents and offboards the 
 **Option 1: Use your own endpoint security solution (default)**  
 By default, AMS removes the Trend Micro agents from your instances and offboards the EPS stack during the transition. You select, deploy, and manage an endpoint security solution of your choice. You're responsible for standing up and running your chosen vendor. You can optionally integrate your chosen solution with AWS Security Hub for SIR coverage. No action is required from you for this option to proceed.
 
-**Option 2: Continue with Trend Micro Vision One (SaaS)**  
+**Option 2: Continue with Trend Micro Vision One**  
 If you want to continue with Trend Micro, notify your CSDM or CA so AMS can assist with migrating you from your current platform (DSM or Cloud One) to Vision One before offboarding. Vision One is the cloud-native Trend Micro platform that integrates with AWS Security Hub. After you move to Vision One, you work directly with Trend Micro for agent lifecycle management. If you currently use DSM, the migration path is sequential: DSM to Cloud One, then Cloud One to Vision One. With Vision One, security alerts are sent to AWS Security Hub. Customers who also onboard to AWS Security Incident Response (SIR) get continued event monitoring and incident response through AWS.
 
 With either option, you take ownership of the full agent lifecycle going forward: deploying agents to your instances (using your own automation, SSM State Manager, custom AMIs, or a configuration management tool), maintaining your vendor license and activation credentials, and configuring event monitoring through your vendor's dashboard or AWS Security Hub.
@@ -140,7 +140,7 @@ Alarm names and default thresholds differ between AMS Advanced and Accelerate (A
 
 Your existing recovery points remain intact and accessible throughout the transition—there is no gap in backup coverage and no data is deleted. You can continue to restore from any existing recovery point as needed.
 
-After the transition, AMS Accelerate protects your resources through AWS Backup with managed plans, schedules, and vaults. Your backup schedules and retention periods remain consistent with your current configuration. Depending on your account's existing backup configuration, Accelerate may create new vaults with updated names rather than reusing existing ones—in that case, your historical recovery points remain available in the original vaults while new backups are written to the new ones.
+After the transition, AMS Accelerate protects your resources through AWS Backup with managed plans, schedules, and vaults. Your backup schedules and retention periods remain consistent with your current configuration. Depending on your account's existing backup configuration, Accelerate might create new vaults with updated names rather than reusing existing ones—in that case, your historical recovery points remain available in the original vaults while new backups are written to the new ones.
 
 You can configure retention periods, schedules, vault settings, and encryption keys directly through the AWS Backup console or your preferred infrastructure-as-code tooling. If any of your vaults have Vault Lock enabled, locked recovery points are retained according to their configured retention period.
 
@@ -232,16 +232,16 @@ AWS Control Tower also offers the following capabilities that go beyond what MAL
 After you enable AWS Control Tower, you can choose which controls to apply from the [AWS Control Tower controls reference](https://docs.aws.amazon.com/controltower/latest/controlreference/controls-reference.html), which spans multiple compliance frameworks, so you can match or extend the protections you had under AMS Advanced.
 
 **What AWS Control Tower doesn't provide**  
-AWS Control Tower doesn't recreate MALZ networking. Your networking account transitions to Accelerate just like other application accounts. Account Factory can create a standalone VPC in a new account, but it doesn't attach accounts to a Transit Gateway or set up shared egress and shared-services connectivity the way MALZ did. Cross-account networking remains your responsibility. You can optionally follow the steps in [Connecting a new VPC to the shared Transit Gateway](connect-vpc-tgw.md) to set up Transit Gateway for newly created accounts.
+AWS Control Tower doesn't recreate MALZ networking. Your networking account transitions to Accelerate just like other application accounts. Account Factory can create a standalone VPC in a new account, but it doesn't attach accounts to a Transit Gateway or set up shared egress and shared-services connectivity the way MALZ did. Cross-account networking remains your responsibility. You can optionally follow the steps in [Connecting a new VPC to the shared transit gateway](connect-vpc-tgw.md) to set up Transit Gateway for newly created accounts.
 
 **What to expect during the transition**  
 Enabling AWS Control Tower imports your current organization and accounts without creating new organizational units. Your existing security and logging accounts map to their AWS Control Tower equivalents (audit and log archive). AWS Config and AWS CloudTrail integration are enabled as part of setup, with other service integrations available self-service. AWS Control Tower requires AWS Config to be disabled in your accounts beforehand, which AMS coordinates for you. After setup, adding or changing controls is self-service.
 
 When you enable AWS Control Tower, AMS replaces your MALZ AWS CloudTrail setup with the AWS Control Tower organization trail. This is a deliberate switch to a single, organization-wide trail that changes how audit logs are structured:
-+ **One organization trail instead of per-account trails** – MALZ deploys an in-account trail in every account; AWS Control Tower uses a single organization trail from your management account that automatically covers all member accounts.
-+ **CloudWatch Logs retention is shorter (14 days instead of 10 years)** – Your durable audit history is preserved in the Amazon S3 log bucket in your log archive account; historical Amazon S3 logs aren't deleted. If you depend on long-lived CloudWatch Logs, plan for this change or update the retention setting self-service.
-+ **Logs are centralized, not per-account** – MALZ writes events to a CloudWatch log group in each account; AWS Control Tower consolidates all events into the management account.
-+ **Notifications move to your home Region** – MALZ delivers trail Amazon SNS notifications across all Regions from the security account; AWS Control Tower delivers from the log archive account in your home Region only.
++ **One organization trail instead of per-account trails** – MALZ deploys an in-account trail in every account. AWS Control Tower uses a single organization trail from your management account that automatically covers all member accounts.
++ **CloudWatch Logs retention is shorter (14 days instead of 10 years)** – Your durable audit history is preserved in the Amazon S3 log bucket in your log archive account. Historical Amazon S3 logs aren't deleted. If you depend on long-lived CloudWatch Logs, plan for this change or update the retention setting self-service.
++ **Logs are centralized, not per-account** – MALZ writes events to a CloudWatch log group in each account. AWS Control Tower consolidates all events into the management account.
++ **Notifications move to your home Region** – MALZ delivers trail Amazon SNS notifications across all Regions from the security account. AWS Control Tower delivers from the log archive account in your home Region only.
 
 If these differences affect your workflows, discuss them with your CA before opting in.
 

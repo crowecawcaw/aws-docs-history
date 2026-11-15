@@ -38,20 +38,16 @@ The transition is designed to keep your access available throughout. AMS validat
 ## What AMS needs from you before the transition
 <a name="transition-ec2-access-before"></a>
 
-Your Cloud Architect (CA) or Cloud Service Delivery Manager (CSDM) sends you an intake questionnaire before the transition starts. AMS uses your answers to build the new access path while the bastion hosts are still running, so that direct access works on the day the old path is removed. This is a one-time set of details. After the transition, Active Directory is yours, and you make every later change to users, groups, and access yourself. The following table lists what the questionnaire asks for and why AMS needs it.
-
-
-| What the questionnaire asks for | Why AMS needs it | 
-| --- | --- | 
-| The on-premises IP address ranges that connect to your instances over SSH or RDP. | AMS adds these ranges to the security groups on your instances so that you can connect directly. The ranges can differ from one account to another, for example between production and development. | 
-| The AD users who need permanent, account-wide access, as fully qualified names such as `john_stiles@example.com`. | AMS adds these users to the account-wide access group before handover, so that access works immediately after handover. List individual users rather than groups. On Linux, PBIS resolves each user individually and doesn't grant access through group membership alone, so every Linux user needs an entry of their own. The fully qualified name is required so that the provisioning automation resolves the correct domain when it creates the cross-forest foreign security principal (FSP). | 
-| Your AD domain names. | AMS confirms which of your domains are trusted. | 
-| The network path from your network to each application account VPC. | Managed application accounts in a multi-account landing zone already have this path. For customer-managed and DevMode accounts, the path has to be verified or established before the transition starts. | 
+Your Cloud Architect (CA) or Cloud Service Delivery Manager (CSDM) sends you an intake questionnaire before the transition starts. AMS uses your answers to build the new access path while the bastion hosts are still running, so that direct access works on the day the old path is removed. This is a one-time set of details. After the transition, Active Directory is yours, and you make every later change to users, groups, and access yourself. The following list describes what the questionnaire asks for and why AMS needs it:
++ **The on-premises IP address ranges that connect to your instances over SSH or RDP** – AMS adds these ranges to the security groups on your instances so that you can connect directly. The ranges can differ from one account to another, for example between production and development.
++ **The AD users who need permanent, account-wide access, as fully qualified names such as `john_stiles@example.com`** – AMS adds these users to the account-wide access group before handover, so that access works immediately after handover. List individual users rather than groups. On Linux, PBIS resolves each user individually and doesn't grant access through group membership alone, so every Linux user needs an entry of their own. The fully qualified name is required so that the provisioning automation resolves the correct domain when it creates the cross-forest foreign security principal (FSP).
++ **Your AD domain names** – AMS confirms which of your domains are trusted.
++ **The network path from your network to each application account VPC** – Managed application accounts in a multi-account landing zone already have this path. For customer-managed and DevMode accounts, the path has to be verified or established before the transition starts.
 
 ## What access looks like after the transition
 <a name="transition-ec2-access-after"></a>
 
-Once the transition is complete, the day-to-day experience is as follows.
+Once the transition is complete, the day-to-day experience is as follows:
 
 **Connecting to an instance**  
 You connect over SSH or RDP from your on-premises workstation to the instance's private IP address. You connect across your existing Direct Connect connection or VPN, and you sign in with your AD credentials. There's no request to submit, no bastion host in the path, and no time limit on the session.
@@ -72,17 +68,13 @@ AMS operations connects with Session Manager, as a temporary local user. The SSM
 ## What becomes your responsibility
 <a name="transition-ec2-access-responsibility"></a>
 
-At handover, AMS stops running the automation that manages your directory, and the management host that ran that automation is removed. The following table lists what you take over, the method to use, and where to find more information.
-
-
-| Task you take over | Method | 
-| --- | --- | 
-| Add and remove users from AD groups. | ADUC on a directory administration EC2 instance, or SSM Run Command. For more information, see [Manage users and groups](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_manage_users_groups.html) in the *AWS Directory Service Administration Guide*. | 
-| Create PBIS cell entries for new Linux users. | SSM Run Command on a domain-joined Windows instance. | 
-| Write bootstrap code that joins new instances to the domain on Windows and Linux, and installs the PBIS (AD Bridge) agent on Linux. | Your own bootstrap: EC2 user data, State Manager or Run Command, a golden AMI, or your configuration management tooling. Seamless domain join is an option for the join step only. For more information, see [Join an Amazon EC2 instance to your AWS Directory Service directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_join_instance.html) in the *AWS Directory Service Administration Guide*. | 
-| Configure local group membership on new instances. | Map the account-scoped Admin and Remote AD groups to new instance's administrator and logon rights through bootstrap code or an SSM association. | 
-| Renew the PBIS Enterprise license when it expires. | SSM Run Command, writing the new license key to Active Directory. | 
-| Launch and maintain a directory administration EC2 instance. | A domain-joined Windows instance with RSAT installed. For more information, see [Installing Active Directory Administration Tools for AWS Managed Microsoft AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_install_ad_tools.html) in the *AWS Directory Service Administration Guide*. | 
+At handover, AMS stops running the automation that manages your directory, and the management host that ran that automation is removed. The following list describes each task you take over and the method to use:
++ **Add and remove users from AD groups** – ADUC on a directory administration EC2 instance, or SSM Run Command. For more information, see [Manage users and groups](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_manage_users_groups.html) in the *AWS Directory Service Administration Guide*.
++ **Create PBIS cell entries for new Linux users** – SSM Run Command on a domain-joined Windows instance.
++ **Write bootstrap code that joins new instances to the domain on Windows and Linux, and installs the PBIS (AD Bridge) agent on Linux** – Your own bootstrap: EC2 user data, State Manager or Run Command, a golden AMI, or your configuration management tooling. Seamless domain join is an option for the join step only. For more information, see [Join an Amazon EC2 instance to your AWS Directory Service directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_join_instance.html) in the *AWS Directory Service Administration Guide*.
++ **Configure local group membership on new instances** – Map the account-scoped Admin and Remote AD groups to new instance's administrator and logon rights through bootstrap code or an SSM association.
++ **Renew the PBIS Enterprise license when it expires** – SSM Run Command, writing the new license key to Active Directory.
++ **Launch and maintain a directory administration EC2 instance** – A domain-joined Windows instance with RSAT installed. For more information, see [Installing Active Directory Administration Tools for AWS Managed Microsoft AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_install_ad_tools.html) in the *AWS Directory Service Administration Guide*.
 
 ## PBIS (AD Bridge) license
 <a name="transition-ec2-access-pbis"></a>
@@ -114,7 +106,7 @@ Before AMS removes its operational baseline, it preserves the log and audit data
 ## How the transition runs
 <a name="transition-ec2-access-sequence"></a>
 
-The EC2 access changes run per account, and they run early: days or weeks before that account moves to AMS Accelerate. The bastion hosts remain running throughout that period, so your current access path remains available as a fallback while you test the new one. For each account, the sequence is as follows.
+The EC2 access changes run per account, and they run early: days or weeks before that account moves to AMS Accelerate. The bastion hosts remain running throughout that period, so your current access path remains available as a fallback while you test the new one. For each account, the sequence is as follows:
 
 1. **Intake.** Your CA or CSDM sends you the questionnaire, and you return the details.
 
@@ -124,18 +116,14 @@ The EC2 access changes run per account, and they run early: days or weeks before
 
 1. **Transition.** After you confirm that direct access works (for MALZ, after all your application accounts are transitioned to Accelerate), AMS removes the AMS Advanced management layer from the account, including the bastion hosts and the management host, and enables AMS Accelerate.
 
-The following table describes what happens if a step doesn't succeed.
-
-
-| Scenario | What happens | 
-| --- | --- | 
-| Direct access doesn't work before the transition. | You and AMS fix the security group or routing first. The bastion hosts are still running, so there's no impact on your access. | 
-| A user loses access after the transition. | You add them back to the account-wide AD group. | 
+The following list describes what happens if a step doesn't succeed:
++ **Direct access doesn't work before the transition** – You and AMS fix the security group or routing first. The bastion hosts are still running, so there's no impact on your access.
++ **A user loses access after the transition** – You add them back to the account-wide AD group.
 
 ## Securing the new direct access path
 <a name="transition-ec2-access-securing"></a>
 
-Removing the bastion hosts moves the security boundary. Ports 22 and 3389 on your instances now accept connections from your network directly. Before, these ports accepted connections only from a bastion host inside the AMS environment. The directory administration instance you run also holds administrative capability over your directory. Apply standard AWS host and network hardening to both. The following practices matter most for this access model.
+Removing the bastion hosts moves the security boundary. Ports 22 and 3389 on your instances now accept connections from your network directly. Before, these ports accepted connections only from a bastion host inside the AMS environment. The directory administration instance you run also holds administrative capability over your directory. Apply standard AWS host and network hardening to both. The following practices matter most for this access model:
 + Keep security group ingress as narrow as possible. Allow TCP 22 and TCP 3389 only from the specific on-premises management ranges that need them, not from broad ranges, and use different ranges per account where production and development differ. For more information, see [Control traffic to your AWS resources using security groups](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html) in the *Amazon Virtual Private Cloud User Guide*. To manage those ranges as a single reusable object that you can reference from many security groups, see [Consolidate and manage network CIDR blocks with managed prefix lists](https://docs.aws.amazon.com/vpc/latest/userguide/managed-prefix-lists.html) in the *Amazon Virtual Private Cloud User Guide*.
 + Reduce what each instance exposes. Disable direct sign-in as `root` or `Administrator`, keep running services to a minimum, and close unused ports. For more information, see [Best practices for Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-best-practices.html) in the *Amazon EC2 User Guide*.
 + Monitor sign-in activity. Send SSH and RDP authentication logs to Amazon CloudWatch Logs, and alarm on unauthorized attempts. For more information, see [Install the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/installing-cloudwatch-agent-ssm.html) in the *Amazon CloudWatch Logs User Guide*. Turn on flow logs for instances that are expected to serve only administrative protocols. For more information, see [Logging IP traffic using VPC Flow Logs](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html) in the *Amazon Virtual Private Cloud User Guide*.
