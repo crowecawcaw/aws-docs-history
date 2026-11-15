@@ -1,0 +1,56 @@
+
+
+# Create an AWS Cloud WAN Flow Logs record that publishes to Amazon S3
+<a name="cwan-flowlog-s3-create"></a>
+
+After you have created and configured your Amazon S3 bucket, you can create flow logs for core networks. You can create an Amazon S3 flow log using either the Network Manager console or the AWS CLI.
+
+**To create a Cloud WAN flow log that publishes to Amazon S3 using the console**
+
+1. Open the Network Manager console at [https://console.aws.amazon.com/networkmanager/home/](https://console.aws.amazon.com/networkmanager/home).
+
+1. Choose either **Core networks** or **Attachments**, and then select one or more core networks or attachments.
+
+1. Choose **Actions**, **Create flow log**.
+
+1. Configure the flow log settings. For more information, see [To configure flow log settings](#cwan-configure-flow-log).<a name="cwan-configure-flow-log"></a>
+
+**To configure flow log settings using the console**
+
+1. For **Destination**, choose **Send to an S3 bucket**.
+
+1. For **S3 bucket ARN**, specify the Amazon Resource Name (ARN) of an existing Amazon S3 bucket. You can optionally include a subfolder. For example, to specify a subfolder named `my-logs` in a bucket named `my-bucket`, use the following ARN:
+
+   `arn:aws:s3:::my-bucket/my-logs/`
+
+   The bucket cannot use `AWSLogs` as a subfolder name, as this is a reserved term.
+
+   If you own the bucket, we automatically create a resource policy and attach it to the bucket. For more information, see [Amazon S3 bucket permissions for flow logs](cwan-flow-logs-s3.md#cwan-flow-logs-s3-permissions).
+
+1. For **Log record format**, specify the format for the flow log record.
+   + To use the default flow log record format, choose **AWS default format**.
+   + To create a custom format, choose **Custom format**. For **Log format**, choose the fields to include in the flow log record.
+
+1. For **Log file format**, specify the format for the log file.
+   + **Text** – Plain text. This is the default format.
+   + **Parquet** – Apache Parquet is a columnar data format. Queries on data in Parquet format are 10 to 100 times faster compared to queries on data in plain text. Data in Parquet format with Gzip compression takes 20 percent less storage space than plain text with Gzip compression.
+
+1. (Optional) To use Hive-compatible S3 prefixes, choose **Hive-compatible S3 prefix**, **Enable**.
+
+1. (Optional) To partition your flow logs per hour, choose **Every 1 hour (60 mins)**.
+
+1. (Optional) To add a tag to the flow log, choose **Add new tag** and specify the tag key and value.
+
+1. Choose **Create flow log**.
+
+Use one of the following commands.
+
+**To create a flow log that publishes to Amazon S3 using a command line tool**
++ [create-flow-logs](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-flow-logs.html) (AWS CLI)
++ [New-EC2FlowLog](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2FlowLog.html) (AWS Tools for Windows PowerShell)
+
+The following AWS CLI example creates a flow log that captures all core network traffic for `core-network-00112233344556677` and delivers the flow logs to an Amazon S3 bucket called `flow-log-bucket`.
+
+```
+aws ec2 create-flow-logs --resource-type CoreNetwork --resource-ids core-network-00112233344556677 --log-destination-type s3 --log-destination arn:aws:s3:::flow-log-bucket/my-custom-flow-logs/
+```

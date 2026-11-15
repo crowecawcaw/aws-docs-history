@@ -44,7 +44,22 @@ Cloud WAN Routing Policy supports the following capabilities:
 
 The Cloud WAN Routing Policy feature is supported on all AWS Cloud WAN attachment types, including AWS Site-to-Site VPN, AWS Direct Connect, Connect attachments, peering attachments (Transit Gateway route table), and VPC attachments, as well as on routes propagated across segments and Regions (CNE-to-CNE).
 
-Route summarization and BGP attribute modification are supported only on BGP-capable attachments—Site-to-Site VPN, Direct Connect, Connect, and peering—as well as on inter-segment and inter-Region (CNE-to-CNE) propagated routes. For VPC attachments, support is limited to route filtering rules (“allow” or “drop” actions) for inbound route propagation from the VPC to the core network. BGP communities are supported on Site-to-site VPN and Connect attachments.
+Route summarization and BGP attribute modification are supported only on BGP-capable attachments: Site-to-Site VPN, Direct Connect, Connect, and peering. They're also supported on inter-segment and inter-Region (CNE-to-CNE) propagated routes.
+
+For VPC attachments, support is limited to route filtering rules ("allow" or "drop" actions) for inbound route propagation from the VPC to the core network.
+
+BGP communities are supported on Site-to-Site VPN, Connect, and Direct Connect attachments. Some restrictions apply to the BGP communities supported on Direct Connect attachments. For more information about these restrictions, see [Direct Connect gateway and AWS Cloud WAN core network associations](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-cloud-wan.html) in the *AWS Direct Connect User Guide*.
+
+The following table summarizes routing policy feature support by attachment type.
+
+
+| Attachment type | Route filtering | Route summarization | BGP attribute modification | BGP communities | 
+| --- | --- | --- | --- | --- | 
+| Site-to-Site VPN | Yes | Yes (outbound only) | Yes | Yes | 
+| Direct Connect | Yes | Yes (outbound only) | Yes | Yes, with restrictions | 
+| Connect | Yes | Yes (outbound only) | Yes | Yes | 
+| Transit Gateway route table | Yes | Yes (outbound only) | Yes | No | 
+| VPC | Inbound only | No | No | No | 
 
 ## Key considerations
 <a name="cloudwan-routing-policies-considerations"></a>
@@ -63,7 +78,7 @@ The following is a list of considerations that should be taken into account befo
 <a name="cloudwan-routing-policies-considerations-attachment-support"></a>
 + VPC attachments don't support BGP attribute modification.
 + Summarization only works outbound and on BGP-capable attachments.
-+ No BGP community support on Direct Connect and TGW peering attachments.
++ Transit Gateway route table attachments do not support BGP communities. Direct Connect attachments support BGP communities with some restrictions. For more information about Direct Connect BGP community support, see [Attachment type support](#cloudwan-routing-policies-support).
 + TGW route table attachments that use the same peering and are associated with the same segment share the same outbound routing policies across all similar attachments. For example, if attachment-1 has outbound routing policy 1 on segment prod and peering 1, and attachment-2 has outbound routing policy 2 on the same segment and peering, both policies apply to both attachments.
 
 ### BGP and ASN constraints

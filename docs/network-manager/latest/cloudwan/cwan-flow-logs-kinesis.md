@@ -1,0 +1,111 @@
+
+
+# AWS Cloud WAN Flow Logs records in Amazon Data Firehose
+<a name="cwan-flow-logs-kinesis"></a>
+
+**Topics**
++ [IAM roles for cross account delivery](#cwan-flow-logs-kinesis-iam)
++ [Create the source account role](cwan-flowlog-fh-source-create.md)
++ [Create the destination account role](cwan-flowlog-fh-destination-create.md)
++ [Create a Flow Log that publishes to Firehose](cwan-flow-logs-kinesis-create.md)
+
+Flow logs can publish flow log data directly to Firehose. You can choose to publish flow logs to the same account as the resource monitor or to a different account.
+
+**Prerequisites**
+
+When publishing to Firehose, flow log data is published to a Firehose delivery stream, in plain text format. You must first have created a Firehose delivery stream. For the steps to create a delivery stream, see [Creating an Amazon Data Firehose Delivery Stream ](https://docs.aws.amazon.com/firehose/latest/dev/basic-create.html) in the *Amazon Data Firehose Developer Guide*.
+
+**Pricing**
+
+Standard ingestion and delivery charges apply. For more information, open [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/), select **Logs** and find **Vended Logs**.
+
+## IAM roles for cross account delivery
+<a name="cwan-flow-logs-kinesis-iam"></a>
+
+When you publish to Kinesis Data Firehose, you can choose a delivery stream that's in the same account as the resource to monitor (the source account), or in a different account (the destination account). To enable cross account delivery of flow logs to Firehose, you must create an IAM role in the source account and an IAM role in the destination account.
+
+**Topics**
++ [Source account role](#cwan-flow-logs-kinesis-iam-role-source)
++ [Destination account role](#cwan-flow-logs-kinesis-iam-role-destination)
+
+### Source account role
+<a name="cwan-flow-logs-kinesis-iam-role-source"></a>
+
+In the source account, create a role that grants the following permissions. In this example, the name of the role is `mySourceRole`, but you can choose a different name for this role. The last statement allows the role in the destination account to assume this role. The condition statements ensure that this role is passed only to the log delivery service, and only when monitoring the specified resource. When you create your policy, specify the resources that you're monitoring with the condition key `iam:AssociatedResourceARN`. 
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogDelivery",
+        "logs:DeleteLogDelivery",
+        "logs:ListLogDeliveries",
+        "logs:GetLogDelivery"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "iam:PassRole",
+      "Resource": "arn:aws:iam::{{destination-account}}:role/AWSLogDeliveryFirehoseCrossAccountRole"
+    }
+  ]
+}
+```
+
+Ensure that this role has the following trust policy, which allows the log delivery service to assume the role.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "delivery.logs.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+```
+
+### Destination account role
+<a name="cwan-flow-logs-kinesis-iam-role-destination"></a>
+
+In the destination account, create a role with a name that starts with **AWSLogDeliveryFirehoseCrossAccountRole**. This role must grant the following permissions. 
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "firehose:TagDeliveryStream"
+      ],
+      "Resource": "arn:aws:firehose:{{region}}:{{destination-account}}:deliverystream/*"
+    }
+  ]
+}
+```
+
+Ensure that this role has the following trust policy, which allows the role that you created in the source account to assume this role.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::{{source-account}}:role/mySourceRole"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+```

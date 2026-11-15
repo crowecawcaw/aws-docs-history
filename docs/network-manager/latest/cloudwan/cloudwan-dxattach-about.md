@@ -21,7 +21,6 @@ The following are required before you can create a Direct Connect gateway attach
 
 The following limits apply to Direct Connect gateway attachments in a core network:
 + You can't configure static routes pointing to a Direct Connect gateway attachment as the next hop in a core network policy. Routes must be dynamically advertised from the on-premises network to core network.
-+ Direct Connect Border Gateway Protocol (BGP) communities are not supported in a Cloud WAN network.
 + You can't configure a list of allowed prefixes to be advertised over the Direct Connect gateway attachment from Cloud WAN to an on-premises network.
 + The ASN of a Direct Connect gateway must be outside of the ASN range configured for the core network. For example, if you have an ASN range of 64512 - 65534 for the core network, the ASN of the Direct Connect gateway must use an ASN outside of that range.
 + Private IP VPN and Connect attachments are not supported when a Direct Connect gateway attachment is the transport type.
@@ -41,6 +40,8 @@ For outbound routes,
 + Cloud WAN propagates routes from the segment route table to the Direct Connect gateway, which in turn advertises these routes over transit virtual interfaces to your on-premises locations via BGP.
 + Each core network edge associated with the Direct Connect gateway attachment advertises only its local routes towards the Direct Connect gateway.
 + The AS\_PATH BGP attribute is retained in these route advertisements to your on-premises locations. For more information about AS\_PATH and BGP, see [Private virtual interface and transit virtual interface routing policies](https://docs.aws.amazon.com/directconnect/latest/UserGuide/routing-and-bgp.html#private-routing-policies) in the *AWS Direct Connect User Guide*.
+
+You can use Border Gateway Protocol (BGP) communities with Direct Connect gateway attachments for both inbound and outbound route propagation. You can match on, add, or remove BGP communities using Cloud WAN routing policies. Some restrictions apply to the BGP communities that are supported. For more information about these restrictions, see [Direct Connect gateway and AWS Cloud WAN core network associations](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-cloud-wan.html) in the *AWS Direct Connect User Guide*. For more information about routing policies, see [AWS Cloud WAN Routing policies](cloudwan-routing-policies.md).
 
 ## Pricing
 <a name="cloudwan-dxattach-pricing"></a>
