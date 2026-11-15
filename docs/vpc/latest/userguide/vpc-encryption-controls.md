@@ -65,7 +65,7 @@ You can audit the encryption status of traffic flows inside the VPC using the `e
 
 VPC encryption controls enforce mode requires that all your resources in the VPC enforce encryption. This ensures encryption within AWS in a region. However, you may have resources like internet gateway, NAT gateway or virtual private gateway that allow connectivity outside AWS's networks where you're responsible for configuring and maintaining end-to-end encryption. To run these resources in encryption enforced VPCs, you can create resource exclusions. An exclusion creates an auditable exception for resources where the customer is responsible for maintaining encryption (typically at the application layer).
 
-There are only 8 supported exclusions for VPC Encryption Controls. If you have these resources in your VPC and want to move to enforce mode, you must add these exclusions when switching from monitor to enforce mode. No other resources are excludable. You can migrate your VPC to enforce mode by creating exclusions for these resources. You are responsible for encryption of traffic flows to and from these resources
+There are only 10 supported exclusions for VPC Encryption Controls. If you have these resources in your VPC and want to move to enforce mode, you must add these exclusions when switching from monitor to enforce mode. No other resources are excludable. You can migrate your VPC to enforce mode by creating exclusions for these resources. You are responsible for encryption of traffic flows to and from these resources.
 + Internet Gateway
 + NAT Gateway
 + Egress-only Internet Gateway
@@ -74,6 +74,8 @@ There are only 8 supported exclusions for VPC Encryption Controls. If you have t
 + Lambda functions inside your VPC
 + VPC Lattice
 + Elastic File System
++ AWS Global Accelerator
++ Amazon API Gateway V2 (API Gateway V1 is not supported)
 
 ## Implementation workflow
 <a name="implementation-workflow"></a>
@@ -163,6 +165,39 @@ This functionality is supported in new clusters for 4.1 in their own VPC. The fo
 **Gateway Load Balancer and AWS Network Firewall**  
 Gateway Load Balancer and AWS Network Firewall are not supported with VPCs in enforce mode. If these resources are present in your VPC, you must run your VPC in monitor mode.
 
+### Elastic File System (EFS) encryption compliance
+<a name="efs-encryption-compliance"></a>
+
+Elastic File System (EFS) can be made encryption-compliant for VPC Encryption Controls, instead of relying only on the EFS exclusion. The EFS exclusion remains available and unchanged for backward compatibility, so making EFS compliant is an explicit action you choose to take.
++ If you don't want to make EFS compliant, continue to use the EFS exclusion. No action is required.
++ To make EFS compliant, attach a file system policy to your EFS file system that denies all access when the connection does not use TLS (see the sample policy that follows).
+
+How you make EFS compliant depends on your current mode:
++ Monitor mode – While the VPC is in monitor mode, attach the EFS policy to make the file system compliant, then transition the VPC to enforce mode.
++ Already in enforce mode with the EFS exclusion – Complete the steps to make EFS compliant by attaching the policy to your EFS file systems. Once EFS is compliant, you can turn off the EFS exclusion, even while the VPC remains in enforce mode.
++ New EFS file systems – Before you mount a new EFS file system in an encryption-enforced VPC, the file system policy must already be in place.
+
+The following sample file system policy denies all EFS access that is not encrypted in transit:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Principal": "*",
+      "Action": "elasticfilesystem:*",
+      "Resource": "*",
+      "Condition": {
+        "Bool": {
+          "aws:SecureTransport": "false"
+        }
+      }
+    }
+  ]
+}
+```
+
 ### Regional and zone limitations
 <a name="regional-zone-limitations"></a>
 + **Local Zone Subnets**: Not supported in enforce mode - must be deleted from VPC
@@ -192,7 +227,7 @@ For more details on Transit Gateway encryption support, see [the transit gateway
 
 Account-level VPC Encryption Controls allow you to set the encryption control mode and resource exclusions that apply to all VPCs in your account. This provides centralized management of encryption policies without needing to configure each VPC individually.
 
-Account-level encryption controls support the same eight resource exclusions as VPC-level controls: Internet Gateway, NAT Gateway, Egress-only Internet Gateway, VPC Peering, Virtual Private Gateway, Lambda, VPC Lattice, and Elastic File System.
+Account-level encryption controls support the same ten resource exclusions as VPC-level controls: Internet Gateway, NAT Gateway, Egress-only Internet Gateway, VPC Peering, Virtual Private Gateway, Lambda, VPC Lattice, Elastic File System, AWS Global Accelerator, and Amazon API Gateway V2.
 
 #### Account-level Encryption Controls modes
 <a name="account-encryption-controls-modes"></a>

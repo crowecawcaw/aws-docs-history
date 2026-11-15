@@ -13,7 +13,7 @@ Flow logs can help you with a number of tasks, such as:
 Flow log data is collected outside of the path of your network traffic, and therefore does not affect network throughput or latency. You can create or delete flow logs without any risk of impact to network performance.
 
 **Note**  
-This section only talks about flow logs for VPCs. For information about flow logs for transit gateways introduced in version 6, see [Logging network traffic using Transit Gateway Flow Logs](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html) in the *Amazon VPC Transit Gateways User Guide*.
+This section only talks about flow logs for VPCs. For information about flow logs for transit gateways introduced in version 6, see [Logging network traffic using Transit Gateway Flow Logs](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html) in the *Amazon VPC Transit Gateways User Guide*. For information about flow logs for AWS Cloud WAN introduced in version 13, see [AWS Cloud WAN Flow Logs](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cwan-flow-logs.html) in the *AWS Cloud WAN User Guide*.
 
 **Topics**
 + [Flow logs basics](flow-logs-basics.md)

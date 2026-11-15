@@ -34,6 +34,7 @@ You can create flow logs for network interfaces that are created by other AWS se
 + Amazon WorkSpaces
 + NAT gateways
 + Transit gateways
++ AWS Cloud WAN
 
 Regardless of the type of network interface, you must use the Amazon EC2 console or the Amazon EC2 API to create a flow log for a network interface.
 
