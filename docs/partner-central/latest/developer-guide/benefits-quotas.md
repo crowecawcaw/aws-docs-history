@@ -38,7 +38,7 @@ The AWS Partner Central Benefits API has the following quotas.
 
 | Display name | Catalog | Description | Default value | 
 | --- | --- | --- | --- | 
-| Benefit applications | AWS | The maximum number of benefit applications you can create in the AWS catalog | 10,000 | 
+| Benefit applications | AWS | The maximum number of benefit applications you can create in the AWS catalog | 100,000 | 
 | Benefit applications | Sandbox | The maximum number of benefit applications you can create in the Sandbox catalog | 10,000 | 
 
 ## Understanding and managing quotas

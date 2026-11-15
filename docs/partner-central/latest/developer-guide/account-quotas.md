@@ -10,25 +10,23 @@ The AWS Partner Central Account API has the following quotas.
 ## Additional quotas
 <a name="account-additional-quotas"></a>
 
+The following table lists the Account API quotas. To request a quota increase, use the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/dashboard).
+
 
 **Additional quotas**  
 
-| Display name | Catalog | Description | Default value | 
+| Display name | Description | AWS catalog default | Sandbox catalog default | 
 | --- | --- | --- | --- | 
-| Open connection invitations per account | AWS | The maximum number of open connection invitations you can maintain with partner accounts in the AWS catalog | 1,000 | 
-| Active connections per account | AWS | The maximum number of active connections you can maintain with partner accounts in the AWS catalog | 1,000 | 
-| Email domains per partner | AWS | The maximum number of email domains that can be associated with a partner account for AWS training certification in the AWS catalog | 50 | 
-| Rate of connection invitations per account | AWS | The maximum number of connection invitations per day that you can send in the AWS catalog | 50 | 
-| Rate of profile update tasks per account | AWS | The maximum number of profile update tasks per day that you can initiate in the AWS catalog | 10 | 
-| Rate of profile visibility updates per account | AWS | The maximum number of profile visibility updates per day that you can initiate in the AWS catalog | 5 | 
-| Rate of email verification codes per email address | AWS | The maximum number of email verification codes per day that you can request in the AWS catalog | 5 | 
-| Open connection invitations per account | Sandbox | The maximum number of open connection invitations you can maintain with partner accounts in the Sandbox catalog | 1,000 | 
-| Active connections per account | Sandbox | The maximum number of active connections you can maintain with partner accounts in the Sandbox catalog | 1,000 | 
-| Email domains per partner | Sandbox | The maximum number of email domains that can be associated with a partner account for AWS training certification in the Sandbox catalog | 50 | 
-| Rate of connection invitations per account | Sandbox | The maximum number of connection invitations per day that you can send in the Sandbox catalog | 50 | 
-| Rate of profile update tasks per account | Sandbox | The maximum number of profile update tasks per day that you can initiate in the Sandbox catalog | 10 | 
-| Rate of profile visibility updates per account | Sandbox | The maximum number of profile visibility updates per day that you can initiate in the Sandbox catalog | 5 | 
-| Rate of email verification codes per email address | Sandbox | The maximum number of email verification codes per day that you can request in the Sandbox catalog. No emails are sent from Sandbox catalog. | N/A | 
+| Open connection invitations per account | The maximum number of open connection invitations you can maintain with partner accounts. | 1,000 | 1,000 | 
+| Active connections per account | The maximum number of active connections you can maintain with partner accounts. | 1,000 | 1,000 | 
+| Email domains per partner | The maximum number of email domains that can be associated with a partner account for AWS training certification. | 50 | 50 | 
+| Rate of connection invitations per account | The maximum number of connection invitations per day that you can send. | 50 | 50 | 
+| Rate of profile update tasks per account | The maximum number of profile update tasks per day that you can initiate. | 10 | 10 | 
+| Rate of profile visibility updates per account | The maximum number of profile visibility updates per day that you can initiate. | 5 | 5 | 
+| Rate of email verification codes per email address | The maximum number of email verification codes per day that you can request. | 5 | Not applicable. The Sandbox catalog doesn't send emails. | 
+| Items per business plan | The maximum number of business plan items (goals, key performance indicators, initiatives, and activities combined) in one business plan. Adjustable. | 500 | 500 | 
+| Attachments per business plan | The maximum number of attachments in one business plan, including imports in progress. Adjustable. | 100 | 100 | 
+| Rate of business plans per account per year | The maximum number of business plans you can create per year. Adjustable. | 50 | 50 | 
 
 ## Understanding and managing quotas
 <a name="understanding-and-managing-quotas"></a>

@@ -197,6 +197,7 @@ For more information, see [IAM JSON policy elements: Condition operators](https:
 | Condition key | Description | Applicable actions | Valid values | 
 | --- | --- | --- | --- | 
 | partnercentral:Catalog | filters access by the type of the associated catalog entity | all actions | AWS, sandbox | 
+| partnercentral:RelatedEntityType | Filters access by entity types for opportunity association | AssociateOpportunity and DisassociateOpportunity | The valid values are Solutions, AwsProducts, and AwsMarketplaceOffers. | 
 | aws-marketplace:PartyType | filters access based on the type of party (e.g., proposer) | SearchAgreements, DescribeAgreement | proposer | 
 
 ## Summary of required permissions

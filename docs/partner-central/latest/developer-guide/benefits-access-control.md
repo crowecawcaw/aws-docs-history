@@ -45,6 +45,7 @@ For more information, see [IAM JSON policy elements: Condition operators](https:
 | Condition key | Description | Applicable actions | Valid values | 
 | --- | --- | --- | --- | 
 | partnercentral:Catalog | filters access by the type of the associated catalog entity | all actions | AWS, sandbox | 
+| partnercentral:FulfillmentTypes | Filters access by benefit fulfillment types | All Benefits API operations, TagResource, UntagResource, and ListTagsForResource | The valid values are CREDITS, CASH, and ACCESS. | 
 
 ## Summary of required permissions
 <a name="benefits-summary-of-required-permissions"></a>
@@ -65,6 +66,9 @@ For more information, see [IAM JSON policy elements: Condition operators](https:
 | partnercentral:ListBenefitAllocations | allows listing benefit allocations | 
 | partnercentral:ListBenefitApplications | allows listing benefit applications | 
 | partnercentral:ListBenefits | allows listing benefits | 
+| partnercentral:ListTagsForResource | Lists tags associated with a resource. | 
 | partnercentral:RecallBenefitApplication | allows recalling benefit applications | 
 | partnercentral:SubmitBenefitApplication | allows submitting benefit applications | 
+| partnercentral:TagResource | Adds or overwrites tags for a resource. | 
+| partnercentral:UntagResource | Removes tags from a resource. | 
 | partnercentral:UpdateBenefitApplication | allows updating benefit applications | 

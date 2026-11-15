@@ -37,10 +37,17 @@ Partners connect their AWS accounts with other AWS accounts for various purposes
 
 Partner verification is a mandatory prerequisite for partner account registration. Before partners can create a partner account, they must complete business verification and identity verification processes. These verifications validate that the business is legally registered and confirm the identity of the person registering the AWS account.
 
+## Managing business plans
+<a name="managing-business-plans"></a>
+
+Use the business plan operations of the Account API to create business plans that describe your priorities for your AWS partnership. You add goals, key performance indicators (KPIs), initiatives, and activities to a plan, attach supporting files, and submit the plan for review by AWS. For more information, see [Working with business plans](working-with-business-plans-api.md).
+
 **Topics**
 + [Managing partner account](#managing-partner-account)
++ [Managing business plans](#managing-business-plans)
 + [Working with Partner Registration](working-with-partner-registration.md)
 + [Working with Partner Profile](working-with-partner-profile.md)
 + [Working with Domain Management](working-with-domain-management.md)
 + [Working with Partner Account Connections](working-with-account-connections.md)
 + [Working with Partner Verification](working-with-partner-verification.md)
++ [Working with business plans](working-with-business-plans-api.md)

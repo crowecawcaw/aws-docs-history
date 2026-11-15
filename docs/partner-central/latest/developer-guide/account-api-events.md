@@ -11,10 +11,12 @@ Partner Account Connection notifications enable partners to stay informed about 
 + Take appropriate action when connections are established or terminated
 + Ensure business continuity by knowing when relationships change
 
+Use business plan notifications to know when a plan's status changes, a submission task finishes, or a plan or item date is 30 days away. You can then update your own systems without polling the business plan API operations.
+
 **Topics**
 + [Complete the prerequisite to monitor events](#events-prerequites)
 + [Configure Amazon EventBridge to monitor events](#eventbridge-setup)
-+ [Learn more about account connections API events](#learn-about-events)
++ [Account API events](#learn-about-events)
 
 ## Complete the prerequisite to monitor events
 <a name="events-prerequites"></a>
@@ -36,7 +38,7 @@ For detailed IAM policy examples, refer to the AWS documentation on EventBridge 
       "Resource": "*",
       "Condition": {
         "StringEquals": {
-          "events:source": "aws.partnercentral-account.connection"
+          "events:source": "aws.partnercentral-account"
         }
       }
     }
@@ -44,10 +46,12 @@ For detailed IAM policy examples, refer to the AWS documentation on EventBridge 
 }
 ```
 
+Business plan events use the same `aws.partnercentral-account` source, so this policy also covers rules for business plan events.
+
 ## Configure Amazon EventBridge to monitor events
 <a name="eventbridge-setup"></a>
 
-To monitor account connections API events, you create an EventBridge rule that matches the events that you want to capture. You can use the AWS Management Console or the AWS SDKs to create and manage rules. The following sections explain how to create rules using both methods. Regardless of the method you use, you must create the rule in the US East (N. Virginia) `us-east-1` Region.
+To monitor Account API events, including business plan events, you create an EventBridge rule that matches the events that you want to capture. You can use the AWS Management Console or the AWS SDKs to create and manage rules. The following sections explain how to create rules using both methods. Regardless of the method you use, you must create the rule in the US East (N. Virginia) `us-east-1` Region.
 
 ### AWS Management Console setup
 <a name="eventbridge-console-setup"></a>
@@ -59,6 +63,18 @@ Following is an example of an event rule:
 ```
 {
     "source": ["aws.partnercentral-account"],
+    "detail": {
+        "catalog": ["AWS"]
+    }
+}
+```
+
+Business plan events share the `aws.partnercentral-account` source with the account connection events. To match only business plan events, add a `prefix` match on `detail-type`, as in the following example. To match events from the Sandbox catalog, replace `AWS` with `Sandbox`.
+
+```
+{
+    "source": ["aws.partnercentral-account"],
+    "detail-type": [{"prefix": "Business Plan"}],
     "detail": {
         "catalog": ["AWS"]
     }
@@ -90,21 +106,72 @@ response = client.put_rule(
 print('Rule ARN:', response['RuleArn'])
 ```
 
-## Learn more about account connections API events
+To create a rule for a business plan event, set `detail-type` in `EventPattern` to that event, such as `Business Plan Submission Task Succeeded`.
+
+## Account API events
 <a name="learn-about-events"></a>
 
-The following sections describe the account connections API event types, scenarios that trigger them, and event examples.
+The following sections describe the Account API event types, the scenarios that trigger them, the fields in business plan events, and event examples.
 
 ### Event types
 <a name="types-of-events"></a>
 
-Following are the event types and their triggers.
-+ [Partner Connection Invitation Received](#connection-invitation-received): Notifies the receiver that another partner wants to establish a connection
-+ [Partner Connection Invitation Accepted](#connection-invitation-accepted): Notifies the sender that their invitation was accepted and a connection is now active
-+ [Partner Connection Invitation Rejected](#connection-invitation-rejected): Notifies the sender that their invitation was declined
-+ [Partner Connection Cancelled](#connection-cancelled): Notifies the other connected participant when an active connection is terminated
-+ [Partner Connection Invitation Cancelled](#connection-invitation-cancelled): Notifies the receiver that the sender has withdrawn their invitation before any action was taken
-+ [Partner Connection Invitation Expired](#connection-invitation-expired): Notifies both sender and receiver that the invitation has expired
+The Account API publishes events for two resources: partner connections and business plans.
+
+#### Partner connection events
+<a name="account-connection-event-types"></a>
+
+Partner connection events notify the sender or the receiver of a connection invitation when the invitation or the connection changes.
++ [Partner Connection Invitation Received](#connection-invitation-received) – Notifies the receiver that another partner wants to establish a connection.
++ [Partner Connection Invitation Accepted](#connection-invitation-accepted) – Notifies the sender that their invitation was accepted and a connection is now active.
++ [Partner Connection Invitation Rejected](#connection-invitation-rejected) – Notifies the sender that their invitation was declined.
++ [Partner Connection Cancelled](#connection-cancelled) – Notifies the other connected participant when an active connection is terminated.
++ [Partner Connection Invitation Cancelled](#connection-invitation-cancelled) – Notifies the receiver that the sender has withdrawn their invitation before any action was taken.
++ [Partner Connection Invitation Expired](#connection-invitation-expired) – Notifies both sender and receiver that the invitation has expired.
+
+#### Business plan events
+<a name="account-business-plan-event-types"></a>
+
+Business plan events notify the AWS account that owns the business plan when the plan or one of its tasks changes status, or when a date in the plan is 30 days away.
++ [Business Plan Activated](#business-plan-activated) – The status of a business plan changes to `ACTIVE`.
++ [Business Plan Completed](#business-plan-completed) – The status of a business plan changes to `COMPLETED`.
++ [Business Plan Canceled](#business-plan-canceled) – The status of a business plan changes to `CANCELED`.
++ [Business Plan Submission Task Succeeded](#business-plan-submission-task-succeeded) – The status of a business plan submission task changes to `SUCCEEDED`.
++ [Business Plan Submission Task Failed](#business-plan-submission-task-failed) – The status of a business plan submission task changes to `FAILED`.
++ [Business Plan Ending In 30 Days](#business-plan-ending-in-30-days) – The end date of an `ACTIVE` business plan is 30 days away.
++ [Business Plan Item Due In 30 Days](#business-plan-item-due-in-30-days) – The due date of an open item in an `ACTIVE` business plan is 30 days away.
+
+Other status changes, such as a plan moving to `IN_REVIEW` or back to `DRAFT`, publish no event. A submission task that you cancel with `CancelBusinessPlanSubmissionTask` also publishes no event.
+
+### Plan event fields
+<a name="business-plan-event-fields"></a>
+
+Every business plan event has the standard EventBridge envelope. The `account` field is the AWS account that owns the business plan, and `resources` holds the business plan ARN. The `time` field is when the change happened. On the two 30-day events, it is when AWS found the date that is 30 days away.
+
+The `detail` object carries identifiers, names, statuses, and dates only. It never carries the content of a business plan. To read anything else, call the business plan API operations, such as `GetBusinessPlan`, `GetBusinessPlanItem`, and `GetBusinessPlanSubmissionTask`.
+
+The following table lists each field in the `detail` object, the events that include it, and what it contains.
+
+
+| Field | Present on | Description | 
+| --- | --- | --- | 
+| catalog | All events | The catalog of the business plan: AWS or Sandbox. | 
+| schemaVersion | All events | The version of the detail object. The current version is 1. | 
+| businessPlan.arn | All events | The ARN of the business plan. | 
+| businessPlan.id | All events | The ID of the business plan. | 
+| businessPlan.name | All events | The name of the business plan. | 
+| businessPlan.status | All events | The status of the business plan after the change. On the two 30-day events, the current status of the plan, which is always ACTIVE. | 
+| businessPlan.endDate | Business Plan Ending In 30 Days | The end date of the business plan, in UTC. | 
+| businessPlan.businessPlanItem.id | Business Plan Item Due In 30 Days | The ID of the business plan item. | 
+| businessPlan.businessPlanItem.type | Business Plan Item Due In 30 Days | The type of the item, such as INITIATIVE. | 
+| businessPlan.businessPlanItem.name | Business Plan Item Due In 30 Days | The name of the item. Not present when the item has no name. | 
+| businessPlan.businessPlanItem.dueDate | Business Plan Item Due In 30 Days | The due date of the item, in UTC. | 
+| submissionTask.taskId | Submission task events | The ID of the submission task. This is the TaskId that StartBusinessPlanSubmissionTask returns. | 
+| submissionTask.startedAt | Submission task events | When the submission task started. | 
+| submissionTask.endedAt | Submission task events | When the submission task finished. | 
+| submissionTask.changedBy | Submission task events | Who decided the submission. The value is always AWS. | 
+
+You might receive an event more than once, and events might arrive out of order. To detect a duplicate, compare the `resources`, `detail-type`, and `time` fields. Items of the same plan that are due on the same day send Business Plan Item Due In 30 Days events with the same values in these fields, so for that event also compare `businessPlan.businessPlanItem.id`. To get the current state of a business plan, call `GetBusinessPlan`.
 
 ### Example events
 <a name="example-rules"></a>
@@ -118,6 +185,13 @@ The following sections provide examples of the events listed earlier in the prev
 + [Partner Connection Cancelled](#connection-cancelled)
 + [Partner Connection Invitation Cancelled](#connection-invitation-cancelled)
 + [Partner Connection Invitation Expired](#connection-invitation-expired)
++ [Business Plan Activated](#business-plan-activated)
++ [Business Plan Completed](#business-plan-completed)
++ [Business Plan Canceled](#business-plan-canceled)
++ [Business Plan Submission Task Succeeded](#business-plan-submission-task-succeeded)
++ [Business Plan Submission Task Failed](#business-plan-submission-task-failed)
++ [Business Plan Ending In 30 Days](#business-plan-ending-in-30-days)
++ [Business Plan Item Due In 30 Days](#business-plan-item-due-in-30-days)
 
 #### Partner Connection Invitation Received
 <a name="connection-invitation-received"></a>
@@ -465,3 +539,337 @@ Common Integration Patterns:
   }
 }
 ```
+
+#### Business Plan Activated
+<a name="business-plan-activated"></a>
+
+##### Triggering Context
+<a name="business-plan-activated-context"></a>
+
+You receive this event after the status of a business plan changes to `ACTIVE` and the new status is stored. A plan becomes `ACTIVE` when AWS approves its submission, so you also get the [Business Plan Submission Task Succeeded](#business-plan-submission-task-succeeded) event, described later on this page. These two events can arrive in either order.
+
+Only AWS changes the status of a plan to `ACTIVE`. You can't change it directly. If an update doesn't change the status, you don't receive an event.
+
+##### Recipients
+<a name="business-plan-activated-recipients"></a>
+
+The AWS account that owns the business plan.
+
+##### Example – Business Plan Activated event
+<a name="business-plan-activated-example"></a>
+
+```
+{
+  "version": "0",
+  "id": "21234567-0123-0123-0123-EXAMPLE1111a",
+  "detail-type": "Business Plan Activated",
+  "source": "aws.partnercentral-account",
+  "account": "111122223333",
+  "time": "2026-11-04T16:42:00Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:partnercentral:us-east-1:111122223333:catalog/AWS/business-plan/bp-7f8e9d0c1b2a3"
+  ],
+  "detail": {
+    "catalog": "AWS",
+    "schemaVersion": "1",
+    "businessPlan": {
+      "arn": "arn:aws:partnercentral:us-east-1:111122223333:catalog/AWS/business-plan/bp-7f8e9d0c1b2a3",
+      "id": "bp-7f8e9d0c1b2a3",
+      "name": "2027 Joint Business Plan",
+      "status": "ACTIVE"
+    }
+  }
+}
+```
+
+For a description of each field in the `detail` object, see [Plan event fields](#business-plan-event-fields).
+
+#### Business Plan Completed
+<a name="business-plan-completed"></a>
+
+##### Triggering Context
+<a name="business-plan-completed-context"></a>
+
+You receive this event after the status of a business plan changes to `COMPLETED` and the new status is stored. `COMPLETED` is a terminal status: the plan can no longer be changed.
+
+Only AWS changes the status of a plan to `COMPLETED`, after the end date of an `ACTIVE` plan is reached. You can't change it directly. If an update doesn't change the status, you don't receive an event.
+
+##### Recipients
+<a name="business-plan-completed-recipients"></a>
+
+The AWS account that owns the business plan.
+
+##### Example – Business Plan Completed event
+<a name="business-plan-completed-example"></a>
+
+```
+{
+  "version": "0",
+  "id": "22234567-0123-0123-0123-EXAMPLE2222a",
+  "detail-type": "Business Plan Completed",
+  "source": "aws.partnercentral-account",
+  "account": "111122223333",
+  "time": "2027-12-31T00:05:00Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:partnercentral:us-east-1:111122223333:catalog/AWS/business-plan/bp-7f8e9d0c1b2a3"
+  ],
+  "detail": {
+    "catalog": "AWS",
+    "schemaVersion": "1",
+    "businessPlan": {
+      "arn": "arn:aws:partnercentral:us-east-1:111122223333:catalog/AWS/business-plan/bp-7f8e9d0c1b2a3",
+      "id": "bp-7f8e9d0c1b2a3",
+      "name": "2027 Joint Business Plan",
+      "status": "COMPLETED"
+    }
+  }
+}
+```
+
+For a description of each field in the `detail` object, see [Plan event fields](#business-plan-event-fields).
+
+#### Business Plan Canceled
+<a name="business-plan-canceled"></a>
+
+##### Triggering Context
+<a name="business-plan-canceled-context"></a>
+
+You receive this event after the status of a business plan changes to `CANCELED` and the new status is stored. You receive this event whether you canceled the plan with `CancelBusinessPlan` or AWS canceled it on your behalf. `CANCELED` is a terminal status: the plan can no longer be changed.
+
+If an update doesn't change the status, you don't receive an event.
+
+##### Recipients
+<a name="business-plan-canceled-recipients"></a>
+
+The AWS account that owns the business plan.
+
+##### Example – Business Plan Canceled event
+<a name="business-plan-canceled-example"></a>
+
+```
+{
+  "version": "0",
+  "id": "23234567-0123-0123-0123-EXAMPLE3333a",
+  "detail-type": "Business Plan Canceled",
+  "source": "aws.partnercentral-account",
+  "account": "111122223333",
+  "time": "2026-12-10T14:02:30Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:partnercentral:us-east-1:111122223333:catalog/AWS/business-plan/bp-7f8e9d0c1b2a3"
+  ],
+  "detail": {
+    "catalog": "AWS",
+    "schemaVersion": "1",
+    "businessPlan": {
+      "arn": "arn:aws:partnercentral:us-east-1:111122223333:catalog/AWS/business-plan/bp-7f8e9d0c1b2a3",
+      "id": "bp-7f8e9d0c1b2a3",
+      "name": "2027 Joint Business Plan",
+      "status": "CANCELED"
+    }
+  }
+}
+```
+
+For a description of each field in the `detail` object, see [Plan event fields](#business-plan-event-fields).
+
+#### Business Plan Submission Task Succeeded
+<a name="business-plan-submission-task-succeeded"></a>
+
+##### Triggering Context
+<a name="business-plan-submission-task-succeeded-context"></a>
+
+You receive this event after a submission task that you started with `StartBusinessPlanSubmissionTask` reaches the `SUCCEEDED` status. During the review, the plan is `IN_REVIEW`. When AWS approves it, the plan becomes `ACTIVE`, so `businessPlan.status` is `ACTIVE`. You also receive the [Business Plan Activated](#business-plan-activated) event, described earlier on this page.
+
+Each submission task sends at most one event.
+
+##### Recipients
+<a name="business-plan-submission-task-succeeded-recipients"></a>
+
+The AWS account that owns the business plan.
+
+##### Example – Business Plan Submission Task Succeeded event
+<a name="business-plan-submission-task-succeeded-example"></a>
+
+```
+{
+  "version": "0",
+  "id": "31234567-0123-0123-0123-EXAMPLE4444a",
+  "detail-type": "Business Plan Submission Task Succeeded",
+  "source": "aws.partnercentral-account",
+  "account": "111122223333",
+  "time": "2026-11-04T16:42:00Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:partnercentral:us-east-1:111122223333:catalog/AWS/business-plan/bp-7f8e9d0c1b2a3"
+  ],
+  "detail": {
+    "catalog": "AWS",
+    "schemaVersion": "1",
+    "businessPlan": {
+      "arn": "arn:aws:partnercentral:us-east-1:111122223333:catalog/AWS/business-plan/bp-7f8e9d0c1b2a3",
+      "id": "bp-7f8e9d0c1b2a3",
+      "name": "2027 Joint Business Plan",
+      "status": "ACTIVE"
+    },
+    "submissionTask": {
+      "taskId": "bptask-9a8b7c6d5e4f3",
+      "startedAt": "2026-11-03T09:15:00Z",
+      "endedAt": "2026-11-04T16:42:00Z",
+      "changedBy": "AWS"
+    }
+  }
+}
+```
+
+For a description of each field in the `detail` object, see [Plan event fields](#business-plan-event-fields).
+
+#### Business Plan Submission Task Failed
+<a name="business-plan-submission-task-failed"></a>
+
+##### Triggering Context
+<a name="business-plan-submission-task-failed-context"></a>
+
+You receive this event after a submission task that you started with `StartBusinessPlanSubmissionTask` reaches the `FAILED` status. The plan returns from `IN_REVIEW` to `DRAFT` when AWS doesn't approve the submission, so `businessPlan.status` is `DRAFT`.
+
+The event doesn't include the reason. To read it, call `GetBusinessPlanSubmissionTask` with the `submissionTask.taskId` from the event, and read `ErrorDetailList` in the response.
+
+Each submission task sends at most one event.
+
+##### Recipients
+<a name="business-plan-submission-task-failed-recipients"></a>
+
+The AWS account that owns the business plan.
+
+##### Example – Business Plan Submission Task Failed event
+<a name="business-plan-submission-task-failed-example"></a>
+
+```
+{
+  "version": "0",
+  "id": "32234567-0123-0123-0123-EXAMPLE5555a",
+  "detail-type": "Business Plan Submission Task Failed",
+  "source": "aws.partnercentral-account",
+  "account": "111122223333",
+  "time": "2026-11-04T16:42:00Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:partnercentral:us-east-1:111122223333:catalog/AWS/business-plan/bp-7f8e9d0c1b2a3"
+  ],
+  "detail": {
+    "catalog": "AWS",
+    "schemaVersion": "1",
+    "businessPlan": {
+      "arn": "arn:aws:partnercentral:us-east-1:111122223333:catalog/AWS/business-plan/bp-7f8e9d0c1b2a3",
+      "id": "bp-7f8e9d0c1b2a3",
+      "name": "2027 Joint Business Plan",
+      "status": "DRAFT"
+    },
+    "submissionTask": {
+      "taskId": "bptask-9a8b7c6d5e4f3",
+      "startedAt": "2026-11-03T09:15:00Z",
+      "endedAt": "2026-11-04T16:42:00Z",
+      "changedBy": "AWS"
+    }
+  }
+}
+```
+
+For a description of each field in the `detail` object, see [Plan event fields](#business-plan-event-fields).
+
+#### Business Plan Ending In 30 Days
+<a name="business-plan-ending-in-30-days"></a>
+
+##### Triggering Context
+<a name="business-plan-ending-in-30-days-context"></a>
+
+You receive this event when the end date of a business plan is 30 days away and the plan is `ACTIVE`. If the plan has any other status on that day, you don't receive the event. The event gives the end date in `businessPlan.endDate`.
+
+##### Recipients
+<a name="business-plan-ending-in-30-days-recipients"></a>
+
+The AWS account that owns the business plan.
+
+##### Example – Business Plan Ending In 30 Days event
+<a name="business-plan-ending-in-30-days-example"></a>
+
+```
+{
+  "version": "0",
+  "id": "41234567-0123-0123-0123-EXAMPLE1111a",
+  "detail-type": "Business Plan Ending In 30 Days",
+  "source": "aws.partnercentral-account",
+  "account": "111122223333",
+  "time": "2027-12-01T09:00:00Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:partnercentral:us-east-1:111122223333:catalog/AWS/business-plan/bp-7f8e9d0c1b2a3"
+  ],
+  "detail": {
+    "catalog": "AWS",
+    "schemaVersion": "1",
+    "businessPlan": {
+      "arn": "arn:aws:partnercentral:us-east-1:111122223333:catalog/AWS/business-plan/bp-7f8e9d0c1b2a3",
+      "id": "bp-7f8e9d0c1b2a3",
+      "name": "2027 Joint Business Plan",
+      "status": "ACTIVE",
+      "endDate": "2027-12-31T00:00:00Z"
+    }
+  }
+}
+```
+
+For a description of each field in the `detail` object, see [Plan event fields](#business-plan-event-fields).
+
+#### Business Plan Item Due In 30 Days
+<a name="business-plan-item-due-in-30-days"></a>
+
+##### Triggering Context
+<a name="business-plan-item-due-in-30-days-context"></a>
+
+You receive this event when the due date of a business plan item is 30 days away, the item is open, and its plan is `ACTIVE`. An open item has the status `NOT_STARTED`, `ON_TRACK`, or `AT_RISK`. If the item or the plan has any other status on that day, you don't receive the event.
+
+Each item that is due sends its own event, and the event gives the due date in `businessPlan.businessPlanItem.dueDate`. To read the item, call `GetBusinessPlanItem` with the `businessPlan.businessPlanItem.id` from the event.
+
+##### Recipients
+<a name="business-plan-item-due-in-30-days-recipients"></a>
+
+The AWS account that owns the business plan.
+
+##### Example – Business Plan Item Due In 30 Days event
+<a name="business-plan-item-due-in-30-days-example"></a>
+
+```
+{
+  "version": "0",
+  "id": "42234567-0123-0123-0123-EXAMPLE2222b",
+  "detail-type": "Business Plan Item Due In 30 Days",
+  "source": "aws.partnercentral-account",
+  "account": "111122223333",
+  "time": "2027-05-31T09:00:00Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:partnercentral:us-east-1:111122223333:catalog/AWS/business-plan/bp-7f8e9d0c1b2a3"
+  ],
+  "detail": {
+    "catalog": "AWS",
+    "schemaVersion": "1",
+    "businessPlan": {
+      "arn": "arn:aws:partnercentral:us-east-1:111122223333:catalog/AWS/business-plan/bp-7f8e9d0c1b2a3",
+      "id": "bp-7f8e9d0c1b2a3",
+      "name": "2027 Joint Business Plan",
+      "status": "ACTIVE",
+      "businessPlanItem": {
+        "id": "bpitem-4d5e6f7081924",
+        "type": "INITIATIVE",
+        "name": "AWS Co-Sell Revenue Growth Initiative",
+        "dueDate": "2027-06-30T00:00:00Z"
+      }
+    }
+  }
+}
+```
+
+For a description of each field in the `detail` object, see [Plan event fields](#business-plan-event-fields).
